@@ -1,6 +1,6 @@
 ---
-title: "Справочник по задачам обслуживания | Документы Майкрософт"
-description: "Ознакомьтесь с подробными сведениями о каждой из задач обслуживания сайта System Center Configuration Manager, а также о том, включены ли они по умолчанию."
+title: "Referência das tarefas de manutenção | Microsoft Docs"
+description: "Lê os detalhes para cada uma das tarefas de manutenção do site do System Center Configuration Manager e se estas tarefas são ativadas por predefinição."
 ms.custom: na
 ms.date: 3/8/2017
 ms.prod: configuration-manager
@@ -17,294 +17,294 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a2d4420c2274a9b1ceb47ffd267849fdb5a55a61
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Задачи обслуживания для System Center Configuration Manager
+# <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Referência das tarefas de manutenção para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этом разделе подробно рассмотрена каждая из задач обслуживания сайта System Center Configuration Manager и указано, на сайтах какого типа она доступна. Каждая запись также указывает, включена ли задача по умолчанию или нет. Сведения о планировании и настройке сайтов для выполнения задач обслуживания см. в разделе [Задачи обслуживания для System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md).  
+Este tópico lista os detalhes para cada uma das tarefas de manutenção do site do System Center Configuration Manager e especifica os tipos de site em que a tarefa está disponível. Cada entrada também indica se a tarefa está ativada ou não ativada por predefinição. Para obter informações sobre como planear e configurar sites para executar tarefas de manutenção, consulte [tarefas de manutenção do System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md).  
 
-**Резервное копирование сайта**. Эта задача служит для подготовки к восстановлению важных данных. Вы можете создать резервную копию таких данных для восстановления сайта и базы данных Configuration Manager. Дополнительные сведения см. в разделе [Резервное копирование и восстановление в System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+**Cópia de segurança do servidor do Site**: Utilize esta tarefa para preparar a recuperação de dados críticos. Pode criar uma cópia de segurança das suas informações críticas para restaurar um site e a base de dados do Configuration Manager. Para obter mais informações, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — не включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Não ativado    
+-   Site secundário: Não disponível  
 
-**Проверка названия приложения в соответствии с данными инвентаризации**. Эта задача служит для обеспечения соответствия наименований программного обеспечения в данных инвентаризации программного обеспечения и в данных каталога аналитики активов. Дополнительные сведения см. в разделе [Общие сведения об аналитике активов в System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
+**Verificar o título da aplicação nas informações de inventário**: Utilize esta tarefa para manter a consistência entre os títulos de software comunicados no inventário de software e os títulos de software no catálogo do Asset Intelligence. Para obter mais informações, veja [Introdução ao Asset Intelligence no System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Сброс флага установки**. Эта задача предназначена для удаления флага установки для клиентов, не отправивших запись Heartbeat-обнаружения в течение периода **повторного обнаружения клиентов**. Флаг установки запрещает автоматическую принудительную установку клиента на компьютер, на котором может находиться действующий клиент Configuration Manager.  
+**Limpar sinalizador de instalação**: Utilize esta tarefa para remover o sinalizador instalado para clientes que não submeterem um registo de deteção de Heartbeat durante o **Redeteção do cliente** período. O sinalizador instalado impede a instalação push automática do cliente para um computador que possa ter um cliente ativo do Configuration Manager.  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — не включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Não ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных запросов приложений**. Эта задача предназначена для удаления устаревших запросов приложений из базы данных. Дополнительные сведения о запросах приложений см. в разделе [Создание и развертывание приложения с помощью System Center Configuration Manager](/sccm/apps/get-started/create-and-deploy-an-application).  
+**Eliminar dados de pedido de aplicação desatualizados**: Utilize esta tarefa para eliminar pedidos de aplicações desatualizados da base de dados. Para obter mais informações sobre pedidos de aplicações, consulte [criar e implementar uma aplicação com o System Center Configuration Manager](/sccm/apps/get-started/create-and-deploy-an-application).  
 
--   Сайт центра администрирования — недоступно.
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревшего журнала скачиваний клиента**. Эта задача предназначена для удаления данных журнала об источнике скачивания, используемого клиентами. Сведения об источнике скачивания используются для заполнения [панели мониторинга "Источники данных клиента"](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).  
--  Сайт центра администрирования: недоступен.
--    **Первичный сайт** — включено.
--  Вторичный сайт — недоступно.
+**Eliminiar histórico de transferências do cliente**: Utilize esta tarefa para eliminar dados históricos sobre a origem de transferência utilizada pelos clientes. Transferir as informações de origem são utilizadas para preencher o [dashboard de origens de dados de cliente](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).  
+-  Site de administração central-não disponível
+-    **Site primário** - ativado
+-  Site secundário - não disponível
 
-**Удаление устаревших операций клиента**. Эта задача предназначена для удаления устаревшей информации о клиентских операциях из базы данных. Например, к ним относятся данные устаревших или просроченных уведомлений клиента (такие как запросы на загрузку для политики компьютера или пользователя) и Endpoint Protection (такие как запросы пользователем с правами администратора проверки или загрузки обновленных определений клиентами).
+**Eliminar operações de cliente Desatualizadas**: Utilize esta tarefa para eliminar todos os dados desatualizados de operações de cliente da base de dados do site. Por exemplo, isto inclui dados de notificações de cliente desatualizados ou expirados (tal como pedidos de transferência de política de computador ou utilizador) e do Endpoint Protection (como pedidos feitos por um utilizador administrativo para os clientes executarem uma análise ou transferirem definições atualizadas).
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревшего журнала присутствия клиента**. Эта задача используется для удаления исторических сведений о состоянии клиентов в системе, записанных клиентским уведомлением, которые устарели на указанный момент времени. Дополнительные сведения об уведомлениях клиентов см. в разделе [Мониторинг клиентов в System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
+**Eliminiar histórico antigo de presença de cliente**: Utilize esta tarefa para eliminar informações de histórico sobre o estado online dos clientes (registado por notificação de cliente) que é anteriores à hora especificada. Para obter mais informações sobre a notificação de clientes, veja [Como monitorizar clientes no System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
 
--   **Сайт центра администрирования** — включено.   
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado   
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удалить устаревшие данные о трафике шлюза управления облаком**. Эта задача предназначена для удаления всех устаревших данных о трафике, который проходит через [шлюз управления облаком](/sccm/core/clients/manage/plan-cloud-management-gateway) из базы данных сайта. Например, сюда относятся данные о количестве запросов, общем числе байтов запросов и ответов, количестве неудачных запросов и максимальном числе одновременных запросов.  
-- **Сервер сайта центра администрирования** — включено.
-- **Первичный сайт** — включено.
-- Вторичный сайт — недоступно.
+**Eliminar dados de tráfego de Gateway de gestão de nuvem desatualizados**: Utilize esta tarefa para eliminar todos os dados desatualizados sobre o tráfego que atravessa o [gateway de gestão de nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway) da base de dados do site. Por exemplo, isto inclui dados sobre o número de pedidos, bytes pedido total, bytes de resposta total, número de pedidos falhados e número máximo de pedidos em simultâneo.  
+- **Site de administração central** - ativado
+- **Site primário** - ativado
+- Site secundário - não disponível
 
 
-**Удаление устаревших собранных файлов**. Эта задача предназначена для удаления устаревшей информации о собранных файлах из базы данных. Эта задача также удаляет собранные из структуры папок сервера сайта на выбранном сайте. По умолчанию пять последних копий собранных файлов хранятся на сервере сайта в папке **Inboxes\sinv.box\FileCol**. Дополнительные сведения см. в разделе [Общие сведения об инвентаризации программного обеспечения в System Center Configuration Manager](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).  
+**Eliminar ficheiros recolhidos desatualizados**: Utilize esta tarefa para eliminar informações Desatualizadas sobre ficheiros recolhidos da base de dados. Esta tarefa também elimina os ficheiros recolhidos da estrutura de pastas do servidor de site no site selecionado. Por predefinição, as cinco cópias mais recentes dos ficheiros recolhidos são armazenadas no servidor do site no **Inboxes\sinv.box\FileCol** diretório. Para obter mais informações, consulte [introdução ao inventário de software no System Center Configuration Manager](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных сопоставления компьютеров**. Эта задача предназначена для удаления устаревшей информации сопоставления компьютеров, связанной с развертыванием операционной системы, из базы данных. Эта информация используется для восстановления пользовательского состояния. Дополнительные сведения о сопоставлении компьютеров см. в разделе [Управление пользовательской средой в System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
+**Eliminar dados de associação de computadores desatualizados**: Utilize esta tarefa para eliminar dados de associação de computador de implementação do sistema operativo desatualizados da base de dados. Estas informações são utilizadas como parte da conclusão de restauros do estado de utilizador. Para obter mais informações sobre associações de computadores, veja [Gerir o estado do utilizador no System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных обнаружения удаления**. Эта задача предназначена для удаления устаревших данных, созданных с помощью представлений извлечения, из базы данных. По умолчанию представления извлечения отключены. Их можно включить лишь с помощью пакета SDK для Configuration Manager. Если представления извлечения отключены, то данные, удаляемые этой задачей, будут отсутствовать.  
+**Eliminar dados de deteção de eliminações desatualizados**: Utilize esta tarefa para eliminar dados desatualizados da base de dados que foram criado pelas vistas de extração. Por predefinição, as vistas de extração estão desativadas. É apenas ativá-los através do SDK do Configuration Manager. Exceto se as vistas de extração estiverem ativadas, não há dados para esta tarefa eliminar.  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших записей очистки**. Эта задача предназначена для удаления устаревшей информации о действиях по очистке мобильных устройств из базы данных. Сведения об очистке мобильных устройств см. в разделе [Защита данных с помощью функций удаленной очистки, блокировки или сброса секретного кода с помощью System Center Configuration Manager](/sccm/mdm/deploy-use/wipe-lock-reset-devices).  
+**Eliminar dados desatualizados de registo de eliminação do dispositivo**: Utilize esta tarefa para eliminar dados desatualizados sobre as ações de eliminação do dispositivo móvel da base de dados. Para obter informações sobre a limpeza de dispositivos móveis, consulte [proteger dados através de eliminação remota, bloqueio ou reposição através do System Center Configuration Manager do código de acesso](/sccm/mdm/deploy-use/wipe-lock-reset-devices).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших устройств, управляемых с помощью коннектора Exchange Server**. Эта задача предназначена для удаления устаревшей информации о мобильных устройствах, управляемых с помощью коннектора Exchange Server, из базы данных. Данные удаляются в соответствии с интервалом, настроенным для параметра **Игнорировать мобильные устройства, которые неактивны более чем следующее количество дней** на вкладке **Обнаружение** в окне свойств коннектора Exchange Server. Дополнительные сведения см. в разделе [Управление мобильными устройствами с помощью System Center Configuration Manager и Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+**Eliminar dispositivos desatualizados geridos pelo conector do Exchange Server**: Utilize esta tarefa para eliminar dados desatualizados sobre dispositivos móveis que são geridos utilizando o conector do Exchange Server. Estes dados são eliminados de acordo com o intervalo que está configurado para o **ignorar os dispositivos móveis que estejam Inativos durante mais de (dias)** opção o **deteção** separador das propriedades do conector do Exchange Server. Para obter mais informações, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
--   Сайт центра администрирования — недоступно.   
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível   
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных обнаружения**. Эта задача предназначена для удаления устаревших данных обнаружения из базы данных. К таким данным могут относиться записи, возникшие при Heartbeat-обнаружении, при обнаружении сетевых ресурсов и при выполнении методов обнаружения доменных служб Active Directory (обнаружении систем, пользователей, групп). При запуске этой задачи на сайте удаляются данные, связанные с этим сайтом, и эти изменения реплицируются на другие сайты. Дополнительные сведения об обнаружении см. в разделе [Выполнение обнаружения в System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+**Eliminar dados de deteção desatualizados**: Utilize esta tarefa para eliminar dados de deteção desatualizados da base de dados. Estes dados podem incluir registos resultantes de deteção de heartbeat, deteção de rede e os métodos de deteção de serviços de domínio do Active Directory (sistema, utilizador e grupo). Quando esta tarefa é executada num site, os dados associados a esse site são eliminados e essas alterações são replicadas para outros sites. Para obter informações sobre a Deteção, veja [Executar a deteção no System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных об использовании точек распространения**. Эта задача предназначена для удаления устаревших данных в базе данных для точек распространения, которые хранились дольше указанного срока.  
+**Eliminar dados de utilização do ponto de distribuição desatualizados**: Utilize esta tarefa para eliminar da base de dados dados desatualizados de pontos de distribuição que tenham sido armazenados há mais do que um tempo especificado.  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных журнала состояния работоспособности Endpoint Protection**. Эта задача предназначена для удаления устаревшей информации о состоянии Endpoint Protection из базы данных. Дополнительные сведения о данных состояния Endpoint Protection см. в разделе [Мониторинг Endpoint Protection в System Center Configuration Manager](../../../protect/deploy-use/monitor-endpoint-protection.md).  
+**Eliminiar dados de histórico do Estado de funcionamento do Endpoint Protection**: Utilize esta tarefa para eliminar informações de estado desatualizados do Endpoint Protection da base de dados. Para obter mais informações sobre informações de estado do Endpoint Protection, veja [Como monitorizar o Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/monitor-endpoint-protection.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших зарегистрированных устройств**. Начиная с обновления для версии 1602 эта задача отключена по умолчанию. Она используется для удаления из базы данных сайта устаревших данных по мобильным устройствам, которые не передали на сайт никакой информации в течение указанного времени.
+**Eliminar dispositivos inscritos desatualizados**: A partir da atualização para 1602, esta tarefa está desativada por predefinição. Pode utilizar esta tarefa para eliminar da base de dados do site dados desatualizados sobre dispositivos móveis que ainda não comunicaram quaisquer informações ao site durante um período de tempo especificado.
 
-Эта задача применяется к устройствам, зарегистрированным с помощью Microsoft Intune (гибридная конфигурация) или с помощью локального управления мобильными устройствами Configuration Manager. Сведения об операционных системах устройств, зарегистрированных с помощью Configuration Manager или Intune, см. в подразделе [Мобильные устройства, зарегистрированные с помощью Microsoft Intune](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mobile-devices-enrolled-by-microsoft-intune) раздела [Поддерживаемые операционные системы для клиентов и устройств в System Center Configuration Manager](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md).
+Esta tarefa é aplicável a dispositivos inscritos com o Microsoft Intune (híbrido) do Configuration Manager local ou na gestão de dispositivos móveis. Para informações sobre os sistemas operativos de dispositivos que estão inscritos utilizando o Configuration Manager ou o Intune, consulte o [dispositivos móveis inscritos pelo Microsoft Intune](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mobile-devices-enrolled-by-microsoft-intune) secção [sistemas operativos suportados para os clientes e dispositivos para o System Center Configuration Manager](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md).
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — не включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Não ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных инвентаризации**. Эта задача предназначена для удаления устаревших данных инвентаризации из базы данных. Сведения о журналах инвентаризации см. в разделе [Использование обозревателя ресурсов для просмотра данных инвентаризации оборудования в System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
+**Eliminar histórico de inventário desatualizado**: Utilize esta tarefa para eliminar dados de inventário que tenham sido armazenados há mais do que um tempo especificado da base de dados. Para obter informações sobre o histórico de inventário, veja [Como utilizar o Explorador de Recursos para ver o inventário de hardware no System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных журналов**. Эта задача предназначена для удаления устаревшей информации журналов, используемой для устранения неполадок, из базы данных. Эти данные не связаны с работой компонентов Configuration Manager.  
+**Eliminar dados de registo desatualizados**: Utilize esta tarefa para eliminar dados de registo desatualizados que são utilizados para resolução de problemas da base de dados. Estes dados não estão relacionado com operações de componente do Configuration Manager.  
 
 > [!IMPORTANT]  
-> По умолчанию эта задача выполняется ежедневно на каждом сайте. На сайте центра администрирования и первичных сайтах задача удаляет данные старше 30 дней. При использовании экспресс-выпуска SQL Server на вторичном сайте это задание должно выполняться ежедневно и удалять данные, которые были неактивными в течение семи дней.  
+> Por predefinição, esta tarefa é executada diariamente em cada site. Num site de administração central e em sites primários, a tarefa elimina dados com mais de 30 dias. Quando utiliza o SQL Server Express num site secundário, certifique-se de que esta tarefa é executada diariamente e elimina os dados que tenham estado Inativos durante sete dias.  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   **Вторичный сайт** — включено.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   **Site secundário**: Ativado  
 
-**Удаление устаревшего журнала задачи уведомления**. Эта задача предназначена для удаления из базы данных сайта информации о задачах уведомления клиентов, если она не была изменена в течение указанного времени. Дополнительные сведения об уведомлениях клиентов см. в разделе [Задачи по развертыванию клиента для System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
+**Eliminiar histórico de tarefas de notificação**: Utilize esta tarefa para eliminar informações sobre tarefas de notificação de cliente da base de dados do site quando ainda não foi atualizado por um período de tempo especificado. Para obter mais informações sobre a notificação do cliente, consulte [tarefas de implementação do cliente para o System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших сводных данных репликации**. Эта задача предназначена для удаления из базы данных сайта устаревших сводных данных репликации, если они не были изменены в течение указанного времени. Дополнительные сведения см. в подразделе [Мониторинг состояния репликации и каналов репликации базы данных](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) раздела [Мониторинг иерархии и инфраструктуры репликации в System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+**Eliminar dados de resumo de replicação desatualizados**: Utilize esta tarefa para eliminar dados de resumo de replicação desatualizados da base de dados do site quando ainda não foi atualizado por um período de tempo especificado. Para obter mais informações, veja a secção [Como monitorizar ligações de replicação de base de dados e o estado de replicação](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) do tópico [Monitorizar a infraestrutura de hierarquia e replicação no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   **Вторичный сайт** — включено.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   **Site secundário**: Ativado  
 
-**Удаление устаревших записей секретного кода**. Используйте эту задачу на сайте верхнего уровня иерархии для удаления устаревшей информации о сбросах секретного кода для устройств Android и Windows Phone. Данные сброса секретных кодов зашифрованы, но не содержат PIN-коды устройств. По умолчанию эта задача включена и удаляет данные старше одного дня.  
+**Eliminar dados desatualizados de registos de código de acesso**: Utilize esta tarefa no site de nível superior da hierarquia para eliminar dados desatualizados de reposição de código de acesso para dispositivos Android e Windows Phone. Repor código de acesso de dados são encriptados, mas incluem o PIN para dispositivos. Por predefinição, esta tarefa está ativada e elimina os dados que é mais antigos do que um dia.  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных отслеживания репликации**. Эта задача предназначена для удаления устаревшей информации о репликации базы данных между сайтами Configuration Manager из базы данных. При изменении настроек этой задачи обслуживания конфигурация применяется ко всем применимым сайтам иерархии. Дополнительные сведения см. в подразделе [Мониторинг состояния репликации и каналов репликации базы данных](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) раздела [Мониторинг иерархии и инфраструктуры репликации в System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+**Eliminar dados de controlo de replicação desatualizados**: Utilize esta tarefa para eliminar dados desatualizados sobre a replicação de base de dados entre sites do Configuration Manager da base de dados. Quando alterar a configuração desta tarefa de manutenção, a configuração é aplicada a cada site aplicável da hierarquia. Para obter mais informações, veja a secção [Como monitorizar ligações de replicação de base de dados e o estado de replicação](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) do tópico [Monitorizar a infraestrutura de hierarquia e replicação no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   **Вторичный сайт** — включено.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   **Site secundário**: Ativado  
 
-**Удаление устаревших данных отслеживания использования программного обеспечения**. Эта задача предназначена для удаления устаревших данных отслеживания использования программного обеспечения из базы данных. Дополнительные сведения см. в разделе [Контроль использования программных продуктов в System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+**Eliminar dados de medição de Software desatualizados**: Utilize esta tarefa para eliminar dados desatualizados de medição de software que tenham sido armazenados há mais do que um tempo especificado da base de dados. Para obter mais informações, veja [Medição de software no System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших сводных данных отслеживания использования программного обеспечения**. Эта задача предназначена для удаления из базы данных устаревших сводных данных отслеживания использования программного обеспечения. Дополнительные сведения см. в разделе [Контроль использования программных продуктов в System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+**Eliminiar dados antigos de resumo de medição de Software**: Utilize esta tarefa para eliminar dados desatualizados de resumos medição de software que tenham sido armazenados há mais do que um tempo especificado da base de dados. Para obter mais informações, veja [Medição de software no System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших сообщений о состоянии**. Эта задача предназначена для удаления из базы данных устаревшей информации сообщений о состоянии согласно настройкам в правилах фильтра состояний. Дополнительные сведения см. в подразделе "Мониторинг системы состояния Configuration Manager" раздела [Использование оповещений и системы состояния для System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
+**Eliminar mensagens de estado Desatualizadas**: Utilize esta tarefa para eliminar dados de mensagens de estado Desatualizadas de acordo com o configurado nas regras de filtro de estado da base de dados. Para informações, consulte a secção "Monitorizar o estado do sistema do Configuration Manager" no tópico [utilizar alertas e o sistema de estado para o System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных об угрозах**. Эта задача предназначена для удаления из базы данных устаревших данных по угрозам Endpoint Protection. Дополнительные сведения об Endpoint Protection см. в разделе [Endpoint Protection в System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+**Eliminar dados de ameaças desatualizados**: Utilize esta tarefa para eliminar dados de ameaças do Endpoint Protection desatualizados que tenham sido armazenados há mais do que um tempo especificado da base de dados. Para obter informações sobre o Endpoint Protection, veja [Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших неизвестных компьютеров**. Эта задача предназначена для удаления из базы данных сайта информации о неизвестных компьютерах, если она не была изменена в течение указанного времени. Дополнительные сведения см. в разделе [Подготовка развертываний на неизвестные компьютеры в System Center Configuration Manager](../../../osd/get-started/prepare-for-unknown-computer-deployments.md).  
+**Eliminar computadores antigos desconhecidos**: Utilize esta tarefa para eliminar informações sobre computadores desconhecidos da base de dados do site quando ainda não foi atualizado por um período de tempo especificado. Para obter mais informações, veja [Preparar implementações de computadores desconhecidos no System Center Configuration Manager](../../../osd/get-started/prepare-for-unknown-computer-deployments.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших данных сопоставления пользователей и устройств**. Эта задача предназначена для удаления из базы данных устаревших данных сопоставления пользователей и устройств. Дополнительные сведения см. в разделе [Связывание пользователей и устройств с помощью сопоставления пользователей и устройств в System Center Configuration Manager](../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
+**Eliminiar dados de afinidade de dispositivo do utilizador**: Utilize esta tarefa para eliminar dados de afinidade dispositivo / utilizador desatualizados da base de dados. Para obter mais informações, veja [Associar utilizadores e dispositivos à afinidade de dispositivo do utilizador no System Center Configuration Manager](../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удаление просроченных записей пакета массовой регистрации MDM**: используйте эту задачу, чтобы удалить старые сертификаты массовой регистрации и соответствующие профили по истечении срока действия сертификата регистрации. Дополнительные сведения см. в разделе [Создание профилей сертификатов](/sccm/protect/deploy-use/create-certificate-profiles).
--   **Сайт центра администрирования** — включено
--   **Первичный сайт** — включено.
--   Вторичный сайт — недоступно
+**Eliminar MDM expirados registos de pacote de inscrição em massa**: Utilize esta tarefa para eliminar os certificados de inscrição em massa antigos e perfis correspondentes depois do certificado de inscrição expirou. Para obter mais informações, consulte [criar perfis de certificado](/sccm/protect/deploy-use/create-certificate-profiles).
+-   **Site de administrações centrais**: Ativado
+-   **Site primário**: Ativado
+-   Site secundário: Não disponível
 
-**Удаление данных обнаружения неактивных клиентов**. Эта задача предназначена для удаления устаревших данных обнаружения неактивных клиентов из базы данных. Клиенты помечаются как неактивные в случае их устаревания или с помощью конфигураций для состояния клиентов.
+**Eliminar dados de deteção de cliente Inativos**: Utilize esta tarefa para eliminar dados de deteção de clientes Inativos da base de dados. Os clientes são marcados como Inativos quando o cliente está assinalado como obsoleto e por configurações que são efetuadas para o estado do cliente.
 
-Эта задача действует только для ресурсов, являющихся клиентами Configuration Manager. Эта задача отличается от задачи **Удаление устаревших данных обнаружения**, которая удаляет любые устаревшие данные обнаружения. При запуске этой задачи на сайте задача удаляет данные из базы данных на всех сайтах в иерархии. Дополнительные сведения см. в статье [Настройка состояния клиента в System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
-
-> [!IMPORTANT]  
-> При включении этой задачи задайте для нее интервал, превышающий значение расписания **Heartbeat-обнаружения**. Это дает возможность активным клиентам отправлять запись Heartbeat-обнаружения для того, чтобы пометить свои записи как активные и избежать их удаления данной задачей.  
-
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — не включено.    
--   Вторичный сайт — недоступно.  
-
-**Удаление устаревших предупреждений**. Эта задача предназначена для удаления устаревших предупреждений из базы данных. Дополнительные сведения см. в разделе [Использование оповещений и системы состояния для System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
-
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
-
-**Удаление данных обнаружения вышедших из эксплуатации клиентов**. Эта задача предназначена для удаления устаревших записей клиентов из базы данных. Запись, обозначенная как устаревшая, обычно заменяется новой записью для того же клиента. Новая запись становится текущей записью клиента. Дополнительные сведения об обнаружении см. в разделе [Выполнение обнаружения в System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+Esta tarefa apenas opera em recursos que sejam clientes do Configuration Manager. É diferente do **eliminar dados de deteção desatualizados** tarefa, o que elimina todos desatualizados de registo de dados de deteção. Quando esta tarefa é executada num site, remove os dados da base de dados em todos os sites numa hierarquia. Para obter mais informações, veja [Como configurar o estado do cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
 
 > [!IMPORTANT]  
-> При включении этой задачи задайте для нее интервал, превышающий значение расписания Heartbeat-обнаружения. Это позволит клиенту отправлять запись обнаружения пакетов пульса, правильно устанавливающую состояние устаревания.  
+> Quando estiver ativada, configure esta tarefa para ser executada com intervalo superior à **deteção de Heartbeat** agenda. Isto permite que os clientes ativos enviem um registo de deteção de Heartbeat para marcar o respetivo registo de cliente como ativa para que esta tarefa não elimina-los.  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — не включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Não ativado    
+-   Site secundário: Não disponível  
 
-**Удаление устаревших сайтов и подсетей обнаружения в лесах**. Эта задача предназначена для удаления сведений о сайтах, подсетях и доменах Active Directory, которые не были найдены методом обнаружения в лесах Active Directory за последние 30 дней. При этом удаляются данные обнаружения, но не затрагиваются границы, созданные на основе данных обнаружения. Дополнительные сведения см. в разделе [Выполнение обнаружения в System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+**Eliminar alertas obsoletos**: Utilize esta tarefa para eliminar alertas expirados que estejam armazenados há mais do que um tempo especificado da base de dados. Para obter mais informações, veja [Utilizar alertas e o sistema de estado para o System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Удалить потерянные записи состояния развертывания клиентов**. Эта задача предназначена для периодической очистки таблицы, содержащей сведения о состоянии развертывания клиента. Эта задача удалит записи, связанные с устаревшими или списанными устройствами.  
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.
+**Eliminar dados de deteção de cliente obsoletos**: Utilize esta tarefa para eliminar registos de cliente obsoletos da base de dados. Normalmente, um registo que está marcado como obsoleto foi substituído por um registo mais recente para o mesmo cliente. O registo mais recente torna-se o registo atual do cliente. Para obter informações sobre a Deteção, veja [Executar a deteção no System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
-**Удаление неиспользуемых редакций приложений**. Эта задача предназначена для удаления редакций приложений, на которые уже не указывает ни одна ссылка. Дополнительные сведения см. в разделе [Изменение и замена приложений в System Center Configuration Manager](../../../apps/deploy-use/revise-and-supersede-applications.md).  
+> [!IMPORTANT]  
+> Quando estiver ativada, configure esta tarefa para ser executada com intervalo superior à agenda da deteção de Heartbeat. Isto permite que o cliente envie um registo de Deteção de Heartbeat que define corretamente o estado de obsoleto.  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Não ativado    
+-   Site secundário: Não disponível  
 
-**Оценка членства в коллекции**. Оценка членства в коллекции настраивается как компонент сайта. Сведения о компонентах сайтов см. в разделе [Компоненты сайта для System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
+**Eliminar subredes e Sites de deteção de florestas obsoletos**: Utilize esta tarefa para eliminar dados sobre sites, sub-redes e domínios que ainda não foram detetados pelo método de deteção de floresta do Active Directory nos últimos 30 dias do Active Directory. Remove os dados de deteção, mas não afeta os limites criados a partir destes dados de deteção. Para obter mais informações, veja [Executar a deteção no System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Мониторинг ключей**. Эта задача предназначена для проверки целостности первичных ключей базы данных Configuration Manager. Первичный ключ — это столбец или несколько столбцов, уникальным образом идентифицирующие одну строку и отличающие ее от любых других строк в таблице базы данных Microsoft SQL Server.  
+**Eliminar registos de estado de implementação de cliente órfão**: Utilize esta tarefa para remover periodicamente a tabela que contém informações de estado de implementação do cliente. Esta tarefa irá limpar os registos associados a dispositivos obsoletos ou desativados.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível
 
--   **Сайт центра администрирования** — включено.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+**Eliminar revisões de aplicações não utilizadas**: Utilize esta tarefa para eliminar revisões de aplicação que já não são referenciadas. Para obter mais informações, veja [Como rever e substituir aplicações no System Center Configuration Manager](../../../apps/deploy-use/revise-and-supersede-applications.md).  
 
-**Перестройка индексов**. Используйте эту задачу для перестройки индексов базы данных Configuration Manager. Индекс — это структура базы данных, создаваемая в таблице базы данных для ускорения поиска данных. Например, поиск по индексированному столбцу зачастую выполняется намного быстрее, чем по неиндексированному столбцу.
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-Для повышения производительности индексы базы данных Configuration Manager часто обновляются, чтобы соответствовать постоянно изменяющимся данным, хранящимся в базе данных. Эта задача создает индексы в столбцах базы данных с уникальностью не менее 50%, удаляет индексы в столбцах с уникальностью менее 50% и перестраивает все существующие индексы, отвечающие условиям по уникальности данных.  
+**Avaliar membros da coleção**: Configurar a avaliação da associação da coleção como um componente do site. Para obter informações sobre componentes do site, veja [Componentes do site para o System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
 
--   **Сайт центра администрирования** — не включено.    
--   **Первичный сайт** — не включено.    
--   **Вторичный сайт** — не включено.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Формирование сводных данных об установленном ПО**. Эта задача предназначена для объединения данных по установленным программам, полученных из нескольких записей, в одну общую запись. Формирование сводных данных позволяет уменьшить объем данных, хранящихся в базе данных Configuration Manager. Дополнительные сведения см. в разделе [Общие сведения об инвентаризации программного обеспечения в System Center Configuration Manager](../../clients/manage/inventory\introduction-to-software-inventory.md).  
+**Monitorizar chaves**: Utilize esta tarefa para monitorizar a integridade das chaves de principal de base de dados do Configuration Manager. Uma chave primária é uma coluna (ou uma combinação de colunas) que exclusivamente identifica uma linha e distingue-lo a partir de qualquer outra linha de uma tabela de base de dados do Microsoft SQL Server.  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Ativado    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
-**Подсчет итоговых данных отслеживания использования программного обеспечения**. Эта задача предназначена для объединения сведений об использовании файлов, полученных из нескольких записей контроля использования программных продуктов, в одну общую запись. Формирование сводных данных позволяет уменьшить объем данных, хранящихся в базе данных Configuration Manager.
+**Reconstruir índices**: Utilize esta tarefa para reconstruir os índices de base de dados do Configuration Manager. Um índice é uma estrutura de base de dados criada numa tabela de base de dados para acelerar a obtenção de dados. Por exemplo, procure uma coluna indexada é muito mais rapidamente do que a procura de uma coluna que não está indexada.
 
-Эту задачу можно использовать вместе с задачей **Подсчет ежемесячных итогов по данным отслеживания использования программного обеспечения** для формирования сводки данных по контролю применения программных продуктов, а также в целях экономии дискового пространства в базе данных Configuration Manager. Дополнительные сведения см. в разделе [Контроль использования программных продуктов в System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+Para melhorar o desempenho, os índices de base de dados do Configuration Manager com frequência são atualizados para permanecer sincronizada com os dados em constante mudança armazenados na base de dados. Esta tarefa cria índices das colunas da base de dados que sejam pelo menos 50% exclusivas, ignora os índices de colunas com menos de 50% de exclusividade e reconstrói todos os índices existentes que satisfaçam os critérios de exclusividade de dados.  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   **Site de administração central**: Não ativado    
+-   **Site primário**: Não ativado    
+-   **Site secundário**: Não ativado  
 
-**Подсчет ежемесячных итогов по данным отслеживания использования программного обеспечения**. Эта задача предназначена для объединения ежемесячных данных об использовании, полученных из нескольких записей контроля применения программных продуктов, в одну общую запись. Формирование сводных данных позволяет уменьшить объем данных, хранящихся в базе данных Configuration Manager.
+**Resumir dados de Software instalado**: Utilize esta tarefa para resumir os dados do software instalado a partir de vários registos num registo geral. Resumo de dados pode comprimir a quantidade de dados que são armazenados na base de dados do Configuration Manager. Para obter mais informações, consulte [introdução ao inventário de software no System Center Configuration Manager](../../clients/manage/inventory\introduction-to-software-inventory.md).  
 
-Эту задачу можно использовать вместе с задачей **Подсчет итоговых данных отслеживания использования программного обеспечения** для формирования сводки данных по контролю применения программных продуктов, а также в целях экономии дискового пространства в базе данных Configuration Manager. Дополнительные сведения см. в разделе [Контроль использования программных продуктов в System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+**Resumir os dados de utilização do ficheiro de medição de Software**: Utilize esta tarefa para resumir os dados de vários registos de medição de software a utilização de ficheiros num único registo geral. Resumo de dados pode comprimir a quantidade de dados que são armazenados na base de dados do Configuration Manager.
 
-**Доступно обновление приложения для**. Эта задача позволяет Configuration Manager пересчитать сопоставление развертывания политик и приложений с ресурсами в коллекциях. При развертывании политики или приложений в коллекцию Configuration Manager создает первоначальное сопоставление развертываемых объектов и элементов коллекции.
+Pode utilizar esta tarefa com o **resumir Software de medição de dados de utilização mensal** tarefa para resumir os dados de medição de software e poupar espaço em disco na base de dados do Configuration Manager. Para obter mais informações, veja [Medição de software no System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
-Эти сопоставления хранятся в таблице для быстрого ознакомления. При изменении членства в коллекциях эти хранимые сопоставления обновляются, чтобы отразить эти изменения. Тем не менее эти сопоставления могут оказаться несинхронизированными. Например, если сайту не удастся правильно обработать файл уведомления, это изменение может не быть отражено в сопоставлениях. Данная задача обновляет это сопоставление согласно текущему членству в коллекции.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+**Resumir os dados de utilização mensais de medição de Software**: Utilize esta tarefa para resumir os dados de vários registos de utilização mensal da medição num único registo geral do software. Resumo de dados pode comprimir a quantidade de dados que são armazenados na base de dados do Configuration Manager.
 
-**Обновление таблиц каталога приложений**. Используйте эту задачу для синхронизации кэша базы данных веб-сайта каталога приложений с актуальными сведениями о приложениях. При изменении настроек этой задачи обслуживания конфигурация применяется ко всем первичным сайтам иерархии.  
+Pode utilizar esta tarefa com o **resumir o Software de medição os dados de utilização do ficheiro** tarefa para resumir os dados de medição de software e poupar espaço na base de dados do Configuration Manager. Para obter mais informações, veja [Medição de software no System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
--   Сайт центра администрирования — недоступно.    
--   **Первичный сайт** — включено.    
--   Вторичный сайт — недоступно.  
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
+
+**Atualizar filtragem disponível de aplicações**: Utilize esta tarefa para que o Configuration Manager recalcule o mapeamento de política e implementações de aplicações para recursos em coleções. Ao implementar políticas ou aplicações para uma coleção, o Configuration Manager cria um mapeamento inicial entre os objetos que implementa e os membros da coleção.
+
+Estes mapeamentos são armazenados numa tabela para referência rápida. Quando uma associação de coleções é alterada, estes mapeamentos armazenados são atualizados para refletir essas alterações. No entanto, é possível que estes mapeamentos falhem a sincronização. Por exemplo, se o site não conseguir processar corretamente um ficheiro de notificação, essa alteração poderá não refletir-se numa alteração aos mapeamentos. Esta tarefa atualiza esse mapeamento com base na associação da coleção atual.  
+
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  
+
+**Atualizar tabelas do catálogo de aplicações**: Utilize esta tarefa para sincronizar a cache de base de dados de Web site do catálogo de aplicações com as informações mais recentes da aplicação. Quando alterar a configuração desta tarefa de manutenção, a configuração é aplicada a todos os sites primários da hierarquia.  
+
+-   Site de administração central: Não disponível    
+-   **Site primário**: Ativado    
+-   Site secundário: Não disponível  

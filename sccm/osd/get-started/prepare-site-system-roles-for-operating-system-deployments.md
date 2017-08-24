@@ -1,6 +1,6 @@
 ---
-title: "Подготовка ролей системы сайта к развертываниям операционной системы | Документы Майкрософт"
-description: "Настройте роли системы сайта перед развертыванием операционных систем в System Center Configuration Manager."
+title: "Preparar funções do sistema de sites para implementações do sistema de operativo | Microsoft Docs"
+description: "Configure as funções do sistema de site antes de implementar sistemas operativos no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,204 +17,204 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 11c0f169afebdb071fefb5ce300fd1ae3481a94f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Подготовка ролей системы сайта к развертываниям операционной системы с помощью System Center Configuration Manager
+# <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Preparar funções do sistema de sites para implementações de sistemas operativos com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для развертывания операционных систем в System Center Configuration Manager необходимо сначала подготовить следующие роли системы сайта, требующие определенных конфигураций и рассмотрения:
+Para implementar sistemas operativos no System Center Configuration Manager, primeiro tem de preparar o seguinte site as funções do sistema que necessitam de considerações e configurações específicas.
 
-##  <a name="BKMK_DistributionPoints"></a> точки распространения;  
- Роль системы сайта точки распространения, которая содержит исходные файлы для скачивания клиентами, такие как содержимое приложений, обновления программного обеспечения, образы операционных систем и загрузочные образы. Для контроля распространения содержимого можно использовать параметры пропускной способности, регулирования и планирования.  
+##  <a name="BKMK_DistributionPoints"></a> Pontos de distribuição  
+ A função do sistema de sites do ponto de distribuição contém ficheiros de origem para os clientes transferirem, como, por exemplo, o conteúdo da aplicação, atualizações de software, imagens do sistema operativo e imagens de arranque. É possível controlar a distribuição de conteúdo utilizando opções de largura de banda, de limitação e de agendamento.  
 
- Важно иметь достаточное количество точек распространения для поддержки развертывания операционных систем на компьютерах. Также важно спланировать размещение этих точек распространения в вашей иерархии. Много полезных сведений о планировании можно найти в разделе [Управление содержимым и инфраструктурой содержимого](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md). Однако имеются и некоторые другие аспекты планирования для точек распространения, связанные с развертыванием операционной системы.  
+ É importante que tenha pontos de distribuição suficientes para suportar a implementação de sistemas operativos nos computadores. Também é importante que planeie a disposição destes pontos de distribuição na sua hierarquia. Encontrará maioria destas informações de planeamento em [gerir a infraestrutura de conteúdo e conteúda](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md). No entanto, existem algumas considerações adicionais de planeamento para pontos de distribuição específicos da implementação do sistema operativo.  
 
-###  <a name="BKMK_AdditionalPlanning"></a> Дополнительные аспекты планирования для точек распространения  
- Ниже приведены дополнительные аспекты планирования для точек распространения.  
+###  <a name="BKMK_AdditionalPlanning"></a> Considerações adicionais de planeamento para pontos de distribuição  
+ Seguem-se alguns aspetos de planeamento adicionais a ter em consideração para os pontos de distribuição:  
 
--   **Как предотвратить нежелательные развертывания операционных систем?**  
+-   **Como posso impedir a implementações de sistemas operativos indesejados?**  
 
-     Configuration Manager не отличает серверы сайта от других конечных компьютеров в коллекции. При развертывании нужной последовательности задач в коллекции с сервером сайта выполнение последовательности на этом сервере ничем не будет отличаться от ее выполнения на любом другом компьютере в коллекции. Убедитесь, что развертывание операционной системы использует коллекцию с теми клиентами, на которых требуется выполнить такое развертывание.  
+     Do Configuration Manager não distingue os servidores de site de outros computadores de destino numa coleção. Se implementar uma sequência de tarefas necessária numa coleção que contenha um servidor do site, este último executa a sequência de tarefas da mesma forma que qualquer outro computador da coleção. Certifique-se de que a implementação do sistema operativo utiliza uma coleção que contenha os clientes que pretende que executem a implementação.  
 
-     Вы можете управлять поведением развертываний последовательности задач с высоким риском. Развертывание с высоким риском автоматически устанавливается на клиенте и потенциально может привести к нежелательным результатам. Например, это последовательность задач с целью «Обязательно», которая выполняет развертывание операционной системы. Чтобы снизить риск нежелательного развертывания с высоким риском, можно настроить параметры проверки развертывания: Дополнительные сведения см. в разделе [Параметры для управления развертываниями с высоким риском](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+     Pode gerir o comportamento de implementações de sequência de tarefas de alto risco. Uma implementação de alto risco é automaticamente instalada num cliente e tem o potencial de causar resultados indesejados. Por exemplo, uma sequência de tarefas com um objetivo Necessário que implemente um sistema operativo. Para reduzir o risco de uma implementação de alto risco indesejada, pode configurar definições de verificação de implementação. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
--   **Сколько компьютеров могут одновременно получить образ операционной системы из одной точки распространения?**  
+-   **Quantos computadores podem receber uma imagem do sistema operativo em simultâneo a partir de um único ponto de distribuição?**  
 
-     Чтобы оценить необходимое число точек распространения, следует учесть скорость обработки и дискового ввода-вывода точки распространения, доступную пропускную способность сети и влияние размера пакета с образом на эти ресурсы. Например, в сети Ethernet со скоростью передачи данных 100 Мбит/с максимальное число компьютеров, способных обработать пакет с образом размером в 4 ГБ за один час, будет равно 11, если не учитывать другие серверные ресурсы.  
+     Para calcular o número de pontos de distribuição necessários, tenha em consideração a velocidade de processamento e a E/S de disco do ponto de distribuição, a largura de banda disponível na rede e o efeito que o tamanho do pacote de imagens tem nestes recursos. Por exemplo, numa rede Ethernet de 100 megabytes (MB), o número máximo de computadores para processar um pacote de imagens de 4 gigabytes (GB) numa hora é de 11 computadores, se não forem tidos em consideração outros fatores de recursos do servidor.  
 
      `100 Megabits/sec = 12.5 Megabytes/sec = 750 Megabytes/min = 45 Gigabytes/hour = 11 images @ 4GB per image.`  
 
-     Если нужно выполнить развертывание операционной системы на определенном числе компьютеров в течение заданного промежутка времени, образ следует распространить на достаточное количество точек распространения.  
+     Se tiver de implementar um sistema operativo num número específico de computadores num determinado período de tempo, distribua a imagem por um número apropriado de pontos de distribuição.  
 
--   **Можно ли развернуть образ операционной системы на точке распространения?**  
+-   **Posso implementar um sistema operativo num ponto de distribuição?**  
 
-     Вы можете развернуть операционную систему на точке распространения, но этот образ операционной системы должен быть получен из другой точки распространения.  
+     Pode implementar um sistema operativo num ponto de distribuição, mas a imagem do sistema operativo tem de ser recebida a partir de um ponto de distribuição diferente.  
 
-###  <a name="BKMK_PXEDistributionPoint"></a> Настройка точек распространения для приема PXE-запросов  
- Чтобы развернуть операционные системы в клиентах Configuration Manager, отправляющих PXE-запросы загрузки, необходимо настроить одну или несколько точек распространения на прием PXE-запросов. После настройки точка распространения будет отвечать на PXE-запросы загрузки и сможет определить и предпринять нужные действия развертывания.
+###  <a name="BKMK_PXEDistributionPoint"></a> Configurar pontos de distribuição para aceitar pedidos PXE  
+ Para implementar sistemas operativos em clientes do Configuration Manager que efetuam pedidos de arranque PXE, tem de configurar um ou mais pontos de distribuição para aceitar pedidos PXE. Assim que configurar o ponto de distribuição, este irá responder ao pedido de arranque PXE e determinar a ação de implementação adequada a executar.
 
 > [!IMPORTANT]  
->  [Службы развертывания Windows](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDS) необходимо установить на все точки распространения с поддержкой PXE.  
+>  Os [Serviços de Implementação do Windows](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDS) têm de ser instalados em todos os pontos de distribuição preparados para PXE.  
 
- Ниже приведена процедура внесения изменений в существующую точку распространения, позволяющих настроить прием PXE-запросов. Сведения об установке точки распространения см. в разделе [Установка или изменение точки распространения](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+ Utilize o procedimento seguinte para modificar um ponto de distribuição existente para que possa aceitar pedidos PXE. Para obter informações sobre como instalar um novo ponto de distribuição, veja [Instalar ou modificar um ponto de distribuição](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
 
-#### <a name="to-modify-an-existing-distribution-point-to-accept-pxe-requests"></a>Настройка существующей точки распространения для приема PXE-запросов  
+#### <a name="to-modify-an-existing-distribution-point-to-accept-pxe-requests"></a>Para modificar um ponto de distribuição existente para aceitar pedidos PXE  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**, разверните узел **Обзор** и щелкните **Точки распространения**.  
+1.  Na consola do Configuration Manager, clique em **administração**, expanda **descrição geral** e clique em **pontos de distribuição**.  
 
-2.  Выберите точку распространения для настройки, а затем на вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+2.  Selecione o ponto de distribuição que pretende configurar e, no separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-3.  На странице свойств точки распространения перейдите на вкладку **PXE** . и выберите **Включить поддержку PXE для клиентов** , чтобы включить PXE для этой точки распространения.  
+3.  Na página de propriedades do ponto de distribuição, clique no separador **PXE** e selecione **Ativar suporte PXE para clientes** para ativar o PXE neste ponto de distribuição.  
 
-4.  Щелкните **Да** в диалоговом окне **Информация о необходимых портах для протокола PXE** , чтобы подтвердить включение PXE. Configuration Manager автоматически настраивает порты по умолчанию в брандмауэре Windows. Если используется другой брандмауэр, необходимо настроить порты вручную.  
+4.  Clique em **Sim** na caixa de diálogo **Analisar as Portas Necessárias para PXE** para confirmar que pretende ativar o PXE. O Configuration Manager configura automaticamente as portas predefinidas uma firewall do Windows. Tem de configurar manualmente as portas se utilizar uma firewall diferente.  
 
     > [!NOTE]  
-    >  Если на том же сервере установлены службы развертывания Windows (WDS) и DHCP, необходимо настроить WDS на прослушивание другого порта (поскольку DHCP прослушивает тот же самый порт). Дополнительные сведения см. в разделе [Рекомендации при наличии WDS и DHCP на одном сервере](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDSandDHCP).  
+    >  Se o WDS e o DHCP estiverem instalados no mesmo servidor, tem de configurar o WDS para escutar numa porta diferente (uma vez que o DHCP escuta na mesma porta). Para obter mais informações, veja [Considerações sobre quando tiver o WDS e DHCP no mesmo servidor](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDSandDHCP).  
 
-5.  Установите флажок **Разрешить этой точке распространения отвечать на входящие PXE-запросы** для включения служб WDS таким образом, чтобы они отвечали на входящие PXE-запросы на обслуживание. Этот параметр служит для включения и отключения службы без удаления функций PXE из точки распространения.  
+5.  Selecione **Permitir que este ponto de distribuição responda a pedidos PXE recebidos** para ativar o WDS de modo a que responda a pedidos de serviço PXE recebidos. Pode utilizar esta definição para ativar e desativar o serviço sem remover a funcionalidade PXE do ponto de distribuição.  
 
-6.  Установите флажок **Включить поддержку неизвестных компьютеров**, чтобы развернуть операционные системы на компьютерах, для управления которыми не используется Configuration Manager.  
+6.  Selecione **ativar suporte para computadores desconhecidos** para implementar sistemas operativos em computadores que não são geridos pelo Configuration Manager.  
 
-7.  Установите флажок **Требовать пароль при использовании компьютерами протокола PXE**, а затем укажите надежный пароль для обеспечения дополнительной защиты развертывания PXE.  
+7.  Selecione **Exigir uma palavra-passe quando os computadores utilizam PXE**e, em seguida, especifique uma palavra-passe segura para fornecer segurança adicional à sua implementação PXE.  
 
-8.  In the **Сопоставление пользователей и устройств** укажите способ, которым точка распространения связывает пользователей с конечным компьютером для развертываний PXE.  
+8.  Na lista **Afinidade Dispositivo/Utilizador** , escolha como quer que o ponto de distribuição associe os utilizadores ao computador de destino para implementações PXE.  
 
-    -   Выберите **Не использовать сопоставление пользователей и устройств** , чтобы не связывать пользователей с конечным компьютером.  
+    -   Selecione **Não utilizar afinidade dispositivo/utilizador** para não associar utilizadores ao computador de destino.  
 
-    -   Выберите пункт **Разрешить сопоставление пользователей и устройств с утверждением вручную** , чтобы система дожидалась разрешения администратора, прежде чем связывать пользователей с конечным компьютером.  
+    -   Selecione **Permitir afinidade dispositivo/utilizador com aprovação manual** para aguardar a aprovação de um utilizador administrativo antes de associar os utilizadores ao computador de destino.  
 
-    -   Выберите пункт **Разрешить сопоставление пользователей и устройств с автоматическим утверждением** , чтобы включить автоматическое связывание пользователей с конечным компьютером без ожидания утверждения.  
+    -   Selecione **Permitir afinidade dispositivo/utilizador com aprovação automática** para associar automaticamente os utilizadores ao computador de destino sem aguardar aprovação.  
 
-     Дополнительные сведения см. в разделе [Связывание пользователей с конечным компьютером](../get-started/associate-users-with-a-destination-computer.md).  
+     Para obter mais informações, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
 
-9. Укажите, будет ли точка распространения отвечать на PXE-запросы, получаемые от всех или только от конкретных сетевых интерфейсов. Если требуется, чтобы точка распространения отвечала на запросы определенных сетевых интерфейсов, укажите MAC-адреса всех таких интерфейсов.  
+9. Especifique que o ponto de distribuição responde a pedidos PXE de todas as interfaces de rede ou de interfaces de rede específicas. Se optar por que o ponto de distribuição responda às interfaces de uma rede específica, forneça o endereço MAC para cada interface de rede.  
 
-10. В случае использования нескольких точек распространения с поддержкой PXE укажите для точки распространения время задержки (в секундах) перед ответом на запросы компьютеров.  
+10. Especifique em segundos o tempo de atraso do ponto de distribuição antes de responder a pedidos do computador quando são utilizados vários pontos de distribuição preparados para PXE.  
 
-11. Нажмите кнопку **ОК** , чтобы обновить свойства точки распространения.  
+11. Clique em **OK** para atualizar as propriedades do ponto de distribuição.  
 
-###  <a name="BKMK_RamDiskTFTP"></a> Настройка размеров блока и окна RamDisk TFTP в точках распространения с поддержкой PXE  
-Вы можете настраивать размеры блока RamDisk TFTP, а начиная с версии Configuration Manager 1606 также и размеры окна для точек распространения с поддержкой PXE. Если изменить настройки сети, это может привести к тому, что при скачивании образа загрузки произойдет ошибка тайм-аута из-за слишком большого размера блока или окна. Настройка размеров блока и окна RamDisk TFTP позволяет оптимизировать трафик TFTP при использовании PXE для соответствия определенным требованиям сети.   
-Чтобы определить наиболее эффективный вариант, необходимо протестировать измененные параметры в среде пользователя.  
+###  <a name="BKMK_RamDiskTFTP"></a> Personalizar o tamanho do bloco TFTP do disco de RAM e o tamanho da janela em pontos de distribuição com PXE ativado  
+Pode personalizar o tamanho do bloco TFTP do disco de RAM e a partir do Configuration Manager versão 1606, o tamanho da janela de pontos de distribuição com PXE ativado. Se tiver personalizado a rede, poderá fazer com que a transferência da imagem de arranque falhe, com um erro de tempo limite excedido, porque o tamanho do bloco ou da janela é demasiado grande. A personalização do tamanho do bloco TFTP do disco de RAM e do tamanho da janela permitem otimizar o tráfego TFTP ao utilizar o PXE para satisfazer requisitos de rede específicos.   
+Terá de testar as definições personalizadas no seu ambiente para determinar o que é mais eficiente.  
 
--   **Размер блока TFTP**. Размер блока — это размер пакетов данных, отправляемых сервером клиенту, который загружает файл (как описано в RFC 2347). Больший размер блока позволяет серверу отправлять меньшее число пакетов, поэтому между сервером и клиентом возникает меньше задержек кругового пути. Однако, большие размеры блока приводят к фрагментации пакетов, которую не поддерживает большинство реализаций PXE-клиента.  
+-   **Tamanho do bloco TFTP**: O tamanho do bloco é o tamanho dos pacotes de dados que são enviados pelo servidor para o cliente que está a transferir o ficheiro (conforme referido em RFC 2347). Um tamanho de bloco maior permitirá ao servidor enviar menos pacotes, pelo que existem menos atrasos no percurso de ida e volta entre o servidor e o cliente. No entanto, tamanhos de bloco maiores resultam em pacotes fragmentados, não suportados pela maioria das implementações de cliente PXE.  
 
--   **Размер окна TFTP**. TFTP требуется пакет подтверждения (ACK) для каждого передаваемого блока данных. Сервер не отправляет следующий блок в последовательности, пока не получит пакет ACK для предыдущего блока. Изменение размера окна TFTP — это функция служб развертывания Windows, которая позволяет определять, сколько блоков данных необходимо для заполнения окна. Сервер отправляет блоки данных один за другим до заполнения окна, а затем клиент отправляет пакет ACK. Увеличение размера этого окна уменьшает число задержек кругового пути между клиентом и сервером, а также уменьшает общее время, необходимое для скачивания образа загрузки.  
-
-
-#### <a name="to-modify-the-ramdisk-tftp-window-size"></a>Изменение размера окна RamDisk TFTP  
-
--   Чтобы настроить размер окна RamDisk TFTP, добавьте следующий раздел реестра в точках распространения с поддержкой PXE:  
-
-     **Расположение**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Имя: RamDiskTFTPWindowSize  
-
-     **Тип**: REG_DWORD  
-
-     **Значение**: &lt;измененный размер окна>  
-
- Значение по умолчанию — 1 (1 блок данных заполняет окно).  
-
-#### <a name="to-modify-the-ramdisk-tftp-block-size"></a>Изменение размера блока RamDisk TFTP  
-
--   Чтобы настроить размер окна RamDisk TFTP, добавьте следующий раздел реестра в точках распространения с поддержкой PXE:  
-
-     **Расположение**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Имя: RamDiskTFTPBlockSize  
-
-     **Тип**: REG_DWORD  
-
-     **Значение**: &lt;измененный размер блока>  
-
- Значение по умолчанию — 4096 (4 КБ).  
+-   **Tamanho da janela de TFTP**: TFTP necessita de um pacote de confirmação (ACK) para cada bloco de dados que são enviados. O servidor não envia o bloco seguinte na sequência até receber o pacote ACK para o bloco anterior. O sistema baseado em janelas do TFTP é uma funcionalidade dos Serviços de Implementação do Windows que permite definir quantos blocos de dados são necessários para preencher uma janela. O servidor envia os blocos de dados continuamente até que a janela seja preenchida e, em seguida, o cliente envia um pacote ACK. O aumento do tamanho desta janela reduz o número de atrasos no percurso de ida e volta entre o cliente e o servidor, e diminui o tempo global que é necessário para transferir uma imagem de arranque.  
 
 
-###  <a name="BKMK_DPMulticast"></a> Настройка точек распространения для поддержки многоадресной рассылки  
- Многоадресная рассылка — это метод оптимизации использования сети, который можно использовать для точек распространения, где высока вероятность того, что несколько клиентов будут одновременно скачивать один образ операционной системы. Когда используется многоадресная рассылка, несколько компьютеров могут одновременно скачивать образ операционной системы, рассылаемый точкой распространения. Этот механизм заменяет сценарий отправки точкой распространения копии данных на каждый клиентский компьютер через отдельное подключение. Для поддержки многоадресной рассылки необходимо настроить хотя бы одну точку распространения. Дополнительные сведения см. в разделе [Использование многоадресной рассылки для развертывания Windows по сети](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+#### <a name="to-modify-the-ramdisk-tftp-window-size"></a>Para modificar o tamanho da janela de TFTP do disco de RAM  
 
- Перед развертыванием операционной системы необходимо настроить точку распространения и обеспечить поддержку многоадресной рассылки. Следующая процедура настраивает существующую точку распространения для работы с многоадресной рассылкой. Сведения об установке точки распространения см. в разделе [Установка и настройка точки распространения](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
+-   Adicione a seguinte chave de registo em pontos de distribuição com PXE ativado para personalizar o tamanho da janela de TFTP do disco de RAM:  
 
-#### <a name="to-enable-multicast-for-a-distribution-point"></a>Включение многоадресной рассылки для точки распространения  
+     **Localização**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Nome: RamDiskTFTPWindowSize  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+     **Tipo**: REG_DWORD  
 
-2.  В рабочей области **Администрирование** разверните узел **Обзор**и выберите элемент **Точки распространения** .  
+     **Valor**: &lt;tamanho de janela personalizado >  
 
-3.  Выберите точку распространения, которая будет использоваться при многоадресной рассылке образа операционной системы.  
+ O valor predefinido é 1 (1 bloco de dados preenche a janela)  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+#### <a name="to-modify-the-ramdisk-tftp-block-size"></a>Para modificar o tamanho do bloco de TFTP do disco de RAM  
 
-5.  Перейдите на вкладку **Многоадресная рассылка** и настройте следующие параметры:  
+-   Adicione a seguinte chave de registo em pontos de distribuição com PXE ativado para personalizar o tamanho da janela de TFTP do disco de RAM:  
 
-    -   **Включить многоадресную рассылку**. Выберите этот параметр, чтобы настроить точку распространения для работы с многоадресной рассылкой.  
+     **Localização**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Nome: RamDiskTFTPBlockSize  
 
-    -   **Учетная запись многоадресной рассылки**. Укажите учетную запись для подключения к базе данных сайта.  
+     **Tipo**: REG_DWORD  
 
-    -   **Параметры адреса многоадресной рассылки**. Укажите IP-адреса для отправки данных на конечные компьютеры. По умолчанию IP-адрес выдается с DHCP-сервера, который включен для распространения адресов многоадресной рассылки. В зависимости от сетевой среды можно указать IP-адреса в диапазоне от 239.0.0.0 до 239.255.255.255.  
+     **Valor**: &lt;tamanho de bloco personalizado >  
 
-        > [!IMPORTANT]  
-        >  IP-адреса должны быть доступны для конечных компьютеров, запрашивающих образ операционной системы. Это значит, что маршрутизаторы и брандмауэры должны быть настроены для передачи трафика многоадресной рассылки между конечным компьютером и сервером сайта.  
+ O valor predefinido é 4096 (4k).  
 
-    -   **Диапазон UDP-портов**. Укажите диапазон UDP-портов для отправки данных на конечные компьютеры.  
+
+###  <a name="BKMK_DPMulticast"></a> Configurar pontos de distribuição para suportarem multicast  
+ Multicast é um método de otimização da rede que pode ser utilizado em pontos de distribuição quando se prevê a transferência da mesma imagem do sistema operativo por vários clientes em simultâneo. Quando é utilizado o multicast, a imagem do sistema operativo pode ser transferida em simultâneo por vários computadores à medida que é multidifundida pelo ponto de distribuição, em vez de ter um ponto de distribuição que envia uma cópia dos dados para cada cliente através de uma ligação separada. Para suportar multicast, tem de configurar, pelo menos, um ponto de distribuição. Para obter mais informações, consulte [utilizar multicast para implementar o Windows através da rede](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+
+ Antes de implementar o sistema operativo, tem de configurar um ponto de distribuição para suportar multicast. Utilize o procedimento seguinte para modificar um ponto de distribuição existente para suportar multicast. Para obter informações sobre como instalar um novo ponto de distribuição, consulte [instalar e configurar pontos de distribuição](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
+
+#### <a name="to-enable-multicast-for-a-distribution-point"></a>Para ativar o multicast num ponto de distribuição  
+
+1.  Na consola do Configuration Manager, clique em **Administração**.  
+
+2.  Na área de trabalho **Administração** , expanda **Descrição geral**e selecione o nó **Pontos de Distribuição** .  
+
+3.  Selecione o ponto de distribuição que pretende utilizar para multidifundir a imagem do sistema operativo.  
+
+4.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
+
+5.  Selecione o separador **Multicast** e configure as seguintes opções:  
+
+    -   **Ativar o Multicast**: Tem de selecionar esta opção para o ponto de distribuição suportar multicast.  
+
+    -   **Conta de ligação de multicast**: Especifique uma conta para ligar à base de dados do site.  
+
+    -   **Definições de endereço multicast**: Especifique os endereços IP para enviar dados para os computadores de destino. Por predefinição, o endereço IP é obtido a partir de um servidor DHCP que se encontra ativado para distribuir endereços multicast. Dependendo do ambiente de rede, poderá especificar um intervalo de endereços IP entre 239.0.0.0 e 239.255.255.255.  
 
         > [!IMPORTANT]  
-        >  UDP-порты должны быть доступны для конечных компьютеров, запрашивающих образ операционной системы. Это значит, что маршрутизаторы и брандмауэры должны быть настроены для передачи трафика многоадресной рассылки между конечным компьютером и сервером сайта.  
+        >  Estes endereços IP devem ser acessíveis aos computadores de destino que pedem a imagem do sistema operativo. Isto significa que os routers e as firewalls entre o computador de destino e o servidor do site têm de ser configurados para permitir tráfego multicast.  
 
-    -   **Активные запланированные многоадресные рассылки**. Укажите, каким образом Configuration Manager контролирует момент начала развертывания операционных систем на конечных компьютерах. Щелкните **Активные запланированные многоадресные рассылки**и выберите следующие параметры.  
+    -   **Intervalo de portas UDP**: Especifique o intervalo de portas UDP para enviar dados para os computadores de destino.  
 
-         Укажите в поле **Задержка начала сеанса** задержку (в минутах), после которой Configuration Manager должен отвечать на первый запрос развертывания.  
+        > [!IMPORTANT]  
+        >  Estas portas devem ser acessíveis aos computadores de destino que pedem a imagem do sistema operativo. Isto significa que os routers e as firewalls entre o computador de destino e o servidor do site têm de ser configurados para permitir tráfego multicast.  
 
-         В поле **Минимальный размер сеанса** укажите, сколько запросов должно быть получено до запуска развертывания операционных систем диспетчером Configuration Manager.  
+    -   **Ativar multicast agendado**: Especifique como o Configuration Manager controla quando iniciar a implementação de sistemas operativos em computadores de destino. Clique em **Ativar multicast agendado**e selecione as opções seguintes.  
 
-    -   **Скорость передачи**. Выберите скорость передачи данных на конечные компьютеры.  
+         No **atraso de início de sessão** caixa, especifique o número de minutos que o Configuration Manager aguarda antes de respondes ao primeiro pedido de implementação.  
 
-    -   **Максимальное количество клиентов**. Укажите максимальное число конечных компьютеров, которые могут загрузить операционную систему из этой точки распространения.  
+         No **tamanho mínimo de sessão** caixa, especifique o número de pedidos deve ser recebido antes de começar a Configuration Manager implementar o sistema operativo.  
 
-6.  Нажмите кнопку **ОК**.  
+    -   **Velocidade de transferência**: Selecione a velocidade de transferência para transferir dados para os computadores de destino.  
 
-##  <a name="BKMK_StateMigrationPoints"></a> Точка миграции среды  
- Точка миграции состояния хранит данные пользовательской среды, собираемые на одном компьютере и затем восстанавливаемые на другом. Следует учитывать, что при сборе параметров пользователей для развертывания на одном компьютере (например при обновлении операционной системы на конечном компьютере) данные можно сохранить как на этом же компьютере с помощью жестких связей, так и в точке миграции состояния. В некоторых случаях (при создании в процессе развертывания хранилища состояний) Configuration Manager автоматически создает связь между хранилищем и конечным компьютером. При планировании реализации точки миграции состояния следует учитывать следующие факторы.  
+    -   **Máximo de clientes**: Especifique o número máximo de computadores de destino que pode transferir o sistema operativo a partir deste ponto de distribuição.  
 
-### <a name="user-state-size"></a>Размер данных пользовательской среды  
- Размер данных пользовательской среды оказывает самое непосредственное влияние на дисковое пространство, используемое на точке миграции состояния, и нагрузку на сеть при миграции. Следует учесть размер данных пользовательской среды и число обрабатываемых компьютеров. Следует также решить, что именно будет переноситься с компьютеров в ходе миграции. Например, если резервная копия папки **Мои документы** уже создана на сервере, то скорее всего ее не потребуется переносить в ходе развертывания образа. Исключение из процесса ненужных операций будет способствовать уменьшению общего размера данных пользовательской среды и снижению его влияния на ресурсы сети и дисковое пространство на точке миграции состояния.  
+6.  Clique em **OK**.  
 
-### <a name="user-state-migration-tool"></a>Средство миграции пользовательской среды  
- Для сбора данных пользовательской среды и их восстановления в ходе развертывания операционных систем необходимо использовать пакет средства миграции пользовательской среды (USMT), указывающий на исходные файлы этого средства. Configuration Manager автоматически создает этот пакет в консоли Configuration Manager в области **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**. Configuration Manager использует средство USMT 10.0, которое распространяется в составе комплекта средств для развертывания и оценки Windows (Windows ADK), для сбора сведений о пользовательской среде из одной ОС и восстановления в другой.  
+##  <a name="BKMK_StateMigrationPoints"></a> Ponto de migração de estado  
+ O ponto de migração de estado armazena os dados de estado do utilizador que são capturados num computador e, em seguida, restaurados noutro. No entanto, quando captura definições de utilizador para a implementação de um sistema operativo no mesmo computador, como, por exemplo, uma implementação em que atualiza o sistema operativo no computador de destino, pode escolher se pretende armazenar os dados no mesmo computador através de ligações fixas ou utilizar um ponto de migração de estado. Algumas implementações de computadores, quando cria o armazenamento de Estados, o Configuration Manager cria automaticamente uma associação entre o armazenamento de Estados e o computador de destino. Quando planear o ponto de migração de estado, considere os seguintes fatores.  
 
- Различные сценарии миграции для USMT 10.0 рассмотрены в статье [Распространенные сценарии миграции](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
+### <a name="user-state-size"></a>Tamanho do estado do utilizador  
+ O tamanho do estado do utilizador afeta diretamente o armazenamento em disco no ponto de migração de estado e o desempenho da rede durante a migração. Considere o tamanho do estado do utilizador e o número de computadores a migrar. Considere também as definições a serem migradas do computador. Por exemplo, se já existir uma cópia de segurança da pasta **Os Meus Documentos** num servidor, então é possível que não tenha de a migrar como parte da implementação da imagem. Evite as migrações desnecessárias para reduzir o tamanho geral do estado do utilizador e diminuir o efeito que teria no desempenho da rede e no armazenamento em disco no ponto de migração de estado.  
 
-### <a name="retention-policy"></a>Политика хранения  
- При настройке точки миграции состояния можно указать период времени, в течение которого следует сохранять данные пользовательской среды, хранимые в ней. Длительность этого периода будет зависеть от двух факторов:  
+### <a name="user-state-migration-tool"></a>Ferramenta de migração de estado do utilizador  
+ Para capturar e restaurar o estado do utilizador durante a implementação dos sistemas operativos, tem de utilizar o pacote da Ferramenta de Migração de Estado do Utilizador (USMT) que aponta para os ficheiros de origem da USMT. O Configuration Manager cria automaticamente este pacote na consola do Configuration Manager na **biblioteca de Software** > **gestão de aplicações** > **pacotes**. O Configuration Manager utiliza a USMT 10.0, que é distribuído no Windows Assessment and Deployment Kit (Windows ADK) para capturar o estado do utilizador de um sistema operativo e restaurá-lo noutro sistema operativo.  
 
--   Влияния хранимых данных на дисковое пространство.  
+ Para obter uma descrição dos diferentes cenários de migração com a USMT 10.0, veja [Cenários Comuns de Migração](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
 
--   Требований, связанных с возможной повторной миграцией этих же данных.  
+### <a name="retention-policy"></a>Política de retenção  
+ Quando configura o ponto de migração de estado, pode especificar o período de tempo para manter os dados de estado do utilizador que estão armazenados no mesmo. O período de tempo para manter os dados no ponto de migração de estado depende de duas considerações:  
 
- Миграция состояния состоит из двух этапов: сбора данных и их восстановления. В ходе сбора данные пользовательской среды сохраняются в точке миграции состояния. При восстановлении данные пользовательской среды извлекаются из точки миграции состояния, записываются на конечный компьютер и затем "освобождаются" шагом **Освободить хранилище состояний** последовательности задач. После "освобождения" данных запускается таймер хранения. Если было указано немедленно удалять данные, успешно обработанные процессом миграции, такие данные пользовательской среды будут удаляться сразу же после "освобождения". Если же было указано хранить данные в течение определенного периода времени, данные будут удаляться по истечение этого периода (его началом считается "освобождение" данных пользовательской среды). Чем дольше период хранения, тем больше дискового пространства может потребоваться на его обслуживание.  
+-   O efeito que os dados armazenados têm no armazenamento em disco.  
 
-### <a name="select-drive-to-store-user-state-migration-data"></a>Выбор диска для хранения данных миграции пользовательской среды  
- При настройке точки миграции состояния необходимо выбрать диск на сервере, на котором будут храниться переносимые данные пользовательской среды. Выбор осуществляется из фиксированного списка дисков. Следует учитывать, что в список могут входить и устройства, не поддерживающие запись (например, дисковод компакт-дисков), или диски, не являющиеся общими (подключенными к сети). Некоторые буквы дисков могут быть вообще не связаны с какими бы то ни было дисками или устройствами на компьютере. Для точки миграции состояния должен быть указан общий диск, поддерживающий запись.  
+-   A potencial necessidade de manter os dados durante algum tempo para o caso de ser necessária uma nova migração dos dados.  
 
-### <a name="configure-a-state-migration-point"></a>Настройка точки миграции состояния  
- Ниже приведены способы настройки точки миграции состояния для хранения данных пользовательской среды:  
+ Migração de estado ocorre em duas fases: Os dados de captura e restauro dos dados. Quando captura dados, os dados de estado do utilizador são recolhidos e guardados no ponto de migração de estado. Quando restaurar os dados, os dados de estado do utilizador são recuperados a partir do ponto de migração de estado, escritos no computador de destino e, em seguida, o passo da sequência de tarefas **Disponibilizar Armazenamento de Estados** disponibiliza os dados armazenados. Quando os dados são disponibilizados, o temporizador de retenção é iniciado. Se selecionar a opção de eliminar imediatamente os dados migrados, os dados de estado do utilizador são eliminados logo que são disponibilizados. Se selecionar a opção de manter os dados por um determinado período tempo, os dados são eliminados quando decorrer esse período de tempo, após a disponibilização dos dados de estado. Quanto mais longo for período de retenção definido, mais espaço em disco poderá ser necessário.  
 
--   создание нового сервера системы сайта для точки миграции состояния с помощью **мастера создания сервера системы сайта** ;  
+### <a name="select-drive-to-store-user-state-migration-data"></a>Selecionar a unidade para armazenar dados de migração de estado do utilizador  
+ Ao configurar o ponto de migração de estado, tem de especificar a unidade do servidor para armazenar os dados de migração de estado do utilizador. Selecione uma unidade numa lista fixa de unidades. No entanto, algumas destas unidades podem não ser graváveis, como a unidade de CD ou uma unidade de partilha exterior à rede. Além disso, algumas letras de unidade podem não estar mapeadas para as unidades do computador. Tem de especificar uma unidade gravável e partilhada quando configurar o ponto de migração de estado.  
 
--   добавление точки миграции среды на существующий сервер с помощью **мастера добавления ролей системы сайта** .  
+### <a name="configure-a-state-migration-point"></a>Configurar um ponto de migração de estado  
+ Poderá utilizar os seguintes métodos para configurar um ponto de migração de estado para armazenar os dados de estado do utilizador:  
 
- При использовании этих мастеров потребуется указать для точки миграции состояния следующие сведения:  
+-   Utilize o **Assistente para Criar Servidor do Sistema de Sites** para criar um novo servidor do sistema de sites para o ponto de migração de estado.  
 
--   папки для хранения данных пользовательской среды;  
+-   Utilize o **Assistente para Adicionar Funções ao Sistema de Sites** para adicionar um ponto de migração de estado a um servidor existente.  
 
--   максимальное число клиентов, которые могут сохранять данные на точке миграции состояния;  
+ Ao utilizar estes assistentes, será solicitado que forneça as seguintes informações sobre o ponto de migração de estado:  
 
--   минимальный объем свободного пространства для хранения данных пользовательской среды на точке миграции состояния;  
+-   As pastas em que os dados de estado do utilizador serão armazenados.  
 
--   политику удаления для роли (можно задать немедленное удаление данных пользовательской среды после восстановления на компьютере или указать интервал удаления (в днях) после восстановления данных пользователя на компьютере);  
+-   O número máximo de clientes que podem armazenar dados no ponto de migração de estado.  
 
--   будет ли точка миграции состояния отвечать только на запросы восстановления данных о пользовательской среде. Если выбрать этот вариант, точку миграции состояния нельзя будет использовать для сохранения данных пользовательской среды.  
+-   O mínimo de espaço livre para que o ponto de migração de estado armazene os dados de estado do utilizador.  
 
- Инструкции по установке роли системы сайта см. в разделе [Добавление ролей системы сайта](../../core/servers/deploy/configure/add-site-system-roles.md).  
+-   A política de eliminação da função. Poderá especificar que os dados de estado do utilizador sejam eliminados imediatamente ou um número de dias especificado após serem restaurados num computador.  
+
+-   Se o ponto de migração de estado responde apenas a pedidos de restauro dos dados de estado do utilizador. Se ativar esta opção, não será possível utilizar o ponto de migração de estado para armazenar os dados de estado do utilizador.  
+
+ Para obter os passos instalar uma função de sistema de sites, consulte [adicionar funções do sistema de sites](../../core/servers/deploy/configure/add-site-system-roles.md).  

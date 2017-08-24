@@ -1,6 +1,6 @@
 ---
-title: "Обновление клиентов | Документы Майкрософт"
-description: "Сведения об обновлении клиентов в System Center Configuration Manager."
+title: Atualizar clientes | Microsoft Docs
+description: "Obter informações sobre como atualizar clientes no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,135 +16,135 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 4b80e0e688dd6482bc9a7fe111607e258071f45a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-clients-in-system-center-configuration-manager"></a>Обновление клиентов в System Center Configuration Manager
+# <a name="upgrade-clients-in-system-center-configuration-manager"></a>Atualização dos clientes no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете использовать различные методы обновления программного обеспечения клиента System Center Configuration Manager на компьютерах Windows, серверах UNIX и Linux и компьютерах Mac. Ниже описываются преимущества и недостатки каждого метода.  
+Pode utilizar diferentes métodos para atualizar o software de cliente do System Center Configuration Manager em computadores Windows, servidores UNIX e Linux e computadores Mac. Seguem-se as vantagens e desvantagens de cada método.  
 
 > [!TIP]  
->  Если вы обновляете серверную инфраструктуру предыдущей версии Configuration Manager \(например, Configuration Manager 2007 или System Center 2012 Configuration Manager\), то перед обновлением клиентов Configuration Manager рекомендуется выполнить обновление серверов, включая установку всех обновлений текущей ветви. Таким образом вы также получаете самую последнюю версию клиентского ПО.  
+>  Se estiver a atualizar a infraestrutura do servidor a partir de uma versão anterior do \(como o Configuration Manager 2007 ou o System Center 2012 Configuration Manager\), recomendamos que conclua a atualização do servidor incluindo a instalação de todas as atualizações do current branch, antes de atualizar os clientes do Configuration Manager. Desta forma, também terá da versão mais recente do software de cliente.  
 
-## <a name="group-policy-installation"></a>Установка на основании групповой политики  
- **Поддерживаемая платформа клиента** : Windows  
+## <a name="group-policy-installation"></a>Instalação de Política de Grupo  
+ **Plataforma de cliente suportada:** Windows  
 
- **Преимущества**  
+ **Vantagens**  
 
--   Для обновления клиента не требуется обнаружение компьютеров.  
+-   Não necessita que os computadores sejam detetados antes de atualizar o cliente.  
 
--   Может использоваться для установки новых клиентов или для выполнения обновлений.  
+-   Pode ser utilizada para novas instalações de cliente ou para atualizações.  
 
--   Компьютеры могут считывать свойства установки клиента, опубликованные в доменных службах Active Directory.  
+-   Os computadores podem ler as propriedades de instalação de cliente que tiverem sido publicadas nos Serviços de Domínio do Active Directory Domain Services.  
 
--   Не требует создания и обслуживания учетной записи установки для соответствующего клиентского компьютера.  
+-   Não necessita que seja configurada e mantida uma conta de instalação para o computador cliente pretendido.  
 
- **Недостатки**  
+ **Desvantagens**  
 
--   Может приводить к большому объему сетевого трафика при обновлении множества клиентов.  
+-   Pode causar tráfego de rede elevado se estiver a atualizar muitos clientes.  
 
--   Если схема Active Directory не расширена для Configuration Manager, необходимо с помощью [параметров групповой политики](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientGP) добавить свойства установки клиента для компьютеров на сайте.  
+-   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar [definições de política de grupo](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientGP) para adicionar propriedades de instalação de cliente aos computadores no seu site.  
 
 
-## <a name="logon-script-installation"></a>Установка сценария входа  
- **Поддерживаемая платформа клиента** : Windows  
+## <a name="logon-script-installation"></a>Instalação do script de início de sessão  
+ **Plataforma de cliente suportada:** Windows  
 
- **Преимущества**  
+ **Vantagens**  
 
--   Для установки клиента не требуется обнаружение компьютеров.  
+-   Não necessita que os computadores sejam detetados antes de instalar o cliente.  
 
--   Может использоваться для установки новых клиентов или для выполнения обновлений.  
+-   Pode ser utilizada para novas instalações de cliente ou para atualizações.  
 
--   Поддерживает использование свойств командной строки для CCMSetup.  
+-   Suporta a utilização de propriedades da linha de comandos para CCMSetup.  
 
- **Недостатки**  
+ **Desvantagens**  
 
--   Может приводить к большому объему сетевого трафика при обновлении множества клиентов за небольшой период времени.  
+-   Pode causar tráfego de rede elevado se estiver a atualizar muitos clientes num curto período de tempo.  
 
--   Обновление всех клиентских компьютеров может занять длительное время, если пользователи нечасто входят в сеть.  
+-   Pode demorar muito tempo a atualizar todos os computadores cliente se os utilizadores não iniciarem sessão na rede.  
 
- Дополнительные сведения см. в разделе [Установка клиентов Configuration Manager с помощью сценариев входа](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientLogonScript).  
+ Para mais informações, veja [Como Instalar Clientes do Configuration Manager Utilizando Scripts de Início de Sessão](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientLogonScript).  
 
-## <a name="manual-installation"></a>Установка вручную  
- **Поддерживаемая платформа клиента** : Windows, UNIX, Linux, Mac OS X  
+## <a name="manual-installation"></a>Instalação manual  
+ **Plataforma de cliente suportada:** Windows, UNIX/Linus, Mac OS X  
 
- **Преимущества**  
+ **Vantagens**  
 
--   Для обновления клиента не требуется обнаружение компьютеров.  
+-   Não necessita que os computadores sejam detetados antes de atualizar o cliente.  
 
--   Может быть полезна для тестирования.  
+-   Pode ser útil para fins de teste.  
 
--   Поддерживает использование свойств командной строки для CCMSetup.  
+-   Suporta a utilização de propriedades da linha de comandos para CCMSetup.  
 
- **Недостатки**  
+ **Desvantagens**  
 
--   Отсутствует автоматизация, поэтому требуется много времени.  
+-   Sem automatização, portanto demorada.  
 
- Дополнительные сведения см. в следующих разделах:  
+ Para obter mais informações, consulte os tópicos seguintes:  
 
--   [Установка клиентов Configuration Manager вручную](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Manual)  
+-   [Como instalar clientes do Configuration Manager manualmente](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Manual)  
 
--   [Обновление клиентов для серверов Linux и UNIX в System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)  
+-   [Como atualizar clientes para servidores Linux e UNIX no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)  
 
--   [Обновление клиентов на компьютерах Mac в System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-on-mac-computers.md)  
+-   [Como atualizar clientes em computadores Mac no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-on-mac-computers.md)  
 
-## <a name="upgrade-installation-application-management"></a>Установка обновления (управление приложениями)  
- **Поддерживаемая платформа клиента** : Windows  
-
-> [!NOTE]  
->  Обновить клиенты Configuration Manager 2007 с помощью этого метода невозможно. В этом сценарии можно развернуть клиент Configuration Manager как пакет с сайта Configuration Manager 2007 или использовать автоматическое обновление клиента, при котором автоматически создается и развертывается пакет, содержащий последнюю версию клиента.  
-
- **Преимущества**  
-
--   Поддерживает использование свойств командной строки для CCMSetup.  
-
- **Недостатки**  
-
--   Может привести к высокой степени загрузки сети трафиком при распространении клиента в больших коллекциях.  
-
--   Может использоваться только для обновления программного обеспечения клиента на компьютерах, которые были обнаружены и назначены сайту.  
-
- Дополнительные сведения см. в разделе [Установка клиентов Configuration Manager с помощью пакета и программы](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientApp).  
-
-## <a name="automatic-client-upgrade"></a>Автоматическое обновление клиента  
+## <a name="upgrade-installation-application-management"></a>Instalação de atualização (gestão de aplicações)  
+ **Plataforma de cliente suportada:** Windows  
 
 > [!NOTE]  
->  Можно использовать для обновления клиентов Configuration Manager 2007 до клиентов System Center Configuration Manager. Клиент Configuration Manager 2007 может выполнять привязку к сайту Configuration Manager, но не может выполнять каких-либо действий, кроме автоматического обновления клиента.  
+>  Não é possível atualizar clientes do Configuration Manager 2007 com este método. Neste cenário, pode implementar o cliente do Configuration Manager como um pacote a partir do site do Configuration Manager 2007 ou pode utilizar a atualização automática de cliente que cria e implementa automaticamente um pacote que contém a versão mais recente do cliente.  
 
- **Поддерживаемая платформа клиента** : Windows  
+ **Vantagens**  
 
- **Преимущества**  
+-   Suporta a utilização de propriedades da linha de comandos para CCMSetup.  
 
--   Может использоваться для автоматической установки последней версии ПО на клиентах в вашем сайте.  
+ **Desvantagens**  
 
--   Требует минимального администрирования.  
+-   Pode causar tráfego de rede elevado se distribuir o cliente para coleções de grandes dimensões.  
 
- **Недостатки**  
+-   Só pode ser utilizado para atualizar o software de cliente em computadores que tenham sido detetados e atribuídos ao site.  
 
--   Может использоваться только для обновления программного обеспечения клиента и не подходит для установки нового клиента.  
+ Para mais informações, veja [Como Instalar Clientes do Configuration Manager Utilizando um Pacote e Programa](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientApp).  
 
--   Не подходит для одновременного обновления множества клиентов.  
+## <a name="automatic-client-upgrade"></a>Atualização automática de cliente  
 
--   Применяется ко всем клиентам в иерархии, которые назначены сайту. Не предусматривает разделение по коллекциям как по областям действия.  
+> [!NOTE]  
+>  Pode ser utilizado para atualizar clientes do Configuration Manager 2007 para clientes do System Center Configuration Manager. Um cliente do Configuration Manager 2007 pode atribuir a um site do Configuration Manager, mas não é possível efetuar nenhuma ação além da atualização automática de cliente.  
 
--   Ограниченные возможности планирования.  
+ **Plataforma de cliente suportada:** Windows  
 
- Дополнительные сведения см. в разделе [Обновление клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+ **Vantagens**  
 
-## <a name="client-testing"></a>Тестирование клиентов  
- **Поддерживаемая платформа клиента** : Windows  
+-   Pode ser utilizado para manter automaticamente os clientes no site na versão mais recente.  
 
- **Преимущества**  
+-   Requer uma administração mínima.  
 
--   Можно использовать для тестирования новых версий клиентов в небольшой предварительной коллекции.  
+ **Desvantagens**  
 
--   По завершении тестирования клиенты в подготовительной среде повышаются до рабочей среды и автоматически обновляются в рамках всего сайта Configuration Manager.  
+-   Só pode ser utilizado para atualizar o software de cliente e não pode ser utilizado para instalar um novo cliente.  
 
- **Недостатки**  
+-   Não é adequado para atualizar vários clientes em simultâneo.  
 
--   Может использоваться только для обновления программного обеспечения клиента и не подходит для установки нового клиента.  
+-   Aplica-se a todos os clientes na hierarquia que estão atribuídos a um site. Não pode ser limitado por coleção.  
 
- [Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md)  
+-   Opções de agendamento limitadas.  
+
+ Para mais informações, veja [Como atualizar clientes para computadores Windows no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+
+## <a name="client-testing"></a>Teste de clientes  
+ **Plataforma de cliente suportada:** Windows  
+
+ **Vantagens**  
+
+-   Pode ser utilizado para testar novas versões de cliente numa coleção de pré-produção mais pequena.  
+
+-   Quando os testes são concluídos, os clientes em pré-produção são promovidos para produção e atualizados automaticamente em todo o site do Configuration Manager.  
+
+ **Desvantagens**  
+
+-   Só pode ser utilizado para atualizar o software de cliente e não pode ser utilizado para instalar um novo cliente.  
+
+ [Como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md)  

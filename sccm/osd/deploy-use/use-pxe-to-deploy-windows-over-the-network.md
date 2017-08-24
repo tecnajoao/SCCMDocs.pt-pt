@@ -1,6 +1,6 @@
 ---
-title: "Использование PXE для развертывания Windows по сети | Документы Майкрософт"
-description: "Для обновления операционной системы компьютера или установки новой версии Windows на новом компьютере можно использовать развертывания операционных систем PXE."
+title: "Utilizar o PXE para implementar o Windows através da rede | Microsoft Docs"
+description: "Utilize implementações de sistema operativo iniciadas por PXE para atualizar o sistema operativo do computador ou para instalar uma nova versão do Windows num novo computador."
 ms.custom: na
 ms.date: 06/15/2017
 ms.prod: configuration-manager
@@ -17,90 +17,90 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: b88ab3799027c78a8c605e934b247097b31e1d21
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Использование PXE для развертывания Windows по сети с помощью System Center Configuration Manager
+# <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utilizar o PXE para implementar o Windows na rede com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Развертывания операционной системы, инициированные протоколом удаленной загрузки (PXE) в System Center Configuration Manager, позволяют клиентским компьютерам запрашивать и развертывать операционные системы по сети. В этом сценарии развертывания вы отправляете образ операционной системы и образы загрузки Windows PE (семейств x86 и x64) в точку распространения, настроенную принимать запросы на загрузку PXE.
+Ambiente de execução pré-arranque (PXE) iniciada implementações do sistema operativo no System Center Configuration Manager cliente permitem computadores pedem e implementar sistemas operativos através da rede. Neste cenário de implementação, enviar a imagem do sistema operativo e imagens de arranque x86 e x64 com o Windows PE para um ponto de distribuição configurado para aceitar pedidos de arranque PXE.
 
 > [!NOTE]  
->  Когда вы создаете развертывание операционной системы, предназначенной только для 64-разрядных компьютеров с BIOS, в точке распространения должны быть доступны образы загрузки операционных систем обоих семейств (х64 и х86).
+>  Quando cria uma implementação do sistema operativo que computadores de BIOS de destinos apenas x64, ambas as x64 arrancar a imagem e x86 imagem de arranque tem de estar disponível no ponto de distribuição.
 
-Вы можете использовать развертывания операционных систем, инициализированные PXE, в следующих сценариях развертывания:
+Pode utilizar implementações do sistema operativo iniciadas por PXE nos seguintes cenários de implementação do sistema operativo:
 
--   [Обновление существующего компьютера до новой версии Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Atualizar um computador existente com uma nova versão do Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Установка новой версии Windows на новом компьютере (без операционной системы)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
-Выполните шаги, указанные для одного из сценариев развертывания операционной системы, а затем используйте следующие разделы для подготовки к развертываниям, инициируемым PXE.
+Conclua os passos dos cenários de implementação do sistema operativo e, em seguida, utilize as secções seguintes para se preparar para implementações iniciadas por PXE.
 
-##  <a name="BKMK_Configure"></a> Настройка по меньшей мере одной точки распространения для приема PXE-запросов
-Чтобы развернуть операционные системы на клиентах, отправляющих запросы на загрузку PXE, используйте одну или несколько точек распространения, настроенных обрабатывать запросы на загрузку PXE. Шаги по включению PXE в точке распространения см. в разделе [Настройка точек распространения для приема PXE-запросов](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).
+##  <a name="BKMK_Configure"></a> Configurar pelo menos um ponto de distribuição para aceitar pedidos PXE
+Para implementar sistemas operativos em clientes que efetuam pedidos de arranque PXE, utilize um ou mais pontos de distribuição configurados para responder aos pedidos de arranque PXE. Para obter os passos ativar o PXE num ponto de distribuição, consulte [configurar pontos de distribuição para aceitar PXE pedidos](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).
 
-## <a name="prepare-a-pxe-enabled-boot-image"></a>Подготовка загрузочного образа с поддержкой PXE
-Чтобы использовать PXE для развертывания операционной системы, необходимо иметь загрузочные образы x86 и x64 с поддержкой PXE, передаваемые на одну или несколько точек распространения с поддержкой PXE. Используйте приведенные сведения, чтобы включить PXE для образа загрузки и распространить образ в точки распространения:
+## <a name="prepare-a-pxe-enabled-boot-image"></a>Preparar uma imagem de arranque preparada para PXE
+Para utilizar o PXE para implementar um sistema operativo, tem de ter imagens de arranque preparada para PXE x86 e x64 distribuídas por um ou mais pontos de distribuição preparados para PXE. Utilize as informações para ativar o PXE numa imagem de arranque e distribuí-la por pontos de distribuição:
 
--   Чтобы включить PXE в образе загрузки, выберите параметр **Раз. загрузочный образ из точки распр., поддерживающей PXE** на вкладке **Источник данных** в свойствах образа загрузки.
+-   Para ativar o PXE numa imagem de arranque, selecione **implementar esta imagem de arranque a partir do ponto de distribuição com PXE ativado** do **origem de dados** separador nas propriedades da imagem de arranque.
 
--   Если вы изменяете свойства образа загрузки, повторно распространите этот образ в точки распространения. Дополнительные сведения см. в разделе [Распространение содержимого](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).
+-   Se alterar as propriedades da imagem de arranque, redistribuir a imagem de arranque para pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).
 
-##  <a name="BKMK_PXEExclusionList"></a> Создание списка исключений для PXE-развертываний
-При использовании PXE для развертывания операционных систем вы можете создать список исключений для каждой точки распространения. Добавьте MAC-адреса в список исключений компьютеров, которые будут игнорироваться точкой распространения. Включенные в список компьютеры не будут получать последовательности задач развертывания, которые Configuration Manager использует для развертывания PXE.
+##  <a name="BKMK_PXEExclusionList"></a> Criar uma lista de exclusões para implementações PXE
+Quando implementar sistemas operativos com PXE, pode criar uma lista de exclusões em cada ponto de distribuição. Adicione os endereços MAC à lista de exclusão dos computadores que pretende que o ponto de distribuição para ignorar. Os computadores listados não irão receber as sequências de tarefas de implementação utilizadas pelo Configuration Manager para a implementação de PXE.
 
-#### <a name="to-create-the-exclusion-list"></a>Создание списка исключений
+#### <a name="to-create-the-exclusion-list"></a>Para criar a lista de exclusão
 
-1.  На точке распространения, поддерживающей PXE, создайте текстовый файл. Например, этому файлу можно назначить имя **pxeExceptions.txt**.
+1.  Crie um ficheiro de texto no ponto de distribuição que esteja preparado para PXE. Por exemplo, atribua a este ficheiro de texto o nome **pxeExceptions.txt**.
 
-2.  Используйте обычный текстовый редактор, например Блокнот. Внесите в список MAC-адреса компьютеров, которые будут игнорироваться точкой распространения с поддержкой PXE. MAC-адреса в списке необходимо разделять двоеточием и вводить каждый адрес с новой строки. Пример: `01:23:45:67:89:ab`
+2.  Utilize um editor de texto simples, como o Notepad e adicione os endereços MAC dos computadores a ser ignorada pelo ponto de distribuição com PXE ativado. Separe os valores dos endereços MAC por dois pontos e introduza cada endereço numa linha separada. Por exemplo: `01:23:45:67:89:ab`
 
-3.  Сохраните текстовый файл на сервере системы сайта точки распространения, поддерживающем PXE. Текстовый файл можно сохранить в любом расположении на сервере.
+3.  Guarde o ficheiro de texto no servidor do sistema de sites do ponto de distribuição preparado para PXE. O ficheiro de texto pode ser guardado para qualquer localização no servidor.
 
-4.  Измените реестр точки распространения с поддержкой PXE, чтобы создать раздел реестра **MACIgnoreListFile**. Добавьте строковое значение полного пути к текстовому файлу на сервере системы сайта точки распространения с поддержкой PXE. Используйте приведенные ниже пути реестра.
+4.  Editar o registo do ponto de distribuição com PXE ativado para criar um **MACIgnoreListFile** chave de registo. Adicione o valor de cadeia do caminho completo para o ficheiro de texto no servidor do sistema de sites de ponto de distribuição com PXE ativado. Utilize o caminho de registo seguinte:
 
      **HKLM\Software\Microsoft\SMS\DP**  
 
     > [!WARNING]  
-    >  При неправильном использовании редактора реестра могут возникнуть серьезные проблемы, из-за которых может понадобиться переустановить операционную систему. Корпорация Майкрософт не гарантирует решения проблем, вызванных неправильным использованием редактора реестра. Ответственность за использование редактора реестра лежит на пользователе.
+    >  A utilização incorreta do Editor de registo poderá causar problemas graves que poderão exigir a reinstalação do sistema operativo. A Microsoft não garante que consiga resolver os problemas resultantes da utilização incorreta do Editor de Registo. A utilização do Editor de Registo é da exclusiva responsabilidade do utilizador.
 
-     После внесения изменений в реестр перезагружать сервер не требуется.
+     Não é necessário reiniciar o servidor depois de efetuar esta alteração ao registo.
 
-##  <a name="BKMK_RamDiskTFTP"></a>Размер блока и размер окна RamDisk TFTP
-Вы можете настраивать размеры блока RamDisk TFTP, а начиная с версии Configuration Manager 1606 также и размеры окна для точек распространения с поддержкой PXE. Если изменить настройки сети, это может привести к тому, что при скачивании образа загрузки произойдет ошибка тайм-аута из-за слишком большого размера блока или окна. Настройка размеров блока и окна RamDisk TFTP позволяет оптимизировать трафик TFTP при использовании PXE для соответствия определенным требованиям сети. Чтобы определить наиболее эффективный вариант, протестируйте настраиваемые параметры в среде пользователя. Дополнительные сведения см. в разделе [Настройка размеров блока и окна RamDisk TFTP в точках распространения с поддержкой PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
+##  <a name="BKMK_RamDiskTFTP"></a>Tamanho do bloco TFTP do disco de RAM e o tamanho da janela
+Pode personalizar o tamanho do bloco TFTP do disco de RAM e a partir do Configuration Manager versão 1606, o tamanho da janela de pontos de distribuição com PXE ativado. Se tiver personalizado a rede, poderá fazer com que a transferência da imagem de arranque falhe, com um erro de tempo limite excedido, porque o tamanho do bloco ou da janela é demasiado grande. A personalização do tamanho do bloco TFTP do disco de RAM e do tamanho da janela permitem otimizar o tráfego TFTP ao utilizar o PXE para satisfazer requisitos de rede específicos. Teste as definições personalizadas no seu ambiente para determinar o método mais eficaz. Para obter mais informações, consulte [personalizar o tamanho do bloco TFTP do disco de RAM e o tamanho da janela em pontos de distribuição com PXE ativado](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
 
-## <a name="configure-deployment-settings"></a>Настройка параметров развертывания
-Чтобы использовать инициируемое PXE развертывание операционной системы, необходимо настроить его на предоставление запросам на загрузку PXE доступа к операционной системе. Доступные операционные системы можно настроить на странице **Параметры развертывания** мастера развертывания программного обеспечения или на вкладке **Параметры развертывания** в свойствах развертывания. Для параметра **Сделать доступной для** настройте одно из следующих значений:
+## <a name="configure-deployment-settings"></a>Configurar definições de implementação
+Para utilizar uma implementação do sistema operativo iniciada por PXE, tem de configurar a implementação para disponibilizar o sistema operativo nos pedidos de arranque PXE. Pode configurar os sistemas operativos disponíveis no **definições de implementação** página do Assistente de implementação de Software ou o **definições de implementação** separador nas propriedades para a implementação. Na definição **Tornar disponível para o seguinte** , configure um dos seguintes:
 
--   Клиенты Configuration Manager, носители и PXE
+-   Clientes do Configuration Manager, suportes de dados e PXE
 
--   Только носители и PXE
+-   Apenas suportes de dados e PXE
 
--   Только носители и PXE (скрытые)
+-   Apenas suportes de dados e PXE (oculto)
 
-##  <a name="BKMK_Deploy"></a> Развертывание последовательности задач
-Выполните развертывание операционной системы в целевой коллекции. Дополнительные сведения см. в статье [Deploy a task sequence](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). При развертывании операционных систем с помощью PXE можно настроить, является ли это развертывание обязательным или доступным.
+##  <a name="BKMK_Deploy"></a> Implementar a sequência de tarefas
+Implemente o sistema operativo numa coleção de destino. Para obter mais informações, veja [Implementar uma sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). Quando implementar sistemas operativos através de PXE, pode configurar se a implementação é necessária ou se está disponível.
 
--   **Обязательное развертывание**. При обязательных развертываниях PXE используется без вмешательства пользователя. При этом пользователь не может обойти загрузку PXE. Если пользователь отменит загрузку PXE до получения ответа от точки распространения, операционная система не будет развернута.
+-   **Implementação necessária**: Requer a utilização de implementações PXE sem qualquer intervenção do utilizador. O utilizador não poderá ignorar o arranque PXE. No entanto, se o utilizador cancela o arranque PXE antes do ponto de distribuição responde, o sistema operativo não será implementado.
 
--   **Доступное развертывание**. Доступные развертывания требуют присутствия пользователя на конечном компьютере (и нажатия им клавиши F12 для продолжения процесса PXE-загрузки). Если пользователь отсутствует и не может нажать клавишу F12, то компьютер загрузится с использованием текущей операционной системы или со следующего доступного загрузочного устройства.
+-   **Implementação disponível**: As implementações disponíveis exigem que o utilizador esteja presente no computador de destino para poder premir a tecla F12 para continuar o processo de arranque PXE. Se o utilizador não estiver presente para premir a tecla F12, o computador arrancará no sistema operativo atual ou do dispositivo de arranque disponível seguinte.
 
-Чтобы повторно развернуть обязательное развертывание PXE, можно очистить состояние последнего развертывания PXE, назначенного компьютеру или коллекции Configuration Manager. Такое действие сбрасывает состояние этого развертывания и выполняет повторную установку последних обязательных развертываний.
+Pode Reimplementar uma implementação de PXE necessária limpando o estado da última implementação PXE atribuída a uma colecção do Configuration Manager ou num computador. Esta ação repõe o estado dessa implementação e reinstala as implementações necessárias mais recentes.
 
 > [!IMPORTANT]
-> Протокол PXE не является безопасным. PXE-сервер и клиент PXE должны находиться в физически защищенной сети (например, в центре обработки данных); это позволит избежать несанкционированного доступа к сайту.
+> O protocolo PXE não é seguro. Certifique-se de que o servidor PXE e o cliente PXE estão localizados numa rede fisicamente segura, como um centro de dados, para evitar o acesso não autorizado ao site.
 
-##  <a name="how-is-the-boot-image-selected-for-clients-booting-with-pxe"></a>Каким образом выбирается загрузочный образ для загрузки клиентов с помощью PXE?
-Когда клиент загружается с помощью PXE, Configuration Manager предоставляет клиенту загрузочный образ. Начиная с версии 1606 Configuration Manager использует образ загрузки, архитектура которого точно соответствует архитектуре клиента. Если образ загрузки с такой архитектурой недоступен, Configuration Manager использует образ загрузки с совместимой архитектурой. Ниже приведены сведения о порядке выбора загрузочного образа для клиентов, загрузка которых выполняется с помощью PXE.
-1. Configuration Manager выполняет в базе данных сайта поиск системной записи, соответствующей MAC-адресу или имени SMBIOS загружаемого клиента.  
+##  <a name="how-is-the-boot-image-selected-for-clients-booting-with-pxe"></a>Como a imagem de arranque está selecionada para clientes de arranque com PXE?
+Quando um cliente arranca com PXE, o Configuration Manager fornece o cliente com uma imagem de arranque para utilizar. A partir do Configuration Manager versão 1606, o Configuration Manager utiliza uma imagem de arranque com uma correspondência exata arquitetura. Se uma imagem de arranque com a arquitetura de exata não estiver disponível, o Configuration Manager utiliza uma imagem de arranque com uma arquitetura compatível. A lista seguinte fornece detalhes sobre como uma imagem de arranque está selecionada para clientes de arranque com PXE.
+1. O Configuration Manager procura na base de dados do site para o registo do sistema que corresponde ao endereço MAC ou o GUID do SMBIOS do cliente que está a tentar efetuar o arranque.  
 
     > [!NOTE]
-    > Если компьютер, назначенный сайту, загружается с помощью PXE для другого сайта, политики будут недоступны для этого компьютера. Например, если клиент уже назначен сайту А, точка управления и точка распространения для сайта Б не будут иметь доступ к политикам с сайта А. Следовательно, клиент не загрузится с помощью PXE.
+    > Se um computador que está atribuído a um site arranca no PXE para um site diferente, as políticas não são visíveis para o computador. Por exemplo, se um cliente já estiver atribuído ao site um, o ponto de gestão e o ponto de distribuição para o local B não será capazes de políticas de acesso do site A. O cliente não será com êxito o arranque PXE.
 
-2. Configuration Manager ищет последовательности задач, которые развертываются для системной записи, найденной в шаге 1.
+2. Procura do Configuration Manager para sequências de tarefas que são implementadas no registo de sistema foi encontrado no passo 1.
 
-3. В списке последовательностей задач, найденных в шаге 2, Configuration Manager ищет загрузочный образ, соответствующий архитектуре клиента, который пытается выполнить загрузку. При обнаружении загрузочного образа с нужной архитектурой он используется для загрузки клиента.
+3. Na lista de sequências de tarefas foi encontrado no passo 2, o Configuration Manager procura uma imagem de arranque que corresponda à arquitetura do cliente que está a tentar efetuar o arranque. Se for encontrada uma imagem de arranque com a mesma arquitetura, essa imagem de arranque é utilizada.
 
-4. Если образ загрузки с той же архитектурой не найден, Configuration Manager ищет образ загрузки, совместимый с архитектурой клиента. Поиск выполняется в списке последовательностей задач, найденных на шаге 2. Например, 64-разрядный клиент совместим с 32- и 64-разрядными загрузочными образами. 32-разрядный клиент совместим только с 32-разрядными загрузочными образами. Клиент с UEFI совместим только с 64-разрядными образами загрузки.
+4. Se uma imagem de arranque não for encontrada com a mesma arquitetura, procura do Configuration Manager para uma imagem de arranque que é compatível com a arquitetura do cliente. Procura na lista de sequências de tarefas foi encontrado no passo 2. Por exemplo, um cliente de 64 bits é compatível com as imagens de arranque de 32 bits e 64 bits. Um cliente de 32 bits é compatível com apenas imagens de arranque de 32 bits. Um cliente UEFI é compatível com apenas imagens de arranque de 64 bits.

@@ -1,6 +1,6 @@
 ---
-title: "Использование последовательности задач для управления виртуальными жесткими дисками | Документы Майкрософт"
-description: "Вы можете создавать и изменять виртуальные жесткие диски, добавлять к ним приложения и обновления программного обеспечения и публиковать их в System Center Virtual Machine Manager из Configuration Manager."
+title: "Utilizar uma sequência de tarefas para gerir discos rígidos virtuais | Microsoft Docs"
+description: "Criar e modificar um VHD, adicionar aplicações e atualizações de software e publicá-lo para o System Center Virtual Machine Manager (VMM) do Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,22 +16,22 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: f77af4b8fcb193ed44511c0e5eea7290f55dbbf8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Использование последовательности задач для управления виртуальными жесткими дисками в System Center Configuration Manager
+# <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Utilizar uma sequência de tarefas para gerir discos rígidos virtuais no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В System Center Configuration Manager вы можете из консоли Configuration Manager управлять виртуальными жесткими дисками и интегрировать созданные виртуальные жесткие диски в центре обработки данных. В частности, вы можете создавать и изменять виртуальные жесткие диски, добавлять к ним приложения и обновления программного обеспечения и публиковать их в System Center Virtual Machine Manager из консоли Configuration Manager.  
+No System Center Configuration Manager, pode gerir discos rígidos virtuais (VHDs) e integrar os VHDs que criar no seu centro de dados a partir da consola do Configuration Manager. Especificamente, pode criar e modificar um VHD, adicionar aplicações e atualizações de software ao VHD e publicá-lo para o System Center Virtual Machine Manager (VMM) da consola do Configuration Manager.  
 
- Ниже приведены процедуры управления виртуальными жесткими дисками в Configuration Manager.
+ Utilize as secções seguintes para gerir VHDs no Configuration Manager.
 
-## <a name="prerequisites"></a>Предварительные требования  
- Перед началом работы проверьте выполнение указанных ниже требований.  
+## <a name="prerequisites"></a>Pré-requisitos  
+ Antes de começar, verifique os seguintes pré-requisitos:  
 
--   На компьютере, с которого предполагается управлять виртуальными жесткими дисками, должна работать одна из следующих операционных систем:  
+-   O computador a partir do qual gere os VHDs tem de ter um dos seguintes sistemas operativos:  
 
     -   Windows 8.1 x64  
 
@@ -41,289 +41,289 @@ ms.lasthandoff: 08/07/2017
 
     -   Windows Server 2012  
 
-    -   Windows Server 2012 R2  
+    -   Windows Server 2012 R2  
 
--   В BIOS необходимо включить виртуализацию, а на компьютер, на котором будет работать консоль Configuration Manager для управления виртуальными жесткими дисками, необходимо установить Hyper-V. Также рекомендуется установить средства управления Hyper-V для упрощения тестирования и устранения неполадок виртуальных жестких дисков. Например, чтобы отслеживать в файле журнала smsts.log ход выполнения последовательности задач в Hyper-V, необходимо установить средства управления Hyper-V. Подробные сведения о требованиях Hyper-V см. в статье [Требования для установки Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
+-   Virtualização tem de estar ativada no BIOS e Hyper-V tem de estar instalado no computador em que executa a consola do Configuration Manager para gerir os VHDs. Como procedimento recomendado, instale ainda as ferramentas de gestão de Hyper-V para o ajudar a testar e resolver problemas com os discos rígidos virtuais. Por exemplo, para monitorizar o ficheiro smsts.log para controlar o progresso da sequência de tarefas no Hyper-V, terá de ter as ferramentas de gestão de Hyper-V instaladas. Para mais informações sobre os requisitos do Hyper-V, consulte [Pré-requisitos de Instalação do Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
 
     > [!IMPORTANT]  
-    >  Процесс создания виртуальных жестких дисков повышает загруженностью процессора и памяти. Поэтому рекомендуется управлять виртуальными жесткими дисками из консоли Configuration Manager, которая установлена не на сервере сайта.  
+    >  O processo de criação de um VHD consome tempo do processador e memória. Por conseguinte, é recomendado que gere os VHDs a partir de uma consola do Configuration Manager que não está instalada no servidor do site.  
 
--   На сервере сайте необходимо установить разрешение на **Запись** в папке, содержащей файл виртуального жесткого диска, если вы управляете им с удаленного компьютера.  
+-   O servidor de site terá de ter permissão de acesso de **Escrita** à pasta que conterá o ficheiro VHD ao gerir VHDs a partir de um computador que seja remoto relativamente ao servidor de site.  
 
--   Удостоверьтесь в наличии достаточного свободного дискового пространства на компьютере, с которого вы управляете виртуальными жесткими дисками. Требования к дисковому пространству виртуального жесткого диска различаются в зависимости от установленной операционной системы и приложений.  
+-   Verifique se tem espaço livre suficiente no disco do computador a partir do qual gere os VHDs. Os requisitos de espaço no disco rígido do VHD variam consoante o sistema operativo e as aplicações que instalar.  
 
--   Удостоверьтесь в наличии достаточного объема памяти на компьютере, с которого вы управляете виртуальными жесткими дисками. В ходе процесса создания виртуального жесткого диска виртуальная машина настраивается на использование 2 ГБ памяти.  
+-   Verifique se tem memória suficiente no computador a partir do qual gere os VHDs. Durante o processo de criação do VHD, a máquina virtual encontra-se configurada para consumir 2 GB de memória.  
 
--   Установите консоль System Center Virtual Machine Manager на компьютер, с которого на VMM отправляется виртуальный жесткий диск. Можно установить консоль VMM на отдельный компьютер, с которого вы будете управлять виртуальными жесткими дисками, в этом случае не требуется устанавливать Hyper-V для импорта виртуального жесткого диска на VMM.  
+-   Instale a consola do System Center Virtual Machine Manager (VMM) no computador a partir do qual carrega o VHD para o VMM. Poderá instalar a consola do VMM num computador separado daquele em que gere os VHDs, o que significa que não precisa de ter o Hyper-V instalado para importar o VHD para o VMM.  
 
     > [!NOTE]  
-    >  Если вы установили консоль VMM, в то время как консоль Configuration Manager была открыта, необходимо перезапустить консоль Configuration Manager после завершения установки консоли VMM. В противном случае Configuration Manager не подключится к серверу управления VMM для отправки виртуального жесткого диска.  
+    >  Se instalar a consola do VMM enquanto a consola do Configuration Manager está aberta, tem de reiniciar a consola do Configuration Manager após a conclusão da instalação da consola do VMM. Caso contrário, o Configuration Manager não irá ligar com êxito ao servidor de gestão do VMM para carregar um VHD.  
 
-##  <a name="BKMK_CreateVHDSteps"></a> Шаги для создания виртуального жесткого диска  
- Чтобы создать виртуальный жесткий диск, необходимо создать последовательность задач, которая содержит шаги для его создания, а затем использовать ее в мастере создания виртуальных жестких дисков для создания виртуального жесткого диска. В следующих разделах описаны шаги для создания виртуального жесткого диска.  
+##  <a name="BKMK_CreateVHDSteps"></a> Passos para Criar um VHD  
+ Para criar um VHD, terá de criar uma sequência de tarefas que contenha os passos para criar o VHD, utilizando em seguida a sequência de tarefas do Assistente para Criar Discos Rígidos Virtuais para criar o VHD. As secções seguintes fornecem os passos para criar o VHD.  
 
-###  <a name="BKMK_CreateTS"></a> Создание последовательности задач для виртуального жесткого диска  
- Вы должны создать последовательность задач, содержащую шаги для создания виртуального жесткого диска. В мастере создания последовательности задач имеется параметр **Установить существующий пакет образа на виртуальный жесткий диск** , с помощью которого создаются шаги, используемые для создания виртуального жесткого диска. Например, мастер добавляет следующие необходимые шаги: "Перезапустить в среде предустановки Windows", "Отформатировать диск и создать разделы", "Применить операционную систему" и "Завершить работу компьютера". Невозможно создать виртуальный жесткий диск в полной операционной системе. Также Configuration Manager для возможности выполнения пакета необходимо дождаться, пока виртуальная машина завершит работу. По умолчанию мастер ожидает в течение 5 минут, перед тем как завершить работу виртуальной машины. После создания последовательности задач можно, при необходимости, добавить дополнительные шаги.  
+###  <a name="BKMK_CreateTS"></a> Criar uma Sequência de Tarefas para o VHD  
+ Terá de criar uma sequência de tarefas que contenha os passos para criar o VHD. No Assistente de Criação de Sequência de Tarefas encontra a opção **Instalar um pacote de imagem existente num disco rígido virtual** , que cria os passos a utilizar para criar o VHD. Por exemplo, o assistente adiciona os seguintes passos necessários: Reiniciar no Windows PE, formatar e particionar disco, aplicar sistema operativo e encerrar o computador. Não é possível criar o VHD a partir do sistema operativo completo. Além disso, o Configuration Manager tem de aguardar até que a máquina virtual seja encerrada para poder concluir o pacote. Por predefinição, o assistente aguarda 5 minutos até encerrar a máquina virtual. Depois de criar a sequência de tarefas poderá, se necessário, acrescentar passos adicionais.  
 
 > [!IMPORTANT]  
->  В следующей процедуре последовательность задач создается с помощью параметра **Установить существующий пакет образа на виртуальный жесткий диск** , который автоматически включает требуемые шаги для создания виртуального жесткого диска. При выборе существующей или созданной вручную последовательности задач удостоверьтесь, что в конце ее вы добавили шаг "Завершить работу компьютера". Без этого шага временная виртуальная машина не удаляется, и процесс создания виртуального жесткого диска не завершится. Тем не менее, мастер завершит работу и сообщит об успешном выполнении.  
+>  O procedimento seguinte cria a sequência de tarefas utilizando a opção **Instalar um pacote de imagem existente num disco rígido virtual** , que inclui automaticamente os passos necessários para criar o VHD com êxito. Se optar por utilizar uma sequência de tarefas existente ou por criar manualmente uma sequência de tarefas, não se esqueça de adicionar o passo Encerrar o Computador no final da sequência de tarefas. Sem este passo, a máquina virtual temporária não será eliminada e o processo de criação do VHD não será concluído. No entanto, o assistente será concluído e informará que foi bem sucedido.  
 
- Используйте следующую процедуру, чтобы создать последовательность задач для создания виртуального жесткого диска.  
+ Utilize o procedimento seguinte para criar a sequência de tarefas de criação do VHD:  
 
-#### <a name="to-create-the-task-sequence-to-create-the-vhd"></a>Процедура создания последовательности задач для создания виртуального жесткого диска  
+#### <a name="to-create-the-task-sequence-to-create-the-vhd"></a>Para criar a sequência de tarefas de criação do VHD  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  В группе **Создать** вкладки **Главная** выберите команду **Создать последовательность задач** , чтобы запустить мастер создания последовательности задач.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
 
-4.  На странице **Создание новой последовательности задач** выберите команду **Установить существующий пакет образа на виртуальный жесткий диск**и нажмите кнопку **Далее**.  
+4.  Na página **Criar uma Nova Sequência de Tarefas** , selecione **Instalar um pacote de imagem existente num disco rígido virtual**e clique em **Seguinte**.  
 
-5.  На странице **Сведения о последовательности задач** настройте следующие параметры, затем нажмите кнопку **Далее**.  
+5.  Na página **Informações da Sequência de Tarefas** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    -   **Имя последовательности задач**. Укажите имя последовательности задач.  
+    -   **Nome da sequência de tarefas**: Especifique um nome que identifique a sequência de tarefas.  
 
-    -   **Описание**. Укажите описание последовательности задач.  
+    -   **Descrição**: Especifique uma descrição da sequência de tarefas.  
 
-    -   **Загрузочный образ**. Выберите загрузочный образ для установки операционной системы на конечном компьютере. Дополнительные сведения см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
+    -   **Imagem de arranque**: Especifique a imagem de arranque que instala o sistema operativo no computador de destino. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
 
-6.  На странице **Установка Windows** настройте следующие параметры, затем нажмите кнопку **Далее**.  
+6.  Na página **Instalar o Windows** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    -   **Пакет образа**. Укажите пакет с образом устанавливаемой операционной системы.  
+    -   **Pacote de imagem**: Especifique o pacote que contém a imagem do sistema operativo a instalar.  
 
-    -   **Образ**. Если пакет содержит несколько образов операционной системы, укажите индекс устанавливаемого образа.  
+    -   **Imagem**: Se o pacote de imagem do sistema operativo tiver várias imagens, especifique o índice da imagem do sistema operativo a instalar.  
 
-    -   **Ключ продукта**. Введите ключ продукта для устанавливаемой операционной системы Windows. Можно указать зашифрованные ключи многократной установки или стандартные ключи продукта. В незашифрованном ключе знаки сгруппированы по 5 и разделены дефисами (-), Например, *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
+    -   **Chave de produto**: Especifique a chave de produto para o sistema operativo do Windows instalar. Pode especificar chaves de licenciamento em volume codificadas e chaves de produto padrão. Se utilizar uma chave de produto não codificada, terá de separar cada grupo de 5 carateres por um hífen (-). Por exemplo: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
 
-    -   **Режим лицензирования сервера**. Выберите режим лицензирования сервера: **Для каждого рабочего места**, **Для каждого сервера**или не указывайте лицензию. В случае использования варианта **Для каждого сервера**следует также указать максимальное число подключений.  
+    -   **Modo de licenciamento de servidor**: Especifique se a licença do servidor é **por posto**, **por servidor**, ou se for especificada qualquer licença. Se a licença do servidor for **Por servidor**, especifique também o número máximo de ligações de servidor.  
 
-    -   Укажите параметры обработки учетной записи администратора, использующейся при развертывании образа операционной системы.  
+    -   Especifique como lidar com a conta de administrador utilizada quando a imagem de sistema operativo é implementada.  
 
-        -   **Задать произвольно пароль лок. администратора и отключить учетную запись лок. администратора на всех поддерживаемых платформах (рекомендуется)**. Используйте этот параметр, чтобы мастер создал пароль для учетной записи локального администратора случайным образом и отключил учетную запись при развертывании образа операционной системы.  
+        -   **Aleatoriamente gerar a palavra-passe de administrador local e desativar a conta nas plataformas suportadas (recomendado)**: Utilize esta definição para que o assistente aleatoriamente criar uma palavra-passe da conta de administrador local e desative a conta quando a imagem do sistema operativo é implementada.  
 
-        -   **Включить учетную запись локального администратора и задать пароль**. Используйте этот параметр, чтобы указать использование одного и того же пароля для учетной записи локального администратора на всех компьютерах, на которых развертывается образ операционной системы.  
+        -   **Ativar a conta e especificar a palavra-passe de administrador local**: Utilize esta definição para utilizar uma palavra-passe específica para a conta de administrador local em todos os computadores onde a imagem de sistema operativo é implementada.  
 
-7.  На странице **Настроить сеть** настройте следующие параметры, затем нажмите кнопку **Далее**.  
+7.  Na página **Configurar Rede** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    -   **Присоединить к рабочей группе**. Укажите, следует ли добавить конечный компьютер к рабочей группе.  
+    -   **Aderir a um grupo de trabalho**: Especifique se pretende adicionar o computador de destino a um grupo de trabalho.  
 
-    -   **Присоединить к домену**. Укажите, следует ли добавить конечный компьютер к домену. Укажите имя домена в разделе **Домен**.  
+    -   **Aderir a um domínio**: Especifique se pretende adicionar o computador de destino a um domínio. Em **Domínio**, especifique o nome do domínio.  
 
         > [!IMPORTANT]  
-        >  Чтобы указать домен из локального леса, достаточно просмотреть структуру последнего; в случае же с удаленным лесом необходимо знать (и ввести) имя домена.  
+        >  Pode navegar para localizar domínios na floresta local, mas tem de especificar o nome de domínio de uma floresta remota.  
 
-         Можно также указать подразделение (OU). Это необязательный параметр, содержащий различающееся имя подразделения в каталоге LDAP X.500, куда добавляется учетная запись компьютера, если она еще не создана.  
+         Também pode especificar uma unidade organizacional (UO). Trata-se de uma definição opcional que especifica o nome único LDAP X.500 da UO em que deverá ser criada a conta de computador, caso ainda não exista.  
 
-    -   **Учетная запись**. Введите имя пользователя и пароль учетной записи, которая может присоединиться к выбранному домену. Например: *domain\user* или *%variable%*.  
+    -   **Conta**: Especifique o nome de utilizador e palavra-passe para a conta que possui permissões para aderir ao domínio especificado. Por exemplo: *domínio\utilizador* ou *%variable%*.  
 
-8.  На странице **Установка Configuration Manager** выберите пакет клиента Configuration Manager, устанавливаемый на конечный компьютер, и нажмите кнопку **Далее**.  
+8.  No **instalar Configuration Manager** página, especifique o pacote de cliente do Configuration Manager para instalar no computador de destino e, em seguida, clique em **seguinte**.  
 
-9. На странице **Установить приложения** укажите приложения, которые необходимо установить на конечный компьютер, а затем нажмите кнопку **Далее**. Если задано несколько приложений, можно настроить продолжение выполнения последовательности задач в случае сбоя установки определенного приложения.  
+9. Na página **Instalar Aplicações** , especifique as aplicações a instalar no computador de destino e clique em **Seguinte**. Se especificar várias aplicações, poderá também especificar que a sequência de tarefas deverá continuar se a instalação de uma aplicação específica falhar.  
 
-10. Завершите работу мастера.  
+10. Conclua o assistente.  
 
-###  <a name="BKMK_CreateVHD"></a> Создание виртуального жесткого диска  
- После создания последовательности задач для виртуального жесткого диска используйте для его создания мастер создания виртуальных жестких дисков.  
+###  <a name="BKMK_CreateVHD"></a> Criar um VHD  
+ Após criar uma sequência de tarefas para o VHD, utilize o Assistente para Criar Discos Rígidos Virtuais para criar o VHD.  
 
 > [!IMPORTANT]  
->  Перед выполнением этой процедуры убедитесь, что выполнены необходимые требования, перечисленные в начале этой статьи.  
+>  Antes de executar este procedimento, certifique-se de que cumpre os pré-requisitos listados no início deste tópico.  
 
- Чтобы создать виртуальный жесткий диск, выполните следующую процедуру.  
+ Utilize o procedimento seguinte para criar um VHD.  
 
-#### <a name="to-create-a-vhd"></a>Процедура создания виртуального жесткого диска  
+#### <a name="to-create-a-vhd"></a>Para criar um VHD  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите пункт **Виртуальные жесткие диски**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Discos Rígidos Virtuais**.  
 
-3.  На вкладке **Главная** в группе **Создать** выберите пункт **Создать виртуальный жесткий диск** , чтобы запустить мастер создания виртуальных жестких дисков.  
-
-    > [!NOTE]  
-    >  Hyper-V должен быть установлен на компьютере с работающей консолью Configuration Manager, из которой вы управляете виртуальными жесткими дисками, либо отключен параметр **Создать виртуальный жесткий диск**. Подробные сведения о требованиях Hyper-V см. в статье [Требования для установки Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
-
-    > [!TIP]  
-    >  Чтобы упорядочить виртуальные жесткие диски, создайте новую папку или выберите существующую в узле **Виртуальные жесткие диски** , а затем щелкните в папке **Создать виртуальный жесткий диск** .  
-
-4.  На странице **Общие** укажите следующие параметры, затем нажмите кнопку **Далее**.  
-
-    -   **Имя**. Укажите уникальное имя для виртуального жесткого диска.  
-
-    -   **Версия**. Укажите номер версии для виртуального жесткого диска. Этот параметр является необязательным.  
-
-    -   **Комментарий**. Введите описание виртуального жесткого диска.  
-
-    -   **Путь**. Укажите путь и имя файла, который мастер будет использовать для создания файла виртуального жесткого диска.  
-
-         Необходимо ввести действительный путь в формате UNC. Пример: **\\\servername\\<имя_общей_папки\>\\<имя_файла\>.vhd**.  
-
-        > [!WARNING]  
-        >  Для Configuration Manager необходимо установить разрешение на **запись** для указанного пути, чтобы создать виртуальный жесткий диск. В случае сбоя Configuration Manager при доступе к пути соответствующая ошибка регистрируется в файле журнала distmgr.log на сервере сайта.  
-
-5.  На странице **Последовательность задач** укажите последовательность задач, которую вы определили в предыдущем разделе, а затем нажмите кнопку **Далее**.  
-
-6.  На странице **Точки распространения** укажите точки распространения, в которых находится содержимое, необходимое для последовательности задач, и нажмите кнопку **Далее**.  
-
-7.  На странице **Настройка** нажмите кнопку **Далее**. Любые параметры, заданные на этой странице, в процессе создания виртуального жесткого диска игнорируются.  
-
-8.  Проверьте параметры и нажмите кнопку **Далее**. Мастер создаст виртуальный жесткий диск.  
-
-    > [!TIP]  
-    >  Длительность процесса создания виртуального жесткого диска может быть различным. Во время обработки мастером этого процесса можно отслеживать ход выполнения по следующим файлам журналов. По умолчанию журналы располагаются на компьютере, на котором работает консоль Configuration Manager, в файле %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
-    >   
-    >  -   **CreateTSMedia.log**. В этом журнале мастер записывает сведения в ходе создания последовательности задач. Проверьте этот файл журнала, чтобы отследить ход выполнения процесса создания мастером автономного носителя.  
-    > -   **DeployToVHD.log**. В этом журнале мастер записывает сведения в ходе процесса создания виртуального жесткого диска. Проверьте этот файл журнала, чтобы отследить ход выполнения мастером всех шагов после создания автономного носителя.  
-    >   
-    >  Также при запуске установки операционной системы можно открыть диспетчер Hyper-V (если на компьютере установлены средства управления Hyper-V) и подключиться к созданной мастером временной виртуальной машине, чтобы увидеть выполнение последовательности задач. На виртуальной машине можно отследить ход выполнения последовательности задач в файле журнала smsts.log. В случае возникновения проблем при выполнении шага последовательности задач можно использовать этот файл журнала для упрощения устранения неполадок, связанных с проблемой. Файл smsts.log располагается по пути x:\windows\temp\smstslog\smsts.log перед форматированием жесткого диска и в папке c:\\_SMSTaskSequence\Logs\Smstslog\ после форматирования. Через 5 минут (по умолчанию) после выполнения шагов последовательности задач завершается работа виртуальной машины и она удаляется.  
-
- После того как Configuration Manager создаст виртуальный жесткий диск, он будет находиться в узле **Виртуальные жесткие диски** в консоли Configuration Manager в узле **Развертывание операционной системы** в рабочей области **Библиотека программного обеспечения**.  
-
-> [!NOTE]  
->  Чтобы получить размер виртуального жесткого диска, Configuration Manager подключается к его исходному расположению. Если Configuration Manager не удается получить доступ к файлу виртуального жесткого диска, в столбце **Размер (КБ)** для него отображается значение **0**.  
-
-##  <a name="BKMK_ModifyVHDSteps"></a> Шаги для изменения существующего виртуального жесткого диска  
- Чтобы изменить виртуальный жесткий диск, необходимо создать последовательность задач, которая содержит шаги для его изменения. Затем эту последовательность задач необходимо выбрать в мастере изменения виртуальных жестких дисков. Мастер подключит виртуальный жесткий диск к виртуальной машине, выполнит для него последовательность задач, а затем обновит файл виртуального жесткого диска. В следующих разделах описаны шаги для изменения виртуального жесткого диска.  
-
-###  <a name="BKMK_ModifyTS"></a> Создание последовательности задач для изменения виртуального жесткого диска  
- Чтобы изменить существующий виртуальный жесткий диск, сначала необходимо создать последовательность задач. Выберите только те шаги, которые требуются для изменения последовательности задач. Например, если на виртуальный жесткий диск необходимо добавить приложение, создайте настраиваемую последовательность задач, а затем добавьте в нее только шаг "Установка приложения".  
-
- Используйте следующую процедуру, чтобы создать последовательность задач для изменения виртуального жесткого диска.  
-
-#### <a name="to-create-a-custom-task-sequence-to-modify-the-vhd"></a>Процедура создания настраиваемой последовательности задач для изменения виртуального жесткого диска  
-
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
-
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
-
-3.  В группе **Создать** вкладки **Главная** выберите команду **Создать последовательность задач** , чтобы запустить мастер создания последовательности задач.  
-
-4.  На странице **Создать новую последовательность задач** выберите команду **Создать новую пользовательскую последовательность задач**, а затем нажмите кнопку **Далее**.  
-
-5.  На странице **Сведения о последовательности задач** настройте следующие параметры, затем нажмите кнопку **Далее**.  
-
-    -   **Имя последовательности задач**. Укажите имя последовательности задач.  
-
-    -   **Описание**. Укажите описание последовательности задач.  
-
-    -   **Загрузочный образ**. Выберите загрузочный образ для установки операционной системы на конечном компьютере. Дополнительные сведения см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
-
-6.  Завершите работу мастера.  
-
- Используйте следующую процедуру, чтобы добавить шаги в настраиваемую последовательность задач.  
-
-#### <a name="to-add-task-sequence-steps-to-the-custom-task-sequence"></a>Процедура добавления шагов в настраиваемую последовательность задач  
-
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
-
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**, выберите пункт **Последовательности задач**, а затем выберите настраиваемую последовательность задач, созданную в предыдущей процедуре.  
-
-3.  На вкладке **Главная** в группе **Последовательность задач** нажмите кнопку **Изменить** , чтобы запустить редактор последовательности задач.  
-
-4.  Добавьте шаги последовательности задач для изменения виртуального жесткого диска.  
-
-5.  Нажмите кнопку **ОК** , чтобы выйти из редактора последовательности задач.  
-
-###  <a name="BKMK_ModifyVHD"></a> Изменение виртуального жесткого диска  
- После создания последовательности задач для виртуального жесткого диска используйте для его изменения мастер изменения виртуальных жестких дисков.  
-
- Чтобы изменить виртуальный жесткий диск, выполните следующую процедуру.  
-
-#### <a name="to-modify-a-vhd"></a>Процедура изменения виртуального жесткого диска  
-
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
-
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**, выберите пункт **Виртуальные жесткие диски**, а затем выберите виртуальный жесткий диск, который необходимо изменить.  
-
-3.  На вкладке **Главная** в группе **Виртуальный жесткий диск** нажмите кнопку **Изменить виртуальный жесткий диск** , чтобы запустить мастер изменения виртуальных жестких дисков.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Disco Rígido Virtual** para iniciar o Assistente para Criar Discos Rígidos Virtuais.  
 
     > [!NOTE]  
-    >  Hyper-V должен быть установлен на компьютере с работающей консолью Configuration Manager, из которой вы управляете виртуальными жесткими дисками, либо отключен параметр **Изменить виртуальный жесткий диск**. Подробные сведения о требованиях Hyper-V см. в статье [Требования для установки Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
-
-4.  На странице **Общие** укажите следующие параметры, а затем нажмите кнопку **Далее**.  
-
-    -   **Имя**. Указывает уникальное имя виртуального жесткого диска.  
-
-    -   **Версия**. Указывает номер версии виртуального жесткого диска. Этот параметр является необязательным.  
-
-    -   **Комментарий**. Указывает описание виртуального жесткого диска.  
-
-    -   **Путь**. Указывает путь и имя файла виртуального жесткого диска. Этот параметр изменить невозможно.  
-
-        > [!WARNING]  
-        >  Для Configuration Manager необходимо установить разрешение на **запись** для указанного пути, чтобы создать виртуальный жесткий диск. В случае сбоя Configuration Manager при доступе к пути соответствующая ошибка регистрируется в файле журнала distmgr.log на сервере сайта.  
-
-5.  На странице **Последовательность задач** укажите настраиваемую последовательность задач, созданную в предыдущем разделе, а затем нажмите кнопку **Далее**.  
-
-6.  На странице **Точки распространения** укажите точки распространения, в которых находится содержимое, необходимое для последовательности задач, и нажмите кнопку **Далее**.  
-
-7.  На странице **Настройка** нажмите кнопку **Далее**. Любые параметры, заданные на этой странице, в процессе изменения виртуального жесткого диска игнорируются.  
-
-8.  Проверьте параметры и нажмите кнопку **Далее**. Мастер создаст измененный виртуальный жесткий диск.  
+    >  Hyper-V tem de estar instalado no computador que executa a consola do Configuration Manager a partir do qual gere os VHDs ou a **criar disco rígido Virtual** opção não está ativada. Para mais informações sobre os requisitos do Hyper-V, consulte [Pré-requisitos de Instalação do Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
 
     > [!TIP]  
-    >  Длительность процесса изменения виртуального жесткого диска может быть разной. Во время обработки мастером этого процесса можно отслеживать ход выполнения по следующим файлам журналов. По умолчанию журналы располагаются на компьютере, на котором работает консоль Configuration Manager, в файле %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
+    >  Para organizar os seus VHDs, crie uma nova pasta ou selecione uma pasta existente sob o nó **Discos Rígidos Virtuais** e clique em **Criar Disco Rígido Virtual** a partir da pasta.  
+
+4.  Na página **Geral** , especifique as seguintes definições e clique em **Seguinte**.  
+
+    -   **Nome**: Especifique um nome exclusivo para o VHD.  
+
+    -   **Versão**: Especifique um número de versão para o VHD. Esta definição é opcional.  
+
+    -   **Comentário**: Especifique uma descrição para o VHD.  
+
+    -   **Caminho**: Especifique o nome de ficheiro e caminho para onde o assistente irá criar o ficheiro VHD.  
+
+         Terá de introduzir um caminho de rede válido no formato UNC. Por exemplo:  **\\\servername\\< sharename\>\\< filename\>. vhd**.  
+
+        > [!WARNING]  
+        >  O Configuration Manager tem de ter **escrever** permissão para o caminho especificado para criar o VHD de acesso. Quando o Configuration Manager não conseguir aceder ao caminho, registará o erro associado no ficheiro distmgr.log, no servidor do site.  
+
+5.  Na página **Sequência de Tarefas** , especifique a sequência de tarefas que especificou na secção anterior e clique em **Seguinte**.  
+
+6.  Na página **Pontos de Distribuição** , selecione um ou vários pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e clique em **Seguinte**.  
+
+7.  Na página **Personalização** , clique em **Seguinte**. O processo de criação do VHD ignorará quaisquer definições que especifique nesta página.  
+
+8.  Verifique as definições e clique em **Seguinte**. O assistente criará o VHD.  
+
+    > [!TIP]  
+    >  O tempo de execução do processo de criação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles (x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
     >   
-    >  -   **CreateTSMedia.log**. В этом журнале мастер записывает сведения в ходе создания последовательности задач. Проверьте этот файл журнала, чтобы отследить ход выполнения процесса создания мастером автономного носителя.  
-    > -   **DeployToVHD.log**. В этом журнале мастер записывает сведения в ходе процесса изменения виртуального жесткого диска. Проверьте этот файл журнала, чтобы отследить ход выполнения мастером всех шагов после создания автономного носителя.  
+    >  -   **CreateTSMedia.log**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+    > -   **DeployToVHD.log**: O assistente escreve informações neste registo enquanto executa o processo de criação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
     >   
-    >  Также можно открыть диспетчер Hyper-V (если на компьютере установлены средства управления Hyper-V) и подключиться к созданной мастером временной виртуальной машине, чтобы увидеть выполнение последовательности задач. На виртуальной машине можно отследить ход выполнения последовательности задач в файле журнала smsts.log. В случае возникновения проблем при выполнении шага последовательности задач можно использовать этот файл журнала для упрощения устранения неполадок, связанных с проблемой. Файл smsts.log располагается по пути x:\windows\temp\smstslog\smsts.log перед форматированием жесткого диска и в папке c:\\_SMSTaskSequence\Logs\Smstslog\ после форматирования. Через 5 минут (по умолчанию) после выполнения шагов последовательности задач завершается работа виртуальной машины и она удаляется.  
+    >  Além disso, quando a instalação do sistema operativo for iniciada, poderá abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts.log encontra x: \windows\temp\smstslog\smsts.log antes do disco rígido formatado e c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
 
-##  <a name="BKMK_ApplyUpdates"></a> Применение обновлений программного обеспечения к виртуальному жесткому диску  
- Периодически выпускаются новые обновления программного обеспечения, которые должны применяться к операционной системе вашего виртуального жесткого диска. Обновления программного обеспечения можно применять к виртуальному жесткому диску по указанному расписанию. В соответствии с указанным расписанием Configuration Manager применит к виртуальному жесткому диску выбранные обновления операционной системы.  
-
- Сведения о виртуальном жестком диске хранятся в базе данных сайта, включая примененные к диску на момент его создания обновления программного обеспечения. Обновления программного обеспечения, которые были применены к виртуальному жесткому диску после первоначального создания, также сохраняются в базе данных сайта. Мастер при запуске для применения обновлений программного обеспечения к виртуальному жесткому диску получает список доступных обновлений, которые еще не были применены к этому диску.  
-
- Можно выбрать параметр **Продолжать при ошибке** для Configuration Manager, чтобы продолжать применять обновления программного обеспечения даже при ошибке, произошедшей в ходе применения одного или нескольких выбранных обновлений.  
+ Depois do Configuration Manager cria o VHD, este ficará localizado no **discos rígidos virtuais** nó na consola do Configuration Manager no **implementação do sistema operativo** no nó de **biblioteca de Software** área de trabalho.  
 
 > [!NOTE]  
->  Обновления программного обеспечения копируются из библиотеки содержимого на сервере сайта.  
+>  Configuration Manager obtém o tamanho do VHD estabelecendo ligação à localização de origem do VHD. Se o Configuration Manager não é possível aceder ao ficheiro VHD, **0** é apresentado no **tamanho (KB)** coluna para o VHD.  
 
- Используйте следующую процедуру для применения обновлений программного обеспечения для виртуального жесткого диска.  
+##  <a name="BKMK_ModifyVHDSteps"></a> Passos para Modificar um VHD Existente  
+ Para modificar um VHD, terá de criar uma sequência de tarefas com os passos necessários para modificar o VHD. Em seguida, selecione a sequência de tarefas no Assistente para Modificar Discos Rígidos Virtuais. O assistente anexa o VHD à máquina virtual, executa a sequência de tarefas no VHD e atualiza o ficheiro VHD. As secções seguintes fornecem os passos para modificar o VHD.  
 
-#### <a name="to-apply-software-updates-to-a-vhd"></a>Процедура применения обновлений программного обеспечения для виртуального жесткого диска  
+###  <a name="BKMK_ModifyTS"></a> Criar uma Sequência de tarefas para Modificar o VHD  
+ Para modificar um VHD existente, terá primeiro de criar uma sequência de tarefas. Escolha apenas os passos necessários para modificar a sequência de tarefas. Por exemplo, se pretender adicionar uma aplicação ao VHD, crie uma sequência de tarefas personalizada e adicione apenas o passo Instalar Aplicação.  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+ Utilize o procedimento seguinte para criar a sequência de tarefas de modificação do VHD.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите пункт **Виртуальные жесткие диски**.  
+#### <a name="to-create-a-custom-task-sequence-to-modify-the-vhd"></a>Para criar uma sequência de tarefas personalizada para modificar o VHD  
 
-3.  Выберите виртуальный жесткий диск, к которому будут применяться обновления программного обеспечения.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-4.  На вкладке **Главная** в группе **Виртуальный жесткий диск** щелкните элемент **Запланировать обновления** , чтобы запустить мастер.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-5.  На странице **Выбор обновлений** выберите обновления программного обеспечения, которые следует применить к виртуальному жесткому диску, и нажмите кнопку **Далее**.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
 
-6.  На странице **установки расписания** укажите следующие параметры и нажмите кнопку **Далее**.  
+4.  Na página **Criar uma Nova Sequência de Tarefas** , selecione **Criar uma nova sequência de tarefas personalizada**e clique em **Seguinte**.  
 
-    1.  **Расписание**. Укажите расписание, в соответствии с которым обновления программного обеспечения должны применяться к виртуальному жесткому диску.  
+5.  Na página **Informações da Sequência de Tarefas** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    2.  **Продолжать при ошибке**. Установите этот флажок, чтобы обновления программного обеспечения применялись к образу даже при появлении ошибки.  
+    -   **Nome da sequência de tarefas**: Especifique um nome que identifique a sequência de tarefas.  
 
-7.  На странице **Сводка** проверьте параметры и нажмите кнопку **Далее**.  
+    -   **Descrição**: Especifique uma descrição da sequência de tarefas.  
 
-8.  На странице **Завершение** убедитесь в успешном применении обновлений программного обеспечения к образу операционной системы.  
+    -   **Imagem de arranque**: Especifique a imagem de arranque que instala o sistema operativo no computador de destino. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
 
-##  <a name="BKMK_ImportToVMM"></a> Импорт виртуального жесткого диска в System Center Virtual Machine Manager  
- System Center VMM — это решение для управления виртуализированным центром обработки данных, позволяющее настраивать и управлять узлом виртуализации, сетью и ресурсами хранилища для создания и развертывания виртуальных машин и служб в созданных вами частных облаках. После создания виртуального жесткого диска в Configuration Manager можно импортировать его и управлять им с помощью VMM.  
+6.  Conclua o assistente.  
+
+ Utilize o procedimento seguinte para adicionar passos à sequência de tarefas personalizada.  
+
+#### <a name="to-add-task-sequence-steps-to-the-custom-task-sequence"></a>Para adicionar passos à sequência de tarefas personalizada  
+
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+
+2.  Na área de trabalho **Biblioteca de Software** expanda **Sistemas Operativos**, clique em **Sequências de Tarefas**e selecione a sequência de tarefas personalizada que criou no procedimento anterior.  
+
+3.  No separador **Home Page** , no grupo **Sequência de Tarefas** , clique em **Editar** para iniciar o editor de sequência de tarefas.  
+
+4.  Adicione os passos da sequência de tarefas a utilizar para modificar o VHD.  
+
+5.  Clique em **OK** para sair do editor de sequência de tarefas.  
+
+###  <a name="BKMK_ModifyVHD"></a> Modificar um VHD  
+ Após criar uma sequência de tarefas para o VHD, utilize o Assistente para Modificar Discos Rígidos Virtuais para modificar o VHD.  
+
+ Utilize o procedimento seguinte para modificar um VHD.  
+
+#### <a name="to-modify-a-vhd"></a>Para modificar um VHD  
+
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**, clique em **Discos Rígidos Virtuais**e selecione o VHD a modificar.  
+
+3.  No separador **Home Page** , no grupo **Disco Rígido Virtual** , clique em **Modificar Disco Rígido Virtual** para iniciar o Assistente para Modificar Discos Rígidos Virtuais.  
+
+    > [!NOTE]  
+    >  Hyper-V tem de estar instalado no computador que executa a consola do Configuration Manager a partir do qual gere os VHDs ou a **modificar disco rígido Virtual** opção não está ativada. Para mais informações sobre os requisitos do Hyper-V, consulte [Pré-requisitos de Instalação do Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
+
+4.  Na página **Geral** , confirme as seguintes definições e clique em **Seguinte**.  
+
+    -   **Nome**: Especifica o nome exclusivo para o VHD.  
+
+    -   **Versão**: Especifica o número de versão para o VHD. Esta definição é opcional.  
+
+    -   **Comentário**: Especifica a descrição para o VHD.  
+
+    -   **Caminho**: Especifica o nome de ficheiro e caminho para onde está localizado o ficheiro VHD. Não é possível modificar esta definição.  
+
+        > [!WARNING]  
+        >  O Configuration Manager tem de ter **escrever** permissão para o caminho especificado para criar o VHD de acesso. Quando o Configuration Manager não conseguir aceder ao caminho, registará o erro associado no ficheiro distmgr.log, no servidor do site.  
+
+5.  Na página **Sequência de Tarefas** , especifique a sequência de tarefas personalizada que criou na secção anterior e clique em **Seguinte**.  
+
+6.  Na página **Pontos de Distribuição** , selecione um ou vários pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e clique em **Seguinte**.  
+
+7.  Na página **Personalização** , clique em **Seguinte**. O processo de modificação do VHD ignorará quaisquer definições que especifique nesta página.  
+
+8.  Verifique as definições e clique em **Seguinte**. O assistente criará o VHD modificado.  
+
+    > [!TIP]  
+    >  O tempo de execução do processo de modificação do VHD poderá variar. Enquanto o assistente executa este processo, poderá monitorizar os seguintes ficheiros de registo para acompanhar o progresso. Por predefinição, os registos estão localizados no computador que executa a consola do Configuration Manager em %*ProgramFiles (x86)*%\Microsoft Configuration manager\adminconsole\adminuilog.  
+    >   
+    >  -   **CreateTSMedia.log**: O assistente escreve informações neste registo enquanto cria o suporte de dados de sequência de tarefas. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+    > -   **DeployToVHD.log**: O assistente escreve informações neste registo enquanto executa o processo de modificação do VHD. Consulte este ficheiro de registo para acompanhar o progresso do assistente enquanto cria o suporte de dados autónomo.  
+    >   
+    >  Além disso, pode abrir o Gestor de Hyper-V (se tiver instalado as ferramentas de gestão de Hyper-V no computador) e ligar à máquina virtual temporária criada pelo assistente para ver a sequência de tarefas em execução. Na máquina virtual poderá monitorizar o ficheiro smsts.log para acompanhar o progresso da sequência de tarefas. Se ocorrerem problemas ao executar um passo da sequência de tarefas, poderá utilizar este ficheiro de registo para o ajudar a resolver o problema. O ficheiro smsts.log encontra x: \windows\temp\smstslog\smsts.log antes do disco rígido formatado e c:\\_SMSTaskSequence\Logs\Smstslog\ após a formatação. Após a conclusão dos passos da sequência de tarefas, a máquina virtual será encerrada ao fim de 5 minutos (por predefinição) e eliminada.  
+
+##  <a name="BKMK_ApplyUpdates"></a> Aplicar atualizações de software a um VHD  
+ Periodicamente, são lançadas novas atualizações de software que são aplicáveis ao sistema operativo do VHD. Pode aplicar atualizações de software aplicáveis a um VHD numa agenda especificada. Na agenda que especificar, Gestor de configuração aplica-se as atualizações de software que selecionar para o VHD.  
+
+ As informações sobre sobre o VHD são armazenadas na base de dados do site, incluindo as atualizações de software que foram aplicadas no momento em que criou o VHD. As atualizações de software aplicadas ao VHD desde que este foi inicialmente criado também são armazenadas na base de dados do site. Ao iniciar o assistente para aplicar as atualizações de software ao VHD, o assistente obtém uma lista de atualizações de software aplicáveis que ainda não foram aplicadas ao VHD para que possa selecioná-las.  
+
+ Pode selecionar o **continuar com o erro** definição para o Configuration Manager para continuar a aplicar o software de atualizações, mesmo se ocorrer um erro ao aplicar uma ou mais o software de atualizações que selecionou.  
+
+> [!NOTE]  
+>  As atualizações de software são copiadas a partir da biblioteca de conteúdos no servidor do site.  
+
+ Utilize o procedimento seguinte para aplicar atualizações de software ao VHD.  
+
+#### <a name="to-apply-software-updates-to-a-vhd"></a>Para aplicar atualizações de software a um VHD  
+
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Discos Rígidos Virtuais**.  
+
+3.  Selecione o VHD para aplicar as atualizações de software.  
+
+4.  No separador **Home Page** , no grupo **Disco Rígido Virtual** , clique em **Agendar Atualizações** para iniciar o assistente.  
+
+5.  Na página **Escolher as Atualizações** , selecione as atualizações de software para aplicar no VHD e clique em **Seguinte**.  
+
+6.  Na página **Definir Agendamento** , especifique as seguintes definições e clique em **Seguinte**.  
+
+    1.  **Agenda**: Especifique o agendamento para quando as atualizações de software são aplicadas ao VHD.  
+
+    2.  **Continuar com o erro**: Selecione esta opção para continuar a aplicar atualizações de software à imagem, mesmo se ocorrer um erro.  
+
+7.  Na página **Resumo** , verifique as informações e clique em **Seguinte**.  
+
+8.  Na página **Conclusão** , certifique-se de que as atualizações de software foram aplicadas com êxito na imagem do sistema operativo.  
+
+##  <a name="BKMK_ImportToVMM"></a> Importar o VHD para o System Center Virtual Machine Manager  
+ O System Center VMM é uma solução de gestão para o centro de dados virtualizado, que permite configurar e gerir o anfitrião de virtualização, o funcionamento em rede e os recursos de armazenamento para criar e implementar máquinas virtuais e serviços em nuvens privadas que criou. Depois de criar um VHD no Configuration Manager, pode importar e gerir o VHD utilizando o VMM.  
 
 > [!TIP]  
->  Перед отправкой виртуального жесткого диска в VMM, удостоверьтесь, что консоль VMM успешно подключена к серверу управления VMM.  
+>  Antes de carregar um VHD para o VMM, certifique-se de que a consola do VMM estabelece corretamente ligação com o servidor de gestão do VMM.  
 
- Используйте следующую процедуру для импорта виртуального жесткого диска в VMM.  
+ Utilize o procedimento seguinte para importar um VHD para o VMM.  
 
-#### <a name="to-import-a-vhd-to-vmm"></a>Процедура импорта виртуального жесткого диска в VMM  
+#### <a name="to-import-a-vhd-to-vmm"></a>Para importar um VHD para o VMM  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите пункт **Виртуальные жесткие диски**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Discos Rígidos Virtuais**.  
 
-3.  На вкладке **Главная** в группе **Виртуальный жесткий диск** щелкните элемент **Отправить в Virtual Machine Manager** , чтобы запустить мастер оправки в Virtual Machine Manager.  
+3.  No separador **Home Page** , no grupo **Disco Rígido Virtual** , clique em **Carregar no Virtual Machine Manager** para iniciar o Assistente de Carregamento no Virtual Machine Manager.  
 
-4.  На странице **Общие** укажите следующие параметры, а затем нажмите кнопку **Далее**.  
+4.  Na página **Geral** , configure as seguintes definições e clique em **Seguinte**.  
 
-    -   **Имя сервера VMM**. Укажите полное доменное имя компьютера, на котором установлен сервер управления VMM. Мастер подключится к серверу управления VMM, чтобы загрузить общие папки библиотеки для сервера.  
+    -   **Nome do servidor VMM**: Especifique o FQDN do computador no qual o servidor de gestão do VMM está instalado. O assistente liga ao servidor de gestão do VMM para transferir as partilhas de biblioteca para o servidor.  
 
-    -   **Имя общей папки библ. VMM**. Выберите общую папку библиотеки VMM из раскрывающегося списка.  
+    -   **Partilha de biblioteca VMM**: Especifique a partilha de biblioteca do VMM na lista pendente.  
 
-    -   **Передавать данные без шифрования**. Выберите этот параметр для передачи файла виртуального жесткого диска на сервер управления VMM без использования шифрования.  
+    -   **Utilizar transferência não encriptada**: Selecione esta definição para transferir o ficheiro VHD para o servidor de gestão do VMM sem a utilização da encriptação.  
 
-5.  На странице "Сводка" проверьте параметры и завершите работу мастера. Время отправки виртуального жесткого диска может различаться в зависимости от размера его файла и полосы пропускания сети к серверу управления VMM.  
+5.  Na página Resumo, verifique as definições e, em seguida, conclua o assistente. O tempo que demora a carregar o VHD varia consoante o tamanho do ficheiro VHD e a largura de banda de rede para o servidor de gestão do VMM.  

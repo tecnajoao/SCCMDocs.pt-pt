@@ -1,6 +1,6 @@
 ---
-title: "Поддержка прокси-сервера | Документы Майкрософт"
-description: "Сведения о поддержке прокси-серверов, используемых серверами системы сайта и клиентами, в System Center Configuration Manager."
+title: Suporte para o servidor proxy | Microsoft Docs
+description: Saiba mais sobre o suporte do System Center Configuration Manager para servidores de proxy que utilizam servidores do sistema de sites e clientes.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -17,70 +17,70 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: dc36be47310d2c2178c974a2b503d0b5f9f6e2ec
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="proxy-server-support-in-system-center-configuration-manager"></a>Поддержка прокси-сервера в System Center Configuration Manager
+# <a name="proxy-server-support-in-system-center-configuration-manager"></a>Suporte para o servidor proxy no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Как серверы системы сайта, так и клиенты System Center Configuration Manager могут использовать прокси-сервер.  
+Ambos os clientes e servidores de sistema de sites do System Center Configuration Manager, podem utilizar um servidor proxy.  
 
-## <a name="site-system-servers"></a>Серверы системы сайта  
-Если необходимо подключить роли системы сайта к Интернету, можно настроить для них использование прокси-сервера.  
+## <a name="site-system-servers"></a>Servidores do sistema de sites  
+Quando precisam de funções de sistema de sites estabelecer ligação à Internet, pode configurar para utilizar um servidor proxy.  
 
--   Компьютер, на котором размещен сервер системы сайта, поддерживает конфигурацию с одним прокси-сервером, который совместно используется всеми ролями системы сайта на этом компьютере. Если вам необходимы отдельные прокси-серверы для разных ролей или экземпляров роли, необходимо разместить эти роли на отдельных серверах системы сайта.  
+-   Um computador que aloja um servidor de sistema de sites suporta uma configuração de servidor proxy que é partilhada por todas as funções de sistema de sites nesse mesmo computador. Se precisar de separar servidores proxy para funções diferentes ou instâncias de uma função, tem de colocar essas funções em servidores de sistema de sites à parte.  
 
--   При настройке новых параметров прокси-сервера для сервера системы сайта, у которого уже есть конфигурация прокси-сервера, исходная конфигурация будет перезаписана.  
+-   Quando configurar novas definições do servidor proxy para um servidor de sistema de sites que já tem uma configuração de servidor proxy, a configuração original é substituída.  
 
--   Подключения к прокси-серверу используют **системную** учетную запись компьютера, на котором размещена роль системы сайта.  
+-   As ligações ao proxy utilizam a conta do **Sistema** do computador que aloja a função de sistema de sites.  
 
-Указанные ниже роли системы сайта подключаются к Интернету и могут требовать использования прокси-сервера.  За одним исключением, роли системы сайта, которые могут использовать прокси-сервер, делают это без дополнительной настройки. Этим исключением является точка обновления программного обеспечения. Приведенный ниже список содержит сведения о дополнительных конфигурациях, которые необходимы для точки обновления программного обеспечения.  
+As seguintes funções do sistema de sites ligam à Internet e podem exigir um servidor proxy.  Com uma exceção, as funções de sistema de sites que podem utilizar um proxy fazem-no sem qualquer configuração adicional. A exceção é o ponto de atualização de software. A lista seguinte tem informações sobre as configurações adicionais que necessite de um ponto de atualização de software:  
 
-**Точка синхронизации каталога аналитики активов**. Эта роль системы сайта подключается к системам Майкрософт и использует конфигурацию прокси-сервера на компьютере, на котором размещена точка синхронизации каталога аналитики активов.  
+**O ponto de sincronização do Asset Intelligence** -esta função de sistema de sites liga à Microsoft e utiliza uma configuração de servidor proxy no computador que aloja o ponto de sincronização do Asset Intelligence.  
 
-**Облачная точка распространения**. Чтобы настроить прокси-сервер для облачной точки распространения, настройте прокси-сервер на первичном сайте, который управляет облачной точкой распространения.  
+**Ponto de distribuição baseado na nuvem** - para configurar um servidor proxy para um ponto de distribuição baseado na nuvem, pode configurar o proxy no site primário que gere o ponto de distribuição baseados na nuvem.  
 
-Для этой конфигурации сервер первичного сайта:  
+Para esta configuração, o servidor do site primário:  
 
--   должен иметь возможность подключиться к Microsoft Azure для настройки, мониторинга и распространения содержимого в точку распространения;  
+-   Tem de ser capaz de ligar ao Microsoft Azure para configurar, monitorizar e distribuir conteúdo ao ponto de distribuição.  
 
--   использует для подключения системную учетную запись компьютера;  
+-   Utiliza a conta do sistema nesse computador para efetuar a ligação.  
 
--   использует веб-браузер компьютера по умолчанию.  
+-   Utiliza o browser predefinido de nesse computador.  
 
-Нельзя настроить прокси-сервер в облачной точке распространения в Microsoft Azure.  
+Não é possível configurar um servidor proxy no ponto de distribuição em nuvem com base no Microsoft Azure.  
 
-**Облачная точка подключения**. Эта роль системы сайта подключается к облачной службе Configuration Manager, чтобы скачать обновления для Configuration Manager, и использует прокси-сервер, настроенный на компьютере, на котором размещается точка подключения службы.  
+**Ponto de ligação da nuvem** -esta função de sistema de sites liga ao serviço de nuvem do Configuration Manager para transferir atualizações de versão para o Configuration Manager e utiliza um servidor proxy que está configurado no computador que aloja o ponto de ligação de serviço.  
 
-**Коннектор Exchange Server**. Эта роль системы сайта подключается к Exchange Server и использует конфигурацию прокси-сервера на компьютере, на котором размещен коннектор Exchange Server.  
+**Conector do Exchange Server** -esta função de sistema de sites liga a um Exchange Server e utiliza uma configuração de servidor proxy no computador que aloja o conector do Exchange Server.  
 
-**Точка подключения службы**. Эта роль системы сайта подключается к Microsoft Intune и использует конфигурацию прокси-сервера на компьютере, на котором размещена точка подключения службы.  
+**Ponto de ligação de serviço** -esta função de sistema de sites liga-se ao Microsoft Intune e utiliza uma configuração de servidor proxy no computador que aloja o ponto de ligação de serviço.  
 
-**Точка обновления программного обеспечения**. Эта роль системы сайта может использовать прокси-сервер для подключения к Центру обновления Майкрософт для скачивания исправлений и синхронизации сведений об обновлениях. Если включить этот параметр при настройке точки обновления программного обеспечения, точки обновления программного обеспечения используют прокси-сервер только для следующих параметров:  
+**Ponto de atualização de software** - Esta função do sistema de site pode utilizar a proxy ao ligar o Microsoft Update para transferir patches e sincronizar informações sobre atualizações. Pontos de atualização de software utilizam uma proxy apenas para as opções seguintes quando ativa essa opção, como configurar o ponto de atualização de software:  
 
--   **Использовать прокси-сервер при синхронизации обновлений ПО**  
+-   **Utilizar um servidor proxy para sincronizar atualizações de software**  
 
--   **Использовать прокси-сервер при загрузке содержимого с помощью правил авторазвертывания** (хотя этот параметр доступен для использования, он не используется точками обновления программного обеспечения на вторичных сайтах).  
+-   **Utilizar um servidor proxy quando transferir conteúdo usando regras de implementação automática** (embora esteja disponível para utilização, esta definição não é utilizada pelos pontos de atualização de software em sites secundários.)  
 
-Настройте параметры прокси-сервера на странице "Активная точка обновления программного обеспечения" в мастере добавления ролей системы сайта или на вкладке **Общие** в **свойствах компонента точки обновления программного обеспечения**.  
+Configurar as definições do servidor proxy na página ponto de atualização de Software ativo do Assistente Adicionar funções do sistema de sites ou no **geral** separador **propriedades de componente de ponto de atualização de Software**.  
 
--   Параметры прокси-сервера связаны только с точкой обновления программного обеспечения на сайте.  
+-   As definições do servidor proxy estão associadas apenas ao ponto de atualização de software no site.  
 
--   Параметры прокси-сервера доступны только в том случае, когда для сервера системы сайта, на котором размещена точка обновления программного обеспечения, уже настроен прокси-сервер.  
+-   As opções de servidor proxy apenas estão disponíveis quando um servidor proxy já está definido para o servidor de sistema de sites que aloja o ponto de atualização de software.  
 
 > [!NOTE]  
->  По умолчанию для подключения к Интернету и скачивания обновлений при запуске правил автоматического развертывания используется учетная запись **System** сервера, на котором было создано правило автоматического развертывания.  
+>  Por predefinição, a conta **Sistema** para o servidor onde foi criada uma regra de implementação automática é utilizada para ser ligada à Internet e transferir atualizações de software quando são executadas as regras de implementação automática.  
 >   
->  Если эта учетная запись не имеет доступа к Интернету, скачивание обновлений программного обеспечения будет невозможно, а в файл журнала ruleengine.log будет внесена следующая запись: **Не удалось скачать обновление из Интернета. Ошибка = 12007.**  
+>  Quando esta conta não é possível aceder à Internet, as atualizações de software falharem transferir e a entrada seguinte é registada em ruleengine.log: **Falha ao transferir a atualização a partir da internet. Erro = 12007.**  
 
-#### <a name="to-set-up-the-proxy-server-for-a-site-system-server"></a>Настройки прокси-сервера для сервера системы сайта  
+#### <a name="to-set-up-the-proxy-server-for-a-site-system-server"></a>Para configurar o servidor proxy para um servidor de sistema de sites  
 
-1.  В консоли Configuration Manager выберите **Администрирование**, разверните раздел **Конфигурация сайта** и выберите **Серверы и роли системы сайта**.  
+1.  Na consola do Configuration Manager, escolha **administração**, expanda **configuração do Site**e, em seguida, escolha **servidores e funções de sistema de sites**.  
 
-2.  Выберите сервер системы сайта, который необходимо изменить, а затем в области сведений щелкните правой кнопкой мыши элемент **Система сайта** и выберите пункт **Свойства**.  
+2.  Selecione o servidor de sistema de site que pretende editar, no contexto de painel de detalhes **sistema de sites**e, em seguida, escolha **propriedades**.  
 
-3.  В окне "Свойства системы сайта" перейдите на вкладку **Прокси-сервер** и настройте параметры прокси-сервера для этого сервера первичного сайта.  
+3.  Nas propriedades do sistema de sites, selecione o **Proxy** separador e, em seguida, configure as definições de proxy para este servidor de site primário.  
 
-4.  Нажмите кнопку **ОК**, чтобы сохранить новую конфигурацию прокси-сервера.  
+4.  Escolha **OK** para guardar o proxy de nova configuração de servidor.  

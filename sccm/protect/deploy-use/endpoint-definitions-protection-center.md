@@ -1,5 +1,5 @@
 ---
-title: "Скачивание определений Endpoint Protection из сетевой папки | Документы Майкрософт"
+title: "Definições de software maligno do Endpoint Protection da partilha de rede | Microsoft Docs"
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -15,22 +15,22 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 7bd9f6bc1b6314b7889543d0d6042893538736fc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="using-the-microsoft-malware-protection-center-to-download-definitions"></a>Использование Центра Майкрософт по защите от вредоносных программ для загрузки определений
+# <a name="using-the-microsoft-malware-protection-center-to-download-definitions"></a>Utilizar o Centro Microsoft de Proteção Contra Software Maligno para Transferir Definições
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Вы можете настроить клиенты для загрузки обновлений из Центра Майкрософт по защите от вредоносных программ. Клиенты Endpoint Protection применяют эту возможность для скачивания обновлений определений, если они не смогли загрузить обновления из другого источника. Этот метод обновления может быть полезен, если в вашей инфраструктуре Configuration Manager существует проблема, препятствующая доставке обновлений.
+ Pode configurar os clientes para transferirem atualizações de definições a partir do Centro Microsoft de Proteção Contra Software Maligno. Esta opção é utilizada pelos clientes do Endpoint Protection para transferir atualizações de definições, se de que não tenham conseguido transferir atualizações a partir de outra origem. Este método de atualização pode ser útil se existir um problema com a sua infraestrutura do Configuration Manager que impeça a entrega de atualizações.
 
 > [!IMPORTANT]
->  Чтобы использовать этот метод для загрузки обновлений определений, клиенты должны иметь доступ к Центру обновления Майкрософт через Интернет.
+>  Os clientes têm de ter acesso ao Microsoft Update na Internet para conseguirem utilizar este método para transferir atualizações de definições.
 
 
 > [!div class="button"]
-[Следующий этап >](endpoint-antimalware-policies.md)
+[Passo seguinte >](endpoint-antimalware-policies.md)
 
 > [!div class="button"]
-[Назад >](endpoint-configure-alerts.md)
+[Volta >](endpoint-configure-alerts.md)

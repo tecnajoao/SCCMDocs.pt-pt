@@ -1,6 +1,6 @@
 ---
-title: "Настройка сертификатов | Документация Майкрософт"
-description: "Настройка сертификатов для доверенного взаимодействия для локального управления мобильными устройствами в System Center Configuration Manager."
+title: Configurar certificados | Microsoft Docs
+description: "Configure certificados para comunicações fidedignas para a gestão de dispositivos móveis no local no System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,156 +17,156 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 3d695a2a40fd86ad991a26db3dcecbbb9ca186cc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Настройка сертификатов для доверенного взаимодействия для локального управления мобильными устройствами в System Center Configuration Manager
+# <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurar certificados para comunicações fidedignas para a Gestão de Dispositivos Móveis no Local do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для доверенного взаимодействия с управляемыми устройствами компонент локального управления мобильными устройствами в System Center Configuration Manager требует настройки следующих ролей системы сайта: точка регистрации, прокси\-точка регистрации, точка распространения и точка управления мобильными устройствами. Любой сервер системы сайта, на котором размещена одна или несколько из этих ролей, должен иметь уникальный PKI-сертификат, привязанный к веб-серверу в этой системе. Для установки доверенного взаимодействия с управляемыми устройствами на них также необходимо сохранить сертификат с тем же корнем, что и сертификат на серверах.  
+System Center Configuration Manager no\-local gestão de dispositivos móveis requer o ponto de registo, ponto proxy de registo, ponto de distribuição e gestão de dispositivos do ponto de funções de sistema de sites para ser definido para comunicações fidedignas com os dispositivos geridos. Os servidores do sistema de sites que alojem uma ou mais dessas funções têm de ter um certificado PKI exclusivo vinculado ao servidor Web nesse sistema. Um certificado com a mesmo raiz do certificado nos servidores também tem de ser armazenado nos dispositivos geridos para estabelecer comunicação fidedigna com eles.  
 
- Для устройств, присоединенных к домену, службы сертификатов Active Directory автоматически устанавливают на всех устройствах необходимый сертификат с доверенным корнем. Для устройств, не присоединенных к домену, необходимо получить действительный сертификат с доверенным корнем с помощью других средств. При использовании центра сертификации (ЦС) сайта в качестве доверенного корня (того же, который используется Active Directory для устройств, присоединенных к домену) серверы системы сайта для точки регистрации и прокси-точки регистрации должны иметь сертификат, выданный этим ЦС и привязанный к ним.  
+ Para dispositivos associados a um domínio, os Serviços de Certificados do Active Directory instalam automaticamente o certificado necessário com a raiz fidedigna em todos os dispositivos. Para dispositivos não associados a um domínio, tem de obter um certificado válido com uma raiz fidedigna através de outros meios. Se utilizar a AC do site como a raiz fidedigna (que é a utilizada pelo Active Directory para dispositivos associados a um domínio), os servidores do sistema de sites para o ponto de registo e o ponto proxy de registo têm de ter um certificado emitido por essa AC vinculado aos mesmos.  
 
- На каждом управляемом устройстве также должен быть установлен сертификат с тем же корнем, чтобы поддерживать доверенное взаимодействие с ролями системы сайта. При массовой регистрации устройств можно включить сертификат в пакет регистрации, который добавляется в устройство для его регистрации во время первого запуска устройства пользователем. При регистрации устройств пользователями необходимо добавить сертификат по электронной почте, скачать через Интернет или каким-то другим способом.  
+ Todos os dispositivos a gerir terão também de ter um certificado com a mesma raiz instalado no mesmos para suportarem comunicações fidedignas com as funções do sistema de sites. Para dispositivos inscritos em massa, pode incluir o certificado no pacote de inscrição que é adicionado ao dispositivo para inscrevê-lo quando o dispositivo for iniciado pela primeira vez por um utilizador. Para dispositivos inscritos pelo utilizador, tem de adicionar o certificado através de e-mail, transferência Web ou qualquer outro método.  
 
- В качестве альтернативы для устройств, не присоединенных к домену, для выдачи сертификата сервера можно использовать корень хорошо известного общедоступного ЦС (например, Verisign или GoDaddy), что позволяет избежать необходимости устанавливать сертификаты на устройство вручную, так как при использовании одинакового корня общедоступного ЦС большинство устройств изначально воспринимают взаимодействие с серверами как доверенное. Это полезная альтернатива для зарегистрированных пользователями устройств, на которых нет возможности установить доверенные сертификаты через ЦС сайта на каждом устройстве.  
+ Como alternativa para dispositivos não associados a um domínio, pode utilizar a raiz de uma AC pública conhecida (como a Verisign ou a GoDaddy) para emitir o certificado do servidor, evitando assim ter de instalar manualmente um certificado no dispositivo, porque a maioria dos dispositivos confia nativamente em ligações a servidores com a mesma raiz da AC pública. Esta é uma alternativa útil para dispositivos inscritos pelo utilizador, nos quais não é exequível instalar os certificados fidedignos através da AC do site em cada dispositivo.  
 
 > [!IMPORTANT]  
->  Существует несколько способов настройки сертификатов для доверенного взаимодействия между устройствами и серверами системы сайта для локального управления мобильными устройствами. Информация в этой статье предоставляется в качестве примера одного из способов, как это можно сделать. Для этого метода требуется, чтобы сервер был запущен на сайте с ролью служб сертификатов Active Directory и были установлены службы ролей центра сертификации и веб-регистрации центра сертификации. Дополнительные сведения и рекомендации относительно этой роли Windows Server см. в разделе [Службы сертификатов Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=115018).  
+>  Existem várias formas de configurar os certificados para comunicações fidedignas entre dispositivos e os servidores de sistema de sites para no\-no local a gestão de dispositivos móveis. As informações fornecidas neste artigo são um exemplo de uma forma de fazê-lo. Este método requer a execução de um servidor no site com a instalação da função Serviços de Certificados do Active Directory e a função dos serviços Autoridade de Certificação e Inscrição de Autoridade de Certificação via Web. Consulte [Serviços de Certificados do Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=115018) para mais informações e orientação sobre esta função do Windows Server.  
 
- Для настройки сайта Configuration Manager для использования SSL\-подключений, необходимых для локального управления мобильными устройствами, выполните следующие процедуры.  
+ Para configurar o site do Configuration Manager para as comunicações SSL necessárias para nos\-local gestão de dispositivos móveis, siga estes passos de alto nível:  
 
--   [Настройка центра сертификации (ЦС) для публикации списков отзыва сертификатов](#bkmk_configCa)  
+-   [Configurar a autoridade de certificação (AC) para publicação de CRL](#bkmk_configCa)  
 
--   [Создание шаблона сертификата веб-сервера в центре сертификации](#bkmk_certTempl)  
+-   [Criar o modelo de certificado de servidor web na AC](#bkmk_certTempl)  
 
--   [Запрос сертификата веб-сервера для каждой роли системы сайта](#bkmk_requestCert)  
+-   [Pedir o certificado de servidor web para cada função do sistema de sites](#bkmk_requestCert)  
 
--   [Привязка сертификата к веб-серверу](#bkmk_bindCert)  
+-   [Vincular o certificado para o servidor web](#bkmk_bindCert)  
 
--   [Экспорт сертификата с таким же корнем, как в сертификате веб-сервера](#bkmk_exportCert)  
+-   [Exportar o certificado com a mesma raiz como o certificado de servidor web](#bkmk_exportCert)  
 
-##  <a name="bkmk_configCa"></a> Настройка центра сертификации (ЦС) для публикации списков отзыва сертификатов  
- По умолчанию центр сертификации (ЦС) использует списки отзыва сертификатов на основе LDAP (CRL), что позволяет подключаться к устройствам, присоединенным к домену. Списки отзыва сертификатов на основе HTTP необходимо добавить в ЦС, чтобы устройства, не присоединенные к домену, могли доверять сертификатам, выданным ЦС. Эти сертификаты требуются для SSL\-подключений между серверами, содержащими роли системы сайта Configuration Manager, и устройствами, зарегистрированными для локального управления мобильными устройствами.  
+##  <a name="bkmk_configCa"></a>Configurar a autoridade de certificação (AC) para publicação de CRL  
+ Por predefinição, a autoridade de certificação (AC) utiliza listas de revogação de certificados (CRL) com base no LDAP que permite ligações para dispositivos associados a um domínio. Tem de adicionar CRLs baseados em HTTP à AC para que dispositivos não associados a um domínio sejam considerados fidedignos com emissões de certificados da AC. Estes certificados são necessários para as comunicações SSL entre os servidores que alojam as funções de sistema de sites do Configuration Manager e os dispositivos inscritos no\-no local a gestão de dispositivos móveis.  
 
- Выполните следующие шаги, чтобы настроить ЦС автоматически публиковать данные CRL для выдачи сертификатов, позволяющих доверенные соединения устройств, присоединенных и не присоединенных к домену.  
+ Siga os passos abaixo para configurar a AC para publicar automaticamente informações de CRL para a emissão de certificados que permitem ligações fidedignas para dispositivos associados e não associados a um domínio:  
 
-1.  На сервере с запущенным центром сертификации для сайта нажмите кнопку **Пуск** > **Администрирование** > **Центр сертификации**.  
+1.  No servidor que executa a autoridade de certificação para o site, clique em **Iniciar** > **Ferramentas Administrativas** > **Autoridade de Certificação**.  
 
-2.  В консоли центра сертификации щелкните правой кнопкой мыши **CertificateAuthority**, а затем выберите пункт **Свойства**.  
+2.  Na consola da Autoridade de Certificação, clique com o botão direito do rato em **CertificateAuthority** e, em seguida, clique em **Propriedades**.  
 
-3.  В свойствах CertificateAuthority выберите вкладку **Расширения** и убедитесь, что для параметра **Выберите расширение** задано значение **Точка распространения списков отзыва (CDP)**.  
+3.  Nas propriedades de CertificateAuthority, clique no separador **Extensões**, certifique-se de que **Selecionar extensão** está definido como **Ponto de Distribuição da CRL (CDP)**  
 
-4.  Выберите **http://<DNS_имя_сервера\>/CertEnroll/<имя_ЦС\><суффикс_имени_CRL\><разрешенный_разностный_CRL\>.crl**. И следующие три параметра:  
+4.  Selecione **http://<ServerDNSName\>/CertEnroll/<CAName\><CRLNameSuffix\><DeltaCRLAllowed\>.crl**. e as três opções abaixo:  
 
-    -   **Включить в CRL. Клиенты используют это для поиска расположений разностных CRL.**  
+    -   **Inclua em CRLs. Os clientes utilizam isto para encontrar localizações Delta CRL.**  
 
-    -   **Включать в CDP-расширение выданных сертификатов.**  
+    -   **Inclua na extensão CDP dos certificados emitidos.**  
 
-    -   **Включать в расширение IDP выданных CRL.**  
+    -   **Incluir na extensão IDP das CRLs emitidas**  
 
-5.  Щелкните вкладку **Модуль выхода**, щелкните **Свойства…**, а затем выберите **Разрешить публикацию сертификатов в файловой системе**.  
+5.  Clique em de **módulo de saída** separador, clique em **propriedades...** , em seguida, selecione **permitir que os certificados sejam publicados para o sistema de ficheiros**.  
 
-6.  Нажмите кнопку **ОК** при получении уведомления о необходимости перезапустить службы сертификатов Active Directory.  
+6.  Clique em **OK** quando for notificado de que os Serviços de Certificados do Active Directory têm de ser reiniciados.  
 
-7.  Щелкните правой кнопкой мыши **Отозванные сертификаты**, выберите пункт **Все задачи** и нажмите кнопку **Опубликовать**.  
+7.  Clique com o botão direito do rato em **Certificados Revogados**, clique em **Todas as Tarefas** e, em seguida, clique em **Publicar**.  
 
-8.  В диалоговом окне публикации CRL выберите **Только разностный CRL**, а затем нажмите кнопку **ОК**.  
+8.  Na caixa de diálogo Publicar CRL, selecione **Apenas delta CRL** e, em seguida, clique em **OK**.  
 
-##  <a name="bkmk_certTempl"></a> Создание шаблона сертификата веб-сервера в центре сертификации  
- После публикации нового списка отзыва сертификатов в ЦС следующим шагом является создание шаблона сертификата веб-сервера. Этот шаблон требуется для выдачи сертификатов для серверов, где размещаются следующие роли системы сайта: точка регистрации, прокси-точка регистрации, точка распространения и точка управления мобильными устройствами. Эти серверы будут конечными точками SSL для доверенного взаимодействия между ролями системы сайта и зарегистрированными устройствами.    Выполните следующие действия, чтобы создать шаблон сертификата.  
+##  <a name="bkmk_certTempl"></a>Criar o modelo de certificado de servidor web na AC  
+ Após a publicação da nova CRL na AC, o passo seguinte consiste em criar um modelo de certificado do servidor Web. Este modelo é necessário para emitir certificados para os servidores que alojam as funções do sistema de sites ponto de registo, ponto proxy de registo, ponto de distribuição e ponto de gestão de dispositivos. Estes servidores serão pontos finais SSL para comunicações fidedignas entre as funções do sistema de sites e os dispositivos inscritos.    Siga os passos abaixo para criar o modelo de certificado:  
 
-1.  Создайте группу безопасности с именем **ConfigMgr MDM Servers**, содержащую серверы с запущенными системами сайта, для которых требуется доверенное взаимодействие с зарегистрированными устройствами.  
+1.  Crie um grupo de segurança denominado **Servidores MDM do ConfigMgr**, que contenha os servidores que executam os sistemas de sites que necessitam de comunicações fidedignas com os dispositivos inscritos.  
 
-2.  В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов** и выберите пункт **Управление**, чтобы загрузить консоль "Шаблоны сертификатов".  
+2.  Na consola da Autoridade de Certificação, clique com o botão direito do rato em **Modelos de Certificado** e clique em **Gerir** para carregar a consola de Modelos de Certificado.  
 
-3.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Веб-сервер**, и нажмите кнопку **Скопировать шаблон**.  
+3.  No painel de resultados, clique com o botão direito do rato na entrada que apresenta **Servidor Web** na coluna **Nome a Apresentar do Modelo** e clique em **Duplicar Modelo**.  
 
-4.  Убедитесь, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition** , и нажмите кнопку **ОК**.  
+4.  Na caixa de diálogo **Duplicar Modelo** , certifique-se de que **Windows 2003 Server, Enterprise Edition** se encontra selecionado e clique em **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**. Configuration Manager не поддерживает шаблоны сертификатов Windows Server 2008 для доверенного взаимодействия по протоколу HTTPS.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**. O Configuration Manager não suporta modelos de certificado do Windows Server 2008 para comunicações fidedignas com HTTPS.  
 
     > [!NOTE]  
-    >  Если используемый ЦС находится на сервере Windows Server 2012, при выборе варианта **Повторяющийся шаблон** версия шаблона сертификата не запрашивается. Вместо этого следующим образом укажите эти данные на вкладке **Совместимость** свойств шаблона:  
+    >  Se a AC em utilização estiver no Windows Server 2012, não lhe será pedida a versão do modelo de certificado quando clicar em **Modelo Duplicado**. Em vez disso, especifique isto no separador **Compatibilidade** das propriedades do modelo, da seguinte forma:  
     >   
-    >  **Центр сертификации**: **Windows Server 2003**  
+    >  **Autoridade de certificação**: **Windows Server 2003**  
     >   
-    >  **Получатель сертификата**: **Windows XP / Server 2003**  
+    >  **Destinatário do certificado**: **Windows XP / Server 2003**  
 
-5.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона для создания веб-сертификатов, которые будут использоваться в системах сайта Configuration Manager, например **Веб-сервер MDM Configuration Manager**.  
+5.  Na caixa de diálogo **Propriedades de Novo Modelo**, no separador **Geral**, introduza um nome de modelo para gerar os certificados Web que serão utilizados nos sistemas de sites do Configuration Manager, como **Servidor Web MDM do ConfigMgr**.  
 
-6.  Откройте вкладку **Имя субъекта**, выберите пункт **Строится на основе данных Active Directory**, а для формата имени субъекта укажите **DNS-имя**. Если выбрано **Имя участника-пользователя (UPN)**, снимите флажок в поле альтернативного имени субъекта.  
+6.  Clique no separador **Nome do Requerente**, selecione **Incorporar a partir das informações do Active Directory** e, no formato do nome do requerente, especifique **Nome DNS**. Desmarque a caixa de verificação do nome do requerente alternativo, se **Nome Principal de Utilizador (UPN)** estiver selecionado.  
 
-7.  Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из групп безопасности **Администраторы домена** и **Администраторы предприятия**.  
+7.  Clique no separador **Segurança** e remova a permissão **Inscrever** dos grupos de segurança **Admins do Domínio** e **Admins de Empresa**.  
 
-8.  Нажмите кнопку **Добавить**, в текстовом поле введите **Серверы MDM Configuration Manager** и нажмите кнопку **ОК**.  
+8.  Clique em **Adicionar**, introduza **Servidores MDM do ConfigMgr** na caixa de texto e clique em **OK**.  
 
-9. Установите разрешение **Регистрация** для этой группы, но не снимайте разрешение **Читать** .  
+9. Selecione a permissão **Inscrever** para este grupo e não desmarque a permissão **Leitura**.  
 
-10. Нажмите кнопку **ОК** и закройте консоль "Шаблоны сертификатов".  
+10. Clique em **OK** e feche a consola Modelos de Certificado.  
 
-11. В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите **Выдаваемый шаблон сертификата**.  
+11. Na consola da Autoridade de Certificação, clique com o botão direito do rato em **Modelos de Certificado**, clique em **Novo** e clique em **Modelo de Certificado a Emitir**.  
 
-12. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный новый шаблон **Веб-сервер MDM Configuration Manager** и нажмите кнопку **ОК**.  
+12. Na caixa de diálogo **Ativar Modelos de Certificado**, selecione o novo modelo que acabou de criar, **Servidor Web MDM do ConfigMgr** e, em seguida, clique em **OK**.  
 
-##  <a name="bkmk_requestCert"></a> Запрос сертификата веб-сервера для каждой роли системы сайта  
- Устройства, зарегистрированные для локального управления мобильными устройствами, должны доверять конечным точкам SSL, на которых размещаются точка регистрации, прокси\-точка регистрации, точка распространения и точка управления мобильными устройствами.  Ниже описан процесс запроса сертификата веб-сервера для служб IIS. Это необходимо сделать для каждого сервера (конечной точки SSL), на котором размещается одна из обязательных ролей системы сайта для локального управления мобильными устройствами.  
+##  <a name="bkmk_requestCert"></a>Pedir o certificado de servidor web para cada função do sistema de sites  
+ Os dispositivos inscritos no\-local gestão de dispositivos móveis têm de confiar pontos finais SSL que aloja o ponto de registo, ponto proxy de registo, ponto de distribuição e ponto de gestão de dispositivos.  Os passos abaixo descrevem como pedir o certificado de servidor Web do IIS. Tem de efetuar esta ação para cada servidor (ponto final SSL) que aloja uma das funções do sistema de sites necessárias no\-no local a gestão de dispositivos móveis.  
 
-1.  На сервере первичного сайта откройте командную строку с правами администратора, введите команду **MMC** и нажмите клавишу **ВВОД**.  
+1.  No servidor do site primário, abra a linha de comandos com a permissão de administrador, escreva **MMC** e prima **Enter**.  
 
-2.  В консоли MMC щелкните **Файл** > **Добавить или удалить оснастку**.  
+2.  Na MMC, clique em **Ficheiro** > **Adicionar/Remover Snap-in**.  
 
-3.  В оснастке сертификатов выберите **Сертификаты**, нажмите кнопку **Добавить**, выберите **Учетная запись компьютера**, нажмите кнопку **Далее**, кнопку **Готово**, а затем — кнопку **ОК**, чтобы закрыть окно "Добавить или удалить оснастку".  
+3.  No snap-in Certificados, selecione **Certificados**, clique em **Adicionar**, selecione **Conta de computador**, clique em **Seguinte**, clique em **Concluir** e, em seguida, clique em **OK** para sair da janela Adicionar ou Remover Snap-in.  
 
-4.  Щелкните правой кнопкой мыши **Личное**, выберите пункт **Все задачи** > **Запросить новый сертификат**.  
+4.  Clique com o botão direito do rato em **Pessoal** e, em seguida, clique em **Todas as Tarefas** > **Requisitar um Novo Certificado**.  
 
-5.  В мастере регистрации сертификатов нажмите кнопку **Далее**, выберите **Политика регистрации Active Directory** и снова нажмите кнопку **Далее**.  
+5.  No assistente de Inscrição de Certificado, clique em **Seguinte**, selecione **Política de Inscrição do Active Directory** e clique em **Seguinte**.  
 
-6.  Установите флажок рядом с сертификатом веб-сервера (**Веб-сервер MDM Configuration Manager**) и нажмите кнопку **Регистрация**.  
+6.  Selecione a caixa de verificação junto ao certificado do servidor Web (**Servidor Web MDM do ConfigMgr**) e, em seguida, clique em **Inscrever**.  
 
-7.  По завершении регистрации сертификата нажмите кнопку **Готово**.  
+7.  Uma vez inscrito o certificado, clique em **Concluir**.  
 
- Поскольку каждому серверу потребуется уникальный сертификат веб-сервера, необходимо повторить эту процедуру для каждого сервера, на котором размещается одна из требуемых для локального управления мобильными устройствами ролей системы сайта.  Если на одном сервере размещаются все роли системы сайта, необходимо просто запросить один сертификат веб-сервера.  
+ Porque cada servidor precisará de um certificado de servidor web exclusivo, terá de repetir este processo para cada servidor que aloja uma das funções do sistema de sites necessárias no\-no local a gestão de dispositivos móveis.  Se um servidor alojar todas as funções do sistema de sites, apenas terá de pedir um certificado de servidor Web.  
 
-##  <a name="bkmk_bindCert"></a> Привязка сертификата к веб-серверу  
- Теперь необходимо привязать новый сертификат к веб\-серверу каждого сервера системы сайта, на котором размещаются обязательные роли системы сайта для локального управления мобильными устройствами. Выполните описанные ниже действия для каждого сервера, на котором размещаются следующие роли системы сайта: точка регистрации и прокси-точка регистрации. Если на одном сервере размещаются все роли системы сайта, необходимо выполнить эти действия только один раз. Не нужно выполнять это действие для ролей системы сайта "точка распространения" и "точка управления мобильными устройствами", так как они автоматически получают необходимый сертификат во время регистрации.  
+##  <a name="bkmk_bindCert"></a>Vincular o certificado para o servidor web  
+ O novo certificado agora tem de ser vinculado ao servidor web de cada servidor do sistema de sites que alojam as funções do sistema de sites necessárias no\-no local a gestão de dispositivos móveis. Siga os passos abaixo para cada servidor que aloja as funções do sistema de sites ponto de registo e ponto proxy de registo. Se um servidor alojar todas as funções do sistema de sites, basta seguir estes passos uma vez. Não é necessário executar esta tarefa para as funções do sistema de sites ponto de distribuição e ponto de gestão de dispositivos, uma vez que estas recebem automaticamente o certificado necessário durante a inscrição.  
 
-1.  На сервере, где размещается точка регистрации, прокси-точка регистрации, точка распространения или точка управления мобильными устройствами, нажмите кнопку **Пуск** > **Администрирование** > **Диспетчер служб IIS**.  
+1.  No servidor que aloja o ponto de registo, o ponto proxy de registo, o ponto de distribuição ou o ponto de gestão de dispositivos, clique em **Iniciar** > **Ferramentas Administrativas** > **Gestor de IIS**.  
 
-2.  В разделе "Подключения" найдите и щелкните правой кнопкой мыши **Веб-сайт по умолчанию**, а затем выберите **Изменить привязки…**  
+2.  Em ligações, navegue para e faça duplo clique **Web Site predefinido**e, em seguida, clique em **editar enlaces...**  
 
-3.  В диалоговом окне "Привязки сайта" щелкните **https**, а затем выберите **Изменить…**  
+3.  Na caixa de diálogo enlaces de Site, clique em **https**e, em seguida, clique em **editar...**  
 
-4.  В диалоговом окне "Изменение привязки сайта" выберите сертификат, который вы только что зарегистрировали как **SSL-сертификат**, нажмите кнопку **ОК**, а затем — **Закрыть**.  
+4.  Na caixa de diálogo Editar Enlace de Site, selecione o certificado que acabou de inscrever para o **Certificado SSL**, clique em **OK** e, em seguida, clique em **Fechar**.  
 
-5.  В консоли диспетчера служб IIS в разделе "Подключения" выберите веб-сервер, а затем на правой панели действий нажмите кнопку **Перезапустить**.  
+5.  Na consola do Gestor de IIS, em Ligações, selecione o servidor Web e, em seguida, no painel Ações à direita, clique em **Reiniciar**.  
 
-##  <a name="bkmk_exportCert"></a> Экспорт сертификата с таким же корнем, как в сертификате веб-сервера  
- Службы сертификатов Active Directory обычно устанавливают требуемый сертификат из ЦС на всех устройствах, присоединенных к домену. Но не присоединенные к домену устройства не смогут взаимодействовать с ролями системы сайта без сертификата от корневого ЦС. Чтобы получить сертификат, необходимый для взаимодействия устройств с ролями системы сайта, можно экспортировать его из сертификата, привязанного к веб-серверу.  
+##  <a name="bkmk_exportCert"></a>Exportar o certificado com a mesma raiz como o certificado de servidor web  
+ Normalmente, os Serviços de Certificados do Active Directory instalam o certificado necessário a partir da AC em todos os dispositivos associados a um domínio. No entanto, os dispositivos não associados a um domínio não conseguirão comunicar com as funções do sistema de sites sem o certificado da AC de raiz. Para obter o certificado necessário para que os dispositivos comuniquem com as funções do sistema de sites, pode exportá-lo a partir do certificado vinculado ao servidor Web.  
 
- Выполните следующие действия, чтобы экспортировать корневой сертификат из сертификата веб-сервера.  
+ Siga estes passos para exportar o certificado de raiz do certificado do servidor Web.  
 
-1.  В диспетчере служб IIS щелкните **Веб-сайт по умолчанию**, а затем на правой панели действий выберите **Привязки…**  
+1.  No Gestor de IIS, clique em **Web Site predefinido**e, em seguida, no painel ação à direita, clique em **enlaces...**  
 
-2.  В диалоговом окне "Привязки сайта" щелкните **https**, а затем выберите **Изменить…**  
+2.  Na caixa de diálogo enlaces de Site, clique em **https**e, em seguida, clique em **editar...**  
 
-3.  Убедитесь, что сертификат веб-сервера выбран, и нажмите кнопку **Просмотр…**  
+3.  Certifique-se o certificado de servidor web está selecionado e clique em **vista...**  
 
-4.  В свойствах сертификата веб-сервера выберите **Путь сертификации**, щелкните корень в верхней части пути сертификации, а затем щелкните **Просмотр сертификата**.  
+4.  Nas propriedades do certificado do servidor Web, clique em **Caminho da Certificação**, clique na raiz na parte superior do caminho da certificação e clique em **Ver Certificado**.  
 
-5.  В окне свойств корневого сертификата нажмите кнопку **Сведения**, а затем выберите **Копировать в файл…**  
+5.  Nas propriedades do certificado de raiz, clique em **detalhes**e, em seguida, clique em **copiar para ficheiro...**  
 
-6.  В окне мастера экспорта сертификатов нажмите кнопку **Далее**.  
+6.  No Assistente Para Exportar Certificados, clique em **Seguinte**.  
 
-7.  Убедитесь, что выбран формат **двоичного файла X.509 (CER) в кодировке DER**, и нажмите кнопку **Далее**.  
+7.  Certifique-se de que **Binário codificado DER X.509 (.CER)** está selecionado como formato e clique em **Seguinte**.  
 
-8.  Чтобы указать имя файла, нажмите кнопку **Обзор…**, выберите папку для сохранения файла сертификата, введите имя файла и нажмите кнопку **Сохранить**.  
+8.  Para o nome de ficheiro, clique em **procurar...** , escolha uma localização para guardar o ficheiro de certificado, nome de ficheiro e, em **guardar**.  
 
-     Регистрируемым устройствам потребуется доступ к этому файлу для импорта корневого сертификата, поэтому выберите такую общую папку, к которой сможет получить доступ большинство компьютеров и устройств, или пока сохраните его в удобном месте (например, на диске C), чтобы переместить в общую папку позже.  
+     Os dispositivos a inscrever precisarão de acesso a este ficheiro para importar o certificado de raiz. Por isso, escolha uma localização comum, acessível pela maioria dos computadores e dispositivos, ou pode guardá-lo agora numa localização prática (como a unidade C) e movê-lo mais tarde para a localização comum.  
 
-     Нажмите кнопку **Далее**.  
+     Clique em **Seguinte**.  
 
-9. Проверьте параметры и нажмите кнопку **Готово**.  
+9. Reveja as definições e clique em **Concluir**.  

@@ -1,6 +1,6 @@
 ---
-title: "Управление файлами экспресс-установки для обновлений Windows 10 | Документация Майкрософт"
-description: "Configuration Manager поддерживает файлы экспресс-установки для Windows 10, что позволяет уменьшить объем скачиваемых данных и ускорить установку на клиентских компьютерах."
+title: "Gerir ficheiros de instalação rápida para atualizações do Windows 10 | Microsoft Docs"
+description: "O Configuration Manager suporta ficheiros de instalação rápida para o Windows 10, que fornece transferências mais pequenas e de instalação mais rápidas nos clientes."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,31 +13,31 @@ ms.technology: configmgr-sum
 ms.assetid: b8d8af88-e8ac-4deb-921b-975e2d2afd80
 ms.openlocfilehash: baffb5f026bd63c50f878214e71d2c9e9b8b51c2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-express-installation-files-for-windows-10-updates"></a>Управление файлами экспресс-установки для обновлений Windows 10
-Начиная с версии 1702 Configuration Manager поддерживает файлы экспресс-установки для обновлений Windows 10. Если вы используете поддерживаемую версию Windows 10, то с помощью параметров Configuration Manager можно скачать только разницу между накопительным пакетом обновления Windows 10 за текущий месяц и обновлением за предыдущий месяц. Если не использовать файлы экспресс-установки, Configuration Manager каждый месяц скачивает весь накопительный пакет обновления Windows 10 (включая все обновления за предыдущие месяцы). Использование файлов экспресс-установки позволяет уменьшить объем скачиваемых данных и ускорить установку на клиентах.
+# <a name="manage-express-installation-files-for-windows-10-updates"></a>Gerir ficheiros de instalação rápida para atualizações do Windows 10
+A partir do Configuration Manager versão 1702, o Configuration Manager suporta ficheiros de instalação rápida para atualizações do Windows 10. Quando utiliza uma versão suportada do Windows 10, pode utilizar definições de Configuration Manager para transferir apenas as alterações entre Windows 10 atualização o mês atual cumulativa e a atualização do mês anterior. Sem ficheiros de instalação rápida, o Configuration Manager transfere a completa Windows 10 atualização cumulativa (incluindo todas as atualizações de meses anteriores) por mês. A utilização de ficheiros de instalação rápida fornece para transferências mais pequenas e tempos de instalação mais rápidos nos clientes.
 
 > [!IMPORTANT]
-> Хотя параметры для поддержки файлов экспресс-установки доступны только в версии Configuration Manager 1702, поддержка клиента операционной системы действует уже с Windows 10 версии 1607 с обновлением для агента Центра обновления Windows. Это обновление входит в число обновлений, выпущенных 11 апреля 2017 г. ("вторник исправлений"). Дополнительные сведения об этих обновлениях см. в [статье 4015217 на сайте службы поддержки](http://support.microsoft.com/kb/4015217). При последующих обновлениях будет применяться экспресс-установка, чтобы уменьшить размер скачиваемых файлов. Windows 10 версии 1607 без обновления и более ранние версии не поддерживают файлы экспресс-установки.
+> Enquanto as definições para suportar a utilização de ficheiros de instalação rápida está disponível no Configuration Manager versão 1702, o suporte de cliente do sistema operativo está disponível no Windows 10 versão 1607 com uma atualização de agente do Windows Update. Esta atualização está incluída com as atualizações publicadas no 11 de Abril de 2017 (Patch Terça-feira). Para mais informações sobre estas atualizações, consulte [suporta artigo 4015217](http://support.microsoft.com/kb/4015217). As atualizações futuras irão tirar partido da rápida para transferências mais pequenas. Windows 10 versão 1607 sem a atualização e as versões anteriores não suportam a ficheiros de instalação rápida.
 
 
-### <a name="to-enable-the-download-of-express-installation-files-for-windows-10-updates"></a>Включение скачивания файлов экспресс-установки для обновлений Windows 10
-Чтобы начать синхронизацию метаданных для файлов экспресс-установки Windows 10, необходимо включить ее в свойствах точки обновления программного обеспечения.
-1.  В консоли Configuration Manager последовательно щелкните **Администрирование** > **Конфигурация сайта** > **Сайты**.
-2.  Выберите сайт центра администрирования или автономный первичный сайт.
-3.  На вкладке **Главная** в группе **Параметры** выберите **Настройка компонентов сайта**, а затем щелкните **Точка обновления программного обеспечения**. На вкладке **Файлы обновлений** выберите **Скачать полные файлы для всех утвержденных обновлений и файлы экспресс-установки для Windows 10**.
+### <a name="to-enable-the-download-of-express-installation-files-for-windows-10-updates"></a>Para permitir a transferência de ficheiros de instalação rápida para atualizações do Windows 10
+Para iniciar a sincronizar os metadados para ficheiros de instalação rápida do Windows 10, tem de ativá-la nas propriedades do ponto de atualização de Software.
+1.  Na consola do Configuration Manager, navegue até à **administração** > **configuração do Site** > **Sites**.
+2.  Selecione o site de administração central ou site primário autónomo.
+3.  No separador **Home Page** , no grupo **Definições** , clique em **Configurar Componentes do Site**e clique em **Ponto de Atualização de Software**. No **ficheiros de atualização** separador, selecione **transferir ficheiros completos de todas as atualizações aprovadas e ficheiros de instalação rápida para o Windows 10**.
 
-### <a name="to-enable-support-for-clients-to-download-and-install-express-installation-files"></a>Включение поддержки скачивания и установки файлов экспресс-установки клиентами
-Чтобы обеспечить поддержку файлов экспресс-установки на клиентах, необходимо включить такую возможность в разделе "Обновления программного обеспечения" параметров клиента. При этом создается HTTP-прослушиватель, который прослушивает запросы на скачивание файлов экспресс-установки на указанном порте.
+### <a name="to-enable-support-for-clients-to-download-and-install-express-installation-files"></a>Para ativar o suporte para os clientes transferir e instalar ficheiros de instalação rápida
+Para ativar o suporte de ficheiros de instalação rápida nos clientes, tem de ativar os ficheiros de instalação rápida na secção de definições de cliente de atualizações de Software. Esta ação cria um serviço de escuta HTTP novo que escuta pedidos transferir ficheiros de instalação rápida na porta que especificar.
 
 > [!NOTE]    
-> Это локальный порт, который клиенты будут использовать для прослушивания запросов из службы оптимизации доставки или фоновой интеллектуальной службы передачи для загрузки экспресс-содержимого из точки распространения. Вам не нужно открывать этот порт на брандмауэрах, так как весь трафик направляется через локальный компьютер.
+> Esta é uma porta local que os clientes utilizarão para escutar os pedidos de otimização de entrega (siga) ou o serviço de transferência inteligente em segundo plano (BITS) para transferir conteúdo rápido do ponto de distribuição. Não é necessário abrir esta portas nas firewalls porque todo o tráfego no computador local.
 
-После развертывания параметров для включения этой функции на клиенте он попытается скачать разницу между накопительным пакетом обновления Windows 10 за текущий месяц и обновлением за прошлый месяц (на клиентах должна использоваться версия Windows 10, поддерживающая файлы экспресс-установки).
-1.  Включите поддержку файлов экспресс-установки в свойствах компонента точки обновления программного обеспечения (предыдущая процедура).
-2.  В консоли Configuration Manager выберите **Администрирование** > **Параметры клиента**.
-3.  Выберите соответствующие параметры клиента, а затем на вкладке **Главная** щелкните **Свойства**.
-4.  Выберите страницу **Обновления программного обеспечения**, задайте значение **Да** для параметра **Разрешить установку экспресс-обновлений на клиенты** и настройте порт, используемый HTTP-прослушивателем на клиенте, в качестве значения параметра **Порт, используемый для скачивания содержимого экспресс-обновлений**.
+Depois de implementar as definições de cliente para ativar esta funcionalidade no cliente, a tentativa de transferir as diferenças entre Windows 10 atualização o mês atual cumulativa e a atualização do mês anterior (os clientes têm de executar uma versão do Windows 10 que suporta ficheiros de instalação rápida).
+1.  Ative o suporte para ficheiros de instalação rápida nas propriedades do componente de ponto de atualização de Software (procedimento anterior).
+2.  Na consola do Configuration Manager, navegue até à **administração** > **as definições de cliente**.
+3.  Selecione as definições de cliente adequado, em seguida, no **home page** separador, clique em **propriedades**.
+4.  Selecione o **atualizações de Software** página, configure **Sim** para o **ativar instalação de atualizações rápida nos clientes** definir e configurar a porta utilizada pelo serviço de escuta HTTP no cliente para o **porta utilizada para transferir conteúdo para atualizações de Express** definição.

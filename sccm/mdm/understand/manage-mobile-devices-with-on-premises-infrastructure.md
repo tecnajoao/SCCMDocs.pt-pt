@@ -1,6 +1,6 @@
 ---
-title: "Локальное управление мобильными устройствами (MDM) | Документы Майкрософт"
-description: "Сведения о локальном управлении мобильными устройствами, решении для управления устройствами в System Center Configuration Manager."
+title: "Gestão de dispositivos móveis (MDM) no local | Microsoft Docs"
+description: "Saiba mais sobre a gestão de dispositivos móveis no local, uma solução de gestão de dispositivos no System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,36 +16,36 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 7b96c4d4d87aa150eacc5d7d20710f5d2199e48a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="on-premises-mobile-device-management-mdm-in-system-center-configuration-manager"></a>Локальное управление мобильными устройствами (MDM) в System Center Configuration Manager.
+# <a name="on-premises-mobile-device-management-mdm-in-system-center-configuration-manager"></a>Gestão de dispositivos móveis no local (MDM) no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Локальное управление мобильными устройствами System Center Configuration Manager — это решение для управления устройствами, которое основано на встроенных возможностях управления операционных систем устройств (на основе стандарта Open Mobile Alliance Device Management или OMA DM), а также использующее корпоративную инфраструктуру Configuration Manager для обслуживания устройств и управления ими. Для работы локального управления мобильными устройствами требуется Microsoft Intune для настройки возможности управления. Однако этот компонент необходим только для подписки (и иногда для передачи устройствам указания проверить изменения политики) и не используется для управления устройствами или хранения данных о них.  
+System Center Configuration Manager no\-no local de gestão de dispositivos móveis é uma solução de gestão de dispositivos que se baseia nas capacidades de gestão incorporada dos sistemas operativos de dispositivos (com base num padrão Open Mobile Alliance Device Management ou OMA DM) ao utilizar a infraestrutura do Configuration Manager de uma empresa para gerir e manter os dispositivos. No\-no local a gestão de dispositivos móveis requer o Microsoft Intune para configurar a capacidade de gestão, mas só é necessária para a subscrição (e, em alturas para ajudar a notificar os dispositivos para procurar alterações de política), mas não é utilizado para gerir dispositivos ou armazenar dados sobre os mesmos.  
 
- ![Принципы локального управления](media/On-premises-conceptual.png)  
+ ![No\-local conceptual](media/On-premises-conceptual.png)  
 
- Локальное управление мобильными устройствами отличается от решения Microsoft Intune, в котором также используются встроенные возможности OMA DM, однако все функции управления предоставляются через облачные службы.  Локальное управление мобильными устройствами также отличается от решения управления на основе клиентов, традиционно предоставляемого Configuration Manager, тем, что оно полагается на аналогичную корпоративную инфраструктуру, но не использует установленное отдельно клиентское программное обеспечение на управляемых компьютерах и устройствах.  
+ No\-local difere de gestão de dispositivos móveis do Microsoft Intune, que também baseia-se nas capacidades de OMA DM incorporadas, mas todas as funções de gestão são fornecidas através de serviços em nuvem.  No\-local gestão de dispositivos móveis também difere de acordo com a solução de gestão baseada no cliente tradicionalmente pelo Configuration Manager em que se baseia-se na infraestrutura da empresa semelhante, mas não utiliza separadamente o software de cliente instalado nos computadores e dispositivos que gere.  
 
- В следующей таблице перечислены преимущества и недостатки локального управления мобильными устройствами по сравнению с традиционным управлением на основе клиентов:  
+ A tabela abaixo lista as vantagens e desvantagens de On\-no local a gestão de dispositivos móveis em comparação com a gestão tradicional baseada no cliente:  
 
-|Преимущества|Недостатки|  
+|Vantagens|Desvantagens|  
 |----------------|-------------------|  
-|**Упрощенная инфраструктура** — требуется меньше ролей системы сайта.<br /><br /> **Простота обслуживания** — поскольку возможности управления встроены в операционную систему, при добавлении функций в систему Configuration Manager новые версии клиентского программного обеспечения не требуются.<br /><br /> **Локальная среда** — все операции управления и данные сохраняются локально.|**Сокращенный объем клиентских функций управления** — отсутствие поддержки оркестрации, контроля использования программных продуктов, интеграции с продуктами независимых производителей, последовательностей задач или центра программного обеспечения.<br /><br /> **Ограниченная поддержка устройств** — в настоящее время локальное управление мобильными устройствами поддерживает только устройства под управлением Window 10 и Windows 10 Mobile.|  
+|**Infraestrutura simplificada** - são necessárias menos funções do sistema de sites.<br /><br /> **Mais fácil de manter** -porque a funcionalidade de gestão está incorporada no sistema operativo do dispositivo, novas versões do software de cliente não são necessárias quando são introduzidas novas funcionalidades de gestão para o sistema do Configuration Manager.<br /><br /> **No local** - todos os dados e gestão são mantidos no local.|**Menos funcionalidades de gestão de clientes** - sem orquestração, medição de software, integração de terceiros, a sequências de tarefas ou centro de suporte de software.<br /><br /> **Suporte de dispositivos limitado** - atualmente na\-local gestão de dispositivos móveis apenas suporta dispositivos com Windows 10 e Windows 10 Mobile.|  
 
- Следующие разделы содержат сведения, которые можно использовать при планировании, подготовке и регистрации устройств для локального управления мобильными устройствами.  
+ Os tópicos seguintes fornecem informações que pode utilizar para planear, preparar e inscrever dispositivos para no\-no local a gestão de dispositivos móveis:  
 
--   [Планирование локального управления мобильными устройствами в System Center Configuration Manager](../plan-design/plan-on-premises-mdm.md)  
+-   [Planear a gestão de dispositivos móveis no local no System Center Configuration Manager](../plan-design/plan-on-premises-mdm.md)  
 
-     Сведения о том, что следует учитывать при настройке инфраструктуры Configuration Manager и планировании регистрации устройств в локальном управлении мобильными устройствами.  
+     Saiba mais sobre o que considerar ao configurar a infraestrutura do Configuration Manager e planeamento de inscrição de dispositivos num\-no local a gestão de dispositivos móveis.  
 
--   [Шаги подготовки к локальному управлению мобильными устройствами в System Center Configuration Manager](../get-started/preparation-steps-for-on-premises-mdm.md)  
+-   [Passos de preparação para gestão de dispositivos móveis no local no System Center Configuration Manager](../get-started/preparation-steps-for-on-premises-mdm.md)  
 
-     Сведения о том, как подготовить систему Configuration Manager к локальному управлению мобильными устройствами путем настройки подписки Microsoft Intune, сертификатов, регистрации устройств, а также установки ролей системы сайта.  
+     Saiba mais sobre como preparar o sistema do Configuration Manager para no\-local gestão de dispositivos móveis ao configurar a subscrição do Microsoft Intune, configurar certificados, instalar funções do sistema de sites e como configurar a inscrição de dispositivos.  
 
--   [Регистрация устройств для локального управления мобильными устройствами в System Center Configuration Manager](../deploy-use/enroll-devices-on-premises-mdm.md)  
+-   [Inscrever dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager](../deploy-use/enroll-devices-on-premises-mdm.md)  
 
-     Узнайте, как выполняется регистрация, как пользователи могут регистрировать свои устройства и как выполнить массовую регистрацию устройств с помощью пакета регистрации.  
+     Saiba como ocorre a inscrição, como os utilizadores podem inscrever os seus dispositivos e como inscrever dispositivos em volume com um pacote de inscrição.  

@@ -1,6 +1,6 @@
 ---
-title: "Изменения с момента выпуска Configuration Manager 2012 | Документация Майкрософт "
-description: "Узнайте об изменениях и новых возможностях System Center Configuration Manger и System Center 2012 Configuration Manager."
+title: "Alterações do Configuration Manager 2012 | Microsoft Docs "
+description: "Identifica as alterações e novas capacidades do System Center Configuration Manager em comparação com o System Center 2012 Configuration Manager."
 ms.custom: na
 ms.date: 05/02/2017
 ms.prod: configuration-manager
@@ -16,153 +16,153 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0a3eb93a99533a1569d8f72ca01d6dfcdc75da20
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>Изменения в System Center Configuration Manager с момента выпуска версии System Center 2012 Configuration Manager
+# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>O que &#39; s alteradas no System Center Configuration Manager, do System Center 2012 Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- В текущей ветви System Center Configuration Manager представлены важные изменения по сравнению с System Center 2012 Configuration Manager. В этом разделе указаны наиболее значительные изменения и новые возможности в базовой версии 1511 System Center Configuration Manager. Сведения об изменениях, которые представлены в последующих обновлениях для System Center Configuration Manager, см. в разделе [Новые возможности в добавочных версиях System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions).
+ O ramo atual do System Center Configuration Manager apresenta alterações importantes do System Center 2012 Configuration Manager. Este tópico identifica as alterações significativas e novas capacidades na versão de linha de base 1511 do System Center Configuration Manager. Para saber mais sobre as alterações introduzidas nas atualizações subsequentes do System Center Configuration Manager, consulte [Novidades no System Center Configuration Manager versões incrementais](/sccm/core/plan-design/changes/whats-new-incremental-versions).
 
 
 
- Выпуск System Center Configuration Manager за декабрь 2015 г. (версия 1511) был первым выпуском текущей версии Configuration Manager от Майкрософт. Как правило, он называется текущей ветвью System Center Configuration Manager. *Текущая ветвь* указывает на то, что данная версия поддерживает добавочные обновления для продукта. Она также позволяет различать текущий и предыдущие выпуски Configuration Manager.  
+ A versão de Dezembro de 2015 do System Center Configuration Manager (versão 1511) estava a edição inicial do produto de Gestor de configuração atual da Microsoft. Normalmente, é referido como ramo atual do System Center Configuration Manager. *O ramo atual* indica que esta é uma versão que suporte atualizações incrementais ao produto. Também fornece uma forma para distinguir entre esta versão e sobre versões anteriores do Configuration Manager.  
 
- System Center Configuration Manager:  
+ O System Center Configuration Manager:  
 
--   Не использует год или идентификатор продукта в имени продукта, как это было в прошлых версиях, таких как Configuration Manager 2007 или System Center 2012 Configuration Manager.
+-   Não utilize um identificador de ano ou produto no nome do produto, ao contrário das versões anteriores, tais como o Configuration Manager 2007 ou o System Center 2012 Configuration Manager.
 
--   Поддерживает добавочные обновления в продукте, которые также называются версиями обновления. Первой выпущенной версией была версия 1511. Последующие версии выпускаются несколько раз в год как консольные обновления (например, версия 1610).
--   Устанавливается с использованием базовой версии. Исходной базовой версией была версия 1511, но время от времени выпускаются новые базовые версии, например 1702. Базовые версии могут использоваться для установки нового сайта и иерархии System Center Configuration Manager, а также для обновления с поддерживаемой версии Configuration Manager 2012.
+-   Suporta atualizações incrementais, no produto, também designado por versões de atualização. A versão inicial tinha a versão 1511. As versões subsequentes são lançadas várias vezes um ano como atualizações na consola, como a versão 1610.
+-   É instalado utilizando uma versão de linha de base. Durante a 1511 a versão de linha de base original, linha de base são lançadas novas versões também ocasionalmente, como 1702. Versões de linha de base podem ser utilizadas para instalar um novo site do System Center Configuration Manager e a hierarquia ou para atualizar a partir de uma versão suportada do Configuration Manager 2012.
 
 
 
 
-##  <a name="bkmk_updates"></a> Обновления в консоли для Configuration Manager  
- System Center Configuration Manager использует метод обслуживания в консоли под названием **Обновления и обслуживание**, который позволяет легко найти и установить рекомендуемые обновления.  
+##  <a name="bkmk_updates"></a> Atualizações na consola para o Configuration Manager  
+ O System Center Configuration Manager utiliza um método de manutenção na consola denominado **atualizações e manutenção** que torna mais fácil localizar e instalar atualizações recomendadas.  
 
- Некоторые версии доступны только как обновления для существующих сайтов (в консоли Configuration Manager) и не могут использоваться для установки новых сайтов Configuration Manager.   
-Например, обновление 1610 можно установить только в консоли Configuration Manager. Оно используется для обновления сайта, на котором уже установлена версия System Center Configuration Manager.
+ Algumas versões só estão disponíveis como atualizações para sites existentes (de dentro do Gestor de configuração da consola) e não pode ser utilizado para instalar novos sites do Configuration Manager.   
+Por exemplo, a atualização 1610 só está disponível a partir da consola do Configuration Manager. É utilizado para atualizar um site que já está a executar uma versão do System Center Configuration Manager.
 
-Периодически выпускаются обновленные версии, которые служат новыми базовыми версиями (например, обновление 1702). Такое обновление может использоваться для установки новой иерархии без необходимости запуска предыдущей базовой версии (например, 1511) и обновления продукта до последней версии.
+Periodicamente, uma versão de atualização também for lançada como uma nova versão de linha de base (como a atualização 1702). Este tipo de atualização pode ser utilizado para instalar uma nova hierarquia, sem a necessidade de começar com uma versão mais antiga de linha de base (por exemplo, a versão 1511) e atualizar o caminho para a versão mais atual.
 
 
-Дополнительные сведения об использовании обновлений см. в статье [Обновления для System Center Configuration Manager](../../../core/servers/manage/updates.md).  
-Дополнительные сведения о базовых версия см. в разделе [Базовые и обновленные версии](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Para obter mais informações sobre como utilizar as atualizações, consulte [atualizações para o System Center Configuration Manager](../../../core/servers/manage/updates.md).  
+Para obter mais informações sobre baslines, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
 
-##  <a name="bkmk_servicepoint"></a> Новая роль системы сайта: точка подключения службы  
- **Соединитель Microsoft Intune** заменяется новой ролью системы сайта — **точкой подключения службы**, обладающей дополнительными функциональными возможностями. Точка подключения службы:  
+##  <a name="bkmk_servicepoint"></a>Nova função de sistema de sites: ponto de ligação de serviço  
+ O **conector do Microsoft Intune** é substituído por uma nova função de sistema de sites que ativa funcionalidades adicionais, o **ponto de ligação de serviço**. O ponto de ligação de serviço:  
 
--   заменяет соединитель Microsoft Intune, который используется для интеграции Intune с локальным управлением мобильными устройствами в System Center Configuration Manager;  
+-   Substitui o conector do Microsoft Intune quando integrar o Intune com a gestão de dispositivos móveis no local do System Center Configuration Manager.  
 
--   используется как точка контакта для управляемых устройств;  
+-   É utilizado como um ponto de contacto para dispositivos que gere.  
 
--   отправляет данные об использовании для развертывания в облачную службу Майкрософт;  
+-   Carrega dados de utilização sobre a implementação para o serviço de nuvem da Microsoft.  
 
--   выдает обновления, относящиеся к развертыванию и доступные в консоли Configuration Manager.  
+-   Faz com que as atualizações aplicáveis à sua implementação disponível a partir da consola do Configuration Manager.  
 
-Эта роль системы сайта поддерживает как сетевой, так и автономный режим работы. Дополнительные сведения см. в статье [About the service connection point in System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+Esta função de sistema de sites suporta os modos online e offline da operação. Para obter mais informações, veja [Sobre o ponto de ligação de serviço no System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
-##  <a name="bkmk_usage"></a> Сбор данных об использовании  
- System Center Configuration Manager собирает данные об использовании для ваших сайтов и инфраструктуры. Эта информация компилируется и отправляется в облачную службу корпорации Майкрософт точкой подключения службы. Она является обязательным условием использования Configuration Manager для скачивания обновлений развертывания, относящихся к используемой вами версии Configuration Manager. При настройке точки подключения службы можно задать как уровень сбора данных, так и режим их отправки — автоматический (работа в сети) или ручной (автономная работа).  
+##  <a name="bkmk_usage"></a> Recolha de dados de utilização  
+ System Center Configuration Manager recolhe dados de utilização sobre os sites e a infraestrutura. Estas informações são compiladas e submetidas para o serviço de nuvem da Microsoft pelo ponto de ligação de serviço. É necessário para ativar a transferir atualizações para a sua implementação, que se aplicam à versão do Configuration Manager utilizar o Configuration Manager. Quando configurar o ponto de ligação de serviço, pode especificar o nível de dados que são recolhidos e se estes são submetidos automaticamente (modo online) ou manualmente (modo offline).  
 
- Дополнительные сведения см. в разделе [Уровни и параметры сбора данных об использовании](../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
+ Para obter mais informações, consulte [níveis de dados de utilização e definições](../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
-##  <a name="bkmk_AMT"></a> Поддержка технологии Intel AMT  
- Для System Center Configuration Manager была удалена собственная поддержка для компьютеров на базе AMT в консоли Configuration Manager. При использовании [надстройки Intel SCS для Microsoft System Center Configuration Manager](http://www.intel.com/content/www/us/en/software/setup-configuration-software.html) компьютеры на базе AMT остаются полностью управляемыми. Эта надстройка предоставляет доступ к новейшим функциям для управления AMT, а также снимает ограничения, существовавшие до внедрения этих изменений в Configuration Manager.  
+##  <a name="bkmk_AMT"></a> Suporte para Active Management Technology (AMT) da Intel  
+ Com o System Center Configuration Manager, o suporte nativo para computadores baseados em AMT da consola do Configuration Manager foi removido. Computadores baseados em AMT continuam a ser completamente geridos quando utiliza o [suplemento Intel SCS para o Microsoft System Center Configuration Manager](http://www.intel.com/content/www/us/en/software/setup-configuration-software.html). O suplemento permite que aceder às funcionalidades mais recentes para gerir a AMT, ao remover as limitações introduzidas até que o Configuration Manager pudesse incorporar essas alterações.  
 
-При удалении интегрированной технологии AMT для System Center Configuration Manager также удаляется аппаратный контроллер управления. Роль системы сайта точки использования аппаратного контроллера управления больше не используется и недоступна.  
+A remoção de AMT integrada para o System Center Configuration Manager inclui a gestão fora de banda. A função de sistema de sites de ponto de gestão fora de banda já não é utilizada nem está disponível.  
 
-Обратите внимание на то, что это изменение не затрагивает использование аппаратного контроллера управления в System Center 2012 Configuration Manager.
+Tenha em atenção que a gestão fora de banda no System Center 2012 Configuration Manager não é afetada por esta alteração.
 
-##  <a name="bkmk_out"></a> Нерекомендуемые функции  
- Некоторые возможности, такие как компьютеры с [собственной поддержкой технологии Intel AMT](#bkmk_AMT), удаляются из консоли Configuration Manager. Использование других возможностей, таких как защита доступа к сети, полностью прекращается. Кроме того, некоторые более старые продукты корпорации Майкрософт, такие как Windows Vista, Windows Server 2008 и SQL Server 2008, больше не поддерживаются.  
+##  <a name="bkmk_out"></a> Funcionalidades preteridas  
+ Algumas funcionalidades, como nativo [suporte para Intel Active Management Technology (AMT)](#bkmk_AMT) com base em computadores, são removidas da consola do Configuration Manager. Outras funcionalidades, como a proteção de acesso à rede, foram removidas completamente. Além disso, alguns produtos Microsoft mais antigos como o Windows Vista, Windows Server 2008 e o SQL Server 2008, já não são suportados.  
 
- Список нерекомендуемых компонентов см. в статье [Удаленные и устаревшие компоненты в System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Para obter uma lista das funcionalidades preteridas, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
- Дополнительные сведения о поддерживаемых продуктах, операционных системах и конфигурациях см. в статье [Поддерживаемые конфигурации для System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md).  
+ Para obter detalhes sobre os produtos suportados, sistemas operativos e configurações, consulte [configurações suportadas para o System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md).  
 
-## <a name="client-deployment"></a>Развертывание клиента  
- System Center Configuration Manager предоставляет новую возможность для тестирования новых версий клиента Configuration Manager перед обновлением остальной части сайта. Вы можете настроить подготовительную коллекцию для пилотного развертывания нового клиента. Обеспечив удовлетворительную работу нового клиентского программного обеспечения в подготовительной среде, можно повысить клиент для автоматического обновления остальной части сайта.  
+## <a name="client-deployment"></a>Implementação de clientes  
+ System Center Configuration Manager apresenta uma nova funcionalidade para testar novas versões de cliente do Configuration Manager antes de atualizar o resto do site com o novo software. Pode configurar uma coleção de pré-produção na qual pode implementar um piloto um novo cliente. Quando estiver satisfeito com o novo software de cliente em pré-produção, pode promover o cliente para atualizar automaticamente o resto do site com a nova versão.  
 
- Дополнительные сведения о тестировании клиентов см. в разделе [Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+ Para obter mais informações sobre como testar clientes, consulte [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
-## <a name="operating-system-deployment"></a>Развертывание операционной системы  
+## <a name="operating-system-deployment"></a>Implementação do sistema operativo  
 
-Необходимо учитывать указанные ниже изменения развертывания операционной системы.
+Tenha em atenção as seguintes alterações à implementação de sistema operativo:
 
--   В мастере создания последовательностей задач доступен новый тип последовательности — **Обновить операционную систему из пакета обновления**. Он создает шаги для обновления компьютеров с Windows 7, Windows 8 или Windows 8.1 до Windows 10. Дополнительные сведения см. в статье [Обновление Windows до последней версии с помощью System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md).  
+-   No Assistente de sequência de tarefas criar, **atualizar um sistema operativo a partir do pacote de atualização**, um novo tipo de sequência de tarefas está disponível. Cria os passos para atualizar computadores a partir do Windows 7, Windows 8 ou Windows 8.1 para o Windows 10. Para obter mais informações, veja [Atualizar o Windows para a versão mais recente com o System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md).  
 
--   Теперь одноранговый кэш Windows PE доступен при развертывании операционных систем. Компьютеры, на которых выполняется последовательность задач для развертывания операционной системы, могут использовать одноранговый кэш Windows PE для получения содержимого из локального однорангового узла (источник однорангового кэша) вместо скачивания содержимого из точки распространения. Это позволяет уменьшить объем трафика глобальной сети (WAN) в сценариях с филиалами, где локальные точки распространения отсутствуют. Дополнительные сведения см. в статье [Подготовка однорангового кэша Windows PE для снижения трафика глобальной сети в System Center Configuration Manager](/sccm/osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic).  
+-   A Cache Ponto a Ponto do Windows PE está agora disponível quando implementa sistemas operativos. Computadores que executam uma sequência de tarefas para implementar um sistema operativo podem utilizar a Cache do Windows PE para obter conteúdo de um elemento de rede local (uma origem ponto a ponto cache), em vez de transferirem conteúdo de um ponto de distribuição. Isto ajuda a minimizar o tráfego da rede alargada (WAN) em cenários de uma sucursal onde não existe um ponto de distribuição local. Para obter mais informações, veja [Preparar a cache ponto a ponto do Windows PE para reduzir o tráfego WAN no System Center Configuration Manager](/sccm/osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic).  
 
--   Теперь вы можете просматривать состояние Windows в качестве службы в среде. Вы также можете создавать планы обслуживания для формирования колец развертываний и проверять, находятся ли компьютеры Windows 10 текущей ветви в актуальном состоянии при выходе новых сборок. Кроме того, можно просматривать оповещения, информирующие о наступлении окончания поддержки сборки Current Branch (CB) или Current Branch for Business (CBB) для клиентов Windows 10. Дополнительные сведения см. в статье [Управление Windows как службой с помощью System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
+-   Agora, pode ver o estado do Windows como um serviço no seu ambiente. Também pode criar planos de manutenção para anéis de implementação do formulário e certifique-se de que os computadores ramo atuais do Windows 10 são mantidos atualizados quando são lançadas novas compilações. Além disso, pode ver alertas quando os clientes do Windows 10 estiverem prestes o fim de suporte para a respetiva compilação de Current Branch (CB) ou Current Branch for Business (CBB). Para obter mais informações, veja [Gerir o Windows como um serviço com o System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
 
-## <a name="application-management"></a>Управление приложениями  
+## <a name="application-management"></a>Gestão de aplicações  
 
-Необходимо учитывать указанные ниже изменения, касающиеся управления приложениями.
+Tenha em atenção as seguintes alterações à gestão de aplicações:
 
--   System Center Configuration Manager позволяет развертывать приложения универсальной платформы Windows (UWP) для устройств под управлением Windows 10 и более поздней версии. См. статью [Создание приложений Windows с помощью System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
+-   O System Center Configuration Manager permite-lhe implementar aplicações da plataforma Universal do Windows (UWP) para dispositivos com Windows 10 e posterior. Veja [Criar aplicações Windows com o System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
 
--   Центр программного обеспечения имеет новый современный вид. Приложения, которые ранее были доступны только в каталоге приложений (приложения, доступные для пользователя), теперь доступны в центре программного обеспечения на вкладке "Приложения". Так эти развертывания становятся более доступными для обнаружения, и пользователи избавляются от необходимости обращаться к каталогу приложений. Кроме того, больше не требуется браузер с включенным Silverlight. См. статью [Планирование и настройка управления приложениями в System Center Configuration Manager](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+-   Centro de software tem um aspeto novo e moderno. As aplicações que antes apenas eram no catálogo de aplicações (aplicações disponíveis ao utilizador) agora apresentadas no Centro de Software no separador aplicações. Isto torna estas implementações mais detetável e torna desnecessário para os utilizadores fazer referência ao catálogo de aplicações. Adicionalmente, já não é necessário um browser com Silverlight. Veja [Planear e configurar a gestão de aplicações no System Center Configuration Manager](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
--   Новый тип приложения "Установщик Windows через MDM" позволяет создавать и развертывать приложения на основе установщика Windows на зарегистрированных ПК под управлением Windows 10. См. статью [Создание приложений Windows с помощью System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
+-   O novo Windows Installer através do tipo de aplicação MDM permite criar e implementar aplicações baseadas no Windows Installer em PCs inscritos que estejam a executar o Windows 10. Veja [Criar aplicações Windows com o System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
 
--   При создании приложения для собственного приложения iOS вам требуется лишь указать файл установщика (IPA) для приложения. Указывать соответствующий файл списка свойств (PLIST) больше не требуется. См. статью [Создание приложений iOS с помощью System Center Configuration Manager](../../../apps/get-started/creating-ios-applications.md).  
+-   Quando cria uma aplicação para uma aplicação iOS interna, só tem de especificar o ficheiro de instalador (. IPA) para a aplicação. Já não tem de especificar um ficheiro de lista de propriedades (.plist) correspondente. Veja [Criar aplicações iOS com o System Center Configuration Manager](../../../apps/get-started/creating-ios-applications.md).  
 
--   В Configuration Manager 2012 для указания ссылки на приложение из Магазина Windows можно было указать непосредственно ссылку или перейти на удаленный компьютер с установленным приложением. В System Center Configuration Manager вы по-прежнему можете ввести непосредственно ссылку, но вместо перехода на компьютер-образец теперь можно выполнить поиск приложения в магазине прямо из консоли Configuration Manager.  
+-   No Configuration Manager 2012, para especificar uma ligação para uma aplicação na loja Windows, foi ou especificar a ligação diretamente ou navegar para um computador remoto que tivesse a aplicação instalada. No System Center Configuration Manager, ainda pode introduzir diretamente a ligação, mas agora, em vez de navegar para um computador de referência, pode procurar o arquivo para a aplicação diretamente a partir da consola do Configuration Manager.  
 
-## <a name="software-updates"></a>Обновления программного обеспечения  
+## <a name="software-updates"></a>Atualizações de software  
 
-Необходимо учитывать указанные ниже изменения, касающиеся обновлений программного обеспечения.
+Tenha em atenção as seguintes alterações para atualizações de software:
 
--   Система System Center Configuration Manager теперь может различать методы управления обновлениями программного обеспечения для компьютеров. В частности, она может отличить компьютер с Windows 10, который подключается к Центру обновления Windows для бизнеса (WUfB) для управления обновлениями программного обеспечения, от компьютера, подключенного с той же целью к службам WSUS. Новый атрибут **UseWUServer** указывает, управляется ли компьютер с помощью WUfB. Этот параметр можно использовать в коллекции для удаления компьютеров из управления обновлениями программного обеспечения. Дополнительные сведения см. в разделе [Integration with Windows Update for Business in Windows 10](../../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
+-   System Center Configuration Manager pode agora detetar a diferença entre os métodos de gestão de atualização de software para computadores. Especificamente, é capaz de distinguir entre um computador Windows 10 que liga ao Windows Update for Business (WUfB) para a gestão de atualização de software e um computador ligado ao Windows Server Update Services (WSUS) para a gestão de atualização de software. O **UseWUServer** atributo é novo e Especifica se o computador é gerido com o WUfB. Pode utilizar esta definição numa coleção para remover estes computadores da gestão de atualizações de software. Para obter mais informações, veja [Integração com o Windows Update for Business no Windows 10](../../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
 
--   Теперь можно планировать и запускать задание очистки WSUS из консоли Configuration Manager. При выборе задания очистки WSUS для запуска в свойствах **компонента точки обновления программного обеспечения** оно будет выполнено при следующей синхронизации обновлений программного обеспечения. Просроченным обновлениям присваивается состояние "Отклонено" на сервере WSUS, и агент обновления Windows на компьютерах больше не будет проверять эти обновления. Дополнительные сведения см. в статье [Планирование и запуск задачи очистки WSUS](../../../sum/deploy-use/software-updates-maintenance.md).  
+-   Agora pode agendar e executar a tarefa de limpeza do WSUS a partir da consola do Configuration Manager. No **componente de ponto de atualização de Software** propriedades, quando seleciona a executar a tarefa de limpeza do WSUS, será executada na próxima sincronização de atualizações de software. O atualizações são definidas para um Estado de recusado no servidor WSUS e o Windows Update Agent nos computadores de software expiradas já não irá analisar estas atualizações de software. Para obter mais informações, veja [Agendar e executar a tarefa de limpeza do WSUS](../../../sum/deploy-use/software-updates-maintenance.md).  
 
-## <a name="compliance-settings"></a>Параметры соответствия  
+## <a name="compliance-settings"></a>Definições de compatibilidade  
 
-Необходимо учитывать указанные ниже изменения, касающиеся параметров соответствия требованиям.
+Tenha em atenção as seguintes alterações às definições de conformidade:
 
--   В System Center Configuration Manager улучшен рабочий процесс создания элементов конфигурации. Теперь, когда вы создаете элемент конфигурации и выбираете поддерживаемые платформы, отображаются только параметры, относящиеся к соответствующей платформе. См. статью [Приступая к работе с параметрами соответствия в System Center Configuration Manager](../../../compliance/get-started/get-started-with-compliance-settings.md).  
+-   O System Center Configuration Manager melhora o fluxo de trabalho para a criação de itens de configuração. Agora, quando cria um item de configuração e seleciona as plataformas suportadas, apenas estão disponíveis as definições relevantes para essa plataforma. Veja [Introdução às definições de compatibilidade no System Center Configuration Manager](../../../compliance/get-started/get-started-with-compliance-settings.md).  
 
--   Мастер **создания элементов конфигурации** упрощает выбор создаваемого типа элемента конфигурации. Кроме того, новые и обновленные элементы конфигурации доступны для:  
+-   O **Criar Item de configuração** assistente agora torna mais fácil escolher o tipo de item de configuração que pretende criar. Além disso, estão disponíveis itens de configuração novos e atualizados para:  
 
-    -   устройств Windows 10, управляемых с помощью клиента Configuration Manager;  
+    -   Dispositivos do Windows 10 geridos com o cliente do Configuration Manager.  
 
-    -   устройств Mac OS X, управляемых с помощью клиента Configuration Manager;  
+    -   Dispositivos do Mac OS X geridos com o cliente do Configuration Manager.  
 
-    -   настольных систем и серверов Windows, управляемых с помощью клиента Configuration Manager;  
+    -   Ambiente de trabalho e o servidor de computadores Windows geridos com o cliente do Configuration Manager.  
 
-    -   устройств Windows 8.1 и Windows 10, управляемых без использования клиента Configuration Manager;  
+    -   Dispositivos Windows 8.1 e Windows 10 geridos sem o cliente do Configuration Manager.  
 
-    -   устройств Windows Phone, управляемых без использования клиента Configuration Manager;  
+    -   Dispositivos Windows Phone geridos sem o cliente do Configuration Manager.  
 
-    -   устройств iOS и Mac OS X, управляемых без использования клиента Configuration Manager;  
+    -   dispositivos iOS e Mac OS X geridos sem o cliente do Configuration Manager.  
 
-    -   устройств Android и Samsung KNOX Standard, управляемых без использования клиента Configuration Manager.  
+    -   Android e Samsung KNOX Standard dispositivos geridos sem o cliente do Configuration Manager.  
 
- См. статью [Создание элементов конфигурации в System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items.md).  
+ Veja [Como criar itens de configuração no System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items.md).  
 
--   Поддержка параметров управления на компьютерах Mac OS X, которые зарегистрированы в Microsoft Intune или управляются с помощью клиента Configuration Manager. См. статью [Создание элементов конфигурации для устройств iOS и Mac OS X, управляемых без использования клиента System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md).  
+-   Suporte para gerir definições nos computadores de Mac OS X que são inscritos com o Microsoft Intune ou geridos com o cliente do Configuration Manager. Veja [Como criar itens de configuração para os dispositivos iOS e Mac OS X geridos sem o cliente System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md).  
 
-## <a name="protect-data-and-site-infrastructure"></a>Защита данных и инфраструктуры сайтов  
-System Center Configuration Manager можно интегрировать с Windows Hello для бизнеса (прежнее название — Microsoft Passport для Windows). Windows Hello для бизнеса — это альтернативный метод входа, использующий Active Directory или учетную запись Azure Active Directory для замены пароля, смарт-карты или виртуальной смарт-карты на устройствах с ОС Windows 10. См. статью [Параметры Windows Hello для бизнеса в System Center Configuration Manager](../../../protect/deploy-use/windows-hello-for-business-settings.md).
+## <a name="protect-data-and-site-infrastructure"></a>Proteger os dados e a infraestrutura do site  
+System Center Configuration Manager permite-lhe integrar com o Windows Hello para empresas (anteriormente o Microsoft Passport for Work). Windows Hello para empresas é um início de sessão método alternativo que utiliza o Active Directory ou uma conta do Azure Active Directory, para substituir uma palavra-passe, um smart card ou um smart card virtual em dispositivos com Windows 10. Veja [Definições do Windows Hello para Empresas no System Center Configuration Manager](../../../protect/deploy-use/windows-hello-for-business-settings.md).
 
-## <a name="mobile-device-management-with-microsoft-intune"></a>Управление устройствами Windows с помощью Microsoft Intune  
- System Center Configuration Manager содержит улучшения для управления мобильными устройствами, включая следующее:  
+## <a name="mobile-device-management-with-microsoft-intune"></a>Gestão de dispositivos móveis com o Microsoft Intune  
+ O System Center Configuration Manager apresenta melhoramentos à experiência de gestão de dispositivos móveis, incluindo:  
 
--   ограничение числа устройств, которые может зарегистрировать пользователь;  
+-   Colocar um limite no número de dispositivos um utilizador pode inscrever.  
 
--   указание условий, которые должны принять пользователи корпоративного портала перед регистрацией или использованием приложения;  
+-   Especificar termos e condições de utilizadores do Portal da empresa têm de aceitar antes de poderem inscrever ou utilizar a aplicação.  
 
--   добавление роли диспетчера регистрации устройств для управления большим количеством устройств.  
+-   Adicionar uma função de Gestor de inscrição de dispositivos para ajudar a gerir um grande número de dispositivos.  
 
-Дополнительные сведения о возможностях управления мобильными устройствами с помощью Configuration Manager и Intune см. в статье [Гибридное управление мобильными устройствами (MDM) с помощью System Center Configuration Manager и Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
+Para obter mais informações sobre as capacidades de gestão de dispositivos móveis com o Configuration Manager e o Intune, consulte [gestão híbrida de dispositivos móveis (MDM) com o System Center Configuration Manager e o Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
-## <a name="on-premises-mobile-device-management"></a>Локальное управление мобильными устройствами  
- Теперь вы можете управлять мобильными устройствами с помощью локальной инфраструктуры Configuration Manager. Все операции управления устройствами и данные управления обрабатываются локально и не являются частью Microsoft Intune или других облачных служб. Этот тип управления устройствами не требует клиентского программного обеспечения. Configuration Manager управляет устройствами с помощью возможностей, встроенных в операционные системы устройств.  
+## <a name="on-premises-mobile-device-management"></a>Gestão de Dispositivos Móveis no Local  
+ Agora pode gerir dispositivos móveis ao utilizar a infraestrutura do Configuration Manager no local. Todos os dados de gestão e gestão de dispositivos é processados no local e não faz parte do Microsoft Intune ou outros serviços em nuvem. Este tipo de gestão de dispositivos não requer o software de cliente. Gestor de configuração gere dispositivos com as capacidades incorporadas em sistemas de operativos de dispositivos.  
 
- Дополнительные сведения см. в статье [Управление мобильными устройствами с помощью локальной инфраструктуры в System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).
+ Para obter mais informações, consulte [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).

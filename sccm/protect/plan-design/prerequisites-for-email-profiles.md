@@ -1,6 +1,6 @@
 ---
-title: "Необходимые условия для профилей электронной почты | Документы Майкрософт"
-description: "Сведения о профилях электронной почты в System Center Configuration Manager, а также об их внешних зависимостях и зависимостях в рамках продукта."
+title: "Pré-requisitos para perfis de e-mail | Microsoft Docs"
+description: "Saiba mais sobre perfis de e-mail no System Center Configuration Manager e as respetivas dependências externamente e dentro do produto."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,25 +17,25 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 451317db1d7aab888c03d1a099b9ce25311e06d0
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="email-profile-prerequisites"></a>Необходимые условия для профилей электронной почты
+# <a name="email-profile-prerequisites"></a>Pré-requisitos de perfil de e-mail
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Профили электронной почты в System Center Configuration Manager имеют как внешние зависимости, так и зависимости в рамках продукта.  
+Perfis de e-mail no System Center Configuration Manager tem dependências externas e dentro do produto.  
 
-## <a name="configuration-manager-dependencies"></a>Зависимости Configuration Manager  
+## <a name="configuration-manager-dependencies"></a>Dependências do Configuration Manager  
 
-|Зависимость|Дополнительные сведения|  
+|Dependência|Mais informações|  
 |----------------|----------------------|  
-|Для управления профилями электронной почты должны быть предоставлены специальные разрешения системы безопасности.|Для управления параметрами доступа к ресурсам организации, такими как профили электронной почты, вы должны иметь следующие разрешения системы безопасности.<br /><br /> — Чтобы просматривать оповещения и отчеты для профилей электронной почты и управлять ими: разрешения **Создание**, **Удаление**, **Изменение**, **Изменить отчет**, **Чтение** и **Выполнить отчет** для объекта **Оповещения**.<br /><br /> — Для создания профилей сертификатов и управления ими: разрешения **Политика автора**, **Изменить отчет**, **Чтение** и **Выполнить отчет** для объекта **Профиль сертификата**.<br /><br /> — Для управления развертываниями профилей электронной почты: разрешения **Развернуть политики конфигурации**, **Изменение оповещения о состоянии клиента**, **Чтение** и **Чтение ресурса** для объекта **Коллекция**.<br /><br /> — Для управления всеми политиками конфигураций: разрешения **Создание**, **Удаление**, **Изменение**, **Чтение** и **Настроить область безопасности** для объекта **Политика конфигурации**.<br /><br /> — Для выполнения запросов, связанных с профилями электронной почты: разрешение **Чтение** для объекта **Запрос**.<br /><br /> — Для просмотра сведений о профилях электронной почты в консоли System Center Configuration Manager: разрешение **Чтение** для объекта **Сайт**.<br /><br /> — Для просмотра сообщений о состоянии для профилей электронной почты: разрешение **Чтение** для объекта **Сообщения о состоянии**.<br /><br /> — Для создания профилей электронной почты и управления ими: разрешения **Политика автора**, **Изменить отчет**, **Чтение** и **Выполнить отчет** для объекта **Профиль подготовки связи**.<br /><br /> Роль безопасности **Диспетчер доступа к ресурсам компании** включает все разрешения, необходимые для управления профилями электронной почты в System Center Configuration Manager. Дополнительные сведения см. в статье [Configure security in System Center Configuration Manager](../../core/plan-design/security/configure-security.md).|  
-|Атрибут mail в Active Directory|Если вы хотите создавать адреса электронной почты пользователей в профиле электронной почты с помощью основного SMTP-адреса пользователя, то обнаружение пользователей в System Center Configuration Manager должно быть настроено для обнаружения атрибута **mail** из Active Directory (настраивается по умолчанию).|  
+|Têm de ser concedidas permissões de segurança específicas para gerir perfis de e-mail|Tem de ter as seguintes permissões de segurança para gerir definições de acesso a recursos da empresa, tais como perfis de e-mail:<br /><br /> -Para ver e gerir alertas e relatórios para perfis de e-mail: **Criar**, **eliminar**, **modificar**, **modificar relatório**, **leitura**, e **executar relatório** permissões para o **alertas** objeto.<br /><br /> -Para criar e gerir perfis de certificado: **Política de autor**, **modificar relatório**, **leitura** e **executar relatório** permissões para o **perfil de certificado** objeto.<br /><br /> -Para gerir implementações de perfis de e-mail: **Implementar políticas de configuração**, **modificar cliente alerta de estado**, **leitura**, e **ler recurso** permissões para o **coleção** objeto.<br /><br /> -Para gerir todas as políticas de configuração: **Criar**, **eliminar**, **modificar**, **leitura** e **definir âmbito de segurança** permissões para o **política de configuração** objeto.<br /><br /> -Para executar consultas relacionadas com perfis de e-mail: **Leitura** permissão para o **consulta** objeto.<br /><br /> -Para ver informações sobre perfis de e-mail na consola do System Center Configuration Manager: **Leitura** permissão para o **Site** objeto.<br /><br /> -Para ver mensagens de estado para perfis de e-mail: **Leitura** permissão para o **mensagens de estado** objeto.<br /><br /> -Para criar e gerir perfis de e-mail: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** permissões para o **perfil de aprovisionamento de comunicações** objeto.<br /><br /> O **Gestor de acesso a recursos da empresa** função de segurança inclui estas permissões que são necessárias para gerir perfis de e-mail no System Center Configuration Manager. Para obter mais informações, veja [Configurar a segurança no System Center Configuration Manager](../../core/plan-design/security/configure-security.md).|  
+|Atributo de correio no active directory|Se pretender gerar o e-mail dos utilizadores endereço num perfil de e-mail utilizando o endereço SMTP principal do utilizador, a deteção de utilizadores do System Center Configuration Manager tem de ser configurada para detetar o **correio** atributo do Active Directory (configurado por predefinição).|  
 
-## <a name="external-dependencies"></a>Внешние зависимости  
+## <a name="external-dependencies"></a>Dependências externas  
 
-|Зависимость|Дополнительные сведения|  
+|Dependência|Mais informações|  
 |----------------|----------------------|  
-|Атрибут mail в Active Directory|Если вы хотите создавать адреса электронной почты пользователей в профиле электронной почты с помощью основного SMTP-адреса пользователя, этот адрес должен существовать в атрибуте **mail** Active Directory.<br /><br /> Дополнительные сведения см. в документации по Windows Server.|
+|Atributo de correio no active directory|Se pretender gerar o e-mail dos utilizadores endereço num perfil de e-mail utilizando o endereço SMTP principal do utilizador, este endereço tem de existir o **correio** atributo no Active Directory.<br /><br /> Para mais informações, consulte a documentação do Windows Server.|

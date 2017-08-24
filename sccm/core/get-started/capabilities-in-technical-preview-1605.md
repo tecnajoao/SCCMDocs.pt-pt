@@ -1,6 +1,6 @@
 ---
-title: "Возможности в Technical Preview 1605 для Configuration Manager"
-description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1605."
+title: "Capacidades na pré-visualização técnica 1605 do Configuration Manager"
+description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1605."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -16,207 +16,207 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8b3d472c586e704ee48e9825138c72f655d89492
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1605-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1605 для System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1605-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1605 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
-В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1605. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager.      Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.  
+Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1605. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager.      Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.  
 
- **Известные проблемы в этой версии Technical Preview:**  
+ **Problemas conhecidos neste Technical Preview:**  
 
--   В Technical Preview 1605 при обновлении свойств установленной точки управления может появиться ошибка, приводящая к закрытию консоли.  В этом случае удалите точку управления, а затем переустановите ее с использованием нужных параметров. Кроме того, точку управления можно изменить перед установкой Technical Preview 1605.  
+-   Com o Technical Preview 1605, se atualizar as propriedades de um ponto de gestão depois de ser instalado, poderá ver um erro de consola que força a consola para fechar.  Se isto acontecer, pode desinstalar o ponto de gestão e, em seguida, reinstalar o ponto de gestão utilizando as definições pretendidas. Em alternativa, pode modificar o ponto de gestão antes de instalar 1605 de pré-visualização técnica.  
 
--   Если вы используете Магазин Windows для бизнеса в Technical Preview 1604 и затем переходите на Technical Preview 1605, вы больше не сможете просматривать данные о подключении. Все остальные функциональные возможности продолжат работать. Если вы внедрили Technical Preview 1604, вы сохраните подключение после установки Technical Preview 1605 и вам не потребуется предпринимать никаких дополнительных действий.  
+-   Quando utilizar a loja Windows para a funcionalidade de negócio com 1604 de pré-visualização técnica e, em seguida, atualizar para o Technical Preview 1605, já não pode ver os dados de integração. Todos os outros funcionalmente continua a trabalhar. Se integrado com o 1604 de pré-visualização técnica, permanecem integrado depois de instalar 1605 de pré-visualização técnica e não precisa de tomar nenhuma ação adicional.  
 
- **Ниже перечислены новые возможности, доступные в этой версии.**  
+ **Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-##  <a name="BKMK_PerAppVPN"></a> VPN для каждого приложения для устройств Windows 10  
- Для устройств с ОС Windows 10, управляемых с помощью Configuration Manager с Intune, можно добавить список приложений, которые автоматически открывают VPN-подключения, настроенные в консоли администрирования Configuration Manager. Вы можете ограничить трафик VPN для этих приложений либо разрешить передачу всего трафика через VPN-подключение.  
+##  <a name="BKMK_PerAppVPN"></a>Dispositivos de VPN para Windows 10 por aplicação  
+ Para dispositivos do Windows 10 geridos com o Configuration Manager com o Intune, pode adicionar uma lista de aplicações que abra automaticamente uma ligação de VPN que tiver configurado através da consola de administração do Configuration Manager. Tem a opção de restringir o tráfego VPN para essas aplicações, ou pode continuar a permitir todo o tráfego através da ligação VPN.  
 
- **Требования**:  
+ **Requisitos**:  
 
--   Configuration Manager с Intune  
+-   Configuration Manager com Intune  
 
--   VPN-профиль Windows 10, развернутый по меньшей мере на одном устройстве  
+-   Um perfil de VPN do Windows 10 que tenha sido implementado, pelo menos, um dispositivo  
 
-##  <a name="BKMK_InstallSU"></a> Улучшения для последовательности задач "Установить обновления программного обеспечения"  
- В последовательность задач "Установить обновления программного обеспечения" были внесены приведенные далее улучшения.  
+##  <a name="BKMK_InstallSU"></a>Melhoramentos para a sequência de tarefas instalar atualizações de software  
+ Foram efetuadas as seguintes melhorias à sequência de tarefas instalar atualizações de Software:  
 
--   Доступна новая переменная последовательности задач SMSTSSoftwareUpdateScanTimeout, чтобы дать вам возможность управлять временем ожидания для проверки обновлений программного обеспечения во время шага последовательности задач "Установить обновления программного обеспечения". Значение по умолчанию — 30 минут.  
+-   Uma variável de sequência de tarefas novo, SMSTSSoftwareUpdateScanTimeout, está disponível para lhe fornecer a capacidade para controlar o tempo limite a análise de atualizações de software durante o passo de sequência de tarefas de atualizações de software de instalação. O valor predefinido é 30 minutos.  
 
--   Были улучшены возможности ведения журнала. Файл журнала smsts.log будет содержать новые записи журнала, которые ссылаются на другие файлы журнала. Это поможет вам при устранении неполадок во время установки обновлений программного обеспечения.  
+-   Foram melhoramentos ao registo. O ficheiro de registo smsts.log irá conter novas entradas de registo referenciam outros ficheiros de registo que o irão ajudar a resolver problemas durante o processo de instalação de atualizações de software.  
 
-##  <a name="BKMK_PrepareConfigMgrClient"></a> Улучшения для шага последовательности задач "Подготовка клиента Configuration Manager перед снятием образа"  
- Теперь на шаге "Подготовка клиента Configuration Manager перед снятием образа" полностью удаляется клиент, а не только основные сведения. Когда последовательность задач развертывает записанный образ операционной системы, она каждый раз будет устанавливать новый клиент Configuration Manager.  
+##  <a name="BKMK_PrepareConfigMgrClient"></a>Melhoramentos ao preparar ConfigMgr Client para captura de passo de sequência de tarefas  
+ O passo de preparar ConfigMgr Client agora removerá totalmente o cliente do Configuration Manager, em vez de apenas remover informações de chave. Quando a sequência de tarefas, implementa a imagem do sistema operativo capturada, instalará um novo cliente de Configuration Manager cada vez.  
 
-##  <a name="BKMK_Grace"></a> Льготный период для обязательных развертываний приложений  
- В некоторых случаях может потребоваться предоставить пользователям больше времени на установку обязательных развертываний приложений (по сравнению с настроенными крайними сроками). Например, если пользователь только что вернулся из отпуска, ему может потребоваться значительное время, чтобы дождаться завершения установки просроченных развертываний приложений. Однако он по-прежнему может устанавливать приложения в любой момент.  
+##  <a name="BKMK_Grace"></a>Período de tolerância para implementações de aplicações necessárias  
+ Em alguns casos, poderá conceder aos utilizadores mais tempo a instalar as implementações de aplicações necessárias, para além de qualquer prazos que configurou. Por exemplo, se um utilizador final tiver apenas devolvido de férias, poderá ter de aguardar algum enquanto como uma aplicação em atraso implementações estão instaladas. No entanto, ainda imediatamente podem instalar a aplicação em qualquer altura em que pretende.  
 
- Чтобы решить эту проблему, теперь можно определять **льготный период**, развернув параметры клиента Configuration Manager в коллекции.  
+ Para ajudar a resolver este problema, agora pode definir um **período de tolerância** ao implementar as definições de cliente do Configuration Manager para uma coleção.  
 
- Чтобы настроить льготный период, выполните указанные далее действия.  
+ Para configurar o período de tolerância, efetuar as seguintes ações:  
 
-1.  На странице **Агент компьютера** параметров клиента настройте новое свойство **Льготный период для принудительного применения после крайнего срока развертывания (ч)** со значением в диапазоне от **1** до **120** часов.  
+1.  No **agente do computador** página de definições de cliente, configure a nova propriedade **período de tolerância para a imposição após a implementação do prazo (horas)** com um valor entre **1** e **120** horas.  
 
-2.  В новом развертывании приложения или в окне свойств существующего развертывания на странице **Планирование** установите флажок **Отложить применение этого развертывания в соответствии с пользовательскими предпочтениями вплоть до окончания льготного периода, определенного в настройках клиента**.  
+2.  Numa nova implementação de aplicação ou nas propriedades de uma implementação existente, no **agendamento** página, selecione a caixa de verificação **atrasar imposição para esta implementação, de acordo com as preferências do utilizador**, até ao período de tolerância definido nas definições do cliente.  
 
-     Льготный период будет действовать для всех развертываний, для которых установлен этот флажок и которые предназначены для устройств с развернутым параметром клиента.  
+     Todas as implementações que tenham esta caixa de verificação selecionada e são os que são direcionadas para os dispositivos nos quais tiver implementado também a definição de cliente utilizará o período de tolerância.  
 
- В этом выпуске настраиваемый льготный период не используется на клиентских устройствах. Если настроить льготный период и установить флажок, приложение будет установлено в первом нерабочем периоде, настроенном пользователем, после наступления крайнего срока.  
+ Nesta versão, o período de tolerância que configurar não é utilizado pelos dispositivos cliente. Se configurar um período de tolerância e selecione a caixa de verificação, a aplicação será instalada na primeira janela de empresa-empresa que o utilizador configurado após o prazo.  
 
- Аналогичные параметры были добавлены в мастер развертывания обновлений программного обеспечения, мастер правил автоматического развертывания и на страницы свойств. Однако они не реализованы в данной ознакомительной технической версии.  
+ Foram adicionadas opções semelhantes para o Assistente de implementação de atualizações de software, o Assistente de regras de implementação automática e páginas de propriedades. No entanto, estes não estão implementados nesta pré-visualização técnica.  
 
-##  <a name="BKMK_Remote"></a> Новые возможности для действий с удаленного устройства  
- Улучшены возможности выполнения действий с удаленным устройством с консоли Configuration Manager.  
-Теперь стандартные действия, такие как **Снятие с учета/очистка**, **Сброс секретного кода**, **Удаленная блокировка** и **Обход блокировки активации** находятся в меню **Действия удаленного устройства**, доступного в рабочей области **Активы и соответствие**.  
+##  <a name="BKMK_Remote"></a>Nova experiência para as ações do dispositivo remoto  
+ A experiência para efetuar ações do dispositivo remoto a partir da consola do Configuration Manager foi melhorada.  
+Ações comuns, tais como **extinguir/limpar**, **repor código de acesso**, **bloqueio remoto**, e **ignorar bloqueio de ativação** agora podem ser encontrados no **ações do dispositivo remoto** acedido a partir do menu de **ativos e compatibilidade** área de trabalho.  
 
- ![Снимок экрана новых действий удаленного устройства](media/New-Remote-Device-Actions.png)  
+ ![Captura de ecrã de ações do dispositivo remoto novo](media/New-Remote-Device-Actions.png)  
 
- Состояние для каждой из этих операций можно найти в следующих местах.  
+ Pode encontrar o estado para cada uma destas operações nos seguintes locais:  
 
--   В области сведений при выборе устройства в узле **Устройства**.  
+-   No painel de detalhes, quando seleciona um dispositivo a partir do **dispositivos** nós.  
 
--   На странице **Свойства** для устройства.  
+-   No **propriedades** página para um dispositivo.  
 
--   На главной странице узла **Устройства** (по умолчанию отображаются лишь некоторые столбцы).  
+-   Na página principal do **dispositivos** nó (nem todas as colunas poderão ser visíveis por predefinição).  
 
- Дополнительные сведения об обходе блокировки активации iOS см. в статье [Защита устройств iOS с помощью обхода блокировки активации в Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock). В частности, см. сведения в разделе **Текущие известные проблемы с обходом блокировки активации в Configuration Manager Technical Preview**.  
+ Para obter mais informações sobre a desativação do bloqueio de ativação de iOS, consulte [ajudar a proteger dispositivos iOS com o bloqueio de ativação desativando para o Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock), em particular, a **ignorar atuais problemas conhecidos com o bloqueio de ativação no Configuration Manager Technical Preview** secção.  
 
-##  <a name="BKMK_WSFB"></a> Приложения Магазина Windows для бизнеса  
- [Магазин Windows для бизнеса](https://www.microsoft.com/business-store) — это место, где вы можете найти и приобрести приложения для своей организации по отдельности или массово. Если подключить магазин к Configuration Manager, можно управлять приложениями, приобретенными по программе Volume Purchase Program, из консоли Configuration Manager, например так, как указано далее.  
+##  <a name="BKMK_WSFB"></a>Loja Windows para as aplicações da empresa  
+ O [loja Windows para empresas](https://www.microsoft.com/business-store) é onde pode encontrar e adquirir aplicações para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode gerir aplicações compradas em volume da consola do Configuration Manager, por exemplo:  
 
--   Можно синхронизировать список приобретенных приложений с помощью Configuration Manager.  
+-   Pode sincronizar a lista de aplicações adquiridas com o Configuration Manager  
 
--   Синхронизированные приложения отображаются в консоли Configuration Manager, и их можно развернуть так же, как и любые другие приложения.  
+-   As aplicações que são sincronizadas aparecem na consola do Configuration Manager e pode implementá-las como todas as outras aplicações  
 
--   Каждые 24 часа Configuration Manager скачивает сведения о лицензировании приложений из магазина, и вы можете просматривать их в консоли Configuration Manager.  
+-   A cada 24 horas, Configuration Manager transfere as informações de licenciamento de aplicações da loja e pode rever este na consola do Configuration Manager  
 
- В выпуске Technical Preview1604 можно синхронизировать и просматривать приложения из Магазина Windows для бизнеса в консоли Configuration Manager. В этом выпуске добавлена возможность создания и развертывания приложений Configuration Manager из синхронизированных приложений магазина.  
+ Na versão 1604 technical preview, pode sincronizar e ver as aplicações da loja Windows para empresas na consola do Configuration Manager. Nesta versão, foi adicionado a capacidade de criar e implementar aplicações do Configuration Manager a partir de aplicações da loja sincronizados.  
 
-### <a name="set-up-windows-store-for-business-synchronization"></a>Настройка синхронизации с Магазином Windows для бизнеса  
+### <a name="set-up-windows-store-for-business-synchronization"></a>Configurar a loja Windows para a sincronização de negócio  
 
-1.  В Azure Active Directory зарегистрируйте Configuration Manager как средство управления "Веб-приложение и (или) веб-API". Это позволит получить идентификатор клиента, который понадобится позже.  
+1.  No Azure Active Directory, registe o Configuration Manager como uma ferramenta de gestão "Aplicação Web e/ou API Web". Isto irá dar-lhe um ID de cliente que irá precisar mais tarde.  
 
-    1.  В узле Active Directory по адресу [https://manage.windowsazure.com](https://manage.windowsazure.com) выберите свой каталог Azure Active Directory, а затем щелкните **Приложения** > **Добавить**.  
+    1.  No nó do Active Directory da [https://manage.windowsazure.com](https://manage.windowsazure.com), selecione o seu Azure Active Directory, em seguida, clique em **aplicações** > **adicionar**.  
 
-    2.  Щелкните **Добавить приложение, разрабатываемое моей организацией**.  
+    2.  Clique em **adicionar uma aplicação que a minha organização está a desenvolver**.  
 
-    3.  Введите имя приложения, выберите **Веб-приложение** и (или) **веб-API**, затем нажмите стрелку **Далее**.  
+    3.  Introduza um nome para a aplicação, selecione **aplicação Web** e/ou **Web API**, em seguida, clique o **seguinte** seta.  
 
-    4.  Введите одинаковый URL-адрес в поля **URL-адрес входа** и **URI кода приложения**. URL-адрес может быть любым и не должен обязательно вести на действительный адрес. Например, можно ввести **https://&lt;имя_домена>/sccm**.  
+    4.  Introduza o mesmo URL para ambos os **URL de início de sessão** e **URI de ID de aplicação**. O URL pode ser qualquer coisa e não precisa de resolver para um endereço real. Por exemplo, pode introduzir **https://&lt;oseudomínio > / sccm**.  
 
-    5.  Завершите работу мастера.  
+    5.  Conclua o assistente.  
 
-2.  В Azure Active Directory создайте ключ клиента для зарегистрированного средства управления.  
+2.  No Azure Active Directory, crie uma chave de cliente para a ferramenta de gestão registada.  
 
-    1.  Выделите только что созданное приложение и нажмите кнопку **Настроить**.  
+    1.  Realce a aplicação que acabou de criar e clique em **configurar**.  
 
-    2.  В разделе **Ключи** выберите из списка значение длительности и нажмите кнопку **Сохранить**. Это действие создаст новый ключ клиента. Не покидайте эту страницу, пока Магазин Windows для бизнеса не будет подключен к Configuration Manager.  
+    2.  Em **chaves**, selecione uma duração da lista e clique em **guardar**. Isto irá criar uma nova chave de cliente. Não saia desta página até ter com êxito integrado da loja Windows para empresas para o Configuration Manager.  
 
-3.  В Магазине Windows для бизнеса настройте Configuration Manager в качестве средства управления магазином.  
+3.  Na loja Windows para empresas, configure o Configuration Manager como a ferramenta de gestão de armazenamento.  
 
-    1.  Откройте [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/managementtools) и выполните вход, если отобразится соответствующий запрос.  
+    1.  Abra [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/managementtools) e início de sessão se lhe for pedido.  
 
-    2.  При необходимости примите условия использования.  
+    2.  Aceite os termos de utilização, se necessário.  
 
-    3.  В разделе **Средства управления** щелкните **Добавить средство управления**.  
+    3.  Em **ferramentas de gestão**, clique em **adicionar uma ferramenta de gestão**.  
 
-    4.  В поле **Поиск средства по имени** введите имя приложения, которое вы ранее создали в AAD, а затем нажмите кнопку **Добавить**.  
+    4.  No **pesquisar a ferramenta por nome**, escreva o nome da aplicação que criou anteriormente no AAD, em seguida, clique em **adicionar**.  
 
-    5.  Рядом с только что импортированным приложением щелкните **Активировать**.  
+    5.  Clique em **ativar** junto da aplicação que acabou de importar.  
 
-    6.  В мастере **Show Offline-Licensed Apps** (Показать приложения с автономными лицензиями) нажмите кнопку **Да**, если хотите разрешить приобретение приложений с автономными лицензиями.  
+    6.  No **aplicações licenciadas offline** assistente, clique em **Sim** se pretender permitir que as aplicações licenciadas offline sejam compradas.  
 
-4.  Приобретите хотя бы одно приложение в Магазине Windows для бизнеса.  
+4.  Compre pelo menos uma aplicação da loja Windows para empresas.  
 
-5.  В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Облачные службы** и щелкните **Магазин Windows для бизнеса**.  
+5.  No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**, em seguida, clique em **loja Windows para empresas.**  
 
-6.  На вкладке **Главная** в группе **Создать** щелкните **Добавить учетную запись Магазина Windows для бизнеса**.  
+6.  No **home page** separador o **criar** , clique em **adicionar da loja Windows para empresas conta**.  
 
-7.  Добавьте код клиента, идентификатор клиента и ключ клиента из Azure Active Directory, а затем завершите работу мастера.  
+7.  Adicione o ID do inquilino, o id de cliente e a chave de cliente do Azure Active Directory, em seguida, conclua o assistente.  
 
-8.  После завершения учетная запись, настроенная в списке **учетных записей Магазина Windows для бизнеса**, отобразится в консоли Configuration Manager.  
+8.  Quando tiver terminado, verá a conta configurada no **da loja Windows para empresas contas** lista na consola do Configuration Manager.  
 
-### <a name="try-it-out"></a>Попробуйте!  
- Попробуйте выполнить следующую задачу, а затем сообщите нам о результате с помощью формы обратной связи на странице [Программа отзывов о Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) на сайте Microsoft Connect.  
+### <a name="try-it-out"></a>Experimente!  
+ Tentar concluir a seguinte tarefa e, em seguida, informe-nos como correu utilizando o nosso formulário de comentários no [programa de feedback do Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) página no site Microsoft Connect:  
 
- Создайте и разверните приложение Configuration Manager из автономного лицензированного приложения Магазина Windows для бизнеса.  
+ Criar e implementar uma aplicação do Configuration Manager de uma loja Windows para empresas as aplicações licenciadas offline.  
 
-1.  В консоли Configuration Manager в рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**, а затем щелкните элемент **Информация о лицензиях для приложений из Магазина**.  
+1.  No **biblioteca de Software** área de trabalho da consola do Configuration Manager, expanda **gestão de aplicações**, em seguida, clique em **informações de licença para aplicações da loja**.  
 
-2.  Выберите приложение для развертывания, а затем на вкладке **Главная** в группе **Создать** щелкните **Создать приложение**.  
+2.  Escolha a aplicação que pretende implementar, em seguida, no **home page** separador o **criar** , clique em **Criar aplicação**.  
 
- Будет создано приложение Configuration Manager, содержащее приложение Магазина Windows для бизнеса. Это приложение можно развертывать и отслеживать, как и любое другое приложение Configuration Manager.  
+ Uma aplicação do Configuration Manager é criada que contém a loja Windows para a aplicação de negócio. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.  
 
 > [!IMPORTANT]  
->  Создаваемое приложение Configuration Manager с одним типом развертывания из автономного лицензированного приложения можно развертывать на устройствах, управляемых с помощью как MDM, так и клиента Configuration Manager. При попытке развернуть приложение с несколькими типами развертывания установка завершится ошибкой.  
+>  Quando cria uma aplicação do Configuration Manager com um tipo de implementação única a partir de uma aplicação com licença offline, isto pode ser implementado em dispositivos que tenham MDM gerida e também são geridos com o cliente do Configuration Manager. Se tentar implementar uma aplicação com vários tipos de implementação, a instalação irá falhar.  
 >   
->  Сейчас развертывание подключенных лицензированных приложений с помощью Configuration Manager не поддерживается.  
+>  Atualmente não é possível implementar as aplicações licenciadas online com o Configuration Manager.  
 
-##  <a name="BKMK_VPP2"></a> Общие улучшения для приложений, приобретаемых в рамках программ корпоративного лицензирования  
+##  <a name="BKMK_VPP2"></a>Melhoramentos gerais para as aplicações compradas em volume  
 
--   В этом выпуске приложения, приобретенные по программе Volume Purchase Program из Магазина Windows для бизнеса, и приложения iOS из App Store объединены в одном представлении — **Информация о лицензиях для приложений из Магазина**.  
+-   Nesta versão, as aplicações compradas na loja Windows para empresas e a aplicação iOS arquivo ter sido consolidados na mesma vista, **informações de licença para armazenar aplicações**.  
 
--   Для приложений iOS, приобретенных по программе Volume Purchase Program, удалена вкладка "Apple Volume Purchase Program" в диалоговом окне **Пакет приложения для браузера iOS** в мастере создания приложений. Чтобы создать приложение для iOS, приобретенное по программе Volume Purchase Program, выполните приведенные далее действия.  
+-   Para aplicações compradas em volume do iOS, no separador de Apple Volume Purchase Program foi removido do **pacote de aplicação para o iOS Browser** caixa de diálogo no Assistente para criar aplicação. Para criar uma aplicação comprada em volume para iOS, utilize estes passos:  
 
-    1.  1.  В консоли Configuration Manager в рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**, а затем щелкните элемент **Информация о лицензиях для приложений из Магазина**.  
+    1.  1.  No **biblioteca de Software** área de trabalho da consola do Configuration Manager, expanda **gestão de aplicações**, em seguida, clique em **informações de licença para aplicações da loja**.  
 
-    2.  2.  Выберите приложение для развертывания, а затем на вкладке **Главная** в группе **Создать** щелкните **Создать приложение**.  
+    2.  2.  Escolha a aplicação que pretende implementar, em seguida, no **home page** separador o **criar** , clique em **Criar aplicação**.  
 
--   В консоли Configuration Manager изменилось расположение, используемое для получения и отправки токена Apple VPP для приложений, приобретенных по программе Volume Purchase Program. Теперь это можно сделать в рабочей области **Администрирование** в узле **Облачные службы** > **Токены Apple Volume Purchase Program**.  
+-   A localização que utilizar para obter e carregar um token VPP da Apple para aplicações compradas em volume na consola do Configuration Manager foi alterada. Agora pode fazer isto no **Admin** área de trabalho no **serviços Cloud** > **Tokens do Apple Volume Purchase Program** nós.  
 
-##  <a name="BKMK_VPP"></a> Защита корпоративных данных (EDP)  
- Можно создать элементы конфигурации, позволяющие развертывать политики по защите данных предприятия (EDP), а также выбирать защищенные приложения, уровень защиты EDP и способы поиска корпоративных данных в сети. Дополнительные сведения о EDP см. в следующих статьях:  
+##  <a name="BKMK_VPP"></a>Proteção de dados empresariais (EDP)  
+ Pode criar itens de configuração que permitem-lhe implementar as políticas de proteção (EDP) de dados empresariais, incluindo, permitindo-lhe escolher as aplicações protegidas, o nível de proteção de EDP e como dados empresariais são localizados na rede. Para obter mais informações sobre EDP, consulte os tópicos seguintes:  
 
--   [Защита данных предприятия с помощью защиты корпоративных данных (EDP)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-edp)  
+-   [Proteger os dados de enterprise através de proteção de dados empresariais (EDP)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-edp)  
 
--   [Создание и развертывание политики защиты корпоративных данных (EDP) с помощью System Center Configuration Manager](https://technet.microsoft.com/itpro/windows/keep-secure/create-edp-policy-using-sccm)  
+-   [Criar e implementar uma política de proteção (EDP) de dados empresariais com o System Center Configuration Manager](https://technet.microsoft.com/itpro/windows/keep-secure/create-edp-policy-using-sccm)  
 
-##  <a name="BKMK_End"></a> Конечные пользователи могут устанавливать приложения с корпоративного портала  
- В версии System Center Configuration Manager 1511 было представлено локальное управление мобильными устройствами (MDM). В предыдущих версиях можно было развертывать приложения на управляемые MDM устройства Windows 10 с целью развертывания **Обязательно** для устройств с локальным управлением MDM.  
+##  <a name="BKMK_End"></a>Os utilizadores finais podem instalar aplicações a partir do Portal da empresa  
+ No local MDM foi introduzida do System Center Configuration Manager versão 1511. Em versões anteriores, pode implementar aplicações em dispositivos Windows 10 geridos por MDM com um objetivo de implementação **necessário** instalar para dispositivos de geridos por MDM no local.  
 
- В этом выпуске можно развертывать приложения с целью развертывания **Доступно** для пользователей ПК Windows 10 с локальным управлением MDM. Теперь пользователи могут устанавливать эти приложения самостоятельно с корпоративного портала.
-В этой обзорной технической версии действует принцип, согласно которому если корпоративный портал открыт более 15 минут, конечный пользователь видит сообщение об ошибке. Чтобы решить эту проблему, перезапустите корпоративный портал.  
+ Nesta versão, pode agora implementar aplicações com um objetivo de implementação **disponível** MDM utilizadores no local geridas computadores Windows 10 e os utilizadores podem agora instalar estas aplicações próprios no Portal da empresa.
+Nesta pré-visualização técnica, se o Portal da empresa está aberto durante mais de 15 minutos, o utilizador final verá uma mensagem de erro. Para contornar este problema, reinicie o Portal da empresa.  
 
-### <a name="before-you-start"></a>Перед началом работы  
+### <a name="before-you-start"></a>Antes de começar  
 
-#### <a name="server-prerequisites"></a>Необходимые условия для сервера  
+#### <a name="server-prerequisites"></a>Pré-requisitos do  
 
--   .NET 4.5 или более поздней версии (требуется перезапуск)  
+-   .NET 4.5 ou superior (necessita de reinicialização)  
 
--   PowerShell 3.0 для сценария конфигурации (требуется перезапуск)  
+-   PowerShell 3.0 para o script de configuração (necessita de reinicialização)  
 
-#### <a name="client-prerequisites"></a>Требования к клиенту  
+#### <a name="client-prerequisites"></a>Pré-requisitos do cliente  
 
--   Windows 10 Desktop 1511 (ОС сборки 10586.218) или более поздние версии  
+-   Windows 10 Desktop 1511 (compilação 10586.218 SO) ou posterior  
 
-#### <a name="general-prerequisites"></a>Основные обязательные требования  
+#### <a name="general-prerequisites"></a>Pré-requisitos gerais  
 
--   Убедитесь, что вы выполнили [шаги подготовки к локальному управлению мобильными устройствами](https://technet.microsoft.com/library/mt613153.aspx) и [зарегистрировали устройства](https://technet.microsoft.com/library/mt627870.aspx).  
+-   Certifique-se de que concluiu o [passos de preparação para gestão de dispositivos móveis no local](https://technet.microsoft.com/library/mt613153.aspx) e [inscrito os seus dispositivos](https://technet.microsoft.com/library/mt627870.aspx).  
 
--   Для максимально эффективной установки приложений при использовании корпоративного портала убедитесь, что Configuration Manager имеет активное подключение к Microsoft Intune.  
+-   Para a aplicação melhor instalar a experiência de utilização ao utilizar o Portal da empresa, certifique-se de que o Configuration Manager tem uma ligação ativa para o Microsoft Intune.  
 
--   Если вы выбрали вариант массовой регистрации, перед выполнением этого сценария настройте сопоставление пользователей и устройств для зарегистрированного устройства.  
+-   Se escolher a opção de inscrição em massa, configure a afinidade de dispositivo / utilizador para o dispositivo inscrito antes de tentar este cenário.  
 
-### <a name="configuration-steps"></a>Шаги настройки  
+### <a name="configuration-steps"></a>Passos de configuração  
 
-#### <a name="install-the-application-catalog-roles-and-enable-mobile-device-management-support"></a>Установка ролей каталога приложений и включение поддержки управления мобильными устройствами  
+#### <a name="install-the-application-catalog-roles-and-enable-mobile-device-management-support"></a>Instalar as funções de catálogo de aplicações e ativar o suporte de gestão de dispositivos móveis  
 
-1.  Добавьте роли веб-сайта и веб-службы каталога приложений.  
+1.  Adicione as funções do serviço de Web do catálogo de aplicações e Web Site  
 
-    1.  Выберите **Режим HTTPS** и параметр **Разрешить мобильным устройствам использовать эту точку веб-службы каталога приложений**.  
+    1.  Selecione **modo HTTPS** e **permitir que os dispositivos móveis utilizem este ponto de serviço de Web do catálogo de aplicações** opção.  
 
-    2.  Ограничения в этой технической предварительной версии:  
+    2.  Limitações nesta pré-visualização técnica:  
 
-        -   Прежде чем выбрать параметр для разрешения подключения мобильных устройств, необходимо удалить все существующие роли каталога приложений.  
+        -   Tem de desinstalar quaisquer funções de catálogo de aplicações existentes antes de selecionar a opção para permitir que dispositivos móveis se liguem.  
 
-        -   Убедитесь, что существует только один набор ролей каталога приложений и роли расположены в одной системе сайта с ролями точки регистрации и точки регистрации прокси-сервера.  
+        -   Certifique-se de que existe apenas um conjunto de funções de catálogo de aplicações e as funções estão colocalizadas no mesmo sistema de sites com o ponto de registo e as funções de ponto de Proxy de registo.  
 
-2.  Убедитесь, что в консоли Configuration Manager в узле "Состояние компонента" следующие компоненты находятся в работоспособном состоянии:  
+2.  Certifique-se de que os seguintes componentes estão operacionais nó Estado do componente na consola do Configuration Manager:  
 
     -   **SMS_AWEBSVC_CONTROL_MANAGER**  
 
@@ -226,88 +226,88 @@ ms.lasthandoff: 08/07/2017
 
     -   **SMS_PORTALWEB_CONTROL_MANAGER**  
 
-### <a name="configure-boundaries"></a>настройка границ;  
- Настройте необходимые границы только для точек распространения, расположенных во внутренней сети.  
+### <a name="configure-boundaries"></a>Configurar limites  
+ Configure limites necessários apenas de intranet para pontos de distribuição.  
 
 > [!NOTE]  
->  В настоящее время для управления мобильными устройствами поддерживаются только границы IPv4-диапазона.  
+>  Limites de intervalo IPv4 apenas são suportados neste momento para gestão de dispositivos móveis.  
 
-### <a name="deploy-the-company-portal-application-and-configuration"></a>Развертывание приложения корпоративного портала и конфигурации  
+### <a name="deploy-the-company-portal-application-and-configuration"></a>Implementar a aplicação Portal da empresa e a configuração  
 
-1.  Для подготовки развертывания корпоративного портала и конфигурации воспользуйтесь сценарием настройки, входящим в состав обзорной технической версии.  
+1.  Utilize o script de configuração incluído com o technical preview para preparar a implementação do Portal da empresa e a configuração:  
 
-    1.  Откройте командное окно PowerShell с повышенными привилегиями.  
+    1.  Abra uma janela de comandos elevada do PowerShell.  
 
-    2.  Выполните **set-executionPolicy RemoteSigned**.  
+    2.  Executar **set-executionPolicy RemoteSigned**  
 
-    3.  Из папки **&lt;каталог_установки_SCCM\>\cd.latest\SMSSETUP\TOOLS\MDM** запустите **.\ConfigurationScript.ps1**.  
+    3.  Na pasta  **&lt;diretório de instalação do SCCM\>\cd.latest\SMSSETUP\TOOLS\MDM** executar **.\ConfigurationScript.ps1**  
 
-     Сценарий конфигурации выполняет следующие действия:  
+     O script de configuração faz o seguinte:  
 
-    1.  создает приложение Configuration Manager с типом развертывания пакета приложений Windows с помощью **CompanyPortalOnPremisesMDM.appx** в той же папке;  
+    1.  Cria uma aplicação do Configuration Manager com um Windows aplicação pacote implementação tipo utilizando **CompanyPortalOnPremisesMDM.appx** na mesma pasta.  
 
-    2.  создает элемент конфигурации и шаблон базовой конфигурации, предназначенный для настройки корпоративного портала;  
+    2.  Cria um item de configuração e a linha de base de configuração configura o Portal da empresa.  
 
-    3.  развертывает шаблон базовой конфигурации и приложение и добавляет приложение на все точки распространения.  
+    3.  Implementa a linha de base de configuração e a aplicação e adiciona a aplicação por todos os pontos de distribuição.  
 
     > [!NOTE]  
-    >  Если роли каталога приложений не расположены совместно на первичном сайте, выполните следующие действия.  
+    >  Se as funções de catálogo de aplicações não estão colocalizadas com o site primário, execute as ações seguintes:  
     >   
-    >  -   В рабочей области **Активы и соответствие** найдите элемент конфигурации **OnPremMDM Portal Configuration CI - server urls** (URL-адреса сервера непрерывной интеграции конфигурации портала с локальным управлением MDM).  
-    > -   Измените значение параметра **Правила соответствия** на полное доменное имя системы сайта, где находятся роли каталога приложений.  
+    >  -   No **ativos e compatibilidade** área de trabalho, localize o **CI de configuração do Portal OnPremMDM - urls do servidor** item de configuração  
+    > -   Alterar o **regras de compatibilidade** valor para o nome de domínio completamente qualificado do sistema de sites onde estão localizadas as funções de catálogo de aplicações.  
 
-2.  После развертывания приложения корпоративного портала и его конфигурации убедитесь, что приложение и шаблон базовой конфигурации соответствуют требованиям для указанного устройства. Используйте для этого раздел **Развертывания** в консоли Configuration Manager. В меню "Пуск" устройства корпоративный портал будет отображаться как **Корпоративный портала (Technical Preview)**.  
+2.  Depois da aplicação Portal da empresa e a respetiva configuração são implementados, certifique-se a linha de base de configuração e aplicações são compatíveis para utilizar o dispositivo determinado **implementações** secção da consola do Configuration Manager. O Portal da empresa irá aparecer como **Portal da empresa (pré-visualização técnica)** no menu Iniciar no dispositivo.  
 
-### <a name="try-it-out"></a>Попробуйте!  
- Попробуйте выполнить следующие задачи, а затем сообщите нам о результате с помощью формы обратной связи на странице [Программа отзывов о Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) на сайте Microsoft Connect.  
+### <a name="try-it-out"></a>Experimente!  
+ Experimente concluir as seguintes tarefas e, em seguida, informe-nos como correu utilizando o nosso formulário de comentários no [programa de feedback do Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) página no site Microsoft Connect:  
 
-1.  Разверните несколько приложений с поддерживаемыми типами развертывания в коллекции пользователей с целью развертывания **Доступно**. В этой обзорной технической версии приложения, требующие утверждения администратора, не поддерживаются и не будут отображаться на корпоративном портале.  
+1.  Implementar várias aplicações com tipos de implementação suportado para uma coleção de utilizadores com um objetivo de implementação **disponível**. Para esta pré-visualização técnica, as aplicações que necessitem de aprovação do admin não são suportadas e não serão apresentadas no Portal da empresa.  
 
-2.  Конечные пользователи могут находить приложения и устанавливать их с корпоративного портала.  
+2.  Os utilizadores podem, em seguida, procurar e instalar aplicações a partir do Portal da empresa.  
 
-     После открытия корпоративного портала появится диалоговое окно проверки подлинности с именем **System Center Configuration Manager**. Укажите учетные данные пользователя Active Directory (в виде user@domain или "домен\пользователь") для входа.  
+     Depois de abrir o Portal da empresa, verá uma caixa de diálogo de autenticação com o nome **System Center Configuration Manager** especificar as credenciais do utilizador do Active Directory (no formato user@domain ou domínio \ utilizador) para iniciar sessão.  
 
-##  <a name="BKMK_SW1"></a> Новые вкладки для обновлений и операционных систем в центре программного обеспечения  
- В целях улучшения структуры приложения центра программного обеспечения в этот выпуск были внесены следующие изменения.  
+##  <a name="BKMK_SW1"></a>Separadores novas atualizações e sistemas operativos no Centro de Software  
+ Nesta versão, as seguintes alterações foram efetuadas para melhorar o esquema da aplicação Centro de Software:  
 
--   Вкладка **Приложения** разделена на три отдельные вкладки — **Обновления**, **Операционные системы** (которые ранее находились в списке **Фильтры**) и **Приложения**.  
+-   O **aplicações** separador foi foi dividido em três separadores separados para **atualizações**, **sistemas operativos** (que foram ambos anteriormente encontradas no **filtros** lista), e **aplicações**.  
 
-##  <a name="BKMK_ServerGroups"></a> Обслуживание группы серверов  
- В Technical Preview для System Center Configuration Manager версии 1511 была включена возможность создания коллекции, где все входящие в нее устройства составляли группу серверов. Затем можно было настроить параметры группы серверов, используемые при развертывании обновлений программного обеспечения в группе серверов, управлении процентом компьютеров, обновляемых в любой момент времени, и настройке запускаемых перед развертыванием и после развертывания сценариев PowerShell для выполнения пользовательских действий.  
+##  <a name="BKMK_ServerGroups"></a>Um grupo de servidores de serviço  
+ Pré-visualização técnica do System Center Configuration Manager, versão 1511, incluída a capacidade de criar uma coleção em que todos os dispositivos na coleção constituem um grupo de servidor. Em seguida, pode configurar as definições do grupo de servidor para utilizar quando implementa atualizações de software para o grupo de servidor, o controlo a percentagem de computadores que são atualizadas em qualquer momento, e configurar scripts do PowerShell de pré-implementação e pós-implementação para executar ações personalizadas.  
 
- В Technical Preview для System Center Configuration Manager версии 1605 добавлена возможность обновления компьютеров в группе серверов в указанном порядке, определяемом пользователем, добавлена возможность улучшенного мониторинга для просмотра состояния компьютеров в группе серверов и возможность снятия блокировки развертывания, используемой, если клиентам не удалось установить обновления программного обеспечения и эти клиенты препятствуют установке обновлений ПО на другие клиенты.  
+ Pré-visualização técnica do System Center Configuration Manager, versão 1605, adiciona a capacidade para atualizar os computadores no grupo de servidor por uma ordem especificada definir, adiciona a monitorização avançada para ver o estado para os computadores no grupo de servidor e fornece a capacidade de limpar os bloqueios de implementação que é útil quando os clientes não tem conseguido instalar as atualizações de software e estão a impedir outros clientes instalar as atualizações de software.  
 
-### <a name="try-it-out"></a>Попробуйте!  
- Попробуйте выполнить следующие задачи, а затем сообщите нам о результате с помощью формы обратной связи на странице [Программа отзывов о Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) на сайте Microsoft Connect.  
+### <a name="try-it-out"></a>Experimente!  
+ Experimente concluir as seguintes tarefas e, em seguida, informe-nos como correu utilizando o nosso formulário de comentários no [programa de feedback do Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) página no site Microsoft Connect:  
 
--   Я могу создать коллекцию, которая представляет группу серверов. Для этого теста можно настроить правила членства в коллекции таким образом, чтобы данная коллекция содержала 2 компьютера.   
+-   Pode criar uma coleção que representa um grupo de servidor. Para este teste, pode configurar as regras de associação recolhidas para ter 2 computadores nesta coleção.   
 
--   Я могу указать, что компьютеры в группе серверов устанавливают обновления программного обеспечения в определенном порядке на основе параметров группы сервера для коллекции. Используйте примеры сценариев в процедуре, чтобы указать сценарии, выполняемые перед развертыванием и после развертывания.  
+-   Consigo especificar que os computadores no grupo de servidor instalar atualizações de software por uma ordem específica, com base nas definições do grupo de servidor para a coleção. Utilize os scripts de exemplo no procedimento para especificar os scripts de pré-implementação e pós-implementação.  
 
--   Я могу развернуть обновление программного обеспечения в этой коллекции. Просмотрите файлы start.txt и end.txt (созданные из примеров сценариев) в каталоге C:\temp и проверьте время начала и окончания развертывания на компьютерах в группе серверов. Просмотрите файл UpdatesDeployment.log для получения дополнительных сведений.  
+-   Pode implementar uma atualização de software desta coleção. Consulte os ficheiros de hora e end.txt (criados a partir os scripts de exemplo) em C:\temp e verifique se os tempos de início e de fim para a implementação nos computadores no grupo de servidor. Reveja o ficheiro UpdatesDeployment.log para mais informações.  
 
-#### <a name="to-create-a-collection-for-a-server-group"></a>Создание коллекции для группы серверов  
+#### <a name="to-create-a-collection-for-a-server-group"></a>Para criar uma coleção para um grupo de servidores  
 
-1.  [Создайте коллекцию устройств](https://technet.microsoft.com/library/gg712295.aspx), содержащую компьютеры в группе серверов.  
+1.  [Criar uma coleção de dispositivos](https://technet.microsoft.com/library/gg712295.aspx) que contenha os computadores no grupo de servidor.  
 
-2.  В рабочей области **Активы и соответствие** выберите **Коллекции устройств**, щелкните правой кнопкой мыши коллекцию, содержащую компьютеры в группе серверов, и выберите пункт **Свойства**.  
+2.  No **ativos e compatibilidade** área de trabalho, clique em **coleções de dispositivos**, faça duplo clique na coleção que contém os computadores no grupo de servidor e, em seguida, clique em **propriedades**.  
 
-3.  На вкладке **Общие** выберите **Все устройства относятся к одной группе серверов**, а затем щелкните **Параметры**.  
+3.  No **geral** separador, selecione **todos os dispositivos fazem parte do mesmo grupo de servidor**e, em seguida, clique em **definições**.  
 
-4.  На странице **Параметры группы серверов** укажите один из следующих параметров.  
+4.  No **as definições do grupo de servidor** página, especifique uma das seguintes definições:  
 
-    -   **Разрешить одновременное обновление определенного процента компьютеров**. Указывает, что одновременно обновляться может только определенный процент клиентов. Если, например, в коллекцию входит 10 клиентов и она настроена для одновременного обновления 30 % клиентов, то в один момент времени устанавливать обновления программного обеспечения смогут только 3 клиента.  
+    -   **Permitir que uma percentagem das máquinas seja atualizada ao mesmo tempo**: Especifica que apenas determinada percentagem de clientes são atualizadas ao mesmo tempo. Se, por exemplo, a coleção tem 10 clientes, e a coleção é configurada para atualização 30% de clientes ao mesmo tempo, em seguida, apenas 3 clientes irão instalar atualizações de software em qualquer momento.  
 
-    -   **Разрешить одновременное обновление определенного числа компьютеров**. Указывает, что одновременно обновляться может только определенное количество клиентов.  
+    -   **Permitir que um número de máquinas seja atualizada ao mesmo tempo**: Especifica que apenas um determinado número de clientes é atualizado ao mesmo tempo.  
 
-    -   **Указать последовательность обслуживания**. Указывает, что клиенты в коллекции будут обновляться поочередно, согласно настроенной последовательности. Клиент начнет установку обновлений программного обеспечения только после того, как клиент выше его в списке закончит устанавливать свои обновления.  
+    -   **Especifique a sequência de manutenção**: Especifica que os clientes na coleção será atualizado um de cada vez na sequência que configurar. Um cliente apenas irá instalar atualizações de software depois do cliente que está à frente das-la na lista concluiu a instalação respetivas atualizações de software.  
 
-5.  Укажите, следует ли использовать сценарий, выполняемый перед развертыванием (очистка узла), или сценарий, выполняемый после развертывания (возобновление работы узла).  
+5.  Especifique se pretende utilizar um script de pré-implementação (drenagem do nó) ou um script de pós-implementação (retoma do nó).  
 
     > [!TIP]  
-    >  Ниже приведены примеры того, как можно использовать при тестировании сценарии, выполняемые до и после развертывания, которые записывают текущее время в текстовый файл.  
+    >  Seguem-se exemplos que pode utilizar no teste de pré-implementação e pós-implementação scripts que escrevem a hora atual para um ficheiro de texto:  
     >   
-    >  **Перед развертыванием**  
+    >  **Pré-implementação**  
     >   
     >  `#Start`  
     >   
@@ -317,7 +317,7 @@ ms.lasthandoff: 08/07/2017
     >   
     >  `Out-File C:\temp\start.txt`  
     >   
-    >  **После развертывания**  
+    >  **Pós-implementação**  
     >   
     >  `#End`  
     >   
@@ -327,144 +327,144 @@ ms.lasthandoff: 08/07/2017
     >   
     >  `Out-File C:\temp\end.txt`  
 
-#### <a name="to-deploy-software-updates-to-the-server-group-and-monitor-status"></a>Развертывание обновлений программного обеспечения в группе серверов и отслеживание состояния  
+#### <a name="to-deploy-software-updates-to-the-server-group-and-monitor-status"></a>Para implementar atualizações de software para o estado do monitor e o grupo de servidor  
 
-1.  [Разверните обновления программного обеспечения](https://technet.microsoft.com/library/gg712304.aspx) в коллекции группы серверов.  
+1.  [Implementar atualizações de software](https://technet.microsoft.com/library/gg712304.aspx) na coleção de grupo do servidor.  
 
-2.  [Осуществляйте мониторинг развертывания обновлений программного обеспечения](https://technet.microsoft.com/library/gg712304.aspx). Помимо стандартных представлений мониторинга для развертывания обновлений программного обеспечения отображается описание нового состояния, если клиент ожидает своей очереди на установку обновлений программного обеспечения. В качестве нового состояния отображается **Ожидание блокировки**.  
+2.  [Monitorizar a implementação de atualização de software](https://technet.microsoft.com/library/gg712304.aspx). Para além das vistas de monitorização padrão para a implementação de atualizações de software, uma nova descrição de estado é apresentada quando um cliente está a aguardar a ativar instalar as atualizações de software. **À espera de bloqueio** é apresentada para este novo Estado.  
 
-#### <a name="to-clear-the-deployment-locks-for-computers-in-a-server-group"></a>Снятие блокировок развертывания для компьютеров в группе серверов  
+#### <a name="to-clear-the-deployment-locks-for-computers-in-a-server-group"></a>Para limpar os bloqueios de implementação para computadores num grupo de servidor  
 
-1.  В рабочей области **Активы и соответствие** щелкните узел **Коллекции устройств**, а затем выберите коллекцию, для которой следует снять блокировки развертывания.  
+1.  No **ativos e compatibilidade** área de trabalho, clique em **coleções de dispositivos**e clique na coleção para limpar os bloqueios de implementação.  
 
-2.  На вкладке **Главная** в группе **Развертывания** щелкните **Снять блокировки развертывания для группы серверов**. Если клиентам не удалось установить обновления программного обеспечения и они препятствуют установке обновлений для других клиентов, можно вручную снять блокировки развертывания.  
+2.  No **home page** separador o **implementação** , clique em **bloqueia de implementação de grupo de servidor limpar**. Quando os clientes não tem conseguido instalar as atualizações de software e estão a impedir outros clientes instalar as atualizações de software, os bloqueios de implementação podem ser eliminados manualmente.  
 
-##  <a name="BKMK_ATP"></a> Поддержка службы Advanced Threat Protection в Защитнике Windows  
- ATP в Защитнике Windows представляет собой новую службу, с помощью которой предприятия могут обнаруживать, исследовать атаки повышенной сложности и реагировать на них в своих сетях. Узнайте больше об [ATP в Защитнике Windows](https://blogs.windows.com/windowsexperience/2016/03/01/announcing-windows-defender-advanced-threat-protection). Configuration Manager поможет вам подключить управляемые клиентские устройства с ОС Windows 10 (Anniversary Edition) и вести за ними наблюдение.  
+##  <a name="BKMK_ATP"></a>Suporte para o serviço do Windows Defender Advanced Threat Protection  
+ Avançadas Threat Protection (ATP do Windows Defender) é um novo serviço que o irão ajudar as empresas para detetar, analisar e responder a ataques avançados nas respetivas redes. Saiba mais sobre [Windows Defender ATP](https://blogs.windows.com/windowsexperience/2016/03/01/announcing-windows-defender-advanced-threat-protection). O Configuration Manager pode ajudá-lo com a sua integração e monitorizar dispositivos de cliente de edição do Windows 10 Anniversary geridos.  
 
-### <a name="try-it-now"></a>Попробуйте!  
- Попробуйте выполнить следующие задачи, а затем сообщите нам о результате с помощью формы обратной связи на странице [Программа отзывов о Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) на сайте Microsoft Connect.  
+### <a name="try-it-now"></a>Experimente agora!  
+ Experimente concluir as seguintes tarefas e, em seguida, informe-nos como correu utilizando o nosso formulário de comentários no [programa de feedback do Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) página no site Microsoft Connect:  
 
--   Подключите устройства к веб-службе Advanced Threat Protection в Защитнике Windows.  
+-   Carregar dispositivos para o serviço online do Windows Defender Advanced Threat Protection (ATP)  
 
--   Осуществляйте мониторинг развертывания службы ATP в Защитнике Windows на управляемых устройствах.  
+-   Monitorizar a implementação do Windows Defender ATP em dispositivos geridos  
 
- **Предварительные требования**  
+ **Pré-requisitos**  
 
--   Подписка на веб-службу Advanced Threat Protection в Защитнике Windows  
+-   Subscrição do serviço online do Windows Defender Advanced Threat Protection  
 
--   Клиенты под управлением Windows 10, Anniversary Edition (сборка 14328 и более поздние)  
+-   Clientes que executam o Windows 10, aniversário da edição (compilação 14328 e superior)  
 
--   Созданный файл конфигурации подключения клиента  
+-   Criar um ficheiro de configuração de integração do cliente  
 
-    ##### <a name="how-to-create-an-onboarding-configuration-file"></a>Создание файла конфигурации подключения  
+    ##### <a name="how-to-create-an-onboarding-configuration-file"></a>Como criar um ficheiro de configuração de integração  
 
-    1.  Войдите в веб-службу ATP в Защитнике Windows.  
+    1.  Início de sessão para o serviço online do Windows Defender ATP  
 
-    2.  Щелкните пункт меню **Подключение клиента**.  
+    2.  Clique em de **cliente Dependency** item de menu  
 
-    3.  Выберите **System Center Configuration Manager** и нажмите кнопку **Скачать пакет**.  
+    3.  Selecione **System Center Configuration Manager** e clique em **pacote de transferência**.  
 
-    4.  Скачайте сжатый файл архива (ZIP-файл) и извлеките его содержимое.  
+    4.  Transfira o ficheiro de arquivo comprimido (. zip) e extraia os conteúdos.  
 
 
-##### <a name="onboard-devices-for-windows-defender-atp"></a>Подключение устройств для ATP в Защитнике Windows  
+##### <a name="onboard-devices-for-windows-defender-atp"></a>Carregar dispositivos para o Windows Defender ATP  
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > **Endpoint Protection** > **Политики ATP в Защитнике Windows** и щелкните **Создать политику Windows Defender ATP**. Откроется мастер политики ATP в Защитнике Windows.  
+1.  Na consola do Configuration Manager, navegue **ativos e compatibilidade** > **descrição geral** > **Endpoint Protection** > **Windows Defender ATP políticas** e clique em **criar Windows Defender ATP Policy**. É aberto o Assistente de política do Windows Defender ATP.  
 
-2.  Укажите значения в полях **Имя** и **Описание** для политики ATP в Защитнике Windows и выберите **Подключение**. Нажмите кнопку "Далее".  
+2.  Tipo de **nome** e **Descrição** para o Windows Defender ATP policy selecione **integração**. Clique em Seguinte.  
 
-3.  **Найдите** файл конфигурации, предоставленный клиентом облачной службы ATP в Защитнике Windows вашей организации. Нажмите кнопку **Далее**.  
+3.  **Procurar** para o ficheiro de configuração fornecido pelo inquilino de serviço de nuvem de Windows Defender ATP da sua organização. Clique em **Seguinte**.  
 
-4.  Укажите образцы файлов, которые собираются и совместно используются с управляемых устройств для анализа.  
+4.  Especifique os exemplos de ficheiros que são recolhidos e partilhados a partir dos dispositivos geridos para análise.  
 
-    -   **Нет** — образцы файлов не собираются для анализа.  
+    -   **Nenhum** – não existem ficheiros de exemplo são recolhidos para análise  
 
-    -   **Переносимые исполняемые файлы** — файлы, такие как программные файлы (EXE), файлы библиотеки динамической компоновки (DLL), файлы шрифтов и аналогичные файлы, которые могут применяться в кибератаках, собираются и совместно используются для анализа.  
+    -   **Ficheiros executáveis portátil** – ficheiros, tais como programas (.exe), ficheiros de ligação dinâmica de biblioteca (. dll), ficheiros de tipo de letra e se os ficheiros semelhantes que podem ser forem explorados no cyberattacks são recolhidos e partilhados para análise  
 
-     Нажмите кнопку **Далее**.  
+     Clique em **Seguinte**.  
 
-5.  Просмотрите сводные данные и завершите работу мастера.  
+5.  Reveja o resumo e conclua o assistente.  
 
-6.  Теперь можно развернуть политику ATP в Защитнике Windows на клиентских компьютерах, щелкнув **Развернуть**.  
+6.  Agora pode implementar a política Windows Defender ATP para os computadores cliente geridos clicando **implementar**.  
 
-##### <a name="monitor-windows-defender-atp"></a>Мониторинг ATP в Защитнике Windows  
+##### <a name="monitor-windows-defender-atp"></a>Monitorizar o Windows Defender ATP  
 
-1.  В консоли Configuration Manager последовательно выберите **Мониторинг** > **Обзор** > **Безопасность** и щелкните **ATP в Защитнике Windows**.  
+1.  Na consola do Configuration Manager, navegue **monitorização** > **descrição geral** > **segurança** e, em seguida, clique em **Windows Defender ATP**.  
 
-2.  Просмотрите сведения на панели мониторинга Advanced Threat Protection в Защитнике Windows.  
+2.  Reveja o dashboard do Windows Defender Advanced Threat Protection.  
 
-    -   **Состояние развертывания агента Защитника Windows** — количество и процент соответствующих управляемых клиентских компьютеров с активной включенной политикой ATP в Защитнике Windows.  
+    -   **Estado de implementação de agente do Windows Defender** – o número e a percentagem de computadores elegíveis cliente gerido com o Active Directory integrado de política Windows Defender ATP  
 
-    -   **Состояние работоспособности агента ATP в Защитнике Windows** — процент клиентских компьютеров, сообщающих о состоянии агента ATP в Защитнике Windows.  
+    -   **Estado de funcionamento do agente do Windows Defender ATP** – percentagem de clientes de computador a comunicar o estado para os respetivos agente do Windows Defender ATP  
 
-        -   **Работоспособно** — работает должным образом.  
+        -   **Bom estado de funcionamento** -a funcionar corretamente  
 
-        -   **Неактивно** — в течение определенного периода времени данные в службу не отправляются.  
+        -   **Inativa** -não existem dados enviados ao serviço durante o período de tempo  
 
-        -   **Состояние агента** — системная служба для агента в Windows не запущена.  
+        -   **Estado do agente** -o serviço de sistema para o agente do Windows não está em execução  
 
-        -   **Не подключено** — политика была применена, но агент не сообщил о ее подключении.  
+        -   **Não existem integrado** - foi aplicada a política, mas o agente não comunicou carregar política  
 
-##  <a name="BKMK_DHA"></a> Локальная аттестация работоспособности устройств  
- Теперь можно настроить подключение к функции аттестации работоспособности устройств Windows 10, используя локальную инфраструктуру. Администраторы могут выбрать метод передачи отчетов — через облачные или локальные ресурсы. Если для передачи отчетов аттестации работоспособности выбраны локальные ресурсы, то для службы можно указать URL-адрес. Это позволяет клиентским компьютерам без доступа к Интернету использовать устройства и управлять ими с помощью аттестации работоспособности.  
+##  <a name="BKMK_DHA"></a>Atestado de estado de funcionamento de dispositivos no local  
+ Atestado de estado de funcionamento para dispositivos Windows 10 pode agora ser configurado para comunicar utilizando a infraestrutura no local. Os administradores podem especificar se comunicação é efetuada através da nuvem ou recursos no local. Se estiver selecionada no local para fins de atestado de estado de funcionamento de relatórios, um URL pode ser especificado para o serviço. Isto permite que os computadores cliente sem acesso à internet ativar e gerir dispositivos através de atestado de estado de funcionamento.  
 
-### <a name="enable-health-attestation-for-on-premises-devices"></a>Включение аттестации работоспособности для локальных устройств  
- В выпуске 1605 было устранено несколько ошибок, обнаруженных в Technical Preview 1604.  Чтобы попробовать, как это работает, настройте локальную службу аттестации работоспособности с помощью параметров агента клиента.  
+### <a name="enable-health-attestation-for-on-premises-devices"></a>Ativar o atestado de estado de funcionamento de dispositivos no local  
+ No 1605, iremos tiver fixo alguns erros detetados no 1604 Technical Preview.  Para experimentá-lo, configure o serviço de atestado de estado de funcionamento no local utilizando as definições de agente do cliente.  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Обзор** > **Параметры клиента** и задайте для параметра **Использовать локальную службу подтверждения работоспособности** значение **Да**.  
+1.  Na consola do Configuration Manager, navegue **administração** > **descrição geral** > **as definições de cliente**e, em seguida, defina **utilizar no local o serviço de atestado de estado de funcionamento** para **Sim**.  
 
-2.  Укажите **URL-адрес локальной службы подтверждения работоспособности**и нажмите кнопку **ОК**.  
+2.  Especifique o **URL do Serviço de Atestado de Estado de Funcionamento no Local**e, em seguida, clique em **OK**.  
 
-##  <a name="BKMK_RestartOptions"></a> Новые возможности перезагрузки для клиентов Windows 10 после установки обновления программного обеспечения  
- При развертывании обновления программного обеспечения, требующего перезагрузки, с помощью Configuration Manager и установке его на компьютере задается ожидание перезагрузки, и на экран выводится диалоговое окно перезагрузки. Сейчас при завершении работы или перезагрузке компьютера с ОС Windows 8 и выше с помощью параметров электропитания Windows (а не из диалогового окна перезагрузки) диалоговое окно перезагрузки остается на экране после перезагрузки компьютера и компьютер требуется перезагрузить в заданный крайний срок. В этой ознакомительной технической версии пункты **Обновить и перезагрузить** и **Обновить и завершить работу** будут доступны для компьютеров Windows 10 в параметрах электропитания Windows, если запланировано ожидание перезагрузки для обновления программного обеспечения Configuration Manager. После применения одного из этих параметров диалоговое окно перезагрузки не выводится после перезагрузки компьютера.  
+##  <a name="BKMK_RestartOptions"></a>Novo as opções para clientes Windows 10 de reinício após a instalação de atualização de software  
+ Quando uma atualização de software que requer um reinício é implementado utilizando o Gestor de configuração e instalado num computador, um reinício pendente está agendado e é apresentada uma caixa de diálogo de reinício. Atualmente, para o Windows 8 e superior, se lhe encerrar ou reiniciar o computador utilizando as opções de energia do Windows (em vez da caixa de diálogo de reinício), os permanecem de caixa de diálogo de reinício após os reinícios de computador e o computador serão necessário reiniciar no prazo de configurado. Nesta pré-visualização técnica, a opção de **atualizar e reinicie** e **Update e no encerramento** estará disponível em computadores Windows 10 opções de energia do Windows sempre que há um reinício pendente para uma atualização de software do Configuration Manager. Depois de utilizar uma destas opções, a caixa de diálogo de reinício não será apresentada depois do reinício do computador.  
 
-##  <a name="BKMK_IMEI"></a> Предварительное объявление корпоративных устройств с серийными номерами IMEI или iOS  
- Теперь корпоративные устройства можно идентифицировать путем импорта их номеров IMEI. Можно отправить CSV-файл, содержащий номера IMEI устройств, или ввести информацию об устройствах вручную.  Можно также импортировать серийные номера устройств iOS.  На основе импортированных данных будет задан тип принадлежности регистрируемых устройств, а именно — корпоративные.  Для каждого пользователя, который обращается к службе, по-прежнему необходима лицензия Intune.  
+##  <a name="BKMK_IMEI"></a>Pré-declarar dispositivos pertencentes à empresa com o número de série iOS ou IMEI  
+ Agora pode identificar dispositivos pertencentes ao importar os respetivos números de identidade (IMEI) estação internacional do equipamento móvel. Pode carregar um ficheiro de valores separados por vírgulas (. csv) contendo os números IMEI de dispositivo ou pode introduzir manualmente as informações do dispositivo.  Também pode importar os números de série para dispositivos iOS.  Informação importada definirá a propriedade dos dispositivos inscritos como "Empresa".  Uma licença do Intune é ainda necessária para cada utilizador que acede ao serviço.  
 
-### <a name="try-it-out"></a>Попробуйте!  
- Попробуйте выполнить следующие задачи, а затем сообщите нам о результате с помощью формы обратной связи на странице [Программа отзывов о Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) на сайте Microsoft Connect.  
+### <a name="try-it-out"></a>Experimente!  
+ Experimente concluir as seguintes tarefas e, em seguida, informe-nos como correu utilizando o nosso formulário de comentários no [programa de feedback do Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/ConfigMgr%20Customer%20Feedback) página no site Microsoft Connect:  
 
--   Импортируйте набора номеров IMEI в CSV-файл. Каждая строка может содержать номер IMEI, за которым идет поле сведений.  
+-   Importe um conjunto de números IMEI num ficheiro. csv. Cada linha pode conter o número IMEI seguido de um campo de detalhes.  
 
--   Вручную импортируйте номера IMEI из консоли Configuration Manager.  
+-   Importe os números IMEI manualmente a partir da consola do Configuration Manager.  
 
--   Импортируйте набора серийных номеров iOS в CSV-файл. Каждая строка содержит номер, после которого указываются сведения об устройстве.  
+-   Importe um conjunto de números de série iOS num ficheiro. csv. Novamente, cada linha contém um número seguido por quaisquer detalhes para o dispositivo.  
 
-##### <a name="pre-declare-corporate-owned-devices-with-imei-or-ios-serial-number"></a>Предварительное объявление корпоративных устройств с серийными номерами IMEI или iOS  
+##### <a name="pre-declare-corporate-owned-devices-with-imei-or-ios-serial-number"></a>Pré-declarar dispositivos pertencentes à empresa com o número de série IMEI ou iOS  
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > **Все корпоративные устройства** > **Предварительно объявленные устройства** и щелкните **Создать предварительно объявленные устройства**. Откроется мастер создания предварительно объявленных устройств.  
+1.  Na consola do Configuration Manager, vá **ativos e compatibilidade** > **descrição geral** > **todos os dispositivos pertencentes** > **Pre-declared dispositivos**e, em seguida, clique em **criar dispositivos de Pre-declared**. É aberto o Assistente de Pre-declared dispositivos.  
 
-2.  Укажите способ добавления сведений об устройстве.  
+2.  Especifique como pretende adicionar informações do dispositivo:  
 
-    -   **Загрузить CSV-файл, содержащий номера IMEI и сведения** — сведения об отправке списка номеров см. в шаге 3.  
+    -   **Carregar um ficheiro. csv contendo os números IMEI e os detalhes** - para carregar uma lista de números, consulte o passo 3.  
 
-    -   **Добавить номера IMEI и сведения вручную** — чтобы ввести сведения вручную, наберите номер IMEI и серийный номер iOS и сведения для устройств, а затем перейдите к шагу 4.  
+    -   **Adicionar manualmente os números IMEI e os detalhes** - para introduzir manualmente as informações, escreva o número IMEI ou número de série iOS e os detalhes para os dispositivos e, em seguida, avance para o passo n. º 4.  
 
-3.  Перейдите к отправленному CSV-файлу, содержащему сведения о предварительном объявлении корпоративных устройств. Файл должен иметь следующий формат, исключая верхнюю строку (указана только в качестве рекомендации):  
+3.  Para os ficheiros carregados, procure o ficheiro. csv que contém informações de pré-declarar dispositivos pertencentes à empresa. O ficheiro tem de ter o seguinte formato, excluindo a linha superior (fornecida para obter orientações sobre apenas):  
 
-    |**Номер IMEI**|**Серийный номер iOS**|**ОС**|**Сведения**|
+    |**IMEI N. º**|**Série de iOS**|**SO**|**Detalhes**|
     |---|---|---|---|
-    |123456789012345||WINDOWS|Корпоративное устройство Windows|
-    |123456789012|A0BCD0EFGH0J|IOS|Корпоративные устройства iOS|
-    |123456789012346||Android|Корпоративное устройство iOS|
+    |123456789012345||WINDOWS|Dispositivo de Windows pertencentes à empresa|
+    |123456789012|A0BCD0EFGH0J|IOS|Dispositivos iOS pertencentes à empresa|
+    |123456789012346||ANDROID|Dispositivo Android da empresa|
 
-     **Столбцы**  
+     **Colunas:**  
 
-    -   Столбец 1: номер IMEI — в каждой строке требуется указать номер IMEI или серийный номер iOS.  
+    -   Coluna 1: Número IMEI – ou um número ou iOS série número IMEI é necessário para cada linha  
 
-    -   Столбец 2: серийный номер iOS — предварительно объявлены могут быть только серийные номера iOS. Для других платформ устройств следует использовать номер IMEI.  
+    -   A coluna 2: número de série iOS – apenas os números de série iOS pode ser declarados previamente. Utilize o número IMEI para outras plataformas de dispositivos  
 
-    -   Столбец 3: операционная система устройства (указывается заглавными буквами).  
+    -   Coluna 3: Sistema operativo do dispositivo (maiúsculas/minúsculas necessário):  
 
-        -   IOS — все устройства iOS  
+        -   IOS – todos os dispositivos iOS  
 
-        -   WINDOWS — включает Windows Phone, Windows 10 Mobile и компьютеры с ОС Windows  
+        -   WINDOWS – inclui Windows Phone, Windows 10 Mobile e Windows PCs  
 
-        -   ANDROID — все устройства Android  
+        -   ANDROID – todos os dispositivos Android  
 
-    -   Столбец 4: сведения — дополнительные сведения об устройстве, отображаемые в консоли Configuration Manager.  
+    -   Coluna 4: Detalhes – informações de dispositivo adicionais que aparece na consola do Configuration Manager  
 
-     Нажмите кнопку **Далее**.  
+     Clique em **Seguinte**.  
 
-4.  Просмотрите результаты импорта файла. Будут обновлены сведения о ранее импортированных номерах IMEI или серийных номерах.  Щелкните **Далее**, чтобы продолжить, или **Назад**, чтобы сохранить обновленные сведения, после чего завершите работу мастера.  
+4.  Reveja os resultados da importação de ficheiro. Anteriormente os números de série ou IMEI importados terão os respetivos detalhes atualizados com detalhes de novo.  Clique em **seguinte** para continuar ou **novamente** para manter atualizados detalhes e, em seguida, conclua o assistente.  

@@ -1,6 +1,6 @@
 ---
-title: "Использование данных диагностики | Документы Майкрософт"
-description: "Сведения об использовании данных диагностики и использования, собираемых System Center Configuration Manager, корпорацией Майкрософт."
+title: "Utilização de dados de diagnóstico | Microsoft Docs"
+description: "Saiba mais sobre como a Microsoft utiliza os diagnósticos e dados de utilização recolhe do System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 9864f6ba7b9a2211c99b1a5d9ebd582e01ccfeb6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Как используются данные о диагностике и использовании для System Center Configuration Manager
+# <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Como os diagnósticos e dados de utilização são utilizados para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Данные диагностики и использования, собранные System Center Configuration Manager, позволяют корпорации Майкрософт практически мгновенно узнавать о том, как работает продукт. Кроме того, они применяются для корректировки будущих обновлений. Кроме того, мы получаем доступ к конфигурационным данным, которые помогают проектировать и тестировать конфигурации, находящиеся в рабочей среде. Пример.  
+Dados de diagnóstico e de utilização que recolhe do System Center Configuration Manager disponibilizam comentários quase de imediato à Microsoft sobre como o produto está a funcionar e é utilizado para ajustar as futuras atualizações. A Microsoft também consegue ver dados de configuração que nos ajudam a criar e testar as configurações que estão em produção. Por exemplo:  
 
--   Версии сервера Windows, используемые серверами сайта  
+-   As versões do Windows Server que são utilizadas por servidores de site  
 
--   Установленные языковые пакеты  
+-   Os pacotes de idiomas instalados  
 
--   Отличия схемы SQL от продукта по умолчанию  
+-   O delta do esquema SQL relativamente à predefinição do produto  
 
-Эти данные помогают группе разработчиков планировать будущие тесты для обеспечения максимального удобства работы в наиболее распространенных конфигурациях. Так как обновления для Configuration Manager выходят чаще (для улучшения поддержки быстро развивающихся технологий, таких как Windows 10 и Microsoft Intune), такие данные крайне важны для своевременной корректировки и адаптации продуктов.  
+Estes dados ajudam a equipa de engenharia a planear futuros testes, para garantir a melhor experiência nas configurações mais comuns. Como as atualizações do Configuration Manager são lançadas a uma cadência mais rápida (para suportar melhorar mudar depressa de tecnologias como o Windows 10 e o Microsoft Intune), estes dados são fundamentais para ajustar e adaptar rapidamente.  
 
-Так же важно, как не используются данные о диагностике и использовании. Корпорация Майкрософт не использует эти данные для следующего.  
+Igualmente não é importante o modo como os diagnósticos e dados de utilização não são utilizados. A Microsoft não utiliza estes dados para:  
 
--   Аудит лицензирования, в том числе сопоставление использования клиентами с лицензионными соглашениями.  
+-   Auditorias de licenciamento, como comparar a utilização de cliente contra contratos de licença  
 
--   Аудит продуктов, поддержка которых не осуществляется.  
+-   Auditoria de produtos que estão fora de suporte  
 
--   Реклама на основе доступных данных, например сведений об использовании компонентов или географическом положении (часовой пояс).  
+-   Publicidade com base nos dados disponíveis, tais como a utilização da funcionalidade ou a geolocalização (fuso horário)  
 
-##  <a name="bkmk_improve"></a> Примеры улучшения продукта с помощью данных о диагностике и использовании  
-Корпорация Майкрософт использует доступные данные для улучшения продукта. Ниже приведено несколько примеров.  
+##  <a name="bkmk_improve"></a>Exemplos de como os diagnósticos e dados de utilização melhora o produto  
+A Microsoft utiliza os dados disponíveis para melhorar o produto. Seguem-se alguns exemplos:  
 
--   **Исправленная поддержка старых серверных операционных систем.**  
+-   **Suporte revisto para sistemas de operativos mais antigos do servidor:**  
 
-     Первоначально поддержка для текущей ветви System Center Configuration Manager предусматривала ограничение сроков поддержки для Windows Server 2008 R2. После изучения данных по использованию от клиентов, которые выполнили обновление до текущей ветви Configuration Manager, мы выявили необходимость изменить и продлить эти сроки, чтобы обеспечить поддержку клиентов, которые по-прежнему используют эту серверную операционную систему для размещения серверов сайта и ролей системы сайта.  
+     O suporte inicial oferecido pelo ramo atual do System Center Configuration Manager limitada linha cronológica de suporte para Windows Server 2008 R2. Após analisar os dados de utilização de clientes que tinham atualizados para o ramo atual do Configuration Manager, identificámos a necessidade de rever e expandir esta linha cronológica para suportar clientes que ainda utilizam este sistema de operativo de servidor para alojar servidores de sites e funções de sistema de sites.  
 
--   **Улучшенные проверки готовности.**  
+-   **Verificações de pré-requisitos melhorados:**  
 
-     Основываясь на данных по использованию, мы улучшили проверки готовности для установки обновления, чтобы удалить устаревшие правила, учесть дополнительные варианты и в некоторых случаях автоматически устранить некоторые проблемы.  
+     Com base nos dados de utilização, iremos tem melhorado as verificações de pré-requisitos para instalar uma atualização para remover regras obsoletas, conta casos adicionais e, em alguns casos, remediar automaticamente alguns problemas.  

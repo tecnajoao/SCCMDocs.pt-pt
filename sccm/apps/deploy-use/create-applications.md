@@ -1,6 +1,6 @@
 ---
-title: "Создание приложений | Документы Майкрософт"
-description: "Создание и развертывание приложений и типов развертывания с помощью System Center Configuration Manager."
+title: "Criar aplicações | Microsoft Docs"
+description: "Criar e implementar aplicações e tipos de implementação com o System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,461 +17,461 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 4d048d4f9ab01b28e6c21a38cca4d82c85030618
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-applications-with-system-center-configuration-manager"></a>Создание приложений с помощью System Center Configuration Manager
+# <a name="create-applications-with-system-center-configuration-manager"></a>Criar aplicações com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Приложение System Center Configuration Manager содержит файлы и сведения, необходимые для развертывания программного обеспечения на устройстве. Приложение содержит один или несколько типов развертывания, которые включают файлы установки и сведения, требуемые для установки программного обеспечения. Тип развертывания также содержит правила, определяющие время и способ развертывания программного обеспечения.  
+Uma aplicação do System Center Configuration Manager tem os ficheiros e informações necessários para implementar software num dispositivo. Uma aplicação tem um ou mais tipos de implementação que compõem os ficheiros de instalação e informações que são necessários para instalar o software. Um tipo de implementação tem também as regras que especificam quando e como o software é implementado.  
 
- Существуют следующие методы создания приложений.  
+ Pode criar aplicações utilizando os seguintes métodos:  
 
--   Автоматическое создание приложения и типов развертывания посредством считывания файлов установки приложения.  
+-   Crie automaticamente os tipos de aplicação e implementação ao ler os ficheiros de instalação da aplicação.  
 
--   Создание приложения вручную с последующим добавлением типов развертывания.  
+-   Criar manualmente a aplicação e adicionar posteriormente os tipos de implementação.  
 
--   Импорт приложения из файла.  
+-   Importe uma aplicação de um ficheiro.  
 
 > [!NOTE]  
->  Дополнительные сведения о создании приложений iOS, Windows Phone и Android см. в статье [Создание приложений iOS с помощью System Center Configuration Manager](../../mdm/deploy-use/create-applications.md).  
+>  [Criar aplicações para dispositivos móveis](../../mdm/deploy-use/create-applications.md) fornece informações detalhadas sobre como criar aplicações Android, iOS e Windows Phone.  
 
-Выполните следующие действия для создания приложений и типов развертывания с помощью Configuration Manager.  
+Utilize os seguintes passos para criar aplicações do Configuration Manager e tipos de implementação.  
 
-## <a name="start-the-create-application-wizard"></a>Запуск мастера создания приложений  
+## <a name="start-the-create-application-wizard"></a>Iniciar o Assistente para criar aplicação  
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.  
+1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните **Создать приложение**.  
+3.  No **home page** separador o **criar** grupo, escolha **Criar aplicação**.  
 
-## <a name="specify-whether-you-want-to-automatically-detect-application-information-or-manually-define-the-information"></a>Укажите, требуется ли автоматическое обнаружение сведений о приложении, или они будут заданы вручную.  
+## <a name="specify-whether-you-want-to-automatically-detect-application-information-or-manually-define-the-information"></a>Especifique se pretende detetar automaticamente informações sobre a aplicação ou definir manualmente as informações  
 
--   Используйте автоматическое обнаружение сведений о приложении, если требуется создать простое приложение с одним типом развертывания, например файл установщика Windows без зависимостей и требований. После создания приложения с помощью этой процедуры при необходимости в него можно внести изменения, добавив или изменив типы развертывания, а также добавив методы обнаружения, зависимости или требования.  
+-   Deteta automaticamente informações sobre a aplicação quando pretender criar uma aplicação simples que tem um tipo de implementação única, como um ficheiro do Windows Installer sem dependências ou requisitos. Depois de criar uma aplicação utilizando este procedimento, pode editá-la conforme necessário para adicionar ou alterar tipos de implementação e adicionar métodos de deteção, dependências ou requisitos.  
 
--   Вручную определите сведения о приложении для создания более сложных приложений с несколькими типами развертывания, зависимостями, методами обнаружения или требованиями.  
+-   Especificar manualmente informações sobre a aplicação para criar aplicações mais complexas que possuem vários tipos de implementação, dependências, métodos de deteção ou requisitos.  
 
-### <a name="automatically-detect-application-information"></a>Автоматическое обнаружение сведений о приложении  
+### <a name="automatically-detect-application-information"></a>Detetar automaticamente informações sobre a aplicação  
 
-1.  На странице **Общие** мастера создания приложений выберите **Автоматически получить данные об этом приложении из файлов установки**.  
+1.  No **geral** página do Assistente Criar aplicação, selecione **detetar automaticamente informação sobre esta aplicação nos ficheiros de instalação**.  
 
-2.  В раскрывающемся списке **Тип** выберите тип файла установки приложения, который будет использоваться для обнаружения сведений о приложении. Сведения о доступных типах установки см. в подразделе [Типы развертывания, поддерживаемые Configuration Manager](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) этого раздела.  
+2.  No **tipo** na lista pendente, selecione a instalação da aplicação tipo de ficheiro que pretende utilizar para detetar informações sobre a aplicação. Para obter informações sobre os tipos de instalação disponíveis, veja [Tipos de implementação suportados pelo Configuration Manager](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) neste tópico.  
 
-3.  В поле **Расположение** укажите UNC-путь в формате *\\\\сервер\\общий_ресурс\\\имя_файла* или ссылку на магазин для файла установки приложения, который будет использоваться для обнаружения сведений о приложении. Можно также нажать кнопку **Обзор** , чтобы выбрать файл установки.  
+3.  No **localização** caixa, especifique o caminho UNC (no formato  *\\ \\servidor\\partilhar\\\filename*) ou a hiperligação do arquivo para o ficheiro de instalação da aplicação que pretende utilizar para detetar informações sobre a aplicação. Em alternativa, clique em **Procurar** para procurar o ficheiro de instalação.  
 
     > [!IMPORTANT]  
-    >  При выборе **Установщик Windows (\*MSI-файл)** в качестве типа приложения все файлы в указанной вами папке будут импортированы с приложением и отправлены в точки распространения. Убедитесь в том, что в указанной вами папке находятся только те файлы, которые необходимы для установки приложения. Configuration Manager подтвердил возможность поддержки до 20 000 файлов приложений в пакете приложения. Если приложение содержит больше файлов, рекомендуется создать несколько приложений с меньшим количеством файлов.  
+    >  Quando seleciona **do Windows Installer (\*ficheiro. msi)** como um tipo de aplicação, todos os ficheiros na pasta que especificar serão importados com a aplicação e serão enviados para os pontos de distribuição. Certifique-se de que a pasta que especificou contém apenas os ficheiros que são necessários para instalar a aplicação. O Configuration Manager é testado para suportar até 20.000 ficheiros de aplicação no pacote de aplicação. Se a sua aplicação tiver mais ficheiros, considere criar múltiplas aplicações que têm um número mais pequeno de ficheiros.  
 
-    >  Вам необходим доступ к UNC-пути, содержащему приложение, и ко всем вложенным папкам с содержимым приложения.  
+    >  Tem de ter acesso ao caminho UNC que tenha a aplicação e eventuais subpastas que contêm o conteúdo da aplicação.  
 
-4.  На странице **Импорт сведений** в мастере создания приложений просмотрите импортированные сведения и нажмите кнопку **Далее**. При необходимости нажмите кнопку **Назад**, чтобы вернуться и исправить ошибки.  
+4.  No **importar informação** página do Assistente para criar aplicação, reveja as informações que foi importadas e, em seguida, escolha **seguinte**. Se necessário, pode escolher **anterior** para voltar atrás e corrigir os eventuais erros.  
 
-5.  На странице **Общие сведения** мастера создания приложений укажите приведенные ниже сведения.  
+5.  No **informações gerais** página do Assistente para criar aplicação, especifique as seguintes informações:  
 
     > [!NOTE]  
-    >  Некоторые из этих сведений могут быть уже заполнены, если они были автоматически получены из файлов установки приложения. Кроме того, отображаемые параметры могут отличаться в зависимости от типа создаваемого приложения.  
+    >  Algumas dessas informações poderão já ter sido preenchidas se tiverem sido obtidas automaticamente a partir dos ficheiros de instalação da aplicação. Além disso, as opções apresentadas poderão ser diferentes dependendo do tipo de aplicação que criou.  
 
-    -   Общие сведения о приложении, такие как имя приложения, комментарии, версия и дополнительная ссылка, позволяющая найти приложение в консоли Configuration Manager.  
+    -   Informações gerais acerca da aplicação, como o nome da aplicação, comentários, versão e uma referência opcional para ajudar a encontrar a aplicação na consola do Configuration Manager.  
 
-    -   **Программа установки** — укажите программу установки и все свойства, необходимые для установки данного типа развертывания приложения.  
+    -   **Programa de instalação**– especifique o programa de instalação e quaisquer necessárias propriedades que são necessários para instalar o tipo de implementação de aplicação.  
 
         > [!TIP]  
-        >  Если программа установки не отображается, нажмите кнопку **Обзор**, чтобы перейти в папку программы установки.  
+        >  Se o programa de instalação não aparecer, escolha **procurar** e navegue até à localização do programa de instalação.  
 
-    -   **Способ установки** — укажите, для кого будет устанавливаться тип развертывания приложения: только для пользователя, находящегося в системе в данный момент, или для всех пользователей. Также можно указать, что при развертывании на устройстве тип развертывания будет установлен для всех пользователей, а при развертывании для пользователя — для одного пользователя.  
+    -   **Comportamento de instalação**-especificar se o tipo de implementação de aplicação será instalado para apenas o utilizador com sessão atualmente iniciada ou para todos os utilizadores. Também pode especificar que o tipo de implementação será instalado para todos os utilizadores se for implementado num dispositivo ou apenas a um utilizador específico se for implementado num utilizador.  
 
-    -   **Использовать автоматическое VPN-подключение (если настроено)** — если профиль VPN был развернут на устройстве, где запускается приложение, запустите VPN-подключение при запуске приложения (только для Windows 8.1 и Windows Phone 8.1).  
+    -   **Utilizar uma ligação VPN automática (se configurada)**– se um perfil da VPN tiver sido implementado no dispositivo onde a aplicação foi lançada, lance a ligação VPN quando a aplicação for iniciada (Windows 8.1 e Windows Phone 8.1 apenas).  
 
-         На устройствах Windows Phone 8.1 автоматические VPN-подключения не поддерживается, если на устройстве было развернуто несколько профилей VPN.  
+         Em dispositivos Windows Phone 8.1, as ligações VPN automáticas não são suportadas se mais do que um perfil da VPN tiver sido implementado no dispositivo.  
 
-         Дополнительные сведения о профилях VPN см. в разделе [Профили VPN](../../protect/deploy-use/vpn-profiles.md).  
+         Para obter mais informações sobre perfis da VPN, consulte [perfis VPN](../../protect/deploy-use/vpn-profiles.md).  
 
-6.  Нажмите кнопку **Далее**, просмотрите сведения о приложении на странице **Сводка**, после чего завершите работу мастера создания приложений.  
+6.  Escolha **seguinte**, reveja as informações da aplicação no **resumo** página e, em seguida, conclua o Assistente para criar aplicação.  
 
-Новое приложение появится в узле **Приложения** консоли Configuration Manager, и процесс создания приложения завершится. Если требуется добавить в приложение дополнительные типы развертывания, см. подраздел [Создание типов развертывания для приложения](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) этого раздела.  
+A nova aplicação aparece no **aplicações** nós da consola do Configuration Manager e concluir a criação de uma aplicação. Se pretender adicionar mais tipos de implementação à aplicação, veja [Criar tipos de implementação para a aplicação](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) neste tópico.  
 
-### <a name="manually-specify-application-information"></a>Определение вручную сведений о приложении  
+### <a name="manually-specify-application-information"></a>Especificar manualmente informações sobre a aplicação  
 
-1.  На странице **Общие** мастера создания приложений выберите **Вручную задать сведения о приложении**, а затем нажмите кнопку **Далее**.  
+1.  No **geral** página do Assistente Criar aplicação, selecione **especificar manualmente as informações da aplicação**e, em seguida, escolha **seguinte**.  
 
-2.  Укажите общие сведения о приложении, такие как имя приложения, комментарии, версия и дополнительная ссылка, позволяющая найти приложение в консоли Configuration Manager.  
+2.  Especificar informações gerais acerca da aplicação, como o nome da aplicação, comentários, versão e uma referência opcional para ajudar a encontrar a aplicação na consola do Configuration Manager.  
 
-3.  На странице **Каталог приложений** мастера создания приложений укажите приведенные ниже сведения.  
+3.  No **catálogo de aplicações** página do Assistente para criar aplicação, especifique as seguintes informações:  
 
-    -   **Выбранный язык** — в раскрывающемся списке выберите языковую версию приложения, которую требуется настроить. Нажмите кнопку **Добавить или удалить**, чтобы настроить дополнительные языки для данного приложения.  
+    -   **Idioma selecionado**– na lista pendente, selecione a versão de idioma da aplicação que pretende configurar. Escolha **Adicionar/remover** para configurar mais idiomas para esta aplicação.  
 
-    -   **Локализованное имя приложения** — укажите имя приложения на языке, выбранном в раскрывающемся списке **Выбранный язык**.  
+    -   **Nome da aplicação localizada**– especifique o nome da aplicação no idioma que selecionou no **idioma selecionado** na lista pendente.  
 
         > [!IMPORTANT]  
-        >  Вам следует указать локализованное имя приложения для каждой настраиваемой языковой версии.  
+        >  Tem de especificar um nome da aplicação localizada para cada versão de idioma que configurou.  
 
-    -   **Категории пользователей** — нажмите кнопку **Изменить**, чтобы указать категории приложения на языке, выбранном в раскрывающемся списке **Выбранный язык**. Пользователи центра программного обеспечения могут использовать выбранные категории для фильтрации и сортировки доступных приложений.  
+    -   **Categorias de utilizador**– escolha **editar** para especificar categorias de aplicação no idioma que selecionou no **idioma selecionado** na lista pendente. Os utilizadores do Centro de Software podem utilizar estas categorias selecionadas para ajudar a filtrar e ordenar as aplicações disponíveis.  
 
-    -   **Докум. для пользователей** — нажмите кнопку **Обзор**, чтобы указать URL-адрес или UNC-путь и имя файла, который пользователи центра программного обеспечения могут прочитать, чтобы получить дополнительные сведения об этом приложении.  
+    -   **Documentação do utilizador**– escolha **procurar** para especificar o URL ou o nome de ficheiro e caminho UNC de um ficheiro que os utilizadores do Centro de Software podem ler para obter mais informações sobre esta aplicação.  
 
-    -   **Текст ссылки** — укажите текст, который будет отображаться вместо URL-адреса приложения.  
+    -   **Texto da hiperligação**– especifique o texto que irá aparecer em vez do URL da aplicação.  
 
-    -   **URL-адрес политики конфиденц.** — укажите URL-адрес заявления о конфиденциальности приложения.  
+    -   **URL de privacidade da aplicação**– Especifique um URL que liga à declaração de privacidade para a aplicação.  
 
-    -   **Локализованное описание** — введите описание данного приложения на языке, выбранном в раскрывающемся списке **Выбранный язык**.  
+    -   **Descrição localizada**-introduza uma descrição para esta aplicação no idioma que selecionou no **idioma selecionado** na lista pendente.  
 
-    -   **Ключевые слова** — введите список ключевых слов на языке, выбранном в раскрывающемся списке **Выбранный язык**. Этих ключевые слова упрощают пользователям поиск приложений в центре программного обеспечения.  
+    -   **As palavras-chave**-introduza uma lista de palavras-chave no idioma que selecionou no **idioma selecionado** na lista pendente. Estas palavras-chave vai ajudar os utilizadores de pesquisa de centro de Software para a aplicação.  
 
-    -   **Значок** — нажмите кнопку **Обзор**, чтобы выбрать значок для данного приложения из набора имеющихся значков. Если не указать значок, в этом приложении будет использоваться значок по умолчанию.  
+    -   **Ícone**– escolha **procurar** para selecionar um ícone para esta aplicação a partir dos ícones disponíveis. Se não especificar um ícone, será utilizado um ícone predefinido para esta aplicação.  
 
-    -   **Отобразить это приложение как популярное и выделить его на портале компании** — установите этот флажок, чтобы приложение заметно выделялось при отображении на корпоративном портале.  
+    -   **Apresentar esta aplicação como uma aplicação em destaque e destacá-la no portal da empresa**– Selecione esta opção para apresentar a aplicação de forma destacada no portal da empresa.  
 
-4.  На странице **Типы развертывания** мастера создания приложений нажмите кнопку **Добавить**, чтобы создать тип развертывания.  
+4.  No **tipos de implementação** página do Assistente para criar aplicação, escolha **adicionar** para criar um novo tipo de implementação.  
 
- Дополнительные сведения см. в разделе [Создание типов развертывания для приложения](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application).  
+ Para obter mais informações, consulte [criar tipos de implementação para a aplicação](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application).  
 
-5.  Нажмите кнопку **Далее**, просмотрите сведения о приложении на странице **Сводка**, после чего завершите работу мастера создания приложений.  
+5.  Escolha **seguinte**, reveja as informações da aplicação no **resumo** página e, em seguida, conclua o Assistente para criar aplicação.  
 
-В узле **Приложения** консоли Configuration Manager отобразится новое приложение.  
+A nova aplicação aparece no **aplicações** nós da consola do Configuration Manager.  
 
-##  <a name="create-deployment-types-for-the-application"></a>Создание типов развертывания для приложения  
- Если в мастере создания типа развертывания на странице **Общие** установлен флажок **Автоматически определить информацию об этом типе развертывания из файлов установки**, возможно, некоторые шаги из описанных ниже процедур выполнять не потребуется.  
+##  <a name="create-deployment-types-for-the-application"></a>Criar tipos de implementação para a aplicação  
+ Se selecionar **identificar automaticamente informações sobre este tipo de implementação nos ficheiros de instalação** no **geral** página do Assistente para criar tipo de implementação, poderá não ser necessário concluir a alguns dos passos nos seguintes procedimentos.  
 
-## <a name="start-the-create-deployment-type-wizard"></a>Запуск мастера создания типа развертывания  
+## <a name="start-the-create-deployment-type-wizard"></a>Iniciar o assistente para criar tipo de implementação  
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.  
+1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
 
-3.  Выберите приложение, а затем на вкладке **Главная** в группе **Приложение** щелкните **Создать тип развертывания**.  
+3.  Selecione uma aplicação e, em seguida, no **home page** separador o **aplicação** grupo, escolha **criar tipo de implementação**.  
 
 > [!TIP]  
->  Мастер создания типа развертывания также можно запустить из мастера создания приложений и с вкладки **Типы развертывания** диалогового окна *Свойства* **<имя_приложения\>**.  
+>  Também pode iniciar o Assistente para criar tipo de implementação do Assistente para criar aplicação e do **tipos de implementação** separador do *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
 
-## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Автоматическое обнаружение информации о типе развертывания или определение информации вручную.  
- Используйте одну из описанных ниже процедур, чтобы автоматически обнаружить сведения о типе развертывания или задать их вручную.  
+## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Especifique se pretende detetar automaticamente informações de tipo de implementação ou configurar manualmente as informações  
+ Utilize um dos seguintes procedimentos para detetar automaticamente ou definir manualmente informações de tipo de implementação.  
 
-### <a name="automatically-detect-deployment-type-information"></a>Автоматическое обнаружение информации о типе развертывания  
+### <a name="automatically-detect-deployment-type-information"></a>Detetar automaticamente informações de tipo de implementação  
 
-1.  На странице **Общие** в мастере создания типа развертывания выберите **Автоматически определить информацию об этом типе развертывания из файлов установки**.  
+1.  No **geral** página do assistente criar tipo de implementação, selecione **identificar automaticamente informações sobre este tipo de implementação nos ficheiros de instalação**.  
 
-2.  В поле **Тип** выберите тип файла установки приложения, который нужно использовать для обнаружения сведений о типе развертывания.  
+2.  No **tipo** caixa, selecione o tipo de ficheiro de instalação de aplicações que pretende utilizar para detetar as informações de tipo de implementação.  
 
-3.  В поле **Расположение** укажите UNC-путь в формате *\\\\сервер\\общий_ресурс\\имя_файла* или ссылку на магазин для файлов установки приложения и содержимого, которые требуется использовать для обнаружения сведений о типе развертывания. Можно также нажать кнопку **Обзор**, чтобы выбрать файл установки.  
-
-    > [!NOTE]  
-    >  Вам необходим доступ к UNC-пути, содержащему приложение, и всем вложенным папкам с содержимым приложения.  
-
-4.  На странице **Импорт сведений** в мастере создания типа развертывания просмотрите импортированные сведения и нажмите кнопку **Далее**. Вы также можете нажать кнопку **Назад**, чтобы вернуться и исправить ошибки.  
-
-5.  На странице **Общие сведения** в мастере создания типа развертывания укажите приведенные ниже сведения.  
+3.  No **localização** caixa, especifique o caminho UNC (no formato  *\\ \\servidor\\partilhar\\filename*) ou especificar a hiperligação do arquivo para os ficheiros de instalação da aplicação e o conteúdo que pretende utilizar para detetar as informações de tipo de implementação. Também pode optar por **procurar** para localizar o ficheiro de instalação.  
 
     > [!NOTE]  
-    >  Некоторые сведения о типе развертывания уже могут быть известны, если они были получены из файлов установки приложений. Кроме того, отображаемые параметры могут отличаться в зависимости от создаваемого типа развертывания.  
+    >  Tem de ter acesso ao caminho UNC que tenha a aplicação e eventuais subpastas que contêm o conteúdo da aplicação.  
 
-    -   Общие сведения о типе развертывания, например имя, комментарии администратора и доступные языки.  
+4.  No **importar informação** página do Assistente para criar tipo de implementação, reveja as informações que foi importadas e, em seguida, escolha **seguinte**. Também pode optar por **anterior** para voltar atrás e corrigir os eventuais erros.  
 
-    -   **Программа установки** — укажите программу установки и все свойства, необходимые для установки данного типа развертывания.  
+5.  No **informações gerais** página do Assistente para criar tipo de implementação, especifique as seguintes informações:  
 
-    -   **Способ установки** — укажите, для кого будет устанавливаться тип развертывания: для текущего пользователя или для всех пользователей. Также можно указать необходимость установки типа развертывания для всех пользователей, если развертывание выполняется на устройстве, или только для одного пользователя, если развертывание выполняется для пользователя.  
+    > [!NOTE]  
+    >  Algumas das informações sobre o tipo de implementação podem já estar presentes se já foram lidas nos ficheiros de instalação da aplicação. Além disso, as opções apresentadas poderão diferir, consoante o tipo de implementação que está a criar.  
 
-    -   **Использовать автоматическое VPN-подключение (если настроено)** — если профиль VPN был развернут на устройстве, где запускается приложение, запустите VPN-подключение при запуске приложения (только для Windows 8.1 и Windows Phone 8.1). Если на устройстве Windows 8.1 развернуто несколько профилей VPN, по умолчанию используется первый развернутый профиль VPN.  
+    -   Informações gerais sobre o tipo de implementação, como o nome, comentários de administrador e idiomas disponíveis.  
 
-         На устройствах Windows Phone 8.1 автоматические VPN-подключения не поддерживается, если на устройстве было развернуто несколько профилей VPN.  
+    -   **Programa de instalação**– especifique o programa de instalação e eventuais propriedades de que necessita para instalar o tipo de implementação.  
 
-         Дополнительные сведения о профилях VPN см. в разделе [Профили VPN в System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
+    -   **Comportamento de instalação**-especificar se pretende instalar o tipo de implementação para o utilizador atual, ou para todos os utilizadores. Também pode especificar se pretende instalar o tipo de implementação para todos os utilizadores se for implementado num dispositivo, ou se pretende instalar a implementação de tipo para um utilizador apenas se for implementado num utilizador.  
 
-6.  Нажмите кнопку **Далее** и перейдите к разделу [Настройка параметров содержимого для типа развертывания](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+    -   **Utilizar uma ligação VPN automática (se configurada)**– se um perfil da VPN tiver sido implementado no dispositivo onde a aplicação foi lançada, lance a ligação VPN quando a aplicação for iniciada (Windows 8.1 e Windows Phone 8.1 apenas). Se múltiplos perfis da VPN tiverem sido implementados num dispositivo Windows 8.1, o primeiro perfil da VPN implementado é utilizado por predefinição.  
 
-### <a name="manually-set-up-the-deployment-type-information"></a>Настройка сведений о типе развертывания вручную  
+         Em dispositivos Windows Phone 8.1, as ligações VPN automáticas não são suportadas se mais do que um perfil da VPN tiver sido implementado no dispositivo.  
 
-1.  На странице **Общие** в мастере создания типа развертывания установите флажок **Указать информацию о типе развертывания вручную**.  
+         Para obter mais informações sobre perfis da VPN, consulte [perfis VPN no System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
 
-2.  В поле **Тип** выберите тип файла установки приложения, который нужно использовать для обнаружения информации о типе развертывания. Можно выбрать те же типы установки, которые использовались бы при автоматическом обнаружении типа развертывания. Вы также можете указать скрипт для установки типа развертывания.  
+6.  Escolha **seguinte**e, em seguida, continuar a [especificar opções de conteúdo para o tipo de implementação](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
 
-3.  На странице **Общие сведения** в мастере создания типа развертывания укажите имя типа развертывания, необязательное описание и языки, на которых должен быть доступен этот тип развертывания, а затем нажмите кнопку **Далее**.  
+### <a name="manually-set-up-the-deployment-type-information"></a>Configurar manualmente as informações de tipo de implementação  
 
-4.  Перейдите к процедуре [Настройка параметров содержимого для типа развертывания](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+1.  No **geral** página do assistente criar tipo de implementação, selecione **especificar manualmente as informações de tipo de implementação**.  
 
-##  <a name="specify-content-options-for-the-deployment-type"></a>Настройка параметров содержимого для типа развертывания  
+2.  No **tipo** caixa, escolha o tipo de ficheiro de instalação de aplicações que pretende utilizar para detetar as informações de tipo de implementação. Pode escolher os mesmos tipos de instalação que utilizaria quando detetar automaticamente as informações de tipo de implementação e também pode especificar um script para instalar o tipo de implementação.  
 
-1.  На странице **Содержимое** в мастере создания типа развертывания укажите приведенные ниже сведения.  
+3.  No **informações gerais** página do Assistente para criar tipo de implementação, especifique um nome para o tipo de implementação, uma descrição opcional e os idiomas em que pretende disponibilizar este tipo de implementação e, em seguida, escolha **seguinte**.  
 
-    -   **Расположение содержимого**. Укажите расположение содержимого для этого типа развертывания или нажмите кнопку **Обзор**, чтобы выбрать папку содержимого типа развертывания.  
+4.  Continue para [Especificar as opções de conteúdo do tipo de implementação](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+
+##  <a name="specify-content-options-for-the-deployment-type"></a>Especificar opções de conteúdo para o tipo de implementação  
+
+1.  No **conteúdo** página do Assistente para criar tipo de implementação, especifique as seguintes informações:  
+
+    -   **Localização de conteúdo**– especifique a localização do conteúdo para este tipo de implementação, ou selecione **procurar** para escolher a pasta de conteúdo de tipo de implementação.  
 
         > [!IMPORTANT]  
-        >  Системная учетная запись сервера сайта должна иметь разрешения на доступ к указанному расположению содержимого.  
+        >  A conta de sistema do computador do servidor do site tem de ter permissões para a localização de conteúdos que especificar.  
 
-    -   Для пункта **Параметры содержимого удаления** выберите один из следующих вариантов.
-        - **Совпадает с содержимым установки**  — выберите этот параметр, если содержимое для установки и удаления совпадают. Это поведение по умолчанию.
-        - **Не удалять содержимое** — выберите этот параметр, если не требуется указывать содержимое для удаления.
-        - **Отличается от содержимого для установки** — выберите этот параметр, если содержимое для удаления отличается от содержимого для установки.
+    -   **Definições de conteúdo de desinstalação**-especifique uma das seguintes opções:
+        - **Igual à instalar conteúdo**– Selecione esta opção se a instalação e desinstalação de conteúdo são os mesmos. Este é o comportamento predefinido.
+        - **Não desinstale conteúdo**– Selecione esta opção se a aplicação não precisa de conteúdo de desinstalação.
+        - **Diferente do conteúdo de instalação**– Selecione esta opção se o conteúdo de desinstalação é diferente do conteúdo de instalação.
 
-4. Если вы выбрали вариант **Отличается от содержимого установки**, перейдите к нужному расположению или вручную укажите путь к нему. Выбранное расположение будет использоваться при удалении приложения.
-5. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно свойств типа развертывания.
+4. Se tiver selecionado **Different do conteúdo de instalação**, navegue para ou introduza a localização do conteúdo de aplicação que é utilizado para desinstalar a aplicação.
+5. Clique em **OK** para fechar a caixa de diálogo de propriedades de tipo de implementação.
 
-    -   **Хранить содержимое в клиентском кэше** — выберите этот параметр, чтобы указать, следует ли хранить содержимое в кэше клиентского компьютера бесконечно, даже если содержимое уже было запущено. Этот параметр может оказаться полезным для некоторых развертываний, например для программ на базе установщика Windows, которым локальная копия исходных файлов требуется для применения обновлений, однако его использование приводит к сокращению свободного места в кэше. Если выбрать этот параметр, в большом развертывании на более позднем этапе может произойти сбой, если в кэше будет недостаточно свободного места.  
+    -   **Manter conteúdo na cache do cliente**– Selecione esta opção para especificar se o conteúdo deve ser mantido na cache no computador cliente indefinidamente, mesmo que já tenha sido executado. Embora esta opção pode ser útil em algumas implementações, como software baseado no Windows Installer que necessita de uma cópia local da origem fique disponível para aplicar atualizações, reduzirá o espaço disponível na cache. Se selecionar esta opção, pode provocar uma implementação de grande dimensão falhar posteriormente caso a cache não tem espaço livre suficiente.  
 
-    -   **Разрешить клиентам использовать содержимое совместно с другими клиентами из той же подсети** — выберите этот параметр, чтобы снизить нагрузку на сеть, разрешив клиентам скачивать содержимое с других локальных клиентов в сети, уже скачавших содержимое и поместивших его в кэш. Этот параметр использует технологию Windows BranchCache.  
+    -   **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**– Selecione esta opção para reduzir a carga na rede ao permitir que os clientes transfiram conteúdos a partir de outros clientes na rede que já tenham transferido e colocado o conteúdo na cache locais. Esta opção utiliza a tecnologia BranchCache do Windows.  
 
-    -   **Программа установки** — укажите имя программы установки и все необходимые параметры установки или нажмите кнопку **Обзор**, чтобы найти файл установки.  
+    -   **Programa de instalação**– especifique o nome do programa de instalação e quaisquer parâmetros de instalação necessários ou escolha **procurar** para localizar o ficheiro de instalação.  
 
-    -   **Запуск установки в** — дополнительно укажите папку, в которой находится программа установки для типа развертывания. Эту папку можно задать, используя абсолютный путь на клиентском компьютере или путь к папке в точке распространения, содержащей файлы установки.  
+    -   **Início da instalação em**-opcionalmente, especifique a pasta que tem o programa de instalação para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente ou um caminho para a pasta do ponto de distribuição que tenha os ficheiros de instalação.  
 
-    -   **Программа удаления** — дополнительно укажите имя программы удаления и все необходимые параметры или нажмите кнопку **Обзор** для ее выбора.  
+    -   **Desinstalar programa**-opcionalmente, especifique o nome do programa de desinstalação e quaisquer parâmetros necessários, ou escolha **procurar** a localizá-la.  
 
-    -   **Запуск удаления в** — дополнительно укажите папку, в которой находится программа удаления для типа развертывания. Эту папку можно задать, используя либо абсолютный путь на клиентском компьютере, либо относительный путь к папке в точке распространения, содержащей пакет.  
+    -   **Iniciar desinstalação em**-opcionalmente, especifique a pasta que tem o programa de desinstalação para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente ou um caminho relativo para a pasta do ponto de distribuição que tenha o pacote.  
 
-    -   **Запуск программы установки и удаления в качестве 32-разрядного процесса на 64-разрядных клиентах** — позволяет использовать 32-разрядный файл и разделы реестра на компьютерах Windows для запуска программы установки для типа развертывания.  
+    -   **Execute a instalação e desinstalação como um processo de 32 bits em clientes de 64 bits**-utilize as localizações de ficheiros e registo de 32 bits em computadores baseados em Windows para executar o programa de instalação para o tipo de implementação.  
 
-2.  Нажмите кнопку **Далее**.  
+2.  Escolha **seguinte**.  
 
-## <a name="set-up-detection-methods-to-indicate-the-presence-of-the-deployment-type-windows-pcs-only"></a>Настройка методов обнаружения для обозначения наличия типа развертывания (только для компьютеров с ОС Windows)  
- Эта процедура позволяет настроить метод обнаружения, который показывает, установлен ли уже данный тип развертывания.  
+## <a name="set-up-detection-methods-to-indicate-the-presence-of-the-deployment-type-windows-pcs-only"></a>Configurar métodos de deteção para indicar a presença do tipo de implementação (apenas PCs Windows)  
+ Este procedimento configura um método de deteção que indica se o tipo de implementação já está instalado.  
 
-1.  На странице **Метод обнаружения** в мастере создания типа развертывания установите переключатель в положение **Настроить правила для определения наличия типа развертывания** и нажмите кнопку **Добавить предложение**.  
+1.  No **método de deteção** página do assistente criar tipo de implementação, selecione **configurar regras para detetar a presença deste tipo de implementação**e, em seguida, escolha **Adicionar cláusula**.  
 
     > [!NOTE]  
-    >  Также можно выбрать **Использовать настраиваемый сценарий для определения наличия типа развертывания**. Дополнительные сведения см. в разделе [Использование настраиваемого сценария для обнаружения типа развертывания](/sccm/apps/deploy-use/create-applications#Use-a-custom-script-to-check-for-the-presence-of-a-deployment-type).  
+    >  Também pode selecionar **Utilizar um script personalizado para detetar a presença deste tipo de implementação**. Para obter mais informações, consulte [utilizar um script personalizado para verificar a presença de um tipo de implementação](/sccm/apps/deploy-use/create-applications#Use-a-custom-script-to-check-for-the-presence-of-a-deployment-type).  
 
-2.  В диалоговом окне **Правило обнаружения** в раскрывающемся списке **Тип параметра** выберите метод обнаружения для типа развертывания. Доступны следующие варианты.  
+2.  Na caixa de diálogo **Regra de Deteção**, na lista pendente **Tipo de definição**, selecione o método que pretende utilizar para detetar a presença do tipo de implementação. Pode optar por um dos seguintes métodos disponíveis:  
 
-    -   **Файловая система** — используйте этот метод для проверки наличия на клиентском устройстве указанного файла или папки, подтверждающих, что приложение установлено.  
+    -   **Sistema de ficheiros**-Utilize este método para detetar se uma pasta ou ficheiro específicos existe num dispositivo cliente, indicará que a aplicação está instalada.  
 
         > [!NOTE]  
-        >  Тип параметра **Файловая система** не поддерживает указание UNC-пути к сетевой папке в поле "Путь". Можно указать только локальный путь на клиентском устройстве.  
+        >  O **sistema de ficheiros** tipo de definição não suporta a especificação de um caminho UNC para uma partilha de rede no campo do caminho. Apenas pode especificar um caminho local no dispositivo cliente.  
         >   
-        >  Выберите параметр **Файл или папка связаны с 32-разр. приложением на 64-разр. системах**, чтобы сначала искать указанный файл или папку в 32-разрядных расположениях. Если указанный файл или папка не будут найдены, будет выполнен поиск в 64-разрядных расположениях.  
+        >  Para verificar as localizações de ficheiros de 32 bits para a pasta ou ficheiro especificados, selecione a opção **este ficheiro ou pasta está associada a uma aplicação de 32 bits em sistemas de 64 bits** primeiro. Se ficheiro ou pasta não forem encontrados, serão procurados nas localizações de 64 bits.  
 
-    -   **Реестр** — используйте этот метод для проверки наличия на клиентском устройстве указанного раздела или параметра реестра, подтверждающих, что приложение установлено.  
+    -   **Registo**-utilizar este método para detetar se uma chave de registo ou valor de registo existe num dispositivo cliente, indicará que a aplicação está instalada.  
 
         > [!NOTE]  
-        >  Выберите параметр **Этот ключ реестра связан с 32-разрядным приложением в 64-разрядных системах**, чтобы сначала искать указанный раздел реестра в 32-разрядных расположениях в реестре. Если указанный раздел реестра не будет найден, будет выполнен поиск в 64-разрядных расположениях.  
+        >  Para verificar as localizações de registo de 32 bits para a chave de registo, selecione a opção **esta chave de registo está associada uma aplicação de 32 bits em sistemas de 64 bits** primeiro. Se a chave de registo não for encontrada, será procurada nas localizações de 64 bits.  
 
-    -   **Установщик Windows** — используйте этот метод для проверки наличия на клиентском устройстве указанного файла установщика Windows, подтверждающего, что приложение установлено.  
+    -   **Windows Installer**-Utilize este método para detetar a existência de um ficheiro do Windows Installer especificado num dispositivo cliente, indicará que a aplicação está instalada.  
 
-3.  Укажите подробности об элементе, который нужно использовать для обнаружения типа развертывания. Например, можно использовать файл, папку, раздел реестра, параметр реестра или код продукта установщика Windows.  
+3.  Especifique os detalhes sobre o item que pretende utilizar para detetar se este tipo de implementação está instalado. Por exemplo, pode utilizar um ficheiro, pasta, chave do registo, valor do registo ou um código de produto do Windows Installer.  
 
-4.  Укажите подробности о значении, которое необходимо проверить для элемента, использующегося для обнаружения типа развертывания. Например, если для обнаружения типа развертывания используется файл, можно выбрать параметр **Параметр файловой системы должен существовать в конечной системе для обозначения наличия приложения**.  
+4.  Especifique detalhes sobre o valor que pretende avaliar em comparação com o item que utilizar para detetar se o tipo de implementação está instalado. Por exemplo, se utilizar um ficheiro para verificar se o tipo de implementação está instalado, pode selecionar **a definição de sistema de ficheiros deve existir no sistema de destino para indicar a presença desta aplicação**.  
 
-5.  Нажмите кнопку **Далее**, чтобы закрыть диалоговое окно **Правило обнаружения**.  
+5.  Escolha **seguinte** para fechar o **regra de deteção** caixa de diálogo.  
 
-###  <a name="use-a-custom-script-to-check-for-the-presence-of-a-deployment-type"></a>Использование настраиваемого сценария для обнаружения типа развертывания  
+###  <a name="use-a-custom-script-to-check-for-the-presence-of-a-deployment-type"></a>Utilizar um script personalizado para verificar a presença de um tipo de implementação  
 
-1.  На странице **Метод обнаружения** в мастере создания типа развертывания установите флажок **Использовать настраиваемый сценарий для определения наличия типа развертывания** и нажмите кнопку **Изменить**.  
+1.  No **método de deteção** página do assistente criar tipo de implementação, selecione o **utilizar um script personalizado para detetar a presença deste tipo de implementação** caixa e, em seguida, escolha **editar**.  
 
-2.  В диалоговом окне **Редактор сценариев** в раскрывающемся списке **Тип сценария** выберите язык сценария, который необходимо использовать для обнаружения типа развертывания.  
+2.  Na caixa de diálogo **Editor de Scripts**, na lista pendente **Tipo de Script**, selecione o idioma de script que pretende utilizar para detetar o tipo de implementação.  
 
-3.  В поле **Содержимое сценария** введите сценарий, который необходимо использовать. Также можно вставить в это поле содержимое существующего сценария или нажать кнопку **Открыть**, чтобы выбрать существующий сохраненный сценарий. Configuration Manager определяет результаты выполнения сценария, считывая значения, которые записываются в потоки вывода STDOUT и STDERR, а также в код выхода сценария. Если код выхода имеет ненулевое значение, это означает, что в сценарии возникла ошибка и состояние обнаружения приложения неизвестно. Если код выхода равен нулю и STDOUT содержит данные, состояние обнаружения приложения имеет значение "Установлено".  
+3.  No **conteúdo do Script** box, introduza o script que pretende utilizar. Também pode colar o conteúdo de um script existente neste campo, ou escolha **abra** para procurar um script existente já guardado. O Configuration Manager verifica os resultados do script ao ler os valores que são escritos no fluxo de saída Standard Out (STDOUT), o fluxo de saída Standard Error (STDERR) e o código de saída do script. Se o código de saída for um valor diferente de zero, o script falhou e o estado de deteção de aplicação é desconhecido. Se o código de saída for zero e STDOUT tem dados, o estado de deteção de aplicação é instalado.  
 
- Приведенная ниже таблица позволяет определить состояние обнаружения приложения по выходным данным сценария.  
+ Utilize a tabela seguinte para ver como utilizar a saída de um script para verificar se uma aplicação é instalada.  
 
-|Код выхода сценария|Подробные сведения|
+|Código de saída do script|Detalhes|
 |--------------------------------|-----------------|
-|0|**Чтение данных из STDOUT** — пусто<br /><br /> **Чтение данных из STDERR** — пусто<br /><br /> **Результат сценария** — успешно<br /><br /> **Состояние обнаружения приложения** — не установлено|  
-|0|**Чтение данных из STDOUT** — пусто<br /><br /> **Чтение данных из STDERR** — не пусто<br /><br /> **Результат сценария** — сбой<br /><br /> **Состояние обнаружения приложения** — неизвестно|  
-|0|**Чтение данных из STDOUT** — не пусто<br /><br /> **Чтение данных из STDERR** — пусто<br /><br /> **Результат сценария** — успешно<br /><br /> **Состояние обнаружения приложения** — установлено|  
-|0|**Чтение данных из STDOUT** — не пусто<br /><br /> **Чтение данных из STDERR** — не пусто<br /><br /> **Результат сценария** — успешно<br /><br /> **Состояние обнаружения приложения** — установлено|  
-|Ненулевое значение|**Чтение данных из STDOUT** — пусто<br /><br /> **Чтение данных из STDERR** — пусто<br /><br /> **Результат сценария** — сбой<br /><br /> **Состояние обнаружения приложения** — неизвестно|  
-|Ненулевое значение|**Чтение данных из STDOUT** — пусто<br /><br /> **Чтение данных из STDERR** — не пусто<br /><br /> **Результат сценария** — сбой<br /><br /> **Состояние обнаружения приложения** — неизвестно|  
-|Ненулевое значение|**Чтение данных из STDOUT** — не пусто<br /><br /> **Чтение данных из STDERR** — пусто<br /><br /> **Результат сценария** — сбой<br /><br /> **Состояние обнаружения приложения** — неизвестно|  
-|Ненулевое значение|**Чтение данных из STDOUT** — не пусто<br /><br /> **Чтение данных из STDERR** — не пусто<br /><br /> **Результат сценария** — сбой<br /><br /> **Состояние обнаружения приложения** — неизвестно|  
+|0|**Dados lidos em STDOUT**-vazio<br /><br /> **Dados lidos em STDERR**-vazio<br /><br /> **Resultado do script**-êxito<br /><br /> **Estado de deteção de aplicação**-não instalado|  
+|0|**Dados lidos em STDOUT**-vazio<br /><br /> **Dados lidos em STDERR**-não vazio<br /><br /> **Resultado do script**-falha<br /><br /> **Estado de deteção de aplicação**-desconhecido|  
+|0|**Dados lidos em STDOUT**-não vazio<br /><br /> **Dados lidos em STDERR**-vazio<br /><br /> **Resultado do script**-êxito<br /><br /> **Estado de deteção de aplicação**-instalado|  
+|0|**Dados lidos em STDOUT**-não vazio<br /><br /> **Dados lidos em STDERR**-não vazio<br /><br /> **Resultado do script**-êxito<br /><br /> **Estado de deteção de aplicação**-instalado|  
+|Valor diferente de zero|**Dados lidos em STDOUT**-vazio<br /><br /> **Dados lidos em STDERR**-vazio<br /><br /> **Resultado do script**-falha<br /><br /> **Estado de deteção de aplicação**-desconhecido|  
+|Valor diferente de zero|**Dados lidos em STDOUT**-vazio<br /><br /> **Dados lidos em STDERR**-não vazio<br /><br /> **Resultado do script**-falha<br /><br /> **Estado de deteção de aplicação**-desconhecido|  
+|Valor diferente de zero|**Dados lidos em STDOUT**-não vazio<br /><br /> **Dados lidos em STDERR**-vazio<br /><br /> **Resultado do script**-falha<br /><br /> **Estado de deteção de aplicação**-desconhecido|  
+|Valor diferente de zero|**Dados lidos em STDOUT**-não vazio<br /><br /> **Dados lidos em STDERR**-não vazio<br /><br /> **Resultado do script**-falha<br /><br /> **Estado de deteção de aplicação**-desconhecido|  
 
-В приведенной ниже таблице содержатся примеры сценариев на языке Microsoft Visual Basic (VB), которые можно использовать для создания собственных сценариев обнаружения приложений.  
+A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode utilizar para escrever os seus próprios scripts de deteção de aplicação.  
 
-|Пример сценария Visual Basic|Описание|  
+|Script de exemplo do Visual Basic|Descrição|  
 |--------------------------------|-----------------|  
-|**WScript.Quit(1)**|Сценарий возвращает код выхода, отличный от нуля. Это означает, что в нем возникла ошибка. В этом случае состояние обнаружения приложения неизвестно.|  
-|**WScript.StdErr.Write "Сбой сценария"**<br /><br /> **WScript.Quit(0)**|Сценарий возвращает нулевой код выхода, но значение STDERR не пустое, и это указывает, что в сценарии возникла ошибка. В этом случае состояние обнаружения приложения неизвестно.|  
-|**WScript.Quit(0)**|Сценарий возвращает нулевой код выхода, который указывает на то, что он успешно выполнился. При этом значение STDOUT пусто, а это значит, что приложение не установлено.|  
-|**WScript.StdOut.Write "Приложение установлено"**<br /><br /> **WScript.Quit(0)**|Сценарий возвращает нулевой код выхода, который указывает на то, что он успешно выполнился. При этом значение STDOUT не пустое, а это значит, что приложение установлено.|  
-|**WScript.StdOut.Write "Приложение установлено"**<br /><br /> **WScript.StdErr.Write "Завершено"**<br /><br /> **WScript.Quit(0)**|Сценарий возвращает нулевой код выхода, который указывает на то, что он успешно выполнился. При этом значения STDOUT и STDERR не пустые, а это значит, что приложение установлено.|  
+|**WScript.Quit(1)**|O script devolve um código de saída diferente de zero, o que significa que não foi executado com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.|  
+|**WScript.StdErr.Write "O Script falhou"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída zero, mas o valor de STDERR não está vazio, o que significa que o script não foi executado com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.|  
+|**WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. No entanto, o valor de STDOUT está vazio, o que significa que a aplicação não está instalada.|  
+|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. O valor de STDOUT não está vazio, o que significa que a aplicação está instalada.|  
+|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.StdErr.Write "Concluída"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. Os valores de STDOUT e STDERR não estão vazios, o que significa que a aplicação está instalada.|  
 
  > [!NOTE]  
- >  Максимальный размер сценария составляет 32 килобайта (КБ).  
+ >  O tamanho máximo que pode utilizar para um script é 32 kilobytes (KB).  
 
-4.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Редактор сценариев**.  
+4.  Escolha **OK** para fechar o **Editor de scripts** caixa de diálogo.  
 
-## <a name="specify-user-experience-options-for-the-deployment-type"></a>Настройка параметров взаимодействия с пользователем для типа развертывания  
- Эти параметры указывают, как приложение будет установлено на устройствах и что именно будет видеть пользователь.  
+## <a name="specify-user-experience-options-for-the-deployment-type"></a>Especificar opções de experiência de utilizador para o tipo de implementação  
+ Estas definições especificam como a aplicação será instalada nos dispositivos e que o utilizador irá ver.  
 
-1.  На странице **Взаимодействие с пользователем** в мастере создания типа развертывания укажите приведенные ниже сведения.  
+1.  No **experiência de utilizador** página do Assistente para criar tipo de implementação, especifique as seguintes informações:  
 
-    -   **Режим установки** — в раскрывающемся списке выберите один из следующих вариантов:  
+    -   **Comportamento de instalação**– na lista pendente, selecione uma das seguintes opções:  
 
-        -   **Установить для пользователя**. Приложение устанавливается только для пользователя, для которого оно развертывается.  
+        -   **Instalar para utilizador**– a aplicação é instalada apenas para o utilizador a quem a aplicação é implementada.  
 
-        -   **Установить для системы**. Приложение устанавливается только один раз и становится доступным для всех пользователей.  
+        -   **Instalar para o sistema**– a aplicação é instalada apenas uma vez e fica disponível para todos os utilizadores.  
 
-        -   **Установить для системы, если ресурс является устройством; в противном случае установить для пользователя**. Если приложение развертывается для устройства, оно устанавливается для всех пользователей. Если приложение развертывается для пользователя, оно устанавливается только для этого пользователя.  
+        -   **Instalar para o sistema se o recurso for o dispositivo; caso contrário instalar como utilizador**-se a aplicação é implementada num dispositivo, será instalada para todos os utilizadores. Se a aplicação for implementada para um utilizador, será instalada apenas para esse utilizador.  
 
-    -   **Требование ко входу в систему**. Укажите требования ко входу в систему для этого типа развертывания, выбрав один из следующих вариантов:  
+    -   **Requisito de início de sessão**– especificar os requisitos de início de sessão para este tipo de implementação das seguintes opções:  
 
-        -   **Только после входа пользователя**  
+        -   **Apenas quando um utilizador com sessão iniciada**  
 
-        -   **В любом случае**  
+        -   **Se pretende ou não um utilizador tenha iniciado sessão**  
 
-        -   **Пока никто не вошел в систему**  
-
-        > [!NOTE]  
-        >  По умолчанию для этого параметра устанавливается значение **Только после входа пользователя**, и его нельзя изменить, если в раскрывающемся списке **Режим установки** выбрано значение **Установить для пользователя** .  
-
-    -   **Видимость программы установки**. Укажите режим, в котором будет запущен тип развертывания на клиентских устройствах. Доступны следующие параметры.  
-
-        -   **Развернуто**. Тип развертывания запускается на клиентских устройствах в развернутом режиме. Пользователи будут видеть все операции установки.  
-
-        -   **Обычный**. Тип развертывания запускается в обычном режиме в соответствии с используемыми по умолчанию параметрами системы и программы. Этот режим используется по умолчанию.  
-
-        -   **Свернуто**. Тип развертывания запускается на клиентских устройствах в свернутом режиме. Пользователи видят операции установки в области уведомлений панели задач.  
-
-        -   **Скрытый**. Тип развертывания запускается на клиентских устройствах в скрытом режиме, и пользователи не видят операции установки.  
-
-    -   **Разрешить пользователям видеть ход установки программы и взаимодействовать с ним**. Укажите, разрешено ли взаимодействие пользователя с процессом установки типа развертывания для настройки параметров установки.  
+        -   **Só quando nenhum utilizador com sessão iniciada**  
 
         > [!NOTE]  
-        >  Этот параметр включен по умолчанию, если в раскрывающемся списке **Режим установки** выбран параметр **Установить для пользователя** .  
+        >  Esta opção, será assumida a **apenas quando um utilizador é iniciado**, e não pode ser alterada se tiver selecionado **instalar para utilizador** no **comportamento de instalação** na lista pendente.  
 
-    -   **Максимально допустимое время выполнения (в минутах)**. Укажите максимальное время работы программы на клиентском компьютере. Значение этого параметра может быть задано в виде целого положительного числа. Значение по умолчанию — 120 минут.  
+    -   **Visibilidade do programa de instalação**– especifique o modo no qual o tipo de implementação será executado nos dispositivos cliente. Estão disponíveis as seguintes opções:  
 
-         Это значение используется в следующих целях:  
+        -   **Maximizado**– o tipo de implementação é executado maximizado nos dispositivos cliente. Os utilizadores verão todas as atividades de instalação.  
 
-        -   Для мониторинга результатов, полученных от типа развертывания.  
+        -   **Normal**– o tipo de implementação é executado no modo normal, com base nas predefinições do sistema e do programa. Este é o modo predefinido.  
 
-        -   Для определения возможности установки типа развертывания, если для клиентских устройств заданы периоды обслуживания. Если задан период обслуживания, программа будет запускаться только в том случае, если продолжительность периода обслуживания превышает значение параметра **Максимально допустимое время выполнения** .  
+        -   **Minimizado**– o tipo de implementação é executado minimizado nos dispositivos cliente. Os utilizadores poderão ver a atividade de instalação na área de notificação ou na barra de tarefas.  
+
+        -   **Oculto**– o tipo de implementação é executado ocultado nos dispositivos cliente e os utilizadores verão qualquer atividade de instalação.  
+
+    -   **Permitir que os utilizadores visualizem e interajam com a instalação do programa**-especificar se um utilizador pode interagir com a instalação do tipo de implementação para configurar as opções de instalação.  
+
+        > [!NOTE]  
+        >  Esta opção está ativada por predefinição, se tiver selecionado o **instalar para utilizador** opção o **comportamento de instalação** na lista pendente.  
+
+    -   **Máximo tempo de execução permitido (minutos)**– especifique o tempo máximo que o programa poderá demorar a ser executado no computador cliente. Pode especificar esta definição no formato de número inteiro maior que zero. A predefinição é 120 minutos.  
+
+         Este valor é utilizado para:  
+
+        -   Monitorize os resultados do tipo de implementação.  
+
+        -   Verifique se um tipo de implementação será instalado quando janelas de manutenção são definidas nos dispositivos cliente. Quando uma janela de manutenção no local, um programa apenas será iniciado se houver tempo suficiente está disponível na janela de manutenção para contemplar a **máximo tempo de execução permitido** definição.  
 
         > [!IMPORTANT]  
-        >  Если **Максимально допустимое время выполнения** превышает продолжительность запланированного окна обслуживания, может возникнуть конфликт. Если для параметра максимального времени выполнения пользователь установит значение, превышающее продолжительность любого доступного периода обслуживания, данный тип развертывания запущен не будет.  
+        >  Poderá ocorrer um conflito se o **máximo tempo de execução permitido** é superior à janela de manutenção agendada. Se o utilizador definir o tempo máximo de execução para um período que exceda a duração de qualquer janela de manutenção disponível, esse tipo de implementação não será executado.  
 
-2.  **Примерное время установки (мин)**. Укажите предполагаемое время установки типа развертывания. Оно отображается для пользователей центра программного обеспечения.  
+2.  **Instalação tempo estimado (minutos)**– especifique o tempo estimado que a instalação do tipo de implementação irá demorar. Esta informação é apresentada aos utilizadores do Centro de Software.  
 
-## <a name="specify-requirements-for-the-deployment-type"></a>Настройка требований для типа развертывания  
+## <a name="specify-requirements-for-the-deployment-type"></a>Especificar requisitos para o tipo de implementação  
 
-1.  На странице **Требования** в мастере создания типа развертывания нажмите кнопку **Добавить**, чтобы открыть диалоговое окно **Создать требование** и добавить новое требование.  
+1.  No **requisitos** página do Assistente para criar tipo de implementação, escolha **adicionar** para abrir o **criar requisito** diálogo caixa e adicionar um novo requisito.  
 
     > [!NOTE]  
-    >  Новые требования можно также добавить на вкладке **Требования** диалогового окна *Свойства* **<имя_типа_развертывания\>**.  
+    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo.  
 
-2.  В раскрывающемся списке **Категория** выберите категорию, для которой предназначено это требование ("Пользователь" или "Устройство"), либо выберите пункт **Другое** , чтобы использовать созданное ранее глобальное условие. При нажатии кнопки **Другое** также можно выбрать команду **Создать**, чтобы создать новое глобальное условие. Дополнительные сведения о глобальных условиях см. в разделе [Создание глобальных условий](../../apps/deploy-use/create-global-conditions.md).  
+2.  Na lista pendente **Categoria**, indique se este requisito corresponde a um dispositivo ou utilizador, ou selecione **Personalizada** para utilizar uma condição global criada anteriormente. Quando seleciona **personalizada**, também pode optar por **criar** para criar uma nova condição global. Para obter mais informações sobre as condições globais, consulte [como criar condições globais](../../apps/deploy-use/create-global-conditions.md).  
 
     > [!IMPORTANT]  
-    >  Любые требования категории **Пользователь** с условием **Основное устройство** будут игнорироваться, если приложение развертывается в коллекции устройств.  
+    >  Qualquer requisito da categoria **utilizador** e a condição **dispositivo primário** será ignorado se implementar a aplicação a uma coleção de dispositivos.  
     >   
-    >  Если пакет Windows и программа или последовательность задач, где Windows 10 является обязательным компонентом, создаются с помощью System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1), а затем выполняется обновление System Center Configuration Manager, требование установки Windows 10 может быть удалено. Чтобы устранить эту проблему, снова настройте требования. Обратите внимание, что несмотря на то, что требование было удалено из отображения требований, оно по-прежнему правильно обрабатывается на устройствах.  
+    >  Se tiver criado um pacote do Windows e uma sequência de programas ou tarefas com o Windows 10 como requisito utilizando o System Center 2012 R2 Configuration Manager SP1 e, em seguida, atualizar para o System Center Configuration Manager, os requisitos para o Windows 10 poderão ser removidos. Para corrigir este problema, especifique os requisitos novamente. Tenha em atenção que apesar do requisito de foi removido a apresentação de requisitos, é ainda processado corretamente nos dispositivos.  
 
-3.  В раскрывающемся списке **Условие** выберите условие, которое необходимо использовать для определения соответствия пользователя или устройства требованиям установки. Содержимое этого списка зависит от того, какая выбрана категория.  
+3.  No **condição** pendente lista, selecione a condição que pretende utilizar para avaliar se o utilizador ou dispositivo satisfaz os requisitos de instalação. O conteúdo desta lista varia consoante a categoria selecionada.  
 
-4.  В раскрывающемся списке **Оператор** выберите оператор, который будет использоваться при сравнении выбранного условия с указанным значением для определения соответствия пользователя или устройства требованиям установки. Набор доступных операторов зависит от выбранного условия.  
+4.  No **operador** pendente lista, selecione o operador que será utilizado para comparar a condição selecionada com o valor especificado para avaliar se o utilizador ou dispositivo satisfaz os requisitos de instalação. Os operadores disponíveis variam consoante a condição selecionada.  
 
     > [!IMPORTANT]  
-    >  Доступные требования будут различаться в зависимости от типа устройства, для которого предназначен тип развертывания.  
+    >  Os requisitos disponíveis irão variar consoante o tipo de dispositivo que utiliza o tipo de implementação.  
 
-5.  В поле **Значение** укажите значения, которые будут использоваться вместе с выбранным условием и оператором для определения соответствия пользователя или устройства требованиям установки. Набор доступных значений зависит от выбранного условия и оператора.  
+5.  No **valor** caixa, especifique os valores que serão utilizados com a condição e operador selecionados para avaliar se o utilizador ou dispositivo cumpre os requisitos de instalação. Os valores disponíveis variam consoante a condição selecionada e o operador selecionado.  
 
-6.  Нажмите кнопку **ОК**, чтобы сохранить требование и закрыть диалоговое окно **Создать требование**.  
+6.  Escolha **OK** para guardar o requisito e fechar o **criar requisito** caixa de diálogo.  
 
-## <a name="specify-dependencies-for-the-deployment-type"></a>Указание зависимостей для типа развертывания  
- Зависимости определяют один или несколько типов развертываний другого приложения, которые необходимо установить перед установкой данного типа развертывания. Можно настроить автоматическую установку зависимых типов развертывания перед установкой нужного типа развертывания.  
+## <a name="specify-dependencies-for-the-deployment-type"></a>Especificar dependências para o tipo de implementação  
+ As dependências definem um ou mais tipos de implementação a partir de outra aplicação que tem de ser instalada antes de um tipo de implementação ser instalado. Pode configurar os tipos de implementação dependentes para serem automaticamente instalados antes de um tipo de implementação está instalado.  
 
 > [!IMPORTANT]  
->  В некоторых случаях тип развертывания зависит от другого типа развертывания, который также содержит зависимости. Максимальная поддерживаемая длина цепочки зависимостей равна пяти.  
+>  Em alguns casos, um tipo de implementação está dependente de um tipo de implementação que também tenha dependências. O número máximo de dependências suportadas na cadeia é cinco.  
 
-1.  На странице **Зависимости** в мастере создания типа развертывания нажмите кнопку **Добавить**, если необходимо указать типы развертывания, которые должны быть установлены перед установкой данного типа развертывания.  
+1.  No **dependências** página do Assistente para criar tipo de implementação, escolha **adicionar** se pretender especificar os tipos de implementação que devem ser instalados antes de instalar este tipo de implementação.  
 
     > [!IMPORTANT]  
-    >  Новые зависимости можно также добавить на вкладке **Зависимости** диалогового окна *Свойства* **<имя_типа_развертывания\>**.  
+    >  Também pode adicionar novas dependências no **dependências** separador do *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo.  
 
-2.  В диалоговом окне **Добавить зависимость** нажмите кнопку **Добавить**.  
+2.  No **adicionar dependência** diálogo caixa, escolha **adicionar**.  
 
-3.  В диалоговом окне **Укажите требуемое приложение** выберите существующее приложение и один из типов развертывания приложения, который будет использоваться в качестве зависимости.  
+3.  No **especificar aplicação necessária** caixa de diálogo, selecione os tipos de uma aplicação existente e um da implementação da aplicação a utilizar como uma dependência.  
 
     > [!TIP]  
-    >  Можно нажать кнопку **Просмотр**, чтобы отобразить свойства выбранного приложения или типа развертывания.  
+    >  Pode escolher **vista** para apresentar as propriedades do tipo de aplicação ou implementação selecionado.  
 
-4.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Укажите требуемое приложение**.  
+4.  Escolha **OK** para fechar o **especificar aplicação necessária** caixa de diálogo.  
 
-5.  Для автоматической установки зависимого приложения установите напротив него флажок **Автом. установка** .  
+5.  Se pretender que uma aplicação dependente seja instalada automaticamente, selecione **instalação automática** junto da aplicação dependente.  
 
     > [!NOTE]  
-    >  Для автоматической установки зависимого приложения необязательно выполнять его развертывание.  
+    >  Uma aplicação dependente não necessita de ser implementada para ser instalada automaticamente.  
 
-6.  В диалоговом окне **Добавить зависимость** в поле **Имя группы зависимостей** введите имя, которое будет использоваться для обозначения данной группы зависимостей приложения.  
+6.  No **adicionar dependência** caixa de diálogo em **nome do grupo de dependência**, introduza um nome para fazer referência a este grupo de dependências de aplicações.  
 
-7.  С помощью кнопок **Увеличить приоритет** и **Уменьшить приоритет** можно изменить порядок оценки каждой зависимости.  
+7.  Opcionalmente, utilize o **aumentar prioridade** e **diminuir prioridade** botões para alterar a ordem de avaliação de cada dependência.  
 
-8.  Нажмите кнопку **OK**, чтобы закрыть диалоговое окно **Добавить зависимость**.  
+8.  Escolha **OK** para fechar o **adicionar dependência** caixa de diálogo.  
 
-## <a name="confirm-the-deployment-type-settings-and-finish-the-wizard"></a>Подтверждение параметров типа развертывания и завершение работы мастера  
+## <a name="confirm-the-deployment-type-settings-and-finish-the-wizard"></a>Confirme as definições de tipo de implementação e concluir o Assistente  
 
-1.  На странице **Сводка** в мастере создания типа развертывания просмотрите действия, которые выполнит мастер. Нажмите кнопку **Далее**, чтобы создать тип развертывания, или кнопку **Назад**, чтобы вернуться и изменить параметры типа развертывания.  
+1.  No **resumo** página do Assistente para criar tipo de implementação, reveja as ações que o assistente executará. Escolha **seguinte** para criar o tipo de implementação, ou escolha **anterior** para voltar atrás e alterar as definições para o tipo de implementação.  
 
-2.  После завершения процесса на странице **Выполнение** просмотрите действия, выполненные мастером, и нажмите кнопку **Закрыть**, чтобы завершить его работу.  
+2.  Depois do **progresso** página depois de concluída, reveja as ações efetuadas pelo assistente e, em seguida, escolha **fechar** para concluir o assistente.  
 
-3.  Если мастер создания типа развертывания был запущен из мастера создания приложений, вы вернетесь на страницу **Типы развертывания** в мастере создания приложений.  
+3.  Se tiver iniciado o Assistente para criar tipo de implementação a partir do Assistente para criar aplicação, regressará ao **tipos de implementação** página do Assistente para criar aplicação.  
 
-## <a name="set-up-additional-options-for-deployment-types-that-contain-virtual-applications"></a>Настройка дополнительных параметров для типов развертывания, содержащих виртуальные приложения  
- Приведенные ниже процедуры позволяют настроить дополнительные параметры типов развертывания, содержащих виртуальные приложения.  
+## <a name="set-up-additional-options-for-deployment-types-that-contain-virtual-applications"></a>Configurar opções adicionais para tipos de implementação que contêm aplicações virtuais  
+ Utilize os procedimentos seguintes para configurar opções adicionais para tipos de implementação que contêm aplicações virtuais.  
 
-### <a name="set-up-content-options-for-application-virtualization-app-v-deployment-types"></a>Настройка параметров содержимого для типов развертывания App-V  
+### <a name="set-up-content-options-for-application-virtualization-app-v-deployment-types"></a>Configurar opções de conteúdo para os tipos de implementação de Application Virtualization (App-V)  
 
-1.  В консоли Configuration Manager выберите **Библиотека программного обеспечения** > **Приложения**.  
+1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **aplicações**.  
 
-2.  В списке **Приложения** выберите приложение, содержащее тип развертывания App-V. Затем на вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+2.  No **aplicações** lista, selecione uma aplicação que tenha um tipo de implementação de App-V. Em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-3.  В диалоговом окне *Свойства* **<имя_приложения\>** на вкладке **Типы развертывания** выберите тип развертывания App-V и нажмите кнопку **Изменить**.  
+3.  No *< nome da aplicação\>*  **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
 
-4.  В диалоговом окне *Свойства* **<имя типа развертывания\>** на вкладке **Содержимое** при необходимости настройте следующие параметры:  
+4.  No *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo a **conteúdo** separador, configure as seguintes opções, se necessário:  
 
-    -   **Хранить содержимое в клиентском кэше**. Выберите этот параметр, чтобы содержимое для этого типа развертывания не удалялось из кэша клиента Configuration Manager.  
+    -   **Manter conteúdo na cache do cliente**– Selecione esta opção para garantir que o conteúdo para este tipo de implementação não é eliminado da cache do cliente do Configuration Manager.  
 
-    -   **Загрузить содержимое в кэш App-V перед запуском**. Выберите этот параметр, чтобы все содержимое для виртуального приложения загружалось в кэш App-V перед запуском приложения. Выбор этого параметра также позволяет не закреплять содержимое приложения в кэше и удалять его при необходимости.  
+    -   **Carregar conteúdo para a cache de App-V antes de iniciar**– Selecione esta opção para garantir que todo o conteúdo da aplicação virtual é carregado para a cache de App-V antes de iniciar a aplicação. A seleção desta opção também garante que o conteúdo da aplicação não seja fixado na cache e pode ser eliminado conforme necessário.  
 
-5.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства* **<имя_типа_развертывания\>**.  
+5.  Escolha **OK** para fechar o *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo.  
 
-6.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства* **<имя_приложения\>**.  
+6.  Escolha **OK** para fechar o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
 
-### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Настройка параметров публикации для типов развертывания App-V  
+### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Configurar as opções para tipos de implementação de App-V de publicação  
 
-1.  В консоли Configuration Manager выберите **Библиотека программного обеспечения** > **Приложения**.  
+1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **aplicações**.  
 
-3.  В списке **Приложения** выберите приложение, содержащее тип развертывания App-V. Затем на вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No **aplicações** lista, selecione uma aplicação que tenha um tipo de implementação de App-V. Em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-4.  В диалоговом окне *Свойства* **<имя_приложения\>** на вкладке **Типы развертывания** выберите тип развертывания App-V и нажмите кнопку **Изменить**.  
+4.  No *< nome da aplicação\>*  **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
 
-5.  В диалоговом окне *Свойства* **<имя_типа_развертывания\>** на вкладке **Публикация** выберите элементы виртуального приложения, которые необходимо опубликовать.  
+5.  No *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo a **publicação** separador, selecione os itens na aplicação virtual que pretende publicar.  
 
-6.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства* **<имя_типа_развертывания\>**.  
+6.  Escolha **OK** para fechar o *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo.  
 
-7.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства* **<имя_приложения\>**.  
+7.  Escolha **OK** para fechar o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
 
-## <a name="import-an-application"></a>Импорт приложения  
- Используйте следующую процедуру, чтобы импортировать приложение в Configuration Manager. Сведения о том, как экспортировать приложение, см. в статье [Задачи управления для приложений System Center Configuration Manager](../../apps/deploy-use/management-tasks-applications.md).  
+## <a name="import-an-application"></a>Importar uma aplicação  
+ Utilize o procedimento seguinte para importar uma aplicação para o Configuration Manager. Para obter informações sobre como exportar uma aplicação, consulte [tarefas de gestão do System Center Configuration Manager aplicações](../../apps/deploy-use/management-tasks-applications.md).  
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.   
+1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.   
 
-3.  На вкладке **Главная** в группе **Создать** нажмите кнопку **Импорт приложения**.  
+3.  No **home page** separador o **criar** grupo, escolha **importar aplicação**.  
 
-4.  На странице **Общие** в **мастере импорта приложений** нажмите кнопку **Обзор** и укажите UNC-путь к ZIP-файлу, содержащему импортируемое приложение.  
+4.  No **geral** página do **Assistente para importar aplicação**, escolha **procurar**e, em seguida, especifique um caminho UNC para o ficheiro. zip que tenha a aplicação que pretende importar.  
 
-5.  На странице **Содержимое файла** выберите действие, которое будет выполнено, если импортируемое приложение окажется дубликатом уже существующего приложения. Можно создать новое приложение или проигнорировать дубликат и добавить новую версию в дополнение к существующему приложению.  
+5.  No **conteúdo do ficheiro** página, selecione a ação que irá ser executada se a aplicação que está a tentar importar for um duplicado da aplicação existente. Pode criar uma nova aplicação ou ignorar o duplicado e adicionar uma nova revisão à aplicação existente.  
 
-6.  На странице **Сводка** просмотрите список необходимых действий и завершите работу мастера.  
+6.  No **resumo** página, reveja as ações a executar e, em seguida, conclua o assistente.  
 
- Новое приложение появится в узле **Приложения** .  
+ A nova aplicação aparece no nó **Aplicações**.  
 
 > [!TIP]  
->  Командлет Windows PowerShell **Import-CMApplication** выполняет ту же функцию, что и эта процедура. Дополнительные сведения см. в разделе [Import-CMApplication](https://technet.microsoft.com/library/jj821738.aspx) справочника по командлетам Microsoft System Center 2012 Configuration Manager с пакетом обновления 1 (SP1).  
+>  O cmdlet Windows PowerShell **Import-CMApplication** tem a mesma função que este procedimento. Para obter mais informações, consulte [Import-CMApplication](https://technet.microsoft.com/library/jj821738.aspx) no Microsoft System Center 2012 Configuration Manager SP1 referência de cmdlets.  
 
-##  <a name="deployment-types-supported-by-configuration-manager"></a>Типы развертывания, поддерживаемые Configuration Manager  
+##  <a name="deployment-types-supported-by-configuration-manager"></a>Tipos de implementação suportados pelo Gestor de Configuração  
 
-|Имя типа развертывания|Дополнительные сведения|  
+|Nome do tipo de implementação|Mais informações|  
 |--------------------------|----------------------|  
-|**Установщик Windows (\*MSI-файл)**|Создает тип развертывания из файла установщика Windows.|  
-|**Пакет приложения Windows (\*.appx, \*.appxbundle)**|Создает тип развертывания для операционной системы Windows 8, Windows RT или более поздней версии из файла пакета приложения Windows или файла набора приложений Windows.|  
-|**Пакет приложения Windows (в Магазине Windows)**|Создает тип развертывания для операционной системы Windows 8, Windows RT или более поздней версии с помощью задания ссылки на приложение в Магазине Windows или просмотра Магазина для выбора требуемого приложения.<br /><br /> Если необходимо развернуть приложение как ссылку на Магазин Windows, убедитесь, что для параметра групповой политики **Отключить приложение Магазин** установлено значение **Отключено** или **Не настроено**. Если параметр включен, клиенты не смогут подключиться к Магазину Windows, чтобы загрузить и установить приложения.<br /><br /> Типы развертывания Windows 8, в которых используется ссылка на хранилище, всегда оцениваются раньше других типов развертывания, независимо от их приоритета.|  
-|**Установщик сценариев**|Создает тип развертывания, указывающий сценарий, запускаемый на клиентских устройствах для установки содержимого или выполнения какого-либо действия.|  
-|**Microsoft Application Virtualization 4**|Создает тип развертывания из манифеста Microsoft Application Virtualization 4.|  
-|**Microsoft Application Virtualization 5**|Создает тип развертывания из файла пакета Microsoft Application Virtualization 5.|  
-|**Пакет приложения Windows Phone (\*XAP-файл)**|Создает тип развертывания из файла пакета приложения для Windows Phone.|  
-|**Пакет приложения для ОС Windows Phone (в Магазине Windows)**|Создает тип развертывания с помощью задания ссылки на приложение в Магазине Windows Phone.|  
-|**CAB-файл Windows Mobile**|Создает тип развертывания для устройств Windows Mobile из CAB-файла Windows Mobile.|  
-|**Пакет приложения для iOS (\*IPA-файл)**|Создает тип развертывания из файла пакета приложений для iOS.|  
-|**Пакет приложения для iOS в Apple App Store**|Создает тип развертывания с помощью задания ссылки на приложение iOS в App Store.|  
-|**Пакет приложения для Android (\*APK-файл)**|Создает тип развертывания из файла пакета приложений для Android.|  
-|**Пакет приложения для ОС Android в Google Play**|Создает тип развертывания с помощью задания ссылки на приложение в Google Play.|  
-|**Mac OS X**|Создает тип развертывания для компьютеров Mac из CMMAC-файла, созданного с помощью средства CMAppUtil.<br /><br /> Применяется только к компьютерам Mac с клиентом Configuration Manager.|  
-|**Веб-приложение**|Создает тип развертывания, который задает ссылку на веб-приложение. Тип приложения устанавливает ярлык на веб-приложение на устройстве пользователя.<br /><br /> После установки Intune Managed Browser на устройства iOS или Android, которыми вы управляете, убедитесь, что для открытия приложения пользователи могут использовать только этот управляемый браузер. Для этого используйте один из следующих форматов при указании ссылки на приложение, заменив **http:** на **http-intunemam:** или **https:** на **https-intunemam:**.<br /><br /> - **http-intunemam://<путь_к_веб-приложению\>**<br /><br /> - **https-intunemam://<путь_к_веб-приложению\>**<br /><br /> Можно использовать требования к приложению Configuration Manager, чтобы на устройства iOS и Android можно было устанавливать только приложения, которые вы хотите связать с управляемым браузером.<br /><br /> Дополнительные сведения о браузерах Intune Managed Browser см. в статье [Управление доступом в Интернет с помощью политик управляемого браузера](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
-|**Установщик Windows через MDM (\*MSI-файл)**|Этот тип установщика позволяет создавать и развертывать приложения на основе установщика Windows на компьютерах под управлением Windows 10.<br /><br /> При использовании этого типа установщика необходимо учитывать следующее.<br><br>Можно передать только один MSI-файл.<br /><br /> Код продукта файла и версия продукта используются для обнаружения приложения.<br /><br /> Перезапуск приложения будет осуществляться в режиме, установленном по умолчанию. Configuration Manager не контролирует эти функциональные возможности.<br /><br /> Пакеты MSI на уровне пользователя будут установлены для одного пользователя.<br /><br /> Пакеты MSI на уровне компьютера будут установлены для всех пользователей устройства.<br /><br /> Пакеты MSI двойного режима в настоящее время устанавливаются только для всех пользователей на устройстве.<br /><br /> Поддерживаются все обновления, если коды продукта MSI всех версий совпадают.|  
+|**Windows Installer (\*ficheiro. msi)**|Cria um tipo de implementação a partir de um ficheiro do Windows Installer.|  
+|**Pacote de aplicação do Windows (\*. AppX, \*. appxbundle)**|Cria um tipo de implementação para o Windows 8, Windows RT a partir de um ficheiro de pacote de aplicações do Windows ou de um pacote de grupos de aplicações.|  
+|**Pacote de aplicação do Windows (na loja Windows)**|Cria um tipo de implementação para o Windows 8, Windows RT, ou posterior, especificando uma ligação para a aplicação na loja Windows ou navegando na loja para selecionar a aplicação pretendida.<br /><br /> Se pretender implementar a aplicação como uma hiperligação para a loja Windows, certifique-se de que a definição de política de grupo **desativar a aplicação de arquivo** está definido como **desativado** ou **não configurado**. Se esta definição estiver ativada, os clientes não conseguirão estabelecer ligação com a Loja Windows para transferir e instalar aplicações.<br /><br /> Os tipos de implementação do Windows 8 que utilizam uma ligação para um arquivo são sempre avaliados antes de outros tipos de implementação, independentemente da sua prioridade.|  
+|**Instalador de script**|Cria um tipo de implementação que especifica um script que é executado nos dispositivos cliente para instalar o conteúdo ou para efetuar uma ação.|  
+|**Microsoft Application Virtualization 4**|Cria um tipo de implementação a partir de um manifesto do Microsoft Application Virtualization 4|  
+|**Microsoft Application Virtualization 5**|Cria um tipo de implementação a partir de um ficheiro de pacote do Microsoft Application Virtualization 5.|  
+|**Pacote de aplicação do Windows Phone (\*ficheiro. xap)**|Cria um tipo de implementação a partir de um ficheiro de pacote de aplicação do Windows Phone.|  
+|**Pacote de aplicação do Windows Phone (na loja Windows Phone)**|Cria um tipo de implementação, ao especificar uma ligação para a aplicação na loja do Windows Phone.|  
+|**Ficheiro CAB móveis do Windows**|Cria um tipo de implementação para dispositivos do Windows Mobile a partir de um ficheiro CAB (Windows Mobile Cabinet).|  
+|**Pacote de aplicação para iOS (\*ficheiro. IPA)**|Cria um tipo de implementação a partir de um ficheiro de pacote de aplicação do iOS.|  
+|**Pacote de aplicação para iOS da App Store**|Cria um tipo de implementação, especificando uma ligação para a aplicação do iOS na App Store.|  
+|**Pacote de aplicação para Android (\*ficheiro. apk)**|Cria um tipo de implementação a partir de um ficheiro de pacote de aplicação do Android.|  
+|**Pacote de aplicação para Android no Google Play**|Cria um tipo de implementação, especificando uma ligação para a aplicação no Google Play.|  
+|**Mac OS X**|Cria um tipo de implementação para computadores Mac a partir de um ficheiro .cmmac que tenha criado com a ferramenta CMAppUtil.<br /><br /> Aplica-se apenas a computadores Mac que executem o cliente do Configuration Manager.|  
+|**Aplicação Web**|Cria um tipo de implementação que especifica uma ligação para uma aplicação Web. O tipo de implementação instala um atalho para a aplicação web no dispositivo do utilizador.<br /><br /> Se tiver instalado o browser gerido do Intune no iOS ou Android dispositivos que gere, pode certificar-se de que os utilizadores só podem utilizar o browser gerido para abrir a aplicação. Para tal, utilize um dos seguintes formatos quando especificar uma ligação para a aplicação, substituindo **http:** com **http-intunemam:** ou **https:** com **https-intunemam:**<br /><br /> - **http-intunemam: / / < caminho para a aplicação web\>**<br /><br /> - **https-intunemam: / / < caminho para a aplicação web\>**<br /><br /> Pode utilizar os requisitos da aplicação do Configuration Manager para se certificar de que as aplicações que pretende associar o browser gerido só são instaladas em dispositivos iOS e Android.<br /><br /> Para obter mais informações sobre o Intune managed browser, consulte [Internet gerir o acesso através de políticas de browser gerido](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
+|**Windows Installer através de MDM (\*. msi)**|Este tipo de instalador permite-lhe criar e implementar aplicações baseadas no Windows Installer em PCs com Windows 10.<br /><br /> As considerações seguintes são aplicáveis quando utiliza este tipo de instalador:<br><br>-Só pode carregar um único ficheiro com a extensão. msi.<br /><br /> -Código de produto o ficheiro e a versão do produto são utilizados para deteção da aplicação.<br /><br /> -O comportamento de reinício predefinido da aplicação será utilizado. O Configuration Manager não controla este procedimento.<br /><br /> -Serão instalados pacotes MSI de por utilizador para um único utilizador.<br /><br /> -Serão instalados pacotes MSI de por máquina para todos os utilizadores no dispositivo.<br /><br /> -Pacotes MSI de modo duplo atualmente instalados apenas para todos os utilizadores do dispositivo.<br /><br /> -As atualizações de aplicações são suportadas quando o código de produto MSI de cada versão for igual.|  

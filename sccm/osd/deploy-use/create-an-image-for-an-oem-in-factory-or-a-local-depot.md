@@ -1,6 +1,6 @@
 ---
-title: "Создание образа для изготовителей оборудования в фабрике или локальном хранилище | Документы Майкрософт"
-description: "Используйте развертывания с предварительно подготовленного носителя, чтобы сократить объем сетевого трафика при развертывании операционной системы на компьютере, подготовка которого еще не завершена."
+title: "Criar uma imagem para um OEM de fábrica ou um depósito local | Microsoft Docs"
+description: "Utilize implementações de suportes de dados para reduzir o tráfego de rede ao implementar um sistema operativo num computador que não esteja totalmente aprovisionado."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,41 +16,41 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 07aba04fb1b845e389a5f75b115d536136c1569c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-an-image-for-an-oem-in-factory-or-a-local-depot-with-system-center-configuration-manager"></a>Создание образа для поставщиков вычислительной техники в фабрике или локальном хранилище с помощью System Center Configuration Manager
+# <a name="create-an-image-for-an-oem-in-factory-or-a-local-depot-with-system-center-configuration-manager"></a>Criar uma imagem para um OEM de fábrica ou um depósito local com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Развертывания с предварительно подготовленного носителя в System Center Configuration Manager позволяют выполнить развертывание операционной системы на компьютере, подготовка которого еще не завершена. Предварительно подготовленный носитель представляет собой WIM-файл, который может быть установлен на компьютере без операционной системы производителем или в центре подготовки организации без подключения к среде Configuration Manager. Впоследствии в среде Configuration Manager компьютер запускается с помощью образа загрузки, предоставляемого носителем, путем проверки хэша подтверждается действительность предварительно подготовленного носителя, а затем компьютер подключается к точке управления сайта, чтобы получить последовательности задач для завершения процесса скачивания.
+Implementações de suportes de dados pré-configurados no System Center Configuration Manager permitem-lhe implementar um sistema operativo num computador que não esteja totalmente aprovisionado. O suporte de dados pré-configurado é um ficheiro de formato WIM (Windows Imaging) que pode ser instalado num computador bare-metal pelo fabricante (OEM) ou num centro de transição empresarial que não está ligado ao ambiente do Configuration Manager. Mais tarde no ambiente do Configuration Manager, é iniciado o computador utilizando a imagem de arranque fornecida pelo suporte de dados, é executada uma verificação de hash no suporte de dados pré-configurado para se certificar de que é válido e, em seguida, o computador liga ao ponto de gestão do site para sequências de tarefas disponíveis que concluam o processo de transferência.
 
 
-Этот метод развертывания позволяет сократить уровень трафика в сети, так как загрузочный образ и образ операционной системы уже находятся на конечном компьютере. Вы можете указать приложения, пакеты и пакеты драйверов, включаемые в предварительно подготовленный носитель. После установки операционной системы на компьютере сначала проверяется локальный кэш последовательности задач для приложений, пакетов и пакетов драйверов и, если содержимое не найдено или изменено, содержимое загружается из точки распространения, настроенной в предварительно подготовленном носителе, а затем устанавливается.  
+Este método de implementação pode reduzir o tráfego de rede porque a imagem de arranque e a imagem do sistema operativo já estão no computador de destino. Pode especificar aplicações, pacotes e pacotes de controladores para incluir no suporte de dados pré-configurado. Depois de o sistema operativo estar instalado no computador, a cache da sequência de tarefas local é verificada primeiro em relação às aplicações, pacotes ou pacotes de controladores e, se não for possível localizar o conteúdo ou este tiver sido revisto, o conteúdo é transferido a partir de um ponto de distribuição configurado no suporte de dados pré-configurado e, em seguida, instalado.  
 
- Вы можете использовать предварительно подготовленный носитель в следующих сценариях развертывания операционной системы:  
+ Pode utilizar suportes de dados pré-configurados nos seguintes cenários de implementação do sistema operativo:  
 
--   [Установка новой версии Windows на новом компьютере (без операционной системы)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Замена существующего компьютера и перенос параметров](replace-an-existing-computer-and-transfer-settings.md)  
+-   [Substituir um computador existente e transferir definições](replace-an-existing-computer-and-transfer-settings.md)  
 
- Выполните шаги, указанные для одного из сценариев развертывания операционной системы, а затем используйте следующие разделы для подготовки и создания предварительно подготовленного носителя.  
+ Execute os passos num dos cenários de implementação do sistema operativo e utilize as secções seguintes para se preparar e criar o suporte de dados pré-configurado.  
 
-## <a name="configure-deployment-settings"></a>Настройка параметров развертывания  
- При использовании предварительно подготовленного носителя для запуска процесса развертывания операционной системы необходимо настроить развертывание на предоставление носителю доступа к операционной системе. Такую настройку можно выполнить на странице **Параметры развертывания** мастера развертывания программного обеспечения или на вкладке **Параметры развертывания** в свойствах развертывания.  Для параметра **Сделать доступной для** настройте одно из следующих значений:  
+## <a name="configure-deployment-settings"></a>Configurar definições de implementação  
+ Quando utilizar suportes de dados pré-configurados para iniciar o processo de implementação do sistema operativo, tem de configurar a implementação para disponibilizar o sistema operativo nos suportes. Pode configurar esta opção na página **Definições de Implementação** do Assistente de Implementação de Software ou no separador **Definições de Implementação** das propriedades da implementação.  Na definição **Tornar disponível para o seguinte** , configure um dos seguintes:  
 
--   **Клиенты Configuration Manager, носители и PXE**  
+-   **Clientes do Configuration Manager, suportes de dados e PXE**  
 
--   **Только носители и PXE**  
+-   **Apenas suportes de dados e PXE**  
 
--   **Только носители и PXE (скрытые)**  
+-   **Apenas suportes de dados e PXE (oculto)**  
 
-## <a name="create-the-prestaged-media"></a>Создание предварительно подготовленного носителя  
- Создайте файл предварительно подготовленного носителя для отправки поставщику вычислительной техники или в локальное хранилище. Дополнительные сведения см. в разделе [Создание предварительно подготовленного носителя с помощью System Center Configuration Manager](create-prestaged-media.md).  
+## <a name="create-the-prestaged-media"></a>Criar o suporte de dados pré-configurado  
+ Crie o ficheiro de suporte de dados pré-configurado para enviar ao OEM ou depósito local. Para obter mais informações, veja [Criar suportes de dados pré-configurados com o System Center Configuration Manager](create-prestaged-media.md).  
 
-## <a name="send-the-prestaged-media-file-to-the-oem-or-local-depot"></a>Отправка файла предварительно подготовленного носителя поставщику вычислительной техники или в локальное хранилище  
- Отправьте носитель поставщику вычислительной техники или в локальное хранилище для предварительной подготовки компьютеров. Файл предварительно подготовленного носителя применяется к отформатированному жесткому диску на компьютере.  
+## <a name="send-the-prestaged-media-file-to-the-oem-or-local-depot"></a>Enviar o ficheiro de suporte de dados pré-configurado ao OEM ou depósito local  
+ Envie o suporte de dados ao OEM ou depósito local para pré-configurar os computadores. O ficheiro de suporte de dados pré-configurado é aplicado a um disco rígido formatado no computador.  
 
-## <a name="start-the-computer-to-install-the-operating-system"></a>Запуск компьютера для установки операционной системы  
- Файл предварительно подготовленного носителя применяется к компьютерам. При первом запуске компьютера начинается процесс установки операционной системы.  
+## <a name="start-the-computer-to-install-the-operating-system"></a>Iniciar o computador para instalar o sistema operativo  
+ O ficheiro de suporte de dados pré-configurado é aplicado aos computadores. Quando o computador for iniciado pela primeira vez, é iniciado o processo de instalação do sistema operativo.  

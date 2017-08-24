@@ -1,6 +1,6 @@
 ---
-title: "Поддержка Юникода и ASCII | Документы Майкрософт"
-description: "Сведения о поддержке символов Юникода и ASCII в объектах System Center Configuration Manager."
+title: Unicode e ASCII suporte | Microsoft Docs
+description: Saiba mais sobre o suporte para carateres Unicode e ASCII no System Center Configuration Manager objetos.
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -17,129 +17,129 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 18f1c64c1f27001a0fdfbab4236d09a5bc279272
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Поддержка Юникода и ASCII в System Center Configuration Manager
+# <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Suporte de Unicode e ASCII no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager создает большую часть объектов с использованием символов Юникода. Однако некоторые объекты поддерживают только символы ASCII или имеют другие ограничения.  
+System Center Configuration Manager cria a maior parte dos objetos utilizando carateres Unicode. No entanto, vários objetos suportam apenas carateres ASCII ou têm outras limitações.  
 
- В следующих разделах описываются объекты, которые должны использовать только символы из набора ASCII, а также объекты, имеющие дополнительные ограничения.  
+ As secções seguintes listam os objetos que podem utilizar carateres definida apenas de carateres ASCII ou que têm outras limitações.  
 
--   [Объекты, использующие символы ASCII](#BKMK_ASCIIchar)  
+-   [Objetos que utilizam carateres ASCII](#BKMK_ASCIIchar)  
 
--   [Дополнительные ограничения](#BKMK_OtherCharLimitations)  
+-   [Limitações adicionais](#BKMK_OtherCharLimitations)  
 
--   [Нелокализованные объекты Configuration Manager](#BKMK_LangNonLocalize)  
+-   [Objetos do Configuration Manager que não estão localizados](#BKMK_LangNonLocalize)  
 
-##  <a name="BKMK_ASCIIchar"></a> Объекты, использующие символы ASCII  
- Configuration Manager поддерживает набор символов ASCII только при создании следующих объектов:  
+##  <a name="BKMK_ASCIIchar"></a>Objetos que utilizam carateres ASCII  
+ O Configuration Manager suporta apenas quando são criados os seguintes objetos de conjunto de carateres ASCII:  
 
--   Код сайта  
+-   Código do site  
 
--   Имена всех компьютеров, являющихся серверами системы сайта  
+-   Todos os nomes de computador do servidor de sistema de sites  
 
--   Следующие учетные записи Configuration Manager:  
-
-    > [!NOTE]  
-    >  Они поддерживают символы ASCII и символы русского языка на сайте, использующем русский язык.  
-
-    -   Учетная запись принудительной установки клиента  
-
-    -   Учетная запись публикации ссылок на состояние работоспособности  
-
-    -   Учетная запись запросов на ссылки на состояние работоспособности  
-
-    -   Учетная запись подключения точки управления к базе данных  
-
-    -   Учетная запись доступа к сети  
-
-    -   Учетная запись пакетного доступа  
-
-    -   Стандартная учетная запись отправителя  
-
-    -   Учетная запись установки системы сайта  
-
-    -   Учетная запись подключения к точке обновления программного обеспечения  
-
-    -   Учетная запись прокси-сервера точки обновления программного обеспечения  
+-   As seguintes contas do Configuration Manager:  
 
     > [!NOTE]  
-    >  Учетные записи, указанные для администрирования на основе ролей, поддерживают Юникод.  
+    >  Estas contas suportam carateres ASCII e dos carateres RUS num site que é executado no russo.  
+
+    -   Conta de instalação de push de cliente  
+
+    -   Conta de publicação de referência de estado de funcionamento  
+
+    -   Conta de consulta de referência do Estado de funcionamento  
+
+    -   Conta de ligação de base de dados de ponto de gestão  
+
+    -   Conta de acesso à rede  
+
+    -   Conta de acesso a pacote  
+
+    -   Conta padrão do remetente  
+
+    -   Conta de instalação do sistema de sites  
+
+    -   Conta de ligação de ponto de atualização de software  
+
+    -   Conta de servidor de proxy de ponto de atualização de software  
+
+    > [!NOTE]  
+    >  As contas que especificar para a administração baseada em funções suportam Unicode.  
     >   
-    >  Учетная запись точки служб отчетов поддерживает Юникод, за исключением символов русского языка.  
+    >  Conta suporta Unicode, com exceção dos carateres RUS do ponto de Reporting Services.  
 
--   Полное доменное имя (FQDN) для серверов сайта и систем сайта  
+-   Nome de domínio completamente qualificado (FQDN) para servidores de site e sistemas de sites  
 
--   Путь установки для Configuration Manager  
+-   Caminho de instalação para o Configuration Manager  
 
--   Имена экземпляров SQL Server  
+-   Nomes de instâncias do SQL Server  
 
--   Путь для следующих ролей систем сайта:  
+-   O caminho para as seguintes funções do sistema de sites:  
 
-    -   Тточка веб-службы каталога приложений  
+    -   Ponto de serviço Web do Catálogo de Aplicações  
 
-    -   Точка веб-сайта каталога приложений.  
+    -   Ponto de Web site do Catálogo de Aplicações  
 
-    -   Точка регистрации  
+    -   Ponto de inscrição  
 
-    -   Прокси-точка регистрации.  
+    -   Ponto proxy de registo  
 
-    -   Точка служб отчетов  
+    -   Ponto do Reporting Services  
 
-    -   Точка миграции среды  
+    -   Ponto de migração de estado  
 
--   Путь для следующих папок:  
+-   O caminho para as seguintes pastas:  
 
-    -   Папка, в которой хранятся данные миграции состояния клиента  
+    -   A pasta que armazena dados de migração de estado do cliente  
 
-    -   Папка, содержащая отчеты Configuration Manager  
+    -   A pasta que contém os relatórios do Configuration Manager  
 
-    -   Папка, содержащая резервную копию Configuration Manager  
+    -   A pasta que armazena a cópia de segurança do Configuration Manager  
 
-    -   Папка, в которой находятся исходные файлы установки сайта  
+    -   A pasta que armazena os ficheiros de origem de instalação para a configuração do site  
 
-    -   Папка, в которой хранятся загруженные компоненты, необходимые для установки  
+    -   A pasta que armazena o pré-requisito transfere para utilização pela configuração  
 
--   Путь для следующих объектов:  
+-   O caminho para os seguintes objetos:  
 
-    -   Веб-сайт IIS  
+    -   Web site do IIS  
 
-    -   Путь установки виртуального приложения  
+    -   Caminho de instalação de aplicações virtuais  
 
-    -   Имя виртуального приложения  
+    -   Nome de aplicação virtual  
 
--   Следующие объекты для AMT и аппаратного контроллера управления.  
+-   Os seguintes objetos de AMT e de gestão fora de banda:  
 
-    -   Полное доменное имя компьютера с поддержкой AMT  
+    -   O FQDN do computador baseado em AMT  
 
-    -   Имя компьютера с поддержкой AMT  
+    -   O nome do computador do computador baseado em AMT  
 
-    -   NetBIOS-имя домена  
+    -   O nome NetBIOS do domínio  
 
-    -   Имя профиля беспроводной связи и сетевое имя (SSID)  
+    -   O nome do perfil sem fios e o SSID  
 
-    -   Имя доверенного корневого центра сертификации  
+    -   O nome de autoridade de certificação de raiz fidedigna  
 
-    -   Имя центра сертификации (ЦС) и имена шаблонов  
+    -   O nome da autoridade de certificação (AC) e nomes de modelo  
 
-    -   Имя и путь файла образа перенаправления IDE  
+    -   O nome de ficheiro e caminho para o ficheiro de imagem de redirecionamento de IDE  
 
-    -   Содержимое хранилища данных AMT  
+    -   O conteúdo do armazenamento de dados AMT  
 
--   Имена ISO-файлов загрузочных носителей  
+-   Nomes de ficheiro ISO do suporte de arranque  
 
-##  <a name="BKMK_OtherCharLimitations"></a> Дополнительные ограничения  
- Ниже перечислены дополнительные ограничения, связанные с поддерживаемыми кодировками и языковыми версиями.  
+##  <a name="BKMK_OtherCharLimitations"></a>Limitações adicionais  
+ Seguem-se as limitações adicionais para conjuntos de carateres suportados e versões de idiomas:  
 
--   Configuration Manager не поддерживает изменение языка на компьютере сервера сайта.  
+-   O Configuration Manager não suporta a alteração do idioma do computador do servidor do site.  
 
--   Центр сертификации предприятия не поддерживает имена клиентских компьютеров, использующие двухбайтовый набор символов (DBCS). Для имен клиентских компьютеров действует ограничение инфраструктуры открытых ключей, согласно которому можно использовать только набор символов IA5. Кроме того, Configuration Manager не поддерживает имена ЦС и значения имени субъекта, использующие кодировку DBCS.  
+-   Uma autoridade de certificação (AC) empresarial não suporta nomes de computadores cliente que utilizam conjuntos de carateres de byte duplo (DBCS). Os nomes de computador cliente que podem ser utilizados são restringidos pela limitação PKI de carateres IA5. Além disso, o Configuration Manager não suporta nomes de AC ou valores de nome de requerente que utilizem DBCS.  
 
-##  <a name="BKMK_LangNonLocalize"></a> Нелокализованные объекты Configuration Manager  
- База данных Configuration Manager поддерживает Юникод для большинства хранимых объектов. Во всех возможных случаях база данных отображает информацию на языке операционной системы компьютера, соответствующем региональным параметрам пользователя. Для того чтобы в интерфейсе клиента или в консоли Configuration Manager информация отображалась на языке операционной системы компьютера, системный язык компьютера должен совпадать с языком клиента или сервера, установленным на сайте.  
+##  <a name="BKMK_LangNonLocalize"></a>Objetos do Configuration Manager que não estão localizados  
+ A base de dados do Configuration Manager suporta Unicode para a maior parte dos objetos que armazena e, sempre que possível, apresenta estas informações no idioma do sistema operativo que corresponde à região de um computador. Para a interface do cliente ou a consola do Configuration Manager para apresentar informações no idioma do sistema operativo do computador, a região do computador deve corresponder a um idioma de cliente ou servidor que instalar num site.  
 
- Тем не менее, некоторые объекты Configuration Manager не поддерживают Юникод и хранятся в базе данных в кодировке ASCII, или же для них действуют иные ограничения в отношении языков. Такая информация всегда отображается в кодировке ASCII или на том языке, на котором изначально был создан этот объект.  
+ No entanto, vários objetos do Configuration Manager não suportam Unicode e são armazenados na base de dados utilizando ASCII ou têm outras limitações de idioma. Estas informações são sempre apresentadas utilizando o conjunto de carateres ASCII ou no idioma que estava a ser utilizado quando o objeto foi criado.  

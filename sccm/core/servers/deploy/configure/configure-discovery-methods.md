@@ -1,6 +1,6 @@
 ---
-title: "Настройка обнаружения | Документы Майкрософт"
-description: "Настройка методов обнаружения для выполнения на сайте Configuration Manager с целью поиска ресурсов, которыми можно управлять из сетевой инфраструктуры и Active Directory."
+title: "Configurar a deteção | Microsoft Docs"
+description: "Configure métodos de deteção para ser executada num site do Configuration Manager para localizar os recursos que pode gerir a partir da sua infraestrutura de rede e do Active Directory."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,451 +16,451 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 34a539ceaea6b070f81a28d2c0a9ce388e26cfeb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Настройка методов обнаружения для System Center Configuration Manager
+# <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurar métodos de deteção para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Методы обнаружения, настраиваемые для выполнения на сайте System Center Configuration Manager, позволяют выполнять поиск ресурсов, которыми можно управлять из сетевой инфраструктуры и Active Directory. Для этого необходимо включить и затем настроить каждый метод, используемый для поиска в среде. (Процесс включения и отключения метода аналогичен.)  Единственное исключение — методы Heartbeat-обнаружения и обнаружения сервера.  
+Configurar métodos de deteção a executar um site do System Center Configuration Manager para localizar os recursos que pode gerir a partir da sua infraestrutura de rede e do Active Directory. Isto requer que ative e, em seguida, configurar cada método que pretende utilizar para pesquisar o seu ambiente. (Também pode desativar um método utilizando o mesmo procedimento utilizado para o ativar.)  São as únicas exceções a esta deteção de Heartbeat e deteção de servidores:  
 
--   По умолчанию Heartbeat-обнаружение уже включено при установке первичного сайта Configuration Manager и настроено для выполнения по базовому расписанию. Метод Heartbeat-обнаружения должен быть постоянно включен, так как он обеспечивает актуальность записей данных обнаружения (DDR) для устройств. Дополнительные сведения о Heartbeat-обнаружении см. в [этом разделе](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
+-   Por predefinição, a deteção de Heartbeat é já ativada quando instala um site primário do Configuration Manager e configurada para ser executado numa agenda básica. É aconselhável manter a deteção de Heartbeat ativada porque garante que os registos de dados de deteção (DDR) para os dispositivos estão atualizados. Para obter mais informações sobre a deteção de Heartbeat, consulte [sobre a deteção de Heartbeat](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
 
--   Обнаружение сервера — это метод автоматического обнаружения, который находит компьютеры, используемые как системы сайта. Вы не можете настроить или отключить этот метод.  
+-   Deteção de servidores é um método de deteção automática, que localiza computadores que utilizam como sistemas de sites. Não é possível configurar ou desativá-lo.  
 
-**Включение настраиваемого метода обнаружения**  
+**Para ativar um método de deteção configuráveis:**  
  > [!NOTE]  
- > Следующие сведения не применяются к обнаружению пользователей Active Directory Azure. См. раздел о [настройке обнаружения пользователя Azure AD](#azureaadisc) далее в этой статье.
+ > As seguintes informações não se aplica a deteção de utilizador do Active Directory do Azure. Em vez disso, consulte [configurar o Azure AD User Discovery](#azureaadisc) mais adiante neste tópico.
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
 
-2.  Выберите метод обнаружения для сайта, на котором нужно включить обнаружение.  
+2.  Selecione o método de deteção para o site onde pretende ativar a deteção.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**, а затем на вкладке **Общие** установите флажок **Enable&lt;discovery method\>** (Включить <метод_обнаружения>).  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**e, em seguida, no **geral** separador, verifique o **ativar&lt;método de deteção\>**  caixa.  
 
-     Чтобы отключить метод обнаружения, снимите этот флажок.  
+     Se esta caixa já está selecionada, pode desativar o método de deteção desmarcando a caixa.  
 
-4.  Нажмите кнопку **ОК**, чтобы сохранить настройки.  
+4.  Escolha **OK** para guardar a configuração.  
 
 
-##  <a name="BKMK_ConfigADForestDisc"></a> Настройка обнаружения в лесах Active Directory  
-Чтобы завершить настройку метода обнаружения в лесах Active Directory, необходимо настроить параметры в следующих двух расположениях:  
+##  <a name="BKMK_ConfigADForestDisc"></a>Configurar a deteção de florestas do Active Directory  
+Para concluir a configuração da deteção de floresta do Active Directory, tem de configurar as definições em duas localizações:  
 
--   В узле **Методы обнаружения** можно сделать следующее:
+-   No **métodos de deteção** nós, pode:
 
-    - включить этот метод обнаружения;
-    - задать расписание опроса;
-    - выбрать, будут ли в процессе обнаружения автоматически создаваться границы для найденных сайтов и подсетей Active Directory;  
+    - Ative este método de deteção.
+    - Defina uma agenda de consulta.
+    - Selecione se a deteção automática cria limites para os sites do Active Directory e sub-redes que Deteta.  
 
--   В узле **Леса Active Directory** можно сделать следующее:
+-   No **florestas do Active Directory** nós, pode:
 
-    - добавить леса, которые требуется найти;
-    - включить обнаружение сайтов и подсетей Active Directory в этом лесу;
-    - настроить параметры, позволяющие сайтам Configuration Manager публиковать данные сайта в лесу;
-    - назначить каждому лесу учетную запись, используемую в качестве учетной записи леса Active Directory.  
+    - Adicione florestas que pretenda detetar.
+    - Ative a deteção de sites e sub-redes nessa floresta do Active Directory.
+    - Configure as definições que permitem sites do Configuration Manager publicar as suas informações de site na floresta.
+    - Atribua uma conta a utilizar como conta de floresta do Active Directory para cada floresta.  
 
-Используйте приведенные ниже действия, чтобы включить обнаружение в лесах Active Directory и настроить отдельные леса, используемые с этим методом.  
+Utilize os procedimentos seguintes para ativar a deteção de floresta do Active Directory e configurar florestas individuais para utilização com deteção de floresta do Active Directory.  
 
-#### <a name="to-enable-active-directory-forest-discovery"></a>Включение обнаружения в лесах Active Directory  
+#### <a name="to-enable-active-directory-forest-discovery"></a>Para ativar a deteção de floresta do Active Directory  
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
 
-2.  Выберите метод "Обнаружение в лесах Active Directory" для сайта, на котором нужно настроить обнаружение.  
+2.  Selecione o método de deteção de floresta do Active Directory para o site onde pretende configurar a deteção.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-4.  На вкладке **Общие** установите флажок, чтобы включить обнаружение. Или настройте обнаружение сейчас, а включите позже.  
+4.  No **geral** separador, selecione a caixa para ativar a deteção. Ou pode configurar a deteção agora e, em seguida, regressar para ativar a deteção mais tarde.  
 
-5.  Укажите параметры для границ сайта для обнаруженных расположений.  
+5.  Especifique as opções para criar limites de sites para localizações detetadas.  
 
-6.  Задайте расписание выполнения обнаружения.  
+6.  Especifique uma agenda para quando a deteção é executada.  
 
-7.  Завершив настройку метода обнаружения в лесах Active Directory для этого сайта, нажмите кнопку **ОК**, чтобы сохранить параметры.  
+7.  Quando concluir a configuração da deteção de floresta do Active Directory para este site, escolha **OK** para guardar a configuração.  
 
-#### <a name="to-configure-a-forest-for-active-directory-forest-discovery"></a>Настройка леса для метода обнаружения в лесах Active Directory  
+#### <a name="to-configure-a-forest-for-active-directory-forest-discovery"></a>Para configurar uma floresta para deteção de floresta do Active Directory  
 
-1.  В рабочей области **Администрирование** выберите **Леса Active Directory**. Если метод обнаружения в лесах Active Directory был запущен ранее, все обнаруженные леса будут отображены в области результатов. При выполнении метода обнаружения в лесах Active Directory происходит поиск локального леса и доверенных лесов. Вручную необходимо добавить только леса, не имеющие доверия.  
+1.  No **administração** área de trabalho, escolha **florestas do Active Directory**. Se a Deteção de Florestas do Active Directory tiver sido executada anteriormente, as florestas detetadas serão apresentadas no painel de resultados. A floresta local e quaisquer florestas fidedignas são detetadas quando a Deteção de Florestas do Active Directory é executada. Apenas é necessário adicionar manualmente as florestas não fidedignas.  
 
-    -   Чтобы настроить ранее обнаруженный лес, выберите его в области результатов. Затем на вкладке **Главная** в группе **Свойства** выберите **Свойства**, чтобы открыть окно свойств леса. Перейдите к шагу 3.  
+    -   Para configurar uma floresta detetada anteriormente, selecione uma floresta no painel de resultados. Em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades** para abrir as propriedades da floresta. Continue com o passo 3.  
 
-    -   Чтобы настроить новый лес, отсутствующий в списке, на вкладке **Главная** в группе **Создать** выберите **Добавить лес**, чтобы открыть диалоговое окно**Add Forests** (Добавление лесов). Перейдите к шагу 3.  
+    -   Para configurar uma nova floresta que não está listada, no **home page** separador o **criar** grupo, escolha **adicionar floresta** para abrir o **adicionar florestas** caixa de diálogo. Continue com o passo 3.  
 
-2.  На вкладке **Общие** завершите настройку леса, который необходимо обнаружить, и укажите **учетную запись леса Active Directory**.  
-
-    > [!NOTE]  
-    >  Для обнаружения и публикации в лесах, не имеющих доверия, методу обнаружения в лесах Active Directory требуется глобальная учетная запись. Если учетная запись компьютера сервера сайта не используется, можно выбрать только глобальную учетную запись.  
-
-3.  Если вы планируете разрешить сайтам публиковать данные сайта в этом лесу, откройте вкладку **Публикация** и завершите настройку публикации в этом лесу.  
+2.  No **geral** separador, concluir as configurações da floresta que pretende detetar e especifique o **conta de floresta do Active Directory**.  
 
     > [!NOTE]  
-    >  При включении публикации данных сайта в лесу необходимо расширить схему Active Directory этого леса для Configuration Manager. Учетная запись леса Active Directory должна иметь разрешения на полный доступ к контейнеру System в этом лесу.  
+    >  A Deteção de Florestas do Active Directory requer uma conta global para detetar e publicar em florestas não fidedignas. Se não utilizar a conta de computador do servidor do site, pode selecionar apenas uma conta global.  
 
-4.  Завершив настройку леса для использования с методом обнаружения в лесах Active Directory, нажмите кнопку **ОК**, чтобы сохранить изменения.  
+3.  Se pretende permitir que os sites publiquem dados do site nesta floresta no **publicação** separador, concluir as configurações para publicação nesta floresta.  
 
-##  <a name="BKMK_ConfigADDiscGeneral"></a> Настройка обнаружения компьютеров, пользователей и групп Active Directory  
- Следующие разделы содержат сведения о настройке обнаружения компьютеров, пользователей или групп с помощью одного из следующих методов обнаружения:  
+    > [!NOTE]  
+    >  Se permitir que os sites publiquem numa floresta, tem de expandir o esquema do Active Directory dessa floresta para o Configuration Manager. A conta de floresta do Active Directory tem de ter permissões de controlo total ao contentor do sistema dessa floresta.  
 
--   Обнаружение групп Active Directory  
+4.  Quando concluir a configuração desta floresta para utilização com deteção de floresta do Active Directory, escolha **OK** para guardar a configuração.  
 
--   Обнаружение систем Active Directory  
+##  <a name="BKMK_ConfigADDiscGeneral"></a>Configurar a deteção do Active Directory para computadores, utilizadores ou grupos  
+ Utilize as informações nas secções seguintes para configurar a deteção de computadores, utilizadores ou grupos. Irá utilizar estes métodos de Deteção:  
 
--   обнаружение пользователей Active Directory  
+-   Deteção de Grupos do Active Directory  
+
+-   Deteção de Sistemas do Active Directory  
+
+-   Deteção de Utilizadores do Active Directory  
 
 > [!NOTE]  
->  Сведения в этом разделе не применяются к методу обнаружения в лесах Active Directory.  
+>  As informações nesta secção não se aplica a deteção de floresta do Active Directory.  
 
- Хотя все эти методы обнаружения не зависят друг от друга, у них есть общие параметры. Дополнительные сведения об этих параметрах конфигурации см. в статье [Общие параметры для обнаружения группы, системы и пользователя](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
+ Embora cada um destes métodos de deteção seja independente dos outros, partilham opções semelhantes. Para obter mais informações sobre estas opções de configuração, consulte [partilhado opções para a deteção de grupo, o sistema e o utilizador](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
 
 > [!WARNING]  
->  Опрос каждого из этих методов обнаружения Active Directory может существенно увеличить нагрузку на сеть. Поэтому выполнение каждого метода обнаружения рекомендуется запланировать на такие периоды, когда этот сетевой трафик не сможет оказать негативное влияние на использование сети.  
+>  A consulta do Active Directory por cada um destes métodos de deteção pode gerar tráfego de rede significativo. Considere o agendamento de cada método de deteção para ser executada com um período de tempo quando este tráfego de rede não prejudique as utilizações empresariais da sua rede.  
 
-#### <a name="to-configure-active-directory-group-discovery"></a>Настройка обнаружения групп Active Directory  
+#### <a name="to-configure-active-directory-group-discovery"></a>Para configurar a deteção de grupo do Active Directory  
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
 
-2.  Выберите метод **Обнаружение групп Active Directory** для сайта, на котором нужно настроить обнаружение.  
+2.  Escolha o **deteção de grupo do Active Directory** método para o site onde pretende configurar a deteção.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-4.  На вкладке **Общие** установите флажок, чтобы включить обнаружение. Или настройте обнаружение сейчас, а включите позже.  
+4.  No **geral** separador, selecione a caixa para ativar a deteção. Ou pode configurar a deteção agora e, em seguida, regressar para ativar a deteção mais tarde.  
 
-5.  Нажмите кнопку **Добавить**, чтобы настроить область обнаружения. Выберите параметр **Группы** или **Расположение** и выполните необходимые настройки в диалоговом окне **Добавление групп** или **Добавить расположение Active Directory** соответственно.  
+5.  Escolha **adicionar** para configurar um âmbito de deteção, escolha o **grupos** ou **localização**e concluir as seguintes configurações no **adicionar grupos** ou **adicionar localização do Active Directory** caixa de diálogo:  
 
-    1.  Укажите **Имя** для этой области обнаружения.  
+    1.  Especifique um **nome** para este âmbito de deteção.  
 
-    2.  Укажите **Домен Active Directory** или **Расположение** для поиска.  
+    2.  Especifique um **domínio do Active Directory** ou **localização** para procurar:  
 
-        -   Если выбран параметр **Группы**, укажите одну или несколько групп Active Directory, которые требуется обнаружить,  
+        -   Se tiver escolhido **grupos**, especifique um ou mais grupos do Active Directory a detetar.  
 
-        -   а если выбран параметр **Расположение**, в качестве расположения для поиска укажите контейнер Active Directory. Для этого расположения можно также включить рекурсивный поиск дочерних контейнеров Active Directory.  
+        -   Se tiver escolhido **localização**, especifique um contentor do Active Directory como uma localização a detetar. Também pode ativar uma pesquisa recursiva dos contentores subordinados do Active Directory para esta localização.  
 
-    3.  Укажите **учетную запись обнаружения групп Active Directory** , которая будет использоваться для поиска в этой области обнаружения.  
+    3.  Especifique o **conta de deteção de grupo do Active Directory** que é utilizada para procurar este âmbito de deteção.  
 
-    4.  Нажмите кнопку **ОК**, чтобы сохранить параметры области обнаружения.  
+    4.  Escolha **OK** para guardar a configuração de âmbito de deteção.  
 
-6.  Повторите шаг 6 для каждой дополнительной области обнаружения, которую требуется определить.  
+6.  Repita o passo 6 para cada âmbito de deteção adicionais que pretenda definir.  
 
-7.  На вкладке **Расписание опроса** настройте расписание опроса полного обнаружения и обнаружения изменений.  
+7.  No **agenda de consulta** separador, configure a deteção completa deteção agenda e diferenças de consulta.  
 
-8.  Кроме того, на вкладке **Параметр** можно настроить параметры фильтрации или удаления устаревших записей компьютеров из обнаружения, а также параметр поиска членства в группах распространения.  
+8.  Opcionalmente, no **opção** separador, pode configurar as opções para filtrar ou excluir os registos de computadores obsoletos da deteção e para detetar a associação dos grupos de distribuição.  
 
     > [!NOTE]  
-    >  По умолчанию метод обнаружения групп Active Directory находит только членство в группах безопасности.  
+    >  Por predefinição, a deteção de grupo do Active Directory Deteta apenas a associação dos grupos de segurança.  
 
-9. Завершив настройку метода обнаружения групп Active Directory для этого сайта, нажмите кнопку **ОК**, чтобы сохранить параметры.  
+9. Quando tiver concluído a configuração da deteção de grupo do Active Directory para este site, escolha **OK** para guardar a configuração.  
 
-#### <a name="to-configure-active-directory-system-discovery"></a>Настройка обнаружения систем Active Directory  
+#### <a name="to-configure-active-directory-system-discovery"></a>Para configurar a deteção de sistema do Active Directory  
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
 
-2.  Выберите метод обнаружения для сайта, на котором нужно настроить обнаружение.  
+2.  Selecione o método para o site onde pretende configurar a deteção.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-4.  На вкладке **Общие** установите флажок, чтобы включить обнаружение. Или настройте обнаружение сейчас, а включите позже.  
+4.  No **geral** separador, selecione a caixa para ativar a deteção. Ou pode configurar a deteção agora e, em seguida, regressar para ativar a deteção mais tarde.  
 
-5.  Щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif), чтобы указать новый контейнер Active Directory. В диалоговом окне **Контейнер Active Directory** выполните следующие настройки:  
+5.  Escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif) para especificar um novo contentor do Active Directory. No **contentor do Active Directory** diálogo caixa, conclua as configurações seguintes:  
 
-    1.  Укажите одно или несколько расположений для поиска.  
+    1.  Especifique um ou mais localizações para procurar.  
 
-    2.  Для каждого расположения укажите параметры, изменяющие способ поиска.  
+    2.  Para cada localização, especifique as opções que se alterar o comportamento de procura.  
 
-    3.  Для каждого расположения укажите учетную запись, которая будет использоваться в качестве **учетной записи обнаружения Active Directory**.  
+    3.  Para cada localização, especifique a conta a utilizar como o **conta de deteção do Active Directory**.  
 
         > [!TIP]  
-        >  Для каждого заданного расположения можно настроить ряд параметров обнаружения и уникальную учетную запись обнаружения Active Directory.  
+        >  Para cada localização que especificar, pode configurar um conjunto de opções de deteção e uma conta de deteção do Active Directory exclusiva.  
 
-    4.  Нажмите кнопку **ОК**, чтобы сохранить конфигурацию контейнера Active Directory.  
+    4.  Escolha **OK** para guardar a configuração do contentor do Active Directory.  
 
-6.  На вкладке **Расписание опроса** настройте расписание опроса полного обнаружения и обнаружения изменений.  
+6.  No **agenda de consulta** separador, configure a deteção completa deteção agenda e diferenças de consulta.  
 
-7.  Кроме того, на вкладке **Атрибуты Active Directory** можно настроить дополнительные атрибуты для компьютеров, которые нужно найти. Там также указаны атрибуты объекта по умолчанию.  
+7.  Opcionalmente, no **atributos do Active Directory** separador, pode configurar atributos adicionais do Active Directory para computadores que pretende detetar. Os atributos de objetos predefinidos também são listados.  
 
-8.  При необходимости на вкладке **Параметр** можно настроить параметры фильтрации или удаления устаревших записей компьютеров из обнаружения.  
+8.  Opcionalmente, no **opção** separador, pode configurar opções para filtrar ou excluir os registos de computadores obsoletos da deteção.  
 
-9. Завершив настройку метода обнаружения систем Active Directory для этого сайта, нажмите кнопку **ОК**, чтобы сохранить параметры.  
+9. Quando tiver concluído a configuração da deteção de sistema do Active Directory para este site, escolha **OK** para guardar a configuração.  
 
-#### <a name="to-configure-active-directory-user-discovery"></a>Настройка обнаружения пользователей Active Directory  
+#### <a name="to-configure-active-directory-user-discovery"></a>Para configurar a deteção de utilizador do Active Directory  
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
 
-2.  Выберите метод **Обнаружение пользователей Active Directory** для сайта, на котором нужно настроить обнаружение.  
+2.  Escolha o **deteção de utilizador do Active Directory** método para o site onde pretende configurar a deteção.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-4.  На вкладке **Общие** установите флажок, чтобы включить обнаружение. Или настройте обнаружение сейчас, а включите позже.  
+4.  No **geral** separador, selecione a caixa para ativar a deteção. Ou pode configurar a deteção agora e, em seguida, regressar para ativar a deteção mais tarde.  
 
-5.  Щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif), чтобы указать новый контейнер Active Directory. В диалоговом окне **Контейнер Active Directory** выполните следующие настройки:  
+5.  Escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif) para especificar um novo contentor do Active Directory. No **contentor do Active Directory** diálogo caixa, conclua as configurações seguintes:  
 
-    1.  Укажите одно или несколько расположений для поиска.  
+    1.  Especifique um ou mais localizações para procurar.  
 
-    2.  Для каждого расположения укажите параметры, изменяющие способ поиска.  
+    2.  Para cada localização, especifique as opções que se alterar o comportamento de procura.  
 
-    3.  Для каждого расположения укажите учетную запись, которая будет использоваться в качестве **учетной записи обнаружения Active Directory**.  
+    3.  Para cada localização, especifique a conta a utilizar como o **conta de deteção do Active Directory**.  
 
         > [!NOTE]  
-        >  Для каждого заданного расположения можно настроить уникальный ряд параметров обнаружения и уникальную учетную запись обнаружения Active Directory.  
+        >  Para cada localização que especificar, pode configurar um conjunto exclusivo de opções de deteção e uma conta de deteção do Active Directory exclusiva.  
 
-    4.  Нажмите кнопку **ОК**, чтобы сохранить конфигурацию контейнера Active Directory.  
+    4.  Escolha **OK** para guardar a configuração do contentor do Active Directory.  
 
-6.  На вкладке **Расписание опроса** настройте расписание опроса полного обнаружения и обнаружения изменений.  
+6.  No **agenda de consulta** separador, configure a deteção completa deteção agenda e diferenças de consulta.  
 
-7.  Кроме того, на вкладке **Атрибуты Active Directory** можно настроить дополнительные атрибуты для компьютеров, которые нужно найти. Там также указаны атрибуты объекта по умолчанию.  
+7.  Opcionalmente, no **atributos do Active Directory** separador, pode configurar atributos adicionais do Active Directory para computadores que pretende detetar. Os atributos de objetos predefinidos também são listados.  
 
-8.  Завершив настройку метода обнаружения пользователей Active Directory для этого сайта, нажмите кнопку **ОК**, чтобы сохранить параметры.  
+8.  Quando tiver concluído a configuração da deteção de utilizador do Active Directory para este site, escolha **OK** para guardar a configuração.  
 
-## <a name="azureaadisc"></a> Настройка обнаружения пользователей Azure AD
-Начиная с версии 1706 можно настроить обнаружение пользователей Active Directory Azure при подключении Configuration Manager к [подписке Azure и Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
+## <a name="azureaadisc"></a>Configurar a deteção de utilizador do Azure AD
+A partir da versão 1706, pode configurar deteção de utilizador do Active Directory do Azure quando se liga o Configuration Manager para o [subscrição do Azure e o Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
 
-Обнаружение пользователей Azure AD настраивается в рамках *управления облачными клиентами*. Соответствующая процедура подробно описана в разделе [Create the Azure web app for use with Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) (Создание веб-приложения Azure для использования с Configuration Manager) статьи *Configure Azure services for use with Configuration Manager* (Настройка служб Azure для использования с Configuration Manager).
-
-
+Deteção de utilizadores do Azure AD é configurada como parte da *gestão de nuvem*. O procedimento para fazê-lo está detalhado na [criar a aplicação web do Azure para utilização com o Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) no tópico *serviços do Azure configurar para utilização com o Configuration Manager*.
 
 
-##  <a name="BKMK_ConfigHBDisc"></a> Настройка Heartbeat-обнаружения  
- По умолчанию Heartbeat-обнаружение включается во время установки первичного сайта Configuration Manager. Поэтому необходимо настроить только периодичность отправки данных записей Heartbeat-обнаружения клиентами в точку управления, если вы не хотите использовать значение по умолчанию "Каждые 7 дней".  
 
-> [!NOTE]  
->  Если на одном сайте наряду с принудительной установкой клиента включена задача обслуживания **Сбросить флаг установки** , настройте для расписания Heartbeat-обнаружения значение, которое меньше значения параметра **Период повторного обнаружения клиента** задачи обслуживания **Сбросить флаг установки** . Дополнительные сведения о задачах обслуживания сайта см. в статье [Задачи обслуживания в System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
 
-#### <a name="to-configure-the-heartbeat-discovery-schedule"></a>Настройка расписания Heartbeat-обнаружения  
-
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
-
-2.  Выберите метод **Heartbeat-обнаружение** для сайта, на котором нужно настроить Heartbeat-обнаружение.  
-
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
-
-4.  Настройте периодичность отправки записей данных Heartbeat-обнаружения клиентами, а затем нажмите кнопку **ОК**, чтобы сохранить параметры.  
-
-##  <a name="BKMK_ConfigNetworkDisc"></a> Настройка обнаружения сетевых ресурсов  
- Следующие разделы содержат сведения о настройке обнаружения сетевых ресурсов.  
-
-###  <a name="BKMK_AboutConfigNetworkDisc"></a> О настройке обнаружения сетевых ресурсов  
- Прежде чем настроить обнаружение сетевых ресурсов, необходимо понять следующие моменты.  
-
--   Доступные уровни обнаружения сетевых ресурсов  
-
--   Доступные параметры обнаружения сетевых ресурсов  
-
--   Ограничение обнаружения сетевых ресурсов в сети  
-
-Дополнительные сведения см. в разделе [Обнаружение сети](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutNetwork).  
-
- Следующие разделы содержат сведения об общих конфигурациях обнаружения сетевых ресурсов. Можно настроить одну или несколько конфигураций, которые будут использоваться во время выполнения одного и того же процесса обнаружения. При работе с несколькими конфигурациями необходимо учесть взаимодействия, которые могут повлиять на результаты обнаружения.  
-
- Например, может потребоваться обнаружить все устройства SNMP, использующие конкретное имя сообщества SNMP. В одном и том же процессе обнаружения можно отключить выполнение обнаружения в определенной подсети. Таким образом, запущенный метод обнаружения сетевых ресурсов не будет искать устройства SNMP с указанными именем сообщества в отключенной подсети.  
-
-####  <a name="BKMK_DetermineNetTopology"></a> Определение топологии сети  
- Для сопоставления сети можно использовать обнаружение только топологии. В этом случае поиск потенциальных клиентов не выполняется. Для реализации метода обнаружения сетевых ресурсов с поиском только топологии используется протокол SNMP.  
-
- При сопоставлении топологии сети необходимо задать параметр **Maximum hops** (Максимальное число прыжков) на вкладке **SNMP** диалогового окна **Network Discovery Properties** (Свойства обнаружения сети). Если указать небольшое максимальное число прыжков, это поможет ограничить использование пропускной способности сети в процессе обнаружения. По мере дальнейшего обнаружения сетевых ресурсов можно увеличить число прыжков, чтобы получить лучшее представление о топологии сети.  
-
- После того, как топология сети будет выяснена, можно настроить дополнительные параметры обнаружения сетевых ресурсов для поиска потенциальных клиентов и их операционных систем, причем такой поиск будет ограничен уже указанными сегментами сети.  
-
-####  <a name="BKMK_LimitBySubnet"></a> Ограничение поиска заданными подсетями  
- Обнаружение сетевых ресурсов можно настроить для поиска в конкретных подсетях. По умолчанию при обнаружении сетевых ресурсов поиск производится в подсети сервера, выполняющего обнаружение. Все другие настроенные и включенные подсети применяются только в вариантах поиска с использованием протоколов SNMP и DHCP. При обнаружении сетевых ресурсов в доменах ограничения по подсетям не действуют.  
-
- Если задать одну или несколько подсетей на вкладке **Подсети** диалогового окна **Свойства обнаружения сети** , поиск будет вестись только в тех подсетях, для которых установлен флажок **Включено** .  
-
- Если отключить какую-то подсеть, в ней не будет производиться обнаружение, причем:  
-
--   SNMP-запросы не будут выполняться в этой подсети;  
-
--   DHCP-серверы не будут в ответ на запрос возвращать список ресурсов, расположенных в этой подсети;  
-
--   с помощью запросов к доменам можно будет обнаруживать ресурсы, расположенные в данной подсети.  
-
-####  <a name="BKMK_SearchByDomain"></a> Поиск в определенном домене  
- Обнаружение сетевых ресурсов можно настроить для поиска в определенном домене или множестве доменов. По умолчанию при обнаружении сетевых ресурсов поиск производится в локальном домене сервера, выполняющего обнаружение.  
-
- Если задать один или несколько доменов на вкладке **Домены** диалогового окна **Свойства обнаружения сети** , поиск будет вестись только в тех доменах, для которых установлен флажок **Включено** .  
-
- Если отключить домен, в нем не будет производиться обнаружение, причем:  
-
--   при обнаружении сетевых ресурсов не будут делаться запросы к контроллерам этого домена;  
-
--   SNMP-запросы по-прежнему будут выполняться в подсетях этого домена;  
-
--   DHCP-серверы по-прежнему будут возвращать список ресурсов, расположенных в этом домене.  
-
-####  <a name="BKMK_LimitBySNMPname"></a> Ограничение поиска с помощью имен SNMP-сообществ  
- Обнаружение сетевых ресурсов можно настроить для поиска в определенном SNMP-сообществе или наборе таких сообществ. Для использования по умолчанию задано имя сообщества **public** .  
-
- При обнаружении сетевых ресурсов имена сообществ используются для получения доступа к маршрутизаторам, которые являются SNMP-устройствами. Маршрутизатор может возвращать в процессе обнаружения сетевых ресурсов информацию о других маршрутизаторах и подсетях, связанных с ним.  
+##  <a name="BKMK_ConfigHBDisc"></a>Configurar a deteção de Heartbeat  
+ Por predefinição, a deteção de Heartbeat é ativada quando instala um site primário do Configuration Manager. Como resultado, só tem de configurar a agenda para como frequentemente de envio de clientes, registo de dados de deteção de Heartbeat para um ponto de gestão quando não pretender utilizar a predefinição de sete em sete dias.  
 
 > [!NOTE]  
->  Имена SNMP-сообществ напоминают пароли. При обнаружении сетевых ресурсов получать информацию можно только от тех SNMP-устройств, для которых указано имя сообщества. У каждого SNMP-устройства может быть собственное имя сообщества, но зачастую для нескольких устройств используется общее имя сообщества. Кроме того, большинству SNMP-устройств по умолчанию присвоено имя сообщества **public**. Но некоторые организации удаляют на своих устройствах имя сообщества **public** из соображений безопасности.  
+>  Se a tarefa de instalação push do cliente e a manutenção do site para **Limpar sinalizador de instalação** estão ativadas no mesmo site defina a agenda da deteção de Heartbeat para ser inferior à **período de Redeteção do cliente** do **Limpar sinalizador de instalação** tarefa de manutenção do site. Para obter mais informações sobre tarefas de manutenção do site, consulte [tarefas de manutenção do System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
 
- Если на вкладке **SNMP** диалогового окна **Network Discovery Properties** (Свойства обнаружения сети) отображается несколько SNMP-сообществ, поиск в них при обнаружении сетевых ресурсов будет производиться в том порядке, в котором они перечислены. Чтобы свести к минимуму сетевой трафик при попытках обратиться к устройству по различным именам, переместите наиболее часто используемые имена в начало списка.  
+#### <a name="to-configure-the-heartbeat-discovery-schedule"></a>Para configurar a agenda de deteção de Heartbeat  
+
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
+
+2.  Escolha **deteção de Heartbeat** para o site onde pretende configurar a deteção de Heartbeat.  
+
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+
+4.  Configurar a frequência com que os clientes submeterem um registo de dados de deteção de Heartbeat e, em seguida, escolha **OK** para guardar a configuração.  
+
+##  <a name="BKMK_ConfigNetworkDisc"></a>Configurar a deteção de rede  
+ Utilize as informações nas secções seguintes para ajudar a configurar a deteção de rede.  
+
+###  <a name="BKMK_AboutConfigNetworkDisc"></a>Sobre como configurar a deteção de rede  
+ Antes de configurar a deteção de rede, tem de compreender o seguinte:  
+
+-   Disponíveis níveis de deteção de rede  
+
+-   Opções de deteção de rede disponíveis  
+
+-   Limitar a deteção de rede na rede  
+
+Para obter mais informações, consulte [sobre a deteção de rede](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutNetwork).  
+
+ As secções seguintes fornecem informações sobre configurações comuns para a deteção de rede. Pode configurar um ou mais destas configurações para utilização durante a mesma deteção a executar. Se utilizar várias configurações, terá de planear as interações que podem afetar os resultados da deteção.  
+
+ Por exemplo, pode querer detetar todos os dispositivos Simple Network Management Protocol (SNMP) que utilizam um nome de Comunidade SNMP específico. Além disso, para a mesma execução da deteção, poderá desativar a deteção numa sub-rede específica. Quando a deteção é executada, a deteção de rede não Deteta os dispositivos SNMP com o nome de Comunidade especificado na sub-rede que tiver desativado.  
+
+####  <a name="BKMK_DetermineNetTopology"></a>Determinar a topologia de rede  
+ Pode utilizar uma deteção só de topologia para mapear a rede. Este tipo de deteção não Deteta potenciais clientes. A deteção de rede só de topologia depende do SNMP.  
+
+ Quando estiver a mapear a topologia de rede, tem de configurar o **saltos máximos** no **SNMP** separador o **propriedades da deteção de rede** caixa de diálogo. Apenas alguns saltos podem ajudar a controlar a largura de banda de rede que é utilizada quando a deteção é executada. Como descobrir mais da sua rede, pode aumentar o número de saltos para obter uma melhor compreensão da topologia de rede.  
+
+ Depois de compreender a topologia de rede, pode configurar propriedades adicionais para deteção de rede para detetar potenciais clientes e os respetivos sistemas operativos enquanto estiver a utilizar configurações disponíveis para limitar os segmentos de rede pode procurar a deteção de rede.  
+
+####  <a name="BKMK_LimitBySubnet"></a>Limitar pesquisas através da utilização de sub-redes  
+ Pode configurar a deteção de rede para pesquisar sub-redes específicas durante uma deteção. Por predefinição, a deteção de rede procura a sub-rede do servidor que executa a deteção. As sub-redes adicionais que forem configuradas e ativadas aplicam-se apenas ao SNMP e o protocolo de configuração dinâmica de anfitrião (DHCP) opções de pesquisa. Quando a deteção de rede procura domínios, não está limitada por configurações para sub-redes.  
+
+ Se especificar uma ou mais sub-redes no **sub-redes** separador o **propriedades da deteção de rede** caixa de diálogo, apenas as sub-redes que estão marcados como **ativado** serão pesquisados.  
+
+ Quando desativa uma sub-rede, este é excluído da deteção e são aplicáveis as seguintes condições:  
+
+-   As consultas baseadas em SNMP não são executados na sub-rede.  
+
+-   Servidores DHCP não respondem com uma lista de recursos localizados na sub-rede.  
+
+-   As consultas baseadas em domínio podem detetar recursos que estão localizados na sub-rede.  
+
+####  <a name="BKMK_SearchByDomain"></a>Procurar num domínio específico  
+ Pode configurar a deteção de rede para pesquisar um domínio específico ou um conjunto de domínios durante a execução da deteção. Por predefinição, a deteção de rede pesquisa o domínio local do servidor que executa a deteção.  
+
+ Se especificar um ou mais domínios no **domínios** separador o **propriedades da deteção de rede** caixa de diálogo, apenas os domínios que estão marcados como **ativado** serão pesquisados.  
+
+ Quando desativa um domínio, este é excluído da deteção e são aplicáveis as seguintes condições:  
+
+-   Deteção de rede não consulta controladores de domínio nesse domínio.  
+
+-   As consultas baseadas em SNMP ainda podem executar em sub-redes do domínio.  
+
+-   Servidores DHCP podem responder com uma lista de recursos localizados no domínio.  
+
+####  <a name="BKMK_LimitBySNMPname"></a>Limitar procuras utilizando nomes de comunidades SNMP  
+ Configurar a deteção de rede para pesquisar uma Comunidade SNMP específico ou um conjunto de Comunidades durante a execução da deteção. Por predefinição, o nome de Comunidade **pública** está configurada para utilização.  
+
+ Deteção de rede utiliza nomes de Comunidades para obter acesso a routers que sejam dispositivos SNMP. Um router pode fornecer a deteção de rede com informações sobre outros routers e sub-redes que estejam ligadas ao primeiro router.  
 
 > [!NOTE]  
->  Кроме имени SNMP-сообщества вы можете указать IP-адрес или разрешаемое имя конкретного SNMP-устройства. Это можно сделать на вкладке **SNMP-устройства** диалогового окна **Network Discovery Properties** (Свойства обнаружения сети).  
+>  Nomes de comunidades SNMP assemelham-se às palavras-passe. Deteção de rede pode obter informações apenas a partir de um dispositivo SNMP que especificou um nome de Comunidade. Cada dispositivo SNMP pode ter o seu próprio nome de Comunidade, mas, muitas vezes, o mesmo nome de Comunidade é partilhado por vários dispositivos. Além disso, a maioria dos dispositivos SNMP tem um nome de Comunidade predefinido de **pública**. Mas algumas organizações eliminam o **pública** nome da Comunidade a partir dos seus dispositivos como precaução de segurança.  
 
-####  <a name="BKMK_SearchByDHCP"></a> Поиск конкретного DHCP-сервера  
- Обнаружение сетевых ресурсов можно настроить для поиска DHCP-клиентов с использованием определенного DHCP-сервера или нескольких серверов.  
-
- Поиск будет вестись на каждом DHCP-сервере, указанном на вкладке **DHCP** диалогового окна **Свойства обнаружения сети** . Если сервер, выполняющий обнаружение, получает свой IP-адрес от DHCP-сервера, вы можете настроить обнаружение для использования данного DHCP-сервера, установив флажок **Добавить DHCP-сервер, на использование которого настроен сервер сайта**.  
+ Se forem apresentadas várias comunidades SNMP no **SNMP** separador o **propriedades da deteção de rede** caixa de diálogo, a deteção de rede pesquisará as mesmas pela ordem em que são apresentadas. Para ajudar a minimizar o tráfego de rede que é gerado pelas tentativas de contacto com um dispositivo utilizando diferentes nomes, certifique-se de que os nomes mais frequentemente utilizados no topo da lista.  
 
 > [!NOTE]  
->  Чтобы успешно настроить обнаружение сетевых ресурсов для использования DHCP-сервера, среда должна поддерживать протокол IPv4. Обнаружение сетевых ресурсов не может быть настроено для использования DHCP-сервера в среде на базе протокола IPv6.  
+>  Além de utilizar o nome de Comunidade SNMP, pode especificar o endereço IP ou nome resolúvel de um dispositivo SNMP específico. Pode fazê-lo no **dispositivos SNMP** separador o **propriedades da deteção de rede** caixa de diálogo.  
 
-###  <a name="BKMK_HowToConfigNetDisc"></a> Настройка обнаружения сетевых ресурсов  
- Следуйте описанным ниже процедурам, в соответствии с которыми сначала определяется только топология сети, а затем настраивается обнаружение сетевых ресурсов для поиска потенциальных клиентов с использованием одного или нескольких предусмотренных вариантов.  
+####  <a name="BKMK_SearchByDHCP"></a>Procurar um servidor DHCP específico  
+ Pode configurar a deteção de rede para utilizar um servidor DHCP específico ou vários servidores para detetar clientes DHCP durante uma deteção.  
 
-##### <a name="to-determine-your-network-topology"></a>Определение топологии сети  
+ Deteção de rede pesquisa cada servidor DHCP que especificar no **DHCP** separador o **propriedades da deteção de rede** caixa de diálogo. Se o servidor que executa a deteção obtiver a concessão dos seus endereços IP a partir de um servidor DHCP, pode configurar a deteção para pesquisar esse servidor DHCP, verificando o **incluem o servidor DHCP que o servidor do site está configurado para utilizar** caixa.  
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
+> [!NOTE]  
+>  Para configurar com êxito um servidor DHCP na deteção de rede, o seu ambiente tem de suportar IPv4. Não é possível configurar a deteção de rede para utilizar um servidor DHCP num ambiente IPv6 nativo.  
 
-2.  Выберите метод **Обнаружение сетевых ресурсов** для сайта, на котором нужно настроить обнаружение этим методом.  
+###  <a name="BKMK_HowToConfigNetDisc"></a>Como configurar a deteção de rede  
+ Utilize os procedimentos seguintes para começar por detetar apenas a topologia de rede e, em seguida, para configurar a deteção de rede para detetar potenciais clientes utilizando um ou mais das opções de deteção de rede disponíveis.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+##### <a name="to-determine-your-network-topology"></a>Para determinar a topologia de rede  
 
-    -   На вкладке **Общие** установите флажок **Включить обнаружение сетевых ресурсов**, а затем в списке **Тип обнаружения** выберите **Топология**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
 
-    -   На вкладке **Подсети** установите флажок **Поиск в локальных подсетях**.  
+2.  Escolha **deteção de rede** para o site onde pretende executar a deteção de rede.  
+
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+
+    -   No **geral** separador, verifique o **ativar a deteção de rede** caixa e, em seguida, escolha **topologia** do **tipo de deteção** opções.  
+
+    -   No **sub-redes** separador, verifique o **procurar sub-redes locais** caixa.  
 
         > [!TIP]  
-        >  Если известно, из каких конкретно подсетей состоит данная сеть, флажок **Поиск в локальных подсетях** можно снять и использовать значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif), чтобы добавить конкретные подсети, в которых требуется вести поиск. Для крупных сетей чаще всего лучше выполнять поиск не более чем в одной-двух подсетях за один прием, чтобы вести к минимуму использование пропускной способности.  
+        >  Se conhecer as sub-redes específicas que constituem a sua rede, pode desmarcar a **procurar sub-redes locais** caixa e utilizar o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif) para adicionar as sub-redes específicas que pretende procurar. Para redes de grandes dimensões, muitas vezes, é melhor pesquisar apenas uma ou duas sub-redes de cada vez para minimizar a utilização de largura de banda de rede.  
 
-    -   На вкладке **Домены** установите флажок **Поиск в локальном домене**.  
+    -   No **domínios** separador, verifique o **Procurar domínio local** caixa.  
 
-    -   На вкладке **SNMP** с помощью раскрывающегося списка **Максимальное число прыжков** укажите, сколько прыжков между маршрутизаторами разрешается делать при обнаружении сетевых ресурсов с целью выяснения топологии.  
+    -   No **SNMP** separador, utilize o **saltos máximos** na lista pendente para especificar a deteção de rede de saltos de router quantos pode efetuar para mapear a topologia.  
 
         > [!TIP]  
-        >  Впервые определяя топологию сети, следует указать небольшое максимальное число прыжков — это поможет ограничить использование пропускной способности сети.  
+        >  Quando mapear a topologia de rede pela primeira vez, configure apenas alguns saltos de router para minimizar a utilização de largura de banda de rede.  
 
-4.  На вкладке **Расписание** щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif), чтобы задать расписание обнаружения сетевых ресурсов.  
-
-    > [!NOTE]  
-    >  Возможность задания различных конфигураций обнаружения для разных расписаний сетевого обнаружения не предусмотрена. Каждый раз, когда выполняется обнаружение сетевых ресурсов, используется текущая конфигурация обнаружения.  
-
-5.  Нажмите кнопку **ОК**, чтобы принять заданные конфигурации. Обнаружение сети будет выполняться в назначенное время.  
-
-##### <a name="to-configure-network-discovery"></a>Настройка обнаружения сетевых ресурсов  
-
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
-
-2.  Выберите метод **Обнаружение сетевых ресурсов** для сайта, на котором нужно настроить обнаружение этим методом.  
-
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
-
-4.  На вкладке **Общие** установите флажок **Включить обнаружение сетевых ресурсов**, а затем в списке **Тип обнаружения** выберите нужный вариант.  
-
-5.  Чтобы настроить обнаружение в определенных подсетях, щелкните вкладку **Подсети**, а затем настройте один или несколько из следующих параметров:  
-
-    -   Чтобы обнаружение производилось в локальных подсетях компьютера, который выполняет обнаружение, установите флажок **Поиск в локальных подсетях**.  
-
-    -   Чтобы выполнить поиск в конкретной подсети, добавьте ее в список **Subnets to search** (Искать в подсетях), а для параметра **Поиск** задайте значение **Включено**:  
-
-        1.  Если подсеть отсутствует в списке, щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif). В диалоговом окне **Новое назначение подсети** введите значения параметров **Подсеть** и **Маска**, а затем нажмите кнопку **ОК**. По умолчанию поиск в новой подсети включен.  
-
-        2.  Чтобы изменить значение параметра **Поиск** для подсети из списка, выберите подсеть, а затем щелкните значок **Переключить** для переключения между значениями **Отключено** и **Включено**.  
-
-6.  Чтобы настроить обнаружение в доменах, щелкните вкладку **Домены**, а затем настройте один или несколько из следующих параметров:  
-
-    -   Чтобы обнаружение производилось в локальных доменах компьютера, выполняющего обнаружение, установите флажок **Поиск в локальном домене**.  
-
-    -   Чтобы выполнить поиск в конкретном домене, добавьте его в список **Домены**, а для параметра **Поиск** задайте значение **Включено**:  
-
-        1.  Если домен отсутствует в списке, щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif). В диалоговом окне **Свойства домена** введите сведения в поле **Домен** и нажмите кнопку **ОК**. По умолчанию поиск в новом домене включен.  
-
-        2.  Чтобы изменить значение параметра **Поиск** для домена из списка, выберите домен, а затем щелкните значок **Переключить** для переключения между значениями **Отключено** и **Включено**.  
-
-7.  Чтобы настроить обнаружение SNMP-устройств с определенными именами сообществ, щелкните вкладку **SNMP** и настройте один или несколько из следующих параметров:  
-
-    -   Чтобы добавить имя SNMP-сообщества в список **SNMP Community names** (Имена SNMP-сообществ), щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif). В диалоговом окне **Новое имя SNMP-сообщества** укажите **имя** сообщества и нажмите кнопку **ОК**.  
-
-    -   Чтобы удалить имя SNMP-сообщества из списка, выделите это имя и щелкните значок **Удалить** ![значок "Удалить"](media/Disc_delete_Icon.gif).  
-
-    -   Чтобы изменить порядок поиска имен SNMP-сообществ, выделите имя сообщества, а затем щелкните значок **Переместить элемент вверх** ![значок "Переместить вверх"](media/Disc_moveUp_Icon.gif) или **Переместить элемент вниз** ![значок "Переместить вниз"](media/Disc_moveDown_Icon.gif). При обнаружении поиск в сообществах будет производиться сверху вниз в порядке следования имен. Однако учитывайте следующие моменты:
-
-        > [!NOTE]  
-        >  При обнаружении ресурсов сети имена SNMP-сообществ используются для получения доступа к маршрутизаторам, которые являются устройствами, работающими по протоколу SNMP. Маршрутизатор может в процессе обнаружения сетевых ресурсов сообщать о других связанных с ним маршрутизаторах и подсетях.  
-
-        -   Имена SNMP-сообществ напоминают пароли.  
-
-        -   При обнаружении сетевых ресурсов получать информацию можно только от тех SNMP-устройств, для которых указано имя сообщества.  
-
-        -   У каждого SNMP-устройства может быть собственное имя сообщества, но зачастую для нескольких устройств используется общее имя сообщества.  
-
-        -   Большинству SNMP-устройств по умолчанию присвоено имя сообщества **public**. Это имя можно использовать в случаях, когда другие имена сообществ неизвестны. Однако некоторые организации отключают на своих устройствах имя сообщества **Public** из соображений безопасности.  
-
-8.  Чтобы задать максимально разрешенное количество прыжков между маршрутизаторами при SNMP-поиске, щелкните вкладку **SNMP** и выберите нужное значение в раскрывающемся списке **Maximum hops** (Максимальное число прыжков).  
-
-9. Чтобы настроить SNMP-устройство, щелкните вкладку **SNMP-устройства**. Если устройство отсутствует в списке, щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif). В диалоговом окне **Новое SNMP-устройство** укажите IP-адрес или имя SNMP-устройства, а затем нажмите кнопку **ОК**.  
+4.  No **agenda** separador, escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif) para agendar a execução da deteção de rede.  
 
     > [!NOTE]  
-    >  Если указано имя устройства, система Configuration Manager должна быть в состоянии разрешить NetBIOS-имя в IP-адрес.  
+    >  Não é possível atribuir uma configuração de deteção diferente a separar as agendas de deteção de rede. Sempre que a deteção de rede é executada, utiliza a configuração de deteção atual.  
 
-10. Чтобы настроить обнаружение для запроса сведений о DHCP-клиентах у определенных DHCP-серверов, щелкните вкладку **DHCP** и настройте один или несколько из следующих параметров:  
+5.  Escolha **OK** para guardar as configurações. Deteção de rede é executada na hora agendada.  
 
-    -   Чтобы при обнаружении делались запросы к DHCP-серверу на компьютере, выполняющем обнаружение, установите флажок **Always use the site server’s DHCP server** (Всегда использовать DHCP-сервер сайта).  
+##### <a name="to-configure-network-discovery"></a>Para configurar a deteção de rede  
+
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia**e, em seguida, escolha **métodos de deteção**.  
+
+2.  Escolha **deteção de rede** para o site onde pretende executar a deteção de rede.  
+
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+
+4.  No **geral** separador, verifique o **ativar a deteção de rede** caixa e, em seguida, selecione o tipo de deteção que pretende executar a partir de **tipo de deteção** opções.  
+
+5.  Para configurar a deteção para pesquisar sub-redes, escolha o **sub-redes** separador e, em seguida, configure uma ou mais das seguintes opções:  
+
+    -   Para executar a deteção em sub-redes locais no computador que executa a deteção, verifique o **procurar sub-redes locais** caixa.  
+
+    -   Para pesquisar uma sub-rede específica, certifique-se de que a sub-rede está listada em **sub-rede a procurar** e tem um **pesquisa** valor **ativado**:  
+
+        1.  Se a sub-rede não estiver listada, escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif). No **nova atribuição de sub-rede** caixa de diálogo, introduza o **sub-rede** e **máscara** informações e, em seguida, escolha **OK**. Por predefinição, uma nova sub-rede está ativada para pesquisa.  
+
+        2.  Para alterar o **pesquisa** valor para uma sub-rede listada, selecione a sub-rede e, em seguida, escolha o **alternar** ícone para alternar o valor entre **desativado** e **ativado**.  
+
+6.  Para configurar a deteção para pesquisar domínios, escolha o **domínios** separador e, em seguida, configure uma ou mais das seguintes opções:  
+
+    -   Para executar a deteção no domínio do computador que executa a deteção, verifique o **Procurar domínio local** caixa.  
+
+    -   Para pesquisar um domínio específico, certifique-se de que o domínio está listado em **domínios** e tem um **pesquisa** valor **ativado**:  
+
+        1.  Se o domínio não estiver listado, escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif). No **domínio propriedades** caixa de diálogo, introduza o **domínio** informações e, em seguida, escolha **OK**. Por predefinição, um novo domínio está ativado para pesquisa.  
+
+        2.  Para alterar o **pesquisa** valor para um domínio listado, selecione o domínio e, em seguida, escolha o **alternar** ícone para alternar o valor entre **desativado** e **ativado**.  
+
+7.  Para configurar a deteção para pesquisar nomes de comunidades SNMP específicos para os dispositivos SNMP, escolha o **SNMP** separador e, em seguida, configure uma ou mais das seguintes opções:  
+
+    -   Para adicionar um nome de Comunidade SNMP à lista de **nomes da Comunidade SNMP**, escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif). No **novo nome de Comunidade SNMP** diálogo caixa, especifique o **nome** da Comunidade SNMP e, em seguida, escolha **OK**.  
+
+    -   Para remover um nome de Comunidade SNMP, selecione o nome de Comunidade e, em seguida, escolha o **eliminar** ícone ![ícone Eliminar](media/Disc_delete_Icon.gif).  
+
+    -   Para ajustar a ordem de pesquisa dos nomes de comunidades SNMP, selecione um nome de Comunidade e, em seguida, escolha o **Mover Item para cima** ícone ![mover a cópia de segurança de ícone](media/Disc_moveUp_Icon.gif) ou **Mover Item para baixo** ícone ![mover o ícone](media/Disc_moveDown_Icon.gif). Quando a deteção é executada, nomes de Comunidades são pesquisados por uma ordem da parte superior para parte inferior. Tenha os seguintes pontos em mente.
 
         > [!NOTE]  
-        >  Для использования этого параметра сервер должен получать свой IP-адрес от DHCP-сервера и не должен иметь статический IP-адрес.  
+        >  Deteção de rede utiliza nomes de comunidades SNMP, para obter acesso a routers que sejam dispositivos SNMP. Um router pode informar a deteção de rede sobre outros routers e sub-redes ligadas ao primeiro router.  
 
-    -   Чтобы при обнаружении отправлялись запросы к определенному DHCP-серверу, щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif). В диалоговом окне **Новый DHCP-сервер** введите IP-адрес или имя DHCP-сервера, а затем нажмите кнопку **ОК**.  
+        -   Nomes de comunidades SNMP assemelham-se às palavras-passe.  
 
-        > [!NOTE]  
-        >  Если указано имя сервера, система Configuration Manager должна быть в состоянии разрешить NetBIOS-имя в IP-адрес.  
+        -   Deteção de rede pode obter informações apenas a partir de um dispositivo SNMP que especificou um nome de Comunidade.  
 
-11. Чтобы настроить расписание обнаружения, откройте вкладку **Расписание** и щелкните значок **Создать** ![значок "Создать"](media/Disc_new_Icon.gif).  
+        -   Cada dispositivo SNMP pode ter o seu próprio nome de Comunidade, mas, muitas vezes, o mesmo nome de Comunidade é partilhado por vários dispositivos.  
 
-     Вы можете задать несколько повторяющихся расписаний и несколько расписаний без повторения.  
+        -   A maioria dos dispositivos SNMP tem um nome de Comunidade predefinido de **pública**. Pode utilizar que o se não souber outros nomes de Comunidade. No entanto, algumas organizações eliminam o **pública** nome da Comunidade a partir dos seus dispositivos como precaução de segurança.  
+
+8.  Para configurar o número máximo de saltos de routers para utilização pelas pesquisas de SNMP, escolha o **SNMP** separador e, em seguida, selecione o número de saltos de **saltos máximos** na lista pendente.  
+
+9. Para configurar um dispositivo SNMP, escolha o **dispositivos SNMP** separador. Se o dispositivo não estiver indicado não existe, escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif). No **novo dispositivo SNMP** caixa de diálogo, especifique o nome de dispositivo ou endereço IP do dispositivo SNMP e, em seguida, escolha **OK**.  
 
     > [!NOTE]  
-    >  Если на вкладке **Расписание** отображается несколько расписаний одновременно, это приведет к тому, что процедура обнаружения сетевых ресурсов будет запущена в указанное в расписании время. Это также справедливо и для повторяющихся расписаний.  
+    >  Se especificar um nome de dispositivo, o Configuration Manager tem de ser capaz de resolver o nome NetBIOS para um endereço IP.  
 
-12. Нажмите кнопку **ОК**, чтобы сохранить настройки.  
+10. Para configurar a deteção para consultar servidores DHCP específicos sobre clientes DHCP, escolha o **DHCP** separador e, em seguida, configure uma ou mais das seguintes opções:  
 
-###  <a name="BKMK_HowToVerifyNetDisc"></a> Проверка завершения обнаружения сетевых ресурсов  
- Время, необходимое для того, чтобы завершить обнаружение сетевых ресурсов, зависит от разнообразных факторов. В их число может входить следующее:  
+    -   Para consultar o servidor DHCP no computador que executa a deteção, verifique o **utilizar sempre o servidor DHCP do servidor de site** caixa.  
 
--   размер сети;  
+        > [!NOTE]  
+        >  Para utilizar esta opção, o servidor tem concessão o respetivo endereço IP de um servidor DHCP e não é possível utilizar um endereço IP estático.  
 
--   топология сети;  
+    -   Para consultar um servidor DHCP específico, escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif). No **novo servidor DHCP** caixa de diálogo, especifique o nome de servidor ou endereço IP do servidor DHCP e, em seguida, escolha **OK**.  
 
--   максимальное число прыжков, заданное для поиска маршрутизаторов в данной сети;  
+        > [!NOTE]  
+        >  Se especificar um nome de servidor, tem de ser capaz de resolver o nome NetBIOS para um endereço IP do Configuration Manager.  
 
--   тип выполняемого обнаружения.  
+11. Para configurar quando a deteção é executada, escolha o **agenda** separador e, em seguida, escolha o **novo** ícone ![novo ícone](media/Disc_new_Icon.gif) para agendar a execução da deteção de rede.  
 
-Поскольку пользователь не уведомляется о завершении обнаружении сетевых ресурсов посредством каких-либо специальных сообщений, убедиться, что обнаружение завершено, можно следующим образом.  
+     Pode configurar vários agendamentos periódicos e vários agendamentos sem periodicidade.  
 
-##### <a name="to-verify-that-network-discovery-has-finished"></a>Порядок проверки завершения обнаружения  
+    > [!NOTE]  
+    >  Se forem apresentadas várias agendas no **agenda** separador mesmo tempo, todos os agendamentos resultarão numa execução da deteção de rede conforme a configuração à hora indicada na agenda. Isto também se verifica para agendamentos periódicos.  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+12. Escolha **OK** para guardar as configurações.  
 
-2.  В рабочей области **Мониторинг** разверните узел **Состояние системы**, а затем щелкните **Запросы сообщения о состоянии**.  
+###  <a name="BKMK_HowToVerifyNetDisc"></a>Como verificar se a deteção de rede foi concluída  
+ O tempo que a deteção de rede necessita para concluir pode variar, dependendo de vários fatores. Estes fatores podem incluir um ou mais dos seguintes procedimentos:  
 
-3.  Выберите **Все сообщения об изменении состояния**.  
+-   O tamanho da sua rede  
 
-4.  На вкладке **Главная** в группе **Запросы сообщения о состоянии** щелкните **Показать сообщения**.  
+-   A topologia da rede  
 
-5.  В раскрывающемся списке **Выбрать дату и время** укажите значение, содержащее момент запуска обнаружения, а затем нажмите кнопку **ОК**, чтобы открыть окно **Средство просмотра сообщений о состоянии Configuration Manager**.  
+-   O número máximo de saltos configurados para localizar routers na rede  
+
+-   O tipo de deteção que está a ser executado  
+
+Porque a deteção de rede não cria mensagens para o alertar quando a deteção foi concluída, pode utilizar o procedimento seguinte para verificar se a deteção foi concluída.  
+
+##### <a name="to-verify-that-network-discovery-has-finished"></a>Para verificar se a deteção de rede foi concluída  
+
+1.  Na consola do Configuration Manager, escolha **monitorização**.  
+
+2.  No **monitorização** área de trabalho, expanda **estado do sistema**e, em seguida, escolha **consultas de mensagens de estado**.  
+
+3.  Escolha **todas as mensagens de estado**.  
+
+4.  No **home page** separador o **consultas de mensagens de estado** grupo, escolha **Mostrar mensagens**.  
+
+5.  No **selecionar data e hora** na lista pendente, selecione um valor que inclua há quanto tempo a deteção foi iniciada e, em seguida, escolha **OK** para abrir o **Configuration Manager Status Message Viewer**.  
 
     > [!TIP]  
-    >  Можно также использовать раскрывающийся список **Выбрать дату и время** для указания конкретных даты и времени, когда выполнялось обнаружение. Этот вариант полезен, если пользователь выполнял обнаружение сетевых ресурсов в определенную дату и желает получить сообщения только за эту дату.  
+    >  Também pode utilizar o **especifique a data e hora** opção para selecionar uma determinada data e hora em que executou a deteção. Esta opção é útil quando executou a deteção de rede numa determinada data e pretender obter mensagens apenas dessa data.  
 
-6.  Чтобы проверить, завершилось ли обнаружение сетевых ресурсов, попытайтесь найти сообщение о состоянии следующего вида:  
+6.  Para validar que a deteção de rede foi concluída, procure uma mensagem de estado que tenha os seguintes detalhes:  
 
-    -   ИД сообщения: **502**  
+    -   ID da mensagem: **502**  
 
-    -   Компонент: **SMS_NETWORK_DISCOVERY**  
+    -   Componente: **SMS_NETWORK_DISCOVERY**  
 
-    -   Описание. **Компонент завершил свою работу.**  
+    -   Descrição: **Este componente parada**  
 
-    Если такое сообщение отсутствует, обнаружение сетевых ресурсов еще не завершено.  
+    Se esta mensagem de estado não estiver presente, a deteção de rede não foi concluída.  
 
-7.  Чтобы определить, когда было запущено обнаружение сетевых ресурсов, попытайтесь найти сообщение о состоянии следующего вида:  
+7.  Para validar quando a deteção de rede iniciado, procure uma mensagem de estado que tenha os seguintes detalhes:  
 
-    -   ИД сообщения: **500**  
+    -   ID da mensagem: **500**  
 
-    -   Компонент: **SMS_NETWORK_DISCOVERY**  
+    -   Componente: **SMS_NETWORK_DISCOVERY**  
 
-    -   Описание. **Компонент запущен**  
+    -   Descrição: **Este componente foi iniciado**  
 
-    Эта информация подтверждает, что обнаружение сетевых ресурсов запущено. Если эта информация отсутствует, заново запланируйте обнаружение сетевых ресурсов.  
+    Esta informação confirma que a deteção de rede foi iniciada. Se esta informação não estiver presente, reagende a deteção de rede.  

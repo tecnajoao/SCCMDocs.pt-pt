@@ -1,6 +1,6 @@
 ---
-title: "Группы границ для версий 1511, 1602 и 1606 | System Center Configuration Manager"
-description: "Сведения об использовании групп границ в версиях Configuration Manager 1511, 1602 и 1606."
+title: "Grupos de limites para a versão 1511, 1602 e 1606 | O System Center Configuration Manager"
+description: "Utilize grupos de limites com versões do Configuration Manager versão 1511, 1602 e 1606."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -16,160 +16,160 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 311606b8d52645d3ca89642be4cc341b8a64ec56
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="boundary-groups-for-system-center-configuration-manager-version-1511-1602-and-1606"></a>Группы границ для версий System Center Configuration Manager 1511, 1602 и 1606
+# <a name="boundary-groups-for-system-center-configuration-manager-version-1511-1602-and-1606"></a>Grupos de limites para o System Center Configuration Manager versão 1511, 1602 e 1606
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 <!-- This topic drops from TOC with the release of version 1706 -->
 
-Сведения в этом разделе относятся к использованию групп границ с версиями 1511, 1602 и 1606 System Center Configuration Manager.
-Если вы используете версию 1610 (или более позднюю версию), сведения о том, как пользоваться переработанными группами границ, см. в статье [Настройка групп границ для System Center Configuration Manager](/sccm/core/servers/deploy/configure/boundary-groups).  
+As informações deste tópico são específicas para utilizar grupos de limites com versões 1511, 1602 e 1606 do System Center Configuration Manager.
+Se utilizar a versão 1610 ou posterior, consulte [configurar grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups) para obter informações sobre como utilizar os grupos de limites reestruturada.  
 
 
-##  <a name="BKMK_BoundaryGroups"></a> Группы границ  
- Группы границ создаются для логической группировки связанных сетевых расположений (границ), чтобы упростить управление инфраструктурой. Перед использованием группы границ ей необходимо назначить границы. Клиенты используют конфигурацию групп границ в следующих целях:  
+##  <a name="BKMK_BoundaryGroups"></a> Boundary groups  
+ Pode criar grupos de limites para agrupar logicamente as localizações de rede relacionadas (limites) para facilitar a gestão da sua infraestrutura. Para poder utilizar o grupo de limites, tem de atribuir os limites a grupos de limites. Os clientes utilizam a configuração do grupo de limites para:  
 
--   Автоматическое назначение сайта  
+-   Atribuição automática de site  
 
--   Расположение содержимого  
+-   Localização de conteúdo  
 
--   Предпочтительные точки управления
+-   Pontos de gestão preferenciais
 
-    Если вы будете использовать предпочтительные точки управления, необходимо включить этот параметр для иерархии, а не в конфигурации групп границ. Ознакомьтесь с процедурой *Включение использования предпочтительных точек управления* в этом разделе.  
+    Se pretender utilizar pontos de gestão preferidos, tem de ativar esta opção para a hierarquia e não a partir da configuração do grupo de limites. Consulte o *para ativar a utilização de pontos de gestão preferenciais* procedimento apresentado mais adiante neste tópico.  
 
-При настройке групп границ вы можете добавить в группу одну или несколько границ. После этого вы можете настроить дополнительные параметры для клиентов, расположенных в пределах этих границ.  
+Quando configurar grupos de limites, adicione um ou mais limites ao grupo de limites. Em seguida, configurar definições adicionais para utilização pelos clientes localizados nesses limites.  
 
-#### <a name="to-create-a-boundary-group"></a>Создание группы границ  
+#### <a name="to-create-a-boundary-group"></a>Para criar um grupo de limites  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** >  **Группы границ**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia** >  **grupos de limites**.  
 
-2.  На вкладке **Главная** в группе **Создать** выберите команду **Создать группу границ**.  
+2.  No **home page** separador o **criar** grupo, escolha **criar grupo de limites**.  
 
-3.  В диалоговом окне **Создание группы границ** откройте вкладку **Общие** и введите **имя** для данной группы границ.  
+3.  No **criar grupo de limites** diálogo caixa, escolha o **geral** separador e, em seguida, introduza um **nome** para este grupo de limites.  
 
-4.  Нажмите кнопку **ОК**, чтобы сохранить новую группу границ.  
+4.  Escolha **OK** para guardar o novo grupo de limites.  
 
-#### <a name="to-set-up-a-boundary-group"></a>Настройка группы границ  
+#### <a name="to-set-up-a-boundary-group"></a>Para configurar um grupo de limites  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** >  **Группы границ**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia** >  **grupos de limites**.  
 
-2.  Выберите группу границ, которую требуется изменить.  
+2.  Escolha o grupo de limites que pretende alterar.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-4.  В диалоговом окне **Свойства** группы границ откройте вкладку **Общие**, чтобы изменить границы, включенные в эту группу границ.  
+4.  No **propriedades** caixa de diálogo para o grupo de limites, selecione o **geral** separador para alterar os limites que são membros deste grupo de limites:  
 
-    -   Чтобы добавить границы, нажмите кнопку **Добавить**, установите флажок напротив одной или нескольких границ и затем нажмите кнопку **ОК**.  
+    -   Para adicionar limites, escolha **adicionar**, selecione a caixa de verificação para um ou mais limites e, em seguida, escolha **OK**.  
 
-    -   Чтобы удалить границу, выберите ее и нажмите кнопку **Удалить**.  
+    -   Para remover limites, selecione o limite e, em seguida, escolha **remover**.  
 
-5.  Перейдите на вкладку **Ссылки**, чтобы изменить назначение сайта и связанную конфигурацию сервера системы сайта.  
+5.  Escolha o **referências** separador para alterar a atribuição de site e a configuração do servidor de sistema de sites associados:  
 
-    -   Чтобы разрешить использование этой группы границ клиентами для назначения сайта, установите флажок **Использовать эту группу границ для назначения сайта**, после чего выберите сайт в раскрывающемся списке **Назначенный сайт**.  
+    -   Para ativar a este grupo de limites para utilização pelos clientes para atribuição de sites, selecione a caixa de verificação para **utilizar este grupo de limites para atribuição de site**e, em seguida, escolha um site a partir de **site atribuído** caixa pendente.  
 
-    -   Для настройки доступных серверов системы сайта, связанных с этой группой границ, выполните указанные ниже действия.  
+    -   Para configurar os servidores de sistema de sites disponíveis que estão associados este grupo de limites:  
 
-    1.  Нажмите кнопку **Добавить**, после чего установите флажок для одного или нескольких серверов. Серверы добавляются в эту группу границ как связанные серверы системы сайта. Доступны только те серверы, на которых установлена поддерживаемая роль системы сайта.  
-
-        > [!NOTE]  
-        >  Можно выбрать любое сочетание доступных систем сайта из любого сайта в иерархии. Выбранные системы сайта отображаются на вкладке **Системы сайта** в свойствах каждой границы, включенной в данную группу границ.  
-
-    2.  Чтобы удалить сервер из этой группы границ, выберите его и нажмите кнопку **Удалить**.  
+    1.  Escolha **adicionar**e, em seguida, selecione a caixa de verificação para um ou mais servidores. Os servidores são adicionados como servidores do sistema de sites associados a este grupo de limites. Só estão disponíveis os servidores que têm a função de sistema de sites instalada.  
 
         > [!NOTE]  
-        >  Чтобы прекратить использование этой группы границ для связывания систем сайта, необходимо удалить все серверы, указанные как связанные серверы системы сайта.  
+        >  Pode selecionar uma combinação de sistemas de sites disponíveis a partir de qualquer site na hierarquia. Os sistemas de sites selecionados são listados no separador **Sistemas de Sites** nas propriedades de cada limite que seja membro deste grupo de limites.  
 
-    3.  Чтобы изменить скорость сетевого подключения для сервера системы сайта в этой группе границ, выберите сервер и щелкните **Изменить подключение**.  
+    2.  Para remover um servidor a este grupo de limites, selecione o servidor e, em seguida, escolha **remover**.  
 
-         По умолчанию для каждой системы сайта используется значение скорости подключения **Быстро**, однако его можно изменить на значение **Медленно**. Скорость сетевого подключения и настройки развертывания определяют возможность загрузки клиентом содержимого с сервера.  
+        > [!NOTE]  
+        >  Para parar a utilização deste grupo de limites para associar sistemas de sites, tem de remover todos os servidores que estão listados como servidores de sistema de sites associados.  
 
-6.  Нажмите кнопку **ОК**, чтобы закрыть свойства группы границ и сохранить конфигурацию.  
+    3.  Para alterar a velocidade da ligação de rede para um servidor de sistema de sites para este grupo de limites, selecione o servidor e, em seguida, escolha **Alterar ligação**.  
 
-#### <a name="to-associate-a-content-deployment-server-or-management-point-with-a-boundary-group"></a>Связывание сервера развертывания содержимого с границей групп  
+         Por predefinição, a velocidade da ligação para cada sistema de sites é **Rápido**, mas pode alterar a velocidade a **lenta**. A velocidade da ligação de rede e a configuração de uma implementação determinam se um cliente pode transferir conteúdo do servidor.  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** >  **Группы границ**.  
+6.  Escolha **OK** para fechar as propriedades do grupo de limites e guardar a configuração.  
 
-2.  Выберите группу границ, которую требуется изменить.  
+#### <a name="to-associate-a-content-deployment-server-or-management-point-with-a-boundary-group"></a>Para associar um servidor de implementação de conteúdo ou ponto de gestão a um grupo de limites  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração da hierarquia** >  **grupos de limites**.  
 
-4.  В диалоговом окне **Свойства** группы границ откройте вкладку **Ссылки**.  
+2.  Escolha o grupo de limites que pretende alterar.  
 
-5.  В области **Выберите серверы системы сайта** нажмите кнопку **Добавить**, установите флажок напротив серверов системы сайта, которые требуется связать с этой группой границ, после чего нажмите кнопку **ОК**.  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-6.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно и сохранить конфигурацию группы границ.  
+4.  No **propriedades** caixa de diálogo para o grupo de limites, selecione o **referências** separador.  
 
-#### <a name="to-enable-use-of-preferred-management-points"></a>включить предпочтительные точки управления  
+5.  Em **selecionar servidores de sistema de sites**, escolha **adicionar**, selecione a caixa de verificação para os servidores de sistema de site que pretende associar este grupo de limites e, em seguida, escolha **OK**.  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация сайта** > **Сайты**, а затем на вкладке **Главная** выберите **Параметры иерархии**.  
+6.  Escolha **OK** para fechar a caixa de diálogo e guardar a configuração do grupo de limites.  
 
-2.  На вкладке **Общие** **параметров иерархии** выберите **Клиенты предпочитают использовать точки управления, указанные в группах границ**.  
+#### <a name="to-enable-use-of-preferred-management-points"></a>Para ativar a utilização de pontos de gestão preferenciais  
 
-3.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно и сохранить конфигурацию.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **Sites**e, em seguida, no **home page** separador, escolha **definições de hierarquia**.  
 
-#### <a name="to-set-up-a-fallback-site-for-automatic-site-assignment"></a>Настройка резервного сайта для автоматического назначения сайта  
+2.  No **geral** separador de **definições de hierarquia**, escolha **os clientes preferem utilizar pontos de gestão especificados em grupos de limites**.  
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация сайта** >  **Сайты**.  
+3.  Escolha **OK** para fechar a caixa de diálogo e guardar a configuração.  
 
-2.  На вкладке **Главная** в группе **Сайты** выберите элемент **Параметры иерархии**.  
+#### <a name="to-set-up-a-fallback-site-for-automatic-site-assignment"></a>Para configurar um site de contingência para atribuição automática de site  
 
-3.  На вкладке **Общие** установите флажок **Использовать резервный сайт**, после чего выберите сайт в раскрывающемся списке **Резервный сайт**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** >  **Sites**.  
 
-4.  Нажмите кнопку **ОК**, чтобы сохранить настройки.  
+2.  No **home page** separador o **Sites** grupo, escolha **definições de hierarquia**.  
 
- Следующие разделы содержат дополнительные сведения о конфигурациях групп границ.  
+3.  No **geral** separador, selecione a caixa de verificação para **utilizar um site de contingência**e, em seguida, escolha um site a partir de **site de contingência** na lista pendente.  
 
-###  <a name="BKMK_BoundarySiteAssignment"></a> Сведения о назначении сайта  
- Каждую группу границ можно настроить, указав назначенный сайт для клиентов.  
+4.  Escolha **OK** para guardar a configuração.  
 
--   Недавно установленные клиенты, использующие автоматическое назначение сайта, присоединяются к назначенному сайту в группе границ, содержащей текущее сетевое расположение клиента.  
+ As secções seguintes fornecem detalhes adicionais sobre as configurações de grupos de limites.  
 
--   Клиент, назначенный сайту, не изменяет свое назначение сайта при смене сетевого расположения. Например, если клиент в роуминге подключается к сети в новом сетевом расположении, представленном границей в группе границ, которой назначен другой сайт, то сайт, назначенный клиенту, не изменится.  
+###  <a name="BKMK_BoundarySiteAssignment"></a> Acerca da atribuição de sites  
+ Pode configurar cada grupo de limites com um site atribuído para clientes.  
 
--   При обнаружении нового ресурса функцией обнаружения систем Active Directory сведения о сети для обнаруженного ресурса сопоставляются границам, включенным в группы границ. Это процесс связывает новый ресурс с назначенным сайтом для использования при принудительной установке клиента.  
+-   Um cliente recentemente instalado que utilize a atribuição automática de site será associado ao site atribuído de um grupo de limites que tenha a localização de rede atual do cliente.  
 
--   Если граница принадлежит нескольким группам границ с разными назначенными сайтами, клиент выбирает один из сайтов случайным образом.  
+-   Um cliente que está atribuído a um site não altera a sua atribuição de site quando o cliente é alterada a localização de rede. Por exemplo, se o cliente fizer roaming para uma nova localização de rede que é representada por um limite num grupo de limites que possui uma atribuição de site diferente, site atribuído do cliente não serão alterados.  
 
--   Изменения назначенного сайта группы границ применяются только к новым действиям назначения сайта. Клиенты, ранее назначенные сайту, не определяют назначение сайта повторно после изменения конфигурации группы границ (или изменения своего сетевого расположения).  
+-   Quando a Deteção de Sistemas do Active Directory deteta um novo recurso, as informações de rede do recurso detetado são comparadas com os limites dos grupos de limites. Este processo associa o novo recurso a um site atribuído que será utilizado pelo método de instalação push do cliente.  
 
-Дополнительные сведения о назначении сайтов клиентам см. в подразделе [Автоматическое назначение сайта компьютерам](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) раздела [Назначение клиентов сайту в System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
+-   Quando um limite é um membro de vários grupos de limites que possuem diferentes sites atribuídos, os clientes aleatoriamente selecionam um dos sites.  
 
-###  <a name="BKMK_BoundaryContentLocation"></a> Сведения о расположении содержимого  
- Для каждой группы границ вы можете настроить одну или несколько точек распространения и точек миграции состояния, а одни и те же точки миграции состояния и точки распространения вы можете сопоставить с несколькими группами границ.  
+-   As alterações ao site atribuído de um grupo de limites são aplicadas apenas a novas ações de atribuição de site. Clientes que foram atribuídos anteriormente a um site não avaliam a atribuição do site novamente com base nas alterações à configuração de um grupo de limites (ou para sua própria localização de rede).  
 
--   **Во время распространения программного обеспечения**клиент запрашивает расположение для содержимого развертывания. Configuration Manager отправляет клиенту список точек распространения, которые связаны с каждой группой границ, включающей в себя текущее расположение клиента в сети.  
+Para mais informações sobre a atribuição de site do cliente, consulte [utilizando a atribuição de Site automática para computadores](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) no [como atribuir clientes a um site no System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
 
--   **При развертывании операционной системы** клиент запрашивает расположение для отправки и получения информации о состоянии миграции. Configuration Manager отправляет клиенту список точек миграции состояния, которые связаны с каждой группой границ, включающей в себя текущее расположение клиента в сети.  
+###  <a name="BKMK_BoundaryContentLocation"></a> Acerca da localização de conteúdo  
+ Pode configurar cada grupo de limites com uma ou mais pontos de distribuição e pontos de migração de estado e pode associar os mesmos pontos de distribuição e pontos de migração de estado a vários grupos de limites.  
 
-Такой механизм работы позволяет клиенту выбрать ближайший сервер для передачи содержимого или сведений о миграции состояния.  
+-   **Durante a distribuição de software**, os clientes solicitam uma localização para o conteúdo de implementação. O Configuration Manager envia ao cliente uma lista de pontos de distribuição que estão associados a cada grupo de limites que inclui a localização de rede atual do cliente.  
 
-###  <a name="BKMK_PreferredMP"></a> Сведения о предпочтительных точках управления  
- Предпочтительные точки управления позволяют клиенту определить точку управления, сопоставленную с текущим сетевым расположением (или границей).  
+-   **Durante a implementação do sistema operativo**, os clientes solicitam uma localização para enviar ou receber as respetivas informações de migração de estado. O Configuration Manager envia ao cliente uma lista de pontos de migração de estado que estão associados a cada grupo de limites que inclui a localização de rede atual do cliente.  
 
--   Клиент пытается использовать предпочтительную точку управления из назначенного сайта, прежде чем использовать точки управления из назначенного сайта, которые не заданы как предпочтительные.  
+Este comportamento permite que o cliente selecione o servidor mais próximo para transferir o conteúdo ou informações de migração de estado.  
 
--   Чтобы использовать этот вариант, его необходимо включить для иерархии и настроить группы границ на отдельных первичных сайтах так, чтобы они включали точки управления, которые должны быть сопоставлены со связанными границами группы границ.  
+###  <a name="BKMK_PreferredMP"></a> Acerca dos pontos de gestão preferenciais  
+ Pontos de gestão preferenciais permitem um cliente identificar um ponto de gestão que está associado a respetiva localização de rede atual (limite).  
 
--   Если предпочтительные точки управления настроены и клиент упорядочивает свой список точек управления, то данный клиент размещает предпочтительные точки управления в начале своего списка назначенных точек управления, который включает все точки управления из назначенного сайта клиента.  
+-   Um cliente tenta utilizar um ponto de gestão preferidos do respetivo site atribuído antes de utilizar um ponto de gestão do respetivo site atribuído que não está configurado como preferencial.  
+
+-   Para utilizar esta opção, tem de ativá-la para a hierarquia e configurar grupos de limites em sites primários individuais para incluir os pontos de gestão que devem ser associados aos limites associados do grupo de limites  
+
+-   Quando os pontos de gestão preferenciais são configurados por um cliente organiza a respetiva lista de gestão de pontos e, os locais de cliente pontos de gestão preferencial no topo da lista de pontos de gestão atribuído, que inclui todos os pontos de gestão do site atribuído do cliente.  
 
 > [!NOTE]  
->  При роуминге клиента (например, при перемещении ноутбука в удаленный филиал, что означает изменение его сетевого расположения) он может использовать точку управления (или прокси-точку управления) с локального сайта в новом расположении, прежде чем пытаться использовать точку управления с назначенного ему сайта (что включает в себя предпочтительные точки управления).  Дополнительные сведения см. в разделе [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+>  Quando um cliente fizer-roaming, como quando um computador portátil circula para uma localização de escritório remoto alterações e a localização de rede, poderá utilizar um ponto de gestão (ou ponto de gestão do proxy) do local site na nova localização antes de tentar utilizar um ponto de gestão do respetivo site atribuído (que inclui os pontos de gestão preferenciais).  Consulte [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) para obter mais informações.  
 
-###  <a name="BKMK_BoundaryOverlap"></a> Сведения о перекрывающихся границах  
- Configuration Manager поддерживает конфигурации с перекрывающимися границами для расположения содержимого:  
+###  <a name="BKMK_BoundaryOverlap"></a> Acerca dos limites de sobreposição  
+ O Configuration Manager suporta configurações de limites sobrepostos para localização de conteúdo:  
 
--   **Когда клиент запрашивает содержимое**, а сетевое расположение клиента входит в несколько групп границ, Configuration Manager отправляет клиенту список всех точек распространения, где есть это содержимое.  
+-   **Quando um cliente solicita conteúdo**e a localização de rede do cliente pertence a vários grupos de limites, o Configuration Manager envia ao cliente uma lista de todos os pontos de distribuição que possuem o conteúdo.  
 
--   **Когда клиент запрашивает у сервера отправку или получение сведений о миграции состояния**, а сетевое расположение клиента входит в несколько групп границ, Configuration Manager отправляет клиенту список всех точек миграции состояния, связанных с группой границ, в которой находится текущее сетевое расположение клиента.  
+-   **Quando um cliente solicita a um servidor para enviar ou receber as informações de migração de estado**e a localização de rede do cliente pertence a vários grupos de limites, o Configuration Manager envia ao cliente uma lista de todos os pontos de migração de estado que estão associados um grupo de limites que inclui a localização de rede atual do cliente.  
 
-Такой механизм работы позволяет клиенту выбрать ближайший сервер для передачи содержимого или сведений о миграции состояния.  
+Este comportamento permite que o cliente selecione o servidor mais próximo para transferir o conteúdo ou informações de migração de estado.  
 
-###  <a name="BKMK_BoudnaryNetworkSpeed"></a> Сведения о скорости сетевого подключения  
- Для каждого сервера системы сайта в группе границ вы можете задать скорость сетевого подключения. Этот параметр применяется к клиентам, которые подключаются к системе сайта с использованием этой конфигурации группы границ. Один и тот же сервер системы сайта может иметь разные заданные скорости подключения в различных группах границ.  
+###  <a name="BKMK_BoudnaryNetworkSpeed"></a> Acerca da velocidade da ligação de rede  
+ Pode definir a velocidade da ligação de rede para cada servidor do sistema de sites num grupo de limites. Esta definição aplica-se a clientes que se ligam a um sistema de sites com base na configuração do grupo de limites. O mesmo servidor do sistema de sites pode ter uma velocidade de ligação diferente definida em diferentes grupos de limites.  
 
- По умолчанию для скорости сетевого подключения задано значение **Быстрое**, но его можно изменить на **Медленное**. Скорость сетевого подключения и конфигурация развертывания определяют возможность скачивания клиентом содержимого из точки распространения, если клиент находится в связанной группе границ.  
+ Por predefinição, a velocidade da ligação de rede está definida como **Rápido**, mas poderá alterá-la para **lenta**. A velocidade da ligação de rede e a configuração de implementação, verifique se um cliente pode transferir conteúdo de um ponto de distribuição quando o cliente está num grupo de limites associado.  
 
- Дополнительные сведения о влиянии конфигурации скорости подключения к сети на получение содержимого клиентами см. в разделе [Сценарии расположения источника содержимого](../../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+ Para mais informações sobre como a configuração de velocidade da ligação de rede afeta a forma como os clientes obtêm conteúdo, consulte [cenários de localização de origem de conteúdo](../../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  

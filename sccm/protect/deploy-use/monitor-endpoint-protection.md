@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг состояния Endpoint Protection | Документы Майкрософт"
-description: "Узнайте, как наблюдать за Endpoint Protection в иерархии System Center Configuration Manager."
+title: Monitorizar o estado do Endpoint Protection | Microsoft Docs
+description: Saiba como monitorizar o Endpoint Protection na sua hierarquia do System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/13/2017
 ms.prod: configuration-manager
@@ -16,67 +16,67 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: b5771f4faebc06076bdbf84727848c881fc1dfb4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-endpoint-protection-status"></a>Мониторинг состояния Endpoint Protection
+# <a name="how-to-monitor-endpoint-protection-status"></a>Como monitorizar o estado do Endpoint Protection
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете наблюдать за работой Endpoint Protection в иерархии Microsoft System Center Configuration Manager при помощи узла **Состояние Endpoint Protection** в разделе **Безопасность** рабочей области **Мониторинг**, узла **Endpoint Protection** в рабочей области **Активы и соответствие** и через отчеты.  
+Pode monitorizar o Endpoint Protection na sua hierarquia do Microsoft System Center Configuration Manager, utilizando o **estado do Endpoint Protection** nó **segurança** no **monitorização** área de trabalho, o **Endpoint Protection** no nó a **ativos e compatibilidade** área de trabalho e utilizando relatórios.  
 
-##  <a name="BKMK_1"></a> Мониторинг Endpoint Protection с помощью узла "Состояние Endpoint Protection"  
+##  <a name="BKMK_1"></a>Como monitorizar o Endpoint Protection utilizando o nó de estado do Endpoint Protection  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-2.  В рабочей области **Мониторинг** разверните узел **Безопасность**, а затем щелкните **Состояние Endpoint Protection**.  
+2.  No **monitorização** área de trabalho, expanda **segurança** e, em seguida, clique em **estado do Endpoint Protection**.  
 
-3.  В списке **Коллекция** выберите коллекцию, для которой требуется просмотреть сведения о состоянии.  
+3.  No **coleção** lista, selecione a coleção para o qual pretende ver informações de estado.  
 
     > [!IMPORTANT]  
-    >  Коллекции доступны для выбора в следующих случаях.  
+    >  As coleções estão disponíveis para seleção nos seguintes casos:  
     >   
-    >  -   При выборе параметра **Просмотреть эту коллекцию на панели мониторинга Endpoint Protection** на вкладке **Оповещения** диалогового окна *Свойства***<имя коллекции\>**.  
-    > -   При развертывании политики защиты от вредоносных программ Endpoint Protection в коллекции.  
-    > -   При включении и развертывании параметров клиента Endpoint Protection для коллекции.  
+    >  -   Quando seleciona **ver esta coleção no dashboard do Endpoint Protection** no **alertas** separador do *< nome da coleção\>***propriedades** caixa de diálogo.  
+    > -   Ao implementar uma política antimalware do Endpoint Protection para a coleção.  
+    > -   Quando ativa e implementar definições de cliente do Endpoint Protection na coleção.  
 
-4.  Просмотрите сведения, которые отображаются в **состояние безопасности** и **рабочее состояние** разделы. Можно щелкнуть любую ссылку на состояние, чтобы создать временную коллекцию в узле **Устройства** рабочей области **Активы и соответствие** . Временная коллекция содержит компьютеры с выбранным состоянием.  
+4.  Reveja as informações que são apresentadas no **estado de segurança** e **estado operacional** secções. Pode clicar em qualquer ligação de estado para criar uma coleção temporária no nó **Dispositivos** da área de trabalho **Ativos e Compatibilidade** . A coleção temporária contém os computadores com o estado selecionado.  
 
     > [!IMPORTANT]  
-    >  Узел **Состояние Endpoint Protection** содержит сводку последних данных из базы данных Configuration Manager, которые могут потерять свою актуальность. Если требуется получить последнюю версию данных, на вкладке **Главная** выберите **Сформировать сводку**или **Запланировать формирование сводных данных** для настройки интервала формирования сводных данных.  
+    >  Informações que são apresentadas no **estado do Endpoint Protection** nós baseia-se nos últimos dados que foram resumidos a partir da base de dados do Configuration Manager e podem não ser atuais. Se pretender obter os dados mais recentes, no separador **Home Page** , clique em **Executar Resumo**ou clique em **Agendar Resumo** para ajustar o intervalo de resumo.  
 
-##  <a name="BKMK_2"></a> Мониторинг Endpoint Protection в рабочей области "Активы и соответствие"  
+##  <a name="BKMK_2"></a>Como monitorizar o Endpoint Protection no ativos e compatibilidade área de trabalho  
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
-2.  В рабочей области **Активы и соответствие** выполните одно из следующих действий.  
+2.  No **ativos e compatibilidade** área de trabalho, efetue uma das seguintes ações:  
 
-    -   Щелкните **Устройства**. В списке **Устройства** выберите компьютер, после чего перейдите на вкладку **Сведения о вредоносных программах** .  
+    -   Clique em **dispositivos**. Na lista **Dispositivos** , selecione um computador e, em seguida, clique no separador **Detalhe de Software Maligno** .  
 
-    -   Выберите **Коллекции устройств**. В списке **Коллекции устройств** выберите коллекцию, которая содержит компьютер для мониторинга, а затем на вкладке **Главная** в группе **Коллекция** щелкните **Показать состав**.  
+    -   Clique em **coleções de dispositivos**. Na lista **Coleções de Dispositivos** , selecione a coleção que contém o computador que pretende monitorizar e, em seguida, no separador **Home Page** , no grupo **Coleção** , clique em **Mostrar Membros**.  
 
-3.  В списке *<имя коллекции\>* выберите компьютер, после чего перейдите на вкладку **Сведения о вредоносных программах**.  
+3.  No *< nome da coleção\>*  lista, selecione um computador e, em seguida, clique o **detalhe de software maligno** separador.  
 
-##  <a name="BKMK_3"></a> Мониторинг Endpoint Protection с помощью отчетов  
- Используйте указанные ниже отчеты, чтобы просмотреть сведения о компоненте Endpoint Protection в иерархии. Кроме того, эти отчеты можно использовать для устранения любых проблем с Endpoint Protection. Дополнительные сведения о настройке отчетов в System Center Configuration Manager см. в разделах [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md) и [Файлы журналов в System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). Отчеты Endpoint Protection находятся в папке Endpoint Protection.  
+##  <a name="BKMK_3"></a>Como monitorizar o Endpoint Protection utilizando relatórios  
+ Utilize os seguintes relatórios para ver informações sobre o Endpoint Protection na sua hierarquia. Também pode utilizar estes relatórios para ajudar a resolver quaisquer problemas do Endpoint Protection. Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md) e [ficheiros de registo no System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). Os relatórios de Endpoint Protection estão na pasta do Endpoint Protection.  
 
-|Наименование отчета|Описание|  
+|Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
-|**Отчет о действиях антивредоносной программы**|Отображение общих сведений о действиях антивредоносной программы в отношении указанной коллекции.|  
-|**Зараженные компьютеры**|Отображает список компьютеров, на которых обнаруживается указанная угроза.|  
-|**Пользователи с наибольшим числом обнаруженных угроз**|Отображение списка пользователей с максимальным числом обнаруженных угроз.|  
-|**Список угроз пользователя**|Отображает список угроз, обнаруженных для указанной учетной записи пользователя.|  
+|**Relatório de Atividade Antimalware**|Apresenta uma descrição geral da atividade antimalware de uma coleção específica.|  
+|**Computadores Infetados**|Apresenta uma lista de computadores nos quais seja detetada uma ameaça especificada.|  
+|**Principais Utilizadores Por Ameaças**|Apresenta uma lista de utilizadores com o maior número de ameaças detetadas.|  
+|**Lista de Ameaças**|Apresenta uma lista de ameaças que foram encontradas numa conta de utilizador especificada.|  
 
-## <a name="malware-alert-levels"></a>Уровни оповещений о вредоносных программах  
- Используйте приведенную таблицу для определения различных уровней оповещения Endpoint Protection, которые могут отображаться в отчетах или в консоли Configuration Manager.  
+## <a name="malware-alert-levels"></a>Níveis de alerta de software maligno  
+ Utilize a tabela seguinte para identificar os diferentes níveis de alerta de Endpoint Protection que podem ser apresentados nos relatórios ou na consola do Configuration Manager.  
 
-|Уровень оповещения|Описание|  
+|Nível de alerta|Descrição|  
 |-----------------|-----------------|  
-|**Сбой**|Endpoint Protection не удалось устранить вредоносные программы. Проверьте журналы, подробные сведения об ошибке.<br /><br /> **Примечание**. Список файлов журналов Configuration Manager и Endpoint Protection см. в подразделе "Endpoint Protection" раздела [Файлы журналов в System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md).|  
-|**Удалено**|Endpoint Protection удалось успешно удалить вредоносные программы.|  
-|**Помещено в карантин**|Endpoint Protection переместил вредоносную программу в безопасное место и запретил ее запуск до тех пор, пока она не будет удалена или разрешена для запуска.|  
-|**Очищено**|Вредоносная программа была удалена с зараженный файл.|  
-|**Допускается**|Пользователь с правами администратора разрешили программное обеспечение, которое содержит вредоносные программы для запуска.|  
-|**Никаких действий**|Endpoint Protection не выполнил никаких действий с вредоносной программой. Это может произойти, если компьютер не будет перезагружен после обнаружении вредоносных программ и больше не обнаружены вредоносные программы; Например если подключенных сетевых дисков на обнаружены вредоносные программы не подключен при перезагрузке компьютера.|  
-|**Блокировано**|Endpoint Protection заблокировал запуск вредоносной программы. Это может произойти, если процесс на компьютере обнаружена содержат вредоносных программ.|
+|**Falhou**|Não foi possível remediar o software maligno do Endpoint Protection. Verifique os registos para obter detalhes sobre o erro.<br /><br /> **Nota:** Para obter uma lista de ficheiros de registo de Endpoint Protection e do Configuration Manager, consulte a secção "Endpoint Protection" do [ficheiros de registo no System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md) tópico.|  
+|**Removidas**|Proteção de ponto final removido com êxito o software maligno.|  
+|**Em quarentena**|Endpoint Protection moveu o software maligno para uma localização segura e impediu o seu seja executado até removê-lo ou permitir que seja executado.|  
+|**Limpo**|O software maligno foi limpo no ficheiro infetado.|  
+|**Permitido**|Um utilizador administrativo optou por permitir a execução do software que contém o software maligno.|  
+|**Nenhuma ação**|Proteção de ponto final não demorou nenhuma ação no software maligno. Esta situação pode ocorrer se o computador for reiniciado depois de o software maligno ser detetado e o software maligno já não é detetado; por exemplo, se uma unidade de rede mapeada na qual seja detetado software maligno não for religada quando o computador é reiniciado.|  
+|**Bloqueado**|Proteção de ponto final bloqueada a execução do software maligno. Esta situação pode ocorrer se for encontrado um processo no computador que contém software maligno.|

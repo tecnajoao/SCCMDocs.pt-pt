@@ -1,6 +1,6 @@
 ---
-title: "Настройка подписки с Lookout| System Center Configuration Manager"
-description: "В этом разделе содержатся сведения о настройке службы защиты устройств от угроз Lookout."
+title: "Configurar a sua subscrição com o Lookout | O System Center Configuration Manager"
+description: "Este tópicos fornece detalhes sobre como configurar a proteção contra ameaças do Lookout dispositivo."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,115 +16,115 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: b777140c753e709f4048a30e63d8ae730d3e8723
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-your-subscription-for--lookout-device-threat-protection"></a>Настройка подписки для службы защиты устройств от угроз Lookout
+# <a name="set-up-your-subscription-for--lookout-device-threat-protection"></a>Configurar a sua subscrição para proteção contra ameaças do Lookout dispositivo
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Чтобы подготовить подписку для службы защиты устройств от угроз Lookout, службе поддержки Lookout (enterprisesupport@lookout.com) необходимы указанные ниже сведения о вашей подписке Azure Active Directory (Azure AD). Ваш клиент Lookout Mobility Endpoint Security будет связан с вашей подпиской Azure AD для интеграции Lookout с Intune. 
+Para preparar a sua subscrição para o serviço de proteção de ameaças de dispositivo Lookout, suporte de Lookout (enterprisesupport@lookout.com) tem as seguintes informações sobre a sua subscrição do Azure Active Directory (Azure AD). O inquilino de segurança de ponto final de mobilidade Lookout será associado a sua subscrição do Azure AD para integrar o Lookout com o Intune. 
 
-* **Идентификатор клиента Azure AD**
-* **Идентификатор объекта группы Azure AD** для **полного** доступа к консоли Lookout
-* **Идентификатор объекта группы Azure AD** для **ограниченного** доступа к консоли Lookout (необязательно)
+* **ID de inquilino do Azure AD**
+* **ID de objeto de grupo do Azure AD** para **completa** o acesso à consola Lookout
+* **ID de objeto de grupo do Azure AD** para **restrito** Lookout acesso à consola (opcional)
 
 > [!IMPORTANT]
-> Существующий клиент Lookout Mobile Endpoint Security, который еще не связан с вашим клиентом Azure AD, нельзя использовать для интеграции с Azure AD и Intune. Свяжитесь со службой поддержки Lookout, чтобы создать новый клиент Lookout Mobile Endpoint Security. Используйте новый клиент для подготовки пользователей Azure AD.
+> Não é possível utilizar um inquilino de segurança de ponto final de Mobile Lookout existente que já não está associado ao inquilino do Azure AD para a integração com o Azure AD e o Intune. Contacte o suporte de Lookout para criar um novo inquilino de segurança de ponto final do Lookout Mobile. Utilize o novo inquilino para carregar os utilizadores do Azure AD.
 
-Сведения в следующем разделе помогут вам собрать сведения, которые необходимо предоставить в службу поддержки Lookout.  
+Utilize a secção seguinte para recolher as informações que necessárias para lhe dar à equipa de suporte de Lookout.  
 
-## <a name="get-your-azure-ad-information"></a>Получение сведения об Azure AD
-### <a name="azure-ad-tenant-id"></a>Идентификатор клиента Azure AD
-Войдите на [портал управления Azure AD](https://manage.windowsazure.com) и выберите свою подписку. 
+## <a name="get-your-azure-ad-information"></a>Obter as informações do Azure AD
+### <a name="azure-ad-tenant-id"></a>ID de inquilino do Azure AD
+Iniciar sessão para o [portal de gestão do Azure AD](https://manage.windowsazure.com) e selecione a sua subscrição. 
 
-![снимок экрана страницы Azure AD с именем клиента](media/aad_tenant_name.png) При выборе имени подписки полученный URL-адрес включает в себя идентификатор подписки.  Если вам не удается найти идентификатор подписки, обратитесь к этой [статье на сайте службы поддержки Майкрософт](https://support.office.com/en-us/article/Find-your-Office-365-tenant-ID-6891b561-a52d-4ade-9f39-b492285e2c9b?ui=en-US&rs=en-US&ad=US), чтобы получить советы по его поиску.   
-### <a name="azure-ad-group-id"></a>Идентификатор группы Azure AD
-Консоль Lookout поддерживает два уровня доступа.  
-* **Полный доступ**. Администратор Azure AD может создать группу для пользователей, которые будут иметь полный доступ, а также при необходимости создать группу для пользователей, которые будут иметь ограниченный доступ.  Только пользователи из этих групп смогут входить в **консоль Lookout**.
-* **Ограниченный доступ**. Пользователи в этой группе не будут иметь доступа к нескольким модулям консоли Lookout, связанным с настройкой и регистрацией, а будут иметь доступ только для чтения к модулю **Политика безопасности** консоли Lookout.  
+![captura de ecrã da página do Azure AD que mostra o nome do inquilino](media/aad_tenant_name.png) quando escolher o nome da sua subscrição, o URL resultante inclui o ID da subscrição.  Se tiver algum problema ao localizar o seu ID de subscrição, consulte este [artigo de suporte da Microsoft](https://support.office.com/en-us/article/Find-your-Office-365-tenant-ID-6891b561-a52d-4ade-9f39-b492285e2c9b?ui=en-US&rs=en-US&ad=US) para dicas sobre ao localizar o seu ID de subscrição.   
+### <a name="azure-ad-group-id"></a>ID de grupo do Azure AD
+A consola Lookout suporta 2 níveis de acesso:  
+* **Acesso total:** O administrador do Azure AD, pode criar um grupo de utilizadores que têm acesso total e, opcionalmente, criar um grupo de utilizadores que terão acesso restrito.  Apenas os utilizadores nestes grupos conseguirá iniciar sessão para o **consola Lookout**.
+* **Acesso restrito:** Os utilizadores deste grupo terão sem acesso a vários configuração e inscrição relacionadas com módulos da consola Lookout e têm acesso só de leitura para o **política de segurança** módulo da consola Lookout.  
 
-Дополнительные сведения о разрешениях см. в [этой статье](https://personal.support.lookout.com/hc/en-us/articles/114094105653) на веб-сайте Lookout.
+Para obter mais detalhes sobre as permissões, leia o artigo [neste artigo](https://personal.support.lookout.com/hc/en-us/articles/114094105653) no Web site da Lookout.
 
-**Идентификатор объекта группы** приводится на странице **Свойства** группы в **консоли управления Azure AD**.
+O **ID de objeto de grupo** no **propriedades** página do grupo no **consola de gestão do Azure AD**.
 
-![снимок экрана страницы свойств с выделенным полем GroupID](media/aad_group_object_id.png)
+![captura de ecrã da página de propriedades com o campo de GroupID realçado](media/aad_group_object_id.png)
 
-Собрав необходимые сведения, обратитесь в службу поддержки Lookout по адресу электронной почты enterprisesupport@lookout.com.
+Assim que recolhemos estas informações, contacte o suporte de Lookout (e-mail: enterprisesupport@lookout.com).
 
-Служба поддержки Lookout совместно с вашим основным контактным лицом подключит подписку и создаст вашу корпоративную учетную запись Lookout, используя собранные вами сведения.
+O suporte de lookout irá trabalhar com o seu contacto principal para carregar a sua subscrição e criar a sua conta de empresa Lookout, utilizando as informações que recolheu.
 
 
-## <a name="configure-your-subscription-with-lookout-device-threat-protection"></a>Настройка подписки со службой защиты устройств от угроз Lookout
-### <a name="step-1-set-up-your-device-threat-protection"></a>Шаг 1. Настройка защиты устройств от угроз
-После того как служба поддержки Lookout создаст вашу корпоративную учетную запись Lookout, вы можете войти в консоль Lookout.   Компания Lookout отправит основному контактному лицу в вашей организации электронное письмо со ссылкой на URL-адрес для входа: https://aad.lookout.com/les?action=consent
+## <a name="configure-your-subscription-with-lookout-device-threat-protection"></a>Configurar a subscrição com a proteção contra ameaças do Lookout dispositivo
+### <a name="step-1-set-up-your-device-threat-protection"></a>Passo 1: Configurar a proteção contra ameaças do dispositivo
+Depois do suporte de Lookout cria a conta de empresa Lookout, pode iniciar sessão na consola de Lookout.   É enviado um e-mail de Lookout para contacto principal da sua empresa com uma ligação para o url de início de sessão: https://aad.lookout.com/les?action=consent
 
-При первом входе в консоль Lookout необходимо использовать учетную запись пользователя с ролью глобального администратора в Azure AD, так как эти сведения требуются Lookout для регистрации вашего клиента Azure AD.   В дальнейшем при входе пользователю не потребуется такой уровень прав Azure AD.  При первом входе выводится страница согласия. Чтобы завершить регистрацию, нажмите кнопку **Принять**.
+Tem de utilizar uma conta de utilizador com a função do Azure AD de Administrador Global quando que primeiro inicie sessão consola do Lookout, uma vez que o Lookout necessita que esta informação para registar o inquilino do Azure AD.   Início de sessão subsequente serão requer que o utilizador tem este nível de privilégio do Azure AD.  Neste primeiro início de sessão, é apresentada uma página de consentimento. Escolha **aceitar** para concluir o registo.
 
-![снимок экрана страницы первоначального входа в консоль Lookout](media/lookout-initial-login.png)
+![captura de ecrã da primeira página de início de sessão de tempo da consola Lookout](media/lookout-initial-login.png)
 
-Приняв условия, вы будете перенаправлены в консоль Lookout. После начальной регистрации выполнять вход можно по следующему URL-адресу: https://aad.lookout.com
+Assim que aceite e autorizado, são redirecionados para a consola Lookout. Inícios de sessão subsequentes após o registo inicial pode ser feito utilizando o URL: https://aad.lookout.com
 
-Если при входе возникают проблемы, см. [статью, посвященную устранению неполадок]().
+Consulte o [artigo de resolução de problemas]() caso se depare com problemas de início de sessão.
 
-Далее описываются задачи, которые необходимо выполнить, чтобы завершить настройку Lookout в [консоли Lookout](https://aad.lookout.com).
+Os passos seguintes descrevem as tarefas que terá de efetuar para concluir o Lookout configurar dentro de [Lookout consola](https://aad.lookout.com).
 
-### <a name="step-2-configure-the-intune-connector"></a>Шаг 2. Настройка соединителя Intune
+### <a name="step-2-configure-the-intune-connector"></a>Passo 2: Configurar o conector do Intune
 
-1.  В консоли Lookout в модуле **Система** перейдите на вкладку **Соединители** и выберите **Intune**.
+1.  Na consola do Lookout, do **sistema** módulo, escolha o **conectores** separador e selecione **Intune**.
 
-  ![снимок экрана консоли Lookout с открытой вкладкой "Соединители" и выбранным пунктом "Intune"](media/lookout-setup-intune-connector.png)
+  ![captura de ecrã da consola Lookout o separador de conectores abrir e, opção Intune realçado](media/lookout-setup-intune-connector.png)
 
-2.  В параметрах подключения настройте частоту пульса в минутах.  Соединитель Intune теперь готов.  
+2.  A opção de definições de ligação, configure a frequência de heartbeat em minutos.  O conector do Intune agora está pronto.  
 
-  ![снимок экрана вкладки "Параметры подключения" с настроенной частотой пульса](media/lookout-connection-settings.png)
+  ![captura de ecrã do separador de definições de ligação com a frequência de heartbeat configuradas a mostrar](media/lookout-connection-settings.png)
 
-### <a name="step-3-configure-enrollment-groups"></a>Шаг 3. Настройка групп регистрации
-В параметре **Управление регистрацией** определите набор пользователей, устройства которых должны быть зарегистрированы в Lookout. Рекомендуется начать с небольшой тестовой группы пользователей и ознакомиться с принципами работы интеграции.  Когда результаты тестирования будут вас устраивать, вы можете зарегистрировать дополнительные группы пользователей.
+### <a name="step-3-configure-enrollment-groups"></a>Passo 3: Configurar grupos de inscrição
+No **inscrição gestão** opção, definir um conjunto de utilizadores cujos dispositivos devem estar inscrito no Lookout. A melhor prática é começar a utilizar um pequeno grupo de utilizadores para testar e se familiarize com como funciona a integração.  Quando estiver satisfeito com os resultados do teste, pode expandir a inscrição para os grupos adicionais de utilizadores.
 
-Чтобы приступить к работе с группами регистрации, сначала определите группу безопасности Azure AD с подходящим начальным набором пользователей для регистрации в службе защиты устройств от угроз Lookout. Создав группу в Azure AD, в консоли Lookout перейдите к элементу **Управление регистрацией** и добавьте **отображаемые имена** группы безопасности AD для регистрации.
+Para começar com grupos de inscrições, defina primeiro um grupo de segurança do Azure AD que seria um boa primeiro conjunto de utilizadores para se inscrever na proteção contra ameaças do Lookout dispositivo. Assim que tiver o grupo criado no Azure, AD, na consola do Lookout, vá para o **inscrição gestão** opção e adicione o grupo de segurança do Azure AD **apresentar nomes** para inscrição.
 
-Если пользователь входит в группу регистрации, все его устройства, идентифицированные и поддерживаемые в Azure AD, регистрируются и доступны для активации в службе защиты устройств от угроз Lookout.  При первом открытии приложения Lookout for Work на поддерживаемом устройстве устройство активируется в Lookout.
+Quando um utilizador é um grupo de inscrição, qualquer um dos respetivos dispositivos que são identificados e suportados no Azure AD são elegíveis para ativação na proteção contra ameaças do Lookout dispositivo e inscritos.  Na primeira vez que abrem o Lookout para a aplicação de trabalho nos respetivos dispositivos suportados, o dispositivo está ativado no Lookout.
 
-![снимок экрана со страницей регистрации соединителя Intune](media/lookout-enrollment.png)
+![captura de ecrã da página de inscrição do conector do Intune](media/lookout-enrollment.png)
 
-В качестве интервала проверки наличия новых устройств рекомендуется использовать значение по умолчанию (5 минут).
+A melhor prática consiste em utilizar a predefinição (5 minutos) para o incremento de tempo para verificar a existência de novos dispositivos.
 
 >[!IMPORTANT]
-> В отображаемом имени регистр учитывается.  Используйте **отображаемое имя** так, как оно указано на странице **Свойства** группы безопасности на портале Azure. На рисунке ниже обратите внимание на то, что на странице **Свойства** группы безопасности отображаемое имя указано в "верблюжьем" стиле.  Однако заголовок отображается в нижнем регистре, и его не следует вводить в консоли Lookout.
->![снимок страницы свойств службы Azure Active Directory на портале Azure](media/aad-group-display-name.png)
+> O nome a apresentar é sensível às maiúsculas e minúsculas.  Utilize o **nome a apresentar** conforme mostrado no **propriedades** página do grupo de segurança no portal do Azure. Tenha em atenção na imagem abaixo que o **propriedades** página do grupo de segurança, o nome a apresentar é camel case.  No entanto, o título é apresentado em todos os minúsculas e não deve ser utilizado para introduzir na consola do Lookout.
+>![captura de ecrã do portal do Azure, o serviço de Azure Active Directory, a página de propriedades](media/aad-group-display-name.png)
 
-В текущем выпуске имеются указанные ниже ограничения.  
-* Отображаемые имена групп не проверяются.  Необходимо использовать значение поля **ОТОБРАЖАЕМОЕ ИМЯ** для группы безопасности Azure AD на портале Azure.
-* Создание групп внутри других групп в настоящее время не поддерживается.  Указываемые группы безопасности Azure AD могут содержать только пользователей, но не вложенные группы.
+A versão atual tem as seguintes limitações:  
+* Não há nenhuma validação para os nomes a apresentar o grupo.  Certifique-se de que utiliza o valor no **nome a apresentar** campo apresentado no portal do Azure para o grupo de segurança do Azure AD.
+* Criar grupos de grupos não é atualmente suportado.  Grupos de segurança do Azure AD especificada só pode conter utilizadores e grupos não aninhados.
 
 
-### <a name="step-4-configure-state-sync"></a>Шаг 4. Настройка синхронизации состояния
-В параметре **Синхронизация состояния** укажите тип данных, которые следует отправлять в Intune.  В настоящее время необходимо включить как состояние устройства, так и состояние угроз, чтобы интеграция Lookout с Intune работала правильно.  Эти типы включены по умолчанию.
-### <a name="step-5-configure-error-report-email-recipient-information"></a>Шаг 5. Настройка сведений о получателе отчетов об ошибках, отправляемых по электронной почте
-В параметре **Управление ошибками** введите адрес электронной почты, на который будут отправляться отчеты об ошибках.
+### <a name="step-4-configure-state-sync"></a>Passo 4: Configurar a sincronização de estado
+No **sincronização de estado** opção, especifique o tipo de dados que devem ser enviados para o Intune.  Atualmente, tem de ativar o estado do dispositivo e o estado de ameaça por ordem para a integração do Lookout Intune funcione corretamente.  Estas estão ativadas por predefinição.
+### <a name="step-5-configure-error-report-email-recipient-information"></a>Passo 5: Configurar informações de destinatários de e-mail de relatório de erro
+No **erro gestão** opção, introduza o endereço de correio eletrónico que deve receber os relatórios de erros.
 
-![снимок экрана со страницей управления ошибками соединителя Intune](media/lookout-connector-error-notifications.png)
+![captura de ecrã da página Gestão de erro de conector do Intune](media/lookout-connector-error-notifications.png)
 
-### <a name="step-6-configure-enrollment-settings"></a>Шаг 6. Настройка параметров регистрации
-В модуле **Система** на странице **Соединители** укажите количество дней, по истечении которого устройство будет считаться отключенным.  Отключенные устройства считаются несоответствующими, и доступ с них к приложениям организации блокируется в соответствии с политиками условного доступа SCCM. Можно указать значение от 1 до 90 дней.
+### <a name="step-6-configure-enrollment-settings"></a>Passo 6. Configurar definições de inscrição
+No **sistema** módulo, o **conectores** página, especifique o número de dias antes de um dispositivo é considerado como desligada.  Dispositivos desligados são considerados como não conformes e serão impedidos de aceder a aplicações da empresa com as políticas de acesso condicional do SCCM. Pode especificar valores entre 1 e 90 dias.
 
 ![](media/lookout-console-enrollment-settings.png)
 
-### <a name="step-7-configure-email-notifications"></a>Шаг 7. Настройка уведомлений по электронной почте
-Если вы хотите получать оповещения об угрозах по электронной почте, войдите в [консоль Lookout](https://aad.lookout.com) с учетной записью пользователя, которая должна получать уведомления. На вкладке **Настройки** модуля **Система** выберите нужные уведомления и задайте для них значение **ВКЛ**. Сохраните изменения.
+### <a name="step-7-configure-email-notifications"></a>Passo 7: Configurar notificações por e-mail
+Se pretende receber alertas de e-mail para ameaças, inicie sessão no [consola Lookout](https://aad.lookout.com) com a conta de utilizador que deve receber as notificações. No **preferências** separador do **sistema** módulo, escolha as notificações pretendidas e configure-os **ON**. Guarde as alterações.
 
-![снимок экрана: страница настроек с учетной записью пользователя](media/lookout-email-notifications.png) Если вы больше не хотите получать уведомления по электронной почте, задайте для уведомлений значение **ВЫКЛ** и сохраните изменения.
-### <a name="step-8-configure-threat-classification"></a>Шаг 8. Настройка классификации угроз
-Служба защиты устройств от угроз Lookout классифицирует угрозы различных типов. С [классификациями угроз Lookout](http://personal.support.lookout.com/hc/en-us/articles/114094130693) связаны уровни риска по умолчанию. Их можно в любой момент изменить в соответствии с требованиями организации.
+![captura de ecrã da página de preferências com a conta de utilizador apresentada](media/lookout-email-notifications.png) se já não pretender receber notificações por e-mail, como as notificações **OFF** e guarde as alterações.
+### <a name="step-8-configure-threat-classification"></a>Passo 8: Configurar a classificação de ameaça
+Proteção contra ameaças do lookout dispositivo classifica móveis ameaças de vários tipos. O [classificações de ameaça Lookout](http://personal.support.lookout.com/hc/en-us/articles/114094130693) têm níveis de risco predefinidos associados aos mesmos. Estes podem ser alteradas em qualquer altura para suite requisitos da sua empresa.
 
-![снимок экрана страницы политики с угрозой и классификациями](media/lookout-threat-classification.png)
+![captura de ecrã da página de política que mostra ameaça e classificações](media/lookout-threat-classification.png)
 
 >[!IMPORTANT]
-> Указываемые здесь уровни риска являются важным аспектом защиты устройств от угроз, так как система интеграции с Intune оценивает соответствие устройств на основе этих уровней во время выполнения. Иными словами, администратор Intune задает правило в политике, которое определяет устройство как несоответствующее, если на нем есть активная угроза с одним из минимальных уровней: высокий, средний или низкий. Политика классификации угроз в службе защиты устройств от угроз Lookout непосредственно определяет оценку соответствия устройств в Intune.
+> Os níveis de risco especificado que aqui são um aspeto importante de proteção contra ameaças do dispositivo, porque a integração do Intune calcula a conformidade do dispositivo, de acordo com estes níveis de risco no tempo de execução. Por outras palavras, o administrador do Intune define uma regra de política para identificar um dispositivo como não conforme se o dispositivo tem uma ameaça Active Directory com um mínimo ao nível do: alta, média ou baixa. A política de classificação de ameaça na proteção contra ameaças do Lookout dispositivo unidades diretamente o cálculo de conformidade do dispositivo no Intune.
 
-## <a name="watching-enrollment"></a>Проверка регистрации
-После завершения настройки служба защиты устройств от угроз Lookout начинает запрашивать Azure AD о наличии устройств, соответствующих указанным группам регистрации.  Сведения о зарегистрированных устройствах можно найти в модуле "Устройства".  Изначально устройства находятся в состоянии ожидания.  После установки, открытия и активации приложения Lookout for Work на устройстве состояние устройства меняется.  Подробные сведения о том, как передать приложение Lookout for Work на устройство, см. в разделе [Настройка и развертывание Lookout для рабочих приложений](configure-and-deploy-lookout-for-work-apps.md).
-## <a name="next-steps"></a>Дальнейшие действия
-[Включение подключения к Lookout MTP в Intune](enable-lookout-connection-in-intune.md)
+## <a name="watching-enrollment"></a>Observar inscrição
+Assim que a configuração estiver concluída, proteção contra ameaças do Lookout dispositivo é iniciado consultar o Azure AD para dispositivos que correspondem aos grupos de inscrição especificado.  Pode encontrar informações sobre os dispositivos inscritos no módulo de dispositivos.  O estado inicial de dispositivos é mostrado como pendente.  As alterações de estado de dispositivo depois do Lookout for Work aplicação é instalada, abrir e ativado no dispositivo.  Para obter mais informações sobre como obter o Lookout para a aplicação de trabalho instalada no dispositivo, consulte o [configurar e implementar o Lookout para aplicações de trabalho](configure-and-deploy-lookout-for-work-apps.md) tópico.
+## <a name="next-steps"></a>Passos seguintes
+[Ativar ligação Lookout MTP Intune](enable-lookout-connection-in-intune.md)

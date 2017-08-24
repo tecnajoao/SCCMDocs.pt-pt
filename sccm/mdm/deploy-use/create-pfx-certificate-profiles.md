@@ -1,6 +1,6 @@
 ---
-title: "Создание профилей сертификатов PFX с помощью центра сертификации | Документация Майкрософт"
-description: "Узнайте, как использовать PFX-файлы в System Center Configuration Manager для создания пользовательских сертификатов, которые поддерживают обмен зашифрованными данными."
+title: "Criar perfis de certificado PFX através de uma autoridade de certificação | Microsoft Docs"
+description: "Saiba como utilizar ficheiros PFX no System Center Configuration Manager para gerar certificados específicos do utilizador que suportam a troca de dados encriptados."
 ms.custom: na
 ms.date: 04/04/2017
 ms.prod: configuration-manager
@@ -17,168 +17,168 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 43d8b2217763681be69711fce93c020a65da1cd8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-pfx-certificate-profiles-using-a-certificate-authority"></a>Создание профилей сертификатов PFX с помощью центра сертификации
+# <a name="how-to-create-pfx-certificate-profiles-using-a-certificate-authority"></a>Como criar perfis de certificado PFX através de uma autoridade de certificação
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы узнаете, как создать профиль сертификата, который использует центр сертификации для работы с учетными данными.
+Aqui, irá aprender a criar um perfil de certificado que utiliza uma autoridade de certificação para credenciais.
 
-Общие сведения о создании и настройке профилей сертификатов см. [здесь](../../protect/deploy-use/introduction-to-certificate-profiles.md). В этой статье представлены некоторые сведения о профилях сертификатов, связанные с сертификатами PFX.
+[Perfis de certificado](../../protect/deploy-use/introduction-to-certificate-profiles.md) fornece informações gerais sobre como criar e configurar perfis de certificado. Este tópico realça algumas informações específicas sobre os perfis de certificados relacionados com os certificados PFX.
 
-## <a name="pfx-certificate-profiles"></a>Профили сертификатов PFX
-System Center Configuration Manager позволяет создать профиль сертификата PFX с учетными данными, выданными центром сертификации.  Начиная с версии 1706 вы можете выбрать в качестве центра сертификации Майкрософт или Entrust.  При развертывании на пользовательских устройствах файлы обмена личной информацией (PFX-файлы) создают пользовательские сертификаты для поддержки обмена зашифрованными данными.
+## <a name="pfx-certificate-profiles"></a>Perfis de certificado PFX
+System Center Configuration Manager permite-lhe criar um perfil de certificado PFX utilizando credenciais emitidas por uma autoridade de certificação.  A partir da versão 1706, pode escolher a Microsoft ou Entrust como autoridade de certificado.  Quando implementada em dispositivos de utilizador, o ficheiros personal information exchange (. pfx) geram certificados específicos do utilizador para suportar a troca de dados encriptados.
 
-Дополнительные сведения об импорте учетных данных сертификата из существующих файлов сертификатов см. в руководстве по [созданию профилей сертификатов PFX с помощью импорта сведений о сертификате](../../mdm/deploy-use/import-pfx-certificate-profiles.md).
+Para importar as credenciais do certificado de ficheiros de certificado existente, consulte [como criar perfis de certificado PFX através da importação de detalhes do certificado](../../mdm/deploy-use/import-pfx-certificate-profiles.md).
 
-## <a name="create-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Создание и развертывание профиля сертификата обмена личной информацией (PFX)  
+## <a name="create-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Criar e implementar um perfil de certificado do Personal Information (Exchange PFX)  
 
-### <a name="get-started"></a>Начало работы
+### <a name="get-started"></a>Introdução
 
-1.  В консоли System Center Configuration Manager выберите элемент **Активы и соответствие**.  
-2.  В рабочей области **Активы и соответствие** щелкните **Параметры соответствия** &gt; **Доступ к ресурсам компании, а затем выберите пункт**  &gt; **Профили сертификатов**.  
+1.  Na consola do System Center Configuration Manager, escolha **ativos e compatibilidade**.  
+2.  No **ativos e compatibilidade** área de trabalho, escolha **as definições de compatibilidade** &gt; **acesso a recursos da empresa** &gt; **perfis de certificado**.  
 
-3.  На вкладке **Главная** в группе **Создать** выберите действие **Создать профиль сертификата**.
+3.  No **home page** separador o **criar** grupo, escolha **criar perfil de certificado**.
 
-4.  На странице **Общие** мастера **Создание профилей сертификатов** введите перечисленные ниже сведения.  
+4.  Na página **Geral** do Assistente **Criar Perfil de Certificado** , especifique as seguintes informações:  
 
-    -   **Имя**: введите уникальное имя для профиля сертификата. Можно использовать не более 256 символов.  
+    -   **Nome**: Introduza um nome exclusivo para o perfil de certificado. Pode utilizar até 256 carateres.  
 
-    -   **Описание**: введите описание, которое позволяет получить представление о профиле сертификата и содержит другие важные сведения для его идентификации в консоли System Center Configuration Manager. Можно использовать не более 256 символов.  
+    -   **Descrição**: Forneça uma descrição que proporcione uma descrição geral do perfil de certificado e outras informações relevantes que ajudem a identificá-lo na consola do System Center Configuration Manager. Pode utilizar até 256 carateres.  
 
-    -   В разделе **Укажите тип профиля сертификата, который нужно создать** выберите элементы **Файл обмена личной информацией — Параметры PKCS #12 (PFX) — Создать**, а затем выберите центр сертификации в раскрывающемся списке.  Начиная с версии 1706 здесь можно выбрать **Microsoft** или **Entrust**.
+    -   No **especificar o tipo de perfil de certificado que pretende criar**, escolha **Personal Information Exchange - definições do PKCS #12 (PFX) - criar** e, em seguida, escolha a sua autoridade de certificação da lista pendente.  A partir da versão 1706, pode optar por **Microsoft** ou **Entrust**.
 
-### <a name="select-supported-platforms"></a>Выберите поддерживаемые платформы
+### <a name="select-supported-platforms"></a>Selecione as plataformas suportadas
 
-На странице "Поддерживаемые платформы" перечислены операционные системы и устройства, которые поддерживаются профилем сертификата.  
+A página de plataformas suportadas identifica os sistemas operativos e dispositivos que suporta o perfil de certificado.  
 
-Профили сертификата могут поддерживать несколько операционных систем и устройств, но для некоторых комбинаций операционных систем или устройств могут потребоваться разные параметры.  В таких случаях лучше всего создавать отдельные профили для каждого уникального набора параметров.  
+Certificado perfis podem suportar vários sistemas operativos e dispositivos, no entanto, determinadas sistema operativo ou combinações de dispositivo podem necessitar de definições diferentes.  Nestes casos, é melhor criar perfis separados para cada conjunto exclusivo de definições.  
 
-Начиная с версии 1706 здесь доступны следующие параметры.
+A partir da versão 1706, estão disponíveis as seguintes opções:
 
 - Windows 10
-    - Все 64-разрядные версии Windows 10
-    - Все 32-разрядные версии Windows 10
-    - Все ОС Windows 10 Holographic Enterprise и более поздние версии
-    - Все ОС Windows 10 Holographic и более поздние версии
-    - Все ОС Windows 10 для совместной работы и более поздние версии
-    - Все ОС Windows 10 Mobile и более поздние версии
+    - Todas as edições Windows 10 (64-bit)
+    - Todas as edições Windows 10 (32-bit)
+    - Todos os Windows 10 Holographic Enterprise e superiores
+    - Todas as versões do Windows 10 Holographic e superiores
+    - Todos os Windows 10 Team e superiores
+    - Todos os Windows 10 Mobile e superiores
 - iPhone
 - iPad
 - Android
 - Android for Work
 
 > [!Note]  
-> Устройства MacOS и OSX сейчас не поддерживаются.  
+> Dispositivos de MacOS/OSX não são atualmente suportados.  
 
-Если параметры не выбраны, флажок **Выделить все** выделяет все доступные параметры.  Если выбраны один или несколько параметров, флажок **Выделить все** очищает выбор. 
+Quando não existem outras opções são selecionadas, o **Selecionar tudo** caixa de verificação seleciona todas as opções disponíveis.  Quando uma ou mais opções são selecionadas, **Selecionar tudo** limpa seleções existentes. 
 
-1.  Выберите одну или несколько платформ, поддерживаемых в профиле сертификата.
+1.  Selecione um ou mais plataformas suportadas pelo perfil de certificado.
 
-1.  Чтобы продолжить, нажмите кнопку **Далее**.  
-
-
-### <a name="configure-certification-authorities"></a>Настройка центров сертификации
-
-Здесь вам нужно выбрать точку регистрации сертификатов (CRP) для обработки сертификатов PFX.  
-
-1.  В списке **Первичный сайт** выберите сервер, содержащий роль CRP для центра сертификации.
-1.  В списке **Центры сертификации** выберите подходящий центр сертификации, установив флажок в левом столбце.
-1.  Когда будете готовы продолжить, нажмите кнопку **Далее**.
-
-Дополнительные сведения см. в статье [Инфраструктура сертификатов](../../protect/deploy-use/certificate-infrastructure.md).
+1.  Escolha **seguinte** para continuar.  
 
 
-### <a name="configure-certificate-settings-for-microsoft-ca"></a>Настройка параметров сертификатов для ЦС Майкрософт
+### <a name="configure-certification-authorities"></a>Configurar as autoridades de certificação
 
-Чтобы настроить параметры сертификатов при использовании Microsoft в качестве ЦС, сделайте следующее:
+Aqui, escolha o ponto de registo de certificados (CRP) para processar os certificados PFX.  
 
-1.  В раскрывающемся списке **Имя шаблона сертификата** выберите шаблон сертификата.
+1.  Do **Site primário** lista, selecione o servidor que contém a função de CRP da AC.
+1.  Na lista de **autoridades de certificação**, escolha a AC relevante ao colocar uma marca de verificação na coluna esquerda.
+1.  Quando estiver pronto para continuar, escolha **seguinte**.
 
-1.  Установите флажок **Использование сертификатов**, чтобы использовать профиль сертификата для подписи или шифрования S/MIME.
-
-    Если вы используете Microsoft в качестве ЦС, выбор этого параметра означает доставку всех сертификатов PFX, связанных с целевым пользователем, на все зарегистрированные для этого пользователя устройства.  Если этот флажок снят, каждое устройство получает уникальный сертификат.  
-
-1.  Выберите для параметра **Формат имени субъекта** значение **Общее имя** или **Полное различающееся имя**.  Если вы не уверены, какой вариант вам нужен, обратитесь к администратору центра сертификации.
-
-1.  Для параметра **Альтернативное имя субъекта** включите **Адрес электронной почты** и (или) **Имя участника-пользователя (UPN)** в соответствии с требованиями для вашего ЦС.
-
-1.  **Порог обновления** определяет, когда будут автоматически обновлены сертификаты. Этот параметр задается в процентах оставшегося времени до истечения срока действия.
-
-1.  Укажите соответствующий **Срок действия сертификата**.  Здесь нужно задать число (от 1 до 100) и единицы измерения периода (годы, месяцы или дни).
-
-1.  Параметр **Публикация Active Directory** следует использовать, когда точка регистрации сертификатов указывает учетные данные Active Directory.  Установите этот флажок, чтобы опубликовать профиль сертификата в Active Directory.
-
-1.  Если при выборе поддерживаемых платформ вы указали одну или несколько платформ Windows 10, сделайте следующее:
-
-    1.  Для параметра **Хранилище сертификатов Windows** укажите значение **Пользователь**.  (Вариант **Локальный компьютер** не следует выбирать, так как сертификаты не будут развернуты.)
-    1.  Выберите для параметра **Поставщик хранилища ключей (KSP)** один из следующих вариантов:
-
-        - **Установить в доверенный платформенный модуль (TPM) при его наличии**  
-        - **Установить в доверенный платформенный модуль (TPM), в противном случае выдать отказ** 
-        - **Установить в Windows Hello для бизнеса, в ином случае— сбой** 
-        - **Установить в поставщик хранилища ключей программного обеспечения** 
-
-1.  Когда все будет готово, выберите **Далее** или **Сводка**.
-
-### <a name="configure-certificate-settings-for-entrust-ca"></a>Настройка параметров сертификатов для ЦС Entrust
-
-Чтобы настроить параметры сертификатов при использовании Entrust в качестве ЦС, сделайте следующее:
-
-1.  В раскрывающемся списке **Конфигурация цифрового удостоверения** выберите профиль конфигурации.  Параметры конфигурации цифрового удостоверения создаются администратором Entrust.
-
-1.  Если установлен флажок **Использование сертификатов**, профиль сертификата используется для подписи или шифрования S/MIME.
-
-    Если вы используете Entrust в качестве ЦС, все сертификаты PFX, связанные с целевым пользователем, устанавливаются на все зарегистрированные для этого пользователя устройства.    Если этот флажок *снят*, каждое устройство получает уникальный сертификат.  (Это поведение может изменяться для некоторых ЦС. Ознакомьтесь со сведениями в соответствующем разделе.)
-
-1.  Используйте кнопку **Формат**, чтобы сопоставить маркеры Entrust **Формат имени субъекта** с полями ConfigMgr.  
-
-    Диалоговое окно **Форматирование имени сертификата** отображает список переменных для конфигурации цифрового сертификата Entrust.  Для каждой переменной Entrust выберите из соответствующего раскрывающегося списка нужную переменную LDAP.
-
-1.  Используйте кнопку **Формат**, чтобы сопоставить маркеры Entrust **Альтернативное имя субъекта** с поддерживаемыми переменными LDAP.  
-
-    Диалоговое окно **Форматирование имени сертификата** отображает список переменных для конфигурации цифрового сертификата Entrust.  Для каждой переменной Entrust выберите из соответствующего раскрывающегося списка нужную переменную LDAP.
-
-1.  **Порог обновления** определяет, когда будут автоматически обновлены сертификаты. Этот параметр задается в процентах оставшегося времени до истечения срока действия.
-
-1.  Укажите соответствующий **Срок действия сертификата**.  Здесь нужно задать число (от 1 до 100) и единицы измерения периода (годы, месяцы или дни).
-
-1.  Параметр **Публикация Active Directory** следует использовать, когда точка регистрации сертификатов указывает учетные данные Active Directory.  Установите этот флажок, чтобы опубликовать профиль сертификата в Active Directory.
-
-1.  Если при выборе поддерживаемых платформ вы указали одну или несколько платформ Windows 10, сделайте следующее:
-
-    1.  Для параметра **Хранилище сертификатов Windows** укажите значение **Пользователь**.  (Вариант **Локальный компьютер** не следует выбирать, так как сертификаты не будут развернуты.)
-    1.  Выберите для параметра **Поставщик хранилища ключей (KSP)** один из следующих вариантов:
-
-        - **Установить в доверенный платформенный модуль (TPM) при его наличии**  
-        - **Установить в доверенный платформенный модуль (TPM), в противном случае выдать отказ** 
-        - **Установить в Windows Hello для бизнеса, в ином случае— сбой** 
-        - **Установить в поставщик хранилища ключей программного обеспечения** 
-
-1.  Когда все будет готово, выберите **Далее** или **Сводка**.
+Para obter mais informações, consulte [infraestrutura de certificados](../../protect/deploy-use/certificate-infrastructure.md).
 
 
-### <a name="finish-up"></a>Завершение
+### <a name="configure-certificate-settings-for-microsoft-ca"></a>Configurar definições de certificado de AC da Microsoft
 
-1.  На странице "Сводка" просмотрите параметры и проверьте выбранные значения.
+Para configurar definições de certificado quando utilizar o Microsoft como a AC:
 
-1.  Когда все будет готово, нажмите кнопку **Далее** для создания профиля.  
+1.  Do **nome do modelo de certificado** pendente, escolha o modelo de certificado.
 
-1.  Профиль сертификата, содержащий PFX-файл, теперь доступен в рабочей области **Профили сертификатов** . 
+1.  Ativar o **utilização de certificados** caixa de verificação para utilizar o perfil de certificado de assinatura S/MIME ou encriptação.
 
-1.  Чтобы развернуть профиль, сделайте следующее:
+    Quando seleciona esta opção ao utilizar o Microsoft como a AC, todos os certificados PFX associados ao utilizador de destino são entregues para todos os dispositivos inscritos pelo utilizador.  Quando esta caixa de verificação está desmarcada, cada dispositivo recebe um certificado exclusivo.  
 
-    1. Откройте рабочую область **Активы и соответствие**.
-    1. Щелкните **Параметры соответствия требованиям** > **Доступ к ресурсам компании** > **Профили сертификатов**.
-    1. Щелкните правой кнопкой мыши нужный профиль сертификата, а затем выберите **Развернуть**. 
+1.  Definir **formato de nome de requerente** quer **nome comum** ou **nome único totalmente**.  Se não souber que utilizar, contacte o administrador da autoridade de certificado.
+
+1.  Para **nome alternativo do requerente**, ativar o **endereço de correio eletrónico** e **nome principal de utilizador (UPN)** conforme adequado para a AC.
+
+1.  **Limiar de renovação** determina quando os certificados são automaticamente renovada, com base na percentagem de tempo restante antes de expiração.
+
+1.  Definir o **período de validade do certificado** a duração do certificado.  O período é especificado pela definição de um número (1-100) e o período (anos, meses ou dias).
+
+1.  O **publicação no Active Directory** é ativada quando o ponto de registo de certificados Especifica as credenciais do Active Directory.  Ative a opção para publicar o perfil de certificado no Active Directory.
+
+1.  Se tiver selecionado um ou mais plataformas Windows 10, ao especificar as plataformas suportadas:
+
+    1.  Definir **arquivo de certificados do Windows** para **utilizador**.  (O **computador Local** opção e não implementar certificados, a não deve ser selecionada.)
+    1.  Selecione o **fornecedor de armazenamento de chaves (KSP)** uma das seguintes opções:
+
+        - **Instalar no Trusted Platform Module (TPM), se estiver presente**  
+        - **Instalar no Trusted Platform Module (TPM), caso contrário ocorre uma falha** 
+        - **Instalação do Windows Hello para falhar caso contrário, de negócio** 
+        - **Instalar no Fornecedor de Armazenamento de Chaves de Software** 
+
+1.  Quando terminar, escolha **seguinte** ou **resumo**.
+
+### <a name="configure-certificate-settings-for-entrust-ca"></a>Configurar definições de certificado de AC Entrust
+
+Para configurar definições de certificado quando utilizar Entrust como AC:
+
+1.  Do **digitais de ID de configuração** pendente, selecione o perfil de configuração.  As opções de configuração de ID digitais são criadas pelo administrador Entrust.
+
+1.  Quando selecionado, o **utilização de certificados** utiliza o perfil de certificado de assinatura S/MIME ou encriptação.
+
+    Quando utilizar Entrust como sendo a AC, todos os certificados PFX associados ao utilizador de destino são entregues para todos os dispositivos inscritos pelo utilizador.    Quando esta opção é *não* opção estiver marcada, cada dispositivo recebe um certificado exclusivo.  (Alterações de comportamento para ACs diferentes; para obter mais informações, consulte a secção correspondente.)
+
+1.  Utilize o **formato** botão para mapear Entrust **formato de nome de requerente** tokens aos campos do ConfigMgr.  
+
+    O **formatação de nome de certificado** caixa de diálogo apresenta uma lista de variáveis de configuração Entrust Digital ID.  Para cada variável Entrust, escolha a variável LDAP adequada na lista pendente associada.
+
+1.  Utilize o **formato** botão para mapear Entrust **nome alternativo do requerente** tokens suportados variáveis de LDAP.  
+
+    O **formatação de nome de certificado** caixa de diálogo apresenta uma lista de variáveis de configuração Entrust Digital ID.  Para cada variável Entrust, escolha a variável LDAP adequada na lista pendente associada.
+
+1.  **Limiar de renovação** determina quando os certificados são automaticamente renovada, com base na percentagem de tempo restante antes de expiração.
+
+1.  Definir o **período de validade do certificado** a duração do certificado.  O período é especificado pela definição de um número (1-100) e o período (anos, meses ou dias).
+
+1.  O **publicação no Active Directory** é ativada quando o ponto de registo de certificados Especifica as credenciais do Active Directory.  Ative a opção para publicar o perfil de certificado no Active Directory.
+
+1.  Se tiver selecionado um ou mais plataformas Windows 10, ao especificar as plataformas suportadas:
+
+    1.  Definir **arquivo de certificados do Windows** para **utilizador**.  (O **computador Local** opção e não implementar certificados, a não deve ser selecionada.)
+    1.  Selecione o **fornecedor de armazenamento de chaves (KSP)** uma das seguintes opções:
+
+        - **Instalar no Trusted Platform Module (TPM), se estiver presente**  
+        - **Instalar no Trusted Platform Module (TPM), caso contrário ocorre uma falha** 
+        - **Instalação do Windows Hello para falhar caso contrário, de negócio** 
+        - **Instalar no Fornecedor de Armazenamento de Chaves de Software** 
+
+1.  Quando terminar, escolha **seguinte** ou **resumo**.
 
 
-## <a name="see-also"></a>См. также
-В разделе [Создание профиля сертификата](../../protect/deploy-use/create-certificate-profiles.md) рассматривается выполнение этой процедуры с помощью мастера создания профилей сертификатов.
+### <a name="finish-up"></a>Concluir a cópia de segurança
 
-[Как создать профили сертификатов PFX с помощью импорта сведений о сертификате](../../mdm/deploy-use/import-pfx-certificate-profiles.md)
+1.  Na página Resumo, reveja as suas seleções e verifique se as suas escolhas.
 
-В статье [Развертывание профилей в System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) описано, как развернуть профили сертификатов.
+1.  Quando estiver pronto, escolha **seguinte** para criar o perfil.  
+
+1.  O perfil do certificado que contém o ficheiro PFX está agora disponível a partir da área de trabalho **Perfis de Certificados** . 
+
+1.  Para implementar o perfil:
+
+    1. Abra o **ativos e compatibilidade** área de trabalho.
+    1. Escolha **as definições de compatibilidade** > **acesso a recursos da empresa** > **perfis de certificado**
+    1. Faça duplo clique o perfil de certificado pretendido e, em seguida, escolha **implementar**. 
+
+
+## <a name="see-also"></a>Consulte também
+[Criar um novo perfil de certificado](../../protect/deploy-use/create-certificate-profiles.md) orienta-o através do Assistente para criar perfil de certificado.
+
+[Como criar perfis de certificado PFX através da importação de detalhes do certificado](../../mdm/deploy-use/import-pfx-certificate-profiles.md)
+
+[Implementar Wi-Fi, VPN, e-mail e perfis de certificado](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) descreve como implementar perfis de certificado.

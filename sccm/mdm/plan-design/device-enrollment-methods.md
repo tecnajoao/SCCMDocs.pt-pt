@@ -1,6 +1,6 @@
 ---
-title: "Методы регистрации устройств для гибридного управления устройствами | Документация Майкрософт"
-description: "Методы регистрации устройств для гибридного управления устройствами"
+title: "Métodos de inscrição de dispositivos para MDM híbrida | Microsoft Docs"
+description: "Métodos de inscrição de dispositivos para híbrida MDM."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,68 +17,68 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: e09e639e939b846cdc162681f9d7bd4c39cd6fbf
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="overview-of-device-enrollment-methods"></a>Обзор методов регистрации устройств
+# <a name="overview-of-device-enrollment-methods"></a>Descrição geral dos métodos de inscrição de dispositivos
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-После расширения Configuration Manager с помощью Intune вы можете регистрировать корпоративные устройства и управлять ими либо разрешить пользователям регистрировать свои личные устройства. Управлять корпоративными устройствами также можно с помощью Intune и Configuration Manager.
+Depois de expandir o Configuration Manager com o Intune, pode inscrever e gerir dispositivos pertencentes à empresa ou conceder aos utilizadores permissão para inscreverem os respetivos dispositivos pessoais. Também pode gerir dispositivos pertencentes à empresa com o Intune com o Configuration Manager.
 
-В представленной ниже таблице приведены различные методы регистрации и поддерживаемые ими возможности. К таким возможностям относятся:
-- **Очистка** — сброс устройства к заводским настройкам с удалением всех данных. [Снятие устройств с учета](../deploy-use/wipe-lock-reset-devices.md).
-- **Сопоставление** — связывание устройств с пользователями. Требуется для управления мобильными приложениями (MAM) и условного доступа к данным компании. [Сопоставление пользователей](../deploy-use/user-affinity-for-hybrid-managed-devices.md)
-- **Блокировка** — запрещает пользователям выводить устройство из системы управления. Для блокировки устройств iOS требуется защищенный режим. [Удаленная блокировка](../deploy-use/wipe-lock-reset-devices.md#remote-lock).
+A tabela seguinte mostra os métodos de inscrição com as respetivas capacidades suportadas. Estas funcionalidades incluem:
+- **Apagar** -reposição de fábrica do dispositivo, removendo todos os dados. [Extinguir dispositivos](../deploy-use/wipe-lock-reset-devices.md)
+- **Afinidade** -associa dispositivos de utilizadores. Necessário para a gestão de aplicações móveis (MAM) e acesso condicional aos dados da empresa. [Afinidade de utilizador](../deploy-use/user-affinity-for-hybrid-managed-devices.md)
+- **Bloqueio** impede os utilizadores de remover o dispositivo da gestão. dispositivos iOS requerem o modo supervisionado para bloqueio. [Bloqueio remoto](../deploy-use/wipe-lock-reset-devices.md#remote-lock)
 
-**Методы регистрации устройств iOS**
+**métodos de inscrição de iOS**
 
-| **Метод** |  **Очистка** |  **Сопоставление**    |   **Блокировка** | **Сведения** |
+| **Método** |  **Eliminação de dados** |  **Afinidade**    |   **Bloqueio** | **Detalhes** |
 |:---:|:---:|:---:|:---:|:---:|
-|**[BYOD](#byod)** | Нет|    Да |   Нет | [подробнее](../deploy-use/enable-platform-enrollment.md)|
-|**[DEM](#dem)**|   Нет |Нет |Нет  | [подробнее](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
-|**[DEP](#dep)**|   Да |   Дополнительно |  Дополнительно|[подробнее](../deploy-use/ios-device-enrollment-program-for-hybrid.md)|
-|**[USB-SA](#usb-sa)**| Да |   Дополнительно |  Нет| [подробнее](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md)|
+|**[BYOD](#byod)** | Não|    Sim |   Não | [mais](../deploy-use/enable-platform-enrollment.md)|
+|**[DEM](#dem)**|   Não |Não |Não  | [mais](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
+|**[DEP](#dep)**|   Sim |   Opcional |  Opcional|[mais](../deploy-use/ios-device-enrollment-program-for-hybrid.md)|
+|**[USB SA](#usb-sa)**| Sim |   Opcional |  Não| [mais](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md)|
 
-**Методы регистрации устройств Android и Windows**
+**Métodos de inscrição de dispositivos Android e Windows**
 
-| **Метод** |  **Очистка** |  **Сопоставление**    |   **Блокировка** | **Сведения**|
+| **Método** |  **Eliminação de dados** |  **Afinidade**    |   **Bloqueio** | **Detalhes**|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|**[BYOD](#byod)** | Нет|    Да |   Нет | [подробнее](../deploy-use/enroll-hybrid-windows.md)|
-|**[DEM](#dem)**|   Нет |Нет |Нет  |[подробнее](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
+|**[BYOD](#byod)** | Não|    Sim |   Não | [mais](../deploy-use/enroll-hybrid-windows.md)|
+|**[DEM](#dem)**|   Não |Não |Não  |[mais](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
 
-Ряд вопросов, которые могут помочь вам выбрать правильный метод, см. в разделе [Выбор способа регистрации устройств](/intune/get-started/choose-how-to-enroll-devices1).
+Para uma série de pergunta que o ajudam a localizar o método adequado, consulte [escolher como inscrever dispositivos](/intune/get-started/choose-how-to-enroll-devices1).
 
 ## <a name="byod"></a>BYOD
-Пользователи, применяющие метод "Принеси свое устройство" (BYOD), устанавливают приложение корпоративного портала и регистрируют свои устройства. Это позволяет им подключаться к сети организации, присоединяясь к домену или Azure Active Directory. Включение регистрации BYOD является предварительным требованием во многих сценариях регистрации корпоративных устройств для большинства платформ. См. раздел [Настройка гибридного управления мобильными устройствами](../deploy-use/setup-hybrid-mdm.md). ([Назад к таблице](#overview-of-device-enrollment-methods))
+"Bring your own device" utilizadores (BYOD) instale a aplicação Portal da empresa e inscrever o respetivo dispositivo. Isto pode permitir que os utilizadores a ligar à rede da empresa, associar o domínio ou o Azure Active Directory. Permitir o BYOD inscrição é um pré-requisito para vários cenários de COD para a maioria das plataformas. Consulte [mm híbrida do programa de configuração](../deploy-use/setup-hybrid-mdm.md). ([Voltar à tabela](#overview-of-device-enrollment-methods))
 
-## <a name="corporate-owned-devices"></a>Корпоративные устройства
-Корпоративными устройствами можно управлять с помощью консоли Configuration Manager. Устройства iOS можно регистрировать непосредственно с помощью средств, предоставляемых Apple. Администратор или менеджер может регистрировать устройства любого типа с помощью диспетчера регистрации. Устройства с номерами IMEI также можно идентифицировать и помечать как корпоративные для обеспечения сценариев регистрации корпоративных устройств.
+## <a name="corporate-owned-devices"></a>Dispositivos pertencentes à empresa
+Dispositivos pertencentes à empresa (COD) podem ser geridos com a consola do Configuration Manager. dispositivos iOS podem ser inscritos diretamente através de ferramentas fornecidas pelo Apple. Todos os tipos de dispositivos podem ser inscritos por um administrador ou gestor utilizando o Gestor de inscrição de dispositivos. Também podem ser identificados e marcados como pertencentes à empresa para permitir cenários de COD dispositivos com um número IMEI.
 
-[Регистрация корпоративных устройств](../deploy-use/enroll-company-owned-devices.md)
+[Inscrever dispositivos pertencentes à empresa](../deploy-use/enroll-company-owned-devices.md)
 
 ### <a name="dem"></a>DEM
-Диспетчер регистрации устройств — это особая учетная запись пользователя, которая служит для регистрации нескольких корпоративных устройств и управления ими. Диспетчеры могут устанавливать корпоративный портал и регистрировать множество устройств, не имеющих пользователей. Дополнительные сведения о [DEM](../deploy-use/enroll-devices-with-device-enrollment-manager.md). ([Назад к таблице](#overview-of-device-enrollment-methods))
+Gestor de inscrição de dispositivos é uma conta de utilizador especial utilizada para inscrever e gerir vários dispositivos pertencentes à empresa. Os gestores podem instalar o Portal da empresa e inscrever vários dispositivos sem utilizador. Saiba mais sobre [DEM](../deploy-use/enroll-devices-with-device-enrollment-manager.md). ([Voltar à tabela](#overview-of-device-enrollment-methods))
 
 ### <a name="dep"></a>DEP
-Управление программой регистрации устройств Apple (DEP) позволяет создавать и развертывать политики по беспроводному каналу на устройствах iOS, приобретенных по программе DEP и управляемых с ее помощью. Устройство регистрируется, когда пользователь впервые включает устройство и запускает помощник по настройке iOS. Этот метод поддерживает **защищенный режим iOS**, который в свою очередь предоставляет следующие возможности:
-  - Заблокированная регистрация
-  - Условный доступ
-  - Обнаружение снятия ограничения на доступ к файловой системе
-  - Управление мобильными приложениями
+Gestão do programa de inscrição de dispositivos da Apple (DEP) permite-lhe criar e implementar a política "por ondas eletromagnéticas" para dispositivos iOS adquiridos e geridos com o DEP. O dispositivo é inscrito quando o utilizador passa no dispositivo pela primeira vez e executa o Assistente de configuração de iOS. Este método suporta **iOS supervisionado** modo que por sua vez permite:
+  - Inscrição bloqueada
+  - Acesso condicional
+  - Deteção de jailbreak
+  - Gestão de aplicações móveis
 
-Дополнительные сведения о [DEP](../deploy-use/ios-device-enrollment-program-for-hybrid.md). ([Назад к таблице](#overview-of-device-enrollment-methods))
+Saiba mais sobre [DEP](../deploy-use/ios-device-enrollment-program-for-hybrid.md). ([Voltar à tabela](#overview-of-device-enrollment-methods))
 
-### <a name="usb-sa"></a>USB-SA
-Регистрация посредством помощника по настройке через USB-подключение. Администратор создает политику и экспортирует ее в Apple Configurator. Корпоративные устройства, подключенные по USB, подготавливаются с использованием политики. Администратору необходимо вручную зарегистрировать каждое устройство. Пользователи получают устройства и запускают помощник по настройке, чтобы зарегистрировать их. Этот метод поддерживает **защищенный режим iOS**, который в свою очередь предоставляет следующие возможности:
-  - Условный доступ
-  - Обнаружение снятия ограничения на доступ к файловой системе
-  - Управление мобильными приложениями
+### <a name="usb-sa"></a>USB SA
+Inscrição do Assistente de configuração ligada por USB. O administrador cria uma política e exporta-a para o Apple Configurator. Estão preparados dispositivos ligados por USB, pertencentes à empresa com a política. O administrador tem de inscrever cada dispositivo manualmente. Os utilizadores recebem os respetivos dispositivos e executar o Assistente de configuração, inscrever o respetivo dispositivo. Este método suporta **iOS supervisionado** modo que por sua vez permite:
+  - Acesso condicional
+  - Deteção de jailbreak
+  - Gestão de aplicações móveis
 
-Дополнительные сведения о [регистрации посредством помощника по настройке в Apple Configurator](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md). ([Назад к таблице](#overview-of-device-enrollment-methods))
+Saiba mais sobre [a inscrição do Assistente de configuração com o Apple Configurator](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md). ([Voltar à tabela](#overview-of-device-enrollment-methods))
 
-## <a name="mobile-device-management-with-exchange-activesync-and-configuration-manager"></a>Управление мобильными устройствами с помощью Exchange ActiveSync и Configuration Manager
-Мобильными устройствами, которые не зарегистрированы, но подключены к Exchange ActiveSync (EAS), можно управлять в Intune с помощью политики управления мобильными устройствами EAS. Intune использует соединитель Exchange для взаимодействия с локальной или размещенной в облаке службой EAS.
+## <a name="mobile-device-management-with-exchange-activesync-and-configuration-manager"></a>Gestão de dispositivos móveis com o Exchange ActiveSync e o Configuration Manager
+Dispositivos móveis que não estão inscritos, mas que se ligar ao Exchange ActiveSync (EAS) podem ser geridos pelo Intune utilizando a política EAS de MDM. O Intune utiliza um Exchange Connector para comunicar com o EAS, no local e alojado na nuvem.
 
-[Управление мобильными устройствами с помощью Exchange ActiveSync и Intune](../deploy-use/manage-mobile-devices-with-exchange-activesync.md)
+[Gestão de dispositivos móveis com o Exchange ActiveSync e o Intune](../deploy-use/manage-mobile-devices-with-exchange-activesync.md)

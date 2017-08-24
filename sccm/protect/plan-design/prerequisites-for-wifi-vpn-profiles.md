@@ -1,6 +1,6 @@
 ---
-title: "Необходимые условия для профилей Wi-Fi и VPN | Документы Майкрософт"
-description: "Сведения о разрешениях безопасности, необходимых для управления профилями сертификатов, профилями Wi-Fi и профилями VPN в System Center Configuration Manager."
+title: "Pré-requisitos de perfis de Wi-Fi e VPN | Microsoft Docs"
+description: "Saiba mais sobre as permissões de segurança necessárias para gerir perfis de certificado, perfis Wi-Fi e perfis VPN no System Center Configuration Manager."
 ms.custom: na
 ms.date: 11/23/2016
 ms.prod: configuration-manager
@@ -17,36 +17,36 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 309b0363f9b3ec4a31b8323b9e64c9f73060c281
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Необходимые условия для профилей Wi-Fi и VPN в System Center Configuration Manager
+# <a name="prerequisites-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Pré-requisitos para Wi-Fi e perfis VPN no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Профили Wi-Fi и VPN в System Center Configuration Manager имеют только зависимости в пределах продукта.  
+Wi-Fi e perfis VPN no System Center Configuration Manager têm dependências apenas dentro do produto.  
 
- Для управления параметрами доступа к ресурсам компании, такими как профили сертификатов, профили Wi-Fi и профили VPN, необходимо иметь следующие разрешения системы безопасности.  
+ É necessário possuir as seguintes permissões de segurança para gerir definições de acesso a recursos da empresa, tais como perfis de certificado, perfis Wi-Fi e perfis VPN:  
 
--   Чтобы просматривать оповещения и отчеты для профилей Wi-Fi и управлять ими: разрешения **Создание**, **Удаление**, **Изменение**, **Изменить отчет**, **Чтение** и **Выполнить отчет** для объекта **Оповещения**.  
+-   Para ver e gerir alertas e relatórios para perfis Wi-Fi e: **Criar**, **eliminar**, **modificar**, **modificar relatório**, **leitura**, e **executar relatório** para o **alertas** objeto.  
 
--   Для создания профилей сертификатов и управления ими: разрешения **Политика автора**, **Изменить отчет**, **Чтение**и **Выполнить отчет** для объекта **Профиль сертификата** .  
+-   Para criar e gerir perfis de certificado: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil de certificado** objeto.  
 
--   Для управления развертываниями профилей Wi-Fi, сертификатов и VPN: разрешения **Развернуть политики конфигурации**, **Изменение оповещения о состоянии клиента**, **Чтение**и **Чтение ресурса** для объекта **Коллекция** .  
+-   Para gerir implementações de perfis de Wi-Fi, certificado e VPN: **Implementar políticas de configuração**, **modificar cliente alerta de estado**, **leitura**, e **ler recurso** para o **coleção** objeto.  
 
--   Для управления всеми политиками конфигураций: разрешения **Создание**, **Удаление**, **Изменение**, **Чтение**и **Настройка области безопасности** для объекта **Политика конфигурации** .  
+-   Para gerir todas as políticas de configuração: **Criar**, **eliminar**, **modificar**, **leitura**, e **definir âmbito de segurança** para o **política de configuração** objeto.  
 
--   Для выполнения запросов, связанных с профилями Wi-Fi и VPN: разрешение **Чтение** для объекта **Запрос**.  
+-   Para executar consultas relacionadas com perfis de Wi-Fi e VPN: **Leitura** permissão para o **consulta** objeto.  
 
--   Для просмотра сведений о профилях Wi-Fi и VPN в консоли System Center Configuration Manager: разрешение **Чтение** для объекта **Сайт**.  
+-   Para ver informações sobre perfis de Wi-Fi e VPN na consola do System Center Configuration Manager: **Leitura** permissão para o **Site** objeto.  
 
--   Для просмотра сообщений о состоянии для профилей Wi-Fi и VPN: разрешение **Чтение** для объекта **Сообщения о состоянии**.  
+-   Para ver mensagens de estado para perfis de Wi-Fi e VPN: **Leitura** permissão para o **mensagens de estado** objeto.  
 
--   Для создания и изменения профиля сертификатов: разрешения **Политика автора**, **Изменить отчет**, **Чтение**и **Выполнить отчет** для объекта **Профиль сертификата доверенного ЦС** .  
+-   Para criar e modificar o perfil de certificado de AC fidedigna: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil de certificado de AC fidedigna** objeto.  
 
--   Для создания профилей VPN и управления ими: разрешения **Политика автора**, **Изменить отчет**, **Чтение**и **Выполнить отчет** для объекта **Профиль VPN** .  
+-   Para criar e gerir perfis VPN: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil da VPN** objeto.  
 
--   Для создания профилей Wi-Fi и управления ими: разрешения **Политика автора**, **Изменить отчет**, **Чтение**и **Выполнить отчет** для объекта **Профиль Wi-Fi** .  
+-   Para criar e gerir perfis Wi-Fi: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil Wi-Fi** objeto.  
 
- Роль безопасности **Диспетчер доступа к ресурсам компании** включает все разрешения, необходимые для управления профилями Wi-Fi в System Center Configuration Manager. Дополнительные сведения см. в статье [Configure security in System Center Configuration Manager](../../core/plan-design/security/configure-security.md).
+ O **Gestor de acesso a recursos da empresa** função de segurança inclui estas permissões que são necessárias para gerir perfis de Wi-Fi no System Center Configuration Manager. Para obter mais informações, veja [Configurar a segurança no System Center Configuration Manager](../../core/plan-design/security/configure-security.md).

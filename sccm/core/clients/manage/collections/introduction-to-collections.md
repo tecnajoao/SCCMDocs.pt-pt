@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о коллекциях | Документы Майкрософт"
-description: "Общие сведения об использовании коллекций в System Center Configuration Manager."
+title: "Introdução de coleções | Microsoft Docs"
+description: "Obtenha uma introdução à utilização de coleções no System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
@@ -16,50 +16,50 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 547d231d48ccbc8241e9f1f8f71e3750b266b73e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-collections-in-system-center-configuration-manager"></a>Общие сведения о коллекциях в System Center Configuration Manager
+# <a name="introduction-to-collections-in-system-center-configuration-manager"></a>Introdução às coleções no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-С помощью коллекций можно разделить ресурсы на управляемые единицы. Вы можете создавать коллекции в соответствии со своими потребностями в управлении клиентами. Они также позволяют выполнять операции с несколькими ресурсами одновременно. 
+Coleções ajudam-na organizar recursos em unidades geríveis. Pode criar coleções para corresponder as suas necessidades de gestão de cliente e para efetuar operações em vários recursos de uma só vez. 
 
-Большинство задач управления зависят от использования одной или нескольких коллекций либо требуют их использования. Несмотря на то, что можно использовать встроенную коллекцию "Все системы", применять ее для выполнения задач управления не рекомендуется. Создавайте пользовательские коллекции для более точного определения устройств или пользователей для задачи.  
+A maioria das tarefas de gestão dependem ou exigir a utilização de um ou mais coleções. Apesar de poder utilizar a coleção incorporada de todos os sistemas, utilizá-la para tarefas de gestão não é uma melhor prática. Crie coleções personalizadas para identificar mais especificamente os dispositivos ou utilizadores para uma tarefa.  
 
- Встроенные и настраиваемые коллекции отображаются в узлах **Коллекции пользователей** и **Коллекции устройств** в рабочей области **Активы и соответствие** консоли Configuration Manager.  
+ Coleções incorporadas e personalizadas aparecem no **coleções de utilizadores** e **coleções de dispositivos** nós a **ativos e compatibilidade** área de trabalho na consola do Configuration Manager.  
 
- Недавно просмотренные коллекции отображаются в узлах **Пользователи** и **Устройства** в рабочей области **Активы и соответствие**.  
+ Coleções que visualizou recentemente aparecem no **utilizadores** nó e, no **dispositivos** no nó de **ativos e compatibilidade** área de trabalho.  
 
-Ниже приведены некоторые примеры использования коллекций.  
+Seguem-se alguns exemplos de utilização de coleção:  
 
-|Операция|Пример|  
+|Operação|Exemplo|  
 |---------|-------|  
-|Группировка ресурсов|Можно создать коллекции для группировки ресурсов на основе иерархии организации.<br /><br /> Например, можно создать коллекцию всех компьютеров, которые находятся в подразделении Active Directory "Главный офис в Лондоне". Дополнительные сведения о создании этого типа коллекции см. в разделе [Создание коллекций в System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md).<br /><br /> Эту коллекцию можно использовать для выполнения таких операций, как настройка параметров Endpoint Protection, настройка параметров управления питанием устройства или установка клиента Configuration Manager.|  
-|[Развертывание приложений]|Можно создать коллекцию всех компьютеров, на которых не установлен набор Microsoft Office 2013, а затем развернуть набор на всех компьютерах в этой коллекции.<br /><br /> Для выполнения этой задачи можно также воспользоваться требованиями к приложениям. Дополнительные сведения см. в статье [Создание приложений с помощью System Center Configuration Manager](../../../../apps/deploy-use/create-applications.md).|  
-|[Управление параметрами клиента](../../../../core/clients/deploy/about-client-settings.md)|Несмотря на то, что ко всем устройствам и пользователям применяются параметры клиента по умолчанию в Configuration Manager, можно создать настраиваемые параметры клиента, действующие для коллекции устройств или коллекции пользователей.<br /><br /> Например, чтобы функция удаленного управления была доступна почти на всех устройствах, необходимо настроить параметры клиента по умолчанию для разрешения удаленного управления, а затем пользовательские параметры клиента, запрещающие удаленное управление. После этого следует развернуть эти параметры в коллекциях клиентов, в отношении которых действует исключение. |  
-|[Управление питанием](../power/introduction-to-power-management.md)|Для каждой коллекции можно настроить параметры питания.|  
-|[Администрирование на основе ролей](../../../../core/servers/deploy/configure/configure-role-based-administration.md)|Коллекции можно использовать для управления тем, какие группы пользователей имеют доступ к различным функциям в консоли Configuration Manager.|  
-|[Периоды обслуживания](../../../../core/clients/manage/collections/use-maintenance-windows.md)|С помощью периодов обслуживания можно определить период времени, когда в отношении членов коллекции устройств можно проводить различные операции Configuration Manager. |  
+|Agrupar recursos|Pode criar coleções do grupo de recursos com base na hierarquia da sua organização.<br /><br /> Por exemplo, pode criar uma coleção de todos os computadores no "Sede de Londres" Active Directory unidade organizacional (UO). Para obter mais informações sobre como criar este tipo de coleção, consulte [como criar coleções no System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md).<br /><br /> Pode utilizar esta coleção para operações como configurar definições do Endpoint Protection, configurar definições de gestão de energia do dispositivo ou instalar o cliente do Configuration Manager.|  
+|[Implementação de aplicação]|Pode criar uma coleção de todos os computadores que têm instalado o Microsoft Office 2013 e, em seguida, implementá-la a todos os computadores nessa coleção.<br /><br /> Também pode utilizar os requisitos da aplicação para efetuar esta tarefa. Para obter mais informações, veja [Como criar aplicações com o System Center Configuration Manager](../../../../apps/deploy-use/create-applications.md).|  
+|[Gerir definições de cliente](../../../../core/clients/deploy/about-client-settings.md)|Embora as predefinições de cliente no Configuration Manager sejam aplicadas a todos os dispositivos e todos os utilizadores, pode criar definições de cliente personalizadas e aplicáveis a uma coleção de dispositivos ou a uma coleção de utilizadores.<br /><br /> Por exemplo, se pretender que o controlo remoto para estar disponível em todos ou alguns dispositivos, configure as predefinições de cliente para permitir o controlo remoto e, em seguida, configurar definições de cliente personalizadas que não permitir o controlo remoto e implementá-los para a coleção de clientes excecionais. |  
+|[Gestão de energia](../power/introduction-to-power-management.md)|Pode configurar as definições de energia específico por coleção.|  
+|[Administração baseada em funções](../../../../core/servers/deploy/configure/configure-role-based-administration.md)|Utilize coleções para controlar quais os grupos de utilizadores têm acesso a várias funcionalidades na consola do Configuration Manager.|  
+|[Janelas de manutenção](../../../../core/clients/manage/collections/use-maintenance-windows.md)|Com janelas de manutenção, pode definir um período de tempo quando podem ser executadas várias operações do Configuration Manager em membros de uma coleção de dispositivos. |  
 
 
-## <a name="collection-types-in-configuration-manager"></a>Типы коллекций в Configuration Manager  
- В Configuration Manager имеются встроенные коллекции, которые можно использовать для выполнения распространенных операций. Кроме того, можно создавать собственные коллекции.   
+## <a name="collection-types-in-configuration-manager"></a>Tipos de coleções no Configuration Manager  
+ O Configuration Manager possui as coleções incorporadas para operações comuns e também pode criar coleções personalizadas.   
 
-### <a name="built-in-collections"></a>Встроенные коллекции  
- По умолчанию Configuration Manager содержит следующие коллекции, которые не могут быть изменены.  
+### <a name="built-in-collections"></a>Coleções incorporadas  
+ Por predefinição, o Configuration Manager inclui as seguintes coleções, não podem ser modificadas.  
 
-|**Название коллекции**|Описание|  
+|**Nome da coleção**|Descrição|  
 |-------------------------|-----------------|  
-|**Все группы пользователей**|Содержит группы пользователей, которые обнаруживаются с помощью функции обнаружения групп безопасности Active Directory.|  
-|**Все пользователи**|Содержит пользователей, которые обнаруживаются с помощью функции обнаружения пользователей Active Directory.|  
-|**Все пользователи и группы пользователей**|Содержит коллекции всех пользователей и всех групп пользователей. Эта коллекция содержит самый широкий спектр ресурсов пользователей и групп пользователей.|  
-|**Все клиенты — настольные компьютеры и серверы**|Содержит устройства серверов и настольных компьютеров с установленным клиентом Configuration Manager. Членство поддерживается путем heartbeat-обнаружения.|  
-|**Все мобильные устройства**|Содержит мобильные устройства, которыми управляет Configuration Manager. Членство ограничено только теми мобильными устройствами, которые успешно назначены сайту или обнаружены соединителем Exchange Server.|  
-|**Все системы**|Содержит коллекции "Все клиенты — настольные компьютеры и серверы", "Все мобильные устройства" и "Все неизвестные компьютеры", а также все мобильные устройства, зарегистрированные в Microsoft Intune. Эта коллекция содержит самый широкий спектр ресурсов устройств.|  
-|**Все неизвестные компьютеры**|Содержит универсальные записи о компьютерах для различных платформ. Данную коллекцию можно использовать для развертывания операционной системы с помощью последовательности задач и загрузки PXE, загрузочного или предварительно подготовленного носителя.|  
+|**Todos os Grupos de Utilizadores**|Contém os grupos de utilizadores que são detetados com a Deteção de Grupos de Segurança do Active Directory.|  
+|**Todos os Utilizadores**|Contém os utilizadores que são detetados com a Deteção de Utilizadores do Active Directory.|  
+|**Todos os Utilizadores e Grupos de Utilizadores**|Contém as coleções Todos os Utilizadores e Todos os Grupos de Utilizadores. Esta coleção contém o maior âmbito de utilizador e de recursos de grupo do utilizador.|  
+|**Todos os Clientes de Servidor e de Ambiente de Trabalho**|Contém os dispositivos de servidor e de ambiente de trabalho que tenham o cliente do Configuration Manager instalado. A associação é mantida pela Deteção Heartbeat.|  
+|**Todos os Dispositivos Móveis**|Contém os dispositivos móveis que são geridos pelo Configuration Manager. A associação é restrita a esses dispositivos móveis atribuídos com êxito a um site ou detetados pelo conector do Exchange Server.|  
+|**Todos os Sistemas**|Contém o ambiente de trabalho de todas as e clientes de servidor, todos os dispositivos móveis e as coleções todos os computadores desconhecidos e todos os dispositivos móveis que são inscritos pelo Microsoft Intune. Esta coleção contém o maior âmbito de recursos dos dispositivos.|  
+|**Todos os Computadores Desconhecidos**|Contém os registos de computadores genéricos para várias plataformas de computadores. Pode utilizar esta coleção para implementar um sistema operativo ao utilizar uma sequência de tarefas e arranque PXE, suportes de dados de arranque ou suportes de dados pré-configurados.|  
 
-### <a name="custom-collections"></a>Настраиваемые коллекции  
- При создании настраиваемой коллекции в Configuration Manager членство в этой коллекции определяется одним или несколькими правилами коллекции, как описано в разделе [Создание коллекций в System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md). 
+### <a name="custom-collections"></a>Coleções personalizadas  
+ Quando cria uma coleção personalizada no Configuration Manager, a associação a essa coleção é determinada por uma ou mais regras de coleção, conforme descrito em [como criar coleções no System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md). 
 

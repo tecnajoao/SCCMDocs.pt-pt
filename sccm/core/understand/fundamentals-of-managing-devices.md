@@ -1,6 +1,6 @@
 ---
-title: "Основные принципы управления устройствами | Документы Майкрософт"
-description: "Сведения об использовании System Center Configuration Manager для управления устройствами."
+title: "Noções básicas de gestão de dispositivos | Microsoft Docs"
+description: Saiba como utilizar o System Center Configuration Manager para gerir dispositivos.
 ms.custom: na
 ms.date: 12/04/2016
 ms.prod: configuration-manager
@@ -16,85 +16,85 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 45d84122a86da880268c93ecd994250df6b76c8a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-managing-devices-with-system-center-configuration-manager"></a>Основные принципы управление устройствами с помощью System Center Configuration Manager
+# <a name="fundamentals-of-managing-devices-with-system-center-configuration-manager"></a>Noções básicas sobre gestão de dispositivos com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-С помощью System Center Configuration Manager можно управлять двумя основными категориями устройств.
+System Center Configuration Manager pode gerir duas categorias amplas de dispositivos:
 
--   *Клиенты* — это устройства (рабочие станции, ноутбуки, серверы и мобильные устройства), на которых установлено клиентское программное обеспечение Configuration Manager. Это клиентское программное обеспечение требуется для некоторых функций управления, таких как инвентаризация оборудования.  
+-   *Os clientes* são dispositivos como estações de trabalho, computadores portáteis, servidores e dispositivos móveis em que instalar o software de cliente do Configuration Manager. Algumas funções de gestão, como o inventário de hardware, requerem este software de cliente.  
 
--   К *управляемым устройствам* могут относиться *клиенты*, но обычно это мобильные устройства, на которых не установлено клиентское программное обеспечение Configuration Manager. Для таких устройств используется управление с помощью Intune или встроенное локальное управление мобильными устройствами в Configuration Manager.
+-   *Dispositivos geridos* podem incluir *clientes*, mas normalmente é um dispositivo móvel em que o software de cliente do Configuration Manager não está instalado. Neste tipo de dispositivo, gerir utilizando o Intune ou a gestão de dispositivos móveis incorporada no local no Configuration Manager.
 
-Устройства можно также группировать и идентифицировать на основе пользователя, а не только на основе типа клиента.
+Também pode agrupar e identificar os dispositivos com base no utilizador, não apenas o tipo de cliente.
 
-## <a name="managing-devices-with-the-configuration-manager-client"></a>Управление устройствами с помощью клиента Configuration Manager
+## <a name="managing-devices-with-the-configuration-manager-client"></a>Gerir dispositivos com o cliente do Configuration Manager
 
-Есть два способа использования клиента Configuration Manager для управления устройствами. Первый способ — обнаружение устройств в сети и развертывание клиентского программного обеспечения на этих устройствах. Второй способ — установка клиентского программного обеспечения на новом компьютере вручную и последующее подключение компьютера к вашему сайту при его подключении к вашей сети. Для обнаружения устройств, на которые еще не установлено клиентское программное обеспечение, можно воспользоваться одним из встроенных методов обнаружения или несколькими. После обнаружения устройства используйте один из методов, чтобы установить клиентское программное обеспечение. Дополнительные сведения об обнаружении см. в разделе [Выполнение обнаружения в System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
+Existem duas formas de utilizar o software de cliente do Configuration Manager para gerir um dispositivo. É a primeira forma para detetar o dispositivo na sua rede e, em seguida, implementar o software de cliente nesse dispositivo. A outra forma consiste em instalar manualmente o software de cliente num novo computador e, em seguida, ter nesse computador associe ao seu site quando é associado a sua rede. Para detetar dispositivos em que o software de cliente não está instalado, execute um ou mais dos métodos de deteção incorporados. Depois de um dispositivo for detetado, utilize um dos vários métodos para instalar o software de cliente. Para informações sobre como utilizar a deteção, veja [Executar a deteção para o System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
 
- После обнаружения устройств, поддерживающих запуск клиентского программного обеспечения Configuration Manager, можно установить программное обеспечение с помощью одного из нескольких методов. После установки программного обеспечения и назначения клиента на первичный сайт вы сможете управлять мобильными устройствами.  К основным методам установки относятся следующие.
+ Depois de descobrir os dispositivos que são suportados para executar o software de cliente do Configuration Manager, pode utilizar um dos vários métodos para instalar o software. Depois de o software ser instalado e o cliente atribuído a um site primário, pode começar a gerir o dispositivo.  Métodos de instalação comuns incluem:
 
- - Принудительная установка клиента.
+ - Instalação de push de cliente.
 
- - Установка путем обновления программного обеспечения.
+ - Instalação baseada em atualização de software.
 
- - Групповая политика.
+ - Política de grupo.
 
- - Установка на компьютере вручную.
- - Включение клиента в образ развертываемой операционной системы.  
-
-
- После установки клиента можно упростить задачи управления устройствами с помощью коллекций. Коллекции представляют собой группы устройств или пользователей, которыми можно управлять как одним целым. Например, можно установить приложение для мобильного устройства на всех мобильных устройствах, которые зарегистрированы в Configuration Manager. Для этого можно воспользоваться коллекцией "Все мобильные устройства".  
-
- Дополнительные сведения см. в следующих разделах.  
-
--   [Выбор решения для управления устройствами в System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
-
--   [Методы установки клиента в System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md)  
-
--   [Общие сведения о коллекциях в System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md)  
-
-### <a name="client-settings"></a>Параметры клиента  
- При первой установке Configuration Manager на всех клиентах в иерархии задаются параметры по умолчанию, которые можно изменить. Эти параметры позволяют указать:
-
- -  как часто устройства должны подключаться к сайту;
-
- -  настроены ли на клиенте установка обновлений программного обеспечения и выполнение других административных операций;
-
- -  могут ли пользователи регистрировать свои мобильные устройства для управления с помощью Configuration Manager.  
-
-Вы можете создать пользовательские параметры клиентов и назначить их коллекциям.  Участники коллекции могут задавать настраиваемые параметры. Вы также можете создать несколько настраиваемых клиентских параметров, которые будут применяться в заданном порядке (в порядке нумерации).  При возникновении конфликтов параметр с меньшим порядковым номером переопределяют остальные параметры.  
-
-На следующем рисунке показан пример создания и применения настраиваемых параметров клиента.  
-
- ![Параметры клиента](media/ClientSettings.gif)  
-
- Дополнительные сведения см. в статьях  
-                [Настройка параметров клиента в System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md) и [О параметрах клиентов в System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).
-
-## <a name="managing-devices-without-the-configuration-manager-client"></a>Управление устройствами с помощью клиента Configuration Manager  
- Configuration Manager поддерживает управление некоторыми устройствами, на которых не установлено клиентское программное обеспечение и которые не находятся под управлением Intune. Дополнительные сведения см. в статьях [Управление мобильными устройствами с помощью локальной инфраструктуры в System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) и [Управление мобильными устройствами с помощью System Center Configuration Manager и Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
-
-## <a name="user-based-management"></a>Управление на основе пользователя  
- Configuration Manager поддерживает коллекции пользователей доменных служб Active Directory. При использовании коллекции пользователей можно установить программное обеспечение на всех компьютерах, используемых участниками коллекции. Чтобы развертываемое программное обеспечение устанавливалось только на устройствах, указанных в качестве основного устройства пользователя, настройте сопоставление пользователей и устройств. Пользователь может иметь одно или несколько основных устройств.  
-
- Для управления развертыванием приложений можно использовать **центр программного обеспечения**. **Центр программного обеспечения** автоматически устанавливается на клиентских компьютерах и доступен в меню **Пуск**. **Центр программного обеспечения** позволяет управлять программным обеспечением, а также выполнять следующие задачи.  
-
--   Установка программного обеспечения.  
-
--   Планирование автоматической установки программного обеспечения в нерабочие часы.  
-
--   Настройка периода времени, когда Configuration Manager может устанавливать программное обеспечение на устройствах.  
-
--   Настройка параметров доступа для удаленного управления, если в Configuration Manager включено удаленное управление.  
-
--   Настройка параметров управления электропитанием, если эта функция включена администратором.  
+ - Instalação manual num computador.
+ - Incluindo o cliente como parte de uma imagem do sistema operativo que implementar.  
 
 
- С помощью ссылки в **центре программного обеспечения** пользователи могут подключиться к **каталогу приложений** для поиска и установки программного обеспечения, а также для запроса программного обеспечения. **Каталог приложений** также позволяет указать необходимые параметры, очищать мобильные устройства и указать основное устройство для сопоставления пользователей и устройств, если сопоставление настроено.   
+ Depois de o cliente ser instalado, é possível simplificar as tarefas de gestão de dispositivos através da utilização de coleções. As coleções são grupos de dispositivos ou utilizadores que criar para que possa geri-los como um grupo. Por exemplo, pode querer instalar uma aplicação de dispositivo móvel em todos os dispositivos móveis que inscreve do Configuration Manager. Se for este o caso, pode utilizar a coleção de todos os dispositivos móveis.  
 
- Пользователи также могут открыть **каталог приложений** в браузере через Интернет или внутреннюю сеть.  
+ Para obter mais informações, consulte estes tópicos:  
+
+-   [Escolher uma solução de gestão de dispositivos para o System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
+
+-   [Métodos de instalação de cliente no System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md)  
+
+-   [Introdução às coleções no System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md)  
+
+### <a name="client-settings"></a>Definições do cliente  
+ Quando instalar o Configuration Manager pela primeira vez, todos os clientes na hierarquia são configurados através da utilização de predefinições de cliente que podem ser alteradas. As definições de cliente incluem estas opções de configuração:
+
+ -  Frequência com os dispositivos comunicam com o site.
+
+ -  Indica se o cliente está definido para atualizações de software e outras operações de gestão.
+
+ -  Se os utilizadores podem inscrever os respetivos dispositivos móveis, por isso, se estiver a geridos pelo Configuration Manager.  
+
+Pode criar definições personalizadas de cliente e, em seguida, atribuí-las a coleções.  Membros da coleção estão configurados para terem as definições personalizadas e vários personalizadas de cliente pode criar as definições que são aplicadas pela ordem que especificar (por ordem numérica).  Se houver conflitos, a definição que tiver o menor número de ordem substitui as outras definições.  
+
+O diagrama seguinte mostra um exemplo de como criar e aplicar definições de cliente personalizadas.  
+
+ ![Definições do cliente](media/ClientSettings.gif)  
+
+ Para obter mais informações sobre definições de cliente, consulte  
+                [Como configurar definições de cliente no System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md) e [Acerca das definições de cliente no System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).
+
+## <a name="managing-devices-without-the-configuration-manager-client"></a>Gerir dispositivos com o cliente do Configuration Manager  
+ O Configuration Manager suporta a gestão de alguns dispositivos que não instalou o software de cliente e não são geridos pelo Intune. Para obter mais informações, consulte [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) e [gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+
+## <a name="user-based-management"></a>Gestão baseada no utilizador  
+ O Configuration Manager suporta coleções de utilizadores do Active Directory Domain Services. Quando utiliza uma coleção de utilizadores, pode instalar software em todos os computadores que os membros a utilização de coleção. Para se certificar de que só instala o software que implementar nos dispositivos que são especificados como dispositivo primário do utilizador, configure a afinidade dispositivo / utilizador. Um utilizador pode ter um ou mais dispositivos primários.  
+
+ Uma das formas em que os utilizadores podem controlar a sua experiência de implementação de software consiste em utilizar o **Centro de Software** interface do cliente. O **Centro de Software** é instalado automaticamente nos computadores cliente e é executada a partir de **iniciar** menu. O **Centro de Software** permite aos utilizadores gerir o seu próprio software e efetuar as seguintes tarefas:  
+
+-   Instale software.  
+
+-   Agendar software para instalar automaticamente fora das horas de trabalho.  
+
+-   Configure quando o Configuration Manager pode instalar software num dispositivo.  
+
+-   Configure as definições de acesso para controlo remoto, se o controlo remoto está configurado no Configuration Manager.  
+
+-   Configure opções para gestão de energia, se um administrador configura esta opção.  
+
+
+ Uma ligação no **Centro de Software** permite aos utilizadores ligar para o **catálogo de aplicações**, onde podem procurar, instalar e solicitar software. O **catálogo de aplicações** também é utilizado para configurar as definições de preferência, apagar dispositivos móveis e, quando for definida, especifique um dispositivo primário para a afinidade dispositivo / utilizador.   
+
+ Os utilizadores também podem aceder a **catálogo de aplicações** através de uma intranet de browser ou a sessão de Internet.  

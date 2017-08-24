@@ -1,6 +1,6 @@
 ---
-title: "Основы безопасности | Документы Майкрософт"
-description: "Сведения об уровнях безопасности для System Center Configuration Manager."
+title: "Noções básicas de segurança | Microsoft Docs"
+description: "Saiba mais sobre as camadas de segurança para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,56 +16,56 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: df3198885259b1db4a1aadee0db6512a1a2d4911
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-security-for-system-center-configuration-manager"></a>Основы безопасности для System Center Configuration Manager
+# <a name="fundamentals-of-security-for-system-center-configuration-manager"></a>Noções básicas de segurança do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Обеспечение безопасности для System Center Configuration Manager включает несколько уровней. Первый уровень обеспечивается функциями безопасности Windows, которые относятся как к операционной системе, так и к сети (см. список ниже).  
+Segurança para o System Center Configuration Manager é composta por várias camadas. A primeira camada é fornecida por funcionalidades de segurança do Windows para o sistema operativo e da rede e inclui:  
 
--   Общий доступ к файлам для передачи файлов между компонентами Configuration Manager.  
+-   Partilha de ficheiros para transferir ficheiros entre componentes do Configuration Manager.  
 
--   Списки управления доступом (ACL) для защиты файлов и разделов реестра.  
+-   Controlo de listas de acesso (ACL) para ajudar a proteger ficheiros e chaves de registo.  
 
--   Протокол IPsec для защиты обмена данными.  
+-   Segurança de protocolo de Internet (IPsec) para ajudar a comunicações seguras.  
 
--   Групповая политика для настройки политики безопасности.  
+-   Política de grupo para definir a política de segurança.  
 
--   Разрешения DCOM для распределенных приложений, таких как консоль Configuration Manager.  
+-   Distribuída componente DCOM (Object Model) permissões para aplicações distribuídas, incluindo a consola do Configuration Manager.  
 
--   Доменные службы Active Directory для хранения субъектов безопасности.  
+-   Serviços de domínio do Active Directory para armazenar principais de segurança.  
 
--   Безопасность учетной записи Windows, включая некоторые группы, создаваемые в процессе установки Configuration Manager.  
+-   Segurança de conta do Windows, incluindo alguns grupos que são criados durante a configuração do Configuration Manager.  
 
-Дополнительные компоненты безопасности, например брандмауэры и системы обнаружения вторжений, помогают обеспечить защиты всей среды. Сертификаты, изданные в стандартных реализациях инфраструктуры открытых ключей (PKI), обеспечивают проверку подлинности, подписание и шифрование.  
+Em seguida, os componentes de segurança adicionais, como as firewalls e deteção de intrusões, ajudam a fornecer defesa da todo o ambiente. Os certificados emitidos da indústria implementações de infraestrutura de chaves públicas (PKI) padrão fornecem autenticação, assinatura e encriptação.  
 
-В дополнение к функциям безопасности, предоставляемым Windows Server и сетевой инфраструктурой, Configuration Manager управляет доступом к консоли Configuration Manager и ее ресурсам несколькими способами. По умолчанию только локальные администраторы имеют права в отношении файлов и разделов реестра, необходимых для запуска консоли Configuration Manager на компьютерах, где она установлена.  
+Além da segurança fornecida pela infraestrutura do servidor e da rede do Windows, o Configuration Manager controla o acesso à consola do Configuration Manager e os respetivos recursos de várias formas. Por predefinição, apenas os administradores locais possuem direitos sobre os ficheiros e chaves de registo que são necessárias para executar a consola do Configuration Manager em computadores onde está instalado.  
 
-Следующий уровень безопасности основан на доступе через инструментарий управления Windows (WMI), в частности, это относится к поставщику SMS. Поставщик SMS — это компонент Configuration Manager, который предоставляет пользователю доступ для запроса информации из базы данных сайта. К поставщику по умолчанию имеют доступ только члены локальной группы "Администраторы SMS". Эта группа изначально содержит только пользователя, установившего Configuration Manager. Чтобы предоставить другим учетным записям разрешение на доступ к репозиторию CIM и поставщику SMS, следует добавить в группу "Администраторы SMS" другие учетные записи.  
+A próxima camada de segurança baseia-se no acesso através do WMI (Windows Management Instrumentation), nomeadamente o Fornecedor de SMS. O fornecedor de SMS é um componente do Configuration Manager que concede um utilizador de acesso para consultar a base de dados do site para obter informações. Por predefinição, o acesso ao fornecedor é restringido aos membros do grupo Admins de SMS local. Este grupo no primeiro contém apenas o utilizador que instalou o Configuration Manager. Para conceder permissão a outras contas no repositório CIM (Common Information Model) e no fornecedor de SMS, adicione-as ao grupo de Administradores de SMS.  
 
-Последний уровень безопасности – это разрешения для объектов в базе данных сайта. По умолчанию локальная системная учетная запись и учетная запись, используемая для установки Configuration Manager, имеют доступ к администрированию всех объектов в базе данных сайта. Можно предоставлять и отменять разрешения для дополнительных административных пользователей в консоли Configuration Manager, используя ролевое администрирование.  
+A camada final de segurança baseia-se nas permissões para objetos da base de dados do site. Por predefinição, a conta de sistema Local e a conta de utilizador que utilizou para instalar o Configuration Manager podem administrar todos os objetos na base de dados do site. Pode conceder e restringir as permissões a utilizadores administrativos adicionais na consola do Configuration Manager utilizando a administração baseada em funções.  
 
 
 
-## <a name="role-based-administration"></a>Администрирование на основе ролей  
- В Configuration Manager используется ролевое администрирование, позволяющее обеспечить безопасность таких объектов, как коллекции, развертывания и сайты. Эта модель администрирования централизованно определяет и управляет параметрами безопасности в масштабе иерархии для всех сайтов и параметров сайтов. Роли безопасности назначаются административным пользователям и объединяют разрешения. Разрешения связаны с различными типами объектов Configuration Manager, например разрешения на создание и изменение параметров клиентов. Области безопасности группируют конкретные экземпляры объектов, которыми должен управлять пользователь с правами администратора, например приложение, устанавливающее Microsoft Office. Сочетание ролей безопасности, областей безопасности и коллекций определяет объекты, которые пользователь с правами администратора может просматривать и которыми он может управлять. Configuration Manager устанавливает некоторые роли безопасности по умолчанию для типичных задач управления. Однако можно также создавать свои собственные роли безопасности, соответствующие определенным бизнес-требованиям.  
+## <a name="role-based-administration"></a>Administração baseada em funções  
+ O Configuration Manager utiliza a administração baseada em funções para ajudar a proteger objetos, como coleções, implementações e sites. Este modelo de administração define e gere de forma centralizada as definições de acesso de segurança de toda a hierarquia para todos os sites e definições do site. Funções de segurança estão atribuídas a utilizadores administrativos e permissões de grupo. As permissões estão ligadas a diferentes tipos de objeto do Configuration Manager, como as permissões que são utilizados para criar ou alterar as definições de cliente. Os âmbitos de segurança agrupam instâncias específicas de objetos que um utilizador administrativo é da responsabilidade de gerir, como uma aplicação que instala o Microsoft Office. A combinação de funções de segurança, âmbitos de segurança e coleções define os objetos que um utilizador administrativo pode ver e gerir. O Configuration Manager instala algumas funções de segurança predefinidas para tarefas de gestão típicas. No entanto, pode criar as suas próprias funções de segurança para suportar necessidades comerciais específicas.  
 
- Дополнительные сведения см. в разделе [Настройка ролевого администрирования для System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+ Para obter mais informações, consulte [configurar a administração baseada em funções para o System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-## <a name="securing-client-endpoints"></a>Обеспечение безопасности клиентских конечных точек  
- Подключения клиентов к ролям системы сайта защищаются с помощью самозаверяющих сертификатов, либо посредством PKI-сертификатов. PKI-сертификаты необходимо использовать для клиентских компьютеров, обнаруженных Configuration Manager в Интернете, и клиентов мобильных устройств. PKI-сертификаты используют протокол HTTPS для защиты клиентских конечных точек. Роли систем сайта, к которым подключаются клиенты, могут быть настроены на соединение с клиентами по протоколам HTTPS или HTTP. Клиентские компьютеры всегда соединяются с использованием наиболее безопасного доступного метода. Менее защищенный метод с использованием протокола HTTP применяется в интрасети только в том случае, если имеются роли системы сайта, разрешающие соединения по протоколу HTTP.  
+## <a name="securing-client-endpoints"></a>Proteger pontos finais de cliente  
+ Comunicação de cliente para funções do sistema de sites é protegida com certificados autoassinados, ou utilizando certificados PKI. Terá de utilizar um certificado PKI para clientes de computador que o Configuration Manager Deteta na Internet e para clientes de dispositivos móveis. O certificado PKI utiliza HTTPS para proteger pontos finais de cliente. As funções do sistema de sites a que os clientes se ligam podem ser configuradas para comunicação HTTPS ou HTTP com o cliente. Computadores cliente comunicam sempre utilizando o método mais seguro que está disponível. Computadores cliente só voltam a utilizar o método de comunicação menos seguro de HTTP na intranet se possuir funções de sistemas de sites que permitem comunicação HTTP.  
 
- Дополнительные сведения см. в разделе [Технический справочник по элементам управления шифрования для System Center Configuration Manager](../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
+ Para obter mais informações, consulte [Cryptographic controla referência técnica para o System Center Configuration Manager](../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
 
-## <a name="configuration-manager-accounts-and-groups"></a>Учетные записи и группы Configuration Manager  
- Configuration Manager использует учетную запись Local System для большинства операций с сайтом. Некоторые задачи управления могут потребовать создания и обслуживания дополнительных учетных записей. Несколько групп по умолчанию, а также роли SQL Server создаются при установке. Возможно, вам понадобится вручную добавить учетные записи компьютеров или пользователей в эти группы и роли SQL Server по умолчанию.  
+## <a name="configuration-manager-accounts-and-groups"></a>Contas e grupos do Configuration Manager  
+ O Configuration Manager utiliza a conta de sistema Local para a maioria das operações do site. Algumas tarefas de gestão podem implicar a criar e manter as contas adicionais. São criadas vários grupos predefinidos e funções do SQL Server durante a configuração. Poderá ter de adicionar manualmente as contas de computador ou utilizador os grupos predefinidos e funções do SQL Server.  
 
- Дополнительные сведения см. в статье [Учетные записи, используемые в System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md).  
+ Para obter mais informações, veja [Contas utilizadas no System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md).  
 
-## <a name="privacy"></a>Конфиденциальность  
- Продукты для управления предприятием дают много преимуществ, позволяя эффективно управлять большим числом клиентов. Однако следует также иметь в виду, что это программное обеспечение может повлиять на конфиденциальность пользователей в организации. System Center Configuration Manager включает в себя много средств для сбора данных и наблюдения за устройствами. По некоторым из них могут возникнуть вопросы, касающиеся соблюдения конфиденциальности.  
+## <a name="privacy"></a>Privacidade  
+ Embora os produtos de gestão empresarial ofereçam muitas vantagens por permitirem gerir muitos clientes de forma eficaz, também tem de estar ciente de como este software pode afetar a privacidade dos utilizadores na sua organização. System Center Configuration Manager inclui diversas ferramentas para recolher dados e monitorizar dispositivos. Algumas ferramentas podem criar problemas de privacidade.  
 
- Например, при установке клиента Configuration Manager многие параметры управления включены по умолчанию. В результате клиентское программное обеспечение отправляет данные на сайт Configuration Manager. Сведения о клиентах сохраняются в базе данных Configuration Manager, и данные не отправляются в Майкрософт. Перед развертыванием System Center Configuration Manager следует рассмотреть требования к конфиденциальности.  
+ Por exemplo, quando instala o cliente do Configuration Manager, muitas definições de gestão são ativadas por predefinição. Isto faz com que o software de cliente enviar informações para o site do Configuration Manager. Informações de cliente são armazenadas na base de dados do Configuration Manager e as informações não são enviadas à Microsoft. Antes de implementar o System Center Configuration Manager, considere os requisitos de privacidade.  

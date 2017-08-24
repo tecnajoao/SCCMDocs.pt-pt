@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения о профилях сертификатов | Документация Майкрософт"
-description: "Узнайте, как профили сертификатов в System Center Configuration Manager работают со службами сертификатов Active Directory."
+title: "Introdução aos perfis de certificado | Microsoft Docs"
+description: "Saiba como funcionam os perfis de certificado no System Center Configuration Manager com os serviços de certificados do Active Directory."
 ms.custom: na
 ms.date: 07/25/2017
 ms.prod: configuration-manager
@@ -16,92 +16,92 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 7b1c0e449f3d1ef42e279e8707df6bf1df163b3f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Общие сведения о профилях сертификатов в System Center Configuration Manager
+# <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Introdução aos perfis de certificado no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
-
-
-Профили сертификатов совместно со службами сертификатов Active Directory и ролью службы регистрации сертификатов для сетевых устройств подготавливают сертификаты проверки подлинности для управляемых устройств, чтобы пользователи могли легко получить доступ к ресурсам компании. Например, можно создать и развернуть профили сертификатов для предоставления пользователям сертификатов, необходимых для инициирования беспроводных и VPN-подключений. 
-
-Профили сертификатов могут автоматически настраивать устройства пользователей, чтобы для доступа к ресурсам компании, таким как сети Wi-Fi и VPN-серверы, не требовалось вручную устанавливать сертификаты или использовать внешний процесс. Профили сертификатов могут также обеспечить безопасность ресурсов компании, поскольку позволяют использовать более безопасные параметры, поддерживаемые инфраструктурой открытых ключей (PKI) вашей организации. Например, можно потребовать проверку подлинности сервера для всех подключений Wi-Fi и VPN-подключений, так как на управляемых устройствах подготовлены необходимые сертификаты.   
-
-Профили сертификатов предоставляют следующие возможности управления.  
-
--   Регистрация и продление срока действия сертификатов центра сертификации (ЦС) предприятия для устройств с ОС iOS, Windows 8.1, Windows RT 8.1, Windows 10 Desktop и Mobile, а также Android. В дальнейшем эти сертификаты могут использоваться для Wi-Fi- и VPN-подключений.  
-
--   Развертывание сертификатов доверенных корневых ЦС и промежуточных ЦС для настройки на устройствах цепочки сертификатов для VPN- и Wi-Fi-подключений, если требуется проверка подлинности сервера.  
-
--   Мониторинг и создание отчетов об установленных сертификатах.  
-
-**Пример:** Все сотрудники должны иметь возможность подключения к хот-спотам Wi-Fi в разных корпоративных местоположениях. Разверните сертификаты, необходимые для установки Wi-Fi-подключения, а также профили Wi-Fi, ссылающиеся на сертификат, который обеспечивает подключение незаметно для пользователей.  
-
-**Пример:** У вас есть PKI, и вы хотите перейти на более гибкий и безопасный метод подготовки сертификатов, который позволяет пользователям получать доступ к ресурсам компании со своих личных устройств без риска для безопасности. Настройте профили сертификатов с помощью параметров и протоколов, поддерживаемых конкретной платформой устройств. После этого устройства смогут автоматически запрашивать эти сертификаты с сервера регистрации с выходом в Интернет. Затем настройте профили VPN для использования этих сертификатов, чтобы устройство могло осуществлять доступ к ресурсам компании.  
-
-## <a name="types-of-certificate-profiles"></a>Типы профилей сертификатов  
- Существует три типа профилей сертификатов.  
-
--   **Сертификат доверенного ЦС**. Позволяет развернуть сертификат доверенного корневого ЦС или сертификат промежуточного ЦС для формирования цепочки сертификатов, если устройство должно проверять подлинность сервера.  
-
--   **Протокол SCEP**. Позволяет запросить сертификат для устройства или пользователя с помощью протокола SCEP и службы регистрации сертификатов для сетевых устройств на сервере под управлением Windows Server 2012 R2.
-
-    Чтобы создать профиль сертификата **SCEP**, сначала создайте профиль сертификата **Сертификат доверенного ЦС**.
-
--   **Файл обмена личной информацией (PFX)**. Позволяет запросить PFX-сертификат (также известный как PKCS #12) для устройства или пользователя.
-
-    Чтобы создать профили сертификатов PFX, [импортируйте учетные данные](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md) из существующих сертификатов или [определите центр сертификации](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md) для обработки запросов.
-
-    Начиная с выпуска 1706 в качестве центров сертификации для сертификатов **обмена личной информацией (PFX-файлов)** можно использовать Microsoft или Entrust.
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-## <a name="requirements-and-supported-platforms"></a>Требования и поддерживаемые платформы  
-Для развертывания профилей сертификатов, в которых используется протокол SCEP, необходимо установить точку регистрации сертификатов на сервере системы сайта на сайте центра администрирования или первичном сайте. Также необходимо установить модуль политики для службы регистрации сертификатов для сетевых устройств (модуль политики Configuration Manager) на сервере Windows Server 2012 R2 с ролью служб сертификатов Active Directory и работающей службой регистрации сертификатов для сетевых устройств, доступной для устройств, которым требуются сертификаты. Для устройств, регистрируемых с помощью Microsoft Intune, служба регистрации сертификатов для сетевых устройств должна быть доступна через Интернет, например в промежуточной подсети (также называемой сетью периметра).  
+Perfis de certificado trabalham com os serviços de certificados do Active Directory e a função de serviço de inscrição de dispositivos de rede para certificados de autenticação aprovisionar dispositivos geridos para que os utilizadores possam aceder perfeitamente a recursos da empresa. Por exemplo, pode criar e implementar perfis de certificado para fornecer os certificados necessários para que os utilizadores iniciem as ligações VPN e sem fios. 
 
-Для сертификатов PFX также требуется точка регистрации сертификатов на сервере системы сайта на сайте центра администрирования или первичном сайте.  Необходимо также указать центр сертификации (ЦС) для сертификата и указать необходимые учетные данные.  Начиная с версии 1706 в качестве центров сертификации можно указывать Microsoft или Entrust.  
+Os perfis de certificado podem configurar automaticamente dispositivos de utilizadores para que seja possível aceder aos recursos da empresa, como redes Wi-Fi e servidores VPN, sem necessidade de instalar certificados manualmente ou utilizar um processo fora da banda. Além disso, os perfis de certificado ajudam a manter protegidos os recursos da empresa, na medida em que pode utilizar definições mais seguras que são suportadas pela infraestrutura de chaves públicas (PKI) da sua empresa. Por exemplo, pode requerer a autenticação de servidor para todas as ligações VPN e Wi-Fi porque aprovisionou os certificados necessários nos dispositivos geridos.   
 
-Дополнительные сведения о том, как реализована поддержка модуля политики в службе регистрации сертификатов для сетевых устройств, обеспечивающая возможность развертывания сертификатов с помощью Configuration Manager, см. в разделе [Использование модуля политики совместно со службой регистрации сертификатов для сетевых устройств](http://go.microsoft.com/fwlink/p/?LinkId=328657).  
+Perfis de certificado fornecem as seguintes capacidades de gestão:  
 
-Configuration Manager поддерживает развертывание сертификатов в различных хранилищах сертификатов в зависимости от требований, типа устройства и операционной системы. Поддерживаются следующие устройства и операционные системы:  
+-   Inscrição de certificados e renovação de uma autoridade de certificação (AC) empresarial para dispositivos que executam o iOS, Windows 8.1, Windows RT 8.1, Windows 10 Desktop e Mobile e Android. Estes certificados, em seguida, podem ser utilizados para ligações de VPN e Wi-Fi.  
+
+-   Implementação de certificados de AC de raiz fidedigna e de certificados de AC intermediária para configurar uma cadeia de fidedignidade em dispositivos para ligações VPN e Wi-Fi quando é necessária a autenticação de servidor.  
+
+-   Monitorização e criação de relatórios sobre os certificados instalados.  
+
+**Exemplo:** Todos os funcionários tem de conseguir estabelecer ligação a hotspots Wi-Fi em várias localizações empresariais. Implementar os certificados necessários para estabelecer ligação ao Wi-Fi e implementar perfis de Wi-Fi que referenciam o certificado para ativar a ligação de utilizador totalmente integrada.  
+
+**Exemplo:** Tem um PKI ativo e pretende mover para um método mais flexível e seguro de aprovisionamento de certificados que permite que os utilizadores aceder a recursos da empresa dos respetivos dispositivos pessoais sem comprometer a segurança. Configure perfis de certificado com definições e protocolos que são suportados para a plataforma de dispositivo específico. Os dispositivos podem, então, pedir estes certificados automaticamente a partir de um servidor de inscrição com acesso à Internet. Em seguida, configure perfis VPN para utilizar estes certificados, de modo a que o dispositivo pode aceder a recursos da empresa.  
+
+## <a name="types-of-certificate-profiles"></a>Tipos de perfis de certificado  
+ Existem três tipos de perfis de certificado:  
+
+-   **Certificado de AC fidedigna** -permite-lhe implementar uma AC de raiz fidedigna ou certificado de AC intermediária para formar uma cadeia de fidedignidade de certificados quando o dispositivo tem de autenticar um servidor.  
+
+-   **Certificado de protocolo SCEP (Simple Enrollment)** -permite-lhe solicitar um certificado para um dispositivo ou utilizador utilizando o protocolo SCEP e o serviço de inscrição de dispositivos de rede num servidor com o Windows Server 2012 R2.
+
+    Para criar um **protocolo simples de inscrição de certificados (SCEP)** perfil de certificado, primeiro crie um **certificado da AC fidedigna** perfil de certificado.
+
+-   **A troca de informações pessoais (. pfx)** -permite-lhe solicitar um certificado. pfx (também conhecido como PKCS #12) para um dispositivo ou utilizador.
+
+    Pode criar perfis de certificado PFX por ether [importar credenciais](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md) dos certificados existentes ou pelo [definir um certificado](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md) autoridade para processar pedidos.
+
+    A partir da versão 1706, pode utilizar o Microsoft ou Entrust como autoridades de certificação para **exchange informações pessoais (. pfx)** certificados.
+
+
+## <a name="requirements-and-supported-platforms"></a>Requisitos e plataformas suportadas  
+Para implementar perfis de certificado que utilizem SCEP, tem de instalar o ponto de registo de certificados num servidor de sistema do site, no site de administração central ou num site primário. Também tem de instalar um módulo de política para o NDES, o módulo de política do Configuration Manager, num servidor que executa o Windows Server 2012 R2 com a função de serviços de certificados do Active Directory e um trabalho NDES que esteja acessível aos dispositivos que necessitam dos certificados. Para os dispositivos que são inscritos pelo Microsoft Intune, é necessário o NDES ser acessível a partir da Internet, por exemplo, numa sub-rede filtrada (também conhecida como DMZ).  
+
+Os certificados PFX também necessitam de um ponto de registo de certificados num servidor de sistema do site, no site de administração central ou num site primário.  Também tem de especificar a autoridade de certificação (AC) para o certificado e especificar credenciais relevantes de acesso.  A partir da versão 1706, pode especificar Microsoft ou Entrust como autoridades de certificação.  
+
+Para obter mais informações sobre como o serviço de inscrição de dispositivos de rede suporta um módulo de política para que o Configuration Manager pode implementar certificados, consulte [utilizando um módulo de política com o serviço de inscrição de dispositivos de rede](http://go.microsoft.com/fwlink/p/?LinkId=328657).  
+
+O Configuration Manager suporta a implementação de certificados em vários arquivos de certificados, consoante os requisitos, o tipo de dispositivo e o sistema operativo. São suportados os seguintes dispositivos e sistemas operativos:  
 
 -   Windows RT 8.1  
 
--   Windows 8.1  
+-   Windows 8,1  
 
 -   Windows Phone 8.1  
 
--   Windows 10 Desktop и Mobile  
+-   Windows 10 Desktop e Mobile  
 
 -   iOS  
 
 -   Android  
 
 > [!IMPORTANT]  
->  Для развертывания профилей на устройствах Android, iOS, Windows Phone и зарегистрированных устройствах Windows 8.1 или более поздней версии эти устройства должны быть [зарегистрированы в Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).   
+>  Para implementar perfis para Android, iOS, Windows Phone e inscritos do Windows 8.1 ou posterior inscritos, estes dispositivos têm de ser [inscritos no Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).   
 
-Типичный сценарий для System Center Configuration Manager предусматривает установку сертификатов доверенных корневых ЦС для проверки подлинности Wi-Fi- и VPN-серверов, если для подключения используются такие протоколы проверки подлинности, как EAP-TLS, EAP-TTLS и PEAP, и такие протоколы туннелирования VPN, как IKEv2, L2TP/IPsec и Cisco IPsec.  
+Um cenário típico para o System Center Configuration Manager é instalar certificados de AC de raiz fidedigna para autenticar servidores VPN e Wi-Fi quando a ligação utiliza EAP-TLS, EAP-TTLS e protocolos de autenticação PEAP e IKEv2, L2TP/IPsec e protocolos de túnel Cisco IPsec VPN.  
 
-Прежде чем устройство сможет запрашивать сертификаты с использованием профиля сертификата SCEP, необходимо убедиться, что на нем установлен сертификат корневого ЦС предприятия.  
+Tem de certificar-se de que está instalado um certificado de AC de raiz empresarial no dispositivo para que este possa solicitar certificados utilizando um perfil de certificado de SCEP.  
 
-В профиле сертификата SCEP можно задать множество параметров для запроса специальных сертификатов для различных сред или требований к подключению. **Мастер создания профиля сертификата** содержит две страницы с параметрами регистрации. Первая страница, **Регистрация SCEP**, содержит параметры запроса на регистрацию и места установки сертификата. Вторая страница, **Свойства сертификата**, содержит описание самого запрашиваемого сертификата.  
+Pode especificar uma variedade de definições num perfil de certificado de SCEP para solicitar certificados personalizados para vários ambientes ou requisitos de conectividade. O **Assistente para Criar Perfil de Certificado** contém duas páginas de parâmetros de inscrição. A primeira, **Inscrição SCEP**, contém definições para o pedido de inscrição e a localização para instalação do certificado. A segunda, **Propriedades do Certificado**, descreve o certificado pedido.  
 
-## <a name="deploying-certificate-profiles"></a>Развертывание профилей сертификатов  
- При развертывании профиля сертификата файлы сертификата для этого профиля устанавливаются на клиентских устройствах. На клиентских устройствах также развертываются все параметры SCEP и обрабатываются запросы SCEP. Профили сертификатов можно развернуть в коллекциях пользователей или устройств и указать конечное хранилище для каждого сертификата. Возможность установки сертификатов на устройстве определяют правила применимости. При развертывании профилей сертификатов в коллекциях пользователей сопоставление пользователей и устройств определяет, на каких устройствах пользователей будут установлены сертификаты. При развертывании профилей сертификатов, содержащих сертификаты пользователей, в коллекциях устройств сертификаты по умолчанию устанавливаются на всех основных устройствах пользователей. На странице **Регистрация SCEP** в **мастере создания профиля сертификата** этот режим работы можно изменить таким образом, чтобы сертификат устанавливался на всех устройствах пользователей. Кроме того, сертификаты пользователей не развертываются на устройствах, если те являются компьютерами рабочей группы.  
+## <a name="deploying-certificate-profiles"></a>Implementar perfis de certificado  
+ Quando implementa um perfil de certificado, os ficheiros de certificado no perfil são instalados em dispositivos cliente. Serão também implementados todos os parâmetros de SCEP, e os pedidos de SCEP serão processados no dispositivo cliente. Pode implementar perfis de certificado para o utilizador ou coleções de dispositivos e especificar o arquivo de destino para cada certificado. As regras de aplicabilidade determinam se os certificados podem ser instalados no dispositivo. Quando os perfis de certificado são implementados em coleções de utilizadores, a afinidade dispositivo / utilizador determina que dispositivos dos utilizadores instalarão os certificados. Quando os perfis de certificado que contêm os certificados de utilizador são implementados em coleções de dispositivos, por predefinição, os certificados serão instalados em cada um dos dispositivos primários dos utilizadores. Pode alterar este comportamento para instalar o certificado em qualquer um dos dispositivos dos utilizadores no **inscrição SCEP** página do **certificado Assistente para criar perfil**. Além disso, os certificados de utilizador não serão implementados em dispositivos que forem computadores de grupo de trabalho.  
 
-## <a name="monitoring-certificate-profiles"></a>Мониторинг профилей сертификатов  
+## <a name="monitoring-certificate-profiles"></a>Monitorizar perfis de certificado  
 
-Для мониторинга развертываний профилей сертификатов можно просматривать результаты оценки соответствия или отчеты. Эти способы описываются в разделе [Мониторинг профилей сертификатов](/sccm/protect/deploy-use/monitor-certificate-profiles).
+Pode monitorizar implementações de perfis de certificado ao visualizar os resultados de compatibilidade ou de relatórios. Estas abordagens descritas [como monitorizar perfis de certificado](/sccm/protect/deploy-use/monitor-certificate-profiles).
 
 
-## <a name="automatic-revocation-of-certificates"></a>Автоматический отзыв сертификатов  
- System Center Configuration Manager автоматически отзывает сертификаты пользователей и компьютеров, которые были развернуты с помощью профилей сертификатов, в перечисленных ниже случаях.  
+## <a name="automatic-revocation-of-certificates"></a>Revogação automática de certificados  
+ System Center Configuration Manager revoga automaticamente os certificados de utilizador e computador implementados através da utilização de perfis de certificado nas seguintes circunstâncias:  
 
--   Устройство выводится из сферы управления System Center Configuration Manager.  
+-   O dispositivo é retirado da gestão do System Center Configuration Manager.  
 
--   Устройство выборочно очищено.  
+-   O dispositivo é apagado seletivamente.  
 
--   Устройство блокируется в иерархии System Center Configuration Manager.  
+-   O dispositivo está bloqueado na hierarquia do System Center Configuration Manager.  
 
- Чтобы отозвать сертификаты, сервер сайта отправляет команду отзыва в выдающий центр сертификации. Причиной отзыва является **Прекращение работы**.  
+ Para revogar os certificados, o servidor do site envia um comando de revogação à autoridade de certificação emissora. O motivo da revogação é **Cessar a Operação**.  

@@ -1,6 +1,6 @@
 ---
-title: "Планирование развертывания клиентов на устройствах Windows Embedded | Документы Майкрософт"
-description: "Спланируйте развертывание клиентов на устройствах Windows Embedded в System Center Configuration Manager."
+title: "Planear a implementação do cliente em dispositivos Windows Embedded | Microsoft Docs"
+description: "Planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,93 +17,93 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: f7ef476a2ebcf0161ebb70d8a3d95f77806aa05e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Планирование развертывания клиентов на устройствах Windows Embedded в System Center Configuration Manager
+# <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-<a name="BKMK_DeployClientEmbedded"></a> Если устройство Windows Embedded не содержит клиент System Center Configuration Manager, можно использовать любой способ установки клиента, если устройство соответствует требуемым зависимостям. Если встроенное устройство поддерживает фильтры записи, то эти фильтры необходимо отключить перед установкой клиента, а затем повторно включить после завершения установки клиента и назначения ему сайта.  
+<a name="BKMK_DeployClientEmbedded"></a>Se o seu dispositivo Windows Embedded não inclui o cliente do System Center Configuration Manager, pode utilizar qualquer um dos métodos de instalação do cliente se o dispositivo cumpra as dependências necessárias. Se o dispositivo incorporado suportar filtros de escrita, terá de desativar esses filtros antes de instalar o cliente e, em seguida, de reativar novamente os filtros após a instalação do cliente e da atribuição do mesmo a um site.  
 
- Обратите внимание, что при отключении фильтров не следует отключать драйверы фильтра. Обычно эти драйверы запускаются автоматически при запуске компьютера. Отключение драйверов не позволит установить клиент или помешает управлению фильтром записи, что приведет к сбою клиентских операций. Ниже приведены службы, связанные с каждым типом фильтра записи, который должен работать.  
+ Tenha em atenção que, ao desativar os filtros, não deve desativar os controladores dos filtros. Normalmente, estes controladores são iniciados automaticamente quando o computador é iniciado. Desativar os controladores irá impedir a instalação do cliente ou irá interferir com a orquestração do filtro de escrita, o que fará com que as operações do cliente falhem. Eis os serviços associados a cada um dos tipos de filtro de escrita que têm de ser mantidos em execução:  
 
-|Тип фильтра записи|Драйвер|Тип|Описание|  
+|Tipo de Filtro de Escrita|Controlador|Tipo|Descrição|  
 |-----------------------|------------|----------|-----------------|  
-|EWF|EWF|Ядро|Реализует перенаправление ввода-вывода на уровне секторов на защищенных томах.|  
-|FBWF|FBWF|Файловая система|Реализует перенаправление ввода-вывода на уровне файлов на защищенных томах.|  
-|UWF|uwfreg|Ядро|Перенаправитель реестра UWF|  
-|UWF|uwfs|Файловая система|Перенаправитель файлов UWF|  
-|UWF|uwfvol|Ядро|Диспетчер томов UWF|  
+|EWF|EWF|Kernel|Implementa um redirecionamento de E/S ao nível dos setores em volumes protegidos.|  
+|FBWF|FBWF|Sistema de ficheiros|Implementa um redirecionamento de E/S ao nível dos ficheiros em volumes protegidos.|  
+|UWF|uwfreg|Kernel|Redirecionador de Registo UWF|  
+|UWF|uwfs|Sistema de ficheiros|Redirecionador de Ficheiros UWF|  
+|UWF|uwfvol|Kernel|Gestor de Volumes UWF|  
 
- Фильтры записи регулируют процедуру обновления операционной системы на встроенном устройстве при внесении вами изменений, например, при установке программного обеспечения. Когда фильтры записи включены, вместо внесения изменений напрямую в операционную систему они перенаправляются на временный оверлей. Если запись изменений производится только в оверлей, то они теряются при отключении встроенного устройства. Однако в случае постоянного отключения фильтров записи эти изменения могут стать постоянными, благодаря чему вам не придется снова вносить аналогичные изменения (или повторно устанавливать ПО) при каждом перезапуске встроенного устройства. Однако временное отключение и повторное включение фильтров записи требует одного или нескольких перезапусков, поэтому управление данными процедурами обычно производится с помощью окон обслуживания, чтобы перезапуски выполнялись в нерабочее время.  
+ Os filtros de escrita controlam a forma como o sistema operativo no dispositivo incorporado é atualizado quando efetuar alterações, por exemplo quando instalar software. Se os filtros de escrita estiverem ativados, em vez de serem efetuadas diretamente no sistema operativo, estas alterações serão redirecionadas para uma sobreposição temporária. Se as alterações apenas forem escritas na sobreposição, serão perdidas quando o dispositivo incorporado for encerrado. No entanto, caso os filtros de escrita sejam temporariamente desativados, as alterações poderão tornar-se permanentes, evitando a necessidade de voltar a efetuar essas alterações (ou de reinstalar o software) sempre que o dispositivo incorporado for reiniciado. No entanto, a desativação temporária e posterior reativação dos filtros de escrita implicará uma ou mais reinicializações, pelo que, em condições normais, será preferível controlar o momento em que esta operação irá decorrer, configurando janelas de manutenção que permitam as reinicializações fora do horário de expediente.  
 
- Вы можете настроить параметры для автоматического отключения и повторного включения фильтров записи при развертывании такого ПО, как приложения, последовательности задач, обновление ПО и клиент Endpoint Protection. Исключение делается только для шаблонов конфигурации, которые содержат элементы конфигурации, использующие автоматическое исправление. В этом сценарии исправление всегда происходит внутри оверлея, поэтому его результаты доступны только до момента перезапуска устройства. В ходе следующего цикла оценки это исправление применяется заново, но только к оверлею, который очищается при перезапуске. Чтобы принудить Configuration Manager к фиксации изменений, которые предусматривает исправление, можно развернуть конфигурационную базу и сразу же после этого развернуть еще одно программное приложение, поддерживающее фиксацию изменения.  
+ Pode configurar opções para desativar e reativar automaticamente os filtros de escrita quando implementar software como aplicações, sequências de tarefas, atualizações de software e o cliente do Endpoint Protection. A exceção são as linhas de base de configuração com itens de configuração que utilizem a remediação automática. Neste cenário, a remediação ocorre sempre ao nível da sobreposição, pelo que apenas ficará disponível até o dispositivo ser reiniciado. A remediação é novamente aplicada durante o ciclo de avaliação seguinte, mas apenas ao nível da sobreposição, cujos dados são eliminados durante o reinício. Para forçar o Gestor de configuração para consolidar as alterações da remediação, pode implementar a linha de base de configuração e, em seguida, outra implementação de software que suporte a consolidação da alteração logo que possível.  
 
- Если фильтры записи отключены, можно устанавливать программное обеспечение на устройства Windows Embedded с помощью Software Center. Однако если фильтры записи включены, то установка завершится сбоем и Configuration Manager выведет сообщение об ошибке, связанной с отсутствием у пользователя достаточных разрешений для установки приложения.  
+ Se os filtros de escrita estiverem desativados, poderá instalar software nos dispositivos Windows Embedded utilizando o Centro de Software. No entanto, se os filtros de escrita estiverem ativados, a instalação falha e o Configuration Manager apresenta uma mensagem de erro que não tem permissões suficientes para instalar a aplicação.  
 
 > [!WARNING]  
->  Даже если не выбирать в Configuration Manager параметры, предназначенные для фиксации изменений, эти изменения могут быть зафиксированы в ходе установки другого программного обеспечения или фиксации других изменений. В этом сценарии исходные изменения будут применены в дополнение к новым изменениям.  
+>  Mesmo se não selecionar as opções do Configuration Manager para consolidar as alterações, as alterações poderão ser confirmadas se outra instalação de software ou alteração for efetuada confirmando alterações. Neste cenário, as alterações originais serão confirmadas para além das novas alterações.  
 
- Когда Configuration Manager отключает фильтры записи для внесения постоянных изменений, войти на встроенное устройство и использовать его смогут только пользователи с правами локального администратора. В течение этого периода пользователи с более низкими правами не имеют доступа к устройству, для них отображается сообщение о недоступности устройства по причине технического обслуживания. Это помогает защитить устройство, находящееся в состоянии, которое допускает применение постоянных изменений. Данный режим блокировки во время технического обслуживания является еще одной причиной, почему следует настроить для окна обслуживания такое время запуска, когда пользователи не выполняют вход на эти устройства.  
+ Quando o Configuration Manager desative os filtros de escrita para tornar as alterações permanentes, apenas os utilizadores que têm direitos administrativos locais podem iniciar sessão e utilizar o dispositivo incorporado. Durante este período, os utilizadores com direitos restritos são bloqueados e recebem uma mensagem a informar que o computador está indisponível por estar em manutenção. Isto ajuda a proteger o dispositivo enquanto está num estado em que as alterações podem ser aplicadas permanentemente, sendo este comportamento de bloqueio no modo de manutenção outra razão para configurar uma janela de manutenção por um período em que os utilizadores não irão iniciar sessão nestes dispositivos.  
 
- Configuration Manager поддерживает управление перечисленными ниже типами фильтров записи.  
+ O Configuration Manager suporta a gestão dos seguintes tipos de filtros de escrita:  
 
--   Файловый фильтр записи (FBWF): дополнительные сведения см. в разделе [Файловый фильтр записи](http://go.microsoft.com/fwlink/?LinkID=204717).  
+-   Ficheiro-Based Write Filter (FBWF) - para mais informações, consulte [filtro de escrita baseados em ficheiros](http://go.microsoft.com/fwlink/?LinkID=204717).  
 
--   Расширенный фильтр записи (EWF): дополнительные сведения см. в разделе [Расширенный фильтр записи](http://go.microsoft.com/fwlink/?LinkId=204718).  
+-   Avançado escrever filtro RAM (EWF) - para mais informações, consulte [Enhanced Write Filter](http://go.microsoft.com/fwlink/?LinkId=204718).  
 
--   Объединенный фильтр записи (UWF): дополнительные сведения см. в разделе [Объединенный фильтр записи](http://go.microsoft.com/fwlink/?LinkId=309236).  
+-   O filtro de escrita unificado (UWF) - para mais informações, consulte [filtro de escrita unificado](http://go.microsoft.com/fwlink/?LinkId=309236).  
 
- Configuration Manager не поддерживает операции с фильтрами записи, когда устройство Windows Embedded находится в режиме EWF RAM Reg.  
+ O Configuration Manager não suporta operações de filtro de escrita quando o dispositivo Windows Embedded está no modo de EWF RAM Reg.  
 
 > [!IMPORTANT]  
->  Если у вас есть выбор, то для повышения эффективности и масштабируемости используйте файловые фильтры записи с Configuration Manager.
+>  Se puder escolher, utilize filtros de escrita baseados em ficheiros (FBWF) com o Configuration Manager para maior eficácia e escalabilidade superior.
 >
-> **Для устройств, использующих только FBWF**: настройте следующие исключения, чтобы состояние клиента и данные инвентаризации сохранялись между перезапусками устройства:  
+> **Para dispositivos que utilizam FBWF apenas:** Configure as seguintes exceções para manter o estado do cliente e os dados de inventário entre reinícios do dispositivo:  
 >   
 >  -   CCMINSTALLDIR\\*.sdf  
 > -   CCMINSTALLDIR\ServiceData  
 > -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\StateSystem  
 >   
->  Устройства под управлением Windows Embedded 8.0 и более поздних версий не поддерживают исключения, которые содержат подстановочные знаки. На этих устройствах необходимо по отдельности настроить следующие исключения.  
+>  Os dispositivos que executam o Windows Embedded 8.0 e posterior não suportam exclusões que contêm carateres universais. Nestes dispositivos, tem de configurar as seguintes exclusões individualmente:  
 >   
->  -   Все файлы в CCMINSTALLDIR с расширением SDF, обычно это следующие файлы:  
+>  -   Todos os ficheiros em CCMINSTALLDIR com a extensão .sdf, normalmente:  
 >   
->     -   UserAffinityStore.sdf;  
->     -   InventoryStore.sdf;  
->     -   CcmStore.sdf;  
->     -   StateMessageStore.sdf;  
->     -   CertEnrollmentStore.sdf.  
+>     -   UserAffinityStore.sdf  
+>     -   InventoryStore.sdf  
+>     -   CcmStore.sdf  
+>     -   StateMessageStore.sdf  
+>     -   CertEnrollmentStore.sdf  
 > -   CCMINSTALLDIR\ServiceData  
 > -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\StateSystem  
 >   
-> **Для устройств, которые используют только FBWF и UWF**: когда клиенты в рабочей группе используют сертификаты для проверки подлинности точек управления, необходимо также исключить закрытый ключ, чтобы обеспечить дальнейшее взаимодействие клиента с точкой управления. На этих устройствах настройте следующие исключения.  
+> **Para dispositivos que utilizam FBWF e UWF apenas:** Quando os clientes num grupo de trabalho utilizam certificados para autenticação para pontos de gestão, também tem de excluir a chave privada para garantir que o cliente continua a comunicar com o ponto de gestão. Nestes dispositivos, configure as seguintes exceções:  
 >   
 >  -   c:\Windows\System32\Microsoft\Protect  
 > -   c:\ProgramData\Microsoft\Crypto  
 > -   HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\SMS\Certificates  
 
- Пример сценария развертывания устройств Windows Embedded с поддержкой фильтров записи и управления ими в Configuration Manager см. в разделе [Пример сценария развертывания клиентов System Center Configuration Manager и управления ими на устройствах Windows Embedded](../../../../core/clients/deploy/example-scenario-for-deploying-and-managing-clients-on-windows-embedded-devices.md).  
+ Para um cenário de exemplo implementar e gerir com filtro escrita ativado Windows Embedded Consulte dispositivos no Configuration Manager [cenário de exemplo para implementação e gestão de clientes do System Center Configuration Manager em dispositivos Windows Embedded](../../../../core/clients/deploy/example-scenario-for-deploying-and-managing-clients-on-windows-embedded-devices.md).  
 
- Дополнительные сведения о создании образов для устройств Windows Embedded и о настройке фильтров записи см. в документации к Windows Embedded или свяжитесь с вашим сборщиком систем.  
+ Para mais informações sobre como criar imagens para dispositivos Windows Embedded e configurar filtros de escrita, consulte a documentação do Windows Embedded ou contacte o OEM.  
 
 > [!NOTE]  
->  При выборе подходящих платформ для развертывания программного обеспечения и элементов конфигурации вместо конкретных версий ОС Windows Embedded отображаются их семейства. Воспользуйтесь следующим списком для сопоставления конкретной версии Windows Embedded с параметрами в окне списка.  
+>  Quando seleciona as plataformas aplicáveis para implementações de software e itens de configuração, estas apresentam famílias Windows Embedded em vez de versões específicas. Utilize a lista seguinte para mapear a versão específica do Windows Embedded para as opções na caixa de listagem:  
 >   
->  -   **В число встраиваемых ОС на базе Windows XP (32-разрядная версия)** входят следующие операционные системы:  
+>  -   **Os Sistemas Operativos Incorporados baseados no Windows XP (32 bits)** incluem o seguinte:  
 >   
 >      -   Windows XP Embedded  
->     -   Windows Embedded для Point of Service  
+>     -   Windows Embedded for Point of Service  
 >     -   Windows Embedded Standard 2009  
->     -   Windows Embedded POSReady 2009.  
-> -   **В число встраиваемых ОС на базе Windows 7 (32-разрядная версия)** входят следующие операционные системы:  
+>     -   Windows Embedded POSReady 2009  
+> -   **Os sistemas operativos incorporados baseados no Windows 7 (32 bits)** incluem o seguinte:  
 >   
->      -   Windows Embedded Стандартная 7 (32-разрядная версия)  
->     -   Windows Embedded POSReady 7 (32-разрядная версия)  
+>      -   Windows Embedded Standard 7 (32 bits)  
+>     -   Windows Embedded POSReady 7 (32 bits)  
 >     -   Windows ThinPC  
-> -   **В число встраиваемых ОС на базе Windows 7 (64-разрядная версия)** входят следующие операционные системы  
+> -   **Os sistemas operativos incorporados baseados no Windows 7 (64 bits)** incluem o seguinte:  
 >   
->      -   Windows Embedded Стандартная 7 (64-разрядная версия)  
->     -   Windows Embedded POSReady 7 (64-разрядная версия)
+>      -   Windows Embedded Standard 7 (64 bits)  
+>     -   Windows Embedded POSReady 7 (64 bits)

@@ -1,6 +1,6 @@
 ---
-title: "Новые возможности гибридного управления мобильными устройствами — архив | Документы Майкрософт"
-description: "Архив сведений о возможностях управления мобильными устройствами, которые были доступны для гибридных развертываний с System Center Configuration Manager и Intune в прошлом."
+title: "Arquivo de Novidades híbridas novo MDM | Microsoft Docs"
+description: "Arquivo de últimos funcionalidades de gestão de dispositivos móveis disponíveis para implementações híbridas com o System Center Configuration Manager e o Intune."
 ms.custom: na
 ms.date: 06/30/2017
 ms.prod: configuration-manager
@@ -16,35 +16,35 @@ manager: angrobe
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 0abd1cdcf44e778c91bacb8011efd711818ce2e9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="past-hybrid-features-with-system-center-configuration-manager-and-microsoft-intune"></a>Прежние возможности гибридного управления в System Center Configuration Manager и Microsoft Intune
+# <a name="past-hybrid-features-with-system-center-configuration-manager-and-microsoft-intune"></a>Últimos híbrida funcionalidades com o System Center Configuration Manager e o Microsoft Intune
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этой статье приводятся сведения о возможностях управления мобильными устройствами (MDM), которые были доступны для гибридных развертываний с System Center Configuration Manager и Microsoft Intune в прошлом.  
+Este artigo fornece detalhes sobre o dispositivo móvel passado funcionalidades de gestão (MDM) disponíveis para implementações híbridas com o System Center Configuration Manager e o Microsoft Intune.  
 
-##  <a name="compatibility-with-configuration-manager-versions"></a>Совместимость с версиями Configuration Manager  
+##  <a name="compatibility-with-configuration-manager-versions"></a>Compatibilidade com versões do Configuration Manager  
 
- В каждом разделе этой статьи перечислены возможности гибридного управления по трем различным категориям. Чтобы определить совместимость возможностей в каждой категории с различными версиями Configuration Manager, воспользуйтесь приведенными ниже указаниями.  
+ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em 3 diferentes categorias. Utilize as seguintes orientações para determinar a compatibilidade das funcionalidades em cada categoria com diferentes versões do Configuration Manager:  
 
-|Категории возможностей|
+|Categorias de funcionalidade|
 |-|  
-|**Новая возможность Microsoft Intune**. Как правило, все возможности, перечисленные в этой категории, должны работать со всеми выпусками Configuration Manager, включая выпуски System Center 2012 R2 Configuration Manager, так как для них требуется только служба Intune, но не требуются дополнительные функции Configuration Manager.<br /><br /> **Новая возможность Configuration Manager Technical Preview**. Все возможности, перечисленные в этой категории, работают только с указанным выпуском Technical Preview. Чтобы опробовать эти возможности, необходимо установить версию Technical Preview, указанную в их описании. Дополнительные сведения см. в разделе [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md).<br /><br /> **Новая возможность Configuration Manager (Current Branch)**. Все возможности, перечисленные в этой категории, работают только с указанной версией Configuration Manager (Current Branch), например с версией 1511 или 1602. Если вы используете более старую версию Configuration Manager для гибридного развертывания, необходимо обновить ее до версии Configuration Manager (Current Branch), указанной в описании возможности. Дополнительные сведения см. в разделе [Обновление до System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|  
+|**Novo no Microsoft Intune** -em geral, todas as funcionalidades listadas nesta categoria devem funcionar com todas as versões do Configuration Manager, incluindo versões do System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades apenas requerem o serviço do Intune e não necessitam de funcionalidades adicionais no Configuration Manager.<br /><br /> **Novo no Configuration Manager Technical Preview** -todas as funcionalidades listados desta categoria só funcionam com a versão de pré-visualização técnica especificada. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição da funcionalidade. Para obter mais informações, consulte [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md).<br /><br /> **Novo no Configuration Manager (ramo atual)** -todas as funcionalidades listados neste trabalho única categoria com a versão especificada do Configuration Manager (ramo atual), tais como a versão 1511 ou 1602. Se estiver a utilizar uma versão mais antiga do Configuration Manager para a implementação híbrida, tem de atualizar para a versão do Configuration Manager (ramo atual) especificada na descrição da funcionalidade. Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|  
 
-## <a name="december-2016"></a>Декабрь 2016 г.
+## <a name="december-2016"></a>Dezembro de 2016
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-- **Многофакторная проверка подлинности (MFA) при регистрации на портале Azure**
+- **Autenticação Multifator (MFA) durante a inscrição está a mover para o portal do Azure**
 
-  Чтобы настроить MFA для регистраций в Intune, ранее необходимо было перейти в консоль Intune или консоль Configuration Manager. Благодаря этой новой возможности теперь можно войти на [портал Microsoft Azure] (https://manage.windowsazure.com), используя свои учетные данные Intune, и настроить параметры MFA посредством Azure AD. Дополнительные сведения см. в разделе [Многофакторная проверка подлинности для Microsoft Intune] (https://aka.ms/mfa_ad).
+  Anteriormente, passará a consola do Intune ou a consola do Configuration Manager para configurar a MFA para inscrições através do Intune. Com esta funcionalidade atualizada, pode agora iniciar sessão no [portal do Microsoft Azure] (https://manage.windowsazure.com) com o Intune credenciais e configurar as definições da MFA através do Azure AD. Para obter mais informações, consulte [multi-factor authentication do Microsoft Intune] (https://aka.ms/mfa_ad).
 
-- **Теперь приложение корпоративного портала для Android доступно в Китае**
+- **Aplicação do Portal da empresa para Android, agora disponível na China**
 
-  Приложение корпоративного портала для Android стало доступно в Китае. Так как в Китае отсутствует магазин Google Play, это приложение для устройств Android можно скачать в китайских магазинах приложений. Приложение корпоративного портала для Android можно скачать в следующих магазинах.
+  A aplicação Portal da empresa para Android está agora disponível na China. Devido à ausência do Google Play Store na China, dispositivos Android tem de obter aplicações da marketplaces aplicação chinês. A aplicação Portal da empresa para Android está disponível para transferência nos arquivos de seguintes:
 
   - [Baidu](https://go.microsoft.com/fwlink/?linkid=836946)
   - [Huawei](https://go.microsoft.com/fwlink/?linkid=836948)
@@ -52,510 +52,510 @@ ms.lasthandoff: 08/07/2017
   - [Wandoujia](https://go.microsoft.com/fwlink/?linkid=836950)
   - [Xiaomi](https://go.microsoft.com/fwlink/?linkid=836947)
 
-  В этом приложении взаимодействие со службой Microsoft Intune осуществляется с помощью Сервисов Google Play. В настоящее время Сервисы Google Play еще недоступны в Китае, поэтому на выполнение одной из следующих задач понадобится до 8 часов.
+  A aplicação Portal da empresa para Android utiliza serviços Google Play para comunicar com o serviço Microsoft Intune. Uma vez que os serviços Google Play ainda não estão disponíveis na China, efetuar qualquer uma das seguintes tarefas pode demorar até 8 horas a concluir.
 
-  | Консоль администратора Configuration Manager | Приложение корпоративного портала Intune для Android | Веб-сайт корпоративного портала Intune |
+  | Consola de administração do Configuration Manager | Aplicação do Portal da empresa do Intune para Android | Site de Portal da empresa do Intune |
   |----|----|----|      
-  | Снятие с учета/очистка (удаление всех данных)   | Удаление удаленного устройства | Удаление устройства (локального и удаленного) |
-  | Снятие с учета/очистка (удаление данных организации)   | Сброс устройства | Сброс устройства|
-  | Развертывание нового или обновленного приложения | Установка доступных бизнес-приложений | Сброс секретного кода устройства|
-  | удаленная блокировка; | | |
-  | Сброс секретного кода | | |        
+  | Extinguir/apagar (remover todos os dados)   | Remover um dispositivo remoto | Remover dispositivo (local e remoto) |
+  | Extinguir/apagar (remover dados de empresa)   | Repor o dispositivo | Repor o dispositivo|
+  | Implementações de aplicação nova ou atualizada | Instalar aplicações de linha de negócio disponíveis | Repor código de acesso de dispositivo|
+  | Bloqueio remoto | | |
+  | Repor código de acesso | | |        
 
 
-## <a name="november-2016"></a>Ноябрь 2016 г.
+## <a name="november-2016"></a>Novembro de 2016
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-- **Новый корпоративный портал Microsoft Intune для устройств с Windows 10**
+- **Portal da empresa do Intune Microsoft novo disponível para dispositivos Windows 10**
 
-  Корпорация Майкрософт выпустила новое [приложение корпоративного портала для устройств с Windows 10](https://www.microsoft.com/store/apps/9wzdncrfj3pz). Это приложение, которое использует новый формат Windows 10 Universal, предоставляет обновленный пользовательский интерфейс, одинаковый на всех компьютерах и мобильных устройствах с ОС Windows 10, при этом оно включает те же функциональные возможности, которые были доступны пользователям предыдущих версий.
+  Microsoft lançou um novo [aplicação do Portal da empresa para dispositivos Windows 10](https://www.microsoft.com/store/apps/9wzdncrfj3pz). Esta aplicação, que aproveita o novo formato Universal do Windows 10, fornece uma experiência de utilizador atualizado que é idêntica em todos os dispositivos Windows 10, o PC e Mobile igual, permitindo as mesmas funcionalidades fornecidas pelo anteriores aplicações do Portal da empresa.
 
-  Новое приложение использует функциональные возможности платформы, такие как единый вход (SSO) и проверка подлинности на основе сертификатов на устройствах с Windows 10. Приложение доступно в качестве обновления для существующих установок корпоративного портала Windows 8.1 и Windows Phone 8.1 в Магазине Windows. Дополнительные сведения см. в [блоге службы поддержки Intune](http://aka.ms/intunecp_universalapp).
+  A nova aplicação tira partido das funcionalidades de plataforma como-início de sessão único (SSO) e a autenticação baseada em certificado em dispositivos Windows 10. A aplicação está disponível como uma atualização para o Portal de empresa de existente do Windows 8.1 e instala o Portal da empresa do Windows Phone 8.1 a partir da loja Windows. Para obter mais detalhes, visite o [blogue da equipa de suporte do Intune](http://aka.ms/intunecp_universalapp).
 
-  В новом приложении корпоративного портала также отображаются приложения Магазина Windows для бизнеса, которые помечены как **доступные** в консоли Configuration Manager.
+  A nova aplicação do Portal da empresa também apresenta qualquer loja Windows para aplicações empresariais marcadas **disponível** na consola do Configuration Manager.
 
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
 
-Ниже перечислены возможности, которые ранее были доступны в выпусках Configuration Manager Technical Preview, а теперь доступны в гибридных развертываниях с Intune и Configuration Manager (Current Branch) версии 1610.
+As seguintes funcionalidades que se encontravam anteriormente disponíveis em versões do Configuration Manager Technical Preview estão agora disponíveis em implementações híbridas com o Intune e Configuration Manager (ramo atual) versão 1610.
 
-* [Дополнительные параметры и повышение удобства работы с элементами конфигурации](/sccm/core/plan-design/changes/whats-new-in-version-1610#new-compliance-settings-for-configuration-items)
-* [Дополнительные параметры для профилей DEP](whats-new-hybrid-archive.md#new-in-configuration-manager-technical-preview-1609)
-* [Платные приложения в Магазине Windows для бизнеса](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
-* [Типы собственного подключения для профилей VPN для Windows 10](whats-new-hybrid-archive.md#new-in-configuration-manager-technical-preview-1609)
-* [Диаграммы соответствия Intune](/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy)
-* [Запрос на синхронизацию политики из консоли](/sccm/mdm/deploy-use/sync-intune-device)
-* [Параметры конфигурации Защитника Windows](/sccm/compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client#windows-defender)
+* [Definições adicionais e experiência melhorada para itens de configuração](/sccm/core/plan-design/changes/whats-new-in-version-1610#new-compliance-settings-for-configuration-items)
+* [Definições adicionais para perfis DEP](whats-new-hybrid-archive.md#new-in-configuration-manager-technical-preview-1609)
+* [Paga aplicações na loja Windows para empresas](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+* [Tipos de ligação de nativo para perfis de VPN do Windows 10](whats-new-hybrid-archive.md#new-in-configuration-manager-technical-preview-1609)
+* [Gráficos de conformidade do Intune](/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy)
+* [Pedido para sincronização de política a partir da consola](/sccm/mdm/deploy-use/sync-intune-device)
+* [Definições de configuração do Windows Defender](/sccm/compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client#windows-defender)
 
-Перечисленные ниже дополнительные возможности гибридного управления также включены в версию 1610 Configuration Manager (Current Branch).
+As seguintes funcionalidades adicionais híbrida também estão incluídas na versão 1610 do Configuration Manager (ramo atual):
 
-- **Увеличенное количество зарегистрированных устройств**
+- **Aumento do número de dispositivos inscritos**
 
-  Теперь можно разрешить пользователям регистрировать до 15 устройств. Ранее существовало ограничение в 5 устройств на пользователя.
+  Agora pode permitir aos utilizadores inscrever dispositivos até 15. O limite anterior era 5 dispositivos por utilizador.
 
 
-- **Дополнительная поддержка безопасности**
+- **Suporte de segurança adicionais**
 
-  Помимо роли "Полный администратор", следующие встроенные роли безопасности теперь имеют полный доступ к элементам в узле "Все корпоративные устройства", включая элементы "Предварительно объявленные устройства", "Профили регистрации iOS" и "Профили регистрации Windows":
+  Para além de administrador global, as seguintes funções de segurança incorporadas agora tem acesso total aos itens no nó de todos os dispositivos de empresa, incluindo dispositivos Predeclared, perfis de inscrição de iOS e perfis de inscrição do Windows:
 
-    - Менеджер активов
-    - Диспетчер доступа к ресурсам компании
+    - Gestor do Asset Intelligence
+    - Gestor de acesso a recursos da empresa
 
-  Доступ только для чтения к этим областям консоли Configuration Manager по-прежнему предоставляется роли "Аналитик с правами только для чтения".
+  Acesso só de leitura para estas áreas da consola do Configuration Manager ainda é concedido para a função do analista só de leitura.
 
-- **Автоматическое предоставление доступа к VPN из приложений Windows Information Protection**
+- **Acesso VPN de acionamento automático de aplicações do Windows Information Protection**
 
-  Вы можете добавить основной домен Windows Information Protection в профили VPN Windows 10, благодаря чему все соответствующие приложения будут автоматически устанавливать подключение VPN при запуске на устройстве. Этот параметр доступен только при выборе нативного типа подключения.
+  Pode adicionar um domínio principal do Windows Information Protection para perfis de VPN do Windows 10 que faz com que todas as aplicações associadas a acionar automaticamente uma ligação VPN quando são executados no dispositivo. Esta opção só está disponível ao escolher um tipo de ligação nativo.
 
-- **Условный доступ для профилей VPN Windows 10**
+- **Acesso condicional para perfis de VPN do Windows 10**
 
-    Теперь можно затребовать соответствие устройств Windows 10, зарегистрированных в Azure Active Directory, требованиям для доступа к VPN посредством профилей VPN Windows 10, созданных в консоли Configuration Manager. Это можно сделать с помощью нового параметра **Включить условный доступ для этого VPN-подключения** на странице "Метод проверки подлинности" в мастере профилей VPN и свойств профиля VPN для профилей VPN Windows 10. Этот параметр доступен только при выборе нативного типа подключения.
+    Agora pode exigir a Windows 10 dispositivos inscritos no Azure Active Directory para estar em conformidade para ter acesso VPN através de perfis de VPN do Windows 10 criadas na consola do Configuration Manager. Isto é possível através de novo **ativar o acesso condicional para esta ligação VPN** caixa de verificação na página do método de autenticação no Assistente do perfil VPN e propriedades de perfil VPN para perfis de VPN do Windows 10. Esta opção só está disponível ao escolher um tipo de ligação nativo.
 
-    Также можно указать отдельный сертификат для единого входа, если для профиля включен условный доступ.
+    Também pode especificar um certificado diferente para autenticação de início de sessão único se ativar o acesso condicional para o perfil.
 
-## <a name="october-2016"></a>Октябрь 2016 г.
+## <a name="october-2016"></a>Outubro de 2016
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в октябре 2016 г.
+As seguintes funcionalidades do Intune introduzidas no Outubro de 2016 funcionam em implementações híbridas.
 
-- **Условный доступ для управления мобильными приложениями**
+- **Acesso condicional para gestão de aplicações móveis**
 
-  Вы можете ограничить доступ к Exchange Online так, чтобы он был возможен только из приложений, которые поддерживают политики управления мобильными приложениями Intune, например Outlook. [Эту новую функцию](/intune/deploy-use/allow-policy-managed-apps-access-to-o365) удобно совмещать с политиками управления мобильными приложениями Intune (MAM), так как вы можете блокировать доступ к встроенным почтовым клиентам и другим приложениям, в которых не настроены политики Intune MAM. Это гарантирует, что пользователи получат доступ к данным организации только в приложениях, которые можно защитить с помощью Intune MAM. Начать работу с управлением мобильными приложениями Intune можно на портале Azure. Новый раздел "Условный доступ" находится в колонке "Настройки".
+  Pode restringir o acesso ao Exchange Online, para que o acesso é fornecido apenas a partir de aplicações que suportam as políticas de gestão de aplicações móveis do Intune como o Outlook. [Esta nova funcionalidade](/intune/deploy-use/allow-policy-managed-apps-access-to-o365) pares perfeitamente com políticas de gestão (MAM) de aplicações móveis do Intune, pode bloquear o acesso para clientes de correio incorporado ou outras aplicações que não tenham sido configuradas com as políticas de MAM do Intune. Isto garante que os utilizadores acedem aos dados da sua organização com as aplicações que podem ser protegidos através de MAM do Intune. Pode começar a utilizar na gestão de aplicações móveis do Intune através do portal do Azure. Procure a nova secção de acesso condicional no painel "Definições".
 
--   **Средство упаковки приложений Intune для Android**
+-   **Ferramenta de encapsulamento de aplicações do Intune para Android**
 
-  Обеспечить использование политик управления мобильными приложениями Intune (MAM) можно с помощью средства упаковки приложений Intune.
+  Pode ativar as suas aplicações a utilizar políticas de gestão (MAM) de aplicações móveis do Intune utilizando a ferramenta de encapsulamento de aplicações do Intune.
 
-- **Совместимость Android Samsung KNOX Standard с Intune**
+- **Compatibilidade Samsung KNOX Standard Android com o Intune**
 
-  Некоторыми моделями телефонов Samsung Galaxy Ace нельзя управлять с помощью Intune как устройствами Samsung KNOX Standard. При регистрации таких устройств в Intune управление ими будет осуществляться как стандартными устройствами Android.
+  Determinados modelos de telemóvel Samsung Galaxy Ace não podem ser geridos pelo Intune, como dispositivos Samsung KNOX Standard. Quando inscrever estes dispositivos com o Intune, em vez disso, irá ser geridos como dispositivos Android padrão.
 
-  Это относится к моделям со следующими номерами:
+  Os números de modelo afetados são:
 
-  - SM-G313HU
-  - SM-G313HY
-  - SM-G313M
-  - SM-G313MY
-  - SM-G313U
+  - SM G313HU
+  - SM G313HY
+  - SM G313M
+  - SM G313MY
+  - SM G313U
 
-  Вам и вашим пользователям не нужно предпринимать никаких дополнительных действий. Чтобы получить дополнительные сведения, посетите веб-сайт Samsung KNOX.
+  E os utilizadores finais não precisa de tomar nenhuma ação adicional. Para obter mais informações, visite o Web site do Samsung KNOX.
 
-### <a name="new-in-configuration-manager-technical-preview-1610"></a>Новые возможности Configuration Manager Technical Preview 1610
+### <a name="new-in-configuration-manager-technical-preview-1610"></a>Novo no Configuration Manager Technical Preview 1610
 
-Ниже перечислены новые возможности гибридного управления, появившиеся в выпуске Configuration Manager Technical Preview 1610 в октябре 2016 г.
+As novas funcionalidades híbridas foram introduzidas no Outubro de 2016 para 1610 de pré-visualização técnica do Configuration Manager.
 
-- **Запрос синхронизации политики из консоли администратора**
+- **Pedir uma sincronização de política a partir da consola do administrador**
 
-  Вы можете запросить синхронизацию политики для зарегистрированного мобильного устройства из консоли Configuration Manager вместо того, чтобы запрашивать синхронизацию в приложении корпоративного портала на самом устройстве. Для этого служит новое действие **Отправить запрос синхронизации** в меню "Действия удаленного устройства", которое появляется на ленте, если в узле "Устройства" выбрано мобильное устройство.
+  Pode pedir uma sincronização de política num dispositivo móvel inscrito da consola do Configuration Manager, em vez de necessidade de solicitar a sincronização na aplicação Portal da empresa no dispositivo propriamente dito. Esta é uma nova ação chamada **enviar pedido de sincronização** no menu ações do dispositivo remoto, que aparece no friso quando um dispositivo móvel é selecionado o nó de dispositivos.
 
-- **Параметры конфигурации Защитника Windows**
+- **Definições de configuração do Windows Defender**
 
-  Вы можете настроить параметры клиента Защитника Windows на зарегистрированных в Intune компьютерах с Windows 10 с помощью элементов конфигурации в консоли Configuration Manager. В мастере элементов конфигурации имеется новая группа параметров под названием **Защитник Windows**. Обратите внимание, что она поддерживается только в Windows 10 версии 1511 или более поздней.
+  Agora, pode configurar as definições de cliente do Windows Defender em computadores Windows 10 inscritos no Intune, utilizar itens de configuração na consola do Configuration Manager. Há um novo grupo de definição chamado **Windows Defender** no Assistente de Item de configuração. Tenha em atenção que isto é suportado apenas no Windows 10 versão 1511 e superior.
 
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
 
-В августе 2016 г. в Configuration Manager (Current Branch) не появились новые возможности гибридного управления.
+Não existem novas funcionalidades híbridas foram introduzidas no Agosto de 2016 para o Configuration Manager (ramo atual).
 
-## <a name="september-2016"></a>Сентябрь 2016 г.
+## <a name="september-2016"></a>Setembro de 2016
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в сентябре 2016 г.
+As seguintes funcionalidades do Intune introduzidas Setembro de 2016 funcionam em implementações híbridas.
 
-- **Добавление элемента "Уведомления" на корпоративный портал для Android**
+- **Inclusão de "Notificações" no portal da empresa para Android**
 
-  На домашнюю страницу корпоративного портала для Android добавлен новый значок — "Уведомления". Если коснуться этого значка, вы перейдете на страницу "Уведомления". Здесь для пользователей будут показаны все элементы в приложении корпоративного портала, на которые нужно обратить внимание, например несоответствие устройств, обновление и активация регистрации. В приложении корпоративного портала для iOS уже есть такой интерфейс уведомлений. С появлением страницы "Уведомления" страница "Настройка доступа к ресурсам организации" уже не будет отображаться при каждом запуске или возобновлении работы корпоративного портала для Android, если устройство уже зарегистрировано. Если вы создаете собственное руководство для конечных пользователей, возможно, придется обновить документацию, чтобы отразить это изменение. Обновленные снимки экрана см. [здесь](https://aka.ms/androidcpupdate).
+  Foi adicionado um novo ícone de notificações no portal da empresa para Android na home page. Tocar neste ícone acede a página de notificações, que mostra os utilizadores finais todos os itens que requerem atenção na aplicação Portal da empresa, como não conformidade de dispositivo, atualizações de inscrições e ativação da inscrição. A aplicação Portal da empresa iOS já tem esta experiência de notificações. Com os novos significa de página de notificações que o utilizador não verão a página de configuração de acesso da empresa sempre iniciar ou retomar o Portal da empresa, desde que o dispositivo já está inscrito. Se criar a sua própria documentação de orientação do utilizador final, pode querer atualizar a documentação para refletir esta alteração. Capturas de ecrã atualizadas [aqui](https://aka.ms/androidcpupdate).
 
-- **Изменения в поддержке для приложения корпоративного портала iOS**
+- **Alterações ao suporte para a aplicação do Portal da empresa iOS**
 
-  Теперь всем пользователям приложения корпоративного портала Microsoft Intune для iOS необходимо использовать последнюю версию. Новые пользователи могут скачать только последнюю версию, а существующим пользователям требуется обновить ее. Для использования последней версии необходима ОС iOS 8.0 или более поздней версии, поэтому на устройствах под управлением более старых версий iOS невозможно пользоваться корпоративным порталом и регистрировать устройства. Для этого нужно обновить версию iOS до 8.0 или более поздней, а затем обновить приложение корпоративного портала до последней версии. Зарегистрированные устройства с iOS версии ниже 8.0 будут по-прежнему отображаться в консоли администрирования Intune, где ими по-прежнему можно будет управлять.
+  Todos os utilizadores da aplicação do Portal da empresa do Microsoft Intune para iOS são agora necessárias para utilizar a versão mais recente. Os novos utilizadores são capazes de transferir apenas a versão mais recente e os utilizadores atuais são necessários para atualizar para a mesma. A versão mais recente requer o iOS 8.0 ou posterior, para que os dispositivos que executem versões anteriores do iOS não é possível utilizar o Portal da empresa nem inscrever enquanto os atualizarem para o iOS 8.0 ou posterior e, em seguida, atualizar a aplicação do Portal da empresa para a versão mais recente. Os dispositivos inscritos que executem versões anteriores ao iOS 8.0 continuarão a ser geridos e listados na consola de administração do Intune.
 
-- **В приложение корпоративного портала для Windows Phone 8.1 добавлена кнопка обратной связи**
+- **Botão de comentários adicionado à aplicação Portal da empresa do Windows Phone 8.1**
 
-  Приложение корпоративного портала для Windows Phone 8.1 позволяет конечным пользователям отправлять отзывы о приложении с помощью новой кнопки "Отправить отзыв". Чтобы найти кнопку, коснитесь значка с тремя точками в правом нижнем углу экрана приложения корпоративного портала и выберите команду **Отправить отзыв**. Собранные и анонимизированные отзывы помогут Майкрософт совершенствовать работу приложения корпоративного портала с точки зрения пользователей.
+  A aplicação de Portal da empresa do Windows Phone 8.1 permite que os utilizadores finais enviar comentários sobre a aplicação através da utilização de um novo botão "Enviar comentários". Para localizar o botão, os utilizadores toque no menu "reticências" na parte inferior direita do ecrã de aplicação do Portal da empresa e, em seguida, toque em **enviar comentários**. Os comentários recolhidos são anónimos e vão ajudar a Microsoft a melhorar a experiência de aplicação do Portal da empresa para utilizadores.
 
-### <a name="new-in-configuration-manager-technical-preview-1609"></a>Новые возможности Configuration Manager Technical Preview 1609
+### <a name="new-in-configuration-manager-technical-preview-1609"></a>Novo no Configuration Manager Technical Preview 1609
 
-Ниже перечислены новые возможности гибридного управления, появившиеся в выпуске Configuration Manager Technical Preview 1609 в сентябре 2016 г.
+As novas funcionalidades híbridas foram introduzidas Setembro de 2016 para 1609 de pré-visualização técnica do Configuration Manager.
 
-- **Дополнительные параметры и повышение удобства работы с параметрами элементов конфигурации**
+- **Definições adicionais e experiência melhorada para as definições do Item de configuração**
 
-  Добавлены новые параметры для Android, iOS и Windows. В мастере отображаются только те параметры, которые относятся платформам, выбранным на странице "Поддерживаемые платформы". Дополнительные сведения см. в разделе [Новые параметры соответствия для элементов конфигурации в TP 1609](/sccm/core/get-started/capabilities-in-technical-preview-1609#new-compliance-settings-for-configuration-items).
+  Foram adicionadas novas definições de Android, iOS e Windows, e apenas as definições que se aplicam para as plataformas que selecionar na página de plataformas suportadas são apresentadas no assistente. Para obter mais informações consulte [novas definições de conformidade de itens de configuração TP 1609](/sccm/core/get-started/capabilities-in-technical-preview-1609#new-compliance-settings-for-configuration-items).
 
-- **Дополнительные параметры для профилей DEP**
+- **Definições adicionais para perfis DEP**
 
-  TouchID, ApplePay и Zoom добавлены в качестве настраиваемых параметров в профилях DEP для устройств iOS.
+  Foram adicionadas TouchID, ApplePay e Zoom como as definições configuráveis em perfis DEP para dispositivos iOS.
 
-- **Платные приложения в Магазине Windows для бизнеса**
+- **Paga aplicações na loja Windows para empresas**
 
-  В Магазин Windows для бизнеса теперь можно добавлять как платные, так и бесплатные приложения и развертывать их для пользователей в организации. Дополнительные сведения см. в разделе [Улучшения Магазина Windows для бизнеса в TP 1609](/sccm/core/get-started/capabilities-in-technical-preview-1609#enhancements-to-windows-store-for-business-integration-with-configuration-manager).
+  Agora pode adicionar aplicações pagas e livres para a loja Windows para empresas e implementá-las aos utilizadores na sua organização. Para obter mais informações consulte [melhoramentos à loja Windows para empresas no TP 1609](/sccm/core/get-started/capabilities-in-technical-preview-1609#enhancements-to-windows-store-for-business-integration-with-configuration-manager).
 
-- **Типы собственного подключения для профилей VPN для Windows 10**
+- **Tipos de ligação de nativo para perfis de VPN do Windows 10**
 
-  Теперь в консоли Configuration Manager можно создавать профили VPN для Windows 10 с типами подключения Microsoft Automatic, IKEv2 и PPTP без применения OMA-URI.
+  Agora, pode criar perfis de VPN do Windows 10 para MDM com o Microsoft Automatic, PPTP e IKEv2, tipos de ligação na consola do Configuration Manager sem utilizar definições OMA-URI.
 
-- **Диаграммы соответствия Intune**
+- **Gráficos de conformidade do Intune**
 
-  Вы можете быстро получить общее представление о совместимости устройств и узнать основные причины несоответствия с помощью новых диаграмм в рабочей области "Наблюдение". Дополнительные сведения см. в разделе [Диаграммы соответствия Intune в TP 1609](/sccm/core/get-started/capabilities-in-technical-preview-1609#intune-compliance-charts).
+  Pode obter uma vista rápida de dispositivos geral os motivos de conformidade e superior inconformidade utilizando gráficos novos na área de trabalho monitorização. Para obter mais informações, consulte [gráficos de conformidade do Intune no TP 1609](/sccm/core/get-started/capabilities-in-technical-preview-1609#intune-compliance-charts).
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
 
-Ниже указана новая возможность, появившаяся в сентябре 2016 г. для гибридных развертываний с Microsoft Intune и Configuration Manager версии 1606 (Current Branch).
+A seguinte nova funcionalidade introduzida no Setembro de 2016 está disponível para implementações híbridas com o Microsoft Intune e Configuration Manager versão 1606 (ramo atual).
 
-- **Поддержка iOS 10**
+- **suporte do iOS 10**
 
-  Если у вас есть профили или элементы конфигурации, предназначенные для всех платформ iOS, они будут также применены к iOS 10. Кроме того, мы выпустили обновление для Configuration Manager версии 1606, которое позволяет нацеливать профили и элементы конфигурации на отдельные платформы iOS, включая iOS 10. Установить это обновление можно в консоли администрирования Configuration Manager, выбрав **Администрирование > Обзор > Облачные службы > Обновления и обслуживание**. Дополнительные сведения об обновлении можно получить на странице по адресу [http://support.microsoft.com/kb/3192616](http://support.microsoft.com/kb/3192616).
+  Se tiver perfis ou itens de configuração direcionadas para todas as plataformas iOS, estes também serão enviados para o iOS 10. Também tiver lançada uma atualização do Configuration Manager versão 1606 que lhe permite perfis de destino e itens de configuração para as plataformas iOS individuais, incluindo iOS 10. Pode instalar a atualização com a consola de administração do Configuration Manager em **administração > Descrição geral > Serviços Cloud > atualizações e manutenção**. Pode encontrar mais informações sobre a atualização na [http://support.microsoft.com/kb/3192616](http://support.microsoft.com/kb/3192616).
 
-## <a name="august-2016"></a>Август 2016 г.
+## <a name="august-2016"></a>Agosto de 2016
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в августе 2016 г.
+As seguintes funcionalidades do Intune introduzidas em Agosto de 2016 funcionam em implementações híbridas.
 
-- **Поддержка Android 7 в приложении корпоративного портала**
+- **Suporte de 7 Android na aplicação Portal da empresa**
 
-  Приложение корпоративного портала Intune для Android обеспечивает поддержку "нулевого дня" для будущей операционной системы Android 7.0 для мобильных устройств.
+  A aplicação Portal da empresa do Intune para Android fornece suporte de "dia 0" para o lançamento sistema de operativo Android 7.0 para dispositivos móveis.
 
-- **Удаление возможности удаленного сброса секретного кода на устройствах Android 7.0 компанией Google**
+- **Google remoção do código de acesso remoto de reposição de capacidade em dispositivos Android 7.0**
 
-  Компания Google удаляет возможность удаленного сброса секретного кода для устройств Android 7.0 ИТ-администраторами и конечными пользователями. Ранее ИТ-администраторы могли удаленно сбрасывать секретные коды пользователей, а конечные пользователи могли сбрасывать свои секретные коды на веб-сайте корпоративного портала.
+  Google está a remover a capacidade dos administradores de TI e os utilizadores finais repor remotamente o código de acesso de dispositivos Android 7.0. Anteriormente, os administradores de TI podiam repor remotamente o código de acesso de um utilizador e os utilizadores finais foi possível repor os códigos de acesso a partir do site do Portal da empresa.
 
-- **Политика в отношении разрешенных и заблокированных приложений для устройств Samsung KNOX Standard**
+- **Política de aplicações permitidas e bloqueadas para dispositivos Samsung KNOX Standard**
 
-  Теперь можно настроить пользовательскую политику для устройств Samsung KNOX Standard с целью создания одного из указанных ниже списков.
+  Agora, pode configurar uma política personalizada para dispositivos Samsung KNOX Standard que lhe permite criar um dos seguintes:
 
-  - Список приложений, выполнение которых на устройстве запрещено. Даже если приложение, включенное в список заблокированных, установлено, активировать его на устройстве нельзя.
-  - Список приложений, которые пользователям устройства разрешено устанавливать из магазина Google Play. Другие приложения устанавливать из магазина нельзя.
+  - Uma lista de aplicações que estão bloqueadas de executar no dispositivo. Mesmo que se instalada, uma aplicação definida na lista de bloqueadas não pode ser ativada no dispositivo.
+  - Uma lista de aplicações que os utilizadores do dispositivo estão autorizados a instalar a partir da loja do Google Play. Não existem outras aplicações podem ser instaladas da loja.
 
-  Эти параметры применяются только к устройствам с Samsung KNOX Standard. Подробные сведения см. в разделе [Использование настраиваемых политик для разрешения и блокировки приложений для устройств Samsung KNOX Standard](/intune/deploy-use/custom-policy-to-allow-and-block-samsung-knox-apps).
+  Estas definições só podem ser utilizadas pelos dispositivos que executem o Samsung KNOX Standard. Para obter mais informações, consulte [utilizar as políticas personalizadas para permitir e bloquear aplicações para dispositivos Samsung KNOX Standard](/intune/deploy-use/custom-policy-to-allow-and-block-samsung-knox-apps).
 
-- **Ссылка на корпоративном портале для отправки отзыва в корпорацию Майкрософт**
+- **Ligação de comentários do Portal da empresa para a Microsoft**
 
-   На веб-сайте корпоративного портала пользователь может коснуться новой ссылки "Обратная связь" в нижней части страницы, чтобы отправить в корпорацию Майкрософт отзыв о сайте. Собранные и анонимизированные отзывы помогут Майкрософт совершенствовать работу веб-сайта корпоративного портала с точки зрения пользователей.
+   O Web site do Portal da empresa permite aos utilizadores finais tocar numa hiperligação "Comentários" novo, na parte inferior da página, para enviar comentários à Microsoft sobre as suas experiências com o site. Os comentários recolhidos são anónimos e vão ajudar a Microsoft a melhorar a experiência de Web site do Portal da empresa para utilizadores.
 
-- **Минимальная версия Managed Browser для iOS изменена на 8.0**
+- **Versão do Browser gerido iOS mínima atualizada para 8.0**
 
-  Приложение Microsoft Intune Managed Browser для iOS теперь поддерживает устройства с ОС iOS 8.0 или более поздней версии. Хотя устройства с iOS 7.1 по-прежнему могут использовать существующее приложение Managed Browser, порекомендуйте пользователям произвести обновление до версии iOS 8.0 или более поздней, чтобы они могли в полной мере применять новые возможности Managed Browser.
+  A aplicação de Browser gerido do Microsoft Intune para iOS foi atualizada para suportar dispositivos que executam o iOS 8.0 ou posterior. Embora os dispositivos iOS 7.1 ainda podem utilizar a aplicação de Browser gerido atual, encorajar os utilizadores atualizarem para o iOS 8.0 ou posterior para aceder e tirar partido das novas funcionalidades de Browser gerido.
 
-### <a name="new-in-configuration-manager-technical-preview"></a>Новые возможности Configuration Manager Technical Preview
+### <a name="new-in-configuration-manager-technical-preview"></a>Novo no Configuration Manager Technical Preview
 
-В августе 2016 г. в Configuration Manager Technical Preview не появились новые возможности гибридного управления.
+Não existem novas funcionalidades híbridas foram introduzidas no Agosto de 2016 para o Configuration Manager Technical Preview.
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
 
-В августе 2016 г. в Configuration Manager (Current Branch) не появились новые возможности гибридного управления.
+Não existem novas funcionalidades híbridas foram introduzidas no Agosto de 2016 para o Configuration Manager (ramo atual).
 
-## <a name="july-2016"></a>Июль 2016 г.
+## <a name="july-2016"></a>Julho de 2016
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в июле 2016 г.
+As seguintes funcionalidades do Intune introduzidas em Julho de 2016 funcionam em implementações híbridas.
 
-- **Доступен пакет Xamarin SDK для приложений Intune**
+- **SDK Xamarin para aplicações do Intune está disponível**
 
-  Компонент Xamarin SDK для приложений Intune позволяет включать функции управления мобильными приложениями Intune в мобильных приложениях iOS и Android, созданных с помощью Xamarin. Получить этот компонент можно в [магазине Xamarin](https://components.xamarin.com/view/Microsoft.Intune.MAM) или на [странице Microsoft Intune в Github](https://github.com/msintuneappsdk).
+  O componente Xamarin do Intune App SDK permite-lhe ativar as funcionalidades de gestão de aplicações móveis do Intune no seu móveis aplicações iOS e Android criadas com Xamarin. Pode encontrar o componente no [arquivo Xamarin](https://components.xamarin.com/view/Microsoft.Intune.MAM) ou no [página do Microsoft Intune Github](https://github.com/msintuneappsdk).
 
-- **Повышено удобство регистрации устройств Windows конечными пользователями**
+- **Experiência de utilizador final melhorada quando a inscrição de dispositivos Windows**
 
-  При использовании условного доступа процедура регистрации для Windows 8.1, Windows 10 Desktop и Windows 10 Mobile на веб-сайте корпоративного портала стала понятнее. Теперь она включает отдельные этапы **Регистрация устройства** и **Подключение к рабочему месту**, благодаря чему пользователю стало проще узнать состояние устройства и завершить процесс в случае сбоя Workplace Join (WPJ). Также предусмотрены отдельные шаги для ИТ-администраторов, упрощающие устранение неполадок. Ранее, когда пользователь пытался произвести регистрацию и все ее шаги завершались успешно, кроме WPJ, зарегистрированное устройство не появлялось в выводимом списке устройств, что приводило пользователя в замешательство.
+  Quando estiver a utilizar o acesso condicional, os passos de inscrição para Windows 8.1, ambiente de trabalho do Windows 10 e Windows 10 Mobile foram clarificados no Web site do Portal da empresa. Os utilizadores irão ver agora separadas **inscrição de dispositivos** e **Workplace Join** passos, tornando mais fácil para os mesmos para ver o estado dos respetivos dispositivos e concluir o processo se se depararem com uma falha de área de trabalho Join (WPJ). Os passos separados também são esperados para simplificar o processo de resolução de problemas para os administradores de TI. Anteriormente, quando os utilizadores finais tentavam inscrever e todos os passos de inscrição foi concluída com êxito, menos a WPJ, o dispositivo inscrito não aparecia na lista de dispositivos para os utilizadores identificarem, confundindo-os utilizadores.
 
- - **Полная очистка теперь доступна для устройств с Windows 10**
+ - **Eliminação completa, agora disponível para dispositivos Windows 10**
 
-    Компьютеры и ноутбуки с Windows 10, зарегистрированные как мобильные устройства, можно очистить, чтобы сбросить их до заводских настроек. Дополнительные сведения см. в разделе [Защита устройств с помощью удаленной очистки](/sccm/mdm/deploy-use/wipe-lock-reset).
+    Windows 10 PCs e portáteis inscritos como dispositivos móveis podem ser apagados repor o dispositivo para as definições de fábrica. Para obter mais informações, consulte [como proteger os seus dispositivos com a eliminação remota](/sccm/mdm/deploy-use/wipe-lock-reset).
 
-- **Изменения в учетных записях диспетчеров регистрации устройств в приложении корпоративного портала для iOS**
+- **Alterações às contas na aplicação Portal da empresa iOS para os gestores de inscrição de dispositivos**
 
-  С целью повышения производительности и масштабируемости в Intune больше не отображаются все устройства диспетчеров регистрации устройств (DEM) в области "Мои устройства" приложения корпоративного портала для iOS. Отображается только локальное устройство, на котором выполняется приложение, и только если оно зарегистрировано с помощью приложения корпоративного портала.
+  Para melhorar o desempenho e dimensionamento, o Intune já não mostra todos os dispositivos de gestores de inscrição de dispositivos (DEM) no painel meus dispositivos da aplicação Portal da empresa iOS. Apenas o dispositivo local que executa a aplicação é apresentado e apenas se estiver inscrito através da aplicação do Portal da empresa.
 
-  Пользователь DEM может выполнять действия с локальным устройством, но удаленное управление другими зарегистрированными устройствами может осуществляться только из консоли администрирования Intune. Кроме того, в Intune прекращается поддержка использования учетных записей DEM с программой регистрации устройств Apple или конфигуратором Apple. Оба этих метода регистрации уже поддерживают регистрацию общих устройств iOS без участия пользователя.
+  O utilizador DEM pode executar ações no dispositivo local, mas a gestão remota de outros dispositivos inscritos só pode ser efetuada da consola de administração do Intune. Além disso, Intune está a descontinuar a utilização de contas DEM com o programa de inscrição de dispositivos da Apple ou a ferramenta Apple Configurator. Ambos os métodos de inscrição já suportam a inscrição de utilizadores para dispositivos iOS partilhados.
 
-  Применяйте учетные записи DEM, только если регистрация общих устройств без участия пользователя невозможна. Дополнительные сведения см. в разделе [Регистрация корпоративных устройств с помощью диспетчера регистрации устройств в Microsoft Intune](../deploy-use/enroll-devices-with-device-enrollment-manager.md).
+  Utilize apenas contas DEM quando a inscrição de utilizadores para dispositivos partilhados não está disponível. Para obter mais informações, consulte [inscrever dispositivos pertencentes à empresa com o Gestor de inscrição do dispositivo no Microsoft Intune](../deploy-use/enroll-devices-with-device-enrollment-manager.md).
 
-- **Изменения в приложении корпоративного портала для Android**
+- **Alterações para a aplicação do Portal da empresa para Android**
 
-  Если пользователь Android получает сообщение о том, что на устройстве отсутствует необходимый сертификат, он может нажать кнопку "Способы решения", чтобы получить инструкции по установке отсутствующего сертификата. Если пользователь выполняет инструкции, но видит дополнительное сообщение об ошибке "Отсутствует сертификат", ему предлагается связаться с ИТ-администратором и предоставить эту ссылку на инструкции, с помощью которых ИТ-администратор может устранить связанную с сертификатом ошибку.
+  Se os utilizadores finais vir uma mensagem de erro que indica o dispositivo está em falta um certificado necessário, podem tocar num botão "How to resolve this" para obter passos para instalar o certificado em falta. Se os utilizadores de concluir os passos, mas consulte um adicional "certificado em falta" mensagem de erro, são-lhe pedidos para contactar o administrador de TI e fornecer esta ligação, que contém os passos que os administradores de TI podem utilizar para corrigir o problema do certificado.
 
-- **Ограничение установки неопубликованных приложений на зарегистрированных устройствах Android**
+- **Restringir instalações de aplicações sideload em dispositivos Android inscritos**
 
-  На устройствах Android больше нельзя устанавливать приложения через веб-сайт корпоративного портала, если устройства не зарегистрированы в Intune с помощью приложения корпоративного портала Intune для Android.
+  Dispositivos Android já não podem instalar aplicações através do site do Portal da empresa, a menos que os dispositivos que tenham sido inscritos no Intune através da aplicação Portal da empresa do Intune para Android.
 
 
-### <a name="new-in-configuration-manager-technical-preview"></a>Новые возможности Configuration Manager Technical Preview
+### <a name="new-in-configuration-manager-technical-preview"></a>Novo no Configuration Manager Technical Preview
 
-В июле 2016 г. в Configuration Manager Technical Preview не появились новые возможности гибридного управления.
+Não existem novas funcionalidades híbridas foram introduzidas no Julho de 2016 para o Configuration Manager Technical Preview.
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
 
-Ниже перечислены возможности, которые ранее были доступны в выпусках Configuration Manager Technical Preview, а теперь доступны в гибридных развертываниях с Intune и Configuration Manager (Current Branch) версии 1606.
+As seguintes funcionalidades que se encontravam anteriormente disponíveis em versões do Configuration Manager Technical Preview estão agora disponíveis em implementações híbridas com o Intune e Configuration Manager (ramo atual) versão 1606.
 
-* Поиск приложений Магазина Windows для бизнеса для устройств с Windows 10, управление ими и их распространение из консоли Configuration Manager ([1604](#new-in-1604-technical-preview))
-*   Параметр Smart Lock для устройств Android ([1604](#new-in-1604-technical-preview))
-*   Инициируемая приложениями VPN для устройств с Windows 10 ([1605](#new-in-1605-technical-preview))
-*   Новые возможности для действий с удаленного устройства ([1605](#new-in-1605-technical-preview))
-*   Приложения Магазина Windows для бизнеса ([1605](#new-in-1605-technical-preview))
-*   Общие улучшения для приложений, приобретаемых в рамках программ корпоративного лицензирования ([1605](#new-in-1605-technical-preview))
-*   Windows Information Protection (WIP) ([1605](#new-in-1605-technical-preview))
-*   Предварительное объявление корпоративных устройств с серийными номерами IMEI или iOS ([1605](#new-in-1605-technical-preview))
-*   Автоматическое разбиение устройств по коллекциям ([1606](#new-in-1606-technical-preview))
+* Localizar, gerir e distribuir da loja Windows para empresas aplicações para dispositivos Windows 10 na consola do Configuration Manager ([1604](#new-in-1604-technical-preview))
+*   Definição de SmartLock para dispositivos Android ([1604](#new-in-1604-technical-preview))
+*   Dispositivos de VPN para Windows 10 acionada por aplicações ([1605](#new-in-1605-technical-preview))
+*   Nova experiência para as ações do dispositivo remoto ([1605](#new-in-1605-technical-preview))
+*   Loja Windows para aplicações empresariais ([1605](#new-in-1605-technical-preview))
+*   Melhoramentos gerais para as aplicações compradas em volume ([1605](#new-in-1605-technical-preview))
+*   O Windows Information Protection (WIP) ([1605](#new-in-1605-technical-preview))
+*   Pré-declarar dispositivos pertencentes à empresa com o número de série iOS ou IMEI ([1605](#new-in-1605-technical-preview))
+*   Categorizar automaticamente os dispositivos para coleções ([1606](#new-in-1606-technical-preview))
 
-Сведения о новых функциональных возможностях см. в документации по указанному выпуску Technical Preview.
+Para obter informações sobre a nova funcionalidade, consulte a documentação para a versão de pré-visualização técnica especificada.
 
-## <a name="june-2016"></a>Июнь 2016 г.
+## <a name="june-2016"></a>Junho de 2016
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune
-Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в июне 2016 г.
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+As seguintes funcionalidades do Intune introduzidas em Junho de 2016 funcionam em implementações híbridas.
 
-- **Работоспособность службы Intune**. Сведения о работоспособности службы Intune теперь приводятся там же, где и сведения о других службах Майкрософт. Эту информацию теперь можно найти на портале управления Office 365 в разделе "Работоспособность службы". Дополнительные сведения см. в этой [записи блога](https://blogs.technet.microsoft.com/enterprisemobility/2016/04/28/intune-service-health-is-now-available-in-the-office-365-portal/).
+- **Estado de funcionamento do serviço Intune** informações de estado de funcionamento do serviço do Intune foi movidas para uma localização central com outros serviços Microsoft. Agora encontrar estas informações no portal de gestão do Office 365 em estado de funcionamento do serviço. Para obter mais informações, consulte este [blogue](https://blogs.technet.microsoft.com/enterprisemobility/2016/04/28/intune-service-health-is-now-available-in-the-office-365-portal/).
 
-- **Улучшен интерфейс настройки политики относительно данных предприятия Windows 10**
+- **Experiência avançada configuração de política de dados do Windows 10 enterprise**
 
-  В Intune улучшен интерфейс настройки политики в отношении защиты информации Windows 10. В число улучшений входят более удобные способы создания правил приложений, определения границ сети и настройки других параметров Windows Information Protection. Дополнительные сведения см. в статье [Создание политики Windows Information Protection (WIP) с помощью Microsoft Intune](https://technet.microsoft.com/itpro/windows/keep-secure/create-wip-policy-using-intune).
+  Intune tem agora uma experiência melhorada para configurar a política de proteção de informações do Windows 10. As melhorias incluem melhor formas para criar regras de aplicação, especifique a definição de limites de rede e outras definições de proteção de informações do Windows. Para obter mais informações, consulte [criar uma política de proteção de informações do Windows (WIP) através do Microsoft Intune](https://technet.microsoft.com/itpro/windows/keep-secure/create-wip-policy-using-intune).
 
-- **Политика управления доступом к сети Cisco ISE для Intune**
+- **Política de controlo do acesso do Cisco ISE rede para o Intune**
 
-  Клиенты, использующие Cisco Identity Service Engine (ISE) 2.1 и Microsoft Intune, могут настроить политику управления доступом к сети в ISE. Благодаря этой политике устройства, которым необходимо подключиться к сети с помощью Wi-Fi или VPN, получают доступ, только если они соответствуют следующим условиям:
+  Os clientes que utilizam o Cisco identidade do serviço de motor (ISE) 2.1 e também utilizam o Microsoft Intune podem definir uma política de controlo de acesso de rede no ISE. Utilizar esta política, dispositivos que necessitam para ligar à rede através de Wi-Fi ou VPN devem cumprir seguintes condições antes de lhes ser concedido acesso:
 
-  - находятся под управлением Intune;
-  - удовлетворяют всем развернутым политикам соответствия Intune.
+  - Tem de ser gerido pelo Intune
+  - Deve ser compatível com todas políticas de conformidade do Intune implementadas
 
-  Пользователям устройств, которые не соответствуют этим условиям, предлагается зарегистрироваться и устранить все проблемы с соответствием, чтобы получить доступ.
+  Os utilizadores finais de dispositivos não conformes serão solicitados a inscrição e retificar quaisquer problemas de compatibilidade para obter acesso.
 
-- **Условный доступ для браузера**
+- **Acesso condicional para browser**
 
-  Вы можете настроить политику условного доступа для Exchange Online и SharePoint Online, чтобы доступ к этим службам был возможен только из поддерживаемых веб-браузеров на управляемых устройствах iOS и Android, соответствующих требованиям. Пользователям, пытающимся войти на сайты Outlook Web Access и SharePoint с помощью устройств iOS и Android, будет предлагаться зарегистрировать устройства в Intune, а также устранить все проблемы с соответствием, чтобы выполнить вход. Дополнительные сведения см. на странице
+  Pode definir uma política de acesso condicional para Exchange Online e SharePoint Online, para que apenas pode ser acedidos de browsers suportados em dispositivos geridos e conformes iOS e Android. Serão solicitados aos utilizadores finais que tentarem iniciar sessão sites do Outlook Web Access (OWA) e ao SharePoint com dispositivos iOS e Android para inscrever o respetivo dispositivo no Intune, bem como que corrijam quaisquer problemas de não conformidade, para que poderem concluir o início de sessão. Para mais informações, consulte
 
-  * [Ограничение доступа к электронной почте в Exchange Online и новой выделенной среде Exchange Online с помощью Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-exchange-online-with-microsoft-intune)
-  * [Ограничение доступа к SharePoint Online с помощью Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-sharepoint-online-with-microsoft-intune)
+  * [Restringir o acesso ao e-mail no Exchange Online e Exchange Online dedicado com o Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-exchange-online-with-microsoft-intune)
+  * [Restringir o acesso ao SharePoint Online com o Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-sharepoint-online-with-microsoft-intune)
 
-- **Dynamics CRM Online поддерживает условный доступ**
+- **Dynamics CRM Online suporta o acesso condicional**
 
-  Вы можете настроить политику условного доступа для Dynamics CRM Online, чтобы доступ к этой службе был возможен только с управляемых устройств iOS и Android, соответствующих требованиям. Пользователям, пытающимся войти в мобильное приложение Dynamics CRM с помощью устройств iOS и Android, будет предлагаться зарегистрироваться в Intune, а также устранить все проблемы с соответствием, чтобы выполнить вход. Дополнительные сведения см. в разделе [Ограничение доступа к Dynamics CRM Online с помощью Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-dynamics-crm-online-with-microsoft-intune).
+  Pode definir uma política de acesso condicional para o Dynamics CRM Online, para que apenas possa ser acedida por dispositivos geridos e conformes iOS e Android. Os utilizadores finais que tentarem iniciar sessão na aplicação móvel Dynamics CRM no iOS e Android será pedido que se inscrevam primeiro no Intune e que corrijam quaisquer problemas de não conformidade para concluir o início de sessão. Para obter mais informações, consulte [restringir o acesso ao Dynamics CRM Online com o Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/restrict-access-to-dynamics-crm-online-with-microsoft-intune).
 
-- **Изменения в приложении корпоративного портала для Android**
+- **Atualizações da aplicação Portal da empresa para Android**
 
-  В Intune появились перечисленные ниже политики, касающиеся пользователей корпоративного портала для Android.   
+  Agora, o Intune tem as seguintes novas políticas que irão afetar os utilizadores do Portal da empresa para Android:   
 
-  Политика  |Влияние на пользователей  
+  Política  |Efeito nos utilizadores  
   ---------|---------
-  Запрет на установку приложений из неизвестных источников на устройствах (Android 4.0 или более поздней версии)     |  Пользователи устройств с Android 4.0 или более поздней версии получают сообщение "Установку из неизвестных источников необходимо отключить". Пользователям необходимо перейти в раздел **Параметры > Безопасность** на устройствах и отключить параметр **Неизвестные источники**. Перейдя по ссылке в сообщении о соответствии, пользователи могут получить дополнительные сведения о том, почему это сообщение появляется и почему необходимо отключить этот параметр.
-  Запрет на установку приложений из неизвестных источников на устройствах (Android 4.0 или более поздней версии)  |    Пользователи устройств с Android 4.0 или более поздней версии получают сообщение "Проверьте устройство на наличие угроз безопасности". Пользователям необходимо перейти в раздел **Параметры > Google > Безопасность** на устройствах и включить параметр **Scan device for security threats** (Проверять устройство на наличие угроз безопасности). Перейдя по ссылке в сообщении о соответствии, пользователи могут получить дополнительные сведения о том, почему это сообщение появляется и почему необходимо включить этот параметр.     
-  Обязательное отключение USB-отладки (Android 4.2 или более поздней версии)  | Пользователи устройств с Android 4.2 или более поздней версии получают сообщение "USB-отладку необходимо отключить". Пользователям необходимо перейти в раздел **Параметры > Параметры разработчика** на устройствах и отключить параметр **USB debugging** (USB-отладка). Перейдя по ссылке в сообщении о соответствии, пользователи могут получить дополнительные сведения о том, почему это сообщение появляется и почему необходимо отключить этот параметр.
-  Минимальный уровень исправления безопасности Android (Android 6.0 или более поздней версии)  | Пользователи устройств с Android 6.0 или более поздней версии получают сообщение "Это устройство не соответствует требованию к минимальному уровню исправления безопасности Android". Пользователям необходимо будет установить требуемое исправление безопасности. Перейдя по ссылке в сообщении о соответствии, пользователи могут получить сведения о том, как установить требуемое исправление безопасности и какое исправление безопасности установлено в настоящее время.
+  Exigir que dispositivos não permitam a instalação de aplicações a partir de origens desconhecidas (Android 4.0 +)     |  Os utilizadores finais com Android 4.0 ou dispositivos posteriores irão ver a mensagem, "Instalação a partir de origens desconhecidas tem de ser desativada." Os utilizadores terão de ir para **definições > segurança** nos seus dispositivos e desative **origens desconhecidas**. Uma ligação na mensagem de compatibilidade permite aos utilizadores obterem mais informações sobre a mensagem e por que motivo é necessário desativar a definição.
+  Exigir que dispositivos não permitam a instalação de aplicações a partir de origens desconhecidas (Android 4.0 +)  |    Os utilizadores finais com Android 4.0 ou dispositivos posteriores irão ver a mensagem "Analisar se o dispositivo apresenta ameaças de segurança." Os utilizadores terão de ir para **definições > Google > segurança** nos seus dispositivos e ative **analisar se o dispositivo apresenta ameaças de segurança**. Uma ligação na mensagem de compatibilidade permite aos utilizadores obterem mais informações sobre a mensagem e por que motivo é necessário para ativar a definição.     
+  Exigir que a depuração USB esteja desativada (Android 4.2 +)  | Os utilizadores finais com Android 4.2 ou dispositivos posteriores irão ver a mensagem, "a depuração de USB deve ser desativada." Os utilizadores terão de ir para **definições > Opções de programador** nos seus dispositivos e desative **depuração USB**. Uma ligação na mensagem de compatibilidade permite aos utilizadores obterem mais informações sobre a mensagem e por que motivo é necessário desativar a definição.
+  Nível de patch de segurança Android mínimo (Android 6.0 +)  | Os utilizadores finais com Android 6.0 ou dispositivos posteriores irão ver a mensagem, "este dispositivo não cumpre o nível de patch de segurança Android mínimo." Os utilizadores terão de instalar o patch de segurança necessário. Uma ligação na mensagem de compatibilidade permite aos utilizadores obter informações sobre como instalar o patch de segurança necessárias e para ver que patch de segurança que está atualmente instalado.
 
-- **Изменения в приложении корпоративного портала для iOS**
+- **Atualizações da aplicação do Portal da empresa iOS**
 
-  * Интерфейс установки бизнес-приложений для пользователей улучшен. Если установка приложения выполняется долго, пользователь может вручную синхронизировать устройство, чтобы принудительно возобновить процесс синхронизации. Инструкции для пользователей см. в разделе "Синхронизация устройства iOS вручную".
-  * Приложение корпоративного портала Майкрософт для iOS было обновлено для поддержки iOS 8.0 и более поздних версий. Это обновление означает, что пользователи могут устанавливать приложение корпоративного портала и регистрировать новые устройства в Intune только в том случае, если устройство работает под управлением iOS 8.0 или более поздней версии. Пользователи, которые уже зарегистрировали устройства с неподдерживаемой версией iOS, могут продолжать использовать приложение корпоративного портала на своем устройстве.
+  * Quando os utilizadores finais estiverem a instalar aplicações de linha de negócio, irão ver agora uma experiência de instalação de aplicações melhorada. Se a instalação da aplicação estiver a demorar muito tempo, os utilizadores podem sincronizar manualmente os respetivos dispositivos para forçar o continuação do processo de sincronização. Para consultar as instruções do utilizador final, consulte Sincronizar o dispositivo iOS manualmente.
+  * A aplicação Portal da empresa do Microsoft Intune para iOS foi atualizada para suportar a versão do iOS 8.0 e posterior. Esta atualização significa que os utilizadores finais podem instalar a aplicação Portal da empresa e inscrever novos dispositivos no Intune apenas se o dispositivo está a executar o iOS versão 8.0 ou posterior. Os utilizadores que já inscreveram dispositivos que executem uma versão não suportada do iOS podem continuar a utilizar a aplicação Portal da empresa que está nos dispositivos deles.
 
 
-### <a name="new-in-1606-technical-preview"></a>Новые возможности выпуска Technical Preview 1606
-Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune и Configuration Manager Technical Preview 1606 в июне 2016 г.
+### <a name="new-in-1606-technical-preview"></a>Novo no 1606 Technical Preview
+As seguintes novas funcionalidades introduzidas no Junho de 2016 estão disponíveis nas implementações híbridas com o Intune e 1606 de pré-visualização técnica do Configuration Manager.
 
-- **Автоматическое разбиение устройств по коллекциям**
+- **Categorizar automaticamente os dispositivos para coleções**
 
-  Вы можете создать категории устройств, применяемые для автоматического размещения устройств в коллекциях устройств при использовании Configuration Manager с Intune. Затем при регистрации устройства в Intune пользователям будет необходимо выбрать категорию устройства. Кроме того, в консоли Configuration Manager можно изменить категорию устройства. Дополнительные сведения см. в подразделе [Автоматическое разбиение устройств по коллекциям](/sccm/core/get-started/capabilities-in-technical-preview-1606#dmp_category) раздела [Возможности в Technical Preview 1606 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1606).
+  Pode criar categorias de dispositivo, que podem ser utilizadas para colocar automaticamente os dispositivos em coleções de dispositivos quando estiver a utilizar o Configuration Manager com o Intune. Os utilizadores, em seguida, são necessários para escolher uma categoria de dispositivo quando inscreverem um dispositivo no Intune. Além disso, pode alterar a categoria de um dispositivo da consola do Configuration Manager. Para obter mais informações, consulte [automaticamente categorizar os dispositivos para coleções](/sccm/core/get-started/capabilities-in-technical-preview-1606#dmp_category) no [capacidades no 1606 de pré-visualização técnica do System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1606).
 
   > [!IMPORTANT]
-  > Эта возможность работает начиная с выпуска Microsoft Intune в июне 2016 г. Перед выполнением этих процедур убедитесь в том, что ваша версия обновлена до этого выпуска.
+  > Esta capacidade funciona com a versão de Junho de 2016 do Microsoft Intune. Certifique-se de que lhe foram atualizadas para esta versão antes de experimentar estes procedimentos.
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)
-В июне 2016 г. в Configuration Manager (Current Branch) не появились новые возможности гибридного управления.
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
+Não existem novas funcionalidades híbridas foram introduzidas para o Configuration Manager (ramo atual) de Junho de 2016.
 
-##  <a name="may-2016"></a>Май 2016 г.  
+##  <a name="may-2016"></a>Maio de 2016  
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune  
- Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в мае 2016 г.
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune  
+ As seguintes funcionalidades do Intune introduzidas no Maio de 2016 funcionam em implementações híbridas.
 
-- **Пакет MAM SDK: поддержка настройки длины ПИН-кода**
+- **SDK DE MAM: Configuração de comprimento do PIN de suporte**
 
-  Теперь можно указать длину ПИН-кода для приложений MAM так же, как для ПИН-кода устройства. При этом пользователи должны будут учитывать установленные вами ограничения. Экран ввода ПИН-кода был немного изменен, чтобы можно было вводить более длинное значение. Подробные сведения см. в разделах [Параметры политики управления мобильными приложениями Android](https://docs.microsoft.com/intune/deploy-use/android-mam-policy-settings) и [Параметры политики управления мобильными приложениями iOS](https://docs.microsoft.com/intune/deploy-use/ios-mam-policy-settings).  
+  Agora pode especificar o comprimento do PIN para aplicações MAM, semelhante a um PIN do dispositivo. Isto requer que os utilizadores finais estão em conformidade com as novas restrições que definiu. O ecrã PIN ligeiramente modificado para a conta para a entrada mais. Para obter mais informações, consulte [definições de política MAM para Android](https://docs.microsoft.com/intune/deploy-use/android-mam-policy-settings), e [definições de política MAM para iOS](https://docs.microsoft.com/intune/deploy-use/ios-mam-policy-settings).  
 
-- **Skype для бизнеса для iOS и Android**
+- **Skype para empresas para iOS e Android**
 
-  Управление мобильными приложениями теперь можно применять к Skype для бизнеса [без политик регистрации](https://docs.microsoft.com/intune/deploy-use/get-ready-to-configure-mobile-app-management-policies-with-microsoft-intune). После входа пользователей применяются политики управления мобильными приложениями.  
+  Agora pode visar o Skype para empresas com [MAM sem políticas de inscrição](https://docs.microsoft.com/intune/deploy-use/get-ready-to-configure-mobile-app-management-policies-with-microsoft-intune). Assim que os utilizadores iniciar sessão, as políticas MAM serão aplicadas.  
 
-- **Расширен спектр приложений, которыми можно управлять с помощью политик управления мобильными приложениями**
+- **Novas aplicações disponíveis para a gestão com as políticas de MAM**
 
-  Приложения Microsoft Word, Excel и PowerPoint для Android теперь можно связывать с политиками управления мобильными приложениями на устройствах, которые не зарегистрированы в Intune. Полный список поддерживаемых приложений см. в коллекции мобильных приложений Microsoft Intune на странице [партнеров по приложениям Microsoft Intune](https://www.microsoft.com/en-us/server-cloud/products/microsoft-intune/partners.aspx).  
+  As aplicações Microsoft Word, Excel e PowerPoint para Android podem agora ser associadas a políticas de MAM em dispositivos que não estão inscritos no Intune. Para obter uma lista completa de aplicações suportadas, aceda à Galeria de aplicações móveis do Microsoft Intune no [parceiros de aplicações do Microsoft Intune](https://www.microsoft.com/en-us/server-cloud/products/microsoft-intune/partners.aspx) página.  
 
-- **Приложение корпоративного портала для Android: всплывающие уведомления для конечных пользователей**
+- **Aplicação do portal da empresa para Android: Notificações de alerta do utilizador final**
 
-  Всплывающие уведомления появляются в приложении корпоративного портала для Android, когда пользователи регистрируют устройства на корпоративном портале или удаляют устройства с него.  
+  Notificações de alerta da aplicação Portal da empresa Android apresentada quando os utilizadores finais inscrever ou remover os respetivos dispositivos no Portal da empresa.  
 
-- **Веб-сайт корпоративного портала: баннер идентификации устройства с дополнительными сведениями для пользователей**
+- **Web site do Portal da empresa: Faixa de identificação do dispositivo vai dar mais informações aos utilizadores finais**
 
-  Пользователям стало проще идентифицировать выбранные устройства на веб-сайте корпоративного портала. Если выбрано неправильное устройство, пользователь может выбрать нужное устройство, нажав ссылку **Tap here** (Нажмите здесь) в баннере на домашней странице.  
+  Os utilizadores finais podem agora identificar mais facilmente o dispositivo que selecionaram quando estão a utilizar o Web site do Portal da empresa. Se for selecionado o dispositivo incorreto, pode selecionar o dispositivo correto ao tocar no **tocar aqui** ligação na faixa da página inicial.  
 
 
-### <a name="new-in-1605-technical-preview"></a>Новые возможности выпуска Technical Preview 1605  
- Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune и Configuration Manager Technical Preview 1605 в мае 2016 г. Для настройки этих возможностей и управления ими требуется консоль Configuration Manager.  
+### <a name="new-in-1605-technical-preview"></a>Novo no 1605 Technical Preview  
+ As seguintes novas funcionalidades introduzidas no Maio de 2016 estão disponíveis nas implementações híbridas com o Intune e Configuration Manager Technical Preview 1605. Estas funcionalidades requerem a utilizar a consola do Configuration Manager para configurar e geri-los.  
 
-- **Инициируемая приложениями VPN для устройств с Windows 10**
+- **Dispositivos de acionada por aplicações de VPN para Windows 10**
 
-  Для устройств с ОС Windows 10, управляемых с помощью Configuration Manager с Intune, можно добавить список приложений, которые автоматически открывают VPN-подключения, настроенные в консоли администрирования Configuration Manager. Дополнительные сведения см. в подразделе [Инициируемая приложениями VPN для устройств с Windows 10](/sccm/core/get-started/capabilities-in-technical-preview-1605) раздела [Возможности в Technical Preview 1605 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
+  Para dispositivos do Windows 10 geridos com o Configuration Manager com o Intune, pode adicionar uma lista de aplicações que abra automaticamente uma ligação de VPN que tiver configurado através da consola de administração do Configuration Manager. Para obter mais informações, consulte [acionada por aplicação VPN para dispositivos com Windows 10](/sccm/core/get-started/capabilities-in-technical-preview-1605) no [funcionalidades no Technical Preview 1605 para o System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605)  
 
-- **Новые возможности для действий с удаленным устройством**
+- **Nova experiência para as ações do dispositivo remoto**
 
-  Улучшены возможности выполнения действий с удаленным устройством с консоли Configuration Manager.
+  A experiência para efetuar ações do dispositivo remoto a partir da consola do Configuration Manager foi melhorada.
 
-  Теперь стандартные действия, такие как **Снятие с учета/очистка**, **Сброс секретного кода**, **Удаленная блокировка** и **Обход блокировки активации** находятся в меню **Действия удаленного устройства**, доступном в рабочей области **Активы и соответствие**.
+  Ações comuns, tais como **extinguir/limpar**, **repor código de acesso**, **bloqueio remoto**, e **ignorar bloqueio de ativação** agora podem ser encontrados no **ações do dispositivo remoto** acedido a partir do menu de **ativos e compatibilidade** área de trabalho
 
-  Дополнительные сведения см. в подразделе [Новые возможности для действий с удаленного устройства](/sccm/core/get-started/capabilities-in-technical-preview-1605#new-experience-for-remote-device-actions) раздела [Возможности в Technical Preview 1605 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
+  Para obter mais informações, consulte [nova experiência para as ações do dispositivo remoto](/sccm/core/get-started/capabilities-in-technical-preview-1605#new-experience-for-remote-device-actions) no [funcionalidades no Technical Preview 1605 para o System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
 
-- **Приложения Магазина Windows для бизнеса**
+- **Aplicações da Loja Windows para Empresas**
 
-  [Магазин Windows для бизнеса](https://www.microsoft.com/en-us/business-store) — это место, где вы можете найти и приобрести приложения для своей организации по отдельности или массово. Если подключить магазин к Configuration Manager, можно управлять приложениями, приобретенными по программе корпоративного лицензирования, из консоли Configuration Manager. Дополнительные сведения см. в подразделе [Приложения Магазин Windows для бизнеса](/sccm/core/get-started/capabilities-in-technical-preview-1605.md#windows-store-for-business-apps) раздела [Возможности в Technical Preview 1605 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
+  O [loja Windows para empresas](https://www.microsoft.com/en-us/business-store) é onde pode encontrar e adquirir aplicações para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode gerir aplicações compradas em volume a partir da consola do Configuration Manager. Para obter mais informações, consulte [da loja Windows para aplicações empresariais](/sccm/core/get-started/capabilities-in-technical-preview-1605.md#windows-store-for-business-apps) no [funcionalidades no Technical Preview 1605 para o System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
 
-- **Общие улучшения для приложений, приобретаемых в рамках программ корпоративного лицензирования**
+- **Melhoramentos gerais para as aplicações compradas em volume**
 
-  Приложения, приобретенные по программе корпоративного лицензирования в Магазине Windows для бизнеса, и приложения iOS из App Store объединены в одном представлении — **Информация о лицензиях для приложений из Магазина**. Также улучшен способ создания приложений для iOS, приобретенных по программе корпоративного лицензирования. Дополнительные сведения см. в подразделе [Основные улучшения для приложений, приобретаемых в рамках программ корпоративного лицензирования](/sccm/core/get-started/capabilities-in-technical-preview-1605.md#general-improvements-for-volume-purchased-apps) раздела [Возможности в Technical Preview 1605 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
+  Aplicações compradas na loja Windows para empresas e a iOS app store tem foram consolidadas para a mesma vista **informações de licença para armazenar aplicações**. Além disso, a forma como os que cria as aplicações compradas em volume para iOS foi melhorado. Para obter mais informações, consulte[melhoramentos gerais para as aplicações compradas em volume](/sccm/core/get-started/capabilities-in-technical-preview-1605.md#general-improvements-for-volume-purchased-apps) no [funcionalidades no Technical Preview 1605 para o System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
 
-- **Предварительное объявление корпоративных устройств с серийными номерами IMEI или iOS**
+- **Pré-declarar dispositivos pertencentes à empresa com o número de série iOS ou IMEI**
 
-  Теперь корпоративные устройства можно идентифицировать путем импорта их номеров IMEI. Можно отправить CSV-файл, содержащий номера IMEI устройств, или ввести информацию об устройствах вручную.  Можно также импортировать серийные номера устройств iOS.  Дополнительные сведения см. в подразделе [Предварительное объявление корпоративных устройств с серийными номерами IMEI или iOS](../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_IMEI) раздела [Возможности в Technical Preview 1605 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
+  Agora pode identificar dispositivos pertencentes ao importar os respetivos números de identidade (IMEI) estação internacional do equipamento móvel. Pode carregar um ficheiro de valores separados por vírgulas (. csv) contendo os números IMEI de dispositivo ou pode introduzir manualmente as informações do dispositivo.  Também pode importar os números de série para dispositivos iOS.  Para obter mais informações, consulte [pré-declarar dispositivos pertencentes à empresa com o número de série iOS ou IMEI](../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_IMEI) no [funcionalidades no Technical Preview 1605 para o System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1605).  
 
-- **Windows Information Protection (WIP)**
+- **O Windows Information Protection (WIP)**
 
-  Вы можете создавать элементы конфигурации, позволяющие развертывать политики Windows Information Protection (WIP), в том числе выбирать защищенные приложения, уровень защиты WIP и способы поиска корпоративных данных в сети. Дополнительные сведения о WIP см. в следующих статьях:  
+  Pode criar itens de configuração que permitem-lhe implementar as políticas de proteção de informações do Windows (WIP), incluindo, permitindo-lhe escolher as aplicações protegidas, o nível de proteção de WIP e como dados empresariais são localizados na rede. Para obter mais informações sobre WIP, consulte os tópicos seguintes:  
 
-  -   [Защита корпоративных данных с помощью Windows Information Protection (WIP)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip)  
+  -   [Proteger os dados de enterprise através de proteção de informações do Windows (WIP)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip)  
 
-  -   [Создание и развертывание политики Windows Information Protection (WIP) с помощью System Center Configuration Manager](https://technet.microsoft.com/itpro/windows/keep-secure/create-wip-policy-using-sccm)  
+  -   [Criar e implementar uma política de proteção de informações do Windows (WIP) com o System Center Configuration Manager](https://technet.microsoft.com/itpro/windows/keep-secure/create-wip-policy-using-sccm)  
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)  
- В мае 2016 г. в Configuration Manager (Current Branch) не появились новые возможности гибридного управления.  
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)  
+ Não existem novas funcionalidades híbridas foram introduzidas na Maio de 2016 para o Configuration Manager (ramo atual).  
 
-##  <a name="april-2016"></a>Апрель 2016 г.  
+##  <a name="april-2016"></a>Abril de 2016  
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune  
- Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в апреле 2016 г.  
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune  
+ As seguintes funcionalidades do Intune introduzidas no Abril de 2016 funcionam em implementações híbridas.  
 
-- **Соответствие пользователей политикам управления мобильными приложениями**
+- **Conformidade de utilizadores MAM**
 
-  Теперь вы можете просматривать состояние политик управления приложениями для любого пользователя в клиенте Azure Active Directory (AAD).  Дополнительные сведения см. в статье [Мониторинг политик управления мобильными приложениями с помощью Microsoft Intune](/intune/deploy-use/monitor-mobile-app-management-policies-with-microsoft-intune) в библиотеке Intune.  
+  Agora, pode ver o estado das suas políticas de gestão de aplicações para qualquer utilizador no seu inquilino do Azure Active Directory (AAD).  Para obter mais informações consulte [monitorizar políticas de gestão de aplicações móveis com o Microsoft Intune](/intune/deploy-use/monitor-mobile-app-management-policies-with-microsoft-intune) na biblioteca do Intune.  
 
-- **Элементы управления MAM для блокировки синхронизации контактов Outlook (Android)**
+- **Controlos de MAM para impedir a sincronização de contactos do Outlook (Android)**
 
-  Появился параметр, с помощью которого можно запретить приложению синхронизировать контакты со встроенной адресной книгой на устройствах Android. Этот новый параметр изначально поддерживается приложением Outlook на устройствах Android. Дополнительные сведения см. в разделе [Создание и развертывание политик управления мобильными приложениями с помощью Microsoft Intune](/intune/deploy-use/monitor-mobile-app-management-policies-with-microsoft-intune) в библиотеке Intune.  
+  Uma nova definição está disponível que lhe permite impedir que uma aplicação a sincronização de contactos no livro de endereços nativo em dispositivos Android. Esta nova definição é suportada inicialmente pela aplicação Outlook em dispositivos Android. Para obter mais informações, consulte [criar e implementar políticas de gestão de aplicações móveis com o Microsoft Intune](/intune/deploy-use/monitor-mobile-app-management-policies-with-microsoft-intune) na biblioteca do Intune.  
 
-- **Улучшения на веб-сайте корпоративного портала**
+- **Melhoramentos para o Web site do Portal da empresa**
 
-  Когда пользователи Windows 10 Mobile и Windows Phone 8.1 устанавливают бизнес-приложения, они видят теперь следующие новые состояния, которые позволяют получить более подробные сведения об установке:  
+  Quando os utilizadores do Windows 10 Mobile e Windows Phone 8.1 estiverem a instalar aplicações de linha de negócio, irão ver agora os seguintes Estados novos, que fornecem mais detalhes sobre o estado da instalação:  
 
-  -   **Ожидается синхронизация устройства** — пользователь нажал "Установить", и устройство теперь пытается выполнить синхронизацию с инфраструктурой Intune. Синхронизация необходима для выполнения установки. Сообщение "Ожидается синхронизация устройства" также представляет собой ссылку, перейдя по которой, пользователь может получить инструкции по синхронизации устройства с Intune вручную, если синхронизация выполняется слишком долго или остановилась.  
+  -   **A aguardar sincronização do dispositivo** – o utilizador tocou em "Instalar" e o dispositivo tenta agora sincronizar com a infraestrutura do Intune. A sincronização é necessária para concluir a instalação. A mensagem "A aguardar sincronização do dispositivo" também é uma ligação a que os utilizadores podem tocar para ver instruções sobre como sincronizar manualmente o respetivo dispositivo no Intune se o processo de sincronização está a demorar muito tempo ou ficar parado.  
 
-  -   **Идет скачивание** — запрос пользователя на скачивание обрабатывается, и устройство загружает и устанавливает приложение.  
+  -   **Transferir** – o pedido de transferência do utilizador está a ser processado e que o dispositivo está a transferir e instalar a aplicação.  
 
-- **Улучшения в приложении корпоративного портала для Android**
+- **Melhoramentos para a aplicação do portal da empresa para Android**
 
-  Пользователи, которые не зарегистрировали свои устройства в Intune и не установили нужный сертификат, не могут входить в приложение корпоративного портала для Android и получают сообщение "Вход невозможен, так как у вашего устройства нет необходимого сертификата". В сообщении есть ссылка "Как это исправить", перейдя по которой, пользователь может получить инструкции по установке сертификата. Инструкции для пользователей по устранению этой проблемы см. в статье [Устройство не имеет необходимого сертификата](/intune/enduser/using-your-android-device-with-intune) в библиотеке Intune.  
+  Os utilizadores que não inscreveram o seu dispositivo no Intune e que não tenham o certificado correto instalado não conseguirá iniciar sessão na aplicação do Portal da empresa para Android e verão a mensagem, "não pode iniciar sessão porque o seu dispositivo está em falta um certificado necessário." A mensagem inclui uma ligação "How to resolve this" que os utilizadores podem tocar para ver instruções para instalar o certificado. Para ver os passos que os utilizadores finais seguir para resolver o problema, consulte [o dispositivo está em falta um certificado necessário](/intune/enduser/using-your-android-device-with-intune) na biblioteca do Intune.  
 
-- **Улучшения в приложении корпоративного портала для iOS**
+- **Melhoramentos para a aplicação Portal da empresa iOS**
 
-  Добавлена поддержка действия "Потяните, чтобы обновить", позволяющего обновлять содержимое начального экрана, в том числе список приложений, список устройств и контактные данные ИТ-отдела. Действие "Потяните, чтобы обновить" не проверяет сведения о соответствии требованиям и политикам. Для этого можно выбрать плитку текущего устройства и нажать кнопку **Синхронизация**.  
+  Foi adicionado suporte para a ação de solicitação para atualizar atualizar o conteúdo do ecrã principal, que inclui as aplicações listadas, os dispositivos listados e contacto de TI informações. A ação de atualização de extração verifica se existem informações de conformidade ou de política, que podem ser efetuadas selecionando o mosaico para o seu dispositivo atual e tocando o **sincronização** botão.  
 
-- **Улучшения в приложении корпоративного портала для Windows 10 Mobile и Windows Phone 8.1**
+- **Melhoramentos à aplicação do Portal Windows 10 Mobile e da empresa do Windows Phone 8.1**
 
-  Интерфейс установки бизнес-приложений для пользователей улучшен. Если установка приложения выполняется долго, пользователь может вручную синхронизировать устройство, чтобы принудительно возобновить процесс синхронизации. Инструкции для пользователей см. в статье [Синхронизация устройства вручную для ускорения установки приложений](/intune/enduser/using-your-windows-device-with-intune) в библиотеке Intune.  
+  Quando os utilizadores finais estiverem a instalar aplicações de linha de negócio, irão ver agora uma experiência de instalação de aplicações melhorada. Se a instalação da aplicação estiver a demorar muito tempo, os utilizadores podem sincronizar manualmente os respetivos dispositivos para forçar o continuação do processo de sincronização. Para consultar as instruções do utilizador final, consulte o artigo [sincronizar o seu dispositivo manualmente para acelerar a instalações de aplicações](/intune/enduser/using-your-windows-device-with-intune) na biblioteca do Intune.  
 
-###  <a name="new-in-1604-technical-preview"></a>Новые возможности выпуска Technical Preview 1604
- Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune и Configuration Manager Technical Preview 1604 в апреле 2016 г. Для настройки этих возможностей и управления ими требуется консоль Configuration Manager.  
+###  <a name="new-in-1604-technical-preview"></a>No 1604 Technical Preview
+ As seguintes novas funcionalidades introduzidas no Abril de 2016 estão disponíveis nas implementações híbridas com o Intune e Configuration Manager Technical Preview 1604. Estas funcionalidades requerem a utilizar a consola do Configuration Manager para configurar e geri-los.  
 
-- **Поиск приложений Магазина Windows для бизнеса для устройств с Windows 10, управление ими и их распространение из консоли Configuration Manager**
+- **Localizar, gerir e distribuir da loja Windows para empresas aplicações para dispositivos Windows 10 na consola do Configuration Manager**
 
 
-  Поддержка Магазина Windows для бизнеса в Configuration Manager Technical Preview 1604 позволяет находить приложения, управлять ими и распространять их на управляемых устройствах Windows 10. Подробные сведения см. в подразделе [Управление приложениями, приобретенными в Магазине Windows для бизнеса по программе Volume Purchase Program](/sccm/core/get-started/capabilities-in-technical-preview-1604#manage-volume-purchased-apps-from-the-windows-store-for-business) раздела [Возможности в Technical Preview 1604 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1604).  
+  Suporte para a loja Windows para empresas está disponível no Configuration Manager Technical Preview 1604 para o ajudar a localizar, gerir e distribuir aplicações para os dispositivos Windows 10 que estiver a gerir. Para obter mais informações, consulte [gerir aplicações compradas na loja Windows para empresas](/sccm/core/get-started/capabilities-in-technical-preview-1604#manage-volume-purchased-apps-from-the-windows-store-for-business) no [funcionalidades no Technical Preview 1604 para o System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1604).  
 
-- **Параметр Smart Lock для устройств Android**
+- **Definição de SmartLock para dispositivos Android**
 
-  В элемент конфигурации "Android и Samsung KNOX Standard" был добавлен новый параметр, который позволяет управлять функцией Smart Lock на совместимых устройствах Android.  С помощью этого параметра можно запретить пользователям настраивать функцию Smart Lock. См. подраздел [Параметр Smart Lock для устройств Android](/sccm/get-started/capabilities-in-technical-preview-1604#smartlock-setting-for-android-devices) раздела [Возможности в Technical Preview 1604 для System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1604.md).  
+  Foi adicionada uma nova definição para o item de configuração do Android e Samsung KNOX Standard que lhe permite controlar a funcionalidade de SmartLock em dispositivos Android compatíveis.  Pode utilizar esta definição para impedir que os utilizadores finais configurem o SmartLock. Consulte [definição de SmartLock para dispositivos Android](/sccm/get-started/capabilities-in-technical-preview-1604#smartlock-setting-for-android-devices) no [funcionalidades no Technical Preview 1604 para o System Center Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1604.md).  
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)  
- В апреле 2016 г. в Configuration Manager (Current Branch) не появились новые возможности гибридного управления.  
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)  
+ Não existem novas funcionalidades híbridas foram introduzidas no Abril de 2016 para o Configuration Manager (ramo atual).  
 
-##  <a name="march-2016"></a>Март 2016 г.  
+##  <a name="march-2016"></a>Março de 2016  
 
-### <a name="new-in-microsoft-intune"></a>Новые возможности Microsoft Intune  
- Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune в марте 2016 г.  
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune  
+ As seguintes funcionalidades do Intune introduzidas no Março de 2016 funcionam em implementações híbridas.  
 
-- **Элементы управления MAM для блокировки синхронизации контактов Outlook (iOS)**
+- **Controlos de MAM para impedir a sincronização de contactos do Outlook (iOS)**
 
-  Появился параметр, с помощью которого можно запретить приложению синхронизировать контакты с встроенной адресной книгой на устройствах iOS. Этот новый параметр изначально поддерживается приложением Outlook на устройствах iOS. Дополнительные сведения об этом и других параметрах см. в статье [Создание и развертывание политик MAM](/intune/deploy-use/monitor-mobile-app-management-policies-with-microsoft-intune) в библиотеке Intune.  
+  Uma nova definição está disponível que lhe permite impedir que uma aplicação a sincronização de contactos no livro de endereços nativo em dispositivos iOS. Esta nova definição é suportada pela aplicação Outlook em dispositivos iOS. Para obter mais detalhes acerca desta e de outras definições, consulte [criar e implementar políticas de MAM](/intune/deploy-use/monitor-mobile-app-management-policies-with-microsoft-intune) na biblioteca do Intune.  
 
-- **Поддержка условного доступа в Skype для бизнеса Online**
+- **Skype para empresas Online suporta o acesso condicional**
 
-  Вы можете настроить политику условного доступа для Skype для бизнеса Online, чтобы доступ к этой службе был возможен только с управляемых устройств iOS и Android, соответствующих требованиям.  Подробные сведения см. в статье [Управление доступом Skype для бизнеса Online](/intune/deploy-use/restrict-access-to-skype-for-business-online-with-microsoft-intune) в библиотеке Intune.  
+  Pode definir uma política de acesso condicional para o Skype para empresas Online, para que apenas possa ser acedida por dispositivos geridos e conformes iOS e Android.  Para obter mais informações, consulte [gerir o acesso ao Skype para empresas Online](/intune/deploy-use/restrict-access-to-skype-for-business-online-with-microsoft-intune) na biblioteca do Intune.  
 
-- **Поддержка iOS 9.3**
+- **Suporte para iOS 9.3**
 
-  В понедельник 21 марта компания Apple объявила о выпуске iOS 9.3. Все существующие возможности Intune, доступные в настоящее время для управления устройствами iOS, продолжат работать после обновления устройств до версии iOS 9.3.  
+  Na segunda-feira, 21 de Março, a Apple anunciou a disponibilidade do iOS 9.3. Todas as funcionalidades existentes do Intune atualmente disponíveis para gerir dispositivos iOS continuarão a funcionar de forma totalmente integrada quando os utilizadores atualizarem os respetivos dispositivos para iOS 9.3.  
 
-- **Пакеты приложений Windows, доступные непосредственно на веб-сайте корпоративного портала**
+- **Pacotes de aplicações do Windows disponíveis diretamente a partir do site do Portal da empresa**
 
-  Пользователи компьютеров с ОС Windows 8, Windows 8.1 и Windows RT теперь могут устанавливать пакеты приложений Windows (с расширением .appx) непосредственно с веб-сайта корпоративного портала. Раньше для установки приложений требовалось выполнять развертывание или пользователям необходимо было устанавливать приложение корпоративного портала на своих устройствах.  
+  Os utilizadores de PCs Windows 8, Windows 8.1 e Windows RT podem agora instalar pacotes de aplicações do Windows (com a extensão. AppX) diretamente a partir do site do Portal da empresa. Anteriormente, era necessário implementar, ou os utilizadores tinham de instalar a aplicação do Portal da empresa nos respetivos dispositivos para instalar aplicações.  
 
-- **Пользователи могут удаленно блокировать свои устройства с веб-сайта корпоративного портала**
+- **Os utilizadores podem bloquear remotamente o dispositivo do Web site do Portal da empresa**
 
-  На веб-сайт корпоративного портала добавлен новый параметр удаленной блокировки, позволяющий пользователям удаленно блокировать свои устройства с портала в случае их утери или кражи.  
+  Uma nova opção de bloqueio remoto foi adicionada ao site do Portal da empresa para permitir que os utilizadores bloqueiem remotamente o respetivo dispositivo a partir do Portal se o dispositivo é perdido ou roubado.  
 
-- **Возможность открытого управления iOS для устройств, зарегистрированных в решении для управления мобильными устройствами стороннего производителя**
+- **Tirar partido do iOS "Open-in" gestão de dispositivos que estão inscritos numa solução MDM de terceiros**
 
-  В решении для управления мобильными устройствами (MDM) стороннего производителя можно использовать открытое управление iOS. Вы можете установить ограничения в параметрах профиля конфигурации и развертывать приложение с помощью программного обеспечения MDM. Когда пользователь устанавливает управляемое приложение, применяются соответствующие ограничения. Подробные сведения см. в статье [Политики управления мобильными приложениями Microsoft Intune и функция "Открыть в" для iOS](/intune/deploy-use/introduction-to-device-compliance-policies-in-microsoft-intune) в библиотеке Intune.  
+  Pode utilizar o fornecedor de gestão (MDM) de dispositivos móveis de terceiros para tirar partido do iOS gestão "Open-In". Pode configurar as restrições na configuração de definições de perfil e implementar a aplicação utilizando o software MDM. Quando o utilizador instala a aplicação gerida, são aplicadas as restrições. Lê os detalhes: [Políticas de gestão de aplicações móveis do Microsoft Intune e iOS Open In](/intune/deploy-use/introduction-to-device-compliance-policies-in-microsoft-intune) na biblioteca do Intune.  
 
-- **Приложения Microsoft, поддерживающие управление мобильными приложениями**
+- **Aplicações da Microsoft que suportam MAM**
 
-  В список приложений Майкрософт, для которых можно применять политики управления мобильными приложениями Intune, были добавлены новые приложения (только для устройств, зарегистрированных в Intune).  
+  A lista de aplicações da Microsoft que pode utilizar com políticas de gestão de aplicações móveis do Intune foi atualizada para incluir as aplicações mais recentes (para dispositivos inscritos com o Intune apenas).  
 
-- **Развертывание Adobe Reader для Microsoft Intune на устройствах iOS, управляемых Intune, в организации**
+- **Implementar o Adobe Reader para Microsoft Intune para dispositivos iOS geridos pelo Intune na sua empresa**
 
-  Приложением Adobe Reader для iOS теперь можно управлять на зарегистрированных устройствах с помощью политики управления мобильными приложениями Intune.  
+  A aplicação Adobe Reader para iOS pode agora ser gerida em dispositivos inscritos com a política de gestão de aplicações móveis do Intune.  
 
-- Приложение для управления доступом Rights Management поддерживается для Android
+- A aplicação de partilha Rights Management é suportada para Android
 
-  ИТ-администраторы могут развертывать политики управления мобильными приложениями, чтобы пользователи могли просматривать изображения, звуковые, видео- и PDF-файлы более безопасным образом, вне зависимости от того, используется ли служба Intune для управления устройствами.  
+  Os administradores de TI podem implementar políticas de gestão de aplicações móveis para os utilizadores finais podem ver imagens, AV e PDF ficheiros de forma mais segura, ou não IT utiliza o Intune para gerir os dispositivos.  
 
-- **Улучшения в приложении корпоративного портала для Android и iOS**
+- **Melhoramentos para a aplicação Portal da empresa iOS e Android**
 
-  -   Когда пользователи запускают приложение, к которому применяется управление мобильными приложениями (MAM), они видят сообщение о том, что приложением управляет организация. Перейдя по ссылке "Подробнее", пользователи могут получить дополнительные сведения о том, что такое управляемые приложения. Они также могут нажать "Больше не показывать", чтобы это сообщение больше не выводилось при запуске приложения.  
+  -   Quando os seus utilizadores iniciarem uma aplicação que é gerida pela gestão de aplicações móveis (MAM), verão uma mensagem a indicar que a aplicação é gerida pela empresa. Os utilizadores podem agora tocar numa hiperligação "Mais informações" para obter mais informações aqui sobre "aplicações geridas". Estes também podem tocar em "Não voltar a mostrar" para que a mensagem deixa de aparecer quando iniciarem a aplicação.  
 
-  -   Добавлены новые экраны с инструкциями по регистрации для пользователей и дополнительными сведениями о том, зачем нужно регистрировать устройство и к каким данным на зарегистрированных устройствах ИТ-администраторы имеют доступ.  
+  -   Foram adicionados novos ecrãs para orientar os utilizadores ao longo do processo de inscrição e fornecer mais informações sobre o motivo pelo qual os utilizadores devem inscrever e que os administradores de TI podem e não podem ver nos seus dispositivos inscritos.  
 
-  -   Сообщения об ошибках регистрации теперь выводятся в приложении корпоративного портала.  
+  -   Mensagens de erro de inscrição são agora apresentadas na aplicação Portal da empresa.  
 
-### <a name="new-in-configuration-manager-technical-preview"></a>Новые возможности Configuration Manager Technical Preview  
- В марте 2016 г. в Configuration Manager Technical Preview не появились новые возможности гибридного управления.  
+### <a name="new-in-configuration-manager-technical-preview"></a>Novo no Configuration Manager Technical Preview  
+ Não existem novas funcionalidades híbridas foram introduzidas no Março de 2016, para o Configuration Manager Technical Preview.  
 
-### <a name="new-in-configuration-manager-current-branch"></a>Новые возможности Configuration Manager (Current Branch)  
- Ниже перечислены возможности для гибридных развертываний, появившиеся в Intune и Configuration Manager (Current Branch) версии 1602 в марте 2016 г. Для настройки этих возможностей и управления ими требуется консоль Configuration Manager.  
+### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)  
+ As seguintes novas funcionalidades introduzidas no Março de 2016 estão disponíveis em implementações híbridas com o Intune e Configuration Manager (ramo atual) versão 1602. Estas funcionalidades requerem a utilizar a consola do Configuration Manager para configurar e geri-los.  
 
-- **Политики конфигурации приложений iOS**
+- **Políticas de configuração de aplicações iOS**
 
-  В версии 1602 Configuration Manager (Current Branch) можно использовать политики конфигурации приложений для предоставления параметров, которые могут быть необходимы, когда пользователь работает с приложением iOS. Подробные сведения см. в разделе [Настройка приложений iOS с помощью политик конфигурации приложений в System Center Configuration Manager](/sccm/apps/deploy-use/configure-ios-apps-with-app-configuration-policies).  
+  Na versão 1602 do Configuration Manager (ramo atual) pode utilizar políticas de configuração de aplicação para fornecer definições que poderão ser necessárias quando o utilizador executa uma aplicação iOS. Para obter mais informações, consulte [configurar aplicações iOS com políticas de configuração de aplicações no System Center Configuration Manager](/sccm/apps/deploy-use/configure-ios-apps-with-app-configuration-policies).  
 
-- **Управление приложениями iOS, приобретенными по корпоративной программе**
+- **Gerir aplicações iOS compradas em volume**
 
-  В версии 1602 Configuration Manager (Current Branch) можно развертывать приложения, приобретенные по программе Apple Volume Purchase Program (VPP), и управлять ими, импортируя сведения о лицензиях из магазина приложений и отслеживая число используемых лицензий. Подробные сведения см. в разделе [Управление приложениями iOS, приобретенными по программе Volume Purchase Program, с помощью System Center Configuration Manager](/sccm/apps/deploy-use/manage-volume-purchased-ios-apps).  
+  Na versão 1602 do Configuration Manager (ramo atual), pode implementar e gerir aplicações adquiridas em volume da Apple Volume-Purchase Program (VPP) ao importar as informações da licença da loja de aplicações e ao controlar o número de licenças que utilizou. Para obter mais informações, consulte [gerir aplicações iOS compradas em volume com o System Center Configuration Manager](/sccm/apps/deploy-use/manage-volume-purchased-ios-apps).  
 
-- **Автоматическое создание мобильных приложений Office**
+- **Criação automática de aplicações móveis do Office**
 
-  Начиная с версии 1602 Configuration Manager (Current Branch) следующие мобильные приложения Microsoft Office для Android и iOS создаются при обновлении с версии 1511:  
+  As seguintes aplicações móveis Microsoft Office para Android e iOS a partir da versão 1602 do Configuration Manager (ramo atual), são criadas durante a atualização da versão 1511:  
 
   -   Microsoft Word  
   -   Microsoft Excel  
   -   Microsoft PowerPoint  
   -   Microsoft OneDrive  
-  -   Microsoft OneNote (только iOS)  
+  -   Microsoft OneNote (apenas iOS)  
   -   Microsoft Outlook  
 
-  Эти приложения появятся в узле "Приложения" консоли Configuration Manager. Дополнительные сведения о развертывании приложений см. в разделе [Развертывание приложений с помощью System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).  
+  Encontrará estas aplicações no nó de aplicações de consola do Configuration Manager. Para obter mais informações sobre como implementar aplicações, consulte [como implementar aplicações com o System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md).  
 
-- **Параметры режима терминала для устройств Android Samsung KNOX Standard**
+- **Definições do modo de local público para dispositivos Android Samsung KNOX Standard**
 
-  Режим киоска позволяет блокировать устройство, разрешая работу только некоторых функций.  Начиная с версии 1602 Configuration Manager (Current Branch) можно указывать параметры режима киоска для устройств Samsung KNOX Standard. Подробные сведения см. в разделе [Создание элементов конфигурации для устройств Android и Samsung KNOX Standard, управляемых без использования клиента System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client).  
+  O modo Kiosk permite-lhe bloquear um dispositivo e permitir que apenas determinadas funcionalidades funcionem.  A partir da versão 1602 do Configuration Manager (ramo atual), pode agora especificar definições do modo de local público para dispositivos Samsung KNOX Standard. Para obter mais informações, consulte [como criar itens de configuração para dispositivos Android e Samsung KNOX Standard geridos sem o cliente do System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client).  
 
-- **Блокировка активации iOS**
+- **Bloqueio de ativação de iOS**
 
-  Начиная с версии 1602 Configuration Manager (Current Branch) можно управлять функцией блокировки активации iOS, которая представляет собой отдельный компонент приложения "Найти iPhone" для устройств на базе iOS 7.1 и более поздних версий. Функция блокировки активации включается автоматически при использовании приложения Find My iPhone на устройстве.  Подробные сведения см. в разделе [Управление блокировкой активации iOS с помощью System Center Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock#bypass-activation-lock).  
+  A partir da versão 1602 do Configuration Manager (ramo atual), pode gerir o bloqueio de ativação de iOS, uma funcionalidade da aplicação encontrar o meu iPhone para iOS 7.1 e dispositivos posteriores. O Bloqueio de Ativação é ativado automaticamente ao utilizar a aplicação Encontrar o Meu iPhone num dispositivo.  Para obter mais informações, consulte [ignorar o bloqueio de ativação de iOS de gerir para o System Center Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock#bypass-activation-lock).  

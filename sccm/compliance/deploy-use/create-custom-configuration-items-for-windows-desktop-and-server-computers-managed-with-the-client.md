@@ -1,6 +1,6 @@
 ---
-title: "Создание элементов конфигурации для компьютеров с Windows под управлением клиентов в Configuration Manager | Документы Майкрософт"
-description: "Управление параметрами компьютеров и серверов Windows с помощью настраиваемого элемента конфигурации \"Настольные компьютеры и серверы под управлением Windows\"."
+title: "Criar itens de configuração para computadores Windows geridos pelo cliente - Configuration Manager | Microsoft Docs"
+description: "Gerir as definições para servidores com um item de configuração personalizado do Windows computadores de secretária e servidores e computadores Windows."
 ms.custom: na
 ms.date: 11/18/2016
 ms.prod: configuration-manager
@@ -17,63 +17,63 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: e040c6b3a951d1bdf5a46dd82f1bd92b45c2e71d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Создание пользовательских элементов конфигурации для настольных систем и серверов Windows, управляемых с помощью клиента System Center Configuration Manager
+# <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração personalizados para computadores de secretária e de servidor do Windows geridos com o cliente do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Используйте настраиваемый элемент конфигурации **Настольные компьютеры и серверы под управлением Windows (настраиваемые)** System Center Configuration Manager для настройки параметров компьютеров и серверов Windows, которые управляются с помощью клиента Configuration Manager.  
+Utilizar o System Center Configuration Manager **personalizado Windows Desktops and Servers** item de configuração para gerir as definições para computadores com o Windows e servidores que são geridos pelo cliente do Configuration Manager.  
 
-## <a name="start-the-create-configuration-item-wizard"></a>Запуск мастера создания элементов конфигурации
+## <a name="start-the-create-configuration-item-wizard"></a>Iniciar o Assistente de item de configuração criar
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Элементы конфигурации**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **itens de configuração**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации**.  
+3.  No separador **Início** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
 
-4.  На странице **Общие** **мастера создания элемента конфигурации**укажите имя и необязательное описание элемента.  
+4.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
 
-5.  В разделе **Укажите тип элемента конфигурации, который требуется создать**выберите **Настольные системы и серверы Windows (пользовательский)**.  
+5.  Em **Especifique o tipo de item de configuração que pretende criar**, selecione **Servidores e Computadores de Secretária Windows (personalizado)**.  
 
     > [!TIP]  
-    >  Если вы хотите указать параметры метода обнаружения, проверяющие наличие приложения, выберите **Этот элемент конфигурации содержит параметры приложения**.  
+    >  Se pretender fornecer as definições do método de deteção que verificam a existência de uma aplicação, selecione **Este ficheiro de configuração contém as definições da aplicação**.  
 
-6.  Щелкните элемент **Категории**, если хотите создать и назначить категории для поиска и фильтрации элементов конфигурации в консоли Configuration Manager.  
+6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
 
-## <a name="provide-detection-method-information"></a>Указание сведений о методе обнаружения  
- Используйте данную процедуру, чтобы указать сведения о методе обнаружения для элемента конфигурации.  
+## <a name="provide-detection-method-information"></a>Fornecer informações do método de deteção  
+ Utilize este procedimento para fornecer informações do método de deteção para o item de configuração.  
 
 > [!NOTE]  
->  Применяется только в том случае, если вы выбрали **этот элемент конфигурации содержит параметры приложения** на **Общие** странице мастера.  
+>  Aplica-se apenas se tiver selecionado **Este item de configuração contém as definições da aplicação** na página **Geral** do assistente.  
 
- Метод обнаружения в Configuration Manager содержит правила, используемые для обнаружения установки приложения на компьютере. Такое обнаружение выполняется до оценки соответствия элемента конфигурации требованиям. Чтобы определить, установлено ли приложение, можно выполнить обнаружение файла установщика Windows для него, использовать настраиваемый сценарий или выбрать параметр **Всегда предполагать, что приложение установлено** , чтобы оценить соответствие элемента конфигурации требованиям независимо от установки приложения.  
+ Um método de deteção no Configuration Manager contém regras que são utilizadas para detetar se uma aplicação é instalada num computador. Esta deteção ocorre antes de o item de configuração ser avaliado relativamente à compatibilidade. Para detetar se uma aplicação está instalada, pode detetar a presença de um ficheiro do Windows Installer para a aplicação, utilizar um script personalizado ou selecionar **Assumir sempre que a aplicação está instalada** para avaliar o item de configuração relativamente à compatibilidade, independentemente se a aplicação está instalada.  
 
- Используйте эти процедуры для настройки методов обнаружения в System Center Configuration Manager.  
+ Utilize estes procedimentos para configurar os métodos de deteção no System Center Configuration Manager.  
 
-### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>Процедура обнаружения установки приложения с помощью файла установщика Windows  
+### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>Para detetar uma instalação de aplicações utilizando o ficheiro do Windows Installer  
 
-1.  На **методы обнаружения** страница **мастера создания элементов конфигурации**, выберите **использовать обнаружение установщика Windows** флажок.  
+1.  Na página **Métodos de Deteção** do **Assistente de Criação de Item de Configuração**, selecione a caixa de verificação **Utilizar deteção do Windows Installer**.  
 
-2.  Щелкните **Откройте**, перейдите к файлу установщика Windows (MSI), необходимо определить и нажмите кнопку **Откройте**.  
+2.  Clique em **Abrir**, navegue até ao ficheiro do Windows Installer (.msi) que pretende detetar e, em seguida, clique em **Abrir**.  
 
-3.  **Версии** поле автоматически заполняется номером версии выбранного файла установщика Windows. В этом поле можно ввести новый номер версии, если неверный отображаемое значение.  
+3.  A caixa **Versão** é preenchida automaticamente com o número de versão do ficheiro do Windows Installer que selecionou. Pode introduzir um novo número de versão nesta caixa, se o valor apresentado estiver incorreto.  
 
-4.  Установите флажок **Это приложение установлено для одного или нескольких пользователей** , если требуется выполнить обнаружение для каждого профиля пользователя на компьютере.  
+4.  Selecione a caixa de verificação **Esta aplicação está instalada para um ou mais utilizadores** se pretender detetar cada perfil de utilizador no computador.  
 
-### <a name="to-detect-a-specific-application-and-deployment-type"></a>Обнаружение определенного приложения и типа развертывания  
+### <a name="to-detect-a-specific-application-and-deployment-type"></a>Para detetar uma aplicação e um tipo de implementação específicos  
 
-1.  На странице **Методы обнаружения** **мастера создания элементов конфигурации**установите флажок **Обнаружить определенное приложение и тип развертывания** , а затем нажмите кнопку **Выбрать**.  
+1.  Na página **Métodos de Deteção** do **Assistente de Criação de Item de Configuração**, selecione a caixa de verificação **Detetar uma aplicação e um tipo de implementação específicos** e, em seguida, clique em **Selecionar**.  
 
-2.  В диалоговом окне **Выбор приложения** выберите приложение и соответствующий тип развертывания, которые необходимо обнаружить.  
+2.  Na caixa de diálogo **Especificar Aplicação**, selecione a aplicação e um tipo de implementação associados que pretende detetar.  
 
-### <a name="to-detect-an-application-installation-by-using-a-custom-script"></a>Обнаружение установки приложения с помощью пользовательского сценария  
+### <a name="to-detect-an-application-installation-by-using-a-custom-script"></a>Para detetar uma instalação de aplicações utilizando um script personalizado  
 
-1.  На **методы обнаружения** страница **мастера создания элементов конфигурации**, выберите **использование настраиваемого сценария для обнаружения этого приложения** флажок.  
+1.  Na página **Métodos de Deteção** do **Assistente de Criação de Item de Configuração**, selecione a caixa de verificação **Utilize um script personalizado para detetar esta aplicação**.  
 
-2.  В списке выберите язык сценария, который требуется открыть. Выберите один из следующих сценариев:  
+2.  Na lista, selecione a linguagem do script que pretende abrir. Pode escolher um dos seguintes scripts:  
 
     -   **VBScript**  
 
@@ -81,277 +81,277 @@ ms.lasthandoff: 08/07/2017
 
     -   **PowerShell**  
 
-3.  Нажмите кнопку **Открыть**, перейдите к сценарию, который требуется использовать, после чего нажмите кнопку **Открыть**.  
+3.  Clique em **Abrir**, navegue até ao script que pretende utilizar e, em seguida, clique em **Abrir**.  
 
-##  <a name="configure-settings"></a>Настройка параметров  
- Используйте данную процедуру, чтобы настроить параметры в элементе конфигурации.  
+##  <a name="configure-settings"></a>Configurar definições  
+ Utilize este procedimento para configurar as definições no item de configuração.  
 
- Параметры представляют собой бизнес- или технические условия, которые используются для оценки соответствия на клиентских устройствах. Можно настроить новый параметр или выбрать существующий параметр на эталонном компьютере.  
+ As definições representam as condições empresariais ou técnicas utilizadas para avaliar a compatibilidade nos dispositivos cliente. Pode configurar uma nova definição ou navegar para uma definição existente num computador de referência.  
 
-1.  На странице **Параметры** **мастера создания элементов конфигурации**нажмите кнопку **Создать**.  
+1.  Na página **Definições** do **Assistente de Criação de Item de Configuração**, clique em **Novo**.  
 
-2.  На вкладке **Общие** диалогового окна **Создание параметра** укажите следующие сведения.  
+2.  No separador **Geral** da caixa de diálogo **Criar Definição**, forneça as seguintes informações:  
 
-    -   **Имя.** Введите уникальное имя для параметра. Можно использовать не более 256 символов.  
+    -   **Nome:** Introduza um nome exclusivo para a definição. Pode utilizar até 256 carateres.  
 
-    -   **Описание:** Введите описание параметра. Можно использовать не более 256 символов.  
+    -   **Descrição:** Introduza uma descrição para a definição. Pode utilizar até 256 carateres.  
 
-    -   **Тип параметра**. В списке выберите и настройте один из следующих типов для использования этого параметра.  
+    -   **Tipo de definição:** Na lista, escolha e configure um dos seguintes tipos de definição a utilizar para esta definição:  
 
-        -   **Запрос Active Directory**  
+        -   **Consulta do Active Directory**  
 
-             **Префикс LDAP** : укажите действительный префикс для запроса доменных служб Active Directory с целью оценки соответствия на клиентских компьютерах. Можно использовать любой **LDAP: / /** для или **GC: / /** для выполнения поиска в глобальном каталоге...  
+             **Prefixo LDAP** - Especifique um prefixo válido para a consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente. Pode utilizar **LDAP://** ou **GC://** para fazer uma pesquisa de catálogo global.  
 
-             **Различающееся имя (DN)** -укажите различающееся имя объекта доменных служб Active Directory, оцениваемого на соответствие на клиентских компьютерах.  
+             **Nome Único (DN)** - Especifique o nome único do objeto dos Serviços de Domínio do Active Directory avaliado relativamente à compatibilidade em computadores cliente.  
 
-             Например, если требуется оценить значение, связанное с пользователем John Smith в домене corp.contoso.com, введите следующее:  
+             Por exemplo, se pretender avaliar um valor relacionado com um utilizador com o nome João Silva no domínio corp.contoso.com, introduza o seguinte:  
 
-            -   **Фильтр поиска** — укажите дополнительный фильтр LDAP для уточнения результатов запроса доменных служб Active Directory с целью оценки соответствия на клиентских компьютерах.  
+            -   **Filtro de pesquisa** - Especifique um filtro de LDAP opcional para refinar os resultados da consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente.  
 
-                 Для возвращения всех результатов запроса введите **(objectclass=\*)**.  
+                 Para devolver todos os resultados da consulta, introduza **(objectclass=\*)**.  
 
-            -   **Область поиска** — укажите область поиска в доменных службах Active Directory. Можно выбрать одно из следующих значений.  
+            -   **Âmbito da procura** - Especifique o âmbito da procura nos Serviços de Domínio do Active Directory. Pode escolher entre:  
 
-                -   **Базового** -запрашивает объект, который указан.  
+                -   **Base** - Consulta apenas o objeto especificado.  
 
-                -   **Один уровень** — указанный параметр не используется в данной версии Configuration Manager.  
+                -   **Um nível** -esta opção não está a ser utilizada nesta versão do Configuration Manager.  
 
-                -   **Поддерево** -запросы, указанный объект и его полного поддерева в каталоге.  
+                -   **Subárvore** - Consulta o objeto especificado e a respetiva subárvore completa no diretório.  
 
-            -   **Свойство** -задано свойство объекта доменных служб Active Directory, который используется для оценки соответствия на клиентских компьютерах.  
+            -   **Propriedade** - Especifique a propriedade do objeto dos Serviços de Domínio do Active Directory utilizada para avaliar a compatibilidade em computadores cliente.  
 
-                 Например, если вы хотите запросить свойство Active Directory **badPwdCount**, который сохраняет количество раз пользователь неправильно вводит пароль, введите **badPwdCount** в этом поле.  
+                 Por exemplo, se pretender consultar a propriedade do Active Directory **badPwdCount**, a qual armazena o número de vezes que um utilizador introduz incorretamente uma palavra-passe, introduza **badPwdCount** neste campo.  
 
-            -   **Запроса** -отображает запрос, построенный на основе записи в **префикс LDAP**, **различающееся имя (DN)**, **фильтра поиска** (Если указано), и **свойство**, которые используются для оценки соответствия на клиентских компьютерах.  
+            -   **Consulta** - Apresenta a consulta construída a partir das entradas em **Prefixo LDAP**, **Nome único (DN)**, **Filtro de pesquisa** (se especificado) e **Propriedade**, utilizados para avaliar a compatibilidade em computadores cliente.  
 
-             Дополнительные сведения о построении запросов LDAP см. в документации Windows Server.  
+             Para mais informações sobre a construção de consultas LDAP, consulte a documentação do Windows Server.  
 
-        -   **Сборка**  
+        -   **Assemblagem**  
 
-             Для этого типа параметров настройте следующие значения.  
+             Configure as seguintes opções para este tipo de definição:  
 
-            -   **Имя сборки:** Указывает имя сборки объекта, который требуется найти. Имя не может совпадать с именами других объектов сборки одного и того же типа и должно быть зарегистрировано в глобальном кэше сборок. Имя сборки может содержать до 256 символов.  
+            -   **Nome da assemblagem:** Especifica o nome do objeto de assemblagem que pretende procurar. O nome não pode ser igual ao de outros objetos de assemblagem do mesmo tipo e tem de estar registado na Global Assembly Cache. O nome da assemblagem pode ter até 256 carateres.  
 
-             Сборка — это фрагмент кода, который может совместно использоваться приложениями. Сборки могут иметь расширение файла DLL или EXE. Глобальный кэш сборок является папка с именем *%systemroot%\Assembly* на клиентских компьютерах, где все общие сборки хранятся.  
+             Uma assemblagem é um fragmento de código que pode ser partilhado entre aplicações. As assemblagens podem ter a extensão de nome de ficheiro .dll ou .exe. A Global Assembly Cache é uma pasta denominada *%systemroot%\Assembly* nos computadores cliente onde são armazenadas todas as assemblagens partilhadas.  
 
-        -   **Файловая система**  
+        -   **Sistema de ficheiros**  
 
-            -   **Тип** : выберите в списке, по какому параметру требуется выполнить поиск: **Файл** или **Папка**.  
+            -   **Tipo** – Na lista, selecione se pretende procurar um **Ficheiro** ou uma **Pasta**.  
 
-            -   **Путь** -указать путь к указанному файлу или папке на клиентских компьютерах. В пути можно указать системные переменные среды и переменную среды *%USERPROFILE%* .  
+            -   **Caminho** – Especifique o caminho da pasta ou do ficheiro especificado nos computadores cliente. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no caminho.  
 
                 > [!NOTE]  
-                >  Если в полях *Путь* либо **Имя файла или папки** используется переменная среды **%USERPROFILE%** , поиск на клиентском компьютере выполняется во всех профилях пользователей, что может привести к отображению нескольких экземпляров файла или папки.  
+                >  Se utilizar a variável de ambiente *%USERPROFILE%* nas caixas **Caminho** ou **Nome de ficheiro ou pasta**, são procurados todos os perfis de utilizador no computador cliente, o que pode resultar em várias instâncias do ficheiro ou pasta encontradas.  
                 >   
-                >  Если доступ параметров соответствия к указанному пути ограничен, выводится ошибка обнаружения. Кроме того Если выполняется поиск файла используется в настоящий момент, формируется ошибка обнаружения.  
+                >  Se as definições de compatibilidade não tiverem acesso ao caminho especificado, é gerado um erro de deteção. Além disso, se o ficheiro que está a procurar estiver atualmente em utilização, é gerado um erro de deteção.  
 
-            -   **Имя файла или папки** -указать имя объекта файла или папки для поиска. В имени файла или папки можно указать системные переменные среды и переменную среды *%USERPROFILE%* . Кроме того, можно использовать подстановочные знаки * и ? в имени файла.  
-
-                > [!NOTE]  
-                >  Если указано имя файла или папки и используются подстановочные знаки, это может привести к отображению слишком большого числа результатов. В итоге уровень использования ресурсов на клиентском компьютере возрастет, а также увеличится сетевой трафик при отправке результатов в Configuration Manager.  
-
-            -   **Включая вложенные папки** — используйте этот параметр, если также требуется выполнить поиск во всех вложенных папках по указанному пути.  
-
-            -   **Файл или папка связан с 64-разрядного приложения** - при выборе только 64-разрядный файл расположения (такие как *% ProgramFiles %*) будет проверяться на 64-разрядных компьютерах. Если этот параметр отключен, будут проверяться как 32-разрядные (такие как *%ProgramFiles(x86)%*), так и 64-разрядные расположения.  
+            -   **Nome do ficheiro ou da pasta** – Especifique o nome do objeto de ficheiro ou pasta a procurar. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no nome da pasta ou ficheiro. Também pode utilizar os carateres universais * e ? no nome de ficheiro.  
 
                 > [!NOTE]  
-                >  Если один и тот же файл или папка присутствует в расположениях 64-разрядных и 32-разрядных системных файлов на одном 64-разрядном компьютере, при глобальном условии обнаруживается несколько файлов.  
+                >  Se especificar um nome de ficheiro ou pasta e utilizar carateres universais, esta combinação poderá produzir um elevado número de resultados e pode resultar numa utilização intensiva de recursos no computador cliente e tráfego de rede elevado ao reportar os resultados para o Configuration Manager.  
 
-             Тип параметра **Файловая система** не поддерживает указание UNC-пути к сетевой папке в поле **Путь** .  
+            -   **Incluir subpastas** – ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
 
-        -   **Метабаза IIS**  
-
-            -   **Путь к метабазе** : укажите допустимый путь к метабазе IIS.  
-
-            -   **Идентификатор свойства** — укажите числовое свойство параметра метабазы IIS.  
-
-        -   **Раздел реестра**  
-
-            -   **Раздел** : в списке выберите куст реестра, в котором требуется выполнить поиск.  
-
-            -   **Ключ** — укажите имя раздела реестра, который требуется найти. Используйте формат *раздел\подраздел*.  
-
-            -   **Этот ключ реестра связан с 64-разрядным приложением** -указывает, следует ли выполнять поиск разделов реестра для 64-разрядных Помимо разделов реестра в 32-разрядной на компьютере под управлением 64-разрядной версии Windows.  
+            -   **Este ficheiro ou pasta está associado a uma aplicação de 64 bits** - Se estiver ativada, apenas as localizações de ficheiros de 64 bits (como *%ProgramFiles%*) serão verificadas nos computadores de 64 bits. Se esta opção não estiver ativada, ambas as localizações de 32 bits (como *%ProgramFiles(x86)%*) e 64 bits serão verificadas.  
 
                 > [!NOTE]  
-                >  Если один и тот же раздел реестра присутствует в расположениях реестра для 64-разрядных и 32-разрядных программ на одном 64-разрядном компьютере, при глобальном условии будут обнаруживаться оба раздела реестра.  
+                >  Se o mesmo ficheiro ou pasta existir em ambas as localizações no mesmo computador de 64 bits, são detetados múltiplos ficheiros pela condição global.  
 
-        -   **Значение реестра**  
+             O tipo de definição **Sistema de ficheiros** não suporta a especificação de um caminho UNC de partilha de rede na caixa **Caminho**.  
 
-            -   **Раздел** : в списке выберите куст реестра, в котором требуется выполнить поиск.  
+        -   **Metabase do IIS**  
 
-            -   **Ключ** — укажите имя раздела реестра, который требуется найти. Используйте формат *раздел\подраздел*.  
+            -   **Caminho da metabase** - Especifique um caminho válido para a Metabase dos Serviços de Informação Internet (IIS).  
 
-            -   **Значение** — укажите значение, которое должен содержать указанный раздел реестра.  
+            -   **ID da Propriedade** - especifique a propriedade numérica da definição da Metabase do IIS.  
 
-            -   **Этот ключ реестра связан с 64-разрядным приложением** : указывает, следует ли выполнять поиск в разделах реестра для 64-разрядных программ, помимо разделов реестра для 32-разрядных программ, на клиентах, работающих под управлением 64-разрядной версии ОС Windows.  
+        -   **Chave de registo**  
 
-                > [!NOTE]  
-                >  Если один и тот же раздел реестра присутствует в расположениях реестра для 64-разрядных и 32-разрядных программ на одном 64-разрядном компьютере, при глобальном условии будут обнаруживаться оба раздела реестра.  
+            -   **Hive** – Na lista, selecione o ramo de registo onde pretende procurar.  
 
-             Кроме того, вы можете нажать кнопку **Обзор** для перехода в расположение реестра на компьютере или на удаленном компьютере. Чтобы перейти к удаленному компьютеру, необходимо иметь права администратора на удаленном компьютере и удаленном компьютере должна быть запущена служба удаленного реестра.  
+            -   **Chave** – Especifique o nome da chave de registo que pretende procurar. Utilize o formato *key\subkey*.  
 
-        -   **Сценарий**  
-
-            -   **Сценарий обнаружения** — нажмите кнопку **Добавить** , чтобы ввести или перейти к расположению сценария, который требуется использовать. Можно использовать сценарии Windows PowerShell, VBScript или JScript корпорации Майкрософт.  
-
-            -   **Выполнять сценарии с использованием данных вошедшего пользователя** : если этот параметр включен, сценарий на клиентских компьютерах выполняется с использованием учетных данных пользователей, вошедших в систему.  
+            -   **Esta chave de registo está associada a uma aplicação de 64 bits** – Especifica se a procura deve ser feita nas chaves de registo de 64 bits, além das chaves de registo de 32 bits, em clientes com uma versão de 64 bits do Windows.  
 
                 > [!NOTE]  
-                >  Значение, возвращаемое сценарием, используется для оценки соответствия по глобальному условию. Например, при использовании VBScript вы можете выполнить команду **WScript.Echo Result** , чтобы вернуть значение переменной *Result* для глобального условия.  
+                >  Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global deteta ambas as chaves de registo.  
 
-        -   **SQL-запрос**  
+        -   **Valor de registo**  
 
-            -   **Экземпляр сервера SQL Server** — выберите, требуется ли выполнить SQL-запрос в экземпляре, используемом по умолчанию, во всех экземплярах или в экземпляре базы данных с указанным именем.  
+            -   **Hive** – Na lista, selecione o ramo de registo onde pretende procurar.  
+
+            -   **Chave** – Especifique o nome da chave de registo que pretende procurar. Utilize o formato *key\subkey*.  
+
+            -   **Valor** – Especifique o valor que deve estar incluído na chave de registo especificada.  
+
+            -   **Esta chave de registo está associada a uma aplicação de 64 bits** – Especifica se a procura deve ser feita nas chaves de registo de 64 bits, além das chaves de registo de 32 bits, em clientes com uma versão de 64 bits do Windows.  
 
                 > [!NOTE]  
-                >  Имя экземпляра должно указывать на локальный экземпляр сервера SQL Server. Чтобы указать экземпляр кластеризованного сервера SQL Server, следует использовать параметр сценария.  
+                >  Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global deteta ambas as chaves de registo.  
 
-            -   **Базы данных** — укажите имя базы данных Microsoft SQL Server, для которой нужно выполнить запрос SQL.  
+             Também pode clicar em **Procurar** para navegar para uma localização de registo no computador ou num computador remoto. Para procurar um computador remoto, tem de ter direitos de administrador no computador remoto e o computador remoto tem de executar o serviço de registo remoto.  
 
-            -   **Столбец** -указания имени столбца, возвращаемого инструкцией Transact-SQL, которая используется для оценки соответствия глобальному условию.  
+        -   **Script**  
 
-            -   **Инструкция Transact-SQL** — укажите полный SQL-запрос, который требуется использовать для глобального условия. Можно также нажать кнопку **Открыть** для открытия существующего SQL-запроса.  
+            -   **Script de deteção** – Clique em **Adicionar** para introduzir ou navegue para o script que pretende utilizar. Pode utilizar scripts do Windows PowerShell, VBScript ou Microsoft JScript.  
+
+            -   **Executar scripts ao utilizar as credenciais do utilizador com sessão iniciada** – Se ativar esta opção, o script é executado nos computadores cliente que utilizam as credenciais dos utilizadores com sessão iniciada.  
+
+                > [!NOTE]  
+                >  O valor devolvido pelo script é utilizado para avaliar a compatibilidade da condição global. Por exemplo, quando utilizar VBScript, poderá utilizar o comando **WScript.Echo Result** para devolver o valor da variável *Result* à condição global.  
+
+        -   **Consulta SQL**  
+
+            -   **Instância do SQL Server** – escolha se pretende que a consulta SQL seja executada na instância predefinida, em todas as instâncias ou na instância de base de dados com o nome especificado.  
+
+                > [!NOTE]  
+                >  O nome da instância deve referir-se a uma instância local do SQL Server. Para fazer referência a uma instância do SQL Server em cluster, deverá utilizar uma definição de script.  
+
+            -   **Base de dados** – Especifique o nome da base de dados do Microsoft SQL Server relativamente à qual pretende executar a consulta SQL.  
+
+            -   **Coluna** – Especifique o nome da coluna devolvido pela instrução Transact-SQL utilizada para avaliar a compatibilidade da condição global.  
+
+            -   **Instrução Transact-SQL** – Especifique a consulta SQL completa que pretende utilizar para a condição global. Também pode clicar em **Abrir** para abrir uma consulta SQL existente.  
 
                 > [!IMPORTANT]  
-                >  Параметры SQL-запроса не поддерживают команды SQL, изменяющие базу данных. Вы можете использовать только команды SQL, считывающие сведения из базы данных.  
+                >  As definições da Consulta SQL não suportam os comandos SQL que modificam a base de dados. Apenas pode utilizar comandos SQL que leem as informações da base de dados.  
 
-        -   **WQL-запрос**  
+        -   **Consulta WQL**  
 
-            -   **Имен** -укажите пространство имен инструментария управления Windows (WMI), который используется для создания WQL-запроса, оцениваемого на соответствие на клиентских компьютерах. Значение по умолчанию — Root\cimv2.  
+            -   **Espaço de nomes** - Especifique o espaço de nomes Windows Management Instrumentation (WMI) utilizado para criar uma consulta WQL avaliada relativamente à compatibilidade em computadores cliente. O valor predefinido é Root\cimv2.  
 
-            -   **Класс** -указывает класс WMI, который используется для создания WQL-запроса, оцениваемого на соответствие на клиентских компьютерах.  
+            -   **Classe** - Especifica a classe WMI utilizada para criar uma consulta WQL avaliada relativamente à compatibilidade em computadores cliente.  
 
-            -   **Свойство** -указывает свойство инструментария WMI, который используется для создания WQL-запроса, оцениваемого на соответствие на клиентских компьютерах.  
+            -   **Propriedade** - Especifica a propriedade WMI utilizada para criar uma consulta WQL avaliada relativamente à compatibilidade em computadores cliente.  
 
-            -   **Предложение WHERE WQL-запроса** — элемент **Предложение WHERE WQL-запроса** можно использовать для указания предложения WHERE, применяемого к указанному пространству имен, классу и свойству на клиентских компьютерах.  
+            -   **Cláusula WHERE da consulta WQL** - pode utilizar o item **Cláusula WHERE da consulta WQL** para especificar uma cláusula WHERE a aplicar ao espaço de nomes, à classe e à propriedade especificados nos computadores cliente.  
 
-        -   **Запрос XPath**  
+        -   **Consulta XPath**  
 
-            -   **Путь** : укажите путь к XML-файлу на клиентских компьютерах, который используется для оценки соответствия. Configuration Manager поддерживает использование всех переменных среды системы Windows и пользовательскую переменную *%USERPROFILE%* в имени пути.  
+            -   **Caminho** - Especifique o caminho para o ficheiro .xml em computadores cliente utilizado para avaliar a compatibilidade. O Configuration Manager suporta a utilização de todas as variáveis de ambiente de sistema do Windows e o *% USERPROFILE %* variável de utilizador no nome do caminho.  
 
-            -   **Имя XML-файла** -указать имя файла, содержащего XML-запрос, который используется для оценки соответствия на клиентских компьютерах.  
+            -   **Nome do ficheiro XML** - Especifique o nome de ficheiro que contém a consulta XML utilizada para avaliar a compatibilidade em computadores cliente.  
 
-            -   **Включая вложенные папки** — используйте этот параметр, если также требуется выполнить поиск во всех вложенных папках по указанному пути.  
+            -   **Incluir subpastas** - ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
 
-            -   **Этот файл связан с 64-разрядным приложением** — выберите, требуется ли выполнять поиск в расположении файлов 64-разрядной системы (*%windir%*\System32), помимо расположения файлов 32-разрядной системы (*%windir%*\Syswow64), в клиентах Configuration Manager, работающих под управлением 64-разрядной версии Windows.  
+            -   **Este ficheiro está associado uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %*\System32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\Syswow64) em clientes do Configuration Manager que executam uma versão de 64 bits do Windows.  
 
-            -   **Запрос XPath** — укажите действительный полный XML path language (XPath) запрос, используемый для оценки соответствия на клиентских компьютерах.  
+            -   **Consulta XPath** - Especifique uma consulta da linguagem XPath completa e válida utilizada para avaliar a compatibilidade em computadores cliente.  
 
-            -   **Пространства имен** — откройте диалоговое окно **Пространства имен XML** , чтобы определить пространства имен и префиксы, используемые во время выполнения запроса XPath.  
+            -   **Espaços de Nomes** - Abre a caixa de diálogo **Espaços de Nomes XML** para identificar espaços de nomes e prefixos a utilizar durante a consulta XPath.  
 
-             Если выполняется попытка обнаружить зашифрованный XML-файл, такой файл находится с помощью параметров соответствия, но запрос xPath не выводит результаты и не отображается сообщение об ошибке.  
+             Se tentou detetar um ficheiro .xml encriptado, as definições de compatibilidade localizam o ficheiro, mas a consulta XPath não produz resultados e não é gerado nenhum erro.  
 
-             Если запрос xPath недопустим, на клиентских компьютерах этот параметр оценивается как несоответствующий.  
+             Se a consulta XPath não for válida, a definição é avaliada como não compatível em computadores cliente.  
 
-    -   **Тип данных:** выберите в списке формат, в котором условие возвращает данные перед их использованием для оценки параметра. **Тип данных** список отображается не для всех типов параметров.  
+    -   **Tipo de dados:** Na lista, escolha o formato no qual a condição devolve os dados antes de ser utilizado para avaliar a definição. A lista **Tipo de dados** não é apresentada para todos os tipos de definição.  
 
         > [!NOTE]  
-        >  Тип данных **с плавающей запятой** поддерживает только 3 цифры после десятичной запятой.  
+        >  O tipo de dados **Vírgula flutuante** suporta apenas três dígitos depois da casa decimal.  
 
-3.  Настроить дополнительные сведения об этом параметре под **тип параметра** списка. Элементы, которые можно настроить зависят от выбранного типа параметра.  
+3.  Configure detalhes adicionais sobre esta definição na lista **Tipo de definição**. Os itens que pode configurar variam consoante o tipo de definição selecionado.  
 
     > [!NOTE]  
-    >  При создании параметров типа **файловой системы**, **реестра**, и **значение реестра**, можно щелкнуть **Обзор** Настройка из значения на эталонном компьютере. Чтобы перейти к разделу или значению реестра на удаленном компьютере, на удаленном компьютере должна быть включена служба удаленного реестра.  
+    >  Quando criar definições do tipo **Sistema de ficheiros**, **Chave de registo** e **Valor de registo**, pode clicar em **Procurar** para configurar a definição a partir de valores num computador de referência. Para procurar uma chave ou valor de registo num computador remoto, o computador remoto tem de ter o serviço Registo Remoto ativado.  
 
-4.  Нажмите кнопку **ОК** , чтобы сохранить параметр и закрыть диалоговое окно **Создание параметра** .  
+4.  Clique em **OK** para guardar a definição e fechar a caixa de diálogo **Criar Definição**.  
 
-##  <a name="configure-compliance-rules"></a>Настройка правил соответствия  
- Используйте следующую процедуру, чтобы настроить правила соответствия для элемента конфигурации.  
+##  <a name="configure-compliance-rules"></a>Configurar regras de compatibilidade  
+ Utilize o procedimento seguinte para configurar regras de compatibilidade para o item de configuração.  
 
- Правила соответствия указывают условия, определяющие соответствие элемента конфигурации требованиям. Перед тем как оценить параметр на соответствие требованиям, необходимо создать по крайней мере одно правило соответствия. WMI, реестра и параметры сценариев позволяют исправлять значения, признанные несоответствующими. Можно создать новые правила или перейдите к существующему параметру в любом элементе конфигурации для выбора правил в ней.  
+ As regras de compatibilidade especificam as condições que definem a compatibilidade de um item de configuração. Antes de poder ser avaliada a compatibilidade de uma definição, tem de ter, pelo menos, uma regra de compatibilidade. O WMI, o registo e as definições de script permitem remediar os valores considerados não compatíveis. Pode criar novas regras ou navegar para uma definição existente em qualquer item de configuração para selecionar regras no mesmo.  
 
-### <a name="to-create-a-compliance-rule"></a>Процедура создания правила соответствия  
+### <a name="to-create-a-compliance-rule"></a>Para criar uma regra de compatibilidade  
 
-1.  На странице **Правила соответствия** **мастера создания элементов конфигурации**нажмите кнопку **Создать**.  
+1.  Na página **Regras de Compatibilidade** do **Assistente de Criação de Item de configuração**, clique em **Novo**.  
 
-2.  В диалоговом окне **Создать правило** укажите следующие сведения.  
+2.  Na caixa de diálogo **Criar Regra**, forneça as seguintes informações:  
 
-    -   **Имя.** Введите имя для правила соответствия.  
+    -   **Nome:** Introduza um nome para a regra de compatibilidade.  
 
-    -   **Описание:** Введите описание для правила соответствия.  
+    -   **Descrição:** Introduza uma descrição para a regra de compatibilidade.  
 
-    -   **Выбранный параметр:** Щелкните **Обзор** Открытие **выберите параметр** диалоговое окно. Выберите параметр, который требуется определить правило, или нажмите кнопку **новый параметр**. По окончании работы нажмите кнопку **Выбрать**.  
+    -   **Definição selecionada:** Clique em **procurar** para abrir o **selecionar definição** caixa de diálogo. Selecione a definição na qual pretende definir uma regra ou clique em **Nova Definição**. Quando terminar, clique em **Selecionar**.  
 
         > [!NOTE]  
-        >  Можно также нажать кнопку **Свойства** , чтобы просмотреть сведения о выбранном в настоящий момент параметре.  
+        >  Também pode clicar em **Propriedades** para ver informações sobre a definição atualmente selecionada.  
 
-    -   **Тип правила:** Выберите тип правила соответствия, который вы хотите использовать:  
+    -   **Tipo de regra:** Selecione o tipo de regra de compatibilidade que pretende utilizar:  
 
-        -   **Значение** создать правило, которое сравнивает значения, возвращенного элемента конфигурации со значением, которое можно указать.  
+        -   **Valor** Crie uma regra que compara o valor devolvido pelo item de configuração com um valor que especificar.  
 
-        -   **Существующий** создать правило, оценивающее параметр в зависимости от того, существует ли на клиентском устройстве или на количество раз он было обнаружено.  
+        -   **Existencial** Crie uma regra que avalie a definição consoante se existe num dispositivo cliente ou o número de vezes que pode ser encontrada.  
 
-    -   Для типа правила **Значение**укажите следующую информацию.  
+    -   Num tipo de regra de **Valor**, especifique as seguintes informações:  
 
-        -   **Параметр должен соответствовать следующее правило** — выберите оператор и значение, которое оценивается соответствие выбранного параметра. Можно использовать следующие операторы.  
+        -   **A definição deve cumprir a seguinte regra** – Selecione um operador e um valor que é avaliado quanto à compatibilidade com a definição selecionada. Pode utilizar os seguintes operadores:  
 
-            |Оператор|Дополнительные сведения|  
+            |Operador|Mais informações|  
             |--------------|----------------------|  
-            |Равно|Дополнительные сведения отсутствуют|  
-            |Не равно|Дополнительные сведения отсутствуют|  
-            |Больше|Дополнительные сведения отсутствуют|  
-            |Меньше|Дополнительные сведения отсутствуют|  
-            |Между|Дополнительные сведения отсутствуют|  
-            |Больше или равно|Дополнительные сведения отсутствуют|  
-            |Меньше или равно|Дополнительные сведения отсутствуют|  
-            |Один из|В текстовом поле укажите одну запись в каждой строке.|  
-            |Ни один из|В текстовом поле укажите одну запись в каждой строке.|  
+            |É igual a|Não existem informações adicionais|  
+            |Não é igual a|Não existem informações adicionais|  
+            |Maior que|Não existem informações adicionais|  
+            |Menor que|Não existem informações adicionais|  
+            |Entre|Não existem informações adicionais|  
+            |Maior que ou igual a|Não existem informações adicionais|  
+            |Menor que ou igual a|Não existem informações adicionais|  
+            |Um de|Na caixa de texto, especifique uma entrada em cada linha.|  
+            |Nenhum de|Na caixa de texto, especifique uma entrada em cada linha.|  
 
-        -   **Исправлять несоответствующие параметры, когда это возможно** : выберите этот параметр, если требуется, чтобы Configuration Manager автоматически исправлял несоответствующие правила. Configuration Manager можно автоматически исправлять следующие типы правил:  
+        -   **Remediar regras incompatíveis quando suportado** – selecione esta opção se pretender que o Configuration Manager retifique automaticamente as regras incompatíveis. O Configuration Manager pode remediar automaticamente os seguintes tipos de regra:  
 
-            -   **Значение реестра** — значение реестра является исправлять, если он не соответствует требованиям и если она не существует.  
+            -   **Valor de registo** – O valor de registo é remediado se não for compatível e criado se não existir.  
 
-            -   **Сценарий** (путем автоматического выполнения сценария исправления).  
+            -   **Script** (executando automaticamente um script de remediação).  
 
-            -   **WQL-запрос**  
+            -   **Consulta WQL**  
 
             > [!IMPORTANT]  
-            >  Исправлять несоответствующие правила можно только в случае, когда оператор правила настроен со значением **Равно**.  
+            >  Só pode remediar regras incompatíveis quando o operador de regra estiver definido como **É igual a**.  
 
-        -   **Сообщить о несоответствии, если этот экземпляр не найден** — элемент конфигурации сообщает несоответствия, если этот параметр не найден на клиентских компьютерах.  
+        -   **Reportar incompatibilidade se a instância desta definição não for encontrada** – O item de configuração reporta a incompatibilidade se esta definição não for encontrada em computadores cliente.  
 
-        -   **Степень важности несоответствия для отчетов** — укажите степень важности, которая передается (в отчеты Configuration Manager), если это правило соответствия не выполняется. Ниже перечислены доступные степени важности.  
+        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
 
-            -   **Нет** — компьютеры, для которых не выполняется данное правило соответствия, не сообщают степень серьезности сбоя.  
+            -   **Nenhum** computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha.  
 
-            -   **Информация** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Информация**.  
+            -   **Informações** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações**.  
 
-            -   **Предупреждение** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Предупреждение**.  
+            -   **Aviso** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso**.  
 
-            -   **Ошибка** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Ошибка**.  
+            -   **Crítico** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**.  
 
-            -   **Ошибка с событием** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Ошибка**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
+            -   **Crítico com evento** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
 
-        -   Для типа правила **Существующий**укажите следующую информацию.  
+        -   Para um tipo de regra **Existencial**, especifique as seguintes informações:  
 
             > [!NOTE]  
-            >  Отображаемые параметры могут различаться в зависимости от типа параметра, для которого настраивается правило.  
+            >  As opções apresentadas podem variar consoante o tipo de definição para o qual está a configurar uma regra.  
 
-            -   **Параметр должен существовать на клиентских устройствах**  
+            -   **A definição deve existir nos dispositivos cliente**  
 
-            -   **Параметр не должен существовать на клиентских устройствах**  
+            -   **A definição não deve existir nos dispositivos cliente**  
 
-            -   **Параметр применяется следующее число раз:**  
+            -   **A definição ocorre o seguinte número de vezes:**  
 
-        -   **Степень важности несоответствия для отчетов** — укажите степень важности, которая передается (в отчеты Configuration Manager), если это правило соответствия не выполняется. Ниже перечислены доступные степени важности.  
+        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
 
-            -   **Нет** — компьютеры, для которых не выполняется данное правило соответствия, не сообщают степень серьезности сбоя.  
+            -   **Nenhum** computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha.  
 
-            -   **Информация** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Информация**.  
+            -   **Informações** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações**.  
 
-            -   **Предупреждение** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Предупреждение**.  
+            -   **Aviso** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso**.  
 
-            -   **Ошибка** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Ошибка**.  
+            -   **Crítico** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**.  
 
-            -   **Ошибка с событием** — компьютеры, для которых не выполняется данное правило соответствия, сообщают о серьезности сбоя со степенью **Ошибка**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
+            -   **Crítico com evento** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
 
-3.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Создать правило** .  
+3.  Clique em **OK** para fechar a caixa de diálogo **Criar Regra**.  
 
-##  <a name="specify-supported-platforms"></a>Указание поддерживаемых платформ  
- Поддерживаемые платформы — это операционные системы, на которых оценивается соответствие элемента конфигурации требованиям.  
+##  <a name="specify-supported-platforms"></a>Especificar plataformas suportadas  
+ As plataformas suportadas são os sistemas operativos em que um item de configuração é avaliado relativamente à compatibilidade.  
 
-На странице **Поддерживаемые платформы** **мастера создания элементов конфигурации**в списке выберите версии ОС Windows, в которых требуется оценить соответствие элемента конфигурации, или нажмите кнопку **Выбрать все**.  
+Na página **Plataformas Suportadas** do **Assistente de Criação de Item de configuração**, na lista, selecione as versões do Windows nas quais pretende que o item de configuração seja avaliado relativamente à compatibilidade ou clique em **Selecionar tudo**.  
 
-## <a name="complete-the-wizard"></a>Завершение работы мастера  
- На странице мастера **Сводка** просмотрите действия, которые будут выполнены, и завершите работу мастера. Отображается новый элемент конфигурации в **элементы конфигурации** узел в **активы и соответствие** рабочей области.  
+## <a name="complete-the-wizard"></a>Concluir o assistente  
+ Na página **Resumo** do assistente, reveja as ações que serão executadas e conclua o assistente. O novo item de configuração é apresentado no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade**.  

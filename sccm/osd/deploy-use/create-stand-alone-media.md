@@ -1,6 +1,6 @@
 ---
-title: "Создание автономного носителя с помощью System Center Configuration Manager | Документация Майкрософт"
-description: "Автономный носитель служит для развертывания операционной системы на компьютере без подключения к сайту Configuration Manager или использования сети."
+title: "Criar suportes de dados autónomos com o System Center Configuration Manager | Microsoft Docs"
+description: "Utilize suportes de dados autónomos para implementar o sistema operativo num computador sem uma ligação a um site do Configuration Manager ou da rede."
 ms.custom: na
 ms.date: 06/07/2017
 ms.prod: configuration-manager
@@ -17,159 +17,159 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 98f902429ad1b9965a0dc4cc2e1bd071ad5c0779
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-stand-alone-media-with-system-center-configuration-manager"></a>Создание автономного носителя с помощью System Center Configuration Manager
+# <a name="create-stand-alone-media-with-system-center-configuration-manager"></a>Criar suportes de dados autónomos com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Автономный носитель в Configuration Manager содержит все необходимое для развертывания операционной системы на компьютере без подключения к сайту Configuration Manager или использования сети. Используйте автономный носитель в следующих сценариях развертывания операционной системы.  
+No Gestor de configuração de suporte de dados autónomo contém tudo o que é necessário para implementar o sistema operativo num computador sem uma ligação para um site do Configuration Manager ou utilizar a rede. Utilize suportes de dados autónomos com os seguintes cenários de implementação do sistema operativo:  
 
--   [Обновление существующего компьютера до новой версии Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Atualizar um computador existente com uma nova versão do Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Установка новой версии Windows на новом компьютере (без операционной системы)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Обновление Windows до последней версии](upgrade-windows-to-the-latest-version.md)  
+-   [Atualize o Windows para a versão mais recente](upgrade-windows-to-the-latest-version.md)  
 
-Автономный носитель содержит последовательность задач, которая автоматизирует действия по установке операционной системы, и все остальное необходимое содержимое, включая загрузочный образ, образ операционной системы и драйверы устройств. Так как все необходимое для развертывания операционной системы хранится на автономном носителе, для такого носителя требуется существенно большее дисковое пространство, чем для носителей других типов. При создании автономного носителя на сайте центра администрирования клиент получает от Active Directory свой назначенный код сайта. Автономный носитель, созданный на подчиненном сайте, автоматически назначает клиенту код сайта для этого сайта.  
+Suporte de dados autónomo inclui a sequência de tarefas que automatiza os passos para instalar o sistema operativo e todos os outros conteúdos necessários, incluindo a imagem de arranque, imagem do sistema operativo e controladores de dispositivo. Como tudo o que é necessário para implementar o sistema operativo está armazenado no suporte de dados autónomo, o espaço em disco necessário para o suporte de dados autónomo é significativamente maior do que o espaço em disco necessário para outros tipos de suportes de dados. Quando cria suportes de dados autónomo num site de administração central, o cliente irá obter o código de site atribuído do active directory. O suporte de dados autónomo criado em sites subordinados atribuirá automaticamente ao cliente o código do site para esse site.  
 
-##  <a name="BKMK_CreateStandAloneMedia"></a> Создание автономного носителя  
-Перед созданием автономного носителя с помощью мастера создания носителя последовательности задач убедитесь, что выполнены следующие условия.  
+##  <a name="BKMK_CreateStandAloneMedia"></a>Criar suportes de dados autónomos  
+Antes de criar suportes de dados autónomos, utilizando o assistente suporte de dados de criação de sequência de tarefas, não se esqueça de que as seguintes condições são cumpridas:  
 
-### <a name="create-a-task-sequence-to-deploy-an-operating-system"></a>Создание последовательности задач для развертывания операционной системы
-В рамках данного автономного носителя необходимо указать последовательность задач для развертывания операционной системы. Действия по созданию новой последовательности задач см. в статье [Создание последовательности задач для установки операционной системы в System Center Configuration Manager](create-a-task-sequence-to-install-an-operating-system.md).
+### <a name="create-a-task-sequence-to-deploy-an-operating-system"></a>Criar uma sequência de tarefas para implementar um sistema operativo
+Como parte do suporte de dados autónomo, tem de especificar a sequência de tarefas para implementar um sistema operativo. Para obter os passos criar uma nova sequência de tarefas, consulte [criar uma sequência de tarefas para instalar um sistema operativo no System Center Configuration Manager](create-a-task-sequence-to-install-an-operating-system.md).
 
-Автономный носитель не поддерживает следующие действия:
-- автоматическое применение драйверов в последовательности задач. Автоматическое применение драйверов устройств из каталога драйверов не поддерживается, однако определенный набор драйверов можно сделать доступным в программе установки Windows, выбрав шаг «Применить пакет драйверов».
-- шаг последовательности задач "Скачать содержимое пакета"; Сведения о точке управления недоступны на автономном носителе, поэтому шаг завершится сбоем при попытке перечислить расположения содержимого.
-- установку обновлений программного обеспечения;
-- Установка программного обеспечения перед развертыванием операционной системы.
-- Последовательности задач для развертываний, не касающихся операционных систем.
-- связывание пользователей с конечным компьютером (поддержка сопоставления пользователей и устройств).
-- динамическую установку пакетов через задачу установки пакетов;
-- динамическую установку приложений через задачу установки приложений.
+As seguintes ações não são suportadas para o suporte de dados autónomo:
+- O passo Aplicar Controladores Automaticamente na sequência de tarefas. A aplicação automática de controladores de dispositivo a partir do catálogo de controladores não é suportada, mas pode escolher o passo Aplicar Pacote de Controlador para disponibilizar um conjunto especificado de controladores à Configuração do Windows.
+- A transferir conteúdo do pacote passo da sequência de tarefas. As informações de ponto de gestão não estão disponíveis no suporte de dados autónomo, pelo que o passo falhará ao tentar enumerar as localizações de conteúdos.
+- Instalação de atualizações de software.
+- Instalar o software antes de implementar o sistema operativo.
+- Sequências de tarefas para implementações não pertencentes ao sistema operativo.
+- Associação de utilizadores ao computador de destino para suportar a afinidade dispositivo/utilizador.
+- O pacote dinâmico é instalado através da tarefa Instalar Pacotes.
+- A aplicação dinâmica é instalada através da tarefa Instalar Aplicação.
 
 > [!NOTE]    
-> Если последовательность задач для развертывания операционной системы включает шаг [Установить пакет](../../osd/understand/task-sequence-steps.md#BKMK_InstallPackage) и вы создаете автономный носитель на сайте центра администрирования, может возникнуть ошибка. Сайт центра администрирования не имеет политик конфигурации клиентов, необходимых для включения агента распространения программного обеспечения при выполнении последовательности задач. В файле журнала CreateTsMedia.log может возникнуть следующая ошибка:    
+> Se a sequência de tarefas para implementar um sistema operativo incluir o [Instalar pacote](../../osd/understand/task-sequence-steps.md#BKMK_InstallPackage) passo e criar o suporte de dados autónomo num site de administração central, poderá ocorrer um erro. O site de administração central não possui as políticas de configuração de cliente necessárias para ativar o agente de distribuição de software durante a execução da sequência de tarefas. O erro seguinte pode ser apresentado no ficheiro CreateTsMedia.log:    
 >     
-> "Сбой метода WMI SMS_TaskSequencePackage.GetClientConfigPolicies (0x80041001)"    
+> "Falha no método de WMI SMS_TaskSequencePackage.GetClientConfigPolicies (0x80041001)"    
 > 
-> Для автономного носителя, включающего шаг **Установить пакет**, необходимо проводить создание на первичном сайте с включенным агентом распространения ПО или добавить шаг [Выполнить в командной строке](../understand/task-sequence-steps.md#BKMK_RunCommandLine) после шага [Настройка Windows и Configuration Manager](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) и перед первым шагом **Установить пакет** в последовательности задач. Шаг **Выполнить из командной строки** выполняет команду WMIC, чтобы включить программу агент распространения ПО до первого шага "Установить пакет". Можно использовать следующий шаг **Выполнить из командной строки** :    
+> Para suporte de dados autónomo que inclua um **Instalar pacote** passo, tem de criar o suporte de dados autónomo num site primário que tenha o agente de distribuição de software ativado ou adicionar um [executar linha de comandos](../understand/task-sequence-steps.md#BKMK_RunCommandLine) passo após o [configurar Windows e ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) passo e antes do primeiro **Instalar pacote** passo da sequência de tarefas. O passo **Executar Linha de Comandos** executa um comando WMIC para ativar o agente de distribuição de software antes da execução do primeiro passo Instalar Pacote. Pode utilizar o seguinte no passo da sequência de tarefas **Executar Linha de Comandos** :    
 >    
-> *WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE*
+> *WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig caminho ccm_SoftwareDistributionClientConfig criar ComponentName = "Ativar SWDist", ativado = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0" SiteSettingsKey = "1" /NOINTERACTIVE*
 
 
 > [!IMPORTANT]    
-> Когда вы выполняете шаг **Настройка Windows и Configuration Manager** в последовательности задач операционной системы, не устанавливайте для автономного носителя параметр **Использовать пакет подготовительной версии клиента при наличии**. Если этот параметр установлен, а пакет подготовительной версии клиента доступен, он будет использоваться в автономном носителе. Но такая конфигурация не поддерживается. См. дополнительные сведения о [настройке Windows и Configuration Manager](/sccm/osd/understand/task-sequence-steps#BKMK_SetupWindowsandConfigMgr).
+> Quando utiliza o **configurar Windows e ConfigMgr** a sequência de tarefas do sistema operativo passo de sequência de tarefas, não selecione a **utilizar o pacote de cliente de pré-produção quando disponível** a definição de suporte de dados autónomo. Se esta definição está selecionada e o pacote de cliente de pré-produção estiver disponível, será utilizado no suporte de dados autónomo. Não é suportada. Para obter mais informações sobre esta definição, consulte [configurar Windows e ConfigMgr](/sccm/osd/understand/task-sequence-steps#BKMK_SetupWindowsandConfigMgr).
 
 
-### <a name="distribute-all-content-associated-with-the-task-sequence"></a>Распространение всего содержимого, связанного с последовательностью задач
-Все содержимое, необходимое для последовательности задач, необходимо распространить по меньшей мере в одну точку распространения. Сюда входит загрузочный образ, образ операционной системы и другие связанные файлы. Мастер получает сведения из точки распространения, а затем создает автономный носитель. Необходимо обладать доступом с правами на **чтение** к библиотеке содержимого на точке распространения.  Дополнительные сведения см. в разделе [Распространение содержимого, на которое ссылается последовательность задач](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS).
+### <a name="distribute-all-content-associated-with-the-task-sequence"></a>Distribuir todo o conteúdo associado à sequência de tarefas
+Tem de distribuir todo o conteúdo exigido pela sequência de tarefas por, pelo menos, um ponto de distribuição. Isto inclui a imagem de arranque, a imagem do sistema operativo e outros ficheiros associados. O assistente recolhe as informações a partir do ponto de distribuição, ao criar o suporte de dados autónomo. Tem de ter direitos de acesso de **Leitura** à biblioteca de conteúdos desse ponto de distribuição.  Para obter detalhes, veja [Distribuir conteúdo referenciado por uma sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS).
 
-### <a name="prepare-the-removable-usb-drive"></a>Подготовка съемного USB-накопителя
-*Для съемного USB-накопителя*
+### <a name="prepare-the-removable-usb-drive"></a>Preparar a pen USB amovível
+*Para uma pen USB amovível:*
 
-Если вы планируете использовать съемный USB-накопитель, он должен быть подключен к компьютеру, на котором запускается мастер, и определяться операционной системой Windows как съемное устройство. При создании носителя мастер осуществляет запись непосредственно на USB-накопитель. Автономный носитель использует файловую систему FAT32. Невозможно создать автономный носитель на USB-устройстве флэш-памяти, которое содержит файл размером более 4 ГБ.
+Se planear utilizar uma pen USB amovível, a pen USB tem de estar ligada ao computador em que o assistente é executado e ser detetável pelo Windows como um dispositivo amovível. Quando cria o suporte de dados, o assistente escreve diretamente na pen USB. O suporte de dados autónomo utiliza um sistema de ficheiros FAT32. Não é possível criar um suporte de dados autónomo numa pen USB cujo conteúdo inclua um ficheiro com tamanho superior a 4 GB.
 
-### <a name="create-an-output-folder"></a>Создание папки для выходных данных
-*Для набора компакт- или DVD-дисков*
+### <a name="create-an-output-folder"></a>Criar uma pasta de saída
+*Para um conjunto de CD/DVD:*
 
-Перед запуском мастера создания носителя с последовательностью задач для создания компакт- или DVD-диска необходимо создать папку для файлов выходных данных мастера. Образ, создаваемый для компакт- или DVD-диска, записывается в виде ISO-файлов непосредственно в эту папку.
+Antes de executar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas para criar suportes de dados para um conjunto de CDs ou DVDs, tem de criar uma pasta para os ficheiros de saída criados pelo assistente. O suporte de dados criado para um conjunto de CDs ou DVDs é escrito em formato de ficheiros .iso diretamente na pasta.
 
 
- Ниже приведена процедура создания автономного носителя для съемного USB-накопителя либо CD- или DVD-диска.  
+ Utilize o procedimento seguinte para criar suportes de dados autónomos para uma pen USB amovível ou um conjunto de CD/DVD.  
 
-## <a name="to-create-stand-alone-media"></a>Создание автономного носителя  
+## <a name="to-create-stand-alone-media"></a>Para criar suportes de dados autónomos  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать носитель с файлом последовательности задач** , чтобы запустить мастер создания носителя с последовательностью задач.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Suportes de Dados da Sequência de Tarefas** para iniciar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas.  
 
-4.  На странице **Выбор типа носителя** настройте следующие параметры, затем нажмите кнопку **Далее**.  
+4.  Na página **Selecione o Tipo de Suporte de Dados** , especifique as opções seguintes e clique em **Seguinte**.  
 
-    -   Выберите **Автономный носитель**.  
+    -   Selecione **suportes de dados autónomos**.  
 
-    -   Дополнительно, если требуется разрешить развертывание операционной системы без взаимодействия с пользователем, установите флажок **Разрешить автоматическое развертывание операционной системы**. Если установить этот флажок, пользователю не будет предлагаться ввести сведения о конфигурации сети или указать дополнительные последовательности задач. Тем не менее, пользователю может потребоваться ввести пароль, если носитель защищен паролем.  
+    -   Opcionalmente, se pretender permitir a implementação do sistema operativo sem exigir a intervenção do utilizador, selecione **Permitir a implementação do sistema operativo autónoma**. Ao selecionar esta opção, não serão solicitadas ao utilizador informações para a configuração de rede nem para sequências de tarefas opcionais. No entanto, continua a ser solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe.  
 
-5.  На странице **Тип носителя** укажите, является ли носитель устройством флеш-памяти или набором компакт- или DVD-дисков, а затем щелкните, чтобы настроить следующее.  
+5.  Na página **Tipo de Suporte de Dados** , especifique se o suporte de dados é uma pen USB ou um conjunto de CD/DVD e, em seguida, clique para configurar o seguinte:  
 
     > [!IMPORTANT]  
-    >  Автономный носитель использует файловую систему FAT32. Невозможно создать автономный носитель на USB-устройстве флэш-памяти, которое содержит файл размером более 4 ГБ.  
+    >  O suporte de dados autónomo utiliza um sistema de ficheiros FAT32. Não é possível criar um suporte de dados autónomo numa pen USB cujo conteúdo inclua um ficheiro com tamanho superior a 4 GB.  
 
-    -   При выборе варианта **USB-устройство флеш-памяти**необходимо указать диск, на котором должно быть сохранено содержимое.  
+    -   Se selecionar **Pen USB**, especifique a unidade onde pretende armazenar o conteúdo.  
 
-    -   При выборе варианта **CD или DVD диск**необходимо указать емкость этого носителя, имя и путь к выходным файлам. Мастер запишет выходные файлы в это расположение. Например: **\\имя_сервера\папка\выходной_файл.iso**.  
+    -   Se selecionar **Conjunto CD/DVD**, especifique a capacidade do suporte de dados e o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.iso**  
 
-         Если емкости носителя не хватает для хранения всего содержимого, создаются несколько файлов и содержимое сохраняется на нескольких компакт- или DVD-дисках. Если требуется несколько носителей, Configuration Manager добавляет порядковый номер к имени каждого выходного файла при их создании. Кроме того, если при развертывании приложения вместе с операционной системой приложение не может поместиться на один носитель, Configuration Manager сохраняет приложение на нескольких носителях. При запуске автономного носителя Configuration Manager запрашивает у пользователя следующий носитель, на котором хранится приложение.   
+         Se a capacidade do suporte de dados for demasiado pequena para armazenar todo o conteúdo, serão criados vários ficheiros e tem de armazenar o conteúdo em vários CDs ou DVDs. Quando vários suportes de dados é necessária, o Configuration Manager adiciona um número sequencial ao nome de cada ficheiro de saída criado. Além disso, se implementar uma aplicação juntamente com o sistema operativo e a aplicação não couber num único suporte de dados, o Configuration Manager armazenará a aplicação em vários suportes de dados. Quando o suporte de dados autónomo for executado, o Configuration Manager pede ao utilizador o suporte de dados seguinte em que a aplicação se encontra armazenada.   
 
          > [!IMPORTANT]  
-         >  При выборе существующего ISO-образа мастер создания носителя с последовательностью задач удаляет этот образ с диска или из общей папки при переходе к следующей странице мастера. Существующий образ будет удален даже при отмене работы мастера.  
+         >  Se selecionar uma imagem .iso existente, o Assistente de Criação de Suporte de Dados da Sequência de Tarefas elimina essa imagem da unidade ou partilha logo que avança para a página seguinte do assistente. A imagem existente será eliminada, mesmo que em seguida cancele o assistente.  
 
-     Нажмите кнопку **Далее**.  
+     Clique em **Seguinte**.  
 
-6.  На странице **Безопасность** укажите следующие параметры, а затем нажмите кнопку **Далее**.
-    - **Защитить носитель паролем**. Введите надежный пароль для защиты носителя. При указании пароля он будет необходим для работы с носителем.  
+6.  No **segurança** página, escolha entre as seguintes definições e, em seguida, clique em **seguinte**:
+    - **Proteger suporte de dados com uma palavra-passe**: Introduza uma palavra-passe segura para ajudar a proteger o suporte de dados. Se especificar uma palavra-passe, a palavra-passe é necessário para utilizar o suporte de dados.  
 
         > [!IMPORTANT]  
-        >  На автономном носителе шифруются только шаги последовательности задач и их переменные. Остальное содержимое носителя не шифруется, поэтому не включайте важную информацию в скрипты последовательности задач. Используйте переменные последовательности задач для хранения и применения важной информации.  
+        >  No suporte de dados autónomo, apenas os passos de sequência de tarefas e as respetivas variáveis são encriptados. O restante conteúdo do suporte de dados não é encriptado, pelo que não deverá incluir quaisquer informações sensíveis nos scripts da sequência de tarefas. Armazene e implemente todas as informações sensíveis utilizando variáveis de sequência de tarefas.  
 
-    - **Выберите диапазон времени действия для этого автономного носителя** (начиная с версии 1702). Укажите начало и окончание периода, в течение которого носитель будет считаться действительным. Это необязательный параметр. По умолчанию эти параметры отключены. Перед запуском автономного носителя даты сравниваются с системным временем. Если системное время ранее времени начала или позднее времени окончания, автономный носитель не запускается. Эти параметры также доступны при использовании командлета PowerShell New-CMStandaloneMedia.
-7.  На странице **Автономный компакт-диск или DVD-диск** укажите последовательность задач для развертывания операционной системы и нажмите кнопку **Далее**. Чтобы добавить содержимое на автономный носитель для зависимостей приложения, выберите **Обнаружить зависимости приложения и добавить их на этот носитель**.
+    - **Selecione o intervalo de datas para este suporte de dados autónomo ser válida** (começando na versão 1702): Defina opcionais datas de início e de expiração no suporte de dados. Estas definições estão desativadas por predefinição. As datas são em comparação com a hora do sistema no computador antes do suporte de dados autónomo é executado. Quando a hora do sistema é anterior à hora de início ou posterior à hora de expiração, o suporte de dados autónomo não foi iniciado. Estas opções também estão disponíveis utilizando o cmdlet New-CMStandaloneMedia PowerShell.
+7.  No **CD/DVD autónomo** página, especifique a sequência de tarefas que implementa o sistema operativo e, em seguida, clique em **seguinte**. Escolha **detetar dependências da aplicação associada e adicioná-las a este suporte** ao adicionar o conteúdo para o suporte de dados autónomo para as dependências da aplicação.
     > [!TIP]
-    > Если ожидаемые зависимости приложения отсутствуют, отмените выбор и повторно выберите параметр **Обнаружить зависимости приложения и добавить их на этот носитель**, чтобы обновить список.
+    > Se não vir as dependências da aplicação esperado, desmarque e, em seguida, reselect o **detetar dependências da aplicação associada e adicioná-las a este suporte** definição para atualizar a lista.
 
-    Мастер предложит вам выбрать только те последовательности задач, которые связаны с загрузочным образом.  
+    O assistente permite-lhe selecionar apenas as sequências de tarefas que estão associadas uma imagem de arranque.  
 
-8. На странице **Выберите приложение** (появилась в версии 1702) укажите содержимое приложения, которое необходимо включить в файл носителя, а затем нажмите кнопку **Далее**.
-9. На странице **Выберите пакет** (появилась в версии 1702) укажите содержимое пакета, которое необходимо включить в файл носителя, а затем нажмите кнопку **Далее**.
-10. На странице **Выбор пакета драйверов** (появилась в версии 1702) укажите содержимое пакета драйверов, которое необходимо включить в файл носителя, а затем нажмите кнопку **Далее**.
-11.  На странице **Точки распространения** укажите точки распространения, в которых находится содержимое, необходимое для последовательности задач, и нажмите кнопку **Далее**.  
+8. No **selecionar aplicação** página (disponível a partir da versão 1702), especifique o conteúdo da aplicação para incluir como parte dos ficheiros de suporte de dados e, em seguida, clique em **seguinte**.
+9. No **selecionar pacote** página (disponível a partir da versão 1702), especifique o conteúdo do pacote incluir como parte dos ficheiros de suporte de dados e, em seguida, clique em **seguinte**.
+10. No **selecionar pacote de controladores** página (disponível a partir da versão 1702), especifique o conteúdo do pacote de controladores para incluir como parte dos ficheiros de suporte de dados e, em seguida, clique em **seguinte**.
+11.  No **pontos de distribuição** página, especifique os pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e, em seguida, clique em **seguinte**.  
 
-     Configuration Manager отображает только те точки распространения, в которых есть содержимое. Прежде чем продолжить, все содержимое, связанное с последовательностью задач (загрузочный образ, образ операционной системы и т. д.), необходимо распространить хотя бы в одну точку распространения. После того как содержимое будет распространено, вы можете перезапустить мастер или удалить точки распространения, уже выбранные на этой странице, вернуться на предыдущую страницу, а затем на страницу **Точки распространения** , чтобы обновить список точек распространения. Дополнительные сведения о распространении содержимого см. в статье [Распространение содержимого, на которое ссылается последовательность задач](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS). Дополнительные сведения об точках распространения и управлении содержимым см. в статье [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Gestor de configuração apenas irá apresentar pontos de distribuição que possuem o conteúdo. Tem de distribuir todo o conteúdo associado à sequência de tarefas (imagem de arranque, imagem do sistema operativo, etc.) por, pelo menos, um ponto de distribuição para poder continuar. Após distribuir o conteúdo, pode ou reinicie o assistente ou remover quaisquer pontos de distribuição que já selecionou nesta página, aceda à página anterior e, em seguida, volta para o **pontos de distribuição** página para atualizar a lista de pontos de distribuição. Para obter mais informações sobre a distribuição de conteúdo, veja [Distribuir conteúdo referenciado por uma sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS). Para obter mais informações sobre pontos de distribuição e gestão de conteúdos, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
     > [!NOTE]  
-    >  Необходимо обладать доступом с правами на **чтение** к библиотеке содержимого на точках распространения.  
+    >  Tem de ter **leitura** direitos para a biblioteca de conteúdos nos pontos de distribuição de acesso.  
 
-12. На странице **Настройка** укажите следующие данные, затем нажмите кнопку **Далее**.  
+12. Na página **Personalização** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   Укажите переменные, которые используются последовательностью задач для развертывания операционной системы.  
+    -   Especifique as variáveis utilizadas pela sequência de tarefas para implementar o sistema operativo.  
 
-    -   Укажите команды перед запуском, которые следует выполнить до запуска последовательности задач. Выполняемые перед запуском команды являются сценариями или исполняемыми файлами, которые могут взаимодействовать с пользователем в среде предустановки Windows перед запуском последовательности задач для установки операционной системы. Дополнительные сведения о создании файла сценария для использования в качестве команды перед запуском см. в статье [Команды перед запуском для носителя с последовательностью задач в System Center Configuration Manager](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Especifique os comandos de Pré-início que pretende executar antes da sequência de tarefas. Os comandos de pré-início são um script ou um ficheiro executável que pode interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Para obter mais informações sobre os comandos de Pré-início para suportes de dados, consulte [comandos para dados de sequência de tarefas no System Center Configuration Manager de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
 
-         Дополнительно можно установить флажок **Добавить файлы для выполнения команды перед запуском** , чтобы включить все необходимые файлы для команды, выполняемой перед запуском.  
+         Opcionalmente, selecione **ficheiros para o comando de Pré-início** para incluir os ficheiros necessários para o comando de Pré-início.  
 
         > [!TIP]  
-        >  Во время создания носителя последовательность задач записывает ИД пакета и командную строку, выполняемую перед запуском, включая значения всех переменных последовательности задач, в файл журнала CreateTSMedia.log на компьютере, на котором запущена консоль Configuration Manager. В этом файле журнала можно проверить значения переменных последовательности задач.  
+        >  Durante a criação de suportes de dados de sequência de tarefas, a sequência de tarefas escreve o ID de pacote e da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo CreateTSMedia.log no computador que executa a consola do Configuration Manager de Pré-início. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
 
-13. Завершите работу мастера.  
+13. Conclua o assistente.  
 
- В папке назначения будут созданы файлы автономного носителя (ISO-файлы). Если вы выбрали **Автономный компакт-диск или DVD-диск**, вы можете скопировать выходные файлы в набор компакт-дисков или DVD-дисков.  
+ Os ficheiros de suporte de dados autónomos (.iso) são criados na pasta de destino. Se tiver selecionado **CD/DVD Autónomo**, pode agora copiar os ficheiros de saída para um conjunto de CDs ou DVDs.  
 
-##  <a name="BKMK_StandAloneMediaTSExample"></a> Пример последовательности задач для автономного носителя  
- Приведенную ниже таблицу можно использовать в качестве руководства при создании последовательности задач для развертывания операционной системы с помощью автономного носителя. Таблица поможет при выработке общей структуры шагов последовательности задач и объединении их в логические группы. Создаваемая последовательность задач может отличаться от приведенного примера и содержать большее или меньшее количество шагов и групп.  
+##  <a name="BKMK_StandAloneMediaTSExample"></a>Exemplo de sequência de tarefas para suporte de dados autónomo  
+ Utilize a tabela seguinte como guia para criar uma sequência de tarefas para implementar um sistema operativo utilizando suportes de dados autónomos. A tabela irá ajudá-lo a decidir a sequência geral para os passos da sequência de tarefas e como organizar e estruturar esses passos da sequência de tarefas em grupos lógicos. A sequência de tarefas que criar poderá diferente deste exemplo e pode conter mais ou menos grupos e passos de sequência de tarefas.  
 
 > [!NOTE]  
->  Для создания автономного носителя необходимо всегда использовать мастер создания носителя с последовательностью задач.  
+>  Tem de utilizar sempre o Assistente de suporte de dados de sequência de tarefas para criar suportes de dados autónomos.  
 
-|Группа или шаг последовательности задач|Описание|  
+|Passo ou Grupo de Sequência de Tarefas|Descrição|  
 |---------------------------------|-----------------|  
-|Сбор файлов и параметров — **(новая группа последовательности задач)**|Создание группы последовательности задач. Группа последовательности задач используется для группирования сходных шагов в целях повышения управляемости и упрощения управления ошибками.|  
-|Сохранить параметры Windows|Этот шаг последовательности задач служит для идентификации параметров Microsoft Windows, которые записываются из существующей операционной системы на конечном компьютере перед повторным созданием образа. Можно записать такие данные, как имя компьютера, сведения о пользователе и организации и параметры часового пояса.|  
-|Сохранить параметры сети|Этот шаг последовательности задач служит для записи сетевых параметров с компьютера, получающего последовательность задач. Можно записать данные о членстве компьютера в домене или рабочей группе и сведения о параметрах сетевого адаптера.|  
-|Сбор файлов и параметров пользователя — **(новая подгруппа последовательности задач)**|Создание подгруппы последовательности задач в пределах группы последовательности задач. Эта подгруппа содержит шаги, необходимые для сбора данных о пользовательской среде из существующей операционной системы на конечном компьютере перед повторным созданием образа. Также как и в первоначально добавляемой группе, в этой подгруппе содержатся сходные шаги последовательности задач, что позволяет оптимизировать их организацию и управление ошибками.|  
-|Задать локальное расположение состояния|Этот шаг последовательности задач служит для задания локального расположения с помощью переменной последовательности задач защищенного пути. Пользовательская среда хранится в защищенном каталоге на жестком диске.|  
-|Записать пользовательское состояние|Этот шаг последовательности задач служит для записи файлов и параметров пользователя, которые требуется перенести в новую операционную систему.|  
-|Установить операционную систему — **(новая группа последовательности задач)**|Создание новой подгруппы последовательности задач. Эта подгруппа содержит шаги, которые необходимы для установки операционной системы.|  
-|Перезагрузить в Windows PE или с жесткого диска|Этот шаг последовательности задач служит для задания параметров перезагрузки для компьютера, получающего последовательность задач. Этот шаг выводит сообщение для пользователя, указывая, что для продолжения установки необходимо перезагрузить компьютер.<br /><br /> Этим шагом используется переменная последовательности задач **_SMSTSInWinPE** , доступная только для чтения. Если она имеет значение **false** , этот шаг будет выполнен.|  
-|Применить операционную систему|Этот шаг используется для установки образа операционной системы на конечном компьютере. Этот шаг последовательности задач удаляет все файлы на этом томе (за исключением файлов параметров, относящихся к Configuration Manager), а затем применяет все образы томов, которые содержатся в WIM-файле, к соответствующему последовательному тому диска. Чтобы задать, какой раздел диска будет использоваться для установки, можно также указать файл ответов **sysprep** .|  
-|Применить настройки Windows|Этот шаг последовательности задач используется для настройки параметров Windows на конечном компьютере. К таким параметрам Windows относятся сведения о пользователе и организации, сведения о ключе продукта или лицензионном ключе, параметры часового пояса и пароль локального администратора.|  
-|Применить параметры сети|Этот шаг последовательности задач используется для задания параметров сети или рабочей группы на конечном компьютере. Также можно указать, использует ли компьютер DHCP-сервер, или задать параметры назначенного статического IP-адреса.|  
-|Применить пакет драйверов|Этот шаг последовательности задач используется, чтобы предоставить программе установки Windows доступ ко всем драйверам в пакете драйверов. На автономном носителе должны содержаться все необходимые драйверы устройств.|  
-|Установить операционную систему — **(новая группа последовательности задач)**|Создание новой подгруппы последовательности задач. Эта подгруппа содержит шаги, которые необходимы для установки клиента Configuration Manager.|  
-|Настройка Windows и Configuration Manager|Используйте этот шаг последовательности задач для установки клиентского программного обеспечения Configuration Manager. Configuration Manager устанавливает и регистрирует GUID клиента Configuration Manager. Необходимые параметры установки можно назначить в окне **Свойства установки** .|  
-|Восстановить файлы и параметры пользователя — **(новая группа последовательности задач)**|Создание новой подгруппы последовательности задач. Эта подгруппа содержит шаги, которые необходимы для восстановления пользовательской среды.|  
-|Восстановление пользовательской среды|Этот шаг последовательности задач используется для запуска средства миграции пользовательской среды (USMT) для восстановления пользовательской среды и параметров, которые были собраны на конечном компьютере действием "Записать пользовательское состояние".|  
+|Capturar ficheiros e definições - **(novo grupo de sequência de tarefas)**|Criar um grupo de sequência de tarefas. Os grupos de sequência de tarefas mantêm agrupados os passos de sequência de tarefas semelhantes para uma melhor organização e um melhor controlo de erros.|  
+|Capturar Definições do Windows|Utilize este passo de sequência de tarefas para identificar as definições do Microsoft Windows que são capturadas a partir do sistema operativo existente no computador de destino antes da recriação da imagem. Pode capturar o nome do computador, informações do utilizador e da organização e as definições de fuso horário.|  
+|Capturar Definições de Rede|Utilize este passo de sequência de tarefas para capturar definições de rede do computador que recebe a sequência de tarefas. Pode capturar a associação a domínios ou grupos de trabalho do computador e as informações de definições da placa de rede.|  
+|Capturar definições e ficheiros de utilizador - **(novo grupo sequência de tarefas secundárias)**|Crie um grupo de sequência de tarefas dentro de um grupo de sequência de tarefas. Este subgrupo contém os passos necessários para capturar os dados de estado de utilizador do sistema operativo existente no computador de destino antes da recriação da imagem. De forma idêntica ao grupo inicial que adicionou, este subgrupo mantém agrupados os passos de sequência de tarefas semelhantes para uma melhor organização e um melhor controlo de erros.|  
+|Definir Localização de Estado Local|Utilize este passo de sequência de tarefas para especificar uma localização local utilizando a variável de sequência de tarefas de caminho protegido. O estado do utilizador é armazenado num diretório protegido no disco rígido.|  
+|Capturar Estado do Utilizador|Utilize este passo de sequência de tarefas para capturar as definições e ficheiros do utilizador que pretende migrar para o novo sistema operativo.|  
+|Instalar o sistema operativo - **(novo grupo de sequência de tarefas)**|Crie outro subgrupo de sequência de tarefas. Este subgrupo contém os passos necessários para instalar o sistema operativo.|  
+|Reiniciar para o Windows PE ou disco rígido|Utilize este passo de sequência de tarefas para especificar opções de reinício para o computador que recebe esta sequência de tarefas. Este passo apresentará uma mensagem ao utilizador a indicar que o computador será reiniciado para que a instalação possa continuar.<br /><br /> Este passo utiliza a variável de sequência de tarefas só de leitura **_SMSTSInWinPE** . Se o valor associado for igual a **false** , o passo de sequência de tarefas continuará.|  
+|Aplicar Sistema Operativo|Utilize este passo de sequência de tarefas para instalar a imagem do sistema operativo no computador de destino. Este passo elimina todos os ficheiros nesse volume (à exceção dos ficheiros de controlo específicos do Configuration Manager) e, em seguida, aplica todas as imagens de volume contidas no ficheiro WIM ao volume de disco sequencial correspondente. Também pode especificar um ficheiro de resposta **sysprep** para configurar a partição de disco a utilizar para a instalação.|  
+|Aplicar Definições do Windows|Utilize este passo de sequência de tarefas para configurar as informações de configuração das definições do Windows para o computador de destino. As definições do Windows que pode aplicar são informações da organização e do utilizador, informações da chave de licença ou produto, fuso horário e a palavra-passe de administrador local.|  
+|Aplicar Definições de Rede|Utilize este passo de sequência de tarefas para especificar as informações de configuração da rede ou do grupo de trabalho para o computador de destino. Também pode especificar se o computador utiliza um servidor DHCP ou pode atribuir estaticamente as informações de endereço IP.|  
+|Aplicar Pacote de Controlador|Utilize este passo de sequência de tarefas para disponibilizar todos os controladores de dispositivo de um pacote de controladores para utilização pela configuração do Windows. Todos os controladores de dispositivo necessários têm de estar contidos no suporte de dados autónomo.|  
+|Configurar o sistema operativo - **(novo grupo de sequência de tarefas)**|Crie outro subgrupo de sequência de tarefas. Este subgrupo contém os passos necessários para instalar o cliente do Configuration Manager.|  
+|Configurar Windows e ConfigMgr|Utilize este passo de sequência de tarefas para instalar o software de cliente do Configuration Manager. O Configuration Manager instala e regista o GUID do cliente do Configuration Manager. Pode atribuir os parâmetros de instalação necessários na janela **Propriedades de instalação** .|  
+|Restaurar definições e ficheiros de utilizador - **(novo grupo de sequência de tarefas)**|Crie outro subgrupo de sequência de tarefas. Este subgrupo contém os passos necessários para restaurar o estado do utilizador.|  
+|Restaurar Estado do Utilizador|Utilize este passo de sequência de tarefas para iniciar a User State Migration Tool (USMT) para restaurar as definições e o estado do utilizador que foram capturados a partir da ação Capturar Estado do Utilizador para o computador de destino.|  

@@ -1,6 +1,6 @@
 ---
-title: "Безопасность и конфиденциальность профилей электронной почты | Документы Майкрософт"
-description: "Ознакомьтесь с рекомендациями по обеспечению безопасности при управлении профилями электронной почты для устройств в System Center Configuration Manager."
+title: "Privacidade e segurança do perfil de e-mail | Microsoft Docs"
+description: "Saiba mais sobre a segurança melhores práticas para gerir perfis de e-mail para dispositivos no System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
@@ -17,22 +17,22 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 17707f931a4fa58b225ce14f04c2a19648585bc4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-email-profiles-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность профилей электронной почты в System Center Configuration Manager
+# <a name="security-and-privacy-for-email-profiles-in-system-center-configuration-manager"></a>Segurança e privacidade para perfis de e-mail no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-## <a name="security-best-practices-for-email-profiles"></a>Рекомендации по безопасности для профилей электронной почты  
- При управлении профилями электронной почты для устройств необходимо учитывать следующие рекомендации по безопасности.  
+## <a name="security-best-practices-for-email-profiles"></a>Melhores Práticas de Segurança para Perfis de E-mail  
+ Utilize as seguintes melhores práticas de segurança ao gerir os perfis de e-mail dos dispositivos.  
 
-|Рекомендация по безопасности|Дополнительные сведения|  
+|Procedimento recomendado de segurança|Mais informações|  
 |----------------------------|----------------------|  
-|По возможности выбирайте наиболее безопасные параметры, поддерживаемые инфраструктурой электронной почты и клиентскими операционными системами.|Профили электронной почты предоставляют удобный способ централизованного распределения параметров электронной почты, поддерживаемых вашими устройствами, и управления ими. Configuration Manager не добавляет функции электронной почты.<br /><br /> Определите, реализуйте и выполните все рекомендации по безопасности для устройств и инфраструктуры электронной почты.|  
+|Sempre que possível, selecione as opções mais seguras que a sua infraestrutura de e-mail e sistemas operativos cliente suportem.|Os perfis de e-mail fornecem um método prático para distribuir e gerir centralmente as definições de e-mail já suportadas pelos seus dispositivos. Gestor de configuração não adiciona funcionalidades de e-mail.<br /><br /> Identifique, implemente e siga as melhores práticas de segurança recomendadas para os dispositivos e a infraestrutura de e-mail.|  
 
-## <a name="privacy-information-for-email-profiles"></a>Сведения о конфиденциальности профилей электронной почты  
- По умолчанию устройства не проверяют профили электронной почты. Кроме того, необходимо настроить профили VPэлектронной почты, а затем развернуть их для пользователей.  
+## <a name="privacy-information-for-email-profiles"></a>Informações de Privacidade para Perfis de E-mail  
+ Por predefinição, os dispositivos não avaliam perfis de e-mail. Além disso, tem de configurar os perfis de e-mail e, em seguida, implementá-los nos utilizadores.  
 
- Перед настройкой профилей электронной почты следует проанализировать требования к конфиденциальности.  
+ Antes de configurar perfis de e-mail, considere os requisitos de privacidade.  

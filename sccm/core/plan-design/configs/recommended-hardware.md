@@ -1,6 +1,6 @@
 ---
-title: "Рекомендуемое оборудование | Документы Майкрософт"
-description: "Ознакомьтесь с рекомендациями в отношении оборудования, которые помогут вам в масштабировании базового развертывания System Center Configuration Manager."
+title: Recomendado hardware | Microsoft Docs
+description: "Obtenha recomendações de hardware para o ajudar a dimensionar o seu ambiente do System Center Configuration Manager para além de uma implementação básica."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -17,167 +17,167 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8dac6df60b07461d6410d305723b3f03fb09fa16
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="recommended-hardware-for-system-center-configuration-manager"></a>Рекомендуемое оборудование для System Center Configuration Manager
+# <a name="recommended-hardware-for-system-center-configuration-manager"></a>Hardware recomendado para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Руководствуйтесь приведенными ниже рекомендациями при масштабировании среды System Center Configuration Manager, чтобы обеспечить поддержку расширенных возможностей развертывания сайтов, систем сайта и клиентов. Они не предполагают описание всех возможных вариантов конфигурации сайтов и иерархий.  
+As seguintes recomendações são diretrizes para o ajudar a dimensionar o seu ambiente do System Center Configuration Manager para suportar mais do que uma implementação muito básica de sites, sistemas de sites e clientes. Estas recomendações não pretendem abranger todas as configurações de sites e hierarquias possíveis.  
 
- Примените сведения из следующих разделов в качестве вспомогательных рекомендаций при выборе оборудования, соответствующего рабочим нагрузкам при использовании клиентами и сайтами доступных возможностей Configuration Manager с конфигурациями по умолчанию.  
+ Utilize as informações nas secções seguintes como guia para ajudar a planear para o hardware que pode satisfazer as cargas de processamento dos clientes e sites que utilizam as funcionalidades do Gestor de configuração disponíveis com as configurações predefinidas.  
 
 
-##  <a name="bkmk_ScaleSieSystems"></a> Системы сайта  
- В этом разделе приводятся рекомендуемые конфигурации оборудования для систем сайта Configuration Manager для развертываний, которые поддерживают максимальное количество клиентов и используют большую часть функций или все функции Configuration Manager. Для развертываний, которые поддерживают меньшее количество клиентов и используют не все доступные функции, может требоваться меньший объем ресурсов компьютера. В общем случае, ключевыми факторами, ограничивающими производительность системы, являются (по порядку):  
+##  <a name="bkmk_ScaleSieSystems"></a>Sistemas de sites  
+ Esta secção fornece as configurações de hardware recomendadas para o Configuration Manager sistemas de sites para implementações que suportam o número máximo de clientes e utilizar a maior parte ou todas as funcionalidades do Configuration Manager. Implementações que suportam menos do que o número máximo de clientes e não a utilizar todas as funcionalidades disponíveis podem requerer menos recursos do computador. Em geral, os principais fatores que limitam o desempenho do sistema global incluem o seguinte, por ordem:  
 
-1.  Скорость чтения и записи диска  
+1.  Desempenho da E/S do disco  
 
-2.  Объем доступной памяти  
+2.  Memória disponível  
 
-3.  ЦП  
+3.  CPU  
 
-Для достижения оптимальной производительности используйте конфигурации RAID 10 для всех дисков с данными и сеть Ethernet 1 Гбит/с.  
+Para melhor desempenho, utilize as configurações do RAID 10 para todas as unidades de dados e uma rede de Ethernet de 1 Gbps.  
 
-###  <a name="bkmk_ScaleSiteServer"></a> Серверы сайта  
+###  <a name="bkmk_ScaleSiteServer"></a>Servidores de site  
 
-|Автономный первичный сайт|ЦП (ядра)|Память (ГБ)|% выделения памяти для SQL Server|  
+|Site primário autónomo|CPU (núcleos)|Memória (GB)|Atribuição de memória para o SQL Server (%)|  
 |-------------------------------|---------------|---------------|----------------------------------------|  
-|Автономный сервер первичного сайта с ролью базы данных сайта на том же сервере <sup>1</sup>|16|96|80|  
-|Автономный первичный сервер сайта с удаленной базой данных сайта|8|16|-|  
-|Удаленный сервер базы данных для автономного первичного сайта|16|72|90|  
-|Сервер сайта центра администрирования с ролью базы данных сайта на том же сервере <sup>1</sup>|20|128|80|  
-|Сервер сайта центра администрирования с удаленной базой данных сайта|8|16|-|  
-|Удаленный сервер базы данных для сайта центра администрирования|16|96|90|  
-|Подчиненный первичный сайт с ролью базы данных сайта на том же сервере|16|96|80|  
-|Сервер дочернего первичного сайта с базой данных удаленного сайта|8|16|-|  
-|Удаленный сервер базы данных для дочернего первичного сайта|16|72|90|  
-|Сервер вторичного сайта|8|16|-|  
+|Servidor de site primário autónomo com uma função de site de base de dados no mesmo servidor<sup>1</sup>|16|96|80|  
+|Servidor de site primário autónomo com base de dados de site remoto|8|16|-|  
+|Servidor de base de dados remota para um site primário autónomo|16|72|90|  
+|Servidor do site de administração central com uma função de site de base de dados no mesmo servidor<sup>1</sup>|20|128|80|  
+|Servidor de site de administração central com base de dados de site remoto|8|16|-|  
+|Servidor de base de dados remota de um site de administração central|16|96|90|  
+|Site primário subordinado com uma função de site de base de dados no mesmo servidor|16|96|80|  
+|Servidor de site primário subordinado com base de dados de site remoto|8|16|-|  
+|Servidor de base de dados remota para um site primário subordinado|16|72|90|  
+|Servidor do Site Secundário|8|16|-|  
 
- <sup>1</sup> При установке сервера сайта и SQL Server на одном компьютере развертывание поддерживает максимальные [значения размера и масштабирования](/sccm/core/plan-design/configs/size-and-scale-numbers) для сайтов и клиентов. Но эта конфигурация может ограничить [возможности обеспечения высокой доступности для System Center Configuration Manager](/sccm/protect/understand/high-availability-options), например использование кластера SQL Server. Кроме того, в связи с более высокими требованиями к подсистеме ввода-вывода, необходимой для поддержки работающих на одном компьютере SQL Server и сервера сайта Configuration Manager, рекомендуется использовать конфигурацию с удаленным компьютером SQL Server, если у вас более крупное развертывание.  
+ <sup>1</sup> quando o servidor do site e o SQL Server estão instaladas no mesmo computador, a implementação suporta o máximo [dimensionamento e números da escala](/sccm/core/plan-design/configs/size-and-scale-numbers) para sites e clientes. No entanto, esta configuração pode limitar [opções de elevada disponibilidade para o System Center Configuration Manager](/sccm/protect/understand/high-availability-options), como um cluster do SQL Server a utilizar. Além disso, devido os requisitos de e/s mais elevados necessários para suportar o SQL Server e servidor de site do Configuration Manager ao executar ambos no mesmo computador, é uma boa ideia ponderar a utilização de uma configuração com uma máquina do SQL Server remota, se tiver uma maior implementação.  
 
-###  <a name="bkmk_RemoteSiteSystem"></a> Удаленные серверы системы сайта  
- Эти указания предназначены для компьютеров с одной ролью системы сайта. При установке нескольких ролей системы сайта на одном компьютере внесите в план необходимые коррективы.  
+###  <a name="bkmk_RemoteSiteSystem"></a>Servidores do sistema de sites remoto  
+ As seguintes orientações for para computadores que possuem uma função de sistema de sites única. Planeie efetuar ajustes quando instalar várias funções de sistema de sites no mesmo computador.  
 
-|Роль системы сайта|ЦП (ядра)|Память (ГБ)|Пространство на диске (ГБ)|  
+|Função do sistema de sites|CPU (núcleos)|Memória (GB)|Espaço em disco (GB)|  
 |----------------------|---------------|---------------|--------------------|  
-|Точка управления.|4|8|50|  
-|Точка распространения.|2|8|Согласно требованиям операционной системы и для хранения развертываемого содержимого|  
-|Каталог приложений с веб-службой и веб-сайтом на компьютере системы сайта|4|16|50|  
-|Точка обновления программного обеспечения<sup>1</sup>|8|16|Согласно требованиям операционной системы и для хранения развертываемых обновлений|  
-|Все остальные роли системы сайта|4|8|50|  
+|Ponto de gestão|4|8|50|  
+|Ponto de distribuição|2|8|Conforme requerido pelo sistema operativo e para armazenar o conteúdo que implementar|  
+|Catálogo de Aplicações, com o serviço Web e o Web site no computador do sistema de sites|4|16|50|  
+|Ponto de atualização de software<sup>1</sup>|8|16|Conforme requerido pelo sistema operativo e para armazenar as atualizações que implementar|  
+|Todas as outras funções do sistema de sites|4|8|50|  
 
- <sup>1</sup> На компьютере, где размещается точка обновления программного обеспечения, требуются следующие конфигурации для пулов приложений IIS:  
+ <sup>1</sup> o computador que aloja um ponto de atualização de software requer as seguintes configurações para conjuntos aplicacionais do IIS:  
 
--   Увеличение **длины очереди WsusPool** до **2000**.  
+-   Aumentar a **comprimento da fila WsusPool** para **2000**.  
 
--   Увеличение **предельного значения выделенной памяти WsusPool** в 4 раза или установка его в **0** (без ограничений).  
+-   Aumentar a **limite de memória privada WsusPool** por 4 vezes, ou defina-o como **0** (ilimitado).  
 
-###  <a name="bkmk_DiskSpace"></a> Пространство на диске для систем сайта  
- Распределение и конфигурация дискового пространства влияют на производительность Configuration Manager. Каждая среда Configuration Manager имеет индивидуальные характеристики, поэтому реальные цифры могут отличаться от приводимых здесь значений.  
+###  <a name="bkmk_DiskSpace"></a>Espaço em disco para sistemas de sites  
+ Configuração e atribuição do disco contribuem para o desempenho do Configuration Manager. Porque cada ambiente do Configuration Manager for diferente, os valores que implementar podem diferir das seguintes orientações.  
 
- Для достижения наивысшей производительности располагайте каждый объект в отдельном выделенном томе RAID. Наибольшее быстродействие томов с данными (Configuration Manager и файлы базы данных) обеспечивается при использовании массивов RAID 10.  
+ Para obter o melhor desempenho, coloque cada objeto num volume RAID separado e dedicado. Para todos os volumes de dados (Configuration Manager e os respetivos ficheiros de base de dados), utilize o RAID 10 para o melhor desempenho.  
 
-|Использование данных|Минимальное место на диске|25 000 клиентов|50 000 клиентов|100 000 клиентов|150 000 клиентов|700 000 клиентов (сайт центра администрирования)|  
+|Utilização de dados|Espaço mínimo em disco|25 000 clientes|50 000 clientes|100 000 clientes|150 000 clientes|700 000 clientes (site de administração central)|  
 |----------------|------------------------|--------------------|--------------------|---------------------|---------------------|-----------------------------------------------------|  
-|Операционная система|См. руководство по операционной системе.|См. руководство по операционной системе.|См. руководство по операционной системе.|См. руководство по операционной системе.|См. руководство по операционной системе.|См. руководство по операционной системе.|  
-|Приложение и файлы журналов Configuration Manager|25 ГБ|50 Гб|100 ГБ|200 Мб|300 ГБ|200 Мб|  
-|Файл MDF базы данных сайта|75 ГБ на каждые 25 000 клиентов|75 ГБ|150 Гб|300 ГБ|500 ГБ|2 ТБ|  
-|Файл LDF базы данных сайта|25 ГБ на каждые 25 000 клиентов|25 ГБ|50 Гб|100 ГБ|150 Гб|100 ГБ|  
-|Файлы временной базы данных (MDF и LDF)|По мере необходимости|По мере необходимости|По мере необходимости|По мере необходимости|По мере необходимости|По мере необходимости|  
-|Содержимое (общие папки точек распространения)|По мере необходимости<sup>1</sup>|По мере необходимости<sup>1</sup>|По мере необходимости<sup>1</sup>|По мере необходимости<sup>1</sup>|По мере необходимости<sup>1</sup>|По мере необходимости<sup>1</sup>|  
+|Sistema operativo|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|  
+|Ficheiros de registo e de aplicação do Configuration Manager|25 GB|50 GB|100 GB|200 GB|300 GB|200 GB|  
+|Ficheiro .mdf da base de dados do site|75 GB para cada 25.000 clientes|75 GB|150 GB|300 GB|500 GB|2 TB|  
+|Ficheiro .ldf da base de dados do site|25 GB para cada 25 000 clientes|25 GB|50 GB|100 GB|150 GB|100 GB|  
+|Ficheiros da base de dados temporária (.mdf e .ldf)|Conforme necessário|Conforme necessário|Conforme necessário|Conforme necessário|Conforme necessário|Conforme necessário|  
+|Conteúdo (partilhas de ponto de distribuição)|Conforme necessário<sup>1</sup>|Conforme necessário<sup>1</sup>|Conforme necessário<sup>1</sup>|Conforme necessário<sup>1</sup>|Conforme necessário<sup>1</sup>|Conforme necessário<sup>1</sup>|  
 
- <sup>1</sup> Рекомендуемый объем дискового пространства не включает место на диске, необходимое для содержимого, расположенного в библиотеке содержимого на сервере сайта или в точках распространения. Сведения о планировании библиотеки содержимого см. в разделе [Библиотека содержимого](../../../core/plan-design/hierarchy/the-content-library.md).  
+ <sup>1</sup> as orientações de espaço em disco não incluem o espaço necessário para o conteúdo que está localizado na biblioteca de conteúdos nos pontos de servidor ou a distribuição de sites. Para obter informações sobre o planeamento da biblioteca de conteúdos, veja [A biblioteca de conteúdos](../../../core/plan-design/hierarchy/the-content-library.md).  
 
- Помимо указанных выше рекомендаций учитывайте следующие рекомендации при планировании дискового пространства.  
+ Além das orientações anteriores, considere as seguintes diretrizes quando planear os requisitos de espaço em disco:  
 
--   Для каждого клиента требуется примерно 5 МБ места.  
+-   Cada cliente necessita de cerca de 5 MB de espaço.  
 
--   При планировании размера временной базы данных первичного сайта ориентируйтесь на общую величину в 25–30 % от размера MDF-файла базы данных сайта. В реальности размер базы данных может оказаться значительно меньше или больше в зависимости от производительности сервера сайта и объема данных, поступающих как за короткие, так и за длинные интервалы времени.  
+-   Quando planear o tamanho da base de dados temporária para um site primário, o plano para um tamanho combinado que seja 25% a 30% do ficheiro. mdf da base de dados do site. O tamanho real pode ser significativamente inferior ou superior — depende o desempenho do servidor do site e o volume de dados recebidos durante curtos e longos períodos de tempo.  
 
     > [!NOTE]  
-    >  При наличии 50 000 или более клиентов на сайте предусмотрите использование четырех или более MDF-файлов временной базы данных.  
+    >  Quando tiver 50 000 ou mais clientes num site, planeie utilizar quatro ou mais ficheiros. mdf da base de dados Temp.  
 
--   Размер временной базы данных сайта центра администрирования, как правило, значительно меньше, чем у первичного сайта.  
+-   O tamanho da base de dados temporária de um site de administração central é normalmente inferior ao de um site primário.  
 
--   База данных вторичного сайта имеет следующие ограничения по объему:  
+-   O tamanho da base de dados do site secundário é limitado ao seguinte:  
 
-    -   SQL Server 2012 Express: 10 ГБ  
+    -   SQL Server 2012 Express: 10 GB  
 
-    -   SQL Server 2014 Express: 10 ГБ  
+    -   Express do SQL Server 2014: 10 GB  
 
-##  <a name="bkmk_ScaleClient"></a> Клиенты  
- В этом разделе приводятся рекомендуемые конфигурации оборудования для компьютеров, управляемых с помощью клиентского программного обеспечения Configuration Manager.  
+##  <a name="bkmk_ScaleClient"></a>Clientes  
+ Esta secção fornece as configurações de hardware recomendadas para computadores que gere com software de cliente do Configuration Manager.  
 
-### <a name="client-for-windows-computers"></a>Клиент для компьютеров Windows  
- Ниже приведены минимальные требования для компьютеров с ОС Windows, которыми вы управляете с помощью Configuration Manager, включая встроенные операционные системы.  
+### <a name="client-for-windows-computers"></a>Cliente para computadores Windows  
+ Seguem-se os requisitos mínimos para computadores baseados em Windows que gere com o Configuration Manager, incluindo sistemas operativos incorporados:  
 
--   **Процессор и память:** см. требования к процессору и ОЗУ для операционных систем компьютеров.  
+-   **Processador e memória:** Consulte os requisitos de RAM para o sistema operativo do computador e de processador.  
 
--   **Пространство на диске:** 500 МБ свободного места на диске. Рекомендуется 5 ГБ для кэша клиента Configuration Manager. Если при установке клиента Configuration Manager применить пользовательские параметры, потребуется меньше места на диске.  
+-   **Espaço em disco:** 500 MB espaço disponível no disco, com 5 GB recomendados para a cache do cliente do Configuration Manager. Menor espaço em disco é necessário se utilizar definições personalizadas para instalar o cliente do Configuration Manager:  
 
-    -   Чтобы избежать установки файлов, которые не требуются клиенту, используйте свойство /skipprereq командной строки CCMSetup. Например, выполните команду **CCMSetup.exe /skipprereq:silverlight.exe**, если клиент не использует каталог приложений.  
+    -   Para evitar a instalação dos ficheiros de que o cliente não precisa de utilizar /skipprereq de propriedade da linha de comandos CCMSetup. Por exemplo, executar **CCMSetup.exe /skipprereq:silverlight.exe** se o cliente não utilizar o catálogo de aplicações.  
 
-    -   Используйте свойство SMSCACHESIZE в Client.msi, чтобы задать размер кэша меньше, чем определенное по умолчанию значение 5120 МБ. Минимальный размер составляет 1 МБ. Например, **CCMSetup.exe SMSCachesize=2** создает кэш размером 2 МБ.  
+    -   Utilize a propriedade SMSCACHESIZE do Client.msi para definir um ficheiro de cache que seja menor do que o predefinido de 5120 MB. O tamanho mínimo é de 1 MB. Por exemplo, o **CCMSetup.exe SMSCachesize=2** cria uma cache com um tamanho de 2 MB.  
 
-    Дополнительные сведения об этих параметрах установки клиентов см. в разделе [Сведения о свойствах установки клиента в Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+    Para obter mais informações sobre estas definições de instalação do cliente, veja [Acerca das propriedades de instalação do cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
     > [!TIP]  
-    >  Установка клиента с минимальным дисковым пространством рекомендуется для устройств с Windows Embedded, которые обычно имеют диски меньшего размера, чем стандартные компьютеры с Windows.  
+    >  Instalar o cliente com um espaço em disco mínimo é útil para os dispositivos Windows Embedded que, geralmente, têm um espaço em disco menor do que os computadores Windows padrão.  
 
 
 
- Ниже приведены дополнительные минимальные требования к оборудованию для дополнительных функций в Configuration Manager.  
+ Seguem-se requisitos de hardware adicionais mínimos para funcionalidades opcionais no Configuration Manager.  
 
--   **Развертывание операционных систем:** 384 МБ ОЗУ.  
+-   **Implementação do sistema operativo:** 384 MB de RAM  
 
--   **Центр программного обеспечения:** процессор с частотой 500 МГц.  
+-   **Centro de Software:** Processador a 500Mhz  
 
--   **Удаленное управление:** Pentium 4 с поддержкой технологии Hyper-Threaded с частотой 3 ГГц (одноядерный) или аналогичный процессор, а также минимум 1 ГБ ОЗУ для оптимальной производительности.  
+-   **Controlo remoto:** Pentium 4 Hyper-Threaded 3 GHz (um núcleo) ou CPU comparável, com, pelo menos, 1 GB de RAM para uma experiência ideal  
 
-### <a name="client-for-linux-and-unix"></a>Клиент для Linux и UNIX  
- Ниже приведены минимальные требования для серверов Linux и UNIX, которые управляются с помощью Configuration Manager.  
+### <a name="client-for-linux-and-unix"></a>Cliente para Linux e UNIX  
+ Seguem-se os requisitos mínimos para servidores Linux e UNIX que gere com o Configuration Manager.  
 
-|Требование|Подробные сведения|  
+|Requisito|Detalhes|  
 |-----------------|-------------|  
-|Процессор и память|См. требования к процессору и ОЗУ для ОС компьютера.|  
-|Пространство на диске|500 МБ свободного места на диске. Рекомендуется 5 ГБ для кэша клиентов Configuration Manager.|  
-|Возможность подключения к сети|Клиентские компьютеры Configuration Manager должны иметь сетевое подключение к системам сайта Configuration Manager для обеспечения управления.|  
+|Processador e memória|Consulte os requisitos de RAM para o sistema operativo do computador e de processador.|  
+|Espaço em disco|500 MB espaço disponível no disco, com 5 GB recomendados para a cache do cliente do Configuration Manager.|  
+|Conectividade de rede|Computadores de cliente do Configuration Manager tem de ter conectividade de rede para sistemas de site do Configuration Manager para ativar a gestão.|  
 
-##  <a name="bkmk_ScaleConsole"></a> Консоль Configuration Manager  
- Требования, указанные в приведенной ниже таблице, применяются к каждому компьютеру с консолью Configuration Manager.  
+##  <a name="bkmk_ScaleConsole"></a>Consola do Configuration Manager  
+ Os requisitos na seguinte tabela aplicam-se em cada computador que executa a consola do Configuration Manager.  
 
- **Минимальная конфигурация оборудования**  
+ **Configuração mínima de hardware:**  
 
--   Intel i3 или совместимый ЦП  
+-   Intel i3 ou CPU comparável  
 
--   2 ГБ ОЗУ  
+-   2 GB de RAM  
 
--   2 ГБ места на диске  
+-   2 GB de espaço em disco  
 
-|Масштаб|Минимальное разрешение|  
+|Definição PPP|Resolução mínima|  
 |-----------------|------------------------|  
-|96/100 %|1024 x 768|  
-|120/125 %|1280 x 960|  
-|144/150 %|1600 x 1200|  
-|196/200 %|2500 x 1600|  
+|96/100%|1024 x 768|  
+|120/125%|1280 x 960|  
+|144/150%|1600 x 1200|  
+|196/200%|2500 x 1600|  
 
- **Поддержка PowerShell**  
+ **Suporte para o PowerShell:**  
 
- При установке поддержки PowerShell на компьютере, на котором работает консоль Configuration Manager, можно запускать командлеты PowerShell, чтобы управлять Configuration Manager.
+ Quando instala suporte para o PowerShell num computador que executa a consola do Configuration Manager, pode executar cmdlets do PowerShell nesse computador para gerir o Configuration Manager.
 
- - Поддерживается PowerShell 3.0 или более поздней версии.
+ - PowerShell 3.0 ou posterior é suportado
 
-Помимо PowerShell поддерживается Windows Management Framework (WMF) 3.0 и более поздней версии.   
+Além do PowerShell, o Windows Management Framework (WMF) versão 3.0 ou posterior é suportado.   
 
 
-##  <a name="bkmk_ScaleLab"></a> Лабораторные развертывания  
- Используйте приведенные ниже минимальные рекомендации по оборудованию для лабораторных и тестовых развертываний Configuration Manager. Эти рекомендации применяются ко всем типам сайтов при использовании до 100 клиентов.  
+##  <a name="bkmk_ScaleLab"></a>Implementações de laboratório  
+ Utilize as seguintes recomendações de hardware mínimo para as implementações de laboratório e teste do Configuration Manager. Estas recomendações aplicam-se a todos os tipos de site, até 100 clientes:  
 
-|Роль|ЦП (ядра)|Память (ГБ)|Пространство на диске (ГБ)|  
+|Função|CPU (núcleos)|Memória (GB)|Espaço em disco (GB)|  
 |----------|---------------|-------------------|-----------------------|  
-|Сервер сайта и базы данных|2–4|7–12|100|  
-|Сервер системы сайта|1–4|2–4|50|  
-|"Клиент";|1–2|1–3|30|  
+|Servidor do site e da base de dados|2 - 4|7 - 12|100|  
+|Servidor do sistema de sites|1 - 4|2 - 4|50|  
+|Cliente|1 - 2|1 - 3|30|  

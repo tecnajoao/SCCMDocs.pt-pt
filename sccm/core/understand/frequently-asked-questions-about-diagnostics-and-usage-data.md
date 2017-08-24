@@ -1,6 +1,6 @@
 ---
-title: "Часто задаваемые вопросы о данных диагностики | Документы Майкрософт"
-description: "Часто задаваемые вопросы о данных диагностики и использовании для System Center Configuration Manager."
+title: "Dados de diagnóstico FAQ | Microsoft Docs"
+description: "Localize perguntas mais frequentes sobre os dados de diagnóstico e utilização para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -16,43 +16,43 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 177a30a30f6b8579fa1956d28581d4f9d3a11838
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="frequently-asked-questions-about-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Часто задаваемые вопросы про данные о диагностике и использовании для System Center Configuration Manager
+# <a name="frequently-asked-questions-about-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Perguntas frequentes sobre diagnósticos e dados de utilização para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Ниже приведены часто задаваемые вопросы о данных диагностики и использовании для System Center Configuration Manager.  
+As seguintes perguntas mais frequentes sobre os dados de diagnóstico e utilização para o System Center Configuration Manager:  
 
-###  <a name="bkmk_off"></a> Как отключить функцию телеметрии?  
-Телеметрию отключить нельзя. Однако вы можете выбрать уровень сбора данных телеметрии. Вы также можете использовать точку подключения службы в автономном режиме для управления отправкой данных телеметрии.
+###  <a name="bkmk_off"></a> como desligo a telemetria?  
+Telemetria não pode ser desativada. No entanto, pode escolher o nível de dados de telemetria que são recolhidos. Também pode utilizar um ponto de ligação de serviço no modo offline, para ajudar a gerir quando os dados de telemetria são submetidos.
 
-Текущая ветвь Configuration Manager требует регулярного обновления для поддержки новых версий Windows 10 и Microsoft Intune. Корпорации Майкрософт требуется получать данные о диагностике и использовании хотя бы базового уровня, чтобы совершенствовать продукт, сделать обновление более удобным, а также повышать качество и безопасность продукта.
+O ramo atual do Configuration Manager tem de ser atualizado regularmente para suportar novas versões do Windows 10 e o Microsoft Intune. Microsoft necessita, pelo menos, o nível básico dos diagnósticos e dados de utilização para manter o produto atualizado, melhorar a experiência de atualização e melhorar a qualidade e segurança do produto.
 
-###  <a name="bkmk_retention"></a> Каков срок хранения данных?  
- Данные диагностики и использования хранятся в течение одного года.  
+###  <a name="bkmk_retention"></a> O que é o período de retenção de dados?  
+ Os dados de diagnóstico e de utilização são conservados durante um ano.  
 
-###  <a name="bkmk_update"></a> Отправляются ли данные о диагностике и использовании при установке или обновлении продукта?  
- Нет. Данные о диагностике и использовании отправляется только после того, как сайт установлен и введен в эксплуатацию.  
+###  <a name="bkmk_update"></a> Os diagnósticos e dados de utilização são enviados ao instalar ou atualizar o produto?  
+ Não. Os diagnósticos e dados de utilização são apenas enviados depois do site ser instalado e estar operacional.  
 
-###  <a name="bkmk_frequency"></a> Как часто отправляются эти данные?  
- Хранимые процедуры SQL выполняются каждые семь дней (с даты установки сайта). В режиме "в сети" точка подключения службы настроена для передачи данных после выполнения запросов. В режиме "вне сети" для передачи данных администратор использует инструмент подключения службы. (Обратите внимание на то, что первоначально данные недоступны в автономном режиме, пока после установки сайта не пройдет семь дней.)  
+###  <a name="bkmk_frequency"></a> Os dados são enviados com que frequência?  
+ O SQL Server armazenada procedimentos executados a cada sete dias (a contar da data em que a instalação do site). No modo online, o ponto de ligação de serviço está configurado para carregar os dados após a execução de consultas. No modo offline, o administrador utiliza a ferramenta de ligação de serviço para carregar os dados. (Tenha em atenção de que os dados não estão disponíveis inicialmente para utilização offline sete dias após a instalação do site.)  
 
-###  <a name="bkmk_network"></a> Можно ли использовать эти данные для формирования карты сети?  
- Как показано в описании уровней сбора данных о диагностике и использовании для System Center Configuration Manager, данные сайта включают сведения о часовом поясе каждого сайта. Эти сведения позволяют анализировать общую геолокацию и глобальное рассредоточение сайтов в иерархии. Однако данные сети (например, IP-адреса или более подробная информация о местоположении) не собираются.
- - [Диагностические данные для 1511](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511)
- - [Диагностические данные для 1602](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602)
- - [Диагностические данные для 1606](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606)
- - [Диагностические данные для 1610](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610)
+###  <a name="bkmk_network"></a> Os dados podem ser utilizados para formar um mapa de rede?  
+ Como é mostrado na descrição dos níveis de recolha de dados de diagnóstico de utilização para o System Center Configuration Manager, os detalhes de site incluem informações de fuso horário de cada site. Esta informação pode fornecem informações aprofundadas de geolocalização abrangente e dispersão global dos sites numa hierarquia. No entanto, são recolhidos sem detalhes da rede, (esses endereços IP ou informações geográficas mais detalhadas).
+ - [Dados de diagnóstico para 1511](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511)
+ - [Dados de diagnóstico para 1602](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602)
+ - [Dados de diagnóstico da versão 1606](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606)
+ - [Dados de diagnóstico da versão 1610](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610)
 
 
-###  <a name="bkmk_tables"></a> Видны ли вам данные в пользовательских таблицах?  
- Нет. Данные о диагностике и использовании собираются посредством хранимых процедур SQL, вызываемых для таблиц продукта по умолчанию в базе данных (все они начинаются с префикса **TEL_**). В запросе обнаружения схемы SQL все имена таблиц хэшируются для сравнения с известными значениями по умолчанию. Так можно определить наличие пользовательских таблиц в базе данных (т. е. что схема базы данных была расширена по сравнению со схемой по умолчанию), но не данные, содержащиеся в этих таблицах.  
+###  <a name="bkmk_tables"></a> Consegue ver os dados nas tabelas personalizadas?  
+ Não. Dados de diagnóstico e utilização são recolhidos através de procedimentos armazenados de SQL relativamente a tabelas de produtos predefinidas na base de dados (todas as que têm o prefixo **Tel _** ). Como parte da consulta de deteção do esquema SQL, todos os nomes de tabela estão têm um hash para comparação contra as predefinições conhecidas. Isto pode determinar que tabelas personalizadas existem na base de dados (que é expandido o esquema de base de dados da predefinição), mas não quaisquer dados contidos nessas tabelas.  
 
-###  <a name="bkmk_databases"></a> Видны ли вам имена других баз данных или данные в них?  
- Нет. Хранимые процедуры для сбора данных ограничены базой данных сайта.  
+###  <a name="bkmk_databases"></a>Pode ver os nomes de outras bases de dados ou, pode ver os dados nas outras bases de dados?  
+ Não. Os procedimentos armazenados para recolher dados estão limitados à base de dados do site.  
 
-## <a name="see-also"></a>См. также  
- [Данные о диагностике и использовании для System Center Configuration Manager](../../core/plan-design/diagnostics/diagnostics-and-usage-data.md)
+## <a name="see-also"></a>Consulte também  
+ [Os diagnósticos e dados de utilização para o System Center Configuration Manager](../../core/plan-design/diagnostics/diagnostics-and-usage-data.md)

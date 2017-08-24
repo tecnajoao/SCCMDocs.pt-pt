@@ -1,6 +1,6 @@
 ---
-title: "Планирование и настройка параметров соответствия | Документы Майкрософт"
-description: "Сведения о предварительных требованиях и задачах настройки для работы с параметрами соответствия в System Center Configuration Manager."
+title: "Planear e configurar as definições de compatibilidade | Microsoft Docs"
+description: "Saiba mais sobre os pré-requisitos e as tarefas de configuração para trabalhar com as definições de compatibilidade no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,38 +16,38 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d26ac3de58d2f0ef447725e63fc2d8adda6ea06c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>Планирование и настройка параметров соответствия в System Center Configuration Manager
+# <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>Planear e configurar as definições de compatibilidade no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Перед началом работы с параметрами соответствия System Center Configuration Manager вам следует узнать о нескольких предварительных требованиях и выполнить некоторые задачи настройки.  
+Antes de começar a trabalhar com as definições de compatibilidade do System Center Configuration Manager, existem alguns pré-requisitos que deve conhecer e algumas tarefas de configuração, terá de efetuar.  
 
-## <a name="prerequisites-for-compliance-settings"></a>Предварительные требования для параметров соответствия  
+## <a name="prerequisites-for-compliance-settings"></a>Pré-requisitos para definições de compatibilidade  
 
-|Необходимое условие|Дополнительные сведения|  
+|Pré-requisito|Mais informações|  
 |------------------|----------------------|  
-|Клиенты Windows Configuration Manager должны быть включены и настроены для оценки соответствия.|См. ниже|  
-|Если планируется создавать отчеты, необходимо настроить создание отчетов для своего сайта.|[Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md)|  
-|Требуемые разрешения безопасности.|Роль безопасности **Менеджер параметров соответствия** включает все разрешения, необходимые для управления параметрами соответствия, элементами конфигурации пользовательских данных и профилей, а также профилями удаленного подключения.<br /><br /> [Настройка ролевого администрирования](../../core/servers/deploy/configure/configure-role-based-administration.md)|  
+|Os clientes do Gestor de configuração do Windows tem de estar ativados e configurados para a avaliação de compatibilidade.|Consulte abaixo|  
+|Se pretender executar relatórios, tem de configurar relatórios para o seu site.|[Relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md)|  
+|Permissões de segurança necessário.|O **Gestor de definições de compatibilidade** função de segurança inclui as permissões necessárias para gerir as definições de compatibilidade, itens de configuração de perfis e dados de utilizador e perfis de ligação remota.<br /><br /> [Configurar a administração baseada em funções](../../core/servers/deploy/configure/configure-role-based-administration.md)|  
 
-##  <a name="enable-and-configure-compliance-settings-for-windows-pcs-only"></a>Включение и настройка параметров соответствия (только для компьютеров Windows)  
+##  <a name="enable-and-configure-compliance-settings-for-windows-pcs-only"></a>Ativar e configurar as definições de compatibilidade (para apenas PCs Windows)  
 
-Эта процедура позволяет настроить клиентские параметры, используемые по умолчанию для соответствия требованиям и применяемые ко всем компьютерам в иерархии. Если требуется, чтобы эти параметры применялись только к некоторым компьютерам, создайте настраиваемый параметр для клиента устройства и назначьте его коллекции, содержащей компьютеры, на которых будут использоваться параметры соответствия. Дополнительные сведения о создании настраиваемых параметров устройства см. в статье [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md).  
+Este procedimento configura as predefinições de cliente para definições de compatibilidade e aplica-se a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e atribua-a a uma coleção que contenha os computadores para os quais pretende utilizar definições de compatibilidade. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [como configurar as definições de cliente](../../core/clients/deploy/configure-client-settings.md).  
 
 > [!TIP]  
->  Другие типы устройств не требуют определенных настроек для оценки соответствия параметров.  
+>  Outros tipos de dispositivo não requerem nenhuma configuração específica para avaliar definições de compatibilidade.  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры по умолчанию**.  
-2.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
-3.  В диалоговом окне **Параметры по умолчанию** выберите **Параметры соответствия**.  
-4.  Настройте следующие клиентские параметры для параметров соответствия требованиям:
-    - **Включить на клиентах анализ соответствия** — установите значение **True**, если требуется оценивать уровень соответствия на клиентских устройствах.
-    - **Запланировать анализ соответствия** — щелкните **Расписание**, если требуется изменить расписание анализа соответствия на клиентских устройствах.
-    - **Включить данные и профили пользователей** — включите этот параметр, если вы хотите создать и развернуть элементы конфигурации данных и профилей пользователей на компьютерах Windows. Дополнительные сведения см. в статье [Создание элементов конфигурации данных и профилей пользователя](/sccm/compliance/deploy-use/create-remote-connection-profiles).
-5. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Параметры по умолчанию** .  
+1.  Na consola do Configuration Manager, clique em **administração** > **as definições de cliente** > **predefinições**.  
+2.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  Na caixa de diálogo **Predefinições** , clique em **Definições de Compatibilidade**.  
+4.  Configure as seguintes definições do cliente para as definições de compatibilidade:
+    - **Ativar avaliação de compatibilidade nos clientes** -definido como **verdadeiro** se pretender avaliar a compatibilidade nos dispositivos cliente.
+    - **Agendar avaliação de compatibilidade** -clique em **agenda** se pretender modificar a agenda de avaliação de compatibilidade predefinido nos dispositivos cliente.
+    - **Ativar perfis e dados de utilizador** -ative esta opção se pretende criar e implementar itens de configuração de perfis e dados do utilizador em computadores Windows. Para obter mais informações, consulte [criar itens de configuração de perfis e dados de utilizador](/sccm/compliance/deploy-use/create-remote-connection-profiles).
+5. Clique em **OK** para fechar a caixa de diálogo **Predefinições** .  
 
-Заданные параметры будут применены к клиентским компьютерам при следующем скачивании политики клиента.  
+Os computadores cliente são configurados com estas definições da próxima vez que transferirem a política de cliente.  

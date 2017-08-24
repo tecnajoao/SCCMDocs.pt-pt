@@ -1,6 +1,6 @@
 ---
-title: "Контрольный список для версии 1606 | Документы Майкрософт"
-description: "Сведения о действиях, выполняемых перед обновлением с System Center Configuration Manager версии 1511 или 1602 до версии 1606."
+title: "Lista de verificação para 1606 | Microsoft Docs"
+description: "Saiba mais sobre as ações a efetuar antes de atualizar do System Center Configuration Manager versão 1511 ou 1602 para a versão 1606."
 ms.custom: na
 ms.date: 6/6/2017
 ms.reviewer: na
@@ -16,94 +16,94 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a6bda116499845fedff0126e2890755931de85bb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="checklist-for-installing-update-1606-for-system-center-configuration-manager"></a>Контрольный список для установки обновления 1606 для System Center Configuration Manager
+# <a name="checklist-for-installing-update-1606-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1606 para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Версия 1606 для System Center Configuration Manager (Current Branch) представляет собой обновление, которое можно использовать для перехода с версии 1511 или 1602.
+A versão 1606 para o ramo atual do System Center Configuration Manager é uma atualização que pode utilizar ao atualizar a partir da versão 1511 ou 1602.
 
-Прежде чем установить версию 1606 в качестве обновления, просмотрите следующие сведения и контрольный список действий, выполняемых перед началом обновления.
+Antes de instalar a versão 1606 como uma atualização, reveja as seguintes informações e a lista de verificação para ações a efetuar antes de iniciar a atualização.
 
-Сведения о базовых версиях см. в подразделе [Базовые и обновленные версии](../../../core/servers/manage/updates.md#bkmk_Baselines) раздела [Обновления для System Center Configuration Manager](../../../core/servers/manage/updates.md).
+Para obter informações sobre as versões de linha de base, consulte [versões de linha de base e atualização](../../../core/servers/manage/updates.md#bkmk_Baselines) no [atualizações para o System Center Configuration Manager](../../../core/servers/manage/updates.md).
 
- ## <a name="about-installing-update-1606"></a>Информация об установке обновления 1606
+ ## <a name="about-installing-update-1606"></a>Sobre a instalação de atualização 1606
 
-*Обновление* 1606 можно установить только на сайт верхнего уровня в иерархии. Это означает, что установку следует запустить на сайте центра администрирования, если таковой имеется, или на автономном первичном сайте.  
+Como um *atualizar*, 1606 só pode ser instalado no site de nível superior da sua hierarquia. Isto significa que inicia a instalação do seu site de administração central, se tiver uma, ou do seu site primário autónomo.  
 
--   После того как сайт центра администрирования завершит установку обновления, оно будет автоматически установлено на подчиненных первичных сайтах. Можно использовать периоды обслуживания для управления временем установки обновлений. До версии 1606 название периодов обслуживания осталось без изменений (в русской версии). Дополнительные сведения см. в статье [Service windows for site servers](/sccm/core/servers/manage/service-windows) (Периоды обслуживания для серверов сайта).  
+-   Os sites primários subordinados instalam a atualização automaticamente após a instalação da atualização do site de administração central. Pode utilizar janelas de serviço para controlar quando um site instala as atualizações. Antes de versão 1606, janelas de serviço foram chamadas janelas de manutenção. Para obter mais informações, consulte [windows para servidores de site do serviço](/sccm/core/servers/manage/service-windows).  
 
--   По завершении установки обновления на родительском первичном сайте необходимо вручную обновить вторичные сайты с помощью консоли Configuration Manager. Автоматическое обновление серверов вторичных сайтов не поддерживается.  
+-   Tem de atualizar manualmente sites secundários a partir da consola do Configuration Manager após a instalação da atualização do site primário principal. A atualização automática dos servidores de site secundários não é suportada.  
 
-При установке обновления на сервер сайта роли системы сайта, установленные на сервере сайта и удаленных компьютерах, обновляются автоматически. Поэтому перед установкой обновления убедитесь в том, что каждый сервер системы сайта отвечает новым предварительным требованиям для работы с новой версией обновления.  
+Quando o servidor do site instala a atualização, as funções do sistema de sites que estão instaladas no servidor do site e os que são instaladas em computadores remotos for atualizadas automaticamente. Por conseguinte, antes de instalar a atualização, certifique-se de que cada servidor do sistema de sites cumpre os novos pré-requisitos para as operações com a nova versão de atualização.  
 
-При первом использовании консоли Configuration Manager после установки обновления появится запрос на обновление этой консоли.  Чтобы обновить консоль, необходимо запустить программу установки Configuration Manager на компьютере, где размещена консоль, и выбрать параметр для обновления консоли. Мы рекомендуем не откладывать установку обновления на консоль.
+Na primeira vez que utiliza uma consola do Configuration Manager após a atualização foi instalada, será solicitado Atualize a consola.  Para tal, tem de executar a configuração do Configuration Manager no computador que aloja a consola e, em seguida, escolha a opção para atualizar a consola. Recomendamos que não adie a instalação da atualização na consola.
 
- **Известные проблемы в этом обновлении**   
-  При просмотре состояния установки пакета обновления возникают указанные ниже проблемы.
-  - При обновлении с версии 1602 до 1606 на шаге **Извлечь полезные данные из пакета обновления** будет отображаться состояние **Не запущено**, несмотря на завершение загрузки.
-  - При обновлении с версии 1511 до 1606 на некоторых шагах отображается состояние **Завершено**, но не выводится значение параметра **Время последнего обновления**.
+ **Problemas conhecidos para esta atualização**   
+  São aplicáveis os seguintes problemas quando visualizar o estado de instalação do pacote de atualização:
+  - Ao atualizar a partir da versão 1602 para 1606, o passo **payload do pacote de atualização de extrair** apresenta o estado **não iniciado**, mesmo que a transferência foi concluída.
+  - Ao atualizar a partir da versão 1511 para 1606, alguns passos mostram um Estado de **concluído** , mas não apresentará um valor para **hora da última atualização**.
 
 
-## <a name="checklist"></a>Контрольный список  
+## <a name="checklist"></a>Lista de verificação  
 
- **Убедитесь в том, что на всех сайтах выполняется поддерживаемая версия System Center Configuration Manager**. Перед началом установки обновления 1606 на каждом сервере сайта в иерархии необходимо запустить одну и ту же версию System Center Configuration Manager — 1511 или 1602.
+ **Certifique-se de que todos os sites executem uma versão suportada do System Center Configuration Manager:**  Antes de iniciar a instalação da atualização 1606, cada servidor do site na hierarquia tem de executar a mesma versão do System Center Configuration Manager: a versão 1511 ou 1602.
 
- **Проверьте установленные версии платформы Microsoft.NET на серверах системы сайта**. При установке обновления 1606 на сайте Configuration Manager автоматически устанавливает платформу .NET Framework 4.5.2 на каждом компьютере, на котором размещается одна из следующих ролей системы сайта (если не установлена платформа .NET Framework 4.5 или более поздней версии):  
+ **Revisão instaladas versões Microsoft.NET em servidores do sistema de sites:** Quando um site instala a atualização 1606, Configuration Manager instala automaticamente .NET Framework 4.5.2 em cada computador que aloja uma das seguintes funções do sistema de sites (se o .NET Framework 4.5 ou posterior não está já instalada):  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Точка управления.  
+-   Ponto de gestão  
 
--   Точка подключения службы  
+-   Ponto de ligação de serviço  
 
-Этот процесс установки может перевести сервер системы сайта в состояние ожидания перезагрузки и сообщать об ошибках средству просмотра состояния компонентов Configuration Manager. Кроме того, до перезагрузки сервера на нем возможны произвольные сбои приложений .NET.  
+Esta instalação pode colocar o servidor de sistema de sites no reinício pendente erros de estado e relatórios para o Visualizador de estado do componente do Configuration Manager. Além disso, as aplicações .NET no servidor podem ter falhas aleatórias até que o servidor seja reiniciado.  
 
- Дополнительные сведения см. в разделе [Необходимые компоненты для сайта и системы сайта](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+ Para obter mais informações consulte [Site e os pré-requisitos de sistema de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
- **Проверьте состояние сайта и иерархии и убедитесь, что неустраненные проблемы отсутствуют** . Перед обновлением сайта устраните все проблемы в работе сервера сайта, сервера базы данных сайта и ролей системы сайта, установленных на удаленных компьютерах. Обновление сайта может завершиться неудачей из-за существующих проблем в работе.
+ **Rever o estado de site e da hierarquia e certifique-se de que existem não existem problemas por resolver:** Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de base de dados do site e funções de sistema de sites que são instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
 
- Дополнительные сведения см. в разделе [Использование оповещений и системы состояния для System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
+ Para obter mais informações, veja [Utilizar alertas e o sistema de estado para o System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
- **Проверьте репликацию файлов и данных между сайтами**  . Убедитесь, что репликация файлов и базы данных между сайтами действует и является актуальной. Задержки или невыполненная работа могут помешать бесперебойному, успешному выполнению обновления.    
+ **Reveja o ficheiro e dados de replicação entre sites:**  Certifique-se de que o ficheiro e a replicação de base de dados entre sites está operacional e atual. Os atrasos ou os registos de segurança no podem impedir uma atualização com êxito, uniforme.    
 
-Для репликации базы данных можно использовать Replication Link Analyzer, который поможет устранить проблемы перед началом обновления. Дополнительные сведения см. в подразделе [Сведения об анализаторе канала репликации](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) раздела [Мониторинг иерархии и инфраструктуры репликации в System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+Para a replicação de base de dados, pode utilizar o Analisador de Ligações de Replicação para ajudar a resolver problemas antes de iniciar a atualização. Para obter mais informações, consulte [sobre o analisador do Link de replicação](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) no tópico [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
 
- **Установите все доступные важные обновления для операционных систем на компьютерах, на которых размещен сайт, сервер базы данных сайта и удаленные роли системы сайта**. Перед установкой обновления для Configuration Manager установите все важные обновления в каждой соответствующей системе сайта. Если устанавливаемое обновление требует перезагрузки, перезагрузите соответствующие компьютеры перед началом обновления.  
+ **Instale todas as atualizações críticas aplicáveis para sistemas operativos em computadores que alojam o site, o servidor de base de dados do site e as funções do sistema de sites remoto:** Antes de instalar uma atualização para o Configuration Manager, instale quaisquer atualizações críticas para cada sistema de sites aplicáveis. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização.  
 
- **Отключите реплики базы данных для точек управления на первичных сайтах**. Configuration Manager не может обновить первичный сайт, на котором включена реплика базы данных для точек управления. Отключите репликацию базы данных, прежде чем устанавливать обновления для Configuration Manager.  
+ **Desative réplicas de base de dados para pontos de gestão em sites primários:** O Configuration Manager não é possível atualizar com êxito um site primário que tenha uma réplica de base de dados para pontos de gestão ativada. Desative a replicação de base de dados antes de instalar uma atualização para o Configuration Manager.  
 
-Дополнительные сведения см. в разделе [Реплики базы данных для точек управления для System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+Para obter mais informações, consulte [da base de dados réplicas para pontos de gestão do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
- **Настройте группы доступности SQL Server AlwaysOn для отработки отказа вручную**.  
- Перед установкой обновлений, например версии 1606, убедитесь в том, что для группы доступности настроена отработка отказа вручную. После обновления сайта можно восстановить автоматическую отработку отказа. Дополнительные сведения см. в статье [SQL Server AlwaysOn для базы данных сайта](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
+ **Definir grupos de Disponibilidade AlwaysOn do SQL Server para ativação pós-falha manual:**  
+ Antes de instalar atualizações, tais como a versão 1606, certifique-se de que o grupo de disponibilidade está definido para ativação pós-falha manual. Depois do site tiver sido atualizado, pode restaurar a ativação pós-falha para ser automática. Para obter mais informações, consulte [SQL Server AlwaysOn para uma base de dados do site](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
 
- **Перенастройте точки обновления программного обеспечения, использующие балансировку сетевой нагрузки**. Configuration Manager не может обновить сайт, использующий кластер балансировки сетевой нагрузки для точек обновления программного обеспечения.  
+ **Reconfigure os pontos de atualização de software que utilizem NLB:** O Configuration Manager não é possível atualizar um site que utiliza um cluster de balanceamento de carga na rede (NLB) para alojar pontos de atualização de software.  
 
-Если для точек обновления программного обеспечения используются кластеры балансировки сетевой нагрузки, удалите кластер балансировки сетевой нагрузки с помощью Windows PowerShell.    
+Se utilizar NLB clusters para pontos de atualização de software, utilize o Windows PowerShell para remover o cluster NLB.    
 
- Дополнительные сведения см. в разделе [Планирование обновлений программного обеспечения в System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+ Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
 
- **Отключите все задачи обслуживания сайта на каждом сайте на время установки обновления на нем**. Перед установкой обновления отключите все задачи обслуживания сайта, которые могут запуститься во время процесса обновления. В частности, необходимо отключить следующие задачи:  
+ **Desative todas as tarefas de manutenção do site em cada site durante a instalação da atualização desse site:** Antes de instalar a atualização, desative as tarefas de manutenção do site que possam ser executadas durante o período de tempo que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:  
 
--   Резервное копирование сервера сайта  
+-   Servidor do Site de Reserva  
 
--   Удаление устаревших операций клиента  
+-   Eliminar Operações de Cliente Desatualizadas  
 
--   Удаление устаревших данных обнаружения  
+-   Eliminar Dados de Deteção Desatualizados  
 
-Если во время установки обновления выполняется задача обслуживания базы данных сайта, то обновление может завершиться сбоем. Прежде чем отключить задачу, запишите ее расписание, чтобы восстановить конфигурацию после установки обновления.  
+Quando uma tarefa de manutenção da base de dados do site é executada durante a instalação da atualização, a instalação da atualização pode falhar. Antes de desativar uma tarefa, registe o agendamento da tarefa para que possa restaurar a respetiva configuração após a atualização foi instalada.  
 
-Дополнительные сведения см. в разделах [Задачи обслуживания для System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) и [Справочные сведения о задачах обслуживания в System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
+Para obter mais informações, consulte [tarefas de manutenção do System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) e [tarefas de referência para a manutenção do System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
 
- **Создайте резервную копию базы данных сайта на сайте центра администрирования и первичных сайтах** . Перед обновлением сайта создайте резервную копию базы данных сайта, чтобы ее можно было использовать для аварийного восстановления.   
+ **Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:** Antes de atualizar um site, uma cópia de segurança da base de dados do site para se certificar de que tem uma cópia de segurança a utilizar para recuperação após desastre.   
 
-Дополнительные сведения см. в разделе [Резервное копирование и восстановление в System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+Para obter mais informações, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
 <!-- Removed from update guidance 6/6/2017
  **Test the database upgrade on a copy of the most recent site database backup:** Before you update a System Center Configuration Manager central administration site or primary site, test the site database upgrade process on a copy of the site database.  
@@ -123,24 +123,24 @@ Configuration Manager does not support the backup of secondary sites nor does it
 Do not run a test database upgrade on the production site database. Doing so updates the site database and could render your site inoperable. For more information, For more information, see [Step 2: Test the database upgrade before installing an update](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) from **Before you install an in-console update**.
 -->
 
- **Запланируйте пилотное развертывание клиента**. При установке обновления, которое изменяет клиент, можно проверить это новое обновление клиента в подготовительной среде, прежде чем развернуть его и обновить активные клиенты.   
+ **Planear testes de implementação de cliente:** Quando instala uma atualização que atualiza o cliente, pode testar essa nova atualização de cliente em pré-produção antes de implementar e atualiza todos os clientes ativos.   
 
- Чтобы воспользоваться такой возможностью, перед началом установки обновления нужно настроить сайт для поддержки автоматического обновления в подготовительной среде. Дополнительные сведения см. в статьях [Обновление клиентов в System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) и   
-[Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+ Para tirar partido desta opção, antes de iniciar a instalação da atualização, tem de configurar o seu site para suportar as atualizações automáticas para pré-produção. Para obter mais informações, veja [Atualização dos clientes no System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) e   
+[Como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
- **Запланируйте периоды обслуживания для управления временем установки обновлений серверами сайта**. Вы можете использовать периоды обслуживания, чтобы определить период времени, когда можно устанавливать обновления на сервере сайта.
+ **Planear a utilização de janelas de serviço para controlar quando os servidores do site instalam atualizações:** Pode utilizar janelas de serviço para definir um período durante o qual podem ser instaladas as atualizações de um servidor de site.
 
-Это поможет контролировать время установки обновлений на сайты в иерархии.
-До версии 1606 название периодов обслуживания осталось без изменений (в русской версии). Дополнительные сведения см. в статье [Service windows for site servers](/sccm/core/servers/manage/service-windows) (Периоды обслуживания для серверов сайта).  
+Isto pode ajudar a controlar quando os sites na hierarquia instalam a atualização.
+Antes de versão 1606, janelas de serviço foram chamadas janelas de manutenção. Para obter mais informações, consulte [windows para servidores de site do serviço](/sccm/core/servers/manage/service-windows).  
 
- **Запустите средство проверки готовности к установке**. Перед установкой обновления 1606 можно запустить средство проверки готовности независимо от установки обновления. При установке обновления на сайте средство запустится снова.  
+ **Execute o Verificador de pré-requisitos do programa de configuração:**  Antes de instalar a atualização 1606, pode executar o Verificador de pré-requisitos independentemente da instalação da atualização. Quando instalar a atualização no site, o Verificador de pré-requisitos é executado novamente.  
 
-Дополнительные сведения см. в разделе **Шаг 3. Перед установкой обновления запустите средство проверки готовности** статьи [Обновления для System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
+Para obter mais informações, consulte **passo 3: Executar o Verificador de pré-requisitos antes de instalar uma atualização** no [atualizações para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md) tópico.  
 
 > [!IMPORTANT]  
->  Когда средство проверки готовности запускается в ходе обновления или отдельно, этот процесс обновляет некоторые исходные файлы продукта, которые используются для выполнения задач обслуживания сайта. Поэтому если после выполнения средства проверки готовности, но перед установкой обновления 1606 вам необходимо выполнить задачу обслуживания, запустите **Setupwpf.exe** (программу установки Configuration Manager) из папки CD.Latest на сервере сайта.  
+>  Quando o Verificador de pré-requisitos é executado independentemente ou como parte de uma instalação de atualização, o processo atualiza alguns ficheiros de origem do produto que são utilizados para tarefas de manutenção do site. Por conseguinte, depois de executar o Verificador de pré-requisitos, mas antes a instalar a atualização 1606, se precisar de executar uma tarefa de manutenção do site, execute **Setupwpf.exe** (configuração do Configuration Manager) partir do CD. Pasta mais recente no servidor do site.  
 
- **Обновите сайты** . Теперь вы готовы начать установку обновления для иерархии.  
-  Рекомендуется планировать установку обновления для каждого сайта на нерабочее время, чтобы процесс установки обновления и его действия по переустановке компонентов сайта и ролей системы сайта имели наименьшее воздействие на бизнес-операции.
+ **Atualizar sites:** Agora está pronto para iniciar a instalação da atualização para a sua hierarquia.  
+  Recomendamos que planeia instalar a atualização fora do horário comercial normal para cada site, quando o processo de instalação da atualização e as respetivas ações para reinstalar os componentes do site e funções de sistema de sites irão ter o mínimo efeito nas suas operações de negócio.
 
-Дополнительные сведения см. в статье [Обновления для System Center Configuration Manager](../../../core/servers/manage/updates.md).  
+Para obter mais informações, veja [Atualizações para o System Center Configuration Manager](../../../core/servers/manage/updates.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Стратегия для исходных иерархий | Документы Майкрософт"
-description: "Настройте исходную иерархию и соберите данные с исходного сайта перед настройкой задания миграции System Center Configuration Manager."
+title: "Estratégia de hierarquia de origem | Microsoft Docs"
+description: "Configurar uma hierarquia de origem e recolher dados de um site de origem antes de configurar uma tarefa de migração do System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -17,92 +17,92 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0619de32f859f512ee1c9f5a9c83ef8d04a256ca
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-a-source-hierarchy-strategy-in-system-center-configuration-manager"></a>Планирование стратегии для исходных иерархий в System Center Configuration Manager
+# <a name="plan-a-source-hierarchy-strategy-in-system-center-configuration-manager"></a>Planear uma estratégia de hierarquia de origem no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Прежде чем приступать к настройке задания миграции в среде System Center Configuration Manager, необходимо настроить исходную иерархию и собрать данные по крайней мере с одного исходного сайта в этой иерархии. В приведенных ниже разделах описывается процедура, которая позволит спланировать конфигурацию исходных иерархий и сайтов, а также определить способ, с помощью которого Configuration Manager собирает информацию с исходных сайтов в исходной иерархии. 
+Antes de configurar uma tarefa de migração no seu ambiente do System Center Configuration Manager, tem de configurar uma hierarquia de origem e recolher dados de, pelo menos, um site de origem nessa hierarquia. Utilize as secções seguintes para ajudar a planear configurar hierarquias de origem, configurar sites de origem e determinar a forma como o Configuration Manager recolhe informações dos sites de origem na hierarquia de origem. 
 
-##  <a name="BKMK_Source_Hierarchies"></a> Исходные иерархии  
-Исходная иерархия — это иерархия Configuration Manager, содержащая данные, которые требуется перенести. При настройке миграции и выборе исходной иерархии прежде всего необходимо указать сайт верхнего уровня этой иерархии. Он также называется исходным. Дополнительные сайты, с которых можно выполнить миграцию данных из исходной иерархии, также называются исходными сайтами.  
+##  <a name="BKMK_Source_Hierarchies"></a> Hierarquias de origem  
+Uma hierarquia de origem é uma hierarquia do Configuration Manager que tem dados que pretende migrar. Quando configurar a migração e especificar uma hierarquia de origem, especifique o site de nível superior da hierarquia de origem. Este site é também designado por site de origem. Sites adicionais que pode migrar dados a partir da hierarquia de origem são também denominados sites de origem.  
 
--   При настройке задания миграции для переноса данных из исходной иерархии Configuration Manager 2007 его необходимо настроить для переноса данных с одного или нескольких определенных исходных сайтов в исходной иерархии.  
+-   Quando configurar uma tarefa de migração para migrar dados de uma hierarquia de origem do Configuration Manager 2007, configurar para migrar dados a partir de um ou mais sites de origem específicos na hierarquia de origem.  
 
--   При настройке задания миграции для переноса данных из исходной иерархии, где выполняется System Center 2012 Configuration Manager или более поздней версии, необходимо указать только сайт верхнего уровня.  
+-   Quando configurar uma tarefa de migração para migrar dados de uma hierarquia de origem que executa o System Center 2012 Configuration Manager ou posterior, só tem de especificar o site de nível superior.  
 
-Одновременно можно настроить только одну исходную иерархию.  
+Pode configurar apenas uma hierarquia de origem num momento.  
 
--   При настройке новой исходной иерархии она автоматически становится текущей исходной иерархией, заменяя предыдущую.  
+-   Se configurar uma nova hierarquia de origem, essa hierarquia torna-se automaticamente a hierarquia de origem atual, substituindo a hierarquia de origem de anterior.  
 
--   При настройке исходной иерархии необходимо указать сайт верхнего уровня исходной иерархии и учетные данные для Configuration Manager для подключения к поставщику SMS и базе данных этого исходного сайта.  
+-   Quando configurar uma hierarquia de origem, tem de especificar o site de nível superior da hierarquia de origem e especifique as credenciais para o Configuration Manager para utilizar para estabelecer ligação com o fornecedor de SMS e a base de dados do site desse site de origem.  
 
--   Configuration Manager использует эти учетные данные для запуска сбора данных, чтобы получить сведения об объектах и точках распространения с исходного сайта.  
+-   O Configuration Manager utiliza estas credenciais para executar a recolha para obter informações sobre os objetos e pontos de distribuição do site de origem de dados.  
 
--   В ходе процесса сбора данных выявляются дочерние сайты исходной иерархии.  
+-   Como parte do processo de recolha dados, são identificados os sites subordinados na hierarquia de origem.  
 
--   Если исходной иерархией является иерархия Configuration Manager 2007, можно настроить эти дополнительные сайты как исходные сайты с отдельными учетными данными для каждого исходного сайта.  
+-   Se a hierarquia de origem for uma hierarquia do Configuration Manager 2007, pode configurar esses sites adicionais como sites de origem com credenciais separadas para cada site de origem.  
 
-Хотя можно последовательно настроить множество исходных иерархий, миграция может быть одновременно активна только для одной иерархии.  
+Apesar de poder configurar várias hierarquias de origem sucessivamente, a migração está ativa para apenas uma hierarquia de origem num momento.  
 
--   Если вы настроите дополнительную исходную иерархию до завершения миграции из текущей исходной иерархии, Configuration Manager отменит активные и приостановит запланированные задания миграции для текущей исходной иерархии.  
+-   Se configurar uma hierarquia de origem adicional antes de concluir a migração da hierarquia de origem atual, o Configuration Manager cancela quaisquer tarefas de migração ativos e postpones as tarefas de migração agendada para a hierarquia de origem atual.  
 
--   Вновь настроенная исходная иерархия становится текущей исходной иерархией, а изначальная исходная иерархия становится неактивной.  
+-   A hierarquia de origem recém configurada torna-se então na hierarquia de origem atual e a hierarquia de origem original agora está inativa.  
 
--   После этого для новой исходной иерархии можно настроить учетные данные подключения, дополнительные исходные сайты и задания миграции.  
+-   Pode, em seguida, definir as credenciais de ligação, sites de origem adicionais e tarefas de migração da nova hierarquia de origem.  
 
-Если восстановить неактивную исходную иерархию и не выполнять действие **Очистить данные переноса**, будут отображаться ранее настроенные задания миграции для этой иерархии. Прежде чем продолжить миграцию из этой иерархии, необходимо повторно настроить учетные данные, чтобы соединиться с подходящими исходными сайтами в иерархии, а затем повторно запланировать все незавершенные задания миграции.  
+Se restaurar uma hierarquia de origem inativa e não tiver utilizado anteriormente **limpar dados de migração**, pode ver as tarefas de migração anteriormente configuradas para essa hierarquia de origem. No entanto, para poder prosseguir a migração a partir dessa hierarquia terá de reconfigurar as credenciais para estabelecer ligação aos sites de origem aplicáveis na hierarquia e, em seguida, reagendar as tarefas de migração que não tenham sido concluídas.  
 
 > [!CAUTION]  
->  При переносе данных более чем из одной исходной иерархии каждая дополнительная иерархия должна содержать уникальный набор кодов сайтов.  
+>  Se migrar dados de mais do que uma hierarquia de origem, cada hierarquia de origem adicional terá de conter um conjunto exclusivo de códigos de site.  
 
-Дополнительные сведение о настройке исходных иерархий см. в разделе [Настройка исходных иерархий и исходных сайтов для миграции на System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md).  
+Para obter mais informações sobre como configurar uma hierarquia de origem, consulte [configurar hierarquias de origem e sites de origem para migração para o System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
 
-##  <a name="BKMK_Source_Sites"></a> Исходные сайты  
- Исходные сайты — это сайты в исходной иерархии, содержащие данные, которые предполагается перенести. Сайт верхнего уровня исходной иерархии всегда является первым исходным сайтом. При сборе данных с первого сайта новой исходной иерархии в ходе миграции обнаруживаются сведения о дополнительных сайтах в этой иерархии.  
+##  <a name="BKMK_Source_Sites"></a> Sites de origem  
+ Os sites de origem são os sites da hierarquia de origem que contêm os dados que pretende migrar. O site de nível superior da hierarquia de origem é sempre o primeiro site de origem. Quando a migração recolhe dados do primeiro site de origem de uma nova hierarquia de origem, deteta informações sobre os sites adicionais dessa hierarquia.  
 
- После завершения сбора данных для начального исходного сайта, действия, которые следует предпринять далее, зависят от версии исходной иерархии.  
+ Após a conclusão da recolha de dados do site de origem inicial, as ações seguintes a efetuar dependem da versão de produto da hierarquia de origem.  
 
-### <a name="source-sites-that-run-configuration-manager-2007-sp2"></a>Исходные сайты, на которых выполняется Configuration Manager 2007 с пакетом обновления 2 (SP2)  
- После сбора данных с первого исходного сайта в иерархии Configuration Manager 2007 с пакетом обновления 2 (SP2) нет необходимости выполнять настройку дополнительных исходных сайтов перед созданием заданий миграции. Прежде чем можно будет выполнить миграцию данных с дополнительных сайтов, необходимо настроить дополнительные сайты как исходные, и System Center Configuration Manager должен успешно собрать данные с этих сайтов.  
+### <a name="source-sites-that-run-configuration-manager-2007-sp2"></a>Sites de origem com o Configuration Manager 2007 SP2  
+ Após a recolha de dados do site de origem inicial da hierarquia do Configuration Manager 2007 SP2, não dispõe de configurar sites de origem adicionais para que poder criar tarefas de migração. No entanto, para poder migrar dados de sites adicionais, tem de configurar sites adicionais como sites de origem e o System Center Configuration Manager com êxito tem recolher dados a partir desses sites.  
 
- Для сбора данных с других сайтов нужно отдельно настроить каждый сайт в качестве исходного. Для этого необходимо указать соответствующие учетные данные для подключения System Center Configuration Manager к поставщику SMS и базе данных каждого исходного сайта. После настройки учетных данных для исходного сайта начинается процесс сбора данных.  
+ Para recolher dados de sites adicionais, individualmente configurar cada site como site de origem. Isto requer que especifique as credenciais para o System Center Configuration Manager, para estabelecer ligação com o fornecedor de SMS e a base de dados do site de cada site de origem. Depois de configurar as credenciais para um site de origem, inicia os processo recolha de dados para esse site.  
 
- Если вы настраиваете дополнительные исходные сайты в исходной иерархии Configuration Manager 2007 с пакетом обновления 2 (SP2), их необходимо настраивать сверху вниз (сайты нижнего уровня настраиваются последними). Вы можете настроить исходные сайты в ветви иерархии в любое время, но прежде чем настраивать в качестве исходных сайтов дочерние сайты, необходимо настроить их родительский сайт.  
-
-> [!NOTE]  
->  Только первичные сайты в рамках иерархии Configuration Manager 2007 с пакетом обновления 2 (SP2) поддерживают миграцию.  
-
-### <a name="source-sites-that-run-system-center-2012-configuration-manager-or-later"></a>Исходные сайты, на которых выполняется System Center 2012 Configuration Manager или более поздней версии  
- После сбора данных с первоначального исходного сайта в иерархии System Center 2012 Configuration Manager или более поздней версии нет необходимости настраивать дополнительные исходные сайты в этой исходной иерархии. Это связано с тем, что в отличие от Configuration Manager 2007 эти версии Configuration Manager используют общую базу данных, которая позволяет определить, а затем перенести все доступные объекты с первоначального исходного сайта.  
-
- При настройке учетных записей доступа для сбора данных может потребоваться предоставить **учетной записи поставщика SMS исходного сайта** доступ к нескольким компьютерам в исходной иерархии. Это может потребоваться в том случае, если исходные сайты поддерживают несколько экземпляров поставщика SMS, каждый из которых находится на отдельном компьютере. Когда начинается сбор данных, сайт верхнего уровня конечной иерархии обращается к сайту верхнего уровня исходной иерархии для идентификации расположений поставщика SMS для этого сайта. Идентифицируется только первый экземпляр поставщика SMS. Если при сборе данных не удается получить доступ к поставщику SMS в указанном месте, происходит сбой и процесс не пытается подключиться к другим компьютерам, на которых работает экземпляр поставщика SMS для этого сайта.  
-
-##  <a name="BKMK_Data_Gathering"></a> Сбор данных  
- Сразу после задания исходной иерархии, настройки учетных данных для каждого дополнительного исходного сайта в исходной иерархии или создания общих точек распространения для исходного сайта Configuration Manager начинает собирать данные с исходного сайта.  
-
- Сбор данных затем повторяется в соответствии с простым расписанием, что обеспечивает синхронизацию изменений, вносимых в данные в исходном сайте. По умолчанию процесс повторяется каждые четыре часа. Расписание этого цикла можно изменить на странице **Свойства** исходного сайта. Первоначальный процесс сбора данных подразумевает проверку всех объектов в базе данных Configuration Manager и может занять некоторое время. Последующие процессы сбора данных определяют только изменения в данных и занимают гораздо меньше времени.  
-
- Чтобы выполнить сбор данных, сайт верхнего уровня конечной иерархии подключается к поставщику SMS и базе данных исходного сайта, чтобы получить список объектов и точек распространения. Эти соединения используют учетные записи для доступа к исходному сайту. Дополнительные сведения о конфигурации, необходимой для сбора данных, см. в разделе [Необходимые условия для миграции в System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
-
- Запускать и останавливать процесс сбора данных можно с помощью действий **Выполнить сбор данных** и **Остановить сбор данных** в консоли Configuration Manager.  
-
- Если вы использовали действие **Остановить сбор данных** для исходного сайта, чтобы возобновить сбор данных с этого сайта, учетные данные для него потребуется настроить повторно. Пока исходный сайт не будет настроен заново, Configuration Manager не сможет определять новые объекты или изменения, внесенные в ранее перенесенные объекты.  
+ Quando configurar sites de origem adicionais numa hierarquia de origem do Configuration Manager 2007 SP2, tem de configurar sites de origem do nível superior, o que significa que configura os sites da camada inferior serão pela última vez. Pode configurar sites de origem num ramo da hierarquia em qualquer altura, mas tem de configurar um site como site de origem antes de configurar qualquer um dos respetivos sites subordinados como sites de origem.  
 
 > [!NOTE]  
->  Прежде чем развернуть автономный первичный сайт в иерархии с сайтом центра администрирования, необходимо остановить сбор данных. Сбор данных можно перенастроить после завершения расширения сайта.  
+>  Apenas os sites primários numa hierarquia do Configuration Manager 2007 SP2 são suportados para migração.  
 
-### <a name="gather-data-now"></a>Выполнить сбор данных  
- После выполнения первоначального сбора данных для сайта этот процесс повторяется, чтобы выявить объекты, которые были обновлены со времени последнего цикла сбора данных. Кроме того, действие **Выполнить сбор данных** в консоли Configuration Manager можно использовать для немедленного запуска процесса и сброса времени начала следующего цикла.  
+### <a name="source-sites-that-run-system-center-2012-configuration-manager-or-later"></a>Sites de origem com o System Center 2012 Configuration Manager ou posterior  
+ Após a recolha de dados do site de origem inicial do System Center 2012 Configuration Manager ou hierarquia posterior, não dispõe de configurar sites de origem adicionais nessa hierarquia de origem. Isto acontece porque ao contrário do Configuration Manager 2007, estas versões do Configuration Manager utilizarem uma base de dados partilhado e a base de dados partilhada permite-lhe identificar e migrar todos os objetos disponíveis a partir do site de origem inicial.  
 
- После успешного завершения процесса сбора данных для исходного сайта можно предоставить общий доступ к точкам распространения с исходного сайта и настроить задания миграции для переноса данных с сайта. Сбор данных — это циклический процесс, который продолжается, пока не будет изменена исходная иерархия или применено действие **Остановить сбор данных** для данного сайта.  
+ Quando configurar as contas de acesso para recolha de dados, poderá ter de conceder a **conta do fornecedor de SMS de Site de origem** acesso a vários computadores na hierarquia de origem. Isto pode ser necessário quando o site de origem suporta múltiplas instâncias do Fornecedor de SMS, cada uma num computador diferente. Quando a recolha de dados é iniciada, o site de nível superior da hierarquia de destino contacta o site de nível superior da hierarquia de origem para identificar as localizações do Fornecedor de SMS desse site. Só é identificada a primeira instância do Fornecedor de SMS. Se o processo de recolha de dados não conseguir aceder ao Fornecedor de SMS na localização identificada, o processo falhará, não tentando estabelecer ligação a computadores adicionais que executem uma instância do Fornecedor de SMS desse site.  
 
-### <a name="stop-gathering-data"></a>Остановить сбор данных  
- Действие **Остановить сбор данных** позволяет остановить процесс сбора данных для исходного сайта, когда больше не требуется, чтобы Configuration Manager определял новые или измененные объекты этого сайта. Это действие также предотвращает представление Configuration Manager клиентам в конечной иерархии исходных общих точек распространения для этого сайта в качестве расположений перенесенного содержимого.  
+##  <a name="BKMK_Data_Gathering"></a> Recolha de dados  
+ Imediatamente após especificar uma hierarquia de origem, configurar as credenciais de cada site de origem adicionais numa hierarquia de origem ou partilhar os pontos de distribuição de um site de origem, o Configuration Manager começa a recolher dados do site de origem.  
 
- Чтобы прекратить сбор данных со всех исходных сайтов, необходимо выполнить действие **Остановить сбор данных** для исходных сайтов нижнего уровня, а затем повторить этот процесс для каждого родительского сайта. Сайт верхнего уровня исходной иерархии должен быть последним сайтом, на котором прекращается сбор данных. Прежде чем выполнять остановку сбора данных для родительского сайта, это действие необходимо выполнить для всех его дочерних сайтов. Как правило, сбор данных прекращают, только когда все будет готово к завершению процесса миграции.  
+ Em seguida, o processo de recolha de dados repete-se numa agenda simples, para manter a sincronização com eventuais alterações dos dados do site de origem. Por predefinição, o processo é repetido a cada quatro horas. Pode alterar a agenda deste ciclo editando o **propriedades** do site de origem. O processo de recolha inicial de dados tem de consultar todos os objetos na base de dados do Configuration Manager e pode demorar muito tempo a concluir. Os processos de recolha de dados subsequentes identificam apenas as alterações dos dados, demorando menos tempo.  
 
- После завершения сбора данных для исходного сайта ранее собранные сведения об объектах и коллекциях данного сайта остаются доступными для использования при настройке новых заданий миграции. Тем не менее новые объекты или коллекции, а также изменения в существующих объектах не отображаются. Если изменить настройку исходного сайта и снова запустить сбор данных, на экран будут выведены сведения и данные о состоянии ранее перенесенных объектов.  
+ Para recolher os dados, o site de nível superior da hierarquia de destino estabelece ligação ao Fornecedor de SMS e à base de dados do site de origem para obter uma lista de objetos e pontos de distribuição. Estas ligações utilizam as contas de acesso do site de origem. Para obter informações sobre as configurações necessárias para a recolha de dados, consulte [pré-requisitos para migração no System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+
+ Pode iniciar e parar os processo recolha de dados utilizando **recolher dados agora** e **parar a recolha de dados** na consola do Configuration Manager.  
+
+ Depois de utilizar **parar a recolha de dados** para um site de origem por qualquer motivo, terá de reconfigurar o credenciais para o site para poder voltar a recolher dados desse site. Até reconfigurar o site de origem, o Configuration Manager não consegue identificar novos objetos ou alterações a objetos anteriormente migrados nesse site.  
+
+> [!NOTE]  
+>  Antes de expandir um site primário autónomo numa hierarquia com um site de administração central, tem de parar a recolha de todos os dados. Pode reconfigurar depois de concluída a expansão do site de recolha de dados.  
+
+### <a name="gather-data-now"></a>Recolher Dados Agora  
+ Após a execução do processo inicial de recolha de dados de um site, o processo é repetido para identificar os objetos que tenham sido atualizados desde o último ciclo de recolha de dados. Também pode utilizar o **recolher dados agora** ação na consola do Configuration Manager para iniciar imediatamente o processo e para repor a hora de início do ciclo seguinte.  
+
+ Após a conclusão com êxito do processo de recolha de dados de um site de origem, poderá partilhar os pontos de distribuição do site de origem e configurar as tarefas de migração de dados do site. Recolha de dados é um processo de migração recorrente e continua até que altere a hierarquia de origem ou utilize **parar a recolha de dados** para terminar os processo recolha de dados para esse site.  
+
+### <a name="stop-gathering-data"></a>Parar a Recolha de Dados  
+ Pode utilizar **parar a recolha de dados** para terminar os processo recolha de dados para um site de origem quando pretender que deixem o Configuration Manager para identificar objetos novos ou alterados a partir desse site. Esta ação também impede que o Configuration Manager oferta quaisquer pontos de distribuição partilhados da origem como localizações de conteúdo para o conteúdo migrado a clientes da hierarquia de destino.  
+
+ Para parar a recolha de dados de cada site de origem, tem de executar **parar a recolha de dados** em sites de origem da camada inferior e, em seguida, repita o processo em cada site principal. O site de nível superior da hierarquia de origem terá de ser o último em que a recolha de dados é interrompida. Terá de interromper a recolha de dados em cada site subordinado antes de efetuar essa ação num site principal. Normalmente, apenas interromperá a recolha de dados quando estiver pronto para concluir o processo de migração.  
+
+ Depois de interromper a recolha de dados de um site de origem, as informações anteriormente recolhidas sobre objetos e coleções desse site continuarão disponíveis para utilização quando configurar novas tarefas de migração. No entanto, não verá os novos objetos ou coleções nem verá as alterações efetuadas em objetos existentes. Se reconfigurar o site de origem e recomeçar a recolher dados, verá o estado e informações sobre os objetos anteriormente migrados.  

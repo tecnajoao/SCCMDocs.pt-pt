@@ -1,6 +1,6 @@
 ---
-title: "Публикация данных сайта | Документы Майкрософт"
-description: "Узнайте, как публиковать сведения о сайтах Configuration Manager в доменных службах Active Directory."
+title: Publicar dados do site | Microsoft Docs
+description: "Saiba como publicar sites do Configuration Manager para serviços de domínio do Active Directory."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -16,57 +16,57 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: bcfb002c503485f03ba27d7346acb61d0d3c6087
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="publish-site-data-for-system-center-configuration-manager"></a>Публикация данных сайта для System Center Configuration Manager
+# <a name="publish-site-data-for-system-center-configuration-manager"></a>Publicar dados do site para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-После расширения схемы Active Directory для System Center Configuration Manager вы можете публиковать сайты Configuration Manager в доменных службах Active Directory (AD DS). Это позволяет компьютерам Active Directory безопасно получать данные сайта из надежного источника. Несмотря на то, что публикация сведений о сайте в AD DS не требуется для поддержки базовой функциональности Configuration Manager, она может сократить административную нагрузку.  
+Depois de expandir o esquema do Active Directory para o System Center Configuration Manager, pode publicar sites do Configuration Manager para serviços de domínio do Active Directory (AD DS). Isto permite aos computadores do Active Directory obterem de forma segura informações do site de uma origem fidedigna. Embora a publicação de informações de site para o AD DS não são necessárias para funcionalidades básicas do Configuration Manager, pode reduzir a sobrecarga administrativa para fazê-lo.  
 
--   **После настройки сайта для публикации в доменных службах Active Directory** клиенты Configuration Manager могут автоматически находить точки управления посредством публикации Active Directory. Они используют запрос LDAP к серверу глобального каталога.  
+-   **Quando um site estiver configurado para publicar no AD DS**, clientes do Configuration Manager poderão procurar automaticamente pontos de gestão através da publicação no Active Directory. Se utilizarem uma consulta LDAP para um servidor de catálogo global.  
 
--   **На случай если сайт не публикует данные в доменных службах Active Directory**, клиенты должны располагать альтернативным механизмом поиска точки управления по умолчанию.  
+-   **Quando um site não publica no AD DS**, os clientes precisarão de um mecanismo alternativo para localizar o respetivo ponto de gestão predefinido.  
 
-Сведения о том, как клиенты находят точку управления, см. в разделе [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+Para obter informações sobre como os clientes localizam um ponto de gestão, consulte [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-## <a name="configure-sites-to-publish-to-ad-ds"></a>Настройка сайтов для публикации в доменных службах Active Directory  
- Ниже приведены лишь общие шаги.  
+## <a name="configure-sites-to-publish-to-ad-ds"></a>Configurar sites para publicar no AD DS  
+ Seguem-se os passos de nível superior:  
 
--   Необходимо [расширить схему Active Directory для System Center Configuration Manager](../../../../core/plan-design/network/extend-the-active-directory-schema.md) в каждом лесу, где будут публиковаться данные сайта. Кроме того, необходимо обеспечить наличие контейнера **System Management**.  
+-   Tem [expandir o esquema do Active Directory para o System Center Configuration Manager](../../../../core/plan-design/network/extend-the-active-directory-schema.md) em cada floresta onde pretenda publicar dados do site. Certifique-se também a **System Management** contentor está presente.  
 
--   Вы должны предоставить учетной записи компьютера каждого первичного сайта, который будет публиковать данные, **полный доступ** к контейнеру **System Management** и всем его дочерним объектам.  
+-   Tem de conceder a conta de computador de cada site primário que irá publicar dados **controlo total** para o **System Management** contentor e todos os seus objetos subordinados.  
 
-### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-active-directory-forest"></a>Настройка сайта Configuration Manager для публикации данных сайта в лесу Active Directory
+### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-active-directory-forest"></a>Para permitir que um site do Configuration Manager publicar informações do site na floresta do Active Directory
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Сайты**. Выберите сайт, который должен публиковать свои данные. Затем на вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+2.  No **administração** área de trabalho, expanda **configuração do Site**e clique em **Sites**. Selecione o site que pretende ter publicar os respetivos dados de site. Em seguida, no **home page** separador o **propriedades** , clique em **propriedades**.  
 
-3.  На вкладке **Публикация** окна свойств сайта выберите леса, в которых сайт будет публиковать данные сайта.  
+3.  No **publicação** separador de propriedades do site, selecione as florestas nas quais este site irá publicar dados do site.  
 
-4.  Нажмите кнопку **ОК** , чтобы сохранить настройки.  
+4.  Clique em **OK** para guardar a configuração.  
 
-### <a name="to-set-up-active-directory-forests-for-publishing"></a>Настройка лесов Active Directory для публикации  
+### <a name="to-set-up-active-directory-forests-for-publishing"></a>Para configurar florestas do Active Directory para publicação  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** щелкните **Леса Active Directory**. Если метод обнаружения в лесах Active Directory был запущен ранее, все обнаруженные леса будут отображены в области результатов. При выполнении метода обнаружения в лесах Active Directory происходит поиск локального леса и доверенных лесов. Вручную необходимо добавить только леса, не имеющие доверия.  
+2.  Na área de trabalho **Administração** , clique em **Florestas do Active Directory**. Se a Deteção de Florestas do Active Directory tiver sido executada anteriormente, as florestas detetadas serão apresentadas no painel de resultados. A floresta local e quaisquer florestas fidedignas são detetadas quando a Deteção de Florestas do Active Directory é executada. Apenas é necessário adicionar manualmente as florestas não fidedignas.  
 
-    -   Чтобы настроить ранее обнаруженный лес, выберите его в области результатов. Затем на вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**, чтобы открыть окно свойств леса. Перейдите к шагу 3.  
+    -   Para configurar uma floresta detetada anteriormente, selecione uma floresta no painel de resultados. Em seguida, no **home page** separador o **propriedades** , clique em **propriedades** para abrir as propriedades da floresta. Continue com o passo 3.  
 
-    -   Чтобы настроить новый лес, отсутствующий в списке, на вкладке **Главная** в группе **Создать** нажмите кнопку **Добавить лес**, чтобы открыть диалоговое окно **Добавление лесов**. Перейдите к шагу 3.  
+    -   Para configurar uma nova floresta que não está listada, no **home page** separador o **criar** , clique em **adicionar floresta** para abrir o **adicionar florestas** caixa de diálogo. Continue com o passo 3.  
 
-3.  На вкладке **Общие** завершите настройку леса, который необходимо обнаружить, и укажите **учетную запись леса Active Directory**.  
-
-    > [!NOTE]  
-    >  Для обнаружения и публикации в лесах, не имеющих доверия, методу обнаружения в лесах Active Directory требуется глобальная учетная запись. Если учетная запись компьютера сервера сайта не используется, можно выбрать только глобальную учетную запись.  
-
-4.  Если планируется разрешить сайтам публиковать данные сайта в этом лесу, откройте вкладку **Публикация** и выполните настройки для публикации в этом лесу.  
+3.  No **geral** separador, conclua as configurações da floresta que pretende detetar e especifique o **conta de floresta do Active Directory**.  
 
     > [!NOTE]  
-    >  При включении публикации данных сайта в лесу необходимо расширить схему Active Directory этого леса для Configuration Manager. Учетная запись леса Active Directory должна иметь разрешения на полный доступ к контейнеру System в этом лесу.  
+    >  A Deteção de Florestas do Active Directory requer uma conta global para detetar e publicar em florestas não fidedignas. Se não utilizar a conta de computador do servidor do site, só pode selecionar uma conta global.  
 
-5.  Завершив настройку леса для использования с методом обнаружения в лесах Active Directory, нажмите кнопку **OK** , чтобы сохранить изменения.  
+4.  Se pretende permitir que os sites publiquem dados do site nesta floresta, conclua as configurações para publicação nesta floresta no separador **Publicação** .  
+
+    > [!NOTE]  
+    >  Se permitir os sites publiquem numa floresta, tem de expandir o esquema do Active Directory dessa floresta para o Configuration Manager. A conta de floresta do Active Directory tem de ter permissões de controlo total ao contentor do sistema dessa floresta.  
+
+5.  Quando concluir a configuração desta floresta para ser utilizada com a Deteção de Florestas do Active Directory, clique em **OK** para guardar a configuração.  

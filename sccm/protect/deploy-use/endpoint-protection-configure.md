@@ -1,6 +1,6 @@
 ---
-title: "Настройка Endpoint Protection | Документы Майкрософт"
-description: "Узнайте, как настроить Configuration Manager для обновления и распространения определений вредоносных программ для Защитника Windows."
+title: Configurar o Endpoint Protection | Microsoft Docs
+description: "Saiba como configurar o Configuration Manager para atualizar e distribuir definições de software maligno para o Windows Defender."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,29 +16,29 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 6917644d6719a1ca636713aa5aebf277927123c8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-endpoint-protection"></a>Настройка Endpoint Protection
+# <a name="configure-endpoint-protection"></a>Configurar o Endpoint Protection
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Прежде чем приступить к использованию Endpoint Protection для управления системой безопасности и защиты от вредоносных программ на клиентских компьютерах Configuration Manager, необходимо выполнить этапы настройки, описанные в этом разделе.  
+Antes de poder utilizar o Endpoint Protection para gerir a segurança e software maligno em computadores de cliente do Configuration Manager, tem de efetuar os passos de configuração detalhados neste tópico.  
 
-## <a name="how-to-configure-endpoint-protection-in-configuration-manager"></a>Настройка Endpoint Protection в Configuration Manager  
- Endpoint Protection в Configuration Manager имеет внешние зависимости и зависимости в пределах продукта.  
+## <a name="how-to-configure-endpoint-protection-in-configuration-manager"></a>Como Configurar o Endpoint Protection no Configuration Manager  
+ Endpoint Protection no Configuration Manager tem dependências externas e dependências no produto.  
 
-### <a name="steps-to-configure-endpoint-protection-in-configuration-manager"></a>Этапы настройки Endpoint Protection в Configuration Manager  
- Следующая таблица содержит этапы, подробности и дополнительные сведения о настройке Endpoint Protection.  
+### <a name="steps-to-configure-endpoint-protection-in-configuration-manager"></a>Passos para configurar o Endpoint Protection no Configuration Manager  
+ Utilize a tabela seguinte para obter os passos, detalhes e mais informações sobre como configurar o Endpoint Protection.  
 
 > [!IMPORTANT]  
->  Если управление Endpoint Protection осуществляется для компьютеров Windows 10, необходимо настроить Configuration Manager для обновления и распространения определений вредоносных программ для Защитника Windows. Защитник Windows входит в состав Windows 10, но по-прежнему требуется устанавливать SCEPInstall и задавать настраиваемые параметры клиентов для Endpoint Protection (**шаг 5**).  
+>  Se gerir o endpoint protection para computadores Windows 10, tem de configurar o Configuration Manager para atualizar e distribuir definições de software maligno para o Windows Defender. O Windows Defender está incluído no Windows 10, mas SCEPInstall ainda tem de ser as definições de cliente instalado e personalizadas para o Endpoint Protection (**passo 5** abaixo) ainda são necessárias.  
 
-|Шаги|Подробные сведения|  
+|Passos|Detalhes|  
 |-----------|-------------|  
-|**Шаг 1.** [Создание роли системы сайта для точки Endpoint Protection](endpoint-protection-site-role.md)|Прежде чем использовать Endpoint Protection, устанавливается роль системы сайта точки Endpoint Protection. Ее следует устанавливать только на одном сервере системы сайта (на верхнем уровне иерархии сайта центра администрирования или автономного первичного сайта). |  
-|**Шаг 2.** [Настройка оповещений для Endpoint Protection](endpoint-configure-alerts.md)|Оповещения информируют администратора при возникновении определенных событий, например при заражении компьютера вредоносными программами. Оповещения отображаются в узле **Оповещения** рабочей области **Мониторинг** или дополнительно могут быть отправлены указанным пользователям по электронной почте. |  
-|**Шаг 3.** [Настройка источников обновления определений для клиентов Endpoint Protection](endpoint-definition-updates.md)|Endpoint Protection можно настроить для использования различных источников для скачивания обновлений определений. |  
-|**Шаг 4.** [Настройка политики защиты от вредоносных программ по умолчанию и создание настраиваемых политик защиты от вредоносных программ](endpoint-antimalware-policies.md)|Политика защиты от вредоносных программ, используемая по умолчанию, применяется при установке клиента Endpoint Protection. Любые развернутые настраиваемые политики применяются по умолчанию в течение 60 минут процесса развертывания клиента. Перед тем как развернуть клиент Endpoint Protection, убедитесь, что политики защиты от вредоносных программ настроены. |  
-|**Шаг 5.** [Задание значений настраиваемых параметров клиентов для Endpoint Protection](endpoint-protection-configure-client.md)|Используйте настраиваемые параметры клиентов, чтобы задать значения параметров Endpoint Protection для коллекций компьютеров в иерархии.<br /><br /> Примечание. Не следует изменять значения параметров клиентов Endpoint Protection, используемые по умолчанию, кроме случаев, когда требуется с уверенностью применить их на всех компьютерах в иерархии. |  
+|**Passo 1:** [Criar uma função de sistema de sites de ponto de Endpoint Protection](endpoint-protection-site-role.md)|A função de sistema de sites de ponto do Endpoint Protection tem de ser instalada antes de poder utilizar o Endpoint Protection. Tem de ser instalada apenas num servidor do sistema de sites e tem de ser instalada na parte superior da hierarquia num site de administração central ou num site primário autónomo. |  
+|**Passo 2:** [Configurar alertas para o Endpoint Protection](endpoint-configure-alerts.md)|Os alertas informam o administrador quando ocorreram eventos específicos, tal como uma infeção de software maligno. Os alertas são apresentados no nó **Alertas** da área de trabalho **Monitorização** ou, opcionalmente, podem ser enviados por e-mail para utilizadores especificados. |  
+|**Passo 3:** [Configurar origens de atualização de definição para clientes de Endpoint Protection](endpoint-definition-updates.md)|Endpoint Protection pode ser configurado para utilizar várias origens para transferir atualizações de definições. |  
+|**Passo 4:** [Configurar a política antimalware predefinida e criar políticas antimalware personalizadas](endpoint-antimalware-policies.md)|A política antimalware predefinida é aplicada quando o cliente do Endpoint Protection está instalado. As políticas personalizadas que tiver implementado são aplicadas por predefinição num período de 60 minutos após implementar o cliente. Certifique-se de que configurou políticas antimalware antes de implementar o cliente do Endpoint Protection. |  
+|**Passo 5:** [Configurar definições personalizadas de cliente do Endpoint Protection](endpoint-protection-configure-client.md)|Utilize definições personalizadas de cliente para configurar definições de Endpoint Protection para coleções de computadores na sua hierarquia.<br /><br /> Nota: Não configure as predefinições de cliente do Endpoint Protection, exceto se tiver a certeza de que pretende estas definições aplicadas a todos os computadores na sua hierarquia. |  

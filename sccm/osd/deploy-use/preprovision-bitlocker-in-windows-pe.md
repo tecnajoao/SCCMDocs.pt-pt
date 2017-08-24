@@ -1,6 +1,6 @@
 ---
-title: "Предварительная подготовка BitLocker в Windows PE | Документы Майкрософт"
-description: "Задача предварительной инициализации BitLocker в Configuration Manager включает BitLocker из среды предустановки Windows перед развертыванием операционной системы."
+title: Aprovisionar antecipadamente o BitLocker no Windows PE | Microsoft Docs
+description: "A tarefa de Preprovision BitLocker no Configuration Manager permite que o BitLocker a partir do ambiente de pré-instalação do Windows antes da implementação do sistema operativo."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,45 +17,45 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: baca498dbc5b8e168852aa3c18ee23a9c483e69c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="preprovision-bitlocker-in-windows-pe-with-system-center-configuration-manager"></a>Предварительная подготовка BitLocker в Windows PE с помощью System Center Configuration Manager
+# <a name="preprovision-bitlocker-in-windows-pe-with-system-center-configuration-manager"></a>Aprovisionar antecipadamente o BitLocker no Windows PE com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Шаг последовательности задач **Предварительная инициализация BitLocker** в System Center Configuration Manager позволяет включить BitLocker из среды предустановки Windows (WinPE) до развертывания операционной системы. Шифруется только используемое дисковое пространство, и таким образом шифрование выполняется гораздо быстрее. Это делается с помощью сгенерированного случайным образом незащищенного предохранителя, применяемого к отформатированному тому, и шифрования тома перед запуском процесса установки Windows. Возможность предварительной инициализации BitLocker появилась в Windows 8 и Windows Server 2012. Однако при условии выполнения определенных шагов можно осуществить предварительную инициализацию BitLocker на жестком диске и установить Windows 7. После завершения работы программы установки Windows 7 необходимо настроить предохранитель ключа BitLocker, поскольку панель управления BitLocker в Windows 7 не поддерживает BitLocker с незащищенным предохранителем. Предохранитель ключа необходимо добавить с помощью шага **Включить BitLocker** или с помощью программы командной строки manage-bde.exe.  
+O **provisão prévia do BitLocker** passo de sequência de tarefas no System Center Configuration Manager permite-lhe ativar o BitLocker a partir do ambiente de pré-instalação do Windows (Windows PE) antes da implementação do sistema operativo. Apenas o espaço de disco utilizado é encriptado e, portanto, os tempos de encriptação são muito mais rápidos. Para isso, é aplicado ao volume formatado um protetor de limpeza gerado aleatoriamente e o volume é encriptado antes da execução do processo de configuração do Windows. A capacidade de pré-aprovisionar o BitLocker foi introduzida com o Windows 8 e o Windows Server 2012. No entanto, pode pré-aprovisionar o BitLocker num disco rígido e instalar o Windows 7, desde que siga os passos específicos. Após a conclusão do Programa de Configuração do Windows 7, é necessário definir um protetor de chave do BitLocker porque o painel de controlo do BitLocker no Windows 7 não suporta o BitLocker com um protetor de limpeza. É necessário adicionar um protetor de chave, utilizando o passo **Ativar BitLocker** ou a ferramenta de linha de comandos manage-bde.exe.  
 
- В общем случае для успешной предварительной инициализации BitLocker на компьютере, на котором планируется установка Windows 7, необходимо выполнить следующие действия.  
+ Geralmente, é necessário efetuar o seguinte para pré-aprovisionar com êxito o BitLocker num computador que vai instalar o Windows 7:  
 
--   Перезагрузка компьютера в среде предустановки Windows  
+-   Reiniciar o computador no Windows PE  
 
     > [!IMPORTANT]  
-    >  Для предварительной инициализации BitLocker необходимо использовать загрузочный образ со средой предустановки Windows версии 4 или более поздней. Дополнительные сведения о версиях среды предустановки Windows, поддерживаемых Configuration Manager, см. в статье [Внешние зависимости Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_ExternalDependencies).  
+    >  É necessário utilizar uma imagem de arranque com o Windows PE 4 ou posterior para pré-aprovisionar o BitLocker. Para obter mais informações sobre as versões do Windows PE suportadas no Configuration Manager, consulte [dependências externas ao Configuration Manager](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_ExternalDependencies).  
 
--   Создание разделов и форматирование жесткого диска  
+-   Particionar e formatar o disco rígido  
 
--   Предварительная инициализация BitLocker  
+-   Provisão prévia do BitLocker  
 
--   Установка Windows 7 со специальными параметрами операционной системы и сети  
+-   Instalar o Windows 7 com o sistema operativo e as definições de rede específicos  
 
--   Добавление предохранителя ключа в BitLocker  
+-   Adicionar um protetor de chave ao BitLocker  
 
- В Configuration Manager для предварительной инициализации BitLocker на жестком диске и установки Windows 7 рекомендуется создать новую последовательность задач и выбрать в **мастере создания последовательности задач** на странице **Создание очереди задач** вариант **Установить существующий образ**. Мастер создаст последовательность задач, шаги которой перечислены в следующей таблице.  
+ No Configuration Manager, a forma recomendada de pré-aprovisionar o BitLocker num disco rígido e instalar o Windows 7 consiste em criar uma nova sequência de tarefas e selecionar **instalar um pacote de imagem existente** do **criar nova sequência de tarefas** página do **criar Assistente da sequência de tarefas**. O assistente cria os passos de sequência de tarefas listados na tabela a seguir.  
 
 > [!NOTE]  
->  Последовательность задач может содержать дополнительные шаги в зависимости от параметров, настроенных в мастере. Например, если на странице мастера **Миграция состояния** установлен флажок **Сохранить настройки Microsoft Windows** , может быть добавлен шаг **Сохранить параметры Windows** .  
+>  A sequência de tarefas pode ter passos adicionais, dependendo do modo como foram configuradas as definições no assistente. Por exemplo, pode ter o passo **Capturar Definições do Windows** se tiver selecionado **Definições do Microsoft Windows capturadas** na página **Migração de Estado** do assistente.  
 
-|Шаг последовательности задач|Подробные сведения|  
+|Passo da sequência de tarefas|Detalhes|  
 |------------------------|-------------|  
-|Отключить BitLocker|Этот шаг отключает шифрование BitLocker, если в текущий момент оно включено. Дополнительные сведения см. в разделе [Отключить BitLocker](../understand/task-sequence-steps.md#BKMK_DisableBitLocker).|  
-|Перезагрузка компьютера в Windows PE|Этот шаг перезагружает компьютер в среде предустановки Windows посредством запуска загрузочного образа, назначенного последовательности задач. Для предварительной инициализации BitLocker необходимо использовать загрузочный образ со средой предустановки Windows версии 4 или более поздней. Дополнительные сведения см. в разделе [Перезагрузка компьютера](../understand/task-sequence-steps.md#BKMK_RestartComputer).|  
-|Создать разделы на диске 0 — BIOS<br /><br /> Создать разделы на диске 0 — UEFI|Эти шаги форматируют и разбивают на разделы указанный диск конечного компьютера, используя интерфейс BIOS или UEFI. Последовательность задач использует интерфейс UEFI, если обнаруживает, что конечный компьютер работает в режиме UEFI. Дополнительные сведения см. в разделе [Отформатировать диск и создать разделы](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk).|  
-|Предварительная инициализация BitLocker|Этот шаг включает BitLocker на диске из среды предустановки Windows. Шифруется только используемое дисковое пространство. Поскольку диск был отформатирован и разбит на разделы на предыдущем шаге, он не содержит данных и шифрование выполняется очень быстро. Дополнительные сведения см. в разделе [Предварительная инициализация BitLocker](../understand/task-sequence-steps.md#BKMK_PreProvisionBitLocker).|  
-|Применить операционную систему|Этот шаг подготавливает файл ответов, который используется для установки операционной системы на конечном компьютере, и задает в качестве значения переменной последовательности задач OSDTargetSystemDrive букву диска, обозначающую раздел, в котором содержатся файлы операционной системы. Файл ответов и переменная используются на шаге "Настройка Windows и Configuration Manager" для установки операционной системы. Дополнительные сведения см. в разделе [Применение образа операционной системы](../understand/task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).|  
-|Применить настройки Windows|Этот шаг добавляет параметры Windows в файл ответов. Файл ответов используется на шаге "Настройка Windows и Configuration Manager" для установки операционной системы. Дополнительные сведения см. в разделе [Применить настройки Windows](../understand/task-sequence-steps.md#BKMK_ApplyWindowsSettings).|  
-|Применить параметры сети|Этот шаг добавляет параметры сети в файл ответов. Файл ответов используется на шаге "Настройка Windows и Configuration Manager" для установки операционной системы. Дополнительные сведения см. в разделе [Применить параметры сети](../understand/task-sequence-steps.md#BKMK_ApplyNetworkSettings).|  
-|Применить драйверы устройств|Этот шаг подбирает и устанавливает драйверы в процессе развертывания операционной системы. Дополнительные сведения см. в разделе [Автоматическое применение драйверов](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers).|  
-|Настройка Windows и Configuration Manager|Этот шаг выполняет переход между средой предустановки Windows и новой операционной системой. Он является обязательным этапом любого развертывания операционной системы. В этом шаге выполняется установка клиента Configuration Manager в новой операционной системе и подготовка к продолжению выполнения последовательности задач в новой операционной системе. Дополнительные сведения см. в разделе [Настройка Windows и Configuration Manager](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).|  
-|Включить BitLocker|Этот шаг включает шифрование BitLocker на жестком диске и настраивает предохранители ключей. Поскольку на жестком диске была проведена предварительная инициализация BitLocker, этот шаг выполняется очень быстро. Windows 7 требует добавления предохранителя ключа. Если этот шаг не используется, для настройки предохранителя ключа можно запустить программу командной строки manage-bde.exe. Дополнительные сведения см. в разделе [Включить BitLocker](../understand/task-sequence-steps.md#BKMK_EnableBitLocker).|  
+|Desativar BitLocker|Este passo desativa a encriptação BitLocker, se estiver atualmente ativada. Para obter mais informações, consulte [desativar BitLocker](../understand/task-sequence-steps.md#BKMK_DisableBitLocker).|  
+|Reiniciar o computador no Windows PE|Este passo reinicia o computador no Windows PE através da execução da imagem de arranque atribuída à sequência de tarefas. É necessário utilizar uma imagem de arranque com o Windows PE 4 ou posterior para pré-aprovisionar o BitLocker. Para obter mais informações, consulte [reiniciar o computador](../understand/task-sequence-steps.md#BKMK_RestartComputer).|  
+|Particionar Disco 0 - BIOS<br /><br /> Particionar Disco 0 - UEFI|Estes passos formatam e particionam a unidade especificada no computador de destino, utilizando BIOS ou UEFI. A sequência de tarefas utiliza UEFI quando deteta que o computador de destino está no modo UEFI. Para obter mais informações, consulte [formatar e particionar disco](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk).|  
+|Provisão prévia do BitLocker|Este passo ativa o BitLocker numa unidade no Windows PE. Apenas o espaço de disco utilizado é encriptado. Uma vez que o disco rígido foi particionado e formatado no passo anterior, não existem dados e a encriptação é concluída rapidamente. Para obter mais informações, consulte [provisão prévia do BitLocker](../understand/task-sequence-steps.md#BKMK_PreProvisionBitLocker).|  
+|Aplicar Sistema Operativo|Este passo prepara o ficheiro de resposta que é utilizado para instalar o sistema operativo no computador de destino e define a variável da sequência de tarefas OSDTargetSystemDrive para a letra de unidade da partição que contém os ficheiros do sistema operativo. O ficheiro de resposta e a variável são utilizados pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para obter mais informações, veja [Aplicar Imagem do Sistema Operativo](../understand/task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).|  
+|Aplicar Definições do Windows|Este passo adiciona definições do Windows ao ficheiro de resposta. O ficheiro de resposta é utilizado pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para obter mais informações, consulte [aplicar definições do Windows](../understand/task-sequence-steps.md#BKMK_ApplyWindowsSettings).|  
+|Aplicar Definições de Rede|Este passo adiciona definições de Rede ao ficheiro de resposta. O ficheiro de resposta é utilizado pelo passo Configurar Windows e ConfigMgr para instalar o sistema operativo. Para obter mais informações, consulte [passo de definições de rede aplicam-se](../understand/task-sequence-steps.md#BKMK_ApplyNetworkSettings).|  
+|Aplicar Controladores de Dispositivo|Este passo corresponde e instala controladores como parte da implementação do sistema operativo. Para obter mais informações, consulte [aplicar controladores automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers).|  
+|Configurar Windows e ConfigMgr|Este passo efetua a transição do Windows PE para o novo sistema operativo. Este passo da sequência de tarefas é uma parte necessária de qualquer implementação do sistema operativo. Instala o cliente do Configuration Manager para o novo sistema operativo e prepara a sequência de tarefas continuar a execução no novo sistema operativo. Para obter mais informações, consulte [configurar Windows e ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).|  
+|Ativar BitLocker|Este passo ativa a encriptação do BitLocker no disco rígido e define protetores de chave. Uma vez que o disco rígido foi pré-aprovisionado com o BitLocker, este passo é concluído rapidamente. O Windows 7 requer a adição de um protetor de chave. Se não utilizar este passo, pode executar a ferramenta da linha de comandos manage-bde.exe para definir um protetor de chave. Para obter mais informações, consulte [ativar BitLocker](../understand/task-sequence-steps.md#BKMK_EnableBitLocker).|  

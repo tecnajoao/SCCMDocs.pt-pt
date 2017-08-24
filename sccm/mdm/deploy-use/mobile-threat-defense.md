@@ -1,6 +1,6 @@
 ---
-title: "Ограничение доступа, связанного с риском | Документация Майкрософт"
-description: "Ограничивайте доступ к ресурсам организации на основе риска для устройства, сети и приложений."
+title: Restringir o acesso baseado em risco | Microsoft Docs
+description: "Restringir o acesso aos recursos da empresa com base em risco de dispositivo, rede e de aplicação."
 ms.custom: na
 ms.date: 04/25/2017
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 250671660c1c6da0ca9b593b06b8f344dfe17ad6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-access-to-company-resource-based-on-device-network-and-application-risk"></a>Управление доступом к ресурсам организации на основе риска для устройства, сети и приложений
+# <a name="manage-access-to-company-resource-based-on-device-network-and-application-risk"></a>Gerir o acesso aos recursos da empresa com base no dispositivo, rede e o risco de aplicação
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Соединители Mobile Threat Defense позволяют использовать выбранного поставщика Mobile Threat Defense как источник информации для политик соответствия и правил условного доступа. Это позволяет ИТ-администраторам добавить уровень защиты корпоративных ресурсов, например Exchange или Sharepoint, особенно если дело касается скомпрометированных мобильных устройств.
+Conectores de defesa de ameaça móveis permitem-lhe tirar partido do seu fornecedor de defesa de ameaça Mobile escolhido como uma origem de informações para as políticas de conformidade e as regras de acesso condicional. Isto permite aos administradores de TI adicionar uma camada de proteção para os respetivos recursos da empresa como o Exchange e Sharepoint, especificamente a partir com dispositivos móveis comprometidos.
 
-## <a name="what-problem-does-this-solve"></a>Какую проблему это решает?
+## <a name="what-problem-does-this-solve"></a>Que problemas isto resolve?
 
-Организациям требуется защищать конфиденциальные данные от новых угроз, включающих физические, основанные на приложениях и сетевые угрозы, а также уязвимости операционной системы.
-Сложилось так, что организации действуют с упреждением, когда дело касается защиты компьютеров от атак, однако при этом не уделяют должного внимания мониторингу и защите мобильных устройств. Мобильные платформы имеют встроенную защиту, такую как изоляция приложений и проверка приложений для пользователей в магазинах, однако остаются уязвимыми для более сложных атак. Сейчас все больше сотрудников используют устройства для работы и нуждаются в доступе к конфиденциальной информации. Эти устройства нужно защитить от постоянно совершенствующихся атак.
+Empresas necessitem para proteger os dados confidenciais contra ameaças emergentes, incluindo ameaças físicas, com base na aplicação e baseados na rede, bem como vulnerabilidades de sistema operativo.
+Historicamente, as empresas têm sido proativa ao proteger os PCs de ataque, enquanto aceda de dispositivos móveis não monitorizado e não protegido. Plataformas móveis têm proteção incorporada, como o isolamento de aplicações e de lojas de aplicações de consumidor vetted, mas estas plataformas permanecem vulneráveis a ataques sofisticadas. Atualmente, os funcionários mais utilizarem dispositivos de trabalho e necessitam de aceder a informações confidenciais. Dispositivos têm de ser protegida contra ataques de cada vez mais sofisticadas.
 
-[Гибридное развертывание MDM (SCCM с Intune)](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) дает возможность контролировать доступ к корпоративным ресурсам и данным на основе оценки рисков. Эту оценку предоставляют решения для защиты устройств от угроз, например Mobile Threat Defense.
+O [(SCCM com o Intune) de implementação de MDM híbrida](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) dá-lhe a capacidade de controlar o acesso a recursos da empresa e dados com base na avaliação de risco que fornecem soluções de proteção de ameaças de dispositivo, como Mobile ameaça defesa parceiros.
 
-## <a name="how-the-intune-mobile-threat-defense-connectors-work"></a>Принцип работы соединителей Intune Mobile Threat Defense
+## <a name="how-the-intune-mobile-threat-defense-connectors-work"></a>Como funcionam os conectores do Intune Mobile ameaça defesa?
 
-Соединитель защищает ресурсы компании, создавая канал связи между Intune и выбранным поставщиком Mobile Threat Defense. Партнеры Intune Mobile Threat Defense предлагают интуитивно понятные, простые в развертывании приложения для мобильных устройств, которые активно сканируют и анализируют сведения об угрозах и передают их в Intune для формирования отчетности либо в принудительных целях. Например, если подключенное приложение Mobile Threat Defense сообщает поставщику Mobile Threat Defense о том, что телефон в вашей сети в настоящее время подключен к сети, уязвимой для атак "злоумышленник в середине". Эти сведения передаются дальше и относятся к соответствующему уровню риска (низкий, средний или высокий), которые сравниваются с допусками, настроенными для уровня риска в Intune. Это позволяет определить, следует ли отозвать доступ к определенным ресурсам, если устройство скомпрометировано.
+O conector protege os recursos da empresa através da criação de um canal de comunicação entre o Intune e o fornecedor de defesa de ameaça Mobile escolhido. Parceiros de defesa de ameaça do Intune Mobile oferecem intuitiva, fácil de implementar aplicações para dispositivos móveis que ativamente analisar e analisam as informações de ameaças para partilhar com o Intune, para fins de relatórios ou a imposição. Por exemplo, se uma aplicação de Mobile ameaça defesa ligada relatórios para o fornecedor de defesa de ameaça Mobile um telefone na sua rede está actualmente ligado a uma rede que é vulnerável a ataques Man nos ataques de meio, esta informação é partilhada com e categorizada para um nível de risco adequado (baixa/Média/alta) – que, em seguida, pode ser comparado ao seu allowances de nível de risco configurado no Intune para determinar se deve ser revogado acesso para certos recursos da sua preferência enquanto o dispositivo fica comprometido.
 
-## <a name="sample-scenarios"></a>Примеры сценариев
+## <a name="sample-scenarios"></a>Cenários de exemplo
 
-Если решение Mobile Threat Defense определяет, что устройство заражено:
+Quando um dispositivo é considerado infetados pela solução de Mobile ameaça defesa:
 
-![Mobile Threat Defense: зараженное устройство](../media/mtp/MTD-image-1.png)
+![Dispositivo móvel ameaça defesa infetados](../media/mtp/MTD-image-1.png)
 
-Доступ предоставляется после того, как устройство исправлено:
+Quando o dispositivo está sujeito a remediação, é concedido acesso:
 
-![Mobile Threat Defense: доступ предоставлен](../media/mtp/MTD-image-2.png)
+![Mobile ameaça defesa acesso concedido](../media/mtp/MTD-image-2.png)
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Passos seguintes
 
-Узнайте, как защитить доступ к ресурсам компании на основе рисков, связанных с устройствами, сетями и приложениями, с помощью:
+Saiba como proteger o acesso aos recursos da empresa com base no dispositivo, rede e o risco de aplicação com:
 
 - [Lookout](https://docs.microsoft.com/intune/deploy-use/lookout-mobile-threat-defense-connector)

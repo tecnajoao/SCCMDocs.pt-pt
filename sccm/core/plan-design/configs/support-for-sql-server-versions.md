@@ -1,6 +1,6 @@
 ---
-title: "Поддерживаемые версии SQL Server | Документы Майкрософт"
-description: "Сведения о требованиях к версии и конфигурации SQL Server для размещения базы данных сайта System Center Configuration Manager."
+title: "Versões do SQL Server suportadas | Microsoft Docs"
+description: "Obter os requisitos de configuração e a versão do SQL Server para alojar uma base de dados do site do System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/10/2017
 ms.prod: configuration-manager
@@ -16,100 +16,100 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b35e45b9514297e2f9ce405a3244462ed735f39f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Поддерживаемые версии SQL Server в System Center Configuration Manager
+# <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Versões suportadas do SQL Server para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Каждому сайту System Center Configuration Manager требуется поддерживаемая версия и конфигурация SQL Server для размещения базы данных сайта.  
+Cada site do System Center Configuration Manager requer uma versão do SQL Server suportadas e a configuração para alojar a base de dados do site.  
 
-##  <a name="bkmk_Instances"></a> Экземпляры SQL Server и расположения  
- **Сайт центра администрирования и первичные сайты:**  
-База данных сайта должна использовать установленную полную версию SQL Server.  
+##  <a name="bkmk_Instances"></a> Instâncias e localizações do SQL Server  
+ **Site de administração central e sites primários:**  
+A base de dados do site tem de utilizar uma instalação completa do SQL Server.  
 
- Возможные расположения SQL Server:  
+ SQL Server pode estar localizada em:  
 
--   компьютер сервера сайта;  
--   удаленный компьютер относительно сервера сайта.  
+-   O computador de servidor do site.  
+-   Um computador que seja remoto do servidor do site.  
 
-Поддерживаются следующие экземпляры:  
+São suportadas as seguintes instâncias:  
 
--   экземпляр по умолчанию или именованный экземпляр SQL Server;  
--   несколько конфигураций экземпляров;  
--   кластер SQL Server; См. раздел [Использование кластера SQL Server для размещения базы данных сайта](../../../core/servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md).
--   группа доступности SQL Server AlwaysOn. Для этого варианта требуется Configuration Manager 1602 или более поздней версии. Подробные сведения см. в разделе [SQL Server AlwaysOn для высокодоступной базы данных сайта для System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
-
-
- **Вторичные сайты:**  
- База данных сайта может использовать экземпляр по умолчанию установленной полной версии SQL Server или экспресс-выпуска SQL Server.  
-
- SQL Server должен находиться на компьютере сервера сайта.  
-
- **Ограничения для поддержки**   
- Не поддерживаются следующие конфигурации:
- -   кластер SQL Server в конфигурации кластера балансировки сетевой нагрузки (NLB);
- -   кластер SQL Server в общем томе кластера (CSV);
- -   технология зеркального отображения базы данных SQL Server и одноранговая репликация.
-
-Репликация транзакций SQL Server поддерживается только для репликации объектов в точки управления, настроенные на использование [реплик базы данных](https://technet.microsoft.com/library/mt608546.aspx).  
-
-##  <a name="bkmk_SQLVersions"></a> Поддерживаемые версии SQL Server  
- В иерархии с несколькими сайтами разные сайты могут использовать разные версии SQL Server для размещения базы данных сайта только в следующих случаях:
- -  Configuration Manager поддерживает используемые версии SQL Server.
- -  Используемые версии SQL Server поддерживаются корпорацией Майкрософт.
- -  SQL Server поддерживает репликацию между двумя версиями SQL Server.  Например, [SQL Server не поддерживает репликацию между SQL Server 2008 R2 и SQL Server 2016](https://docs.microsoft.com/sql/relational-databases/replication/deprecated-features-in-sql-server-replication).
+-   A instância predefinida ou nomeada do SQL Server.  
+-   Configurações de várias instâncias.  
+-   Um cluster do SQL Server. Consulte [utilizar um cluster do SQL Server para alojar a base de dados do site](../../../core/servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md).
+-   Um grupo de Disponibilidade AlwaysOn do SQL Server. Esta opção requer o Configuration Manager versão 1602 ou posterior. Para obter mais informações, consulte [SQL Server AlwaysOn para uma base de dados do site de elevada disponibilidade para o System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
 
 
+ **Sites secundários:**  
+ A base de dados do site pode utilizar a instância predefinida de uma instalação completa do SQL Server ou SQL Server Express.  
 
- Если не указано иное, следующие версии SQL Server поддерживаются всеми актуальными версиями System Center Configuration Manager. Если добавляется поддержка новой версии SQL Server или пакета обновления, будет указана версия Configuration Manager, в которой появилась эта поддержка. Аналогично, если поддержка прекращается, вам будут предоставлены сведения о затронутых версиях Configuration Manager.   
+ SQL Server tem de estar localizado no computador do servidor do site.  
 
-Поддержка конкретного пакета обновления SQL Server включает поддержку всех накопительных пакетов для этого пакета обновления, если в самих накопительных пакетах не нарушается обратная совместимость с базовой версией пакета обновления. Если не указано никаких пакетов обновления, поддерживается только основная версия SQL Server без пакетов обновления. Ели в будущем для этой версии выйдет новый пакет обновления, будет выпущено отдельное заявление о поддержке перед добавлением поддержки для этого нового пакета обновления.
+ **Limitações para suportar**   
+ Não são suportadas as seguintes configurações:
+ -   Um cluster do SQL Server numa configuração de cluster de balanceamento de carga na rede (NLB)
+ -   Um cluster do SQL Server num Cluster partilhado Volume (CSV)
+ -   Base de dados do SQL Server espelhamento de tecnologia e replicação ponto-a-ponto
+
+Replicação transacional do SQL Server só é suportada para replicar objetos para pontos de gestão que estão configurados para utilizar [réplicas de base de dados](https://technet.microsoft.com/library/mt608546.aspx).  
+
+##  <a name="bkmk_SQLVersions"></a> Versões suportadas do SQL Server  
+ Numa hierarquia com múltiplos sites, sites diferentes podem utilizar diferentes versões do SQL Server para alojar a base de dados do site, desde que os seguintes são verdadeiras:
+ -  O Configuration Manager suporta as versões do SQL Server que utilizar.
+ -  Versões do SQL Server que utilizar permanecem no suporte de pela Microsoft.
+ -  SQL Server suporta a replicação entre duas versões do SQL Server.  Por exemplo, [do SQL Server não suporta a replicação entre SQL Server 2008 R2 e o SQL Server 2016](https://docs.microsoft.com/sql/relational-databases/replication/deprecated-features-in-sql-server-replication).
+
+
+
+ Salvo especificação em contrário, as seguintes versões do SQL Server são suportadas com todas as versões de Active Directory do System Center Configuration Manager. Se suportar para uma nova versão do SQL Server ou o pacote de serviço é adicionado, a versão do Configuration Manager que adiciona que suportam será indicada. Da mesma forma, se o suporte foi preterido, em seguida, procure detalhes sobre as versões afetados do Configuration Manager.   
+
+Suporte para um pacote de serviço do SQL Server específico inclui atualizações cumulativas para esse pacote de serviço, a menos que uma atualização cumulativa interrompe o com versões anteriores para essa versão do pacote de serviço de base. Quando é indicado versão sem service pack, o suporte destina-se que a versão do SQL Server sem nenhum service pack. No futuro, se um service pack for lançado para essa versão, uma declaração de suporte separado será de ser declarada antes dessa nova versão do pacote de serviço é suportada.
 
 
 > [!IMPORTANT]  
->  При использовании SQL Server Standard для базы данных сайта центра администрирования вы ограничиваете общее число клиентов, поддерживаемых иерархией. См. раздел [Данные по размерам и масштабированию](../../../core/plan-design/configs/size-and-scale-numbers.md).
+>  Quando utiliza o SQL Server Standard para a base de dados no site de administração central, limitar o número total de clientes que uma hierarquia consegue suportar. Consulte [Dimensionamento e números da escala](../../../core/plan-design/configs/size-and-scale-numbers.md).
 
-### <a name="sql-server-2016-sp1-standard-enterprise"></a>SQL Server 2016 с пакетом обновления 1 (SP1) — Standard, Enterprise  
-Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
+### <a name="sql-server-2016-sp1-standard-enterprise"></a>SQL Server 2016 SP1: Standard, Enterprise  
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
 
--   сайт центра администрирования  
--   первичный сайт;  
--   вторичный сайт.  
+-   Um site de administração central  
+-   Um site primário  
+-   Um site secundário  
 
-### <a name="sql-server-2016-standard-enterprise"></a>SQL Server 2016 — Standard, Enterprise  
-Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
+### <a name="sql-server-2016-standard-enterprise"></a>SQL Server 2016: Standard, Enterprise  
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
 
--   сайт центра администрирования  
--   первичный сайт;  
--   вторичный сайт.  
-
-
-### <a name="sql-server-2014-sp2-standard-enterprise"></a>SQL Server 2014 с пакетом обновления 2 (SP2) — Standard, Enterprise  
-Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
-
--   сайт центра администрирования  
--   первичный сайт;  
--   вторичный сайт.
+-   Um site de administração central  
+-   Um site primário  
+-   Um site secundário  
 
 
+### <a name="sql-server-2014-sp2-standard-enterprise"></a>SQL Server 2014 SP2: Standard, Enterprise  
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
 
-### <a name="sql-server-2014-sp1-standard-enterprise"></a>SQL Server 2014 с пакетом обновления 1 (SP1) — Standard, Enterprise  
- Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
-
--   сайт центра администрирования  
--   первичный сайт;  
--   вторичный сайт.
+-   Um site de administração central  
+-   Um site primário  
+-   Um site secundário
 
 
-### <a name="sql-server-2012-sp3-standard-enterprise"></a>SQL Server 2012 с пакетом обновления 3 (SP3) — Standard, Enterprise  
- Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
 
--   сайт центра администрирования  
--   первичный сайт;  
--   вторичный сайт.  
+### <a name="sql-server-2014-sp1-standard-enterprise"></a>SQL Server 2014 SP1: Standard, Enterprise  
+ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
+
+-   Um site de administração central  
+-   Um site primário  
+-   Um site secundário
+
+
+### <a name="sql-server-2012-sp3-standard-enterprise"></a>SQL Server 2012 SP3: Standard, Enterprise  
+ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
+
+-   Um site de administração central  
+-   Um site primário  
+-   Um site secundário  
 
 <!-- Support for this service pack version has been dropped by Microsoft    
 ### SQL Server 2012 SP2: Standard, Enterprise   
@@ -120,42 +120,42 @@ ms.lasthandoff: 08/07/2017
 -   A secondary site  
 -->
 
-### <a name="sql-server-2008-r2-sp3-standard-enterprise-datacenter"></a>Windows Server 2008 R2 с пакетом обновления 3 (SP3) — Standard, Enterprise, Datacenter     
-  Эта версия SQL Server не поддерживается [начиная с версии 1702](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database).  
- Поддержка этой версии SQL Server продолжается, если вы используете версию Configuration Manager старше 1702.
+### <a name="sql-server-2008-r2-sp3-standard-enterprise-datacenter"></a>SQL Server 2008 R2 SP3: Standard, Enterprise, Datacenter     
+  Não é suportada nesta versão do SQL Server [a partir da versão 1702](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database).  
+ Esta versão do SQL Server continua a ser suportada quando utiliza uma versão do Configuration Manager antes de 1702.
 
-Если эта версия SQL Server поддерживается вашей версией Configuration Manager, вы можете использовать ее без минимального накопительного пакета обновления для следующих элементов:  
+Quando suportado pela versão do Configuration Manager, pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
 
--   сайт центра администрирования  
--   первичный сайт;
--   вторичный сайт.
-
-
-
-### <a name="sql-server-2016-express-sp1"></a>Экспресс-выпуск SQL Server 2016 с пакетом обновления 1 (SP1)  
-Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:
--   вторичный сайт.
-
-### <a name="sql-server-2016-express"></a>SQL Server 2016, экспресс-выпуск
-Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:
--   вторичный сайт.
+-   Um site de administração central  
+-   Um site primário
+-   Um site secundário
 
 
-### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 Express с пакетом обновления 2 (SP2)   
-Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
 
--   вторичный сайт.  
+### <a name="sql-server-2016-express-sp1"></a>SP1 Express do SQL Server 2016  
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:
+-   Um site secundário
+
+### <a name="sql-server-2016-express"></a>Express do SQL Server 2016
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:
+-   Um site secundário
 
 
-### <a name="sql-server-2014-express-sp1"></a>SQL Server 2014 Express с пакетом обновления 1 (SP1)   
- Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
+### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 SP2 rápida   
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
 
--   вторичный сайт.  
+-   Um site secundário  
 
-### <a name="sql-server-2012-express-sp3"></a>SQL Server 2012 Express с пакетом обновления 3 (SP3)  
-Данную версию SQL Server без минимального накопительного пакета обновления можно использовать для следующих элементов:  
 
--   вторичный сайт.  
+### <a name="sql-server-2014-express-sp1"></a>SQL Server 2014 Express SP1   
+ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
+
+-   Um site secundário  
+
+### <a name="sql-server-2012-express-sp3"></a>SQL Server 2012 Express SP3  
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para o seguinte:  
+
+-   Um site secundário  
 
 <!-- Support for this service pack version has been dropped by Microsoft   
 ### SQL Server 2012 Express SP2   
@@ -165,98 +165,98 @@ ms.lasthandoff: 08/07/2017
 -->
 
 
-##  <a name="bkmk_SQLConfig"></a> Обязательные конфигурации для SQL Server  
- Ниже перечислены необходимые условия для всех устанавливаемых версий SQL Server, используемых для базы данных сайта (включая экспресс-выпуск SQL Server). Если Configuration Manager устанавливает экспресс-выпуск SQL Server в процессе установки вторичного сайта, эти конфигурации создаются автоматически.  
+##  <a name="bkmk_SQLConfig"></a> Configurações necessárias para o SQL Server  
+ O seguinte é necessário para todas as instalações do SQL Server que utiliza para uma base de dados do site (incluindo o SQL Server Express). Quando o Configuration Manager instala o SQL Server Express como parte de uma instalação de site secundário, estas configurações são criadas automaticamente para si.  
 
- **Версия архитектуры SQL Server:**  
- Для работы Configuration Manager требуется 64-разрядная версия SQL Server для размещения базы данных сайта.  
+ **Versão de arquitetura do SQL Server:**  
+ O Configuration Manager requer uma versão de 64 bits do SQL Server para alojar a base de dados do site.  
 
- **Параметры сортировки баз данных:**  
- На всех сайтах как экземпляр SQL Server, используемый для сайта, так и база данных сайта должны использовать следующие параметры сортировки: **SQL_Latin1_General_CP1_CI_AS**.  
+ **Agrupamento da base de dados:**  
+ Em cada site, a instância do SQL Server que é utilizado para o site e a base de dados do site tem de utilizar o seguinte agrupamento: **SQL_Latin1_General_CP1_CI_AS**.  
 
- Configuration Manager поддерживает два исключения из этих правил сортировки. Дополнительные сведения см. в статье [Международная поддержка в System Center Configuration Manager](../../../core/plan-design/hierarchy/international-support.md).  
+ O Configuration Manager suporta duas exceções a este agrupamento para cumprir as normas definidas na GB18030 para utilização na China. Para obter mais informações, veja [Suporte internacional no System Center Configuration Manager](../../../core/plan-design/hierarchy/international-support.md).  
 
- **Компоненты SQL Server:**  
- Для каждого сервера сайта требуются только **службы компонента Database Engine** .  
+ **Funcionalidades do SQL Server:**  
+ Só é necessária a funcionalidade **Serviços de Motor da Base de Dados** para cada servidor do site.  
 
- Для репликации баз данных Configuration Manager не требуется компонент **Репликация SQL Server**. Но эта конфигурация SQL Server необходима при использовании [реплик базы данных для точек управления для System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+ Replicação de base de dados do Configuration Manager não requer o **replicação do SQL Server** funcionalidade. No entanto, esta configuração de SQL Server é necessária se utilizar [da base de dados réplicas para pontos de gestão do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
- **Проверка подлинности Windows:**  
- Configuration Manager требуется компонент **проверки подлинности Windows** для проверки подключений к базе данных.  
+ **Autenticação do Windows:**  
+ O Configuration Manager requer **autenticação do Windows** para validar as ligações à base de dados.  
 
- **Экземпляр SQL Server:**  
- Для каждого сайта необходимо использовать выделенный экземпляр SQL Server. Это может быть **именованный экземпляр** или **экземпляр по умолчанию**.  
+ **Instância do SQL Server:**  
+ Tem de utilizar uma instância dedicada do SQL Server para cada site. Isto pode ser uma **instância nomeada** ou a **instância predefinida**.  
 
- **Память SQL Server:**  
- Зарезервируйте память для SQL Server с помощью SQL Server Management Studio, указав параметр **Минимальный объем памяти сервера** в разделе **Параметры памяти сервера**. Дополнительные сведения о выделении фиксированного объема памяти см. в статье [Практическое руководство. Установка фиксированного размера памяти (среда SQL Server Management Studio)](http://go.microsoft.com/fwlink/p/?LinkId=233759).  
+ **Memória do SQL Server:**  
+ Reserve memória para o SQL Server utilizando o SQL Server Management Studio e definição de **memória de servidor mínima** em **opções de memória de servidor**. Para obter mais informações sobre como definir uma quantidade fixa de memória, consulte [como: Definir uma quantidade fixa de memória (SQL Server Management Studio)](http://go.microsoft.com/fwlink/p/?LinkId=233759).  
 
--   **Сервер базы данных, который установлен на том же компьютере, что и сервер сайта**. Предельный объем памяти, выделяемой для SQL Server, должен составлять 50–80 % общего объема адресуемой памяти системы.  
+-   **Para um servidor de base de dados que está instalado no mesmo computador do servidor do site:** Limite a memória do SQL Server para 50 a 80 por cento da memória de sistema acessível disponível.  
 
--   **Выделенный сервер базы данных (удаленно от сервера сайта)**. Предельный объем памяти, выделяемой для SQL Server, должен составлять 80–90 % общего объема адресуемой памяти системы.  
+-   **Para um servidor de base de dados dedicado (remoto a partir do servidor do site):** Limite a memória do SQL Server para 80 a 90 por cento da memória de sistema acessível disponível.  
 
--   **Резерв памяти для буферного пула каждого используемого экземпляра SQL Server:**  
+-   **Para uma reserva de memória para o conjunto de memória intermédia de cada instância do SQL Server em utilização:**  
 
-    -   сайт центра администрирования: минимум 8 гигабайт (ГБ);  
-    -   первичный сайт: минимум 8 гигабайт (ГБ);  
-    -   вторичный сайт: минимум 4 гигабайта (ГБ).  
+    -   Para um site de administração central: Defina um mínimo de 8 gigabytes (GB).  
+    -   Para um site primário: Defina um mínimo de 8 gigabytes (GB).  
+    -   Para um site secundário: Defina um mínimo de 4 gigabytes (GB).  
 
-**Вложенные триггеры SQL:**  
- Параметр[Вложенные триггеры SQL](http://go.microsoft.com/fwlink/?LinkId=528802) должен быть включен.  
+**Acionadores aninhados SQL:**  
+ Os[acionadores aninhados SQL](http://go.microsoft.com/fwlink/?LinkId=528802) têm de estar ativados.  
 
- **Интеграция со средой CLR для SQL Server**  
-  Для работы базы данных сайта требуется среда CLR для SQL Server. Этот компонент включается автоматически при установке Configuration Manager. Дополнительные сведения о среде CLR см. в разделе [Введение в интеграцию SQL Server со средой CLR](https://msdn.microsoft.com/library/ms254498\(v=vs.110\).aspx).  
+ **Integração de CLR do SQL Server**  
+  A base de dados de sites necessita do tempo de execução de idioma comum (CLR) do SQL Server para ser ativada. Isto é ativado automaticamente quando instala o Configuration Manager. Para obter mais informações sobre o CLR, consulte [introdução à integração do CLR do SQL Server](https://msdn.microsoft.com/library/ms254498\(v=vs.110\).aspx).  
 
-##  <a name="bkmk_optional"></a> Дополнительные конфигурации для SQL Server  
- Следующие конфигурации являются необязательными для каждой базы данных, использующей полную установку SQL Server.  
+##  <a name="bkmk_optional"></a> Configurações necessárias para o SQL Server  
+ As seguintes configurações são opcionais para cada base de dados que utiliza uma instalação completa do SQL Server.  
 
- **Служба SQL Server**  
- Вы можете настроить службу SQL Server на выполнение с использованием следующих средств.  
+ **Serviço do SQL Server:**  
+ Pode configurar o serviço do SQL Server para executar utilizando:  
 
--   Учетная запись **локального пользователя домена**:  
+-   O **utilizador de domínio local** conta:  
 
-    -   Это рекомендованный подход, при котором может потребоваться вручную зарегистрировать имя субъекта-службы (SPN) для учетной записи.  
+    -   Esta é uma melhor prática e pode implicar registar manualmente o nome principal de serviço (SPN) para a conta.  
 
--   Учетная запись **локальной системы** компьютера, на котором выполняется SQL Server:  
+-   O **sistema local** conta do computador que executa o SQL Server:  
 
-    -   Используйте учетную запись локальной системы для упрощения процесса настройки.  
-    -   Если используется учетная запись локальной системы, Configuration Manager автоматически регистрирует имя субъекта-службы для службы SQL Server.  
-    -   Помните, что использование учетной записи локальной системы для службы SQL Server не является рекомендуемым подходом.  
+    -   Utilize a conta de sistema local para simplificar o processo de configuração.  
+    -   Quando utiliza a conta de sistema local, o Configuration Manager regista automaticamente o SPN para o serviço SQL Server.  
+    -   Tenha em atenção que utilizar uma conta de sistema local para o serviço do SQL Server não é uma melhor prática do SQL Server.  
 
-Когда компьютер SQL Server не использует учетную запись локальной системы для запуска служб SQL Server, необходимо настроить имя SPN учетной записи, которая используется для запуска службы SQL Server в доменных службах Active Directory. (При использовании системной учетной записи имя субъекта-службы регистрируется автоматически.)
+Quando o computador a executar o SQL Server não utiliza a respetiva conta de sistema local para executar o serviço do SQL Server, tem de configurar o SPN da conta que executa o serviço do SQL Server nos serviços de domínio do Active Directory. (Quando é utilizada a conta de sistema, o SPN é automaticamente registado.)
 
-Сведения об именах субъектов-служб для базы данных сайта см. в подразделе [Управление именем участника-службы для сервера базы данных сайта](../../../core/servers/manage/modify-your-infrastructure.md#bkmk_SPN) раздела [Изменение инфраструктуры System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
+Para obter informações sobre SPNs para a base de dados do site, consulte [gerir o SPN para o servidor de base de dados do site](../../../core/servers/manage/modify-your-infrastructure.md#bkmk_SPN) no [modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md) tópico.  
 
-Сведения об изменении учетной записи, используемой службой SQL Server, см. в статье [Как изменить стартовую учетную запись службы для SQL Server (диспетчер конфигурации SQL Server)](http://go.microsoft.com/fwlink/p/?LinkId=237661).  
+Para obter informações sobre como alterar a conta que é utilizada pelo serviço do SQL Server, consulte [como: Alterar a conta de arranque do serviço do SQL Server (SQL Server do Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkId=237661).  
 
-**Службы SQL Server Reporting Services**  
-Службы SQL Server Reporting Services необходимы для установки точки служб отчетов, позволяющей создавать отчеты.  
+**SQL Server Reporting Services:**  
+SQL Server Reporting Services é necessário para instalar um ponto do Reporting Services que lhe permite executar relatórios.  
 
 > [!IMPORTANT]  
-> После обновления SQL Server предыдущей версии может возникнуть следующая ошибка: *Построитель отчетов не существует*.    
-> Для устранения этой ошибки необходимо переустановить роль системы сайта "Точка служб отчетов".
+> Depois de atualizar o SQL Server de uma versão anterior, poderá ver o seguinte erro:  *Report Builder não existe*.    
+> Para resolver este erro, terá de reinstalar a função de sistema de sites de ponto do Reporting Services serviços.
 
-**Порты SQL Server**  
-Для обмена данными с компонентом SQL Server Database Engine, а также для межсайтовой репликации можно использовать конфигурацию портов SQL Server по умолчанию или указать другие порты.  
+**Portas do SQL Server:**  
+Para comunicação com o motor de base de dados do SQL Server e para replicação entre sites, pode utilizar as configurações de porta do SQL Server predefinida ou especificar portas personalizadas:  
 
--   Для **межсайтового обмена данными** применяется компонент SQL Server Service Broker, который по умолчанию использует TCP-порт 4022.  
--   **Для обмена данными** между системой базы данных SQL Server и различными ролями системы сайта Configuration Manager по умолчанию используется порт TCP 1433. Следующие роли систем сайта соединяются напрямую с базой данных SQL Server.  
+-   **Comunicações entre sites** utilizar o SQL Server Service Broker, que utiliza a porta TCP 4022 por predefinição.  
+-   **Comunicações intra-site** entre o motor de base de dados do SQL Server e o sistema de sites do Configuration Manager várias funções de utilizam a porta TCP 1433, por predefinição. As seguintes funções do sistema de sites comunicam diretamente com a base de dados do SQL Server:  
 
-    -   Точка управления.  
-    -   Компьютер поставщика SMS  
-    -   Точка служб отчетов  
-    -   Сервер сайтов  
+    -   Ponto de gestão  
+    -   Computador do Fornecedor de SMS  
+    -   Ponto do Reporting Services  
+    -   Servidor do site  
 
-Если на сервере SQL Server размещены базы данных нескольких сайтов, каждая база данных должна использовать отдельный экземпляр SQL Server. Кроме того, для каждого экземпляра должен быть настроен уникальный набор портов.  
+Quando um computador com o SQL Server aloja bases de dados de mais de um site, cada base de dados tem de utilizar uma instância separada do SQL Server. Além disso, cada instância tem de ser configurada para utilizar um conjunto exclusivo de portas.  
 
 > [!WARNING]  
->  Configuration Manager не поддерживает динамические порты. Именованные экземпляры SQL Server по умолчанию используют динамические порты для подключения к компоненту Database Engine, поэтому при использовании именнованного экземпляра необходимо вручную настроить статический порт для внутрисайтовой передачи данных.  
+>  O Configuration Manager não suporta portas dinâmicas. Uma vez que, por predefinição, as instâncias nomeadas de SQL Server utilizam portas dinâmicas para ligações ao motor da base de dados, quando utilizar uma instância nomeada tem de configurar manualmente a porta estática que pretende utilizar para comunicação entre sites.  
 
-Если на компьютере с SQL Server включен брандмауэр, убедитесь, что в нем открыты порты, используемые для развертывания. Также эти порты должны быть открыты во всех расположениях в сети между компьютерами, которые обмениваются данными с сервером SQL Server.  
+Se tiver uma firewall ativada no computador que está a executar o SQL Server, certifique-se de que está configurada para permitir as portas que estão a ser utilizadas pela sua implementação e quaisquer localizações na rede entre computadores que comunicam com o SQL Server.  
 
-Пример того, как настроить SQL Server на использование конкретного порта, см. в статье [Практическое руководство. Настройка сервера для прослушивания определенного TCP-порта (диспетчер конфигурации SQL Server)](http://go.microsoft.com/fwlink/p/?LinkID=226349) в разделе библиотеки TechNet, посвященном SQL Server.  
+Para obter um exemplo de como configurar o SQL Server para utilizar uma porta específica, consulte [como: Configurar um servidor para escutar numa porta TCP específica (SQL Server Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkID=226349) na Biblioteca TechNet do SQL Server.  
 
-## <a name="upgrade-options-for-sql-server"></a>Параметры обновления для SQL Server
-Если вы намерены обновить версию SQL Server, мы рекомендуем использовать перечисленные здесь методы от простых к более сложным.
-1. [Обновите SQL Server на месте](/sccm/core/servers/manage/upgrade-on-premises-infrastructure#a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server) (рекомендуется).
-2. Установите новую версию SQL Server на новом компьютере, а затем [воспользуйтесь функцией перемещения базы данных](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) в установщике Configuration Manager, чтобы назначить сервер сайта на обращение к новому серверу SQL Server.
-3. Используйте функции [резервного копирования и восстановления](/sccm/protect/understand/backup-and-recovery).
+## <a name="upgrade-options-for-sql-server"></a>Opções de atualização para o SQL Server
+Se precisar de atualizar a sua versão do SQL Server, recomendamos os seguintes métodos, de fácil mais complexas.
+1. [Atualizar o SQL Server no local](/sccm/core/servers/manage/upgrade-on-premises-infrastructure#a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server) (recomendado).
+2. Instalar uma nova versão do SQL Server num novo computador e, em seguida, [utilizar a opção de mover a base de dados](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) de configuração do Configuration Manager para apontar o seu servidor do site para o novo SQL Server.
+3. Utilize [cópia de segurança e recuperação](/sccm/protect/understand/backup-and-recovery).

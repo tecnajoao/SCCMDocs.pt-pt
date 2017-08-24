@@ -1,6 +1,6 @@
 ---
-title: "Обновления | Документы Майкрософт"
-description: "Сведения о методе обслуживания в консоли под названием **Обновления и обслуживание**, который позволяет легко найти, а затем установить рекомендуемые обновления."
+title: "Atualizações | Microsoft Docs"
+description: "Saiba mais sobre um método de manutenção na consola denominado * * as atualizações e manutenção * * que torna mais fácil localizar e instalar as atualizações recomendadas."
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -17,134 +17,134 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d46aca88111d4ee0e96b75ca5a3ec57aa4274d6d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="updates-for-system-center-configuration-manager"></a>Обновления для System Center Configuration Manager
+# <a name="updates-for-system-center-configuration-manager"></a>Atualizações para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager использует метод обслуживания в консоли под названием **Обновления и обслуживание**. Этот метод в консоли позволяет легко найти и установить рекомендуемые обновления для инфраструктуры Configuration Manager. Этот метод обслуживания в консоли дополняется внештатными обновлениями, например исправлениями для клиентов, которым нужно устранить уникальные для их среды проблемы.  
+O System Center Configuration Manager utiliza um método de manutenção na consola denominado **atualizações e manutenção**. Este método na consola torna mais fácil para localizar e instalar as atualizações para a sua infraestrutura do Configuration Manager recomendadas. Manutenção na consola é complementado por atualizações fora de banda, tais como correções que foram concebidas para os clientes que precisem de resolver problemas específicos ao seu respetivo ambiente.  
 
 > [!TIP]  
-> При управлении инфраструктурой иерархий и сайтов System Center Configuration Manager термины *модернизация*, *обновление* и *установка* обозначают три разных понятия. Сведения о значении каждого термина см. в разделе [Переход, обновление и установка](/sccm/core/understand/upgrade-update-install).
+> Ao gerir o site do System Center Configuration Manager e a infraestrutura de hierarquia, os termos de licenciamento *atualizar*, *atualizar*, e *instalar* são utilizados para descrever três conceitos diferentes. Para saber como cada termo é utilizado, consulte [sobre a atualização, atualização e instalação](/sccm/core/understand/upgrade-update-install).
 
 
- **Следующие разделы помогут понять, как найти и установить различные типы обновлений для System Center Configuration Manager:**  
+ **Os tópicos seguintes podem ajudá-lo a compreender como encontrar e instalar os diferentes tipos de atualização para o System Center Configuration Manager:**  
 
--   [Установка обновлений в консоли для System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md)  
+-   [Instalar atualizações na consola do System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md)  
 
--   [Использование средства подключения службы для System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md)  
+-   [Utilizar a ferramenta de ligação de serviço do System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md)  
 
--   [Импорт исправлений в System Center Configuration Manager с помощью инструмента регистрации обновлений](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)  
+-   [Utilize a ferramenta de registo de atualização para importar correções para o System Center Configuration Manager](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)  
 
--   [Использование установщика исправлений для установки обновлений для System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md)  
-
-
-Если вы используете ветвь Technical Preview, дополнительные сведения, касающиеся этой ветви, см. в разделе [Technical Preview для System Center Configuration Manager](/sccm/core/get-started/technical-preview).
+-   [Utilizar o instalador de correções para instalar atualizações para o System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md)  
 
 
-##  <a name="bkmk_Baselines"></a> Базовые и обновленные версии  
- Первым выпуском текущей ветви System Center Configuration Manager была версия 1511 (базовая версия). Более поздние базовые версии включают версии 1606 и 1702:
+Se utilizar o ramo do Technical Preview, consulte [pré-visualização técnica do System Center Configuration Manager](/sccm/core/get-started/technical-preview) para obter informações adicionais que são específicas para nessa sucursal.
 
--   Используйте последнюю базовую версию при установке нового сайта в новой иерархии.  
 
--   При установке обновления для System Center 2012 Configuration Manager используйте базовую версию. После обновления до System Center Configuration Manager вы уже не сможете использовать базовые версии для поддержания актуальности. Вместо этого нужно выполнять [обновления в консоли](/sccm/core/servers/manage/install-in-console-updates) для получения последней версии.  
+##  <a name="bkmk_Baselines"></a> Versões de linha de base e de atualização  
+ A primeira versão do ramo atual do System Center Configuration Manager tinha a versão 1511, que era uma versão de linha de base. Versões de linha de base mais recentes incluem a versão 1606 e 1702:
 
--   Периодически выпускаются новые базовые версии. Использование последней базовой версии для установки новой иерархии позволяет избежать установки устаревшей версии Configuration Manager с дополнительным обновлением инфраструктуры.  
+-   Utilize a versão de linha de base mais recente ao instalar um novo site numa nova hierarquia.  
 
-После установки базовой версии дополнительные версии Configuration Manager становятся доступны как обновления в консоли. Обновления в консоли устанавливают последнюю версию инфраструктуры Configuration Manager.  
+-   Utilizar uma versão de linha de base a atualização do System Center 2012 Configuration Manager. Depois de atualizar para o System Center Configuration Manager, pode deixar de utilizar versões de linha de base para se manter atual em vez disso, apenas [atualizações na consola](/sccm/core/servers/manage/install-in-console-updates) para atualizar para a versão mais recente.  
 
--   Обновления в консоли устанавливаются для обновления версии сайта верхнего уровня.  
+-   Periodicamente, são lançadas versões de linha de base adicionais. Quando utilizar a versão de linha de base mais recente para instalar uma nova hierarquia, evite instalar uma versão desatualizada do Configuration Manager seguido por uma atualização adicional da sua infraestrutura para colocá-lo atualizados.  
 
--   Обновления, устанавливаемые на сайте центра администрирования, устанавливаются на дочерних первичных сайтах автоматически, если это не противоречит периодам обслуживания, которые вы настроили для первичного сайта.  
+Depois de instalar uma versão de linha de base, ficarão disponíveis versões adicionais do Configuration Manager como atualizações na consola. Nas atualizações da consola, atualize a sua infraestrutura para a versão mais recente do Configuration Manager.  
 
--   На вторичных сайтах обновление до новой версии следует устанавливать вручную через консоль.  
+-   Instale atualizações na consola para atualizar a versão do seu site de nível superior.  
 
-При установке обновления оно сохраняет файлы установки для соответствующей версии в папке с именем CD.Latest на сервере сайта. Дополнительные сведения об этих файлах см. в статье [Папка CD.Latest для System Center Configuration Manager](../../../core/servers/manage/the-cd.latest-folder.md).  
+-   Instalação de atualizações que instalar num site de administração central automaticamente em sites primários subordinados, exceto se forem bloqueadas por uma janela de manutenção configuradas no site primário.  
 
--   Используйте файлы из папки CD.Latest при восстановлении сайта и установке дополнительных узлов в иерархии, где базовая версия больше не используется.  
+-   Atualizar manualmente os sites secundários para uma nova versão de atualização da consola do.  
 
--   Файлы установки из папки CD.Latest нельзя использовать для установки первого сайта новой иерархии или обновления сайта из System Center 2012 Configuration Manager.  
+Ao instalar uma atualização, a atualização armazena os ficheiros de instalação correspondentes a essa versão no servidor do site numa pasta denominada CD.Latest. Para obter mais informações sobre estes ficheiros, consulte [o CD. Pasta mais recente para o System Center Configuration Manager](../../../core/servers/manage/the-cd.latest-folder.md).  
 
-Некоторые обновления для Configuration Manager доступны и как версия обновления в консоли для существующей инфраструктуры, и как новая базовая версия.  
+-   Utilize os ficheiros no CD. Pasta mais recente durante a recuperação de Site e para instalar sites adicionais numa hierarquia que já não executa uma versão de linha de base.  
 
-Следующие версии Configuration Manager доступны как базовая версия, как версия обновления или и в той и в другой форме.  
+-   Não é possível utilizar ficheiros de instalação da pasta CD.Latest para instalar o primeiro site de uma nova hierarquia nem para atualizar um site a partir do System Center 2012 Configuration Manager.  
 
-|Версия |Дата доступности|[Дата окончания поддержки](/sccm/core/servers/manage/current-branch-versions-supported) |Базовая версия|обновление в консоли|  
+Algumas atualizações do Configuration Manager estão disponíveis tanto como versões de atualização na consola para uma infraestrutura existente, como novas versões de linha de base.  
+
+As seguintes versões do Configuration Manager estão disponíveis como linha de base, como atualização, ou ambas:  
+
+|Versão |Data de disponibilidade|[Data de fim de suporte](/sccm/core/servers/manage/current-branch-versions-supported) |Linha de base|Atualização na consola|  
 |-------------|-----------|------------|--------------|------------------------|  
-|[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 июля 2017 г.|31 июля 2018 г.|Нет|Да|
-|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 марта 2017 г.| 27 марта 2018 г.|Да|Да|
-|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 ноября 2016 г.| 18 ноября 2017 г.|Нет|Да|
-|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|22 июля 2016 г.| 22 июля 2017 г.|Нет|Да|
-|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) с пакетом исправлений 1606 (KB3186654) </br></br>5.00.8412.1307 *(примечание 1)* |12 октября 2016 г.| 12 октября 2017 г.|Да|Нет|
-| 1602<br /><br /> 5.00.8355.1000|11 марта 2016 г.| 11 марта 2017 г.|Нет|Да| 
-| 1511 <br /><br /> 5.00.8325.1000|8 декабря 2015 г.| 8 декабря 2016 г.|Да|Нет|  
+|[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 de Julho de 2017|31 de Julho de 2018|Não|Sim|
+|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 de Março de 2017| 27 de Março de 2018|Sim|Sim|
+|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 de Novembro de 2016| 18 de Novembro de 2017|Não|Sim|
+|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|22 de Julho de 2016| 22 de Julho de 2017|Não|Sim|
+|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) com o rollup de correção 1606 (KB3186654) </br></br>5.00.8412.1307 *(tenha em atenção 1)* |12 de Outubro de 2016| 12 de Outubro de 2017|Sim|Não|
+| 1602<br /><br /> 5.00.8355.1000|11 de Março de 2016| 11 de Março de 2017|Não|Sim| 
+| 1511 <br /><br /> 5.00.8325.1000|8 de Dezembro de 2015| 8 de Dezembro de 2016|Sim|Não|  
 
 
-*(Примечание 1.)* Этот базовый носитель версии 1606 и 1702 доступен в составе выпуска Microsoft System Center 1702 или System Center Configuration Manager (Current Branch и Long-Term Servicing Branch 2016) в [Volume License Service Center](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Например, если в VLSC выполнить поиск по запросу *System Center Config Manager (Current Branch и LTSB)*, в результатах будут обе версии базового носителя 1606 и 1702, доступные для скачивания.
+*(Nota 1)*  o suporte de dados de linha de base 1606 e 1702 está disponíveis como parte do Microsoft System Center 2016 ou o System Center Configuration Manager (ramo atual e ramo de manutenção de longo prazo) versões no [Centro de serviços de licenciamento de Volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Por exemplo, no VLSC pode procurar *System Center Config Mgr (ramo atual e LTSB)*, e suporte de linha de base de versão 1606 e 1702 é devolvidos e disponível para transferência.
 
-Чтобы проверить версию сайта Configuration Manager, выберите пункт **О System Center Configuration Manager** в левом верхнем углу консоли, где отображается новая версия сайта и консоли.  
+Para verificar a versão do seu site do Configuration Manager, aceda a **Acerca do System Center Configuration Manager** no canto superior esquerdo da consola onde é apresentada a nova versão da consola e do site.  
 
-##  <a name="bkmk_inconsole"></a> Обновления в консоли и обслуживание  
- При использовании готовой к работе установки System Center Configuration Manager, которая также называется текущей ветвью, большинство установленных вами обновлений становятся доступными в канале обновлений и обслуживания. Этот метод определяет, загружает и делает доступными обновления, соответствующие текущей версии и конфигурации вашей инфраструктуры, и включает только обновления, которые корпорация Майкрософт рекомендует всем клиентам.   
- Сюда входит следующее.  
+##  <a name="bkmk_inconsole"></a> Atualizações e manutenção na consola  
+ Ao utilizar uma instalação pronta para produção do System Center Configuration Manager, também referida como ramo atual, a maioria das atualizações que instalar estão disponíveis utilizando as atualizações e manutenção de canal. Este método identifica, transfere e disponibiliza as atualizações que se apliquem à sua versão e configuração de infraestrutura atuais, incluindo apenas as atualizações recomendadas pela Microsoft a todos os clientes.   
+ Estas atualizações incluem:  
 
--   Новые версии, например 1610, 1702 или 1706.  
+-   Novas versões, como versão 1610, 1702 ou 1706.  
 
--   Обновления, содержащие новые компоненты для текущей версии
+-   Atualizações, que incluem novas funcionalidades para a sua versão atual.
 
--   Исправления для вашей версии Configuration Manager, которые необходимо установить для всех пользователей.
+-   Correções, para a sua versão do Configuration Manager e que todos os clientes devem instalar.
 
-Обновления в консоли обеспечивают повышенную стабильность и устраняют распространенные неполадки. Они заменяют типы обновлений для предыдущих версий продукта на пакеты обновления, накопительные пакеты обновления, исправления, применимые ко всем клиентам, и расширение для Microsoft Intune. Эти обновления можно применять к одному или нескольким из следующих объектов:  
+As atualizações na consola garantem uma maior estabilidade e resolvem problemas comuns. Estas atualizações vem substituir os tipos de atualização existentes para versões de produto anteriores para service packs, atualizações cumulativas, correções aplicáveis a todos os clientes e Extensão para o Microsoft Intune. Estas atualizações podem aplicar-se a um ou mais dos seguintes elementos:  
 
--   серверы первичного сайта и сайта центра администрирования;  
+-   Servidores de sites primário e de administração central  
 
--   роли и серверы системы сайта;  
+-   Funções de sistema de sites e servidores de sistema de sites  
 
--   экземпляры поставщика SMS.  
+-   Instâncias do Fornecedor de SMS  
 
--   Консоли Configuration Manager  
+-   Consolas do Configuration Manager  
 
--   Клиенты Configuration Manager  
+-   Clientes do Configuration Manager  
 
-Configuration Manager определяет, что для вас появились новые обновления, когда синхронизирует роль системы сайта для точки подключения службы с облачной службой и центром загрузки Майкрософт.  
+O Configuration Manager Deteta novas atualizações para si quando sincronizar a sua função de sistema de sites de ponto de ligação de serviço com o serviço de nuvem da Microsoft e Centro de transferências:  
 
--   Когда точка подключения службы переходит в оперативный режим, сайт ежедневно синхронизируется с Майкрософт и автоматически определяет новые обновления, доступные для вашей архитектуры.  Для загрузки обновлений и распространяемых файлов для обновлений компьютер, на котором размещается роль системы сайта для точки подключения службы, использует контекст **локального компьютера** для доступа к следующим расположениям в Интернете: go.microsoft.com и download.microsoft.com. Сведения о дополнительных расположениях, к которым подключается точка подключения службы, см. в подразделе [Требования к доступу к Интернету](../../../core/servers/deploy/configure/about-the-service-connection-point.md#bkmk_urls) раздела [Сведения о точке подключения службы в System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+-   Quando o seu ponto de ligação de serviço está no modo online, o seu site sincroniza-se com a Microsoft todos os dias para identificar automaticamente novas atualizações que se apliquem à sua infraestrutura.  Para transferir atualizações e ficheiros de redist para atualizações, o computador que aloja a função de sistema de sites do ponto de ligação de serviço utiliza o **sistema** contexto para aceder a localizações de Internet seguintes: go.microsoft.com e download.microsoft.com. Para obter informações sobre localizações adicionais que o ponto de ligação de serviço liga ao, consulte [requisitos de acesso à Internet](../../../core/servers/deploy/configure/about-the-service-connection-point.md#bkmk_urls) no [sobre a ligação de serviço do ponto no System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
--   Когда точка подключения службы переходит в автономный режим, для ручной синхронизации с облаком Майкрософт используется средство подключения к службе. Дополнительные сведения см. в разделе [Использование инструмента подключения службы для System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
+-   Quando o seu ponto de ligação de serviço está no modo offline, utilize a ferramenta de ligação de serviço para sincronizar manualmente com a Microsoft Cloud. Para obter mais informações,ver [ Utilize a Ferramenta de Ligação de Serviço para o System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
 
--   Обновления в консоли избавляют от необходимости находить и устанавливать отдельные обновления, пакеты обновлений и новые компоненты.  
+-   As atualizações na consola eliminam a necessidade de localizar e instalar atualizações individuais, service packs e novas funcionalidades de forma independente.  
 
--   Вы устанавливаете только избранные обновления в консоли и в процессе установки можете выбрать отдельные компоненты, которые нужно включить и использовать. Дополнительные сведения см. в разделе [Включение дополнительных функций из обновлений](../../../core/servers/manage/install-in-console-updates.md#bkmk_options).  
+-   Instale apenas as atualizações na consola da sua preferência. Além disso, quando instala algumas atualizações, pode selecionar as funcionalidades individuais que pretende ativar e utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](../../../core/servers/manage/install-in-console-updates.md#bkmk_options).  
 
-При установке обновления в консоли происходит следующее.  
+Ao instalar uma atualização na consola:  
 
--   Оно автоматически запускает проверку готовности к установке. Эту проверку можно также провести перед установкой.  
+-   Esta executa automaticamente uma verificação de pré- requisitos. Também pode executar esta verificação antes de iniciar a instalação.  
 
--   Обновление автоматически устанавливается на сайте центра администрирования (если есть) и на первичных сайтах. Указать, когда каждый сервер первичного сайта может обновлять свою инфраструктуру, можно с помощью [периодов обслуживания для серверов сайта](../../../core/servers/manage/service-windows.md).  
+-   Esta é instalada no site de administração central (se tiver um) e em sites primários automaticamente. Pode controlar quando cada servidor do site primário tem permissão para atualizar a respetiva infraestrutura utilizando [windows para servidores de site do serviço](../../../core/servers/manage/service-windows.md).  
 
--   После того как сервер сайта обновится, автоматически обновятся все соответствующие роли системы сайта (включая экземпляры поставщика SMS). Консоли Configuration Manager также предлагают пользователям обновить консоль после того, как сайт установит обновление.  
+-   Após a atualização de um servidor do site, todas as funções do sistema de sites afetadas (incluindo as instâncias do Fornecedor de SMS) são automaticamente atualizadas. Consolas do Configuration Manager também pedirá ao utilizador a consola para atualizar a consola após a instalação do site a atualização.  
 
--   Если обновление включает клиент Configuration Manager, вы можете протестировать обновление в подготовительной среде или применить обновление сразу ко всем клиентам.  
+-   Se uma atualização incluir o cliente do Configuration Manager, é-lhe dada a opção para testar a atualização em pré-produção ou por aplicar a atualização para todos os clientes imediatamente.  
 
--   При обновлении первичного сайта вторичные сайты автоматически не обновляются. Обновление вторичного сайта необходимо запустить.  
+-   Após a atualização de um site primário, os sites secundários não atualizam automaticamente. Em vez disso, tem de iniciar a atualização do site secundário.  
 
 > [!NOTE]  
->  Рабочий выпуск System Center Configuration Manager (Current Branch), Long-Term Servicing Branch и Technical Preview для System Center Configuration Manager — это разные выпуски. Таким образом, обновления, применимые к одной ветви, недоступны для других ветвей в виде обновлений, выполняемых в консоли. Дополнительные сведения о различных ветвях см. в статье [Which branch of Configuration Manager should I use?](/sccm/core/understand/which-branch-should-i-use) (Выбор ветви Configuration Manager).
+>  A versão de produção do System Center Configuration Manager (ramo atual), o ramo de manutenção de longo prazo e o Technical Preview do System Center Configuration Manager são versões diferentes. Por conseguinte, as atualizações aplicáveis para um ramo não estão disponíveis como atualizações na consola para os outros ramos. Para mais informações sobre ramos disponíveis, consulte [o ramo do Configuration Manager devo utilizar?](/sccm/core/understand/which-branch-should-i-use)
 
-##  <a name="bkmk_outofband"></a> Исправления по каналу  
-Некоторые исправления выпускаются для ограниченного круга получателей для устранения определенных неполадок, а некоторые применимы ко всем клиентам, но не могут устанавливаться в консоли. Эти исправления поставляются по каналу и не выявляются в облачной службе Майкрософт.  
+##  <a name="bkmk_outofband"></a> Correções fora de banda  
+Algumas correções de versão com disponibilidade limitada para resolver problemas específicos, ou são aplicáveis a todos os clientes, mas não é possível instalar utilizando o método na consola. Estas correções são fornecidas fora da banda e não são detetadas a partir do serviço Microsoft Cloud.  
 
-Обычно вы узнаете об исправлении по каналу от службы поддержки пользователей Майкрософт, из статьи в базе знаний либо из [блога группы разработки System Center Configuration Manager](https://blogs.technet.microsoft.com/configmgrteam), когда пытаетесь решить проблему с развертыванием Configuration Manager.  
+Normalmente, pode obter informações sobre correções fora de banda do cliente suporte técnico da Microsoft, num artigo da Base de dados de conhecimento, ou a partir de [blogue da equipa do System Center Configuration Manager](https://blogs.technet.microsoft.com/configmgrteam) quando necessita de corrigir ou abordar um problema com a sua implementação do Configuration Manager.  
 
-Эти исправления устанавливаются вручную одним из следующих двух методов.  
+Pode instalar estas correções manualmente através de um destes dois métodos:  
 
--   **Средство регистрации обновлений** вручную импортирует исправление в консоль Configuration Manager, где затем обновление можно установить как обновления в консоли, устанавливаемые автоматически. Этот метод используется для обновлений со следующей структурой имени файла: **.update.exe**.  Полное имя такого типа исправлений выглядит следующим образом: **&lt;Продукт\>-&lt;версия продукта\>-&lt;идентификатор статьи в базе знаний\>-ConfigMgr.Update.exe**.  
+-   **Ferramenta de registo de atualização:** Esta ferramenta importa manualmente a correção para a consola do Configuration Manager, onde pode, em seguida, instalar a atualização como que seria atualizações na consola que são detetadas automaticamente. Este método é atualizado para atualizações que utilizem a seguinte estrutura de nome de ficheiro: **.update.exe**.  O nome de ficheiro completo para este tipo de correção assemelha-se: **&lt;Produto\>-&lt;versão do produto\>-&lt;ID do artigo KB\>-ConfigMgr.Update.exe**.  
 
-     Дополнительные сведения см. в разделе [Импорт исправлений в System Center Configuration Manager с помощью инструмента регистрации обновлений](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md).  
+     Para obter mais informações, consulte [utilizar a ferramenta de registo de atualização para importar correções para o System Center Configuration Manager](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md).  
 
--   **Установщик исправлений:** используется для того, чтобы вручную установить исправление, которое нельзя установить в консоли. Этот метод используется для исправлений со следующей структурой имени файла: **&lt;Продукт\>-&lt;версия продукта\>-&lt;идентификатор статьи в базе знаний\>-&lt;платформа\>-&lt;язык\>.exe**.
+-   **Instalador de correções:** Esta ferramenta é utilizada para instalar manualmente uma correção que não pode ser instalada através do método na consola. Este método é utilizado para correções que utilizem a seguinte estrutura de nome de ficheiro: **&lt;Product\>-&lt;product version\>-&lt;KB article ID\>-&lt;platform\>-&lt;language\>.exe**.
 
-     Дополнительные сведения см. в разделе [Использование установщика исправлений для установки обновлений для System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md).
+     Para obter mais informações, consulte [utilizar o instalador de correções para instalar atualizações para o System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md).

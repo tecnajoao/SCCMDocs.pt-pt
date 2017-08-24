@@ -1,6 +1,6 @@
 ---
-title: "Установщик исправлений | Документы Майкрософт"
-description: "Узнайте, когда и как устанавливать обновления с помощью установщика исправлений для Configuration Manager."
+title: "Instalador de correções | Microsoft Docs"
+description: "Determinar quando e como instalar atualizações através de instalador de correções para o Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,252 +16,252 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8ffc7383e895909e6e6c4b8a7875fd5f0df2220e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-hotfix-installer-to-install-updates-for-system-center-configuration-manager"></a>Использование установщика исправлений для установки обновлений для System Center Configuration Manager
+# <a name="use-the-hotfix-installer-to-install-updates-for-system-center-configuration-manager"></a>Utilize o Instalador de Correções para instalar atualizações no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Некоторые обновления для System Center Configuration Manager недоступны в облачной службе Майкрософт и предоставляются только по внештатному каналу. Примером является ограниченный выпуск исправления для устранения конкретной проблемы.   
-Когда необходимо установить обновление (или исправление), полученное от корпорации Майкрософт, и его файл имеет расширение **EXE** (а не **UPDATE.EXE**), используйте установщик исправлений, который входит в состав этого загруженного исправления, чтобы установить обновление непосредственно на сервере сайта Configuration Manager.  
+Algumas atualizações do System Center Configuration Manager não estão disponíveis no serviço em nuvem Microsoft e só são obtidas fora de banda. Um exemplo é uma correção de versão limitada para resolver um problema específico.   
+Quando tem de instalar uma atualização (ou correção) que recebe da Microsoft, e essa atualização tem um nome de ficheiro que termina com a extensão **.exe** (não **update.exe**), utilize o instalador de correções que está incluído com a transferência dessa correção para instalar a atualização diretamente para o servidor de site do Configuration Manager.  
 
- Если у файла исправления есть разрешение **UPDATE.EXE**, см. статью [Импорт исправлений в System Center Configuration Manager с помощью инструмента регистрации обновлений](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md).  
-
-> [!NOTE]  
->  В этом разделе приведены общие рекомендации по установке исправлений, которые обновляют System Center Configuration Manager. Дополнительные сведения о конкретных обновлениях содержатся в соответствующих статьях базы знаний (KB) на сайте поддержки Майкрософт.  
-
-##  <a name="bkmk_Overview"></a> Общие сведения об исправлениях для Configuration Manager  
- Исправления для Configuration Manager похожи на исправления для других продуктов Майкрософт, таких как SQL Server. Они содержат одно исправление или пакет (накопительный пакет исправлений) и описываются в соответствующей статье базы знаний Майкрософт.  
-
- Отдельные обновления содержат одно конкретное обновление для определенной версии Configuration Manager.  
-Пакеты обновлений содержат несколько обновлений для определенной версии Configuration Manager.  
-Вы не можете устанавливать отдельные обновления из пакета обновлений.  
-
- Если планируется создание развертываний для установки обновлений на дополнительных компьютерах, необходимо установить пакет обновлений на сервере сайта центра администрирования или на сервере первичного сайта.  
-
- При запуске пакета обновлений происходит следующее.  
-
--   Извлекаются файлы обновления для всех применимых компонентов из пакета обновления.  
-
--   Запускается мастер, который поможет вам настроить обновления и параметры развертывания для них.  
-
--   После завершения работы мастера на сервер сайта устанавливаются все обновления в пакете, которые относятся к этому серверу сайта.  
-
-Мастер также создает развертывания, которые можно использовать для установки обновлений на дополнительные компьютеры. Развертывание обновлений на дополнительных компьютерах выполняется с помощью поддерживаемого метода развертывания, например пакета развертывания программного обеспечения или Microsoft System Center Updates Publisher 2011.  
-
- При запуске мастера он создает **CAB** -файл на сервере сайта для использования с Updates Publisher 2011. Дополнительно можно настроить мастер для создания одного или нескольких пакетов для развертывания программного обеспечения. Эти способы развертывания можно использовать для установки обновлений для компонентов, таких как клиенты или консоль Configuration Manager. Обновления также можно устанавливать вручную на компьютеры, где не запущен клиент Configuration Manager.  
-
- Можно обновлять следующие три группы в Configuration Manager:  
-
--   Роли сервера Configuration Manager, включая:  
-
-    -   Сайт центра администрирования  
-
-    -   Первичный сайт  
-
-    -   Вторичный сайт  
-
-    -   Удаленный поставщик SMS  
-
--   Консоль Configuration Manager  
-
--   Клиент Configuration Manager  
+ Se o ficheiro de correção tiver a **. update.exe** extensão de ficheiro, consulte [utilizar a ferramenta de registo de atualização para importar correções para o System Center Configuration Manager](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md).  
 
 > [!NOTE]  
->  **Обновления для ролей системы сайта** (включая обновления для базы данных сайта и облачных точек распространения) устанавливаются диспетчером компонентов сайта при обновлении серверов сайта и служб.  
+>  Este tópico fornece orientações gerais sobre como instalar correções que atualizam o System Center Configuration Manager. Para obter detalhes sobre uma atualização específica, consulte o artigo correspondente na Base de Dados de Conhecimento (KB), no Suporte da Microsoft.  
+
+##  <a name="bkmk_Overview"></a>Descrição geral de correções para o Configuration Manager  
+ Correções para o Configuration Manager são semelhantes às de outros produtos Microsoft, como o SQL Server, contêm uma correção individual ou um pacote (uma agregação de correções) e são descritas num artigo da Base de dados de Conhecimento Microsoft.  
+
+ As atualizações individuais incluem uma única atualização focada para uma versão específica do Configuration Manager.  
+Pacotes atualizados incluem várias atualizações para uma versão específica do Configuration Manager.  
+Quando uma atualização é um pacote, não é possível instalar atualizações individuais a partir desse pacote.  
+
+ Se planear criar implementações para instalar atualizações em computadores adicionais, terá de instalar o pacote de atualização num servidor do site de administração central ou num servidor do site primário.  
+
+ Quando executa o pacote de atualização, ocorrerá o seguinte:  
+
+-   Extrai os ficheiros de atualização para cada componente aplicável a partir do pacote de atualização.  
+
+-   Inicia um assistente que o orienta ao longo de um processo para configurar as atualizações e opções de implementação para as atualizações.  
+
+-   Depois de concluir o assistente, as atualizações do pacote aplicáveis ao servidor do site são instaladas no mesmo.  
+
+O assistente cria também implementações que poderá utilizar para instalar as atualizações em computadores adicionais. O utilizador implementa as atualizações em computadores adicionais ao utilizar um método de implementação suportado, como um pacote de implementação de software ou o Microsoft System Center Updates Publisher 2011.  
+
+ Quando o assistente é executado, é criado um ficheiro **.cab** no servidor do site para ser utilizado com o Updates Publisher 2011. Opcionalmente, pode configurar o assistente para também criar um ou mais pacotes para a implementação de software. Pode utilizar estas implementações para instalar atualizações de componentes, tais como clientes ou a consola do Configuration Manager. Também pode instalar atualizações manualmente em computadores que executem o cliente do Configuration Manager.  
+
+ Os seguintes três grupos no Configuration Manager podem ser atualizados:  
+
+-   O Configuration Manager funções de servidor, que incluem:  
+
+    -   Site de administração central  
+
+    -   Site primário  
+
+    -   Site Secundário  
+
+    -   Fornecedor de SMS Remoto  
+
+-   Consola do Configuration Manager  
+
+-   Cliente do Configuration Manager  
+
+> [!NOTE]  
+>  **Atualizações para funções do sistema de sites** (incluindo atualizações para a base de dados do site e pontos de distribuição baseado na nuvem) são instaladas como parte da atualização de servidores de sites e serviços pelo Gestor de componentes do site.  
 >   
->  Однако обновления точек распространения по запросу обслуживаются диспетчером распространения, а не диспетчером компонентов сайта.  
+>  No entanto, os pontos de distribuição de solicitação de atualizações são servidos pelo Gestor de distribuição em vez do Gestor de componentes do site.  
 
- Каждый пакет обновлений для Configuration Manager является самоизвлекающимся EXE-файлом (SFX), содержащим необходимые файлы для установки обновления для соответствующих компонентов Configuration Manager. Как правило, самораспаковывающийся файл может содержать следующие файлы.  
+ Cada pacote de atualização para o Configuration Manager é um ficheiro de .exe extração automática (SFX) que contém os ficheiros que são necessários para instalar a atualização nos componentes aplicáveis do Configuration Manager. Normalmente, o ficheiro SFX pode conter os seguintes ficheiros:  
 
-|Файл|Подробные сведения|  
+|Ficheiro|Detalhes|  
 |----------|-------------|  
-|&lt;Версия_продукта\>-QFE-KB&lt;ИД_статьи_базы_знаний\>-&lt;платформа\>-&lt;язык\>.exe|Это файл обновления. Для управления параметрами командной строки этого файла служит средство Updatesetup.exe.<br /><br /> Пример.<br />CM1511RTM-QFE-KB123456-X64-ENU.exe|  
-|Updatesetup.exe|Эта оболочка .msi управляет установкой пакета обновления.<br /><br /> При запуске обновления средство Updatesetup.exe определяет язык интерфейса на том компьютере, где запущено это обновление. По умолчанию языком пользовательского интерфейса для обновлений является английский. Однако если язык интерфейса поддерживается, то пользовательский интерфейс отображается на локальном языке компьютера.|  
-|License_&lt;язык\>.rtf|Если применимо, то каждое обновление содержит один или несколько файлов лицензии для поддерживаемых языков.|  
-|&lt;Продукт_и_тип_обновления>-&lt;версия_продукта\>-&lt;ИД_статьи_базы_знаний\>-&lt;платформа\>.msp|В случае применения обновления для консоли или клиентов Configuration Manager пакет обновления содержит отдельные файлы исправления для установщика Windows (с расширением MSP).<br /><br /> Пример.<br /><br /> **обновление консоли Configuration Manager:** ConfigMgr1511-AdminUI-KB1234567-i386.msp<br /><br /> **Обновление клиента:** ConfigMgr1511-client-KB1234567-i386.msp<br />ConfigMgr1511-client-KB1234567-x64.msp|  
+|&lt;Versão do produto\>- QFE-KB&lt;ID do artigo KB\>-&lt;plataforma\>-&lt;idioma\>.exe|Este é o ficheiro de atualização. A linha de comandos para este ficheiro é gerida por Updatesetup.exe.<br /><br /> Por exemplo:<br />CM1511RTM-QFE-KB123456-X 64-ENU.exe|  
+|Updatesetup.exe|Este invólucro .msi gere a instalação do pacote de atualização.<br /><br /> Ao executar a atualização, o Updatesetup.exe deteta o idioma de apresentação do computador em que é executado. Por predefinição, a interface de utilizador da atualização encontra-se em inglês. No entanto, quando o idioma de apresentação é suportado, a interface de utilizador é apresentada no idioma local do computador.|  
+|License_&lt;idioma\>.rtf|Quando aplicável, cada atualização contém um ou mais ficheiros de licença para os idiomas suportados.|  
+|&lt;Produto & tipodeatualização >-&lt;versão do produto\>-&lt;ID do artigo KB\>-&lt;plataforma\>. msp|Quando a atualização é aplicável à consola do Configuration Manager ou clientes, o pacote de atualização inclui ficheiros de patch (. msp) separados do Windows Installer.<br /><br /> Por exemplo:<br /><br /> **Atualização da consola do Configuration Manager:** ConfigMgr1511 AdminUI-KB1234567 i386.msp<br /><br /> **Atualização do cliente:** ConfigMgr1511-cliente KB1234567 i386.msp<br />ConfigMgr1511-cliente KB1234567 x64.msp|  
 
- По умолчанию пакет обновления сохраняет свои журналы в файл с расширением .log на сервере сайта. Имя этого файла журнала совпадает с именем пакета обновлений, а сам файл хранится в папке **%SystemRoot%/Temp** .  
+ Por predefinição, o pacote de atualização regista as ações num ficheiro .log no servidor do site. O ficheiro de registo tem o mesmo nome que o pacote de atualização e é escrito na pasta **%SystemRoot%/Temp** .  
 
- При запуске пакета обновления он распаковывает файл с аналогичным именем во временную папку на компьютере, а затем запускает программу Updatesetup.exe. Updatesetup.exe запускает обновление программного обеспечения для мастера Configuration Manager &lt;версия_продукта\> &lt;номер_статьи_базы_знаний\>.  
+ Quando executa o pacote de atualização, é extraído um ficheiro para uma pasta temporária com o mesmo nome que o pacote de atualização e, em seguida, Updatesetup.exe é executado. Updatesetup.exe inicia a atualização de Software para o Configuration Manager &lt;versão do produto\> &lt;número da BDC\> assistente.  
 
- В соответствии с областью применения обновления этот мастер создает ряд папок в папке установки System Center Configuration Manager на сервере сайта. Структура папок имеет следующий вид:   
- **\\\\&lt;Имя_сервера\>\SMS_&lt;код сайта\>\исправление\\&lt;номер_статьи_базы_знаний\>\\&lt;тип_обновления \>\\&lt;платформа\>**.  
+ Como aplicável ao âmbito da atualização, o assistente cria uma série de pastas sob a pasta de instalação do System Center Configuration Manager no servidor do site. A estrutura de pastas é semelhante à seguinte:   
+ **\\\\&lt;Nome do servidor\>\SMS_&lt;código do Site\>\Hotfix\\&lt;número da BDC\>\\&lt;atualizar tipo\>\\&lt;plataforma\>**.  
 
- В следующей таблице содержатся подробные сведения о папках, входящих в эту структуру папок.  
+ A tabela seguinte fornece detalhes sobre as pastas na estrutura de pastas:  
 
-|Имя папки|Дополнительные сведения|  
+|Nome da pasta|Mais informações|  
 |-----------------|----------------------|  
-|&lt;Имя_сервера\>|Это имя сервера сайта, в котором запускается пакет обновления.|  
-|SMS_&lt;код_сайта\>|Это имя общего ресурса для папки установки Configuration Manager.|  
-|&lt;Номер_статьи_базы_знаний\>|Это идентификатор статьи базы знаний, которая посвящена данному пакету обновления.|  
-|&lt;Тип_обновления\>|Это типы обновлений для Configuration Manager. Мастер создает отдельные папки для каждого из типов обновления, содержащихся в пакете обновления. Имена папок соответствуют типам обновлений. Среди них:<br /><br /> **Сервер**. Содержит обновления для серверов сайта, серверов баз данных сайта и компьютеров, на которых запущен поставщик SMS.<br /><br /> **Клиент**. Содержит обновления для клиента Configuration Manager.<br /><br /> **AdminConsole**. Содержит обновления для консоли Configuration Manager.<br /><br /> Кроме предыдущих типов обновлений, мастер также создает папку с именем **SCUP**. Эта папка не соответствует ни одному из типов обновлений, но содержит CAB-файл для Updates Publisher.|  
-|&lt;Платформа\>|Это папка, соответствующая типу платформы. Она содержит файлы обновления для конкретного типа процессора.  К таким папкам относятся:<br /><br />- x64<br /><br /> - I386|  
+|&lt;Nome do servidor\>|Este é o nome do servidor do site em que executou o pacote de atualização.|  
+|SMS _&lt;código do Site\>|Este é o nome da partilha da pasta de instalação do Configuration Manager.|  
+|&lt;Número da KB\>|Este é o número de ID do artigo da Base de Dados de Conhecimento relativo a este pacote de atualização.|  
+|&lt;Tipo de atualização\>|Estes são os tipos de atualizações do Configuration Manager. O assistente cria uma pasta separada para cada tipo de atualização contido no pacote de atualização. Os nomes das pastas representam os tipos de atualização. Estas definições incluem o seguinte:<br /><br /> **Servidor**: Inclui atualizações para servidores de sites, servidores de base de dados do site e computadores que executam o fornecedor de SMS.<br /><br /> **Cliente**: Inclui atualizações para o cliente do Configuration Manager.<br /><br /> **AdminConsole**: Inclui atualizações para a consola do Configuration Manager<br /><br /> Para além dos tipos de atualização anteriores, o assistente cria uma pasta denominada **SCUP**. Esta pasta não representa um tipo de atualização. Em vez disso, contém o ficheiro .cab para o Updates Publisher.|  
+|&lt;Plataforma\>|Esta é uma pasta específica da plataforma. Contém os ficheiros de atualização específicos de um tipo de processador.  Estas pastas incluem:<br /><br />-x64<br /><br /> -I386|  
 
-##  <a name="bkmk_Install"></a> Установка обновлений  
- Чтобы установить обновления, сначала необходимо установить пакет обновлений на сервере сайта. При установке пакета обновлений запускается мастер для его установки. Этот мастер выполняет следующие действия:  
+##  <a name="bkmk_Install"></a> Como instalar atualizações  
+ Para instalar atualizações, terá primeiro de instalar o pacote de atualização num servidor do site. Ao instalar um pacote de atualizações, este inicia um assistente de instalação para essa atualização. Este assistente faz o seguinte:  
 
--   извлекает файлы обновления;  
+-   Extrai os ficheiros de atualização  
 
--   помогает настроить развертывания;  
+-   Ajuda-o a configurar as implementações  
 
--   устанавливает применимые обновления для серверных компонентов на локальном компьютере.  
+-   Instala as atualizações aplicáveis nos componentes de servidor do computador local  
 
-После установки пакета обновления на сервере сайта можно перейти к обновлению дополнительных компонентов для Configuration Manager. В следующей таблице описаны действия по обновлению этих различных компонентов.  
+Depois de instalar o pacote de atualização num servidor do site, poderá atualizar componentes adicionais para o Configuration Manager. A tabela seguinte descreve as ações de atualização destes diversos componentes:  
 
-|Компонент|Инструкции|  
+|Componente|Instruções|  
 |---------------|------------------|  
-|Сервер сайтов|Разверните обновления на удаленном сервере сайта, если решено не устанавливать пакет обновления прямо на этот удаленный сервер сайта.|  
-|База данных сайта|При использовании удаленных серверов сайта выполните развертывание серверных обновлений, содержащих обновление для базы данных сайта, если решено не устанавливать пакет обновления прямо на этот удаленный сервер сайта.|  
-|Консоль Configuration Manager|После первоначальной установки консоли Configuration Manager можно установить обновления для консоли Configuration Manager на каждом из компьютеров, где запущена эта консоль. Установочные файлы консоли Configuration Manager невозможно изменить таким образом, чтобы эти обновления применялись в ходе первоначальной установки консоли.|  
-|Удаленный поставщик SMS|Установите обновления для каждого экземпляра поставщика SMS, запущенного на всех остальных компьютерах, кроме сервера сайта, где установлен пакет обновления.|  
-|Клиенты Configuration Manager|После первоначальной установки клиента Configuration Manager можно установить обновления для клиента Configuration Manager на каждом из компьютеров, где запущен этот клиент.|  
+|Servidor do site|Implementar as atualizações num servidor de site remoto quando não optar por instalar o pacote de atualização diretamente nesse servidor de site remoto.|  
+|Base de dados do site|Em servidores de site remotos, implemente as atualizações do servidor que incluam uma atualização da base de dados do site se não instalar o pacote de atualização diretamente nesse servidor de site remoto.|  
+|Consola do Configuration Manager|Após a instalação inicial da consola do Configuration Manager, poderá instalar atualizações para a consola do Configuration Manager em cada computador que executa a consola. Não é possível modificar os ficheiros de instalação de consola do Configuration Manager para aplicar as atualizações durante a instalação inicial da consola.|  
+|Fornecedor de SMS Remoto|Instale atualizações para cada instância do Fornecedor de SMS que seja executada num computador que não o servidor do site onde instalou o pacote de atualização.|  
+|Clientes do Configuration Manager|Após a instalação inicial do cliente do Configuration Manager, poderá instalar atualizações para o cliente do Configuration Manager em cada computador que executa o cliente.|  
 
 > [!NOTE]  
->  Обновления можно развернуть только на те компьютеры, где запущен клиент Configuration Manager.  
+>  Pode implementar atualizações apenas a computadores que executam o cliente do Configuration Manager.  
 
- В случае повторной установки клиента, консоли Configuration Manager или поставщика SMS необходимо также повторно установить обновления для этих компонентов.  
+ Se reinstalar um cliente, a consola do Configuration Manager ou o fornecedor de SMS, terá também de reinstalar as atualizações desses componentes.  
 
- Воспользуйтесь информацией в следующих разделах, чтобы выполнить установку обновлений для каждого из компонентов Configuration Manager.  
+ Utilize as informações nas secções seguintes para instalar atualizações de cada um dos componentes do Configuration Manager.  
 
-###  <a name="bkmk_servers"></a> Обновление серверов  
- Обновления для серверов могут содержать обновления для **сайтов**, **site database**и компьютеров, на которых запущен экземпляр **поставщика SMS**.  
+###  <a name="bkmk_servers"></a> Atualizar servidores  
+ As atualizações de servidores podem incluir atualizações de **sites**, da **site database**e de computadores que executem uma instância do **Fornecedor de SMS**:  
 
-####  <a name="bkmk_site"></a> Обновление сайта  
- Для обновления сайта Configuration Manager можно установить пакет обновления напрямую с сервера сайта или же развернуть обновления на сервер сайта после установки пакета обновления на другом сайте.  
+####  <a name="bkmk_site"></a>Atualizar um site  
+ Para atualizar um site do Configuration Manager, pode instalar o pacote de atualização diretamente no servidor do site ou implementar as atualizações para um servidor de site após instalar o pacote de atualização noutro site.  
 
- При установке обновления на сервер сайта процедура установки обновления управляет дополнительными действиями, необходимыми для применения обновления. Например, к ним относится обновление системных ролей сайта. Единственным исключением является база данных сайта. В следующих разделах содержится информация о процедуре обновления базы данных сайта.  
+ Ao instalar uma atualização num servidor de site, o processo de instalação da atualização gere as ações adicionais necessárias para aplicar a atualização, tais como atualizar as funções do sistema de sites. A exceção a este procedimento é a base de dados do site. A secção seguinte contém informações sobre como atualizar a base de dados do site.  
 
-####  <a name="bkmk_database"></a> Обновление базы данных сайта  
- Чтобы обновить базу данных сайта, процедура установки выполняет запуск файла с именем **update.sql** в базе данных сайта. Процедуру обновления можно настроить для автоматического обновления базы данных сайта, или же вручную обновить базу данных позже.  
+####  <a name="bkmk_database"></a>Atualizar uma base de dados do site  
+ Para atualizar a base de dados do site, o processo de instalação executa um ficheiro chamado **update.sql** na base de dados do site. Poderá configurar o processo de atualização para atualizar automaticamente a base de dados do site ou optar por atualizar manualmente a base de dados do site, mais tarde.  
 
- **Автоматическое обновление базы данных сайта**  
+ **Atualização automática da base de dados do Site**  
 
- В ходе установки пакета обновления на сервер сайта можно выбрать автоматическое обновление базы данных сайта при установке обновления для сервера. Это решение относится только к тому серверу сайта, где происходит установка обновления, и не относится к тем развертываниям, которые создаются для установки обновлений на удаленных серверах сайтов.  
+ Quando instala o pacote de atualização num servidor do site, pode optar por atualizar automaticamente a base de dados do site quando a atualização do servidor está instalada. Esta decisão aplica-se apenas ao servidor do site onde instalou o pacote de atualização e não é aplicável a implementações criadas para instalar as atualizações em servidores de site remoto.  
 
 > [!NOTE]  
->  Если выбрано автоматическое обновление базы данных сайта, эта процедура обновляет базу данных независимо от расположения базы данных (на сервере сайта или на удаленном компьютере).  
+>  Quando optar por atualizar automaticamente a base de dados do site, o processo de atualizações de uma base de dados independentemente se a base de dados está localizada no servidor do site ou num computador remoto.  
 
 > [!IMPORTANT]  
->  Создайте резервную копию базы данных сайта перед обновлением этой базы данных. Удаление обновлений базы данных сайта не допускается. Сведения о создании резервной копии Configuration Manager см. в статье [Резервное копирование и восстановление в System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+>  Antes de atualizar a base de dados do site, crie uma cópia de segurança da base de dados do site. Não é possível desinstalar uma atualização da base de dados do site. Para obter informações sobre como criar uma cópia de segurança para o Configuration Manager, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
- **Обновление базы данных сайта вручную**  
+ **Atualização manual da base de dados do Site**  
 
- Если решено не выполнять автоматическое обновление базы данных сайта в ходе установке пакета обновления на сервере сайта, то обновление сервера не изменяет базу данных на сервере сайта в ходе запуска пакета обновления. Однако база данных сайта всегда обновляется теми развертываниями, которые используют пакет, созданный для развертывания программного обеспечения, или тот пакет, который выполняет установку.  
+ Se optar por não atualizar automaticamente a base de dados do site quando instala o pacote de atualização no servidor do site, a atualização do servidor não modificar a base de dados no servidor do site onde é executado o pacote de atualização. No entanto, as implementações que utilizam o pacote criado para a implementação de software ou que instala sempre atualizam a base de dados do site.  
 
 > [!WARNING]  
->  В случае, если пакет обновлений содержит обновления для сервера сайта и базы данных сайта, он не может функционировать до тех пор, пока не завершится установка обновлений на сервер сайта и базу данных сайта. Пока обновления применяются к базе данных сайта, сам сайт находится в неподдерживаемом состоянии.  
+>  Quando a atualização inclui atualizações para o servidor do site e a base de dados do site, a atualização não é funcional até concluir a atualização para o servidor do site e a base de dados do site. Até a atualização é aplicada para a base de dados do site, o site estará num Estado não suportado.  
 
- **Обновление базы данных сайта вручную**  
+ **Para atualizar manualmente uma base de dados do site:**  
 
-1.  На сервере сайта остановите службу SMS_SITE_COMPONENT_MANAGER, а затем службу SMS_EXECUTIVE.  
+1.  No servidor do site parar o serviço SMS_SITE_COMPONENT_MANAGER e, em seguida, pare o serviço SMS_EXECUTIVE.  
 
-2.  Закройте консоль Configuration Manager.  
+2.  Feche a consola do Configuration Manager.  
 
-3.  Запустите сценарий обновления с именем **update.sql** в базе данных этого сайта. Дополнительные сведения о запуске сценария для обновления базы данных сервера SQL Server см. в документации для той версии SQL Server, которая используется в качестве сервера базы данных сайта.  
+3.  Execute o script de atualização com o nome **update.sql** na base de dados desse site. Para obter informações sobre como executar um script para atualizar uma base de dados do SQL Server, consulte a documentação para a versão do SQL Server que utilizar para o servidor de base de dados do site.  
 
-4.  Перезапустите службы, которые были остановлены на предыдущих этапах.  
+4.  Reinicie os serviços que foram interrompidos nos passos anteriores.  
 
-5.  В ходе установки пакета обновлений извлекается файл **update.sql** в следующее расположение на сервере сайта: **\\\\&lt;имя_сервера\>\SMS_&lt;код_сайта\>\исправление\\&lt;номер_статьи_базы_знаний\>\update.sql**.  
+5.  Quando o pacote de atualização é instalado, extrairá **update.sql** na seguinte localização no servidor do site:  **\\\\&lt;Nome do servidor\>\SMS_&lt;código do Site\>\Hotfix\\&lt;número da BDC\>\update.sql**  
 
-####  <a name="bkmk_provider"></a> Обновление компьютера, на котором работает поставщик SMS  
- После установки пакета обновлений, который включает в себя обновления поставщика SMS, необходимо развернуть обновление на каждом компьютере, где есть поставщик SMS. Единственное исключение — это экземпляр поставщика SMS, ранее установленный на сервере сайта, где устанавливался пакет обновлений. Локальный экземпляр поставщика SMS на сервере сайта обновляется при установке пакета обновлений.  
+####  <a name="bkmk_provider"></a>Atualizar um computador que executa o fornecedor de SMS  
+ Depois de instalar um pacote de atualização que inclui atualizações para o fornecedor de SMS, terá de implementar a atualização em cada computador que executa o fornecedor de SMS. A única exceção é a instância do Fornecedor de SMS instalada anteriormente no servidor do site onde instalou o pacote de atualizações. A instância local do fornecedor de SMS no servidor do site é atualizada quando instala o pacote de atualização.  
 
- Если удалить и затем переустановить поставщик SMS на компьютере, необходимо переустановить обновление для поставщика SMS на этом компьютере.  
+ Se remover e, em seguida, reinstalar o fornecedor de SMS num computador, tem de reinstalar a atualização para o fornecedor de SMS nesse computador.  
 
-###  <a name="BKMK_clients"></a> Обновление клиентов  
- При установке обновления, которое включает в себя обновления для клиента Configuration Manager, предоставляется возможность автоматически обновить клиенты при установке обновления или позже сделать это вручную. Дополнительные сведения о методе автоматического обновления клиентов см. в разделе [Обновление клиентов для компьютеров Windows](https://technet.microsoft.com/library/mt627885.aspx).  
+###  <a name="BKMK_clients"></a>Atualizar clientes  
+ Quando instala uma atualização que inclui atualizações para o cliente do Configuration Manager, é-lhe apresentada a opção para atualizar automaticamente os clientes com a instalação da atualização ou atualizar manualmente os clientes numa altura posterior. Para obter mais informações sobre a atualização automática de clientes, veja [Como atualizar clientes em computadores Windows](https://technet.microsoft.com/library/mt627885.aspx).  
 
- Можно развернуть обновления с помощью Updates Publisher или пакета развертывания программного обеспечения, а также вручную установить обновление на каждом клиенте. Дополнительные сведения об использовании развертывания для установки обновлений см. в разделе [Развертывание обновлений для Configuration Manager](#BKMK_Deploy) этой статьи.  
-
-> [!IMPORTANT]  
->  Если при установке обновлений для клиентов пакет обновлений включает обновления для сервера, также следует установить обновления сервера на первичном сайте, в который назначены клиенты.  
-
-Чтобы вручную установить обновление клиента, на каждом клиенте Configuration Manager необходимо запустить **Msiexec.exe** и указать нужный MSP-файл обновления.  
-
- Например, можно использовать следующую командную строку для обновления клиентов. Эта командная строка запускает MSIEXEC на клиентском компьютере и ссылается на MSP-файл, который извлекается пакетом обновления на сервере сайта: **msiexec.exe /p \\\\&lt;имя_сервера\>\SMS_&lt;код-сайта\>\исправление\\&lt;номер_статьи_базы_знаний\>\клиент\\&lt;платформа\>\\&lt;msp\> /L\*v &lt;файл_журнала\>REINSTALLMODE=mous REINSTALL=ALL**.  
-
-###  <a name="BKMK_console"></a> Обновление консолей Configuration Manager  
- Для обновления консоли Configuration Manager необходимо установить обновление на компьютере, на котором запускается консоль, после завершения установки консоли.  
+ Pode implementar atualizações com o Updates Publisher ou um pacote de implementação de software, ou pode optar por instalar manualmente a atualização em cada cliente. Para obter mais informações sobre como utilizar implementações para instalar atualizações, veja a secção [Implementar atualizações para o Configuration Manager](#BKMK_Deploy) deste tópico.  
 
 > [!IMPORTANT]  
->  Если при установке обновлений для консоли Configuration Manager пакет обновлений включает обновления для сервера, также следует установить обновления сервера на сайте, где используется эта консоль Configuration Manager.  
+>  Quando instalar atualizações de clientes e o pacote de atualização incluir atualizações de servidores, lembre-se de que também instala as atualizações de servidor no site primário ao qual os clientes são atribuídos.  
 
-Если на обновляемом компьютере выполняется клиент Configuration Manager:  
+Para instalar manualmente a atualização do cliente, em cada cliente de Configuration Manager, tem de executar **Msiexec.exe** e referenciar o ficheiro. msp de atualização de cliente específico da plataforma.  
 
--   для установки обновления можно использовать развертывание. Дополнительные сведения об использовании развертывания для установки обновлений см. в разделе [Развертывание обновлений для Configuration Manager](#BKMK_Deploy) этой статьи.  
+ Por exemplo, pode utilizar a seguinte linha de comandos para uma atualização do cliente. Esta linha de comandos executa o MSIEXEC no computador cliente e referencia o ficheiro. msp que o pacote de atualização extraiu no servidor do site: **msiexec.exe /p \\ \\ &lt;ServerName\>\SMS_&lt;SiteCode\>\Hotfix\\&lt;número da BDC\>\Client\\&lt;plataforma\>\\&lt;\\<ServerName>\sms_<sitecode>\hotfix\<KB\> /L\*v &lt;logfile\>REINSTALLMODE = mous REINSTALL = ALL**  
 
--   Если вы напрямую вошли на клиентский компьютер, то можете выполнить интерактивную установку.  
-
--   Можно также вручную установить обновление на каждом компьютере. Чтобы вручную установить обновление консоли Configuration Manager, на каждом компьютере, на котором выполняется консоль Configuration Manager, можно запустить Msiexec.exe и указать MSP-файл обновления консоли Configuration Manager.  
-
-Например, можно использовать следующую командную строку для обновления консоли Configuration Manager. Эта командная строка запускает MSIEXEC на компьютере и ссылается на MSP-файл, который извлекается пакетом обновления на сервере сайта: **msiexec.exe /p \\\\&lt;имя_сервера\>\SMS_&lt;код-сайта\>\исправление\\&lt;номер_статьи_базы_знаний\>\AdminConsole\\&lt;платформа\>\\&lt;msp\> /L\*v &lt;файл_журнала\>REINSTALLMODE=mous REINSTALL=ALL**.  
-
-##  <a name="BKMK_Deploy"></a> Развертывание обновлений для Configuration Manager  
- После установки пакета обновлений на сервере сайта вы можете развернуть эти обновления на дополнительных компьютерах, воспользовавшись одним из трех следующих способов.  
-
-###  <a name="BKMK_DeploySCUP"></a> Использование Updates Publisher 2011 для установки обновлений  
- При установке пакета обновлений на сервере сайта мастер установки создает файл каталога для Updates Publisher, который можно использовать для развертывания обновлений на подходящих компьютерах. Мастер всегда создает этот каталог, даже если установлен параметр **Использовать пакет и программу для развертывания этого обновления**.  
-
- Каталог для Updates Publisher называется **SCUPCatalog.cab**. Его можно найти в следующей папке на компьютере, на котором выполняется пакет обновлений: **\\\\&lt;имя_сервера\>\SMS_&lt;код_сайта\>\исправление\\\&lt;номер_статьи_базы_знаний\>\SCUP\SCUPCatalog.cab**.  
+###  <a name="BKMK_console"></a>Atualizar consolas do Configuration Manager  
+ Para atualizar uma consola do Configuration Manager, tem de instalar a atualização no computador que executa a consola depois de concluída a instalação da consola.  
 
 > [!IMPORTANT]  
->  Поскольку SCUPCatalog.cab создается с использованием путей, относящихся к серверу сайта, на котором устанавливается пакет обновлений, его нельзя использовать для других серверов сайта.  
+>  Quando instalar atualizações para a consola do Configuration Manager e o pacote de atualização incluir atualizações de servidores, lembre-se de que também instala as atualizações de servidor no site que utiliza com a consola do Configuration Manager.  
 
- После завершения работы мастера можно импортировать каталог в Updates Publisher, а затем использовать обновления программного обеспечения Configuration Manager для развертывания обновлений. Сведения об Updates Publisher см. в разделе [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkID=83449) в библиотеке TechNet для System Center 2012.  
+Se o computador que atualizar executar o cliente do Configuration Manager:  
 
- Используйте следующую процедуру для импорта файла SCUPCatalog.cab в Updates Publisher и публикации обновлений.  
+-   Pode utilizar uma implementação para instalar a atualização. Para obter mais informações sobre como utilizar implementações para instalar atualizações, veja a secção [Implementar atualizações para o Configuration Manager](#BKMK_Deploy) deste tópico.  
 
-##### <a name="to-import-the-updates-to-updates-publisher-2011"></a>Импорт обновлений в Updates Publisher 2011  
+-   Se tiver iniciado sessão diretamente no computador cliente, pode executar a instalação interativamente.  
 
-1.  Запустите консоль Updates Publisher и щелкните **Импортировать**.  
+-   Pode instalar manualmente a atualização em cada computador. Para instalar manualmente a atualização da consola do Configuration Manager, em cada computador que executa a consola do Configuration Manager, pode executar o Msiexec.exe e referenciar o ficheiro. msp de atualização de consola do Configuration Manager.  
 
-2.  На странице **Тип импорта** мастера импорта каталога обновлений выберите **Указать путь к каталогу для импорта**, а затем укажите файл SCUPCatalog.cab.  
+Por exemplo, pode utilizar a seguinte linha de comandos para atualizar uma consola do Configuration Manager. Esta linha de comandos executa o MSIEXEC no computador e referencia o ficheiro. msp que o pacote de atualização extraiu no servidor do site: **msiexec.exe /p \\ \\ &lt;ServerName\>\SMS_&lt;SiteCode\>\Hotfix\\&lt;número da BDC\>\AdminConsole\\&lt;plataforma\>\\&lt;\\<ServerName>\sms_<sitecode>\hotfix\<KB\> /L\*v &lt;logfile\>REINSTALLMODE = mous REINSTALL = ALL**  
 
-3.  Щелкните **Далее**, а затем снова кнопку **Далее** .  
+##  <a name="BKMK_Deploy"></a> Implementar atualizações para o Configuration Manager  
+ Depois de instalar o pacote de atualização num servidor do site, pode utilizar um dos três métodos seguintes para implementar atualizações noutros computadores.  
 
-4.  В диалоговом окне **Предупреждение безопасности — проверка каталога** нажмите кнопку **Принять**. Закройте мастер после его завершения.  
+###  <a name="BKMK_DeploySCUP"></a>Utilizar o Updates Publisher 2011 para instalar atualizações  
+ Quando instala o pacote de atualização num servidor do site, a instalação do assistente cria um ficheiro de catálogo para o Updates Publisher que pode utilizar para implementar as atualizações nos computadores aplicáveis. O assistente cria sempre este catálogo, mesmo quando o utilizador seleciona a opção **Utilizar pacote e programa para implementar esta atualização**.  
 
-5.  В консоли Updates Publisher выберите обновление, которое требуется развернуть, и щелкните **Опубликовать**.  
+ O catálogo para o Updates Publisher é designado **SCUPCatalog.cab** e pode ser encontrado na seguinte localização no computador onde é executado o pacote de atualização: **\\\\&lt;ServerName\>\SMS_&lt;SiteCode\>\Hotfix\\&lt;número da BDC\>\SCUP\SCUPCatalog.cab**  
 
-6.  На странице **Параметры публикации** мастера публикации обновлений выберите **Все содержимое**, а затем нажмите **Далее**.  
+> [!IMPORTANT]  
+>  Porque o ficheiro SCUPCatalog.cab é criado utilizando caminhos específicos para o servidor do site onde está instalado o pacote de atualização, não pode ser utilizado noutros servidores de site.  
 
-7.  Следуйте указаниям мастера для публикации обновлений.  
+ Depois de concluído o assistente, pode importar o catálogo para o Updates Publisher e, em seguida, utilizar atualizações de software do Configuration Manager para implementar as atualizações. Para obter informações sobre o Updates Publisher, consulte [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkID=83449) na Biblioteca TechNet do System Center 2012.  
 
-###  <a name="BKMK_DeploySWDist"></a> Использование развертывания программного обеспечения для установки обновлений  
- При установке пакета обновлений на сервере первичного сайта или сайта центра администрирования можно настроить мастер установки для создания пакетов обновлений для развертывания программного обеспечения. Затем можно развернуть каждый пакет в коллекции компьютеров, которую вы хотите обновить.  
+ Utilize o procedimento seguinte para importar o ficheiro SCUPCatalog.cab para o Updates Publisher e publicar as atualizações.  
 
- Для создание пакета развертывания на странице **Настройка развертывания обновления программного обеспечения** в мастере установите флажок для каждого типа пакета обновления, который вы хотите обновить. Доступные типы: серверы, консоли и клиенты Configuration Manager. Отдельный пакет создается для каждого выбранного типа обновления.  
+##### <a name="to-import-the-updates-to-updates-publisher-2011"></a>Para importar as atualizações para o Updates Publisher 2011  
+
+1.  Inicie a consola do Updates Publisher e clique em **importação**.  
+
+2.  No **tipo de importação** página a importar as atualizações de catálogo do Assistente de Software, selecione **especifique o caminho para o catálogo a importar**e, em seguida, especifique o ficheiro SCUPCatalog.cab.  
+
+3.  Clique em **seguinte**e, em seguida, clique em **seguinte** novamente.  
+
+4.  No **aviso de segurança - validação de catálogo** caixa de diálogo, clique em **aceitar**. Feche o assistente depois de estar concluído.  
+
+5.  Na consola do Updates Publisher, selecione a atualização que pretende implementar e, em seguida, clique em **publicar**.  
+
+6.  No **opções de publicação** página a publicar Software do Assistente de atualizações, selecione **conteúdo completo**e, em seguida, clique em **seguinte**.  
+
+7.  Conclua o Assistente para publicar as atualizações.  
+
+###  <a name="BKMK_DeploySWDist"></a>Utilizar a implementação de software para instalar atualizações  
+ Quando instala o pacote de atualização no servidor do site de um site primário ou site de administração central, pode configurar a instalação do Assistente para criar pacotes de atualização para implementação de software. Em seguida, pode implementar cada pacote para uma coleção de computadores que pretende atualizar.  
+
+ Para criar um pacote de implementação de software, o **configurar implementação da atualização de Software** página do assistente, selecione a caixa de verificação para a atualização de cada tipo de pacote que pretende atualizar. Os tipos disponíveis podem incluir servidores, consolas do Configuration Manager e os clientes. É criado um pacote separado para cada tipo de atualização que selecionou.  
 
 > [!NOTE]  
->  Пакет для серверов содержит обновления для следующих компонентов:  
+>  O pacote de servidores contém atualizações para os seguintes componentes:  
 >   
->  -   Сервер сайтов  
->  -   поставщика SMS  
->  -   База данных сайта  
+>  -   Servidor do site  
+>  -   Fornecedor de SMS  
+>  -   Base de dados do site  
 
- Далее на странице **Настройка метода развертывания обновления программного обеспечения** выберите параметр **Использовать распространение программного обеспечения**. При этом мастер создает пакеты развертывания программного обеспечения.  
+ Em seguida, na página **Configurar Método de Implementação de Atualização do Software** do assistente, selecione a opção **Utilizarei a distribuição de software**. Esta seleção direciona o Assistente para criar os pacotes de implementação de software.  
 
- После завершения работы мастера вы можете увидеть созданные им пакеты в консоли Configuration Manager в узле **Пакеты** области **Библиотека программного обеспечения**. Затем можно использовать стандартный процесс развертывания пакетов программного обеспечения на клиентах Configuration Manager. Когда пакет выполняется на клиенте, он устанавливает все подходящие компоненты Configuration Manager на клиентском компьютере.  
+ Depois de concluído o assistente, pode ver os pacotes criados na consola do Configuration Manager no **pacotes** no nó de **biblioteca de Software** área de trabalho. Em seguida, pode utilizar o processo padrão para implementar pacotes de software em clientes do Configuration Manager. Quando um pacote é executado num cliente, instala as atualizações para os componentes aplicáveis do Configuration Manager no computador cliente.  
 
- Сведения о развертывании пакетов на клиентах Configuration Manager см. в статье [Пакеты и программы в System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md).  
+ Para obter informações sobre como implementar pacotes nos clientes do Configuration Manager, consulte [pacotes e programas no System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md).  
 
-###  <a name="BKMK_DeployCollections"></a> Создание коллекций для развертывания обновлений в Configuration Manager  
- Отдельные обновления можно развертывать на соответствующих клиентах. Следующая информация поможет создать коллекции устройств для различных компонентов Configuration Manager.  
+###  <a name="BKMK_DeployCollections"></a>Criar coleções para implementar atualizações do Configuration Manager  
+ Pode implementar atualizações específicas em clientes aplicáveis. As seguintes informações podem ajudar a criar coleções de dispositivos para os diferentes componentes do Configuration Manager.  
 
-|Компонент Configuration Manager|Инструкции|  
+|Componente do Configuration Manager|Instruções|  
 |----------------------------------------|------------------|  
-|Сервер сайта центра администрирования|Создайте прямой запрос участия и добавьте сервер сайт центра администрирования.|  
-|Все серверы первичного сайта|Создайте прямой запрос участия и добавьте каждый сервер первичного сайта.|  
-|Все серверы вторичных сайтов|Создайте прямой запрос участия и добавьте каждый сервер вторичного сайта.|  
-|Все клиенты x86|Создайте коллекцию, включающую следующие условия запроса:<br /><br /> **Select \* from SMS_R_System inner join SMS_G_System_SYSTEM on SMS_G_System_SYSTEM.ResourceID = SMS_R_System.ResourceId where SMS_G_System_SYSTEM.SystemType = "X86-based PC"**|  
-|Все клиенты x64|Создайте коллекцию, включающую следующие условия запроса:<br /><br /> **Select \* from SMS_R_System inner join SMS_G_System_SYSTEM on SMS_G_System_SYSTEM.ResourceID = SMS_R_System.ResourceId where SMS_G_System_SYSTEM.SystemType = "X64-based PC"**|  
-|Все компьютеры, на которых запущена консоль Configuration Manager|Создайте прямой запрос участия и добавьте каждый компьютер.|  
-|Удаленные компьютеры с экземплярами поставщика SMS|Создайте прямой запрос участия и добавьте каждый компьютер.|  
+|Servidor do site de administração central|Crie uma consulta de associação direta e adicione o computador do servidor do site de administração central.|  
+|Todos os servidores primários do site|Crie uma consulta de associação direta e adicione cada computador do servidor do site primário.|  
+|Todos os servidores do site secundário|Crie uma consulta de associação direta e adicione cada computador do servidor do site secundário.|  
+|Todos os clientes x86|Crie uma coleção com os seguintes critérios de consulta:<br /><br /> **Selecione \* de SMS_R_System interna associar SMS_G_System_SYSTEM no SMS_G_System_SYSTEM. ResourceID = SMS_R_System.ResourceId onde SMS_G_System_SYSTEM. SystemType = "PC baseado em X86"**|  
+|Todos os clientes x64|Crie uma coleção com os seguintes critérios de consulta:<br /><br /> **Selecione \* de SMS_R_System interna associar SMS_G_System_SYSTEM no SMS_G_System_SYSTEM. ResourceID = SMS_R_System.ResourceId onde SMS_G_System_SYSTEM. SystemType = "PC baseado em X64"**|  
+|Todos os computadores que executam a consola do Configuration Manager|Crie uma consulta de associação direta e adicione cada computador.|  
+|Computadores remotos que executam uma instância do Fornecedor de SMS|Crie uma consulta de associação direta e adicione cada computador.|  
 
 > [!NOTE]  
->  Для обновления базы данных сайта разверните обновление на сервере этого сайта.  
+>  Para atualizar uma base de dados do site, implemente a atualização no servidor deste site.  
 
- Сведения о создании коллекций см. в статье [Создание коллекций в System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+ Para obter informações sobre como criar coleções, veja [Como criar coleções no System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  

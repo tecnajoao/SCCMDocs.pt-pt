@@ -1,6 +1,6 @@
 ---
-title: "Развертывание клиентов Mac | Документы Майкрософт"
-description: "Сведения о развертывании клиентов на компьютерах Mac в System Center Configuration Manager."
+title: Implementar os clientes Mac | Microsoft Docs
+description: Saiba como implementar clientes em computadores Mac no System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -16,313 +16,313 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 6ce212c6745b70a47553891e5dbc124b4c4e50fa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-deploy-clients-to-macs"></a>How to deploy clients to Macs
+# <a name="how-to-deploy-clients-to-macs"></a>Como implementar clientes em Mac
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этом разделе описывается развертывание и обслуживание клиента Configuration Manager на компьютерах Mac. Сведения о том, что нужно настроить перед развертыванием клиентов на компьютерах Mac, см. в разделе [Подготовка к развертыванию клиентского программного обеспечения на компьютерах Mac](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients).
+Este tópico descreve como implementar e manter o cliente do Configuration Manager em computadores Mac. Para saber mais sobre o que tem de configurar antes de implementar clientes em computadores Mac, consulte [preparar para implementar o software de cliente para Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients).
 
-При установке нового клиента для компьютеров Mac необходимо также установить обновления Configuration Manager, чтобы вывести новые сведения о клиенте в консоли Configuration Manager.
+Quando instala um novo cliente para computadores Mac, poderá ter também instala atualizações do Configuration Manager para refletir as novas informações de cliente na consola do Configuration Manager.
 
-В этих процедурах у вас есть два варианта установки сертификатов клиента. Дополнительные сведения о сертификатах клиента для Mac см. в разделе [Подготовка к развертыванию клиентского программного обеспечения на компьютерах Mac](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#certificate-requirements).  
+Estes procedimentos, tem duas opções para instalar os certificados de cliente. Saiba mais sobre certificados de cliente para Macs no [preparar para implementar o software de cliente para Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#certificate-requirements).  
 
--   Регистрация в Configuration Manager с помощью [средства CMEnroll](#install-the-client-and-then-enroll-the-client-certificate-on-the-mac). Процесс регистрации не поддерживает автоматическое продление сертификата, поэтому необходимо повторно регистрировать компьютеры Mac до истечения срока действия установленного сертификата.    
+-   Utilize o Gestor de configuração de inscrição utilizando o [ferramenta CMEnroll](#install-the-client-and-then-enroll-the-client-certificate-on-the-mac). O processo de inscrição não suporta a renovação automática de certificados, pelo que terá de reinscrever os computadores Mac antes que o certificado instalado expire.    
 
--   [Использование метода запроса и установки сертификата, который не зависит от Configuration Manager](#use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager). 
+-   [Utilize um método de pedido e instalação de certificado que seja independente do Configuration Manager](#use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager). 
 
 >[!IMPORTANT]
->  Для развертывания клиента на устройствах под управлением macOS Sierra необходимо правильно настроить имя субъекта в сертификате точки управления (например, указав полное доменное имя сервера точки управления).
+>  Para implementar o cliente para dispositivos que executem macOS Sierra, o nome do requerente do certificado de ponto de gestão tem de ser configurado corretamente, por exemplo, utilizando o FQDN do servidor de ponto de gestão.
 
 
-## <a name="configure-client-settings-for-enrollment"></a>Настройка параметров клиента для регистрации  
- Чтобы настроить регистрацию для компьютеров Mac, необходимо использовать [параметры клиента по умолчанию](../../../core/clients/deploy/about-client-settings.md). Использовать настраиваемые параметры клиента нельзя.  
+## <a name="configure-client-settings-for-enrollment"></a>Configurar as definições de cliente para inscrição  
+ Tem de utilizar o [predefinições de cliente](../../../core/clients/deploy/about-client-settings.md) para configurar a inscrição para computadores Mac; não é possível utilizar definições de cliente personalizadas.  
 
- Это действие требуется, чтобы Configuration Manager мог запрашивать и устанавливать сертификат на компьютере Mac.  
+ Isto é necessário para o Configuration Manager para pedir e instalar o certificado no Mac.  
 
-### <a name="to-configure-the-default-client-settings-for-configuration-manager-to-enroll-certificates-for-macs"></a>Настройка параметров клиента по умолчанию, чтобы Configuration Manager мог регистрировать сертификаты для компьютеров Mac  
+### <a name="to-configure-the-default-client-settings-for-configuration-manager-to-enroll-certificates-for-macs"></a>Para configurar as predefinições de cliente do Configuration Manager para inscrever certificados para Macs  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** >  **Параметры клиента** > **Параметры клиента по умолчанию**.  
+1.  Na consola do Configuration Manager, escolha **administração** >  **as definições de cliente** > **predefinições de cliente**.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  Выберите раздел **Регистрация**, а затем настройте указанные ниже параметры.  
+5.  Selecione o **inscrição** secção e, em seguida, configure estas definições:  
 
-    1.  **Разрешить пользователям регистрировать мобильные устройства и компьютеры Mac: да**  
+    1.  **Permitir que os utilizadores a inscrição de dispositivos móveis e computadores de Mac: Sim**  
 
-    2.  **Профиль регистрации**: нажмите кнопку **Задать профиль**.  
+    2.  **Perfil de inscrição:** Escolha **definir perfil**.  
 
-6.  В диалоговом окне **Профиль регистрации мобильных устройств** нажмите кнопку **Создать**.  
+6.  No **perfil de inscrição de dispositivo móvel** diálogo caixa, escolha **criar**.  
 
-7.  В диалоговом окне **Создание профиля регистрации** введите имя этого профиля регистрации, а затем настройте **код сайта управления**. Выберите первичный сайт Configuration Manager, который содержит точки управления для управления компьютерами Mac.  
+7.  Na caixa de diálogo **Criar Perfil de Inscrição** , introduza um nome para este perfil de inscrição e, em seguida, configure o **Código do site de gestão**. Selecione o site primário do Configuration Manager que contém os pontos de gestão que irão gerir estes computadores Mac.  
 
     > [!NOTE]  
-    >  Если сайт выбрать не удается, проверьте, что хотя бы одна точка управления на сайте настроена для поддержки мобильных устройств.  
+    >  Se não conseguir selecionar o site, certifique-se de que pelo menos um ponto de gestão do site está configurado para suportar dispositivos móveis.  
 
-8.  Нажмите кнопку **Добавить**.  
+8.  Escolha **adicionar**.  
 
-9. В диалоговом окне **Добавление центра сертификации для мобильных устройств** выберите сервер центра сертификации (ЦС), который будет выдавать сертификаты компьютерам Mac.  
+9. No **adicionar autoridade de certificação para dispositivos móveis** diálogo caixa, selecione o servidor de autoridade (AC) de certificação que irão emitir certificados para computadores Mac.  
 
-10. В диалоговом окне **Создание профиля регистрации** выберите шаблон сертификата для компьютера Mac, созданный в действии 3.  
+10. No **criar perfil de inscrição** caixa de diálogo, selecione o modelo que criou no passo 3 de certificados do computador Mac.  
 
-11. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Профиль регистрации**, а затем — диалоговое окно **Параметры клиента по умолчанию**.  
+11. Clique em **OK** para fechar o **perfil de inscrição** caixa de diálogo e, em seguida, o **predefinições de cliente** caixa de diálogo.  
 
     > [!TIP]  
-    >  Если требуется изменить интервал политики клиента, используйте параметр **Интервал опроса политики клиента** в группе параметров клиента **Политика клиента**.  
+    >  Se pretender alterar o intervalo de política de cliente, utilize **intervalo de consulta da política de cliente** no **política de cliente** grupo de definições de cliente.  
 
- Все пользователи будут настроены с использованием этих параметров при следующем скачивании клиентской политики. Сведения об инициации получения политики для отдельного клиента см. в статье [Инициация получения политик для клиента Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval).  
+ Todos os utilizadores serão configurados com estas definições da próxima vez que transferiram a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [iniciar a obtenção da política para um cliente do Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval).  
 
- Помимо параметров регистрации клиента, убедитесь в том, что настроены следующие параметры клиентских устройств:  
+ Além das definições de cliente de inscrição, certifique-se de que configurou as seguintes definições do dispositivo cliente:  
 
--   **Инвентаризация оборудования**: включите и настройте этот параметр, если планируется собирать данные инвентаризации оборудования с клиентских компьютеров Mac и Windows. Дополнительные сведения см. в статье [Расширение инвентаризации оборудования в System Center Configuration Manager](../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+-   **Inventário de hardware**: Ativar e configurar esta opção se pretender recolher o inventário de hardware de computadores cliente Mac e Windows. Para obter mais informações, consulte [como expandir o inventário de hardware no System Center Configuration Manager](../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
--   **Параметры соответствия**: включите и настройте этот параметр, если планируется оценивать и исправлять параметры на клиентских компьютерах Mac и Windows. Дополнительные сведения см. в статье [Планирование и настройка параметров соответствия](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
+-   **As definições de compatibilidade**: Ativar e configurar esta opção se pretender avaliar e remediar definições em computadores cliente Mac e Windows. Para obter mais informações, consulte [planear e configurar as definições de compatibilidade](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
 
 > [!NOTE]  
->  Дополнительные сведения о параметрах клиентов Configuration Manager см. в статье [Настройка параметров клиента в System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
+>  Para obter mais informações sobre definições de cliente do Configuration Manager, consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
 
-## <a name="download-the-client-source-files-for-macs"></a>Скачивание исходных файлов клиента для компьютеров Mac  
+## <a name="download-the-client-source-files-for-macs"></a>Transfira os ficheiros de origem do cliente para Macs  
 
-1.  Загрузите пакет файлов клиента Mac OS X (файл **ConfigmgrMacClient.msi**) и сохраните его на компьютере под управлением Windows.  
+1.  Transfira o pacote de ficheiros de cliente do Mac OS X, **ConfigmgrMacClient.msi**, e guarde-o num computador com o Windows.  
 
-     Этот файл отсутствует на установочном носителе Configuration Manager. Его можно загрузить в [Центре загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkID=525184).  
+     Este ficheiro não é fornecido no suporte de instalação do Configuration Manager. Pode transferir este ficheiro a partir do [Centro de Transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
 
-2.  На компьютере с ОС Windows запустите файл **ConfigmgrMacClient.msi**, чтобы извлечь пакет клиента Mac с именем Macclient.dmg в папку на локальном диске (по умолчанию это папка **C:\Program Files (x86)\Microsoft\System Center 2012 Configuration Manager Mac Client\\**).  
+2.  No computador Windows, execute **ConfigmgrMacClient.msi** para extrair o pacote de cliente Mac, Macclient.dmg para uma pasta no disco local (por predefinição **C:\Program Files (x86) \Microsoft\System Center 2012 Configuration Manager Mac Client\\**).  
 
-3.  Скопируйте файл Macclient.dmg в папку на компьютере Mac.  
+3.  Copie o ficheiro Macclient.dmg para uma pasta no computador Mac.  
 
-4.  На компьютере Mac запустите файл Macclient.dmg, чтобы извлечь его файлы в папку на локальном диске.  
+4.  No computador Mac, execute o ficheiro de Macclient.dmg para extrair os ficheiros para uma pasta no disco local.  
 
-5.  В этой папке убедитесь, что извлечены файлы Ccmsetup и CMClient.pkg, и что создана папка с именем Tools, содержащая средства CMDiagnostics,  CMUninstall, CMAppUtil и CMEnroll.
+5.  Na pasta, certifique-se de que os ficheiros Ccmsetup e CMClient.pkg foram extraídos e de que foi criada uma pasta Ferramentas que contém as ferramentas CMDiagnostics, CMUninstall, CMAppUtil e CMEnroll.
 
-    -  **Ccmsetup**: устанавливает клиент Configuration Manager на компьютерах Mac.  
+    -  **Ccmsetup**: Instala o cliente do Configuration Manager nos seus computadores Mac.  
 
-    -   **CMDiagnostics**: собирает диагностические сведения, относящиеся к клиенту Configuration Manager, на компьютерах Mac.  
+    -   **CMDiagnostics**: Recolhe informações de diagnóstico relacionadas com o cliente do Configuration Manager nos seus computadores Mac.  
 
-    -   **CMUninstall**: удаляет клиент с компьютеров Mac.  
+    -   **CMUninstall**: Desinstalar o cliente de computadores Mac.  
 
-    -   **CMAppUtil**: преобразует пакеты приложений Apple в формат, который может быть развернут как приложение Configuration Manager.  
+    -   **CMAppUtil**: Converte pacotes da aplicações Apple num formato que pode ser implementado como uma aplicação do Configuration Manager.  
 
-    -   **CMEnroll**: запрашивает и устанавливает сертификат клиента на компьютере Mac, на котором затем можно будет установить клиент Configuration Manager.   
+    -   **CMEnroll**: Pede e instala o certificado de cliente para um computador Mac, para que, em seguida, pode instalar o cliente de Configuration Manager.   
 
-## <a name="install-the-client-and-then-enroll-the-client-certificate-on-the-mac"></a>Установка клиента и регистрация сертификата клиента на компьютере Mac  
+## <a name="install-the-client-and-then-enroll-the-client-certificate-on-the-mac"></a>Instalar o cliente e, em seguida, inscrever o certificado de cliente no Mac  
 
-Вы можете зарегистрировать отдельные клиенты с помощью [мастера регистрации компьютеров Mac](#enroll-the-client-with-the-mac-computer-enrollment-wizard).
+Pode inscrever clientes individuais com o [Assistente de inscrição de computador Mac](#enroll-the-client-with-the-mac-computer-enrollment-wizard).
 
-Для автоматической регистрации большого числа клиентов используйте [средство CMEnroll](#client-and-certificate-automation-with-cmenroll).   
+Para automatização que ativa o registo de muitos clientes, utilize o [ferramenta CMEnroll](#client-and-certificate-automation-with-cmenroll).   
 
 
-###  <a name="enroll-the-client-with-the-mac-computer-enrollment-wizard"></a>Регистрация клиента с помощью мастера регистрации компьютеров Mac  
+###  <a name="enroll-the-client-with-the-mac-computer-enrollment-wizard"></a>Inscrever o cliente com o Assistente de inscrição de computador Mac  
 
-1.  После завершения установки клиента откроется мастер регистрации компьютеров. Если мастер не откроется или вы его случайно закроете, нажмите кнопку **Зарегистрировать** на странице настроек **Configuration Manager**, чтобы открыть мастер.  
+1.  Depois de concluída a instalação do cliente, é aberto o Assistente de inscrição de computador. Se o assistente não for aberto, ou se fechar inadvertidamente, clique em **inscrever** do **do Configuration Manager** página de preferências para abri-lo.  
 
-2.  На второй странице мастера укажите приведенные ниже сведения.  
+2.  Na segunda página do assistente, fornece:  
 
-    -   **Имя пользователя** — имя пользователя может быть задано в следующих форматах:  
+    -   **Nome de utilizador** - O nome de utilizador pode ser especificado nos seguintes formatos:  
 
-        -   'домен\имя’. Например: 'contoso\mnorth'  
+        -   'domínio \ nome'. Por exemplo: 'contoso\mnorth'  
 
-        -   "user@domain". Пример: "mnorth@contoso.com"  
+        -   'user@domain'. Por exemplo: 'mnorth@contoso.com'  
 
             > [!IMPORTANT]  
-            >  В случае указания адреса электронной почты при заполнении поля **Имя пользователя** Configuration Manager автоматически использует доменное имя адреса электронной почты и имя по умолчанию сервера прокси-точки регистрации для заполнения поля **Имя сервера**. Если доменное имя и имя сервера не соответствуют имени сервера прокси-точки регистрации, сообщите пользователям правильное имя, чтобы они могли ввести его при регистрации своих компьютеров Mac.  
+            >  Quando utilizar um endereço de correio eletrónico para preencher o **nome de utilizador** campo, o Configuration Manager utiliza automaticamente o nome de domínio do endereço de correio eletrónico e o nome predefinido do servidor de ponto de proxy de inscrição para preencher o **nome do servidor** campo. Se este nome de domínio e o nome do servidor não corresponder ao nome do servidor de ponto de proxy de inscrição, dizer aos utilizadores o nome correto a utilizar quando inscrever os respetivos computadores Mac.  
 
-         Имя пользователя и пароль должны соответствовать учетной записи пользователя Active Directory, которой предоставлены разрешения на чтение и запись в шаблоне сертификата клиента Mac.  
+         O nome de utilizador e a palavra-passe correspondente têm de corresponder a uma conta de utilizador do Active Directory que disponha de permissões de Leitura e Inscrição no modelo de certificado do cliente Mac.  
 
-    -   **Пароль** — введите пароль, соответствующий указанному имени пользователя.  
+    -   **Palavra-passe** -introduza uma palavra-passe correspondente ao nome de utilizador especificado.  
 
-    -   **Имя сервера** — введите имя сервера прокси-точки регистрации.  
+    -   **Nome do servidor** -introduza o nome do servidor de ponto de proxy de inscrição.  
 
 
-### <a name="client-and-certificate-automation-with-cmenroll"></a>Автоматизация операций с клиентом и сертификатами с помощью CMEnroll  
+### <a name="client-and-certificate-automation-with-cmenroll"></a>Cliente e o certificado de automatização com CMEnroll  
 
-Эта процедура позволяет автоматизировать установку клиента и запрос регистрации сертификатов клиента с помощью средства CMEnroll. Для запуска средства требуется учетная запись пользователя Active Directory.
+Utilize este procedimento para inscrição de certificados de cliente com a ferramenta CMEnroll e automatização de instalação do cliente e a pedir. Para executar a ferramenta tem de ter uma conta de utilizador do Active Directory.
 
-1.  На компьютере Mac перейдите в папку, в которую было извлечено содержимое файла Macclient.dmg.  
+1.  No computador Mac, navegue para a pasta onde extraiu o conteúdo do ficheiro Macclient.dmg.  
 
-2.  Введите следующую команду: **sudo ./ccmsetup**.  
+2.  Introduza a seguinte linha de comandos: **sudo ./ccmsetup**  
 
-3.  Подождите, пока не появится сообщение **Установка завершена** . Хотя установщик выводит сообщение о необходимости перезагрузки компьютера, не выполняйте перезагрузку, а перейдите к следующему действию.  
+3.  Aguarde até ver a mensagem **Instalação concluída** . Embora o instalador apresenta uma mensagem que tem de reiniciar agora, não reiniciar e continuar para o passo seguinte.  
 
-4.  Из папки Tools на компьютере Mac введите следующую команду: **sudo ./CMEnroll -s &lt;имя_прокси-сервера_регистрации> -ignorecertchainvalidation -u &lt;имя_пользователя'>**  
+4.  A partir da pasta Ferramentas no computador Mac, escreva o seguinte: **sudo. / CMEnroll -s &lt;nome_servidor_proxy_inscrição > - ignorecertchainvalidation -u &lt;nome de utilizador ' >**  
 
-    После установки клиента откроется мастер регистрации компьютеров Mac, служащий для упрощения этой процедуры. Чтобы зарегистрировать клиент с помощью данного метода, см. раздел [To enroll the client by using the Mac Computer Enrollment Wizard](#BKMK_EnrollR2) этой статьи.  
+    Após a instalação do cliente, o Assistente para Inscrever um Computador Mac abre para ajudá-lo a inscrever o computador Mac. Para inscrever o cliente através deste método, consulte [To enroll the client by using the Mac Computer Enrollment Wizard](#BKMK_EnrollR2) neste tópico.  
 
-5. Введите пароль для учетной записи пользователя Active Directory.  При вводе этой команды запрашивается два пароля: первый запрос — для учетной записи суперпользователя, которая необходима для выполнения команды. Второй запрос — для учетной записи пользователя Active Directory. Запросы выглядят одинаково, поэтому убедитесь в правильной последовательности ответов на них.  
+5. Escreva a palavra-passe da conta de utilizador do Active Directory.  Ao introduzir este comando, são-lhe pedidas duas palavras-passe: O primeiro pedido é para a conta de utilizador super executar o comando. O segundo pedido refere-se à conta de utilizador do Active Directory. Os pedidos parecem idênticos, por isso certifique-se de que os especifica pela sequência correta.  
 
-    Имя пользователя может быть задано в следующих форматах:  
+    O nome de utilizador pode ser especificado nos seguintes formatos:  
 
-    -   'домен\имя’. Например: 'contoso\mnorth'  
+    -   'domínio \ nome'. Por exemplo: 'contoso\mnorth'  
 
-    -   "user@domain". Пример: "mnorth@contoso.com"  
+    -   'user@domain'. Por exemplo: 'mnorth@contoso.com'  
 
-     Имя пользователя и пароль должны соответствовать учетной записи пользователя Active Directory, которой предоставлены разрешения на чтение и запись в шаблоне сертификата клиента Mac.  
+     O nome de utilizador e a palavra-passe correspondente têm de corresponder a uma conta de utilizador do Active Directory que disponha de permissões de Leitura e Inscrição no modelo de certificado do cliente Mac.  
 
-     Пример. Если сервер прокси-точки регистрации называется **server02.contoso.com**, а имя пользователя **contoso\mnorth** имеет разрешения для шаблона сертификата клиента Mac, введите следующую команду: **sudo ./CMEnroll -s server02.contoso.com -ignorecertchainvalidation -u 'contoso\mnorth'**  
+     Exemplo: Se o servidor de ponto de proxy de inscrição é denominado **server02.contoso.com**e um nome de utilizador **contoso\mnorth** ter sido concedidas permissões para o modelo de certificado de cliente Mac, escreva o seguinte: **sudo. / /cmenroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
 
     > [!NOTE]  
-    >  При наличии в имени пользователя символов **&lt;>"+=,** регистрация завершается с ошибкой. Получите сертификат аппаратного контроллера управления с именем пользователя, которое не содержит такие символы.  
+    >  Se o nome de utilizador contiver qualquer um dos carateres  **&lt;> "+ =,** inscrição irá falhar. Obtenha um certificado de fora de banda com um nome de utilizador que não contenha estes carateres.  
     >  
-    >  Для обеспечения более удобного пользовательского взаимодействия можно создать скрипт, включающий действия и команды по установке, чтобы пользователям было достаточно просто указать свои имена пользователей и пароли.  
+    >  Para assegurar uma experiência de utilizador mais estável, pode criar scripts dos passos e comandos de instalação para que os utilizadores apenas precisem de indicar o respetivo nome de utilizador e palavra-passe.  
 
-5.  Подождите, пока не появится сообщение **Регистрация выполнена успешно** .  
+5.  Aguarde até ver a mensagem **Inscrito com êxito** .  
 
-6.  Чтобы ограничить зарегистрированный сертификат рамками Configuration Manager, на компьютере Mac откройте окно терминала и внесите указанные ниже изменения.  
+6.  Para limitar o certificado inscrito para o Configuration Manager, no computador Mac, abra uma janela de terminal e efetue as seguintes alterações:  
 
-    a.  Введите команду **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
+    a.  Introduza o comando **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
 
-    б.  В диалоговом окне **Доступ к цепочке ключей** в области **Цепочки ключей** выберите **Система**, а затем в разделе **Категория** выберите **Ключи**.  
+    b.  No **acesso Keychain** caixa de diálogo a **Keychains** secção, escolha **sistema**e, em seguida, no **categoria** secção, escolha **chaves**.  
 
-    в.  Разверните ключи для просмотра сертификатов клиента. Найдите сертификат с только что установленным закрытым ключом и дважды щелкните ключ.  
+    c.  Expanda as chaves para ver os certificados do cliente. Depois de identificar o certificado com uma chave privada acabada de instalar, faça duplo clique na chave.  
 
-    г.  На вкладке **Управление доступом** выберите пункт **Подтвердить перед предоставлением доступа**.  
+    d.  No **controlo de acesso** separador, escolha **confirmar antes de permitir o acesso**.  
 
-    д.  Перейдите в папку **/Library/Application Support/Microsoft/CCM**, выберите файл **CCMClient** и нажмите кнопку **Добавить**.  
+    e.  Navegue até à **/Library/Application Support/Microsoft/CCM**, selecione **CCMClient**e, em seguida, escolha **adicionar**.  
 
-    е.  Нажмите кнопку **Сохранить изменения** и закройте диалоговое окно **Доступ к цепочке ключей**.  
+    f.  Escolha **guardar alterações** e feche o **acesso Keychain** caixa de diálogo.  
 
-7.  Перезапустите компьютер Mac.  
+7.  Reinicie o computador Mac.  
 
- Убедитесь, что клиент успешно установлен, открыв элемент **Configuration Manager** в **системных настройках** на компьютере Mac. Кроме того, можно обновить и просмотреть коллекцию **Все системы** , чтобы убедиться, что компьютер Mac теперь отображается в этой коллекции как управляемый клиент.  
+ Verifique se a instalação do cliente foi bem-sucedida abrindo o item **Configuration Manager** nas **Preferências do Sistema** do computador Mac. Pode também atualizar e ver a coleção **Todos os Sistemas** para confirmar se o computador Mac aparece nesta coleção como um cliente gerido.  
 
 > [!TIP]  
->  Для устранения неполадок клиента Mac можно использовать программу CMDiagnostics, которая включена в пакет клиента Mac OS X и собирает указанные ниже диагностические сведения.  
+>  Para ajudar a resolver problemas do cliente Mac, pode utilizar o programa CMDiagnostics incluído com o pacote de cliente de Mac OS X para recolher as informações de diagnóstico seguintes:  
 >   
->  -   Список запущенных процессов.  
-> -   Версия операционной системы Mac OS X  
-> -   Отчеты о сбоях Mac OS X, касающиеся клиента Configuration Manager, в том числе **CCM\*.crash** и **System Preference.crash**.  
-> -   BOM-файл и файл списка свойств (PLIST), созданные установкой клиента Configuration Manager.  
-> -   Содержимое папки /Library/Application Support/Microsoft/CCM/Logs.  
+>  -   Uma lista dos processos em execução  
+> -   A versão do sistema operativo Mac OS X  
+> -   Falhas do Mac OS X relatórios relacionados com o cliente do Configuration Manager, incluindo **CCM\*.crash** e **System preference**.  
+> -   O ficheiro de materiais (LM) e a propriedade lista (. plist) criados pela instalação de cliente do Configuration Manager.  
+> -   O conteúdo da pasta /Library/Application Support/Microsoft/CCM/Logs.  
 >   
->  Сведения, собранные программой CmDiagnostics, добавляются в ZIP-файл, который сохраняется на рабочем столе компьютера с именем cmdiag-*<имя узла\>***-***&gt;<дата и время\>*.zip.***
+>  As informações recolhidas pelo CmDiagnostics são adicionadas a um ficheiro zip que é guardado no ambiente de trabalho do computador com o nome*< hostname\>***-***&gt;data e hora\>*. zip.* * *
 
 
-##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Использовать запрос сертификата и способ установки, независимые от Configuration Manager  
+##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Utilize um método de pedido e instalação de certificado que seja independente do Configuration Manager  
 
-Сначала выполните следующие задачи, описываемые в разделе [Подготовка к развертыванию клиентского программного обеспечения на компьютерах Mac](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients):
+Em primeiro lugar, efetuar estas tarefas específicas de [preparar para implementar o software de cliente para Macs](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients):
 
-1. [Развертывание сертификата веб-сервера на серверах системы сайта](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#deploy-a-web-server-certificate-to-site-system-servers)
+1. [Implementar um certificado de servidor web nos servidores de sistema de sites](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#deploy-a-web-server-certificate-to-site-system-servers)
 
-2. [Развертывание сертификата проверки подлинности клиента на серверах системы сайта](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#deploy-a-client-authentication-certificate-to-site-system-servers)
+2. [Implementar um certificado de autenticação de cliente nos servidores de sistema de sites](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#deploy-a-client-authentication-certificate-to-site-system-servers)
 
-3. [Настройка точки управления и точки распространения](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#configure-the-management-point-and-distribution-point)
+3. [Configurar o ponto de gestão e o ponto de distribuição](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#configure-the-management-point-and-distribution-point)
 
-4. [Необязательно: установка точки служб отчетов](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#install-the-reporting-services-point)
+4. [Opcional: Instalar o ponto do reporting services](/sccm/core/clients/deploy/prepare-to-deploy-mac-clients#install-the-reporting-services-point)
 
-Затем выполните следующие задачи:
+Em seguida, efetue estas tarefas:
 
-5. [Скачивание исходных файлов клиента для компьютеров Mac](#download-the-client-source-files-for-macs).  
-6. Используйте инструкции для выбранного способа развертывания сертификата, чтобы запросить и установить сертификат клиента на компьютер Mac.  
-7.  Перейдите в папку, в которую было извлечено содержимое файла macclient.dmg, загруженного из Центра загрузки Майкрософт.  
+5. [Transfira os ficheiros de origem do cliente para Macs](#download-the-client-source-files-for-macs) .  
+6. Utilize as instruções que acompanham o método de implementação do certificado escolhido para solicitar e instalar o certificado de cliente no computador Mac.  
+7.  Navegue para a pasta onde extraiu o conteúdo do ficheiro macclient.dmg transferido do Centro de Transferências da Microsoft.  
 
-3.  Введите следующую команду: **sudo ./ccmsetup -MP <полное доменное имя точки управления в Интернете\> -SubjectName <значение субъекта сертификата\>**.  Значение субъекта сертификата вводится с учетом регистра. Вводите его в точности так, как оно отображается в окне сведений сертификата.  
+3.  Introduza a seguinte linha de comandos: **sudo. / ccmsetup -MP < FQDN de Internet do ponto de gestão\> - SubjectName < valor do requerente do certificado\>**.  O valor do requerente do certificado é sensível às maiúsculas e minúsculas, devendo pois escrevê-lo tal como é apresentado nos detalhes do certificado.  
 
-     Пример. Если в свойствах системы сайта указано полное доменное имя в Интернете **server03.contoso.com**, а клиентский сертификат для Mac имеет полное доменное имя **mac12.contoso.com** в качестве общего имени в субъекте сертификата, введите **sudo ./ccmsetup -MP server03.contoso.com -SubjectName mac12.contoso.com**.  
+     Exemplo: Se o FQDN de Internet nas propriedades do sistema de sites for **server03.contoso.com** e o certificado de cliente Mac tiver o FQDN **mac12.contoso.com** como nome comum no requerente do certificado, escreva: **sudo. / ccmsetup -MP server03.contoso.com - SubjectName mac12.contoso.com**  
 
-4.  Дождитесь появления сообщения **Установка завершена** , затем перезапустите компьютер Mac.  
+4.  Aguarde até ver a mensagem **Instalação concluída** e reinicie o computador Mac.  
 
-5.  Чтобы убедиться в доступности этого сертификата для Configuration Manager, на компьютере Mac откройте окно терминала и внесите указанные ниже изменения.  
+5.  Para se certificar de que este certificado é acessível ao Gestor de configuração, no computador Mac, abra uma janela de terminal e efetue estas alterações:  
 
-    a.  Введите команду **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
+    a.  Introduza o comando **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
 
-    б.  В диалоговом окне **Доступ к цепочке ключей** в области **Цепочки ключей** выберите **Система**, а затем в разделе **Категория** выберите **Ключи**.  
+    b.  No **acesso Keychain** caixa de diálogo a **Keychains** secção, escolha **sistema**e, em seguida, no **categoria** secção, escolha **chaves**.  
 
-    в.  Разверните ключи для просмотра сертификатов клиента. Найдите сертификат с только что установленным закрытым ключом и дважды щелкните ключ.  
+    c.  Expanda as chaves para ver os certificados do cliente. Depois de identificar o certificado com uma chave privada acabada de instalar, faça duplo clique na chave.  
 
-    г.  На вкладке **Управление доступом** выберите пункт **Подтвердить перед предоставлением доступа**.  
+    d.  No **controlo de acesso** separador, escolha **confirmar antes de permitir o acesso**.  
 
-    д.  Перейдите в папку **/Library/Application Support/Microsoft/CCM**, выберите файл **CCMClient** и нажмите кнопку **Добавить**.  
+    e.  Navegue até à **/Library/Application Support/Microsoft/CCM**, selecione **CCMClient**e, em seguida, escolha **adicionar**.  
 
-    е.  Нажмите кнопку **Сохранить изменения** и закройте диалоговое окно **Доступ к цепочке ключей**.  
+    f.  Escolha **guardar alterações** e feche o **acesso Keychain** caixa de diálogo.  
 
-6.  Если у вас есть несколько сертификатов, содержащих одно и то же значение субъекта, необходимо указать серийный номер сертификата, который предполагается использовать для клиента Configuration Manager. Для этого используйте следующую команду: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "<серийный номер\>"**.  
+6.  Se tiver mais de um certificado que contém o mesmo valor do requerente, tem de especificar o número de série do certificado para identificar o certificado que pretende utilizar para o cliente do Configuration Manager. Para tal, utilize o seguinte comando: **sudo defaults write com.microsoft.ccmclient SerialNumber-data "< número de série\>"**.  
 
-     Например: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "17D4391A00000003DB"**.  
+     Por exemplo: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "17D4391A00000003DB"**  
 
- Убедитесь в том, что клиент успешно установлен, открыв элемент **Configuration Manager** в **системных настройках** на компьютере Mac. Кроме того, можно обновить и просмотреть коллекцию **Все системы**, чтобы убедиться в том, что компьютер Mac отображается в этой коллекции как управляемый клиент.  
+ Certifique-se de que a instalação de cliente foi bem-sucedida abrindo o **do Configuration Manager** item em **preferências do sistema** no Mac. Pode também atualizar e ver o **todos os sistemas** coleção para confirmar que o Mac aparece nesta coleção como um cliente gerido.  
 
-## <a name="renewing-the-mac-client-certificate"></a>Продление сертификата клиента для Mac  
- Используйте следующую процедуру перед продлением сертификата компьютера на компьютерах Mac.  
+## <a name="renewing-the-mac-client-certificate"></a>Renovar o certificado do cliente Mac  
+ Utilize o procedimento seguinte antes de renovar o certificado de computador nos computadores Mac.  
 
- Эта процедура удаляет SMSID, необходимый клиенту для использования нового или продленного сертификата на компьютере Mac.  
+ Este procedimento remove o SMSID, que é necessário para que o cliente possa utilizar um certificado novo ou renovado no computador Mac.  
 
 > [!IMPORTANT]  
->  При удалении и замене SMSID клиента все сохраненные журналы клиента, такие как инвентарные данные, удаляются после удаления клиента из консоли Configuration Manager.  
+>  Quando remove e substitui o SMSID do cliente, o histórico armazenado do cliente, tais como o inventário é eliminado após a eliminação do cliente a partir da consola do Configuration Manager.  
 
-### <a name="to-renew-the-mac-client-certificate"></a>Продление сертификата клиента для Mac  
+### <a name="to-renew-the-mac-client-certificate"></a>Para renovar o certificado do cliente Mac  
 
-1.  Создайте и заполните коллекцию устройств для компьютеров Mac, на которых требуется обновить сертификаты компьютеров.  
+1.  Criar e preencher uma coleção de dispositivos para os computadores Mac que têm de renovar os certificados de computador.  
 
-2.  В рабочей области **Активы и соответствие** выберите **Запуск мастера создания элементов конфигурации**.  
+2.  Na área de trabalho **Ativos e Compatibilidade** , inicie o **Assistente de Criação de Item de Configuração**.  
 
-3.  На странице **Общие** мастера укажите следующие данные.  
+3.  Na página **Geral** do assistente, especifique as seguintes informações:  
 
-    -   **Имя:удалить SMSID для Mac**  
+    -   **Nome:Remove SMSID for Mac**  
 
-    -   **Тип:Mac OS X**  
+    -   **Tipo:Mac OS X**  
 
-4.  На странице мастера **Поддерживаемые платформы** убедитесь, что выбраны все версии Mac OS X.  
+4.  Na página **Plataformas Suportadas** do assistente, certifique-se de que estão selecionadas todas as versões do Mac OS X.  
 
-5.  На странице **Параметры** мастера щелкните **Создать** , а затем в диалоговом окне **Создание параметра** укажите следующие сведения.  
+5.  Na página **Definições** do assistente, clique em **Novo** e, na caixa de diálogo **Criar Definição** , especifique as seguintes informações:  
 
-    -   **Имя:удалить SMSID для Mac**  
+    -   **Nome:Remove SMSID for Mac**  
 
-    -   **Тип параметра:сценарий**  
+    -   **Tipo de definição:Script**  
 
-    -   **Тип данных:строковый**  
+    -   **Tipo de dados:Cadeia**  
 
-6.  В диалоговом окне **Создание параметра** в области **Сценарий обнаружения**щелкните **Добавить сценарий** , чтобы указать сценарий для обнаружения компьютеров Mac с настроенным SMSID.  
+6.  Na caixa de diálogo **Criar Definição** , em **Script de deteção**, clique em **Adicionar script** para especificar um script que deteta os computadores Mac com um SMSID configurado.  
 
-7.  В диалоговом окне **Изменение сценария обнаружения** введите следующий сценарий:  
+7.  Na caixa de diálogo **Editar Script de Deteção** , introduza o seguinte Script de Shell:  
 
     ```  
     defaults read com.microsoft.ccmclient SMSID  
     ```  
 
-8.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Изменение сценария обнаружения**.  
+8.  Escolha **OK** para fechar o **Editar Script de deteção** caixa de diálogo.  
 
-9. В диалоговом окне **Создание параметра** в области **Сценарий исправления (необязательно)** выберите команду **Добавить сценарий**, чтобы указать сценарий, который удаляет SMSID при его обнаружении на компьютерах Mac.  
+9. No **Criar definição** caixa de diálogo, para **script de remediação (opcional)**, escolha **adicionar script** para especificar um script que remove o SMSID quando localizado nos computadores Mac.  
 
-10. В диалоговом окне **Создание сценария исправления** введите следующий сценарий:  
+10. Na caixa de diálogo **Criar Script de Remediação** , introduza o seguinte Script de Shell:  
 
     ```  
     defaults delete com.microsoft.ccmclient SMSID  
     ```  
 
-11. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Создание сценария исправления**.  
+11. Escolha **OK** para fechar o **criar Script de remediação** caixa de diálogo.  
 
-12. На странице **Правила соответствия** мастера щелкните **Создать**, а затем в диалоговом окне **Создание правила** укажите приведенные ниже сведения.  
+12. No **regras de compatibilidade** página do assistente, selecione **novo**e, em seguida, no **criar regra** diálogo caixa, especifique as seguintes informações:  
 
-    -   **Имя:удалить SMSID для Mac**  
+    -   **Nome:Remove SMSID for Mac**  
 
-    -   **Выбранный параметр**: нажмите кнопку **Обзор** и выберите сценарий обнаружения, указанный ранее.  
+    -   **Definição selecionada:** Escolha **procurar** e, em seguida, selecione o script de deteção especificado anteriormente.  
 
-    -   В поле **следующих значений** введите **Домен/пара по умолчанию (com.microsoft.ccmclient, SMSID) не существует**.  
+    -   No campo **os seguintes valores** , introduza **The domain/default pair of (com.microsoft.ccmclient, SMSID) does not exist**.  
 
-    -   Включите параметр **Запустить следующий сценарий исправления, если этот параметр не соответствует требованиям**.  
+    -   Ative a opção **Executar o script de remediação especificado quando esta definição é incompatível**.  
 
-13. Завершите работу мастера создания элементов конфигурации.  
+13. Conclua o Assistente de Criação de Item de Configuração.  
 
-14. Создайте базовую конфигурацию, содержащую только что созданный элемент конфигурации, и разверните ее в коллекции устройств, созданной на шаге 1.  
+14. Crie uma linha de base de configuração que contenha o item de configuração criado recentemente e implemente-a na coleção de dispositivos criada no passo 1.  
 
-     Дополнительные сведения о создании и развертывании базовой конфигурации см. в статье [Создание шаблонов базовой конфигурации для параметров соответствия в Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md).  
+     Para obter mais informações sobre como criar e implementar linhas de base de configuração, consulte [como criar linhas de base de configuração no System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md).  
 
-15. После установки нового сертификата на компьютеры Mac с удаленным SMSID выполните следующую команду, чтобы настроить клиент для использования нового сертификата:  
+15. Após ter instalado um novo certificado nos computadores Mac cujo SMSID foi removido, execute o seguinte comando para configurar o cliente para utilizar o novo certificado:  
 
     ```  
     sudo defaults write com.microsoft.ccmclient SubjectName -string <Subject_Name_of_New_Certificate>  
     ```  
 
-16. Если у вас есть несколько сертификатов, содержащих одно и то же значение субъекта, необходимо указать серийный номер сертификата, который предполагается использовать для клиента Configuration Manager. Для этого используйте следующую команду: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "<серийный номер\>"**.  
+16. Se tiver mais de um certificado que contém o mesmo valor do requerente, em seguida, tem de especificar o número de série do certificado para identificar o certificado que pretende utilizar para o cliente do Configuration Manager. Para tal, utilize o seguinte comando: **sudo defaults write com.microsoft.ccmclient SerialNumber-data "< número de série\>"**.  
 
-     Например: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "17D4391A00000003DB"**.  
+     Por exemplo: **sudo defaults write com.microsoft.ccmclient SerialNumber -data "17D4391A00000003DB"**  
 
-17. Перезапуск.  
+17. Reinicie.  
 
 
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>Consulte também
 
-[Обслуживание клиентов Mac](/sccm/core/clients/manage/maintain-mac-clients)
+[Manutenção de clientes de Mac](/sccm/core/clients/manage/maintain-mac-clients)

@@ -1,6 +1,6 @@
 ---
-title: "Имитация развертываний приложений | Документы Майкрософт"
-description: "Оцените метод обнаружения, требования и зависимости для типа развертывания, не устанавливая приложение."
+title: "Simular implementações de aplicações | Microsoft Docs"
+description: "Avalie o método de deteção, requisitos e dependências para um tipo de implementação sem instalar a aplicação."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,40 +17,40 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: b06539ded21eac71dda7da89dae96fda7a801260
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="simulate-application-deployments-with-system-center-configuration-manager"></a>Имитация развертываний приложений в System Center Configuration Manager
+# <a name="simulate-application-deployments-with-system-center-configuration-manager"></a>Simular implementações de aplicações com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Имитацию развертывания можно использовать для проверки развертывания приложения без его установки или удаления. Имитация развертывания позволяет оценить метод обнаружения, требования и зависимости для типа развертывания. Результаты приводятся в узле **Развертывания** в рабочей области **Наблюдение**. Используйте процедуру в этом разделе для имитации развертывания приложения в System Center Configuration Manager.  
+Pode utilizar implementações simuladas para testar a implementação de uma aplicação sem instalar ou desinstalar a aplicação. Uma implementação simulada avalia o método de deteção, requisitos e dependências para um tipo de implementação. -Reporta os resultados no **implementações** o nó do **monitorização** área de trabalho. Utilize o procedimento deste tópico para simular uma implementação de aplicações no System Center Configuration Manager (Configuration Manager).  
 
 > [!NOTE]  
-> Нельзя имитировать развертывания в коллекциях мобильных устройств.  
+> Não é possível utilizar implementações simuladas em coleções de dispositivos móveis.  
 >   
-> Нельзя выполнить развертывание приложения, указав цель развертывания **Удалить** , если активна имитация развертывания этого же приложения.  
+> Não é possível implementar uma aplicação com um objetivo de implementação de **Desinstalar** se estiver ativa uma implementação simulada da mesma aplicação.  
 
-## <a name="configure-a-simulated-application-deployment"></a>Настройка имитации развертывания приложения
+## <a name="configure-a-simulated-application-deployment"></a>Configurar uma implementação da aplicação simulada
 
-1.  В консоли Configuration Manager выберите один из следующих элементов:  
-    -   Коллекция пользователей.  
-    -   Коллекция устройств.  
-    -   Приложение Configuration Manager.  
+1.  Na consola do Configuration Manager, selecione um dos seguintes:  
+    -   Uma coleção de utilizadores.  
+    -   Uma coleção de dispositivos.  
+    -   Uma aplicação do Configuration Manager.  
 
-2.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Имитировать развертывание**.  
+2.  No **home page** separador o **implementação** grupo, escolha **simular implementação**.  
 
-3.  В мастере имитации развертывания приложения укажите приведенные ниже сведения.  
+3.  No Assistente de implementação de aplicação simular, defina os seguintes detalhes para a sua implementação simulada:  
 
-    -   **Приложение**. Нажмите кнопку **Обзор** и выберите приложение, для которого требуется имитировать развертывание.  
+    -   **Aplicação**. Escolha **procurar**e, em seguida, selecione a aplicação que pretende criar uma implementação simulada.  
 
-    -   **Коллекция**. Нажмите кнопку **Обзор** и выберите коллекцию, для которой требуется имитировать развертывание.  
+    -   **Coleção**. Escolha **procurar**e, em seguida, selecione a coleção que pretende utilizar na implementação simulada.  
 
-    -   **Действие**. В раскрывающемся списке укажите, какое действие требуется имитировать — установку или удаление выбранного приложения.  
+    -   **Ação**. Na lista pendente, selecione se pretende simular a instalação ou a desinstalação da aplicação selecionada.  
 
-    -   **Развертывать автоматически независимо от того, находится ли пользователь в системе**. Если этот флажок установлен, клиенты оценивают имитацию развертывания вне зависимости от того, вошли ли они в систему.  
+    -   **Implementar automaticamente, com ou sem início de sessão do utilizador**. Se esta opção estiver marcada, os clientes avaliar a implementação simulada se ou não a sessão iniciada.  
 
-4.  Нажмите кнопку **Далее**, просмотрите сведения на странице **Сводка**, после чего завершите работу мастера, чтобы создать имитацию развертывания приложения.  
+4.  Clique em **seguinte**, reveja as informações de **resumo** página e, em seguida, conclua o Assistente para criar a implementação da aplicação simulada.  
 
-5.  Имитируемые приложения отображаются в узле **Развертывания** рабочей области **Наблюдение** с целью **Имитировать**. Дополнительные сведения о мониторинге развертывания приложений см. в разделе [Мониторинг приложений из консоли System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md).  
+5.  As aplicações simuladas são apresentadas no **implementações** o nó do **monitorização** área de trabalho, com um objetivo de **simular**. Para obter mais informações sobre como monitorizar implementações de aplicações, consulte [monitorizar aplicações a partir da consola do System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md).  

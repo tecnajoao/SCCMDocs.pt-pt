@@ -1,6 +1,6 @@
 ---
-title: "Создание приложений Windows | Документы Майкрософт"
-description: "Узнайте, какие аспекты необходимо учитывать при создании и развертывании приложений для устройств Windows."
+title: "Criar aplicações do Windows | Microsoft Docs"
+description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações em dispositivos Windows."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,53 +16,53 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9c80cc42f9ce6775067a89a9f5a63c1bf4a0c7ca
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-applications-with-system-center-configuration-manager"></a>Создание приложений Windows с помощью System Center Configuration Manager.
+# <a name="create-windows-applications-with-system-center-configuration-manager"></a>Criar aplicações do Windows com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Наряду с другими требованиями и процедурами System Center Configuration Manager по созданию приложения необходимо принять во внимание приведенные ниже аспекты, касающиеся создания и развертывания приложений для устройств Windows.  
+Para além de outros requisitos do System Center Configuration Manager e procedimentos para criar uma aplicação, terá também de ter em conta as seguintes considerações ao criar e implementar aplicações em dispositivos Windows.  
 
-## <a name="general-considerations"></a>Общие вопросы  
- Configuration Manager поддерживает развертывание перечисленных ниже типов файлов приложений.  
+## <a name="general-considerations"></a>Considerações gerais  
+ O Configuration Manager suporta a implementação dos seguintes tipos de ficheiro de aplicação:  
 
-|Тип устройства|Поддерживаемые типы файлов|  
+|Tipo de Dispositivo|Tipos de ficheiro suportados|  
 |-----------------|---------------------|  
-|Windows RT и Windows RT 8.1|*.appx, \*.appxbundle|  
-|Windows 8.1 и более поздней версии, зарегистрированное как мобильное устройство|*.appx, \*.appxbundle|  
+|Windows RT e Windows RT 8.1|*. AppX, \*. appxbundle|  
+|Windows 8.1 e posterior inscrito como um dispositivo móvel|*. AppX, \*. appxbundle|  
 
- Поддерживаются следующие действия развертывания.  
+ As seguintes ações de implementação são suportadas:  
 
-|Тип устройства|Поддерживаемые действия|  
+|Tipo de Dispositivo|Ações suportadas|  
 |-----------------|-----------------------|  
-|Windows 8.1 и более поздние версии|доступно, необходимо, удаление|  
-|Windows RT|доступно, необходимо, удаление|  
+|Windows 8.1 e posterior|disponível, necessário, desinstalar|  
+|Windows RT|disponível, necessário, desinstalar|  
 
-## <a name="support-for-universal-windows-platform-uwp-apps"></a>Поддержка приложений универсальной платформы Windows (UWP)  
- Устройствам Windows 10 не нужен ключ для загрузки неопубликованных приложений, чтобы устанавливать бизнес-приложения. Однако, чтобы загрузка неопубликованных приложений была разрешена, в разделе реестра **HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Appx\AllowAllTrustedApps** должно быть установлено значение 1.  
+## <a name="support-for-universal-windows-platform-uwp-apps"></a>Suporte para aplicações da Plataforma Universal do Windows (UWP)  
+ Dispositivos Windows 10 não requerem uma chave de sideload para instalar aplicações de linha de negócio. Para efetuar sideload ser ativada, no entanto, a chave de registo **HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Appx\AllowAllTrustedApps** tem de ter um valor de 1.  
 
- Если этот раздел реестра не настроен, Configuration Manager автоматически присваивает этому параметру значение **1** при первом развертывании приложения на устройстве. Если вы задали значение **0**, то Configuration Manager не может автоматически изменить его, а развертывание бизнес-приложений будет завершаться ошибкой.  
+ Se esta chave de registo não estiver configurada, o Configuration Manager configura automaticamente este valor **1** pela primeira vez implementa uma aplicação no dispositivo. Se tiver definido este valor como **0**, Configuration Manager não pode alterar automaticamente o valor e a implementação de aplicações de linha de negócio falhará.  
 
- Бизнес-приложения универсальной платформы Windows должны быть подписаны с помощью сертификата подписи кода, который является доверенным для каждого устройства, на котором развертывается приложение. Вы можете использовать сертификаты из собственной инфраструктуры PKI или сертификат из стороннего открытого корневого сертификата, установленного на устройстве.  
+ Aplicações de linha de negócio da plataforma Windows universal tem de ser assinadas com um certificado de assinatura de código considerado fidedigno em cada dispositivo em que a aplicação é implementada. Pode utilizar certificados a partir de uma infraestrutura PKI interna ou um certificado a partir de um certificado de raiz público de terceiros instalado no dispositivo.  
 
- На устройствах Windows 10 Mobile можно использовать сертификат подписи кода не от Symantec для подписи универсальных приложений **APPX** . Для приложений **XAP** , а также пакетов **APPX** , созданных для Windows Phone 8.1, которые требуется установить на устройствах Windows 10 Mobile, необходимо использовать сертификат подписи кода Symantec.  
+ Em dispositivos Windows 10 Mobile, pode utilizar um certificado de assinatura de código não Symantec para assinar aplicações **.appx** universais. Para aplicações **.xap** e pacotes **.appx** incorporados para o Windows Phone 8.1 que pretende instalar em dispositivos Windows 10 Mobile, tem de utilizar um certificado de assinatura de código da Symantec.  
 
-## <a name="deploy-windows-installer-apps-to-enrolled-windows-10-pcs"></a>Развертывание приложений установщика Windows на зарегистрированных компьютерах с Windows 10  
- Тип установщика **Установщик Windows через MDM (\*.msi)** позволяет создавать и развертывать приложения на основе установщика Windows на зарегистрированных ПК под управлением Windows 10.  
+## <a name="deploy-windows-installer-apps-to-enrolled-windows-10-pcs"></a>Implementar aplicações do Windows Installer em PCs Windows 10 inscritos  
+ O **do Windows Installer através de MDM (\*. msi)** tipo de instalador permite-lhe criar e implementar aplicações baseadas no Windows Installer em PCs inscritos que executam o Windows 10.  
 
- При использовании этого типа установщика необходимо учитывать следующее.  
+ As considerações seguintes são aplicáveis quando utiliza este tipo de instalador:  
 
--   Можно передать только один файл с расширением MSI.  
+-   Só pode carregar um único ficheiro com a extensão .msi.  
 
--   Код продукта файла и версия продукта используются для обнаружения приложения.  
+-   O código de produto do ficheiro e a versão do produto são utilizados para deteção da aplicação.  
 
--   Перезапуски приложения осуществляются в режиме, установленном по умолчанию. Configuration Manager не контролирует эти функциональные возможности.  
+-   É utilizado o comportamento de reinício predefinido da aplicação. O Configuration Manager não controla este procedimento.  
 
--   Пакеты MSI на уровне пользователя устанавливаются для одного пользователя.  
+-   Por utilizador MSI são instalados pacotes para um único utilizador.  
 
--   Пакеты MSI на уровне компьютера устанавливаются для всех пользователей устройства.  
+-   Por máquina, são instalados pacotes MSI para todos os utilizadores do dispositivo.  
 
--   Поддерживаются все обновления, если коды продукта MSI всех версий совпадают.  
+-   As atualizações de aplicações são suportadas quando o código de produto MSI de cada versão for igual.  

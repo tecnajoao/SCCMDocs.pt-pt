@@ -1,6 +1,6 @@
 ---
-title: "Инструмент подключения службы | Документация Майкрософт"
-description: "Сведения об инструменте, который позволяет подключаться к облачной службе Configuration Manager, чтобы вручную отправить сведения об использовании."
+title: "Ferramenta de ligação de serviço | Microsoft Docs"
+description: "Saiba mais sobre esta ferramenta que permite-lhe ligar ao serviço de nuvem do Configuration Manager para carregar manualmente as informações de utilização."
 ms.custom: na
 ms.date: 4/7/2017
 ms.prod: configuration-manager
@@ -16,147 +16,147 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0da80521bf223a765c3731f8ad59623d85a4c9fa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Использование инструмента подключения службы для System Center Configuration Manager
+# <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Используйте **инструмент подключения службы**, если точка подключения службы находится в автономном режиме либо серверы системы сайта Configuration Manager не подключены к Интернету. Этот инструмент позволяет получить последние обновления Configuration Manager для сайта.  
+Utilize o **ferramenta de ligação de serviço** quando o ponto de ligação de serviço está no modo offline, ou quando os servidores de sistema de sites do Configuration Manager não estiverem ligados à Internet. A ferramenta pode ajudar a manter o site atualizados com as atualizações mais recentes do Configuration Manager.  
 
-При запуске инструмент вручную подключается к облачной службе Configuration Manager, чтобы отправить сведения об использовании для вашей иерархии и скачать обновления. Отправка данных об использовании необходима для того, чтобы облачная служба могла предоставить правильные обновления для вашего развертывания.  
+Quando executada, a ferramenta manualmente estabelece ligação ao serviço de nuvem do Configuration Manager para carregar as informações de utilização para a sua hierarquia e para transferir as atualizações. O carregamento dos dados de utilização é necessário para permitir ao serviço em nuvem fornecer as atualizações corretas para a sua implementação.  
 
-## <a name="prerequisites-for-using-the-service-connection-tool"></a>Необходимые условия для использования средства подключения службы
-Ниже приведены необходимые условия и известные проблемы.
+## <a name="prerequisites-for-using-the-service-connection-tool"></a>Pré-requisitos para utilizar a ferramenta de ligação de serviço
+Seguem-se os pré-requisitos e problemas conhecidos.
 
-**Необходимые условия**
+**Pré-requisitos:**
 
--   В среде установлена точка подключения службы, и для нее задано значение **Автономный режим, подключение по требованию**.  
+-   Ter um ponto de ligação de serviço instalado e definido como **Offline, ligação a pedido**.  
 
--   Средство необходимо запускать из командной строки.  
+-   A ferramenta tem de ser executada a partir de uma linha de comandos.  
 
--   На каждом компьютере, где запускается это средство (компьютер точки подключения службы и компьютер, который подключен к Интернету), должна быть установлена система x64 и следующее.  
+-   Cada computador onde a ferramenta é executada (o computador do ponto de ligação de serviço e o computador que está ligado à Internet) tem de ser um sistema de x64 bits e tem de ter os seguintes elementos instalados:  
 
-    -   Файлы **распространяемого компонента Visual C++** x86 и x64.   По умолчанию Configuration Manager устанавливает версию x64 на компьютер, где размещается точка подключения службы.  
+    -   Os ficheiros do **Visual C++ Redistributable** , tanto x86 como x64.   Por predefinição, o Configuration Manager instala o x64 versão no computador que aloja o ponto de ligação de serviço.  
 
-         Чтобы скачать копию файлов Visual C++, перейдите на страниц [Распространяемые пакеты Visual C++ для Visual Studio 2013](http://www.microsoft.com/download/details.aspx?id=40784) в Центре загрузки Майкрософт.  
+         Para transferir uma cópia dos ficheiros do Visual C++, visite a página [Visual C++ Redistributable Packages for Visual Studio 2013](http://www.microsoft.com/download/details.aspx?id=40784) no Centro de Transferências da Microsoft.  
 
-    -   .NET Framework 4.5.2 или более поздней версии.  
+    -   .NET Framework 4.5.2 ou posterior.  
 
--   Учетная запись, используемая для запуска инструмента, должна иметь разрешения:
-    -   **локального администратора** на том компьютере, на котором размещается точка подключения службы (где запускается этот инструмент);
-    -   **Чтение** для базы данных сайта.  
-
-
-
--   Вам потребуется USB-накопитель, обладающий достаточным объемом свободного пространства для хранения файлов и обновлений, или другой способ передачи файлов между компьютером точки подключения службы и компьютером, имеющим доступ к Интернету. (В этом сценарии предполагается, что ваш сайт и управляемые компьютеры не имеют прямого подключения к Интернету.)  
+-   A conta que utiliza para executar a ferramenta tem de ter:
+    -   Permissões de**administrador local** no computador que aloja o ponto de ligação de serviço (onde a ferramenta é executada).
+    -   Permissões de**Leitura** para a base de dados do site.  
 
 
 
-## <a name="use-the-service-connection-tool"></a>Использование инструмента подключения службы  
-
- Инструмент подключения службы (**serviceconnectiontool.exe**) находится в папке **%path%\smssetup\tools\ServiceConnectionTool** на установочном носителе Configuration Manager. Всегда используйте инструмент подключения службы, соответствующий используемой версии Configuration Manager.
+-   É necessário uma pen USB com espaço livre suficiente para armazenar ficheiros e atualizações ou outro método para transferir ficheiros entre o computador do ponto de ligação de serviço e o computador que tem acesso à Internet. (Este cenário pressupõe que o site e os computadores geridos não têm uma ligação direta à Internet).  
 
 
- В этой процедуре пример командной строки использует следующие имена файлов и расположения папок (вам не нужно использовать эти пути и имена файлов, используйте вместо них те значения, которые соответствуют вашей среде и предпочтениям):  
 
--   Путь к USB-носителю, где хранятся данные для передачи между серверами: **D:\USB\\**.  
+## <a name="use-the-service-connection-tool"></a>Utilizar a ferramenta de ligação de serviços  
 
--   Имя CAB-файла с данными, экспортированными с сайта: **UsageData.cab**.  
+ Pode encontrar a ferramenta de ligação de serviço (**serviceconnectiontool.exe**), no suporte de instalação do Configuration Manager no **%path%\smssetup\tools\ServiceConnectionTool** pasta. Utilize sempre a ferramenta de ligação de serviço que corresponde à versão do Configuration Manager que utilizar.
 
--   Имя пустой папки, где будут храниться загруженные обновления для Configuration Manager, предназначенные для передачи между серверами: **UpdatePacks**.  
 
-На компьютере, где размещается точка подключения службы, выполните следующие действия:  
+ Neste procedimento, os exemplos da linha de comandos utilizam os seguintes nomes de ficheiros e localizações de pastas (não é necessário utilizar estes caminhos e nomes de ficheiros e, em vez disso, pode utilizar alternativas que correspondam ao seu ambiente e preferências):  
 
--   Откройте командную строку с правами администратора, а затем перейдите к папке, содержащей файл **serviceconnectiontool.exe**.  
+-   O caminho para uma pen USB onde os dados são armazenados para transferência entre servidores:  **D:\USB\\**  
 
-     По умолчанию это средство находится в папке **%path%\smssetup\tools\ServiceConnectionTool** установочного носителя Configuration Manager. Для правильной работы средства подключения службы все файлы в этой папке должны находиться именно в ней, без разнесения по вложенным папкам.  
+-   O nome do ficheiro. cab que contém dados exportados a partir do seu site: **UsageData.cab**  
 
-При выполнении следующей команды инструмент подготавливает CAB-файл, содержащий сведения об использовании, и копирует его в указанное расположение. Данные CAB-файла формируются согласно уровню диагностических данных об использовании, сбор которых настроен для веб-сайта. (См. статью [Данные о диагностике и использовании для System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).)  Выполните следующую команду для создания CAB-файла.  
+-   O nome da pasta vazia onde serão armazenadas as atualizações para o Configuration Manager para transferência entre servidores: **UpdatePacks**  
+
+No computador que aloja o ponto de ligação de serviço:  
+
+-   Abra uma linha de comandos com privilégios administrativos e, em seguida, mude de diretório para a localização que contém **serviceconnectiontool.exe**.  
+
+     Por predefinição, pode encontrar esta ferramenta no suporte de instalação do Configuration Manager no **%path%\smssetup\tools\ServiceConnectionTool** pasta. Todos os ficheiros nesta pasta têm de estar na mesma pasta para que a ferramenta de ligação de serviço funcione.  
+
+Ao executar o seguinte comando, a ferramenta prepara um ficheiro. cab que contém informações de utilização e copia-as para a localização que especificar. Os dados no ficheiro. cab baseiam-se no nível de dados de utilização de diagnóstico que o seu site estiver configurado para recolher. (veja [Dados de diagnóstico e de utilização para o System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md)).  Execute o seguinte comando para criar o ficheiro. cab:  
 
 -   **serviceconnectiontool.exe -prepare -usagedatadest D:\USB\UsageData.cab**  
 
-Кроме того, необходимо будет скопировать папку ServiceConnectionTool со всем содержимым на USB-накопитель или иным способом сделать ее доступной на компьютере, который будет использоваться для шагов 3 и 4.  
+Também terá da copiar a pasta ServiceConnectionTool com todo o conteúdo para a unidade USB ou pode disponibilizá-la no computador que irá utilizar para os passos 3 e 4.  
 
-### <a name="overview"></a>Обзор
-**Использование средства подключения к службе включает три основных шага:**  
+### <a name="overview"></a>Descrição Geral
+**Existem três passos principais para utilizar a ferramenta de ligação de serviço:**  
 
-1.  **Подготовка**. Этот шаг нужно выполнять на компьютере, где размещается точка подключения службы. При запуске инструмент помещает данные об использовании в CAB-файл и сохраняет его на USB-накопителе (или в указанном вами альтернативном расположении передачи).  
+1.  **Preparar**:  Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando a ferramenta é executada coloca os dados de utilização num ficheiro. cab e armazena-a numa unidade USB (ou localização de transferência alternativa que especificar).  
 
-2.  **Подключение**. На этом шаге вы запускаете инструмент на удаленном компьютере, который подключается к Интернету, чтобы вы могли отправить данные об использовании и скачать обновления.  
+2.  **Ligar**: Para este passo, execute a ferramenta num computador remoto que liga à Internet para que possa carregar os dados de utilização e, em seguida, transferir as atualizações.  
 
-3.  **Импорт**. Этот шаг нужно выполнять на компьютере, где размещается точка подключения службы. При запуске инструмент импортирует скачанные обновления и добавляет их на сайт для последующего просмотра и установки из консоли Configuration Manager.  
+3.  **Importar**: Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando executada, a ferramenta importa que transferiu e adiciona-os para o seu site para que possa ver e instalar essas atualizações a partir da consola do Configuration Manager.  
 
-Начиная с версии 1606, при подключении к системам Майкрософт можно за один раз отправить несколько CAB-файлов (из разных иерархий) и указать прокси-сервер и пользователя для прокси-сервера.   
+A partir da versão 1606, quando ligar à Microsoft, pode carregar vários ficheiros .cab ao mesmo tempo (cada um deles a partir de uma hierarquia diferente) e especificar um servidor proxy e um utilizador para o servidor proxy.   
 
-**Отправка нескольких CAB-файлов**
- -  Поместите все CAB-файлы, экспортированные из отдельных иерархий, в одну папку. Имя каждого файла должно быть уникальным (при необходимости их можно переименовать вручную).
- -  Затем при выполнении команды для отправки данных в Майкрософт укажите папку, содержащую CAB-файлы. (До обновления 1606 одновременно можно было передавать данные только из одной иерархии, кроме того, средство требовало указывать имя CAB-файла в папке.)
- -  Позже, при запуске задачи импорта в точке подключения службы иерархии, средство автоматически импортирует только данные для этой иерархии.  
+**Para carregar vários ficheiros .cab:**
+ -  Coloque cada ficheiro .cab que exportar de hierarquias separadas na mesma pasta. O nome de cada ficheiro tem de ser exclusivo e pode mudar o nomes do mesmo manualmente, se necessário.
+ -  Em seguida, ao executar o comando para carregar dados para a Microsoft, especifique a pasta que contém os ficheiros .cab. (Antes da atualização 1606, só podia carregar dados de uma única hierarquia de cada vez e a ferramenta necessários para especificar o nome do ficheiro .cab na pasta.)
+ -  Mais tarde, quando executar a tarefa de importação no ponto de ligação de serviço de uma hierarquia, a ferramenta só importa automaticamente os dados para essa hierarquia.  
 
-**Указание прокси-сервера**  
-Чтобы указать прокси-сервер, можно использовать следующие необязательные параметры (дополнительные сведения об использовании этих параметров см. в разделе "Параметры командной строки" этой статьи):
-  - **-proxyserveruri [полное_доменное_имя_прокси-сервера]**  — с помощью этого параметра указывается прокси-сервер для этого подключения.
-  -  **-proxyusername [имя_пользователя]**  — с помощью этого параметра указывается имя пользователя для прокси-сервера.
+**Para especificar um servidor proxy:**  
+Pode utilizar os seguintes parâmetros opcionais para especificar um servidor proxy (mais informações sobre como utilizar estes parâmetros estão disponíveis na secção Parâmetros de linha de comandos deste tópico):
+  - **-proxyserveruri [FQDN_of_proxy_sever]**  Utilize este parâmetro para especificar o servidor proxy a utilizar para esta ligação.
+  -  **-proxyusername [username]**  Utilize este parâmetro quando tiver de especificar um utilizador para o servidor proxy.
 
 
 
-### <a name="to-use-the-service-connection-tool"></a>Использование средства подключения службы  
+### <a name="to-use-the-service-connection-tool"></a>Para utilizar a ferramenta de ligação de serviço  
 
-1.  На компьютере, где размещается точка подключения службы, выполните следующие действия:  
+1.  No computador que aloja o ponto de ligação de serviço:  
 
-    -   Откройте командную строку с правами администратора, а затем перейдите к папке, содержащей файл **serviceconnectiontool.exe**.   
+    -   Abra uma linha de comandos com privilégios administrativos e, em seguida, mude de diretório para a localização que contém **serviceconnectiontool.exe**.   
 
-2.  Выполните следующую команду для подготовки CAB-файла, содержащего сведения об использовании, и копирования его в указанное расположение:  
+2.  Execute o seguinte comando para que a ferramenta prepare um ficheiro .cab que contém informações de utilização e o copie para a localização que especificar:  
 
     -   **serviceconnectiontool.exe -prepare -usagedatadest D:\USB\UsageData.cab**  
 
-    Если вы одновременно отправляете CAB-файлы из нескольких иерархий, каждый CAB-файл в папке должен иметь уникальное имя. Можно вручную переименовать файлы, добавляемые в папку.
+    Se for carregar ficheiros .cab a partir de mais do que uma hierarquia em simultâneo, cada ficheiro .cab na pasta tem de ter um nome exclusivo. Pode mudar o nome dos ficheiros que adicionar à pasta manualmente.
 
-    Если вы хотите просмотреть сведения об использовании, собранные для отправки в облачную службу Configuration Manager, выполните следующую команду, чтобы экспортировать эти данные в CSV-файл, который затем можно просмотреть с помощью такого приложения, как Microsoft Excel:  
+    Se pretender ver as informações de utilização recolhidas para serem carregadas para o serviço em nuvem do Configuration Manager, execute o comando seguinte para exportar os mesmos dados como um ficheiro .csv que pode ver, em seguida, com uma aplicação como o Excel:  
 
     -   **serviceconnectiontool.exe -export -dest D:\USB\UsageData.csv**  
 
-3.  По завершении шага подготовки подключите USB-накопитель к компьютеру с доступом к Интернету или перенесите экспортированные данные другим способом.  
+3.  Quando o passo de preparação estiver concluído, coloque a pen USB (ou transfira os dados exportados através de outro método) num computador que tenha acesso à Internet.  
 
-4.  На компьютере с доступом в Интернет откройте командную строку с правами администратора и перейдите в папку, содержащую копию средства  **serviceconnectiontool.exe** и другие файлы из этой папки.  
+4.  No computador com acesso à Internet, abra uma linha de comandos com privilégios administrativos e, em seguida, mude de diretório para a localização que contém uma cópia da ferramenta  **serviceconnectiontool.exe** e os ficheiros adicionais dessa pasta.  
 
-5.  Выполните следующую команду, чтобы начать отправку сведений об использовании и скачивание обновлений для Configuration Manager:  
+5.  Execute o seguinte comando para iniciar o carregamento de informações de utilização e a transferência de atualizações para o Configuration Manager:  
 
-    -   **serviceconnectiontool.exe -connect -usagedatasrc D:\USB -updatepackdest D:\USB\UpdatePacks**
+    -   **serviceconnectiontool.exe-connect - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
 
-    Дополнительные примеры этой командной строки см. в подразделе [Параметры командной строки](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) этого раздела.
+    Para obter mais exemplos desta linha de comandos, veja a secção [Opções de linha de comandos](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) mais à frente neste tópico.
 
     > [!NOTE]  
-    >  При выполнении команды для подключения к облачной службе Configuration Manager может возникнуть ошибка, аналогичная приведенной ниже:  
+    >  Quando executa a linha de comandos para ligar ao serviço em nuvem do Configuration Manager, poderá ocorrer um erro semelhante ao seguinte:  
     >   
-    >  -   Необработанное исключение: System.UnauthorizedAccessException:  
+    >  -   Exceção não processada: System. unauthorizedaccessexception:  
     >   
-    >      Доступ к пути "C:\  
-    >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql" запрещен.  
+    >      O acesso ao caminho "C:\  
+    >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql" foi negado.  
     >   
-    > Вы можете без опасений проигнорировать эту ошибку, закрыть окно ошибки и продолжить работу.  
+    > Este erro pode ser ignorado com segurança e pode fechar a janela de erro e continuar.  
 
-6.  После завершения скачивания обновлений для Configuration Manager подключите USB-накопитель к компьютеру, на котором размещается точка подключения службы, или перенесите экспортированные данные другим способом.  
+6.  Após a conclusão da transferência das atualizações para o Configuration Manager, coloque a unidade USB (ou transfira os dados exportados através de outro método) no computador que aloja o ponto de ligação de serviço.  
 
-7.  На компьютере, где размещается точка подключения службы, откройте командную строку с правами администратора, перейдите к папке, содержащей файл **serviceconnectiontool.exe**, а затем выполните следующую команду:  
+7.  No computador que aloja o ponto de ligação de serviço, abra uma linha de comandos com privilégios administrativos, mude de diretório para a localização que contém **serviceconnectiontool.exe**e execute o seguinte comando:  
 
     -   **serviceconnectiontool.exe -import -updatepacksrc D:\USB\UpdatePacks**  
 
-8.  После завершения импорта командную строку можно закрыть. (Импортируются только обновления для соответствующей иерархии.)  
+8.  Quando a importação estiver concluída, pode fechar a linha de comandos. (Apenas são importadas atualizações para a hierarquia aplicável).  
 
-9. Откройте консоль Configuration Manager и последовательно выберите **Администрирование** > **Обновления и обслуживание**. Импортированные обновления теперь доступны для установки. (До версии 1702 раздел "Обновления и обслуживание" находился в узле **Администрирование** > **Облачные службы**.)
+9. Abra a consola do Configuration Manager e navegue para **administração** > **atualizações e manutenção**. As atualizações que foram importadas estão agora disponíveis para instalação. (Antes da versão 1702, atualizações e manutenção estava **administração** > **serviços em nuvem**.)
 
- Дополнительные сведения см. в статье [Установка обновлений в консоли для System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
+ Para obter informações sobre como instalar atualizações, veja [Instalar atualizações na consola para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
 
-## <a name="bkmk_cmd"></a> Параметры командной строки  
- Чтобы просмотреть справку для средства подключения службы, откройте командную строку из папки, содержащей это средство, и выполните команду:  **serviceconnectiontool.exe**.  
+## <a name="bkmk_cmd"></a> Opções de linha de comandos  
+ Para ver informações de ajuda relativas à ferramenta de ponto de ligação de serviço, abra a linha de comandos para a pasta que contém a ferramenta e execute o comando:  **serviceconnectiontool.exe**.  
 
-|Параметры командной строки|Подробные сведения|  
+|Opções da linha de comandos|Detalhes|  
 |---------------------------|-------------|  
-|**-prepare -usagedatadest [диск:][путь][имя_файла.cab]**|Эта команда сохраняет текущие данные об использовании в CAB-файл.<br /><br /> Выполните эту команду с правами **локального администратора** на сервере, где размещается точка подключения службы.<br /><br /> Пример:   **-prepare -usagedatadest D:\USB\Usagedata.cab**|    
-|**-connect -usagedatasrc [диск:][путь] -updatepackdest [диск:][путь] -proxyserveruri [полное_доменное_имя_прокси-сервера] -proxyusername [имя_пользователя]** <br /> <br /> При использовании версии Configuration Manager, предшествующей 1606, необходимо указать имя CAB-файла и нельзя использовать параметры для прокси-сервера.  Поддерживаются следующие параметры команды: <br /> **-connect -usagedatasrc [диск:][путь][имя_файла] -updatepackdest [диск:][путь]** |Эта команда устанавливает подключение к облачной службе Configuration Manager для отправки CAB-файлов с данными об использовании из указанного расположения и для загрузки доступных пакетов обновления и содержимого консоли. Параметры для прокси-сервера указывать необязательно.<br /><br /> Выполните эту команду с правами **локального администратора** на компьютере, имеющем подключение к Интернету.<br /><br /> Пример для подключения без прокси-сервера: **-connect -usagedatasrc D:\USB\ -updatepackdest D:\USB\UpdatePacks** <br /><br /> Пример для подключения при использовании прокси-сервера: **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks -proxyserveruri itgproxy.redmond.corp.microsoft.com -proxyusername Meg** <br /><br /> При использовании версии до 1606 необходимо указывать имя CAB-файла, кроме того, недоступны параметры для прокси-сервера. Выполните следующую командную строку (пример): **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks**.|      
-|**-import -updatepacksrc [диск:][путь]**|Эта команда импортирует пакеты обновления и содержимое консоли, которые были ранее скачаны в консоль Configuration Manager.<br /><br /> Выполните эту команду с правами **локального администратора** на сервере, где размещается точка подключения службы.<br /><br /> Пример:  **-import -updatepacksrc D:\USB\UpdatePacks**|  
-|**-export -dest [диск:][путь][имя_файла.csv]**|Эта команда экспортирует данные об использовании в CSV-файл, который затем можно просмотреть.<br /><br /> Выполните эту команду с правами **локального администратора** на сервере, где размещается точка подключения службы.<br /><br /> Пример: **-export -dest D:\USB\usagedata.csv**|  
+|**-prepare -usagedatadest [drive:][path][filename.cab]**|Este comando armazena os dados de utilização atuais num ficheiro .cab.<br /><br /> Execute este comando como **Administrador local** no servidor que aloja o ponto de ligação de serviço.<br /><br /> Exemplo:   **-prepare -usagedatadest D:\USB\Usagedata.cab**|    
+|**-connect -usagedatasrc [unidade:][caminho] -updatepackdest [unidade:][caminho] -proxyserveruri [FQDN do servidor proxy] -proxyusername [nome de utilizador]** <br /> <br /> Se utilizar uma versão do Configuration Manager anterior à versão 1606, tem de especificar o nome do ficheiro .cab e não pode utilizar as opções para um servidor proxy.  Os parâmetros de comando suportados são: <br /> **-connect -usagedatasrc [unidade:][caminho][nome do ficheiro] -updatepackdest [unidade:][caminho]** |Este comando liga ao serviço em nuvem do Configuration Manager para carregar os ficheiros .cab de dados de utilização a partir da localização especificada e para transferir os pacotes de atualização disponíveis e conteúdo da consola. As opções para servidores proxy são opcionais.<br /><br /> Execute este comando como **administrador local** num computador que possa ser ligado à Internet.<br /><br /> Exemplo de ligação sem um servidor proxy: **-connect -usagedatasrc D:\USB\ -updatepackdest D:\USB\UpdatePacks** <br /><br /> Exemplo de ligação ao utilizar um servidor proxy: **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks -proxyserveruri itgproxy.redmond.corp.microsoft.com -proxyusername Meg** <br /><br /> Se utilizar uma versão anterior à versão 1606, tem de especificar um nome de ficheiro para o ficheiro .cab e não pode especificar um servidor proxy. Utilize a seguinte linha de comandos de exemplo: **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks**|      
+|**-import -updatepacksrc [drive:][path]**|Este comando importa os pacotes de atualizações e o conteúdo da consola que transferiu anteriormente para a consola do Configuration Manager.<br /><br /> Execute este comando como **Administrador local** no servidor que aloja o ponto de ligação de serviço.<br /><br /> Exemplo:  **-import -updatepacksrc D:\USB\UpdatePacks**|  
+|**-export -dest [drive:][path][filename.csv]**|Este comando exporta dados de utilização para um ficheiro .csv, que poderá ver em seguida.<br /><br /> Execute este comando como **Administrador local** no servidor que aloja o ponto de ligação de serviço.<br /><br /> Exemplo: **-export -dest D:\USB\usagedata.csv**|  

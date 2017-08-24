@@ -1,6 +1,6 @@
 ---
-title: "Возможности в Technical Preview 1604 для Configuration Manager"
-description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1604."
+title: Funcionalidades no Technical Preview 1604 Configuration Manager
+description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, a versão 1604."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,156 +17,156 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 26b0d8ea7b3e841c48945df55f8860394a98a29f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1604 для System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1604 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
-В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1604. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager.      Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.  
+Este artigo apresenta as funcionalidades que estão disponíveis do System Center Configuration Manager, a versão 1604 da Technical Preview. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager.      Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.  
 
- Ниже перечислены новые возможности, доступные в этой версии.  
+ Seguem-se novas funcionalidades que pode experimentar com esta versão.  
 
-##  <a name="BKMK_WindowsVPP"></a> Управление приложениями, приобретенными в Магазине Windows для бизнеса по программе Volume Purchase Program  
- [Магазин Windows для бизнеса](https://www.microsoft.com/en-us/business-store) — это место, где вы можете найти и приобрести приложения для своей организации по отдельности или массово. Если подключить магазин к Configuration Manager, можно управлять приложениями, приобретенными по программе Volume Purchase Program, из консоли Configuration Manager, например так, как указано далее.  
+##  <a name="BKMK_WindowsVPP"></a>Gerir aplicações compradas na loja Windows para empresas  
+ O [loja Windows para empresas](https://www.microsoft.com/en-us/business-store) é onde pode encontrar e adquirir aplicações para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode gerir aplicações compradas em volume da consola do Configuration Manager, por exemplo:  
 
--   Можно синхронизировать список приобретенных приложений с помощью Configuration Manager.  
+-   Pode sincronizar a lista de aplicações adquiridas com o Configuration Manager  
 
--   Синхронизированные приложения отображаются в консоли Configuration Manager, и их можно развернуть так же, как и любые другие приложения.  
+-   As aplicações que são sincronizadas aparecem na consola do Configuration Manager e pode implementá-las como todas as outras aplicações  
 
--   Можно отслеживать, сколько лицензий доступно и сколько используется в консоли Configuration Manager.  
+-   Pode controlar quantas licenças estão disponíveis e quantas estão a ser utilizadas na consola do Configuration Manager  
 
-### <a name="try-it-out"></a>Попробуйте!  
+### <a name="try-it-out"></a>Experimente!  
 
-##### <a name="scenario-1-set-up-windows-store-for-business-synchronization"></a>Сценарий 1. Настройка синхронизации с Магазином Windows для бизнеса.  
+##### <a name="scenario-1-set-up-windows-store-for-business-synchronization"></a>Cenário 1: Configurar a loja Windows para a sincronização de negócio  
 
-1.  В Azure Active Directory зарегистрируйте Configuration Manager как средство управления "Веб-приложение и (или) веб-API". Это позволит получить идентификатор клиента, который понадобится позже.  
+1.  No Azure Active Directory, registe o Configuration Manager como uma ferramenta de gestão "Aplicação Web e/ou API Web". Isto irá dar-lhe um ID de cliente que irá precisar mais tarde.  
 
-    1.  В узле **Active Directory** по адресу [https://manage.windowsazure.com](https://manage.windowsazure.com) выберите свой каталог Azure Active Directory, а затем щелкните **Приложения** > **Добавить**.  
+    1.  No **do Active Directory** o nó de [https://manage.windowsazure.com](https://manage.windowsazure.com), selecione o seu Azure Active Directory, em seguida, clique em **aplicações** > **adicionar**.  
 
-    2.  Щелкните **Добавить приложение, разрабатываемое моей организацией**.  
+    2.  Clique em **adicionar uma aplicação que a minha organização está a desenvolver**.  
 
-    3.  Введите имя приложения, выберите **Веб-приложение** и (или) **веб-API**, затем нажмите стрелку "Далее".  
+    3.  Introduza um nome para a aplicação, selecione **aplicação Web** e/ou **Web API**, em seguida, clique na seta seguinte.  
 
-    4.  Введите одинаковый URL-адрес в поля **URL-адрес входа** и **URI кода приложения**.  URL-адрес может быть любым и не должен обязательно вести на действительный адрес. Например, можно ввести **https://&lt;имя_домена\>/sccm**.  
+    4.  Introduza o mesmo URL para ambos os **URL de início de sessão** e **URI de ID de aplicação**.  O URL pode ser qualquer coisa e não precisa de resolver para um endereço real. Por exemplo, pode introduzir **https://&lt;oseudomínio\>/sccm**.  
 
-    5.  Завершите работу мастера.  
+    5.  Conclua o assistente.  
 
-2.  В Azure Active Directory создайте ключ клиента для зарегистрированного средства управления.  
+2.  No Azure Active Directory, crie uma chave de cliente para a ferramenta de gestão registada.  
 
-    1.  Выделите только что созданное приложение и нажмите кнопку **Настроить**.  
+    1.  Realce a aplicação que acabou de criar e clique em **configurar**.  
 
-    2.  В разделе **Ключи** выберите из списка значение длительности и нажмите кнопку **Сохранить**.  Это действие создаст новый ключ клиента.  Не покидайте эту страницу, пока Магазин Windows для бизнеса не будет подключен к Configuration Manager.  
+    2.  Em **chaves**, selecione uma duração da lista e clique em **guardar**.  Isto irá criar uma nova chave de cliente.  Não saia desta página até ter com êxito integrado da loja Windows para empresas para o Configuration Manager.  
 
-3.  В Магазине Windows для бизнеса настройте Configuration Manager в качестве средства управления магазином.  
+3.  Na loja Windows para empresas, configure o Configuration Manager como a ferramenta de gestão de armazenamento.  
 
-    1.  Откройте [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) и выполните вход, если отобразится соответствующий запрос.  
+    1.  Abra [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) e início de sessão se lhe for pedido.  
 
-    2.  При необходимости примите условия использования.  
+    2.  Aceite os termos de utilização, se necessário.  
 
-    3.  В разделе **Средства управления** щелкните **Добавить средство управления**.  
+    3.  Em **ferramentas de gestão**, clique em **adicionar uma ferramenta de gestão**.  
 
-    4.  В поле **Поиск средства по имени** введите имя приложения, которое вы ранее создали в AAD, а затем нажмите кнопку **Добавить**.  
+    4.  No **pesquisar a ferramenta por nome**, escreva o nome da aplicação que criou anteriormente no AAD, em seguida, clique em **adicionar**.  
 
-    5.  Рядом с только что импортированным приложением щелкните **Активировать**.  
+    5.  Clique em **ativar** junto da aplicação que acabou de importar.  
 
-    6.  В мастере **Show Offline-Licensed Apps** (Показать приложения с автономными лицензиями) нажмите кнопку **Да**, если хотите разрешить приобретение приложений с автономными лицензиями.  
+    6.  No **aplicações licenciadas offline** assistente, clique em **Sim** se pretender permitir que as aplicações licenciadas offline sejam compradas.  
 
-4.  Приобретите хотя бы одно приложение в Магазине Windows для бизнеса.  
+4.  Compre pelo menos uma aplicação da loja Windows para empresas.  
 
-5.  В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Облачные службы** и щелкните **Магазин Windows для бизнеса**.  
+5.  No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**, em seguida, clique em **loja Windows para empresas**.  
 
-6.  На вкладке **Главная** в группе **Создать** щелкните **Добавить учетную запись Магазина Windows для бизнеса**.  
+6.  No **home page** separador o **criar** , clique em **adicionar da loja Windows para empresas conta**.  
 
-7.  Добавьте код клиента, идентификатор клиента и ключ клиента из Azure Active Directory, а затем завершите работу мастера.  
+7.  Adicione o ID do inquilino, o id de cliente e a chave de cliente do Azure Active Directory, em seguida, conclua o assistente.  
 
-8.  После завершения учетная запись, настроенная в списке **учетных записей Магазина Windows для бизнеса**, отобразится в консоли Configuration Manager.  
+8.  Quando tiver terminado, verá a conta configurada no **da loja Windows para empresas contas** lista na consola do Configuration Manager.  
 
-##### <a name="scenario-2-create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-offline-licensed-app"></a>Сценарий 2. Создание и развертывание приложения Configuration Manager из автономного лицензированного приложения Магазина Windows для бизнеса.  
+##### <a name="scenario-2-create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-offline-licensed-app"></a>Cenário 2: Criar e implementar uma aplicação do Configuration Manager de uma loja Windows para empresas as aplicações licenciadas offline  
 
-1.  В консоли Configuration Manager в рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**, а затем щелкните элемент **Информация о лицензиях для приложений из Магазина**.  
+1.  No **biblioteca de Software** área de trabalho da consola do Configuration Manager, expanda **gestão de aplicações**, em seguida, clique em **informações de licença para aplicações da loja**.  
 
-2.  В списке **Приобретенные приложения из Магазина Windows для бизнеса** отображаются приложения, которые были синхронизированы из хранилища. Выберите приложение для развертывания, а затем на вкладке **Главная** в группе **Создать** щелкните **Создать приложение**.  
+2.  O **compradas na loja Windows para aplicações empresariais** lista mostra uma lista de aplicações que foram sincronizadas a partir da loja. Escolha a aplicação que pretende implementar, em seguida, no **home page** separador o **criar** , clique em **Criar aplicação**.  
 
-3.  Будет создано приложение Configuration Manager, содержащее приложение Магазина Windows для бизнеса. Это приложение можно развертывать и отслеживать, как и любое другое приложение Configuration Manager.  
+3.  Uma aplicação do Configuration Manager é criada que contém a loja Windows para a aplicação de negócio. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.  
 
-##  <a name="BKMK_PFW"></a> Усовершенствования для управления Microsoft Passport for Work  
- Теперь можно развернуть политики Passport for Work на присоединенных к домену устройствах Windows 10, управляемых с помощью клиента Configuration Manager.  
+##  <a name="BKMK_PFW"></a>Melhoramentos à Microsoft Passport para a gestão de trabalho  
+ Agora pode implementar o Passport para Work as políticas para dispositivos Windows 10 associados a domínios geridos pelo cliente de Configuration Manager.  
 
-##  <a name="bkmk_switchsup"></a> Возможность для клиентов перейти на новую точку обновления программного обеспечения  
- В версии 1604 Technical Preview можно включить возможность для клиентов Configuration Manager перейти на новую точку обновления программного обеспечения, если возникают проблемы с активной точкой. Для этого необходимо иметь на первичном сайте несколько доступных точек обновления программного обеспечения. Включите эту возможность для коллекции устройств, после чего если клиенту не удастся подключиться к активной точке обновления, во время следующей проверки клиенты в коллекции будут искать другую точку обновления программного обеспечения. В зависимости от параметров конфигурации WSUS (классификации обновлений, продукты и т. д.) переключение на новую точку обновления программного обеспечения может создавать дополнительный сетевой трафик. Поэтому эту возможность следует использовать только при необходимости.  
+##  <a name="bkmk_switchsup"></a>Opção para os clientes mudarem para um novo ponto de atualização de software  
+ No 1604 Technical Preview, pode ativar a opção para clientes do Configuration Manager mudar para um novo ponto de atualização de software quando existirem problemas com o ponto de atualização de software ativo. Para esta opção, tem de ter vários pontos de atualização de software disponíveis num site primário. Ative esta opção numa coleção de dispositivos e, uma vez ativada, os clientes na coleção irão procurar outro ponto de atualização de software na análise seguinte quando o cliente não consegue ligar com êxito para o ponto de atualização de software ativo. Dependendo das suas definições de configuração WSUS, (classificações de atualização, produtos, etc.), o comutador para um novo ponto de atualização de software irá gerar tráfego de rede adicional. Por conseguinte, só deve utilizar esta opção quando for necessário.  
 
-#### <a name="to-enable-the-option-to-switch-software-update-points"></a>Включение возможности перехода между точками обновления программного обеспечения  
+#### <a name="to-enable-the-option-to-switch-software-update-points"></a>Para ativar a opção para mudar pontos de atualização de software  
 
-1.  В консоли Configuration Manager перейдите в раздел **Активы и соответствие > Обзор > Коллекции устройств**.  
+1.  Na consola do Configuration Manager, aceda a **Ativos e Compatibilidade > Descrição geral > Coleções de dispositivos**.  
 
-2.  На вкладке **Главная** в группе **Коллекция** щелкните **Уведомление клиента**, а затем щелкните **Перейти к следующей точке обновления программного обеспечения**.  
+2.  No separador **Início** , no grupo **Coleção** , clique em **Notificação do Cliente**e, em seguida, clique em **Mudar para o Ponto de Atualização de Software seguinte**.  
 
 > [!NOTE]  
->  Этот параметр доступен только на сайтах, имеющих несколько точек обновления программного обеспечения.  
+>  Esta opção só está disponível nos sites com vários pontos de atualização de software.  
 
-##  <a name="bkmk_peercache"></a> Параметры клиента для управления настройками кэша и одноранговым кэшем клиента  
- В версии Technical Preview 1604 вводится два новых параметра клиента устройства, затрагивающих использование кэша клиента. Оба параметра можно использовать по отдельности, но настраиваются они на одной странице свойств параметров клиента и объединены, чтобы помочь в управлении развертыванием содержимого на клиентах в удаленных расположениях.  
+##  <a name="bkmk_peercache"></a>Definições de cliente para gerir definições de Cache do cliente e o cliente de Cache ponto a ponto  
+ A versão 1604 da Technical preview introduz duas novas definições de cliente de dispositivo, que afetam a utilização da cache do cliente. Ambos podem ser utilizadas individualmente, mas são configuradas na mesma folha de propriedades das definições de cliente e combinam para o ajudar a gerir a implementação de conteúdo para os seus clientes em localizações remotas.  
 
--   Первый из них — **одноранговый кэш клиента** — это встроенное решение Configuration Manager, позволяющее клиентам использовать содержимое совместно с другими клиентами непосредственно из своего локального кэша. Чтобы клиенты однорангового кэша могли совместно использовать содержимое, они должны быть членами одной группы границ. Одноранговый кэш не заменяет собой использование других решений, таких как BranchCache, а работает параллельно, дополняя традиционные методы развертывания содержимого, такие как точки распространения.  
+-   É primeiro **cliente de Cache ponto a ponto**, uma solução incorporada do Configuration Manager para os clientes partilhem conteúdos com outros clientes diretamente a partir da respetiva cache local. Para clientes de Cache ponto a ponto partilhar conteúdo, têm de ser membros do mesmo grupo de limites. Cache ponto a ponto não substitui a utilização de outras soluções como BracnchCache mas em vez disso, funciona lado lado a lado para lhe dar mais opções para expandir as soluções de implementação de conteúdos tradicionais, como os pontos de distribuição.  
 
-     После развертывания клиентских параметров, включающих одноранговый кэш в коллекции, члены этой коллекции могут выступать в качестве источника однорангового содержимого для других клиентов в группе границ.  Клиент, который действует как источник однорангового содержимого, передает список доступного кэшированного содержимого в свою точку управления. Затем, когда следующий клиент в этой группе границ запрашивает данное содержимое, источник однорангового кэша предлагается в качестве потенциального источника содержимого вместе со всеми точками распространения, настроенными для быстрой передачи. В этом объединенном пуле источников содержимого клиент выбирает произвольный источник. Если в группе границ отсутствуют быстрые точки распространения или источники однорангового кэша, клиенты будут искать содержимое только в медленных точках распространения.  
+     Depois de implementar as definições de cliente que permitem a Cache ponto a ponto numa coleção, os membros dessa coleção podem agir como uma origem de conteúdo ponto a ponto para outros clientes no seu grupo de limites.  O cliente que funciona como um elemento de conteúdo de origem irá submeter uma lista dos conteúdos disponíveis foi colocado em cache para o respetivo ponto de gestão. Em seguida, quando o cliente seguinte nesse grupo de limites pede esse conteúdo, a origem de cache ponto a ponto é fornecida como uma origem de conteúdo potencial juntamente com todos os pontos de distribuição que estão configurados para serem rápida. O cliente seleciona uma origem de conteúdo aleatória deste agrupamento combinado de origens de conteúdo. Os clientes só irão procurar o ressarcimento de conteúdo a partir de um ponto de distribuição que está configurado para ser lento quando não existem pontos de distribuição rápida ou as origens de cache ponto a ponto estão presentes no grupo de limites.  
 
--   Второй новый параметр позволяет **настраивать размер кэша** на клиентах. Максимальный размер кэша можно задать в мегабайтах или в процентах от места на диске клиента.  Клиент реализует параметр, который будет достигнут первым.  
+-   A segunda definição nova permite-lhe **gerir o tamanho da cache** nos clientes. Pode definir a cache para ter um tamanho máximo em megabytes e um tamanho máximo como uma percentagem do espaço na unidade de clientes.  O cliente impõe a definição que for atingida pela primeira vez.  
 
-Чтобы лучше понять, когда клиенты успешно используют одноранговый кэш, просмотрите панель мониторинга **Источники данных клиента**. В консоли последовательно выберите **Мониторинг > Состояние клиента > Источники данных клиента**. Здесь можно выбрать период времени, который будет применен к панели мониторинга. Затем на экране можно выбрать группу границ или пакет, для которых требуется просмотреть сведения. При просмотре можно наводить курсор мыши на область, чтобы увидеть дополнительные сведения о различном содержимом или источниках политик.  
+Para ajudar a compreender a utilização do cliente de Cache ponto a ponto, pode ver o **origens de dados de cliente** dashboard. Na consola, aceda a **monitorização > Estado do cliente > origens de dados de cliente**. Aqui, pode selecionar um período de tempo para aplicar ao dashboard. Em seguida, no ecrã, pode selecionar o grupo de limites ou o pacote para o qual pretende ver informações. Ao visualizar informações, pode pairar o rato sobre a superfície de para ver mais detalhes sobre o conteúdo diferente ou origens de política.  
 
- Чтобы просмотреть сводку об источниках данных клиента для каждой группы границ, можно также воспользоваться новым отчетом **Client Data Sources — Summarization** (Источники данных клиента — сводные данные).   
-**Требования для использования однорангового кэша.**  
+ Também pode utilizar um novo relatório, **origens de dados de cliente - resumo**, para ver um resumo das origens de dados de cliente para cada grupo de limites.   
+**Requisitos para utilizar a Cache ponto a ponto:**  
 
--   Необходимо настроить сайт, используя **учетную запись сетевого доступа**, имеющую **полный доступ** к папке кэша на каждом клиенте. По умолчанию это **%windir%\ccmcache**.  
+-   Tem de configurar o seu site com um **conta de acesso à rede** que tenha **controlo total** para a pasta de cache em cada cliente. Por predefinição, este é **%windir%\ccmcache**  
 
--   Клиенты могут передавать содержимое с помощью однорангового кэша, только если они являются членами одной группы границ.  
+-   Os clientes só podem transferir conteúdo utilizando a Cache ponto a ponto quando forem membros do mesmo grupo de limites.  
 
-#### <a name="to-configure-client-peer-cache-client-settings"></a>Настройка параметров однорангового кэша клиента  
+#### <a name="to-configure-client-peer-cache-client-settings"></a>Para configurar as definições de cliente de Cache ponto a ponto do cliente  
 
-1.  Оба параметра задаются на одной странице параметров клиента. В консоли Configuration Manager выберите **Администрирование > Параметры клиента**, а затем откройте объект параметров клиента устройства, который будет использоваться. Можно также изменить объект параметров клиента по умолчанию.  
+1.  Ambas as definições são configuradas na mesma página de definições de cliente. Na consola do Configuration Manager, vá para **administração > definições de cliente**, e, em seguida, as definições de cliente de dispositivo abra objeto que pretende utilizar. Também pode modificar o objecto de predefinições de cliente.  
 
-2.  В списке доступных параметров выберите **Параметры кэша клиента**.  
+2.  Na lista de definições disponíveis, selecione **as definições de Cache do cliente**.  
 
-3.  Чтобы изменить размер кэша, установите для параметра **Настроить размер кэша клиента** значение **Да**. Затем можно настроить максимальный размер кэша в мегабайтах и процентах от дискового пространства клиентов.  
+3.  Para gerir o tamanho da cache, defina **configurar o tamanho da cache do cliente** igual a **Sim**. Em seguida, pode configurar o tamanho máximo da cache para ambos os megabytes e como uma percentagem do espaço na unidade de clientes.  
 
-4.  Чтобы включить клиенты для использования однорангового кэша, задайте параметру **Включить клиент Configuration Manager в полной ОС для совместного использования содержимого** значение **Да**. Затем можно настроить порты, используемые клиентами, включая выбор режима HTTP или HTTPS.  
+4.  Para permitir que os clientes participar num cliente de Cache ponto a ponto, defina **cliente de ativar o Configuration Manager no SO completo para partilhar conteúdo** igual a **Sim**. Em seguida, pode configurar as portas que os clientes utilizam, incluindo se estes serão HTTP ou HTTPS.  
 
-### <a name="try-it-out"></a>Попробуйте!  
- Попробуйте выполнить следующие задачи, а затем используйте информацию для обратной связи, расположенную ближе к началу этой статьи, чтобы сообщить нам о полученном результате.  
+### <a name="try-it-out"></a>Experimente!  
+ Experimente concluir as seguintes tarefas e, em seguida, utilize as informações de feedback perto da parte superior deste tópico para nos informar como correu:  
 
-1.  Измените параметры клиента, чтобы указать новый размер кэша клиента, а затем подтвердить этот параметр на клиенте.  
+1.  Modificar as definições de cliente para especificar um tamanho de cache do cliente novo e, em seguida, confirme esta definição num cliente.  
 
-2.  С помощью параметров клиента настройте несколько клиентов для использования однорангового кэша.  
+2.  Utilize as definições de cliente para configurar a múltiplos clientes para utilizar a Cache ponto a ponto  
 
-3.  Выполните развертывание содержимого для клиентов так, чтобы некоторые из них или большая их часть получала его из другого клиента с помощью однорангового кэша.  Чтобы проверить, какой источник содержимого используется, можно просмотреть новую панель мониторинга.  
+3.  Implemente conteúdo em clientes para que algumas ou a maioria dos clientes obtém esse conteúdo de outro cliente através da utilização de Cache ponto a ponto.  Pode confirmar a origem de conteúdo que é utilizada, visualizando o dashboard novo.  
 
     > [!NOTE]  
-    >  Для выполнения этой задачи в версии Technical Preview и с использованием одной точки распространения настройте точку распространения на медленную работу с сетевыми расположениями всех клиентов. Затем распространите содержимое на один клиент.  После того, как этот клиент получит содержимое, можно распространить содержимое на другие клиенты, которые должны найти локальные одноранговые узлы и использовать их в качестве источников содержимого, прежде чем обращаться к точке распространения, которая воспринимается расположением клиента как медленная.  
+    >  Para concluir esta tarefa com o technical preview e um único ponto de distribuição, configure o ponto de distribuição para ser lento na localização de rede de todos os seus clientes. Em seguida, distribua o conteúdo para um único cliente.  Depois de que o cliente obtém o conteúdo, pode distribuir o conteúdo para clientes adicionais que devem encontrar elementos da rede locais para utilizar como origem de conteúdo antes de utilizar o ponto de distribuição que é considerado lenta da localização do cliente.  
 
-##  <a name="bkmk_passport"></a> Поддержка Passport for Work в качестве поставщика хранилища ключей (KSP)  
- System Center Configuration Manager позволяет интегрировать Microsoft Passport for Work, который является альтернативным методом входа, использующим Active Directory или учетную запись Azure Active Directory для замены пароля, смарт-карты или виртуальной смарт-карты.  
-Passport позволяет использовать для входа жест пользователя, а не пароль. Жестом пользователя может быть простой ПИН-код, биометрическая проверка подлинности, например Windows Hello, или внешнее устройство, например считыватель отпечатков пальцев.  
+##  <a name="bkmk_passport"></a>Suporte do Passport for Work como um KSP  
+ System Center Configuration Manager permite-lhe integrar com o Microsoft Passport for Work, que é um início de sessão método alternativo que utiliza o Active Directory ou uma conta do Azure Active Directory para substituir uma palavra-passe, um smart card ou um virtual smart card.  
+O Passport permite utilizar um gesto de utilizador para iniciar sessão, em vez de uma palavra-passe. Um gesto de utilizador pode ser um PIN simples, a autenticação biométrica, como o Windows Hello ou um dispositivo externo, como um leitor de impressões digitais.  
 
--   С помощью Configuration Manager можно указать, какие жесты пользователя могут и какие не могут использоваться для входа в систему, а также настроить требования к сложности PIN-кода.  
+-   Pode utilizar o Configuration Manager para controlar que utilizadores gestos podem e não podem utilizar para iniciar sessão e para configurar os requisitos de complexidade PIN.  
 
--   Хранение сертификатов проверки подлинности в поставщике хранилища ключей (KSP) Passport for Work.  
+-   Pode armazenar certificados de autenticação no Passport para o fornecedor de armazenamento de chaves de trabalho (KSP).  
 
-При создании пользователем PIN-кода для Passport Windows отправляет уведомление, которое прослушивается Configuration Manager.  Это позволяет Configuration Manager быстро узнать о том, кто из пользователей создал PIN-код для Passport. После этого Configuration Manager может также выдать этим пользователям новые сертификаты, если Passport используется в профиле сертификата в качестве поставщика хранилища ключей.  
+Quando um utilizador cria um PIN Passport, o Windows envia uma notificação que o Configuration Manager escuta.  Isto permite tornar-se rapidamente com suporte para o Configuration Manager dos utilizadores que criaram um PIN Passport. O Configuration Manager, em seguida, também podem emitir novos certificados para esses utilizadores se Passport for utilizado como o fornecedor de armazenamento de chaves num perfil de certificado.  
 
-##  <a name="bkmk_onpremdha"></a> Локальная аттестация работоспособности устройств  
- Теперь можно настроить подключение к функции аттестации работоспособности устройств Windows 10, используя локальную инфраструктуру.  Администраторы могут выбрать метод передачи отчетов — через облачные или локальные ресурсы.  Если для передачи отчетов аттестации работоспособности выбраны **локальные** ресурсы, то для службы можно указать код URI. Это позволяет клиентским компьютерам без доступа к Интернету использовать и управлять устройствами с помощью аттестации работоспособности.  
+##  <a name="bkmk_onpremdha"></a>Atestado de estado de funcionamento de dispositivos no local  
+ Atestado de estado de funcionamento para dispositivos Windows 10 pode agora ser configurado para comunicar utilizando a infraestrutura no local.  Os administradores podem especificar se comunicação é efetuada através da nuvem ou recursos no local.  Se **no local** está selecionado para relatórios de atestado de estado de funcionamento, em seguida, pode ser especificado um URI para o serviço. Isto permite que os computadores cliente sem acesso à internet utilizar ativar e gerir dispositivos através de atestado de estado de funcionamento.  
 
-#### <a name="enable-health-attestation-for-on-premises-devices"></a>Включение аттестации работоспособности для локальных устройств  
+#### <a name="enable-health-attestation-for-on-premises-devices"></a>Ativar o atestado de estado de funcionamento de dispositivos no local  
 
-1.  В консоли Configuration Manager перейдите к разделу **Администрирование** > **Обзор** > **Параметры клиента**и задайте для параметра **Использовать локальную службу подтверждения работоспособности** значение **Да**.  
+1.  Na consola do Configuration Manager, navegue para **Administração** > **Descrição Geral** > **Definições de cliente**e, em seguida, defina **Utilizar o Serviço de Atestado de Estado de Funcionamento no Local** como **Sim**.  
 
-2.  Укажите **URL-адрес локальной службы подтверждения работоспособности**и нажмите кнопку **ОК**.  
+2.  Especifique o **URL do Serviço de Atestado de Estado de Funcionamento no Local**e, em seguida, clique em **OK**.  
 
-Чтобы попробовать, как это работает, настройте локальную службу аттестации работоспособности с помощью параметров агента клиента.  
+Para experimentá-lo, configure o serviço de atestado de estado de funcionamento no local utilizando as definições de agente do cliente.  
 
-##  <a name="BKMK_Smart"></a> Параметр Smart Lock для устройств Android  
- В элемент конфигурации **Android и Samsung KNOX** был добавлен новый параметр **Разрешить Smart Lock и другие доверенные агенты**, который позволяет управлять функцией Smart Lock на совместимых устройствах Android. Эта функция телефона, которую иногда называют доверенными агентами, позволяет отключать или обходить пароль блокировки экрана устройства, когда устройство находится в надежном расположении, например, при подключении к определенному устройству Bluetooth, или когда оно находится рядом с NFC-тегом. С помощью этого параметра можно запретить пользователям настраивать функцию Smart Lock.  
+##  <a name="BKMK_Smart"></a>Definição de SmartLock para dispositivos Android  
+ Uma nova definição, **permitir SmartLock e outros agentes de confiança** foi adicionado para o **Android e Samsung KNOX** item de configuração que lhe permite controlar a funcionalidade de SmartLock em dispositivos Android compatíveis. Esta capacidade de telefone, por vezes conhecida como agentes de confiança, permite desativar ou ignorar a palavra-passe de bloqueio do ecrã do dispositivo se o dispositivo estiver numa localização fidedigna, como quando está ligado a um dispositivo Bluetooth específico ou quando está próximo de uma etiqueta NFC. Pode utilizar esta definição para impedir que os utilizadores finais configurem o SmartLock.  

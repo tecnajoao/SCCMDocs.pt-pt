@@ -1,6 +1,6 @@
 ---
-title: "Настройка портов связи для клиентов | Документы Майкрософт"
-description: "Настройка портов связи для клиентов в System Center Configuration Manager."
+title: "Configurar portas de comunicação de cliente | Microsoft Docs"
+description: "Definir portas de comunicação de cliente no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,60 +17,60 @@ ms.author: robstackmsft
 manager: angrobe
 ms.openlocfilehash: 63e033fdb436930ac5f37e7408ca9292bc444560
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-communication-ports-in-system-center-configuration-manager"></a>Настройка портов связи для клиентов в System Center Configuration Manager
+# <a name="how-to-configure-client-communication-ports-in-system-center-configuration-manager"></a>Como configurar portas de comunicação de cliente no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Можно изменить номера портов запросов, используемые клиентами System Center Configuration Manager для обмена данными с системами сайта, работающими по протоколам HTTP и HTTPS. Хотя HTTP или HTTPS, скорее всего, будут уже настроены для брандмауэров, уведомление клиента, которое использует HTTP или HTTPS, требует больше ресурсов ЦП и памяти на компьютере точки управления, чем при использовании настраиваемого порта. Также можно указать номер порта сайта, который должен использоваться при пробуждении клиентов с помощью обычных wake-up пакетов.  
+Pode alterar os números de porta de pedido que os clientes do System Center Configuration Manager utilizam para comunicar com sistemas de sites que utilizem HTTP e HTTPS para comunicação. Apesar de HTTP ou HTTPS é mais provável que já esteja configurado para firewalls, a notificação do cliente que utiliza HTTP ou HTTPS necessita de mais CPU e memória no computador do ponto de gestão que se utilizar um número de porta personalizado. Também pode especificar o número de porta do site a utilizar se reativar clientes utilizando pacotes de reativação tradicionais.  
 
- При настройке портов для запросов по протоколам HTTP и HTTPS можно указать номер порта, используемый по умолчанию, а также альтернативный номер порта. Клиенты автоматически переключаются на альтернативный порт, если не удается осуществить обмен данными через порт, используемый по умолчанию. Можно указать параметры обмена данными по протоколам HTTP и HTTPS.  
+ Quando especificar portas de pedido de HTTP e HTTPS, pode especificar um número de porta predefinido e um número de porta alternativo. Os clientes tentam automaticamente a porta alternativa após a falha de comunicação com a porta predefinida. Pode especificar as definições de comunicação de dados HTTP e HTTPS.  
 
- По умолчанию для запросов клиентов используются  порты **80** (для трафика HTTP) и **443** (для трафика HTTPS). Изменяйте их только в том случае, если вы не хотите использовать значения по умолчанию. Распространен сценарий, когда пользовательские порты используются для пользовательского веб-сайта IIS, которым был заменен веб-сайт по умолчанию. Если изменить порты по умолчанию для веб-сайта IIS, используемого по умолчанию, и если другие приложения также используют этот веб-сайт, работа этих приложений, скорее всего, будет нарушена.  
+ Os valores predefinidos para as portas de pedido do cliente são **80** para tráfego HTTP e **443** para tráfego HTTPS. Altere-as apenas se não pretender utilizar estes valores predefinidos. Um cenário típico para utilizar portas personalizadas é quando utiliza um Web site personalizado no IIS, em vez do Web site predefinido. Se alterar os números de porta predefinido para o Web site predefinido no IIS e outras aplicações também utilizarem o Web site predefinido, é provável que falhem.  
 
 > [!IMPORTANT]  
->  Не следует изменять номера портов, которые используются Configuration Manager, если последствия этих действий ясны не до конца. Примеры:  
+>  Não altere os números de porta no Configuration Manager sem compreender as consequências. Exemplos:  
 >   
->  -   Если изменить номера портов для служб запросов клиентов в рамках конфигурации сайта, а существующие клиенты не будут перенастроены на новые порты, управление такими клиентами станет невозможным.  
-> -   Перед тем как указывать номера портов, отличные от используемых по умолчанию, убедитесь, что брандмауэры и все задействованные сетевые устройства поддерживают такую конфигурацию и при необходимости настройте их соответствующим образом. Если вы собираетесь управлять клиентами в Интернете и при этом измените порт HTTPS 443, установленный по умолчанию, маршрутизаторы и брандмауэры в Интернете могут заблокировать обмен данными.  
+>  -   Se alterar os números de porta para os serviços de pedido de cliente como uma configuração de site e não reconfigurar clientes existentes para utilizarem os novos números de porta, estes clientes deixarão de ser geridos.  
+> -   Antes de configurar um número de porta não predefinido, certifique-se de que as firewalls e todos os dispositivos de rede intervenientes suportam esta configuração e reconfigure-os conforme necessário. Se irá gerir clientes na Internet e alterar o número da porta HTTPS predefinida 443, routers e firewalls na Internet poderão bloquear estas comunicações.  
 
- Чтобы не потерять управление над клиентами после изменения номеров портов запросов, необходимо настроить клиенты на использование новых портов. При изменении портов запросов для первичного сайта все связанные вторичные сайты автоматически унаследуют новую конфигурацию портов. Используйте процедуру, описываемую в этом разделе, чтобы настроить порты запросов на первичном сайте.  
+ Para se certificar de que os clientes não deixam de ser geridos depois de alterar os números de porta de pedido, os clientes têm de ser configurados para utilizarem os novos números de porta de pedido. Quando alterar as portas de pedido num site primário, quaisquer sites secundários ligados herdarão automaticamente a mesma configuração de porta. Utilize o procedimento deste tópico para configurar as portas de pedido no site primário.  
 
 > [!NOTE]  
->  Сведения о том, как настроить порты запросов для клиентов на компьютерах под управлением Linux и UNIX, см. в статье [Настройка портов запроса для клиента для Linux и UNIX](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigLnUClientCommuincations).  
+>  Para obter informações sobre como configurar as portas de pedido para clientes em computadores que executam o Linux e UNIX, consulte [configurar portas de pedido para o cliente para Linux e UNIX](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigLnUClientCommuincations).  
 
- Если сайт Configuration Manager опубликован в доменных службах Active Directory, новые и существующие клиенты, которым доступны опубликованные сведения, будут автоматически настроены на использование новых портов, и при этом их дальнейшая настройка не потребуется. Клиенты, не имеющие доступа к данным сведениям, опубликованным в доменных службах Active Directory, — это, в частности, клиенты из рабочей группы, клиенты из другого леса Active Directory, клиенты, настроенные на работу только в Интернете, а также клиенты, расположенные в настоящий момент в Интернете. Если изменить порты, используемые по умолчанию, после установки этих клиентов, переустановите клиенты и в дальнейшем устанавливайте новые клиенты одним из следующих способов.  
+ Quando o site do Configuration Manager for publicado nos serviços de domínio do Active Directory, os clientes novos e existentes que podem aceder a estas informações serão automaticamente configurados com as definições de porta do site e não é necessário qualquer ação adicional. Os clientes que não é possível aceder estas informações publicadas nos serviços de domínio do Active Directory incluem clientes de grupo de trabalho, os clientes de outra floresta do Active Directory, os clientes que estão configurados para apenas na Internet e os clientes que estão atualmente na Internet. Se alterar os números de porta predefinidos após a instalação destes clientes, reinstale-os e instale quaisquer clientes novos utilizando um dos seguintes métodos:  
 
--   Переустановка клиентов с помощью мастера принудительной установки клиентов. При автоматической принудительной установке клиенты настраиваются согласно текущей конфигурации портов сайта. Дополнительные сведения об использовании мастера принудительной установки клиентов см. в статье [Принудительная установка клиентов Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
+-   Reinstale os clientes utilizando o Assistente de instalação Push do cliente. Instalação push do cliente configura automaticamente os clientes com a configuração de porta do site atual. Para obter mais informações sobre como utilizar o Assistente de instalação Push do cliente, consulte [como instalar clientes do Configuration Manager utilizando a emissão de cliente](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
 
--   Переустановите клиенты, используя CCMSetup.exe и свойства CCMHTTPPORT и CCMHTTPSPORT программы установки client.msi. Дополнительные сведения об этих параметрах см. в статье [Сведения о свойствах установки клиента в System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+-   Reinstale os clientes utilizando o CCMSetup.exe e as propriedades de instalação de client.msi de CCMHTTPPORT e CCMHTTPSPORT. Para obter mais informações sobre estas propriedades, consulte [acerca das propriedades de instalação de cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
--   Переустановите клиенты, используя метод, при котором осуществляется поиск свойств установки клиентов Configuration Manager в доменных службах Active Directory. Дополнительные сведения см. в статье [О свойствах установки клиента, публикуемых в доменных службах Active Directory в System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md).  
+-   Reinstale os clientes utilizando um método que procura serviços de domínio do Active Directory para as propriedades de instalação de cliente do Configuration Manager. Para obter mais informações, veja [Acerca das propriedades de instalação de cliente publicadas nos Serviços de Domínio do Active Directory no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md).  
 
- Чтобы изменить номера портов для существующих клиентов, можно также использовать сценарий PORTSWITCH.VBS, предоставляемый на установочном носителе в папке SMSSETUP\Tools\PortConfiguration .  
+ Para reconfigurar os números de porta para clientes existentes, também pode utilizar o script PORTSWITCH. VBS que é fornecido com o suporte de dados de instalação na pasta smssetup\tools\portconfiguration.  
 
 > [!IMPORTANT]  
->  Для существующих и новых клиентов, расположенных в данный момент в Интернете, необходимо настроить порты, отличные от используемых по умолчанию, используя свойства CCMHTTPPORT и CCMHTTPSPORT программы установки client.msi CCMSetup.exe.  
+>  Para clientes novos e existentes que estão atualmente na Internet, tem de configurar os números de porta não predefinidos utilizando as propriedades de client.msi do CCMSetup.exe CCMHTTPPORT e CCMHTTPSPORT.  
 
- После изменения портов запросов на сайте новые клиенты, устанавливаемые посредством принудительной установки в масштабе сайта, будут автоматически настроены на использование текущих портов сайта.  
+ Depois de alterar as portas de pedido no site, os clientes novos que são instalados utilizando o método de instalação de push de cliente em todo o site serão automaticamente configurados com os números de porta atual para o site.  
 
-#### <a name="to-configure-the-client-communication-port-numbers-for-a-site"></a>Чтобы настроить порты для соединения с клиентами на сайте  
+#### <a name="to-configure-the-client-communication-port-numbers-for-a-site"></a>Para configurar os números de porta de comunicação de cliente para um site  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**, щелкните узел **Сайты**и выберите первичный сайт для настройки.  
+2.  No **administração** área de trabalho, expanda **configuração do Site**, clique em **Sites**e selecione o site primário a configurar.  
 
-3.  На вкладке **Главная** выберите **Свойства**, после чего откройте вкладку **Порты** .  
+3.  No **home page** separador, clique em **propriedades**e, em seguida, clique em de **portas** separador.  
 
-4.  Выберите любой из элементов и щелкните значок "Свойства", чтобы отобразить диалоговое окно **Сведения о порте** .  
+4.  Selecione qualquer um dos itens e clique no ícone propriedades para apresentar o **detalhes da porta** caixa de diálogo.  
 
-5.  В диалоговом окне **Сведения о порте** укажите номер порта и описание элемента, после чего нажмите кнопку **ОК**.  
+5.  No **detalhes da porta** caixa de diálogo, especifique o número de porta e a descrição para o item e, em seguida, clique em **OK**.  
 
-6.  Выберите **Использовать настраиваемый администратором веб-сайт** , если вы будете использовать имя настраиваемого веб-сайта **SMSWeb** для систем сайта, использующих IIS.  
+6.  Selecione **utilize um web site personalizado** se pretender utilizar o nome do Web site personalizado do **SMSWeb** para sistemas de sites que executam o IIS.  
 
-7.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно свойств сайта.  
+7.  Clique em **OK** para fechar a caixa de diálogo de propriedades do site.  
 
- Повторите эту процедуру для всех первичных сайтов в иерархии.
+ Repita este procedimento para todos os sites primários da hierarquia.

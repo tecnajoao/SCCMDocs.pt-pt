@@ -1,6 +1,6 @@
 ---
-title: "Связь между конечными точками | Документы Майкрософт"
-description: "Сведения о взаимодействии компонентов и систем сайта System Center Configuration Manager в сети."
+title: "Comunicações entre pontos finais | Microsoft Docs"
+description: "Saiba mais sobre como os componentes e sistemas de sites do System Center Configuration Manager comunicam através de uma rede."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,244 +16,244 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: cd94f9ccc7e196b30e5dc7ae9368d073b7cff5d2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>Связь между конечными точками в System Center Configuration Manager
+# <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>Comunicações entre pontos finais no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-##  <a name="Planning_Intra-site_Com"></a> Обмен данными между системами сайтов  
- Когда системы сайта или компоненты Configuration Manager обмениваются данными по сети с другими системами сайта или компонентами Configuration Manager, они используют один из следующих протоколов в зависимости от настроек сайта:  
+##  <a name="Planning_Intra-site_Com"></a> Comunicações entre sistemas de sites num site  
+ Quando os sistemas de site do Configuration Manager ou componentes comunicam através da rede com outros sistemas de sites ou componentes do Configuration Manager no site, utilizam um dos protocolos seguintes, dependendo de como configurar o site:  
 
--   Блок сообщений сервера (SMB)  
+-   Bloco de mensagem de servidor (SMB)  
 
 -   HTTP  
 
 -   HTTPS  
 
-За исключением передачи данных с сервера сайта на точку распространения, этот обмен информацией между серверами может произойти в любое время и без использования механизмов управления пропускной способностью сети. Контролировать обмен данными между системами сайта невозможно, поэтому убедитесь в том, что серверы системы сайта установлены с надежным подключением к быстрым сетям.  
+À exceção da comunicação do servidor do site para um ponto de distribuição, as comunicações de servidor para servidor num site podem ocorrer a qualquer hora e não utilizam mecanismos para controlar a largura de banda de rede. Porque não é possível controlar a comunicação entre sistemas de sites, certifique-se de que instala servidores do sistema de sites em localizações que têm redes com boas ligações e rápidos.  
 
-Для управления передачей содержимого с сервера сайта в точки распространения можно использовать следующие возможности.  
+Para ajudar a gerir a transferência de conteúdo do servidor do site para pontos de distribuição:  
 
--   Настройте точку распространения для управления пропускной способностью сети и планированием. Эти средства управления схожи с конфигурациями, используемыми межсайтовыми адресами. Зачастую можно использовать такую конфигурацию вместо установки еще одного сайта Configuration Manager, если передача содержимого в удаленные сетевые расположения является непростой задачей с точки зрения пропускной способности сети.  
+-   Configure o ponto de distribuição para o controlo da largura de banda de rede e o agendamento. Estes controlos assemelham-se às configurações utilizadas por endereços entre sites e, muitas vezes, pode utilizar esta configuração em vez de instalar outro site do Configuration Manager quando a transferência de conteúdo para localizações de rede remotas é a sua preocupação principal de largura de banda.  
 
--   Можно установить точку распространения в виде предварительно подготовленной точки распространения. Предварительно подготовленная точка распространения дает возможность использовать содержимое, вручную размещенное на сервере точки распространения, и устраняет необходимость в передаче файлов с этим содержимым через сеть.  
+-   Pode instalar um ponto de distribuição como um ponto de distribuição pré-configurado. Um ponto de distribuição pré-configurado permite-lhe utilizar o conteúdo que é manualmente colocado no servidor do ponto de distribuição e remove o requisito de transferir ficheiros de conteúdo através da rede.  
 
-Дополнительные сведения см. в разделе [Управление пропускной способностью сети для управления содержимым](manage-network-bandwidth.md).
+Para obter mais informações, consulte [gerir a largura de banda de rede para a gestão de conteúdo](manage-network-bandwidth.md).
 
 
-##  <a name="Planning_Client_to_Site_System"></a> Обмен данными между клиентами и системами сайтов и службами  
-Клиенты инициируют взаимодействие с ролями системы сайта, доменными службами Active Directory и веб-службами. Чтобы разрешить такое взаимодействие, брандмауэры должны пропускать сетевой трафик между клиентами и конечной точкой их взаимодействия. К конечным точкам относятся следующие компоненты:  
+##  <a name="Planning_Client_to_Site_System"></a> Comunicações de clientes para sistemas e serviços do site  
+Os clientes iniciam a comunicação para funções do sistema de sites, serviços de domínio do Active Directory e serviços online. Para ativar estas comunicações, as firewalls têm de permitir o tráfego de rede entre clientes e o ponto final das suas comunicações. Os pontos finais incluem:  
 
--   **Точка веб-сайта каталога приложений** — поддерживает обмен данными по протоколам HTTP и HTTPS.
+-   **Ponto de Web site do catálogo de aplicações**: Suporta comunicação HTTP e HTTPS
 
--   **Облачные ресурсы** — включают в себя Microsoft Azure и Microsoft Intune.  
+-   **Recursos baseados na nuvem**: Inclui o Microsoft Azure e o Microsoft Intune  
 
--   **Модуль политики Configuration Manager (NDES)** — поддерживает обмен данными по протоколам HTTP и HTTPS.
+-   **Módulo de política do Configuration Manager (NDES)**: Suporta comunicação HTTP e HTTPS
 
--   **Точки распространения** — поддерживают обмен данными по протоколам HTTP и HTTPS; для облачных точек распространения обязательно использовать HTTPS.  
+-   **Pontos de distribuição**: Suporta HTTP e HTTPS e a comunicação com HTTPS é necessário para pontos de distribuição baseado na nuvem  
 
--   **Резервная точка состояния** — поддерживает обмен данными по протоколу HTTP.  
+-   **Ponto de estado de contingência**: Suporta comunicação HTTP  
 
--   **Точка управления** — поддерживает обмен данными по протоколам HTTP и HTTPS.  
+-   **Ponto de gestão**: Suporta comunicação HTTP e HTTPS  
 
--   **Центр обновления Майкрософт**  
+-   **Microsoft Update**  
 
--   **Точки обновления программного обеспечения** — поддерживают обмен данными по протоколам HTTP и HTTPS.  
+-   **Pontos de atualização de software** : Suporta comunicação HTTP e HTTPS  
 
--   **Точка миграции состояния** — поддерживает обмен данными по протоколам HTTP и HTTPS.  
+-   **Ponto de migração de estado**: Suporta comunicação HTTP e HTTPS  
 
--   **Различные службы домена**  
+-   **Vários serviços de domínio**  
 
-Прежде чем клиент сможет связаться с ролью системы сайта, он использует обнаружение службы для поиска роли системы сайта, которая поддерживает клиентский протокол (HTTP или HTTPS). По умолчанию клиенты используют наиболее безопасный из доступных методов.  
+Antes de um cliente pode comunicar com uma função de sistema de sites, o cliente utiliza a localização de serviço para localizar uma função de sistema de sites que suporta o protocolo do cliente (HTTP ou HTTPS). Por predefinição, os clientes utilizam o método mais seguro disponível:  
 
--   Чтобы использовать протокол HTTPS, требуется инфраструктура открытых ключей (PKI); необходимо установить PKI-сертификаты на клиентах и серверах. Сведения о том, как использовать сертификаты, см. в разделе [Требования к PKI-сертификатам для System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   Para utilizar HTTPS, tem de ter uma infraestrutura de chaves públicas (PKI) e instalar certificados PKI nos clientes e servidores. Para obter mais informações sobre o certificado PKI, veja [Requisitos de Certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
--   При развертывании роли системы сайта, использующей службы IIS и поддерживающей взаимодействие с клиентами, необходимо указать, по какому протоколу клиенты подключаются к системе сайта — HTTP или HTTPS. При использовании HTTP необходимо настроить параметры подписывания и шифрования. Дополнительные сведения см. в подразделе [Планирование подписывания и шифрования](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) раздела [Планирование безопасности в System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
+-   Ao implementar uma função do sistema de sites que utiliza Serviços de Informação Internet (IIS) e suporta comunicações de clientes, tem de especificar se os clientes ligam ao sistema de sites através de HTTP ou HTTPS. Se utilizar HTTP, também tem de considerar as opções de assinatura e encriptação. Para obter mais informações, consulte [planeamento para assinatura e encriptação](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) no [planear a segurança no System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
 
-Сведения о расположениях служб для клиентов см. в статье [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+Para obter informações sobre a localização de serviços pelos clientes, veja [Compreender a forma como os clientes localizam os recursos e os serviços do site no System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-Подробные сведения о портах и протоколах, используемых клиентами при взаимодействии с этими конечными точками, см. в разделе [Порты, используемые в System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
+Para obter detalhes sobre as portas e protocolos utilizados pelos clientes quando comunicam com estes pontos finais, consulte [portas utilizadas no System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
 
-###  <a name="BKMK_clientspan"></a> Рекомендации по взаимодействию с клиентами из Интернета или недоверенного леса  
-Следующие роли системы сайта, установленные на первичных сайтах, поддерживают соединения от клиентов, находящихся в ненадежных расположениях, таких как Интернет или лес без доверия (вторичные сайты не поддерживают подключения клиентов из ненадежных расположений):  
+###  <a name="BKMK_clientspan"></a> Considerações sobre comunicações do cliente a partir da Internet ou uma floresta não fidedigna  
+As seguintes funções do sistema de sites instaladas nos sites primários suportam ligações de clientes que se encontram em localizações não fidedignas, como a Internet ou numa floresta não fidedigna. (Os sites secundários não suportam ligações de cliente a partir de localizações não fidedignas):  
 
--   Точка веб-сайта каталога приложений  
+-   Ponto de site do Catálogo de Aplicações  
 
--   Модуль политики Configuration Manager  
+-   Módulo de Política do Configuration Manager  
 
--   Точка распространения (для облачных точек распространения требуется протокол HTTPS)  
+-   Ponto de distribuição (os pontos de distribuição baseados na nuvem precisam de HTTPS)  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
--   Резервная точка состояния  
+-   Ponto de estado de contingência  
 
--   Точка управления  
+-   Ponto de gestão  
 
--   Точка обновления программного обеспечения  
+-   Ponto de atualização de Software  
 
-**Сведения о системах сайта с выходом в Интернет:**   
-Доверие между лесом клиента и лесом сервера системы сайта не требуется. Но в случае, если лес, который содержит систему сайта с выходом в Интернет, доверяет лесу, который содержит учетные записи пользователей, эта конфигурация поддерживает пользовательские политики для устройств в Интернете при включении параметра **Включить запросы политик пользователей с интернет-клиентов** **политики клиента**.  
+**Sobre os sistemas de sites para a Internet:**   
+Não é necessário ter uma confiança entre a floresta do cliente e do servidor de sistema do site. No entanto, quando a floresta que contém um sistema de sites para a Internet confia na floresta que contém as contas de utilizador, esta configuração suporta políticas baseadas no utilizador para dispositivos na Internet quando ativa a **política de cliente** definição de cliente **ativar pedidos da política de utilizador dos clientes Internet**.  
 
-Например, следующие конфигурации демонстрируют ситуации, когда управление клиентами через Интернет поддерживает политики пользователей для устройств в Интернете.  
+Por exemplo, as configurações seguintes ilustram quando a gestão de clientes baseada na Internet suporta políticas de utilizador para dispositivos na Internet:  
 
--   Интернет-точка управления находится в сети периметра, где размещен контроллер домена только для чтения для проверки подлинности пользователей, и промежуточный брандмауэр разрешает передачу пакетов Active Directory.  
+-   O ponto de gestão baseado na Internet encontra-se na rede de perímetro em que reside um controlador de domínio para autenticar o utilizador e uma firewall intermediária permite pacotes do Active Directory.  
 
--   Учетная запись пользователя находится в лесу А (интрасеть), а интернет-точка управления — в лесу Б (сеть периметра). Лес Б доверяет лесу А, а промежуточный брандмауэр разрешает передачу пакетов проверки подлинности.  
+-   A conta de utilizador encontra-se na Floresta A (a intranet) e o ponto de gestão baseado na Internet encontra-se na Floresta B (a rede de perímetro). A Floresta B confia na Floresta A e uma firewall intermediária permite os pacotes de autenticação.  
 
--   Учетная запись пользователя и интернет-точка управления находятся в лесу А (интрасеть). Точка управления публикуется в Интернете с помощью сервера веб-прокси (такого как Forefront Threat Management Gateway).  
+-   A conta de utilizador e o ponto de gestão baseado na Internet encontram-se na Floresta A (a intranet). O ponto de gestão é publicado na Internet através de um servidor Web proxy (como o Forefront Threat Management Gateway).  
 
 > [!NOTE]  
->  Если происходит сбой проверки подлинности Kerberos, автоматически предпринимается попытка выполнения проверки подлинности NTLM.  
+>  Se a autenticação Kerberos falhar, será automaticamente tentada a autenticação NTLM.  
 
-Как показано в предыдущем примере, системы сайта управления интернет-клиентами можно разместить в интрасети, если они публикуются в Интернете с помощью прокси-сервера в Интернете, такого как ISA Server и Forefront Threat Management Gateway. Эти системы сайта можно настроить только для подключений клиента из Интернета или для подключений клиента из Интернета и интрасети. Используемый прокси-сервер в Интернете можно настроить для моста SSL-SSL (более высокий уровень безопасности) или туннелирования SSL.  
+Como mostra o exemplo anterior, é possível colocar sistemas de sites baseados na Internet na intranet quando estes forem publicados na Internet utilizando um servidor Web proxy, tal como o ISA Server ou o Forefront Threat Management Gateway. Estes sistemas de sites podem ser configurados para ligação de cliente a partir da Internet apenas, ou para ligações de cliente provenientes da Internet e intranet. Quando utilizar um servidor proxy web, pode configurá-lo para bridge de Secure Sockets Layer (SSL) para SSL (mais seguro) ou túnel SSL da seguinte forma:  
 
--   **Мост SSL-SSL.**   
-    При использовании серверов веб-прокси для управления клиентом через Интернет рекомендуется использовать мост SSL-SSL, где применяется завершение запросов SSL с проверкой подлинности. Клиентские компьютеры должны пройти проверку подлинности с помощью проверки подлинности компьютера, а устаревшие клиенты мобильных устройств проходят проверку подлинности пользователей. Мобильные устройства, зарегистрированные в Configuration Manager, не поддерживают мост SSL.  
+-   **Protocolo de bridge SSL para SSL:**   
+    A configuração recomendada quando utiliza servidores Web proxy para a gestão de clientes baseados na Internet é o protocolo de bridge SSL para SSL, que utiliza a terminação de SSL com a autenticação de SSL. Os computadores cliente têm de ser autenticados utilizando a autenticação de computador e os clientes antigos do dispositivo móvel são autenticados utilizando a autenticação de utilizador. Dispositivos móveis que são inscritos pelo Configuration Manager não suportam o protocolo de bridge SSL.  
 
-     Преимущество завершения запросов SSL на прокси-сервере в Интернете заключается в том, что пакеты из Интернета должны пройти проверку до перенаправления в интрасеть. Прокси-сервер в Интернете проверяет подлинность подключения от клиента, закрывает его, а затем открывает новое проверенное подключение к системам сайта управления интернет-клиентами. Если клиент Configuration Manager использует прокси-сервер в Интернете, удостоверение клиента (идентификатор GUID клиента) безопасно хранится в полезных данных пакета, поэтому точка управления не принимает прокси-сервер в Интернете за клиент. В Configuration Manager не поддерживаются мосты HTTP-HTTPS или HTTPS-HTTP.  
+     A vantagem da terminação de SSL no servidor Web proxy é que os pacotes da Internet são sujeitos a inspeção antes de serem encaminhados para a rede interna. O servidor Web proxy autentica a ligação do cliente, termina-a e, em seguida, abre uma nova ligação autenticada para os sistemas de sites baseados na Internet. Quando os clientes do Configuration Manager utilizam um servidor web proxy, a identidade do cliente (GUID do cliente) está contida em segurança no payload do pacote para que o ponto de gestão não considere o servidor do web proxy como o cliente. Protocolo de bridge não é suportado no Configuration Manager com HTTP para HTTPS ou de HTTPS para HTTP.  
 
--   **Туннелирование**.   
-    Туннелирование SSL также поддерживается в случае, если сервер веб-прокси не поддерживает требования к мосту SSL или нужно настроить интернет-поддержку для мобильных устройств, зарегистрированных в Configuration Manager. Это менее безопасный вариант, поскольку пакеты SSL из Интернета перенаправляются в системы сайта без завершения запросов и не могут быть проверены на наличие вредоносного содержимого. При использовании туннелирования SSL сертификаты для прокси-сервера в Интернете не требуются.  
+-   **Protocolo de túnel**:   
+    Se o servidor web proxy não suporta os requisitos para o protocolo de bridge SSL ou se quiser configurar o suporte de Internet para dispositivos móveis que são inscritos pelo Configuration Manager, o túnel SSL também é suportado. É uma opção menos segura porque os pacotes SSL da Internet são encaminhados para os sistemas de sites sem a terminação de SSL, não podendo ser, assim, inspecionados quanto a conteúdo malicioso. Quando utiliza o protocolo de túnel SSL, não existem requisitos de certificado para o servidor Web proxy.  
 
-##  <a name="Plan_Com_X-Forest"></a> Обмен данными между лесами Active Directory  
-System Center Configuration Manager поддерживает сайты и иерархии, которые охватывают леса Active Directory.  
+##  <a name="Plan_Com_X-Forest"></a> Comunicação entre florestas do Active Directory  
+System Center Configuration Manager suporta sites e hierarquias que abrangem florestas do Active Directory.  
 
-Configuration Manager также поддерживает компьютеры домена, которые находятся не в одном с сервером сайта лесу Active Directory, и компьютеры, входящие в рабочие группы.  
+O Configuration Manager também suporta computadores de domínio que não estão na mesma floresta do Active Directory que o servidor do site e computadores que estão em grupos de trabalho:  
 
--   **Для поддержки компьютеров домена в лесу, который не является доверенным для леса сервера сайта**, вы можете:  
+-   **Para suportar computadores de domínio numa floresta não considerada fidedigna pela floresta do servidor do site**, pode:  
 
-    -   Установить роли системы сайта в этом ненадежном лесу с возможностью публикации информации сайта в этот лес Active Directory  
+    -   Instalar funções do sistema de sites nessa floresta não fidedigna, com a opção de publicar informações do site nessa floresta do Active Directory  
 
-    -   Управлять этими компьютерами как компьютерами рабочей группы.  
+    -   Gerir estes computadores como se fossem computadores de grupo de trabalho.  
 
-  При установке серверов системы сайта в недоверенном лесу Active Directory обмен данными между клиентом и сервером происходит в пределах клиентского леса, и Configuration Manager может проверять подлинность компьютера с помощью Kerberos. При публикации информации сайта в клиентском лесу преимущество для клиентов состоит в получении информации сайта, такой как список доступных точек управления, из своего леса Active Directory вместо скачивания этой информации из своей назначенной точки управления.  
+  Ao instalar servidores do sistema de sites numa floresta do Active Directory não fidedigna, a comunicação cliente-servidor dos clientes nessa floresta é mantida ao nível nessa floresta e do Configuration Manager pode autenticar o computador utilizando Kerberos. Quando publicar informações do site na floresta do cliente, os clientes beneficiarão da obtenção de informações de site, tais como uma lista de pontos de gestão disponíveis da sua floresta do Active Directory, em vez de transferir a partir do respetivo ponto de gestão atribuído.  
 
   > [!NOTE]  
-  >  Если требуется управлять устройствами, находящимися в Интернете, можно установить интернет-роли систем сайта в сети периметра, когда серверы систем сайта находятся в лесу Active Directory. В этом сценарии не требуется двустороннее доверие между сетью периметра и лесом сервера сайта.  
+  >  Para gerir os dispositivos que se encontrem na Internet, pode instalar funções de sistema de sites baseadas na Internet na sua rede de perímetro desde que os servidores do sistema de sites se encontrem numa floresta do Active Directory. Este cenário não requer uma fidedignidade bidirecional entre a rede de perímetro e a floresta do servidor do site.  
 
--   **Для поддержки компьютеров в рабочей группе**необходимо:  
+-   **Para suportar computadores num grupo de trabalho**, tem de:  
 
-    -   Вручную утвердить компьютеры рабочей группы при использовании HTTP-подключения клиента к ролям системы сайта. Это вызвано тем, что Configuration Manager не может проверить подлинность этих компьютеров с помощью протокола Kerberos.  
+    -   Aprovar manualmente os computadores do grupo de trabalho quando utilizam ligações de cliente HTTP para as funções do sistema de sites. Isto acontece porque o Configuration Manager não pode autenticar estes computadores através de Kerberos.  
 
-    -   Настроить на клиентах рабочей группы учетную запись доступа к сети, чтобы эти компьютеры могли извлекать содержимое из точек распространения.  
+    -   Configurar a Conta de Acesso à Rede para que estes computadores possam receber conteúdos dos pontos de distribuição.  
 
-    -   Предоставить клиентам рабочей группы другой механизм для поиска точек управления. Можно использовать публикацию DNS, WINS или прямой доступ к точке управления. Это вызвано тем, что эти клиенты не могут получить сведения о сайте из доменных служб Active Directory.  
+    -   Fornecer um mecanismo alternativo para que os clientes do grupo de trabalho localizem pontos de gestão. Pode utilizar a publicação de DNS, WINS, ou pode atribuir diretamente um ponto de gestão. Isto acontece porque estes clientes não conseguem obter as informações do site dos Serviços de Domínio do Active Directory.  
 
-    Связанные ресурсы в библиотеке содержимого:  
+    Recursos relacionados nesta biblioteca de conteúdos:  
 
-    -   [Управление конфликтующими записями для клиентов Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
+    -   [Gerir registos em conflito para clientes do Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
 
-    -   [Учетная запись доступа к сети](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
+    -   [Conta de acesso de rede](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
 
-    -   [Установка клиентов Configuration Manager на компьютерах в составе рабочей группы](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
+    -   [Como instalar clientes do Configuration Manager em computadores de grupo de trabalho](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
 
-###  <a name="bkmk_span"></a> Сценарии, поддерживающие сайт или иерархию, которая охватывает несколько доменов и лесов  
+###  <a name="bkmk_span"></a> Cenários para suportar um site ou uma hierarquia que abranja vários domínios e florestas  
 
-#### <a name="communication-between-sites-in-a-hierarchy-that-spans-forests"></a>Взаимодействие между сайтами в иерархии, охватывающее леса  
-В этом сценарии требуется двустороннее доверие между лесами, которое поддерживает проверку подлинности Kerberos.  Если двустороннее доверие между лесами, которое поддерживает проверку подлинности Kerberos, отсутствует, то Configuration Manager не поддерживает размещение подчиненного сайта в удаленном лесу.  
+#### <a name="communication-between-sites-in-a-hierarchy-that-spans-forests"></a>Comunicação entre sites numa hierarquia que abranja florestas  
+Este cenário requer uma fidedignidade de floresta bidirecional que suporte a autenticação Kerberos.  Se não tiver uma fidedignidade de floresta bidirecional que suporte a autenticação Kerberos, em seguida, o Configuration Manager não suporta um site subordinado na floresta remota.  
 
- **Configuration Manager поддерживает установку дочернего сайта в удаленном лесу, где имеется необходимое двустороннее доверие с лесом родительского сайта.**  
+ **O Configuration Manager suporta a instalar um site subordinado numa floresta remota que possua a fidedignidade bidirecional necessária com a floresta do site principal**  
 
--   Например, вы можете разместить вторичный сайт в другом лесу, отличном от первичного родительского сайта, если существует нужное отношение доверия.  
+-   Por exemplo, pode colocar um site secundário noutra floresta do respetivo site primário principal, desde que a fidedignidade necessária exista.  
 
 > [!NOTE]  
->  Подчиненный сайт может быть первичным сайтом (если сайт центра администрирования является родительским) или вторичным сайтом.  
+>  Um site subordinado pode ser site primário (onde o site de administração central é o site principal) ou um site secundário.  
 
-Межсайтовое взаимодействие в Configuration Manager использует репликацию базы данных и передачи файлов. При установке сайта необходимо указать учетную запись для установки сайта на конечном сервере. Эта учетная запись также устанавливает и поддерживает взаимодействие между сайтами.  
+Comunicação entre sites no Configuration Manager utiliza a replicação de base de dados e transferências baseadas em ficheiros. Quando instala um site, tem de especificar uma conta com que pretende instalar o site no servidor designado. Esta conta também estabelece e mantém a comunicação entre sites.  
 
-После того, как успешно установленный сайт начнет передачу файлов и репликацию базы данных, дополнительные настройки выполнять не требуется.  
+Após o site ter sido instalado com êxito e ter iniciado transferências baseadas em ficheiros e a replicação de base de dados, não será necessária qualquer configuração adicional para a comunicação com o site.  
 
-**При наличии двустороннего доверия между лесами Configuration Manager не требует дополнительных действий по настройке.**  
+**Se existir uma fidedignidade de floresta bidirecional, o Configuration Manager não requer quaisquer passos de configuração adicionais.**  
 
-По умолчанию при установке нового сайта в качестве дочернего сайта другого сайта Configuration Manager выполняет следующие настройки.  
+Por predefinição, quando instala um novo site como subordinado de outro site, o Configuration Manager configura o seguinte:  
 
--   Маршрут межсайтовой файловой репликации на каждом сайте, который использует учетную запись компьютера сервера сайта. Добавляет учетную запись каждого компьютера в группу **SMS_SiteToSiteConnection_ &lt;код_сайта\>** на конечном компьютере.  
+-   Uma rota de replicação entre sites, baseada em ficheiros em cada site que utiliza a conta do computador servidor de sites. Gestor de configuração adiciona a conta de computador de cada computador para o **SMS_SiteToSiteConnection_&lt;sitecode\>**  grupo no computador de destino.  
 
--   Репликация базы данных между SQL Server на каждом сайте.  
+-   A replicação de base de dados entre o SQL Server de cada site.  
 
-Необходимо также выполнить следующие настройки.  
+É também necessário definir as seguintes configurações:  
 
--   Промежуточные брандмауэры и сетевые устройства должны разрешать передачу сетевых пакетов, необходимых Configuration Manager.  
+-   Dispositivos de rede e firewalls intervenientes têm de permitir os pacotes de rede exigidos pelo Configuration Manager.  
 
--   Между лесами должно выполняться разрешение имен.  
+-   A resolução de nomes tem de funcionar entre as florestas.  
 
--   Чтобы установить сайт или роль системы сайта, необходимо задать учетную запись с правами локального администратора на указанном компьютере.  
+-   Para instalar um site ou função do sistema de sites, terá de especificar uma conta com permissões de administrador local no computador especificado.  
 
-#### <a name="communication-in-a-site-that-spans-forests"></a>Взаимодействие на сайте, охватывающем леса  
-В этом сценарии двустороннее доверие между лесами не требуется.  
+#### <a name="communication-in-a-site-that-spans-forests"></a>Comunicação num site que abranja florestas  
+Este cenário não requer uma fidedignidade de floresta bidirecional.  
 
-**Первичные сайты поддерживают установку ролей системы сайта на компьютерах в удаленных лесах**.  
+**Os sites primários suportam a instalação de funções do sistema de sites em computadores em florestas remotas**.  
 
--   Единственным исключением является точка веб-службы каталога приложений.  Она поддерживается только в одном лесу с сервером сайта.  
+-   O ponto de serviço Web do Catálogo de Aplicações é a única exceção.  Apenas é suportado na mesma floresta do servidor do site.  
 
--   Если роль системы сайта принимает подключения из Интернета, следует принять во внимание рекомендации по обеспечению безопасности и установить эти роли систем сайта в таком расположении, где граница леса обеспечивает защиту сервера сайта (например, в сети периметра).  
+-   Se uma função do sistema de sites aceitar ligações a partir da Internet, como uma melhor prática de segurança, instale as funções do sistema de sites numa localização onde o limite da floresta forneça proteção ao servidor do site (por exemplo, numa rede de perímetro).  
 
-**При установке роли системы сайта на компьютере в лесу без доверия:**  
+**Para instalar uma função do sistema de sites num computador numa floresta não fidedigna:**  
 
--   Необходимо указать значение **Учетная запись установки системы сайта**, используемое для установки роли системы сайта. (Для подключения у этой учетной записи должны быть права администратора.) Затем установите роли системы сайта на указанном компьютере.  
+-   Tem de especificar um **conta de instalação do sistema de sites**, que é utilizada para instalar a função de sistema de sites. (Esta conta tem de ter credenciais administrativas locais para estabelecer ligação ao.) Em seguida, instale funções do sistema de sites no computador especificado.  
 
--   Необходимо выбрать параметр системы сайта **Сервер сайта должен инициировать подключения к этой системе сайта**. Эта вынуждает сервер сайта устанавливать подключения к серверу системы сайта для передачи данных. Таким образом компьютер в расположении, не имеющем доверия, не сможет подключаться к серверу сайта, расположенному в доверенной сети. Эти соединения используют значение **Учетная запись установки системы сайта**.  
+-   Tem de selecionar a opção de sistema de sites **Exigir que o servidor do site inicie ligações a este sistema de sites**. Isto requer que o servidor do site estabeleça ligações ao servidor do sistema de sites para transferir dados. Isto impede que o computador na localização não fidedigna estabeleça contacto com o servidor do site que está no interior da rede fidedigna. Estas ligações utilizam a **Conta de Instalação do Sistema de Sites**.  
 
-**При использовании роли системы сайта в лесу без доверия** брандмауэры должны разрешать прохождение сетевого трафика, даже если сервер сайта инициирует передачу данных.  
+**Ao utilizar uma função do sistema de sites que foi instalada numa floresta não fidedigna,** as firewalls têm de permitir o tráfego de rede, mesmo quando o servidor do site inicia a transferência dos dados.  
 
-Кроме того, следующим ролям системы сайта требуется прямой доступ к базе данных сайта. Поэтому брандмауэры должны разрешать прохождение соответствующего трафика из ненадежного леса на сервер SQL Server сайта:  
+Além disso, as seguintes funções do sistema de sites requerem acesso direto à base de dados do site. Por conseguinte, as firewalls têm de permitir tráfego aplicável das florestas não fidedignas para SQL Server do site:  
 
--   точка синхронизации каталога аналитики активов;  
+-   Ponto de sincronização do Asset Intelligence  
 
--   Точка Endpoint Protection  
+-   Ponto de Endpoint Protection  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Точка управления  
+-   Ponto de gestão  
 
--   Точка служб отчетов  
+-   Ponto do sistema de reporte  
 
--   Точка миграции среды  
+-   Ponto de migração de estado  
 
-Дополнительные сведения см. в разделе [Порты, используемые в System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
+Para obter mais informações, consulte [portas utilizadas no System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
 
-**Может потребоваться настроить доступ роли системы сайта к базе данных сайта.**  
+**Pode ser necessário configurar o acesso à função do sistema de sites para a base de dados do site:**  
 
-Роли систем сайта точки управления и точки регистрации подключаются к базе данных сайта.  
+As funções do sistema de sites do ponto de gestão e do ponto de registo estabelecem ligação à base de dados do site.  
 
--   По умолчанию, если эти роли системы сайта установлены, Configuration Manager настраивает учетную запись компьютера нового сервера системы сайта в качестве учетной записи подключения для роли системы сайта и добавляет ее к соответствующей роли базы данных SQL Server.  
+-   Por predefinição, quando estas funções de sistema de sites são instaladas, o Configuration Manager configura a conta de computador do novo servidor do sistema de sites como conta de ligação para a função de sistema de sites e, em seguida, adiciona a conta à função adequada para a base de dados de SQL Server.  
 
--   При установке этих ролей систем сайта в домене, не имеющем доверия, учетную запись подключения роли системы сайта необходимо настроить для получения сведений из базы данных.  
+-   Ao instalar estas funções do sistema de sites num domínio não fidedigno, terá de configurar a conta de ligação da função do sistema de sites para permitir que a função do sistema de sites obtenha informações da base de dados.  
 
-При настройке учетной записи пользователя домена в качестве учетной записи подключения для этих ролей системы сайта следует убедиться, что учетная запись имеет соответствующий доступ к базе данных SQL Server на этом сайте.  
+Se configurar uma conta de utilizador de domínio como conta de ligação para estas funções do sistema de sites, certifique-se de que a conta de utilizador de domínio possui acesso adequado à base de dados do SQL Server nesse site:  
 
--   Точка управления: **учетная запись подключения к базе данных точки управления**  
+-   Ponto de gestão: **Conta de ligação de base de dados do ponto de gestão**  
 
--   Точка регистрации: **учетная запись подключения точки регистрации**  
+-   Ponto de registo: **Conta de ligação de ponto de inscrição**  
 
-При планировании ролей систем сайта в других лесах примите во внимание следующие дополнительные сведения.  
+Ao planear funções do sistema de sites noutras florestas, considere as seguintes informações adicionais:  
 
--   При использовании брандмауэра Windows применимые профили брандмауэра следует настроить для передачи данных между сервером базы данных сайта и компьютерами, на которых установлены роли удаленной системы сайта. Сведения о профилях брандмауэра см. в статье [Общие сведения о профилях брандмауэра](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
+-   Se executar a Firewall do Windows, configure os perfis de firewall aplicáveis transmita as comunicações entre o servidor de base de dados do site e os computadores que são instalados com funções do sistema de sites remoto. Para obter informações sobre perfis de firewall, consulte [Noções sobre perfis de firewall](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
 
--   Если точка управления интернет-клиентами доверяет лесу, содержащему учетные записи пользователей, поддерживаются политики пользователей. Если доверие отсутствует, поддерживаются только политики компьютеров.  
+-   Se o ponto de gestão baseado na Internet confiar na floresta que contém as contas de utilizador, são suportadas políticas de utilizador. Se não existir qualquer fidedignidade, só são suportadas políticas de computador.  
 
-#### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Взаимодействие между клиентами и ролями систем сайта, если клиенты и сервер сайта находятся в разных лесах Active Directory  
-Configuration Manager поддерживает для клиентов, находящихся в разных лесах с сервером их сайта, следующие сценарии.  
+#### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Comunicação entre clientes e funções do sistema de sites quando os clientes não estão na mesma floresta do Active Directory que o respetivo servidor de site  
+O Configuration Manager suporta os seguintes cenários para clientes que não estão na mesma floresta que o respetivo servidor de site:  
 
--   Между лесом клиента и лесом сервера сайта существует двустороннее доверие.  
+-   Há uma fidedignidade de floresta bidirecional entre a floresta do cliente e a floresta do servidor do site.  
 
--   Сервер роли системы сайта расположен в одном лесу с клиентом.  
+-   O servidor de função do sistema de sites está localizado na mesma floresta que o cliente.  
 
--   Клиент находится на компьютере домена, не имеющем двустороннего отношения доверия между лесами с сервером сайта, и роли систем сайта не установлены в лесу клиента.  
+-   O cliente está num computador de domínio que não tem uma floresta bidirecional confiar no servidor do site e do site não estão instaladas as funções do sistema da floresta do cliente.  
 
--   Клиент находится на компьютере рабочей группы.  
+-   O cliente é um computador de grupo de trabalho.  
 
-Клиенты на компьютере, присоединенном к домену, могут использовать доменные службы Active Directory для поиска служб, когда их сайт публикуется в их лесу Active Directory.  
+Os clientes num computador associado a um domínio podem utilizar serviços de domínio do Active Directory para localização de serviços quando o respetivo site for publicado na sua floresta do Active Directory.  
 
-Для публикации данных сайта в другой лес Active Directory необходимо:  
+Para publicar informações do site noutra floresta do Active Directory, tem de:  
 
--   Указать лес, а затем включить публикацию в этом лесу в узле **Леса Active Directory** рабочей области **Администрирование** .  
+-   Especificar primeiro a floresta, ativando em seguida a publicação nessa floresta no nó **Florestas do Active Directory** da área de trabalho **Administração** .  
 
--   Настроить каждый сайт, который будет публиковать свои данные в доменных службах Active Directory. Такая конфигурация позволяет клиентам в этом лесу извлекать информацию сайта и обнаруживать точки управления. Для клиентов, которые не могут использовать доменные службы Active Directory для поиска служб, можно применять DNS, WINS или назначенную точку управления клиента.  
+-   Configurar cada site para publicar os respetivos dados nos Serviços de Domínio do Active Directory. Esta configuração permite aos clientes dessa floresta obter as informações de site e localizar pontos de gestão. Para clientes que não é possível utilizar os serviços de domínio do Active Directory para localização de serviço, pode utilizar DNS, WINS ou o cliente do ponto de gestão atribuído.  
 
-###  <a name="bkmk_xchange"></a> Размещение коннектора Exchange Server в удаленном лесу  
-Для поддержки этого сценария необходимо убедиться, что в лесах выполняется разрешение имен (например, настроить пересылки DNS), и при настройке коннектора Exchange Server указать полное доменное имя сервера Exchange Server. Дополнительные сведения см. в разделе [Управление мобильными устройствами с помощью System Center Configuration Manager и Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+###  <a name="bkmk_xchange"></a> Colocar o conector do Exchange Server numa floresta remota  
+Para suportar este cenário, certifique-se de que a resolução de nomes funciona entre as florestas (por exemplo, configurando reencaminhamentos de DNS) e quando configurar o conector do Exchange Server, especifique o FQDN da intranet do Exchange Server. Para obter mais informações, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  

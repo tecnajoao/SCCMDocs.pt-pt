@@ -1,6 +1,6 @@
 ---
-title: "Обновление и вывод приложений из эксплуатации | Документы Майкрософт"
-description: "Изменение, замена и удаление развернутых приложений с помощью System Center Configuration Manager."
+title: "Atualizar e extinguir aplicações | Microsoft Docs"
+description: "Rever, substituir ou desinstalar aplicações implementadas através do System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,25 +16,25 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 805e04c447747b4d12350b692880dbc005bd7168
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="update-and-retire-applications-with-system-center-configuration-manager"></a>Обновление и прекращение использования приложений с помощью System Center Configuration Manager
+# <a name="update-and-retire-applications-with-system-center-configuration-manager"></a>Atualizar e extinguir aplicações com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Со временем вам может потребоваться изменить приложение, удалить его или заменить уже развернутое приложение новым. Для этого System Center Configuration Manager предоставляет возможности обновления и вывода приложений из эксплуатации.  
+É provável que, eventualmente, poderá ser útil efetuar alterações a uma aplicação, desinstalar uma aplicação ou substituir uma aplicação já implementada por uma nova aplicação. System Center Configuration Manager dá-lhe estas capacidades, para o ajudar a atualizar e extinguir aplicações:  
 
--   **Изменение приложений**. При внесении изменений в приложение или тип развертывания Configuration Manager сохраняет историю этих изменений. Вы можете в любое время восстановить приложение до предыдущей версии. Можно также просмотреть ее свойства, восстановить предыдущую редакцию приложения или удалить старую редакцию.  
+-   **Rever aplicações**. Quando fizer alterações a uma aplicação ou um tipo de implementação, o Configuration Manager mantém um histórico de alterações. Pode reverter a aplicação para uma revisão anterior em qualquer altura. Também pode ver as respetivas propriedades, restaurar uma revisão anterior de uma aplicação ou eliminar uma revisão antiga.  
 
-  Дополнительные сведения см. в разделе [Редакции приложений](revise-and-supersede-applications.md#application-revisions).  
+  Para obter mais informações, consulte [revisões de aplicações](revise-and-supersede-applications.md#application-revisions).  
 
--   **Замена приложений**. Можно обновить или заменить существующие приложения с помощью отношения замены. При замене приложения можно указать новый тип развертывания, заменяющий тип развертывания заменяемого приложения. Также можно выбрать, следует ли обновить заменяемое приложение или же удалить его перед установкой заменяющего приложения.  
+-   **Substituir aplicações**. Pode atualizar ou substituir as aplicações existentes utilizando uma relação de substituição. Se substituir uma aplicação, pode especificar um novo tipo de implementação para substituir o tipo de implementação da aplicação substituída. Além disso, pode definir se atualizar ou desinstalar a aplicação substituída antes da aplicação substituta está instalado.  
 
-  Дополнительные сведения см. в разделе [Замена приложений](revise-and-supersede-applications.md#application-supersedence).  
+  Para obter mais informações, consulte [substituição de aplicações](revise-and-supersede-applications.md#application-supersedence).  
 
--   **Удаление приложений**. Configuration Manager упрощает удаление приложений. Это может быть сделано автоматически, без всякого вмешательства пользователя приложения или устройства.  
+-   **Desinstalar aplicações**. Gestor de configuração facilita a desinstalação de uma aplicação fácil. Isto pode ser conseguido de forma silenciosa, sem qualquer intervenção do utilizador do dispositivo ou aplicação.  
 
-  Дополнительные сведения см. в разделе [Удаление приложений](uninstall-applications.md).  
+  Para obter mais informações, consulte [desinstalar aplicações](uninstall-applications.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Исключение клиентов из обновления | Windows | System Center Configuration Manager"
-description: "Узнайте, как исключить клиенты Windows из обновления в System Center Configuration Manager."
+title: "Excluir as atualizações de cliente | Windows | O System Center Configuration Manager"
+description: "Saiba como excluir os clientes do Windows da introdução atualizado no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -15,40 +15,40 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: de5602179f3ac55b51133b8280a0143f1b0ff30e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-exclude-upgrading-clients-for-windows-computers-in-system-center-configuration-manager"></a>Как исключить клиенты на компьютерах Windows из обновления в System Center Configuration Manager
+# <a name="how-to-exclude-upgrading-clients-for-windows-computers-in-system-center-configuration-manager"></a>Como excluir atualizar clientes em computadores Windows no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Начиная с версии 1610 можно запретить коллекции клиентов автоматически устанавливать обновленные версии клиентов. Этот параметр действует для автоматического обновления, а также для других методов, таких как обновление на основе обновления программного обеспечения, сценарии входа в систему и групповая политика. Его можно использовать для коллекции компьютеров, которым требуется особое внимание при обновлении клиента. Клиент, который находится в исключенной коллекции, игнорирует запросы на установку обновленного клиентского программного обеспечения.
+A partir da versão 1610, pode excluir uma coleção de clientes de instalar automaticamente as versões de cliente atualizado. Isto aplica-se a atualização automática, bem como outros métodos, tais como a atualização baseada em atualização de software, scripts de início de sessão e política de grupo. Pode utilizar esta opção para uma coleção de computadores que têm maior cuidado ao atualizar o cliente. Um cliente que está a ser uma coleção excluída ignora os pedidos para instalar o software de cliente atualizado.
 
-## <a name="configure-exclusion-for-automatic-upgrades"></a>Настройка исключения из автоматического обновления
+## <a name="configure-exclusion-for-automatic-upgrades"></a>Configurar exclusões de atualizações automáticas
 
-1. В консоли Configuration Manager откройте узел **Администрирование** > **Конфигурация сайта** > **Сайты** и щелкните **Параметры иерархии**.
+1. Na consola do Configuration Manager, vá para **administração** > **configuração do Site** > **Sites**e, em seguida, clique em **definições de hierarquia**.
 
-2. Перейдите на вкладку **Обновление клиента**.
+2. Clique em de **atualização de cliente** separador.
 
-3. Установите флажок **Исключить указанные клиенты из обновления**, а затем в поле "Коллекция исключения" выберите коллекцию, которую требуется исключить. Можно выбрать только одну коллекцию для исключения.
+3. Clique na caixa de verificação para **excluir especificado de clientes de atualização**e, em seguida, para a coleção de exclusão, selecione a coleção que pretende excluir. Só pode selecionar uma única coleção para exclusão.
 
-4.  Нажмите кнопку **ОК**, чтобы закрыть окно и сохранить конфигурацию. После обновления политики клиенты в исключенной коллекции больше не будут автоматически устанавливать обновления для клиентского программного обеспечения. Дополнительные сведения см. в разделе [Обновление клиентов для компьютеров Windows](upgrade-clients-for-windows-computers.md).
+4.  Clique em **OK** para fechar e guardar a configuração. Em seguida, depois de política de atualização de clientes, os clientes na coleção excluída automaticamente já não irão instalar atualizações para o software de cliente. Para obter mais informações, consulte [como atualizar clientes em computadores Windows](upgrade-clients-for-windows-computers.md).
 
-![Параметры для исключения из автоматического обновления](media/automatic_upgrade_exclusion.png)
+![Definições de exclusão de atualização automática](media/automatic_upgrade_exclusion.png)
 
 
 
 >[!NOTE]
->Хотя в интерфейсе пользователя указывается, что клиенты не будут обновлены с помощью какого-либо метода, существует два способа, которые можно использовать для переопределения этих параметров. Для переопределения этой конфигурации применяется принудительная установка клиента и установка клиента вручную. Дополнительные сведения см. в следующем разделе.
+>Embora a interface de utilizador de Estados de que os clientes não serão atualizados através de qualquer método, existem dois métodos que pode utilizar para substituir estas definições. Instalação push do cliente e uma instalação de cliente manual podem ser utilizadas para substituir esta configuração. Para obter mais detalhes, consulte a secção seguinte.
 
-## <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Обновление клиента, который находится в исключенной коллекции
+## <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Como atualizar um cliente que está a ser uma coleção excluída
 
-Пока коллекция настроена как исключаемая, клиентское программное обеспечение членов этой коллекции может обновляться с помощью одного из двух методов, которые переопределяют исключение.
- - **Принудительная установка клиента** — принудительную установку клиента можно использовать для обновления клиента, который находится в исключенной коллекции. Это допустимый способ, так как он считается намерением администратора и позволяет обновлять клиенты без удаления всей коллекции из исключения.       
+Uma coleção é configurada a serem excluídos, desde que os membros dessa coleção só podem ter atualizado por um dos dois métodos que substituem a exclusão do respetivo software de cliente:
+ - **Instalação Push do cliente** – pode utilizar a instalação push do cliente para atualizar um cliente que está a ser uma coleção excluída. Isto é permitido como é considerada a intenção do administrador e permite-lhe atualizar os clientes sem remover o conjunto completo de exclusão.       
 
- - **Установка клиента вручную** — можно вручную обновить клиенты, находящиеся в исключенной коллекции, с помощью следующего параметра командной строки с ccmsetup: ***/ignoreskipupgrade***.
+ - **Instalação de cliente manual** – pode atualizar manualmente os clientes que estejam numa coleção excluída quando utilizar o seguinte parâmetro de linha de comandos com ccmsetup: ***/ignoreskipupgrade***
 
-  Если вы пытаетесь вручную обновить клиент, который является членом исключенной коллекции, и не используете этот параметр, клиент не установит новое клиентское ПО. Дополнительные сведения см. в статье [Установка клиентов Configuration Manager вручную](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual).
+  Se tentar atualizar manualmente um cliente que é um membro da coleção excluída e não utilize este parâmetro, o cliente não irá instalar o software de cliente novo. Para obter mais informações consulte [como instalar o Configuration Manager clientes manualmente](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual).
 
-Дополнительные сведения о методах установки клиентов см. в статье [Развертывание клиентов для компьютеров Windows в System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
+Para obter mais informações sobre métodos de instalação de cliente, consulte [como implementar clientes em computadores Windows no System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).

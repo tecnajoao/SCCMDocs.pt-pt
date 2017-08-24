@@ -1,6 +1,6 @@
 ---
-title: "Создание элементов конфигурации для устройств Android и Samsung KNOX Standard, управляемых с помощью Intune | Документация Майкрософт"
-description: "Использование элемента конфигурации для Android и Samsung KNOX Standard в System Center Configuration Manager для управления параметрами устройств."
+title: "Criar itens de configuração para dispositivos Android e Samsung KNOX Standard geridos com o Intune | Microsoft Docs"
+description: "Utilize o item de configuração do System Center Configuration Manager Android e Samsung KNOX Standard para gerir as definições para dispositivos."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -17,200 +17,200 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: c9961c2e9866199571a1b39a7b185cb6bb96f998
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-system-center-configuration-manager-client"></a>Создание элементов конфигурации для устройств Android и Samsung KNOX, управляемых без использования клиента System Center Configuration Manager
+# <a name="how-to-create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para os dispositivos Android e Samsung KNOX geridos sem o cliente System Center Configuration Manager
 
-Используйте элемент конфигурации **Android и Samsung KNOX** System Center Configuration Manager для управления параметрами устройств Android и Samsung KNOX, зарегистрированных в Microsoft Intune или управляемых локально с помощью Configuration Manager.  
+Utilizar o System Center Configuration Manager **Android e Samsung KNOX** item de configuração para gerir as definições para dispositivos Android e Samsung KNOX inscritos no Microsoft Intune ou geridos no local pelo Configuration Manager.  
 
-#### <a name="to-create-an-android-and-samsung-knox-configuration-item"></a>Создание элемента конфигурации Android и Samsung KNOX  
+#### <a name="to-create-an-android-and-samsung-knox-configuration-item"></a>Para criar um item de configuração do Android e Samsung KNOX  
 
-1. В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1. Na consola do Configuration Manager, escolha **ativos e compatibilidade**.  
 
-2. В рабочей области **Активы и соответствие** разверните узел **Параметры соответствия**и выберите **Элементы конфигурации**.  
+2. No **ativos e compatibilidade** área de trabalho, expanda **as definições de compatibilidade**e, em seguida, escolha **itens de configuração**.  
 
-3. На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации**.  
+3. No **home page** separador o **criar** grupo, escolha **Criar Item de configuração**.  
 
-4. На странице **Общие** мастера создания элемента конфигурации укажите имя и необязательное описание элемента.  
+4. No **geral** página do Assistente de Item de configuração criar, especifique um nome e uma descrição opcional para o item de configuração.  
 
-5. В разделе **Укажите тип элемента конфигурации, который требуется создать**, выберите **Android и Samsung KNOX**.  
+5. Em **especificar o tipo de item de configuração que pretende criar**, escolha **Android e Samsung KNOX**.  
 
-6. Выберите элемент **Категории**, если хотите создать и назначить категории для поиска и фильтрации элементов конфигурации в консоли Configuration Manager.  
+6. Escolha **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
 
-7. На странице **Поддерживаемые платформы** в мастере выберите конкретные платформы Android и Samsung KNOX, которые будут вычислять данный элемент конфигурации.  
+7. No **plataformas suportadas** página do assistente, selecione as plataformas específicas do Android ou Samsung KNOX que irão avaliar o item de configuração.  
 
-8. На странице **Параметры устройства** мастера выберите группу параметров, которую необходимо настроить. См. раздел [Справочник по параметрам элемента конфигурации Android и Samsung KNOX](#BKMK_setref) этой статьи для получения дополнительных сведений, а затем нажмите кнопку **Далее**.  
-
-    > [!TIP]  
-    >  Если нужного параметра нет в списке, установите флажок **Настроить дополнительные параметры, не входящие в группы параметров по умолчанию**.  
-
-9. На каждой странице параметров настройте необходимые параметры. Укажите, требуется ли исправлять их, если они не соответствуют требованиям на устройствах (если это поддерживается).  
-
-10. Кроме того, вы можете настроить для каждой группы параметров уровень серьезности, который выводится при обнаружении несоответствующего элемента конфигурации.  
-
-    - **Нет**. Устройства, для которых не выполняется это правило соответствия, не передают для отчетов Configuration Manager сведения об уровне серьезности сбоя.  
-
-    - **Информация**. Устройства, для которых не выполняется это правило соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Информация**.  
-
-    - **Предупреждение**. Устройства, для которых не выполняется это правило соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Предупреждение**.  
-
-    - **Критическая**. Устройства, для которых не выполняется это правило соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Ошибка**.  
-
-    - **Критическая с событием**. Устройства, для которых не выполняется это правило соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Ошибка**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
-
-11. На странице **Применим. платформы** мастера просмотрите все параметры, которые не совместимы с поддерживаемыми платформами, выбранными ранее. Вы можете вернуться назад и удалить эти параметры или продолжить.  
+8. No **definições do dispositivo** página do assistente, selecione o grupo de definições que pretende configurar. Consulte [Android e Samsung KNOX referência de definições de item de configuração](#BKMK_setref) neste tópico para obter mais detalhes em seguida, escolha **seguinte**.  
 
     > [!TIP]  
-    >  Неподдерживаемые параметры не проверяются на соответствие.  
+    >  Se a definição que pretende não estiver listada, verifique o **configurar definições adicionais que não estão em grupos de predefinições** caixa.  
 
-12. Завершите мастер.  
+9. Em cada página de definições, configure as definições que necessita. Além disso, escolha se pretende resolvê-las quando não são compatíveis com dispositivos (quando esta opção é suportada).  
 
- Созданный элемент конфигурации вы можете просмотреть в узле **Элементы конфигурации** рабочей области **Активы и соответствие** .  
+10. Para cada grupo de definição, também pode configurar a gravidade que será comunicada quando um item de configuração encontra-se não for compatível:  
 
-## <a name="android-and-samsung-knox-configuration-item-settings-reference"></a>Справочник по параметрам элемента конфигурации Android и Samsung KNOX  
+    - **Nenhum**. Dispositivos que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
 
-### <a name="password"></a>Пароль  
-Эти параметры применяются к устройствам Android и Samsung KNOX.  
+    - **Informações**. Dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
 
-|Параметр|Подробные сведения|  
+    - **Aviso**. Dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
+
+    - **Crítico**. Dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager.  
+
+    - **Crítico com evento**. Dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
+
+11. No **aplicabilidade da plataforma** página do assistente, reveja as definições que não são compatíveis com as plataformas suportadas que selecionou anteriormente. Pode voltar atrás e remover estas definições ou pode continuar.  
+
+    > [!TIP]  
+    >  As definições não suportadas não são avaliadas em termos de compatibilidade.  
+
+12. Conclua o assistente.  
+
+ Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade** .  
+
+## <a name="android-and-samsung-knox-configuration-item-settings-reference"></a>Referência de definições do item configuração do Android e Samsung KNOX  
+
+### <a name="password"></a>Palavra-passe  
+Estas definições aplicam-se a dispositivos Android e Samsung KNOX.  
+
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Требовать параметры пароля на устройствах**|Запрашивает пароль на поддерживаемых устройствах.|  
-|**Минимальная длина пароля (символов)**|Задает минимальную длину пароля.|  
-|**Истечение срока действия пароля в днях**|Задает число дней до смены пароля.|  
-|**Количество запоминаемых паролей**|Предотвращает повторное использование предыдущих паролей.|  
-|**Число неудачных попыток входа до стирания памяти устройства**|Очищает устройство, если превышено это число попыток входа.|  
-|**Время бездействия до блокировки устройства**|Задает время, которое должно пройди до блокировки устройства, если оно не используется.|
-|**Качество пароля**|Задает требуемый уровень сложности пароля и определяет, можно ли использовать биометрические устройства.|  
-|**Разрешить Smart Lock и другие доверенные агенты**|Позволяет контролировать функцию Smart Lock на совместимых устройствах Android. Эта функция телефона позволяет отключать или обходить пароль блокировки экрана устройства, когда устройство находится в надежном расположении, например при подключении к определенному устройству Bluetooth, или когда оно находится рядом с NFC-тегом. С помощью этого параметра можно запретить пользователям настраивать функцию Smart Lock.|
-|**Отпечаток пальца для разблокировки (KNOX 5.0+)**|Позволяет разблокировать совместимое устройство по отпечатку пальца.|
+|**Exigir definições de palavra-passe em dispositivos**|Requer uma palavra-passe nos dispositivos suportados.|  
+|**Comprimento mínimo de palavra-passe (carateres)**|Especifica o comprimento mínimo da palavra-passe.|  
+|**Expiração da palavra-passe em dias**|Especifica o número de dias antes de uma palavra-passe tem de ser alterada.|  
+|**Número de palavras-passe memorizadas**|Impede a reutilização de palavras-passe utilizadas anteriormente.|  
+|**Número de tentativas de início de sessão falhadas antes de o dispositivo ser apagado**|Se este número de início de sessão tenta falham, apaga o dispositivo.|  
+|**Tempo de inatividade antes do dispositivo está bloqueado**|Especifica a quantidade de tempo antes do dispositivo será bloqueado se não está a ser utilizado.|
+|**Qualidade da palavra-passe**|Especifica a complexidade de palavra-passe nível necessário e se podem ser utilizados dispositivos biométricos.|  
+|**Permitir Smart Lock e outros agentes de confiança**|Permite-lhe controlar a funcionalidade de bloqueio do smart card em dispositivos Android compatíveis. Esta capacidade de telefone permite desativar ou ignorar a palavra-passe da ecrã de bloqueio do dispositivo se o dispositivo estiver numa localização fidedigna, como quando está ligado a um dispositivo Bluetooth específico ou quando está próximo de uma etiqueta NFC. Pode utilizar esta definição para impedir que os utilizadores configurem o bloqueio do smart card.|
+|**Impressão digital para desbloqueio (KNOX 5.0 +)**|Permite a utilização de uma impressão digital para desbloquear dispositivos compatíveis.|
 
-### <a name="device"></a>Устройство   
+### <a name="device"></a>Dispositivo   
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |------------------|-------------|  
-|**Голосовой набор**|Включает или отключает голосовой набор на устройстве.|
-|**Голосовой помощник**|Позволяет использовать программное обеспечение голосового помощника на устройстве.|
-|**Снимок экрана**|Позволяет пользователю записывать содержимое экрана в виде изображения.|
-|**Отправка диагностических данных**|Разрешает устройству отправлять диагностические данные в Google.|
-|**Географическое положение**|Разрешает устройству использовать сведения о расположении.|
-|**Копирование и вставка**|Разрешает использовать копирование и вставку на устройстве.|
-|**Сброс параметров**|Разрешает пользователям осуществлять сброс параметров устройства до заводских настроек.|  |
-|**Общий доступ приложений к буферу обмена**|Разрешает пользователям использовать буфера обмена для копирования и вставки между приложениями.|  |
-|**Bluetooth**|Позволяет использовать Bluetooth на устройстве.|
+|**Marcação por voz**|Ativa ou desativa a funcionalidade de marcação por voz no dispositivo.|
+|**Assistente de voz**|Permite a utilização de software do Assistente de voz no dispositivo.|
+|**Captura de ecrã**|Permite ao utilizador capturar o conteúdo do ecrã como uma imagem.|
+|**Submissão de dados de diagnóstico**|Permite que o dispositivo enviar informações de diagnóstico para o Google.|
+|**Geolocalização**|Permite que o dispositivo utilize informações de localização.|
+|**Copiar e Colar**|Permite que as funções copiar e colar no dispositivo.|
+|**Reposição de fábrica**|Permite que o utilizador executar uma reposição de fábrica no dispositivo.|  |
+|**Partilha da área de transferência entre aplicações**|Permite que o utilizador utilize a área de transferência Copiar e colar entre aplicações.|  |
+|**Bluetooth**|Permite a utilização de Bluetooth no dispositivo.|
 
-### <a name="store"></a>Магазин
+### <a name="store"></a>Arquivo
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |------------------|-------------|  
-|**Магазин приложений**|Позволяет пользователю использовать магазин Google Play на устройстве.|
+|**Loja de aplicações**|Permite ao utilizador aceder à loja do Google Play no dispositivo.|
 
-### <a name="browser"></a>Браузер
+### <a name="browser"></a>Browser
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |------------------|-------------|  
-|**Разрешить веб-браузер**|Позволяет использовать веб-браузер устройства по умолчанию.|
-|**Автозаполнение**|Разрешает использовать автозаполнение в браузере.|
-|**Активные сценарии**|Разрешает браузеру устройства использовать активные сценарии.|
-|**Блокирование всплывающих окон**|Разрешает использовать блокирование всплывающих окон в браузере.|
-|**Файлы "cookie"**|Разрешает браузеру устройства использовать cookie-файлы.|
+|**Permitir browser**|Permite que o browser do dispositivo predefinido a ser utilizado.|
+|**Preenchimento automático**|Permite que a função de preenchimento automático do browser para ser utilizado.|
+|**Scripting ativo**|Permite que o browser do dispositivo utilizar o scripting ativo.|
+|**Bloqueador de janelas pop-up**|Permite a utilização do Bloqueador de janelas pop-up do browser.|
+|**Cookies**|Permite que o browser do dispositivo utilizar cookies.|
 
-### <a name="cloud"></a>Облако  
+### <a name="cloud"></a>Nuvem  
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Резервное копирование Google**|Разрешает использование резервного копирования Google.|  
-|**Автоматическая синхронизация учетной записи Google**|Разрешает автоматическую синхронизацию параметров учетной записи Google.|  
+|**Cópia de segurança do Google**|Permite a utilização da cópia de segurança do Google.|  
+|**Sincronização de automática de conta Google**|Permite que as definições da conta Google sejam sincronizadas automaticamente.|  
 
-### <a name="security"></a>Безопасность  
+### <a name="security"></a>Segurança  
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**SMS- и MMS-сообщения**|Разрешает использовать SMS- и MMS-сообщения на устройстве.|
-|**Съемные носители**|Разрешает устройству использовать съемные носители, например SD-карты.|
-|**Камера**|Разрешает использование камеры устройства.<br /><br /> Применяется к устройствам Android и Samsung KNOX.|
-|**NFC**|Разрешает выполнение задач, использующих радиочастотную связь ближнего действия (NFC), если устройство поддерживает ее.|
-|**YouTube**|Разрешает использование приложения YouTube на устройстве.<br /><br /> Применяется к только устройствам Samsung KNOX.|  
-|**Выключение**|Разрешить выключение устройства.<br /><br /> Применяется к только устройствам Samsung KNOX.|  
+|**Mensagens de SMS e MMS**|Permite a utilização de SMS SMS e MMS no dispositivo.|
+|**Armazenamento amovível**|Permite que o dispositivo utilizar armazenamento amovível, como um cartão SD.|
+|**Câmara**|Permite a utilização da câmara do dispositivo.<br /><br /> Aplicável a dispositivos Android e Samsung KNOX.|
+|**Comunicação de proximidade (NFC)**|Permite que as tarefas que utilizam comunicação de proximidade se o dispositivo suportar.|
+|**YouTube**|Permite a utilização da aplicação YouTube no dispositivo.<br /><br /> Aplicável apenas a dispositivos Samsung KNOX.|  
+|**Desligar**|Permite que o dispositivo seja desligado.<br /><br /> Aplicável apenas a dispositivos Samsung KNOX.|  
 
-### <a name="roaming"></a>Роуминг
+### <a name="roaming"></a>Roaming
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|Голосовой роуминг|Разрешает использовать голосовую связь в роуминге, когда устройство подключено к сотовой сети.|
-|Передача данных в роуминге|Разрешает использовать передачу данных в роуминге, когда устройство подключено к сотовой сети.|
+|Roaming de voz|Permite chamadas em roaming quando o dispositivo estiver numa rede celular.|
+|Roaming de dados|Permite dados em roaming quando o dispositivo estiver numa rede celular.|
 
 
-### <a name="encryption"></a>Шифрование  
- Эти параметры применяются к устройствам Android и Samsung KNOX.  
+### <a name="encryption"></a>Encriptação  
+ Estas definições aplicam-se a dispositivos Android e Samsung KNOX.  
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Шифрование карты памяти**|Требует шифрования карты памяти устройства.|
-|**Шифрование файлов на устройстве**|Требовать шифрование файлов на мобильном устройстве.|  
+|**Encriptação do cartão de armazenamento**|Requer que o cartão de armazenamento do dispositivo é encriptado.|
+|**Encriptação de ficheiros no dispositivo**|Necessita que os ficheiros no dispositivo móvel sejam encriptados.|  
 
-### <a name="wireless-communications"></a>Беспроводная связь
+### <a name="wireless-communications"></a>Comunicações sem fios
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Беспроводное сетевое подключение**|Разрешает использовать Wi-Fi на устройстве.|
-|**Модем Wi-Fi**|Разрешает использовать функции модема Wi-Fi устройства.|
+|**Ligação de rede sem fios**|Permite a utilização das capacidades de Wi-Fi do dispositivo.|
+|**Tethering Wi-Fi**|Permite a utilização de tethering Wi-Fi no dispositivo.|
 
 
-### <a name="compliant-and-noncompliant-apps-android"></a>Соответствующие и несоответствующие приложения (Android)  
-Вы можете указать список приложений для Android, соответствующих или не соответствующих политике вашей компании. Затем вы можете использовать отчеты для отображения устройств, на которых установлены несовместимые приложения, и соответствующих им пользователей.  
+### <a name="compliant-and-noncompliant-apps-android"></a>Aplicações compatíveis e incompatíveis (Android)  
+Pode especificar uma lista de aplicações Android que são compatíveis ou não compatíveis na sua empresa. Em seguida, pode utilizar relatórios para mostrar os dispositivos que tenham aplicações incompatíveis instaladas e o utilizador associado.  
 
-В одном и том же элементе конфигурации нельзя указать как совместимые, так и несовместимые приложения.  
+Não é possível especificar aplicações em conformidade e não conformes no mesmo item de configuração.  
 
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Составление списков совместимых или несовместимых приложений  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Especificar a lista de aplicações compatíveis ou incompatíveis  
 
-На странице **Совместимые и несовместимые приложения (Android)** укажите следующие сведения.  
+Na página **Aplicações Compatíveis e Incompatíveis (Android)**, especifique as seguintes informações:  
 
-|Параметр|Дополнительные сведения|  
+|Definição|Mais informações|  
 |-------------|----------------------|  
-|**Список несовместимых приложений**|Задает список приложений, которые должны отображаться как несовместимые при установке пользователями.|  
-|**Список совместимых приложений**|Задает список приложений Mac OS X, которые пользователям разрешено устанавливать. Все другие устанавливаемые приложения будут считаться несовместимыми.|  
-|**Добавить**|Добавляет приложение в указанный список. Укажите имя, при необходимости издателя приложения и URL-адрес приложения в магазине приложений.<br /><br /> Чтобы указать URL-адрес, в [разделе "Приложения" Google Play](https://play.google.com/store/apps) найдите приложение, которое хотите использовать.<br /><br /> Откройте страницу приложения и скопируйте URL-адрес в буфер обмена. После этого его можно использовать как URL-адрес в списке приложений, соответствующих или не соответствующих политике.<br /><br /> **Пример:** выполните поиск в Google Play по запросу **Microsoft Office Mobile**. Нужный URL-адрес будет следующим: **https://play.google.com/store/apps/details?id=com.microsoft.office.officehub**.|  
-|**Правка**|Позволяет изменить имя, издателя и URL-адрес выбранного приложения.|  
-|**Remove**|Удаляет выбранное приложение из списка.|  
-|**Импорт**|Импортирует список приложений, указанных в файле с разделителями-запятыми. Используйте формат, имя приложения, издателя, URL-адрес приложения в файле.|  
+|**Lista de aplicações não conformes**|Especifica uma lista de aplicações que serão reportadas como incompatíveis se forem instaladas por utilizadores.|  
+|**Lista de aplicações compatíveis**|Especifica uma lista de aplicações que os utilizadores podem instalar. Quaisquer outras aplicações instaladas serão comunicadas como incompatíveis.|  
+|**Adicionar**|Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o fabricante da aplicação (opcional) e o URL para a aplicação na loja de aplicações.<br /><br /> Para especificar o URL, a partir de [secção aplicações do Google Play](https://play.google.com/store/apps), procure a aplicação que pretende utilizar.<br /><br /> Abra a página da aplicação e copie o URL para a área de transferência. Agora pode utilizar este URL na lista de aplicações em conformidade ou na lista de aplicações não conformes.<br /><br /> **Exemplo:** Procure no Google Play **Microsoft Office Mobile**. O URL a utilizar será **https://play.google.com/store/apps/details?id=com.microsoft.office.officehub**.|  
+|**Editarar**|Permite-lhe editar o nome, fabricante e URL da aplicação selecionada.|  
+|**Remove**|Elimina a aplicação selecionada da lista.|  
+|**Importarar**|Importa uma lista de aplicações especificadas num ficheiro de valores separados por vírgulas. Utilize o formato nome, publicador, URL da aplicação no ficheiro.|  
 
-## <a name="android-for-work-configuration-items"></a>Элементы конфигурации для Android for Work
-В Android for Work доступно две группы параметров для элементов конфигурации.
+## <a name="android-for-work-configuration-items"></a>Android para itens de configuração de trabalho
+Android de trabalho tem dois grupos de definições para itens de configuração:
 
-- **Пароль**. Параметр, идентичный тому, что используется в "классической" ОС Android.
+- **Palavra-passe**. Idênticas às definições para Android "clássico".
 
-- **Рабочий профиль**. Активирует следующие параметры Android for Work.
-  - **Разрешить обмен данными между рабочим и личным профилями**
-  - **Скрывать уведомления из рабочего профиля при блокировке устройства** (Android 6.0+)
-  - **Задать политику разрешений приложений по умолчанию** (Android 6.0+)
+- **Perfil de trabalho**. Permite o Android seguinte para definições de trabalho:
+  - **Permitir partilha de dados entre perfis pessoais e de trabalho**
+  - **Ocultar as notificações de perfil de trabalho quando o dispositivo está bloqueado** (Android 6.0 +)
+  - **Configurar a política de permissão de aplicação predefinida** (Android 6.0 +)
 
-Чтобы создать элемент конфигурации в рабочем профиле Android, на странице **Общие** выберите **Android for Work** и настройте параметры для каждой группы параметров. Добавьте элемент конфигурации в базовую версию и разверните ее обычным образом. Эти параметры применяются только к устройствам, зарегистрированным в качестве Android for Work, а не к зарегистрированным в качестве устройств Android.
+Para criar um item de configuração no perfil de trabalho Android, escolha **Android para trabalho** no **geral** e configurar as definições para cada um dos grupos de página. Adicione o item de configuração para uma linha de base e implementar como habitualmente. Estas definições serão aplicadas apenas a dispositivos inscritos como Android para o trabalho e não a dispositivos inscritos como Android.
 
-### <a name="kiosk-mode-samsung-knox-only"></a>Режим терминала (только Samsung KNOX)  
-Режим терминала можно использовать для блокировки устройства, разрешая работу только некоторых функций. Например, можно разрешить устройству выполнять только одно управляемое приложение или отключить кнопки громкости на устройстве. Эти параметры могут использоваться для демонстрационной модели устройства. Кроме того, их можно использовать для устройства, предназначенного для выполнения только одной функции, например кассового терминала.  
+### <a name="kiosk-mode-samsung-knox-only"></a>Modo de local público (apenas Samsung KNOX)  
+Pode utilizar o modo de local público para bloquear um dispositivo para permitir que apenas determinadas funcionalidades funcionem. Por exemplo, pode permitir que um dispositivo execute apenas uma aplicação gerida que especificar ou pode desativar os botões de volume num dispositivo. Estas definições podem ser utilizadas para um modelo de demonstração de um dispositivo. Ou pode ser utilizados para um dispositivo com a finalidade de desempenhar apenas uma função, como um dispositivo de ponto de venda.  
 
-#### <a name="to-configure-kiosk-mode-for-a-samsung-knox-device"></a>Настройка режима терминала для устройства Samsung KNOX  
+#### <a name="to-configure-kiosk-mode-for-a-samsung-knox-device"></a>Configurar o modo de local público para um dispositivo Samsung KNOX  
 
-1. На странице **Настройка полноэкранного режима для устройств Samsung KNOX** мастера создания элемента конфигурации укажите следующие сведения.  
+1. No **configurar definições do modo de local público para dispositivos Samsung KNOX** página do Assistente de Item de configuração criar, especifique as seguintes informações:  
 
-   |Параметр|Дополнительные сведения|  
+   |Definição|Mais informações|  
    |-------------|----------------------|  
-   |**Выбор приложения**|Щелкните **Обзор** и выберите приложение Configuration Manager для Android (файл с расширением **APK**), которое будет запускаться, когда устройство работает в режиме терминала. Другим приложениям не будет разрешено выполняться на устройстве.|  
-   |**Кнопки громкости**|Включает или отключает использование кнопок громкости на устройстве.|  
-   |**Кнопка перехода в спящий режим и выхода из него**|Включает или отключает кнопку пробуждения от спящего режима на устройстве.|  
+   |**Selecionar aplicação**|Escolha **procurar** para selecionar uma aplicação Android do Configuration Manager (com a extensão **. apk**) que terá permissão para ser executada quando o dispositivo estiver no modo de local público. Não será permitida a execução de outras aplicações no dispositivo.|  
+   |**Botões de volume**|Ativa ou desativa a utilização dos botões de volume no dispositivo.|  
+   |**Suspensão de ecrã e botão de reativação**|Ativa ou desativa o botão suspender/reativar ecrã do dispositivo.|  
 
-2. По завершении нажмите кнопку **Далее**.  
+2. Quando tiver terminado, escolha **seguinte**.  
 
-## <a name="reports-for-monitoring"></a>Отчеты для мониторинга
-Вы можете использовать один из следующих отчетов для мониторинга совместимых и несовместимых приложений.  
+## <a name="reports-for-monitoring"></a>Relatórios de monitorização
+Pode utilizar um dos seguintes relatórios para monitorizar aplicações compatíveis e incompatíveis:  
 
-- **Список несовместимых приложений и устройств для указанного пользователя**. Выводит сведения о пользователях и устройствах, для которых установлены приложения, несовместимые с заданной политикой.  
+- **Lista de aplicações e dispositivos para um utilizador especificado não conformes**. Mostra informações sobre utilizadores e dispositivos que têm instaladas aplicações que não são compatíveis com a política que especificou.  
 
-- **Сводка пользователей, имеющих несовместимые приложения**. Выводит сведения о пользователях, для которых установлены приложения, несовместимые с заданной политикой.  
+- **Resumo de utilizadores que têm aplicações não conformes**. Mostra informações sobre utilizadores que têm instaladas aplicações que não são compatíveis com a política que especificou.  
 
-Сведения о работе с отчетами см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+Para obter informações sobre como utilizar relatórios, veja [Relatórios do System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-## <a name="see-also"></a>См. также  
-[Элементы конфигурации для устройств, управляемых без использования клиента System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
+## <a name="see-also"></a>Consulte também  
+[Itens de configuração para dispositivos geridos sem o cliente do System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

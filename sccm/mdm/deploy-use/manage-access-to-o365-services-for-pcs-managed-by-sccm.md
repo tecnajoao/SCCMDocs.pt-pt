@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом к службам Office 365 для управляемых компьютеров | Документы Майкрософт"
-description: "Сведения о настройке условного доступа для компьютеров, управляемых System Center Configuration Manager."
+title: "Gerir o acesso aos serviços do O365 para PCs geridos | Microsoft Docs"
+description: Saiba como configurar o acesso condicional para PCs geridos pelo System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,36 +16,36 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: aede531a0406c3d30c9cca957896e002ed22ae51
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Управление доступом к службам Office 365 для компьютеров под управлением System Center Configuration Manager
+# <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gerir o acesso aos serviços do O365 para computadores geridos pelo System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Начиная с Configuration Manager версии 1602 можно настроить условный доступ для компьютеров, управляемых System Center Configuration Manager.  
+A partir da versão 1602 do Configuration Manager, pode configurar o acesso condicional para PCs geridos pelo System Center Configuration Manager.  
 
 > [!IMPORTANT]  
-> Эта функция предварительного выпуска доступна в обновлении 1602, 1606 и 1610. Функции предварительной версии включены в продукт для раннего тестирования в рабочей среде, но не следует считать их готовыми к работе. Дополнительные сведения см. в разделе [Использование функций предварительной версии из обновлений](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
-> - После установки обновления 1602 тип компонента отображается как выпущенный, даже если это предварительная версия.
-> - При обновлении версии 1602 до 1606 тип компонента отображается как выпущенный, даже если это по-прежнему предварительная версия.
-> - При обновлении версии 1511 сразу до 1606 тип компонента отображается как предварительная версия.
+> Esta é uma funcionalidade de pré-lançamento está disponível na atualização 1602, atualizar 1606 e atualizar 1610. As funcionalidades de pré-lançamento estão incluídas no produto para um teste antecipado num ambiente de produção, mas devem não ser consideradas prontas para produção. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
+> - Depois de instalar a atualização 1602, apresenta o tipo de funcionalidade conforme libertada, apesar de é versão de pré-lançamento.
+> - Se, em seguida, atualizar da versão 1602 para 1606, apresenta de tipo de funcionalidade à lançadas mesmo através do mesmo permanece pré-lançamento.
+> - Se atualizar da versão 1511 diretamente ao 1606, apresenta o tipo de funcionalidade como versão de pré-lançamento.
 
-Если вам нужны сведения о настройке условного доступа для устройств, зарегистрированных и управляемых Intune, или компьютеров, которые были присоединены к домену и не проверены на соответствие требованиям, ознакомьтесь с разделом [Управление доступом к службам в System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md).
+Se estiver à procura de informações sobre como configurar o acesso condicional para dispositivos inscritos e geridos pelo Intune ou PCs que estão associados a um domínio e não foram avaliados em termos de conformidade, veja [Gerir o acesso aos serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md).
 
-## <a name="supported-services"></a>Поддерживаемые службы  
+## <a name="supported-services"></a>Serviços Suportados  
 
 -   Exchange Online
 -   SharePoint Online
 
-## <a name="supported-pcs"></a>Поддерживаемые компьютеры  
+## <a name="supported-pcs"></a>PC Suportados  
 
 -   Windows 7
--   Windows 8.1
+-   Windows 8,1
 -   Windows 10
 
-## <a name="supported-windows-servers"></a>Поддерживаемые серверы Windows
+## <a name="supported-windows-servers"></a>Servidores de Windows suportados
 
 -   2008 R2
 -   2012
@@ -53,89 +53,89 @@ ms.lasthandoff: 08/07/2017
 -   2016
 
     > [!IMPORTANT]
-    > Для серверов Windows, поддерживающих выполнение входа несколькими пользователями одновременно, для всех этих пользователей нужно развернуть те же политики условного доступа.
+    > Para servidores de Windows que pode ter vários utilizadores com sessão iniciados em simultâneo, as mesmas políticas de acesso condicional tem de ser implementadas para todos os utilizadores com sessão iniciados.
 
-## <a name="configure-conditional-access"></a>Настройка условного доступа  
- Чтобы настроить условный доступ, необходимо сначала создать политику соответствия требованиям и настроить политику условного доступа. При настройке политик условного доступа для компьютеров можно указать, что компьютеры должны соответствовать политике соответствия требованиям, чтобы получить доступ к службам Exchange Online и SharePoint Online.  
+## <a name="configure-conditional-access"></a>Configurar o acesso condicional  
+ Para configurar o acesso condicional, tem primeiro de criar uma política de conformidade e configurar a política de acesso condicional. Quando configurar as políticas de acesso condicional para PC, pode exigir que os computadores estejam em conformidade com a política de conformidade para aceder aos serviços Exchange Online e SharePoint Online.  
 
-### <a name="prerequisites"></a>Предварительные требования  
+### <a name="prerequisites"></a>Pré-requisitos  
 
--   Синхронизация ADFS и подписка на Office 365. Подписка Office 365 для настройки Exchange Online и SharePoint Online.  
+-   Sincronização de ADFS e uma subscrição do O365. A subscrição do O365 serve para configurar o Exchange Online e o SharePoint Online.  
 
--   Подписка Microsoft Intune. Подписка Microsoft Intune должна быть настроена в консоли Configuration Manager. Подписка Intune используется для передачи состояния соответствия устройства в Azure Active Directory и лицензирования пользователей.  
+-   Uma Subscrição do Microsoft Intune. A Subscrição do Microsoft Intune deve ser configurada na Consola do Gestor de Configuração. A subscrição do Intune é utilizada para Estado de conformidade do dispositivo ao Azure Active Directory e para licenciamento de utilizador de reencaminhamento.  
 
- Компьютеры должны соответствовать следующим требованиям.  
+ Os PC devem satisfazer os seguintes requisitos:  
 
--   [Необходимые компоненты](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) для автоматической регистрации устройств в Azure Active Directory  
+-   [Pré-requisitos](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) para o registo automático de dispositivos no Azure Active Directory  
 
-     Можно регистрировать компьютеры с помощью политики соответствия требованиям Azure AD.  
+     Pode registar PCs no Azure AD através da política de conformidade.  
 
-    -   В случае компьютеров под управлением Windows 8.1 и Windows 10 можно использовать групповую политику Active Directory, чтобы настроить устройства для автоматической регистрации в Azure AD.  
+    -   Para PCs Windows 8.1 e Windows 10, pode utilizar uma Política de Grupo do Active Directory para configurar os dispositivos para serem registados automaticamente no Azure AD.  
 
-    -   o Для компьютеров под управлением Windows 7 необходимо развернуть пакет программного обеспечения для регистрации устройств на компьютере Windows 7 с помощью System Center Configuration Manager. Дополнительные сведения приведены в разделе [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   o   Para PCs Windows 7, tem de implementar o pacote de software de registo de dispositivos no seu PC Windows 7 através do System Center Configuration Manager. O [registo automático de dispositivos com dispositivos associados a domínio](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) tópico inclui mais detalhes.  
 
--   Необходимо использовать Office 2013 или Office 2016 с [включенной](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a)современной проверкой подлинности.  
+-   Tem de utilizar o Office 2013 ou o Office 2016 com a autenticação moderna [ativada](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a).  
 
- Описанные ниже действия применимы к Exchange Online и SharePoint Online.  
+ Os passos descritos abaixo aplicam-se ao Exchange Online e ao SharePoint Online  
 
-### <a name="step-1-configure-compliance-policy"></a>Шаг 1. Настройка политики соответствия требованиям  
- В консоли Configuration Manager создайте политику соответствия требованиям со следующими правилами.  
+### <a name="step-1-configure-compliance-policy"></a>Passo 1. Configurar a política de compatibilidade  
+ Na consola do Configuration Manager, crie uma política de conformidade com as seguintes regras:  
 
--   Требовать регистрацию в Azure Active Directory — это правило проверяет, присоединено ли устройство пользователя к Azure AD. Если нет, устройство автоматически регистрируется в Azure AD. Автоматическая регистрация поддерживается только в Windows 8.1. Для ПК Windows 7 разверните MSI-файл, выполняющий автоматическую регистрацию. Дополнительные сведения см. в статье [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+-   Exigir registo no Azure Active Directory: Esta regra verifica se o dispositivo do utilizador local de trabalho associado para o Azure AD, e se não, o dispositivo é automaticamente registado no Azure AD. O registo automático é suportado apenas no Windows 8.1. Para PCs Windows 7, implemente um MSI para efetuar o registo automático. Para obter mais detalhes, veja [Registo automático do dispositivo com o Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1)  
 
--   **Установка всех обязательных обновлений с крайним сроком старше определенного числа дней** — это правило проверяет, установлены ли на устройстве пользователя все необходимые обновления (указанные в правиле "Обязательные автоматические обновления") в срок и в течение указанного льготного периода, и автоматически устанавливает все отложенные обязательные обновления.  
+-   **Todas as atualizações necessárias instaladas com um prazo mais antigo do que um determinado número de dias:** Esta regra verifica se o dispositivo do utilizador tem todas as atualizações necessárias (especificadas na regra atualizações automáticas necessárias) dentro do prazo e o período de tolerância especificados por si e instala automaticamente quaisquer atualizações necessárias pendentes.  
 
--   **Требовать шифрование диска BitLocker** — это правило проверяет, зашифрован ли основной диск (например, C:\\) на устройстве с помощью BitLocker. Если шифрование Bitlocker не включено на основном устройстве, доступ к электронной почте и службам SharePoint блокируется.  
+-   **Exigir encriptação de unidade BitLocker:** Esta é uma verificação para ver se a unidade principal (por exemplo, c:\\) no dispositivo é BitLocker encriptado. Se a encriptação Bitlocker não estiver ativada no dispositivo primário, o acesso ao e-mail e aos SharePoint Services é bloqueado.  
 
--   **Требовать защиту от вредоносных программ** — это правило проверяет, включено ли и выполняется ли программное обеспечение по защите от вредоносных программ (System Center Endpoint Protection или только Защитник Windows). Если ПО не включено, доступ к электронной почте и службам SharePoint блокируется.  
+-   **Exigir Antimalware:** Esta é uma verificação para ver se o software antimalware (System Center Endpoint Protection ou apenas o Windows Defender) está ativado e em execução. Se não estiver ativado, o acesso ao e-mail e aos SharePoint Services é bloqueado.  
 
-### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Шаг 2. Оценка влияния условного доступа  
- Выполните отчет о соответствии условного доступа. Его можно найти в разделе "Мониторинг", выбрав "Отчеты" > "Управление соответствием и параметрами". В нем отображено состояние соответствия требованиям для всех устройств.  Устройствам, которые будут определены как несоответствующие требованиям, доступ к Exchange Online и SharePoint Online будет заблокирован.  
+### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Passo 2. Avaliar o efeito do acesso condicional  
+ Execute o Relatório de Compatibilidade de Acesso. Podem ser encontrados na secção monitorização em relatórios > Gestão de definições de compatibilidade e. Isto apresenta o estado de conformidade de todos os dispositivos.  Os dispositivos comunicados como não compatíveis serão impedidos de aceder ao Exchange Online e ao SharePoint Online.  
 
- ![CA&#95;compliance&#95;report](media/CA_compliance_report.png)  
+ ![CA&#95;relatório de&#95;compatibilidade](media/CA_compliance_report.png)  
 
-### <a name="configure-active-directory-security-groups"></a>Настройка групп безопасности Active Directory  
- Политики условного доступа нацеливаются на группы пользователей, в соответствии с типами политик. Эти группы содержат пользователей, которые будут являться целями для политики или будут исключены из нее. Когда пользователь попадает под действие политики, каждое используемое им устройство должно соответствовать требованиям, чтобы получить доступ к службе.  
+### <a name="configure-active-directory-security-groups"></a>Configurar Grupos de Segurança do Active Directory  
+ O direcionamento de políticas de acesso condicional para grupos de utilizadores depende dos tipos de política. Estes grupos contêm os utilizadores que serão direcionados ou que estarão excluídos da política. Quando um utilizador é direcionado por uma política, cada dispositivo que utiliza tem de estar em conformidade para poder aceder ao serviço.  
 
- Группы безопасности Active Directory. Эти группы пользователей должны быть синхронизированы с Azure Active Directory. Кроме того, эти группы можно настроить в Центре администрирования Office 365 или на портале учетных записей Intune.  
+ Grupos de utilizadores de segurança do Active Directory. Estes grupos de utilizadores devem ser sincronizados com o Azure Active Directory. Pode também configurar estes grupos no centro de administração do Office 365 ou no portal de contas do Intune.  
 
- В каждой политике можно указать два типа групп. :  
+ Pode especificar dois tipos de grupos em cada política. :  
 
--   **Целевые группы** — группы пользователей, к которым применяется данная политика. Для политики соответствия требованиям и политики условного доступа следует использовать одну и ту же группу.  
+-   **Grupos direcionados** -grupos de utilizadores aos quais é aplicada a política. O mesmo grupo deve ser utilizado para a política de acesso condicional e de conformidade.  
 
--   **Исключенные группы** — группы пользователей, которые исключены из политики (необязательно).  
-    Если пользователь входит в обе группы, то он будет исключен из политики.  
+-   **Grupos excluídos** -grupos de utilizadores excluídos da política (opcional)  
+    Se um utilizador estiver em ambos, estará excluído da política.  
 
-     Оценка производится только для тех групп, которые являются целевыми для политики условного доступа.  
+     Apenas os grupos visados pela política de acesso condicional são avaliados.  
 
-### <a name="step-3--create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Шаг 3.  Создание политики условного доступа для Exchange Online и SharePoint Online  
+### <a name="step-3--create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Passo 3.  Crie uma política de acesso condicional para o Exchange Online e o SharePoint Online  
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
-2.  Чтобы создать политику для Exchange Online, щелкните **Включить политику условного доступа для Exchange Online**.  
+2.  Selecione **Ativar política de acesso condicional para o Exchange Online**para criar uma política para o Exchange Online.  
 
-     Чтобы создать политику для SharePoint Online, щелкните **Включить политику условного доступа для SharePoint Online**.  
+     Selecione **Ativar política de acesso condicional para o Exchange Online**para criar uma política para o SharePoint Online.  
 
-3.  На вкладке **Главная** в группе **Ссылки** щелкните пункт **Настройка политики условного доступа в консоли Intune**. Может потребоваться ввести имя пользователя и пароль учетной записи, используемой для подключения Configuration Manager к Intune.  
+3.  No separador **Início** , no grupo **Ligações** , clique em **Configurar Política de Acesso Condicional na Consola do Intune**. Poderá ter de fornecer o nome de utilizador e a palavra-passe da conta utilizada para ligar o Gestor de Configuração ao Intune.  
 
-     Откроется консоль администрирования Intune.  
+     A consola de administração do Intune irá abrir.  
 
-4.  Для Exchange Online: в консоли администрирования Microsoft Intune щелкните **Политика > Условный доступ > Политика Exchange Online**.  
+4.  Para o Exchange Online, na consola de administração do Microsoft Intune, clique em **política > acesso condicional > política do Exchange Online**.  
 
-     Для SharePoint Online: в консоли администрирования Microsoft Intune щелкните **Политика > Условный доступ > Политика SharePoint Online**.  
+     Para o SharePoint Online, na consola de administração do Microsoft Intune, clique em **política > acesso condicional > política do SharePoint Online**.  
 
-5.  Выберите параметр**Устройства должны соответствовать требованиям**, чтобы задать требование для компьютеров Windows.  
+5.  Defina o requisito do PC Windows como **Os dispositivos têm de estar em conformidade**.  
 
-6.  В разделе **Целевые группы**щелкните **Изменить**, чтобы выбрать группы безопасности Azure Active Directory, к которым будет применена политика.  
+6.  Em **Grupos Direcionados**, clique em **Modificar** para selecionar os grupos de segurança do Azure Active Directory aos quais será aplicada a política.  
 
     > [!NOTE]  
-    >  Для развертывания политики соответствия требованиям и политики условного доступа следует использовать одну и ту же целевую группу безопасности.  
+    >  O mesmo grupo de utilizadores de segurança deve ser utilizado para implementar a política de conformidade era e o grupo de destino para a política de acesso condicional.  
 
-     Дополнительно в разделе **Исключенные группы**можно щелкнуть **Изменить**, чтобы выбрать группы безопасности Azure Active Directory, которые будут исключены из этой политики.  
+     Como opção, em **Grupos Excluídos**, clique em **Modificar** para selecionar os grupos de segurança do Azure Active Directory que estão excluídos desta política.  
 
-7.  Щелкните **Сохранить**, чтобы создать и сохранить политику.  
+7.  Clique em **Guardar** para criar e guardar a política  
 
- Пользователи, заблокированные из-за несоответствия требованиям, смогут просматривать сведения о соответствии в центре программного обеспечения Configuration Manager и запускать новые оценки политики после устранения проблем соответствия.  
+ Os utilizadores finais que estão bloqueados devido a não conformidade Verão informações de conformidade no Centro de Software do System Center Configuration Manager e iniciará uma nova avaliação de políticas quando os problemas de conformidade estiverem resolvidos.  
 
 <!---
 ##  <a name="bkmk_KnownIssues"></a> Known issues  
@@ -147,7 +147,7 @@ ms.lasthandoff: 08/07/2017
 
 -   Windows 10 users may see multiple access failures when trying to reach O365 and/or SharePoint online resources. Note that conditional access is not fully supported for Windows 10.  
 --->
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>Consulte também
 
-- [Защита данных и инфраструктуры сайтов с помощью System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
-- [Conditional access troubleshooting flow-chart for Configuration Manager](https://gallery.technet.microsoft.com/Conditional-access-fd747c1a?redir=0) (Схема устранения неполадок условного доступа для Configuration Manager)
+- [Proteger a infraestrutura de dados e do site com o System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
+- [Resolução de problemas de acesso condicional flow-chart para o Configuration Manager](https://gallery.technet.microsoft.com/Conditional-access-fd747c1a?redir=0)

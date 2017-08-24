@@ -1,6 +1,6 @@
 ---
-title: "Создание приложений iOS | Документы Майкрософт"
-description: "Узнайте, какие аспекты необходимо учитывать при создании и развертывании приложений для устройств OS."
+title: "Criar aplicações iOS | Microsoft Docs"
+description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações em dispositivos iOS."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,38 +16,38 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 349fcf335e7faddbcbd2ffe0ece7e711465f28df
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-ios-applications-with-system-center-configuration-manager"></a>Создание приложений iOS с помощью System Center Configuration Manager
+# <a name="create-ios-applications-with-system-center-configuration-manager"></a>Criar aplicações iOS com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Приложение System Center Configuration Manager содержит один или несколько типов развертывания, которые включают файлы установки и сведения, требуемые для развертывания программного обеспечения на устройстве. Тип развертывания также содержит правила, определяющие время и способ развертывания программного обеспечения.  
+Uma aplicação do System Center Configuration Manager tem um ou mais tipos de implementação que compõem os ficheiros de instalação e informações que são necessários para implementar software num dispositivo. Um tipo de implementação tem também as regras que especificam quando e como o software é implementado.  
 
- Существуют следующие методы создания приложений.  
+ Pode criar aplicações utilizando os seguintes métodos:  
 
--   Автоматическое создание приложения и типов развертывания посредством считывания файлов установки приложения.  
+-   Crie automaticamente os tipos de aplicação e implementação ao ler os ficheiros de instalação da aplicação.  
 
--   Создание приложения вручную с последующим добавлением типов развертывания.  
+-   Criar manualmente a aplicação e adicionar posteriormente os tipos de implementação.  
 
--   Импорт приложения из файла.  
+-   Importe uma aplicação de um ficheiro.  
 
-Действия, необходимые для создания приложений Configuration Manager и типов развертывания, см. в разделе [Запуск мастера создания приложений](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). При создании и развертывании приложений для устройств iOS также учитывайте приведенные ниже аспекты.  
+Consulte [iniciar o Assistente para criar aplicação](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) para os passos necessários para criar aplicações de Configuration Manager e tipos de implementação. Além disso, mantenha as seguintes considerações em mente quando criar e implementar aplicações em dispositivos iOS.  
 
-## <a name="general-considerations"></a>Общие вопросы  
- Configuration Manager поддерживает развертывание перечисленных ниже типов приложений.  
+## <a name="general-considerations"></a>Considerações gerais  
+ O Configuration Manager suporta a implementação dos seguintes tipos de aplicação:  
 
-|Тип устройства|Поддерживаемые файлы|  
+|Tipo de Dispositivo|Ficheiros suportados|  
 |-----------------|---------------------|  
-|iOS|*.ipa<br /><br /> В System Center Configuration Manager указывать файл списка свойств (PLIST) при импорте приложения iOS не требуется.|  
+|iOS|*.ipa<br /><br /> No System Center Configuration Manager, não terá de especificar um ficheiro de lista (. plist) de propriedades quando importar uma aplicação iOS.|  
 
- Поддерживаются следующие действия развертывания.  
+ As seguintes ações de implementação são suportadas:  
 
-|Тип устройства|Поддерживаемые действия|  
+|Tipo de Dispositivo|Ações suportadas|  
 |-----------------|-----------------------|  
-|iOS|**Доступно**, **Необходимо**. Пользователь должен давать согласие на установку и удаление.
+|iOS|**Disponível**, **necessário**. O utilizador tenha de consentir a instalação e desinstalação.
 
 > [!IMPORTANT]  
->  Сейчас конечные пользователи не могут устанавливать корпоративные приложения из приложения корпоративного портала Microsoft Intune для iOS. Это связано с ограничениями, которые налагаются на приложения, публикуемые в iOS App Store (см. рекомендации по оценке App Store, раздел 2). Пользователи могут устанавливать корпоративные приложения (в том числе управляемые приложения App Store и пакеты бизнес-приложений) на свои устройства с веб-портала Intune (portal.manage.microsoft.com). Дополнительные сведения о возможностях управления мобильными устройствами в приложении корпоративного портала Intune см. в разделе [Возможности управления зарегистрированными устройствами в Microsoft Intune](https://technet.microsoft.com/library/dn600287.aspx).  
+>  Atualmente, os utilizadores finais não podem instalar aplicações empresariais a partir da aplicação Portal da Empresa do Microsoft Intune para iOS. Isto acontece porque existem restrições que são colocadas nas aplicações que são publicadas na iOS App Store (consulte App Store Review Guidelines, secção 2). Os utilizadores podem instalar aplicações empresariais (incluindo aplicações geridas da App Store e pacotes de aplicações de linha de negócio) ao navegar para o Portal Web do Intune nos respetivos dispositivos (portal.manage.microsoft.com). Para obter mais informações sobre as capacidades de gestão de dispositivos móveis que são ativadas pela aplicação do Portal da empresa do Intune, consulte [inscritos capacidades de gestão de dispositivos no Microsoft Intune](https://technet.microsoft.com/library/dn600287.aspx).  

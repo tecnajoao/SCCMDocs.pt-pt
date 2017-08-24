@@ -1,6 +1,6 @@
 ---
-title: "Просмотр данных инвентаризации | Документы Майкрософт | Обозреватель ресурсов"
-description: "Использование обозревателя ресурсов для просмотра данных инвентаризации программного обеспечения в System Center Configuration Manager."
+title: "Ver o inventário de software | Microsoft Docs | Explorador de recursos"
+description: "Utilize o Explorador de recursos para ver o inventário de software no System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: b76bcf65c61b0a2690a468d375ac95b1334d5298
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-resource-explorer-to-view-software-inventory-in-system-center-configuration-manager"></a>Использование обозревателя ресурсов для просмотра данных инвентаризации программного обеспечения в System Center Configuration Manager
+# <a name="how-to-use-resource-explorer-to-view-software-inventory-in-system-center-configuration-manager"></a>Como utilizar o Explorador de recursos para ver o inventário de software no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Обозреватель ресурсов в System Center Configuration Manager позволяет просматривать информацию об инвентаризации программного обеспечения, полученную с компьютеров в имеющейся иерархии.  
+Utilize o Explorador de recursos no System Center Configuration Manager para ver informações sobre o inventário de software que tenha sido recolhida de computadores na sua hierarquia.  
 
 > [!NOTE]  
->  Обозреватель ресурсов не будет отображать какие-либо данные инвентаризации до тех пор, пока на клиенте не будет выполнен цикл инвентаризации программного обеспечения.  
+>  Explorador de recursos não apresentará quaisquer dados de inventário até ser executado um ciclo de inventário de software no cliente.  
 
- Обозреватель ресурсов предоставляет указанные ниже сведения об инвентаризации программного обеспечения.  
+ Explorador de recursos fornece as seguintes informações de inventário de software:  
 
--   **Программное обеспечение**:  
+-   **Software**:  
 
-    -   **Собранные файлы** — файлы, полученные во время инвентаризации программного обеспечения.  
+    -   **Recolher ficheiros** -os ficheiros recolhidos durante o inventário de software.  
 
-    -   **Сведения о файле** — файлы, учтенные во время инвентаризации программного обеспечения и не связанные с конкретным продуктом или производителем.  
+    -   **Detalhes de ficheiros** -os ficheiros inventariados durante o inventário de software que não estão associados um produto ou fabricante específico.  
 
-    -   **Последнее сканирование программного обеспечения** — дата и время последней инвентаризации программного обеспечения и сбора файлов, выполненного на клиентском компьютере.  
+    -   **Última análise de Software** -data e hora da última recolha de ficheiros e inventário de software para o computador cliente.  
 
-    -   **Сведения о продукте** — программные продукты, учтенные при инвентаризации программного обеспечения и распределенные (сгруппированные) по производителю.  
+    -   **Detalhes do produto** -produtos de Software que foram inventariados pelo inventário de software, agrupados por fabricante.  
 
-## <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>Запуск обозревателя ресурсов на консоли Configuration Manager  
+## <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>Para executar o Explorador de Recursos a partir da consola do Configuration Manager  
 
-1.  В консоли Configuration Manager выберите элемент **Активы и соответствие**.
+1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade**
 
-2.  В рабочей области **Активы и соответствие** выберите пункт **Устройства** или откройте любую коллекцию, содержащую устройства.  
+2.  No **ativos e compatibilidade** área de trabalho, escolha **dispositivos** ou abra qualquer coleção que apresente dispositivos.  
 
-3.  Выберите компьютер, содержащий инвентаризацию, которую требуется просмотреть, а затем на вкладке **Главная** в группе **Устройства** выберите **Запустить** > **Обозреватель ресурсов**.
+3.  Escolha o computador que contém o inventário que pretende visualizar e, em seguida, no **home page** separador > **dispositivos** grupo, escolha **iniciar** > **Explorador de recursos**.
 
-4.  Можно щелкнуть правой кнопкой мыши любой элемент в правой части окна обозревателя ресурсов, а затем выбрать пункт **Свойства**, чтобы просмотреть собранные данные инвентаризации в более удобном для чтения формате.  
+4.  Pode ser qualquer item no painel direito da janela do Explorador de recursos com o botão direito e selecione **propriedades** para ver as informações de inventário recolhidas num formato mais legível.  
  

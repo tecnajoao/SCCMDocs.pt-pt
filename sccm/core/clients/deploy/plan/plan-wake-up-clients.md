@@ -1,6 +1,6 @@
 ---
-title: "Пробуждение клиентов | Документы Майкрософт"
-description: "Планирование пробуждения клиентов в System Center Configuration Manager."
+title: "Reativação de clientes | Microsoft Docs"
+description: Planeie como pretende reativar os clientes no System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,83 +16,83 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 20f595a5b0634a627dff9ba6feeb848754615f2c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-how-to-wake-up-clients-in-system-center-configuration-manager"></a>Планирование пробуждения клиентов в System Center Configuration Manager
+# <a name="plan-how-to-wake-up-clients-in-system-center-configuration-manager"></a>Planeie como pretende reativar os clientes no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Configuration Manager поддерживает две технологии вывода компьютеров из спящего режима для установки требуемого программного обеспечения, например обновлений программного обеспечения, приложений и приложений: традиционные wake-up пакеты и команды включения питания AMT.  
+ Suporte do Configuration Manager dois reativação tecnologias de rede de área local (LAN) para reativar os computadores no modo de suspensão quando pretende instalar o software necessário, tal como aplicações e atualizações de software: pacotes de reativação tradicionais e comandos de ativação AMT.  
 
-Традиционный метод пробуждения с помощью пакета можно дополнить еще одним методом, изменив клиентские параметры прокси-сервера пробуждения. Прокси-сервер пробуждения использует одноранговый протокол и специально выбранные компьютеры для проверки режима работы других компьютеров в подсети, а также для вывода их из спящего режима при необходимости. Когда сайт настроен для использования пробуждения по локальной сети и клиенты настроены для использования прокси-сервера пробуждения, эта процедура выглядит следующим образом:  
+Poderá complementar o método de pacote de reativação tradicional utilizando as definições de cliente de proxy de reativação. Proxy de reativação utiliza um protocolo ponto a ponto e computadores selecionados para verificar se outros computadores na sub-rede estão ativos e ativa-os se necessário. Quando o site está configurado para Wake On LAN e os clientes são configurados para proxy de reativação, o processo funciona da seguinte forma:  
 
-1.  Компьютеры с установленным клиентом Configuration Manager и не находящиеся в спящем режиме проверяют, находятся ли другие компьютеры подсети в спящем режиме. С этой целью каждые 5 секунд компьютеры отправляют друг другу команду ping по TCP/IP.  
+1.  Computadores com o cliente do Configuration Manager instalado e que não estejam em modo de suspensão na verificação de sub-rede se outros computadores na sub-rede estão ativos. Tal, enviam entre si um comando ping de TCP/IP a cada cinco segundos.  
 
-2.  Если от других компьютеров нет ответа, предполагается, что они находятся в спящем режиме. Вышедшие из спящего режима компьютеры становятся *управляющими компьютерами* подсети.  
+2.  Se não houver nenhuma resposta de outros computadores, os mesmos serão considerados em modo de suspensão. Os computadores que estiverem ativos tornam-se *computador gestor* para a sub-rede.  
 
-     Даже если компьютер не находится в спящем режиме, помешать отправке ответа могут и другие причины (например, компьютер может быть отключен, выведен из сети или к нему больше не применяются параметры прокси-сервера пробуждения). Поэтому компьютерам ежедневно в 14:00 дня по местному времени отправляется wake-up пакет. Компьютеры, которые не отвечают на пакеты, считаются вышедшими из спящего режима и прокси-сервер пробуждения не будет выводить их из спящего режима.  
+     Porque é possível que um computador pode não responder por um motivo que está em modo de suspensão (por exemplo, se estiver desligado, removido da rede, ou a definição de cliente do reativação proxy já não é aplicado), será enviado aos computadores um pacote de reativação todos os dias às 13h00 e 14h00 hora local. Os computadores que não responderem já não irão ser considerados como estando em modo de suspensão e não serão reativados por proxy de reativação.  
 
-     Поддержка прокси-сервера пробуждения требует наличия хотя бы трех пробудившихся компьютеров в каждой подсети. С этой целью три компьютера случайным образом выбираются в качестве *контроллеров* подсети. Это означает, что данные компьютеры не переходят в спящий режим, несмотря на любые настроенные политики управления электропитанием, которые могу требовать перехода в спящий режим или гибернацию после периода бездействия. Компьютеры-контролеры откликаются на команды отключения или перезапуска, которые могут быть отданы в ходе их технического обслуживания. В этом случае оставшиеся компьютеры-контролеры выводят какой-либо другой компьютер из спящего режима, чтобы в подсети всегда оставалось три компьютера-контролера.  
+     Para suportar o proxy de reativação, pelo menos três computadores têm de estar ativo para cada sub-rede. Para atingir esse objetivo, três computadores não determinística são escolhidos ser *computadores responsáveis* para a sub-rede. Isto significa que, ficam ativos, independentemente de qualquer política de energia configurados no modo de suspensão ou hibernação após um período de inatividade. Computadores responsáveis honrar encerrar ou reiniciar os comandos, por exemplo, como resultado de tarefas de manutenção. Se isto acontecer, os restantes computadores responsáveis ativarão reativação de outro computador na sub-rede para que a sub-rede continue a ter três computadores responsáveis.  
 
-3.  Управляющие компьютеры настраивают сетевые коммутаторы для перенаправления себе всего трафика, который передается компьютерам в спящем режиме.  
+3.  Computadores gestores solicitam ao comutador de rede para redirecionar o tráfego de rede para os computadores em modo de suspensão para si próprios.  
 
-     Перенаправление достигается путем широковещания компьютером-диспетчером фрейма Ethernet, который использует MAC-адрес компьютера в спящем режиме в качестве исходного адреса. Это создает такое поведение сетевого коммутатора, как если бы спящий компьютер переместился в тот порт, в котором находится компьютер-диспетчер. Компьютер-диспетчер также отправляет для спящего компьютера пакеты протокола ARP, чтобы поддерживать запись свежей в кэше ARP. Компьютер-диспетчер также будет реагировать на запросы ARP от имени спящего компьютера и отвечать MAC-адресом спящего компьютера.  
+     O redirecionamento é assegurado pelo computador gestor difundir uma moldura de Ethernet que utiliza o endereço MAC do computador em modo de suspensão como endereço de origem. Isto torna o comutador de rede se comporte como se o computador em modo de suspensão foi movido para a mesma porta que o computador gestor está ligado. O computador gestor também envia pacotes ARP para os computadores em modo de suspensão manter a entrada da cache ARP ATUALIZADA. O computador gestor também responderá aos pedidos ARP destinados o computador em modo de suspensão e a resposta com o endereço MAC do computador em modo de suspensão.  
 
     > [!WARNING]  
-    >  В течение этого процесса сопоставление IP-to-MAC остается прежним. Wake-up прокси работает путем информирования сетевого коммутатора, что порт, зарегистрированный одним сетевым адаптером, использует другой сетевой адаптер. Однако это поведение называется нестабильностью MAC-адреса (MAC flap) и не является обычным для стандартной работы сети. Некоторые инструменты мониторинга сети ищут такое поведение и могут предположить, что что-то не так. Следовательно, эти инструменты мониторинга могут создавать оповещения или отключать порты, если используется wake-up прокси.  
+    >  Durante este processo, o mapeamento de IP para MAC para o computador em modo de suspensão não foi alterada. Funciona do proxy de reativação informa o comutador de rede que outro adaptador de rede está a utilizar a porta que se encontrava registada por outra placa de rede. No entanto, este comportamento é conhecido como uma deflexão de MAC e invulgar para a operação de rede padrão. Algumas ferramentas de monitorização de rede procuram este comportamento para e podem assumir que algo está errado. Por conseguinte, estas ferramentas de monitorização podem gerar alertas ou encerrar portas quando utilizar o proxy de reativação.  
     >   
-    >  Не используйте wake-up прокси, если ваши инструменты и службы мониторинга сети не разрешают нестабильность MAC-адреса.  
+    >  Não utilize um proxy de reativação se a monitorização ferramentas e serviços de rede não permitirem deflexões de MAC.  
 
-4.  Когда компьютер-диспетчер видит новый запрос подключения TCP для спящего компьютера, и этот запрос поступает в порт, который прослушивался спящим компьютером до его перехода в спящий режим, компьютер-диспетчер отправляет на спящий компьютер wake-up пакет, а затем прекращает перенаправление трафика для этого компьютера.  
+4.  Quando o computador gestor Deteta um novo pedido de ligação de TCP para um computador em modo de suspensão e o pedido é para uma porta que o computador em modo de suspensão estava a escutar no entrou em suspensão, o computador gestor envia um pacote de reativação para o computador em modo de suspensão e, em seguida, interrompe a redirecionar o tráfego para este computador.  
 
-5.  Спящий компьютер получает wake-up пакет и выходит из спящего режима. Отправляющий компьютер автоматически повторяет подключение, и на этот раз компьютер находится в активном состоянии и может ответить.  
+5.  O computador em modo de suspensão recebe o pacote de reativação e é reativado. O computador tenta automaticamente repete a ligação e desta vez, o computador é reativado e pode responder.  
 
- Для wake-up прокси существуют следующие необходимые условия и ограничения.  
+ Proxy de reativação tem os seguintes pré-requisitos e limitações:  
 
 > [!IMPORTANT]  
->  Если имеется отдельная группа, которая отвечает за сетевую инфраструктуру и сетевые службы, следует уведомить и включить эту группу во время периода оценки и тестирования. Например, в сети, использующей управление сетевым доступом 802.1X, прокси пробуждения не будет работать и может повредить сетевую службу. Кроме того, прокси-сервер пробуждения может привести к тому, что некоторые инструменты мониторинга сети будут создавать оповещения при обнаружении трафика для пробуждения других компьютеров.  
+>  Se tiver uma equipa separada responsável pela infraestrutura de rede e os serviços de rede, notifique e inclua esta equipa durante a avaliação e período de teste. Por exemplo, numa rede que utiliza o controlo de acesso de rede 802.1 X, proxy de reativação não funcionará e poderá interromper o serviço de rede. Além disso, o proxy de reativação pode fazer com que algumas ferramentas gerem alertas ao detetarem o tráfego para reativar outros computadores da monitorização de rede.  
 
--   Поддерживаемые клиенты — Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012.  
+-   Os clientes suportados são o Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012.  
 
--   Не поддерживаются гостевые операционные системы, работающие на виртуальной машине.  
+-   Sistemas operativos convidados que são executados numa máquina virtual não são suportados.  
 
--   На клиентах должен быть разрешен wake-up прокси с помощью клиентских параметров. Хотя работа wake-up прокси не зависит от инвентаризации оборудования, клиенты не сообщают об установке службы wake-up прокси, пока для них не будет включена инвентаризация оборудования и не будет отправлена хотя бы одна инвентаризация оборудования.  
+-   Os clientes tem de estar ativados para proxy de reativação, utilizando as definições de cliente. Embora o funcionamento do proxy de reativação não depender de inventário de hardware, os clientes não comunicarão a instalação do serviço proxy de reativação, a menos que estejam ativados para o inventário de hardware e submetido pelo menos um inventário de hardware.  
 
--   Для сетевых адаптеров (и возможно для BIOS) должны быть включены и настроены wake-up пакеты. Если для сетевого адаптера не настроены wake-up пакеты или если этот параметр отключен, то Configuration Manager будет автоматически настраивать и включать его для компьютера при получении параметра клиента, включающего wake-up прокси.  
+-   Rede adaptadores (e possivelmente o BIOS) tem de ser ativado e configurado para pacotes de reativação. Se o adaptador de rede não estiver configurado para pacotes de reativação ou se esta definição estiver desativada, o Configuration Manager irá configurar automaticamente e ativá-la para um computador quando receber a definição para ativar o proxy de reativação do cliente.  
 
--   Если компьютер имеет несколько сетевых адаптеров, то невозможно настроить конкретный адаптер для использования wake-up прокси; этот выбор не является детерминированным. Однако выбранный адаптер записывается в файл SleepAgent_<ДОМЕН\>@SYSTEM_0.log.  
+-   Se um computador tiver mais do que um adaptador de rede, não é possível configurar qual a placa a utilizar para um proxy de reativação; a escolha é não determinística. No entanto, a placa selecionada é registada no SleepAgent_ < domínio\> @SYSTEM_0.log ficheiro.  
 
--   Сеть должна разрешать запросы проверки связи ICMP (по крайней мере в подсети). Невозможно настроить 5-секундный интервал, используемый для отправки команд ping ICMP.  
+-   A rede tem de permitir pedidos de eco ICMP (pelo menos dentro da sub-rede). Não é possível configurar os intervalo que é utilizado para enviar o ICMP comandos ping de 5 segundos.  
 
--   Обмен данными осуществляется в незашифрованном виде и без проверки подлинности, и IPsec не поддерживается.  
+-   Comunicação é não encriptada, não autenticada e IPsec não é suportado.  
 
--   Не поддерживаются следующие конфигурации сети:  
+-   Não são suportadas as seguintes configurações de rede:  
 
-    -   802.1X с проверкой подлинности портов;  
+    -   802.1 X com autenticação de porta  
 
-    -   беспроводные сети;  
+    -   Redes sem fios  
 
-    -   сетевые коммутаторы, привязывающие MAC-адреса к конкретным портам;  
+    -   Comutadores de rede que vinculam endereços MAC a portas específicas  
 
-    -   сети только с протоколом IPv6;  
+    -   Redes apenas IPv6  
 
-    -   продолжительность аренды DHCP менее 24 часов.  
+    -   Durações de concessão DHCP inferiores a 24 horas  
 
-Чтобы перевести компьютеры в рабочий режим и выполнить запланированную установку программного обеспечения, каждый первичный сайт необходимо настроить для использования wake-up пакетов.  
+Se pretender reativar computadores para instalação de software agendadas, tem de configurar cada site primário a utilização de pacotes de reativação.  
 
- Чтобы использовать wake-up прокси, помимо настройки первичного сайта следует развернуть параметры клиента wake-up прокси управления питанием.  
+ Para utilizar o proxy de reativação, tem de implementar definições de cliente de proxy de reativação de gestão de energia para além de configurar o site primário.  
 
-Также необходимо принять решение об использовании пакетов широковещательной рассылки, направленных на подсеть или пакетов одноадресной рассылки и номера порта UDP. По умолчанию традиционные wake-up пакеты передаются с помощью порта UDP 9, однако для повышения уровня безопасности можно выбрать альтернативный порт для сайта, если этот порт поддерживается промежуточными маршрутизаторами и брандмауэрами.  
+Também tem de decidir se deve utilizar pacotes de difusão direcionadas para a sub-rede ou pacotes unicast e o número da porta UDP para utilizar. Por predefinição, os pacotes de reativação tradicionais são transmitidos através da porta UDP 9, mas para ajudar a aumentar a segurança, pode selecionar uma porta alternativa para o site se esta porta alternativa é suportada pelo routers e firewalls intervenientes.  
 
-### <a name="choose-between-unicast-and-subnet-directed-broadcast-for-wake-on-lan"></a>выбор одноадресной рассылки или направленной на подсеть широковещательной рассылки для пробуждения по локальной сети  
- Если для пробуждения компьютеров выбрана отправка традиционных wake-up пакетов, необходимо решить, какие пакеты следует отправлять: пакеты одноадресной рассылки или направленные на подсеть пакеты широковещательной рассылки. Если используется wake-up прокси, необходимо использовать пакеты одноадресной рассылки. В противном случае обратитесь к следующей таблице, которая поможет выбрать метод передачи.  
+### <a name="choose-between-unicast-and-subnet-directed-broadcast-for-wake-on-lan"></a>Escolher entre Unicast e difusão direcionada para sub-rede para reativação por LAN  
+ Se optar por reativar os computadores enviando pacotes de reativação tradicionais, terá de decidir se pretende transmitir pacotes unicast ou pacotes de difusão direcionados de sub-rede. Se utilizar um proxy de reativação, tem de utilizar pacotes unicast. Caso contrário, utilize a tabela seguinte para o ajudar a determinar o método de transmissão a escolha.  
 
-|Метод передачи|Преимущество|Недостаток|  
+|Método de transmissão|Partido|Desvantagens|  
 |-------------------------|---------------|------------------|  
-|Одноадресная рассылка|Более надежное решение по сравнению с направленной на подсеть широковещательной рассылкой, поскольку пакет отправляется непосредственно на компьютер, а не на все компьютеры подсети.<br /><br /> Перенастройка маршрутизаторов может не потребоваться (может потребоваться настройка кэша ARP).<br /><br /> Использует меньше пропускной способности сети, чем направленные на подсеть широковещательные передачи.<br /><br /> Поддержка IPv4 и IPv6.|Wake-up пакеты не обнаруживают конечные компьютеры, адрес подсети которых был изменен после последнего расписания инвентаризации оборудования.<br /><br /> Может потребоваться настройка параметров для пересылки пакетов UDP.<br /><br /> Некоторые сетевые адаптеры могут не отвечать wake-up пакетам во всех режимах сна, если в качестве метода передачи они используют одноадресную рассылку.|  
-|Направленная на подсеть широковещательная рассылка|Более высокий процент успешных операций, чем при одноадресной рассылке (при наличии компьютеров с часто меняющимися IP-адресами в одной подсети).<br /><br /> Перенастройка параметров не требуется.<br /><br /> Высокий показатель совместимости с адаптерами компьютера для всех режимов сна, поскольку направленные на подсеть широковещательные рассылки были исходным методом передачи при отправке wake-up пакетов.|Менее надежное решение по сравнению с одноадресной рассылкой, поскольку злоумышленник может отправлять непрерывные потоки эхо-запросов протокола ICMP с поддельного исходного адреса на адрес направленной широковещательной рассылки. В результате все узлы будут отвечать на этот исходный адрес. Если маршрутизаторы настроены на разрешение направленных на подсеть широковещательных рассылок, из соображений безопасности рекомендуется выполнить дополнительные настройки:<br /><br /> — Настройка маршрутизаторов для разрешения только IP широковещательных рассылок с сервера сайта Configuration Manager с помощью указанного номера порта UDP.<br />— Настройка Configuration Manager для использования указанного номера порта не по умолчанию.<br /><br /> Для включения направленных на подсеть широковещательных рассылок может потребоваться перенастройка всех промежуточных маршрутизаторов.<br /><br /> Использует больше пропускной способности сети, чем одноадресные рассылки.<br /><br /> Поддерживается только с IPv4; IPv6 не поддерживается.|  
+|Unicast|Uma solução mais segura que difusões direcionadas por sub-rede porque o pacote é enviado diretamente para um computador em vez de todos os computadores de uma sub-rede.<br /><br /> Não poderá necessitar da reconfiguração dos routers (poderá ter de configurar a cache ARP).<br /><br /> Consome menos largura de banda de rede que as transmissões de difusão direcionadas para a sub-rede.<br /><br /> Suportado com IPv4 e IPv6.|Pacotes de reativação não localizar computadores de destino que alteraram os seus endereços de sub-rede após o último inventário de hardware agendado.<br /><br /> Os comutadores poderão ter de ser configurada para reencaminhar os pacotes UDP.<br /><br /> Algumas placas de rede não podem responder a reativação pacotes no modo de suspensão todos os Estados se utilizarem unicast como método de transmissão.|  
+|Difusão direcionada para sub-rede|Taxa de êxito superior do unicast se tiver computadores que mudam frequentemente de endereço IP na mesma sub-rede.<br /><br /> É necessária a reconfiguração do comutador.<br /><br /> Elevada taxa de compatibilidade com placas de computador para todos os Estados de suspensão, porque difusões direcionadas por sub-rede eram o método de transmissão original para o envio de pacotes de reativação.|Solução menos segura do que utilizar unicast porque um intruso poderia enviar sequências contínuas de pedidos de eco ICMP a partir de um endereço de origem falsificado para o endereço de difusão. Isto faz com que todos os anfitriões respondam a esse endereço de origem. Se os routers estiverem configurados para permitir difusões direcionadas por sub-rede, a configuração adicional é recomendada por razões de segurança:<br /><br /> -Configure os routers para permitirem difusões apenas direcionadas para o IP do Gestor de configuração do servidor do site, utilizando um número de porta UDP especificado.<br />-Configure o Configuration Manager para utilizar o número da porta não predefinido especificado.<br /><br /> Poderá necessitar da reconfiguração de todos os routers intervenientes para permitir difusões direcionadas por sub-rede.<br /><br /> Consome mais largura de banda de rede que as transmissões unicast.<br /><br /> Suportado com IPv4 apenas; IPv6 não é suportado.|  
 
 > [!WARNING]  
->  Использование направленных на подсеть широковещательных рассылок связано с угрозами безопасности. Злоумышленник может отправлять непрерывные потоки эхо-запросов протокола ICMP с поддельного исходного адреса на адрес направленной широковещательной рассылки, в результате чего все узлы будут отвечать на этот исходный адрес. Этот тип атаки отказа в обслуживании обычно называется smurf-атакой, которая нейтрализуется путем запрета направленных на подсеть широковещательных рассылок.
+>  Existem riscos de segurança associados a difusões direcionadas para: Um intruso poderia enviar sequências contínuas de pedidos de eco Internet Control Message Protocol (ICMP) de um endereço de origem falsificado para o endereço de difusão, com que todos os anfitriões respondam a esse endereço de origem. Este tipo de serviço de ataque de recusa de geralmente é designada por um ataque "smurf" e é normalmente limitado por não permitir difusões direcionadas por sub-rede.

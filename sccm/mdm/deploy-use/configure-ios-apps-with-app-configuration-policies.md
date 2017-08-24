@@ -1,6 +1,6 @@
 ---
-title: "Настройка приложений iOS с помощью политик конфигурации приложений | Документация Майкрософт"
-description: "Устраните проблемы конфигурации на устройствах с iOS 8 или более поздней версии, развернув политики конфигурации приложений для пользователей, прежде чем они начнут использовать приложения."
+title: "Configurar aplicações iOS com políticas de configuração de aplicação | Microsoft Docs"
+description: "Ajude a eliminar os problemas de configuração em dispositivos com iOS 8 ou posterior ao implementar políticas de configuração de aplicação para os utilizadores antes de poderem executam as aplicações."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,60 +17,60 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 50aea2afaf34974ca92ac58b6569bff56403a9ab
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Применение параметров к приложениям iOS с помощью политик конфигурации приложений в System Center Configuration Manager
+# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Aplicar as definições para aplicações iOS com políticas de configuração de aplicações no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Вы можете использовать политики конфигурации приложений в System Center Configuration Manager для распространения параметров, которые могут быть необходимы, когда пользователь работает с приложением. Например, приложение может потребовать у пользователя указать следующие сведения:
-- Пользовательский номер порта
-- языковые параметры;
-- параметры безопасности;
-- параметры фирменной символики, такие как логотип компании.
+Pode utilizar políticas de configuração de aplicações no System Center Configuration Manager (Configuration Manager) para distribuir as definições que poderão ser necessárias quando um utilizador executa uma aplicação. Por exemplo, uma aplicação pode requerer que um utilizador especificar estes detalhes:
+- Um número de porta personalizado
+- Definições de idioma
+- Definições de segurança
+- Definições de imagem corporativa, como um logótipo de empresa
 
-Если пользователь неправильно вводит параметры, нагрузка, связанная с их исправлением, ложится на вашу службу технической поддержки, и развертывание приложения замедляется.
-Чтобы избежать этих проблем, можно использовать политики конфигурации приложений с целью развертывания необходимых параметров для пользователей перед запуском ими приложения. Параметры связываются с пользователем автоматически. Пользователю не требуется выполнять никаких действий.
-Чтобы использовать политику конфигурации приложений в Configuration Manager, вместо ее развертывания непосредственно для пользователей и устройств необходимо связать политику с типом развертывания при развертывании приложения. Параметры политики применяются каждый раз, когда приложение проверяет их наличие (как правило, при первом запуске).
+Se o utilizador introduzir as definições incorretamente, o fardo corrigir recai no suporte técnico e implementação de aplicação é lenta.
+Para ajudar a evitar estes problemas, pode utilizar políticas de configuração de aplicação para implementar as definições necessárias para os utilizadores antes do que executar a aplicação. As definições estão associadas um utilizador automaticamente. O utilizador não tem de efetuar qualquer ação.
+Para utilizar uma política de configuração de aplicações no Configuration Manager, em vez de implementar as políticas de configuração diretamente a utilizadores e dispositivos, associar uma política com um tipo de implementação ao implementar a aplicação. As definições de política são aplicadas sempre que a aplicação verifica a existência de-los (normalmente, a primeira vez a aplicação é executada).
 
-В настоящее время политики конфигурации приложений доступны только для устройств с iOS 8 и более поздних версий и для следующих типов приложений:
+Atualmente, as políticas de configuração de aplicação estão disponíveis apenas em dispositivos com iOS 8 e posterior e para estes tipos de aplicação:
 
-- **Пакет приложения для iOS (файл* .ipa)**
-- **пакет приложения для iOS в Apple App Store.**
+- **pacote de aplicação para iOS (*ficheiro. IPA)**
+- **pacote de aplicação para iOS da App Store**
 
-Дополнительные сведения о типах установки приложений см. в разделе [Общие сведения об управлении приложениями](/sccm/apps/understand/introduction-to-application-management).
+Para obter mais informações sobre os tipos de instalação de aplicações, consulte o [introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management).
 
-## <a name="create-an-app-configuration-policy"></a>Создание политики конфигурации приложений
+## <a name="create-an-app-configuration-policy"></a>Criar uma política de configuração de aplicação
 
-1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Политики конфигурации приложений**.
-2. На вкладке **Главная** в группе **Политики конфигурации приложений** щелкните **Создание политики конфигурации приложений**.
-3. На странице **Общие** мастера создания политики конфигурации приложений укажите перечисленные ниже сведения политики.
-  - **Имя**. Введите уникальное имя политики.
-  - **Описание**. Чтобы упростить определение политики, можно добавить описание (необязательно).
-  - **Присвоенные категории для улучшения результатов поиска и фильтрации**. Чтобы создать и присвоить категории политике, нажмите **Категории** (необязательно). Категории упрощают сортировку и поиск элементов в консоли Configuration Manager.
-4. На странице **Политика iOS** выберите способ для указания сведений политики конфигурации:
-  - **Укажите пары "имя — значение"**. Этот вариант можно использовать для файлов списков свойств без вложения.
+1. Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **políticas de configuração de aplicação**.
+2. No **home page** separador o **políticas de configuração de aplicação** grupo, escolha **criar nova política de configuração de aplicação**.
+3. No Assistente de criação de aplicação configuração política no **geral** página, defina estas informações de política:
+  - **Nome**. Introduza um nome exclusivo para a política.
+  - **Descrição**. (Opcional) Para tornar mais fácil de identificar a política, pode adicionar uma descrição.
+  - **Atribuir categorias para melhorar a procura e filtragem**. (Opcional) Para criar e atribuir categorias para a política, escolha **categorias**. Categorias de tornam mais fácil para si ordenar e encontrar itens na consola do Configuration Manager.
+4. No **política iOS** página, selecione como definir as informações de política de configuração:
+  - **Especifique pares nome / valor**. Pode utilizar esta opção para ficheiros de lista de propriedades que não utilizem o aninhamento.
 
-      *Указание пары "имя — значение"*
-        1. Чтобы добавить новую пару, выберите **Создать**.
-        2. В диалоговом окне **Добавление пары "имя — значение"** укажите перечисленные ниже сведения.
-            - **Тип**. Выберите в списке нужный тип значения.
-            - **Имя**. Введите имя ключа списка свойств, для которого нужно указать значение.
-            - **Значение**. Введите значение, которое будет присвоено указанному ключу.
+      *Para especificar um par nome e valor*
+        1. Para adicionar um novo par, escolha **novo**.
+        2. No **adicionar par de nome/valor** diálogo caixa, especifique o seguinte:
+            - **Tipo**. Na lista, selecione o tipo de valor que pretende que especificar.
+            - **Nome**. Introduza o nome da chave de lista de propriedade para o qual pretende especificar um valor.
+            - **Valor**. Introduza o valor que será aplicado para a chave que introduziu.
 
-  - **Переход к файлу списка свойств**. Используйте этот вариант, если у вас уже есть XML-файл конфигурации приложения, или для более сложных файлов с вложением.
+  - **Procure um ficheiro de lista de propriedade**. Utilize esta opção se já tiver um ficheiro XML de configuração de aplicação ou para os ficheiros mais complexos que utilizam o aninhamento.
 
-    *Переход к файлу списка свойств*
+    *Para procurar um ficheiro de lista de propriedades*
 
-      1.  В поле **Политика конфигурации приложений** введите сведения списка свойств в правильном формате XML.
+      1.  No **política de configuração de aplicação** campo, introduza as informações de lista de propriedades no formato XML correto.
 
-      Подробнее о списках свойств XML см. в статье [Общие сведения о списках свойств XML](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) в библиотеке разработчика iOS.
+      Para saber mais sobre listas de propriedades XML, consulte o artigo [compreender listas de propriedades de XML](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) na iOS Developer Library.
 
-Формат списка свойств XML зависит от настраиваемого приложения. Обратитесь к поставщику приложения для получения сведений о требуемом формате.
-Intune поддерживает следующие типы данных в списке свойств:
+O formato da lista de propriedades XML varia consoante a aplicação que estiver a configurar. Contacte o fornecedor da aplicação para obter detalhes sobre o formato a utilizar.
+O Intune suporta os seguintes tipos de dados numa lista de propriedades:
             
             ```
             <integer>
@@ -80,8 +80,8 @@ Intune поддерживает следующие типы данных в сп
             <dict>
             <true /> or <false />
             ```
-Подробнее о типах данных см. в статье [Сведения о списках свойств](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) в библиотеке разработчика iOS.
-Кроме того, Intune поддерживает следующие типы маркеров в списке свойств:
+Para mais informações sobre os tipos de dados, consulte [sobre listas de propriedades](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) na iOS Developer Library.
+O Intune também suporta os seguintes tipos de token na lista de propriedades:
             
             ```
             {{userprincipalname}} - (Example: John@contoso.com)
@@ -95,24 +95,24 @@ Intune поддерживает следующие типы данных в сп
             {{serialnumberlast4digits}} - (Example: G5V2) for iOS devices
             ```
 
-Символы {{ и }} используются только для типов маркеров и не должны использоваться для других целей.
+O {{e}} carateres são utilizados por tipos de token apenas e não podem ser utilizados para outros fins.
             
-5. Чтобы импортировать ранее созданный XML-файл, нажмите **Выбрать файл**.
-6. Нажмите кнопку **Далее**. При наличии ошибок в коде XML необходимо исправить их, прежде чем продолжить.
-7. Завершите шаги в мастере.
+5. Para importar um ficheiro XML que criou anteriormente, escolha **selecionar ficheiro**.
+6. Escolha **seguinte**. Se existem erros no código XML, terá de corrigir as entradas antes de continuar.
+7. Conclua os passos apresentados no assistente.
 
-Новая политика конфигурации приложений отображается в узле **Политики конфигурации приложений** рабочей области **Библиотека программного обеспечения**.
+A nova política de configuração de aplicação é apresentada no **biblioteca de Software** área de trabalho, no **políticas de configuração de aplicação** nós.
 
-## <a name="associate-an-app-configuration-policy-with-a-configuration-manager-application"></a>Свяжите политику конфигурации приложения с приложением Configuration Manager.
+## <a name="associate-an-app-configuration-policy-with-a-configuration-manager-application"></a>Associar uma política de configuração de aplicação a uma aplicação do Configuration Manager
 
-Чтобы связать политику конфигурации приложений с развертыванием приложения iOS, разверните приложение обычным образом, как описано в разделе [Развертывание приложений](/sccm/apps/deploy-use/deploy-applications).
+Para associar uma política de configuração de aplicação com a implementação de uma aplicação iOS, implementar a aplicação como faria normalmente, utilizando o procedimento a [implementar aplicações](/sccm/apps/deploy-use/deploy-applications) tópico.
 
-На странице **Политики конфигурации приложений** мастера развертывания программного обеспечения выберите **Создать**. В диалоговом окне **Выбор политики конфигурации приложений** выберите тип развертывания приложения и политику конфигурации приложений, с которой необходимо связать приложение.
-После установки типа развертывания параметры политики конфигурации приложений применяются автоматически.
+No Assistente para implementar Software, no **políticas de configuração de aplicação** página, escolha **novo**. No **selecionar política de configuração de aplicação** diálogo caixa, escolha um tipo de implementação de aplicação e a política de configuração de aplicação que pretende associá-lo.
+Quando o tipo de implementação é instalado, é aplicada automaticamente as definições de política de configuração de aplicação.
 
-## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Пример формата для XML-файла конфигурации мобильных приложений
+## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Formato de exemplo para o ficheiro XML de configuração de aplicação móvel
 
-При создании файла конфигурации мобильных приложений можно указать одно или несколько из следующих значений в данном формате:
+Quando cria um ficheiro de configuração de aplicação móvel, pode utilizar este formato para especificar um ou mais dos seguintes valores:
 
 ```
 <dict>

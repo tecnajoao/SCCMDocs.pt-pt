@@ -1,6 +1,6 @@
 ---
-title: "Создание последовательности задач для записи и восстановления данных о пользовательской среде | Документы Майкрософт"
-description: "Использование последовательностей задач System Center Configuration Manager для записи и восстановления данных о пользовательской среде в сценариях развертывания операционной системы."
+title: "Criar uma sequência de tarefas para capturar e restaurar o estado do utilizador | Microsoft Docs"
+description: "Utilize o System Center Configuration Manager as sequências de tarefas para capturar e restaurar os dados de estado do utilizador em cenários de implementação do sistema operativo."
 ms.custom: na
 ms.date: 06/07/2017
 ms.prod: configuration-manager
@@ -17,154 +17,154 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 4b3668094d576b1b8710f08b384aa2f7c5eb0cca
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Создание последовательности задач для записи и восстановления данных о пользовательской среде в System Center Configuration Manager
+# <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para capturar e restaurar o estado do utilizador no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете использовать последовательности задач System Center Configuration Manager для записи и восстановления данных о пользовательской среде в тех сценариях развертывания операционной системы, где требуется сохранить пользовательскую среду текущей ОС. В зависимости от создаваемого типа последовательности задач шаги записи и восстановления могут включаться в состав последовательности задач автоматически. В других случаях может потребоваться ручное добавление таких шагов. В этом разделе описаны шаги, которые необходимо добавить в существующую последовательность задач для сбора и восстановления данных о пользовательской среде.  
+Pode utilizar sequências de tarefas do System Center Configuration Manager para capturar e restaurar dados de estado do utilizador em cenários de implementação do sistema operativo em que pretenda manter o estado de utilizador do sistema operativo atual. Consoante o tipo de sequência de tarefa que criar, os passos de captura e restauro podem ser adicionados automaticamente como parte da sequência de tarefas. Noutros cenários, poderá ser necessário adicionar os passos de captura e restauro manualmente à sequência de tarefas. Este tópico fornece os passos que tem de adicionar a uma sequência de tarefas existente para capturar e restaurar dados de estado do utilizador.  
 
-##  <a name="BKMK_CaptureRestoreUserState"></a> Запись и восстановление данных о пользовательской среде  
- Чтобы записать и восстановить данные о пользовательской среде, необходимо добавить в последовательность задач следующие шаги:  
+##  <a name="BKMK_CaptureRestoreUserState"></a> Como capturar e restaurar dados de estado do utilizador  
+ Para capturar e restaurar o estado do utilizador, tem de adicionar os seguintes passos à sequência de tarefas:  
 
--   **Запросить хранилище состояний**. Этот шаг требуется, только если пользовательская среда сохраняется в точке миграции состояния.  
+-   **Solicitar armazenamento de Estados**: Este passo só será necessário se armazenar o estado do utilizador no ponto de migração de estado.  
 
--   **Записать пользовательское состояние**. Этот шаг выполняет сбор данных пользовательской среды и сохраняет их в точке миграции состояния или на локальном компьютере (используя связи).  
+-   **Capturar estado do utilizador**: Este passo captura os dados de estado de utilizador e armazena-os no ponto de migração de estado ou localmente, utilizando ligações.  
 
--   **Восстановить пользовательское состояние**. Этот шаг восстанавливает данные пользовательской среды на конечном компьютере. Он может получать данные из точки миграции состояния или с конечного компьютера.  
+-   **Restaurar estado do utilizador**: Este passo restaura os dados de estado de utilizador no computador de destino. Permite obter os dados a partir de um ponto de migração de estado do utilizador ou a partir do computador de destino.  
 
--   **Освободить хранилище состояний**. Этот шаг требуется, только если пользовательская среда сохраняется в точке миграции состояния. Этот шаг удаляет данные с точки миграции состояния.  
+-   **Disponibilizar armazenamento de Estados**: Este passo só será necessário se armazenar o estado do utilizador no ponto de migração de estado. Este passo remove estes dados do ponto de migração de estado.  
 
- Ниже приведены процедуры добавления шагов последовательности задач для сбора и восстановления данных пользовательской среды. Дополнительные сведения о создании последовательностей задач см. в статье [Управление последовательностями задач для их автоматизации](manage-task-sequences-to-automate-tasks.md).  
+ Utilize os procedimentos seguintes para adicionar os passos de sequência de tarefas necessários para capturar e restaurar o estado do utilizador. Para obter mais informações sobre como criar sequências de uma tarefa, consulte [gerir sequências de tarefas para automatizar tarefas](manage-task-sequences-to-automate-tasks.md).  
 
-#### <a name="to-add-task-sequence-steps-to-capture-the-user-state"></a>Добавление шагов последовательности задач для сбора данных о пользовательской среде  
+#### <a name="to-add-task-sequence-steps-to-capture-the-user-state"></a>Para adicionar os passos de sequência de tarefas para capturar o estado do utilizador  
 
-1.  В списке **Последовательность задач** выберите последовательность задач и нажмите кнопку **Изменить**.  
+1.  Na lista **Sequência de Tarefas** , selecione uma sequência de tarefas e clique em **Editar**.  
 
-2.  Если точка миграции состояния используется для хранения данных пользовательской среды, добавьте в нее шаг **Запросить хранилище состояний** . В диалоговом окне **Редактор последовательности задач** нажмите кнопку **Добавить**, наведите указатель на пункт **Пользовательское состояние**и щелкните **Запросить хранилище состояний**. Укажите для шага **Запросить хранилище состояний** перечисленные ниже свойства и параметры, а затем нажмите кнопку **Применить**.  
+2.  Se estiver a utilizar um ponto de migração de estado para armazenar o estado do utilizador, adicione o passo **Solicitar Armazenamento de Estados** à sequência de tarefas. Na caixa de diálogo **Editor de Sequência de Tarefas** , clique em **Adicionar**, aponte para **Estado de Utilizador**e clique em **Solicitar Armazenamento de Estados**. Especifique as seguintes propriedades e opções do passo **Solicitar Armazenamento de Estados** e clique em **Aplicar**.  
 
-     На странице **Свойства** выполните следующие действия.  
+     No separador **Propriedades** , especifique as seguintes opções:  
 
-    -   Введите имя и описание для шага.  
+    -   Introduza um nome e uma descrição para o passo.  
 
-    -   Установите переключатель **захвата состояния компьютера**.  
+    -   Clique em **Capturar estado a partir do computador**.  
 
-    -   В поле **Число повторных попыток** укажите количество попыток сбора данных о пользовательской среде в случае возникновения ошибки.  
+    -   Na caixa **Número de tentativas** , especifique quantas vezes a sequência de tarefas tentará capturar os dados de estado do utilizador, se ocorrer um erro.  
 
-    -   В поле **Пауза между попытками (секунд)** укажите для последовательности задач интервал (в секундах) ожидания перед повторной попыткой сбора данных.  
+    -   Na caixa **Intervalo de repetição (em segundos)** , especifique quantos segundos a sequência de tarefas deverá aguardar antes de voltar a tentar capturar os dados.  
 
-    -   Установите флажок **Если учетной записи компьютера не удается соединиться с хранилищем состояний, использовать учетную запись для доступа к сети**, чтобы указать, используется ли [учетная запись для доступа к сети](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) Configuration Manager для подключения к хранилищу состояний.  
+    -   Selecione o **se a conta de computador falhar a ligação ao armazenamento de Estados, utilize a conta de acesso à rede** caixa de verificação para especificar se pretende utilizar o Gestor de configuração [conta de acesso à rede](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) para ligar ao arquivo de Estados.  
 
-     На вкладке **Параметры** укажите перечисленные ниже параметры:  
+     No separador **Opções** , especifique as seguintes opções:  
 
-    -   Установите флажок **Продолжать при ошибке** , если требуется, чтобы последовательность задач в случае сбоя этого шага переходила к выполнению следующего шага.  
+    -   Selecione a caixa de verificação **Continuar com o erro** se pretender que a sequência de tarefas continue para o passo seguinte caso este passo falhe.  
 
-    -   Укажите условия, которые должны быть выполнены, прежде чем последовательность задач сможет продолжать выполнение в случае возникновения ошибки.  
+    -   Especifique as condições que devem ser satisfeitas antes de continuar com a sequência de tarefas em caso de erro.  
 
-3.  Добавьте шаг **Записать пользовательское состояние** в последовательность задач. В диалоговом окне **Редактор последовательности задач** нажмите кнопку **Добавить**, наведите указатель на пункт **Пользовательское состояние**и щелкните **Записать пользовательское состояние**. Укажите для шага **Записать пользовательское состояние** перечисленные ниже свойства и параметры, а затем нажмите кнопку **Применить**.  
-
-    > [!IMPORTANT]  
-    >  При добавлении этого шага к последовательности задач также следует задать переменную последовательности задач **OSDStateStorePath** , чтобы указать, где хранятся данные о состоянии пользователя. Если нужно сохранить состояние пользователя локально, не указывайте корневую папку, так как это может привести к сбою в последовательности задач. При хранении данных пользователей локально всегда следует использовать папку или подпапку. Сведения об этой переменной см. в статье [Записать пользовательское состояние. Переменные действия последовательности задач](../understand/task-sequence-action-variables.md#BKMK_CaptureUserState).  
-
-     На странице **Свойства** выполните следующие действия.  
-
-    -   Введите имя и описание для шага.  
-
-    -   Укажите пакет, который содержит исходный файл USMT, использованный для сбора данных о пользовательской среде.  
-
-    -   Укажите профили пользователей для записи:  
-
-        -   установите переключатель **Захватить все профили пользователей, используя стандартные параметры** , чтобы записать все профили пользователей;  
-
-        -   установите переключатель **Настройка захвата профилей пользователей** , чтобы указать отдельные профили пользователей для записи. Выберите файл конфигурации (miguser.xml, migsys.xml или migapp.xml), содержащий сведения о профиле пользователя. Здесь нельзя использовать файл конфигурации config.xml, но можно вручную добавить его в командную строку USMT, используя переменные OSDMigrageAdditionalCaptureOptions и OSDMigrateAdditionalRestoreOptions.
-
-    -   Установите флажок **Включить запись подробных сведений в журнал** , чтобы указать степень детализации данных в файле журнале при возникновении ошибки.  
-
-    -   Установите флажок **Пропустить файлы, использующие шифрованную файловую систему (EFS)**.  
-
-    -   Установите переключатель **Скопировать, используя доступ к файловой системе** , чтобы указать следующие параметры.  
-
-        -   **Продолжать при невозможности захвата некоторых файлов**. Этот параметр позволяет продолжить процесс миграции, даже если не удается записать некоторые файлы. Если отключить этот параметр, выполнение последовательности задач завершится сбоем, если не удастся записать какой-либо файл. Этот параметр по умолчанию включен.  
-
-        -   **Захватить локально, используя ссылки, а не копируя файлы**. Этот параметр позволяет использовать функцию миграции с помощью жестких связей, доступную в средстве миграции пользовательской среды USMT 4.0. Этот параметр пропускается, если используются версии средства миграции пользовательской среды, предшествующие USMT 4.0.  
-
-        -   **Выполнить захват в автономном режиме (только в ОС Windows PE)**. Этот параметр позволяет записывать пользовательскую среду из среды предустановки Windows без необходимости запуска существующей операционной системы. Этот параметр пропускается, если используются версии средства миграции пользовательской среды, предшествующие USMT 4.0.  
-
-    -   Установите флажок **Захватить, используя службу VSS**. Этот параметр пропускается, если используются версии средства миграции пользовательской среды, предшествующие USMT 4.0.  
-
-     На вкладке **Параметры** укажите перечисленные ниже параметры:  
-
-    -   Установите флажок **Продолжать при ошибке** , если требуется, чтобы последовательность задач в случае сбоя этого шага переходила к выполнению следующего шага.  
-
-    -   Укажите условия, которые должны быть выполнены, прежде чем последовательность задач сможет продолжать выполнение в случае возникновения ошибки.  
-
-4.  Если точка миграции состояния используется для хранения данных о пользовательской среде, добавьте в последовательность шаг [Освободить хранилище состояний](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore). В диалоговом окне **Редактор последовательности задач** последовательно щелкните **Добавить**, **Пользовательское состояние**и **Освободить хранилище состояний**. Укажите следующие свойства и параметры для шага **Освободить хранилище состояний** и нажмите кнопку **ОК**.  
+3.  Adicione o passo **Capturar Estado do Utilizador** à sequência de tarefas. Na caixa de diálogo **Editor de Sequência de Tarefas** , clique em **Adicionar**, aponte para **Estado de Utilizador**e clique em **Capturar Estado do Utilizador**. Especifique as seguintes propriedades e opções do passo **Capturar Estado do Utilizador** e clique em **OK**.  
 
     > [!IMPORTANT]  
-    >  Действие последовательности задач, выполняемое до шага **Освободить хранилище состояний** последовательности задач, должно быть успешно выполнено, прежде чем можно будет перейти к шагу **Освободить хранилище состояний** .  
+    >  Ao adicionar este passo à sequência de tarefas, defina também a variável da sequência de tarefas **OSDStateStorePath** para especificar onde serão armazenados os dados de estado do utilizador. Se armazenar o estado do utilizador localmente, não especifique uma pasta raiz, pois isso poderá fazer a sequência de tarefas falhar. Ao armazenar os dados do utilizador localmente, utilize sempre uma pasta ou subpasta. Para obter informações sobre esta variável, consulte [capturar variáveis de ação de sequência do utilizador Estado tarefas](../understand/task-sequence-action-variables.md#BKMK_CaptureUserState).  
 
-     Введите имя и описание для шага на вкладке **Свойства** .  
+     No separador **Propriedades** , especifique as seguintes opções:  
 
-     На вкладке **Параметры** укажите перечисленные ниже параметры.  
+    -   Introduza um nome e uma descrição para o passo.  
 
-    -   Установите флажок **Продолжать при ошибке** , если требуется, чтобы последовательность задач в случае сбоя этого шага переходила к выполнению следующего шага.  
+    -   Especifique o pacote que contém o ficheiro de origem USMT utilizado para capturar os dados de estado do utilizador.  
 
-    -   Укажите условия, которые должны быть выполнены перед тем, как последовательность задач продолжит работу в случае возникновения ошибки.  
+    -   Especifique os perfis de utilizador a capturar:  
 
- Выполните развертывание этой последовательности задач, чтобы выполнить сбор данных о пользовательской среде на конечном компьютере. Дополнительные сведения о развертывании последовательностей задач см. в статье [Развертывание последовательности задач](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+        -   Clique em **Capturar todos os perfis de utilizador com opções padrão** para capturar todos os perfis de utilizador.  
 
-#### <a name="to-add-task-sequence-steps-to-restore-the-user-state"></a>Добавление шагов последовательности задач для восстановления пользовательской среды  
+        -   Clique em **Personalizar captura de perfil do utilizador** para especificar os perfis de utilizador individuais a capturar. Selecione o ficheiro de configuração (miguser.xml, migsys.xml ou migapp.xml) que contém as informações de perfil de utilizador. Não é possível utilizar o ficheiro de configuração config.xml aqui, mas pode adicioná-lo manualmente para a linha de comandos da USMT utilizando as variáveis OSDMigrageAdditionalCaptureOptions e OSDMigrateAdditionalRestoreOptions.
 
-1.  В списке **Последовательность задач** выберите последовательность задач и нажмите кнопку **Изменить**.  
+    -   Selecione **Ativar registo verboso** para especificar a quantidade de informações a escrever nos ficheiros de registo, se ocorrer um erro.  
 
-2.  Добавьте шаг [Восстановить пользовательское состояние](../understand/task-sequence-steps.md#BKMK_RestoreUserState) в последовательность задач. В диалоговом окне **Редактор последовательности задач** нажмите кнопку **Добавить**, наведите указатель на пункт **Пользовательское состояние**и щелкните **Восстановить пользовательское состояние**. Этот шаг устанавливает подключение к точке миграции состояния. Укажите для шага **Восстановить пользовательское состояние** перечисленные ниже свойства и параметры, а затем нажмите кнопку **ОК**.  
+    -   Selecione **Ignorar ficheiros que utilizam o Sistema de Encriptação de Ficheiros (EFS)**.  
 
-     На вкладке **Свойства** укажите перечисленные ниже свойства.  
+    -   Selecione **Copiar utilizando o acesso do sistema de ficheiros** para especificar as seguintes definições:  
 
-    -   Введите имя и описание для шага.  
+        -   **Continuar se não for possível capturar alguns ficheiros**: Esta definição permite que o passo de sequência de tarefas continuar o processo de migração, mesmo se não for possível capturar alguns ficheiros. Se desativar esta opção e não for possível capturar um ficheiro, o passo da sequência de tarefas falhará. Por predefinição, esta opção encontra-se ativada.  
 
-    -   Укажите пакет, который содержит средство миграции пользовательской среды, чтобы восстановить данные пользовательской среды.  
+        -   **Capturar localmente ao utilizar hiperligações em vez de copiar ficheiros**: Esta definição permite-lhe utilizar a funcionalidade de migração de ligações fixas que está disponível no USMT 4.0. Esta definição é ignorada se utilizar versões do USMT anteriores ao USMT 4.0.  
 
-    -   Укажите профили пользователей, подлежащие восстановлению.  
+        -   **Capturar no modo offline (apenas Windows PE)**: Esta definição permite-lhe capturar o estado do Windows PE sem arrancar o sistema operativo existente. Esta definição é ignorada se utilizar versões do USMT anteriores ao USMT 4.0.  
 
-        -   Чтобы восстановить все профили пользователей, выберите пункт **Восстановить все профили пользователей со стандартными параметрами** .  
+    -   Selecione **Capturar utilizando o Serviço Sombra de Cópia de Volume (VSS)**. Esta definição é ignorada se utilizar versões do USMT anteriores ao USMT 4.0.  
 
-        -   Чтобы восстановить профили отдельных пользователей, выберите **Настроить восстановление профиля пользователя**. Выберите файл конфигурации (miguser.xml, migsys.xml или migapp.xml), содержащий сведения о профиле пользователя. Здесь нельзя использовать файл конфигурации config.xml, но можно вручную добавить его в командную строку USMT, используя переменные OSDMigrageAdditionalCaptureOptions и OSDMigrateAdditionalRestoreOptions.
+     No separador **Opções** , especifique as seguintes opções:  
 
-    -   Чтобы указать новый пароль для восстановленных профилей, выберите **Восстановить профили локальных пользователей компьютера** . Переносить пароли локальных профилей нельзя.  
+    -   Selecione a caixa de verificação **Continuar com o erro** se pretender que a sequência de tarefas continue para o passo seguinte caso este passo falhe.  
+
+    -   Especifique as condições que devem ser satisfeitas antes de continuar com a sequência de tarefas em caso de erro.  
+
+4.  Se estiver a utilizar um ponto de migração de estado para armazenar o estado do utilizador, adicione o [disponibilizar armazenamento de Estados](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) passo à sequência de tarefas. Na caixa de diálogo **Editor de Sequência de Tarefas** , clique em **Adicionar**, aponte para **Estado de Utilizador**e clique em **Disponibilizar Armazenamento de Estados**. Especifique as seguintes propriedades e opções do passo **Disponibilizar Armazenamento de Estados** e clique em **OK**.  
+
+    > [!IMPORTANT]  
+    >  A ação de sequência de tarefas executada antes do passo **Disponibilizar Armazenamento de Estados** deve ser bem-sucedida para iniciar o passo **Disponibilizar Armazenamento de Estados** .  
+
+     No separador **Propriedades** , introduza um nome e uma descrição para o passo.  
+
+     No separador **Opções** , especifique as seguintes opções.  
+
+    -   Selecione a caixa de verificação **Continuar com o erro** se pretender que a sequência de tarefas continue para o passo seguinte caso este passo falhe.  
+
+    -   Especifique as condições que devem ser satisfeitas antes de continuar com a sequência de tarefas em caso de erro.  
+
+ Implemente esta sequência de tarefas para capturar o estado do utilizador num computador de destino. Para obter informações sobre como implementar sequências de tarefas, consulte [implementar uma sequência de tarefas](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+
+#### <a name="to-add-task-sequence-steps-to-restore-the-user-state"></a>Para adicionar os passos de sequência de tarefas para restaurar o estado do utilizador  
+
+1.  Na lista **Sequência de Tarefas** , selecione uma sequência de tarefas e clique em **Editar**.  
+
+2.  Adicionar o [restaurar estado do utilizador](../understand/task-sequence-steps.md#BKMK_RestoreUserState) passo à sequência de tarefas. Na caixa de diálogo **Editor de Sequência de Tarefas** , clique em **Adicionar**, aponte para **Estado de Utilizador**e clique em **Restaurar Estado do Utilizador**. Este passo estabelece uma ligação ao ponto de migração de estado. Especifique as seguintes propriedades e opções do passo **Restaurar Estado do Utilizador** e clique em **OK**.  
+
+     No separador **Propriedades** , especifique as seguintes propriedades:  
+
+    -   Introduza um nome e uma descrição para o passo.  
+
+    -   Especifique o pacote que contém a USMT para restaurar os dados de estado do utilizador.  
+
+    -   Especifique os perfis de utilizador a restaurar:  
+
+        -   Clique em **Restaurar todos os perfis de utilizador capturados com opções padrão** para restaurar todos os perfis de utilizador.  
+
+        -   Clique em **personalizar restauro de perfis de utilizador** para restaurar perfis de utilizador individuais. Selecione o ficheiro de configuração (miguser.xml, migsys.xml ou migapp.xml) que contém as informações de perfil de utilizador. Não é possível utilizar o ficheiro de configuração config.xml aqui, mas pode adicioná-lo manualmente para a linha de comandos da USMT utilizando as variáveis OSDMigrageAdditionalCaptureOptions e OSDMigrateAdditionalRestoreOptions.
+
+    -   Selecione **Restaurar perfis de utilizador do computador local** para fornecer uma palavra-passe nova para aos perfis restaurados. Não é possível migrar palavras-passe para perfis locais.  
 
         > [!NOTE]  
-        >  Если у вас есть локальные учетные записи пользователей, а также используется шаг [Записать пользовательское состояние](../understand/task-sequence-steps.md#BKMK_CaptureUserState) и выбран параметр **Записать все профили пользователей, используя стандартные параметры**, необходимо выбрать параметр **Восстановить профили локальных пользователей компьютера** в шаге [Восстановить пользовательское состояние](../understand/task-sequence-steps.md#BKMK_RestoreUserState), иначе последовательность задач завершится со сбоем.  
+        >  Quando tiver contas de utilizador local e utilizar o [capturar estado do utilizador](../understand/task-sequence-steps.md#BKMK_CaptureUserState) passo e selecione **capturar todos os perfis de utilizador com opções padrão**, tem de selecionar o **restaurar perfis de utilizador do computador local** definição o [restaurar estado do utilizador](../understand/task-sequence-steps.md#BKMK_RestoreUserState) passo ou a sequência de tarefas falhará.  
 
-    -   Если необходимо, чтобы шаг **Восстановить пользовательское состояние** продолжал свою работу даже при сбое в процессе восстановления того или иного файла, выберите пункт **Продолжать при невозможности восстановления некоторых файлов** .  
+    -   Selecione **Continuar se não for possível restaurar alguns ficheiros** se pretender que o passo **Restaurar Estado do Utilizador** continue caso não seja possível restaurar um ficheiro.  
 
-         Если пользовательская среда была сохранена с помощью локальных связей и ее не удалось восстановить, пользователь с правами администратора может вручную удалить жесткие связи, созданные для хранения данных, или запустить средство USMTUtils при помощи последовательности задач. Если для удаления жестких связей используется средство USMTUtils, добавьте шаг [Перезагрузить компьютер](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) после запуска этого средства.  
+         Se armazenar o estado do utilizador utilizando ligações locais e a restauração não for bem-sucedida, o utilizador administrativo pode eliminar manualmente as ligações fixas criadas para armazenar os dados ou a sequência de tarefas pode executar a ferramenta USMTUtils. Se utilizar o USMTUtils para eliminar a ligação fixa, adicione um [reiniciar o computador](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) passo após a execução do USMTUtils.  
 
-    -   Установите флажок **Включить запись подробных сведений в журнал** , чтобы указать степень детализации данных в файле журнале при возникновении ошибки.  
+    -   Selecione **Ativar registo verboso** para especificar a quantidade de informações a escrever nos ficheiros de registo, se ocorrer um erro.  
 
-     На вкладке **Параметры** укажите перечисленные ниже параметры:  
+     No separador **Opções** , especifique as seguintes opções:  
 
-    -   Установите флажок **Продолжать при ошибке** , если требуется, чтобы последовательность задач в случае сбоя этого шага переходила к выполнению следующего шага.  
+    -   Selecione a caixa de verificação **Continuar com o erro** se pretender que a sequência de tarefas continue para o passo seguinte caso este passo falhe.  
 
-    -   Укажите условия, которые должны быть выполнены, прежде чем последовательность задач сможет продолжать выполнение в случае возникновения ошибки.  
+    -   Especifique as condições que devem ser satisfeitas antes de continuar com a sequência de tarefas em caso de erro.  
 
-3.  Если точка миграции состояния используется для хранения данных о пользовательской среде, добавьте в последовательность шаг [Освободить хранилище состояний](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore). В диалоговом окне **Редактор последовательности задач** последовательно щелкните **Добавить**, **Пользовательское состояние**и **Освободить хранилище состояний**. Укажите следующие свойства и параметры для шага **Освободить хранилище состояний** и нажмите кнопку **ОК**.  
+3.  Se estiver a utilizar um ponto de migração de estado para armazenar o estado do utilizador, adicione o [disponibilizar armazenamento de Estados](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) passo à sequência de tarefas. Na caixa de diálogo **Editor de Sequência de Tarefas** , clique em **Adicionar**, aponte para **Estado de Utilizador**e clique em **Disponibilizar Armazenamento de Estados**. Especifique as seguintes propriedades e opções do passo **Disponibilizar Armazenamento de Estados** e clique em **OK**.  
 
     > [!IMPORTANT]  
-    >  Действие последовательности задач, выполняемое до шага **Освободить хранилище состояний** последовательности задач, должно быть успешно выполнено, прежде чем можно будет перейти к шагу **Освободить хранилище состояний** .  
+    >  A ação de sequência de tarefas executada antes do passo **Disponibilizar Armazenamento de Estados** deve ser bem-sucedida para iniciar o passo **Disponibilizar Armazenamento de Estados** .  
 
-     Введите имя и описание для шага на вкладке **Свойства** .  
+     No separador **Propriedades** , introduza um nome e uma descrição para o passo.  
 
-     На вкладке **Параметры** укажите перечисленные ниже параметры.  
+     No separador **Opções** , especifique as seguintes opções.  
 
-    -   Установите флажок **Продолжать при ошибке** , если требуется, чтобы последовательность задач в случае сбоя этого шага переходила к выполнению следующего шага.  
+    -   Selecione a caixa de verificação **Continuar com o erro** se pretender que a sequência de tarefas continue para o passo seguinte caso este passo falhe.  
 
-    -   Укажите условия, которые должны быть выполнены перед тем, как последовательность задач продолжит работу в случае возникновения ошибки.  
+    -   Especifique as condições que devem ser satisfeitas antes de continuar com a sequência de tarefas em caso de erro.  
 
- Разверните эту последовательность задач, чтобы восстановить пользовательскую среду на конечном компьютере. Дополнительные сведения о развертывании последовательностей задач см. в статье [Развертывание последовательности задач](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+ Implemente esta sequência de tarefas para restaurar o estado do utilizador num computador de destino. Para obter informações sobre como implementar sequências de tarefas, consulte [implementar uma sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Мониторинг развертывания последовательности задач](monitor-operating-system-deployments.md#BKMK_TSDeployStatus)
+## <a name="next-steps"></a>Passos seguintes
+[Monitorizar a implementação de sequência de tarefas](monitor-operating-system-deployments.md#BKMK_TSDeployStatus)

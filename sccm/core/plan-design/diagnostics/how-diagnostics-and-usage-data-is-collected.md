@@ -1,6 +1,6 @@
 ---
-title: "Сбор данных диагностики | Документы Майкрософт"
-description: "Узнайте, как System Center Configuration Manager собирает собственные данные диагностики и сведения об использовании."
+title: "Recolha de dados de diagnóstico | Microsoft Docs"
+description: "Saiba mais sobre como o System Center Configuration Manager recolhe os diagnósticos e dados de utilização sobre si próprio."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -16,20 +16,20 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 9c0165212fe34f460be2ce870d0542b616f3bc4d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-diagnostics-and-usage-data-is-collected-by-system-center-configuration-manager"></a>Как System Center Configuration Manager собирает данные о диагностике и использовании
+# <a name="how-diagnostics-and-usage-data-is-collected-by-system-center-configuration-manager"></a>Como os diagnósticos e dados de utilização são recolhidos para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для сбора данных диагностики и сведений об использовании для System Center Configuration Manager каждый первичный сайт еженедельно выполняет запросы SQL Server. В иерархии с несколькими сайтами данные реплицируются на сайт центра администрирования.  
+Para recolher dados de utilização e diagnóstico para o System Center Configuration Manager, cada site primário executa as consultas de SQL Server semanalmente. Numa hierarquia multilocal, os dados são replicados para o site de administração central.  
 
-На верхнем сайте иерархии роль системы сайта точки подключения службы отправляет эти сведения при выполнении проверки на наличие обновлений. Режим точки подключения службы определяет способ передачи данных.  
+No site de nível superior de uma hierarquia, a função do sistema do site do ponto de ligação de serviço envia estas informações quando verifica a existência de atualizações. O modo do detemines de ponto de ligação de serviço como os dados são transferidos:  
 
--   **Режим "в сети"** . Каждую неделю данные о диагностике и использовании автоматически отправляются из точки подключения службы в облачную службу.  
+-   **No modo online:** Dados de diagnóstico e utilização são enviados automaticamente uma vez por semana do ligação ao serviço de ponto para o serviço em nuvem.  
 
--   **Режим "вне сети"** . Данные о диагностике и использовании передаются вручную с помощью инструмента подключения службы. Дополнительные сведения см. в разделе [Использование инструмента подключения службы для System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
+-   **No modo offline:** Dados de diagnóstico e utilização são transferidos manualmente utilizando a ferramenta de ligação de serviço. Para obter mais informações,ver [ Utilize a Ferramenta de Ligação de Serviço para o System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
 
-Дополнительные сведения см. в статье [Сведения о точке подключения службы в System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+Para obter mais informações, veja [Sobre o ponto de ligação de serviço no System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  

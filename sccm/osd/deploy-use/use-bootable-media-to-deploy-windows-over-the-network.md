@@ -1,6 +1,6 @@
 ---
-title: "Использование загрузочного носителя для развертывания Windows по сети | Документы Майкрософт"
-description: "Используйте развертывание с загрузочного носителя в System Center Configuration Manager, чтобы развернуть операционную систему при запуске конечного компьютера."
+title: "Utilizar suportes de dados para implementar o Windows através da rede | Microsoft Docs"
+description: "Utilize implementações de suportes de dados no System Center Configuration Manager para implementar o sistema operativo quando iniciar o computador de destino."
 ms.custom: na
 ms.date: 6/16/2017
 ms.prod: configuration-manager
@@ -16,37 +16,37 @@ ms.author: mattbriggs
 manager: angrobe
 ms.openlocfilehash: 9b20e5e2a66d92038033e816e6fc701581c48a7f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-bootable-media-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Использование загрузочного носителя для развертывания Windows по сети с помощью System Center Configuration Manager
+# <a name="use-bootable-media-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utilizar suportes de dados para implementar o Windows através da rede com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете развернуть операционную систему при запуске конечного компьютера с загрузочного носителя. Носитель содержит указатель на последовательность задач, образ операционной системы и другое необходимое содержимое из сети. Запускаемый конечный компьютер извлекает элементы, на которые ссылается указатель. С помощью пустого загрузочного носителя можно обновить целевой объект, не заменяя его на носителе.
+Pode implementar o sistema operativo quando o computador de destino é iniciado com uma implementação de suportes de dados. O suporte de dados contém um ponteiro para a sequência de tarefas, a imagem do sistema operativo e outro conteúdo necessário a partir da rede. Quando o computador de destino é iniciado, o computador obtém os itens referenciados do ponteiro. Com os suportes de dados livres de conteúdo, pode atualizar o destino sem ter de substituí-lo no suporte de dados.
 
-Вы можете развертывать операционные системы по сети с использованием многоадресной рассылки в следующих сценариях развертывания.
+Pode implementar sistemas operativos através da rede através de multicast nos seguintes cenários de implementação do sistema operativo:
 
--   [Обновление существующего компьютера до новой версии Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)
+-   [Atualizar um computador existente com uma nova versão do Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)
 
--   [Установка новой версии Windows на новом компьютере (без операционной системы)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Замена существующего компьютера и перенос параметров](replace-an-existing-computer-and-transfer-settings.md)  
+-   [Substituir um computador existente e transferir definições](replace-an-existing-computer-and-transfer-settings.md)  
 
-Выполните действия, указанные для одного из сценариев развертывания операционной системы, а затем используйте следующие разделы для развертывания операционной системы с помощью загрузочного носителя.  
+Conclua os passos num dos cenários de implementação do sistema operativo e, em seguida, utilize as secções seguintes para utilizar suportes de dados de arranque para implementar o sistema operativo.  
 
-## <a name="configure-deployment-settings"></a>Настройка параметров развертывания  
-При использовании загрузочного носителя для запуска развертывания операционной системы необходимо настроить развертывание на предоставление носителю доступа к операционной системе. Такую настройку можно выполнить на странице **Параметры развертывания** мастера развертывания программного обеспечения или на вкладке **Параметры развертывания** в свойствах развертывания. Для параметра **Сделать доступной для** настройте одно из следующих значений:
+## <a name="configure-deployment-settings"></a>Configurar definições de implementação  
+Quando utilizar suportes de dados para iniciar o processo de implementação do sistema operativo, configure a implementação para disponibilizar o sistema operativo para o suporte de dados. Pode configurar esta opção no **definições de implementação** página do Assistente de implementação de Software ou no **definições de implementação** separador nas propriedades para a implementação. Na definição **Tornar disponível para o seguinte** , configure um dos seguintes:
 
--   Клиенты Configuration Manager, носители и PXE
+-   Clientes do Configuration Manager, suportes de dados e PXE
 
--   Только носители и PXE
+-   Apenas suportes de dados e PXE
 
--   Только носители и PXE (скрытые)
+-   Apenas suportes de dados e PXE (oculto)
 
-## <a name="create-the-bootable-media"></a>Создание загрузочного носителя
-Вы можете указать, является ли загрузочный носитель USB-устройством флэш-памяти либо набором компакт-дисков или DVD-дисков. Компьютер, на котором запускается носитель, должен поддерживать использование выбранного носителя в качестве загрузочного диска. Дополнительные сведения см. в статье [Создание загрузочного носителя](create-bootable-media.md).  
+## <a name="create-the-bootable-media"></a>Criar suportes de dados de arranque
+Pode especificar se os suportes de dados é uma unidade flash USB ou conjunto CD/DVD. O computador é iniciado o suporte de dados tem de suportar a opção que escolher como unidade de arranque. Para obter mais informações, consulte [criar suportes de dados](create-bootable-media.md).  
 
-##  <a name="BKMK_Deploy"></a> Установка операционной системы с загрузочного носителя  
-Вставьте загрузочный носитель в загрузочный дисковод компьютера и затем включите питание для установки операционной системы.
+##  <a name="BKMK_Deploy"></a> Instalar o sistema operativo a partir de suportes de dados de arranque  
+Insira o suporte de dados numa unidade de arranque no computador e ligue-o para instalar o sistema operativo.

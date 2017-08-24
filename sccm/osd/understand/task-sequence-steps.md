@@ -1,6 +1,6 @@
 ---
-title: "Шаги последовательности задач в Configuration Manager | Документация Майкрософт"
-description: "Сведения о шагах последовательности задач, которые можно добавить в последовательность задач Configuration Manager."
+title: "Passos de sequência - Configuration Manager tarefas | Microsoft Docs"
+description: "Saiba mais sobre os passos de sequência de tarefas que pode adicionar uma sequência de tarefas do Configuration Manager."
 ms.custom: na
 ms.date: 03/26/2017
 ms.prod: configuration-manager
@@ -17,1691 +17,1691 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Шаги последовательности задач в System Center Configuration Manager
+# <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Следующие шаги последовательности задач, которые можно добавить в последовательность задач Configuration Manager. Дополнительные сведения о редактировании последовательности задач см. в статье [Изменение последовательности задач](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+Os seguintes passos de sequência de tarefas podem ser adicionados a uma sequência de tarefas do Configuration Manager. Para obter informações sobre a edição de uma sequência de tarefas, veja [Editar uma sequência de tarefas](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
 
-##  <a name="BKMK_ApplyDataImage"></a> Шаг последовательности задач "Применить образ данных"  
- Шаг последовательности задач **Применить образ данных** используется для копирования образа данных в указанное конечное расположение.  
+##  <a name="BKMK_ApplyDataImage"></a>Aplique o passo de sequência de tarefas de imagem de dados  
+ Utilize o passo de sequência de tarefas **Aplicar Imagem de Dados** para copiar a imagem de dados para a partição de destino especificada.  
 
- Этот шаг выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в статье [Переменные действия последовательности задач](task-sequence-action-variables.md).  
+ Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Пакет образа**  
- Используя кнопку **Обзор** , укажите **пакет образа**, который будет использоваться этим шагом последовательности задач. В диалоговом окне **Выбор пакета** выберите пакет для установки. Сведения о свойствах для существующих пакетов образов отображаются внизу диалогового окна **Выбор пакета** . Выбрав **пакет образа** , в раскрывающемся списке выберите **образ**, который требуется установить.  
+ **Pacote de imagem**  
+ Especifique o **Pacote de Imagem** que será utilizado por este passo de sequência de tarefas, clicando em **Procurar**. Selecione o pacote que pretende instalar na caixa de diálogo **Selecionar um Pacote**. As informações sobre propriedades associadas para cada pacote de imagem existente são apresentadas na parte inferior da caixa de diálogo **Selecionar um Pacote**. Utilize a lista pendente para selecionar a **Imagem** que pretende instalar a partir do **Pacote de Imagem** selecionado.  
 
 > [!NOTE]  
->  Это действие последовательности задач обрабатывает образ как файл данных и не выполняет никаких настроек, необходимых для загрузки образа в виде операционной системы.  
+>  Esta ação de sequência de tarefas processa a imagem como um ficheiro de dados e não efetua nenhuma configuração necessária para arrancar a imagem como sistema operativo.  
 
- **Назначение**  
- Существующий форматированный раздел и жесткий диск, определенная буква логического диска или имя переменной последовательности задач, содержащее букву логического диска.  
+ **Destino**  
+ Especifica uma partição e um disco rígido formatados existentes, uma letra de unidade lógica específica ou o nome de uma variável de sequência de tarefas que contém a letra de unidade lógica.  
 
--   **Следующий доступный раздел** — используйте следующий по порядку раздел, который использовался в качестве целевого действием "Применить операционную систему" или "Применить образ данных" в этой последовательности задач.  
+-   **Partição disponível seguinte** -utilize a partição sequencial seguinte que não tenha sido direcionada anteriormente por uma ação aplicar sistema operativo ou aplicar imagem de dados nesta sequência de tarefas.  
 
--   **Конкретный диск и раздел** — выберите номер **диска** (начиная с 0) и номер **раздела** (начиная с 1).  
+-   **Partição e disco específico** - selecione o **disco** número (começando com 0) e o **partição** número (começando com 1).  
 
--   **Конкретный логический диск** — укажите **букву диска**, назначенную разделу средой предустановки Windows. Учтите, что эта буква диска может отличаться от буквы диска, которая будет назначена новой развернутой операционной системой.  
+-   **Letra de unidade lógica específica** -especifique o **letra de unidade** atribuída à partição pelo Windows PE. Tenha em atenção que esta letra de unidade pode ser diferente da letra de unidade que o sistema operativo recentemente implementado atribuirá.  
 
--   **Имя логического диска хранится в виде переменной** — укажите переменную последовательности задач, которая содержит букву диска, назначенную разделу средой предустановки Windows. Эта переменная, как правило, задается в разделе "Дополнительно" диалогового окна **Свойства раздела** действия последовательности задач **Отформатировать диск и создать разделы**  
+-   **Letra de unidade lógica armazenada numa variável** -especifique a variável de sequência de tarefas que contém a letra de unidade atribuída à partição pelo Windows PE. Normalmente, esta variável seria definida na secção Avançadas da caixa de diálogo **Propriedades de Partição** para a ação de sequência de tarefas **Formatar e Particionar Disco**.  
 
- **Удалить все содержимое раздела перед применением образа**  
- Все файлы в целевом разделе будут удалены перед установкой образа. Если удалять содержимое раздела не требуется, этот шаг можно использовать для применения дополнительного содержимого к разделу, который ранее был выбран в качестве целевого.  
+ **Elimine todo o conteúdo na partição antes de aplicar a imagem**  
+ Especifica que todos os ficheiros na partição de destino serão eliminados antes de a imagem ser instalada. Ao não eliminar o conteúdo da partição, este passo pode ser utilizado para aplicar conteúdo adicional a uma partição direcionada anteriormente.  
 
-##  <a name="BKMK_ApplyDriverPackage"></a> Применить пакет драйверов  
- Шаг последовательности задач **Применить пакет драйверов** используется для загрузки всех драйверов в пакете драйверов и их установки в операционной системе Windows.
+##  <a name="BKMK_ApplyDriverPackage"></a>Aplicar pacote de controlador  
+ Utilize o passo de sequência de tarefas **Aplicar Pacote de Controlador** para transferir todos os controladores no pacote de controlador e instalá-los no sistema operativo Windows.
 
- Шаг последовательности задач **Применить пакет драйверов** предоставляет операционной системе Windows доступ ко всем драйверам устройств в пакете драйверов. Этот шаг можно добавить в последовательность задач между шагами **Применить операционную систему**  и **Настройка Windows и Configuration Manager** , чтобы предоставить операционной системе Windows доступ ко всем драйверам устройств в пакете драйверов. Как правило, шаг **Примерить пакет драйверов** помещается в последовательность задач после шага **Автоматическое применение драйверов** . Шаг последовательности задач **Применить пакет драйверов** также можно использовать в сценариях развертывания с помощью автономного носителя.  
+ O passo de sequência de tarefas **Aplicar Pacote de Controlador** torna todos os controladores de dispositivo num pacote de controlador disponíveis para serem utilizados pelo Windows. Este passo pode ser adicionado a uma sequência de tarefas entre os passos **Aplicar Sistema Operativo** e **Configurar Windows e ConfigMgr** para tornar os controladores de dispositivo no pacote de controlador disponíveis no Windows. Normalmente, o passo **Aplicar Pacote de Controlador** é colocado depois do passo de sequência de tarefas **Aplicar Controladores Automaticamente**. O passo de sequência de tarefas **Aplicar Pacote de Controlador** também é útil em cenários de implementação de suportes de dados autónomos.  
 
- Сходные драйверы устройств необходимо поместить в пакет драйверов и передать их на соответствующие точки распространения. После того как драйверы будут переданы, клиентские компьютеры Configuration Manager смогут их устанавливать. Например, можно поместить все драйверы устройств одного производителя в пакет драйверов, а затем передать пакет на точки распространения, где связанные компьютеры смогут получить к ним доступ.
+ Certifique-se de que os controladores de dispositivo semelhantes são colocados num pacote de controlador e distribuídos para os pontos de distribuição adequados. Depois de serem distribuídos computadores de cliente do Configuration Manager podem instalá-los. Por exemplo, pode colocar todos os controladores de dispositivo de um fabricante num pacote de controlador e, em seguida, distribuir o pacote para os pontos de distribuição onde os computadores associados podem aceder aos mesmos.
 
- Этот шаг можно использовать для развертываний с автономного носителя, чтобы установить определенный набор драйверов, включая драйверы для устройств, которые не удается обнаружить при поиске самонастраивающихся устройств (например, сетевых принтеров).  
+ Este passo é útil para suportes de dados autónomos e administradores que pretendem instalar um conjunto específico de controladores, incluindo controladores para dispositivos que não seriam detetados numa análise Plug-n-Play (por exemplo, impressoras de rede).  
 
- Этот шаг последовательности задач выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Применить пакет драйверов"](task-sequence-action-variables.md#BKMK_ApplyDriverPackage).  
+ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Pacote de Controlador](task-sequence-action-variables.md#BKMK_ApplyDriverPackage).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Пакет драйвера**  
- Укажите пакет драйверов, который содержит необходимые драйверы устройств, нажав кнопку **Обзор** и запустив диалоговое окно **Выбор пакета** . Укажите существующий пакет, который необходимо сделать доступным. Свойства для этого пакета отображаются внизу диалогового окна.  
+ **Pacote de controladores**  
+ Especifique o pacote de controlador que contém os controladores de dispositivo necessários, clicando em **Procurar** e iniciando a caixa de diálogo **Selecionar um Pacote**. Especifique um pacote existente para ser disponibilizado. As propriedades do pacote associado são apresentadas na parte inferior da caixa de diálogo.  
 
- **В пакете выберите драйвер запоминающего устройства, который необходимо установить перед запуском программы установки в операционных системах, предшествующих Windows Vista**  
- Укажите драйверы запоминающих устройств, которые требуются для установки операционных систем, предшествующих Windows Vista.  
+ **Selecione o controlador de armazenamento em massa no pacote que tem de ser instalado antes da configuração em sistemas de operativos anteriores ao Windows Vista**  
+ Especifique quaisquer controladores de dispositivo de armazenamento em massa necessários para instalações de sistemas operativos anteriores ao Windows Vista.  
 
- **Драйвер**  
- Выберите файл драйвера запоминающего устройства для установки перед запуском программы установки в развертываниях операционных систем, предшествующих Windows Vista. Раскрывающийся список заполняется из указанного пакета.  
+ **Controlador**  
+ Selecione o ficheiro do controlador de dispositivo de armazenamento em massa a instalar antes da configuração em implementações de sistemas operativos anteriores ao Windows Vista. A lista pendente é preenchida a partir do pacote especificado.  
 
- **Модель**  
- Укажите важный для загрузки драйвер устройства, который необходим для развертываний операционных систем, предшествующих Windows Vista.  
+ **Modelo**  
+ Especifique o dispositivo crítico de arranque necessário para implementações de sistemas operativos anteriores ao Windows Vista.  
 
- **Автоматически устанавливать неподписанные драйверы для всех версий Windows, если это возможно**  
- Установите этот флажок, чтобы разрешить операционной системе Windows устанавливать драйверы, не подписанные на эталонном компьютере.  
+ **Efetuar a instalação autónoma de controladores não assinados numa versão do Windows em que tal é permitido**  
+ Selecione esta opção para permitir que o Windows instale controladores não assinados no computador de referência.  
 
-##  <a name="BKMK_ApplyNetworkSettings"></a> Применить параметры сети  
- Шаг последовательности задач **Применить параметры сети** используется для того, чтобы указать сведения о конфигурации сети или рабочей группы для конечного компьютера. Указанные значения хранятся в соответствующем файле ответов, который используется программой установки Windows при выполнении шага последовательности задач **Настройка Windows и Configuration Manager** .  
+##  <a name="BKMK_ApplyNetworkSettings"></a>Aplique o passo de definições de rede  
+ Utilize o passo de sequência de tarefas **Aplicar Definições de Rede** para especificar as informações de configuração da rede ou do grupo de trabalho para o computador de destino. Os valores especificados são armazenados no formato de ficheiro de resposta adequado que será utilizado pela Configuração do Windows quando for executado o passo de sequência de tarefas **Configurar Windows e ConfigMgr**.  
 
- Этот шаг последовательности задач выполняется в стандартной операционной системе или в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Применить параметры сети"](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings).  
+ Este passo de sequência de tarefas é executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Definições de Rede](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Присоединить к рабочей группе**  
- Выберите этот параметр, чтобы присоединить конечный компьютер к указанной рабочей группе. Введите имя рабочей группы в строке **Рабочая группа** . Это значение может быть переопределено значением, записанным шагом последовательности задач **Сохранить параметры сети** .  
+ **Aderir a um grupo de trabalho**  
+ Selecione esta opção para associar o computador de destino ao grupo de trabalho especificado. Introduza o nome do grupo de trabalho na linha **Grupo de Trabalho**. Este valor pode ser substituído pelo valor capturado pelo passo de sequência de tarefas **Capturar Definições de Rede**.  
 
- **Присоединить к домену**  
- Выберите этот параметр, чтобы присоединить конечный компьютер к указанному домену. Укажите или выберите домен, например *fabricam.com*. Укажите или выберите LDAP-путь к подразделению (например, LDAP//OU=computers, DC=Fabricam.com, C=com).  
+ **Aderir a um domínio**  
+ Selecione esta opção para associar o computador de destino ao domínio especificado. Especifique ou navegue até ao domínio, tal como *fabricam.com*. Especifique ou navegue até um caminho LDAP (Lightweight Directory Access Protocol) para uma unidade organizacional (ou seja, LDAP//OU=computadores, DC=Fabricam.com, C=com).  
 
- **Учетная запись**  
- Нажмите кнопку **Задать** , чтобы указать учетную запись с необходимыми разрешениями для присоединения компьютера к домену. В диалоговом окне **Учетная запись пользователя Windows** вы можете ввести имя пользователя, используя следующий формат: **домен\пользователь** .  
+ **Conta**  
+ Clique em **Definir** para especificar uma conta com as permissões necessárias para associar o computador ao domínio. No **conta de utilizador do Windows** caixa de diálogo, pode introduzir o nome de utilizador usando o seguinte formato: **Domínio \ utilizador** .  
 
- **Параметры адаптера**  
- Укажите конфигурации сети для каждого сетевого адаптера на компьютере. Нажмите кнопку **Создать** , чтобы открыть диалоговое окно **Параметры сети** , затем укажите параметры сети. Если параметры сети были записаны при выполнении предыдущего шага последовательности задач **Сохранить параметры сети** , предыдущие параметры применяются к сетевому адаптеру вместо параметров, указанных в этом шаге. Если параметры сети записаны не были, параметры, указанные в шаге **Применить параметры сети** , применяются к сетевым адаптерам в порядке перечисления устройств Windows.  
+ **Definições do adaptador**  
+ Especifique as configurações de rede para cada placa de rede no computador. Clique em **Novo** para abrir a caixa de diálogo **Definições de Rede** e, em seguida, especifique as definições de rede. Se as definições de rede tiverem sido capturadas num passo de sequência de tarefas **Capturar Definições de Rede** anterior, as definições anteriores são aplicadas à placa de rede e as definições especificadas neste passo não são aplicadas. Se as definições de rede não tiverem sido capturadas anteriormente, as definições especificadas no passo **Aplicar Definições de Rede** são aplicada às placas de rede pela ordem de enumeração do dispositivo Windows.  
 
-##  <a name="BKMK_ApplyOperatingSystemImage"></a> Применить образ операционной системы  
- Шаг последовательности задач **Применить образ операционной системы** используется для установки операционной системы на конечный компьютер. Этот шаг последовательности задач выполняет набор действий в зависимости от того, используется ли для установки операционной системы образ или пакет установки.  
+##  <a name="BKMK_ApplyOperatingSystemImage"></a>Aplicar imagem do sistema operativo  
+ Utilize o passo de sequência de tarefas **Aplicar Imagem do Sistema Operativo** para instalar um sistema operativo no computador de destino. Este passo de sequência de tarefas executa um conjunto de ações consoante estiver a utilizar uma imagem do sistema operativo ou um pacote de instalação para instalar o sistema operativo.  
 
- При использовании образа операционной системы шаг **Применить образ операционной системы** выполняет следующие действия.  
+ O passo **Aplicar Imagem do Sistema Operativo** executa as ações seguintes quando é utilizada uma imagem do sistema operativo.  
 
-1.  Удаляет все содержимое на целевом томе за исключением файлов в папке, указанной в переменной последовательности задач &#95;SMSTSUserStatePath.  
+1.  Elimina todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelo &#95; Variável de sequência de tarefas SMSTSUserStatePath.  
 
-2.  Извлекает содержимое указанного WIM-файла в заданный конечный раздел.  
+2.  Extrai o conteúdo do ficheiro .wim especificado para a partição de destino especificada.  
 
-3.  Подготавливает файл ответов:  
+3.  Prepara o ficheiro de resposta:  
 
-    1.  создает новый файл ответов программы установки Windows по умолчанию (sysprep.inf или unattend.xml) для развертываемой операционной системы;  
+    1.  Cria um novo ficheiro de resposta de Configuração do Windows predefinido (sysprep.inf ou unattend.xml) para o sistema operativo que está a ser implementado.  
 
-    2.  добавляет все значения из файла ответов, предоставленного пользователем.  
+    2.  Intercala quaisquer valores do ficheiro de resposta fornecido pelo utilizador.  
 
-4.  Копирует загрузчики Windows в активный раздел.  
+4.  Copia carregadores de arranque do Windows para a partição ativa.  
 
-5.  Задает файл boot.ini или базу данных конфигурации загрузки (BCD), которые ссылаются на новую установленную операционную систему.  
+5.  Configura o ficheiro boot.ini ou a BCD (Boot Configuration Database) para referenciar o sistema operativo recentemente instalado.  
 
- При использовании пакета установки операционной системы шаг **Применить образ операционной системы** выполняет следующие действия.  
+ O passo **Aplicar Imagem do Sistema Operativo** executa as ações seguintes quando é utilizado um pacote de instalação do sistema operativo.  
 
-1.  Удаляет все содержимое на целевом томе за исключением файлов в папке, указанной в переменной последовательности задач &#95;SMSTSUserStatePath.  
+1.  Elimina todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelo &#95; Variável de sequência de tarefas SMSTSUserStatePath.  
 
-2.  Подготавливает файл ответов:  
+2.  Prepara o ficheiro de resposta:  
 
-    1.  создает новый файл ответов со стандартными значениями, созданными Configuration Manager;  
+    1.  Cria um ficheiro de resposta novo com valores padrão criados pelo Configuration Manager.  
 
-    2.  добавляет все значения из файла ответов, предоставленного пользователем.  
+    2.  Intercala quaisquer valores do ficheiro de resposta fornecido pelo utilizador.  
 
 > [!NOTE]  
->  Фактическая установка Windows запускается шагом последовательности задач **Настройка Windows и Configuration Manager** . После выполнения действия последовательности задачи **Применить операционную систему** переменной последовательности задачи OSDTargetSystemDrive присваивается буква диска раздела, содержащего файлы операционной системы.  
+>  A instalação real do Windows é iniciada pelo passo de sequência de tarefas **Configurar Windows e ConfigMgr**. Após a execução da ação de sequência de tarefas **Aplicar Sistema Operativo**, a variável de sequência de tarefas OSDTargetSystemDrive é definida para a letra de unidade da partição que contém os ficheiros do sistema operativo.  
 
- Этот шаг последовательности задач выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Применить образ операционной системы"](task-sequence-action-variables.md#BKMK_ApplyOperatingSystem).  
+ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Imagem do Sistema Operativo](task-sequence-action-variables.md#BKMK_ApplyOperatingSystem).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   **Доступ к содержимому непосредственно из точки распространения**:  
+-   **Aceder ao conteúdo diretamente a partir do ponto de distribuição**:  
 
-     используйте этот параметр, чтобы указать, должна ли последовательность задач иметь доступ к образу операционной системы непосредственно из точки распространения. Например, можно использовать этот параметр при развертывании операционных систем на встроенных устройствах, которые имеют ограниченный объем хранилища. При выборе этого параметра вы должны также настроить параметры общей папки пакета на вкладке **Доступ к данным** свойств пакета.  
+     Utilize esta opção para especificar se pretende que a sequência de tarefas aceda diretamente à imagem do sistema operativo a partir do ponto de distribuição. Por exemplo, pode utilizar esta opção quando implementar sistemas operativos em dispositivos incorporados com uma capacidade de armazenamento limitada. Quando esta opção é selecionada, também tem de configurar as definições de partilha de pacote no separador **Acesso a Dados** das propriedades do pacote.  
 
     > [!NOTE]  
-    >  Этот параметр переопределяет параметр развертывания, который настраивается на странице **Точки распространения** в **мастере развертывания программного обеспечения** , только для образа операционной системы, указанного в этом шаге последовательности задач, а не во всем содержимом всей последовательности задач.  
+    >  Esta definição substitui a opção de implementação configurada na página **Pontos de Distribuição** no **Assistente de Implementação de Software** apenas para a imagem do sistema operativo especificada neste passo de sequência de tarefas e não para todo o conteúdo da sequência de tarefas.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Применить образ операционной системы**  
- Установка ранее записанного образа операционной системы. Нажмите кнопку **Обзор** , чтобы открыть диалоговое окно **Выбор пакета** , а затем выберите существующий пакет для установки. Если с выбранным **пакетом образа**связано несколько образов, в раскрывающемся списке выберите нужный образ, который будет использоваться для этого развертывания. Щелкнув образ, можно просмотреть основные сведения о нем.  
+ **Aplicar o sistema operativo a partir de uma imagem capturada**  
+ Instala uma imagem do sistema operativo capturada anteriormente. Clique em **Procurar** para abrir a caixa de diálogo **Selecionar um pacote** e selecione o pacote de imagem existente que pretende instalar. Se estiverem associadas várias imagens ao **Pacote de imagem** especificado, utilize a lista pendente para especificar a imagem associada que será utilizada para esta implementação. Pode ver informações básicas sobre cada imagem existente clicando na imagem.  
 
- **Применить операционную систему из дистрибутива установки**  
- Установка операционной системы с помощью дистрибутива установки. Нажмите кнопку **Обзор** , чтобы открыть диалоговое окно **Выбрать пакет установки операционной системы** , а затем выберите существующий пакет для установки. Щелкнув источник образа, можно просмотреть основные сведения о нем. Связанные свойства источника образа отображаются в области результатов внизу диалогового окна. Если с выбранным пакетом связано несколько выпусков, в раскрывающемся списке выберите нужный **выпуск** .  
+ **Aplicar imagem do sistema operativo a partir de uma origem de instalação original**  
+ Instala um sistema operativo utilizando uma origem de instalação original. Clique em **Procurar** para abrir a caixa de diálogo **Selecionar um Pacote de Instalação do Sistema Operativo** e selecione o pacote de instalação do sistema operativo existente que pretende utilizar. Pode ver informações básicas sobre cada origem de imagem existente clicando na origem da imagem. As propriedades da origem da imagem associada são apresentadas no painel de resultados, na parte inferior da caixa de diálogo. Se existirem várias edições associadas ao pacote especificado, utilize a lista pendente para especificar a **Edição** associada que será utilizada.  
 
- **Использовать файл ответов автоматической установки или файл ответов Sysprep для заранее настроенной установки**  
- Установите этот флажок, чтобы указать файл ответов программы установки Windows (**unattend.xml**, **unattend.txt**или **sysprep.inf**) в зависимости от версии операционной системы и метода установки. Указываемый файл может включать любые стандартные параметры конфигурации, поддерживаемые файлами ответов Windows. Например, его можно использовать, чтобы указать домашнюю страницу Internet Explorer по умолчанию. Необходимо указать пакет, содержащий файл ответов и связанный путь к файлу в пакете.  
+ **Utilizar um ficheiro de resposta sysprep ou autónomo para uma instalação personalizada**  
+ Utilize esta opção para fornecer um ficheiro de resposta de configuração do Windows (**unattend.xml**, **unattend.txt** ou **sysprep.inf**), consoante a versão do sistema operativo e o método de instalação. O ficheiro que especificar pode incluir qualquer uma das opções de configuração padrão suportadas pelos ficheiros de resposta do Windows. Por exemplo, pode utilizá-lo para especificar a home page predefinida do Internet Explorer. Tem de especificar o pacote que contém o ficheiro de resposta e o caminho associado para o ficheiro no pacote.  
 
 > [!NOTE]  
->  Предоставляемый файл ответов программы установки может содержать встроенные переменные последовательности задач в форме %*varname*%, varname — это имя переменной. Строка %*varname*% будет заменена фактическим значением переменной в действии последовательности задач **Настройка Windows и Configuration Manager** . Однако следует учесть, что такие встроенные переменные последовательности задач нельзя использовать в полях, содержащих только числовые значения, в файле ответов unattend.xml.  
+>  O ficheiro de resposta de configuração do Windows que fornecer pode conter variáveis de sequência de tarefas incorporadas no formato %*varname*%, em que varname corresponde ao nome da variável. A cadeia %*varname*% será substituída pelos valores da variável real na ação de sequência de tarefas **Configurar Windows e ConfigMgr**. No entanto, tenha em atenção que essas variáveis de sequência de tarefas incorporadas não podem ser utilizadas em campos apenas numéricos num ficheiro de resposta unattend.xml.  
 
- Если не указать файл ответов программы установки Windows, это действие последовательности задач создаст файл ответов автоматически.  
+ Se não fornecer um ficheiro de resposta de configuração do Windows, esta ação de sequência de tarefas irá gerar automaticamente um ficheiro de resposta.  
 
- **Назначение**  
- Существующий форматированный раздел и жесткий диск, определенная буква логического диска или имя переменной последовательности задач, содержащее букву логического диска.  
+ **Destino**  
+ Especifica uma partição e um disco rígido formatados existentes, uma letra de unidade lógica específica ou o nome de uma variável de sequência de tarefas que contém a letra de unidade lógica.  
 
--   **Следующий доступный раздел** — используйте следующий по порядку раздел, который использовался в качестве целевого действием "Применить операционную систему" или "Применить образ данных" в этой последовательности задач.  
+-   **Partição disponível seguinte** -utilize a partição sequencial seguinte que não tenha sido direcionada anteriormente por uma ação aplicar sistema operativo ou aplicar imagem de dados nesta sequência de tarefas.  
 
--   **Конкретный диск и раздел** — выберите номер **диска** (начиная с 0) и номер **раздела** (начиная с 1).  
+-   **Partição e disco específico** - selecione o **disco** número (começando com 0) e o **partição** número (começando com 1).  
 
--   **Конкретный логический диск** — укажите **букву диска**, назначенную разделу средой предустановки Windows. Учтите, что эта буква диска может отличаться от буквы диска, которая будет назначена новой развернутой операционной системой.  
+-   **Letra de unidade lógica específica** -especifique o **letra de unidade** atribuída à partição pelo Windows PE. Tenha em atenção que esta letra de unidade pode ser diferente da letra de unidade que o sistema operativo recentemente implementado atribuirá.  
 
--   **Имя логического диска хранится в виде переменной** — укажите переменную последовательности задач, которая содержит букву диска, назначенную разделу средой предустановки Windows. Эта переменная, как правило, задается в разделе "Дополнительно" диалогового окна **Свойства раздела** действия последовательности задач **Отформатировать диск и создать разделы**  
+-   **Letra de unidade lógica armazenada numa variável** -especifique a variável de sequência de tarefas que contém a letra de unidade atribuída à partição pelo Windows PE. Normalmente, esta variável seria definida na secção Avançadas da caixa de diálogo **Propriedades de Partição** para a ação de sequência de tarefas **Formatar e Particionar Disco**.  
 
-##  <a name="BKMK_ApplyWindowsSettings"></a> Применить настройки Windows  
- Шаг **Применить настройки Windows** используется для настройки параметров Windows для конечного компьютера. Указанные значения хранятся в соответствующем файле ответов, который используется программой установки Windows при выполнении шага последовательности задач **Настройка Windows и Configuration Manager** .  
+##  <a name="BKMK_ApplyWindowsSettings"></a>Aplicar definições do Windows  
+ Utilize o passo de sequência de tarefas **Aplicar Definições do Windows** para configurar as definições do Windows para o computador de destino. Os valores especificados são armazenados no formato de ficheiro de resposta adequado que será utilizado pela Configuração do Windows quando for executado o passo de sequência de tarefas **Configurar Windows e ConfigMgr**.  
 
- Этот шаг последовательности задач выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Применить настройки Windows"](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings).  
+ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Definições do Windows](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Краткое, определяемое пользователем имя, описывающее действие, которое выполняется на этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Имя пользователя**  
- Укажите имя зарегистрированного пользователя, который связан с компьютером назначения. Это значение может быть переопределено значением, записанным действием шага последовательности задач **Сохранить параметры Windows** .  
+ **Nome de utilizador**  
+ Especifique o nome de utilizador registado associado ao computador de destino. Este valor pode ser substituído pelo valor capturado pela ação de sequência de tarefas **Capturar Definições do Windows**.  
 
- **Название организации**  
- Укажите зарегистрированное название организации, которая связана с компьютером назначения. Это значение может быть переопределено значением, записанным действием шага последовательности задач **Сохранить параметры Windows** .  
+ **Nome da organização**  
+ Especifique o nome da organização registado associado ao computador de destino. Este valor pode ser substituído pelo valor capturado pela ação de sequência de tarefas **Capturar Definições do Windows**.  
 
- **Ключ продукта**  
- Укажите ключ продукта, используемый для установки Windows на конечном компьютере.  
+ **Chave de produto**  
+ Especifique a chave de produto utilizada para a instalação do Windows no computador de destino.  
 
- **Лицензирование сервера**  
- Выбор режима лицензирования сервера. В качестве режима лицензирования можно выбрать **Для каждого сервера** или **Для пользователя** . Если выбрать режим лицензирования "Для каждого сервера", потребуется также указать максимальное число подключений, разрешенных в рамках лицензионного соглашения. Выберите вариант **Не указывать** , если конечный компьютер не является сервером или не требуется указывать режим лицензирования.  
+ **Licenciamento do servidor**  
+ Especifique o modo de licenciamento do servidor. Pode selecionar **Por servidor** ou **Por utilizador** como modo de licenciamento. Se selecionar Por servidor como modo de licenciamento, também terá de especificar o número máximo de ligações que será permitido por contrato de licença. Selecione **Não especificar** se o computador de destino não for um servidor ou o utilizador não pretender especificar o modo de licenciamento.  
 
- **Максимальное количество соединений**  
- Укажите максимальное количество подключений, доступных для этого компьютера, как указано в лицензионном соглашении.  
+ **Número máximo de ligações**  
+ Especifique o número máximo de ligações disponíveis para este computador, conforme indicado no contrato de licença.  
 
- **Задать пароль локального администратора случайным образом и отключить учетную запись локального администратора на всех поддерживаемых платформах (рекомендуется)**  
- Установите этот переключатель, чтобы создать случайный пароль локального администратора. При этом создается пароль локального администратора и учетная запись отключается в поддерживаемых платформах.  
+ **Aleatoriamente gerar a palavra-passe de administrador local e desativar a conta nas plataformas suportadas (recomendado)**  
+ Selecione esta opção para gerar aleatoriamente uma palavra-passe de administrador local. É criada uma palavra-passe de administrador local e a conta é desativada nas plataformas suportadas.  
 
- **Включить учетную запись локального администратора и задать пароль**  
- Установите этот переключатель, чтобы включить учетную запись администратора и создать пароль локального администратора. Введите пароль в строке **Пароль** и подтвердите его в строке **Подтверждение пароля** .  
+ **Ativar a conta e especificar a palavra-passe de administrador local**  
+ Selecione esta opção para ativar a conta de administrador local e criar a palavra-passe de administrador local. Introduza a palavra-passe na linha **Palavra-passe** e confirme-a na linha **Confirmar palavra-passe**.  
 
- **Часовой пояс**  
- Укажите часовой пояс для настройки на конечном компьютере. Это значение может быть переопределено значением, записанным шагом последовательности задач **Сохранить параметры Windows** .  
+ **Fuso horário**  
+ Especifique o fuso horário a configurar no computador de destino. Este valor pode ser substituído pelo valor capturado pelo passo de sequência de tarefas **Capturar Definições do Windows**.  
 
-##  <a name="BKMK_AutoApplyDrivers"></a> Автоматическое применение драйверов  
- Шаг последовательности задач **Автоматическое применение драйверов** используется для поиска соответствующих драйверов и их установки в составе развертывания операционной системы.  
+##  <a name="BKMK_AutoApplyDrivers"></a>Aplicar controladores automaticamente  
+ Utilize o passo de sequência de tarefas **Aplicar Controladores Automaticamente** para corresponder e instalar controladores como parte da implementação do sistema operativo.  
 
- Шаг последовательности задач **Автоматическое применение драйверов** выполняет следующие действия.  
+ O passo de sequência de tarefas **Aplicar Controladores Automaticamente** executa as seguintes ações:  
 
-1.  Проверяет оборудование и находит идентификаторы самонастраивающихся устройств для всех устройств в системе.  
+1.  Analisa o hardware e localiza os IDs Plug-n-Play para todos os dispositivos existentes no sistema.  
 
-2.  Отправляет список устройств и идентификаторов самонастраивающихся устройств на точку управления. Для каждого устройства точка управления возвращает список совместимых драйверов из каталога драйверов. Точка управления учитывает все драйверы независимо от того, в каком пакете драйверов они находятся. Учитываются только те драйверы, которые помечены как драйверы определенной категории, и драйверы, не помеченные как отключенные.  
+2.  Envia a lista de dispositivos e os respetivos IDs Plug-n-Play para o ponto de gestão. O ponto de gestão devolve uma lista de controladores compatíveis a partir do catálogo de controladores de cada dispositivo. O ponto de gestão considera todos os controladores independentemente do pacote de controlador em que possam estar incluídos. Apenas são considerados os controladores marcados com a categoria de controlador especificada e os controladores não marcados como desativados.  
 
-3.  Для каждого устройства клиент выбирает лучший драйвер, подходящий для развертываемой операционной системы, который находится на доступной точке распространения.  
+3.  Para cada dispositivo, o cliente escolhe o controlador mais adequado para o sistema operativo no qual está a ser implementado e que esteja num ponto de distribuição acessível.  
 
-4.  Выбранный драйвер или драйверы загружаются с точки распространения и передаются на промежуточное хранение в целевую операционную систему.  
+4.  Os controladores selecionados são transferidos a partir de um ponto de distribuição e pré-configurados no sistema operativo de destino.  
 
-    1.  Для установок на основе образов драйверы помещаются в хранилище драйверов операционной системы.  
+    1.  Para instalações baseadas em imagens, os controladores são colocados no arquivo de controladores do sistema operativo.  
 
-    2.  Для установок с использованием программы установки Windows программа установки получает инструкцию о том, где искать драйверы.  
+    2.  Para instalações baseadas em configurações, a Configuração do Windows é efetuada com a localização dos controladores.  
 
-5.  При запуске действия последовательности задач **Настройка Windows и Configuration Manager** и первой загрузке Windows операционная система находит драйверы, сохраненные этим действием.  
+5.  Quando a ação de sequência de tarefas **Configurar Windows e ConfigMgr** for executada e o Windows arrancar inicialmente, os controladores pré-configurados serão localizados por esta ação.  
 
 > [!IMPORTANT]
->  Шаг последовательности задач **Автоматическое применение драйверов** нельзя использовать при развертывании с автономных носителей, так как программа установки Windows не сможет подключиться к сайту Configuration Manager.
+>  O **aplicar controladores automaticamente** passo de sequência de tarefas não pode ser utilizado com suportes de dados autónomos, porque a configuração do Windows não terá nenhuma ligação ao site do Configuration Manager.
 
-Этот шаг последовательности задач выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Автоматическое применение драйверов"](task-sequence-action-variables.md#BKMK_AutoApplyDrivers).  
+Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Controladores Automaticamente](task-sequence-action-variables.md#BKMK_AutoApplyDrivers).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Устанавливать только наиболее подходящие, совместимые драйверы**  
- Шаг последовательности задач будет устанавливать для каждого обнаруженного устройства только наиболее подходящие драйверы.  
+ **Instalar apenas o melhor correspondência de controladores compatíveis**  
+ Especifica que o passo de sequência de tarefas instala apenas os controladores com melhor compatibilidade para cada dispositivo de hardware detetado.  
 
- **Установить все совместимые драйверы**  
- Шаг последовательности задач будет устанавливать все совместимые драйверы для всех обнаруженных устройств. Программа установки сможет самостоятельно выбрать оптимальные драйверы. Этот вариант требует больше пропускной способности сети и места на диске, так как загружается большее количество драйверов, однако он позволяет выбрать наиболее подходящие драйверы.  
+ **Instalar todos os controladores compatíveis**  
+ Especifica que o passo de sequência de tarefas instala todos os controladores compatíveis para cada dispositivo de hardware detetado e permite que a configuração do Windows escolha o melhor controlador. Esta opção utiliza mais largura de banda de rede e espaço em disco porque transfere mais controladores, mas pode resultar na seleção de um controlador mais adequado.  
 
- **Использовать драйверы всех категорий**  
- Действие последовательности задач будет выполнять поиск всех доступных категорий драйверов для подходящих драйверов устройств.  
+ **Considerar controladores de todas as categorias**  
+ Especifica que a ação de sequência de tarefas procura todas as categorias de controladores disponíveis para obter os controladores de dispositivo adequados.  
 
- **Использовать драйверы только из указанных категорий**  
- Действие последовательности задач будет выполнять поиск драйверов устройств в определенных категориях драйверов для подходящих драйверов устройств.  
+ **Limitar a correspondência de controladores para apenas considerar controladores nas categorias selecionadas**  
+ Especifica que a ação de sequência de tarefas procura controladores de dispositivo nas categorias de controladores especificadas para obter os controladores de dispositivo adequados.  
 
- **Автоматически устанавливать неподписанные драйверы для всех версий Windows, если это возможно**  
- Действие последовательности задач сможет устанавливать неподписанные драйверы устройств Windows.  
+ **Efetuar a instalação autónoma de controladores não assinados nas versões do Windows em que tal é permitido**  
+ Permite que esta ação de sequência de tarefas instale controladores de dispositivo do Windows não assinados.  
 
 > [!IMPORTANT]  
->  Этот параметр не применяется к операционным системам, в которых нельзя настроить политику подписывания драйверов.  
+>  Esta opção não é aplicável a sistemas operativos em que não é possível configurar a política de assinatura de controladores.  
 
-##  <a name="BKMK_CaptureNetworkSettings"></a> Сохранить параметры сети  
- Шаг последовательности задач **Сохранить параметры сети** используется для записи параметров сети (Майкрософт) с компьютера, на котором выполняется последовательность задач. Параметры сохраняются в переменных последовательности задач, которые переопределяют параметры по умолчанию, настроенные в шаге последовательности задач **Применить параметры сети** .  
+##  <a name="BKMK_CaptureNetworkSettings"></a>Capturar definições de rede  
+ Utilize o passo de sequência de tarefas **Capturar Definições de Rede** para capturar as definições de rede Microsoft do computador que está a executar a sequência de tarefas. As definições são guardadas em variáveis de sequência de tarefas que substituirão as predefinições configuradas no passo de sequência de tarefas **Aplicar Definições de Rede**.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Сохранить параметры сети"](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings).  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Definições de Rede](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется на этом шаге.  
+ **Nome**  
+ Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Fornece informações mais detalhadas sobre a ação executada neste passo.  
 
- **Перенести членство в домене или рабочей группе**  
- Запись сведений о членстве конечного компьютера в домене или рабочей группе.  
+ **Migrar a associação ao domínio e grupo de trabalho**  
+ Captura as informações de associação de domínios e grupos de trabalho do computador de destino.  
 
- **Перенести настройки сетевого адаптера**  
- Запись конфигурации сетевого адаптера конечного компьютера. Записанные сведения включают глобальные сетевые параметры, число адаптеров и параметры сети, связанные с каждым адаптером. Эти параметры включают параметры, связанные с DNS, WINS, IP и фильтрами портов.  
+ **Migrar a configuração do adaptador de rede**  
+ Captura a configuração da placa de rede do computador de destino. As informações capturadas incluem as definições de rede globais, o número de placas e as definições de rede associadas a cada placa. Estas definições incluem as definições associadas a DNS, WINS, IP e filtros de portas.  
 
-##  <a name="BKMK_CaptureOperatingSystemImage"></a> Записать образ операционной системы  
- Шаг последовательности задач **Записать образ операционной системы** используется для записи одного или нескольких образов с эталонного компьютера. Затем эти образы сохраняются в WIM-файл в указанной сетевой папке. После этого с помощью мастера добавления пакета образа операционной системы можно импортировать этот WIM-файл в Configuration Manager и использовать его для развертываний операционных систем на основе образов.  
+##  <a name="BKMK_CaptureOperatingSystemImage"></a>Capturar imagem do sistema operativo  
+ Utilize o passo de sequência de tarefas **Capturar Imagem do Sistema Operativo** para capturar uma ou mais imagens de um computador de referência e armazená-las num ficheiro WIM na partilha de rede especificada. O assistente pacote da imagem de sistema operativo adicionar, em seguida, pode ser utilizado para importar este. Ficheiro WIM para o Configuration Manager para que possam ser utilizado para implementações do sistema de operativo baseada em imagem.  
 
- Каждый том (диск) эталонного компьютера записывается в виде отдельного образа в WIM-файле. Если эталонный компьютер включает несколько томов, получившийся WIM-файл будет содержать отдельный образ для каждого тома. Поддерживается запись только томов с файловыми системами NTFS или FAT32. Тома с другими форматами файловых систем и тома USB пропускаются.  
+ Cada volume (unidade) no computador de referência é capturado como uma imagem separada no ficheiro .wim. Se o computador referenciado tiver vários volumes, o ficheiro WIM resultante irá conter uma imagem separada para cada volume. Apenas são capturados os volumes formatados como NTFS ou FAT32. Os volumes com outros formatos e os volumes USB são ignorados.  
 
- Версия Windows установленной на эталонном компьютере операционной системы должна поддерживаться Configuration Manager. Кроме того, ОС необходимо подготовить с помощью средства SysPrep. В качестве тома установки операционной системы и загрузочного тома должен использоваться один и тот же том.  
+ O sistema operativo instalado no computador de referência tem de ser uma versão do Windows que são suportados pelo Configuration Manager e tem de ter sido preparado através da ferramenta SysPrep. O volume do sistema operativo instalado e o volume de arranque têm de ser o mesmo volume.  
 
- Кроме того, необходимо указать учетную запись Windows, имеющую права на запись в выбранную сетевую папку.  
+ Também tem de introduzir uma conta do Windows com permissões de escrita para a partilha de rede selecionada.  
 
- Этот шаг последовательности задач выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Записать образ операционной системы"](task-sequence-action-variables.md#BKMK_CaptureOperatingSystemImage).  
+ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Imagem do Sistema Operativo](task-sequence-action-variables.md#BKMK_CaptureOperatingSystemImage).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Целевой объект**  
- Путь в формате файловой системы к расположению, которое используется Configuration Manager для хранения записанного образа операционной системы.  
+ **Destino**  
+ Caminho de sistema de ficheiros para a localização que o Configuration Manager utiliza para armazenar a imagem do sistema operativo capturada.  
 
- **Описание**  
- Необязательное, задаваемое пользователем описание записанного образа операционной системы, сохраненного в WIM-файле.  
+ **Descrição**  
+ Descrição opcional definida pelo utilizador da imagem do sistema operativo capturada armazenada no ficheiro .WIM.  
 
- **Версия**  
- Необязательный, задаваемый пользователем номер версии, который назначается записанному образу операционной системы. Это значение может быть любым сочетанием букв и цифр; оно сохраняется в WIM-файле.  
+ **Versão**  
+ Número da versão opcional definido pelo utilizador para atribuir à imagem do sistema operativo capturada. Este valor pode ser qualquer combinação de letras e números, e está armazenado no ficheiro .WIM.  
 
- **Кем создано**  
- Необязательное имя пользователя, создавшего образ операционной системы (оно сохраняется в WIM-файле).  
+ **Criado por**  
+ Nome opcional do utilizador que criou a imagem do sistema operativo e está armazenado no ficheiro .WIM.  
 
- **Учетная запись для записи образа операционной системы**  
- Укажите учетную запись Windows, имеющую разрешения на запись в указанную сетевую папку. Нажмите кнопку **Задать** , чтобы указать имя этой учетной записи Windows.  
+ **Conta de imagem do sistema operativo para captura**  
+ Tem de introduzir a conta do Windows com permissões para a partilha de rede especificada. Clique em **Definir** para especificar o nome dessa conta do Windows.  
 
-##  <a name="BKMK_CaptureUserState"></a> Записать пользовательское состояние  
- Шаг последовательности задач **Записать пользовательское состояние** используется для запуска средства миграции пользовательской среды (USMT), которое сохраняет данные пользовательской среды и параметры компьютера, на котором выполняется последовательность задач. Этот шаг последовательности задач используется вместе с шагом **Восстановить пользовательское состояние** . При использовании средства USMT 3.0.1 или более поздней версии всегда выполняется шифрование хранилища состояний USMT с помощью ключа шифрования, созданного и управляемого Configuration Manager.  
+##  <a name="BKMK_CaptureUserState"></a>Capturar estado do utilizador  
+ Utilize o passo de sequência de tarefas **Capturar Estado do Utilizador** para utilizar o User State Migration Tool (USMT) para capturar o estado e as definições de utilizador do computador que está a executar a sequência de tarefas. Este passo de sequência de tarefas é utilizado em conjunto com o passo de sequência de tarefas **Restaurar Estado do Utilizador**. Com o USMT 3.0.1 e posterior, esta opção encripta sempre o armazenamento de Estados do USMT através de uma chave de encriptação gerada e gerida pelo Configuration Manager.  
 
- Дополнительные сведения об управлении состоянием пользователей при развертывании операционных систем см. в разделе [Управление пользовательской средой](../get-started/manage-user-state.md).  
+ Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Шаг последовательности задач **Записать пользовательское состояние** также можно использовать вместе с шагами **Запросить хранилище состояний** и **Освободить хранилище состояний**, если требуется сохранить параметры состояния в точке миграции состояния сайта Configuration Manager или восстановить их из этой точки.  
+ Também pode utilizar o **capturar estado do utilizador** passo de sequência de tarefas com o **solicitar armazenamento de Estados** e **disponibilizar armazenamento de Estados** passos de sequência de tarefas se pretender guardar as definições de estado ou restaurar definições a partir de uma migração de estado para o ponto no site do Configuration Manager.  
 
- Шаг **Записать пользовательское состояние** последовательности задач позволяет управлять ограниченным набором наиболее широко используемых параметров USMT. Дополнительные параметры командной строки можно указать с помощью переменной последовательности задач OSDMigrateAdditionalCaptureOptions.  
+ O passo de sequência de tarefas **Capturar Estado do Utilizador** fornece controlo sobre um subconjunto limitado das opções mais utilizadas pelo USMT. Podem ser especificadas opções da linha de comandos adicionais com a variável de sequência de tarefas OSDMigrateAdditionalCaptureOptions.  
 
- Этот шаг последовательности задач выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Записать пользовательское состояние"](task-sequence-action-variables.md#BKMK_CaptureUserState).  
+ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Estado do Utilizador](task-sequence-action-variables.md#BKMK_CaptureUserState).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Пакет средств миграции пользовательской среды**  
- Укажите для этого шага последовательности задач пакет Configuration Manager, содержащий версию средства USMT, которая будет использоваться при записи пользовательской среды и параметров. Для этого пакета не требуется программа. При выполнении шага последовательности задач используется версия USMT в указанном пакете. Укажите пакет, который содержит 32- или 64-разрядную версию USMT в зависимости от архитектуры операционной системы, из которой записывается состояние.  
+ **Pacote de ferramenta de migração de estado de utilizador**  
+ Introduza o pacote de Configuration Manager que contém a versão do USMT para este passo de sequência de tarefas a utilizar ao capturar o estado do utilizador e as definições. Este pacote não requer um programa. Quando o passo de sequência de tarefas for executado, a sequência de tarefas utilizará a versão do USMT no pacote especificado. Especifique um pacote com a versão de 32 bits ou x64 do USMT, consoante a arquitetura do sistema operativo a partir do qual está a capturar o estado.  
 
- **Захватить все профили пользователей, используя стандартные параметры**  
- Выберите этот параметр, чтобы перенести все данные профиля пользователя. Этот параметр установлен по умолчанию.  
+ **Capturar todos os perfis de utilizador com opções padrão**  
+ Selecione esta opção para migrar todas as informações dos perfis de utilizador. Esta opção está selecionada por predefinição.  
 
- Если выбрать этот параметр, не установив флажок "Восстановить профили локальных пользователей компьютера" в шаге последовательности задач "Восстановить пользовательское состояние", произойдет сбой последовательности задач, поскольку Configuration Manager не может переносить новые учетные записи, не назначая им пароли. Кроме того, если с помощью мастера **создания последовательности задач** создать последовательность задач **Установить существующий образ**, получившаяся последовательность задач по умолчанию выполнит шаг "Захватить все профили пользователей, используя стандартные параметры", но не установит флажок "Восстановить профили локальных пользователей компьютера" (например, учетных записей, не принадлежащих к домену).  
+ Se selecionar esta opção, mas não selecionar a opção para restaurar perfis de utilizador do computador local no passo de sequência de tarefas restaurar estado do utilizador, a sequência de tarefas irá falhar porque o Configuration Manager não é possível migrar as novas contas sem lhes atribuir palavras-passe. Além disso, se utilizar o assistente **Nova Sequência de Tarefas** e criar uma sequência de tarefas para **Instalar um pacote de imagem existente**, a sequência de tarefas resultante utilizará a predefinição Capturar todos os perfis de utilizador com opções padrão, mas não selecionará a opção para Restaurar perfis de utilizador do computador local (ou seja, contas não pertencentes ao domínio).  
 
- Установите флажок **Восстановить профили локальных пользователей компьютера** и укажите пароль для переносимой учетной записи. Если используется последовательность задач, созданная вручную, этот параметр находится в шаге "Восстановить пользовательское состояние". В последовательности задач, созданной с помощью мастера **создания последовательности задач** , этот параметр находится в шаге **Восстановить файлы и параметры пользователя** страницы мастера.  
+ Selecione **Restaurar perfis de utilizador do computador local** e forneça uma palavra-passe para a conta a ser migrada. Numa sequência de tarefas criada manualmente, esta definição pode ser encontrada no passo Restaurar Estado do Utilizador. Numa sequência de tarefas criada pelo assistente **Nova Sequência de Tarefas**, esta definição pode ser encontrada na página do assistente no passo **Restaurar Definições e Ficheiros do Utilizador**.  
 
- Если локальные учетные записи пользователей отсутствуют, этот параметр не применяется.  
+ Se não tiver contas de utilizador locais, isto não é aplicável.  
 
- **Настройка захвата профилей пользователей**  
- Установите этот флажок, чтобы задать перенос файла профиля пользователя. Нажмите кнопку **Файлы** , чтобы выбрать файлы конфигурации, которые средство миграции пользовательской среды будет использовать для этого шага. Необходимо указать настраиваемый XML-файл, содержащий правила, которые определяют набор переносимых файлов пользовательской среды.  
+ **Personalizar como os perfis de utilizador são capturados**  
+ Selecione esta opção para especificar uma migração de ficheiros de perfil personalizados. Clique em **Ficheiros** para selecionar os ficheiros de configuração para o USMT utilizar neste passo. Tem de especificar um ficheiro .xml personalizado que contenha regras que definam os ficheiros de estado do utilizador a migrar.  
 
- **Щелкните здесь, чтобы выбрать файлы конфигурации:**  
- Щелкните эту ссылку, что выбрать файлы конфигурации в USMT-пакете, которые будут использоваться для записи профилей пользователей. Нажмите кнопку **Файлы** , чтобы открыть диалоговое окно **Файлы конфигурации** . Чтобы указать файл конфигурации, введите имя файла в строку **Имя файла** и нажмите кнопку **Добавить** .  
+ **Clique aqui para selecionar os ficheiros de configuração:**  
+ Selecione esta opção para selecionar os ficheiros de configuração no pacote do USMT que pretende utilizar para capturar os perfis de utilizador. Clique no botão **Ficheiros** para iniciar a caixa de diálogo **Ficheiros de Configuração**. Para especificar um ficheiro de configuração, introduza o nome do ficheiro na linha **Nome do ficheiro** e clique no botão **Adicionar**.  
 
- **Включить подробное ведение журнала**  
- Включите этот параметр, чтобы сформировать более подробные сведения о файле журнала. При записи состояния создается журнал Scanstate.log, который по умолчанию сохраняется в папку журналов последовательности задач в папке \windows\system32\ccm\logs.  
+ **Ativar o registo verboso**  
+ Ative esta opção para gerar informações de ficheiros de registo mais detalhadas. Ao capturar o estado, o registo Scanstate.log é gerado e armazenado por predefinição na pasta de Registo da sequência de tarefas na pasta \windows\system32\ccm\logs.  
 
- **Пропустить файлы, использующие шифрованную файловую систему**  
- Этот параметр позволяет пропускать запись файлов, зашифрованных с помощью шифрованной файловой системы (EFS), включая файлы профиля. В зависимости от операционной системы и версии средства миграции пользовательской среды зашифрованные файлы могут стать нечитаемыми после их восстановления. Дополнительные сведения см. в документации средства миграции пользовательской среды.  
+ **Ignorar ficheiros que utilizam o sistema de ficheiros encriptados**  
+ Ative esta opção se pretender ignorar a captura de ficheiros encriptados com o Sistema de Encriptação de Ficheiros (EFS), incluindo ficheiros de perfil. Consoante o sistema operativo e a versão do USMT, os ficheiros encriptados podem não ser legíveis após o restauro. Para mais informações, consulte a documentação do USMT.  
 
- **Скопировать, используя доступ к файловой системе**  
- Установите этот флажок, чтобы указать любой из следующих параметров.  
+ **Copiar utilizando o acesso do sistema de ficheiros**  
+ Ative esta opção para especificar qualquer uma das seguintes definições:  
 
--   **Продолжать при невозможности захвата некоторых файлов**: включите этот параметр, чтобы продолжить процесс миграции, даже если не удается записать некоторые файлы. Если отключить этот параметр, выполнение завершится сбоем, если не удастся записать какой-либо файл. Этот параметр по умолчанию включен.  
+-   **Continuar se não for possível capturar alguns ficheiros**: Ative esta definição continuar o processo de migração, mesmo se não for possível capturar alguns ficheiros. Se desativar esta opção e não for possível capturar um ficheiro, o passo de sequência de tarefas falhará. Por predefinição, esta opção encontra-se ativada.  
 
--   **Захватить локально, используя ссылки (hardlink), а не копируя файлы**: включите этот параметр, чтобы использовать жесткие связи NTFS для записи файлов.  
+-   **Capturar localmente ao utilizar hiperligações em vez de copiar ficheiros**: Ative esta definição para utilizar ligações fixas NTFS para capturar ficheiros.  
 
-     Дополнительные сведения о миграции данных с помощью жестких связей см. в статье [Хранилище миграции с жесткой связью](http://go.microsoft.com/fwlink/p/?LinkId=240222)  
+     Para obter mais informações sobre a migração de dados com ligações fixas, veja [Hard-Link Migration Store](http://go.microsoft.com/fwlink/p/?LinkId=240222) (em inglês).  
 
--   **Выполнить захват в автономном режиме (только в ОС Windows PE)**: включите этот параметр, чтобы собрать данные о пользовательской среде из среды предустановки Windows, а не из полнофункциональной операционной системы.  
+-   **Capturar no modo offline (apenas Windows PE)**: Ative esta definição capturar o estado do utilizador no Windows PE em vez do sistema operativo completo.  
 
- **Захватить, используя службу VSS**  
- Этот параметр позволяет записывать файлы, даже если они заблокированы для редактирования другим приложением.  
+ **Capturar utilizando o serviço de sombra de cópia de Volume (VSS)**  
+ Esta opção permite-lhe capturar ficheiros mesmo que estejam bloqueados para edição por outra aplicação.  
 
-##  <a name="BKMK_CaptureWindowsSettings"></a> Сохранить параметры Windows  
- Шаг последовательности задач **Сохранить параметры Windows** используется для записи параметров Windows с компьютера, на котором выполняется последовательность задач. Параметры сохраняются в переменных последовательности задач, которые переопределяют параметры по умолчанию, настроенные в шаге последовательности задач **Применить настройки Windows** .  
+##  <a name="BKMK_CaptureWindowsSettings"></a>Capturar definições do Windows  
+ Utilize o passo de sequência de tarefas **Capturar Definições do Windows** para capturar as definições do Windows do computador que está a executar a sequência de tarefas. As definições são guardadas em variáveis de sequência de tarefas que substituirão as predefinições configuradas no passo de sequência de tarefas **Aplicar Definições do Windows**.  
 
- Этот шаг последовательности задач выполняется в стандартной операционной системе или в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Сохранить параметры Windows"](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings).  
+ Este passo de sequência de tarefas é executado no Windows PE ou num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Definições do Windows](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Перенести имя компьютера**  
- Этот параметр используется для записи имени NetBIOS компьютера.  
+ **Migrar o nome do computador**  
+ Selecione esta opção para capturar o nome NetBIOS do computador.  
 
- **Перенести имя зарегистр. пользователя и название организации**  
- Этот параметр служит для записи зарегистрированных имен пользователей и названий организации с компьютера.  
+ **Migrar nomes organizacionais e de utilizador registados**  
+ Selecione esta opção para capturar os nomes de utilizador e organização registados do computador.  
 
- **Перенести часовой пояс**  
- Этот параметр используется для записи параметра часового пояса на компьютере.  
+ **Migrar fuso horário**  
+ Selecione esta opção para capturar a definição de fuso horário do computador.  
 
-##  <a name="BKMK_CheckReadiness"></a> Проверить готовность  
- Чтобы убедиться, что целевой компьютер соответствует указанным необходимым условиям развертывания, используйте шаг последовательности задач **Проверка готовности** .  
+##  <a name="BKMK_CheckReadiness"></a>Verificar preparação  
+ Utilize o passo de sequência de tarefas **Verificar a Preparação** para verificar se o computador de destino cumpre as condições de pré-requisitos de implementação especificadas.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге. Для данного шага не выбирайте этот параметр, иначе шаг будет регистрировать в журнале только проверки готовности и не остановит последовательность задач, если проверка завершается неудачно.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo. Para este passo, não selecione esta definição ou o passo apenas registará as verificações de disponibilidade e não parará a sequência de tarefas quando uma verificação falhar.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Обеспечить минимальный объем памяти (МБ)**  
- Выберите этот параметр, чтобы убедиться, что объем памяти в мегабайтах, установленный на целевом компьютере, соответствует указанному объему или превышает его. По умолчанию этот параметр выбран.  
+ **Certifique-se a memória mínima (MB)**  
+ Selecione esta definição para verificar se a quantidade de memória, em megabytes, instalada no computador de destino cumpre ou excede o valor especificado. Por predefinição, esta definição está selecionada.  
 
- **Обеспечить минимальную скорость процессора (МГц)**  
- Выберите этот параметр, чтобы убедиться, что скорость процессора в мегагерцах (МГц), установленного на целевом компьютере, соответствует заданному значению или превышает его. По умолчанию этот параметр выбран.  
+ **Certifique-se a velocidade mínima do processador (MHz)**  
+ Selecione esta definição para verificar se a velocidade do processador, em megahertz (MHz), instalada no computador de destino cumpre ou excede o valor especificado. Por predefinição, esta definição está selecionada.  
 
- **Обеспечить минимальное свободное место на диске (МБ)**  
- Выберите этот параметр, чтобы убедиться, что объем свободного дискового пространства в мегабайтах на целевом компьютере соответствует заданному объему или превышает его.  
+ **Certifique-se o espaço mínimo livre em disco (MB)**  
+ Selecione esta definição para verificar se a quantidade de espaço livre em disco, em megabytes, no computador de destino cumpre ou excede o valor especificado.  
 
- **Проверить, что текущая операционная система для обновления**  
- Выберите этот параметр, чтобы убедиться, что операционная система, установленная на целевом компьютере, соответствует заданному вами требованию. По умолчанию этот параметр выбран со значением **КЛИЕНТ**.  
+ **Certifique-se de SO atual atualizar**  
+ Selecione esta definição para verificar se o sistema operativo instalado no computador de destino cumpre o requisito especificado. Por predefinição, esta definição está selecionada com um valor de **CLIENT**.  
 
-##  <a name="BKMK_ConnectToNetworkFolder"></a> Подключить к сетевой папке  
- Действие последовательности задач **Подключить к сетевой папке** используется для создания подключения к общей сетевой папке.  
+##  <a name="BKMK_ConnectToNetworkFolder"></a>Ligar à pasta de rede  
+ Utilize a ação de sequência de tarefas **Ligar à Pasta de Rede** para criar uma ligação para uma pasta de rede partilhada.  
 
- Этот шаг последовательности задач выполняется в стандартной операционной системе или в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Подключить к сетевой папке"](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder).  
+ Este passo de sequência de tarefas é executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ligar à Pasta de Rede](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
-##  <a name="BKMK_ConvertDisktoDynamic"></a> Преобразовать диск в динамический диск  
- Шаг последовательности задач **Преобразовать диск в динамический диск** используется для преобразования физического диска базового типа в динамический диск.  
+##  <a name="BKMK_ConvertDisktoDynamic"></a>Converter disco em dinâmico  
+ Utilize o passo de sequência de tarefas **Converter Disco em Dinâmico** para converter um disco físico de um tipo de disco básico num tipo de disco dinâmico.  
 
- Этот шаг последовательности задач выполняется в стандартной операционной системе или в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Преобразовать диск в динамический диск"](task-sequence-action-variables.md#BKMK_ConvertDisk).  
+ Este passo é executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Converter Disco em Dinâmico](task-sequence-action-variables.md#BKMK_ConvertDisk).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Номер диска**  
- Номер физического диска, который будет преобразован в динамический.  
+ **Número do disco**  
+ O número do disco físico do disco que será convertido.  
 
-##  <a name="BKMK_DisableBitLocker"></a> Отключить BitLocker  
- Шаг последовательности задач **Отключить BitLocker** используется для отключения шифрования BitLocker на текущем диске операционной системы или на диске, указанном пользователем. Это действие оставляет предохранитель ключа в виде открытого текста на жестком диске, но не выполняет расшифровку содержимого диска. В связи с этим действие выполняется практически мгновенно.  
+##  <a name="BKMK_DisableBitLocker"></a>Desativar BitLocker  
+ Utilize o passo de sequência de tarefas **Desativar BitLocker** para desativar a encriptação BitLocker na unidade do sistema operativo atual ou numa unidade específica. Esta ação deixa os protetores de chave visíveis em texto não encriptado no disco rígido, mas não desencripta o conteúdo da unidade. Por conseguinte, esta ação é concluída quase instantaneamente.  
 
 > [!NOTE]  
->  Функция шифрования диска BitLocker обеспечивает низкоуровневое шифрование содержимого томов диска.  
+>  A encriptação de unidade BitLocker fornece encriptação de baixo nível do conteúdo de um volume do disco.  
 
- Если шифрование настроено для нескольких дисков, необходимо отключить шифрование BitLocker на дисках с данными, прежде чем отключать его на диске операционной системы.  
+ Se tiver várias unidades encriptadas, tem de desativar o BitLocker em todas as unidades de dados antes de desativar o BitLocker na unidade do sistema operativo.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows.  
+ Este passo é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется на этом шаге.  
+ **Nome**  
+ Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Fornece informações mais detalhadas sobre a ação executada neste passo.  
 
- **Текущий диск с операционной системой**  
- Отключение шифрования BitLocker на текущем диске операционной системы.  
+ **Unidade de sistema operativo atual**  
+ Desativa o BitLocker na unidade do sistema operativo atual.  
 
- **Другой диск**  
- Отключение BitLocker на конкретном диске. Используйте раскрывающееся меню, чтобы указать диск, на котором требуется отключить шифрование BitLocker.  
+ **Unidade específica**  
+ Desativa o BitLocker numa unidade específica. Utilize a lista pendente para especificar a unidade na qual o BitLocker está desativado.  
 
-##  <a name="BKMK_DownloadPackageContent"></a> Скачать содержимое пакета  
- Используйте шаг последовательности задач **Скачать содержимое пакета** , чтобы скачать любой из следующих типов пакетов:  
+##  <a name="BKMK_DownloadPackageContent"></a>Transferir conteúdo do pacote  
+ Utilize o passo de sequência de tarefas **Transferir Conteúdo do Pacote** para transferir qualquer um dos seguintes tipos de pacotes:  
 
--   Образы операционной системы  
+-   Imagens de sistema operativo  
 
--   пакеты обновления операционной системы;  
+-   Pacotes de atualização do sistema operativo  
 
--   пакеты драйверов,  
+-   Pacotes de controladores  
 
--   пакеты,  
+-   Pacotes  
 
- Этот шаг используется в последовательности задач для обновления операционной системы в следующих сценариях.  
+ Este passo funciona bem numa sequência de tarefas para atualizar um sistema operativo nos seguintes cenários:  
 
--   Для использования единственной последовательности задач обновления, которая может работать с платформами x86 и x64. Для этого включите в группу **Подготовка к обновлению** два шага **Скачать содержимое пакета** с условиями обнаружения архитектуры клиента и скачивания только соответствующего пакета обновления операционной системы. Настройте каждый шаг **Скачать содержимое пакета** так, чтобы использовалась одна и та же переменная, и используйте переменную для пути к носителю в шаге **Обновить операционную систему** .  
+-   Para utilizar uma única sequência de tarefas de atualização que funciona com plataformas x86 e x64. Para tal, inclua dois passos **Transferir Conteúdo do Pacote** no grupo **Preparar para Atualização** com condições para detetar a arquitetura do cliente e transferir apenas o pacote de atualização do sistema operativo adequado. Configure cada passo **Transferir Conteúdo do Pacote** para utilizar a mesma variável e utilize a variável para o caminho do suporte de dados no passo **Atualizar Sistema Operativo** .  
 
--   Для динамического скачивания применимого пакета драйверов используйте два шага загрузки **Скачать содержимое пакета** с условиями определения соответствующего типа оборудования для каждого пакета драйверов. Настройте каждый шаг **Скачать содержимое пакета** так, чтобы использовалась одна и та же переменная, и используйте переменную для значения **Промежуточное содержимое** в разделе драйверов в шаге **Обновить операционную систему** .  
+-   Para transferir dinamicamente um pacote de controlador aplicável, utilize dois passos **Transferir Conteúdo do Pacote** com condições para detetar o tipo de hardware adequado a cada pacote de controlador. Configure cada passo **Transferir Conteúdo do Pacote** para utilizar a mesma variável e utilize a variável para o valor **Conteúdo de teste** na secção de controladores no passo **Atualizar Sistema Operativo**.  
 
 > [!NOTE]    
-> При развертывании последовательности задач, которая содержит шаг загрузки содержимого пакета, не выбирайте значение **Загрузить все содержимое локально перед выполнением последовательности задач** для **параметров развертывания** на странице **Точки распространения** мастера развертывания программного обеспечения.  
+> Ao implementar uma sequência de tarefas que contém o passo transferir conteúdo do pacote, não selecione **transferir todo o conteúdo localmente antes de iniciar a sequência de tarefas** para **opções de implementação** no **pontos de distribuição** página do Assistente de implementação de Software.  
 
-Этот шаг последовательности задач выполняется в стандартной операционной системе или в среде предустановки Windows. Однако команда сохранения пакета в кэше клиента Configuration Manager не поддерживается в WinPE.
+Este passo é executado num sistema operativo padrão ou no Windows PE. No entanto, a opção para guardar o pacote na cache do cliente do Configuration Manager não é suportada no WinPE.
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется на этом шаге.  
+ **Nome**  
+ Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Fornece informações mais detalhadas sobre a ação executada neste passo.  
 
- Значок**Выберите пакет**  
- Щелкните значок для выбора скачиваемого пакета. После выбора пакета вы можете щелкнуть значок еще раз, чтобы выбрать другой пакет.  
+ Ícone **Selecionar pacote**  
+ Clique no ícone para selecionar o pacote a transferir. Depois de selecionar um pacote, pode clicar no ícone novamente para escolher outro.  
 
- **Поместить в следующее расположение**  
- Выберите для сохранения пакета в одном из следующих расположений:  
+ **Colocar na seguinte localização**  
+ Guarde o pacote numa das seguintes localizações:  
 
- -   **Рабочий каталог последовательности задач**  
+ -   **Diretório de trabalho de sequência de tarefas**  
 
- -   **Кэш клиента Configuration Manager**: этот параметр следует использовать для хранения содержимого в кэше клиентов. Это позволяет клиенту выступать в качестве источника однорангового кэша для других клиентов однорангового кэша. Дополнительные сведения см. в разделе [Подготовка однорангового кэша среды предустановки Windows для снижения трафика глобальной сети](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
+ -   **Cache do cliente do Configuration Manager**: Utilize esta opção para armazenar o conteúdo na cache de clientes. Isto permite que o cliente atue como uma origem de cache ponto a ponto para outros clientes de cache ponto a ponto. Para obter mais informações, consulte [cache ponto a ponto de preparar o Windows PE para reduzir o tráfego WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
- -   **Пользовательский путь**  
+ -   **Caminho personalizado**  
 
- **Сохранить путь как переменную**  
- Вы можете сохранить путь в виде переменной для использования в другом шаге последовательности задач. Configuration Manager добавляет к имени переменной числовой суффикс. Например, переменную %*mycontent*% можно указать как пользовательскую переменную. Она будет указывать на корневой каталог, в котором хранится все содержимое (содержимое может быть представлено несколькими пакетами). При использовании этой переменной к ней нужно добавлять числовой суффикс. Например, на первый пакет будет указывать переменная %*mycontent01*%. При использовании переменной на следующих этапах, например во время обновления операционной системы, используйте переменную %*mycontent02*% или %*mycontent03*%, где число указывает на то, в каком порядке пакет будет использоваться на соответствующем этапе.  
+ **Guardar caminho como uma variável**  
+ É possível guardar o caminho como uma variável que pode utilizar noutro passo de sequência de tarefas. Gestor de configuração adiciona um sufixo numérico ao nome da variável. Por exemplo, se especificar uma variável de %*omeuconteúdo*% como uma variável personalizada, é a raiz para armazenar todos os conteúdos referenciados (que pode ser vários pacotes). Quando fizer referência à variável, irá adicionar um sufixo numérico para a variável. Por exemplo, para o primeiro pacote, irá referir-se a %*osmeusconteúdos01*variável %. Quando fizer referência à variável num passos subsequentes, tais como atualizar sistema operativo, teria de utilizar %*osmeusconteúdos02*% ou %*mycontent03*% onde o número corresponde à ordem na qual o pacote está listado no passo.  
 
- **Если произойдет сбой при скачивании пакета, продолжить скачивать другие пакеты в списке**  
- Указывает, что в случае сбоя скачивания пакета начинается скачивание следующего пакета в списке.  
+ **Se a transferência de um pacote falhar, continue a transferir os outros pacotes na lista**  
+ Especifica que, se a transferência do pacote falhar, irá para o pacote seguinte da lista e iniciará a transferência.  
 
-##  <a name="BKMK_EnableBitLocker"></a> Включить BitLocker  
- Шаг последовательности задач **Включить BitLocker** используется для включения шифрования BitLocker по крайней мере на двух разделах жесткого диска. Первый активный раздел содержит загрузочный код Windows. Другой раздел содержит операционную систему. Загрузочный раздел должен остаться незашифрованным.  
+##  <a name="BKMK_EnableBitLocker"></a>Ativar o BitLocker  
+ Utilize o passo de sequência de tarefas **Ativar BitLocker** para ativar a encriptação BitLocker em, pelo menos, duas partições no disco rígido. A primeira partição ativa contém o código de arranque do sistema do Windows. Outra partição contém o sistema operativo. A partição de arranque do sistema tem de permanecer desencriptada.  
 
- Используйте шаг последовательности задач **Предварительная инициализация BitLocker** для включения BitLocker на диске в Windows PE. Дополнительные сведения см. в разделе [Предварительная инициализация BitLocker](#BKMK_PreProvisionBitLocker) этой статьи.  
+ Utilize o passo de sequência de tarefas **Provisão prévia do BitLocker** para ativar o BitLocker numa unidade no Windows PE. Para obter mais informações, veja a secção [Provisão prévia do BitLocker](#BKMK_PreProvisionBitLocker) deste tópico.  
 
 > [!NOTE]  
->  Функция шифрования диска BitLocker обеспечивает низкоуровневое шифрование содержимого томов диска.  
+>  A encriptação de unidade BitLocker fornece encriptação de baixo nível do conteúdo de um volume do disco.  
 
- Шаг **Включить BitLocker** выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Включить BitLocker"](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
+ O passo **Ativar BitLocker** é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ativar BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
- Если вы указываете **Только TPM**, **TPM и ключ запуска на USB** или **TPM и ПИН-код**, то прежде чем можно будет запустить шаг **Включить BitLocker** , доверенный платформенный модуль (TPM) должен быть в следующем состоянии:  
+ O Trusted Platform Module (TPM) tem de estar no seguinte estado quando especificar **Apenas TPM**, **TPM e Chave de Arranque em USB** ou **TPM e PIN**, para poder executar o passo **Ativar BitLocker**:  
 
--   Включено  
+-   Ativado  
 
--   Активировано  
+-   Ativado  
 
--   Допускается владение  
+-   Propriedade Permitida  
 
- Шаг последовательности задач может выполнить все оставшиеся действия инициализации TPM, поскольку остальные действия не требуют физического присутствия или перезагрузки. Остальные действия инициализации TPM, которые могут явно выполняться шагом **Включить BitLocker** (при необходимости) включают следующие:  
+ O passo de sequência de tarefas pode concluir qualquer inicialização de TPM restante, porque os passos restantes não requerem presença física ou reinícios. Os passos de inicialização de TPM restantes que podem ser concluídos de forma transparente pelo passo **Ativar BitLocker** (se necessário) incluem:  
 
--   создание пары ключей подтверждения;  
+-   Criar par de chaves de endossamento  
 
--   создание значения авторизации владельца и передача его на хранение в схему Active Directory, которая должна быть расширена для поддержки этого значения;  
+-   Criar valor de autorização do proprietário e efetuar caução para o Active Directory, expandido para suportar este valor  
 
--   смена владельца;  
+-   Obter propriedade  
 
--   создание корневых ключей хранилища или их сброс, если они имеются, но несовместимы.  
+-   Criar SRK (Storage Root Key) ou repor se já existir mas for incompatível  
 
- Если требуется, чтобы после выполнения шага **Включить BitLocker** система дожидалась завершения процесса шифрования диска, прежде чем переходить к следующему шагу в последовательности задач, установите флажок **Ожидать** . Если не установить флажок **Ожидать** , процесс шифрования диска будет выполняться в фоновом режиме, и выполнение последовательности задач продолжится немедленно.  
+ Se pretender que o passo **Ativar BitLocker** aguarde pela conclusão do processo de encriptação da unidade antes de prosseguir para o passo seguinte na sequência de tarefas, selecione a caixa de verificação **Aguardar**. Se não selecionar a caixa de verificação **Aguardar**, o processo de encriptação da unidade será realizado em segundo plano e a execução da sequência de tarefas prosseguirá de imediato para o passo seguinte.  
 
- Функцию BitLocker можно использовать для шифрования нескольких дисков в системе компьютера (как дисков операционной системы, так и дисков данных). Чтобы выполнить шифрование диска данных, диск операционной системы уже должен быть зашифрован и процесс шифрования должен быть завершен, так как предохранители ключа для дисков данных хранятся на диске операционной системы. Соответственно, если шифрование диска операционной системы и диска данных выполняется в рамках одного процесса, необходимо установить флажок "Ожидать" для действия, которое включает шифрование BitLocker для диска операционной системы.  
+ O BitLocker pode ser utilizado para encriptar várias unidades num sistema informático (sistema operativo e unidades de dados). Para encriptar uma unidade de dados, o sistema operativo já tem de estar encriptado e o processo de encriptação tem de estar concluído, porque os protetores de chave das unidades de dados estão armazenados na unidade do sistema operativo. Como resultado, se encriptar a unidade do sistema operativo e a unidade de dados no mesmo processo, a opção de aguardar tem de ser selecionada para o passo que ativa o BitLocker para a unidade do sistema operativo.  
 
- Если жесткий диск уже зашифрован, а шифрование BitLocker отключено, шаг "Включить BitLocker" повторно включает предохранитель или предохранители ключа и выполняется практически мгновенно. Повторное шифрование жесткого диска в этом случае не требуется.  
+ Se o disco rígido já estiver encriptado mas o BitLocker estiver desativado, o passo Ativar BitLocker reativa os protetores de chave e será concluído quase instantaneamente. A reencriptação do disco rígido não é necessária neste caso.  
 
- Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Включить BitLocker"](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
+ Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ativar BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Описательное имя для этого шага последовательности задач.  
+ **Nome**  
+ Especifica um nome descritivo para este passo de sequência de tarefas.  
 
- **Описание**  
- В это поле можно при необходимости ввести описание для этого шага последовательности задач.  
+ **Descrição**  
+ Permite introduzir opcionalmente uma descrição para este passo de sequência de tarefas.  
 
- **Выберите диск для шифрования**  
- Выбор диска для шифрования. Чтобы выполнить шифрование текущего диска операционной системы, выберите **Текущий диск с операционной системой** , а затем настройте один из следующих параметров для управление ключами.  
+ **Selecione a unidade a encriptar**  
+ Especifica a unidade a encriptar. Para encriptar a unidade do sistema operativo atual, selecione **Unidade do sistema operativo atual** e, em seguida, configure uma das seguintes opções para a gestão de chaves:  
 
--   **Только TPM**: выберите этот параметр, чтобы использовать только доверенный платформенный модуль (TPM).  
+-   **Apenas TPM**: Selecione esta opção para utilizar apenas Trusted Platform Module (TPM).  
 
--   **Ключ запуска на USB**: выберите этот параметр, чтобы использовать ключ запуска, хранящийся на USB-устройстве флеш-памяти. При выборе этого параметра BitLocker блокирует обычный процесс загрузки, пока устройство USB, содержащее ключ запуска BitLocker, не будет подключено к компьютеру.  
+-   **Chave de arranque em USB apenas**: Selecione esta opção para utilizar uma chave de arranque armazenada numa pen USB. Ao selecionar esta opção, o BitLocker bloqueia o processo de arranque normal até um dispositivo USB com uma chave de arranque BitLocker ser ligado ao computador.  
 
--   **TPM и ключ запуска на USB**: выберите этот параметр, чтобы использовать доверенный платформенный модуль и ключ запуска, хранящийся на USB-устройстве флеш-памяти. При выборе этого параметра BitLocker блокирует обычный процесс загрузки, пока устройство USB, содержащее ключ запуска BitLocker, не будет подключено к компьютеру.  
+-   **TPM e chave de arranque em USB**: Selecione esta opção para utilizar o TPM e uma chave de arranque armazenada numa pen USB. Ao selecionar esta opção, o BitLocker bloqueia o processo de arranque normal até um dispositivo USB com uma chave de arranque BitLocker ser ligado ao computador.  
 
--   **Довер. платф. модуль и ПИН-код**: выберите этот параметр, чтобы использовать доверенный платформенный модуль и персональный идентификационный номер (ПИН-код). При выборе этого параметра BitLocker блокирует обычный процесс загрузки, пока пользователь не предоставит ПИН-код.  
+-   **TPM e PIN**:  Selecione esta opção para utilizar o TPM e um número de identificação pessoal (PIN). Ao selecionar esta opção, o BitLocker bloqueia o processo de arranque normal até o utilizador fornecer o PIN.  
 
- Для шифрования диска конкретного диска данных без операционной системы нажмите **Определенный диск**, а затем выберите диск в списке.  
+ Para encriptar uma unidade de dados específica, não pertencente ao sistema operativo, selecione **Unidade específica** e, em seguida, selecione a unidade a partir da lista.  
 
- **Выберите место для создания ключа восстановления**  
- Чтобы указать, расположение создания пароля восстановления, выберите **В Active Directory** , чтобы передать пароль на хранение в Active Directory. Если выбран этот вариант, необходимо расширить схему Active Directory для сайта, чтобы иметь возможность сохранять связанные данные восстановления BitLocker. Можно отказаться от создания пароля, выбрав вариант **Не создавать ключ восстановления**. Однако рекомендуется не отказываться от создания пароля.  
+ **Selecione onde criar a chave de recuperação**  
+ Para especificar onde será criada a palavra-passe de recuperação, selecione **No Active Directory** para fazer a caução da palavra-passe no Active Directory. Se selecionar esta opção, tem de expandir o Active Directory para o site, para que as informações de recuperação do BitLocker associadas sejam guardadas. Pode optar por não criar uma palavra-passe, selecionando **Não criar chave de recuperação**. No entanto, criar uma palavra-passe é uma melhor prática.  
 
- **Прежде чем продолжить выполнение последовательности задач, дождаться, пока BitLocker зашифрует все диски**  
- Установите этот флажок, чтобы функция шифрования диска BitLocker могла завершить работу, прежде чем будет запущен следующий шаг последовательности задач. Если выбран этот вариант, пользователь не сможет войти в систему, пока не завершится шифрование всего тома диска.  
+ **Aguarde que o BitLocker conclua o processo de encriptação de unidade em todas as unidades antes da execução de sequência de tarefas continuar**  
+ Selecione esta opção para permitir que a encriptação de unidade BitLocker seja concluída antes da execução do passo seguinte na sequência de tarefas. Se esta opção estiver selecionada, todo o volume do disco será encriptado para que o utilizador consiga iniciar sessão no computador.  
 
- Процесс шифрования может занять несколько часов в зависимости от объема дискового пространства шифруемого диска. Если не устанавливать этот флажок, выполнение последовательности задач будет продолжаться без задержек.  
+ O processo de encriptação pode demorar horas a ser concluído quando está a ser encriptado um disco rígido grande. A não seleção desta opção permitirá continuar a sequência de tarefas de imediato.  
 
-##  <a name="BKMK_FormatandPartitionDisk"></a> Отформатировать диск и создать разделы  
- Шаг последовательности задач **Отформатировать диск и создать разделы** используется для форматирования и создания разделов на указанном диске конечного компьютера.  
+##  <a name="BKMK_FormatandPartitionDisk"></a>Formatar e particionar disco  
+ Utilize o passo de sequência de tarefas **Formatar e Particionar Disco** para formatar e particionar um disco especificado no computador de destino.  
 
 > [!IMPORTANT]  
->  Параметры, настроенные для этого шага последовательности задач, применяются только к указанному диску. Если вы хотите выполнить форматирование и разбиение на разделы другого диска на целевом компьютере, необходимо добавить в последовательность задач дополнительный шаг **Отформатировать диск и создать разделы** .  
+>  Cada definição que especificar para este passo de sequência de tarefas aplica-se a um único disco especificado. Se pretender formatar e particionar outro disco no computador de destino, tem de adicionar um passo de sequência de tarefas **Formatar e Particionar Disco** adicional à sequência de tarefas.  
 
- Этот шаг последовательности задач выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Отформатировать диск и создать разделы"](task-sequence-action-variables.md#BKMK_FormatPartitionDisk).  
+ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Formatar e Particionar Disco](task-sequence-action-variables.md#BKMK_FormatPartitionDisk).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Номер диска**  
- Номер физического диска, форматирование которого будет выполнено. Номер определяется порядком перечисления дисков Windows.  
+ **Número do disco**  
+ O número do disco físico do disco que será formatado. O número é baseado na ordem de enumeração de discos do Windows.  
 
- **Тип диска**  
- Тип форматируемого диска. В раскрывающемся списке можно выбрать один из двух вариантов:  
+ **Tipo de disco**  
+ O tipo do disco formatado. Existem duas opções disponíveis para seleção na lista pendente:  
 
--   "Стандартный (MBR)" — основная загрузочная запись.  
+-   Padrão (MBR) - registo de arranque principal.  
 
--   GPT — таблица разделов GPT.  
-
-> [!NOTE]  
->  Если тип диска изменен с **Стандартный (MBR)** на **GPT**, и разметка разделов содержит дополнительный раздел, все дополнительные и логические разделы будут удалены из разметки. Действие изменения типа диска требует подтверждения пользователя.  
-
- **Том**  
- Определенные сведения о создаваемом разделе или томе, включая следующее:  
-
--   Имя  
-
--   Осталось места на диске  
-
- Чтобы создать новый раздел, нажмите кнопку **Создать** , которая открывает диалоговое окно **Свойства раздела** . Можно указать тип и размер раздела, кроме того, необходимо выбрать, будет ли раздел загрузочным. Чтобы изменить существующий раздел, щелкните изменяемый раздел и нажмите кнопку "Свойства". Дополнительные сведения о том, как настроить разделы жесткого диска, см. в одной из следующих статей.  
-
--   [Настройка разделов жесткого диска в системе, использующей UEFI и GPT](http://go.microsoft.com/fwlink/?LinkID=272104)  
-
--   [Настройка разделов жесткого диска в системе, использующей BIOS и MBR](http://go.microsoft.com/fwlink/?LinkId=272105)  
-
- Чтобы удалить раздел, выберите его и нажмите кнопку **Удалить**.  
-
-##  <a name="BKMK_InstallApplication"></a> Установить приложение  
- Шаг последовательности задач **Установка приложения** используется для установки приложений при выполнении последовательности задач. Это действие позволяет установить набор приложений, указанных шагом последовательности задач или в динамическом списке переменных последовательности задач. При выполнении этого шага установка приложения начинается немедленно без ожидания завершения интервала опроса политики.  
-
- Установленные приложения должны удовлетворять следующим критериям.  
-
--   Приложение должно развертываться через установщик Windows или установщик скриптов. Типы развертывания "Пакет приложений Windows (APPX-файл)" не поддерживаются.  
-
--   Оно должно выполняться в контексте учетной записи Local System, а не учетной записи пользователя.  
-
--   Приложения не должны взаимодействовать с рабочим столом. Программа должна запускаться без вмешательства пользователя или в автоматическом режиме.  
-
--   Оно не должно запускать перезагрузку. Приложения должны запрашивать перезагрузку, используя стандартный код перезагрузки (код выхода 3010). Это гарантирует правильную обработку перезагрузки шагом последовательности задач. Если приложение не возвращает код выхода 3010, базовая подсистема выполнения последовательности задач выполняет перезагрузку. После перезагрузки выполнение последовательности задач продолжается автоматически.  
-
- При запуске шага **Установка приложения** приложение проверяет возможность применения правил требований и метода обнаружения для типов развертывания приложения. На основе результатов этой проверки приложение устанавливает соответствующий тип развертывания. Если тип развертывания содержит зависимости, зависимый тип развертывания оценивается и устанавливается в ходе выполнения шага установки приложения. Зависимости приложений не поддерживается для автономных носителей.  
+-   GPT - tabela de partições GUID  
 
 > [!NOTE]  
->  Для установки приложения, которое заменяет другое приложение, файлы содержимого для заменяемого приложения должны быть доступны. Иначе этот шаг последовательности задач завершится неудачно. Например, на клиенте или в записанном образе установлен Microsoft Visio 2010. При выполнении шага последовательности задач "Установка приложения" для установки Microsoft Visio 2013 файлы содержимого для Microsoft Visio 2010 (заменяемого приложения) должны быть доступны в точке распространения, иначе произойдет сбой последовательности задач. Клиент или записанный образ без установленного Microsoft Visio выполнит установку Microsoft Visio 2013 без проверки файлов содержимого для Microsoft Visio 2010.  
+>  Se alterar o tipo de disco de **Padrão (MBR)** para **GPT** e o esquema de partição tiver uma partição expandida, todas as partições expandidas e lógicas serão removidas do esquema. Ser-lhe-á pedido para confirmar esta ação antes de alterar o tipo de disco.  
+
+ **Volume**  
+ Informações específicas sobre a partição ou o volume que será criado, incluindo as seguintes:  
+
+-   Nome  
+
+-   Espaço em disco restante  
+
+ Para criar uma nova partição, clique em **Novo** para iniciar a caixa de diálogo **Propriedades de Partição**. Pode especificar o tipo e o tamanho da partição, e se será uma partição de arranque. Para modificar uma partição existente, clique na partição que pretende modificar e, em seguida, clique no botão de propriedades. Para mais informações sobre como configurar partições de discos rígidos, consulte um dos seguintes artigos:  
+
+-   [Como configurar partições de disco rígido baseadas em UEFI/GPT](http://go.microsoft.com/fwlink/?LinkID=272104)  
+
+-   [Como configurar partições de disco rígido baseados em BIOS/MBR](http://go.microsoft.com/fwlink/?LinkId=272105)  
+
+ Para eliminar uma partição, selecione a partição que pretende eliminar e clique em **Eliminar**.  
+
+##  <a name="BKMK_InstallApplication"></a>Instalar a aplicação  
+ Utilize o passo de sequência de tarefas **Instalar Aplicação** para instalar aplicações como parte da sequência de tarefas. Este passo pode instalar um conjunto de aplicações especificadas pelo passo de sequência de tarefas ou um conjunto de aplicações especificadas por uma lista dinâmica de variáveis de sequência de tarefas. Quando este passo é executado, a instalação da aplicação começa de imediato, sem aguardar por um intervalo de consulta da política.  
+
+ A aplicação instalada tem de cumprir os seguintes critérios:  
+
+-   Esta aplicação tem de ser um tipo de implementação do Windows Installer ou instalador de Script. Os tipos de implementação do pacote de aplicação do Windows (ficheiro .appx) não são suportados.  
+
+-   Tem de ser executada na conta do sistema local e não na conta de utilizador.  
+
+-   Não pode interagir com o ambiente de trabalho. O programa tem de ser executado no modo silencioso ou no modo automático.  
+
+-   Não pode iniciar um reinício por si só. A aplicação tem de solicitar um reinício utilizando o código de reinício padrão, um código de saída 3010. Isto assegura que o passo de sequência de tarefas processará o reinício corretamente. Se a aplicação devolver um código de saída 3010, o motor de sequência de tarefas subjacente executa o reinício. Após o reinício, a sequência de tarefas continua automaticamente.  
+
+ Quando o passo **Instalar Aplicação** é executado, a aplicação verifica a aplicabilidade das regras de requisitos e o método de deteção nos tipos de implementação da aplicação. Com base nos resultados desta verificação, a aplicação instala o tipo de implementação aplicável. Se um tipo de implementação tiver dependências, o tipo de implementação dependente é avaliado e instalado como parte do passo de instalação da aplicação. As dependências da aplicação não são suportadas no suporte de dados autónomo.  
+
+> [!NOTE]  
+>  Para instalar uma aplicação que substitui outra aplicação, os ficheiros de conteúdo da aplicação substituída têm de estar disponíveis ou o passo de sequência de tarefas falhará. Por exemplo, o Microsoft Visio 2010 é instalado num cliente ou numa imagem capturada. Quando o passo de sequência de tarefas Instalar Aplicação é executado para instalar o Microsoft Visio 2013, os ficheiros de conteúdo do Microsoft Visio 2010 (a aplicação substituída) têm de estar disponíveis num ponto de distribuição ou a sequência de tarefas falhará. Um cliente ou imagem capturada sem o Microsoft Visio instalado concluirá a instalação do Microsoft Visio 2013 sem verificar os ficheiros de conteúdo do Microsoft Visio 2010.  
 
 > [!NOTE]
-> Встроенные переменные SMSTSMPListRequestTimeoutEnabled и SMSTSMPListRequestTimeout можно использовать для включения последовательности задач и указания времени ожидания в миллисекундах перед повторной попыткой установки приложения или обновления ПО после сбоя при получении списка точек управления из служб определения местоположения. Дополнительные сведения см. в статье [Встроенные переменные последовательности задач](task-sequence-built-in-variables.md).
+> Pode utilizar o SMSTSMPListRequestTimeoutEnabled e lista de pontos de variáveis incorporadas de SMSTSMPListRequestTimeout para ativar e especificar quantos milissegundos uma sequência de tarefas aguarda antes de tentar para instalar uma aplicação ou software da atualização após a falha ao obter a gestão dos serviços de localização. Para obter mais informações, consulte [varliables incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows.  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** для этого шага можно настроить параметры, описываемые в данном разделе.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Задайте повторение этого шага в случае, если компьютер неожиданно перезагружается. Можно также задать количество попыток повторения шага после перезагрузки.  
+-   especificar para repetir este passo se o computador reiniciar inesperadamente. Também pode especificar o número de vezes a repetir após o computador reiniciar.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Установить следующие приложения**  
- Этот параметр задает приложения, устанавливаемые в том порядке, в котором они были указаны.  
+ **Instale as seguintes aplicações**  
+ Esta definição especifica as aplicações instaladas pela ordem que estão especificadas.  
 
- Configuration Manager отфильтрует все отключенные приложения или приложения с перечисленными ниже параметрами. Эти приложения не будут отображаться в диалоговом окне **Выбор приложения для установки** .  
+ O Configuration Manager filtrará quaisquer aplicações desativadas ou aplicações com as seguintes definições. Estas aplicações não serão apresentadas na caixa de diálogo **Selecionar a aplicação a instalar**.  
 
--   Только после входа пользователя  
+-   Apenas quando um utilizador tiver sessão iniciada  
 
--   Выполнение с правами пользователя  
+-   Executar com direitos de utilizador  
 
- **Установить приложения в соответствии со списком динамических переменных**  
- Этот параметр определяет основное имя для набора переменных последовательности задач, задаваемых для коллекции или компьютера. Эти переменные указывают приложения, которые будут установлены для данной коллекции или компьютера. Имя переменной состоит из общего базового имени и числового суффикса, начинающегося с 01. Значение каждой переменной должно содержать имя приложения и ничего более.  
+ **Instalar aplicações de acordo com a lista de variáveis dinâmicas**  
+ Esta definição especifica o nome base de um conjunto de variáveis de sequência de tarefas definidas para uma coleção ou um computador. Estas variáveis especificam as aplicações que serão instaladas para essa coleção ou computador. Cada nome de variável é constituído pelo nome base comum e um sufixo numérico a partir de 01. O valor de cada variável tem de conter o nome da aplicação e mais nada.  
 
- Для приложений, которые требуется установить с использованием динамического списка переменных, на вкладке **Общие** диалогового окна **Свойства** приложения необходимо включить следующий параметр: **Разрешить установку этого приложения из действия последовательности задач "Установка приложения" вместо развертывания вручную**.  
+ Para as aplicações sejam instaladas através da utilização de uma lista de variáveis dinâmicas, a definição seguinte tem de ser ativada no **geral** separador da aplicação **propriedades** caixa de diálogo: **Permitir que esta aplicação ser instalado a partir da ação de sequência de tarefas instalar aplicação, sem ser implementada**  
 
 > [!NOTE]  
->  Установка приложений с помощью динамического списка переменных не поддерживается для развертываний с автономного носителя.  
+>  Não é possível instalar aplicações através de uma lista de variáveis dinâmicas em implementações de suportes de dados autónomos.  
 
- Например, чтобы установить отдельное приложение, используя переменную последовательности задач AA01, необходимо указать следующую переменную:  
+ Por exemplo, para instalar uma única aplicação através de uma variável de sequência de tarefas denominada AA01, tem de especificar a seguinte variável:  
 
-|Имя переменной|Значение переменной|  
+|Nome da Variável|Valor da Variável|  
 |-------------------|--------------------|  
 |AA01|Microsoft Office|  
 
- Чтобы установить два приложения, потребуется указать следующие переменные:  
+ Para instalar duas aplicações, tem de especificar as seguintes variáveis:  
 
-|Имя переменной|Значение переменной|  
+|Nome da Variável|Valor da Variável|  
 |-------------------|--------------------|  
 |AA01|Microsoft Lync|  
 |AA02|Microsoft Office|  
 
- На устанавливаемые компоненты будут влиять следующие условия:  
+ As seguintes condições afetarão o que é instalado:  
 
--   Если значение переменной содержит любые данные кроме имени приложения, приложение не устанавливается и продолжается выполнение последовательности задач.  
+-   O valor de uma variável contém quaisquer informações além do nome da aplicação. Essa aplicação não é instalada e a sequência de tarefas continua.  
 
--   Если не удается найти переменную с указанным базовым именем и суффиксом "01", никакие приложения не устанавливаются. Если на вкладке "Параметры" этого шага последовательности задач выбран параметр **Продолжить при ошибке**, то последовательность задач продолжается после сбоя установки приложения. Если этот параметр не выбран, то последовательность задач завершится неудачно и не установит остальные приложения.  
+-   Se não for encontrada nenhuma variável com o nome base especificado nem o sufixo "01", não é instalada nenhuma aplicação. Quando seleciona **continuar com o erro** no separador Opções do passo de sequência de tarefas, a sequência de tarefas continua quando a instalação de uma aplicação falha. Quando a definição não estiver selecionada, a sequência de tarefas falha e não instalará as restantes aplicações.  
 
- **В случае сбоя установки одного из приложений продолжить установку других приложений в списке**  
- Этот параметр указывает, что выполнение шага должно продолжаться, даже если происходит сбой установки отдельного приложения. Если указан этот параметр, последовательность задач продолжит выполнение вне зависимости от каких-либо возвращенных ошибок установки. Если этот параметр не указан и установка завершается ошибкой, то шаг последовательности задач завершается немедленно.  
+ **Se uma aplicação falhar, continue a instalar outras aplicações na lista**  
+ Esta definição especifica que o passo continuará se a instalação de uma aplicação individual falhar. Se esta definição for especificada, a sequência de tarefas continuará independentemente de quaisquer erros de instalação devolvidos. Se não for especificada, a instalação falhará e a sequência de tarefas terminará de imediato.  
 
-##  <a name="BKMK_InstallDeploymentTools"></a> Установить средства развертывания  
- Шаг последовательности задач **Установить средства развертывания** используется для установки пакета Configuration Manager, содержащего средства развертывания Sysprep.  
+##  <a name="BKMK_InstallDeploymentTools"></a>Instalar ferramentas de implementação  
+ Utilize o **instalar ferramentas de implementação** passo de sequência de tarefas para instalar o pacote de Configuration Manager que contém as ferramentas de implementação Sysprep.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Пакет Sysprep**  
- Этот параметр указывает пакет Configuration Manager, который содержит средства развертывания Sysprep для следующих операционных систем:  
+ **Pacote Sysprep**  
+ Esta definição especifica o pacote de Configuration Manager que contém as ferramentas de implementação Sysprep para os seguintes sistemas operativos:  
 
--   Windows XP с пакетом обновления 3 (SP3)  
+-   Windows XP SP3  
 
--   Windows XP X64 пакетом обновления 2 (SP2),  
+-   Windows XP X64 SP2  
 
--   Windows Server 2003 с пакетом обновления 2 (SP2)  
+-   Windows Server 2003 SP2  
 
-##  <a name="BKMK_InstallPackage"></a> Установить пакет
+##  <a name="BKMK_InstallPackage"></a>Instalar pacote
 
- Шаг последовательности задач **Установить пакет** используется для установки программного обеспечения при выполнении последовательности задач. При выполнении этого шага установка начинается немедленно без ожидания завершения интервала опроса политики.  
+ Utilize o passo de sequência de tarefas **Instalar Pacote** para instalar software como parte da sequência de tarefas. Quando este passo é executado, a instalação começa de imediato, sem aguardar por um intervalo de consulta da política.  
 
- Устанавливаемое программное обеспечение должно удовлетворять следующим условиям.  
+ O software instalado tem de cumprir os seguintes critérios:  
 
--   Оно должно выполняться в контексте учетной записи Local System, а не учетной записи пользователя.  
+-   Tem de ser executada na conta do sistema local e não na conta de utilizador.  
 
--   Оно не должно взаимодействовать с рабочим столом. Программа должна запускаться без вмешательства пользователя или в автоматическом режиме.  
+-   Não deve interagir com o ambiente de trabalho. O programa tem de ser executado no modo silencioso ou no modo automático.  
 
--   Оно не должно запускать перезагрузку. Программное обеспечение должно запрашивать перезагрузку, используя стандартный код перезагрузки (код выхода 3010). Это гарантирует правильную обработку перезагрузки шагом последовательности задач. Если программное обеспечение не возвращает код выхода 3010, базовая подсистема выполнения последовательности задач выполняет перезагрузку. После перезагрузки выполнение последовательности задач продолжается автоматически.  
+-   Não pode iniciar um reinício por si só. O software tem de solicitar um reinício utilizando o código de reinício padrão, um código de saída 3010. Isto assegura que o passo de sequência de tarefas processará o reinício corretamente. Se o software devolver um código de saída 3010, o motor de sequência de tarefas subjacente executará o reinício. Após o reinício, a sequência de tarefas continuará automaticamente.  
 
- Программы, которые используют параметр **Запустить сначала другую программу** для установки зависимых программ, не поддерживаются при развертывании ОС. Если параметр **Запустить сначала другую программу** включен для программного обеспечения, и зависимая программа уже запущена на конечном компьютере, эта программа запускается и продолжается выполнение последовательности задач. Однако если зависимая программа еще не запущена на конечном компьютере, происходит сбой последовательности задач.  
+ Os programas que utilizam a opção **Executar outro programa primeiro** para instalar um programa dependente não são suportados quando implementar um sistema operativo. Se a opção **Executar outro programa primeiro** estiver ativada para o software e o programa dependente já tiver sido executado no computador de destino, o programa dependente será executado e a sequência de tarefas continuará. No entanto, se o programa dependente ainda não tiver sido executado no computador de destino, o passo de sequência de tarefas falhará.  
 
 > [!NOTE]  
->  Сайт центра администрирования не имеет политик конфигурации клиентов, необходимых для включения агента распространения программного обеспечения при выполнении последовательности задач. Если при создании автономного носителя для последовательности задач на сайте центра администрирования последовательность задач включает шаг **Установить пакет** , в файле журнала CreateTsMedia.log может появиться следующее сообщение об ошибке:  
+>  O site de administração central não possui as políticas de configuração de cliente necessárias para ativar o agente de distribuição de software durante a execução da sequência de tarefas. Quando cria um suporte de dados autónomo para uma sequência de tarefas do site de administração central e a sequência de tarefas inclui um passo **Instalar Pacote**, pode aparecer o erro seguinte no ficheiro CreateTsMedia.log:  
 >   
 >  `"WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"`  
 >   
->  Для автономного носителя, включающего шаг "Установить пакет", необходимо проводить создание на первичном сайте с включенным агентом распространения ПО или добавить шаг **Выполнить из командной строки** после шага **Настройка Windows и Configuration Manager** и перед первым шагом **Установить пакет** . Шаг **Выполнить из командной строки** выполняет команду WMIC, чтобы включить программу агент распространения ПО до первого шага "Установить пакет". Можно использовать следующий шаг **Выполнить из командной строки** :  
+>  No caso de suportes de dados autónomos que incluem um passo Instalar Pacote, tem de criar o suporte de dados autónomo num site primário com o agente de distribuição de software ativado ou adicionar um passo **Executar Linha de Comandos** a seguir ao passo **Configurar Windows e ConfigMgr** e antes do primeiro passo **Instalar Pacote**. O passo **Executar Linha de Comandos** executa um comando WMIC para ativar o agente de distribuição de software antes da execução do primeiro passo Instalar Pacote. Pode utilizar o seguinte no passo da sequência de tarefas **Executar Linha de Comandos** :  
 >   
->  **Командная строка**: **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
+>  **Linha de comandos**: **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig caminho ccm_SoftwareDistributionClientConfig criar ComponentName = "Ativar SWDist", ativado = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0" SiteSettingsKey = "1" /NOINTERACTIVE**  
 >   
->  Дополнительные сведения о создании автономного носителя см. в разделе [Создание автономного носителя](../deploy-use/create-stand-alone-media.md).  
+>  Para obter mais informações sobre como criar suportes de dados autónomos, consulte [criar suportes de dados autónomos](../deploy-use/create-stand-alone-media.md).  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows.  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Установить один пакет программного обеспечения**  
- Этот параметр указывает пакет программного обеспечения Configuration Manager. Выполнение шага продолжится после завершения установки.  
+ **Instalar um único pacote de software**  
+ Esta definição especifica um pacote de software do Configuration Manager. O passo aguardará pela conclusão da instalação.  
 
- **Установить пакеты программного обеспечения в соответствии со списком динамических переменных**  
- Этот параметр определяет основное имя для набора переменных последовательности задач, задаваемых для коллекции или компьютера. Эти переменные указывают пакеты, которые будут установлены для данной коллекции или компьютера. Имя переменной состоит из общего базового имени и числового суффикса, начинающегося с 001. Значение каждой переменной должно содержать идентификатор пакета и имя программы, разделенные двоеточием.  
+ **Instalar pacotes de software, de acordo com a lista de variável dinâmicas**  
+ Esta definição especifica o nome base de um conjunto de variáveis de sequência de tarefas definidas para uma coleção ou um computador. Estas variáveis especificam os pacotes que serão instalados para essa coleção ou computador. Cada nome de variável é constituído pelo nome base comum e um sufixo numérico a partir de 001. O valor de cada variável tem de conter um ID de pacote e o nome do software separados por dois pontos.  
 
- Для программного обеспечения, которое требуется установить с использованием динамического списка переменных, на вкладке **Дополнительно** диалогового окна **Свойства** пакета необходимо включить следующий параметр: **Разрешить установку этой программы из последовательности задач "Установка пакета" без развертывания**.  
+ Para o software seja instalado utilizando uma lista de variáveis dinâmicas, a definição seguinte tem de estar ativada no **avançadas** separador do pacote **propriedades** caixa de diálogo: **Permitir que este programa ser instalado a partir da sequência de tarefas Instalar pacote sem ser implementada**  
 
 > [!NOTE]  
->  Установка программного обеспечения с помощью динамического списка переменных не поддерживается для развертываний с автономного носителя.  
+>  Não é possível instalar pacotes de software através de uma lista de variáveis dinâmicas em implementações de suportes de dados autónomos.  
 
- Например, чтобы установить отдельный программный пакет, используя переменную последовательности задач AA001, необходимо указать следующую переменную:  
+ Por exemplo, para instalar um único pacote de software através de uma variável de sequência de tarefas denominada AA001, tem de especificar a seguinte variável:  
 
-|Имя переменной|Значение переменной|  
+|Nome da Variável|Valor da Variável|  
 |-------------------|--------------------|  
 |AA001|CEN00054:Install|  
 
- Чтобы установить три пакета программного обеспечения, необходимо указать следующие переменные:  
+ Para instalar três pacotes de software, tem de especificar as seguintes variáveis:  
 
-|Имя переменной|Значение переменной|  
+|Nome da Variável|Valor da Variável|  
 |-------------------|--------------------|  
 |AA001|CEN00054:Install|  
 |AA002|CEN00107:Install Silent|  
 |AA003|CEN00031:Install|  
 
- На устанавливаемые компоненты будут влиять следующие условия:  
+ As seguintes condições afetarão o que é instalado:  
 
--   Если значение переменной не создано, имеет неправильный формат или не указывает действительный идентификатор и имя приложения, установка ПО завершится ошибкой.  
+-   Se o valor de uma variável não for criado no formato correto ou não especificar um ID e um nome de aplicação válidos, a instalação do software falhará.  
 
--   Если идентификатор пакета содержит символы нижнего регистра, установка ПО завершится ошибкой.  
+-   Se o ID do pacote incluir carateres minúsculos, a instalação desse software falhará.  
 
--   Если переменных с указанным базовым именем и суффиксом "001" не найдено, никакие пакеты не устанавливаются и последовательность задач продолжает работу.  
+-   Se não for encontrada nenhuma variável com o nome base especificado nem o sufixo "001", não é instalado nenhum pacote e a sequência de tarefas continuará.  
 
- **Если не удастся установить программный пакет, продолжить установку других пакетов в списке**  
- Этот параметр указывает, что шаг продолжает работу, если установка отдельного пакета ПО завершается ошибкой. Если указан этот параметр, последовательность задач продолжит выполнение вне зависимости от каких-либо возвращенных ошибок установки. Если этот параметр не указан и установка завершается ошибкой, то шаг последовательности задач завершается немедленно.  
+ **Se a instalação de um pacote de software falhar, continue a instalar outros pacotes na lista**  
+ Esta definição especifica que o passo continuará se a instalação de um pacote de software individual falhar. Se esta definição for especificada, a sequência de tarefas continuará independentemente de quaisquer erros de instalação devolvidos. Se não for especificada, a instalação falhará e a sequência de tarefas terminará de imediato.  
 
-##  <a name="BKMK_InstallSoftwareUpdates"></a> Установить обновления программного обеспечения  
- Используйте шаг последовательности задач **Установить обновления программного обеспечения** , чтобы установить на конечный компьютер обновления программного обеспечения. Конечный компьютер не оценивается на наличие применимых обновлений программного обеспечения, пока не будет запущен этот шаг последовательности задач. В это время конечный компьютер оценивается на наличие обновлений ПО как и любой другой клиент, управляемый Configuration Manager. В частности, этот шаг устанавливает только те обновления программного обеспечения, которые предназначены для коллекций, в которые компьютер входит в настоящее время.  
+##  <a name="BKMK_InstallSoftwareUpdates"></a>Instalar atualizações de Software  
+ Utilize o passo de sequência de tarefas **Instalar Atualizações de Software** para instalar atualizações de software no computador de destino. O computador de destino não é avaliado relativamente a atualizações de software aplicáveis até ser executado este passo de sequência de tarefas. Nessa altura, o computador de destino é avaliado relativamente a atualizações de software como qualquer outro cliente gerido pelo Configuration Manager. Em particular, este passo instala apenas as atualizações de software direcionadas para coleções das quais o computador é atualmente membro.  
 >  [!IMPORTANT]
->Мы настоятельно рекомендуем устанавливать последнюю версию агента обновления Windows. Он обеспечивает более высокую производительность по сравнению с последовательностью задач "Установка обновлений программного обеспечения".
->* Для Windows 7 см. [статью базы знаний 3161647](https://support.microsoft.com/kb/3161647).
->* Для Windows 8 см. [статью базы знаний 3163023](https://support.microsoft.com/kb/3163023).
+>Recomendamos vivamente que instale a versão mais recente do Windows Update Agent para um melhor desempenho ao utilizar o passo de sequência de tarefas instalar atualizações de Software.
+>* Para Windows 7, veja o [Artigo da Base de dados de conhecimento 3161647](https://support.microsoft.com/kb/3161647).
+>* Para Windows 8, veja o [Artigo da Base de dados de conhecimento 3163023](https://support.microsoft.com/kb/3163023).
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Установить обновления программного обеспечения"](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates).
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Instalar Atualizações de Software](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates).
 
  > [!NOTE]
- > Встроенные переменные SMSTSMPListRequestTimeoutEnabled и SMSTSMPListRequestTimeout можно использовать для включения последовательности задач и указания времени ожидания в миллисекундах перед повторной попыткой установки приложения или обновления ПО после сбоя при получении списка точек управления из служб определения местоположения. Дополнительные сведения см. в разделе [Встроенные переменные последовательности задач](task-sequence-built-in-variables.md).
+ > Pode utilizar o SMSTSMPListRequestTimeoutEnabled e lista de pontos de variáveis incorporadas de SMSTSMPListRequestTimeout para ativar e especificar quantos milissegundos uma sequência de tarefas aguarda antes de tentar para instalar uma aplicação ou software da atualização após a falha ao obter a gestão dos serviços de localização. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
 
 > [!NOTE]
->На вкладке "Параметры" вы можете задать для этой последовательности задач повторное выполнение в случае неожиданной перезагрузки компьютера. Например, при установке обновления, выполняющего автоматическую перезагрузку компьютера. В Configuration Manager 1602 и более поздних версиях можно настроить переменную SMSTSWaitForSecondReboot, чтобы указать продолжительность (в секундах) приостановки последовательности задач после перезагрузки компьютера при установке обновлений программного обеспечения. Дополнительные сведения см. в разделе [Встроенные переменные последовательности задач](task-sequence-built-in-variables.md).
+>No separador de opções, pode configurar esta sequência de tarefas para repetir se o computador reiniciar inesperadamente. Por exemplo, a instalação de uma atualização de software que reinicia automaticamente o computador. A partir do Configuration Manager 1602, pode configurar a variável de SMSTSWaitForSecondReboot para especificar o período de tempo (em segundos) a sequência de tarefas deve colocar em pausa depois de reiniciar o computador ao instalar as atualizações de software. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Задайте повторение этого шага в случае, если компьютер неожиданно перезагружается. Можно также задать количество попыток повторения шага после перезагрузки.  
+-   especificar para repetir este passo se o computador reiniciar inesperadamente. Também pode especificar o número de vezes a repetir após o computador reiniciar.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Требуется для установки — только обязательные обновления программного обеспечения**  
- Выберите этот параметр, чтобы установить все обновления программного обеспечения, отмеченные в Configuration Manager как обязательные для конечных компьютеров, получающих последовательность задач. Обязательные обновления программного обеспечения имеют сроки установки, определенные администратором.  
+ **Necessário para instalação - apenas atualizações de software obrigatórias**  
+ Selecione esta opção para instalar todas as atualizações de software sinalizadas no Configuration Manager como obrigatórias para os computadores de destino que recebem a sequência de tarefas. As atualizações de software obrigatórias têm prazos de instalação definidos pelo administrador.  
 
- **Доступно для установки — все обновления программного обеспечения**  
- Выберите этот параметр, чтобы установить все доступные обновления программного обеспечения, предназначенные для коллекции Configuration Manager, получающей последовательность задач. Все доступные обновления программного обеспечения будут установлены на конечные компьютеры.  
+ **Disponível para instalação - todas as atualizações de software**  
+ Selecione esta opção para instalar todas as atualizações de software disponível direcionadas para a coleção do Configuration Manager que receberá a sequência de tarefas. Todas as atualizações de software disponíveis serão instaladas nos computadores de destino.  
 
- **Оценка обновлений программного обеспечения на основе кэшированных результатов проверки**  
-Начиная с версии Configuration Manager 1606, у вас есть возможность выполнять полную проверку на наличие обновлений программного обеспечения вместо использования кэшированных результатов проверки. По умолчанию последовательность задач использует кэшированные результаты. Можно снять этот флажок, чтобы клиент подключался к точке обновления программного обеспечения для обработки и загрузки каталога последних обновлений программного обеспечения. Этот параметр может быть удобным при использовании последовательности задач для [снятия и создания образа операционной системы](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), когда вам известно о наличии большого числа обновлений программного обеспечения, особенно с зависимостями (требуется установить X, прежде чем Y будет отображаться как применимое). Если снять этот флажок и начать развертывание последовательности задач на большом числе клиентов, все они подключатся к точке обновления программного обеспечения одновременно. Это может привести к проблемам с производительностью во время обработки и загрузки каталога. В большинстве случаев рекомендуется использовать значение по умолчанию.
+ **Avaliar atualizações de software a partir dos resultados de análise em cache**  
+A partir do Configuration Manager versão 1606, terá a opção de realizar uma pesquisa completa de atualizações de software em vez de utilizar os resultados da análise em cache. Por predefinição, a sequência de tarefas utiliza resultados em cache. Pode desmarcar a caixa de verificação para que o cliente estabeleça ligação ao ponto de atualização de software para processar e transferir o catálogo de atualizações de software mais recente. Poderá escolher esta opção quando utiliza uma sequência de tarefas para [capturar e compilar uma imagem do sistema operativo](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), onde sabe que haverá um grande número de atualizações de software, especialmente muitas que têm dependências (necessidade de instalar X antes de Y irá aparecer como aplicável). Ao desmarcar esta definição e implementar a sequência de tarefas para um grande número de clientes, todos serão ligados ao ponto de atualização de software ao mesmo tempo. Isto poderá dar origem a problemas de desempenho durante o processo e a transferência do catálogo. Na maioria dos casos, recomendamos que utilize a predefinição.
 
-Новая переменная последовательности задач, SMSTSSoftwareUpdateScanTimeout, была представлена в версии Configuration Manager 1606, чтобы дать вам возможность управлять временем ожидания для проверки обновлений программного обеспечения во время шага последовательности задач "Установка программного обеспечения". Значение по умолчанию — 30 минут. Дополнительные сведения см. в разделе [Встроенные переменные последовательности задач](task-sequence-built-in-variables.md).
+Uma nova variável de sequência de tarefas, SMSTSSoftwareUpdateScanTimeout, foi introduzida no Configuration Manager versão 1606 para lhe dar a capacidade de controlar o tempo limite da pesquisa de atualizações de software durante o passo de sequência de tarefas Instalar atualizações de software. O valor predefinido é 30 minutos. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
 
 
-##  <a name="BKMK_JoinDomainorWorkgroup"></a> Присоединить к домену или рабочей группе  
- Используйте шаг последовательности задач **Присоединить к домену или рабочей группе** , чтобы добавить конечный компьютер в рабочую группу или домен.  
+##  <a name="BKMK_JoinDomainorWorkgroup"></a>Associar domínio ou grupo de trabalho  
+ Utilize o passo de sequência de tarefas **Associar Domínio ou Grupo de Trabalho** para adicionar o computador de destino a um grupo de trabalho ou domínio.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Присоединить к домену или рабочей группе"](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup).  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Associar Domínio ou Grupo de Trabalho](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Присоединить к рабочей группе**  
- Выберите этот параметр, чтобы присоединить конечный компьютер к указанной рабочей группе. Если компьютер в настоящий момент является членом домена, выбор этого параметра вызовет перезагрузку компьютера.  
+ **Aderir a um grupo de trabalho**  
+ Selecione esta opção para associar o computador de destino ao grupo de trabalho especificado. Se o computador for atualmente membro de um domínio, a seleção desta opção causará o reinício do computador.  
 
- **Присоединить к домену**  
- Выберите этот параметр, чтобы присоединить конечный компьютер к указанному домену.  
+ **Aderir a um domínio**  
+ Selecione esta opção para associar o computador de destino ao domínio especificado.  
 
- Дополнительно введите или найдите подразделение в заданном домене, к которому требуется присоединить компьютер. Если компьютер в настоящий момент является членом другого домена или рабочей группы, выбор этого параметра вызовет перезагрузку компьютера. Если компьютер уже является членом другого подразделения, служба каталогов Active Directory не позволит изменить подразделение и параметр будет проигнорирован.  
+ Opcionalmente, introduza ou procure uma unidade organizacional (UO) no domínio especificado para o computador ser associado. Se o computador for atualmente membro de outro domínio ou grupo de trabalho, isto causará o reinício do computador. Se o computador já for membro de outra UO, o Active Directory Domain Services não permite a alteração da UO e esta definição é ignorada.  
 
- **Укажите учетную запись, которая имеет разрешение на присоединение к домену**  
- Нажмите кнопку **Задать** , чтобы указать учетную запись и пароль, имеющую разрешение на присоединение к домену. Учетная запись должна вводиться в следующем формате:  
+ **Introduza a conta que tenha permissão para aderir ao domínio**  
+ Clique em **Definir** para introduzir uma conta e uma palavra-passe com permissões para ser associada ao domínio. A conta tem de ser introduzida no seguinte formato:  
 
- *домен\учетная запись*  
+ *Domínio \ conta*  
 
-## <a name="BKMK_PrepareConfigMgrClientforCapture"></a> Подготовка клиента Configuration Manager перед снятием образа  
-Используйте шаг **Подготовка клиента Configuration Manager перед снятием образа** для удаления клиента Configuration Manager или настройки клиента на компьютере-образце и подготовки его для записи образа.
+## <a name="BKMK_PrepareConfigMgrClientforCapture"></a>Preparar ConfigMgr Client para captura  
+Utilize o **preparar ConfigMgr Client para captura** passo para remover o cliente do Configuration Manager ou configurar o cliente no computador de referência para o preparar para captura como parte do processamento de imagens.
 
-Начиная с версии Configuration Manager 1610 на шаге "Подготовка клиента Configuration Manager" полностью удаляется клиент, а не только основные сведения. Когда последовательность задач развертывает записанный образ операционной системы, она каждый раз будет устанавливать новый клиент Configuration Manager.  
+A partir do Configuration Manager versão 1610, o passo de preparar ConfigMgr Client remove completamente o cliente do Configuration Manager, em vez de apenas remover informações de chave. Quando a sequência de tarefas, implementa a imagem do sistema operativo capturada, instalará um novo cliente de Configuration Manager cada vez.  
 
-До версии Configuration Manager 1610 этот шаг выполняет указанные ниже задачи.  
+Antes do Configuration Manager versão 1610, este passo efetua as seguintes tarefas:  
 
--   Удаление из файла smscfg.ini, находящегося в каталоге Windows, раздела свойств конфигурации. Эти свойства включают сведения, относящиеся к клиенту, включая идентификатор GUID Configuration Manager и другие идентификаторы клиента.  
+-   Remove a secção de propriedades de configuração do cliente do ficheiro smscfg.ini no diretório do Windows. Estas propriedades incluem informações específicas do cliente, incluindo o GUID de Configuration Manager e outros identificadores do cliente.  
 
--   Удаление всех сертификатов компьютеров SMS или Configuration Manager.  
+-   Elimina todos os certificados SMS ou o Configuration Manager da máquina.  
 
--   Удаление кэша клиента Configuration Manager.  
+-   Elimina a cache do cliente do Configuration Manager.  
 
--   Очистка назначенных переменных сайта для клиента Configuration Manager.  
+-   Limpa a variável de site atribuído do cliente do Configuration Manager.  
 
--   Удаление всех локальных политик Configuration Manager.  
+-   Elimina todas as política local do Configuration Manager.  
 
--   Удаление доверенного корневого ключа клиента Configuration Manager.  
+-   Remove a chave de raiz fidedigna para o cliente do Configuration Manager.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows.  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
-##  <a name="BKMK_PrepareWindowsforCapture"></a> Подготовка Windows перед снятием образа  
- Используйте шаг последовательности задач **Подготовка Windows перед снятием образа** , чтобы указать параметры Sysprep, используемые во время записи образа операционной системы на компьютере-образце. Этот действие последовательности задач выполняет программу Sysprep и затем перезагружает компьютер с помощью загрузочного образа Windows PE, определенного в последовательности задач. Чтобы это действие было выполнено успешно, компьютер-образец не должен входить в состав домена.  
+##  <a name="BKMK_PrepareWindowsforCapture"></a>Preparar Windows para captura  
+ Utilize o passo de sequência de tarefas **Preparar Windows para Captura** para especificar as opções do Sysprep a utilizar ao capturar uma imagem do sistema operativo no computador de referência. Esta ação de sequência de tarefas executa o Sysprep e, em seguida, reinicia o computador na imagem de arranque do Windows PE especificada para a sequência de tarefas. O computador de referência não deve ser associado a um domínio para que esta ação seja concluída com êxito.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Подготовка Windows перед снятием образа"](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture).  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Preparar Windows para Captura](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Автоматически создавать список драйверов запоминающих устройств**  
- Выберите этот параметр, чтобы программа Sysprep автоматически создавала список драйверов запоминающих устройств на компьютере-образце. Этот параметр включает параметр Build Mass Storage Drivers (добавить драйверы запоминающих устройств) в файле sysprep.inf на компьютере-образце. Дополнительные сведения об этом параметре см. в документации к программе Sysprep.  
+ **Compilar automaticamente a lista de controladores de armazenamento em massa**  
+ Selecione esta opção para o Sysprep compilar automaticamente uma lista de controladores de armazenamento em massa a partir do computador de referência. Esta opção ativa a opção Compilar Controladores de Armazenamento em Massa no ficheiro sysprep.inf no computador de referência. Para mais informações sobre esta definição, consulte a documentação do Sysprep.  
 
- **Не сбрасывать флаг активации**  
- Выберите этот параметр, чтобы запретить программе Sysprep сброс флага активации продукта.  
+ **Repor o sinalizador de ativação**  
+ Selecione esta opção para impedir o Sysprep de repor o sinalizador de ativação do produto.  
 
-##  <a name="BKMK_PreProvisionBitLocker"></a> Предварительная инициализация BitLocker  
- Используйте шаг последовательности задач **Предварительная инициализация BitLocker** для включения BitLocker на диске в Windows PE. Шифруется только используемое дисковое пространство, и таким образом шифрование выполняется гораздо быстрее. Параметры управления ключами применяются с помощью шага последовательности задач [Включить BitLocker](#BKMK_EnableBitLocker) после установки операционной системы. Этот шаг выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе.  
+##  <a name="BKMK_PreProvisionBitLocker"></a>Provisão prévia do BitLocker  
+ Utilize o passo de sequência de tarefas **Provisão prévia do BitLocker** para ativar o BitLocker numa unidade no Windows PE. Apenas o espaço de disco utilizado é encriptado e, portanto, os tempos de encriptação são muito mais rápidos. Aplique as opções de gestão de chaves utilizando o passo de sequência de tarefas [Ativar BitLocker](#BKMK_EnableBitLocker) após a instalação do sistema operativo. Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão.  
 
 > [!IMPORTANT]  
->  Для предварительной инициализации BitLocker вы должны развернуть операционную систему не ниже Windows 7, и на этом компьютере должен быть включен и поддерживаться доверенный платформенный модуль.  
+>  Para pré-aprovisionar o BitLocker, tem de implementar um sistema operativo mínimo do Windows 7 e o TPM tem de ser suportado e ativado no computador.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Укажите краткое определяемое пользователем имя, описывающее действие, которое выполняется на этом шаге.  
+ **Nome**  
+ Especifique um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Укажите подробные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Especifique informações detalhadas sobre a ação executada neste passo.  
 
- **Применить BitLocker к указанному диску**  
- Укажите диск, для которого хотите включить BitLocker. Шифруется только занятое место на диске.  
+ **Aplicar BitLocker ao drive especificado**  
+ Especifique a unidade para a qual pretende ativar o BitLocker. Apenas o espaço utilizado na unidade é encriptado.  
 
- **Пропустить этот шаг для компьютеров, на которых отсутствует или не включен доверенный платформенный модуль**  
- Выберите этот параметр, чтобы пропустить шифрование диска, если оборудование компьютера не поддерживает доверенный платформенный модуль, или если доверенный платформенный модуль не включен. Например, вы можете использовать этот параметр при развертывании операционной системы на виртуальной машине.  
+ **Ignore este passo em computadores que não têm TPM ou quando o TPM não está ativado**  
+ Selecione esta opção para ignorar a encriptação da unidade quando o hardware do computador não suportar o TPM ou quando o TPM não estiver ativado. Por exemplo, pode utilizar esta opção ao implementar um sistema operativo numa máquina virtual.  
 
-##  <a name="BKMK_ReleaseStateStore"></a> Освободить хранилище состояний  
- Используйте шаг последовательности задач **Освободить хранилище состояний** , чтобы уведомить точку миграции состояния о том, что действие записи или восстановления выполнено. Этот шаг используется совместно с шагами последовательности задач **Запросить хранилище состояний**, **Записать пользовательское состояние**и **Восстановить пользовательское состояние** , чтобы выполнить миграцию данных пользовательской среды с помощью точки миграции состояния и средства миграции пользовательской среды (USMT).  
+##  <a name="BKMK_ReleaseStateStore"></a>Disponibilizar armazenamento de Estados  
+ Utilize o passo de sequência de tarefas **Disponibilizar Armazenamento de Estados** para notificar o ponto de migração de estado de que a ação de captura ou restauro está concluída. Este passo é utilizado em conjunto com os passos de sequência de tarefas **Solicitar Armazenamento de Estados**, **Capturar Estado do Utilizador** e **Restaurar Estado do Utilizador** para migrar os dados de estado do utilizador com um ponto de migração de estado e o User State Migration Tool (USMT).  
 
- Дополнительные сведения об управлении состоянием пользователей при развертывании операционных систем см. в разделе [Управление пользовательской средой](../get-started/manage-user-state.md).  
+ Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Если вы запросили доступ к точке миграции состояния с целью записи пользовательского состояния в шаге последовательности задач **Запросить хранилище состояний**  , этот шаг уведомит точку миграции состояний о том, что процесс записи завершен и что данные пользовательского состояния доступны для восстановления. Точка миграции состояния задает разрешения на доступ к записанному состоянию таким образом, что к нему может получить доступ (в режиме только чтения) восстанавливаемый компьютер.  
+ Se tiver solicitado acesso a um ponto de migração de estado para capturar o estado do utilizador no passo de sequência de tarefas **Solicitar Armazenamento de Estados**, este passo notifica o ponto de migração de estado de que o processo de captura está concluído e de que os dados de estado do utilizador estão disponíveis para serem restaurados. O ponto de migração de estado define as permissões de controlo de acesso para o estado capturado, para que apenas possa ser acedido (como só de leitura) pelo computador de restauro.  
 
- Если запрошен доступ к точке миграции состояния для восстановления пользовательского состояния в шаге последовательности задач **Запросить хранилище состояний** , этот шаг последовательности задач уведомляет точку миграции состояний о том, что процесс восстановления завершен. В этот момент активируются параметры хранения, настроенные для точки миграции состояний.  
+ Se tiver solicitado acesso a um ponto de migração de estado para restaurar o estado do utilizador no passo de sequência de tarefas **Solicitar Armazenamento de Estados**, este passo notifica o ponto de migração de estado de que o processo de restauro está concluído. Nesta altura, são ativadas as definições de retenção que tiver configurado para o ponto de migração de estado.  
 
 > [!IMPORTANT]  
->  Рекомендуется настроить параметр **Продолжать при ошибке** для всех шагов последовательности задач между шагом **Запросить хранилище состояний** и шагом **Освободить хранилище состояний** , чтобы все действия последовательности задач **Запросить хранилище состояний** имели соответствующее действие **Освободить хранилище состояний** .  
+>  Uma melhor prática é definir **Continuar com o erro** em quaisquer passos de sequência de tarefas entre os passos **Solicitar Armazenamento de Estados** e **Disponibilizar Armazenamento de Estados**, para que todas as ações de sequência de tarefas **Solicitar Armazenamento de Estados** tenham uma ação de sequência de tarefas **Disponibilizar Armazenamento de Estados** correspondente.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Освободить хранилище состояний"](task-sequence-action-variables.md#BKMK_ReleaseStateStore).  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência Disponibilizar Armazenamento de Estados](task-sequence-action-variables.md#BKMK_ReleaseStateStore).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
-##  <a name="BKMK_RequestStateStore"></a> Запросить хранилище состояний  
- Используйте шаг последовательности задач **Запросить хранилище состояний** , чтобы запросить доступ к точке миграции состояния во время записи состояния из компьютера или восстановления состояния на компьютер.  
+##  <a name="BKMK_RequestStateStore"></a>Solicitar armazenamento de Estados  
+ Utilize o passo de sequência de tarefas **Solicitar Armazenamento de Estados** para solicitar acesso a um ponto de migração de estado ao capturar o estado de um computador ou ao restaurar o estado para um computador.  
 
- Дополнительные сведения об управлении состоянием пользователей при развертывании операционных систем см. в разделе [Управление пользовательской средой](../get-started/manage-user-state.md).  
+ Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Шаг последовательности задач **Запросить хранилище состояний** можно использовать совместно с шагами последовательности задач **Освободить хранилище состояний**, **Записать пользовательское состояние**и **Восстановить пользовательское состояние** , чтобы выполнить миграцию состояния компьютера с помощью точки миграции состояния и средства миграции пользовательской среды (USMT).  
+ Pode utilizar o passo de sequência de tarefas **Solicitar Armazenamento de Estados** em conjunto com os passos de sequência de tarefas **Disponibilizar Armazenamento de Estados**, **Capturar Estado do Utilizador** e **Restaurar Estado do Utilizador**, para migrar o estado do computador com um ponto de migração de estado e o User State Migration Tool (USMT).  
 
 > [!NOTE]  
->  Если вы только что настроили новую роль сайта точки миграции состояния (SMP), может потребоваться до одного часа, чтобы она стала доступна для хранилища пользовательских состояний. Чтобы определить доступность точки миграции состояния, можно настроить любой параметр точки миграции состояния для запуска обновления файла управления сайта.  
+>  Se tiver acabado de estabelecer uma nova função de sites do ponto de migração de estado (SMP), pode demorar até uma hora a estar disponível para armazenamento do estado do utilizador. Para agilizar a disponibilidade do SMP, pode ajustar qualquer definição de propriedade do ponto de migração de estado para acionar uma atualização do ficheiro de controlo do site.  
 
- Этот шаг последовательности задач выполняется в стандартной операционной системе и в Windows PE для автономного средства миграции пользовательской среды. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Запросить хранилище состояний"](task-sequence-action-variables.md#BKMK_RequestState).  
+ Este passo de sequência de tarefas é executado num sistema operativo padrão e no Windows PE para o USMT offline. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Solicitar Armazenamento de Estados](task-sequence-action-variables.md#BKMK_RequestState).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Захват состояния компьютера**  
- Выполняет поиск точки миграции состояния, которая удовлетворяет минимальным необходимым требованиям, настроенным в параметрах точки миграции состояния (максимальное число клиентов и минимальный объем дискового пространства), но это не гарантирует наличие достаточного пространства во время миграции состояния. Выбор этого параметра потребует доступа к точке миграции состояния с целью захвата состояния и параметров пользователя на компьютере.  
+ **Capturar estado do computador**  
+ Localiza um ponto de migração de estado que cumpre os requisitos mínimos, conforme configurado nas definições do ponto de migração de estado (número máximo de clientes e quantidade mínima de espaço livre em disco), mas não garante que esteja disponível espaço suficiente no momento da migração de estado. A seleção desta opção solicitará acesso ao ponto de migração de estado para capturar o estado e as definições de utilizador de um computador.  
 
- Если на сайте Configuration Manager включено несколько точек миграции состояний, этот шаг последовательности задач выполняет поиск точки миграции состояния, имеющей доступное пространство на диске, запрашивая в точке управления сайтом список точек миграции состояний и затем оценивая каждую, пока не найдет удовлетворяющую минимальным требованиям.  
+ Se o site do Configuration Manager tiver vários pontos de migração de estado ativados, este passo de sequência de tarefas localiza um ponto de migração de estado com espaço em disco disponível consultando o ponto de gestão do site para obter uma lista dos pontos de migração de estado e, em seguida, avaliando cada um até encontrar um que cumpra os requisitos mínimos.  
 
- **Восстановление состояния с другого компьютера**  
- Выберите этот параметр, чтобы запросить доступ к точке миграции состояния с целью восстановления ранее записанного состояния и параметров пользователя на целевом компьютере.  
+ **Restaurar estado a partir de outro computador**  
+ Selecione esta opção para solicitar acesso a um ponto de migração de estado para restaurar o estado e as definições de utilizador capturados anteriormente para um computador de destino.  
 
- Если сайт Configuration Manager имеет несколько точек миграции состояния, этот шаг последовательности задач выполняет поиск точки миграции состояния, содержащей состояние компьютера, сохраненное для целевого компьютера.  
+ Se o site do Configuration Manager tiver vários pontos de migração de estado, este passo de sequência de tarefas localiza o ponto de migração de estado que possui o estado do computador armazenado para o computador de destino.  
 
- **Число повторных попыток**  
- Число попыток, которое будет выполнять этот шаг последовательности задач для поиска подходящей точки миграции состояния перед тем, как выдать ошибку.  
+ **Número de tentativas**  
+ Número de vezes que este passo de sequência de tarefas tentará localizar um ponto de migração de estado adequado antes de falhar.  
 
- **Пауза между попытками (в секундах)**  
- Время в секундах, которое шаг последовательности задач ожидает между повторными попытками.  
+ **Intervalo de repetição (em segundos)**  
+ Período de tempo em segundos que o passo de sequência de tarefas aguarda entre as tentativas.  
 
- **Если учетной записи компьютера не удается подключиться к хранилищу состояний, использовать учетную запись сетевого доступа.**  
- Указывает, что для подключения к точке миграции состояния будут использоваться учетные данные сетевого доступа Configuration Manager, если клиент Configuration Manager не сможет получить доступ к хранилищу состояний SMP с использованием учетной записи компьютера. Этот вариант является менее защищенным, так как другие компьютеры могут использовать учетную запись сетевого доступа для доступа к сохраненному состоянию, однако его применение является обязательным, если конечный компьютер не присоединен к домену.  
+ **Se a conta de computador falhar a ligação ao armazenamento de Estados, utilize a conta de acesso de rede.**  
+ Especifica que as credenciais de conta de acesso de rede do Configuration Manager irão ser utilizadas para ligar ao ponto de migração de estado se o cliente do Configuration Manager não é possível aceder ao armazenamento de estado SMP com a conta de computador. Esta opção é menos segura porque outros computadores poderão utilizar a conta de acesso à rede para aceder ao estado armazenado, mas pode ser necessária se o computador de destino não estiver associado ao domínio.  
 
-##  <a name="BKMK_RestartComputer"></a> Перезагрузить компьютер  
- Используйте шаг последовательности задач **Перезагрузка компьютера** , чтобы перезагрузить компьютер, на котором выполняется последовательность задач. После перезагрузки компьютер автоматически перейдет к следующему шагу последовательности задач.  
+##  <a name="BKMK_RestartComputer"></a>Reiniciar computador  
+ Utilize o passo de sequência de tarefas **Reiniciar Computador** para reiniciar o computador que está a executar a sequência de tarefas. Após o reinício, o computador prosseguirá automaticamente para o passo seguinte na sequência de tarefas.  
 
- Этот шаг может быть выполнен либо в стандартной операционной системе, либо в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Перезагрузка компьютера"](task-sequence-action-variables.md#BKMK_RestartComputer).  
+ Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, consulte [reiniciar variáveis de ação de sequência de tarefas do computador](task-sequence-action-variables.md#BKMK_RestartComputer).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Образ загрузки, назначенный данной последовательности задач**  
- Выберите этот параметр для конечного компьютера, чтобы использовать образ загрузки, назначенный последовательности задач. Образ загрузки будет использоваться для выполнения следующих шагов последовательности, выполняемых в среде предустановки Windows.  
+ **A imagem de arranque atribuída a esta sequência de tarefas**  
+ Selecione esta opção para o computador de destino utilizar a imagem de arranque atribuída à sequência de tarefas. A imagem de arranque será utilizada para executar passos de sequência de tarefas subsequentes executados no Windows PE.  
 
- **Установленная по умолчанию операционная система**  
- Выберите этот параметр для перезагрузки конечного компьютера с использованием установленной операционной системы.  
+ **O sistema operativo predefinido atualmente instalado**  
+ Selecione esta opção para o computador de destino ser reiniciado no sistema operativo instalado.  
 
- **Уведомлять пользователя перед перезагрузкой**  
- Выберите этот параметр, чтобы отображать уведомления пользователю о перезагрузке компьютера. Этот параметр установлен по умолчанию.  
+ **Notificar o utilizador antes de reiniciar**  
+ Selecione esta opção para apresentar uma notificação ao utilizador a informar que o computador de destino será reiniciado. Esta opção está selecionada por predefinição.  
 
- **Сообщение уведомления**  
- Введите сообщение уведомления, отображаемое пользователю перед перезагрузкой конечного компьютера.  
+ **Mensagem de notificação**  
+ Introduza uma mensagem de notificação que será apresentada ao utilizador antes de o computador de destino ser reiniciado.  
 
- **Время ожидания при отображении сообщений**  
- Укажите врем в секундах, которое будет предоставлено пользователю перед перезагрузкой конечного компьютера. Период по умолчанию — 60 секунд.  
+ **Tempo limite de visualização da mensagem**  
+ Especifique o período de tempo em segundos concedido a um utilizador antes de o computador de destino ser reiniciado. O período de tempo predefinido é sessenta (60) segundos.  
 
-##  <a name="BKMK_RestoreUserState"></a> Восстановить пользовательское состояние  
- Используйте шаг последовательности задач **Восстановить пользовательское состояние** , чтобы инициировать средство миграции пользовательской среды (USMT) для восстановления состояния пользователя и параметров на конечном компьютере. Этот шаг последовательности задач используется в сочетании с шагом **Записать пользовательское состояние** последовательности задач.  
+##  <a name="BKMK_RestoreUserState"></a>Restaurar estado do utilizador  
+ Utilize o passo de sequência de tarefas **Restaurar Estado do Utilizador** para iniciar o User State Migration Tool (USMT) para restaurar o estado e as definições de utilizador para o computador de destino. Este passo de sequência de tarefas é utilizado em conjunto com o passo de sequência de tarefas **Capturar Estado do Utilizador**.  
 
- Дополнительные сведения об управлении состоянием пользователей при развертывании операционных систем см. в разделе [Управление пользовательской средой](../get-started/manage-user-state.md).  
+ Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Шаг последовательности задач **Восстановить пользовательское состояние** также можно использовать вместе с шагами **Запросить хранилище состояний** и **Освободить хранилище состояний**, если требуется сохранить параметры состояния в точке миграции состояния сайта Configuration Manager или восстановить их из этой точки. При использовании средства USMT 3.0 и более поздних версий всегда выполняется расшифровка хранилища состояний USMT с помощью ключа шифрования, созданного и управляемого Configuration Manager.  
+ Também pode utilizar o **restaurar estado do utilizador** passo de sequência de tarefas com o **solicitar armazenamento de Estados** e **disponibilizar armazenamento de Estados** passos de sequência de tarefas se pretender guardar as definições de estado ou restaurar definições a partir de uma migração de estado para o ponto no site do Configuration Manager. Com o USMT 3.0 e superior, esta opção desencripta sempre o armazenamento de Estados do USMT através de uma chave de encriptação gerada e gerida pelo Configuration Manager.  
 
- Шаг **Восстановить пользовательское состояние** последовательности задач позволяет управлять ограниченным набором наиболее широко используемых параметров USMT. С помощью переменной OSDMigrateAdditionalRestoreOptions последовательности задач можно указать дополнительные параметры командной строки.  
+ O passo de sequência de tarefas **Restaurar Estado do Utilizador** fornece controlo sobre um subconjunto limitado das opções mais utilizadas pelo USMT. Podem ser especificadas opções da linha de comandos adicionais através da variável de sequência de tarefas OSDMigrateAdditionalRestoreOptions.  
 
 > [!IMPORTANT]  
->  Если шаг **Восстановить пользовательское состояние** последовательности задач используется для цели, не связанной со сценарием развертывания, добавьте шаг [Перезагрузка компьютера](#BKMK_RestartComputer) сразу после шага **Восстановить пользовательское состояние** последовательности задач.  
+>  Se estiver a utilizar o passo de sequência de tarefas **Restaurar Estado do Utilizador** para um objetivo não relacionado com um cenário de implementação de sistema operativo, adicione o passo de sequência de tarefas [Reiniciar Computador](#BKMK_RestartComputer) imediatamente a seguir ao passo de sequência de tarefas **Restaurar Estado do Utilizador**.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Восстановить пользовательское состояние"](task-sequence-action-variables.md#BKMK_RestoreUserState).  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Restaurar Estado do Utilizador](task-sequence-action-variables.md#BKMK_RestoreUserState).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется на этом шаге.  
+ **Nome**  
+ Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Содержит дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Especifica informações mais detalhadas sobre a ação executada neste passo.  
 
- **Пакет средств миграции пользовательской среды**  
- Укажите пакет Configuration Manager, содержащий версию USMT, которая будет использоваться в этом шаге при восстановлении состояния и параметров пользователя. Для этого пакета не требуется программа. При выполнении шага последовательности задач используется версия USMT в указанном пакете. Укажите пакет, содержащий 32-разрядную или 64-разрядную версию USMT, в зависимости от архитектуры операционной системы, в которую восстанавливается состояние.  
+ **Pacote de ferramenta de migração de estado de utilizador**  
+ Introduza o pacote de Configuration Manager que contém a versão do USMT para este passo a utilizar ao restaurar o estado do utilizador e as definições. Este pacote não requer um programa. Quando o passo de sequência de tarefas for executado, a sequência de tarefas utilizará a versão do USMT no pacote especificado. Especifique um pacote com a versão de 32 bits ou x64 do USMT, consoante a arquitetura do sistema operativo para o qual está a restaurar o estado.  
 
- **Восстановление всех записанных профилей пользователей со стандартными параметрами**  
- Восстановление записанных профилей пользователей со стандартными параметрами. Чтобы указать параметры, которые должны быть восстановлены, выберите **Настройка записи профиля пользователя**.  
+ **Restaurar todos os perfis de utilizador capturados com opções padrão**  
+ Restaura todos os perfis de utilizador capturados com as opções padrão. Para personalizar as opções que serão restauradas, selecione **Personalizar captura de perfil do utilizador**.  
 
- **Настройка способа восстановления профилей пользователей**  
- Позволяет указывать файлы, которые вы хотите восстановить на целевом компьютере. Выберите **Файлы** , чтобы указать файлы конфигурации в пакете USMT, который будет использоваться для восстановления профилей пользователей. Чтобы добавить файл конфигурации, введите имя файла в поле **Имя файла** и нажмите кнопку **Добавить**. Файлы конфигурации, которые будут использоваться для выполнения операции, перечислены на панели "Файлы". Указанный XML-файл определяет, какой файл пользователя будет восстановлен.  
+ **Personalizar como os perfis de utilizador são restaurados**  
+ Permite personalizar os ficheiros que pretende restaurar para o computador de destino. Clique em **Ficheiros** para especificar os ficheiros de configuração no pacote do USMT que pretende utilizar para restaurar os perfis de utilizador. Para adicionar um ficheiro de configuração, introduza o nome do ficheiro na caixa **Nome do ficheiro** e clique em **Adicionar**. Os ficheiros de configuração que serão utilizados para a operação estão listados no painel Ficheiros. O ficheiro .xml especificado define o ficheiro de utilizador que será restaurado.  
 
- **Восстановить профили локальных пользователей компьютера**  
- Восстанавливает профили пользователей локального компьютера (т. е. не пользователей домена). Вам потребуется назначить новые пароли восстановленным учетным записям локальных пользователей, так как перенос паролей исходных учетных записей невозможен. Введите новый пароль в поле **Пароль** и подтвердите пароль в поле **Подтверждение пароля** .  
+ **Restaurar perfis de utilizador do computador local**  
+ Restaura os perfis de utilizador do computador local (e não perfis de utilizador do domínio). Terá de atribuir novas palavras-passe para as contas de utilizador locais restauradas, porque as palavras-passe das contas de utilizador locais originais não podem ser migradas. Introduza a nova palavra-passe na caixa **Palavra-passe** e confirme-a na caixa **Confirmar Palavra-passe**.  
 
- **Продолжить операцию при невозможности восстановления некоторых файлов**  
- Продолжает восстановление состояния и параметров пользователей при невозможности восстановления некоторых файлов. Этот параметр по умолчанию включен. Если этот параметр отключен, и во время восстановления файлов возникают ошибки, шаг последовательности задач будет немедленно завершен со сбоем, и при этом будут восстановлены не все файлы.  
+ **Continuar se não não possível restaurar alguns ficheiros**  
+ Continua o restauro do estado e das definições de utilizador, mesmo se não for possível restaurar alguns ficheiros. Por predefinição, esta opção encontra-se ativada. Se desativar esta opção e forem encontrados erros ao restaurar ficheiros, o passo de sequência de tarefas terminará de imediato com uma falha e nem todos os ficheiros serão restaurados.  
 
- **Включить подробное ведение журнала**  
- Включите этот параметр, чтобы сформировать более подробные сведения о файле журнала. При восстановлении состояния создается файл Loadstate.log, который по умолчанию сохраняется в папке журнала последовательности задач папки \windows\system32\ccm\logs.  
+ **Ativar o registo verboso**  
+ Ative esta opção para gerar informações de ficheiros de registo mais detalhadas. Ao restaurar o estado, o registo Loadstate.log é gerado e armazenado por predefinição na pasta de registo da sequência de tarefas na pasta \windows\system32\ccm\logs.  
 
-##  <a name="BKMK_RunCommandLine"></a> Выполнить из командной строки  
- Используйте шаг последовательности задач **Выполнить из командной строки** , чтобы выполнить указанную командную строку.  
+##  <a name="BKMK_RunCommandLine"></a>Executar linha de comandos  
+ Utilize o passo de sequência de tarefas **Executar Linha de Comandos** para executar uma linha de comandos especificada.  
 
- Этот шаг может быть выполнен либо в стандартной операционной системе, либо в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Выполнить из командной строки"](task-sequence-action-variables.md#BKMK_RunCommand).  
+ Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Executar Linha de Comandos](task-sequence-action-variables.md#BKMK_RunCommand).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает короткое определяемое пользователем имя, описывающее выполняемую командную строку.  
+ **Nome**  
+ Especifica um nome abreviado definido pelo utilizador que descreve a linha de comandos que é executada.  
 
- **Описание**  
- Указывает более детальные сведения о выполняемой командной строке.  
+ **Descrição**  
+ Especifica informações mais detalhadas sobre a linha de comandos que é executada.  
 
- **Командная строка**  
- Задает командную строку, которая будет выполняться. Это обязательное поле. Рекомендуется указывать расширения имен файлов, например VBS и EXE. Включите все требуемые файлы параметров, параметры командной строки и ключи.  
+ **Linha de comandos**  
+ Especifica a linha de comandos que é executada. Este campo é obrigatório. As extensões de nome de ficheiro, incluindo são uma melhor prática, por exemplo,. vbs e .exe. Inclua todos os ficheiros de definições necessários, opções da linha de comandos ou parâmetros.  
 
- Если в имени файла не указано расширение, Configuration Manager пытается использовать расширения COM, EXE и BAT. Если имя файла имеет расширение, не являющееся исполняемым, Configuration Manager пытается использовать локальную ассоциацию. Например, если в командной строке указано имя файла readme.gif, то Configuration Manager запускает приложение, связанное на компьютере назначения с файлами, имеющими расширение GIF.  
+ Se o nome de ficheiro não tiver uma extensão de nome de ficheiro especificado, o Configuration Manager tenta empresa>.com, .exe, e. bat. Se o nome do ficheiro tem uma extensão que não seja um executável, o Configuration Manager tenta aplicar uma associação local. Por exemplo, se a linha de comandos for readme.gif, o Configuration Manager inicia a aplicação especificada no computador de destino para abrir ficheiros GIF.  
 
- Примеры:  
+ Exemplos:  
 
- **setup.exe /a**  
+ **Setup.exe /a**  
 
- **cmd.exe /c copy Jan98.dat c:\sales\Jan98.dat**  
+ **cmd.exe /c cópia Jan98.dat c:\sales\Jan98.dat**  
 
 > [!NOTE]  
->  Действия командной строки, такие как перенаправление выходных данных, туннелирование или копирование (в примере выше), для успешного выполнения должны указываться после команды **cmd.exe /c**.  
+>  Ações da linha de comandos, como redirecionamento de saída, encaminhamento ou cópia, como no exemplo anterior, tem de ser precedidas pelo **cmd.exe /c** comando a executar com êxito.  
 
- **Отключить перенаправление в 64-разрядной файловой системе**  
- По умолчанию при использовании 64-разрядной операционной системы исполняемый файл в командной строке размещается и выполняется при помощи перенаправителя файловой системы WOW64. Таким образом происходит обнаружение 32-разрядных версий исполняемых файлов операционной системы и библиотек DLL.  При выборе этого варианта отключается использование перенаправителя файловой системы WOW64, и в результате будут обнаруживаться собственные 64-разрядные версии исполняемых файлов операционной системы и библиотек DLL.  Выбор этого варианта не имеет значения при использовании 32-разрядной операционной системы.  
+ **Desativar redirecionamento de sistema de ficheiros de 64 bits**  
+ Por predefinição, numa execução num sistema operativo de 64 bits, o executável na linha de comandos está localizado e é executado com o redirecionador do sistema de ficheiros WOW64, para que sejam encontradas as versões de 32 bits dos executáveis e DLLs do sistema operativo.  A seleção desta opção desativa a utilização do redirecionador do sistema de ficheiros WOW64, para que sejam encontradas as versões de 64 bits nativas dos executáveis e DLLs do sistema operativo.  A seleção desta opção não tem efeito numa execução num sistema operativo de 32 bits.  
 
- **Рабочая папка**  
- Указывает папку с исполняемым файлом программы, не более 127 символов. Эта папка может быть абсолютным путем на компьютере назначения или относительным путем к папке в точке распространения, содержащей пакет. Это поле является необязательным.  
+ **Iniciar**  
+ Especifica a pasta executável do programa, até 127 carateres. Esta pasta pode ser um caminho absoluto no computador de destino ou um caminho relativo para a pasta do ponto de distribuição que contém o pacote. Este campo é opcional.  
 
- Примеры:  
+ Exemplos:  
 
- **c:\officexp**  
+ **c:\OfficeXP**  
 
  **i386**  
 
 > [!NOTE]  
->  Кнопка **Обзор** позволяет находить файлы и папки на локальном компьютере, поэтому все выбираемые таким образом элементы должны также присутствовать на компьютере назначения в том же месте и с такими же именами файлов и папок.  
+>  O botão **Procurar** procura ficheiros e pastas no computador local, pelo que tudo o que selecionar desta forma também tem de existir no computador de destino na mesma localização e com os mesmos nomes de ficheiros e pastas.  
 
- **Пакет**  
- При указании в командной строке файлов или программ, которых еще нет на целевом компьютере, выберите этот параметр, чтобы задать пакет Configuration Manager, содержащий соответствующие файлы. Для этого пакета не требуется программа. Этот параметр не требуется, если указанные файлы имеются на целевом компьютере.  
+ **Pacote**  
+ Ao especificar ficheiros ou programas na linha de comandos que já não estão presentes no computador de destino, selecione esta opção para especificar o pacote de Configuration Manager que contém os ficheiros adequados. O pacote não requer um programa. Esta opção não é necessária se os ficheiros especificados existirem no computador de destino.  
 
- **Время ожидания**  
- Определяет время, в течение которого Configuration Manager разрешает выполнение командной строки. Это значение может составлять от 1 до 999 минут. Значение по умолчанию — 15 минут.  
+ **Tempo limite**  
+ Especifica um valor que representa o período de retenção do Configuration Manager irá permitir que a linha de comandos executar. Este valor pode ser de 1 minuto a 999 minutos. O valor predefinido é 15 minutos.  
 
- Этот параметр отключен по умолчанию.  
+ Esta opção está desativada por predefinição.  
 
 > [!IMPORTANT]  
->  Если указывается значение, не предусматривающее достаточно времени для успешного выполнения шага последовательности задач "Выполнить из командной строки", выполнение шага последовательности задач завершится неудачей, и может прерваться вся последовательность задач, в зависимости от других параметров управления. Если время ожидания истекает, Configuration Manager завершает процесс командной строки.  
+>  Se introduzir um valor que não permita tempo suficiente para o passo de sequência de tarefas Executar Linha de Comandos ser concluído com êxito, o passo de sequência de tarefas falhará e toda a sequência de tarefas poderá falhar, consoante as restantes definições de controlo. Se o tempo limite expirar, o Configuration Manager irá terminar o processo da linha de comandos.  
 
- **Выполнить этот шаг из следующей учетной записи**  
- Указывает, что командная строка должна выполняться из учетной записи пользователя Windows, а не через локальную системную учетную запись.  
+ **Executar este passo de como a seguinte conta**  
+ Especifica que a linha de comandos é executada como uma conta de utilizador do Windows em vez da conta de sistema local.  
 
 > [!NOTE]  
->  Если для этого шага указана другая учетная запись и он следует после установки операционной системы, эту учетную запись необходимо добавить на компьютер до того, как вы сможете выполнять простые сценарии или команды, а для более сложных программ, таких как MSI, должен быть восстановлен профиль для учетной записи пользователя Windows.  
+>  Quando especificar outra conta para este passo e ocorrer depois de um passo de instalação do sistema operativo, a conta tem de ser adicionada para o computador antes de poder executar scripts simples ou comandos e o perfil para a conta de utilizador do Windows tem de ser restaurados para executar programas mais complexos, como um MSI.  
 
- **Учетная запись**  
- Указывает учетную запись пользователя Windows для задачи командной строки в последовательности задач, выполняемой данным действием. Командная строка будет выполнена с разрешениями указанной учетной записи. Нажмите кнопку **Задать** для указания учетной записи локального пользователя или домена.  
+ **Conta**  
+ Especifica a conta de utilizador do Windows Run As para a tarefa da linha de comandos na sequência de tarefas a ser executada por esta ação. A linha de comandos será executada com as permissões da conta especificada. Clique em **Definir** para especificar a conta de utilizador local ou de domínio.  
 
 > [!IMPORTANT]  
->  Если действие последовательности задач **Выполнить из командной строки** с указанием учетной записи пользователя выполняется в среде предустановки Windows, оно завершится сбоем, так как среду предустановки Windows нельзя присоединить к домену. Ошибка будет занесена в файл журнала smsts.log.  
+>  Se uma ação de sequência de tarefas **Executar Linha de Comandos** que especifique uma conta de utilizador for executada no Windows PE, a ação falhará porque o Windows PE não pode ser associado a um domínio. A falha será registada no ficheiro smsts.log.  
 
-##  <a name="BKMK_RunPowerShellScript"></a> Запустить сценарий PowerShell  
- Для запуска указанного сценария PowerShell используйте шаг последовательности задач **Запуск сценария PowerShell** .  
+##  <a name="BKMK_RunPowerShellScript"></a>Executar Script do PowerShell  
+ Utilize o passo de sequência de tarefas **Executar Script do PowerShell** para executar um script do PowerShell especificado.  
 
- Этот шаг может быть выполнен либо в стандартной операционной системе, либо в среде предустановки Windows. Чтобы выполнить этот шаг в среде предустановки Windows, необходимо включить PowerShell в загрузочный образ. Можно включить Windows PowerShell (WinPE-PowerShell) на вкладке **Дополнительные компоненты** в свойствах загрузочного образа. Дополнительные сведения об изменении образа загрузки см. в разделе [Управление загрузочным образом](../get-started/manage-boot-images.md).  
+ Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para executar este passo no Windows PE, o PowerShell tem de estar ativado na imagem de arranque. Pode ativar o Windows PowerShell (WinPE-PowerShell) a partir do separador **Componentes Opcionais** nas propriedades da imagem de arranque. Para obter mais informações sobre como modificar uma imagem de arranque, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
 
 > [!NOTE]  
->  В операционных системах Windows Embedded PowerShell не включается по умолчанию.  
+>  Por predefinição, o PowerShell não está ativado nos sistemas operativos Windows Embedded.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает короткое определяемое пользователем имя, описывающее выполняемую командную строку.  
+ **Nome**  
+ Especifica um nome abreviado definido pelo utilizador que descreve a linha de comandos que é executada.  
 
- **Описание**  
- Указывает более детальные сведения о выполняемой командной строке.  
+ **Descrição**  
+ Especifica informações mais detalhadas sobre a linha de comandos que é executada.  
 
- **Пакет**  
- Укажите пакет Configuration Manager, содержащий сценарий PowerShell. Один пакет может содержать несколько сценариев PowerShell.  
+ **Pacote**  
+ Especifique o pacote de Configuration Manager que contém o script do PowerShell. Um pacote pode conter vários scripts do PowerShell.  
 
- **Имя сценария**  
- Задает имя сценария PowerShell для выполнения. Это обязательное поле.  
+ **Nome do script**  
+ Especifica o nome do script do PowerShell a executar. Este campo é obrigatório.  
 
- **Параметры**  
- Задает параметры для передачи в сценарий Windows PowerShell. Настройте параметры, как если бы вы добавляли их в сценарий Windows PowerShell из командной строки.  
-
-> [!IMPORTANT]  
->  Укажите параметры, используемые сценарием, а не для командной строки Windows PowerShell.  
->   
->  В следующем примере показаны допустимые параметры:  
->   
->  **-MyParameter1 MyValue1 -MyParameter2 MyValue2**  
->   
->  В следующем примере показаны недопустимые параметры. Элементы, выделенные жирным шрифтом, являются параметрами командной строки Windows PowerShell (-nologo и -executionpolicy unrestricted) и не используются сценарием.  
->   
->  **-nologo-executionpolicy unrestricted-File MyScript.ps1 -MyParameter1 MyValue1 -MyParameter2 MyValue2**  
-
- **Политика выполнения PowerShell**  
- Выбор политики выполнения PowerShell позволяет вам определить, какие сценарии Windows PowerShell (при их наличии) будет разрешено выполнять на компьютере. Выберите одну из следующих политик выполнения.  
-
--   **Все подписанные**: могут выполняться только сценарии, подписанные доверенным издателем.  
-
--   **Неопределенный**: политика выполнения не определена. .  
-
--   **Обход**: загружаются все файлы конфигурации и выполняются все сценарии. При запуске неподписанного сценария, который был загружен из Интернета, перед его выполнением будет запрашиваться ваше разрешение.  
+ **Parâmetros**  
+ Especifica os parâmetros a transmitir ao script do Windows PowerShell. Configure os parâmetros como se estivesse a adicioná-los ao script do Windows PowerShell a partir de uma linha de comandos.  
 
 > [!IMPORTANT]  
->  PowerShell 1.0 не поддерживает политики выполнения Undefined и Bypass.  
+>  Forneça parâmetros consumidos pelo script e não para a linha de comandos do Windows PowerShell.  
+>   
+>  O exemplo seguinte contém parâmetros válidos:  
+>   
+>  **-MyParameter1 MyValue1-MyParameter2 MyValue2**  
+>   
+>  O exemplo seguinte contém parâmetros inválidos. Os itens a negrito são parâmetros da linha de comandos do Windows PowerShell (-nologo e - executionpolicy sem restrições) e não são consumidos pelo script.  
+>   
+>  **-nologo-executionpolicy sem restrições ficheiro MyScript.ps1-MyParameter1 MyValue1-MyParameter2 MyValue2**  
 
-##  <a name="BKMK_SetDynamicVariables"></a> Задать динамические переменные  
- Используйте шаг последовательности задач **Установка динамических переменных** , чтобы выполнить следующие действия.  
+ **Política de execução do PowerShell**  
+ A seleção da política de execução do PowerShell permite determinar quais os scripts do Windows PowerShell (se existirem) cuja execução será permitida no computador. Escolha uma das seguintes políticas de execução:  
 
-1.  Сбор сведений о компьютере и среде, в которой он находится, и установка переменных указанной последовательности задач с этими сведениями.  
+-   **AllSigned**: Apenas os scripts assinados por um fabricante fidedigno podem ser executados.  
 
-2.  Оценка заданных правил и установка переменных последовательности задач на основе переменных и значений, настроенных для правил, которые были оценены как истинные.  
+-   **Indefinido**: Está definida qualquer política de execução. .  
 
- Последовательность задач автоматически задает переменные следующей последовательности задач, доступные только для чтения.  
+-   **Ignorar**: Carrega todos os ficheiros de configuração e executa todos os scripts. Se executar um script não assinado transferido da Internet, não lhe é pedida permissão antes da execução.  
 
- -   &#95;SMSTSMake  
+> [!IMPORTANT]  
+>  O PowerShell 1.0 não suporta as políticas de execução Indefinido e Ignorar.  
 
- -   &#95;SMSTSModel  
+##  <a name="BKMK_SetDynamicVariables"></a>Definir variáveis dinâmicas  
+ Utilize o passo de sequência de tarefas **Definir Variáveis Dinâmicas** para fazer o seguinte:  
 
- -   &#95;SMSTSMacAddresses  
+1.  Recolher informações do computador e do ambiente em que está e, em seguida, definir variáveis de sequência de tarefas especificadas com as informações.  
 
- -   &#95;SMSTSIPAddresses  
+2.  Avaliar as regras definidas e definir variáveis de sequência de tarefas com base nas variáveis e nos valores configurados para as regras avaliadas como verdadeiras.  
 
- -   &#95;SMSTSSerialNumber  
+ A sequência de tarefas define automaticamente as seguintes variáveis de sequência de tarefas só de leitura:  
 
- -   &#95;SMSTSAssetTag  
+ -   &#95; SMSTSMake  
 
- -   &#95;SMSTSUUID  
+ -   &#95; SMSTSModel  
 
- Этот шаг может быть выполнен либо в стандартной операционной системе, либо в среде предустановки Windows. Дополнительные сведения о переменных последовательности задач см. в разделе [Переменные действия последовательности задач](task-sequence-action-variables.md).  
+ -   &#95; SMSTSMacAddresses  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+ -   &#95; SMSTSIPAddresses  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ -   &#95; SMSTSSerialNumber  
 
--   Отключить шаг.  
+ -   &#95; SMSTSAssetTag  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+ -   &#95; SMSTSUUID  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+ Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
 
-**Имя**  
- Короткое определенное пользователем имя для этого шага последовательности задач.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
-**Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
-**Динамические правила и переменные**  
- Чтобы задать динамическую переменную для использования в последовательности задач, добавьте правило, а затем укажите значение для каждой переменной, задаваемой для правила, или добавьте одну или несколько переменных для установки без добавления правила. При добавлении правила вы можете выбирать следующие категории правил.  
+-   Desativar o passo.  
 
- -   **Компьютер**: используйте эту категорию для оценки значений для тега актива, UUID, серийного номера или MAC-адреса. Можно задать несколько значений, и если какое-либо значение истинно, то правило будет оцениваться как истинное (true). Например, следующее правило оценивается как истинное, если серийный номер имеет значение 5892087, независимо от того, имеет ли MAC-адрес значение 26-78-13-5A-A4-22.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
+
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
+
+**Nome**  
+ Nome abreviado definido pelo utilizador para este passo de sequência de tarefas.  
+
+**Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
+
+**Regras e variáveis dinâmicas**  
+ Para definir uma variável dinâmica para utilizar na sequência de tarefas, pode adicionar uma regra e, em seguida, especificar um valor para cada variável especificada para a regra ou adicionar uma ou mais variáveis para definir sem adicionar uma regra. Ao adicionar uma regra, pode escolher de entre as seguintes categorias de regras:  
+
+ -   **Computador**: Utilize esta categoria de regra para avaliar os valores de etiqueta de recursos, UUID, número de série ou endereço mac. Pode definir vários valores e, se qualquer valor for verdadeiro, a regra avaliará como verdadeiro. Por exemplo, a regra seguinte avalia como verdadeiro se o Número de Série for 5892087, independentemente de o endereço MAC ser 26-78-13-5A-A4-22.  
 
      `IF Serial Number = 5892087 OR MAC address = 26-78-13-5A-A4-22 THEN`  
 
--   **Расположение**: используйте эту категорию для оценки значений для шлюза по умолчанию.  
+-   **Localização**: Utilize esta categoria de regra para avaliar os valores para o gateway predefinido.  
 
--   **Изготовитель и модель**: используйте эту категорию для оценки значений для марки и модели компьютера. Чтобы правило оценивалось как истинное, и марка, и модель должны оцениваться как истинные.   
+-   **Marca e modelo**: Utilize esta categoria de regra para avaliar os valores da marca e modelo de um computador. A marca e o modelo têm de avaliar como verdadeiro para a regra avaliar como verdadeiro.   
 
-    Начиная с версии Configuration Manager 1610 можно указывать звездочку (*****) и вопросительный знак (**?**) в качестве подстановочных знаков, где ***** соответствует нескольким символам, а **?** соответствует одиночному символу. Например, строка "DELL*900?" соответствует "DELL-ABC-9001" и "DELL9009".
+    A partir do Configuration Manager versão 1610, pode especificar um asterisco (*) e o ponto de interrogação (**?**) como os carateres universais, onde *** corresponde a vários carateres e **?** corresponde a um único caráter. Por exemplo, a cadeia "DELL * 900?" corresponderá DELL-ABC-9001 e DELL9009.
 
--   **Переменная последовательности задач**: используйте эту категорию правил для добавления переменной последовательности задач, условия и значения для оценки. Правило оценивается как истинное, если значение переменной удовлетворяет заданному условию.  
+-   **Variável de sequência de tarefas**: Utilize esta categoria de regra para adicionar uma variável de sequência de tarefas, condição e valor a avaliar. A regra avalia como verdadeiro quando o conjunto de valores da variável cumpre a condição especificada.  
 
-Можно указать одну или несколько переменных, которые будут задаваться для правила, имеющего значение true, или задать переменные без использования правила. Можно выбрать из существующих переменных или создать пользовательскую переменную.  
+Pode especificar uma ou mais variáveis que serão definidas para uma regra que avalia como verdadeiro ou definir variáveis sem utilizar uma regra. Pode selecionar de entre as variáveis existentes ou criar uma variável personalizada.  
 
- -   **Существующие переменные последовательности задач**: используйте этот параметр, чтобы выбрать одну или несколько переменных из списка существующих переменных последовательности задач. Переменные массива выбирать нельзя.  
+ -   **Variáveis de sequência de tarefas existente**: Utilize esta definição para selecionar uma ou mais variáveis a partir de uma lista de variáveis de sequência de tarefas existentes. As variáveis da matriz não estão disponíveis para seleção.  
 
- -   **Пользовательские переменные последовательности задач**: используйте этот параметр, чтобы задать пользовательскую переменную последовательности задач. Можно также указать существующую переменную последовательности задач. Это полезно для указания существующей переменной массива, такой как OSDAdapter, поскольку переменные массива не входят в список существующих переменных последовательности задач.  
+ -   **As variáveis de sequência de tarefas personalizada**: Utilize esta definição para definir uma variável de sequência de tarefas personalizada. Também pode especificar uma variável de sequência de tarefas existente. Isto é útil para especificar uma matriz de variável existente, como OSDAdapter, uma vez que as matrizes de variáveis não estão na lista de variáveis de sequência de tarefas existentes.  
 
-После выбора переменных для правила вы должны предоставить значение для каждой переменной. Переменная устанавливается в указанное значение, если правило возвращает значение true. Для каждой переменной можно указать **секретное значение** , чтобы скрыть значение переменной. По умолчанию некоторые существующие переменные скрывают значения, например, переменная последовательности задач OSDCaptureAccountPassword.  
+Depois de selecionar as variáveis para uma regra, tem de fornecer um valor para cada variável. A variável é definida para o valor especificado quando a regra avalia como verdadeiro. Para cada variável, pode selecionar **Valor secreto** para ocultar o valor da variável. Por predefinição, algumas variáveis existentes ocultam valores, como a variável de sequência de tarefas OSDCaptureAccountPassword.  
 
 > [!IMPORTANT]  
->  Если вы импортируете последовательность задач с помощью шага "Установка динамических переменных", и для значения переменной выбрано **Секретное значение** , то при импорте последовательности задач значение переменной удаляется. В результате вы должны повторно ввести значение для этой динамической переменной после импорта последовательности задач.  
+>  Ao importar uma sequência de tarefas com o passo Definir Variáveis Dinâmicas e **Valor secreto** estiver selecionado para o valor da variável, o valor é removido quando importar a sequência de tarefas. Como resultado, tem de reintroduzir o valor para a variável dinâmica depois de importar a sequência de tarefas.  
 
-##  <a name="BKMK_SetTaskSequenceVariable"></a> Задать переменную последовательности задач  
-Используйте шаг последовательности задач **Задать переменную последовательности задач** , чтобы задать значение переменной, используемой с последовательностью задач.  
+##  <a name="BKMK_SetTaskSequenceVariable"></a>Definir variável da sequência de tarefas  
+Utilize o passo de sequência de tarefas **Definir Variável da Sequência de Tarefas** para definir o valor de uma variável utilizada com a sequência de tarefas.  
 
-Этот шаг может быть выполнен либо в стандартной операционной системе, либо в среде предустановки Windows. Переменные последовательности задач считываются действиями последовательности задач и определяют поведение этих действий. Дополнительные сведения о конкретных переменных последовательности задач см. в разделе [Переменные действия последовательности задач](task-sequence-action-variables.md).  
+Este passo pode ser executado num sistema operativo padrão ou no Windows PE. As variáveis de sequência de tarefas são lidas pelas ações de sequência de tarefas e especificam o comportamento dessas ações. Para obter mais informações sobre variáveis de sequência de tarefas específicas, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Короткое определенное пользователем имя для этого шага последовательности задач.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador para este passo de sequência de tarefas.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Переменная последовательности задач**  
- Определенное пользователем имя переменной последовательности задач.  
+ **Variável de sequência de tarefas**  
+ Nome definido pelo utilizador para a variável da sequência de tarefas.  
 
- **Значение**  
- Значение, связанное с переменной последовательности задач. Значением может быть другая переменная последовательности задач при использовании синтаксиса %<имя_переменной\>%.  
+ **Valor**  
+ Valor associado à variável da sequência de tarefas. O valor pode ser outra variável da sequência de tarefas na sintaxe %<varname\>%.  
 
-## <a name="hide-task-sequence-progress"></a>Скрытие хода выполнения последовательности задач
+## <a name="hide-task-sequence-progress"></a>Ocultar o progresso da sequência de tarefas
 <!-- 1354291 -->
-В выпуске 1706 вы получаете новую переменную, которая указывает, нужно ли демонстрировать пользователям ход выполнения последовательности задач. В последовательности задач с помощью шага **Задать переменную последовательности задач** укажите значение для переменной **TSDisableProgressUI**, чтобы скрыть или отобразить ход выполнения последовательности задач. Шаг задания переменной последовательности задач можно использовать в последовательности задач многократно, чтобы изменять значение переменной. Так вы сможете скрывать или отображать ход выполнения последовательности задач на разных этапах последовательности задач.
+Com o lançamento 1706, pode controlar quando o progresso da sequência de tarefas é apresentado aos utilizadores finais através da utilização de uma nova variável. Na sua sequência de tarefas, utilize o **definir variável da sequência de tarefas** passo para definir o valor para o **TSDisableProgressUI** variável para ocultar ou mostrar progresso da sequência de tarefas. Pode utilizar o passo Definir variável da sequência de tarefas múltiplas vezes numa sequência de tarefas para alterar o valor da variável. Isto permite-lhe ocultar ou mostrar progresso da sequência de tarefas nas secções diferentes da sequência de tarefas.
 
- - **Скрытие хода выполнения последовательности задач**  
-В редакторе последовательности задач, используйте шаг [Задать переменную последовательности задач](#BKMK_SetTaskSequenceVariable), чтобы присвоить переменной **TSDisableProgressUI** значение **True** и скрыть ход выполнения последовательности задач.
+ - **Para ocultar o progresso da sequência de tarefas**  
+No editor de sequência de tarefas, utilize o [definir variável da sequência de tarefas](#BKMK_SetTaskSequenceVariable) passo para definir o valor da **TSDisableProgressUI** variável à **verdadeiro** para ocultar o progresso da sequência de tarefas.
 
- - **Отображение хода выполнения последовательности задач**  
-В редакторе последовательности задач, используйте шаг [Задать переменную последовательности задач](#BKMK_SetTaskSequenceVariable), чтобы присвоить переменной **TSDisableProgressUI** значение **False** и отобразить ход выполнения последовательности задач.
+ - **Para apresentar o progresso da sequência de tarefas**  
+No editor de sequência de tarefas, utilize o [definir variável da sequência de tarefas](#BKMK_SetTaskSequenceVariable) passo para definir o valor da **TSDisableProgressUI** variável à **falso** para apresentar o progresso da sequência de tarefas.
 
-##  <a name="BKMK_SetupWindowsandConfigMgr"></a> Настройка Windows и Configuration Manager  
- Шаг последовательности задач **Настройка Windows и Configuration Manager** используется для перехода от среды предустановки Windows к новой операционной системе. Он является обязательным этапом любого развертывания операционной системы. В этом шаге выполняется установка клиента Configuration Manager в новой операционной системе и подготовка к продолжению выполнения последовательности задач в новой операционной системе.  
+##  <a name="BKMK_SetupWindowsandConfigMgr"></a>Configurar Windows e ConfigMgr  
+ Utilize o passo de sequência de tarefas **Configurar Windows e ConfigMgr** para fazer a transição do Windows PE para o novo sistema operativo. Este passo da sequência de tarefas é uma parte necessária de qualquer implementação do sistema operativo. Instala o cliente do Configuration Manager para o novo sistema operativo e prepara a sequência de tarefas continuar a execução no novo sistema operativo.  
 
- Этот шаг выполняется только в среде предустановки Windows. Он не работает в стандартной операционной системе. Дополнительные сведения о переменных последовательности задач для этого действия см. в разделе [Переменные действия последовательности задач "Настройка Windows и Configuration Manager"](task-sequence-action-variables.md#BKMK_SetupWindows).  
+ Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para mais informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, consulte [variáveis de ação da sequência de tarefas configurar Windows e ConfigMgr](task-sequence-action-variables.md#BKMK_SetupWindows).  
 
- Действие последовательности задач **Настройка Windows и Configuration Manager** заменяет переменные каталогов sysprep.inf или unattend.xml, такие как %WINDIR% и %ProgramFiles%, на каталог установки Windows PE X:\Windows. Переменные последовательности задач, заданные при помощи этих переменных среды, будут проигнорированы.  
+ O **configurar Windows e ConfigMgr** ação de sequência de tarefas substitui variáveis de diretório sysprep.inf ou unattend.xml, como % WINDIR % e % ProgramFiles %, pelo diretório de instalação do Windows PE X:\Windows. As variáveis de sequência de tarefas especificadas através destas variáveis de ambiente serão ignoradas.  
 
- Используйте этот шаг последовательности задач для выполнения указанных ниже действий.  
+ Utilize este passo de sequência de tarefas para executar as seguintes ações:  
 
-1.  Предварительные условия: Windows PE  
+1.  Preliminares: Windows PE  
 
-    1.  Замена переменных последовательности задач в файле unattend.xml.  
+    1.  Faz uma substituição de variável de sequência de tarefas no ficheiro unattend.xml.  
 
-    2.  Загрузка пакета, содержащего клиент Configuration Manager, и помещение этого пакета в развертываемый образ.  
+    2.  Transfere o pacote que contém o cliente do Configuration Manager e coloca-o na imagem implementada.  
 
-2.  Настройка Windows  
+2.  Configurar o Windows  
 
-    1.  Установка с использованием образа.  
+    1.  Instalação baseada em imagem.  
 
-        1.  Отключение клиента Configuration Manager в образе (то есть отключение автоматического запуска для службы клиента Configuration Manager).  
+        1.  Desativa o cliente do Configuration Manager na imagem (ou seja, desativa o início automático para o serviço de cliente do Configuration Manager).  
 
-        2.  Обновление реестра в развертываемом образе, чтобы развернутая операционная система загружалась с диска с той же буквой, что и на эталонном компьютере.  
+        2.  Atualiza o registo na imagem implementada para assegurar que o sistema operativo implementado começa pela mesma letra de unidade que tinha no computador de referência.  
 
-        3.  Перезапускает компьютер с использованием развернутой операционной системы.  
+        3.  Reinicia no sistema operativo implementado.  
 
-        4.  Запуск мини-установки Windows с использованием ранее указанного файла sysprep.inf или unattend.xml без какого-либо взаимодействия с пользователем. Примечание. Если в шаге последовательности задач **Применить параметры сети** указан домен, к которому следует присоединить компьютер, все необходимые для этого сведения будут содержаться в файле sysprep.inf или unattend.xml и программа мини-установки Windows присоединит компьютер к домену.  
+        4.  A mini-configuração do Windows é executada através do ficheiro sysprep.inf ou unattend.xml especificado anteriormente, que tem todas as interações do utilizador final suprimidas. Nota: Se **aplicar definições de rede** especificado para associar um domínio, em seguida, essas informações estão no ficheiro sysprep.inf ou unattend.xml e a mini-configuração do Windows efetua a associação ao domínio.  
 
-    2.  Установка с использованием файла Setup.exe.  Запускает Setup.exe для выполнения обычного процесса установки Windows:  
+    2.  Instalação baseada em Setup.exe.  Executa Setup.exe, que segue o processo de configuração normal do Windows:  
 
-        1.  Копирование на жесткий диск пакета установки операционной системы, указанного в предыдущем шаге последовательности задач **Применить операционную систему** .  
+        1.  Copia o pacote de instalação do sistema operativo especificado numa sequência de tarefas **Aplicar Sistema Operativo** anterior para o disco rígido.  
 
-        2.  Перезагружает компьютер с использованием развернутой операционной системы.  
+        2.  Reinicia no sistema operativo recentemente implementado.  
 
-        3.  Запуск мини-установки Windows с использованием ранее указанного файла sysprep.inf или unattend.xml без учета каких-либо параметров пользовательского интерфейса. Примечание. Если в шаге последовательности задач **Применить параметры сети** указан домен, к которому следует присоединить компьютер, все необходимые для этого сведения будут содержаться в файле sysprep.inf или unattend.xml и программа мини-установки Windows присоединит компьютер к домену.  
+        3.  A mini-configuração do Windows é executada através do ficheiro sysprep.inf ou unattend.xml especificado anteriormente, que tem todas as definições da interface de utilizador suprimidas. Nota: Se **aplicar definições de rede** especificado para associar um domínio, em seguida, essas informações estão no ficheiro sysprep.inf ou unattend.xml e a mini-configuração do Windows efetua a associação ao domínio.  
 
-3.  Настройка клиента Configuration Manager  
+3.  Configurar o cliente do Configuration Manager  
 
-    1.  После завершения мини-установки Windows выполнение последовательности задач будет продолжено с использованием setupcomplete.cmd.  
+    1.  Após a conclusão da miniconfiguração do Windows, a sequência de tarefas é retomada com o setupcomplete.cmd.  
 
-    2.  Включение или отключение учетной записи локального администратора в зависимости от параметра, выбранного в шаге **Применить параметры Windows** .  
+    2.  Ativa ou desativa a conta de administrador local com base na opção selecionada no passo **Aplicar Definições do Windows**.  
 
-    3.  Установка клиента Configuration Manager с использованием ранее загруженного пакета (1.b) и свойств установки, заданных в редакторе последовательности задач. Клиент устанавливается в "режиме инициализации", чтобы он не обрабатывал новые запросы политики, пока не завершится выполнение последовательности задач.  
+    3.  Instala o cliente do Configuration Manager, utilizando o pacote transferido anteriormente (1.b) e as propriedades de instalação especificadas no Editor de sequência de tarefas. O cliente é instalado no "modo de aprovisionamento" para impedi-lo de processar novos pedidos de políticas até a sequência de tarefas estar concluída.  
 
-    4.  Ожидание, пока клиент перейдет в рабочее состояние.  
+    4.  Aguarda até o cliente estar totalmente operacional.  
 
-    5.  Если компьютер работает в среде с включенной защитой доступа к сети, клиент проверяет наличие и выполняет установку всех необходимых обновлений, чтобы они были установлены до того, как будет продолжено выполнение последовательности задач.  
+    5.  Se o computador estiver a funcionar num ambiente com a Proteção de Acesso à Rede ativada, o cliente procura e instala todas as atualizações necessárias para que estas estejam presentes antes de a sequência de tarefas continuar a execução.  
 
-4.  Продолжение выполнения последовательности задач со следующего шага.  
+4.  A sequência de tarefas continua a ser executada através do passo seguinte.  
 
 > [!NOTE]  
->  При выполнении действия последовательности задач **Настройка Windows и Configuration Manager** на компьютерах с только что установленной операционной системой должна быть запущена групповая политика. Групповая политика применяется по завершении последовательности задач.  
+>  A ação de sequência de tarefas **Configurar Windows e ConfigMgr** é responsável pela execução da Política de Grupo no computador recentemente instalado. A Política de Grupo é aplicada após a conclusão da sequência de tarefas.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Не выбирайте этот вариант, если требуется продолжение выполнения последовательности задач при возникновении ошибки на этом шаге. При возникновении ошибки произойдет сбой последовательности задач независимо от того, выбран этот вариант или нет.  
+-   Não selecionar para que a sequência de tarefas continue se ocorrer um erro ao executar o passo. Se ocorrer um erro, a sequência de tarefas falhará independentemente de selecionar esta definição.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется на этом шаге.  
+ **Nome**  
+ Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Especifica informações adicionais sobre a ação executada neste passo.  
 
- **Пакет клиента**  
- Пакет установки клиента Configuration Manager, который будет использоваться в этом действии последовательности задач. Нажмите кнопку **Обзор** и выберите пакет, с помощью которого будет устанавливаться клиент Configuration Manager.  
+ **Pacote de cliente**  
+ Especifica o pacote de instalação de cliente do Configuration Manager que será utilizado por este passo de sequência de tarefas. Clique em **procurar** e selecione o pacote de instalação de cliente que pretende utilizar para instalar o cliente do Configuration Manager.  
 
- **Использовать пакет подготовительной версии клиента при наличии**  
- Указывает, что, если доступен пакет подготовительной версии клиента, данный шаг последовательности задач будет использовать этот пакет вместо пакета рабочей версии клиента. Обычно предварительная версия клиента — это более новая версия, тестируемая в рабочей среде. Нажмите кнопку **Обзор** и выберите пакет подготовительной версии клиента, с помощью которого будет устанавливаться клиент Configuration Manager.  
+ **Utilize o pacote de cliente de pré-produção quando disponível**  
+ Especifica que, se existir um pacote de cliente de pré-produção disponível, o passo de sequência de tarefas irá utilizar esse pacote em vez do pacote de cliente de produção. Normalmente, o cliente de pré-produção é uma versão mais recente que está a ser testada no ambiente de produção. Clique em **procurar** e selecione o pacote de instalação de cliente de pré-produção que pretende utilizar para instalar o cliente do Configuration Manager.  
 
- **Свойства установки**  
- Назначение сайта и конфигурация по умолчанию будут автоматически заданы действием последовательности задач. В этом поле можно указывать любые дополнительные свойства установки, которые будут выполняться при установке клиента. Чтобы ввести несколько свойств установки, разделите их пробелами.  
+ **Propriedades de instalação**  
+ A atribuição de sites e a configuração predefinida são especificadas automaticamente pela ação de sequência de tarefas. Pode utilizar este campo para especificar propriedades de instalação adicionais a utilizar quando instalar o cliente. Para introduzir várias propriedades de instalação, separe-as com um espaço.  
 
- Вы можете указать параметры командной строки для использования во время установки клиента. Например, вы можете ввести **/skipprereq: silverlight.exe** , чтобы указать CCMSetup.exe, что не следует устанавливать необходимый компонент Microsoft Silverlight. Дополнительные сведения о доступных параметрах командной строки для CCMSetup.exe см. в разделе [Сведения о свойствах установки клиента в System Center Configuration Manager](../../core/clients/deploy/about-client-installation-properties.md).  
+ Pode especificar opções da linha de comandos a utilizar durante a instalação do cliente. Por exemplo, pode introduzir **/skipprereq: silverlight.exe** para informar o ficheiro CCMSetup.exe para não instalar o pré-requisito Microsoft Silverlight. Para obter mais informações sobre as opções da linha de comandos disponíveis para CCMSetup.exe, consulte [acerca das propriedades de instalação de cliente](../../core/clients/deploy/about-client-installation-properties.md).  
 
-##  <a name="BKMK_UpgradeOS"></a> Обновление операционной системы  
- Используйте шаг последовательности задач **Обновить операционную систему** для обновления существующей операционной системы Windows 7, Windows 8, Windows 8.1 или Windows 10 до Windows 10.  
+##  <a name="BKMK_UpgradeOS"></a>Atualizar sistema operativo  
+ Utilize o passo de sequência de tarefas **Atualizar Sistema Operativo** para atualizar um sistema operativo Windows 7, Windows 8, Windows 8.1 ou Windows 10 existente para o Windows 10.  
 
- Этот шаг выполняется только в стандартной операционной системе. Он не работает в среде предустановки Windows.  
+ Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Подробные сведения  
- На вкладке **Свойства** этого шага можно настроить параметры, описанные в этой статье.  
+### <a name="details"></a>Detalhes  
+ No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
 
- Кроме того, на вкладке **Параметры** можно выполнить следующие действия.  
+ Além disso, utilize o separador **Opções** para executar as seguintes ações:  
 
--   Отключить шаг.  
+-   Desativar o passo.  
 
--   Укажите это действие в случае продолжения выполнения последовательности задач при возникновении ошибки в шаге.  
+-   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
 
--   Укажите условия, которые должны быть соблюдены для выполнения шага.  
+-   Especificar condições que têm de ser cumpridas para o passo ser executado.  
 
- **Имя**  
- Указывает краткое, определяемое пользователем имя, описывающее действие, которое выполняется в этом шаге.  
+ **Nome**  
+ Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
 
- **Описание**  
- Дополнительные сведения о действии, которое выполняется на этом шаге.  
+ **Descrição**  
+ Informações mais detalhadas sobre a ação executada neste passo.  
 
- **Пакет обновления**  
- Выберите этот параметр, чтобы указать пакет обновления операционной системы Windows 10, используемый для обновления.  
+ **Pacote de atualização**  
+ Selecione esta opção para especificar o pacote de atualização do sistema operativo Windows 10 para utilizar na atualização.  
 
- **Исходный путь**  
- Указывает локальный или сетевой путь к носителю Windows 10, который планируется использовать (соответствует параметру командной строки /installFrom). Кроме того, вы можете указать переменную, например %mycontentpath% или % DPC01%. Если для исходного пути используется переменная, ее необходимо указать ранее в последовательности задач. Например, если вы используете шаг [Скачать содержимое пакета](#BKMK_DownloadPackageContent) в последовательности задач, вы можете указать переменную для расположения пакета обновления операционной системы. Затем вы можете использовать эту переменную для исходного пути в этом шаге.  
+ **Caminho de origem**  
+ Especifica um caminho de rede ou local para o suporte de dados do Windows 10 que vai ser utilizado (corresponde à opção da linha de comandos /installFrom). Também pode especificar uma variável, tal como %caminhodomeuconteúdo% ou %DPC01%. Quando utilizar uma variável para o caminho de origem, esta tem de ter sido especificada anteriormente na sequência de tarefas. Por exemplo, se utilizar o passo [Transferir Conteúdo do Pacote](#BKMK_DownloadPackageContent) na sequência de tarefas, pode especificar uma variável para a localização do pacote de atualização do sistema operativo. Em seguida, pode utilizar essa variável para o caminho de origem deste passo.  
 
- **Выпуск**  
- Укажите выпуск на носителе операционной системы, используемый для обновления.  
+ **Edição**  
+ Especifique a edição no suporte de dados do sistema operativo a utilizar para a atualização.  
 
- **Ключ продукта**  
- Введите ключ продукта для применения в процессе обновления.  
+ **Chave de produto**  
+ Especifique a chave de produto a aplicar ao processo de atualização  
 
- **Укажите следующие драйверы для установщика Windows в ходе обновления**  
- Выберите этот параметр для добавления драйверов на конечный компьютер в ходе процесса обновления (соответствует параметру командной строки /InstallDriver). Драйверы должны быть совместимы с Windows 10. Выберите один из следующих вариантов.  
+ **Fornecer o seguinte conteúdo de controladores à configuração do Windows durante a atualização**  
+ Selecione esta definição para adicionar controladores ao computador de destino durante o processo de atualização (corresponde à opção da linha de comandos /InstallDriver). Os controladores têm de ser compatíveis com o Windows 10. Especifique uma das seguintes opções:  
 
--   **Пакет драйверов**: нажмите кнопку **Обзор** и выберите существующий пакет драйверов в списке.  
+-   **Pacote de controladores**: Clique em **procurar** e selecione um pacote de controladores existente na lista.  
 
--   **Промежуточное содержимое**: выберите этот параметр, чтобы указать расположение пакета драйверов. Вы можете указать локальную папку, сетевой путь или переменную последовательности задач. Если для исходного пути используется переменная, ее необходимо указать ранее в последовательности задач. Например, с помощью шага [Загрузить содержимое пакета](task-sequence-steps.md#BKMK_DownloadPackageContent).  
+-   **Conteúdo de teste**:  Selecione esta opção para especificar a localização para o pacote de controladores. Pode especificar uma pasta local, um caminho de rede ou uma variável de sequência de tarefas. Quando utilizar uma variável para o caminho de origem, esta tem de ter sido especificada anteriormente na sequência de tarefas. Por exemplo, utilizando o passo [Transferir Conteúdo do Pacote](task-sequence-steps.md#BKMK_DownloadPackageContent).  
 
- **Время ожидания (минут)**  
- Указывает количество минут, в течение которых должна выполняться программа установки, прежде чем Configuration Manager завершает последовательность задач со сбоем.  
+ **Tempo limite (minutos)**  
+ Especifica o número de minutos que a configuração tem de executar antes do Configuration Manager irá falhar o passo de sequência de tarefas.  
 
- **Выполнять проверку совместимости программы установки Windows без запуска обновления**  
- Указывает, что необходимо выполнить проверку совместимости программы установки Windows без запуска процесса обновления (соответствует параметру командной строки /Compat ScanOnly). При использовании этого параметра по-прежнему необходимо развернуть весь источник установки. Программа установки возвращает код выхода в качестве результата проверки. В следующей таблице приведены некоторые из наиболее распространенных кодов выхода.  
+ **Efetuar análise de compatibilidade de configuração do Windows sem iniciar a atualização**  
+ Especifica como fazer a análise de compatibilidade da Configuração do Windows sem iniciar o processo de atualização (corresponde à opção da linha de comandos /Compat ScanOnly). Tem de implementar a origem da instalação completa quando utilizar esta opção. A Configuração devolve um código de saída como resultado da análise. A tabela seguinte fornece alguns dos códigos de saída mais comuns.  
 
-|Код выхода|Подробные сведения|  
+|Código de saída|Detalhes|  
 |-|-|  
-|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Нет проблем совместимости ("успех").|  
-|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0xC1900208)|Проблемы функциональной совместимости.|  
-|MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0xC1900204)|Выбранный вариант миграции недоступен. Например, обновление с профессионального выпуска до корпоративного.|  
-|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Не подходит для Windows 10.|  
-|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0xC190020E)|Недостаточно свободного места на диске.|  
+|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Não existem problemas de compatibilidade ("êxito").|  
+|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0XC1900208)|Problemas de compatibilidade passíveis de ação.|  
+|MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0XC1900204)|A opção de migração selecionada não está disponível. Por exemplo, uma atualização do Empresarial para o Profissional.|  
+|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Não é elegível para Windows 10.|  
+|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0XC190020E)|Não existe espaço livre suficiente no disco.|  
 
- Дополнительные сведения об этом параметре см. в статье [Параметры командной строки программы установки Windows](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).  
+ Para obter mais informações sobre este parâmetro, veja [Windows Setup Command-Line Options](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx) (Opções da Linha de Comandos de Configuração do Windows)  
 
- **Пропускать маловажные сообщения о совместимости**  
- Указывает, что программа установки завершит установку, игнорируя все маловажные сообщения о совместимости (соответствует параметру командной строки /Compat IgnoreWarning).  
+ **Ignorar mensagens de compatibilidade dispensáveis**  
+ Especifica que a Configuração conclui a instalação, ignorando quaisquer mensagens de compatibilidade dispensáveis (corresponde à opção da linha de comandos /Compat IgnoreWarning).  
 
- **Динамическое обновление установки Windows в Центре обновления Windows**  
- Указывает, будет ли программа установки выполнять операции динамического обновления, такие как поиск, скачивание и установка обновлений (соответствует параметру командной строки /DynamicUpdate). Этот параметр не совместим с обновлениями программного обеспечения Configuration Manager, но его можно включить при обработке обновлений с помощью служб WSUS (автономный режим) или Центра обновления Windows.  
+ **Atualizar dinamicamente a configuração do Windows com o Windows Update**  
+ Especifica se a Configuração irá efetuar operações de Atualização Dinâmica, como atualizações de pesquisa, de transferência e de instalação (corresponde à opção da linha de comandos /DynamicUpdate). Esta definição não é compatível com atualizações de software do Configuration Manager, mas pode ser ativada quando para processar as atualizações com WSUS (autónomo) ou o Windows Update.  
 
- **Переопределение политики (Центр обновления Майкрософт по умолчанию)**: выберите этот параметр, чтобы временно переопределить локальную политику в режиме реального времени для выполнения операций динамического обновления и дать компьютеру возможность получить обновления из Центра обновления Windows.  
+ **Ignorar política e utilizar o Microsoft Update por predefinição**: Selecione esta definição para substituir temporariamente a política local em tempo real para executar operações de atualização dinâmica e o computador obter as atualizações do Windows Update.  

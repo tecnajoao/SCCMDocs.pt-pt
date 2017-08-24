@@ -1,6 +1,6 @@
 ---
-title: "Поддерживаемые серверы системы сайта | Документация Майкрософт"
-description: "Сведения о том, какие версии Windows можно использовать для размещения сайта или роли системы сайта System Center Configuration Manager."
+title: Suportados servidores do sistema de sites | Microsoft Docs
+description: "Saiba quais as versões do Windows pode utilizar para alojar um site do System Center Configuration Manager ou a função do sistema de sites."
 ms.custom: na
 ms.date: 06/27/2017
 ms.prod: configuration-manager
@@ -16,299 +16,299 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: be635e4df79b57b6f650287fa3774d2c10613cee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Поддерживаемые операционные системы для серверов системы сайта System Center Configuration Manager
+# <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Sistemas operativos suportados para servidores de sistema de sites do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
-
-
-В этой статье приводятся сведения о версиях Windows, которые можно использовать для размещения сайта или роли системы сайта System Center Configuration Manager.
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Используйте сведения в этом разделе с информацией в следующих статьях:
--   [Рекомендуемое оборудование для Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
--   [Предварительные требования к сайту и системе сайта для Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
--   [Данные по размерам и масштабированию для Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
+Este artigo fornece detalhes sobre as versões do Windows que pode utilizar para alojar um site do System Center Configuration Manager ou a função do sistema de sites.
+
+
+Utilize as informações neste tópico juntamente com as informações dos seguintes artigos:
+-   [Hardware recomendado para o Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
+-   [Site e os pré-requisitos do sistema de site do Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+-   [Tamanho e números da escala do Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
 
 
 
-## <a name="windows-server-2016-standard-and-datacenter"></a>Windows Server 2016 — Standard и Datacenter
-Начиная с версии 1606 с пакетом исправлений из статьи базы знаний 3186654 (или базовой версии 1606, выпущенной в октябре 2016 г.) эта операционная система поддерживается для следующих компонентов:
+## <a name="windows-server-2016-standard-and-datacenter"></a>Windows Server 2016: Standard e Datacenter
+Este sistema operativo a partir da versão 1606 com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016) é suportado para o seguinte:
 
-**Серверы сайта:**  
+**Servidores do site:**  
 
--   Сайт центра администрирования  
+-   Site de administração central  
 
--   Первичный сайт  
+-   Site primário  
 
--   Вторичный сайт  
+-   Site Secundário  
 
-**Серверы системы сайта:**  
+**Servidores do sistema de sites:**  
 
--   Точка веб-службы каталога приложений  
+-   Ponto de serviço Web do Catálogo de Aplicações  
 
--   Точка веб-сайта каталога приложений.  
+-   Ponto de Web site do Catálogo de Aplicações  
 
--   точка синхронизации каталога аналитики активов;  
+-   Ponto de sincronização do Asset Intelligence  
 
--   Точка регистрации сертификатов  
+-   Ponto de registo de certificados  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
-     Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   Точка Endpoint Protection  
+-   Ponto de Endpoint Protection  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
--   Резервная точка состояния  
+-   Ponto de estado de contingência  
 
--   Точка управления.
+-   Ponto de gestão
 
--   Точка служб отчетов  
+-   Ponto do Reporting Services  
 
--   Точка подключения службы  
+-   Ponto de ligação de serviço  
 
--   Сервер базы данных сайтов  
+-   Servidor da base de dados do site  
 
-     Серверы баз данных сайтов не поддерживаются на контроллерах домена только для чтения (RODC). Дополнительные сведения см. в разделе [You may encounter problems when installing SQL Server on a domain controller (Возможные проблемы при установке SQL Server на контроллере домена)](http://go.microsoft.com/fwlink/p/?LinkId=264856) в базе знаний Майкрософт. Кроме того, серверы вторичных сайтов не поддерживаются на контроллерах домена.  
-
--   SMS_Provider  
-
--   Точка обновления программного обеспечения  
-
--   Точка миграции среды
-
-## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64) — Standard и Datacenter  
-**Серверы сайта:**  
-
--   Сайт центра администрирования  
-
--   Первичный сайт  
-
--   Вторичный сайт  
-
-**Серверы системы сайта:**  
-
--   Точка веб-службы каталога приложений  
-
--   Точка веб-сайта каталога приложений.  
-
--   точка синхронизации каталога аналитики активов;  
-
--   Точка регистрации сертификатов  
-
--   Точка распространения.  
-
-     Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
--   Точка Endpoint Protection  
-
--   Точка регистрации  
-
--   Прокси-точка регистрации.  
-
--   Резервная точка состояния  
-
--   Точка управления.
-
--   Точка служб отчетов  
-
--   Точка подключения службы  
-
--   Сервер базы данных сайтов  
-
-     Серверы баз данных сайтов не поддерживаются на контроллерах домена только для чтения (RODC). Дополнительные сведения см. в разделе [You may encounter problems when installing SQL Server on a domain controller (Возможные проблемы при установке SQL Server на контроллере домена)](http://go.microsoft.com/fwlink/p/?LinkId=264856) в базе знаний Майкрософт. Кроме того, серверы вторичных сайтов не поддерживаются на контроллерах домена.  
+     Os servidores de bases de dados do site não são suportados num controlador de domínio só de leitura (RODC). Para obter mais informações, veja [Pode encontrar problemas ao instalar o SQL Server num controlador de domínio](http://go.microsoft.com/fwlink/p/?LinkId=264856) na Base de Dados de Conhecimento Microsoft. Além disso, os servidores de sites secundários não são suportados em qualquer controlador de domínio.  
 
 -   SMS_Provider  
 
--   Точка обновления программного обеспечения  
+-   Ponto de atualização de Software  
 
--   Точка миграции среды  
+-   Ponto de migração de estado
 
-## <a name="windows-server-2012-x64-standard-and-datacenter"></a>Windows Server 2012 (x64) — Standard и Datacenter  
-**Серверы сайта:**  
+## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64): Standard e Datacenter  
+**Servidores do site:**  
 
--   Сайт центра администрирования  
+-   Site de administração central  
 
--   Первичный сайт  
+-   Site primário  
 
--   Вторичный сайт  
+-   Site Secundário  
 
-**Серверы системы сайта:**  
+**Servidores do sistema de sites:**  
 
--   Точка веб-службы каталога приложений  
+-   Ponto de serviço Web do Catálogo de Aplicações  
 
--   Точка веб-сайта каталога приложений.  
+-   Ponto de Web site do Catálogo de Aplicações  
 
--   точка синхронизации каталога аналитики активов;  
+-   Ponto de sincronização do Asset Intelligence  
 
--   Точка регистрации сертификатов  
+-   Ponto de registo de certificados  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
-     Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   Точка Endpoint Protection  
+-   Ponto de Endpoint Protection  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
--   Резервная точка состояния  
+-   Ponto de estado de contingência  
 
--   Точка управления.
+-   Ponto de gestão
 
--   Точка служб отчетов  
+-   Ponto do Reporting Services  
 
--   Точка подключения службы  
+-   Ponto de ligação de serviço  
 
--   Сервер базы данных сайтов  
+-   Servidor da base de dados do site  
 
-     Серверы баз данных сайтов не поддерживаются на контроллерах домена только для чтения (RODC). Дополнительные сведения см. в разделе [You may encounter problems when installing SQL Server on a domain controller (Возможные проблемы при установке SQL Server на контроллере домена)](http://go.microsoft.com/fwlink/p/?LinkId=264856) в базе знаний Майкрософт. Кроме того, серверы вторичных сайтов не поддерживаются на контроллерах домена.  
-
--   SMS_Provider  
-
--   Точка обновления программного обеспечения  
-
--   Точка миграции среды  
-
-## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 с пакетом обновления 1 (SP1) (x64) — Standard, Enterprise и Datacenter  
- Windows Server 2008 R2 больше не входит в основную фазу поддержки, а пользуется расширенной поддержкой, как описано в статье [Сроки поддержки продуктов Майкрософт](https://support.microsoft.com/lifecycle). Дополнительные сведения о дальнейшей поддержке этих операционных систем в качестве серверов системы сайта в Configuration Manager см. в разделе [Удаленные и устаревшие компоненты для System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
-
- Начиная с Configuration Manager версии 1702 эта операционная система не может использоваться в качестве сервера сайта и большинства ролей системы сайта. Но она по-прежнему может использоваться в качестве таких ролей системы сайта, как точка распространения (включая точки распространения по запросу, PXE и многоадресные рассылки).
-
- Версии до 1702 можно по-прежнему использовать в следующих целях:
-
-
-**Серверы сайта:**  
-
--   Сайт центра администрирования  
-
--   Первичный сайт  
-
--   Вторичный сайт  
-
-**Серверы системы сайта:**  
-
--   Точка веб-службы каталога приложений  
-
--   Точка веб-сайта каталога приложений.  
-
--   точка синхронизации каталога аналитики активов;  
-
--   Точка регистрации сертификатов  
-
--   Точка распространения.  
-
-     Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
--   Точка Endpoint Protection  
-
--   Точка регистрации  
-
--   Прокси-точка регистрации.  
-
--   Резервная точка состояния  
-
--   Точка управления.
-
--   Точка служб отчетов  
-
--   Точка подключения службы  
-
--   Сервер базы данных сайтов  
-
-     Серверы баз данных сайтов не поддерживаются на контроллерах домена только для чтения (RODC). Дополнительные сведения см. в разделе [You may encounter problems when installing SQL Server on a domain controller (Возможные проблемы при установке SQL Server на контроллере домена)](http://go.microsoft.com/fwlink/p/?LinkId=264856) в базе знаний Майкрософт. Кроме того, серверы вторичных сайтов не поддерживаются на контроллерах домена.  
+     Os servidores de bases de dados do site não são suportados num controlador de domínio só de leitura (RODC). Para obter mais informações, veja [Pode encontrar problemas ao instalar o SQL Server num controlador de domínio](http://go.microsoft.com/fwlink/p/?LinkId=264856) na Base de Dados de Conhecimento Microsoft. Além disso, os servidores de sites secundários não são suportados em qualquer controlador de domínio.  
 
 -   SMS_Provider  
 
--   Точка обновления программного обеспечения  
+-   Ponto de atualização de Software  
 
--   Точка миграции среды  
+-   Ponto de migração de estado  
 
-## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 с пакетом обновления 2 (SP2) (x86, x64) — Standard, Enterprise и Datacenter  
- Windows Server 2008 больше не входит в основную фазу поддержки, а пользуется расширенной поддержкой, как описано в статье [Сроки поддержки продуктов Майкрософт](https://support.microsoft.com/lifecycle). Дополнительные сведения о дальнейшей поддержке этих операционных систем в качестве серверов системы сайта в Configuration Manager см. в разделе [Удаленные и устаревшие компоненты для System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+## <a name="windows-server-2012-x64-standard-and-datacenter"></a>Windows Server 2012 (x64): Standard e Datacenter  
+**Servidores do site:**  
 
-Эта операционная система не поддерживается для серверов сайта или ролей систем сайта, за исключением точки распространения и точки распространения по запросу. Вы можете по-прежнему использовать эту операционную систему в качестве точки распространения, пока поддержка не прекратится или не истечет расширенный период поддержки. Дополнительные сведения см. в разделе [Происходит сбой при установке System Center Configuration Manager CB и LTSB на Windows Server 2008](https://support.microsoft.com/help/4015095).
+-   Site de administração central  
 
-**Серверы системы сайта:**  
--   Точка распространения.  
+-   Site primário  
 
-    -   Точки распространения в этой операционной системе не поддерживают многоадресную рассылку.  
+-   Site Secundário  
 
-    -   Точки распространения в данной операционной системе поддерживаются для PXE, но не поддерживают сетевую загрузку клиентских компьютеров в режиме EFI. Поддерживаются клиентские компьютеры с BIOS или с загрузкой по интерфейсу EFI в традиционном режиме.  
+**Servidores do sistema de sites:**  
 
-    -   Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Ponto de serviço Web do Catálogo de Aplicações  
 
+-   Ponto de Web site do Catálogo de Aplicações  
 
+-   Ponto de sincronização do Asset Intelligence  
 
-## <a name="windows-10-x86-x64-pro-and-enterprise"></a>Windows 10 (x86, x64) — Pro и Корпоративная  
-**Серверы системы сайта:**  
+-   Ponto de registo de certificados  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
-    -   Точки распространения в этой операционной системе не поддерживаются для PXE.  
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-    -   Точки распространения в этой версии операционной системы не поддерживают многоадресную рассылку.  
+-   Ponto de Endpoint Protection  
 
-    -   Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Ponto de inscrição  
 
-## <a name="windows-81-x86-x64-professional-and-enterprise"></a>Windows 8.1 (x86, x64) — Профессиональная и Корпоративная  
-**Серверы системы сайта:**  
+-   Ponto proxy de registo  
 
--   Точка распространения.  
+-   Ponto de estado de contingência  
 
-    -   Точки распространения в этой операционной системе не поддерживаются для PXE.  
+-   Ponto de gestão
 
-    -   Точки распространения в этой версии операционной системы не поддерживают многоадресную рассылку.  
+-   Ponto do Reporting Services  
 
-    -   Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Ponto de ligação de serviço  
 
-## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64) — Профессиональная и Корпоративная
-**Серверы системы сайта:**  
+-   Servidor da base de dados do site  
 
--   Точка распространения.  
+     Os servidores de bases de dados do site não são suportados num controlador de domínio só de leitura (RODC). Para obter mais informações, veja [Pode encontrar problemas ao instalar o SQL Server num controlador de domínio](http://go.microsoft.com/fwlink/p/?LinkId=264856) na Base de Dados de Conhecimento Microsoft. Além disso, os servidores de sites secundários não são suportados em qualquer controlador de domínio.  
 
-    -   Точки распространения в этой операционной системе не поддерживаются для PXE.  
+-   SMS_Provider  
 
-    -   Точки распространения в этой версии операционной системы не поддерживают многоадресную рассылку.  
+-   Ponto de atualização de Software  
 
-    -   Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Ponto de migração de estado  
 
-## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 с пакетом обновления 1 (SP1) (x86, x64) — Профессиональная, Корпоративная и Максимальная  
-**Серверы системы сайта:**  
+## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 com SP1 (x64): Standard, Enterprise e Datacenter  
+ Windows Server 2008 R2 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
--   Точка распространения.  
+ A partir do Configuration Manager versão 1702, este sistema operativo não é suportado para servidores do site ou a maioria das funções de sistema de sites, mas permanecem suportado para a função de sistema de sites de ponto de distribuição (incluindo pontos de distribuição de extração e para PXE e multicast).
 
-    -   Точки распространения в этой операционной системе не поддерживаются для PXE.  
-
-    -   Точки распространения в этой версии операционной системы не поддерживают многоадресную рассылку.  
-
-    -   Точки распространения поддерживают несколько различных конфигураций, каждая из которых имеет свои собственные требования. В некоторых случаях такие конфигурации поддерживают установку не только на серверах, но и в операционных системах клиентов. Дополнительные сведения о вариантах, доступных для точек распространения, см. в разделе [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ As versões anteriores 1702 continuam a suportar a sua utilização para o seguinte.
 
 
-## <a name="the-server-core-installation-of-windows-server-2016"></a>Windows Server 2016, вариант установки основных серверных компонентов
-Начиная с версии 1606 с пакетом исправлений из статьи базы знаний 3186654 (или базовой версии 1606, выпущенной в октябре 2016 г.) эта операционная система поддерживается в качестве точки распространения с указанными ниже ограничениями.  
-  -   Поддерживается только 64-разрядная версия.
-  -   Точки распространения в этой операционной системе не поддерживают PXE и многоадресную рассылку.  
+**Servidores do site:**  
+
+-   Site de administração central  
+
+-   Site primário  
+
+-   Site Secundário  
+
+**Servidores do sistema de sites:**  
+
+-   Ponto de serviço Web do Catálogo de Aplicações  
+
+-   Ponto de Web site do Catálogo de Aplicações  
+
+-   Ponto de sincronização do Asset Intelligence  
+
+-   Ponto de registo de certificados  
+
+-   Ponto de distribuição  
+
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+-   Ponto de Endpoint Protection  
+
+-   Ponto de inscrição  
+
+-   Ponto proxy de registo  
+
+-   Ponto de estado de contingência  
+
+-   Ponto de gestão
+
+-   Ponto do Reporting Services  
+
+-   Ponto de ligação de serviço  
+
+-   Servidor da base de dados do site  
+
+     Os servidores de bases de dados do site não são suportados num controlador de domínio só de leitura (RODC). Para obter mais informações, veja [Pode encontrar problemas ao instalar o SQL Server num controlador de domínio](http://go.microsoft.com/fwlink/p/?LinkId=264856) na Base de Dados de Conhecimento Microsoft. Além disso, os servidores de sites secundários não são suportados em qualquer controlador de domínio.  
+
+-   SMS_Provider  
+
+-   Ponto de atualização de Software  
+
+-   Ponto de migração de estado  
+
+## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 com SP2 (x86, x64): Standard, Enterprise e Datacenter  
+ Windows Server 2008 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+
+Este sistema operativo não é suportado para servidores de site ou funções de sistema de sites com a exceção do ponto de distribuição e ponto de distribuição de solicitação. Pode continuar a utilizar este sistema operativo como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte expandido deste sistema operativo expira. Para obter mais informações, consulte [instalação do System Center Configuration Manager CB e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
+
+**Servidores do sistema de sites:**  
+-   Ponto de distribuição  
+
+    -   Os pontos de distribuição neste sistema operativo não suportam Multicast.  
+
+    -   Os pontos de distribuição neste sistema operativo têm suporte para PXE, mas não suportam o arranque de rede de computadores cliente no modo EFI. Os computadores cliente com arranque BIOS ou EFI em modo legado são suportados.  
+
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
-## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>Windows Server 2012 R2, вариант установки основных серверных компонентов  
- Помимо операционных систем, перечисленных выше, установка основных серверных компонентов Windows Server 2012 R2 поддерживается для использования в качестве точек распространения с указанными ниже ограничениями.  
 
--   Поддерживается только 64-разрядная версия.
+## <a name="windows-10-x86-x64-pro-and-enterprise"></a>Windows 10 (x86, x64): Pro e Enterprise  
+**Servidores do sistema de sites:**  
 
--   Точки распространения в этой операционной системе не поддерживают PXE и многоадресную рассылку.  
+-   Ponto de distribuição  
 
-## <a name="the-server-core-installation-of-windows-server-2012"></a>Windows Server 2012, вариант установки основных серверных компонентов  
- Помимо операционных систем, перечисленных выше, установка основных серверных компонентов Windows Server 2012 также поддерживается для использования в качестве точки распространения с указанными ниже ограничениями.  
+    -   Os pontos de distribuição neste sistema operativo não têm suporte para PXE.  
 
--   Поддерживается только 64-разрядная версия.  
+    -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
 
--   Точки распространения в этой операционной системе не поддерживают PXE и многоадресную рассылку.
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+## <a name="windows-81-x86-x64-professional-and-enterprise"></a>Windows 8.1 (x86, x64): Professional e Enterprise  
+**Servidores do sistema de sites:**  
+
+-   Ponto de distribuição  
+
+    -   Os pontos de distribuição neste sistema operativo não têm suporte para PXE.  
+
+    -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
+
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configuração suporta a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64): Professional e Enterprise
+**Servidores do sistema de sites:**  
+
+-   Ponto de distribuição  
+
+    -   Os pontos de distribuição neste sistema operativo não têm suporte para PXE.  
+
+    -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
+
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 com SP1 (x86, x64): Professional, Enterprise e Ultimate  
+**Servidores do sistema de sites:**  
+
+-   Ponto de distribuição  
+
+    -   Os pontos de distribuição neste sistema operativo não têm suporte para PXE.  
+
+    -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
+
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+
+## <a name="the-server-core-installation-of-windows-server-2016"></a>A instalação do server core do Windows Server 2016
+Este sistema operativo a partir da versão 1606 com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016) é suportado para utilização como uma distribuição ponto com as seguintes limitações:  
+  -   Apenas a versão de x64 bits é suportada.
+  -   Pontos de distribuição neste sistema operativo não suportam PXE ou Multicast.  
+
+
+## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>A instalação Server Core do Windows Server 2012 R2  
+ Para além de sistemas operativos anteriores listados, a instalação do server core do Windows Server 2012 R2 é suportada para utilização como pontos de distribuição com as seguintes limitações:  
+
+-   Apenas a versão de x64 bits é suportada.
+
+-   Pontos de distribuição neste sistema operativo não suportam PXE ou Multicast.  
+
+## <a name="the-server-core-installation-of-windows-server-2012"></a>A instalação Server Core do Windows Server 2012  
+ Para além de sistemas operativos anteriores listados, a instalação do server core do Windows Server 2012 também é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
+
+-   É suportada apenas a versão de 64 bits.  
+
+-   Pontos de distribuição neste sistema operativo não suportam PXE ou Multicast.

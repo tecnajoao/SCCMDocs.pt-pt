@@ -1,6 +1,6 @@
 ---
-title: "Создание профилей электронной почты Exchange ActiveSync | Документы Майкрософт"
-description: "Сведения о создании и настройке в System Center Configuration Manager профилей электронной почты, работающих с Microsoft Intune."
+title: Criar perfis de e-mail do Exchange ActiveSync | Microsoft Docs
+description: Saiba como criar e configurar perfis de e-mail no System Center Configuration Manager que funcionam com o Microsoft Intune.
 ms.custom: na
 ms.date: 07/28/2017
 ms.prod: configuration-manager
@@ -17,161 +17,161 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 7434c98f2217cf63fdcd250b91e772de72daaea9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Профили электронной почты Exchange ActiveSync в System Center Configuration Manager
+# <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Perfis de e-mail do Exchange ActiveSync no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-С помощью Microsoft Intune и Exchange ActiveSync можно настроить на устройствах профили электронной почты и ограничения. Это позволяет пользователям получать доступ к корпоративной электронной почте на личных устройствах с минимальными усилиями по настройке, необходимыми с их стороны.  
+Ao utilizar o Microsoft Intune e Exchange ActiveSync, pode configurar dispositivos com perfis de e-mail e restrições. Para permitir que os utilizadores aceder a e-mail empresarial nos respetivos dispositivos com requisitos mínimos de configuração da sua parte.  
 
- С помощью профилей электронной почты можно настраивать следующие типы устройств:  
+ Pode configurar os seguintes tipos de dispositivos com perfis de e-mail:  
 
 - Windows 10
 - Windows Phone 8.1
-- Windows Phone 8.0;
-- устройства iPhone под управлением iOS 5, iOS 6, iOS 7 и iOS 8;  
-- устройства iPad под управлением iOS 5, iOS 6, iOS 7 и iOS 8;  
-- Samsung KNOX Standard 4 и более поздние версии.
+- Windows Phone 8.0
+- iPhones a executar o iOS 5, iOS 6, iOS 7 e iOS 8  
+- iPads a executar o iOS 5, iOS 6, iOS 7 e iOS 8  
+- Samsung KNOX Standard (4 e posterior)
 - Android for Work
 
-Профили электронной почты можно развернуть только для устройств, зарегистрированных в Intune. Сведения о том, как зарегистрировать устройства, см. в разделе [Управление мобильными устройствами с помощью Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
+Para implementar perfis de e-mail em dispositivos, têm de inscrever os dispositivos no Intune. Para obter mais informações sobre como inscrever os seus dispositivos, consulte [Gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
 
 > [!NOTE]
-> Intune предоставляет два профиля электронной почты Android for Work, по одному для приложений электронной почты Gmail и Nine Work. Эти приложения доступны в магазине Google Play и поддерживают подключение к серверу Exchange. Чтобы разрешить подключение к электронной почте, разверните одно из этих приложений электронной почты на устройствах пользователей, а затем создайте и разверните соответствующий профиль. Почтовые приложения, например Nine Work, могут быть платными. Изучите данные о лицензировании приложения или обратитесь с вопросами к его разработчику.
+> O Intune fornece duas Android para perfis de e-mail de trabalho, uma para a aplicação de e-mail do Gmail e a aplicação de e-mail do trabalho nove. Estas aplicações estão disponíveis no Google Play Store, e suportam ligações ao Exchange. Para ativar a conectividade de e-mail, implementar uma destas aplicações de e-mail nos dispositivos dos utilizadores e, em seguida, crie e implemente o perfil adequado. Aplicações de e-mail como nove trabalho poderão não estar livres. Do reveja a aplicação detalhes de licenciamento, ou contacte a empresa de aplicações com quaisquer perguntas.
 
- Помимо настройки учетной записи электронной почты на устройстве вы можете настраивать параметры синхронизации для контактов, календарей и задач.  
+ Para além de configurar uma conta de e-mail no dispositivo, pode configurar as definições de sincronização para contactos, calendários e tarefas.  
 
- При создании профиля электронной почты можно указать большое количество параметров безопасности. Эти параметры включают сертификаты для идентификации, шифрования и подписывания, которые были настроены с помощью профилей сертификатов System Center Configuration Manager. Дополнительные сведения о профилях сертификатов см. в разделе [Профили сертификатов в System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles.md).    
+ Quando cria um perfil de e-mail, pode incluir um vasto leque de definições de segurança. Estas definições incluem certificados para identidade, encriptação e assinatura que configurou através da utilização de perfis de certificado do System Center Configuration Manager. Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles.md).    
 
-## <a name="create-an-exchange-activesync-email-profile"></a>Создание профиля электронной почты Exchange ActiveSync  
+## <a name="create-an-exchange-activesync-email-profile"></a>Criar um perfil de e-mail do Exchange ActiveSync  
 
-Для создания профиля используется мастер создания профилей электронной почты Exchange ActiveSync. 
+Para criar um perfil, pode utilizar o Exchange ActiveSync E-Mail Assistente para criar perfil. 
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade**.  
 
-2.  В рабочей области **Активы и соответствие** разверните узлы **Параметры соответствия**и **Доступ к ресурсам компании**, а затем выберите пункт **Профили электронной почты**.  
+2.  No **ativos e compatibilidade** área de trabalho, expanda **as definições de compatibilidade**, expanda **acesso a recursos da empresa**e, em seguida, escolha **perfis de E-Mail**.  
 
-3.  На вкладке **Главная** в группе **Создать** выберите **Создать профиль электронной почты Exchange ActiveSync**, чтобы запустить мастер.
+3.  No **home page** separador o **criar** grupo, escolha **criar perfil de E-Mail do Exchange ActiveSync** para iniciar o assistente.
 
-4.  На странице **Общие** мастера настройте следующие данные.
+4.  No **geral** página do assistente, configure o seguinte:
 
-    - **Имя**. Укажите описательное имя профиля электронной почты.
+    - **Nome**. Forneça um nome descritivo para o perfil de e-mail.
 
-    - **Описание**. Необязательное описание, которое поможет идентифицировать профиль электронной почты в консоли Configuration Manager.
+    - **Descrição**. Opcionalmente, indique uma descrição para o perfil de e-mail que o irão ajudar a identificá-la na consola do Configuration Manager.
 
-    - **Это профиль электронной почты для Android for Work**. Выберите этот вариант, если требуется развернуть этот профиль электронной почты только для устройств Android for Work. Если вы установите этот флажок, страница мастера **Поддерживаемые платформы** не будет отображаться. Будут настроены только профили электронной почты Android for Work.
+    - **Este perfil de e-mail é para Android para trabalho**. Escolha esta opção se irá implementar este perfil de e-mail apenas Android para dispositivos de trabalho. Se selecionar esta caixa, a **plataformas suportadas** não é apresentada a página do assistente. Android apenas para perfis de e-mail de trabalho estão configuradas.
 
-4.  На странице мастера **Exchange ActiveSync** укажите следующие сведения.  
+4.  No **do Exchange ActiveSync** página do assistente, especifique as seguintes informações:  
 
-    -   **Узел Exchange ActiveSync**. Укажите имя сервера Exchange организации, на котором размещены службы Exchange ActiveSync.  
+    -   **Anfitrião do Exchange ActiveSync**. Especifique o nome de anfitrião do servidor Exchange da empresa que aloja os serviços do Exchange ActiveSync.  
 
-    -   **Имя учетной записи**. Укажите отображаемое имя для учетной записи электронной почты, которое пользователи будут видеть на своих устройствах.  
+    -   **Nome da conta**. Especifique o nome a apresentar para a conta de e-mail, tal como será apresentado aos utilizadores nos respetivos dispositivos.  
 
-    -   **Имя пользователя учетной записи**. Выберите вариант настройки имени пользователя учетной записи электронной почты на клиентских устройствах. В раскрывающемся списке можно выбрать один из следующих вариантов.  
+    -   **Nome da conta de utilizador**. Escolha como o nome de utilizador de conta de e-mail está configurado nos dispositivos cliente. Pode escolher uma das seguintes opções da lista pendente:  
 
-        -   **Имя участника-пользователя (UPN)** Для входа в Exchange используется полное имя участника-пользователя.  
+        -   **Nome Principal de utilizador**. Utilize o nome principal de utilizador completo para iniciar sessão no Exchange.  
 
-        -   **AccountName**. Используется полное имя учетной записи пользователя из Active Directory.
+        -   **AccountName**. Utilize o nome de conta de utilizador completo do Active Directory.
 
-        -   **Основной SMTP-адрес**. Для входа в Exchange используется основной SMTP-адрес пользователя.  
+        -   **Endereço SMTP principal**. Utilize o endereço SMTP principal do utilizador para iniciar sessão no Exchange.  
 
-    -   **Адрес электронной почты**. Выберите способ создания адреса электронной почты для пользователя на каждом клиентском устройстве. В раскрывающемся списке можно выбрать один из следующих вариантов.  
+    -   **Endereço de correio eletrónico**. Escolha como é gerado o endereço de correio eletrónico para o utilizador em cada dispositivo cliente. Pode escolher uma das seguintes opções da lista pendente:  
 
-        -   **Основной SMTP-адрес**. Для входа в Exchange используется основной SMTP-адрес пользователя.  
+        -   **Endereço SMTP principal**. Utilize o endereço SMTP principal do utilizador para iniciar sessão no Exchange.  
 
-        -   **Имя участника-пользователя (UPN)** В качестве адреса электронной почты используется полное имя участника-пользователя.  
+        -   **Nome Principal de utilizador**. Utilize o nome principal de utilizador completo como o endereço de correio eletrónico.  
 
-    -   **Домен учетной записи**. Выберите один из следующих вариантов.  
+    -   **Domínio da conta**. Escolha uma das seguintes opções:  
 
-        -   **Получить из Active Directory**  
+        -   **Obter do Active Directory**  
 
-        -   **Пользовательский**  
+        -   **Personalizar**  
 
-         Это поле применимо, только если в раскрывающемся списке **Имя пользователя учетной записи** выбрано значение **sAMAccountName**.  
+         Este campo é aplicável apenas se **sAMAccountName** está selecionado no **nome da conta de utilizador** na lista pendente.  
 
-    -   **Метод проверки подлинности**. — выберите один из следующих методов проверки подлинности, которые будут использоваться для проверки подлинности подключения к Exchange ActiveSync.  
+    -   **Método de autenticação**. Escolha um dos seguintes métodos de autenticação que serão utilizados para autenticar a ligação ao Exchange ActiveSync:  
 
-        -   **Сертификаты**. Сертификат удостоверения будет использоваться для проверки подлинности подключения Exchange ActiveSync.  
+        -   **Certificados**. Um certificado de identidade será utilizado para autenticar a ligação do Exchange ActiveSync.  
 
-        -   **Имя пользователя и пароль**. Пользователь устройства должен ввести пароль для подключения к Exchange ActiveSync. (Имя пользователя настраивается как часть профиля электронной почты.)  
+        -   **Nome de utilizador e palavra-passe**. O utilizador do dispositivo tem de fornecer uma palavra-passe para ligar ao Exchange ActiveSync. (O nome de utilizador é configurado como parte do perfil de e-mail).  
 
-    -   **Сертификат удостоверения**. Нажмите кнопку **Выбрать** и выберите сертификат, используемый для удостоверения.  
+    -   **Certificado de identidade**. Escolha **selecione** e, em seguida, escolha um certificado a utilizar para a identidade.  
 
-         Сертификаты удостоверений должны быть сертификатами SCEP. Сертификат PFX нельзя использовать.  Дополнительные сведения см. в статье [Общие сведения о профилях сертификатов в System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+         Certificados de identidade tem de ser certificados SCEP; Não é possível utilizar um certificado PFX.  Para obter mais informações, consulte [no System Center Configuration Manager de perfis de certificado](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-         Этот параметр доступен, только если в поле **Метод проверки подлинности** выбрано значение **Сертификаты**.  
+         Esta opção só está disponível se tiver escolhido **certificados** em **método de autenticação**.  
 
-    -   **Использовать S/MIME**. Отправление исходящих сообщений электронной почты с использованием шифрования S/MIME. Данный параметр применяется к только устройствам iOS. Выберите один из следующих параметров.
+    -   **Utilizar S/MIME**. Envie e-mails utilizando a encriptação S/MIME. Esta opção só é aplicável a dispositivos iOS. Pode escolher uma das seguintes opções:
 
-        -   **Сертификаты подписи**.  Нажмите кнопку **Выбрать** и выберите профиль сертификата, используемый для шифрования.  
+        -   **Certificados de assinatura**.  Escolha **selecione** e, em seguida, escolha um perfil de certificado a utilizar para encriptação.  
 
-            Профиль может быть сертификатом SCEP или PFX.  Но если используются и подписывание, и шифрование, для *обеих* процедур необходимо выбрать профили сертификатов PFX.
+            O perfil pode ser o certificado ou um SCEP ou. PFX.  No entanto, se forem utilizadas simultaneamente assinatura e encriptação, tem de selecionar os perfis de certificado PFX para *ambos* assinatura e encriptação.
 
-        -   **Сертификаты шифрования**. Нажмите кнопку **Выбрать** и выберите сертификат, используемый для шифрования. В качестве сертификата шифрования можно выбрать только PFX-сертификат.
+        -   **Certificados de encriptação**. Escolha **selecione** e, em seguida, escolha um certificado a utilizar para a encriptação. Pode escolher apenas um certificado PFX para utilizar como um certificado de encriptação.
 
-        -   Чтобы зашифровать все сообщения электронной почты на устройствах iOS, установите флажок **Требуется шифрование**.    
+        -   Para encriptar todas as mensagens de correio em dispositivos iOS, ative o **exigir encriptação** caixa de verificação.    
 
-         Прежде чем выбирать профили сертификатов, их необходимо создать.  Дополнительные сведения см. в статье [Общие сведения о профилях сертификатов в System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+         Tem de criar perfis de certiciate pode escolher aqui.  Para obter mais informações, consulte [no System Center Configuration Manager de perfis de certificado](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-## <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>Настройте параметры синхронизации для профиля электронной почты Exchange ActiveSync.  
+## <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>Configurar definições de sincronização para o perfil de e-mail do Exchange ActiveSync  
 
-На странице **Настройка параметров синхронизации** мастера создания профилей электронной почты Exchange ActiveSync укажите следующие сведения:  
+Na página **Configurar definições de sincronização** do Assistente para Criar um Perfil de E-mail do Exchange ActiveSync, especifique as seguintes informações:  
 
--   **Расписание**. Выберите расписание, по которому устройства будут синхронизировать данные с сервером Exchange Server. Этот параметр применяется только для устройств Windows Phone. Выберите один из следующих типов.  
+-   **Agenda**. Escolha a agenda através do qual dispositivos irão sincronizar os dados do Exchange server. Esta opção só é aplicável a dispositivos Windows Phone. Escolha entre:  
 
-    -   **Не настроено**. Расписание синхронизации не применяется. Это позволяет пользователям настроить собственное расписание синхронизации.  
+    -   **Não configurado**. Não é imposto um agendamento de sincronização. Isto permite aos utilizadores configurar a sua própria agenda de sincronização.  
 
-    -   **При получении сообщений**. Такие данные, как сообщения электронной почты и элементы календаря, автоматически синхронизируются при поступлении.  
+    -   **Chegarem novas mensagens**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados quando chegarem.  
 
-    -   **15 минут**. Такие данные, как сообщения электронной почты и элементы календаря, автоматически синхронизируются каждые 15 минут.  
+    -   **15 minutos**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados a cada 15 minutos.  
 
-    -   **30 минут**. Такие данные, как сообщения электронной почты и элементы календаря, автоматически синхронизируются каждые 30 минут.  
+    -   **30 minutos**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados a cada 30 minutos.  
 
-    -   **60 минут**. Такие данные, как сообщения электронной почты и элементы календаря, автоматически синхронизируются каждые 60 минут.  
+    -   **60 minutos**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados a cada 60 minutos.  
 
-    -   **Вручную**. Пользователь устройства должен инициировать синхронизацию вручную.  
+    -   **Manual**. O utilizador do dispositivo tem de Iniciar sincronização manualmente.  
 
--   **Число дней для синхронизации электронной почты**. В раскрывающемся списке выберите период в днях, за которых требуется синхронизировать электронную почту. Выберите одно из следующих значений:  
+-   **Número de dias do correio eletrónico a sincronizar**. Na lista pendente, escolha o número de dias de e-mail que pretende sincronizar. Escolha um dos seguintes valores:  
 
-    -   **Не настроено**. Параметр не применяется. Это позволяет пользователям самостоятельно настраивать объем загружаемой на устройство электронной почты.  
+    -   **Não configurado**. Não é imposta a definição. Permitir que os utilizadores configurem a quantidade de e-mails é transferido para o respetivo dispositivo.  
 
-    -   **Не ограничено**. Синхронизация всей доступной электронной почты.  
+    -   **Ilimitados**. Sincroniza todos os e-mails disponíveis.  
 
-    -   **1 день**  
+    -   **1 dia**  
 
-    -   **3 дня**  
+    -   **3 dias**  
 
-    -   **1 неделя**  
+    -   **1 semana**  
 
-    -   **2 недели**  
+    -   **2 semanas**  
 
-    -   **1 месяц**  
+    -   **1 mês**  
 
--   **Разрешить перемещение сообщений в другие учетные записи электронной почты**. Выберите этот вариант, чтобы разрешить пользователям перемещать сообщения электронной почты между разными учетными записями, настроенными на устройстве. Данный параметр применяется к только устройствам iOS.  
+-   **Permitir que as mensagens sejam movidas para outras contas de e-mail**. Escolha esta opção para permitir que os utilizadores movam mensagens de e-mail entre contas diferentes configuradas nos respetivos dispositivos. Esta opção só é aplicável a dispositivos iOS.  
 
--   **Разрешить отправку электронной почты из сторонних приложений**. Выберите этот вариант, чтобы разрешить пользователям отправлять электронную почту из некоторых сторонних почтовых приложений, не заданных по умолчанию. Данный параметр применяется к только устройствам iOS.  
+-   **Permitir o correio eletrónico a partir de aplicações de terceiros**. Escolha esta opção para permitir que os utilizadores enviem e-mails de determinadas aplicações de e-mail de terceiros não predefinidas. Esta opção só é aplicável a dispositivos iOS.  
 
--   **Синхронизировать недавно использовавшиеся адреса электронной почты**. Выберите этот вариант, чтобы синхронизировать список адресов электронной почты, недавно использовавшихся на устройстве. Данный параметр применяется к только устройствам iOS.  
+-   **Sincronizar endereços de correio eletrónico utilizados recentemente**. Escolha esta opção para sincronizar a lista de endereços de e-mail que foram recentemente utilizados no dispositivo. Esta opção só é aplicável a dispositivos iOS.  
 
--   **Использовать SSL**. Выберите этот вариант, чтобы использовать связь по протоколу SSL при отправке и получении сообщений электронной почты, а также при взаимодействии с сервером Exchange.  
+-   **Utilizar SSL**. Escolha esta opção para utilizar a comunicação de Secure Sockets Layer (SSL) para enviar mensagens de correio eletrónico, mensagens de correio eletrónico a receber e a comunicar com o Exchange server.  
 
--   **Тип синхронизируемого содержимого**. Выберите типы содержимого, которые следует синхронизировать на устройствах. Этот параметр применяется только для устройств Windows Phone. Выберите один из следующих типов.  
+-   **Tipo de conteúdo a sincronizar**. Escolha os tipos de conteúdos que pretende sincronizar nos dispositivos. Esta opção só é aplicável a dispositivos Windows Phone. Escolha entre:  
 
-    -   **Электронная почта**  
+    -   **E-mail**  
 
-    -   **Контакты**  
+    -   **Contactos**  
 
-    -   **Календарь**  
+    -   **Calendário**  
 
-    -   **Задачи**  
+    -   **Tarefas**  
 
-## <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>Укажите поддерживаемые платформы для профиля электронной почты Exchange ActiveSync.  
+## <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>Especificar as plataformas suportadas para o perfil de e-mail do Exchange ActiveSync  
 
-1.  На странице **Поддерживаемые платформы** мастера создания профилей электронной почты Exchange ActiveSync выберите операционные системы, в которых будет установлен профиль электронной почты. Также можно выбрать вариант **Выбрать все**, чтобы установить профиль электронной почты во всех доступных операционных системах.  
+1.  No **plataformas suportadas** página do Exchange ActiveSync E-Mail Assistente Criar perfil, selecione os sistemas operativos em que o perfil de e-mail será instalado. Ou escolha **Selecionar tudo** para instalar o perfil de e-mail em todos os sistemas operativos disponíveis.  
 
-2.  Завершите мастер.
+2.  Conclua o assistente.
 
-Сведения о развертывании профилей электронной почты Exchange ActiveSync см. в разделе [Развертывание профилей электронной почты в Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  
+Para obter informações sobre como implementar os perfis de e-mail do Exchange ActiveSync, consulte [como implementar perfis no System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  

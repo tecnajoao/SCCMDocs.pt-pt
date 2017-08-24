@@ -1,6 +1,6 @@
 ---
-title: "Создание и выполнение скриптов с помощью Configuration Manager | Документация Майкрософт"
-description: "Создание скриптов и их выполнение на клиентских устройствах с помощью Configuration Manager."
+title: Criar e executar scripts com o Configuration Manager | Microsoft Docs
+description: Criar e executar scripts nos dispositivos cliente com o Configuration Manager.
 ms.custom: na
 ms.date: 08/09/2017
 ms.prod: configuration-manager
@@ -17,102 +17,102 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
 ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2017
 ---
-# <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Создание и запуск скриптов PowerShell из консоли Configuration Manager
+# <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Configuration Manager, помимо пакетов и программ для развертывания скриптов, предоставляет функциональные возможности для выполнения следующих действий:
+No Configuration Manager, além de utilizar pacotes e programas para implementar scripts, pode utilizar a seguinte funcionalidade para efetuar as seguintes ações:
 
-- Импорт скриптов PowerShell в Configuration Manager.
-- изменение скриптов из консоли Configuration Manager (только для неподписанных скриптов);
-- установка статуса скриптов "Утверждено" или "Отклонено" для повышения безопасности;
-- выполнение скриптов для коллекций клиентских компьютеров Windows и локальных управляемых компьютеров Windows Вам не нужно развертывать скрипты, они просто выполняются на клиентских устройствах практически мгновенно.
-- анализ результатов, возвращаемых скриптом, в консоли Configuration Manager.
+- Importar Scripts do PowerShell para o Configuration Manager
+- Editar os scripts a partir da consola do Configuration Manager (para apenas scripts não assinados)
+- Scripts de marca como aprovado ou negado, para melhorar a segurança
+- Executar scripts em coleções de computadores de cliente do Windows e no local geridos Windows PCs. Não implementa scripts, em vez disso, são executados quase imediatamente nos dispositivos cliente.
+- Examine os resultados devolvidos pelo script na consola do Configuration Manager.
 
 >[!TIP]
->В этой версии Configuration Manager скрипты считаются функцией предварительной версии. Сведения о том, как включить скрипты, см. в статье [Функции предварительной версии в System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
+>Nesta versão do Configuration Manager, scripts são uma funcionalidade de pré-lançamento. Para ativar scripts, consulte [no System Center Configuration Manager de funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).
 
-## <a name="prerequisites"></a>Предварительные требования
+## <a name="prerequisites"></a>Pré-requisitos
 
-Для запуска скриптов PowerShell на клиенте должна быть запущена оболочка PowerShell версии 3.0 или более поздней. Если сам скрипт содержит функциональные возможности, добавленные в более поздних версиях PowerShell, на клиенте должна быть установлена соответствующая версия.
+Para executar scripts do PowerShell, o cliente deve executar o PowerShell versão 3.0 ou posterior. No entanto, se um script executa contém funcionalidade de uma versão posterior do PowerShell, o cliente em que executa o script tem de executar essa versão.
 
-На клиентах Configuration Manager должен работать клиент версии 1706 или более поздней, чтобы выполнять сценарии.
+Clientes do Configuration Manager tem de executar o cliente a partir da versão 1706 ou posterior para executar scripts.
 
-Чтобы использовать скрипты, необходимо быть членом соответствующей роли безопасности Configuration Manager.
+Para utilizar scripts, tem de ser um membro da função de segurança adequado do Configuration Manager.
 
-- Чтобы импортировать или создавать скрипты, нужна учетная запись с разрешениями **создавать** **скрипты SMS** в роли безопасности **Менеджер параметров соответствия**.
-- Чтобы утверждать или отклонять скрипты, нужна учетная запись с разрешениями **утверждать** **скрипты SMS** в роли безопасности **Менеджер параметров соответствия**.
-- Чтобы выполнять скрипты, нужна учетная запись с разрешениями **запускать скрипты** для **коллекций** в роли безопасности **Менеджер параметров соответствия**.
+- Para importar e criar scripts - a conta tem de ter **criar** permissões para **SMS Scripts** no **Gestor de definições de compatibilidade** função de segurança.
+- Para aprovar ou negar scripts - a conta tem de ter **aprovar** permissões para **SMS Scripts** no **Gestor de definições de compatibilidade** função de segurança.
+- Para executar scripts - a conta tem de ter **executar Script** permissões para **coleções** no **Gestor de definições de compatibilidade** função de segurança.
 
-Дополнительные сведения о ролях безопасности Configuration Manager см. в статье с [общими сведениями о ролевом администрировании](/sccm/core/understand/fundamentals-of-role-based-administration).
+Para mais informações sobre funções de segurança do Configuration Manager, consulte [Noções básicas da administração baseada em funções](/sccm/core/understand/fundamentals-of-role-based-administration).
 
-По умолчанию пользователь не может утверждать созданные им скрипты. Благодаря мощи и гибкости скриптов, а также возможности их развертывания на множестве устройств, вы можете делегировать создание и утверждение скриптов разным людям. Эти роли предоставляют дополнительный уровень защиты от бесконтрольного выполнения скриптов. Для упрощения тестирования дополнительный уровень утверждения можно отключить.
+Por predefinição, os utilizadores não podem aprovar um script que tenham criado. Uma vez scripts são poderosa, versátil e podem ser implementados em vários dispositivos, pode dividir as funções entre a pessoa que cria o script e a pessoa que aprove o script. Estas funções dar um nível adicional de segurança contra a execução de um script sem supervisão. Pode desativar esta aprovação secundária, para facilitar a testar.
 
-## <a name="allow-users-to-approve-their-own-scripts"></a>Предоставление пользователям разрешения самостоятельно утверждать свои скрипты
+## <a name="allow-users-to-approve-their-own-scripts"></a>Permitir que os utilizadores aprovar os seus próprios scripts
 
-1. В консоли Configuration Manager щелкните **Администрирование**.
-2. В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Сайты**.
-3. В списке сайтов выберите нужный сайт и на вкладке **Главная** в группе **Сайты** щелкните **Параметры иерархии**.
-4. На вкладке **Общие** в диалоговом окне **Свойства параметров иерархии** снимите флажок **Не разрешать авторам скриптов утверждать свои собственные скрипты**.
+1. Na consola do Configuration Manager, clique em **Administração**.
+2. Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.
+3. Na lista de sites, selecione o site e, em seguida, no **home page** separador o **Sites** , clique em **definições de hierarquia**.
+4. No **geral** separador do **propriedades de definições de hierarquia** diálogo caixa, desmarque a caixa de verificação **não permitir autores de script aprovar os seus próprios scripts**.
 
-## <a name="import-and-edit-a-script"></a>Импорт и редактирование скрипта
+## <a name="import-and-edit-a-script"></a>Importar e editar um script
 
-1. В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.
-2. В рабочей области **Библиотека программного обеспечения** щелкните **Скрипты**.
-3. На вкладке **Главная** в группе **Создать** щелкните **Создать скрипт**.
-4. На странице **Скрипт** в **мастере создания скрипта** настройте следующие параметры.
-    - **Имя скрипта**. Введите здесь имя для скрипта. Вы можете создать несколько скриптов с одинаковыми именами, но повторы имен затруднят поиск нужного скрипта в консоли Configuration Manager.
-    - **Язык скрипта**. Сейчас поддерживаются только скрипты PowerShell.
-    - **Импорт**. Импорт скрипта PowerShell в консоли. Скрипт отображается в поле **Скрипт**.
-    - **Очистить**. Удаление текущего скрипта из поля "Скрипт".
-    - **Скрипт**. Отображение текущего импортируемого скрипта. В этом поле при необходимости вы можете изменять скрипт.
-5. Завершите работу мастера. Новый скрипт отображается в списке **Скрипт** с состоянием **Ожидается утверждение**. Прежде чем выполнять такой скрипт на клиентских устройствах, его необходимо утвердить.
+1. Na consola do Configuration Manager, clique em **Software Librar**y.
+2. No **biblioteca de Software** área de trabalho, clique em **Scripts**.
+3. No **home page** separador o **criar** , clique em **criar Script**.
+4. No **Script** página do criar **Script** assistente, configure as seguintes definições:
+    - **Nome do script** -introduza um nome para o script. Embora possa criar vários scripts com o mesmo nome, utilizar nomes duplicados torna mais difícil localizar o script que terá na consola do Configuration Manager.
+    - **Idioma de script** -atualmente, os scripts do PowerShell só são suportados.
+    - **Importar** -importar um script do PowerShell para a consola. O script é apresentado no **Script** campo.
+    - **Limpar** -remove o script atual o campo de Script.
+    - **Script** -apresenta o script atualmente importado. Pode editar o script neste campo, conforme necessário.
+5. Conclua o assistente. O novo script é apresentado no **Script** lista com um Estado de **aguardar aprovação**. Antes de poder executar este script nos dispositivos cliente, terá de o aprovar.
 
-### <a name="script-examples"></a>Примеры скриптов
+### <a name="script-examples"></a>Exemplos de script
 
-Ниже приведены некоторые примеры скриптов, которые могут вас заинтересовать.
+Seguem-se alguns exemplos que ilustram scripts que pode querer utilizar com esta capacidade.
 
-#### <a name="create-a-folder"></a>Создание папки
+#### <a name="create-a-folder"></a>Crie uma pasta
 
-*New-Item "c:\scripts" -type folder name* 
+*Novo Item "c:\scripts"-nome de pasta do tipo* 
  
  
-#### <a name="create-a-file"></a>Создание файла
+#### <a name="create-a-file"></a>Criar um ficheiro
 
-*New-Item c:\scripts\new_file.txt -type file name*
+*Novo Item c:\scripts\new_file.txt-nome do tipo de ficheiro*
 
 
-## <a name="approve-or-deny-a-script"></a>Утверждение или отклонение скрипта
+## <a name="approve-or-deny-a-script"></a>Aprovar ou recusar um script
 
-Выполняемый скрипт должен быть сначала утвержден. Чтобы утвердить скрипт, выполните следующее.
+Antes de poder executar um script, deve ser aprovado. Para aprovar um script:
 
-1. В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.
-2. В рабочей области **Библиотека программного обеспечения** щелкните **Скрипты**.
-3. В списке **Скрипт** выберите нужный скрипт для утверждения или отклонения, затем щелкните **Утвердить или отклонить** на вкладке **Главная** в группе **Скрипт**.
-4. В диалоговом окне **Утверждение или отклонение скрипта** выберите действие **Утвердить** или **Отклонить**. Также здесь вы можете добавить комментарий к своему решению. Отклоненный скрипт не может выполняться на клиентских устройствах.
-5. Завершите работу мастера. Вы видите, что в списке **Скрипт** изменилось значение в столбце **Состояние утверждения** в зависимости выбранного вами действия.
+1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.
+2. No **biblioteca de Software** área de trabalho, clique em **Scripts**.
+3. No **Script** lista, selecione o script que pretende aprovar ou recusar e, em seguida, no **home page** separador o **Script** , clique em **aprovar/negação**.
+4. No **aprovar ou negar** caixa de diálogo de script, **aprovar**, ou **negar** o script e, opcionalmente, introduza um comentário sobre a sua decisão. Se negar um script, não pode ser executado nos dispositivos cliente.
+5. Conclua o assistente. No **Script** lista, verá o **estado de aprovação** alteração de coluna consoante a ação que demorou.
 
-## <a name="run-a-script"></a>Выполнить сценарий
-Утвержденный скрипт можно выполнить в коллекции по вашему выбору.
+## <a name="run-a-script"></a>Executar um script
+Depois de um script é aprovado, podem ser executada em relação a uma coleção que escolher.
 
-1. В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
-2. В рабочей области "Активы и соответствие" щелкните **Коллекции устройств**.
-3. В списке **Коллекции устройств** выберите нужную коллекцию, в которой будет выполняться скрипт.
-4. На вкладке **Главная** в группе **Все системы** нажмите кнопку **Запустить скрипт**.
-5. На странице **Скрипт** мастера **запуска скрипта** выберите в списке нужный скрипт. Здесь отображаются только утвержденные скрипты.
-6. Нажмите кнопку **Далее** и завершите работу мастера.
+1. Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
+2. Nos ativos e compatibilidade área de trabalho, clique em **coleções de dispositivos**.
+3. No **coleções de dispositivos** lista, clique na coleção de dispositivos nos quais pretende executar o script.
+4. No **home page** separador o **todos os sistemas** , clique em **executar Script**.
+5. No **Script** página do **executar Script** assistente, escolha um script da lista. Apenas aprovados scripts são apresentados.
+6. Clique em **seguinte**e, em seguida, conclua o assistente.
 
 >[!IMPORTANT]
->Для выполнения скрипта предоставляется период длительностью один час. Если за это время скрипт не будет выполнен (например, если компьютер выключен), его придется запустить снова.
+>O script é dado um período de tempo de uma hora para executar. Se não é executado (por exemplo, se o computador estiver desativado) neste período de tempo, deve executá-la novamente.
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Passos seguintes
 
-Когда вы запустите скрипт на клиентских устройствах, вы можете отслеживать результаты операции, используя эту процедуру.
+Depois de executar um script em dispositivos cliente, utilize este procedimento para monitorizar o êxito da operação.
 
-1. В консоли Configuration Manager щелкните элемент **Мониторинг**.
-2. В рабочей области **Мониторинг** щелкните **Состояние скрипта**.
-3. В списке **Состояние скрипта** можно просмотреть результаты для каждого скрипта, запущенного на клиентских устройствах. Обычно код выхода **0** означает, что скрипт выполнен успешно.
+1. Na consola do Configuration Manager, clique em **monitorização**.
+2. No **monitorização** área de trabalho, clique em **Script estado**.
+3. No **Script estado** lista, poderá ver os resultados para cada script executado nos dispositivos cliente. Um código de saída do script de **0** normalmente indica que o script é executado com êxito.

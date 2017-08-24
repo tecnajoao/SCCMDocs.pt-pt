@@ -1,6 +1,6 @@
 ---
-title: "Компоненты сайта для Configuration Manager | Документы Майкрософт"
-description: "Узнайте, как настроить компоненты сайта, чтобы изменить поведение ролей системы сайта и ведение отчетов о состоянии сайта."
+title: Componentes do site do Configuration Manager | Microsoft Docs
+description: "Saiba como configurar componentes do site para modificar o comportamento das funções do sistema de sites e relatórios de estado de site."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,107 +16,107 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 83550fbf0ef1f9adb0bb2c51a4f3c26a7500d352
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="site-components-for-system-center-configuration-manager"></a>Компоненты сайта для System Center Configuration Manager
+# <a name="site-components-for-system-center-configuration-manager"></a>Componentes do site para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-На каждом сайте System Center Configuration Manager можно настроить компоненты сайта, чтобы изменить поведение ролей системы сайта и ведение отчетов о состоянии сайта. Конфигурации компонентов сайта применяются к сайту и каждому экземпляру применимой роли системы сайта на этом сайте.  
+Em cada site do System Center Configuration Manager, pode configurar componentes do site para modificar o comportamento das funções do sistema de sites e relatórios de estado de site. Configurações de componentes do site aplicam-se a um site e a cada instância de uma função de sistema de sites aplicáveis no site.  
 
-## <a name="about-site-components"></a>Сведения о компонентах сайта  
- Назначение большинства параметров для различных компонентов сайта при просмотре в консоли Configuration Manager очевидно. Но следующие сведения могут помочь вам понять некоторые более сложные конфигурации или дать вам ссылки на дополнительные материалы.  
+## <a name="about-site-components"></a>Acerca dos componentes do site  
+ A maioria das opções para os vários componentes do site são facilmente compreensíveis quando visualizadas na consola do Configuration Manager. No entanto, os detalhes seguintes podem ajudar a explicar algumas das configurações mais complexas ou direcioná-lo para conteúdo adicional que explicam-los.  
 
-### <a name="software-distribution"></a>Распространение программного обеспечения  
+### <a name="software-distribution"></a>Distribuição de software  
 
--   **Параметры распространения содержимого:** можно настроить параметры, определяющие способ передачи содержимого сервером сайта его точкам распространения. При увеличении значений, используемых для параметров параллельного распространения, увеличивается пропускная способность, доступная функции распространения содержимого.  
+-   **Definições de distribuição de conteúdo:**  Pode especificar as definições que modificam a forma como o servidor do site transfere conteúdo para pontos de distribuição. Quando aumenta os valores que utiliza para as definições de distribuição simultânea, a distribuição de conteúdo pode utilizar mais largura de banda de rede.  
 
--   **Учетная запись доступа к сети:** сведения о настройке и использовании учетной записи доступа к сети см. в разделе [Учетная запись доступа к сети](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
+-   **Conta de acesso de rede:**  Para obter informações sobre como configurar e utilizar a conta de acesso de rede, consulte [conta de acesso à rede](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
 
-### <a name="software-update-point"></a>Точка обновления программного обеспечения  
+### <a name="software-update-point"></a>Ponto de atualização de Software  
 
--   Сведения о параметрах конфигурации для компонента точки обновления программного обеспечения см. в разделе [Установка точки обновления программного обеспечения](../../../../sum/get-started/install-a-software-update-point.md).  
+-   Para obter informações sobre as opções de configuração para o componente de ponto de atualização de software, consulte [instalar um ponto de atualização de software](../../../../sum/get-started/install-a-software-update-point.md).  
 
-### <a name="management-point"></a>Точка управления.  
+### <a name="management-point"></a>Ponto de gestão  
 
--   **Точки управления:** вы можете настроить сайт для публикации сведений об этих точках управления в доменных службах Active Directory.  
+-   **Pontos de gestão:** Pode configurar o site para publicar informações sobre pontos de gestão de serviços de domínio do Active Directory.  
 
-     Клиенты Configuration Manager используют точки управления для обнаружения служб и для получения таких сведений о сайте, как членство в группе границ и параметры выбора PKI-сертификатов. Клиенты также используют точки управления, чтобы найти другие точки управления на сайте и точки распространения, из которых можно скачивать программное обеспечение. Кроме того, точки управления полезны для назначения сайтов и загрузки политики клиентов, а также для отправки своих клиентских сведений.  
+     Clientes do Configuration Manager utilizam pontos de gestão para localizar os serviços e para localizar informações do site, tais como a associação ao grupo de limites e as opções de seleção de certificados de PKI. Os clientes também utilizam pontos de gestão para localizar outros pontos de gestão no site, bem como pontos de distribuição a partir das quais transferir software. Pontos de gestão também ajudam os clientes para concluir a atribuição de site e para transferir a política de cliente e carregar as informações de cliente.  
 
-     Публикация точек управления в доменных службах Active Directory – наиболее надежный метод с точки зрения нахождения точек управления клиентами, поэтому, как правило, следует всегда выбирать публикацию всех действующих точек управления в доменных службах Active Directory. Вместе с тем данный метод обнаружения служб требует выполнения следующих условий.
+     Porque o método mais seguro para os clientes localizarem pontos de gestão consiste em publicá-los nos serviços de domínio do Active Directory, será normalmente sempre selecionar todos os pontos de gestão de funcionamento para publicar nos serviços de domínio do Active Directory. No entanto, este método de localização de serviço requer o seguinte seja verdadeiro:
 
-     - Расширение схемы для Configuration Manager.
-     - Наличие контейнера **System Management** с соответствующими разрешениями безопасности для публикации в нем данных сервера сайта.
-     - Настройка сайта Configuration Manager для публикации в доменных службах Active Directory.
-     - Нахождение клиентов в том же лесу Active Directory, что и лес сервера сайта.  
+     - O esquema é expandido para o Configuration Manager.
+     - Não existe um **System Management** contentor, com permissões de segurança apropriado para o servidor de site publicar neste contentor.
+     - Site do Configuration Manager é configurado para publicar nos serviços de domínio do Active Directory.
+     - Os clientes pertencem à mesma floresta do Active Directory como floresta do servidor do site.  
 
-     Если клиенты в интрасети не могут использовать доменные службы Active Directory для нахождения точек управления, следует использовать публикацию в [DNS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_dns).  
+     Quando os clientes da intranet não podem utilizar serviços de domínio do Active Directory para localizar pontos de gestão, utilize [DNS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_dns) em vez disso, a publicação.  
 
- Общие сведения об обнаружении службы см. в разделе [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+ Para obter informações gerais sobre a localização de serviço, consulte [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
--   **Публикация в DNS выбранных точек управления из интрасети:** выберите этот вариант, если клиенты в интрасети не могут найти точки управления в доменных службах Active Directory. Но они в состоянии найти точку управления в назначенном им сайте с помощью записи ресурса расположения службы DNS (SRV RR).  
+-   **Publicar pontos de gestão de intranet selecionados no DNS:** Especifique esta opção quando os clientes da intranet não é possível localizar pontos de gestão de serviços de domínio do Active Directory. Em vez disso, se utilizar um registo de recursos de localização de serviço DNS (SRV RR) para localizar um ponto de gestão do respetivo site atribuído.  
 
-    Чтобы в Configuration Manager реализовать публикацию точек управления из интрасети в DNS, необходимо обеспечить соответствие всем перечисленным ниже условиям.  
+    Para o Configuration Manager para publicar os pontos de gestão de intranet no DNS, as seguintes condições devem ser cumpridas:  
 
-    -   Используемые серверы DNS имеют BIND 8.1.2 или более позднюю версию.  
+    -   Os servidores DNS possuem uma versão de BIND 8.1.2 ou posterior.  
 
-    -   Серверы DNS настроены на автоматическое обновление и поддерживают записи ресурсов расположения служб.  
+    -   Os servidores DNS estão configurados para atualizações automáticas e suportam registos de recursos de localização de serviço.  
 
-    -   Указанные полные доменные имена точек управления в Configuration Manager имеют записи узлов (записи A или AAA) в DNS.  
+    -   Os nomes de domínio completamente qualificado especificado (FQDN) para os pontos de gestão no Configuration Manager têm entradas de anfitrião (registos A ou AAA) no DNS.  
 
     > [!WARNING]  
-    >  Для того чтобы клиенты могли найти точку управления, опубликованную в DNS, нужно назначить клиентов определенному сайту вместо использования автоматического назначения сайта. Настройте эти клиенты для использования кода сайта с суффиксом домена соответствующей точки управления. Дополнительные сведения см. в подразделе [Поиск точек управления](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) раздела [Назначение клиентов сайту в System Center Configuration Manager](/sccm/core/clients/deploy/assign-clients-to-a-site).  
+    >  Para os clientes localizarem pontos de gestão que são publicados no DNS, é necessário atribuir clientes a um site específico (vez utilizam a atribuição automática de sites). Configure estes clientes para utilizar o código do site com o sufixo de domínio do respetivo ponto de gestão. Para obter mais informações, consulte [pontos de gestão Locating](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) no [como atribuir clientes a um site no System Center Configuration Manager](/sccm/core/clients/deploy/assign-clients-to-a-site).  
 
-     Если клиенты Configuration Manager не могут использовать доменные службы Active Directory или DNS для нахождения точек управления в интрасети, они используют [WINS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_wins). Первая точка управления, устанавливаемая для сайта, автоматически публикуется в WINS, если она настроена на прием подключений клиентов по протоколу HTTP в интрасети.  
+     Se a clientes do Configuration Manager não é possível utilizar os serviços de domínio do Active Directory ou o DNS para localizar pontos de gestão na intranet, utilize [WINS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_wins). O primeiro ponto de gestão que está instalado para o site é automaticamente publicado no WINS quando é configurada para aceitar ligações de cliente HTTP na intranet.  
 
-### <a name="status-reporting"></a>Отчеты о состоянии  
+### <a name="status-reporting"></a>Relatórios de estado  
 
--   Эти параметры напрямую влияют на уровень детализации, который включается в отчеты о состоянии сайтов и клиентов.  
+-   Estas definições configurar diretamente o nível de detalhe que está incluído nos relatórios de estado dos sites e clientes.  
 
-### <a name="email-notification"></a>Уведомление по электронной почте  
+### <a name="email-notification"></a>Notificação por e-mail  
 
--   Укажите сведения об учетной записи и сервере электронной почты, чтобы разрешить Configuration Manager отправлять уведомления по электронной почте в качестве оповещений.  
+-   Especifique a conta e o e-mail detalhes do servidor para ativar o Configuration Manager para enviar notificações por e-mail para alertas.  
 
-### <a name="collection-membership-evaluation"></a>Оценка членства в коллекции  
+### <a name="collection-membership-evaluation"></a>Avaliação da associação da coleção  
 
--   Эта задача предназначена для задания интервала оценки членства коллекции. Оценка изменений коллекции обновляет членство в коллекции только для новых и измененных ресурсов.  
+-   Utilize esta tarefa para definir a frequência da avaliação incremental da associação da coleção. A avaliação incremental atualiza uma associação da coleção apenas com recursos novos ou alterados.  
 
-### <a name="edit-the-site-components-at-a-site"></a>Изменение компонентов сайта на сайте  
+### <a name="edit-the-site-components-at-a-site"></a>Editar os componentes do site num site  
 
-Чтобы изменить компоненты сайта, выполните следующие действия.
+Utilize os seguintes passos para editar os componentes do site:
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация сайта** > **Сайты**, а затем выберите сайт, содержащий компоненты сайта, которые необходимо настроить.  
+1.  Na consola do Configuration Manager, clique em **administração** > **configuração do Site** > **Sites**e, em seguida, selecione o site que tem os componentes do site que pretende configurar.  
 
-2.  На вкладке **Главная** в группе **Параметры** выберите **Настройка компонентов сайта**. Выберите компонент сайта, который требуется настроить.  
+2.  No **home page** separador o **definições** , clique em **configurar componentes do Site**. Em seguida, selecione o componente do site que pretende configurar.  
 
-##  <a name="BKMK_ServiceMgr"></a> Использование Configuration Manager Service Manager для управления компонентами сайта  
-Диспетчер Configuration Manager Service Manager можно использовать для управления службами Configuration Manager и просмотра состояния всех служб и рабочих потоков Configuration Manager (обобщенно называемых компонентами Configuration Manager). Примите во внимание следующие сведения о компонентах Configuration Manager.  
+##  <a name="BKMK_ServiceMgr"></a> Utilizar o Gestor do Serviço do Configuration Manager para gerir componentes do site  
+Pode utilizar o Gestor do serviço do Configuration Manager para controlar os serviços do Configuration Manager e ver o estado de qualquer serviço do Configuration Manager ou o thread de trabalho (coletivamente definidos como componentes do Configuration Manager). Compreenda o seguinte sobre componentes do Configuration Manager:  
 
--   Компоненты можно запустить в любой системе сайта.  
+-   Componentes podem executar em qualquer sistema de sites.  
 
--   Управление компонентами осуществляется аналогично управлению службами в Windows. Компоненты Configuration Manager можно запускать, останавливать, приостанавливать, возобновлять или запрашивать их работу.  
+-   Os componentes são geridos da mesma forma que gerir serviços no Windows. Pode iniciar, parar, pausar, retomar ou consultar componentes do Configuration Manager.  
 
-Запуск службы Configuration Manager происходит в том случае, если ей нужно выполнить какие-либо действия (обычно если в папку входящих сообщений компонента записывается файл конфигурации). Если требуется определить компоненты, задействованные в операции, воспользуйтесь Configuration Manager Service Manager, чтобы обработать различные службы и потоки. Затем можно просмотреть итоговое изменение в поведении Configuration Manager. Например, можно по очереди останавливать службы Configuration Manager, чтобы найти и устранить конкретное действие. Таким образом можно определить службу, которая является причиной такого поведения.  
+Um serviço do Configuration Manager é executado quando tem uma tarefa para executar (normalmente, quando um ficheiro de configuração é escrito na pasta a receber de um componente). Se necessitar de identificar o componente envolvido numa operação, pode utilizar o Gestor do serviço do Configuration Manager para manipular vários serviços e threads. Em seguida, pode ver a alteração resultante no comportamento do Configuration Manager. Por exemplo, pode parar serviços do Configuration Manager um cada vez até é eliminada uma determinada resposta. Ao fazê-lo, poderá identificar o serviço responsável pelo comportamento.  
 
 > [!TIP]  
->  Приведенную ниже процедуру можно использовать для управления работой компонента Configuration Manager.  
+>  O procedimento seguinte pode ser utilizado para manipular a operação do componente do Configuration Manager.  
 
-### <a name="use-the-configuration-manager-service-manager"></a>Использование Configuration Manager Service Manager  
+### <a name="use-the-configuration-manager-service-manager"></a>Utilize o Service Manager do Configuration Manager  
 
-1.  В консоли Configuration Manager последовательно выберите **Наблюдение** >  **Состояние системы** и щелкните **Состояние компонента**.  
+1.  Na consola do Configuration Manager, clique em **monitorização** >  **estado do sistema**e, em seguida, clique em **estado do componente**.  
 
-2.  На вкладке **Главная** в группе **Компонент** щелкните **Запустить**. Затем выберите **Configuration Manager Service Manager**.  
+2.  No **home page** separador o **componente** , clique em **iniciar**. Em seguida, selecione **do serviço do Configuration Manager**.  
 
-3.  После открытия Configuration Manager Service Manager подключитесь к сайту, который требует управления.  
+3.  Quando o Gestor do Serviço do Configuration Manager for aberto, estabeleça a ligação ao site que pretende gerir.  
 
-     Если нужный сайт не отображается, щелкните **Сайт**, щелкните **Подключить**, а затем введите имя сервера сайта нужного сайта.  
+     Se não encontrar o site que pretende gerir, clique em **Site**, clique em **Ligar**e, em seguida, introduza o nome do servidor de sites do site correto.  
 
-4.  Разверните сайт и в зависимости от расположения компонентов, требующих управления, перейдите к элементу **Компоненты** или **Серверы**.  
+4.  Expanda o site e navegue para **Componentes** ou **Servidores**, consoante o local onde os componentes que quer gerir estiverem localizados.  
 
-5.  В правой области выберите один или несколько компонентов. Затем в меню **Компонент** щелкните **Запросить**, чтобы обновить состояние выбора.  
+5.  No painel direito, selecione um ou mais componentes. Em seguida, no **componente** menu, clique em **consulta** para atualizar o estado da seleção.  
 
-6.  После обновления состояния компонента измените работу компонента, выбрав в меню **Компонент** один из четырех параметров на основе действия. После запроса действия необходимо запросить компонент на отображение его нового состояния.  
+6.  Após a atualização do Estado do componente, utilize uma das quatro opções baseadas em ação no **componente** menu para modificar a operação do componente. Após solicitar uma ação, deve consultar o componente para apresentar o novo estado do componente.  
 
-7.  Завершив изменение рабочего состояния компонентов, закройте Configuration Manager Service Manager.  
+7.  Feche o Configuration Manager Service Manager quando tiver terminado a modificação do Estado operacional dos componentes.  

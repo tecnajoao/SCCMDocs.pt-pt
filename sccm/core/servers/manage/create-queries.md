@@ -1,6 +1,6 @@
 ---
-title: "Создание запросов | Документы Майкрософт"
-description: "Узнайте, как создавать и импортировать запросы в System Center Configuration Manager. Приводятся примеры запросов и советы."
+title: Criar consultas | Microsoft Docs
+description: "Saber como criar e Importar consultas no System Center Configuration Manager. Inclui sugestões e consultas de exemplo."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,96 +17,96 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9f38d86ff6227bb6ea88c358a3d61242372d449e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Создание запросов в System Center Configuration Manager
+# <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Como criar consultas no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Из этой статьи вы узнаете, как создавать или импортировать запросы в System Center Configuration Manager.  
+Pode utilizar este tópico para o ajudar a criar ou importar consultas no System Center Configuration Manager.  
 
-##  <a name="BKMK_Create"></a> Создание запросов  
- Используйте эту процедуру для создания запросов в Configuration Manager.  
+##  <a name="BKMK_Create"></a> Como criar consultas  
+ Utilize este procedimento para ajudar a criar consultas no Configuration Manager.  
 
-#### <a name="to-create-a-query"></a>Процедура создания запроса  
+#### <a name="to-create-a-query"></a>Para criar uma consulta  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+1.  Na consola do Configuration Manager, escolha **monitorização**.  
 
-2.  В рабочей области **Мониторинг** выберите элемент **Запросы**. На вкладке **Главная** в группе **Создать** щелкните **Создать запрос**.  
+2.  No **monitorização** área de trabalho, escolha **consultas**. Em seguida, no **home page** separador o **criar** grupo, escolha **criar consulta**.  
 
-3.  На вкладке **Общие** окна **Мастер создания запросов**укажите уникальное имя и необязательный комментарий для запроса.  
+3.  No separador **Geral** do **Assistente para Criar Consulta**, especifique um nome único e um comentário opcional para a consulta.  
 
-4.  Чтобы импортировать существующий отчет и использовать его в качестве основы для нового запроса, выберите **Импортировать инструкцию запроса**. В диалоговом окне **Обзор запроса** выберите существующий запрос, который требуется импортировать, и нажмите **ОК**.  
+4.  Se pretender importar uma consulta existente para utilizar como base para a nova consulta, escolha **importar declaração de consulta**. No **procurar consulta** diálogo caixa, selecione uma consulta existente que pretende importar e, em seguida, escolha **OK**.  
 
-5.  В списке **Тип объекта** выберите тип объекта, для которого требуется выполнить запрос. В следующей таблице описаны некоторые примеры типов объектов, по которым вы можете выполнять поиск.  
+5.  No **tipo de objeto** lista, selecione o tipo de objeto que pretende que a consulta para devolver. A tabela seguinte descreve alguns exemplos dos tipos de objetos que pode procurar:  
 
-    |Тип объекта|Описание|  
+    |Tipo de Objeto|Descrição|  
     |-----------------|-----------------|  
-    |**Системный ресурс**|Используйте для поиска типичных системных атрибутов, таких как NetBIOS-имя устройства, версия клиента, IP-адрес клиента и сведения доменных служб Active Directory.|  
-    |**Ресурс пользователя**|Используйте для поиска стандартной информации о пользователе, например имени пользователя, имени группы пользователя и имени группы безопасности.|  
-    |**Развертывание**|Используйте для поиска стандартных атрибутов развертывания, таких как имя развертывания, а также расписание и коллекция, в которую выполнено развертывание.|  
+    |**Recurso de Sistema**|Utilize para procurar atributos de sistema comuns, como o nome de um dispositivo NetBIOS, a versão do cliente, o endereço IP do cliente e informações dos Serviços de Domínio do Active Directory.|  
+    |**Recurso de Utilizador**|Utilize para procurar informações de utilizador normais, tais como nomes de utilizador, nomes de grupo do utilizador e os nomes dos grupos de segurança.|  
+    |**Automática**|Utilize para procurar atributos comuns de uma implementação, como o nome da implementação, a agenda e a coleção que tenha sido implementado.|  
 
-6.  Выберите **Изменить инструкцию запроса**, чтобы открыть диалоговое окно **Свойства инструкции** *&lt;имя запроса\>*.  
+6.  Escolha **editar instrução de consulta** para abrir o  *&lt;nome da consulta\>*  **propriedades da declaração** caixa de diálogo.  
 
-7.  На вкладке **Общие** диалогового окна **Свойства инструкции** *&lt;имя запроса\>* укажите атрибуты, возвращаемые этим запросом, и способ их отображения. Щелкните значок **Создать**, чтобы добавить новый атрибут. Кроме того, вы можете щелкнуть пункт **Показать язык запроса**, чтобы ввести или изменить запрос непосредственно на языке запросов WMI. Примеры запросов WMI см. в разделе [Example WQL queries](#BKMK_Example) этой статьи.  
+7.  No **geral** separador o  *&lt;nome da consulta\>*  **propriedades da declaração** diálogo caixa, especifique os atributos que esta consulta devolve e como estão a ser apresentado. Escolha o **novo** ícone para adicionar um novo atributo. Também pode optar por **Mostrar linguagem da consulta** para introduzir ou editar a consulta diretamente na linguagem WQL (WMI Query). Para obter exemplos de consultas da WMI, consulte a secção [Example WQL queries](#BKMK_Example) deste tópico.  
 
     > [!TIP]  
-    > Для создания собственных WQL-запросов вы можете использовать следующую справочную документацию MSDN:  
+    > Pode utilizar a seguinte documentação de referência do MSDN para o ajudar a criar as suas próprias consultas de WQL:  
     >   
-    > -   [WQL (SQL для WMI)](http://go.microsoft.com/fwlink/p/?LinkId=256653)  
-    > -   [Предложения WHERE](http://go.microsoft.com/fwlink/p/?LinkId=256654)  
-    > -   [Операторы WQL](http://go.microsoft.com/fwlink/p/?LinkId=256655)  
+    > -   [WQL (SQL para WMI)](http://go.microsoft.com/fwlink/p/?LinkId=256653)  
+    > -   [Cláusula ONDE](http://go.microsoft.com/fwlink/p/?LinkId=256654)  
+    > -   [Operadores da WQL](http://go.microsoft.com/fwlink/p/?LinkId=256655)  
 
-8.  На вкладке **Критерии** диалогового окна **Свойства инструкции** *&lt;имя запроса\>* укажите критерии для уточнения результатов запроса. Например, вы можете вернуть только ресурсы с кодом сайта **XYZ** в результатах запроса. Можно настроить несколько условий для запроса.  
+8.  No **critérios** separador do  *&lt;nome da consulta\>*  **propriedades da declaração** diálogo caixa, especifique os critérios que são utilizados para refinar os resultados da consulta. Por exemplo, pode devolver apenas os recursos que têm um código de site do **XYZ** nos resultados da consulta. Pode configurar vários critérios para uma consulta.  
 
     > [!IMPORTANT]  
-    > Если вы создаете запрос, который не содержит условий, он возвратит все устройства в коллекции **Все системы** .  
+    > Se criar uma consulta sem critérios, a consulta devolverá todos os dispositivos da coleção **Todos os Sistemas** .  
 
-9. На вкладке **Объединения** диалогового окна **Свойства инструкции** *&lt;имя запроса\>* вы можете объединить данные двух разных атрибутов в результатах запроса. Несмотря на то, что Configuration Manager автоматически создает объединения при выборе различных атрибутов для результата запроса, вкладка **Объединения** предоставляет расширенные параметры. Классы атрибутов, поддерживаемые System Center 2012 Configuration Manager, показаны в следующей таблице.  
+9. No **associa** separador o  *&lt;nome da consulta\>*  **propriedades da declaração** caixa de diálogo, pode combinar dados de dois atributos diferentes para os resultados de consulta. Apesar do Configuration Manager cria automaticamente as associações de consulta quando escolhe atributos diferentes para o resultado da consulta, o **associações** separador oferece opções mais avançadas. As classes de atributo que suporta o System Center 2012 Configuration Manager são apresentadas na tabela seguinte:  
 
-    |Тип объединения|Описание|  
+    |Tipo de associação|Descrição|  
     |---------------|-----------------|  
-    |Внутренний|Отображение только подходящих результатов. Этот вариант всегда используется в соединениях, создаваемых автоматически.|  
-    |Левый|Отображение всех результатов для базового атрибута и только подходящих результатов для атрибута объединения.|  
-    |Правый|Отображение всех результатов для атрибута объединения и только подходящих результатов для базового атрибута.|  
-    |Полная архивация|Отображение всех результатов для базового атрибута и атрибута объединения.|  
+    |Interna|Mostra apenas os resultados correspondentes — sempre utilizado por associações externas que são criadas automaticamente.|  
+    |Esquerda|Apresenta todos os resultados para o atributo base e apenas os resultados correspondentes ao atributo de associação.|  
+    |Direita|Apresenta todos os resultados para o atributo de associação e apenas os resultados correspondentes ao atributo base.|  
+    |Completa|Apresenta todos os resultados para o atributo base e o atributo de associação.|  
 
-     Дополнительные сведения о том, как использовать операции соединения, см. в документации к серверу SQL Server.  
+     Para obter mais informações sobre como utilizar operações de associação, consulte a documentação do SQL Server.  
 
-10. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства инструкции** *&lt;имя запроса\>*.  
+10. Escolha **OK** para fechar o  *&lt;nome da consulta\>*  **propriedades da declaração** caixa de diálogo.  
 
-11. На вкладке **Общие** окна **Мастер создания запросов** укажите, будут ли ограничены результаты этого запроса членами коллекции или указанной коллекции либо будет ли предлагаться указать коллекцию при каждом выполнении запроса.  
+11. No **geral** separador do **Assistente para criar consulta**, especifique se os resultados desta consulta não estão limitados a membros de uma coleção, para se estão limitados a membros de uma coleção especificada, ou se houver uma linha de uma coleção sempre que a consulta é executada.  
 
-12. Следуйте указаниям мастера для создания запроса. Новый запрос отображается в узле **Запросы** рабочей области **Мониторинг** .  
+12. Conclua o assistente para criar a consulta. A consulta nova é apresentada no nó **Consultas** na área de trabalho **Monitorização** .  
 
-##  <a name="BKMK_Import"></a> Импорт запросов  
- Используйте эту процедуру для импорта запроса в Configuration Manager. Сведения о том, как экспортировать запросы, см. в разделе [Управление запросами в System Center Configuration Manager](../../../core/servers/manage/manage-queries.md).  
+##  <a name="BKMK_Import"></a> Como importar consultas  
+ Utilize este procedimento para importar uma consulta para o Configuration Manager. Para obter informações sobre como exportar consultas, consulte [como gerir consultas no System Center Configuration Manager](../../../core/servers/manage/manage-queries.md).  
 
-#### <a name="to-import-a-query"></a>Процедура импорта запроса  
+#### <a name="to-import-a-query"></a>Para importar uma consulta  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+1.  Na consola do Configuration Manager, escolha **monitorização**.  
 
-2.  В рабочей области **Мониторинг** выберите элемент **Запросы**. На вкладке **Главная** в группе **Создать** щелкните **Импорт объектов**.  
+2.  No **monitorização** área de trabalho, escolha **consultas**. No **home page** separador o **criar** grupo, escolha **importar objetos**.  
 
-3.  На странице **Имя MOF-файла** **мастера импорта объектов** нажмите кнопку **Обзор** и выберите MOF-файл, содержащий запрос, который требуется импортировать.  
+3.  No **nome do ficheiro MOF** página do **Assistente Importar objetos**, escolha **procurar** para selecionar o ficheiro de formato (Managed Object) que contém a consulta que pretende importar.  
 
-4.  Просмотрите сведения об импортируемом запросе, после чего завершите работу мастера. Новый запрос отобразится в узле **Запросы** рабочей области **Мониторинг**.  
+4.  Reveja as informações sobre a consulta a importar e, em seguida, conclua o assistente. A consulta nova é apresentada no **consultas** no nó de **monitorização** área de trabalho.  
 
 ##  <a name="BKMK_Example"></a> Example WQL queries
 
-Этот раздел содержит примеры запросов WMI, которые вы можете использовать в иерархии или изменять для применения в других целях. Чтобы использовать эти запросы, в диалоговом окне **Свойства формы запроса** щелкните **Показать язык запроса**. Затем скопируйте и вставьте запрос в поле **Инструкция запроса**.  
+Esta secção contém consultas da WMI de exemplo que pode utilizar na sua hierarquia ou modificar para outros fins. Para utilizar estas consultas, escolha **Mostrar linguagem da consulta** no **propriedades da declaração de consulta** caixa de diálogo. Em seguida, copie e cole a consulta no **instrução de consulta** campo.  
 
 > [!TIP]  
-> Используйте подстановочный знак `%` для обозначения любой строки символов. Например, `%Visio%` возвращает Microsoft Office Visio 2010.  
+> Utilizar o caráter universal `%` para indicar qualquer cadeia de carateres. Por exemplo, `%Visio%` devolve Microsoft Office Visio 2010.  
 
-### <a name="computers-that-run-windows-7"></a>Компьютеры под управлением Windows 7
+### <a name="computers-that-run-windows-7"></a>Computadores com o Windows 7
 
-Используйте следующий запрос для возврата NetBIOS-имени и версии операционной системы всех компьютеров под управлением Windows 7.  
+Utilize a seguinte consulta para devolver a versão do sistema operativo e o nome NetBIOS de todos os computadores com o Windows 7.  
 
 > [!TIP]  
-> Для возврата компьютеров под управлением Windows Server 2008 R2, измените `%Workstation 6.1%` на `%Server 6.1%`.  
+> Para devolver os computadores que executam o Windows Server 2008 R2, altere `%Workstation 6.1%` para `%Server 6.1%`.  
 
 ```  
 select SMS_R_System.NetbiosName,  
@@ -115,12 +115,12 @@ SMS_R_System where
 SMS_R_System.OperatingSystemNameandVersion like "%Workstation 6.1%"  
 ```  
 
-### <a name="computers-with-a-specific-software-package-installed"></a>Компьютеры с установленным указанным пакетом программного обеспечения  
+### <a name="computers-with-a-specific-software-package-installed"></a>Computadores com um pacote de software específico instalado  
 
-Используйте следующий запрос для возврата NetBIOS-имени и имени пакета программного обеспечения всех компьютеров, на которых установлен указанный пакет программного обеспечения. В этом примере отображаются все компьютеры с установленной версией Microsoft Visio. Замените `%Visio%` пакетом программного обеспечения, для которого требуется запросить данные.  
+Utilize a seguinte consulta para devolver o nome NetBIOS e o nome do pacote de software de todos os computadores que tenham um pacote de software específico instalado. Este exemplo apresenta todos os computadores com uma versão do Microsoft Visio instalado. Substitua `%Visio%` com o pacote de software que pretende consultar.  
 
 > [!TIP]  
-> Этот запрос выполняет поиск пакета программного обеспечения с помощью имен, отображаемых в списке программ на панели управления Windows.  
+> Para procurar o pacote de software, esta consulta utiliza os nomes que são apresentados na lista de programas do Painel de Controlo do Windows.  
 
 ```  
 select SMS_R_System.NetbiosName,   
@@ -131,9 +131,9 @@ SMS_R_System.ResourceId where
 SMS_G_System_ADD_REMOVE_PROGRAMS.DisplayName like "%Visio%"  
 ```  
 
-### <a name="computers-that-are-in-a-specific-active-directory-domain-services-organizational-unit"></a>Компьютеры в указанном подразделении доменных служб Active Directory
+### <a name="computers-that-are-in-a-specific-active-directory-domain-services-organizational-unit"></a>Computadores que estejam numa unidade organizacional de serviços de domínio do Active Directory específica
 
-Используйте запрос ниже для возврата NetBIOS-имени и имени подразделения всех компьютеров в указанном подразделении. Замените текст `OU Name` именем подразделения, для которого требуется запросить данные.  
+Utilize a seguinte consulta para devolver o nome NetBIOS e o nome de unidade organizacional (UO) de todos os computadores numa UO específica. Substitua o texto `OU Name` com o nome da UO que pretende consultar.  
 
 ```  
 select SMS_R_System.NetbiosName,   
@@ -142,47 +142,47 @@ SMS_R_System where
 SMS_R_System.SystemOUName = "OU Name"  
 ```  
 
-### <a name="computers-with-a-specific-netbios-name"></a>Компьютеры с определенным NetBIOS-именем
+### <a name="computers-with-a-specific-netbios-name"></a>Computadores com um nome NetBIOS específico
 
-Используйте следующий запрос для возврата NetBIOS-имени всех компьютеров, начинающихся с определенной строки символов. В этом примере запрос возвращает все компьютеры с NetBIOS-именем, которое начинается с `ABC`.  
+Utilize a seguinte consulta para devolver o nome NetBIOS de todos os computadores que começam com uma cadeia de carateres específica. Neste exemplo, a consulta devolve todos os computadores com um nome NetBIOS que comece com `ABC`.  
 
 ```  
 select SMS_R_System.NetbiosName from    
 SMS_R_System where SMS_R_System.NetbiosName like "ABC%"  
 ```  
 
-###  <a name="BKMK_DeviceType"></a> Устройства определенного типа
+###  <a name="BKMK_DeviceType"></a> Dispositivos de um tipo específico
 
-Типы устройств сохраняются в базе данных Configuration Manager по классу ресурсов **sms_r_system** и имени атрибута **AgentEdition**. Используйте следующий запрос, чтобы получить только те устройства, которые соответствуют выпуску агента указанного типа устройства:  
+Tipos de dispositivo são armazenados na base de dados do Configuration Manager com a classe de recursos **sms_r_system** e o nome de atributo **AgentEdition**. Utilize a seguinte consulta para obter apenas os dispositivos que correspondem à edição do agente do tipo de dispositivo que especificou:  
 
 ```  
 Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdition = <Device ID>  
 ```  
 
-Используйте одно из указанных ниже значений для *&lt;Device ID\>*.  
+Utilize um dos seguintes valores para  *&lt;ID de dispositivo\>*:  
 
-|Тип устройства|Значение AgentEdition|  
+|Tipo de Dispositivo|Valor de AgentEdition|  
 |-----------------|---------------------------|  
-|Настольный компьютер или ноутбук под управлением Windows|0|  
-|Устройство на базе Windows ARM (под управлением Windows RT)|1|  
+|Computador portátil ou de ambiente de trabalho do Windows|0|  
+|Dispositivo baseado em Windows ARM (com o Windows RT)|1|  
 |Windows Mobile 6.5|2|  
 |Nokia Symbian|3|  
 |Windows Phone|4|  
-|Компьютеры Mac|5|  
+|Computador Mac|5|  
 |Windows CE|6|  
-|Windows Embedded|7|  
+|Dispositivos Embedded|7|  
 |iOS|8|  
 |iPad|9|  
 |iPod Touch|10|  
 |Android|11|  
-|Система на кристалле Intel|12|  
-|Серверы Unix и Linux|13|  
+|Intel sistema numa-Chip|12|  
+|Servidores Unix e Linux|13|  
 
- Например, если запрос должен возвращать только компьютеры Mac, используйте следующий запрос:  
+ Por exemplo, se pretender que a consulta devolva apenas computadores Mac, utilize a seguinte consulta:  
 
 ```  
 Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdition = 5  
 ```  
 
-## <a name="see-also"></a>См. также  
- [Использование и обслуживание запросов в System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)
+## <a name="see-also"></a>Consulte também  
+ [Operações e manutenção de consultas no System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)

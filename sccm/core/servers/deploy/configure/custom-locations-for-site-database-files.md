@@ -1,6 +1,6 @@
 ---
-title: "Настраиваемые расположения для файлов базы данных | Документы Майкрософт"
-description: "Узнайте, как задать настраиваемые расположения для файлов базы данных SQL Server."
+title: "As localizações de ficheiros de base de dados personalizada | Microsoft Docs"
+description: "Saiba como especificar localizações personalizadas para ficheiros de base de dados do SQL Server."
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
@@ -16,29 +16,29 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: cfac2c03c1b71b40c68d8acd5fbd96c5e98caaa9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="custom-locations-for-system-center-configuration-manager-site-database-files"></a>Настраиваемые расположения для файлов базы данных сайта System Center Configuration Manager.
+# <a name="custom-locations-for-system-center-configuration-manager-site-database-files"></a>Ficheiros de base de dados do site localizações personalizadas para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- System Center Configuration Manager поддерживает настраиваемые расположения для файлов базы данных SQL Server.  
+ System Center Configuration Manager suporta localizações personalizadas para ficheiros de base de dados do SQL Server.  
 
 > [!NOTE]  
->  При использовании кластера SQL Server возможность указания расположений файлов не по умолчанию недоступна.  
+>  A opção para especificar localizações de ficheiros não predefinidas não está disponível quando utiliza um cluster do SQL Server.  
 
- **Во время установки** нового первичного сайта или сайта центра администрирования вы можете:  
+ **Durante a configuração** de um novo site primário ou site de administração central, pode:  
 
--   **Указать нестандартные расположения файлов для базы данных сайта**: программа установки Configuration Manager создает базу данных сайта с использованием этих расположений.  
+-   **Especifique localizações de ficheiros não predefinidas para a base de dados do site**: Configuração do Configuration Manager, em seguida, cria a base de dados do site utilizando essas localizações.  
 
--   **Задать применение предварительно созданной базы данных SQL Server, которая использует настраиваемые расположения файлов**: программа установки Configuration Manager использует эту заранее созданную базу данных и ее предварительно настроенные расположения для файлов.  
+-   **Especifique a utilização de uma base de dados do SQL Server previamente criada que utilize localizações de ficheiros personalizadas**:  Configuração do Configuration Manager, em seguida, utiliza essa base de dados previamente criada e respetivas localizações de ficheiros pré-configurada.  
 
-**После установки** вы можете изменить расположение файлов базы данных сайта. Для этого необходимо остановить сайт и изменить расположение файлов в SQL Server.  
+**Após a configuração**, pode alterar a localização dos ficheiros de base de dados do site. Isto requer que pare o site e edite a localização do ficheiro no SQL Server:  
 
--   На сервер сайта Configuration Manager остановите службу **SMS_Executive**.  
+-   No servidor do site do Configuration Manager, pare o **SMS_Executive** serviço.  
 
--   Следуйте инструкциям по перемещению пользовательской базы данных, приведенным в документации для вашей версии SQL Server. Например, если вы используете SQL Server 2014, см. статью [Перемещение пользовательских баз данных](https://technet.microsoft.com/library/ms345483\(v=sql.120\).aspx) на сайте TechNet.  
+-   Utilize a documentação para a sua versão do SQL Server para ajudá-lo sobre como mover uma base de dados do utilizador. Por exemplo, se utilizar o SQL Server 2014, consulte o artigo [mover bases de dados de utilizador](https://technet.microsoft.com/library/ms345483\(v=sql.120\).aspx) no TechNet.  
 
--   После перемещения файлов базы данных перезапустите службу **SMS_Executive** на сервере сайта Configuration Manager.  
+-   Depois de concluir a mudança do ficheiro de base de dados, reinicie o **SMS_Executive** serviço no servidor do site do Configuration Manager.  

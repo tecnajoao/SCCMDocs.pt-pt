@@ -1,6 +1,6 @@
 ---
-title: "Возможности в Technical Preview 1704 для Configuration Manager"
-description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1704."
+title: "Capacidades na pré-visualização técnica 1704 do Configuration Manager"
+description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1704."
 ms.custom: na
 ms.date: 4/21/2017
 ms.prod: configuration-manager
@@ -15,59 +15,59 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d7caee47ca74064630e09c1bdb94187af256d4b4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1704-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1704 для System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1704-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1704 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
-Эта статья содержит сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1704. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.    
+Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1704. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.    
 
 
-**Ниже перечислены новые возможности, доступные в этой версии.**  
+**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-## <a name="configure-android-apps-with-app-configuration-policies"></a>Настройка приложений Android с помощью политик конфигурации приложений
-Вы можете использовать политики конфигурации приложений в System Center Configuration Manager для распространения параметров, которые могут быть необходимы, когда пользователь работает с приложением на устройствах Android for Work. Политики конфигурации Android приложения доступны только на устройствах под управлением Android for Work. Они применимы к утвержденным приложениям из хранилища Play for Work.
+## <a name="configure-android-apps-with-app-configuration-policies"></a>Configurar as aplicações Android com políticas de configuração de aplicação
+Pode utilizar políticas de configuração de aplicações no System Center Configuration Manager (Configuration Manager) para distribuir as definições que poderão ser necessárias quando um utilizador executa uma aplicação no Android para dispositivos de trabalho. Políticas de configuração de aplicação Android estão disponíveis apenas em dispositivos com Android para o trabalho e aplicam a aplicações aprovadas da Play para o arquivo de trabalho.
 
-### <a name="try-it-out"></a>Попробуйте!                 
+### <a name="try-it-out"></a>Experimente                 
 
-В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Политики конфигурации приложений** и **Создать политику конфигурации приложений**. На странице **Общие** мастера теперь можно **выбрать тип политики конфигурации**. Укажите платформу для политики конфигурации приложения: **Политика конфигурации для приложений Android for Work**. После этого можно **указать пары "имя — значение"** или **перейти к файлу JSON списка свойств**. Новая политика конфигурации приложений отображается в узле **Политики конфигурации приложений** рабочей области **Библиотека программного обеспечения**. Чтобы связать политику конфигурации приложений с развертыванием приложения Android for Work, разверните приложение обычным образом, как описано в разделе [Развертывание приложений](/sccm/apps/deploy-use/deploy-applications).
+Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **políticas de configuração de aplicação** e escolha **criar política de configuração de aplicação**. No **geral** página do assistente, pode agora **selecione um tipo de política de configuração**. Especifique a plataforma visada pela política de configuração de aplicação: **Política de configuração para Android para aplicações de trabalho**. Pode, em seguida, **Especifique pares nome / valor** ou **procure um ficheiro JSON de lista de propriedade**. A nova política de configuração de aplicação é apresentada no **biblioteca de Software** área de trabalho, no **políticas de configuração de aplicação** nós. Para associar uma política de configuração de aplicação com a implementação de um Android para a aplicação de trabalho, implementar a aplicação como faria normalmente, utilizando o procedimento a [implementar aplicações](/sccm/apps/deploy-use/deploy-applications) tópico.
 
-## <a name="hardware-inventory-collects-secure-boot-information"></a>Функция инвентаризации оборудования собирает сведения о безопасной загрузке
-Функция инвентаризации оборудования теперь собирает сведения о включении безопасной загрузки на клиентах. Эти сведения хранятся в классе **SMS_Firmware** (представлено в версии 1702 и включено в функции инвентаризации оборудования по умолчанию). См. дополнительные сведения о [настройке инвентаризации оборудования](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
+## <a name="hardware-inventory-collects-secure-boot-information"></a>Inventário de hardware recolhe informações de arranque seguro
+Inventário de hardware agora recolhe informações sobre se o arranque seguro está ativado nos clientes. Esta informação é armazenada no **SMS_Firmware** classe (introduzida na versão 1702) e de hardware ativado no inventário por predefinição. Para obter mais informações sobre o inventário de hardware, consulte [como configurar inventário de hardware](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
 
-## <a name="add-child-task-sequences-to-a-task-sequence"></a>Добавление дочерней последовательности задач в последовательность задач
-В этой версии вы можете добавить новый шаг последовательности задач, который управляет другой последовательностью задач, что, в свою очередь, создает иерархическое отношение между последовательностями задач. Это позволяет создать дополнительные модульные последовательности задач, которые можно повторно использовать.  
+## <a name="add-child-task-sequences-to-a-task-sequence"></a>Adicionar sequências de tarefas de subordinados a uma sequência de tarefas
+Nesta versão, pode adicionar um novo passo de sequência de tarefas é executada outra sequência de tarefas, que cria uma relação principal/subordinado entre as sequências de tarefas. Isto permite-lhe criar mais sequências de tarefas modulares que pode utilizar novamente.  
 
-При добавлении в последовательность задач дочерней последовательности задач учитывайте следующее:
+Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere o seguinte:
 
-- Родительская и дочерняя последовательности задач эффективно объединяются в одну политику, выполняемой на клиенте.
-- Вы не можете добавить дочернюю последовательность задач, которая является родительской для другой последовательности задач.
-- Среда является глобальной. Например, если переменная определена родительской последовательностью задач, а затем изменена дочерней, переменная останется измененной. Аналогичным образом, если дочерняя последовательность задач создает переменную, такая переменная будет доступной для соответствующих действий в родительской последовательности задач.
-- Сообщения о состоянии отправляются для отдельной операции последовательности задач как обычно.
-- Последовательности задач регистрируют записи в файл журнала smsts.log так, чтобы было понятно, когда начинается дочерняя последовательность задач.
-- Если в Technical Preview для Configuration Manager, версия 1704, последовательности дочерних задач ссылаются на любой пакет, а вы запускаете родительскую последовательность задач из центра программного обеспечения, клиент не сможет найти содержимое пакета при запуске дочерней последовательности задач. В этом сценарии необходимо запустить последовательность задач с носителя (загрузочного носителя, PXE и пр.).  
+- As sequências de tarefas principais e subordinados eficazmente são combinadas uma única política que executa o cliente.
+- Não é suportada para adicionar uma sequência de tarefas de subordinados que é um elemento principal de outra sequência de tarefas.
+- O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, alterada pela sequência de tarefas subordinado, a variável permanece alterado mover reencaminhar. Da mesma forma, se a sequência de tarefas subordinado cria uma nova variável, a variável está disponível para os passos restantes da sequência de tarefas principal.
+- Mensagens de estado são enviadas por normal para uma operação de sequência de tarefas único.
+- As sequências de tarefas escreverem entradas no ficheiro smsts.log, com o novo registo de entradas que desmarque quando uma sequência de tarefas subordinado é iniciado.
+- No Technical Preview para o Configuration Manager, versão 1704, se as sequências de tarefas subordinado referencia qualquer pacote e o utilizador executar principal sequência de tarefas do Centro de Software, o cliente será não encontrar o conteúdo do pacote quando a sequência de tarefas subordinado é executada. Neste cenário, tem de executar a sequência de tarefas do suporte de dados (arranque suportes de dados, PXE, etc.).  
 
-    Если дочерняя последовательность задач использует такие действия, как **Выполнить из командной строки** (без ссылки на пакет), **Форматировать**, **BitLocker** и пр., она будет успешно запущена из центра программного обеспечения.
+    Se a sequência de tarefas subordinado utiliza passos como **executar linha de comandos** (sem qualquer referência de pacote), **formato**, **BitLocker**, etc., em seguida, a sequência de tarefas será executado com êxito a partir do Centro de Software.
 
-### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Добавление дочерней последовательности задач в последовательность задач
-1. В редакторе последовательности задач щелкните **Добавить**, **Общие** и **Запустить последовательность задач**.
-2. Щелкните **Обзор**, чтобы выбрать дочернюю последовательность задач.  
+### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Para adicionar uma sequência de tarefas subordinados a uma sequência de tarefas
+1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
+2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.  
 
-## <a name="reload-boot-images-with-current-windows-pe-version"></a>Перезагрузка загрузочных образов с использованием текущей версии Windows РЕ
-Запуская **обновление точек распространения** на выбранном загрузочном образе, вы теперь можете повторно загрузить в загрузочный образ последнюю версию Windows PE (из каталога установки Windows ADK). На странице **Общие** мастера предоставлены сведения о версии Windows ADK, установленной на сервере сайта, и версии Windows ADK, из которой в загрузочном образе использовался экземпляр Windows PE, а также о версии клиента Configuration Manager. Эти сведения помогут вам решить, следует ли повторно использовать загрузочный образ. Кроме того, добавлен новый столбец (**Версия клиента**), доступный при просмотре загрузочных образов на узле **Загрузочные образы** и отображающий версию клиента Configuration Manager, используемую для каждого загрузочного образа.
+## <a name="reload-boot-images-with-current-windows-pe-version"></a>Volte a carregar as imagens de arranque com a versão atual do Windows PE
+Quando executa **atualizar pontos de distribuição** numa imagem de arranque selecionada, agora, pode escolher recarregar a versão mais recente do Windows PE (a partir do diretório de instalação do Windows ADK) na imagem de arranque. O **geral** página do assistente fornece informações sobre a versão do Windows ADK instalada no servidor do site, a versão do Windows ADK partir do qual o Windows PE foi utilizado na imagem de arranque e a versão do cliente do Configuration Manager. Pode utilizar estas informações para ajudar a decidir se pretende recarregar a imagem de arranque. Além disso, uma nova coluna (**versão de cliente**) foi adicionado ao ver as imagens de arranque no **imagens de arranque** nó para saber qual a versão do cliente do Configuration Manager utiliza de cada imagem de arranque.
 
-### <a name="to-reload-a-boot-image-with-the-current-windows-pe-version"></a>Перезагрузка загрузочного образа с использованием текущей версии Windows PE
+### <a name="to-reload-a-boot-image-with-the-current-windows-pe-version"></a>Recarregar uma imagem de arranque com a versão atual do Windows PE
 
-1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Загрузочные образы**.
-2. Выберите образ загрузки и щелкните **Обновить точки распространения**.
-3. На странице **Общие** мастера выберите **перезагрузку загрузочного образа с использованием текущей версии среды Windows PE из установленной версии Windows ADK**.
+1. Na consola do Configuration Manager, vá para **biblioteca de Software** > **sistemas operativos** > **imagens de arranque**.
+2. Selecione uma imagem de arranque e clique em **atualizar pontos de distribuição**.
+3. No **geral** página do assistente, selecione **imagem de arranque de recarregar a utilizar a versão atual do Windows PE do Windows ADK instalado**.
 
-## <a name="improvements-to-operating-system-deployment"></a>Усовершенствования развертывания операционной системы
-Мы оптимизировали процедуру развертывания операционной системы во многом на основе ваших отзывов.
+## <a name="improvements-to-operating-system-deployment"></a>Melhorias para implementação do sistema operativo
+Efetuamos as seguintes melhorias para implementação do sistema operativo, que eram o resultado dos seus comentários de voz do utilizador.
 
-- [Новый столбец **Версия ОС** для образов операционных систем](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17558407-add-a-column-to-the-operating-system-images-node-f): мы добавили новый столбец **Версия ОС**, в котором отображается версия операционной системы для образа при просмотре сведений на узлах **Образы операционной системы** и **Пакеты обновления операционной системы**. Отображается только версия первого индекса в WIM-файле. На вкладке **Сведения** для образа можно просмотреть версии операционной системы для других индексов.
+- [Novo **versão do SO** coluna para imagens de sistema operativo](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/17558407-add-a-column-to-the-operating-system-images-node-f): Iremos adicionou uma nova coluna com o nome **versão do SO** para apresentar a versão do sistema operativo da imagem quando visualiza informações no **imagens do sistema operativo** e **pacotes de atualização do sistema operativo** nós. Apenas a versão do índice do primeiro o. WIM é apresentado. Vá para o **detalhes** separador para a imagem rever as versões do sistema operativo para outros índices.
 
-- [Более эффективное ведение журналов в Smsts.log](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/16791919-stop-filling-smsts-log-with-useless): начиная с этой версии мы больше не записываем сведения CCM_CIVersionInfo.PolicyID в файл журнала smsts.log. Раньше эти сведения содержались во многих записях, что затрудняло поиск более важной информации в файле журнала.
+- [Início de sessão mais eficiente em Smsts.log](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/16791919-stop-filling-smsts-log-with-useless): A partir desta versão, iremos deixam de entradas de escrita para o ficheiro smsts.log para CCM_CIVersionInfo.PolicyID informações. Antes desta versão, pode haver um grande número de entradas com estas informações, que efetuadas difíceis de encontrar informações mais relevantes no ficheiro de registo.

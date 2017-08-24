@@ -1,6 +1,6 @@
 ---
-title: "Назначение клиентов сайту | Документы Майкрософт"
-description: "Назначение клиентов сайту в System Center Configuration Manager"
+title: Atribuir clientes a um site | Microsoft Docs
+description: Atribua clientes a um site no System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,149 +16,149 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: a0ccd453fbe346c239eb6e37bc3ed557487b1e27
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-assign-clients-to-a-site-in-system-center-configuration-manager"></a>Назначение клиентов сайту в System Center Configuration Manager
+# <a name="how-to-assign-clients-to-a-site-in-system-center-configuration-manager"></a>Como atribuir clientes a um site no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-После установки клиента System Center Configuration Manager его необходимо присоединить к первичному сайту Configuration Manager, прежде чем им можно будет управлять. Сайт, к которому присоединяется клиент, называется *назначенным сайтом*. Клиентов нельзя назначать сайту центра администрирования или вторичному сайту.  
+Depois de um cliente do System Center Configuration Manager está instalado, este tem de associar um site primário do Configuration Manager antes de poder geri-lo. O site que associa um cliente é denominado o *site atribuído*. Os clientes não podem ser atribuídos a um site de administração central ou a um site secundário.  
 
-Процесс назначения происходит после успешной установки клиента и определяет сайт, который управляет клиентским компьютером. Клиент можно назначить сайту вручную либо использовать автоматическое назначение сайта, при котором клиент автоматически обнаруживает подходящий сайт на основании текущего сетевого расположения. Кроме того, можно назначить клиент резервному сайту, настроенному для иерархии.
+O processo de atribuição ocorre após o cliente é instalado com êxito e determina que site gere o computador cliente. Pode optar entre atribuir diretamente o cliente a um site ou pode utilizar a atribuição automática de site em que o cliente encontrará automaticamente um site apropriado com base na respetiva localização de rede atual ou um site de contingência que tenha sido configurado para a hierarquia.
 
-При установке клиента мобильного устройства в ходе регистрации Configuration Manager устройство всегда автоматически назначается сайту. При установке клиента на компьютере можно решить, будет ли он назначен сайту. Если клиент установлен, но не назначен, он является неуправляемым до назначения сайту.  
+Quando instala o cliente do dispositivo móvel durante a inscrição do Gestor de configuração, o dispositivo é sempre automaticamente atribuído a um site. Quando instalar o cliente num computador, pode escolher atribuir o cliente a um site ou não. No entanto, se o cliente estiver instalado mas não atribuído, permanecerá não gerido até a atribuição de site ser concluída com êxito.  
  
 
 > [!NOTE]  
->  Всегда назначайте клиенты сайтам с той же версией Configuration Manager. Не следует назначать клиент Configuration Manager более новой версии сайту более старой версии.   При необходимости обновите первичный сайт до версии Configuration Manager, используемой для клиентов.  
+>  Atribua sempre clientes a sites que executa a mesma versão do Configuration Manager. Evite atribuir um cliente do Configuration Manager a partir de uma versão mais recente para um site a partir de uma versão mais antiga.   Se necessário, atualize o site primário para a mesma versão do Configuration Manager que está a utilizar para os clientes.  
 
-После назначения клиента сайту назначение сохраняется, даже если клиент меняет свой IP-адрес и перемещается на другой сайт. Только администратор может вручную назначить клиент другому сайту или удалить назначение клиента.  
+Após o cliente ser atribuído a um site, permanecerá atribuído a esse site mesmo que o cliente altere o respetivo endereço IP ou faça roaming para outro site. Apenas um administrador pode atribuir o cliente para outro site ou remover a atribuição de cliente manualmente.  
 
 > [!WARNING]  
->  Исключением, когда клиент остается назначенным сайту, является назначение клиента на устройстве с Windows Embedded при включенных фильтрах записи. Если не отключить фильтры записи перед назначением клиента, при следующем перезапуске устройства будет установлено исходное состояние назначения клиента.  
+>  A exceção à permanência da atribuição de um cliente a um site verifica-se quando o cliente é atribuído num dispositivo Windows Embedded enquanto os filtros de escrita estão ativados. Se não desativar em primeiro lugar os filtros de escrita que atribuiu ao cliente, o estado de atribuição de site do cliente regressará ao estado original durante o próximo reinício do dispositivo.  
 >   
->  Например, если клиент настроен для автоматического назначения, то при перезапуске произойдет повторное назначение, и клиент может быть назначен другому сайту. Если клиент не настроен для автоматического назначения, но требует назначения вручную, необходимо вручную переназначить клиент после запуска. Только после этого можно будет управлять этим клиентом с помощью Configuration Manager.  
+>  Por exemplo, se o cliente estiver configurado para a atribuição automática de sites, a reatribuição será feita durante o arranque e poderá resultar na atribuição a um site diferente. Se o cliente não está configurado para atribuição automática de site, mas necessita de uma atribuição manual do site, tem de reatribuir manualmente o cliente após o arranque antes de poder gerir novamente este cliente utilizando o Gestor de configuração.  
 >   
->  Чтобы избежать такой ситуации, отключите фильтры записи перед назначением клиента на встроенных устройствах, а затем, убедившись, что назначение прошло успешно, снова включите фильтры записи.  
+>  Para evitar este comportamento, desative os filtros de escrita antes de atribuir o cliente em dispositivos incorporados e, em seguida, ative os filtros de escrita após ter confirmado que a atribuição do site foi concluída com êxito.  
 
-Если назначение клиента завершается неудачей, программное обеспечение клиента остается установленным, но будет неуправляемым. Клиент считается неуправляемым, когда он установлен, но не назначен сайту, или назначен сайту, но не может связываться с точкой управления.  
+Se falhar a atribuição de cliente, o software de cliente permanecerá instalado, mas deixará de ser gerido. Um cliente é considerado não gerido quando é instalado, mas não atribuído a um site, ou quando é atribuído a um site mas não consegue comunicar com um ponto de gestão.  
 
-##  <a name="using-manual-site-assignment-for-computers"></a>Назначение сайта компьютерам вручную  
- Можно вручную назначить клиентские компьютеры сайту следующими двумя способами.  
+##  <a name="using-manual-site-assignment-for-computers"></a>Utilizar a atribuição manual de sites a computadores  
+ Pode atribuir manualmente computadores cliente a um site utilizando os dois métodos seguintes:  
 
--   Свойство установки клиента, указывающее код сайта.  
+-   Utilize uma propriedade de instalação de cliente que especifique o código do site.  
 
--   В панели управления в узле **Configuration Manager**укажите код сайта.  
-
-> [!NOTE]  
->  Если вручную назначить клиентский компьютер коду сайта Configuration Manager, который не существует, назначение сайта завершится сбоем.   
-
-##  <a name="BKMK_AutomaticAssignment"></a> Автоматическое назначение сайта компьютерам  
- Автоматическое назначение сайта может осуществляться во время развертывания клиента или при нажатии кнопки **Найти сайт** на вкладке **Дополнительно** окна **Свойства Configuration Manager** на панели управления. Клиент Configuration Manager сравнивает свое сетевое расположение с границами сайта, настроенными в иерархии Configuration Manager. Если сетевое расположение клиента находится в рамках группы границ, для которой включено назначение сайта, или иерархия настроена для резервного сайта, клиент автоматически привязывается к данному сайту без необходимости указывать код сайта.  
-
- Чтобы настроить границы, используйте один или несколько элементов, перечисленных ниже.  
-
--   IP-подсеть  
-
--   Сайт Active Directory  
-
--   Префикс IPv6  
-
--   Диапазон IP-адресов  
+-   Em **Configuration Manager**do Painel de Controlo, especifique o código do site.  
 
 > [!NOTE]  
->  Если у клиента Configuration Manager несколько сетевых адаптеров и, следовательно, несколько IP-адресов, IP-адрес, используемый для определения назначения сайта клиенту, присваивается случайным образом.  
+>  Se atribuir manualmente um computador cliente para um código de site do Configuration Manager que não existe, a atribuição de site falha.   
 
- Сведения о настройке групп границ для назначения сайта и настройке резервного сайта для автоматического назначения см. в разделе [Определение границ сайта и групп границ для System Center Configuration Manager](../../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
+##  <a name="BKMK_AutomaticAssignment"></a> Utilizar a atribuição automática de sites a computadores  
+ A atribuição automática de site pode ocorrer durante a implementação do cliente ou quando clica na opção **Procurar Site** do separador **Avançadas** das **Propriedades do Configuration Manager** no Painel de Controlo. O cliente do Configuration Manager compara a respetiva localização de rede com os limites que são configurados na hierarquia do Configuration Manager. Quando a localização de rede do cliente reside num grupo de limites que está ativada para atribuição de sites, ou a hierarquia está configurada para um site de contingência, o cliente é automaticamente atribuído a esse site sem que o operador precise de especificar um código de site.  
 
- Клиенты Configuration Manager, использующие автоматическое назначение, пытаются найти группы границ сайта, опубликованные в доменных службах Active Directory. Если этот метод не дает результата (например, схема Active Directory не расширена для Configuration Manager или клиенты являются компьютерами рабочей группы), тогда клиенты могут найти сведения о группах границ в точке управления.  
+ Pode configurar limites utilizando um ou mais dos seguintes procedimentos:  
 
- Можно указать точку управления для использования клиентами при их установке. Также клиенты могут обнаруживать точку управления с помощью публикации DNS или WINS.  
+-   Sub-rede IP  
 
- Если клиент не может найти сайт, связанный с группой границ, содержащей его сетевое расположение, а в иерархии нет резервного сайта, клиент пытается выполнить это действие каждые 10 минут до тех пор, пока не происходит его назначение сайту.  
+-   Site de Active Directory  
 
- Клиентские компьютеры Configuration Manager не могут быть автоматически назначены сайту в любом из перечисленных ниже случаев. Такое назначение должно выполняться вручную.  
+-   Prefixo IP v6  
 
--   Клиенты уже назначены сайту.  
-
--   Они находятся в Интернете или настроены как клиенты только для Интернета.  
-
--   Их сетевое расположение не попадает ни в одну из настроенных групп границ в иерархии Configuration Manager, а резервный сайт в иерархии отсутствует.  
-
-##  <a name="completing-site-assignment-by-checking-site-compatibility"></a>Завершение назначения сайта с помощью проверки совместимости сайта  
- После обнаружения клиентом назначенного сайта происходит проверка версии и ОС клиента, которая позволяет убедиться в том, что сайт Configuration Manager сможет им управлять. Например, Configuration Manager не может управлять клиентами Configuration Manager 2007, клиентами System Center 2012 Configuration Manager или клиентами с ОС Windows 2000.  
-
- Назначение сайта завершается неудачей, если назначить клиент с Windows 2000 сайту Configuration Manager. Назначение клиента Configuration Manager 2007 или System Center 2012 Configuration Manager сайту Configuration Manager (Current Branch) выполняется успешно для поддержки автоматического обновления клиента. Тем не менее, пока клиенты более старого поколения не обновлены до Configuration Manager (Current Branch), Configuration Manager не сможет управлять таким клиентом с помощью параметров, приложений и обновлений программного обеспечения.  
+-   Intervalo de endereços IP  
 
 > [!NOTE]  
->  Чтобы назначить клиент Configuration Manager 2007 или System Center 2012 Configuration Manager сайту Configuration Manager (Current Branch), необходимо настроить автоматическое обновление клиента для иерархии. Дополнительные сведения см. в разделе [Обновление клиентов для компьютеров Windows в System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+>  Se um cliente do Configuration Manager possui várias placas de rede e, por conseguinte, dispuser de vários endereços IP, o endereço IP utilizado para uma atribuição de site do cliente de evaluate é atribuído aleatoriamente.  
 
-Configuration Manager также проверяет, назначен ли клиент Configuration Manager (Current Branch) сайту, поддерживающему эту версию. Приведенные ниже сценарии могут возникнуть во время перехода с предыдущих версий Configuration Manager.  
+ Para obter informações sobre como configurar grupos de limites para a atribuição de sites e configurar um site de contingência para atribuição automática de sites, veja [Definir limites de site e grupos de limites do System Center Configuration Manager](../../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
 
--   Сценарий. Вы использовали автоматическое назначение сайта, и текущие границы пересекаются с границами, определенными в предыдущей версии Configuration Manager.  
+ Clientes do Configuration Manager que utilizam a atribuição automática de site tentam localizar grupos de limites que são publicados nos serviços de domínio do Active Directory de sites. Se isto falhar (por exemplo, o Active Directory não estiver expandido o esquema para o Configuration Manager ou os clientes forem computadores de grupo de trabalho), os clientes podem obter informações do grupo de limites a partir de um ponto de gestão.  
 
-     В этом случае клиент автоматически пытается обнаружить сайт Configuration Manager (Current Branch).  
+ Pode especificar um ponto de gestão para ser utilizado pelos computadores cliente após serem instalados ou os clientes podem localizar um ponto de gestão utilizando a publicação de DNS ou WINS.  
 
-     Клиент сначала проверяет доменные службы Active Directory. При обнаружении опубликованного сайта Configuration Manager (Current Branch) сайт назначается успешно. Если данные не обнаруживаются (например, если сайт Configuration Manager не опубликован или компьютер является клиентом рабочей группы), то клиент осуществляет поиск сведений о сайте в назначенной ему точке управления.  
+ Se o cliente não conseguir encontrar um site que esteja associado a um grupo de limites que contenha a respetiva localização de rede e caso a hierarquia não disponha de um site de contingência, o cliente tentará novamente de 10 em 10 minutos até conseguir ser atribuído a um site.  
+
+ Computadores de cliente do Configuration Manager não podem ser automaticamente atribuídos a um site se qualquer uma das situações seguintes e, em seguida, estes têm de ser manualmente atribuídos:  
+
+-   Estão atualmente atribuídos a um site.  
+
+-   Encontram-se na Internet ou configurados como clientes apenas de Internet.  
+
+-   A respetiva localização de rede não coincide com nenhum dos grupos de limites configurados na hierarquia do Configuration Manager e não existe nenhum site de contingência para a hierarquia.  
+
+##  <a name="completing-site-assignment-by-checking-site-compatibility"></a>A concluir a atribuição de site através da verificação da compatibilidade do site  
+ Após um cliente encontrar o respetivo site atribuído, a versão e o sistema operativo do cliente é verificado para garantir que um site do Configuration Manager pode geri-lo. Por exemplo, o Configuration Manager não consegue gerir clientes do Configuration Manager 2007, System Center 2012 Configuration Manager ou clientes que estejam a executar o Windows 2000.  
+
+ Atribuição de site falha se atribuir um cliente que execute o Windows 2000 a um site do Configuration Manager. Quando atribui um cliente de Configuration Manager 2007 ou um cliente do System Center 2012 Configuration Manager para um site do Configuration Manager (ramo atual), a atribuição de site é concluída com êxito e suporta a atualização automática do cliente. No entanto, até que os clientes de geração mais antigos sejam atualizados para um cliente de Configuration Manager (ramo atual), o Configuration Manager não consegue gerir este cliente utilizando as definições de cliente, aplicações ou atualizações de software.  
+
+> [!NOTE]  
+>  Para suportar a atribuição de site de um Configuration Manager 2007 ou um cliente do System Center 2012 Configuration Manager para um site do Configuration Manager (ramo atual), tem de configurar a atualização automática de cliente para a hierarquia. Para obter mais informações, veja [Como atualizar clientes para computadores Windows no System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+
+O Configuration Manager também verifica se atribuiu o cliente do Configuration Manager (ramo atual) a um site que o suporte. Os seguintes cenários poderão ocorrer durante a migração a partir de versões anteriores do Configuration Manager.  
+
+-   Cenário: Utilizou a atribuição automática de site e os seus limites de sobreposição com as definidas numa versão anterior do Configuration Manager.  
+
+     Neste caso, o cliente tenta automaticamente localizar um site do Configuration Manager (ramo atual).  
+
+     O cliente verifica primeiro os serviços de domínio do Active Directory e se encontrar um site do Configuration Manager (ramo atual) publicado, a atribuição de site é concluída com êxito. Se isto falhar (exemplo, o site não está publicada do Configuration Manager ou o computador for um cliente de grupo de trabalho), o cliente procurará em seguida as informações de site no respetivo ponto de gestão atribuído.  
 
     > [!NOTE]  
-    >  Вы можете назначить точку управления клиенту при установке клиента с помощью свойства Client.msi **SMSMP=&lt;имя_сервера>**.  
+    >  Pode atribuir um ponto de gestão ao cliente durante a instalação de cliente utilizando a propriedade de Client.msi **SMSMP =&lt;server_name >**.  
 
-     Если оба этих способа не дают результата, автоматическое назначение сайта будет невозможно; в этом случае необходимо назначить клиент вручную.  
+     Se ambos estes métodos falharem, a atribuição do site não terá êxito e deverá atribuir manualmente o cliente.  
 
--   Сценарий. Вы назначили клиент Configuration Manager (Current Branch) с помощью определенного кода сайта, а не автоматического назначения сайта и по ошибке указали код сайта для версии Configuration Manager, предшествующей версии System Center 2012 R2 Configuration Manager.  
+-   Cenário: Tem de atribuir o cliente do Configuration Manager (ramo atual) utilizando um código de site específico em vez de atribuição automática de site e especificou um código de site para uma versão do Configuration Manager anterior ao System Center 2012 R2 Configuration Manager.  
 
-     В этом случае произойдет сбой назначения сайта и необходимо будет вручную переназначить клиент сайту Configuration Manager (Current Branch).  
+     Neste caso, a atribuição de site falha e, de reatribuir manualmente o cliente a um site do Configuration Manager (ramo atual).  
 
- Проверка совместимости сайта требует выполнения одного из следующих условий.  
+ A verificação de compatibilidade do site requer uma das seguintes condições:  
 
--   Клиент может получить доступ к сведениям о сайте, опубликованным в доменных службах Active Directory.  
+-   O cliente consegue aceder às informações do site publicadas nos Serviços de Domínio do Active Directory.  
 
--   Клиент может связаться с точкой управления на сайте.  
+-   O cliente consegue comunicar com um ponto de gestão do site.  
 
- Если проверка совместимости сайта завершается неудачей, назначение сайта не осуществляется, и клиент остается неуправляемым до тех пор, пока проверка совместимости сайта не будет завершена успешно при повторном выполнении.  
+ Se a verificação de compatibilidade do site não conseguir concluir com êxito, a atribuição de site falha e o cliente permanecerá não gerido até que a verificação de compatibilidade do site será novamente executado e será efetuada com êxito.  
 
- Исключением для выполнения проверки совместимости сайта является ситуация, когда клиент настроен для интернет-точки управления. В этом случае проверка совместимости сайта не проводится. При назначении клиента сайту, у которого есть системы сайта, расположенные в Интернете, и указании интернет-точки управления, убедитесь, что клиент назначается правильному сайту. Если клиент по ошибке был назначен сайту Configuration Manager 2007, сайту System Center 2012 Configuration Manager или сайту Configuration Manager, у которого нет ролей системы сайта управления интернет-клиентами, клиент будет неуправляемым.  
+ A exceção à realização da verificação de compatibilidade do site ocorre quando um cliente se encontra configurado para um ponto de gestão baseado na Internet. Neste caso, não é efetuada nenhuma verificação de compatibilidade do site. Se estiver a atribuir clientes a um site que contém sistemas de sites baseados na Internet e especificar um ponto de gestão baseado na Internet, certifique-se de que está a atribuir o cliente ao site correto. Se atribuir por engano o cliente a um site do Configuration Manager 2007, um site do System Center 2012 Configuration Manager, ou a um site do Configuration Manager que não tem as funções do sistema de sites baseados na Internet, o cliente deixará de ser gerido.  
 
-##  <a name="locating-management-points"></a>Поиск точек управления  
- После успешного назначения клиента сайту клиент обнаружит точку управления.  
+##  <a name="locating-management-points"></a>Localizar pontos de gestão  
+ Quando um cliente é atribuído com êxito a um site, localiza um ponto de gestão nesse site.  
 
- Клиентские компьютеры загружают список точек управления на сайте, к которому они могут подключиться. Это происходит при каждом перезапуске клиента, через каждые 25 часов, а также при обнаружении клиентом изменений в сети, например при отключении и повторном подключении компьютера к сети или при получении компьютером нового IP-адреса. Список включает точки управления в интрасети и их способность принимать подключения клиентов по протоколам HTTP и HTTPS. Если клиент находится в Интернете, и у него еще нет списка точек управления, он подключается к указанной интернет-точке управления для получения списка точек управления. Если у клиента есть список точек управления для сайта, которому он назначен, происходит выбор точки для установки следующих подключений.  
+ Os computadores cliente transferem uma lista de pontos de gestão que se possam ligar a no site. Isto acontece quando o cliente é reiniciado, ou a cada 25 horas, ou se o cliente detete uma alteração de rede, tais como o computador desliga e volta na rede ou receber um novo endereço IP. A lista inclui os pontos de gestão na intranet e a indicação de que aceitam ligações de cliente através de HTTP ou HTTPS. Quando o computador cliente se encontra na Internet e o cliente ainda não tem uma lista de pontos de gestão, estabelece a ligação ao ponto de gestão especificado baseado na Internet para obter uma lista de pontos de gestão. Se o cliente dispuser de uma lista de pontos de gestão para o respetivo site atribuído, selecionará um ponto para estabelecer a ligação:  
 
--   Если клиент находится в интрасети, и у него есть подходящий действительный PKI-сертификат, клиент выбирает в первую очередь точки управления HTTPS, а затем – точки управления HTTP. Затем обнаруживается ближайшая по расположению в лесу точка управления.  
+-   Quando o cliente se encontra na intranet e dispõe de um certificado PKI válido que pode utilizar, o cliente escolhe os pontos de gestão HTTPS antes dos pontos de gestão HTTP. Em seguida, localiza o ponto de gestão mais próximo, com base na respetiva associação de floresta.  
 
--   Если клиент находится в Интернете, он случайным образом выбирает одну из интернет-точек управления.  
+-   Quando o cliente está na Internet, aleatoriamente escolhe um dos pontos de gestão baseado na Internet.  
 
-Клиенты мобильных устройств, зарегистрированные с помощью Configuration Manager, могут подключаться только к одной точке управления на назначенном сайте и никогда не подключаются к точкам управления на вторичных сайтах. Эти клиенты всегда подключаются по протоколу HTTPS, а точки управления должны быть настроены для приема подключений клиентов через Интернет. Если для клиентов мобильных устройств на первичном сайте используется несколько точек управления, Configuration Manager случайным образом выбирает одну из этих точек управления при назначении, а клиент на мобильном устройстве продолжает использовать эту же точку управления.  
+Clientes que são inscritos pelo Configuration Manager só ligam a uma gestão de dispositivos móveis para o ponto no respetivo site atribuído e nunca a pontos de gestão em sites secundários. Estes clientes ligam-se sempre através de HTTPS e o ponto de gestão tem de ser configurado para aceitar ligações de cliente através da Internet. Quando existe mais do que um ponto para clientes de dispositivos móveis no site primário, o Configuration Manager seleciona aleatoriamente um dos seguintes pontos de gestão durante a atribuição e o cliente do dispositivo móvel continuará a utilizar o mesmo ponto de gestão.  
 
-Если клиент загрузил политику клиента с точки управления своего назначенного сайта, то клиент становится управляемым.  
+Se o cliente tiver transferido a política de cliente a partir de um ponto de gestão do site, o cliente torna-se um cliente gerido.  
 
-##  <a name="downloading-site-settings"></a>Загрузка параметров сайта  
- После успешного назначения сайта и нахождения клиентом своей точки управления клиентский компьютер, использующий доменные службы Active Directory для проверки совместимости своего сайта, загружает параметры сайта, связанные с клиентом, для использования с назначенным ему сайтом. Среди этих параметров, например, критерий выбора сертификата клиента, сведения о том. следует ли использовать список отзыва сертификатов, а также номера портов запросов клиентов. Клиент продолжает периодические проверки этих параметров.  
+##  <a name="downloading-site-settings"></a>A transferir as definições do site  
+ Após a atribuição do site com êxito e o cliente ter encontrado um ponto de gestão, um computador cliente que utilize os Serviços de Domínio do Active Directory para a respetiva verificação de compatibilidade com um site transfere as definições de site relacionadas com o cliente para o respetivo site atribuído. Estas definições incluem os critérios de seleção de certificado de cliente, de utilização de uma lista de revogação de certificados e os números de porta para pedidos de cliente. O cliente continuará a verificar periodicamente estas definições.  
 
- Если клиентские компьютеры не могут получить параметры из доменных служб Active Directory, они загружаются из соответствующей точки управления. Клиентские компьютеры также могут получить параметры сайта, если они были установлены с помощью принудительной установки; эти параметры также можно указать вручную, используя свойства программы установки CCMSetup.exe. Дополнительные сведения о свойствах установки клиента см. в разделе [Сведения о свойствах установки клиента в Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+ Quando os computadores cliente não conseguem obter as definições a partir dos Serviços de Domínio do Active Directory, transferem-nos a partir do respetivo ponto de gestão. Computadores cliente também podem obter as definições de site quando são instalados utilizando push de cliente, ou pode especificá-las manualmente utilizando as propriedades de instalação do cliente e do CCMSetup.exe. Para obter mais informações sobre as definições de instalação do cliente, veja [Acerca das propriedades de instalação do cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-##  <a name="downloading-client-settings"></a>Загрузка параметров клиента  
- Все клиенты загружают политику параметров клиента по умолчанию и все применимые настраиваемые политики параметров. Центр программного обеспечения использует эти политики конфигурации для компьютеров под управлением Windows и уведомляет пользователей о том, что Центр программного обеспечения не может успешно работать до тех пор, пока не будут загружены данные сведения о конфигурации. В зависимости от того, как настроены параметры клиента, первоначальная загрузка параметров клиента может занять некоторое время, а некоторые задачи управления клиентом могут не работать до завершения этого процесса.  
+##  <a name="downloading-client-settings"></a>A transferir as definições do cliente  
+ Todos os clientes transferem a política de predefinições de cliente, bem como outras políticas personalizadas de definições de cliente aplicáveis. O Centro de Software baseia-se nestas políticas de configuração de clientes para os computadores com Windows e notificará os utilizadores de que não será possível executar o Centro de Software com êxito enquanto estas informações de configuração estiverem a ser transferidas. Dependendo das definições de cliente configuradas, a transferência inicial das definições de cliente poderão demorar algum tempo e algumas tarefas de gestão de clientes poderão não ser executadas até que este processo esteja concluído.  
 
-##  <a name="verifying-site-assignment"></a>Проверка назначения сайта  
- Успешность назначения сайта можно проверить с помощью любого из приведенных ниже методов.  
+##  <a name="verifying-site-assignment"></a>Verificar a atribuição de sites  
+ Pode confirmar o êxito de atribuição de site por qualquer um dos seguintes métodos:  
 
--   Для клиентов на компьютерах с ОС Windows откройте компонент Configuration Manager на панели управления и убедитесь в том, что код сайта правильно отображается на вкладке **Сайт**.  
+-   Para clientes em computadores Windows, utilize o Gestor de configuração no painel de controlo e verifique se o código do site é apresentado corretamente no **Site** separador.  
 
--   Для клиентских компьютеров в рабочей области **Активы и соответствие** в узле **Устройства** убедитесь в отображении значения **Да** в столбце **Клиент** и правильного кода первичного сайта в столбце **Код сайта**.  
+-   Para computadores cliente, no **ativos e compatibilidade** área de trabalho > **dispositivos** nó, certifique-se de que o computador apresenta **Sim** para o **cliente** coluna e o site primário correto código a **código do Site** coluna.  
 
--   Для мобильных клиентских устройств в рабочей области **Активы и соответствие** используйте коллекцию **Все мобильные устройства** , чтобы убедиться в отображении значения **Да** в столбце **Клиент** и правильного кода первичного сайта в столбце **Код сайта** .  
+-   Para clientes de dispositivos móveis, na área de trabalho **Ativos e Compatibilidade** , utilize a coleção **Todos os Dispositivos Móveis** para verificar se o dispositivo móvel apresenta **Sim** na coluna **Cliente** e o código do site primário correto na coluna **Código do Site** .  
 
--   Используйте отчеты назначения клиентов и регистрации мобильных устройств.  
+-   Utilize os relatórios para a atribuição de clientes e a inscrição do dispositivo móvel.  
 
--   Для клиентских компьютеров используйте файл LocationServices.log на клиенте.  
+-   Para computadores cliente, utilize o ficheiro LocationServices.log no cliente.  
 
-##  <a name="roaming-to-other-sites"></a>Перемещение на другие сайты  
- Если клиентские компьютеры в интрасети назначены первичному сайту, но затем их расположение в сети меняется, так что они оказываются в группе границ, настроенной для другого сайта, такие компьютеры считаются перемещенными на другой сайт. Если этот сайт является вторичным по отношению к их назначенному сайту, клиенты могут использовать точку управления на вторичном сайте, чтобы загрузить клиентскую политику и отправить данные. Это позволяет избежать отправки данных по потенциально медленному сетевому подключению. Если же эти клиенты перемещаются в границы другого первичного сайта либо вторичного сайта, не являющегося дочерним по отношению к их назначенному сайту, такие клиенты всегда используют точку управления на своем назначенном сайте для загрузки клиентской политики и отправки данных.  
+##  <a name="roaming-to-other-sites"></a>Itinerância para outros sites  
+ Quando os computadores cliente da intranet são atribuídos a um site primário, mas a localização da rede é alterada para ficarem incluídos num grupo de limites configurado para outro site, estes foram movidos para outro site. Quando este site é um site secundário do respetivo site atribuído, os clientes podem utilizar um ponto de gestão no site secundário para transferir a política de cliente e carregar dados do cliente, o que evita o envio destes dados através de uma rede potencialmente lenta. Porém, se estes clientes se moverem para os limites de outro site primário ou de um site secundário que não é um site subordinado do respetivo site atribuído, estes clientes utilizam sempre um ponto de gestão no seu site atribuído para transferir a política de cliente e carregar dados para o respetivo site.  
 
- Эти клиентские компьютеры, перемещающиеся на другие сайты (все первичные и вторичные сайты), всегда могут использовать точки управления на других сайтах для запроса расположения содержимого. Точки управления на текущем сайте могут предоставить клиентам список точек распространения с содержимым, которое требуется клиентам.  
+ Estes computadores cliente que se movem para outros sites (todos os sites primários e todos os sites secundários) podem sempre utilizar pontos de gestão noutros sites para pedidos de localização de conteúdo. Os pontos de gestão do site atual podem proporcionar aos clientes uma lista dos pontos de distribuição que possuem o conteúdo solicitados pelos clientes.  
 
- Для клиентских компьютеров, настроенных для управления только через Интернет, а также для компьютеров Mac и мобильных устройств, зарегистрированных с помощью Configuration Manager, клиенты могут обмениваться данными только с точками управления на назначенном им сайте. Эти клиенты не могут подключаться к точкам управления на вторичных сайтах и на других первичных сайтах.  
+ Para computadores cliente que estão configurados para gestão de clientes apenas de Internet e para dispositivos móveis e computadores Mac que sejam inscritos pelo Configuration Manager, estes clientes só comunicam com pontos de gestão do respetivo site atribuído. Estes clientes nunca comunicam com pontos de gestão de sites secundários nem com pontos de gestão de outros sites primários.  

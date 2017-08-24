@@ -1,6 +1,6 @@
 ---
-title: "Управление пропускной способностью сети для содержимого | Документы Майкрософт"
-description: "Настройка планирования, регулирования и предварительно подготовленное содержимое для System Center Configuration Manager."
+title: "Gerir a largura de banda de rede para o conteúdo | Microsoft Docs"
+description: "Configure o agendamento, limitação e conteúdo pré-configurado para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/6/2017
 ms.prod: configuration-manager
@@ -17,59 +17,59 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d9dff97126c34a726677de60dd7647370c553b6e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-network-bandwidth-for-content"></a>Управление пропускной способностью сети для содержимого
-Для управления пропускной способностью сети, используемой для управления содержимым в System Center Configuration Manager, можно применять встроенные элементы управления для планирования и регулирования. Кроме того, можно использовать предварительно подготовленное содержимое. В следующих разделах эти возможности описываются более подробно.
+# <a name="manage-network-bandwidth-for-content"></a>Gerir a largura de banda de rede para o conteúdo
+Para ajudar a gerir a largura de banda de rede que é utilizada para o processo de gestão de conteúdos do System Center Configuration Manager, pode utilizar os controlos incorporados para agendamento e limitação. Também pode utilizar conteúdo pré-configurado. As secções seguintes descrevem estas opções em mais detalhe.
 
-##  <a name="BKMK_PlanningForThrottling"></a>Планирование и регулирование  
+##  <a name="BKMK_PlanningForThrottling"></a>Agendamento e limitação  
 
- При создании пакета, изменении исходного расположения содержимого или обновлении содержимого в точке распространения файлы копируются из исходного расположения в библиотеку содержимого на сервере сайта. Затем содержимое копируется из библиотеки содержимого на сервере сайта в библиотеку содержимого в точках распространения. После обновления и распространения исходных файлов содержимого Configuration Manager получает только новые или обновленные файлы и отправляет их в точку распространения.
+ Quando criar um pacote, altere o caminho de origem para o conteúdo ou atualizar o conteúdo no ponto de distribuição, os ficheiros são copiados do caminho de origem para a biblioteca de conteúdos no servidor do site. Em seguida, o conteúdo é copiado da biblioteca de conteúdos no servidor do site para a biblioteca de conteúdos nos pontos de distribuição. Quando são atualizados ficheiros de origem de conteúdo e os ficheiros de origem que já tenham sido distribuídos, o Configuration Manager obtém apenas os ficheiros novos ou atualizados e, em seguida, envia-os para o ponto de distribuição.
 
- Для межсайтового взаимодействия и взаимодействия между сервером сайта и удаленной точкой распространения можно использовать элементы управления планированием и регулированием. Если даже после настройки элементов управления планированием и регулированием пропускная способность сети остается ограниченной, рекомендуется предварительно подготовить содержимое в точке распространения.  
+ Pode utilizar os controlos de agendamento e limitação para comunicação site a site e para a comunicação entre o servidor do site e um ponto de distribuição remoto. Se a largura de banda de rede é limitada, mesmo depois de configurar os controlos de agendamento e limitação, talvez deva considerar pré-configurar o conteúdo no ponto de distribuição.  
 
- В Configuration Manager можно настроить расписание и задать параметры регулирования в удаленных точках распространения, которые определяют время и способ распространения содержимого. Каждая удаленная точка распространения может иметь собственную конфигурацию, позволяющую справиться с ограничениями пропускной способности сети с сервера сайта к удаленной точке распространения. Элементы управления, используемые для планирования и регулирования распространения содержимого в удаленную точку распространения, аналогичны параметрам адреса стандартного отправителя. Однако в этом случае параметры используются новым компонентом, который называется диспетчером передачи пакетов.
+ No Configuration Manager, pode configurar uma agenda e especificar definições de limitação nos pontos de distribuição remotos que determinam quando e como é efetuada a distribuição de conteúdo. Cada ponto de distribuição remoto pode ter diferentes configurações que ajudam a limitações de largura de banda de rede do endereço do servidor do site para ponto de distribuição remoto. Os controlos de agendamento e limitação para o ponto de distribuição remoto são semelhantes às definições para um endereço de remetente padrão. Neste caso, as definições são utilizadas por um novo componente designado Gestor de transferência do pacote.
 
- Диспетчер передачи пакетов распространяет содержимое с сервера сайта (первичного или вторичного сайта) в точку распространения, установленную в системе сайта. Параметры регулирования настраиваются на вкладке **Пределы скорости**, а параметры планирования — на вкладке **Расписание** для точки распространения, которая не находится на сервере сайта. Параметры времени основаны на часовом поясе отправляющего сайта, а не точки распространения.  
+ Gestor de transferência de pacotes distribui os conteúdos de um servidor de site, como um site primário ou site secundário, a um ponto de distribuição que está instalado num sistema de sites. As definições de limitação são especificadas no **limites de velocidade** são especificados no separador e as definições de agendamento de **agenda** separador, para um ponto de distribuição que não é um servidor de site. As definições de hora baseiam-se no fuso horário do site de envio, não o ponto de distribuição.  
 
 > [!IMPORTANT]  
->  Вкладки **Пределы скорости** и **Расписание** отображаются в свойствах только точек распространения, которые не установлены на сервере сайта.  
+>  O **limites de velocidade** e **agenda** separadores são apresentados apenas nas propriedades dos pontos de distribuição que não estejam instalados num servidor do site.  
 
-Дополнительные сведения см. в разделе [Установка и настройка точек распространения для System Center Configuration Manager](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).  
+Para obter mais informações, consulte [instalar e configurar pontos de distribuição para o System Center Configuration Manager](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).  
 
-##  <a name="BKMK_PrestagingContent"></a>Предварительно подготовленное содержимое  
- Предварительная подготовка содержимого выполняется для того, чтобы добавить файлы содержимого в библиотеку содержимого на сервере сайта или в точке распространения до распространения содержимого. Так как файлы содержимого уже находятся в библиотеке содержимого, они не передаются по сети во время распространения содержимого. Можно предварительно подготовить файлы для приложений и пакетов.  
+##  <a name="BKMK_PrestagingContent"></a>Conteúdo pré-configurado  
+ Pode pré-configurar conteúdo para adicionar os ficheiros de conteúdo à biblioteca de conteúdos no ponto de servidor ou a distribuição de um site, antes de distribuir o conteúdo. Porque os ficheiros de conteúdo já estão na biblioteca de conteúdos, não são transferidos através da rede quando distribuir o conteúdo. Pode pré-configurar ficheiros de conteúdo para aplicações e pacotes.  
 
-В консоли Configuration Manager выберите содержимое, которое нужно предварительно подготовить, а затем используйте **мастер создания файлов с предварительно подготовленным содержимым**. При этом создается сжатый файл предварительно подготовленного содержимого, содержащий файлы и связанные с ними метаданные. После этого контент можно вручную импортировать на сервер сайта или в точку распространения. Обратите внимание на следующие моменты:  
+Na consola do Configuration Manager, selecione o conteúdo que pretende pré-configurar e, em seguida, utilize o **criar Assistente de ficheiro de conteúdo pré-configurado**. Esta ação cria um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros e metadados associados para o conteúdo. Em seguida, pode importar manualmente o conteúdo num ponto de servidor ou a distribuição do site. Tenha em atenção os seguintes pontos:  
 
--   При импорте файла с предварительно подготовленным содержимым на сервер сайта файлы содержимого добавляются в библиотеку содержимого на сервере сайта, а затем регистрируются в базе данных сайта.  
+-   Quando importar o ficheiro de conteúdo pré-configurado num servidor do site, os ficheiros de conteúdo são adicionados à biblioteca de conteúdos no servidor do site e, em seguida, registados na base de dados do servidor do site.  
 
--   При импорте файла с предварительно подготовленным содержимым в точку распространения файлы содержимого добавляются в библиотеку содержимого в точке распространения. На сервер сайта отправляется сообщение о состоянии, указывающее, что содержимое доступно в точке распространения.  
+-   Quando importar o ficheiro de conteúdo pré-configurado num ponto de distribuição, os ficheiros de conteúdo são adicionados à biblioteca de conteúdos no ponto de distribuição. É enviada uma mensagem de estado para o servidor de site que informa o site que o conteúdo está disponível no ponto de distribuição.  
 
-При необходимости вы можете настроить точку распространения как **предварительно подготовленную** , чтобы упростить управление распространением содержимого. Затем при распространении содержимого можно выбрать, требуется ли:  
+Opcionalmente, pode configurar o ponto de distribuição como **pré-configurado** para ajudar a gerir a distribuição de conteúdo. Em seguida, quando distribui conteúdo, pode escolher se pretende:  
 
--   всегда осуществлять предварительную подготовку содержимого в точке распространения;  
+-   Pré-configurar sempre o conteúdo no ponto de distribuição.  
 
--   выполнять предварительную подготовку изначального содержимого пакета, а затем использовать обычный процесс распространения содержимого при наличии обновлений содержимого;  
+-   Pré-configurar o conteúdo inicial para o pacote e, em seguida, utilize o processo de distribuição de conteúdo padrão quando existem atualizações ao conteúdo.  
 
--   всегда использовать обычный процесс распространения содержимого для пакета.  
+-   Utilize sempre o processo de distribuição de conteúdo padrão para o conteúdo do pacote.  
 
-###  <a name="BKMK_DetermineToPrestageContent"></a>Определение необходимости в предварительной подготовке содержимого  
- Предварительную подготовку содержимого для приложений и пакетов рекомендуется выполнить в следующих случаях.  
+###  <a name="BKMK_DetermineToPrestageContent"></a>Determinar se deve pré-configurar conteúdo  
+ Pondere a pré-configuração conteúdo para aplicações e pacotes nos seguintes cenários:  
 
--   **Ограниченная пропускная способность сети с сервера сайта в точку распространения**. Если планирования и регулирования недостаточно для решения вопросов с распространением содержимого, рекомендуется выполнить предварительную подготовку содержимого в точке распространения. Каждая точка распространения имеет параметр **Включить эту точку распространения в режиме предварительного копирования содержимого**, настраиваемый в свойствах точки распространения. Если этот параметр включен, точка распространения определяется как прошедшая предварительную подготовку и вы можете выбрать способ управления содержимым для каждого пакета.  
+-   **Para resolver o problema de largura de banda de rede limitada do servidor do site para um ponto de distribuição.** Se o agendamento e limitação não são suficientes para satisfazer as suas preocupações em largura de banda, pondere a pré-configuração de conteúdo no ponto de distribuição. Cada ponto de distribuição tem a **ativar conteúdo pré-configurado para este ponto de distribuição** definição que pode escolher nas propriedades do ponto de distribuição. Quando ativa esta opção, o ponto de distribuição é identificado como um ponto de distribuição pré-configurado e pode escolher como gerir o conteúdo numa base por pacote.  
 
-    В свойствах приложения, пакета, пакета драйверов, образа загрузки, установщика операционной системы и образа доступны перечисленные ниже параметры. Они позволяют выбрать способ управления распространением содержимого в удаленных точках распространения, которые определены как прошедшие предварительную подготовку.  
+    As seguintes definições estão disponíveis nas propriedades de uma aplicação, pacote, pacote de controladores, imagem de arranque, instalador do sistema operativo e imagens. Estas definições permitem-lhe escolher como conteúdo de distribuição é gerida nos pontos de distribuição remotos que estão identificados como pré-configurados:  
 
-    -   **Автоматически загружать содержимое при назначении пакетов точкам распространения**. Этот параметр используется при наличии небольших пакетов и если параметры планирования и регулирования обеспечивают достаточный уровень контроля над распространением содержимого.  
+    -   **Transferir o conteúdo automaticamente quando os pacotes são atribuídos aos pontos de distribuição**: Utilize esta opção se tiver pacotes mais pequenos, e as definições de agendamento e limitação controlo suficiente para distribuição de conteúdo.  
 
-    -   **Загружать на точку распространения только изменения содержимого**. Этот параметр используется, если ожидается, что будущие обновления содержимого пакета будут в целом меньшего размера, чем исходный пакет. Например, можно выполнить предварительную подготовку содержимого для такого приложения, как Microsoft Office, так как первоначальный размер пакета превышает 700 МБ и слишком велик для отправки по сети. Однако обновления содержимого для этого пакета могут быть менее 10 МБ, и их вполне можно распространять по сети. В качестве другого примера можно привести пакеты драйверов, где исходный пакет имеет большой размер, но последующие дополнения драйверов могут быть небольшими.  
+    -   **Transferir apenas alterações de conteúdo para o ponto de distribuição**: Utilize esta opção se prevê que as futuras atualizações dos conteúdos do pacote sejam geralmente pequenas que o pacote inicial. Por exemplo, poderá pré-configurar uma aplicação como o Microsoft Office, porque o tamanho do pacote inicial é superior a 700 MB e é demasiado grande para ser enviado através da rede. No entanto, as atualizações de conteúdo para este pacote podem ser inferior a 10 MB e são aceitáveis para distribuir através da rede. Noutro exemplo, poderá ser pacotes de controladores, onde o tamanho inicial do pacote é grande, mas adições incrementais de controladores ao pacote sejam pequenas.  
 
-    -   **Вручную копировать содержимое этого пакета на точку распространения**. Этот параметр используется при наличии больших пакетов с таким содержимым, как операционная система, которые никогда не будут отправляться в точку распространения по сети. При выборе этого параметра необходимо предварительно подготовить содержимое в точке распространения.  
+    -   **Copiar manualmente o conteúdo deste pacote para o ponto de distribuição**: Utilize esta opção se tiver pacotes volumosos conteúdos como um sistema operativo, e nunca pretende utilizar a rede para distribuir o conteúdo ao ponto de distribuição. Quando seleciona esta opção, terá de pré-configurar o conteúdo no ponto de distribuição.  
 
     > [!IMPORTANT]  
-    >  Предыдущие параметры применяются к каждому пакету отдельно и используются, только если точка распространения определена как прошедшая предварительную подготовку. Точки распространения, которые не определены как прошедшие предварительную подготовку, эти параметры игнорируют. В этом случае содержимое всегда передается с сервера сайта в точки распространения по сети.  
+    >  As opções anteriores são aplicáveis numa base por pacote e só são utilizadas quando um ponto de distribuição é identificado como pré-configurado. Pontos de distribuição que não tenham sido identificados como pré-configurados ignoram estas definições. Neste caso, conteúdo serão sempre distribuído através da rede do servidor do site para os pontos de distribuição.  
 
--   **Восстановление библиотеки содержимого на сервере сайта**. В случае выхода сервера сайта из строя сведения о пакетах и приложениях, находящиеся в библиотеке содержимого, восстанавливаются в базе данных сайта в процессе восстановления, однако файлы библиотеки содержимого при этом не восстанавливаются. Если резервная копия файловой системы для восстановления библиотеки содержимого отсутствует, можно создать файл с предварительно подготовленным содержимым на другом сайте, который содержит нужные пакеты и приложения. Затем можно извлечь этот файл на восстановленном сервере сайта. Дополнительные сведения о резервном копировании и восстановлении сервера сайта см. в разделе [Резервное копирование и восстановление в System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  
+-   **Para restaurar a biblioteca de conteúdos num servidor do site.** Quando um servidor de site falha, informações sobre pacotes e aplicações que estão contidas na biblioteca de conteúdos são restauradas para a base de dados do site como parte do processo de restauro, mas os ficheiros de biblioteca de conteúdos não são restaurados como parte do processo. Se não tiver uma cópia de segurança do sistema de ficheiros para restaurar a biblioteca de conteúdos, pode criar um ficheiro de conteúdo pré-configurado a partir de outro site que contém os pacotes e aplicações que tem de ter. Pode, em seguida, extraia o ficheiro de conteúdo pré-configurado num servidor do site recuperado. Para obter mais informações sobre a recuperação e cópia de segurança de servidor de site, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  

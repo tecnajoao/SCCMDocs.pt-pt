@@ -1,5 +1,5 @@
 ---
-title: "Отслеживание применения приложений с помощью функции контроля использования программных продуктов | Документы Майкрософт"
+title: "Monitorizar a utilização de aplicação com a medição de software | Microsoft Docs"
 description: 
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,163 +16,163 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: eddf20bebd80028336503957dfc4c3d1dbbb23f2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-metering-in-system-center-configuration-manager"></a>Контроль использования программных продуктов в System Center Configuration Manager
+# <a name="software-metering-in-system-center-configuration-manager"></a>Medição de software no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Этот раздел содержит справочные сведения о всех операциях, которые вы можете выполнять при работе с контролем использования программных продуктов в System Center Configuration Manager.
+Este tópico contém uma referência para todas as operações que pode executar quando utilizar a medição de software do System Center Configuration Manager.
 
 > [!IMPORTANT]
->  Контроль использования программных продуктов применяется для отслеживания классических приложений Windows с расширением **EXE**. Контроль использования программных продуктов не отслеживает современные приложения Windows (например, те, которые используются операционной системой Windows 8).
+>  A medição de software é utilizada para monitorizar aplicações de ambiente de trabalho de PCs Windows com um nome de ficheiro que termine em **.exe**. A medição de software não monitoriza aplicações modernas do Windows (por exemplo, as que são utilizadas pelo Windows 8).
 
-##  <a name="prerequisites-for-software-metering"></a>Необходимые условия для контроля использования программных продуктов
-Контроль использования программных продуктов не имеет внешних зависимостей — только зависимости внутри продукта.
+##  <a name="prerequisites-for-software-metering"></a>Pré-requisitos para medição de software
+A medição de software não tem dependências externas, apenas dependências no produto.
 
-|Зависимость|Дополнительные сведения|
+|Dependência|Mais informações|
 |----------------|----------------------|
-|Параметры клиентов для контроля использования программных продуктов.|Для применения функции контроля использования программных продуктов параметр клиента **Включить отслеживание использования программного обеспечения для клиентов** должен быть включен и развернут на компьютеры. Вы можете назначить параметры контроля использования программных продуктов всем компьютерам в иерархии или развернуть настраиваемые параметры в отдельные группы компьютеров. См. подраздел **Настройка отслеживания использования программного обеспечения** в этом разделе.|
-|Точка служб отчетов.|Прежде чем можно будет просматривать отчеты по отслеживанию использования программного обеспечения, необходимо настроить точку служб отчетов. Дополнительные сведения см. в статье [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).|
+|Definições de cliente para medição de software.|Para utilizar a medição de software, a definição de cliente **Ativar a medição de software nos clientes** tem de estar ativada e implementada nos computadores. Pode implementar as definições de medição de software em todos os computadores na hierarquia ou implementar definições personalizadas em grupos de computadores. Consulte **configurar a medição de software** neste tópico.|
+|O ponto do reporting services.|Deve configurar um ponto do reporting services antes de poder visualizar relatórios de medição de software. Para obter mais informações, veja [Relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).|
 
-##  <a name="configure-software-metering"></a>Настройка контроля использования программных продуктов
- В ходе этой процедуры выполняется настройка стандартных параметров клиента для контроля использования программных продуктов и их применение ко всем компьютерам в иерархии. Если эти параметры требуется применить только к некоторым компьютерам, создайте настраиваемые параметры клиентского устройства и разверните их в коллекции, которая содержит необходимые компьютеры. Дополнительные сведения о создании настраиваемых параметров устройства см. в разделе [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md).
+##  <a name="configure-software-metering"></a>Configurar a medição de software
+ Este procedimento configura as predefinições de cliente para medição de software e aplica-se a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e implemente-a numa coleção que contenha os computadores que pretende que utilizem medição de software. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [configurar definições de cliente](../../core/clients/deploy/configure-client-settings.md).
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры клиента по умолчанию**.
+1.  Na consola do Configuration Manager, clique em **administração** > **as definições de cliente** > **predefinições de cliente**.
 
-2.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.
+2.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.
 
-3.  В диалоговом окне **Параметры по умолчанию** щелкните **Отслеживание использования программного обеспечения**.
+3.  Na caixa de diálogo **Predefinições** , clique em **Medição de Software**.
 
-4.  В списке **Параметры устройства** настройте следующие параметры.
+4.  Na lista **Definições do Dispositivo** , configure as seguintes definições:
 
-    -   **Включить отслеживание использования программного обеспечения для клиентов**: выберите значение **True** , чтобы включить контроль использования программных продуктов.
+    -   **Ativar medição de software nos clientes**: Selecione **verdadeiro** para ativar a medição de software.
 
-    -   **Расписание сбора данных**: настройте периодичность сбора данных контроля использования программных продуктов с клиентских компьютеров. Используйте значение по умолчанию ( **7 дней** ) или нажмите кнопку **Расписание** , чтобы настроить собственное расписание.
+    -   **Agendar a recolha de dados**: Configurar a frequência dados de medição de software é recolhido de computadores cliente. Utilize o valor predefinido de a cada **sete dias** ou clique em **Agenda** para especificar uma agenda personalizada.
 
-5.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Параметры по умолчанию** .
+5.  Clique em **OK** para fechar a caixa de diálogo **Predefinições** .
 
- Заданные параметры будут применены к клиентским компьютерам при следующем скачивании политики клиента. Сведения об инициации получения политик для отдельного клиента см. в разделе [Управление клиентами](../../core/clients/manage/manage-clients.md).
+ Os computadores cliente são configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [gerir clientes](../../core/clients/manage/manage-clients.md).
 
-##  <a name="create-software-metering-rules"></a>Создание правил контроля использования программных продуктов
- Используйте мастер создания правила отслеживания использования программного обеспечения, чтобы создать правило контроля использования программных продуктов для сайта Configuration Manager.
+##  <a name="create-software-metering-rules"></a>Criar regras de medição de software
+ Utilize o Assistente Criar regra de medição de Software para criar uma nova regra de medição de software para o seu site do Configuration Manager.
 
-1.  В консоли Configuration Manager выберите элемент **Активы и соответствие** > **Отслеживание использования программного обеспечения**.
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **medição de Software**.
 
-3.  На вкладке **Домашняя страница** в группе **Создать** щелкните **Создать правило отслеживания использования программного обеспечения**.
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Regra de Medição de Software**.
 
-4.  На странице **Общие** мастера создания правила отслеживания использования программного обеспечения укажите перечисленные ниже сведения.
+4.  No **geral** página do assistente criar regra de medição de Software, especifique as seguintes informações:
 
-    -   **Имя** — имя правила отслеживания использования программного обеспечения. Оно должно быть уникальным и описательным.
-
-        > [!NOTE]
-        >  Правила отслеживания использования программного обеспечения могут иметь одно и то же имя, если имя файла, который они содержат, отличается.
-
-    -   **Имя файла** — имя файла программы, использование которой требуется контролировать. Можно нажать кнопку **Обзор** для отображения диалогового окна **Открыть** , в котором можно выбрать файл программы для использования.
+    -   **Nome** - o nome da regra de medição de software. Deve ser único e descritivo.
 
         > [!NOTE]
-        >  Если ввести имя исполняемого файла в поле **Имя файла** , не выполняются никакие проверки, чтобы определить наличие этого файла или содержание в нем необходимых данных заголовков. По возможности нажмите кнопку **Обзор** и выберите исполняемый файл, использование которого требуется контролировать.
-        >
-        >  Подстановочные знаки не допускаются в имени файла.
-        >
-        >  Это поле не является обязательным, если указано значение параметра **Исходное имя файла** .
+        >  As regras de medição de software podem partilhar o mesmo nome se o nome de ficheiro contido nas mesmas for diferente.
 
-    -   **Исходное имя файла** — имя исполняемого файла, использование которого требуется контролировать. Данное имя соответствует сведениям в заголовке файла, а не самому имени файла, поэтому указанный параметр рекомендуется использовать в случаях, когда исполняемый файл был переименован, но вам требуется контролировать его использование по исходному имени.
+    -   **Nome do Ficheiro** - o nome do ficheiro do programa que pretende medir. Pode clicar em **Procurar** para apresentar a caixa de diálogo **Abrir** , na qual pode selecionar o ficheiro do programa a utilizar.
 
         > [!NOTE]
-        >  Подстановочные знаки не допускаются в исходном имени файла.
+        >  Se escrever o nome do ficheiro executável na caixa **Nome do Ficheiro** , não são efetuadas verificações para determinar se este ficheiro já existe ou se contém as informações de cabeçalho necessárias. Sempre que possível, clique em **Procurar** e selecione o ficheiro executável a ser medido.
         >
-        >  Это поле не является обязательным, если указано значение параметра **Имя файла** .
+        >  Não são permitidos carateres universais no nome do ficheiro.
+        >
+        >  Esta caixa é opcional se for especificado um valor para **Nome do ficheiro original** .
 
-    -   **Версия** — версия исполняемого файла, использование которого требуется контролировать. Можно использовать подстановочный знак (*) для представления любой строки символов или подстановочный знак (?) для представления любого отдельного символа. Если требуется контролировать использование всех версий исполняемого файла, выберите значение по умолчанию (\*).
+    -   **Nome do Ficheiro Original** - O nome do ficheiro executável que pretende medir. Este nome corresponde à informação no cabeçalho do ficheiro, e não ao próprio nome do ficheiro, para que possa ser útil nos casos em que foi mudado o nome do ficheiro executável, mas quer medi-lo com o nome original.
 
-    -   **Язык** — язык исполняемого файла, использование которого требуется отслеживать. Значением по умолчанию является текущий языковой стандарт используемой операционной системы. Если контролируемый исполняемый файл выбран с помощью кнопки **Обзор** , это поле заполняется автоматически при наличии сведений о языке в заголовке файла. Чтобы контролировать все языковые версии файла, в раскрывающемся списке выберите вариант **Любой** .
+        > [!NOTE]
+        >  Não são permitidos carateres universais no nome do ficheiro original.
+        >
+        >  Esta caixa é opcional, se for especificado um valor para **Nome do Ficheiro** .
 
-    -   **Описание** — необязательное описание правила отслеживания использования программного обеспечения.
+    -   **Versão** - a versão do ficheiro executável que pretende medir. Poderá utilizar o caráter universal (*) para representar qualquer cadeia de caracteres ou o caráter universal (?) para representar um único caráter. Se pretender medir todas as versões de um ficheiro executável, utilize o valor predefinido (\*).
 
-    -   **Применить это правило отслеживания использования программного обеспечения к следующим клиентам** : выберите, следует ли применять правило контроля использования программных продуктов ко всем клиентам в иерархии или только к клиентам, назначенным сайту, указанному в списке **Сайт** .
+    -   **Idioma** - o idioma do ficheiro executável a medir. O valor predefinido é a região atual do sistema operativo que está a utilizar. Se selecionar um ficheiro executável para ser medido ao clicar no botão **Procurar** , esta caixa é preenchida automaticamente se a informação do idioma estiver presente no cabeçalho do ficheiro. Para medir todas as versões de idiomas de um ficheiro, selecione **Qualquer** na lista pendente.
 
-5.  Чтобы продолжить, нажмите кнопку **Далее**.
+    -   **Descrição** - uma descrição opcional para a regra de medição de software.
 
-6.  Просмотрите и подтвердите параметры, после чего завершите работу мастера, чтобы создать правило контроля использования программных продуктов. Новое правило контроля использования программных продуктов отображается в узле **Отслеживание использования программного обеспечения** рабочей области **Активы и соответствие** .
+    -   **Aplicar esta regra de medição de software aos seguintes clientes** – selecione se pretende aplicar a regra de medição de software a todos os clientes da hierarquia ou aos clientes que estão atribuídos ao site especificado na lista **Site** .
 
-##  <a name="configure-automatic-software-metering-rules"></a>Настройка автоматического создания правил контроля использования программных продуктов
- Функция контроля использования программных продуктов Configuration Manager позволяет автоматически создавать отключенные правила контроля использования программных продуктов на основе данных последней инвентаризации, которые содержатся в базе данных сайта. Эти данные инвентаризации вы можете настроить таким образом, чтобы правила контроля использования программных продуктов создавались только для приложений, используемых на заданной доле компьютеров. Кроме того, можно указать максимальное число автоматически создаваемых правил отслеживания использования программного обеспечения, разрешенных для сайта.
+5.  Para continuar, clique em **Seguinte**.
+
+6.  Reveja e confirme as definições e conclua o assistente para criar a regra de medição de software. A nova regra de medição de software é apresentada no nó **Medição de Software** na área de trabalho **Recursos e Compatibilidade** .
+
+##  <a name="configure-automatic-software-metering-rules"></a>Configurar regras de medição de software automáticas
+ Pode configurar a medição de software no Configuration Manager para gerar automaticamente regras a partir dos dados de inventário de utilização recentes retidos na base de dados do site de medição de software desativado. Pode configurar estes dados de inventário para que sejam criadas regras de medição apenas para aplicações que são utilizadas numa percentagem de computadores especificada. Também pode especificar o número máximo de regras de medição de software geradas automaticamente permitidas no site.
 
 > [!NOTE]
->  По умолчанию автоматически создаваемые правила контроля использования программных продуктов отключены. Прежде чем можно будет выполнять сбор данных об использовании, полученных с помощью этих правил, такие правила необходимо включить.
+>  Por predefinição, as regras de medição de software que são criadas automaticamente estão desativadas. Antes de poder começar a recolher dados de utilização a partir destas regras, deve ativá-las.
 
-1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Отслеживание использования программного обеспечения**, а затем на вкладке **Главная** в группе **Параметры** щелкните **Свойства отслеживания использования программного обеспечения**.
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **medição de Software**e, em seguida, no **home page** separador o **definições** , clique em **propriedades de medição de Software**.
 
-3.  В диалоговом окне **Свойства отслеживания использования программного обеспечения** настройте перечисленные ниже параметры.
+3.  Na caixa de diálogo **Propriedades de Medição de Software** , configure as seguintes opções:
 
-    -   **Хранение данных (в днях)** : задает период, в течение которого созданные правилами контроля использования программных продуктов данные хранятся в базе данных сайта. Значение по умолчанию равно **90** дням.
+    -   **Retenção de dados (em dias)** - especifica o período de tempo durante o qual os dados gerados pelas regras de medição de software são mantidos na base de dados do site. O valor predefinido é **90** dias.
 
-    -   Установите флажок **Автоматически создавать отключенные правила отслеживания использования из данных последней инвентаризации использования**.
+    -   Ative a opção **Criar automaticamente regras de medição desativadas a partir dos dados de inventário de utilização recente**.
 
-    -   **Укажите долю компьютеров в иерархии (в процентах), на которых должна быть использована программа, чтобы правило отслеживания использования программного обеспечения создавалось автоматически** — значение по умолчанию **10** процентов.
+    -   **Especificar a percentagem de computadores na hierarquia que têm de utilizar um programa antes de ser criada automaticamente uma regra de medição de software** - o valor predefinido é **10** por cento.
 
-    -   **Укажите число правил отслеживания использования программного обеспечения, которое должно быть превышено в иерархии для отключения автоматического создания правил** — значение по умолчанию **100** правил.
+    -   **Especificar o número de regras de medição de software que devem ser excedidas na hierarquia antes de a criação automática de regras ser desativada** - o valor predefinido é **100** regras.
 
-4.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Свойства отслеживания использования программного обеспечения** .
+4.  Clique em **OK** para fechar a caixa de diálogo **Propriedades de Medição de Software** .
 
-##  <a name="manage-software-metering-rules"></a>Управление правилами контроля использования программных продуктов
- В рабочей области **Активы и соответствие** выберите **Отслеживание использования программного обеспечения**, выберите нужное правило отслеживания использования программного обеспечения, затем выберите задачу управления.
+##  <a name="manage-software-metering-rules"></a>Gerir regras de medição de software
+ Na área de trabalho **Ativos e Compatibilidade** , selecione **Medição de Software**, selecione a regra de medição de software que pretende gerir e, em seguida, selecione uma tarefa de gestão.
 
- Для получения дополнительных сведений о задачах управления, которые могут требовать указания некоторой информации перед их выбором, используйте следующую таблицу.
+ Utilize a tabela seguinte para obter mais informações sobre as tarefas de gestão que podem necessitar de algumas informações antes de as selecionar.
 
-|Задача управления|Подробные сведения|
+|Tarefa de Gestão|Detalhes|
 |---------------------|-------------|
-|**Разрешить**<br /><br /> **Отключено**|Позволяет включить или отключить правило контроля использования программных продуктов. Этот параметр загружается на клиентские компьютеры в соответствии со значением параметра **Интервал опроса политики клиента** , настраиваемого в разделе **Политика клиента** параметров клиента. Значение по умолчанию составляет 60 минут.<br /><br /> См. раздел [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md).|
+|**Ativar**<br /><br /> **Desativar**|Ativa ou desativa um regra de medição de software. Esta definição é transferida para computadores cliente de acordo com o **Intervalo de consulta da política de cliente** , na secção **Política de Cliente** das definições de cliente (por predefinição, a cada 60 minutos).<br /><br /> Consulte [configurar definições de cliente](../../core/clients/deploy/configure-client-settings.md) .|
 
-##  <a name="monitor-software-metering"></a>Мониторинг контроля использования программных продуктов
- Функция контроля использования программных продуктов в Configuration Manager включает встроенные отчеты, которые позволяют отслеживать сведения об операциях контроля использования программных продуктов. Эти отчеты относятся к категории отчетов **Отслеживание использования программного обеспечения**.
+##  <a name="monitor-software-metering"></a>Monitorizar a medição de software
+ Medição de software no Configuration Manager inclui um conjunto de relatórios incorporados que lhe permitem monitorizar informações sobre as operações de medição de software. Estes relatórios têm a categoria de relatórios de **Medição de Software**.
 
- Дополнительные сведения о настройке отчетов в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).
+ Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).
 
- Дополнительно можно создавать запросы и коллекции на основе данных, сохраняемых в базе данных Configuration Manager функцией контроля использования программных продуктов.
+ Além disso, pode criar consultas e coleções baseadas em dados armazenados na base de dados do Configuration Manager através da medição de software.
 
- Дополнительные сведения о коллекциях в Configuration Manager см. в разделе [Общие сведения о коллекциях](/sccm/core/clients/manage/collections/introduction-to-collections).
+ Para mais informações sobre coleções no Configuration Manager, consulte [introdução às coleções](/sccm/core/clients/manage/collections/introduction-to-collections).
 
- Дополнительные сведения о запросах в Configuration Manager см. в разделе [Общие сведения о запросах](/sccm/core/servers/manage/introduction-to-queries).
+ Para obter mais informações sobre consultas no Configuration Manager, consulte [introdução às consultas](/sccm/core/servers/manage/introduction-to-queries).
 
-##  <a name="security-and-privacy-for-software-metering"></a>Безопасность и конфиденциальность контроля использования программных продуктов
+##  <a name="security-and-privacy-for-software-metering"></a>Segurança e privacidade para medição de software
 
-### <a name="security-issues-for-software-metering"></a>Вопросы безопасности для отслеживания использования программного обеспечения
- Злоумышленник может отправить в Configuration Manager неправильные сведения о контроле использования программных продуктов, которые будут приняты точкой управления, даже если соответствующий клиентский параметр контроля отключен. Это может привести к появлению большого количества правил контроля использования, реплицируемых во всей иерархии и вызывающих отказ в обслуживании на серверах сайта Configuration Manager и в сети.
+### <a name="security-issues-for-software-metering"></a>Problemas de Segurança para Medição de Software
+ Um intruso poderia enviar informações para o Configuration Manager, que serão aceites pelo ponto de gestão, mesmo quando a definição de cliente de medição de software está desativada de medição de software inválido. Isto pode resultar num grande número de regras de medição que são replicados em toda a hierarquia, provocando um denial of service na rede e servidores de site do Configuration Manager.
 
- Так как злоумышленник может создать недопустимые данные отслеживания использования программного обеспечения, не следует считать их заслуживающими доверия.
+ Uma vez que um atacante pode criar dados de medição de software inválidos, não considere as informações de medição de software como autoritativas.
 
- Отслеживание использования программного обеспечения включено по умолчанию в качестве клиентского параметра.
+ A medição de software está ativada por predefinição como uma definição de cliente.
 
-###  <a name="privacy-information-for-software-metering"></a>Сведения о соблюдении конфиденциальности для отслеживания использования программного обеспечения
- Функция отслеживания использования программного обеспечения наблюдает за использованием приложений на клиентских компьютерах. Она включена по умолчанию. Вам необходимо настроить, какие приложения будут отслеживаться. Информация о контроле использования хранится в базе данных Configuration Manager. Эта информация шифруется во время передачи точке управления, но не сохраняется в зашифрованном виде в базе данных Configuration Manager.
+###  <a name="privacy-information-for-software-metering"></a>Informações de privacidade para medição de Software
+ A medição de software monitoriza a utilização de aplicações em computadores cliente. A medição de software está ativada por predefinição. Tem de configurar as aplicações que vai medir. Informações de medição são armazenadas na base de dados do Configuration Manager. As informações são encriptadas durante a transferência para um ponto de gestão, mas não são armazenadas em formato encriptado na base de dados do Configuration Manager.
 
- Информация хранится в базе данных до тех пор, пока не будет удалена при выполнении задач обслуживания сайта **Удаление устаревших данных отслеживания использования программного обеспечения** (каждые пять дней) и **Удаление устаревших сводных данных отслеживания использования программного обеспечения** (каждые 270 дней). Можно настроить интервал удаления. Сведения об отслеживании не отправляются в Майкрософт.
+ Estas informações são conservadas na base de dados até serem eliminadas pelas tarefas de manutenção do site **Eliminar Dados de Medição de Software Desatualizados** (a cada cinco dias) e **Eliminar Dados de Resumo de Medição de Software Desatualizados** (a cada 270 dias). Pode configurar o intervalo de eliminação. As informações de medição não são enviadas à Microsoft.
 
- Перед настройкой отслеживания использования программного обеспечения рассмотрите требования к конфиденциальности.
+ Antes de configurar as medições de software, considere os requisitos de privacidade.
 
-## <a name="example-scenario-for-using-software-metering"></a>Пример сценария с применением контроля использования программных продуктов
- В этом разделе вы создадите пример правила контроля использования программных продуктов, помогающего решать следующие бизнес-задачи:
+## <a name="example-scenario-for-using-software-metering"></a>Cenário de exemplo de utilização de medição de software
+ Nesta secção, irá criar uma regra de exemplo que o pode ajudar a resolver os seguintes requisitos comerciais de medição de software:
 
--   Определить, сколько копий того или иного приложения используется в вашей компании.
+-   Determinar o número de cópias de uma aplicação específica da empresa
 
--   Выявлять неиспользуемые копии приложения.
+-   Detetar as cópias não utilizadas de uma aplicação
 
--   Определять, какие пользователи регулярно работают с тем или иным приложением.
+-   Determinar os utilizadores que utilizam regularmente uma aplicação específica
 
- В банке Woodgrove Bank приложение Microsoft Office 2010 развернуто в качестве стандартного пакета для работы в офисе. Тем не менее для поддержки устаревшего приложения на некоторых компьютерах пришлось оставить Microsoft Office Word 2003. Чтобы сократить затраты на поддержку и лицензирование, ИТ-отдел решил удалить данные копии Word 2003 на компьютерах, где устаревшее приложение уже не используется. Кроме того, служба технической поддержки хочет определить, какие пользователи работают с устаревшим приложением.
+ O Banco Woodgrove implementou p Microsoft Office 2010 como o conjunto padrão de aplicações de produtividade no escritório. No entanto, para suportar uma aplicação legada, alguns computadores têm de continuar a executar o Microsoft Office Word 2003. O departamento de TI pretende reduzir os custos de suporte e licenciamento, removendo estas cópias do Word 2003, se a aplicação legada já não estiver em utilização. O suporte técnico também pretende identificar os utilizadores que utilizam a aplicação legada.
 
- Для решения этих задач Алексей, менеджер по ИТ-системам в банке Woodgrove, применяет контроль использования программных продуктов в Configuration Manager. Он выполняет следующие действия.
+ O João é o Gestor de sistemas de TI do Woodgrove Bank que utiliza a medição de software no Configuration Manager para alcançar estes objetivos comerciais. Ele efetua as seguintes ações:
 
-- Алексей проверяет, выполняются ли необходимые условия для контроля использования программных продуктов, и убеждается в том, что точка служб отчетов установлена и работает.
-- Он настраивает параметры клиента по умолчанию для контроля использования программных продуктов:<br>Активирует контроль использования программных продуктов и использует расписание сбора данных по умолчанию — раз в семь дней.<br>Настраивает инвентаризацию программного обеспечения для сбора файлов с расширением EXE, выбрав в клиенте инвентаризации программного обеспечения настройку **Проводить инвентаризацию файлов этих типов**.<br>Добавляет новое правило отслеживания использования программного обеспечения с именем **woodgrove.exe**, чтобы отслеживать устаревшее приложение.
-- Через семь дней клиентские компьютеры начинают отправлять данные об использовании исполняемого файла **woodgrove.exe** .
-- С помощью отчета Configuration Manager под названием **Установочная база для всех программ отслеживания использования программного обеспечения** Алексей определяет, на какие компьютеры загружен файл **woodgrove.exe**.
-- Через шесть месяцев Алексей формирует отчет **Компьютеры с установленной и не запускавшейся с указанной даты контролируемой программой**, указывая правило отслеживания использования программного обеспечения и дату, наступившую шесть месяцев назад. Этот отчет определяет 120 компьютеров, на которых в течение шести последних месяцев программа не запускалась.
-- Алексей убеждается в том, что устаревшее приложение больше не используется на включенных в отчет компьютерах, и удаляет его и копию пакета Word 2003 с этих машин.<br>Алексей формирует отчет **Пользователи, запускавшие определенную отслеживаемую программу** , чтобы предоставить службе технической поддержки список пользователей, которые продолжают работать с устаревшим приложением.
-- Алексей продолжает еженедельно проверять отчеты об отслеживании использования программного обеспечения и при необходимости применяет исправления.
+- O João verifica os pré-requisitos da medição de software e confirma que o ponto do Reporting Services está instalado e operacional.
+- O João configura as predefinições de cliente da medição de software:<br>Ativa a medição de software e utiliza o agendamento de recolha de dados predefinida a cada sete dias.<br>Configura o inventário de software para ficheiros de inventário que tenham a extensão .exe, ao configurar a definição de cliente **Inventariar estes tipos de ficheiro**do inventário de software.<br>Adiciona um nova regra de medição de software, com o nome **woodgrove.exe**, para monitorizar a aplicação legada.
+- O João tem de aguardar durante sete dias, após os quais os computadores cliente começam a reportar dados de utilização para o executável **woodgrove.exe** .
+- O João utiliza o relatório do Configuration Manager **base de instalação para todos os programas de software medido** para ver quais os computadores que tenham a aplicação **woodgrove.exe** carregado.
+- Depois de seis meses, o João executa o relatório **Computadores que têm um programa medido instalado mas que não o executaram desde uma data especificada**, especificando a regra de medição de software e uma data seis meses no passado. Este relatório identifica 120 computadores que não executaram o programa nos últimos seis meses.
+- O João efetua algumas verificações adicionais para confirmar que a aplicação legada não é necessária nos computadores identificados. Em seguida, desinstala a aplicação legada e a cópia do Word 2003 desses computadores.<br>O João executa o relatório **Utilizadores que executaram um programa de software medido específico** para fornecer ao suporte técnico uma lista de utilizadores que continuam a utilizar a aplicação legada.
+- O João continua a verificar semanalmente os relatórios de medição de software e toma ações corretivas, se necessário.
 
- Описанные выше действия позволили ИТ-отделу сократить расходы на поддержку и лицензирование, удалив приложения, которые больше не требовались. Кроме того, служба технической поддержки получила необходимый ей список пользователей, работавших с устаревшим приложениям.
+ Como resultado deste método de ação, os custos do suporte de TI e de licenciamento são reduzidos, através da remoção das aplicações que já não são necessárias. Além disso, o suporte técnico tem agora a lista pretendida dos utilizadores que executam a aplicação legada.

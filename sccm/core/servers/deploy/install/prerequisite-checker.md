@@ -1,6 +1,6 @@
 ---
-title: "Средство проверки готовности | Документация Майкрософт"
-description: "Узнайте, как использовать средство проверки готовности для выявления и устранения проблем, которые могут препятствовать установке сайта или роли системы сайта."
+title: "Verificador de pré-requisitos | Microsoft Docs"
+description: "Saiba como utilizar o Verificador de pré-requisitos para identificar e corrigir problemas que poderão bloquear a um site ou a instalação de função do sistema de sites."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,42 +16,42 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f0d44f82a0b6068f8cecc5808774677eccb0f8d9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Средство проверки готовности для System Center Configuration Manager
+# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Verificador de pré-requisitos do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Перед запуском программы установки для установки или обновления сайта System Center Configuration Manager или перед установкой роли системы сайта на новом сервере вы можете воспользоваться этим автономным приложением (**Prereqchk.exe**) из версии Configuration Manager, для которой требуется проверить готовность серверов. Средство проверки готовности позволяет выявлять и устранять проблемы, которые могут препятствовать установке сайта или роли системы сайта.  
+ Antes de executar a configuração para instalar ou atualizar um site do System Center Configuration Manager ou antes de instalar uma função de sistema de sites num servidor novo, pode utilizar esta aplicação autónoma (**Prereqchk.exe**) da versão do Configuration Manager que pretende utilizar para verificar a preparação do servidor. Utilize o Verificador de pré-requisitos para identificar e corrigir problemas que bloqueariam um site ou a instalação de função do sistema de sites.  
 
 > [!NOTE]  
->  Средство проверки готовности всегда запускается во время выполнения программы установки.  
+>  Verificador de pré-requisitos é executado sempre como parte da configuração.  
 
-По умолчанию при запуске средства проверки готовности выполняются следующие операции.  
+Por predefinição, quando executa o Verificador de pré-requisitos:  
 
--   Выполняется проверка сервера, где было запущено средство.  
--   На локальном компьютере выполняется сканирование на предмет существующего сервера сайта и выполняются только проверки, применимые к сайту.  
--   Если не обнаружено ни одного существующего сайта, выполняются все правила предварительной проверки.  
--   Выполняется проверка правил, определяющих наличие программного обеспечения и параметров, необходимых для установки. Возможно, что обязательное программное обеспечение требует дополнительных конфигураций или обновлений программного обеспечения, которые не проверяются средством проверки готовности.  
--   Результаты проверки регистрируются в файле **ConfigMgrPrereq.log** на системном диске компьютера. Файл журнала может содержать дополнительные сведения, которые не отображаются в интерфейсе приложения.  
+-   Valida o servidor onde é executado.  
+-   É procurado um servidor de site existente no computador local e só as verificações aplicáveis ao site são executadas.  
+-   Se não detetados sites existentes são, serão executadas todas as regras de pré-requisitos.  
+-   Executa regras para verificar se o software e as definições necessárias para a configuração estão instaladas. É possível que o software necessário será requer configuração adicional ou atualizações de software que não são verificadas pelo verificador de pré-requisitos.  
+-   Regista os respetivos resultados **ConfigMgrPrereq.log** ficheiro na unidade do sistema do computador. O ficheiro de registo pode conter informações adicionais que não aparecem na interface de aplicação.  
 
-При запуске средства проверки готовности из командной строки с указанием конкретных параметров командной строки выполняются следующие операции.  
+Quando executar o Verificador de pré-requisitos numa linha de comandos e especificar opções da linha de comandos específicas:  
 
--   Средство проверки готовности выполняет только проверки, которые связаны с сервером сайта или системами сайта, указанными в командной строке.  
--   Для проверки удаленного компьютера ваша учетная запись пользователя должна обладать правами администратора для этого удаленного компьютера.  
+-   Verificador de pré-requisitos só as verificações que estão associadas ao servidor do site ou sistemas de sites que especificou na linha de comandos.  
+-   Para verificar um computador remoto, a conta de utilizador tem de ter direitos de administrador no computador remoto.  
 
-Дополнительные сведения о проверках готовности см. в разделе [Список проверок готовности для System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
+Para obter mais informações sobre as verificações que executa o Verificador de pré-requisitos, consulte [lista das verificações pré-requisitos para o System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
 
-## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Копирование файлов средства проверки готовности на другой компьютер  
+## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Copie os ficheiros do Verificador de pré-requisitos para outro computador  
 
-1.  В проводнике перейдите в одно из следующих мест.  
+1.  No Explorador do Windows, aceda a uma das seguintes localizações:  
 
-    -   **&lt;*Установочный носитель Configuration Manager*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Установочный носитель Configuration Manager*\>\BIN\X64**  
+    -   **&lt;*Suporte de instalação do Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Caminho de instalação do Configuration Manager*\>\BIN\X64**  
 
-2.  Скопируйте следующие файлы в целевую папку на другом компьютере.  
+2.  Copie os seguintes ficheiros para a pasta de destino no outro computador:  
 
     -   Prereqchk.exe  
     -   Prereqcore.dll  
@@ -59,140 +59,140 @@ ms.lasthandoff: 08/07/2017
     -   Basesvr.dll  
     -   Baseutil.dll  
 
-##  <a name="run-prerequisite-checker-with-default-checks"></a>Запуск средства проверки готовности и выполнение проверок по умолчанию  
+##  <a name="run-prerequisite-checker-with-default-checks"></a>Executar o Verificador de pré-requisitos com verificações predefinidas  
 
-1.  В проводнике перейдите в одно из следующих мест.  
+1.  No Explorador do Windows, aceda a uma das seguintes localizações:  
 
-    -   **&lt;*Установочный носитель Configuration Manager*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Установочный носитель Configuration Manager*\>\BIN\X64**  
+    -   **&lt;*Suporte de instalação do Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Caminho de instalação do Configuration Manager*\>\BIN\X64**  
 
-2.  Выполните **prereqchk.exe** для запуска средства проверки готовности.   
-    Средство проверки обнаружит существующие сайты, если таковые имеются, и выполнит проверки для определения их готовности к обновлению. Если сайты не обнаружены, выполняются все проверки. В столбце **Тип сайта** отображаются сведения о сервере сайта или системе сайта, с которыми связано правило.  
+2.  Executar **prereqchk.exe** para iniciar o Verificador de pré-requisitos.   
+    Verificador de pré-requisitos Deteta sites existentes e se encontrar algum, verifica preparação para atualização. Se não existir nenhum site, todas as verificações são executadas. O **tipo de Site** coluna fornece informações sobre o servidor de site ou o sistema de sites a que a regra está associada.  
 
-##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Запуск средства проверки готовности из командной строки для выполнения всех проверок по умолчанию  
+##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Executar o Verificador de pré-requisitos numa linha de comandos para todas as verificações predefinidas  
 
-1.  Откройте окно командной строки и перейдите в одно из следующих расположений:  
+1.  Abra uma janela de linha de comandos e mude de diretório para uma das seguintes localizações:  
 
-    -   **&lt;*Установочный носитель Configuration Manager*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Установочный носитель Configuration Manager*\>\BIN\X64**  
+    -   **&lt;*Suporte de instalação do Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Caminho de instalação do Configuration Manager*\>\BIN\X64**  
 
-2.  Введите  **prereqchk.exe /LOCAL** , чтобы открыть средство проверки готовности и выполнить все проверки на сервере.  
+2.  Introduza **prereqchk.exe /LOCAL** para iniciar o Verificador de pré-requisitos e executar verificações de todos os pré-requisitos no servidor.  
 
-## <a name="run-prerequisite-checker-from-a-command-prompt-to-use-options"></a>Запуск средства проверки готовности из командной строки для применения параметров  
+## <a name="run-prerequisite-checker-from-a-command-prompt-to-use-options"></a>Executar o Verificador de pré-requisitos numa linha de comandos para utilizar opções  
 
-1.  Откройте окно командной строки и перейдите в одно из следующих расположений:  
+1.  Abra uma janela de linha de comandos e mude de diretório para uma das seguintes localizações:  
 
-    -   **&lt;*Установочный носитель Configuration Manager*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Установочный носитель Configuration Manager*\>\BIN\X64**  
+    -   **&lt;*Suporte de instalação do Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Caminho de instalação do Configuration Manager*\>\BIN\X64**  
 
-2.  Введите **prereqchk.exe**, добавив один или несколько перечисленных ниже параметров командной строки.  
+2.  Introduza **prereqchk.exe** com a adição de uma ou mais das seguintes opções da linha de comandos.  
 
-    Например, чтобы проверить первичный сайт, вы можете использовать следующее:  
+    Por exemplo, para verificar um site primário, poderá utilizar o seguinte:  
 
-       **prereqchk.exe [/NOUI] /PRI /SQL &lt;полное_доменное_имя_SQL_Server\> /SDK &lt;полное_доменное_имя_поставщика_SMS\> [/JOIN &lt;полное_доменное_имя_сайта_центра_администрирования\>] [/MP &lt;полное_доменное_имя_точки_управления\>] [/DP &lt;полное_доменное_имя_точки_распространения\>]**  
+       **prereqchk.exe [/NOUI] / /pri /SQL &lt;FQDN do SQL Server\> /SDK &lt;FQDN do fornecedor de SMS\> [/ associar &lt;FQDN do site de administração central\>] [/MP &lt;FQDN do ponto de gestão\>] [/DP &lt;FQDN do ponto de distribuição\>]**  
 
-    **Сервер сайта центра администрирования:**  
+    **Servidor do site de administração central:**  
 
-    -   **/NOUI**  
+    -   **/SEMIU**  
 
-         Не требуется. Запуск средства проверки готовности к установке без отображения пользовательского интерфейса. Этот параметр следует указывать перед всеми остальными параметрами командной строки.  
+         Não é necessária. Inicia o Verificador de pré-requisitos sem apresentar a interface de utilizador. Tem de especificar esta opção antes de qualquer outra opção na linha de comandos.  
 
-    -   **/CAS**  
+    -   **/ AS ACS**  
 
-         Обязательно. Проверяет соответствие локального компьютера требованиям сайта центра администрирования.  
+         Necessário. Verifica se o computador local cumpre os requisitos para o site de administração central.  
 
-    -   **/SQL &lt;*полное_доменное_имя_SQL_Server*>**  
+    -   **/ SQL Server &lt;* FQDN do SQL Server*>**  
 
-         Обязательно. Проверяет соответствие указанного компьютера требованиям SQL Server, связанным с размещением базы данных сайта Configuration Manager, используя полное доменное имя.  
+         Necessário. Utilizar o nome de domínio completamente qualificado (FQDN), verifica se o computador especificado cumpre os requisitos para o SQL Server alojar a base de dados do site do Configuration Manager.  
 
-    -   **/SDK &lt;*полное_доменное_имя_поставщика_SMS*>**  
+    -   **/ SDK &lt;* FQDN do fornecedor de SMS*>**  
 
-         Обязательно. Проверяет соответствие указанного компьютера требованиям поставщика SMS.  
+         Necessário. Verifica se o computador especificado cumpre os requisitos para o fornecedor de SMS.  
 
-    -   **/Ssbport**  
+    -   **/ Ssbport**  
 
-         Не требуется. Проверяет, что исключение брандмауэра, разрешающее соединение через порт SQL Server Service Broker (SSB), активно. По умолчанию используется порт SSB 4022.  
+         Não é necessária. Verifica se uma exceção de firewall está em vigor permitir comunicações na porta do SQL Server Service Broker (SSB). A porta do SSB predefinido é 4022.  
 
-    -   **InstallDir &lt;*Путь установки Configuration Manager*>**  
+    -   **InstallDir &lt;* caminho de instalação do Configuration Manager*>**  
 
-         Не требуется. Проверяет минимальное дисковое пространство, требуемое для установки сайта.  
+         Não é necessária. Verifica o espaço mínimo em disco nos requisitos de instalação de site.  
 
-    **Сервер первичного сайта:**  
+    **Servidor do site primário:**  
 
-    -   **/NOUI**  
+    -   **/SEMIU**  
 
-        Не требуется. Запуск средства проверки готовности к установке без отображения пользовательского интерфейса. Этот параметр следует указывать перед всеми остальными параметрами командной строки.  
+        Não é necessária. Inicia o Verificador de pré-requisitos sem apresentar a interface de utilizador. Tem de especificar esta opção antes de qualquer outra opção na linha de comandos.  
 
-    -   **/PRI**  
+    -   **/ /PRI**  
 
-         Обязательно. Проверяет соответствие локального компьютера требованиям первичного сайта.  
+         Necessário. Verifica se o computador local cumpre os requisitos para o site primário.  
 
-    -   **/SQL &lt;*полное_доменное_имя_SQL_Server*>**  
+    -   **/ SQL Server &lt;* FQDN do SQL Server*>**  
 
-         Обязательно. Проверяет соответствие указанного компьютера требованиям SQL Server, связанным с размещением базы данных сайта Configuration Manager.  
+         Necessário. Verifica se o computador especificado cumpre os requisitos para o SQL Server alojar a base de dados do site do Configuration Manager.  
 
-    -   **/SDK &lt;*полное_доменное_имя_поставщика_SMS*>**  
+    -   **/ SDK &lt;* FQDN do fornecedor de SMS*>**  
 
-         Обязательно. Проверяет соответствие указанного компьютера требованиям поставщика SMS.  
+         Necessário. Verifica se o computador especificado cumpre os requisitos para o fornecedor de SMS.  
 
-    -   **/JOIN &lt;*полное_доменное_имя_сайта_центра_администрирования*>**  
+    -   **/ ASSOCIAR &lt;* FQDN do site de administração central*>**  
 
-         Не требуется. Проверяет соответствие локального компьютера требованиям для подключения к серверу центра администрирования.  
+         Não é necessária. Verifica se o computador local cumpre os requisitos para ligar ao servidor do site de administração central.  
 
-    -   **/MP &lt;*полное_доменное_имя_точки_управления*>**  
+    -   **/MP &lt;* FQDN do ponto de gestão*>**  
 
-         Не требуется. Проверяет соответствие указанного компьютера требованиям для роли системы сайта "точка управления". Этот параметр поддерживается только при использовании параметра **/PRI** .  
+         Não é necessária. Verifica se o computador especificado cumpre os requisitos para a função de sistema de sites de ponto de gestão. Esta opção só é suportada quando utiliza o **/PRI** opção.  
 
-    -   **/DP &lt;*полное_доменное_имя_точки_распространения*>**  
+    -   **/DP &lt;* FQDN do ponto de distribuição*>**  
 
-         Не требуется. Проверяет соответствие указанного компьютера требованиям для роли системы сайта "точка распространения". Этот параметр поддерживается только при использовании параметра **/PRI** .  
+         Não é necessária. Verifica se o computador especificado cumpre os requisitos para a função de sistema de sites de ponto de distribuição. Esta opção só é suportada quando utiliza o **/PRI** opção.  
 
-    -   **/Ssbport**  
+    -   **/ Ssbport**  
 
-         Не требуется. Проверяет, что исключение брандмауэра, разрешающее соединение через порт SSB, активно. По умолчанию используется порт SSB 4022.  
+         Não é necessária. Verifica se uma exceção de firewall está em vigor permitir comunicações na porta do SSB. A porta do SSB predefinido é 4022.  
 
-    -   **InstallDir &lt;*Путь установки Configuration Manager*>**  
+    -   **InstallDir &lt;* caminho de instalação do Configuration Manager*>**  
 
-         Не требуется. Проверяет минимальное дисковое пространство, требуемое для установки сайта.  
+         Não é necessária. Verifica o espaço mínimo em disco nos requisitos de instalação de site.  
 
-    **Сервер вторичного сайта:**  
+    **Servidor do site secundário:**  
 
-    -   **/NOUI**  
+    -   **/SEMIU**  
 
-         Не требуется. Запуск средства проверки готовности к установке без отображения пользовательского интерфейса. Этот параметр следует указывать перед всеми остальными параметрами командной строки.  
+         Não é necessária. Inicia o Verificador de pré-requisitos sem apresentar a interface de utilizador. Tem de especificar esta opção antes de qualquer outra opção na linha de comandos.  
 
-    -   **/SEC &lt;*полное_доменное_имя_сервера_вторичного_сайта*>**  
+    -   **/ SEG &lt;* FQDN do servidor do site secundário*>**  
 
-         Обязательно. Проверяет соответствие указанного компьютера требованиям вторичного сайта.  
+         Necessário. Verifica se o computador especificado cumpre os requisitos para o site secundário.  
 
-    -   **/INSTALLSQLEXPRESS**  
+    -   **/ INSTALLSQLEXPRESS**  
 
-         Не требуется. Проверяет возможность установки экспресс-выпуска SQL Server на указанном компьютере.  
+         Não é necessária. Verifica se o SQL Server Express pode ser instalado no computador especificado.  
 
-    -   **/Ssbport**  
+    -   **/ Ssbport**  
 
-         Не требуется. Проверяет, что исключение брандмауэра, разрешающее соединение через порт SSB, активно. По умолчанию используется порт SSB 4022.  
+         Não é necessária. Verifica se uma exceção de firewall está em vigor permitir comunicações para a porta do SSB. A porta do SSB predefinido é 4022.  
 
-    -   **/Sqlport**  
+    -   **/ Sqlport**  
 
-         Не требуется. Проверяет, что исключение брандмауэра, разрешающее соединение через порт службы SQL Server, активно, и что порт не используется другим именованным экземпляром SQL Server. По умолчанию используется порт 1433.  
+         Não é necessária. Verifica se uma exceção de firewall está em vigor para permitir comunicações para o SQL Server porta de serviço e que a porta não está a ser utilizado por outra instância nomeada do SQL Server. A porta predefinida é 1433.  
 
-    -   **InstallDir &lt;*Путь установки Configuration Manager*>**  
+    -   **InstallDir &lt;* caminho de instalação do Configuration Manager*>**  
 
-         Не требуется. Проверяет минимальное дисковое пространство, требуемое для установки сайта.  
+         Não é necessária. Verifica o espaço mínimo em disco nos requisitos de instalação de site.  
 
-    -   **/SourceDir**  
+    -   **/ SourceDir**  
 
-         Не требуется. Проверяет, что учетная запись компьютера вторичного сайта имеет доступ к папке, содержащей исходные файлы для установки.  
+         Não é necessária. Verifica-se de que a conta de computador do site secundário consegue aceder à pasta que aloja os ficheiros de origem para a configuração.  
 
-   **Консоль Configuration Manager:**  
+   **Consola do Configuration Manager:**  
 
-    -   **/Adminui**  
+    -   **/ Adminui**  
 
-         Обязательно. Проверяет соответствие локального компьютера требованиям для установки Configuration Manager.  
+         Necessário. Verifica se o computador local cumpre os requisitos para instalar o Configuration Manager.  
 
-3.  В разделе **Результат необходимых компонентов** пользовательского интерфейса средства проверки готовности формируется список обнаруженных проблем.  
+3.  Na interface de utilizador do Verificador de pré-requisitos, o Verificador de pré-requisitos cria uma lista de problemas detetados no **resultado dos pré-requisitos** secção.  
 
-    -   Щелкните элемент списка, чтобы отобразить подробные сведения о том, как разрешить проблему.  
-    -   Необходимо разрешить все проблемы с элементами в списке, имеющими состояние **Ошибка**, перед установкой сервера сайта, системы сайта или консоли Configuration Manager.  
-    -   Чтобы ознакомиться с результатами проверки, вы можете открыть файл **ConfigMgrPrereq.log**, находящийся в корневой папке диска C. Файл журнала может содержать дополнительную информацию, которая не отображается в интерфейсе пользователя средства проверки готовности.  
+    -   Clique num item na lista para obter detalhes sobre como resolver o problema.  
+    -   Tem de resolver todos os itens na lista que tenham um **erro** estado antes de instalar o servidor do site, sistema de sites ou a consola do Configuration Manager.  
+    -   Também pode abrir o **ConfigMgrPrereq.log** ficheiro na raiz da unidade de sistema para rever os resultados do Verificador de pré-requisitos. O ficheiro de registo pode conter informações adicionais que não são apresentadas na interface de utilizador do Verificador de pré-requisitos.  

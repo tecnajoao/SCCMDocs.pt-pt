@@ -1,6 +1,6 @@
 ---
-title: "Контрольный список для установки обновления 1702 | System Center Configuration Manager"
-description: "Узнайте, какие действия нужно выполнить перед обновлением до версии System Center Configuration Manager 1702."
+title: "Lista de verificação para 1702 | O System Center Configuration Manager"
+description: "Saiba mais sobre as ações a efetuar antes de atualizar o System Center Configuration Manager versão 1702."
 ms.custom: na
 ms.date: 06/06/2017
 ms.reviewer: na
@@ -16,123 +16,123 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0c2e685961ceed920611bb9b8e611ba8512b2e6f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="checklist-for-installing-update-1702-for-system-center-configuration-manager"></a>Контрольный список для установки обновления 1702 для System Center Configuration Manager
+# <a name="checklist-for-installing-update-1702-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1702 para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Если вы используете версию System Center Configuration Manager Current Branch, обновление иерархии до версии 1702 можно установить из консоли поверх предыдущей версии.
+Quando utiliza o ramo atual do System Center Configuration Manager, pode instalar a atualização na consola para a versão 1702 ao atualizar a sua hierarquia de uma versão anterior.
 
 > [!TIP]  
-Версия 1702 также доступна как [базовый носитель](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions), который можно использовать для установки первого сайта новой иерархии.
+Também está disponível como versão 1702 [suporte de dados de linha de base](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions) que pode utilizar para instalar o primeiro site numa nova hierarquia.
 
-Чтобы получить обновление для версии 1702, необходимо использовать роль системы сайта "Точка подключения службы" на сайте верхнего уровня в иерархии. Допускается как оперативный, так и автономный режим. После того как иерархия скачает пакет обновления с серверов Майкрософт, его можно найти в консоли в узле **Администрирование &gt; Обзор &gt; Облачные службы &gt; Обновления и обслуживание**.
+Para obter a atualização para a versão 1702, tem de utilizar uma função de sistema de sites de ponto de ligação de serviço no site de nível superior da sua hierarquia. Isto pode ser no modo online ou offline. Após a sua hierarquia transfere o pacote de atualização da Microsoft, pode encontrá-lo na consola em **administração &gt; descrição geral &gt; serviços em nuvem &gt; atualizações e manutenção**.
 
--   Если обновление имеет состояние **Доступно**, оно готово к установке. Прежде чем установить версию 1702, просмотрите [сведения об установке обновления 1702](#about-installing-update-1702) и [контрольный список настроек](#checklist), которые нужно выполнить перед началом обновления.
+-   Quando a atualização está listada como **disponível**, a atualização está pronta para instalar. Antes de instalar a versão 1702, reveja as seguintes informações [sobre a instalação de atualização 1702](#about-installing-update-1702) e [lista de verificação](#checklist) para configurações para se certificar antes de iniciar a atualização.
 
--   Если обновление имеет состояние **Загружается**, которое не меняется, просмотрите файлы **hman.log** и **dmpdownloader.log**, чтобы проверить наличие ошибок.
+-   Se a atualização é apresentado como **transferir** e não alterar, reveja o **hman.log** e **dmpdownloader.log** erros.
 
-    -   Если dmpdownloader.log указывает, что процесс dmpdownloader находится в спящем режиме и ожидает завершения интервала для проверки наличия обновлений, вы можете перезапустить службу **SMS_Executive** на сервере сайта, чтобы возобновить скачивание распространяемых файлов для обновления.
+    -   Se o ficheiro dmpdownloader.log indica o processo de dmpdownloader está em modo de suspensão e aguardar por um intervalo antes de procurar atualizações, pode reiniciar o **SMS_Executive** serviço no servidor do site para reiniciar a transferência de ficheiros de redistribuição a atualização.
 
-    -   Еще одной распространенной причиной проблем при скачивании являются параметры прокси-сервера, запрещающие скачивание с адресов <http://silverlight.dlservice.microsoft.com> и <http://download.microsoft.com>.
+    -   Outro problema comum verificado pela transferência ocorre quando as definições do servidor proxy impediram transferências do <http://silverlight.dlservice.microsoft.com> e <http://download.microsoft.com>.
 
-Дополнительные сведения об установке обновлений см. в разделе [Обновления в консоли и обслуживание](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
+Para obter mais informações sobre a instalação de atualizações, consulte [na consola atualizações e manutenção](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
 
-Сведения о версиях Current Branch см. в подразделе [Базовые и обновленные версии](/sccm/core/servers/manage/updates#bkmk_Baselines) раздела [Обновления для System Center Configuration Manager](/sccm/core/servers/manage/updates).
+Para obter informações sobre as versões do ramo atual, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#bkmk_Baselines) no [atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-## <a name="about-installing-update-1702"></a>Информация об установке обновления 1702
+## <a name="about-installing-update-1702"></a>Sobre a instalação de atualização 1702
 
-**Сайты.**  
-Обновление 1702 можно установить только на сайте верхнего уровня в иерархии. Это означает, что установку следует запустить на сайте центра администрирования, если таковой имеется, или на автономном первичном сайте. После установки обновления на сайте верхнего уровня дочерние сайты обновляются в следующем порядке.
+**Sites:**  
+Instalar a atualização 1702 no site de nível superior da sua hierarquia. Isto significa que inicia a instalação do seu site de administração central, se tiver uma, ou do seu site primário autónomo. Após a atualização é instalada no site de nível superior, os sites subordinados têm o seguinte comportamento da atualização:
 
--   Подчиненные первичные сайты автоматически устанавливают обновление, как только сайт центра администрирования завершит установку обновления. Для управления временем установки обновлений можно использовать периоды обслуживания. Дополнительные сведения см. в статье [Service windows for site servers](/sccm/core/servers/manage/service-windows) (Периоды обслуживания для серверов сайта).
+-   Os sites primários subordinados instalam a atualização automaticamente depois do site de administração central concluir a instalação da atualização. Pode utilizar janelas de serviço para controlar quando um site instala a atualização. Para obter mais informações, consulte [windows para servidores de site do serviço](/sccm/core/servers/manage/service-windows).
 
--   После того, как на родительском первичном сайте завершится установка обновления, необходимо вручную обновить вторичные сайты через консоль Configuration Manager. Автоматическое обновление серверов вторичных сайтов не поддерживается.
+-   Tem de atualizar manualmente cada site secundário a partir da consola do Configuration Manager depois do site primário principal concluída a instalação da atualização. A atualização automática dos servidores de site secundários não é suportada.
 
-**Роли системы сайта.**  
-Когда сервер сайта устанавливает обновление, автоматически обновляются все роли системы сайта, установленные на сервере сайта и на удаленных компьютерах. Перед установкой обновления нужно убедиться, что каждый сервер системы сайта отвечает предварительным требованиям для работы с новой версией обновления.
+**Funções de sistema de sites:**  
+Quando um servidor do site instala a atualização, as funções de sistema de sites que estão instaladas no computador do servidor do site e os que são instaladas em computadores remotos, automaticamente atualizadas. Antes de instalar a atualização, certifique-se de que cada servidor do sistema de sites cumpre os pré-requisitos para a operação com a nova versão de atualização.
 
-**Консоли Configuration Manager.**   
-При первом использовании консоли Configuration Manager после завершения обновления появится запрос на обновление этой консоли. Чтобы обновить консоль, необходимо запустить программу установки Configuration Manager на компьютере, где размещена консоль, и выбрать параметр для обновления консоли. Мы рекомендуем не откладывать установку обновления на консоль.
+**Consolas do Configuration Manager:**   
+Na primeira vez que utiliza uma consola do Configuration Manager após a atualização estiver concluída, será solicitado Atualize a consola. Para tal, tem de executar a configuração do Configuration Manager no computador que aloja a consola e, em seguida, escolha a opção para atualizar a consola. Recomendamos que não adie a instalação da atualização na consola.
 
 > [!IMPORTANT]  
-> Имейте в виду, что после установки обновления на сайте центра администрирования и вплоть до завершения обновлений на всех дочерних первичных сайтах будут существовать следующие ограничения и задержки.    
-> - **Обновления клиента** не запускаются. Сюда относится автоматическое обновление клиентов и подготовительных клиентов. Кроме того, невозможно повысить уровень подготовительных клиентов до рабочих клиентов, пока установка обновлений не завершится на всех сайтах. Когда завершится установка обновлений на последнем сайте, начинается обновление клиентов с учетом выбранной вами конфигурации.   
-> - Недоступны **новые возможности**, которые вы активировали при обновлении. Это сделано специально, чтобы предотвратить репликацию данных, связанных с такими функциями, на сайт, на котором поддержка этих функций еще не установлена. Новые функции будут доступны для использования, когда обновление завершится на всех основных сайтах.   
-> - **Связи репликации** между сайтом центра администрирования и дочерними основными сайтами отображаются как необновленные. В связи с этим состояние установки пакета обновления отображается как завершенное с предупреждением для инициализации репликации мониторинга. В узле мониторинга на консоли отображается статус *Выполняется конфигурация ссылки*.
+> Quando instala uma atualização no site de administração central, tenha em atenção as seguintes limitações e atrasos que existem até que todos os sites primários subordinados também concluir a instalação da atualização:    
+> - **As atualizações de cliente** não iniciar. Isto inclui atualizações automáticas de clientes e os clientes de pré-produção. Além disso, não é possível promover os clientes de pré-produção para produção, até que o último site seja concluída a instalação da atualização. Depois do último site concluir a instalação da atualização, as atualizações de cliente vai começar com base nas opções de configuração.   
+> - **Novas funcionalidades** ativar com a atualização não estão disponíveis. Este procedimento impede que a replicação dos dados relacionados com a funcionalidade do que está a ser enviados para um site que ainda não instalou o suporte para essa funcionalidade. Após todos os sites primários instalam a atualização, a funcionalidade estará disponível para utilização.   
+> - **Ligações de replicação** entre o site de administração central e subordinados sites primários são apresentadas como não atualizado. Esta ação apresenta no estado de instalação do pacote de atualização como o estado concluído com o aviso de inicialização da replicação de monitorização. No nó de monitorização da consola, este é apresentado conforme *ligação está a ser configurada*.
 
 
 
-## <a name="checklist"></a>Контрольный список
+## <a name="checklist"></a>Lista de verificação
 
-**Убедитесь, что на всех сайтах установлены версии System Center Configuration Manager, поддерживающие обновление до версии 1702:**   
-Перед началом установки обновления 1702 на каждом сервере сайта в иерархии должна работать одна и та же версия System Center Configuration Manager. Чтобы обновить версию до 1702, необходимо использовать версию 1602, 1606 или 1610.
+**Certifique-se de que todos os sites executem uma versão do System Center Configuration Manager que suporta a atualização para 1702:**   
+Cada servidor do site na hierarquia tem de executar a mesma versão do System Center Configuration Manager antes de poder iniciar a instalação da atualização 1702. Para atualizar para 1702, tem de utilizar a versão 1602, 1606 ou 1610.
 
-**Проверьте состояние Software Assurance или аналогичной подписки.**   
-Для установки обновления 1702 необходимо действующее соглашение Software Assurance. При установке этого обновления на вкладке **Лицензирование** будет предложено подтвердить **дату истечения срока действия Software Assurance**.
+**Rever o estado do seu Software Assurance ou direitos equivalentes de subscrição:**   
+Tem de ter um contrato de Software Assurance (SA) de Active Directory ao instalar a atualização 1702. Quando instalar esta atualização, o **licenciamento** separador apresenta a opção para confirmar a sua **data de expiração do Software Assurance**.
 
-Это необязательное значение, которое можно использовать для напоминания о предстоящем завершении срока действия лицензии. Эта дата отображается при установке последующих обновлений. Возможно, вы уже указали это значение во время установки, настройки, обновления или через вкладку **Лицензирование** в разделе **параметров иерархии** консоли Configuration Manager.
+Este é um valor opcional que pode especificar como um lembrete conveniente da sua data de expiração de licença. Esta data está visível quando instalar atualizações futuras. Pode ter anteriormente especificado este valor durante a configuração ou a instalação de uma atualização, ou utilizando o **licenciamento** separador do **definições de hierarquia**, da consola do Configuration Manager.
 
-Дополнительные сведения см. в разделе [Лицензирование и ветви в System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+Para obter mais informações, consulte [licenciamento e ramos para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-**Проверьте установленные версии платформы Microsoft.NET на серверах системы сайта**. При установке этого обновления Configuration Manager автоматически устанавливает платформу .NET Framework 4.5.2 на каждом компьютере, на котором размещается одна из следующих ролей системы сайта (если на нем еще не установлена платформа .NET Framework 4.5 и выше):
+**Revisão instaladas as versões do Microsoft .NET em servidores do sistema de sites:** Quando um site instala esta atualização, o Configuration Manager instala automaticamente o .NET Framework 4.5.2 em cada computador que aloja uma das seguintes funções do sistema de site quando o .NET Framework 4.5 ou posterior não está já instalada:
 
--   Прокси-точка регистрации.
--   Точка регистрации
--   Точка управления.
--   Точка подключения службы
+-   Ponto proxy de registo
+-   Ponto de inscrição
+-   Ponto de gestão
+-   Ponto de ligação de serviço
 
-Этот процесс установки может перевести сервер системы сайта в состояние ожидания перезагрузки и сообщать об ошибках средству просмотра состояния компонентов Configuration Manager. Кроме того, до перезагрузки сервера на нем возможны произвольные сбои приложений .NET.
+Esta instalação pode colocar o servidor de sistema de sites no reinício pendente erros de estado e relatórios para o Visualizador de estado do componente do Configuration Manager. Além disso, as aplicações de .NET no servidor podem ocorrer falhas aleatórias até que o servidor seja reiniciado.
 
-Дополнительные сведения см. в разделе [Необходимые компоненты для сайта и системы сайта](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
+Para obter mais informações, veja [Pré-requisitos de site e sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-**Проверьте версию комплекта средств для развертывания и оценки (ADK) для Windows 10**. Комплект Windows 10 ADK должен иметь версию не ниже 1607. Если вам нужно обновить ADK, сделайте это до начала обновления Configuration Manager. Так обеспечите автоматическое обновление загрузочных образов по умолчанию до последней версии Windows PE. (Пользовательские образы загрузки нужно обновлять вручную.)
+**Consultar a versão do Windows Assessment and Deployment Kit (ADK) para Windows 10** o Windows 10 ADK devem ser versão 1607 ou posterior. Se tem de atualizar o ADK, faça-o antes de iniciar a atualização do Configuration Manager. Isto garante que as imagens de arranque predefinidas são automaticamente atualizadas para a versão mais recente do Windows PE. (Imagens de arranque personalizadas têm de ser atualizadas manualmente.)
 
-Если вы обновили сайт раньше, чем ADK, восстановить образы загрузки можно с помощью скрипта, предоставленного в блоге [Configuration Manager and the Windows ADK for Windows 10, version 1607](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/09/configuration-manager-and-the-windows-adk-for-windows-10-version-1607/) (Configuration Manager и Windows ADK для Windows 10, версия 1607).
+Se atualizar o site antes de atualizar o ADK, consulte o blogue [do Configuration Manager e o Windows ADK para Windows 10, versão 1607](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/09/configuration-manager-and-the-windows-adk-for-windows-10-version-1607/) para um script que pode ser utilizado para regenerar as imagens de arranque.
 
-**Проверьте состояние сайта и иерархии и убедитесь, что неустраненные проблемы отсутствуют** . Перед обновлением сайта устраните все проблемы в работе сервера сайта, сервера базы данных сайта и ролей системы сайта, установленных на удаленных компьютерах. Обновление сайта может завершиться неудачей из-за существующих проблем в работе.
+**Rever o estado de site e da hierarquia e certifique-se de que existem não existem problemas por resolver:** Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de base de dados do site e funções de sistema de sites que são instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
 
-Дополнительные сведения см. в разделе [Использование оповещений и системы состояния для System Center Configuration Manager](/sccm/core/servers/manage/use-alerts-and-the-status-system).
+Para obter mais informações, veja [Utilizar alertas e o sistema de estado para o System Center Configuration Manager](/sccm/core/servers/manage/use-alerts-and-the-status-system).
 
-**Проверьте репликацию файлов и данных между сайтами.**   
-Убедитесь в том, что репликация файлов и базы данных между сайтами действует и является актуальной. Задержки или невыполненная работа могут помешать бесперебойному, успешному выполнению обновления.
-Для репликации базы данных можно использовать Replication Link Analyzer, который поможет устранить проблемы перед началом обновления.
+**Reveja o ficheiro e dados de replicação entre sites:**   
+Certifique-se de que o ficheiro e a replicação de base de dados entre sites está operacional e atual. Os atrasos ou os registos de segurança no podem impedir uma atualização com êxito, uniforme.
+Para a replicação de base de dados, pode utilizar o Analisador de Ligações de Replicação para ajudar a resolver problemas antes de iniciar a atualização.
 
-Дополнительные сведения см. в подразделе [Сведения об анализаторе канала репликации](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) раздела [Мониторинг иерархии и инфраструктуры репликации в System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure).
+Para obter mais informações, consulte [sobre o analisador do Link de replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) no [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure) tópico.
 
-**Установите все доступные важные обновления для операционных систем на компьютерах, на которых размещен сайт, сервер базы данных сайта и удаленные роли системы сайта**. Перед установкой обновления для Configuration Manager установите все важные обновления в каждой соответствующей системе сайта. Если устанавливаемое обновление требует перезагрузки, перезагрузите соответствующие компьютеры перед началом обновления.
+**Instale todas as atualizações críticas aplicáveis para sistemas operativos em computadores que alojam o site, o servidor de base de dados do site e as funções do sistema de sites remoto:** Antes de instalar uma atualização para o Configuration Manager, instale quaisquer atualizações críticas para cada sistema de sites aplicáveis. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização.
 
-**Выключите реплики базы данных для точек управления на первичных сайтах.**   
-Configuration Manager не может обновить первичный сайт с включенными репликами баз данных для точек управления. Отключите репликацию базы данных, прежде чем устанавливать обновления для Configuration Manager.
+**Desative réplicas de base de dados para pontos de gestão em sites primários:**   
+O Configuration Manager não é possível atualizar com êxito um site primário que tenha uma réplica de base de dados para pontos de gestão ativada. Desative a replicação de base de dados antes de instalar uma atualização para o Configuration Manager.
 
-Дополнительные сведения см. в разделе [Реплики базы данных для точек управления для System Center Configuration Manager](/sccm/core/servers/deploy/configure/database-replicas-for-management-points).
+Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](/sccm/core/servers/deploy/configure/database-replicas-for-management-points).
 
-**Настройте группы доступности SQL Server AlwaysOn для отработки отказа вручную.**   
-Если вы используете группу доступности, настройте для нее отработку отказа вручную перед запуском установки обновления. После обновления сайта можно восстановить автоматическую отработку отказа. Дополнительные сведения см. в статье [SQL Server AlwaysOn для базы данных сайта](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
+**Definir grupos de Disponibilidade AlwaysOn do SQL Server para ativação pós-falha manual:**   
+Se utilizar um grupo de disponibilidade, certifique-se de que o grupo de disponibilidade está definido para ativação pós-falha manual antes de iniciar a instalação da atualização. Depois do site foi atualizado, pode restaurar a ativação pós-falha para ser automática. Para obter mais informações consulte [SQL Server AlwaysOn para uma base de dados do site](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
 
-**Перенастройка точек обновления программного обеспечения, использующих балансировку сетевой нагрузки.**   
-Configuration Manager не может обновить сайт, использующий кластер балансировки сетевой нагрузки (NLB) для точек обновления программного обеспечения.
+**Reconfigure os pontos de atualização de software que utilizem NLB:**   
+O Configuration Manager não é possível atualizar um site que utiliza uma cluster (NLB) para alojar pontos de atualização de software de balanceamento de carga na rede.
 
-Если для точек обновления программного обеспечения используются кластеры балансировки сетевой нагрузки, удалите кластер балансировки сетевой нагрузки с помощью Windows PowerShell.
-Дополнительные сведения см. в разделе [Планирование обновлений программного обеспечения в System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates).
+Se utilizar NLB clusters para pontos de atualização de software, utilize o Windows PowerShell para remover o cluster NLB.
+Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates).
 
-**Отключите все задачи обслуживания сайта на каждом сайте на период установки обновления на этом сайте.**   
-Перед установкой обновления отключите все задачи обслуживания сайта, которые могут запускаться в то время, когда активен процесс обновления. В частности, необходимо отключить следующие задачи:
+**Desative todas as tarefas de manutenção do site em cada site durante a instalação da atualização desse site:**   
+Antes de instalar a atualização, desative as tarefas de manutenção do site que possam ser executadas enquanto o que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:
 
--   Резервное копирование сервера сайта
--   Удаление устаревших операций клиента
--   Удаление устаревших данных обнаружения
+-   Servidor do Site de Reserva
+-   Eliminar Operações de Cliente Desatualizadas
+-   Eliminar Dados de Deteção Desatualizados
 
-Если во время установки обновления выполняется задача обслуживания базы данных сайта, то обновление может завершиться сбоем. Прежде чем отключить задачу, запишите ее расписание, чтобы восстановить конфигурацию после установки обновления.
+Quando uma tarefa de manutenção da base de dados do site é executada durante a instalação da atualização, a instalação da atualização pode falhar. Antes de desativar uma tarefa, registe o agendamento da tarefa para que possa restaurar a respetiva configuração após a atualização foi instalada.
 
-Дополнительные сведения см. в разделах [Задачи обслуживания для System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) и [Справочные сведения о задачах обслуживания в System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
+Para obter mais informações, consulte [tarefas de manutenção do System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) e [tarefas de referência para a manutenção do System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
 
-**Создайте резервную копию базы данных сайта на сайте центра администрирования и первичных сайтах** . Перед обновлением сайта создайте резервную копию базы данных сайта, чтобы ее можно было использовать для аварийного восстановления.
+**Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:** Antes de atualizar um site, uma cópia de segurança da base de dados do site para se certificar de que tem uma cópia de segurança a utilizar para recuperação após desastre.
 
-Дополнительные сведения см. в разделе [Резервное копирование и восстановление в System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
+Para obter mais informações, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
 <!-- Removed from update guidance 6/6/2017
 **Test the database upgrade on a copy of the most recent site database backup:** 
@@ -153,41 +153,41 @@ Configuration Manager does not support the backup of secondary sites nor does it
 Do not run a test database upgrade on the production site database. Doing so updates the site database and could render your site inoperable. For more information, see [Step 2: Test the database upgrade before installing an update](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) from **Before you install an in-console update**.
 -->
 
-**Запланируйте пилотное развертывание клиента.**   
-При установке обновления, которое изменяет клиент, можно проверить это новое обновление клиента в подготовительной среде, прежде чем развернуть его и обновить активные клиенты.
+**Planear testes de implementação de cliente:**   
+Quando instala uma atualização que atualiza o cliente, pode testar essa nova atualização de cliente em pré-produção antes de implementar e atualiza todos os clientes ativos.
 
-Чтобы воспользоваться этой возможностью, перед началом установки обновления нужно настроить сайт для поддержки автоматического обновления в подготовительной среде.
+Para tirar partido desta opção, tem de configurar o seu site para suportar as atualizações automáticas para pré-produção antes de iniciar a instalação da atualização.
 
-Дополнительные сведения см. в разделах [Обновление клиентов в System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) и [Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+Para obter mais informações, consulte [atualizar clientes no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) e [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
-**Запланируйте периоды обслуживания для управления временем установки обновлений серверами сайта.**   
-Вы можете использовать периоды обслуживания, чтобы определить период времени для установки обновлений на сервере сайта.
+**Planear a utilização de janelas de serviço para controlar quando os servidores do site instalam atualizações:**   
+Utilize as janelas de serviço para definir um período de durante as atualizações a um site o servidor pode ser instalado.
 
-Это поможет контролировать время установки обновлений на сайты в иерархии. Дополнительные сведения см. в статье [Service windows for site servers](/sccm/core/servers/manage/service-windows) (Периоды обслуживания для серверов сайта).
+Isto pode ajudar a controlar quando os sites na hierarquia instalam a atualização. Para obter mais informações, consulte [windows para servidores de site do serviço](/sccm/core/servers/manage/service-windows).
 
-**Запустите средство проверки готовности к установке** .  
-Если обновление указано в консоли с состоянием **Доступно**, можно запустить средство проверки готовности независимо от установки обновления. (При установке обновления на сайт средство запустится снова.)
+**Execute o Verificador de pré-requisitos do programa de configuração:**   
+Quando a atualização está listada na consola do como **disponível,** independentemente pode executar o Verificador de pré-requisitos antes de instalar a atualização. (Quando instalar a atualização no site, o Verificador de pré-requisitos é executado novamente.)
 
-Чтобы запустить средство проверки готовности из консоли, последовательно выберите **Администрирование > Обзор > Облачные службы > Обновления и обслуживание**. Затем щелкните правой кнопкой мыши **пакет обновления Configuration Manager 1702** и выберите пункт **Запустить проверку готовности**.
+Para executar uma verificação de pré-requisitos a partir da consola, aceda a **administração > Descrição geral > Serviços Cloud > atualizações e manutenção.** Em seguida, clique com botão direito **pacote de atualização do Configuration Manager 1702**e, em seguida, escolha **executar verificação de pré-requisitos**.
 
-Дополнительные сведения о запуске и мониторинге проверки готовности см. в подразделе **Шаг 3. Перед установкой обновления запустите средство проверки готовности** раздела [Установка обновлений в консоли для System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
+Para obter mais informações sobre como iniciar e, em seguida, monitorizar a verificação de pré-requisitos, consulte **passo 3: Executar o Verificador de pré-requisitos antes de instalar uma atualização** no tópico [instalar atualizações na consola do System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
 
 > [!IMPORTANT]  
-> Когда средство проверки готовности запускается в ходе обновления или отдельно, этот процесс обновляет некоторые исходные файлы продукта, которые используются для выполнения задач обслуживания сайта. Поэтому, если вам нужно выполнить задачу обслуживания после проверки готовности, но перед установкой обновления, запустите программу установки Configuration Manager **Setupwpf.exe** из папки CD.Latest на сервере сайта.
+> Quando o Verificador de pré-requisitos é executado independentemente ou como parte de uma instalação de atualização, o processo atualiza alguns ficheiros de origem do produto que são utilizados para tarefas de manutenção do site. Por conseguinte, depois de executar o Verificador de pré-requisitos, mas antes a instalar a atualização, se tiver de executar uma tarefa de manutenção do site, execute **Setupwpf.exe** (configuração do Configuration Manager) partir do CD. Pasta mais recente no servidor do site.
 
-**Обновите сайты.**   
-Теперь вы готовы начать установку обновления для иерархии. Дополнительные сведения об установке обновления см. в разделе [Установка обновлений в консоли](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates).
+**Atualizar sites:**   
+Agora está pronto para iniciar a instalação da atualização para a sua hierarquia. Para obter mais informações sobre como instalar a atualização, consulte [instalar atualizações na consola.](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates)
 
-Мы рекомендуем назначать установку обновления для каждого сайта на нерабочее время, чтобы процесс установки обновления и его действия по переустановке компонентов сайта и ролей системы сайта как можно меньше влияли на обычные бизнес-операции.
+Recomendamos que planeia instalar a atualização fora do horário comercial normal para cada site quando o processo de instalação da atualização e as respetivas ações para reinstalar os componentes do site e funções de sistema de sites irão ter o mínimo efeito nas suas operações de negócio.
 
-Дополнительные сведения см. в статье [Обновления для System Center Configuration Manager](/sccm/core/servers/manage/updates).
+Para obter mais informações, veja [Atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-## <a name="post-update-checklist"></a>Контрольный список после обновления
-Изучите список действий, которые нужно выполнить после завершения установки обновления.
-1.  Убедитесь, что активна межсайтовая репликация. В консоли откройте пункты **Мониторинг** > **Иерархия сайтов** и **Мониторинг** > **Репликация базы данных**, чтобы проверить наличие проблем или убедиться, что связи репликации активны.
-2.  Убедитесь, что каждый сервер сайта и каждая роль системы сайта обновились до версии 1702. В консоли можно добавить дополнительный столбец **Версия** в отображениях некоторых узлов, например для **сайтов** и **точек распространения**.
+## <a name="post-update-checklist"></a>Lista de verificação de atualização de POST
+Reveja as ações seguintes a efetuar depois de concluída a instalação da atualização.
+1.  Certifique-se de que a replicação site a site está ativa. Na consola, ver **monitorização** > **hierarquia do Site**, e **monitorização** > **replicação de base de dados** indicações de problemas ou a confirmação de que as ligações de replicação estão ativas.
+2.  Certifique-se de que cada servidor do site e a função do sistema de sites foi atualizado para a versão 1702. Na consola, pode adicionar a coluna opcional **versão** para a apresentação de alguns nós incluindo **Sites** e **pontos de distribuição**.
 
- При необходимости роль системы сайта будет автоматически переустановлена для обновления до новой версии. Удаленные системы сайта, обновление которых не прошло успешно, можно попробовать перезагрузить.
-3.  Перенастройте реплики базы данных для точек управления на первичных сайтах, которые вы отключали перед началом обновления.
-4.  Перенастройте задачи обслуживания базы данных, которые вы отключали перед началом обновления.
-5.  Если перед установкой обновления вы настроили подготовку клиента, обновите клиенты согласно составленному плану.
+ Quando for necessário, uma função de sistema do site irá reinstalar automaticamente para atualizar para a nova versão. Considere reiniciar sistemas de sites remotos que não atualizar com êxito.
+3.  Reconfigure réplicas de base de dados para pontos de gestão em sites primários que desativou antes de iniciar a atualização.
+4.  Reconfigure tarefas de manutenção de base de dados que desativou antes de iniciar a atualização.
+5.  Se tiver configurado o teste de implementação no antes de instalar a atualização de cliente, atualize clientes pelo plano que criou.

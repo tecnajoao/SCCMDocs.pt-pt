@@ -1,6 +1,6 @@
 ---
-title: "Управление драйверами в Configuration Manager | Документы Майкрософт"
-description: "Каталог драйверов Configuration Manager позволяет импортировать драйверы устройств, группировать драйверы в пакеты и передавать эти пакеты в точки распространения."
+title: Gerir controladores - Configuration Manager | Microsoft Docs
+description: "Utilizar o catálogo de controladores do Configuration Manager para importar controladores de dispositivo, grupo de controladores nos pacotes e distribuir estes pacotes por pontos de distribuição."
 ms.custom: na
 ms.date: 01/27/2017
 ms.prod: configuration-manager
@@ -17,260 +17,260 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 87ab9925717a307cbda3cea1f2e470ae012fa067
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-drivers-in-system-center-configuration-manager"></a>Управление драйверами в System Center Configuration Manager
+# <a name="manage-drivers-in-system-center-configuration-manager"></a>Gerir controladores no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager содержит каталог драйверов, с помощью которого можно управлять драйверами устройств Windows в среде Configuration Manager. Каталог драйверов позволяет импортировать драйверы устройств в Configuration Manager, объединять их в пакеты и распространять эти пакеты в точки распространения, где они будут доступны при развертывании операционной системы. Драйверы устройств можно использовать при полной установке операционной системы на конечный компьютер и при установке среды предустановки Windows с помощью загрузочного образа. Драйверы устройств Windows состоят из файла сведений установки (INF) и дополнительных файлов, необходимых для поддержки устройства. При развертывании операционной системы Configuration Manager получает данные об оборудовании и платформе для устройства из соответствующего INF-файла. Используйте приведенные ниже сведения для управления драйверами в вашей среде Configuration Manager.
+System Center Configuration Manager fornece um catálogo de controladores que pode utilizar para gerir os controladores de dispositivo do Windows no ambiente do Configuration Manager. Pode utilizar o catálogo de controladores para importar controladores de dispositivo para o Configuration Manager, agrupá-los em pacotes e distribuir estes pacotes por pontos de distribuição onde que possa aceder aos mesmos quando implementar um sistema operativo. Os controladores de dispositivos podem ser utilizados quando instala o sistema operativo completo no computador de destino e quando instala o Windows PE com uma imagem de arranque. Os controladores do dispositivo do Windows são compostos por um ficheiro INF (Ficheiro de Informações de Configuração) e pelos ficheiros adicionais necessários para suportar o dispositivo. Quando um sistema operativo é implementado, o Configuration Manager obtém as informações de hardware e a plataforma de dispositivo do ficheiro INF. Utilize o seguinte para gerir controladores no seu ambiente do Configuration Manager.
 
-##  <a name="BKMK_DriverCategories"></a> Категории драйверов устройств  
- При импорте драйверов устройств им можно присвоить определенную категорию. Категории позволяют группировать драйверы устройств со сходным назначением в каталоге драйверов. Например, можно отнести все драйверы сетевых адаптеров к определенной категории. Затем при создании последовательности задач, которая содержит шаг [Auto Apply Drivers](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers), можно указать определенную категорию драйверов устройств. Configuration Manager проверит оборудование и выберет применимые драйверы из этой категории для программы установки Windows.  
+##  <a name="BKMK_DriverCategories"></a> Categorias de controladores de dispositivos  
+ Quando importa controladores de dispositivos, pode atribuir os controladores de dispositivos a uma categoria. As categorias de controladores de dispositivos ajudam a agrupar o controladores de dispositivos de utilização semelhante no catálogo de controladores. Por exemplo, é possível atribuir todos os controladores de dispositivos do adaptador de rede a uma categoria específica. Em seguida, quando criar uma sequência de tarefas que inclua o passo [Aplicar Controladores Automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers), pode indicar uma categoria específica de controladores de dispositivo. Em seguida, o Configuration Manager analisa o hardware e seleciona os controladores adequados dessa categoria para preparar o sistema de configuração do Windows utilizar.  
 
-##  <a name="BKMK_ManagingDriverPackages"></a> пакеты драйверов,  
- Чтобы упростить развертывание операционных систем, можно объединить сходные драйверы устройств в пакеты. Например, можно создать в сети отдельные пакеты драйверов для компьютеров от разных производителей. Пакет драйверов можно создать при импорте драйверов в каталог драйверов или непосредственно в узле **Пакеты драйверов** . Созданный пакет драйверов необходимо передать в точки распространения, из которых клиентские компьютеры Configuration Manager смогут устанавливать его при необходимости. Рекомендуется учесть следующие моменты.  
+##  <a name="BKMK_ManagingDriverPackages"></a> Pacotes de controladores  
+ Pode agrupar controladores de dispositivo semelhantes em pacotes para simplificar as implementações do sistema operativo. Por exemplo, poderá optar por criar um pacote de controlador para cada fabricante de computadores na sua rede. Pode criar um pacote de controlador enquanto importa controladores para o catálogo de controladores diretamente no nó **Pacotes de Controladores** . Depois de criar o pacote de controladores, este deve ser distribuído para pontos de distribuição a partir do qual o Configuration Manager computadores cliente podem instalar os controladores conforme forem necessários. Tenha em consideração o seguinte:  
 
--   При создании пакета драйверов в качестве расположения источника должна указываться пустая сетевая папка, которая не используется для другого пакета драйверов, а поставщик SMS должен иметь разрешения на чтение из этого расположения и запись в него.  
+-   Quando cria um pacote de controladores, a localização de origem do pacote deve apontar para uma partilha de rede vazia que não seja utilizada por outro pacote de controladores, e o Fornecedor de SMS deve ter permissões de Leitura e Escrita para essa localização.  
 
--   При добавлении драйверов устройств в пакет Configuration Manager копирует драйвер в расположение источника пакета. В пакет драйверов можно добавлять только те драйверы устройств, которые были импортированы в каталог драйверов и включены в нем.  
+-   Quando adiciona controladores de dispositivo a um pacote de controladores, o Configuration Manager copia o controlador de dispositivo para a localização de origem do pacote de controladores. Só pode adicionar controladores de dispositivos que tenham sido importados e que estão ativados no catálogo de controladores.  
 
--   Чтобы скопировать подмножество драйверов устройств из существующего пакета драйверов, создайте пакет драйверов, добавьте в него подмножество драйверов, а затем распространите новый пакет на точку распространения.  
+-   Para copiar um subconjunto de controladores de dispositivo de um pacote de controlador existente, crie um novo pacote de controlador, adicione o subconjunto de controladores de dispositivo ao novo pacote e distribua o novo pacote por um ponto de distribuição.  
 
- Используйте следующие разделы для создания пакетов драйверов и управления ими.  
+ Utilize as secções seguintes para criar e gerir pacotes de controladores.  
 
-###  <a name="CreatingDriverPackages"></a> Создание пакета драйверов  
- Используйте следующую процедуру, чтобы создать новый пакет драйверов.  
+###  <a name="CreatingDriverPackages"></a> Criar um pacote de controlador  
+ Utilize o procedimento seguinte para criar um novo pacote de controladores.  
 
 > [!IMPORTANT]  
->  Для создания пакета драйверов необходима пустая сетевая папка, не используемая другим пакетом драйверов. В большинстве случаев перед выполнением этой процедуры следует создать новую папку.  
+>  Para criar um pacote de controladores, terá de ter uma pasta de rede vazia que não seja utilizada por outro pacote de controladores. Na maioria dos casos, terá de criar uma nova pasta antes de iniciar este procedimento.  
 
 > [!NOTE]  
->  При использовании последовательностей задач для установки драйверов создавайте пакеты, содержащие не более 500 драйверов.  
+>  Quando utiliza sequências de tarefas para instalar controladores, crie pacotes de controladores que contenham menos de 500 controladores de dispositivo.  
 
- Используйте следующую процедуру, чтобы создать пакет драйверов.  
+ Utilize o procedimento seguinte para criar um pacote de controladores.  
 
-#### <a name="to-create-a-driver-package"></a>Создание пакета драйверов  
+#### <a name="to-create-a-driver-package"></a>Para criar um pacote de controladores  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**, затем выберите **Пакеты**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Pacotes de Controladores**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните **Создать пакет драйверов**.  
+3.  No separador **Home page** , no grupo **Criar** , clique em **Criar Pacote de Controladores**.  
 
-4.  В поле **Имя** укажите понятное имя пакета драйверов.  
+4.  Na caixa **Nome** , especifique um nome descritivo para o pacote de controladores.  
 
-5.  В поле **Комментарий** введите дополнительное описание для пакета драйверов. Убедитесь, что в описании есть сведения о содержимом или предназначении пакета драйверов.  
+5.  Na caixa **Comentário** , introduza uma descrição opcional para o pacote de controladores. Certifique-se de que a descrição fornece informações sobre o conteúdo ou objetivo do pacote de controladores.  
 
-6.  В поле **Путь** укажите исходную папку пакета драйверов. Введите путь к исходной папке в формате UNC. Каждому пакету драйверов требуется отдельная папка.  
+6.  Na caixa **Caminho** , especifique uma pasta de origem vazia para o pacote de controladores. Introduza o caminho para a pasta de origem no formato UNC (Universal Naming Convention). Cada pacote de controladores terá de utilizar uma pasta exclusiva.  
 
     > [!IMPORTANT]  
-    >  Учетной записи сервера сайта должны быть предоставлены разрешения **чтения** и **записи** в отношении указанной исходной папки.  
+    >  A conta do servidor do site tem de ter permissões de **Leitura** e **Escrita** para a pasta de origem especificada.  
 
- Новый пакет драйверов не содержит какие-либо драйверы. Следующий шаг заключается в добавлении драйверов в пакет.  
+ O novo pacote de controladores não contém quaisquer controladores. O passo seguinte consiste em adicionar controladores ao pacote.  
 
- Если узел **Пакеты драйверов** содержит несколько пакетов, можно создать в нем папки, чтобы разделить пакеты на логические группы.  
+ Se o nó **Pacotes de Controladores** contiver diversos pacotes, poderá adicionar pastas ao mesmo para separar os pacotes em grupos lógicos.  
 
-###  <a name="BKMK_PackageActions"></a> Дополнительные действия для пакетов драйверов  
- Выбрав в узле **Пакеты драйверов** один или несколько пакетов драйверов, можно выполнить дополнительные действия по управлению пакетами драйверов. Эти действия включают следующие.  
+###  <a name="BKMK_PackageActions"></a> Ações adicionais para pacotes de controladores  
+ Pode realizar ações adicionais para gerir os pacotes de controladores quando seleciona um ou mais pacotes de controladores no nó **Pacotes de Controladores** . Estas ações incluem o seguinte:  
 
-|Действие|Описание|  
+|Ação|Descrição|  
 |------------|-----------------|  
-|**Создать файл с предварительно подготовленным содержимым**|Создает файлы, которые могут использоваться для импорта содержимого и связанных с ним метаданных вручную. Следует использовать предварительно подготовленное содержимое при низкоскоростном соединении между сервером сайта и точками распространения, в которых сохранен пакет драйверов.|  
-|**Удалить**|Удаляет пакет драйверов из узла **Пакеты драйверов** .|  
-|**Распространение содержимого**|Распространяет пакет драйверов в в точки распространения, группы точек распространения, а также группы точек распространения, связанные с коллекциями.|  
-|**Управление учетными записями доступа**|Добавляет, изменяет или удаляет учетные записи пакета драйвера.<br /><br /> Дополнительные сведения об учетных записях доступа к пакетам см. в статье [Учетные записи, используемые в Configuration Manager](../../core/plan-design/hierarchy/accounts.md).|  
-|**Переместить**|Перемещает пакет драйверов в другую папку узла **Пакеты драйверов** .|  
-|**Обновить точки распространения**|Обновляет пакет драйвера устройства на всех точках распространения, где хранится этот пакет. Это действие копирует только содержимое, которое было изменено со времени последней операции распространения.|  
-|**Свойства**|Открывает диалоговое окно **Свойства** , в котором можно просмотреть и изменить содержимое и свойство драйвера устройства. Например, можно изменить имя и описание драйвера устройства, включить драйвер устройства и указать платформы, на которых драйвер устройства может использоваться.|  
+|**Criar Ficheiro de Conteúdo Pré-configurado**|Cria ficheiros que podem ser utilizados para importar manualmente o conteúdo e os metadados associados. Utilize conteúdo pré-configurado quando tiver reduzida largura de banda de rede entre o servidor de site e os pontos de distribuição em que o pacote de controladores se encontra armazenado.|  
+|**Eliminar**|Remove o pacote de controladores do nó **Pacotes de Controladores** .|  
+|**Distribuir Conteúdo**|Distribui o pacote de controladores aos pontos de distribuição, grupos de pontos de distribuição e grupos de pontos de distribuição associados a coleções.|  
+|**Gerir Contas de Acesso**|Adiciona, modifica ou remove as contas de acesso do pacote de controladores.<br /><br /> Para obter mais informações sobre as contas de acesso de pacotes, consulte [contas utilizadas no Configuration Manager](../../core/plan-design/hierarchy/accounts.md).|  
+|**Moverr**|Move o pacote de controladores para outra pasta do nó **Pacotes de Controladores** .|  
+|**Atualizar Pontos de Distribuição**|Atualiza o pacote de controladores de dispositivo em todos os pontos de distribuição em que o pacote se encontra armazenado. Esta ação copia apenas o conteúdo que foi alterado desde a última vez em que foi distribuído.|  
+|**Propriedades**|Abre a caixa de diálogo **Propriedades** , onde pode consultar e alterar o conteúdo e as propriedades do controlador de dispositivo. Por exemplo, poderá mudar o nome e a descrição do controlador de dispositivo, ativá-lo ou especificar em que plataformas poderá ser executado.|  
 
-##  <a name="BKMK_DeviceDrivers"></a> Драйверы устройств  
- Драйверы устройств можно установить на конечных компьютерах, не включая их в развертываемый образ операционной системы. Configuration Manager предоставляет каталог драйверов, содержащий ссылки на все драйверы устройств, импортируемые в Configuration Manager. Каталог драйверов размещается в рабочей области **Библиотека программного обеспечения** и состоит из двух узлов: **Драйверы** и **Пакеты драйверов**. Узел **Драйверы** содержит список всех драйверов, импортированных в каталог драйверов. Этот узел можно использовать для поиска сведений о любых импортированных драйверах, изменения драйверов в пакете или образе загрузки, включения и отключения драйвера и выполнения других действий.  
+##  <a name="BKMK_DeviceDrivers"></a> Controladores de dispositivo  
+ Pode instalar controladores de dispositivo em computadores de destino sem os incluir na imagem do sistema operativo que está a ser implementada. Configuration Manager fornece um catálogo de controladores que contém referências a todos os controladores de dispositivo que importar para o Configuration Manager. O catálogo de controladores está localizado no **biblioteca de Software** área de trabalho e é composta por dois nós: **Controladores** e **pacotes de controladores**. O nó **Controladores** lista todos os controladores que importou para o catálogo de controladores. Utilize este nó para saber os detalhes de cada controlador importado, modificar os controladores num pacote de controlador ou imagem de arranque, ativar ou desativar um controlador, etc.  
 
-###  <a name="BKMK_ImportDrivers"></a> Импорт драйверов устройств в каталог драйверов  
- Чтобы использовать драйверы устройств при развертывании операционной системы, их необходимо импортировать в каталог драйверов. Чтобы упростить управление драйверами устройств, следует импортировать только те из них, которые планируется устанавливать в ходе развертывания операционной системы. Однако в каталоге драйверов можно также хранить несколько версий драйверов устройств. Это позволяет упростить обновление существующих драйверов устройств при изменении требований к оборудованию в сети.  
+###  <a name="BKMK_ImportDrivers"></a> Importar controladores de dispositivo para o catálogo de controladores  
+ Tem de importar os controladores de dispositivos para o catálogo de controladores antes de os poder utilizar para implementar um sistema operativo. Para melhor gerir os controladores de dispositivos, importe apenas aqueles que tenciona instalar como parte da implementação do sistema operativo. Porém, pode também armazenar várias versões dos controladores de dispositivos no catálogo de dispositivos para facilitar a atualização dos controladores de dispositivos existentes quando forem efetuadas alterações nos requisitos do dispositivo de hardware da rede.  
 
- В рамках процесса импорта для драйвера устройства Configuration Manager считывает сведения о поставщике, классе, версии, подписи, поддерживаемом оборудовании и поддерживаемой платформе, связанные с устройством. По умолчанию драйверу назначается имя в соответствии с поддерживающим его устройством; однако драйвер устройства можно переименовать позднее. Список поддерживаемых платформ основан на сведениях в INF-файле драйвера. Так как точность этих сведений может быть различной, следует вручную проверять, что драйвер устройства поддерживается после его импорта в каталог драйверов.  
+ Como parte do processo de importação para o controlador de dispositivo, o Configuration Manager lê o fornecedor, classe, versão, assinatura, hardware suportado e informações de plataforma que estão associadas com os dispositivos suportados. Por predefinição, o controlador é denominado de acordo com o primeiro dispositivo de hardware que suporta. No entanto, poderá posteriormente mudar o nome do controlador de dispositivo. A lista de plataformas suportadas baseia-se nas informações do ficheiro INF do controlador. Uma vez que a exatidão destas informações poderá variar, verifique manualmente se o controlador de dispositivo é suportado após a sua importação para o catálogo de controladores.  
 
- После импорта драйверов устройств в каталог можно добавлять их в пакеты драйверов или пакеты образов загрузки.  
+ Depois de importar controladores de dispositivo para o catálogo, poderá adicionar os controladores de dispositivo a pacotes de controladores ou a pacotes de imagens de arranque.  
 
 > [!IMPORTANT]  
->  Нельзя импортировать драйверы устройств напрямую в подпапку узла **Драйверы** . Чтобы импортировать драйвер в подпапку, сначала следует импортировать драйвер устройства в узел **Драйверы** , после чего переместить драйвер в подпапку.  
+>  Não pode importar controladores de dispositivo diretamente para uma subpasta do nó **Controladores** . Para importar um controlador de dispositivo para uma subpasta, importe-o primeiro para o nó **Controladores** e, em seguida, mova-o para a subpasta.  
 
- Используйте следующую процедуру для импорта драйверов устройств Windows.  
+ Utilize o procedimento seguinte para importar controladores de dispositivo do Windows.  
 
-#### <a name="to-import-windows-device-drivers-into-the-driver-catalog"></a>Импорт драйверов устройств Windows в каталог драйверов  
+#### <a name="to-import-windows-device-drivers-into-the-driver-catalog"></a>Para importar controladores de dispositivo do Windows para o catálogo de controladores  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**, затем выберите **Драйверы**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Controladores**.  
 
-3.  На вкладке **Главная** в группе **Создать** выберите **Импортировать драйвер** , чтобы запустить **Мастер импорта нового драйвера**.  
+3.  No separador **Home page** , no grupo **Criar** , clique em **Importar Controlador** para iniciar o **Assistente para Importar Novo Controlador**.  
 
-4.  На странице **Поиск драйвера** укажите следующие параметры, затем нажмите кнопку **Далее**.  
+4.  Na página **Localizar Controlador** , especifique as seguintes opções e clique em **Seguinte**:  
 
-    -   **Импортировать все драйверы из следующего сетевого пути (UNC)**. Чтобы импортировать все драйверы устройств, содержащиеся в определенной папке, следует указать сетевой путь к папке драйвера устройства. Пример:  **\\\имя_сервера\папка**.  
+    -   **Importar todos os controladores no seguinte caminho de rede (UNC)**: Para importar todos os controladores de dispositivo contidos numa pasta específica, especifique o caminho de rede para a pasta do controlador de dispositivo. Por exemplo,  **\\\\servername\folder**.  
 
         > [!NOTE]  
-        >  Если имеется большое количество папок и множество файлов драйверов (INF), процедура импорта всех драйверов может занять некоторое время.  
+        >  O processo para importar todos os controladores pode demorar algum tempo se existirem muitas pastas e muitos ficheiros de controlador (.inf).  
 
-    -   **Импортировать конкретный драйвер**: чтобы импортировать определенный драйвер из папки, укажите сетевой путь (UNC) к INF-файлу драйвера устройства Windows или файлу Txtsetup.oem драйвера запоминающих устройств.  
+    -   **Importar um controlador específico**: Para importar um controlador específico a partir de uma pasta, especifique o caminho de rede (UNC) para o controlador de dispositivo do Windows. INF ou em massa ficheiro Txtsetup.oem de armazenamento do controlador.  
 
-    -   **Укажите способ обработки повторяющихся драйверов**. Укажите, каким образом в Configuration Manager будет осуществляться управление категориями драйверов при импорте повторяющегося драйвера устройства.  
+    -   **Especifique a opção para duplicar controladores**: Selecione como pretende que o Configuration Manager para gerir as categorias de controladores quando for importada uma unidade de dispositivo duplicado.  
 
     > [!IMPORTANT]  
-    >  При импорте драйверов сервер сайта должен иметь разрешение на **чтение** для папки, в противном случае импорт завершится неудачей.  
+    >  Quando importa controladores, o servidor do site tem de ter permissão de **Leitura** na pasta ou a importação falhará.  
 
-5.  На странице **Сведения о драйвере** укажите следующие параметры, затем нажмите кнопку **Далее**.  
+5.  Na página **Detalhes do Controlador** , especifique as seguintes opções e clique em **Seguinte**:  
 
-    -   **Скрыть драйверы, которых нет в хранилище или классе сети (для загрузочных образов)**: используйте этот параметр, чтобы отображались только драйверы запоминающих устройств и сетевые драйверы. Прочие драйверы, которые обычно не требуются для загрузочных образов (например, видеодрайверы или драйверы модемов), будут скрыты.  
+    -   **Ocultar controladores que não estejam na classe de armazenamento ou de rede (para imagens de arranque)**: Utilize esta definição para apresentar apenas controladores de rede e de armazenamento e ocultar outros controladores que normalmente não são necessários para imagens de arranque, como um controlador de vídeo ou controlador do modem.  
 
-    -   **Скрыть драйверы без цифровой подписи**: используйте этот параметр, чтобы скрыть драйверы, не имеющие цифровой подписи.  
+    -   **Ocultar controladores que não estejam assinados digitalmente**: Utilize esta definição para ocultar controladores que não estejam assinados digitalmente.  
 
-    -   В списке драйверов выберите драйверы, которые необходимо импортировать в каталог драйверов.  
+    -   Na lista de controladores, selecione os que pretende importar para o catálogo de controladores.  
 
-    -   **Разрешить эти драйверы и позволить компьютерам их установку**: выберите этот параметр, чтобы разрешить компьютерам установку драйверов устройств. По умолчанию этот флажок снят.  
+    -   **Ativar estes controladores e permitir que os computadores os instalem**: Selecione esta definição para permitir que os computadores instalem os controladores de dispositivo. Por predefinição, esta caixa de verificação está selecionada.  
 
         > [!IMPORTANT]  
-        >  Если драйвер устройства вызвал проблему, или требуется приостановить установку драйвера устройства, можно отключить драйвер, сняв флажок **Разрешить эти драйверы и позволить компьютерам их установку** . Можно также отключить драйверы после их импорта.  
+        >  Se um controlador de dispositivo estiver a causar um problema ou quiser suspender a instalação de um controlador de dispositivo, pode desativar o controlador de dispositivo ao desmarcar a caixa de verificação **Ativar estes controladores e permitir que os computadores os instalem** . Também pode desativar controladores após estes terem sido importados.  
 
-    -   Чтобы назначить драйверам устройств административную категорию для целей фильтрации, например "Настольные компьютеры" или "Ноутбуки", щелкните **Категории** и выберите существующую категорию, либо создайте новую категорию. Также можно использовать назначение категорий для настройки того, какие драйверы устройств применяются к развертыванию шагом последовательности задач [Auto Apply Drivers](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) .  
+    -   Para atribuir os controladores de dispositivo a uma categoria administrativa para efeitos de filtragem, tal como "Computadores de Secretária" ou "Portáteis", clique em **Categorias** e selecione uma categoria existente ou crie uma nova. Também pode utilizar a atribuição de categorias para configurar que controladores de dispositivo serão aplicados à implementação pelo passo [Aplicar Controladores Automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) da sequência de tarefas.  
 
-6.  На странице **Добавление драйвера в пакеты** укажите, следует ли добавить драйверы в пакет, и нажмите кнопку **Далее**. При добавлении драйверов в пакету учитывайте следующее:  
+6.  Na página **Adicionar Controlador a Pacotes** , escolha se pretende adicionar os controladores a um pacote e clique em **Seguinte**. Considere o seguinte procedimento para adicionar os controladores a um pacote:  
 
-    -   Выберите пакеты драйверов, используемые для распространения драйверов устройств.  
+    -   Selecione os pacotes de controladores utilizados para distribuir os controladores de dispositivo.  
 
-         Как вариант, можно нажать кнопку **Новый пакет** , чтобы создать новый пакет драйверов. При создании нового пакета драйверов необходимо предоставить общую сетевую папку, не используемую другими пакетами драйверов.  
+         Opcionalmente, clique em **Novo Pacote** para criar um novo pacote de controladores. Ao criar um novo pacote de controladores, terá de fornecer uma partilha de rede que não se encontre em utilização por outros pacotes de controladores.  
 
-    -   Если пакет уже был распространен по точкам распространения, нажмите кнопку **Да** в диалоговом окне для обновления образов загрузки в точках распространения. Нельзя использовать драйверы устройств, пока они не будут распространены в точки распространения. Если нажать кнопку **Нет**, необходимо запустить действие **Обновить точку распространения** , чтобы обновленные драйверы были добавлены в загрузочный образ. Если пакет драйверов никогда не распространялся, щелкните **Распространение содержимого** в узле **Пакеты драйверов** .  
+    -   Se o pacote já tiver sido distribuído para pontos de distribuição, clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
 
-7.  На странице **Добавление драйвера в загрузочные образы** укажите, следует ли добавлять драйверы устройств в существующие образы загрузки, а затем нажмите кнопку **Далее**. При выборе образа загрузки учитывайте следующее:  
+7.  Na página **Adicionar Controlador a Imagens de Arranque** , escolha se pretende adicionar os controladores de dispositivo a imagens de arranque existentes e clique em **Seguinte**. Se selecionar uma imagem de arranque, considere o seguinte:  
 
     > [!NOTE]  
-    >  При развертывании операционной системы в образы загрузки рекомендуется добавлять только драйверы запоминающих устройств и сетевых устройств.  
+    >  Como melhor prática, adicione apenas armazenamento em massa e controladores de dispositivos de rede às imagens de arranque em cenários de implementação do sistema operativo.  
 
-    -   В диалоговом окне нажмите кнопку **Да** для обновления загрузочных образов в точках распространения. Нельзя использовать драйверы устройств, пока они не будут распространены в точки распространения. Если нажать кнопку **Нет**, необходимо запустить действие **Обновить точку распространения** , чтобы обновленные драйверы были добавлены в загрузочный образ. Если пакет драйверов никогда не распространялся, щелкните **Распространение содержимого** в узле **Пакеты драйверов** .  
+    -   Clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
 
-    -   Configuration Manager выдает предупреждение, если архитектура для одного или нескольких драйверов не соответствует архитектуре выбранных загрузочных образов. Если они не совпадают, нажмите кнопку **ОК** и вернитесь на страницу **Сведения о драйвере** , чтобы удалить драйверы, которые не соответствуют архитектуре выбранного загрузочного образа. Например, если выбран загрузочный образ x64 и x86, все драйверы должны поддерживать обе архитектуры. Если выбран загрузочный образ x64, все драйверы должны поддерживать архитектуру x64.  
-
-        > [!NOTE]  
-        >  -   Архитектура основана на архитектуре, указанной в INF-файле производителя.  
-        > -   Если драйвер сообщает, что он поддерживает обе архитектуры, его можно импортировать в любой загрузочный образ.  
-
-    -   Configuration Manager выдает предупреждение, если в загрузочный образ добавляются драйверы, которые не являются драйверами сетевых или запоминающих устройств, так как в большинстве случаев они не требуются для загрузочного образа. Нажмите кнопку **Да** для добавления драйверов в загрузочный образ или **Нет** , чтобы вернуться назад и изменить выбранные драйверы.  
-
-    -   Configuration Manager выдает предупреждение, если один или несколько выбранных драйверов не имеют правильной цифровой подписи. Нажмите кнопку **Да** , чтобы продолжить, или **Нет** , чтобы вернуться назад и внести изменения в выбранные драйверы.  
-
-8.  Завершите работу мастера.  
-
-###  <a name="BKMK_ModifyDriverPackage"></a> Управление драйверами устройств в пакете драйверов  
- Используйте следующие процедуры для изменения пакетов драйверов и образов загрузки. Чтобы добавить или удалить драйверы устройств, найдите драйверы в узле **Драйверы** , после чего измените пакеты или образы загрузки, с которыми связаны выбранные драйверы.  
-
-#### <a name="to-modify-the-device-drivers-in-a-driver-package"></a>Изменение драйверов устройств в пакете драйверов  
-
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
-
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**, затем выберите **Драйверы**.  
-
-3.  В узле **Драйверы** выберите драйверы устройств, которые требуется добавить в пакет драйверов.  
-
-4.  На вкладке **Главная** в группе **Драйвер** щелкните **Изменить**, а затем выберите **Пакеты драйверов**.  
-
-5.  Чтобы добавить драйвер устройства, установите флажки пакетов драйверов, в которые будут добавлены драйверы устройств. Чтобы удалить драйвер устройства, снимите флажки пакетов драйверов, из которых будет удален драйвер устройства.  
-
-     Если добавляются драйверы устройств, связанные с пакетами драйверов, можно, как вариант, создать новый пакет, выбрав **Создать пакет**, при этом откроется диалоговое окно **Создание пакета драйверов** .  
-
-6.  Если пакет уже был распространен по точкам распространения, нажмите кнопку **Да** в диалоговом окне для обновления образов загрузки в точках распространения. Нельзя использовать драйверы устройств, пока они не будут распространены в точки распространения. Если нажать кнопку **Нет**, необходимо запустить действие **Обновить точку распространения** , чтобы обновленные драйверы были добавлены в загрузочный образ. Если пакет драйверов никогда не распространялся, щелкните **Распространение содержимого** в узле **Пакеты драйверов** . Перед тем как драйверы станут доступными, необходимо обновить пакет драйверов в точках распространения.  
-
-     Нажмите кнопку **ОК**.  
-
-###  <a name="BKMK_ManageDriversBootImage"></a> Управление драйверами устройств в образе загрузки  
- Драйверы устройств Windows, импортированные в каталог драйверов, можно добавлять в загрузочные образы. При добавлении драйверов устройств в загрузочный образ следуйте приведенным ниже рекомендациям.  
-
--   Добавляйте в образы только драйверы запоминающих устройств и сетевых адаптеров, поскольку другие типы драйверов, как правило, не требуются. Лишние драйверы приводят к ненужному увеличению размера загрузочного образа.  
-
--   Добавляйте в образ загрузки только драйверы устройств для Windows 10, поскольку требуемая версия среды предустановки Windows основана на Windows 10.  
-
--   Используйте драйверы устройств, соответствующие архитектуре загрузочного образа.  Не добавляйте 32-разрядные (x86) драйверы устройств в 64-разрядный (x64) загрузочный образ.  
-
- Используйте приведенную ниже процедуру для добавления или удаления драйверов устройств в образе загрузки.  
-
-#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>Изменение драйверов устройств, связанных с образом загрузки  
-
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
-
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**, затем выберите **Драйверы**.  
-
-3.  В узле **Драйверы** выберите драйверы устройств, которые требуется добавить в пакет драйверов.  
-
-4.  На вкладке **Главная** в группе **Драйвер** щелкните **Изменить**, а затем выберите **Загрузочные образы**.  
-
-5.  Чтобы добавить драйвер устройства, установите флажок загрузочного образа, в который будут добавлены драйверы устройств. Чтобы удалить драйвер устройства, снимите флажок загрузочного образа, из которого будет удален  драйвер устройства.  
-
-6.  Если не требуется обновлять точки распространения, в которых сохраняется загрузочный образ, снимите флажок **Обновить точки распространения по завершении** . По умолчанию точки распространения обновляются одновременно с обновлением загрузочного образа.  
-
-     Нажмите кнопку **ОК** и примите к сведению следующее:  
-
-    -   В диалоговом окне нажмите кнопку **Да** для обновления загрузочных образов в точках распространения. Нельзя использовать драйверы устройств, пока они не будут распространены в точки распространения. Если нажать кнопку **Нет**, необходимо запустить действие **Обновить точку распространения** , чтобы обновленные драйверы были добавлены в загрузочный образ. Если пакет драйверов никогда не распространялся, щелкните **Распространение содержимого** в узле **Пакеты драйверов** .  
-
-    -   Configuration Manager выдает предупреждение, если архитектура для одного или нескольких драйверов не соответствует архитектуре выбранных загрузочных образов. Если они не совпадают, нажмите кнопку **ОК** и вернитесь на страницу **Сведения о драйвере** , чтобы удалить драйверы, которые не соответствуют архитектуре выбранного загрузочного образа. Например, если выбран загрузочный образ x64 и x86, все драйверы должны поддерживать обе архитектуры. Если выбран загрузочный образ x64, все драйверы должны поддерживать архитектуру x64.  
+    -   O Configuration Manager avisa-o se a arquitetura de um ou mais controladores não corresponder à arquitetura das imagens de arranque que selecionou. Se não corresponderem, clique em **OK** e volte à página **Detalhes do Controlador** para desmarcar os controladores que não correspondem à arquitetura da imagem de arranque selecionada. Por exemplo, se selecionar uma imagem de arranque x64 e x86, todos os controladores têm de suportar ambas as arquiteturas. Se selecionar uma imagem de arranque x64, todos os controladores têm de suportar a arquitetura x64.  
 
         > [!NOTE]  
-        >  -   Архитектура основана на архитектуре, указанной в INF-файле производителя.  
-        > -   Если драйвер сообщает, что он поддерживает обе архитектуры, его можно импортировать в любой загрузочный образ.  
+        >  -   A arquitetura baseia-se na arquitetura reportada no .INF do fabricante.  
+        > -   Se um controlador suportar ambas as arquiteturas, pode importá-lo para qualquer imagem de arranque.  
 
-    -   Configuration Manager выдает предупреждение, если в загрузочный образ добавляются драйверы, которые не являются драйверами сетевых или запоминающих устройств, так как в большинстве случаев они не требуются для загрузочного образа. Нажмите кнопку **Да** для добавления драйверов в загрузочный образ или **Нет** , чтобы вернуться назад и изменить выбранные драйверы.  
+    -   O Configuration Manager avisa-o se adicionar controladores de dispositivo que não são controladores de armazenamento ou de rede a uma imagem de arranque porque, na maioria dos casos, não são necessários para a imagem de arranque. Clique em **Sim** para adicionar os controladores à imagem de arranque ou em **Não** para voltar atrás e modificar a seleção de controlador.  
 
-    -   Configuration Manager выдает предупреждение, если один или несколько выбранных драйверов не имеют правильной цифровой подписи. Нажмите кнопку **Да** , чтобы продолжить, или **Нет** , чтобы вернуться назад и внести изменения в выбранные драйверы.  
+    -   O Configuration Manager avisa-o se um ou mais dos controladores selecionados não estiverem assinados digitalmente de forma correta. Clique em **Sim** para continuar e clique em **Não** para voltar atrás e fazer alterações à seleção de controlador.  
 
-7.  Нажмите кнопку **ОК**.  
+8.  Conclua o assistente.  
 
-###  <a name="BKMK_DriverActions"></a> Дополнительные действия для драйверов устройств  
- Выбрав в узле **Драйверы** один или несколько драйверов устройств, можно выполнить дополнительные действия по управлению драйверами устройств. Эти действия включают следующие.  
+###  <a name="BKMK_ModifyDriverPackage"></a> Gerir controladores de dispositivo num pacote de controlador  
+ Utilize os procedimentos seguintes para modificar pacotes de controladores e imagens de arranque. Para adicionar ou remover controladores de dispositivo, localize-os no nó **Controladores** e edite os pacotes ou as imagens de arranque a que os controladores selecionados estão associados.  
 
-|Действие|Описание|  
+#### <a name="to-modify-the-device-drivers-in-a-driver-package"></a>Para modificar os controladores de dispositivo num pacote de controlador  
+
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Controladores**.  
+
+3.  No nó **Controladores** , selecione os controladores de dispositivo que pretende adicionar ao pacote de controladores.  
+
+4.  No separador **Home page** , no grupo **Controlador** , clique em **Editar**e em **Pacotes de Controladores**.  
+
+5.  Para adicionar um controlador de dispositivo, selecione a caixa de verificação dos pacotes de controladores aos quais pretende adicionar os controladores de dispositivo. Para remover um controlador de dispositivo, desmarque a caixa de verificação dos pacotes de controladores de que pretende remover o controlador de dispositivo.  
+
+     Se estiver a adicionar controladores de dispositivo associados a pacotes de controladores, pode, opcionalmente, criar um novo pacote ao clicar em **Novo Pacote**, o que abre a caixa de diálogo **Novo Pacote de Controladores** .  
+
+6.  Se o pacote já tiver sido distribuído para pontos de distribuição, clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** . Antes de os controladores estarem disponíveis, tem de atualizar o pacote de controlador nos pontos de distribuição.  
+
+     Clique em **OK**.  
+
+###  <a name="BKMK_ManageDriversBootImage"></a> Gerir controladores de dispositivo numa imagem de arranque  
+ Pode adicionar controladores do dispositivo do Windows que tenham sido importados para o catálogo de controladores a imagens de arranque. Para adicionar controladores de dispositivos a uma imagem de arranque, utilize as seguintes diretrizes:  
+
+-   Adicione apenas controladores de dispositivos de armazenamento em massa e de adaptador de rede a imagens de arranque, pois normalmente não são necessários outros tipos de controladores. Os controladores que não são obrigatórios aumentam desnecessariamente o tamanho da imagem de arranque.  
+
+-   Adicione apenas controladores de dispositivos para Windows 10 a uma imagem de arranque, uma vez que a versão necessária do Windows PE se baseia no Windows 10.  
+
+-   Certifique-se de que utiliza o controlador de dispositivo correto para a arquitetura da imagem de arranque.  Não adicione um controlador de dispositivo de x86 a uma imagem de arranque de x64.  
+
+ Utilize o seguinte procedimento para adicionar ou remover controladores de dispositivo numa imagem de arranque.  
+
+#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>Para modificar os controladores de dispositivo associados a uma imagem de arranque  
+
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Controladores**.  
+
+3.  No nó **Controladores** , selecione os controladores de dispositivo que pretende adicionar ao pacote de controladores.  
+
+4.  No separador **Home page** , no grupo **Controlador** , clique em **Editar**e em **Imagens de arranque**.  
+
+5.  Para adicionar um controlador de dispositivo, selecione a caixa de verificação da imagem de arranque à qual pretende adicionar os controladores de dispositivo. Para remover um controlador de dispositivo, desmarque a caixa de verificação da imagem de arranque de que pretende remover o controlador de dispositivo.  
+
+6.  Se não quiser atualizar os pontos de distribuição em que a imagem de arranque está armazenada, desmarque a caixa de verificação **Atualizar pontos de distribuição após concluir** . Por predefinição, os pontos de distribuição são atualizados quando a imagem de arranque é atualizada.  
+
+     Clique em **OK** e considere o seguinte:  
+
+    -   Clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
+
+    -   O Configuration Manager avisa-o se a arquitetura de um ou mais controladores não corresponder à arquitetura das imagens de arranque que selecionou. Se não corresponderem, clique em **OK** e volte à página **Detalhes do Controlador** para desmarcar os controladores que não correspondem à arquitetura da imagem de arranque selecionada. Por exemplo, se selecionar uma imagem de arranque x64 e x86, todos os controladores têm de suportar ambas as arquiteturas. Se selecionar uma imagem de arranque x64, todos os controladores têm de suportar a arquitetura x64.  
+
+        > [!NOTE]  
+        >  -   A arquitetura baseia-se na arquitetura reportada no .INF do fabricante.  
+        > -   Se um controlador suportar ambas as arquiteturas, pode importá-lo para qualquer imagem de arranque.  
+
+    -   O Configuration Manager avisa-o se adicionar controladores de dispositivo que não são controladores de armazenamento ou de rede a uma imagem de arranque porque, na maioria dos casos, não são necessários para a imagem de arranque. Clique em **Sim** para adicionar os controladores à imagem de arranque ou em **Não** para voltar atrás e modificar a seleção de controlador.  
+
+    -   O Configuration Manager avisa-o se um ou mais dos controladores selecionados não estiverem assinados digitalmente de forma correta. Clique em **Sim** para continuar e clique em **Não** para voltar atrás e fazer alterações à seleção de controlador.  
+
+7.  Clique em **OK**.  
+
+###  <a name="BKMK_DriverActions"></a> Ações adicionais para controladores de dispositivo  
+ Pode realizar ações adicionais para gerir os controladores de dispositivo quando seleciona um ou mais controladores de dispositivo no nó **Controladores** . Estas ações incluem o seguinte:  
+
+|Ação|Descrição|  
 |------------|-----------------|  
-|**Категория**|Очищает, задает или осуществляет управление административной категории для выбранных драйверов устройств.|  
-|**Удалить**|Удаляет драйвер устройства из узла **Драйверы** , а также удаляет его из связанных точек распространения.|  
-|**Отключено**|Запрещает установку драйвера устройства. Можно временно отключить драйверы устройств, чтобы клиентские компьютеры Configuration Manager и последовательности задач не устанавливали их при развертывании операционных систем. **Примечание.**  Действие отключения предотвратит только установку драйверов с помощью этапа последовательности задач автоматического применения драйверов.|  
-|**Разрешить**|Позволяет клиентским компьютерам и последовательностям задач Configuration Manager устанавливать драйверы устройств при развертывании операционной системы.|  
-|**Переместить**|Перемещает драйвер устройства в другую папку узла **Драйверы** .|  
-|**Свойства**|Открывает диалоговое окно **Свойства** , в котором можно просмотреть и изменить свойства драйвера устройства. Например, можно изменить имя и описание драйвера устройства, включить драйвер устройства и указать, на каких платформах драйвер может работать.|  
+|**Categorizar**|Elimina, gere ou define uma categoria administrativa para os controladores de dispositivo selecionados.|  
+|**Eliminar**|Remove o controlador de dispositivo do nó **Controladores** e remove também o controlador dos pontos de distribuição associados.|  
+|**Desativar**|Proíbe a instalação do controlador de dispositivo. Pode desativar temporariamente controladores de dispositivo para que os computadores de cliente do Configuration Manager e sequências de tarefas não os consigam instalar quando estiver a implementar sistemas operativos. **Nota:**  A ação de Desativação apenas impede que os controladores de instalação, utilizando o passo de sequência de tarefas aplicar controladores automaticamente.|  
+|**Ativar**|Permite que os computadores cliente do Configuration Manager e sequências de tarefas que instalem o controlador de dispositivo quando o sistema operativo é implementado.|  
+|**Moverr**|Move o controlador de dispositivo para outra pasta do nó **Controladores** .|  
+|**Propriedades**|Abre a caixa de diálogo **Propriedades** , onde pode consultar e alterar as propriedades do controlador de dispositivo. Por exemplo, poderá mudar o nome e a descrição do controlador de dispositivo, ativá-lo ou especificar em que plataformas poderá ser executado.|  
 
-##  <a name="BKMK_TSDrivers"></a> Использование последовательностей задач для установки драйверов устройств  
- Последовательности задач позволяют автоматизировать развертывание операционной системы. Каждый шаг последовательности задач служит для выполнения определенного действия, например установки драйвера устройства. Для установки драйверов устройств в ходе развертывания операционных систем можно использовать следующие два шага последовательности задач.  
+##  <a name="BKMK_TSDrivers"></a> Utilizar sequências de tarefas para instalar controladores de dispositivo  
+ Utilize sequências de tarefas para automatizar a forma como o sistema operativo é implementado. Cada passo da sequência de tarefas pode executar uma ação específica, como por exemplo, instalar um controlador de dispositivo. Pode utilizar estes dois passos da sequência de tarefas para instalar controladores de dispositivos durante a implementação de sistemas operativos:  
 
--   [Auto Apply Drivers](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers). Этот шаг позволяет автоматически сопоставлять и устанавливать драйверы устройств в ходе развертывания операционной системы. Его можно настроить так, чтобы для каждого обнаруженного устройства устанавливался только наиболее подходящий драйвер или все совместимые драйверы, из которых программа установки Windows затем выберет оптимальный. Кроме того, можно ограничить набор драйверов устройств, доступных на этом шаге, определенной категорией.  
+-   [Aplicar controladores automaticamente](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers): Este passo permite-lhe fazer corresponder e instalar controladores de dispositivo como parte da implementação do sistema operativo automaticamente. Pode configurar o passo da sequência de tarefas para instalar apenas o controlador mais compatível com cada dispositivo de hardware detetado ou especificar que o passo da sequência de tarefas instale todos os controladores compatíveis com cada dispositivo de hardware detetado, deixando então que a Configuração do Windows escolha o controlador mais adequado. Além disso, pode especificar uma categoria de controladores de dispositivos para limitar os controladores que estão disponíveis neste passo.  
 
--   [Apply Driver Package](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage). Этот шаг позволяет сделать все драйверы устройств из определенного пакета драйверов доступными для программы установки Windows. Программа установки Windows будет искать нужные драйверы в указанных пакетах. При создании автономного носителя необходимо использовать этот шаг для установки драйверов устройств.  
+-   [Aplicar pacote de controlador](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage): Este passo permite-lhe disponibilizar todos os controladores de dispositivo num pacote de controladores específico para a configuração do Windows. Nos pacotes de controladores especificados, a Configuração do Windows procura os controladores de dispositivos necessários. Quando cria suportes de dados autónomos, tem de utilizar este passo para instalar controladores de dispositivo.  
 
- При использовании этих шагов последовательности задач можно также указать способ установки драйверов устройств на компьютер, на который развертывается операционная система. Дополнительные сведения см. в разделе [Управление последовательностями задач для их автоматизации](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
+ Quando utiliza estes passos da sequência de tarefas, também pode especificar a forma como os controladores de dispositivos são instalados no computador em que implementa o sistema operativo. Para obter mais informações, consulte [gerir sequências de tarefas para automatizar tarefas](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
 
-##  <a name="BKMK_InstallingDeviceDiriversTS"></a> Использование последовательностей задач для установки драйверов устройств на компьютерах  
- Следующая процедура используется для установки драйверов устройств в рамках процесса развертывания операционной системы.  
+##  <a name="BKMK_InstallingDeviceDiriversTS"></a> Utilizar sequências de tarefas para instalar controladores de dispositivo em computadores  
+ Utilize o procedimento seguinte para instalar controladores de dispositivo como parte da implementação do sistema operativo.  
 
-#### <a name="use-a-task-sequence-to-install-device-drivers"></a>Использование последовательности задач для установки драйверов устройств  
+#### <a name="use-a-task-sequence-to-install-device-drivers"></a>Utilizar uma sequência de tarefas para instalar controladores de dispositivo  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  В узле **Последовательности задач** выберите последовательность задач, изменяемую для установки драйвера устройства, и нажмите кнопку **Изменить**.  
+3.  No nó **Sequências de Tarefas** , selecione a sequência de tarefas que pretende modificar para instalar o controlador de dispositivo e clique em **Editar**.  
 
-4.  Перейдите к расположению, в которое необходимо добавить шаги **Драйвер** , нажмите кнопку **Добавить**и выберите пункт **Драйверы**.  
+4.  Vá para a localização onde quer adicionar os passos **Controlador** , clique em **Adicionar**e selecione **Controladores**.  
 
-5.  Добавьте шаг **Автоматическое применение драйверов** , чтобы разрешить последовательности задач установить все драйверы устройств или отдельные указанные категории. Укажите параметры для этого шага на вкладке **Свойства** , а также необходимые условия на вкладке **Параметры** .  
+5.  Adicione o passo **Aplicar Controladores Automaticamente** se quiser que a sequência de tarefas instale todos os dispositivos de controlador ou as categorias específicas indicadas. Especifique as opções do passo no separador **Propriedades** e outras condições para o mesmo no separador **Opções** .  
 
-     Добавьте шаг **Применить пакет драйверов** , чтобы разрешить последовательности задач устанавливать только драйверы устройств из указанного пакета. Укажите параметры для этого шага на вкладке **Свойства** , а также необходимые условия на вкладке **Параметры** .  
+     Adicione o passo **Aplicar Pacote de Controlador** se pretender que a sequência de tarefas instale apenas os controladores de dispositivo do pacote especificado. Especifique as opções do passo no separador **Propriedades** e outras condições para o mesmo no separador **Opções** .  
 
     > [!IMPORTANT]  
-    >  Вы можете установить флажок **Запретить этот этап** на вкладке **Параметры** , чтобы отключить этот шаг с целью устранения неполадок в последовательности задач.  
+    >  Pode selecionar **Desativar este passo** no separador **Opções** para desativar o passo para resolver problemas da sequência de tarefas.  
 
-6.  Нажмите кнопку **ОК** , чтобы сохранить последовательность задач.  
+6.  Clique em **OK** para guardar a sequência de tarefas.  
 
- Дополнительные сведения о создании последовательности задач для установки операционной системы см. в разделе [Создание последовательности задач для установки операционной системы](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).  
+ Para obter mais informações sobre como criar uma sequência de tarefas para instalar um sistema operativo, consulte [criar uma sequência de tarefas para instalar um sistema operativo](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).  
 
-##  <a name="BKMK_DriverReports"></a> Отчеты об управлении драйверами  
- Для получения общих сведений о драйверах устройств в каталоге драйверов можно использовать ряд отчетов в категории **Управление драйверами** . Дополнительные сведения об отчетах см. в разделе [Отчет](../../core/servers/manage/reporting.md).
+##  <a name="BKMK_DriverReports"></a> Relatórios de gestão de controladores  
+ Na categoria de relatórios **Gestão do Controlador** , pode utilizar vários relatórios para determinar as informações gerais sobre os controladores de dispositivos no catálogo de controladores. Para obter mais informações sobre relatórios, consulte [relatórios](../../core/servers/manage/reporting.md).

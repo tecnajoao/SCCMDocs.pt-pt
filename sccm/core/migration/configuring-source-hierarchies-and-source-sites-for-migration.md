@@ -1,6 +1,6 @@
 ---
-title: "Исходные иерархии миграции | Документы Майкрософт"
-description: "Настройка исходной иерархии и исходных сайтов для переноса данных в среду System Center Configuration Manager."
+title: "Hierarquias de origem de migração | Microsoft Docs"
+description: Configure uma hierarquia de origem e sites de origem, pelo que pode migrar dados para o seu ambiente do System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,89 +17,89 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 80c43ab93ee5a2de6bf8d7993dfd46f0005d2df8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Настройка исходных иерархий и исходных сайтов для миграции на System Center Configuration Manager
+# <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Configurar hierarquias de origem e sites de origem para migração para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Чтобы включить миграцию данных в вашу среду System Center Configuration Manager, необходимо настроить поддерживаемую исходную иерархию Configuration Manager и один или несколько исходных сайтов в этой иерархии, содержащих данные, которые необходимо перенести.  
+Para permitir a migração de dados para o seu ambiente do System Center Configuration Manager, tem de configurar uma hierarquia de origem suportada do Configuration Manager e um ou mais sites de origem nessa hierarquia que contenham dados que pretende migrar.  
 
 > [!NOTE]  
->  Операции миграции выполняются на сайте верхнего уровня в конечной иерархии. Если вы настраиваете миграцию при использовании консоли Configuration Manager, подключенной к первичному подчиненному сайту, вам необходимо выделить время для репликации конфигурации на сайт центра администрирования, начать процесс, а затем повторить репликацию на первичном сайте, к которому вы подключены.  
+>  As operações de migração são executadas no site de nível superior na hierarquia de destino. Se configurar a migração quando utilizar uma consola do Configuration Manager que está ligada a um site primário subordinado, tem de dar tempo para a configuração para replicar para o site de administração central, o início e, em seguida, replicar o estado para o site primário ao qual estão ligados.  
 
- Используйте информацию и процедуры в следующих разделах, чтобы задать исходную иерархию и добавить дополнительные исходные сайты. После завершения этих процедур можно создавать и запускать задания миграции, а также переносить данные из исходной иерархии в конечную.  
+ Utilize as informações e procedimentos das secções seguintes para especificar hierarquia de origem e adicionar outros sites de origem. Depois de concluir estes procedimentos, pode criar tarefas de migração e começar a migrar dados da hierarquia de origem para a hierarquia de destino.  
 
--   [Указание исходной иерархии для миграции](#BKBM_ConfigSrcHierarchy)  
+-   [Especificar uma hierarquia de origem para migração](#BKBM_ConfigSrcHierarchy)  
 
--   [Определение дополнительных исходных сайтов в исходной иерархии](#BKBM_ConfigSrcSites)  
+-   [Identificar sites de origem adicionais da hierarquia de origem](#BKBM_ConfigSrcSites)  
 
-##  <a name="BKBM_ConfigSrcHierarchy"></a> Указание исходной иерархии для миграции  
- Для переноса данных в конечную иерархию необходимо указать поддерживаемую исходную иерархию с данными, которые необходимо перенести. По умолчанию веб-сайт верхнего уровня иерархии становится исходным сайтом исходной структуры. Если выполняется миграция из иерархии Configuration Manager 2007, то после сбора данных с первоначального исходного сайта можно настроить дополнительные исходные сайты для миграции. Если выполняется миграция из иерархии System Center 2012 Configuration Manager или System Center Configuration Manager, дополнительные исходные сайты для миграции данных из исходной иерархии настраивать не требуется. Это объясняется тем, что эти версии Configuration Manager используют общую базу данных, которая находится на сайте верхнего уровня исходной иерархии. Общая база данных содержит всю информацию, которую можно перенести.  
+##  <a name="BKBM_ConfigSrcHierarchy"></a>Especificar uma hierarquia de origem para migração  
+ Para migrar dados para a hierarquia de destino, tem de especificar uma hierarquia de origem suportada que tem os dados que pretende migrar. Por predefinição, no site de nível superior dessa hierarquia torna-se um site de origem da hierarquia de origem. Se migrar de uma hierarquia do Configuration Manager 2007, pode, em seguida, configurar sites de origem adicionais para migração após a recolha de dados do site de origem inicial. Se migrar de uma hierarquia do System Center 2012 Configuration Manager ou System Center Configuration Manager, não terá de configurar sites de origem adicionais para migrar os dados da hierarquia de origem. Isto acontece porque estas versões do Configuration Manager utilizarem uma base de dados partilhada que está disponível no site de nível superior da hierarquia de origem. A base de dados partilhado tem todas as informações que pode migrar.  
 
- Используйте следующие процедуры для указания исходной иерархии миграции и определения дополнительных исходных сайтов в этой иерархии Configuration Manager 2007.  
+ Utilize os procedimentos seguintes para especificar uma hierarquia de origem para migração e para identificar sites de origem adicionais numa hierarquia do Configuration Manager 2007.  
 
- Эта процедура выполняется с помощью консоли Configuration Manager, подключенной к конечной иерархии.  
+ Execute este procedimento com uma consola do Configuration Manager que está ligada à hierarquia de destino:  
 
-### <a name="to-configure-a-source-hierarchy"></a>Настройка исходной иерархии   
+### <a name="to-configure-a-source-hierarchy"></a>Para configurar uma hierarquia de origem   
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Миграция**и выберите **Исходная иерархия**.  
+2.  Na área de trabalho **Administração** , expanda **Migração**e clique em **Hierarquia de Origem**.  
 
-3.  На вкладке **Домашняя страница** в группе **Миграция** щелкните **Указать исходную иерархию**.  
+3.  No **home page** separador o **migração** , clique em **especificar hierarquia de origem**.  
 
-4.  В диалоговом окне **Укажите исходную иерархию** для параметра **Исходная иерархия**выберите **Новая исходная иерархия**.  
+4.  No **especificar hierarquia de origem** caixa de diálogo, para **hierarquia de origem**, selecione **nova hierarquia de origem**.  
 
-5.  В поле **Сервер сайта Configuration Manager верхнего уровня** введите имя или IP-адрес сайта верхнего уровня поддерживаемой исходной иерархии.  
+5.  Para **servidor do site de nível superior Configuration Manager**, introduza o nome ou endereço IP do site de nível superior de uma hierarquia de origem suportada.  
 
-6.  Укажите учетные записи для доступа к исходному сайту, которые имеют следующие разрешения:  
+6.  Especificar contas de acesso de site de origem tem as seguintes permissões:  
 
-    -   Учетная запись исходного сайта: разрешение **Чтение** для поставщика SMS указанного сайта верхнего уровня в исходной иерархии. Для обновления точки распространения и общего доступа к ней требуются разрешения на **изменение** и **удаление** сайта в исходной иерархии.
+    -   Conta de Site de origem: **Leitura** permissão para o fornecedor de SMS para o site de nível superior especificado na hierarquia de origem. A partilha do ponto de distribuição e atualizações requerem **modificar** e **eliminar** permissões para o site na hierarquia de origem.
 
-    -   Учетная запись базы данных исходного сайта: разрешения **Чтение** и **Выполнение** для базы данных SQL Server заданного сайта верхнего уровня в исходной иерархии.  
+    -   Conta de base de dados do Site de origem: **Leitura** e **executar** permissão para a base de dados do SQL Server para o site de nível superior especificado na hierarquia de origem.  
 
-     Если указано использование учетной записи компьютера, Configuration Manager использует учетную запись компьютера сайта верхнего уровня конечной иерархии. В этом случае необходимо убедиться в том, что данная учетная запись является членом группы безопасности **Пользователи DCOM** в домене, в котором располагается сайт верхнего уровня исходной иерархии.  
+     Se especificar a utilização da conta de computador, o Configuration Manager utiliza a conta de computador do site de nível superior da hierarquia de destino. Para esta opção, certifique-se de que esta conta é um membro do grupo de segurança **utilizadores COM distribuídos** no domínio onde reside o site de nível superior da hierarquia de origem.  
 
-7.  Для совместного использования точек распространения между исходной и конечной иерархией установите флажок **Включить общий доступ к точке распространения для сервера исходного сайта** . Если не включить общий доступ к точке распространения сейчас, вы сможете сделать это после завершения сбора данных, изменив учетные данные исходного сайта.  
+7.  Para partilhar pontos de distribuição entre as hierarquias de origem e de destino, selecione o **ativar partilha do servidor do site de origem do ponto de distribuição** caixa de verificação. Se não ativar o ponto de distribuição de partilha neste momento, pode efetuar para que editando as credenciais do site de origem após dados recolha terminou.  
 
-8.  Нажмите кнопку **ОК** , чтобы сохранить настройки. Откроется диалоговое окно **Состояние сбора данных** , а сбор данных начнется автоматически.  
+8.  Clique em **OK** para guardar a configuração. Esta ação abre o **estado de recolha de dados** caixa de diálogo e recolha de dados é iniciada automaticamente.  
 
-9. После окончания сбора данных нажмите кнопку **Закрыть** , чтобы закрыть диалоговое окно **Состояние сбора данных** и выполнить настройку.  
+9. Quando estiver concluída, a recolha de dados clique **fechar** para fechar o **estado de recolha de dados** diálogo caixa e concluir a configuração.  
 
-##  <a name="BKBM_ConfigSrcSites"></a> Определение дополнительных исходных сайтов в исходной иерархии  
- При настройке поддерживаемой исходной иерархии сайт верхнего уровня этой иерархии настраивается в качестве исходного сайта и на нем собираются данные. Следующее действие, выполняемое вами, зависит от версии Configuration Manager, используемой исходной иерархией.  
+##  <a name="BKBM_ConfigSrcSites"></a>Identificar sites de origem adicionais da hierarquia de origem  
+ Quando configura uma hierarquia de origem suportada, o site de nível superior dessa hierarquia é automaticamente configurado como um site de origem e dados são recolhidos automaticamente a partir desse site. A próxima ação que tomar depende da versão do Configuration Manager que é executada pela hierarquia de origem:  
 
--   Для исходной иерархии Configuration Manager 2007 после завершения сбора данных для первоначального исходного сайта можно начать миграцию с этого начального исходного сайта или настроить дополнительные исходные сайты из исходной иерархии. Для миграции данных, которые доступны только с подчиненного сайта, настройте дополнительные исходные сайты для иерархии Configuration Manager 2007. Например, можно настроить дополнительные исходные сайты для сбора данных о содержимом, которое требуется перенести, если это содержимое было создано на подчиненном сайте в исходной иерархии и не доступно на сайте верхнего уровня исходной иерархии.  
+-   Para uma hierarquia de origem do Configuration Manager 2007, pode começar a migração a partir desse site de origem inicial ou configurar sites de origem adicionais da hierarquia de origem após a conclusão da recolha de dados para o site de origem inicial. Para migrar os dados que estão disponíveis apenas de um site subordinado, configure sites de origem adicionais para uma hierarquia do Configuration Manager 2007. Por exemplo, pode configurar sites de origem adicionais para recolher dados sobre o conteúdo que pretende migrar quando é criado um site subordinado na hierarquia de origem e não está disponível no site de nível superior da hierarquia de origem.  
 
--   В исходной иерархии System Center 2012 Configuration Manager или System Center Configuration Manager нет необходимости настраивать дополнительные исходные сайты. Это объясняется тем, что эти версии Configuration Manager используют общую базу данных, которая находится на сайте верхнего уровня исходной иерархии. Общая база данных содержит всю информацию, которую можно перенести со всех сайтов данной исходной иерархии. В результате данные, которые можно перенести, будут доступны на сайте верхнего уровня в исходной иерархии.  
+-   Para uma hierarquia de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager, não terá de configurar sites de origem adicionais. Isto acontece porque estas versões do Configuration Manager utilizarem uma base de dados partilhada que está disponível no site de nível superior da hierarquia de origem. A base de dados partilhado tem todas as informações que pode migrar de todos os sites dessa hierarquia de origem. Isto disponibiliza os dados que pode migrar do site de nível superior da hierarquia de origem.  
 
-При настройке дополнительных исходных сайтов исходной иерархии Configuration Manager 2007 необходимо настроить дополнительные исходные сайты, начиная с верхнего сайта исходной иерархии до нижнего сайта. Необходимо настроить родительский сайт как исходный до настройки каких-либо дочерних сайтов в качестве исходных.  
+Quando configura sites de origem adicionais para uma hierarquia de origem do Configuration Manager 2007, tem de configurar sites de origem adicionais do nível superior da hierarquia de origem para a parte inferior. Tem de configurar um site principal como um site de origem antes de configurar qualquer um dos respetivos sites subordinados como sites de origem.  
 
-Используйте описанную ниже процедуру, чтобы настроить дополнительные исходные сайты для исходной иерархии Configuration Manager 2007.  
+Utilize o procedimento seguinte para configurar sites de origem adicionais para hierarquias de origem do Configuration Manager 2007:  
 
-### <a name="to-identify-additional-source-sites-in-the-source-hierarchy"></a>Определение дополнительных исходных сайтов в исходной иерархии 
+### <a name="to-identify-additional-source-sites-in-the-source-hierarchy"></a>Para identificar sites de origem adicionais numa hierarquia de origem 
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Миграция**и выберите **Исходная иерархия**.  
+2.  Na área de trabalho **Administração** , expanda **Migração**e clique em **Hierarquia de Origem**.  
 
-3.  Выберите сайт, который требуется настроить в качестве исходного.  
+3.  Escolha o site que pretende configurar como site de origem.  
 
-4.  На вкладке **Главная** в группе **Исходный сайт** щелкните **Настроить**.  
+4.  No separador **Home Page** , no grupo **Site de Origem** , clique em **Configurar**.  
 
-5.  В диалоговом окне **Учетные данные исходного сайта** укажите учетные записи со следующими разрешениями в качестве учетных записей для доступа к исходному сайту.  
+5.  No **credenciais do Site de origem** caixa de diálogo, para as contas de acesso do site de origem, especifique contas com as seguintes permissões:  
 
-    -   Учетная запись исходного сайта: разрешение **Чтение** для поставщика SMS указанного сайта верхнего уровня в исходной иерархии. Для обновления точки распространения и общего доступа к ней требуются разрешения на **изменение** и **удаление** сайта в исходной иерархии.  
+    -   Conta de Site de origem: **Leitura** permissão para o fornecedor de SMS para o site de nível superior especificado na hierarquia de origem. A partilha do ponto de distribuição e atualizações requerem **modificar** e **eliminar** permissões para o site na hierarquia de origem.  
 
-    -   Учетная запись базы данных исходного сайта: разрешения **Чтение** и **Выполнение** для базы данных SQL Server заданного сайта верхнего уровня в исходной иерархии.  
+    -   Conta de base de dados do Site de origem: **Leitura** e **executar** permissão para a base de dados do SQL Server para o site de nível superior especificado na hierarquia de origem.  
 
-    Если указано использование учетной записи компьютера, Configuration Manager использует учетную запись компьютера сайта верхнего уровня конечной иерархии. В этом случае необходимо убедиться в том, что данная учетная запись является членом группы безопасности **Пользователи DCOM** в домене, в котором располагается сайт верхнего уровня исходной иерархии.  
+    Se especificar a utilização da conta de computador, o Configuration Manager utiliza a conta de computador do site de nível superior da hierarquia de destino. Para esta opção, certifique-se de que esta conta é um membro do grupo de segurança **utilizadores COM distribuídos** no domínio onde reside o site de nível superior da hierarquia de origem.  
 
-6.  Для совместного использования точек распространения между исходной и конечной иерархией установите флажок **Включить общий доступ к точке распространения для сервера исходного сайта** . Если не включить общий доступ к точке распространения сейчас, вы сможете сделать это после завершения сбора данных, изменив учетные данные исходного сайта.  
+6.  Para partilhar pontos de distribuição entre as hierarquias de origem e de destino, selecione o **ativar partilha do servidor do site de origem do ponto de distribuição** caixa de verificação. Se não ativar o ponto de distribuição de partilha neste momento, pode efetuar para que editando as credenciais para o site de origem após dados recolha terminou.  
 
-7. Нажмите кнопку **ОК** , чтобы сохранить настройки. Откроется диалоговое окно **Состояние сбора данных** , а сбор данных начнется автоматически.  
+7. Clique em **OK** para guardar a configuração. Esta ação abre o **estado de recolha de dados** caixa de diálogo e recolha de dados é iniciada automaticamente.  
 
-8.  После окончания сбора данных нажмите кнопку **Закрыть** для завершения настройки.  
+8.  Quando estiver concluída, a recolha de dados clique **fechar** para concluir a configuração.  

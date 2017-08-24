@@ -1,6 +1,6 @@
 ---
-title: "Кластер SQL Server | Документы Майкрософт"
-description: "Кластер SQL Server используется для размещения базы данных сайта System Center Configuration Manager. Статья включает сведения о поддерживаемых вариантах использования."
+title: Cluster do SQL Server | Microsoft Docs
+description: "Utilize um cluster do SQL Server para alojar a base de dados do site do System Center Configuration Manager. Inclui informações sobre as opções suportadas."
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 53f119bbb1f8827a9c23c8b747840350bbb92790
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Кластер SQL Server используется для базы данных сайта System Center Configuration Manager.
+# <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Utilizar um cluster do SQL Server para a base de dados do site do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- Кластер SQL Server можно использовать для размещения базы данных сайта System Center Configuration Manager. База данных сайта является единственной ролью системы сайта, поддерживаемой в кластере SQL Server.  
+ Pode utilizar um cluster do SQL Server para alojar a base de dados do site do System Center Configuration Manager. A base de dados do site é a única função do sistema de sites suportada num cluster de Servidores.  
 
 > [!IMPORTANT]  
->  Для успешной настройки кластеров SQL Server необходимо иметь четкое представление о данной процедуре и руководствоваться документацией и процедурами, приведенными в библиотеке документации по SQL Server.  
+>  Conjunto com êxito, cópia de segurança de clusters do SQL Server baseia-se na documentação e procedimentos indicados na biblioteca de documentação do SQL Server.  
 
- Кластер способен обеспечивать отработку отказа и повышать надежность базы данных сайта. Но он не дает дополнительных преимуществ с точки зрения обработки или балансировки нагрузки. В действительности производительность может даже снизиться, так как сервер сайта должен найти активный узел кластера SQL Server до подключения к базе данных.  
+ Um cluster pode fornecer suporte de ativação pós-falha e melhorar a fiabilidade da base de dados do site. No entanto, não fornece processamento adicional nem benefícios de balanceamento de carga. Na verdade, ocorrer degradação do desempenho pode, porque o servidor do site tem de localizar o nó ativo do cluster do SQL Server antes de ligar à base de dados do site.  
 
- Перед установкой Configuration Manager необходимо подготовить кластер SQL Server для поддержки Configuration Manager. (Необходимые условия приведены ниже в данном разделе.)  
+ Antes de instalar o Configuration Manager, tem de preparar o cluster do SQL Server para suportar o Configuration Manager. (Consulte os pré-requisitos mais à frente nesta secção).  
 
- Во время выполнения установки Configuration Manager модуль записи службы теневого копирования Windows устанавливается на каждом узле физического компьютера кластера Microsoft Windows Server. Этот режим поддерживает задачу обслуживания **Резервное копирование сервера сайта**.  
+ Durante a configuração do Configuration Manager, o escritor do serviço de cópia de sombra de volumes do Windows instala em cada nó de computador físico do cluster do Microsoft Windows Server. Isto suporta o **cópia de segurança do servidor do Site** tarefa de manutenção.  
 
- После установки сайта Configuration Manager каждый час проверяет наличие изменений в узле кластера. Configuration Manager автоматически управляет всеми найденными изменениями, которые затрагивают установки компонентов Configuration Manager (например, отработка отказа узла или добавление нового узла в кластер SQL Server).  
+ Após a instalação do site, o Configuration Manager verifica a existência de alterações para o nó de cluster cada hora. O Gestor de configuração gere automaticamente quaisquer alterações encontradas que afetem as instalações de componentes do Configuration Manager (como uma ativação pós-falha de nó, ou a adição de um novo nó ao cluster do SQL Server).  
 
-## <a name="supported-options-for-using-a-sql-server-failover-cluster"></a>Поддерживаемые варианты для использования отказоустойчивого кластера SQL Server
+## <a name="supported-options-for-using-a-sql-server-failover-cluster"></a>Opções suportadas para utilizar um cluster de ativação pós-falha do SQL Server
 
-Следующие варианты поддерживаются для отказоустойчивых кластеров SQL Server, используемых в качестве базы данных сайта.
+As seguintes opções são suportadas para clusters de ativação pós-falha do SQL Server utilizados como a base de dados do site:
 
--   Кластер с одним экземпляром  
+-   Um cluster de instância única  
 
--   Конфигурация с несколькими экземплярами  
+-   Configuração de várias instâncias  
 
--   Несколько активных узлов  
+-   Vários nós ativos  
 
--   Именованный экземпляр и экземпляр по умолчанию  
+-   Com um nome ou uma instância predefinida  
 
-Обратите внимание на следующие необходимые условия.  
+Tenha em atenção os seguintes pré-requisitos:  
 
--   База данных сайта должна находиться удаленно от сервера сайта. (Кластер не может включать в себя сервер системы сайта.)  
+-   A base de dados do site tem de ser remota em relação ao servidor do site. (O cluster não pode incluir o servidor do sistema de sites.)  
 
--   Необходимо добавить учетную запись компьютера сервера сайта в группу "Локальные администраторы" на каждом сервере в кластере.  
+-   Tem de adicionar a conta de computador do servidor do site para o grupo de administradores locais de cada servidor no cluster.  
 
--   Для поддержки проверки подлинности Kerberos следует включить сетевой протокол связи **TCP/IP** для сетевого подключения каждого узла кластера SQL Server. **Именованные каналы** не требуются, но могут использоваться для устранения проблем, связанных с проверкой подлинности Kerberos. Параметры сетевого протокола настраиваются в **SQL Server Configuration Manager** в разделе **Конфигурация сети SQL Server**.  
+-   Para suportar a autenticação Kerberos, o **TCP/IP** protocolo de comunicação de rede tem de estar ativado para a ligação de rede de cada nó de cluster do SQL Server. O protocolo**Pipes nomeados** não é necessário, mas pode ser utilizado para resolver problemas de autenticação Kerberos. As definições de protocolo de rede são configuradas no **Gestor de configuração do SQL Server**, em **configuração de rede do SQL Server**.  
 
--   Если вы используете PKI, ознакомьтесь со статьей "Требования к PKI-сертификатам для Configuration Manager", где представлены требования к сертификатам при использовании кластера SQL Server для базы данных сайта.  
+-   Se utilizar uma PKI, consulte os requisitos de certificados PKI para o Configuration Manager para os requisitos de certificado específicos quando utilizar um cluster do SQL Server para a base de dados do site.  
 
-Необходимо учитывать следующие ограничения.  
+Considere as seguintes limitações:  
 
--   **Установка и настройка**  
+-   **Instalação e configuração:**  
 
-    -   Вторичные сайты не могут использовать кластер SQL Server.  
+    -   Os sites secundários não podem utilizar um cluster do SQL Server.  
 
-    -   Параметр для задания нестандартной папки для базы данных сайта недоступен, если вы указали кластер SQL Server.  
+    -   A opção para especificar localizações de ficheiros não predefinidas para a base de dados do site não se encontra disponível quando especificar um cluster do SQL Server.  
 
--   **Поставщик SMS**  
+-   **Fornecedor de SMS:**  
 
-    -   Установка экземпляра поставщика SMS в кластере SQL Server или на компьютере, где запущен кластеризованный узел SQL Server, не поддерживается.  
+    -   Não é suportada para instalar uma instância do fornecedor de SMS num cluster do SQL Server ou num computador que é executado como um nó do SQL Server em cluster.  
 
--   **Параметры репликации данных**  
+-   **Opções de replicação de dados:**  
 
-    -   При использовании **распределенных представлений** кластер SQL Server нельзя применять для размещения базы данных сайта.  
+    -   Se pretender utilizar **vistas distribuídas**, não é possível utilizar um cluster do SQL Server para alojar a base de dados do site.  
 
--   **Резервное копирование и восстановление**  
+-   **Cópia de segurança e recuperação:**  
 
-    -   Configuration Manager не поддерживает резервное копирование Data Protection Manager (DPM) для кластера SQL Server, использующего именованный экземпляр. Но он поддерживает резервное копирование DPM для кластера SQL Server, который использует экземпляр SQL Server по умолчанию.  
+    -   O Configuration Manager não suporta a cópia de segurança do Data Protection Manager (DPM) para um cluster do SQL Server que utilize uma instância nomeada. No entanto, suporta a cópia de segurança do DPM num cluster do SQL Server que utilize a instância predefinida do SQL Server.  
 
-## <a name="prepare-a-clustered-sql-server-instance-for-the-site-database"></a>Подготовка кластеризованного экземпляра SQL Server для базы данных сайта  
+## <a name="prepare-a-clustered-sql-server-instance-for-the-site-database"></a>Preparar uma instância do SQL Server em cluster para a base de dados do site  
 
-Ниже приведены основные задачи, выполняемые для подготовки базы данных сайта.
+Seguem-se as tarefas principais para concluir para preparar a sua base de dados do site:
 
--   Создайте виртуальный кластер SQL Server для размещения базы данных сайта в существующей среде кластера Windows Server. Конкретные действия по установке и настройке кластера SQL Server см. в документации по своей версии SQL Server. Например, если вы используете SQL Server 2008 R2, см. статью [Установка отказоустойчивого кластера SQL Server 2008 R2](http://go.microsoft.com/fwlink/p/?LinkId=240231).  
+-   Crie o cluster virtual do SQL Server para alojar a base de dados do site num ambiente de cluster do Windows Server existente. Para obter passos específicos instalar e configurar um cluster do SQL Server, consulte a documentação específica da sua versão do SQL Server. Por exemplo, se estiver a utilizar o SQL Server 2008 R2, consulte o artigo [instalar um Cluster de ativação pós-falha do SQL Server 2008 R2](http://go.microsoft.com/fwlink/p/?LinkId=240231).  
 
--   На каждом компьютере в кластере SQL Server вы можете разместить файл в корневой папке каждого диска, на котором не требуется устанавливать компоненты сайта Configuration Manager. Файл должен называться **NO_SMS_ON_DRIVE.SMS**. По умолчанию Configuration Manager устанавливает некоторые компоненты на каждом физическом узле для поддержки таких операций, как резервное копирование.  
+-   Em cada computador no cluster do SQL Server, pode colocar um ficheiro na pasta raiz de cada unidade em que não pretende que o Configuration Manager para instalar componentes do site. O ficheiro deve ser o nome **NO_SMS_ON_DRIVE.SMS**. Por predefinição, o Configuration Manager instala alguns componentes em cada nó físico, para suportar operações, tais como a cópia de segurança.  
 
--   Добавьте учетную запись компьютера сервера сайта в группу **Локальные администраторы** на каждом компьютере узла кластера Windows Server.  
+-   Adicione a conta de computador do servidor do site ao grupo **Administradores Locais** do computador de cada nó do cluster do Windows Server.  
 
--   В виртуальном экземпляре SQL Server назначьте роль SQL Server **sysadmin** учетной записи пользователя, от имени которой будет запускаться программа установки Configuration Manager.  
+-   Na instância virtual do SQL Server, atribua o **sysadmin** função do SQL Server à conta de utilizador que irá executar a configuração do Configuration Manager.  
 
-### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>Установка нового сайта с помощью кластеризованного экземпляра SQL Server  
- Чтобы установить сайт, использующий кластерную базу данных сайта, запустите программу установки Configuration Manager и следуйте стандартной процедуре установки сайта, внеся в нее следующие коррективы.  
+### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>Para instalar um novo site utilizando um SQL Server em cluster  
+ Para instalar um site que utiliza uma base de dados do site em cluster, execute a configuração do Configuration Manager seguindo o processo normal para instalar um site, com a seguinte alteração:  
 
--   На странице **Сведения о базе данных** укажите имя виртуального экземпляра кластера SQL Server, где будет размещаться база данных сайта. Виртуальный экземпляр заменяет имя компьютера, на котором выполняется SQL Server.  
+-   Na página **Informações da Base de Dados** , especifique o nome da instância virtual do cluster do SQL Server que irá alojar a base de dados do site. A instância virtual substitui o nome do computador que executa o SQL Server.  
 
     > [!IMPORTANT]  
-    >  При вводе имени виртуального экземпляра кластера SQL Server не указывайте имя виртуального экземпляра Windows Server, созданное кластером Windows Server. Если используется имя виртуального сервера Windows Server, база данных сайта устанавливается на локальный жесткий диск активного узла кластера Windows Server. Это препятствует успешной отработке отказа в случае сбоя данного узла.  
+    >  Quando introduzir o nome da instância virtual do cluster do SQL Server, não introduza o nome do Windows Server virtual criado pelo cluster do Windows Server. Se utilizar o nome virtual do Windows Server, a base de dados do site é instalada no disco rígido local do nó de cluster do Windows Server Active Directory. Isto impede a ativação pós-falha bem sucedida se esse nó falhar.  

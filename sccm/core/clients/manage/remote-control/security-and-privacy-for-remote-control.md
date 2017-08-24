@@ -1,6 +1,6 @@
 ---
-title: "Безопасность и конфиденциальность удаленного управления | Документы Майкрософт"
-description: "Сведения о безопасности и конфиденциальности удаленного управления в System Center Configuration Manager."
+title: "Privacidade de segurança do controlo remoto | Microsoft Docs"
+description: "Obter informações de segurança e privacidade para controlo remoto no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,47 +17,47 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 03b8ede7fa4f4c02ffb551bb28fe2db234d39b12
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-remote-control-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность удаленного управления в System Center Configuration Manager
+# <a name="security-and-privacy-for-remote-control-in-system-center-configuration-manager"></a>Segurança e privacidade para controlo remoto no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этом разделе содержатся сведения о безопасности и конфиденциальности функции удаленного управления в System Center 2012 Configuration Manager.  
+Este tópico contém informações de privacidade para controlo remoto no System Center 2012 Configuration Manager e de segurança.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Рекомендации по обеспечению безопасности для удаленного управления  
- Примите во внимание следующие рекомендации по обеспечению безопасности при управлении клиентскими компьютерами с помощью функции удаленного управления.  
+##  <a name="BKMK_Security_HardwareInventory"></a> Melhores práticas de segurança para controlo remoto  
+ Utilize as melhores práticas de segurança seguintes quando gerir computadores cliente utilizando o controlo remoto.  
 
-|Рекомендация по безопасности|Дополнительные сведения|  
+|Procedimento recomendado de segurança|Mais informações|  
 |----------------------------|----------------------|  
-|При подключении к удаленному компьютеру разорвите сеанс доступа, если на компьютере используется проверка подлинности NTLM, а не Kerberos.|Когда Configuration Manager обнаруживает, что проверка подлинности для сеанса удаленного подключения выполняется с использованием протокола NTLM вместо Kerberos, на экран выводится запрос, предупреждающий о невозможности проверки подлинности удаленного компьютера. Не продолжайте сеанс удаленного управления. Протокол проверки подлинности NTLM не так надежен, как Kerberos и подвержен таким уязвимостям, как повтор и олицетворение.|  
-|Не включайте совместное использование буфера в средстве просмотра удаленного управления.|Буфер поддерживает работу не только с текстом, но и с такими объектами, как исполняемые файлы, и может использоваться пользователем на главном компьютере во время сеанса удаленного управления для запуска программы на исходном компьютере.|  
-|Не вводите пароли для привилегированных учетных записей во время удаленного управления компьютером.|Программное обеспечение, отслеживающее ввод с клавиатуры, может записать пароль. Кроме того, если программа, выполняемая на клиентском компьютере, не является программой, которую пользователь предполагал использовать, она может записать пароль. Когда требуется вводить учетные записи и пароли, это должен делать конечный пользователь.|  
-|Блокируйте клавиатуру и мышь во время сеанса удаленного управления.|Когда Configuration Manager обнаруживает разрыв подключения удаленного управления, Configuration Manager автоматически блокирует клавиатуру и мышь так, чтобы пользователь не мог воспользоваться открытым сеансом удаленного управления. Тем не менее обнаружение разрыва подключения может происходить не сразу и не происходить вовсе, если прерывается работа службы удаленного управления.<br /><br /> В окне **Удаленное управление Configuration Manager** выберите действие **Заблокировать удаленную клавиатуру и мышь** .|  
-|Не разрешайте пользователям настраивать параметры удаленного управления в центре программного обеспечения.|Не включайте параметр клиента **В центре программного обеспечения пользователи могут изменять политику или параметры уведомления** , чтобы предотвратить угрозу слежения за пользователями.<br /><br /> Это параметр используется для компьютера, а не для пользователя, выполнившего вход в систему.|  
-|Включите профиль брандмауэра Windows **Домен** .|Включите параметр клиента **Включить удаленное управление на клиентах Профили исключений брандмауэра** , затем выберите профиль брандмауэра Windows **Домен** для компьютеров интрасети.|  
-|Если во время сеанса удаленного подключения вы выполняете выход из системы и повторный вход с другим именем пользователя, обязательно выполните выход, прежде чем разрывать сеанс удаленного управления.|Если не выполнить выход в такой ситуации, сеанс останется открытым.|  
-|Не предоставляйте пользователям права локального администратора.|Если предоставить пользователям права локального администратора, они смогут перехватить сеанс удаленного управления или нарушить конфиденциальность ваших учетных данных|  
-|Для настройки параметров удаленного помощника используйте групповую политику или Configuration Manager, но не оба средства.|Configuration Manager и групповую политику можно использовать для внесения изменений конфигурации в параметрах удаленного помощника. Когда групповая политика обновляется на клиенте, по умолчанию этот процесс оптимизируется путем изменения только тех политик, которые были изменены на сервере. Configuration Manager изменяет параметры в локальной политике безопасности, которые можно переопределить, только если будет выполнено принудительное обновление групповой политики.<br /><br /> Настройка политики в обоих средствах может привести к непредсказуемым результатам. Выберите один из указанных ниже способов настройки параметров удаленного помощника.|  
-|Включение параметра клиента **Запрашивать согласие пользователя на удаленное управление**|Несмотря на наличие возможности обойти этот параметр клиента, подразумевающий запрос подтверждения сеанса удаленного управления пользователем, рекомендуется включить его, чтобы предотвратить слежку за пользователями, выполняющими конфиденциальные задачи.<br /><br /> Кроме того, необходимо объяснить пользователям необходимость проверки имени учетной записи, отображаемого во время сеансов удаленного управления, и отключения сеанса при появлении подозрения в несанкционированном доступе.|  
-|Ограничение списка разрешенных наблюдателей|Для того чтобы использовать удаленное управление, пользователю не нужны права локального администратора.|  
+|Quando ligar a um computador remoto, não continue se for utilizada a autenticação NTLM em vez de Kerberos.|Quando o Configuration Manager detetar que a sessão de controlo remoto foi autenticada utilizando NTLM em vez de Kerberos, verá uma linha de comandos que avisa-o de que não é possível verificar a identidade do computador remoto. Não continue a sessão de controlo remoto. A autenticação NTLM é um protocolo de autenticação mais fraco que Kerberos e é vulnerável a repetição e representação.|  
+|Não ative a partilha da Área de Transferência no visualizador de controlo remoto.|A Área de Transferência suporta objetos, como ficheiros executáveis e texto, e pode ser utilizada pelo utilizador no computador anfitrião durante a sessão de controlo remoto para executar um programa no computador de origem.|  
+|Não introduza palavras-passe para contas com privilégios quando administrar remotamente um computador.|É possível que software que observe a introdução por teclado capture a palavra-passe. Em alternativa, se o programa que está a ser executado no computador cliente não for o programa que o utilizador do controlo remoto assume, o programa pode estar a capturar a palavra-passe. Quando forem necessárias contas e palavras-passe, o utilizador final deve introduzi-las.|  
+|Bloqueie o teclado e o rato durante uma sessão de controlo remoto.|Se o Configuration Manager detetar que a ligação de controlo remoto foi terminada, o Configuration Manager bloqueia automaticamente o teclado e rato para que um utilizador não pode assumir o controlo da sessão de controlo remoto aberta. No entanto, esta deteção pode não ocorrer imediatamente e não ocorre se o serviço de controlo remoto for terminado.<br /><br /> Selecione a ação **Bloquear Teclado e Rato Remotos** na janela **Controlo Remoto do ConfigMgr** .|  
+|Não permita aos utilizadores configurar as definições de controlo remoto no Centro de Software.|Não ative a definição de cliente **Os utilizadores podem alterar as definições de notificação ou da política no Centro de Software** para ajudar a impedir que os utilizadores sejam espiados.<br /><br /> Esta definição é para o computador, não para o utilizador com sessão iniciada.|  
+|Ative o perfil da Firewall do Windows **Domínio** .|Ative a definição de cliente **Ativar controlo remoto nos perfis de exceção de Firewall de clientes** e, em seguida, selecione a Firewall do Windows **Domínio** para computadores de intranet.|  
+|Se terminar a sessão durante uma sessão de controlo remoto e iniciar sessão como um utilizador diferente, certifique-se de que termina a sessão antes de desligar a sessão de controlo remoto.|Se não terminar a sessão neste cenário, a sessão permanece aberta.|  
+|Não conceda direitos de administrador local aos utilizadores.|Quando conceder direitos de administrador local aos utilizadores, estes poderão assumir o controlo da sua sessão de controlo remoto ou comprometer as suas credenciais.|  
+|Utilize a política de grupo ou do Configuration Manager para configurar definições da assistência remota, mas não ambos.|Pode utilizar o Configuration Manager e a política de grupo para efetuar alterações de configuração para as definições de assistência remota. Quando a Política de Grupo é atualizada no cliente, por predefinição, otimiza o processo ao alterar apenas as políticas que foram alteradas no servidor. Gestor de configuração altera as definições na política de segurança local, não podendo ser substituídas, a menos que a atualização da política de grupo é forçada.<br /><br /> A definição da política em ambos os locais pode originar resultados inconsistentes. Escolha um dos seguintes métodos para configurar as definições de Assistência Remota.|  
+|Ative a definição de cliente **Solicitar ao utilizador permissão do Controlo Remoto**.|Embora existam formas desta definição de cliente solicitar a um utilizador para confirmar uma sessão de controlo remoto, ative esta definição para reduzir a probabilidade de os utilizadores serem espiados enquanto estão a trabalhar em tarefas confidenciais.<br /><br /> Além disso, informe os utilizadores para verificarem o nome da conta apresentado durante a sessão de controlo remoto e desligarem a sessão se suspeitarem que a conta não está autorizada.|  
+|Limite a lista de Visualizadores Permitidos.|Não são necessários direitos de administrador local para um utilizador poder utilizar o controlo remoto.|  
 
-### <a name="security-issues-for-remote-control"></a>Проблемы безопасности удаленного управления  
- С управлением клиентскими компьютерами с помощью удаленного управления связаны перечисленные ниже проблемы безопасности.  
+### <a name="security-issues-for-remote-control"></a>Problemas de segurança do controlo remoto  
+ A gestão de computadores cliente utilizando o controlo remoto tem os seguintes problemas de segurança:  
 
--   Не полагайтесь на надежность сообщений аудита удаленного управления.  
+-   Não considere as mensagens de auditoria do controlo remoto fiáveis.  
 
-     Если открыть сеанс удаленного управления, а затем войти в систему с другими учетными данными, сообщения аудита отправляются исходной учетной записью, а не учетной записью, используемой позже.  
+     Se iniciar uma sessão de controlo remoto e, em seguida, iniciar sessão utilizando credenciais alternativas, a conta original envia as mensagens de auditoria e não a conta que utilizou as credenciais alternativas.  
 
-     Сообщения аудита не отправляются, если вы копируете двоичные файлы для удаленного управления вместо установки консоли Configuration Manager, а затем запускаете удаленное управление из командной строки.  
+     Mensagens de auditoria não são enviadas se copiar os ficheiros binários para controlo remoto em vez de instalar a consola do Configuration Manager e, em seguida, execute o controlo remoto na linha de comandos.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Сведения о конфиденциальности удаленного управления  
- Удаленное управление позволяет просматривать активные сеансы на клиентских компьютерах Configuration Manager, а также, теоретически, все данные, хранимые на этих компьютерах. Удаленное управление не включено по умолчанию.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informações de privacidade do controlo remoto  
+ Controlo remoto permite-lhe ver as sessões ativas nos computadores de cliente do Configuration Manager e potencialmente ver todas as informações armazenadas nesses computadores. Por predefinição, o controlo remoto não está ativado.  
 
- Хотя при настройке соответствующих параметров эта функция должна явно уведомлять пользователя об открытии сеанса удаленного управления и запрашивать его согласие, она также позволяет отслеживать действия пользователей без их согласия или ведома. Можно настроить уровень доступа "Только просмотр", чтобы запретить внесение изменений во время удаленного управления, или выбрать уровень "Полный доступ". Учетная запись подключающегося администратора отображается во время сеанса удаленного управления, чтобы пользователи знали, кто подключается к их компьютерам.  
+ Embora possa configurar o controlo remoto para fornecer avisos evidentes e obter consentimento de um utilizador antes do início da sessão de controlo remoto, também pode monitorizar os utilizadores sem a sua permissão ou conhecimento. Pode configurar o nível de acesso Ver Apenas para que nada possa ser alterado no controlo remoto, ou Controlo Total. A conta do administrador de ligação é apresentada na sessão de controlo remoto, para ajudar os utilizadores a identificar quem está a ligar ao respetivo computador.  
 
- По умолчанию Configuration Manager предоставляет разрешения удаленного управления локальной группе администраторов.  
+ Por predefinição, o Configuration Manager concede o local de administradores permissões de controlo remoto do grupo.  
 
- Перед настройкой удаленного управления учтите требования к конфиденциальности.  
+ Antes de configurar o controlo remoto, considere os requisitos de privacidade.  

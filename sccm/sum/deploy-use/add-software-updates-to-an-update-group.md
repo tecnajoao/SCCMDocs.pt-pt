@@ -1,6 +1,6 @@
 ---
-title: "Добавление обновлений в группу обновлений Configuration Manager | Документы Майкрософт"
-description: "Вы можете вручную или автоматически добавлять обновления программного обеспечения в группу обновлений в своей среде."
+title: "Adicionar as atualizações a um grupo de atualização - Configuration Manager | Microsoft Docs"
+description: "Manual ou automaticamente adicione atualizações de software a um grupo de atualização de software no seu ambiente."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,47 +13,47 @@ ms.technology: configmgr-sum
 ms.assetid: a0767664-fd60-46a8-9da5-86cc431ce53c
 ms.openlocfilehash: 02e30ba48f3564fa8a31f21793c145054e02e002
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="add-software-updates-to-an-update-group"></a>Добавление обновлений программного обеспечения в группу обновлений  
+# <a name="add-software-updates-to-an-update-group"></a>Adicionar atualizações de software a um grupo de atualizações  
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Группы обновлений программного обеспечения предоставляют эффективный способ организации обновления в используемой среде. Обновления ПО в группу обновлений можно добавлять вручную или автоматически — с помощью правила автоматического развертывания. Развертывать группу обновлений также можно вручную или автоматически с помощью правила автоматического развертывания. После развертывания группы обновлений ПО можно добавить в эту группу новые обновления; в этом случае Configuration Manager автоматически развернет их. Выполните следующую процедуру для добавления обновлений в новую или существующую группу обновлений ПО.  
+ Os grupos de atualizações de software proporcionam-lhe um método eficaz para organizar as atualizações de software no seu ambiente. Pode adicionar manualmente atualizações de software a um grupo de atualizações de software ou adicionar as atualizações de software automaticamente a um grupo de atualizações de software utilizando uma ADR. Também pode implementar um grupo de atualizações de software manualmente ou implementar o grupo automaticamente, utilizando uma ADR. Depois de implementar um grupo de atualização de software, pode adicionar novas atualizações de software ao grupo e do Configuration Manager procederá automaticamente à sua implementação. Utilize os seguintes procedimentos para adicionar atualizações de software a um grupo de atualizações de software novo ou existente.  
 
-#### <a name="to-add-software-updates-to-a-new-software-update-group"></a>Добавление обновлений программного обеспечения в новую группу обновлений  
+#### <a name="to-add-software-updates-to-a-new-software-update-group"></a>Para adicionar atualizações de software a um novo grupo de atualizações de software  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области "Библиотека программного обеспечения" разверните узел **Обновления программного обеспечения**, а затем щелкните **Все обновления программного обеспечения**.  
+2.  Na área de trabalho Biblioteca de Software, expanda **Atualizações de Software**e, em seguida, clique em **Todas as Atualizações de Software**.  
 
-3.  Выберите обновления ПО, которые необходимо добавить в новую группу обновлений ПО.  
+3.  Selecione as atualizações de software a serem adicionadas ao novo grupo de atualizações de software.  
 
-4.  На вкладке **Главная** в группе **Обновление** щелкните **Создать группу обновлений программного обеспечения**.  
+4.  No separador **Home Page** , no grupo **Atualizar** , clique em **Criar Grupo de Atualização de Software**.  
 
-5.  Введите имя группы обновления ПО и ее описание, если необходимо. Имя и описание должны содержать достаточно информации о том, какие обновления программного обеспечения содержатся в этой группе. Для продолжения нажмите кнопку **Создать**.  
+5.  Especifique o nome para o grupo de atualizações de software e, opcionalmente, forneça uma descrição. Utilize um nome e uma descrição que forneçam informações suficientes para determinar qual o tipo de atualizações de software que fazem parte do grupo de atualizações de software. Para continuar, clique em **Criar**.  
 
-6.  Щелкните **Группы обновлений программного обеспечения** , чтобы отобразить новую группу обновлений.  
+6.  Clique em **Grupos de Atualização de Software** para apresentar o novo grupo de atualização de software.  
 
-7.  Выберите группу обновлений программного обеспечения, а затем на вкладке **Главная** в группе **Обновление** щелкните **Показать состав** , чтобы отобразить список обновлений программного обеспечения в группе.  
+7.  Selecione o grupo de atualização de software e, no separador **Home Page** , no grupo **Atualizar** , clique em **Mostrar Membros** para apresentar uma lista das atualizações de software que estão incluídas no grupo.  
 
-#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Добавление обновлений программного обеспечения в существующую группу обновлений  
+#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Para adicionar atualizações de software a um grupo de atualização de software existente  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области "Библиотека программного обеспечения" разверните узел **Обновления программного обеспечения**, а затем щелкните **Все обновления программного обеспечения**.  
+2.  Na área de trabalho Biblioteca de Software, expanda **Atualizações de Software**e, em seguida, clique em **Todas as Atualizações de Software**.  
 
-3.  Выберите обновления ПО, которые нужно добавить в новую группу обновлений.  
+3.  Selecione as atualizações de software que pretende adicionar ao novo grupo de atualizações de software.  
 
     > [!NOTE]  
-    >  В узле **Все обновления программного обеспечения** по умолчанию Configuration Manager отображает только обновления, имеющие класс **Критическое** и **Безопасность** и выпущенные за последние 30 дней.  
+    >  No **todas as atualizações de Software** nós, por predefinição, o Configuration Manager apresentam apenas atualizações de software com uma **crítico** e **segurança** classificação e que foram lançadas nos 30 últimos dias.  
 
-4.  На вкладке **Главная** в группе **Обновление** щелкните **Изменить членство**.  
+4.  No separador **Home Page** , no grupo **Atualizar** , clique em **Editar Associação**.  
 
-5.  Выберите группу обновлений ПО, в которую нужно добавить обновления.  
+5.  Selecione o grupo de atualizações de software ao qual pretende adicionar as atualizações de software.  
 
-6.  Щелкните узел **Группы обновлений программного обеспечения** , чтобы просмотреть группу обновлений.  
+6.  Clique no nó **Grupos de Atualização de Software** para apresentar o grupo de atualização de software.  
 
-7.  Щелкните группу обновлений программного обеспечения, а затем на вкладке **Главная** в группе **Обновление** щелкните **Показать состав** , чтобы отобразить список обновлений программного обеспечения в группе обновлений.  
+7.  Selecione o grupo de atualizações de software e, no separador **Home Page** , no grupo **Atualizar** , clique em **Mostrar Membros** para apresentar uma lista das atualizações de software que estão incluídas no grupo de atualizações de software.  

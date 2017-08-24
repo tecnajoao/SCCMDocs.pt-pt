@@ -1,6 +1,6 @@
 ---
-title: "Значки для обновлений программного обеспечения | Документы Майкрософт"
-description: "Консоль Configuration Manager содержит значки, показывающие состояние синхронизированного обновления или группы обновлений."
+title: "Ícones utilizados para atualizações de software | Microsoft Docs"
+description: "Consola do Configuration Manager contém ícones que indicam um Estado para o grupo de atualização de software ou atualização sincronizado."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,113 +13,113 @@ ms.technology: configmgr-sum
 ms.assetid: 63c5ef72-5715-4d86-85a2-71beba469fab
 ms.openlocfilehash: 04c5ccc53263b2672096b564695a636bfb28d952
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="icons-used-for-software-updates-in-system-center-configuration-manager"></a>Значки для обновлений программного обеспечения в System Center Configuration Manager
+# <a name="icons-used-for-software-updates-in-system-center-configuration-manager"></a>Ícones utilizados para atualizações de software no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Синхронизированные обновления программного обеспечения отображаются в консоли Configuration Manager, и первый столбец для каждого обновления программного обеспечения содержит значок, указывающий на состояние этого обновления. Группы обновлений программного обеспечения также снабжены значком, который предоставляет сведения о состоянии обновлений программного обеспечения, входящих в группу. В этом разделе описаны значки обновления программного обеспечения и приведены сведения о назначении каждого значка.  
+Atualizações de software sincronizadas são apresentadas na consola do Configuration Manager e a primeira coluna de cada atualização de software contém um ícone que indica um estado específico. Os grupos de atualizações de software também são representados por um ícone que fornece informações sobre o estado das atualizações de software contidas no grupo. Esta secção fornece informações sobre os ícones de atualizações de software e o que cada ícone representa.  
 
-## <a name="icons-for-software-updates"></a>Значки для обновлений программного обеспечения  
- Синхронизированные обновления программного обеспечения представляются одним из следующих значков.  
+## <a name="icons-for-software-updates"></a>Ícones de Atualizações de Software  
+ As atualizações de software sincronizadas são representadas por um dos seguintes ícones.  
 
-### <a name="normal-icon"></a>Обычный значок  
- ![значок](../media/Normal.jpg "Обычный значок") Значок с зеленой стрелкой представляет обычное обновление программного обеспечения.  
+### <a name="normal-icon"></a>Ícone Normal  
+ ![ícone](../media/Normal.jpg "ícone Normal") o ícone com a seta verde representa uma atualização de normal software.  
 
- **Описание.**  
+ **Descrição:**  
 
- Обычные обновления программного обеспечения были синхронизированы и доступны для развертывания.  
+ As atualizações de software normais foram sincronizadas e estão disponíveis para implementação de software.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Рабочие проблемы отсутствуют.  
+ Não existem preocupações operacionais.  
 
-### <a name="expired-icon"></a>Значок истекшего срока действия  
- ![значок](../media/Expired.jpg "Значок истекшего срока действия") Значок с черным крестиком представляет обновление программного обеспечения с истекшим сроком действия. Такие обновления также можно определить, просмотрев столбец **Истекшие** для обновления программного обеспечения при его отображении в консоли Configuration Manager.  
+### <a name="expired-icon"></a>Ícone de Expirada  
+ ![ícone](../media/Expired.jpg "expirado ícone") o ícone com o X preto representa uma atualização de software expiradas. Também pode identificar atualizações de software expiradas visualizando a **expirado** coluna para a atualização de software quando é apresentada na consola do Configuration Manager.  
 
- **Описание.**  
+ **Descrição:**  
 
- Обновления с истекшим сроком действия ранее развертывались на клиентских компьютерах, но так как срок действия обновления истек, то для него больше нельзя создавать новые развертывания. Обновления программного обеспечения с истекшим сроком действия удаляются из активных развертываний и становятся недоступными для клиентов.  
+ As atualizações de software expiradas eram anteriormente implementáveis nos computadores cliente mas, assim que uma atualização de software expira, já não podem ser criadas novas implementações para as atualizações de software. Expirou atualizações de software são removidas das implementações de Active Directory e serão já não são disponibilizadas para clientes.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Рабочие проблемы отсутствуют.
+ Não existem preocupações operacionais.
 
-### <a name="superseded-icon"></a>Значок «Заменено»  
- ![значок](../media/Superseded.jpg "Значок "Заменено"") Значок с желтой звездочкой представляет замененное обновление программного обеспечения. Такие обновления также можно определить, просмотрев столбец **Замененные** для обновления программного обеспечения при его отображении в консоли Configuration Manager.  
+### <a name="superseded-icon"></a>Ícone de Substituída  
+ ![ícone](../media/Superseded.jpg "substituídas ícone") o ícone com a estrela amarela representa uma atualização de software substituída. Também pode identificar atualizações de software substituídas visualizando a **substituídas** coluna para a atualização de software quando é apresentada na consola do Configuration Manager.  
 
- **Описание.**  
+ **Descrição:**  
 
- Замененные обновления были заменены более новыми версиями программного обеспечения. Как правило, обновление программного обеспечения, заменяющее другое обновление, выполняет одну или несколько следующих задач.  
+ As atualizações de software foram substituídas por versões mais recentes da atualização de software. Normalmente, uma atualização de software que substitui outra atualização de software executa uma ou mais das seguintes ações:  
 
--   Улучшает, расширяет или дополняет возможности исправления, реализованного в одном или нескольких выпущенных ранее обновлениях программного обеспечения.  
+-   Melhora, atualiza ou adiciona a correção fornecida por uma ou mais atualizações de software publicadas anteriormente.  
 
--   Повышает эффективность пакета обновления программного обеспечения, который устанавливается на клиентские компьютеры, если установка обновления одобрена. Например, заменяемое обновление может содержать файлы, которые больше не нужны для исправления или для операционных систем, поддерживаемых новым обновлением, поэтому такие файлы не будут включены в пакет заменяющего обновления.  
+-   Melhora a eficiência do pacote de ficheiros de atualização de software, que o cliente instala se a atualização de software for aprovada para instalação. Por exemplo, a atualização de software substituída poderá conter ficheiros que já não sejam relevantes para a correção ou para os sistemas operativos agora suportados pela nova atualização de software, por isso esses ficheiros não estão incluídos no pacote de ficheiros da atualização de software substituída.  
 
--   Обновляет новые версии продукта, то есть неприменимо к устаревшим версиям и конфигурациям продукта. Обновления также могут заменять другие обновления, если были внесены изменения для расширения набора поддерживаемых языков. Например, в более поздней версии Microsoft Office или обновлении для этого продукта может быть упразднена поддержка устаревшей операционной системы, но может быть добавлена поддержка новых языков в первом выпуске обновления программного обеспечения.  
+-   Atualiza as versões mais recentes de um produto ou, por outras palavras, já não é aplicável a versões ou configurações antigas de um produto. As atualizações de software também podem substituir outras atualizações de software, se tiverem sido efetuadas modificações para expandir o suporte de idiomas. Por exemplo, uma versão mais recente de uma atualização de produto do Microsoft Office poderá remover o suporte para um sistema operativo antigo, mas poderá acrescentar suporte adicional para novos idiomas na versão de atualização de software inicial.  
 
- На вкладке «Правила замены» в свойствах компонента точки обновления программного обеспечения можно указать способ управления заменяемыми обновлениями программного обеспечения. Дополнительные сведения см. в разделе [Правила замены](../plan-design/plan-for-software-updates.md#BKMK_SupersedenceRules).  
+ No separador Regras de Substituição das propriedades do Componente do Ponto de Atualização de Software, pode especificar como gerir atualizações de software substituídas. Para obter mais informações, veja [Regras de substituição](../plan-design/plan-for-software-updates.md#BKMK_SupersedenceRules).  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Если возможно, развертывайте заменяющее обновление программного обеспечения на клиентских компьютерах вместо заменяемого обновления. Список обновлений программного обеспечения, заменяющих другие обновления, можно найти на вкладке **Сведения о замене** в свойствах обновления.  
+ Sempre que possível, implemente a atualização de software de substituição em computadores cliente, em vez da atualização de software substituída. Pode visualizar uma lista das atualizações de software que substituem a atualização de software no separador **Informações de Substituição** nas propriedades de atualização de software.  
 
-### <a name="invalid-icon"></a>Значок «Недопустимо»  
- ![значок](../media/Invalid.jpg "Значок "Недопустимо"") Значок с красным крестиком представляет недопустимое обновление программного обеспечения.  
+### <a name="invalid-icon"></a>Ícone de Inválida  
+ ![ícone](../media/Invalid.jpg "ícone inválido") o ícone com o X vermelho representa uma atualização de software inválida.  
 
- **Описание.**  
+ **Descrição:**  
 
- Обновления программного обеспечения, которые находятся в активном развертывании, но по какой-то причине их содержимое (файлы обновления программного обеспечения) недоступно. Ниже приведены сценарии, в которых это может произойти.  
+ As atualizações de software inválidas estão numa implementação ativa mas, por algum motivo, o conteúdo (ficheiros de atualizações de software) não está disponível. Seguem-se cenários em que pode ocorrer este estado:  
 
--   Обновление программного обеспечения успешно развернуто, но файл обновления удален из пакета развертывания и больше не доступен.  
+-   A atualização de software é implementada com êxito, mas o ficheiro de atualização de software é removido do pacote de implementação e já não está disponível.  
 
--   Развертывание обновления создано на сайте, и объект развертывания успешно реплицирован на подчиненный сайт, но пакет развертывания не был реплицирован на подчиненный сайт.  
+-   Cria uma implementação de atualização de software num site e o objeto de implementação é replicado com êxito para um site subordinado, mas o pacote de implementação não foi replicado com êxito para o site subordinado.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Если содержимое обновления отсутствует, клиенты не смогут установить обновление до тех пор, пока содержимое не появится на точке распространения. Содержимое точки распространения можно распространить повторно с помощью действия **Распространить** . Если содержимое обновления для развертывания, созданного на родительском сайте, отсутствует, обновление необходимо реплицировать или распространить на подчиненный сайт. Дополнительные сведения о повторном распространении содержимого см. в разделе [Управление распространенным содержимым](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  
+ Quando o conteúdo estiver em falta numa atualização de software, os clientes não conseguem instalar a atualização de software até o conteúdo ficar disponível num ponto de distribuição. Pode redistribuir o conteúdo para pontos de distribuição, utilizando a ação **Redistribuir** . Quando o conteúdo está em falta numa atualização de software numa implementação criada num site principal, a atualização de software tem de ser replicada ou redistribuída para o site subordinado. Para obter mais informações sobre a redistribuição de conteúdo, consulte [gerir o conteúdo que distribuiu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  
 
-### <a name="metadata-only-icon"></a>Значок «Только метаданные»
- ![значок](../media/MetadataOnly.png "Значок "Только метаданные"") Значок с синей стрелкой представляет обновление, содержащее только метаданные.
+### <a name="metadata-only-icon"></a>Ícone de Apenas de Metadados
+ ![ícone](../media/MetadataOnly.png "ícone apenas de metadados") o ícone com a seta azul representa uma atualização de software apenas de metadados.
 
- **Описание.**  
+ **Descrição:**  
 
- Такие обновления доступны в консоли Configuration Manager для создания отчетов. Разворачивать и скачивать обновления, содержащие только метаданные, нельзя, поскольку файл обновления не связан с метаданными обновлений программного обеспечения.  
+ Atualizações de software apenas de metadados estão disponíveis na consola do Configuration Manager para relatórios. Não é possível implementar ou transferir atualizações de software apenas de metadados, porque um ficheiro de atualização de software não está associado aos metadados de atualizações de software.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Обновления программного обеспечения, содержащие только метаданные, доступны для создания отчетов и не предназначены для развертывания.  
+ As atualizações de software apenas de metadados estão disponíveis para efeitos de criação de relatórios e não se destinam à implementação de atualização de software.  
 
-## <a name="icons-for-software-update-groups"></a>Значки для групп обновлений программного обеспечения  
- Группы обновлений программного обеспечения представляются одним из следующих значков.  
+## <a name="icons-for-software-update-groups"></a>Ícones de Grupos de Atualização de Software  
+ Os grupos de atualização de software são representados por um dos seguintes ícones.  
 
-### <a name="normal-icon"></a>Обычный значок  
- ![значок](../media/Normal.jpg "Обычный значок") Значок с зеленой стрелкой представляет группу обновлений, содержащую только обычные обновления.  
+### <a name="normal-icon"></a>Ícone Normal  
+ ![ícone](../media/Normal.jpg "ícone Normal") o ícone com a seta verde representa um grupo de atualização de software que contém as atualizações de software apenas normal.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Рабочие проблемы отсутствуют.  
+ Não existem preocupações operacionais.  
 
-### <a name="expired-icon"></a>Значок истекшего срока действия  
- ![значок](../media/Expired.jpg "Значок истекшего срока действия") Значок с черным крестиком представляет группу обновлений, содержащую одно или несколько обновлений с истекшим сроком действия.  
+### <a name="expired-icon"></a>Ícone de Expirada  
+ ![ícone](../media/Expired.jpg "expirado ícone") o ícone com o X preto representa um grupo de atualização de software que contém uma ou mais atualizações de software expiradas.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Удалите или замените обновления с истекшим сроком действия при возможности.  
+ Remova ou substitua as atualizações de software expiradas no grupo de atualizações de software sempre que possível.  
 
-### <a name="superseded-icon"></a>Значок «Заменено»  
- ![значок](../media/Superseded.jpg "Значок "Заменено"") Значок с желтой звездочкой представляет группу обновлений, содержащую одно или несколько замененных обновлений.  
+### <a name="superseded-icon"></a>Ícone de Substituída  
+ ![ícone](../media/Superseded.jpg "substituídas ícone") o ícone com a estrela amarela representa um grupo de atualização de software que contém um ou mais as atualizações de software substituídas.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- При возможности замените замененное обновление в группе обновлений заменяющим обновлением.  
+ Substitua a atualização de software substituída no grupo de atualizações de software pela atualização de software de substituição, sempre que possível.  
 
-### <a name="invalid-icon"></a>Значок «Недопустимо»  
- ![значок](../media/Invalid.jpg "Значок "Недопустимо"") Значок с красным крестиком представляет группу обновлений, содержащую одно или несколько недопустимых обновлений.  
+### <a name="invalid-icon"></a>Ícone de Inválida  
+ ![ícone](../media/Invalid.jpg "ícone inválido") o ícone com o X vermelho representa um grupo de atualização de software que contém uma ou mais atualizações de software inválida.  
 
- **Рабочие проблемы:**  
+ **Preocupações Operacionais:**  
 
- Если содержимое обновления отсутствует, клиенты не смогут установить обновление до тех пор, пока содержимое не появится на точке распространения. Содержимое точки распространения можно распространить повторно с помощью действия **Распространить** . Если содержимое обновления для развертывания, созданного на родительском сайте, отсутствует, обновление необходимо реплицировать или распространить на подчиненный сайт. Дополнительные сведения о повторном распространении содержимого см. в разделе [Управление распространенным содержимым](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  
+ Quando o conteúdo estiver em falta numa atualização de software, os clientes não conseguem instalar a atualização de software até o conteúdo ficar disponível num ponto de distribuição. Pode redistribuir o conteúdo para pontos de distribuição, utilizando a ação **Redistribuir** . Quando o conteúdo está em falta numa atualização de software numa implementação criada num site principal, a atualização de software deve ser replicada ou redistribuída para o site subordinado. Para obter mais informações sobre a redistribuição de conteúdo, consulte [gerir o conteúdo que distribuiu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  

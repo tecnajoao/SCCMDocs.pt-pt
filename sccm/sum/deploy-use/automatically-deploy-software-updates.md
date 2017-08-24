@@ -1,6 +1,6 @@
 ---
-title: "Автоматическое развертывание обновлений программного обеспечения | Документы Майкрософт"
-description: "Автоматическое развертывание обновлений программного обеспечения путем добавления новых обновлений в группу обновлений с активным развертыванием или с помощью правил автоматического развертывания (ADR)."
+title: "Implementar automaticamente atualizações de software | Microsoft Docs"
+description: "Implemente automaticamente atualizações de software ao adicionar novas atualizações a um grupo de atualização que está associada a uma implementação ativa, ou utilizando ADRs."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,305 +13,305 @@ ms.technology: configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
 ms.openlocfilehash: 804a9d7a32cfbdb498c6748c5d99a1874261c231
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_AutoDeploy"></a> Автоматическое развертывание обновлений программного обеспечения  
+#  <a name="BKMK_AutoDeploy"></a> Implementar automaticamente atualizações de software  
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Можно автоматически развертывать обновления программного обеспечения, добавляя новые обновления в группу обновлений, связанную с активным развертыванием, или используя правила автоматического развертывания (ADR). Обычно правила ADR используются для ежемесячных обновлений программного обеспечения (обычно во второй вторник каждого месяца) и для управления обновлениями определений. Если вам нужна помощь в определении подходящего метода развертывания, см. сведения в статье [Развертывание обновлений программного обеспечения](deploy-software-updates.md).
+ Pode implementar automaticamente atualizações de software ao adicionar novas atualizações de software a um grupo de atualização associado uma implementação ativa, ou pode utilizar uma regra de implementação automática (ADR). Normalmente, utilizará ADRs mensalmente implementar atualizações de software (geralmente conhecidas como Patch Terça-feira atualizações) e para gerir atualizações de definições. Se precisar de ajuda para determinar que implementação de método é mais adequado para si, consulte [implementar atualizações de software](deploy-software-updates.md)
 
-##  <a name="BKMK_AddUpdatesToExistingGroup"></a> Добавление обновлений программного обеспечения в развернутую группу обновлений  
-После создания и развертывания группы обновлений программного обеспечения можно добавлять в нее обновления, и они будут автоматически развертываться.  
+##  <a name="BKMK_AddUpdatesToExistingGroup"></a> Adicionar atualizações de software a um grupo de atualização implementado  
+Depois de criar e implementar um grupo de atualização de software, pode adicionar atualizações de software ao grupo de atualização e estas serão automaticamente implementadas.  
 
 > [!IMPORTANT]  
->  При добавлении обновлений программного обеспечения в существующую группу обновлений, которая уже была развернута, добавление обновлений может занять несколько минут.  
+>  Quando adicionar atualizações de software a um grupo de atualização de software existente que já tenha sido implementado, as atualizações de software adicionais poderão demorar alguns minutos a serem adicionadas à implementação.  
 
-Выполните следующую процедуру, чтобы добавить обновления программного обеспечения в существующую группу обновлений.  
+Utilize o seguinte procedimento para adicionar atualizações de software a um grupo de atualização existente.  
 
-#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Добавление обновлений программного обеспечения в существующую группу обновлений  
+#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Para adicionar atualizações de software a um grupo de atualização de software existente  
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Обзор** > **Обновления программного обеспечения**.  
+1.  Na consola do Configuration Manager, navegue até à **biblioteca de Software** > **descrição geral** > **atualizações de Software**.  
 
-2.  Выберите обновления ПО, которые нужно добавить в новую группу обновлений.  
+2.  Selecione as atualizações de software que pretende adicionar ao novo grupo de atualização de software.  
 
-3.  На вкладке **Главная** в группе **Обновление** щелкните **Изменить членство**.  
+3.  No separador **Home Page** , no grupo **Atualizar** , clique em **Editar Associação**.  
 
-4.  Выберите группу обновлений программного обеспечения, в которую нужно добавить обновления в качестве членов группы.  
+4.  Selecione o grupo de atualização de software ao qual pretende adicionar as atualizações de software como membros.  
 
-5.  Щелкните узел **Группы обновлений программного обеспечения** , чтобы просмотреть группу обновлений.  
+5.  Clique no nó **Grupos de Atualização de Software** para apresentar o grupo de atualização de software.  
 
-6.  Щелкните группу обновлений программного обеспечения, а затем на вкладке **Главная** в группе **Обновление** щелкните **Показать состав** , чтобы отобразить список обновлений программного обеспечения в группе.  
+6.  Clique no grupo de atualização de software e, no separador **Home Page** , no grupo **Atualizar** , clique em **Mostrar Membros** para ver uma lista das atualizações de software do grupo.  
 
-##  <a name="BKMK_CreateAutomaticDeploymentRule"></a> Создание правила автоматического развертывания (ADR)  
-Можно автоматически утверждать и развертывать обновления программного обеспечения с помощью правил автоматического развертывания. Вы можете иметь правило, добавляющее обновления программного обеспечения в новую группу обновлений программного обеспечения при каждом выполнении правила или добавляющее обновления программного обеспечения в существующую группу. Когда правило выполняется и добавляет обновления программного обеспечения в существующую группу, это правило удаляет все обновления программного обеспечения из этой группы, а затем добавляет обновления программного обеспечения, соответствующие критериям, которые вы задали для группы. Например, чтобы запускать правило автоматического развертывания для поиска недавно выпущенных обновлений программного обеспечения каждый день и развертывать их на клиентах, необходимо выбрать вариант создания новой группы обновлений ПО вместо добавления обновлений в существующую группу.  
+##  <a name="BKMK_CreateAutomaticDeploymentRule"></a> Criar uma regra de implementação automática (ADR)  
+Pode aprovar e implementar automaticamente atualizações de software utilizando uma ADR. Pode fazer com que a regra adicione atualizações de software a um novo grupo de atualização de software de cada vez que a regra for executada ou adicionar atualizações de software a um grupo existente. Quando uma regra for executada e adicionar atualizações de software a um grupo existente, a regra remove todas as atualizações de software do grupo e, em seguida, adiciona as atualizações de software que cumprem os critérios que definiu para o grupo. Para executar uma ADR para localizar atualizações de software recentemente publicadas todos os dias e implementá-las nos clientes, por exemplo, tem de escolher a opção para criar um novo grupo de atualizações de software em vez de adicionar as atualizações de software a um grupo existente.  
 
 > [!WARNING]  
->  Перед первым созданием правила автоматического развертывания убедитесь, что на сайте выполнена синхронизация обновлений программного обеспечения. Этот особенно важно при запуске Configuration Manager на языке, отличном от английского, поскольку перед первой синхронизацией классы обновлений отображаются на английском языке, а после синхронизации обновлений — на языке локализации. Правила, созданные до синхронизации обновлений программного обеспечения, могут неправильно работать после синхронизации из-за несовпадения текстовых строк.  
+>  Antes de criar uma ADR pela primeira vez, certifique-se de que a sincronização de atualizações de software foi concluída no site. Isto é especialmente importante quando executar o Configuration Manager com um idioma diferente do inglês porque classificações de atualizações de software são apresentadas em inglês antes da primeira sincronização e, em seguida, no idioma localizado após a conclusão da sincronização de atualizações de software. As regras que tiver criado antes de sincronizar as atualizações de software poderão não funcionar corretamente após a sincronização devido à discrepância da cadeia de texto.  
 
- Чтобы создать правило автоматического развертывания, выполните следующую процедуру.  
+ Utilize o procedimento seguinte para criar uma ADR.  
 
-#### <a name="to-create-an-adr"></a>Создание правила автоматического развертывания  
+#### <a name="to-create-an-adr"></a>Para criar uma ADR  
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения****Обзор** > **Обновления программного обеспечения** > **Правила автоматического развертывания**.  
+1.  Na consola do Configuration Manager, navegue até à **biblioteca de Software** **descrição geral** > **atualizações de Software** > **regras de implementação automática**.  
 
-2.  На вкладке **Главная** в группе **Создать** щелкните **Создать правило автоматического развертывания**. Будет запущен мастер создания правил автоматического развертывания.  
+2.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Regra de Implementação Automática**. O Assistente de Criação de Regra de Implementação Automática abre.  
 
-3.  На странице **Общие** настройте следующие параметры.  
+3.  Na página **Geral** , configure as seguintes definições:  
 
-    -   **Имя:**укажите имя правила автоматического развертывания. Имя должно быть уникальным, отражать цель правила и отличать его от других правил на сайте Configuration Manager.  
+    -   **Nome**: Especifique o nome para a ADR. O nome tem de ser exclusivo e deve descrever o objetivo da regra além de distingui-la de outras no site do Configuration Manager.  
 
-    -   **Описание:**введите описание правила автоматического развертывания. Описание содержит краткую сводку правила и прочие важные сведения, помогающие выбрать данное правило среди других на сайте Configuration Manager. Описание — необязательное поле, его длина не может превышать 256 символов, по умолчанию оно остается пустым.  
+    -   **Descrição**: Especifique uma descrição para a ADR. A descrição deve disponibilizar uma descrição geral da regra de implementação e outras informações relevantes que ajudem a identificar e distinguir a regra das restantes no site do Configuration Manager. O campo de descrição é opcional, tem um limite de 256 caracteres e está em branco por predefinição.  
 
-    -   **Выбрать шаблон развертывания**: укажите, следует ли применить сохраненный ранее шаблон развертывания. Вы можете настроить шаблон развертывания, включив в него несколько стандартных свойств обновления программного обеспечения, которые затем можно использовать при создании правил автоматического развертывания. Эти шаблоны помогают обеспечить единообразие схожих развертываний и сэкономить время.  
+    -   **Selecione o modelo de implementação**: Especifique se pretende aplicar um modelo de implementação anteriormente guardado. Pode configurar um modelo de implementação para incluir várias propriedades comuns de implementação da atualização de software que podem ser utilizadas ao criar ADRs. Estes modelos ajudam a assegurar a consistência entre implementações semelhantes e a poupar tempo.  
 
-         В мастере правил автоматического развертывания можно выбрать один из нескольких встроенных шаблонов развертывания программного обеспечения. Шаблон **Обновления определений** содержит общие параметры, используемые при развертывании обновлений для определений ПО. Шаблон **Вторник установки исправлений** содержит общие параметры, используемые в ходе ежемесячного цикла развертывания обновлений ПО.  
+         Pode selecionar entre os modelos de implementação de atualizações de software incorporados a partir do Assistente de Criação de Regra de Implementação Automática. O modelo **Atualizações de Definição** fornece definições comuns a utilizar quando implementa atualizações de software de definições. O modelo **Patch Terça** fornece definições comuns a utilizar quando implementa atualizações de software num ciclo mensal.  
 
-    -   **Коллекция**: указывает коллекцию целевых объектов для развертывания. Члены коллекции получают обновления программного обеспечения, заданные в развертывании.  
+    -   **Coleção**: Especifica a coleção de destino a ser utilizado para a implementação. Os membros da coleção recebem as atualizações de software definidas na implementação.  
 
-    -   Укажите, следует ли добавить обновления ПО в новую или существующую группу обновлений. В большинстве случаев при выполнении правила автоматического развертывания создается новая группа обновлений ПО. Однако вы можете выбрать использование существующей группы, если предусматривается запуск правила по более агрессивному графику. Например, если правило обновления определений выполняется ежедневно, обновления ПО нужно добавить в существующую группу обновлений.  
+    -   Especifique se pretende adicionar atualizações de software a um grupo de atualização de software novo ou existente. Na maioria dos casos, optará provavelmente por criar um novo grupo de atualizações de software quando a ADR for executada. No entanto, poderá optar por utilizar um grupo existente se a regra for executada com base numa agenda mais intensiva. Por exemplo, se pretender executar a regra diariamente para atualizações de definições, poderá adicionar as atualizações de software a um grupo de atualização de software existente.  
 
-    -   **Активировать развертывание после выполнения этого правила**: укажите, следует ли включить развертывание обновления после выполнения правила автоматического развертывания. О данной спецификации учтите следующее:  
+    -   **Ativar a implementação após a execução desta regra**: Especifique se pretende ativar a implementação de atualização de software após a execução da ADR. Relativamente a esta especificação deverá ter em conta os seguintes aspetos:  
 
-        -   При включении развертывания те обновления ПО, которые соответствуют заданным в правиле условиям, добавляются в группу обновлений; содержимое обновлений загружается (если оно еще не загружено) и копируется в точки распространения, а затем обновления развертываются на клиентских устройствах в коллекции целевых объектов.  
+        -   Quando ativar a implementação, as atualizações de software que cumpram os critérios definidos na regra são adicionadas a um grupo de atualização de software, os conteúdos de atualização de software são transferidos, se necessário, os conteúdos são copiados para os pontos de distribuição especificados e as atualizações de software são implementadas nos clientes da coleção de destino.  
 
-        -   Если развертывание не включено, то все обновления ПО, удовлетворяющие определенному в правиле критерию, добавляются в группу обновления ПО. Кроме того, производится настройка политики развертывания обновлений ПО, однако обновления ПО не загружаются и не развертываются на клиентах. Это дает возможность подготовиться к развертыванию обновлений ПО, проверить применимость обновлений, соответствующих условиям, а затем включать развертывание позднее.  
+        -   Se não ativar a implementação, as atualizações de software que cumpram os critérios definidos na regra são adicionadas a um grupo de atualização de software e a política de implementação de atualizações de software é configurada, mas as atualizações de software não são transferidas ou implementadas nos clientes. Esta situação disponibiliza o tempo necessário à preparação da implementação das atualizações de software, à confirmação de que as atualizações de software que cumprem os critérios são adequadas e, posteriormente, à ativação da implementação para um momento futuro.  
 
-4.  На странице "Параметры развертывания" настройте следующие параметры.  
+4.  Na página Definições de Implementação, configure as seguintes definições:  
 
-    -   **Использовать пробуждение по локальной сети, чтобы пробуждать клиенты для обязательного развертывания**: указывает, следует ли использовать режим пробуждения по локальной сети к крайнему сроку, чтобы отправлять пакеты пробуждения на компьютеры, для которых требуется одно или несколько обновлений программного обеспечения из данного развертывания. Любые компьютеры, находящиеся в спящем режиме на момент окончания крайнего срока установки, будут выведены из спящего режима, чтобы могла начаться установка программных обновлений. Если находящимся в спящем режиме клиентам не требуются никакие обновления программного обеспечения в ходе развертывания, то эти клиенты не запускаются. По умолчанию этот параметр отключен.  
+    -   **Utilizar a reativação por LAN para reativar os clientes para as implementações necessárias**: Especifica se pretende ativar a reativação por LAN na data limite para o envio de pacotes de reativação para computadores que necessitem de uma ou mais atualizações de software na implementação. Todos os computadores que se encontrem em modo de suspensão durante o prazo previsto para a instalação serão reativados para que a instalação da atualização de software possa ser iniciada. Os clientes que se encontrem no modo de suspensão e que não necessitem de quaisquer atualizações de software no âmbito da implementação não serão iniciados. Por predefinição, esta definição não está ativada.  
 
         > [!WARNING]  
-        >  Для использования этой функции необходимо включить поддержку пробуждения по локальной сети на компьютерах и в сетях.  
+        >  Para poder utilizar esta opção, necessita de configurar os computadores e as redes para a Reativação por LAN.  
 
-    -   **Уровень детализации**: выберите уровень детализации для сообщений о состоянии, передаваемых клиентскими компьютерами.  
+    -   **Nível de detalhe**: Especifique o nível de detalhe para as mensagens de estado que são enviadas pelos computadores cliente.  
 
         > [!IMPORTANT]  
-        >  Когда вы развертываете обновления для определений, установите уровень подробности отчетов **Только ошибки** , чтобы клиенты передавали только свои сообщения о состоянии в том случае, если обновление определений не удалось доставить клиенту. В противном случае клиенты будут передавать большое количество сообщений о состоянии, что может негативно повлиять на производительность сервера сайта.  
+        >  Ao implementar atualizações de definições, defina o nível de detalhe como **Apenas erros** para que o cliente apenas envie uma mensagem de estado quando não for possível entregar uma atualização de definições ao cliente. Caso contrário, o cliente enviará um elevado número de mensagens de estado, o que poderá afetar o desempenho do servidor do site.  
 
-    -   **Условия лицензии**: указывает, следует ли автоматически развертывать обновления ПО, с которыми связаны условия лицензии. Некоторые обновления ПО, например, пакеты обновления, включают условия лицензии. При автоматическом развертывании обновлений ПО условия лицензии не отображаются на экране и пользователю не предлагается их принять. Можно автоматически развертывать все обновления ПО независимо от наличия условий лицензии или же развертывать лишь те обновления, которые не сопровождаются условиями лицензии.  
+    -   **Definição de termos de licença**: Especifique se pretende implementar automaticamente atualizações de software com termos de licenciamento associados. Algumas atualizações de software incluem termos de licenciamento, por exemplo um pacote de serviço. Ao implementar atualizações de software automaticamente, os termos de licenciamento não são apresentados e não haverá a opção de aceitação dos termos de licenciamento. Pode optar por implementar automaticamente todas as atualizações de software, independentemente dos termos de licenciamento associados, ou implementar apenas as atualizações de software que não tenham termos de licenciamento associados.  
 
         > [!NOTE]  
-        >  Чтобы просмотреть условия лицензии обновления, выберите обновление в узле **Все обновления программного обеспечения** в рабочей области **Библиотека программного обеспечения** , а затем на вкладке **Главная** в группе **Обновление** нажмите кнопку **Ознакомиться с лицензией**.  
+        >  Para rever os termos de licenciamento de uma atualização de software, pode selecionar a atualização de software no nó **Todas as Atualizações de Software** da área de trabalho **Biblioteca de Software** e, em seguida, no separador **Home Page** , no grupo **Atualizar** , clique em **Rever Licenciamento**.  
         >   
-        >  Чтобы найти обновления ПО с лицензионными соглашениями, можно добавить столбец **Условия лицензии** в область результатов в узле **Все обновления программного обеспечения** , а затем щелкнуть заголовок этого столбца, чтобы отсортировать его по обновлениям с условиями лицензии.  
+        >  Para localizar as atualizações de software que tenham termos de licenciamento associados, adicione a coluna **Termos de Licenciamento** à coluna de resultados do nó **Todas as Atualizações de Software** e, em seguida, clique no título da coluna para ordenar pelas atualizações de software que tenham termos de licenciamento.  
 
-5.  На странице "Обновления программного обеспечения" настройте условия обновлений, получаемых правилом автоматического развертывания и добавляемых в группу обновлений.  
+5.  Na página Atualizações de Software, configure os critérios para as atualizações de software que são obtidas e adicionadas pela ADR ao grupo de atualizações de software.  
 
     > [!IMPORTANT]  
-    >  Одно правило автоматического развертывания может содержать до 1000 обновлений ПО. Чтобы убедиться, что заданное на этой странице условие получает менее 1000 обновлений, можно применить такие же условия в узле **Все обновления программного обеспечения** в рабочей области **Библиотека программного обеспечения** .  
+    >  O limite para as atualizações de software na ADR é de 1000 atualizações de software. Para certificar-se de que os critérios que especifica nesta página obtêm menos de 1000 atualizações de software, considere definir os mesmos critérios no nó **Todas as Atualizações de Software** da área de trabalho **Biblioteca de Software** .  
 
     > [!NOTE]
-    > Начиная с версии Configuration Manager 1610 можно выполнять фильтрацию по размеру содержимого для обновлений программного обеспечения в правилах автоматического развертывания. Например, можно задать для фильтра **Размер содержимого (КБ)** значение **< 2048**, чтобы скачивать только обновления программного обеспечения, размер которых не превышает 2 МБ. Этот фильтр препятствует автоматическому скачиванию больших обновлений программного обеспечения, чтобы более эффективно поддерживать упрощенное обслуживание старых ОС Windows при ограниченной пропускной способности сети. Дополнительные сведения см. в статье [Configuration Manager и упрощенное обслуживание более старых версий ОС Windows](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
+    > A partir do Configuration Manager versão 1610, pode filtrar o tamanho do conteúdo para atualizações de software nas regras de implementação automática. Por exemplo, pode definir o **conteúdo tamanho (KB)** filtrar para **< 2048** para transferir apenas atualizações de software que são inferior a 2 MB. Utilizar este filtro impede que as atualizações de software grande automaticamente a transferência para um melhor suporte simplificado Windows quando a largura de banda de rede é limitada de manutenção de nível inferior. Para obter mais informações, consulte [do Configuration Manager e simplificada manutenção do Windows em baixo nível de sistemas operativos](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
-6.  На странице "Расписание оценки" укажите, следует ли включить запуск правила автоматического развертывания по расписанию. После включения нажмите кнопку **Настроить** , чтобы задать регулярное расписание.  
+6.  Na página Agenda de Avaliação, especifique se pretende ativar a execução da ADR com base numa agenda. Se estiver ativada, clique em **Personalizar** para definir a agenda periódica.  
 
     > [!IMPORTANT]  
-    >  Будет показано расписание синхронизации точки обновления программного обеспечения, чтобы помочь определить частоту расписания оценки. Не следует устанавливать в расписании оценки частоту, превышающую частоту синхронизации обновлений ПО. Настройка времени запуска в расписании зависит от местного времени компьютера, на котором запущена консоль Configuration Manager.  
+    >  A agenda de sincronização do ponto de atualização de software é apresentada para ajudá-lo a determinar a frequência da agenda de avaliação. Nunca deverá definir uma agenda de avaliação com uma frequência que exceda a da agenda de sincronização de atualizações de software. A configuração da hora de início da agenda baseia-se na hora local do computador que executa a consola do Configuration Manager.  
 
     > [!NOTE]  
-    >  Можно вручную запустить правило автоматического развертывания. Для этого на вкладке **Главная** в группе **Правило автоматического развертывания** выберите правило и щелкните **Выполнить** . Перед тем как запускать правило автоматического развертывания вручную, убедитесь, что после предыдущего запуска правила была выполнена синхронизация обновлений ПО.  
+    >  Para executar manualmente a ADR, selecione a regra e, em seguida, clique em **Executar agora** no separador **Home Page** do grupo **Regra de Implementação Automática** . Antes de executar manualmente a ADR, certifique-se de que a sincronização de atualizações de software foi executada desde a última vez que executou a regra.  
 
     > [!IMPORTANT]  
-    >  Оценка правил автоматического развертывания может запускаться не чаще трех раз в день.  
+    >  A avaliação da ADR pode ser executada, no máximo, três vezes por dia.  
 
-7.  На странице "Расписание развертывания" настройте следующие параметры.  
+7.  Na página Agenda de Implementação, configure as seguintes definições:  
 
-    -   **Оценка расписания**: укажите, как Configuration Manager следует оценивать доступное время и время установки (с помощью времени в формате UTC или местного времени на компьютере, на котором работает консоль Configuration Manager).  
-
-        > [!NOTE]  
-        >  Если выбрать местное время, а затем **Как можно быстрее** для параметра **Доступное время программного обеспечения** или **Крайний срок установки**, текущее время на компьютере, где запущена консоль Configuration Manager, будет использоваться, чтобы узнать о доступности обновлений или их установке на клиенте. Если клиент находится в другом часовом поясе, эти действия произойдут, когда время клиента достигнет времени оценки.  
-
-    -   **Время доступности программного обеспечения**: выберите один из следующих параметров, чтобы указать, в какое время обновления программного обеспечения будут доступны клиентам:  
-
-        -   **Как можно скорее**: выберите этот параметр, чтобы обновления программного обеспечения становились доступными для развертывания на компьютерах клиентов как можно скорее. Если вы выбрали этот параметр при создании развертывания, то Configuration Manager обновляет клиентскую политику. Затем, при следующем цикле опроса клиентских политик, клиенты получают сведения о наличии развертывания и могут получить доступные для установки обновления.  
-
-        -   **Определенное время**: выберите этот параметр, чтобы обновления программного обеспечения становились доступными для развертывания на клиентах в определенный день и время. Если вы включили этот параметр при создании развертывания, то Configuration Manager обновляет клиентскую политику. Затем, при следующем цикле опроса клиентских политик, клиенты получают сведения о наличии развертывания. Однако обновления ПО в этом развертывании недоступны для установки на клиентах до наступления настроенного дня и времени.  
-
-    -   **Крайний срок установки**: выберите один из следующих параметров, чтобы указать крайний срок установки для обновлений программного обеспечения в развертывании.  
-
-        -   **Как можно скорее**: выберите этот параметр, чтобы автоматически устанавливать обновления программного обеспечения в развертывании как можно скорее.  
-
-        -   **В заданное время**: выберите этот параметр, чтобы автоматически устанавливать обновления программного обеспечения в развертывании в определенный день и время. Configuration Manager определяет крайний срок установки обновлений ПО путем добавления настроенного интервала **Конкретное время** к значению параметра **Время доступности программного обеспечения**.  
+    -   **Avaliação da agenda**: Especifique se o Configuration Manager avalia o tempo disponível e tempos de prazo de instalação utilizando a hora UTC ou na hora local do computador que executa a consola do Configuration Manager.  
 
         > [!NOTE]  
-        >  Фактический срок установки равен сумме отображаемого времени крайнего срока и произвольного отрезка времени длительностью до 2 часов. Это позволяет снизить нагрузку, которая возникла бы, если бы все клиентские компьютеры в коллекции назначения начали устанавливать обновления программного обеспечения одновременно.  
+        >  Quando selecionar a hora local e, em seguida, selecione **logo que possível** para o **hora de disponibilização do Software** ou **prazo de instalação**, a hora atual da execução de computador, a consola do Configuration Manager é utilizada para calcular quando estão disponíveis atualizações ou quando são instaladas num cliente. Se o cliente tiver um fuso horário diferente, estas ações irão ocorrer quando a hora do cliente corresponder à hora de avaliação.  
+
+    -   **Hora de disponibilização do software**: Selecione uma das seguintes definições para especificar quando as atualizações de software são disponibilizadas aos clientes:  
+
+        -   **Logo que possível**: Selecione esta definição para disponibilizar as atualizações de software que estão incluídas na implementação aos computadores cliente logo que possível. Quando criar a implementação com esta definição selecionada, o Configuration Manager atualiza a política de cliente. Em seguida, durante o ciclo seguinte de consulta da política de cliente, os clientes ficarão informados da implementação e poderão obter as atualizações que estiverem disponíveis para instalação.  
+
+        -   **Hora específica**: Selecione esta definição para disponibilizar as atualizações de software que estão incluídas na implementação aos computadores cliente numa hora e data específicas. Quando criar a implementação com esta definição ativada, o Configuration Manager atualiza a política de cliente. Em seguida, durante o ciclo de consulta seguinte da política de cliente, os clientes estarão informados da implementação. No entanto, as atualizações de software da implementação não ficarão disponíveis para instalação antes da data e hora configuradas.  
+
+    -   **Prazo de instalação**: Selecione uma das seguintes definições para especificar o prazo de instalação para as atualizações de software da implementação:  
+
+        -   **Logo que possível**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação logo que possível.  
+
+        -   **Hora específica**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação numa hora e data específicas. O Configuration Manager determina o prazo de instalação de atualizações de software adicionando configurada **hora específica** intervalo para o **hora de disponibilização do Software**.  
+
+        > [!NOTE]  
+        >  A hora real do prazo de instalação corresponde à hora apresentada acrescida de um período de tempo aleatório de até 2 horas. Desta forma, reduzirá o impacto potencial da instalação das atualizações de software da implementação ao mesmo tempo em todos os computadores cliente da coleção de destino.  
         >   
-        >  Можно настроить клиентский параметр **Агент компьютера** , присвоив ему значение **Запретить случайный выбор срока** , чтобы отключить случайный выбор срока задержки при установке обязательных обновлений ПО. Дополнительные сведения см. в статье [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
+        >  Pode configurar a definição de cliente **Agente do Computador** , **Desativar a aleatoriedade de prazos** para desativar o atraso de aleatoriedade da instalação para as atualizações de software necessárias. Para obter mais informações, veja [Agente do Computador](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-8. На странице "Взаимодействие с пользователем" настройте следующие параметры.  
+8. Na página Experiência de Utilizador, configure as seguintes definições:  
 
-    -   **Уведомления пользователя**: укажите, следует ли отображать обновления программного обеспечения в центре программного обеспечения на клиентских компьютерах в настроенное **время доступности программного обеспечения** , а также следует ли отображать на клиентских компьютерах уведомления для пользователей.  
+    -   **As notificações de utilizador**: Especifique se pretende apresentar a notificação de atualizações de software no Centro de Software no computador cliente à configurada **hora de disponibilização do Software** e se pretende apresentar as notificações de utilizador nos computadores cliente.  
 
-    -   **Действие при достижении крайнего срока**: укажите, что должно происходить при достижении крайнего срока развертывания обновлений программного обеспечения. Укажите, следует ли устанавливать обновления программного обеспечения в развертывании. Также укажите, следует ли выполнять перезапуск системы после установки обновлений программного обеспечения, независимо от настроенного периода обслуживания. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportamento do prazo**: Especifique o comportamento a adotar quando é atingido o prazo para a implementação de atualização de software. Especifique se pretende instalar as atualizações de software da implementação. Especifique também se pretende reiniciar o sistema após a instalação da atualização de software, independentemente de uma janela de manutenção configurada. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Действие при перезапуске устройства**: укажите, следует ли блокировать перезапуск систем на серверах и рабочих станциях после установки обновлений программного обеспечения, для завершения установки которых требуется перезапуск.  
+    -   **Comportamento de reinício do dispositivo**: Especifique se pretende suprimir um reinício do sistema em servidores e estações de trabalho após as atualizações de software estão instaladas e reiniciar o sistema é necessário para concluir a instalação.  
 
         > [!IMPORTANT]  
-        >  Блокирование перезагрузки системы может быть полезно в серверных средах или в случаях, если не нужно, чтобы компьютеры, на которые устанавливаются обновления ПО, перезагружались по умолчанию. Однако выполнение этого действия может перевести компьютеры в небезопасное состояние, в то время как разрешение принудительного перезапуска позволяет гарантировать незамедлительное завершение установки обновлений программного обеспечения.  
+        >  A supressão dos reinícios de sistema pode ser útil em ambientes de servidor ou em casos em que não pretenda que os computadores que instalam as atualizações de software sejam reiniciados por predefinição. No entanto, este método pode deixar os computadores num estado não seguro, enquanto que um reinício forçado ajudará a assegurar a conclusão imediata da instalação da atualização de software.  
 
-    -   **Обработка фильтра записи для устройств Windows Embedded**: при развертывании обновлений программного обеспечения на устройствах под управлением Windows Embedded, на которых включены фильтры записи, можно указать необходимость установки обновлений во временный оверлей, а изменения применить позже или же сделать это при наступлении крайнего срока установки или в течение периода обслуживания. При фиксации изменений по наступлении крайнего срока установки или в течение периода обслуживания требуется перезагрузка, и изменения сохраняются на устройстве.  
+    -   **Para dispositivos Windows Embedded de processamento do filtro de escrita**: Quando implementa atualizações de software em dispositivos Windows Embedded que tenham o filtro de escrita ativado, pode especificar a instalar a atualização de software na sobreposição temporária e ou confirmar as alterações mais tarde ou por confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
 
         > [!NOTE]  
-        >  При развертывании обновления программного обеспечения на устройство Windows Embedded убедитесь, что устройство входит в коллекцию, для которой настроено окно обслуживания.  
+        >  Ao implementar uma atualização de software num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada.  
 
-    - **Поведение цикла повторной оценки для развертывания обновлений ПО после перезапуска**. Начиная с версии Configuration Manager 1606 выберите этот параметр, чтобы клиенты выполняли проверку соответствия обновлений ПО сразу после установки обновлений ПО и перезапуска. Это позволяет клиенту выполнить проверку наличия дополнительных обновлений программного обеспечения, которые стали применимыми после перезагрузки клиента, и которые также можно установить (и обеспечить соответствие) в тот же период обслуживания.
+    - **Comportamento de reavaliação de implementação após o reinício de atualizações de software**: A partir do Configuration Manager versão 1606, selecione esta definição para configurar as implementações de atualizações de software para que os clientes executem uma análise de compatibilidade de atualizações de software imediatamente após um cliente instalar o software, atualizações e reinicia. Isto permite ao cliente verificar a existência de atualizações de software adicionais que se tornam aplicáveis após o cliente ser reiniciado e, em seguida, instalá-las (e ficam em conformidade) durante a mesma janela de manutenção.
 
-9. На странице "Оповещения" укажите, каким образом Configuration Manager и System Center Operations Manager будут создавать оповещения для этого развертывания.  
-
-    > [!NOTE]  
-    >  Можно просмотреть недавние предупреждения об обновлениях в узле **Обновления программного обеспечения** рабочей области **Библиотека программного обеспечения** .  
-
-10. На странице "Параметры загрузки" настройте следующие параметры.  
-
-    - Если клиент подключен к медленной сети или использует резервное расположение содержимого, укажите, следует ли клиенту загружать и устанавливать обновления ПО.  
-
-    - Укажите, следует ли клиенту загружать и устанавливать обновления программного обеспечения с резервной точки распространения, когда содержимое для обновлений программного обеспечения недоступно на предпочитаемой точке распространения.  
-
-    - **Разрешить клиентам использовать содержимое совместно с другими клиентами из той же подсети**: укажите, следует ли включить BranchCache для загрузки содержимого. Дополнительные сведения о BranchCache см. в статье [Концепции управления содержимым](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
-
-    - **Если обновления программного обеспечения недоступны в точке распространения в текущем или соседнем узле либо узле группы, скачайте содержимое из Центра обновления Майкрософт**. Выберите этот параметр, чтобы скачать на клиенты, которые не подключены к интрасети, обновления программного обеспечения из центра обновления Майкрософт, если эти обновления недоступны в точках распространения. Клиенты, подключенные к Интернету, всегда могут обратится к Центру обновления Майкрософт, чтобы получить содержимое обновлений программного обеспечения.
-
-    - Укажите, следует ли разрешать клиентам загрузку после наступления крайнего срока установки, если клиенты используют интернет-соединения с поддержкой учета трафика. Иногда поставщики интернет-услуг взимают плату по объему передаваемых данных, если вы используете лимитное подключение к Интернету.  
+9. Na página alertas, configure o Configuration Manager e o System Center Operations Manager gerarão alertas para esta implementação.  
 
     > [!NOTE]  
-    >  Клиенты запрашивают расположение содержимого для обновлений программного обеспечения в развертывании у точки управления. Режим работы в ходе загрузки изменяется в зависимости от настройки точки распространения, пакета развертывания и параметров на этой странице. Дополнительные сведения см. в статье [Сценарии расположения источника содержимого](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+    >  Pode rever os alertas de atualizações de software recentes a partir do nó **Atualizações de Software** da área de trabalho **Biblioteca de Software** .  
 
-11. На странице "Пакет развертывания" выберите существующий пакет развертывания или настройте следующие параметры, чтобы создать новый пакет развертывания.  
+10. Na página Definições de Transferência, configure as seguintes definições:  
 
-    1.  **Имя**: укажите имя пакета развертывания. Это имя должно быть уникальным и служить для описания содержимого пакета. Его длина ограничена 50 символами.  
+    - Especifique se o cliente irá transferir e instalar as atualizações de software quando estiver ligado a uma rede lenta ou estiver a utilizar uma localização de conteúdos de contingência.  
 
-    2.  **Описание**: укажите описание, содержащее сведения о пакете развертывания. Его длина ограничена 127 символами.  
+    - Especifique se pretende que o cliente transfira e instale as atualizações de software a partir de um ponto de distribuição de contingência quando o conteúdo das atualizações de software não estiver disponível num ponto de distribuição preferencial.  
 
-    3.  **Исходные файлы пакета**: расположение исходных файлов обновления программного обеспечения.  Необходимо ввести сетевой путь к расположению источника, например **\\\сервер\имя_общей_папки\путь**, или нажать кнопку **Обзор**, чтобы найти сетевое расположение. Перед переходом на следующую страницу необходимо создать общую папку для исходных файлов пакета развертывания.  
+    - **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Especifique se pretende ativar a utilização do BranchCache para as transferências de conteúdos. Para obter mais informações sobre o BranchCache, veja [Conceitos para a gestão de conteúdos](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+
+    - **Se as atualizações de software não estão disponíveis no ponto de distribuição na atual, vizinho ou site grupos, transferir conteúdo do Microsoft Updates**: Selecione esta definição para que os clientes que estão ligados as intranet transferir as atualizações de software do Microsoft Update caso as atualizações de software não estejam disponíveis nos pontos de distribuição. Os clientes baseados na Internet podem sempre aceder ao Microsoft Update para o conteúdo de atualizações de software.
+
+    - Especifique se pretende permitir que os clientes efetuem a transferência após um prazo de instalação se estiverem a utilizar ligações à Internet com tráfego limitado. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
+
+    > [!NOTE]  
+    >  Os clientes solicitam a localização de conteúdo a partir de um ponto de gestão para as atualizações de software de uma implementação. O comportamento de transferência dependerá da forma como tiver configurado o ponto de distribuição, o pacote de implementação e as definições desta página. Para obter mais informações, veja [Cenários de localização da origem de conteúdo](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+
+11. Na página Pacote de Implementação, selecione um pacote de implementação existente ou configure as seguintes definições para criar um novo pacote de implementação:  
+
+    1.  **Nome**: Especifique o nome do pacote de implementação. Tem de ser um nome exclusivo que descreva o conteúdo do pacote. Está limitado a 50 carateres.  
+
+    2.  **Descrição**: Especifique uma descrição que disponibilize informações sobre o pacote de implementação. A descrição está limitada a 127 caracteres.  
+
+    3.  **Origem do pacote**: Especifica a localização dos ficheiros de origem de atualização de software.  Escreva um caminho de rede para a localização de origem, como, por exemplo, **\\\server\sharename\path**ou clique em **Procurar** para procurar a localização de rede. Antes de continuar para a página seguinte, terá de criar a pasta partilhada para os ficheiros de origem do pacote de implementação.  
 
         > [!NOTE]  
-        >  Указанное расположение исходных файлов пакета развертывания не может быть использовано другим пакетом развертывания.  
+        >  A localização de origem do pacote de implementação que especificar não poderá ser utilizada por outro pacote de implementação de software.  
 
         > [!IMPORTANT]  
-        >  Учетной записи компьютера поставщика SMS и пользователю, работающему с мастером загрузки обновлений программного обеспечения, требуются разрешения NTFS на **Запись** для расположения загрузки. Необходимо тщательно ограничить доступ к расположению загрузки, чтобы снизить риск подмены злоумышленниками исходных файлов обновлений ПО.  
+        >  Tanto a conta de computador do Fornecedor de SMS, como o utilizador que executar o assistente para transferir as atualizações de software, têm de ter permissões NTFS de **Escrita** na localização de transferência. Deverá restringir cuidadosamente o acesso à localização de transferência para reduzir o risco de adulteração dos ficheiros de origem de atualização de software por parte de atacantes.  
 
         > [!IMPORTANT]  
-        >  Местоположение источника пакета можно изменить в свойствах пакета развертывания после того, как Configuration Manager создаст пакет развертывания. Однако в этом случае необходимо сначала скопировать содержимое из исходного местоположения оригинального пакета в новое местоположение источника пакета.  
+        >  Pode alterar a localização de origem do pacote nas propriedades do pacote de implementação, após o Configuration Manager cria o pacote de implementação. Mas se o fizer, terá primeiro de copiar o conteúdo da origem inicial do pacote para a nova localização de origem do pacote.  
 
-    4.  **Приоритет передачи**: укажите приоритет передачи для пакета развертывания. Configuration Manager использует приоритет передачи для пакета развертывания при его передаче в точки распространения. Передача пакетов развертывания осуществляется в порядке приоритета: "Высокий", "Средний" и "Низкий". Пакеты с одинаковым приоритетом передаются в том порядке, в котором они были созданы. Если очередь пакетов отсутствует, обработка пакета выполняется незамедлительно, причем независимо от уровня приоритета.  
+    4.  **Prioridade de envio**: Especifique a prioridade de envio para o pacote de implementação. O Configuration Manager utiliza a prioridade de envio para o pacote de implementação quando enviar o pacote para pontos de distribuição. Pacotes de implementação são enviados por ordem de prioridade: Alta, média ou baixa. Os pacotes com prioridades idênticas são enviados pela ordem em que foram criados. Se não existirem tarefas pendentes, o pacote será processado de imediato, independentemente da sua prioridade.  
 
-12. На странице "Точки распространения" укажите точки распространения или группы точек распространения для размещения файлов обновления программного обеспечения. Дополнительные сведения о точках распространения см. в разделе [Distribution point configurations](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
-
-    > [!NOTE]  
-    >  Этот страница доступна только при создании нового пакета развертывания обновлений программного обеспечения.  
-
-13. На странице "Расположение загрузки" укажите, следует ли загружать файлы обновления программного обеспечения из Интернета или из локальной сети. Настройте следующие параметры.  
-
-    -   **Загружать обновления программного обеспечения из Интернета**: выберите этот параметр, чтобы загружать обновления программного обеспечения из заданного расположения в Интернете. Этот параметр выбран по умолчанию.  
-
-    -   **Загружать обновления программного обеспечения из расположения в локальной сети**: выберите этот параметр, чтобы загружать обновления программного обеспечения из локальной папки или общей папки. Выберите этот параметр, если компьютер, на котором выполняется мастер, не имеет доступа к Интернету. Используя любой компьютер, подключенный к Интернету, можно загрузить обновления ПО и сохранить их в папке в локальной сети, доступной для компьютера, на котором запущен мастер.  
-
-14. На странице "Выбор языка" выберите языки, для которых следует загрузить выбранные обновления программного обеспечения. Обновления программного обеспечения загружаются только в том случае, если они доступны на выбранных языках. Обновления программного обеспечения, не зависящие от языка, загружаются в любом случае. По умолчанию мастер выбирает языки, настроенные вами в свойствах точки обновления программного обеспечения. Перед переходом к следующей странице необходимо выбрать по крайней мере один язык. Если ни один из выбранных языков не поддерживается данным обновлением, это обновление не будет загружено.  
-
-15. На странице "Сводка" проверьте параметры. Чтобы сохранить параметры в шаблон развертывания, нажмите кнопку **Сохранить как шаблон**, введите имя и выберите параметры, которые нужно включить в шаблон, а затем нажмите кнопку **Сохранить**. Чтобы изменить настроенный параметр, щелкните соответствующую страницу мастера и измените параметр.  
+12. Na página Pontos de Distribuição, especifique os pontos de distribuição ou grupos de pontos de distribuição que irão alojar os ficheiros de atualização de software. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
 
     > [!NOTE]  
-    >  Шаблон имени может состоять из буквенно-цифровых символов ASCII, а также из **\\** (косая черта влево) или **‘** (одиночные кавычки).  
+    >  Esta página apenas está disponível ao criar um novo pacote de implementação da atualização de software.  
 
-16. Нажмите кнопку **Далее** , чтобы создать правило автоматического развертывания.  
+13. Na página Localização de Transferência, especifique se pretende transferir os ficheiros de atualização de software a partir da Internet ou da rede local. Configure as seguintes definições:  
 
- После завершения работы мастера запускается правило автоматического развертывания. Оно добавляет обновления ПО, удовлетворяющие указанным критериям, в группу обновлений ПО, загружает обновления ПО в библиотеку на сервере сайта, распространяет обновления ПО среди настроенных точек распространения, а затем развертывает группу обновлений ПО на клиенты в целевой коллекции.  
+    -   **Transferir atualizações de software a partir da Internet**: Selecione esta definição para transferir as atualizações de software a partir de uma localização especificada na Internet. Esta definição está ativada por predefinição.  
 
-##  <a name="BKMK_AddDeploymentToADR"></a> Добавление нового развертывания в существующее правило автоматического развертывания  
- После создания правила автоматического развертывания к нему можно добавить дополнительные развертывания. Это позволяет управлять сложным процессом развертывания различных обновлений для разных коллекций. Каждое новое развертывание имеет полный набор функций и средств мониторинга развертывания.  
+    -   **Transferir atualizações de software a partir de uma localização na rede local**: Selecione esta definição para transferir as atualizações de software a partir de um diretório local ou uma pasta partilhada. Esta definição é útil se o computador que executa o assistente não tiver acesso à Internet. Qualquer computador que disponha de acesso à Internet poderá transferir provisoriamente as atualizações de software e guardá-las numa localização da rede local que esteja acessível ao computador que executa o assistente.  
 
-#### <a name="to-add-a-new-deployment-to-an-existing-adr"></a>Добавление нового развертывания в существующее правило автоматического развертывания  
+14. Na página Seleção de Idioma, selecione os idiomas para os quais serão transferidas as atualizações de software selecionadas. As atualizações de software apenas são transferidas se estiverem disponíveis nos idiomas selecionados. As atualizações de software que não sejam específicas do idioma serão sempre transferidas. Por predefinição, o assistente seleciona os idiomas que tiver configurado nas propriedades do ponto de atualização de software. Terá de estar selecionado pelo menos um idioma para que possa prosseguir para a página seguinte. Se selecionar apenas idiomas que não sejam suportados por uma atualização de software, a transferência da atualização de software não será concluída com êxito.  
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Обзор** > **Обновления программного обеспечения** > **Правила автоматического развертывания**, а затем выберите нужное правило.  
+15. Reveja as definições na página Resumo. Para guardar as definições num modelo de implementação, clique em **Guardar Como Modelo**, introduza um nome, selecione as definições que pretende incluir no modelo e, em seguida, clique em **Guardar**. Para alterar uma definição configurada, clique na página do assistente associada e altere a definição.  
 
-2.  На вкладке **Главная** в группе **Правило автоматического развертывания** щелкните **Добавить развертывание**. Открывается мастер добавления развертывания.  
+    > [!NOTE]  
+    >  O nome do modelo pode incluir carateres ASCII alfanuméricos, bem como **\\** (barra invertida) ou **‘** (plica).  
 
-3.  На странице **Коллекция** настройте следующие параметры:  
+16. Clique em **Seguinte** para criar a ADR.  
 
-    -   **Коллекция**: указывает коллекцию целевых объектов для развертывания. Члены коллекции получают обновления программного обеспечения, заданные в развертывании.  
+ Depois de concluir o assistente, a ADR será executada. Esta irá adicionar as atualizações de software que cumpram os critérios especificados a um grupo de atualização de software, transferir as atualizações de software para a biblioteca de conteúdos do servidor do site, distribuir as atualizações de software aos pontos de distribuição configurados e, em seguida, implementar o grupo de atualização de software nos clientes da coleção de destino.  
 
-    -   **Активировать развертывание после выполнения этого правила**: укажите, следует ли включить развертывание обновления после выполнения правила автоматического развертывания. О данной спецификации учтите следующее:  
+##  <a name="BKMK_AddDeploymentToADR"></a> Adicionar uma nova implementação a uma ADR existente  
+ Depois de criar uma ADR, pode adicionar mais implementações à regra. Isto pode ajudá-lo a gerir a complexidade da implementação de diferentes atualizações em diferentes coleções. Cada nova implementação tem acesso a todas as funcionalidades e à experiência de monitorização da implementação.  
 
-        -   При включении развертывания те обновления ПО, которые соответствуют заданным в правиле условиям, добавляются в группу обновлений; содержимое обновлений загружается (если оно еще не загружено) и копируется в точки распространения, а затем обновления развертываются на клиентских устройствах в коллекции целевых объектов.  
+#### <a name="to-add-a-new-deployment-to-an-existing-adr"></a>Para adicionar uma nova implementação a uma ADR existente  
 
-        -   Если развертывание не включено, то все обновления ПО, удовлетворяющие определенному в правиле критерию, добавляются в группу обновления ПО. Кроме того, производится настройка политики развертывания обновлений ПО, однако обновления ПО не загружаются и не развертываются на клиентах. Это дает возможность подготовиться к развертыванию обновлений ПО, проверить применимость обновлений, соответствующих условиям, а затем включать развертывание позднее.  
+1.  Na consola do Configuration Manager, navegue até à **biblioteca de Software** > **descrição geral** > **atualizações de Software** > **regras de implementação automática**e, em seguida, selecione a regra pretendida.  
 
-4.  На странице "Параметры развертывания" настройте следующие параметры.  
+2.  No separador **Home Page** , no grupo **Regra de Implementação Automática** , clique em **Adicionar Implementação**. O Assistente para Adicionar Implementação abre.  
 
-    -   **Использовать пробуждение по локальной сети, чтобы пробуждать клиенты для обязательного развертывания**: указывает, следует ли использовать режим пробуждения по локальной сети к крайнему сроку, чтобы отправлять пакеты пробуждения на компьютеры, для которых требуется одно или несколько обновлений программного обеспечения из данного развертывания. Любые компьютеры, находящиеся в спящем режиме на момент окончания крайнего срока установки, будут выведены из спящего режима, чтобы могла начаться установка программных обновлений. Если находящимся в спящем режиме клиентам не требуются никакие обновления программного обеспечения в ходе развертывания, то эти клиенты не запускаются. По умолчанию этот параметр отключен.  
+3.  Na página **Coleção** , configure as seguintes definições:  
+
+    -   **Coleção**: Especifica a coleção de destino a ser utilizado para a implementação. Os membros da coleção recebem as atualizações de software definidas na implementação.  
+
+    -   **Ativar a implementação após a execução desta regra**: Especifique se pretende ativar a implementação de atualização de software após a execução da ADR. Relativamente a esta especificação deverá ter em conta os seguintes aspetos:  
+
+        -   Quando ativar a implementação, as atualizações de software que cumpram os critérios definidos na regra são adicionadas a um grupo de atualização de software, os conteúdos de atualização de software são transferidos, se necessário, os conteúdos são copiados para os pontos de distribuição especificados e as atualizações de software são implementadas nos clientes da coleção de destino.  
+
+        -   Se não ativar a implementação, as atualizações de software que cumpram os critérios definidos na regra são adicionadas a um grupo de atualização de software e a política de implementação de atualizações de software é configurada, mas as atualizações de software não são transferidas ou implementadas nos clientes. Esta situação disponibiliza o tempo necessário à preparação da implementação das atualizações de software, à confirmação de que as atualizações de software que cumprem os critérios são adequadas e, posteriormente, à ativação da implementação para um momento futuro.  
+
+4.  Na página Definições de Implementação, configure as seguintes definições:  
+
+    -   **Utilizar a reativação por LAN para reativar os clientes para as implementações necessárias**: Especifica se pretende ativar a reativação por LAN na data limite para o envio de pacotes de reativação para computadores que necessitem de uma ou mais atualizações de software na implementação. Todos os computadores que se encontrem em modo de suspensão durante o prazo previsto para a instalação serão reativados para que a instalação da atualização de software possa ser iniciada. Os clientes que se encontrem no modo de suspensão e que não necessitem de quaisquer atualizações de software no âmbito da implementação não serão iniciados. Por predefinição, esta definição não está ativada.  
 
         > [!WARNING]  
-        >  Для использования этой функции необходимо включить поддержку пробуждения по локальной сети на компьютерах и в сетях.  
+        >  Para poder utilizar esta opção, necessita de configurar os computadores e as redes para a Reativação por LAN.  
 
-    -   **Уровень детализации**: выберите уровень детализации для сообщений о состоянии, передаваемых клиентскими компьютерами.  
+    -   **Nível de detalhe**: Especifique o nível de detalhe para as mensagens de estado que são enviadas pelos computadores cliente.  
 
         > [!IMPORTANT]  
-        >  Когда вы развертываете обновления для определений, установите уровень подробности отчетов **Только ошибки** , чтобы клиенты передавали только свои сообщения о состоянии в том случае, если обновление определений не удалось доставить клиенту. В противном случае клиенты будут передавать большое количество сообщений о состоянии, что может негативно повлиять на производительность сервера сайта.  
+        >  Ao implementar atualizações de definições, defina o nível de detalhe como **Apenas erros** para que o cliente apenas envie uma mensagem de estado quando não for possível entregar uma atualização de definições ao cliente. Caso contrário, o cliente enviará um elevado número de mensagens de estado, o que poderá afetar o desempenho do servidor do site.  
 
-5.  На странице "Расписание развертывания" настройте следующие параметры.  
+5.  Na página Agenda de Implementação, configure as seguintes definições:  
 
-    -   **Оценка расписания**: укажите, как Configuration Manager следует оценивать доступное время и время установки (с помощью времени в формате UTC или местного времени на компьютере, на котором работает консоль Configuration Manager).  
-
-        > [!NOTE]  
-        >  Если выбрать местное время, а затем **Как можно быстрее** для параметра **Доступное время программного обеспечения** или **Крайний срок установки**, текущее время на компьютере, где запущена консоль Configuration Manager, будет использоваться, чтобы узнать о доступности обновлений или их установке на клиенте. Если клиент находится в другом часовом поясе, эти действия произойдут, когда время клиента достигнет времени оценки.  
-
-    -   **Время доступности программного обеспечения**: выберите один из следующих параметров, чтобы указать, в какое время обновления программного обеспечения будут доступны клиентам:  
-
-        -   **Как можно скорее**: выберите этот параметр, чтобы обновления программного обеспечения становились доступными для развертывания на компьютерах клиентов как можно скорее. Если вы выбрали этот параметр при создании развертывания, то Configuration Manager обновляет клиентскую политику. Затем, при следующем цикле опроса клиентских политик, клиенты получают сведения о наличии развертывания и могут получить доступные для установки обновления.  
-
-        -   **Определенное время**: выберите этот параметр, чтобы обновления программного обеспечения становились доступными для развертывания на клиентах в определенный день и время. Если вы включили этот параметр при создании развертывания, то Configuration Manager обновляет клиентскую политику. Затем, при следующем цикле опроса клиентских политик, клиенты получают сведения о наличии развертывания. Однако обновления ПО в этом развертывании недоступны для установки на клиентах до наступления настроенного дня и времени.  
-
-    -   **Крайний срок установки**: выберите один из следующих параметров, чтобы указать крайний срок установки для обновлений программного обеспечения в развертывании.  
-
-        -   **Как можно скорее**: выберите этот параметр, чтобы автоматически устанавливать обновления программного обеспечения в развертывании как можно скорее.  
-
-        -   **В заданное время**: выберите этот параметр, чтобы автоматически устанавливать обновления программного обеспечения в развертывании в определенный день и время. Configuration Manager определяет крайний срок установки обновлений ПО путем добавления настроенного интервала **Конкретное время** к значению параметра **Время доступности программного обеспечения**.  
+    -   **Avaliação da agenda**: Especifique se o Configuration Manager avalia o tempo disponível e tempos de prazo de instalação utilizando a hora UTC ou na hora local do computador que executa a consola do Configuration Manager.  
 
         > [!NOTE]  
-        >  Фактический срок установки равен сумме отображаемого времени крайнего срока и произвольного отрезка времени длительностью до 2 часов. Это позволяет снизить нагрузку, которая возникла бы, если бы все клиентские компьютеры в коллекции назначения начали устанавливать обновления программного обеспечения одновременно.  
+        >  Quando selecionar a hora local e, em seguida, selecione **logo que possível** para o **hora de disponibilização do Software** ou **prazo de instalação**, a hora atual da execução de computador, a consola do Configuration Manager é utilizada para calcular quando estão disponíveis atualizações ou quando são instaladas num cliente. Se o cliente tiver um fuso horário diferente, estas ações irão ocorrer quando a hora do cliente corresponder à hora de avaliação.  
+
+    -   **Hora de disponibilização do software**: Selecione uma das seguintes definições para especificar quando as atualizações de software são disponibilizadas aos clientes:  
+
+        -   **Logo que possível**: Selecione esta definição para disponibilizar as atualizações de software que estão incluídas na implementação aos computadores cliente logo que possível. Quando criar a implementação com esta definição selecionada, o Configuration Manager atualiza a política de cliente. Em seguida, durante o ciclo seguinte de consulta da política de cliente, os clientes ficarão informados da implementação e poderão obter as atualizações que estiverem disponíveis para instalação.  
+
+        -   **Hora específica**: Selecione esta definição para disponibilizar as atualizações de software que estão incluídas na implementação aos computadores cliente numa hora e data específicas. Quando criar a implementação com esta definição ativada, o Configuration Manager atualiza a política de cliente. Em seguida, durante o ciclo de consulta seguinte da política de cliente, os clientes estarão informados da implementação. No entanto, as atualizações de software da implementação não ficarão disponíveis para instalação antes da data e hora configuradas.  
+
+    -   **Prazo de instalação**: Selecione uma das seguintes definições para especificar o prazo de instalação para as atualizações de software da implementação:  
+
+        -   **Logo que possível**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação logo que possível.  
+
+        -   **Hora específica**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação numa hora e data específicas. O Configuration Manager determina o prazo de instalação de atualizações de software adicionando configurada **hora específica** intervalo para o **hora de disponibilização do Software**.  
+
+        > [!NOTE]  
+        >  A hora real do prazo de instalação corresponde à hora apresentada acrescida de um período de tempo aleatório de até 2 horas. Desta forma, reduzirá o impacto potencial da instalação das atualizações de software da implementação ao mesmo tempo em todos os computadores cliente da coleção de destino.  
         >   
-        >  Можно настроить клиентский параметр **Агент компьютера** , присвоив ему значение **Запретить случайный выбор срока** , чтобы отключить случайный выбор срока задержки при установке обязательных обновлений ПО. Дополнительные сведения см. в статье [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
+        >  Pode configurar a definição de cliente **Agente do Computador** , **Desativar a aleatoriedade de prazos** para desativar o atraso de aleatoriedade da instalação para as atualizações de software necessárias. Para obter mais informações, veja [Agente do Computador](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-6.  На странице "Взаимодействие с пользователем" настройте следующие параметры.  
+6.  Na página Experiência de Utilizador, configure as seguintes definições:  
 
-    -   **Уведомления пользователя**: укажите, следует ли отображать обновления программного обеспечения в центре программного обеспечения на клиентских компьютерах в настроенное **время доступности программного обеспечения** , а также следует ли отображать на клиентских компьютерах уведомления для пользователей.  
+    -   **As notificações de utilizador**: Especifique se pretende apresentar a notificação de atualizações de software no Centro de Software no computador cliente à configurada **hora de disponibilização do Software** e se pretende apresentar as notificações de utilizador nos computadores cliente.  
 
-    -   **Действие при достижении крайнего срока**: укажите, что должно происходить при достижении крайнего срока развертывания обновлений программного обеспечения. Укажите, следует ли устанавливать обновления программного обеспечения в развертывании. Также укажите, следует ли выполнять перезапуск системы после установки обновлений программного обеспечения, независимо от настроенного периода обслуживания. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportamento do prazo**: Especifique o comportamento a adotar quando é atingido o prazo para a implementação de atualização de software. Especifique se pretende instalar as atualizações de software da implementação. Especifique também se pretende reiniciar o sistema após a instalação da atualização de software, independentemente de uma janela de manutenção configurada. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Действие при перезапуске устройства**: укажите, следует ли блокировать перезапуск систем на серверах и рабочих станциях после установки обновлений программного обеспечения, для завершения установки которых требуется перезапуск.  
+    -   **Comportamento de reinício do dispositivo**: Especifique se pretende suprimir um reinício do sistema em servidores e estações de trabalho após as atualizações de software estão instaladas e reiniciar o sistema é necessário para concluir a instalação.  
 
         > [!IMPORTANT]  
-        >  Блокирование перезагрузки системы может быть полезно в серверных средах или в случаях, если не нужно, чтобы компьютеры, на которые устанавливаются обновления ПО, перезагружались по умолчанию. Однако выполнение этого действия может перевести компьютеры в небезопасное состояние, в то время как разрешение принудительного перезапуска позволяет гарантировать незамедлительное завершение установки обновлений программного обеспечения.  
+        >  A supressão dos reinícios de sistema pode ser útil em ambientes de servidor ou em casos em que não pretenda que os computadores que instalam as atualizações de software sejam reiniciados por predefinição. No entanto, este método pode deixar os computadores num estado não seguro, enquanto que um reinício forçado ajudará a assegurar a conclusão imediata da instalação da atualização de software.  
 
-    -   **Обработка фильтра записи для устройств Windows Embedded**: при развертывании обновлений программного обеспечения на устройствах под управлением Windows Embedded, на которых включены фильтры записи, можно указать необходимость установки обновлений во временный оверлей, а изменения применить позже или же сделать это при наступлении крайнего срока установки или в течение периода обслуживания. При фиксации изменений по наступлении крайнего срока установки или в течение периода обслуживания требуется перезагрузка, и изменения сохраняются на устройстве.  
+    -   **Para dispositivos Windows Embedded de processamento do filtro de escrita**: Quando implementa atualizações de software em dispositivos Windows Embedded que tenham o filtro de escrita ativado, pode especificar a instalar a atualização de software na sobreposição temporária e ou confirmar as alterações mais tarde ou por confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
 
         > [!NOTE]  
-        >  При развертывании обновления программного обеспечения на устройство Windows Embedded убедитесь, что устройство входит в коллекцию, для которой настроено окно обслуживания.  
+        >  Ao implementar uma atualização de software num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada.  
 
-7.  На странице "Оповещения" укажите, каким образом Configuration Manager и System Center Operations Manager будут создавать оповещения для этого развертывания.  
+7.  Na página alertas, configure o Configuration Manager e o System Center Operations Manager gerarão alertas para esta implementação.  
 
     > [!WARNING]  
-    >  Можно просмотреть недавние предупреждения об обновлениях в узле **Обновления программного обеспечения** рабочей области **Библиотека программного обеспечения** .  
+    >  Pode rever os alertas de atualizações de software recentes a partir do nó **Atualizações de Software** da área de trabalho **Biblioteca de Software** .  
 
-8. На странице "Параметры загрузки" настройте следующие параметры.  
+8. Na página Definições de Transferência, configure as seguintes definições:  
 
-    - Если клиент подключен к медленной сети или использует резервное расположение содержимого, укажите, следует ли клиенту загружать и устанавливать обновления ПО.  
+    - Especifique se o cliente irá transferir e instalar as atualizações de software quando estiver ligado a uma rede lenta ou estiver a utilizar uma localização de conteúdos de contingência.  
 
-    - Укажите, следует ли клиенту загружать и устанавливать обновления программного обеспечения с резервной точки распространения, когда содержимое для обновлений программного обеспечения недоступно на предпочитаемой точке распространения.  
+    - Especifique se pretende que o cliente transfira e instale as atualizações de software a partir de um ponto de distribuição de contingência quando o conteúdo das atualizações de software não estiver disponível num ponto de distribuição preferencial.  
 
-    - **Разрешить клиентам использовать содержимое совместно с другими клиентами из той же подсети**: укажите, следует ли включить BranchCache для загрузки содержимого. Дополнительные сведения о BranchCache см. в статье [Концепции управления содержимым](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    - **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Especifique se pretende ativar a utilização do BranchCache para as transferências de conteúdos. Para obter mais informações sobre o BranchCache, veja [Conceitos para a gestão de conteúdos](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
-    - **Если обновления программного обеспечения недоступны в точке распространения в текущем или соседнем узле либо узле группы, скачайте содержимое из Центра обновления Майкрософт**. Выберите этот параметр, чтобы скачать на клиенты, которые не подключены к интрасети, обновления программного обеспечения из центра обновления Майкрософт, если эти обновления недоступны в точках распространения. Клиенты, подключенные к Интернету, всегда могут обратится к Центру обновления Майкрософт, чтобы получить содержимое обновлений программного обеспечения.
+    - **Se as atualizações de software não estão disponíveis no ponto de distribuição na atual, vizinho ou site grupos, transferir conteúdo do Microsoft Updates**: Selecione esta definição para que os clientes que estão ligados as intranet transferir as atualizações de software do Microsoft Update caso as atualizações de software não estejam disponíveis nos pontos de distribuição. Os clientes baseados na Internet podem sempre aceder ao Microsoft Update para o conteúdo de atualizações de software.
 
-    - Укажите, следует ли разрешать клиентам загрузку после наступления крайнего срока установки, если клиенты используют интернет-соединения с поддержкой учета трафика. Иногда поставщики интернет-услуг взимают плату по объему передаваемых данных, если вы используете лимитное подключение к Интернету.  
+    - Especifique se pretende permitir que os clientes efetuem a transferência após um prazo de instalação se estiverem a utilizar ligações à Internet com tráfego limitado. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
 
     > [!NOTE]  
-    > Клиенты запрашивают расположение содержимого для обновлений программного обеспечения в развертывании у точки управления. Режим работы в ходе загрузки изменяется в зависимости от настройки точки распространения, пакета развертывания и параметров на этой странице. Дополнительные сведения см. в статье [Сценарии расположения источника содержимого](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+    > Os clientes solicitam a localização de conteúdo a partir de um ponto de gestão para as atualizações de software de uma implementação. O comportamento de transferência dependerá da forma como tiver configurado o ponto de distribuição, o pacote de implementação e as definições desta página. Para obter mais informações, veja [Cenários de localização da origem de conteúdo](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
 
-Дополнительные сведения о процессе развертывания см. в статье [Процесс развертывания обновлений программного обеспечения](../../sum/understand/software-updates-introduction.md#BKMK_DeploymentProcess).
+Para obter mais informações sobre o processo de implementação, veja [Processo de implementação de atualizações de software](../../sum/understand/software-updates-introduction.md#BKMK_DeploymentProcess).
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Мониторинг обновлений программного обеспечения](monitor-software-updates.md)
+## <a name="next-steps"></a>Passos seguintes
+[Monitorizar atualizações de software](monitor-software-updates.md)

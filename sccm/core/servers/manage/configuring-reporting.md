@@ -1,6 +1,6 @@
 ---
-title: "Настройка отчетов | Документы Майкрософт"
-description: "Сведения о настройке ведения отчетов в иерархии Configuration Manager, включая сведения о службах SQL Server Reporting Services."
+title: "Configurar os relatórios | Microsoft Docs"
+description: "Leia sobre como configurar relatórios na hierarquia do Configuration Manager, incluindo informações sobre o SQL Server Reporting Services."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,284 +16,284 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 7ae6bac23e585d6f61aff0f3155d050f1b537620
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuring-reporting-in-system-center-configuration-manager"></a>Настройка отчетов в System Center Configuration Manager
+# <a name="configuring-reporting-in-system-center-configuration-manager"></a>Configurar relatórios no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Перед созданием, изменением и запуском отчетов в консоли System Center Configuration Manager необходимо выполнить ряд задач по их настройке. Для настройки отчетов в иерархии Configuration Manager используйте информацию из следующих подразделов этого раздела.  
+Antes de poder criar, modificar e executar relatórios na consola do System Center Configuration Manager, tem de realizar um número de tarefas de configuração. Utilize as secções seguintes deste tópico para o ajudar a configurar os relatórios na sua hierarquia do Configuration Manager:  
 
- Перед установкой и настройкой служб Reporting Services в иерархии ознакомьтесь со сведениями в следующих разделах, посвященных отчетам в Configuration Manager.  
+ Antes de avançar com a instalação e configuração do Reporting Services na sua hierarquia, consulte o Gestor de configuração seguintes tópicos sobre relatórios:  
 
--   [Общие сведения о ведении отчетов в System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md)  
+-   [Introdução aos relatórios no System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md)  
 
--   [Планирование ведения отчетов в System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md)  
+-   [Planeamento de relatórios no System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md)  
 
-##  <a name="BKMK_SQLReportingServices"></a> SQL Server Reporting Services  
- Службы SQL Server Reporting Services — это серверная платформа для формирования отчетов, которая предоставляет комплексные функции создания отчетов для различных источников данных. Точка служб отчетов в Configuration Manager взаимодействует со службами SQL Server Reporting Services для копирования отчетов Configuration Manager в указанную папку отчетов, настройки параметров служб Reporting Services и настройки параметров безопасности служб Reporting Services. Службы Reporting Services подключаются к базе данных сайта Configuration Manager для получения данных, возвращаемых после выполнения отчетов.  
+##  <a name="BKMK_SQLReportingServices"></a> Serviços de Relatórios do SQL Server  
+ O SQL Server Reporting Services é uma plataforma de relatórios baseada em servidor que fornece funcionalidade de relatórios completa para diversas origens de dados. O ponto do Reporting Services no Configuration Manager comunica com o SQL Server Reporting Services para copiar relatórios do Configuration Manager para uma pasta de relatórios especificada, para configurar definições do Reporting Services e para configurar definições de segurança do Reporting Services. O Reporting Services estabelece ligação à base de dados do site do Configuration Manager para obter dados que são devolvidos quando forem executados relatórios.  
 
- Перед установкой точки служб отчетов на сайте Configuration Manager необходимо установить и настроить службы SQL Server Reporting Services в системе сайта, где находится роль системы сайта точки служб отчетов. Дополнительные сведения об установке служб отчетов см. в [библиотеке SQL Server TechNet](http://go.microsoft.com/fwlink/p/?LinkId=266389).  
+ Antes de poder instalar o ponto do Reporting Services num site do Configuration Manager, tem de instalar e configurar o SQL Server Reporting Services no sistema de sites que aloja a função de sistema de sites de ponto do Reporting Services serviços. Para obter informações sobre a instalação do Reporting Services, consulte a [Biblioteca TechNet do SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=266389).  
 
- Следующая процедура используется для проверки правильности установки и выполнения служб SQL Server Reporting Services.  
+ Utilize o procedimento seguinte para verificar se o SQL Server Reporting Services está instalado e em execução sem problemas.  
 
-#### <a name="to-verify-that-sql-server-reporting-services-is-installed-and-running"></a>Проверка установки и выполнения служб SQL Server Reporting Services  
+#### <a name="to-verify-that-sql-server-reporting-services-is-installed-and-running"></a>Para verificar se o SQL Server Reporting Services está instalado e em execução  
 
-1.  На рабочем столе нажмите кнопку **Пуск**, последовательно выберите пункты **Все программы**, **Microsoft SQL Server 2008 R2**, **Средства настройки**, а затем щелкните **Диспетчер конфигурации служб Reporting Services**.  
+1.  No ambiente de trabalho, clique em **Iniciar**, clique em **Todos os Programas**, clique em **Microsoft SQL Server 2008 R2**, clique em **Ferramentas de Configuração**e, em seguida, clique **Gestor de Configuração do Reporting Services**.  
 
-2.  В диалоговом окне **Соединение конфигурации служб Reporting Services** укажите имя сервера, на котором находятся службы SQL Server Reporting Services, в меню выберите экземпляр SQL Server, на котором установлены службы SQL Reporting Services, а затем нажмите кнопку **Соединить**. Откроется диспетчер конфигурации служб Reporting Services.  
+2.  Na caixa de diálogo **Ligação de Configuração do Reporting Services** , especifique o nome do servidor que aloja o SQL Server Reporting Services, no menu, selecione a instância do SQL Server em que instalou o SQL Reporting Services e clique em **Ligar**. É aberto o Gestor de Configuração do Reporting Services.  
 
-3.  На странице **Состояние сервера отчетов** проверьте, что параметру **Состояние службы отчетов** задано значение **Запущена**. В противном случае нажмите кнопку **Запустить**.  
+3.  Na página **Estado do Servidor de Relatórios** , verifique se **Estado do Serviço de Relatórios** está definido como **Iniciado**. Se não for, clique em **Iniciar**.  
 
-4.  На странице **URL-адрес веб-службы** щелкните URL-адрес в поле **URL-адреса веб-службы службы отчетов** , чтобы проверить соединение с папкой отчетов. Может открыться окно **Безопасность Windows** с запросом на ввод учетной записи для безопасного доступа. По умолчанию отображается ваша учетная запись пользователя. Введите пароль и нажмите кнопку **ОК**. Убедитесь, что веб-страница успешно открывается. Закройте окно браузера.  
+4.  Na página **URL do Serviço Web** , clique no URL em **URLs do Serviço Web do Serviço de Relatórios** para testar a ligação à pasta de relatórios. A caixa de diálogo **Segurança do Windows** poderá abrir e solicitar credenciais de segurança. Por predefinição, é apresentada a sua conta de utilizador. Introduza a palavra-passe e clique em **OK**. Certifique-se de que a página Web é aberta com êxito. Feche a janela do browser.  
 
-5.  На странице **База данных** проверьте, что параметру **Режим сервера отчетов** задано значение **Основной**.  
+5.  Na página **Base de Dados** , verifique se **Modo do Servidor de Relatórios** está definido como **Nativo**.  
 
-6.  На странице **URL-адрес диспетчера отчетов** щелкните URL-адрес в поле **Идентификация веб-сайта диспетчера отчетов** , чтобы проверить соединение с виртуальным каталогом диспетчера отчетов. Может открыться окно **Безопасность Windows** с запросом на ввод учетной записи для безопасного доступа. По умолчанию отображается ваша учетная запись пользователя. Введите пароль и нажмите кнопку **ОК**. Убедитесь, что веб-страница успешно открывается. Закройте окно браузера.  
+6.  Na página **URL do Gestor de Relatórios** , clique no URL em **Identificação de Sites do Gestor de Relatórios** para testar a ligação ao diretório virtual do Gestor de Relatórios. A caixa de diálogo **Segurança do Windows** poderá abrir e solicitar credenciais de segurança. Por predefinição, é apresentada a sua conta de utilizador. Introduza a palavra-passe e clique em **OK**. Certifique-se de que a página Web é aberta com êxito. Feche a janela do browser.  
 
     > [!NOTE]  
-    >  Для создания отчетов в Configuration Manager диспетчер отчетов служб Reporting Services не требуется, однако он необходим в случае выполнения отчетов в веб-браузере или при управлении отчетами с помощью диспетчера отчетов.  
+    >  Gestor de relatórios do Reporting Services não é necessário para os relatórios no Configuration Manager, mas é necessário se pretender executar relatórios num browser ou gerir relatórios utilizando o Gestor de relatórios.  
 
-7.  Нажмите кнопку **Выход**, чтобы закрыть диспетчер отчетов служб Reporting Services.  
+7.  Clique em **saída** para fechar o Gestor de configuração do Reporting Services.  
 
-##  <a name="BKMK_ReportBuilder3"></a> Настройка отчетов для использования построителя отчетов 3.0  
+##  <a name="BKMK_ReportBuilder3"></a> Configurar relatórios para utilizar o Report Builder 3.0  
 
-#### <a name="to-change-the-report-builder-manifest-name-to-report-builder-30"></a>Изменение имени манифеста построителя отчетов на Report Builder 3.0  
+#### <a name="to-change-the-report-builder-manifest-name-to-report-builder-30"></a>Para alterar o nome do manifesto do Report Builder para Report Builder 3.0  
 
-1.  На компьютере с консолью Configuration Manager откройте редактор реестра Windows.  
+1.  No computador que executa a consola do Configuration Manager, abra o Editor de registo do Windows.  
 
-2.  Перейдите к разделу **HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Microsoft/ConfigMgr10/AdminUI/Reporting**.  
+2.  Navegue para **HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Microsoft/ConfigMgr10/AdminUI/Reporting**.  
 
-3.  Дважды щелкните раздел **ReportBuilderApplicationManifestName** , чтобы изменить значение.  
+3.  Faça duplo clique na chave **ReportBuilderApplicationManifestName** para editar os dados do valor.  
 
-4.  Измените **ReportBuilder_2_0_0_0.application** на **ReportBuilder_3_0_0_0.application**, а затем нажмите кнопку **ОК**.  
+4.  Altere **ReportBuilder_2_0_0_0.application** para **ReportBuilder_3_0_0_0.application**e clique em **OK**.  
 
-5.  Закройте редактор реестра Windows.  
+5.  Feche o Editor de Registo do Windows.  
 
-##  <a name="BKMK_InstallReportingServicesPoint"></a> Установка точки служб отчетов  
- Точку служб отчетов должна быть установлена на сайте для управления находящимися там отчетами. Точка служб отчетов копирует папки отчетов и отчеты в службы отчетов SQL Server, применяет политику безопасности для отчетов и папок и задает параметров конфигурации в службах отчетов. Точку служб отчетов следует настроить до отображения отчетов в консоли Configuration Manager и до управления отчетами в Configuration Manager. Точка служб отчетов — это роль системы сайта, которая должна быть настроена на сервере с установленными и запущенными службами отчетов Microsoft SQL Server. Дополнительные сведения о необходимых компонентах см. в разделе [Необходимые условия для ведения отчетов](prerequisites-for-reporting.md).  
+##  <a name="BKMK_InstallReportingServicesPoint"></a> Instalar um ponto do Reporting Services  
+ O ponto do Reporting Services deve ser instalado num site para gerir relatórios nesse site. O ponto do Reporting Services copia pastas de relatórios e relatórios para o SQL Server Reporting Services, aplica a política de segurança aos relatórios e às pastas e configura definições de configuração no Reporting Services. Tem de configurar um ponto do Reporting Services antes de relatórios são apresentados na consola do Configuration Manager e, antes de poder gerir os relatórios no Configuration Manager. O ponto do Reporting Services é uma função de sistema de sites que tem de ser configurada num servidor com o Microsoft SQL Server Reporting Services instalado e em execução. Para obter mais informações sobre os pré-requisitos, consulte [pré-requisitos para relatórios](prerequisites-for-reporting.md).  
 
 > [!IMPORTANT]  
->  При выборе сайта для установки точки служб отчетов имейте в виду, что пользователи, которые будут иметь доступ к отчетам, должны находиться в той же области безопасности, что и сайт, в котором установлена точка служб отчетов.  
+>  Quando selecionar um site para instalar o ponto do Reporting Services, tenha em conta que os utilizadores que irão aceder aos relatórios devem estar abrangidos pelo mesmo âmbito de segurança que o site em que o ponto do Reporting Services é instalado.  
 
 > [!NOTE]  
->  После установки точки служб отчетов в системе сайта не изменяйте URL-адрес сервера отчетов Например, если после создания точки служб отчетов происходит изменение URL-адреса сервера отчетов в Configuration Manager служб Reporting Services, консоль Configuration Manager будет по-прежнему использовать старый URL-адрес, а функции выполнения, изменения или создания отчетов в консоли будут недоступны. Если требуется изменить URL-адрес сервера отчетов, удалите точку служб отчетов, измените URL-адрес, а затем переустановите точку служб отчетов.  
+>  Depois de instalar um ponto do Reporting Services num sistema de sites, não altere o URL do servidor de relatórios. Por exemplo, se criar o ponto do reporting services e, em seguida, no Reporting Services Configuration Manager modificar o URL do servidor de relatórios, a consola do Configuration Manager irá continuar a utilizar o URL antigo e não será possível executar, editar ou criar relatórios a partir da consola. Quando tiver de alterar o URL do servidor de relatórios, remova o ponto do Reporting Services, altere o URL e, em seguida, reinstale o ponto do Reporting Services.  
 
 > [!IMPORTANT]    
-> Устанавливая точку служб отчетов, укажите учетную запись точки служб отчетов. Позже, если пользователи из другого домена попытаются запустить отчет, произойдет сбой, так как между доменами не установлено двустороннее отношение доверия.
+> Quando instala um ponto do Reporting Services, tem de especificar uma conta do Reporting Services ponto. Mais tarde, quando os utilizadores de outro domínio tentarem executar um relatório, o relatório irá falhar executar a menos que exista uma confiança bidirecional estabelecida entre os domínios.
 
- Следующая процедура используется для установки точки служб отчетов.  
+ Utilize o procedimento seguinte para instalar o ponto do Reporting Services.  
 
-#### <a name="to-install-the-reporting-services-point-on-a-site-system"></a>Установка точки служб отчетов в системе сайта  
+#### <a name="to-install-the-reporting-services-point-on-a-site-system"></a>Para instalar o ponto do Reporting Services num sistema de sites  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Серверы и роли системы сайта**.  
+2.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Servidores e Funções de Sistema de Sites**.  
 
     > [!TIP]  
-    >  Чтобы указать только те системы сайта, в которых находится роль сайта точки служб отчетов, правой кнопкой мыши щелкните **Серверы и роли систем сайта** , а затем выберите пункт **Точка служб отчетов**.  
+    >  Para listar apenas os sistemas de sites que alojam a função de site do ponto do Reporting Services, clique com o botão direito do rato em **Servidores e Funções de Sistema de Sites** e selecione **Ponto do Reporting Services**.  
 
-3.  Добавьте роль системы сайта точки служб отчетов на новый или существующий сервер системы сайта, выполнив соответствующее действие.  
-
-    > [!NOTE]  
-    >  Дополнительные сведения о настройке систем сайта см. в разделе [Добавление ролей системы сайта для System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
-
-    -   **Новая система сайта**. На вкладке **Главная** в группе **Создать** щелкните **Создать сервер системы сайта**. Откроется **мастер создания сервера системы сайта** .  
-
-    -   **Существующая система сайта**. Выберите сервер, на котором требуется установить роль системы сайта точки служб отчетов. При выборе сервера в области результатов отобразится список ролей систем сайта, которые уже установлены на сервере.  
-
-         На вкладке **Главная** в группе **Сервер** щелкните **Добавить роли системы сайта**. Откроется **мастер добавления ролей систем сайта** .  
-
-4.  На странице **Общие** укажите общие параметры для сервера системы сайта. При добавлении точки служб отчетов на существующий сервер проверьте ранее настроенные значения.  
-
-5.  На странице **Выбор системной роли** выберите **Точка служб отчетов** в списке доступных ролей и нажмите кнопку **Далее**.  
-
-6.  На странице **Точка служб отчетов** настройте следующие параметры.  
-
-    -   **Имя сервера базы данных сайта**. Укажите имя сервера, на котором находится база данных сайта Configuration Manager. Как правило, мастер получает полное доменное имя (FQDN) сервера автоматически. Для задания экземпляра базы данных используйте формат &lt;*имя_сервера*>\&*имя_экземпляра*>.  
-
-    -   **Имя базы данных**. Укажите имя базы данных сайта Configuration Manager, а затем нажмите кнопку **Проверить**, чтобы убедиться, что мастер имеет доступ к базе данных сайта.  
-
-        > [!IMPORTANT]  
-        >  Учетная запись, используемая для создания точки служб отчетов, должна иметь разрешение на **чтение** для базы данных сайта. В случае сбоя проверки соединения отображается красный символ предупреждения. Для ознакомления с подробными сведениями о сбое наведите указатель мыши на этот символ. Устраните причину сбоя и снова нажмите кнопку **Проверка** .  
-
-    -   **Имя папки**. Укажите имя папки, которая создана и используется для размещения отчетов Configuration Manager в службах Reporting Services.  
-
-    -   **Экземпляр сервера Reporting Services**. В списке выберите экземпляр SQL Server для служб Reporting Services. Если найден только один экземпляр, он будет указан и выбран по умолчанию. Если не найдено ни одного экземпляра, проверьте, что службы SQL Server Reporting Services установлены, настроены и запущены в системе сайта.  
-
-        > [!IMPORTANT]  
-        >  Чтобы получить экземпляр SQL Server для служб Reporting Services, Configuration Manager в контексте текущего пользователя установит соединение с WMI в выбранной системе сайта. Текущий пользователь должен иметь право на **Чтение** для WMI в системе сайта. В противном случае получить экземпляры служб отчетов не удастся.  
-
-    -   **Учетная запись точки служб отчетов**. Щелкните **Задать**, а затем выберите учетную запись, используемую при подключении служб SQL Server Reporting Services в точке служб отчетов к базе данных сайта Configuration Manager для получения данных, содержащихся в отчете. Выберите **Существующая учетная запись**, чтобы указать учетную запись пользователя, которая была настроена ранее как учетная запись Configuration Manager, или выберите **Новая учетная запись**, чтобы указать учетную запись пользователя Windows, которая в данный момент не настроена как учетная запись Configuration Manager. Configuration Manager автоматически предоставит указанному пользователю доступ к базе данных сайта. Пользователь с учетной записью **Точка служб отчетов Configuration Manager** отображается во вложенной папке **Учетные записи** в узле **Безопасность** в рабочей области **Администрирование** .  
-
-         Учетная запись, используемая для запуска служб Reporting Services, должна входить в локальную группу безопасности домена **Группа авторизации доступа Windows**и иметь разрешение **Чтение tokenGroupsGlobalAndUniversal** со значением **Разрешить**. Чтобы запустить отчет, нужно установить двустороннее отношение доверия между доменом пользователей и доменом, в котором находится учетная запись точки служб отчетов.
-
-         Учетная запись пользователя Windows и пароль зашифрованы и хранятся в базе данных служб Reporting Services. С помощью этой учетной записи и пароля службы Reporting Services получают данные для отчетов из базы данных сайта.  
-
-        > [!IMPORTANT]  
-        >  Указанная учетная запись должна обладать разрешениями на **Локальный вход** на компьютере, на котором размещена база данных служб отчетов.  
-
-7.  На странице **Точка служб отчетов** нажмите кнопку **Далее**.  
-
-8.  На странице **Сводка** проверьте параметры, а затем нажмите кнопку **Далее** , чтобы установить точку служб отчетов.  
-
-     По завершении работы мастера будут созданы папки отчетов, в которые будут скопированы отчеты Configuration Manager.  
+3.  Adicione a função de sistema de sites de ponto do Reporting Services a um servidor de sistema de sites novo ou existente utilizando o passo associado:  
 
     > [!NOTE]  
-    >  Когда создаются папки отчетов, а отчеты копируются на сервер отчетов, Configuration Manager определяет соответствующий язык для объектов. Если связанный языковой пакет установлен на сайте, Configuration Manager создает объекты с тем же языком, что и в операционной системе сервера отчетов на сайте. Если язык отсутствует, отчеты создаются и отображаются на английском языке. При установке точки служб отчетов на сайте без языковых пакетов отчеты устанавливаются с английским языком. Если установить языковой пакет после установки точки служб отчетов, необходимо удалить и повторно установить точку служб отчетов, чтобы отчеты были доступны на языке соответствующего языкового пакета. Дополнительные сведения о языковых пакетах см. в разделе [Языковые пакеты в System Center Configuration Manager](../deploy/install/language-packs.md).  
+    >  Para obter mais informações sobre como configurar os sistemas de sites, consulte [adicionar funções do sistema de site para o System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
 
-###  <a name="BKMK_FileInstallationAndSecurity"></a> Установка файла и права безопасности папки отчетов  
- Configuration Manager выполняет следующие действия по установке точки служб отчетов и настройке служб Reporting Services.  
+    -   **Novo sistema de sites**: No separador **Home Page**, no grupo **Criar**, clique em **Criar Servidor do Sistema de Sites**. É aberto o **Assistente para Criar Servidor do Sistema de Sites** .  
+
+    -   **Sistema de sites existente**: Clique no servidor no qual pretende instalar a função de sistema de sites de ponto do Reporting Services serviços. Quando clica num servidor, é apresentada no painel de resultados uma lista das funções de sistema de sites que já estão instaladas no servidor.  
+
+         No separador **Home Page** , no grupo **Servidor** , clique em **Adicionar Função do Sistema de Sites**. É aberto o **Assistente para Adicionar Funções ao Sistema de Sites** .  
+
+4.  Na página **Geral** , especifique as definições gerais para o servidor de sistema de sites. Quando adicionar o ponto do Reporting Services a um servidor de sistema de sites existente, verifique os valores que foram anteriormente configurados.  
+
+5.  Na página **Seleção da Função do Sistema** , selecione o **Ponto do Reporting Services** na lista de funções disponíveis e clique em **Seguinte**.  
+
+6.  Na página **Ponto do Reporting Services** , configure as seguintes definições:  
+
+    -   **Nome do servidor de base de dados de sites**: Especifique o nome do servidor que aloja a base de dados do site do Configuration Manager. Normalmente, o assistente obtém automaticamente o nome de domínio completamente qualificado (FQDN) do servidor. Para especificar uma instância de base de dados, utilize o formato &lt; *nome do servidor*>\&lt; *Nome da instância*>.  
+
+    -   **Nome da base de dados**: Especifique o nome de base de dados do site do Configuration Manager e, em seguida, clique em **verifique** para confirmar que o assistente tem acesso à base de dados do site.  
+
+        > [!IMPORTANT]  
+        >  A conta de utilizador que está a criar o ponto do Reporting Services deve ter acesso de **Leitura** à base de dados do site. Se o teste de ligação falhar, é apresentado um ícone de aviso vermelho. Mova o cursor sobre este ícone para ler detalhes da falha. Corrija a falha e, em seguida, clique novamente em **Testar** .  
+
+    -   **Nome da pasta**: Especifique o nome de pasta que é criado e utilizado para alojar os relatórios do Configuration Manager no Reporting Services.  
+
+    -   **Instância do servidor do Reporting Services**: Selecione na lista a instância do SQL Server para Reporting Services. Quando é encontrada apenas uma instância, por predefinição, é listada e selecionada. Quando não forem encontradas instâncias, certifique-se de que o SQL Server Reporting Services está instalado e configurado e de que o serviço SQL Server Reporting Services foi iniciado no sistema de sites.  
+
+        > [!IMPORTANT]  
+        >  Do Configuration Manager estabelece uma ligação no contexto do utilizador atual para o Windows Management Instrumentation (WMI) no sistema de sites selecionado para obter a instância do SQL Server para Reporting Services. O utilizador atual tem de ter acesso de **Leitura** à WMI no sistema de sites ou não será possível obter instâncias do Reporting Services.  
+
+    -   **Conta do ponto do Reporting Services**: Clique em **definir**, e, em seguida, selecione uma conta a utilizar quando o ponto do SQL Server Reporting Services do reporting services estabelece ligação à base de dados do site do Configuration Manager para obter os dados que são apresentados num relatório. Selecione **conta existente** para especificar uma conta de utilizador do Windows que tenha sido configurada anteriormente como uma conta do Configuration Manager, ou selecione **nova conta** para especificar uma conta de utilizador do Windows que não esteja atualmente configurada como uma conta do Configuration Manager. O Configuration Manager concede automaticamente ao utilizador especificado acesso à base de dados do site. O utilizador é apresentado na subpasta **Contas** do nó **Segurança** da área de trabalho **Administração** com o nome de conta **Ponto do Reporting Services do ConfigMgr** .  
+
+         A conta que executa o Reporting Services deve pertencer ao grupo de segurança local **Grupo de Acessos de Autorização do Windows**do domínio e ter a permissão **Ler tokenGroupsGlobalAndUniversal** definida como **Permitir**. Tem de existir uma confiança bidirecional estabelecida para os utilizadores de um domínio diferente do que a conta de ponto de Reporting Services Servicies com êxito executar relatórios.
+
+         A conta de utilizador e palavra-passe do Windows especificadas são encriptadas e armazenadas na base de dados do Reporting Services. O Reporting Services obtém os dados para relatórios na base de dados do site utilizando esta conta e palavra-passe.  
+
+        > [!IMPORTANT]  
+        >  A conta que especificar deve ter permissões **Iniciar Sessão Localmente** no computador que aloja a base de dados do Reporting Services.  
+
+7.  Na página **Ponto do Reporting Services** , clique em **Seguinte**.  
+
+8.  Na página **Resumo** , verifique as definições e clique em **Seguinte** para instalar o ponto do Reporting Services.  
+
+     Após a conclusão do assistente, são criadas pastas de relatórios e os relatórios do Configuration Manager são copiados para as pastas de relatórios especificado.  
+
+    > [!NOTE]  
+    >  Quando são criadas pastas de relatórios e copiados relatórios para o servidor de relatórios, o Configuration Manager determina o idioma adequado para os objetos. Se o pacote de idiomas associado estiver instalado no site, o Configuration Manager cria os objetos no mesmo idioma do sistema de operativo em execução no servidor de relatórios no site. Se o idioma não estiver disponível, os relatórios serão criados e apresentados em inglês. Quando instala um ponto do Reporting Services num site sem pacotes de idiomas, os relatórios são instalados em inglês. Se instalar um pacote de idiomas depois de instalar o ponto do Reporting Services, terá de desinstalar e reinstalar o ponto do Reporting Services para que os relatórios sejam disponibilizados no idioma adequado do pacote de idiomas. Para obter mais informações sobre pacotes de idiomas, consulte [pacotes de idiomas no System Center Configuration Manager](../deploy/install/language-packs.md).  
+
+###  <a name="BKMK_FileInstallationAndSecurity"></a> Instalação de ficheiros e direitos de segurança da pasta de relatórios  
+ Configuration Manager efetua as seguintes ações para instalar o ponto do reporting services e para configurar o Reporting Services:  
 
 > [!IMPORTANT]  
->  Для выполнения действий в следующем списке используется учетная запись, которая настроена для службы SMS_Executive и обычно является учетной записью локальной системы сервера сайта.  
+>  As ações da lista seguinte são efetuadas com as credenciais da conta que está configurada para o serviço SMS_Executive, que é normalmente a conta de sistema local do servidor do site.  
 
--   Устанавливает роль сайта точки служб отчетов.  
+-   Instala a função de site de ponto do Reporting Services.  
 
--   Создает источник данных в службах Reporting Services с использованием сохраненных учетных данных, указанных в мастере. Это учетная запись пользователя Windows и пароль, используемые службами Reporting Services для подключения к базе данных сайта во время выполнения отчетов.  
+-   Cria a origem de dados no Reporting Services com as credenciais armazenadas especificadas no assistente. Esta é a conta de utilizador e a palavra-passe do Windows que o Reporting Services utiliza para ligar à base de dados do site quando são executados relatórios.  
 
--   Создает корневую папку Configuration Manager в службах Reporting Services.  
+-   Cria uma pasta de raiz do Gestor de configuração no Reporting Services.  
 
--   Добавляет роли безопасности **Пользователи отчетов Configuration Manager** и **Администраторы отчетов Configuration Manager** в службы Reporting Services.  
+-   Adiciona as funções de segurança **Utilizadores de Relatório do ConfigMgr** e **Administradores de Relatório do ConfigMgr** no Reporting Services.  
 
--   Создает вложенные папки и развертывает в службах Reporting Services отчеты Configuration Manager из папки %ProgramFiles%\SMS_SRSRP.  
+-   Cria subpastas e implementa relatórios do Configuration Manager a partir de %ProgramFiles%\SMS_SRSRP ao Reporting Services.  
 
--   Добавляет роль **Пользователи отчетов Configuration Manager** в службах Reporting Services для корневых папок всех учетных записей пользователей в Configuration Manager, имеющих права на **чтение сайта**.  
+-   Adiciona o **utilizadores de relatórios do ConfigMgr** função no Reporting Services às pastas raiz para todas as contas de utilizador no Configuration Manager que tenham **ler Site** direitos.  
 
--   Добавляет роль **Администраторы Configuration Manager** в службах Reporting Services для корневых папок всех учетных записей пользователей в Configuration Manager, имеющих права на **изменение сайта**.  
+-   Adiciona o **administradores de relatório do ConfigMgr** função no Reporting Services às pastas raiz para todas as contas de utilizador no Configuration Manager que tenham **modificar Site** direitos.  
 
--   Получает сопоставление между папками отчетов и типами защищенных объектов Configuration Manager, которое хранится в базе данных сайта Configuration Manager.  
+-   Obtém o mapeamento entre as pastas de relatórios e o Configuration Manager protegida tipos de objeto (mantidos na base de dados do site do Configuration Manager).  
 
--   Настраивает следующие права для пользователей в Configuration Manager для конкретных папок отчетов в службах Reporting Services.  
+-   Configura os seguintes direitos para os utilizadores administrativos no Configuration Manager para pastas de relatórios específicas do Reporting Services:  
 
-    -   Добавляет пользователей и назначает роль **Пользователи отчетов Configuration Manager** для связанной папки отчетов пользователям с правами администратора, имеющим разрешения на **запуск отчетов** для объекта Configuration Manager.  
+    -   Adiciona utilizadores e atribui o **utilizadores de relatórios do ConfigMgr** função para a pasta de relatórios associada para os utilizadores administrativos que têm **executar relatório** permissões para o objecto do Gestor de configuração.  
 
-    -   Добавляет пользователей и назначает роль **Администраторы отчетов Configuration Manager** для связанной папки отчетов пользователям с правами администратора, имеющим разрешения на **изменение отчетов** для объекта Configuration Manager.  
+    -   Adiciona utilizadores e atribui o **administradores de relatório do ConfigMgr** função para a pasta de relatórios associada para os utilizadores administrativos que têm **modificar relatório** permissões para o objecto do Gestor de configuração.  
 
-     Configuration Manager подключается к службам Reporting Services и задает разрешения пользователям для корневых и конкретных папок Configuration Manager и служб Reporting Services. После первоначальной установки точки служб отчетов Configuration Manager в течение 10 минут подключится к службам Reporting Services, чтобы проверить соответствие прав пользователей, настроенных в папках отчетов, правам, заданным пользователям Configuration Manager. В случае добавления пользователей или изменения прав пользователей в папке отчета с помощью диспетчера отчетов служб Reporting Services Configuration Manager перезаписывает изменения с помощью ролевых назначений, хранящихся в базе данных сайта. Configuration Manager также удаляет пользователей, у которых нет прав на работу с отчетами в Configuration Manager.  
+     O Configuration Manager estabelece ligação ao Reporting Services e define as permissões dos utilizadores no Configuration Manager e o Reporting Services pastas raiz e pastas de relatórios específicas. Após a instalação inicial do ponto do reporting services, o Configuration Manager estabelece ligação ao Reporting Services num intervalo de 10 minutos para verificar se os direitos de utilizador configurados nas pastas de relatórios são os direitos associados que estão definidos para utilizadores do Gestor de configuração. Quando os utilizadores são adicionados ou modificados direitos de utilizador na pasta de relatórios através do Gestor de relatórios do Reporting Services, o Configuration Manager substitui essas alterações utilizando as atribuições baseadas em funções armazenadas na base de dados do site. O Configuration Manager também remove os utilizadores que não dispõe de direitos de relatórios no Configuration Manager.  
 
-##  <a name="BKMK_SecurityRoles"></a> Роли безопасности Reporting Services для Configuration Manager  
- Когда Configuration Manager устанавливает точку служб отчетов, в службы Reporting Services добавляются следующие роли безопасности:  
+##  <a name="BKMK_SecurityRoles"></a> Funções de segurança do Reporting Services para o Configuration Manager  
+ Quando o Configuration Manager instala o ponto do Reporting Services, adiciona as seguintes funções de segurança no Reporting Services:  
 
--   **Пользователи отчетов Configuration Manager**: пользователи, которым назначена данная роль безопасности, могут только выполнять отчеты Configuration Manager.  
+-   **Utilizadores de relatórios do ConfigMgr**: Os utilizadores com esta função de segurança só podem executar relatórios do Configuration Manager.  
 
--   **Администраторы отчетов Configuration Manager**: пользователи, которым назначена данная роль безопасности, могут выполнять все задачи, касающиеся отчетов, в Configuration Manager.  
+-   **Os administradores de relatórios do ConfigMgr**: Os utilizadores com esta função de segurança podem executar todas as tarefas relacionadas com relatórios no Configuration Manager.  
 
-##  <a name="BKMK_VerifyReportingServicesPointInstallation"></a> Проверка установки точки служб отчетов  
- После добавления роли сайта точки служб отчетов можно проверить установку, просмотрев определенные сообщения о состоянии и записи в файле журнала. Следующая процедура используется для проверки успешной установки точки служб отчетов.  
+##  <a name="BKMK_VerifyReportingServicesPointInstallation"></a> Verificar a instalação do Ponto do Reporting Services  
+ Depois de adicionar a função de site de ponto do Reporting Services, pode verificar a instalação observando mensagens de estado e entradas do ficheiro de registo específicas. Utilize o procedimento seguinte para verificar se a instalação do ponto do Reporting Services foi bem-sucedida.  
 
 > [!WARNING]  
->  Эту процедуру можно пропустить, если отчеты отображаются во вложенной папке **Отчеты** узла **Создание отчетов** в рабочей области **Мониторинг** консоли Configuration Manager.  
+>  Pode ignorar este procedimento se os relatórios são apresentados no **relatórios** subpasta do **relatórios** no nó de **monitorização** área de trabalho na consola do Configuration Manager.  
 
-#### <a name="to-verify-the-reporting-services-point-installation"></a>Проверка установки точки служб отчетов  
+#### <a name="to-verify-the-reporting-services-point-installation"></a>Para verificar a instalação do ponto do Reporting Services  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-2.  В рабочей области **Мониторинг** разверните узел **Состояние системы**, а затем щелкните **Состояние компонента**.  
+2.  Na área de trabalho **Monitorização** , expanda **Estado do Sistema**e clique em **Estado do Componente**.  
 
-3.  В списке компонентов выберите **SMS_SRS_REPORTING_POINT** .  
+3.  Clique em **SMS_SRS_REPORTING_POINT** na lista de componentes.  
 
-4.  На вкладке **Главная** в группе **Компонент** щелкните **Показать сообщения**, а затем — **Все**.  
+4.  No separador **Home Page** , no grupo **Componente** , clique em **Mostrar Mensagens**e em **Todas**.  
 
-5.  Укажите дату и время, соответствующие периоду, предшествующему установке точки службы отчетов, и нажмите **ОК**.  
+5.  Especifique uma data e hora para um período antes da instalação do ponto do Reporting Services e clique em **OK**.  
 
-6.  Убедитесь, что отображается сообщение о состоянии ID 1015, означающее, что точка служб отчетов была успешно установлена. Кроме того, можно открыть файл Srsrp.log, расположенный в папке &lt;*Путь_установки_Configuration_Manager*>\Logs, и найти запись **Установка успешно завершена**.  
+6.  Verifique se a mensagem de estado com o ID 1015 está listada, o que indica que o ponto do Reporting Services foi instalado com êxito. Em alternativa, pode abrir o ficheiro Srsrp.log, localizado na &lt; *ConfigMgr Installation Path*> \Logs e procurar **a instalação teve êxito**.  
 
-     В проводнике Windows перейдите в папку &lt;*Путь_установки_Configuration_Manager*>\Logs.  
+     No Explorador do Windows, navegue para &lt; *ConfigMgr Installation Path*> \Logs.  
 
-7.  Откройте Srsrp.log и просмотрите файл журнала, начиная с момента успешной установки точки служб отчетов. Убедитесь, что папки отчета были созданы, отчеты были развернуты, а для каждой папки была утверждена политика безопасности. Чтобы убедиться в успешном завершении операции, следует найти запись **Проверка работоспособности веб-службы SRS на сервере завершена успешно** под последней строкой подтверждений политики безопасности.  
+7.  Abra Srsrp.log e percorra o ficheiro de registo a partir da hora em que o ponto do Reporting Services foi instalado com êxito. Verifique se as pastas de relatórios foram criadas, se os relatórios foram implementados e se a política de segurança de cada pasta foi confirmada. Procure **Verificação com êxito de que o serviço Web do SRS tem um bom estado de funcionamento no servidor** depois da última linha de confirmações da política de segurança.  
 
-##  <a name="BKMK_Certificate"></a> Настройка самозаверяющего сертификата для компьютеров с консолью Configuration Manager  
- Существует множество методов создания отчетов SQL Server Reporting Services. Когда вы создаете или редактируете отчеты в консоли Configuration Manager, Configuration Manager открывает построитель отчетов для использования в качестве среды разработки. Независимо от способа создания отчетов Configuration Manager, для проверки подлинности сервера на сервере базы данных сайта необходим самозаверяющий сертификат. Configuration Manager автоматически устанавливает сертификат на сервере сайта, а также на компьютерах с поставщиком SMS. Таким образом, можно создавать или изменять отчеты из консоли Configuration Manager, когда она запущена на одном из этих компьютеров. Однако при создании или изменении отчетов из консоли Configuration Manager, установленной на другом компьютере, необходимо экспортировать сертификат с сервера сайта и затем добавить его в хранилище сертификатов **Доверенные лица** на компьютере, на котором открыта консоль Configuration Manager.  
+##  <a name="BKMK_Certificate"></a> Configurar um certificado autoassinado para computadores da consola do Configuration Manager  
+ Existem várias opções para a criação de relatórios do SQL Server Reporting Services. Quando cria ou edita relatórios da consola do Configuration Manager, Configuration Manager abre o Report Builder para utilizar como ambiente de criação. Independentemente da forma como cria os seus relatórios do Configuration Manager, um certificado autoassinado é necessário para autenticação de servidor para o servidor de base de dados do site. O Configuration Manager instala automaticamente o certificado no servidor do site e nos computadores com o fornecedor de SMS instalado. Por conseguinte, pode criar ou editar relatórios a partir da consola do Configuration Manager quando é executada a partir de um destes computadores. No entanto, quando criar ou modificar relatórios a partir de uma consola do Configuration Manager que está instalado num computador diferente, tem de exportar o certificado do servidor do site e, em seguida, adicioná-lo para o **pessoas fidedignas** arquivo de certificados no computador que executa a consola do Configuration Manager.  
 
 > [!NOTE]  
->  Дополнительные сведения о других средах создания отчетов для SQL Server Reporting Services см. в статье [Сравнение сред создания создания отчетов](http://go.microsoft.com/fwlink/p/?LinkId=242805) в SQL Server 2008 Books Online.  
+>  Para mais informações sobre outros ambientes de criação de relatórios para o SQL Server Reporting Services, consulte [Comparação de Ambientes de Criação de Relatórios](http://go.microsoft.com/fwlink/p/?LinkId=242805) no SQL Server 2008 Books Online.  
 
- Следующая процедура — пример того, как можно перевести копию самозаверяющего сертификата с сервера сайта на другой компьютер с консолью Configuration Manager, если оба компьютера работают под управлением Windows Server 2008 R2. Если выполнение этой процедуры невозможно из-за того, что установлена другая версия операционной системы, обратитесь к документации операционной системы для изучения аналогичной процедуры.  
+ Utilize o procedimento seguinte como um exemplo de como transferir uma cópia do certificado autoassinado do servidor do site para outro computador que executa a consola do Configuration Manager quando os dois computadores possuem o Windows Server 2008 R2. Se não for possível seguir este procedimento porque tem uma versão diferente do sistema operativo, consulte a documentação do seu sistema operativo para obter o procedimento equivalente.  
 
-#### <a name="to-transfer-a-copy-of-self-signed-certificate-from-the-site-server-to-another-computer"></a>Чтобы перенести копию самозаверяющего сертификата с сервера сайта на другой компьютер, выполните следующие действия.  
+#### <a name="to-transfer-a-copy-of-self-signed-certificate-from-the-site-server-to-another-computer"></a>Para transferir uma cópia do certificado autoassinado do servidor do site para outro computador  
 
-1.  Выполните следующие действия на сервере сайта, чтобы экспортировать самозаверяющий сертификат сервера.  
+1.  Execute os passos seguintes no servidor do site para exportar o certificado autoassinado:  
 
-    1.  Нажмите кнопку **Пуск**, выберите пункт **Выполнить**и введите **mmc.exe**. В пустой консоли щелкните **Файл**, а затем выберите команду **Добавить или удалить оснастку**.  
+    1.  Clique em **Iniciar**, clique em **Executar**e escreva **mmc.exe**. Na consola vazia, clique em **Ficheiro**e clique em **Adicionar/Remover Snap-in**.  
 
-    2.  В диалоговом окне **Добавление или удаление оснасток** выберите **Сертификаты** из списка **Доступные оснастки**и нажмите кнопку **Добавить**.  
+    2.  Na caixa de diálogo **Adicionar ou Remover Snap-ins** , selecione **Certificados** na lista de **Snap-ins disponíveis**e clique em **Adicionar**.  
 
-    3.  В диалоговом окне **Оснастка диспетчера сертификатов** выберите пункт **Учетная запись компьютера**и нажмите кнопку **Далее**.  
+    3.  Na caixa de diálogo **Snap-in de certificado** , selecione **Conta de computador**e clique em **Seguinte**.  
 
-    4.  В диалоговом окне **Выбор компьютера** выберите **Локальный компьютер: (компьютер, на котором запущена эта консоль)** и нажмите кнопку **Готово**.  
+    4.  Na caixa de diálogo **Selecionar Computador** , certifique-se de que **Computador local: (o computador onde esta consola está a ser executada)** está selecionado e, em seguida, clique em **Concluir**.  
 
-    5.  В диалоговом окне **Добавление или удаление оснасток** нажмите кнопку **ОК**.  
+    5.  Na caixa de diálogo **Adicionar ou Remover Snap-ins** , clique em **OK**.  
 
-    6.  В консоли разверните узел **Сертификаты (локальный компьютер)**, затем разверните узел **Доверенные лица**и выберите **Сертификаты**.  
+    6.  Na consola, expanda **Certificados (Computador Local)**, expanda **Pessoas Fidedignas**e selecione **Certificados**.  
 
-    7.  Щелкните правой кнопкой мыши сертификат с понятным именем в виде &lt;*Полное_доменное_имя_сервера_сайта*>, выберите пункт **Все задачи**, а затем выберите **Экспорт**.  
+    7.  Faça duplo clique no certificado com o nome amigável da &lt; *FQDN do servidor do site*>, clique em **todas as tarefas**e, em seguida, selecione **exportar**.  
 
-    8.  Завершите работу **Мастера экспорта сертификатов** , оставив параметры по умолчанию, и сохраните сертификат с расширением файла **.cer** .  
+    8.  Conclua o **Assistente para Exportar Certificados** , utilizando as opções predefinidas, e guarde o certificado com a extensão de nome de ficheiro **.cer** .  
 
-2.  Выполните следующие действия на компьютере с запущенной консолью Configuration Manager, чтобы добавить самозаверяющий сертификат в хранилище сертификатов "Доверенные лица".  
+2.  Execute os seguintes passos no computador que executa a consola do Configuration Manager para adicionar o certificado autoassinado para o arquivo de certificados de pessoas fidedignas:  
 
-    1.  Повторите предыдущие шаги с 1.a по 1.e, чтобы настроить оснастку MMC **Сертификат** на компьютере точки управления.  
+    1.  Repita os passos anteriores de 1.a a 1.e Para configurar o **certificado** snap-in MMC no computador do ponto de gestão.  
 
-    2.  В консоли разверните узел **Сертификаты (Локальный компьютера)**, разверните узел **Доверенные лица**, щелкните правой кнопкой мыши пункт **Сертификаты**, выберите **Все задачи**, после чего выберите **Импортировать** , чтобы открыть **Мастер импорта сертификатов**.  
+    2.  Na consola, expanda **Certificados (Computador Local)**, expanda **Pessoas Fidedignas**, clique com o botão direito do rato em **Certificados**, selecione **Todas as Tarefas**e, em seguida, selecione **Importar** para iniciar o **Assistente para Importar Certificados**.  
 
-    3.  На странице **Файл для импорта** выберите сертификат, сохраненный в шаге 1.h, после чего нажмите кнопку **Далее**.  
+    3.  Na página **Ficheiro a Importar** , selecione o certificado guardado no passo 1.h e, em seguida, clique em **Seguinte**.  
 
-    4.  На странице **Хранилище сертификатов** выберите **Разместить все сертификаты в следующем хранилище**, установив для параметра **Хранилище сертификатов** значение **Доверенные лица**и нажмите кнопку **Далее**.  
+    4.  Na página **Arquivo de Certificados** , selecione **Colocar todos os certificados no seguinte arquivo**, com o **Arquivo de certificados** definido para **Pessoas Fidedignas**, e clique em **Seguinte**.  
 
-    5.  Нажмите кнопку **Готово** , чтобы закрыть мастер и завершить настройку сертификата на компьютере.  
+    5.  Clique em **Concluir** para fechar o assistente e concluir a configuração do certificado no computador.  
 
-##  <a name="BKMK_ModifyReportingServicesPoint"></a> Изменение параметров точки служб отчетов  
- После установки точки служб отчетов можно настроить параметры подключения и проверки подлинности в свойствах точки служб отчетов. Выполните следующую процедуру, чтобы настроить параметры точки служб отчетов.  
+##  <a name="BKMK_ModifyReportingServicesPoint"></a> Modificar as definições do Ponto do Reporting Services  
+ Após a instalação do ponto do Reporting Services, pode modificar a ligação da base de dados do site e as definições de autenticação nas propriedades do ponto do Reporting Services. Utilize o procedimento seguinte para modificar as definições do ponto do Reporting Services.  
 
-#### <a name="to-modify-reporting-services-point-settings"></a>Настройка параметров точки служб отчетов  
+#### <a name="to-modify-reporting-services-point-settings"></a>Para modificar as definições do ponto do Reporting Services  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите пункт **Серверы и роли системы сайта** , чтобы открыть список систем сайтов.  
+2.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Servidores e Funções de Sistema de Sites** para listar os sistemas de sites.  
 
     > [!TIP]  
-    >  Чтобы указать только те системы сайта, в которых находится роль сайта точки служб отчетов, правой кнопкой мыши щелкните **Серверы и роли систем сайта** , а затем выберите пункт **Точка служб отчетов**.  
+    >  Para listar apenas os sistemas de sites que alojam a função de site do ponto do Reporting Services, clique com o botão direito do rato em **Servidores e Funções de Sistema de Sites** e selecione **Ponto do Reporting Services**.  
 
-3.  Выберите систему сайта, на которой находится точка служб отчетов, параметры которой требуется настроить, после чего выберите **Точка служб отчетов** в списке **Роли системы сайта**.  
+3.  Selecione o sistema de sites que aloja o ponto do Reporting Services no qual pretende modificar as definições e, em seguida, selecione **Ponto do Reporting Services** em **Funções de Sistema de Sites**.  
 
-4.  На вкладке **Роль сайта** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No separador **Função do Site** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-5.  В диалоговом окне **Свойства точки служб отчетов** можно настроить следующие параметры.  
+5.  Na caixa de diálogo **Propriedades do Ponto do Reporting Services** , é possível modificar as definições seguintes:  
 
-    -   **Имя сервера базы данных сайта**. Укажите имя сервера, на котором находится база данных сайта Configuration Manager. Как правило, мастер получает полное доменное имя (FQDN) сервера автоматически. Для задания экземпляра базы данных используйте формат &lt;*имя_сервера*>\&*имя_экземпляра*>.  
+    -   **Nome do servidor de base de dados de sites**: Especifique o nome do servidor que aloja a base de dados do site do Configuration Manager. Normalmente, o assistente obtém automaticamente o nome de domínio completamente qualificado (FQDN) do servidor. Para especificar uma instância de base de dados, utilize o formato &lt; *nome do servidor*>\&lt; *Nome da instância*>.  
 
-    -   **Имя базы данных**. Укажите имя базы данных сайта System Center 2012 Configuration Manager, а затем нажмите кнопку **Проверить**, чтобы убедиться, что мастер имеет доступ к базе данных сайта.  
-
-        > [!IMPORTANT]  
-        >  Учетная запись, используемая для создания точки служб отчетов, должна иметь разрешение на чтение для базы данных сайта. В случае сбоя проверки соединения отображается красный символ предупреждения. Для ознакомления с подробными сведениями о сбое наведите указатель мыши на этот символ. Устраните причину сбоя и снова нажмите кнопку **Проверка** .  
-
-    -   **Учетная запись пользователя**. Щелкните **Задать**, а затем выберите учетную запись, используемую при подключении служб SQL Server Reporting Services в точке служб отчетов к базе данных сайта Configuration Manager для получения данных, содержащихся в отчете. Выберите вариант **Существующая учетная запись**, чтобы указать учетную запись пользователя Windows, имеющую существующие права Configuration Manager, или выберите вариант **Новая учетная запись**, чтобы указать учетную запись пользователя Windows, для которой в настоящий момент не предоставлены права Configuration Manager. Configuration Manager автоматически предоставит указанной учетной записи пользователя доступ к базе данных сайта. Учетная запись отображается как **Точка отчетов ConfigurationManager SRS** в подпапке **Учетные записи** узла **Безопасность** в рабочей области **Администрирование** .  
-
-         Учетная запись пользователя Windows и пароль зашифрованы и хранятся в базе данных служб Reporting Services. С помощью этой учетной записи и пароля службы Reporting Services получают данные для отчетов из базы данных сайта.  
+    -   **Nome da base de dados**: Especifique o nome de base de dados de site do System Center 2012 Configuration Manager e, em seguida, clique em **verifique** para confirmar que o assistente tem acesso à base de dados do site.  
 
         > [!IMPORTANT]  
-        >  Если база данных сайта находится в удаленной системе сайта, указанная учетная запись должна иметь разрешение **Локальный вход** .  
+        >  A conta de utilizador que está a criar o ponto do Reporting Services deve ter acesso de Leitura à base de dados do site. Se o teste de ligação falhar, é apresentado um ícone de aviso vermelho. Mova o cursor sobre este ícone para ler detalhes da falha. Corrija a falha e, em seguida, clique novamente em **Testar** .  
 
-6.  Нажмите кнопку **ОК** , чтобы сохранить изменения и закрыть диалоговое окно.  
+    -   **Conta de utilizador**: Clique em **definir**, e, em seguida, selecione uma conta que é utilizada quando o ponto do SQL Server Reporting Services do reporting services estabelece ligação à base de dados do site do Configuration Manager para obter os dados que são apresentados num relatório. Selecione **conta existente** para especificar uma conta de utilizador do Windows que tenha direitos existentes do Configuration Manager ou selecione **nova conta** para especificar uma conta de utilizador do Windows que não tenha atualmente direitos no Configuration Manager. O Configuration Manager concede automaticamente o acesso da conta de utilizador especificado para a base de dados do site. A conta é apresentada como a conta do **ponto de relatórios do SRS do ConfigMgr** na subpasta **Contas** do nó **Segurança** da área de trabalho **Administração** .  
 
-## <a name="upgrading-sql-server"></a>Обновление SQL Server  
- После обновления SQL Server и служб отчетов SQL Server, которые используются в качестве источника данных для точки служб отчетов, могут возникнуть ошибки при выполнении или редактировании отчетов из консоли Configuration Manager. Чтобы отчеты правильно работали в консоли Configuration Manager, необходимо удалить роль системы сайта точки служб отчетов для сайта и установить ее еще раз. При этом после обновления можно продолжать использовать и изменять отчеты из интернет-браузера.  
+         A conta de utilizador e palavra-passe do Windows especificadas são encriptadas e armazenadas na base de dados do Reporting Services. O Reporting Services obtém os dados para relatórios na base de dados do site utilizando esta conta e palavra-passe.  
 
-##  <a name="BKMK_ConfigureReportOptions"></a> Настройка параметров отчетов  
- Откройте параметры сайта Configuration Manager, чтобы выбрать точку служб отчетов по умолчанию, которая будет использоваться для управления отчетами. Хотя на одном сайте может одновременно находиться несколько точек служб отчетов, для управления отчетами используется только сервер отчетов по умолчанию, выбранный в параметрах отчетов. Используйте следующую процедуру для настройки параметров вашего сайта.  
+        > [!IMPORTANT]  
+        >  Quando a base de dados do site se encontra num sistema de sites remoto, a conta especificada deve ter a permissão **Iniciar Sessão Localmente** no computador.  
 
-#### <a name="to-configure-report-options"></a>Настройка параметров отчета  
+6.  Clique em **OK** para guardar as alterações e sair da caixa de diálogo.  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+## <a name="upgrading-sql-server"></a>Atualização do SQL Server  
+ Depois de atualizar o SQL Server e SQL Server Reporting Services que é utilizado como origem de dados para um ponto do Reporting Services, podem ocorrer erros ao executar ou editar relatórios a partir da consola do Configuration Manager. Para os relatórios funcionem corretamente a partir da consola do Configuration Manager, tem de remover a função de sistema de sites de ponto do Reporting Services Serviços para o site e reinstalá-la. No entanto, após a atualização é possível continuar a executar e editar relatórios com êxito a partir de um browser da Internet.  
 
-2.  В рабочей области **Мониторинг** разверните узел **Отчеты**и щелкните элемент **Отчеты**.  
+##  <a name="BKMK_ConfigureReportOptions"></a> Configurar opções de relatórios  
+ Utilize as opções de relatórios para um site do Configuration Manager para selecionar a predefinição ponto do que é utilizado para gerir os seus relatórios do Reporting Services. Embora seja possível ter mais do que um ponto do Reporting Services num site, apenas o servidor de relatórios predefinido selecionado nas opções de relatórios é utilizado para gerir relatórios. Utilize o procedimento seguinte para configurar opções de relatórios para o site.  
 
-3.  На вкладке **Главная** в группе **Параметры** щелкните элемент **Параметры отчета**.  
+#### <a name="to-configure-report-options"></a>Para configurar opções de relatórios  
 
-4.  Выберите сервер отчетов по умолчанию в списке и затем нажмите **ОК**. Если в списке еще нет точек служб отчетов, убедитесь, что на сайте была успешно установлена и настроена точка служб отчетов.  
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Использование и обслуживание отчетов](operations-and-maintenance-for-reporting.md)
+2.  Na área de trabalho **Monitorização** , expanda **Comunicar**e clique em **Relatórios**.  
+
+3.  No separador **Home Page** , no grupo **Definições** , clique em **Opções de Relatórios**.  
+
+4.  Selecione o servidor de relatórios predefinido na lista e, em seguida, clique em **OK**. Se não for apresentado nenhum ponto do Reporting Services na lista, verifique se tem um ponto do Reporting Services corretamente instalado e configurado no site.  
+
+## <a name="next-steps"></a>Passos seguintes
+[Operações e manutenção de relatórios](operations-and-maintenance-for-reporting.md)

@@ -1,6 +1,6 @@
 ---
-title: "Справка клиента Endpoint Protection | Документы Майкрософт"
-description: "Ознакомьтесь с возможностями и улучшениями в Endpoint Protection, которые помогают улучшить защиту компьютера от угроз."
+title: Ajuda do cliente do Endpoint Protection | Microsoft Docs
+description: "Saiba mais sobre as funcionalidades e melhoramentos no Endpoint Protection que melhor ajudam a proteger o computador de ameaças."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,45 +16,45 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 212c73fcb947c3b56da6055bf47fe078301ad90d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="endpoint-protection-client-help"></a>Справка клиента Endpoint Protection
+# <a name="endpoint-protection-client-help"></a>Ajuda do cliente do Endpoint Protection
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Эта версия Защитника Windows или Endpoint Protection содержит указанные ниже функции, позволяющие улучшить защиту компьютера от угроз.  
+Esta versão do Windows Defender ou Endpoint Protection inclui as seguintes funcionalidades para o ajudar a proteger o computador de ameaças:  
 
--   **Интеграция брандмауэра Windows** . Установка Endpoint Protection дает возможность включать или выключать брандмауэр Windows.  
--   **Система анализа сети.** Эта функция усиливает защиту в реальном времени, анализируя сетевой трафик, чтобы помочь заранее заблокировать использование известных сетевых уязвимостей.  
--   **Механизм защиты.** Механизм защиты в режиме реального времени находит вредоносные программы и запрещает их установку или запуск на компьютере. Обновленный механизм предоставляет улучшенные возможности обнаружения и очистки при лучшей производительности.  
+-   **Integração da Firewall do Windows.** A configuração do Endpoint Protection permite-lhe ativar ou desativar a Firewall do Windows.  
+-   **Sistema de Inspeção de Rede.** Esta funcionalidade melhora a proteção em tempo real ao inspecionar o tráfego de rede para ajudar a bloquear de forma pró-ativa a exploração de vulnerabilidades conhecidas baseadas na rede.  
+-   **Motor de proteção.** Proteção em tempo real localiza e deixa de software maligno de instalação ou em execução no seu PC. O motor atualizado oferece deteção melhorada e capacidades de limpeza com melhor desempenho.  
 
-Защитник Windows входит в состав операционной системы Windows 10.  В более ранних версиях Windows администратор может предоставить либо Защитник Windows, либо Endpoint Protection с помощью программного обеспечения для управления.
+O Windows Defender é fornecido como parte do sistema operativo Windows 10.  Em versões anteriores do Windows, o administrador pode fornecer o Windows Defender ou Endpoint Protection utilizando software de gestão.
 
-Список часто задаваемых вопросов о Защитнике Windows и Endpoint Protection можно найти [здесь](endpoint-protection-client-faq.md). Чтобы получить помощь в устранении неполадок, обратитесь к разделу [Устранение неполадок Защитника Windows и клиента Endpoint Protection](troubleshoot-endpoint-client.md). Список новых возможностей см. в разделе [Новые возможности клиента Защитника Windows](https://support.microsoft.com/help/29276/windows-10-whats-new-in-windows-defender).
+Também pode encontrar uma lista de [perguntas mais frequentes sobre o Windows Defender e Endpoint Protection](endpoint-protection-client-faq.md). Para resolução de problemas de ajuda, consulte [cliente de resolução de problemas Windows Defender ou o Endpoint Protection](troubleshoot-endpoint-client.md). Para obter uma lista das novas funcionalidades, consulte [que é o novo cliente Windows Defender](https://support.microsoft.com/help/29276/windows-10-whats-new-in-windows-defender).
 
-## <a name="windows-firewall-integration"></a>Интеграция брандмауэра Windows  
- Брандмауэр Windows помогает предотвратить доступ злоумышленников и вредоносных программ к компьютеру пользователя через Интернет или сеть. После установки Endpoint Protection мастер установки подтверждает, что брандмауэр Windows включен. Если пользователь намеренно выключил брандмауэр Windows, можно не включать его, сняв флажок. Пользователь может изменить параметры брандмауэра Windows в любое время с помощью параметров "Система и безопасность" на панели управления.  
+## <a name="windows-firewall-integration"></a>Integração da Firewall do Windows  
+ A Firewall do Windows pode ajudar a evitar que atacantes ou software malicioso obtenham acesso ao seu computador através da Internet ou de uma rede. Agora, quando instalar o Endpoint Protection, o assistente de instalação verifica se a Firewall do Windows está ativada. Se desativou a Firewall do Windows intencionalmente, pode desmarcar uma caixa de verificação para evitar ativá-la. Pode alterar as definições da Firewall do Windows a qualquer altura através das definições de Sistema e Segurança no Painel de Controlo.  
 
-## <a name="network-inspection-system"></a>Система анализа сети  
- Злоумышленники производят все больше сетевых атак на доступные уязвимые места до того, как поставщики программного обеспечения могут разработать и распространить обновления системы безопасности. Исследования уязвимостей показывают, что со времени первой атаки до разработки, тестирования и выпуска подходящего обновления системы безопасности может пройти месяц или больше. В этом промежутке многие компьютеры не защищены от атак и используются на протяжении значительного периода времени. Система анализа сети работает вместе с защитой в реальном времени, чтобы улучшить защиту пользователя от сетевых атак, значительно уменьшая промежуток времени между обнаружением уязвимостей и развертыванием обновлений от нескольких недель до нескольких часов.  
+## <a name="network-inspection-system"></a>Sistema de Inspeção de Rede  
+ Cada vez mais os atacantes levam a cabo ataques baseados na rede contra vulnerabilidades expostas, antes que os fabricantes de software consigam desenvolver e distribuir atualizações de segurança. Os estudos de vulnerabilidades demonstram que pode demorar um mês ou mais desde o momento em que é criado um relatório de ataque inicial até que uma atualização de segurança adequada seja desenvolvida, testada e lançada. Esta falha na proteção deixa muitos computadores vulneráveis a ataques e a exploração durante um período de tempo substancial. O Sistema de Inspeção de Rede funciona com proteção em tempo real para o ajudar a proteger contra ataques baseados na rede, reduzindo significativamente o período de tempo entre as divulgações de vulnerabilidade e a implementação de atualizações de semanas para algumas horas.  
 
-## <a name="award-winning-protection-engine"></a>Отмеченный наградой механизм защиты  
- В основе Защитника Windows или Endpoint Protection находится отмеченный наградами механизм защиты, который регулярно обновляется. Над этим механизмом круглосуточно работает команда исследователей антивредоносных программ из Центра Майкрософт по защите от вредоносных программ, которая разрабатывает защиту от последних версий вредоносных программ.  
+## <a name="award-winning-protection-engine"></a>Motor de proteção premiado  
+ Por detrás do Windows Defender ou o Endpoint Protection é o motor de proteção premiado que é atualizado regularmente. O motor é suportado por uma equipa de investigadores de antimalware do Centro Microsoft de Proteção Contra Software Maligno, respondendo às mais recentes ameaças de software maligno 24 horas por dia.  
 
-## <a name="windows-defender-settings"></a>Параметры Защитника Windows
-Параметры Защитника Windows помогают защищать компьютер от вредоносных программ. Ваш администратор может настраивать некоторые параметры Защитника Windows для вас. Вы можете управлять остальными параметрами Защитника Windows. Рекомендуем включить параметры Windows, чтобы улучшить защиту компьютера и данных.
+## <a name="windows-defender-settings"></a>Definições do Windows Defender
+Definições do Windows Defender ativam as definições que ajudam a proteger o computador contra software malicioso. O administrador pode gerir algumas definições do Windows Defender para si. Pode gerir outros a utilizar as definições do Windows Defender. Recomendamos que ative as definições do Windows Defender para o ajudar a proteger os dados e PC.
 
-Чтобы просмотреть параметры Защитника Windows, выполните на компьютере поиск по запросу `Windows Defender`. Откройте **Защитник Windows** и выберите пункт **Параметры**. Защитник Windows имеет следующие параметры:
-- **Защита в режиме реального времени** — находит вредоносные программы и запрещает их установку или запуск на компьютере.
-- **Облачная защита** — Защитник Windows отправляет в Майкрософт сведения о потенциальных угрозах безопасности.
-- **Автоматическая отправка образцов** — разрешите Защитнику Windows отправлять образцы подозрительных файлов в Майкрософт, чтобы помочь улучшить эффективность обнаружения вредоносных программ.
-- **Исключения** — вы можете исключить определенные файлы, папки, расширения имен файлов или процессы из проверки Защитника Windows.
-- **Расширенные уведомления** — включение уведомлений о работоспособности компьютера. Даже если выбрано значение **Выкл.**, вы будете получать критически важные уведомления.
-- **Автономный Защитник Windows** — вы можете запускать автономный Защитник Windows для поиска и удаления вредоносных программ. Проверка занимает приблизительно 15 минут, и после нее компьютер перезагружается.
+Para ver as definições do Windows Defender, procure `Windows Defender` no seu PC. Abra **Windows Defender** e selecione **definições**. Definições do Windows Defender incluem:
+- **Proteção em tempo real** - localize e parar a software maligno de instalação ou em execução no seu PC.
+- **Proteção baseada na nuvem** -Windows Defender envia informações à Microsoft sobre potenciais ameaças de segurança.
+- **Submissão automática de** -permitir que o Windows Defender para enviar exemplos de ficheiros suspeitos à Microsoft para ajudar a melhorar a deteção de software maligno.
+- **Exclusões** -pode exlude específico ficheiros, pastas, extensões de ficheiro ou os processos de análise do Windows Defender.
+- **Melhorado notificação** -permite que as notificações que informam sobre o estado de funcionamento do seu PC. Mesmo **desativar** receberá notificações críticas.
+- **Windows Defender Offline** -pode executar o Windows Defender Offline para ajudar a localizar e remover software malicioso. Esta análise irá reiniciar o seu PC e irá demorar cerca de 15 minutos.
 
-### <a name="see-also"></a>См. также  
- [Ответы на вопросы о клиенте Endpoint Protection](endpoint-protection-client-faq.md)   
- [Устранение неполадок Защитника Windows и клиента Endpoint Protection](troubleshoot-endpoint-client.md)
+### <a name="see-also"></a>Consulte também  
+ [Perguntas mais frequentes de cliente do Endpoint Protection](endpoint-protection-client-faq.md)   
+ [Resolução de problemas de cliente do Windows Defender ou Endpoint Protection](troubleshoot-endpoint-client.md)

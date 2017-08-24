@@ -1,6 +1,6 @@
 ---
-title: "Безопасность и конфиденциальность профилей сертификатов | Документы Майкрософт"
-description: "Ознакомьтесь с рекомендациями по обеспечению безопасности при управлении профилями сертификатов для пользователей и устройств в System Center Configuration Manager."
+title: "Privacidade e segurança do perfil de certificado | Microsoft Docs"
+description: "Saiba mais sobre a segurança melhores práticas para gerir perfis de certificados para utilizadores e dispositivos no System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
@@ -17,33 +17,33 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: c51787ad3fa0bdb285017cfab1ca6931afba9ea6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность профилей сертификатов в System Center Configuration Manager
+# <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Segurança e privacidade para perfis de certificado no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-##  <a name="security-best-practices-for-certificate-profiles"></a>Рекомендации по безопасности для профилей сертификатов  
- При управлении профилями сертификатов для пользователей и устройств необходимо учитывать следующие рекомендации по безопасности.  
+##  <a name="security-best-practices-for-certificate-profiles"></a>Procedimentos Recomendados de Segurança para Perfis de Certificado  
+ Utilize os seguintes procedimentos recomendados de segurança ao gerir perfis de certificado para utilizadores e dispositivos.  
 
-|Рекомендация по безопасности|Дополнительные сведения|  
+|Procedimento recomendado de segurança|Mais informações|  
 |----------------------------|----------------------|  
-|Определите и выполните все рекомендации по безопасности для службы регистрации сертификатов для сетевых устройств (NDES), в том числе по настройке использования SSL и игнорирования сертификатов клиентов для веб-сайта службы регистрации сертификатов для сетевых устройств в службах IIS.|См. статью [Network Device Enrollment Service Guidance (Руководство по работе со службой регистрации сертификатов для сетевых устройств)](http://go.microsoft.com/fwlink/p/?LinkId=309016) в библиотеке TechNet для служб сертификатов Active Directory.|  
-|При настройке профилей сертификатов SCEP выбирайте наиболее безопасные параметры, поддерживаемые устройствами и инфраструктурой.|Определите, реализуйте и выполните все рекомендации по безопасности для устройств и инфраструктуры.|  
-|Укажите сопоставление пользователей и устройств вручную, а не позволяйте пользователям идентифицировать свое основное устройство. Кроме того, не включайте конфигурацию на основе использования.|Если в профиле сертификата SCEP выбран параметр **Разрешить регистрацию сертификатов только на основном устройстве пользователя** , сведения, полученные от пользователей или от устройства, нельзя считать достоверными. Если выполняется развертывание профилей сертификатов SCEP с такой конфигурацией и доверенный пользователь с правами администратора не указал сопоставление пользователей и устройств, неавторизованные пользователи могут получить повышенные привилегии и сертификаты для проверки подлинности.<br /><br /> **Примечание**. Если включена конфигурация на основе использования, для сбора этих сведений применяются сообщения о состоянии, которые не защищены с помощью System Center Configuration Manager. Чтобы минимизировать эту угрозу, используйте подписывание SMB или протокол IPsec между клиентскими компьютерами и точкой управления.|  
-|Не предоставляйте пользователям разрешения на чтение и регистрацию шаблонов сертификатов или настройте точку регистрации сертификатов таким образом, чтобы проверка шаблонов сертификатов не выполнялась.|Несмотря на то, что Configuration Manager поддерживает дополнительную проверку, если пользователям предоставлены разрешения системы безопасности на чтение и регистрацию и можно настроить точку регистрации сертификатов, чтобы эта проверка не выполнялась, если проверка подлинности невозможна, ни одну из конфигураций не рекомендуется использовать по соображениям безопасности. Дополнительные сведения см. в статье [Планирование разрешений шаблонов сертификатов для профилей сертификатов в Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).|  
+|Identifique e siga os eventuais procedimentos recomendados de segurança do Serviço de Inscrição de Dispositivos de Rede, que incluem a configuração do Web site do Serviço de Inscrição de Dispositivos de Rede nos Serviços de Informação Internet (IIS) para que exija SSL e ignore os certificados de cliente.|Consulte [Orientação do Serviço de Inscrição de Dispositivos de Rede](http://go.microsoft.com/fwlink/p/?LinkId=309016) na biblioteca Serviços de Certificados do Active Directory na TechNet.|  
+|Ao configurar os perfis de certificado SCEP, escolha as opções mais seguras suportadas pelos dispositivos e pela infraestrutura.|Identifique, implemente e siga os procedimentos de segurança eventualmente recomendados para os dispositivos e para a infraestrutura.|  
+|Especifique manualmente a afinidade dispositivo/utilizador em vez de permitir que os utilizadores identifiquem o respetivo dispositivo primário. Além disso, não ative a configuração baseada na utilização.|Se clicar na opção **Permitir inscrição de certificados apenas no dispositivo primário dos utilizadores** num perfil de certificado SCEP, não considere autoritativas as informações recolhidas junto dos utilizadores ou do dispositivo. Se implementar perfis de certificado SCEP com esta configuração e um utilizador administrativo fidedigno não especificar a afinidade dispositivo/utilizador, os utilizadores não autorizados poderão obter privilégios elevados e certificados para autenticação.<br /><br /> **Nota:** Se ativar a configuração baseada na utilização, estas informações serão obtidas utilizando mensagens de estado que não são protegidas pelo System Center Configuration Manager. Para ajudar a atenuar esta ameaça, utilize a assinatura SMB ou IPsec entre computadores cliente e o ponto de gestão.|  
+|Não adicione permissões de Leitura e Inscrição para utilizadores aos modelos de certificado ou configure o ponto de registo de certificados para ignorar a verificação do modelo de certificado.|Apesar do Configuration Manager suporta a verificação adicional se adicionar as permissões de segurança de leitura e inscrição para utilizadores e pode configurar o ponto de registo de certificados para ignorar esta verificação se a autenticação não for possível, nenhuma destas configurações constitui uma melhor prática de segurança. Para mais informações, veja [Planear permissões de modelo de certificado para perfis de certificado no System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).|  
 
-## <a name="privacy-information-for-certificate-profiles"></a>Сведения о конфиденциальности профилей сертификатов  
- Можно использовать профили сертификатов для развертывания сертификатов корневого центра сертификации (ЦС) и клиентов, а затем проверять эти устройства на соответствие после применения профилей. Точка управления отправляет сведения о соответствии на сервер сайта, и System Center Configuration Manager сохраняет их в базе данных сайта. Сведения о соответствии включают свойства сертификатов, такие как имя субъекта и отпечаток. Эта информация шифруется, когда устройства отправляют ее в точку управления, но не хранится в зашифрованном виде в базе данных сайта. Информация хранится в базе данных до тех пор, пока не будет удалена при выполнении задачи обслуживания сайта **Удаление устаревших данных управления конфигурацией** через 90 дней (интервал по умолчанию). Можно настроить интервал удаления. Сведения о соответствии не отправляются в Майкрософт.  
+## <a name="privacy-information-for-certificate-profiles"></a>Informações de Privacidade para Perfis de Certificado  
+ Poderá utilizar perfis de certificado para implementar certificados de autoridade de certificação (AC) de raiz e de cliente, avaliando em seguida se esses dispositivos ficam em conformidade após a aplicação dos perfis. O ponto de gestão envia as informações de compatibilidade para o servidor de site e o System Center Configuration Manager armazena essas informações na base de dados do site. As informações de conformidade incluem propriedades de certificado, tais como o nome do requerente e o thumbprint. As informações são encriptadas quando os dispositivos as enviam para o ponto de gestão, mas não são armazenadas em formato encriptado na base de dados do site. A base de dados mantém as informações até que a tarefa de manutenção do site **Eliminar Dados de Gestão de Configuração Desatualizados** as elimine, após o intervalo predefinido de 90 dias. Pode configurar o intervalo de eliminação. As informações de conformidade não são enviadas à Microsoft.  
 
- Профили сертификатов используют данные, собранные Configuration Manager в процессе обнаружения. Дополнительные сведения о конфиденциальности обнаружения см. в подразделе **Сведения о соблюдении конфиденциальности обнаружения** раздела [Безопасность и конфиденциальность в System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
+ Perfis de certificado utilizam as informações que o Configuration Manager recolhe através da deteção. Para mais informações sobre as informações de privacidade para deteção, veja a secção **Informações de Privacidade para Deteção** em [Segurança e privacidade para o System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
 > [!NOTE]  
->  Сертификаты, выданные пользователям или устройствам, могут разрешать доступ к конфиденциальной информации.  
+>  Os certificados emitidos para utilizadores ou dispositivos poderão permitir o acesso a informações confidenciais.  
 
- По умолчанию устройства не проверяют профили сертификатов. Кроме того, необходимо настроить профили сертификатов, а затем развернуть их для пользователей или устройств.  
+ Por predefinição, os dispositivos não avaliam os perfis de certificado. Além disso, terá de configurar os perfis de certificado e implementá-los para os utilizadores ou dispositivos.  
 
- Перед настройкой профилей сертификатов следует проанализировать требования к конфиденциальности.  
+ Antes de configurar os perfis de certificado, considere os requisitos de privacidade.  

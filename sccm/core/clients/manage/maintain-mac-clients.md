@@ -1,6 +1,6 @@
 ---
-title: "Обслуживание клиентов Mac | Документы Майкрософт"
-description: "Задачи обслуживания для клиентов Mac System Center Configuration Manager."
+title: Manter os clientes Mac | Microsoft Docs
+description: "Tarefas de manutenção para os clientes do Configuration Manager Mac."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,146 +16,146 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3bf6651f58dc0c2aa4773f77115c3fbcd4a33221
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="maintain-mac-clients"></a>Обслуживание клиентов Mac
-*Применимо к: System Center Configuration Manager (Current Branch)*
+# <a name="maintain-mac-clients"></a>Manter os clientes Mac
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Ниже приведены процедуры удаления клиентов Mac и обновления их сертификатов.
+Seguem-se os procedimentos para desinstalar os clientes Mac e para renovar os certificados.
 
-##  <a name="uninstalling-the-mac-client"></a>Удаление клиента Mac  
+##  <a name="uninstalling-the-mac-client"></a>Desinstalar o cliente de Mac  
 
-1.  На компьютере Mac откройте окно терминала и перейдите к папке, содержащей файл **macclient.dmg**.  
+1.  Num computador Mac, abra uma janela de terminal e navegue para a pasta que contém **macclient.dmg**.  
 
-2.  Перейдите в папку Tools и введите следующую команду:  
+2.  Navegue para a pasta Ferramentas e introduza a seguinte linha de comandos:  
 
-     **./CMUninstall -c**  
+     **. / CMUninstall - c**  
 
     > [!NOTE]  
-    >  Параметр **-c** означает, что при удалении клиента также нужно удалить журналы сбоев клиента и файлы журналов. Рекомендуем указать этот параметр, чтобы избежать ошибок в случае повторной установки клиента впоследствии.  
+    >  O **- c** propriedade indica ao cliente de desinstalar também remover registos de falhas de cliente e os ficheiros de registo. Recomendamos esta opção para evitar confusões, se reinstalar o cliente mais tarde.  
 
-3.  При необходимости удалите вручную сертификат проверки подлинности клиента, который использовался Configuration Manager, или отзовите его. CMUnistall не удаляет и не отзывает данный сертификат.  
+3.  Se necessário, manualmente remover o certificado de autenticação de cliente do Configuration Manager estava a utilizar, ou revogue-o. CMUnistall não remove nem revoga este certificado.  
 
-##  <a name="renewing-the-mac-client-certificate"></a>Продление сертификата клиента для Mac  
- Используйте один из следующих методов продления сертификата клиента для Mac.  
+##  <a name="renewing-the-mac-client-certificate"></a>Renovar o certificado do cliente Mac  
+ Utilize um dos seguintes métodos para renovar o certificado do cliente Mac:  
 
--   [Мастер продления сертификатов](#renew-certificate-wizard)  
+-   [Assistente para renovar certificado](#renew-certificate-wizard)  
 
--   [Продление сертификата вручную](#renew-certificate-manually)  
+-   [Renovar manualmente o certificado](#renew-certificate-manually)  
 
-###  <a name="renew-certificate-wizard"></a>Мастер продления сертификатов  
+###  <a name="renew-certificate-wizard"></a>Assistente para renovar certificado  
 
-1.  Укажите следующие *строковые* значения для параметров в файле ccmclient.plist, который определяет, когда будет открыт мастер продления сертификатов.  
+1.  Configure os seguintes valores como *cadeias* no ficheiro ccmclient que controla quando se abre o Assistente para renovar certificados:  
 
- -   **RenewalPeriod1**. Указывает (в секундах) первый период продления, когда пользователи могут продлить сертификат. Значение по умолчанию: 3 888 000 с (45 дней). Если заданное значение меньше 300 секунд, будет использоваться значение по умолчанию. 
+ -   **RenewalPeriod1** -Especifica, em segundos, o primeiro período de renovação em que os utilizadores podem renovar o certificado. O valor predefinido é de 3 888 000 segundos (45 dias). Não configure um valor inferior a 300, como o período de irá reverter para a predefinição. 
 
- -   **RenewalPeriod2**. Указывает (в секундах) второй период продления, когда пользователи могут продлить сертификат. Значение по умолчанию : 259 200 с (3 дня). Если значение не меньше 300 секунд и не больше **RenewalPeriod1**, будет использовано указанное значение. Если **RenewalPeriod1** больше 3 дней, для **RenewalPeriod2**будет использоваться значение 3 дня.  Если **RenewalPeriod1** меньше 3 дней, **RenewalPeriod2** присваивается значение **RenewalPeriod1**.  
+ -   **RenewalPeriod2** -Especifica, em segundos, o segundo período de renovação em que os utilizadores podem renovar o certificado. O valor predefinido é de 259.200 segundos (3 dias). Se este valor é configurado e for maior que ou igual a 300 segundos e é menor ou igual a **RenewalPeriod1**, será utilizado o valor. Se o **RenewalPeriod1** for superior a 3 dias, será utilizado um valor de 3 dias para o **RenewalPeriod2**.  Se o **RenewalPeriod1** for inferior a 3 dias, o **RenewalPeriod2** é definido para o mesmo valor que o **RenewalPeriod1**.  
 
- -   **RenewalReminderInterval1**. Указывает (в секундах) частоту, с которой мастер продления сертификатов будет отображаться пользователям во время первого периода продления. Значение по умолчанию : 86 400 с (1 день). Если значение **RenewalReminderInterval1** больше 300 с и меньше **RenewalPeriod1**, используется заданное значение. В противном случае используется значение по умолчанию в 1 день.  
+ -   **RenewalReminderInterval1** -Especifica, em segundos, a frequência com que o Assistente para renovar o certificado será apresentado aos utilizadores durante o primeiro período de renovação. O valor predefinido é de 86.400 segundos (1 dia). Se **RenewalReminderInterval1** for superior a 300 segundos e inferior ao valor configurado em **RenewalPeriod1**, será utilizado o valor configurado. Caso contrário, será utilizado o valor predefinido de 1 dia.  
 
- -   **RenewalReminderInterval2**. Указывает (в секундах) частоту, с которой мастер продления сертификатов будет отображаться пользователям во время второго периода продления. Значение по умолчанию : 28 800 с (8 часов). Если значение **RenewalReminderInterval2** больше 300 секунд, меньше или равно **RenewalReminderInterval1** и меньше или равно **RenewalPeriod2**, используется заданное значение. В противном случае используется значение в 8 часов.  
+ -   **RenewalReminderInterval2** -Especifica, em segundos da frequência com que o Assistente para renovar o certificado será apresentado aos utilizadores durante o segundo período de renovação. O valor predefinido é de 28.800 segundos (8 horas). Se o **RenewalReminderInterval2** for superior a 300 segundos, inferior ou igual ao **RenewalReminderInterval1** e inferior ou igual ao **RenewalPeriod2**, será utilizado o valor configurado. Caso contrário, será utilizado um valor de 8 horas.  
 
-     **Пример.** Если оставить значения по умолчанию, за 45 дней до истечения срока действия сертификата мастер будет открываться каждые 24 часа.  В течение трех дней до истечения срока действия сертификата мастер будет открываться каждые 8 часов.  
+     **Exemplo:** Se os valores forem deixados com as predefinições, 45 dias antes do certificado expirar, o assistente será aberto a cada 24 horas.  3 dias antes de o certificado expirar o assistente será aberto a cada 8 horas.  
 
-     **Пример.** Используйте следующую командную строку или сценарий, чтобы установить первый период продления равным 20 дням.  
+     **Exemplo:** Utilize a seguinte linha de comando ou script, para definir o primeiro período de renovação para 20 dias.  
 
      `sudo defaults write com.microsoft.ccmclient RenewalPeriod1 1728000`  
 
-2.  При открытии мастера продления сертификатов поля **Имя пользователя** и **Имя сервера** обычно уже заполнены, и для продления сертификата пользователю необходимо только указать пароль.  
+2.  Quando abre o Assistente para renovar o certificado, o **nome de utilizador** e **nome do servidor** campos estarão normalmente pré-preenchidos e o utilizador apenas pode introduzir uma palavra-passe para renovar o certificado.  
 
     > [!NOTE]  
-    >  Если мастер не откроется или если вы его случайно закроете, нажмите кнопку **Обновить** на странице настроек **Configuration Manager** , чтобы открыть мастер.  
+    >  Se o assistente não for aberto, ou se fechar inadvertidamente o assistente, clique em **Renovar** , na página de preferências do **Configuration Manager** para abrir o assistente.  
 
-###  <a name="renew-certificate-manually"></a>Продление сертификата вручную  
- Типичный срок действия сертификата клиента Mac — 1 год. Configuration Manager не продлевает автоматически сертификат пользователя, запрашиваемый при регистрации, поэтому необходимо использовать описанную ниже процедуру, чтобы продлить сертификат вручную.  
+###  <a name="renew-certificate-manually"></a>Renovar manualmente o certificado  
+ Um período de validade comum para um certificado de cliente Mac é de 1 ano. O Configuration Manager não renova automaticamente o certificado de utilizador que pede durante a inscrição, pelo que deverá utilizar o procedimento seguinte para renovar o certificado manualmente.  
 
 > [!IMPORTANT]  
->  Если срок действия сертификата истек, необходимо удалить, повторно установить и затем отозвать клиента Mac.  
+>  Se o certificado expirar, terá de desinstalar, reinstalar e voltar a inscrever o cliente Mac.  
 
- Эта процедура удаляет SMSID, необходимый для запроса нового сертификата для одного и того же компьютера Mac. При удалении и замене SMSID клиента все сохраненные журналы клиента, такие как инвентарные данные, удаляются после удаления клиента из консоли Configuration Manager.  
+ Este procedimento remove o SMSID, necessário para pedir um novo certificado para o mesmo computador Mac. Quando remove e substitui o SMSID do cliente, o histórico armazenado do cliente, tais como o inventário é eliminado após a eliminação do cliente a partir da consola do Configuration Manager.  
 
-1.  Создайте и заполните коллекцию устройств для компьютеров Mac, на которых требуется продлить сертификаты пользователей.  
+1.  Criar e preencher uma coleção de dispositivos para os computadores Mac que têm de renovar os certificados de utilizador.  
 
     > [!WARNING]  
-    >  Configuration Manager не отслеживает срок действия сертификата, регистрируемого для компьютеров Mac. Необходимо независимо отслеживать это из Configuration Manager, чтобы выявить компьютеры Mac для добавления к этой коллекции.  
+    >  O Configuration Manager monitoriza o período de validade do certificado que inscreve para computadores Mac. Deverá monitorizar esta independentemente do Configuration Manager para identificar os computadores Mac a adicionar a esta coleção.  
 
-2.  В рабочей области **Активы и соответствие** выберите **Запуск мастера создания элементов конфигурации**.  
+2.  Na área de trabalho **Ativos e Compatibilidade** , inicie o **Assistente de Criação de Item de Configuração**.  
 
-3.  На странице **Общие** укажите перечисленные ниже сведения.  
+3.  Na página **Geral** , especifique as seguintes informações:  
 
-    -   **Имя:удалить SMSID для Mac**  
+    -   **Nome:Remove SMSID for Mac**  
 
-    -   **Тип:Mac OS X**  
+    -   **Tipo:Mac OS X**  
 
-4.  На странице **Поддерживаемые платформы** убедитесь, что выбраны все версии Mac OS X.  
+4.  No **plataformas suportadas** página, certifique-se de que estão selecionadas todas as versões de Mac OS X.  
 
-5.  На странице **Параметры** выберите команду **Создать**, а затем в диалоговом окне **Создание параметра** укажите приведенные ниже сведения.  
+5.  No **definições** página, escolha **novo** e, em seguida, no **Criar definição** diálogo caixa, especifique as seguintes informações:  
 
-    -   **Имя:удалить SMSID для Mac**  
+    -   **Nome:Remove SMSID for Mac**  
 
-    -   **Тип параметра:сценарий**  
+    -   **Tipo de definição:Script**  
 
-    -   **Тип данных:строковый**  
+    -   **Tipo de dados:Cadeia**  
 
-6.  В диалоговом окне **Создание параметра** в области **Сценарий обнаружения** выберите команду **Добавить сценарий**, чтобы указать сценарий для обнаружения компьютеров Mac с настроенным SMSID.  
+6.  No **Criar definição** caixa de diálogo, para **script de deteção**, escolha **adicionar script** para especificar um script que Deteta os computadores Mac com um SMSID configurado.  
 
-7.  В диалоговом окне **Изменение сценария обнаружения** введите следующий сценарий:  
+7.  Na caixa de diálogo **Editar Script de Deteção** , introduza o seguinte Script de Shell:  
 
     ```  
     defaults read com.microsoft.ccmclient SMSID  
     ```  
 
-8.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Изменение сценария обнаружения**.  
+8.  Escolha **OK** para fechar o **Editar Script de deteção** caixa de diálogo.  
 
-9. В диалоговом окне **Создание параметра** в области **Сценарий исправления (необязательно)** выберите команду **Добавить сценарий**, чтобы указать сценарий, который удаляет SMSID при его обнаружении на компьютерах Mac.  
+9. No **Criar definição** caixa de diálogo, para **script de remediação (opcional)**, escolha **adicionar script** para especificar um script que remove o SMSID quando localizado nos computadores Mac.  
 
-10. В диалоговом окне **Создание сценария исправления** введите следующий сценарий:  
+10. Na caixa de diálogo **Criar Script de Remediação** , introduza o seguinte Script de Shell:  
 
     ```  
     defaults delete com.microsoft.ccmclient SMSID  
     ```  
 
-11. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Создание сценария исправления**.  
+11. Escolha **OK** para fechar o **criar Script de remediação** caixa de diálogo.  
 
-12. На странице **Правила соответствия** мастера щелкните **Создать**, а затем в диалоговом окне **Создание правила** укажите следующие сведения.  
+12. Na página **Regras de Compatibilidade** do assistente, clique em **Novo**e, na caixa de diálogo **Criar Regra** , especifique as seguintes informações:  
 
-    -   **Имя:удалить SMSID для Mac**  
+    -   **Nome:Remove SMSID for Mac**  
 
-    -   **Выбранный параметр**: нажмите кнопку **Обзор** и выберите сценарий обнаружения, указанный ранее.  
+    -   **Definição selecionada:** Escolha **procurar** e, em seguida, selecione o script de deteção especificado anteriormente.  
 
-    -   В поле **следующих значений** введите **Домен/пара по умолчанию (com.microsoft.ccmclient, SMSID) не существует**.  
+    -   No campo **os seguintes valores** , introduza **The domain/default pair of (com.microsoft.ccmclient, SMSID) does not exist**.  
 
-    -   Включите параметр **Запустить следующий сценарий исправления, если этот параметр не соответствует требованиям**.  
+    -   Ative a opção **Executar o script de remediação especificado quando esta definição é incompatível**.  
 
-13. Завершите работу мастера создания элементов конфигурации.  
+13. Conclua o Assistente de Criação de Item de Configuração.  
 
-14. Создайте базовую конфигурацию, содержащую только что созданный элемент конфигурации, и разверните ее в коллекции устройств, созданной на шаге 1.  
+14. Criar uma linha de base de configuração que contém o item de configuração que acabou de criar e implemente-a na coleção de dispositivos que criou no passo 1.  
 
-     Дополнительные сведения о создании и развертывании базовых конфигураций см. в статьях [Создание конфигурационных баз в System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md) и [Развертывание конфигурационных баз в System Center Configuration Manager](../../../compliance/deploy-use/deploy-configuration-baselines.md).  
+     Para obter mais informações sobre como criar e implementar linhas de base de configuração, consulte [como criar linhas de base de configuração no System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md) e [como implementar linhas de base de configuração no System Center Configuration Manager](../../../compliance/deploy-use/deploy-configuration-baselines.md).  
 
-15. На компьютерах Mac с удаленным SMSID выполните следующую команду для установки нового сертификата:  
+15. Em computadores Mac cujo SMSID tenha sido removido, execute o seguinte comando para instalar um novo certificado:  
 
     ```  
     sudo ./CMEnroll -s <enrollment_proxy_server_name> -ignorecertchainvalidation -u <'user name'>  
     ```  
 
-     При появлении запроса введите пароль для учетной записи суперпользователя, чтобы выполнить команду, а затем введите пароль для учетной записи пользователя Active Directory.  
+     Quando solicitado, forneça a palavra-passe da conta de utilizador super para executar o comando e, em seguida, a palavra-passe da conta de utilizador do Active Directory.  
 
-16. Чтобы ограничить зарегистрированный сертификат рамками Configuration Manager, на компьютере Mac откройте окно терминала и внесите указанные ниже изменения.  
+16. Para limitar o certificado inscrito para o Configuration Manager, no computador Mac, abra uma janela de terminal e efetue as seguintes alterações:  
 
-    a.  Введите команду **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
+    a.  Introduza o comando **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
 
-    б.  В диалоговом окне **Доступ к цепочке ключей** в области **Цепочки ключей** выберите пункт **Система**, а затем в разделе **Категория** выберите **Ключи**.  
+    b.  No **acesso Keychain** caixa de diálogo, no **Keychains** secção, escolha **sistema**e, em seguida, no **categoria** secção, escolha **chaves**.  
 
-    в.  Разверните ключи для просмотра сертификатов клиента. Найдите сертификат с только что установленным закрытым ключом и дважды щелкните ключ.  
+    c.  Expanda as chaves para ver os certificados do cliente. Depois de identificar o certificado com uma chave privada acabada de instalar, faça duplo clique na chave.  
 
-    г.  На вкладке **Управление доступом** выберите пункт **Подтвердить перед предоставлением доступа**.  
+    d.  No **controlo de acesso** separador, escolha **confirmar antes de permitir o acesso**.  
 
-    д.  Перейдите в папку **/Library/Application Support/Microsoft/CCM**, выберите файл **CCMClient** и нажмите кнопку **Добавить**.  
+    e.  Navegue até à **/Library/Application Support/Microsoft/CCM**, selecione **CCMClient**e, em seguida, escolha **adicionar**.  
 
-    е.  Нажмите кнопку **Сохранить изменения** и закройте диалоговое окно **Доступ к цепочке ключей**.  
+    f.  Escolha **guardar alterações** e feche o **acesso Keychain** caixa de diálogo.  
 
-17. Перезапустите компьютер Mac.  
+17. Reinicie o computador Mac.  
 

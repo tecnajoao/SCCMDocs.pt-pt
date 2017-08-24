@@ -1,6 +1,6 @@
 ---
-title: "Настройка дополнительного управления с помощью System Center Configuration Manager | Документация Майкрософт"
-description: "Настройте дополнительное управление с помощью System Center Configuration Manager."
+title: "Configurar a gestão adicional através do System Center Configuration Manager | Microsoft Docs"
+description: "Configure a gestão adicional através do System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,37 +17,37 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 947d2a85f2ac68c7ccaf9a1237fd60e89e7d1d10
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-additional-management-with-system-center-configuration-manager"></a>Настройка дополнительного управления с помощью System Center Configuration Manager
+# <a name="set-up-additional-management-with-system-center-configuration-manager"></a>Configurar a gestão adicional com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Дополнительное управление можно настроить до регистрации устройств (необязательно). Решения по управлению можно создать и развернуть после регистрации устройств, несмотря на то, что многие организации предпочитают развертывать их после ввода устройств в режим управления.
+(Opcional) Pode configurar gestão adicional antes dos dispositivos são inscritos. Estas soluções de gestão podem ser criadas e implementadas depois dos dispositivos são inscritos, apesar de muitas organizações preferem implementá-los como dispositivos são colocados em gestão.
 
-**Элементы конфигурации** позволяют управлять параметрами, такими как требование ПИН-кода или требование шифрования на зарегистрированных устройствах на основе платформы устройства:
-- [Устройства Windows 10 и Windows 8.1](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)
-- [Устройства Windows Phone](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)
-- [Устройства iOS и Mac](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)
-- [Устройства Android и Samsung KNOX Standard](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)
+**Itens de configuração** permitem-lhe gerir as definições, tais como exigir um PIN ou exigir encriptação em dispositivos inscritos com base na plataforma de dispositivos:
+- [Dispositivos Windows 10 e Windows 8.1](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)
+- [Dispositivos Windows Phone](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)
+- [dispositivos iOS e Mac](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)
+- [Android e dispositivos Samsung KNOX Standard](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)
 
-На управляемых устройствах можно развернуть следующие **приложения**:
-- [Приложения для iOS](creating-ios-applications.md)
-- [Приложения для Mac](../../apps/get-started/creating-mac-computer-applications.md)
-- [Приложения для ПК Windows](../../apps/get-started/creating-windows-applications.md)
-- [Приложения для Windows Phone](creating-windows-phone-applications.md)
-- [Приложения для Android](creating-android-applications.md)
+**Aplicações** podem ser implementadas em dispositivos geridos:
+- [aplicações iOS](creating-ios-applications.md)
+- [Aplicações Mac](../../apps/get-started/creating-mac-computer-applications.md)
+- [Aplicações de Windows PC](../../apps/get-started/creating-windows-applications.md)
+- [Aplicações do Windows Phone](creating-windows-phone-applications.md)
+- [Aplicações Android](creating-android-applications.md)
 
-**Условный доступ** позволяет управлять доступом к ресурсам компании, включая:  
-- [Доступ к электронной почте](manage-email-access.md)
-- [Доступ к SharePoint](manage-sharepoint-online-access.md)
-- [Доступ к Skype для бизнеса](manage-skype-for-business-online-access.md)
-- [Dynamic CRM Online](manage-dynamics-crm-online-access.md)
+**Acesso condicional** permite-lhe gerir o acesso aos recursos da empresa, incluindo:  
+- [Acesso ao e-mail](manage-email-access.md)
+- [Acesso do SharePoint](manage-sharepoint-online-access.md)
+- [Skype para acesso de negócio](manage-skype-for-business-online-access.md)
+- [Dinâmica CRM Online](manage-dynamics-crm-online-access.md)
 
-**Многофакторная идентификация (MFA)** позволяет реализовать несколько методов проверки, которые добавляют критически важный второй уровень безопасности при операциях входа и транзакциях пользователей.
-Чтобы настроить MFA для регистраций в Intune, ранее необходимо было перейти в консоль Intune или консоль Configuration Manager. Теперь можно войти на [портал Microsoft Azure](https://manage.windowsazure.com), используя свои учетные данные Intune, и настроить параметры MFA с помощью Azure AD. Дополнительные сведения см. в статье [Многофакторная идентификация для регистрации устройств в Intune](https://aka.ms/mfa_ad).
+**Autenticação multifator (MFA)** permite-lhe necessitam de mais do que um método de verificação, que adiciona uma segunda camada crítica de segurança aos inícios de sessão de utilizador e de transações.
+Anteriormente, passará a consola do Intune ou a consola do Configuration Manager para configurar a MFA para inscrições através do Intune. Agora, pode iniciar sessão a [portal do Microsoft Azure](https://manage.windowsazure.com) com as suas credenciais do Intune e configurar as definições da MFA através do Azure AD. Para obter mais informações, consulte [multi-factor authentication do Microsoft Intune](https://aka.ms/mfa_ad).
 
 > [!div class="button"]
-[< Назад](enable-platform-enrollment.md) [Вперед >](verify-mdm-configuration.md)
+[< Anterior passo](enable-platform-enrollment.md)[passo seguinte >  ](verify-mdm-configuration.md)

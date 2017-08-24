@@ -1,6 +1,6 @@
 ---
-title: "Создание пользовательских отчетов | Документы Майкрософт"
-description: "Определите модели отчетов в соответствии с требованиями бизнеса, а затем разверните их в Configuration Manager."
+title: "Criar relatórios personalizados | Microsoft Docs"
+description: "Definir modelos de relatórios para satisfazer os seus requisitos empresariais e, em seguida, implementar modelos de relatórios no Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,152 +17,152 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 9951dd9333ebef00c7acd5d72b20a02382e3206c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Создание моделей пользовательских отчетов для System Center Configuration Manager в службах SQL Server Reporting Services
+# <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В System Center Configuration Manager входят образцы моделей отчетов, однако вы также можете определить модели отчетов в соответствии с собственными бизнес-требованиями и затем при создании отчетов на основе модели развернуть модель отчета в Configuration Manager. В следующей таблице приведены действия по созданию и развертыванию модели простого отчета.  
+Modelos de relatórios de exemplo estão incluídos no System Center Configuration Manager, mas pode também definir modelos de relatórios que satisfaçam os seus requisitos de negócio e, em seguida, implementar o modelo de relatório para o Configuration Manager para utilizar quando criar novos relatórios baseados em modelos. A tabela seguinte fornece os passos para criar e implementar um modelo de relatório básico.  
 
 > [!NOTE]  
->  Действия по созданию модели расширенного отчета см. в разделе [Действия по созданию модели расширенного отчета в службах SQL Server Reporting Services](#AdvancedReportModel) этой статьи.  
+>  Consulte os passos de criação de um modelo de relatório mais avançado na secção [Steps for Creating an Advanced Report Model in SQL Server Reporting Services](#AdvancedReportModel) deste tópico.  
 
-|Шаг|Описание|Дополнительные сведения|  
+|Passo|Descrição|Mais informações|  
 |----------|-----------------|----------------------|  
-|Проверка установки среды SQL Server Business Intelligence Development Studio|Модели отчетов разрабатываются и создаются с помощью среды SQL Server Business Intelligence Development Studio. Убедитесь, что на компьютере, на котором выполняется создание настраиваемой модели отчета, установлена среда SQL Server Business Intelligence Development Studio.|Дополнительные сведения о среде SQL Server Business Intelligence Development Studio см. в документации по SQL Server 2008.|  
-|Создание проекта модели отчета|Проект модели отчета содержит определение источника данных (DS-файл), определение представления источника данных (DSV-файл) и модель отчета (SMDL-файл).|Дополнительные сведения см. в разделе [Создание проекта модели отчета](#BKMK_CreateReportModelProject) этой статьи.|  
-|Определение источника данных для модели отчета|После создания проекта модели отчета необходимо определить один источник данных, из которого будут извлекаться бизнес-данные. Как правило, это база данных сайта Configuration Manager.|Дополнительные сведения см. в разделе [Определение источника данных для модели отчета](#BKMK_DefineReportModelDataSource) этой статьи.|  
-|Определение представления источника данных для модели отчета|После определения источника данных, который будет использоваться в проекте модели отчета, следует определить представление источника данных для проекта. Представление источника данных — это логическая модель данных на основе одного или нескольких источников данных. Представления источников данных инкапсулируют доступ к физическим объектам, таким как таблицы и представления, находящимся в базовых источниках данных. Службы SQL Server Reporting Services формируют модель отчета из представления источника данных.<br /><br /> Представления источника данных позволяют упростить процесс разработки модели за счет эффективного и удобного представления указанных данных. Можно переименовывать таблицы и поля и добавлять в представление данных статистические поля и производные таблицы, не изменяя при этом базовый источник данных. Чтобы создать эффективную модель, в представление источника данных следует добавлять только необходимые таблицы.|Дополнительные сведения см. в разделе [Определение представления источника данных для модели отчета](#BKMK_DefineReportModelDataSourceView) этой статьи.|  
-|Создание модели отчета|Модель отчета — это верхний уровень базы данных, который определяет бизнес-сущности, поля и роли. С помощью опубликованных моделей разрабатывать отчеты могут пользователи построителя отчетов, не имеющие опыта работы с базами данных или не занимающиеся написанием запросов. Модели состоят из наборов связанных элементов отчетов, объединенных в группы с понятными именами. Между этими элементами существуют предопределенные отношения и предопределенные вычисления. Для определения моделей используется XML-язык, который называется Semantic Model Definition Language (SMDL). Файлы моделей отчетов имеют расширение SDML.|Дополнительные сведения см. в разделе [To create the report model](#BKMK_CreateReportModel) этой статьи.|  
-|Публикация модели отчета|Чтобы построить отчет с помощью только что созданной модели, эту модель необходимо опубликовать на сервере отчетов. Во время публикации в модель включаются источник данных и представление источника данных.|Дополнительные сведения см. в разделе [Публикация модели отчета для использования в службах SQL Server Reporting Services](#BKMK_PublishReportModel) этой статьи.|  
-|Развертывание модели отчета в Configuration Manager|Прежде чем использовать настраиваемую модель отчета в **мастере создания отчетов** для построения отчета на ее основе, модель отчета необходимо развернуть в Configuration Manager.|Дополнительные сведения см. в разделе [To deploy the custom report model to Configuration Manager](#BKMK_DeployReportModel) этой статьи.|  
+|Verificar se o SQL Server Business Intelligence Development Studio está instalado|Os modelos de relatórios são concebidos e criados utilizando o SQL Server Business Intelligence Development Studio. Certifique-se de que o SQL Server Business Intelligence Development Studio se encontra instalado no computador em que estiver a criar o modelo de relatório personalizado.|Para mais informações sobre o SQL Server Business Intelligence Development Studio, consulte a documentação do SQL Server 2008.|  
+|Criar um projeto de modelo de relatório|Um projeto de modelo de relatório contém a definição da origem de dados (um ficheiro .ds), a definição de uma vista de origem de dados (um ficheiro .dsv) e o modelo de relatório (um ficheiro .smdl).|Para obter mais informações, consulte a secção [To create the report model project](#BKMK_CreateReportModelProject) neste tópico.|  
+|Definir uma origem de dados para um modelo de relatório|Depois de criar um projeto de modelo de relatório, terá de definir uma origem de dados a partir da qual extrair os dados de negócio. Normalmente, esta é a base de dados do site do Configuration Manager.|Para obter mais informações, consulte a secção [To define the data source for the report model](#BKMK_DefineReportModelDataSource) neste tópico.|  
+|Definir uma vista de origem de dados para um modelo de relatório|Após definir as origens de dados que utiliza no seu projeto de modelo de relatório, o passo seguinte será definir uma vista de origem de dados para o projeto. Uma vista de origem de dados é um modelo de dados lógico baseado numa ou mais origens de dados. As vistas de origem de dados encapsulam o acesso aos objetos físicos, tais como tabelas e vistas, contidos nas origens de dados subjacentes. O SQL Server Reporting Services gera o modelo de relatório a partir da vista de origem de dados.<br /><br /> As vistas de origem de dados facilitam o processo de criação do modelo, fornecendo uma representação útil dos dados que especificou. Sem alterar a origem de dados subjacente, poderá mudar o nome de tabelas e campos e adicionar campos agregados e tabelas derivadas numa vista de origem de dados. Para um modelo eficiente, adicione apenas à vista de origem de dados as tabelas que pretender utilizar.|Para obter mais informações, consulte a secção [Para definir a vista de origem de dados para o modelo de relatório](#BKMK_DefineReportModelDataSourceView) neste tópico.|  
+|Criar um modelo de relatório|Um modelo de relatório é uma camada sobreposta a uma base de dados que identifica as entidades de negócio, campos e funções. Quando publicado utilizando estes modelos, os utilizadores do Report Builder poderão desenvolver relatórios sem terem de se familiarizar com as estruturas de bases de dados nem compreender e escrever consultas. Os modelos são compostos por conjuntos de itens de relatório relacionados, agrupados sob um nome amigável, com relações predefinidas entre estes itens de negócio e com cálculos predefinidos. Os modelos são definidos utilizando uma linguagem XML denominada SMDL (Semantic Model Definition Language). A extensão do nome de ficheiro dos modelos de relatório é .smdl.|Para obter mais informações, consulte a secção [To create the report model](#BKMK_CreateReportModel) neste tópico.|  
+|Publicar um modelo de relatório|Para criar um relatório utilizando o modelo que acabou de criar, terá de o publicar num servidor de relatórios. A origem de dados e a vista de origem de dados serão incluídas no modelo, quando este for publicado.|Para obter mais informações, consulte a secção [To publish the report model for use in SQL Server Reporting Services](#BKMK_PublishReportModel) neste tópico.|  
+|Implementar o modelo de relatório do Configuration Manager|Antes de poder utilizar um modelo de relatório personalizado no **Assistente para criar relatório** para criar um relatório baseado num modelo, terá de implementar o modelo de relatório do Configuration Manager.|Para obter mais informações, consulte a secção [To deploy the custom report model to Configuration Manager](#BKMK_DeployReportModel) neste tópico.|  
 
-## <a name="steps-for-creating-a-basic-report-model-in-sql-server-reporting-services"></a>Действия по созданию модели простого отчета в службах SQL Server Reporting Services  
- Приведенные ниже процедуры предназначены для создания модели простого отчета, которую пользователи сайта могут применять для формирования отчетов на основе конкретной модели с использованием данных в одном представлении базы данных Configuration Manager. Здесь создается модель отчета, которая представляет автору отчета сведения о клиентских компьютерах на сайте. Эти сведения получены из представления **v_R_System** в базе данных Configuration Manager.  
+## <a name="steps-for-creating-a-basic-report-model-in-sql-server-reporting-services"></a>Passos para criar um modelo de relatório básico no SQL Server Reporting Services  
+ Pode utilizar os procedimentos seguintes para criar um modelo de relatório básico que os utilizadores do seu site poderão usar para criar relatórios baseados em modelos específicos com base nos dados de uma única vista da base de dados do Configuration Manager. Crie um modelo de relatório que apresente as informações sobre os computadores cliente do site ao autor do relatório. Estas informações são obtidas a partir de **v_R_System** vista na base de dados do Configuration Manager.  
 
- Убедитесь, что на компьютере, где выполняются эти процедуры, установлена среда SQL Server Business Intelligence Development Studio и доступно сетевое подключение к серверу точки служб отчетов. Дополнительные сведения о среде SQL Server Business Intelligence Development Studio см. в документации по SQL Server 2008.  
+ No computador em que executar estes procedimentos, certifique-se de que instalou o SQL Server Business Intelligence Development Studio e de que o computador possui conectividade de rede para o servidor do ponto do Reporting Services. Para obter informações detalhadas sobre o SQL Server Business Intelligence Development Studio, consulte a documentação do SQL Server 2008.  
 
-###  <a name="BKMK_CreateReportModelProject"></a> Создание проекта модели отчета  
+###  <a name="BKMK_CreateReportModelProject"></a> To create the report model project  
 
-1.  На рабочем столе нажмите кнопку **Пуск**и последовательно выберите **Microsoft SQL Server 2008**, **SQL Server Business Intelligence Development Studio**.  
+1.  No ambiente de trabalho, clique em **Iniciar**, clique em **Microsoft SQL Server 2008**e clique em **SQL Server Business Intelligence Development Studio**.  
 
-2.  После открытия среды **SQL Server Business Intelligence Development Studio** в Microsoft Visual Studio в меню **Файл**выберите команду **Создать**, а затем выберите **Проект**.  
+2.  Após o **SQL Server Business Intelligence Development Studio** ser apresentado no Microsoft Visual Studio, clique em **Ficheiro**, clique em **Novo**e clique em **Projeto**.  
 
-3.  В диалоговом окне **Создание проекта** в списке **Шаблоны** выберите **Проект модели отчета** .  
+3.  Na caixa de diálogo **Novo Projeto** , selecione **Projeto de Modelo de Relatório** na lista **Modelos** .  
 
-4.  В поле **Имя** введите имя модели отчета. В данном примере введите **Простая_модель**.  
+4.  Na caixa **Nome** , especifique um nome para este modelo de relatório. Para este exemplo, digite **Simple_Model**.  
 
-5.  Чтобы создать проект модели отчета, нажмите кнопку **ОК**.  
+5.  Para criar o projeto de modelo de relatório, clique em **OK**.  
 
-6.  В **обозревателе решений** появится решение **Простая_модель**.  
-
-    > [!NOTE]  
-    >  Если область **обозревателя решений** не отображается, щелкните **Вид**, а затем — **Обозреватель решений**.  
-
-###  <a name="BKMK_DefineReportModelDataSource"></a> Определение источника данных для модели отчета  
-
-1.  В области **Обозреватель решений** среды **SQL Server Business Intelligence Development Studio**правой кнопкой мыши щелкните **Источники данных** , а затем в контекстном меню выберите команду **Добавить новый источник данных**.  
-
-2.  На странице **Мастер источников данных** нажмите кнопку **Далее**.  
-
-3.  Убедитесь, что на странице **Выбор метода определения соединения** выбран параметр **Создать источник данных на основе существующего или нового соединения** , а затем нажмите кнопку **Далее**.  
-
-4.  В диалоговом окне **Диспетчер соединений** укажите следующие свойства соединения для источника данных.  
-
-    -   **Имя сервера**: введите имя сервера базы данных сайта Configuration Manager или выберите его в списке. В случае работы с именованным экземпляром, а не с экземпляром по умолчанию, введите &lt;*сервер_базы_данных*>\\&lt;*имя_экземпляра*>.  
-
-    -   Выберите параметр **Использовать проверку подлинности Windows**.  
-
-    -   В списке **Выберите или введите имя базы данных** выберите имя базы данных сайта Configuration Manager.  
-
-5.  Чтобы проверить соединение с базой данных, нажмите кнопку **Проверить соединение**.  
-
-6.  Если соединение установлено успешно, нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Диспетчер соединений** . Если соединение не установлено, проверьте правильность введенных данных, а затем еще раз нажмите кнопку **Проверить соединение** .  
-
-7.  Убедитесь, что на странице **Выбор метода определения соединения** выбран параметр **Создать источник данных на основе существующего или нового соединения** , проверьте, что в поле **Подключения к данным**выбран только что указанный источник данных, а затем нажмите кнопку **Далее**.  
-
-8.  В поле **Имя источника данных**укажите имя источника данных, а затем нажмите кнопку **Готово**. В данном примере введите **Простая_модель**.  
-
-9. Теперь в **обозревателе решений** в узле **Источники данных** отображается источник данных **Простая_модель.ds** .  
+6.  A solução **Simple_Model** é apresentada no **Solution Explorer**.  
 
     > [!NOTE]  
-    >  Чтобы изменить свойства существующего источника данных, дважды щелкните источник данных в папке **Источники данных** в области **Обозреватель решений** для отображения свойств источника данных в конструкторе источников данных.  
+    >  Se o painel do **Solution Explorer** não for apresentado, clique em **Ver**e clique em **Solution Explorer**.  
 
-###  <a name="BKMK_DefineReportModelDataSourceView"></a> Определение представления источника данных для модели отчета  
+###  <a name="BKMK_DefineReportModelDataSource"></a>Para definir a origem de dados para o modelo de relatório  
 
-1.  В **обозревателе решений**правой кнопкой мыши щелкните **Представления источника данных** и в контекстном меню выберите команду **Добавить новое представление источника данных**.  
+1.  No painel **Solution Explorer** do **SQL Server Business Intelligence Development Studio**, clique com o botão direito do rato em **Origens de Dados** e selecione **Adicionar Nova Origem de Dados**.  
 
-2.  На странице **Мастер представления источника данных** нажмите кнопку **Далее**. Откроется страница **Выбор источника данных** .  
+2.  Na página **Bem-vindo ao Assistente de Origem de Dados** , clique em **Seguinte**.  
 
-3.  Проверьте, что в окне **Реляционные источники данных** выбран источник данных **Простая_модель** , а затем нажмите кнопку **Далее**.  
+3.  Na página **Selecione como definir a ligação** , certifique-se de que a opção **Criar uma origem de dados com base numa ligação nova ou existente** se encontra selecionada e clique em **Novo**.  
 
-4.  На странице **Выбор таблиц и представлений** в списке **Доступные объекты** выберите следующее представление для использования в модели отчета: **v_R_System (dbo)**.  
+4.  Na caixa de diálogo **Gestor de Ligações** , especifique as seguintes propriedades de ligação para a origem de dados:  
+
+    -   **Nome do servidor**: Escreva o nome do seu servidor de base de dados do site do Configuration Manager ou selecione-o na lista. Se estiver a trabalhar com uma instância nomeada em vez da instância predefinida, escreva &lt; *servidor de base de dados*>\\&lt;*nome da instância*>.  
+
+    -   Selecione **Utilizar Autenticação do Windows**.  
+
+    -   No **selecione ou introduza um nome de base de dados** lista, selecione o nome da sua base de dados do site do Configuration Manager.  
+
+5.  Para verificar a ligação à base de dados, clique em **Testar Ligação**.  
+
+6.  Se a ligação tiver êxito, clique em **OK** para fechar a caixa de diálogo **Gestor de Ligações** . Se a ligação não tiver êxito, verifique se as informações que introduziu estão corretas e clique novamente em **Testar Ligação** .  
+
+7.  Na página **Selecione como definir a ligação** , certifique-se de que a opção **Criar uma origem de dados com base numa ligação nova ou existente** se encontra selecionada, verifique se a origem de dados que acabou de especificar se encontra selecionada em **Ligações de dados**e clique em **Seguinte**.  
+
+8.  Em **Nome da origem de dados**, especifique um nome para a origem de dados e clique em **Concluir**. Para este exemplo, digite **Simple_Model**.  
+
+9. A origem de dados **Simple_Model.ds** é apresentada no **Solution Explorer** , sob o nó **Origens de Dados** .  
+
+    > [!NOTE]  
+    >  Para editar as propriedades de uma origem de dados existente, faça duplo clique na origem de dados na pasta **Origens de Dados** do painel do **Solution Explorer** para apresentar as propriedades da origem de dados no Estruturador de Origens de Dados.  
+
+###  <a name="BKMK_DefineReportModelDataSourceView"></a>Para definir a vista de origem de dados para o modelo de relatório  
+
+1.  No **Solution Explorer**, clique com o botão direito do rato em **Vistas de Origem de Dados** e selecione **Adicionar Nova Vista de Origem de Dados**.  
+
+2.  Na página **Bem-vindo ao Assistente de Vista de Origem de Dados** , clique em **Seguinte**. É apresentada a página **Selecionar uma Origem de Dados** .  
+
+3.  Na janela **Origens de dados relacionais** , certifique-se de que a origem de dados **Simple_Model** se encontra selecionada e clique em **Seguinte**.  
+
+4.  Na página **Selecionar Tabelas e Vistas** , selecione a vista seguinte na lista **Objetos disponíveis** para utilizar no modelo de relatório: **v_R_System (dbo)**.  
 
     > [!TIP]  
-    >  Чтобы упростить поиск представлений в списке **Доступные объекты** , в верхней его части щелкните заголовок **Имя** для сортировки объектов в алфавитном порядке.  
+    >  Para ajudar a localizar as vistas na lista **Objetos disponíveis** , clique no cabeçalho **Nome** na parte superior da lista para ordenar os objetos por ordem alfabética.  
 
-5.  После выбора представления щелкните **>** , чтобы переместить объект в список **Включенные объекты** .  
+5.  Após selecionar a vista, clique em **>** para transferir o objeto para a lista **Objetos incluídos** .  
 
-6.  Если откроется страница **Совпадение имен** , примите указанные на ней значения по умолчанию и нажмите кнопку **Далее**.  
+6.  Se a página **Correspondência de Nomes** for apresentada, aceite as seleções predefinidas e clique em **Seguinte**.  
 
-7.  Выбрав необходимые объекты, нажмите кнопку **Далее**и затем укажите имя представления источника данных. В данном примере введите **Простая_модель**.  
+7.  Quando tiver selecionado os objetos de que necessitar, clique em **Seguinte**e especifique um nome para a vista de origem de dados. Para este exemplo, digite **Simple_Model**.  
 
-8.  Нажмите кнопку **Готово**. Представление источника данных **Простая_модель.dsv** отображается в папке **Представления источника данных** в **обозревателе решений**.  
+8.  Clique em **Concluir**. A vista de origem de dados **Simple_Model.dsv** é apresentada na pasta **Vistas de Origem de Dados** do **Solution Explorer**.  
 
 ###  <a name="BKMK_CreateReportModel"></a> To create the report model  
 
-1.  В **обозревателе решений**правой кнопкой мыши щелкните **Модели отчетов** и в контекстном меню выберите команду **Добавить новую модель отчета**.  
+1.  No **Solution Explorer**, clique com o botão direito do rato em **Modelos de Relatório** e selecione **Adicionar Novo Modelo de Relatório**.  
 
-2.  На странице **Мастер моделей отчетов** нажмите кнопку **Далее**.  
+2.  Na página **Bem-vindo ao Assistente de Modelos de Relatório** , clique em **Seguinte**.  
 
-3.  На странице **Выбор представлений источника данных** в списке **Доступные представления источника данных** выберите представление источника данных, а затем нажмите кнопку **Далее**. В данном примере выберите **Простая_модель.dsv**.  
+3.  Na página **Selecionar Vistas de Origem de Dados** , selecione a vista de origem de dados na lista **Vistas de origem de dados disponíveis** e clique em **Seguinte**. Para este exemplo, selecione **Simple_Model.dsv**.  
 
-4.  На странице **Выбор правил формирования модели отчета** примите значения по умолчанию, а затем нажмите кнопку **Далее**.  
+4.  Na página **Selecionar regras de geração de modelos de relatório** , aceite os valores predefinidos e clique em **Seguinte**.  
 
-5.  На странице **Сбор статистики модели** проверьте, что выбран параметр **Обновить статистику модели перед формированием** , а затем нажмите кнопку **Далее**.  
+5.  Na página **Recolher Estatísticas de Modelo** , certifique-se de que a opção **Atualizar estatísticas de modelo antes de gerar** se encontra selecionada e clique em **Seguinte**.  
 
-6.  На странице **Завершение работы мастера** укажите имя модели отчета. Убедитесь, что в данном примере отображается **Простая_модель** .  
+6.  Na página **A Concluir o Assistente** , especifique um nome para o modelo de relatório. Para este exemplo, verifique se é apresentado **Simple_Model** .  
 
-7.  Чтобы завершить работу мастера и создать модель отчета, нажмите кнопку **Выполнить**.  
+7.  Para concluir o assistente e criar o modelo de relatório, clique em **Executar**.  
 
-8.  Чтобы выйти из мастера, нажмите кнопку **Готово**. Модель отчета отображается в окне конструктора.  
+8.  Para sair do assistente, clique em **Concluir**. O modelo de relatório é apresentado na janela Estrutura.  
 
-###  <a name="BKMK_PublishReportModel"></a> Публикация модели отчета для использования в службах SQL Server Reporting Services  
+###  <a name="BKMK_PublishReportModel"></a>Para publicar o modelo de relatório para utilização no SQL Server Reporting Services  
 
-1.  В **обозревателе решений**щелкните правой кнопкой мыши модель отчета и в контекстном меню выберите команду **Развернуть**. В данном примере используется модель отчета **Простая_модель.smdl**.  
+1.  No **Solution Explorer**, clique com o botão direito do rato no modelo de relatório e selecione **Implementar**. Neste exemplo, o modelo de relatório é **Simple_Model.smdl**.  
 
-2.  Проверьте состояние развертывания в нижнем левом углу окна среды **SQL Server Business Intelligence Development Studio** . По окончании развертывания появится сообщение **Развертывание завершено успешно** . Если развертывание выполнить не удается, причина сбоя отображается в окне **Выходные данные** . Теперь на веб-сайте служб SQL Server Reporting Services доступна новая модель отчета.  
+2.  Examine o estado da implementação no canto inferior esquerdo da janela **SQL Server Business Intelligence Development Studio** . Quando a implementação estiver concluída, será apresentado **Implementação com Êxito** . Se a implementação falhar, o motivo da falha será apresentado na janela **Saída** . O novo modelo de relatório está agora disponível no Web site do SQL Server Reporting Services.  
 
-3.  В меню **Файл**выберите **Сохранить все**, а затем закройте среду **SQL Server Business Intelligence Development Studio**.  
+3.  Clique em **Ficheiro**, clique em **Guardar Tudo**e feche o **SQL Server Business Intelligence Development Studio**.  
 
 ###  <a name="BKMK_DeployReportModel"></a> To deploy the custom report model to Configuration Manager  
 
-1.  Найдите папку, в которой создан проект модели отчета. Например, %*ПРОФИЛЬ_ПОЛЬЗОВАТЕЛЯ*%\Documents\Visual Studio 2008\Projects\\*&lt;имя_проекта\>.*  
+1.  Localize a pasta em que criou o projeto de modelo de relatório. Por exemplo, %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;nome do projeto\>.*  
 
-2.  Скопируйте следующие файлы из папки проекта модели отчета во временную папку на компьютере:  
+2.  Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
 
-    -   *&lt;Имя модели\>* **.dsv**  
+    -   *&lt;Nome de modelo\>*  **. DSV**  
 
-    -   *&lt;Имя модели\>* **.smdl**  
+    -   *&lt;Nome de modelo\>*  **. smdl**  
 
-3.  Откройте указанные выше файлы с помощью текстового редактора, например "Блокнот".  
+3.  Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
 
-4.  В файле *&lt;имя_модели\>***.dsv** найдите первую строку файла, которая выглядит следующим образом:  
+4.  No ficheiro  *&lt;nome do modelo\>***. DSV**, localize a primeira linha do ficheiro, que lê da seguinte forma:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
-     Измените эту строку следующим образом:  
+     Edite esta linha para:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="RelationalDataSourceView"\>**  
+     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi = "RelationalDataSourceView"\>**  
 
-5.  Скопируйте все содержимое файла в буфер обмена Windows.  
+5.  Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
 
-6.  Закройте файл *&lt;имя_модели\>***.dsv**.  
+6.  Feche o ficheiro  *&lt;nome do modelo\>***. DSV**.  
 
-7.  В файле *&lt;имя_модели\>***.smdl** найдите последние три строки файла, которые выглядят следующим образом:  
+7.  No ficheiro  *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do ficheiro, que são apresentados da seguinte forma:  
 
      `</Entity>`  
 
@@ -170,116 +170,116 @@ ms.lasthandoff: 08/07/2017
 
      `</SemanticModel>`  
 
-8.  Вставьте содержимое файла *&lt;имя_модели\>***.dsv** сразу перед последней строкой файла (**&lt;SemanticModel\>**).  
+8.  Colar o conteúdo do ficheiro  *&lt;nome do modelo\>***. DSV** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
 
-9. Сохраните и закройте файл *&lt;имя_модели\>***.smdl**.  
+9. Guarde e feche o ficheiro  *&lt;nome do modelo\>***. smdl**.  
 
-10. Скопируйте файл *&lt;имя_модели\>***.smdl** в папку *%programfiles%*\Microsoft Configuration Manager \AdminConsole\XmlStorage\Other на сервере сайта Configuration Manager.  
+10. Copie o ficheiro  *&lt;nome do modelo\>***. smdl** para a pasta *% programfiles %*\Microsoft do Configuration Manager \AdminConsole\XmlStorage\Other no servidor de site do Configuration Manager.  
 
     > [!IMPORTANT]  
-    >  После копирования файла модели отчета на сервер сайта Configuration Manager необходимо закрыть и перезапустить консоль Configuration Manager. Только после этого модель отчета можно использовать в **мастере создания отчетов**.  
+    >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, tem de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório a **Assistente para criar relatório**.  
 
-##  <a name="AdvancedReportModel"></a> Действия по созданию модели расширенного отчета в службах SQL Server Reporting Services  
- Приведенные ниже процедуры предназначены для создания модели расширенного отчета, которую пользователи сайта могут применять для формирования отчетов на основе конкретной модели с использованием данных в нескольких представлениях базы данных Configuration Manager. Здесь создается модель отчета, которая представляет автору отчета сведения о клиентских компьютерах и установленных на них операционных системах. Эти сведения получены из перечисленных ниже представлений в базе данных Configuration Manager.  
+##  <a name="AdvancedReportModel"></a>Passos para criar um modelo de relatório avançado no SQL Server Reporting Services  
+ Pode utilizar os procedimentos seguintes para criar um modelo de relatório avançado que os utilizadores do seu site poderão usar para criar relatórios baseados em modelos específicos com base nos dados de várias vistas da base de dados do Configuration Manager. Crie um modelo de relatório que apresente as informações sobre os computadores cliente e sobre o sistema operativo instalado nesses computadores ao autor do relatório. Estas informações são obtidas a partir das seguintes vistas na base de dados do Configuration Manager:  
 
--   **V_R_System**: содержит сведения об обнаруженных компьютерах и клиенте Configuration Manager.  
+-   **V_R_System**: Contém informações sobre computadores detetados e o cliente do Configuration Manager.  
 
--   **V_GS_OPERATING_SYSTEM**: содержит сведения об операционной системе, установленной на клиентском компьютере.  
+-   **V_GS_OPERATING_SYSTEM**: Contém informações sobre o sistema operativo instalado no computador cliente.  
 
- Выбранные элементы из предыдущих представлений объединяются в один список, получают понятные имена и затем отображаются автору отчета в построителе отчетов.  
+ Os itens selecionados nas vistas anteriores são consolidados numa lista, recebem nomes amigáveis e são apresentados ao autor do relatório no Report Builder para inclusão em determinados relatórios.  
 
- Убедитесь, что на компьютере, где выполняются эти процедуры, установлена среда SQL Server Business Intelligence Development Studio и доступно сетевое подключение к серверу точки служб отчетов. Дополнительные сведения о среде SQL Server Business Intelligence Development Studio см. в документации по SQL Server.  
+ No computador em que executar estes procedimentos, certifique-se de que instalou o SQL Server Business Intelligence Development Studio e de que o computador possui conectividade de rede para o servidor do ponto do Reporting Services. Para obter informações detalhadas sobre o SQL Server Business Intelligence Development Studio, consulte a documentação do SQL Server.  
 
-#### <a name="to-create-the-report-model-project"></a>Создание проекта модели отчета  
+#### <a name="to-create-the-report-model-project"></a>To create the report model project  
 
-1.  На рабочем столе нажмите кнопку **Пуск**и последовательно выберите **Microsoft SQL Server 2008**, **SQL Server Business Intelligence Development Studio**.  
+1.  No ambiente de trabalho, clique em **Iniciar**, clique em **Microsoft SQL Server 2008**e clique em **SQL Server Business Intelligence Development Studio**.  
 
-2.  После открытия среды **SQL Server Business Intelligence Development Studio** в Microsoft Visual Studio в меню **Файл**выберите команду **Создать**, а затем выберите **Проект**.  
+2.  Após o **SQL Server Business Intelligence Development Studio** ser apresentado no Microsoft Visual Studio, clique em **Ficheiro**, clique em **Novo**e clique em **Projeto**.  
 
-3.  В диалоговом окне **Создание проекта** в списке **Шаблоны** выберите **Проект модели отчета** .  
+3.  Na caixa de diálogo **Novo Projeto** , selecione **Projeto de Modelo de Relatório** na lista **Modelos** .  
 
-4.  В поле **Имя** введите имя модели отчета. В данном примере введите **Расширенная_модель**.  
+4.  Na caixa **Nome** , especifique um nome para este modelo de relatório. Para este exemplo, digite **Advanced_Model**.  
 
-5.  Чтобы создать проект модели отчета, нажмите кнопку **ОК**.  
+5.  Para criar o projeto de modelo de relatório, clique em **OK**.  
 
-6.  В **Обозревателе решений** появится решение **Расширенная_модель**.  
-
-    > [!NOTE]  
-    >  Если область **обозревателя решений** не отображается, щелкните **Вид**, а затем — **Обозреватель решений**.  
-
-#### <a name="to-define-the-data-source-for-the-report-model"></a>Определение источника данных для модели отчета  
-
-1.  В области **Обозреватель решений** среды **SQL Server Business Intelligence Development Studio**правой кнопкой мыши щелкните **Источники данных** , а затем в контекстном меню выберите команду **Добавить новый источник данных**.  
-
-2.  На странице **Мастер источников данных** нажмите кнопку **Далее**.  
-
-3.  Убедитесь, что на странице **Выбор метода определения соединения** выбран параметр **Создать источник данных на основе существующего или нового соединения** , а затем нажмите кнопку **Далее**.  
-
-4.  В диалоговом окне **Диспетчер соединений** укажите следующие свойства соединения для источника данных.  
-
-    -   **Имя сервера**: введите имя сервера базы данных сайта Configuration Manager или выберите его в списке. В случае работы с именованным экземпляром, а не с экземпляром по умолчанию, введите &lt;*сервер_базы_данных*>\\&lt;*имя_экземпляра*>.  
-
-    -   Выберите параметр **Использовать проверку подлинности Windows**.  
-
-    -   В списке **Выберите или введите имя базы данных** выберите имя базы данных сайта Configuration Manager.  
-
-5.  Чтобы проверить соединение с базой данных, нажмите кнопку **Проверить соединение**.  
-
-6.  Если соединение установлено успешно, нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Диспетчер соединений** . Если соединение не установлено, проверьте правильность введенных данных, а затем еще раз нажмите кнопку **Проверить соединение** .  
-
-7.  Убедитесь, что на странице **Выбор метода определения соединения** выбран параметр **Создать источник данных на основе существующего или нового соединения** , проверьте, что в поле списка **Подключения к данным** выбран только что указанный источник данных, а затем нажмите кнопку **Далее**.  
-
-8.  В поле **Имя источника данных**укажите имя источника данных, а затем нажмите кнопку **Готово**. В данном примере введите **Расширенная_модель**.  
-
-9. Теперь в **Обозревателе решений** в узле **Источники данных** отображается источник данных **Расширенная_модель.ds** .  
+6.  A solução **Advanced_Model** é apresentada no **Solution Explorer**.  
 
     > [!NOTE]  
-    >  Чтобы изменить свойства существующего источника данных, дважды щелкните источник данных в папке **Источники данных** в области **Обозреватель решений** для отображения свойств источника данных в конструкторе источников данных.  
+    >  Se o painel do **Solution Explorer** não for apresentado, clique em **Ver**e clique em **Solution Explorer**.  
 
-#### <a name="to-define-the-data-source-view-for-the-report-model"></a>Определение представления источника данных для модели отчета  
+#### <a name="to-define-the-data-source-for-the-report-model"></a>Para definir a origem de dados para o modelo de relatório  
 
-1.  В **обозревателе решений**правой кнопкой мыши щелкните **Представления источника данных** и в контекстном меню выберите команду **Добавить новое представление источника данных**.  
+1.  No painel **Solution Explorer** do **SQL Server Business Intelligence Development Studio**, clique com o botão direito do rato em **Origens de Dados** e selecione **Adicionar Nova Origem de Dados**.  
 
-2.  На странице **Мастер представления источника данных** нажмите кнопку **Далее**. Откроется страница **Выбор источника данных** .  
+2.  Na página **Bem-vindo ao Assistente de Origem de Dados** , clique em **Seguinte**.  
 
-3.  Проверьте, что в окне **Реляционные источники данных** выбран источник данных **Расширенная_модель** , а затем нажмите кнопку **Далее**.  
+3.  Na página **Selecione como definir a ligação** , certifique-se de que a opção **Criar uma origem de dados com base numa ligação nova ou existente** se encontra selecionada e clique em **Novo**.  
 
-4.  На странице **Выбор таблиц и представлений** в списке **Доступные объекты** выберите следующие представления для использования в модели отчета.  
+4.  Na caixa de diálogo **Gestor de Ligações** , especifique as seguintes propriedades de ligação para a origem de dados:  
+
+    -   **Nome do servidor**: Escreva o nome do seu servidor de base de dados do site do Configuration Manager ou selecione-o na lista. Se estiver a trabalhar com uma instância nomeada em vez da instância predefinida, escreva &lt; *servidor de base de dados*>\\&lt;*nome da instância*>.  
+
+    -   Selecione **Utilizar Autenticação do Windows**.  
+
+    -   No **selecione ou introduza um nome de base de dados** lista, selecione o nome da sua base de dados do site do Configuration Manager.  
+
+5.  Para verificar a ligação à base de dados, clique em **Testar Ligação**.  
+
+6.  Se a ligação tiver êxito, clique em **OK** para fechar a caixa de diálogo **Gestor de Ligações** . Se a ligação não tiver êxito, verifique se as informações que introduziu estão corretas e clique novamente em **Testar Ligação** .  
+
+7.  Na página **Selecione como definir a ligação** , certifique-se de que a opção **Criar uma origem de dados com base numa ligação nova ou existente** se encontra selecionada, verifique se a origem de dados que acabou de especificar se encontra selecionada na caixa de listagem **Ligações de dados** e clique em **Seguinte**.  
+
+8.  Em **Nome da origem de dados**, especifique um nome para a origem de dados e clique em **Concluir**. Para este exemplo, digite **Advanced_Model**.  
+
+9. A origem de dados **Advanced_Model.ds** é apresentada no **Solution Explorer** , sob o nó **Origens de Dados** .  
+
+    > [!NOTE]  
+    >  Para editar as propriedades de uma origem de dados existente, faça duplo clique na origem de dados na pasta **Origens de Dados** do painel do **Solution Explorer** para apresentar as propriedades da origem de dados no Estruturador de Origens de Dados.  
+
+#### <a name="to-define-the-data-source-view-for-the-report-model"></a>Para definir a vista de origem de dados para o modelo de relatório  
+
+1.  No **Solution Explorer**, clique com o botão direito do rato em **Vistas de Origem de Dados** e selecione **Adicionar Nova Vista de Origem de Dados**.  
+
+2.  Na página **Bem-vindo ao Assistente de Vista de Origem de Dados** , clique em **Seguinte**. É apresentada a página **Selecionar uma Origem de Dados** .  
+
+3.  Na janela **Origens de dados relacionais** , certifique-se de que a origem de dados **Advanced_Model** se encontra selecionada e clique em **Seguinte**.  
+
+4.  Na página **Selecionar Tabelas e Vistas** , na lista **Objetos disponíveis** , selecione as vistas seguintes a utilizar no modelo de relatório:  
 
     -   **v_R_System (dbo)**  
 
     -   **v_GS_OPERATING_SYSTEM (dbo)**  
 
-     После выбора каждого представления щелкните **>** , чтобы переместить объект в список **Включенные объекты** .  
+     Após selecionar cada vista, clique em **>** para transferir o objeto para a lista **Objetos incluídos** .  
 
     > [!TIP]  
-    >  Чтобы упростить поиск представлений в списке **Доступные объекты** , в верхней его части щелкните заголовок **Имя** для сортировки объектов в алфавитном порядке.  
+    >  Para ajudar a localizar as vistas na lista **Objetos disponíveis** , clique no cabeçalho **Nome** na parte superior da lista para ordenar os objetos por ordem alfabética.  
 
-5.  Если откроется диалоговое окно **Совпадение имен** , примите указанные на ней значения по умолчанию и нажмите кнопку **Далее**.  
+5.  Se a caixa de diálogo **Correspondência de Nomes** for apresentada, aceite as seleções predefinidas e clique em **Seguinte**.  
 
-6.  Выбрав необходимые объекты, нажмите кнопку **Далее**и затем укажите имя представления источника данных. В данном примере введите **Расширенная_модель**.  
+6.  Quando tiver selecionado os objetos de que necessita, clique em **Seguinte**e especifique um nome para a vista de origem de dados. Para este exemplo, digite **Advanced_Model**.  
 
-7.  Нажмите кнопку **Готово**. Представление источника данных **Расширенная_модель.dsv** отображается в папке **Представления источника данных** в **обозревателе решений**.  
+7.  Clique em **Concluir**. A vista de origem de dados **Advanced_Model.dsv** é apresentada na pasta **Vistas de Origem de Dados** do **Solution Explorer**.  
 
-#### <a name="to-define-relationships-in-the-data-source-view"></a>Определение отношений в представлении источника данных  
+#### <a name="to-define-relationships-in-the-data-source-view"></a>Para definir relações na vista de origem de dados  
 
-1.  В **Обозревателе решений**, дважды щелкните значок **Расширенная_модель.dsv** , чтобы открыть окно конструирования.  
+1.  No **Solution Explorer**, faça duplo clique em **Advanced_Model.dsv** para abrir a janela Estrutura.  
 
-2.  Щелкните правой кнопкой панель заголовка окна **v_R_System** , чтобы выбрать **Заменить таблицу**, после чего выберите **Новым именованным запросом**.  
+2.  Clique com o botão direito do rato na barra de título da janela **v_R_System** , selecione **Substituir Tabela**e clique em **Com Nova Consulta Nomeada**.  
 
-3.  В диалоговом окне **Создание именованного запроса** щелкните значок **Добавить таблицу** (как правило, последний значок на ленте).  
+3.  Na caixa de diálogo **Criar Consulta Nomeada** , clique no ícone **Adicionar Tabela** (normalmente o último ícone na fita).  
 
-4.  В диалоговом окне **Добавить таблицу** откройте вкладку **Представления** , выберите **V_GS_OPERATING_SYSTEM** в списке, после чего нажмите **Добавить**.  
+4.  Na caixa de diálogo **Adicionar Tabela** , clique no separador **Vistas** , selecione **V_GS_OPERATING_SYSTEM** na lista e clique em **Adicionar**.  
 
-5.  Нажмите кнопку **Закрыть** , чтобы закрыть диалоговое окно **Добавить таблицу** .  
+5.  Clique em **Fechar** para fechar a caixa de diálogo **Adicionar Tabela** .  
 
-6.  В диалоговом окне **Создать именованный запрос** укажите следующие сведения.  
+6.  Na caixa de diálogo **Criar Consulta Nomeada** , especifique as seguintes informações:  
 
-    -   **Имя:** укажите имя запроса. В данном примере введите **Расширенная_модель**.  
+    -   **Nome:** Especifique o nome para a consulta. Para este exemplo, digite **Advanced_Model**.  
 
-    -   **Описание:** введите описание отчета. В этом примере введите **Пример модели отчетов служб Reporting Services**.  
+    -   **Descrição:** Especifique uma descrição para a consulta. Para este exemplo, escreva **Exemplo de modelo de relatório do Reporting Services**.  
 
-7.  В окне **v_R_System** выберите следующие элементы в списке объектов для отображения в модели отчета.  
+7.  Na janela **v_R_System** , selecione os seguintes itens na lista de objetos para apresentar no modelo de relatório:  
 
     -   **ResourceID**  
 
@@ -309,7 +309,7 @@ ms.lasthandoff: 08/07/2017
 
     -   **Operating_System_Name_and0**  
 
-8.  В окне **v_GS_OPERATING_SYSTEM** выберите следующие элементы в списке объектов для отображения в модели отчета.  
+8.  Na caixa **v_GS_OPERATING_SYSTEM** , selecione os seguintes itens na lista de objetos para apresentar no modelo de relatório:  
 
     -   **ResourceID**  
 
@@ -333,79 +333,79 @@ ms.lasthandoff: 08/07/2017
 
     -   **WindowsDirectory0**  
 
-9. Для отображения объектов в этих представлениях автору отчета в виде списка необходимо указать отношение между двумя таблицами или представлениями, используя объединение. Можно объединить два представления, используя объект **ResourceID**, который имеется в обоих представлениях.  
+9. Para apresentar os objetos destas vistas como uma lista ao autor do relatório, tem de especificar uma relação entre as duas tabelas ou vistas, utilizando uma associação. Para associar as duas vistas, utilize o objeto **ResourceID**que é apresentado em ambas as vistas.  
 
-10. В окне **v_R_System** щелкните и удержите кнопку мыши на объекте **ResourceID** и перетащите его на объект **ResourceID** в окне **v_GS_OPERATING_SYSTEM** .  
+10. Na janela **v_R_System** , clique e mantenha premido o objeto **ResourceID** e arraste-o para o objeto **ResourceID** na janela **v_GS_OPERATING_SYSTEM** .  
 
-11. Нажмите кнопку **ОК**.  
+11. Clique em **OK.**  
 
-12. Окно **Расширенная_модель** заменит окно **v_R_System** ; в нем будут присутствовать все необходимые объекты, требуемые модели отчета, из представлений **v_R_System** и **v_GS_OPERATING_SYSTEM** . Теперь можно удалить окно **v_GS_OPERATING_SYSTEM** из Конструктора представлений источников данных. Щелкните правой кнопкой на панели заголовка окна **v_GS_OPERATING_SYSTEM** и выберите **Удалить таблицу из DSV**. В диалоговом окне **Удаление объектов** нажмите кнопку **ОК** , чтобы подтвердить удаление.  
+12. A janela **Advanced_Model** substitui a janela **v_R_System** e contém todos os objetos necessários para o modelo de relatório das vistas **v_R_System** e **v_GS_OPERATING_SYSTEM** . Pode agora eliminar a janela **v_GS_OPERATING_SYSTEM** a partir do Estruturador de Vistas de Origem de Dados. Clique com o botão direito do rato na janela **v_GS_OPERATING_SYSTEM** e selecione **Eliminar Tabela da DSV**. Na caixa de diálogo **Eliminar Objetos** , clique em **OK** para confirmar a eliminação.  
 
-13. Выберите **файл**и затем выберите **Сохранить все**.  
+13. Clique em **Ficheiro**e, em seguida, clique em **Guardar Tudo**.  
 
 #### <a name="to-create-the-report-model"></a>To create the report model  
 
-1.  В **обозревателе решений**правой кнопкой мыши щелкните **Модели отчетов** и в контекстном меню выберите команду **Добавить новую модель отчета**.  
+1.  No **Solution Explorer**, clique com o botão direito do rato em **Modelos de Relatório** e selecione **Adicionar Novo Modelo de Relatório**.  
 
-2.  На странице **Мастер моделей отчетов** нажмите кнопку **Далее**.  
+2.  Na página **Bem-vindo ao Assistente de Modelos de Relatório** , clique em **Seguinte**.  
 
-3.  На странице **Выбор представления источника данных** в списке **Доступные представления источника данных** выберите представление источника данных, а затем нажмите кнопку **Далее**. В данном примере выберите **Простая_модель.dsv**.  
+3.  Na página **Selecionar Vista de Origem de Dados** , selecione a vista de origem de dados na lista **Vistas de origem de dados disponíveis** e clique em **Seguinte**. Para este exemplo, selecione **Simple_Model.dsv**.  
 
-4.  На странице **Выбор правил формирования модели отчета** не изменяйте значения по умолчанию и нажмите кнопку **Далее**.  
+4.  Na página **Selecionar regras de geração de modelos de relatório** , não altere os valores predefinidos e clique em **Seguinte**.  
 
-5.  На странице **Сбор статистики модели** проверьте, что выбран параметр **Обновить статистику модели перед формированием** , а затем нажмите кнопку **Далее**.  
+5.  Na página **Recolher Estatísticas de Modelo** , certifique-se de que a opção **Atualizar estatísticas de modelo antes de gerar** se encontra selecionada e clique em **Seguinte**.  
 
-6.  На странице **Завершение работы мастера** укажите имя модели отчета. Убедитесь, что в данном примере отображается **Расширенная_модель** .  
+6.  Na página **A Concluir o Assistente** , especifique um nome para o modelo de relatório. Para este exemplo, verifique se é apresentado **Advanced_Model** .  
 
-7.  Чтобы завершить работу мастера и создать модель отчета, нажмите кнопку **Выполнить**.  
+7.  Para concluir o assistente e criar o modelo de relatório, clique em **Executar**.  
 
-8.  Чтобы выйти из мастера, нажмите кнопку **Готово**.  
+8.  Para sair do assistente, clique em **Concluir**.  
 
-9. Модель отчета отображается в окне конструктора.  
+9. O modelo de relatório é apresentado na janela Estrutura.  
 
-#### <a name="to-modify-object-names-in-the-report-model"></a>Изменение имен объектов в модели отчета  
+#### <a name="to-modify-object-names-in-the-report-model"></a>Para modificar os nomes dos objetos no modelo de relatório  
 
-1.  В **Обозревателе решений**щелкните правой кнопкой мыши модель отчета и в контекстном меню выберите **Конструктор представлений**. В данном примере введите **Расширенная_модель.smdl**.  
+1.  No **Solution Explorer**, clique com o botão direito do rato no modelo de relatório e selecione **Estruturador de Vistas**. Para este exemplo, selecione **Advanced_Model.dsv**.  
 
-2.  В представлении "Конструктор" модели отчета щелкните правой кнопкой мыши **Переименовать**.  
+2.  Na vista Estrutura do modelo de relatório, clique com o botão direito do rato num nome de objeto e selecione **Mudar o Nome**.  
 
-3.  Введите новое имя для выбранного объекта и нажмите Enter. Например, можно переименовать объект **CSD_Version_0** , чтобы он отображался как **Версия пакета обновления Windows**.  
+3.  Escreva um novo nome para o objeto selecionado e prima Enter. Por exemplo, poderia mudar o nome do objeto **CSD_Version_0** para **Versão de Service Pack do Windows**.  
 
-4.  По завершении переименования объектов выберите **Файл**и затем выберите **Сохранить все**.  
+4.  Quando tiver concluído a mudança do nome de objetos, clique em **Ficheiro**e, em seguida, clique em **Guardar Tudo**.  
 
-#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>Публикация модели отчета для использования в службах SQL Server Reporting Services  
+#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>Para publicar o modelo de relatório para utilização no SQL Server Reporting Services  
 
-1.  В **Обозревателе решений**щелкните правой кнопкой мыши **Расширенная_модель.smdl** и выберите **Развернуть**.  
+1.  No **Solution Explorer**, clique com o botão direito do rato em **Advanced_Model.smdl** e selecione **Implementar**.  
 
-2.  Проверьте состояние развертывания в нижнем левом углу окна среды **SQL Server Business Intelligence Development Studio** . По окончании развертывания появится сообщение **Развертывание завершено успешно** . Если развертывание выполнить не удается, причина сбоя отображается в окне **Выходные данные** . Теперь на веб-сайте служб SQL Server Reporting Services доступна новая модель отчета.  
+2.  Examine o estado da implementação no canto inferior esquerdo da janela **SQL Server Business Intelligence Development Studio** . Quando a implementação estiver concluída, será apresentado **Implementação com Êxito** . Se a implementação falhar, o motivo da falha será apresentado na janela **Saída** . O novo modelo de relatório está agora disponível no Web site do SQL Server Reporting Services.  
 
-3.  В меню **Файл**выберите **Сохранить все**, а затем закройте среду **SQL Server Business Intelligence Development Studio**.  
+3.  Clique em **Ficheiro**, clique em **Guardar Tudo**e feche o **SQL Server Business Intelligence Development Studio**.  
 
 #### <a name="to-deploy-the-custom-report-model-to-configuration-manager"></a>To deploy the custom report model to Configuration Manager  
 
-1.  Найдите папку, в которой создан проект модели отчета. Например, %*ПРОФИЛЬ_ПОЛЬЗОВАТЕЛЯ*%\Documents\Visual Studio 2008\Projects\\*&lt;имя_проекта\>.*  
+1.  Localize a pasta em que criou o projeto de modelo de relatório. Por exemplo, %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;nome do projeto\>.*  
 
-2.  Скопируйте следующие файлы из папки проекта модели отчета во временную папку на компьютере:  
+2.  Copie os ficheiros seguintes da pasta do projeto de modelo de relatório para uma pasta temporária no seu computador:  
 
-    -   *&lt;Имя модели\>* **.dsv**  
+    -   *&lt;Nome de modelo\>*  **. DSV**  
 
-    -   *&lt;Имя модели\>* **.smdl**  
+    -   *&lt;Nome de modelo\>*  **. smdl**  
 
-3.  Откройте указанные выше файлы с помощью текстового редактора, например "Блокнот".  
+3.  Abra os ficheiros acima referidos utilizando um editor de texto, como o Bloco de Notas.  
 
-4.  В файле *&lt;имя_модели\>***.dsv** найдите первую строку файла, которая выглядит следующим образом:  
+4.  No ficheiro  *&lt;nome do modelo\>***. DSV**, localize a primeira linha do ficheiro, que lê da seguinte forma:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
-     Измените эту строку следующим образом:  
+     Edite esta linha para:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="RelationalDataSourceView"\>**  
+     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi = "RelationalDataSourceView"\>**  
 
-5.  Скопируйте все содержимое файла в буфер обмена Windows.  
+5.  Copie todo o conteúdo do ficheiro para a Área de Transferência do Windows.  
 
-6.  Закройте файл *&lt;имя_модели\>***.dsv**.  
+6.  Feche o ficheiro  *&lt;nome do modelo\>***. DSV**.  
 
-7.  В файле *&lt;имя_модели\>***.smdl** найдите последние три строки файла, которые выглядят следующим образом:  
+7.  No ficheiro  *&lt;nome do modelo\>***. smdl**, localize as últimas três linhas do ficheiro, que são apresentados da seguinte forma:  
 
      `</Entity>`  
 
@@ -413,11 +413,11 @@ ms.lasthandoff: 08/07/2017
 
      `</SemanticModel>`  
 
-8.  Вставьте содержимое файла *&lt;имя_модели\>***.dsv** сразу перед последней строкой файла (**&lt;SemanticModel\>**).  
+8.  Colar o conteúdo do ficheiro  *&lt;nome do modelo\>***. DSV** imediatamente antes da última linha do ficheiro (**&lt;SemanticModel\>**).  
 
-9. Сохраните и закройте файл *&lt;имя_модели\>***.smdl**.  
+9. Guarde e feche o ficheiro  *&lt;nome do modelo\>***. smdl**.  
 
-10. Скопируйте файл *&lt;имя_модели\>***.smdl** в папку *%programfiles%*\Microsoft Configuration Manager\AdminConsole\XmlStorage\Other на сервере сайта Configuration Manager.  
+10. Copie o ficheiro  *&lt;nome do modelo\>***. smdl** para a pasta *% programfiles %*\Microsoft Configuration Manager\AdminConsole\XmlStorage\Other no servidor do site do Configuration Manager.  
 
     > [!IMPORTANT]  
-    >  После копирования файла модели отчета на сервер сайта Configuration Manager необходимо закрыть и перезапустить консоль Configuration Manager. Только после этого модель отчета можно использовать в **мастере создания отчетов**.  
+    >  Depois de copiar o ficheiro de modelo de relatório para o servidor de site do Configuration Manager, tem de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório a **Assistente para criar relatório**.  

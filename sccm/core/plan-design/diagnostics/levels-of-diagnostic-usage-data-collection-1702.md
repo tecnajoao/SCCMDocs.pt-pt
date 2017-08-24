@@ -1,6 +1,6 @@
 ---
-title: "Данные диагностики для версии 1702 | System Center Configuration Manager"
-description: "Сведения об уровнях данных диагностики и сведений об использовании, которые собирает System Center Configuration Manager версии 1702."
+title: "Dados de diagnóstico para 1702 | O System Center Configuration Manager"
+description: "Saiba mais sobre os níveis de diagnósticos e dados de utilização que o System Center Configuration Manager versão 1702 recolhe."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -34,436 +34,435 @@ translation.priority.ht:
 - zh-tw
 ms.openlocfilehash: 0e1d93712150fb3d6fabc3f057711eba1194c3ad
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="levels-of-diagnostic-usage-data-collection-for-version-1702-of-system-center-configuration-manager"></a>Уровни сбора данных диагностики и сведений об использовании для версии System Center Configuration Manager 1702
+# <a name="levels-of-diagnostic-usage-data-collection-for-version-1702-of-system-center-configuration-manager"></a>Níveis de diagnóstico de utilização de recolha de dados para a versão 1702 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager версии 1702 собирает данные диагностики и сведения об использовании на трех уровнях: **Базовый**, **Расширенный** и **Полный**. По умолчанию для этого компонента задан расширенный уровень. В следующих разделах приведены дополнительные сведения о том, какие данные собираются на каждом из уровней.
+System Center Configuration Manager versão 1702 recolhe três níveis de diagnósticos e dados de utilização: **Básico**, **avançada**, e **completa**. Por predefinição, esta funcionalidade está definida no nível Avançado. As secções seguintes fornecem detalhes adicionais sobre os dados que recolhe de cada nível.
 
-Изменения по сравнению с предыдущими версиями отмечены как ***[Новое]***, ***[Обновлено]***, ***[Удалено]*** или ***[Перемещено]***.
+As alterações de versões anteriores são assinaladas com ***[New]***, ***[atualizado]***, ***[removida]***, ou ***[movido]***.
 
 
 > [!IMPORTANT]
->  Configuration Manager не собирает коды или имена сайтов, IP-адреса, имена пользователей или компьютеров, физические адреса или адреса электронной почты на базовом и расширенном уровнях. Любой сбор таких сведений на полном уровне не является преднамеренным (они могут входить в состав дополнительных диагностических данных, например файлов журнала или моментальных снимков памяти). Корпорация Майкрософт не будет использовать их для установления вашей личности, связи с вами или в рекламных целях.
+>  O Configuration Manager não recolhe códigos de site, os nomes de sites, endereços IP, nomes de utilizador, nomes de computador, endereços físicos ou endereços de correio eletrónico nos níveis básico ou avançado. Qualquer recolha destas informações no nível completo não é tem um fim específico, ou seja, potencialmente incluídas nas informações de diagnóstico avançadas, como ficheiros de registo ou instantâneos de memória. Microsoft não utilizará estas informações para identificar, contactar ou desenvolver publicidade.
 
 
 
-##  <a name="bkmk_change"></a> Изменение уровня
- Администраторы, роль администрирования которых предусматривает разрешения на **изменение** для класса объектов **Сайт**, могут изменить уровень сбора в параметрах данных диагностики и сведений об использовании в консоли Configuration Manager.
+##  <a name="bkmk_change"></a> Como alterar o nível
+ Os administradores que tenham um âmbito de administração baseada em funções que inclua **modificar** permissões a **Site** classe de objeto pode alterar o nível dos dados recolhidos nas definições de diagnóstico e dados de utilização na consola do Configuration Manager.
 
-Уровень сбора данных можно изменить в консоли, открыв узел **Администрирование** > **Обзор** > **Конфигурация сайта** > **Сайты**. Откройте **Параметры иерархии**, а затем выберите нужный уровень данных.  
+Alterar o nível de recolha de dados de dentro da consola, navegando até **administração** > **descrição geral** > **configuração do Site** > **Sites**. Abra **definições de hierarquia**e, em seguida, selecione o nível de dados que pretende utilizar.  
 
 
 
-##  <a name="bkmk_level1"></a> Уровень 1. Базовый
-Базовый уровень включает данные по иерархии, данные, необходимые для улучшения процедур установки или обновления, а также данные, которые помогают определить, какие обновления Configuration Manager применимы к вашей иерархии.
+##  <a name="bkmk_level1"></a> Nível 1 - Básico
+O nível básico inclui dados sobre a sua hierarquia, dados necessárias para ajudar a melhorar a sua instalação ou atualização experiência e os dados que ajuda a determinar as atualizações do Configuration Manager que são aplicáveis para a sua hierarquia.
 
-В System Center Configuration Manager версии 1702 этот уровень включает следующие данные.
+Para o System Center Configuration Manager versão 1702, este nível inclui o seguinte:
 
-- Консоль администрирования:
-   - Статистика подключений консоли (версия операционной системы, язык, SKU и архитектура, память системы, число логических процессоров, код сайта, установленные версии .NET и языковые пакеты консоли).
+- Consola de administração:
+   - Estatísticas sobre as ligações da consola (versão do sistema operativo, idioma, SKU e arquitetura, memória do sistema, contagem de processadores lógicos, ligar o ID do site, versões de .NET instaladas e pacotes de idiomas da consola)
 
-- Основные количественные показатели для приложений и типов развертывания (общее число приложений, общее число приложений с несколькими типами развертывания, общее число приложений с зависимостями, общее число заменяемых приложений, число используемых технологий развертывания).
+- Contagens de tipo de implementação e de aplicação básico (total de aplicações, total de aplicações com vários tipos de implementação, as aplicações de total de aplicações com dependências, totais substituídas e contagem de tecnologias de implementação em utilização)
 
-- Основные сведения об иерархии сайтов Configuration Manager (список сайтов, тип, версия, состояние, число клиентов и часовой пояс).
+- Básico do Configuration Manager hierarquia dados do site (lista de sites, tipo, versão, estado, contagem de clientes e fuso horário)
 
-- Основная конфигурация базы данных (процессоры, конфигурация кластера, конфигурация распределенных представлений)
+- Configuração de base de dados básica (processadores, configuração de cluster e a configuração das vistas distribuídas)
 
-- ***[Изменено]*** Основная статистика обнаружений (число обнаружений; минимальные, максимальные и средние размеры групп) в том числе при выполнении сайта полностью на службах Azure Active Directory.
+- ***[Atualizado] *** Estatísticas de deteção básica (deteção contagem e máximo/mínimo/médio tamanhos de grupos), incluindo quando o site está em execução completamente com serviços de diretório do Azure Active Directory.
 
-- Основные сведения об Endpoint Protection (версии клиентов защиты от вредоносных программ).
+- Informações básicas do Endpoint Protection (versões de cliente antimalware)
 
-- Основные количественные показатели для развертываний операционных систем (образов).
+- Implementação básica do sistema operativo (OSD) conta (imagens)
 
-- Основные сведения о сервере системы сайта (используемые роли системы сайта, состояние Интернета и SSL, операционная система, процессоры, физический компьютер или виртуальная машина).
+- Informações de servidor de sistema básico do site (funções de sistema de site utilizadas, estado e SSL da Internet, sistema operativo, processadores e máquina física ou virtual)
 
-- Схема базы данных Configuration Manager (хэш всех определений объектов).
+- Esquema de base de dados do Configuration Manager (hash de todas as definições de objetos)
 
-- Настроенный уровень телеметрии, режим (в сети или автономно) и конфигурация быстрого обновления.
+- Nível de telemetria configurado, modo (online ou offline) e a configuração de atualização rápida
 
-- Число языков и языковых стандартов клиентов.
+- Contagem de idiomas de cliente e regiões
 
-- Число версий клиентов Configuration Manager и версий операционной системы.
+- Versões de cliente de contagem do Configuration Manager e versões do sistema operativo
 
-- Число операционных систем для управляемых устройств и политики, заданные соединителем Exchange.
+- Contagem de sistemas operativos para dispositivos geridos e políticas definidas pelo conector do Exchange
 
-- Число устройств Windows 10 по ветви и сборке.
+- Contagem de dispositivos Windows 10 por ramo e compilação
 
-- Метрики производительности базы данных (информация об обработке репликации, хранимые процедуры SQL Server, использующие больше всего ресурсов процессора и диска).
+- Métricas de desempenho de bases de dados (informações de processamento de replicação, principais procedimentos armazenados do SQL Server por processador e utilização de disco)
 
-- Сведения о типах и базовых конфигурациях точек распространения и точек управления (защита, предварительная подготовка, PXE, многоадресная рассылка, состояние SSL, точки распространения по запросу или одноранговые, поддержка управления мобильными устройствами, поддержка протокола SSL и т. д.).
+- Ponto de distribuição e ponto de gestão tipos e informações básicas de configuração (protegida, pré-configurado, PXE, multicast, estado SSL, pontos de distribuição de extração/ponto a ponto, MDM ativado, com SSL ativado, etc.)
 
-- Сведения об установке:
-     - Сборка, тип установки, языковые пакеты, включенные функции.   
+- Informações de configuração:
+     - Criar, instalar o tipo, pacotes de idiomas, funcionalidades que tiver ativado   
 
-     - Предварительное использование, тип установочного носителя, тип ветви.
+     - Utilização de pré-lançamento, o tipo de suporte de dados de configuração, o tipo de sucursais
 
-     - Дата истечения срока действия Software Assurance      
+     - Data de expiração do Software Assurance      
 
-     - Изменение состояния развертывания пакета и ошибки, ход выполнения скачивания и ошибки предварительных требований     
+     - Atualizar o estado de implementação de pacote e erros, transfira o progresso e erros de pré-requisitos     
 
-     - Использование режима быстрого доступа к обновлениям.
+     - Utilização do anel rápida de atualização
 
-     - Версия сценария после обновления.
+     - Versão do script pós-atualização
 
-- Версия SQL, уровень пакета обновления, выпуск, идентификатор параметров сортировки, кодировка.     
-- Статистика телеметрии (время запуска, среда выполнения, ошибки).
+- Versão do SQL, nível de service pack, edição, ID de agrupamento e conjunto de carateres     
+- Estatísticas de telemetria (momento da execução, tempo de execução, erros)
 
-- Использование обнаружения сетевых ресурсов (включено или выключено).
+- Utilização da deteção de rede (ativada ou desativada)
 
 
 
 
-##  <a name="bkmk_level2"></a> Уровень 2. Расширенный
-Расширенный уровень используется по умолчанию после завершения установки. Этот уровень включает в себя данные, собираемые на базовом уровне, а также сведения о конкретных функциях (частота и длительность использования), параметры клиента Configuration Manager (имя компонента, состояние и отдельные параметры, например интервалы опроса) и общие сведения об обновлениях программного обеспечения.
+##  <a name="bkmk_level2"></a> Nível 2 - Avançado
+O nível avançado é a predefinição após a conclusão da configuração. Este nível inclui dados recolhidos no nível básico e dados específicos da funcionalidade (frequência e duração de utilização), definições de cliente do Configuration Manager (nome do componente, estado e determinadas definições como intervalos de consulta) e informações básicas sobre atualizações de software.
 
-Этот уровень является рекомендуемым, так как предоставляет корпорации Майкрософт необходимый минимум сведений для внесения полезных изменений в последующие версии продуктов и служб. На этом уровне не осуществляется сбор имен объектов (сайты, пользователи, компьютеры или объекты), сведений об объектах, связанных с безопасностью, или уязвимостях, например количестве систем, требующих обновления программного обеспечения.
+Este nível é recomendado porque disponibiliza à Microsoft os dados mínimos necessárias para fazer melhorias úteis em futuras versões dos produtos e serviços. Este nível nomes de objeto não recolher (sites, os utilizadores, computador ou objetos), detalhes de objetos relacionados com segurança nem vulnerabilidades como contagens dos sistemas que necessitam de atualizações de software.
 
-В System Center Configuration Manager версии 1702 этот уровень включает следующие данные.
+Para o System Center Configuration Manager versão 1702, este nível inclui o seguinte:
 
-- **Управление приложениями**  
+- **Gestão de aplicações:**  
 
-   - Требования приложений (количество встроенных условий, на которые ссылается технология развертывания)
+   - Requisitos de aplicações (contagem de condições incorporadas é referenciada por tecnologia de implementação)
 
-   - Замена приложений, максимальная глубина цепочки
+   - Substituição de aplicações, profundidade máxima de cadeia
 
-   - Статистика по утверждению приложений и частота использования.
+   - Frequência de utilização e estatísticas de aprovação de aplicações
 
-   - ***[Изменено]*** Сведения о развертывании приложений (сравнение установок и удалений, потребность в утверждении, включение или отключение взаимодействия с пользователем, зависимость, замена, число применений функции поведения при установке).  
+   - ***[Atualizado] *** Informações de implementação de aplicação (utilizar instalação em comparação com a desinstalação, necessita de aprovação, interação do utilizador ativada/desativada, dependência, substituição e contagem de utilização da funcionalidade do comportamento de instalação)  
 
-   - Статистические данные о размере и сложности политики приложения.
+   - Política tamanho e complexidade das estatísticas da aplicação
 
-   - Статистика запросов доступных приложений.
+   - Estatísticas de pedidos de aplicação disponíveis
 
-   - ***[Новое]*** Основные данные о конфигурации пакетов и программ (варианты развертывания и флаги программы)
+   - ***[Novo] *** Informações de configuração básica de pacotes e programas (opções de implementação e sinalizadores de programa)
 
-   - Основные сведения об использовании или нацеливании для типов развертывания, применяемых в организации (сравнение пользователей и целевых устройств, требуемого и доступного числа, универсальные приложения).
+   - Informações básicas de utilização/segmentação para tipos de implementação que são utilizados na sua organização (utilizador versus dispositivo segmentado, necessário versus aplicações disponíveis e universais)
 
-   - Статистика по группам границ (сколько быстрых, сколько медленных, количество на группу)
+   - Estatísticas de grupo de limites (quantos rápido, quantos lenta e count por grupo de)
 
-   - Число сред App-V и свойств развертывания.
+   - Contagem de ambientes de App-V e propriedades de implementação
 
-   - Количество примененных приложений по операционной системе.  
+   - Contagem de aplicabilidade de aplicações por sistema operativo  
 
-   - ***[Новое]*** Число приложений, на которые ссылается последовательность задач
+   - ***[Novo] *** Contagem das aplicações que são referenciados por uma sequência de tarefas
 
-   - Число пакетов по типу.  
+   - Contagem de pacotes por tipo  
 
-   - Число развертываний пакетов и программ.  
+   - Contagem de implementações de pacote/programa  
 
-   - Число лицензий для лицензированных приложений Windows 10.  
+   - Contagem de licenças de aplicação licenciadas para Windows 10  
 
-   - Число приложений Магазина Windows для бизнеса и статистика синхронизации (включая сводные типы приложений, состояние лицензированных приложений и число приложений, лицензированных через Интернет и в автономном режиме).  
+   - Contagem da loja Windows para aplicações empresariais e estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado estado da aplicação e o número de online e offline licenciado aplicações)  
 
-   - Тип и длительность периода обслуживания.  
+   - Tipo e duração da janela de manutenção  
 
-   - Минимальное/максимальное/среднее число развертываний приложения на пользователя или устройство за период времени.
+   - Número máximo/mínimo/médio de implementações de aplicações por utilizador/dispositivo por período de tempo
 
-   - ***[Новое]*** Распространенные коды ошибок при установки приложений с разбивкой по технологиям развертывания.
+   - ***[Novo] *** Mais comuns códigos de erro de instalação de aplicações através da tecnologia de implementação
 
-   - Счетчики и параметры конфигурации MSI
+   - Contagens e opções de configuração de MSI
 
-   - ***[Новое]*** Статистика по взаимодействию с конечным пользователем с уведомлением о требуемых развертываниях программного обеспечения.   
+   - ***[Novo] *** Estatísticas de interação do utilizador final com a notificação para implementações de software necessárias   
 
-   - Использование UDA, каким образом создано
+   - Utilização de acesso de dados (UDA) universal, como criado
 
 
 
 
-- **Клиент:**  
+- **Cliente:**  
 
-   - Версия клиента технологии Active Management Technology (AMT)
+   - Versão de cliente do Active Management Technology (AMT)
 
-   - Возраст BIOS в годах
+   - Idade do BIOS no anos
 
-   - Автоматическое обновление клиентов: конфигурация развертывания, включая пилотное развертывание клиентов и использование исключений (клиент расширенного взаимодействия).
+   - A atualização automática de cliente: configuração de implementação, incluindo pilotagem e exclusão de utilização de cliente (cliente de interoperabilidade expandido)
 
-   - Конфигурация размера кэша клиента
+   - Configuração de tamanho de cache do cliente
 
-   - Ошибки скачивания для развертывания клиента
+   - Erros de transferência de implementação do cliente
 
-   - Сводка основных проблем и статистика работоспособности клиента
+   - Estatísticas de estado de funcionamento do cliente e o resumo do problema superior
 
-   - Состояние действий операции уведомления клиента (число выполнений каждого действия, максимальное число целевых клиентов, средняя частота успешного выполнения).
-   - Число установок клиента из каждого типа расположения источника.  
+   - Notificação operação ação estado do cliente (o quantas vezes é o número de execução, máximo de clientes alvo e a taxa de êxito médio)
+   - Contagem de instalações de cliente a partir de cada tipo de localização de origem  
 
-   - Число сбоев при установке клиента.  
+   - Contagem de falhas de instalação de cliente  
 
-   - ***[Новое]*** Число виртуализированных устройств в Hyper-V или Azure.  
+   - ***[Novo] *** Contagem de dispositivos virtualizado pelo Hyper-V ou do Azure  
 
-   - Число действий центра программного обеспечения   
+   - Ações de contagem de centro de Software   
 
-   - ***[Новое]*** Число устройств с поддержкой UEFI.
+   - ***[Novo] *** Dispositivos com capacidade de contagem de UEFI
 
-   - Методы развертывания, используемые для клиента, и число клиентов на каждый метод развертывания.
+   - Métodos de implementação de cliente e a contagem de clientes por método de implementação
 
-   - Список/число поддерживаемых агентов клиента.  
+   - Lista/contagem de agentes de cliente ativados  
 
-   - Возраст операционной системы в месяцах
+   - Idade do sistema operativo nos meses
 
-   - Число классов инвентаризации оборудования, правил инвентаризации программного обеспечения и правил коллекций файлов.
+   - Número de classes de inventário de hardware, as regras de inventário de software e regras de recolha de ficheiros
 
-   - ***[Новое]*** Статистика по аттестации работоспособности устройств, включая распространенные коды ошибок, число локальных серверов и число устройств в каждом из состояний.
+   - ***[Novo] *** Os códigos de estatísticas de atestado de estado de funcionamento do dispositivo, incluindo erro mais comuns, número de servidores no local e o número de dispositivos em vários Estados.
 
 
 
-- **Облачные службы:**
+- **Serviços de cloud:**
 
-  - Статистика по настройке и использованию шлюза управления облаком.
+  - Estatísticas de configuração e utilização do Gateway de gestão de nuvem
 
-  - ***[Новое]*** Число клиентов, присоединенных к службам Azure Active Directory.
+  - ***[Novo] *** Contagem de clientes associados a serviços de diretório do Azure Active Directory
 
-  - Число коллекций, синхронизированных с Operations Management Suite.
+  - Contagem das coleções sincronizados para o Operations Management Suite
 
-  - Число соединителей Upgrade Analytics.
+  - Contagem de conectores de análise de atualização
 
-  - Включен ли облачный соединитель Operations Management Suite
+  - Indica se o conector em nuvem do Operations Management Suite está ativado
 
 
 
 
-- **Коллекции:**
+- **Coleções:**
 
-    - Использование идентификатора коллекции (не исчерпывает идентификаторы)
+    - Utilização de ID de coleção (não a ficar sem IDs)
 
-    - Статистика оценки изменений коллекции (время запроса, число назначенных и неназначенных, число по типу, смена идентификатора и использование правил).
+    - Estatísticas de avaliação de coleção (hora de consulta, atribuída versus contagens não atribuídas, contagens por tipo, rollover de ID e a utilização de regra)
 
-    - Коллекции без развертывания
+    - Coleções sem uma implementação
 
 
 
 
-- **Параметры соответствия**  
+- **Definições de compatibilidade:**  
 
-    - Основные сведения о конфигурационных базах (число, количество развертываний и количество ссылок).  
+    - Informações básicas de linha de base de configuração (contagem, número de implementações e número de referências)  
 
-    - Число элементов конфигурации по типу.  
+    - Contagem de itens de configuração por tipo  
 
-    - Число развертываний, ссылающихся на встроенные параметры (теперь записывается параметр исправления).  
+    - Contagem de implementações que definições incorporadas de referência (agora capturar remediar definição)  
 
-    - Число развертываний, ссылающихся на пользовательские параметры (теперь записывается параметр исправления)  
-    -  Число развернутых шаблонов SCEP, VPN, Wi-Fi, сертификатов (PFX) и политики соответствия.
+    - Contagem de regras e implementações criadas para as definições personalizadas (agora capturar remediar definição)  
+    -  Contagem de modelos de certificado de inscrição de SCEP (Simple Protocol), VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas
 
-    - Число развертываний сертификатов SCEP, VPN, Wi-Fi, сертификатов (PFX) и политики соответствия по платформам.
+    - Contagem do certificado de SCEP, VPN, Wi-Fi, certificado (. pfx) e implementações de política de conformidade por plataforma
 
-    - Политика Passport for Work (создана, развернута)
+    - Passport para a política de trabalho (criado, implementado)
 
 
 
-- **Содержимое**  
+- **Conteúdo:**  
 
-    - Сведения о группах границ (число границ и систем сайта, назначенных каждой группе границ).  
+    - Informações sobre grupos de limites (contagem de limites e sistemas de sites que estão atribuídos a cada grupo de limites)  
 
-    - Связи групп границ и конфигурация резервирования.
+    - Relações de grupo de limites e a configuração de contingência
 
-    - Статистика по скачиванию содержимого клиентом.
+    - Estatísticas de transferência do conteúdo de cliente
 
-    - Число границ по типу.  
+    - Contagem de limites por tipo  
 
-    - Число клиентов однорангового кэша и статистика использования.
+    - Contagem de clientes de cache ponto a ponto e estatísticas de utilização
 
-    - Сведения о конфигурации диспетчера распространения (потоки, задержки при повторе, число повторных попыток и параметры точек распространения по запросу).  
+    - Informações de configuração do Gestor de distribuição (threads, repita o atraso, número de tentativas e as definições do ponto de distribuição de extração)  
 
-    - Сведения о конфигурации точек распространения (использование BranchCache, мониторинг точек распространения).
+    - Informações de configuração de ponto de distribuição (utilização da cache de ramo e monitorização do ponto de distribuição)
 
-    - Сведения о группах точек распространения (число пакетов и точек распространения, назначенных каждой группе точек распространения).  
+    - Informações do grupo de ponto de distribuição (contagem de pacotes e pontos de distribuição que estão atribuídos a cada grupo de pontos de distribuição)  
 
 
 
-- **Endpoint Protection**  
+- **Endpoint Protection:**  
 
-   - Политики Advanced Threat Protection (ATP) (число политик, развернуты ли политики).
+   - Políticas de proteção de ameaça (ATP) avançadas (contagem de políticas e se as políticas são implementadas)
 
-   - Число предупреждений, настроенных для компонента Endpoint Protection.  
+   - Contagem de alertas que estão configurados para a funcionalidade Endpoint Protection  
 
-   - Число коллекций, выбранных для отображения на панели мониторинга Endpoint Protection.  
+   - Contagem de coleções que estão selecionadas para aparecerem no dashboard do Endpoint Protection  
 
-   - Ошибки развертывания Endpoint Protection (количество кодов ошибок развертывания политик Endpoint Protection)  
+   - Erros de implementação do Endpoint Protection (contagem de códigos de erro de implementação de política do Endpoint Protection)  
 
-   - Использование политик брандмауэра Windows и защиты от вредоносных программ Endpoint Protection (число уникальных политик, назначенных группе).<br /><br /> Сюда не входят сведения о параметрах, включенных в политику.  
+   - Antimalware do Endpoint Protection e a utilização da política de Firewall do Windows (número de políticas únicas atribuídas ao grupo)<br /><br /> Isto inclui qualquer informação sobre as definições incluídas na política.  
 
 
 
-- **Миграция:**
+- **Migração:**
 
-  - Число перенесенных объектов (использование мастера миграции)
+  - Contagem de objetos migrados (utilize do Assistente de migração)
 
 
 
-- **Управление мобильными устройствами (MDM)**  
+- **Gestão de dispositivos móveis (MDM):**  
 
-    - Число выданных команд на выполнение действий с мобильными устройствами: блокировка, сброс ПИН-кода, очистка, снятие с учета и немедленная синхронизация.
+    - Número de emitido ações do dispositivo móvel: bloquear, afixar rest, apagar, extinguir e sincronizar agora comandos
 
-    - Число политик для мобильных устройств.  
+    - Contagem de políticas de dispositivos móveis  
 
-    - Число мобильных устройств под управлением Configuration Manager и Microsoft Intune и сведения о том, как они были зарегистрированы (массово, для отдельных пользователей).  
+    - Contagem de dispositivos móveis que são geridos pelo Configuration Manager e Microsoft Intune e como foram inscritos (em massa, baseado no utilizador)  
 
-    - Число пользователей с несколькими зарегистрированными мобильными устройствами.  
+    - Contagem de utilizadores que têm vários dispositivos móveis inscritos  
 
-    - Расписание опроса мобильных устройств и статистика по длительности возврата мобильных устройств  
+    - Consulta de agenda e as estatísticas de duração de verificação de dispositivos móveis de dispositivos móveis  
 
 
 
 
-- **Устранение неполадок Microsoft Intune:**
+- **Resolução de problemas de Microsoft Intune:**
 
-    - Число и размер сообщений о действиях с устройствами (очистка, снятие с учета, блокировка), телеметрии и данных, реплицированных в Microsoft Intune.
+    - Contagem e tamanho das ações do dispositivo (apagar, extinguir, bloquear) telemetria e mensagens de dados que são replicadas para o Microsoft Intune
 
-    - Число и размер сообщений о состоянии, инвентаризации, RDR, записях данных обнаружения, UDX, состоянии клиента, POL, LOG, сертификатах, CRP, повторной синхронизации, CFD, RDO, BEX, ISM и соответствии, загруженных из Microsoft Intune.
+    - Contagem e tamanho de estado, o estado, inventário, RDR, DDR, UDX, inquilino mensagens de estado, POL, registo, certificado, CRP, ressincronização, CFD, RDO, BEX, ISM e conformidade que são transferidas a partir do Microsoft Intune
 
-    - Статистика полной и разностной синхронизации пользователей для Microsoft Intune.
+    - Diferenciais e completas estatísticas de sincronização de utilizador para o Microsoft Intune
 
 
 
-- **Локальное управление мобильными устройствами (MDM)**  
+- **Gestão de dispositivos móveis (MDM) no local:**  
 
-    - Число профилей и пакетов массовой регистрации Windows 10.  
+    - Contagem de pacotes e perfis de inscrição em massa do Windows 10  
 
-    - Статистика успешных завершений и сбоев развертывания для локальных развертываний приложений MDM.  
+    - Estatísticas de êxito/falha de implementação para implementações de aplicações MDM no local  
 
 
 
 
-- **Развертывание операционной системы**  
+- **Implementação do sistema operativo:**  
 
-    - Число образов загрузки, драйверов, пакетов драйверов, точек распространения с поддержкой многоадресной рассылки, точек распространения с поддержкой PXE и последовательностей задач.  
+    - Contagem de imagens de arranque, controladores, pacotes de controladores, pontos de distribuição preparados com multicast ativado, pontos de distribuição com PXE ativado e sequências de tarefas  
 
-    - Число политик обновления выпуска.
+    - Contagem de políticas de atualização de edição
 
-    - Данные об использовании шага последовательности задач
+    - Contagens de utilização de passo de sequência de tarefas
 
 
 
-- **Обновления сайта:**
+- **Atualizações de sites:**
 
-    - Версии установленных исправлений Configuration Manager.
+    - Versões das correções instaladas do Configuration Manager
 
 
 
-- **обновления программного обеспечения:**  
+- **Atualizações de Software:**  
 
-    - Доступные и крайние изменения, используемые в правилах автоматического развертывания.  
+    - Disponível e o prazo deltas que são utilizados em regras de implementação automática  
 
-    - Среднее и максимальное число назначений на обновление.  
+    - Número médio e máximo de atribuições por atualização  
 
-    - Оценки обновления клиента и расписания проверки.  
+    - Avaliação de atualização de cliente e agendas de análise  
 
-    - Классификации, синхронизированные точкой обновления программного обеспечения.
+    - Classificações são sincronizadas pelo ponto de atualização de Software
 
-    - Статистика исправления кластера.  
+    - Estatísticas de aplicação de patches de cluster  
 
-    - Настройка экспресс-обновлений Windows 10.
+    - Configuração de atualizações do Windows 10 express
 
-    - Конфигурации, используемые для активных планов обслуживания Windows 10.  
+    - Configurações que são utilizadas para o Active Directory Windows 10, planos de manutenção  
 
-    - Число развернутых обновлений Office 365.  
+    - Contagem de atualizações do Office 365 implementadas  
 
-    - Число групп обновления и назначений.  
+    - Contagem de grupos de atualização e atribuições  
 
-    - Число пакетов обновлений, а также максимальное, минимальное и среднее число точек распространения, на которые ориентированы пакеты.  
+    - Contagem de pacotes de atualização e o número máximo/mínimo/médio de pontos de distribuição são segmentados com pacotes  
 
-    - Число обновлений, созданных и развернутых с помощью System Center Update Publisher.  
+    - Contagem das atualizações que são criados e implementados com o System Center Update Publisher  
 
-    - Число клиентов Windows 10, использующих Центр обновления Windows для бизнеса.  
+    - Clientes de contagem do Windows 10 que utilizam o Windows Update para empresas  
 
-    - Число правил автоматического развертывания, связанных с синхронизацией.  
+    - Número de regras de implementação automática que estão associadas a sincronização  
 
-    - Число правил автоматического развертывания, создающих или добавляющих обновления в существующую группу.  
+    - Número de regras de implementação automática que criam atualizações novas ou acrescentam atualizações a um grupo existente  
 
-    - Число правил автоматического развертывания с несколькими развертываниями.  
-    - Количество групп обновления и минимальное/максимальное/среднее число обновлений на группу.  
+    - Número de regras de implementação automática com várias implementações  
+    - Número de grupos de atualização e número máximo/mínimo/médio de atualizações por grupo  
 
-    - Число обновлений и процент обновлений, которые были развернуты, имеют истекший срок действия, заменены, скачаны и содержат лицензионные соглашения.  
+    - Número de atualizações e percentagem de atualizações que são implementadas, expiradas, substituídas, transferidas e contenham contêm EULAs  
 
-    - Статистика балансировки нагрузки точки обновления программного обеспечения
+    - Estatísticas de balanceamento de carga de ponto de atualização de software
 
-    - Расписание синхронизации точки обновления программного обеспечения.  
+    - Agenda de sincronização de ponto de atualização de software  
 
-    - Общее и среднее число коллекций, имеющих развертывания обновлений программного обеспечения, и максимальное и среднее число развернутых обновлений.  
+    - Número total/médio de coleções com implementações de atualização de software e o número máximo/médio de implementação de atualizações  
 
-    - Коды ошибок поиска обновлений и число компьютеров.  
+    - Atualizar códigos de erro de análise e contagem de máquinas  
 
-    - Версии содержимого панелей мониторинга Windows 10.  
+    - Versões de conteúdo de dashboard do Windows 10  
 
 
 
-- **Данные о производительности/SQL**  
+- **Dados de desempenho/SQL:**  
 
-    - ***[Новое]*** Конфигурации и продолжительность формирования сводных данных сайта.
+    - ***[Novo] *** Configuração e a duração do resumo de site
 
-    - Число наибольших таблиц базы данных.  
+    - Contagem das maiores tabelas de bases de dados  
 
-    - Статистика работы обнаружения (число найденных объектов)
+    - Estatísticas de deteção operacionais (contagem de objetos encontrado)
 
-    - Типы обнаружения, включено ли и расписание (полное, добавочное)
+    - Tipos de deteção, ativados e o agendamento (completo, incremental)
 
-    - Сведения о реплике SQL AlwaysOn, ее использовании и состоянии работоспособности.
+    - Estado de informações, utilização e estado de funcionamento da réplica SQL AlwaysOn
 
-    - Проблемы производительности отслеживания изменений в SQL, срок хранения и состояние автоматической очистки
+    - Problemas de desempenho, o período de retenção e o estado de automático limpeza o registo de alterações do SQL Server
 
-    - Срок хранения данных для отслеживания изменений в SQL
+    - Período de retenção de registo de alterações SQL
 
-    - ***[Новое]*** Статистика состояний и статусов для сообщений о производительности, в том числе информация о самых распространенных и самых дорогих типах сообщений.
+    - ***[Novo] *** Estatísticas de desempenho, incluindo os tipos de mensagens mais comuns e mais dispendiosos de mensagens de estado
 
 
 
-- **Прочее**
+- **Diversas**
 
-    - ***[Новое]*** Конфигурация точки обслуживания для хранилища данных, включая расписание и среднюю продолжительность синхронизации.
+    - ***[Novo] *** Configuração de dados do armazém de ponto de serviço, incluindo a hora de agendamento e a média de sincronização
 
-    - Число сайтов с пробуждением по локальной сети (WOL).
+    - Contagem de sites com reativação numa Lan (WOL)
 
-    - Использование отчетов и статистика по производительности.  
+    - Relatório de estatísticas de utilização e desempenho  
 
 
 
-##  <a name="bkmk_level3"></a> Уровень 3. Полный
-Полный уровень включает все данные базового и расширенного уровней. Помимо этого, к нему относятся дополнительные сведения об Endpoint Protection, процентах соответствия обновлений и сведения об обновлениях программного обеспечения.  Кроме того, этот уровень может содержать дополнительные диагностические сведения, такие как системные файлы и моментальные снимки памяти, которые могут содержать личные сведения, присутствующие в памяти или файлах журнала во время записи.
+##  <a name="bkmk_level3"></a> Nível 3 - Completo
+O nível completo inclui todos os dados os níveis básico e avançado. Também inclui informações adicionais sobre o Endpoint Protection, percentagens de compatibilidade de atualização e informações de atualização de software.  Este nível também pode incluir informações de diagnóstico avançadas como instantâneos de memória que podem incluir informações pessoais que existiam na memória ou ficheiros de registo no momento da captura e de ficheiros de sistema.
 
-В System Center Configuration Manager версии 1702 этот уровень включает следующие данные.
+Para o System Center Configuration Manager versão 1702, este nível inclui o seguinte:
 
-- Сведения о расписании оценки правил автоматического развертывания.
+- Informações de agenda de avaliação de regras de implementações automáticas
 
-- Сводка по работоспособности ATP
+- Resumo do Estado de funcionamento ATP
 
-- Статистика оценки и обновления коллекций.
+- Estatísticas de avaliação e de atualização de coleções
 
-- Параметры соответствия: сведения о конфигурации шаблона SCEP, VPN, Wi-Fi и политики соответствия.
-Число групп с просроченными обновлениями программного обеспечения.
+- Definições de compatibilidade: Detalhes de configuração de modelo contagem de grupos que têm atualizações de software expiradas de SCEP, VPN, Wi-Fi e política de conformidade
 
-- Пакет конфигурации DCM для использования System Center Configuration Manager.
+- Pacote de configuração de DCM para utilização do System Center Configuration Manager
 
-- Подробные ошибки установки развертывания клиента
-- Сводка работоспособности Endpoint Protection (включая число защищенных, подверженных риску, неизвестных и не поддерживаемых клиентов).
+- Erros de instalação de implementação do cliente de detalhado
+- Resumo do estado de funcionamento do Endpoint Protection (incluindo contagem de clientes protegidos, em risco, desconhecidos e não suportados)
 
-- Конфигурация политики Endpoint Protection.
+- Configuração da política do Endpoint Protection
 
-- ***[Новое]*** Список процессов, настроенных с поведением установки для приложений.
+- ***[Novo] *** Lista dos processos configurados com o comportamento de instalação de aplicações
 
-- Минимальное/максимальное/среднее число часов с момента последнего поиска обновлений программного обеспечения.
+- Número máximo/mínimo/médio de horas desde a última análise de atualização de software
 
-- Минимальное/максимальное/среднее число неактивных клиентов в коллекциях развертывания обновлений программного обеспечения.
+- Número máximo/mínimo/médio de clientes inativos em coleções de implementações de atualização de software
 
-- Минимальное/максимальное/среднее число обновлений программного обеспечения для каждого пакета.
+- Número máximo/mínimo/médio de atualizações de software por pacote
 
-- Код продукта MSI (типичные приложения, развертываемые клиентами).
+- Código de produto MSI (aplicações comuns que os clientes implementar)
 
-- Общее соответствие развертываний обновлений программного обеспечения.
+- Compatibilidade geral das implementações de atualizações de software
 
-- Коды и число ошибок развертывания обновлений программного обеспечения.
+- Contagens e códigos de erro de implementação de atualizações de software
 
-- Сведения о развертывании обновлений программного обеспечения (процент развертываний с назначенным клиентом и временем UTC; необходимые, необязательные и автоматические; подавление перезагрузки).
+- Informações de implementação de atualização de software (percentagem das implementações direcionadas com o cliente em comparação com a hora UTC, necessário opcional versus silencioso e supressão de reinício)
 
-- Продукты с обновлением программного обеспечения, синхронизированные точкой обновления программного обеспечения.
+- Produtos de atualização de software sincronizados com êxito pelo ponto de atualização de Software
 
-- Процент успешных поисков обновлений программного обеспечения.
+- Percentagens de êxito de análise de atualização de software
 
-- 50 основных процессоров в среде
+- Principais 50 CPUs no ambiente
 
-- Тип политик условного доступа EAS (блокировка или карантин) для устройств под управлением Intune.
+- Tipo de políticas de acesso condicional do EAS (bloquear ou colocar em quarentena) para dispositivos que gere o Intune
 
-- Сведения о приложениях Магазина Windows для бизнеса (неагрегированный список синхронизируемых приложений, включая AppID, состояние (в сети или автономное) и общее число приобретенных лицензий).
+- Loja Windows para detalhes de negócio da aplicação (não sejam de agregação lista de aplicações sincronizadas, incluindo AppID, o estado online ou o estado offline e contagens de licenças adquiridas total)

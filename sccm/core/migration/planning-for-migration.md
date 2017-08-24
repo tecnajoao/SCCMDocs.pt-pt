@@ -1,6 +1,6 @@
 ---
-title: "Планирование миграции | Документы Майкрософт"
-description: "Получите сведения о сайтах и иерархиях перед переносом данных в иерархию назначения System Center Configuration Manager."
+title: "Planear a migração | Microsoft Docs"
+description: Saiba mais sobre sites e hierarquias antes de migrar dados para uma hierarquia de destino do System Center Configuration Manager.
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
@@ -17,43 +17,43 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: fffef1e95e1dfa03971f140a6e5a7fff9bfe5e27
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-migration-to-system-center-configuration-manager"></a>Планирование миграции в System Center Configuration Manager
+# <a name="plan-for-migration-to-system-center-configuration-manager"></a>Planear a migração para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Прежде чем переносить данные в конечную иерархию System Center Configuration Manager, убедитесь в том, что вы знакомы с сайтами и иерархиями в Configuration Manager. Дополнительные сведения о сайтах и иерархиях см. в разделе [Основные сведения о Microsoft System Center Configuration Manager](../../core/understand/fundamentals.md).  
+Antes de migrar dados para uma hierarquia de destino do System Center Configuration Manager, certifique-se de que está familiarizado com sites e hierarquias no Configuration Manager. Para obter mais informações sobre sites e hierarquias, consulte [Noções básicas do System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
- Необходимо установить иерархию System Center Configuration Manager в качестве конечной иерархии, чтобы можно было перенести данные из поддерживаемой исходной иерархии.  
+ Tem de instalar uma hierarquia do System Center Configuration Manager para ser a hierarquia de destino antes de migrar dados de uma hierarquia de origem suportada.  
 
- После установки конечной иерархии нужно настроить компоненты и функции управления, которые требуется использовать в вашей конечной иерархии перед началом переноса данных.  
+ Depois de instalar a hierarquia de destino, configure as funcionalidades de gestão e as funções que pretende utilizar na sua hierarquia de destino antes de começar a migrar dados.  
 
- Кроме того, может потребоваться спланировать перекрытие между исходной иерархией и конечной иерархией. Например, исходная иерархия может быть настроена для использования тех же сетевых расположений или границ, что и конечная иерархия, а затем в конечной иерархии устанавливаются новые клиенты и используется автоматическое назначение сайта. В этом сценарии, так как вновь установленный клиент Configuration Manager может выбрать сайт для присоединения из любой иерархии, клиент может быть неправильно назначен исходной иерархии. Поэтому следует назначать все новые клиенты в конечной иерархии в конкретные сайты в данной иерархии, а не использовать автоматическое назначение.  
+ Além disso, poderá ter de plano para a sobreposição entre a hierarquia de origem e a hierarquia de destino. Por exemplo, pode configurar a hierarquia de origem a utilizar as mesmas localizações de rede ou limites de como a hierarquia de destino e, em seguida, instalar novos clientes para a hierarquia de destino e utilize a atribuição automática de site. Neste cenário, porque um cliente do Configuration Manager recém-instalado pode selecionar um site para associação em qualquer das hierarquias, o cliente podem ser atribuídos incorretamente à hierarquia de origem. Por conseguinte, planeie atribuir cada novo cliente na hierarquia de destino a um site específico dessa hierarquia em vez de utilizar a atribuição automática de site.  
 
- Дополнительные сведения о назначении сайта см. в подразделе [Рекомендации по назначению сайта клиента](../../core/plan-design/hierarchy/interoperability-between-different-versions.md#BKMK_SupConfigSiteAssignment) раздела [Взаимодействие различных версий System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
+ Para obter mais informações sobre atribuições de sites, consulte [considerações de atribuição de site do cliente](../../core/plan-design/hierarchy/interoperability-between-different-versions.md#BKMK_SupConfigSiteAssignment) no [interoperabilidade entre diferentes versões do System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
-## <a name="plan-topics"></a>Разделы по планированию  
- Следующие разделы содержат справочные сведения о планировании миграции поддерживаемой исходной иерархии в конечную иерархию System Center Configuration Manager:
+## <a name="plan-topics"></a>Tópicos de plano  
+ Utilize os tópicos seguintes para o ajudar a planear a migração de uma hierarquia de origem suportada para uma hierarquia de destino do System Center Configuration Manager:
 
--   [Необходимые условия для миграции в System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md)  
+-   [Pré-requisitos para migração no System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md)  
 
--   [Контрольные списки администратора по планированию миграции в System Center Configuration Manager](../../core/migration/administrator-checklists-for-migration-planning.md)  
+-   [Listas de verificação de administrador para migração no System Center Configuration Manager de planeamento](../../core/migration/administrator-checklists-for-migration-planning.md)  
 
--   [Определение необходимости миграции данных в System Center Configuration Manager](../../core/migration/determine-whether-to-migrate-data.md)  
+-   [Determinar se deve migrar dados para o System Center Configuration Manager](../../core/migration/determine-whether-to-migrate-data.md)  
 
--   [Планирование стратегии для исходных иерархий в System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md)  
+-   [Planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md)  
 
--   [Контрольные списки администратора по планированию миграции в System Center Configuration Manager](../../core/migration/administrator-checklists-for-migration-planning.md)  
+-   [Listas de verificação de administrador para migração no System Center Configuration Manager de planeamento](../../core/migration/administrator-checklists-for-migration-planning.md)  
 
--   [Планирование стратегии миграции клиентов в System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md)  
+-   [Planear uma estratégia de migração de cliente no System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md)  
 
--   [Планирование стратегии миграции для развертывания содержимого в System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md)  
+-   [Planear uma estratégia de migração de implementação de conteúdos no System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md)  
 
--   [Планирование миграции объектов Configuration Manager в System Center Configuration Manager](../../core/migration/planning-for-the-migration-of-objects.md)  
+-   [Planear a migração de objetos do Configuration Manager para o System Center Configuration Manager](../../core/migration/planning-for-the-migration-of-objects.md)  
 
--   [Планирование наблюдения за действиями миграции в System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md)  
+-   [Planear monitorizar a atividade de migração no System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md)  
 
--   [Планирование завершения миграции в System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md)  
+-   [Planear a conclusão da migração no System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md)  

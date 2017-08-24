@@ -1,6 +1,6 @@
 ---
-title: "Установка консоли | Документы Майкрософт"
-description: "Сведения об установке консоли Configuration Manager для подключения к сайту центра администрирования или первичному сайту."
+title: Instalar a consola | Microsoft Docs
+description: "Leia sobre como instalar a consola do Configuration Manager para ligar a um site de administração central ou site primário."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -16,82 +16,82 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 88ecbc48fd03ce988f04408d0378844cbed1de2b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-the-system-center-configuration-manager-console"></a>Установка консоли System Center Configuration Manager
+# <a name="install-the-system-center-configuration-manager-console"></a>Instalar a consola do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Администраторы используют консоль System Center Configuration Manager для управления средой Configuration Manager. Каждая консоль Configuration Manager может подключаться к сайту центра администрирования или первичному сайту. Консоль Configuration Manager нельзя подключить к вторичному сайту.
+Os administradores de utilizam a consola do System Center Configuration Manager para gerir o ambiente do Configuration Manager. Cada consola do Configuration Manager pode ligar a um site de administração central ou a um site primário. Não é possível ligar uma consola do Configuration Manager para um site secundário.
 
 > [!NOTE]  
->  Объекты, отображаемые для администратора, который запускает консоль, зависят от разрешений, назначенных его учетной записи пользователя. Дополнительные сведения о ролевом администрировании см. в разделе [Основы ролевого администрирования для System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
+>  Que objetos que está a executar a consola do administrador vê dependem as permissões que são atribuídas à conta de utilizador. Para obter mais informações sobre a administração baseada em funções, consulte [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
 
- Вы можете установить консоль Configuration Manager во время установки сервера сайта в мастере установки или запустить автономное приложение установки, использующее мастер установки.  
+ Pode instalar a consola do Configuration Manager durante a instalação do servidor de site através do Assistente de configuração ou pode executar uma aplicação de instalação autónoma que utiliza o Assistente de configuração.  
 
- Приведенная ниже процедура используется для установки консоли Configuration Manager с помощью автономного приложения.  
+ Utilize o procedimento seguinte para instalar uma consola do Configuration Manager utilizando a aplicação autónoma.  
 
-## <a name="to-install-the-configuration-manager-console-by-using-the-setup-wizard"></a>Установка консоли Configuration Manager с помощью мастера установки  
+## <a name="to-install-the-configuration-manager-console-by-using-the-setup-wizard"></a>Para instalar a consola do Configuration Manager, utilizando o Assistente de configuração  
 
-1.  Убедитесь в том, что выполняются перечисленные ниже требования.  
+1.  Certifique-se de que cumpre estes requisitos:  
 
-    -  У вас есть права **локального администратора** на компьютере, на котором будет запущена консоль.  
+    -  Tiver **Administrador Local** direitos no computador no qual a consola será executada.  
 
-    -   У вас есть разрешения на **чтение** из расположения файлов установки консоли Configuration Manager.  
+    -   Tiver **leitura** ficheiros de instalação da consola de permissões para a localização do Configuration Manager.  
 
-2.  Перейдите в одно из указанных ниже расположений.  
+2.  Ir para uma destas localizações:  
 
-    -   На сервере сайта перейдите в папку **<*путь_установки_сервера_сайта_Configuration_Manager*>\Tools\ConsoleSetup**.  
+    -   No servidor do site, aceda a  **<* caminho de instalação do servidor de site do Configuration Manager*> \Tools\ConsoleSetup**.  
 
-    -   С исходного носителя Configuration Manager перейдите в папку **<*исходные_файлы_Configuration_Manager*>\Smssetup\Bin\I386**.  
+    -   Do suporte de dados de origem do Configuration Manager, aceda a  **<* ficheiros de origem do Configuration Manager*> \Smssetup\Bin\I386**.  
 
     > [!TIP]  
-    >  Рекомендуется запускать установку консоли Configuration Manager с сервера сайта, а не с установочного носителя System Center Configuration Manager. Процесс установки сервера сайта копирует установочные файлы консоли Configuration Manager и поддерживаемые языковые пакеты для сайта во вложенную папку **Tools\ConsoleSetup**. При установке консоли Configuration Manager с установочного носителя всегда устанавливается англоязычная версия, независимо от поддерживаемых языков на сервере сайта или языковых параметров операционной системы компьютера. Вы можете скопировать папку **ConsoleSetup** в другое расположение для запуска.
+    >  Como melhor prática, inicie a instalação da consola do Configuration Manager de um servidor de site, em vez do suporte de dados de instalação do System Center Configuration Manager. O método de instalação do servidor de site copia os ficheiros de instalação de consola do Configuration Manager e pacotes de idiomas suportados para o site para o **tools\consolesetup.** subpasta. Instalar a consola do Configuration Manager a partir do suporte de instalação do sempre instalada a versão inglesa, independentemente dos idiomas suportados no servidor do site ou as definições de idioma do sistema operativo que está em execução no computador. Opcionalmente, pode copiar o **ConsoleSetup** pasta para uma localização alternativa para iniciar a instalação.
 
-3.  Чтобы открыть мастер установки консоли Configuration Manager, дважды щелкните файл **consolesetup.exe**.  
+3.  Para abrir o Assistente de configuração de consola do Configuration Manager, faça duplo clique **consolesetup.exe**.  
 
     > [!IMPORTANT]  
-    >  Всегда устанавливайте консоль Configuration Manager с помощью consolesetup.exe. Хотя для установки консоли Configuration Manager можно запустить файл adminconsole.msi, в этом случае проверка готовности и зависимостей не выполняется, поэтому существует вероятность некорректной установки.  
+    >  Instale sempre a consola do Configuration Manager utilizando consolesetup.exe. Embora a consola do Configuration Manager pode ser instalada através da execução de adminconsole.msi, este método não executa os pré-requisitos ou dependências verificações e a instalação poderá não ser instalados correctamente.  
 
-4.  В мастере нажмите кнопку **Далее**.  
+4.  No assistente, selecione **seguinte**.  
 
-5.  На странице **Сервер сайта** укажите полное доменное имя сервера сайта для подключения консоли Configuration Manager.  
+5.  No **servidor do Site** página, introduza o nome de domínio completamente qualificado (FQDN) do servidor do site ao qual a consola do Configuration Manager irá ligar.  
 
-6.  На странице **Папка установки** укажите папку установки для консоли Configuration Manager. Путь к папке не должен содержать конечные пробелы и символы Юникода.  
+6.  No **pasta de instalação** página, introduza a pasta de instalação da consola do Configuration Manager. O caminho da pasta não pode conter espaços à direita nem carateres Unicode.  
 
-7.  На странице **Программа улучшения качества программного обеспечения** укажите, хотите ли вы принимать участие в программе улучшения качества программного обеспечения (CEIP).  
+7.  No **programa de melhoramento da experiência do cliente** página, selecione se pretende associar o programa de melhoramento da experiência do cliente (PMEC).  
 
-8.  На странице **Все готово для установки** нажмите кнопку **Установить**, чтобы установить консоль Configuration Manager.  
+8.  No **pronto para instalar** página, selecione **instalar** para instalar a consola do Configuration Manager.  
 
-## <a name="to-install-the-configuration-manager-console-from-a-command-prompt"></a>Установка консоли Configuration Manager из командной строки  
+## <a name="to-install-the-configuration-manager-console-from-a-command-prompt"></a>Para instalar a consola do Configuration Manager numa linha de comandos  
 
-1.  На сервере, с которого будет установлена консоль Configuration Manager, откройте командную строку и перейдите в одно из следующих расположений:  
+1.  No servidor do qual instala a consola do Configuration Manager, abra uma janela da linha de comandos e aceda a uma das seguintes localizações:  
 
-    -   **<*путь_установки_сервера_сайта_Configuration_Manager*>\Tools\ConsoleSetup**  
+    -   **<*Caminho de instalação do servidor de site do Configuration Manager*> \Tools\ConsoleSetup**  
 
-    -   **<*установочный_носитель_Configuration_Manager*>\SMSSETUP\BIN\I386**  
+    -   **<*Suporte de instalação do Configuration Manager*> \SMSSETUP\BIN\I386**  
 
     > [!TIP]  
-    >  При установке консоли Configuration Manager из командной строки всегда устанавливается англоязычная версия, независимо от языковых параметров операционной системы компьютера. Чтобы установить консоль Configuration Manager на другом языке, необходимо [использовать мастер установки](#to-install-the-configuration-manager-console-by-using-the-setup-wizard).  
+    >  Quando instalar a consola do Configuration Manager numa linha de comandos, a versão inglesa é sempre instalada, independentemente da definição de idioma do sistema operativo que está em execução no computador. Para instalar a consola do Configuration Manager num idioma diferente do inglês, deve [instalar a consola do Configuration Manager, utilizando o Assistente de configuração](#to-install-the-configuration-manager-console-by-using-the-setup-wizard).  
 
-2.  В командной строке введите **consolesetup.exe**. Выберите нужные параметры командной строки.  
+2.  Na linha de comandos, escreva **consolesetup.exe**. Escolha uma das seguintes opções da linha de comandos.  
 
-|  .     | Описание     |
+|  Opção da linha de comandos     | Descrição     |
   | :------------- | :------------- |
-  |/q|Автоматически устанавливает консоль Configuration Manager. Параметры **EnableSQM**, **TargetDir**и **DefaultSiteServerName** при использовании этого параметра являются обязательными.|  
-  |/uninstall|Удаляет консоль Configuration Manager. При использовании совместно с параметром **/q** этот параметр следует указать первым.|  
-  |LangPackDir|Указывает путь к папке, содержащей языковые файлы. Для скачивания языковых файлов вы можете использовать **загрузчик программы установки** . Если этот параметр не используется, программа установки выполнит поиск языковой папки в текущей папке. Если языковая папка найдена не будет, программа установки продолжит установку только для английского языка. Дополнительные сведения см. в разделе [Загрузчик программы установки](setup-downloader.md).|  
-  |TargetDir|Указывает папку для установки консоли Configuration Manager. Этот параметр является обязательным при использовании параметра **/q** .|  
-  |EnableSQM|Указывает, следует ли принимать участие в программе улучшения качества программного обеспечения. Чтобы присоединиться к программе, используйте значение **1**, а чтобы отказаться от участия — значение **0**. Этот параметр является обязательным при использовании параметра **/q** .|  
-  |DefaultSiteServerName|Определяет полное доменное имя сервера сайта, к которому консоль подключается при открытии. Этот параметр является обязательным при использовании параметра **/q** .|  
+  |/q|Instala a consola do Gestor de configuração automática. O **EnableSQM**, **TargetDir**, e **DefaultSiteServerName** opções são necessárias quando utiliza esta opção.|  
+  |/uninstall|Desinstala a consola do Configuration Manager. Tem de especificar esta opção primeiro quando a utilizar com o **/q** opção.|  
+  |LangPackDir|Especifica o caminho para a pasta que contém os ficheiros de idioma. Pode utilizar **dispositivo de transferência da configuração** para transferir os ficheiros de idioma. Se utilizar esta opção, a configuração procurará a pasta de idioma na pasta atual. Se a pasta de idioma não for encontrada, o programa de configuração continua a instalar apenas inglês. Para obter mais informações, consulte [dispositivo de transferência da configuração](setup-downloader.md).|  
+  |TargetDir|Especifica a pasta de instalação para instalar a consola do Configuration Manager. Esta opção é necessária quando utiliza o **/q** opção.|  
+  |EnableSQM|Especifica se pretende associar o programa de melhoramento da experiência do cliente (PMEC). Utilize um valor de **1** para aderir ao CEIP e um valor de **0** não participar no programa. Esta opção é necessária quando utiliza o **/q** opção.|  
+  |DefaultSiteServerName|Especifica o FQDN do servidor do site ao qual a consola liga quando é aberta. Esta opção é necessária quando utiliza o **/q** opção.|  
 
 
-  **Примеры:**
+  **Exemplos:**
 
-  -  **consolesetup.exe /q TargetDir="D:\Program Files\ConfigMgr" EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
+  -  **consolesetup.exe /q TargetDir = "D:\Program Files\ConfigMgr" EnableSQM = 1 defaultsiteservername = MyServer.contoso.com**  
 
-  -  **consolesetup.exe /q LangPackDir=C:\Downloads\ConfigMgr TargetDir="D:\Program Files\ConfigMgr" Console EnableSQM=1 DefaultSiteServerName=MyServer.Contoso.com**  
+  -  **consolesetup.exe /q LangPackDir = C:\Downloads\ConfigMgr TargetDir = "D:\Program Files\ConfigMgr" Console EnableSQM = 1 defaultsiteservername = MyServer.contoso.com**  
 
-  -  **consolesetup.exe /uninstall /q**  
+  -  **consolesetup.exe /q /Uninstall**  

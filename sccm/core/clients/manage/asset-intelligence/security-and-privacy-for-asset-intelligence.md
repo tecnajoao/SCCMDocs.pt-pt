@@ -1,6 +1,6 @@
 ---
-title: "Безопасность и конфиденциальность аналитики активов | Документы Майкрософт"
-description: "Сведения об обеспечении безопасности и конфиденциальности аналитики активов в System Center Configuration Manager."
+title: "Privacidade do Asset Intelligence segurança | Microsoft Docs"
+description: "Obter informações de segurança e privacidade do Asset Intelligence no System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,43 +17,43 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: b12054cce52e2b83715a083d78a62e06b5127a2f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-asset-intelligence-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность аналитики активов в System Center Configuration Manager
+# <a name="security-and-privacy-for-asset-intelligence-in-system-center-configuration-manager"></a>Segurança e privacidade do Asset Intelligence no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этом разделе приводятся сведения об обеспечении безопасности и конфиденциальности аналитики активов в System Center Configuration Manager.  
+Este tópico contém informações de privacidade do Asset Intelligence no System Center Configuration Manager e de segurança.  
 
-##  <a name="BKMK_Security_AI"></a> Рекомендации по обеспечению безопасности для аналитики активов  
- При использовании аналитики активов необходимо учитывать следующие рекомендации по обеспечению безопасности.  
+##  <a name="BKMK_Security_AI"></a> Melhores práticas de segurança do Asset Intelligence  
+ Utilize as seguintes melhores práticas de segurança quando utilizar o Asset Intelligence.  
 
-|Рекомендация по безопасности|Дополнительные сведения|  
+|Procedimento recomendado de segurança|Mais informações|  
 |----------------------------|----------------------|  
-|При импорте файла лицензии (файл корпоративной лицензии Майкрософт или общего списка лицензий) необходимо обеспечить безопасность файла и канала передачи.|Используйте разрешения файловой системы NTFS, чтобы гарантировать, что доступ к файлам лицензий смогут получить только полномочные пользователи. Кроме того, следует использовать подписывание SMB, чтобы гарантировать целостность данных при передаче на сервер сайта в ходе процесса импорта.|  
-|При импорте файлов лицензий используйте принцип минимальных разрешений.|Используйте ролевое администрирование, чтобы предоставить пользователю, импортирующему файлы лицензий, разрешение "Управление аналитикой активов". Встроенная роль менеджера по активам включает это разрешение.|  
+|Quando importar um ficheiro de licença (ficheiro de Licenciamento em Volume da Microsoft ou um ficheiro da Declaração de Licença Geral), proteja o canal de comunicação e de ficheiros.|Utilize permissões do sistema de ficheiros NTFS para garantir que apenas os utilizadores autorizados podem aceder aos ficheiros de licença e utilizar a assinatura SMB (Server Message Block) para assegurar a integridade dos dados quando é transferido para o servidor do site durante o processo de importação.|  
+|Utilize o princípio do menor número de permissões para importar os ficheiros de licença.|Utilize a administração baseada em funções para conceder a permissão Gerir Asset Intelligence para o utilizador administrativo que importa os ficheiros de licença. A função incorporada do Gestor do Asset Intelligence inclui esta permissão.|  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Сведения о конфиденциальности аналитики активов  
- Аналитика активов расширяет функции инвентаризации Configuration Manager, обеспечивая более высокий уровень контроля над активами предприятия. Сбор данных аналитики активов не включается автоматически. Тип собираемых данных можно изменить, включив классы отчетов инвентаризации оборудования. Дополнительные сведения см. в разделе [Настройка аналитики активов в System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informações de privacidade para o Asset Intelligence  
+ Asset Intelligence expande as capacidades de inventário do Configuration Manager para fornecer um nível mais elevado de visibilidade de ativos na empresa. A recolha de informações do Asset Intelligence não está ativada automaticamente. Pode ativar as classes de relatório de inventário de hardware para modificar o tipo de informações recolhidas. Para obter mais informações, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
- Данные аналитики активов хранятся в базе данных Configuration Manager так же, как и данные инвентаризации. Когда клиенты подключаются к точкам управления с помощью протокола HTTPS, отправляемые ими на точку управления данные шифруются во время передачи. Если клиенты подключатся с помощью HTTP, шифрование и подписывание передаваемых данных инвентаризации можно настроить отдельно. Данные инвентаризации не хранятся в зашифрованном виде в базе данных. Сведения хранятся в базе данных, пока не будут удалены задачей обслуживания сайта **Удалить устаревшие данные журнала инвентаризации** (интервал удаления — 90 дней). Можно настроить интервал удаления.  
+ Informações do Asset Intelligence são armazenadas na base de dados do Configuration Manager da mesma forma como as informações de inventário. Quando os clientes estabelecem ligação aos pontos de gestão utilizando HTTPS, os dados são sempre encriptados durante a transferência para o ponto de gestão. Quando os clientes estabelecem ligação ao HTTP, pode configurar a transferência de dados de inventário para serem assinados e encriptados. Os dados de inventário não são armazenados em formato encriptado na base de dados. As informações são retidas na base de dados até que a tarefa de manutenção do site **Eliminar Histórico de Inventário Desatualizado** a elimine todos os 90 dias. Pode configurar o intervalo de eliminação.  
 
- Функция аналитики активов не передает данные о пользователях и компьютерах или использовании лицензий в корпорацию Майкрософт. Пользователь может отправлять в систему System Center Online запросы классификации, то есть можно пометить один или несколько программных продуктов без категории и отправить их в System Center Online для исследования и присвоения категории. После передачи программных продуктов специалисты Майкрософт идентифицируют и классифицируют его, а затем предоставляют эти сведения всем клиентам, использующим веб-службы. При передаче данных на сайт System Center Online следует принять во внимание следующие аспекты обеспечения конфиденциальности.  
+ O Asset Intelligence não envia informações sobre utilizadores e computadores nem sobre a utilização de licenças para a Microsoft. Pode optar por enviar pedidos do System Center Online para categorização, o que significa que pode identificar um ou mais títulos de software que não estejam categorizados e enviá-los para o System Center Online para pesquisa e categorização. Após o carregamento de um título de software, os investigadores da Microsoft identificam, categorizam e disponibilizam estes conhecimentos a todos os utilizadores que utilizam o serviço online. Deve estar ciente das seguintes implicações de privacidade quando submete informações para o System Center Online:  
 
--   Передаются только общие сведения о программном продукте (название, издатель и т. д.), выбранные для отправки в систему System Center Online. Данные инвентаризации не передаются.  
+-   O carregamento aplica-se apenas a informações de título de software genérico (nome, publicador e assim sucessivamente) que optar por enviar para o System Center Online. As informações de inventário não são enviadas com um carregamento.  
 
--   Передача никогда не запускается автоматически, кроме того, автоматизация этой задачи не предусмотрена. Передачу данных для каждого программного продукта необходимо выбрать и утвердить вручную.  
+-   O carregamento nunca ocorre de forma automática e o sistema não foi concebido para automatizar esta tarefa. Deve selecionar e aprovar manualmente o carregamento de cada título de software.  
 
--   Перед началом процесса отправки в диалоговом окне отображается точный список передаваемых данных.  
+-   Uma caixa de diálogo mostra exatamente os dados que vão ser carregados, antes do processo de carregamento ser iniciado.  
 
--   Данные о лицензиях не передаются в корпорацию Майкрософт. Сведения о лицензиях хранятся в отдельной области базы данных Configuration Manager и не могут быть отправлены в Майкрософт.  
+-   As informações de licença não são enviadas à Microsoft. As informações de licença são armazenadas numa área separada da base de dados do Configuration Manager e não é possível enviar à Microsoft.  
 
--   Все переданные программные продукты становятся общедоступными, то есть все сведения о данном приложении и его категории включаются в каталог аналитики активов System Center Online, а затем загружаются другими пользователями каталога.  
+-   Os títulos de software carregados passam a ser públicos, na medida em que o conhecimento dessa aplicação e a respetiva categorização passam a fazer parte integrante do catálogo do System Center Online Asset Intelligence, podendo assim ser transferidos por outros consumidores do catálogo.  
 
--   Источник программного продукта не регистрируется в каталоге аналитики активов и сведения о нем не предоставляются другим клиентам. Тем не менее, необходимо убедиться, что передаваемые наименования приложений не содержат конфиденциальных сведений.  
+-   A origem do título de software não está registada no catálogo do Asset Intelligence e não é disponibilizada para outros clientes. No entanto, deve certificar-se de que não carregou quaisquer títulos de aplicações que contenham informações privadas.  
 
--   Загруженные данные нельзя отозвать.  
+-   Não é possível resgatar os dados carregados.  
 
- Перед настройкой сбора данных аналитики активов и принятием решения о передаче информации в System Center Online учтите требования к конфиденциальности, предъявляемые организацией.  
+ Antes de configurar a recolha de dados do Asset Intelligence e decidir se pretende enviar informações para o System Center Online, tenha em consideração os requisitos de privacidade da sua empresa.  

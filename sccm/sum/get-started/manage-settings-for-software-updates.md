@@ -1,6 +1,6 @@
 ---
-title: "Управление параметрами для обновлений программного обеспечения | Документация Майкрософт"
-description: "Дополнительные сведения о параметрах клиента, которые используются для обновлений программного обеспечения в рамках сайта после установки точки обновления программного обеспечения."
+title: "Gerir as definições das atualizações de software | Microsoft Docs"
+description: "Saiba mais sobre as definições de cliente são adequadas para atualizações de software no seu site depois de instalar o ponto de atualização de software."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,126 +13,126 @@ ms.technology: configmgr-sum
 ms.assetid: 0d484c1a-e903-4bff-9e9b-e452c62e38a8
 ms.openlocfilehash: fe4a8f56e0b554e206bcc4503a0268dc761ded81
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_ManageSUSettings"></a> Управление параметрами для обновлений программного обеспечения  
+#  <a name="BKMK_ManageSUSettings"></a>Gerir as definições das atualizações de software  
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-После синхронизации обновлений программного обеспечения в Configuration Manager настройте и проверьте параметры в следующих разделах.
+Depois de sincronizar as atualizações de software no Configuration Manager, configurar e verificar as definições nas secções seguintes.
 
-##  <a name="BKMK_ClientSettings"></a> Параметры клиентов для обновлений программного обеспечения  
-После установки точки обновления программного обеспечения обновления программного обеспечения на клиентах будут включены по умолчанию, а параметры на странице **Обновления программного обеспечения** в параметрах клиента будут иметь значения по умолчанию. Параметры клиента используются для всего сайта и определяют, когда происходит проверка обновлений на совместимость, а также как и когда обновления устанавливаются на клиентские компьютеры. Перед началом развертывания обновлений программного обеспечения убедитесь, что параметры клиента подходят для обновлений программного обеспечения на вашем сайте.  
+##  <a name="BKMK_ClientSettings"></a> Definições de cliente para atualizações de software  
+Depois de instalar o ponto de atualização de software, as atualizações de software são ativadas nos clientes por predefinição e as definições da página **Atualizações de Software** nas definições do cliente têm valores predefinidos. As definições de cliente são utilizadas ao nível do site e afetam quando as atualizações de software são analisadas a compatibilidade e como e quando as atualizações de software são instaladas nos computadores cliente. Antes de implementar atualizações de software, certifique-se de que as definições de cliente são adequadas para atualizações de software no seu site.  
 
 > [!IMPORTANT]  
->  По умолчанию параметр **Разрешить обновление ПО на стороне клиента** включен. Если его отключить, то Configuration Manager удалит все политики развертывания на стороне клиента.  
+>  A definição **Ativar atualizações de software nos clientes** está ativada por predefinição. Se desmarcar esta definição, o Configuration Manager removerá as políticas de implementação existentes do cliente.  
 
-Сведения о настройке параметров клиента см. в разделе [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md).  
+Para obter informações sobre como configurar as definições de cliente, consulte [como configurar as definições de cliente](../../core/clients/deploy/configure-client-settings.md).  
 
-Дополнительные сведения о параметрах клиентов см. в разделе [О параметрах клиентов](../../core/clients/deploy/about-client-settings.md).  
+Para obter mais informações sobre as definições de cliente, consulte [sobre definições de cliente](../../core/clients/deploy/about-client-settings.md).  
 
-##  <a name="BKMK_GroupPolicy"></a> Параметры групповой политики для обновлений программного обеспечения  
-Существуют определенные параметры групповой политики, используемые агентом обновления Windows (WUA) на клиентских компьютерах для подключения к WSUS на точке обновления программного обеспечения. Эти параметры групповой политики применяются также для проверки соответствия обновлений программного обеспечения нормативным требованиям, а также для автоматического обновления ПО и WUA.
+##  <a name="BKMK_GroupPolicy"></a> Definições de política de grupo para atualizações de software  
+Existem definições de política de grupo específicas que são utilizadas pelo Windows Update Agent (WUA) em computadores cliente para estabelecer ligação ao WSUS que é executado no ponto de atualizações de software. Estas definições de política de grupo também são utilizadas para analisar com sucesso a compatibilidade da atualização de software e para atualizar automaticamente as atualizações de software e o WUA.
 
-### <a name="specify-intranet-microsoft-update-service-location-local-policy"></a>Локальная политика "Указать размещение службы обновлений Майкрософт в интрасети"  
-Если для сайта создана активная точка обновления ПО, клиенты получают политику компьютера, которая предоставляет имя сервера активной точки обновления и настраивает локальную политику **Указать размещение службы обновлений Майкрософт в интрасети** на компьютере. Агент WUA получает имя сервера, указанное в параметре **Укажите службу обновлений в интрасети для поиска обновлений** , а затем подключается к этому серверу при проверке соответствия обновлений ПО требованиям. Если для параметра **Указать размещение службы обновлений Майкрософт в интрасети** создана политика домена, она переопределяет локальную политику, и агент WUA может подключиться к серверу, отличному от точки обновления ПО. Если это происходит, клиент может проверить соответствие обновлений ПО требованиям на основе различных продуктов, классов и языков. Таким образом, не следует настраивать политику Active Directory для клиентских компьютеров.  
+### <a name="specify-intranet-microsoft-update-service-location-local-policy"></a>Política local Especificar a Localização do Serviço de Atualizações da Microsoft na Intranet  
+Quando o ponto de atualização de software é criado para um site, os clientes recebem uma política de computador que fornece o nome do servidor do ponto de atualização de software e configura a política local **Especificar localização do serviço de atualizações da Microsoft na intranet** no computador. O WUA obtém o nome do servidor que está especificado na definição **Definir o serviço de atualização na intranet para detetar atualizações** e estabelece ligação a este servidor quando verifica a compatibilidade das atualizações de software. Quando uma política de domínio é criada para a definição **Especificar localização do serviço de atualizações da Microsoft na intranet** , substitui a política local e o WUA poderá estabelecer ligação a outro servidor diferente do ponto de atualização de software. Se isto acontecer, o cliente pode analisar a compatibilidade da atualização de software com base em diferentes produtos, classificações e idiomas. Por conseguinte, não deve configurar a política do Active Directory para computadores cliente.  
 
-### <a name="allow-signed-content-from-intranet-microsoft-update-service-location-group-policy"></a>Групповая политика "Разрешить прием содержимого с подписью из службы обновления Майкрософт в интрасети"  
-Необходимо включить параметр групповой политики **Разрешить прием содержимого с подписью из службы обновления Майкрософт в интрасети** , прежде чем агент WUA сможет проверить обновления, созданные и опубликованные с помощью System Center Updates Publisher. Если эта политика включена, агент WUA будет принимать обновления, полученные через расположение в интрасети, если обновления подписаны в хранилище сертификатов **Доверенные издатели** на локальном компьютере. Дополнительные сведения о параметрах групповой политики, необходимых для Updates Publisher, см. в [библиотеке документации по Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=232476).  
+### <a name="allow-signed-content-from-intranet-microsoft-update-service-location-group-policy"></a>Política de grupo Permitir Conteúdo Assinado da Localização do Serviço de Atualizações da Microsoft na Intranet  
+Tem de ativar a definição da Política de Grupo **Permitir conteúdo assinado da localização do serviço de atualização da Microsoft na intranet** antes de o WUA nos computadores verificar as atualizações de software que foram criadas e publicadas com o System Center Updates Publisher. Ativada a definição de política, o WUA aceita as atualizações de software recebidas através de uma localização de intranet se as atualizações de software forem assinadas no arquivo de certificados **Fabricantes Fidedignos** no computador local. Para obter mais informações sobre as definições da Política de Grupo necessárias ao Updates Publisher, veja [Biblioteca de Documentação do Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=232476).  
 
-### <a name="automatic-updates-configuration"></a>Настройка автоматического обновления  
-Автоматическое обновление дает возможность клиентским компьютерам получать обновления для системы безопасности и другие важные загружаемые файлы. Автоматическое обновление настраивается с помощью параметра групповой политики **Настройка автоматического обновления** или в панели управления локального компьютера. Если автоматическое обновление включено, клиентские компьютеры будут получать уведомления об обновлениях, а затем, в зависимости от настроенных параметров, будут загружать и устанавливать необходимые обновления. Если автоматическое обновление используется одновременно с обновлением программного обеспечения, то в обоих случаях для одного и того же обновления могут отображаться значки уведомления и всплывающие уведомления. Кроме того, если требуется перезагрузка, то в обоих случаях для одного и того же обновления может отображаться диалоговое окно перезагрузки компьютера.  
+### <a name="automatic-updates-configuration"></a>Configuração de atualizações automáticas  
+As Atualizações Automáticas permitem a receção de atualizações de segurança e de outras transferências importantes em computadores cliente. As Atualizações Automáticas são configuradas através da definição da Política de Grupo **Configurar Atualizações Automáticas** ou através do Painel de Controlo do computador local. Quando as Atualizações Automáticas são ativadas, os computadores cliente recebem notificações de atualização e, dependendo das definições configuradas, transferem e instalam as atualizações necessárias. Quando as Atualizações Automáticas coexistem com atualizações de software, cada computador cliente pode apresentar ícones de notificação e notificações de apresentação em pop-up para a mesma atualização. Além disso, quando for necessário um reinício, cada computador cliente pode apresentar uma caixa de diálogo de reinício para a mesma atualização.  
 
-### <a name="self-update"></a>Самообновление  
-Если на клиентских компьютерах включено автоматическое обновление, то компонент WUA автоматически выполняет самообновление при выпуске новой версии или при возникновении неполадок с компонентом WUA. Если автоматическое обновление не настроено или отключено, а на клиентских компьютерах используется более ранняя версия WUA, то на клиентских компьютерах необходимо запустить файл установки WUA.  
+### <a name="self-update"></a>Autoatualização  
+Quando as Atualizações Automáticas estão ativadas em computadores cliente, o WUA efetua automaticamente uma autoatualização quando uma versão mais recente está disponível ou quando existem problemas com um componente do WUA. Quando as Atualizações Automáticas não são configuradas ou estão desativadas e os computadores cliente têm uma versão mais recente do WUA, os computadores cliente devem executar o ficheiro de instalação do WUA.  
 
-## <a name="software-updates-properties"></a>Свойства обновлений программного обеспечения
-Свойства обновления программного обеспечения содержат данные об обновлениях программного обеспечения и о связанном содержимом. Эти свойства также можно использовать для настройки параметров обновлений программного обеспечения. При открытии свойств нескольких обновлений программного обеспечения отображаются только вкладки **Максимальное время выполнения** и **Настраиваемая важность** .   
+## <a name="software-updates-properties"></a>Propriedades de atualizações de software
+As propriedades das atualizações de software contêm informações sobre as atualizações de software e o respetivo conteúdo. Também pode utilizar estas propriedades para configurar as definições das atualizações de software. Ao abrir as propriedades de várias atualizações de software, apenas são apresentados os separadores **Tempo de Execução Máximo** e **Gravidade Personalizada** .   
 
-Следующая процедура используется для открытия окна свойств обновлений программного обеспечения.  
+Utilize o seguinte procedimento para abrir as propriedades da atualização de software.  
 
-#### <a name="to-open-software-update-properties"></a>Открытие окна свойств обновлений программного обеспечения  
+#### <a name="to-open-software-update-properties"></a>Para abrir as propriedades da atualização de software  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
-2.  В рабочей области "Библиотека программного обеспечения" разверните узел **Обновления программного обеспечения**, а затем щелкните **Все обновления программного обеспечения**.  
-3.  Выберите одно или несколько обновлений программного обеспечения, а затем на вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства** .  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+2.  Na área de trabalho Biblioteca de Software, expanda **Atualizações de Software**e clique em **Todas as Atualizações de Software**.  
+3.  Selecione uma ou mais atualizações de software e, em seguida, no separador **Home Page** , clique em **Propriedades** no grupo **Propriedades** .  
 
    > [!NOTE]  
-   >  В узле **Все обновления программного обеспечения** Configuration Manager выводит только обновления классов **Критическое** и **Безопасность**, а также обновления, выпущенные за последние 30 дней.  
+   >  No **todas as atualizações de Software** nó, o Configuration Manager apresenta apenas as atualizações de software que tenham um **crítico** e **segurança** classificação e que tenham sido publicadas nos últimos 30 dias.  
 
-###  <a name="BKMK_SoftwareUpdatesInformation"></a> Просмотр сведений об обновлениях программного обеспечения  
-В свойствах обновления программного обеспечения можно просмотреть подробные сведения об обновлении программного обеспечения. Эти подробные сведения не отображаются при выборе нескольких обновлений программного обеспечения. В следующих разделах описаны сведения, доступные для выбранного обновления программного обеспечения.  
+###  <a name="BKMK_SoftwareUpdatesInformation"></a> Rever informações das atualizações de software  
+As propriedades da atualização de software permitem-lhe rever informações detalhadas sobre uma atualização de software. As informações detalhadas não serão apresentadas se selecionar mais do que uma atualização de software. As secções seguintes descrevem as informações disponíveis para uma atualização de software selecionada.  
 
-####  <a name="BKMK_SoftwareUpdateDetails"></a> Сведения об обновлении программного обеспечения  
-На вкладке **Сведения об обновлении** представлены следующие сводные данные о выбранном обновлении программного обеспечения.  
+####  <a name="BKMK_SoftwareUpdateDetails"></a> Detalhes da atualização de software  
+O separador **Detalhes da Atualização** contém as seguintes informações de resumo sobre a atualização de software selecionada:  
 
-- **Идентификатор бюллетеня**: указывает идентификатор бюллетеня, связанный с обновлениями программного обеспечения для системы безопасности. Для получения подробных сведений о бюллетене безопасности выполните поиск по идентификатору бюллетеня на веб-странице [поиска бюллетеня безопасности Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=58313) .  
+- **ID do boletim**: Especifica o ID do boletim associado às atualizações de software de segurança. Pode obter detalhes sobre boletins de segurança, procurando o ID do boletim na página Web [Pesquisa de Boletins de Segurança da Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=58313) .  
 
-- **Идентификатор статьи**: указывает идентификатор статьи для обновления программного обеспечения. В указанной статье содержатся подробные сведения об обновлении программного обеспечения и о проблеме, которая устраняется с его помощью.  
+- **ID de artigo**: Especifica o ID do artigo da atualização de software. O artigo referenciado contém informações mais detalhadas sobre a atualização de software, bem como o problema corrigido ou melhorado pela atualização de software.  
 
-- **Дата пересмотра**: указывает дату последнего изменения обновления программного обеспечения.  
+- **Data de revisão**: Especifica a data em que a atualização de software foi modificado pela última vez.  
 
-- **Оценка максимального уровня важности**: указывает определенную поставщиком оценку важности обновления программного обеспечения.  
+- **Classificação de gravidade máxima**: Especifica a classificação de gravidade definida pelo fornecedor para a atualização de software.  
 
-- **Описание**: содержит обзор состояния, для улучшения или исправления которого служит обновление программного обеспечения.  
+- **Descrição**: Fornece uma descrição geral da situação que a atualização de software corrige ou melhora.  
 
-- **Применимые языки**: указывает языки, к которым применимо обновление программного обеспечения.  
+- **Idiomas aplicáveis**: Lista os idiomas para os quais a atualização de software é aplicável.  
 
-- **Затронутые продукты**: указывает продукты, к которым применимо обновление программного обеспечения.  
+- **Produtos afetados**: Apresenta uma lista dos produtos aos quais se aplica a atualização de software.  
 
-####  <a name="BKMK_ContentInformation"></a> Сведения о содержимом  
-На вкладке **Сведения о содержимом** представлены следующие данные о содержимом, связанном с выбранным обновлением программного обеспечения.  
+####  <a name="BKMK_ContentInformation"></a> Informações de conteúdo  
+No separador **Informações de Conteúdo** , reveja as seguintes informações sobre o conteúdo associado à atualização de software selecionada:  
 
--   **Идентификатор содержимого**: идентификатор содержимого обновления программного обеспечения.  
+-   **ID de conteúdo**: Especifica o ID de conteúdo da atualização de software.  
 
--   **Загружено**: указывает, загрузил ли Configuration Manager файлы обновления программного обеспечения.  
+-   **Transferido**: Indica se o Configuration Manager transferiu os ficheiros de atualização de software.  
 
--   **Язык**: указывает языки обновления программного обеспечения.  
+-   **Idioma**: Especifica os idiomas da atualização de software.  
 
--   **Путь к исходным файлам**: указывает путь к исходным файлам обновления программного обеспечения.  
+-   **Caminho de origem**: Especifica o caminho para os ficheiros de origem de atualização de software.  
 
--   **Размер (МБ)**: указывает размер исходных файлов обновления программного обеспечения.  
+-   **Tamanho (MB)**: Especifica o tamanho dos ficheiros de origem de atualização de software.  
 
-####  <a name="BKMK_CustomBundleInformation"></a> Сведения о пользовательских обновлениях  
-На вкладке **Сведения о пользовательских обновлениях** проверьте сведения о пользовательских обновлениях для данного обновления. Если файл выбранного обновление содержит пакеты обновлений ПО, они будут показаны в разделе **Сведения о пакете** . На этой вкладке не отображаются пакетные обновления программного обеспечения, отображаемые на вкладке **Сведения о содержимом** , например файлы обновлений для различных языков.  
+####  <a name="BKMK_CustomBundleInformation"></a> Informações de grupo personalizadas  
+No separador **Informações do Grupo Personalizadas** , reveja as informações do grupo personalizadas relativas à atualização de software. Se a atualização de software selecionada contiver atualizações de software agrupadas que estejam incluídas no ficheiro de atualização de software, estas serão apresentadas na secção **Informações do grupo** . Este separador não apresenta as atualizações de software agrupadas que são apresentadas no separador **Informações de Conteúdo** , tais como os ficheiros de atualização para vários idiomas.  
 
-####  <a name="BKMK_SupersedenceInformation"></a> Сведения о замене  
-На вкладке **Сведения о замене** доступны следующие сведения о замене в обновлении ПО.  
+####  <a name="BKMK_SupersedenceInformation"></a> Informações de substituição  
+No separador **Informações de Substituição** , pode ver as seguintes informações relativas à substituição da atualização de software:  
 
-- **Это обновление заменяется следующими обновлениями**: указывает обновления ПО, заменяющие данное обновление, т. е. перечисленные обновления являются более новыми. В большинстве случаев развертывается одно из обновлений ПО, заменяющих текущее обновление. Отображаемые в этом списке обновления ПО содержат гиперссылки на веб-страницы, где размещены дополнительные сведения об этих обновлениях. Если обновление не заменяется, отображается **Нет** .  
+- **Esta atualização foi substituída pelas seguintes atualizações**: Especifica as atualizações de software que substituem esta atualização, o que significa que as atualizações apresentadas são mais recentes. Na maioria dos casos, irá implementar uma das atualizações de software que substitui a atualização de software. As atualizações de software apresentadas na lista incluem hiperligações para páginas Web que contêm mais informações sobre as atualizações de software. Se esta atualização não tiver sido substituída, será apresentado **Nenhuma** .  
 
-- **Это обновление заменяет следующие обновления**: указывает обновления ПО, заменяемые данным обновлением, т. е. данное обновление является более новым. В большинстве случаев это обновление ПО развертывается вместо заменяемых обновлений. Отображаемые в этом списке обновления ПО содержат гиперссылки на веб-страницы, где размещены дополнительные сведения об этих обновлениях. В тех случаях, когда это обновление не заменяет никакие другие обновления, отображается свойство **Нет** .  
+- **Esta atualização substitui as seguintes atualizações**: Especifica as atualizações de software que são substituídas por esta atualização de software, o que significa que esta atualização de software é mais recente. Na maioria dos casos, irá implementar esta atualização de software para substituir as atualizações de software substituídas. As atualizações de software apresentadas na lista incluem hiperligações para páginas Web que contêm mais informações sobre as atualizações de software. Se esta atualização não substituir qualquer outra atualização, será apresentado **Nenhuma** .  
 
-###  <a name="BKMK_SoftwareUpdatesSettings"></a> Настройка параметров обновлений программного обеспечения  
-Можно настроить параметры обновления программного обеспечения в свойствах одного или нескольких обновлений. Большинство параметров обновлений ПО можно настроить только на сайте центра администрирования или на автономном первичном сайте. Используйте следующие разделы для помощи при настройке параметров обновлений ПО.  
+###  <a name="BKMK_SoftwareUpdatesSettings"></a> Configurar definições de atualizações de software  
+As propriedades permitem-lhe configurar definições de atualização de software para uma ou mais atualizações de software. Apenas poderá configurar a maioria das definições de atualização de software através do site de administração central ou do site primário autónomo. As seguintes secções irão ajudá-lo a configurar as definições de atualizações de software.  
 
-####  <a name="BKMK_SetMaxRunTime"></a> Установка максимального времени выполнения  
-На вкладке **Максимальное время выполнения** задайте максимальное время, в течение которого обновление ПО должно быть установлено на клиентские компьютеры. Если установка обновления происходит дольше заданного периода, Configuration Manager создает сообщение о состоянии и прекращает мониторинг установки обновлений ПО. Этот параметр можно настроить только на сайте центра администрирования или на автономном первичном сайте.  
+####  <a name="BKMK_SetMaxRunTime"></a> Definir o tempo máximo de execução  
+No separador **Tempo Máximo de Execução** , defina o período de tempo máximo que uma atualização de software poderá demorar a ser instalada em computadores cliente. Se a atualização demora mais que o valor de tempo de execução máximo, o Configuration Manager cria uma mensagem de estado e interrompe a monitorização de implementação para a instalação de atualizações de software. Apenas poderá configurar esta definição através do site de administração central ou de um site primário autónomo.  
 
-Configuration Manager также использует этот параметр, чтобы определить, следует ли начать установку обновления ПО в пределах настроенного периода обслуживания. Если значение максимального времени выполнения превышает оставшееся время периода обслуживания, то установка обновлений ПО будет отложена до начала следующего периода обслуживания. Если на клиентский компьютер с настроенным периодом обслуживания требуется установить несколько обновлений ПО, то обновления будут устанавливаться в порядке возрастания максимального времени выполнения. Перед установкой каждого обновления ПО клиент проверяет, достаточно ли оставшегося времени периода обслуживания для установки обновления. Если установка обновления начата, то она будет продолжена даже после окончания периода обслуживания. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания в System Center Configuration Manager](../../core/clients/manage/collections/use-maintenance-windows.md).  
+O Configuration Manager também utiliza esta definição para determinar se deve iniciar a instalação de atualização de software numa janela de manutenção configurada. Se o valor máximo de tempo de execução exceder o período de tempo restante na janela de manutenção, a instalação das atualizações de software será adiada até ao início da próxima janela de manutenção. Se existirem várias atualizações de software para serem instaladas num computador cliente que tenha uma janela de manutenção (prazo) configurada, será instalada em primeiro lugar a atualização de software que tenha o menor tempo de execução máximo, seguida da instalação da atualização que tiver o seguinte menor tempo de execução máximo e assim sucessivamente. Antes de instalar cada atualização de software, o cliente verifica se a janela de manutenção disponível disponibiliza tempo suficiente para a instalação da atualização de software. Após o início da instalação de uma atualização de software, esta continuará a ser instalada mesmo que ultrapasse o limite da janela de manutenção. Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-На вкладке **Максимальное время выполнения** можно просмотреть и настроить следующие параметры:  
+No separador **Tempo Máximo de Execução** , pode ver e configurar as seguintes definições:  
 
-- **Максимальное время выполнения**: задает максимальное время установки обновления (в минутах), по истечении которого Configuration Manager прекращает отслеживать процесс установки. Этот параметр также используется, чтобы определить, достаточно ли времени для установки обновления до окончания периода обслуживания. Для пакетов обновления значение по умолчанию составляет 60 минут. Для других типов обновлений программного обеспечения значение по умолчанию равно 10 минутам (если программное обеспечение Configuration Manager, начиная с версии 1511, было установлено с нуля) или 5 минутам (если вы обновлялись с предыдущей версии). Значения могут составлять от 5 до 9999 минут.  
+- **Tempo de execução máximo**: Especifica o número máximo de minutos atribuído para uma instalação de atualização de software seja concluída antes da instalação já não é monitorizada pelo Configuration Manager. Esta definição também permite determinar se existe tempo suficiente para instalar uma atualização até ao prazo limite de uma janela de manutenção. A predefinição é 60 minutos para pacotes de serviços. Para outros tipos de atualização de software, a predefinição é 10 minutos se realizou uma nova instalação do Configuration Manager versão 1511 ou superior e 5 minutos quando tiver efetuado a atualização de uma versão anterior. Os valores variam entre 5 e 9999 minutos.  
 
 > [!IMPORTANT]  
->  Убедитесь, что установленное значение максимального времени выполнения меньше, чем настроенный период обслуживания. В противном случае установка обновления программного обеспечения никогда не будет запущена.  
+>  Certifique-se de que definiu o tempo máximo de execução para um valor inferior ao período da janela de manutenção configurada. Caso contrário, a instalação da atualização de software nunca será iniciada.  
 
-####  <a name="BKMK_SetCustomSeverity"></a> Установка настраиваемой важности  
-В свойствах обновления ПО можно воспользоваться вкладкой **Настраиваемая важность** для настройки пользовательских значений важности обновлений ПО. Это может оказаться необходимым, если предварительно заданные значения важности не соответствуют вашим требованиям. Настраиваемые значения перечислены в столбце **Настраиваемая важность** в консоли Configuration Manager. Можно сортировать обновления программного обеспечения по заданным значениям настраиваемой важности, а также создавать запросы и отчеты с фильтрацией по этим значениям. Этот параметр можно настроить лишь на сайте центра администрирования или на автономном первичном сайте.  
+####  <a name="BKMK_SetCustomSeverity"></a> Definir a gravidade personalizada  
+Nas propriedades para uma atualização de software, pode utilizar o separador **Gravidade Personalizada** para configurar os valores de gravidade personalizada para as atualizações de software. Isto poderá ser necessário se os valores predefinidos de gravidade não cumprirem as suas necessidades. Os valores personalizados são enumerados no **gravidade personalizada** coluna na consola do Configuration Manager. Pode ordenar as atualizações de software pelos valores de gravidade personalizada definida e também pode criar consultas e relatórios que podem filtrar estes valores. Só pode configurar esta definição no site de administração central ou no site principal autónomo.  
 
-На вкладке **Настраиваемая важность** можно настроить следующие параметры.  
+Pode configurar as seguintes definições no separador **Gravidade Personalizada** .  
 
-- **Настраиваемая важность**: задает значение настраиваемой важности для обновлений программного обеспечения. Выберите в списке **Критическая**, **Высокая**, **Средняя**, или **Низкая** . По умолчанию значение настраиваемой важности не указывается.
+- **Gravidade personalizada**: Define um valor de gravidade personalizada para as atualizações de software. Selecione **Crítica**, **Importante**, **Moderada**ou **Baixa** na lista. Por predefinição, o valor de gravidade personalizado está vazio.
 
-## <a name="crl-checking-for-software-updates"></a>Проверка списка отзыва сертификатов для обновлений программного обеспечения
-Список отзыва сертификатов (CRL) по умолчанию не проверяется при проверке подписи обновлений программного обеспечения System Center Configuration Manager. Проверка списка отзыва сертификатов при каждом использовании сертификата обеспечивает повышенную безопасность по сравнению с использованием отозванного сертификата, однако такая проверка приводит к задержкам соединения и обуславливает дополнительную вычислительную нагрузку на компьютер, выполняющий такую проверку.  
+## <a name="crl-checking-for-software-updates"></a>Verificação CRL para atualizações de software
+Por predefinição, a lista de revogação de certificados (CRL) não é verificada ao verificar a assinatura nas atualizações de software do System Center Configuration Manager. A verificação da CRL sempre que é utilizado um certificado oferece mais segurança contra a utilização de um certificado revogado, mas provoca um atraso de ligação e implica um processamento adicional no computador que a está a efetuar.  
 
-Если проверка списка отзыва сертификатов используется, она должна быть включена в консолях Configuration Manager, обрабатывающих обновления программного обеспечения.  
+Se utilizado, a verificação CRL deve estar ativada nas consolas do Configuration Manager que processam atualizações de software.  
 
-#### <a name="to-enable-crl-checking"></a>Включение проверки списка отзыва сертификатов  
-На компьютере, выполняющем проверку списка отзыва сертификатов, запустите из командной строки следующую программу, находящуюся на DVD-диске продукта: **\SMSSETUP\BIN\X64\\**<*язык*>**\UpdDwnldCfg.exe /checkrevocation**.  
+#### <a name="to-enable-crl-checking"></a>Para ativar a verificação CRL  
+No computador que executa a verificação CRL, a partir do DVD do produto, execute o seguinte numa linha de comandos: **\SMSSETUP\BIN\X64\\**<*idioma*>**\UpdDwnldCfg.exe /checkrevocation**.  
 
-Например, для английского языка (США) выполните команду **\SMSSETUP\BIN\X64\00000409\UpdDwnldCfg.exe /checkrevocation**  
+Por exemplo, para inglês (EUA) execute **\SMSSETUP\BIN\X64\00000409\UpdDwnldCfg.exe /checkrevocation**  

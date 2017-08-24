@@ -1,6 +1,6 @@
 ---
-title: "Свойства установки клиента в доменных службах Active Directory | Microsoft Docs"
-description: "Используйте свойства установки клиента, опубликованные в доменных службах Active Directory, в System Center Configuration Manager."
+title: "Propriedades de instalação de cliente no Active Directory Domain Services | Microsoft Docs"
+description: "Utilize as propriedades de instalação de cliente publicadas nos serviços de domínio do Active Directory no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,111 +17,111 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 744bc3792a02f13d3cf940cd1a4f2fd8749ee2f4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-client-installation-properties-published-to-active-directory-domain-services"></a>О свойствах установки клиента, публикуемых в доменных службах Active Directory
+# <a name="about-client-installation-properties-published-to-active-directory-domain-services"></a>Acerca das propriedades de instalação de cliente publicadas nos serviços de domínio do Active Directory
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-При расширении схемы Active Directory для System Center Configuration Manager и публикации сайта в доменных службах Active Directory многие свойства установки клиента публикуются в доменных службах Active Directory. Если компьютер сможет обнаружить эти свойства установки клиента, он использует их во время развертывания клиента Configuration Manager.  
+Quando expande o esquema do Active Directory para o System Center Configuration Manager e o site é publicado para serviços de domínio do Active Directory, muitas propriedades de instalação de cliente são publicadas nos serviços de domínio do Active Directory. Se um computador conseguir localizar estas propriedades de instalação de cliente, poderá utilizá-los durante a implementação de cliente do Configuration Manager.  
 
- Ниже перечислены преимущества использования доменных служб Active Directory для публикации свойств установки.  
+ As vantagens da utilização dos Serviços de Domínio do Active Directory para publicação das propriedades de instalação do cliente incluem:  
 
--   При установке клиента из точки обновления программного обеспечения и в установках клиентов на основе групповой политики не нужно задавать параметры установки на каждом компьютере.  
+-   Instalações de cliente baseada em ponto de atualização de software e as instalações de cliente de política de grupo não necessitam de parâmetros de configuração ser configurada em cada computador.  
 
--   Поскольку эти сведения создаются автоматически, устраняется вероятность человеческой ошибки, связанной с введением свойств установки вручную.  
-
-> [!NOTE]  
->  Дополнительные сведения о расширении схемы Active Directory для Configuration Manager и публикации сайта см. в статье [Расширения схемы для System Center Configuration Manager](../../plan-design/network/schema-extensions.md).  
-
-## <a name="client-installation-properties-published-to-active-directory-domain-services"></a>Свойства установки клиента, публикуемые в доменных службах Active Directory  
-Ниже приведен список свойств установки клиента. Дополнительные сведения о каждом из перечисленных ниже элементов см. в статье [Сведения о свойствах установки клиента в Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
-
--   Код сайта Configuration Manager.  
-
--   Сертификат подписи сервера сайта.  
-
--   Доверенный корневой ключ.  
-
--   Порты для подключения клиентов по протоколам HTTP и HTTPS.  
-
--   Резервная точка состояния. Если у сайта несколько резервных точек состояния, только первая из установленных точек публикуется в доменных службах Active Directory.  
-
--   Параметр, означающий, что клиент должен устанавливать связь только с использованием протокола HTTPS.  
-
--   Параметры, связанные с сертификатами PKI.  
-
-   -   Используется ли клиентский сертификат PKI.  
-
-   -   Критерии выбора сертификата. Может потребоваться, если у клиента несколько действительных PKI-сертификатов, которые могут быть использованы для Configuration Manager.  
-
-   -   Параметр, определяющий, какой следует использовать сертификат, если у клиента имеется несколько действительных сертификатов после завершения процесса выбора сертификатов.  
-
-   -   Список издателей сертификатов, содержащий перечень сертификатов доверенного корневого центра сертификации.  
-
--   Свойства установки Client.msi, указанные на вкладке **Клиент** диалогового окна **Свойства принудительной установки клиента** .
-
-Программа установки клиента (CCMSetup) использует свойства, опубликованные в доменных службах Active Directory, только если другие свойства не указаны перечисленными ниже способами:  
-
--   установка вручную (описывается далее в этой статье);
-
--   установка с использованием групповой политики (описывается далее в этой статье).
+-   Como estas informações são geradas automaticamente, o risco de erro humano associado à introdução manual das propriedades de instalação é eliminado.  
 
 > [!NOTE]  
->  Свойства установки клиента используются для его установки. Эти свойства могут быть перезаписаны новыми параметрами с назначенного сайта после установки клиента и его успешного назначения сайту Configuration Manager.  
+>  Para obter mais informações sobre como expandir o esquema do Active Directory para o Configuration Manager e como publicar um site, consulte [extensões de esquema para o System Center Configuration Manager](../../plan-design/network/schema-extensions.md).  
 
- Используйте сведения в следующих разделах для определения того, какие методы установки клиента Configuration Manager применяют доменные службы Active Directory с целью получения свойств установки клиента.  
+## <a name="client-installation-properties-published-to-active-directory-domain-services"></a>Propriedades de instalação de cliente publicadas nos serviços de domínio do Active Directory  
+Segue-se uma lista das propriedades de instalação de cliente. Para obter mais informações sobre cada item listado abaixo, consulte [acerca das propriedades de instalação de cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-## <a name="client-push-installation"></a>Принудительная установка клиента  
- При принудительной установке для получения свойств установки доменные службы Active Directory не используются.  
+-   O código do site do Configuration Manager.  
 
- Вместо этого можно указать свойства установки клиента на вкладке **Клиент** диалогового окна **Свойства принудительной установки клиента**. Эти параметры, а также параметры сайта, связанные с клиентом, хранятся в файле, который считывается во время установки клиента.  
+-   O certificado de assinatura do servidor do site.  
+
+-   A chave de raiz fidedigna.  
+
+-   As portas de comunicação de cliente para HTTP e HTTPS.  
+
+-   O ponto de estado de contingência. Se o site tiver vários pontos de estado de contingência, apenas o primeiro um que tenha sido instalado é publicado para serviços de domínio do Active Directory.  
+
+-   Uma definição para indicar que o cliente terá de comunicar utilizando apenas HTTPS.  
+
+-   Definições relacionadas com os certificados PKI:  
+
+   -   Se deverá ser utilizado um certificado PKI de cliente.  
+
+   -   Os critérios de seleção para a seleção de certificado. Isto poderá ser necessário porque o cliente tiver mais do que um certificado PKI válido que pode ser utilizado para o Configuration Manager.  
+
+   -   Uma definição para determinar qual o certificado a utilizar se o cliente tiver vários certificados válidos após o processo de seleção de certificados.  
+
+   -   A lista de emissores de certificados que contém uma lista de certificados de AC de raiz fidedigna.  
+
+-   As propriedades de instalação client.msi especificadas no separador **Cliente** da caixa de diálogo **Propriedades da Instalação Push do Cliente** .
+
+Instalação de cliente (CCMSetup) utiliza as propriedades que são publicadas nos serviços de domínio do Active Directory apenas se não existem outras propriedades são especificadas com o seguinte:  
+
+-   O método de instalação manual (descrito mais à frente neste artigo)
+
+-   O método de instalação de política de grupo (descrito mais à frente neste artigo)
 
 > [!NOTE]  
->  На вкладке **Клиент** для принудительной установки клиента необязательно указывать свойства CCMSetup, резервную точку состояния или ключ доверенного корня. Эти параметры автоматически предоставляются клиентам при их принудительной установке.  
+>  As propriedades de instalação de cliente são utilizadas para instalar o cliente. Estas propriedades podem ser substituídas por novas definições do seu site atribuído após o cliente está instalado e atribuído com êxito foi a um site do Configuration Manager.  
 
- Все свойства, указываемые на вкладке **Клиент**, публикуются в доменных службах Active Directory, если там публикуется сайт. Эти параметры считываются при установке клиентов, если CCMSetup выполняется без указания свойств установки.  
+ Utilize os detalhes das secções seguintes para determinar que métodos de instalação de cliente do Configuration Manager utilizam serviços de domínio do Active Directory para obter propriedades de instalação do cliente.  
 
-## <a name="software-update-point-based-installation"></a>Установка через точку обновления программного обеспечения  
- При установке, основанной на точке обновления программного обеспечения, не поддерживается добавление свойств установки в командную строку CCMSetup.  
+## <a name="client-push-installation"></a>Instalação push do cliente  
+ A instalação push do cliente não utiliza Serviços de Domínio do Active Directory para obter as propriedades de instalação.  
 
- Если на клиентском компьютере не были указаны свойства командной строки с использованием групповой политики, CCMSetup осуществляет поиск свойств установки в доменных службах Active Directory.  
+ Em vez disso, pode especificar propriedades de instalação de cliente no **cliente** separador do **propriedades da instalação Push do cliente** caixa de diálogo. Estas opções e definições do site relacionadas com o cliente são armazenadas num ficheiro lido pelo cliente durante a instalação de cliente.  
 
-## <a name="group-policy-installation"></a>Установка на основании групповой политики  
- При установке, основанной на групповой политике, добавление свойств установки в командную строку CCMSetup не поддерживается.  
+> [!NOTE]  
+>  Não é necessário especificar quaisquer propriedades CCMSetup para a instalação push do cliente, para o ponto de estado de contingência ou para a chave de raiz fidedigna no separador **Cliente** . Estas definições são fornecidas automaticamente aos clientes quando são instalados utilizando a instalação push do cliente.  
 
- Если на клиентском компьютере не были указаны свойства командной строки, CCMSetup осуществляет поиск свойств установки в доменных службах Active Directory.  
+ As propriedades que especificou no **cliente** separador serão publicadas no Active Directory Domain Services se o site é publicado para serviços de domínio do Active Directory. Estas definições são lidas pelas instalações de cliente em que o CCMSetup seja executado sem propriedades de instalação.  
 
-## <a name="manual-installation"></a>Установка вручную  
- CCMSetup осуществляет поиск свойств установки в доменных службах Active Directory в следующих случаях.  
+## <a name="software-update-point-based-installation"></a>Instalação baseada em pontos de atualizações de software  
+ O método de instalação baseada em pontos de atualizações de software não suporta a adição de propriedades de instalação à linha de comandos CCMSetup.  
 
--   В командной строке после команды CCMSetup.exe не указаны свойства.  
+ Se não tiverem sido aprovisionadas propriedades de linha de comandos no computador cliente utilizando a Política de Grupo, o CCMSetup procurará as propriedades de instalação nos Serviços de Domínio do Active Directory.  
 
--   Компьютеру не были предоставлены свойства установки с помощью групповой политики.  
+## <a name="group-policy-installation"></a>Instalação de Política de Grupo  
+ O método de instalação de Política de Grupo não suporta a adição de propriedades de instalação à linha de comandos CCMSetup.  
 
-## <a name="logon-script-installation"></a>Установка сценария входа  
- CCMSetup осуществляет поиск свойств установки в доменных службах Active Directory в следующих случаях.  
+ Se não tiverem sido aprovisionadas propriedades de linha de comandos no computador cliente, o CCMSetup procurará as propriedades de instalação nos Serviços de Domínio do Active Directory.  
 
--   В командной строке после команды CCMSetup.exe не указаны свойства.  
+## <a name="manual-installation"></a>Instalação manual  
+ O CCMSetup procura as propriedades de instalação dos Serviços de Domínio do Active Directory nas seguintes circunstâncias:  
 
--   Компьютеру не были предоставлены свойства установки с помощью групповой политики.  
+-   Não são especificadas propriedades da linha de comandos após o comando CCMSetup.exe.  
 
-## <a name="software-distribution-installation"></a>Установка распространения программного обеспечения  
- CCMSetup осуществляет поиск свойств установки в доменных службах Active Directory в следующих случаях.  
+-   O computador não foi aprovisionado com propriedades de instalação utilizando a Política de Grupo.  
 
--   В командной строке после команды CCMSetup.exe не указаны свойства.  
+## <a name="logon-script-installation"></a>Instalação do script de início de sessão  
+ O CCMSetup procura as propriedades de instalação dos Serviços de Domínio do Active Directory nas seguintes circunstâncias:  
 
--   Компьютеру не были предоставлены свойства установки с помощью групповой политики.  
+-   Não são especificadas propriedades da linha de comandos após o comando CCMSetup.exe.  
 
-## <a name="installations-for-clients-that-cannot-access-active-directory-domain-services"></a>Установки клиентов, которые не могут обращаться к доменным службам Active Directory  
-Следующие клиентские компьютеры не могут считывать опубликованные свойства установки из доменных служб Active Directory или обращаться к ним.
+-   O computador não foi aprovisionado com propriedades de instalação utilizando a Política de Grupo.  
 
- К таким клиентам относятся:  
+## <a name="software-distribution-installation"></a>Instalação de distribuição de software  
+ O CCMSetup procura as propriedades de instalação dos Serviços de Domínio do Active Directory nas seguintes circunstâncias:  
 
--   компьютеры рабочих групп;  
+-   Não são especificadas propriedades da linha de comandos após o comando CCMSetup.exe.  
 
--   клиенты, назначенные сайту Configuration Manager, не опубликованному в доменных службах Active Directory;  
+-   O computador não foi aprovisionado com propriedades de instalação utilizando a Política de Grupo.  
 
--   клиенты, подключенные к Интернету в момент установки.  
+## <a name="installations-for-clients-that-cannot-access-active-directory-domain-services"></a>Instalações para clientes que não é possível aceder a serviços de domínio do Active Directory  
+Estes computadores cliente não é possível ler ou aceder as propriedades de instalação publicadas a partir de serviços de domínio do Active Directory.
+
+ Estes clientes incluem:  
+
+-   Computadores de grupo de trabalho.  
+
+-   Clientes que estejam atribuídos a um site do Configuration Manager que não se encontre publicado nos serviços de domínio do Active Directory.  
+
+-   Clientes que são instalados quando se encontram na Internet.  

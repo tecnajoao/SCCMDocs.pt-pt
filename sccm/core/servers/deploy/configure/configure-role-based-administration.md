@@ -1,5 +1,5 @@
 ---
-title: "Настройка ролевого администрирования | Документы Майкрософт"
+title: "Configurar a administração baseada em funções | Microsoft Docs"
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -16,285 +16,285 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 3eea3a6e5f23808570ded4be3bd7412954518b96
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Настройка ролевого администрирования для System Center Configuration Manager   
+# <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Configurar a administração baseada em funções para o System Center Configuration Manager   
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В System Center Configuration Manager ролевое администрирование использует сочетание ролей безопасности, областей безопасности и назначенных коллекций для определения административной области для каждого пользователя с правами администратора. В административную область входят объекты, которые пользователь может просматривать в консоли Configuration Manager, и задачи, связанные с теми объектами, на выполнение которых у пользователя есть разрешения. Конфигурации ролевого администрирования применяются к каждому сайту в иерархии.  
+No System Center Configuration Manager, a administração baseada em funções combina funções de segurança, âmbitos de segurança e coleções atribuídas para definir o âmbito administrativo para cada utilizador administrativo. Um âmbito administrativo inclui os objetos que um utilizador administrativo pode ver na consola do Configuration Manager e as tarefas relacionadas com esses objetos que o utilizador administrativo tem permissão para executar. As configurações de administração baseadas em funções são aplicadas em cada site de uma hierarquia.  
 
- Если вы не знакомы с концепцией ролевого администрирования, см. сведения в статье [Основы ролевого администрирования для System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
+ Se ainda não estiver familiarizado com conceitos para a administração baseada em funções, consulte o artigo [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
 
- Используйте сведения в следующих процедурах для создания и настройки ролевого администрирования и связанных параметров безопасности.  
+ As informações dos procedimentos seguintes podem ajudar a criar e configurar a administração baseada em funções e as definições de segurança relacionadas:  
 
--   [Создание настраиваемых ролей безопасности](#BKMK_CreateSecRole)  
+-   [Criar funções de segurança personalizadas](#BKMK_CreateSecRole)  
 
--   [Настройка ролей безопасности](#BKMK_ConfigSecRole)  
+-   [Configurar funções de segurança](#BKMK_ConfigSecRole)  
 
--   [Настройка областей безопасности для объекта](#BKMK_ConfigSecScope)  
+-   [Configurar âmbitos de segurança para um objeto](#BKMK_ConfigSecScope)  
 
--   [Настройка коллекций для управления безопасностью](#BKMK_ConfigColl)  
+-   [Configurar coleções para gerir a segurança](#BKMK_ConfigColl)  
 
--   [Создание нового пользователя с правами администратора](#BKMK_Create_AdminUser)  
+-   [Criar um novo utilizador administrativo](#BKMK_Create_AdminUser)  
 
--   [Изменение административной области пользователя с правами администратора](#BKMK_ModAdminUser)  
+-   [Modificar o âmbito administrativo de um utilizador administrativo](#BKMK_ModAdminUser)  
 
-##  <a name="BKMK_CreateSecRole"></a> Создание настраиваемых ролей безопасности  
- Configuration Manager предоставляет несколько встроенных ролей безопасности. Если требуются дополнительные роли безопасности, можно создать настраиваемую роль безопасности путем копирования существующей роли и последующего изменения копии. Создание настраиваемой роли безопасности позволит предоставить пользователям требуемые дополнительные разрешения безопасности, которые не входят в текущую назначенную роль безопасности. С помощью настраиваемой роли безопасности пользователи получат только необходимые им разрешения. Назначение роли безопасности, которая предоставляет больше разрешений, чем нужно, в данном случае исключается.  
+##  <a name="BKMK_CreateSecRole"></a> Criar funções de segurança personalizadas  
+ O Configuration Manager fornece diversas funções de segurança incorporadas. Se precisar de funções de segurança adicionais, poderá criar uma função de segurança personalizada fazendo uma cópia de uma função existente e modificando-a em seguida. Poderá criar uma função de segurança personalizada para conceder aos utilizadores administrativos as permissões de segurança adicional que necessitam que não são incluídas numa função de segurança atualmente atribuída. Ao utilizar uma função de segurança personalizada, poderá conceder-lhes apenas as permissões de que necessitam, sem ter de atribuir uma função de segurança que conceda permissões adicionais.  
 
- Следующая процедура используется для создания новой роли безопасности с использованием существующей роли безопасности в качестве шаблона.  
+ Utilize o procedimento seguinte para criar uma nova função de segurança utilizando uma função de segurança existente como modelo.  
 
-#### <a name="to-create-custom-security-roles"></a>Создание настраиваемых ролей безопасности  
+#### <a name="to-create-custom-security-roles"></a>Para criar funções de segurança personalizadas  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, vá para **administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Роли безопасности**.  
+2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **funções de segurança**.  
 
-     Одна из следующих процедур используется для создания новой роли безопасности.  
+     Utilize um dos seguintes processos para criar a nova função de segurança:  
 
-    -   Чтобы создать новую настраиваемую роль безопасности, выполните следующие действия.  
+    -   Para criar uma nova função de segurança personalizada, execute as seguintes ações:  
 
-        1.  Выберите существующую роль безопасности, которая будет использоваться в качестве основы новой роли безопасности.  
+        1.  Selecione uma função de segurança existente para utilizar como origem da nova função de segurança.  
 
-        2.  На вкладке **Главная** в группе **Роль безопасности** выберите **Копировать**. Будет создана копия исходной роли безопасности.  
+        2.  No **home page** separador o **função de segurança** grupo, escolha **cópia**. Será criada uma cópia da função de segurança de origem.  
 
-        3.  В мастере копирования ролей безопасности укажите значение параметра **Имя** для новой настраиваемой роли безопасности.  
+        3.  No assistente Copiar Função de Segurança, especifique um **Nome** para a nova função de segurança personalizada.  
 
-        4.  В группе **Назначения операций безопасности**разверните каждый узел **Операции безопасности** , чтобы отобразить доступные действия.  
+        4.  Em **Atribuições de operações de segurança**, expanda cada nó **Operações de Segurança** para apresentar as ações disponíveis.  
 
-        5.  Чтобы изменить параметр для операции безопасности, в столбце **Значение** нажмите кнопку со стрелкой вниз, а затем выберите **Да** или **Нет**.  
+        5.  Para alterar a definição de uma operação de segurança, selecione a seta para baixo no **valor** coluna e escolha o **Sim** ou **não**.  
 
             > [!CAUTION]  
-            >  При настройке роли безопасности не предоставляйте разрешения, которые не требуются пользователям, связанным с новой ролью безопасности. Например, значение **Изменить** для операции безопасности **Роли безопасности** дает пользователям право на изменение любой доступной роли безопасности, даже если эти пользователи не связаны с данной ролью.  
+            >  Quando configura uma função de segurança personalizada, certifique-se de que não conceda permissões que não são necessárias por utilizadores administrativos que estão associados a nova função de segurança. Por exemplo, o **modificar** valor para o **funções de segurança** operação de segurança concede a utilizadores administrativos a permissão para editar qualquer função de segurança acessível, mesmo que não estão associados a essa função de segurança.  
 
-        6.  Завершив настройку разрешений, нажмите кнопку **ОК** , чтобы сохранить новую роль безопасности.  
+        6.  Depois de configurar as permissões, escolha **OK** para guardar a nova função de segurança.  
 
-    -   Чтобы импортировать роль безопасности, которая была экспортирована из другой иерархии Configuration Manager, выполните указанные ниже действия.  
+    -   Para importar uma função de segurança que tenha sido exportada de outra hierarquia do Configuration Manager, execute as seguintes ações:  
 
-        1.  На вкладке **Главная** в группе **Создать** выберите **Импорт роли безопасности**.  
+        1.  No **home page** separador o **criar** grupo, escolha **importar função de segurança**.  
 
-        2.  Укажите XML-файл, содержащий конфигурацию роли безопасности для импорта. Выберите **Открыть**, чтобы завершить процедуру и сохранить роль безопасности.  
+        2.  Especifique o ficheiro. XML que contém a configuração da função de segurança que pretende importar. Escolha **abra** para concluir o procedimento e guardar a função de segurança.  
 
             > [!NOTE]  
-            >  После импорта роли безопасности можно отредактировать ее свойства, чтобы изменить разрешения объекта, связанные с ролью безопасности.  
+            >  Após importar uma função de segurança, poderá editar as propriedades da mesma para alterar as permissões de objetos associadas à função.  
 
-##  <a name="BKMK_ConfigSecRole"></a> Настройка ролей безопасности  
- Группы разрешений безопасности, которые определены для роли безопасности, называются назначениями операций безопасности. Назначения операций безопасности представляют собой сочетание типов объектов и действий, доступных для каждого типа объекта. Вы можете изменить доступные операции безопасности для любой настраиваемой роли безопасности, однако изменить встроенные роли, предоставляемые Configuration Manager, нельзя.  
+##  <a name="BKMK_ConfigSecRole"></a> Configurar funções de segurança  
+ Os grupos de permissões de segurança definidos para uma função de segurança são designados atribuições de operações de segurança. As atribuições de operações de segurança representam uma combinação de tipos de objetos e ações disponíveis para cada tipo de objeto. Pode modificar as operações de segurança estão disponíveis para qualquer função de segurança personalizada mas não é possível modificar as funções de segurança incorporadas que fornece o Configuration Manager.  
 
- Следующая процедура используется для изменения операций безопасности для роли безопасности.  
+ Utilize o procedimento seguinte para modificar as operações de segurança de uma função de segurança.  
 
-#### <a name="to-modify-security-roles"></a>Изменение ролей безопасности  
+#### <a name="to-modify-security-roles"></a>Para modificar funções de segurança  
 
-1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
+1.  Na consola do Configuration Manager, escolha **administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Роли безопасности**.  
+2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **funções de segurança**.  
 
-3.  Выберите настраиваемую роль безопасности, которую требуется изменить.  
+3.  Selecione a função de segurança personalizada que pretende modificar.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  Перейдите на вкладку **Разрешения**.  
+5.  Escolha o **permissões** separador.  
 
-6.  В группе **Назначения операций безопасности**разверните каждый узел **Операции безопасности** , чтобы отобразить доступные действия.  
+6.  Em **Atribuições de operações de segurança**, expanda cada nó **Operações de Segurança** para apresentar as ações disponíveis.  
 
-7.  Чтобы изменить параметр для операции безопасности, в столбце **Значение** нажмите кнопку со стрелкой вниз, а затем выберите **Да** или **Нет**.  
+7.  Para alterar a definição de uma operação de segurança, selecione a seta para baixo no **valor** coluna e, em seguida, escolha o **Sim** ou **não**.  
 
     > [!CAUTION]  
-    >  При настройке роли безопасности не предоставляйте разрешения, которые не требуются пользователям, связанным с новой ролью безопасности. Например, значение **Изменить** для операции безопасности **Роли безопасности** дает пользователям право на изменение любой доступной роли безопасности, даже если эти пользователи не связаны с данной ролью.  
+    >  Quando configura uma função de segurança personalizada, certifique-se de que não conceda permissões que não são necessárias por utilizadores administrativos que estão associados a nova função de segurança. Por exemplo, o **modificar** valor para o **funções de segurança** operação de segurança concede a utilizadores administrativos a permissão para editar qualquer função de segurança acessível, mesmo que não estão associados a essa função de segurança.  
 
-8.  Завершив настройку назначений операций безопасности, нажмите кнопку **ОК**, чтобы сохранить новую роль безопасности.  
+8.  Quando tiver concluído a configuração atribuições de operações de segurança, escolha **OK** para guardar a nova função de segurança.  
 
-##  <a name="BKMK_ConfigSecScope"></a> Настройка областей безопасности для объекта  
- Управление связью области безопасности для объекта осуществляется из объекта, а не из области безопасности. Единственными прямыми настройками, поддерживаемыми областями безопасности, являются изменения их имен и описаний. Чтобы изменить имя и описание области безопасности во время просмотра свойств области безопасности, требуется разрешение **Изменить** для защищаемого объекта **Области безопасности** .  
+##  <a name="BKMK_ConfigSecScope"></a> Configurar âmbitos de segurança para um objeto  
+ Gerir a associação de um âmbito de segurança para um objeto de objeto – não do âmbito de segurança. As únicas configurações diretas suportadas pelos âmbitos de segurança são as alterações ao respetivo nome e descrição. Para alterar o nome e descrição de um âmbito de segurança ao visualizar as propriedades do âmbito, terá de possuir a permissão **Modificar** no objeto com capacidade de segurança **Âmbitos de Segurança** .  
 
- Новый объект, создаваемый в Configuration Manager, связывается с каждой областью безопасности, имеющей отношение к ролям безопасности учетной записи, которая используется для создания объекта, если эти роли безопасности предоставляют разрешение **Создать** или **Настроить область безопасности**. Изменить области безопасности, с которыми связан объект, можно только после его создания.  
+ Quando criar um novo objeto no Configuration Manager, o novo objeto é associado a cada âmbito de segurança que estão associado com funções de segurança da conta utilizada para criar o objeto – quando esses âmbitos de segurança fornecem a **criar** permissão ou **definir âmbito de segurança** permissão. Só pode alterar os âmbitos de segurança que o objeto é associado depois de criado.  
 
- Например, вам назначена роль безопасности с правом на создание группы границ. При создании группы границ у вас нет объекта, которому можно назначить конкретные области безопасности. Тем не менее, области безопасности, доступные из связанных ролей безопасности, автоматически назначаются новой группе границ. После сохранения новой группы границ можно изменить области безопасности, связанные с новой группой границ.  
+ Por exemplo, estiver a atribuir uma função de segurança que lhe concede permissão para criar um novo grupo de limites. Quando cria um novo grupo de limites, não tem nenhuma opção que pode atribuir âmbitos de segurança específicas para. Em vez disso, são automaticamente atribuídos os âmbitos de segurança que estão disponíveis nas funções de segurança que está associado ao novo grupo de limites. Depois de guardar o novo grupo de limites, pode editar os âmbitos de segurança que estão associados ao novo grupo de limites.  
 
- Следующая процедура используется для настройки областей безопасности, назначенных объекту.  
+ Utilize o procedimento seguinte para configurar os âmbitos de segurança que são atribuídos a um objeto.  
 
-#### <a name="to-configure-security-scopes-for-an-object"></a>Настройка областей безопасности для объекта  
+#### <a name="to-configure-security-scopes-for-an-object"></a>Para configurar âmbitos de segurança para um objeto  
 
-1.  В консоли Configuration Manager выберите объект, который поддерживает назначение области безопасности.  
+1.  Na consola do Configuration Manager, selecione um objeto que suporte a ser atribuída a um âmbito de segurança.  
 
-2.  На вкладке **Главная** в группе **Классификация** выберите **Установить области безопасности**.  
+2.  No **home page** separador o **classificar** grupo, escolha **definir âmbitos de segurança**.  
 
-3.  В диалоговом окне **Установка ролей безопасности** выберите или отмените выбор областей безопасности, с которыми связан это объект. Каждый объект, который поддерживает области безопасности, должен быть назначен как минимум одной области безопасности.  
+3.  Na caixa de diálogo **Definir Âmbitos de Segurança** , selecione ou desmarque os âmbitos de segurança a que este objeto se encontra associado. Cada objeto que suporte âmbitos de segurança tem de ser atribuído a pelo menos um âmbito de segurança.  
 
-4.  Нажмите кнопку **ОК** , чтобы сохранить назначенные области безопасности.  
-
-    > [!NOTE]  
-    >  Новый создаваемый объект можно назначить нескольким областям безопасности. Чтобы изменить число областей безопасности, связанных с объектом, следует изменить данное назначение после создания объекта.  
-
-##  <a name="BKMK_ConfigColl"></a> Настройка коллекций для управления безопасностью  
- Процедур по настройке коллекций для ролевого администрирования не существует. У коллекций нет конфигураций ролевого администрирования. Коллекции назначаются пользователю во время его настройки. Операции безопасности коллекции, которые включены в назначенных пользователю ролях безопасности, определяют разрешения пользователя для коллекций и ресурсов коллекций (элементов коллекции).  
-
- Если у пользователя есть разрешения для коллекции, ему также предоставляются разрешения для коллекций, ограниченных данной коллекцией. Например, в организации используется коллекция с именем "Все настольные компьютеры" и существует коллекция с именем "Все настольные компьютеры Северной Америки", которая ограничена коллекцией "Все настольные компьютеры". Если пользователь имеет разрешения для коллекции "Все настольные компьютеры", он может пользоваться этими же разрешениями и для коллекции "Все настольные компьютеры России".
-
- Кроме того, пользователь не может использовать разрешение **Удалить** или **Изменить** в коллекции, которая назначена ему непосредственно. Но эти разрешения действуют в коллекциях, ограниченных данной коллекцией. Вернемся к предыдущему примеру. Пользователь может удалить или изменить коллекцию "Все настольные компьютеры Северной Америки", но не может удалить или изменить коллекцию "Все настольные компьютеры".  
-
-##  <a name="BKMK_Create_AdminUser"></a> Создание нового пользователя с правами администратора  
- Чтобы предоставить отдельным пользователям или членам группы безопасности права на управление Configuration Manager, создайте пользователя в Configuration Manager и укажите учетную запись Windows "Пользователь" или "Группа пользователей". Каждому пользователю с правами администратора в Configuration Manager необходимо назначить по крайней мере одну роль безопасности и одну область безопасности. Чтобы ограничить административную область пользователя, можно также назначить коллекции.  
-
- Ниже приведены процедуры создания новых администраторов.  
-
-#### <a name="to-create-a-new-administrative-user"></a>Создание нового администратора  
-
-1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
-
-2.  В рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Пользователи**.  
-
-3.  На вкладке **Главная** в группе **Создать** щелкните **Добавление пользователя или группы**.  
-
-4.  Щелкните **Обзор** и выберите учетную запись пользователя или группу для нового администратора.  
+4.  Escolha **OK** para guardar os âmbitos de segurança atribuídas.  
 
     > [!NOTE]  
-    >  Если используется администрирование на основе консоли, в качестве администраторов можно указать только пользователей домена или группы безопасности.  
+    >  Ao criar um novo objeto, poderá atribuir o objeto a vários âmbitos de segurança. Para modificar o número de âmbitos de segurança que estão associados ao objeto, tem de alterar esta atribuição depois do objeto ser criado.  
 
-5.  На вкладке **Associated security roles** (Связанные роли безопасности) выберите **Добавить**, чтобы открыть список доступных ролей безопасности, установите флажок для одной или нескольких ролей безопасности, а затем нажмите кнопку **ОК**.  
+##  <a name="BKMK_ConfigColl"></a> Configurar coleções para gerir a segurança  
+ Não existem procedimentos para configurar coleções para administração baseada em funções. Coleções não têm uma configuração de administração baseada em funções. Em vez disso, são atribuídas a um utilizador administrativo quando configurar o utilizador administrativo. As operações de segurança de coleção ativadas nas funções de utilizador atribuída segurança determinam as permissões que um utilizador administrativo possui para coleções e recursos de coleção (membros da coleção).  
 
-6.  Выберите один из следующих двух вариантов, чтобы определить режим обработки защищаемых объектов для нового пользователя.  
+ Quando um utilizador administrativo tem permissões para uma coleção, também tem permissões para coleções que estejam limitadas a essa coleção. Por exemplo, a organização utiliza uma coleção designada todos os ambientes de trabalho e há uma coleção designada todos os ambientes de trabalho de América do Norte que se encontra limitada à coleção todos os ambientes de trabalho. Se um utilizador administrativo tiver permissões para Todos os Ambientes de Trabalho, também terá as mesmas permissões para a coleção Todos os Ambientes de Trabalho da América do Norte.
 
-    -   **All securable objects that are relevant to their associated security roles** (Все защищаемые объекты, относящиеся к связанным ролям безопасности). При выборе этого варианта пользователь с правами администратора сопоставляется с областью безопасности **Все** и встроенными коллекциями на корневом уровне **Все системы** и **Все пользователи и группы пользователей**. Роли безопасности, назначенные пользователю, определяют доступ к объектам. Новые объекты, создаваемые этим администратором, назначаются области безопасности **По умолчанию** .  
+ Além disso, um utilizador administrativo não é possível utilizar o **eliminar** ou **modificar** permissão numa coleção que lhe esteja diretamente atribuída aos mesmos. No entanto, podem utilizar essas permissões nas coleções que estejam limitadas a essa coleção. No exemplo anterior, o utilizador administrativo pode eliminar ou modificar a coleção de todos os ambientes de trabalho América do Norte, mas não é possível eliminar ou modificar a coleção de todos os ambientes de trabalho.  
 
-    -   **Only securable objects in specified security scopes or collections** (Только защищаемые объекты в указанных областях безопасности или коллекциях). По умолчанию при выборе этого варианта пользователь с правами администратора сопоставляется с областью безопасности **По умолчанию** и коллекциями **Все системы** и **Все пользователи и группы пользователей**. Однако фактические области безопасности и коллекции ограничиваются теми, которые связаны с учетной записью, используемой для создания нового администратора. Этот параметр поддерживает добавление и удаление областей безопасности и коллекций для настройки области администрирования администратора.  
+##  <a name="BKMK_Create_AdminUser"></a> Criar um novo utilizador administrativo  
+ Para conceder a utilizadores individuais ou membros de um grupo de segurança acesso para gerir o Configuration Manager, crie um utilizador administrativo no Configuration Manager e especifique a conta do Windows do utilizador ou grupo de utilizadores. Cada utilizador administrativo no Configuration Manager deve ser atribuído pelo menos uma função de segurança e um âmbito de segurança. Também é possível atribuir coleções para limitar o âmbito administrativo do utilizador administrativo.  
+
+ Utilize os procedimentos seguintes para criar novos utilizadores administrativos.  
+
+#### <a name="to-create-a-new-administrative-user"></a>Para criar um novo utilizador administrativo  
+
+1.  Na consola do Configuration Manager, escolha **administração**.  
+
+2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **os utilizadores administrativos**.  
+
+3.  No **home page** separador o **criar** grupo, escolha **adicionar utilizador ou grupo**.  
+
+4.  Escolha **procurar**e, em seguida, selecione a conta de utilizador ou grupo a utilizar para este novo utilizador administrativo.  
+
+    > [!NOTE]  
+    >  Para a administração baseada em consolas, apenas podem ser especificados utilizadores de domínio ou grupos de segurança como utilizadores administrativos.  
+
+5.  Para **associados a funções de segurança**, escolha **adicionar** para abrir uma lista de funções de segurança disponíveis, selecione a caixa de um ou mais funções de segurança e, em seguida, escolha **OK**.  
+
+6.  Escolha uma das duas opções seguintes para definir o comportamento do objeto com capacidade de segurança para o novo utilizador:  
+
+    -   **Todos os objetos com capacidade de segurança que são relevantes para as respetivas funções de segurança associadas**: Esta opção associa o utilizador administrativo a **todos os** âmbito de segurança e o nível de raiz, as coleções incorporadas para **todos os sistemas** e **todos os utilizadores e grupos de utilizadores**. As funções de segurança atribuídas ao utilizador definem o acesso aos objetos. Os novos objetos criados por este utilizador administrativo são atribuídos ao âmbito de segurança **Predefinido** .  
+
+    -   **Apenas os objetos com capacidade de segurança em coleções ou âmbitos de segurança especificados**: Por predefinição, esta opção associa o utilizador administrativo a **predefinido** âmbito de segurança e o **todos os sistemas** e **todos os utilizadores e grupos de utilizadores** coleções. No entanto, os âmbitos de segurança e coleções reais estão limitados aos que estão associados à conta utilizada para criar o novo utilizador administrativo. Esta opção suporta a adição ou remoção de âmbitos de segurança e de coleções para personalizar o âmbito administrativo do utilizador administrativo.  
 
     > [!IMPORTANT]  
-    >  Предыдущий параметр связывает каждую назначенную область безопасности и коллекцию с каждой ролью безопасности, назначенной администратору. Третий вариант, **Only securable objects as determined by the security roles of the administrative user** (Только защищаемые объекты, как определено ролями безопасности администратора), можно использовать для связывания отдельных ролей безопасности с определенными областями безопасности и коллекциями. Третий вариант становится доступным после создания нового администратора, когда выполняется его изменение.  
+    >  As opções anteriores associam cada âmbito de segurança atribuídas e a coleção para cada função de segurança que está atribuída ao utilizador administrativo. Pode utilizar uma terceira opção, **objetos apenas com capacidade de segurança conforme determinado pelas funções de segurança do utilizador administrativo**, para associar funções de segurança individuais a coleções e âmbitos de segurança específicos. Esta terceira opção está disponível após a criação do novo utilizador administrativo, quando este é modificado.  
 
-7.  В зависимости от варианта, выбранного в действии 6, выполните следующие действия.  
+7.  Dependendo da seleção no passo 6, execute a ação seguinte:  
 
-    -   Если вы выбрали вариант **All securable objects that are relevant to their associated security roles** (Все защищаемые объекты, относящиеся к связанным ролям безопасности), нажмите кнопку **ОК**, чтобы завершить эту процедуру.  
+    -   Se tiver selecionado **todos os objetos com capacidade de segurança que são relevantes para as respetivas funções de segurança associadas**, escolha **OK** para concluir este procedimento.  
 
-    -   Если был выбран вариант **Only securable objects in specified security scopes or collections** (Только защищаемые объекты в указанных областях безопасности или коллекциях), можно щелкнуть **Добавить**, чтобы добавить дополнительные коллекции и области безопасности. Или вы можете выбрать в списке один или несколько объектов и щелкнуть **Удалить**, чтобы удалить их. Нажмите кнопку **ОК**, чтобы завершить эту процедуру.  
+    -   Se tiver selecionado **apenas passíveis de proteção em coleções ou âmbitos de segurança especificados**, pode escolher **adicionar** para selecionar coleções e âmbitos de segurança adicionais. Selecionar um ou mais objetos na lista e, em seguida, escolha **remover** removê-las. Escolha **OK** para concluir este procedimento.  
 
-##  <a name="BKMK_ModAdminUser"></a> Изменение административной области пользователя с правами администратора  
- Административную область администратора можно изменить, добавив или удалив роли безопасности, области безопасности и коллекции, связанные с этим пользователем. Каждому администратору необходимо назначить как минимум одну роль безопасности и одну область безопасности. Административной области пользователя может потребоваться назначить одну или несколько коллекций. Большинство ролей безопасности взаимодействует с коллекциями и функционирует неправильно, если коллекция не назначена.  
+##  <a name="BKMK_ModAdminUser"></a> Modificar o âmbito administrativo de um utilizador administrativo  
+ Para modificar o âmbito administrativo de um utilizador administrativo, adicione ou remova funções de segurança, âmbitos de segurança e coleções que estejam associados ao utilizador. Cada utilizador administrativo tem de estar associado, pelo menos, a uma função de segurança e a um âmbito de segurança. Poderá ser necessário atribuir uma ou mais coleções ao âmbito administrativo do utilizador. A maioria das funções de segurança interagem com coleções e não função corretamente sem uma coleção atribuída.  
 
- При внесении изменений в параметры администратора можно изменить режим связывания защищенных объектов с назначенными ролями безопасности. Ниже приведены три режима, которые можно выбрать.  
+ Quando modifica um utilizador administrativo, pode alterar o comportamento para a forma como os objetos com capacidade de segurança são associados às funções de segurança atribuídas. Os três comportamentos que pode selecionar são os seguintes:  
 
--   **All securable objects that are relevant to their associated security roles** (Все защищаемые объекты, относящиеся к связанным ролям безопасности). При выборе этого варианта пользователь с правами администратора сопоставляется с областью безопасности **Все** и встроенными коллекциями на корневом уровне **Все системы** и **Все пользователи и группы пользователей**. Роли безопасности, назначенные пользователю, определяют доступ к объектам.  
+-   **Todos os objetos com capacidade de segurança que são relevantes para as respetivas funções de segurança associadas**: Esta opção associa o utilizador administrativo a **todos os** âmbito e nível de raiz coleções incorporadas para **todos os sistemas** e **todos os utilizadores e grupos de utilizadores**. As funções de segurança atribuídas ao utilizador definem o acesso aos objetos.  
 
--   **Только защищаемые объекты в указанных областях безопасности или коллекциях**: при выборе этого варианта пользователь с правами администратора сопоставляется с теми же областями безопасности и коллекциями, которые связаны с учетной записью, используемой для настройки пользователя. Этот параметр поддерживает добавление и удаление ролей безопасности и коллекций для настройки области администрирования администратора.  
+-   **Apenas os objetos com capacidade de segurança em coleções ou âmbitos de segurança especificados**: Esta opção associa o utilizador administrativo aos mesmos âmbitos de segurança e coleções que estejam associadas à conta que utiliza para configurar o utilizador administrativo. Esta opção suporta a adição ou remoção de funções de segurança e de coleções para personalizar o âmbito administrativo do utilizador administrativo.  
 
--   **Только защищаемые объекты, как определено ролями безопасности пользователя с правами администратора**: этот вариант позволяет создать определенные связи между отдельными ролями безопасности и конкретными областями и коллекциями для пользователя.  
-
-    > [!NOTE]  
-    >  Этот параметр доступен только при изменении свойств администратора.  
-
-Текущая конфигурация режима обработки защищаемых объектов изменяет процесс, который используется для назначения дополнительных ролей безопасности. Ниже приведены процедуры управления администраторами, основанные на разных режимах обработки защищаемых объектов.  
-
-Для просмотра и управления конфигурацией защищаемых объектов для администратора используется следующая процедура.  
-
-#### <a name="to-view-and-manage-the-securable-object-behavior-for-an-administrative-user"></a>Просмотр режима обработки защищаемых объектов для администратора и управление им  
-
-1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
-
-2.  В рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Пользователи**.  
-
-3.  Выберите администратора, свойства которого требуется изменить.  
-
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
-
-5.  Перейдите на вкладку **Области безопасности**, чтобы просмотреть текущую конфигурацию защищаемых объектов для этого администратора.  
-
-6.  Чтобы изменить режим обработки защищаемых объектов, выберите новый вариант режима обработки защищаемых объектов. Изменив эту конфигурацию, перейдите к соответствующей процедуре, содержащей дальнейшие указания по настройке областей безопасности и коллекций, а также ролей безопасности для этого администратора.  
-
-7.  Нажмите кнопку **OK**, чтобы завершить процедуру.  
-
-Ниже приведена процедура изменения параметров администратора, для которого выбран режим обработки защищаемых объектов **All securable objects that are relevant to their associated security roles** (Все защищаемые объекты, относящиеся к связанным ролям безопасности).  
-
-#### <a name="for-option-all-securable-objects-that-are-relevant-to-their-associated-security-roles"></a>Вариант All securable objects that are relevant to their associated security roles (Все защищаемые объекты, относящиеся к связанным ролям безопасности)  
-
-1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
-
-2.  В рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Пользователи**.  
-
-3.  Выберите администратора, свойства которого требуется изменить.  
-
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
-
-5.  Перейдите на вкладку **Области безопасности**, чтобы убедиться, что для администратора задан режим **All securable objects that are relevant to their associated security roles** (Все защищаемые объекты, относящиеся к связанным ролям безопасности).  
-
-6.  Чтобы изменить назначенные роли безопасности, перейдите на вкладку **Роли безопасности**.  
-
-    -   Чтобы назначить дополнительные роли безопасности для администратора, щелкните **Добавить**, установите флажки для нужных дополнительных ролей безопасности и нажмите кнопку **ОК**.  
-
-    -   Чтобы удалить роли безопасности, выберите одну или несколько ролей в списке и щелкните **Удалить**.  
-
-7.  Чтобы изменить режим обработки защищаемых объектов, перейдите на вкладку **Области безопасности** и выберите другой вариант. Изменив эту конфигурацию, перейдите к соответствующей процедуре, содержащей дальнейшие указания по настройке областей безопасности и коллекций, а также ролей безопасности для этого администратора.  
+-   **Objetos apenas com capacidade de segurança conforme determinado pelas funções de segurança do utilizador administrativo**: Esta opção permite criar associações específicas entre funções de segurança individuais e coleções para o utilizador e âmbitos de segurança específicos.  
 
     > [!NOTE]  
-    >  Если для режима обработки защищаемых объектов выбран вариант **All securable objects that are relevant to their associated security roles** (Все защищаемые объекты, относящиеся к связанным ролям безопасности), добавить или удалить какие-либо области безопасности и коллекции нельзя.  
+    >  Esta opção está disponível apenas quando modificar as propriedades de um utilizador administrativo.  
 
-8.  Нажмите кнопку **ОК**, чтобы завершить эту процедуру.  
+A configuração atual do comportamento do objeto com capacidade de segurança altera o processo utilizado para atribuir funções de segurança adicionais. Utilize os procedimentos seguintes que são baseados nas diferentes opções para objetos com capacidade de segurança para o ajudar a gerir um utilizador administrativo.  
 
-Ниже приведена процедура изменения параметров администратора, для которого задан режим обработки защищаемых объектов **Только защищаемые объекты в указанных областях безопасности или коллекциях**.  
+Utilize o procedimento seguinte para ver e gerir a configuração dos objetos com capacidade de segurança para um utilizador administrativo.  
 
-#### <a name="for-option-only-securable-objects-in-specified-security-scopes-or-collections"></a>Вариант Only securable objects in specified security scopes or collections (Только защищаемые объекты в указанных областях безопасности или коллекциях)  
+#### <a name="to-view-and-manage-the-securable-object-behavior-for-an-administrative-user"></a>Para ver e gerir o comportamento de objetos com capacidade de segurança de um utilizador administrativo  
 
-1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
+1.  Na consola do Configuration Manager, escolha **administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Пользователи**.  
+2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **os utilizadores administrativos**.  
 
-3.  Выберите администратора, свойства которого требуется изменить.  
+3.  Selecione o utilizador administrativo que pretende modificar.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  Перейдите на вкладку **Области безопасности**, чтобы убедиться, что для пользователя задан режим **Only securable objects in specified security scopes or collections** (Только защищаемые объекты в указанных областях безопасности или коллекциях).  
+5.  Escolha o **âmbitos de segurança** separador para ver a configuração atual dos objetos com capacidade para este utilizador administrativo.  
 
-6.  Чтобы изменить назначенные роли безопасности, перейдите на вкладку **Роли безопасности**.  
+6.  Para modificar o comportamento do objeto com capacidade de segurança, selecione uma nova opção para o comportamento do objeto com capacidade de segurança. Depois de alterar esta configuração, consulte o procedimento adequado para obter orientações adicionais para configurar âmbitos de segurança e coleções e funções de segurança para este utilizador administrativo.  
 
-    -   Чтобы назначить дополнительные роли безопасности для пользователя, выберите **Добавить**, установите флажки для нужных дополнительных ролей безопасности и нажмите кнопку **ОК**.  
+7.  Escolha **OK** para concluir o procedimento.  
 
-    -   Чтобы удалить роли безопасности, выберите одну или несколько ролей в списке и щелкните **Удалить**.  
+Utilize o procedimento seguinte para modificar um utilizador administrativo que tenha o comportamento de objeto com capacidade de segurança definido para **todos os objetos com capacidade de segurança que são relevantes para as respetivas funções de segurança associadas**.  
 
-7.  Чтобы изменить области безопасности и коллекции, связанные с ролями безопасности, перейдите на вкладку **Области безопасности**.  
+#### <a name="for-option-all-securable-objects-that-are-relevant-to-their-associated-security-roles"></a>Opção: Todos os objetos com capacidade de segurança que são relevantes para as respetivas funções de segurança associadas  
 
-    -   Чтобы связать новые области безопасности или коллекции со всеми ролями безопасности, назначенными этому администратору, щелкните **Добавить** и выберите один из четырех вариантов. При выборе варианта **Область безопасности** или **Коллекция**, чтобы завершить выбор, установите флажок для одного или нескольких объектов, а затем нажмите кнопку **ОК**.  
+1.  Na consola do Configuration Manager, escolha **administração**.  
 
-    -   Чтобы удалить область безопасности или коллекцию, выберите объект и щелкните **Удалить**.  
+2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **os utilizadores administrativos**.  
 
-8.  Нажмите кнопку **ОК**, чтобы завершить эту процедуру.  
+3.  Selecione o utilizador administrativo que pretende modificar.  
 
-Ниже приведена процедура изменения параметров администратора, для которого задан режим обработки защищаемых объектов **Только защищаемые объекты, как определено ролями безопасности администратора**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-#### <a name="for-option-only-securable-objects-as-determined-by-the-security-roles-of-the-administrative-user"></a>Вариант Only securable objects as determined by the security roles of the administrative user (Только защищаемые объекты, как определено ролями безопасности пользователя с правами администратора)  
+5.  Escolha o **âmbitos de segurança** separador para confirmar que o utilizador administrativo está configurado para **todos os objetos com capacidade de segurança que são relevantes para as respetivas funções de segurança associadas**.  
 
-1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
+6.  Para modificar as funções de segurança atribuídas, escolha o **funções de segurança** separador.  
 
-2.  В рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Пользователи**.  
+    -   Para atribuir funções de segurança adicionais a este utilizador administrativo, escolha **adicionar**, selecione a caixa para cada função de segurança adicional que pretende atribuir e, em seguida, escolha **OK**.  
 
-3.  Выберите администратора, свойства которого требуется изменить.  
+    -   Para remover funções de segurança, selecione uma ou mais funções de segurança da lista e, em seguida, escolha **remover**.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+7.  Para modificar o comportamento do objeto com capacidade de segurança, escolha o **âmbitos de segurança** separador e escolha uma nova opção para o comportamento do objeto com capacidade de segurança. Depois de alterar esta configuração, consulte o procedimento adequado para obter orientações adicionais para configurar âmbitos de segurança e coleções e funções de segurança para este utilizador administrativo.  
 
-5.  Перейдите на вкладку **Области безопасности**, чтобы убедиться, что для администратора задан режим **Only securable objects in specified security scopes or collections** (Только защищаемые объекты, как определено ролями безопасности администратора).  
+    > [!NOTE]  
+    >  Quando o comportamento do objeto com capacidade de segurança está definido como **todos os objetos com capacidade de segurança que são relevantes para as respetivas funções de segurança associadas**, não é possível adicionar ou remover coleções e âmbitos de segurança específicos.  
 
-6.  Чтобы изменить назначенные роли безопасности, перейдите на вкладку **Роли безопасности**.  
+8.  Escolha **OK** para concluir este procedimento.  
 
-    -   Чтобы назначить администратору дополнительные роли безопасности, выберите **Добавить**. В диалоговом окне **Добавление роли безопасности** выберите одну или несколько ролей безопасности, щелкните **Добавить** и выберите тип объекта, чтобы связать его с выбранными ролями безопасности. При выборе варианта **Область безопасности** или **Коллекция**, чтобы завершить выбор, установите флажок для одного или нескольких объектов, а затем нажмите кнопку **ОК**.  
+Utilize o procedimento seguinte para modificar um utilizador administrativo que tem o comportamento de objeto com capacidade de segurança definido para **Apenas objetos com capacidade de segurança em coleções ou âmbitos de segurança especificados**.  
+
+#### <a name="for-option-only-securable-objects-in-specified-security-scopes-or-collections"></a>Opção: Apenas os objetos com capacidade de segurança em coleções ou âmbitos de segurança especificados  
+
+1.  Na consola do Configuration Manager, escolha **administração**.  
+
+2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **os utilizadores administrativos**.  
+
+3.  Selecione o utilizador administrativo que pretende modificar.  
+
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+
+5.  Escolha o **âmbitos de segurança** separador para confirmar que o utilizador está configurado para **apenas passíveis de proteção em coleções ou âmbitos de segurança especificados**.  
+
+6.  Para modificar as funções de segurança atribuídas, escolha o **funções de segurança** separador.  
+
+    -   Para atribuir funções de segurança adicionais a este utilizador, escolha **adicionar**, selecione a caixa para cada função de segurança adicional que pretende atribuir e, em seguida, escolha **OK**.  
+
+    -   Para remover funções de segurança, selecione uma ou mais funções de segurança da lista e, em seguida, escolha **remover**.  
+
+7.  Para modificar as coleções que estão associadas a funções de segurança e os âmbitos de segurança, escolha o **âmbitos de segurança** separador.  
+
+    -   Para associar novos âmbitos de segurança ou coleções a todas as funções de segurança que são atribuídas a este utilizador administrativo, escolha **adicionar** e selecione uma das quatro opções. Se selecionar **âmbito de segurança** ou **coleção**, marque a caixa de um ou mais objetos concluir a seleção e, em seguida, escolha **OK**.  
+
+    -   Para remover um âmbito de segurança ou uma coleção, escolha o objeto e, em seguida, escolha **remover**.  
+
+8.  Escolha **OK** para concluir este procedimento.  
+
+Utilize o procedimento seguinte para modificar um utilizador administrativo que tem o comportamento de objeto com capacidade de segurança definido para **Apenas objetos com capacidade de segurança conforme determinado pelas funções de segurança do utilizador administrativo**.  
+
+#### <a name="for-option-only-securable-objects-as-determined-by-the-security-roles-of-the-administrative-user"></a>Opção: Apenas os objetos com capacidade de segurança conforme determinado pelas funções de segurança do utilizador administrativo  
+
+1.  Na consola do Configuration Manager, escolha **administração**.  
+
+2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **os utilizadores administrativos**.  
+
+3.  Selecione o utilizador administrativo que pretende modificar.  
+
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+
+5.  Escolha o **âmbitos de segurança** separador para confirmar que o utilizador administrativo está configurado para **apenas passíveis de proteção em coleções ou âmbitos de segurança especificados**.  
+
+6.  Para modificar as funções de segurança atribuídas, escolha o **funções de segurança** separador.  
+
+    -   Para atribuir funções de segurança adicionais a este utilizador administrativo, escolha **adicionar**. No **Adicionar função de segurança** caixa de diálogo, selecione um ou mais disponível funções de segurança, escolha **adicionar**e selecione um tipo de objeto para associar às funções de segurança selecionados. Se selecionar **âmbito de segurança** ou **coleção**, marque a caixa de um ou mais objetos concluir a seleção e, em seguida, escolha **OK**.  
 
         > [!NOTE]  
-        >  Прежде чем выбранные роли безопасности можно будет назначить администратору, необходимо настроить по крайней мере одну область безопасности. При выборе нескольких ролей безопасности каждая настраиваемая область безопасности и коллекция связывается с каждой из выбранных ролей безопасностей.  
+        >  Tem de configurar, pelo menos, um âmbito de segurança para que as funções de segurança selecionadas possam ser atribuídas ao utilizador administrativo. Quando seleciona várias funções de segurança, cada coleção e âmbito de segurança que configura são associados a cada um dos perfis de segurança selecionados.  
 
-    -   Чтобы удалить роли безопасности, выберите одну или несколько ролей в списке и щелкните **Удалить**.  
+    -   Para remover funções de segurança, selecione uma ou mais funções de segurança da lista e, em seguida, escolha **remover**.  
 
-7.  Чтобы изменить области безопасности и коллекции, связанные с определенной ролью безопасности, перейдите на вкладку **Области безопасности**, выберите роль безопасности и щелкните **Изменить**.  
+7.  Para modificar as coleções que estão associadas uma função de segurança específicos e os âmbitos de segurança, escolha o **âmbitos de segurança** separador, selecione a função de segurança e, em seguida, escolha **editar**.  
 
-    -   Чтобы связать новые объекты с этой ролью безопасности, щелкните **Добавить** и выберите тип объекта, связываемого с выбранными ролями безопасности. При выборе варианта **Область безопасности** или **Коллекция**, чтобы завершить выбор, установите флажок для одного или нескольких объектов, а затем нажмите кнопку **ОК**.  
+    -   Para associar novos objetos esta função de segurança, escolha **adicionar**e selecione um tipo de objeto para associar às funções de segurança selecionados. Se selecionar **âmbito de segurança** ou **coleção**, marque a caixa de um ou mais objetos concluir a seleção e, em seguida, escolha **OK**.  
 
         > [!NOTE]  
-        >  Необходимо настроить хотя бы одну область безопасности.  
+        >  Tem de configurar pelo menos um âmbito de segurança.  
 
-    -   Чтобы удалить область безопасности или коллекцию, связанную с этой ролью безопасности, выберите объект и щелкните **Удалить**.  
+    -   Para remover um âmbito de segurança ou uma coleção que está associada esta função de segurança, selecione o objeto e, em seguida, escolha **remover**.  
 
-    -   Завершив изменение связанных объектов, нажмите кнопку **ОК**.  
+    -   Quando tiver terminado a modificação dos objetos associados, escolha **OK**.  
 
-8.  Нажмите кнопку **ОК**, чтобы завершить эту процедуру.  
+8.  Escolha **OK** para concluir este procedimento.  
 
     > [!CAUTION]  
-    >  Если роль безопасности предполагает предоставление администраторам разрешения на развертывание коллекции, такие администраторы могут распространять объекты из любой области безопасности, для которой у них имеется разрешение **чтение** , даже если эта область безопасности связана с другой ролью безопасности.  
+    >  Quando uma função de segurança concede a utilizadores administrativos a permissão de implementação de coleção, esses utilizadores administrativos podem distribuir objetos de qualquer âmbito de segurança para o qual possuam permissões de **leitura** de objetos, mesmo que esse âmbito de segurança esteja associado a outra função de segurança.  

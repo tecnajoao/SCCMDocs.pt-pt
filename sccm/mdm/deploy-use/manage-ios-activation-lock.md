@@ -1,6 +1,6 @@
 ---
-title: "Управление блокировкой активации iOS | Документы Майкрософт"
-description: "Управление блокировкой активации iOS с помощью System Center Configuration Manager."
+title: "Gerir o bloqueio de ativação de iOS | Microsoft Docs"
+description: "Gerir o bloqueio de ativação com o System Center Configuration Manager iOS."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,90 +16,90 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 88bef04a52f716ae13afc21c25d33dea06a3fc9c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Управление блокировкой активации iOS с помощью System Center Configuration Manager
+# <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Gerir o Bloqueio de Ativação do iOS com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-System Center Configuration Manager позволяет управлять функцией блокировки активации iOS, которая представляет собой отдельный компонент приложения "Найти iPhone" для устройств на базе iOS 7.1 и более поздних версий. Если эта функция включена, необходимо ввести Apple ID и пароль пользователя, чтобы можно было выполнить следующие операции:
+O System Center Configuration Manager pode ajudá-lo a gerir o Bloqueio de Ativação do iOS, uma funcionalidade da aplicação Encontrar iPhone para iOS 7.1 e dispositivos posteriores. Quando o Bloqueio de Ativação está ativado, o Apple ID e a palavra-passe do utilizador têm de ser introduzidos primeiro para que qualquer pessoa possa:
 
-- выключить приложение Find My iPhone;
-- удалить данные из устройства;
-- активировать устройство заново.
+- Desativar a aplicação Encontrar o Meu iPhone
+- Apagar o dispositivo
+- Reativar o dispositivo
 
-На **незащищенных** устройствах функция блокировки активации включается автоматически при использовании приложения "Найти iPhone" на устройстве.
+Em dispositivos **não supervisionados** , o Bloqueio de Ativação é ativado automaticamente quando a aplicação Encontrar iPhone é utilizada.
 
-На **защищенных** устройствах необходимо активировать блокировку активации с помощью параметров соответствия Configuration Manager.
+Em dispositivos **supervisionados** , tem de ativar o Bloqueio de Ativação através das definições de compatibilidade do Configuration Manager.
 
 > [!TIP]
-> Защищенный режим для устройств iOS позволяет использовать средство Apple Configurator для блокировки устройства, чтобы ограничивать его функциональные возможности рамками заданных задач. Обычно защищенный режим используется только для корпоративных устройств.
+> O modo supervisionado para dispositivos iOS permite-lhe utilizar a Ferramenta de Configuração da Apple para bloquear um dispositivo, de forma a limitar a funcionalidade para fins empresariais específicos. O modo supervisionado destina-se, geralmente, apenas para dispositivos dos utilizadores da empresa.
 
-Хотя функция блокировки активации позволяет защищать устройства iOS и повышает вероятность восстановления в случае их потери или кражи, она может создать вам, как ИТ-администратору, ряд проблем. Пример.
+Embora o Bloqueio de Ativação ajude a proteger os dispositivos iOS e melhore as possibilidades de recuperação em caso de roubo ou perda, esta funcionalidade pode apresentar-lhe, na qualidade de administrador de TI, vários desafios. Por exemplo:
 
-- Один из пользователей устанавливает блокировку активации на своем устройстве. Затем этот пользователь увольняется из компании и возвращает устройство. Без Apple ID и пароля пользователя повторно активировать данное устройство будет невозможно, даже если удалить с него все данные.
-- Вам требуется отчет с информацией обо всех устройствах, на которых включена блокировка активации.
-- В ходе обновления устройств в организации вам необходимо переназначить несколько устройств в другое подразделение. Переназначить можно только те устройства, на которых блокировка активации не включена.
-
-
-С целью устранения этих проблем компания Apple реализовала в iOS 7.1 функцию обхода блокировки активации. Это позволяет сбрасывать блокировку активации на защищенных устройствах без Apple ID и пароля пользователя. Защищенные устройства могут формировать код обхода блокировки активации для конкретного устройства, который хранится на сервере активации Apple.
-
-Дополнительные сведения о блокировке активации можно найти [здесь](https://support.apple.com/HT201365).
-
-## <a name="how-configuration-manager-helps-you-manage-activation-lock"></a>Управление блокировкой активации с помощью Configuration Manager
-
-Для управления блокировкой активации в Configuration Manager предусмотрено два способа:
-
-1. включение блокировки активации на защищенных устройствах;
-2. обход блокировки активации на защищенных устройствах.
-
-> [!IMPORTANT]
-> На незащищенных устройствах выполнить обход блокировки активации нельзя.
-
-Преимущества этой функции для корпоративных устройств
+- Um dos seus utilizadores configura o Bloqueio de Ativação num dispositivo. O utilizador sai da empresa e devolve o dispositivo. Sem o Apple ID e a palavra-passe do utilizador, não existe nenhuma forma de reativar o dispositivo, mesmo se o apagar.
+- É necessário um relatório de todos os dispositivos que têm o Bloqueio de Ativação ativado.
+- Durante a atualização do dispositivo na sua organização, deve reatribuir alguns dispositivos para outro departamento. Apenas pode reatribuir dispositivos que não têm o Bloqueio de Ativação ativado.
 
 
+Para ajudar a resolver estes problemas, a Apple introduziu a desativação do Bloqueio de Ativação no iOS 7.1. Isto permite-lhe remover o Bloqueio de Ativação a partir de dispositivos supervisionados sem o Apple ID e a palavra-passe do utilizador. Os dispositivos supervisionados podem gerar um código de desativação do Bloqueio de Ativação específico para o dispositivo, que é armazenado no servidor de ativação da Apple.
 
-- Пользователю предоставляются возможности приложения Find My iPhone по обеспечению безопасности.
-- Пользователь может выполнять работу, зная, что если устройство потребуется применять для других целей, его можно будет снять с учета или разблокировать.
+Pode ler mais sobre o Bloqueio de Ativação [aqui](https://support.apple.com/HT201365).
 
+## <a name="how-configuration-manager-helps-you-manage-activation-lock"></a>Como o Configuration Manager o ajuda a gerir o Bloqueio de Ativação
 
-## <a name="enable-activation-lock-on-supervised-devices"></a>Включение блокировки активации на защищенных устройствах
+O Configuration Manager pode ajudá-lo a gerir o Bloqueio de Ativação de duas formas:
 
-Для создания и развертывания элемента конфигурации типа **iOS и Mac OS X** для включения блокировки активации на защищенных устройствах используются параметры соответствия Configuration Manager.
-
-1. См. раздел [Создание элементов конфигурации для устройств iOS и Mac OS X, управляемых без использования клиента System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client), где описывается создание элемента конфигурации типа **iOS и Mac OS X**.
-2. На странице **Система безопасности** мастера создания элементов конфигурации задайте для параметра **Разрешить блокировку активации (в защищенном режиме)** значение **Разрешено**.
-3. [Добавьте элемент конфигурации в шаблон базовой конфигурации](/sccm/compliance/deploy-use/create-configuration-baselines).
-4. [Разверните эту базовую конфигурацию](/sccm/compliance/deploy-use/deploy-configuration-baselines) в коллекции, содержащей устройства iOS, для которых требуется включить блокировку активации.
+1. Ative o Bloqueio de Ativação em dispositivos supervisionados.
+2. Ignore o Bloqueio de Ativação em dispositivos supervisionados.
 
 > [!IMPORTANT]
-> Перед выполнением процедуры необходимо иметь в наличии само устройство. Это обязательное требование, так как при выполнении обхода блокировки активации любое лицо, у которого устройство находится в данный момент, будет иметь к нему полный доступ, включая отключение программы "Поиск iPhone", удаление всех данных с устройства и его повторную активацию.
+> Não pode ignorar o Bloqueio de Ativação em dispositivos não supervisionados.
 
-Обходить блокировку активации или получать код обхода блокировки можно только для защищенных устройств; попытка обойти блокировку активации или просмотреть код обхода на незащищенном устройстве вызывает ошибку.
+As vantagens comerciais desta funcionalidade para dispositivos pertencentes à empresa são:
 
 
 
-## <a name="view-the-activation-lock-bypass-code"></a>Просмотр кода обхода блокировки активации
+- O utilizador obtém as vantagens de segurança da aplicação Encontrar o Meu iPhone
+- Pode permitir que o utilizador trabalhe sabendo que quando o dispositivo tiver de ser reaproveitado, pode extinguí-lo ou desbloqueá-lo
 
-1. В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
-2. В рабочей области **Активы и соответствие** щелкните узел **Устройства**.
-3. Выберите зарегистрированное устройство, которое находится в защищенном режиме и для которого включена блокировка активации.
-4. На вкладке **Главная** в группе **Устройства** щелкните **Действия удаленного устройства** > **Просмотр кода для обхода блокировки активации**.
-5. Появится диалоговое окно **Код для обхода блокировки активации** с кодом обхода для выбранного устройства.
 
-## <a name="bypass-activation-lock"></a>Обход блокировки активации
+## <a name="enable-activation-lock-on-supervised-devices"></a>Ativar o bloqueio de ativação em dispositivos supervisionados
 
-1. В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
-2. В рабочей области **Активы и соответствие** щелкните узел **Устройства**.
-3. Выберите зарегистрированное устройство, которое находится в защищенном режиме и для которого включена блокировка активации.
-3. На вкладке **Главная** в группе **Устройства** щелкните **Действия удаленного устройства** > **Обход блокировки активации**.
-5. Прочтите предупреждения в диалоговом окне и нажмите кнопку **Да** , чтобы продолжить.
-6. Проверить состояния запроса на отмену блокировки можно в:
+Utilize as definições de compatibilidade do Configuration Manager para criar e implementar um item de configuração do tipo **iOS e Mac OS X** para ativar o Bloqueio de Ativação em dispositivos supervisionados:
 
-    - разделе данных обнаружения для устройства в диалоговом окне "Свойства устройства";
-    - в столбце **Состояние обхода блокировки активации** представления **Устройства** (по умолчанию этот столбец скрыт);
-    - в разделе **Сведения о действиях удаленного устройства** вкладки **Сводка** области сведений (устройство должно быть выбрано).
+1. Utilize as informações do tópico [Como criar itens de configuração para os dispositivos iOS e Mac OS X geridos sem o cliente System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client) para criar um item de configuração do tipo **iOS e Mac OS X**.
+2. Na página **Segurança do Sistema** do Assistente de Criação de Item de Configuração, configure a definição **Permitir Bloqueio de Ativação (modo supervisionado apenas)** como **Permitido**.
+3. [Adicione o item de configuração a uma linha de base da configuração](/sccm/compliance/deploy-use/create-configuration-baselines).
+4. [Implemente esta linha de base da configuração](/sccm/compliance/deploy-use/deploy-configuration-baselines) numa coleção que contenha os dispositivos iOS para os quais pretende ativar o Bloqueio de Ativação.
+
+> [!IMPORTANT]
+> Certifique-se de que está na posse física do dispositivo antes de seguir este procedimento. Se não o fizer, o Bloqueio de Ativação será ignorado e quem estiver na posse do dispositivo terá acesso total ao mesmo, permitindo que essa pessoa desative a aplicação Encontrar iPhone, apague o dispositivo ou reative o dispositivo.
+
+Só pode ignorar o Bloqueio de Ativação ou obter o código para ignorar o Bloqueio de Ativação em dispositivos supervisionados. Tentar ignorar o bloqueio de ativação num dispositivo não supervisionado ou ver o código para ignorar resulta num erro.
+
+
+
+## <a name="view-the-activation-lock-bypass-code"></a>Vista de código de ignorabilidade do bloqueio de ativação
+
+1. Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
+2. Na área de trabalho **Ativos e Compatibilidade** , clique em **Dispositivos**.
+3. Selecione um dispositivo inscrito que esteja no modo supervisionado e que tenha o Bloqueio de Ativação ativado.
+4. No separador **Base** , no grupo **Dispositivo** , clique em **Ações do Dispositivo Remoto** > **Ver o Código para Ignorar o Bloqueio da Ativação**.
+5. A caixa de diálogo **Código para Ignorar o Bloqueio da Ativação** apresenta o código para ignorar para o dispositivo selecionado.
+
+## <a name="bypass-activation-lock"></a>Ignorar bloqueio de ativação
+
+1. Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
+2. Na área de trabalho **Ativos e Compatibilidade** , clique em **Dispositivos**.
+3. Selecione um dispositivo inscrito que esteja no modo supervisionado e que tenha o Bloqueio de Ativação ativado.
+3. No separador **Base** , no grupo **Dispositivos** , clique em **Ações do Dispositivo Remoto** > **Ignorar Bloqueio de Ativação**.
+5. Leia as mensagens na caixa de diálogo de aviso e clique em **Sim** quando estiver pronto para continuar.
+6. Pode examinar o estado do pedido de desbloqueio a partir:
+
+    - Dos dados de deteção para o dispositivo na caixa de diálogo de propriedades do dispositivo.
+    - Da coluna **Estado da Ação Ignorar o Bloqueio da Ativação** na vista **Dispositivos** (esta coluna está oculta por predefinição).
+    - Da secção **Informações sobre Ações do Dispositivo Remoto** no separador **Resumo** do painel de detalhes (quando um dispositivo está selecionado).

@@ -1,6 +1,6 @@
 ---
-title: "Выбор данных для переноса | Документы Майкрософт"
-description: "Сведения о том, какие данные можно, а какие нельзя переносить в System Center Configuration Manager."
+title: Escolha o que migrar | Microsoft Docs
+description: "Saiba o que pode migrar de dados e os dados não é possível migrar para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,172 +17,172 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 9dc5f6c9f58e1fc33b2dc9dd76737ae23af81993
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Определение необходимости миграции данных в System Center Configuration Manager
+# <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Determinar se deve migrar os dados para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В System Center Configuration Manager миграция представляет собой процесс переноса данных и настроек из поддерживаемых версий Configuration Manager в новую иерархию.  Эту функцию можно использовать для выполнения следующих операций:  
+No System Center Configuration Manager, a migração fornece um processo para transferir dados e configurações que tiver criado a partir de versões suportadas do Configuration Manager para a nova hierarquia.  Pode utilizar esta funcionalidade para:  
 
--   Объединение нескольких иерархий в одну.  
+-   Combine várias hierarquias numa só.  
 
--   Перемещение данных и конфигурации из лабораторного развертывания в рабочее развертывание.
+-   Mova dados e configurações de uma implementação de laboratório para a implementação de produção.
 
--   Перемещение данных и настроек из предыдущей версии Configuration Manager, такой как Configuration Manager 2007 (для которой не предусмотрен путь обновления до System Center Configuration Manager) или System Center 2012 Configuration Manager (которая поддерживает путь обновления до System Center Configuration Manager).  
+-   Mova dados e a configuração de uma versão anterior do Configuration Manager, como o Configuration Manager 2007, que não possui nenhum caminho de atualização para o System Center Configuration Manager, ou a partir do System Center 2012 Configuration Manager (que suporta um caminho de atualização para o System Center Configuration Manager).  
 
-За исключением роли системы сайта точки распространения и компьютеров, на которых размещены точки распространения, инфраструктура (которая включает сайты, роли системы сайта и компьютеры, на которых размещаются роли системы сайта), не может переноситься или совместно использоваться между иерархиями.  
+Com exceção da função do sistema de sites do ponto de distribuição e dos computadores que alojam pontos de distribuição, nenhuma infraestrutura (incluindo sites, funções do sistema de sites e computadores que alojam uma função do sistema de sites) migra, transfere ou pode ser partilhada entre hierarquias.  
 
- Хотя невозможно перенести серверную инфраструктуру, вы можете переносить клиенты Configuration Manager между иерархиями. Миграция клиента предполагает перемещение данных этого клиента из исходной иерархии в конечную иерархию и установку или переназначение клиентского программного обеспечения с тем, чтобы клиент затем мог создавать отчеты в новой иерархии.
+ Embora não seja possível migrar a infraestrutura de servidor, pode migrar clientes do Configuration Manager entre hierarquias. A migração de clientes envolve a migração dos dados utilizados pelos clientes da hierarquia de origem para a hierarquia de destino e a instalação e reatribuição do software de cliente de modo a que o cliente comunique com a nova hierarquia.
 
-После того как вы установили клиент в новой иерархии и клиент отправляет свои данные, его уникальный идентификатор Configuration Manager позволяет Configuration Manager связать такие ранее перенесенные данные с каждым клиентским компьютером.  
+Depois de instalar um cliente na nova hierarquia e o cliente envia os dados, o seu ID exclusivo do Configuration Manager ajuda a associar os dados que migrou anteriormente a cada computador cliente do Configuration Manager.  
 
- Функции миграции позволяют сохранить уже имеющиеся конфигурации и развертывания и воспользоваться всеми преимуществами основных функций продукта, впервые представленными в System Center 2012 Configuration Manager и усовершенствованными в System Center Configuration Manager. Изменения включают в себя упрощенную иерархию Configuration Manager, которая использует меньше сайтов и ресурсов, а также повышение скорости обработки благодаря применению 64-разрядного кода, выполняемого на 64-разрядном оборудовании.  
+ A funcionalidade que é fornecida pela migração ajuda a manter os investimentos efetuados nas configurações e implementações, permitindo que lhe tirar total partido das principais alterações no produto primeiro (que foi introduzida inicialmente no System Center 2012 Configuration Manager e, em seguida, continuou no System Center Configuration Manager). Estas alterações incluem uma hierarquia simplificada do Configuration Manager que utiliza menos sites e recursos e o processamento melhorado de utilização do código nativo de 64 bits executado em hardware de 64 bits.  
 
- Дополнительные сведения о версиях Configuration Manager, поддерживаемых для миграции, см. в разделе [Необходимые условия для миграции в System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+ Para obter informações sobre as versões do Configuration Manager que suporta a migração, consulte [pré-requisitos para migração no System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
 
- Следующие разделы содержат сведения о планировании переноса данных, для которых поддерживается и не поддерживается миграция:  
+ As secções seguintes ajudam a planear para os dados que pode ou não migrar:  
 
--   [Данные, которые можно перенести в System Center Configuration Manager](#Can_Migrate)  
+-   [Dados que pode migrar para o System Center Configuration Manager](#Can_Migrate)  
 
--   [Данные, которые нельзя перенести в System Center Configuration Manager](#Cannot_migrate)  
+-   [Dados que não pode migrar para o System Center Configuration Manager](#Cannot_migrate)  
 
-##  <a name="Can_Migrate"></a> Данные, которые можно перенести в System Center Configuration Manager  
- Функция миграции позволяет перемещать большинство объектов между поддерживаемыми иерархиями Configuration Manager. Перенесенные экземпляры некоторых объектов из поддерживаемой версии Configuration Manager 2007 необходимо изменить, чтобы они соответствовали схеме и формату объектов System Center 2012 Configuration Manager.
+##  <a name="Can_Migrate"></a>Dados que pode migrar para o System Center Configuration Manager  
+ Migração permite migrar a maioria dos objetos entre hierarquias suportadas do Configuration Manager. As instâncias migradas de alguns objetos de uma versão suportada do Configuration Manager 2007 têm de ser modificadas para conformidade com o formato de esquema e de objeto do System Center 2012 Configuration Manager.
 
-Такие изменения не влияют на данные в базе данных исходного сайта. Вносить изменения в объекты, перенесенные из поддерживаемой версии System Center 2012 Configuration Manager или System Center Configuration Manager, не требуется.  
+Estas alterações não afetam os dados na base de dados de site de origem. Objetos migrados de uma versão suportada do System Center 2012 Configuration Manager ou System Center Configuration Manager não necessitam de alteração.  
 
- Ниже указаны объекты, которые можно переносить, в зависимости от версии Configuration Manager в исходной иерархии. Некоторые объекты, например запросы, не переносятся. Если вы хотите продолжить использовать такие объекты, их необходимо создать в новой иерархии заново. Другие объекты, например некоторые клиентские данные, будут автоматически созданы заново в новой иерархии при управлении клиентами в ней.  
+ Seguem-se os objetos que podem migrar com base na versão do Configuration Manager na hierarquia de origem. Alguns objetos, como consultas, não são migrados. Se quiser continuar a utilizar estes objetos que não são migrados, tem de os recriar na nova hierarquia. Outros objetos, incluindo alguns dados de cliente, são recriados automaticamente na nova hierarquia quando gerir clientes nessa hierarquia.  
 
-### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Объекты, которые можно перенести из System Center 2012 Configuration Manager или System Center Configuration Manager (Current Branch)
+### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Objetos que podem migrar a partir do ramo atual do System Center 2012 Configuration Manager ou System Center Configuration Manager
 
--   объявления,  
+-   Anúncios  
 
--   Приложения для System Center 2012 Configuration Manager и более поздних версий  
+-   Aplicações para o System Center 2012 Configuration Manager e versões posteriores  
 
--   Виртуальная среда App-V из System Center 2012 Configuration Manager и более поздних версий  
+-   Ambiente Virtual App-V do System Center 2012 Configuration Manager e versões posteriores  
 
--   настройки аналитики активов,  
+-   Personalizações do Asset Intelligence  
 
--   границы,  
+-   Limites  
 
--   Коллекции: для переноса коллекций из поддерживаемой версии System Center 2012 Configuration Manager или System Center Configuration Manager используйте задание переноса объектов.  
+-   Coleções: Para migrar coleções a partir de uma versão suportada do System Center 2012 Configuration Manager ou System Center Configuration Manager, pode utilizar uma tarefa de migração de objetos.  
 
--   Параметры соответствия  
+-   Definições de compatibilidade:  
 
-    -   шаблоны базовых конфигураций,  
+    -   Linhas de base de configuração  
 
-    -   элементы конфигурации,  
+    -   Itens de configuração  
 
--   Развертывания операционных систем:  
+-   Implementação do sistema operativo:  
 
-    -   загрузочные образы,  
+    -   Imagens de arranque  
 
-    -   пакеты драйверов,  
+    -   Pacotes de controladores  
 
-    -   драйверы,  
+    -   Controladores  
 
-    -   образы,  
+    -   Imagens  
 
-    -   пакеты,  
+    -   Pacotes  
 
-    -   последовательности задач;  
+    -   Sequências de tarefas  
 
--   Результаты поиска: сохраненные условия поиска  
+-   Resultados da pesquisa: Guardar os critérios de pesquisa  
 
--   Обновления программного обеспечения:  
+-   Atualizações de software:  
 
-    -   развертывания,  
+    -   Implementações  
 
-    -   пакеты развертывания,  
+    -   Pacotes de implementação  
 
-    -   Шаблоны  
+    -   Modelos  
 
-    -   списки обновлений программного обеспечения;  
+    -   Listas de atualização de software  
 
--   пакеты распространения программного обеспечения,  
+-   Pacotes de distribuição de software  
 
--   правила отслеживания использования программного обеспечения.  
+-   Regras de medição de software  
 
--   пакеты виртуальных приложений.  
+-   Pacotes de aplicações virtuais  
 
-### <a name="objects-that-you-can-migrate-from-configuration-manager-2007-sp2"></a>Объекты, которые можно перенести из Configuration Manager 2007 с пакетом обновления 2 (SP2)
+### <a name="objects-that-you-can-migrate-from-configuration-manager-2007-sp2"></a>Objetos que pode migrar do Configuration Manager 2007 SP2
 
--   объявления,  
+-   Anúncios  
 
--   Приложения для System Center 2012 Configuration Manager и более поздних версий  
+-   Aplicações para o System Center 2012 Configuration Manager e versões posteriores  
 
--   Виртуальная среда App-V из System Center 2012 Configuration Manager и более поздних версий  
+-   Ambiente Virtual App-V do System Center 2012 Configuration Manager e versões posteriores  
 
--   настройки аналитики активов,  
+-   Personalizações do Asset Intelligence  
 
--   границы,  
+-   Limites  
 
--   Коллекции: перенос коллекций из поддерживаемой версии Configuration Manager 2007 выполняется с помощью задания переноса коллекции.  
+-   Coleções: Migrar coleções a partir de uma versão suportada do Configuration Manager 2007 utilizando uma tarefa de migração de coleção.  
 
--   Параметры соответствия (в Configuration Manager 2007 — управление требуемыми конфигурациями):  
+-   Definições de compatibilidade (designadas como gestão de configuração pretendida no Configuration Manager 2007):  
 
-    -   шаблоны базовых конфигураций,  
+    -   Linhas de base de configuração  
 
-    -   элементы конфигурации,  
+    -   Itens de configuração  
 
--   Развертывания операционных систем:  
+-   Implementação do sistema operativo:  
 
-    -   загрузочные образы,  
+    -   Imagens de arranque  
 
-    -   пакеты драйверов,  
+    -   Pacotes de controladores  
 
-    -   драйверы,  
+    -   Controladores  
 
-    -   образы,  
+    -   Imagens  
 
-    -   пакеты,  
+    -   Pacotes  
 
-    -   последовательности задач;  
+    -   Sequências de tarefas  
 
--   Результаты поиска: папки поиска  
+-   Resultados da pesquisa: Pastas de pesquisa  
 
--   Обновления программного обеспечения:  
+-   Atualizações de software:  
 
-    -   развертывания,  
+    -   Implementações  
 
-    -   пакеты развертывания,  
+    -   Pacotes de implementação  
 
-    -   Шаблоны  
+    -   Modelos  
 
-    -   списки обновлений программного обеспечения;  
+    -   Listas de atualização de software  
 
--   пакеты распространения программного обеспечения,  
+-   Pacotes de distribuição de software  
 
--   правила отслеживания использования программного обеспечения.  
+-   Regras de medição de software  
 
--   пакеты виртуальных приложений.  
+-   Pacotes de aplicações virtuais  
 
-##  <a name="Cannot_migrate"></a> Данные, которые нельзя перенести в System Center Configuration Manager  
- Нельзя выполнить миграцию объектов следующих типов:  
+##  <a name="Cannot_migrate"></a>Dados que não pode migrar para o System Center Configuration Manager  
+ Não é possível migrar os seguintes tipos de objetos:  
 
--   данные инициализации клиента AMT,  
+-   Informações de aprovisionamento de cliente AMT  
 
--   Файлы на клиентах, в том числе:  
+-   Ficheiros nos clientes, incluindo:  
 
-    -   данные инвентаризации и журналов клиентов,  
+    -   Dados de inventário e histórico de cliente  
 
-    -   файлы в кэше клиента.  
+    -   Ficheiros na cache do cliente  
 
--   Запросы  
+-   Consultas  
 
--   Права безопасности и экземпляры для сайта и объектов Configuration Manager 2007  
+-   Direitos de segurança do Configuration Manager 2007 e instâncias para o site e os objetos  
 
--   Отчеты Configuration Manager 2007, создаваемые службами SQL Server Reporting Services  
+-   Relatórios do Configuration Manager 2007 do SQL Server Reporting Services  
 
--   Веб-отчеты Configuration Manager 2007  
+-   Relatórios de web do Configuration Manager 2007  
 
--   Отчеты System Center 2012 Configuration Manager и System Center Configuration Manager  
+-   Relatórios do System Center 2012 Configuration Manager e o System Center Configuration Manager  
 
--   Ролевое администрирование System Center 2012 Configuration Manager и System Center Configuration Manager:  
+-   System Center 2012 Configuration Manager e System Center Configuration Manager baseada em funções de administração:  
 
-    -   Роли безопасности  
+    -   Funções de segurança  
 
-    -   Области безопасности  
+    -   Âmbitos de segurança  

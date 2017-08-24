@@ -1,6 +1,6 @@
 ---
-title: "Средство обслуживания иерархии | Документы Майкрософт"
-description: "Сведения о действиях, выполняемых средством обслуживания иерархии, и его назначении. Включает справочник по параметрам командной строки."
+title: "Ferramenta manutenção da hierarquia | Microsoft Docs"
+description: "Compreender o que faz a ferramenta manutenção da hierarquia, e por isso, poderá utilizá-lo. Inclui referência de opções da linha de comandos."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,109 +17,109 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f3ddeaadfb1418aeeaacdca47768600c86b59083
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="hierarchy-maintenance-tool-preinstexe-for-system-center-configuration-manager"></a>Средство обслуживания иерархии (Preinst.exe) в System Center Configuration Manager
+# <a name="hierarchy-maintenance-tool-preinstexe-for-system-center-configuration-manager"></a>Ferramenta Manutenção da Hierarquia (Preinst.exe) para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Средство обслуживания иерархии (Preintst.exe) передает команды диспетчеру иерархии System Center Configuration Manager, пока работает служба диспетчера иерархии. Средство обслуживания иерархии устанавливается автоматически при установке сайта Configuration Manager. Файл Preinst.exe находится в общей папке \\&lt;*Имя_сервера_сайта*>\SMS_&lt;*Код_сайта*\bin\X64\00000409 на сервере сайта.  
+A ferramenta manutenção da hierarquia (Preinst.exe) transmite comandos para o System Center Configuration Manager hierarquia Manager enquanto o serviço Gestor da hierarquia estiver em execução. A ferramenta de manutenção da hierarquia é instalada automaticamente quando instala um site do Configuration Manager. Pode encontrar Preinst.exe no \\ &lt; *SiteServerName*> \SMS_&lt;*SiteCode*\bin\X64\00000409 pasta partilhada no servidor do site.  
 
- Средство обслуживания иерархии применяется в следующих ситуациях.  
+ Pode utilizar a ferramenta Manutenção da Hierarquia nos seguintes cenários:  
 
--   В некоторых случаях, когда требуется безопасный обмен ключами, первоначальный обмен открытыми ключами между сайтами должен осуществляться вручную. Дополнительные сведения см. в разделе [Обмен открытыми ключами между сайтами, осуществляемый вручную](#BKMK_ManuallyExchangeKeys) этой статьи.  
+-   Quando é necessária uma troca de chaves segura, existem situações em que é necessário efetuar manualmente a troca inicial de chaves públicas entre sites. Para obter mais informações, veja [Trocar Manualmente Chaves Públicas Entre Sites](#BKMK_ManuallyExchangeKeys), neste tópico.  
 
--   Чтобы удалить активные задания для конечного сайта, которого больше не существует.  
+-   Para remover tarefas ativas destinadas a um site de destino que já não está disponível.  
 
--   Чтобы удалить сервер сайта из консоли Configuration Manager при невозможности удаления сайта с помощью программы установки. Например, если физически удалить сайт Configuration Manager без предварительного запуска программы установки с целью удаления сайта, сведения о сайте останутся в базе данных родительского сайта, и родительский сайт продолжит попытки подключения к дочернему сайту. Чтобы устранить эту проблему, следует запустить средство обслуживания иерархии и вручную удалить дочерний сайт из базы данных родительского сайта.  
+-   Para eliminar um servidor do site da consola do Configuration Manager quando não é possível desinstalar o site utilizando a configuração. Por exemplo, se remover fisicamente um site do Configuration Manager sem primeiro executar programa de configuração para desinstalar o site, as informações do site continuarão a existir na base de dados do site principal e site principal continuará a tentar comunicar com o site subordinado. Para resolver este problema, tem de executar a ferramenta manutenção da hierarquia e eliminar manualmente o site subordinado da base de dados do site principal.  
 
--   Чтобы остановить все службы Configuration Manager на сайте без необходимости останавливать каждую службу по отдельности.  
+-   Para parar todos os serviços do Configuration Manager num site sem ter de parar os serviços individualmente.  
 
--   При восстановлении сайта можно с помощью параметра CHILDKEYS распространить открытые ключи из нескольких дочерних сайтов на восстанавливаемый сайт.  
+-   Quando estiver a recuperar um site, pode utilizar a opção CHILDKEYS para distribuir as chaves públicas de vários sites subordinados para o site de recuperação.  
 
-Для запуска средства обслуживания иерархии текущему пользователю необходимы привилегии администратора на локальном компьютере. Кроме того, пользователю должно быть явным образом предоставлено право "Сайт — администрирование"; если пользователь унаследовал это разрешение, являясь членом группы, которой оно предоставлено, этого недостаточно.  
+Para executar a ferramenta Manutenção da Hierarquia, o utilizador atual deve ter privilégios administrativos no computador local. De igual modo, o utilizador deve ter explicitamente o direito de segurança Site - Administrador. Não é suficiente que o utilizador herde este direito pelo facto de ser membro de um grupo que tem essa permissão.  
 
-## <a name="hierarchy-maintenance-tool-command-line-options"></a>Параметры командной строки средства обслуживания иерархии  
-Средство обслуживания иерархии необходимо запускать локально на сервере сайта центра администрирования, первичного сайта или вторичного сайта.  
+## <a name="hierarchy-maintenance-tool-command-line-options"></a>Opções da Linha de Comandos da Ferramenta Manutenção da Hierarquia  
+Quando utilizar a Ferramenta Manutenção da Hierarquia, deve executá-la localmente no servidor do site de administração central, do site primário ou do site secundário.  
 
-При запуске средства обслуживания иерархии используется следующий синтаксис: preinst.exe /&lt;параметр\>. Ниже приведены параметры командной строки.  
+Quando executar a ferramenta manutenção da hierarquia, tem de utilizar a seguinte sintaxe: preinst.exe /&lt;opção\>. O que se segue são opções de linhas de comandos.  
 
- **/DELJOB &lt;*код_сайта*>**. Используйте этот параметр на сайте, чтобы удалить все задания или команды, инициированные с текущего сайта в отношении указанного конечного сайта.  
+ **/DELJOB &lt;* SiteCode*> * *-Utilize esta opção num site para eliminar todas as tarefas ou comandos desde o site atual até ao site de destino especificado.  
 
- **/DELSITE &lt;*код_удаляемого_подчиненного_сайта*>**. Используйте этот параметр на родительском сайте, чтобы удалить данные подчиненных сайтов из базы данных родительского сайта. Как правило, этот параметр используется перед удалением сайта с компьютера сервера, который подлежит списанию.  
-
-> [!NOTE]  
->  Параметр /DELSITE не удаляет сайт на компьютере, указанном в параметре ChildSiteCodeToRemove. Он лишь удаляет сведения о сайте из базы данных сайта Configuration Manager.  
-
-**/DUMP &lt;*код_сайта*>**. Используйте этот параметр на локальном сервере сайта для записи образов параметров сайта в корневую папку диска, на котором сайт установлен. Можно записать определенный образ параметров сайта в папку, или же записать все файлы параметров сайта в иерархии.  
-
--   Параметр /DUMP &lt;*Код_сайта*> задает запись образа параметров только для определенного сайта.  
-
--   Параметр /DUMP приводит к записи файлов параметров всех сайтов.  
-
-Образ является двоичным представлением файла параметров сайта, которое хранится в базе данных сайта Configuration Manager. Образ файла параметров сайта, для которого был создан дамп, является суммой базового образа и зависимых дельта-образов.  
-
-После создания образа файла параметров сайта с помощью средства обслуживания иерархии имя файла записывается в формате sitectrl_&lt;*Код_сайта*>.ct0.  
-
-**/STOPSITE**. Используйте этот параметр на локальном сервере сайта, чтобы запустить цикл завершения работы службы для диспетчера компонентов сайта Configuration Manager, в ходе которого происходит частичный сброс сайта. При запуске такого цикла завершения работы происходит остановка некоторых служб Configuration Manager на сервере сайта и его удаленных системах сайта. Эти службы обозначаются как подлежащие повторной установке. В результате этого цикла завершения работы происходит автоматическая смена некоторых паролей во время повторной установки служб.  
+ **/DELSITE &lt;* ChildSiteCodeToRemove*> * *-Utilize esta opção num site principal para eliminar os dados para sites subordinados a partir da base de dados do site do site principal. Normalmente, utilize esta opção se o computador de um servidor do site for encerrado antes de desinstalar o site desse computador.  
 
 > [!NOTE]  
->  Чтобы получить возможность просмотра записей о завершении работы, повторной установке и изменениях паролей для диспетчера компонентов сайта, включите ведение журнала для соответствующего компонента перед использованием данного параметра командной строки.  
+>  A opção /DELSITE não desinstala o site no computador especificado pelo parâmetro ChildSiteCodeToRemove. Esta opção apenas remove as informações do site da base de dados do site do Configuration Manager.  
 
-После запуска цикла завершения работы он продолжает выполняться автоматически, пропуская все не отвечающие компоненты или компьютеры. Однако если службе диспетчера компонентов сайта не удается получить доступ к удаленной системе сайта во время цикла завершения работы, компоненты, установленные в удаленной системе сайта, устанавливаются повторно при повторном запуске диспетчера компонентов сайта. После повторного запуска служба диспетчера компонентов сайта предпринимает многочисленные попытки переустановки всех служб, отмеченных в ней как подлежащие переустановке, до тех пор, пока ей это не удастся.  
+**/DUMP &lt;* SiteCode*> * *-Utilize esta opção no servidor do local site para escrever as imagens de controlo do site para a pasta raiz da unidade em que a instalação do site. Pode escrever uma imagem de controlo do site específica na pasta ou escrever todos os ficheiros de controlo do site na hierarquia.  
 
-Службу диспетчера компонентов сайта можно перезапустить с помощью диспетчера служб. После перезапуска все затронутые службы удаляются, устанавливаются повторно и перезапускаются. В результате применения параметра /STOPSITE для инициирования цикла завершения работы выполнение циклов повторной установки после перезапуска службы диспетчера компонентов сайта становится неизбежным.  
+-   /DUMP &lt; *SiteCode*> escreve a imagem de controlo do site apenas para o site especificado.  
 
-**/KEYFORPARENT**. Используйте этот параметр на сайте, чтобы распространить открытый ключ сайта на родительский сайт.  
+-   /DUMP escreve os ficheiros de controlo do site de todos os sites.  
 
-Параметр /KEYFORPARENT помещает открытый ключ сайта в файл с именем &lt;*Код_сайта*>.CT4, расположенный в корне диска с файлами программы. После запуска файла preinst.exe с этим параметром следует вручную скопировать файл &lt;*Код_сайта*>.CT4 в папку …\Inboxes\hman.box на родительском сайте (но не в папку hman.box\pubkey).  
+Uma imagem é uma representação binária do ficheiro de controlo do site, que é armazenada na base de dados do site do Configuration Manager. A imagem de ficheiro de controlo do site capturada é a soma da imagem base com as imagens diferenciais pendentes.  
 
-**/KEYFORCHILD**. Используйте этот параметр на сайте, чтобы распространить открытый ключ сайта на подчиненный сайт.  
+Após a captura uma imagem de ficheiro de controlo do site com a ferramenta manutenção da hierarquia, o nome de ficheiro está no formato sitectrl_&lt;*SiteCode*> >.ct0.  
 
-Параметр /KEYFORCHILD помещает открытый ключ сайта в файл с именем &lt;*Код_сайта*>.CT5, расположенный в корне диска с файлами программы. После запуска файла preinst.exe с этим параметром следует вручную скопировать файл &lt;*Код_сайта*>.CT5 в папку …\Inboxes\hman.box на подчиненном сайте (но не в папку hman.box\pubkey).  
-
-**/CHILDKEYS**. Этот параметр можно использовать на подчиненных сайтах того сайта, для которого выполняется восстановление. Он служит для передачи открытых ключей с нескольких дочерних сайтов на восстанавливаемый сайт.  
-
-Параметр /CHILDKEYS помещает ключ сайта, на котором выполняется команда, и все остальные открытые ключи подчиненных сайтов в файл &lt;*Код_сайта*>.CT6.  
-
-После запуска файла preinst.exe с этим параметром следует вручную скопировать файл &lt;*Код_сайта*>.CT6 в папку …\Inboxes\hman.box на восстанавливаемом сайте (но не в папку hman.box\pubkey).  
-
-**/PARENTKEYS**. Этот параметр можно использовать на родительском сайте восстанавливаемого сайта. Он служит для передачи открытых ключей со всех родительских сайтов на восстанавливаемый сайт.  
-
-Параметр /PARENTKEYS помещает ключ сайта, на котором выполняется команда, и ключи всех его родительских сайтов в файл &lt;Код_сайта\>.CT7.  
-
-После запуска файла preinst.exe с этим параметром следует вручную скопировать файл &lt;*Код_сайта*>.CT7 в папку …\Inboxes\hman.box на восстанавливаемом сайте (но не в папку hman.box\pubkey).  
-
-##  <a name="BKMK_ManuallyExchangeKeys"></a> Обмен открытыми ключами между сайтами, осуществляемый вручную  
-На сайтах Configuration Manager по умолчанию включен параметр **Требовать обмен ключами безопасности**. Существуют две ситуации, когда требуется безопасный обмен ключами, и первоначальный обмен ключами между сайтами должен осуществляться вручную.  
-
--   Если схема Active Directory не была расширена для Configuration Manager  
-
--   Сайты Configuration Manager не публикуют данные сайтов в службе каталогов Active Directory  
-
-С помощью средства обслуживания иерархии можно экспортировать открытые ключи каждого сайта. После экспорта следует вручную выполнить обмен ключами между сайтами.  
+**/STOPSITE** -Utilize esta opção no servidor do local site para iniciar um ciclo de encerramento para o serviço do Gestor de componentes do Site do Configuration Manager, que repõe parcialmente o site. Quando este ciclo de encerramento é executado, alguns serviços do Configuration Manager no servidor do site e os respetivos sistemas de sites remotos são parados. Estes serviços são sinalizados para reinstalação. Devido a este ciclo de encerramento, algumas palavras-passe são alteradas automaticamente quando os serviços são reinstalados.  
 
 > [!NOTE]  
->  Выполнив обмен открытыми ключами вручную, можно на сервере родительского сайта просмотреть файл журнала **hman.log** , в который заносятся изменения конфигурации сайта, а также данные, опубликованные в доменных службах Active Directory, чтобы убедиться, что сайт обработал новый открытый ключ.  
+>  Se pretender ver um registo de encerramento, reinstalação e alterações de palavras-passe do Gestor do Componentes do Site, ative o registo para este componente antes de utilizar esta opção da linha de comandos.  
 
-#### <a name="to-manually-transfer-the-child-site-public-key-to-the-parent-site"></a>Передача вручную открытого ключа дочернего сайта родительскому сайту  
+Depois de ser iniciado, o ciclo de encerramento prossegue automaticamente, ignorando todos os componentes ou computadores sem resposta. No entanto, se o serviço Gestor de Componentes do Site não conseguir aceder a um sistema de sites remoto durante o ciclo de encerramento, os componentes instalados no sistema de sites remoto serão reinstalados quando o serviço Gestor de Componentes do Site for reiniciado. Quando é reiniciado, o serviço Gestor de Componentes do Site tenta repetidamente reinstalar todos os serviços sinalizados para reinstalação até ter êxito.  
 
-1.  Находясь в системе дочернего сайта, откройте командную строку и перейдите в расположение файла **Preinst.exe**.  
+Para reiniciar o serviço Gestor de Componentes do Site, utilize o Service Manager. Depois de ser reiniciado, todos os serviços afetados são desinstalados, reinstalados e reiniciados. Depois de utilizar a opção /STOPSITE para iniciar o ciclo de encerramento, não é possível evitar os ciclos de reinstalação depois de o serviço Gestor de Componentes do Site reiniciar.  
 
-2.  Чтобы экспортировать открытый ключ подчиненного сайта, введите: **Preinst /keyforparent**  
+**/KEYFORPARENT** - utilize esta opção num site para distribuir a chave pública do site para um site principal.  
 
-3.  Параметр /keyforparent помещает открытый ключ подчиненного сайта в файл с именем **&lt;код_сайта\>.CT4**, расположенный в корне системного диска.  
+A opção /KEYFORPARENT coloca a chave pública do site no ficheiro &lt; *SiteCode*>. Unidade dos CT4 na raiz do programa. Depois de executar preinst.exe com esta opção, copie manualmente o &lt; *SiteCode*>. Ficheiro de CT4 a pasta de...\Inboxes\hman.box do site principal (não hman).  
 
-4.  Переместите файл с именем **&lt;код_сайта\>.CT4** в папку **&lt;каталог_установки\>\inboxes\hman.box** родительского сайта.  
+**/KEYFORCHILD** - utilize esta opção num site para distribuir a chave pública do site para um site subordinado.  
 
-#### <a name="to-manually-transfer-the-parent-site-public-key-to-the-child-site"></a>Передача вручную открытого ключа родительского сайта дочернему сайту  
+A opção /KEYFORCHILD coloca a chave pública do site no ficheiro &lt; *SiteCode*>. Unidade dos CT5 na raiz do programa. Depois de executar preinst.exe com esta opção, copie manualmente o &lt; *SiteCode*>. Ficheiro de CT5 a pasta de...\Inboxes\hman.box o site subordinado (não hman).  
 
-1.  Находясь в системе родительского сайта, откройте командную строку и перейдите в расположение файла **Preinst.exe**.  
+**/CHILDKEYS** - pode utilizar esta opção nos sites subordinados de um site que estiver a recuperar. Utilize esta opção para distribuir as chaves públicas de vários sites subordinados para o site de recuperação.  
 
-2.  Чтобы экспортировать открытый ключ родительского сайта, введите: **Preinst /keyforchild**.  
+A opção /CHILDKEYS coloca a chave do site onde executa a opção e todos os sites subordinados sites as chaves públicas para o ficheiro &lt; *SiteCode*>. CT6.  
 
-3.  Параметр /keyforchild помещает открытый ключ родительского сайта в файл с именем **&lt;код_сайта\>.CT5**, расположенный в корне системного диска.  
+Depois de executar preinst.exe com esta opção, copie manualmente o &lt; *SiteCode*>. Ficheiro de CT6 a pasta de...\Inboxes\hman.box o site de recuperação (não hman).  
 
-4.  Переместите файл с именем **&lt;код_сайта\>.CT5** в папку **&lt;каталог_установки\>\inboxes\hman.box** подчиненного сайта.  
+**/PARENTKEYS** - pode utilizar esta opção no site principal de um site que estiver a recuperar. Utilize esta opção para distribuir as chaves públicas de todos os sites principais para o site de recuperação.  
+
+A opção /PARENTKEYS coloca a chave do site onde executa a opção e as chaves de cada principal do site acima desse site no ficheiro &lt;SiteCode\>. CT7.  
+
+Depois de executar preinst.exe com esta opção, copie manualmente o &lt; *SiteCode*>. Ficheiro de CT7 a pasta de...\Inboxes\hman.box o site de recuperação (não hman).  
+
+##  <a name="BKMK_ManuallyExchangeKeys"></a>Trocar manualmente chaves públicas entre Sites  
+Por predefinição, o **exigir troca de chaves segura** opção está ativada para sites do Configuration Manager. Quando é necessária uma troca de chaves segura, existem duas situações em que é necessário efetuar manualmente a troca inicial de chaves entre sites:  
+
+-   Se o esquema do Active Directory não tiver sido expandido para o Configuration Manager  
+
+-   Sites do Configuration Manager não estão a publicar dados do site para o Active Directory  
+
+Pode utilizar a ferramenta Manutenção da Hierarquia para exportar as chaves públicas para cada site. Depois de terem sido exportadas, tem de trocar manualmente as chaves entre os sites.  
+
+> [!NOTE]  
+>  Depois de trocar manualmente as chaves públicas, pode rever o ficheiro de registo **hman.log**, que regista as alterações da configuração do site e a publicação das informações do site nos Serviços de Domínio do Active Directory no servidor do site principal, para garantir que o site primário processou a nova chave pública.  
+
+#### <a name="to-manually-transfer-the-child-site-public-key-to-the-parent-site"></a>Para transferir manualmente a chave pública do site subordinado para o site principal  
+
+1.  Com sessão iniciada no site subordinado, abra uma linha de comandos e navegue para a localização do ficheiro **Preinst.exe**.  
+
+2.  Escreva o seguinte para exportar a chave pública do site subordinado: **Preinst /keyforparent**  
+
+3.  A opção /keyforparent coloca a chave pública do site subordinado no  **&lt;código do site\>. CT4** localizado na raiz da unidade de sistema de ficheiros.  
+
+4.  Mover o  **&lt;código do site\>. CT4** ficheiro para o site principal  **&lt;diretório de instalação\>\inboxes\hman.box** pasta.  
+
+#### <a name="to-manually-transfer-the-parent-site-public-key-to-the-child-site"></a>Para transferir manualmente a chave pública do site principal para o site subordinado  
+
+1.  Com sessão iniciada no site principal, abra uma linha de comandos e navegue para a localização do ficheiro **Preinst.exe**.  
+
+2.  Escreva o seguinte para exportar a chave pública do site principal: **Preinst /keyforchild**.  
+
+3.  A opção /keyforchild coloca a chave pública do site principal no  **&lt;código do site\>. CT5** localizado na raiz da unidade de sistema de ficheiros.  
+
+4.  Mover o  **&lt;código do site\>. CT5** do ficheiro para o  **&lt;diretório de instalação\>\inboxes\hman.box** diretório no site subordinado.  

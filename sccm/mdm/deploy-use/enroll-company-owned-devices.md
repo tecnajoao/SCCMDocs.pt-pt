@@ -1,6 +1,6 @@
 ---
-title: "Регистрация корпоративных устройств в Configuration Manager | Документы Майкрософт"
-description: "Ознакомьтесь с различными способами регистрации корпоративных устройств для гибридных развертываний с помощью Configuration Manager."
+title: "Inscrever dispositivos pertencentes à empresa - Configuration Manager | Microsoft Docs"
+description: "Saiba mais sobre métodos diferentes para inscrever dispositivos pertencentes à empresa para implementações híbridas com o Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,31 +16,31 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: f0b503d8c9eba2dd1b6eb4c41ec40c001b727326
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-company-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Регистрация корпоративных устройств для гибридных развертываний с помощью Configuration Manager
+# <a name="enroll-company-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Inscrever dispositivos pertencentes à empresa para implementações híbridas com o Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Корпоративные устройства можно регистрировать для управления различными методами в зависимости от типа устройства и способа его приобретения.  
+Os dispositivos pertencentes à empresa (COD) ou organização podem ser colocados em gestão de variadas formas consoante o dispositivo e como foi comprado.  
 
-## <a name="enroll-device-enrollment-program-ios-devices"></a>Регистрация устройств по программе регистрации устройств iOS  
- Профиль регистрации развертывается по беспроводному каналу на устройствах, приобретенных по программе регистрации устройств Apple. Когда пользователь запускает помощник по настройке на устройстве, устройство регистрируется в Intune.  Регистрация устройств, выполненная с помощью программы DEP, не может быть отменена пользователями. См. раздел [Регистрация по программе регистрации устройств iOS (DEP) для гибридных развертываний с использованием Configuration Manager](../../mdm/deploy-use/ios-device-enrollment-program-for-hybrid.md).  
+## <a name="enroll-device-enrollment-program-ios-devices"></a>Inscrever dispositivos iOS de programa de inscrição de dispositivos  
+ Implementa um perfil de inscrição "por ondas eletromagnéticas" para os dispositivos adquiridos através do programa de inscrição de dispositivos da Apple. Quando o utilizador executar o Assistente de configuração no dispositivo, o dispositivo é inscrito no Intune.  Dispositivos inscritos através do DEP não não possível anular a inscrição por utilizadores. Consulte [inscrição do iOS Device Enrollment Program (DEP) para implementações híbridas com o Configuration Manager](../../mdm/deploy-use/ios-device-enrollment-program-for-hybrid.md).  
 
-## <a name="enroll-ios-devices-with-apple-configurator"></a>Регистрация устройств iOS с помощью Apple Configurator  
- Администратору необходимо подключить устройство iOS через USB к компьютеру Mac с программой Apple Configurator, чтобы предварительно настроить регистрацию. После этого устройства предоставляются пользователям, которые запускают помощник по настройке, настраивают устройство с помощью рабочих или учебных учетных данных и завершают процесс регистрации. См. раздел [Гибридная регистрация устройств iOS с помощью конфигуратора Apple и Configuration Manager](../../mdm/deploy-use/ios-hybrid-enrollment-using-apple-configurator.md).  
+## <a name="enroll-ios-devices-with-apple-configurator"></a>Inscrever dispositivos iOS com o Apple Configurator  
+ Este método requer que o administrador USB ligue o dispositivo iOS ao computador Mac com o Apple Configurator para pré-configurar a inscrição. Dispositivos, em seguida, são fornecidos aos respetivos utilizadores que utilizam o processo de Assistente de configuração, configurar o dispositivo com as respetivas credenciais de conta escolar ou profissional e concluir o processo de inscrição. Consulte [inscrição do iOS híbrida com o Apple Configurator com o Configuration Manager](../../mdm/deploy-use/ios-hybrid-enrollment-using-apple-configurator.md).  
 
-## <a name="device-enrollment-manager"></a>Диспетчер регистрации устройств  
- Организации могут использовать Intune для управления большим количеством мобильных устройств с помощью одной учетной записи пользователя, называемой учетной записью диспетчера регистрации устройств. После создания учетной записи диспетчера регистрации устройств ее можно использовать для регистрации более чем пяти устройств, которые разрешено регистрировать обычному пользователю. С помощью учетной записи диспетчера регистрации устройств можно регистрировать только те устройства, которые не используются определенным пользователем. Такие устройства подходят, например, для приложений кассовых терминалов или служебных программ, но не рекомендуются для пользователей, которым требуется доступ к электронной почте или ресурсам компании. См. раздел [Регистрация устройств с помощью диспетчера регистрации устройств в Configuration Manager](../../mdm/deploy-use/enroll-devices-with-device-enrollment-manager.md).  
+## <a name="device-enrollment-manager"></a>Gestor de inscrição de dispositivos  
+ As organizações podem utilizar o Intune para gerir um grande número de dispositivos móveis com uma única conta de utilizador denominada uma conta de Gestor de inscrição de dispositivos. Depois de criar uma conta de Gestor de inscrição de dispositivos, essa conta pode ser utilizada por um gestor para inscrever mais do que os cinco dispositivos padrão permitidos por predefinição para os utilizadores normais. Inscrição de dispositivos com o Gestor de inscrição de dispositivos funciona apenas para dispositivos que não são utilizados por um utilizador específico. Estes dispositivos são ideais para o ponto de venda ou utilitários aplicações, por exemplo, mas inadequados para utilizadores que necessitam de aceder a recursos de e-mail ou da empresa. Consulte [inscrever dispositivos com o Gestor de inscrição de dispositivos com o Configuration Manager](../../mdm/deploy-use/enroll-devices-with-device-enrollment-manager.md).  
 
-## <a name="user-affinity-for-managed-devices"></a>Сопоставление пользователей для управляемых устройств  
- При настройке профилей для корпоративных устройств администратор может указать, могут ли управляемые устройства использовать *сопоставление пользователей*, связывающее конкретного пользователя с устройством. Устройства, настроенные с применением **user affinity** , могут устанавливать и запускать приложение корпоративного портала для скачивания приложений и управления устройствами. См. раздел [Сопоставление пользователей для устройств с гибридным управлением в Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
+## <a name="user-affinity-for-managed-devices"></a>Afinidade de utilizador para dispositivos geridos  
+ Quando configurar perfis de dispositivos pertencentes à empresa, o administrador pode especificar se os dispositivos geridos suportam *afinidade de utilizador* que identifica um utilizador específico com o dispositivo. Os dispositivos configurados com **user affinity** podem instalar e executar a aplicação Portal da Empresa para transferir aplicações e gerir dispositivos. Consulte [afinidade de utilizador para híbrida geridos dispositivos no Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
 
-## <a name="manage-devices-with-activation-lock"></a>Управляемые устройства с блокировкой активации  
- Microsoft Intune позволяет управлять функцией блокировки активации iOS, которая представляет собой отдельный компонент приложения Find My iPhone для устройств на базе iOS 7.1 и более поздних версий. Функция блокировки активации включается автоматически при использовании приложения Find My iPhone на устройстве. См. раздел [Управление блокировкой активации iOS с помощью System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
+## <a name="manage-devices-with-activation-lock"></a>Gerir dispositivos com o bloqueio de ativação  
+ Microsoft Intune pode ajudar a gerir o bloqueio de ativação, uma funcionalidade de encontrar iOS a minha aplicação iPhone para iOS 7.1 ou dispositivos posteriores. O Bloqueio de Ativação é ativado automaticamente ao utilizar a aplicação Encontrar o Meu iPhone num dispositivo. Consulte [gerir o bloqueio de ativação com o System Center Configuration Manager iOS](../../mdm/deploy-use/manage-ios-activation-lock.md).
 
- ## <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Предварительное объявление устройств с номерами IMEI или серийными номерами iOS
+ ## <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Pré-declarar dispositivos com números de série iOS ou IMEI
 
-Корпоративные устройства можно идентифицировать путем импорта их номеров IMEI или серийных номеров iOS. Можно отправить CSV-файл, содержащий номера IMEI устройств, или ввести информацию об устройствах вручную.  См. раздел [Предварительное объявление устройств с идентификационными номерами оборудования](../../mdm/deploy-use/predeclare-devices-with-hardware-id.md).
+Pode identificar dispositivos pertencentes ao importar os números de identidade (IMEI) estação internacional do equipamento móvel ou números de série iOS. Pode carregar um ficheiro de valores separados por vírgulas (. csv) contendo os números IMEI de dispositivo ou pode introduzir manualmente as informações do dispositivo.  Consulte [pré-declarar dispositivos com números de ID de hardware](../../mdm/deploy-use/predeclare-devices-with-hardware-id.md).

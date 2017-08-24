@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг миграции | Документы Майкрософт"
-description: "Узнайте, как использовать консоль Configuration Manager для отслеживания хода выполнения и успешности заданий миграции."
+title: "Monitorizar a migração | Microsoft Docs"
+description: "Saiba como utilizar a consola do Configuration Manager para monitorizar o progresso e o sucesso das tarefas de migração."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,24 +17,24 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 896807ec2c4be2835094a27add59d4cc09e93add
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-to-monitor-migration-activity-in-system-center-configuration-manager"></a>Планирование наблюдения за действиями миграции в System Center Configuration Manager
+# <a name="planning-to-monitor-migration-activity-in-system-center-configuration-manager"></a>Planear para monitorizar a atividade de migração no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В System Center Configuration Manager вы можете отслеживать миграцию в консоли Configuration Manager, которая подключена к конечной иерархии. В консоли Configuration Manager в рабочей области **Администрирование** можно использовать узел **Миграция** для наблюдения за ходом выполнения и успешностью заданий миграции. Вы можете просмотреть сводные данные по каждому заданию миграции, определяющему перенесенные объекты, объекты, которые еще не перенесены и число объектов, исключенных из задания миграции. Вы также увидите подробные сведения обо всех проблемах миграции.  
+Com o System Center Configuration Manager, pode monitorizar a migração na consola do Configuration Manager que liga à hierarquia de destino. Na consola do Configuration Manager no **administração** área de trabalho, pode utilizar o **migração** nó para monitorizar o progresso e o sucesso das tarefas de migração. Pode ver informações de resumo para cada tarefa de migração que identifica os objetos que foram migrados, os objetos que ainda não foram migrados e o número de objetos que foram excluídos de uma tarefa de migração. Também poderá ver detalhes sobre possíveis problemas de migração.  
 
-## <a name="view-migration-progress"></a>Просмотр процесса миграции  
- Чтобы просмотреть ход выполнения задания миграции, выполните одно из следующих действий.  
+## <a name="view-migration-progress"></a>Progresso da migração de vista  
+ Para ver o progresso de uma tarefa de migração, utilize qualquer uma das seguintes ações:  
 
--   В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Задания миграции**, выберите задание миграции, а затем откройте вкладку **Объекты в задании**.  
+-   No **administração** área de trabalho da consola do Configuration Manager, expanda o **tarefas de migração** nó, selecione uma tarefa de migração e, em seguida, selecione o **objetos na tarefa** separador.  
 
--   Используйте файлы журналов Configuration Manager для анализа процесса миграции или определения каких-либо проблем. Диспетчер миграции — это процесс Configuration Manager, отслеживающий действия миграции и регистрирующий их в файле migmctrl.log, сохраняемом в папке **\&lt;путь_установки\>\\LOGS** на сервере сайта.  
+-   Utilize os ficheiros de registo do Configuration Manager para rever o progresso da migração ou para identificar quaisquer problemas. Gestor de migração é o processo do Configuration Manager que controla as ações de migração e as regista no ficheiro migmctrl.log o  **\&lt; Caminhodainstalação\>\\registos** pasta no servidor do site.  
 
     > [!NOTE]  
-    >  Если задание миграции не выполнено, как можно скорее просмотрите сведения в файле migmctrl.log. Записи журнала миграции непрерывно добавляются в файл и перезаписывают старую информацию. Если записи перезаписаны, возможно, вы не сможете определить, связаны ли с миграцией какие-либо проблемы, возникающие с перенесенными объектами. Действия миграции регистрируются на сайте верхнего уровня в иерархии независимо от сайта, к которому подключается консоль Configuration Manager при настройке миграции.  
+    >  Se uma tarefa de migração falhar, reveja os detalhes no ficheiro migmctrl.log logo que possível. As entradas de registo de migração são constantemente adicionadas ao ficheiro e substituem os detalhes antigos. Se as entradas forem substituídas, poderá não conseguir identificar se os problemas que podem surgir com os objetos migrados referem-se a problemas de migração. Atividade de migração é registada na parte superior\-site ao nível da hierarquia independentemente do site com a consola do Configuration Manager liga-se ao quando configura a migração.  
 
--   Используйте отчеты Configuration Manager. В Configuration Manager есть несколько встроенных отчетов о миграции, которые можно использовать как есть или изменить в соответствии со своими требованиями. Дополнительные сведения об отчетах Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+-   Utilize os relatórios do Configuration Manager. O Configuration Manager fornece vários incorporada\-nos relatórios de migração, mas pode editar os relatórios para satisfazerem as suas necessidades. Para mais informações sobre relatórios do Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).  

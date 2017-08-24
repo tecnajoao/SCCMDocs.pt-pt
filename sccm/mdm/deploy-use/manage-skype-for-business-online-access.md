@@ -1,6 +1,6 @@
 ---
-title: "Управление доступом Skype для бизнеса Online | Документы Майкрософт"
-description: "Узнайте, как использовать политики условного доступа для управления доступом к Skype для бизнеса Online."
+title: Gerir o Skype para empresas Online acesso | Microsoft Docs
+description: "Saiba como utilizar a política de acesso condicional para gerir o acesso ao Skype para empresas Online."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,97 +16,97 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: cacb22a85e74a7d9cae75ad907d0206487cd4dc7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-skype-for-business-online-access"></a>Управление доступом Skype для бизнеса Online
+# <a name="manage-skype-for-business-online-access"></a>Gerir o acesso ao Skype para Empresas Online
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
-
-
-Используйте политику условного доступа для  **Skype для бизнеса Online** , чтобы управлять доступом к Skype для бизнеса Online на основе указанных условий.  
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- Когда целевой пользователь пытается использовать Skype для бизнеса Online на мобильном устройстве, оценивается следующее:![ConditionalAccess&#95;SFBFlow](media/ConditionalAccess_SFBFlow.png)  
+Utilize a política de acesso condicional do  **Skype para Empresas Online** para gerir o acesso ao Skype para Empresas Online, com base em condições que especificar.  
 
-## <a name="prerequisites"></a>Предварительные требования  
 
--   Необходимо включить современную аутентификацию для Skype для бизнеса Online. Заполните эту [форму Connect](https://connect.microsoft.com/office/Survey/NominationSurvey.aspx?SurveyID=17299&ProgramID=8715) , чтобы зарегистрироваться в программе современной проверки подлинности.  
+ Quando um utilizador direcionado tenta utilizar o Skype para Empresas Online no respetivo dispositivo, ocorre a seguinte avaliação:![ConditionalAccess&#95;SFBFlow](media/ConditionalAccess_SFBFlow.png)  
 
--   Все пользователи должны использовать Skype для бизнеса Online. Если имеется развертывание со Skype для бизнеса Online и локальным экземпляром Skype для бизнеса, политика условного доступа не будет применяться к пользователям.  
+## <a name="prerequisites"></a>Pré-requisitos  
 
--   Требования к устройству для получения доступа к Skype для бизнеса Online:  
+-   Ative autenticação moderna do Skype para Empresas Online. Preencha este [formulário de ligação](https://connect.microsoft.com/office/Survey/NominationSurvey.aspx?SurveyID=17299&ProgramID=8715) para ser inscrito no programa de autenticação moderna.  
 
-    -   это должно быть устройство Android или iOS;  
+-   Todos os utilizadores finais devem utilizar o Skype para empresas Online. Se tiver uma implementação com o Skype para empresas Online e Skype para empresas no local, política de acesso condicional não será aplicada aos utilizadores finais.  
 
-    -   оно должно быть зарегистрировано в Intune;  
+-   O dispositivo que necessita de acesso ao Skype para Empresas Online deve:  
 
-    -   оно должно удовлетворять всем развернутым политикам соответствия Intune.  
+    -   Ser um dispositivo Android ou iOS.  
 
- Состояние устройства хранится в службе Azure Active Directory, которая предоставляет или блокирует доступ на основе указанных условий.  
-Если условие не выполняется, при входе пользователь получает следующие сообщения:  
+    -   Estar inscrito no Intune.  
 
--   Если устройство не зарегистрировано в Intune либо в Azure Active Directory, выводится сообщение с инструкциями о том, как установить приложение корпоративного портала и выполнить регистрацию.  
+    -   Ser compatível com todas políticas de conformidade do Intune implementadas.  
 
--   Если устройство не соответствует требованиям, отображается сообщение, направляющее пользователя на веб-сайт корпоративного портала Intune или к приложению корпоративного портала Intune, где можно найти сведения о данной проблеме и способах ее устранения.  
+ O estado do dispositivo é armazenado no Azure Active Directory, o qual concede ou bloqueia o acesso, com base nas condições que especificar.  
+Se não for cumprida uma condição, é apresentada ao utilizador uma das duas mensagens seguintes quando iniciar sessão:  
 
-## <a name="configure-conditional-access-for-skype-for-business-online"></a>Настройка условного доступа для Skype для бизнеса Online  
+-   Se o dispositivo não estiver inscrito no Intune ou registado no Azure Active Directory, será apresentada uma mensagem com instruções sobre como instalar a aplicação do portal da empresa e inscrevê-la.  
 
-### <a name="step-1-configure-active-directory-security-groups"></a>Шаг 1. Настройка групп безопасности Active Directory  
- Прежде чем начать, настройте политику условного доступа в группах безопасности Azure Active Directory. Эти группы можно настроить в Центре администрирования Office 365. Эти группы содержат пользователей, которые будут являться целями для политики или будут исключены из нее. Если на пользователя распространяется действие политики, каждое используемое им устройство должно соответствовать этой политике, чтобы он мог получить доступ к ресурсам.  
+-   Se o dispositivo não for conforme, será apresentada uma mensagem que direciona o utilizador para o Website do portal da empresa do Intune ou para a aplicação do Portal da Empresa, onde é possível obter informações sobre o problema e como resolvê-lo.  
 
- Для политики Skype для бизнеса можно указать два типа групп:  
+## <a name="configure-conditional-access-for-skype-for-business-online"></a>Configurar o acesso condicional do Skype para Empresas Online  
 
--   целевые группы — группы пользователей, к которым применяется политика;  
+### <a name="step-1-configure-active-directory-security-groups"></a>Passo 1: Configurar grupos de segurança do Active Directory  
+ Antes de começar, configure grupos de segurança do Azure Active Directory para a política de acesso condicional. Pode configurar estes grupos no centro de administração do Office 365. Estes grupos contêm os utilizadores que serão direcionados ou que estarão excluídos da política. Quando um utilizador é direcionado por uma política, cada dispositivo que utiliza tem de estar em conformidade para poder aceder aos recursos.  
 
--   исключенные группы — группы пользователей, которые исключены из политики (необязательно).  
-    Если пользователь входит в обе группы, то он будет исключен из политики.  
+ Pode especificar dois tipos de grupo a utilizar para o Skype para a política de negócio:  
 
-### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Шаг 2. Настройка и развертывание политики соответствия  
- Убедитесь, что политика соответствия требованиям создана и развернута для всех устройств, на которые будет нацелена политика Skype для бизнеса Online.  
+-   Direcionados grupos â €"contém os grupos de utilizadores aos quais será aplicada a política  
 
- Дополнительные сведения о настройке политики соответствия требованиям см. в разделе [Управление политиками соответствия устройств в System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md).  
+-   Excluídos grupos â €"contém os grupos de utilizadores excluídos da política (opcional)  
+    Se um utilizador estiver em ambos os grupos, estará excluído da política.  
+
+### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Passo 2: Configurar e implementar uma política de conformidade  
+ Certifique-se de que cria e implementa uma política de conformidade em todos os dispositivos para os quais será direcionada a política do Skype para Empresas Online.  
+
+ Para obter detalhes sobre como configurar a política de conformidade, veja [Gerir políticas de conformidade no System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md).  
 
 > [!NOTE]  
->  Если включить политику Skype для бизнеса Online, не развернув политику соответствия требованиям, то доступ будет разрешен всем целевым устройствам, если они зарегистрированы в Intune.  
+>  Se não tiver implementado uma política de conformidade e, em seguida, ativar uma política do Skype para Empresas Online, todos os dispositivos direcionados terão permissão de acesso se estiverem inscritos no Intune.  
 
- Когда будете готовы, перейдите к шагу 3.  
+ Quando estiver pronto, avance para o Passo 3.  
 
-### <a name="step-3-configure-the-skype-for-business-online-policy"></a>Шаг 3. Настройка политики Skype для бизнеса Online  
- Далее настройте в политику, чтобы разрешить доступ к Skype для бизнеса Online только управляемым и соответствующим политике устройствам. Эта политика будет храниться в Azure Active Directory.  
+### <a name="step-3-configure-the-skype-for-business-online-policy"></a>Passo 3: Configurar a política do Skype para empresas Online  
+ Em seguida, configure a política para exigir que apenas os dispositivos geridos e em conformidade podem aceder ao Skype para Empresas Online. Esta política será armazenada no Azure Active Directory.  
 
-1.  В [консоли администрирования Microsoft Intune](https://manage.microsoft.com)щелкните **Политика** > **Условный доступ** > **Skype for Business Online Политика**.  
+1.  Na [consola de administração do Microsoft Intune](https://manage.microsoft.com), clique em **Política** > **Acesso Condicional** > **Skype for Business Online Política**.  
 
      ![ConditionalAccess&#95;SFBPolicy](media/ConditionalAccess_SFBPolicy.png)  
 
-2.  Выберите параметр **Включить политику условного доступа**.  
+2.  Selecione **Ativar política de acesso condicional**.  
 
-3.  В разделе **Доступ для приложений**можно выбрать область применения политики условного доступа:  
+3.  Em **Acesso a aplicações**, pode optar por aplicar a política de acesso condicional a:  
 
     -   iOS  
 
     -   Android  
 
-4.  В разделе **Целевые группы**щелкните **Изменить** , чтобы выбрать группы безопасности Azure Active Directory, к которым будет применена политика. В качестве целевой аудитории можно выбрать всех пользователей или выбранную группу пользователей.  
+4.  Em **Grupos Direcionados**, clique em **Modificar** para selecionar os grupos de segurança do Azure Active Directory aos quais será aplicada a política. Pode optar por direcionar esta opção para todos os utilizadores ou apenas para um grupos específico de utilizadores.  
 
-5.  Дополнительно в разделе **Исключенные группы**можно щелкнуть **Изменить** , чтобы выбрать группы безопасности Azure Active Directory, которые будут исключены из этой политики.  
+5.  Como opção, em **Grupos Excluídos**, clique em **Modificar** para selecionar os grupos de segurança do Azure Active Directory que estão excluídos desta política.  
 
-6.  По завершении нажмите кнопку **Сохранить**.  
+6.  Quando tiver terminado, clique em **Guardar**.  
 
- Вы настроили условный доступ для Skype для бизнеса Online. Развертывать политику условного доступа не нужно, она вступает в силу немедленно.  
+ Configurou o acesso condicional do Skype para Empresas Online. Não tem de implementar a política de acesso condicional, pois esta entra em vigor imediatamente.  
 
-## <a name="monitor-the-compliance-and-conditional-access-policies"></a>Мониторинг соответствия и политик условного доступа  
- В рабочей области "Группы" вы можете просмотреть состояние условного доступа своих устройств.  
+## <a name="monitor-the-compliance-and-conditional-access-policies"></a>Monitorizar a conformidade e as políticas de acesso condicional  
+ Na área de trabalho Grupos, pode ver o estado do acesso condicional dos seus dispositivos.  
 
- Выберите любую группу мобильных устройств, а затем на вкладке **Устройства** выберите один из следующих **фильтров**.  
+ Selecione qualquer grupo de dispositivos móveis e, em seguida, no separador **Dispositivos** , selecione um dos seguintes **Filtros**:  
 
--   **Устройства, не зарегистрированные в AAD** — для этих устройств заблокирован доступ к Skype для бизнеса Online.  
+-   **Dispositivos que não são registados no AAD** â €"estes dispositivos estão bloqueados no Skype para empresas Online.  
 
--   **Устройства, не соответствующие политике** — для этих устройств заблокирован доступ к Skype для бизнеса Online.  
+-   **Dispositivos não conformes** â €"estes dispositivos estão bloqueados no Skype para empresas Online.  
 
--   **Устройства, зарегистрированные в AAD и соответствующие политикам** — эти устройства могут получить доступ к Skype для бизнеса Online.  
+-   **Dispositivos que são registados no AAD e conformes** â €"estes dispositivos podem aceder ao Skype para empresas Online.  
 
-### <a name="see-also"></a>См. также  
+### <a name="see-also"></a>Consulte também  
 
- [Управление политиками соответствия устройств в System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md)
+ [Gerir políticas de conformidade de dispositivos no System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md)

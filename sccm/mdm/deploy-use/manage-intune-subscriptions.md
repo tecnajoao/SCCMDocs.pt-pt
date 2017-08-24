@@ -1,6 +1,6 @@
 ---
-title: "Управление подпиской Intune, связанной с System Center Configuration Manager | Документация Майкрософт"
-description: "Управление подпиской Intune, связанной с System Center Configuration Manager."
+title: "Gerir uma subscrição do Intune associada com o System Center Configuration Manager | Microsoft Docs"
+description: "Gerir uma subscrição do Intune associada com o System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
@@ -17,40 +17,40 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 2cb4d724c8b78657458a30c0bb020f67c6b62795
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-an-intune-subscription-associated-with-system-center-configuration-manager"></a>Управление подпиской Intune, связанной с System Center Configuration Manager
+# <a name="manage-an-intune-subscription-associated-with-system-center-configuration-manager"></a>Gerir uma subscrição do Intune associada com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Если вы добавили Microsoft Intune (пробную или платную подписку) в Configuration Manager и затем возникла необходимость переключиться на другую подписку Intune, необходимо удалить **подписку Microsoft Intune** и **точку подключения службы** из консоли Configuration Manager, прежде чем добавлять новую подписку.
+Se adicionar um Microsoft Intune (uma subscrição de avaliação ou uma subscrição paga) para o Configuration Manager e, em seguida, tem de mudar para outra subscrição do Intune, tem de eliminar o **subscrição do Microsoft Intune** e **ponto de ligação de serviço** partir da consola do Configuration Manager antes de poder adicionar uma nova subscrição.
 
 > [!NOTE]
-> В гибридном управлении мобильными устройствами можно одновременно настроить только одну подписку Intune.
+> Pode configurar apenas uma subscrição do Intune num momento na gestão de dispositivos móveis híbridos.
 
-## <a name="how-to-delete-an-intune-subscription-from-configuration-manager"></a>Удаление подписки Intune из Configuration Manager
+## <a name="how-to-delete-an-intune-subscription-from-configuration-manager"></a>Como eliminar uma subscrição do Intune do Configuration Manager
 
 > [!IMPORTANT]
->  При удалении подписки удаляется все содержимое, включая пользовательские регистрации, политики и развертывания приложений, настроенные для устройств под управлением этой подписки Intune.
+>  Todo o conteúdo, incluindo inscrições através do utilizador, políticas e implementações de aplicações configuradas para dispositivos geridos pela subscrição do Intune são removidos quando eliminar a subscrição.
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Обзор** > **Облачные службы** > **Подписки Microsoft Intune**.
+1.  Na consola do Configuration Manager, vá para **administração** > **descrição geral** > **serviços em nuvem** > **subscrições do Microsoft Intune**.
 
-2.  Щелкните **подписку Windows Intune** в списке правой кнопкой мыши и выберите пункт **Удалить**.
+2.  Clique com botão direito do listadas **subscrição do Microsoft Intune**e, em seguida, clique em **eliminar**.
 
-3.   В мастере щелкните **Удалить подписку Microsoft Intune из Configuration Manager**, нажмите кнопку **Далее**, а затем еще раз нажмите кнопку **Далее**, чтобы удалить подписку.
+3.   No assistente, clique em **remover a subscrição do Microsoft Intune do Configuration Manager**, clique em **seguinte**e, em seguida, clique em **seguinte** novamente para remover a subscrição.
 
 
-## <a name="how-to-remove-the-service-connection-point-role"></a>Удаление роли точки подключения службы
+## <a name="how-to-remove-the-service-connection-point-role"></a>Como remover a função de ponto de ligação de serviço
 
-1.  Выберите **Администрирование** > **Обзор** > **Конфигурация сайта** > **Серверы и роли системы сайта**.
+1.  Aceda a **administração** > **descrição geral** > **configuração do Site** > **servidores e funções de sistema de sites**.
 
-2.  Выберите сервер, на котором размещена роль **Точка подключения службы**.
+2.  Selecione o servidor que aloja a função **Ponto de ligação de serviço**.
 
-3.  Из списка **Роли системы сайта** выберите **Точка подключения службы**, а затем на ленте щелкните **Удалить роль**. Подтвердите удаление роли. Точка подключения службы будет удалена.
+3.  Na lista **Funções do Sistema de Sites**, selecione **Ponto de ligação de serviço** e, em seguida, clique em **Remover Função** no friso. Confirme que pretende remover a função. O ponto de ligação de serviço foi eliminado.
 
-Теперь можно создать новую точку подключения службы, добавить новую подписку Intune в Configuration Manager и задать Configuration Manager в качестве центра управления мобильными устройствами.
+Agora pode criar um novo ponto de ligação de serviço, adicione uma nova subscrição do Intune ao Configuration Manager e defina o Configuration Manager como a Autoridade de MDM.
 
-## <a name="how-to-change-mdm-authority-to-intune"></a>Изменение Центра MDM на Intune
-Начиная с версий Configuration Manager 1610 и Microsoft Intune 1705 можно изменять Центр MDM. Для этого вам не нужно обращаться в службу поддержки Майкрософт, отменять регистрацию или повторно регистрировать существующие управляемые устройства. См. дополнительные сведения об [изменении Центра MDM](/sccm/mdm/deploy-use/change-mdm-authority).
+## <a name="how-to-change-mdm-authority-to-intune"></a>Como alterar a autoridade de MDM ao Intune
+A partir do Configuration Manager versão 1610 e Microsoft Intune version 1705, pode alterar a autoridade de MDM sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a autoridade de MDM](/sccm/mdm/deploy-use/change-mdm-authority).

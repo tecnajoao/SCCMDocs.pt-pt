@@ -1,5 +1,5 @@
 ---
-title: "Скачивание определений вредоносных программ Endpoint Protection из WSUS | Документы Майкрософт"
+title: "Definições de software maligno do Endpoint Protection do WSUS | Microsoft Docs"
 definition: Learn how to configure Windows Server Updates Services to auto-approve definition updates.
 ms.custom: na
 ms.date: 02/14/2017
@@ -16,88 +16,88 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 0e606b25065fa25c782d1b5f3fbf164e60733353
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enable-endpoint-protection-malware-definitions-to-download-from-windows-server-update-services-wsus-for-configuration-manager"></a>Включение скачивания определений вредоносных программ Endpoint Protection из служб Windows Server Update Services (WSUS) для Configuration Manager
+# <a name="enable-endpoint-protection-malware-definitions-to-download-from-windows-server-update-services-wsus-for-configuration-manager"></a>Ativar as definições de software maligno do Endpoint Protection transferir a partir do Windows Server Update Services (WSUS) para o Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Если для обновления определений защиты от вредоносных программ используются службы WSUS, их вы можете настроить для автоматического утверждения обновлений определений. Несмотря на то, что рекомендуемым методом обновления определений является использование обновлений программного обеспечения Configuration Manager, вы можете настроить WSUS в качестве метода, позволяющего пользователям инициировать обновление определений вручную. Следующие процедуры предназначены для настройки WSUS в качестве источника обновлений определений.
+ Se utilizar o WSUS para manter as definições de antimalware atualizadas, pode configurá-lo para aprovar automaticamente as atualizações de definições. Embora a utilização de atualizações de software do Configuration Manager é o método recomendado para manter as definições atualizadas, também pode configurar o WSUS como um método para permitir que os utilizadores iniciem manualmente a definição atualizada. Utilize os procedimentos seguintes para configurar o WSUS como uma origem de atualização de definições.
 
-## <a name="to-synchronize-endpoint-protection-definition-updates-in-configuration-manager-software-updates"></a>Синхронизация обновлений определений для Endpoint Protection в Configuration Manager
+## <a name="to-synchronize-endpoint-protection-definition-updates-in-configuration-manager-software-updates"></a>Para sincronizar atualizações de definições de Endpoint Protection em atualizações de software do Configuration Manager
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.
+1.  Na consola do Configuration Manager, clique em **Administração**.
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Сайты**.
+2.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.
 
-3.  Выберите сайт, который содержит нужную точку обновления программного обеспечения. В группе **Параметры** выберите **Настройка компонентов сайта**, а затем щелкните **Точка обновления программного обеспечения**.
+3.  Selecione o site que contém o ponto de atualização de software. No grupo **Definições** , clique em **Configurar Componentes do Site**e, em seguida, clique em **Ponto de Atualização de Software**.
 
-4.  На вкладке **Классификации** в диалоговом окне **Свойства компонента точки обновления программного обеспечения** установите флажок **Обновления определений** .
+4.  No separador **Classificações** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione a caixa de verificação **Atualizações de Definição** .
 
-5.  Укажите **продукты** , обновляемые с помощью служб WSUS.
+5.  Especifique os **Produtos** atualizados com o WSUS:
 
-    -   Для Windows 8.1 и более ранних версий — на вкладке **Продукты** в диалоговом окне **Свойства компонента точки обновления программного обеспечения** установите флажок **Forefront Endpoint Protection 2010** .
+    -   Para o Windows 8.1 e anteriores, no separador **Produtos** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione a caixa de verificação **Forefront Endpoint Protection 2010** .
 
-    -   Для Windows 10 и более поздних версий — на вкладке **Продукты** в диалоговом окне **Свойства компонента точки обновления программного обеспечения** установите флажки **Защитник Windows** и **Windows Technical Preview 2** .
+    -   Para o Windows 10 e posterior, no separador **Produtos** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione as caixas de verificação **Windows Defender** e **Windows Technical Preview 2** .
 
-6.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Свойства компонента точки обновления программного обеспечения** .
+6.  Clique em **OK** para fechar a caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** .
 
- Приведенная ниже процедура предназначена для настройки обновлений Endpoint Protection, если сервер WSUS не интегрирован в среду Configuration Manager.
+ Utilize o procedimento seguinte para configurar atualizações do Endpoint Protection quando o servidor WSUS não estiver integrado no ambiente do Configuration Manager.
 
-## <a name="to-synchronize-endpoint-protection-definition-updates-in-standalone-wsus"></a>Синхронизация обновлений определений для Endpoint Protection в автономной среде WSUS
+## <a name="to-synchronize-endpoint-protection-definition-updates-in-standalone-wsus"></a>Para sincronizar atualizações de definições do Endpoint Protection no WSUS autónomo
 
-1.  В консоли администрирования WSUS разверните узел **Компьютеры**, щелкните **Параметры**, а затем — **Продукты и классификации**.
+1.  Na consola de administração do WSUS, expanda **Computadores**, clique em **Opções**e, em seguida, clique em **Produtos e Classificações**.
 
-2.  Укажите **продукты** , обновляемые с помощью служб WSUS.
+2.  Especifique os **Produtos** atualizados com o WSUS:
 
-    -   Для Windows 8.1 и более ранних версий — на вкладке **Продукты** в диалоговом окне **Свойства компонента точки обновления программного обеспечения** установите флажок **Forefront Endpoint Protection 2010** .
+    -   Para o Windows 8.1 e anteriores, no separador **Produtos** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione a caixa de verificação **Forefront Endpoint Protection 2010** .
 
-    -   Для Windows 10 и более поздних версий — на вкладке **Продукты** в диалоговом окне **Свойства компонента точки обновления программного обеспечения** установите флажки **Защитник Windows** и **Windows Technical Preview 2** .
+    -   Para o Windows 10 e posterior, no separador **Produtos** da caixa de diálogo **Propriedades do Componente do Ponto de Atualização de Software** , selecione as caixas de verificação **Windows Defender** e **Windows Technical Preview 2** .
 
-3.  На вкладке **Классификации** в диалоговом окне **Продукты и классификации** установите флажки **Обновления определений** и **Обновления** .
+3.  No separador **Classificações** da caixa de diálogo **Produtos e Classificações** , selecione as caixas de verificação **Atualizações de Definição** e **Atualizações** .
 
-## <a name="approving-definition-updates"></a>Одобрение обновлений определений
- Прежде чем обновления определений Endpoint Protection можно будет предлагать клиентам, запрашивающим список доступных обновлений, эти обновления должны быть одобрены и загружены на сервер WSUS. Клиенты подключаются к серверу WSUS для проверки наличия применимых обновлений и затем запрашивают последние одобренные обновления определений.
+## <a name="approving-definition-updates"></a>Aprovar Atualizações de Definições
+ Atualizações de definições do Endpoint Protection tem de ser aprovadas e transferidas para o servidor WSUS antes de serem disponibilizadas aos clientes que solicitam a lista de atualizações disponíveis. Os clientes ligam ao servidor WSUS para verificar se existem atualizações aplicáveis e, em seguida, solicitam as atualizações de definições aprovadas mais recentes.
 
-### <a name="to-approve-definitions-and-updates-in-wsus"></a>Одобрение определений и обновлений в WSUS
+### <a name="to-approve-definitions-and-updates-in-wsus"></a>Para aprovar definições e atualizações no WSUS
 
-1.  В консоли администрирования WSUS щелкните **Обновления**, а затем щелкните **Все обновления** или выберите классификацию обновлений, которые нужно одобрить.
+1.  Na consola de administração do WSUS, clique em **Atualizações**e, em seguida, clique em **Todas as Atualizações** ou na classificação das atualizações que pretende aprovar.
 
-2.  В списке обновлений правой кнопкой мыши щелкните обновления, которые нужно одобрить для установки, а затем выберите команду **Одобрить**.
+2.  Na lista de atualizações, clique com o botão direito do rato na atualização ou atualizações que pretende aprovar para instalação e, em seguida, clique em **Aprovar**.
 
-3.  В диалоговом окне **Одобрение обновлений** выберите группу компьютеров, для которой нужно одобрить обновления, и нажмите кнопку **Одобрено для установки**.
+3.  Na caixa de diálogo **Aprovar Atualizações** , selecione o grupo de computadores para o qual pretende aprovar as atualizações e, em seguida, clique em **Aprovado para Instalação**.
 
- Помимо одобрения вручную, вы можете задать правило автоматического одобрения для обновлений определений и обновлений Endpoint Protection. Службы WSUS будут настроены для автоматического одобрения обновлений определений Endpoint Protection, скачанных с помощью служб WSUS.
+ Para além da aprovação manual, também pode definir uma regra de aprovação automática para atualizações de definições e atualizações do Endpoint Protection. Isto irá configurar o WSUS para aprovar automaticamente atualizações de definições de Endpoint Protection transferidas pelo WSUS.
 
-### <a name="to-configure-an-automatic-approval-rule"></a>Настройка правила автоматического одобрения
+### <a name="to-configure-an-automatic-approval-rule"></a>Para configurar uma regra de aprovação automática
 
-1.  В консоли администрирования WSUS щелкните **Параметры**, а затем нажмите кнопку **Автоматические одобрения**.
+1.  Na consola de administração do WSUS, clique em **Opções**e, em seguida, clique em **Aprovações Automáticas**.
 
-2.  На вкладке **Правила обновлений** щелкните **Создать правило**.
+2.  No separador **Regras de Atualização** , clique em **Nova Regra**.
 
-3.  В диалоговом окне **Добавление правила** в разделе **Шаг 1. Выбор свойства**установите флажок **Когда обновление затрагивает конкретный класс** .
+3.  No **Adicionar regra** caixa de diálogo em **passo 1: Selecionar propriedades**, selecione o **quando uma atualização se encontra numa classificação específica** caixa de verificação.
 
-4.  В разделе **Шаг 2. Изменение свойств**щелкните **любой класс**.
+4.  Em **passo 2: Editar as propriedades**, clique em **qualquer classificação**.
 
-5.  Снимите все флажки, за исключением **Обновления определений**, а затем нажмите кнопку **ОК**.
+5.  Desmarque todas as caixas de verificação, exceto **Atualizações de Definição**e, em seguida, clique em **OK**.
 
-6.  В диалоговом окне **Добавление правила** в разделе **Шаг 1. Выбор свойства**установите флажок **Когда обновление затрагивает конкретный продукт** .
+6.  No **Adicionar regra** caixa de diálogo em **passo 1: Selecionar propriedades**, selecione o **quando uma atualização se encontra num produto específico** caixa de verificação.
 
-7.  В разделе **Шаг 2. Изменение свойств**щелкните **любой продукт**.
+7.  Em **passo 2: Editar as propriedades**, clique em **qualquer produto**.
 
-8.  Снимите все флажки, за исключением **Forefront Endpoint Protection** для Windows 8.1 и более ранних версий или **Защитник Windows** для Windows 10 и более поздних версий, а затем нажмите кнопку **ОК**.
+8.  Desmarque todas as caixas de verificação, exceto **Forefront Endpoint Protection** para o Windows 8.1 e versões anteriores ou **Windows Defender** para o Windows 10 e posterior e, em seguida, clique em **OK**.
 
-9. В разделе **Шаг 3. Указание имени**введите имя для правила и нажмите кнопку **ОК**.
+9. Em **passo 3: Especifique um nome**, introduza um nome para a regra e, em seguida, clique em **OK**.
 
-10. В диалоговом окне **Автоматические одобрения** установите флажок для только что созданного правила, а затем щелкните **Выполнить правило**.
+10. Na caixa de diálogo **Aprovações Automáticas** , selecione a caixa de verificação da regra criada recentemente e, em seguida, clique em **Executar regra**.
 
 > [!NOTE]
->  Чтобы увеличить производительность сервера WSUS и клиентских компьютеров, отклоните старые обновления определений. Для выполнения этой задачи настройте автоматическое одобрение исправлений и автоматическое отклонение обновлений с истекшим сроком действия. Дополнительные сведения см. в статье [938947 базы знаний Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=204078).
+>  Para maximizar o desempenho no seu servidor WSUS e computadores cliente, recuse atualizações de definições antigas. Para realizar esta tarefa, pode configurar a aprovação automática de revisões e a recusa automática de atualizações expiradas. Para obter mais informações, veja o [artigo 938947 da Base de Dados de Conhecimento Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=204078).
 
 > [!div class="button"]
-[Следующий этап >](endpoint-antimalware-policies.md)
+[Passo seguinte >](endpoint-antimalware-policies.md)
 
 > [!div class="button"]
-[Назад >](endpoint-configure-alerts.md)
+[Volta >](endpoint-configure-alerts.md)

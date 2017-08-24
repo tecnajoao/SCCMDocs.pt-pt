@@ -1,6 +1,6 @@
 ---
-title: "Создание приложений для компьютеров Mac | Документы Майкрософт"
-description: "Узнайте, какие аспекты необходимо учитывать при создании и развертывании приложений для компьютеров Mac."
+title: "Criar aplicações para computadores Mac | Microsoft Docs"
+description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações para computadores Mac."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,200 +16,200 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: ffd66a4047ec253704e9772e2c3e3a4d9db7c46f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Создание приложений для компьютеров Mac с помощью System Center Configuration Manager
+# <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Criar aplicações para computadores Mac com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-При создании и развертывании приложений для компьютеров Mac учитывайте приведенные ниже аспекты.  
+Manter as seguintes considerações em mente quando criar e implementar aplicações para computadores Mac.  
 
 > [!IMPORTANT]  
->  Процедуры, описанные в этом разделе, охватывают сведения о развертывании приложений на компьютерах Mac, на которых установлен клиент Configuration Manager. Компьютеры Mac, которые зарегистрированы с помощью Microsoft Intune, не поддерживают развертывание приложений.  
+>  Os procedimentos deste tópico abrangem informações sobre como implementar aplicações em computadores de Mac em que instalou o cliente do Configuration Manager. Os computadores Mac que inscreveu no Microsoft Intune não suportam a implementação de aplicação.  
 
-## <a name="general-considerations"></a>Общие вопросы  
- System Center Configuration Manager можно использовать для развертывания приложений на компьютерах Mac, на которых выполняется клиент Configuration Manager. Инструкции по развертыванию программного обеспечения на компьютерах Mac аналогичны тем, что используются для развертывания программного обеспечения на компьютерах Windows. Однако прежде чем приступить к созданию и развертыванию приложений для компьютеров Mac, которыми управляет Configuration Manager, примите во внимание следующее.  
+## <a name="general-considerations"></a>Considerações gerais  
+ Pode utilizar o System Center Configuration Manager para implementar aplicações em computadores Mac que executem o cliente do Configuration Manager Mac. Os passos para implementar software em computadores Mac são semelhantes aos passos para implementar software em computadores Windows. No entanto, antes de criar e implementar aplicações para computadores Mac que sejam geridos pelo Configuration Manager, considere o seguinte:  
 
--   Перед развертыванием пакетов приложений для Mac на компьютерах Mac необходимо использовать инструмент **CMAppUtil** на компьютере Mac, чтобы преобразовать эти приложения в формат, который поддерживается Configuration Manager.  
+-   Antes de poder implementar pacotes de aplicações para computadores Mac, tem de utilizar o **CMAppUtil** ferramenta num computador Mac para converter estas aplicações num formato que possa ser lido pelo Configuration Manager.  
 
--   Configuration Manager не поддерживает развертывание приложений Mac для пользователей. Эти развертывания должны выполняться на устройство. Также при развертывании приложений для Mac Configuration Manager не поддерживает параметр **Предварительно развертывать программное обеспечение на основном устройстве пользователя** на странице **Параметры развертывания** **мастера развертывания программного обеспечения**.  
+-   O Configuration Manager não suporta a implementação de aplicações Mac para os utilizadores. Em vez disso, estas implementações têm de ser efetuadas num dispositivo. Da mesma forma, para implementações de aplicações Mac, o Configuration Manager não suporta o **pré-implementar software no dispositivo primário do utilizador** opção o **definições de implementação** página do **Assistente de implementação de Software**.  
 
--   Приложения для Mac поддерживают имитации развертываний.  
+-   As aplicações MAC suportam implementações simuladas.  
 
--   Нельзя развернуть приложения на компьютеры Mac, для которых задана цель **Доступно**.  
+-   Não é possível implementar aplicações em computadores Mac que tenham um objetivo de **Disponível**.  
 
--   Параметр отправки пакетов пробуждения при развертывании программного обеспечения не поддерживается для компьютеров Mac.  
+-   A opção de enviar pacotes de reativação ao implementar software não é suportada para computadores Mac.  
 
--   Компьютеры Mac не поддерживают фоновую интеллектуальную службу передачи (BITS) для скачивания содержимого приложения. При сбое скачивания приложения оно перезапускается с начала.  
+-   Computadores Mac não suportam a serviço de transferência inteligente em segundo plano (BITS) para transferir o conteúdo da aplicação. Se uma transferência de aplicação falhar, é reiniciado desde o início.  
 
--   Configuration Manager не поддерживает глобальные условия при создании типов развертывания для компьютеров Mac.  
+-   O Configuration Manager não suporta condições globais ao criar tipos de implementação para computadores Mac.  
 
-## <a name="steps-to-create-and-deploy-an-application"></a>Шаги для создания и развертывания приложения  
- В приведенной ниже таблице представлены действия, описание и дополнительные сведения для создания и развертывания приложений на компьютерах Mac.  
+## <a name="steps-to-create-and-deploy-an-application"></a>Passos para criar e implementar uma aplicação  
+ A tabela seguinte fornece os passos, detalhes e informações para criar e implementar aplicações para computadores Mac.  
 
-|Шаг|Подробные сведения|  
+|Passo|Detalhes|  
 |----------|-------------|  
-|**Шаг 1.** Подготовка приложений Mac для Configuration Manager|Перед созданием приложений Configuration Manager из программных пакетов Mac следует использовать инструмент **CMAppUtil** на компьютере Mac, чтобы преобразовать ПО для Mac в **CMMAC**-файл Configuration Manager.|  
-|**Шаг 2.** Создание приложения Configuration Manager, содержащего ПО для Mac|Создайте приложение для Mac с помощью **мастера создания приложений**.|  
-|**Шаг 3.** Создание типа развертывания для приложения Mac|Этот шаг необходим, только если вы не импортируете эти сведения из приложения автоматически.|  
-|**Шаг 4.** Развертывание приложения Mac|Используйте **мастер развертывания приложений**, чтобы развернуть ПО на компьютерах Mac.|  
-|**Шаг 5.** Мониторинг развертывания приложения Mac|Отслеживание успешности развертывания приложений на компьютерах Mac.|  
+|**Passo 1**: Preparar aplicações Mac para o Configuration Manager|Antes de poder criar aplicações do Configuration Manager a partir de pacotes de software Mac, tem de utilizar o **CMAppUtil** ferramenta num computador Mac para converter o software Mac para o Configuration Manager**. cmmac** ficheiro.|  
+|**Passo 2**: Criar uma aplicação do Configuration Manager que contenha o software Mac|Utilize o **Assistente para criar aplicação** para criar uma aplicação para o software Mac.|  
+|**Passo 3**: Criar um tipo de implementação para a aplicação Mac|Este passo só será necessário se não tiver importado automaticamente estas informações a partir da aplicação.|  
+|**Passo 4**: Implementar a aplicação Mac|Utilize o **Assistente de implementação de Software** para implementar a aplicação em computadores Mac.|  
+|**Passo 5**: Monitorize a implementação da aplicação Mac|Monitorize o êxito das implementações de aplicações para computadores Mac.|  
 
-## <a name="supplemental-procedures-to-create-and-deploy-applications-for-mac-computers"></a>Дополнительные процедуры для создания и развертывания приложений для компьютеров Mac  
- Используйте следующие процедуры для создания и развертывания приложений для компьютеров Mac, которыми управляет Configuration Manager.  
+## <a name="supplemental-procedures-to-create-and-deploy-applications-for-mac-computers"></a>Procedimentos suplementares para criar e implementar aplicações para computadores Mac  
+ Utilize os procedimentos seguintes para criar e implementar aplicações para computadores Mac que sejam geridos pelo Configuration Manager.  
 
-###  <a name="step-1-prepare-mac-applications-for-configuration-manager"></a>Шаг 1. Подготовка приложений Mac для Configuration Manager  
- Процесс создания и развертывания приложений Configuration Manager на компьютерах Mac аналогичен процессу развертывания для компьютеров с Windows. Тем не менее до создания приложений Configuration Manager, содержащих типы развертывания Mac, необходимо подготовить их с помощью средства **CMAppUtil**. Это средство загружается с файлами установки клиента для Mac. Средство **CMAppUtil** собирает сведения о приложении, в том числе обнаруживает данные из следующих пакетов Mac:  
+###  <a name="step-1-prepare-mac-applications-for-configuration-manager"></a>Passo 1: Preparar aplicações Mac para o Configuration Manager  
+ O processo para criar e implementar aplicações do Configuration Manager em computadores Mac é semelhante ao processo de implementação para computadores Windows. No entanto, antes de criar aplicações do Configuration Manager que contenham tipos de implementação Mac, tem de preparar as aplicações utilizando o **CMAppUtil** ferramenta. Esta ferramenta é transferida com os ficheiros de instalação do cliente Mac. A ferramenta **CMAppUtil** reúne informações sobre a aplicação, incluindo os dados de deteção dos seguintes pacotes Mac:  
 
--   образ диска Apple (DMG);  
+-   Imagem de Disco Apple (.dmg)  
 
--   метафайл пакета (MPKG);  
+-   Ficheiro de Pacote Meta (.mpkg)  
 
--   пакет установщика Mac OS X (PKG);  
+-   Pacote Instalador do Mac OS X (.pkg)  
 
--   приложение Mac OS X (APP).  
+-   Aplicação do Mac OS X (.app)  
 
-После сбора информации о приложении **CMAppUtil** создает файл с расширением **.cmmac**. Этот файл содержит файлы установки программного обеспечения для Mac и сведения о методах обнаружения, позволяющих определить, установлено ли данное приложение. **CMAppUtil** может также обработать файлы **.dmg** , содержащие несколько приложений Mac, и создать свой собственный тип развертывания для каждого приложения.  
+Após recolher as informações, a ferramenta **CMAppUtil** cria um ficheiro com a extensão **.cmmac**. Este ficheiro contém os ficheiros de instalação do software Mac e informações sobre métodos de deteção que podem ser utilizados para avaliar se a aplicação já está instalada. A ferramenta**CMAppUtil** também pode processar ficheiros **.dmg** que contenham várias aplicações Mac e criar tipos de implementação diferentes para cada aplicação.  
 
-1.  Скопируйте установочный пакет ПО для Mac в папку на компьютере Mac, в которую вы извлекли содержимое файла **macclient.dmg** , загруженного из Центра загрузки Майкрософт.  
+1.  Copie o pacote de instalação do software Mac para a pasta do computador Mac onde extraiu os conteúdos do ficheiro **macclient.dmg** que transferiu a partir do Centro de Transferências da Microsoft.  
 
-2.  На том же компьютере откройте окно терминала и перейдите в папку, в которую было извлечено содержимое файла **macclient.dmg** .  
+2.  No mesmo computador Mac, abra uma janela de terminal e navegue para a pasta onde extraiu os conteúdos do ficheiro **macclient.dmg** .  
 
-3.  Перейдите к папке **Tools** и введите в командной строке следующую команду:  
+3.  Navegue para o **ferramentas** pasta e escreva o seguinte comando da linha de comandos:  
 
-     **./CMAppUtil** *<свойства\>*  
+     **./CMAppUtil** *<properties\>*  
 
-     Например, вам нужно преобразовать содержимое файла образа диска Apple с именем **MySoftware.dmg**, который хранится в папке пользователя на рабочем столе, в файл **cmmac** в той же папке. Вам также необходимо создать файлы **cmmac** для всех приложений, обнаруженных в образе диска. Для этого используйте следующую команду:  
+     Por exemplo, imagine que pretende converter os conteúdos de um ficheiro de imagem de disco Apple com o nome **MySoftware.dmg** que é armazenado na pasta de ambiente de trabalho do utilizador para um **cmmac** ficheiro na mesma pasta. Pretende também criar **cmmac** ficheiros para todas as aplicações que se encontram no ficheiro de imagem de disco. Para tal, utilize a seguinte linha de comandos:  
 
-     **./CMApputil –c /Users/** *<имя_пользователя\>* **/Desktop/MySoftware.dmg -o /Users/** *<имя_пользователя\>* **/Desktop -a**  
-
-    > [!NOTE]  
-    >  Длина имени приложения должна быть не более 128 символов.  
-
-     Для настройки параметров для **CMAppUtil**используйте свойства командной строки, перечисленные в следующей таблице.  
-
-    |Свойство|Дополнительные сведения|  
-    |--------------|----------------------|  
-    |**-h**|Отображает доступные свойства командной строки.|  
-    |**-r**|Выводит **detection.xml** указанного файла **.cmmac** в **stdout**. Результат содержит параметры обнаружения и версию **CMAppUtil** , которая использовалась для создания файла **.cmmac** .|  
-    |**-c**|Укажите исходный файл для преобразования.|  
-    |**-o**|Укажите путь выходных данных в сочетании со свойством -c.|  
-    |**-a**|В сочетании со свойством -c используется для автоматического создания CMMAC-файлов для всех приложений и пакетов в файле образа диска.|  
-    |**-s**|**detection.xml** не создается, если параметры обнаружения не были найдены, а файл **.cmmac** принудительно создается без файла **detection.xml** .|  
-    |**-v**|Отображает более подробные выходные данные средства **CMAppUtil** вместе с диагностической информацией.|  
-
-4.  Убедитесь, что файл **.cmmac** создан в указанной папке.  
-
-###  <a name="create-a-configuration-manager-application-that-contains-the-mac-software"></a>Создание приложения Configuration Manager, содержащего ПО для Mac  
-
-Используйте следующую процедуру, чтобы создать приложение для компьютеров Mac, которыми управляет Configuration Manager.  
-
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.  
-
-3.  На вкладке **Главная** в группе **Создать** щелкните **Создать приложение**.  
-
-4.  На странице **Общие** **Мастера создания приложений**выберите **Автоматически получить данные об этом приложении из файлов установки**.  
+     **./CMApputil –c /Users/** *<User Name\>* **/Desktop/MySoftware.dmg -o /Users/** *<User Name\>* **/Desktop -a**  
 
     > [!NOTE]  
-    >  Если вы хотите самостоятельно указать информацию о приложении, выберите параметр **Вручную задать сведения о приложении**. Дополнительные сведения о вводе этих сведений вручную см. в разделе [Создание приложений с помощью System Center Configuration Manager](../../apps/deploy-use/create-applications.md).  
+    >  O nome da aplicação não é possível ter mais de 128 carateres.  
 
-5.  В раскрывающемся списке **Тип** выберите значение **Mac OS X**.  
+     Para configurar as opções da ferramenta **CMAppUtil**, utilize as propriedades da linha de comandos da seguinte tabela:  
 
-6.  В поле **Расположение** укажите UNC-путь в формате *\\\\<сервер\>\\<общая_папка\>\\<имя_файла\>* к установочному файлу приложения (**CMMAC**-файлу), который будет искать сведения о приложении. Или же нажмите кнопку **Обзор**, чтобы выбрать папку с установочным файлом.  
+  	|Propriedade|Mais informações|  
+  	|--------------|----------------------|  
+  	|**-h**|Apresenta as propriedades da linha de comandos disponíveis.|  
+  	|**-r**|Produz o **detection.xml** do ficheiro **.cmmac** fornecido para **stdout**. A saída contém os parâmetros de deteção e a versão da ferramenta **CMAppUtil** que foi utilizada para criar o ficheiro **.cmmac** .|  
+  	|**-c**|Especifica o ficheiro de origem a converter.|  
+  	|**-o**|Especifica o caminho de saída em conjunto com a propriedade-c.|  
+  	|**-a**|Cria automaticamente os ficheiros. cmmac em conjunto com a propriedade-c para todas as aplicações e pacotes no ficheiro de imagem de disco.|  
+  	|**-s**|Ignora a geração de **detection.xml** se não forem encontrados parâmetros de deteção e força a criação do ficheiro **.cmmac** sem o ficheiro **detection.xml** .|  
+  	|**-v**|Apresenta uma saída mais detalhada da ferramenta **CMAppUtil** , juntamente com informações de diagnóstico.|  
+
+4.  Certifique-se de que o ficheiro **.cmmac** foi criado na pasta de saída que especificou.  
+
+###  <a name="create-a-configuration-manager-application-that-contains-the-mac-software"></a>Criar uma aplicação do Configuration Manager que contenha o software Mac  
+
+Utilize o procedimento seguinte para ajudar a criar uma aplicação para computadores Mac que sejam geridos pelo Configuration Manager.  
+
+1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
+
+3.  No **home page** separador o **criar** grupo, escolha **Criar aplicação**.  
+
+4.  No **geral** página do **Assistente para criar aplicação**, selecione **detetar automaticamente informação sobre esta aplicação nos ficheiros de instalação**.  
 
     > [!NOTE]  
-    >  У вас должен быть доступ к UNC-пути, по которому содержится приложение.  
+    >  Se pretender especificar informações acerca da aplicação por si, selecione **especificar manualmente as informações da aplicação**. Para obter mais informações sobre como especificar manualmente as informações, veja [Como criar aplicações com o System Center Configuration Manager](../../apps/deploy-use/create-applications.md).  
 
-7.  Нажмите кнопку **Далее**.  
+5.  Na lista pendente **Tipo** , selecione **Mac OS X**.  
 
-8.  На странице **Импорт сведений** **мастера создания приложений** просмотрите импортированные сведения. При необходимости нажмите кнопку **Назад**, чтобы вернуться и исправить ошибки. Чтобы продолжить, нажмите кнопку **Далее**.  
-
-9. На странице **Общие сведения** **мастера создания приложений** укажите сведения о приложении, такие как имя приложения, комментарии, версия и дополнительная ссылка, упрощающая обращение к приложению из консоли Configuration Manager.  
+6.  No **localização** campo, especifique o caminho UNC no formato  *\\ \\< servidor\>\\< partilhar\>\\< filename\>*  para o ficheiro de instalação de aplicação Mac (**. cmmac** ficheiro) que detetará as informações da aplicação. Em alternativa, optar **procurar** procurar e especificar a localização do ficheiro de instalação.  
 
     > [!NOTE]  
-    >  Некоторые сведения о приложении могут уже присутствовать на этой странице, если они были ранее получены из файлов установки приложения.  
+    >  Terá de ter acesso ao caminho UNC que contém a aplicação.  
 
-10. Нажмите кнопку **Далее**, просмотрите сведения о приложении на странице **Сводка**, после чего завершите работу **мастера создания приложений**.  
+7.  Escolha **seguinte**.  
 
-11. В узле **Приложения** консоли Configuration Manager отобразится новое приложение.  
+8.  No **importar informação** página do **Assistente para criar aplicação**, reveja as informações que foram importadas. Se necessário, pode escolher **anterior** para voltar atrás e corrigir os eventuais erros. Escolha **seguinte** para continuar.  
 
-###  <a name="step-3-create-a-deployment-type-for-the-mac-application"></a>Шаг 3. Создание типа развертывания для приложения Mac  
- Используйте следующую процедуру, чтобы создать тип развертывания для компьютеров Mac, которыми управляет Configuration Manager.  
+9. No **informações gerais** página do **Assistente para criar aplicação**, especifique as informações sobre a aplicação, tais como o nome da aplicação, comentários, versão e uma referência opcional para o ajudar a referir a aplicação na consola do Configuration Manager.  
+
+    > [!NOTE]  
+    >  Algumas das informações da aplicação poderão já estar nesta página, se tiverem sido obtidas anteriormente a aplicação nos ficheiros de instalação.  
+
+10. Escolha **seguinte**, reveja as informações da aplicação no **resumo** página e, em seguida, conclua o **Assistente para criar aplicação**.  
+
+11. A nova aplicação é apresentada no **aplicações** nós da consola do Configuration Manager.  
+
+###  <a name="step-3-create-a-deployment-type-for-the-mac-application"></a>Passo 3: Criar um tipo de implementação para a aplicação Mac  
+ Utilize o procedimento seguinte para ajudar a criar um tipo de implementação para computadores Mac que sejam geridos pelo Configuration Manager.  
 
 > [!NOTE]  
->  Если вы автоматически импортировали сведения о приложении в **мастере создания приложений**, возможно, тип развертывания для приложения уже создан.  
+>  Se tiver importado automaticamente informações sobre a aplicação no **Assistente para criar aplicação**, um tipo de implementação para a aplicação poderá já ter sido criado.  
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.  
+1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
 
-3.  Выберите приложение. Затем на вкладке **Главная** в группе **Приложение** выберите элемент **Создать тип развертывания**, чтобы создать тип развертывания для этого приложения.  
-
-    > [!NOTE]  
-    >  **Мастер создания типа развертывания** также можно запустить из **мастера создания приложений** и с вкладки **Типы развертывания** диалогового окна *Свойства* **<имя_приложения\>**.  
-
-4.  На странице **Общие** **мастера создания типа развертывания** в раскрывающемся списке **Тип** выберите **Mac OS X**.  
-
-5.  В поле **Расположение** укажите UNC-путь в формате \\\\<сервер\>\\<общая_папка\>\\<имя_файла\> к файлу установки приложения (**CMMAC**-файлу). Или же нажмите кнопку **Обзор**, чтобы выбрать папку с установочным файлом.  
+3.  Selecione uma aplicação. Em seguida, no **home page** separador o **aplicação** grupo, escolha **criar tipo de implementação** para criar um novo tipo de implementação para esta aplicação.  
 
     > [!NOTE]  
-    >  У вас должен быть доступ к UNC-пути, по которому содержится приложение.  
+    >  Também pode iniciar o **implementação Assistente para criar tipo** do **Assistente para criar aplicação** e para o **tipos de implementação** separador do *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
 
-6.  Нажмите кнопку **Далее**.  
+4.  No **geral** página do **implementação Assistente para criar tipo**, no **tipo** na lista pendente, selecione **Mac OS X**.  
 
-7.  На странице **Импорт сведений** **мастера создания приложений**просмотрите импортированные сведения. При необходимости нажмите кнопку **Назад**, чтобы вернуться и исправить ошибки. Чтобы продолжить, нажмите кнопку **Далее**.  
-
-8.  На странице **Общие сведения** **мастера создания типа развертывания**укажите информацию о приложении, например его имя, комментарии и языки, на которых доступен тип развертывания.  
+5.  No **localização** campo, especifique o caminho UNC no formato \\ \\< servidor\>\\< partilhar\>\\< filename\> para o ficheiro de instalação da aplicação (**. cmmac** ficheiro). Em alternativa, optar **procurar** procurar e especificar a localização do ficheiro de instalação.  
 
     > [!NOTE]  
-    >  Некоторые из сведений о типе развертывания могут уже присутствовать на этой странице, если они были ранее получены из файлов установки приложения.  
+    >  Terá de ter acesso ao caminho UNC que contém a aplicação.  
 
-9. Нажмите кнопку **Далее**.  
+6.  Escolha **seguinte**.  
 
-10. На странице **Требования** **мастера создания типа развертывания** можно указать условия, которые должны быть удовлетворены, чтобы тип развертывания можно было установить на компьютеры Mac.  
+7.  Na página **Importar Informação** do **Assistente para Criar Tipo de Implementação**, reveja as informações que foram importadas. Se necessário, escolha **anterior** para voltar atrás e corrigir os eventuais erros. Escolha **seguinte** para continuar.  
 
-11. Нажмите кнопку **Добавить**, чтобы открыть диалоговое окно **Создание требования** и добавить новое требование.  
+8.  Na página **Informações Gerais** do **Assistente para Criar Tipo de Implementação**, especifique informações sobre a aplicação, tais como o respetivo nome, comentários e os idiomas em que o tipo de implementação está disponível.  
 
     > [!NOTE]  
-    >  Новые требования можно также добавить на вкладке **Требования** диалогового окна *Свойства* **<имя_типа_развертывания\>**.  
+    >  Algumas das informações de tipo de implementação podem já estar nesta página, se tiverem sido obtidas anteriormente a aplicação nos ficheiros de instalação.  
 
-12. В раскрывающемся списке **Категория** укажите, что данное требование предназначено для устройства.  
+9. Escolha **seguinte**.  
 
-13. В раскрывающемся списке **Условие** выберите условие, на основании которого будет оцениваться соответствие компьютера Mac требованиям для установки. Содержимое этого списка зависит от того, какая категория выбрана.  
+10. No **requisitos** página do **implementação Assistente para criar tipo**, pode especificar as condições que devem ser satisfeitas para que o tipo de implementação possa ser instalado em computadores Mac.  
 
-14. В раскрывающемся списке **Оператор** выберите оператор, который будет использоваться для сравнения выбранного условия с указанным значением в рамках проверки соответствия пользователя или устройства требованиям для установки. Набор доступных операторов зависит от выбранного условия.  
+11. Escolha **adicionar** para abrir o **criar requisito** diálogo caixa e adicionar um novo requisito.  
 
-15. В поле **Значение** укажите значения, по которым с помощью выбранного условия и оператора будет определяться соответствие пользователя или устройства требованию для установки. Набор доступных значений зависит от выбранного условия и оператора.
+    > [!NOTE]  
+    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo.  
 
-16. Нажмите кнопку **ОК**, чтобы сохранить правило требования и закрыть диалоговое окно **Создать требование**.  
+12. Na lista pendente **Categoria** , selecione que este requisito se aplica a um dispositivo.  
 
-17. На странице **Требования** в **мастере создания типа развертывания** нажмите кнопку **Далее**.  
+13. Do **condição** pendente lista, selecione a condição que pretende utilizar para avaliar se o computador Mac cumpre os requisitos de instalação. O conteúdo desta lista varia consoante a categoria que selecionar.  
 
-18. На странице **Сводка** **создания типа развертывания мастера**просмотрите действия, которые мастер выполнит.  При необходимости нажмите кнопку **Назад**, чтобы вернуться и изменить параметры типа развертывания. Нажмите кнопку **Далее**, чтобы создать тип развертывания.  
+14. Do **operador** pendente lista, escolha o operador a utilizar para comparar a condição selecionada com o valor especificado para avaliar se o utilizador ou dispositivo satisfaz os requisitos de instalação. Os operadores disponíveis variam consoante a condição selecionada.  
 
-19. По завершении процесса на странице **Ход выполнения** просмотрите действия, которые были выполнены, и нажмите кнопку **Закрыть**, чтобы завершить работу **мастера создания типа развертывания**.  
+15. No **valor** campo, especifique os valores a utilizar com a condição e operador selecionados para avaliar se o utilizador ou dispositivo satisfaz o requisito de instalação. Os valores disponíveis variam consoante a condição e operador que selecionar.
 
-20. Если мастер был запущен из **мастера создания приложений**, снова откроется страница **Типы развертывания**.  
+16. Escolha **OK** para guardar a regra de requisito e sair do **criar requisito** caixa de diálogo.  
 
-###  <a name="deploy-the-mac-application"></a>Развертывание приложения Mac  
- Инструкции по развертыванию приложения на компьютерах Mac аналогичны тем, что используются для развертывания приложения на компьютерах с ОС Windows, за исключением указанных ниже отличий.  
+17. No **requisitos** página do **implementação Assistente para criar tipo**, escolha **seguinte**.  
 
--   Развертывание приложений для пользователей не поддерживается.  
+18. Na página **Resumo** do **Assistente para Criar Tipo de Implementação**, reveja as ações que o assistente deverá executar.  Se necessário, escolha **anterior** para voltar atrás e alterar as definições de tipo de implementação. Escolha **seguinte** para criar o tipo de implementação.  
 
--   Развертывания с целью **Доступно** не поддерживаются.  
+19. Depois do **progresso** página depois de concluída, reveja as ações que foram executadas e, em seguida, escolha **fechar** para concluir a **implementação Assistente para criar tipo**.  
 
--   Параметр **Предварительно развертывать программное обеспечение на основном устройстве пользователя** на странице **Параметры развертывания** **мастера развертывания программного обеспечения** не поддерживается.  
+20. Se tiver iniciado o Assistente do **Assistente para criar aplicação**, regressará ao **tipos de implementação** página.  
 
--   Так как компьютеры Mac не поддерживают центр программного обеспечения, параметр **Уведомления для пользователей** на странице **Взаимодействие с пользователем** **мастера развертывания ПО** игнорируется.  
+###  <a name="deploy-the-mac-application"></a>Implementar a aplicação Mac  
+ Os passos para implementar uma aplicação em computadores Mac são os mesmos que os passos para implementar uma aplicação em computadores Windows, exceto as seguintes diferenças:  
 
--   Параметр отправки пакетов пробуждения при развертывании программного обеспечения не поддерживается для компьютеров Mac.  
+-   A implementação de aplicações para utilizadores não é suportada.  
+
+-   Não são suportadas implementações que tenham um objetivo de **Disponível** .  
+
+-   O **pré-implementar software no dispositivo primário do utilizador** opção o **definições de implementação** página do **Assistente de implementação de Software** não é suportada.  
+
+-   Porque os computadores Mac não suportam o Centro de Software, a definição **notificações do utilizador** no **experiência de utilizador** página do **Assistente de implementação de Software** é ignorada.  
+
+-   A opção de enviar pacotes de reativação ao implementar software não é suportada para computadores Mac.  
 
 > [!NOTE]  
->  Можно создать коллекцию, содержащую только компьютеры Mac. Для этого создайте коллекцию, применяющую правило запроса, и воспользуйтесь примером WQL-запроса, описанным в разделе [Создание запросов](../../core/servers/manage/create-queries.md).  
+>  Pode criar uma coleção que contenha apenas computadores Mac. Para tal, crie uma coleção que utilize uma regra de consulta e utilize a consulta de exemplo WQL no [como criar consultas](../../core/servers/manage/create-queries.md) tópico.  
 
- Дополнительные сведения см. в разделе [Развертывание приложений](../../apps/deploy-use/deploy-applications.md).  
+ Para obter mais informações, consulte [implementar aplicações](../../apps/deploy-use/deploy-applications.md).  
 
-###  <a name="step-5-monitor-the-deployment-of-the-mac-application"></a>Шаг 5. Мониторинг развертывания приложения Mac  
- Для отслеживания развертывания приложений на компьютерах Mac можно использовать тот же процесс, что и для отслеживания развертывания приложений на компьютерах с Windows.  
+###  <a name="step-5-monitor-the-deployment-of-the-mac-application"></a>Passo 5: Monitorize a implementação da aplicação Mac  
+ Pode utilizar o mesmo processo para monitorizar implementações de aplicações para computadores Mac, tal como faria para monitorizar implementações de aplicações para computadores Windows.  
 
- Дополнительные сведения см. в разделе [Мониторинг приложений](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+ Para obter mais informações, consulte [monitorizar aplicações](/sccm/apps/deploy-use/monitor-applications-from-the-console).  

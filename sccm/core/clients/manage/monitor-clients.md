@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг клиентов Configuration Manager | Документы Майкрософт"
-description: "Подробные инструкции по мониторингу клиентов в System Center Configuration Manager."
+title: Monitorizar clientes - Configuration Manager | Microsoft Docs
+description: "Obter orientações detalhadas sobre como monitorizar clientes no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,98 +16,98 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 08a4d9b29871b49e3118aef949572cef64940f96
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-clients-in-system-center-configuration-manager"></a>Мониторинг клиентов в System Center Configuration Manager
+# <a name="how-to-monitor-clients-in-system-center-configuration-manager"></a>Como monitorizar clientes no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- Установив клиентское приложение System Center Configuration Manager на компьютерах и устройствах Windows на сайте, можно отслеживать их работоспособность и активность в консоли Configuration Manager.  
+ Assim que a aplicação de cliente do System Center Configuration Manager foi instalada nos computadores com o Windows e dispositivos no seu site, pode monitorizar o respetivo estado de funcionamento e a atividade na consola do Configuration Manager.  
 
-##  <a name="bkmk_about"></a> О статусе клиента  
- Configuration Manager предоставляет информацию следующего типа о состоянии клиента.  
+##  <a name="bkmk_about"></a> Sobre o estado do cliente  
+ O Configuration Manager fornece os seguintes tipos de informações como o estado do cliente:  
 
--   **Состояние клиента в сети**. Начиная с версии Configuration Manager 1602 это состояние указывает, подключен ли компьютер к сети. Считается, что компьютер в сети, если он подключен к назначенной ему точке управления.  Чтобы указать, что клиент находится в сети, он отправляет на точку управления сообщения, действующие по принципу проверки связи. Если точка управления не получает сообщение в течение около 5 минут, считается, что клиент вне сети.  
+-   **Estado online do cliente** -a partir da versão 1602 do Configuration Manager, este estado indica se o computador está online ou não. Um computador é considerado online se estiver ligado ao respetivo ponto de gestão atribuído.  Para indicar que o cliente está online, envia mensagens do tipo ping ao ponto de gestão. Se o ponto de gestão não receber uma mensagem após cerca de 5 minutos, o cliente é considerado offline.  
 
--   **Активность клиентов**. Это состояние указывает, насколько активно клиент взаимодействовал с Configuration Manager последние 7 дней. Если клиент не запрашивал обновление политики, не отправлял сообщение пульса или не отправлял данные инвентаризации оборудования в течение 7 дней, то он считается неактивным.  
+-   **Atividade do cliente** -este estado indica se o cliente tem estado a interagir ativamente com o Configuration Manager nos últimos 7 dias. Se o cliente não solicitou uma atualização de política, enviou uma mensagem heartbeat ou enviou um inventário de hardware nos últimos 7 dias, o cliente é considerado inativo.  
 
--   **Проверка клиентов**. Это состояние указывает успешность периодической оценки, которую клиент Configuration Manager выполняет на компьютере.  При оценке проверяется компьютер и могут быть исправлены некоторые из найденных проблем. Дополнительные сведения см. в разделе [Проверки и исправления при проверке клиента](#BKMK_ClientHealth).  
+-   **Verificação de cliente** -este estado indica o êxito da avaliação periódica que executa o cliente do Configuration Manager no computador.  A avaliação verifica o computador e pode retificar alguns dos problemas que encontra. Para obter mais informações, veja [Verificações e remediações efetuadas pela verificação do cliente](#BKMK_ClientHealth).  
 
-     На компьютерах под управлением Windows 7 проверка клиента выполняется как запланированная задача. В более поздних операционных системах проверка клиента выполняется автоматически во время периода обслуживания Windows.  
+     Nos computadores que executam o Windows 7, a verificação de cliente é executada como uma tarefa agendada. Em sistemas operativos posteriores, a verificação de cliente é executada automaticamente durante o período de manutenção do Windows.  
 
-     Исправление можно настроить так, чтобы оно не выполнялось на конкретных компьютерах, например на критически важном для бизнеса сервере. Кроме того, чтобы оценить дополнительные элементы, воспользуйтесь параметрами соответствия Configuration Manager, позволяющими сформировать комплексное решение по мониторингу общей работоспособности, активности и соответствия компьютеров в организации. Дополнительные сведения о параметрах соответствия см. в разделе [Планирование и настройка параметров соответствия в System Center Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
+     É possível configurar a remediação para não funcionar em computadores específicos, por exemplo, um servidor crítico para a empresa. Além disso, se existirem itens adicionais que pretenda avaliar, pode utilizar as definições de compatibilidade do Configuration Manager para fornecer uma solução abrangente para monitorizar o estado de funcionamento, atividade e compatibilidade dos computadores na sua organização geral. Para obter mais informações sobre as definições de compatibilidade, veja [Planear e configurar definições de compatibilidade no Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
 
-##  <a name="bkmk_indStatus"></a> Мониторинг статуса отдельных клиентов  
+##  <a name="bkmk_indStatus"></a> Monitorizar o estado de clientes individuais  
 
-1.  В консоли Configuration Manager щелкните **Активы и соответствие** > **Устройства** или выберите коллекцию в разделе **Коллекции устройств**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **dispositivos** ou escolha uma coleção em **coleções de dispositivos**.  
 
-     Начиная с версии Configuration Manager 1602 значки в начале каждой строки указывают состояние устройства:  
+     A partir da versão 1602 do Configuration Manager, os ícones no início de cada linha indicam o estado online do dispositivo:  
 
     |||  
     |-|-|  
-    |![значок состояния "в сети" для клиентов](../../../core/clients/manage/media/online-status-icon.png)|устройство в сети;|  
-    |![значок состояния "не в сети" для клиентов](../../../core/clients/manage/media/offline-status-icon.png)|устройство вне сети;|  
-    |![значок неизвестного состояния для клиентов](../../../core/clients/manage/media/unknown-status-icon.png)|состояние устройства неизвестно;|  
-    |![клиент не установлен](../../../core/clients/manage/media/client-not-installed.png)|на устройстве не установлен клиент.|  
+    |![ícone de estado online dos clientes](../../../core/clients/manage/media/online-status-icon.png)|O dispositivo está online.|  
+    |![ícone de estado offline dos clientes](../../../core/clients/manage/media/offline-status-icon.png)|O dispositivo está offline.|  
+    |![ícone de estado desconhecido dos clientes](../../../core/clients/manage/media/unknown-status-icon.png)|O estado online é desconhecido.|  
+    |![cliente não instalado](../../../core/clients/manage/media/client-not-installed.png)|O cliente não está instalado no dispositivo.|  
 
-2.  Чтобы получить больше данных о состоянии, добавьте сведения о состоянии клиента в представление устройства, щелкнув правой кнопкой мыши заголовок столбца и выбрав поля состояния, которые хотите добавить. Вот какие столбцы можно добавить.  
+2.  Para o estado online mais detalhado, adicione as informações de estado online do cliente para a vista do dispositivo clicando no cabeçalho da coluna e clicando nos campos de estado online que pretende adicionar. As colunas que pode adicionar são:  
 
-    -   **Состояние устройства в сети** указывает текущее состояние клиента — в сети или вне сети. (Такую же информацию показывают значки.)  
+    -   **Estado Online do Dispositivo** indica se o cliente está atualmente online ou offline. (Esta é a mesma informação dada pelos ícones).  
 
-    -   **Время последнего входа в сеть** указывает время изменения состояния клиента на "в сети".  
+    -   **Última Vez Online** indica se o estado online do cliente mudou para online.  
 
-    -   **Время последнего выхода из сети** указывает время изменения состояния клиента на "вне сети".  
+    -   **Última Vez Offline** indica se o estado mudou para offline.  
 
-3.  Щелкните отдельный клиент в области списка, чтобы просмотреть дополнительные данные о статусе в области сведений, включая информацию об активности и проверках клиента.  
+3.  Clique num cliente individual no painel de lista para ver mais estados no painel de detalhes, incluindo informações sobre a atividade do cliente e as verificações do cliente.  
 
-##  <a name="bkmk_allStatus"></a> Мониторинг статуса всех клиентов  
+##  <a name="bkmk_allStatus"></a> Monitorizar o estado de todos os clientes  
 
-1.  В консоли Configuration Manager щелкните элемент **Наблюдение** > **Состояние клиентов**. На этой странице консоли можно просмотреть общую статистику по активности и проверкам клиентов на сайте.  Область отображаемой информации можно изменить, выбрав другую коллекцию.  
+1.  Na consola do Configuration Manager, clique em **monitorização** > **estado do cliente**. Nesta página da consola, pode rever as estatísticas gerais da atividade do cliente e as verificações do cliente em todo o site.  Também pode alterar o âmbito das informações, selecionando uma coleção diferente.  
 
-2.  Чтобы детализировать сведения о показанной статистике, щелкните имя информационного отчета (например, **Активные клиенты, которые прошли проверку или для которых нет результатов**) и просмотрите сведения об отдельных клиентах.  
+2.  Para obter detalhes sobre as estatísticas comunicadas, clique no nome das informações comunicadas (tais como **clientes ativos que passaram a verificação de cliente ou que não obtiveram resultados**) e reveja as informações sobre os clientes individuais.  
 
-3.  Щелкните **Активность клиентов**, чтобы просмотреть диаграммы активности клиентов на сайте Configuration Manager.  
+3.  Clique em **atividade do cliente** para ver gráficos que mostram a atividade do cliente no site do Configuration Manager.  
 
-4.  Щелкните **Проверка клиентов**, чтобы просмотреть диаграммы проверок клиентов на сайте Configuration Manager.  
+4.  Clique em **verificação de cliente** para ver gráficos que mostram o estado do cliente verifica no seu site do Configuration Manager.  
 
- Можно настроить оповещения, уведомляющие о возникновении ситуаций, когда результаты проверки клиентов или активность клиентов на указанном в процентах количестве клиентов в коллекции падают ниже порогового значения, или сообщающие о сбое исправления на указанном в процентах количестве клиентов. Сведения о настройке состояния клиента см. в разделе [Настройка состояния клиента в System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
+ Pode configurar alertas para receber notificações quando os resultados da verificação de cliente ou a atividade do cliente descerem abaixo de uma percentagem especificada de clientes numa coleção ou quando a remediação falhar numa percentagem especificada de clientes. Para obter informações sobre como configurar o estado de cliente, veja [Como configurar o estado de cliente no Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
 
-##  <a name="BKMK_ClientHealth"></a> Проверки и исправления при проверке клиента  
- Следующие проверки и исправлений могут быть выполнены с использованием проверки клиента.  
+##  <a name="BKMK_ClientHealth"></a> Verificações e remediações efetuadas pela verificação do cliente  
+ As verificações e remediações seguintes podem ser efetuadas pela verificação do cliente.  
 
-|Проверка клиента|Исправление|Дополнительные сведения|  
+|Verificação do Cliente|Ação de remediação|Mais informações|  
 |------------------|------------------------|----------------------|  
-|Убедитесь, что проверка клиента выполнялась недавно|Выполните проверку клиента|Проверки, которые выполнялись в процессе проверки клиента хотя бы один раз за последние три дня.|  
-|Убедитесь, что установлены необходимые компоненты клиента|Установите необходимые компоненты клиента|Проверка наличия установленных компонентов клиента. Чтение файла ccmsetup.xml в папке установки клиента для обнаружения компонентов.|  
-|Проверка целостности репозитория WMI|Переустановите клиент Configuration Manager.|Проверка наличия записей клиента Configuration Manager в WMI.|  
-|Проверка того, что служба клиента запущена|Запустите службу клиента (SMS Agent Host)|Дополнительные сведения отсутствуют|  
-|Тестирование приемника событий WMI.|Перезапустите службу клиента|Проверьте, не потерян ли журнал событий WMI, связанный с Configuration Manager|  
-|Убедитесь, что служба инструментария управления Windows (WMI) существует|Нет исправления|Дополнительные сведения отсутствуют|  
-|Убедитесь, что клиент правильно установлен|Переустановите клиент|Дополнительные сведения отсутствуют|  
-|Тест чтения и записи репозитория WMI|Сбросьте репозиторий WMI и переустановите клиент Configuration Manager|Исправление этой проверки выполняется только на компьютерах, работающих под управлением Windows Server 2003, Windows XP (64-разрядная версия) или более ранних версиях Windows.|  
-|Убедитесь, что служба защиты от вредоносных программ запускается автоматически|Установите автоматический тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что служба защиты от вредоносных программ запущена|Запустите службу защиты от вредоносных программ|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для службы обновления Windows задан автоматический или ручной тип запуска|Установите автоматический тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для службы клиента (SMS Agent Host) задан тип автоматический запуска|Установите автоматический тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что служба инструментария управления Windows (WMI) запущена.|Запустите службу инструментария управления Windows|Дополнительные сведения отсутствуют|  
-|Убедитесь, что база данных Microsoft SQL CE работоспособна|Переустановите клиент Configuration Manager.|Дополнительные сведения отсутствуют|  
-|Проверка целостности инструментария управления Windows (WMI) платформы политик (Майкрософт)|Выполните восстановление платформы политик (Майкрософт).|Дополнительные сведения отсутствуют|  
-|Убедитесь, что служба платформы политик (Майкрософт) существует.|Выполните восстановление платформы политик (Майкрософт).|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для службы платформы политик (Майкрософт) задан ручной тип запуска.|Установите ручной тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что фоновая интеллектуальная служба передачи существует|Нет исправления|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для фоновой интеллектуальной службы передачи задан автоматический или ручной тип запуска|Установите автоматический тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для службы проверки сети задан ручной тип запуска|Установите ручной тип запуска службы, если она установлена|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для службы инструментария управления Windows (WMI) задан автоматический тип запуска|Установите автоматический тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для службы обновления Windows на компьютерах с Windows 8 задан автоматический или ручной тип запуска|Установите ручной тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что служба клиента (SMS Agent Host) существует.|Нет исправления|Дополнительные сведения отсутствуют|  
-|Убедитесь, что для службы удаленного управления Configuration Manager задан автоматический или ручной типа запуска|Установите автоматический тип запуска службы|Дополнительные сведения отсутствуют|  
-|Убедитесь, что служба удаленного управления Configuration Manager запущена|Запустите службу удаленного управления|Дополнительные сведения отсутствуют|  
-|Убедитесь, что поставщик WMI клиент работоспособен|Перезапустите службу инструментария управления Windows|Исправление этой проверки выполняется только на компьютерах, работающих под управлением Windows Server 2003, Windows XP (64-разрядная версия) или более ранних версиях Windows.|  
-|Убедитесь, что служба прокси-сервер пробуждения (ConfigMgr Wake-up Proxy) запущена|Запустите службу ConfigMgr Wake-up Proxy|Эта проверка клиента проводится, только если в поддерживаемых клиентских операционных системах для параметра **Управление питанием**: **включить прокси-сервер пробуждения** задано значение **Да** .|  
-|Убедитесь, что служба прокси пробуждения (ConfigMgr Wake-up Proxy) задан автоматический тип запуска|Установите для службы ConfigMgr Wakeup Proxy автоматический типа запуска|Эта проверка клиента проводится, только если в поддерживаемых клиентских операционных системах для параметра **Управление питанием**: **включить прокси-сервер пробуждения** задано значение **Да** .|  
+|Verificar se a verificação do cliente foi executada recentemente|Executar verificação do cliente|Verifica se a verificação do cliente foi executada pelo menos uma vez nos últimos três dias.|  
+|Verificar se os pré-requisitos de cliente estão instalados|Instalar os pré-requisitos de cliente|Verifica se os pré-requisitos de cliente estão instalados. Lê o ficheiro ccmsetup.xml na pasta de instalação do cliente para detetar os pré-requisitos.|  
+|Teste de integridade do repositório de WMI|Reinstalar o cliente do Configuration Manager|Verifica se as entradas de cliente do Configuration Manager estão presentes no WMI.|  
+|Verificar se o serviço de cliente está em execução|Iniciar o serviço de cliente (Anfitrião de Agente do SMS)|Não existem informações adicionais|  
+|Teste do Event Sink de WMI.|Reiniciar o serviço de cliente|Verifique se o Gestor de configuração relacionados com o sink de evento do WMI foi perdida|  
+|Verificar se o serviço Windows Management Instrumentation (WMI) existe|Sem remediação|Não existem informações adicionais|  
+|Verificar se o cliente foi instalado corretamente|Reinstalar o cliente|Não existem informações adicionais|  
+|Teste de leitura e escrita do repositório de WMI|Repor o repositório WMI e reinstalar o cliente do Configuration Manager|A remediação desta verificação de cliente só é executada em computadores com o Windows Server 2003, o Windows XP (64 bits) ou versões anteriores.|  
+|Verificar se o tipo de arranque do serviço antimalware é automático|Repor o tipo de arranque do serviço em automático|Não existem informações adicionais|  
+|Verificar se o serviço antimalware está em execução|Iniciar o serviço antimalware|Não existem informações adicionais|  
+|Verificar se o tipo de arranque do serviço Windows Update é automático ou manual|Repor o tipo de arranque do serviço em automático|Não existem informações adicionais|  
+|Verificar se o tipo de arranque do serviço de cliente (Anfitrião de Agente do SMS) é automático|Repor o tipo de arranque do serviço em automático|Não existem informações adicionais|  
+|Verificar se o serviço Windows Management Instrumentation (WMI) está em execução.|Iniciar o serviço Windows Management Instrumentation|Não existem informações adicionais|  
+|Verificar se a base de dados do Microsoft SQL CE está em bom estado de funcionamento|Reinstalar o cliente do Configuration Manager|Não existem informações adicionais|  
+|Teste de Integridade do WMI do Microsoft Policy Platform|Reparar o Microsoft Policy Platform|Não existem informações adicionais|  
+|Verificar que o Microsoft Policy Platform Service existe|Reparar o Microsoft Policy Platform|Não existem informações adicionais|  
+|Verificar que o tipo de arranque do Microsoft Policy Platform Service é manual|Repor o tipo de arranque do serviço em manual|Não existem informações adicionais|  
+|Verificar se o Serviço de Transferência Inteligente em Segundo Plano existe|Sem remediação|Não existem informações adicionais|  
+|Verificar se o tipo de arranque do Serviço de Transferência Inteligente em Segundo Plano é automático ou manual|Repor o tipo de arranque do serviço em automático|Não existem informações adicionais|  
+|Verificar se o tipo de arranque do Serviço de Inspeção de Rede é manual|Repor o tipo de arranque do serviço em manual se estiver instalado|Não existem informações adicionais|  
+|Verificar se o tipo de arranque do serviço Windows Management Instrumentation (WMI) é automático|Repor o tipo de arranque do serviço em automático|Não existem informações adicionais|  
+|Verificar se o tipo de arranque do serviço Windows Update em computadores com o Windows 8 é automático ou manual|Repor o tipo de arranque do serviço em manual|Não existem informações adicionais|  
+|Verificar se o serviço de cliente (Anfitrião de Agente do SMS) existe.|Sem remediação|Não existem informações adicionais|  
+|Verificar se o tipo de arranque do serviço Controlo Remoto do Configuration Manager é automático ou manual|Repor o tipo de arranque do serviço em automático|Não existem informações adicionais|  
+|Verificar se o serviço Controlo Remoto do Configuration Manager está em execução|Iniciar o serviço de controlo remoto|Não existem informações adicionais|  
+|Verificar se o fornecedor WMI cliente está em bom estado de funcionamento|Reiniciar o serviço Windows Management Instrumentation|A remediação desta verificação de cliente só é executada em computadores com o Windows Server 2003, o Windows XP (64 bits) ou versões anteriores.|  
+|Verificar se o serviço proxy de reativação (Proxy de Reativação do ConfigMgr) está em execução|Iniciar o serviço Proxy de Reativação do ConfigMgr|Esta verificação de cliente é executada apenas se o **gestão de energia**: **Ativar o proxy de reativação** definição de cliente está definido como **Sim** em sistemas operativos cliente suportados.|  
+|Verificar se o tipo de arranque do serviço proxy de reativação (Proxy de Reativação do ConfigMgr) é automático|Repor o tipo de arranque do serviço Proxy de Reativação do ConfigMgr em automático|Esta verificação de cliente é executada apenas se o **gestão de energia**: **Ativar o proxy de reativação** definição de cliente está definido como **Sim** em sistemas operativos cliente suportados.|  
 
-## <a name="client-deployment-log-files"></a>Файлы журналов развертывания клиента
-См. дополнительные сведения о [файлах журналов в System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files#BKMK_ClientLogs), используемых в операциях клиентского развертывания и администрирования.
+## <a name="client-deployment-log-files"></a>Ficheiros de registo de implementação do cliente
+Para obter informações sobre os ficheiros de registo utilizado pela implementação do cliente e operações de gestão, consulte [ficheiros de registo no System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files#BKMK_ClientLogs).

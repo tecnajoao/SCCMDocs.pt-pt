@@ -1,6 +1,6 @@
 ---
-title: "Настройка Endpoint Protection | Документы Майкрософт"
-description: "Узнайте, как выбрать и настроить методы поддержания определений антивредоносного ПО Endpoint Protection в System Center Configuration Manager в актуальном состоянии на клиентских компьютерах."
+title: Configurar o Endpoint Protection | Microsoft Docs
+description: "Saiba como selecionar e configurar os métodos com o Endpoint Protection no System Center Configuration Manager, para manter as definições de antimalware atualizadas nos computadores cliente."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,56 +16,56 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: b5da7900a4f8e2f330c4dcb2cac00b45099bd909
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="configure-definition-updates-for-endpoint-protection"></a>Настройка обновлений определений для Endpoint Protection  
+#  <a name="configure-definition-updates-for-endpoint-protection"></a>Configurar atualizações de definições do Endpoint Protection  
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Endpoint Protection в System Center Configuration Manager позволяет использовать любой из нескольких доступных методов обновления определений вредоносных программ на клиентских компьютерах в иерархии. Ознакомившись со сведениями в этом разделе, вы сможете выбрать и настроить эти методы.
+ Com o Endpoint Protection no System Center Configuration Manager, pode utilizar qualquer um dos vários métodos disponíveis para manter as definições de antimalware atualizadas nos computadores cliente na sua hierarquia. As informações contidas neste tópico podem ajudá-lo a selecionar e a configurar estes métodos.
 
- Для обновления определений вредоносных программ вы можете использовать один или несколько следующих методов.
+ Para atualizar as definições de antimalware, pode utilizar um ou mais dos seguintes métodos:
 
--   [Обновления, полученные из Configuration Manager](endpoint-definitions-configmgr.md). В этом методе для доставки обновлений определений и антивирусного модуля на компьютеры в иерархии используются обновления программного обеспечения Configuration Manager.
+-   [Atualizações distribuídas do Configuration Manager](endpoint-definitions-configmgr.md) -este método utiliza atualizações de software do Configuration Manager para fornecer atualizações de definições e de motor a computadores na sua hierarquia.
 
--   [Обновления, полученные из служб Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md). В этом методе для доставки обновлений определений и антивирусного модуля на компьютеры в иерархии используется инфраструктура WSUS.
+-   [Atualizações distribuídas do Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) -este método utiliza a infraestrutura do WSUS para fornecer atualizações de definições e de motor a computadores.
 
--   [Обновления, полученные из Центра обновления Майкрософт](endpoint-definitions-microsoft-updates.md). Этот метод позволяет компьютерам напрямую подключаться к Центру обновления Майкрософт для загрузки обновлений определений и антивирусного модуля. Этот метод может быть полезен для компьютеров, которые часто не подключены к сети предприятия.
+-   [Atualizações distribuídas do Microsoft Update](endpoint-definitions-microsoft-updates.md) -este método permite que os computadores liguem diretamente ao Microsoft Update para transferir as atualizações de definições e de motor. Este método pode ser útil para computadores que não são muitas vezes ligados à rede empresarial.
 
--   [Обновления, полученные из Центра Майкрософт по защите от вредоносных программ](endpoint-definitions-protection-center.md). Этот метод скачивает обновления определений из Центра Майкрософт по защите от вредоносных программ.
+-   [Atualizações distribuídas do Microsoft Malware Protection Center](endpoint-definitions-protection-center.md) -este método irá transferir atualizações de definições do Microsoft Malware Protection Center.
 
--   [Обновления из общих файловых ресурсов UNC](endpoint-definitions-network.md). Этот метод позволяет сохранять последние обновления определений и антивирусного модуля в общей сетевой папке. После этого клиенты могут подключаться к сети для установки обновлений.
+-   [Atualizações a partir de partilhas de ficheiros UNC](endpoint-definitions-network.md) -com este método, pode guardar as atualizações de definições e de motor mais recentes para uma partilha na rede. Em seguida, os clientes podem aceder à rede para instalar as atualizações.
 
- Вы можете настроить несколько источников обновления определений и контролировать порядок их оценки и применения. Это можно сделать в диалоговом окне **Настройка источников обновления определений** при создании политики защиты от вредоносных программ.
+ Pode configurar várias origens de atualização de definições e controlar a ordem pela qual são avaliadas e aplicadas. Isto é feito na caixa de diálogo **Configurar Origens de Atualização da Definição** quando cria uma política antimalware.
 
 > [!IMPORTANT]
->  Для компьютеров с Windows 10 необходимо настроить Endpoint Protection для обновления определений вредоносных программ для Защитника Windows.
+>  Para Windows 10 PCs, tem de configurar o Endpoint Protection para atualizar as definições de software maligno para o Windows Defender.
 
-## <a name="how-to-configure-definition-update-sources"></a>Настройка источников обновления определений
- Следующая процедура предназначена для настройки источников обновления определений для каждой политики защиты от вредоносных программ.
+## <a name="how-to-configure-definition-update-sources"></a>Como Configurar Origens de Atualização de Definições
+ Utilize o procedimento seguinte para configurar as origens de atualização de definições para utilizar para cada política antimalware.
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
+1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
 
-2.  В рабочей области **Активы и соответствие** разверните узел **Endpoint Protection**и щелкните **Политики защиты от вредоносных программ**.
+2.  Na área de trabalho **Ativos e Compatibilidade** , expanda **Endpoint Protection**e clique em **Políticas Antimalware**.
 
-3.  Откройте страницу свойств **политики защиты от вредоносных программ по умолчанию** или создайте новую политику защиты от вредоносных программ. Дополнительные сведения о создании политик защиты от вредоносных программ см. в разделе [Создание и развертывание политик защиты от вредоносных программ для Endpoint Protection в System Center Configuration Manager](endpoint-antimalware-policies.md).
+3.  Abra a página de propriedades da **Política Antimalware Predefinida** ou crie uma nova política antimalware. Para obter mais informações sobre como criar políticas antimalware, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-4.  В разделе **Обновления определений** диалогового окна свойств защиты от вредоносных программ щелкните **Задать источник**.
+4.  Na secção **Atualizações da definição** da caixa de diálogo de propriedades de antimalware, clique em **Definir Origem**.
 
-5.  В диалоговом окне **Настройка источников обновления определений** окна выберите источники, которые будут использоваться для обновления определений. Чтобы изменить порядок использования источников, нажимайте кнопку **Вверх** или **Вниз** .
+5.  Na caixa de diálogo **Configurar Origens de Atualização da Definição** , selecione as origens a utilizar para atualizações de definições. Pode clicar em **Para cima** ou **Para baixo** para modificar a ordem pela qual estas origens são utilizadas.
 
-6.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Настройка источников обновления определений** .
+6.  Clique em **OK** para fechar a caixa de diálogo **Configurar Origens de Atualização da Definição** .
 
-## <a name="configure-endpoint-protection-definitions"></a>Настройка определений Endpoint Protection
+## <a name="configure-endpoint-protection-definitions"></a>Configurar definições do Endpoint Protection
 
--   [Обновления, полученные из Configuration Manager](endpoint-definitions-configmgr.md). В этом методе для доставки обновлений определений и антивирусного модуля на компьютеры в иерархии используются обновления программного обеспечения Configuration Manager.
+-   [Atualizações distribuídas do Configuration Manager](endpoint-definitions-configmgr.md) -este método utiliza atualizações de software do Configuration Manager para fornecer atualizações de definições e de motor a computadores na sua hierarquia.
 
--   [Обновления, полученные из служб Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md). В этом методе для доставки обновлений определений и антивирусного модуля на компьютеры в иерархии используется инфраструктура WSUS.
+-   [Atualizações distribuídas do Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) -este método utiliza a infraestrutura do WSUS para fornecer atualizações de definições e de motor a computadores.
 
--   [Обновления, полученные из Центра обновления Майкрософт](endpoint-definitions-microsoft-updates.md). Этот метод позволяет компьютерам напрямую подключаться к Центру обновления Майкрософт для загрузки обновлений определений и антивирусного модуля. Этот метод может быть полезен для компьютеров, которые часто не подключены к сети предприятия.
+-   [Atualizações distribuídas do Microsoft Update](endpoint-definitions-microsoft-updates.md) -este método permite que os computadores liguem diretamente ao Microsoft Update para transferir as atualizações de definições e de motor. Este método pode ser útil para computadores que não são muitas vezes ligados à rede empresarial.
 
--   Обновления, полученные из Центра Майкрософт по защите от вредоносных программ. Этот метод скачивает обновления определений из Центра Майкрософт по защите от вредоносных программ.
+-   Atualizações distribuídas do Microsoft Malware Protection Center - este método irá transferir atualizações de definições do Microsoft Malware Protection Center.
 
--   [Обновления из общих файловых ресурсов UNC](endpoint-definitions-network.md). Этот метод позволяет сохранять последние обновления определений и антивирусного модуля в общей сетевой папке. После этого клиенты могут подключаться к сети для установки обновлений.
+-   [Atualizações a partir de partilhas de ficheiros UNC](endpoint-definitions-network.md) -com este método, pode guardar as atualizações de definições e de motor mais recentes para uma partilha na rede. Em seguida, os clientes podem aceder à rede para instalar as atualizações.

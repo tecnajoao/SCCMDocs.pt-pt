@@ -1,6 +1,6 @@
 ---
-title: "Планирование взаимодействия для развертывания операционных систем | Документы Майкрософт"
-description: "Описание проблем с взаимодействием, которые возникают, если на сайтах System Center Configuration Manager в рамках одной иерархии используются разные версии."
+title: "Planear a interoperabilidade de implementação do sistema operativo | Microsoft Docs"
+description: "Compreenda os problemas de interoperabilidade quando diversos sites do System Center Configuration Manager numa única hierarquia utilizam versões diferentes."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,57 +16,57 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 50a4b75b8c8c1cb6f7a8e696abad285f99080fcd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-operating-system-deployment-interoperability-in-system-center-configuration-manager"></a>Планирование взаимодействия для развертывания операционных систем в System Center Configuration Manager
+# <a name="planning-for-operating-system-deployment-interoperability-in-system-center-configuration-manager"></a>Planear a interoperabilidade da implementação do sistema operativo no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Если на сайтах System Center Configuration Manager в рамках одной иерархии используются разные версии, некоторые возможности Configuration Manager недоступны. Обычно функциональные возможности более новой версии Configuration Manager недоступны на сайтах или в клиентах с предыдущими версиями. Дополнительные сведения см. в разделе [Взаимодействие различных версий System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
+Quando diversos sites do System Center Configuration Manager numa única hierarquia utilizam versões diferentes, algumas funcionalidades do Configuration Manager não estão disponível. Normalmente, as funcionalidades da versão mais recente do Configuration Manager não está acessível em sites ou para clientes que possuam uma versão anterior. Para obter mais informações, veja [Interoperabilidade entre diferentes versões do System Center Configuration Manager](../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
- Учитывайте следующие моменты при обновлении сайта верхнего уровня в иерархии, а также других сайтов в иерархии Configuration Manager с предыдущими версиями:  
+ Quando atualizar o site de nível superior na sua hierarquia e a outros sites na sua hierarquia executar o Configuration Manager com uma versão inferior, considere o seguinte:  
 
--   Пакет установки клиента  
+-   Pacote de instalação de cliente  
 
-    -   Источник пакета установки клиента по умолчанию автоматически обновляется, и все точки распространения в иерархии будут обновлены до нового пакета, даже точки распространения на тех сайтах в иерархии, которые используют предыдущую версию.  
+    -   A origem para o pacote de instalação de cliente predefinido é atualizada automaticamente e todos os pontos de distribuição na hierarquia são atualizados com o novo pacote de instalação do cliente, mesmo em pontos de distribuição em sites da hierarquia que tenham uma versão inferior.  
 
-    -   Клиентов с новой версией нельзя назначить сайтам, которые еще не были обновлены до новой версии. Назначение блокируется в точке управления.  
+    -   Clientes que executam a nova versão não podem ser atribuídos a sites que ainda não tenham sido atualizados para a nova versão. Atribuição é bloqueada no ponto de gestão.  
 
--   загрузочные образы,  
+-   Imagens de arranque  
 
-    -   При обновлении сайта верхнего уровня до последней версии Configuration Manager образы загрузки по умолчанию (32- и 64-разрядные) автоматически обновляются до образов загрузки на основе Windows ADK для Windows 10, которые используют среду предустановки Windows 10. Файлы, связанные с образами загрузки по умолчанию, обновляются с использованием файлов самой последней версии Configuration Manager. Пользовательские образы загрузки не обновляются автоматически. Необходимо будет вручную обновить пользовательские образы загрузки, включая старые версии среды предустановки Windows.  
+    -   Quando atualizar o site de nível superior para a versão mais recente do Configuration Manager, as imagens de arranque predefinidas (x86 e x64) são automaticamente atualizadas para imagens de arranque baseadas no Windows ADK para Windows 10, que utilizam o Windows PE 10. Os ficheiros que estão associados a imagens de arranque predefinidas são atualizados com a versão mais recente do Configuration Manager dos ficheiros. As imagens de arranque personalizadas não são atualizadas automaticamente. Terá de atualizar imagens de arranque personalizadas manualmente, que inclui as versões mais antigas do Windows PE.  
 
-    -   Избегайте использования динамических носителей, если иерархия сайта содержит сайты с различными версиями Configuration Manager. Вместо этого используйте носитель на основе сайтов для связи с определенной точкой управления, пока все сайты не будут обновлены до той же версии Configuration Manager.  
+    -   Evite a utilização de suportes de dados dinâmicos quando a hierarquia de sites contiver sites com diversas versões do Configuration Manager. Em alternativa, utilize suportes de dados baseados no site para contactar um ponto de gestão específico até que todos os sites tenham sido atualizados para a mesma versão do Configuration Manager.  
 
-    -   Убедитесь в том, что самые последние образы загрузки Configuration Manager содержат нужные настройки, а затем обновите все точки распространения на сайтах с последней версией Configuration Manager новыми образами загрузки.  
+    -   Certifique-se de que as imagens de arranque mais recentes do Configuration Manager contêm a personalização desejada e, em seguida, atualize todos os pontos de distribuição dos sites com a versão mais recente do Configuration Manager com as novas imagens de arranque.  
 
--   Средство миграции пользовательской среды (USMT)  
+-   User State Migration Tool (USMT)  
 
-    -   При обновлении сайта верхнего уровня до последней версии Configuration Manager пакет USMT по умолчанию автоматически обновляется до последней версии. Пользовательские пакеты USMT не обновляются автоматически. Эти пакеты потребуется обновить вручную.  
+    -   Quando atualizar o site de nível superior para a versão mais recente do Configuration Manager, o pacote USMT predefinido é atualizado automaticamente para a versão mais recente. Os pacotes USMT personalizados não são atualizados automaticamente. Terá de atualizar manualmente estes pacotes.  
 
--   Новые шаги последовательности задач  
+-   Novos passos de sequência de tarefas  
 
-    -   Периодически вместе с новыми версиями Configuration Manager вносятся новые шаги последовательности задач. При развертывании последовательности задач с новым шагом на старых клиентах этот шаг завершится ошибкой. Перед развертыванием последовательности задач с новым шагом убедитесь, что клиенты в целевой коллекции обновлены до новой версии.  
+    -   Periodicamente, são introduzidos novos passos de sequência de tarefas com novas versões do Configuration Manager. Quando implementar uma sequência de tarefas com um novo passo em clientes mais antigos, o passo de sequência de tarefas falhará. Antes de implementar uma sequência de tarefas com um novo passo, certifique-se de que os clientes da coleção de destino são atualizados para a nova versão.  
 
--   Носитель развертывания операционных систем  
+-   Suporte de dados de implementação do sistema operativo  
 
-    -   Когда сайт обновляется до новой версии, необходимо обновить все носители (загрузочный, для снятия образа, предварительно подготовленный и автономный) с использованием нового пакета клиента Configuration Manager.  
+    -   Todos os suportes de dados (arranque, captura, pré-configurados e autónoma) têm de ser atualizados com o novo pacote de cliente do Configuration Manager quando o site é atualizado para uma nova versão.  
 
--   Сторонние расширения для развертывания операционной системы  
+-   Extensões de terceiros para a implementação do sistema operativo  
 
-    -   Если у вас есть сторонние расширения для развертывания операционной системы и используются различные версии сайтов Configuration Manager или клиентов Configuration Manager, составляющие смешанную иерархию, могут возникать проблемы с расширениями.  
+    -   Quando tiver extensões de terceiros para implementação do sistema operativo e tiver versões diferentes dos sites do Configuration Manager ou clientes do Configuration Manager, uma hierarquia mista, poderão existir problemas com as extensões.  
 
- Если вы активно обновляете сайты в иерархии, используйте следующие разделы, чтобы организовать развертывания операционных систем.  
+ Quando atualizar sites na hierarquia de forma ativa, utilize as secções seguintes para o ajudar com as implementações de sistema operativo.  
 
-## <a name="latest-version-of-configuration-manager-sites-in-a-mixed-hierarchy"></a>Самая последняя версия сайтов Configuration Manager в смешанной иерархии  
- При обновлении сайта до последней версии Configuration Manager последовательности задач, ссылающиеся на пакет установки клиента по умолчанию, автоматически начнут развертывать последнюю версию клиента Configuration Manager. Последовательности задач, ссылающиеся на настраиваемый пакет установки клиента, будут продолжать развертывать версию клиента, которая содержится в этом пакете (это может быть предыдущая версия клиента Configuration Manager), и должны быть обновлены, чтобы избежать сбоев при развертывании последовательности задач. При наличии последовательности задач, которая использует настраиваемый пакет установки клиента, необходимо обновить шаг последовательности задач для использования пакета установки клиента последней версии Configuration Manager или обновить настраиваемый пакет для применения последней версии источника установки клиента Configuration Manager.  
+## <a name="latest-version-of-configuration-manager-sites-in-a-mixed-hierarchy"></a>Versão mais recente dos sites do Configuration Manager numa hierarquia mista  
+ Quando atualizar um site para a versão mais recente do Configuration Manager, sequências de tarefas que a referência ao pacote de instalação de cliente predefinido começarão automaticamente a implementar a versão mais recente do cliente do Configuration Manager. E sequências de tarefas que façam referência a um pacote de instalação de cliente personalizado continuarão a implementar a versão do cliente que esteja contida nesse pacote personalizado (provavelmente uma versão de cliente do Configuration Manager anterior), tem de ser atualizadas para evitar falhas de implementação de sequência de tarefas. Quando tiver uma sequência de tarefas que está configurada para utilizar um pacote de instalação de cliente personalizado, tem de atualizar o passo de sequência de tarefas para utilizar a versão mais recente do Configuration Manager do pacote de instalação de cliente ou atualizar o pacote personalizado para utilizar a origem de instalação de cliente mais recente do Configuration Manager.  
 
 > [!IMPORTANT]  
->  Не следует развертывать последовательности задач, которые ссылаются на пакет установки клиента Configuration Manager последней версии, для клиентов на сайте Configuration Manager более старой версии. Когда клиенты, назначенные более старому сайту Configuration Manager, обновляются до последней версии клиента Configuration Manager, Configuration Manager блокирует назначение более старому сайту Configuration Manager. Поэтому клиент больше не будет назначен сайту и будет неуправляемым, пока вы вручную не назначите его сайту Configuration Manager последней версии или не переустановите клиент старой версии Configuration Manager на компьютере.  
+>  Não implemente uma sequência de tarefas referencia o pacote de instalação de cliente mais recente do Configuration Manager para clientes de um site do Configuration Manager mais antigos. Quando os clientes atribuídos a um site do Configuration Manager mais antigo sejam atualizados para a versão mais recente do cliente do Configuration Manager, o Configuration Manager bloqueia a atribuição ao site do Configuration Manager mais antigo. Por conseguinte, o cliente já não está atribuído a qualquer site e deixará de ser gerido até que atribuir o cliente ao site mais recente do Configuration Manager manualmente ou reinstale a versão mais antiga do Configuration Manager do cliente no computador.  
 
-## <a name="older-versions-of-configuration-manager-in-a-mixed-hierarchy"></a>Более старые версии Configuration Manager в смешанной иерархии  
- После обновления сайта центра администрирования до последней версии Configuration Manager необходимо выполнить приведенные ниже действия, чтобы убедиться в том, что последовательности задач по развертыванию операционных систем, которые развертываются на клиентах, назначенных сайту Configuration Manager более старой версии (который еще не был обновлен до последней версии Configuration Manager), не оставляют эти клиенты в неуправляемом состоянии.  
+## <a name="older-versions-of-configuration-manager-in-a-mixed-hierarchy"></a>Versões mais antigas do Configuration Manager numa hierarquia mista  
+ Quando tiver atualizado o seu site de administração central para a versão mais recente do Configuration Manager, tem de executar os seguintes passos para se certificar de que as sequências de tarefas de implementação do sistema operativo que implementar em clientes atribuídos a um site do Configuration Manager mais antigo (ainda não atualizado para a versão mais recente do Configuration Manager) não deixam esses clientes num Estado não gerido.  
 
--   Создайте последовательность задач, которая будет использоваться для развертывания только в клиентах сайта Configuration Manager. Скорее всего, вы создадите копию последовательности задач, которая используется для развертывания на клиентах сайта Configuration Manager последней версии, а затем измените последовательность так, чтобы ее можно было развернуть для клиентов сайта Configuration Manager более старой версии. Затем настройте последовательность задач так, чтобы она ссылалась на настраиваемый пакет установки клиента, который использует более старую версию источника установки клиента Configuration Manager. Если у вас нет настраиваемого пакета установки клиента, который бы ссылался на источник установки клиента Configuration Manager более старой версии, необходимо вручную создать его.  
+-   Crie uma sequência de tarefas que irá utilizar para implementar em clientes apenas num site do Configuration Manager. Provavelmente, fará uma cópia da sequência de tarefas que utilizar para implementar em clientes na versão mais recente do site do Configuration Manager e, em seguida, modificar a sequência de tarefas de modo a poder implementá-la em clientes de um site do Configuration Manager mais antigo. Em seguida, configure a sequência de tarefas para fazer referência a um pacote de instalação de cliente personalizado que utiliza a origem de instalação de cliente mais antiga do Configuration Manager. Se ainda não tiver um pacote de instalação de cliente personalizado que faça referência a origem de instalação de cliente mais antiga do Configuration Manager, em seguida, tem de criar manualmente um.  

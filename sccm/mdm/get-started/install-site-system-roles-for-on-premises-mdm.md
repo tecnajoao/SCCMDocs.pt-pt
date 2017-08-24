@@ -1,6 +1,6 @@
 ---
-title: "Установка ролей для локального управления мобильными устройствами в Configuration Manager | Документы Майкрософт"
-description: "Установите роли системы сайта для локального управления мобильными устройствами в System Center Configuration Manager."
+title: "Instalar funções de MDM no local - Configuration Manager | Microsoft Docs"
+description: "Instale funções do sistema de sites para gestão de dispositivos móveis no local no System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,57 +16,57 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 4913606e2f8a36e0004f711b24ecd836d0485124
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-site-system-roles-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Установка ролей системы сайта для локального управления мобильными устройствами в System Center Configuration Manager
+# <a name="install-site-system-roles-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Instalar funções do sistema de sites para gestão de dispositivos móveis no local no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для локального управления мобильными устройствами System Center Configuration Manager требуются следующие роли системы сайта в инфраструктуре сайта Configuration Manager:  
+System Center Configuration Manager no\-local gestão de dispositivos móveis requer as seguintes funções do sistema de sites na sua infraestrutura de sites do Configuration Manager:  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
--   Точка управления устройством  
+-   Ponto de gestão de dispositivos  
 
--   Точка подключения службы  
+-   Ponto de ligação de serviço  
 
- При добавлении функции локального управления мобильными устройствами в вашу организацию, где управление большинством компьютеров и устройств осуществляется с помощью клиентского программного обеспечения Configuration Manager, может оказаться, что большая часть ролей системы сайта уже установлена в составе существующей инфраструктуры. Если это не так, полные сведения об их добавлении на сайт см. в разделе [Добавление ролей системы сайта для System Center Configuration Manager](../../core/servers/deploy/configure/add-site-system-roles.md).  
-
-> [!NOTE]  
->  Если вы используете реплики базы данных с ролью системы сайта точки управления устройствами, новые зарегистрированные устройства не смогут подключиться к точке управления устройством, пока она не будет синхронизирована с репликой базы данных. Эта ошибка подключения возникает из-за того, что реплика базы данных не имеет необходимых для успешного подключения сведений о зарегистрированном устройстве. Так как реплики синхронизируются каждые 5 минут, устройства не смогут подключиться в течение первых 5 минут после регистрации (как правило, это 2 попытки подключения). По истечении этого периода подключения будут выполняться успешно.  
-
- Если вы используете существующие роли системы сайта или добавляете новые, эти роли необходимо настроить для управления современными устройствами. Выполните приведенные ниже инструкции по настройке точки распространения и точки управления устройствами для правильной работы локального управления мобильными устройствами.  
+ Se estiver a adicionar no\-local gestão de dispositivos móveis para a sua organização que tenha a maioria dos PCs e dispositivos geridos com o software de cliente do Configuration Manager, poderá ter a maioria das funções de sistema de sites já instaladas como parte da sua infraestrutura existente. Caso contrário, veja [adicionar funções do sistema de site para o System Center Configuration Manager](../../core/servers/deploy/configure/add-site-system-roles.md) para obter informações completas sobre como adicioná-los ao seu site.  
 
 > [!NOTE]  
->  Текущая ветвь Configuration Manager поддерживает подключения с устройств к точкам распространения и точкам управления устройствами для локального управления мобильными устройствами только по внутренней сети. Однако если вы также управляете компьютерами Mac OS X, этим клиентам требуются интернет-подключения к ролям системы сайта. В этом случае при настройке свойств точки распространения и точки управления устройствами следует использовать параметр **Разрешить подключения по внутренней сети и через Интернет**.  
+>  Se utilizar réplicas de base de dados com a função de sistema de sites do ponto de gestão do dispositivo, os dispositivos inscritos recentemente inicialmente conseguirão ligar ao ponto de gestão de dispositivos até a réplica de base de dados sincronize com o mesmo. Esta falha de ligação ocorre porque a réplica de base de dados não tem as informações sobre os dispositivos inscritos recentemente necessárias para uma ligação com êxito. As réplicas sincronizam a cada 5 minutos, para que dispositivos não conseguirão ligar para os primeiro 5 minutos após a inscrição (normalmente, 2 tentativas de ligação), após o qual o dispositivo irá ligar com êxito.  
 
-### <a name="to-configure-site-system-roles-to-manage-modern-devices"></a>Настройка ролей системы сайта для управления современными устройствами  
+ Se estiver a utilizar funções de sistema de sites existente ou adicionar novas, deve configurá-las para ser utilizado para gerir dispositivos modernos. Siga os passos abaixo para configurar o ponto de distribuição e ponto de gestão de dispositivos para funcionar corretamente para\-no local a gestão de dispositivos móveis:  
 
-1.  В консоли Configuration Manager перейдите в раздел **Администрирование** > **Обзор** > **Конфигурация сайта** > **Серверы и роли системы сайта**.  
+> [!NOTE]  
+>  O ramo atual do Configuration Manager só suporta ligações de intranet de dispositivos para os pontos de distribuição e pontos de gestão de dispositivos para\-no local a gestão de dispositivos móveis. No entanto, se também estiver a gerir computadores Mac OS X, esses clientes precisam de ligações de internet a essas funções de sistema de sites. Nesse caso, quando configurar as propriedades do ponto de distribuição e o ponto de gestão de dispositivos, deve utilizar o **permitir ligações de intranet e internet** em vez disso, a definição.  
 
-2.  Выберите сервер системы сайта с точкой распространения или точкой управления устройствами, который нужно настроить, откройте окно свойств для **системы сайта** и убедитесь в том, что указано полное доменное имя. Нажмите кнопку **ОК**.  
+### <a name="to-configure-site-system-roles-to-manage-modern-devices"></a>Para configurar funções de sistema de sites para gerir dispositivos modernos:  
 
-3.  Откройте окно свойств для роли системы сайта точки распространения. На вкладке "Общие" убедитесь в том, что выбрано **HTTPS**, и выберите параметр **Разрешить подключения только через внутреннюю сеть**.  
+1.  Na consola do Configuration Manager, clique em **administração** > **descrição geral** > **configuração do Site** > **servidores e funções de sistema de sites**.  
 
-     Если вы также отдельно управляете компьютерами Mac с клиентом Configuration Manager, используйте параметр **Разрешить подключения по внутренней сети и через Интернет**.  
+2.  Servidor do sistema de sites selecione com o ponto de distribuição ou ponto de gestão de dispositivos que pretende configurar, abra as propriedades de **sistema de sites** e certifique-se de que tem um FQDN especificado. Clique em **OK**.  
+
+3.  Abra as propriedades para a distribuição função de sistema de sites do ponto. No separador Geral, certifique-se **HTTPS** está selecionado e selecione **permitir ligações apenas de intranet**.  
+
+     Se estiver a gerir também separadamente computadores Mac com o cliente do Configuration Manager, utilize **permitir ligações de intranet e internet** em vez disso.  
 
     > [!NOTE]  
-    >  Для точек распространения, настроенных для подключений по внутренней сети, требуется настроить границы сайта. Текущая ветвь Configuration Manager поддерживает только границы диапазона IPv4 для локального управления мобильными устройствами. Дополнительные сведения о настройке границ сайта см. в разделе [Определение границ сайта и групп границ для System Center Configuration Manager](../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
+    >  Pontos de distribuição configurados para ligações de intranet requerem limites de site para ser configurado para os mesmos. O ramo atual do Configuration Manager suporta apenas limites de intervalo IPv4 no\-no local a gestão de dispositivos móveis. Para obter mais informações sobre como configurar limites de site, consulte [definir limites de site e grupos de limites para o System Center Configuration Manager](../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
 
-4.  Установите флажок **Разрешить мобильным устройствам подключаться к этой точке распространения**, а затем нажмите кнопку **ОК**.  
+4.  Clique na caixa de verificação junto a **permitir dispositivos móveis se liguem a este ponto de distribuição**e, em seguida, clique em **OK**.  
 
-5.  Откройте окно свойств для роли системы сайта точки управления. На вкладке "Общие" убедитесь в том, что выбрано **HTTPS**, и выберите параметр **Разрешить подключения только через внутреннюю сеть**.  
+5.  Abra as propriedades para a gestão função de sistema de sites do ponto. No separador Geral, certifique-se **HTTPS** está selecionado e selecione **permitir ligações apenas de intranet**.  
 
-     Если вы также отдельно управляете компьютерами Mac с клиентом Configuration Manager, используйте параметр **Разрешить подключения по внутренней сети и через Интернет**.  
+     Se estiver a gerir também separadamente computadores Mac com o cliente do Configuration Manager, utilize **permitir ligações de intranet e internet** em vez disso.  
 
-6.  Установите флажок **Разрешить использовать точку управления с мобильных устройств и компьютеров Mac**. Нажмите кнопку **ОК**.  
+6.  Clique na caixa de verificação junto a **permitir dispositivos móveis e computadores Mac utilizem este ponto de gestão**. Clique em **OK**.  
 
-     Точка управления становится точкой управления устройствами.  
+     Esta opção transforma eficazmente o ponto de gestão para um ponto de gestão de dispositivos.  
 
- После того как роли системы сайта добавлены и настроены для управления современными устройствами, необходимо настроить серверы, на которых размещаются роли, в качестве доверенных конечных точек для регистрации управляемых устройств и взаимодействия с ними. Дополнительные сведения см. в разделе [Настройка сертификатов для доверенного взаимодействия для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  
+ Assim que as funções de sistema de sites tenham sido adicionadas e configuradas para gerir dispositivos modernos, em seguida, terá de configurar os servidores que alojam as funções como pontos finais fidedignos para inscrever e comunicar com os dispositivos geridos. Consulte [configurar certificados para comunicações fidedignas para a gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md) para obter mais informações.  

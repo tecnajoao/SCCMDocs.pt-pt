@@ -1,6 +1,6 @@
 ---
-title: "Создание обновлений | Документация Майкрософт"
-description: "Создавайте обновления программного обеспечения и объединяйте их в пакеты с помощью System Center Updates Publisher"
+title: "Criar atualizações | Microsoft Docs"
+description: "Criar e agrupar as atualizações de software com o System Center Updates Publisher"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,177 +17,177 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 98e490d7f5ca17dcf2a0aaa848f14e789f214123
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Создание обновлений программного обеспечения и пакетов обновлений с помощью Updates Publisher
+# <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Criar as atualizações de software e atualizar os pacotes com o Updates Publisher
 
-*Область применения: System Center Updates Publisher*
+*Aplica-se a: O System Center Updates Publisher*
 
-С Updates Publisher вы можете использовать мастер **создания обновлений**, чтобы создавать собственные обновления, а также мастер **создания пакетов**, чтобы создавать пакеты обновлений.
+Com o Updates Publisher pode utilizar o **criar atualizar** Assistente para criar as suas próprias atualizações e a **criar pacote** Assistente para criar pacotes de atualizações.
 
-Так как эти два мастера имеют сходный рабочий процесс, процедура создания и обновления пакета связана с процедурой создания обновлений с некоторыми незначительными отличиями.
+Como estes dois assistentes têm um fluxo de trabalho semelhante, o procedimento para criar um pacote de atualização refere-se para o procedimento para criar atualizações, com apenas as diferenças relevantes detalhadas.
 
-## <a name="use-the-create-update-wizard"></a>Использование мастера создания обновлений
-1.  Перейдите в консоли в **рабочую область "Обновления"** и на панели **Начало работы** на вкладке ленты **Домашняя страница** выберите **Update** (Обновление). Откроется мастер **создания обновлений**.
+## <a name="use-the-create-update-wizard"></a>Utilize o Assistente de atualização de criar
+1.  Na consola, aceda a **área de trabalho atualizações**e, em seguida, no **introdução** painel, escolha **atualização** do **home page** separador do Friso. Esta ação abre o **criar atualizar** assistente.
 
-2.  На странице **Пакет** используйте приведенные ниже сведения, чтобы настроить обновление:
+2.  No **pacote** página, utilize as seguintes informações para ajudar a configurar a atualização:
 
-    -   Выберите **Обзор**, чтобы найти пакет обновления программного обеспечения, который вы будете использовать как источник пакета. Допустимые источники: MSI-файл, MSP-файл и EXE-файл. Средству Updates Publisher требуется доступ к имени файла для создания хэша файла. Затем хэш и имя файла используются в метаданных обновлений для создаваемого вами обновления.
+    -   Escolha **procurar** para localizar o pacote de atualização de software que irá utilizar como uma origem de pacote. Incluem origens válidas. MSI. \\&Lt;ServerName>\SMS_<SITECODE>\HOTFIX\<KB, ou. Ficheiros. EXE. Publicador de atualizações requer acesso ao ficheiro para criar um hash de ficheiro. O nome de ficheiro e hash, em seguida, são utilizados nos metadados da atualização para a atualização que está a criar.
 
-    -   Укажите исходное расположение содержимого для этого обновления. Обычно это расположение, из которого будет скачан двоичный файл обновления во время публикации на сервере WSUS.  Если выбран параметр**Use a local source to publish software update content** (Использовать локальный источник для публикации содержимого обновления программного обеспечения), путь указывать необязательно.
+    -   Especifique a localização de origem do conteúdo para esta atualização. Normalmente, esta é a localização onde o binário de atualização será transferido da durante a publicação para um servidor WSUS.  Se o **utilizar uma origem local para publicar conteúdo de atualização de software** opção está selecionada, em seguida, o caminho não é necessário.
 
-        После публикации обновления на сервере WSUS средство Updates Publisher скачивает двоичные файлы для обновления из указанного расположения источника.  Если путь не указан, средство Updates Publisher будет искать [путь публикации локального источника](/sccm/sum/tools/updates-publisher-options#advanced) для двоичного файла обновления.
+        Mais tarde, quando a atualização é publicada para um servidor WSUS, o Updates Publisher transfere os binários da atualização na localização de origem indicado.  Se nenhum caminho for fornecido, em seguida, irá procurar Update Publisher o [caminho de publicação de origem local](/sccm/sum/tools/updates-publisher-options#advanced) para o binário de atualização.
 
-    -   Укажите **язык двоичных файлов** обновления программного обеспечения.
+    -   Especifique o **idioma binário** da atualização de software.
 
-    -   Укажите **коды возврата с состоянием "Успех"** и **коды ожидания перезагрузки с состоянием "Успех"** для обновления. Укажите несколько кодов возврата через запятую. Вы можете использовать эти коды, чтобы определить успешное завершение установки обновления и необходимость перезагрузки.
+    -   Especifique **códigos de retorno de êxito**, e **êxito pendente de reinício códigos** para a atualização. Separe os vários códigos de retorno com uma vírgula. Pode utilizar códigos de retorno para determinar quando a instalação da atualização foi concluída com êxito e, quando reinícios eram necessários.
 
-        -   Файлы и пакеты установщика Windows (MSI- и MSP-файлы) задают эти значения автоматически. Изменить эти значения невозможно.
+        -   Ficheiros do Windows installer e patches (. MSI e. Ficheiros de \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB) definido automaticamente estes valores e que não podem ser modificados.
 
-        -   Для обновлений с использованием EXE-файлов коды по умолчанию, определенные EXE-файлом, используются, если не были указаны коды возврата.
+        -   Para. EXE de atualizações, os códigos de predefinição definidos pelo. O ficheiro EXE são utilizados se forem especificados códigos de retorno.
 
-    -   Укажите любые аргументы командной строки, требуемые для установки обновления программного обеспечения.
+    -   Especifique os argumentos da linha de comandos que são necessários para instalar a atualização de software.
 
-        -   Файлы и пакеты установщика Windows (MSI- и MSP-файлы) задают эти значения автоматически. Для этих типов файлов аргументы должны быть указаны в формате **\[имя\]=\[значение\]**. Кроме того, все параметры, начинающиеся с символа **/** (как **/qn**), не поддерживаются для обновлений программного обеспечения с использованием MSI- или MSP-файлов.
+        -   Ficheiros do Windows installer e patches (. MSI e. Ficheiros de \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB) são definidas automaticamente estes valores. Para estes tipos de ficheiros de argumentos tem de ser especificados como  **\[nome\]=\[valor\]**. Além disso, todas as opções que começar a utilizar um  **/**  (como **/qn**) não são suportadas. MSI ou. Atualizações de software \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB.
 
-        -   Для обновлений с использованием EXE-файлов можно применять любые аргументы.
+        -   Para. Atualizações EXE, todos os argumentos são válidos.
 
-3.  На странице **сведений** укажите информацию об обновлении. Эти подробности становятся доступными после публикации или экспорта обновления. К ним относятся локализованные свойства, например имя обновлений (название) и описание. Затем укажите общие сведения, например классификацию, поставщик, продукт, а также ресурсы, с помощью которых можно узнать дополнительные сведения об обновлении.
+3.  No **informações** página, especifique os detalhes sobre a atualização, que estão incluídos quando a atualização é publicada ou exportada. Detalhes incluem propriedades localizadas, como o nome de atualizações (título) e a descrição. Em seguida, especifique os detalhes mais gerais, tais como a classificação, fabricante, produto e onde saber mais sobre a atualização.
 
-     __Локализованные свойства.__
+     __Propriedades localizadas:__
 
-    -   **Язык.** Выберите язык, а затем укажите название и описание. Затем вы можете выбрать дополнительные языки (еще раз). Каждый язык будет поддерживать собственное название и описание.
+    -   **Idioma**: Selecione um idioma e, em seguida, especifique um título e descrição. Em seguida, pode selecionar idiomas adicionais, um de cada vez, com cada idioma que suporta a sua própria título e descrição.
 
-    -   **Название.** Введите имя обновления. Это имя будет отображаться в рабочей области "Обновления" в консоли Updates Publisher.
+    -   **Título**: Introduza o nome da atualização. Este nome apresenta na área de trabalho de atualizações da consola do Updates Publisher.
 
-    -   **Описание.** Понятное описание обновления. Вы можете включить сведения о компонентах установки обновлений, а также описать, каким образом их можно использовать.
+    -   **Descrição**: Uma descrição amigável da atualização. Pode incluir o que a instalação da atualização e por que motivo ou quando deve ser utilizada.
 
-     **Классификация.** Ниже приведены общие описания для различных классификаций.
+     **Classificação:** Seguem-se descrições comuns para as classificações diferentes.
 
-    -   **Обновление.** Обновление для уже установленного приложения или файла.
+    -   **Atualização**: Uma atualização para uma aplicação ou o ficheiro que está atualmente instalado.
 
-    -   **Критически важное.** Указывает широкодоступное обновление для решения конкретной проблемы и устранения критической ошибки, которая не относится к системе безопасности.
+    -   **Crítico**: Uma atualização amplamente lançada para um problema específico que corrige um crítico não relacionado com segurança.
 
-    -   **Пакет дополнительных компонентов.** Указывает новые компоненты продуктов, распространяемые вне рамок выпуска продукта и обычно входящие в последующий полный выпуск продукта.
+    -   **Pacote de funcionalidades**: Novas funcionalidades do produto que são distribuídas fora de uma versão de produto e que normalmente estão incluídas na próxima versão completa do produto.
 
-    -   **Безопасность.** Указывает широкодоступное обновление для решения проблемы, связанной с системой безопасности конкретного продукта.
+    -   **Segurança**: Uma atualização amplamente lançada para um problema específico do produto que está relacionado com segurança.
 
-    -   **Накопительный пакет обновления.** Набор исправлений, объединенных в один пакет для более удобного развертывания. К таким исправлениям могут относиться обновления для системы безопасности, критические и обычные обновления и пр. Накопительный пакет обновления обычно предназначен для определенной области, например функций безопасности или продукта.
+    -   **Update Rollup**: Um conjunto cumulativo de correções que são agrupadas para facilitar a implementação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações e assim sucessivamente. Um update rollup resolve geralmente uma área específica, tal como segurança ou uma funcionalidade do produto.
 
-    -   **Пакет обновления.** Указывает накопительный набор исправлений, применяемых к приложению. К таким исправлениям могут относиться обновления для системы безопасности, критические и обычные обновления ПО и пр.
+    -   **Pacote de serviço**: Um conjunto cumulativo de correções que são aplicadas a uma aplicação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações de software e assim sucessivamente.
 
-    -   **Средство.** Указывает служебную программу или функцию, которая помогает выполнять одну или несколько задач.
+    -   **Ferramenta**: Especifica uma ferramenta ou funcionalidade que ajuda a concluir as tarefas de um ou mais.
 
-     -   **Драйвер.** Обновление для программного обеспечения драйвера.
+     -   **Controlador**: Uma atualização de software do controlador.
 
-    **Поставщик.** Указывает поставщик для обновления. Вы можете просмотреть раскрывающийся список, чтобы использовать значения из обновлений, находящихся в репозитории. Когда вы указываете поставщик, мастер создает папку с этим именем поставщика в разделе **Все обновления программного обеспечения** в **рабочей области "Обновления"** в случае, если эта папка не была создана ранее. Ниже приведены зарезервированные имена службы Windows Server Update Services (WSUS), которые нельзя ввести для создаваемых вами обновлений:
+    **Fornecedor:** Especifique um fornecedor para a atualização. Pode utilizar na lista pendente para utilizar valores de atualizações que estão no repositório. Quando especificar um fornecedor, o assistente cria uma pasta com esse nome de fornecedor em **todas as atualizações de Software** no **área de trabalho atualizações** se nessa pasta não existe. Seguem-se os nomes do Windows Server Update Services (WSUS) reservado que não podem ser introduzidos para atualizações de que criar:
  >*   Microsoft Corporation
  >*   Microsoft
- >*   Обновление
- >*   Обновление программного обеспечения
- >*   Средства
- >*   Средство
- >*   Критические важное
- >*   Критические обновления
- >*   Безопасность
- >*   Обновления безопасности
- >*   Пакет дополнительных компонентов
- >*   Накопительный пакет обновления
- >*   Пакет обновления
- >*   Драйвер
- >*   Обновление драйвера
- >*   Пакет
- >*   Пакет обновления
+ >*   Atualização
+ >*   Atualização de software
+ >*   Ferramentas
+ >*   Ferramenta
+ >*   Crítico
+ >*   Atualizações críticas
+ >*   Segurança
+ >*   Atualizações de segurança
+ >*   Pacote de funcionalidades
+ >*   Rollup de atualização
+ >*   Service Pack
+ >*   Controlador
+ >*   Atualização do controlador
+ >*   Pacote
+ >*   Atualização do pacote
 
-**Продукт.** Указывает тип продукта, для которого будет использоваться обновление. Вы можете просмотреть раскрывающийся список, чтобы использовать значения из обновлений, находящихся в репозитории. Список зарезервированных имен WSUS, которые нельзя использовать для **поставщика**, нельзя использовать и для **продукта**.
+**Produto**: Especifique o tipo de produto que se aplica a atualização. Pode utilizar na lista pendente para utilizar valores de atualizações que estão no repositório. A mesma lista de WSUS reservado nomes que não podem ser utilizados para **fornecedor**, não pode ser utilizado para **produto**.
 
- **Дополнительные сведения об URL-адресе.** Указывает URL-адрес, где вы можете найти дополнительные сведения об обновлении. При вводе этого URL-адреса необходимо использовать строчные буквы для **https** или **http**.
+ **Mais informações URL**: Especifique o URL onde pode encontrar mais informações sobre esta atualização. Tem de utilizar letras minúsculas para **https** ou **http** quando introduzir este URL.
 
-4.  На странице **необязательных сведений** вы можете настроить дополнительные сведения об обновлении.
+4.  No **informações opcionais** página, pode configurar detalhes que fornecem informações adicionais sobre a atualização.
 
-    -   **ИД бюллетеня.** Идентификаторы бюллетеня обычно (но не всегда) указываются поставщиками обновлений.
+    -   **ID do boletim**: ID do boletim é, normalmente, mas nem sempre, fornecidos pelos fornecedores de atualização.
 
-    -   **Идентификатор статьи.** В случае, если доступна статья об обновлении программного обеспечения, идентификатор статьи может оказаться полезным для пользователей, которые ищут дополнительные сведения об обновлении.
+    -   **ID de artigo**: Se estiver disponível um artigo de atualização de software, o ID do artigo podem ser úteis para indivíduos para procurar informações adicionais sobre a atualização.
 
-    -   **Идентификаторы CVE.** Перечисляется один или несколько идентификаторов общих уязвимостей, которые предоставляют сведения о безопасности обновления или пакета обновлений. В случае, если таких идентификаторов несколько, используйте в качестве разделителя между ними точку с запятой, как в этом примере: *CVE1;CVE2.*
+    -   **IDs de Exposures:** Liste um ou mais comuns de vulnerabilidades e identificadores de CVE (Exposures) que fornecem informações de segurança sobre a atualização ou atualizar o pacote. Quando a listagem mais do que um, utilize um ponto e vírgula para separar CVEs tal como neste exemplo: *CVE1; CVE2.*
 
-    -   **URL-адрес поддержки.** Предоставляет URL-адрес, содержащий дополнительные сведения о поддержке для этого обновления, если такие сведения доступны. При вводе этого URL-адреса необходимо использовать строчные буквы для **https** или **http**.
+    -   **URL de suporte:** Liste o URL que contém as informações de suporte para esta atualização, se disponível. Tem de utilizar letras minúsculas para **https** ou **http** quando introduzir este URL.
 
-    -   **Уровень серьезности.** Задает уровень серьезности для этого обновления.
+    -   **Gravidade:** Defina o nível de gravidade para esta atualização.
 
-    -   **Влияние.** Чтобы определить влияние, используются следующие параметры:
-        -   **Обычный** — чтобы указать, что это обновление требует стандартных процедур по установке.
-        -   **Незначительный** — чтобы указать, что это обновление требует минимальных процедур по установке.
-        -   **Требует исключительной обработки** — чтобы указать, что обновление должно устанавливаться автономно, независимо от других обновлений.   <br /><br />
+    -   **Impacto:** As seguintes opções podem ser utilizadas para especificar o impacto:
+        -   **Normal –** utilizá-lo para indicar a atualização requer procedimentos de instalação típicas.
+        -   **Secundárias –** utilizá-lo para indicar a atualização requer procedimentos de instalação mínima.
+        -   **Requer processamento exclusivo –** utilizá-lo para indicar a atualização tem de ser instalada por si só, exclusivo de quaisquer outras atualizações.   <br /><br />
 
-    -   **Режим перезапуска** — чтобы предоставить сведения о режиме перезапуска обновлений. Этот параметр не влияет на фактический режим установки обновления.
+    -   **Comportamento de reinício:** Utilize esta opção para fornecer informações sobre o comportamento de reinício de atualizações. Esta definição não afeta o comportamento da instalação da atualização real.
 
-        -   **Без перезагрузки** — после установки обновлений программного обеспечения компьютер не требует перезагрузки.
-        -   **С перезагрузкой** — после установки обновлений программного обеспечения требуется перезагрузка компьютера.
-        -   **Перезагрузка по запросу** — после установки обновлений программного обеспечения компьютер запрашивает разрешение на перезагрузку только при необходимости. У пользователя есть возможность отложить перезагрузку. Это значение используется по умолчанию. <br /><br />
+        -   **Nunca reinicia**: O computador nunca efetua um reinício do sistema depois de instalar a atualização de software.
+        -   **Requer sempre reinício**: O computador efetua sempre um reinício do sistema depois de instalar a atualização de software.
+        -   **Pode pedir reinício**: Depois de instalar a atualização de software, o computador pede um reinício do sistema apenas se for necessário um reinício. O utilizador tem a opção para adiar o reinício. Este é o valor predefinido. <br /><br />
 
-5.  На странице **необходимых компонентов** укажите необходимые условия, которые нужно выполнить перед установкой обновления. Необходимые компоненты могут быть **детектоидами** или другими обновлениями. Наборы Detectoid — это высокоуровневые правила, например правила, требующие 64-разрядный ЦП. Наборы Detectoid также могут указывать обновления, которые необходимо установить перед установкой определенного обновления.
+5.  No **pré-requisitos** página, especifique os pré-requisitos que devem ser instalados num computador antes de instalar esta atualização. Pré-requisitos podem ser **detectoids** ou outras atualizações. Detectoids são regras de alto nível, como um que requer que os computadores da CPU para um processador de 64 bits. Detectoids também pode especificar atualizações específicas que tem de estar instaladas antes de instalar esta atualização.
 
-    -   Для повышения производительности используйте наборы Detectoid вместо создания *устанавливаемых* и *установленных правил*, которые выполняют те же проверки или действия.
+    -   Para um melhor desempenho, utilize detectoids em vez de criar *instalável* e *instalado regras* que executam a mesma verificação ou a ação.
 
-    Используйте параметр поиска для **доступных обновлений программного обеспечения и детектоидов**, чтобы найти определенные обновления или детектоиды. Например, выполните поиск **ЦП**, чтобы найти наборы Detectoid, которые позволят ограничить установку на основе определенной архитектуры ЦП.
+    Utilize a opção de pesquisa para **atualizações de software disponíveis e detectoids** para ajudar a encontrar atualizações específicas ou detectoids. Por exemplo, uma procura **CPU** para localizar o detectoids que lhe permitem limitar a instalação com base na arquitetura de CPU específica.
 
-    Вы можете выбрать один или несколько элементов одновременно, чтобы добавить их в качестве необходимых компонентов. При добавлении необходимых компонентов выбранные наборы Detectoid добавляются в качестве одной или нескольких групп. Для установки компьютер должен соответствовать требованиям как минимум одного участника в каждой настраиваемой группе:
+    Pode selecionar um ou mais itens em simultâneo para adicionar como um pré-requisito. Ao adicionar pré-requisitos, os detectoids selecionados são adicionados como um ou mais grupos. Para se qualificar para a instalação, um computador tem de cumprir o requisito de pelo menos um membro de cada grupo que configurou:
 
- -   Когда вы выберете **Add Prerequisite** (Добавить предварительные компоненты), все выбранные элементы будут добавлены в отдельные группы. В соответствии с требованиями для этого обновления нужно выполнить предварительные требования в этой группе, а также требования для любой отдельно настроенной дополнительной группы.
+ -   Ao clicar em **adicionar pré-requisitos** todos os itens que selecionou são adicionados a grupos individuais, separados,. Para se qualificar para esta atualização, um computador tem de cumprir os pré-requisitos neste grupo e passar os requisitos de todos os grupos adicionais que estão configurados.
 
- -   Когда вы выберете **Add Group** (Добавить группу), все выбранные элементы будут добавлены в одну группу. В соответствии с требованиями для этого обновления нужно выполнить хотя бы одно предварительное требование в этой группе, а также требования для любой отдельно настроенной дополнительной группы.
+ -   Ao clicar em **adicionar grupo,** todos os itens que selecionou são adicionados a um único grupo. Para se qualificar para esta atualização, um computador tem de cumprir, pelo menos, um dos pré-requisitos neste grupo e passar os requisitos de todos os grupos adicionais que estão configurados.
 
-6.  На странице **Замена** укажите обновления, которые заменены данным обновлением. После публикации этого обновления Configuration Manager отметит каждое обновление, которое было заменено, как **просроченное**. Затем клиенты могут установить это обновление вместо замененных обновлений.
+6.  No **substituição** página, especifique as atualizações que são substituídas (substituídas) por esta atualização. Quando esta atualização for publicada, o Configuration Manager irá marcar cada atualização que é substituída como **expirado**. Os clientes, em seguida, irão instalar esta atualização em vez das atualizações substituídas.
 
-7.  На странице **Применимость** используйте **редактор правила**, чтобы определить набор правил, определяющих необходимость обновления для устройства. (Эта страница подобна странице **Установлено**, которая следует за страницей, указанной выше.)
+7.  No **aplicabilidade** página utilize o **Editor de regras** para definir um conjunto de regras que determinam se um dispositivo tem desta atualização. (Esta página é semelhante a **instalada** página, o seguinte.)
 
-    Чтобы добавить новое правило, щелкните !["Новое правило"](media/newrule.png). Откроется страница правил применимости, на которой можно настроить правила.
+    Para adicionar uma nova regra, clique em ![Nova regra](media/newrule.png). Esta ação abre a página de regra de aplicabilidade onde pode configurar as regras.
 
-    Типы правил, которые можно создать, включают следующие:
+    Os tipos de regras, que pode criar incluem:
 
-    -   **Файл.** Используйте это правило, чтобы указать, что устройство содержит файл со свойствами, которые соответствуют одному или нескольким указанным требованиям, прежде чем установить данное обновление.
+    -   **Ficheiro** – utilizar esta regra para exigir que um dispositivo tem um ficheiro com propriedades que cumprem um ou mais critérios que especificar antes desta atualização podem ser aplicados.
 
-    -   **Реестр.** Используйте этот тип, чтобы указать сведения о реестре, которые необходимы для установки обновления на устройстве.
+    -   **Registo –** utilizar este tipo para especificar detalhes de registo que tem de existir antes de um dispositivo se qualificam instalar esta atualização.
 
-    -   **Система.** Это правило использует сведения о системе, чтобы определить применимость. Вы можете выбрать между определением версии Windows, языка Windows или архитектуры процессора или указать запрос WMI, чтобы определить тип операционной системы устройства.
+    -   **Sistema –** esta regra utiliza detalhes de sistema para determinar a aplicabilidade. Pode escolher entre definir uma versão do Windows, um idioma do Windows, a arquitetura de processador ou especificar uma consulta WMI para identificar o sistema operativo de dispositivos.
 
-    -   **Установщик Windows.** Используйте этот тип правила, чтобы определить применимость на основе установленного MSI-файла или исправления установщика Windows (для MSP-файлов). Вы также можете определить, нужно ли в соответствии с некоторыми требованиями устанавливать конкретные компоненты или функции.
+    -   **Windows Installer –** utilizar este tipo de regra para determinar a aplicabilidade com base num instalado. MSI ou do Windows Installer patch (. \\&LT;SERVERNAME&GT;\SMS_&LT;SITECODE&GT;\HOTFIX\&LT;KB). Também pode determinar se os componentes específicos ou funcionalidades são instaladas como parte do requisito.
 
         > [!IMPORTANT]  
-        > На управляемых устройствах агент обновления Windows не может найти пакеты установки Windows, установленные для отдельных пользователей. При использовании этого типа правил настройте дополнительные правила применимости, например версии файлов или значения разделов реестра, чтобы пакет установщика Windows был обнаружен независимо от типа установки (для отдельного пользователя или для системы).
+        > No geridos deices, o Windows Update Agent não conseguiu detetar o Windows instalar pacotes que são instaladas por utilizador. Quando utilizar este tipo de regra, configure as regras de aplicabilidade adicionais, como as versões de ficheiro ou valores de chave de registo, para que o pacote Windows Installer pode ser detetado corretamente independentemente numa base por utilizador ou por sistema.
 
-    -   **Сохраненное правило.** Этот параметр позволяет находить и использовать правила, которые вы *создали в рабочей области правил*.
+    -   **Guardar a regra –** esta permite opção Localizar e utilizar as regras *criada na área de trabalho de regras*.
 
-        После создания правила вы можете использовать другие значки, чтобы изменить его, а в случае нескольких правил — определить связи между ними.
+        Depois de criar uma regra, pode utilizar os ícones de outros para modificar a regra, e se existem várias regras, para definir relações entre essas regras.
 
-    Создав и добавив правила, нажмите кнопку **ОК** в диалоговом окне **создания набора правил**, чтобы сохранить этот набор. Затем вы можете **создать** правило и также добавить его в набор.
+    Quando já está a criar e adicionar regras, clique em **OK** no **criar conjunto de regras de** caixa de diálogo para guardar o conjunto. Em seguida, pode criar um **novo** regra e adicione que, bem como ao conjunto.
 
-    Если в обновление нужно добавить несколько правил или наборов правил, вы можете использовать логические операторы в **редакторе правил**, чтобы определить условия между ними, а также порядок их обработки.
+    Quando tiver várias regras ou define a regra para adicionar a uma atualização, pode utilizar os operadores lógicos no **Editor de regras** para determinar as condições entre as regras e a ordem pela qual processam.
 
-8.  На странице **Установлено** используйте **редактор правил**, чтобы указать набор правил, которые определяют, установлено ли настраиваемое вами обновление на устройстве. (Эта страница подобна странице **Применимость**, которая следует за этой страницей.)
+8.  No **instalada** página utilize o **Editor de regras para** definir um conjunto de regras que determinam se um dispositivo já tem instalada a atualização está a configurar. (Esta página é semelhante a **aplicabilidade** página, que as prossegue nesta página.)
 
-    На этой странице мастера можно настроить правила, используя те же параметры и критерии, что и на странице **Применимость**.
+    Esta página do assistente suporta configurar regras com as mesmas opções e critérios de como o **aplicabilidade** página.
 
-    По завершении работы мастера новое обновление добавляется в узел в **рабочей области обновлений**. Она определяется по имени **поставщика** и **продукта**, используемых для этого обновления.
+    Quando concluir o assistente, a nova atualização é adicionada a um nó no **atualiza a área de trabalho** que é identificado pelo **fornecedor** e **produto** nome utilizado para essa atualização.
 
-## <a name="use-the-create-bundle-wizard"></a>Использование мастера создания пакетов
-Так как этот мастер использует тот же рабочий процесс, что и [мастер создания обновлений](#use-the-create-update-wizard), вы можете использовать этот рабочий процесс с учетом некоторых различий для пакетов.
+## <a name="use-the-create-bundle-wizard"></a>Utilize o assistente criar pacote
+Uma vez que este assistente utiliza o mesmo fluxo de trabalho como o [assistente criar atualizar](#use-the-create-update-wizard), utilizar esse fluxo de trabalho, mas tenha em atenção a seguinte diferença para pacotes:
 
-1.  Чтобы запустить мастер, перейдите в консоли в **рабочую область "Обновления"**, а затем на вкладке ленты **Домашняя страница** выберите **Пакет**.
+1.  Para iniciar o assistente, na consola do aceda a **área de trabalho atualizações**e, em seguida, selecione **pacote** do **home page** separador do Friso.
 
-2.  В отличие от мастера создания обновлений здесь при создании пакета страница пакета отсутствует.
+2.  Ao contrário do assistente criar atualizar, não há nenhuma página de pacote ao criar um pacote.
 
-3.  На странице **сведений** укажите информацию о пакете обновлений. Эти подробности становятся доступными после публикации или экспорта обновления.
+3.  No **informações** página, especifique os detalhes sobre o pacote de atualização que estão incluídos quando a atualização é publicada ou exportada.
 
-4.  На странице **необязательных сведений** вы можете настроить дополнительные сведения о пакете обновлений. Доступные параметры не отличаются от параметров, использующихся для создания обновления. Однако параметры влияния и режима перезапуска недоступны, так как они неприменимы к пакетам.
+4.  No **informações opcionais** página, pode configurar detalhes que fornecem informações adicionais sobre o pacote de atualização. As opções disponíveis são iguais para criação de uma atualização. No entanto, as opções de impacto e o comportamento de reinício não estão disponíveis como estas não são aplicadas a pacotes.
 
-5.  На странице **необходимых компонентов** укажите необходимые условия, которые нужно выполнить перед установкой пакета. Эти правила такие же, как и для отдельных обновлений.
+5.  No **pré-requisitos** página, especifique os pré-requisitos que devem ser instalados num computador antes de pode instalar este pacote. Estas regras são os mesmos visto para as atualizações individuais.
 
-6.  На странице **Замена** укажите обновления, которые заменены данным пакетом обновлений. Эти правила такие же, как и для отдельных обновлений.
+6.  No **substituição** página, especifique as atualizações que são substituídas (substituídas) por este pacote de atualização. Estas regras são os mesmos visto para as atualizações individuais.
 
-7.  На странице **участников** выберите обновления, чтобы добавить их в пакет обновлений. Доступны только те обновления, которые вы создали или импортировали в Updates Publisher.
+7.  No **membros** página, selecione atualizações para adicionar o pacote de atualização. Estão disponíveis apenas as atualizações de ter criado ou importado para o Updates Publisher.
 
-По завершении работы мастера новый пакет обновлений добавляется в узел в **рабочей области "Обновления"**, которая определяется по имени **поставщика**, используемого для этого пакета обновлений.
+Quando concluir o assistente, o novo pacote de atualização é adicionado a um nó a **atualiza a área de trabalho** que é identificado pelo **fornecedor** nome utilizado para o pacote de atualização.

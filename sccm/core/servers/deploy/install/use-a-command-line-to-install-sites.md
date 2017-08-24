@@ -1,6 +1,6 @@
 ---
-title: "Установка из командной строки | Документация Майкрософт"
-description: "Узнайте, как запускать программу установки System Center Configuration Manager из командной строки для установки различных сайтов."
+title: "Instalação da linha de comandos | Microsoft Docs"
+description: "Saiba como executar o programa de configuração do System Center Configuration Manager numa linha de comandos para uma variedade de instalações de site."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,111 +16,111 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8ff48b08d1abb7481592c0ea076d4efa15c3d8ee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Установка сайтов System Center Configuration Manager с помощью командной строки
+# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utilize uma linha de comandos para instalar sites do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Программу установки System Center Configuration Manager можно запускать из командной строки для установки различных сайтов.
+ Pode executar o programa de configuração do System Center Configuration Manager na linha de comandos para instalar uma variedade de tipos de site.
 
-## <a name="supported-tasks-for-command-line-installations"></a>Поддерживаемые задачи при установке из командной строки
- Этот метод запуска программы установки поддерживает следующие задачи установки и обслуживания сайтов:
+## <a name="supported-tasks-for-command-line-installations"></a>Tarefas suportadas para instalações da linha de comandos
+ Este método de executar a configuração suporta a instalação de site seguinte e tarefas de manutenção do site:
 
--   **Установка сайта центра администрирования или первичного сайта из командной строки**  
-  Просмотрите [параметры командной строки для программы установки](../../../../core/servers/deploy/install/command-line-options-for-setup.md).
+-   **Instalar um site de administração central ou site primário numa linha de comandos**  
+  Vista [opções da linha de comandos para configuração](../../../../core/servers/deploy/install/command-line-options-for-setup.md)
 
--  **Изменение используемых языков на первичном сайте или сайте центра администрирования**  
-    Чтобы изменить установленные на сайте языки из командной строки (включая языки для мобильных устройств), необходимо выполнить следующее.  
+-  **Modificar os idiomas em utilização num site de administração central ou site primário**  
+    Para modificar os idiomas que estão instalados num site a partir de uma linha de comandos (incluindo idiomas para dispositivos móveis), tem de:  
 
-     -   Запустите программу установки из папки **&lt;ConfigMgrInstallationPath\>\Bin\X64** на сервере сайта.
-     -   Используйте параметр командной строки **/MANAGELANGS**.
-     -   Укажите файл языкового сценария, указывающий языки, которые требуется добавить или удалить.  
+     -   Execute a configuração de  **&lt;Caminhodeinstalaçãodoconfigmgr\>\Bin\X64** no servidor do site,
+     -   Utilize o **/MANAGELANGS** opção da linha de comandos,
+     -   Especificar um ficheiro de script de idioma que especifica os idiomas que pretende adicionar ou remover,  
 
-    Например, используйте следующий синтаксис команды: **setupwpf.exe /MANAGELANGS &lt;файл_языкового_скрипта\>**.  
+    Por exemplo, utilize a seguinte sintaxe de comando: **setupwpf.exe /MANAGELANGS &lt;ficheiro de script de idioma\>**  
 
-    Для создания файла языкового скрипта используйте сведения из статьи [Параметры командной строки для управления языками](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang).  
+    Para criar o ficheiro de script de idioma, utilize as informações em [opções de linha de comandos para gerir idiomas](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang)  
 
--  **Используйте файл скрипта установки для автоматических установок сайта или восстановления сайта**.  
-    Вы можете запустить программу установки из командной строки с помощью сценария установки и выполнить автоматическую установку сайта. Кроме того, вы можете использовать этот параметр для восстановления сайта.    
+-  **Utilizar um ficheiro de script de instalação para instalações de site automáticas ou recuperação de sites**  
+    Pode executar a configuração numa linha de comandos, utilizando um script de instalação e o utilizador executar uma instalação automática de site. Também pode utilizar esta opção para recuperar um site.    
 
-    Использование сценария с программой установки  
+    Para utilizar um script com a configuração:  
 
-    -   Запустите программу установки с параметром командной строки **/SCRIPT** и укажите файл сценария.  
+    -   Execute a configuração com a opção da linha de comandos **/SCRIPT** e especifique um ficheiro de script.  
 
-    -   Файл сценария должен быть настроен с использованием необходимых ключей и значений.  
+    -   O ficheiro de script tem de ser configurado com chaves e valores necessários.  
 
-    Для автоматической установки сайта центра администрирования или первичного сайта файл сценария должен включать следующие разделы.  
+    Para uma instalação autónoma de um site de administração central ou site primário, o ficheiro de script tem de ter as seguintes secções:  
 
-    -   Identification    
-    -   Параметры    
+    -   Identificação    
+    -   Opções    
     -   SQLConfigOptions    
       -   HierarchyOptions    
     -   CloudConnectorOptions   
 
-    Для восстановления сайта необходимо включать в файл сценария следующие разделы.  
+    Para recuperar um site, também tem de incluir as seguintes secções do ficheiro de script:  
 
-    -   Identification  
-    -   Модель
+    -   Identificação  
+    -   Recuperação
 
-См. дополнительные сведения об [автоматическом восстановлении сайта для Configuration Manager](/sccm/protect/understand/unattended-recovery).  
+Para obter mais informações, consulte [recuperação automática de site do Configuration Manager](/sccm/protect/understand/unattended-recovery).  
 
-Список ключей и значений, используемых в файле сценария автоматической установки, см. в разделе [Ключи файла сценария автоматической установки](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
+Para obter uma lista de chaves e valores a utilizar um ficheiro de script de instalação automática, consulte [chaves de ficheiro de script de configuração automática](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
 
-## <a name="about-the-command-line-script-file"></a>Сведения о файле скрипта командной строки  
- Для выполнения автоматических установок Configuration Manager вы можете запустить программу установки с параметром командной строки **/SCRIPT** и указать файл сценария, содержащий параметры установки. Этот метод помогает решать следующие задачи.  
+## <a name="about-the-command-line-script-file"></a>Sobre o ficheiro de script da linha de comandos  
+ Para instalações automáticas do Configuration Manager, pode executar a configuração com a opção da linha de comandos **/SCRIPT**e especifique um ficheiro de script que contenha opções de instalação. As seguintes tarefas são suportadas através deste método:  
 
--   Установка сайта центра администрирования  
--   Установка первичного сайта  
--   Установка консоли Configuration Manager  
--   Восстановление сайта  
+-   Instalar um site de administração central  
+-   Instalar um site primário  
+-   Instalar uma consola do configuration Manager  
+-   Recuperar um site  
 
 > [!NOTE]  
->  Нельзя использовать файл сценария автоматической установки для обновления ознакомительной версии до лицензированной установки Configuration Manager.  
+>  Não é possível utilizar o ficheiro de script automático para atualizar um site de avaliação para uma instalação licenciada do Configuration Manager.  
 
-### <a name="the-cdlatest-key-name"></a>Имя ключа CDLatest
-Если вы запускаете один из перечисленных ниже четырех вариантов автоматической установки, используя носитель из папки CD.Latest, необходимо указать ключ **CDLatest** со значением **1**.
-- Установка нового сайта центра администрирования.
-- Установка нового первичного сайта.
-- Восстановление сайта центра администрирования.
-- Восстановление первичного сайта.
+### <a name="the-cdlatest-key-name"></a>O nome da chave CDLatest
+Quando utiliza suportes de dados de CD. Instalar pasta mais recente para executar um script das seguintes opções de quatro instalação, o script tem de incluir o **CDLatest** chave com um valor de **1**:
+- Instalar um novo site de administração central
+- Instalar um novo site primário
+- Recuperar um site de administração central
+- Recuperar um site primário
 
-Это значение не работает при использовании установочного носителя, который вы получили с сайта корпоративного лицензирования Microsoft.
-Сведения о том, как использовать это имя ключа в файле сценария, см. в статье [Параметры командной строки программы установки для System Center Configuration Manager](/sccm/core/servers/deploy/install/command-line-options-for-setup).
+Este valor não é suportado para utilização com suporte de dados de instalação que que obtém a partir do site de licenciamento em Volume da Microsoft.
+Consulte [opções da linha de comandos](/sccm/core/servers/deploy/install/command-line-options-for-setup) para obter informações sobre como utilizar este nome da chave no ficheiro de script.
 
 
 
-### <a name="create-the-script"></a>Создание сценария
-Скрипт установки создается автоматически при [запуске программы установки для установки сайта с помощью пользовательского интерфейса](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  При подтверждении параметров на странице **Сводка** мастера происходит следующее.  
+### <a name="create-the-script"></a>Criar o script
+O script de instalação é criado automaticamente quando é [executar a configuração para instalar um site utilizando a interface de utilizador](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Quando confirmar as definições no **resumo** acontece de página do assistente, o seguinte:  
 
--   Программа установки создает сценарий **%TEMP%\ConfigMgrAutoSave.ini**.  Вы можете переименовать этот файл перед использованием, сохранив при этом его расширение INI.  
--   Сценарий автоматической установки содержит параметры, выбранные в мастере.  
--   После создания сценарий можно изменить для установки других сайтов в иерархии.  
--   Затем вы можете использовать этот сценарий, чтобы выполнить автоматическую установку Configuration Manager.  
+-   A configuração cria o script **%TEMP%\ConfigMgrAutoSave.ini**.  Pode mudar o nome deste ficheiro antes de a utilizar, mas tem de manter a extensão de ficheiro. ini.  
+-   O script de instalação automática contém as definições que selecionou no assistente.  
+-   Após a criação do script, pode modificar o script para instalar outros sites na hierarquia.  
+-   Em seguida, pode utilizar este script para efetuar uma configuração automática do Configuration Manager.  
 
-Этот файл сценария предоставляет такие же данные, которые запрашиваются мастером установки, однако в нем отсутствуют значения параметров по умолчанию.   
-Необходимо указать все значения для ключей установки, применимых к используемому типу установки.   
+Este ficheiro de script fornece as mesmas informações que o Assistente de configuração solicita, exceto que existem não existem predefinições.   
+Tem de especificar todos os valores para as chaves de configuração que se aplicam ao tipo de instalação que está a utilizar.   
 
-Когда программа установки создает сценарий автоматической установки, он дополняется значением ключа продукта, введенным в программе установки. Это может быть действительный ключ продукта или значение **EVAL** при установке ознакомительной версии Configuration Manager. Значение ключа продукта в сценарии заполняется, чтобы проверка предварительных условий могла завершиться.   
+Quando a configuração cria o script de instalação autónoma, este é preenchido com o valor de chave de produto que introduziu durante a configuração. Isto pode ser uma chave de produto válida ou **EVAL** ao instalar uma versão de avaliação do Configuration Manager. O valor de chave de produto no script está preenchido para que possa concluir a verificação de pré-requisitos.   
 
-Когда программа установки запускает установку сайта, автоматически созданный сценарий снова изменяется, чтобы удалить значение ключа продукта. Перед использованием сценария для автоматической установки нового сайта вы можете изменить его, чтобы указать действительный ключ продукта или задать ознакомительную установку Configuration Manager.  
+Quando a configuração iniciar a instalação do site real, o script criado automaticamente é novamente gravado para limpar o valor de chave de produto no script que cria. Antes de utilizar o script para uma instalação autónoma de um site novo, pode editar o script para fornecer uma chave de produto válida ou especificar uma instalação de avaliação do Configuration Manager.  
 
-### <a name="section-names-key-names-and-values"></a>Имена разделов, имена ключей и значения
-Сценарий содержит имена разделов, имена ключей и значения. Просмотрите следующие сведения.
--   Набор необходимых разделов и ключей может различаться в зависимости от типа установки, для которого предназначается сценарий.
--   Порядок следования ключей внутри разделов и порядок следования разделов внутри файла не имеет значения.     
--   В ключах не учитывается регистр.  
--   Значения ключей указываются так: после имени ключа должен стоять знак равенства (=), а затем — значение ключа.    
+### <a name="section-names-key-names-and-values"></a>Nomes de secções, nomes de chaves e valores
+O script contém nomes de secções, nomes de chaves e valores. Tenha em atenção as seguintes informações:
+-   Os nomes de chaves de secção necessários variam consoante o tipo de instalação que está a processar scripts.
+-   A ordem das chaves dentro das secções e a ordem das secções no ficheiro não são importantes.     
+-   As chaves não são maiúsculas e minúsculas.  
+-   Quando fornece valores para chaves, o nome da chave tem de ser seguido por um sinal de igual (=) e o valor da chave.    
 
 > [!TIP]  
->  Полный набор параметров см. в разделе [Параметры командной строки для программы установки и сценариев](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+>  Para ver o conjunto completo de opções, consulte [opções da linha de comandos para configuração e scripts](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
 
-## <a name="use-the-script-setup-command-line-option"></a>Необходимые условия использования параметра командной строки /SCRIPT программы установки
+## <a name="use-the-script-setup-command-line-option"></a>Utilize a opção da linha de comandos /SCRIPT de configuração
 
--   Необходимо использовать файл сценария установки и указать имя этого файла после параметра командной строки **/SCRIPT** программы установки. Просмотрите следующие сведения.   
-    -   Имя файла должно иметь расширение **.ini**.  
-    -   Ссылаясь на файл сценария установки в командной строке, необходимо указывать полный путь к этому файлу. Например, если файл настройки установки называется setup.ini и хранится в папке C:\setup, то командная строка будет выглядеть так: **setup /script c:\setup\setup.ini**.  
+-   Tem de utilizar um ficheiro de script de configuração e especificar o nome de ficheiro após o **/SCRIPT** opção da linha de comandos. Tenha em atenção as seguintes informações:   
+    -   O nome do ficheiro tem de ter o **. ini** extensão de nome de ficheiro.  
+    -   Quando referenciar o ficheiro de script de configuração na linha de comandos, tem de fornecer o caminho completo para o ficheiro. Por exemplo, se o ficheiro de inicialização da configuração tiver o nome Setup.ini e estiver armazenado na pasta C:\Setup, na linha de comandos, escreva: **o programa de configuração/script c:\setup\setup.ini**.  
 
--   Учетная запись, используемая для выполнения программы установки, должна обладать правами **администратора** на компьютере. При запуске программы установки со сценарием автоматической установки откройте окно командной строки с помощью команды **Запуск от имени администратора**.   
+-   A conta que executa a configuração tem de ter **administrador** direitos no computador. Quando executar a configuração com o script automático, abra a janela de linha de comandos, utilizando o **executar como administrador** opção.   

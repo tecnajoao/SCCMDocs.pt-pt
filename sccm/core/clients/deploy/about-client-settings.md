@@ -1,6 +1,6 @@
 ---
-title: "Параметры клиентов | Microsoft Docs"
-description: "Для выбора параметров клиента используйте консоль администратора в System Center Configuration Manager."
+title: "Definições de cliente | Microsoft Docs"
+description: "Escolha as definições de cliente utilizando a consola de administrador no System Center Configuration Manager."
 ms.custom: na
 ms.date: 08/01/2017
 ms.prod: configuration-manager
@@ -17,653 +17,653 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: a8233c361e1a78b14a02f328da445814624e38d8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-client-settings-in-system-center-configuration-manager"></a>О параметрах клиентов в System Center Configuration Manager
+# <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: System Center Configuration Manager (ramo atual)*
 
-Управление всеми параметрами клиента System Center Configuration Manager осуществляется из узла **Параметры клиентов** в рабочей области **Администрирование** консоли Configuration Manager. В состав Configuration Manager входит набор параметров по умолчанию. Если изменить заданные по умолчанию параметры клиента, они будут применены ко всем клиентам в иерархии. Можно также задать пользовательские параметры клиента, которые станут использоваться вместо параметров по умолчанию, будучи назначены тем или иным коллекциям. Сведения о настройке параметров клиента см. в статье [Настройка параметров клиента в System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
+Todas as definições de cliente no System Center Configuration Manager são geridas na consola do Configuration Manager do **as definições de cliente** no nó de **administração** área de trabalho. O Configuration Manager inclui um conjunto de predefinições. Quando alterar as predefinições de cliente, estas definições são aplicadas a todos os clientes na hierarquia. Também pode configurar definições de cliente personalizadas, que substituem as predefinições do cliente, ao atribuí-las a coleções. Para obter mais informações sobre como configurar definições do cliente, veja [Como configurar definições de cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).  
 
-Многие из параметров клиента не требуют пояснений. Здесь описываются остальные.  
+Muitas das definições de cliente são facilmente compreensíveis. Outras pessoas são descritas aqui.  
 
-## <a name="background-intelligent-transfer-service"></a>Фоновая интеллектуальная служба передачи  
+## <a name="background-intelligent-transfer-service"></a>Serviço de transferência inteligente em segundo plano  
 
--   **Ограничить максимальную пропускную способность сети для фоновой передачи BITS**  
+-   **Limitar a largura de banda de rede máxima para transferências BITS em segundo plano**  
 
-   Если этот параметр настроен со значением **True** или **Yes**, клиенты будут использовать регулирование пропускной способности сети BITS.  
+   Quando esta opção é **verdadeiro** ou **Sim**, os clientes irão utilizar a limitação de largura de banda do BITS.  
 
--   **Время запуска окна регулирования**  
+-   **Hora de início da janela de limitação**  
 
-   Укажите местное время начала периода регулирования BITS.  
+   Especifique a hora de início local para a janela de limitação do BITS.  
 
--   **Конечное время окна регулирования**  
+-   **Hora de fim da janela de limitação**  
 
-   Укажите местное время окончания периода регулирования BITS. Если это значение равно значению **Время запуска окна регулирования**, регулирование BITS включено всегда.  
+   Especifique a hora de fim local para a janela de limitação do BITS. Se igual a **hora de início da janela de limitação**, limitação do BITS é sempre ativado.  
 
--   **Максимальная скорость передачи во время использования периода регулирования (Кбит/с)**  
+-   **Velocidade máxima de transferência durante a janela de limitação (Kbps)**  
 
-   Укажите максимальную скорость передачи, которую могут использовать клиенты во время указанного периода.  
+   Especifique a velocidade máxima de transferência que os clientes podem utilizar durante a janela.  
 
--   **Разрешить загрузки BITS вне периода регулирования**  
+-   **Permitir transferências BITS fora da janela de limitação**  
 
-   Выберите этот параметр, чтобы разрешить клиентам Configuration Manager использовать отдельные настройки BITS за рамками указанного окна.  
+   Escolha esta opção para permitir que os clientes do Configuration Manager utilizar as definições de BITS separadas fora da janela especificada.  
 
--   **Максимальная скорость передачи вне периода регулирования (Кбит/с)**  
+-   **Velocidade máxima de transferência fora da janela de limitação (Kbps)**  
 
-   Укажите максимальную скорость передачи, которую могут использовать клиенты за рамками окна регулирования BITS, если вы разрешили регулирование BITS за пределами указанного окна.  
+   Especifique a velocidade máxima de transferência que os clientes utilizam fora os BITS da janela de limitação, quando tiver optado por permitir fora da janela de limitação do BITS.  
 
-## <a name="client-cache-settings"></a>Параметры кэша клиента
+## <a name="client-cache-settings"></a>Definições de cache do cliente
 
-- **Настроить BranchCache**
+- **Configurar o BranchCache**
 
-  Начиная с версии 1606 этот параметр используется для настройки на клиентском компьютере поддержки [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Чтобы разрешить кэширование BranchCache на клиентском компьютере, задайте для параметра **Включить BranchCache** значение **Да**.
+  A partir da versão 1606, utilize esta definição para configurar o computador cliente para [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Para permitir a colocação em cache de BranchCache no cliente, defina **ativar BranchCache** para **Sim**.
 
-- **Включение BranchCache**
+- **Ativar o BranchCache**
 
-Включает BranchCache на клиентских компьютерах.
+Permite que o BranchCache nos computadores cliente.
 
-- **Максимальный размер кэша BranchCache (процент дискового пространства)**.
+- **Tamanho máximo da cache do BranchCache (percentagem do disco)**.
 
-- **Настроить размер кэша клиента**
+- **Configurar o tamanho da cache do cliente**
 
-  В кэше клиента на компьютерах с Windows хранятся временные файлы, используемые для установки приложений и программ. Выберите **Да**, а затем укажите следующие значения:
-    - **Максимальный размер кэша** (МБ). 
-    - **Максимальный размер кэша** (процент дискового пространства).
-Размер кэша клиента можно увеличить до максимального в МБ или процентах дискового пространства, в зависимости от того, **какое значение меньше**. Если выбрать значение **Нет**, размер по умолчанию составляет 5120 МБ.
+  A cache do cliente em computadores Windows armazena ficheiros temporários utilizados para instalar aplicações e programas. Escolha **Sim** , em seguida, especifique:
+    - **Tamanho máximo da cache** (em megabytes). 
+    - **Tamanho máximo da cache** (percentagem do disco).
+Pode expandir o tamanho da cache do cliente para o tamanho máximo em MB ou percentagem do disco, **que for menor**. Se esta opção é **não**, o tamanho predefinido é 5,120 MB.
 
-- **Включение клиента Configuration Manager в полной ОС для совместного использования содержимого**
+- **Ativar cliente do Configuration Manager no SO completo para partilhar conteúdo**
 
-Включает одноранговый кэш для клиентов Configuration Manager. Затем укажите сведения о порте, с помощью которого клиент взаимодействует с одноранговым компьютером. Configuration Manager автоматически настроит правила брандмауэра Windows, чтобы разрешить этот трафик. Если вы используете другой брандмауэр, необходимо настроить вручную правила, разрешающие этот трафик.
-
-
+Permite o elemento de cache para clientes do Configuration Manager. Em seguida, especifique as informações de porta que o cliente comunica com o computador de ponto a ponto. O Configuration Manager irá configurar automaticamente regras de Firewall do Windows para permitir que este tráfego. Se utilizar uma firewall diferente, tem de configurar manualmente as regras para permitir que este tráfego.
 
 
-## <a name="client-policy"></a>Политика клиента  
 
--   **Интервал опроса политики клиента (в минутах)**  
 
-   Укажите, как часто следующие клиенты Configuration Manager будут скачивать политику клиента:  
+## <a name="client-policy"></a>Política do cliente  
 
-  -   компьютеры под управлением Windows (например, настольные компьютеры, серверы, ноутбуки);  
+-   **Intervalo de consulta da política de cliente (minutos)**  
 
-  -   мобильные устройства, регистрируемые Configuration Manager;  
+   Especifique a frequência os seguintes clientes do Configuration Manager transferirem a política de cliente:  
 
-  -   компьютеры Mac;  
+  -   Computadores Windows (por exemplo, ambientes de trabalho, servidores, computadores portáteis)  
 
-  -   компьютеры под управлением UNIX или Linux.  
+  -   Dispositivos móveis que inscreve do Configuration Manager  
 
--   **Включить опрос политики пользователя на клиентах**  
+  -   Computadores Mac  
 
-   Если задать для этого параметра значение **True** или **Да** и [пользователь был обнаружен](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser) Configuration Manager, клиенты на компьютерах будут получать приложения и программы, предназначенные вошедшему в систему пользователю.  
+  -   Computadores com o Linux ou UNIX  
 
-   Так как каталог приложений получает список доступного программного обеспечения для пользователей с сервера сайта, необязательно присваивать этому параметру значение **True** или **Да**, чтобы пользователи могли просматривать и запрашивать приложения из каталога. Но если этот параметр имеет значение **False** или **Нет**, часть функциональности каталога приложений будет недоступна пользователям.  
+-   **Ativar consulta de política de utilizador nos clientes**  
 
-  -   Пользователи не могут устанавливать приложения, которые они видят в каталоге приложений.  
+   Quando definir esta opção **verdadeiro** ou **Sim**, e o Configuration Manager possui [detetado o utilizador](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser), os clientes em computadores recebem aplicações e programas destinados ao utilizador com sessão iniciada.  
 
-  -   Пользователи не будут видеть уведомления о своих запросах на одобрение приложений. Вместо этого пользователям придется обновлять каталог и проверять состояние одобрения.  
+   Uma vez que o catálogo de aplicações recebe a lista de software disponível para utilizadores do servidor do site, esta definição não tem de ser **verdadeiro** ou **Sim** para os utilizadores possam visualizar e pedir aplicações a partir do catálogo de aplicações. Porém, se esta definição é **falso** ou **não**, o seguinte elemento não funcionará quando os utilizadores utilizam o catálogo de aplicações:  
 
-  -   Пользователи не будут получать новые редакции и обновления для приложений, опубликованных в каталоге. При этом они смогут увидеть измененные сведения о приложениях в каталоге.  
+  -   Os utilizadores não podem instalar as aplicações que veem no Catálogo de Aplicações.  
 
-  -   Если удалить развертывание приложения после того, как это приложение было установлено клиентом из каталога, клиенты будут проверять установку этого приложения еще на протяжении двух дней (но не дольше).  
+  -   Os utilizadores não verão notificações sobre os pedidos de aprovação de aplicação. Em vez disso, devem atualizar o Catálogo de Aplicações e verificar o estado de aprovação.  
 
-   Кроме того, если этот параметр имеет значение **False** или **Нет**, пользователи не будут получать обязательные приложения, настроенные для развертывания среди пользователей, а также не будут выполняться никакие другие задачи управления в политиках пользователя.  
+  -   Os utilizadores não receberão revisões nem atualizações para as aplicações que são publicadas no catálogo de Catálogo de Aplicações. Mas, verão as alterações às informações de aplicação no catálogo de aplicações.  
 
-   Данный параметр действует для пользователей, компьютеры которых подключены к интрасети и Интернету. Если также требуется, чтобы политики пользователя действовали в Интернете, необходимо установить этот параметр равным **True** или **Да**.  
+  -   Se remover a implementação de uma aplicação depois de o cliente ter instalado a aplicação a partir do Catálogo de Aplicações, os clientes continuam a verificar se a aplicação está instalada até um máximo de 2 dias.  
 
--   **Включить запросы политик пользователей с интернет-клиентов**  
+   Além disso, quando esta definição for **falso** ou **não**, os utilizadores não irão receber as aplicações necessárias implementadas para utilizadores ou quaisquer outras tarefas de gestão em políticas de utilizador.  
 
-   Если, во-первых, клиент и сайт настроены для управления клиентами через Интернет, во-вторых, данный параметр установлен равным **True** или **Да**, а в-третьих, соблюдены оба указанных ниже условия, то пользователи получат политики пользователя, когда их компьютеры будут подключены к Интернету:  
+   Esta definição aplica-se aos utilizadores cujos computadores estão na intranet e Internet. Tem de ser **verdadeiro** ou **Sim** se também pretender ativar políticas de utilizador na Internet.  
 
-  -   Параметр клиента **Включить опрос политики пользователя на клиентах** имеет значение **True** или параметр **Включить политику пользователя на клиентах** имеет значение **Да**.  
+-   **Ativar pedidos da política do utilizador dos clientes Internet**  
 
-  -   Пользователь должен успешно пройти проверку подлинности Windows (Kerberos или NTLM) в интернет-точке управления.  
+   Quando o cliente e o site estão configurados para gestão de clientes baseados na Internet e configurar esta opção como **verdadeiro** ou **Sim** e ambos os procedimentos seguintes aplicam-se condições, os utilizadores recebem a política de utilizador quando os respetivos computadores estão na Internet:  
 
-   Если для этого параметра оставлено значение **False** или **Нет** или одно из двух условий не соблюдено, компьютер в Интернете будет получать только политики компьютера. В этом сценарии пользователи по-прежнему могут просматривать, запрашивать и устанавливать приложения из интернет-каталога приложений. Если этот параметр имеет значение **False** или **Нет**, а параметр **Включить опрос политики пользователя на клиентах** имеет значение **True**, либо параметр **Включить политику пользователя на клиентах** имеет значение **Да**, пользователи не будут получать политики пользователя до тех пор, пока компьютер не будет подключен к интрасети.  
+  -   O **ativar consulta de política de utilizador nos clientes** definição de cliente é **verdadeiro**, ou **ativar política de utilizador nos clientes** é **Sim**.  
 
-   Дополнительные сведения об управлении клиентами через Интернет см. в разделе [Рекомендации по взаимодействию с клиентами из Интернета или недоверенного леса](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) статьи [Связь между конечными точками в System Center Configuration Manager](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
+  -   O ponto de gestão baseado na Internet autentica com êxito o utilizador através da autenticação do Windows (Kerberos ou NTLM).  
+
+   Se deixar esta opção como **falso** ou **não**, ou qualquer uma da falha de condições, um computador com o será Internet receber apenas políticas de computador. Neste cenário, os utilizadores ainda podem ver, pedir e instalar aplicações a partir de um Catálogo de Aplicações baseado na Internet. Se esta definição é **falso** ou **não** mas **ativar consulta de política de utilizador nos clientes** é **verdadeiro** ou **ativar política de utilizador nos clientes** é **Sim**, os utilizadores não irão receber políticas de utilizador, até que o computador está ligado à intranet.  
+
+   Para obter mais informações sobre a gestão de clientes na Internet, consulte [considerações sobre comunicações do cliente da Internet ou numa floresta não fidedigna](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) no [comunicações entre pontos finais no System Center Configuration Manager](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
   > [!NOTE]  
-  >  Для запросов на утверждение приложений от пользователей не требуются пользовательские политики или проверка подлинности пользователей.  
+  >  Os pedidos de aprovação de aplicações dos utilizadores não necessitam de políticas de utilizador ou de autenticação de utilizador.  
 
-##  <a name="compliance-settings"></a>Параметры соответствия  
+##  <a name="compliance-settings"></a>Definições de compatibilidade  
 
--   **Запланировать анализ соответствия**  
+-   **Agendar avaliação de compatibilidade**  
 
-     Щелкните **Расписание**, чтобы создать расписание по умолчанию, которое будет показано пользователям при развертывании конфигурационной базы. Это значение можно настроить для каждого шаблона в диалоговом окне **Развертывание шаблона базовой конфигурации** .  
+     Escolha **agenda** para criar a agenda predefinida que é apresentada aos utilizadores quando implementam uma linha de base de configuração. Este valor pode ser configurado para cada linha de base na caixa de diálogo **Implementar Linhas de Base de Configuração** .  
 
--   **Включить данные и профили пользователей**  
+-   **Ativar Dados e Perfis de Utilizador**  
 
-     Выберите значение **Да**, если вы хотите развернуть элементы конфигурации [данных и профилей пользователей](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md) на компьютерах с Windows 8 в своей иерархии.  
+     Escolha **Sim** se pretender implementar [perfis e dados de utilizador](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md) itens de configuração para computadores com Windows 8 na sua hierarquia.  
 
-## <a name="computer-agent"></a>Агент компьютера  
+## <a name="computer-agent"></a>Agente do computador  
 
--   **Точка веб-сайта каталога приложений по умолчанию**  
+-   **Ponto de Web sites Predefinido do Catálogo de Aplicações**  
 
-     Configuration Manager использует этот параметр для подключения пользователей к каталогу приложений из центра программного обеспечения. Можно указать сервер, на котором размещается точка веб-сайта каталога приложений, по NetBIOS-имени или полному доменному имени, задать автоматическое обнаружение или указать URL-адрес для настраиваемого развертывания. В большинстве случаев автоматическое обнаружение является наилучшим выбором, поскольку предоставляет следующие преимущества:  
+     O Configuration Manager utiliza esta definição para ligar utilizadores ao catálogo de aplicações a partir do Centro de Software. Pode especificar um servidor que aloja o ponto de Web sites do Catálogo de Aplicações através do nome NetBIOS ou FQDN, especificar deteção automática ou especificar um URL para implementações personalizadas. Na maioria dos casos, a deteção automática é a melhor opção uma vez que oferece as seguintes vantagens:  
 
-    -   Автоматическая выдача клиентам точки веб-сайта каталога приложений с их сайта, если этот сайт содержит такую точку.  
+    -   Os clientes recebem automaticamente um ponto de Web site do catálogo de aplicações do respetivo site, se o site tiver um ponto de Web site do catálogo de aplicações.  
 
-    -   Точкам веб-сайта каталога приложений в интрасети, настроенным для использования протокола HTTPS, отдается предпочтение по сравнению с точками, не использующими этот протокол. Это обеспечивает защиту от вредоносных серверов.
+    -   Aplicação catálogo pontos do Web site da intranet que estão configurados para HTTPS são dada preferência por aqueles que não estão configurados para HTTPS. Isto ajuda a proteger contra um servidor não autorizado.
 
-    -   Если клиенты настроены для управления через интрасеть и Интернет, им будет выдаваться точка веб-сайта каталога приложений в Интернете, когда они находятся в Интернете, и соответствующая точка в интрасети, когда они находятся в интрасети.  
+    -   Quando os clientes são configurados para gestão de clientes baseados na intranet e baseado na Internet, recebem um ponto de Web site do catálogo de aplicações baseado na Internet quando estão na Internet e um ponto de Web site do catálogo de aplicações baseado na intranet quando estão na intranet.  
 
-     Автоматическое обнаружение не дает гарантии, что клиентам будет выдана ближайшая к ним точка веб-сайта каталога приложений. Есть ряд обстоятельств, в которых может быть целесообразно не использовать параметр **Автоматическое обнаружение** :  
+     A deteção automática não garante que os clientes receberão um ponto de Web sites do Catálogo de Aplicações que esteja mais próximo deles. Pode decidir não utilizar **Detetar automaticamente** pelos seguintes motivos:  
 
-     -   требуется вручную указать для клиентов ближайший сервер или позаботиться о том, чтобы они не подключались к серверу по медленному каналу связи;  
+     -   Pretende configurar manualmente o servidor mais próximo dos clientes ou certificar-se de que não ligam a um servidor através de uma ligação de rede lenta.  
 
-     -   требуется контроль над тем, какие клиенты к какому серверу подключаются; эта конфигурация может быть предназначена для тестирования, улучшения производительности или для коммерческих целей;  
+     -   Pretende controlar que clientes ligam ao servidor. Esta configuração pode ser para fins de teste, desempenho ou por razões empresariais.  
 
-     -   нежелательность ожидания в течение длительного промежутка времени (до 25 часов) или до смены сети, пока клиенты будут настроены для использования другой точки веб-сайта каталога приложений.  
+     -   Não vai querer esperar 25 horas ou esperar por uma alteração de rede para que os clientes sejam configurados com um ponto de Web sites do Catálogo de Aplicações.  
 
-     Если вместо автоматического обнаружения задается точка веб-сайта каталога приложений, следует указывать NetBIOS-имя, а не полное доменное имя в интрасети. Это снизит вероятность того, что у пользователей будут запрашиваться учетные данные при подключении к каталогу приложений в интрасети. NetBIOS-имя может использоваться при выполнении следующих условий:  
+     Se, especifique o ponto de Web site do catálogo de aplicações em vez de utiliza a deteção automática, especifique o nome NetBIOS em vez do FQDN da intranet. Isto ajuda a reduzir a probabilidade de que os utilizadores serão solicitado que as credenciais quando se ligam ao catálogo de aplicações na intranet. Para utilizar o nome NetBIOS, tem de aplicar as seguintes condições:  
 
-     -   NetBIOS-имя задано в свойствах точки веб-сайта каталога приложений;  
+     -   O nome NetBIOS é especificado nas propriedades do ponto de Web sites do Catálogo de Aplicações.  
 
-     -   используется служба WINS или все клиенты находятся в том же домене, что и точка веб-сайта каталога приложений;  
+     -   Utilizar o WINS ou todos os clientes estão no mesmo domínio que o ponto de Web site do catálogo de aplicações.  
 
-     -   точка веб-сайта каталога приложений настроена для клиентских подключений по протоколу HTTP или HTTPS (в последнем случае соответствующее NetBIOS-имя должно содержаться в сертификате веб-сервера).  
+     -   O ponto de Web site do catálogo de aplicações está configurado para ligações de cliente HTTP, ou está configurado para ligações de cliente HTTPS e o certificado de servidor web com o nome de NetBIOS.  
 
-     Обычно учетные данные запрашиваются у пользователей, когда URL-адрес содержит полное доменное имя, и не запрашиваются, когда он представляет собой NetBIOS-имя. При подключении пользователей из Интернета следует ожидать, что у них всегда будут запрашиваться ученые данные, поскольку такое подключение должно использовать полное доменное имя в Интернете. При запросе учетных данных у пользователей из Интернета следует проследить за тем, чтобы сервер, на котором работает точка веб-сайта каталога приложений, мог подключаться к контроллеру домена, содержащего учетную запись соответствующего пользователя — это даст возможность выполнить проверку подлинности пользователя по протоколу Kerberos.  
-
-    > [!NOTE]  
-    >  Принцип работы автоматического обнаружения  
-    >   
-    >  Клиент запрашивает обнаружение службы у точки управления. Если на том же сайте, к которому подключен клиент, есть точка веб-сайта каталога приложений, этот сервер выдается клиенту в качестве сервера каталога приложений, который надлежит использовать. Если на сайте доступно более одной точки веб-сайта каталога приложений, сервер с включенным доступом по протоколу HTTPS имеет приоритет над сервером, который не настроен для использования HTTPS. После этой фильтрации всем клиентам выдается один из серверов для использования в качестве каталога приложений; Configuration Manager не балансирует нагрузку между несколькими серверами. Если сайт клиента не имеет точки веб-сайта каталога приложений, точка управления недетерминированным образом возвращает точку веб-сайта каталога приложений из иерархии.  
-    >   
-    >  При этом, если клиенты находятся в интрасети и у выбранной точки веб-сайта каталога приложений в качестве URL-адреса каталога приложений указано NetBIOS-имя, это имя выдается клиентам вместо полного доменного имени в интрасети. Если же определено, что клиент находится в Интернете, ему выдается только полное доменное имя в Интернете.  
-    >   
-    >  Клиент делает такой запрос обнаружения службы каждые 25 часов или всякий раз, когда он обнаруживает смену сети. Например, если клиент переместится из интрасети в Интернет и найдет точку управления в Интернете, эта точка будет выдавать клиенту интернет-серверы точки веб-сайта каталога приложений.  
-
--   **Добавьте веб-сайт каталога приложений, используемый по умолчанию, в зону надежных узлов в Internet Explorer.**  
-
-     Если этот параметр имеет значение **True** или **Да**, текущий URL-адрес веб-сайта каталога приложений по умолчанию автоматически добавляется в зону надежных сайтов браузера Internet Explorer на клиентах.  
-
-     Этот параметр гарантирует, что защищенный режим Internet Explorer не будет включен. Если включен защищенный режим, установка приложений клиентом Configuration Manager из каталога приложений может оказаться невозможной. По умолчанию зона надежных узлов поддерживает вход пользователей из каталога приложений, для которого требуется проверка подлинности Windows.  
-
-     Если оставить этот параметр равным **False**, клиенты Configuration Manager, возможно, не смогут устанавливать приложения из каталога, кроме случаев, когда соответствующие параметры Internet Explorer для URL-адреса каталога приложений, используемого клиентами, настроены для другой зоны.  
+     Normalmente, os utilizadores recebem um pedido de credenciais quando o URL tem um FQDN mas não quando o URL é um nome NetBIOS. É expectável que os utilizadores recebam sempre esse pedido quando ligam a partir da Internet, uma vez que esta ligação tem de utilizar o FQDN da Internet. Quando os utilizadores recebem o pedido de credenciais quando estão na Internet, assegure-se de que o servidor que executa o ponto de Web sites do Catálogo de Aplicações pode ligar a um controlador de domínio para a conta de utilizador, de forma que o utilizador possa ser autenticado através de Kerberos.  
 
     > [!NOTE]  
-    >  Всякий раз, когда Configuration Manager добавляет каталог приложений по умолчанию в зону надежных сайтов, Configuration Manager удаляет предыдущий URL-адрес каталога приложений по умолчанию перед добавлением новой записи.  
+    >  Como funciona a deteção automática:  
     >   
-    >  Configuration Manager не сможет добавить URL-адрес, если такой адрес уже указан в одной из зон безопасности. В этой ситуации необходимо либо удалить этот URL-адрес из другой зоны, либо вручную задать надлежащие параметры Internet Explorer.  
+    >  O cliente faz um pedido de localização de serviço para um ponto de gestão. Se houver um ponto de Web sites do Catálogo de Aplicações no mesmo site que o cliente, este servidor é atribuído ao cliente como o servidor do Catálogo de Aplicações a utilizar. Quando estiver disponível mais do que um ponto de Web site do catálogo de aplicações no site, um servidor ativado para HTTPS tem precedência sobre um servidor que não está ativado para HTTPS. Após esta filtragem, todos os clientes recebem um dos servidores a utilizar como catálogo de aplicações; O Configuration Manager não não-balanceamento de carga entre múltiplos servidores. Quando o site do cliente não tem um ponto de Web site do catálogo de aplicações, o ponto de gestão devolve não deterministicamente um ponto de Web site do catálogo de aplicações da hierarquia.  
+    >   
+    >  Quando o cliente está na intranet, se o ponto de Web site do catálogo de aplicações que escolheu é configurado com um nome de NetBIOS para o URL do catálogo de aplicações, os clientes recebem este nome de NetBIOS em vez do FQDN da intranet. Quando o cliente é detetado na Internet, apenas o FQDN da Internet é atribuído ao cliente.  
+    >   
+    >  O cliente efetua este pedido de localização de serviço em 25 horas ou sempre que detetar uma alteração de rede. Por exemplo, se o cliente passar da intranet para a Internet, e conseguir localizar um ponto de gestão baseado na Internet, o ponto de gestão baseado na Internet atribui os servidores do ponto de Web sites do Catálogo de Aplicações baseado na Internet aos clientes.  
 
--   **Разрешить приложениям Silverlight запускаться в режиме повышенного доверия**  
+-   **Adicionar Web site predefinido do Catálogo de Aplicações à zona de sites fidedignos do Internet Explorer**  
 
-     Этот параметр должен иметь значение **Да**, если пользователи работают с клиентом Configuration Manager и используют каталог приложений.  
+     Se esta opção é **verdadeiro** ou **Sim**, o atual predefinição catálogo de aplicações Web site URL é adicionado automaticamente à zona sites fidedignos no Internet Explorer dos clientes.  
 
-     Если изменить этот параметр, изменение вступит в силу, когда пользователи в следующий раз загрузят браузер или обновят открытое окно браузера.  
+     Esta definição garante que a definição do Internet Explorer para o Modo Protegido não está ativada. Se o modo protegido estiver ativado, o cliente do Configuration Manager poderão não conseguir instalar aplicações a partir do catálogo de aplicações. Por predefinição, a zona de sites fidedignos também suporta o início de sessão de utilizador para o Catálogo de Aplicações, que requer autenticação do Windows.  
 
-     Дополнительные сведения об этом параметре см. в разделе [Сертификаты для Microsoft Silverlight 5 и режим повышенного доверия для каталога приложений](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5) статьи [Безопасность и конфиденциальность управления приложениями в System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
+     Se deixar esta opção como **falso**, clientes do Configuration Manager poderão não conseguir instalar aplicações a partir do catálogo de aplicações, a menos que estas definições do Internet Explorer estão configuradas noutra zona para o URL do catálogo de aplicações que os clientes utilizam.  
 
--   **Название организации, отображаемое в центре программного обеспечения**  
+    > [!NOTE]  
+    >  Sempre que o Configuration Manager adiciona um catálogo de aplicações predefinido para a zona sites fidedignos, o Gestor de configuração remove um URL de catálogo de aplicações predefinido anterior que o Configuration Manager adicionou, antes de adicionar uma nova entrada.  
+    >   
+    >  O Configuration Manager não é possível adicionar o URL, se já estiver especificado das zonas de segurança. Neste cenário, tem de remover o URL da outra zona ou configurar manualmente as definições do Internet Explorer necessárias.  
 
-     Введите имя, которое будет отображаться для пользователей в центре программного обеспечения. Эта информация поможет пользователям опознать данное приложение как происходящее из надежного источника.  
+-   **Permitir que as aplicações Silverlight sejam executadas em modo de confiança elevada**  
 
--   **Использовать новый центр программного обеспечения**  
+     Esta definição tem de ser **Sim** se os utilizadores executem o cliente do Configuration Manager e utilizar o catálogo de aplicações.  
 
-     Если параметр включен, все клиентские компьютеры, на которые распространяются эти параметры клиента, будут использовать новый центр программного обеспечения. В центре программного обеспечения отображаются доступные для пользователя приложения, которые ранее были доступны только в каталоге приложений, зависимом от Silverlight.  
+     Se alterar esta definição, ela tem efeito assim que os utilizadores carregarem o respetivo browser ou atualizarem a respetiva janela do browser atualmente aberta.  
 
-     Для того чтобы доступные пользователю приложения отображались в центре программного обеспечения, по-прежнему необходимы точка веб-службы каталога приложений и роли системы сайта точки веб-службы каталога приложений.  
+     Para obter mais informações sobre esta definição, consulte [certificados do Microsoft Silverlight 5 e modo de confiança elevada necessários para o catálogo de aplicações](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5) no [segurança e privacidade para gestão de aplicações no System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
 
-     Дополнительные сведения см. в разделе [Планирование и настройка управления приложениями в System Center Configuration Manager](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+-   **Nome da organização apresentada no Centro de Software**  
 
--   **Установка разрешений**  
+     Escreva o nome que os utilizadores visualizam no Centro de Software. Estas informações de imagem corporativa ajudam os utilizadores a identificar esta aplicação como uma origem fidedigna.  
 
-    > [!WARNING]  
-    >  Этот параметр применяется к каталогу приложений и центру программного обеспечения. Этот параметр не действует при работе пользователей с порталом компании.  
+-   **Utilizar o novo Centro de Software**  
 
-     Этот параметр определяет, как пользователи могут запускать установку программного обеспечения, обновлений к нему и последовательностей задач.  
+     Se estiver ativada, todos os computadores cliente visados por estas definições de cliente irão utilizar o novo Centro de Software. Centro de software mostra as aplicações disponíveis ao utilizador que foram anteriormente acessíveis apenas o catálogo de aplicações dependente do Silverlight.  
 
-    -   **Все пользователи**: запускать установку программного обеспечения, обновлений к нему и последовательностей задач могут пользователи, вошедшие на клиентский компьютер, с любыми разрешениями, кроме разрешений "Гость".  
+     O ponto de Web site do catálogo de aplicações e serviço web do catálogo de aplicações do ponto de sistema de sites funções ainda são necessárias para aplicações disponíveis ao utilizador a aparecer no Centro de Software.  
 
-    -   **Только администраторы**: запускать установку программного обеспечения, обновлений к нему и последовательностей задач могут вошедшие на клиентский компьютер пользователи, входящие в локальную группу "Администраторы".  
+     Para obter mais informações, veja [Planear e configurar a gestão de aplicações no System Center Configuration Manager](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
-    -   **Только администраторы и основные пользователи**: запускать установку программного обеспечения, обновлений к нему и последовательностей задач могут вошедшие на клиентский компьютер пользователи, входящие в локальную группу "Администраторы", или основной пользователь компьютера.  
-
-    -   **Никто из пользователей**: никто из пользователей, вошедших на клиентский компьютер, не может запускать установку программного обеспечения, обновлений к нему и последовательностей задач. Обязательное развертывание всегда производится в крайний срок. Пользователи не могут инициировать установку программного обеспечения из каталога приложений или центра программного обеспечения.  
-
--   **Не требовать ввода ПИН-кода BitLocker при перезапуске**  
-
-     Если компьютеры настроены для ввода ПИН-кода Bitlocker, этот параметр позволяет обходить требование ПИН-кода, когда компьютер перезапускается после установки программного обеспечения.  
-
-    -   **Всегда**: Configuration Manager временно снимает требование использовать Bitlocker при перезагрузке компьютера после установки программного обеспечения, требующего перезагрузки. Этот параметр действует, только если перезагрузка компьютера была инициирована Configuration Manager, и не снимает требование вводить ПИН-код Bitlocker, если компьютер был перезагружен пользователем. Требование ввода ПИН-кода Bitlocker возобновляется после запуска Windows.
-
-    -   **Никогда**: Configuration Manager не снимает требование использовать Bitlocker при перезагрузке компьютера после установки программного обеспечения, требующего перезагрузки. В этой ситуации установка программного обеспечения не может завершиться, пока пользователь не введет ПИН-код для завершения стандартного процесса загрузки и запуска Windows.
-
--   **Дополнительное программное обеспечение управляет развертыванием приложений и обновлений программного обеспечения**  
-
-     Включать этот параметр следует только при одном из следующих условий:  
-
-    -   используется решение стороннего поставщика, которое требует включение данного параметра;  
-
-    -   для управления агентским уведомлением клиентов, а также установкой приложений и обновлений программного обеспечения используется пакет SDK для Configuration Manager.  
+-   **Permissões de Instalação**  
 
     > [!WARNING]  
-    >  Если включить этот параметр, когда ни одно из этих условий не выполняется, обновления программного обеспечения и обязательные приложения не будут устанавливаться на клиентах. Этот параметр не запрещает пользователям устанавливать приложения из каталога приложений, а также пакеты, программы и последовательности задач на клиентские компьютеры.  
+    >  Esta definição aplica-se ao Catálogo de Aplicações e ao Centro de Software. Esta definição não produz efeitos quando os utilizadores usam o portal da empresa.  
 
--   **Политика выполнения PowerShell**  
+     Configure a forma como os utilizadores podem iniciar a instalação de software, atualizações de software e sequências de tarefa:  
 
-     Укажите, как клиенты Configuration Manager могут запускать скрипты Windows PowerShell. Эти скрипты часто используются для обнаружения параметров соответствия в элементах конфигурации. Их также можно отправить в развертывание в качестве стандартного скрипта.  
+    -   **Todos os utilizadores**: Os utilizadores com sessão iniciados num computador cliente com qualquer permissão, exceto convidado, podem iniciar a instalação de software, atualizações de software e sequências de tarefas.  
 
-    -   **Обход**: клиент Configuration Manager игнорирует конфигурацию Windows PowerShell на клиентском компьютере, чтобы обеспечить возможность выполнения неподписанных скриптов.  
+    -   **Apenas os administradores**: Os utilizadores com sessão iniciados num computador cliente tem de ser membro do grupo Administradores local para iniciar a instalação de software, atualizações de software e sequências de tarefas.  
 
-    -   **Ограничено**: клиент Configuration Manager использует текущую конфигурацию Windows PowerShell на клиентском компьютере. Она определяет, могут ли выполняться неподписанные скрипты.  
+    -   **Apenas administradores e utilizadores primários**: Os utilizadores com sessão iniciados num computador cliente tem de ser um membro do grupo local de administradores ou utilizadores primários do computador para iniciar a instalação de software, atualizações de software e sequências de tarefas.  
 
-    -   **Все подписанные**: клиент Configuration Manager запускает скрипты, только если они подписаны доверенным издателем. Это ограничение применяется независимо от текущей конфигурации Windows PowerShell на клиентском компьютере.  
+    -   **Não existem utilizadores**: Nenhum utilizador com sessão iniciada num computador cliente poderá iniciar a instalação de software, atualizações de software e sequências de tarefas. As implementações necessárias para o computador são sempre instaladas na data limite. Os utilizadores não é possível iniciar a instalação de software a partir do catálogo de aplicações ou centro de Software.  
 
-     Для этого параметра требуется как минимум Windows PowerShell версии 2.0. Значение по умолчанию — **Все подписанные**.  
+-   **Suspender a introdução do PIN do BitLocker após reiniciar**  
+
+     Se a introdução do PIN do BitLocker estiver configurada nos computadores, esta opção permite contornar o requisito de introdução de um PIN quando o computador é reiniciado após uma instalação de software.  
+
+    -   **Sempre**: O Configuration Manager suspende temporariamente o BitLocker após a instalação de software que requeira um reinício, iniciou um reinício do computador. Esta definição só se aplica a um reinício do computador que é iniciado pelo Configuration Manager e não suspende o requisito de introduzir o PIN do BitLocker quando o utilizador reinicia o computador. O requisito de introdução do PIN do BitLocker é retomado após o arranque do Windows.
+
+    -   **Nunca**: O Configuration Manager não suspende o BitLocker no próximo arranque do computador após a instalação de software que requeira um reinício. Neste cenário, a instalação de software não ficará concluída enquanto o utilizador não introduzir o PIN para concluir o processo de arranque padrão e carregar o Windows.
+
+-   **O software adicional gere a implementação de aplicações e atualizações de software**  
+
+     Apenas deverá ativar esta opção nas seguintes condições:  
+
+    -   Está a utilizar uma solução de fornecedor que necessita que esta definição seja ativada.  
+
+    -   Utilizar o Configuration Manager software development kit (SDK) para gerir as notificações de agente do cliente e a instalação de aplicações e atualizações de software.  
+
+    > [!WARNING]  
+    >  Se escolher esta opção quando nenhuma destas condições aplicam-se, atualizações de software e as aplicações necessárias não são instaladas nos clientes. Esta definição não impede que os utilizadores instalar aplicações a partir do catálogo de aplicações ou impedir que os pacotes, programas e sequências de tarefas que está a ser instalado em computadores cliente.  
+
+-   **Política de execução do PowerShell**  
+
+     Configure a forma como os clientes do Configuration Manager podem executar scripts do Windows PowerShell. Estes scripts são frequentemente utilizados para deteção de itens de configuração para definições de compatibilidade. Também podem ser enviados numa implementação como um script padrão.  
+
+    -   **Ignorar**: O cliente do Configuration Manager ignora a configuração do Windows PowerShell no computador cliente para que possam ser executados scripts não assinados.  
+
+    -   **Restrito**: O cliente do Configuration Manager utiliza a configuração atual do Windows PowerShell no computador cliente. Esta configuração determina se podem executar scripts não assinados.  
+
+    -   **Todas assinadas**: O cliente do Configuration Manager apenas executa scripts um fabricante fidedigno assinou-los. Esta restrição aplica-se de forma independente a partir da configuração atual do Windows PowerShell no computador cliente.  
+
+     Esta opção necessita, pelo menos, o Windows PowerShell versão 2.0. A predefinição é **todas assinadas**.  
 
     > [!TIP]  
-    >  Если неподписанные скрипты не удается запустить из-за этого параметра клиента, Configuration Manager сообщает об этой ошибке следующими способами:  
+    >  Se os scripts não assinados falham para executar devido a esta definição de cliente, o Configuration Manager apresenta este erro das seguintes formas:  
     >   
-    > -   Код ошибки **0X87D00327** и сообщение **Сценарий не подписан** в качестве ошибки состояния развертывания в рабочей области **Наблюдение** консоли Configuration Manager.  
-    > -   Коды ошибок и описания **0X87D00327** и **Сценарий не подписан** или **0X87D00320** и **Узел сценариев еще не установлен** с типом ошибки **Ошибка обнаружения** в отчетах. Примером может служить отчет **Сведения об ошибках элементов конфигурации в шаблонах базовых конфигураций для актива**.  
-    > -   Сообщение **Script is not signed (Error: 87D00327; Source: CCM)** в файле **DcmWmiProvider.log** .  
+    > -   ID de erro **0X87D00327** e a descrição **Script não está assinado** como um erro de estado de implementação no **monitorização** área de trabalho da consola do Configuration Manager.  
+    > -   Códigos de erro e descrições dos **0X87D00327** e **Script não está assinado** ou **0X87D00320** e **o anfitrião do script ainda não foi instalado** com o tipo de erro de **erro de deteção** nos relatórios. Um exemplo é **detalhes de erros de itens de configuração numa linha de base de configuração para um recurso**.  
+    > -   A mensagem **Script não está assinado (erro: 87D 00327; Origem: CCM)** no **DcmWmiProvider.log** ficheiro.  
 
--   **Показывать уведомления для новых развертываний**  
+-   **Mostrar notificações para novas implementações**  
 
-     Выберите **Да**, чтобы отображать уведомления о развертываниях, которые доступны меньше недели.  Это сообщение будет отображаться при каждом запуске агента клиента.
+     Escolha **Sim** se pretende apresentar uma notificação para implementações que tenham sido disponíveis a menos que uma semana.  Esta mensagem será apresentado sempre que o agente do cliente é iniciado.
 
--   **Запретить случайный выбор срока**  
+-   **Desativar a aleatoriedade de prazos**  
 
-     Этот параметр определяет, использует ли клиент задержку активации до двух часов для установки необходимых обновлений ПО после достижения крайнего срока. По умолчанию задержка активации отключена.  
+     Esta definição determina se o cliente utiliza um atraso de ativação de até 2 horas para instalar atualizações de software necessárias quando o prazo for atingido. Por predefinição, o atraso de ativação está desativado.  
 
-     Для сценариев инфраструктуры виртуальных рабочих столов (VDI) эта задержка помогает распределить ресурсы ЦП и передачу данных с компьютера с несколькими виртуальными машинами, на которых работает клиент Configuration Manager. Даже если вы не используете VDI, если многие клиенты устанавливают одни и те же обновления одновременно, это может увеличить потребление ресурсов ЦП на сервере сайта. Это также может замедлить точки распространения и значительно сократить доступную пропускную способность сети.  
+     Para cenários com infraestrutura de ambiente de trabalho virtual (VDI), este atraso pode ajudar a distribuir o processamento de CPU e a transferência de dados para um computador que disponha de várias máquinas virtuais que executam o cliente do Configuration Manager. Mesmo que não utilize VDI, se vários clientes instalarem as mesmas atualizações ao mesmo tempo, esta pode negativamente aumentar a utilização da CPU no servidor do site. Pode também mais lentos pontos de distribuição e reduzir significativamente a largura de banda de rede disponível.  
 
-     Если требуемые обновления ПО должны быть установлены без задержки после достижения заданного крайнего срока, выберите **Да** для этого параметра.  
+     Se as atualizações de software necessárias tem de estar instaladas sem atrasos quando o prazo configurado for atingido, selecione **Sim** para esta definição.  
 
--   **Льготный период для принудительного применения после крайнего срока развертывания (ч)**
+-   **Período de tolerância para aplicação após o prazo de implementação (horas)**
 
-     В некоторых случаях может потребоваться предоставить пользователям больше времени на установку обязательных развертываний приложений или обновлений программного обеспечения (по сравнению с настроенными крайними сроками). Как правило, это требуется, когда компьютер был отключен в течение длительного времени и требует установки большого числа приложений или обновлений. Например, если пользователь только что вернулся из отпуска, ему может потребоваться значительное время, чтобы дождаться завершения установки просроченных развертываний приложений. Чтобы решить эту проблему, можно определить льготный период применения, развернув параметры клиентов Configuration Manager в коллекции.
+     Em alguns casos, pode querer dar aos utilizadores mais tempo para as implementações de aplicações de instalação necessária ou atualizações de software para além de qualquer prazos que configurou. Pode normalmente ser necessária quando um computador foi desativado por um longo período de tempo e tem de instalar um grande número de implementações de aplicação ou atualização. Por exemplo, se um utilizador apenas tiver devolvido de férias, poderá ter de aguardar algum enquanto como uma aplicação em atraso implementações estão instaladas. Para ajudar a resolver este problema, pode definir um período de tolerância de imposição ao implementar as definições de cliente do Configuration Manager para uma coleção.
 
-     Можно задать льготный период от 1 до 120 часов. Этот параметр используется в сочетании со свойством развертывания **Отложить применение этого развертывания в соответствии с пользовательскими предпочтениями**. Дополнительные сведения см. в разделе [Развертывание приложений](/sccm/apps/deploy-use/deploy-applications).
+     Pode definir um período de tolerância de 1 a 120 horas. Esta definição é utilizada em conjunto com a propriedade de implementação **atrasar imposição para esta implementação, de acordo com as preferências do utilizador**. Para obter mais detalhes, consulte [implementar aplicações](/sccm/apps/deploy-use/deploy-applications).
 
-##  <a name="computer-restart"></a>Перезагрузка компьютера  
- При указании этих параметров перезагрузки убедитесь, что значения интервала временного оповещения перезапуска и интервала окончательного обратного отсчета меньше по длительности, чем самый короткий период обслуживания, примененный на компьютере.  
+##  <a name="computer-restart"></a>Reinício do computador  
+ Quando especificar estas definições de reinício do computador, certifique-se de que o valor do intervalo de notificação temporária de reinício e de que o valor do intervalo final de contagem regressiva têm uma duração inferior à da janela de manutenção mais curta que estiver aplicada ao computador.  
 
- Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания в System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
+ Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
 
--   **Управление клиентом Endpoint Protection на клиентских компьютерах**  
+-   **Gerir o cliente do Endpoint Protection nos computadores cliente**  
 
-     Выберите **True** или **Да**, если требуется управлять существующими клиентами Endpoint Protection на компьютерах в иерархии.  
+     Escolha **verdadeiro** ou **Sim** se pretender gerir os clientes existentes do Endpoint Protection nos computadores na sua hierarquia.  
 
-     Выберите этот параметр, если вы уже установили клиент Endpoint Protection и хотите управлять им с помощью Configuration Manager.  
+     Escolha esta opção se já tiver instalado o cliente do Endpoint Protection e pretender geri-lo com o Configuration Manager.  
 
-     Также следует выбрать этот параметр, если необходимо создать скрипт удаления существующего решения для защиты от вредоносных программ, установить клиент Endpoint Protection и развернуть указанный скрипт с помощью приложения Configuration Manager или пакета и программы.  
+     Além disso, escolha esta opção se pretender criar um script de desinstalação de uma solução antimalware, instalar o cliente do Endpoint Protection e implementar este script utilizando uma aplicação do Configuration Manager ou pacote e programa.  
 
--   **Установка клиента Endpoint Protection на клиентских компьютерах**  
+-   **Instalar o cliente do Endpoint Protection nos computadores cliente**  
 
-     Выберите **True** или **Да**, чтобы установить и включить клиент Endpoint Protection на клиентских компьютерах, на которых он отсутствует.  
+     Escolha **verdadeiro** ou **Sim** para instalar e ativar o cliente do Endpoint Protection nos computadores cliente onde ainda não estiver instalada.  
 
     > [!NOTE]  
-    >  Если клиент Endpoint Protection уже установлен, при выборе значения **False** или **Нет** он удален не будет. Чтобы удалить клиент Endpoint Protection, присвойте клиентскому параметру **Управление клиентом Endpoint Protection на клиентских компьютерах** значение **False** или **Нет**. Затем разверните пакет и программу для удаления клиента Endpoint Protection.  
+    >  Se o cliente do Endpoint Protection já estiver instalado, escolher **falso** ou **não** não conseguir desinstalar o cliente do Endpoint Protection. Para desinstalar o cliente do Endpoint Protection, configure o **cliente gerir o Endpoint Protection nos computadores cliente** definição de cliente para **falso** ou **não**. Em seguida, implemente um pacote e programa para desinstalar o cliente do Endpoint Protection.  
 
--   **Для устройств Windows Embedded с фильтрами записи сохранить установку клиентов Endpoint Protection (требуется перезагрузка)**  
+-   **Para dispositivos Windows Embedded com filtros de escrita, consolidar a instalação de cliente do Endpoint Protection (necessita de reinicialização)**  
 
-     Выберите значение **Да**, чтобы отключить фильтр записи на устройстве с Windows Embedded, и перезагрузите устройство. После этого установка на устройстве будет зафиксирована.  
+     Escolha **Sim** para desativar o filtro de escrita no dispositivo Windows Embedded e reiniciar o dispositivo. Esta opção consolida a instalação no dispositivo.  
 
-     Если указано значение **Нет** , клиент устанавливается во временном оверлее, который очищается после перезагрузки устройства. В этом сценарии клиент Endpoint Protection не будет зафиксирован, пока другая установка не подтвердит изменения на устройстве. Этот параметр используется по умолчанию.  
+     Se for especificado **Não** , o cliente será instalado numa sobreposição temporária que será eliminada quando o dispositivo for reiniciado. Neste cenário, o cliente do Endpoint Protection não será consolidado enquanto outra instalação não consolidar as alterações no dispositivo. Esta é a predefinição.  
 
--   **Подавлять обязательную перезагрузку компьютера после установки клиента Endpoint Protection**  
+-   **Suprimir quaisquer reinícios necessários após o cliente do Endpoint Protection está instalado**  
 
-     Выберите **True** или **Да**, чтобы подавлять перезагрузку компьютера, если она требуется после установки клиента Endpoint Protection.  
+     Escolha **verdadeiro** ou **Sim** para suprimir um reinício do computador se for necessário depois do cliente do Endpoint Protection está instalado.  
 
     > [!IMPORTANT]  
-    >  Если для клиента Endpoint Protection требуется перезагрузка компьютера и этот параметр имеет значение **Нет**, перезагрузка будет выполнена независимо от любых настроенных периодов обслуживания.  
+    >  Se o cliente do Endpoint Protection requer um reinício do computador e esta definição **falso**, o computador será reiniciado independentemente das janelas de manutenção que tenham sido configuradas.  
 
--   **Период времени, на который пользователи могут откладывать необходимую перезагрузку для завершения установки Endpoint Protection (в часах)**  
+-   **Permitido período de tempo que os utilizadores pode adiar um reinício necessário para concluir a instalação do Endpoint Protection (horas)**  
 
-     Укажите количество времени (в часах), на которое пользователи могут отложить перезагрузку компьютера, если она требуется после установки клиента Endpoint Protection. Этот параметр можно настроить только в том случае, если параметр **Подавлять обязательную перезагрузку компьютера после установки клиента Endpoint Protection** имеет значение **False**.  
+     Especifique o número de horas que os utilizadores podem adiar um reinício do computador, se necessário, depois do cliente do Endpoint Protection está instalado. Esta opção pode ser configurada apenas se o **suprimir reinícios de qualquer computador necessários após a instalação do cliente do Endpoint Protection** opção é **falso**.  
 
--   **Отключить альтернативные источники (такие как Центр обновления Windows, службы Microsoft Windows Server Update Services или UNC-папки) для исходного обновления определений на клиентских компьютерах**  
+-   **Desativar origens alternativas (por exemplo, o Windows Update, Microsoft Windows Server Update Services ou partilhas UNC) para a atualização inicial da definição nos computadores cliente**  
 
-     Выберите **True** или **Да**, если требуется, чтобы Configuration Manager установил только исходное обновление определений на клиентских компьютерах. Этот параметр рекомендуется использовать, чтобы избежать нежелательных сетевых подключений и сократить полосу пропускания сети во время первоначальной установки обновления определений.  
+     Escolha **verdadeiro** ou **Sim** se pretender que o Configuration Manager para instalar apenas a atualização inicial da definição nos computadores cliente. Esta definição pode ser útil para evitar ligações de rede desnecessárias e reduzir a largura de banda de rede durante a instalação inicial da atualização das definições.  
 
-##  <a name="hardware-inventory"></a>Инвентаризация оборудования  
+##  <a name="hardware-inventory"></a>Inventário de Hardware  
 
--   **Максимальный размер пользовательского MIF-файла (КБ)**  
+-   **Tamanho máximo do ficheiro MIF personalizado (KB)**  
 
-     Укажите максимальный размер в килобайтах для всех пользовательских MIF-файлов, которые будут приниматься от клиента во время цикла инвентаризации оборудования. Если размер MIF-файла будет превышать указанный, функция инвентаризации оборудования Configuration Manager не будет обрабатывать его. Можно указать размер от 1 до 5000 КБ. По умолчанию устанавливается значение 250 КБ. Этот параметр не влияет на размер обычного файла данных инвентаризации оборудования.  
-
-    > [!NOTE]  
-    >  Этот параметр доступен только в параметрах клиента по умолчанию.  
-
--   **Классы инвентаризации оборудования**  
-
-     В Configuration Manager можно расширить набор сведений, собираемых с клиентов, без необходимости редактировать файл sms_def.mof вручную. Чтобы расширить инвентаризацию оборудования Configuration Manager, выберите **Задать классы**. Дополнительные сведения см. в статье [Настройка инвентаризации оборудования в System Center Configuration Manager](../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
-
--   **Сбор MIF-файлов**  
-
-     Используйте этот параметр, чтобы указать, требуется ли осуществлять сбор MIF-файлов с клиентов Configuration Manager во время инвентаризации оборудования.  
-
-     Для сбора MIF-файлов во время инвентаризации оборудования они должны находиться в надлежащем расположении на клиентском компьютере. По умолчанию файлы располагаются в указанных ниже местах.  
-
-    -   IDMIF-файлы должны находиться в папке Windows\System32\CCM\Inventory\Idmif.  
-
-    -   NOIDMIF-файлы должны находиться в папке Windows\System32\CCM\Inventory\Noidmif.  
+     Especifica o tamanho máximo, em kilobytes, permitidos para cada ficheiro de formato MIF (Management Information Format) personalizado que irá ser recolhido a partir de um cliente durante um ciclo de inventário de hardware. Se os ficheiros MIF excederem este tamanho, o inventário de hardware do Configuration Manager não irá processá-los. Pode especificar um tamanho de 1 a 5.000 KB. Por predefinição, este valor é definido para 250 KB. Esta definição não afeta o tamanho do ficheiro de dados de inventário de hardware normal.  
 
     > [!NOTE]  
-    >  Этот параметр доступен только в параметрах клиента по умолчанию.
+    >  Esta definição está disponível apenas nas predefinições do cliente.  
 
--   **Максимальная случайная задержка**
+-   **Classes de inventário de hardware**  
 
-    Сбор информации об оборудовании производится в случайное время в течение четырех часов, что позволяет избежать одновременного выполнения этой операции на всех клиентах. Можно указать максимальную задержку, чтобы ограничить период времени, в течение которого производится эта операция.      
+     No Configuration Manager, pode expandir as informações de hardware recolhidas dos clientes sem necessitar de editar manualmente o ficheiro sms_def.mof. Escolha **definir Classes** se pretender expandir o inventário de hardware do Configuration Manager. Para obter mais informações, consulte [como configurar inventário de hardware no System Center Configuration Manager](../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
 
-##  <a name="metered-internet-connections"></a>Лимитные подключения к Интернету  
- Можно указывать, как клиентские компьютеры с ОС Windows 8 взаимодействуют с сайтами Configuration Manager, если они используют лимитное подключение к Интернету. Иногда поставщики интернет-услуг взимают плату по объему передаваемых данных, если вы используете лимитное подключение к Интернету.  
+-   **Recolher ficheiros MIF**  
+
+     Utilize esta definição para especificar se pretende recolher ficheiros MIF de clientes do Configuration Manager durante o inventário de hardware.  
+
+     Para um ficheiro MIF possa ser recolhido pelo inventário de hardware, é necessário no local correto no computador cliente. Por predefinição, os ficheiros estão localizados da seguinte forma:  
+
+    -   Ficheiros IDMIF devem estar na pasta windows\system32\ccm\inventory\idmif.  
+
+    -   Os ficheiros NOIDMIF devem estar na pasta windows\system32\ccm\inventory\noidmif.  
+
+    > [!NOTE]  
+    >  Esta definição está disponível apenas nas predefinições do cliente.
+
+-   **Máximo de atraso aleatório**
+
+    A recolha de informações de hardware é aleatória por até quatro horas para que a operação não ter ocorrido em simultâneo em todos os clientes. Pode definir o atraso máximo para restringir o tempo durante os quais ocorre a operação.      
+
+##  <a name="metered-internet-connections"></a>Ligações de Internet com tráfego limitado  
+ Pode gerir a forma como os computadores cliente Windows 8 comunicam com sites do Configuration Manager quando utilizam ligações de Internet com tráfego limitado. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
 
 > [!NOTE]  
->  Заданный параметр клиента не применяется к клиентским компьютерам под управлением Windows 8 в следующих сценариях.  
+>  Nos seguintes cenários, a definição do cliente configurado não é aplicada a computadores cliente com Windows 8:  
 >   
-> -   Компьютер находится в роуминге: клиент Configuration Manager не выполняет никаких задач, для которых требуется передача данных на сайты Configuration Manager.  
-> -   В свойствах сетевого подключения Windows оно задано как безлимитное: клиент Configuration Manager действует так, будто это безлимитное подключение к Интернету, и передает данные на сайты Configuration Manager.  
+> -   O computador estiver numa ligação de dados de roaming: O cliente do Configuration Manager não efetua as tarefas que exigem a dados a serem transferidos para sites do Configuration Manager.  
+> -   As propriedades de ligação de rede do Windows estão configuradas como não limitadas: O cliente do Configuration Manager comporta-se como se esta é uma ligação de Internet não limitada e, por isso, transfere dados para os sites do Configuration Manager.  
 
--   **Параметры связи клиентов в сетях с лимитными тарифными планами**  
+-   **Comunicação com clientes em ligações à Internet com tráfego limitado**  
 
-     В раскрывающемся списке выберите одно из следующих значений для клиентских компьютеров под управлением Windows 8.  
+     A partir da lista pendente, escolha uma das seguintes opções para computadores cliente com Windows 8:  
 
-    -   **Разрешить**: все клиентские операции разрешены при лимитном подключении к Интернету, если клиентское устройство не использует подключение в роуминге.  
+    -   **Permitir**: Todas as comunicações de cliente são permitidas através da ligação de Internet limitada, a menos que o dispositivo cliente está a utilizar uma ligação de dados de roaming.  
 
-    -   **Предел**: только следующие клиентские операции разрешены при лимитном подключении к Интернету:  
+    -   **Limite**: Apenas as seguintes comunicações de cliente serão permitidas através da ligação à Internet com tráfego limitado:  
 
-        -   получение клиентской политики;  
+        -   Obtenção de políticas de cliente  
 
-        -   сообщения о состоянии клиента для отправки на сайт;  
+        -   Mensagens de estado de cliente a enviar para o site  
 
-        -   запросы установки программного обеспечения с использованием каталога приложения;  
+        -   Pedidos de instalação de software utilizando o Catálogo de Aplicações  
 
-        -   обязательные развертывания (при достижении крайнего срока установки).  
+        -   Implementações necessárias (quando for atingido o prazo de instalação)  
 
         > [!IMPORTANT]  
-        >  Если пользователь инициирует установка ПО из центра программного обеспечения или каталога приложений, эти операции всегда разрешены независимо от настроек лимитного подключения к Интернету.  
+        >  Se um utilizador iniciar a instalação de software a partir do Centro de Software ou do Catálogo de Aplicações, estas operações serão sempre permitidas, independentemente das definições de ligação de Internet limitada.  
 
-         При достижении ограничения объема передаваемых данных для лимитного подключения к Интернету клиент больше не пытается связаться с сайтами Configuration Manager.  
+         Se for atingido o limite de transferência de dados para a ligação à Internet com tráfego limitado, o cliente tenta já não está a comunicar com sites do Configuration Manager.  
 
-    -   **Блокировать**: клиент Configuration Manager не пытается связаться с сайтами Configuration Manager при лимитном подключении к Интернету. Это значение используется по умолчанию.  
+    -   **Bloco**: O cliente do Configuration Manager não tenta comunicar com sites do Configuration Manager quando estiver a utilizar uma ligação à Internet com tráfego limitado. Este é o valor predefinido.  
 
-##  <a name="power-management"></a>Исключение брандмауэра Windows для прокси-сервера пробуждения  
+##  <a name="power-management"></a>Gestão de energia  
 
--   **Разрешить пользователям исключать их устройства из политики управления питанием**  
+-   **Permitir aos utilizadores excluir o respetivo dispositivo da gestão de energia**  
 
-     В раскрывающемся списке выберите **True** или **Да**, чтобы разрешить пользователям центра программного обеспечения исключать свои компьютеры из любых настроенных схем управления питанием.  
+     Na lista pendente, escolha **verdadeiro** ou **Sim** para permitir que os utilizadores do Centro de Software excluam os respetivos computadores a partir de qualquer definições de gestão de energia configuradas.  
 
--   **Включить прокси-сервер пробуждения**  
+-   **Ativar reativação proxy**  
 
-     Укажите значение **Да** , чтобы дополнить параметр Wake On LAN сайта, если он настроен для передачи пакетов одноадресной рассылки.  
+     Especifique **Sim** para completar a definição de reativação por LAN do site quando estiver configurado para pacotes unicast.  
 
-     Дополнительные сведения о прокси-серверах пробуждения см. в разделе [Планирование пробуждения клиентов в System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
+     Para obter mais informações sobre o proxy de reativação, consulte [planear como reativar os clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
 
     > [!WARNING]  
-    >  Не включайте прокси-сервер пробуждения в рабочей сети, сначала не поняв, как он работает, и не проверив его в тестовой среде.  
+    >  Não ative a reativação proxy numa rede de produção sem compreender primeiro como funciona e avaliá-la num ambiente de teste.  
 
--   **Номер порта прокси-сервера пробуждения (UDP)**  
+-   **Reativar o número da porta proxy (UDP)**  
 
-     Оставьте значение порта по умолчанию, используемое управляемыми компьютерами для отправки wake-up пакетов компьютерам в спящем режиме. Вы также можете выбрать значение на свое усмотрение.  
+     Mantenha o valor predefinido para o número de porta que geridos computadores utilize para enviar pacotes de reativação para computadores em modo de suspensão. Em alternativa, alterar o número para um valor à sua escolha.  
 
-     Номер порта, указанный здесь, автоматически настраивается для клиентов, которые используют брандмауэр Windows, при задании параметра **Исключение брандмауэра Windows для прокси-сервера пробуждения**. Если клиенты используют другой брандмауэр, необходимо вручную настроить его, чтобы включить UDP-порт, указанный для этого параметра.  
+     O número de porta que especificar aqui é automaticamente configurado para clientes que executam a Firewall do Windows quando utiliza o **exceção de Firewall do Windows para proxy de reativação** opção. Se os clientes tiverem outra firewall em execução, terá de a configurar manualmente para permitir o número da porta UDP especificado para esta definição.  
 
--   **Номер порта (UDP) пробуждения по локальной сети**  
+-   **Reativar por LAN o número da porta (UDP)**  
 
-     Оставьте значение по умолчанию (9), если только вы не изменили номер порта пробуждения по локальной сети (UDP) в окне **Свойства** сайта на вкладке **Порты**.  
-
-    > [!IMPORTANT]  
-    >  Этот номер должен соответствовать номеру в **Свойствах**сайта. Если изменить этот номер в одном месте, он не будет автоматически изменяться в другом месте.  
-
-##  <a name="remote-tools"></a>Удаленные средства  
-
--   **Включить удаленное управление на клиентах** и **Профили исключений брандмауэра**  
-
-     Выберите, требуется ли включить удаленное управление Configuration Manager для всех клиентских компьютеров, получающих эти параметры клиента. Нажмите кнопку **Настроить**, чтобы включить удаленное управление. Вы также можете настроить параметры брандмауэра для работы удаленного управления на клиентских компьютерах.  
-
-     Удаленное управление отключено по умолчанию.  
+     Mantenha o valor predefinido 9, exceto se tiver alterado o número de porta de reativação por LAN (UDP) no **portas** separador do site **propriedades**.  
 
     > [!IMPORTANT]  
-    >  Если не настроить параметры брандмауэра, функция удаленного управления может не работать.  
+    >  Este número tem de corresponder ao número nas **Propriedades**do site. Se alterar este número num único local, não é automaticamente atualizado no outro.  
 
--   **В центре программного обеспечения пользователи могут изменять политику или параметры уведомления**  
+##  <a name="remote-tools"></a>Ferramentas remotas  
 
-     Выберите, могут ли пользователи изменять параметры удаленного управления с помощью центра программного обеспечения.  
+-   **Ativar Controlo Remoto nos clientes** e **Perfis de exceção de firewall**  
 
--   **Разрешить удаленное управление компьютером при отсутствии пользователей**  
+     Escolha se o controlo remoto do Configuration Manager está ativado para todos os computadores cliente que recebem estas definições de cliente. Escolha **configurar** para ativar o controlo remoto. Opcionalmente, configure as definições da firewall para permitir o controlo remoto funcione nos computadores cliente.  
 
-     Укажите, может ли администратор использовать функцию удаленного управления для доступа к заблокированному клиентскому компьютеру или компьютеру, на котором выполнен выход из сеанса работы. Если этот параметр отключен, удаленное управление применяется только к разблокированным и активным компьютерам.  
-
--   **Запрашивать согласие пользователя на удаленное управление**  
-
-     Выберите, будет ли клиентский компьютер выводить сообщение с запросом разрешения пользователя, прежде чем разрешать открыть сеанс удаленного подключения.  
-
--   **Дать локальной группе администраторов разрешение на удаленное управление**  
-
-     Выберите, смогут ли локальные администраторы на сервере, инициирующем подключение удаленного управления, устанавливать сеансы удаленного управления на клиентских компьютерах.  
-
--   **Разрешенный уровень доступа**  
-
-     Установите разрешенный уровень удаленного управления доступом. Можно выбрать одно из следующих значений.  
-
-    -   Полный доступ  
-
-    -   Только просмотр  
-
-    -   Нет  
-
--   **Разрешенные наблюдатели**  
-
-     Нажмите кнопку **Пользователи**, чтобы открыть диалоговое окно **Настроить параметр клиента**, и укажите имена пользователей Windows, которые могут устанавливать сеансы удаленного управления клиентскими компьютерами.  
-
--   **Показывать на панели задач значок уведомления о сеансе**  
-
-     Установите этот флажок, чтобы отображать на панели задач клиентских компьютеров значок, уведомляющий о наличии активного сеанса удаленного управления.  
-
--   **Показать панель подключения сеанса**  
-
-     Установите этот флажок, чтобы отображать на панели задач клиентских компьютеров более крупную панель подключений сеанса, уведомляющую о наличии активного сеанса удаленного управления.  
-
--   **Воспроизводить звук на клиенте**  
-
-     Установите этот флажок, чтобы использовать звуковой сигнал, уведомляющий о наличии активного сеанса удаленного управления на клиентском компьютере. Звуковой сигнал может подаваться при установке и разрыве подключения сеанса или периодически воспроизводиться, пока сеанс остается активным.  
-
--   **Управлять параметрами незапрошенного удаленного помощника**  
-
-     Установите этот флажок, чтобы разрешить Configuration Manager управление незапрошенными сеансами удаленного помощника.  
-
-     Незапрошенные сеансы удаленного помощника инициируются без запроса помощи со стороны пользователя клиентского компьютера.  
-
--   **Управлять параметрами запрашиваемого удаленного помощника**  
-
-     Установите этот флажок, чтобы разрешить Configuration Manager управление запрошенными сеансами удаленного помощника.  
-
-     Запрошенные сеансы удаленного помощника инициируются при отправке пользователем клиентского компьютера запроса удаленной помощи администратору.  
-
--   **Уровень доступа удаленного помощника**  
-
-     Выберите уровень доступа, который будет предоставлен сеансам удаленного помощника, инициируемым из консоли Configuration Manager.  
-
-    > [!NOTE]  
-    >  Пользователь клиентского компьютера всегда должен давать разрешение на запуск сеанса удаленного помощника.  
-
--   **Управлять параметрами удаленного рабочего стола**  
-
-     Установите этот флажок, чтобы разрешить Configuration Manager управление сеансами подключения к удаленному рабочему столу.  
-
--   **Разрешить наблюдателям с соответствующим разрешением подключаться через подключение к удаленному рабочему столу**  
-
-     Установите этот флажок, чтобы разрешить добавление пользователей, указанных в списке разрешенных наблюдателей, в локальную группу пользователей удаленного рабочего стола клиентского компьютера.  
-
--   **Требовать проверку подлинности на уровне сети на компьютерах под управлением ОС Windows Vista и последующих версий**  
-
-     Выберите этот параметр, обеспечивающий дополнительную безопасность, если хотите использовать проверку подлинности на сетевом уровне для установки подключений к удаленным рабочим столам на клиентских компьютерах с ОС Windows Vista или более поздних версий. Проверка подлинности на сетевом уровне использует меньше ресурсов удаленного компьютера, так как проверка подлинности пользователя выполняется до установки подключения к удаленному рабочему столу. Этот метод более надежен, так как позволяет защитить компьютер от действий злоумышленников или вредоносных программ, уменьшая вероятность атак типа "отказ в обслуживании".  
-
-## <a name="software-deployment"></a>Развертывание программного обеспечения  
-
--   **Расписание повторной оценки развертываний**  
-
-     Настройте расписание повторной оценки Configuration Manager правил требований для всех развертываний. Значение по умолчанию – каждые 7 дней.  
+     Por predefinição, o controlo remoto encontra-se desativado.  
 
     > [!IMPORTANT]  
-    >  Не рекомендуется изменять это значение по умолчанию в меньшую сторону. Это может отрицательно повлиять на производительность сети и клиентских компьютеров.  
+    >  Se as definições da firewall não estiverem configuradas, o controlo remoto poderá não funcionar corretamente.  
 
-     Также можно инициировать это действие с клиентского компьютера Configuration Manager, выбрав действие **Цикл оценки развертывания приложения** на вкладке **Действия** оснастки **Configuration Manager** на панели управления.  
+-   **Os utilizadores podem alterar as definições de política ou de notificação no Centro de Software**  
 
-##  <a name="software-inventory"></a>Инвентаризация программного обеспечения  
+     Escolha se os utilizadores podem alterar as opções de controlo remoto no Centro de Software.  
 
--   **Уровень детализации отчетов об инвентаризации**  
+-   **Permitir o Controlo Remoto de um computador autónomo**  
 
-     Задайте уровень детализации отчетов об инвентаризации. Включать в инвентаризацию можно сведения только о файле, сведения о продукте, связанном с файлом, или все сведения о файле.  
+     Escolha se um administrador pode utilizar o controlo remoto para aceder a um computador cliente que está a sessão terminada ou bloqueado. Apenas um computador com sessão iniciada e desbloqueado pode ser controlado remotamente quando esta definição estiver desativada.  
 
--   **Проводить инвентаризацию файлов этих типов**  
+-   **Solicitar ao utilizador permissão do Controlo Remoto**  
 
-     Если требуется указать типы файлов для инвентаризации, выберите **Задать типы** и настройте приведенные ниже значения в диалоговом окне **Настройка параметра клиента**.  
+     Escolha se o computador cliente apresentará uma mensagem que lhe pede permissão do utilizador antes de permitir que uma sessão de controlo remoto.  
+
+-   **Conceder permissão de Controlo Remoto ao grupo de Administradores local**  
+
+     Escolha se a administradores locais no servidor que inicia a ligação de controlo remoto podem estabelecer sessões de controlo remoto nos computadores cliente.  
+
+-   **Nível de acesso permitido**  
+
+     Especifica o nível de acesso de controlo remoto que será permitido. Pode escolher entre:  
+
+    -   Controlo total  
+
+    -   Visualizar apenas  
+
+    -   Nenhum  
+
+-   **Visualizadores permitidos**  
+
+     Escolha **definir visualizadores** para abrir o **configurar definições do cliente** diálogo caixa e especificar os nomes dos utilizadores Windows que poderão estabelecer sessões de controlo remoto para computadores cliente.  
+
+-   **Mostrar ícone de notificação de sessão na barra de tarefas**  
+
+     Escolha esta opção para apresentar um ícone na barra de tarefas do cliente de computadores para indicar que se encontra ativa uma sessão de controlo remoto.  
+
+-   **Mostrar barra de ligação da sessão**  
+
+     Escolha esta opção para apresentar uma barra de ligação de sessão de alta visibilidade no cliente computadores para indicar que se encontra ativa uma sessão de controlo remoto.  
+
+-   **Reproduzir um som no cliente**  
+
+     Escolha esta opção para utilizar som para indicar quando uma sessão de controlo remoto está ativa num computador cliente. Poderá ser reproduzido um som quando a sessão for ligada ou desligada, ou ser reproduzido um som repetidamente durante a sessão.  
+
+-   **Gerir definições da Assistência Remota não solicitada**  
+
+     Escolha esta opção para permitir que o Configuration Manager gerir sessões de assistência remota não solicitada.  
+
+     Uma sessão de assistência remota não solicitada, o utilizador do computador cliente não pediu a assistência para iniciar a sessão.  
+
+-   **Gerir definições da Assistência Remota solicitada**  
+
+     Escolha esta opção para permitir que o Configuration Manager gerir sessões de assistência remota solicitada.  
+
+     Numa sessão de assistência remota solicitada, o utilizador do computador cliente enviou um pedido para o administrador para a assistência remota.  
+
+-   **Nível de acesso para a Assistência Remota**  
+
+     Escolha o nível de acesso a atribuir às sessões de assistência remota que sejam iniciadas na consola do Configuration Manager.  
 
     > [!NOTE]  
-    >  Если на компьютере применяются несколько настраиваемых клиентских параметров, инвентарные данные, полученные по каждому параметру, будут объединены.  
+    >  O utilizador do computador cliente tem sempre de conceder permissão para que ocorra uma sessão de Assistência Remota.  
 
-    -   Щелкните значок **Создать**, чтобы добавить в инвентаризацию новый тип файлов. Затем в диалоговом окне **Свойства внесенного в опись файла** укажите приведенные ниже сведения.  
+-   **Gerir definições de Ambiente de Trabalho Remoto**  
 
-        -   **Имя** — укажите имя файла, который необходимо добавить в инвентаризацию. Можно использовать символ **\** для представления любой текстовой строки и знака **?** для представления любого отдельного символа. Например, если вы хотите проверить все файлы с расширением DOC, укажите имя файла **\*.doc**.  
+     Escolha esta opção para permitir que o Configuration Manager gerir sessões de ambiente de trabalho remoto para computadores.  
 
-        -   **Расположение** — щелкните **Задать**, чтобы открыть диалоговое окно **Свойства пути**. Инвентаризацию программного обеспечения можно настроить для поиска указанного файла на всех клиентских жестких дисках, поиска по указанному пути (например, **C:\Папка**) или указанной переменной (например, *%windir%*). Кроме того, можно выполнять поиск во всех вложенных папках по указанному пути.  
+-   **Permitir que os visualizadores autorizados estabeleçam ligação utilizando a ligação ao Ambiente de Trabalho Remoto**  
 
-        -   **Исключить зашифрованные и сжатые файлы** — при выборе этого параметра все сжатые или зашифрованные файлы не будут включены в инвентаризацию.  
+     Escolha esta opção para permitir que os utilizadores especificados na lista de visualizadores autorizados a ser adicionado ao grupo de utilizadores local do ambiente de trabalho remoto em computadores cliente.  
 
-        -   **Исключить файлы в папке Windows** — при выборе этого параметра все файлы в папке Windows и ее вложенных папках не будут включены в инвентаризацию.  
+-   **Exigir autenticação de nível de rede nos computadores com o sistema operativo Windows Vista e versões posteriores**  
 
-    -   Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства внесенного в опись файла**.  
+     Escolha esta opção mais segura se pretender utilizar a autenticação de nível de rede para estabelecer ligações de ambiente de trabalho remoto a computadores cliente que executam o Windows Vista ou posterior. Autenticação de nível de rede requer menos recursos do computador remoto inicialmente porque concluído a autenticação de utilizador antes de estabelecer uma ligação de ambiente de trabalho remoto. Este método é mais seguro porque pode ajudar a proteger o computador contra utilizadores mal intencionados ou software malicioso, reduzindo o risco de ataques denial-of-service.  
 
-    -   Добавьте в инвентаризацию все требуемые файлы, а затем нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Настройка параметра клиента**.  
+## <a name="software-deployment"></a>Implementação de software  
 
--   **Собирать файлы**  
+-   **Agendar reavaliação das implementações**  
 
-     Если требуется получать файлы с клиентских компьютеров, щелкните **Задать файлы** и настройте указанные ниже параметры.  
+     Configure uma agenda para quando o Configuration Manager deverá reavaliar as regras de requisitos para todas as implementações. O valor predefinido é a cada 7 dias.  
+
+    > [!IMPORTANT]  
+    >  Recomendamos que altere este valor para um valor inferior à predefinição de. Fazer com que poderá afetar negativamente o desempenho da sua rede e os computadores cliente.  
+
+     Também poderá iniciar esta ação de um computador de cliente do Configuration Manager, selecionando a ação **ciclo de avaliação de implementação de aplicação** do **ações** separador de **do Configuration Manager** no painel de controlo.  
+
+##  <a name="software-inventory"></a>Inventário de software  
+
+-   **Inventariar detalhe de relatórios**  
+
+     Especifica o nível de informações dos ficheiros a inventariar. Pode Inventariar os detalhes sobre o ficheiro, os detalhes sobre o produto associado o ficheiro ou todas as informações sobre o ficheiro.  
+
+-   **Inventariar estes tipos de ficheiro**  
+
+     Se pretender especificar os tipos de ficheiro a inventariar, escolha **definir tipos** e, em seguida, configure o seguinte no **configurar definições do cliente** caixa de diálogo:  
 
     > [!NOTE]  
-    >  Если на компьютере применяются несколько настраиваемых клиентских параметров, инвентарные данные, полученные по каждому параметру, будут объединены.  
+    >  Se forem aplicadas várias definições personalizadas de cliente para um computador, o inventário que devolve a cada definição será intercalado.  
 
-    -   В диалоговом окне **Настройка параметра клиента** щелкните значок **Создать**, чтобы добавить файл, который должен быть получен.  
+    -   Escolha o **novo** ícone para adicionar um novo tipo de ficheiro ao inventário. Em seguida, especifique as seguintes informações no **propriedades do ficheiro inventariado** caixa de diálogo:  
 
-    -   В диалоговом окне **Свойства собранного файла** укажите следующие сведения.  
+        -   **Nome**: Forneça um nome para o ficheiro que pretende inventariar. Pode utilizar o * *\**  para representar qualquer cadeia de texto e o **?** para representar um único caráter. Por exemplo, se pretender inventariar todos os ficheiros com a extensão. doc, especifique o nome de ficheiro  **\*. doc**.  
 
-        -   **Имя** — укажите имя файла, который необходимо получить. Можно использовать символ **\** для представления любой текстовой строки и знака **?** для представления любого отдельного символа.  
+        -   **Localização**: Escolha **definir** para abrir o **propriedades do caminho** caixa de diálogo. Pode configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro especificado, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
 
-        -   **Расположение** — щелкните **Задать**, чтобы открыть диалоговое окно **Свойства пути**. Инвентаризацию программного обеспечения можно настроить для поиска файла, который требуется получить, на всех клиентских жестких дисках, поиска по указанному пути (например, **C:\Папка**) или указанной переменной (например, *%windir%*). Кроме того, можно выполнять поиск во всех вложенных папках по указанному пути.  
+        -   **Excluir ficheiros comprimidos e encriptados**: Quando seleciona esta opção, os ficheiros comprimidos ou encriptados não serão inventariados.  
 
-        -   **Исключить зашифрованные и сжатые файлы** — при выборе этого параметра все сжатые или зашифрованные файлы не будут собираться.  
+        -   **Excluir ficheiros da pasta Windows**: Quando seleciona esta opção, todos os ficheiros na pasta Windows e respetivas subpastas não serão inventariados.  
 
-        -   **Прекратить сбор файлов, если их размер в совокупности превышает (КБ)** — укажите размер файлов (в килобайтах), при превышении которого больше не будут собираться файлы, указанные в разделе **Имя**.  
+    -   Escolha **OK** para fechar o **propriedades do ficheiro inventariado** caixa de diálogo.  
+
+    -   Adicionar todos os ficheiros que pretende inventariar e, em seguida, escolha **OK** para fechar o **configurar definições do cliente** caixa de diálogo.  
+
+-   **Recolher ficheiros**  
+
+     Se pretender recolher ficheiros de computadores cliente, escolha **definir ficheiros** e, em seguida, configure o seguinte:  
+
+    > [!NOTE]  
+    >  Se forem aplicadas várias definições personalizadas de cliente para um computador, o inventário que devolve a cada definição será intercalado.  
+
+    -   No **configurar definições do cliente** diálogo caixa, escolha o **novo** ícone para adicionar um ficheiro a serem recolhidos.  
+
+    -   Na caixa de diálogo **Propriedades do Ficheiro Recolhido** , forneça as seguintes informações:  
+
+        -   **Nome**: Forneça um nome para o ficheiro que pretende recolher. Pode utilizar o * *\**  para representar qualquer cadeia de texto e o **?** para representar um único caráter.  
+
+        -   **Localização**: Escolha **definir** para abrir o **propriedades do caminho** caixa de diálogo. Poderá configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro que pretende recolher, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
+
+        -   **Excluir ficheiros comprimidos e encriptados**: Quando seleciona esta opção, os ficheiros comprimidos ou encriptados não serão recolhidos.  
+
+        -   **Parar a recolha de ficheiros quando o tamanho total dos ficheiros excede (KB)**: Especifica o tamanho do ficheiro (em quilobytes) após o qual dos ficheiros especificados em **nome** serão recolhidos.  
 
           > [!NOTE]  
-          >  Сервер сайта собирает 5 последних измененных версий собранных файлов и хранит их в каталоге *&lt;каталог установки ConfigMgr\>*\Inboxes\Sinv.box\Filecol. Если в файл не вносились изменения со времени последнего сбора инвентаризации программного обеспечения, данный файл не будет повторно собираться.  
+          >  O servidor do site recolhe as cinco versões mais recentes dos ficheiros recolhidos e armazena-os no  *&lt;diretório de instalação do ConfigMgr\>*\Inboxes\Sinv.box\Filecol diretório. Se um ficheiro não tiver sido alterado desde a recolha do último inventário de software, o ficheiro não será novamente recolhido.  
           >   
-          >  Файлы, размер которых превышает 20 МБ, не собираются при инвентаризации программного обеспечения.  
+          >  Inventário de software não recolher ficheiros com mais de 20 MB.  
           >   
-          >  Значение параметра **Максимально допустимый размер всех собранных файлов (КБ)** в диалоговом окне **Настройка параметра клиента** показывает максимальный размер всех собранных файлов. При достижении этого размера сбор файлов будет остановлен. Все собранные файлы сохраняются и отправляются на сервер сайта.  
+          >  O valor **tamanho máximo para todos ficheiros recolhidos (KB)** no **configurar definições do cliente** caixa de diálogo mostra o tamanho máximo para todos ficheiros recolhidos. Quando este tamanho for atingido, a recolha de ficheiros será interrompida. Todos os ficheiros já recolhidos serão mantidos e enviados para o servidor do site.  
 
           > [!IMPORTANT]
-          >  Если инвентаризация программного обеспечения настроена для сбора большого количества крупных файлов, это может отрицательно повлиять на производительность сети и сервера сайта.  
+          >  Se configurar o inventário de software para recolher muitos ficheiros de grandes dimensões, poderá afetar negativamente o desempenho da rede e do servidor de site.  
 
-        Дополнительные сведения о просмотре собранных файлов см. в статье [Использование обозревателя ресурсов для просмотра данных инвентаризации программного обеспечения в System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
+        Para obter informações sobre como visualizar ficheiros recolhidos, consulte [como utilizar o Explorador de recursos para ver o inventário de software no System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
 
-    -   Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства собранного файла**.  
+    -   Escolha **OK** para fechar o **propriedades do ficheiro recolhido** caixa de diálogo.  
 
-    -   Добавьте все файлы, которые требуется собрать, а затем нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Настройка параметра клиента**.  
+    -   Adicionar todos os ficheiros que pretende recolher e, em seguida, escolha **OK** para fechar o **configurar definições do cliente** caixa de diálogo.  
 
--   **Задать имена**  
+-   **Definir Nomes**  
 
-     Во время инвентаризации программного обеспечения наименования продуктов и компаний-производителей извлекаются из заголовков файлов, установленных на клиентах сайта. Поскольку указанные наименования в заголовках файлов не всегда стандартизованы, при просмотре сведений об инвентаризации программного обеспечения в обозревателе ресурсов или выполнении запросов в некоторых случаях могут отображаться другие версии аналогичного наименования продукта или производителя. Если требуется стандартизация отображаемых имен, выберите пункт **Задать имена** и настройте указанные ниже параметры в диалоговом окне **Настройка параметра клиента**.  
+     Durante o inventário de software, são obtidos nomes de fabricantes e de produtos a partir das informações de cabeçalho dos ficheiros instalados nos clientes do site. Como nem sempre esses nomes se encontram padronizados nas informações de cabeçalho dos ficheiros, ao visualizar as informações do inventário de software no Explorador de Recursos ou ao executar consultas poderão, por vezes, ser apresentadas diversas versões do mesmo nome de fabricante ou produto. Se pretender padronizar estes nomes a apresentar, escolha **definir nomes** e, em seguida, configure o seguinte no **configurar definições do cliente** caixa de diálogo:  
 
-    -   **Тип имени** — функция инвентаризации программного обеспечения собирает сведения о производителях и продуктах. В раскрывающемся списке выберите, для какой категории требуется настроить отображаемые имена: для категории **Производитель** или **Продукт**.  
+    -   **Nome do tipo**: Inventário de software recolhe informações sobre produtos e fabricantes. Na lista pendente, escolha se pretende configurar os nomes a apresentar para um **fabricante** ou um **produto**.  
 
-    -   **Отображаемое имя** — укажите отображаемое имя, которое требуется использовать вместо наименований в списке **Имена, внесенные в опись**. Чтобы указать новое отображаемое имя, можно щелкнуть значок **Создать**.  
+    -   **Nome a apresentar**: Especifique o nome a apresentar que pretende utilizar em vez dos nomes de **nomes inventariados** lista. Pode escolher o **novo** ícone para especificar um novo nome a apresentar.  
 
-    -   **Имена, внесенные в опись** — щелкните значок **Создать**, чтобы добавить в инвентарную опись программного обеспечения новое имя, заменяемое именем, выбранным в списке **Отображаемое имя**. Можно добавить несколько имен, которые будут заменены.  
+    -   **Nomes inventariados**: Escolha o **novo** ícone para adicionar um novo nome inventariado, que será substituído no inventário de software pelo nome selecionado no **nome a apresentar** lista. Poderá adicionar vários nomes a substituir.  
 
-##  <a name="software-updates"></a>Обновления программного обеспечения  
+##  <a name="software-updates"></a>Atualizações de software  
 
--   **Включить обновления программного обеспечения для клиентов**  
+-   **Ativar atualizações de software nos clientes**  
 
-     Используйте этот параметр, чтобы включить обновление программного обеспечения в клиентах Configuration Manager. Если его отключить, то Configuration Manager удалит все политики развертывания на стороне клиента. При повторном включении параметра клиент загружает текущую политику развертывания.  
+     Utilize esta definição para ativar atualizações de software nos clientes do Configuration Manager. Quando desativar esta definição, o Configuration Manager removerá as políticas de implementação existentes do cliente. Quando voltar a ativar esta definição, o cliente transferirá a política de implementação atual.  
 
     > [!IMPORTANT]  
-    >  Кроме того, при отключении этого параметра NAP и параметры соответствия, зависящие от устройства, на котором обновляется ПО, перестанут действовать.  
+    >  Ao desativar esta definição, NAP políticas e conformidade de definições que se baseiam na definição de dispositivo para atualizações de software deixarão de funcionar.  
 
--   **Расписание проверки обновлений программного обеспечения**  
+-   **Agendamento da análise de atualização de software**  
 
-     Используйте этот параметр, чтобы указать, как часто клиент запускает проверку соответствия обновлений ПО требованиям. Проверка соответствия требованиям определяет состояние обновлений ПО на клиенте (например, требуются или установлены). Дополнительные сведения об оценке соответствия требованиям см. в статье [Оценка соответствия обновлений программного обеспечения требованиям](../../../sum/understand/software-updates-introduction.md#BKMK_SUMCompliance).  
+     Utilize esta definição para especificar a frequência com que o cliente inicia uma análise de avaliação da compatibilidade das atualizações de software. A análise de avaliação da compatibilidade determina o estado das atualizações de software no cliente (por exemplo, necessária ou instalada). Para obter mais informações sobre a avaliação de compatibilidade, consulte [avaliação de compatibilidade de atualizações de Software](../../../sum/understand/software-updates-introduction.md#BKMK_SUMCompliance).  
 
-     По умолчанию используется простое расписание, а проверка соответствия требованиям запускается каждые 7 дней. Можно создать настраиваемое расписание, чтобы указать точную дату и время запуска, выбрать использование времени в формате UTC или местного времени, а также настроить интервал повтора для определенного дня недели.  
+     Por predefinição, é utilizada uma agenda simples e a análise de compatibilidade é iniciada a cada 7 dias. Poderá optar por criar um agendamento personalizado para especificar uma data e hora de início exatas, optar pela utilização da hora local ou UTC e configurar o intervalo periódico para um dia da semana específico.  
 
     > [!NOTE]  
-    >  Если указать интервал меньше 1 дня, то Configuration Manager будет по умолчанию использовать 1 день.  
+    >  Se especificar um intervalo de menos de 1 dia, o Configuration Manager será automaticamente predefinido para 1 dia.  
 
     > [!WARNING]  
-    >  Фактическое время запуска на клиентских компьютерах равно сумме заданного времени запуска и случайного промежутка времени продолжительностью до 2 часов. Это позволяет избежать одновременного запуска проверки и подключения клиентских компьютеров к службам WSUS на сервере активной точки обновления.  
+    >  A hora de início real em computadores cliente é a hora de início mais um período de tempo aleatório de até 2 horas. Isto evita que os computadores cliente iniciem a análise e estabeleçam ligação ao Windows Server Update Services (WSUS) no servidor ativo de ponto de atualização de software ao mesmo tempo.  
 
--   **Расписание повторной оценки развертывания**  
+-   **Agendar a reavaliação de implementação**  
 
-     Используйте этот параметр, чтобы указать, насколько часто агент клиента обновлений повторно проверяет состояние установки обновлений на клиентских компьютерах Configuration Manager. Если установленные ранее обновления отсутствуют на клиентских компьютерах, но по-прежнему требуются, они будут переустановлены.
+     Utilize esta definição para configurar a frequência o agente de cliente de atualizações de Software reavalia atualizações de software para o estado de instalação nos computadores de cliente do Configuration Manager. Quando as atualizações de software que tenham sido anteriormente instaladas já não se encontram em computadores cliente e ainda são necessárias, são reinstaladas.
 
-     Расписание повторной оценки развертывания следует настраивать с учетом действующей в компании политики соответствия обновлений ПО требованиям, наличия у пользователей возможности удалять обновления ПО и т. п. Помните, что цикл повторной оценки каждого развертывания связан с определенной нагрузкой на сеть и на ЦП клиентских компьютеров. По умолчанию используется простое расписание, а повторная оценка развертывания запускается каждые 7 дней.  
-
-    > [!NOTE]  
-    >  Если указать интервал меньше 1 дня, то Configuration Manager будет по умолчанию использовать 1 день.  
-
--   **Когда наступит крайний срок развертывания обновления программного обеспечения, установите все другие развертывания обновления программного обеспечения, крайний срок которых наступает в течение указанного периода**  
-
-     Используйте этот параметр, чтобы установить все обновления ПО в обязательные развертывания, крайний срок которых приходится на указанный период времени. При наступлении крайнего срока для обязательного развертывания обновлений ПО на клиентах запускается установка обновлений, содержащихся в этом развертывании. Этот параметр определяет, следует ли также начинать установку обновлений ПО, определенных в других обязательных развертываниях, крайний срок которых приходится на указанный период времени.  
-
-     Используйте этот параметр для срочной установки обновлений, для обеспечения более высокого уровня безопасности, для снижения количества отображаемых уведомлений и для возможного снижения количества перезапусков клиентских компьютеров. По умолчанию этот параметр отключен.  
-
--   **Период, в течение которого также будут установлены все ожидающие развертывания, крайний срок которых наступает в это время**  
-
-     Используйте этот параметр, чтобы указать диапазон времени для предыдущего параметра. Можно ввести значение, равное от 1 до 23 часов и от 1 до 365 дней. По умолчанию для этого параметра используется значение 7 дней.  
-
--   **Разрешить установку файлов экспресс-установки на клиенты**
-
--   **Порт, используемый для скачивания файлов экспресс-установки**
-
--   **Включить управление агентом клиента Office 365**. Этот параметр позволяет включить управление агентом клиента Office 365. Если выбрать значение **Да**, в Configuration Manager можно будет настраивать параметры установки Office 365, скачивать файлы из сетей доставки содержимого Office и развертывать файлы как приложение.
-
-##  <a name="user-and-device-affinity"></a>Сопоставление пользователей и устройств  
-
--   **Порог использования сопоставления пользователей и устройств (в минутах)**  
-
-     Укажите время в минутах перед тем, как Configuration Manager будет создавать сопоставление пользователя и устройства.  
-
--   **Порог использования сопоставления пользователей и устройств (в днях)**  
-
-     Укажите число дней, через которое будет измеряться пороговое значение сопоставления на основе использования.  
+     A agenda de reavaliação de implementação deve ser ajustada com base na política da empresa relativamente a compatibilidade de atualização de software, se os utilizadores têm a capacidade de desinstalar as atualizações de software e assim sucessivamente. Lembre-se de que cada ciclo de reavaliação da implementação resulta em alguma atividade da CPU do computador cliente e rede. Por predefinição, é utilizada uma agenda simples e a análise da reavaliação de implementação é iniciada a cada 7 dias.  
 
     > [!NOTE]  
-    >  Например, если для параметра **Порог использования устройств (в минутах) для автоматического включения сопоставления пользователей и устройств** указано значение **60** минут, а параметр **Порог использования устройств (в днях) для автоматического включения сопоставления пользователей и устройств** имеет значение **5** дней, для автоматического создания сопоставления пользователя и устройства необходимо, чтобы данный пользователь использовал устройство в течение 60 минут за период, составляющий 5 дней.  
+    >  Se especificar um intervalo de menos de 1 dia, o Configuration Manager será automaticamente predefinido para 1 dia.  
 
--   **Автоматически настроить сопоставление пользователей и устройств на основе данных об использовании**  
+-   **Quando qualquer prazo de implementação da atualização de software é alcançado, instale todas as outras implementações de atualização de software com prazo a terminar no período de tempo especificado**  
 
-     Выберите **True** или **Да**, чтобы разрешить Configuration Manager автоматически создавать сопоставления пользователей и устройств на основе собранных данных по использованию.  
+     Utilize esta definição para instalar todas as atualizações de software em implementações necessárias com prazos incluídos num determinado período de tempo. Quando é atingido um prazo para um software necessário atualizar a implementação, é iniciada a instalação em clientes para as atualizações de software na implementação. Esta definição determina se deve ser iniciada também a instalação das atualizações de software definidas noutras implementações necessárias com um prazo configurado no período de tempo especificado.  
 
-##  <a name="mobile-devices"></a>Мобильные устройства  
+     Utilize esta configuração para agilizar a instalação da atualização de software para atualizações de software necessárias, aumentar potencialmente a segurança, reduzir potencialmente a apresentação de notificações e reduzir potencialmente os reinícios do sistema em computadores cliente. Por predefinição, esta definição não está ativada.  
 
--   **Профиль регистрации мобильных устройств**  
+-   **Período de tempo para o qual todas as implementações pendentes com prazo nesta hora também serão instaladas**  
 
-     Перед настройкой этого параметра необходимо указать значение **Да** для параметра пользователя мобильного устройства **Разрешить пользователям регистрировать мобильные устройства**. Затем можно щелкнуть **Задать профиль**, чтобы указать профиль регистрации, содержащий сведения о шаблоне сертификата, который будет использоваться в процессе регистрации, сайт, содержащий точку регистрации и прокси-точку регистрации, а также сайт, который будет управлять устройством после регистрации.  
+     Utilize esta definição para especificar o intervalo de tempo da definição anterior. Pode introduzir um valor de 1 a 23 horas e de 1 a 365 dias. Por predefinição, esta definição está configurada para 7 dias.  
+
+-   **Ativar a instalação dos ficheiros de instalação rápida nos clientes**
+
+-   **Porta utilizada para transferir conteúdo para os ficheiros de instalação rápida**
+
+-   **Ativar a gestão de cliente de 365 do Office novamente** Utilize esta definição para ativar a gestão do agente de cliente do Office 365. Quando definir o valor **Sim**, permite-lhe configurar definições de instalação do Office 365, transfira ficheiros a partir de redes de entrega de conteúdo (CDNs) do Office e implementar os ficheiros como uma aplicação no Configuration Manager.
+
+##  <a name="user-and-device-affinity"></a>Afinidade dispositivo / utilizador  
+
+-   **Limiar de utilização de afinidade de dispositivo e utilizador (minutos)**  
+
+     Especifique o número de minutos antes do Configuration Manager cria um mapeamento de afinidade de dispositivo do utilizador.  
+
+-   **Limiar de utilização de afinidade de dispositivo e utilizador (dias)**  
+
+     Especifique o número de dias durante o qual será medido o limiar de afinidade baseada na utilização.  
+
+    > [!NOTE]  
+    >  Por exemplo, se **limiar de utilização de afinidade de dispositivo de utilizador (minutos)** está especificado como **60** minutos e **limiar de utilização de afinidade de dispositivo do utilizador (dias)** está especificado como **5** dias, o utilizador tem de utilizar o dispositivo durante 60 minutos num período de 5 dias para criar automaticamente uma afinidade de dispositivo do utilizador.  
+
+-   **Configurar automaticamente a afinidade de dispositivo e utilizador a partir dos dados de utilização**  
+
+     Escolha **verdadeiro** ou **Sim** para permitir que o Configuration Manager criar automaticamente afinidades de dispositivo com base nas informações de utilização recolhidas utilizador.  
+
+##  <a name="mobile-devices"></a>Dispositivos móveis  
+
+-   **Perfis de inscrição de dispositivos móveis**  
+
+     Para poder configurar esta definição, deve primeiro configurar como **Verdadeiro** a definição de utilizador de dispositivo móvel **Permitir aos utilizadores a inscrição de dispositivos móveis**. Em seguida, pode escolher **definir perfil** para especificar um perfil de inscrição com informações sobre o modelo de certificado a utilizar durante o processo de inscrição, o site que tem um ponto de registo e ponto proxy de registo e o site que irá gerir o dispositivo após a inscrição.  
 
     > [!IMPORTANT]  
-    >  Перед выбором этого параметра убедитесь в наличии шаблона сертификата, который будет использоваться при регистрации мобильных устройств.  
+    >  Certifique-se de que configurou um modelo de certificado para utilizar na inscrição do dispositivo móvel antes de configurar esta opção.  
 
-##  <a name="enrollment"></a>Регистрация  
+##  <a name="enrollment"></a>Inscrição  
 
--   **Профиль регистрации мобильных устройств**  
+-   **Perfis de inscrição de dispositivos móveis**  
 
-     Перед настройкой этого параметра необходимо указать значение **Да** для параметра пользователя мобильного устройства **Разрешить пользователям регистрировать мобильные устройства и компьютеры Mac**. Затем можно щелкнуть **Задать профиль**, чтобы указать профиль регистрации, содержащий сведения о шаблоне сертификата, который будет использоваться в процессе регистрации, сайт, содержащий точку регистрации и прокси-точку регистрации, а также сайт, который будет управлять устройством после регистрации.  
+     Para poder configurar esta definição, deve primeiro configurar como **Sim** a definição de utilizador de inscrição **Permitir aos utilizadores a inscrição de dispositivos móveis e computadores Mac**. Em seguida, pode escolher **definir perfil** para especificar um perfil de inscrição com informações sobre o modelo de certificado a utilizar durante o processo de inscrição, o site que tem um ponto de registo e ponto proxy de registo e o site que irá gerir o dispositivo após a inscrição.  
 
     > [!IMPORTANT]  
-    >  Перед выбором этого параметра убедитесь в наличии шаблона сертификата, который будет использоваться при регистрации мобильных устройств или клиентов Mac.  
+    >  Certifique-se de que configurou um modelo de certificado para utilizar na inscrição do dispositivo móvel ou na inscrição do certificado do cliente Mac antes de configurar esta opção.  
 
-## <a name="user-and-device-affinity"></a>Сопоставление пользователей и устройств  
+## <a name="user-and-device-affinity"></a>Afinidade dispositivo / utilizador  
 
--   **Предоставьте пользователю возможность выбора первичных устройств**  
+-   **Permitir ao utilizador a definição dos seus dispositivos primários**  
 
-     Укажите, разрешено ли пользователям определять свои собственные первичные устройства в каталоге приложений на вкладке **Мои устройства**.  
+     Especifique se os utilizadores estão autorizados a identificar os seus próprios dispositivos primários no **os meus dispositivos** separador do catálogo de aplicações.  

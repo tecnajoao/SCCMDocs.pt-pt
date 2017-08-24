@@ -1,6 +1,6 @@
 ---
-title: "Безопасность и конфиденциальность администрирования сайтов | Документы Майкрософт"
-description: "Оптимизируйте безопасность и конфиденциальность администрирования сайтов в System Center Configuration Manager."
+title: "Site de administração de segurança e privacidade | Microsoft Docs"
+description: "Otimize a segurança e privacidade para administração de sites no System Center Configuration Manager."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,267 +16,267 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a60b8c103a303dcae0bd66f3060d5a8f17d1cef9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность администрирования сайтов в System Center Configuration Manager
+# <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Segurança e privacidade para a administração de sites no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этом разделе содержатся сведения об обеспечении безопасности и конфиденциальности для сайтов и иерархии System Center Configuration Manager.
+Este tópico contém informações de sites do System Center Configuration Manager e a hierarquia de privacidade e segurança.
 
-##  <a name="BKMK_Security_Sites"></a> Рекомендации по обеспечению безопасности для администрирования сайтов  
- Приведенные ниже рекомендации по обеспечению безопасности помогут защитить сайты и иерархию System Center Configuration Manager.  
+##  <a name="BKMK_Security_Sites"></a>Melhores práticas de segurança para administração de sites  
+ Utilize as seguintes melhores práticas de segurança para sites seguros do System Center Configuration Manager e a hierarquia.  
 
- **Запускайте программу установки только из надежного источника и защищайте канал связи между носителем программы установки и сервером сайта.**  
+ **Execute a configuração apenas a partir de uma origem fidedigna e Proteja o canal de comunicação entre o suporte de dados de configuração e o servidor de site.**  
 
- Чтобы предотвратить несанкционированное изменение исходных файлов, запускайте программу установки из надежного источника. Если файлы хранятся в сети, защитите сетевую папку.  
+ Para ajudar a impedir alguém adultere os ficheiros de origem, execute a configuração de uma origem fidedigna. Se armazenar os ficheiros na rede, proteja a localização de rede.  
 
- Чтобы при запуске программы установки из сетевого расположения предотвратить несанкционированное изменение исходных файлов, передаваемых по сети, воспользуйтесь протоколом IPsec или подписыванием Server Message Block (SMB) для защиты канала между исходным расположением программы установки и сервером сайта.  
+ Se executar a configuração a partir de uma localização de rede, para ajudar a impedir que um atacante adultere os ficheiros durante a transmissão através da rede, utilize a assinatura IPsec ou o bloco de mensagem de servidor (SMB) entre a localização de origem dos ficheiros de configuração e o servidor do site.  
 
- Кроме того, при использовании загрузчика программы установки для загрузки файлов, необходимых для программы установки, следует защитить папку, в которой хранятся эти файлы, а во время выполнения программы установки нужно обеспечить безопасность канала связи с этим расположением.  
+ Além disso, se utilizar o dispositivo de transferência da configuração para transferir os ficheiros que são necessários à configuração, certifique-se de que também Proteja a localização onde estes ficheiros são armazenados e Proteja o canal de comunicação para esta localização quando executar a configuração.  
 
- **Расширьте схему Active Directory для System Center Configuration Manager и опубликуйте сайты в доменных службах Active Directory.**  
+ **Expandir o esquema do Active Directory para o System Center Configuration Manager e publique os sites para serviços de domínio do Active Directory.**  
 
- Для запуска System Center Configuration Manager расширения схемы не требуются, однако они позволяют создать более безопасную среду, так как клиенты и серверы сайта Configuration Manager могут получать данные из надежного источника.  
+ Não são necessárias extensões de esquema para executar o System Center Configuration Manager, mas criam um ambiente mais seguro porque os clientes do Configuration Manager e servidores de site podem obter as informações de uma origem fidedigna.  
 
- Если клиенты находятся в домене, не являющемся доверенным, разверните следующие роли в домене клиента.  
+ Se os clientes estão num domínio não fidedigno, implemente as seguintes funções do sistema de sites em domínios de clientes:  
 
--   Точка управления.  
+-   Ponto de gestão  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
--   Точка веб-сайта каталога приложений.  
-
-> [!NOTE]  
->  Для доверенного домена Configuration Manager требуется проверка подлинности Kerberos. Это значит, что если клиенты находятся в другом лесу, не имеющем двустороннего доверия с лесом сервера сайта, считается, что эти клиенты находятся в домене, не являющемся доверенным. Для этой цели внешнего доверия недостаточно.  
-
- **Используйте протокол IPSec для защиты взаимодействий между серверами систем сайта и сайтами.**  
-
- Несмотря на то, что Configuration Manager защищает взаимодействие между сервером сайта и компьютером с SQL Server, Configuration Manager не обеспечивает безопасность взаимодействий между ролями системы сайта и SQL Server. Настроить для использования протокола HTTPS для внутрисайтовой передачи данных можно только некоторые системы сайта (точка регистрации и точка веб-службы каталога приложений).  
-
- Если для защиты каналов обмена данными между серверами не используются дополнительные методы, злоумышленники могут направлять на системы сайтов различные атаки, например подделку пакетов или атаки типа "злоумышленник в середине". Если использовать протокол IPsec невозможно, замените его подписыванием SMB.  
+-   Ponto de site do Catálogo de Aplicações  
 
 > [!NOTE]  
->  Особенно важно защитить канал взаимодействия между сервером сайта и исходным сервером пакета. В этом случае используетсяя SMB. Если для защиты этого взаимодействия использовать протокол IPsec невозможно, замените его подписыванием SMB, чтобы исключить несанкционированное изменение файлов до их загрузки и использования клиентами.  
+>  Um domínio fidedigno para o Configuration Manager requer a autenticação Kerberos. Isto significa que o se os clientes estiverem noutra floresta que tenha uma confiança de floresta bidirecional com a floresta do servidor do site, estes clientes são considerados como sendo num domínio não fidedigno. Uma confiança externa não é suficiente para este efeito.  
 
- **Не изменяйте группы безопасности, создаваемые и управляемые Configuration Manager для взаимодействия систем сайта.**  
+ **Utilize IPsec para proteger as comunicações entre os sites e os servidores do sistema de sites.**  
 
- Группы безопасности:  
+ Apesar do Configuration Manager proteger a comunicação entre o servidor do site e o computador que executa o SQL Server, o Configuration Manager não proteger as comunicações entre funções de sistema de sites e o SQL Server. Só alguns sistemas de sites (o ponto de registo e o ponto de serviço Web do catálogo de aplicações) podem ser configurados com HTTPS para comunicações intra-site.  
 
--   **SMS_SiteSystemToSiteServerConnection_MP_&lt;Код_сайта\>**  
+ Se não utilizar controlos adicionais para proteger estes canais servidor-servidor, os atacantes poderão utilizar vários ataques man-in-the-middle e de spoofing contra sistemas de sites. Utilize a assinatura SMB quando não for possível utilizar IPsec.  
 
--   **SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;Код_сайта\>**  
+> [!NOTE]  
+>  É especialmente importante proteger o canal de comunicação entre o servidor do site e o servidor de origem do pacote. Esta comunicação utiliza SMB. Se não for possível utilizar IPsec para proteger estas comunicações, utilize a assinatura SMB para assegurar que os ficheiros não são adulterados antes de os clientes os transferirem e executarem.  
 
--   **SMS_SiteSystemToSiteServerConnection_Stat_&lt;Код_сайта\>**  
+ **Não altere os grupos de segurança que o Configuration Manager cria e gere para as comunicações do sistema de sites.**  
 
-Configuration Manager автоматически создает эти группы безопасности и управляет ими. В частности, это подразумевает также удаление учетных записей компьютера при удалении роли системы сайта.  
+ Grupos de segurança:  
 
-Чтобы обеспечить непрерывность обслуживания и сохранить минимальный набор привилегий, не изменяйте эти группы вручную.  
+-   **SMS_SiteSystemToSiteServerConnection_MP_&lt;SiteCode\>**  
 
-**Если клиентам не удается запросить на сервере глобального каталога сведения о Configuration Manager, следует осуществить управление процессом предоставления корневого ключа доверия.**  
+-   **SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;SiteCode\>**  
 
-Если клиентам не удается запросить на сервере глобального каталога сведения о Configuration Manager, для проверки подлинности допустимых точек управления они должны использовать корневой ключ доверия. Доверенный корневой ключ хранится в реестре клиента и задается с помощью групповой политики или настройки вручную.  
+-   **SMS_SiteSystemToSiteServerConnection_Stat_&lt;SiteCode\>**  
 
-Если первое взаимодействие с точкой управления клиент осуществляет без копии доверенного корневого ключа, он установит отношение доверия с первой точкой управления, к которой подключится. Чтобы сократить риск преднамеренного неправильного направления клиентов к неавторизованной точке управления, клиентам можно заранее предоставить доверенный корневой ключ. Дополнительные сведения см. в разделе [Планирование доверенного корневого ключа](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
+O Configuration Manager cria e gere estes grupos de segurança automaticamente. Isto inclui a remoção de contas de computador quando uma função de sistema de sites é removida.  
 
-**Используйте номера портов, отличные от заданных по умолчанию.**  
+Para assegurar a continuidade de serviço e o mínimo de privilégios, não edite manualmente estes grupos.  
 
-Использование номеров портов, отличных от заданных по умолчанию, позволяет повысить уровень безопасности, так как злоумышленники будут испытывать трудности при анализе среды в ходе подготовки к атаке. Если вы собираетесь использовать порты не по умолчанию, спланируйте их до установки Configuration Manager, а затем используйте последовательно на всех сайтах иерархии. Примерами ситуаций использования номеров портов, отличных от заданных по умолчанию, являются порты запросов клиентов и пробуждение по локальной сети.  
+**Se os clientes não conseguirem consultar o servidor de Catálogo Global para as informações do Configuration Manager, gerir a processo de aprovisionamento de chave de raiz fidedigna.**  
 
-**Используйте разделение ролей в системах сайта.**  
+Se os clientes não conseguirem consultar informações do Configuration Manager no Catálogo Global, terão de depender na chave de raiz fidedigna para autenticar pontos de gestão válido. A chave de raiz fidedigna é armazenada no registo do cliente e pode ser definida utilizando a Política de Grupo ou configuração manual.  
 
-Несмотря на то, что все роли систем сайта можно установить на одном компьютере, этот принцип редко используется в рабочих сетях, поскольку в результате формируется единая точка отказа.  
+Se o cliente não tiver uma cópia da chave de raiz fidedigna antes de contactar um ponto de gestão pela primeira vez, confiará no primeiro ponto de gestão com que comunicar. Para reduzir o risco de um atacante direcionar os clientes para um ponto de gestão não autorizado, pode aprovisionar previamente os clientes com a chave de raiz fidedigna. Para obter mais informações, consulte [planeamento para a chave de raiz fidedigna](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
-**Сократите поверхность для атак.**  
+**Utilize números de porta não predefinidos.**  
 
-Изоляция каждой роли системы сайта на разных серверах позволит уменьшить вероятность действия атаки, направленной на одну систему сайта, против другой системы сайта. Для многих ролей систем сайта требуется установка служб IIS в системе сайта, что повышает уязвимость к атакам. Если в целях снижения расходов на оборудование необходимо использовать сочетание ролей систем сайта, объединяйте роли систем сайта IIS только с теми ролями систем сайта, для которых требуются службы IIS.  
+Com os números de porta não predefinidos pode proporcionar segurança adicional porque tornar mais difícil para os atacantes a exploração do ambiente em preparação para um ataque. Se optar por utilizar não predefinidos, planeie-os antes de instalar o Configuration Manager e utilizá-los de forma consistente em todos os sites na hierarquia. Portas de pedido de cliente e a reativação por LAN são exemplos onde pode utilizar números de porta não predefinidos.  
+
+**Utilize separação de funções nos sistemas de sites.**  
+
+Apesar de poder instalar todos as funções de sistema de sites num único computador, esta prática raramente é utilizada em redes de produção porque cria um ponto de falha único.  
+
+**Reduza o perfil de ataque.**  
+
+Isolar cada função do sistema de sites num servidor diferente reduz a probabilidade de um ataque contra vulnerabilidades de um sistema de sites pode ser utilizado contra outro sistema de sites. Muitas funções de sistema de sites requerem a instalação dos serviços de informação Internet (IIS) no sistema de sites e Isto aumenta a superfície de ataque. Se tiver de combinar funções de sistema de sites para reduzir as despesas com hardware, combine funções de sistema de sites do IIS apenas com outras funções de sistema de sites que necessitem do IIS.  
 
 > [!IMPORTANT]  
->  Исключением является роль резервной точки состояния. Так как эта роль системы сайта принимает не прошедшие проверку подлинности данные от клиентов, рекомендуется никогда не назначать резервную точку состояния никакой другой роли системы сайта Configuration Manager.  
+>  A função de ponto de estado de contingência é uma exceção. Como esta função de sistema de sites aceita dados não autenticados de clientes, recomendamos que alguma vez não atribuir a função de ponto de estado de contingência para qualquer outra função do Configuration Manager site system.  
 
 
-**Следуйте рекомендациям по обеспечению безопасности для Windows Server и запустите мастер настройки безопасности на всех системах сайта.**  
+**Siga as melhores práticas de segurança do Windows Server e execute o Assistente de Configuração de Segurança em todos os sistemas de sites.**  
 
-Мастер настройки безопасности (SCW) используется для создания политик безопасности, которую можно применить к любому серверу в сети. После установки шаблона System Center Configuration Manager мастер SCW распознает роли системы сайта, службы, порты и приложения Configuration Manager. Затем он разрешает обмен данными, необходимый для Configuration Manager, и блокирует ненужный обмен данными.  
+O Assistente de Configuração de Segurança (SCW) ajuda a criar uma política de segurança que pode aplicar a qualquer servidor da rede. Depois de instalar o modelo do System Center Configuration Manager, o SCW reconhece funções de sistema de sites do Configuration Manager, serviços, portas e aplicações. Depois, permite a comunicação que não é necessária para o Configuration Manager e bloqueia comunicações que não são necessárias.  
 
-Мастер настройки безопасности входит в набор инструментов для System Center 2012 Configuration Manager, который можно загрузить из Центра загрузки Майкрософт: [Надстройки и расширения System Center 2012 Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
+O Assistente de configuração de segurança está incluído no toolkit do System Center 2012 Configuration Manager, que pode ser transferida do Microsoft Download Center: [Do System Center 2012 – Extensões e suplementos do componente do Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
 
-**Настройте статические IP-адреса для систем сайта.**  
+**Configure endereços IP estáticos para os sistemas de sites.**  
 
-Статические IP-адреса легче защитить от атак, направленных на разрешение имен.  
+Os endereços IP estáticos são mais fáceis de proteger contra ataques de resolução de nomes.  
 
-Статические IP-адреса также упрощают настройку протокола IPsec. Протокол IPsec рекомендуется использовать для защиты взаимодействия между системами сайта в Configuration Manager.  
+Endereços IP estáticos também facilitam a configuração do IPsec mais fácil. Utilizando o IPsec é a melhor prática de segurança para proteger a comunicação entre sistemas de sites no Configuration Manager.  
 
-**Не устанавливайте другие приложения на серверах систем сайта.**  
+**Não instale outras aplicações em servidores de sistemas de sites.**  
 
-Установка других приложений на серверах системы сайта повышает вероятность угроз безопасности для Configuration Manager и появление проблем, связанных с несовместимостью.  
+Quando instala outras aplicações em servidores de sistema de sites, aumenta a superfície de ataque para o Configuration Manager e problemas de incompatibilidade de risco.  
 
-**Требуйте подписывания и включите шифрование в качестве параметра узла.**  
+**Exija assinatura e ative a encriptação como uma opção de site.**  
 
-Включите параметры подписывания и шифрования для сайта. Убедитесь, что все клиенты поддерживают алгоритм шифрования SHA-256, а затем включите параметр **Требовать алгоритм SHA-256**.  
+Ative as opções de assinatura e encriptação para o site. Certifique-se de que todos os clientes suportam o algoritmo hash SHA-256 e, em seguida, ative a opção **exigir SHA-256**.  
 
-**Ограничьте и отслеживайте действия пользователей Configuration Manager с правами администратора и используйте ролевое администрирование для предоставления этим пользователям минимума необходимых им разрешений.**  
+**Restringir e monitorizar os utilizadores administrativos do Configuration Manager e utilizar a administração baseada em funções para conceder a estes utilizadores as permissões mínimas de que necessitam.**  
 
-Предоставьте административный доступ к Configuration Manager только надежным пользователям. Предоставьте им минимальные разрешения с помощью встроенных ролей безопасности или путем настройки ролей безопасности. Пользователи, которые могут создавать, изменять и развертывать приложения, последовательность задач, обновления программного обеспечения, элементы конфигурации и конфигурационные базы, также могут управлять устройствами в иерархии Configuration Manager.  
+Conceda acesso administrativo para o Configuration Manager apenas a utilizadores que confia e, em seguida, conceder permissões mínimas utilizando as funções de segurança incorporadas ou personalizando as funções de segurança. Os utilizadores administrativos que podem criar, modificar e implementar aplicações, sequência de tarefas, atualizações de software, itens de configuração e linhas de base de configuração, eventualmente, controlar dispositivos na hierarquia do Configuration Manager.  
 
-Регулярно проверяйте назначения пользователей и их уровень авторизации на предмет внесения необходимых изменений.  
+Realize auditorias periódicas às atribuições dos utilizadores administrativos e ao respetivo nível de autorização para verificar as alterações necessárias.  
 
-Дополнительные сведения о настройке ролевого администрирования см. в разделе [Настройка ролевого администрирования для System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Para mais informações sobre a configuração da administração baseada em funções, veja [Configurar a Administração Baseada em Funções do System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-**Защитите резервные копии Configuration Manager и обеспечьте безопасность канала связи во время выполнения резервного копирования и восстановления.**  
+**Proteja as cópias de segurança do Configuration Manager e o canal de comunicação quando a cópia de segurança e restauros.**  
 
-Во время резервного копирования Configuration Manager создается резервная копия, включающая сертификаты и другие важные данные, которыми злоумышленник может воспользоваться для подмены законного пользователя.  
+Quando efetuar uma cópia de segurança do Configuration Manager, estas informações incluem certificados e outros dados confidenciais que podem ser utilizados por um atacante para representação.  
 
-При передаче этих данных по сети используйте подписывание SMB или протокол IPsec, а также защитите папку резервной копии.  
+Utilize a assinatura SMB ou IPsec quando transferir estes dados através da rede e proteja a localização das cópias de segurança.  
 
-**При экспорте или импорте объектов из консоли Configuration Manager в сетевую папку обеспечьте безопасность этой папки и сетевого канала.**  
+**Sempre que exportar ou importar objetos a partir da consola do Configuration Manager para uma localização de rede, proteja a localização e o canal de rede.**  
 
-Ограничьте доступ пользователей к сетевой папке.  
+Limite quem pode aceder à pasta de rede.  
 
-Чтобы предотвратить изменение экспортируемых данных злоумышленниками, используйте подписывание SMB или протокол IPsec при обмене данными между сетевой папкой и сервером сайта и между компьютером, на котором запущена консоль Configuration Manager, и сервером сайта. Используйте протокол IPsec для шифрования данных в сети, чтобы избежать раскрытия информации.  
+Utilize a assinatura SMB ou IPsec entre a localização de rede e o servidor do site e entre o computador que executa o Gestor de configuração do servidor de consola e do site, para impedir que um atacante adultere os dados exportados. Utilize IPsec para encriptar os dados na rede para evitar a divulgação de informações.  
 
-**Если не удается удалить систему сайта или она прекращает работу без возможности дальнейшего восстановления, вручную удалите сертификаты Configuration Manager этого сервера с других серверов Configuration Manager.**  
+**Se um sistema de sites não está corretamente desinstalado ou deixa de funcionar e não pode ser restaurado, remova manualmente os certificados do Configuration Manager para este servidor de outros servidores do Configuration Manager.**  
 
-Чтобы удалить доверие одноранговой группы, которое было изначально установлено с системой сайта и ролями системы сайта, вручную удалите сертификаты неработающего сервера Configuration Manager из хранилища сертификатов **Доверенные лица** на других серверах системы сайта. Это особенно важно, если изменение назначения сервера выполняется без его переформатирования.  
+Para remover a PeerTrust originalmente estabelecida com o sistema de sites e funções de sistema de sites, remova manualmente os certificados do Configuration Manager para o servidor que falhou o **pessoas fidedignas** arquivo de certificados noutros servidores de sistema de sites. Isto é especialmente importante se reutilizar o servidor sem o formatar.  
 
-Дополнительные сведения об этих сертификатах см. в разделе **Элементы управления шифрования для обмена данными с сервером** руководства [Технический справочник по элементам управления шифрования для System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
+Para obter mais informações sobre estes certificados, consulte a secção **controlos criptográficos para comunicações de servidor** no [Cryptographic controla referência técnica para o System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
 
-**Не настраивайте системы сайта управления интернет-клиентами для соединения сети периметра и интрасети.**  
+**Não configure sistemas de sites baseados na Internet para funcionar como bridge entre a rede de perímetro e a intranet.**  
 
-Не настраивайте серверы систем сайта в качестве многосетевых для подключения к сети периметра и интрасети. Несмотря на то, что эта конфигурация позволяет системам сайта управления интернет-клиентами принимать подключения клиентов из Интернета и интрасети, она также аннулирует границу безопасности между сетью периметра и интрасетью.  
+Não configure servidores de sistema de sites como multihomed para que se ligam à rede de perímetro e da intranet. Embora esta configuração permita que sistemas de sites baseados na Internet aceitem ligações de clientes da Internet e da intranet, elimina um limite de segurança entre a rede de perímetro e a intranet.  
 
-**Если сервер системы сайта находится в сети, не являющейся доверенной (например, в сети периметра), настройте сервер сайта для инициации подключений к системе сайта.**  
+**Se o servidor de sistema de sites estiver numa rede não fidedigna (como uma rede de perímetro), configure o servidor de site para iniciar as ligações ao sistema de sites.**  
 
-По умолчанию системы сайта инициируют подключения к серверу сайта для передачи данных. При установке подключения из ненадежной сети к надежной сети может возникнуть риск безопасности. Если системы сайта принимают подключения из Интернета или находятся в лесу, не являющемся доверенным, выберите параметр системы сайта **Сервер сайта должен инициировать подключения к этой системе сайта** , чтобы после установки системы сайта и любой роли системы сайта все подключения инициировались из надежной сети.  
+Por predefinição, os sistemas de sites iniciam as ligações ao servidor de site para a transferência de dados, o que pode constituir um risco de segurança quando a ligação for iniciada a partir de uma rede não fidedigna para a rede fidedigna. Quando os sistemas de sites aceitarem ligações da Internet ou residirem numa floresta não fidedigna, configure a opção de sistema de sites **Exigir que o servidor do site inicie ligações a este sistema de sites** para que, depois da instalação do sistema de sites e de quaisquer funções de sistema de sites, todas as ligações sejam iniciadas a partir da rede fidedigna.  
 
-**При использовании прокси-серверов в Интернете для управления клиентами через Интернет рекомендуется использовать мост SSL-SSL, где применяется завершение запросов SSL с проверкой подлинности.**  
+**Se utilizar um servidor proxy Web para a gestão de clientes baseados na Internet, utilize o protocolo de bridge SSL para SSL utilizando terminação com autenticação.**  
 
- При настройке завершения запросов SSL на прокси-сервере в Интернете пакеты из Интернета проходят проверку до перенаправления в интрасеть. Прокси-сервер в Интернете проверяет подлинность подключения от клиента, закрывает его, а затем открывает новое проверенное подключение к системам сайта управления интернет-клиентами.  
+ Quando configura a terminação de SSL no servidor Web proxy, os pacotes da Internet são sujeitos a inspeção antes de serem reencaminhados para a rede interna. O servidor Web proxy autentica a ligação do cliente, termina-a e, em seguida, abre uma nova ligação autenticada para os sistemas de sites baseados na Internet.  
 
- Если для подключения к системам сайта управления интернет-клиентами клиентские компьютеры Configuration Manager используют прокси-сервер в Интернете, удостоверение клиента (идентификатор GUID клиента) безопасно хранится в полезных данных пакета, поэтому точка управления не принимает прокси-сервер в Интернете за клиент. Если прокси-сервер в Интернете не поддерживает требования к мостам SSL, можно использовать туннелирование SSL. Это менее безопасный вариант, поскольку пакеты SSL из Интернета перенаправляются в системы сайта без завершения запросов и не могут быть проверены на наличие вредоносного содержимого.  
+ Quando os computadores de cliente do Configuration Manager utilizam um servidor web proxy para ligar a sistemas de sites baseados na Internet, a identidade do cliente (GUID do cliente) é colocada de forma segura na payload do pacote para que o ponto de gestão não considere o servidor do web proxy como o cliente. Se o servidor Web proxy não suportar os requisitos do o protocolo de bridge SSL, a utilização de túnel SSL também é suportada. Esta é uma opção menos segura porque os pacotes SSL da Internet são reencaminhados para os sistemas de sites sem terminação, pelo que não é possível inspecioná-los relativamente a conteúdo malicioso.  
 
- Если прокси-сервер в Интернете не поддерживает требования к мостам SSL, можно использовать туннелирование SSL. Однако это менее безопасный вариант, поскольку пакеты SSL из Интернета перенаправляются в системы сайта без завершения запросов, поэтому они не могут быть проверены на наличие вредоносного содержимого.  
+ Se o servidor Web proxy não suportar os requisitos do o protocolo de bridge SSL, pode utilizar o túnel SSL. No entanto, esta é uma opção menos segura porque os pacotes SSL da Internet são reencaminhados para os sistemas de sites sem terminação, pelo que não é possível inspecioná-los relativamente a conteúdo malicioso.  
 
 > [!WARNING]  
->  Мобильные устройства, зарегистрированные с помощью Configuration Manager, не могут использовать мосты SSL. Для них действует только туннелирование SSL.  
+>  Dispositivos móveis que são inscritos pelo Configuration Manager não é possível utilizar o protocolo de bridge SSL e têm de utilizar apenas o túnel SSL.  
 
-**При настройке сайта для пробуждения компьютеров для установки программного обеспечения используются следующие конфигурации.**  
+**Configurações de utilização no caso de configurar o site para reativar computadores para instalação de software:**  
 
--   При использовании стандартных wake-up пакетов откажитесь от широковещательных рассылок, направленных на подсеть, и замените их одноадресными рассылками.  
+-   Se utilizar pacotes de reativação tradicionais, utilize unicast em vez de difusões direcionadas por sub-rede.  
 
--   Если необходимо использовать широковещательные рассылки, направленные на подсеть, настройте маршрутизаторы для передачи широковещательных IP-пакетов только от сервера сайта и только с использованием номера порта, отличного от заданного по умолчанию.  
+-   Se tiver de utilizar difusões direcionadas por sub-rede, configure os routers para permitirem difusões direcionadas para IP apenas a partir do servidor do site e apenas num número de porta não predefinido.  
 
-Дополнительные сведения о различных технологиях пробуждения по локальной сети см. в разделе [Планирование способов перевода клиентов в рабочий режим в System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+Para obter mais informações sobre as diferentes tecnologias de reativação por LAN, consulte [planear como reativar os clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
 
-**Если в организации используются уведомления по электронной почте, настройте доступ к почтовому серверу SMTP с проверкой подлинности.**  
+**Se utilizar notificações por correio eletrónico, configure o acesso autenticado ao servidor de correio SMTP.**  
 
-По возможности используйте почтовый сервер, поддерживающий доступ с проверкой подлинности, и учетную запись компьютера сервера сайта для проверки подлинности. Если для проверки подлинности необходимо указать учетную запись пользователя, используйте учетную запись с минимальным набором привилегий.  
+Sempre que possível, utilize um servidor de correio que suporte acesso autenticado e utilize a conta de computador do servidor do site para autenticação. Se tiver de especificar uma conta de utilizador para autenticação, utilize uma conta que tenha privilégios mínimos.  
 
-##  <a name="BKMK_Security_SiteServer"></a> Рекомендации по обеспечению безопасности для сервера сайта  
- Приведенные ниже рекомендации по обеспечению безопасности помогут защитить сервер сайта Configuration Manager.  
+##  <a name="BKMK_Security_SiteServer"></a>Melhores práticas de segurança para o servidor do site  
+ Utilize as seguintes melhores práticas de segurança para ajudar a proteger o Gestor de configuração do servidor do site.  
 
- **Устанавливайте Configuration Manager на рядовом сервере, а не на контроллере домена.**  
+ **Instale o Configuration Manager num servidor membro e não num controlador de domínio.**  
 
- Сервер сайта и системы сайта Configuration Manager не требуется устанавливать на контроллере домена. На контроллерах домена нет никакой другой локальной базы данных SAM, кроме базы данных домена. При установке Configuration Manager на рядовом сервере учетные записи Configuration Manager можно сохранить в локальной базе данных SAM, а не в базе данных домена.  
+ Os sistemas de servidor e o local de site do Configuration Manager não requerem a instalação num controlador de domínio. Os controladores de domínio não têm uma base de dados SAM (Security Accounts Management) local além da base de dados do domínio. Quando instalar o Configuration Manager num servidor membro, pode manter as contas do Configuration Manager na base de dados SAM local, em vez de na base de dados do domínio.  
 
- Такая практика позволяет также уменьшить площадь атаки на контроллеры доменов.  
+ Esta prática também reduz a superfície de ataque nos controladores de domínio.  
 
- **Установите вторичные сайты, чтобы избежать копирования файлов на сервер вторичного сайта по сети.**  
+ **Instale sites secundários evitando copiar os ficheiros para o servidor do site secundário através da rede.**  
 
- При выполнении установки с созданием вторичного сайта не выбирайте вариант, при котором файлы копируются с родительского сайта на вторичный, и не используйте источник, расположенный в сети. Когда файлы копируются через сеть, квалифицированный злоумышленник может перехватить установочный пакет вторичного сайта и незаконно изменить файлы до их установки, хотя правильно выбрать время для такой атаки будет трудно. Опасность данной атаки можно снизить, используя протоколы IPsec или SMB при передаче файлов.  
+ Quando executar a configuração e criar um site secundário, não selecione a opção de copiar os ficheiros do site principal para o site secundário e não utilize uma localização de origem de rede. Quando copia ficheiros através da rede, um atacante hábil pode apoderar-se do pacote de instalação do site secundário e adulterar os ficheiros antes da sua instalação, apesar de a coordenação de um ataque destes ser difícil. Este ataque pode ser atenuado utilizando IPsec ou SMB quando transferir os ficheiros.  
 
- Вместо копирования по сети скопируйте исходные файлы на сервере вторичного сайта из папки носителя в локальную папку. Затем после запуска программы установки для создания вторичного сайта на странице **Исходные файлы установки** выберите **Использовать исходные файлы в следующей папке на компьютере вторичного сайта (наиболее безопасный вариант)**и укажите эту папку.  
+ Em vez de copiar os ficheiros através da rede, no servidor do site secundário, copie os ficheiros de origem da pasta de suporte de dados para uma pasta local. Em seguida, quando executar a configuração para criar um site secundário, o **ficheiros de origem de instalação** página, selecione **utilizar os ficheiros de origem disponíveis na seguinte localização no computador do site secundário (mais seguro)**, e especifique esta pasta.  
 
- Дополнительные сведения см. в подразделе [Установка вторичного сайта](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) раздела [Установка сайтов с помощью мастера установки](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
+ Para obter mais informações, veja [Instalar um site secundário](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) no tópico [Utilizar o Assistente de Configuração para instalar sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
-##  <a name="BKMK_Security_SQLServer"></a> Рекомендации по обеспечению безопасности для SQL Server  
- Configuration Manager использует SQL Server в качестве серверной базы данных. Если база данных будет скомпрометирована, злоумышленники смогут напрямую обращаться к SQL Server в обход Configuration Manager для инициирования атак через Configuration Manager. Атаки на SQL Server следует считать несущими высокий риск и с соответствующей серьезностью относиться к их предупреждению.  
+##  <a name="BKMK_Security_SQLServer"></a>Melhores práticas de segurança para o SQL Server  
+ O Configuration Manager utiliza o SQL Server como a base de dados de back-end. Se a base de dados for comprometida, os atacantes foi ignorar do Configuration Manager e aceder ao SQL Server diretamente para iniciar ataques através do Configuration Manager. Considere os ataques contra o SQL Server para ser um risco muito elevado e mitigar adequadamente.  
 
- Приведенные ниже рекомендации по обеспечению безопасности помогут защитить сервер SQL Server в контексте Configuration Manager.  
+ Utilize as seguintes melhores práticas de segurança para o ajudar a proteger o SQL Server para o Configuration Manager.  
 
- **Не пользуйтесь сервером базы данных сайта Configuration Manager для выполнения других приложений SQL Server.**  
+ **Não utilize o servidor de base de dados do site do Configuration Manager para executar outras aplicações do SQL Server.**  
 
- Чем шире доступ к серверу базы данных сайта Configuration Manager, тем выше риск для данных Configuration Manager. Если база данных сайта Configuration Manager будет скомпрометирована, под угрозу будут поставлены другие приложения на том же компьютере SQL Server.  
+ Quando aumenta o acesso ao servidor de base de dados do site do Configuration Manager, aumenta o risco aos seus dados do Configuration Manager. Se a base de dados do site do Configuration Manager for comprometida, outras aplicações no mesmo computador do SQL Server, em seguida, são colocadas em risco.  
 
- **Настройте SQL Server для использования проверки подлинности Windows.**  
+ **Configure o SQL Server para utilizar a autenticação do Windows.**  
 
- Хотя Configuration Manager обращается к базе данных сайта с использованием учетной записи Windows и проверки подлинности Windows, по-прежнему сохраняется возможность настройки SQL Server для использования смешанного режима. В смешанном режиме SQL Server разрешаются дополнительные сеансы входа SQL Server для доступа к базе данных, что не является необходимым и увеличивает площадь атаки.  
+ Embora o Configuration Manager acede a base de dados do site utilizando uma conta do Windows e a autenticação do Windows, é possível configurar o SQL Server para utilizar o modo misto do SQL Server. O modo misto do SQL Server permite adicionais SQL inícios de sessão aceder à base de dados, o que não é necessário e aumenta a superfície de ataque.  
 
- **Особо позаботьтесь о том, чтобы на сайтах, использующие SQL Server Express, были установлены последние обновления программного обеспечения.**  
+ **Efetue passos adicionais para garantir que os sites secundários que utilizam o SQL Server Express têm as atualizações de software mais recentes.**  
 
- Когда устанавливается первичный сайт, Configuration Manager загружает SQL Server Express из Центра загрузки Майкрософт и копирует файлы на сервер первичного сайта. При установке вторичного сайта, если пользователь выбрал вариант с установкой SQL Server Express, Configuration Manager устанавливает ранее скачанную версию и не проверяет наличие новых версий. Чтобы обеспечить наличие последних версий программного обеспечения на вторичном сайте, действуйте одним из перечисленных ниже способов.  
+ Quando instala um site primário, o Configuration Manager transfere o SQL Server Express a partir do Microsoft Download Center e copia os ficheiros para o servidor de site primário. Quando instala um site secundário e seleciona a opção que instala o SQL Server Express, o Configuration Manager instala a versão transferida anteriormente e não verifica se existem novas versões. Para garantir que o site secundário tem as versões mais recentes, efetue uma das seguintes tarefas:  
 
--   После установки вторичного сайта запустите обновление Windows на сервере вторичного сайта.  
+-   Depois do site secundário foi instalado, execute o Windows Update no servidor do site secundário.  
 
--   Прежде чем устанавливать вторичный сайт, вручную установите SQL Server Express на компьютере, который станет сервером вторичного сайта, и при этом убедитесь, что устанавливаете последнюю версию со всеми вышедшими обновлениями. После этого установите вторичный сайт и выберите вариант с использованием существующего экземпляра SQL Server.  
+-   Antes de instalar o site secundário, instale manualmente o SQL Server Express no computador que irá executar o servidor do site secundário e certifique-se de que instala a versão mais recente e as atualizações de software existentes. Em seguida, instalar o site secundário e selecione a opção para utilizar uma instância existente do SQL Server.  
 
-Периодически запускайте обновление Windows для этих сайтов и всех установленных версий SQL Server, чтобы на них всегда были установлены последние обновления программного обеспечения.  
+Execute periodicamente o Windows Update nestes sites e todas as versões instaladas do SQL Server para garantir que têm as atualizações de software mais recentes.  
 
-**Соблюдайте рекомендации по использованию SQL Server.**  
+**Siga as melhores práticas para o SQL Server.**  
 
-Узнайте, каковы рекомендации по использованию вашей версии SQL Server, и следуйте этим рекомендациям. При этом учитывайте приведенные ниже требования для Configuration Manager.  
+Identifique e siga as melhores práticas para a sua versão do SQL Server. No entanto, tenha em consideração os seguintes requisitos para o Configuration Manager:  
 
--   Учетная запись компьютера сервера сайта должна входить в группу "Администраторы" на компьютере, на котором работает SQL Server. Если вы используете рекомендацию о явной подготовке к работе субъектов администраторов для SQL Server, то учетная запись, от имени которой запускается программа установки на сервере сайта, должна входить в группу "Пользователи SQL".  
+-   A conta de computador do servidor do site tem de ser membro do grupo Administradores no computador que executa o SQL Server. Se seguir a recomendação do SQL Server de "aprovisionar principais de administrador explicitamente", a conta que utiliza para executar a configuração no servidor do site tem de ser um membro do grupo de utilizadores do SQL Server.  
 
--   Если SQL Server устанавливается с использованием учетной записи пользователя домена, убедитесь, что для компьютера сервера сайта указано имя субъекта-службы (SPN), опубликованное в доменных службах Active Directory. Без SPN не пройдет проверка подлинности Kerberos, и установка Configuration Manager завершится неудачно.  
+-   Se instalar o SQL Server utilizando uma conta de utilizador de domínio, certifique-se de que a conta de computador do servidor do site é configurada para um Nome do Principal do Serviço (SPN) publicado nos Serviços de Domínio do Active Directory. Sem o SPN, a autenticação Kerberos falha e recusa a configuração do Configuration Manager.  
 
-##  <a name="BKMK_Security_IIS"></a> Рекомендации по обеспечению безопасности для систем сайта с запущенными службами IIS  
-Для некоторых ролей систем сайта в Configuration Manager требуются службы IIS. Защита служб IIS обеспечит корректную работу Configuration Manager и снизит риск атак на систему безопасности. Сведите к практически целесообразному минимуму количество серверов, требующих наличия служб IIS. Например, используйте не больше точек управления, чем требуется для поддержки клиентской базы, учитывая требования высокой доступности и сетевой изоляции для управления клиентами через Интернет.  
+##  <a name="BKMK_Security_IIS"></a>Melhores práticas de segurança para sistemas de sites que executam o IIS  
+Várias funções de sistema de sites no Configuration Manager necessitam do IIS. O processo de proteger o IIS permite que o Configuration Manager para funcionar corretamente e reduz o risco de ataques de segurança. Quando práticas, estará a minimizar o número de servidores que necessitem do IIS. Por exemplo, execute apenas o número de pontos de gestão necessário para suportar a base de clientes, tendo em conta a disponibilidade elevada e o isolamento de rede da gestão de clientes baseados na Internet.  
 
- Следующие рекомендации по безопасности помогут защитить системы сайта, использующие службы IIS.  
+ Utilize as melhores práticas de segurança seguintes para ajudar a proteger os sistemas de sites que executam o IIS.  
 
- **Отключите ненужные функции служб IIS.**  
+ **Desative as funções do IIS que não precisa.**  
 
- Устанавливайте лишь минимально необходимое количество компонентов служб IIS для устанавливаемой роли системы сайта. Дополнительные сведения см. в разделе [Необходимые компоненты для сайта и системы сайта](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+ Instale apenas as funcionalidades mínimas do IIS para a função de sistema de sites que instalar. Para obter mais informações, veja [Pré-requisitos de site e sistema de sites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
- **Настройка ролей системы сайта для обязательного использования протокола HTTPS**  
+ **Configure as funções de sistema de sites para exigirem HTTPS.**  
 
- Когда клиенты подключаются к системе сайта по протоколу HTTP, а не HTTPS, они проходят проверку подлинности Windows, которая может выполняться с использованием протокола NTLM вместо Kerberos. Когда используется проверка подлинности NTLM, существует опасность подключения клиентов к незаконному серверу.  
+ Quando os clientes ligam a um sistema de sites utilizando HTTP em vez de HTTPS, utilizam a autenticação do Windows e poderão, em caso de contingência, utilizar a autenticação NTLM em vez da autenticação Kerberos. Quando é utilizada a autenticação NTLM, os clientes podem ligar a um servidor não autorizado.  
 
- Исключением из этой рекомендации по безопасности могут быть точки распространения, поскольку учетные записи доступа к пакетам не работают, если точка распространения настроена для использования протокола HTTPS. Учетные записи доступа к пакетам обеспечивают авторизацию для содержимого, позволяя указывать, какие пользователи будут иметь к нему доступ. Дополнительные сведения см. в разделе [Рекомендации по безопасности для управления содержимым](../../../core/plan-design/hierarchy/security-and-privacy-for-content-management.md#BKMK_Security_ContentManagement).  
+ A exceção a esta melhor prática de segurança poderão ser os pontos de distribuição, uma vez que as contas de acesso a pacotes não funcionam quando o ponto de distribuição está configurado para HTTPS. As contas de acesso a pacotes fornecem autorização para o conteúdo, para que possa restringir os utilizadores que podem aceder ao conteúdo. Para obter mais informações, consulte [melhores práticas de segurança para gestão de conteúdos](../../../core/plan-design/hierarchy/security-and-privacy-for-content-management.md#BKMK_Security_ContentManagement).  
 
-**Задайте список доверия сертификатов (CTL) в службах IIS для ролей системы сайта.**  
+**Configure uma lista fidedigna de certificados (CTL) no IIS para as funções de sistema de sites.**  
 
-Роли системы сайта  
+Funções do sistema de sites:  
 
--   точка распространения, настроенная для использования HTTPS;  
+-   Um ponto de distribuição que esteja configurado para HTTPS  
 
--   точка управления с включенной поддержкой мобильных устройств, настроенная для использования HTTPS.
+-   Um ponto de gestão que está configurado para HTTPS e ativado para suportar dispositivos móveis
 
-Список доверия сертификатов (CTL) — это определенный список доверенных корневых центров сертификации. Список доверия сертификатов, используемый с групповой политикой в развернутой инфраструктуре первичных ключей, позволяет расширять перечень доверенных корневых центров сертификации, заданных для данной сети (например, тех, которые автоматически устанавливаются с Microsoft Windows или добавляются через корневые ЦС предприятия Windows). Но когда список доверия сертификатов задан в службах IIS, он определяет подмножество доверенных корневых центров сертификации.  
+Uma lista fidedigna de certificados (CTL) é uma lista definida de autoridades de certificação de raiz fidedigna. Quando utiliza uma CTL com a política de grupo e uma implementação de infraestrutura de chaves públicas (PKI), uma CTL permite-lhe complementar as autoridades de certificação de raiz fidedigna existentes configuradas na sua rede, como os que são automaticamente instalado com o Microsoft Windows ou adicionadas através de autoridades de certificação de raiz do Windows empresarial. No entanto, quando uma CTL é configurada no IIS, define um subconjunto dessas autoridades de certificação de raiz fidedigna.  
 
-Это подмножество обеспечивает больший контроль над безопасностью, поскольку список доверия сертификатов ограничивает круг принимаемых сертификатов только теми, которые выданы перечисленными в нем центрами сертификации. Например, Windows поставляется с сертификатами ряда хорошо известных сторонних центров сертификации, таких как VeriSign и Thawte.
+Este subconjunto proporciona maior controlo da segurança porque a CTL restringe os certificados de cliente que são aceites apenas aos que são emitidos pela lista de autoridades de certificação na CTL. Por exemplo, o Windows é fornecido com um número de certificados de autoridades de certificação bem conhecidos, de terceiros, como VeriSign e a Thawte.
 
-По умолчанию компьютер, на котором работают службы IIS, доверяет сертификатам, которые восходят по цепочке к этим хорошо известным центрам сертификации. Если в службах IIS не задан список доверия сертификатов для перечисленных ролей системы сайта, любое устройство с сертификатом клиента, выпущенным этими центрами сертификации, будет принято в качестве допустимого клиента Configuration Manager. Если в службах IIS задан список доверия сертификатов, не включающий эти центры сертификации, то клиенту будет отказано в подключении, если его сертификат восходит по цепочке к одному из этих центров. Но чтобы клиенты Configuration Manager принимались перечисленными ролями системы сайта, необходимо задать в службах IIS список доверия сертификатов с указанием центров сертификации, используемых клиентами Configuration Manager.  
+Por predefinição, o computador que executa o IIS confia em certificados que encadeiem nestas autoridades de certificação conhecidas. Quando configura o IIS com uma CTL para as funções do sistema de sites listadas, qualquer dispositivo que tenha um certificado de cliente emitido por estas autoridades de certificação é aceite como um cliente válido do Configuration Manager. Se configurar o IIS com uma CTL que não inclua estas autoridades de certificação, as ligações de cliente serão recusadas se o certificado encadear nestas autoridades de certificação. No entanto, para os clientes do Configuration Manager sejam aceites para as funções do sistema de sites listadas, tem de configurar IIS com uma CTL que especifique as autoridades de certificação utilizadas pelos clientes do Configuration Manager.  
 
 > [!NOTE]  
->  Задавать список доверия сертификатов в службах IIS требуется только для перечисленных ролей системы сайта. Список издателей сертификатов, который Configuration Manager использует для точек управления, обеспечивает ту же функциональность для клиентских компьютеров, когда они подключаются к точкам управления, настроенным для использования протокола HTTPS.  
+>  Apenas as funções do sistema de sites listadas necessitam que configure uma CTL no IIS. A lista de emissores de certificados que o Configuration Manager utiliza para pontos de gestão fornece a mesma funcionalidade para computadores cliente ao estabelecerem ligações aos pontos de gestão HTTPS.  
 
-Дополнительные сведения о том, как задать список доверенных центров сертификации в IIS, см. в документации служб IIS.  
+Para mais informações sobre como configurar uma lista de autoridades de certificação fidedignas no IIS, consulte a documentação do IIS.  
 
-**Не размещайте сервер сайта на компьютере со службами IIS.**  
+**Não coloque o servidor do site num computador com o IIS.**  
 
-Разделение ролей позволяет уменьшить профиль атаки и повысить способность к восстановлению. Кроме того, учетная запись компьютера сервера сайта обычно имеет права администратора всех ролей системы сайта (а возможно, и клиентов Configuration Manager, если используется принудительная установка клиента).  
+A separação de funções ajuda a reduzir o perfil de ataques e a melhorar a capacidade de recuperação. Além disso, a conta de computador do servidor do site tem normalmente privilégios administrativos em todas as funções de sistema de sites (e possivelmente nos clientes do Configuration Manager, se utilizar a instalação de push de cliente).  
 
-**Используйте выделенные серверы IIS для Configuration Manager.**  
+**Utilize servidores de IIS dedicados para o Configuration Manager.**  
 
-Хотя на серверах IIS, которые среди прочего используются системой Configuration Manager, можно размещать несколько веб-приложений, это может существенно увеличить площадь атаки. Неправильно настроенное приложение может позволить злоумышленнику получить контроль над системой сайта Configuration Manager, а через нее, возможно, и над всей иерархией.  
+Embora possa alojar várias aplicações baseadas na web nos servidores de IIS que também são utilizadas pelo Configuration Manager, esta prática pode aumentar significativamente a superfície de ataque. Uma aplicação mal configurada pode permitir que um atacante obter o controlo de um Gestor de configuração do sistema de sites, o que poderia permitir um atacante obter o controlo da hierarquia.  
 
-Если все же необходимо, чтобы на серверах системы сайта Configuration Manager работали другие веб-приложения, создайте специальный веб-сайт для систем сайта Configuration Manager.  
+Se tiver de executar outras aplicações baseadas na web em sistemas de sites do Configuration Manager, crie um web site personalizado para sistemas de sites do Configuration Manager.  
 
-**Использование настраиваемого веб-сайта.**  
+**Utilize um Web site personalizado.**  
 
-Для систем сайта, использующих службы IIS, можно настроить Configuration Manager для использования настраиваемого веб-сайта вместо веб-сайта IIS по умолчанию. Если необходимо, чтобы на серверах системы сайта работали другие веб-приложения, обязательно должен использоваться настраиваемый веб-сайт. Этот параметр распространяется на весь сайт, а не на конкретную систему сайта.  
+Para sistemas de sites que executam o IIS, pode configurar o Configuration Manager para utilizar um Web site personalizado em vez do Web site predefinido do IIS. Se tiver de executar outras aplicações web no sistema de sites, tem de utilizar um Web site personalizado. Esta definição é uma definição ao nível do site em vez de uma definição para um sistema de sites específicas.  
 
-Кроме соображений повышенной безопасности, настраиваемый веб-сайт необходимо использовать в случае, если на серверах системы сайта работают другие веб-приложения.  
+Além de fornecer segurança adicional, deve utilizar um Web site personalizado se executar outras aplicações Web no sistema de sites.  
 
-**Если переключение с веб-сайта по умолчанию на настраиваемый веб-сайт было произведено после установки ролей точек распределения, удалите заданные по умолчанию виртуальные каталоги.**  
+**Se mudar do Web site predefinido para um Web site personalizado depois serem instaladas funções de ponto de distribuição, remova os diretórios virtuais predefinidos.**  
 
-При переключении с веб-сайта по умолчанию на настраиваемый веб-сайт Configuration Manager не удаляет старые виртуальные каталоги. Удалите виртуальные каталоги, изначально созданные Configuration Manager для веб-сайта по умолчанию.  
+Quando muda do Web site predefinido para um Web site personalizado, o Configuration Manager não remove os diretórios virtuais antigos. Remova os diretórios virtuais que o Configuration Manager originalmente criado no Web site predefinido.  
 
-Например, в случае точки распределения необходимо удалить следующие виртуальные каталоги:  
+Por exemplo, os diretórios virtuais a remover de um ponto de distribuição são os seguintes:  
 
 -   SMS_DP_SMSPKG$  
 
@@ -286,81 +286,81 @@ Configuration Manager автоматически создает эти груп�
 
 -   NOCERT_SMS_DP_SMSSIG$  
 
-**Соблюдайте рекомендации по использованию IIS Server.**  
+**Siga as melhores práticas para o Servidor do IIS.**  
 
-Узнайте, каковы рекомендации по использованию вашей версии IIS Server, и следуйте этим рекомендациям. При этом следует учитывать все требования Configuration Manager для конкретных ролей системы сайта. Дополнительные сведения см. в разделе [Необходимые компоненты для сайта и системы сайта](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+Identifique e siga as melhores práticas para a sua versão do Servidor do IIS. No entanto, tenha em consideração os requisitos que o Configuration Manager possui para funções de sistema de sites específicas. Para obter mais informações, veja [Pré-requisitos de site e sistema de sites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
-##  <a name="BKMK_Security_ManagementPoint"></a> Рекомендации по обеспечению безопасности для точки управления  
- Точки управления — это основной интерфейс между устройствами и Configuration Manager. Атаки на точку управления и сервер, на котором она работает, следует считать несущими высокий риск и с соответствующей серьезностью относиться к их предупреждению. Реализуйте все надлежащие рекомендации по безопасности и отслеживайте любые необычные действия.  
+##  <a name="BKMK_Security_ManagementPoint"></a>Melhores práticas de segurança para o ponto de gestão  
+ Pontos de gestão são a interface primária entre dispositivos e o Configuration Manager. Considere os ataques contra o ponto de gestão e o servidor que é executada em risco muito elevado e mitigar adequadamente. Aplique as melhores práticas de segurança adequadas e monitorize a ocorrência de atividade invulgar.  
 
- Приведенные ниже рекомендации по безопасности помогут защитить точку управления Configuration Manager.  
+ Utilize as seguintes melhores práticas de segurança para ajudar a proteger um ponto de gestão no Configuration Manager.  
 
-**Устанавливая клиент Configuration Manager в точке управления, назначьте его сайту данной точки управления.**  
+**Quando instala um cliente do Configuration Manager no ponto de gestão, atribua-o ao site desse ponto de gestão.**  
 
- Избегайте ситуаций, когда клиент Configuration Manager, находящийся в системе сайта точки управления, назначается другому сайту.  
+ Evite o cenário em que um cliente de Configuration Manager que se encontra num sistema de sites de ponto de gestão é atribuído a um site diferente do site do ponto de gestão.  
 
- При миграции из более ранней версии в System Center Configuration Manager перенесите клиентское программное обеспечение из точки управления в System Center Configuration Manager как можно скорее.  
+ Se migrar para o System Center Configuration Manager de uma versão anterior, migre o software de cliente no ponto de gestão para o System Center Configuration Manager logo que possível.  
 
-##  <a name="BKMK_Security_FSP"></a> Рекомендации по обеспечению безопасности для резервной точки состояния  
- Приведенными ниже рекомендациями по безопасности следует пользоваться в случае установки резервной точки состояния в Configuration Manager.  
+##  <a name="BKMK_Security_FSP"></a>Melhores práticas de segurança para o ponto de estado de contingência  
+ Utilize as seguintes melhores práticas de segurança se instalar um ponto de estado de contingência no Configuration Manager.  
 
- Дополнительные сведения о соображениях безопасности при установки резервной точки состояния см. в разделе [Определение необходимости резервной точки состояния](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#determine-if-you-need-a-fallback-status-point).  
+ Para mais informações sobre as considerações de segurança quando instala um ponto de estado de contingência, veja [Determinar se Necessita de um Ponto de Estado de Contingência](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#determine-if-you-need-a-fallback-status-point).  
 
 
-**Не допускайте выполнения других ролей системы сайта в данной системе сайта и не устанавливайте резервную точку состояния на контроллере домена.**  
+**Não execute outras funções de sistema de sites no sistema de sites e não a instale o ponto de estado de contingência num controlador de domínio.**  
 
- Поскольку резервная точка состояния рассчитана на прием входящих подключений от любого компьютера без проверки подлинности, выполнение этой роли системы сайта на контроллере домена серьезно повышает риск для соответствующего сервера.  
+ Como o ponto de estado de contingência é concebido para aceitar comunicações não autenticadas de qualquer computador, a execução desta função de sistema de sites com outras funções de sistema de sites ou num controlador de domínio aumenta significativamente o risco desse servidor.  
 
-**Когда для связи с клиентами в Configuration Manager используются PKI-сертификаты, устанавливайте резервную точку состояния до установки клиентов.**  
+**Quando utiliza certificados PKI para comunicações de clientes no Configuration Manager, instale o ponto de estado de contingência antes de instalar os clientes.**  
 
- Если системы сайта Configuration Manager не принимают от клиентов подключения по протоколу HTTP, пользователь может и не узнать, что клиенты остались без управления из-за проблем, связанных с PKI-сертификатами. Но если клиентам назначена резервная точка состояния, она будет уведомлять о подобных проблемах.  
+ Se os sistemas de sites do Configuration Manager não aceitarem comunicações de cliente HTTP, poderá não saber que os clientes são geridos devido a problemas de certificados relacionados com PKI. No entanto, se os clientes são atribuídos a um ponto de estado de contingência, estes problemas de certificado são reportados pelo ponto de estado de contingência.  
 
- По соображениям безопасности резервную точку состояния нельзя назначить клиентам после их установки. Назначить эту роль можно только во время установки клиентов.  
+ Por motivos de segurança, não é possível atribuir um ponto de estado de contingência a clientes depois de serem instalados. Em vez disso, pode atribuir esta função só durante a instalação de cliente.  
 
-**Старайтесь не использовать резервную точку состояния в сети периметра.**  
+**Evite utilizar o ponto de estado de contingência na rede de perímetro.**  
 
- Резервная точка состояния специально устроена так, чтобы принимать данные от любого клиента. Хотя резервная точка состояния в сети периметра могла бы помочь в устранении неполадок интернет-клиентов, необходимо соблюдать баланс между этим преимуществом и риском для системы сайта, которая принимает данные без проверки подлинности в общедоступной сети.  
+ Por predefinição, o ponto de estado de contingência aceita dados a partir de qualquer cliente. Embora um ponto de estado de contingência na rede de perímetro possa ajudar a resolver problemas com clientes baseados na Internet, tem de equilibrar os benefícios da resolução de problemas com o risco de um sistema de sites aceitar dados não autenticados numa rede de acesso público.  
 
- Если резервная точка состояния все-таки устанавливается в сети периметра или другой ненадежной сети, настройте сервер сайта для инициирования передачи данных, а не для инициирования подключения к серверу сайта резервной точкой состояния, как это сделано по умолчанию.  
+ Se instalar o ponto de estado de contingência na rede de perímetro ou qualquer rede não fidedigna, configure o servidor de site para iniciar as transferências de dados em vez de utilizar a predefinição que permite que o ponto de estado de contingência iniciar uma ligação ao servidor do site.  
 
-##  <a name="BKMK_SecurityIssues_Clients"></a> Проблемы безопасности, связанные с администрированием сайтов  
- Ознакомьтесь с перечисленными ниже проблемами безопасности в Configuration Manager.  
+##  <a name="BKMK_SecurityIssues_Clients"></a>Problemas de segurança de administração de sites  
+ Reveja os seguintes problemas de segurança para o Configuration Manager:  
 
--   Configuration Manager не имеет защиты от авторизованного пользователя с правами администратора, использующего Configuration Manager для атаки на сеть. Неавторизованные пользователи представляют собой высокий риск с точки зрения безопасности и могут инициировать разнообразные атаки, в том числе:  
+-   O Configuration Manager possui não está protegido contra um utilizador administrativo autorizado que utiliza o Gestor de configuração para atacar a rede. Os utilizadores administrativos não autorizados são um risco de segurança elevado e podendo iniciar vários ataques, nomeadamente seguintes estratégias:  
 
-    -   использовать развертывание программного обеспечения для автоматической установки и запуска вредоносного ПО на каждом клиентском компьютере Configuration Manager, имеющемся на предприятии;  
+    -   Utilize a implementação de software para instalar e executar automaticamente software malicioso em todos os computadores de cliente do Configuration Manager na empresa.  
 
-    -   использовать дистанционное управление для получения контроля над клиентом Configuration Manager без разрешения со стороны клиента;  
+    -   Utilize o controlo remoto para assumir o controlo remoto de um cliente de Configuration Manager sem permissão do mesmo.  
 
-    -   задавать короткие интервалы опроса и чрезмерно большие перечни активов с целью организации атак типа "отказ в обслуживании" на клиенты и серверы;  
+    -   Configurar intervalos de consulta rápida e valores excessivos de inventário para criar ataques de recusa de serviço contra clientes e servidores.  
 
-    -   использовать один из сайтов в иерархии для записи данных Active Directory, относящихся к другому сайту.  
+    -   Utilizar um site na hierarquia para escrever dados nos dados do Active Directory de outro site.  
 
-    Границей безопасности является иерархия сайтов. Сами сайты следует считать только границами управления.  
+    A hierarquia de sites é o limite de segurança. Considere sites para serem apenas limites de gestão.  
 
-    Подвергайте аудиту все действия пользователей с правами администратора и регулярно просматривайте журналы аудита. Требуйте от всех пользователей Configuration Manager с правами администратора проходить проверку анкетных данных перед наймом с периодической перепроверкой как условием найма.  
+    Audite todas as atividades do utilizador administrativo e reveja regularmente os registos de auditoria. Exigir todos os utilizadores administrativos do Configuration Manager sejam submetidos uma verificação de segundo plano antes de serem recrutados e exigem verificações periódicas como condição da sua admissão.  
 
--   Если точка регистрации атакована, злоумышленник сможет получить сертификаты для проверки подлинности и похитить учетные данные пользователей, регистрирующих свои мобильные устройства.  
+-   Se o ponto de registo for comprometido, um intruso poderá obter certificados para autenticação e roubar as credenciais de utilizadores que inscrevem os respetivos dispositivos móveis.  
 
-    Точка регистрации соединяется с центром сертификации и может создать, изменить и удалить объекты Active Directory. Никогда не следует устанавливать точку регистрации в демилитаризованной зоне; всегда отслеживайте необычную активность.  
+    O ponto de registo comunica com uma autoridade de certificação e pode criar, modificar e eliminar objetos do Active Directory. Nunca instalar o ponto de registo na rede de perímetro e monitorizar sempre de atividade invulgar.  
 
--   Если в политиках пользователей разрешено управление клиентами через Интернет или настроена точка веб-сайта каталога приложений для пользователей, находящихся в Интернете, имеет место повышенный риск успешного проведения атак злоумышленниками.  
+-   Se permitir políticas de utilizador para a gestão de clientes baseada na Internet ou configurar o ponto de serviço Web do Catálogo de Aplicações para utilizadores que estão na Internet, aumenta o seu perfil de ataque.  
 
-    Помимо использования PKI-сертификатов для соединений "клиент-сервер", в таких конфигурациях требуется проверка подлинности Windows, в качестве которой может использоваться проверка подлинности NTLM, а не Kerberos. Проверка подлинности NTLM уязвима для атак олицетворения и воспроизведения. Чтобы пользователь из Интернета смог успешно проходить проверку подлинности, необходимо разрешить подключение с сервера системы сайта в Интернете к контроллеру домена.  
+    Para além de utilizar certificados PKI para ligações de cliente-servidor, estas configurações requerem a autenticação do Windows, podendo voltar a utilizar a autenticação NTLM em vez da autenticação Kerberos. A autenticação NTLM é vulnerável a ataques de representação e repetição. Para autenticar com sucesso um utilizador na Internet, tem de permitir a ligação do servidor do sistema de sites baseado na Internet a um controlador de domínio.  
 
--   На серверах системы сайта требуется общий ресурс Admin$.  
+-   A partilha Admin$ é obrigatória em servidores do sistema de sites.  
 
-    Сервер сайта Configuration Manager использует общий ресурс Admin$ для подключения к системам сайта и выполнения на них операций обслуживания. Не отключайте и не удаляйте общий ресурс Admin$.  
+    O servidor do site do Configuration Manager utiliza a partilha Admin$ para ligar a e executar operações de serviço em sistemas de sites. Não desative nem remova a partilha Admin$.  
 
--   Configuration Manager использует службы разрешения имен для подключения к другим компьютерам, и эти службы трудно защитить от таких атак, как спуфинг, несанкционированное вмешательство, отказ от ответственности, разглашение сведений, отказ в обслуживании и повышение привилегий.  
+-   O Configuration Manager utiliza serviços de resolução de nome para ligar a outros computadores e estes serviços são difíceis de proteger contra ataques de segurança, como spoofing, adulteração, rejeição, divulgação de informações, recusa de serviço e elevação de privilégios.  
 
-    Изучите и соблюдайте рекомендации по обеспечению безопаности для версиq DNS и WINS, используемых для разрешения имен.  
+    Identifique e siga os procedimentos recomendados de segurança para a versão do DNS e WINS que utiliza para resolução de nomes.  
 
-##  <a name="BKMK_Privacy_Cliients"></a> Сведения о соблюдении конфиденциальности обнаружения  
- Функция обнаружения создает записи о сетевых ресурсах и сохраняет их в базе данных System Center Configuration Manager. Записи данных обнаружения содержат сведения о компьютерах, такие как IP-адреса, операционные системы и имена компьютеров. Методы обнаружения Active Directory также могут быть настроены на обнаружение любых сведений, сохраняемых в доменных сулжбах Active Directory.  
+##  <a name="BKMK_Privacy_Cliients"></a>Informações de privacidade para deteção  
+ Deteção cria registros para recursos de rede e armazena-os na base de dados do System Center Configuration Manager. Registos de dados de deteção contêm informações do computador, tais como endereços IP, sistemas operativos e os nomes dos computadores. Os métodos de deteção do Active Directory também podem ser configurados para detetar informações armazenadas nos Serviços de Domínio do Active Directory.  
 
- Единственный метод обнаружения, включенный по умолчанию, — это Heartbeat-обнаружение, однако этот метод позволяет обнаруживать только те компьютеры, на которых уже установлено программное обеспечение клиента System Center Configuration Manager.  
+ O único método de deteção que está ativado por predefinição é a deteção de Heartbeat, mas esse método apenas Deteta computadores que já estão a tem o software de cliente do System Center Configuration Manager instalado.  
 
- Сведения об обнаружении не отправляются в корпорацию Майкрософт. Они хранятся в базе данных Configuration Manager. Информация хранится в базе данных до тех пор, пока не будет удалена при выполнении задачи обслуживания сайта **Удалить устаревшие данные обнаружения**. Эта задача выполняется каждые 90 дней.  
+ As informações de deteção não são enviadas à Microsoft. Em vez disso, este é armazenado na base de dados do Configuration Manager. As informações são retidas na base de dados até serem eliminada pela tarefa de manutenção do site todos os 90 dias **eliminar dados de deteção desatualizados**.  
 
- Пеед настройкой других методов обнаружения или расширением обнаружения Active Discovery следует принять во внимание имеющиеся требования к конфиденциальности.  
+ Antes de configurar métodos de deteção adicionais ou expandir a deteção do Active Directory, considere os requisitos de privacidade.  

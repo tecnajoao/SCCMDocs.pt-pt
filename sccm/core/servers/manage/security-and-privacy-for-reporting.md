@@ -1,6 +1,6 @@
 ---
-title: "Безопасность и конфиденциальность отчетов | Документы Майкрософт"
-description: "Ознакомьтесь с рекомендациями по обеспечению безопасности и конфиденциальности при использовании функций ведения отчетов в Configuration Manager."
+title: "Segurança e privacidade para relatórios | Microsoft Docs"
+description: "Compreenda as melhores práticas de segurança e privacidade quando estiver a utilizar a funcionalidade de relatórios no Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,16 +17,16 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 50ef8b761533bfdd5e8d23abc7791beb4c7d0b11
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность отчетов в System Center Configuration Manager
+# <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Segurança e privacidade para relatórios no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этом разделе приводятся рекомендации по обеспечению безопасности и конфиденциальности отчетов в System Center Configuration Manager.  
+Este tópico contém melhores práticas de segurança e informações de privacidade para relatórios no System Center Configuration Manager.  
 
- Отчеты Configuration Manager содержат данные, собранные во время стандартных операций управления Configuration Manager. Например, можно отобразить отчет с данными, собранными в ходе операций обнаружения или инвентаризации. Кроме того, отчеты могут содержать сведения о текущем состоянии операций управления клиентами, таких как развертывание программного обеспечения и проверка соответствия требованиям.  
+ Relatórios do Configuration Manager apresentam informações recolhidas durante as operações de gestão padrão do Configuration Manager. Por exemplo, poderá apresentar um relatório de informações que tenham sido recolhidas pela deteção ou inventário. Os relatórios também podem conter as informações de estado atuais para operações de gestão de clientes, tais como implementação de software e verificação de compatibilidade.  
 
- Дополнительные сведения о рекомендациях по обеспечению безопасности и конфиденциальности операций Configuration Manager, которые могут использоваться для сбора данных, включаемых в отчеты, см. в разделе [Рекомендации по обеспечению безопасности и сведения о конфиденциальности в System Center Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  
+ Para obter mais informações sobre as melhores práticas de segurança e informações de privacidade para operações do Configuration Manager que possam gerar dados que podem ser apresentados nos relatórios, consulte [melhores práticas de segurança e informações de privacidade do System Center Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  

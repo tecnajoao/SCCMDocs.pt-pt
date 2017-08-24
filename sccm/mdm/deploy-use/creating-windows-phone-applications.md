@@ -1,6 +1,6 @@
 ---
-title: "Создание приложений Windows Phone | Документы Майкрософт"
-description: "Узнайте, какие аспекты необходимо учитывать при создании и развертывании приложений для устройств Windows Phone."
+title: "Criar aplicações Windows Phone | Microsoft Docs"
+description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações para dispositivos Windows Phone."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,50 +16,50 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 6cbf2389a72c0c384ef8e84a1755ac77b64bfc6d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-phone-applications-with-system-center-configuration-manager"></a>Создание приложений Windows Phone с помощью System Center Configuration Manager
+# <a name="create-windows-phone-applications-with-system-center-configuration-manager"></a>Criar aplicações Windows Phone com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Приложение System Center Configuration Manager содержит один или несколько типов развертывания, которые включают файлы установки и сведения, требуемые для развертывания программного обеспечения на устройстве. Тип развертывания также содержит правила, определяющие время и способ развертывания программного обеспечения.  
+Uma aplicação do System Center Configuration Manager tem um ou mais tipos de implementação que compõem os ficheiros de instalação e informações que são necessários para implementar software num dispositivo. Um tipo de implementação tem também as regras que especificam quando e como o software é implementado.  
 
- Существуют следующие методы создания приложений.  
+ Pode criar aplicações utilizando os seguintes métodos:  
 
--   Автоматическое создание приложения и типов развертывания посредством считывания файлов установки приложения.  
+-   Crie automaticamente os tipos de aplicação e implementação ao ler os ficheiros de instalação da aplicação.  
 
--   Создание приложения вручную с последующим добавлением типов развертывания.  
+-   Criar manualmente a aplicação e adicionar posteriormente os tipos de implementação.  
 
--   Импорт приложения из файла.  
+-   Importe uma aplicação de um ficheiro.  
 
-Действия, необходимые для создания приложений Configuration Manager и типов развертывания, см. в разделе [Запуск мастера создания приложений](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). При создании и развертывании приложений для устройств Windows Phone также учитывайте приведенные ниже аспекты.  
+Consulte [iniciar o Assistente para criar aplicação](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) para os passos necessários para criar aplicações de Configuration Manager e tipos de implementação. Além disso, mantenha as seguintes considerações em mente quando criar e implementar aplicações para dispositivos Windows Phone.  
 
-## <a name="general-considerations"></a>Общие вопросы  
- Configuration Manager поддерживает развертывание перечисленных ниже типов файлов приложений.  
+## <a name="general-considerations"></a>Considerações gerais  
+ O Configuration Manager suporta a implementação dos seguintes tipos de ficheiro de aplicação:  
 
-|Тип устройства|Поддерживаемые типы файлов|  
+|Tipo de Dispositivo|Tipos de ficheiro suportados|  
 |-----------------|---------------------|  
-|Windows Phone 8|.xap|  
-|Windows Phone 8.1|.xap, .appx, .appxbundle|
-|Windows 10 Mobile|.xap, .appx, .appxbundle|
+|Windows Phone 8|. xap|  
+|Windows Phone 8.1|. xap,. AppX,. appxbundle|
+|Windows 10 Mobile|. xap,. AppX,. appxbundle|
 
- Поддерживаются следующие действия развертывания.  
+ As seguintes ações de implementação são suportadas:  
 
-|Тип устройства|Поддерживаемые действия|  
+|Tipo de Dispositivo|Ações suportadas|  
 |-----------------|-----------------------|  
-|Windows Phone 8, Windows Phone 8.1 и Windows 10 Mobile|Доступно, Необходимо, Удаление|  
+|Windows Phone 8, Windows Phone 8.1 e Windows 10 Mobile|Disponível, Necessário, Desinstalar|  
 
-## <a name="steps-to-deploy-the-latest-windows-phone-company-portal-app-with-supersedence"></a>Шаги для развертывания последней версии приложения корпоративного портала для Windows Phone с заменой  
- Следующая таблица содержит шаги, их описание и дополнительные сведения для создания и развертывания последней версии приложения портала компании для Windows Phone 8.  
+## <a name="steps-to-deploy-the-latest-windows-phone-company-portal-app-with-supersedence"></a>Passos para implementar a mais recente Windows Phone aplicação portal da empresa com substituição  
+ A tabela seguinte fornece os passos, detalhes e mais informações para criar e implementar a mais recente aplicação do portal da empresa do Windows Phone 8.  
 
-|Шаг|Дополнительные сведения|  
+|Passo|Mais informações|  
 |----------|----------------------|  
-|**Шаг 1.** Загрузите последнюю версию приложения корпоративного портала.|Загрузите [приложение корпоративного портала Windows Phone 8](http://go.microsoft.com/fwlink/?LinkId=268440).|  
-|**Шаг 2.** Подпишите приложение корпоративного портала с помощью сертификата Symantec.|Сведения о подписании приложения корпоративного портала см. в разделе [Настройка гибридного управления устройствами Windows Phone и Windows 10 Mobile с помощью System Center Configuration Manager и Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
-|**Шаг 3**. Создайте приложение с последней версией приложения корпоративного портала и укажите отношение замены.|Дополнительные сведения см. в разделах [Создание приложений](../../apps/deploy-use/create-applications.md) и [Изменение и замена приложений](../../apps/deploy-use/revise-and-supersede-applications.md).|  
-|**Шаг 4**. Добавление приложения в мастер создания подписки Microsoft Intune.|Дополнительные сведения см. в разделе [Настройка гибридного управления устройствами Windows Phone и Windows 10 Mobile с помощью System Center Configuration Manager и Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
-|**Шаг 5**. Удаление развертывания, автоматически создаваемого при добавлении приложения корпоративного портала в мастер создания подписки Microsoft Intune.|Подписка Microsoft Intune создала автоматическое развертывание данного приложения, так как это развертывание не будет поддерживать замену.|  
-|**Шаг 6**. Создайте развертывание приложения. На странице **Параметры развертывания** в **мастере развертывания программного обеспечения** установите флажок **Автоматически обновлять замененные версии этого приложения**.|Создайте новое развертывание с заменой, используя созданное приложение с отношением замены.|  
-|**Шаг 7 (необязательно)**. По умолчанию заменяющие приложения устанавливаются на устройствах через 7 дней. Чтобы быстрее развернуть приложение корпоративного портала на ранее зарегистрированных устройствах, можно уменьшить значение параметра **Запланировать повторную оценку для развертываний**.<br /><br /> Установка для этого параметра значения, которое меньше значения по умолчанию, может отрицательно сказаться на производительности сети и клиентских компьютеров.|Дополнительные сведения отсутствуют.|  
+|**Passo 1:** Obtenha a mais recente aplicação do portal da empresa.|Transfira a [aplicação do portal da empresa do Windows Phone 8](http://go.microsoft.com/fwlink/?LinkId=268440).|  
+|**Passo 2:** Assine a aplicação do portal da empresa com o certificado da Symantec.|Para obter informações sobre como assinar a aplicação do portal da empresa, consulte [configurar gestão Windows Phone e Windows 10 Mobile híbrida dispositivo com o System Center Configuration Manager e o Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
+|**Passo 3:** Criar uma nova aplicação com a versão mais recente da aplicação portal da empresa e especifique uma relação de substituição.|Para obter mais informações, consulte [criar aplicações](../../apps/deploy-use/create-applications.md) e [rever e substituir aplicações](../../apps/deploy-use/revise-and-supersede-applications.md).|  
+|**Passo 4:** Adicione a aplicação ao Assistente de subscrição do Microsoft Intune.|Para obter mais informações, consulte [configurar gestão Windows Phone e Windows 10 Mobile híbrida dispositivo com o System Center Configuration Manager e o Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
+|**Passo 5:** Elimine a implementação que foi criada automaticamente quando adicionou a aplicação do portal da empresa ao Assistente de subscrição do Microsoft Intune.|A subscrição do Microsoft Intune criou uma implementação automática desta aplicação, uma vez que esta implementação não suporta substituição.|  
+|**Passo 6:** Crie uma nova implementação da aplicação. No **definições de implementação** página do **Assistente de implementação de Software**, verifique **atualizar automaticamente qualquer superceded versões desta aplicação**.|Crie uma nova implementação com substituição, utilizando a aplicação que criou com a relação de substituição.|  
+|**Passo 7 (opcional):** Por predefinição, as aplicações de substituição são instaladas nos dispositivos após 7 dias. Para implementar a empresa aplicação do portal mais cedo para anteriormente os dispositivos inscritos, altere o **agendar reavaliação para implementações** definição para um valor inferior.<br /><br /> Se definir este valor para um valor inferior à predefinição de, poderá afetar negativamente o desempenho da sua rede e os computadores cliente.|Não existem informações adicionais.|  

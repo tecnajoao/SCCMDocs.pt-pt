@@ -1,6 +1,6 @@
 ---
-title: "Планирование миграции клиентов | Документы Майкрософт"
-description: "Сведения о задачах по переносу клиентов из исходной в конечную иерархию System Center Configuration Manager."
+title: "Planear a migração de cliente | Microsoft Docs"
+description: "Saiba mais sobre as tarefas de migração dos clientes de uma hierarquia de origem para uma hierarquia de destino do System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,88 +16,88 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b52ca4059dfeed08cabf1f75319da40d6499622f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-a-client-migration-strategy-in-system-center-configuration-manager"></a>Планирование стратегии миграции клиентов в System Center Configuration Manager
+# <a name="plan-a-client-migration-strategy-in-system-center-configuration-manager"></a>Planear uma estratégia de migração de cliente no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для переноса клиентов из исходной иерархии в конечную иерархию System Center Configuration Manager следует выполнить две задачи. Необходимо перенести объекты, связанные с клиентом, а затем переустановить или переназначить клиенты из исходной иерархии в конечную. Сначала нужно перенести объекты, чтобы они были доступны при миграции клиентов. Объекты, связанные с клиентом, переносятся с помощью заданий миграции. Сведения о переносе объектов, связанных с клиентом, см. в разделе [Планирование стратегии заданий миграции в System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
+Para migrar clientes da hierarquia de origem para uma hierarquia de destino do System Center Configuration Manager, terá de efetuar duas tarefas. Tem de migrar os objetos que estão associados ao cliente e, em seguida, tem de reinstalar ou reatribuir os clientes da hierarquia de origem à hierarquia de destino. Deve migrar primeiro os objetos para que estejam disponíveis quando os clientes forem migrados. Os objetos associados ao cliente são migrados utilizando tarefas de migração. Para obter informações sobre como migrar os objetos que estão associados ao cliente, consulte [planear uma estratégia de tarefa de migração no System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
 
- В следующих разделах описывается планирование переноса клиентов в конечную иерархию.  
+ Utilize as secções seguintes como auxílio para planear a migração dos clientes para a hierarquia de destino.  
 
--   [Планирование переноса клиентов в конечную иерархию](#Planning_for_Client_Agent_Migration)  
+-   [Planear a migração dos clientes para a hierarquia de destino](#Planning_for_Client_Agent_Migration)  
 
--   [Планирование обработки данных на клиентах в процессе миграции](#Planning_for_Client_Data_Migration)  
+-   [Planear o processamento dos dados mantidos nos clientes durante a migração](#Planning_for_Client_Data_Migration)  
 
--   [Планирование использования данных по инвентаризации и соответствию требованиям во время миграции](#Planning_for_Inventory_data_migration)  
+-   [Planear para dados de inventário e compatibilidade durante a migração](#Planning_for_Inventory_data_migration)  
 
-##  <a name="Planning_for_Client_Agent_Migration"></a> Планирование переноса клиентов в конечную иерархию  
- При переносе клиентов из исходной иерархии клиентское программное обеспечение на клиентском компьютере обновляется в соответствии с версией продукта в конечной иерархии.  
+##  <a name="Planning_for_Client_Agent_Migration"></a> Planear a migração dos clientes para a hierarquia de destino  
+ Quando migra clientes de uma hierarquia de origem, o software de cliente em todas as atualizações de computador cliente para corresponderem à versão de produto da hierarquia de destino.  
 
--   **Исходная иерархия Configuration Manager 2007**: при переносе клиентов из исходной иерархии, в которой используется поддерживаемая версия Configuration Manager, клиентское программное обеспечение обновляется до версии клиента конечной иерархии.  
+-   **Uma hierarquia de origem do Configuration Manager 2007:** Quando migra clientes de uma hierarquia de origem que executa uma versão suportada do Configuration Manager, as atualizações de software de cliente para a versão de cliente para a hierarquia de destino.  
 
--   **Исходная иерархия System Center 2012 Configuration Manager или более поздней версии**: при переносе клиентов между иерархиями с одинаковой версией продукта клиентское программное обеспечение не изменяется и не обновляется. Вместо этого клиент выполняет повторное назначение из исходной структуры на сайте в конечной иерархии.  
+-   **Um System Center 2012 Configuration Manager ou posterior hierarquia de origem:** Quando migra clientes entre hierarquias com a mesma versão de produto, o software de cliente não alterar ou atualizar. Em vez disso, o cliente é reatribuído a partir da hierarquia de origem a um site na hierarquia de destino.  
 
     > [!NOTE]  
-    >  Если версия продукта в иерархии не поддерживает перенос в конечную иерархию, обновите все сайты и клиенты в исходной иерархии до совместимой версии продукта. После обновления исходной иерархии до поддерживаемой версии продукта вы можете выполнить миграцию между иерархиями. Дополнительные сведения см. в подразделе [Версии Configuration Manager, поддерживаемые для миграции](../../core/migration/prerequisites-for-migration.md#BKMK_SupportedMigrationVersions) раздела [Необходимые условия для миграции в System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+    >  Quando a versão de produto de uma hierarquia não for suportada para migração para a hierarquia de destino, atualize todos os sites e clientes da hierarquia de origem para uma versão de produto compatível. Depois da atualização da hierarquia de origem para uma versão de produto suportada, pode migrar entre as hierarquias. Para obter mais informações, consulte [versões do Configuration Manager que são suportados para migração](../../core/migration/prerequisites-for-migration.md#BKMK_SupportedMigrationVersions) no [pré-requisitos para migração no System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
 
-При планировании миграции клиентов используйте следующую информацию.  
+Utilize as informações seguintes para planear a migração de clientes:  
 
--   Чтобы обновить или переназначить клиенты из исходного сайта конечному сайту, можно использовать любой метод развертывания клиента, который поддерживается для развертывания клиентов в конечной иерархии. К стандартным методам развертывания относятся принудительная установка клиентов, распространение программного обеспечения, групповая политика и установка клиентов на основе обновлений ПО. Дополнительные сведения см. в разделе [Методы установки клиента в System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
+-   Para atualizar ou reatribuir clientes de um site de origem a um site de destino, pode utilizar qualquer método de implementação de clientes que seja suportado para implementar clientes na hierarquia de destino. Os métodos de implementação de clientes típicos incluem a instalação push de cliente, a distribuição de software, a Política de Grupo e a instalação de cliente baseada em atualização de software. Para obter mais informações, consulte [métodos de instalação de cliente no System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
 
--   Убедитесь в том, что устройство с клиентским программным обеспечением в исходной иерархии соответствует минимальным требованиям к оборудованию и работает под управлением операционной системы, которая поддерживается версией Configuration Manager в конечной иерархии.  
+-   Certifique-se de que o dispositivo que executa o software de cliente na hierarquia de origem satisfaz os requisitos mínimos de hardware e sistema operativo é suportado pela versão do Configuration Manager na hierarquia de destino.  
 
--   Перед миграцией клиента выполните задание миграции для переноса информации, которую клиент будет использовать в конечной иерархии.  
+-   Antes de migrar um cliente, execute uma tarefa de migração para migrar as informações que o cliente irá utilizar na hierarquia de destino.  
 
--   Обновленные клиенты сохраняют свои журналы выполнения для развертываний. Это предотвращает лишние развертывания в конечной иерархии.  
+-   Clientes que atualizam manterão o respetivo histórico de execução de implementações. Isto impede que as implementações de repetição da execução desnecessariamente na hierarquia de destino.  
 
-    -   Для клиентов Configuration Manager 2007 сохраняется журнал выполнения объявлений.  
+    -   Para clientes do Configuration Manager 2007, histórico de execução de anúncios é mantido.  
 
-    -   Для клиентов System Center 2012 Configuration Manager или System Center Configuration Manager сохраняется журнал выполнения развертывания.  
+    -   Para clientes do System Center 2012 Configuration Manager ou System Center Configuration Manager, o histórico de execução de implementações é mantida.  
 
--   Вы можете перенести клиенты из сайтов в исходной иерархии в любом порядке. Но следует рассмотреть возможность миграции ограниченного числа клиентов поэтапно вместо переноса большого их количества за один раз. Поэтапная миграция сокращает требования к пропускной способности сети и обработке на сервере, когда каждый только что обновленный клиент отправляет назначенному сайту свои первоначальные полные данные об инвентаризации и соответствии требованиям.  
+-   Pode migrar os clientes de sites da hierarquia de origem por qualquer ordem à escolha. No entanto, considere migrar um número limitado de clientes em fases, em vez de migrar grandes quantidades de clientes de uma única vez. Uma migração faseada reduz os requisitos de largura de banda da rede e o processamento do servidor quando cada cliente recém-atualizado submeter os respetivos dados de inventário e compatibilidade completos iniciais ao site atribuído.  
 
--   При переносе клиентов Configuration Manager 2007 существующее клиентское программное обеспечение удаляется с клиентского компьютера, после чего устанавливается новое клиентское ПО.  
+-   Quando migra clientes do Configuration Manager 2007, o software de cliente existente é desinstalado do computador cliente e o novo software de cliente é instalado.  
 
--   Configuration Manager не может выполнить миграцию клиента Configuration Manager 2007 с установленным клиентом App-V, если он выпущен ранее версии App-V 4.6 с пакетом обновления 1 (SP1).  
+-   O Configuration Manager não é possível migrar um cliente de Configuration Manager 2007 que tenha o cliente de App-V instalado, a menos que a versão de cliente de App-V 4.6 SP1 ou posterior.  
 
-Наблюдать за процессом миграции клиентов можно в узле **Миграция** рабочей области **Администрирование** в консоли Configuration Manager.  
+Pode monitorizar o processo de migração de clientes no **migração** o nó do **administração** área de trabalho na consola do Configuration Manager.  
 
-После переноса клиента в конечную иерархию вы больше не сможете управлять этим устройством, используя исходную иерархию. Поэтому необходимо рассмотреть возможность удаления клиента из исходной иерархии. Хотя это не является обязательным требованием при переносе иерархий, это может помешать определению переносимого клиента в отчете исходной иерархии или привести к неверному подсчету ресурсов между двумя иерархиями в процессе переноса. Например, если переносимый клиент остается в базе данных исходного сайта, вы можете запустить отчет по обновлению программного обеспечения, который неверно определит компьютер как неуправляемый ресурс, хотя он управляется конечной иерархией.  
+Depois de migrar o cliente para a hierarquia de destino, já não pode gerir esse dispositivo utilizando a hierarquia de origem e, deve considerar remover o cliente da hierarquia de origem. Embora isto não seja um requisito quando migra hierarquias, pode ajudar a evitar a identificação de um cliente migrado num relatório da hierarquia de origem ou uma contagem incorreta de recursos entre as duas hierarquias durante a migração. Por exemplo, quando um cliente migrado permanece na base de dados do site de origem, poderá executar um relatório de atualizações de software que identifique incorretamente o computador como um recurso não gerido, quando é agora gerido pela hierarquia de destino.  
 
-##  <a name="Planning_for_Client_Data_Migration"></a> Планирование обработки данных на клиентах в процессе миграции  
-При переносе клиента из его исходной иерархии в конечную иерархию некоторые сведения сохраняются на устройстве, а другие данные на устройстве после переноса становятся недоступными.  
+##  <a name="Planning_for_Client_Data_Migration"></a> Planear o processamento dos dados mantidos nos clientes durante a migração  
+Quando migra um cliente da respetiva hierarquia de origem para a hierarquia de destino, algumas informações são mantidas no dispositivo, enquanto outras deixam de estar disponíveis no dispositivo após a migração.  
 
-Следующие сведения сохраняются на клиентском устройстве.  
+As informações seguintes são mantidas no dispositivo cliente:  
 
--   Уникальный идентификатор (GUID), связывающий клиента с его информацией в базе данных Configuration Manager.  
+-   O identificador exclusivo (GUID), que associa um cliente com as respetivas informações na base de dados do Configuration Manager.  
 
--   Журнал объявлений или развертывания, который не позволяет клиентам выполнять лишние запуски объявлений или развертываний в конечной иерархии.  
+-   O histórico de anúncios ou implementações, que impede que os clientes executem de novo implementações ou anúncios desnecessários na hierarquia de destino.  
 
-Следующие сведения не сохраняются на клиентском устройстве.  
+As informações seguintes não são mantidas no dispositivo cliente:  
 
--   Файлы в кэше клиента. Если клиенту эти файлы требуются для установки программного обеспечения, клиент загружает их снова из конечной иерархии.  
+-   Os ficheiros da cache do cliente. Se o cliente necessitar destes ficheiros para instalar software, o cliente transfere-os novamente da hierarquia de destino.  
 
--   Данные из исходной иерархии о каких-либо объявлениях или развертываниях, которые еще не были выполнены. Если клиент должен запускать объявления или развертывания после миграция, следует повторно развернуть клиента в конечной иерархии.  
+-   Informações da hierarquia de origem sobre quaisquer anúncios ou implementações que ainda não foram executados. Se pretender que o cliente execute as implementações ou os anúncios após a migração, tem de implementá-los de novo no cliente na hierarquia de destino.  
 
--   Сведения об инвентаризации. Клиент повторно отправляет эту информацию назначенному сайту в конечной иерархии после миграции клиента и создания новых данных клиента.  
+-   Informações sobre o inventário. O cliente reenvia estas informações para o respetivo site atribuído na hierarquia de destino após a migração do cliente e os novos dados de cliente foi gerados.  
 
--   Сведения о соответствии требованиям. Клиент повторно отправляет эту информацию назначенному сайту в конечной иерархии после миграции клиента и создания новых данных клиента.  
+-   Dados de compatibilidade. O cliente reenvia estas informações para o respetivo site atribuído na hierarquia de destino após a migração do cliente e os novos dados de cliente foi gerados.  
 
-При переносе клиента информация, сохраненная в реестре клиента Configuration Manager и пути к файлам, не сохраняется. После миграции заново примените эти параметры. Ниже перечислены стандартные параметры.  
+Quando um cliente é migrado, as informações armazenadas no caminho de registo e ficheiro de cliente do Configuration Manager não são mantidas. Após a migração, volte a aplicar estas definições. As definições típicas incluem as seguintes:  
 
--   Схемы управления питанием  
+-   Esquemas de energia  
 
--   Параметры ведения журнала  
+-   Definições de registo  
 
--   Параметры локальной политики  
+-   Definições da política local  
 
-Кроме того, может потребоваться переустановка некоторых приложений.  
+Além disso, poderá ter de reinstalar algumas aplicações.  
 
-##  <a name="Planning_for_Inventory_data_migration"></a> Планирование использования данных об инвентаризации и соответствии требованиям во время миграции  
-Данные об инвентаризации и соответствии требованиям не сохраняются при переносе клиента в конечную иерархию. Вместо этого данная информация воссоздается в конечной иерархии, когда клиент в первый раз отправляет свои данные назначенному сайту. Чтобы сократить итоговый объем требований к пропускной способности сети и объем обработки на сервере, рекомендуется переносить небольшое количество клиентов по отдельным этапам вместо миграции большого числа клиентов за один раз.  
+##  <a name="Planning_for_Inventory_data_migration"></a> Planear os dados de inventário e de compatibilidade durante a migração  
+Os dados de inventário e compatibilidade do cliente não são guardados quando migra um cliente para a hierarquia de destino. Em vez disso, esta informações são recriadas na hierarquia de destino quando um cliente envia pela primeira vez as respetivas informações para o site atribuído. Para ajudar a reduzir os requisitos de largura de banda da rede e o processamento do servidor resultantes, considere migrar um pequeno número de clientes em fases, em vez de um grande número de clientes de uma só vez.  
 
- Кроме того, нельзя перенести настройки инвентаризации оборудования из исходной иерархии. Эти данные необходимо ввести в конечной иерархии независимо от миграции. Сведения о расширении инвентаризации оборудования см. в разделе [Настройка инвентаризации оборудования в System Center Configuration Manager](../../core/clients/manage/inventory/configure-hardware-inventory.md).  
+ Além disso, não é possível migrar personalizações do inventário de hardware a partir de uma hierarquia de origem. Tem de as introduzir na hierarquia de destino, em separado da migração. Para obter informações sobre como expandir o inventário de hardware, consulte [como configurar inventário de hardware no System Center Configuration Manager](../../core/clients/manage/inventory/configure-hardware-inventory.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Брандмауэры и домены | Документы Майкрософт"
-description: "Настройка брандмауэров, портов и доменов для подготовки к взаимодействию с System Center Configuration Manager."
+title: "As firewalls e os domínios | Microsoft Docs"
+description: "Configure firewalls, portas e domínios para se preparar para as comunicações do System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/6/2017
 ms.prod: configuration-manager
@@ -17,19 +17,19 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4a2a8f96a900a2c4959ae3ff59232771ece95991
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-firewalls-ports-and-domains-for-system-center-configuration-manager"></a>Настройка брандмауэров, портов и доменов для System Center Configuration Manager
+# <a name="set-up-firewalls-ports-and-domains-for-system-center-configuration-manager"></a>Configurar firewalls, portas e domínios para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Чтобы подготовить сеть к поддержке System Center Configuration Manager, спланируйте настройку инфраструктуры, например брандмауэров, для передачи данных, используемых Configuration Manager.  
+Para preparar a sua rede para suportar o System Center Configuration Manager, planeie configurar infraestrutura como firewalls para passar as comunicações utilizadas pelo Configuration Manager.  
 
-|Соображения|Подробные сведения|  
+|Consideração|Detalhes|  
 |-------------------|-------------|  
-|**Порты и протоколы**, используемые различными возможностями Configuration Manager. Некоторые порты являются обязательными, тогда как другие **домены и службы** можно настроить.|Большинство функций взаимодействия Configuration Manager использует общие порты, например порт 80 для HTTP и порт 443 для HTTPS. Однако [некоторые роли системы сайта поддерживают использование настраиваемых веб-сайтов](/sccm/core/plan-design/network/websites-for-site-system-servers) и портов.<br /><br /> **Перед развертыванием Configuration Manager** определите порты, которые планируется использовать, и соответствующим образом настройте брандмауэры.<br /><br /> **Если потребуется изменить порт** после установки Configuration Manager, не забудьте обновить брандмауэры на устройствах и в сети, а также изменить конфигурацию порта в Configuration Manager.<br /><br /> Дополнительные сведения см. в следующих статьях: </br>- [Настройка портов связи для клиентов](../../../core/clients/deploy/configure-client-communication-ports.md) </br>- [Порты, используемые программой Configuration Manager](../../../core/plan-design/hierarchy/ports.md) </br>- [Требования для доступа к Интернету для точки подключения службы](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls)|  
-|**Домены и службы**, которые может потребоваться использовать серверам сайта и клиентам.|Для использования возможностей Configuration Manager может потребоваться доступ серверов сайта и клиентов к отдельным службам и доменам в Интернете, например Windowsudpate.microsoft.com или службе Microsoft Intune.<br /><br /> Если вы будете использовать Microsoft Intune для управления мобильными устройствами, необходимо, кроме того, настроить доступ к [портам и доменам, которые нужны Intune](https://docs.microsoft.com/en-us/intune/get-started/network-infrastructure-requirements-for-microsoft-intune).|  
-|**Прокси-серверы** для взаимодействия серверов системы сайта и клиентов. Вы можете указать разные прокси-серверы для отдельных клиентов и серверов системы сайта.|Поскольку эти настройки выполняются во время установки роли системы сайта или клиента, необходимо предусмотреть только конфигурации прокси-сервера для дальнейшего использования при настройке ролей системы сайта и клиентов.<br /><br /> Если вы не знаете, потребуются ли вашему развертыванию прокси-серверы, просмотрите статью [Поддержка прокси-сервера в System Center Configuration Manager](../../../core/plan-design/network/proxy-server-support.md) для получения сведений о действиях ролей системы сайта и клиентов, которые могут использовать прокси-сервер.|   
+|**Portas e protocolos** que utilizam diferentes capacidades do Configuration Manager. Algumas portas são necessárias e pode personalizar outros **domínios e serviços**.|A maioria das comunicações do Configuration Manager utilizam portas comuns, como a porta 80 para HTTP ou 443 para comunicação por HTTPS. No entanto, [algumas funções de sistema de sites suportam a utilização de Web sites personalizados](/sccm/core/plan-design/network/websites-for-site-system-servers) e portas personalizadas.<br /><br /> **Antes de implementar o Configuration Manager**, identifique as portas que pretende utilizar e configurar as firewalls em conformidade.<br /><br /> **Se precisar de alterar uma porta** depois de instalar o Configuration Manager, não se esqueça de atualizar as firewalls em dispositivos e da rede e também alterar a configuração da porta do Configuration Manager.<br /><br /> Para obter mais informações, consulte: </br>- [Como configurar portas de comunicação de cliente](../../../core/clients/deploy/configure-client-communication-ports.md) </br>- [Portas utilizadas no Configuration Manager](../../../core/plan-design/hierarchy/ports.md) </br>- [Requisitos de acesso à Internet para o ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls)|  
+|**Domínios e serviços** que os clientes e servidores de site poderão ter de utilizar.|Capacidades do Configuration Manager podem exigir a servidores de sites e clientes tenham acesso a serviços específicos e domínios na Internet, como Windowsudpate.microsoft.com ou o serviço Microsoft Intune.<br /><br /> Se for utilizar o Microsoft Intune para gerir dispositivos móveis, também tem de definir configurar o acesso ao [portas e domínios que requer o Intune.](https://docs.microsoft.com/en-us/intune/get-started/network-infrastructure-requirements-for-microsoft-intune)|  
+|**Servidores proxy** para servidores do sistema de sites e para as comunicações do cliente. Pode especificar servidores proxy separados para clientes e servidores de sistema de site diferente.|Porque estas configurações são efetuadas no momento que instalar uma função do sistema de sites ou o cliente, apenas terá de ter em consideração as configurações de servidor proxy para futura referência quando configurar funções de sistema de sites e clientes.<br /><br /> Se não tiver a certeza a sua implementação terá de utilizar servidores proxy, consulte [suporte para servidor Proxy no System Center Configuration Manager](../../../core/plan-design/network/proxy-server-support.md) para saber mais sobre as funções do sistema de sites e as ações de cliente que podem utilizar um servidor proxy.|   
 |  

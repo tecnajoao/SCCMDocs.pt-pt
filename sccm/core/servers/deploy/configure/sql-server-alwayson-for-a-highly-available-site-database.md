@@ -1,6 +1,6 @@
 ---
-title: "SQL Server AlwaysOn | Документация Майкрософт"
-description: "Планирование работы с группами доступности SQL Server AlwaysOn совместно с System Center Configuration Manager."
+title: SQL Server Always On | Microsoft Docs
+description: Planear utilizar um SQL Server sempre no grupo de disponibilidade com o SCCM.
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,138 +16,138 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: c746365238e1255d73387a9496521bb03a56b21b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Подготовка к использованию групп доступности SQL Server AlwaysOn для Configuration Manager
+# <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar para utilizar grupos de disponibilidade SQL Server Always On com o Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Подготовьте System Center Configuration Manager к использованию групп доступности SQL Server AlwaysOn для обеспечения высокого уровня доступности и аварийного восстановления базы данных сайта.  
-Configuration Manager поддерживает использование групп доступности:
--     для первичных сайтов и сайтов центра администрирования;
--     в локальной среде или в Microsoft Azure.
+Prepare para utilizar o SQL Server Always On nos grupos de disponibilidade como uma solução de recuperação após desastre e disponibilidade elevada para a base de dados do site do System Center Configuration Manager.  
+O Configuration Manager suporta a utilização de grupos de disponibilidade:
+-     Em sites primários e o site de administração central.
+-     No local, ou no Microsoft Azure.
 
-В среде Microsoft Azure вы можете повысить уровень доступности базы данных сайта, используя *группы доступности Azure*. Дополнительные сведения о группах доступности Azure см. в статье [Управление доступностью виртуальных машин](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).
+Quando utiliza grupos de disponibilidade no Microsoft Azure, pode aumentar ainda mais a disponibilidade da sua base de dados do site utilizando *conjuntos de disponibilidade do Azure*. Para obter mais informações sobre Conjuntos de Disponibilidade do Azure, veja [Gerir a disponibilidade das máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).
 
 >  [!Important]   
->  Прежде чем продолжить, изучите инструкции по настройке SQL Server и групп доступности SQL Server. В этом руководстве предполагается, что вы знакомы с библиотекой документации и процедурами SQL Server.
+>  Antes de continuar, ser confortável com a configuração do SQL Server e grupos de disponibilidade do SQL Server. As informações que se segue faz referência a biblioteca de documentação do SQL Server e procedimentos.
 
-## <a name="supported-scenarios"></a>Поддерживаемые сценарии
-Ниже описаны поддерживаемые сценарии использования групп доступности с Configuration Manager. См. дополнительные сведения о [настройке группы доступности для Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag).
-
-
--      [Создание группы доступности для использования с Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group).
--     [Настройка сайта для использования группы доступности](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group).
--     [Добавление членов синхронной реплики в группу доступности с размещенной базой данных сайта или их удаление из нее](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-synchronous-replica-members).
--     [Настройка реплик асинхронной фиксации](/sccm/core/servers/deploy/configure/configure-aoag#configure-an-asynchronous-commit-repilca) (требуется Configuration Manager 1706 или более поздней версии).
--     [Восстановление сайта из реплики асинхронной фиксации](/sccm/core/servers/deploy/configure/configure-aoag#use-the-asynchronous-replica-to-recover-your-site) (требуется Configuration Manager 1706 или более поздней версии).
--     [Перемещение базы данных сайта из группы доступности в именованный экземпляр или экземпляр автономного сервера SQL Server по умолчанию](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group).
+## <a name="supported-scenarios"></a>Cenários suportados
+Seguem-se cenários suportados para utilizar grupos de disponibilidade com o Configuration Manager. Detalhes e procedimentos para cada podem ser encontrados na [configurar grupos de disponibilidade do Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag).
 
 
-## <a name="prerequisites"></a>Предварительные требования
-На все сценарии распространяются указанные ниже требования. Если к определенному сценарию применимы дополнительные условия, они будут подробно описаны вместе со сценарием.   
+-      [Criar um grupo de disponibilidade para utilização com o Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group).
+-     [Configurar um site para utilizar um grupo de disponibilidade](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group).
+-     [Adicionar ou remover membros de réplica síncrona a partir de um grupo de disponibilidade que aloja uma base de dados do site](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-synchronous-replica-members).
+-     [Configurar réplicas com consolidação assíncrona](/sccm/core/servers/deploy/configure/configure-aoag#configure-an-asynchronous-commit-repilca) (requer o Configuration Manager versão 1706 ou posterior.)
+-     [Recuperar um site a partir de uma réplica de consolidação assíncrona](/sccm/core/servers/deploy/configure/configure-aoag#use-the-asynchronous-replica-to-recover-your-site) (requer o Configuration Manager versão 1706 ou posterior.)
+-     [Mover uma base de dados fora de um grupo de disponibilidade para um predefinido ou com o nome de instância do SQL Server autónomo](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group).
 
-### <a name="configuration-manager-accounts-and-permissions"></a>Учетные записи и разрешения Configuration Manager
-**Сервер сайта для доступа к членам реплики.**   
-Учетная запись компьютера сервера сайта должна входить в группу **Локальные администраторы** на каждом компьютере, входящем в группу доступности.
+
+## <a name="prerequisites"></a>Pré-requisitos
+Os seguintes pré-requisitos aplicam-se a todos os cenários. Se aplicam pré-requisitos adicionais para um cenário específico, às serão detalhadas com esse cenário.   
+
+### <a name="configuration-manager-accounts-and-permissions"></a>O Configuration Manager contas e permissões
+**Servidor do site para o acesso de membro de réplica:**   
+A conta de computador do servidor do site tem de ser membro do grupo **Administradores Locais** em todos os computadores membros do grupo de disponibilidade.
 
 ### <a name="sql-server"></a>SQL Server
-**Версия.**  
-Каждая реплика в группе доступности должна выполнять версию SQL Server, поддерживаемую используемой версией Configuration Manager. На разных узлах группы доступности могут работать разные версии SQL Server, если такая возможность поддерживается SQL Server.
+**Versão:**  
+Cada réplica no grupo de disponibilidade tem de executar uma versão do SQL Server que é suportada pela versão do Configuration Manager. Quando suportado pelo SQL Server, outros nós de um grupo de disponibilidade podem executar diferentes versões do SQL Server.
 
-**Выпуск.**  
-Необходимо использовать выпуск *Enterprise* сервера SQL Server.
+**Edição:**  
+Tem de utilizar um *Enterprise* edição do SQL Server.
 
-**Учетная запись.**  
-Каждый экземпляр SQL Server может работать под учетной записью пользователя домена (**учетной записью службы**) или под учетной записью, не входящей в домен. Все реплики в группе могут иметь разную конфигурацию. В соответствии с [рекомендациями для SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd) следует использовать учетную запись с минимальными необходимыми разрешениями.
+**Conta:**  
+Cada instância do SQL Server pode ser executado sob uma conta de utilizador de domínio (**conta de serviço**) ou uma conta de domínio. Cada réplica num grupo pode ter uma configuração diferente. Por [melhores práticas do SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd), utilizar uma conta com o mais baixo possível de permissões.
 
--   Для SQL Server 2016 на сайте MSDN опубликовано руководство по [настройке учетных записей службы Windows и разрешений](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions).
--   Чтобы использовать учетную запись, не входящую в домен, необходимо применить сертификаты. Дополнительные сведения см. в статье [Использование сертификатов для конечной точки зеркального отображения базы данных (Transact-SQL)](https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql).
+-   Para configurar as permissões para o SQL Server 2016 e contas de serviço, consulte o artigo [configurar contas de serviço do Windows e permissões](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) no MSDN.
+-   Para utilizar uma conta de domínio, tem de utilizar certificados. Para obter mais informações, consulte [utilizar certificados para um Endpoint de espelhamento da base de dados (Transact-SQL)](https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql).
 
 
-См. дополнительные сведения о [создании конечной точки зеркального отображения базы данных для групп доступности AlwaysOn](/sql/database-engine/availability-groups/windows/database-mirroring-always-on-availability-groups-powershell).
+Para obter mais informações consulte [criar um ponto final de espelhamento de base de dados para grupos de disponibilidade Always](/sql/database-engine/availability-groups/windows/database-mirroring-always-on-availability-groups-powershell).
 
-### <a name="availability-group-configurations"></a>Конфигурации групп доступности
-**Члены реплик.**  
--   Группа доступности должна иметь по меньшей мере одну конечную точку.
--   До выхода версии 1706 можно было использовать не более двух синхронных вторичных реплик.
--   Начиная с версии 1706 число и тип реплик, которые вы можете включить в группу доступности, определяются характеристиками используемой версии SQL Server.
+### <a name="availability-group-configurations"></a>Configurações de grupo de disponibilidade
+**Membros de réplica:**  
+-   O grupo de disponibilidade tem de ter uma réplica primária.
+-   Antes de versão 1706, pode ter até duas réplicas secundárias síncronas.
+-   A partir da versão 1706, pode utilizar o mesmo número e tipo de réplicas num grupo de disponibilidade como suportada pela versão do SQL Server que utilizar.
 
-    Вы можете использовать реплику с асинхронной фиксацией для восстановления синхронных реплик. Сведения о том, как это сделать, см. в описании [параметров восстановления базы данных сайта]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) в статье о резервном копировании и восстановлении.
+    Pode utilizar uma réplica de consolidação assíncrona para recuperar a réplica síncrona. Consulte [opções de recuperação de base de dados do site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) no tópico cópia de segurança e recuperação para obter informações sobre como efetuar este procedimento.
     > [!CAUTION]  
-    > Configuration Manager не поддерживает использование реплики с асинхронной фиксацией в качестве базы данных сайта при отработке отказа.
-Так как Configuration Manager не проверяет состояние и актуальность реплики с асинхронной фиксацией, которая [в силу конструктивных особенностей может быть не синхронизирована]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), использование такой реплики в качестве базы данных сайта может нарушить целостность сайта или данных.
+    > O Configuration Manager não suporta a ativação pós-falha para utilizar a réplica de consolidação assíncrona como a base de dados do site.
+Porque o Configuration Manager não valide o estado da réplica de consolidação assíncrona para confirmar a sua atual, e [por predefinição, este tipo uma réplica pode ser sincronizada]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), utilização de uma réplica de consolidação assíncrona, como a base de dados do site pode colocar a integridade do seu site e os dados em risco.
 
-Каждый член реплики:
--   должен использовать **экземпляр по умолчанию**;  
-    *Начиная с версии 1702 можно использовать* ***именованные экземпляры***.
+Tem de cada membro de réplica:
+-   Utilizar a **instância predefinida**  
+    *A partir da versão 1702, pode utilizar um* ***instância nomeada***.
 
--     должен иметь установленное значение **Да** для параметра **Соединения в первичной роли**;
--     должен иметь установленное значение **Да** для параметра **Вторичная реплика для чтения**;  
--     должна быть настроена для **отработки отказа вручную**.      
+-     Ter **ligações na função primária** definido como **Sim**
+-     Ter **secundário legível** definido como **Sim**  
+-     Estar definida para **Ativação Pós-falha Manual**      
 
     >  [!TIP]
-    >  Configuration Manager поддерживает использование синхронных реплик группы доступности, если настроена **автоматическая отработка отказа**. Но в некоторых случаях должен быть настроен **переход на другой ресурс вручную**, например:
-    >  -  если вы запустили программу установки, чтобы настроить использование базы данных сайта в группе доступности;
-    >  -  если вы установили любое обновление Configuration Manager (даже не имеющее отношения к базе данных сайта).  
+    >  Suporte do Configuration Manager utilizando a disponibilidade de réplicas síncronas quando definidas como do grupo **ativação pós-falha automática**. No entanto, **ativação pós-falha do Manual** tem de ser definida quando:
+    >  -  Execute a configuração para especificar a utilização da base de dados do site no grupo de disponibilidade.
+    >  -  Quando instalar qualquer atualização para o Configuration Manager (não apenas as atualizações aplicáveis à base de dados do site).  
 
-**Расположение члена реплики.**  
-Все реплики в группе доступности должны размещаться только локально или только в Microsoft Azure. Не поддерживается создание групп, включающих одновременно локальные и облачные (Azure) члены.     
+**Localização de membro de réplica:**  
+Todas as réplicas num grupo de disponibilidade tem de ser alojado no local ou alojado no Microsoft Azure. Não é suportado um grupo que inclua um membro no local e o membro no Azure.     
 
-Если вы настраиваете группу доступности, которая располагается в Azure и за пределами внутренней или внешней подсистемы балансировки нагрузки, откройте перечисленные ниже порты по умолчанию для доступа программы установки к каждой реплике.   
+Quando configurar um grupo de disponibilidade no Azure e o grupo está atrás de um balanceador de carga internos ou externos, seguem-se portas predefinidas, tem de abrir para ativar o programa de configuração acesso para cada réplica:   
 
--     Сопоставитель конечных точек RPC: **порт TCP 135**.   
--     Протокол SMB: **порт TCP 445**.  
-    *Этот порт можно удалить, когда перемещение базы данных завершится. Начиная с версии 1702 этот порт больше не требуется.*
--     SQL Server Service Broker: **порт TCP 4022**.
--     SQL по TCP: **порт TCP 1433**.   
+-     Mapeador de pontos finais RCP - **TCP 135**   
+-     Bloco de mensagem de servidor – **TCP 445**  
+    *Pode remover esta porta depois de concluir a movimentação de base de dados. A partir da versão 1702, esta porta já não é necessária.*
+-     SQL Server Service Broker - **TCP 4022**
+-     SQL sobre TCP – **TCP 1433**   
 
-После завершения программы установки должны оставаться открытыми следующие порты.
--     SQL Server Service Broker: **порт TCP 4022**.
--     SQL по TCP: **порт TCP 1433**.
+Após a conclusão da configuração, as portas seguintes têm de permanecer acessíveis:
+-     SQL Server Service Broker - **TCP 4022**
+-     SQL sobre TCP – **TCP 1433**
 
-Начиная с версии 1702 для этих конфигураций можно использовать настраиваемые порты. Необходимо использовать одинаковые порты на конечной точке и на всех репликах в группе доступности.
+A partir da versão 1702, pode utilizar portas personalizadas para estas configurações. As mesmas portas tem de ser utilizadas pelo ponto final e, em todas as réplicas no grupo de disponibilidade.
 
 
-**Прослушиватель.**   
-Группа доступности должна иметь минимум один **прослушиватель группы доступности**. Виртуальное имя этого прослушивателя применяется при настройке Configuration Manager для использования базы данных сайта в группе доступности. Хотя группа доступности может содержать несколько прослушивателей, Configuration Manager может использовать только один. См. дополнительные сведения о [создании или настройке прослушивателя группы доступности (SQL Server)](/sql/database-engine/availability-groups/windows/create-or-configure-an-availability-group-listener-sql-server).
+**Serviço de escuta:**   
+O grupo de disponibilidade tem de ter, pelo menos, um **serviço de escuta do grupo de disponibilidade**. O nome virtual deste serviço de escuta é utilizado quando configurar o Configuration Manager para utilizar a base de dados do site no grupo de disponibilidade. Apesar de um grupo de disponibilidade pode conter vários serviços de escuta, o Configuration Manager só pode efetuar utilizar um. Consulte [criar ou configurar um serviço de escuta do grupo de disponibilidade (SQL Server)](/sql/database-engine/availability-groups/windows/create-or-configure-an-availability-group-listener-sql-server) para obter mais informações.
 
-**Пути к файлам.**   
-Когда вы запускаете программу установки Configuration Manager, чтобы настроить сайт для использования базы данных в группе доступности, на каждом сервере вторичной реплики в группе должен существовать такой же путь к файлам SQL Server, который указан для базы данных сайта на текущей первичной реплике.
--   Если такой путь не существует, программе установки не удастся добавить этот экземпляр группы доступности в качестве нового расположения базы данных сайта.
--   Кроме того, локальной учетной записи службы SQL Server должно быть назначено разрешение **Полный доступ** для этой папки.
+**Caminhos de ficheiro:**   
+Quando executar a configuração do Configuration Manager para configurar um site para utilizar a base de dados num grupo de disponibilidade, cada servidor de réplica secundária tem de ter um caminho de ficheiro do SQL Server que é idêntico para o caminho de ficheiro para os ficheiros de base de dados do site como foi encontrado na réplica primária atual.
+-   Se não existir um caminho idêntico, o programa de configuração falhará adicionar a instância para o grupo de disponibilidade como a nova localização da base de dados do site.
+-   Além disso, a conta de serviço do SQL Server local tem de ter **controlo total** permissão para esta pasta.
 
-Этот путь к файлам требуется вторичным серверам-репликам, только когда вы используете программу установки, чтобы указать экземпляр базы данных в группе доступности. Когда программа установки закончит настройку для использования базы данных сайта в группе доступности, вы можете удалить неиспользуемый путь с серверов вторичной реплики.
+Os servidores de réplica secundária apenas exigem este caminho de ficheiro enquanto estiver a utilizar a Configuração para especificar a instância de base de dados no grupo de disponibilidade. Depois da configuração conclui a configuração de base de dados do site no grupo de disponibilidade, pode eliminar o caminho não utilizado do secundário servidores de réplica.
 
-Например, рассмотрим следующий сценарий.
--   Вы создали группу доступности, которая использует три сервера SQL Server.
+Por exemplo, considere os seguintes cenários:
+-   Criar um grupo de disponibilidade que utiliza três SQL Servers.
 
--   Сервер первичной реплики является новой установкой SQL Server 2014. По умолчанию файлы базы данных .mdf и .ldf хранятся в следующем расположении: C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA.
+-   O servidor de réplica primária é uma nova instalação do SQL Server 2014. Por predefinição, a base de dados. MDF e. Ficheiros LDF são armazenados em C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL\DATA.
 
--   Оба сервера вторичной реплики обновлены до SQL Server 2014 с сохранением исходного пути для хранения файлов базы данных (C:\Program Files\Microsoft SQL Server\MSSQL10.MSSQLSERVER\MSSQL\DATA).
+-   Ambos os servidores de réplica secundária foram atualizados para o SQL Server 2014 de versões anteriores e manter o caminho original do ficheiro para armazenar ficheiros de base de dados de: C:\Program Files\Microsoft SQL Server\MSSQL10. MSSQLSERVER\MSSQL\DATA.
 
--   Перед попыткой переместить базу данных сайта в эту группу доступности на каждом сервере вторичной реплики необходимо создать следующий путь к файлу, даже если вторичные реплики не будут использовать это расположение: C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA (это дубликат пути, который используется на сайте первичной реплики).
+-   Antes de tentar mover a base de dados do site a este grupo de disponibilidade, em cada servidor de réplica secundária tem de criar o seguinte caminho de ficheiro, mesmo se réplicas secundárias não irão utilizar esta localização de ficheiro: C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL\DATA (este é um duplicado do caminho que está a ser utilizado na réplica primária).
 
--   Теперь на каждом сервере вторичной реплики предоставьте учетной записи службы SQL Server полный доступ к только что созданному расположению.
+-   Em seguida, conceder a conta de serviço do SQL Server no acesso de controlo total cada réplica secundária para a localização do ficheiro recém-criado nesse servidor.
 
--   После этого можно запустить программу установки Configuration Manager, чтобы настроить на сайте использование базы данных сайта, размещенной в группе доступности.
+-   Agora pode executar a configuração do Configuration Manager para configurar o site para utilizar a base de dados do site no grupo de disponibilidade com êxito.
 
-**Настройка сервера реплики базы данных.**   
- Для базы данных на каждой реплике должны быть установлены следующие параметры:
--   **интеграция со средой CLR** должна быть *включена*;
--     параметр **Max text repl size** должен иметь значение *2147483647*;
--     владельцем базы данных должна являться *учетная запись SA*;
--     параметр **TRUSTWORTY** должен иметь значение **ON**;
--     **компонент Service Broker** должен быть *включен*.
+**Configure a base de dados numa nova réplica:**   
+ A base de dados de cada réplica tem de ser definido com o seguinte:
+-   **A integração do CLR** tem de ser *ativada*
+-     **Tamanho máximo de repl de texto** tem de ser *2147483647*
+-     O proprietário da base de dados tem de ser o *conta SA*
+-     **TRUSTWORTY** tem de ser **ON**
+-     **Mediador de serviço** tem de ser *ativada*
 
-Эти настройки можно изменять только на первичной реплике. Чтобы настроить вторичную реплику, необходимо выполнить отработку отказа с первичной на вторичную реплику, чтобы вторичная реплика стала новой первичной репликой.   
+Pode efetuar estas configurações em apenas uma réplica primária. Para configurar uma réplica secundária, deve primeiro ativação pós-falha principal para secundário para tornar o secundário tornando secundário nova réplica primária.   
 
-Дополнительные сведения о настройке параметров см. в документации по SQL Server. Например, эти разделы документации по SQL Server посвящены параметрам [TRUSTWORTHY](/sql/relational-databases/security/trustworthy-database-property) и [интеграции со средой CLR](/sql/relational-databases/clr-integration/clr-integration-enabling).
+Utilize a documentação do SQL Server quando for necessário para o ajudar a configurar as definições. Por exemplo, consulte [TRUSTWORTHY](/sql/relational-databases/security/trustworthy-database-property) ou [integração do CLR](/sql/relational-databases/clr-integration/clr-integration-enabling) na documentação do SQL Server.
 
-### <a name="verification-script"></a>Скрипт проверки
-Вы можете выполнить следующий скрипт, чтобы проверить конфигурацию базы данных на первичной и вторичной репликах. Прежде чем устранять проблемы на вторичной реплике, необходимо сделать эту вторичную реплику первичной.
+### <a name="verification-script"></a>Script de verificação
+Pode executar o script seguinte para verificar as configurações de base de dados para réplicas primárias e secundárias. Pode corrigir um problema numa réplica secundária, tem de alterar essa réplica secundária a réplica primária.
 
     SET NOCOUNT ON
 
@@ -207,53 +207,53 @@ Configuration Manager поддерживает использование гру
 
     Branch_Exit:
 
-## <a name="limitations-and-known-issues"></a>Ограничения и известные проблемы
-На все сценарии распространяются указанные ниже ограничения.   
+## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
+As seguintes limitações aplicam-se a todos os cenários.   
 
-**Базовые группы доступности не поддерживаются.**  
-Начиная с SQL Server 2016 выпуска Standard [базовые группы доступности](https://msdn.microsoft.com/library/mt614935.aspx) не поддерживают доступ для чтения ко вторичным репликам, который необходим для взаимодействия с Configuration Manager.
+**Grupos de disponibilidade básico não são suportados:**  
+Introduzida com o SQL Server 2016 Standard edition, [grupos de disponibilidade básico](https://msdn.microsoft.com/library/mt614935.aspx) não suportam o acesso de leitura para as réplicas secundárias, um requisito para utilização com o Configuration Manager.
 
-**Серверы SQL, на которых размещаются дополнительные группы доступности.**   
-Группа доступности на узлах SQL Server может размещать одну или несколько дополнительных групп доступности, кроме используемой для Configuration Manager. В таком случае перед установкой Configuration Manager версии 1610 необходимо указать для каждой из дополнительных групп доступности представленный ниже набор настроек. Только после этого можно будет запускать программу настройки Configuration Manager или устанавливать обновление для Configuration Manager.
--   **отработки отказа вручную**
--   **разрешения любого подключения только для чтения**
+**Servidores SQL que alojam os grupos de disponibilidade adicionais:**   
+Antes do Configuration Manager versão 1610, quando um grupo de disponibilidade em anfitriões um SQL Server um ou mais grupos de disponibilidade para além do grupo a utilizar para o Configuration Manager, cada réplica em cada um desses grupos de disponibilidade adicionais tem de ter as seguintes configurações definido no momento em que executar a configuração do Configuration Manager ou instala uma atualização para o Configuration Manager:
+-   **Ativação Pós-falha Manual**
+-   **permitir todas as ligações só de leitura**
 
-**Неподдерживаемые сценарии использования базы данных.**
--   **Configuration Manager позволяет использовать в группе доступности только базу данных сайта.** Не поддерживается:
-    -   база данных отчетов;
-    -   база данных WSUS.
--   **Существующие базы данных.** Нельзя использовать новую базу данных, созданную в реплике. Вместо этого при настройке группы доступности необходимо восстановить на первичной реплике копию существующей базы данных Configuration Manager.
+**Utilização de base de dados não suportados:**
+-   **O Configuration Manager suporta apenas a base de dados num grupo de disponibilidade:** Os seguintes não são suportados:
+    -   Base de dados de relatórios
+    -   Base de dados do WSUS
+-   **Base de dados previamente existente:** Não é possível utilizar a nova base de dados criada na réplica. Em vez disso, tem de restaurar uma cópia da base de dados existente do Configuration Manager para a réplica primária quando configurar um grupo de disponibilidade.
 
-**Ошибки установки в файле ConfigMgrSetup.log.**  
-Когда вы выполняете программу установки для перемещения базы данных сайта в группу доступности, программа установки пытается обработать роли базы данных на вторичных репликах группы доступности и записывает ошибки следующим образом:
--   ОШИБКА. Ошибка SQL Server: [25000][3906][Microsoft][SQL Server Native Client 11.0][SQL Server] Не удалось обновить базу данных "CM_AAA", так как она предназначена только для чтения. Configuration Manager Setup 1/21/2016 4:54:59 PM 7344 (0x1CB0)  
+**Erros no ficheiro configmgrsetup.log, localizado o programa de configuração:**  
+Quando executar a configuração para mover uma base de dados do site para um grupo de disponibilidade, a configuração tenta processar as funções de base de dados nas réplicas secundárias do grupo de disponibilidade e regista erros, como o seguinte:
+-   ERRO: Erro de servidor de SQL: [25000] [3906] [Microsoft] [SQL Server Native cliente 11.0] [SQL Server] Falha ao atualizar a base de dados "CM_AAA", porque a base de dados é só de leitura. Programa de configuração do Configuration Manager 21/1/2016 4:54 em: 59 PM 7344 (0x1CB0)  
 
-Эти ошибки можно спокойно игнорировать.
+Estes erros são seguros ignorar.
 
-## <a name="changes-for-site-backup"></a>Изменения, относящиеся к резервному копированию сайта
-**Файлы резервной копии базы данных .**  
-Если база данных сайта работает в группе доступности, следует запускать встроенную задачу обслуживания **Резервное копирование сайта**, которая создает резервные копии основных параметров и файлов Configuration Manager. Но не планируйте использовать файлы с расширением .mdf или .ldf, созданные этой задачей резервного копирования. Вместо этого создавайте прямые резервные копии базы данных сайта средствами SQL Server.
+## <a name="changes-for-site-backup"></a>Alterações para cópia de segurança do site
+**Ficheiros de base de dados de cópia de segurança:**  
+Quando uma base de dados do site é executada num grupo de disponibilidade, deve executar incorporada **servidor do Site de cópia de segurança** tarefa de manutenção efetuar cópia de segurança comuns ficheiros e definições de Configuration Manager. No entanto, não utilize o. MDF ou. Ficheiros LDF criados por essa cópia de segurança. Em vez disso, tornar diretas cópias de segurança destes ficheiros de base de dados utilizando o SQL Server.
 
-**Журнал транзакций.**  
-Для модели восстановления базы данных сайта необходимо выбрать режим **Полное** (это необходимо для групп доступности). В такой конфигурации важно следить за размером журнала транзакций базы данных сайта и корректировать его по мере необходимости. В модели полного восстановления транзакции не защищены, пока не создана полная резервная копия базы данных или журнала транзакций. См. дополнительные сведения о [резервном копировании и восстановлении баз данных SQL Server](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) в документации по SQL Server.
+**Registo de transações:**  
+O modelo de recuperação da base de dados do site tem de ser definido como **completa** (um requisito para utilização num grupo de disponibilidade). Com esta configuração, planeie a monitorizar e manter o tamanho do registo de transações de base de dados do site. No modelo de recuperação completa, as transações não são protegidas até ser feita uma cópia de segurança completa da base de dados ou do registo de transações. Consulte [cópia de segurança e restauro de bases de dados](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) na documentação do SQL Server para obter mais informações.
 
-## <a name="changes-for-site-recovery"></a>Изменения, относящиеся к восстановлению сайта
-При восстановлении сайта вы можете использовать вариант **Пропустить восстановление базы данных (используйте этот параметр, если база данных сайта не затронута)**, если функционирует хотя бы один узел группы доступности.
+## <a name="changes-for-site-recovery"></a>Alterações para a recuperação de site
+Pode utilizar a opção de recuperação de site **ignorar recuperação de base de dados (Utilize esta opção se a base de dados do site não tiver sido afetada)** se pelo menos um nó do grupo de disponibilidade permaneça funcional.
 
- Но если все узлы группы доступности стали недоступными, перед восстановлением сайта необходимо повторно создать группу доступности. Configuration Manager не может самостоятельно создавать или восстанавливать узлы доступности. Когда группа будет повторно создана, а резервная копия восстановлена и настроена, вы можете выполнить восстановление сайта в режиме **Пропустить восстановление базы данных (используйте этот параметр, если база данных сайта не затронута)**.
+ Para poder recuperar o site quando todos os nós de um grupo de disponibilidade tem sido perdidos, tem de recriar o grupo de disponibilidade. O Configuration Manager não consegue reconstruir ou restaurar o nó de disponibilidade. Depois do grupo é recriado e uma cópia de segurança restaurada e reconfigurada, em seguida, pode utilizar a opção de recuperação de site **ignorar recuperação de base de dados (Utilize esta opção se a base de dados do site não tiver sido afetada)**.
 
-Дополнительные сведения см. в разделе [Резервное копирование и восстановление в System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
+Para obter mais informações, consulte [cópia de segurança e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-## <a name="changes-for-reporting"></a>Изменения, относящиеся к отчетам
-**Установка точки служб отчетов.**  
-Точка служб отчетов не поддерживает использование виртуального имени прослушивателя для группы доступности или размещение базы данных служб отчетов в группе доступности AlwaysOn в SQL Server.
--   По умолчанию при установке точки служб отчетов для параметра **Имя сервера базы данных сайта** устанавливается виртуальное имя, указанное для прослушивателя. Измените этот параметр, чтобы указать имя компьютера и экземпляр реплики в группе доступности.
--   Чтобы снизить нагрузку, связанную с отчетами, и повысить доступность узла реплики в автономном режиме, мы рекомендуем установить дополнительные точки служб отчетов на каждом узле реплики и настроить каждую точку служб отчетов так, чтобы она указывала на собственное имя компьютера.
+## <a name="changes-for-reporting"></a>Alterações para relatórios
+**Instale o ponto de serviço Reporting Services:**  
+Ponto do reporting services não suporta a utilizar o nome virtual do serviço de escuta do grupo de disponibilidade ou o alojamento de base de dados do Reporting Services num grupo de disponibilidade SQL Server Always On:
+-   Por predefinição, do Reporting Services conjuntos de instalação do ponto de **nome do servidor de base de dados de sites** para o nome virtual que está especificado como o serviço de escuta. Altere esta opção para especificar um nome de computador e a instância de uma réplica no grupo de disponibilidade.
+-   Para descarregar a carga de relatórios e para aumentar a disponibilidade, quando um nó de réplica estiver offline, considere a instalação de pontos do Reporting Services em cada nó de réplica e configurar cada do Reporting Services ponto a ponto para o seu próprio nome de computador adicionais.
 
-Если вы установите точку служб отчетов на каждой реплике в группе доступности, служба отчетов всегда сможет связаться с активным сервером точки служб отчетов.
+Quando instala um ponto de serviço Reporting Services em cada réplica do grupo de disponibilidade, Reporting Services podem sempre ligar a um servidor de ponto de Reporting Services Active Directory.
 
-**Изменение используемой точки служб отчетов с помощью консоли.**  
-Чтобы запустить отчеты, перейдите в консоли к разделу **Мониторинг** > **Обзор** > **Компонент для создания отчетов** > **Отчеты**и нажмите кнопку **Параметры отчета**. В диалоговом окне параметров отчета выберите нужные точки служб отчетов.
+**Mude ponto do reporting services utilizado pela consola:**  
+Para executar relatórios, na consola do aceda a **monitorização** > **descrição geral** > **reporting** > **relatórios**e, em seguida, escolha **opções de relatórios**. Na caixa de diálogo Opções de relatório, selecione o ponto do Reporting Services pretendido.
 
-## <a name="next-steps"></a>Дальнейшие действия
-Когда вы ознакомитесь с предварительными требованиями, ограничениями и изменениями в типичных задачах, которые выполняются при использовании групп доступности, переходите к инструкциям по [настройке групп доступности для Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag). Вы узнаете, как устанавливать и настраивать сайты для использования групп доступности.
+## <a name="next-steps"></a>Passos seguintes
+Depois de compreender os pré-requisitos, limitações e as alterações para tarefas comuns que são necessárias quando utiliza grupos de disponibilidade, consulte o artigo [configurar grupos de disponibilidade do Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag), para obter os procedimentos definir e configurar o seu site para utilizar grupos de disponibilidade.

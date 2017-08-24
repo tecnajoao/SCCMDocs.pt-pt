@@ -1,6 +1,6 @@
 ---
-title: "Примеры смены состояний проверки для аналитики активов | Документы Майкрософт"
-description: "Ознакомьтесь с примерами смены состояний проверки для аналитики активов в System Center Configuration Manager."
+title: "Transições de Estados de validação de exemplo para o Asset Intelligence | Microsoft Docs"
+description: "Veja exemplos de transições de estado de validação do Asset Intelligence no System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,66 +17,66 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: f280e06f34c0ed355b7c2652c571e36eb6684c59
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Примеры смены состояний проверки для аналитики активов в System Center Configuration Manager
+# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Transições de Estados de validação de exemplo para o Asset Intelligence no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Состояния проверки аналитики активов в System Center Configuration Manager не являются статичными и могут изменяться в зависимости от выполняемых администратором действий с данными, хранимыми в каталоге аналитики активов. В этом разделе приводятся примеры возможных вариантов смены состояния проверки.
+Estados de validação do Asset Intelligence no System Center Configuration Manager não são estáticos e podem ser alterado de ações administrativas para afetar os dados que são armazenados no catálogo do Asset Intelligence. Este tópico fornece exemplos de validação possíveis transições de estado.
 
-##  <a name="BKMK_UncategorizedIsCategorized"></a> Элементу каталога без категории пользователем с правами администратора присвоена категория.  
+##  <a name="BKMK_UncategorizedIsCategorized"></a> O item de catálogo não categorizado foi categorizado pelo utilizador administrativo  
 
-|**Смена состояния**|**Описание смены состояния**|  
+|**Transição de estado**|**Descrição da transição de estado**|  
 |--------------------------|--------------------------------------|  
-|**Без категории**|Название инвентаризованной программы, которой сайтом System Center Online не была присвоена категория или которое пользователь ввел в каталог аналитики активов.|  
-|**Без категорий** для **пользователяопределенные**|Элементу без категории пользователем присвоена категория.|  
+|**Não categorizado**|Um título de software inventariado que não foi categorizado anteriormente pelo System Center Online ou que o utilizador administrativo introduziu no catálogo do Asset Intelligence.|  
+|**Não Categorizado** para **Definido peloUtilizador**|O item não categorizado foi categorizado pelo utilizador administrativo.|  
 
-##  <a name="BKMK_CategorizedIsReCategorized"></a> Категория элемента каталога изменена пользователем с правами администратора.  
+##  <a name="BKMK_CategorizedIsReCategorized"></a> O item de catálogo categorizado foi novamente categorizado pelo utilizador administrativo  
 
-|**Смена состояния**|**Описание смены состояния**|  
+|**Transição de estado**|**Descrição da transição de estado**|  
 |--------------------------|--------------------------------------|  
-|**Проверено**|Элемент каталога определен исследователями System Center Online и присутствует в каталоге аналитики активов.|  
-|**Проверено** на **Задано пользователем**|Категория проверенного элемента каталога изменена пользователем.|  
+|**Validado**|O item de catálogo foi definido pelos investigadores do System Center Online e está presente no catálogo do Asset Intelligence.|  
+|**Validado** para **Definido pelo Utilizador**|O item de catálogo validado foi novamente categorizado pelo utilizador administrativo.|  
 
 > [!NOTE]  
->  Поскольку сведения о категориях, полученные с сайта System Center Online, хранятся в базе данных и не подлежат удалению, пользователь позднее может восстановить данные классификации System Center Online.  
+>  Uma vez que as informações de categorização obtidas a partir do System Center Online estão armazenadas na base de dados e não podem ser eliminadas, o utilizador administrativo pode reverter mais tarde para a categorização do System Center Online.  
 
-##  <a name="BKMK_UserDefinedIsRecategorized"></a> Категория элемента каталога, задаваемого пользователем, изменена сайтом System Center Online.  
+##  <a name="BKMK_UserDefinedIsRecategorized"></a> O item de catálogo definido pelo utilizador foi novamente categorizado pelo System Center Online  
 
-|**Смена состояния**|**Описание смены состояния**|  
+|**Transição de estado**|**Descrição da transição de estado**|  
 |--------------------------|--------------------------------------|  
-|**Без категории**|Название инвентаризованной программы, которой сайтом System Center Online или пользователем не была присвоена категория, вводится в каталог аналитики активов.|  
-|**Задано пользователем**|Элементу без категории пользователем присвоена категория.|  
-|**Задано пользователем** на **Возможно обновление**|Задаваемому пользователем элементу каталога во время последующих массовых обновлений (в ручном режиме) каталога аналитики активов сайтом System Center Online присвоена другая категория.<br /><br /> Пользователь может использовать диалоговое окно **Устранение противоречия в сведениях о программном обеспечении** , чтобы решить, нужно ли применить новые данные классификации или предыдущее, заданное пользователем значение.|  
-|**Возможно обновление** на **Проверено**|Пользователь использует диалоговое окно **Устранение противоречия в сведениях о программном обеспечении** , чтобы просмотреть новые данные классификации, полученные с сайта System Center Online во время предыдущего обновления каталога.|  
-|или||  
-|**Возможно обновление** на **Задано пользователем**|Пользователь использует диалоговое окно **Устранение противоречия в сведениях о программном обеспечении** , чтобы получить предыдущее значение, заданное пользователем.|  
+|**Não categorizado**|Um título de software inventariado introduzido no catálogo do Asset Intelligence que não foi categorizado anteriormente pelo System Center Online ou pelo utilizador administrativo.|  
+|**Definido pelo Utilizador**|O item não categorizado foi categorizado pelo utilizador administrativo.|  
+|**Definido pelo Utilizador** para **Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo System Center Online durante atualizações em massa manuais do catálogo do Asset Intelligence.<br /><br /> O utilizador administrativo pode utilizar a caixa de diálogo **Resolução de Conflitos de Detalhes de Software** para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior.|  
+|**Atualizável** para **Validado**|O utilizador administrativo utiliza a caixa de diálogo **Resolução de Conflitos de Detalhes de Software** para utilizar as novas informações de categorização recebidas a partir do System Center Online durante a atualização do catálogo anterior.|  
+|ou||  
+|**Atualizável** para **Definido pelo Utilizador**|O utilizador administrativo utiliza a caixa de diálogo **Resolução de Conflitos de Detalhes de Software** para utilizar o valor definido pelo utilizador anterior.|  
 
 > [!NOTE]  
->  Поскольку сведения о категориях, полученные с сайта System Center Online, хранятся в базе данных и не подлежат удалению, пользователь позднее может восстановить данные классификации System Center Online.  
+>  Uma vez que as informações de categorização obtidas a partir do System Center Online estão armazenadas na base de dados e não podem ser eliminadas, o utilizador administrativo pode reverter mais tarde para a categorização do System Center Online.  
 
-##  <a name="BKMK_UncategorizedIsSubmitted"></a> Элемент каталога без категории передан в систему System Center Online для назначения категории.  
+##  <a name="BKMK_UncategorizedIsSubmitted"></a> O item de catálogo não categorizado foi submetido para o System Center Online para categorização  
 
-|**Смена состояния**|**Описание смены состояния**|  
+|**Transição de estado**|**Descrição da transição de estado**|  
 |--------------------------|--------------------------------------|  
-|**Без категории**|Название инвентаризованной программы, которой сайтом System Center Online или пользователем не была присвоена категория, вводится в базу данных аналитики активов.|  
-|**Без категории** на **Ожидание**|Элемент без категории передан пользователем в систему System Center Online для присвоения категории.|  
-|**Ожидание** на **Проверено**|Элементу назначена категория System Center Online. Пользователь импортирует элемент в каталог аналитики активов, используя функцию массового обновления каталога или синхронизации каталога аналитики активов. Обе функции доступны в роли системы сайта "точка синхронизации аналитики активов".|  
+|**Não categorizado**|Um título de software inventariado introduzido na base de dados do Asset Intelligence que não foi categorizado anteriormente pelo System Center Online ou pelo utilizador administrativo.|  
+|**Não Categorizado** para **Pendente**|O item não categorizado foi submetido para o System Center Online para categorização pelo utilizador administrativo.|  
+|**Pendente** para **Validado**|O item é categorizado pelo System Center Online. O utilizador administrativo importa o item para o catálogo do Asset Intelligence através de uma atualização de catálogo em massa ou da sincronização do catálogo do Asset Intelligence. Ambos estão disponíveis utilizando uma função de sistema de sites do ponto de sincronização do Asset Intelligence.|  
 
-##  <a name="BKMK_UserDefinedIsSubmitted"></a> Элемент каталога, задаваемый пользователем, передан в систему System Center Online для назначения категории.  
+##  <a name="BKMK_UserDefinedIsSubmitted"></a> O item de catálogo definido pelo utilizador foi submetido para o System Center Online para categorização  
 
-|**Смена состояния**|**Описание смены состояния**|  
+|**Transição de estado**|**Descrição da transição de estado**|  
 |--------------------------|--------------------------------------|  
-|**Без категории**|Название инвентаризованной программы, которой пользователем или сайтом System Center Online не была присвоена категория, вводится в базу данных аналитики активов.|  
-|**Задано пользователем**|Вы назначаете категорию элементу без категории.|  
-|**Задано пользователем** на **Ожидание**|Вы отправляете элемент каталога, заданный пользователем, в систему System Center Online для назначения категории.|  
-|**Ожидание** на **Возможно обновление**|Элемент каталога, задаваемый пользователем, получил другую категорию System Center Online во время последующей синхронизации каталога. Задать использование новых данных классификации или предыдущего значения, заданного пользователем, можно с помощью действия **Устранить конфликт** . Дополнительные сведения об устранении конфликтов см. в разделе [Устранение противоречия в сведениях о программном обеспечении](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
-|**Возможно обновление** на **Проверено**|Используя действие **Устранить конфликт** , можно выбрать новые данные классификации, полученные с сайта System Center Online во время предыдущего обновления каталога. Дополнительные сведения об устранении конфликтов см. в разделе [Устранение противоречия в сведениях о программном обеспечении](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
-|или||  
-|**Возможно обновление** на **Задано пользователем**|Используя действие **Устранить конфликт** , можно задать использование предыдущего значения, определенного пользователем. Дополнительные сведения об устранении конфликтов см. в разделе [Устранение противоречия в сведениях о программном обеспечении](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Não categorizado**|Um título de software inventariado introduzido na base de dados do Asset Intelligence que não foi categorizado por um utilizador administrativo ou pelo System Center Online.|  
+|**Definido pelo Utilizador**|Categorizou o item não categorizado.|  
+|**Definido pelo Utilizador** para **Pendente**|Submete o item definido pelo utilizador para o System Center Online para categorização.|  
+|**Pendente** para **Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo System Center Online durante a sincronização do catálogo subsequente. Pode utilizar a ação **Resolver Conflito** para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Atualizável** para **Validado**|Utilize a ação **Resolver Conflito** e selecione as novas informações de categorização recebidas a partir do System Center Online durante a atualização do catálogo anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|ou||  
+|**Atualizável** para **Definido pelo Utilizador**|Utilize a ação **Resolver Conflito** e selecione para utilizar o valor definido pelo utilizador anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
 
 > [!NOTE]  
->  Поскольку сведения о категориях, полученные с сайта System Center Online, хранятся в базе данных и не подлежат удалению, данные классификации System Center Online можно восстановить позднее.  
+>  Uma vez que as informações de categorização obtidas a partir do System Center Online estão armazenadas na base de dados e não podem ser eliminadas, pode reverter mais tarde para a categorização do System Center Online.  

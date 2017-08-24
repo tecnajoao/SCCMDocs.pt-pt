@@ -1,6 +1,6 @@
 ---
-title: "Необходимые условия для управления питанием | Документы Майкрософт"
-description: "Ознакомьтесь с необходимыми условиями для управления питанием в System Center Configuration Manager."
+title: "Pré-requisitos para gestão de energia | Microsoft Docs"
+description: "Obter os pré-requisitos para a gestão de energia no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,27 +17,27 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 711ef491899846b86bfed0355ac7fd0f9d509c4f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-power-management-in-system-center-configuration-manager"></a>Необходимые условия для управления питанием в System Center Configuration Manager
+# <a name="prerequisites-for-power-management-in-system-center-configuration-manager"></a>Pré-requisitos para gestão de energia no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Функция управления питанием в System Center Configuration Manager имеет внешние зависимости и зависимости в пределах продукта.  
+Gestão de energia no System Center Configuration Manager tem dependências externas e dependências no produto.  
 
-## <a name="dependencies-external-to-configuration-manager"></a>Внешние зависимости Configuration Manager  
- Приведенная ниже таблица содержит список внешних зависимостей Configuration Manager для использования функций управления питанием.  
+## <a name="dependencies-external-to-configuration-manager"></a>Dependências externas ao Configuration Manager  
+ A tabela seguinte lista as dependências externas ao Configuration Manager para utilizar a gestão de energia.  
 
-|Зависимость|Дополнительные сведения|  
+|Dependência|Mais informações|  
 |----------------|----------------------|  
-|Клиентские компьютеры должны поддерживать требуемые режимы питания.|Чтобы использовать все возможности функций управления питанием, клиентские компьютеры должны поддерживать спящий режим, режим гибернации, выход из спящего режима и выход из режима гибернации. Соответствующие сведения о поддержке содержатся в отчете **Возможности электропитания** . Дополнительные сведения см. в подразделе [Отчет "Возможности электропитания"](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Capabilites) раздела [Отслеживание и планирование управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).|  
+|Os computadores cliente devem ter capacidade para suportar os estados de energia necessários|Para utilizar todas as funcionalidades de gestão de energia, os computadores cliente devem ser capazes de suportar as ações do modo de suspensão, hibernação, reativação da suspensão e reativação da hibernação. Pode utilizar o relatório **Funções de Energia** para determinar se os computadores podem suportar estas ações. Para obter mais informações, consulte [relatório capacidades de energia](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Capabilites) no tópico [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).|  
 
-## <a name="configuration-manager-dependencies"></a>Зависимости Configuration Manager  
- Приведенная ниже таблица содержит список зависимостей в Configuration Manager для использования функций управления питанием.  
+## <a name="configuration-manager-dependencies"></a>Dependências do Configuration Manager  
+ A tabela seguinte lista as dependências do Configuration Manager para utilizar a gestão de energia.  
 
-|Зависимость|Дополнительные сведения|  
+|Dependência|Mais informações|  
 |----------------|----------------------|  
-|Прежде чем можно будет создавать схемы управления питанием и отслеживать их выполнение, необходимо включить функцию управления питанием.|Сведения о включении и настройке управления питанием см. в разделе [Настройка функций управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).|  
-|Точка служб отчетов|Прежде чем можно будет просматривать отчеты управления питанием, необходимо настроить точку служб отчетов. Дополнительные сведения см. в статье [Ведение отчетов в System Center Configuration Manager](../../../../core/servers/manage/reporting.md).|  
+|A gestão de energia deve ser ativada antes de criar e monitorizar os esquemas de energia.|Para obter informações sobre como ativar e configurar a gestão de energia, consulte [configurar gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).|  
+|Ponto do Reporting Services|Deve configurar um ponto do sistema de reporte antes de poder visualizar relatórios de gestão de energia. Para obter mais informações, veja [Relatórios no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).|  

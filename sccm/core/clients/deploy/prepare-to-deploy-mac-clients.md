@@ -1,6 +1,6 @@
 ---
-title: "Подготовка к развертыванию клиентского программного обеспечения на компьютерах Mac | Документы Майкрософт"
-description: "Задачи по настройке, которые необходимо выполнить перед развертыванием клиента Configuration Manager на компьютерах Mac."
+title: Preparar para implementar o software de cliente para Macs | Microsoft Docs
+description: "Tarefas de configuração antes de implementar o cliente do Configuration Manager em Mac."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -16,178 +16,178 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: b3bb72f81812705b4654e268025074402e89a7cb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-to-deploy-client-software-to-macs"></a>Подготовка к развертыванию клиентского программного обеспечения на компьютерах Mac
+# <a name="prepare-to-deploy-client-software-to-macs"></a>Preparar para implementar o software de cliente para Macs
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для подготовки к [развертыванию клиента Configuration Manager на компьютерах Mac](/sccm/core/clients/deploy/deploy-clients-to-macs) выполните следующие действия. 
+Siga estes passos para se certificar de que está pronto para [implementar o cliente do Configuration Manager em computadores Mac](/sccm/core/clients/deploy/deploy-clients-to-macs). 
 
-## <a name="mac-prerequisites"></a>Необходимые компоненты для компьютеров Mac
+## <a name="mac-prerequisites"></a>Pré-requisitos de MAC
 
-Пакет установки клиента Mac не поставляется с носителем Configuration Manager. Скачайте **Клиенты для дополнительных операционных систем** из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkID=525184).  
+O pacote de instalação de cliente de Mac não é fornecido com o suporte de dados do Configuration Manager. Transferir o **clientes para sistemas operativos adicionais** do [Centro de transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
 
-**Поддерживаемые версии:**  
+**Versões suportadas:**  
 
--   **Mac OS X 10.6** (Snow Leopard) 
+-   **Mac OS X 10.6** (Snow Leopard) 
 
--   **Mac OS X 10.7** (Lion) 
+-   **Mac OS X 10.7** (Lion) 
 
--   **Mac OS X 10.8** (Mountain Lion)
+-   **Mac OS X 10.8** (Mountain Lion)
 
--   **Mac OS X 10.9** (Mavericks)
+-   **Mac OS X 10.9** (Mavericks)
 
--   **Mac OS X 10.9** (Mavericks)  
+-   **Mac OS X 10.9** (Mavericks)  
 
--   **Mac OS X 10.10** (Yosemite)  
+-   **Mac OS X 10.10** (Yosemite)  
 
--   **Mac OS X 10.11** (El Capitan)  
+-   **Mac OS X 10.11** (El Capitan)  
 
--   **Mac OS X 10.12** (macOS Sierra)  
+-   **Mac OS X 10.12** (macOS Sierra)  
 
-## <a name="certificate-requirements"></a>Требования к сертификатам
-Для установки клиента и управления им на компьютерах Mac необходимы сертификаты инфраструктуры открытых ключей (PKI). PKI-сертификаты защищают обмен данными между компьютерами Mac и сайтом Configuration Manager за счет использования взаимной проверки подлинности и шифрования передаваемых данных. Configuration Manager может запросить и установить сертификат клиента пользователя, используя службы сертификации Майкрософт с корпоративным центром сертификации (ЦС), а также роли системы сайта точки регистрации и прокси-точки регистрации Configuration Manager. Кроме того, вы можете независимо запрашивать и устанавливать сертификат компьютера из Configuration Manager, если этот сертификат удовлетворяет требованиям для Configuration Manager.   
+## <a name="certificate-requirements"></a>Requisitos de certificados
+Instalação de cliente e gestão para computadores Mac necessita de certificados de infraestrutura de chaves públicas (PKI). Os certificados PKI protegem a comunicação entre os computadores Mac e o site do Configuration Manager utilizando a autenticação mútua e das transferências de dados encriptados. O Configuration Manager pode pedir e instalar um certificado de cliente do utilizador através da utilização dos serviços de certificados da Microsoft com uma autoridade de certificação (AC) empresarial e os Configuration Manager inscrição inscrição e de ponto de proxy ponto site funções de sistema. Em alternativa, pode pedir e instalar um certificado de computador independentemente do Configuration Manager se o certificado cumprir os requisitos para o Configuration Manager.   
   
-Клиенты Configuration Manager для Mac всегда выполняют проверку отзыва сертификатов. Отключить эту функцию нельзя.  
+Os clientes do Configuration Manager Mac sempre efetuam a verificação de revogação do certificado. Não é possível desativar esta função.  
   
-Если клиент для Mac не сможет проверить состояние отзыва для сертификата сервера (из-за того, что не удалось обнаружить список отзыва сертификатов), то этот клиент не сможет подключиться к системам сайта Configuration Manager. В частности,  для клиентов Mac, которые находятся в лесу, отличном от леса выдающего центра сертификации, проверьте структуру списка отзыва сертификатов и убедитесь, что клиенты Mac могут находить точку распространения списка отзыва сертификатов (CDP) и подключаться к ней для подключения серверов систем сайта.  
+Se os clientes Mac não conseguirem confirmar o estado de revogação de certificado para um certificado de servidor porque não é possível localizar a CRL, eles não poderá ligar com êxito aos sistemas de sites do Configuration Manager. Especialmente para os clientes Mac numa floresta estranha para a autoridade de certificação emissora, verifique a estrutura da CRL para garantir que os clientes Mac conseguem localizar e ligar a um ponto de distribuição de CRL (CDP) para ligar servidores do sistema de sites.  
 
-Перед установкой клиента Configuration Manager на компьютер Mac следует выбрать способ установки сертификата клиента.  
+Antes de instalar o cliente do Configuration Manager num computador Mac, decida como instalar o certificado de cliente:  
 
--   Регистрация в Configuration Manager с помощью [средства CMEnroll](/sccm/core/clients/deploy/deploy-clients-to-macs#install-the-client-and-then-enroll-the-client-certificate-on-the-mac). Процесс регистрации не поддерживает автоматическое продление сертификата, поэтому необходимо повторно регистрировать компьютеры Mac до истечения срока действия установленного сертификата.  
+-   Utilize o Gestor de configuração de inscrição utilizando o [ferramenta CMEnroll](/sccm/core/clients/deploy/deploy-clients-to-macs#install-the-client-and-then-enroll-the-client-certificate-on-the-mac). O processo de inscrição não suporta a renovação automática de certificados, pelo que terá de reinscrever os computadores Mac antes que o certificado instalado expire.  
 
--   [Использование метода запроса и установки сертификата, который не зависит от Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-macs#use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager).  
+-   [Utilize um método de pedido e instalação de certificado que seja independente do Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-macs#use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager).  
 
-Дополнительные сведения о требованиях к сертификату клиента Mac и других PKI-сертификатах, необходимых для поддержки компьютеров Mac, см. в статье [Требования к PKI-сертификатам для System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+Para obter mais informações sobre o requisito de certificado de cliente Mac e outros certificados PKI que são necessários para suportar computadores Mac, consulte [requisitos de certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
-Клиенты Mac автоматически назначаются сайту Configuration Manager, который управляет ими. Клиенты Mac устанавливаются только как Интернет-клиенты, даже если связь осуществляется только по внутренней сети. Эта конфигурация клиентов означает, что они будут взаимодействовать с ролями системы сайта (точки управления и точки распространения) на назначенном им сайте, если эти роли системы сайта настроены для разрешения подключений клиентов через Интернет. Компьютеры Mac не взаимодействуют с ролями системы сайта вне назначенного им сайта.  
+Os clientes Mac são automaticamente atribuídos ao site do Configuration Manager que os gere. Os clientes Mac são instalados como clientes apenas de Internet, mesmo que a comunicação seja limitada à intranet. Esta configuração de cliente significa que estes clientes irão comunicar com as funções de sistema de sites (pontos de gestão e pontos de distribuição) no respetivo site atribuído quando estas funções de sistema de sites forem configuradas para permitirem ligações de cliente a partir da Internet. Os computadores Mac não comunicam com as funções do sistema de sites fora do respetivo site atribuído.  
 
 > [!IMPORTANT]  
->  Клиент Configuration Manager для Mac нельзя использовать для подключения к точке управления, которая применяет [реплику базы данных](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+>  O cliente do Configuration Manager Mac não pode ser utilizado para ligar a um ponto de gestão que está configurado para utilizar um [réplica de base de dados](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
 
-## <a name="deploy-a-web-server-certificate-to-site-system-servers"></a>Развертывание сертификата веб-сервера на серверах системы сайта  
-Если в системах сайта нет сертификата веб-сервера, разверните этот сертификат на компьютерах, на которых есть следующие роли системы сайта.  
+## <a name="deploy-a-web-server-certificate-to-site-system-servers"></a>Implementar um certificado de servidor web nos servidores de sistema de sites  
+Se não tem estes sistemas de site, implemente um certificado de servidor web para os computadores que têm estas funções de sistema de sites:  
 
--   Точка управления.  
+-   Ponto de gestão  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
-Сертификат веб-сервера должен содержать полное доменное имя в Интернете, указанное в свойствах системы сайта. Сервер не обязан быть доступен через Интернет для поддержки компьютеров Mac. Если не требуется поддержка Интернет-клиентов, то для полного доменного имени в Интернете можно указать полное доменное имя во внутренней сети.  
+O certificado de servidor Web tem de conter o FQDN de Internet que se encontra especificado nas propriedades do sistema de sites. O servidor não tem de estar acessível a partir da Internet para suportar computadores Mac. Se não necessitar de gestão de clientes baseados na Internet, pode especificar o valor do FQDN de intranet para o FQDN de Internet.  
 
-Укажите полное доменное имя системы сайта в Интернете в сертификате веб-сервера для точки управления, точки распространения и прокси-точки регистрации. 
+Especifique o valor de FQDN de Internet de um sistema de sites no certificado de servidor web para o ponto de gestão, o ponto de distribuição e o ponto de proxy de inscrição. 
 
-Пример развертывания с созданием и установкой сертификата веб-сервера см. в статье [Развертывание сертификата веб-сервера для систем сайта с запущенными службами IIS](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_webserver2008_cm2012).  
+Para um exemplo de implementação que cria e instala este certificado de servidor web, consulte o [implementar o certificado de servidor Web para sistemas de sites que executam o IIS](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_webserver2008_cm2012).  
 
 
-## <a name="deploy-a-client-authentication-certificate-to-site-system-servers"></a>Развертывание сертификата проверки подлинности клиента на серверах системы сайта  
- Если в системах сайта нет сертификата проверки подлинности клиента, разверните этот сертификат на компьютерах, на которых есть следующие роли системы сайта.  
+## <a name="deploy-a-client-authentication-certificate-to-site-system-servers"></a>Implementar um certificado de autenticação de cliente nos servidores de sistema de sites  
+ Se não tem estes sistemas de site, implemente um certificado de autenticação de cliente para computadores que alojam estas funções de sistema de sites:  
 
--   Точка управления.  
+-   Ponto de gestão  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
- Пример развертывания с созданием и установкой сертификата клиента для точек управления см. в статье [Развертывание сертификата клиента для компьютеров Windows](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_client2008_cm2012).  
+ Para um exemplo de implementação que cria e instala o certificado de cliente para pontos de gestão, consulte o [implementar o cliente certificados para computadores com o Windows](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_client2008_cm2012)  
 
- Пример развертывания с созданием и установкой сертификата клиента для точек распространения см. в статье [Развертывание сертификата клиента для точек распространения](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_clientdistributionpoint2008_cm2012).  
+ Para um exemplo de implementação que cria e instala o certificado de cliente para pontos de distribuição, consulte o [implementar o certificado de cliente para pontos de distribuição](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_clientdistributionpoint2008_cm2012).  
 
 >[!IMPORTANT]
->  Для развертывания клиента на устройствах под управлением macOS Sierra необходимо правильно настроить имя субъекта в сертификате точки управления (например, указав полное доменное имя сервера точки управления).
+>  Para implementar o cliente para dispositivos que executem macOS Sierra, o nome do requerente do certificado de ponto de gestão tem de ser configurado corretamente, por exemplo, utilizando o FQDN do servidor de ponto de gestão.
 
-## <a name="prepare-the-client-certificate-template-for-macs"></a>Подготовка шаблона сертификата клиента для компьютеров Mac  
+## <a name="prepare-the-client-certificate-template-for-macs"></a>Preparar o cliente do modelo de certificado para Macs  
 
- Шаблон сертификата должен иметь разрешения на **чтение** и **регистрацию** для учетной записи пользователя, которая будет регистрировать сертификат на компьютере Mac.  
+ O modelo de certificado tem de ter permissões de **Leitura** e de **Inscrição** para a conta de utilizador que irá inscrever o certificado no computador Mac.  
 
- См. статью [Развертывание сертификата клиента для компьютеров Mac](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_MacClient_SP1).  
+ Consulte [implementar o certificado de cliente para computadores Mac](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_MacClient_SP1).  
 
-## <a name="configure-the-management-point-and-distribution-point"></a>Настройка точки управления и точки распространения  
- Настройте точки управления для следующих параметров:  
+## <a name="configure-the-management-point-and-distribution-point"></a>Configurar o ponto de gestão e o ponto de distribuição  
+ Configure pontos de gestão para as seguintes opções:  
 
 -   HTTPS  
 
--   Разрешить подключения клиентов из Интернета. Это значение конфигурации необходимо для управления компьютерами Mac. Однако это не означает, что серверы системы сайта должны быть доступны из Интернета.  
+-   Permite ao cliente ligações da Internet. Este valor de configuração é necessário para gerir computadores Mac. No entanto, não significa que os servidores de sistema de sites tenham de estar acessíveis a partir da Internet.  
 
--   Разрешить использовать точку управления с мобильных устройств и компьютеров Mac  
+-   Permitir que os dispositivos móveis e computadores Mac utilizem este ponto de gestão  
 
- Хотя для установки клиента точки распространения не требуются, их необходимо настроить, чтобы разрешить подключения клиентов из Интернета, если после установки клиента планируется развертывать на этих компьютерах программное обеспечение.  
+ Apesar dos pontos de distribuição não serem necessários para instalar o cliente, tem de configurar pontos de distribuição para permitir ligações a partir da Internet de cliente se pretender implementar software nestes computadores após a instalação do cliente.  
 
  
-### <a name="to-configure-management-points-and-distribution-points-to-support-macs"></a>Настройка точек управления и точек распространения для поддержки компьютеров Mac  
+### <a name="to-configure-management-points-and-distribution-points-to-support-macs"></a>Para configurar pontos de gestão e pontos de distribuição para suportar Macs  
 
-Перед началом процедуры убедитесь, что сервер системы сайта, где находится точка управления и точка распространения, настроен с полным доменным именем в Интернете. Если эти серверы не будут поддерживать управление клиентами через Интернет, то в качестве полного доменного имени в Интернете можно указать полное доменное имя в интрасети. 
+Antes de iniciar este procedimento, certifique-se de que o servidor do sistema de sites que executa o ponto de gestão e o ponto de distribuição está configurado com um FQDN de Internet. Se estes servidores não suportarem a gestão de clientes baseados na Internet, pode especificar o FQDN de intranet como o valor de FQDN de Internet. 
 
-Роли системы сайта должны быть установлены на первичном сайте.  
+As funções de sistema de sites tem de ser um site primário.  
 
 
-1.  В консоли Configuration Manager выберите пункты **Администрирование** > **Конфигурация сайта** > **Серверы и роли системы сайта**, а затем выберите сервер, имеющий соответствующие роли системы сайта.  
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **servidores e funções de sistema de sites**e, em seguida, selecione o servidor que tenha as funções do sistema de site correta.  
 
-3.  В области сведений правой кнопкой мыши щелкните пункт **Точка управления**, выберите **Свойства роли**, а затем в диалоговом окне **Свойства точки управления** укажите следующие параметры.  
+3.  No painel de detalhes, faça duplo clique **ponto de gestão**, escolha **propriedades da função**e, no **propriedades do ponto de gestão** diálogo caixa, configure estas opções:  
 
-    1.  Выберите **HTTPS**.  
+    1.  Escolha **HTTPS**.  
 
-    2.  Выберите пункт **Разрешить подключения клиентов только через Интернет** или **Разрешить подключения клиентов через внутреннюю сеть и Интернет**. Для использования этих параметров необходимо полное доменное имя в Интернете или интрасети.  
+    2.  Escolha **permitir ligações de cliente apenas à Internet** ou **permitir ligações de cliente de Internet e intranet**. Estas opções necessitam de um Internet ou o FQDN da intranet.  
 
-    3.  Выберите пункт **Разрешить использовать точку управления с мобильных устройств и компьютеров Mac**.  
+    3.  Escolha **permitir dispositivos móveis e computadores Mac utilizem este ponto de gestão**.  
 
-4.  В области сведений правой кнопкой мыши щелкните пункт **Точка распространения**, выберите **Свойства роли**, а затем в диалоговом окне **Свойства точки распространения** укажите следующие параметры.  
+4.  No painel de detalhes, faça duplo clique **ponto de distribuição**, escolha **propriedades da função**e, no **propriedades do ponto de distribuição** diálogo caixa, configure estas opções:  
 
-    -   Выберите **HTTPS**.  
+    -   Escolha **HTTPS**.  
 
-    -   Выберите пункт **Разрешить подключения клиентов только через Интернет** или **Разрешить подключения клиентов через внутреннюю сеть и Интернет**. Для использования этих параметров необходимо полное доменное имя в Интернете или интрасети.  
+    -   Escolha **permitir ligações de cliente apenas à Internet** ou **permitir ligações de cliente de Internet e intranet**. Estas opções necessitam de um Internet ou o FQDN da intranet.  
 
-    -   Выберите команду **Импортировать сертификат**, перейдите к экспортированному файлу сертификата клиентской точки распространения и задайте пароль.  
+    -   Escolha **importar certificado**, procure o ficheiro de certificado de ponto de distribuição de cliente exportado e, em seguida, especifique a palavra-passe.  
 
-5.  Повторите действия 2–4 этой процедуры для всех точек управления и точек распространения на первичных сайтах, которые будут использоваться с компьютерами Mac.  
+5.  Repita os passos 2 a 4 para todos os pontos de gestão e pontos de distribuição em sites primários que irá utilizar com Macs.  
 
-## <a name="configure-the-enrollment-proxy-point-and-the-enrollment-point"></a>Настройка прокси-точки регистрации и точки регистрации  
- Обе эти роли систем сайта необходимо установить на одном сайте, но на разных серверах систем сайта или в разных лесах Active Directory.  
+## <a name="configure-the-enrollment-proxy-point-and-the-enrollment-point"></a>Configurar o ponto de proxy de inscrição e o ponto de inscrição  
+ Tem de instalar ambas as funções de sistema de sites no mesmo site, mas não tem de as instalar no mesmo servidor de sistema de sites ou na mesma floresta do Active Directory.  
 
- Дополнительные сведения о планировании и размещении ролей системы сайта см. в разделе [Роли системы сайта](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) статьи [Планирование серверов системы сайта и ролей системы сайта для System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
+ Para obter mais informações sobre o posicionamento de funções de sistema de sites e considerações, consulte [funções do sistema de sites](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) no [planear servidores de sistema de sites e funções de sistema de sites para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
 
- Эти процедуры настраивают роли систем сайта для поддержки компьютеров Mac.   
+ Estes procedimentos configuram as funções de sistema de sites para suportar computadores Mac.   
 
--   [Новый сервер системы сайта](#new-site-system-server)  
+-   [Novo servidor do sistema de sites](#new-site-system-server)  
 
--   [Существующий сервер системы сайта](#existing-site-system-server)  
+-   [Servidor do sistema de sites existente](#existing-site-system-server)  
 
-###  <a name="new-site-system-server"></a>новый сервер системы сайта  
+###  <a name="new-site-system-server"></a>Novo servidor do sistema de sites  
 
-1.  В консоли Configuration Manager перейдите в раздел **Администрирование** >  **Конфигурация сайта** > **Серверы и роли системы сайта**.  
+1.  Na consola do Configuration Manager, escolha **administração** >  **configuração do Site** > **servidores e funções de sistema de sites**  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните **Создать сервер системы сайта**.  
+3.  No **home page** separador o **criar** grupo, escolha **criar servidor do sistema de sites**.  
 
-4.  На странице **Общие** укажите общие параметры для системы сайта.  Убедитесь, что указано полное доменное имя в Интернете. Если сервер не будет доступен из Интернета, используйте полное доменное имя в интрасети.  
+4.  No **geral** página, especifique as definições gerais para o sistema de sites.  Certifique-se de que especifica um valor para o FQDN de Internet. Se o servidor não estar acessível a partir da Internet, utilize o FQDN da intranet.  
 
-5.  На странице **Выбор системной роли** выберите пункты **Прокси-точка регистрации** и **Точка регистрации** в списке доступных ролей.  
+5.  No **seleção da função do sistema** página, selecione **ponto proxy de registo** e **ponto de registo** da lista de funções disponíveis.  
 
-6.  На странице **Прокси-точка регистрации** просмотрите параметры и внесите необходимые изменения.  
+6.  No **ponto Proxy de registo** página, reveja as definições e efetue as alterações necessárias.  
 
-7.  На странице **Параметры точки регистрации** просмотрите параметры и внесите необходимые изменения. Затем завершите работу мастера.  
+7.  No **definições do ponto de inscrição** página, reveja as definições e efetue as alterações necessárias. Em seguida, conclua o assistente.  
 
-### <a name="existing-site-system-server"></a>существующий сервер системы сайта  
+### <a name="existing-site-system-server"></a>Servidor do sistema de sites existente  
 
-1.  В консоли Configuration Manager выберите пункты **Администрирование** >  **Конфигурация сайта** > **Серверы и роли системы сайта**, а затем выберите сервер, который необходимо использовать для поддержки компьютеров Mac.  
+1.  Na consola do Configuration Manager, escolha **administração** >  **configuração do Site** > **servidores e funções de sistema de sites**e, em seguida, selecione o servidor que pretende utilizar para suportar Macs.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните **Добавить роли системы сайта**.  
+3.  No **home page** separador o **criar** grupo, escolha **adicionar funções do sistema de sites**.  
 
-4.  На странице **Общие** укажите общие параметры для системы сайта и нажмите кнопку **Далее**. Убедитесь, что указано полное доменное имя в Интернете. Если сервер не будет доступен из Интернета, используйте полное доменное имя в интрасети.   
+4.  Na página **Geral** , especifique as definições gerais do sistema de sites e clique em **Seguinte**. Certifique-se de que especifica um valor para o FQDN de Internet. Se o servidor não estar acessível a partir da Internet, utilize o FQDN da intranet.   
 
-5.  На странице **Выбор системной роли** выберите пункты **Прокси-точка регистрации** и **Точка регистрации** в списке доступных ролей.  
+5.  No **seleção da função do sistema** página, escolha **ponto proxy de registo** e **ponto de registo** da lista de funções disponíveis.  
 
-6.  На странице **Прокси-точка регистрации** просмотрите параметры и внесите необходимые изменения.  
+6.  No **ponto Proxy de registo** página, reveja as definições e efetue as alterações necessárias.  
 
-7.  На странице **Параметры точки регистрации** просмотрите параметры и внесите необходимые изменения. Затем завершите работу мастера.  
+7.  No **definições do ponto de inscrição** página, reveja as definições e efetue as alterações necessárias. Em seguida, conclua o assistente.  
 
-## <a name="install-the-reporting-services-point"></a>Установка точки служб отчетов.  
- [Установите точку служб отчетов](../../../core/servers/manage/configuring-reporting.md), если требуется запускать отчеты для компьютеров Mac.  
+## <a name="install-the-reporting-services-point"></a>Instalar o ponto do reporting services  
+ [Instalar o ponto do reporting services](../../../core/servers/manage/configuring-reporting.md) se pretender executar relatórios para Macs.  
 
-### <a name="next-steps"></a>Дальнейшие действия
+### <a name="next-steps"></a>Passos seguintes
 
-[Разверните клиент Configuration Manager на компьютерах Mac](/sccm/core/clients/deploy/deploy-clients-to-macs).  
+[Implementar o cliente do Configuration Manager em computadores Mac](/sccm/core/clients/deploy/deploy-clients-to-macs).  

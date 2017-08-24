@@ -1,6 +1,6 @@
 ---
-title: "Управление образами операционных систем | Документы Майкрософт"
-description: "Сведения о способах, которые можно использовать для управления образами операционных систем, хранимых в WIM-файлах, в Configuration Manager."
+title: Gerir imagens de sistema de operativo | Microsoft Docs
+description: "No Configuration Manager, saiba mais sobre os métodos que pode utilizar para gerir imagens de sistema operativo são armazenadas em ficheiros do Windows Imaging (WIM)."
 ms.custom: na
 ms.date: 12/06/2016
 ms.prod: configuration-manager
@@ -17,124 +17,124 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 6953c3834ca303b949f22436010a87b3da9688dc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-operating-system-images-with-system-center-configuration-manager"></a>Управление образами операционных систем с помощью System Center Configuration Manager
+# <a name="manage-operating-system-images-with-system-center-configuration-manager"></a>Gerir imagens de sistema operativo com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Образы операционных систем в Configuration Manager — это WIM-файлы, которые представляют собой сжатые наборы эталонных файлов и папок, необходимых для успешной установки и настройки операционной системы на компьютере. Для всех сценариев развертывания операционной системы необходимо выбрать образ операционной системы.   Вы можете использовать образ операционной системы по умолчанию или создать образ операционной системы на настроенном эталонном компьютере. При настройке эталонного компьютера вы можете добавить в операционную систему файлы операционной системы, драйверы, файлы поддержки, обновления программного обеспечения, инструменты и другие приложения, а затем записать ее для создания файла образа. Ниже приведены сведения о каждом методе.  
+As imagens de sistema operativo no Configuration Manager são armazenadas no formato de ficheiro Windows Imaging (WIM) e representam uma coleção comprimida de ficheiros e pastas de referência que são necessários para instalar e configurar com êxito um sistema operativo num computador. Para todos os cenários de implementação do sistema operativo, tem de selecionar uma imagem do sistema operativo.   Pode utilizar a imagem predefinida do sistema operativo ou compilar a imagem do sistema operativo a partir de um computador de referência que configurar. Quando criar o computador de referência, pode adicionar ficheiros do sistema operativo, controladores, ficheiros de suporte, atualizações de software, ferramentas e outras aplicações de software ao sistema operativo antes de capturá-la para criar o ficheiro de imagem. O seguinte fornece informações sobre cada método.  
 
- **Образ по умолчанию**  
+ **Imagem predefinida**  
 
- Образ операционной системы по умолчанию (install.wim) входит в состав файлов установки операционной системы Windows. Этот образ является базовым образом операционной системы, содержащим стандартный набор драйверов. Если вы используете образ операционной системы по умолчанию, после установки операционной системы вы можете устанавливать приложения и выполнять другие настройки с помощью последовательности задач.  Образ операционной системы по умолчанию находится в папке <*исходный_путь_к_операционной_системе*>\Sources\install.wim.  
+ A imagem predefinida do sistema operativo está incluída nos ficheiros de instalação do sistema operativo Windows. Esta imagem é uma imagem básica do sistema operativo que contém um conjunto padrão de controladores. Quando utiliza a imagem predefinida do sistema operativo, pode instalar aplicações e efetuar outras configurações após a instalação do sistema operativo utilizando os passos de sequência de tarefas.  A imagem predefinida do sistema operativo está localizada em <*caminho de origem do sistema operativo*>\Sources\install.wim.  
 
--   **Преимущества**  
+-   **Vantagens**  
 
-    -   Размер образа меньше размера записанного образа.  
+    -   O tamanho de imagem é menor do que uma imagem capturada.  
 
-    -   Установка приложений и выполнение конфигураций с использованием шагов последовательности задач является более динамичным процессом. Например, в последовательности задач вы можете изменить приложения, которые будут установлены, и конфигурации без необходимости повторного развертывания образа операционной системы.  
+    -   A instalação de aplicações e configurações com passos de sequência de tarefas é mais dinâmica. Por exemplo, pode alterar as aplicações que serão instaladas e as configurações na sequência de tarefas sem ter de recriar a imagem do sistema operativo.  
 
--   **Недостатки**  
+-   **Desvantagens**  
 
-    -   Установка операционной системы занимает больше времени, так как установка приложений и другие действия по конфигурации выполняются после завершения установки операционной системы.  
+    -   A instalação do sistema operativo pode demorar mais tempo porque a instalação da aplicação e outras configurações ocorrem depois de concluída a instalação do sistema operativo.  
 
- **Записанный образ**  
+ **Imagem capturada**  
 
- Чтобы создать настраиваемый образ операционной системы, соберите эталонный компьютер с требуемой версией операционной системы и установите приложения, настройте параметры и т. д. После этого запишите образ операционной системы с эталонного компьютера, чтобы создать WIM-файл. Эталонный компьютер можно настроить вручную или использовать последовательность задач для автоматизации некоторых или всех необходимых этапов.   
-Действия по созданию настраиваемого образа операционной системы см. в разделе [Настройка образов операционных систем](customize-operating-system-images.md).  
+ Para criar uma imagem personalizada do sistema operativo, crie um computador de referência com o sistema operativo pretendido e instale aplicações, configure definições, etc. Em seguida, capture a imagem do sistema operativo a partir do computador de referência para criar o ficheiro WIM. Pode criar manualmente o computador de referência ou utilizar uma sequência de tarefas para automatizar alguns ou todos os passos da criação.   
+Para obter os passos criar uma imagem personalizada do sistema operativo, consulte [personalizar imagens de sistema operativo](customize-operating-system-images.md).  
 
--   **Преимущества**  
+-   **Vantagens**  
 
-    -   В этом случае установка может занимать меньше времени, чем установка с использованием образа по умолчанию. Например, приложения могут быть предварительно установлены с помощью записанного образа операционной системы, поэтому вам не потребуется устанавливать приложения позже с помощью последовательности задач.  
+    -   A instalação pode ser mais rápida do que utilizando a imagem predefinida. Por exemplo, as aplicações podem ser pré-instaladas com a imagem do sistema operativo capturada, não sendo necessário instalar as aplicações mais tarde, utilizando os passos de sequência de tarefas.  
 
--   **Недостатки**  
+-   **Desvantagens**  
 
-    -   Установка операционной системы занимает больше времени, так как установка приложений и другие действия по конфигурации выполняются после завершения установки операционной системы.  
+    -   A instalação do sistema operativo pode demorar mais tempo porque a instalação da aplicação e outras configurações ocorrem depois de concluída a instalação do sistema operativo.  
 
 
-##  <a name="BKMK_AddOSImages"></a> Добавление образов операционных систем в Configuration Manager  
- Перед использованием образа операционной системы его необходимо добавить на сайт Configuration Manager. Для этого выполните приведенные ниже действия.  
+##  <a name="BKMK_AddOSImages"></a>Adicionar imagens do sistema operativo ao Configuration Manager  
+ Antes de poder utilizar uma imagem do sistema operativo, tem de adicionar a imagem a um site do Configuration Manager. Utilize o procedimento seguinte para adicionar uma imagem do sistema operativo a um site.  
 
-#### <a name="to-add-an-operating-system-image-to-a-site"></a>Добавление образа операционной системы на сайт  
+#### <a name="to-add-an-operating-system-image-to-a-site"></a>Para adicionar uma imagem do sistema operativo a um site  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Образы операционной системы**.  
+2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Sistema Operativo**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Добавить образ операционной системы** , чтобы запустить мастер добавления образа операционной системы.  
+3.  No separador **Home page**, no grupo **Criar**, clique em **Adicionar Imagem de Sistema Operativo** para iniciar o Assistente para Adicionar Imagem de Sistema Operativo.  
 
-4.  На странице **Источник данных** укажите сетевой путь к образу операционной системы. Например, укажите путь **\\\server\path\OS.WIM**.  
+4.  Na página **Origem de Dados**, especifique o caminho de rede para a imagem do sistema operativo. Por exemplo, especifique **\\\server\path\OS. WIM**.  
 
-5.  На странице **Общие** укажите следующие данные и нажмите кнопку **Далее**. Эти данные используются для идентификации в случае добавления нескольких образов операционных систем на один сайт.  
+5.  Na página **Geral**, especifique as seguintes informações e clique em **Seguinte**. Estas informações são úteis para fins de identificação quando adiciona várias imagens do sistema operativo no mesmo site.  
 
-    -   **Имя**. Укажите имя образа. По умолчанию имя образа получается из WIM-файла.  
+    -   **Nome**: Especifique o nome da imagem. Por predefinição, o nome da imagem é retirado do ficheiro WIM.  
 
-    -   **Версия**. Укажите версию образа.  
+    -   **Versão**: Especifique a versão da imagem.  
 
-    -   **Комментарий**: Укажите краткое описание образа.  
+    -   **Comentário**: Especifique uma breve descrição da imagem.  
 
-6.  Завершите работу мастера.  
+6.  Conclua o assistente.  
 
- Теперь вы можете передать образ операционной системы в точки распространения.  
+ Pode agora distribuir a imagem do sistema operativo por pontos de distribuição.  
 
-##  <a name="BKMK_DistributeBootImages"></a> Распространение образов операционной системы в точки распространения  
- Распространение образов операционной системы на точки распространения ничем не отличается от распространения другого содержимого. В большинстве случаев перед развертыванием операционной системы необходимо распространить образ по меньшей мере на одну точку распространения. Инструкции по распространению образа операционной системы см. в статье [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+##  <a name="BKMK_DistributeBootImages"></a>Distribuir imagens do sistema operativo por pontos de distribuição  
+ As imagens do sistema operativo são distribuídas por pontos de distribuição da mesma forma que são distribuídos outros conteúdos. Na maioria dos casos, terá de distribuir a imagem do sistema operativo por, pelo menos, um ponto de distribuição antes de implementar o sistema operativo. Para obter os passos para distribuir uma imagem do sistema operativo, veja [Distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-##  <a name="BKMK_OSImagesApplyUpdates"></a> Применение обновлений программного обеспечения к образу операционной системы  
- Периодически выпускаются новые обновления программного обеспечения, которые должны применяться к операционной системе в вашем образе операционной системы. Перед применением обновлений программного обеспечения к образу требуется развернуть инфраструктуру обновлений ПО, успешно синхронизировать обновления ПО и скачать их в библиотеку содержимого на сервере сайта. Дополнительные сведения о см. в разделе [Развертывание обновлений программного обеспечения](../../sum/deploy-use/deploy-software-updates.md).  
+##  <a name="BKMK_OSImagesApplyUpdates"></a>Aplicar atualizações de software numa imagem do sistema operativo  
+ Periodicamente, são lançadas novas atualizações de software que são aplicáveis ao sistema operativo da imagem do sistema operativo. Antes de poder aplicar as atualizações de software numa imagem tem de ter as atualizações de software infraestrutura no colocar, ter sincronizado com êxito as atualizações de software e transferir as atualizações de softare para a biblioteca de conteúdos no servidor do site. Para obter mais informações, consulte [implementar atualizações de software](../../sum/deploy-use/deploy-software-updates.md).  
 
- Обновления программного обеспечения можно применять к образу по указанному расписанию. В соответствии с заданным расписанием Configuration Manager применяет выбранные вами обновления программного обеспечения к образу операционной системы, а затем при необходимости распространяет этот обновленный образ в точки распространения. Информация об образе операционной системы хранится в базе данных сайта, включая обновления ПО, которые были установлены на момент импорта. Обновления программного обеспечения, которые были применены к образу с момента первоначального добавления, также сохраняются в базе данных сайта. При запуске мастера для применения обновлений к образу операционной системы он получает список доступных обновлений программного обеспечения, которые еще не были применены к образу. Configuration Manager копирует обновления программного обеспечения из библиотеки содержимого на сервере сайта и применяет обновления программного обеспечения к образу операционной системы.  
+ Pode aplicar atualizações de software aplicáveis a uma imagem numa agenda especificada. Na agenda que especificar, o Configuration Manager aplica as atualizações de software que selecionar para a imagem do sistema operativo e, em seguida, distribui opcionalmente a imagem atualizada por pontos de distribuição. As informações sobre a imagem do sistema operativo são armazenadas na base de dados do site, incluindo as atualizações de software que foram aplicadas no momento da importação. As atualizações de software aplicadas à imagem desde que esta foi inicialmente adicionada também são armazenadas na base de dados do site. Ao iniciar o assistente para aplicar as atualizações de software à imagem do sistema operativo, o assistente obtém uma lista de atualizações de software aplicáveis que ainda não foram aplicadas à imagem para que possa selecioná-las. Configuration Manager copia as atualizações de software da biblioteca de conteúdos no servidor do site e aplica as atualizações de software à imagem do sistema operativo.  
 
- Чтобы применить обновления программного обеспечения к образу операционной системы, выполните следующие действия.  
+ Utilize o procedimento seguinte para aplicar atualizações de software numa imagem do sistema operativo.  
 
-#### <a name="to-apply-software-updates-to-an-operating-system-image"></a>Применение обновлений программного обеспечения к образу операционной системы  
+#### <a name="to-apply-software-updates-to-an-operating-system-image"></a>Para aplicar atualizações de software numa imagem do sistema operativo  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Образы операционной системы**.  
+2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Sistema Operativo**.  
 
-3.  Выберите образ операционной системы, к которому следует применить обновления программного обеспечения.  
+3.  Selecione a imagem do sistema operativo em pretende aplicar atualizações de software.  
 
-4.  На вкладке **Главная** в группе **Образ операционной системы** щелкните элемент **Запланировать обновления** , чтобы запустить мастер.  
+4.  No separador **Home page**, no grupo **Imagem do Sistema Operativo**, clique em **Agendar Atualizações** para iniciar o assistente.  
 
-5.  На странице **Выбор обновлений** выберите обновления программного обеспечения, которые следует применить к образу операционной системы, и нажмите кнопку **Далее**.  
+5.  Na página **Escolher as Atualizações**, selecione as atualizações de software para aplicar à imagem do sistema operativo e clique em **Seguinte**.  
 
-6.  На странице **установки расписания** укажите следующие параметры и нажмите кнопку **Далее**.  
+6.  Na página **Definir Agendamento** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    1.  **Расписание**. Укажите расписание, в соответствии с которым обновления программного обеспечения должны применяться к образу операционной системы.  
+    1.  **Agenda**: Especifique o agendamento para quando as atualizações de software são aplicadas à imagem do sistema operativo.  
 
-    2.  **Продолжать при ошибке**. Выберите этот параметр, чтобы обновления программного обеспечения применялись к образу даже при появлении ошибки.  
+    2.  **Continuar com o erro**:  Selecione esta opção para continuar a aplicar atualizações de software à imagem, mesmo se ocorrer um erro.  
 
-    3.  **Распространять образ в точки распространения**. Выберите этот параметр, чтобы обновлять образ операционной системы в точках распространения после применения обновлений программного обеспечения.  
+    3.  **Distribuir a imagem por pontos de distribuição**: Selecione esta opção para atualizar a imagem do sistema operativo em pontos de distribuição após as atualizações de software são aplicadas.  
 
-7.  На странице **Сводка** проверьте параметры и нажмите кнопку **Далее**.  
+7.  Na página **Resumo** , verifique as informações e clique em **Seguinte**.  
 
-8.  На странице **Завершение** убедитесь в успешном применении обновлений программного обеспечения к образу операционной системы.  
+8.  Na página **Conclusão** , confirme que as atualizações de software foram aplicadas com êxito na imagem do sistema operativo.  
 
-##  <a name="BKMK_OSImageMulticast"></a> Подготовка образа операционной системы для многоадресных развертываний  
- Многоадресные развертывания позволяют нескольким компьютерам одновременно загружать образ операционной системы. Точка распространения отправляет образ клиентам в режиме многоадресной рассылки. Она не отправляет копию образа каждому клиенту по отдельному каналу. Выбрав вариант [Использовать метод многоадресной рассылки для развертывания Windows по сети](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md) в качестве способа развертывания операционной системы перед распространением образа операционной системы на точке распространения, поддерживающей многоадресную рассылку, настройте пакет с образом операционной системы для работы с многоадресной рассылкой. В следующей процедуре представлена настройка параметров многоадресной рассылки для существующего пакета с образом операционной системы.  
+##  <a name="BKMK_OSImageMulticast"></a>Preparar a imagem do sistema operativo para implementações por multicast  
+ Utilize implementações por multicast para permitir que vários computadores transfiram simultaneamente uma imagem do sistema operativo. A imagem é transferida por multicast aos clientes pelo ponto de distribuição, em vez de ser o ponto de distribuição a enviar uma cópia da imagem para cada cliente através de uma ligação separada. Quando escolhe o [utilizar multicast para implementar o Windows através da rede](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md) método de implementação do sistema operativo, tem de configurar o pacote de imagem do sistema operativo para suportar multicast antes de distribuir a imagem do sistema operativo para um ponto de distribuição preparados para multicast. Utilize o procedimento seguinte para definir as opções de multicast de um pacote de imagens do sistema operativo existente.  
 
-#### <a name="to-modify-an-operating-system-image-package-to-use-multicast"></a>Изменение пакета с образом операционной системы для обеспечения поддержки им многоадресной рассылки  
+#### <a name="to-modify-an-operating-system-image-package-to-use-multicast"></a>Para modificar um pacote de imagens do sistema operativo para utilizar o multicast  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Образы операционной системы**.  
+2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Sistema Operativo**.  
 
-3.  Выберите образ операционной системы, который будет распространяться точкой распространения, поддерживающей многоадресную рассылку.  
+3.  Selecione a imagem do sistema operativo que pretende distribuir pelo ponto de distribuição preparado para multicast.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No separador **Home page**, no grupo **Propriedades**, clique em **Propriedades**.  
 
-5.  Перейдите на вкладку **Параметры распространения** и настройте следующие параметры:  
+5.  Selecione o separador **Definições de Distribuição** e configure as seguintes opções:  
 
-    -   **Разрешить передачу этого пакета через многоадресную рассылку (только WinPE)**. Выберите этот параметр, чтобы позволить Configuration Manager развертывать образы операционной системы одновременно.  
+    -   **Permitir transferência deste pacote a serem transferidos através de multicast (só WinPE)**: Tem de selecionar esta opção para o Configuration Manager em simultâneo implementar imagens do sistema operativo.  
 
-    -   **Шифровать пакеты многоадресной рассылки**. Укажите, требуется ли шифрование образа перед его отправкой на точку распространения. Этот параметр следует использовать, если пакет содержит конфиденциальную информацию. Если образ не шифруется, содержимое пакета будет передаваться по сети в виде незашифрованного текста, и может быть прочитано посторонними.  
+    -   **Encriptar pacotes multicast**: Especifique se a imagem é encriptada antes de ser enviada para o ponto de distribuição. Utilize esta opção se o pacote contiver informações confidenciais. Se a imagem não for encriptada, o conteúdo do pacote ficará visível na rede em texto simples e poderá ser lido por um utilizador não autorizado.  
 
-    -   **Передавать этот пакет только через многоадресную рассылку**. Укажите, должна ли точка распространения развертывать образ только посредством многоадресной рассылки.  
+    -   **Transferir este pacote apenas através de multicast**: Especifique se pretende que o ponto de distribuição implemente a imagem apenas durante uma sessão multicast.  
 
-         При выборе параметра **Передавать этот пакет только через многоадресную рассылку**необходимо также указать и параметр **Загружать содержимое локально, если это требуется для выполняющейся последовательности задач** в качестве параметра развертывания для образа операционной системы. Параметры развертывания можно выбрать в процессе развертывания образа операционной системы или позже, изменив их в свойствах развертывания. Параметры развертывания находятся на вкладке **Точки распространения** страницы **Свойства** объекта развертывания.  
+         Se selecionar a opção **Transferir este pacote apenas através de multicast**, também tem de especificar **Transferir o conteúdo localmente quando necessário para a sequência de tarefas em execução** como a opção de implementação da imagem do sistema operativo. Pode especificar as opções de implementação da imagem ao implementar a imagem do sistema operativo ou pode especificá-las mais tarde editando as propriedades da implementação. As opções de implementação estão no separador **Pontos de Distribuição** da página **Propriedades** do objeto de implementação.  
 
-6.  Нажмите кнопку **ОК**.  
+6.  Clique em **OK**.  

@@ -1,6 +1,6 @@
 ---
-title: "Точка распространения по запросу | Документы Майкрософт"
-description: "Сведения о конфигурациях и ограничениях при использовании точки распространения по запросу в System Center Configuration Manager."
+title: "Ponto de distribuição de solicitação | Microsoft Docs"
+description: "Saiba mais sobre as configurações e limitações para utilizar um ponto de distribuição de extração com o System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -16,96 +16,96 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: db5039ff6cb93e3099b096196d49a1f06c315a6b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Использование точки распространения по запросу в System Center Configuration Manager
+# <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Utilizar um ponto de distribuição de solicitação com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Точка распространения по запросу для System Center Configuration Manager представляет собой стандартную точку распространения, получающую распространяемое содержимое, скачивая его из исходного расположения, такого как клиент, вместо принудительной передачи содержимого в эту точку с сервера сайта.  
+Um ponto de distribuição de solicitação para o System Center Configuration Manager é um ponto de distribuição padrão que obtém o conteúdo distribuído, transferindo-a partir de uma localização de origem, como um cliente, em vez de ter o conteúdo instalado no mesmo servidor do site.  
 
- Если содержимое развертывается на большое количество точек распространения в составе сайта, то точки распространения по запросу позволяют уменьшить вычислительную нагрузку на сервер сайта, а также ускорить передачу содержимого на каждую из точек распространения. Такая эффективность достигается за счет того, что с процесса диспетчера распространения, выполняемого на сервере сайта, снимаются функции по передаче содержимого в каждую точку распространения.  
+ Quando implementar o conteúdo para um grande número de pontos de distribuição num site, os pontos de distribuição de solicitação podem ajudar a reduzir a carga de processamento no servidor do site e a velocidade da transferência do conteúdo para cada ponto de distribuição. Esta eficiência deve-se ao descarregamento do processo de transferência dos conteúdos para cada ponto de distribuição a partir do processo do gestor de distribuição do servidor de sites.  
 
--   Вы можете настроить отдельные точки распространения как точки распространения по запросу.  
+-   Configurar pontos de distribuição individuais para serem pontos de distribuição de solicitação.  
 
--   Для каждой точки распространения по запросу необходимо указать одну или несколько исходных точек распространения, с которых она может получать развертывания (точка распространения по запросу может получать содержимое только с точки распространения, которая указана в качестве исходной точки распространения).  
+-   Para cada ponto de distribuição de extração, tem de especificar um ou mais pontos de distribuição origem partir da qual pode obter implementações (um ponto de distribuição de solicitação apenas pode obter conteúdo de um ponto de distribuição que está especificado como um ponto de distribuição de origem).  
 
--   При распространении содержимого в точку распространения по запросу сервер сайта уведомляет ее. Затем эта точка инициирует скачивание (передачу) содержимого из исходной точки распространения. Точка распространения по запросу самостоятельно управляет передачей содержимого, скачивая его с точки распространения, которая уже содержит копию содержимого.  
+-   Quando distribui conteúdo para um ponto de distribuição de solicitação, o servidor do site notifica o ponto de distribuição de solicitação, que, em seguida, inicia a transferência do conteúdo de um ponto de distribuição de origem. Cada ponto de distribuição de extração gere individualmente a transferência do conteúdo, transferindo-o a partir de um ponto de distribuição que já tenha uma cópia do mesmo.  
 
-Точки распространения по запросу поддерживают те же самые конфигурации и функциональные возможности, что и обычные точки распространения Configuration Manager. Например, возьмем точку распространения, настроенную в качестве точки распространения по запросу, которая поддерживает конфигурации многоадресной рассылки и PXE, проверку содержимого и распространение содержимого по запросу. Точка распространения по запросу осуществляет связь с клиентами по протоколам HTTP или HTTPS и поддерживает такие же параметры сертификатов, что и прочие точки распространения. Эта точка может управляться как индивидуально, так и в составе группы точек распространения.  
+Os pontos de distribuição de solicitação suportam as mesmas configurações e funcionalidades como pontos de distribuição normais do Configuration Manager. Por exemplo, um ponto de distribuição que esteja configurado como um ponto de distribuição de solicitação suporta a utilização de configurações multicast e PXE, validação de conteúdos e distribuição de conteúdos a pedido. Um ponto de distribuição de solicitação suporta comunicações HTTP ou HTTPS com os clientes, suporta as mesmas opções de certificados que outros pontos de distribuição e pode ser gerido individualmente ou como membro de um grupo de pontos de distribuição.  
 
 > [!IMPORTANT]
-> Хотя точка распространения по запросу поддерживает связь по протоколам HTTP и HTTPS, при использовании Configuration Manager вы можете указать только исходные точки распространения, настроенные для HTTP. Чтобы указать исходную точку распространения, настроенную для поддержки протокола HTTPS, вы можете использовать пакет SDK Configuration Manager.  
+> Embora um ponto de distribuição de extração suporte comunicações por HTTP e HTTPS, quando utilizar o Configuration Manager, só poderá especificar pontos de distribuição de origem que estão configurados para HTTP. Pode utilizar o SDK do Configuration Manager para especificar um ponto de distribuição de origem que esteja configurado para HTTPS.  
 
- **Ниже описана последовательность событий, возникающих при распространении содержимого в точку распространения по запросу.**  
+ **A seguinte sequência de eventos ocorre sempre que é distribuído conteúdo a um ponto de distribuição de extração:**  
 
--   После распространения содержимого в точку распространения по запросу диспетчер передачи пакетов на сервере сайта проверяет базу данных сайта, чтобы подтвердить доступность содержимого в исходной точке распространения. Если не удается подтвердить, что содержимое находится на исходной точке распространения для точки распространения по запросу, проверка повторяется каждые 20 минут, пока содержимое не будет доступно.  
+-   Logo que o conteúdo tenha sido distribuído a um ponto de distribuição de solicitação, o Gestor de Transferência do servidor de sites consulta a base de dados do site para confirmar se os conteúdos estão disponíveis no ponto de distribuição de origem. Se não for possível confirmar que os conteúdos se encontram num ponto de distribuição de origem para o ponto de distribuição de solicitação, a verificação será repetida a cada 20 minutos até que os conteúdos estejam disponíveis.  
 
--   При подтверждении доступности содержимого диспетчер передачи пакетов уведомляет точку распространения по запросу о возможности его загрузки. При получении уведомления точка распространения по запросу пытается загрузить содержимое из исходной точки распространения.  
+-   Quando o Gestor de Transferência de Pacote confirmar que os conteúdos estão disponíveis, notificará o ponto de distribuição de solicitação para que proceda à transferência dos mesmos. Quando o ponto de distribuição de solicitação receber esta notificação, tentará transferir os conteúdos a partir dos respetivos pontos de distribuição de origem.  
 
--   После завершения загрузки содержимого точка распространения по запросу передает это состояние в точку управления. Однако если в течение 60 минут это состояние не получено, диспетчер передачи пакетов выходит из спящего режима и проверяет подтверждение скачивания содержимого от точки распространения по запросу. Если загрузка содержимого продолжает выполняться, диспетчер передачи пакетов переходит в спящий режим еще на 60 минут, после чего повторно проверяет подтверждение от точки распространения по запросу. Этот цикл продолжается до тех пор, пока точка распространения по запросу не завершит передачу содержимого.  
+-   Quando o ponto de distribuição de solicitação concluir a transferência dos conteúdos, enviará esse estado ao ponto de gestão. No entanto, se após 60 minutos este estado não foi recebido, o Gestor de transferência do pacote reativado e verifica com o ponto de distribuição de extração para confirmar se o ponto de distribuição de solicitação transferiu o conteúdo. Se a transferência do conteúdo estiver em curso, o Gestor de Transferência de Pacotes permanecerá suspenso durante 60 minutos antes de voltar a consultar o ponto de distribuição de extração. Este ciclo continuará até o ponto de distribuição de extração concluir a transferência do conteúdo.  
 
-**Точку распространения по запросу можно настроить** в ходе установки точки распространения или после завершения установки, изменив свойства роли системы сайта точки распространения.  
+**Pode configurar um ponto de distribuição de extração** quando instala o ponto de distribuição ou, depois de o ter instalado, editando as propriedades da função do sistema de sites do ponto de distribuição.  
 
-**Конфигурацию точки распространения по запросу можно удалить**, изменив свойства точки распространения. При удалении конфигурации точки распространения по запросу точка распространения возвращается к своему обычному режиму работы, и в дальнейшем передачей содержимого в точку распространения управляет сервер сайта.  
+**Pode remover a configuração para um ponto de distribuição de solicitação** editando as propriedades do ponto de distribuição. Quando remover a configuração de ponto de distribuição de solicitação, o ponto de distribuição devolve operações normais, e o servidor do site gere conteúdo futuro transfere para o ponto de distribuição.  
 
-## <a name="limitations-for-pull-distribution-points"></a>Ограничения точек распространения по запросу  
+## <a name="limitations-for-pull-distribution-points"></a>Limitações para pontos de distribuição de extração  
 
--   Облачную точку распространения нельзя настроить в качестве точки распространения по запросу.  
+-   Um ponto de distribuição baseado na nuvem não pode ser configurado como um ponto de distribuição de solicitação.  
 
--   Точку распространения на сервере сайта нельзя настроить в качестве точки распространения по запросу.  
+-   Um ponto de distribuição num servidor de sites não pode ser configurado como um ponto de distribuição de solicitação.  
 
--   **Конфигурация предварительно подготовленного содержимого переопределяет конфигурацию точки распространения по запросу**. Точка распространения по запросу, настроенная на предварительно подготовленное содержимое, находится в состоянии ожидания содержимого. Она не запрашивает содержимое из исходной точки распространения и, так же как и стандартная точка распространения с конфигурацией предварительно подготовленного содержимого, не получает содержимое с сайта.  
+-   **A configuração de conteúdo pré-configurado substitui a configuração de ponto de distribuição de extração**. Um ponto de distribuição de solicitação que esteja configurado para conteúdos pré-configurados aguarda os conteúdos. Não solicita os conteúdos do ponto de distribuição de origem e, como uma distribuição padrão ponto que tenha a configuração de conteúdo pré-configurado, recebe os conteúdos do servidor do site.  
 
--   **Точка распространения по запросу не использует конфигурации пределов скорости** при передаче содержимого. Если ранее установленная точка распространения настраивается в качестве точки распространения по запросу, то конфигурации пределов скорости сохраняются, но не используются. Если позже удалить конфигурацию точки распространения по запросу, конфигурации пределов скорости реализуются как ранее настроенные.  
+-   **Um ponto de distribuição de extração não utiliza configurações de limites de velocidade** ao transferir conteúdo. Se configurar um ponto de distribuição previamente instalado para funcionar como um ponto de distribuição de solicitação, as configurações de limites de velocidade serão guardadas, mas não utilizadas. Se posteriormente remover a configuração de ponto de distribuição de solicitação, as configurações de limite de velocidade estão implementadas conforme anteriormente configuradas.  
 
     > [!NOTE]  
-    >  При настройке точки распространения в качестве точки распространения по запросу вкладка **Пределы скорости** невидима в свойствах точки распространения.  
+    >  Quando um ponto de distribuição é configurado como um ponto de distribuição de solicitação, o separador **Limites de Velocidade** não está visível nas propriedades do ponto de distribuição.  
 
--   Точка распространения по запросу не использует **Параметры повтора** для распространения содержимого. **Параметры повтора** можно настроить в пункте **Свойствах компонента распространения программного обеспечения** для каждого сайта. Чтобы просмотреть или настроить эти свойства, в рабочей области **Администрирование** консоли Configuration Manager разверните узел **Конфигурация сайта** и выберите пункт **Сайты**. После этого в области результатов выберите сайт, а затем на вкладке **Главная** выберите **Настройка компонентов сайта**. Затем выберите **Распространения программного обеспечения**.  
+-   Um ponto de distribuição de extração não utiliza as **Definições de repetição** para a distribuição de conteúdo. A opção**Definições de Repetição** pode ser configurada no âmbito das **Propriedades do Componente de Distribuição de Software** de cada site. Para ver ou configurar estas propriedades, no **administração** área de trabalho da consola do Configuration Manager, expanda **configuração do Site**e, em seguida, selecione **Sites**. Em seguida, no painel de resultados, selecione um site e, em seguida, no **home page** separador, selecione **configurar componentes do Site**. Por fim, selecione **distribuição de Software**.  
 
--   Для передачи содержимого из исходной точки распространения в удаленный лес на компьютере, на котором размещена точка распространения по запросу, должен быть установлен клиент Configuration Manager. Должна быть настроена для использования учетная запись доступа к сети, которая имеет доступ к исходной точке распространения.  
+-   Para transferir conteúdos a partir de uma origem ponto de distribuição numa floresta remota, o computador que aloja o ponto de distribuição de solicitação tem de ter um cliente de Configuration Manager instalado. Uma conta de acesso de rede que tenha acesso ao ponto de distribuição de origem tem de ser configurada para utilização.  
 
--   На компьютере, который настроен в качестве точки распространения по запросу и на котором запущен клиент Configuration Manager, версия клиента должна совпадать с версией сайта Configuration Manager, на котором установлена точка распространения по запросу. Это связано с требованием использовать общий компонент CCMFramework для точки распространения по запросу и клиента Configuration Manager.  
+-   Num computador que está configurado como uma distribuição de solicitação ponto e que é executado um cliente do Configuration Manager, a versão do cliente tem de ser a mesma versão que o site do Configuration Manager que instala o ponto de distribuição de solicitação. Este é um requisito para o ponto de distribuição de solicitação para utilizar um CCMFramework que é comum para o ponto de distribuição de solicitação e o cliente do Configuration Manager.  
 
-## <a name="about-source-distribution-points"></a>Сведения об исходных точках распространения  
- При настройке точки распространения по запросу необходимо указать одну или несколько исходных точек распространения:  
+## <a name="about-source-distribution-points"></a>Acerca dos pontos de distribuição de origem  
+ Quando configurar um ponto de distribuição de extração, tem de especificar um ou mais pontos de distribuição de origem:  
 
--   Отображаются только те точки распространения, которые могут использоваться в качестве исходных точек распространения.  
+-   Apenas são apresentados os pontos de distribuição que se qualifiquem como pontos de distribuição de origem.  
 
--   Точку распространения по запросу можно указать в качестве исходной точки распространения для другой точки распространения по запросу.  
+-   Um ponto de distribuição de solicitação pode ser especificado como um ponto de distribuição de origem para outro ponto de distribuição de solicitação.  
 
--   При использовании Configuration Manager в качестве исходных точек распространения можно указать только точки распространения с поддержкой HTTP.  
+-   Apenas os pontos de distribuição que suportem HTTP podem ser especificados como pontos de distribuição de origem quando utilizar o Configuration Manager.  
 
--   Чтобы указать исходную точку распространения, настроенную для поддержки протокола HTTPS, вы можете использовать пакет SDK Configuration Manager. Чтобы использовать исходную точку распространения, настроенную на поддержку HTTPS, точка распространения по запросу должна быть размещена на том же компьютере, на котором работает клиент Configuration Manager.  
+-   Pode utilizar o SDK do Configuration Manager para especificar um ponto de distribuição de origem que esteja configurado para HTTPS. Para utilizar um ponto de distribuição de origem que esteja configurado para HTTPS, o ponto de distribuição de solicitação tem de estar localizado conjuntamente num computador que executa o cliente do Configuration Manager.  
 
-Можно назначить приоритет каждой точке распространения в списке исходных точек распространения точек по запросу:  
+A cada ponto de distribuição de uma lista de pontos de distribuição de origem de pontos de distribuição de extração pode ser atribuída uma prioridade:  
 
--   Можно назначить приоритет каждой точке по отдельности или назначить одинаковый приоритет нескольким исходным точкам распространения.  
+-   Pode atribuir uma prioridade diferente a cada ponto de distribuição de origem ou atribuir a mesma prioridade a vários pontos de distribuição de origem.  
 
--   Приоритет определяет порядок, в котором точка распространения по запросу запрашивает содержимое из своих исходных точек распространения.  
+-   A prioridade determina a ordem pela qual o ponto de distribuição de solicitação solicita os conteúdos a partir dos respetivos pontos de distribuição de origem.  
 
--   Точки распространения по запросу сначала обращаются к исходной точке распространения с наименьшим приоритетом.  Если существует несколько исходных точек распространения с одинаковым приоритетом, то точка распространения по запросу случайным образом выбирает одну из них.  
+-   Inicialmente, os pontos de distribuição de solicitação contactam um ponto de distribuição de origem com o valor de prioridade mais baixo.  Caso existam vários pontos de distribuição de origem com a mesma prioridade, o ponto de distribuição de solicitação seleciona de forma não determinística um dos pontos de distribuição de origem que partilhem essa prioridade.  
 
--   Если в выбранной исходной точке содержимое недоступно, точка распространения по запросу пытается скачать содержимое из другой точки распространения с таким же приоритетом.  
+-   Quando o conteúdo não estiver disponível numa origem selecionada, o ponto de distribuição de extração tenta, em seguida, transferir o conteúdo a partir de outro ponto de distribuição com a mesma prioridade.  
 
--   Если во всех точках распространения с заданным приоритетом отсутствует содержимое, точка распространения по запросу пытается загрузить содержимое с точки распространения, которой назначен следующий по величине приоритет, пока содержимое не будет обнаружено или переходит в спящий режим на 30 минут, после чего начинает процесс заново.  
+-   Se nenhum dos pontos de distribuição com uma prioridade atribuída tiver o conteúdo, o ponto de distribuição de solicitação tenta transferir o conteúdo a partir de um ponto de distribuição que tenha uma prioridade atribuída com o próximo valor mais elevado, até que o conteúdo esteja localizado ou o ponto de distribuição de solicitação permaneça suspenso durante 30 minutos antes de iniciar novamente o processo.  
 
-При скачивании точкой распространения по запросу содержимого из исходной точки распространения эта точка распространения по запросу учитывается при подсчете клиентов в столбце **Обращения к клиентам (уникальные)** отчета **Сводка по использованию точки распространения** .  
+Quando um ponto de distribuição de extração transfere conteúdo de um ponto de distribuição de origem, esse ponto de distribuição de extração é contabilizado como um cliente na coluna **Acessos de Clientes (Exclusivos)** do relatório **Resumo de utilização do ponto de distribuição** .  
 
- По умолчанию точка распространения по запросу использует свою **учетную запись компьютера** для передачи содержимого с исходной точки распространения. Однако когда точка распространения по запросу передает содержимое с исходной точки распространения, которая находится в удаленном лесу, эта точка распространения по запросу всегда использует учетную запись доступа к сети. Для этого процесса необходимо, чтобы на компьютере был установлен клиент Configuration Manager, а учетная запись доступа к сети была настроена для использования исходной точки распространения и имела к ней доступ.  
+ Por predefinição, um ponto de distribuição de extração utiliza a respetiva **conta de computador** para transferir conteúdo a partir de um ponto de distribuição de origem. No entanto, quando as transferências de ponto de distribuição de solicitação de conteúdo de um ponto de distribuição de origem que esteja numa floresta remota, o ponto de distribuição de solicitação utiliza sempre a conta de acesso de rede. Este processo requer que o computador tem o cliente do Configuration Manager instalado e de que a conta de acesso de rede está configurada para utilização e de que tem acesso ao ponto de distribuição de origem.  
 
-## <a name="about-content-transfers"></a>Сведения о передаче содержимого  
- Для управления передачей содержимого точки распространения по запросу используют компонент **CCMFramework** клиентского программного обеспечения Configuration Manager.  
+## <a name="about-content-transfers"></a>Acerca das transferências de conteúdo  
+ Para gerir a transferência de conteúdo, os pontos de distribuição de solicitação utilizam o **CCMFramework** componente do software de cliente do Configuration Manager.  
 
--   Эта платформа устанавливается с помощью **Pulldp.msi** при настройке точки распространения в качестве точки распространения по запросу. Платформа не требует установки клиента Configuration Manager.  
+-   Esta estrutura é instalada pelo **Pulldp.msi** quando configurar o ponto de distribuição para um ponto de distribuição de solicitação. A estrutura não necessita do cliente do Configuration Manager.  
 
--   Чтобы точка распространения по запросу могла функционировать, служба CCMExec должна работать на компьютере точки распространения после завершения установки точки распространения по запросу.  
+-   Após a instalação do ponto de distribuição de solicitação, o serviço CCMExec do computador do ponto de distribuição tem de estar operacional para que o ponto de distribuição de solicitação funcione.  
 
--   Точка распространения по запросу передает содержимое с помощью **фоновой интеллектуальной службы передачи данных** (BITS) и ведет журнал своей работы в файлах **datatransferservice.log** и **pulldp.log** на компьютере точки распространения.  
+-   Quando o ponto de distribuição de extração transferir conteúdo, transferirá o conteúdo utilizando o **Serviço de Transferência Inteligente em Segundo Plano** (BITS) e regista as respetivas operações nos ficheiros **datatransferservice.log** e **pulldp.log** no computador do ponto de distribuição.  
 
-## <a name="see-also"></a>См. также  
- [Основные принципы управления содержимым в System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   
+## <a name="see-also"></a>Consulte também  
+ [Conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   

@@ -1,6 +1,6 @@
 ---
-title: "Завершение миграции | Документы Майкрософт"
-description: "Узнайте, как завершить миграцию в конечную иерархию System Center Configuration Manager после того, как в исходной иерархии больше нет данных."
+title: "Concluir a migração | Microsoft Docs"
+description: "Saiba como concluir a migração para uma hierarquia de destino do System Center Configuration Manager depois de uma hierarquia de origem já não tem dados."
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: eb1d2e320df02b26423ed4341d5bd1568b9444ad
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Планирование завершения миграции в System Center Configuration Manager
+# <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Planear a conclusão da migração no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Если в System Center Configuration Manager исходная иерархия больше не содержит данных, которые необходимо перенести в конечную иерархию, процесс миграции можно завершить. Завершение миграции включает следующие шаги.  
+Com o System Center Configuration Manager, pode concluir o processo de migração quando uma hierarquia de origem já não tem dados que pretende migrar para a hierarquia de destino. Concluir migração inclui os seguintes passos gerais:  
 
--   Убедитесь, что необходимые данные были перенесены. Перед выполнением миграции из исходной иерархии убедитесь, что вы успешно перенесли из исходной иерархии все ресурсы, которые нужны в конечной иерархии. Это могут быть данные и клиенты.  
+-   Certifique-se de que necessita de dados foi migrada. Antes de concluir a migração a partir de uma hierarquia de origem, certifique-se de que migrou com êxito todos os recursos da hierarquia de origem que precisa na hierarquia de destino. Isto pode incluir dados e clientes.  
 
--   Остановите сбор данных от исходных сайтов. Для завершения миграции из исходной иерархии следует сначала остановить сбор данных от исходных сайтов.  
+-   Pare a recolha de dados de sites de origem. Para concluir a migração a partir de uma hierarquia de origem, tem primeiro de parar a recolha de dados de sites de origem.  
 
--   Очистите данные миграции. После остановки сбора данных со всех исходных сайтов в исходной можно удалить данные о процессе миграции и исходной иерархии из базы данных в конечной иерархии.  
+-   Limpe dados de migração. Depois de interromper a recolha de dados de todos os sites de origem numa hierarquia de origem, pode remover os dados sobre a hierarquia de origem e o processo de migração da base de dados da hierarquia de destino.  
 
--   Выведите исходную иерархию из эксплуатации. Завершив миграцию из исходной иерархии, которая больше не содержит управляемых ресурсов, можно списать сайты в исходной иерархии и удалить связанную инфраструктуру из среды. Сведения о том, как списать сайты и исходную иерархию, см. в документации по соответствующей версии Configuration Manager.  
+-   Desative a hierarquia de origem. Depois de concluir a migração a partir de uma hierarquia de origem e de que a hierarquia já não tem recursos por si, pode desativar os sites na hierarquia de origem e remover a infraestrutura relacionada do seu ambiente. Para obter informações sobre como encerrar sites e hierarquias de origem, consulte a documentação dessa versão do Configuration Manager.  
 
-В приведенных ниже разделах описывается процедура завершения миграции из исходной иерархии путем остановки сбора данных и очистки данных миграции.  
+Utilize as secções seguintes para ajudar a planear concluir a migração de uma hierarquia de origem, parando a recolha de dados e da limpeza dos dados de migração:  
 
--   [Планирование прекращения сбора данных](#Plan_to_Stop_Data_Gath)  
+-   [Planear a interrupção da recolha de dados](#Plan_to_Stop_Data_Gath)  
 
--   [Планирование очистки данных миграции](#Plan_to_clean_up)  
+-   [Planear a limpeza dos dados de migração](#Plan_to_clean_up)  
 
-##  <a name="Plan_to_Stop_Data_Gath"></a> Планирование прекращения сбора данных  
- Прежде чем миграция будет завершена, а данные миграции удалены, необходимо остановить сбор данных со всех исходных сайтов в исходной иерархии. Чтобы прекратить сбор данных со всех исходных сайтов, необходимо выполнить команду **Остановить сбор данных** для исходных сайтов нижнего уровня, а затем повторить этот процесс для каждого родительского сайта. Сайт верхнего уровня исходной иерархии должен быть последним сайтом, на котором прекращается сбор данных. Прежде чем выполнять остановку сбора данных для родительского сайта, эту команду необходимо выполнить для всех его дочерних сайтов. Как правило, сбор данных прекращают, только когда все будет готово к завершению процесса миграции.  
+##  <a name="Plan_to_Stop_Data_Gath"></a>Planear a interrupção da recolha de dados  
+ Antes de concluir a migração e limpar os dados de migração, tem de parar a recolha de dados de cada site de origem na hierarquia de origem. Para parar a recolha de dados de cada site de origem, terá de executar o **parar a recolha de dados** comando em sites de origem da camada inferior, repetindo então o processo em cada site principal. O site de nível superior da hierarquia de origem terá de ser o último em que a recolha de dados é interrompida. Tem de parar recolha de dados em cada site subordinado antes de executar este comando num site principal. Normalmente, apenas interromperá a recolha de dados quando estiver pronto para concluir o processo de migração.  
 
- После того как сбор данных из исходного сайта будет прекращен, общие точки распространения из этого сайта перестают быть доступными в качестве расположений содержимого для клиентов в конечной иерархии. Убедитесь, что все перенесенное содержимое, необходимое клиентам в конечной иерархии, остается доступным, выполнив одно из следующих действий.  
+ Depois de interromper a recolha de dados de um site de origem, os pontos de distribuição partilhados a partir desse site deixam de estar disponíveis como localizações de conteúdo para clientes na hierarquia de destino. Por conseguinte, certifique-se de que qualquer conteúdo migrado que os clientes na hierarquia de destino necessitem de aceder permanece disponível utilizando uma das seguintes opções:  
 
--   В конечной иерархии распространите содержимое по крайней мере в одну точку распространения.  
+-   Na hierarquia de destino, distribua o conteúdo para, pelo menos, um ponto de distribuição.  
 
--   Прежде чем завершить сбор данных из исходного сайта, следует обновить или переназначить общие точки распространения, в которых имеется требуемое содержимое. Дополнительные сведения об обновлении и переназначении общих точек распространения см. в соответствующих подразделах раздела [Планирование стратегии миграции для развертывания содержимого в System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
+-   Antes de parar a recolha de dados de um site de origem, atualizar ou reatribuir pontos de distribuição partilhados que tenham o conteúdo necessário. Para obter mais sobre a atualização ou reatribuição de pontos de distribuição partilhados, consulte as secções aplicáveis [planear uma estratégia de migração de implementação de conteúdos no System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
 
-После завершения сбора данных со всех исходных сайтов в исходной иерархии можно удалить данные миграции. Пока не будет завершена очистка данных миграции, все запущенные или запланированные задания миграции будут оставаться доступными в консоли Configuration Manager.  
+Depois de interromper a recolha de dados de cada site de origem na hierarquia de origem, pode limpar os dados de migração. Até limpar os dados de migração, cada tarefa de migração executadas ou que esteja agendada para execução permanece acessível na consola do Configuration Manager.  
 
-Дополнительные сведения об исходных сайтах и сборе данных см. в разделе [Планирование стратегии для исходных иерархий в System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
+Para obter mais informações sobre sites de origem e a recolha de dados, consulte [planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
 
-##  <a name="Plan_to_clean_up"></a> Планирование очистки данных миграции  
- Последним этапом завершения процесса миграции является очистка данных миграции. После завершения сбора данных со всех исходных сайтов исходной иерархии можно использовать команду **Очистить данные переноса** . Это необязательное действие приводит к тому, что данные о текущей исходной иерархии будут удалены из базы данных конечной иерархии.  
+##  <a name="Plan_to_clean_up"></a>Planear a limpeza dos dados de migração  
+ O último passo necessário para concluir a migração é a limpeza dos dados de migração. Pode utilizar o **limpar dados de migração** comando depois de interromper a recolha de dados de cada site de origem na hierarquia de origem. Esta ação opcional remove dados sobre a hierarquia de origem atual da base de dados da hierarquia de destino.  
 
- При очистке данных миграции большинство сведений о миграции удаляется из базы данных конечной иерархии. Тем не менее сведения о переносимых объектах сохраняются. Используя эти сведения, в рабочей области **Миграция** можно настроить перенастроить исходную иерархию с перенесенными данными, чтобы возобновить миграцию из этой исходной иерархии или просмотреть ранее перенесенные объекты и их принадлежность к сайту.  
+ Quando limpar os dados de migração, a maioria dos dados sobre a migração são removidos da base de dados da hierarquia de destino. No entanto, os detalhes sobre objetos migrados são mantidos. Com estes detalhes, pode utilizar o **migração** área de trabalho para reconfigurar a hierarquia de origem que tenha os dados que foram migrados, para retomar a migração a partir dessa hierarquia de origem ou para rever os objetos e a propriedade do site dos objetos migrados anteriormente.  

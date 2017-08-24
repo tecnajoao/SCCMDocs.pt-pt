@@ -1,6 +1,6 @@
 ---
-title: "Поиск справки по работе с System Center Configuration Manager | Документация Майкрософт"
-description: "Поиск ресурсов для получения дополнительных сведений о System Center Configuration Manager."
+title: Encontrar ajuda para utilizar o System Center Configuration Manager | Microsoft Docs
+description: "Localize recursos para obter informações adicionais sobre o System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -17,60 +17,60 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 72fe220cb9a40d6a20164ace1db8542a91221f55
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="find-help-for-using-system-center-configuration-manager"></a>Поиск справки по использованию System Center Configuration Manager
+# <a name="find-help-for-using-system-center-configuration-manager"></a>Encontrar ajuda para utilizar o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Используйте приведенные далее ресурсы для получения дополнительных сведений о System Center Configuration Manager.  
+Utilize os seguintes recursos para obter informações adicionais sobre o System Center Configuration Manager:  
 
--   [Информация и поддержка](#bkmk_Info)  
+-   [Informações e suporte](#bkmk_Info)  
 
-    -   [Поиск в библиотеке документации](#BKMK_SearchTips)  
+    -   [Pesquisar a biblioteca de documentação](#BKMK_SearchTips)  
 
-    -   [Блог группы System Center Configuration Manager](#BKMK_ProductGroupBlog)  
-    -   [Варианты поддержки и ресурсы сообщества](#BKMK_SupportOptions)
+    -   [O blogue da equipa do System Center Configuration Manager](#BKMK_ProductGroupBlog)  
+    -   [Opções de suporte e recursos da comunidade](#BKMK_SupportOptions)
 
-  Справочные сведения о специальных возможностях см. в статье [Специальные возможности в System Center Configuration Manager](../../core/understand/accessibility-features.md).
+  Para obter ajuda com acessibilidade, consulte [funcionalidades de acessibilidade no System Center Configuration Manager](../../core/understand/accessibility-features.md).
 
-##  <a name="bkmk_Info"></a> Информация и поддержка  
- Используйте приведенные далее ресурсы для получения дополнительных сведений о Configuration Manager.  
+##  <a name="bkmk_Info"></a> Informações e suporte  
+ Utilize os seguintes recursos para obter informações adicionais sobre o Configuration Manager.  
 
--   **Чтобы получить доступ к последней документации по продукту System Center Configuration Manager:** используйте [библиотеку документации по System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974) на сайте TechNet.
+-   **Para aceder à documentação do produto mais recente do System Center Configuration Manager:** Utilize o TechNet [biblioteca de documentação do System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974).
 
--   **Чтобы отправить отзыв о документации:** оправьте отзыв с помощью страницы **User Voice** (Отзывы пользователей) в [System Center Configuration Manager Feedback (Documentation)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation) (Отзывы о документации System Center Configuration Manager).  
+-   **Para fornecer comentários sobre a documentação:** Submeter comentários utilizando **voz do utilizador** em [System Center Configuration Manager Feedback (documentação)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation).  
 
--   **Чтобы скачать архивную копию документации:** перейдите в коллекцию TechNet:
+-   **Para transferir uma cópia da documentação arquivada:** aceda à galeria do TechNet:
 
-    - [Версия 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
-    - [Версия 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Versão 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Versão 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
 
-###  <a name="BKMK_SearchTips"></a> Поиск в библиотеке документации  
- Используйте следующие советы по поиску, чтобы найти нужную информацию.  
+###  <a name="BKMK_SearchTips"></a> Pesquisar a biblioteca de documentação  
+ Utilize as seguintes sugestões de procura para localizar as informações de que necessita:  
 
--   Используя предпочитаемую поисковую систему для поиска содержимого по System Center Configuration Manager, можно ограничить область поиска только библиотекой актуального содержимого. Для этого нужно использовать условия **SCCM** и **Документы**.
+-   Quando utiliza o motor de busca preferencial para localizar os conteúdos do System Center Configuration Manager, pode concentrar-se os resultados da pesquisa à biblioteca de conteúdos, incluindo os seguintes dois termos, **SCCM** e **Docs**.
 
--   Используйте условия поиска, которые соответствуют тому, что вы видите в пользовательском интерфейсе и интерактивной документации, вместо неофициальных терминов или сокращений, которые могут встречаться в содержимом от сообщества. Например, следует выполнять поиск по строке "точка управления" вместо "ТУ", "тип развертывания" вместо "ТР" и "обновления программного обеспечения" вместо "ОПО".  
+-   Utilizar os termos da procura que correspondam aos que vê na interface de utilizador (IU) e a documentação online, em vez dos termos não oficiais ou as abreviaturas que poderá ver no conteúdo da Comunidade. Por exemplo, procure "ponto de gestão" em vez de "MP"; "tipo de implementação" em vez de "DT"; e "atualizações de software" em vez de "SUM".  
 
--   При поиске на странице на портале TechNet или в файле справки (например, если вы нажали CTRL+F1 и ввели условия поиска в поле **Найти**), результаты не будут содержать текст, расположенный в свернутых разделах. Чтобы найти текст в свернутых разделах, разверните их до начала поиска на странице. Для этого щелкните **Развернуть все** вверху страницы или дважды щелкните любой свернутый раздел. Когда все разделы развернуты, поиск на странице ведется во всех разделах.  
+-   Quando efetua uma procura numa página da TechNet ou no ficheiro de ajuda (por exemplo, selecione de Ctrl + F1 e introduza os termos de pesquisa no **localizar** caixa), os resultados excluem o texto das secções fechadas. Para procurar texto nas secções fechadas, expanda as secções antes de efetuar a procura na página. Para tal, pode selecionar o **Expandir tudo** botão na parte superior da página ou faça duplo clique em qualquer secção fechada. Quando todas as secções estiverem expandidas, uma procura na página pode procurar todas as secções dessa página.  
 
--   Чтобы выполнить поиск в разделе файла справки, нажмите клавишу F1 и введите условия поиска в диалоговом окне **Найти**. Файл справки не поддерживает возможность **Развернуть все**, и чтобы найти текст в свернутых разделах на странице, их необходимо по отдельности развернуть вручную.  
+-   Para procurar um tópico no ficheiro de ajuda, selecione F1 e, em seguida, introduza os termos da procura no **localizar** caixa de diálogo. O ficheiro de ajuda não suporta o **Expandir tudo** opção e tem de expandir manualmente as secções individuais fechadas para poder procura na página localiza o texto dessas secções durante.  
 
--   Когда это возможно, используйте библиотеку TechNet, а не загруженную документацию. На портале TechNet представлена наиболее актуальная информация, а сведений, которые вы ищете, может не быть в загруженной документации, или же в информации в Интернете могут быть исправления или дополнения.  
+-   Sempre que possível, utilize a biblioteca online da TechNet em vez de documentação transferida. A TechNet contém as informações mais atualizadas e as informações que procura podem não estar na documentação transferida ou podem existir correções ou informações adicionais online.  
 
--   Если для вас проще и быстрее искать информацию в документации, когда она хранится локально, можно выбрать несколько разделов на сайте TechNet и сохранить их локально. Сначала войдите в TechNet. Затем в верхней части той страницы, которую необходимо сохранить локально, нажмите кнопку **Экспорт** (рядом с кнопкой **Печать**). После этого отображается баннер **Export multiple sets of pages** (Экспортировать несколько наборов страниц), позволяющий добавлять и удалять страницы, которые требуется сохранить. После этого щелкните **Управление страницами** для выполнения экспорта. Для получения дополнительных сведений нажмите кнопку **Справка** на баннере.  
+-   Se considerar mais fácil e rápido procurar documentação armazenada localmente, pode selecionar vários tópicos na TechNet e guardá-los localmente. Primeiro, inicie sessão TechNet. Em seguida, no topo da página que pretende guardar localmente, escolha **exportar** (junto a **impressão**). Verá a faixa **Exportar vários conjuntos de páginas** , que permite adicionar e remover páginas que pretende guardar. Em seguida, escolha **gerir páginas** para exportá-las. Para obter mais informações, escolha **ajudar** na faixa.  
 
-###  <a name="BKMK_ProductGroupBlog"></a> Блог группы System Center Configuration Manager  
- Общий блог группы инженеров и партнеров по адресу [System Center Configuration Manager Team Blog (Общий блог System Center Configuration Manager)](http://go.microsoft.com/fwlink/?LinkId=191941) содержит технические сведения и новости о Configuration Manager и сопутствующих технологиях. В блоге размещаются дополнения к технической документации и сведения о поддержке.  
+###  <a name="BKMK_ProductGroupBlog"></a> O blogue da equipa do System Center Configuration Manager  
+ Utilização de equipas de parceiros de engenharia do Configuration Manager e o [blogue da equipa do System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=191941) para lhe fornecer informações técnicas e outras novidades sobre o Configuration Manager e as tecnologias relacionadas. As nossas publicações no blogue completam a documentação do produto e as informações de suporte.  
 
-###  <a name="BKMK_SupportOptions"></a> Варианты поддержки и ресурсы сообщества  
- Сведения о вариантах поддержки и ресурсах сообщества см. на следующих веб-страницах.  
+###  <a name="BKMK_SupportOptions"></a> Opções de suporte e recursos da comunidade  
+ As hiperligações seguintes fornecem informações sobre as opções de suporte e os recursos da comunidade:  
 
--   [Служба поддержки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=243064)  
+-   [Suporte da Microsoft](http://go.microsoft.com/fwlink/?LinkId=243064)  
 
--   [Сообщество Configuration Manager: практические советы по System Center Configuration Manager (Current Branch)](http://social.technet.microsoft.com/wiki/contents/articles/33035.system-center-configuration-manager-current-branch-survival-guide.aspx )  
+-   [Comunidade do Configuration Manager: Guia de sobrevivência do System Center Configuration Manager (ramo atual)](http://social.technet.microsoft.com/wiki/contents/articles/33035.system-center-configuration-manager-current-branch-survival-guide.aspx )  
 
--   [Страница форумов Configuration Manager](https://social.technet.microsoft.com/Forums/en-US/home?category=ConfigMgrCB)  
+-   [Página de fóruns do Configuration Manager](https://social.technet.microsoft.com/Forums/en-US/home?category=ConfigMgrCB)  

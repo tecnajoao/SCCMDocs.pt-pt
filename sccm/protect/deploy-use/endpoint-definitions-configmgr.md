@@ -1,6 +1,6 @@
 ---
-title: "Определения вредоносных программ Endpoint Protection | Документы Майкрософт"
-description: "Узнайте, как настроить обновления программного обеспечения Configuration Manager для предоставления обновлений определений клиентским компьютерам."
+title: "Definições de software maligno do Endpoint Protection | Microsoft Docs"
+description: "Saiba como configurar atualizações de software do Configuration Manager para fornecer atualizações de definições para os computadores cliente."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,103 +16,103 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: ca40c2c745ea516b56b637249b892cd44e570a9d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>С помощью обновления программного обеспечения Configuration Manager для обновления определений
+#  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Utilizar atualizações de Software do Configuration Manager para fornecer atualizações de definições
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- Вы можете настроить обновления программного обеспечения Configuration Manager для предоставления обновлений определений клиентским компьютерам. Это делается путем настройки правил автоматического развертывания. Перед тем как приступать к созданию правил автоматического развертывания, убедитесь в том, что вы настроили обновления программного обеспечения Configuration Manager. Дополнительные сведения см. в разделе [Общие сведения об обновлениях программного обеспечения в System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).
+ Pode configurar as atualizações de software do Configuration Manager para fornecer atualizações de definições para os computadores cliente. Isto é feito através da configuração de regras de implementação automática. Antes de começar a criar regras de implementação automática, certifique-se de que tem configuradas atualizações de software do Configuration Manager. Para obter mais informações, consulte [introdução ao software atualizações no System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).
 
 > [!NOTE]
->  Эта процедура применяется только к элементам, которые следует специально настроить для Endpoint Protection. Дополнительные сведения о мастере создания правил автоматического развертывания см. в разделе [Автоматическое развертывание обновлений программного обеспечения](/sccm/sum/deploy-use/automatically-deploy-software-updates).
+>  Este procedimento é apenas para os itens que devem ser especificamente configurados para o Endpoint Protection. Para obter mais informações sobre como criar regra de Assistente de implementação automática, consulte [implementar automaticamente atualizações de software](/sccm/sum/deploy-use/automatically-deploy-software-updates).
 
-## <a name="to-configure-an-automatic-deployment-rule-to-deliver-definition-updates"></a>Настройка правила автоматического развертывания для доставки обновлений определений
+## <a name="to-configure-an-automatic-deployment-rule-to-deliver-definition-updates"></a>Para configurar uma regra de implementação automática para disponibilizar atualizações de definições
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Обновления программного обеспечения**, после чего выберите **Правила автоматического развертывания**.
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Atualizações de Software**e clique em **Regras de Implementação Automática**.
 
-3.  На вкладке **Главная** в группе **Создать** щелкните **Создать правило автоматического развертывания**.
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Regra de Implementação Automática**.
 
-4.  На странице **Общие** **мастера создания правил автоматического развертывания**укажите перечисленные ниже сведения.
+4.  Na página **General** do **Assistente de Criação de Regra de Implementação Automática**, especifique as seguintes informações:
 
-    -   **Имя**: введите уникальное имя правила автоматического развертывания.
+    -   **Nome**: Introduza um nome exclusivo para a regra de implementação automática.
 
-    -   **Коллекция**: выберите коллекцию клиентских компьютеров, для которой требуется развернуть обновления определений.
-
-        > [!NOTE]
-        >  Обновления определений невозможно развернуть для коллекции пользователей.
-
-5.  Щелкните **Добавить в существующую группу обновлений ПО**.
-
-6.  Убедитесь, что флажок  **Активировать развертывание после выполнения этого правила** установлен, а затем нажмите кнопку **Далее**.
-
-7.  На странице мастера **Параметры развертывания** в списке **Уровень детализации** выберите **Минимальный**и нажмите кнопку **Далее**.
-
-    > [!NOTE]
-    >  В списке **Уровень детализации** выберите **Минимальный** (Configuration Manager без пакета обновления) или **Только сообщения об ошибках** (Configuration Manager). Это позволит сократить число сообщений о состоянии, возвращаемых при развертывании определений. Такая настройка позволяет сократить степень загрузки ЦП на серверах Configuration Manager.
-
-8.  В списке **Фильтры свойств** установите флажок **Категория обновления** .
-
-9. В списке **Условие поиска** выберите **<элементы для поиска\>**. Затем в диалоговом окне **Условие поиска** в списке **Укажите значение поиска** выберите **Обновления определений**.
-
-10. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Условие поиска** .
-
-11. В списке **Фильтры свойств** установите флажок **Продукт** .
-
-12. В списке **Условие поиска** выберите **<элементы для поиска\>**. Затем в диалоговом окне **Условия поиска** в списке **Укажите значение для поиска** выберите **Forefront Endpoint Protection 2010** для Windows 8.1 и более ранних версий или **Защитник Windows** для Windows 10 и более поздних версий.
-
-13. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Условие поиска** , после чего нажмите кнопку **Далее**.
-
-14. В списке **Фильтры свойств** установите флажок **Заменено** .
-
-15. В списке **Условие поиска** выберите **<элементы для поиска\>**. Затем в диалоговом окне **Условия поиска** в списке **Укажите значение для поиска** выберите **Нет**.
-
-16. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Условие поиска** , после чего нажмите кнопку **Далее**.
-
-17. На странице мастера **Расписание оценки** выберите **Разрешить выполнение правила по расписанию**и настройте расписание загрузки обновлений определений. Задайте правило для выполнения как минимум через два часа после синхронизации каждой точки обновления программного обеспечения. Нажмите кнопку **Далее**.
-
-18. На странице мастера **Расписание развертывания** настройте следующие параметры.
-
-    -   **Отсчет времени от**: выберите **UTC** , если требуется, чтобы все клиенты в иерархии устанавливали самые последние версии определений одновременно. Фактическое время установки будет варьироваться в двухчасовом диапазоне. Этот параметр рекомендуется использовать.
-
-    -   **Время доступности программного обеспечения**: укажите доступное время для развертывания, созданного этим правилом. Это должно быть значение по меньшей мере через один час после выполнения правила автоматического развертывания. В этом случае для репликации содержимого на точки распространения в иерархии будет достаточно времени. Некоторые обновления определений могут также содержать обновления для защиты от вредоносных программ, для доставки которых в точки распространения может потребоваться дополнительное время.
-
-    -   **Крайний срок установки**: выберите **Как можно скорее**.
+    -   **Coleção**: Selecione a coleção de computadores cliente nos quais pretende implementar atualizações de definições.
 
         > [!NOTE]
-        >  Крайние сроки обновления программного обеспечения варьируются в пределах двухчасового периода, чтобы предотвратить одновременный запрос обновления всеми клиентами.
+        >  Não é possível implementar atualizações de definições para uma coleção de utilizadores.
 
-19. Нажмите кнопку **Далее**.
+5.  Clique em **Adicionar a um Grupo de Atualização de Software existente**.
 
-20. На странице мастера **Взаимодействие с пользователем** , в списке **Уведомления для пользователей** , выберите **Скрыть в центре программного обеспечения и во всех уведомлениях**.   Это обеспечивает автоматическую установку обновлений определений. Нажмите кнопку **Далее**.
+6.  Certifique-se de que a caixa de verificação  **Ativar a implementação após a execução desta regra** está selecionada e, em seguida, clique em **Seguinte**.
 
-21. На странице мастера **Оповещения** никаких оповещений настраивать не требуется. Endpoint Protection в Configuration Manager создает все необходимые оповещения. Нажмите кнопку **Далее**.
-
-22. На странице мастера **Параметры загрузки** выберите требуемые действия для загрузки обновлений программного обеспечения и нажмите кнопку **Далее**.
-
-23. На странице мастера **Пакет развертывания** выберите существующий пакет развертывания или создайте новый пакет, чтобы добавить в него файлы обновлений программного обеспечения, связанные с правилом.
+7.  Na página **Definições de Implementação** do assistente, na lista **Nível de detalhe** , selecione **Mínimo**e clique em **Seguinte**.
 
     > [!NOTE]
-    >  Рекомендуется поместить обновления определений в пакет, который не содержит других обновлений программного обеспечения. Это позволит уменьшить размер пакета обновлений определений и быстрее выполнить репликацию на точки распространения.
+    >  Do **nível de detalhe** lista, selecione **mínima** (Configuration Manager sem Service Pack) ou **apenas mensagens de erro** (Configuration Manager). Isto irá reduzir o número de mensagens de estado devolvidas pela implementação da definição. Esta configuração ajuda a reduzir a utilização de processamento da CPU nos servidores do Configuration Manager.
 
-24. На странице мастера **Точки распространения** выберите одну или несколько точек распространения, в которые будет скопировано содержимое этого пакета, и нажмите кнопку **Далее**.
+8.  Na lista **Filtros de propriedades** , selecione a caixa de verificação **Classificação da Atualização** .
 
-25. На странице мастера **Расположение загрузки** выберите **Загрузить обновления программного обеспечения из Интернета**, после чего нажмите кнопку **Далее**.
+9. No **os critérios de pesquisa** lista, clique em **< itens para localizar\>**. Em seguida, na caixa de diálogo **Critérios de Procura** , na lista **Especifique o valor para procurar** , selecione **Atualizações de Definição**.
 
-26. На странице мастера **Выбор языка** выберите каждую языковую версию обновлений, которые требуется загрузить, и нажмите кнопку **Далее**.
+10. Clique em **OK** para fechar a caixa de diálogo **Critérios de Procura** .
 
-27. Завершите работу мастера создания правил автоматического развертывания.
+11. Na lista **Filtros de propriedades** , selecione a caixa de verificação **Produto** .
 
-28. Убедитесь в том, что новое правило отображается в узле **Правила автоматического развертывания** в консоли Configuration Manager.
+12. No **os critérios de pesquisa** lista, clique em **< itens para localizar\>**. Em seguida, na caixa de diálogo **Critérios de Procura** , na lista **Especifique o valor para procurar** , selecione **Forefront Endpoint Protection 2010** para o Windows 8.1 e versões anteriores ou **Windows Defender** para o Windows 10 e posterior.
+
+13. Clique em **OK** para fechar a caixa de diálogo **Critérios de Procura** e, em seguida, clique em **Seguinte**.
+
+14. Na lista **Filtros de propriedades** , selecione a caixa de verificação **Ultrapassado** .
+
+15. No **os critérios de pesquisa** lista, clique em **< itens para localizar\>**. Em seguida, na caixa de diálogo **Critérios de Procura** , na lista **Especifique o valor para procurar** , selecione **Não**.
+
+16. Clique em **OK** para fechar a caixa de diálogo **Critérios de Procura** e, em seguida, clique em **Seguinte**.
+
+17. Na página **Agenda de Avaliação** do assistente, selecione **Ativar regra para executar conforme agendado**e, em seguida, configure o agendamento através do qual pretende transferir atualizações de definições. No mínimo, defina a regra para ser executada duas horas após cada sincronização de ponto de atualização de software. Clique em **Seguinte**.
+
+18. Na página **Agenda de Implementação** do assistente, configure as seguintes definições:
+
+    -   **Hora baseada na**: Selecione **UTC** se pretender que todos os clientes na hierarquia instalem as definições mais recentes ao mesmo tempo. O tempo de instalação real irá variar num período de duas horas. Esta definição é uma melhor prática recomendada.
+
+    -   **Hora de disponibilização do software**: Especifique o tempo disponível para a implementação que foi criada por esta regra. A hora especificada tem de ser, pelo menos, uma hora após a execução da regra de implementação automática. Isto ajuda a garantir que o conteúdo tem tempo suficiente para ser replicado nos pontos de distribuição na hierarquia. Algumas atualizações de definições também podem incluir atualizações de motores antimalware, que podem demorar mais tempo a chegar aos pontos de distribuição.
+
+    -   **Prazo de instalação**: Selecione **logo que possível**.
+
+        > [!NOTE]
+        >  Os prazos de atualização de software são diversificados durante um período de duas horas para impedir que todos os clientes solicitem uma atualização ao mesmo tempo.
+
+19. Clique em **Seguinte**.
+
+20. Na página **Experiência do Utilizador** do assistente, na lista **Notificações do utilizador** , selecione **Ocultar no Centro de Software e em todas as notificações**.   Isto garante que as atualizações de definições são instaladas automaticamente. Clique em **Seguinte**.
+
+21. Na página **Alertas** do assistente, não é necessário configurar alertas. Endpoint Protection no Configuration Manager gera todos os alertas que poderão ser necessários. Clique em **Seguinte**.
+
+22. Na página **Definições de Transferência** do assistente, selecione o comportamento de transferência de atualizações de software necessário e, em seguida, clique em **Seguinte**.
+
+23. Na página **Pacote de Implementação** do assistente, selecione um pacote de implementação existente ou crie um novo pacote de implementação para incluir os ficheiros de atualização de software associados à regra.
+
+    > [!NOTE]
+    >  Considere colocar as atualizações de definições num pacote que não contenha outras atualizações de software. Esta estratégia mantém o tamanho do pacote de atualizações de definições mais pequeno, o que lhe permite replicar para pontos de distribuição mais rapidamente.
+
+24. Na página **Pontos de Distribuição** do assistente, selecione um ou mais pontos de distribuição para os quais o conteúdo deste pacote será copiado e, em seguida, clique em **Seguinte**.
+
+25. Na página **Localização de Transferência** do assistente, selecione **Transferir as atualizações de software a partir da Internet**e clique em **Seguinte**.
+
+26. Na página **Seleção de Idioma** do assistente, selecione cada versão de idioma das atualizações a transferir e clique em **Seguinte**.
+
+27. Conclua o Assistente de Criação de Regra de Implementação Automática.
+
+28. Certifique-se de que a nova regra é apresentada no **regras de implementação automática** nós da consola do Configuration Manager.
 
 
 > [!div class="button"]
-[Следующий этап >](endpoint-antimalware-policies.md)
+[Passo seguinte >](endpoint-antimalware-policies.md)
 
 > [!div class="button"]
-[Назад >](endpoint-configure-alerts.md)
+[Volta >](endpoint-configure-alerts.md)

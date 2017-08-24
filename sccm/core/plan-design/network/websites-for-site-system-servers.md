@@ -1,6 +1,6 @@
 ---
-title: "Веб-сайты для систем сайта | Документы Майкрософт"
-description: "Сведения о веб-сайтах по умолчанию и настраиваемых веб-сайтах для серверов системы сайта в System Center Configuration Manager."
+title: Os Web sites para sistemas de sites | Microsoft Docs
+description: Saiba mais sobre sites predefinidos e personalizados para servidores de sistema de sites no System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -17,117 +17,117 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 886ff3b8e867fc340c79648a57feae81653b0ccd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Веб-сайты для серверов системы сайта в System Center Configuration Manager
+# <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Sites para servidores do sistema de sites no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Несколько ролей системы сайта Configuration Manager требуют наличия служб IIS и используют веб-сайт IIS по умолчанию для размещения служб системы сайта. Если на том же сервере требуется запускать другие веб-приложения, а параметры несовместимы с Configuration Manager, рассмотрите возможность использования настраиваемого веб-сайта для Configuration Manager.  
+Várias funções de sistema de sites do Configuration Manager requerem a utilização dos serviços de informação de Internet do Microsoft (IIS) e utilizam o site predefinido do IIS para alojar serviços do sistema de sites. Quando tem de executar outras aplicações web mesmo servidor e as definições não são compatíveis com o Configuration Manager, considere utilizar um Web site personalizado para o Configuration Manager.  
 
 > [!TIP]  
->  Для обеспечения безопасности рекомендуется использовать выделенный сервер для систем сайта Configuration Manager, которым требуются службы IIS. Использование других приложений в системе сайта Configuration Manager повышает вероятность угроз безопасности для этого компьютера.  
+>  Uma melhor prática de segurança é dedique um servidor para os sistemas de sites do Configuration Manager necessitam do IIS. Quando executar outras aplicações num Gestor de configuração do sistema de sites, aumenta a superfície de ataque desse computador.  
 
 
 
 
-##  <a name="BKMK_What2Know"></a> Что следует знать перед использованием настраиваемых веб-сайтов  
- По умолчанию роли системы сайта используют **веб-сайт по умолчанию** в службах IIS. Это настраивается автоматически при установке роли системы сайта. Однако на первичных сайтах вместо этого можно использовать настраиваемые веб-сайты. При использовании пользовательских веб-сайтов:  
+##  <a name="BKMK_What2Know"></a>O que deve saber antes de optar por utilizar sites personalizados  
+ Por predefinição, as funções do sistema de sites utilizam o **Site Predefinido** no IIS. Isto é configurado automaticamente quando instala a função de sistema de sites. No entanto, nos sites primários, pode optar por utilizar sites personalizados como alternativa. Quando utilizar Web sites personalizados:  
 
--   Пользовательские веб-сайты включаются для всего сайта, а не для отдельных серверов или ролей системы сайта.  
+-   Os Web sites personalizados estão ativados para todo o local em vez de para funções ou servidores do sistema de sites individuais.  
 
--   На первичных сайтах для каждого компьютера, на котором будет размещена соответствующая роль системы сайта, необходимо настроить пользовательский веб-сайт с именем **SMSWEB**. До создания этого веб-сайта и настройки ролей системы сайта на этом компьютере для использования пользовательского веб-сайта клиенты не смогут взаимодействовать с ролями системы сайта на этом компьютере.  
+-   Em sites primários, cada computador que irá alojar uma função de sistema de sites aplicável deve ser configurado com um Web site personalizado denominado **SMSWEB**. Depois de criar este Web site e configurar funções de sistema de sites nesse computador para utilizar o Web site personalizado, os clientes poderão não conseguir comunicar com funções de sistema de sites nesse computador.  
 
--   Так как вторичные сайты автоматически настраиваются для использования пользовательского веб-сайта, если такую настройку имеет их первичный родительский сайт, необходимо также создать пользовательские веб-сайты в службах IIS на каждом сервере системы вторичного сайта, которому требуются службы IIS.  
+-   Porque os sites secundários são automaticamente configurados para utilizar um Web site personalizado quando o respetivo site primário principal está configurado para fazê, tem também de criar os Web sites personalizados no IIS em cada servidor de sistema de sites secundários que requer o IIS.  
 
 
-  **Предварительные условия для использования настраиваемых веб-сайтов:**  
+  **Pré-requisitos para utilizar sites personalizados:**  
 
- Перед включением возможности использования пользовательских веб-сайтов на сайте необходимо:  
+ Antes de ativar a opção para utilizar Web sites personalizados num site, tem de:  
 
--   Создать пользовательский веб-сайт с именем **SMSWEB** в службах IIS на каждом сервере системы сайта, которому требуются службы IIS. Это необходимо сделать на первичном сайте и на всех дочерних вторичных сайтах.  
+-   Criar um Web site personalizado denominado **SMSWEB** no IIS em cada servidor de sistema de sites que requer o IIS. Pode fazê-lo no site primário e em quaisquer sites secundários.  
 
--   Задать для настраиваемого веб-сайта порты, указанные при настройке подключений клиентов Configuration Manager (порт для запросов клиента).  
+-   Configure o Web site personalizado para responder à mesma porta que configurou para a comunicação de cliente do Configuration Manager (porta de pedido de cliente).  
 
--   Для каждого пользовательского веб-сайта или веб-сайта по умолчанию, использующего пользовательскую папку, поместите копию типа документа по умолчанию, который используется в корневой папке, содержащей этот веб-сайт. Например, на компьютере Windows Server 2008 R2 с конфигурациями по умолчанию **iisstart.htm** является одним из нескольких доступных типов документов по умолчанию. Вы можете найти этот файл в корневом каталоге веб-сайта по умолчанию, а затем поместить копию этого файла (или копию используемого типа документа по умолчанию) в корневую папку, в которой размещен настраиваемый веб-сайт SMSWEB. Дополнительные сведения о типах документов по умолчанию см. в разделе [Документ по умолчанию &lt;документ_по_умолчанию\> для служб IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
+-   Para cada personalizado ou Web site predefinido que utilize uma pasta personalizada, coloque uma cópia da predefinida documentar tipo que utilizar na pasta raiz que aloja o Web site. Por exemplo, num computador Windows Server 2008 R2 com configurações predefinidas, **iisstart.htm** é uma das predefinido vários tipos de documentos que estão disponíveis. Pode encontrar este ficheiro na raiz do Web site predefinido e, em seguida, coloque uma cópia deste ficheiro (ou uma cópia do tipo de documento predefinido que utilizar) na pasta raiz que aloja o site personalizado SMSWEB. Para mais informações sobre tipos de documentos predefinidos, consulte [documento predefinido &lt;defaultDocument\> para o IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
 
-**Требования к службам IIS.**
-**Следующие роли системы сайта требуют использования служб IIS и веб-сайта для размещения служб системы сайта:**  
+**Sobre os requisitos do IIS:**
+**as seguintes funções do sistema de sites requerem o IIS e um Web site para alojar os serviços de sistema de sites:**  
 
--   Тточка веб-службы каталога приложений  
+-   Ponto de serviço Web do Catálogo de Aplicações  
 
--   Точка веб-сайта каталога приложений.  
+-   Ponto de Web site do Catálogo de Aplicações  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
--   Резервная точка состояния  
+-   Ponto de estado de contingência  
 
--   Точка управления  
+-   Ponto de gestão  
 
--   Точка обновления программного обеспечения  
+-   Ponto de atualização de Software  
 
--   Точка миграции среды  
+-   Ponto de migração de estado  
 
-Дополнительные вопросы:  
+Considerações adicionais:  
 
--   Когда для первичного сайта включены пользовательские веб-сайты, клиенты, назначаемые этому сайту, взаимодействуют с пользовательскими веб-сайтами, а не с веб-сайтами по умолчанию на соответствующих серверах системы сайта.  
+-   Quando um site primário tem sites personalizados ativados, os clientes atribuídos a esse site são direcionados para comunicar com os sites personalizados em vez dos sites predefinidos em servidores do sistema de sites aplicáveis  
 
--   Если вы используете пользовательские веб-сайты для одного первичного сайта, рассмотрите возможность использования пользовательских веб-сайтов для всех первичных сайтов в иерархии, чтобы обеспечить беспроблемный роуминг клиентов в иерархии. (Роуминг — это перемещение клиентского компьютера в новый сегмент сети, управляемый другим сайтом. Роуминг может негативно повлиять на доступ клиента к локальным ресурсам, которые не требуют использования глобальной сети.)  
+-   Se utilizar sites personalizados para um site primário, considere os Web sites personalizados para todos os sites primários na hierarquia para garantir que os clientes podem fazer roaming com êxito na hierarquia. (Roaming é quando move um computador cliente para um novo segmento de rede gerido por um site diferente. O roaming pode afetar recursos que um cliente pode aceder localmente em vez de através de uma ligação WAN).  
 
--   Роли системы сайта, использующие службы IIS и не принимающие подключения клиентов, такие как точка служб отчетов, также используют веб-сайт SMSWEB вместо веб-сайта по умолчанию.  
+-   Funções de sistema de sites que utilizam IIS, mas não aceitam ligações de cliente, como o ponto do Reporting Services, também utilizam o site SMSWEB em vez do Web site predefinido.  
 
--   Для пользовательских веб-сайтов необходимо назначить номера портов, отличные от используемых веб-сайтом по умолчанию. Если веб-сайт по умолчанию и пользовательский веб-сайт пытаются использовать одинаковые порты TCP/IP, они не могут работать одновременно.  
+-   Os Web sites personalizados necessitam que atribua números de porta diferentes das que utiliza o Web site predefinido do computador. Um site predefinido e um site personalizado não podem ser executados em simultâneo se ambos tentarem utilizar as mesmas portas TCP/IP.  
 
--   Порты TCP/IP, настроенные в службах IIS для пользовательского веб-сайта, должны соответствовать портам запроса клиента для сайта.  
+-   As portas TCP/IP que configurou no IIS para o Web site personalizado têm de corresponder as portas de pedido de cliente para o site.  
 
-## <a name="switch-between-default-and-custom-websites"></a>Переключение между веб-сайтами по умолчанию и пользовательскими веб-сайтами  
-Хотя вы можете в любое время установить или снять флажок для использования пользовательских веб-сайтов в качестве первичного сайта (на вкладке "Общие" в свойствах сайта), перед внесением такого изменения следует все тщательно взвесить. При подобном изменении конфигурации требуется удаление и переустановка всех применимых ролей системы сайта на первичном сайте и на дочерних вторичных сайтах.  
+## <a name="switch-between-default-and-custom-websites"></a>Alternar entre sites predefinidos e personalizados  
+Embora possa verificar ou desmarque a caixa para utilizar sites personalizados num site primário em qualquer altura (é a caixa no separador Geral das propriedades do site), planeie cuidadosamente antes de efetuar esta alteração. Quando esta configuração é alterada, todas as funções de sistema de sites aplicáveis no site primário e sites secundários subordinados têm de desinstalar e reinstalar:  
 
-Следующие роли **переустанавливаются автоматически**:  
+As seguintes funções **são reinstaladas automaticamente**:  
 
--   Точка управления.  
+-   Ponto de gestão  
 
--   Точка распространения.  
+-   Ponto de distribuição  
 
--   Точка обновления программного обеспечения  
+-   Ponto de atualização de Software  
 
--   Резервная точка состояния.  
+-   Ponto de estado de contingência  
 
--   Точка миграции среды  
+-   Ponto de migração de estado  
 
-Следующие роли необходимо **переустановить вручную**.  
+As seguintes funções têm de ser **reinstaladas manualmente**:  
 
--   Точка веб-службы каталога приложений  
+-   Ponto de serviço Web do Catálogo de Aplicações  
 
--   Точка веб-сайта каталога приложений.  
+-   Ponto de Web site do Catálogo de Aplicações  
 
--   Точка регистрации  
+-   Ponto de inscrição  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
-Дополнительно  
+Além disso,  
 
--   При переключении с веб-сайта по умолчанию на настраиваемый веб-сайт Configuration Manager не удаляет старые виртуальные каталоги. Если необходимо удалить файлы, использовавшиеся в Configuration Manager, необходимо вручную удалить виртуальные каталоги, созданные для веб-сайта по умолчанию.  
+-   Quando muda do Web site predefinido para utilizar um Web site personalizado, o Configuration Manager não remove os diretórios virtuais antigos. Se pretender remover os ficheiros que utilizados do Configuration Manager, terá de eliminar manualmente os diretórios virtuais que foram criados no Web site predefinido.  
 
--   При переключении сайта на использование пользовательских веб-сайтов необходимо перенастроить клиенты, уже назначенные сайту, для использования новых портов запроса клиентов для пользовательских веб-сайтов. См. раздел [Настройка портов связи для клиентов в System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
+-   Se alterar o site para utilizar sites personalizados, os clientes já atribuídos ao site têm de ser reconfigurados para utilizar as novas portas de pedido de cliente para os sites personalizados. Consulte [como configurar portas de comunicação de cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
 
-## <a name="set-up-custom-websites"></a>Настройка пользовательских веб-сайтов  
-Поскольку конкретные шаги по созданию пользовательского веб-сайта зависят от версии операционной системы, обратитесь к документации по используемой версии операционной системы и по мере возможности используйте следующие сведения:  
+## <a name="set-up-custom-websites"></a>Configurar sites personalizados  
+Uma vez que os passos para criar um site personalizado variam consoante as versões do sistema operativo, consulte a documentação da versão do seu sistema operativo para obter os passos exatos, mas utilize as seguintes informações quando for aplicável:  
 
--   Веб-сайт должен иметь имя **SMSWEB**.  
+-   O nome do site tem de ser: **SMSWEB**.  
 
--   При настройке протокола HTTPS необходимо указать SSL-сертификат, прежде чем сохранять конфигурацию.  
+-   Quando configurar o HTTPS, tem de especificar um certificado SSL para poder guardar a configuração.  
 
--   После создания пользовательского веб-сайта удалите порты пользовательского веб-сайта, используемые с других веб-сайтов в службах IIS.  
+-   Depois de criar o Web site personalizado, remova as portas do Web site personalizado que utiliza a partir de outros sites no IIS:  
 
-    1.  Измените **привязки** других веб-сайтов, чтобы удалить порты, которые совпадают с назначенными веб-сайту **SMSWEB**.  
+    1.  Editar o **enlaces** dos outros sites para remover as portas que correspondem às que são atribuídos ao **SMSWEB** Web site.  
 
-    2.  Запустите веб-сайт **SMSWEB**.  
+    2.  Iniciar o **SMSWEB** Web site.  
 
-    3.  Перезапустите службу **SMS_SITE_COMPONENT_MANAGER** на сервере сайта.  
+    3.  Reinicie o serviço **SMS_SITE_COMPONENT_MANAGER** no servidor do site.  

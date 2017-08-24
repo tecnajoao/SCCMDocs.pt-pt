@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг приложений из консоли System Center Configuration Manager | Документы Майкрософт"
-description: "Наблюдайте за развертыванием программного обеспечения, включая обновления, параметры соответствия и приложения, с помощью рабочей области \"Наблюдение\" в Configuration Manager."
+title: "Monitorizar aplicações a partir da consola do System Center Configuration Manager | Microsoft Docs"
+description: "Monitorizar a implementação de software, incluindo atualizações, definições de compatibilidade e aplicações utilizando a área de trabalho de monitorização no Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,77 +16,77 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 42d21d10489bffe32b875384f8801686239a0ba4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Мониторинг приложений из консоли System Center Configuration Manager
+# <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Monitorizar aplicações a partir da consola do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-В System Center Configuration Manager можно отслеживать развертывание всего программного обеспечения, включая обновления ПО, параметры соответствия, приложения, последовательности задач, пакеты и программы. Вы можете отслеживать развертывание с помощью рабочей области **Наблюдение** в консоли Configuration Manager или с помощью отчетов.  
+No System Center Configuration Manager, pode monitorizar a implementação de todo o software, incluindo atualizações de software, definições de compatibilidade, aplicações, sequências de tarefas e pacotes e programas. Pode monitorizar implementações utilizando a **monitorização** área de trabalho na consola do Configuration Manager ou utilizando relatórios.  
 
- Приложения в Configuration Manager поддерживают мониторинг на основе состояния, позволяющий отслеживать последнее состояние развертывания приложения для пользователей и устройств. В этих сообщениях о состоянии отображаются сведения об отдельных устройствах. Например, если приложение развертывается в коллекции пользователей, в консоли Configuration Manager можно выяснить состояние соответствия развертывания, а также цель развертывания.  
+ As aplicações no Configuration Manager suportam a monitorização baseada no Estado, que lhe permite controlar o último Estado de implementação de aplicação para utilizadores e dispositivos. Estas mensagens de estado apresentam informações sobre dispositivos individuais. Por exemplo, se uma aplicação for implementada para uma coleção de utilizadores, pode ver o estado de compatibilidade da implementação e o objetivo da implementação na consola do Configuration Manager.  
 
-## <a name="learn-about-compliance-states-in-system-center-configuration-manager"></a>Сведения о состояниях соответствия требованиям в System Center Configuration Manager
- Развертывание приложений имеет одно из следующих состояний соответствия.  
+## <a name="learn-about-compliance-states-in-system-center-configuration-manager"></a>Saiba mais sobre os Estados de compatibilidade no System Center Configuration Manager
+ O estado de implementação de uma aplicação apresenta um dos seguintes estados de conformidade:  
 
--   **Успех** . Развертывание приложения завершено успешно, или приложение уже было установлено.  
+-   **Bem Sucedido** – A implementação da aplicação foi bem-sucedida ou esta já está instalada.  
 
--   **Выполняется** . Развертывание приложения выполняется.  
+-   **Em curso** – A implementação da aplicação está em curso.  
 
--   **Неизвестно** . Не удалось определить состояние развертывания приложения. Это состояние не применимо для развертываний с целью **Доступно**. Это состояние, как правило, отображается в том случае, если от клиента еще не были получены сообщения о состоянии.  
+-   **Desconhecido** – Não foi possível determinar o estado de implementação da aplicação. Este estado não é aplicável a implementações com um objetivo de **Disponível**. Este estado é geralmente apresentado quando ainda não tiverem sido recebidas mensagens de estado do cliente.  
 
--   **Требования не выполнены** — приложение не было развернуто, так как оно не соответствует зависимости или правилу требования, либо операционная система, в которой выполнялось развертывание, являлась неприменимой.  
+-   **Requisitos Não Cumpridos** – A aplicação não foi implementada porque não era compatível com uma dependência ou uma regra de requisito ou porque o sistema operativo em que foi implementada não era aplicável.  
 
--   **Ошибка** . Развертывание приложения не было выполнено из-за ошибки.  
+-   **Erro** – Falha na implementação da aplicação devido a um erro.  
 
-Можно просмотреть дополнительные сведения о каждом состоянии соответствия, включая подкатегории внутри состояния соответствия и число пользователей и устройств в данной категории. Например, состояние соответствия **Ошибка** включает следующие подкатегории.  
+Pode ver informações adicionais para cada Estado de compatibilidade, incluindo as subcategorias dentro do Estado de compatibilidade e o número de utilizadores e dispositivos desta categoria. Por exemplo, o estado de compatibilidade **Erro** inclui as seguintes subcategorias:  
 
--   Ошибка при оценке требований  
+-   Erro na avaliação de requisitos  
 
--   Ошибки, связанные с содержимым  
+-   Erros relacionados com o conteúdo  
 
--   Ошибки установки  
+-   Erros de instalação  
 
- Если к развертыванию приложения применимы несколько состояний соответствия, отображается агрегированное состояние, отражающее наименьшее соответствие. Пример.  
+ Quando se aplica mais de um estado de compatibilidade à implementação de uma aplicação, é possível ver o estado agregado que representa a compatibilidade inferior. Por exemplo:  
 
-    -   Если пользователь вошел в систему на двух устройствах и приложение успешно устанавливается на одном устройстве, но на втором установка завершается сбоем, совокупное состояние развертывания приложения для этого пользователя принимает значение **Ошибка**.  
+    -   Se um utilizador inicia sessão dois dispositivos e a aplicação é instalada com êxito num dispositivo, mas falha no outro, o estado agregado de implementação da aplicação desse utilizador indicará **erro**.  
 
-    -   Если приложение развертывается для всех пользователей, осуществляющих вход на компьютер, для этого компьютера отобразятся несколько результатов развертывания. Если одно из развертываний завершается неудачей, агрегированное состояние развертывания для компьютера принимает значение **Ошибка**.  
+    -   Se uma aplicação for implementada para todos os utilizadores que iniciam sessão computador, receberá vários resultados de implementação para esse computador. Se uma das implementações falhar, o estado agregado de implementação desse computador indicará **Erro**.  
 
-Состояние развертывания для развертываний пакетов и программ не является агрегированным.  
+O estado de implementação para implementações de pacotes e programas não é agregado.  
 
- Используйте эти подкатегории для быстрого выявления любых важных проблем, связанных с развертыванием приложений. Кроме того, можно просмотреть дополнительные сведения о том, какие устройства относятся к определенной подкатегории состояния соответствия.  
+ Utilize estas subcategorias para o ajudar a identificar rapidamente problemas importantes relacionados com a implementação de uma aplicação. Pode também ver informações adicionais sobre os dispositivos que se enquadram numa subcategoria específica de um estado de compatibilidade.  
 
- Функция управления приложениями в Configuration Manager включает встроенные отчеты, которые позволяют выполнять мониторинг сведений о приложениях и развертываниях. Эти отчеты относятся к категории **Распространение программного обеспечения – мониторинг приложений**.  
+ Gestão de aplicações no Configuration Manager inclui um número de relatórios incorporados que permitem monitorizar informações sobre as aplicações e implementações. Estes relatórios possuem a categoria de relatório de **Distribuição de Software - Monitorização de Aplicações**.  
 
- Дополнительные сведения о настройке отчетов в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-## <a name="monitor-the-state-of-an-application-in-the-configuration-manager-console"></a>Мониторинг состояния приложения в консоли Configuration Manager  
+## <a name="monitor-the-state-of-an-application-in-the-configuration-manager-console"></a>Monitorizar o estado de uma aplicação na consola do Configuration Manager  
 
-1.  В консоли Configuration Manager щелкните **Наблюдение** > **Развертывания**.  
+1.  Na consola do Configuration Manager, escolha **monitorização** > **implementações**.  
 
-3.  Для просмотра подробных сведений о развертывании для каждого состояния соответствия и устройствах в этом состоянии выберите развертывание, а затем на вкладке **Главная** в группе **Развертывание** выберите **Просмотр состояния**, чтобы открыть область **Состояние развертывания**. В этой области можно просмотреть активы для каждого состояния соответствия. Выберите любой актив, чтобы просмотреть подробные сведения о состоянии развертывания для него.  
+3.  Para rever os detalhes de implementação para cada Estado de compatibilidade e os dispositivos com esse Estado, selecione uma implementação e, em seguida, no **home page** separador o **implementação** grupo, escolha **Ver estado** para abrir o **estado da implementação** painel. Neste painel, pode ver os ativos com cada estado de compatibilidade. Escolha a qualquer recurso para ver informações mais detalhadas sobre o estado de implementação para esse recurso.  
 
     > [!NOTE]  
-    >  Количество элементов, которые могут быть отображены в области **Состояние развертывания** , ограничено значением 20 000. Если необходимо просмотреть дополнительные элементы, используйте отчеты Configuration Manager для просмотра данных состояния приложений.  
+    >  O número de itens que podem ser apresentados no painel **Estado da Implementação** está limitado a 20 000. Se precisar de ver mais itens, utilize os relatórios do Configuration Manager para ver os dados de estado da aplicação.  
     >   
-    >  В области **Состояние развертывания** отображается сводка состояния для типов развертывания. Для просмотра более детальных сведений о типах развертывания используйте отчет **Ошибки инфраструктуры приложений** в категории отчетов **Распространение программного обеспечения – мониторинг приложений**.  
+    >  O estado dos tipos de implementação é agregado no painel **Estado da Implementação** . Para ver informações mais detalhadas sobre os tipos de implementação, utilize o relatório **Erros da Infraestrutura da Aplicação** na categoria de relatório **Distribuição de Software - Monitorização de Aplicações**.  
 
-4.  Для просмотра общих сведений о состоянии развертывания приложения выберите развертывание, после чего откройте вкладку **Сводка** в окне **Выбранное развертывание**.  
+4.  Para rever informações de estado geral sobre uma implementação de aplicação, selecione uma implementação e, em seguida, escolha o **resumo** separador o **implementação selecionada** janela.  
 
-5.  Для просмотра общих сведений о типе развертывания приложения выберите развертывание, после чего откройте вкладку **Типы развертывания** в окне **Выбранное развертывание**.  
+5.  Para rever informações sobre o tipo de implementação de aplicações, selecione uma implementação e, em seguida, escolha o **tipos de implementação** separador o **implementação selecionada** janela.  
 
-Сведения, отображаемые в области **Состояние развертывания** после выбора команды **Просмотр состояния**, представляют собой актуальные данные из базы данных Configuration Manager. Сведения, показанные на вкладках **Сводка** и **Типы развертывания**, представляют собой сводные данные.
+As informações mostradas no **estado da implementação** painel após escolher **Ver estado** são dados dinâmicos da base de dados do Configuration Manager. As informações mostradas no **resumo** separador e **tipos de implementação** separador é dados resumidos.
 
-Если данные на вкладках **Сводка** и **Типы развертывания** не соответствуют данным в области **Состояние развертывания**, выберите **Сформировать сводку**, чтобы обновить данные на этих вкладках. Можно настроить интервал по умолчанию для формирования сводки данных о развертывании приложений.  
+Se os dados que são apresentados no **resumo** separador e **tipos de implementação** separador não correspondem aos dados mostrados no **estado da implementação** painel, escolha **executar resumo** para atualizar os dados desses separadores. Pode configurar o intervalo predefinido de resumo da implementação de aplicações da seguinte forma:  
 
-1. В консоли Configuration Manager выберите **Администрирование** > **Конфигурация сайта** > **Сайты**.
+1. Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **Sites**.
 
-2. В списке **Сайты** выберите сайт, для которого требуется настроить интервал формирования сводки, и затем на вкладке **Главная** в группе **Параметры** выберите **Формирователи сводки о состоянии**.
+2. Do **Sites** lista, selecione o site para o qual pretende configurar o intervalo de resumo e, em seguida, no **home page** separador o **definições** grupo, escolha **Summarizers de estado**.
 
-3. В диалоговом окне **Формирователи сводки о состоянии** выберите **Средство формирования сводных данных о развертывании приложений** и нажмите кнопку **Изменить**.  
+3. No **Summarizers de estado** diálogo caixa, escolha **Summarizer de implementação de aplicação**e, em seguida, escolha **editar**.  
 
-4. В диалоговом окне **Свойства средства формирования сводных данных о развертывании приложений** настройте требуемые интервалы формирования сводки и нажмите кнопку **ОК**.  
+4. No **propriedades do Summarizer de implementação de aplicação** caixa de diálogo, configure os intervalos de resumo necessários e, em seguida, escolha **OK**.  

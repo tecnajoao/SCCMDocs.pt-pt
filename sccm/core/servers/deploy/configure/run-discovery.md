@@ -1,6 +1,6 @@
 ---
-title: "Обнаружение ресурсов устройств и пользователей | Документы Майкрософт"
-description: "Общие сведения о процессе обнаружения и записях данных обнаружения."
+title: Detetar recursos de dispositivo e utilizador | Microsoft Docs
+description: "Ler uma descrição geral da deteção de registos de dados de deteção e o processo."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -17,72 +17,72 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 647826e9d340d3ef97abab0dba51041a3727dedc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="run-discovery-for-system-center-configuration-manager"></a>Выполнение обнаружения в System Center Configuration Manager
+# <a name="run-discovery-for-system-center-configuration-manager"></a>Executar a deteção no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В System Center Configuration Manager используется один или несколько методов обнаружения для поиска ресурсов устройств и пользователей, которыми можно управлять. Кроме того, вы можете использовать обнаружение для идентификации сетевой инфраструктуры в своей среде. Существует несколько различных методов, которые вы можете использовать для обнаружения различных объектов. Каждый из этих методов имеет свои собственные конфигурации и ограничения.  
+Utilize um ou mais métodos de deteção no System Center Configuration Manager para localizar os recursos de dispositivo e utilizador que pode gerir. Também pode utilizar a deteção para identificar a infraestrutura de rede no seu ambiente. Existem vários métodos diferentes que pode utilizar para detetar diversos elementos, e cada método tem as suas próprias configurações e limitações.  
 
-## <a name="overview-of-discovery"></a>Обзор процесса обнаружения  
- Обнаружение — это процесс, с помощью которого Configuration Manager узнает о том, какими объектами можно управлять. Ниже приведены доступные методы обнаружения.  
+## <a name="overview-of-discovery"></a>Descrição geral do processo de deteção  
+ A deteção é o processo pelo qual o Configuration Manager aprende as coisas que pode gerir. Seguem-se os métodos de deteção disponíveis:  
 
--   Обнаружение лесов Active Directory  
+-   Deteção de Florestas do Active Directory  
 
--   Обнаружение групп Active Directory  
+-   Deteção de Grupos do Active Directory  
 
--   Обнаружение систем Active Directory  
+-   Deteção de Sistemas do Active Directory  
 
--   обнаружение пользователей Active Directory  
+-   Deteção de Utilizadores do Active Directory  
 
--   Обнаружение пакетов пульса  
+-   Deteção de Heartbeat  
 
--   Обнаружение сети  
+-   Deteção de Redes  
 
--   обнаружения серверов  
+-   Deteção de Servidores  
 
 > [!TIP]  
->  Сведения об отдельных методах обнаружения см. в разделе [Сведения о методах обнаружения для System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md).  
+>  Pode saber mais sobre os métodos de deteção individuais em [Acerca dos métodos de deteção para o System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md).  
 >   
->  Сведения о том, как выбрать подходящий метод и на каких сайтах в иерархии его использовать, см. в разделе [Выбор методов обнаружения для System Center Configuration Manager](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md).  
+>  Para obter assistência selecionar métodos a utilizar e, em que sites na hierarquia, consulte [selecionar métodos de deteção a utilizar para o System Center Configuration Manager](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md).  
 
- Для использования большинства методов обнаружения необходимо включить нужный метод на сайте и настроить его для поиска в определенных расположениях в сети или в Active Directory. При запуске он запрашивает в указанном расположении сведения об устройствах и пользователях, которыми может управлять Configuration Manager. Если метод обнаружения успешно находит сведения о ресурсе, он помещает эту информацию в файл, который называется записью данных обнаружения (DDR). Этот файл затем обрабатывается на первичном сайте или сайте центра администрирования. Обработка DDR создает новую запись в базе данных сайта для вновь обнаруженных ресурсов или обновляет существующие записи новой информацией.  
+ Para utilizar a maioria dos métodos de deteção, tem de ativar o método num site e defina-o até de rede pesquisa ou localizações do Active Directory. Quando é executado, consulta a localização especificada para obter informações sobre dispositivos ou utilizadores que o Configuration Manager pode gerir. Quando um método de deteção localiza com êxito informações sobre um recurso, coloca essas informações para um ficheiro denominado registo de dados de deteção (DDR). Se o ficheiro é processado por um site de administração central ou primário. O processamento de um DDR cria um novo registo na base de dados do site para os recursos detetados recentemente ou atualiza os registos existentes com as novas informações.  
 
- Некоторые методы обнаружения могут генерировать большой объем сетевого трафика, и обработка создаваемых ими записей данных обнаружения может значительно нагружать процессор. Поэтому используйте только те методы обнаружения, которые абсолютно необходимы для достижения ваших целей. Для начала можно задействовать всего один или два метода, а затем контролируемым образом включать другие методы, чтобы расширить возможности обнаружения в данной среде.  
+ Alguns métodos de deteção podem gerar um grande volume de tráfego de rede e o DDR produzem pode resultar de uma utilização intensiva de recursos da CPU durante o processamento. Por conseguinte, planeie utilizar apenas os métodos de deteção necessários para atingir os seus objetivos. Pode utilizar apenas um ou dois métodos de deteção e, posteriormente, ativar métodos adicionais de forma controlada para expandir o nível de deteção no ambiente.  
 
- После добавления сведений обнаружения в базу данных сайта они реплицируются на каждый сайт в иерархии независимо от того, на каком сайте они были обнаружены или обработаны. Таким образом, хотя на разных сайтах можно настроить различные расписания и параметры для методов обнаружения, каждый определенный метод обнаружения запускается только на одном сайте. Это позволяет снизить использование пропускной способности сети, а также дублирование действий обнаружения и обработку избыточных данных обнаружения на нескольких сайтах.  
+ Depois das informações de deteção são adicionadas à base de dados do site, as informações de, em seguida, replicam a cada site na hierarquia, independentemente de onde foram detetado ou processado. Por conseguinte, enquanto que pode configurar diferentes agendamentos e definições para métodos de Deteção em diferentes sites, poderá executar um método de deteção específico apenas num único site. Isto reduz a utilização de largura de banda de rede através de ações de deteção duplicadas e reduz o processamento de dados de deteção redundantes em vários sites.  
 
- Вы можете использовать данные обнаружения для создания пользовательских коллекций и запросов, в которых ресурсы логически группируются для задач управления. Пример.  
+ Pode utilizar dados de deteção para criar coleções personalizadas e consultas que agrupem logicamente os recursos para tarefas de gestão. Por exemplo:  
 
--   Принудительная отправка установок клиента или обновления.  
+-   Emitir instalações de cliente ou atualizar.  
 
--   Развертывание содержимого для пользователей или устройств.  
+-   Implementação de conteúdo para utilizadores ou dispositivos.  
 
--   Развертывание параметров клиента и соответствующих конфигураций.
+-   Implementar definições de cliente e configurações relacionadas.
 
-##  <a name="BKMK_DDRs"></a> Сведения о записях данных обнаружения  
- Записи данных обнаружения (DDR) — это файлы, созданные методом обнаружения. Они содержат сведения о ресурсе, которым можно управлять в Configuration Manager, например компьютере, пользователе и, в некоторых случаях, сетевой инфраструктуре. Они обрабатываются на первичных сайтах или на сайтах центра администрирования. После ввода в базу данных сведений о ресурсах из записи DDR запись DDR удаляется, а полученные из нее сведения реплицируются на все сайты иерархии как глобальные данные.  
+##  <a name="BKMK_DDRs"></a>Sobre os registos de dados de deteção  
+ DDR são ficheiros criados por um método de deteção. Contêm informações sobre um recurso pode gerir no Configuration Manager, tais como computadores, utilizadores e em alguns casos, a infraestrutura de rede. São processados em sites primários ou em sites de administração central. Depois das informações de recursos do DDR são introduzidas na base de dados, este é eliminado e as informações são replicadas como dados globais para todos os sites na hierarquia.  
 
- Сайт, на котором обрабатывается запись DDR, зависит от сведений, которые она содержит.  
+ O site onde um DDR é processado depende das informações que contém:  
 
--   Записи DDR для вновь обнаруженных ресурсов, которых еще нет в базе данных, обрабатываются на сайте иерархии верхнего уровня. Сайт верхнего уровня создает новую запись ресурса в базе данных и назначает ей уникальный идентификатор. Записи DDR передаются посредством репликации на основе файлов до тех пор, пока не достигают сайта верхнего уровня.  
+-   DDR de recursos detetados recentemente que não na base de dados são processados no site de nível superior da hierarquia. Site de nível superior cria um novo registo de recurso na base de dados e atribui-um identificador exclusivo. Os DDR são transferidos através da replicação baseada em ficheiros até atingirem o site de nível superior.  
 
--   Записи DDR ранее обнаруженных объектов обрабатываются на первичных сайтах. Дочерние первичные сайты не передают записи DDR сайту центра администрирования, если DDR содержит сведения о ресурсе, который уже присутствует в базе данных.  
+-   Os DDR de objetos detetados anteriormente são processados em sites primários. Os sites primários subordinados não transferem DDRs para o site de administração central quando o DDR contém informações sobre um recurso que já se encontra na base de dados.  
 
--   Вторичные сайты не обрабатывают записи данных обнаружения и всегда передают их посредством репликации на основе файлов на родительский первичный сайт.  
+-   Os sites secundários não processam DDR e sempre transferi-los através da replicação baseada em ficheiros para o respetivo site primário principal.  
 
-Файлы DDR имеют расширение .ddr и размер, примерно равный 1 КБ.  
+Os ficheiros DDR são identificados pela extensão .ddr e têm um tamanho típico de cerca de 1 KB.  
 
-## <a name="get-started-with-discovery"></a>Начало работы с обнаружением  
- Прежде чем использовать консоль Configuration Manager для настройки обнаружения, важно понять различия между методами, их возможности и, в некоторых случаях, их ограничения.  
+## <a name="get-started-with-discovery"></a>Introdução ao processo de deteção:  
+ Antes de utilizar a consola do Configuration Manager para configurar a deteção, deve compreender as diferenças entre os métodos, o que pode fazer e para algumas pessoas, as limitações.  
 
-Сведения в следующих разделах послужат хорошей базой, которая поможет вам в дальнейшем успешно использовать методы обнаружения.  
+Os tópicos seguintes podem criar uma base que irão ajudar a utilizar métodos de deteção com êxito:  
 
--   [Сведения о методах обнаружения для System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md)  
+-   [Acerca dos métodos de deteção para o System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md)  
 
--   [Выбор методов обнаружения для System Center Configuration Manager](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md)  
+-   [Selecionar os métodos de deteção a utilizar para o System Center Configuration Manager](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md)  
 
-Выбрав нужные методы, вы можете настроить их, обратившись к разделу [Настройка методов обнаружения для System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  
+Em seguida, quando compreender os métodos que pretende utilizar, encontrar orientações para configurar cada método [configurar métodos de deteção para o System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-discovery-methods.md).  

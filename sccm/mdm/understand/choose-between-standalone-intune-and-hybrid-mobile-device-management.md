@@ -1,6 +1,6 @@
 ---
-title: "Выбор между автономной версией Intune и гибридным управлением мобильными устройствами | Документы Майкрософт"
-description: "Принятие решения о развертывании гибридного управления мобильными устройствами с помощью Intune и Configuration Manager или запуска автономной версии Intune."
+title: "Escolha o Intune autónomo ou o MDM híbrido | Microsoft Docs"
+description: "Escolha se pretende implementar a gestão de dispositivos móveis híbrida com o Intune e Configuration Manager ou executar o Intune autónomo."
 ms.custom: na
 ms.date: 07/18/2017
 ms.prod: configuration-manager
@@ -16,40 +16,40 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 26c36df77c21254c7ad2b8a45906bd3706f9ec65
 ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/21/2017
 ---
-# <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Выбор между автономной версией Microsoft Intune и гибридным управлением мобильными устройствами с помощью System Center Configuration Manager
+# <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Escolher entre o Microsoft Intune de autónomo e híbrida de gestão de dispositivos móveis com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Один из наиболее часто задаваемых вопросов, затрагивающих управление мобильными устройствами (MDM) с помощью Microsoft Intune, касается выбора между интеграцией Intune с Configuration Manager (гибридное управление мобильными устройствами) или запуском автономной конфигурации Intune в облаке. Чтобы ответить на этот вопрос, следует тщательно сравнить два варианта.
+Uma das mais frequentemente mais frequentes perguntas sobre a gestão de dispositivos móveis (MDM) com o Microsoft Intune é "Deve posso integrar o Intune com o Configuration Manager (MDM híbrido) ou execute o Intune autónomo na configuração apenas na nuvem?" Para responder a essa questão, deve comparar cuidadosamente as duas opções.
 
-## <a name="intune-standalone"></a>Изолированное развертывание Intune
-Изолированное развертывание Intune — рекомендуемая топология развертывания корпорации Майкрософт. Автономная среда Intune — это облачное решение для управления мобильными устройствами, которым можно управлять с помощью веб-консоли, доступной из любой точки мира. Центры обработки данных Intune размещаются в Северной Америке, Европе и Азии. Так как Intune — это облачная служба, вы можете развернуть систему управления Intune на устройствах в относительно сжатые сроки.
+## <a name="intune-standalone"></a>Intune autónomo
+Intune autónomo é a topologia de implementação recomendada da Microsoft. Intune autónomo é uma solução MDM apenas de nuvem e for gerido em qualquer lugar a utilizar uma consola web que pode ser acedida a partir do mundo. Intune centros de dados estão alojados na América do Norte, Europa e Ásia. Porque o Intune é um serviço em nuvem, pode implementar a gestão do Intune nos seus dispositivos num período de tempo relativamente curto.
 
-Как правило, пользователям быстрее и проще развернуть автономную топологию, так как она не зависит от локальных компонентов. Теперь автономная платформа Intune находится на облачной платформе Microsoft Azure и предоставляет множество дополнительных возможностей, таких как:
-- Интегрированная корпоративная платформа управления мобильными устройствами — интегрированная облачная платформа для администрирования на портале Azure для Intune, Azure AD Premium и Azure Information Protection.
-- Управление мобильными устройствами — широкие возможности управления мобильными устройствами и защиты данных.
-- Масштабирование — развертывание и управление мобильными устройствами в любом масштабе.
-- Управление доступом на основе ролей — ограничение доступа к административным функциям на основе назначенных ролей и областей.
-- Программный доступ (API) — поддержка Microsoft API Graph и возможности управления пакета SDK и PowerShell.
-- Веб-консоль — консоль на базе HTML 5, созданная в соответствии с веб-стандартами с поддержкой большинства современных веб-браузеров.
-- Расширенные возможности отчетности — возможность создания пользовательских отчетов.
-- Гибкость — простая настройка и быстрое предоставление новых возможностей.
-
-
-## <a name="hybrid-mdm-with-configuration-manager"></a>Гибридное управление мобильными устройствами с помощью Configuration Manager
-Гибридное управление мобильными устройствами — это решение, интегрирующее возможности управления мобильными устройствами Intune в Configuration Manager. Оно предусматривает использование Intune в качестве канала доставки политик, профилей и приложений на устройства, но использующее локальную инфраструктуру Configuration Manager для администрирования содержимого, а также управления устройствами. Гибридная реализация обеспечивает унифицированный контроль.  Вы можете использовать одну и ту же локальную инфраструктуру и административную консоль для управления как мобильными устройствами с помощью Intune, так и компьютерами и серверами с помощью традиционных клиентов Configuration Manager. Вы можете выбрать решение для управления мобильными устройствами по следующим причинам:  
-- Вы хотите управлять как мобильными устройствами, зарегистрированными в Intune, так и устройствами, которыми управляет клиент Configuration Manager, с помощью одной консоли администрирования.
-- Инфраструктура требует наличия нескольких серверов NDES для доставки сертификатов на мобильные устройства.
-- Инфраструктура требует несколько соединителей Exchange.
-- Необходима поддержка шифрования S/MIME.
+Os clientes geralmente encontrá-lo mais rápido e mais fácil de implementar a topologia de autónoma porque não há nenhum dependência de componentes no local. Intune autónomo é agora na plataforma de nuvem do Microsoft Azure e fornece várias funcionalidades avançadas, tais como:
+- Experiência integrada enterprise mobility plataforma de gestão - uma plataforma em nuvem integrado e administração no portal do Azure para o Intune, Azure AD Premium e do Azure Information Protection.
+- Gestão de dispositivos móveis - capacidades de proteção de informações e gestão de dispositivos móveis avançada.
+- Dimensionar - implementar e gerir dispositivos móveis sem se preocupar escala.
+- Controlo de acesso baseado em funções – restringir o acesso com base nas funções atribuídas e âmbitos de funções administrativas.
+- Acesso programático (API) - suporte de Microsoft Graph API e as opções de gestão do SDK e PowerShell.
+- Consola Web - com base no HTML 5 de uma consola incorporada no normas web com suporte para mais modernos browsers da web.
+- Avançadas reporting - capacidade de criar relatórios personalizados.
+- Agilidade - configuração simples e rápida entrega novas capacidades.
 
 
-## <a name="changing-the-mdm-authority-setting"></a>Изменение настройки центра MDM
-Если вам нужно изменить центр MDM, вы можете сделать это самостоятельно, не обращаясь в службу поддержки корпорации Майкрософт и не отменяя регистрацию, а затем снова регистрируя имеющиеся управляемые устройства. См. дополнительные сведения об [изменении Центра MDM](../deploy-use/change-mdm-authority.md).
+## <a name="hybrid-mdm-with-configuration-manager"></a>MDM com o Gestor de configuração híbrido
+MDM híbrido é uma solução que se integra capacidades de gestão de dispositivos móveis do Intune para o Configuration Manager. Se utiliza o Intune como o canal de entrega de políticas, perfis e aplicações em dispositivos, mas utiliza a infraestrutura no local do Configuration Manager para administrar o conteúdo e gerir os dispositivos. Uma implementação híbrida dá-lhe controlo "painel único de transparência".  Isto significa que pode utilizar a mesma infraestrutura no local e a consola administrativa para gerir dispositivos móveis com o Intune, bem como PCs e servidores com o cliente do Configuration Manager tradicional. Pode optar por MDM híbrido pelos seguintes motivos:  
+- Quiser gerir dispositivos móveis inscritos no Intune e dispositivos geridos com o cliente do Configuration Manager a partir da consola administrativa do mesmo
+- A infraestrutura requer que tem vários servidores NDES para entrega de certificados para dispositivos móveis
+- Requer que a infraestrutura que tem vários conectores do Exchange
+- Necessitar de suporte de encriptação S/MIME
+
+
+## <a name="changing-the-mdm-authority-setting"></a>Alterar a definição de autoridade MDM
+Se precisar de alterar a definição de autoridade MDM, pode alterá-lo por si sem ser necessário contactar Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a autoridade de MDM](../deploy-use/change-mdm-authority.md).
 
 > [!NOTE]    
-> Чтобы изменить центр MDM на автономную версию Intune, вам нужен Configuration Manager версии 1610 или более поздней. При наличии более ранней версии Configuration Manager вы можете изменить центр MDM, но для этого вам потребуется помощь службы поддержки и операционного отдела Майкрософт. После изменения центра MDM вам также потребуется отменить регистрацию и повторно зарегистрировать все устройства.  
+> Tem de ter o Configuration Manager versão 1610 ou posterior para alterar a autoridade de MDM ao Intune autónomo. Quando tiver uma versão anterior do Configuration Manager, pode alterar a autoridade de MDM, mas necessita de ajuda do suporte da Microsoft e de operações. Também requer anular a inscrição e inscrever-se novamente todos os seus dispositivos após a autoridade de MDM é alterada.  

@@ -1,6 +1,6 @@
 ---
-title: "Планирование заданий миграции | Документы Майкрософт"
-description: "Используйте задания миграции для настройки данных, которые требуется перенести в вашу среду System Center Configuration Manager."
+title: "Planeamento da tarefa de migração | Microsoft Docs"
+description: "Utilize tarefas de migração para configurar os dados que pretende migrar para o seu ambiente do System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -18,306 +18,306 @@ manager: angrobe
 robots: noindex
 ms.openlocfilehash: 4c83540db763bea039a92633a1d1a808e60e27ad
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-a-migration-job-strategy-in-system-center-configuration-manager"></a>Планирование стратегии заданий миграции в System Center Configuration Manager
+# <a name="plan-a-migration-job-strategy-in-system-center-configuration-manager"></a>Planear uma estratégia de tarefa de migração no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Используйте задания миграции для настройки данных, которые требуется перенести в вашу среду System Center Configuration Manager. Задания миграции выполняются на сайте верхнего уровня в иерархии и определяют объекты, которые планируется перенести. Можно настроить одно или несколько заданий на одном исходном сайте. Это позволяет перенести все объекты одновременно или переносить ограниченное подмножество данных с каждым заданием.  
+Utilize tarefas de migração para configurar os dados específicos que pretende migrar para o seu ambiente do System Center Configuration Manager. As tarefas de migração identificam os objetos que planeia migrar, e são executadas no site de nível superior na hierarquia de destino. Pode configurar um ou mais tarefas de migração por site de origem. Isto permite-lhe migrar todos os objetos de uma só vez ou subconjuntos limitados de dados com cada tarefa.  
 
- Задания миграции можно создавать после того, как Configuration Manager успешно выполнит сбор данных с одного или нескольких сайтов в исходной иерархии. Перенос данных можно выполнять в любой последовательности из исходных сайтов, где собраны данные. При использовании исходных сайтов Configuration Manager 2007 можно перенести данные только с сайта, где объект был создан. При использовании исходных сайтов, где выполняется System Center 2012 Configuration Manager или более поздней версии, все доступные для переноса данные находятся на сайте верхнего уровня исходной иерархии.  
+ Pode criar tarefas de migração após o Configuration Manager foi recolhido com êxito os dados de um ou mais sites da hierarquia de origem. É possível migrar dados em qualquer sequência a partir dos sites de origem que recolheram dados. Com um site de origem do Configuration Manager 2007, pode migrar dados apenas a partir do site onde um objeto foi criado. Com sites de origem que executam o System Center 2012 Configuration Manager ou posterior, todos os dados que pode migrar está disponível no site de nível superior da hierarquia de origem.  
 
- Перед переносом клиентов между иерархиями убедитесь в том, что объекты, используемые клиентами, перенесены и доступны в конечной иерархии. Например, при переносе из исходной иерархии Configuration Manager 2007 с пакетом обновления 2 (SP2) возможно объявление контента, развернутого в настраиваемой коллекции, которая содержит клиент. В этом случае рекомендуем перенести коллекцию, объявление и связанное содержимое перед переносом клиента. Эти данные нельзя связать с клиентом в конечной иерархии, если содержимое, коллекция и объявление не перенесены перед переносом клиента. Если клиент не связан с данными, которые относятся к предыдущему объявлению и контенту, то клиенту может быть предоставлен для установки контент из конечной иерархии, что может быть нежелательно. Если клиент переносится после переноса данных, то он связывается с этим контентом и объявлением. Если объявление не повторяется, то клиенту не будет повторно предлагаться контент для перенесенного объявления.  
+ Antes de migrar clientes entre hierarquias, certifique-se de que os objetos que os clientes utilizam foram migrados e de que esses objetos estão disponíveis na hierarquia de destino. Por exemplo, ao migrar a partir de uma hierarquia de origem do Configuration Manager 2007 SP2, pode ter um anúncio para conteúdo que é implementado para uma coleção personalizada que tenha um cliente. Neste cenário, recomendamos que migra a coleção, o anúncio e o conteúdo associado antes de migrar o cliente. Estes dados não podem ser associados ao cliente na hierarquia de destino, se o conteúdo, a recolha e o anúncio não são migrados antes do cliente. Se um cliente não estiver associado aos dados relacionados com o anúncio e conteúdo de uma execução anterior, pode ser oferecido ao cliente o conteúdo para a instalação na hierarquia de destino, o que talvez seja desnecessário. Quando o cliente migra após a migração dos dados, o cliente é associado a este conteúdo e anúncio e, a menos que o anúncio seja recorrente, não lhe é oferecido novamente este conteúdo para o anúncio migrado.  
 
- Некоторые объекты требуют не только переноса данных из исходной иерархии в конечную. Например, чтобы успешно перенести обновления программного обеспечения для клиентов в конечную иерархию, в ней необходимо развернуть активную точку обновления программного обеспечения, настроить каталог продуктов и синхронизировать точку обновления программного обеспечения со службами Windows Server Update Services (WSUS).  
+ Alguns objetos requerem mais do que a migração de dados da hierarquia de origem para a hierarquia de destino. Por exemplo, para migrar com êxito as atualizações de software para os seus clientes para a hierarquia de destino, deve implementar um ponto de atualização de software ativo, configurar o catálogo de produtos e sincronizar o ponto de atualização de software com o Windows Server Update Services (WSUS) na hierarquia de destino.  
 
- При планировании заданий миграции используйте информацию следующих разделов.  
+ Utilize as secções seguintes para o ajudar a planear as tarefas de migração.  
 
--   [Типы заданий миграции](#Types_of_Migration)  
+-   [Tipos de tarefas de migração](#Types_of_Migration)  
 
--   [Общее планирование для всех заданий миграции](#About_Migration_Jobs)  
+-   [Planeamento geral para todas as tarefas de migração](#About_Migration_Jobs)  
 
--   [Планирование заданий миграции коллекций](#About_Collection_Migration)  
+-   [Planear as tarefas de migração de coleções](#About_Collection_Migration)  
 
--   [Планирование заданий миграции объектов](#About_Object_Migration)  
+-   [Planear tarefas de migração de objeto](#About_Object_Migration)  
 
--   [Планирование заданий миграции ранее перенесенных объектов](#About_Object_Migrations)  
+-   [Planear para migrados anteriormente as tarefas de migração de objeto](#About_Object_Migrations)  
 
-##  <a name="Types_of_Migration"></a> Типы заданий миграции  
- Configuration Manager поддерживает указанные ниже типы заданий миграции. Каждый тип задания предназначен для определения объектов, которые можно включить в задание.  
+##  <a name="Types_of_Migration"></a>Tipos de tarefas de migração  
+ O Configuration Manager suporta os seguintes tipos de tarefas de migração. Cada tipo de tarefa foi concebido para ajudar a definir os objetos que podem ser incluídos nessa tarefa.  
 
- **Миграция коллекций**. Поддерживается только при миграции из Configuration Manager 2007 с пакетом обновления 2 (SP2). Миграция объектов, относящихся к выбранным коллекциям. По умолчанию миграция коллекции включает все объекты, связанные с элементами коллекции. При использовании задания миграции коллекции конкретные экземпляры объектов можно исключить.  
+ **Migração de coleção** (apenas suportada ao migrar do Configuration Manager 2007 SP2): Migre objetos que estão relacionados com as coleções selecionadas. Por predefinição, a migração de coleção inclui todos os objetos que estão associados a membros da coleção. Quando utiliza uma tarefa de migração de coleção, pode excluir instâncias de objetos específicas.  
 
- **Миграция объектов**. Миграция отдельных выбранных объектов. Следует выбрать только конкретные данные, которые необходимо перенести.  
+ **Migração de objetos**: Migre objetos individuais selecionados. Selecione apenas os dados específicos que pretende migrar.  
 
- **Миграция перенесенных ранее объектов**. Миграция ранее перенесенных объектов, если они были обновлены в исходной иерархии после последней миграции.  
+ **Anteriormente migrado de migração de objetos**: Migre objetos migrados anteriormente quando forem atualizados na hierarquia de origem após terem sido migrados pela última vez.  
 
-###  <a name="Objects_that_can_migrate"></a> Объекты, которые можно перенести  
- Не все объекты можно переносить с помощью определенных типов заданий миграции. В следующем списке указаны типы объектов, которые можно перенести с помощью задания каждого типа.  
+###  <a name="Objects_that_can_migrate"></a>Objetos que podem ser migrados  
+ Nem todos os objetos podem ser migrados através de um tipo específico de tarefa de migração. A lista seguinte identifica o tipo de objetos que é possível migrar com cada tipo de tarefa de migração.  
 
 > [!NOTE]  
->  Задания миграции коллекций доступны только при переносе объектов из исходной иерархии Configuration Manager 2007 с пакетом обновления 2 (SP2).  
+>  As tarefas de migração de coleções estão disponíveis apenas quando são migrados objetos a partir de uma hierarquia de origem do Configuration Manager 2007 SP2.  
 
- **Типы заданий, которые можно использовать для переноса объекта**  
+ **Tipos de tarefa que pode utilizar para migrar cada objeto**  
 
--   **Объявления** доступны для переноса из поддерживаемых исходных сайтов Configuration Manager 2007.  
+-   **Anúncios** (disponíveis para migrar a partir de sites de origem suportadas do Configuration Manager 2007)  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
 
--   **Каталог аналитики активов**  
+-   **Catálogo do Asset Intelligence**  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Требования к оборудованию для аналитики активов**  
+-   **Requisitos de hardware do Asset Intelligence**  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Список программного обеспечения аналитики активов**  
+-   **Lista de software do Asset Intelligence**  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Границы**  
+-   **Limites**  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Конфигурационные базы**  
+-   **Linhas de base de configuração**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Элементы конфигурации**  
+-   **Itens de configuração**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Периоды обслуживания**  
+-   **Janelas de manutenção**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
 
--   **Загрузочные образы для развертывания операционных систем**  
+-   **Imagens de arranque de implementação do sistema operativo**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Пакеты драйверов для развертывания операционных систем**  
+-   **Pacotes de controladores de implementação do sistema operativo**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Драйверы для развертывания операционных систем**  
+-   **Controladores de implementação do sistema operativo**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Образы развертывания операционных систем**  
+-   **Imagens de implementação do sistema operativo**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Пакеты развертывания операционных систем**  
+-   **Pacotes de implementação do sistema operativo**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Пакеты распространения программного обеспечения**  
+-   **Pacotes de distribuição de software**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Правила контроля использования программных продуктов**  
+-   **Regras de medição de software**  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Пакеты развертывания обновлений программного обеспечения**  
+-   **Pacotes de implementação de atualização de software**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Шаблоны развертывания обновлений программного обеспечения**  
+-   **Modelos de implementação de atualizações de software**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Развертывания обновлений программного обеспечения**  
+-   **Implementações de atualização de software**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
 
--   **Списки обновлений программного обеспечения**  
+-   **Listas de atualização de software**  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Последовательности задач**  
+-   **Sequências de tarefas**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
-    -   Миграция ранее перенесенных объектов  
+    -   Migração de objetos migrados anteriormente  
 
--   **Пакеты виртуальных приложений**  
+-   **Pacotes de aplicações virtuais**  
 
-    -   Миграция коллекций  
+    -   Migração de coleção  
 
-    -   Миграция объектов  
+    -   Migração de objeto  
 
     > [!IMPORTANT]  
-    >  Несмотря на то что можно переносить пакеты виртуальных приложений с помощью миграции объектов, для выполнения этой процедуры нельзя использовать тип задания миграции **Миграция ранее перенесенных объектов**. Вместо этого следует удалить перенесенный пакет виртуального приложения из конечного сайта, после чего создать новое задание миграции для переноса виртуального приложения.  
+    >  Embora possa migrar um pacote de aplicação virtual através da migração de objetos, os pacotes não podem ser migrados através do tipo de tarefa de migração **Migração de Objetos Migrados Anteriormente**. Em vez disso, é necessário eliminar o pacote de aplicação virtual migrado no site de destino e, em seguida, criar uma nova tarefa de migração para migrar a aplicação virtual.  
 
-##  <a name="About_Migration_Jobs"></a> Общее планирование для всех заданий миграции  
- Используйте мастер создания заданий для создания задания миграции объектов в конечную иерархию. Тип создаваемого задания миграции определяет, какие объекты доступны для переноса. Можно создавать и использовать несколько заданий миграции для переноса данных из одного исходного сайта или нескольких исходных сайтов. Применение одного типа миграции не мешает использовать другой тип задания миграции.  
+##  <a name="About_Migration_Jobs"></a>Planeamento geral para todas as tarefas de migração  
+ Utilize o Assistente Criar tarefa de migração para criar uma tarefa de migração para migrar objetos para a hierarquia de destino. O tipo da tarefa de migração criada determina quais os objetos que estão disponíveis para migrar. Pode criar e utilizar várias tarefas de migração para migrar dados a partir do mesmo site de origem ou de vários sites de origem. A utilização de um tipo de tarefa de migração não bloqueia a utilização de um tipo de tarefa de migração diferente.  
 
- После успешного выполнения задания миграции его состояние будет указано в списке со значением **Выполнено** , и выполнить его повторно нельзя. Однако можно создать новое задание миграции для переноса всех объектов, которые были перенесены в первоначальном задании, и новое задание миграции может содержать дополнительные объекты. При создании дополнительных заданий миграции ранее перенесенные объекты отображаются в состоянии **Выполнена миграция**. Можно выбрать такие объекты, чтобы перенести их снова, но, если объект не был обновлен в исходной иерархии, перемещать эти объекты повторно не требуется. Если после миграции объект в исходной иерархии был обновлен, такой объект можно выявить при использовании типа задания миграции **Объекты, измененные после миграции**.  
+ Após a execução bem-sucedida de uma tarefa de migração, o estado desta é apresentado como **Concluída** e não pode ser executada novamente. No entanto, é possível criar uma nova tarefa de migração para criar qualquer um dos objetos migrados pela tarefa original e a nova tarefa de migração pode igualmente incluir outros objetos. Quando criar tarefas de migração adicionais, os objetos que foram migrados anteriormente mostram o estado do **migrado**. Pode selecionar estes objetos para os migrar novamente, mas, a menos que o objeto tiver sido atualizado na hierarquia de origem, migrar estes objetos novamente não é necessário. Se o objeto tiver sido atualizado na hierarquia de origem após a migração original, é possível identificá-lo quando utiliza o tipo de tarefa de migração **Objetos modificados após migração**.  
 
- Перед выполнением задания миграции его можно удалить. Но после того, как задание миграции будет выполнено, оно продолжит отображаться в консоли Configuration Manager без возможности удаления. Каждое задание миграции, которое было выполнено или еще не запускалось, продолжает отображаться в консоли Configuration Manager до тех пор, пока процесс миграции не завершится и его данные не будут удалены.  
-
-> [!NOTE]  
->  Когда миграция выполнена с помощью действия **Очистить данные переноса**, можно повторно настроить ту же самую иерархию в качестве текущей исходной иерархии, чтобы восстановить отображение ранее перенесенных объектов.  
-
- Для просмотра объектов, входящих в любое задание миграции в консоли Configuration Manager, выберите задание миграции и перейдите на вкладку **Объекты в задании**.  
-
- При планировании всех заданий миграции используйте информацию следующих разделов.  
-
-### <a name="data-selection"></a>Выбор данных  
- При создании задания миграции коллекции необходимо выбрать одну или несколько коллекций. После выбора коллекций мастер создания заданий миграции отображает объекты, связанные с коллекциями. По умолчанию все объекты, связанные с выбранными коллекциями, входят в объем миграции, но можно отменить выбор объектов, на которые не должно распространяться данное задание миграции. При отмене выбора объекта, имеющего зависимые объекты, их выбор также будет отменен. Все отмененные объекты добавляются в список исключений. Объекты в списке исключений удаляются из автоматического выбора в будущих заданиях миграции. Необходимо вручную изменить список исключений для удаления объектов, которые должны автоматически выбираться для переноса в заданиях миграции, создаваемых в будущем.  
-
-### <a name="site-ownership-for-migrated-content"></a>Владение сайтами для перенесенного содержимого  
- При переносе контента для развертываний необходимо назначить объект в сайт конечной иерархии. Такой сайт затем становится владельцем этого контента. Хотя метаданные для контента получает сайт верхнего уровня в конечной иерархии, доступ к исходным файлам контента по сети ведет назначенный сайт.  
-
- Чтобы максимально сократить полосу пропускания сети, используемую во время миграции, рассмотрите возможность передачи прав владения содержимым ближайшему доступному сайту. Так как сведения о содержимом глобально доступны в System Center Configuration Manager, их можно будет получить с каждого сайта.  
-
- Сведения о содержимом доступны для всех сайтов в конечной иерархии с помощью репликации базы данных. Но любое содержимое, назначенное первичному сайту, а затем развернутое в точках распространения на других первичных сайтах, передается путем репликации на основе файлов. Эта передача направляется через сайт центра администрирования на каждый дополнительный первичный сайт. Централизация пакетов, которые планируется распространить на нескольких первичных сайтах до или во время миграции при назначении сайта владельцем содержимого, позволяет сократить число передач данных в сетях с низкой пропускной способностью.  
-
-### <a name="role-based-administration-security-scopes-for-migrated-data"></a>Области безопасности ролевого администрирования для перенесенных данных  
- При переносе данных в конечную иерархию необходимо назначить одну или несколько областей безопасности ролевого администрирования для объектов, данные которых перемещаются. Это гарантирует, что только соответствующие пользователи получат доступ для управления этими данными после миграции. Указываемые области безопасности определяются заданием миграции и применяются к каждому объекту, перенесенному в этом задании. Если требуется, чтобы к различным наборам объектов применялись разные области безопасности, назначаемые во время миграции, необходимо переносить такие наборы объектов в разных заданиях миграции.  
-
- Перед настройкой задания миграции просмотрите принципы работы ролевого администрирования в System Center Configuration Manager. При необходимости настройте одну или несколько областей безопасности для переносимых данных, чтобы проконтролировать доступ пользователей к перенесенным объектам в конечной иерархии.  
-
- Дополнительные сведения об областях безопасности и ролевом администрировании см. в разделе [Основы ролевого администрирования для System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
-
-### <a name="review-migration-actions"></a>Проверка действий миграции  
- При настройке задания миграции в мастере создания заданий миграции отображается список действий, которые необходимо выполнить для обеспечения успешной миграции, а также список действий, выполняемых Configuration Manager во время переноса выбранных данных. Внимательно просмотрите эти сведения, чтобы проверить ожидаемый результат.  
-
-### <a name="schedule-migration-jobs"></a>Планирование заданий миграции  
- По умолчанию задание миграции запускается сразу после создания. Но вы можете указать, когда задание миграции должно выполняться, при создании задания или позднее, изменив свойства задания. Можно запланировать запуск задания миграции следующим образом:  
-
--   Запустить задание сейчас  
-
--   Запустить задание в указанное время  
-
--   Не запускать задание  
-
-### <a name="specify-conflict-resolution-for-migrated-data"></a>Указание разрешения конфликтов для перенесенных данных  
- По умолчанию задания миграции не перезаписывают данные в конечной базе данных, если такие задания не настроены для пропуска или перезаписи данных, ранее перенесенных в конечную базу данных.  
-
-##  <a name="About_Collection_Migration "></a> Планирование заданий миграции коллекций  
- Задания миграции коллекций доступны только при переносе данных из исходной иерархии с поддерживаемой версией Configuration Manager 2007. При выполнении миграции по коллекциям необходимо указать одну или несколько коллекций. Для каждой указываемой коллекции задание миграции автоматически выбирает все связанные объекты для миграции. Например, если выбрана определенная коллекция пользователей, указываются участники коллекции. Кроме того, можно выполнять миграцию развертываний, связанных с этой коллекцией. В качестве альтернативного варианта для миграции можно выбрать другие объекты развертывания, связанные с указанными участниками. Все выбранные элементы добавляются в список объектов, доступных для миграции.  
-
- При переносе коллекции System Center Configuration Manager также переносит параметры коллекции, включая периоды обслуживания и переменные коллекции, но не может переносить параметры коллекции для подготовки клиентов AMT.  
-
- Чтобы получить представление о дополнительных конфигурациях, применяемых к заданиям миграции на основе коллекций, используйте информацию в приведенных ниже разделах.  
-
-### <a name="exclude-objects-from-collection-migration-jobs"></a>Исключение объектов из заданий миграции коллекций  
- Конкретные объекты можно исключить из задания миграции коллекций. При исключении определенных объектов из задания миграции коллекции они будут добавлены к глобальному списку исключений, который содержит все объекты, исключенные из заданий миграции, созданных для любого исходного сайта в текущей исходной иерархии. Объекты в списке исключений по-прежнему доступны для миграции в будущих заданиях, но не выбираются автоматически при создании нового задания миграции на основе коллекций.  
-
- Список исключений можно изменить, чтобы удалить из него ранее исключенные объекты. После удаления объекта из списка исключений он автоматически выбирается при указании связанной коллекции, когда создается новое задание миграции.  
-
-### <a name="unsupported-collections"></a>Неподдерживаемые коллекции  
- Configuration Manager может выполнять миграцию из исходной иерархии Configuration Manager 2007 любых коллекций пользователей и устройств, используемых по умолчанию, а также большинства настраиваемых коллекций. При этом Configuration Manager не может выполнить миграцию коллекций, содержащих пользователей и устройства в одной коллекции.  
-
- Миграция не применяется в отношении следующих коллекций.  
-
--   Коллекция, которая содержит пользователей и устройства.  
-
--   Коллекция, которая содержит ссылку на коллекцию с другим типом ресурсов. Например, коллекция на основе устройств, являющаяся вложенной коллекцией или ссылкой на коллекцию на основе пользователей. В этом примере миграция выполняется только в отношении коллекции верхнего уровня.  
-
--   Коллекция, которая содержит правило для включения неизвестных компьютеров. Коллекции переносится, а правило включения неизвестных компьютеров — нет.  
-
-### <a name="empty-collections"></a>Пустые коллекции  
- Пустая коллекция — это коллекция, которая не содержит связанных с ней ресурсов. Когда Configuration Manager переносит пустую коллекцию, такая коллекция преобразуется в организационную папку, не содержащую пользователей или устройств. Этой папке присваивается имя пустой коллекции в узле **Коллекции пользователей** или **Коллекции устройств** рабочей области **Активы и соответствие** в консоли Configuration Manager.  
-
-### <a name="linked-collections-and-subcollections"></a>Связанные коллекции и вложенные коллекции  
- При выполнении миграции коллекций, связанных с другими коллекциями или содержащих вложенные коллекции, Configuration Manager создает папку в узле **Коллекции пользователей** или **Коллекции устройств**, помимо связанных коллекций и вложенных коллекций.  
-
-### <a name="collection-dependencies-and-include-objects"></a>Зависимости коллекций и включение объектов  
- Когда вы указываете коллекцию для миграции в мастере создания задания миграции, все зависимые коллекции автоматически выбираются для включения в задание. Это поведение гарантирует, что все необходимые ресурсы останутся доступными после миграции.  
-
- Пример. Вы выбираете коллекцию для устройств, на которых выполняется ОС Windows 7, с именем **Win_7**. Эта коллекция ограничивается коллекцией, содержащей все клиентские операционные системы, с именем **All_Clients**. Коллекция **All_Clients** будет автоматически выбрана для миграции.  
-
-### <a name="collection-limiting"></a>Ограничение коллекции  
- При использовании System Center Configuration Manager коллекции являются глобальными данными и оцениваются на каждом сайте в иерархии. Поэтому необходимо запланировать ограничение области коллекции после миграции. Во время выполнения миграции можно определить коллекцию из конечной иерархии, которая будет ограничивать область переносимой коллекции, чтобы она не включала непредвиденные члены.  
-
- Например, в Configuration Manager 2007 коллекции оцениваются на создающем сайте и на дочерних сайтах. Объявление может быть развернуто только на дочернем сайте, и это будет ограничивать область объявления на этом дочернем сайте. В отличие от этого при использовании System Center Configuration Manager коллекции оцениваются на каждом сайте, и связанные объявления затем будут оцениваться для каждого сайта. Ограничение коллекций позволяет уточнить набор членов коллекции на основе другой коллекции, чтобы избежать добавления непредвиденных членов коллекции.  
-
-### <a name="site-code-replacement"></a>Замена кода сайта  
- При миграции коллекции, которая содержит условия, определяющие сайт Configuration Manager 2007, необходимо указать конкретный сайт в конечной иерархии. Это гарантирует, что переносимая коллекция сохранит функциональность в конечной иерархии среде и ее область не увеличится.  
-
-### <a name="specify-behavior-for-migrated-advertisements"></a>Задание поведения для переносимых объявлений  
- По умолчанию задания миграции, основанные на коллекциях, отключают объявления, переносимые в конечную иерархию. Сюда входят все программы, связанные с объявлением. При создании задания миграции на основе коллекций, которое содержит объявления, на странице **Параметры** мастера создания заданий миграции отображается параметр **Разрешить развертывание программ в Configuration Manager после переноса объявления**. Если установить этот флажок, программы, связанные с объявлениями, будут включены после завершения миграции. Но выбирать этот параметр не рекомендуется. Вместе этого следует включить программы после их переноса вручную, чтобы иметь возможность проверить состояние получивших их клиентов.  
+ É possível eliminar uma tarefa de migração antes da sua execução. No entanto, quando uma tarefa de migração estiver concluído, este permanece visível na consola do Configuration Manager e não pode ser eliminada. Cada tarefa de migração foi concluída ou tiver não executadas permanecem visíveis na consola do Configuration Manager depois de concluir o processo de migração e limpar os dados de migração.  
 
 > [!NOTE]  
->  Параметр **Разрешить развертывание программ в Configuration Manager после переноса объявления** отображается только при создании задания миграции, основанного на коллекциях, если такое задание содержит объявления.  
+>  Depois de Concluir migração utilizando o **limpar dados de migração** ação, pode reconfigurar a mesma hierarquia como a hierarquia de origem atual para restaurar a visibilidade dos objetos migrados anteriormente.  
 
- Чтобы включить программу после переноса, снимите флажок **Отключить эту программу на компьютерах, на которых она объявлена** на вкладке **Дополнительно** окна свойств программы.  
+ Pode ver os objetos contidos numa tarefa de migração na consola do Configuration Manager, selecionando a tarefa de migração e, em seguida, escolha o **objetos na tarefa** separador.  
 
-##  <a name="About_Object_Migration"></a> Планирование заданий миграции объектов  
- В отличие от миграции коллекций необходимо выбрать каждый переносимый объект и экземпляр объекта. Вы можете выбрать отдельные объекты (например, объявления из иерархии Configuration Manager 2007 или публикацию из иерархии System Center 2012 Configuration Manager или System Center Configuration Manager), чтобы добавить их в список объектов, подлежащих миграции в рамках конкретного задания. Объекты, не добавленные в список миграции, не переносятся на конечный сайт в задании миграции.  
+ Utilize as informações das secções seguintes para o ajudar a planear todas as tarefas de migração.  
 
- Для заданий миграции, основанных на объектах, не предусмотрены какие-либо специальные дополнительные настройки помимо общих для всех заданий миграций.  
+### <a name="data-selection"></a>Seleção de dados  
+ Ao criar uma tarefa de migração de coleção, é necessário selecionar uma ou mais coleções. Depois de selecionar as coleções, o Assistente Criar tarefa de migração mostra os objetos que estão associados às coleções. Por predefinição, todos os objetos associados as coleções selecionadas são migrados, mas pode desmarcar os objetos que não pretende migrar com essa tarefa. Quando desmarcar um objeto que contém objetos dependentes, esses objetos dependentes também são desmarcados. Todos os objetos desmarcados são adicionados a uma lista de exclusão. Os objetos de uma lista de exclusão são removidos da seleção automática para futuras tarefas de migração. Tem de editar manualmente a lista de exclusão para remover os objetos que pretende que sejam selecionados automaticamente para migração em tarefas de migração que criar no futuro.  
 
-##  <a name="About_Object_Migrations"></a> Планирование заданий миграции ранее перенесенных объектов  
- Если объект, который вы уже перенесли в конечную иерархию, обновляется в исходной иерархии, можно перенести его снова, используя тип задания **Объекты, измененные после миграции** . Например, при переименовании или обновлении исходных файлов пакета в исходной иерархии версия пакета в исходной иерархии увеличивается. Когда версия пакета увеличивается, пакет может быть выделен для миграции с этим типом задания.  
+### <a name="site-ownership-for-migrated-content"></a>Propriedade do site para conteúdo migrado  
+ Ao migrar conteúdo para implementações,necessita de atribuir o objeto do conteúdo a um site da hierarquia de destino. Em seguida, este site torna-se o proprietário desse conteúdo na hierarquia de destino. Embora o site de nível superior da hierarquia de destino seja o site que efetivamente migra os metadados do conteúdo, será o site atribuído que irá aceder aos ficheiros de origem originais para obter os conteúdos de toda a rede.  
 
- Этот тип задания аналогичен типу "Миграция объектов" за исключением того, что при выборе объектов для миграции можно выбрать только те объекты, которые были обновлены после выполнения предыдущего задания миграции.   
+ Para minimizar a largura de banda da rede que é utilizada durante a migração, considere a transferência da propriedade do conteúdo para o site disponível mais próximo. Porque a informação sobre o conteúdo é partilhada globalmente no System Center Configuration Manager, estará disponível em todos os sites.  
 
- При выборе этого типа задания в качестве режима разрешения конфликтов на странице **Параметры** мастера создания задания миграции задается перезапись ранее перенесенных объектов. Эту настройку нельзя изменить.  
+ As informações acerca do conteúdo são partilhadas para todos os sites na hierarquia de destino utilizando a replicação de base de dados. No entanto, todos os conteúdos que atribua a um site primário e, em seguida, implementar em pontos de distribuição doutros sites primários será transferido através de replicação baseada em ficheiros. Esta transferência é encaminhada através do site de administração central e, em seguida, para cada site primário adicional. Centralizar os pacotes que pretende distribuir por vários sites primários antes ou durante a migração quando atribui um site como proprietário do conteúdo, pode reduzir as transferências de dados através de redes com pouca largura de banda.  
+
+### <a name="role-based-administration-security-scopes-for-migrated-data"></a>Âmbitos de segurança da administração baseada em funções para dados migrados  
+ Quando migra dados para uma hierarquia de destino, tem de atribuir administração baseada em funções de um ou mais âmbitos de segurança aos objetos cujos dados são migrados. Este procedimento assegura que apenas os utilizadores administrativos apropriados têm acesso a estes dados após a sua migração. Os âmbitos de segurança especificados são definidos pela tarefa de migração e aplicados a cada objeto que é migrado por essa tarefa. Se necessitar de âmbitos de segurança diferentes a ser aplicadas a diferentes conjuntos de objetos e pretender atribuir esses âmbitos durante a migração, tem de migrar os diferentes conjuntos de objetos, utilizando as tarefas de migração diferentes.  
+
+ Antes de configurar uma tarefa de migração, reveja como baseada em funções administração funciona no System Center Configuration Manager. Se necessário, configure um ou mais âmbitos de segurança para os dados que serão migrados para controlar quem terá acesso aos objetos migrados na hierarquia de destino.  
+
+ Para mais informações sobre âmbitos de segurança e a administração baseada em funções, consulte [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+
+### <a name="review-migration-actions"></a>Rever ações de migração  
+ Quando configurar uma tarefa de migração, o Assistente Criar tarefa de migração apresenta uma lista de ações que deve tomar para garantir uma migração com êxito e uma lista de ações do Configuration Manager executa durante a migração dos dados selecionados. Reveja estas informações cuidadosamente para verificar o resultado esperado.  
+
+### <a name="schedule-migration-jobs"></a>Agendar tarefas de migração  
+ Por predefinição, uma tarefa de migração é executada imediatamente após a sua criação. No entanto, pode especificar quando a tarefa de migração é executada ao criar a tarefa ou editando as propriedades da tarefa. Pode agendar a tarefa de migração para ser executado da seguinte forma:  
+
+-   Executar a tarefa agora  
+
+-   Executar a tarefa a uma hora de início específica  
+
+-   Não executar a tarefa  
+
+### <a name="specify-conflict-resolution-for-migrated-data"></a>Especificar a resolução de conflitos para dados migrados  
+ Por predefinição, as tarefas de migração não substituem dados na base de dados de destino, exceto se configurar a tarefa de migração para ignorar ou substituir os dados que tenham sido anteriormente migrados para a base de dados de destino.  
+
+##  <a name="About_Collection_Migration "></a>Planear as tarefas de migração de coleções  
+ As tarefas de migração de coleções estão disponíveis apenas quando são migrados dados a partir de uma hierarquia de origem que executa uma versão suportada do Configuration Manager 2007. Tem de especificar uma ou mais coleções para migrar quando migra por coleção. Para cada coleção especificada, a tarefa de migração seleciona automaticamente todos os objetos relacionados para migração. Por exemplo, se selecionar uma coleção específica de utilizadores, são em seguida identificados os membros da coleção e pode migrar as implementações associadas a esta coleção. Opcionalmente, pode selecionar outros objetos de implementação para migrar que estão associados a estes membros. Todos estes itens selecionados são adicionados à lista de objetos que podem ser migrados.  
+
+ Quando migra uma coleção, o System Center Configuration Manager também migra as definições da coleção, incluindo janelas de manutenção e variáveis da coleção, mas não é possível migrar as definições da coleção para aprovisionamento do cliente AMT.  
+
+ Utilize as informações nas secções seguintes para saber mais sobre as configurações adicionais que podem aplicar às tarefas de migração baseada em coleções.  
+
+### <a name="exclude-objects-from-collection-migration-jobs"></a>Excluir objetos de tarefas de migração de coleção  
+ Pode excluir objetos específicos de uma tarefa de migração de coleções. Quando exclui um objeto específico de uma tarefa de migração de coleções, esse objeto é adicionado a uma lista de exclusão global que tem todos os objetos excluídos das tarefas de migração criadas para qualquer site de origem na hierarquia de origem atual. Objetos da lista de exclusão ainda estão disponíveis para migração em tarefas futuras, mas não são incluídos automaticamente quando criar uma nova tarefa de migração baseada em coleções.  
+
+ Pode editar a lista de exclusão para remover objetos que excluiu anteriormente. Após a remoção de um objeto da lista de exclusão, este é selecionado automaticamente quando uma coleção associada é especificada durante a criação de uma nova tarefa de migração.  
+
+### <a name="unsupported-collections"></a>Coleções não suportadas  
+ O Configuration Manager pode migrar qualquer uma das coleções de utilizador predefinido, a coleções de dispositivos e a maioria das coleções personalizadas a partir de uma hierarquia de origem do Configuration Manager 2007. No entanto, o Configuration Manager não consegue migrar coleções que contêm utilizadores e dispositivos na mesma coleção.  
+
+ Não é possível migrar as seguintes coleções:  
+
+-   Uma coleção que tenha utilizadores e dispositivos.  
+
+-   Uma coleção que contém uma referência a uma coleção de um tipo de recurso diferente. Por exemplo, uma coleção com base no dispositivo que tenha uma subcoleção ou uma ligação para uma coleção baseada no utilizador. Neste exemplo, apenas a coleção de nível superior é migrada.  
+
+-   Uma coleção que tenha uma regra para incluir computadores desconhecidos. A coleção migra, mas a regra para incluir computadores desconhecidos não migra.  
+
+### <a name="empty-collections"></a>Coleções vazias  
+ Uma coleção vazia é uma coleção se recursos associados. Quando o Configuration Manager migra uma coleção vazia, converte-numa pasta organizacional que não tem utilizadores ou dispositivos. Esta pasta é criada com o nome da coleção vazia no **coleções de utilizadores** ou **coleções de dispositivos** no nó de **ativos e compatibilidade** área de trabalho na consola do Configuration Manager.  
+
+### <a name="linked-collections-and-subcollections"></a>Coleções ligadas e subcoleções  
+ Quando migra coleções ligadas a outras coleções ou que contêm subcoleções, o Configuration Manager cria uma pasta na **coleções de utilizadores** ou **coleções de dispositivos** nó além das coleções ligadas e subcoleções.  
+
+### <a name="collection-dependencies-and-include-objects"></a>Dependências de coleções e inclusão de objetos  
+ Quando especificar uma coleção para migrar no Assistente Criar tarefa de migração, todas as coleções dependentes são automaticamente selecionadas para inclusão na tarefa. Este comportamento garante que todos os recursos necessários estão disponíveis após a migração.  
+
+ Por exemplo: Selecione uma coleção para dispositivos que executam o Windows 7 e com o nome **Win_7**. Esta coleção está limitada a uma coleção que tenha todos os sistemas de operativos do cliente e o nome **All_Clients**. A coleção **All_Clients** será selecionada automaticamente para migração.  
+
+### <a name="collection-limiting"></a>Limitação de coleções  
+ Com o System Center Configuration Manager, as coleções são dados globais e são avaliadas em cada site na hierarquia. Por conseguinte, planeie a forma de limitar o âmbito de uma coleção após a respetiva migração. Durante a migração, pode identificar uma coleção da hierarquia de destino a utilizar para limitar o âmbito da coleção que está a migrar de modo a que a coleção migrada não contenha membros inesperados.  
+
+ Por exemplo, no Configuration Manager 2007, as coleções são avaliadas no site que as cria e em sites subordinados. Um anúncio pode ser implementado apenas num site subordinado, o que pode limitar o âmbito desse anúncio a esse site subordinado. Em comparação, com o System Center Configuration Manager, as coleções são avaliadas em cada site e anúncios associados são então avaliados para cada site. A limitação da coleção permite-lhe refinar os membros da coleção com base noutra coleção para evitar a adição de membros inesperados da coleção.  
+
+### <a name="site-code-replacement"></a>Substituição do código do site  
+ Quando migra uma coleção que tenha os critérios que identificam um site do Configuration Manager 2007, tem de especificar um site específico na hierarquia de destino. Isto garante que a coleção migrada permaneça funcional na sua hierarquia de destino e não aumente o âmbito.  
+
+### <a name="specify-behavior-for-migrated-advertisements"></a>Especificar o comportamento de anúncios migrados  
+ Por predefinição, as tarefas de migração baseada em coleções desativam anúncios migrados para a hierarquia de destino. Isto inclui todos os programas que estão associados ao anúncio. Quando cria uma tarefa de migração baseada em coleções que tenha anúncios, verá o **ativar programas para implementação no Configuration Manager após um anúncio ser migrado** opção o **definições** página do Assistente Criar tarefa de migração. Se selecionar esta opção, os programas associados aos anúncios são ativados após terem sido migrados. Como melhor prática, não selecione esta opção. Em vez disso, ative os programas após terem sido migrados quando pretender verificar os clientes que irão recebê-las.  
 
 > [!NOTE]  
->  Такое задание миграции может определять не только вручную обновленные пользователями объекты, но и объекты, автоматически обновленные в исходной иерархии.  
+>  Pode ver o **ativar programas para implementação no Configuration Manager após um anúncio ser migrado** opção apenas quando estiver a criar uma tarefa de migração baseada em coleções e a tarefa de migração contém anúncios.  
+
+ Para ativar um programa após a migração, desmarque **desativar este programa em computadores onde tenha sido anunciado** no **avançadas** separador de propriedades do programa.  
+
+##  <a name="About_Object_Migration"></a>Plano para tarefas de migração de objeto  
+ Ao contrário da migração de coleções, deve selecionar cada objeto e instância do objeto que pretende migrar. Pode selecionar objetos individuais, como (anúncios de uma hierarquia do Configuration Manager 2007) ou uma publicação de uma hierarquia do System Center 2012 Configuration Manager ou System Center Configuration Manager para adicionar à lista de objetos a migrar para uma tarefa de migração específico. Todos os objetos que não forem adicionados à lista de migração não serão migrados para o site de destino pela tarefa de migração de objetos.  
+
+ As tarefas de migração baseada em objetos não têm quaisquer configurações adicionais a planear para além das aplicáveis a todas as tarefas de migração.  
+
+##  <a name="About_Object_Migrations"></a>Planear tarefas de migração de objetos migrados anteriormente  
+ Quando um objeto já migrado para a hierarquia de destino é atualizado na hierarquia de origem, pode migrá-lo novamente utilizando o tipo de tarefa **Objetos modificados após migração**. Por exemplo, ao mudar o nome ou atualizar os ficheiros de origem para um pacote na hierarquia de origem, a incrementação da versão de pacote na hierarquia de origem. Após a incrementação da versão do pacote, este pode ser identificado para migração por este tipo de tarefa.  
+
+ Este tipo de tarefa é semelhante ao tipo de migração de objeto, com a exceção de que, quando seleciona objetos para migrar, apenas os objetos atualizados após a migração por uma tarefa de migração anterior poderão ser selecionados.   
+
+ Quando seleciona este tipo de tarefa, o comportamento da resolução de conflito no **definições** página do Assistente Criar tarefa de migração é configurada para substituir os objetos anteriormente migrados. Não é possível alterar esta definição.  
+
+> [!NOTE]  
+>  Esta tarefa de migração pode identificar objetos que são atualizados automaticamente pela hierarquia de origem e objetos atualizados por um utilizador administrativo.  

@@ -1,6 +1,6 @@
 ---
-title: "Проверка конфигурации управления мобильными устройствами с помощью System Center Configuration Manager | Документация Майкрософт"
-description: "Проверка конфигурации управления мобильными устройствами с помощью System Center Configuration Manager."
+title: "Verifique a configuração de MDM com o System Center Configuration Manager | Microsoft Docs"
+description: "Verifique a configuração de MDM com o System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,21 +17,21 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: ad4b923bd6d3e8acfe799a4ebe2adec737939d75
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="verify-mdm-configuration-with-system-center-configuration-manager"></a>Проверка конфигурации управления мобильными устройствами с помощью System Center Configuration Manager
+# <a name="verify-mdm-configuration-with-system-center-configuration-manager"></a>Verifique a configuração de MDM com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Можно проверить определенные компоненты управления устройствами, просмотрев следующие файлы журнала.
+Pode verificar determinados componentes de gestão do dispositivo ao selecionar os seguintes ficheiros de registo:
 
--   Проверьте журнал Cloudusersync.log, чтобы убедиться, что учетные записи пользователей успешно синхронизируются.
+-   Verifique o Cloudusersync.log para verificar se as contas de utilizador são sincronizadas com sucesso.
 
--   Проверьте журнал Sitecomp.log, чтобы убедиться, что точка подключения службы была успешно создана.
+-   Consulte o Sitecomp.log para verificar se o ponto de ligação de serviço foi criado com êxito.
 
-Дополнительные сведения об этих файлах журналов и о том, как их просмотреть, см. в разделе [Файлы журналов функций Configuration Manager](../../core/plan-design/hierarchy/log-files.md#a-namebkmkfunctionlogsa-log-files-for-configuration-manager-functionality).
+Pode rever [ficheiros de registo no System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md#a-namebkmkfunctionlogsa-log-files-for-configuration-manager-functionality) para obter mais informações sobre estes ficheiros de registo específicos e como visualizá-los.
 
 > [!div class="button"]
-[< Назад](set-up-additional-management.md)
+[< Anterior passo](set-up-additional-management.md)

@@ -1,6 +1,6 @@
 ---
-title: "Поиск ресурсов сайта | Документы Майкрософт"
-description: "Сведения о том, как и когда клиенты System Center Configuration Manager находят ресурсы сайта с помощью обнаружения службы."
+title: Localizar recursos do site | Microsoft Docs
+description: "Saiba como e quando os clientes do System Center Configuration Manager utilizam a localização do serviço para localizar recursos do site."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -16,235 +16,235 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 1c9e7ada6a8aa228b30e58865baae0f6e529e6af
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Сведения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager
+# <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Saiba como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Клиенты System Center Configuration Manager используют процедуру, называемую *обнаружением службы*, для поиска серверов системы сайта, с которыми они взаимодействуют и которые предоставляют службы, используемые клиентами. Понимание того, как и когда клиенты применяют обнаружение службы для нахождения ресурсов сайта, поможет вам настраивать сайты для поддержки задач клиента. Эти конфигурации могут потребовать, чтобы сайт взаимодействовал с конфигурациями домена и сети, такими как доменные службы Active Directory (AD DS) и DNS. Либо они могут нуждаться в настройке более сложных альтернативных вариантов.  
+Clientes do System Center Configuration Manager utilizam um processo denominado *localização de serviço* para localizar o sistema de sites, servidores com que podem comunicar e que fornecem serviços que os clientes são direcionadas para utilizar. Compreender como e quando os clientes utilizam a localização do serviço para localizar recursos do site pode ajudar a configurar os sites para suportar tarefas de cliente com êxito. Estas configurações podem exigir que o site interaja com configurações de domínio e de rede, como os serviços de domínio do Active Directory (AD DS) e DNS. Ou pode necessitam que configure alternativas mais complexas.  
 
- Примеры ролей системы сайта, предоставляющих службы:
+ Os exemplos de funções de sistema de sites que fornecem serviços incluem:
 
- - основной сервер системы сайта для клиентов;
- - точка управления;
- - дополнительные серверы системы сайта, с которыми клиент может взаимодействовать, например точки распространения и точки обновления программного обеспечения.  
+ - O núcleo servidor sistema de sites para clientes.
+ - O ponto de gestão.
+ - Servidores de sistema de sites adicionais que o cliente pode comunicar com, como pontos de atualização de software e pontos de distribuição.  
 
 
 
 ##  <a name="bkmk_fund"></a> Fundamentals of service location  
- Используя обнаружение службы для поиска точки управления, с которой возможно взаимодействие, клиент оценивает свое текущее расположение в сети, параметры протокола связи и назначенный сайт.  
+ Um cliente avalia a respetiva localização de rede atual, a preferência de protocolo de comunicação e o site atribuído quando estiver a utilizar a localização do serviço para localizar um ponto de gestão que este consegue comunicar com.  
 
- **Клиент взаимодействует с точкой управления для выполнения следующих задач:**  
--   Скачивание сведений о других точках управления для сайта, чтобы составить список известных точек управления (который также называется *списком MP*) для будущих циклов обнаружения службы.  
--   Загрузка сведений о конфигурации, таких как инвентаризация и состояние.  
--   Скачивание политики, которая задает конфигурации на стороне клиента и может сообщить клиенту о том программном обеспечении, которое он может или должен установить, а также о других связанных задачах.  
--   Запрос сведений о дополнительных ролях системы сайта, предоставляющих службы, на использование которых был настроен клиент. Например, это могут быть точки распространения программного обеспечения, которые может установить клиент, или точка обновления программного обеспечения для получения обновлений.  
+ **Um cliente comunica com um ponto de gestão para:**  
+-   Transferir as informações sobre outros pontos de gestão para o site, pelo que pode criar uma lista de pontos de gestão conhecidos (conhecida como a *lista MP*) para ciclos de localização de serviço futuras.  
+-   Carregar os detalhes de configuração, como o inventário e de estado.  
+-   Transferir uma política que define as configurações no cliente e pode informar o cliente de software que pode ou tem de instalar e outras tarefas relacionadas.  
+-   Pedido de informações adicionais sobre sites funções do sistema que fornecem serviços que o cliente tiver sido configurado para utilizar. Os exemplos incluem pontos de distribuição de software que pode instalar o cliente ou uma atualização de software ponto a partir da qual pode obter atualizações.  
 
-**Клиент Configuration Manager запрашивает обнаружение службы.**  
--   Каждые 25 часов непрерывной работы.  
--   Если клиент обнаруживает изменение своей сетевой конфигурации или расположения.  
--   Если служба **ccmexec.exe** (основная служба клиента) запускается на компьютере.  
--   Когда клиент должен найти роль системы сайта, которая предоставляет необходимую службу.  
+**Um cliente do Configuration Manager envia um pedido de localização de serviço:**  
+-   Cada 25 horas da operação contínua.  
+-   Quando o cliente detete uma alteração na sua configuração de rede ou localização.  
+-   Quando o **ccmexec.exe** inicia o serviço no computador (o serviço de cliente core).  
+-   Quando o cliente tem de localizar uma função de sistema de sites que fornece um serviço necessário.  
 
-**При попытке найти серверы с ролями системы сайта** клиент использует обнаружение службы для поиска роли системы сайта, которая поддерживает клиентский протокол (HTTP или HTTPS). По умолчанию клиенты используют наиболее безопасный метод из доступных. Рекомендуется учесть следующие моменты.  
+**Quando um cliente está a tentar encontrar os servidores que alojam funções do sistema de sites**, utiliza a localização do serviço para encontrar uma função de sistema de sites que suporta o protocolo do cliente (HTTP ou HTTPS). Por predefinição, os clientes utilizam o método mais seguro disponível. Tenha em consideração o seguinte:  
 
--   Чтобы использовать протокол HTTPS, требуется инфраструктура открытых ключей (PKI); необходимо установить PKI-сертификаты на клиентах и серверах. Сведения о том, как использовать сертификаты, см. в разделе [Требования к PKI-сертификатам для System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   Para utilizar HTTPS, tem de ter uma infraestrutura de chaves públicas (PKI) e instalar certificados PKI nos clientes e servidores. Para obter mais informações sobre o certificado PKI, veja [Requisitos de Certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
--   При развертывании роли системы сайта, использующей службы IIS и поддерживающей взаимодействие с клиентами, необходимо указать, по какому протоколу клиенты подключаются к системе сайта — HTTP или HTTPS. При использовании HTTP необходимо настроить параметры подписывания и шифрования. Дополнительные сведения см. в разделе [Планирование подписания и шифрования](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) статьи [Планирование безопасности в System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
+-   Ao implementar uma função do sistema de sites que utiliza Serviços de Informação Internet (IIS) e suporta comunicações de clientes, tem de especificar se os clientes ligam ao sistema de sites através de HTTP ou HTTPS. Se utilizar HTTP, também tem de considerar as opções de assinatura e encriptação. Para obter mais informações, consulte [planeamento para assinatura e encriptação](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) no [planear a segurança no System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
 
-##  <a name="BKMK_Plan_Service_Location"></a> Обнаружение службы и определение клиентами назначенной им точки управления  
-Когда клиент впервые выполняет назначение первичному сайту, он выбирает для него точку управления по умолчанию. Первичные сайты поддерживают несколько точек управления, и каждый клиент независимо определяет точку управления в качестве своей точки управления по умолчанию. Затем данная точка управления по умолчанию становится назначенной точкой управления этого клиента. (Вы также можете использовать команды для установки клиента, чтобы задать назначенную точку управления для клиента во время его установки.)  
+##  <a name="BKMK_Plan_Service_Location"></a>Localização do serviço e como os clientes determinam o respetivo ponto de gestão atribuído  
+Quando um cliente é atribuído pela primeira vez a um site primário, seleciona um ponto de gestão predefinido para esse site. Os sites primários suportam vários pontos de gestão e cada cliente identifica de forma independente um ponto de gestão como ponto de gestão predefinido. Este ponto de gestão predefinido torna-se, em seguida, o ponto de gestão atribuído desse cliente. (Pode também utilizar comandos de instalação de cliente para definir o ponto de gestão atribuído para um cliente quando é instalado.)  
 
-Клиент выбирает точку управления для дальнейшего взаимодействия на основании текущих конфигураций сетевого расположения и групп границ. Даже при наличии назначенной точки управления клиент может использовать другую точку управления.  
+Um cliente seleciona um ponto de gestão para comunicar com base no atuais localização e o limite de grupo configurações de rede do cliente. Apesar de ter um ponto de gestão atribuído, este não poderá ser o ponto de gestão que o cliente utiliza.  
 
     > [!NOTE]  
     >  A client always uses the assigned management point for registration messages and certain policy messages, even when other communications are sent to a proxy or local management point.  
 
-Вы можете использовать предпочтительные точки управления. Предпочтительные точки управления — это точки управления назначенного сайта клиента, связанные с группой границ, которую клиент использует для поиска серверов системы сайта. Предпочтительная точка управления — это точка, связанная с группой границ в качестве сервера системы сайта, аналогично тому, как точки распространения или точки миграции состояния связаны с группой границ. Если включены предпочтительные точки управления для иерархии, при использовании точки управления с назначенного сайта клиент будет пытаться использовать предпочтительную точку управления перед применением других точек управления назначенного сайта.  
+Pode utilizar pontos de gestão preferenciais. Pontos de gestão preferenciais são pontos de gestão do site atribuído do cliente que estão associados um grupo de limites que o cliente está a utilizar para localizar servidores do sistema de sites. Associação de um ponto de gestão preferenciais com um limite de grupo como um servidor de sistema de sites é semelhante à forma como pontos de distribuição ou pontos de migração de estado associados a um grupo de limites. Se ativar pontos de gestão preferenciais para a hierarquia, quando um cliente utilizar um ponto de gestão a partir do site atribuído, este tentará utilizar um ponto de gestão preferencial antes de utilizar outros pontos de gestão a partir do site atribuído.  
 
-Кроме того, вы можете воспользоваться сведениями из блога на сайте TechNet.com для настройки [сходства точек управления](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx). Сходство точек управления переопределяет работу по умолчанию для назначенных точек управления и позволяет клиенту использовать одну или несколько определенных точек управления.  
+Também pode utilizar as informações de [afinidade do ponto de gestão](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx) blogue em TechNet.com para configurar a afinidade do ponto de gestão. Substituições de afinidade de ponto de gestão o comportamento predefinido de gestão atribuído pontos e permite que o cliente utilizam um ou mais pontos de gestão específico.  
 
-Каждый раз, когда клиенту необходимо связаться с точкой управления, он проверяет список MP, который хранит локально в инструментарии управления Windows (WMI). Клиент создает исходный список MP во время установки. Затем он периодически добавляет в него сведения о каждой точке управления в иерархии.  
+Sempre que um cliente tem de contactar um ponto de gestão, verifica a lista MP, que armazena localmente no Windows Management Instrumentation (WMI). O cliente cria uma lista MP inicial quando é instalado. O cliente, em seguida, atualiza periodicamente a lista com detalhes sobre cada ponto de gestão na hierarquia.  
 
-Если клиент не может найти допустимую точку управления в своем списке MP, он производит поиск по следующим источникам обнаружения службы в указанном порядке, пока не найдет точку управления, которую сможет использовать:  
+Quando o cliente não é possível localizar um ponto de gestão válido na respetiva lista MP, as seguintes origens de localização de serviço, este procura por ordem, até encontrar um ponto de gestão que pode utilizar:  
 
-1.  Точка управления.  
+1.  Ponto de gestão  
 2.  AD DS  
 3.  DNS  
 4.  WINS  
 
-Когда клиент успешно находит точку управления и связывается с ней, он загружает текущий список точек управления, доступных в иерархии, и обновляет свой локальный список MP. Это в равной степени относится к клиентам, как присоединенным, так и не присоединенным к домену.  
+Depois de um cliente localiza e contacta um ponto de gestão com êxito, transfere a lista atual de pontos de gestão que estão disponíveis na hierarquia e atualiza a lista MP local. O mesmo aplica-se a clientes com um domínio associado e aos que não têm.  
 
-Например, если расположенный в Интернете клиент Configuration Manager подключается к интернет-точке управления, эта точка управления отправляет ему список доступных на сайте интернет-точек управления. Аналогичным образом клиенты, присоединенные к домену или организованные в рабочие группы, получают список точек управления, которые они могут использовать.  
+Por exemplo, quando um cliente de Configuration Manager que está na Internet liga a um ponto de gestão baseado na Internet, o ponto de gestão envia esse cliente uma lista de pontos de gestão baseado na Internet disponíveis no site. Do mesmo modo, os clientes com um domínio associado ou em grupos de trabalho também recebem uma lista dos pontos de utilização que podem utilizar.  
 
-Клиенту, который не настроен для работы в Интернете, точки управления, доступные только через Интернет, не предоставляются. Клиенты рабочей группы, настроенные на работу через Интернет, взаимодействуют исключительно с точками управления, подключенными к Интернету.  
+Um cliente que não está configurado para a Internet não foi fornecido pontos de gestão com acesso à-apenas de Internet. Os clientes de grupo de trabalho configurados para a Internet comunicam apenas com pontos de gestão de acesso à Internet.  
 
-##  <a name="BKMK_MPList"></a> Список точек управления  
-Список MP — это предпочтительный источник обнаружения службы для клиента, так как он представляет собой упорядоченный список точек управления, ранее определенных клиентом. Этот список сортируется по каждому клиенту в зависимости от того, где в сети находился клиент во время обновления списка, и затем сохраняется локально на клиенте в инструментарии WMI.  
+##  <a name="BKMK_MPList"></a> A lista MP  
+A lista MP é a origem de localização de serviço preferencial para um cliente, porque é uma lista prioritária de pontos de gestão que o cliente identificou anteriormente. Esta lista é ordenada por cada cliente com base na respetiva localização de rede quando o cliente atualiza a lista e, em seguida, é armazenada localmente no cliente no WMI.  
 
-### <a name="building-the-initial-mp-list"></a>Создание исходного списка точек управления  
-Во время установки клиента для построения его исходного списка точек управления применяются следующие правила:  
+### <a name="building-the-initial-mp-list"></a>Criar a lista MP inicial  
+Durante a instalação do cliente, são utilizadas as seguintes regras para criar a lista de pacote de gestão inicial do cliente:  
 
--   Исходный список содержит точки управления, указанные во время установки клиента (при использовании параметра **SMSMP**= или **/MP**).  
--   Клиент запрашивает у AD DS опубликованные точки управления. Для идентификации из AD DS точка управления должна относиться к назначенному клиенту сайту и иметь ту же версию продукта, что и клиент.  
--   Если во время установки клиента точка управления не была указана, а схема Active Directory не расширена, клиент проверяет DNS и WINS на наличие опубликованных точек управления.  
--   При построении исходного списка сведения о некоторых точках управления в иерархии не могут быть известны.  
+-   A lista inicial inclui pontos de gestão especificados durante a instalação de cliente (quando utiliza o **SMSMP**= ou **/MP** opção).  
+-   O cliente consulta o AD DS para pontos de gestão publicado. Para ser identificado no AD DS, o ponto de gestão tem de ser do site atribuído do cliente e tem de ser a mesma versão de produto que o cliente.  
+-   Não se foi especificado nenhum ponto de gestão durante a instalação de cliente e o esquema do Active Directory não estiver expandido, o cliente verifica o DNS e WINS pontos de gestão publicado.  
+-   Quando o cliente cria a lista inicial, informações sobre alguns pontos de gestão na hierarquia poderão não ser conhecidas.  
 
-### <a name="organizing-the-mp-list"></a>Упорядочение списка MP  
-Клиенты упорядочивают свой список точек управления по следующим категориям:  
+### <a name="organizing-the-mp-list"></a>Organizar a lista MP  
+Os clientes organizam a sua lista de pontos de gestão utilizando as seguintes classificações:  
 
--   **Прокси** — точка управления на вторичном сайте.  
--   **Локальная** — любая точка управления, сопоставленная с текущим сетевым расположением клиента в соответствии с границами сайта. Обратите внимание на следующие сведения о границах:
-    -   Когда клиент входит в несколько групп границ, список локальных точек управления определяется для совокупности всех границ, включающих в себя текущее сетевое расположение клиента.  
-    -   Обычно локальные точки управления представляют собой подмножество назначенных клиенту точек управления, если только клиент не находится в сетевом расположении, которое сопоставлено с другим сайтом с точками управления, обслуживающими его группы границ.   
+-   **Proxy**: Um ponto de gestão num site secundário.  
+-   **Local**: Qualquer ponto de gestão que esteja associado à localização de rede atual do cliente, tal como definido pelos limites do site. Tenha em atenção as seguintes informações sobre limites:
+    -   Quando um cliente pertence a mais de um grupo de limites, a lista de pontos de gestão locais é determinada a partir da união de todos os limites que incluem a localização de rede atual do cliente.  
+    -   Pontos de gestão local são, normalmente, um subconjunto de um cliente atribuído pontos de gestão, a menos que o cliente está numa localização de rede que está associada a outro site com pontos de gestão dos grupos de limites de manutenção.   
 
 
--   **Назначенная**: любая точка управления, которая является системой сайта для назначенного клиенту сайта.  
+-   **Atribuído**: Qualquer ponto de gestão que é um sistema de sites para o site atribuído do cliente.  
 
-Вы можете использовать предпочтительные точки управления. Точки управления на сайте, не связанные с группой границ или не входящие в группу границ, связанную с текущим сетевым расположением клиента, не считаются предпочтительными. Они будут использоваться, если клиент не сможет определить предпочтительную точку управления.  
+Pode utilizar pontos de gestão preferenciais. Pontos de gestão num site que não estão associados um grupo de limites ou que não estão num grupo de limites associado à localização de rede atual do cliente, não são considerados preferenciais. Serão utilizados quando o cliente não é possível identificar um ponto de gestão preferencial disponível.  
 
-### <a name="selecting-a-management-point-to-use"></a>Выбор используемой точки управления  
-Обычно во время взаимодействия клиент пытается использовать точку управления из категорий в указанном ниже порядке в зависимости от своего сетевого расположения:  
+### <a name="selecting-a-management-point-to-use"></a>Selecionar um ponto de gestão a utilizar  
+Em comunicações típicas, um cliente tenta utilizar uma utilização de um ponto de gestão a partir das classificações pela seguinte ordem, com base na localização de rede do cliente:  
 
-1.  Прокси  
-2.  Локальная  
-3.  назначенных  
+1.  Proxy  
+2.  Localização  
+3.  Atribuídos  
 
-Однако клиент всегда использует назначенную точку управления для сообщений регистрации и определенных сообщений политики, даже если остальное взаимодействие осуществляется с прокси-точкой управления или локальной точкой управления.  
+No entanto, o cliente utiliza sempre o ponto de gestão atribuído para o registo de mensagens e determinadas políticas de mensagens, mesmo quando são enviadas outras comunicações para um ponto de gestão local ou de um proxy.  
 
-Внутри каждой классификации (прокси, локальные или назначенные) клиент пытается использовать соответствующую заданным параметрам точку управления в следующем порядке:  
+Em cada classificação (proxy, local ou atribuída), o cliente tenta utilizar um ponto de gestão com base nas preferências, pela seguinte ordem:  
 
-1.  С поддержкой HTTPS в доверенном или локальном лесу (когда клиент настроен для связи по протоколу HTTPS)  
-2.  С поддержкой HTTPS вне доверенного или локального леса (когда клиент настроен для связи по протоколу HTTPS).  
-3.  С поддержкой HTTP в доверенном или локальном лесу.  
-4.  С поддержкой HTTP вне доверенного или локального леса.  
+1.  Compatível com HTTPS numa floresta local ou fidedigna (quando o cliente está configurado para comunicação HTTPS)  
+2.  Não compatível com HTTPS numa floresta local ou fidedigna (quando o cliente está configurado para comunicação HTTPS)  
+3.  Compatível com HTTP numa floresta local ou fidedigna  
+4.  Compatível com HTTP não numa floresta local ou fidedigna  
 
-Из набора точек управления, отсортированных по заданным параметрам, клиент пытается использовать самую первую точку управления в списке. Этот отсортированный список точек управления имеет случайный характер и не может быть упорядочен. Порядок элементов в списке может меняться при обновлении клиентом своего списка точек управления.  
+Do conjunto de pontos de gestão ordenados por preferências, o cliente tenta utilizar primeiro ponto de gestão na lista. Esta lista ordenada de pontos de gestão é aleatória e não pode ser ordenada. A ordem da lista pode mudar sempre que o cliente atualiza a respetiva lista MP.  
 
-Если клиент не может установить соединение с первой точкой управления, он пробует связаться с каждой последующей точкой управления в списке. Он начинает с предпочтительных точек управления по заданной классификации. Если клиент не может успешно связаться с какой-либо точкой управления в данной классификации, он попытается связаться с предпочтительной точкой управления из следующей классификации и т. д., пока не найдет подходящую точку управления.  
+Quando um cliente não consegue estabelecer contacto com o primeiro ponto de gestão, este tenta cada ponto de gestão sucessivas na respetiva lista. Este tenta cada ponto de gestão preferencial na classificação antes de tentar os pontos de gestão não preferenciais. Se um cliente não é possível comunicar com qualquer ponto de gestão na classificação com êxito, este tenta contactar um ponto de gestão preferencial na próxima classificação e assim sucessivamente, até encontrar um ponto de gestão a utilizar.  
 
-После установления соединения с точкой управления клиент продолжает использовать ее до выполнения одного из следующих условий:  
+Após um cliente estabelece comunicação com um ponto de gestão, este continua a utilizar se do ponto de gestão mesmo até:  
 
--   Прошло 25 часов.  
--   Клиенту не удается связаться с точкой управления с пятой попытки в течение 10 минут.
+-   passaram 25 horas.  
+-   O cliente não consegue comunicar com o ponto de gestão para cinco tentativas durante um período de 10 minutos.
 
-После этого клиент случайным образом выбирает новую точку управления.  
+Em seguida, o cliente seleciona aleatoriamente um novo ponto de gestão a utilizar.  
 
 ##  <a name="bkmk_ad"></a> Active Directory  
-Присоединенные к домену клиенты могут использовать доменные службы Active Directory для обнаружения службы. Для этого сайты должны [публиковать данные в Active Directory](http://technet.microsoft.com/library/hh696543.aspx).  
+Os clientes que têm um domínio associado podem utilizar o AD DS para a localização de serviços. Isto requer que os sites [publiquem dados no Active Directory](http://technet.microsoft.com/library/hh696543.aspx).  
 
-Клиент может использовать AD DS для обнаружения службы, если выполняются все перечисленные ниже условия.  
+Um cliente pode utilizar o AD DS para a localização do serviço quando todas as condições seguintes forem verdadeiras:  
 
--   Схема Active Directory [была расширена](https://technet.microsoft.com/library/mt345589.aspx) для System Center 2012 Configuration Manager.  
--   [Лес Active Directory настроен на публикацию](http://technet.microsoft.com/library/hh696542.aspx), как и сайты Configuration Manager.  
--   Клиентский компьютер входит в домен Active Directory и имеет доступ к серверу глобального каталога.  
+-   O Active Directory [esquema tiver sido expandido](https://technet.microsoft.com/library/mt345589.aspx) ou foi expandido para o System Center 2012 Configuration Manager.  
+-   O [floresta do Active Directory está configurada para publicar](http://technet.microsoft.com/library/hh696542.aspx), e sites do Configuration Manager estão configurados para publicar.  
+-   O computador cliente é membro de um domínio do Active Directory e consegue aceder a um servidor de catálogo global.  
 
-Если клиенту не удается найти точку управления для обнаружения службы в доменных службах Active Directory, он предпринимает попытку использовать DNS.  
+Se um cliente não é possível localizar um ponto de gestão a utilizar para a localização do serviço do AD DS, este tenta utilizar o DNS.  
 
 ##  <a name="bkmk_dns"></a> DNS  
-Клиенты в интрасети могут использовать DNS для обнаружения службы. Для этого хотя бы один сайт в иерархии должен публиковать сведения о точках управления в DNS.  
+Os clientes na intranet podem utilizar o DNS para localização de serviços. Isto requer que, pelo menos, um site numa hierarquia publique informações sobre os pontos de gestão no DNS.  
 
-Рассмотрите возможность использования DNS для обнаружения службы, если выполняется одно из следующих условий:
--   Схема AD DS не расширена для поддержки Configuration Manager.
--   Клиенты в интрасети расположены в лесу, в котором не включена публикация Configuration Manager.  
--   У вас есть клиенты на компьютерах рабочих групп, не настроенные для управления только через Интернет. (Клиент рабочей группы, настроенный на работу через Интернет, взаимодействует исключительно с точками управления, подключенными к Интернету, и не будет использовать DNS для обнаружения службы.)  
--   Вы можете [настроить клиенты на поиск точек управления в DNS](http://technet.microsoft.com/library/gg682055).  
+Considere a utilização do DNS para localização de serviços quando se verificar qualquer das seguintes condições:
+-   O esquema de AD DS não estiver expandido para suportar o Configuration Manager.
+-   Os clientes da intranet estão localizados numa floresta que não está ativada para publicação do Configuration Manager.  
+-   Tem clientes que se encontram em computadores do grupo de trabalho, não estando configurados para gestão de clientes apenas na Internet. (Um cliente de grupo de trabalho configurado para a Internet apenas comunicarão com pontos de gestão de acesso à Internet e não irá utilizar o DNS para localização de serviços.)  
+-   Pode [configurar clientes para encontrar pontos de gestão do DNS](http://technet.microsoft.com/library/gg682055).  
 
-Когда сайт публикует в DNS записи обнаружения службы для точек управления:  
+Quando um site publica registos de localização de serviços para pontos de gestão no DNS:  
 
--   Публикация применяется только к точкам управления, которые принимают клиентские подключения из интрасети.  
--   Публикация добавляет запись ресурса обнаружения службы (SRV RR) в зоне DNS на компьютере точки управления. В DNS для данного компьютера должна существовать соответствующая запись узла.  
+-   A publicação é aplicável apenas a pontos de gestão que aceitem ligações de clientes a partir da Internet.  
+-   A publicação adiciona um registo de recurso de localização de serviços (SRV RR) na zona DNS do computador do ponto de gestão. Tem de existir uma entrada de anfitrião correspondente no DNS desse computador.  
 
-По умолчанию присоединенные к домену клиенты выполняют в DNS поиск записей точек управления из локального домена клиента. Вы можете настроить свойство клиента, указывающее доменный суффикс для домена, не имеющего опубликованных в DNS сведений о точке управления.  
+Por predefinição, os clientes associados a um domínio procuram o DNS para os registos de ponto de gestão de domínio local do cliente. Pode configurar uma propriedade de cliente que especifique um sufixo de domínio para um domínio que tenha informações publicadas no DNS do ponto de gestão.  
 
-Дополнительные сведения о настройке свойства DNS-суффикса клиентов см. в разделе [Настройка клиентских компьютеров на поиск точек управления с использованием публикации DNS в System Center Configuration Manager](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
+Para obter mais informações sobre como configurar a propriedade de cliente do sufixo DNS, consulte [como configurar computadores cliente para localizar pontos de gestão utilizando a publicação de DNS no System Center Configuration Manager](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
 
-Если клиенту не удается найти точку управления для обнаружения службы в DNS, он предпринимает попытку использовать WINS.  
+Se um cliente não é possível localizar um ponto de gestão a utilizar para a localização do serviço do DNS, este tenta utilizar o WINS.  
 
-### <a name="publish-management-points-to-dns"></a>Публикация точек управления в DNS  
-Для публикации точек управления в DNS должны быть выполнены следующие два условия.  
+### <a name="publish-management-points-to-dns"></a>Publicar pontos de gestão no DNS  
+Para publicar pontos de gestão no DNS, terão de se verificar as duas condições seguintes:  
 
--   DNS-серверы поддерживают записи обнаружения службы с использованием BIND версии 8.1.2 или более поздней.  
--   Указанные полные доменные имена точек управления в интрасети, хранящиеся в Configuration Manager, имеют записи узлов (например, записи A) в DNS.  
+-   Os servidores de DNS suportam registos de recursos de localização de serviço, utilizando a versão 8.1.2 ou superior do BIND.  
+-   Os FQDNs da intranet especificados para os pontos de gestão no Configuration Manager têm entradas de anfitrião (por exemplo, registos a) no DNS.  
 
 > [!IMPORTANT]  
->  Реализованная в Configuration Manager публикация в DNS не поддерживает использование несвязанного пространства имен. При наличии несвязанного пространства имен можно вручную опубликовать точки управления в DNS или воспользоваться одним из других методов обнаружения служб, описанных в этом разделе.  
+>  Publicação de DNS do Configuration Manager não suporta um espaço de nomes não contíguo. Se tiver um espaço de nomes não contíguo, pode publicar os pontos de gestão no DNS manualmente ou utilizar um dos outros serviço localização métodos documentados nesta secção.  
 
-**Если DNS-серверы поддерживают автоматическое обновление**, можно настроить Configuration Manager для автоматической публикации в DNS точек управления, находящихся в интрасети, или же можно вручную опубликовать эти записи в DNS. При публикации точек управления в DNS их полное доменное имя в интрасети и номер порта публикуются в записи обнаружения службы (SRV). Настройка публикации DNS на сайте осуществляется в разделе "Свойства компонента точки управления". Дополнительные сведения см. в разделе [Компоненты сайта для System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
+**Se os servidores DNS suportarem atualizações automáticas**, pode configurar o Configuration Manager para publicar automaticamente pontos de gestão na intranet no DNS ou publicar manualmente estes registos no DNS. Quando os pontos de gestão são publicados no DNS, o respetivo FQDN da intranet e número de porta são publicados no registo de localização de serviço (SRV). Configurar a publicação de DNS num site nas propriedades de componente do ponto de gestão do site. Para obter mais informações, consulte [componentes do Site para o System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
 
-**Если в зоне DNS для динамического обновления задано значение Secure only (Только безопасное)**, только первая точка управления для публикации в DNS сможет успешно выполнять такое обновление с разрешениями по умолчанию.
+**Quando a zona DNS estiver definida para "Apenas seguro" para as atualizações dinâmicas**, apenas o primeiro ponto de gestão para publicar no DNS pode fazer, por isso, com êxito com as permissões predefinidas.
 
-Если только одна точка управления может успешно публиковать и изменять свои записи DNS, пока сервер точки управления остается работоспособным, клиенты могут получать из нее полный список точек управления и выбирать среди них нужные точки управления.
+Se apenas um ponto de gestão com êxito pode publicar e alterar o respetivo registo DNS e o servidor de ponto de gestão está em bom estado, os clientes podem obter a lista completa de MP do que a gestão de ponto e em seguida, localize o respetivo ponto de gestão preferenciais.
 
 
-**Если DNS-серверы не поддерживают автоматическое обновление, но поддерживают записи обнаружения службы**, можно вручную опубликовать точки управления в DNS. Для этого необходимо вручную указать запись ресурса обнаружения службы (SRV RR) в DNS.  
+**Se os servidores DNS não suportarem atualizações automáticas, mas suportarem registos de localização de serviço**, poderá publicar manualmente os pontos de gestão no DNS. Para tal, terá de especificar manualmente o registo de recursos de localização de serviço (SRV RR) no DNS.  
 
-Configuration Manager поддерживает стандарт записи расположения служб RFC 2782. Эти записи соответствуют следующему формату: *_Service._Proto.Name TTL Class SRV Priority Weight Port Target*.  
+O Configuration Manager suporta RFC 2782 para registos de localização de serviço. Estes registos de tem o seguinte formato: *_Service._Proto.Name TTL classe SRV prioridade importância porta destino*  
 
-Чтобы опубликовать точку управления в Configuration Manager, укажите следующие значения:  
+Para publicar um ponto de gestão para o Configuration Manager, especifique os seguintes valores:  
 
--   **_Service**: введите **_mssms_mp**_&lt;код_сайта\>, где &lt;код_сайта\> — это код сайта точки управления.  
--   **._Proto**: укажите **._tcp**.  
--   **.Name**: введите DNS-суффикс точки управления, например **contoso.com**.  
--   **TTL**: введите **14400**, что составляет четыре часа.  
--   **Класс**: укажите **IN** (в соответствии с RFC 1035).  
--   **Приоритет**: это поле не используется в Configuration Manager.
--   **Вес**: это поле не используется в Configuration Manager.  
--   **Порт**: введите номер порта, используемого точкой управления. Например, **80** для HTTP и **443** для HTTPS.  
+-   **Service**: Introduza **mssms_mp**_&lt;sitecode\>, onde &lt;sitecode\> é o código do site do ponto de gestão.  
+-   **. Proto**: Especifique **. TCP**.  
+-   **. Nome**: Introduza o sufixo DNS do ponto de gestão, como por exemplo **contoso.com**.  
+-   **TTL**: Introduza **14400**, que corresponde a quatro horas.  
+-   **Classe**: Especifique **IN** (em conformidade com RFC 1035).  
+-   **Prioridade**: O Configuration Manager não utiliza este campo.
+-   **Peso**: O Configuration Manager não utiliza este campo.  
+-   **Porta**: Introduza o número de porta que utiliza o ponto de gestão, por exemplo **80** para HTTP e **443** para HTTPS.  
 
     > [!NOTE]  
-    >  Порт записи SRV должен соответствовать порту связи, используемому точкой управления. По умолчанию используется порт **80** для HTTP-соединений и порт **443** для HTTPS-соединений.  
+    >  A porta do registo SRV deve corresponder a porta de comunicação que utiliza o ponto de gestão. Por predefinição, este é **80** para comunicação HTTP e **443** para comunicação por HTTPS.  
 
--   **Целевой объект**: введите полное доменное имя в интрасети, указанное для системы сайта, для которой настроена роль сайта точки управления.  
+-   **Destino**: Introduza o FQDN especificado para o sistema de sites que está configurado com a função de site do ponto de gestão de intranet.  
 
-При использовании Windows Server DNS можно использовать следующую процедуру ввода DNS-записей для точек управления в интрасети. При использовании другой реализации DNS воспользуйтесь сведениями в этом разделе о значениях полей и обратитесь к документации к серверу DNS для адаптации описанной процедуры.  
+Se utilizar o DNS do Windows Server, poderá utilizar o procedimento seguinte para introduzir este registo DNS para pontos de gestão da intranet. Se utilizar outra implementação para DNS, utilize as informações desta secção relativas aos valores dos campos e consulte a documentação do DNS para adaptar este procedimento.  
 
-##### <a name="to-configure-automatic-publishing"></a>Порядок настройки автоматической публикации:  
+##### <a name="to-configure-automatic-publishing"></a>Para configurar a publicação automática:  
 
-1.  В консоли Configuration Manager разверните узлы **Администрирование** > **Конфигурация сайта** > **Сайты**.  
+1.  Na consola do Configuration Manager, expanda **administração** > **configuração do Site** > **Sites**.  
 
-2.  Выберите сайт и щелкните **Настройка компонентов сайта**.  
+2.  Selecione o seu site e, em seguida, escolha **configurar componentes do Site**.  
 
-3.  Выберите **Точка управления**.  
+3.  Escolha **ponto de gestão**.  
 
-4.  Выберите точки управления, которые необходимо опубликовать. (Этот выбор распространяется на публикацию как в AD DS, так и в DNS.)  
+4.  Selecione os pontos de gestão que pretende publicar. (Esta seleção aplica-se à publicação no AD DS e DNS.)  
 
-5.  Установите флажок для публикации в DNS. Этот флажок:  
+5.  Selecione a caixa para publicar no DNS. Esta caixa:  
 
-    -   позволяет выбрать точки управления для публикации в DNS;  
+    -   Permite-lhe selecionar quais os pontos de gestão para publicar no DNS.  
 
-    -   не позволяет настроить публикацию в AD DS.  
+    -   Não configure a publicação no AD DS.  
 
-##### <a name="to-manually-publish-management-points-to-dns-on-windows-server"></a>Публикация точек управления DNS в Windows Server вручную  
+##### <a name="to-manually-publish-management-points-to-dns-on-windows-server"></a>Para publicar manualmente pontos de gestão no DNS no Windows Server  
 
-1.  В консоли Configuration Manager укажите полные доменные имена систем сайтов.  
+1.  Na consola do Configuration Manager, especifique os FQDNs dos sistemas de sites da intranet.  
 
-2.  В консоли управления DNS выберите зону DNS для компьютера точки управления.  
+2.  Na consola de gestão de DNS, selecione a zona DNS do computador do ponto de gestão.  
 
-3.  Убедитесь в наличии записи узла (A или AAAA) для полного доменного имени интрасети системы сайта. Если запись не существует, создайте ее.  
+3.  Verifique se existe um registo de anfitrião (A ou AAAA) para o FQDN da intranet do sistema de sites. Se o registo não existir, crie-o.  
 
-4.  В разделе **New Other Records** (Новые прочие записи) выберите параметр **Размещение службы (SRV - Service Location)** в диалоговом окне **Тип записи ресурса**, щелкните **Create Record** (Создать запись), введите приведенную ниже информацию и нажмите кнопку **Готово**.  
+4.  Utilizando o **novos outros registos** opção, escolha **localização de serviço (SRV)** no **tipo de registo de recursos** diálogo caixa, escolha **criar registo**, introduza as seguintes informações e, em seguida, escolha **feito**:  
 
-    -   **Домен**: если необходимо, введите DNS-суффикс точки управления, например **contoso.com**.  
-    -   **Служба**: введите **_mssms_mp**_&lt;код_сайта\>, где &lt;код_сайта\> — это код сайта точки управления.  
-    -   **Протокол**: введите **_tcp**.  
-    -   **Приоритет**: это поле не используется в Configuration Manager.  
-    -   **Вес**: это поле не используется в Configuration Manager.  
-    -   **Порт**: введите номер порта, используемого точкой управления. Например, **80** для HTTP и **443** для HTTPS.  
+    -   **Domínio**: Se necessário, introduza o sufixo DNS do ponto de gestão, por exemplo **contoso.com**.  
+    -   **Serviço**: Tipo **mssms_mp**_&lt;sitecode\>, onde &lt;sitecode\> é o código do site do ponto de gestão.  
+    -   **Protocolo**: Tipo **TCP**.  
+    -   **Prioridade**: O Configuration Manager não utiliza este campo.  
+    -   **Peso**: O Configuration Manager não utiliza este campo.  
+    -   **Porta**: Introduza o número de porta que utiliza o ponto de gestão, por exemplo **80** para HTTP e **443** para HTTPS.  
 
         > [!NOTE]  
-        >  Порт записи SRV должен соответствовать порту связи, используемому точкой управления. По умолчанию используется порт **80** для HTTP-соединений и порт **443** для HTTPS-соединений.  
+        >  A porta do registo SRV deve corresponder a porta de comunicação que utiliza o ponto de gestão. Por predefinição, este é **80** para comunicação HTTP e **443** para comunicação por HTTPS.  
 
-    -   **Узел этой службы**: введите полное доменное имя в интрасети, указанное для системы сайта, для которой настроена роль сайта точки управления.  
+    -   **Anfitrião que oferece este serviço**: Introduza o FQDN especificado para o sistema de sites que está configurado com a função de site do ponto de gestão de intranet.  
 
-Повторите эти действия для каждой точки управления в интрасети, которую нужно опубликовать в DNS.  
+Repita estes passos para cada ponto de gestão da intranet que pretenda publicar no DNS.  
 
 ##  <a name="bkmk_wins"></a> WINS  
-В случае сбоя других механизмов обнаружения службы клиенты могут найти исходную точку управления, проверив WINS.  
+Se os outros mecanismos de localização de serviço falharem, os clientes poderão encontrar um ponto de gestão inicial consultando o WINS.  
 
-По умолчанию первичный сайт публикует в WINS первую точку управления на сайте, настроенную на использование протокола HTTP, и первую точку управления, настроенную на использование протокола HTTPS.  
+Por predefinição, um site primário publica no WINS o primeiro ponto de gestão no site que está configurado para HTTP e o primeiro ponto de gestão que esteja configurado para HTTPS.  
 
-Если не требуется, чтобы клиенты находили точку управления HTTP в WINS, настройте их с помощью CCMSetup.exe Client.msi **SMSDIRECTORYLOOKUP=NOWINS**.  
+Se não pretender que os clientes encontrem um ponto de gestão HTTP no WINS, configure-os com a propriedade CCMSetup.exe Client.msi **SMSDIRECTORYLOOKUP=NOWINS**.  

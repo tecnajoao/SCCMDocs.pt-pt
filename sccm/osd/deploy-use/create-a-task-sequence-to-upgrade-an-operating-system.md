@@ -1,6 +1,6 @@
 ---
-title: "Создание последовательности задач для обновления операционной системы | Документация Майкрософт"
-description: "Последовательности задач в System Center Configuration Manager позволяют выполнять автоматическое обновление операционной системы Windows 7 или более поздних версий до Windows 10."
+title: "Criar uma sequência de tarefas para atualizar um sistema de operativo | Microsoft Docs"
+description: "Sequências de tarefas no System Center Configuration Manager podem atualizar automaticamente um sistema operativo do Windows 7 ou posterior para Windows 10."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,116 +16,116 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 4a3c69edc85a4ea7501510b6b3f12c72ad3a24ff
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Создание последовательности задач для обновления операционной системы в System Center Configuration Manager
+# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para atualizar um sistema operativo no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Используйте последовательности задач в System Center Configuration Manager для автоматического обновления операционной системы Windows 7 или более поздних версий до Windows 10, а также Windows Server 2012 или более поздних версий до Windows Server 2016 на целевом компьютере. Вы создаете последовательность задач, обращающуюся к образу операционной системы, который требуется установить на целевом компьютере, а также любому дополнительному содержимому (например, к приложениям или обновлениям программного обеспечения), которое требуется установить. Последовательность задач для обновления операционной системы входит в состав сценария [Обновление Windows до последней версии](upgrade-windows-to-the-latest-version.md).  
+Utilize sequências de tarefas no System Center Configuration Manager para atualizar automaticamente um sistema operativo do Windows 7 ou posterior para o Windows 10 ou Windows Server 2012 ou posterior para o Windows Server 2016, num computador de destino. Criar uma sequência de tarefas que faça referência à imagem de sistema operativo que pretende instalar no computador de destino e a eventuais conteúdos adicionais, tais como aplicações ou atualizações de software que pretende instalar. A sequência de tarefas para atualizar um sistema operativo faz parte o [atualizar o Windows para a versão mais recente](upgrade-windows-to-the-latest-version.md) cenário.  
 
-##  <a name="BKMK_UpgradeOS"></a> Создание последовательности задач для обновления операционной системы  
- Чтобы обновить операционную систему на компьютерах, можно создать последовательность задач и выбрать **Обновить операционную систему из пакета обновления** в мастере создания последовательности задач. Мастер добавит шаги по обновлению операционной системы, применению обновлений программного обеспечения и установке приложений. Прежде чем создавать последовательность задач, необходимо выполнить следующие требования:    
+##  <a name="BKMK_UpgradeOS"></a>Criar uma sequência de tarefas para atualizar um sistema operativo  
+ Para atualizar o sistema operativo nos computadores, pode criar uma sequência de tarefas e selecione **atualizar um sistema operativo a partir do pacote de atualização** no Assistente de criação de sequência de tarefas. O assistente adiciona os passos para atualizar o sistema operativo, aplicar atualizações de software e instalar aplicações. Antes de criar a sequência de tarefas, o seguinte tem de ser cumpridos:    
 
--   **Обязательное**  
+-   **Necessário**  
 
-     - В консоли Configuration Manager должен быть доступен [пакет обновления операционной системы](../get-started/manage-operating-system-upgrade-packages.md).
-     - При обновлении до Windows Server 2016 вам нужно выбрать параметр **Ignore any dismissable compatibility messages** (Пропускать отклоняемые сообщения о совместимости) в шаге последовательности задач обновления операционной системы. В противном случае обновление завершится ошибкой.
+     - O [pacote de atualização do sistema operativo](../get-started/manage-operating-system-upgrade-packages.md) devem estar disponíveis na consola do Configuration Manager.
+     - Quando atualizar para o Windows Server 2016, tem de selecionar o **ignorar quaisquer mensagens de compatibilidade dismissable** definição no passo de sequência de tarefas atualizar sistema operativo ou a atualização falha.
 
--   **Обязательно (если используется)**  
+-   **Necessário (se utilizado)**  
 
-    -   [Обновления программного обеспечения](../../sum/get-started/synchronize-software-updates.md) должны быть синхронизированы в консоли Configuration Manager.  
+    -   [As atualizações de software](../../sum/get-started/synchronize-software-updates.md) têm de ser sincronizados na consola do Configuration Manager.  
 
-    -   [Приложения](../../apps/deploy-use/create-applications.md) должны быть добавлены в консоль Configuration Manager.  
+    -   [Aplicações](../../apps/deploy-use/create-applications.md) tem de ser adicionado à consola do Configuration Manager.  
 
-#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>Создание последовательности задач, обновляющей операционную систему  
+#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>Para criar uma sequência de tarefas que Atualize um sistema operativo  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  В группе **Создать** вкладки **Главная** выберите команду **Создать последовательность задач** , чтобы запустить мастер создания последовательности задач.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
 
-4.  На странице **Создание новой последовательности задач** выберите элемент **Обновить операционную систему из пакета обновления**и нажмите кнопку **Далее**.  
+4.  No **criar uma nova sequência de tarefas** página, clique em **atualizar um sistema operativo a partir do pacote de atualização**e, em seguida, clique em **seguinte**.  
 
-5.  На странице **Сведения о последовательности задач** настройте следующие параметры, затем нажмите кнопку **Далее**.  
+5.  Na página **Informações da Sequência de Tarefas** , especifique as seguintes definições e clique em **Seguinte**.  
 
-    -   **Имя последовательности задач**. Укажите имя последовательности задач.  
+    -   **Nome da sequência de tarefas**: Especifique um nome que identifique a sequência de tarefas.  
 
-    -   **Описание**. Введите описание задачи, выполняющейся последовательностью.  
+    -   **Descrição**: Especifique uma descrição da tarefa que é executada pela sequência de tarefas.  
 
-6.  На странице **Обновление операционной системы Windows** настройте следующие параметры, а затем нажмите кнопку **Далее**.  
+6.  No **atualizar o sistema operativo Windows** página, especifique as seguintes definições e, em seguida, clique em **seguinte**.  
 
-    -   **Пакет обновления**. Укажите пакет обновления, содержащий исходные файлы обновления операционной системы. Убедитесь, что выбран правильный пакет обновления, просмотрев информацию в области **Свойства** . Дополнительные сведения см. в статье [Управление пакетами обновления операционной системы](../get-started/manage-operating-system-upgrade-packages.md).  
+    -   **Pacote de atualização**: Especifique o pacote de atualização que contém os ficheiros de origem da atualização do sistema operativo. Pode verificar que selecionou o pacote de atualização correto ao observar as informações de **propriedades** painel. Para obter mais informações, consulte [gerir pacotes de atualização do sistema operativo](../get-started/manage-operating-system-upgrade-packages.md).  
 
-    -   **Edition index**(Индекс выпуска). Если в пакете доступно несколько индексов выпусков операционной системы, выберите нужный индекс выпуска. По умолчанию выбран первый элемент.  
+    -   **Índice da edição**: Se existirem vários índices de edição do sistema operativo disponíveis no pacote, selecione o índice de edição pretendido. Por predefinição, o primeiro item está selecionado.  
 
-    -   **Ключ продукта**. Введите ключ продукта для устанавливаемой операционной системы Windows. Можно указать зашифрованные ключи многократной установки или стандартные ключи продукта. Если вы используете незашифрованный ключ продукта, каждая группа из пяти символов должна быть разделена дефисом (-). Например, *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*. При установке новой версии выпуска в рамках корпоративного лицензирования ключ продукта не требуется. Ключ продукта необходим только при обновлении розничной версии Windows.  
+    -   **Chave de produto**: Especifique a chave de produto para o sistema operativo do Windows instalar. Pode especificar chaves de licenciamento em volume codificadas e chaves de produto padrão. Se utilizar uma chave de produto não codificada, cada grupo de cinco carateres têm de ser separado por um traço (-). Por exemplo: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*. Quando a atualização para uma edição de licença de volume, a chave de produto não é necessária. Só precisa de uma chave de produto quando a atualização for para uma edição de revenda do Windows.  
 
-    -   **Ignore any dismissable compatibility messages** (Игнорировать все отклоняемые сообщения о совместимости). Выберите этот параметр при обновлении до Windows Server 2016. Если этот параметр не выбран, последовательность задач не удастся завершить, так как программа установки Windows будет ожидать, пока пользователь щелкнет **Подтвердить** в диалоговом окне совместимости приложений Windows.   
+    -   **Ignorar quaisquer mensagens de compatibilidade dismissable**: Selecione esta definição se estiver a atualizar para o Windows Server 2016. Se não selecionar esta definição, a sequência de tarefas não consegue concluir porque a configuração do Windows está a aguardar que o utilizador clica em **confirmar** uma caixa de diálogo de compatibilidade de aplicações Windows.   
 
-7.  На странице **Включить обновления** укажите, следует ли устанавливать только обязательные обновления ПО, все обновления или не устанавливать их вообще, и нажмите кнопку **Далее**. Если выбран вариант установки обновлений программного обеспечения, Configuration Manager устанавливает только те обновления ПО, которые относятся к коллекциям, в которые входит конечный компьютер.  
+7.  Na página **Incluir Atualizações** , especifique se devem ser instaladas as atualizações de software necessárias, todas as atualizações de software ou nenhuma atualização de software e clique em **Seguinte**. Se especificar a instalação de atualizações de software, o Configuration Manager instala apenas as atualizações de software destinadas às coleções de que o computador de destino é um membro do.  
 
-8.  На странице **Установить приложения** укажите приложения, которые необходимо установить на конечный компьютер, а затем нажмите кнопку **Далее**. Если задано несколько приложений, можно настроить продолжение выполнения последовательности задач в случае сбоя установки определенного приложения.  
+8.  Na página **Instalar Aplicações** , especifique as aplicações a instalar no computador de destino e clique em **Seguinte**. Se especificar várias aplicações, poderá também especificar que a sequência de tarefas deverá continuar se a instalação de uma aplicação específica falhar.  
 
-9. Завершите работу мастера.  
+9. Conclua o assistente.  
 
 
 
-## <a name="configure-pre-cache-content"></a>Настройка предварительного кэширования содержимого
-Начиная с версии 1702 для доступных развертываний последовательностей задач можно использовать функцию предварительного кэширования, благодаря которой клиенты будут скачивать только необходимое содержимое, прежде чем пользователь установит содержимое.
+## <a name="configure-pre-cache-content"></a>Configurar pré-armazenar conteúdo em cache
+A partir da versão 1702, para as implementações disponíveis de sequências de tarefas, pode optar por utilizar a funcionalidade de pré-cache para que os clientes transferir apenas o conteúdo relevante antes de um utilizador instala o conteúdo.
 > [!TIP]  
-> Предварительное кэширование появилось в версии 1702 и пока находится в статусе предварительной версии. Сведения о ее включении см. в статье [Использование функций предварительной версии из обновлений](/sccm/core/servers/manage/pre-release-features).
+> Introduzido com a versão 1702, a cache de pré-lançamento é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/pre-release-features).
 
-Например, предположим, что нужно развернуть последовательность задач обновления Windows 10 на месте, требуется единственная последовательность задач для всех пользователей и имеется несколько архитектур или языков. В версиях до 1702 содержимое для доступного развертывания скачивается только после того, как пользователь нажмет кнопку **Установить** в центре программного обеспечения. Из-за этого момент, когда установка может начаться, откладывается еще на некоторое время. Кроме того, скачивается все содержимое, указанное в последовательности задач. Сюда относятся пакеты обновления операционной системы для всех языков и архитектур. Если размер каждого из них составляет приблизительно 3 ГБ, скачиваемый пакет может быть весьма большим.
+Por exemplo, digamos que pretende implementar uma sequência de tarefas de atualização no local do Windows 10, apenas pretende uma única sequência de tarefas para todos os utilizadores e ter várias arquiteturas de e/ou idiomas. Antes de versão 1702, se criar uma implementação disponível e, em seguida, o utilizador clica em **instalar** no Centro de Software, as transferências de conteúdo nessa altura. Esta ação adiciona mais tempo antes da instalação estiver pronta para começar. Além disso, todo o conteúdo referenciado na sequência de tarefas é transferido. Isto inclui o pacote de atualização do sistema operativo para todos os idiomas e arquiteturas. Se cada aproximadamente três GB de tamanho, o pacote de transferência pode ser bastante grande.
 
-Предварительное кэширование содержимого позволяет предоставить клиенту возможность скачивать только нужное содержимое, когда будет получено развертывание. Поэтому, когда пользователь нажимает кнопку **Установить** в центре программного обеспечения, содержимое готово и установка начинается быстро, так как содержимое находится на локальном жестком диске.
+Pré-armazenar conteúdo em cache dá-lhe a opção para permitir que o cliente transferir apenas o conteúdo aplicável logo que recebe a implementação. Por conseguinte, quando o utilizador clica em **instalar** no Centro de Software, o conteúdo está pronto e a instalação inicia rapidamente porque o conteúdo no disco rígido local.
 
-### <a name="to-configure-the-pre-cache-feature"></a>Настройка функции предварительного кэширования
+### <a name="to-configure-the-pre-cache-feature"></a>Configurar a funcionalidade de pré-cache
 
-1. Создайте пакеты обновления операционной системы для определенных архитектур и языков. Укажите архитектуру и язык на вкладке **Источник данных** пакета. Для языка используйте десятичное преобразование (например, 1033 — это десятичное обозначение английского языка, а 0x0409 — шестнадцатеричный эквивалент). Подробные сведения см. в разделе [Создание последовательности задач для обновления операционной системы](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
+1. Criação de pacotes de atualização para idiomas e arquiteturas específicas de sistema operativo. Especifique a arquitetura e idioma de **origem de dados** separador do pacote. Para o idioma, utilize a conversão decimal (por exemplo, 1033 é o valor decimal para inglês e 0x0409 é o equivalente hexadecimal). Para obter mais informações, consulte [criar uma sequência de tarefas para atualizar um sistema operativo](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
 
-    Значения архитектуры и языка позволяют сопоставить условия шагов последовательности задач. Вы создадите их на следующем шаге, чтобы определить необходимость предварительного кэширования пакета обновления операционной системы.
-2. Создайте последовательность задач с условными шагами для разных языков и архитектур. Например, для английской версии можно создать шаг наподобие следующего:
+    Os valores de arquitetura e de idioma são utilizados para corresponder a condições de passo de sequência de tarefas cria no próximo passo para determinar se o pacote de atualização do sistema operativo deve ser previamente colocadas em cache.
+2. Crie uma sequência de tarefas com condicionais passos para os idiomas diferentes e arquiteturas. Por exemplo, para a versão inglesa pode criar um passo como o seguinte:
 
-    ![свойства предварительного кэширования](../media/precacheproperties2.png)
+    ![Propriedades da pré-cache de](../media/precacheproperties2.png)
 
-    ![параметры предварительного кэширования](../media/precacheoptions2.png)  
+    ![Opções de pré-cache](../media/precacheoptions2.png)  
 
-3. Выполнить развертывание последовательности задач. Для функции предварительного кэширования настройте указанные ниже значения.
-    - На вкладке **Общие** выберите **Предварительно скачивать содержимое для этой последовательности задач**.
-    - На вкладке **Параметры развертывания** настройте последовательность задач с **целью** **Доступное**. Если вы создадите **обязательное** развертывание, функция предварительного кэширования работать не будет.
-    - На вкладке **Планирование** для параметра **Развертывание доступно с** выберите время в будущем, чтобы у клиентов было достаточно времени для предварительного кэширования содержимого перед тем, как развертывание станет доступно пользователям. Например, можно указать, что развертывание будет доступно через 3 часа.  
-    - На вкладке **Точки развертывания** настройте **Параметры развертывания**. Если содержимое не было предварительно кэшировано на клиенте, когда пользователь начинает установку, применяются эти параметры.
-
-
-### <a name="user-experience"></a>Взаимодействие с пользователем
-- Когда клиент получает политику развертывания, он начинает предварительно кэшировать содержимое. Сюда относится все содержимое, на которое имеются ссылки (любые другие типы пакетов), и только тот пакет обновления операционной системы, который соответствует клиенту согласно условиям, заданным в последовательности задач.
-- Когда развертывание становится доступным пользователям (параметр на вкладке **Планирование** развертывания), выводится уведомление, сообщающее пользователям о новом развертывании, и развертывание отображается в центре программного обеспечения. Пользователь может перейти в центр программного обеспечения и нажать кнопку **Установить**, чтобы начать установку.
-- Если предварительное кэширование содержимого не было выполнено полностью, то применяются параметры, указанные на вкладке **Параметры развертывания** развертывания. Мы рекомендуем, чтобы с момента создания развертывания до того момента, когда оно станет доступно пользователям, было достаточно времени для предварительного кэширования содержимого клиентами.
+3. Implemente a sequência de tarefas. Para a funcionalidade de pré-cache, configure o seguinte:
+    - No **geral** separador, selecione **previamente transferir conteúdo para esta sequência de tarefas**.
+    - No **definições de implementação** separador, configure a sequência de tarefas com o **disponível** para **objetivo**. Se criar um **necessário** implementação, a funcionalidade de pré-cache não funcionará.
+    - No **agendamento** separador, para o **agendar quando esta implementação ficará disponível** definição, escolha uma data futura que proporcione tempo suficiente para colocar em cache previamente o conteúdo antes da implementação é disponibilizada para os utilizadores de clientes. Por exemplo, pode definir o tempo disponível para ser 3 horas no futuro para permitir tempo suficiente para o conteúdo seja previamente em cache.  
+    - No **pontos de distribuição** separador, configure o **opções de implementação** definições. Se o conteúdo não é previamente em cache no cliente antes de um utilizador inicia a instalação, estas definições são utilizadas.
 
 
+### <a name="user-experience"></a>Experiência de utilizador
+- Quando o cliente recebe a política de implementação, será iniciada colocar em cache o conteúdo previamente. Isto inclui todos os conteúdos referenciados (quaisquer outros tipos de pacote) e apenas o sistema operativo pacote de atualização que corresponda ao cliente com base nas condições que definiu na sequência de tarefas.
+- Quando a implementação é disponibilizada para os utilizadores (definição de **agendamento** separador da implementação), apresenta uma notificação a informar os utilizadores sobre a nova implementação e a implementação fica visível no Centro de Software. O utilizador pode aceder ao centro de Software e clicar em **instalar** para iniciar a instalação.
+- Se o conteúdo não está totalmente previamente em cache, em seguida, irá utilizar as definições especificadas no **a opção de implementação** separador da implementação. Recomendamos que não há tempo suficiente entre quando a implementação é criada e a hora em que a implementação fica disponível para os utilizadores para permitir que os clientes tempo suficiente para colocar em cache o conteúdo previamente.
 
-## <a name="download-package-content-task-sequence-step"></a>Шаг последовательности задач "Скачать содержимое пакета"  
- Шаг [Скачать содержимое пакета](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) можно использовать перед шагом **Обновить операционную систему** в следующих сценариях:  
 
--   Вы используете единственную последовательность задач обновления, которая может работать с платформами x86 и x64. Для этого включите в группу **Подготовка к обновлению** два шага **Скачать содержимое пакета** с условиями обнаружения архитектуры клиента и скачивания только соответствующего пакета обновления операционной системы. Настройте каждый шаг **Скачать содержимое пакета** так, чтобы использовалась одна и та же переменная, и используйте переменную для пути к носителю в шаге **Обновить операционную систему** .  
 
--   Для динамического скачивания применимого пакета драйверов используйте два шага загрузки **Скачать содержимое пакета** с условиями определения соответствующего типа оборудования для каждого пакета драйверов. Настройте каждый шаг **Скачать содержимое пакета** так, чтобы использовалась одна и та же переменная, и используйте переменную для значения **Промежуточное содержимое** в разделе драйверов в шаге **Обновить операционную систему** .  
+## <a name="download-package-content-task-sequence-step"></a>Transferir o conteúdo do pacote passo de sequência de tarefas  
+ O [transferir conteúdo do pacote](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) passo pode ser utilizado antes do **atualizar sistema operativo** passo nos seguintes cenários:  
+
+-   Utilizar uma única sequência de tarefas atualização que funciona com plataformas x86 e x64. Para tal, inclua dois passos **Transferir Conteúdo do Pacote** no grupo **Preparar para Atualização** com condições para detetar a arquitetura do cliente e transferir apenas o pacote de atualização do sistema operativo adequado. Configure cada passo **Transferir Conteúdo do Pacote** para utilizar a mesma variável e utilize a variável para o caminho do suporte de dados no passo **Atualizar Sistema Operativo** .  
+
+-   Para transferir dinamicamente um pacote de controlador aplicável, utilize dois passos **Transferir Conteúdo do Pacote** com condições para detetar o tipo de hardware adequado a cada pacote de controlador. Configure cada passo **Transferir Conteúdo do Pacote** para utilizar a mesma variável e utilize a variável para o valor **Conteúdo de teste** na secção de controladores no passo **Atualizar Sistema Operativo**.  
 
    > [!NOTE]
-   > При наличии более одного пакета Configuration Manager добавляет к имени переменной числовой суффикс. Например, если указать переменную %mycontent% как пользовательскую переменную, это корневой элемент для сохранения всего содержимого, на которое указывает ссылка (оно может быть представлено несколькими пакетами). При ссылке на эту переменную в последующем шаге, таком как "Обновить операционную систему", она используется с числовым суффиксом. В этом примере используются переменные %mycontent01% или %mycontent02%, где номер соответствует порядку указания пакета в этом шаге.
+   > Quando existe mais do que um pacote, o Configuration Manager adiciona um sufixo numérico ao nome da variável. Por exemplo, se especificar uma variável de % omeuconteúdo % como uma variável personalizada, esta é a raiz para armazenar todos os conteúdos referenciados (que pode ser vários pacotes). Quando fizer referência à variável num passo subsequente, como, por exemplo, em Atualizar Sistema Operativo, esta é utilizada com um sufixo numérico. Neste exemplo, % osmeusconteúdos01% ou % osmeusconteúdos02% onde o número corresponde à ordem na qual o pacote está listado neste passo.
 
-## <a name="optional-post-processing-task-sequence-steps"></a>Дополнительные шаги последовательности задач постобработки  
- После создания последовательности задач можно добавить дополнительные шаги по удалению приложений с известными проблемами совместимости или добавить действия постобработки, которые должны выполняться после перезапуска компьютера и успешного завершения обновления до Windows 10. Добавьте следующие дополнительные шаги в группу постобработки последовательности задач.  
+## <a name="optional-post-processing-task-sequence-steps"></a>Passos de sequência de tarefas pós-processamento opcionais  
+ Depois de criar a sequência de tarefas, pode adicionar mais passos para desinstalar aplicações com problemas de compatibilidade conhecidos ou adicionar ações de pós-processamento para que execute após o reinício do computador e a atualização para o Windows 10 é efetuada com êxito. Adicione estes passos adicionais no grupo de pós-processamento da sequência de tarefas.  
 
 > [!NOTE]  
->  Так как эта последовательность задач не является линейной, существуют условия для шагов, которые могут повлиять на результаты последовательности задач в зависимости от того, был ли успешно обновлен клиентский компьютер или необходим откат клиентского компьютера до версии операционной системы, с которой начиналась процедура обновления.  
+>  Como esta sequência de tarefas não é linear, existem condições nos passos que podem afetar os resultados da sequência de tarefas, dependendo se atualiza com êxito o computador cliente ou se tem de reverter o computador cliente para a versão do sistema operativo começar a utilizar.  
 
-## <a name="optional-rollback-task-sequence-steps"></a>Дополнительные шаги последовательности задач отката  
- В случае возникновения проблем с обновлением после перезагрузки компьютера программа установки выполнит откат обновления до предыдущей операционной системы, а выполнение последовательности задач будет продолжено по шагам в группе отката. После создания последовательности задач можно добавить дополнительные шаги в группу отката.  
+## <a name="optional-rollback-task-sequence-steps"></a>Passos de sequência de tarefas de reversão opcionais  
+ Se houver algum problema com o processo de atualização depois do computador é reiniciado, a configuração irá reverter a atualização para o sistema operativo anterior e a sequência de tarefas continuará com os passos existentes no grupo reversão. Depois de criar a sequência de tarefas, pode adicionar passos opcionais ao grupo reversão.  
 
-## <a name="folder-and-files-removed-after-computer-restart"></a>Папка и файлы, удаляемые после перезапуска компьютера  
- После завершения последовательности задач для обновления операционной системы до Windows 10 и всех остальных действий в последовательности задач сценарии после обработки и сценарии отката не удаляются до перезагрузки компьютера.  Эти файлы сценариев не содержат конфиденциальной информации.  
+## <a name="folder-and-files-removed-after-computer-restart"></a>Pasta e os ficheiros foram removidos após o computador reiniciar  
+ Quando a sequência de tarefas para atualizar um sistema operativo para o Windows 10 e todos os outros passos da sequência de tarefas estiverem concluídas, os scripts de pós-processamento e a reversão não são removidos, enquanto o computador é reiniciado.  Estes ficheiros de script não contêm informações confidenciais.  

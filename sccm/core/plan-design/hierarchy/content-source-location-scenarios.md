@@ -1,6 +1,6 @@
 ---
-title: "Расположение источника содержимого | Документы Майкрософт"
-description: "Сведения о параметрах System Center Configuration Manager, которые позволяют клиентам находить содержимое в медленной сети."
+title: "Localização de origem de conteúdo | Microsoft Docs"
+description: "Saiba mais sobre as definições do System Center Configuration Manager que permitem aos clientes localizar conteúdo numa rede lenta."
 ms.custom: na
 ms.date: 1/3/2017
 ms.reviewer: na
@@ -16,240 +16,240 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a823458dc3b891b1c32d1cb44a96e8cafd376ed5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Сценарии расположения источника содержимого в System Center Configuration Manager
+# <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Cenários de localização de origem de conteúdo no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-До версии 1610 System Center Configuration Manager поддерживал несколько параметров, которые в сочетании друг с другом определяют, как и когда клиенты находят содержимое в медленной сети. Возможные сочетания определяют расположение содержимого, применяемое клиентами, а также возможность использования резервного расположения в случае, если предпочтительный источник содержимого недоступен.  
+Antes de versão 1610, o System Center Configuration Manager suportada várias definições que serão combinados para definir como e onde os clientes localizam os conteúdos quando se encontram numa rede lenta. As combinações possíveis afetam a utilização de clientes de localização de conteúdo, e se pode com êxito utilizam uma localização de contingência quando uma origem preferencial da origem de conteúdo não está disponível.  
 
 > [!IMPORTANT]  
-> **Если на ваших сайтах используется версия 1511, 1602 или 1606**, сведения в этом разделе относятся к вашей инфраструктуре. Сведения, относящиеся к группам границ в этих версиях Configuration Manager, см. в разделе [Группы границ для версий 1511,1602 и 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
+> **Se os sites executam a versão 1511, versão 1602 ou 1606**, as informações deste tópico aplica-se à sua infraestrutura. Consulte também [grupos de limites para versões 1511,1602 e 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606) para obter informações específicas a grupos de limites com estas versões do Configuration Manager.
 >
-> **Если на ваших сайтах используется версия 1610 или более поздняя**, обратитесь к разделу [Определение границ сайта и групп границ для System Center Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups), чтобы получить сведения о том, как клиенты находят точки распространения с доступным содержимым.
+> **Se os sites executem versão 1610 ou posterior**, utilize as informações em [definir limites de site e grupos de limites para o System Center Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups) para compreender a forma como os clientes localizam os pontos de distribuição que possuem conteúdo disponível.
 
 
 
 
 
-**Перечисленные ниже три параметра определяют поведение при запросе содержимого клиентами.**
+**As seguintes três definições definem o comportamento quando os clientes solicitam conteúdo:**
 
--  **Разрешить использовать резервный источник содержимого** (включено или не включено): этот параметр можно включить на вкладке **Группы границ** точки распространения. Он позволяет клиенту использовать точку распространения, настроенную в качестве резервного расположения, когда содержимое в предпочтительной точке распространения недоступно.  
+-  **Permitir a localização de origem de contingência para conteúdo** (ativada ou não ativada): Esta é uma opção que pode ativar no **grupos de limites** separador de um ponto de distribuição. Isto permite que o cliente para utilizar um ponto de distribuição que está configurado como uma localização de contingência quando o conteúdo não está disponível num ponto de distribuição preferenciais.  
 
- - **Свойства развертывания для скорости сетевого подключения**. Каждое развертывание настраивается с помощью одного из перечисленных ниже вариантов поведения, которые применяются при низкой скорости подключения к точке распространения.  
+ - **Comportamento de implementação da velocidade da ligação de rede**: Cada implementação é configurada com um dos seguintes comportamentos para utilizar quando a ligação ao ponto de distribuição é lenta:  
 
-    -   **Загружать содержимое из точки распространения и запустить его локально**  
+    -   **Transferir o conteúdo do ponto de distribuição e executá-la localmente**  
 
-    -   **Не скачивать содержимое** — этот вариант используется только в том случае, если для получения содержимого клиент использует резервное расположение.  
+    -   **Não transferir conteúdo**: Esta opção só é utilizada quando um cliente utiliza uma localização de contingência para obter o conteúdo.  
 
-    Скорость подключения для точки распространения настраивается на вкладке **Ссылки** группы границ и относится к этой группе границ.  
+    A velocidade da ligação para um ponto de distribuição está configurada no **referências** separador de um grupo de limites e é específica para esse grupo de limites.  
 
- -  **Распространение пакета по запросу** (в предпочтительные точки распространения). Эта функция включается при выборе параметра **Распространять содержимое этого пакета в предпочтительные точки распространения** на вкладке **Параметры распространения** свойств пакета или приложения. Если включить этот параметр, то Configuration Manager будет автоматически копировать содержимое в предпочтительную точку распространения, в которой еще нет содержимого, после того, как клиент запросит это содержимое из этой точки распространения.  
+ -  **Distribuição de pacotes a pedido** (para pontos de distribuição preferenciais): Esta opção estiver ativada quando seleciona a opção **distribuir o conteúdo do pacote para pontos de distribuição preferenciais** no **definições de distribuição** separador de propriedades da aplicação ou do pacote. Quando ativada, esta opção direciona o Configuration Manager para copiar o conteúdo automaticamente para um ponto de distribuição preferencial que ainda não tem o conteúdo após um cliente solicita esse conteúdo a partir desse ponto de distribuição.  
 
 
- **Во всех сценариях действуют указанные ниже требования.**
+ **Os seguintes requisitos de aplicam a todos os cenários:**
 
 
--   Содержимое доступно на резервной точке распространения.  
+-   O conteúdo está disponível num ponto de distribuição de contingência  
 
--   Точки распространения находятся в сети и доступны.  
+-   Pontos de distribuição estão online e acessível  
 
 
-## <a name="scenario-1"></a>Сценарий 1.  
- Применяется при наличии следующих конфигураций.  
+## <a name="scenario-1"></a>Cenário 1  
+ Aplica-se quando existem as seguintes configurações:  
 
--   **Содержимое доступно в предпочтительной точке распространения**  
+-   **O conteúdo está disponível num ponto de distribuição preferencial**  
 
--   **Разрешить откат**: не включено  
+-   **Permitir contingência**: Não ativado  
 
--   **Режим развертывания для медленной сети**: любое значение  
+-   **Comportamento de implementação para uma rede lenta**: Qualquer configuração  
 
 
-**Подробные сведения** (конфигурация с распространением пакета по запросу не подходит для данного сценария).  
+**Detalhes:** (A configuração para distribuição de pacotes a pedido não é relevante neste cenário.)  
 
-1.  Клиент отправляет в точку управления запрос на содержимое.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão.  
 
-2.  Клиент с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения с содержимым.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferenciais que contenham o conteúdo.  
 
-3.  Клиент загружает содержимое из предпочтительной точки распространения в списке.  
+3.  O cliente transfere o conteúdo a partir de um ponto de distribuição preferenciais da lista.  
 
-## <a name="scenario-2"></a>Сценарий 2.  
- Имеются следующие конфигурации.  
+## <a name="scenario-2"></a>Cenário 2  
+ Existem as seguintes configurações:  
 
--   **Содержимое доступно в предпочтительной точке распространения**  
+-   **O conteúdo está disponível num ponto de distribuição preferencial**  
 
--   **Разрешить откат**: включено  
+-   **Permitir contingência**: Ativado  
 
--   **Поведение развертывания для медленной сети**: не загружать содержимое  
+-   **Comportamento de implementação para uma rede lenta**: Não transferir conteúdo  
 
 
-**Подробные сведения** (конфигурация с распространением пакета по запросу не подходит для данного сценария).  
+**Detalhes:** (A configuração para distribuição de pacotes a pedido não é relevante neste cenário.)  
 
-1.  Клиент отправляет в точку управления запрос на содержимое. Клиент указывает в запросе флаг, который означает, что разрешены резервные точки распространения.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão. O cliente inclui um sinalizador no pedido que indica que são permitidos pontos de distribuição de contingência.  
 
-2.  На клиент с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения и резервные точки распространения с содержимым.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição de contingência que contenham o conteúdo e de pontos de distribuição preferenciais.  
 
-3.  Клиент загружает содержимое из предпочтительной точки распространения в списке.  
+3.  O cliente transfere o conteúdo a partir de um ponto de distribuição preferenciais da lista.  
 
-## <a name="scenario-3"></a>Сценарий 3  
- Имеются следующие конфигурации.  
+## <a name="scenario-3"></a>Cenário 3  
+ Existem as seguintes configurações:  
 
--   **Содержимое доступно в предпочтительной точке распространения**  
+-   **O conteúdo está disponível num ponto de distribuição preferencial**  
 
--   **Разрешить откат**: включено  
+-   **Permitir contingência**: Ativado  
 
--   **Поведение развертывания для медленной сети**: загружать и устанавливать содержимое  
+-   **Comportamento de implementação para uma rede lenta**: Transferir e instalar conteúdo  
 
 
-**Подробные сведения** (конфигурация с распространением пакета по запросу не подходит для данного сценария).  
+**Detalhes:** (A configuração para distribuição de pacotes a pedido não é relevante neste cenário.)  
 
-1.  Клиент отправляет в точку управления запрос на содержимое. Клиент указывает в запросе флаг, который означает, что разрешены резервные точки распространения.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão. O cliente inclui um sinalizador no pedido que indica que são permitidos pontos de distribuição de contingência.  
 
-2.  На клиент с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения и резервные точки распространения с содержимым.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição de contingência que contenham o conteúdo e de pontos de distribuição preferenciais.  
 
-3.  Клиент загружает содержимое из предпочтительной точки распространения в списке.  
+3.  O cliente transfere o conteúdo a partir de um ponto de distribuição preferenciais da lista.  
 
-## <a name="scenario-4"></a>Сценарий 4  
- Имеются следующие конфигурации.  
+## <a name="scenario-4"></a>Cenário 4  
+ Existem as seguintes configurações:  
 
--   **Содержимое недоступно в предпочтительной точке распространения**  
+-   **Conteúdo não está disponível num ponto de distribuição preferencial**  
 
--   Параметр **Распространять содержимое этого пакета в предпочтительные точки распространения** не включен  
+-   **Distribuir o conteúdo do pacote para pontos de distribuição preferenciais** não está ativado  
 
--   **Разрешить откат**: не включено  
+-   **Permitir contingência**: Não ativado  
 
--   **Режим развертывания для медленной сети**: любое значение  
+-   **Comportamento de implementação para uma rede lenta**: Qualquer configuração  
 
 
-**Подробные сведения:**  
+**Detalhes:**  
 
-1.  Клиент отправляет в точку управления запрос на содержимое.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão.  
 
-2.  Клиенту с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения с содержимым. В списке нет предпочтительных точек распространения.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferidos que possuem o conteúdo. Não existem nenhum ponto de distribuição preferenciais na lista.  
 
-3.  Происходит сбой клиента с отображением сообщения **Содержимое недоступно** , после чего клиент переходит в режим повторного выполнения. Новый запрос содержимого выполняется каждый час.  
+3.  O cliente falha apresentando a mensagem **conteúdo não está disponível** e entra no modo de repetição. Um novo pedido de conteúdo é iniciado a cada hora.  
 
-## <a name="scenario-5"></a>Сценарий 5  
- Имеются следующие конфигурации.  
+## <a name="scenario-5"></a>Cenário 5  
+ Existem as seguintes configurações:  
 
--   **Содержимое недоступно в предпочтительной точке распространения**  
+-   **Conteúdo não está disponível num ponto de distribuição preferencial**  
 
--   Параметр **Распространять содержимое этого пакета в предпочтительные точки распространения** не включен  
+-   **Distribuir o conteúdo do pacote para pontos de distribuição preferenciais** não está ativado  
 
--   **Разрешить откат**: включено  
+-   **Permitir contingência**: Ativado  
 
--   **Поведение развертывания для медленной сети**: не загружать содержимое  
+-   **Comportamento de implementação para uma rede lenta**: Não transferir conteúdo  
 
 
-**Подробные сведения:**  
+**Detalhes:**  
 
-1.  Клиент отправляет в точку управления запрос на содержимое. Клиент указывает в запросе флаг, который означает, что разрешены резервные точки распространения.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão. O cliente inclui um sinalizador no pedido que indica que são permitidos pontos de distribuição de contingência.  
 
-2.  На клиент с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения и резервные точки распространения с содержимым. Предпочтительные точки распространения с содержимым отсутствуют, однако присутствует как минимум одна резервная точка распространения, в которой есть содержимое.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferenciais e pontos de distribuição de contingência que possuem o conteúdo. Nenhum ponto de distribuição preferidos que possuem o conteúdo, mas o ponto de distribuição de contingência, pelo menos, um tem o conteúdo.  
 
-3.  Содержимое не загружается, так как свойство развертывания, которое отвечает за использование клиентом резервной точки распространения, имеет значение **Не скачивать содержимое** (используется, когда клиенты обращаются к резервному расположению для получения содержимого). Происходит сбой клиента с отображением сообщения **Содержимое недоступно** , после чего клиент переходит в режим повторного выполнения. Клиент отправляет запрос на новое содержимое каждый час.  
+3.  O conteúdo não é transferido porque a propriedade de implementação para quando o cliente utiliza um ponto de distribuição de contingência está definida como **não transferir conteúdo** (que é utilizada quando os clientes reverter para obter os conteúdos). O cliente falha apresentando a mensagem **conteúdo não está disponível** e entra no modo de repetição. O cliente faz um novo pedido de conteúdo a cada hora.  
 
-## <a name="scenario-6"></a>Сценарий 6  
- Имеются следующие конфигурации.  
+## <a name="scenario-6"></a>Cenário 6  
+ Existem as seguintes configurações:  
 
--   **Содержимое недоступно в предпочтительной точке распространения**  
+-   **Conteúdo não está disponível num ponto de distribuição preferencial**  
 
--   Параметр **Распространять содержимое этого пакета в предпочтительные точки распространения** не включен  
+-   **Distribuir o conteúdo do pacote para pontos de distribuição preferenciais** não está ativado  
 
--   **Разрешить откат**: включено  
+-   **Permitir contingência**: Ativado  
 
--   **Поведение развертывания для медленной сети**: загружать и устанавливать содержимое  
+-   **Comportamento de implementação para uma rede lenta**: Transferir e instalar conteúdo  
 
 
-**Подробные сведения:**  
+**Detalhes:**  
 
-1.  Клиент отправляет в точку управления запрос на содержимое. Клиент указывает в запросе флаг, который означает, что разрешены резервные точки распространения.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão. O cliente inclui um sinalizador no pedido que indica que os pontos de distribuição de contingência estão ativados.  
 
-2.  На клиент с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения и резервные точки распространения с содержимым. Предпочтительные точки распространения с содержимым отсутствуют, однако присутствует как минимум одна резервная точка распространения, в которой есть содержимое.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferenciais e pontos de distribuição de contingência que possuem o conteúdo. Não existem nenhum ponto de distribuição preferidos que possuem o conteúdo, mas o ponto de distribuição de contingência, pelo menos, um que tenha o conteúdo.  
 
-3.  Содержимое скачивается с резервной точки распространения из списка, поскольку свойству развертывания для клиента, использующего резервную точку распространения, задано значение **Загрузить и установить содержимое**.  
+3.  O conteúdo é transferido a partir de um ponto de distribuição de contingência da lista porque a propriedade de implementação para quando o cliente utiliza um ponto de distribuição de contingência está definida como **transferir e instalar conteúdo**.  
 
-## <a name="scenario-7"></a>Сценарий 7  
- Имеются следующие конфигурации.  
+## <a name="scenario-7"></a>Cenário 7  
+ Existem as seguintes configurações:  
 
--   **Содержимое недоступно в предпочтительной точке распространения**  
+-   **Conteúdo não está disponível num ponto de distribuição preferencial**  
 
--   Параметр **Распространять содержимое этого пакета в предпочтительные точки распространения** включен.  
+-   **Distribuir o conteúdo do pacote para pontos de distribuição preferenciais** está ativado  
 
--   **Разрешить откат**: не включено  
+-   **Permitir contingência**: Não ativado  
 
--   **Режим развертывания для медленной сети**: любое значение  
+-   **Comportamento de implementação para uma rede lenta**: Qualquer configuração  
 
 
-**Подробные сведения:**  
+**Detalhes:**  
 
-1.  Клиент отправляет в точку управления запрос на содержимое.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão.  
 
-2.  Клиенту с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения с содержимым. Нет предпочтительных точек распространения с содержимым.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferidos que possuem o conteúdo. Não existem nenhum ponto de distribuição preferidos que possuem o conteúdo.  
 
-3.  Происходит сбой клиента с отображением сообщения **Содержимое недоступно** , после чего клиент переходит в режим повторного выполнения. Новый запрос содержимого выполняется каждый час.  
+3.  O cliente falha apresentando a mensagem **conteúdo não está disponível** e entra no modo de repetição. Um novo pedido de conteúdo é efetuado a cada hora.  
 
-4.  Точка управления создает для диспетчера распространения триггер, инициирующий распространение содержимого во все предпочтительные точки распространения для клиента, который создал запрос на содержимое.  
+4.  O ponto de gestão cria um acionador para o Gestor de distribuição para distribuir o conteúdo por todos os pontos de distribuição preferencial para o cliente que efetuou o pedido de conteúdo.  
 
-5.  Диспетчер распространения распространяет содержимое во все предпочтительные точки распространения. В большинстве случаев содержимое успешно распространяется в предпочтительные точки распространения в течение часа.  
+5.  O Distribution Manager distribui o conteúdo por todos os pontos de distribuição preferenciais. Na maioria dos casos, o conteúdo é distribuído com êxito aos pontos de distribuição preferenciais dentro de uma hora.  
 
-6.  Клиент отправляет в точку управления новый запрос содержимого.  
+6.  Um novo pedido de conteúdo é iniciado pelo cliente para o ponto de gestão.  
 
-7.  Клиенту с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения с содержимым. Клиент загружает содержимое из предпочтительной точки распространения в списке.  
+7.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferidos que possuem o conteúdo. O cliente transfere o conteúdo a partir de um ponto de distribuição preferenciais da lista.  
 
-## <a name="scenario-8"></a>Сценарий 8  
- Имеются следующие конфигурации.  
+## <a name="scenario-8"></a>Cenário 8  
+ Existem as seguintes configurações:  
 
--   **Содержимое недоступно в предпочтительной точке распространения**  
+-   **Conteúdo não está disponível num ponto de distribuição preferencial**  
 
--   Параметр **Распространять содержимое этого пакета в предпочтительные точки распространения** включен.  
+-   **Distribuir o conteúdo do pacote para pontos de distribuição preferenciais** está ativado  
 
--   **Разрешить откат**: включено  
+-   **Permitir contingência**: Ativado  
 
--   **Поведение развертывания для медленной сети**: не загружать содержимое  
+-   **Comportamento de implementação para uma rede lenta**: Não transferir conteúdo  
 
 
-**Подробные сведения:**  
+**Detalhes:**  
 
-1.  Клиент отправляет в точку управления запрос на содержимое. Клиент указывает в запросе флаг, который означает, что разрешены резервные точки распространения.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão. O cliente inclui um sinalizador no pedido que indica que são permitidos pontos de distribuição de contingência.  
 
-2.  На клиент с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения и резервные точки распространения с содержимым. Предпочтительные точки распространения с содержимым отсутствуют, однако присутствует как минимум одна резервная точка распространения, в которой есть содержимое.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferenciais e pontos de distribuição de contingência que possuem o conteúdo. Nenhum ponto de distribuição preferidos que possuem o conteúdo, mas o ponto de distribuição de contingência, pelo menos, um tem o conteúdo.  
 
-3.  Содержимое не загружается, поскольку свойство развертывания, которое отвечает за использование клиентом резервной точки распространения, имеет значение **Не загружать содержимое**. Происходит сбой клиента с отображением сообщения **Содержимое недоступно** , после чего клиент переходит в режим повторного выполнения. Клиент отправляет запрос на новое содержимое каждый час.  
+3.  O conteúdo não é transferido porque a propriedade de implementação para quando o cliente utiliza um ponto de distribuição de contingência está definida como **não transferir**. O cliente falha apresentando a mensagem **conteúdo não está disponível** e entra no modo de repetição. O cliente faz um novo pedido de conteúdo a cada hora.  
 
-4.  Точка управления создает для диспетчера распространения триггер, инициирующий распространение содержимого во все предпочтительные точки распространения для клиента, который создал запрос на содержимое.  
+4.  O ponto de gestão cria um acionador para o Gestor de distribuição para distribuir o conteúdo por todos os pontos de distribuição preferencial para o cliente que efetuou o pedido de conteúdo.  
 
-5.  Диспетчер распространения распространяет содержимое во все предпочтительные точки распространения. В большинстве случаев содержимое успешно распространяется в предпочтительные точки распространения в течение часа.  
+5.  O Distribution Manager distribui o conteúdo por todos os pontos de distribuição preferenciais. Na maioria dos casos, o conteúdo é distribuído com êxito aos pontos de distribuição preferenciais dentro de uma hora.  
 
-6.  Клиент отправляет в точку управления новый запрос содержимого.  
+6.  Um novo pedido de conteúdo é iniciado pelo cliente para o ponto de gestão.  
 
-7.  Клиенту с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения с содержимым.  
+7.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferidos que possuem o conteúdo.  
 
-8.  Клиент загружает содержимое из предпочтительной точки распространения в списке.  
+8.  O cliente transfere o conteúdo a partir de um ponto de distribuição preferenciais da lista.  
 
-## <a name="scenario-9"></a>Сценарий 9  
- Имеются следующие конфигурации.  
+## <a name="scenario-9"></a>Cenário 9  
+ Existem as seguintes configurações:  
 
--   **Содержимое недоступно в предпочтительной точке распространения**  
+-   **Conteúdo não está disponível num ponto de distribuição preferencial**  
 
--   Параметр **Распространять содержимое этого пакета в предпочтительные точки распространения** включен.  
+-   **Distribuir o conteúdo do pacote para pontos de distribuição preferenciais** está ativado  
 
--   **Разрешить откат**: включено  
+-   **Permitir contingência**: Ativado  
 
--   **Поведение развертывания для медленной сети**: загружать и устанавливать содержимое  
+-   **Comportamento de implementação para uma rede lenta**: Transferir e instalar conteúdo  
 
 
-**Подробные сведения:**  
+**Detalhes:**  
 
-1.  Клиент отправляет в точку управления запрос на содержимое. Клиент указывает в запросе флаг, который означает, что разрешены резервные точки распространения.  
+1.  O cliente envia um pedido de conteúdo ao ponto de gestão. O cliente inclui um sinalizador no pedido que indica que são permitidos pontos de distribuição de contingência.  
 
-2.  На клиент с точки управления возвращается список расположений содержимого, где указаны предпочтительные точки распространения и резервные точки распространения с содержимым. Предпочтительные точки распространения с содержимым отсутствуют, однако присутствует как минимум одна резервная точка распространения, в которой есть содержимое.  
+2.  Uma lista de localização de conteúdo é devolvida ao cliente do ponto de gestão com os pontos de distribuição preferenciais e pontos de distribuição de contingência que possuem o conteúdo. Nenhum ponto de distribuição preferidos que possuem o conteúdo, mas o ponto de distribuição de contingência, pelo menos, um tem o conteúdo.  
 
-3.  Содержимое скачивается с резервной точки распространения из списка, поскольку свойству развертывания для клиента, использующего резервную точку распространения, задано значение **Загрузить и установить содержимое**. Этот параметр развертывания позволяет клиенту, которому необходимо использовать резервное расположение содержимого, получать содержимое из этого расположения.  
+3.  O conteúdo é transferido a partir de um ponto de distribuição de contingência da lista porque a propriedade de implementação para quando o cliente utiliza um ponto de distribuição de contingência está definida como **transferir e instalar conteúdo**. Esta definição de implementação permite que um cliente que tem de utilizar uma localização de conteúdo de contingência para obter os conteúdos a partir dessa localização.  
 
-4.  Точка управления создает для диспетчера распространения триггер, инициирующий распространение содержимого во все предпочтительные точки распространения для клиента, который создал запрос на содержимое.  
+4.  O ponto de gestão cria um acionador para o Gestor de distribuição para distribuir o conteúdo por todos os pontos de distribuição preferencial para o cliente que efetuou o pedido de conteúdo.  
 
-5.  Диспетчер распространения распространяет содержимое во все предпочтительные точки распространения, что позволяет дополнительным клиентам получать содержимое без использования резервной точки распространения.  
+5.  O Distribution Manager distribui o conteúdo por todos os pontos de distribuição preferenciais, que permite que clientes adicionais obtenham o conteúdo sem utilizar um ponto de distribuição de contingência.  

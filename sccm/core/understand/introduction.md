@@ -1,6 +1,6 @@
 ---
-title: "Общие сведения | Документы Майкрософт"
-description: "Ознакомьтесь с общими сведениями о System Center Configuration Manager."
+title: "Introdução | Microsoft Docs"
+description: "Obter informações básicas, como uma introdução ao System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,205 +16,205 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 76f907b17df0dd2f102e34ca3cfb3ffc813c0004
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-system-center-configuration-manager"></a>Общие сведения о System Center Configuration Manager
+# <a name="introduction-to-system-center-configuration-manager"></a>Introdução ao System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager, продукт из набора решений управления Microsoft System Center, помогает управлять устройствами и пользователями как локально, так и в облаке.  
+Um produto no conjunto de aplicações Microsoft System Center de soluções de gestão, System Center Configuration Manager pode ajudar a gerir dispositivos e utilizadores no local e na nuvem.  
 
-**Configuration Manager может помочь:**   
--   повысить производительность и эффективность ИТ-отдела благодаря уменьшению объема ручных задач, что позволяет сосредоточиться на особо важных проектах;  
--   добиться максимальной отдачи от вложений в оборудование и программное обеспечение;  
--   расширить возможности пользователей, предоставляя им подходящее программное обеспечение в нужное время.  
+**Pode utilizar o Configuration Manager para ajudá-lo:**   
+-   Aumentar a produtividade e eficiência ao reduzir as tarefas manuais e permitindo que se concentre em projetos de alto valor.  
+-   Maximize os investimentos em hardware e software.  
+-   Capacitar produtividade do utilizador, fornecendo o software adequado no momento certo.  
 
-**Configuration Manager помогает вам предоставлять более эффективные ИТ-службы за счет следующих возможностей:**  
+**Configuration Manager o ajuda a fornecer serviços de TI mais eficazes ao permitir:**  
 
--   Безопасное и масштабируемое развертывание программного обеспечения  
--   Управление параметрами соответствия  
--   Комплексное управление ресурсами серверов, настольных компьютеров, ноутбуков и мобильных устройств  
+-   Implementação de software segura e escalável.  
+-   Gestão de definições de compatibilidade.  
+-   Gestão abrangente de recursos de servidores, computadores de secretária, computadores portáteis e dispositivos móveis.  
 
-**Configuration Manager работает параллельно с существующими технологиями и решениями Майкрософт и расширяет их возможности.**  
+**O Configuration Manager expande e funciona em conjunto com as tecnologias Microsoft existentes e soluções.**  
 
-Например, Configuration Manager интегрируется со следующими компонентами:  
+Por exemplo, o Configuration Manager integra-se:  
 
--   Microsoft Intune для управления разнообразными платформами мобильных устройств  
--   Службы Windows Server Update Services (WSUS) для управления обновлениями программного обеспечения  
--   Службы сертификатов  
--   Exchange Server и Exchange Online  
--   Групповая политика Windows
--   DNS   
--   Комплект средств для автоматизации развертывания Windows (Windows ADK) и средство миграции пользовательской среды (USMT)  
--   Службы развертывания Windows (WDS)  
--   Удаленный рабочий стол и удаленный помощник  
+-   Microsoft Intune para gerir uma ampla variedade de plataformas de dispositivos móveis.  
+-   Windows Server Update Services (WSUS) para gerir atualizações de software.  
+-   Serviços de certificados.  
+-   Exchange Server e o Exchange Online.  
+-   Política de grupo do Windows.
+-   DNS.   
+-   Windows Automated Deployment Kit (Windows ADK) e o User State Migration Tool (USMT).  
+-   Serviços de implementação do Windows (WDS).  
+-   Assistência remota e ambiente de trabalho remota.  
 
-Configuration Manager также использует:  
+O Configuration Manager também utiliza:  
 
--   доменные службы Active Directory — для обеспечения безопасности, расположения и настройки служб, а также обнаружения пользователей и устройств, которыми необходимо управлять;  
--   Microsoft SQL Server в качестве распределенной базы данных управления изменениями и интегрирован с SQL Server Reporting Services (SSRS) для составления отчетов, позволяющих отслеживать действия по управлению;  
--   роли системы сайта, расширяющие функции управления и использующие веб-службы IIS;
--   фоновую интеллектуальную службу передачи (BITS) и BranchCache, чтобы управлять доступной пропускной способностью сети.  
+-   Serviços de Domínio do Active Directory para fins de segurança, localização de serviço e configuração, bem como para detetar os utilizadores e os dispositivos que pretende gerir.  
+-   Microsoft SQL Server como uma base de dados de gestão de alterações distribuída — e integra-se com o SQL Server Reporting Services (SSRS) para produzir relatórios para monitorizar e controlar as atividades de gestão.  
+-   Funções de sistema de sites que expandem a funcionalidade de gestão e utilizam os serviços web dos serviços de informação Internet (IIS).
+-   Serviço de Transferência Inteligente em Segundo Plano (BITS) e BranchCache para ajudar a gerir a largura de banda disponível da rede.  
 
-Для успешной работы с Configuration Manager необходимо тщательно спланировать и протестировать функции управления перед использованием Configuration Manager в производственной среде. Являясь мощным приложением управления, Configuration Manager способен повлиять на каждый компьютер в организации. Если развертывание и управление Configuration Manager осуществляется с тщательным планированием и обеспечением соответствия требованиям организации, Configuration Manager может сократить трудозатраты администраторов и снизить совокупную стоимость владения.  
+Para ser concluída com êxito com o Configuration Manager, deve planear e testar cuidadosamente as funcionalidades de gestão antes de utilizar o Configuration Manager num ambiente de produção. Como uma aplicação de gestão poderosa, o Configuration Manager tem o potencial de afetar todos os computadores na sua organização. Quando implementar e gerir o Configuration Manager com um planeamento cuidadoso e tendo em conta os seus requisitos empresariais, o Configuration Manager pode reduzir a sobrecarga administrativa e o custo total de propriedade.  
 
-Используйте перечисленные ниже статьи и дополнительные разделы в этой статье для получения дополнительных сведений о Configuration Manager.  
+Utilize os seguintes tópicos e as secções adicionais deste tópico para saber mais sobre o Configuration Manager.  
 
 
-**Соответствующие статьи в этой библиотеке документации:**  
+**Tópicos relacionados nesta biblioteca de documentação:**  
 
--   [Функции и возможности в System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md)  
--   [Выбор решения для управления устройствами в System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
--   [Изменения в System Center Configuration Manager с момента выпуска версии System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
--   [Основные сведения о System Center Configuration Manager](../../core/understand/fundamentals.md)  
--   [Оценка System Center Configuration Manager путем создания собственной лабораторной среды](/sccm/core/get-started/set-up-your-lab)
--   [Поиск справки по использованию System Center Configuration Manager](../../core/understand/find-help.md)  
--   [Удаленные и устаревшие компоненты для System Center Configuration Manager](../../core/plan-design/changes/removed-and-deprecated-features.md)  
+-   [Funcionalidades e capacidades do System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md)  
+-   [Escolher uma solução de gestão de dispositivos para o System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
+-   [O que mudou no System Center Configuration Manager, do System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
+-   [Noções básicas do System Center Configuration Manager](../../core/understand/fundamentals.md)  
+-   [Avaliar o System Center Configuration Manager ao criar o seu ambiente de laboratório](/sccm/core/get-started/set-up-your-lab)
+-   [Encontrar ajuda para utilizar o System Center Configuration Manager](../../core/understand/find-help.md)  
+-   [Funcionalidades removidas e preteridas do System Center Configuration Manager](../../core/plan-design/changes/removed-and-deprecated-features.md)  
 
-##  <a name="BKMK_Console"></a> Консоль Configuration Manager  
- После установки Configuration Manager используйте консоль Configuration Manager для настройки сайтов, клиентов, а также выполнения и отслеживания задач управления. Эта консоль является основным инструментом администрирования и позволяет управлять несколькими сайтами.  
+##  <a name="BKMK_Console"></a> A consola do Configuration Manager  
+ Depois de instalar o Configuration Manager, utilize a consola do Configuration Manager para configurar sites e clientes e para executar e monitorizar tarefas de gestão. Esta consola é o principal ponto de administração e permite-lhe gerir vários sites.  
 
- Кроме того, она позволяет запускать вспомогательные консоли для выполнения определенных задач управления клиентами, таких как:  
+ Pode utilizar a consola para executar consolas secundárias que fornecem suporte para tarefas de gestão de cliente específicas, tais como:  
 
--   **Обозреватель ресурсов**для просмотра данных инвентаризации оборудования и программного обеспечения.  
--   **Удаленное управление**для удаленного подключения к клиентскому компьютеру с целью устранения неполадок.  
+-   **Explorador de Recursos**, para ver informações de inventário de hardware e software.  
+-   **Controlo remoto**, para ligar remotamente a um computador cliente para executar tarefas de resolução de problemas.  
 
-Можно установить консоль Configuration Manager на дополнительных компьютерах и ограничить доступ и отображаемые администраторам данные в консоли, используя ролевое администрирование Configuration Manager.  
+Pode instalar a consola do Configuration Manager em computadores adicionais e restringir o acesso e limitar o que os utilizadores administrativos podem ver na consola do utilizando a administração baseada em funções do Configuration Manager.  
 
-Дополнительные сведения см. в статье [Install System Center Configuration Manager consoles](../../core/servers/deploy/install/install-consoles.md).
+Para obter mais informações, veja [Instalar consolas do System Center Configuration Manager](../../core/servers/deploy/install/install-consoles.md).
 
-##  <a name="BKMK_ApplicationCatalog"></a> Каталог приложений, центр программного обеспечения и портал компании  
- **Каталог приложений** — это веб-сайт, на котором пользователи могут находить и запрашивать требуемое программное обеспечение для своих компьютеров под управлением Windows. Чтобы использовать каталог приложений, необходимо установить веб-службу каталога приложений и точку веб-сайта каталога приложений на сайте.  
+##  <a name="BKMK_ApplicationCatalog"></a> O Catálogo de Aplicações, o Centro de Software e o Portal da Empresa  
+ O **Catálogo de Aplicações** é um site onde os utilizadores podem procurar e pedir software para os seus PCs baseados em Windows. Para utilizar o Catálogo de Aplicações, tem de instalar o ponto do serviço Web do Catálogo de Aplicações e o ponto do Web site do Catálogo de Aplicações.  
 
- **Центр программного обеспечения** — это приложение, устанавливаемое на компьютерах под управлением Windows вместе с клиентом Configuration Manager. С его помощью пользователи могут запрашивать программное обеспечение и управлять программным обеспечением, развернутым с помощью Configuration Manager. Центр программного обеспечения позволяет выполнять следующие действия.  
+ **Centro de software** é uma aplicação que é instalada quando o cliente do Configuration Manager está instalado em computadores baseados em Windows. Os utilizadores executam esta aplicação para solicitar software e gerir o software que implementa o Configuration Manager aos mesmos. O Centro de Software permite aos utilizadores efetuarem o seguinte:  
 
--   Поиск и установка программного обеспечения из каталога приложений.  
--   Просмотр истории запросов программного обеспечения.  
--   Настройка того, когда именно Configuration Manager может устанавливать программное обеспечение на устройствах.  
--   Настройка параметров доступа к удаленному управлению, если администратор включил удаленное управление.  
+-   Procurar e instalar software no catálogo de aplicações.  
+-   Ver o respetivo histórico de pedidos de software.  
+-   Configure quando o Configuration Manager pode instalar software nos respetivos dispositivos.  
+-   Configure definições de acesso para controlo remoto, se um utilizador administrativo ativar controlo remoto.  
 
-**Корпоративный портал** — это приложение или веб-сайт, который обеспечивает функции, подобные каталогу приложений, но для мобильных устройств, зарегистрированных с помощью Microsoft Intune.  
+**O Portal da empresa** é uma aplicação ou o Web site que fornece funções semelhantes ao catálogo de aplicações, mas para dispositivos móveis que são inscritos pelo Microsoft Intune.  
 
-Дополнительные сведения см. в разделе [Приступая к управлению приложениями в System Center Configuration Manager](../../apps/understand/introduction-to-application-management.md).  
+Para obter mais informações, consulte [introdução à gestão de aplicações no System Center Configuration Manager](../../apps/understand/introduction-to-application-management.md).  
 
-###  <a name="BKMK_Client"></a> Свойства Configuration Manager (на компьютерах с Windows)  
- При установке клиента Configuration Manager на компьютерах Windows на панели управления появляется значок Configuration Manager. Как правило, настройка этого приложения не требуется, так как настройка клиента выполняется в консоли Configuration Manager. Это приложение — вспомогательный инструмент администраторов и специалистов службы поддержки клиентов, упрощающий устранение неполадок на отдельных клиентах.  
+###  <a name="BKMK_Client"></a>Propriedades do Configuration Manager (em Windows PCs)  
+ Quando o cliente do Configuration Manager está instalado em computadores Windows, o Configuration Manager está instalado no painel de controlo. Normalmente, não terá de configurar esta aplicação porque a configuração do cliente é efetuada na consola do Configuration Manager. Esta aplicação ajuda os utilizadores administrativos e o suporte técnico a resolver problemas relacionados com clientes individuais.  
 
- Дополнительные сведения о развертывании клиентов см. в статье [Методы установки клиента в System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
+ Para obter mais informações sobre a implementação do cliente, veja [Métodos de instalação de cliente no System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
 
-##  <a name="BKMK_ExampleScenarios"></a> Примеры сценариев для Configuration Manager  
- Следующие примеры сценариев показывают, как компания Trey Research использует System Center Configuration Manager для расширения возможностей пользователей следующим образом.  
+##  <a name="BKMK_ExampleScenarios"></a> Cenários exemplo para o Configuration Manager  
+ Os cenários de exemplo seguintes demonstram como uma empresa denominada Trey Research utiliza o System Center Configuration Manager para capacitar os utilizadores para:  
 
--   Повышение производительности работы.  
--   Обеспечение управления соответствием для устройств в целях повышения эффективности администрирования.
--   Упрощение управления устройствами для сокращения эксплуатационных расходов на ИТ.  
+-   Seja mais produtivo.  
+-   Uniformizar a gestão da compatibilidade dos dispositivos para uma experiência de administração mais simplificada.
+-   Simplifica a gestão de dispositivos para reduzir os custos operacionais de TI.  
 
-Во всех этих сценариях Адам является главным администратором Configuration Manager.  
+Em todos os cenários, Afonso é o administrador principal para o Configuration Manager.  
 
-###  <a name="BKMK_ScenarioEmpower"></a> Пример сценария. Расширение возможностей пользователей путем обеспечения доступа к приложениям с любого устройства  
- Компании Trey Research требуется, чтобы у сотрудников был как можно более эффективный доступ ко всем необходимым приложениям. Адам сопоставляет эти требования со следующими сценариями:  
+###  <a name="BKMK_ScenarioEmpower"></a>Cenário de exemplo: Capacitar os utilizadores, garantindo o acesso a aplicações a partir de qualquer dispositivo  
+ A Trey Research para se certificar de que os empregados têm acesso às aplicações que necessitam, mais eficientemente possível. O Afonso mapeia estes requisitos da empresa para os seguintes cenários:  
 
-|Требование|Текущее состояние управления клиента|Будущее состояние управления клиента|  
+|Requisito|Estado da atual gestão do cliente|Estado da gestão futura do cliente|  
 |-----------------|-------------------------------------|------------------------------------|  
-|Новые сотрудники могут работать в полную силу с первого же дня.|Когда сотрудники устраиваются на работу в компанию, им приходится дожидаться установки приложений после первого входа в систему.|Когда сотрудники устраиваются на работу в компанию, они входят в систему, а все приложения уже установлены и готовы к использованию.|  
-|Сотрудники могут легко и просто запросить любые другие нужные приложения.|Если сотрудникам требуются дополнительные приложения, они подают заявки в службу поддержки. Затем они ждут, обычно в течение двух дней, на протяжении которых заявка обрабатывается и приложения устанавливаются.|Если сотрудникам требуются дополнительные приложения, они запрашивают их на веб-сайте. Приложения тут же устанавливаются, если нет никаких ограничений, связанных с лицензированием. При наличии ограничений лицензирования пользователи должны запросить утверждение перед установкой приложения.<br /><br /> На веб-сайте отображаются лишь те приложения, которые разрешено устанавливать текущему пользователю.|  
-|Пользователи могут использовать на работе свои мобильные устройства, если эти устройства соответствуют принудительно применяемым политикам безопасности.<br /><br /> Эти политики включают в себя применение надежного пароля, блокировку устройства после периода бездействия и дистанционную очистку памяти утерянных или украденных устройств.|Сотрудники подключают свои мобильные устройства к серверу Exchange Server, чтобы пользоваться электронной почтой. Но возможности получения информации о том, соответствуют ли эти устройства политикам безопасности (политики почтовых ящиков Exchange ActiveSync по умолчанию) ограничены. Использование мобильных устройств в личных целях может быть запрещено, если ИТ-отдел не подтвердит соблюдение политик.|ИТ-организация может получать отчеты о соответствии мобильных устройств требованиям по безопасности с необходимыми параметрами. Эта информация дает пользователям возможность использовать свои мобильные устройства на работе. В случае утери или кражи мобильных устройств пользователи могут удаленно очищать свои устройства; служба поддержки также может удаленно очищать утерянные или украденные мобильные устройства всех пользователей.<br /><br /> Обеспечить регистрацию мобильных устройств в среде PKI для дополнительных мер безопасности и контроля.|  
-|Теперь сотрудники могут работать с полной отдачей, даже если они находятся не за своим столом.|Если сотрудники находятся не за своим столом и не имеют ноутбуков, то они не могут получить доступ к своим приложениям с помощью общедоступных компьютеров-киосков, которые установлены в компании.|Сотрудники могут использовать компьютеры-киоски для доступа к своим приложениям и данным.|  
-|Как правило, непрерывность работы бизнеса важнее установки необходимых приложений и обновлений программного обеспечения.|Установка приложений и обновлений днем, в рабочее время, зачастую мешают пользователям работать, поскольку при установке обновлений компьютеры замедляются, а также может потребоваться перезагрузка.|Пользователи могут настроить свое рабочее время, чтобы программное обеспечение не устанавливалось в те часы, когда пользователи работают за компьютером.|  
+|Os novos funcionários podem trabalhar de forma eficaz desde o primeiro dia.|Quando os funcionários ingressam na empresa, têm de aguardar que as aplicações sejam instaladas depois de serem sessão pela primeira vez.|Quando os funcionários ingressam na empresa, iniciam sessão no e as aplicações são instalada e pronta a ser utilizado.|  
+|Os funcionários podem solicitar de forma rápida e simples o software adicional de que necessitam.|Quando os funcionários têm de aplicações adicionais, enviam um ticket com o suporte técnico. São, normalmente, aguarde dois dias para o ticket seja processado e para as aplicações ser instalada.|Quando os funcionários têm de aplicações adicionais, podem solicitá-las a partir de um Web site. São instaladas de imediato se não existirem restrições de licenciamento. Se existirem restrições de licenciamento, os utilizadores devem primeiro solicitar a aprovação para poderem instalar a aplicação.<br /><br /> O Web site mostra os utilizadores apenas as aplicações que estão autorizados a instalar.|  
+|Os funcionários podem utilizar os seus dispositivos móveis no local de trabalho se os dispositivos cumprirem as políticas de segurança que são controladas e impostas.<br /><br /> Estas políticas incluem impor uma palavra-passe segura, bloquear um dispositivo após o período de inatividade e limpar remotamente dispositivos perdidos ou roubados.|Os funcionários ligam os respetivos dispositivos móveis ao Exchange Server para o serviço de correio eletrónico. No entanto, há para confirmar que estão em conformidade com as políticas de segurança das políticas de caixa de correio predefinidas do Exchange ActiveSync. A utilização pessoal de dispositivos móveis poderá ser proibida, a menos que as TI possam confirmar a adesão à política.|A organização de TI pode informar a compatibilidade de segurança do dispositivo móvel com as definições necessárias. Esta confirmação permite que os utilizadores continuem a utilizar os seus dispositivos móveis no local de trabalho. Os utilizadores podem apagar remotamente os seus dispositivos móveis, se tiver perdido ou roubado, e o suporte técnico pode apagar dispositivos móveis de qualquer utilizador que é comunicado como perdido ou roubado.<br /><br /> Fornece o registo do dispositivo móvel num ambiente PKI para segurança e controlo adicionais.|  
+|Os funcionários podem ser produtivos, mesmo se não estiverem nas suas secretárias.|Quando os funcionários não estão nas suas secretárias e não tem computadores portáteis, não vão conseguir aceder às suas aplicações através da utilização dos computadores de quiosque que estão disponíveis em toda a empresa.|Os funcionários podem utilizar computadores de quiosque para aceder às suas aplicações e dados.|  
+|Normalmente, a continuidade do negócio tem precedência sobre a instalação de aplicações e atualizações de software necessárias.|Muitas vezes, as aplicações e atualizações de software que requerem instalação durante o dia interrompem o trabalho dos utilizadores, uma vez que os seus computadores ficam mais lentos ou são reiniciados durante a instalação.|Os utilizadores podem configurar o seu horário de trabalho para impedir que o software necessário instalado enquanto estiver a utilizar o respetivo computador.|  
 
- Для выполнения этих требований Адам использует следующие возможности Configuration Manager по управлению и настройке.  
+ Para cumprir os requisitos, Afonso utiliza estas capacidades de gestão do Configuration Manager e as opções de configuração:  
 
--   Управление приложениями  
--   управление мобильными устройствами  
+-   Gestão de aplicações  
+-   Gestão de dispositivos móveis  
 
-Он применяет эти возможности с помощью действий, описанных в приведенной ниже таблице.  
+Implementa-as utilizando os passos de configuração na tabela seguinte:  
 
-|Шаги настройки|Результат|  
+|Passos de configuração|Resultado|  
 |-------------------------|-------------|  
-|Адам проверяет наличие у новых пользователей учетных записей в Active Directory и создает в Configuration Manager коллекцию на базе запроса для этих пользователей. Затем он определяет принадлежность устройств этим пользователям, создав файл, сопоставляющий учетные записи пользователей и их основные компьютеры. Получившийся файл он импортирует в Configuration Manager.<br /><br /> Приложения, необходимые новым пользователям, уже созданы в Configuration Manager. Он развертывает эти приложения с целью "Обязательное" в коллекции, содержащей новых пользователей.|Благодаря сведениям о сопоставлении пользователей и устройств приложения устанавливаются на основное устройство каждого пользователя еще до входа пользователя в систему.<br /><br /> Приложения готовы к использованию; пользователь сможет запускать их сразу же после входа в систему.|  
-|Адам устанавливает и настраивает роли системы сайта "Каталог приложений", чтобы пользователи могли просматривать приложения, доступные для установки. Он создает развертывания приложений с намерением "Доступно" и развертывает эти приложения в коллекции, содержащей новых пользователей.<br /><br /> Для приложений с ограниченным количеством лицензий Адам настраивает запрос утверждения.|Теперь с помощью каталога приложений пользователи могут просматривать приложения, которые им разрешено устанавливать. Пользователи могут либо сразу установить приложения, либо запросить утверждение, а затем, получив утверждение в службе поддержки, вернуться в каталог приложений и установить их.|  
-|Адам создает коннектор Exchange Server в Configuration Manager для управления мобильными устройствами, которые подключаются к локальному серверу Exchange Server компании. При настройке соединителя применяются параметры безопасности, требующие использовать надежный пароль и блокирующие мобильное устройство после бездействия в течение определенного времени.<br /><br /> Для управления устройствами с ОС Windows Phone 8, Windows RT и iOS Адам приобретает подписку Microsoft Intune. Затем он устанавливает роль системы сайта для точки подключения службы. Это решение для управления мобильными устройствами обеспечивает более широкие возможности управления такими устройствами. В частности, можно делать приложения доступными для установки на таких устройствах, а также управлять различными параметрами. Кроме того, защита подключений всех мобильных устройств выполняется с помощью PKI-сертификатов, автоматически создаваемых и развертываемых решением Intune.<br /><br /> После настройки точки подключения службы и подписки для использования с Configuration Manager Адам отправляет владельцам этих мобильных устройств сообщение электронной почты со ссылкой для начала процесса регистрации.<br /><br /> Для регистрации мобильных устройств в Microsoft Intune Адам использует параметры соответствия: это позволяет настроить параметры безопасности мобильных устройств. Эти параметры включают требование применения надежного пароля и блокирования мобильного устройства после бездействия в течение определенного времени.|Располагая этими двумя решениями для управления мобильными устройствами, ИТ-организации могут предоставлять данные отчетов о мобильных устройствах, используемых в сети компании, и о соответствии этих устройств параметрам безопасности.<br /><br /> Пользователей обучают возможности удаленно очищать свои устройства с помощью каталога приложений или корпоративного портала в случае утери или кражи устройств. Служба поддержки также обучается удаленной очистке устройств пользователей с помощью консоли Configuration Manager.<br /><br /> Кроме того, для мобильных устройств, зарегистрированных с помощью Microsoft Intune, Адам может развертывать мобильные приложения (с возможностью их установки пользователями), собирать данные инвентаризации и управлять устройствами в более широких пределах за счет доступа к большему числу параметров.|  
-|Компания Trey Research располагает несколькими компьютерами-киосками для сотрудников, посещающих офис. Сотрудникам нужно, чтобы все их приложения были доступны всякий раз, когда они входят в систему. Но Адам считает нецелесообразной локальную установку всех приложений на каждый компьютер.<br /><br /> Для этого Адам создает обязательные приложения с двумя типами развертывания:<br /><br /> **Первый** — полная локальная установка приложения с требованием, что это приложение может быть установлено только на первичном устройстве пользователя.<br /><br /> **Второй** — виртуальная версия приложения с требованием, что это приложение не может быть установлено на первичном устройстве пользователя.|Когда посещающие офис сотрудники входят в систему на компьютере-киоске, они видят на рабочем столе все необходимые приложения в виде значков. При запуске такие приложения передаются на компьютер в качестве виртуальных приложений. Пользователи могут работать с этими приложениями точно так же, как за собственным настольным компьютером.|  
-|Адам сообщает пользователям, что они могут настроить свое рабочее время в центре программного обеспечения и выбрать параметры, запрещающие действия по развертыванию в течение этого времени и когда компьютер находится в режиме презентаций.|Пользователи могут управлять интервалами времени, в течение которых Configuration Manager развертывает программное обеспечение на их компьютеры, поэтому производительность труда в рабочее время повышается.|  
+|Afonso certifica-se de que os novos utilizadores têm contas de utilizador no Active Directory, criando uma nova coleção baseada em consultas no Configuration Manager para estes utilizadores. Define então a afinidade dispositivo/utilizador para estes utilizadores, criando um ficheiro que mapeia as contas de utilizador para os computadores primários que utilizarão e importando esse ficheiro para o Configuration Manager.<br /><br /> As aplicações que os novos utilizadores têm de ter já são criadas no Configuration Manager. Em seguida, implementa as aplicações que têm um objetivo necessário na coleção que contém os novos utilizadores.|Devido a informações de afinidade de dispositivo do utilizador, as aplicações são instaladas no computador primário ou a computadores de cada utilizador antes do utilizador inicia sessão.<br /><br /> As aplicações estarão prontas a utilizar assim que o utilizador inicia sessão com êxito.|  
+|O Afonso instala e configura as funções do sistema de sites do Catálogo de Aplicações para que os utilizadores possam procurar as aplicações a instalar. Cria implementações de aplicações com o objetivo Disponível e implementa tais aplicações na coleção que contém os novos utilizadores.<br /><br /> No caso de aplicações com um número restrito de licenças, o Afonso configura-as para requererem aprovação.|Os utilizadores podem agora utilizar o catálogo de aplicações para procurar as aplicações que estão autorizados a instalar. Os utilizadores podem então instalar as aplicações de imediato, ou pedir aprovação e regressar ao catálogo de aplicações para as instalarem após a aprovação do pedido de suporte técnico.|  
+|O Artur cria um conector do Exchange Server no Configuration Manager para gerir os dispositivos móveis que liguem ao Exchange Server no local da empresa. Configura este conector com definições de segurança que incluem o requisito para definir uma palavra-passe segura e bloqueie o dispositivo móvel após um período de inatividade.<br /><br /> Para a gestão adicional para dispositivos que executam o Windows Phone 8, Windows RT e iOS, o Afonso obtém uma subscrição do Microsoft Intune. Em seguida, instala a função de sistema de sites de ponto de ligação de serviço. Esta solução de gestão de dispositivos móveis melhora o suporte de gestão da empresa para estes dispositivos. Isto inclui disponibilizar aplicações para os utilizadores instalarem estes dispositivos e gestão de um vasto conjunto de definições. Além disso, as ligações de dispositivos móveis são protegidas por certificados PKI que são criados e implementados automaticamente pelo Intune.<br /><br /> Depois de configurar o ponto de ligação de serviço e a subscrição para utilização com o Configuration Manager, o Afonso envia uma mensagem de e-mail aos utilizadores proprietários destes dispositivos móveis para que cliquem numa ligação para iniciar o processo de inscrição.<br /><br /> Para os dispositivos móveis sejam inscritos pelo Microsoft Intune, Afonso utiliza definições de compatibilidade para configurar definições de segurança para estes dispositivos móveis. Estas definições incluem o requisito para definir uma palavra-passe segura e bloqueie o dispositivo móvel após um período de inatividade.|Com estas duas soluções de gestão de dispositivos móveis, o departamento de informática pode fornecer informações para relatórios sobre os dispositivos móveis utilizados na rede empresarial e respetiva compatibilidade com as definições de segurança configuradas.<br /><br /> Os utilizadores são apresentados como apagar remotamente os seus dispositivos móveis utilizando o catálogo de aplicações ou o Portal da empresa se o dispositivo móvel for perdido ou roubado. O suporte técnico é também instruções sobre como apagar remotamente um dispositivo móvel para utilizadores através da consola do Configuration Manager.<br /><br /> Além disso, para os dispositivos móveis que são inscritos pelo Microsoft Intune, Afonso pode agora implementar aplicações móveis para os utilizadores a instalar, recolher mais dados de inventário a partir destes dispositivos e tenham um melhor controlo da gestão estes dispositivos ao ser capaz de aceder a definições adicionais.|  
+|A Trey Research tem vários computadores de quiosque que são utilizados pelos funcionários que visitam o escritório. Os funcionários querem que as suas aplicações estejam disponíveis sempre que iniciar sessão. No entanto, Afonso não pretende instalar localmente todas as aplicações em cada computador.<br /><br /> Para atingir esse objetivo, o Afonso cria as aplicações necessárias, que têm dois tipos de implementação:<br /><br /> **O primeiro:** Uma instalação completa, local da aplicação que tem um requisito que só pode ser instalada no dispositivo primário do utilizador.<br /><br /> **O segundo:** Uma versão virtual das aplicações que tenham o requisito de que não poderem ser instaladas no dispositivo primário do utilizador.|Quando visitando funcionários de início de sessão para um computador de quiosque, verão as aplicações que necessitam, apresentadas como ícones no ambiente de trabalho do computador de quiosque. Quando executam a aplicação, é transmitido como uma aplicação virtual. Desta forma, podem ser tão produtivos como se se estiver a sentado à frente da respetivo ambiente de trabalho.|  
+|Permite o Artur, os utilizadores saibam que pode configurar o seu horário de trabalho no Centro de Software e pode selecionar opções que impedem as atividades de implementação de software durante esse período e quando o computador estiver em modo de apresentação.|Porque os utilizadores podem controlar quando o Configuration Manager implementa software nos seus computadores, mantêm-se mais produtivos dia de trabalho.|  
 
- Все эти меры по настройке способствуют тому, что компания Trey Research успешно предоставляет своим сотрудникам доступ ко всем приложениям с любого устройства.  
+ Estes passos e resultados de configuração permitem que a Trey Research capacite os seus funcionários, garantindo o acesso às aplicações a partir de qualquer dispositivo.  
 
-###  <a name="BKMK_ScenarioUnify"></a> Пример сценария. Централизация управления соответствием для устройств  
- Компании Trey Research требуется централизованное решение для управления клиентами, обеспечивающее автоматическое обновление компьютеров с антивирусным программным обеспечением. Это означает следующее:  
+###  <a name="BKMK_ScenarioUnify"></a>Cenário de exemplo: Uniformizar a gestão de compatibilidade dos dispositivos  
+ A Trey Research procura uma solução unificada de gestão dos clientes que garanta que os seus computadores executam software antivírus que seja automaticamente mantido atualizado. Ou seja:  
 
--   Брандмауэр Windows включен.  
--   Критические обновления программного обеспечения установлены.  
--   Определенные разделы реестра заданы.  
--   Управляемые мобильные устройства не могут устанавливать и запускать неподписанные приложения.  
+-   Firewall do Windows está ativada.  
+-   Atualizações de software críticas são instaladas.  
+-   Chaves de registo específicas estão definidas.  
+-   Dispositivos móveis geridos não conseguem instalar nem executar aplicações não assinadas.  
 
-Компании также требуется распространить эту защиту на ноутбуки, которые подключаются и к Интернету, и к интрасети.  
+A empresa pretende também alargar esta proteção à Internet, para computadores portáteis que passem da intranet para a Internet.  
 
-Адам сопоставляет эти требования со следующими сценариями:  
+O Afonso mapeia estes requisitos da empresa para os seguintes cenários:  
 
-|Требование|Текущее состояние управления клиента|Будущее состояние управления клиента|  
+|Requisito|Estado da atual gestão do cliente|Estado da gestão futura do cliente|  
 |-----------------|-------------------------------------|------------------------------------|  
-|На всех компьютерах запущено антивирусное программное обеспечение с актуальными версиями файлов определений, включен Брандмауэр Windows.|На разных компьютерах используются разные антивирусные решения, которые не всегда поддерживаются в обновленном состоянии. Брандмауэр Windows по умолчанию включен, но пользователи иногда его отключают.<br /><br /> Пользователи проинструктированы, что при обнаружении вредоносных программ на компьютере следует обращаться в службы поддержки.|На всех компьютерах используется одинаковое антивирусное решение. Оно автоматически загружает последние версии файлов определений и автоматически включает Брандмауэр Windows, если пользователи отключают его.<br /><br /> При обнаружении вредоносных программ служба поддержки автоматически получает уведомление по электронной почте.|  
-|Важные обновления программного обеспечения устанавливаются на все компьютеры в течение месяца после выпуска этих обновлений.|Обновления программного обеспечения устанавливаются на компьютерах, но на многих из них важные обновления устанавливаются лишь через два-три месяца после выпуска. Это оставляет компьютеры уязвимыми для атак на этот период времени.<br /><br /> Служба поддержки сначала отправляет пользователям таких компьютеров электронные письма с просьбой установить обновления. Если же пользователи по-прежнему не устанавливают обновления, то инженеры удаленно подключаются к таким компьютерам и вручную устанавливают недостающие обновления.|Степень соответствия за указанный месяц повышается до 95 % без отправки электронных писем и без обращений в службу поддержки с просьбами установить обновления вручную.|  
-|Регулярная проверка (и при необходимости исправление) параметров безопасности определенных приложений.|На компьютерах выполняются сложные сценарии запуска, опирающиеся на членство компьютера в группах. Эти сценарии сбрасывают значения реестра для определенных приложений.<br /><br /> Так как эти скрипты выполняются лишь при запуске компьютера, а некоторые компьютеры не выключаются по несколько дней подряд, служба поддержки не может своевременно отслеживать изменение параметров.|Значения параметров реестра проверяются и автоматически исправляются без учета членства компьютера в группах и без перезапуска компьютера.|  
-|Мобильные устройства не могут устанавливать и запускать небезопасные приложения.|Пользователей просят не скачивать из Интернета и не запускать потенциально небезопасные приложения. Но не существует никаких способов отслеживания или контроля.|Мобильные устройства, находящиеся под управлением Microsoft Intune или Configuration Manager, автоматически запрещают установку и запуск неподписанных приложений.|  
-|Требуется обеспечить безопасность ноутбуков, которые подключаются и к Интернету, и к интрасети.|Пользователи, часто бывающие в командировках, не могут ежедневно подключаться к виртуальной частной сети. Их ноутбуки перестают соответствовать требованиям безопасности.|Для выполнения всех требований безопасности ноутбуку требуется лишь подключение к Интернету. Пользователям не нужно входить в систему и использовать виртуальную частную сеть.|  
+|Todos os computadores executam software antimalware com ficheiros de definições atualizados e que autoriza a Firewall do Windows.|Computadores diferentes executadas soluções antimalware diferentes que não são sempre mantidas atualizadas. Embora a Firewall do Windows está ativada por predefinição, os utilizadores, por vezes, desativarem-o.<br /><br /> É pedido aos utilizadores que contactem o suporte técnico se for detetado malware nos seus computadores.|Todos os computadores executam a mesma solução antimalware, que transfere automaticamente os ficheiros de atualização de definições mais recentes e volta a ativar automaticamente a Firewall do Windows se os utilizadores a desativarem.<br /><br /> Se for detetado malware, o suporte técnico será automaticamente notificado por correio eletrónico.|  
+|Todos os computadores instalam as atualizações de software críticas no prazo de um mês a contar do seu lançamento.|Embora as atualizações de software são instaladas nos computadores, muitos computadores não instalarem automaticamente as atualizações de software críticas até duas ou três meses após o está a ser lançados. Isso deixa-os vulneráveis a ataques durante esse período.<br /><br /> Para os computadores que não instalarem as atualizações de software críticas, o suporte técnico começa por enviar mensagens de correio eletrónico pedir aos utilizadores para instalar as atualizações. Se os computadores se mantiverem não compatíveis, os engenheiros ligam-se remotamente aos computadores e instalam manualmente as atualizações de software em falta.|A taxa de conformidade atual no mês especificado foi melhorada para mais de 95% sem enviar mensagens de correio eletrónico nem solicitar que o suporte técnico para instalar manualmente.|  
+|Definições de segurança para aplicações específicas são regularmente marcadas e remediadas, caso seja necessário.|Os computadores executam scripts de arranque complexos que se baseiam na respetiva associação a grupos para repor os valores do registo de aplicações específicas.<br /><br /> Uma vez que estes scripts só são executados no arranque e alguns computadores ficam em dias, não é possível verificar o suporte técnico para configuração que se desviam de forma atempada.|Os valores do registo são verificados e automaticamente remediados, sem depender da associação do computador a grupos e sem o reiniciar.|  
+|Dispositivos móveis não conseguem instalar nem executar aplicações não seguras.|É pedido aos utilizadores para não transferir e executar aplicações potencialmente não seguras a partir da Internet. Mas não existem nenhum controlos implementados para monitorizar ou para impor esta regra.|Dispositivos móveis que são geridos com o Microsoft Intune ou do Configuration Manager automaticamente impedem a instalação e execução de aplicações não assinadas.|  
+|É necessário proteger os computadores portáteis que passam da intranet para a Internet.|Para os utilizadores que viajam não conseguem ligar através da ligação VPN diariamente. Estes portáteis deixam de estar em conformidade com os requisitos de segurança.|Uma ligação à Internet é tudo o que é necessário para manter a compatibilidade dos computadores portáteis com os requisitos de segurança. Os utilizadores não têm de iniciar sessão ou utilizar a ligação VPN.|  
 
- Для выполнения этих требований Адам использует следующие возможности Configuration Manager по управлению и настройке.  
+ Para cumprir os requisitos, Afonso utiliza estas capacidades de gestão do Configuration Manager e as opções de configuração:  
 
 -   Endpoint Protection  
--   Обновления программного обеспечения  
--   Параметры соответствия  
--   управление мобильными устройствами  
--   Управление клиентами через Интернет  
+-   Atualizações de software  
+-   Definições de compatibilidade  
+-   Gestão de dispositivos móveis  
+-   Gestão de clientes baseada na Internet  
 
-Он применяет эти возможности с помощью действий, описанных в приведенной ниже таблице.  
+Implementa-as utilizando os passos de configuração na tabela seguinte:  
 
-|Шаги настройки|Результат|  
+|Passos de configuração|Resultado|  
 |-------------------------|-------------|  
-|Адам настраивает Endpoint Protection. Он включает параметры клиентов для удаления всех прочих антивирусных решений, а затем включает Брандмауэр Windows. Он настраивает правила автоматического развертывания, чтобы компьютеры регулярно запрашивали последние обновления определений и устанавливали их.|Применение единого антивирусного решения помогает защитить все компьютеры с минимальными трудозатратами на администрирование. При обнаружении вредоносных программ служба поддержки автоматически получает уведомление по электронной почте, поэтому все неполадки удается быстро устранить. Это помогает предотвратить атаки на другие компьютеры.|  
-|Для повышения степени соответствия Адам применяет правила автоматического развертывания, определяет периоды обслуживания серверов и рассматривает преимущества и недостатки пробуждения по локальной сети для компьютеров в режиме гибернации.|Повышается соблюдение требований в части установки важных обновлений; пользователям и инженерам службы поддержки не приходится устанавливать обновления вручную.|  
-|Адам использует параметры соответствия для проверки наличия определенных приложений. При обнаружении приложений элементы конфигурации проверяют значения параметров реестра и автоматически исправляют их в случае отклонений.|Применение элементов конфигурации и конфигурационных баз, развернутых на всех компьютерах и ежедневно проверяющих соответствие, позволяет отказаться от использования скриптов на основе членства компьютеров и перезапуска.|  
-|Адам использует параметры соответствия для зарегистрированных мобильных устройств и настраивает коннектор Exchange Server, чтобы исключить установку неподписанных приложений на мобильных устройствах и их запуск.|Так как неподписанные приложения запрещены, мобильные устройства автоматически защищаются от потенциально вредоносных приложений.|  
-|Адам проверяет наличие PKI-сертификатов на серверах системы сайта и компьютерах: такие сертификаты требуются Configuration Manager для HTTPS-подключений. Затем он устанавливает дополнительные роли системы сайта в сети периметра, где принимаются подключения клиентов из Интернета.|Компьютеры, которые переключаются между интрасетью и Интернетом, автоматически находятся под управлением Configuration Manager при наличии подключения к Интернету. Для таких компьютеров не требуется вход пользователей в систему и подключение к виртуальной частной сети.<br /><br /> На этих компьютерах по-прежнему осуществляется управление антивирусом и Брандмауэром Windows, обновлениями программного обеспечения и элементами конфигурации. Таким образом, уровень соответствия автоматически повышается.|  
+|O Artur configura o Endpoint Protection. Ele permite o definição de cliente para desinstalar outras soluções antimalware e ativa a Firewall do Windows. Configura regras de implementação automática para que os computadores procurem e instalem regularmente as atualizações de definições mais recentes.|A solução antimalware única ajuda a proteger todos os computadores, minimizando a sobrecarga administrativa. Porque o suporte técnico é automaticamente notificado por mensagem de e-mail, se for detetado malware, os problemas podem ser resolvidos rapidamente. Isto ajuda a impedir ataques a outros computadores.|  
+|Para ajudar a aumentar as taxas de conformidade, Afonso utiliza regras de implementação automática, define as janelas de manutenção para servidores e investiga as vantagens e desvantagens da utilização de reativação por LAN em computadores que hibernem.|A compatibilidade com as atualizações de software críticas aumenta, reduzindo os requisitos de instalação manual de atualizações de software pelos utilizadores ou pelo suporte técnico.|  
+|O Afonso utiliza definições de compatibilidade para verificar a presença das aplicações especificadas. Quando as aplicações são detetadas, os itens de configuração verificam os valores de registo e remedeiam-nos automaticamente se não estiverem em conformidade.|Ao utilizar itens de configuração e linhas de base de configuração que são implementadas para todos os computadores e verificar a conformidade de todos os dias, que já não necessita de scripts separados que se baseiam na associação do computador e reinícios do computador.|  
+|O Afonso utiliza as definições de compatibilidade para dispositivos móveis inscritos, configurando o conector do Exchange Server de modo a proibir a instalação e execução de aplicações não assinadas em dispositivos móveis.|Porque são proibidas aplicações não assinadas, dispositivos móveis são automaticamente protegidos contra aplicações potencialmente prejudiciais.|  
+|Afonso certifica-se de que os computadores e servidores de sistema de sites têm os certificados PKI exigidos pelo Configuration Manager para ligações HTTPS. Em seguida, instala as funções do sistema de sites adicionais na rede de perímetro que aceitam ligações de cliente a partir da Internet.|Os computadores que passam da intranet para a Internet continuam automaticamente a ser geridos pelo Configuration Manager quando têm uma ligação à Internet. Os computadores não dependem aos utilizadores iniciar sessão no respetivo computador ou ligar para a ligação VPN.<br /><br /> Estes computadores continuam a ser geridos no que respeita a antimalware e à Firewall do Windows, atualizações de software e itens de configuração. Em resultado, os níveis de compatibilidade aumentam automaticamente.|  
 
- В результате описанных действий по настройке компании Trey Research удается успешно реализовать единую среду управления соответствием для устройств.  
+ Estes passos e resultados de configuração permitem à Trey Research unificar com sucesso a gestão de compatibilidade dos dispositivos.  
 
-###  <a name="BKMK_ScenarioSimplify"></a> Пример сценария. Упрощение управления клиентами для устройств  
- Компании Trey Research требуется, чтобы на всех новых компьютерах автоматически установился базовый образ компьютера компании с Windows 7. После установки образа операционной системы необходимо управлять компьютерами и отслеживать программное обеспечение, устанавливаемое пользователями. Для компьютеров, на которых хранятся конфиденциальные данные, требуются более строгие политики управления, чем для остальных компьютеров. Например, к таким компьютерам не должны удаленно подключаться инженеры службы поддержки; при перезагрузке должен применяться ввод ПИН-кода BitLocker, а право устанавливать программное обеспечение должны иметь только локальные администраторы.  
+###  <a name="BKMK_ScenarioSimplify"></a>Cenário de exemplo: Simplificar a gestão de cliente para dispositivos  
+ A Trey Research procura todos os novos computadores instalem automaticamente a imagem de computador base da empresa que executa o Windows 7. Depois da imagem do sistema operativo é instalada nesses computadores, tem de ser geridos e monitorizados para o software adicional instalado pelos utilizadores. Os computadores que armazenam informações altamente confidenciais requerem políticas de gestão mais restritivas do que os restantes. Por exemplo, os engenheiros do suporte técnico não devem ligar remotamente a tais computadores, é exigida a introdução do PIN do BitLocker ao reiniciar e apenas os administradores locais podem instalar software.  
 
- Адам сопоставляет эти требования со следующими сценариями:  
+ O Afonso mapeia estes requisitos da empresa para os seguintes cenários:  
 
-|Требование|Текущее состояние управления клиента|Будущее состояние управления клиента|  
+|Requisito|Estado da atual gestão do cliente|Estado da gestão futura do cliente|  
 |-----------------|-------------------------------------|------------------------------------|  
-|На новые устанавливается операционная система Windows 7.|Служба поддержки устанавливает и настраивает Windows 7 для пользователей, а затем перемещает компьютер в нужное место.|Новые компьютеры сразу отправляются по месту назначения, подключаются к сети, и на них автоматически устанавливается и настраивается ОС Windows 7.|  
-|Требуется управление и мониторинг компьютеров. В том числе требуется сбор данных инвентаризации оборудования и программного обеспечения: это необходимо для определения требований к лицензированию.|Клиент Configuration Manager развертывается с помощью автоматического принудительного развертывания. Служба поддержки изучает сбои установки и случаи, когда клиенты не отправляют данные инвентаризации в предполагаемое время.<br /><br /> Сбои возникают часто из-за несоблюдения зависимостей установки и из-за повреждения WMI на клиентах.|Установка клиента и получение данных инвентаризации происходят более надежно; требуется меньше вмешательства со стороны службы поддержки. Отчеты показывают использование программного обеспечения с точки зрения управления лицензиями.|  
-|Некоторым компьютерам требуются более строгие политики управления.|В силу применения более строгих политик эти компьютеры в настоящее время не находятся под управлением Configuration Manager.|Управление этими компьютерами осуществляется с помощью Configuration Manager без избыточных административных трудозатрат, связанных с обработкой исключений.|  
+|O Windows 7 é instalado nos novos computadores.|O suporte técnico instala e configura o Windows 7 para os utilizadores e, em seguida, envia o computador para a respetiva localização.|Novos computadores ir diretamente para o destino final, são ligados à rede e automaticamente instalarem e configurar o Windows 7.|  
+|Os computadores têm de ser geridos e monitorizados. Isto inclui a recolha de dados de inventário de hardware e software para ajudar a determinar os requisitos de licenciamento.|O cliente do Configuration Manager é implementado utilizando a instalação push automática do cliente. O suporte técnico investiga as falhas de instalação e os clientes que não enviar dados de inventário quando é esperado.<br /><br /> As falhas são frequentes devido a dependências de instalação que não são satisfeitas e à corrupção de WMI no cliente.|Os dados de instalação e inventário do cliente recolhidos dos computadores são mais fiáveis e requerem uma menor intervenção do suporte técnico. Os relatórios mostram a utilização do software para obter informações de licenciamento.|  
+|Alguns computadores precisam de políticas de gestão mais rigorosas.|Devido às políticas de gestão mais rigorosas, estes computadores atualmente não são geridos pelo Configuration Manager.|Estes computadores são geridos utilizando o Gestor de configuração para acomodar as exceções, sem aumentar a sobrecarga administrativa.|  
 
- Для выполнения этих требований Адам использует следующие возможности Configuration Manager по управлению и настройке.  
+ Para cumprir os requisitos, Afonso utiliza estas capacidades de gestão do Configuration Manager e as opções de configuração:  
 
--   Развертывание операционной системы  
--   Развертывание клиента и состояние клиента  
--   Параметры соответствия  
--   Параметры клиента  
--   Методы инвентаризации и аналитика активов  
--   Администрирование на основе ролей  
+-   Implementação do sistema operativo  
+-   Implementação e estado do cliente  
+-   Definições de compatibilidade  
+-   Definições do cliente  
+-   Métodos de inventário e Asset Intelligence  
+-   Administração baseada em funções  
 
-Он применяет эти возможности с помощью действий, описанных в приведенной ниже таблице.  
+Implementa-as utilizando os passos de configuração na tabela seguinte:  
 
-|Шаги настройки|Результат|  
+|Passos de configuração|Resultado|  
 |-------------------------|-------------|  
-|Адам записывает образ операционной системы, используя компьютер с установленной ОС Windows 7, настроенной в соответствии с требованиями компании. Затем он развертывает ОС на новые компьютеры с помощью поддержки неизвестных компьютеров и PXE. В процессе развертывания операционной системы он также устанавливает клиент Configuration Manager.|Таким образом, новые компьютеры быстрее подготавливаются к работе без привлечения службы поддержки.|  
-|Адам настраивает автоматическую принудительную установку клиента на все компьютеры, чтобы клиент Configuration Manager устанавливался на все обнаруженные компьютеры. Такой подход гарантирует установку клиента на все компьютеры независимо от того, содержался ли клиент в образе установки, и управление всеми компьютерами посредством Configuration Manager.<br /><br /> Адам настраивает состояние клиента для автоматического устранения всех обнаруживаемых неполадок. Он также настраивает параметры клиента, включающие сбор необходимых данных инвентаризации, а также настраивает аналитику активов.|Установка клиента одновременно с операционной системой — более быстрый и надежный способ. Лучше устанавливать клиент именно так, а не дожидаться, пока Configuration Manager обнаружит компьютер, а затем попытается установить на нем исходные файлы клиента. Но автоматическую принудительную установку клиента можно оставить включенной в качестве запасного решения. В этом случае, если на компьютере уже установлена ОС, то клиент будет установлен на этом компьютере при подключении к сети.<br /><br /> С помощью параметром клиента можно настроить регулярную отправку клиентами данных инвентаризации. Вместе с проверкой состояния клиентов это помогает поддерживать работоспособность клиентов без вмешательства службы поддержки. Например, повреждения WMI автоматически обнаруживаются и исправляются.<br /><br /> Отчеты по аналитике активов помогают отслеживать использование программного обеспечения и лицензий.|  
-|Адам создает коллекцию для компьютеров, которым требуется более строгая политика. Затем он создает настраиваемые параметры клиентского устройства для этой коллекции: запрет удаленного управления, ввод ПИН-кода BitLocker, установка программного обеспечения только локальными администраторами.<br /><br /> Адам настраивает ролевое администрирование, чтобы эта коллекция не отображалась для инженеров службы поддержки. Это поможет обезопасить компьютеры от случайных попыток управления ими как обычными компьютерами.|Теперь эти компьютеры находятся под управлением Configuration Manager, но с определенными параметрами, для которых не требуется новый сайт.<br /><br /> Коллекция этих компьютеров скрыта от инженеров службы поддержки. Это помогает снизить вероятность применения к этим компьютерам развертываний и скриптов, предназначенных для обычных компьютеров.|  
+|O Artur captura uma imagem do sistema operativo de um computador que tenha o Windows 7 instalado e configurado para as especificações da empresa. Em seguida, implementa o sistema operativo em novos computadores utilizando o suporte para computadores desconhecidos e o PXE. Instala também o cliente do Configuration Manager como parte da implementação do sistema operativo.|Os novos computadores estão ativos e a funcionar mais rapidamente e sem a intervenção do suporte técnico.|  
+|O Artur configura a instalação push automática do cliente em todo o site para instalar o cliente do Configuration Manager em todos os computadores que são detetados. Isto garante que todos os computadores que não foram instalados com o cliente instalem o cliente para que o computador seja gerido pelo Configuration Manager.<br /><br /> O Artur configura o estado do cliente para retificar automaticamente quaisquer problemas detetados no mesmo. Ron também configura as definições de cliente que permitem a recolha de dados de inventário que é necessário e configura o Asset Intelligence.|Instalar o cliente, juntamente com o sistema operativo é mais rápida e mais fiável do que a aguardar para o Configuration Manager para detetar o computador e, em seguida, tentar instalar os ficheiros de origem do cliente no computador. No entanto, com a opção de instalação de push de cliente automática opção ativada, pode fornecer um método de cópia de segurança de um computador que já tenha o sistema operativo instalado para instalar o cliente quando o computador liga à rede.<br /><br /> As definições do cliente garantem que os clientes enviem regularmente as suas informações de inventário para o site. Isto, além dos testes de estado do cliente, ajuda a manter o cliente em execução com intervenções mínimas por parte do suporte técnico. Por exemplo, os danos no WMI são detetados e retificados automaticamente.<br /><br /> Os relatórios do Asset Intelligence ajudam a monitorizar a utilização do software e as licenças.|  
+|O Artur cria uma coleção para os computadores que têm de ter as definições de política mais rigorosas. Em seguida, ele cria uma definição de dispositivo de cliente personalizadas para esta coleção que desativa o controlo remoto, permite a introdução do PIN do BitLocker e permite aos administradores locais apenas instalar software.<br /><br /> O Artur configura a administração baseada em funções para que os engenheiros do suporte técnico não vejam esta coleção de computadores. Isto ajuda a garantir que estes computadores não são geridos acidentalmente como computadores padrão.|Estes computadores são agora geridos pelo Configuration Manager, mas com definições específicas que não necessitam de um novo site.<br /><br /> A coleção para estes computadores não está visível para os engenheiros do suporte técnico. Isto ajuda a reduzir a possibilidade dos computadores que está a ser enviado acidentalmente implementações e scripts para computadores padrão.|  
 
- В результате описанных действий по настройке компании Trey Research удается успешно упростить управление клиентами.  
+ Estes passos e resultados de configuração permitem à Trey Research simplificar com sucesso a gestão de clientes dos dispositivos.  
 
-##  <a name="BKMK_NextSteps"></a> Дальнейшие действия  
- Перед установкой Configuration Manager ознакомьтесь с некоторыми основными принципами и понятиями, связанными с Configuration Manager.  
+##  <a name="BKMK_NextSteps"></a> Passos seguintes  
+ Antes de instalar o Configuration Manager, pode tornar-se familiarizar com alguns conceitos e termos básicos que são específicos para o Configuration Manager.  
 
--   Если вы уже работали с System Center 2012 Configuration Manager, ознакомьтесь с новыми возможностями, которые перечислены в разделе [Изменения в System Center Configuration Manager с момента выпуска версии System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md).  
--   Общее техническое описание System Center Configuration Manager см. в статье [Основные сведения о Microsoft System Center Configuration Manager](../../core/understand/fundamentals.md).  
+-   Se estiver familiarizado com o System Center 2012 Configuration Manager, consulte o artigo [o que mudou no System Center Configuration Manager, do System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md) para compreender as novas funcionalidades.  
+-   Para uma alto nível Descrição geral técnica do System Center Configuration Manager, consulte [Noções básicas do System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
-Получив общие сведения, обратитесь к документации по System Center Configuration Manager, чтобы выполнить развертывание и приступить к использованию Configuration Manager.  
+Quando estiver familiarizado com os conceitos básicos, utilize a documentação do System Center Configuration Manager para o ajudar a implementar e utilizar o Configuration Manager com êxito.  

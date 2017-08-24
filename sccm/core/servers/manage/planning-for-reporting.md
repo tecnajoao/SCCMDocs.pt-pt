@@ -1,6 +1,6 @@
 ---
-title: "Планирование отчетов | Документы Майкрософт"
-description: "При планировании отчетов в Configuration Manager необходимо учесть все аспекты: от параметров установки до безопасности и пропускной способности сети."
+title: "Planeamento de relatórios | Microsoft Docs"
+description: "A partir de detalhes da instalação a largura de banda de rede e de segurança, é importante planear relatórios no Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,53 +16,53 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 119f501057bf44e483be31db20b88326b3d05ebb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-reporting-in-system-center-configuration-manager"></a>Планирование создания отчетов в System Center Configuration Manager
+# <a name="planning-for-reporting-in-system-center-configuration-manager"></a>Planeamento de relatórios no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Службы отчетов в System Center Configuration Manager включают набор средств и ресурсов, которые позволяют использовать дополнительные возможности служб SQL Server Reporting Services. В следующих разделах содержатся сведения о планировании создания отчетов в Configuration Manager.  
+Relatórios no System Center Configuration Manager fornecem um conjunto de ferramentas e recursos que ajudam a utilizam as capacidades avançadas de relatórios do SQL Server Reporting Services. Utilize as secções seguintes para ajudar a planear para relatórios no Configuration Manager.  
 
-##  <a name="BKMK_InstallReportingServicesPoint"></a> Выбор места установки точки служб отчетов  
- Отчеты Configuration Manager, выполняющиеся на сайте, имеют доступ к сведениям в базе данных сайта, к которой они подключаются. В следующих разделах содержатся сведения о выборе места установки точки служб отчетов и выборе используемого источника данных.  
-
-> [!NOTE]  
->  Дополнительные сведения о планировании систем сайта в Configuration Manager см. в разделе [Добавление ролей системы сайта](../deploy/configure/add-site-system-roles.md).  
-
-###  <a name="BKMK_SupportedSiteServers"></a> Поддерживаемые серверы систем сайтов  
- Точку служб отчетов можно установить на сайте центра администрирования и первичных сайтах, а также в нескольких системах сайта на сайте и на других сайтах в иерархии. На вторичных сайтах точка служб отчетов не поддерживается. Первая точка служб отчетов на сайте настраивается как сервер отчетов по умолчанию. На сайт можно добавить дополнительные точки служб отчетов, однако для отчетов Configuration Manager на каждом сайте будет активно использоваться заданный по умолчанию сервер отчетов. Точку служб отчетов можно установить на сервере сайта или в удаленной системе сайта. Тем не менее, для обеспечения надлежащей производительности службы отчетов рекомендуется использовать на сервере удаленной системы сайта.  
-
-###  <a name="BKMK_DataReplication"></a> Рекомендации относительно репликации данных  
- Configuration Manager классифицирует реплицируемые данные как глобальные данные или данные сайта. Глобальные данные относятся к объектам, созданным пользователями и реплицированным на всех сайтах иерархии. На вторичных сайтах находится лишь подмножество глобальных данных. В качестве примеров глобальных данных можно привести развертывания и обновления программного обеспечения, коллекции, области безопасности с ролевым администрированием. Данные сайта являются операционными сведениями, создаваемыми первичными сайтами Configuration Manager и клиентами, которые формируют отчеты для первичных сайтов. Данные сайта реплицируются на сайт центра администрирования, но не на другие первичные сайты. В качестве примеров данных сайта можно привести данные инвентаризации оборудования, сообщения о состоянии, оповещения и результаты из коллекций на основе запросов. Данные сайта отображаются только на сайте центра администрирования и первичном сайте, являющемся источником этих данных.  
-
- При выборе места установки точек служб отчетов рекомендуется принять во внимание следующие факторы.  
-
--   Точка служб отчетов с базой данных сайта центра администрирования в качестве источника данных для отчетов имеет доступ ко всем глобальным данным и данным сайта в иерархии Configuration Manager. Если требуются отчеты, которые содержат данные сайта для нескольких сайтов в иерархии, точку служб отчетов рекомендуется установить в системе сайта на сайте центра администрирования и использовать базу данных этого сайта в качестве источника данных для отчетов.  
-
--   Точка служб отчетов с базой данных дочернего первичного сайта в качестве источника данных для отчетов имеет доступ ко всем глобальным данным и данным сайта только для локального первичного сайта и всех дочерних вторичных сайтов. Данные сайта для других первичных сайтов в иерархии Configuration Manager не реплицируются на первичный сайт, поэтому они недоступны для служб отчетов. Если требуются отчеты, которые содержат данные сайта для конкретного первичного сайта или глобальные данные, но пользователь отчетов не должен иметь доступ к данным сайта с других первичных сайтов, установите точку служб отчетов в системе сайта на первичном сайте и используйте базу данных первичного сайта в качестве источника данных для отчетов.  
-
-###  <a name="BKMK_NetworkBandwidth"></a> Рекомендации относительно пропускной способности сети  
- В зависимости от настройки сайта взаимодействие серверов систем сайта на одном сайте осуществляется с помощью протоколов SMB, HTTP или HTTPS. Поскольку эти взаимодействия являются неуправляемыми и могут происходить в любое время без контроля пропускной способности сети, перед установкой роли точки служб отчетов в системе сайта следует проверить доступную пропускную способность сети.  
+##  <a name="BKMK_InstallReportingServicesPoint"></a> Determinar onde instalar o Ponto do Reporting Services  
+ Quando executa relatórios do Configuration Manager num site, os relatórios têm acessos às informações na base de dados de site que se ligam. Utilize as secções seguintes para o ajudar a determinar onde deve instalar o ponto do Reporting Services e qual a origem de dados a utilizar.  
 
 > [!NOTE]  
->  Дополнительные сведения о планировании систем сайта см. в разделе [Добавление ролей системы сайта](../deploy/configure/add-site-system-roles.md).  
+>  Para obter mais informações sobre o planeamento de sistemas de sites no Configuration Manager, consulte [adicionar funções do sistema de sites](../deploy/configure/add-site-system-roles.md).  
 
-##  <a name="BKMK_RoleBaseAdministration"></a> Планирование ролевого администрирования для отчетов  
- Безопасность отчетов обеспечивается аналогично безопасности других объектов в Configuration Manager, где пользователям можно назначать роли и разрешения безопасности. Пользователи могут выполнять и изменять те отчеты, для которых у них есть соответствующие права безопасности. Для выполнения отчетов в консоли Configuration Manager требуется право **Чтение** для объекта **Сайт** и разрешения, настроенные для определенных объектов.  
+###  <a name="BKMK_SupportedSiteServers"></a> Servidores do sistema de sites suportados  
+ É possível instalar o ponto do Reporting Services num site de administração central, em sites primários, em vários sistemas de sites num site e noutros sites da hierarquia. O ponto do Reporting Services não é suportado em sites secundários. O primeiro ponto do Reporting Services num site é configurado como o servidor de relatórios predefinido. Pode adicionar mais pontos do Reporting Services num site, mas o servidor de relatórios predefinido em cada site é utilizado ativamente para relatórios do Configuration Manager. É possível instalar o ponto do Reporting Services no servidor do site ou num sistema de sites remoto. No entanto, como melhor prática por motivos de desempenho, utilize o Reporting Services num servidor do sistema de sites remoto.  
 
- Однако в отличие от других объектов в Configuration Manager права безопасности, задаваемые пользователям в консоли Configuration Manager, необходимо также настроить в службах отчетов. При настройке прав безопасности в консоли Configuration Manager точка служб отчетов подключается к службам отчетов и задает соответствующие разрешения для отчетов. Например, роль безопасности **Менеджер обновления программного обеспечения** имеет связанные с ней разрешения **Выполнить отчет** и **Изменить отчет** . Пользователи, которым назначена только роль **Менеджер обновления программного обеспечения** , могут только выполнять и изменять отчеты для обновлений программного обеспечения. Отчеты для других объектов не отображаются в консоли Configuration Manager. Исключением являются некоторые отчеты, не связанные с конкретными защищаемыми объектами Configuration Manager. Для выполнения таких отчетов пользователь должен иметь право **Чтение** для разрешения **Сайт** , а для изменения — право **Изменение** для разрешения **Сайт** .  
+###  <a name="BKMK_DataReplication"></a> Considerações sobre replicação de dados  
+ O Configuration Manager classifica os dados que replica como dados globais ou dados do site. Os dados globais referem-se a objetos criados por utilizadores administrativos e replicados em todos os sites ao longo da hierarquia, enquanto os sites secundários recebem apenas um subconjunto dos dados globais. São exemplos de dados globais as implementações de software, as atualizações de software, as coleções e os âmbitos de segurança da administração baseada em funções. Dados do site refere-se a informações operacionais que sites primários do Configuration Manager e os clientes que criar relatório aos sites primários. Os dados do site replicam para o site de administração central, mas não para outros sites primários. São exemplos de dados do site os dados de inventário de hardware, as mensagens de estado, os alertas e os resultados de coleções baseadas em consulta. Os dados do site apenas são visíveis no site de administração central e no site primário de origem dos dados.  
 
- Отчеты полностью включены для ролевого администрирования. Данные для всех отчетов, включенных в Configuration Manager, фильтруются в соответствии с разрешениями пользователя с правами администратора, который запускает отчет. Пользователи с правами администратора с определенными ролями могут только просматривать информацию, определенную для их роли.  
+ Considere os seguintes fatores para o ajudar a determinar onde instalar os pontos do Reporting Services:  
 
- Дополнительные сведения о правах безопасности для отчетов см. в разделе [Настройка отчетов](configuring-reporting.md).  
+-   Um ponto do Reporting Services com a base de dados do site de administração central como origem de dados do relatório tem acesso a todos os globais e dados do site na hierarquia do Configuration Manager. Se forem necessários relatórios que contêm dados do site para vários sites numa hierarquia, considere a instalação do Reporting Services ponto num sistema de sites no site de administração central e utiliza a base de dados do site de administração central como origem de dados do relatório.  
 
- Дополнительные сведения о ролевом администрировании в Configuration Manager см. в разделе [Настройка ролевого администрирования](../deploy/configure/configure-role-based-administration.md).  
+-   Um ponto do Reporting Services que tenha a base de dados de um site primário subordinado como origem de dados do relatório tem acesso a dados globais e a dados do site apenas no site primário local e em todos os sites secundários subordinados. Dados do site para outros sites primários na hierarquia do Configuration Manager não são replicados para o site primário, e, por conseguinte, Reporting Services não é possível aceder ao mesmo. Se forem necessários relatórios que contêm dados do site para um site primário específico ou dados globais, mas não pretende que o utilizador de relatório para ter acesso a dados do site de outros sites primários, instale um ponto do Reporting Services num sistema de sites no site primário e utilizar a base de dados do site primário como origem de dados do relatório.  
 
-## <a name="next-steps"></a>Дальнейшие действия  
- При планировании создания отчетов в Configuration Manager используйте информацию из следующих дополнительных источников:  
+###  <a name="BKMK_NetworkBandwidth"></a> Considerações sobre largura de banda da rede  
+ Os servidores do sistema de sites no mesmo site comunicam entre si através da utilização do bloco de mensagem de servidor (SMB), de HTTP ou de HTTPS, dependendo da forma como configurar o site. Uma vez que estas comunicações não são geridas e podem ocorrer em qualquer altura sem controlo da largura de banda da rede, reveja a largura de banda da rede disponível antes de instalar a função ponto do Reporting Services num sistema de sites.  
 
--   [Необходимые условия для ведения отчетов в System Center Configuration Manager](../../../core/servers/manage/prerequisites-for-reporting.md)  
--   [Рекомендации по ведению отчетов в System Center Configuration Manager](../../../core/servers/manage/best-practices-for-reporting.md)  
+> [!NOTE]  
+>  Para obter mais informações sobre o planeamento de sistemas de sites, consulte [adicionar funções do sistema de sites](../deploy/configure/add-site-system-roles.md).  
+
+##  <a name="BKMK_RoleBaseAdministration"></a> Planeamento da administração baseada em funções para relatórios  
+ Segurança para relatórios é idêntica de outros objetos no Configuration Manager onde é possível atribuir funções de segurança e permissões a utilizadores administrativos. Os utilizadores administrativos só podem executar e modificar relatórios para os quais têm direitos de segurança adequados. Para executar relatórios na consola do Configuration Manager, tem de ter o **leitura** indicado para o **Site** permissão e as permissões configuradas para objetos específicos.  
+
+ No entanto, ao contrário de outros objetos no Configuration Manager, os direitos de segurança que definiu para utilizadores administrativos na consola do Configuration Manager tem também de ser configurados no Reporting Services. Quando configurar direitos de segurança na consola do Configuration Manager, o ponto do reporting services estabelece ligação ao Reporting Services e define as permissões adequadas para relatórios. Por exemplo, a função de segurança **Gestor de Atualizações de Software** possui as permissões **Executar Relatório** e **Ler Relatório** associadas à função. Os utilizadores administrativos que apenas têm atribuída a função **Gestor de Atualizações de Software** só podem executar e modificar relatórios para atualizações de software. Relatórios de outros objetos não são apresentados na consola do Configuration Manager. A exceção é que alguns relatórios não estão associados a objetos com capacidade de segurança específicos do Configuration Manager. Para esses relatórios, o utilizador administrativo deve possuir o direito **Ler** para a permissão do **Site** para executar os relatórios e o direito **Modificar** para a permissão do **Site** para modificar os relatórios.  
+
+ Os relatórios têm o suporte de administração baseada em funções ativado. Os dados para todos os relatórios incluídos com o Configuration Manager são filtrados com base nas permissões do utilizador administrativo que executa o relatório. Os utilizadores administrativos com funções específicas apenas podem ver informações definidas para as respetivas funções.  
+
+ Para obter mais informações sobre direitos de segurança para relatórios, consulte [configurar relatórios](configuring-reporting.md).  
+
+ Para obter mais informações sobre a administração baseada em funções no Configuration Manager, consulte [configurar a administração baseada em funções](../deploy/configure/configure-role-based-administration.md).  
+
+## <a name="next-steps"></a>Passos seguintes  
+ Utilize os tópicos adicionais seguintes para ajudar a planear relatórios no Configuration Manager:  
+
+-   [Pré-requisitos para relatórios no System Center Configuration Manager](../../../core/servers/manage/prerequisites-for-reporting.md)  
+-   [Melhores práticas para relatórios no System Center Configuration Manager](../../../core/servers/manage/best-practices-for-reporting.md)  

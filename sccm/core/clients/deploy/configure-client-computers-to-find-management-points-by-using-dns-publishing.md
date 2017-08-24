@@ -1,6 +1,6 @@
 ---
-title: "Настройка клиентов для поиска точек управления с использованием публикации DNS | Документы Майкрософт"
-description: "Настройка клиентских компьютеров на поиск точек управления с использованием публикации DNS в System Center Configuration Manager."
+title: "Configure a publicação de DNS de pontos de gestão do clientes localizar | Microsoft Docs"
+description: "Definir os computadores cliente para localizar pontos de gestão utilizando a publicação de DNS no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,43 +16,43 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d016ec3fe106b2d90b3c14b4f9296aed4d198644
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Настройка клиентских компьютеров на поиск точек управления с использованием публикации DNS в System Center Configuration Manager
+# <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Como configurar computadores cliente para localizar pontos de gestão utilizando a publicação de DNS no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Чтобы оставаться управляемыми, клиенты в System Center Configuration Manager должны находить точку управления для выполнения назначения сайтов и далее выполнять это действие на постоянной основе. Доменные службы Active Directory предоставляют клиентам наиболее безопасный способ поиска точек управления в интрасети. Однако если клиенты не могут использовать этот метод поиска служб (например, если схема Active Directory не была расширена или если клиенты находятся в рабочей группе), в качестве предпочтительного метода поиска служб следует использовать публикацию DNS.  
+Os clientes no System Center Configuration Manager tem de localizar um ponto de gestão para concluir a atribuição de site e como processo contínuo para continuam a ser geridos. Os Serviços de Domínio do Active Directory fornecem o método mais seguro para que os clientes da intranet consigam localizar pontos de gestão. Porém, se os clientes não puderem utilizar este método de localização do serviço (por exemplo, não expandiu o esquema do Active Directory ou os clientes pertencem a um grupo de trabalho), utilize a publicação de DNS como método de localização do serviço alternativo preferido.  
 
 > [!NOTE]  
->  При установке клиента для Linux и UNIX необходимо указать точку управления для использования в качестве начальной точки контакта. Сведения об установке клиента для Linux и UNIX см. в статье [Развертывание клиентов на серверах UNIX и Linux в System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
+>  Quando instala o cliente no Linux e UNIX, tem de especificar um ponto de gestão para utilizar como um ponto inicial de contacto. Para obter informações sobre como instalar o cliente para Linux e UNIX, consulte [como implementar clientes em servidores UNIX e Linux no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
 
- Перед использованием публикации DNS для точек управления следует убедиться в том, что серверы DNS в интрасети имеют записи ресурса нахождения службы (SRV RR) и соответствующие записи ресурса узла (A или AAA) для точек управления сайта. Записи ресурса нахождения службы могут создаваться автоматически Configuration Manager или вручную администратором DNS, создающим записи в DNS.  
+ Antes de utilizar a publicação de DNS em pontos de gestão, certifique-se de que os servidores DNS da intranet possuem registos de recursos de localização do serviço (SRV RR) e registos de recursos de anfitrião correspondente (A ou AAA) para os pontos de gestão do site. Os registos de recursos de localização de serviço podem ser criados automaticamente pelo Configuration Manager ou manualmente pelo administrador de DNS responsável pela criação de registos no DNS.  
 
- Дополнительные сведения о публикации DNS как методе обнаружения служб для клиентов Configuration Manager см. в статье [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+ Para obter mais informações sobre a publicação de DNS como método de localização de serviço para clientes do Configuration Manager, consulte [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
- По умолчанию клиенты ищут точки управления DNS в своем домене DNS. Однако если опубликованных точек управления в домене клиентов нет, необходимо вручную настроить клиенты с суффиксом DNS точки управления. Настроить этот суффикс DNS на клиентах можно во время или после установки клиента:  
+ Por predefinição, os clientes procuram o DNS para pontos de gestão no respetivo domínio de DNS. No entanto, se existirem pontos de gestão publicados no domínio dos clientes, tem de configurar manualmente os clientes com o sufixo DNS de ponto de gestão. Pode configurar este sufixo DNS nos clientes durante ou após a instalação do cliente:  
 
--   Чтобы настроить клиенты для суффикса точки управления во время установки клиента, настройте свойства CCMSetup Client.msi.  
+-   Para configurar os clientes com um sufixo de ponto de gestão durante a instalação do cliente, configure as propriedades do CCMSetup Client.msi.  
 
--   Чтобы настроить на клиентах суффикс точек управления после установки клиентов, откройте панель управления и настройте **Свойства Configuration Manager**.  
+-   Para configurar os clientes com um sufixo de ponto de gestão após a instalação do cliente, no Painel de Controlo, configure as **Propriedades do Configuration Manager**.  
 
-#### <a name="to-configure-clients-for-a-management-point-suffix-during-client-installation"></a>Настройка на клиентах суффикса точек управления во время установки клиента  
+#### <a name="to-configure-clients-for-a-management-point-suffix-during-client-installation"></a>Para configurar os clientes com um sufixo de ponto de gestão durante a instalação do cliente  
 
--   Установите клиент с использованием следующего свойства CCMSetup Client.msi:  
+-   Instale o cliente com a seguinte propriedade do CCMSetup Client.msi:  
 
-    -   **DNSSUFFIX=** *&lt;домен точки управления\>*  
+    -   **DNSSUFFIX =**  *&lt;domínio de ponto de gestão\>*  
 
-         Если у сайта несколько точек управления, и они находятся в различных доменах, укажите только один домен. При подключении к точке управления в этом домене клиент загрузит список доступных точек управления, включая точки управления из других доменов.  
+         Se o site tiver mais que um ponto de gestão e estes estiverem em mais de um domínio, especifique apenas um domínio. Quando os clientes estabelecem ligação a um ponto de gestão deste domínio, transferem uma lista de pontos de gestão disponíveis que inclui os pontos de gestão de outros domínios.  
 
-     Дополнительные сведения о свойствах командной стройки CCMSetup см. в статье [О свойствах установки клиента в Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+     Para obter mais informações sobre as propriedades de linha de comandos do CCMSetup, consulte [acerca das propriedades de instalação de cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-#### <a name="to-configure-clients-for-a-management-point-suffix-after-client-installation"></a>Настройка на клиентах суффикса точек управления после установки клиента  
+#### <a name="to-configure-clients-for-a-management-point-suffix-after-client-installation"></a>Para configurar os clientes com um sufixo de ponto de gestão após a instalação do cliente  
 
-1.  В панели управления клиентского компьютера перейдите к пункту **Configuration Manager**и дважды щелкните **Свойства**.  
+1.  No Painel de Controlo do computador cliente, aceda a **Configuration Manager**e faça duplo clique em **Propriedades**.  
 
-2.  На вкладке **Сайт** укажите DNS-суффикс точки управления, после чего нажмите кнопку **ОК**.  
+2.  No separador **Site** , especifique o sufixo DNS de um ponto de gestão e clique em **OK**.  
 
-     Если у сайта несколько точек управления, и они находятся в различных доменах, укажите только один домен. При подключении к точке управления в этом домене клиент загрузит список доступных точек управления, включая точки управления из других доменов.
+     Se o site tiver mais que um ponto de gestão e estes estiverem em mais de um domínio, especifique apenas um domínio. Quando os clientes estabelecem ligação a um ponto de gestão deste domínio, transferem uma lista de pontos de gestão disponíveis que inclui os pontos de gestão de outros domínios.

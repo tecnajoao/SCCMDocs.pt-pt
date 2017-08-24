@@ -1,6 +1,6 @@
 ---
-title: "Развертывание PKI-сертификатов | Документы Майкрософт"
-description: "Ознакомьтесь с процессом создания и развертывания PKI-сертификатов, используемых System Center Configuration Manager, на основе пошагового примера."
+title: "Certificados de implementação de PKI | Microsoft Docs"
+description: Siga um exemplo passo a passo para saber como criar e implementar certificados PKI que utiliza o System Center Configuration Manager.
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,762 +16,762 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: b15f85b4483bbae2444d4e73d2e2aa0b3979d9ab
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="step-by-step-example-deployment-of-the-pki-certificates-for-system-center-configuration-manager-windows-server-2008-certification-authority"></a>Пример пошагового развертывания PKI-сертификатов для System Center Configuration Manager: центр сертификации Windows Server 2008
+# <a name="step-by-step-example-deployment-of-the-pki-certificates-for-system-center-configuration-manager-windows-server-2008-certification-authority"></a>Exemplo passo a passo implementação dos certificados PKI para o System Center Configuration Manager: Autoridade de certificação do Windows Server 2008
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-В этом примере с пошаговыми инструкциями развертывания с использованием центра сертификации Windows Server 2008 описываются процедуры создания и развертывания сертификатов инфраструктуры открытых ключей (PKI), необходимых для работы System Center Configuration Manager. Здесь используется центр сертификации предприятия (ЦС) и шаблоны сертификатов. Эти действия можно выполнять только в тестовой сети в качестве эксперимента.  
+Esta implementação de exemplo passo a passo, que utiliza uma autoridade de certificação (AC) do Windows Server 2008, tem de procedimentos que mostram como criar e implementar os certificados de infraestrutura de chaves públicas (PKI) que utiliza o System Center Configuration Manager. Estes procedimentos utilizam uma autoridade de certificação (AC) empresarial e modelos de certificado. Os passos são adequados apenas para uma rede de teste, como prova de conceito.  
 
- Так как единого метода развертывания требуемых сертификатов не существует, необходимо ознакомиться с документацией по развертыванию конкретной инфраструктуры открытых ключей и изучить необходимые процедуры и рекомендуемые способы развертывания сертификатов для рабочей среды. Дополнительные сведения о требованиях к сертификатам см. в разделе [Требования к PKI-сертификатам для System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Porque não existe nenhum método de implementação único para os certificados necessários, consulte a documentação de implementação de PKI específica para os procedimentos necessários e as melhores práticas para implementar os certificados necessários para um ambiente de produção. Para obter mais informações sobre os requisitos de certificado, consulte [requisitos de certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
 > [!TIP]  
->  Инструкции, представленные в этом разделе, можно адаптировать к операционным системам, которые не указаны в разделе "Требования к тестовой сети". Однако если используется центр сертификации в Windows Server 2012, версия шаблона сертификата не запрашивается. Вместо этого укажите эти данные на вкладке **Совместимость** свойств шаблона:  
+>  Pode adaptar as instruções neste tópico para sistemas operativos que não estão documentados na secção de requisitos de rede de teste. No entanto, se estiver a executar a AC emissora no Windows Server 2012, não lhe será solicitada a indicação da versão do modelo de certificado. Em vez disso, especifique isto no **compatibilidade** separador de propriedades do modelo:  
 >   
->  -   **Центр сертификации**: **Windows Server 2003**  
-> -   **Получатель сертификата**: **Windows XP / Server 2003**  
+>  -   **Autoridade de certificação**: **Windows Server 2003**  
+> -   **Destinatário do certificado**: **Windows XP / Server 2003**  
 
-## <a name="in-this-section"></a>В этом разделе  
- В следующих разделах приведены примеры пошаговых инструкций по созданию и развертыванию следующих сертификатов, которые можно использовать с System Center Configuration Manager:  
+## <a name="in-this-section"></a>Nesta secção  
+ As secções seguintes incluem instruções passo a passo de exemplo para criar e implementar os seguintes certificados que podem ser utilizados com o System Center Configuration Manager:  
 
- [Требования к тестовой сети](#BKMK_testnetworkenvironment)  
+ [Requisitos de rede de teste](#BKMK_testnetworkenvironment)  
 
- [Обзор сертификатов](#BKMK_overview2008)  
+ [Descrição geral dos certificados](#BKMK_overview2008)  
 
- [Развертывание сертификата веб-сервера для систем сайта с запущенными службами IIS](#BKMK_webserver2008_cm2012)  
+ [Implementar o certificado de servidor web para sistemas de sites que executam o IIS](#BKMK_webserver2008_cm2012)  
 
- [Развертывание сертификата службы для облачных точек распространения](#BKMK_clouddp2008_cm2012)  
+ [Implementar o certificado de serviço para pontos de distribuição baseado na nuvem](#BKMK_clouddp2008_cm2012)  
 
- [Развертывание сертификата клиента для компьютеров Windows](#BKMK_client2008_cm2012)  
+ [Implementar o certificado de cliente para computadores Windows](#BKMK_client2008_cm2012)  
 
- [Развертывание сертификата клиента для точек распространения](#BKMK_clientdistributionpoint2008_cm2012)  
+ [Implementar o certificado de cliente para pontos de distribuição](#BKMK_clientdistributionpoint2008_cm2012)  
 
- [Развертывание сертификата регистрации для мобильных устройств](#BKMK_mobiledevices2008_cm2012)  
+ [Implementar o certificado de inscrição para dispositivos móveis](#BKMK_mobiledevices2008_cm2012)  
 
- [Развертывание сертификатов для AMT](#BKMK_AMT2008_cm2012)  
+ [Implementar os certificados para AMT](#BKMK_AMT2008_cm2012)  
 
- [Развертывание сертификата клиента для компьютеров Mac](#BKMK_MacClient_SP1)  
+ [Implementar o certificado de cliente para computadores Mac](#BKMK_MacClient_SP1)  
 
-##  <a name="BKMK_testnetworkenvironment"></a>Требования к тестовой сети  
- Для выполнения пошаговых инструкций необходимо учесть следующие требования.  
+##  <a name="BKMK_testnetworkenvironment"></a>Requisitos de rede de teste  
+ As instruções passo a passo têm os seguintes requisitos:  
 
--   В тестовой сети должны быть запущены доменные службы Active Directory с ОС Windows Server 2008, и она должна быть установлена как один домен и один лес.  
+-   A rede de teste está a executar os Serviços de Domínio do Active Directory com o Windows Server 2008 e está instalada como único domínio e única floresta.  
 
--   Необходим рядовой сервер, на котором запущена ОС Windows Server 2008 Enterprise Edition и установлена роль служб сертификатов Active Directory. Этот сервер должен быть настроен в качестве корневого центра сертификации (ЦС) предприятия.  
+-   Tem um servidor membro com o Windows Server 2008 Enterprise Edition, que tem a função de serviços de certificados do Active Directory instalada no mesmo e está configurado como uma autoridade de certificação de raiz empresarial (AC).  
 
--   Необходим один компьютер с ОС Windows Server 2008 (выпуск Standard или Enterprise Edition, R2 или более поздние выпуски), назначенный в качестве рядового сервера, на котором установлены службы IIS. Этот компьютер будет сервером системы сайта System Center Configuration Manager, настроенным с полным доменным именем в интрасети для поддержки подключений клиентов в интрасети и полным доменным именем в Интернете, если требуется поддержка для мобильных устройств, зарегистрированных с помощью System Center Configuration Manager, и клиентов в Интернете.  
+-   Tem um computador que tenha o Windows Server 2008 (Standard Edition ou Enterprise Edition, R2 ou posterior) instalado no mesmo, que o computador está designado como servidor membro e serviços de informação Internet (IIS) está instalado no mesmo. Este computador será o servidor de sistema de sites do System Center Configuration Manager irá ser configurado com um nome de domínio completamente qualificado (FQDN) para suportar ligações de cliente na intranet e um FQDN de Internet caso seja necessário suportar dispositivos móveis que são inscritos pelo System Center Configuration Manager e os clientes de intranet na Internet.  
 
--   В сети должен быть один клиент Windows Vista с последним пакетом обновления. Этому компьютеру должно быть присвоено имя, содержащее символы ASCII, и он должен быть присоединен к домену. Этот компьютер будет клиентским компьютером System Center Configuration Manager.  
+-   Ter um cliente do Windows Vista com service pack mais recente instalado e este computador está configurado com um nome de computador que abrange carateres ASCII e está associado ao domínio. Este computador será um computador de cliente do System Center Configuration Manager.  
 
--   Должна быть возможность войти в систему с использованием учетной записи администратора корневого домена или администратора домена предприятия и использовать эту учетную запись во всех процедурах описываемого примера развертывания.  
+-   Pode iniciar sessão com uma conta de administrador de domínio de raiz ou uma conta de administrador de domínio da empresa e utilizar esta conta para todos os procedimentos nesta implementação de exemplo.  
 
-##  <a name="BKMK_overview2008"></a> Обзор сертификатов  
- В таблице ниже перечислены типы PKI-сертификатов, которые могут потребоваться для System Center Configuration Manager, и описаны способы их использования.  
+##  <a name="BKMK_overview2008"></a>Descrição geral dos certificados  
+ A tabela seguinte lista os tipos de certificados PKI que poderão ser necessárias para o System Center Configuration Manager e descreve a forma como são utilizados.  
 
-|Требования к сертификату|Описание сертификата|  
+|Requisito de Certificado|Descrição do Certificado|  
 |-----------------------------|-----------------------------|  
-|Сертификат веб-сервера для систем сайта, в которых запущены службы IIS|Этот сертификат используется для шифрования данных и удостоверяет подлинность сервера при обращении клиентов. Он должен быть установлен как внешний из System Center Configuration Manager на серверах системы сайта, на которых выполняются службы IIS и для которых в System Center Configuration Manager настроено использование протокола HTTPS.<br /><br /> Инструкции по настройке и установке этого сертификата см. в подразделе [Развертывание сертификата веб-сервера для систем сайта с запущенными службами IIS](#BKMK_webserver2008_cm2012) этого раздела.|  
-|Сертификат службы для подключения клиентов к облачным точкам распространения|Инструкции по настройке и установке этого сертификата см. в подразделе [Развертывание сертификата службы для облачных точек распространения](#BKMK_clouddp2008_cm2012) этого раздела.<br /><br /> **Внимание** . Этот сертификат используется вместе с сертификатом управления Microsoft Azure. Дополнительные сведения о сертификате управления см. в подразделах [Создание сертификата управления](http://go.microsoft.com/fwlink/p/?LinkId=220281) и [Добавление сертификата управления в подписку Windows Azure](http://go.microsoft.com/fwlink/?LinkId=241722) в разделе Windows Azure Platform библиотеки MSDN.|  
-|Сертификат клиента для компьютеров Windows|Этот сертификат используется для проверки подлинности клиентских компьютеров System Center Configuration Manager при обращении к системам сайта, настроенным для использования протокола HTTPS. Его также можно использовать для мониторинга рабочего состояния точек управления и точек миграции состояния, настроенных для подключений по протоколу HTTPS. Он должен быть установлен как внешний из System Center Configuration Manager на компьютерах.<br /><br /> Инструкции по настройке и установке этого сертификата см. в подразделе [Развертывание сертификата клиента для компьютеров Windows](#BKMK_client2008_cm2012) этого раздела.|  
-|Сертификат клиента для точек распространения|Этот сертификат используется в следующих двух целях.<br /><br /> Сертификат используется для проверки подлинности точки распространения при обращении к точке управления с поддержкой протокола HTTPS до отправки точкой распространения сообщений о состоянии.<br /><br /> Если для точки распространения выбран параметр **Включить поддержку PXE для клиентов** , сертификат отправляется на компьютеры, выполняющие загрузку PXE, поэтому они могут подключаться к точке управления с поддержкой протокола HTTPS во время развертывания операционной системы.<br /><br /> Инструкции по настройке и установке этого сертификата см. в подразделе [Развертывание сертификата клиента для точек распространения](#BKMK_clientdistributionpoint2008_cm2012) этого раздела.|  
-|Сертификат регистрации для мобильных устройств|Этот сертификат используется для проверки подлинности клиентов мобильных устройств System Center Configuration Manager при обращении к системам сайта, настроенным для использования протокола HTTPS. Его необходимо установить в процессе регистрации мобильных устройств в System Center Configuration Manager. Настроенный шаблон сертификата выбирается в качестве параметра клиента мобильного устройства.<br /><br /> Инструкции по настройке этого сертификата см. в подразделе [Развертывание сертификата регистрации для мобильных устройств](#BKMK_mobiledevices2008_cm2012) этого раздела.|  
-|Сертификаты для Intel AMT|С использованием аппаратного контроллера управления для компьютеров на основе Intel AMT связаны три сертификата:<ul><li>сертификат подготовки AMT;</li><li>сертификат веб-сервера AMT;</li><li>сертификат проверки подлинности клиента для проводных или беспроводных сетей 802.1X (необязательный).</li></ul>Сертификат подготовки AMT должен быть установлен вне System Center Configuration Manager на компьютере точки управления аппаратного контроллера управления. Выбор этого сертификата осуществляется в свойствах точки обслуживания аппаратного контроллера управления. Сертификат веб-сервера AMT и сертификат проверки подлинности клиента устанавливаются во время подготовки и управления AMT. Выбор настроенных шаблонов сертификатов осуществляется в свойствах компонента аппаратного контроллера управления.<br /><br /> Инструкции по настройке этих сертификатов см. в подразделе [Развертывание сертификатов для AMT](#BKMK_AMT2008_cm2012) в этом разделе.|  
-|Сертификат клиента для компьютеров Mac|Вы можете запросить установить этот сертификат от компьютера Mac во время использования регистрации System Center Configuration Manager и выбрать настроенный шаблон сертификата в качестве параметра клиента мобильного устройства.<br /><br /> Инструкции по настройке этого сертификата см. в подразделе [Развертывание сертификата клиента для компьютеров Mac](#BKMK_MacClient_SP1) этого раздела.|  
+|Certificado de servidor Web para os sistemas de sites que executam o IIS|Este certificado é utilizado para encriptar dados e autenticar o servidor para clientes. Tem de ser instalado externamente do System Center Configuration Manager em servidores de sistemas de sites que executam os serviços de informação Internet (IIS) e que estão configurados no System Center Configuration Manager para utilizar HTTPS.<br /><br /> Para obter os passos configurar e instalação deste certificado, consulte [implementar o certificado de servidor web para sistemas de sites que executam o IIS](#BKMK_webserver2008_cm2012) neste tópico.|  
+|Certificado de serviço para clientes que ligam a pontos de distribuição baseados na nuvem|Para obter os passos de configuração e instalação deste certificado, consulte [implementar o certificado de serviço para pontos de distribuição baseado na nuvem](#BKMK_clouddp2008_cm2012) neste tópico.<br /><br /> **Importante:** Este certificado é utilizado em conjunto com o certificado de gestão do Windows Azure. Para mais informações sobre o certificado de gestão, consulte [como criar um certificado de gestão](http://go.microsoft.com/fwlink/p/?LinkId=220281) e [como adicionar um certificado de gestão a uma subscrição do Windows Azure](http://go.microsoft.com/fwlink/?LinkId=241722) na secção plataforma Windows Azure da biblioteca MSDN.|  
+|Certificado de cliente para computadores com o Windows|Este certificado é utilizado para autenticar computadores de cliente do System Center Configuration Manager para sistemas de sites que estão configurados para utilizar HTTPS. Também pode ser utilizado para pontos de gestão e pontos de migração de estado para monitorizar o respetivo estado operacional quando estão configurados para utilizar HTTPS. Tem de ser instalado externamente do System Center Configuration Manager em computadores.<br /><br /> Para obter os passos configurar e instalação deste certificado, consulte [implementar o certificado de cliente para computadores Windows](#BKMK_client2008_cm2012) neste tópico.|  
+|Certificado de cliente para pontos de distribuição|Este certificado tem duas finalidades:<br /><br /> O certificado é utilizado para autenticar o ponto de distribuição para um ponto de gestão ativado para HTTPS antes de o ponto de distribuição enviar mensagens de estado.<br /><br /> Quando a opção do ponto de distribuição **Ativar suporte PXE para clientes** está selecionada, o certificado é enviado para computadores com arranque PXE para que liguem a um ponto de gestão ativado para HTTPS durante a implementação do sistema operativo.<br /><br /> Para obter os passos configurar e instalação deste certificado, consulte [implementar o certificado de cliente para pontos de distribuição](#BKMK_clientdistributionpoint2008_cm2012) neste tópico.|  
+|Certificado de inscrição para dispositivos móveis|Este certificado é utilizado para autenticar clientes de dispositivo móvel do System Center Configuration Manager para sistemas de sites que estão configurados para utilizar HTTPS. Tem de ser instalado como parte da inscrição de dispositivos móveis no System Center Configuration Manager e escolha o modelo de certificado configurado como uma definição de cliente de dispositivo móvel.<br /><br /> Para obter os passos configurar este certificado, consulte [implementar o certificado de inscrição para dispositivos móveis](#BKMK_mobiledevices2008_cm2012) neste tópico.|  
+|Certificados para o Intel AMT|Três certificados estão relacionadas com a gestão fora de banda para computadores baseados em Intel AMT:<ul><li>Um certificado de aprovisionamento Active Management Technology (AMT)</li><li>Um certificado de servidor de web AMT</li><li>Opcionalmente, um certificado de autenticação de cliente para redes com ou sem fios 802.1 X</li></ul>O certificado de aprovisionamento de AMT deve ser instalado externamente do System Center Configuration Manager no computador do ponto de serviço fora de banda e, em seguida, escolha o certificado instalado nas propriedades do ponto de serviço fora de banda. O certificado de servidor de web AMT e o certificado de autenticação de cliente são instaladas durante o aprovisionamento de AMT e de gestão e escolha os modelos de certificado configurado nas propriedades do componente de gestão fora de banda.<br /><br /> Para obter os passos configurar estes certificados, consulte [implementar os certificados para AMT](#BKMK_AMT2008_cm2012) neste tópico.|  
+|Certificado de cliente para computadores Mac|Pode pedir e instalar este certificado a partir de um computador Mac quando utiliza a inscrição do System Center Configuration Manager e escolha o modelo de certificado configurado como uma definição de cliente de dispositivo móvel.<br /><br /> Para obter os passos configurar este certificado, consulte [implementar o certificado de cliente para computadores Mac](#BKMK_MacClient_SP1) neste tópico.|  
 
-##  <a name="BKMK_webserver2008_cm2012"></a> Развертывание сертификата веб-сервера для систем сайта с запущенными службами IIS  
- Процесс развертывания сертификата включает следующие процедуры.  
+##  <a name="BKMK_webserver2008_cm2012"></a>Implementar o certificado de servidor web para sistemas de sites que executam o IIS  
+ Esta implementação de certificados possui os seguintes procedimentos:  
 
--   Создание и выдача шаблона сертификата веб-сервера в центре сертификации  
+-   Criar e emitir o modelo de certificado na autoridade de certificação de servidor web  
 
--   Запрос сертификата веб-сервера  
+-   Pedir o certificado de servidor web  
 
--   Настройка служб IIS для использования сертификата веб-сервера  
+-   Configurar o IIS para utilizar o certificado de servidor web  
 
-###  <a name="BKMK_webserver22008"></a> Создание и выдача шаблона сертификата веб-сервера в центре сертификации  
- Эта процедура используется для создания шаблона сертификата для систем сайта System Center Configuration Manager, который затем добавляется в центр сертификации.  
+###  <a name="BKMK_webserver22008"></a>Criar e emitir o modelo de certificado na autoridade de certificação de servidor web  
+ Este procedimento cria um modelo de certificado para sistemas de sites do System Center Configuration Manager e adiciona-o à autoridade de certificação.  
 
-##### <a name="to-create-and-issue-the-web-server-certificate-template-on-the-certification-authority"></a>Создание и выдача шаблона сертификата веб-сервера в центре сертификации  
+##### <a name="to-create-and-issue-the-web-server-certificate-template-on-the-certification-authority"></a>Para criar e emitir o modelo de certificado de servidor Web na autoridade de certificação  
 
-1.  Создайте группу безопасности с именем **Серверы IIS ConfigMgr**, содержащую рядовые серверы для установки систем сайта System Center Configuration Manager, на которых будут выполняться службы IIS.  
+1.  Crie um grupo de segurança denominado **servidores IIS do ConfigMgr** com os servidores membro para instalar sistemas de sites do System Center Configuration Manager que executam o IIS.  
 
-2.  На рядовом сервере с установленными службами сертификации в консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление**, чтобы загрузить консоль **Шаблоны сертификатов**.  
+2.  No servidor membro que tem os serviços de certificados instalados, a consola da autoridade de certificação, clique com botão direito **modelos de certificado** e, em seguida, escolha **gerir** ao carregar o **modelos de certificado** consola.  
 
-3.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Веб-сервер**, и выберите команду **Скопировать шаблон**.  
+3.  No painel de resultados, faça duplo clique na entrada que tem **servidor Web** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
 
-4.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
+4.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**.  
 
-5.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона, например **Сертификат веб-сервера Configuration Manager**, для создания веб-сертификатов, которые будут использоваться на системах сайта Configuration Manager.  
+5.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de servidor Web do ConfigMgr**para gerar os certificados web que serão utilizados nos sistemas de sites do Configuration Manager.  
 
-6.  Откройте вкладку **Имя субъекта** и убедитесь в том, что выбран параметр **Предоставляется в запросе**.  
+6.  Escolha o **nome do requerente** separador e certifique-se de que **fornecer no pedido** está selecionada.  
 
-7.  Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из групп безопасности **Администраторы домена** и **Администраторы предприятия**.  
+7.  Escolha o **segurança** separador e, em seguida, remova o **inscrever** permissão a partir do **Admins do domínio** e **Admins de empresa** grupos de segurança.  
 
-8.  Нажмите кнопку **Добавить**, в текстовом поле введите **IIS-серверы Configuration Manager** и нажмите кнопку **ОК**.  
+8.  Escolha **adicionar**, introduza **servidores IIS do ConfigMgr** no texto da caixa e, em seguida, escolha **OK**.  
 
-9. Установите разрешение **Регистрация** для этой группы, но не снимайте разрешение **Чтение**.  
+9. Escolha o **inscrever** permissão para este grupo e não desmarque a **leitura** permissão.  
 
-10. Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
+10. Escolha **OK**e, em seguida, feche o **consola de modelos de certificado**.  
 
-11. В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите **Выдаваемый шаблон сертификата**.  
+11. Na consola de autoridade de certificação, clique com botão direito **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-12. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный новый шаблон **Сертификат веб-сервера Configuration Manager** и нажмите кнопку **ОК**.  
+12. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de servidor Web do ConfigMgr**e, em seguida, escolha **OK**.  
 
-13. Если создавать и выдавать сертификаты больше не требуется, закройте консоль **Центр сертификации**.  
+13. Se não precisar de criar e emitir mais certificados, feche **autoridade de certificação**.  
 
-###  <a name="BKMK_webserver32008"></a> Запрос сертификата веб-сервера  
- Эта процедура используется для задания значений полных доменных имен в интрасети и Интернете, которые будут настроены в свойствах сервера системы сайта, и последующей установки сертификата веб-сервера на рядовом сервере, где запущены службы IIS.  
+###  <a name="BKMK_webserver32008"></a>Pedir o certificado de servidor web  
+ Este procedimento permite-lhe especificar os valores de FQDN de Internet que irão configurar as propriedades de servidor do sistema de sites e da intranet e, em seguida, instala o certificado de servidor web no servidor membro que executa o IIS.  
 
-##### <a name="to-request-the-web-server-certificate"></a>Запрос сертификата веб-сервера  
+##### <a name="to-request-the-web-server-certificate"></a>Para pedir o certificado de servidor Web  
 
-1.  Перезапустите рядовой сервер, на котором запущены службы IIS, чтобы убедиться в том, что компьютер имеет доступ к созданному шаблону с помощью настроенных разрешений **Чтение** и **Регистрация**.  
+1.  Reinicie o servidor membro que executa o IIS para se certificar de que o computador pode aceder o modelo de certificado que criou utilizando o **leitura** e **inscrever** permissões que configurou.  
 
-2.  Нажмите кнопку **Пуск**, выберите пункт **Выполнить** и введите **mmc.exe**. В пустой консоли щелкните **Файл**, а затем выберите команду **Добавить или удалить оснастку**.  
+2.  Escolha **iniciar**, escolha **executar**e, em seguida, escreva **mmc.exe.** Na consola vazia, escolha **ficheiro**e, em seguida, escolha **Adicionar/Remover Snap-in**.  
 
-3.  В диалоговом окне **Добавление и удаление оснасток** выберите **Сертификаты** из списка **Доступные оснастки** и нажмите кнопку **Добавить**.  
+3.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **certificados** da lista de **snap-ins disponíveis**e, em seguida, escolha **adicionar**.  
 
-4.  В диалоговом окне **Оснастка диспетчера сертификатов** выберите пункт **Учетная запись компьютера** и нажмите кнопку **Далее**.  
+4.  No **snap-in de certificados** diálogo caixa, escolha **conta de computador**e, em seguida, escolha **seguinte**.  
 
-5.  В диалоговом окне **Выбор компьютера** выберите **Локальный компьютер: (компьютер, на котором запущена эта консоль)** и нажмите кнопку **Готово**.  
+5.  No **selecionar computador** diálogo caixa, certifique-se de que **computador Local: (o computador onde esta consola está em execução no)** está selecionada e, em seguida, escolha **concluir**.  
 
-6.  В диалоговом окне **Добавление и удаление оснасток** нажмите кнопку **ОК**.  
+6.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **OK**.  
 
-7.  В консоли разверните узел **Сертификаты (локальный компьютер)** и выберите **Личные**.  
+7.  Na consola, expanda **certificados (computador Local)**e, em seguida, escolha **pessoais**.  
 
-8.  Щелкните правой кнопкой мыши **Сертификаты**, выберите пункт **Все задачи**, а затем **Запросить новый сертификат**.  
+8.  Clique com botão direito **certificados**, escolha **todas as tarefas**e, em seguida, escolha **requisitar um novo certificado**.  
 
-9. На странице **Перед началом работы** нажмите кнопку **Далее**.  
+9. No **antes de começar** página, escolha **seguinte**.  
 
-10. При отображении страницы **Выбор политики регистрации сертификатов** нажмите кнопку **Далее**.  
+10. Se vir o **selecionar política de inscrição de certificado** página, escolha **seguinte**.  
 
-11. На странице **Запрос сертификатов** выберите вариант **Сертификат веб-сервера Configuration Manager** в списке доступных сертификатов, а затем щелкните **Требуется больше данных для регистрации этого сертификата. Щелкните здесь для настройки параметров**.  
+11. No **pedir certificados** página, identifique o **certificado de servidor Web do ConfigMgr** da lista de certificados disponíveis e, em seguida, escolha **são necessárias mais informações para fazer a inscrição deste certificado. Clique aqui para configurar as definições**.  
 
-12. В диалоговом окне **Свойства сертификата** на вкладке **Субъект** оставьте значение параметра **Имя субъекта** без изменений. Это значит, что поле **Значение** в разделе **Имя субъекта** должно остаться пустым. В разделе **Альтернативное имя** в раскрывающемся списке **Тип** выберите пункт **DNS**.  
+12. No **propriedades do certificado** caixa de diálogo a **requerente** separador, não faça quaisquer alterações aos **nome do requerente**. Isto significa que a caixa **Valor** para a secção **Nome do requerente** permanece em branco. Em vez disso, a partir de **nome alternativo** secção, escolha o **tipo** pendente lista e, em seguida, escolha **DNS**.  
 
-13. В поле **Значение** укажите значения полных доменных имен, которые будут заданы в свойствах системы сайта System Center Configuration Manager, а затем нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства сертификата**.  
+13. No **valor** caixa, especifique os valores FQDN que irá especificar nas propriedades do sistema de site do System Center Configuration Manager e, em seguida, escolha **OK** para fechar o **propriedades do certificado** caixa de diálogo.  
 
-     Примеры:  
+     Exemplos:  
 
-    -   Если система сайта будет принимать подключения клиентов только из интрасети, а полное доменное имя сервера системы сайта в интрасети — **server1.internal.contoso.com**, введите **server1.internal.contoso.com**, а затем нажмите кнопку **Добавить**.  
+    -   Se o sistema de sites apenas aceitar ligações de cliente a partir da intranet e o FQDN da intranet do servidor do sistema de sites é **server1.internal.contoso.com**, introduza **server1.internal.contoso.com**e, em seguida, escolha **adicionar**.  
 
-    -   Если система сайта будет принимать подключения клиентов из интрасети и Интернета, а полное доменное имя сервера системы сайта в интрасети — **server1.internal.contoso.com** и полное доменное имя сервера системы сайта в Интернете — **server.contoso.com**, выполните следующие действия.  
+    -   Se o sistema de sites aceitar ligações de cliente a partir da intranet e da Internet e o FQDN de intranet do servidor do sistema de sites for **server1.internal.contoso.com** e o FQDN de Internet do servidor do sistema de sites for **server.contoso.com**:  
 
-        1.  Введите **server1.internal.contoso.com**, а затем нажмите кнопку **Добавить**.  
+        1.  Introduza **server1.internal.contoso.com**e, em seguida, escolha **adicionar**.  
 
-        2.  Введите **server1.contoso.com**, а затем нажмите кнопку **Добавить**.  
+        2.  Introduza **server.contoso.com**e, em seguida, escolha **adicionar**.  
 
         > [!NOTE]  
-        >  Указывать полные доменные имена для System Center Configuration Manager можно в любом порядке. Но необходимо проверить, что все устройства, которые будут использовать сертификат, например мобильные устройства и прокси-серверы в Интернете, могут использовать альтернативное имя субъекта (SAN) сертификата и несколько значений имени SAN. Если устройства обеспечивают ограниченную поддержку значений SAN в сертификатах, может потребоваться изменить последовательность полных доменных имен или использовать значение "Субъект".  
+        >  Pode especificar o FQDN para o System Center Configuration Manager por qualquer ordem. No entanto, verifique se todos os dispositivos que irão utilizar o certificado, tais como dispositivos móveis e servidores web proxy, podem utilizar um nome alternativo do requerente de certificado (SAN) e múltiplos valores no SAN. Se os dispositivos têm suporte limitado para valores de SAN nos certificados, terá de alterar a ordem dos FQDN ou utilizar em vez disso o valor Requerente.  
 
-14. На странице **Запрос сертификатов** выберите вариант **Сертификат веб-сервера ConfigMgr** из списка доступных сертификатов и нажмите кнопку **Регистрация**.  
+14. No **pedir certificados** página, escolha **certificado de servidor Web do ConfigMgr** da lista de certificados disponíveis e, em seguida, escolha **inscrever**.  
 
-15. Откроется страница **Результаты установки сертификатов**. Дождитесь окончания установки сертификата и нажмите кнопку **Готово**.  
+15. No **resultados da instalação de certificados** página, aguarde até que o certificado está instalado e, em seguida, escolha **concluir**.  
 
-16. Закройте окно **Сертификаты (локальный компьютер)**.  
+16. Feche **Certificados (Computador Local)**.  
 
-###  <a name="BKMK_webserver42008"></a> Настройка служб IIS для использования сертификата веб-сервера  
- Эта процедура используется для привязки установленного сертификата к **веб-сайту по умолчанию**служб IIS.  
+###  <a name="BKMK_webserver42008"></a>Configurar o IIS para utilizar o certificado de servidor web  
+ Este procedimento vincula o certificado instalado ao **Web Site Predefinido**do IIS.  
 
-##### <a name="to-set-up-iis-to-use-the-web-server-certificate"></a>Настройка служб IIS для использования сертификата веб-сервера  
+##### <a name="to-set-up-iis-to-use-the-web-server-certificate"></a>Para configurar o IIS para utilizar o certificado de servidor web  
 
-1.  На рядовом сервере с установленными службами IIS нажмите кнопку **Пуск**, выберите пункт **Программы**, затем выберите **Администрирование**, а затем — **Диспетчер служб IIS**.  
+1.  No servidor membro que tem o IIS instalado, escolha **iniciar**, escolha **programas**, escolha **ferramentas administrativas**e, em seguida, escolha **Gestor dos serviços de informação Internet (IIS)**.  
 
-2.  Разверните узел **Сайты**, щелкните правой кнопкой мыши элемент **Веб-сайт по умолчанию** и выберите пункт **Изменить привязки**.  
+2.  Expanda **Sites**, faça duplo clique **Web Site predefinido**e, em seguida, escolha **editar enlaces**.  
 
-3.  Выберите запись **https** и нажмите **Изменить**.  
+3.  Escolha o **https** entrada e, em seguida, escolha **editar**.  
 
-4.  В диалоговом окне **Изменение привязки сайта** выберите сертификат, запрошенный с помощью шаблона "Сертификат веб-сервера Configuration Manager", и нажмите кнопку **ОК**.  
+4.  No **Editar enlace de Site** caixa de diálogo, selecione o certificado que pediu, através do modelo de certificados de servidor Web do ConfigMgr e, em seguida, escolha **OK**.  
 
     > [!NOTE]  
-    >  Если вы сомневаетесь, какой именно сертификат следует использовать, выберите один из них и щелкните **Просмотр**. С помощью этой функции можно сравнить сведения о выбранном сертификате с отображаемыми на странице "Оснастка диспетчера сертификатов". Например, на странице "Оснастка диспетчера сертификатов" отображается шаблон сертификата, с помощью которого был запрошен сертификат. Таким образом можно сравнить отпечаток сертификата, запрошенного с помощью шаблона "Сертификат веб-сервера Configuration Manager", с отпечатком сертификата, выбранного в диалоговом окне **Изменение привязки сайта**.  
+    >  Se não tem a certeza de que é o certificado correto, escolha um e, em seguida, escolha **vista**. Isto permite-lhe comparar os detalhes do certificado selecionado para os certificados no snap-in certificados. Por exemplo, o snap-in de certificados mostra o modelo de certificado que foi utilizado para pedir o certificado. Poderá então comparar a thumbprint do certificado que foi pedido utilizando o modelo de certificados de servidor Web do ConfigMgr para o thumbprint do certificado atualmente selecionado no **Editar enlace de Site** caixa de diálogo.  
 
-5.  Нажмите кнопку **ОК** в диалоговом окне **Изменение привязки сайта**, а затем нажмите кнопку **Закрыть**.  
+5.  Escolha **OK** no **Editar enlace de Site** diálogo caixa e, em seguida, escolha **fechar**.  
 
-6.  Закройте **Диспетчер служб IIS**.  
+6.  Feche o **Gestor de Serviços de Informação Internet (IIS)**.  
 
- Теперь у рядового сервера есть сертификат веб-сервера System Center Configuration Manager.  
+ O servidor membro está agora definido com um certificado de servidor web do System Center Configuration Manager.  
 
 > [!IMPORTANT]  
->  При установке сервера системы сайта System Center Configuration Manager на этом компьютере убедитесь в том, что в свойствах системы сайта указаны те же полные доменные имена, которые использовались при запросе сертификата.  
+>  Quando instala o servidor de sistema de sites do System Center Configuration Manager neste computador, certifique-se de que especifica os mesmos FQDN nas propriedades do sistema de sites que especificou quando pediu o certificado.  
 
-##  <a name="BKMK_clouddp2008_cm2012"></a> Развертывание сертификата службы для облачных точек распространения  
+##  <a name="BKMK_clouddp2008_cm2012"></a>Implementar o certificado de serviço para pontos de distribuição baseado na nuvem  
 
-Процесс развертывания сертификата включает следующие процедуры.  
+Esta implementação de certificados possui os seguintes procedimentos:  
 
--   [Создание и выдача пользовательского шаблона сертификата веб-сервера в центре сертификации](#BKMK_clouddpcreating2008)  
+-   [Criar e emitir o modelo de certificado na autoridade de certificação de um servidor web personalizado](#BKMK_clouddpcreating2008)  
 
--   [Запрос пользовательского сертификата веб-сервера](#BKMK_clouddprequesting2008)  
+-   [Pedir o certificado de servidor web personalizado](#BKMK_clouddprequesting2008)  
 
--   [Экспорт пользовательского сертификата веб-сервера для облачных точек распространения](#BKMK_clouddpexporting2008)  
+-   [Exportar o certificado de servidor web personalizado para pontos de distribuição baseado na nuvem](#BKMK_clouddpexporting2008)  
 
-###  <a name="BKMK_clouddpcreating2008"></a> Создание и выдача пользовательского шаблона сертификата веб-сервера в центре сертификации  
- В этой процедуре создается пользовательский шаблон сертификата, основанный на шаблоне сертификата веб-сервера. Сертификат предназначен для облачных точек распространения System Center Configuration Manager, и закрытый ключ должен быть экспортируемым. После создания шаблона сертификата он добавляется в центр сертификации.  
+###  <a name="BKMK_clouddpcreating2008"></a>Criar e emitir o modelo de certificado na autoridade de certificação de um servidor web personalizado  
+ Este procedimento cria um modelo de certificado personalizado baseado no modelo de certificado de servidor web. O certificado é para os pontos de distribuição baseados na nuvem do System Center Configuration Manager e a chave privada tem de ser exportável. Após a criação do modelo de certificado, este é adicionado à autoridade de certificação.  
 
 > [!NOTE]  
->  В этой процедуре используется шаблон сертификата, который отличается от шаблона сертификатов веб-сервера, созданного для систем сайта со службами IIS. Хотя оба сертификата требуют наличия возможности проверки подлинности серверов, сертификат для облачных точек распространения требует вводить определенное пользователем значение для имени субъекта, а закрытый ключ необходимо экспортировать. По соображениям безопасности настройку сертификатов для разрешения экспорта закрытого ключа рекомендуется выполнять только в случае необходимости. Для облачной точки распространения требуется эта настройка, так как сертификат следует импортировать в качестве файла, а не выбирать в хранилище сертификатов.  
+>  Este procedimento utiliza um modelo de certificado diferente do modelo de certificado de servidor web que criou para sistemas de sites que executam o IIS. Embora ambos os certificados necessitem de capacidade de autenticação de servidor, o certificado para pontos de distribuição baseados na nuvem requer que introduza um valor personalizado para o nome do requerente e a chave privada tem de ser exportada. Como melhor prática de segurança, efetue não configurar modelos de certificado para que a chave privada pode ser exportada, a menos que esta configuração é necessária. O ponto de distribuição baseado na nuvem necessita desta configuração porque é necessário importar o certificado como um ficheiro, vez escolhê-lo a partir do arquivo de certificados.  
 >   
->  При создании шаблона для этого сертификата можно ограничить компьютеры, имеющие возможность запрашивать сертификат, закрытый ключ которого можно экспортировать. В рабочей сети в этот сертификат можно внести указанные ниже изменения.  
+>  Quando cria um novo modelo de certificado para este certificado, pode restringir os computadores que podem solicitar um certificado cujo chave privada pode ser exportada. Numa rede de produção, também poderá considerar adicionar as seguintes alterações para este certificado:  
 >   
->  -   В целях обеспечения дополнительной безопасности требовать утверждения для установки сертификата.  
-> -   Увеличить срок действия сертификата. Так как каждый раз перед окончанием срока действия сертификат необходимо экспортировать и импортировать, увеличение срока действия сертификата сокращает частоту выполнения этой процедуры. Но увеличение срока действия также приводит к снижению уровня безопасности сертификата, так как злоумышленник получает больше времени на расшифровку закрытого ключа и кражу сертификата.  
-> -   Использовать пользовательское значение для альтернативного имени субъекта (SAN) сертификата, чтобы отличать этот сертификат от стандартных сертификатов веб-серверов, используемых в IIS.  
+>  -   Exigir a aprovação para instalar o certificado para segurança adicional.  
+> -   Aumente o período de validade do certificado. Porque tem de exportar e importar o certificado de cada vez antes de expirar, um aumento do período de validade reduz a frequência tem de repetir este procedimento. No entanto, um aumento do período de validade também reduz a segurança do certificado porque fornece mais algum tempo para um atacante desencriptar a chave privada e roubar o certificado.  
+> -   Utilize um valor personalizado no Nome Alternativo do Requerente (SAN) do certificado para ajudar a identificar este certificado entre certificados de servidor Web padrão que utiliza com o IIS.  
 
-##### <a name="to-create-and-issue-the-custom-web-server-certificate-template-on-the-certification-authority"></a>Создание и выдача пользовательского шаблона сертификата веб-сервера в центре сертификации  
+##### <a name="to-create-and-issue-the-custom-web-server-certificate-template-on-the-certification-authority"></a>Para criar e emitir o modelo de certificado na autoridade de certificação de servidor web personalizado  
 
-1.  Создайте группу безопасности с именем **Серверы сайта ConfigMgr**, содержащую рядовые серверы для установки серверов первичного сайта System Center Configuration Manager, которые будут управлять облачными точками распространения.  
+1.  Crie um grupo de segurança denominado **servidores do Site ConfigMgr** com os servidores membro para instalar servidores de site primário do System Center Configuration Manager que irão gerir pontos de distribuição baseados na nuvem.  
 
-2.  На рядовом сервере с запущенной консолью центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление** для загрузки консоли управления шаблонами сертификатов.  
+2.  No servidor membro que está a executar a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** para carregar a consola de gestão de modelos de certificado.  
 
-3.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Веб-сервер**, и выберите команду **Скопировать шаблон**.  
+3.  No painel de resultados, faça duplo clique na entrada que tem **servidor Web** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
 
-4.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
+4.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**.  
 
-5.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона, например **Сертификат облачной точки распространения ConfigMgr**, для создания сертификата веб-сервера для облачных точек распространения.  
+5.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de ponto de distribuição baseado na nuvem do ConfigMgr**para gerar o certificado de servidor web para pontos de distribuição baseado na nuvem.  
 
-6.  Перейдите на вкладку **Обработка запроса** и выберите параметр **Разрешить экспортировать закрытый ключ**.  
+6.  Escolha o **processamento de pedidos** separador e, em seguida, escolha **permitir que a chave privada seja exportada**.  
 
-7.  Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из группы безопасности **Администраторы предприятия**.  
+7.  Escolha o **segurança** separador e, em seguida, remova o **inscrever** permissão a partir do **Admins de empresa** grupo de segurança.  
 
-8.  Нажмите кнопку **Добавить**, в текстовом поле введите **Серверы сайта Configuration Manager** и нажмите кнопку **ОК**.  
+8.  Escolha **adicionar**, introduza **servidores do Site ConfigMgr** no texto da caixa e, em seguida, escolha **OK**.  
 
-9. Установите разрешение **Регистрация** для этой группы, но не снимайте разрешение **Читать** .  
+9. Selecione a permissão **Inscrever** para este grupo e não desmarque a permissão **Leitura** .  
 
-10. Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
+10. Escolha **OK**e, em seguida, feche **consola de modelos de certificado**.  
 
-11. В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите **Выдаваемый шаблон сертификата**.  
+11. Na consola de autoridade de certificação, clique com botão direito **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-12. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный шаблон **Сертификат облачной точки распространения ConfigMgr** и нажмите кнопку **ОК**.  
+12. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de ponto de distribuição baseado na nuvem do ConfigMgr**e, em seguida, escolha **OK**.  
 
-13. Если создавать и выдавать сертификаты больше не требуется, закройте консоль **Центр сертификации**.  
+13. Se não necessitar de criar e emitir mais certificados, feche **autoridade de certificação**.  
 
-###  <a name="BKMK_clouddprequesting2008"></a> Запрос пользовательского сертификата веб-сервера  
- В этой процедуре производится запрос и установка пользовательского сертификата веб-сервера на рядовой сервер, на котором будет работать сервер сайта.  
+###  <a name="BKMK_clouddprequesting2008"></a>Pedir o certificado de servidor web personalizado  
+ Este procedimento pede e, em seguida, instala o certificado de servidor web personalizado no servidor membro que irá executar o servidor do site.  
 
-##### <a name="to-request-the-custom-web-server-certificate"></a>Запрос настраиваемого сертификата веб-сервера  
+##### <a name="to-request-the-custom-web-server-certificate"></a>Para pedir o certificado de servidor Web personalizado  
 
-1.  Перезапустите рядовой сервер после создания и настройки группы безопасности **Серверы сайта ConfigMgr**, чтобы убедиться в том, что компьютер может получать доступ к шаблону сертификата, созданному с помощью настроенных разрешений на **чтение** и **регистрацию**.  
+1.  Reinicie o servidor membro depois de criar e configurar o **servidores do Site ConfigMgr** grupo de segurança para se certificar de que o computador pode aceder o modelo de certificado que criou utilizando o **leitura** e **inscrever** permissões que configurou.  
 
-2.  Нажмите кнопку **Пуск**, выберите пункт **Выполнить** и введите **mmc.exe**. В пустой консоли щелкните **Файл**, а затем выберите команду **Добавить или удалить оснастку**.  
+2.  Escolha **iniciar**, escolha **executar**e, em seguida, introduza **mmc.exe.** Na consola vazia, escolha **ficheiro**e, em seguida, escolha **Adicionar/Remover Snap-in**.  
 
-3.  В диалоговом окне **Добавление и удаление оснасток** выберите **Сертификаты** из списка **Доступные оснастки** и нажмите кнопку **Добавить**.  
+3.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **certificados** da lista de **snap-ins disponíveis**e, em seguida, escolha **adicionar**.  
 
-4.  В диалоговом окне **Оснастка диспетчера сертификатов** выберите пункт **Учетная запись компьютера** и нажмите кнопку **Далее**.  
+4.  No **snap-in de certificados** diálogo caixa, escolha **conta de computador**e, em seguida, escolha **seguinte**.  
 
-5.  В диалоговом окне **Выбор компьютера** выберите **Локальный компьютер: (компьютер, на котором запущена эта консоль)** и нажмите кнопку **Готово**.  
+5.  No **selecionar computador** diálogo caixa, certifique-se de que **computador Local: (o computador onde esta consola está em execução no)** está selecionada e, em seguida, escolha **concluir**.  
 
-6.  В диалоговом окне **Добавление и удаление оснасток** нажмите кнопку **ОК**.  
+6.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **OK**.  
 
-7.  В консоли разверните узел **Сертификаты (локальный компьютер)** и выберите **Личные**.  
+7.  Na consola, expanda **certificados (computador Local)**e, em seguida, escolha **pessoais**.  
 
-8.  Щелкните правой кнопкой мыши **Сертификаты**, выберите пункт **Все задачи**, а затем **Запросить новый сертификат**.  
+8.  Clique com botão direito **certificados**, escolha **todas as tarefas**e, em seguida, escolha **requisitar um novo certificado**.  
 
-9. На странице **Перед началом работы** нажмите кнопку **Далее**.  
+9. No **antes de começar** página, escolha **seguinte**.  
 
-10. При отображении страницы **Выбор политики регистрации сертификатов** нажмите кнопку **Далее**.  
+10. Se vir o **selecionar política de inscrição de certificado** página, escolha **seguinte**.  
 
-11. На странице **Запрос сертификатов** выберите вариант **Сертификат облачной точки распространения Configuration Manager** в списке доступных сертификатов, а затем щелкните **Требуется больше данных для регистрации этого сертификата. Щелкните здесь для настройки параметров**.  
+11. No **pedir certificados** página, identifique o **certificado de ponto de distribuição baseado na nuvem do ConfigMgr** da lista de certificados disponíveis e, em seguida, escolha **mais informação é necessária a inscrição para este certificado. Escolha aqui configurar as definições**.  
 
-12. В диалоговом окне **Свойства сертификата** на вкладке **Субъект** в поле **Имя субъекта** выберите **Общее имя** в качестве значения параметра **Тип**.  
+12. No **propriedades do certificado** caixa de diálogo a **requerente** separador, para o **nome do requerente**, escolha **nome comum** como o **tipo**.  
 
-13. В поле **Значение** укажите любое имя службы и имя вашего домена с помощью формата полных доменных имен. Например: **clouddp1.contoso.com**.  
-
-    > [!NOTE]  
-    >  Имя службы должно быть уникальным в пределах пространства имен. Вы будете использовать DNS для создания псевдонима (записи CNAME), чтобы сопоставить это имя службы с автоматически генерируемым идентификатором (GUID) и IP-адресом в Windows Azure.  
-
-14. Нажмите кнопку **Добавить**, а затем кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства сертификата**.  
-
-15. На странице **Запрос сертификатов** в списке доступных сертификатов выберите вариант **Сертификат облачной точки распространения ConfigMgr** и нажмите кнопку **Регистрация**.  
-
-16. Откроется страница **Результаты установки сертификатов**. Дождитесь окончания установки сертификата и нажмите кнопку **Готово**.  
-
-17. Закройте окно **Сертификаты (локальный компьютер)**.  
-
-###  <a name="BKMK_clouddpexporting2008"></a> Экспорт пользовательского сертификата веб-сервера для облачных точек распространения  
- Ниже описана процедура экспорта настраиваемого сертификата веб-сервера в файл для последующего импорта во время создания облачной точки распространения.  
-
-##### <a name="to-export-the-custom-web-server-certificate-for-cloud-based-distribution-points"></a>Экспорт пользовательского сертификата веб-сервера для облачных точек распространения  
-
-1.  В консоли **Сертификаты (локальный компьютер)** щелкните только что установленный сертификат правой кнопкой мыши, выберите пункт **Все задачи**, а затем — **Экспорт**.  
-
-2.  В мастере экспорта сертификатов нажмите кнопку **Далее**.  
-
-3.  На странице **Экспорт закрытого ключа** выберите пункт **Да, экспортировать закрытый ключ**, а затем нажмите кнопку **Далее**.  
+13. Na caixa **Valor** , especifique a sua escolha de nome de serviço e o nome do domínio utilizando um formato FQDN. Por exemplo: **pdnuvem1.contoso.com**.  
 
     > [!NOTE]  
-    >  Если эта функция недоступна, сертификат был создан без функции экспорта закрытого ключа. В этом случае нельзя экспортировать сертификат в требуемом формате. Потребуется настроить шаблон сертификата, разрешив экспорт закрытого ключа, а затем повторить запрос сертификата.  
+    >  Certifique-o nome do serviço exclusivo no seu espaço de nomes. Irá utilizar DNS para criar um alias (registo CNAME) para mapear este nome de serviço para um identificador (GUID) gerado automaticamente e um endereço IP do Windows Azure.  
 
-4.  На странице **Формат экспортируемого файла** убедитесь в том, что выбран вариант **Файл обмена личной информацией — PKCS #12 (.PFX)**.  
+14. Escolha **adicionar**e, em seguida, escolha **OK** para fechar o **propriedades do certificado** caixa de diálogo.  
 
-5.  На странице **Пароль** укажите надежный пароль для защиты экспортированного сертификата с его закрытым ключом и нажмите кнопку **Далее**.  
+15. No **pedir certificados** página, escolha **certificado de ponto de distribuição baseado na nuvem do ConfigMgr** da lista de certificados disponíveis e, em seguida, escolha **inscrever**.  
 
-6.  На странице **Имя экспортируемого файла** укажите имя файла, который необходимо экспортировать, и нажмите кнопку **Далее**.  
+16. No **resultados da instalação de certificados** página, aguarde até que o certificado está instalado e, em seguida, escolha **concluir**.  
 
-7.  Чтобы закрыть окно мастера, на странице **Мастер экспорта сертификатов** нажмите кнопку **Готово**, а затем в диалоговом окне подтверждения — кнопку **ОК**.  
+17. Feche **Certificados (Computador Local)**.  
 
-8.  Закройте окно **Сертификаты (локальный компьютер)**.  
+###  <a name="BKMK_clouddpexporting2008"></a>Exportar o certificado de servidor web personalizado para pontos de distribuição baseado na nuvem  
+ Este procedimento exporta o certificado de servidor Web personalizado para um ficheiro para que possa ser importado quando criar o ponto de distribuição baseado na nuvem.  
 
-9. Сохраните файл в безопасном месте и убедитесь в том, что к нему можно получить доступ из консоли System Center Configuration Manager.  
+##### <a name="to-export-the-custom-web-server-certificate-for-cloud-based-distribution-points"></a>Para exportar o certificado de servidor Web personalizado para pontos de distribuição baseados na nuvem  
 
- Сертификат готов к импортированию во время создания облачной точки распространения.  
+1.  No **certificados (computador Local)** consola, faça duplo clique no certificado que acabou de instalar, escolha **todas as tarefas**e, em seguida, escolha **exportar**.  
 
-##  <a name="BKMK_client2008_cm2012"></a> Развертывание сертификата клиента для компьютеров Windows  
- Процесс развертывания сертификата включает следующие процедуры.  
+2.  No Assistente para exportar certificados, escolha **seguinte**.  
 
--   Создание и выдача шаблона сертификата проверки подлинности рабочей станции в центре сертификации  
+3.  No **exportar chave privada** página, escolha **Sim, exportar a chave privada**e, em seguida, escolha **seguinte**.  
 
--   Настройка автоматической регистрации шаблона сертификата проверки подлинности рабочей станции при помощи групповой политики  
+    > [!NOTE]  
+    >  Se esta opção não estiver disponível, o certificado foi criado sem a opção para exportar a chave privada. Neste cenário, não é possível exportar o certificado no formato necessário. Tem de configurar o modelo de certificado para que a chave privada pode ser exportado e, em seguida, pedir o certificado novamente.  
 
--   Автоматическая регистрация сертификата проверки подлинности рабочей станции и проверка его установки на компьютерах  
+4.  No **exportar formato de ficheiro** página, certifique-se de que o **Personal Information Exchange - PKCS #12 (. PFX)** opção está selecionada.  
 
-###  <a name="BKMK_client02008"></a> Создание и выдача шаблона сертификата проверки подлинности рабочей станции в центре сертификации  
- Эта процедура используется для создания шаблона сертификата для клиентских компьютеров System Center Configuration Manager, который затем добавляется в центр сертификации.  
+5.  No **palavra-passe** página, especifique uma palavra-passe segura para proteger o certificado exportado com a respetiva chave privada e, em seguida, escolha **seguinte**.  
 
-##### <a name="to-create-and-issue-the-workstation-authentication-certificate-template-on-the-certification-authority"></a>Создание и выдача шаблона сертификата проверки подлинности рабочей станции в центре сертификации  
+6.  No **ficheiro a exportar** página, especifique o nome do ficheiro que pretende exportar e, em seguida, escolha **seguinte**.  
 
-1.  На рядовом сервере с запущенной консолью центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление** для загрузки консоли управления шаблонами сертификатов.  
+7.  Para fechar o assistente, escolha **concluir** no **Assistente para exportar certificados** página e, em seguida, escolha **OK** na caixa de diálogo de confirmação.  
 
-2.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Проверка подлинности рабочей станции**, и нажмите кнопку **Скопировать шаблон**.  
+8.  Feche **Certificados (Computador Local)**.  
 
-3.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
+9. Guarde o ficheiro de forma segura e certifique-se de que consegue aceder-lhe a partir da consola do System Center Configuration Manager.  
+
+ O certificado está agora pronto para ser importado quando criar um ponto de distribuição baseado na nuvem.  
+
+##  <a name="BKMK_client2008_cm2012"></a>Implementar o certificado de cliente para computadores Windows  
+ Esta implementação de certificados possui os seguintes procedimentos:  
+
+-   Criar e emitir o modelo de certificado de autenticação de estação de trabalho na autoridade de certificação  
+
+-   Configurar a inscrição automática do modelo de autenticação de estação de trabalho utilizando a política de grupo  
+
+-   Inscrever o certificado de autenticação de estação de trabalho e certifique-se a instalação nos computadores automaticamente  
+
+###  <a name="BKMK_client02008"></a>Criar e emitir o modelo de certificado de autenticação de estação de trabalho na autoridade de certificação  
+ Este procedimento cria um modelo de certificado para o cliente do System Center Configuration Manager, computadores e adiciona-o à autoridade de certificação.  
+
+##### <a name="to-create-and-issue-the-workstation-authentication-certificate-template-on-the-certification-authority"></a>Para criar e emitir o modelo de certificado de Autenticação de Estação de Trabalho na autoridade de certificação  
+
+1.  No servidor membro que está a executar a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** para carregar a consola de gestão de modelos de certificado.  
+
+2.  No painel de resultados, faça duplo clique na entrada que tem **autenticação de estação de trabalho** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
+
+3.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**.  
 
-4.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона, например **Сертификат клиента Configuration Manager**, для создания сертификатов клиентов, которые будут использоваться на клиентских компьютерах Configuration Manager.  
+4.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de cliente do ConfigMgr**, para gerar os certificados de cliente que serão utilizados nos computadores de cliente do Configuration Manager.  
 
-5.  Откройте вкладку **Безопасность**, выберите группу **Компьютеры домена** и включите дополнительные разрешения **Чтение** и **Авторегистрация**. Не снимайте флажок в пункте **Регистрация**.  
+5.  Escolha o **segurança** separador, selecione o **computadores de domínio** grupo e, em seguida, selecione as permissões adicionais **leitura** e **inscrever automaticamente**. Não desmarque **Inscrever**.  
 
-6.  Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
+6.  Escolha **OK**e, em seguida, feche **consola de modelos de certificado**.  
 
-7.  В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите **Выдаваемый шаблон сертификата**.  
+7.  Na consola de autoridade de certificação, clique com botão direito **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-8.  В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный шаблон **Сертификат клиента Configuration Manager** и нажмите кнопку **ОК**.  
+8.  No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de cliente do ConfigMgr**e, em seguida, escolha **OK**.  
 
-9. Если создавать и выдавать сертификаты больше не требуется, закройте консоль **Центр сертификации**.  
+9. Se não precisar de criar e emitir mais certificados, feche **autoridade de certificação**.  
 
-###  <a name="BKMK_client12008"></a> Настройка автоматической регистрации шаблона сертификата проверки подлинности рабочей станции при помощи групповой политики  
- Эта процедура используется для настройки групповой политики для автоматической регистрации сертификата клиента на компьютерах.  
+###  <a name="BKMK_client12008"></a>Configurar a inscrição automática do modelo de autenticação de estação de trabalho utilizando a política de grupo  
+ Este procedimento configura a política de grupo para inscrever automaticamente o certificado de cliente em computadores.  
 
-##### <a name="to-set-up-autoenrollment-of-the-workstation-authentication-template-by-using-group-policy"></a>Настройка автоматической регистрации шаблона проверки подлинности рабочей станции с помощью групповой политики  
+##### <a name="to-set-up-autoenrollment-of-the-workstation-authentication-template-by-using-group-policy"></a>Para configurar a inscrição automática do modelo de autenticação de estação de trabalho utilizando a política de grupo  
 
-1.  На контроллере домена нажмите кнопку **Пуск**, выберите пункт **Администрирование**, а затем выберите **Управление групповой политикой**.  
+1.  No controlador de domínio, escolha **iniciar**, escolha **ferramentas administrativas**e, em seguida, escolha **gestão de políticas de grupo**.  
 
-2.  Перейдите к своему домену, щелкните его правой кнопкой мыши и выберите пункт **Создать объект групповой политики в этом домене и связать его**.  
-
-    > [!NOTE]  
-    >  На этом шаге рекомендуется создать новую групповую политику с пользовательской настройкой вместо редактирования политики домена по умолчанию, установленной вместе с доменными службами Active Directory. Назначение этой групповой политики на уровне домена позволит применить ее ко всем компьютерам домена. В рабочей среде можно ограничить автоматическую регистрацию таким образом, чтобы она действовала только для выбранных компьютеров. Можно назначить групповую политику на уровне подразделения или ограничить действие групповой политики домена так, чтобы она применялась только к компьютерам в определенной группе безопасности. При ограничении автоматической регистрации не забудьте включить в группу сервер, выполняющий роль точки управления.  
-
-3.  В диалоговом окне **Новый объект групповой политики** введите имя новой групповой политики, например **Сертификаты авторегистрации**, и нажмите кнопку **ОК**.  
-
-4.  В области результатов на вкладке **Связанные объекты групповой политики** щелкните правой кнопкой мыши новую групповую политику и выберите команду **Изменить**.  
-
-5.  В диалоговом окне **Редактор управления групповыми политиками** разверните узел **Политики** в разделе **Конфигурация компьютера**, а затем выберите **Параметры Windows** / **Параметры безопасности** / **Политики открытого ключа**.  
-
-6.  Щелкните правой кнопкой мыши тип объекта **Клиент служб сертификации: автоматическая регистрация** и выберите пункт **Свойства**.  
-
-7.  В раскрывающемся списке **Модель конфигурации** выберите пункт **Включена**, выберите **Обновлять сертификаты с истекшим сроком действия или в состоянии ожидания и удалять отозванные сертификаты**, затем **Обновлять сертификаты, использующие шаблоны сертификатов** и нажмите кнопку **ОК**.  
-
-8.  Закройте окно **Управление групповой политикой**.  
-
-###  <a name="BKMK_client22008"></a> Автоматическая регистрация сертификата проверки подлинности рабочей станции и проверка его установки на компьютерах  
- Эта процедура используется для установки сертификата клиента на компьютерах и проверки установки.  
-
-##### <a name="to-automatically-enroll-the-workstation-authentication-certificate-and-verify-its-installation-on-the-client-computer"></a>Автоматическая регистрация сертификата проверки подлинности рабочей станции и проверка его установки на клиентском компьютере  
-
-1.  Перезагрузите компьютер рабочей станции и подождите несколько минут перед входом в систему.  
+2.  Aceda ao seu domínio, clique com botão direito do domínio e, em seguida, escolha **criar um GPO neste domínio e ligá-lo aqui**.  
 
     > [!NOTE]  
-    >  Перезагрузка компьютера является самым надежным методом обеспечения успешной автоматической регистрации сертификата.  
+    >  Este passo utiliza a melhor prática de criar uma nova Política de Grupo para definições personalizadas, em vez de editar a Política de Domínios Predefinida que é instalada com os Serviços de Domínio do Active Directory. Ao atribuir esta política de grupo ao nível do domínio, irá aplicá-la a todos os computadores no domínio. Num ambiente de produção, pode restringir a inscrição automática, de modo a que inscreva apenas computadores selecionados. Pode atribuir a política de grupo ao nível de uma unidade organizacional ou pode filtrar o política de grupo com um grupo de segurança do domínio para que aplica-se apenas aos computadores no grupo. Se restringir a inscrição automática, não se esqueça de incluir o servidor que está configurado como ponto de gestão.  
 
-2.  Войдите в систему с использованием учетной записи, которая имеет права администратора.  
+3.  No **novo GPO** caixa de diálogo, introduza um nome, como **certificados de inscrição automática**, para a nova política de grupo e, em seguida, escolha **OK**.  
 
-3.  В поле поиска введите **mmc.exe** и нажмите клавишу **ВВОД**.  
+4.  No painel de resultados, no **objetos de política de grupo ligados** separador, clique com o botão direito a nova política de grupo e, em seguida, escolha **editar**.  
 
-4.  В пустой консоли управления щелкните **Файл**, а затем выберите команду **Добавить или удалить оснастку**.  
+5.  No **Editor de gestão de políticas de grupo**, expanda **políticas** em **configuração do computador**e, em seguida, aceda a **definições do Windows** / **definições de segurança** / **políticas de chaves públicas**.  
 
-5.  В диалоговом окне **Добавление и удаление оснасток** выберите **Сертификаты** из списка **Доступные оснастки** и нажмите кнопку **Добавить**.  
+6.  Clique com o botão direito do tipo de objeto com o nome **cliente de serviços de certificados - inscrição automática**e, em seguida, escolha **propriedades**.  
 
-6.  В диалоговом окне **Оснастка диспетчера сертификатов** выберите пункт **Учетная запись компьютера** и нажмите кнопку **Далее**.  
+7.  Do **modelo de configuração** pendente lista, escolha **ativado**, escolha **renovar certificados expirados, atualizar certificados pendentes, remover certificados revogados**, escolha **atualizar certificados que utilizam modelos de certificado**e, em seguida, escolha **OK**.  
 
-7.  В диалоговом окне **Выбор компьютера** выберите **Локальный компьютер: (компьютер, на котором запущена эта консоль)** и нажмите кнопку **Готово**.  
+8.  Feche a **Gestão de Políticas de Grupo**.  
 
-8.  В диалоговом окне **Добавление и удаление оснасток** нажмите кнопку **ОК**.  
+###  <a name="BKMK_client22008"></a>Inscrever o certificado de autenticação de estação de trabalho e certifique-se a instalação nos computadores automaticamente  
+ Este procedimento instala o certificado de cliente nos computadores e verifica a instalação.  
 
-9. В консоли разверните узел **Сертификаты (локальный компьютер)**, затем узел **Личные** и выберите **Сертификаты**.  
+##### <a name="to-automatically-enroll-the-workstation-authentication-certificate-and-verify-its-installation-on-the-client-computer"></a>Para inscrever o certificado de autenticação de estação de trabalho e verificar a instalação no computador cliente automaticamente  
 
-10. В области результатов убедитесь в том, что для сертификата в столбце **Назначение** указано **Проверка подлинности клиента**, а в столбце **Шаблон сертификата** — **Сертификат клиента Configuration Manager**.  
+1.  Reinicie o computador de estação de trabalho e aguarde alguns minutos antes de iniciar sessão.  
 
-11. Закройте окно **Сертификаты (локальный компьютер)**.  
+    > [!NOTE]  
+    >  Reiniciar um computador é o método mais fiável de garantir o sucesso da inscrição automática de certificados.  
 
-12. Повторите шаги с 1 по 11 для рядового сервера, чтобы убедиться в том, что сервер, который будет настроен в качестве точки управления, имеет сертификат клиента.  
+2.  Inicie sessão com uma conta que tenha privilégios administrativos.  
 
- Теперь у компьютера есть сертификат клиента System Center Configuration Manager.  
+3.  Na caixa de pesquisa, introduza **mmc.exe.**e, em seguida, prima **Enter**.  
 
-##  <a name="BKMK_clientdistributionpoint2008_cm2012"></a> Развертывание сертификата клиента для точек распространения  
+4.  Na consola de gestão vazia, escolha **ficheiro**e, em seguida, escolha **Adicionar/Remover Snap-in**.  
+
+5.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **certificados** da lista de **snap-ins disponíveis**e, em seguida, escolha **adicionar**.  
+
+6.  No **snap-in de certificados** diálogo caixa, escolha **conta de computador**e, em seguida, escolha **seguinte**.  
+
+7.  No **selecionar computador** diálogo caixa, certifique-se de que **computador Local: (o computador onde esta consola está em execução no)** está selecionada e, em seguida, escolha **concluir**.  
+
+8.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **OK**.  
+
+9. Na consola, expanda **certificados (computador Local)**, expanda **pessoais**e, em seguida, escolha **certificados**.  
+
+10. No painel de resultados, confirme que tem um certificado **autenticação de cliente** no **objetivo pretendido** coluna e que **certificado de cliente do ConfigMgr** está a ser o **modelo de certificado** coluna.  
+
+11. Feche **Certificados (Computador Local)**.  
+
+12. Repita os passos 1 a 11 para o servidor de membro verificar se o servidor que irá ser configurado como ponto de gestão também tem um certificado de cliente.  
+
+ O computador está agora definido com um certificado de cliente do System Center Configuration Manager.  
+
+##  <a name="BKMK_clientdistributionpoint2008_cm2012"></a>Implementar o certificado de cliente para pontos de distribuição  
 
 > [!NOTE]  
->  Этот сертификат может быть также использован для носителей, не использующих среду PXE, поскольку требования к сертификатам одни и те же.  
+>  Este certificado também pode ser utilizado para imagens de suportes de dados que não utilizem o arranque PXE, uma vez que os requisitos de certificados são os mesmos.  
 
- Процесс развертывания сертификата включает следующие процедуры.  
+ Esta implementação de certificados possui os seguintes procedimentos:  
 
--   Создание и выдача пользовательского шаблона сертификата проверки подлинности рабочей станции в центре сертификации  
+-   Criar e emitir um modelo de certificado de autenticação de estação de trabalho personalizado na autoridade de certificação  
 
--   Запрос пользовательского сертификата проверки подлинности рабочей станции  
+-   Pedir o certificado de autenticação de estação de trabalho personalizado  
 
--   Экспорт сертификата клиента для точек распространения  
+-   Exportar o certificado de cliente para pontos de distribuição  
 
-###  <a name="BKMK_clientdistributionpoint02008"></a> Создание и выдача пользовательского шаблона сертификата проверки подлинности рабочей станции в центре сертификации  
- Эта процедура используется для создания пользовательского шаблона сертификата для точек распространения System Center Configuration Manager, разрешающего экспорт закрытого ключа, и для добавления шаблона сертификата в центр сертификации.  
+###  <a name="BKMK_clientdistributionpoint02008"></a>Criar e emitir um modelo de certificado de autenticação de estação de trabalho personalizado na autoridade de certificação  
+ Este procedimento cria um modelo de certificado personalizado para pontos de distribuição do System Center Configuration Manager para que a chave privada pode ser exportada e adiciona o modelo de certificado à autoridade de certificação.  
 
 > [!NOTE]  
->  В этой процедуре используется шаблон сертификата, который отличается от шаблона сертификата, созданного для клиентских компьютеров. Хотя оба сертификата требуют возможности проверки подлинности клиента, сертификат для точек распространения требует экспорта закрытого ключа. По соображениям безопасности настройку шаблонов сертификатов для разрешения экспорта закрытого ключа рекомендуется выполнять только в случае необходимости. Эта настройка требуется для точки распространения, так как сертификат следует импортировать в качестве файла, а не выбирать в хранилище сертификатов.  
+>  Este procedimento utiliza um modelo de certificado diferente do modelo de certificado que criou para computadores cliente. Embora ambos os certificados necessitem de capacidade de autenticação de cliente, o certificado para pontos de distribuição requer que a chave privada é exportada. Como melhor prática de segurança, efetue não configurar modelos de certificado para a chave privada pode ser exportada, a menos que esta configuração é necessária. O ponto de distribuição necessita desta configuração porque é necessário importar o certificado como um ficheiro vez escolhê-lo a partir do arquivo de certificados.  
 >   
->  При создании шаблона для этого сертификата можно ограничить компьютеры, имеющие возможность запрашивать сертификат, закрытый ключ которого можно экспортировать. В этом примере развертывания это будет группа безопасности, созданная ранее для серверов системы сайта System Center Configuration Manager с запущенными службами IIS. В рабочей сети, распространяющей роли систем сайта IIS, рекомендуется создать новую группу безопасности для серверов с точками распространения, чтобы ограничить использование сертификата только этими серверами систем сайта. Кроме того, в этот сертификат можно внести следующие изменения.  
+>  Quando cria um novo modelo de certificado para este certificado, pode restringir os computadores que podem solicitar um certificado cujo chave privada pode ser exportada. No nosso exemplo de implementação, este será o grupo de segurança que criou anteriormente para servidores de sistema de sites do System Center Configuration Manager que executam o IIS. Numa rede de produção que distribua as funções de sistema de sites do IIS, considere criar um novo grupo de segurança para os servidores que executam pontos de distribuição para poder restringir o certificado apenas a estes servidores do sistema de sites. Também poderá considerar adicionar as seguintes alterações a este certificado:  
 >   
->  -   В целях обеспечения дополнительной безопасности требовать утверждения для установки сертификата.  
-> -   Увеличить срок действия сертификата. Так как каждый раз перед окончанием срока действия сертификат необходимо экспортировать и импортировать, увеличение срока действия сертификата сокращает частоту выполнения этой процедуры. Но увеличение срока действия также приводит к снижению уровня безопасности сертификата, так как злоумышленник получает больше времени на расшифровку закрытого ключа и кражу сертификата.  
-> -   Использовать настраиваемое значение в полях "Субъект" или "Альтернативное имя субъекта", чтобы отличать этот сертификат от стандартных сертификатов клиента. Это может быть особенного полезно в случае использования одного сертификата для нескольких точек распространения.  
+>  -   Exigir a aprovação para instalar o certificado para segurança adicional.  
+> -   Aumente o período de validade do certificado. Porque tem de exportar e importar o certificado de cada vez antes de expirar, um aumento do período de validade reduz a frequência tem de repetir este procedimento. No entanto, um aumento do período de validade também reduz a segurança do certificado porque fornece mais algum tempo para um atacante desencriptar a chave privada e roubar o certificado.  
+> -   Utilize um valor personalizado no campo Requerente ou Nome Alternativo do Requerente (SAN) do certificado para ajudar a identificar este certificado entre os certificados de cliente padrão. Isto pode ser particularmente útil se pretender utilizar o mesmo certificado para vários pontos de distribuição.  
 
-##### <a name="to-create-and-issue-the-custom-workstation-authentication-certificate-template-on-the-certification-authority"></a>Создание и выдача настраиваемого шаблона сертификата проверки подлинности рабочей станции в центре сертификации  
+##### <a name="to-create-and-issue-the-custom-workstation-authentication-certificate-template-on-the-certification-authority"></a>Para criar e emitir o modelo de certificado de Autenticação de Estação de Trabalho personalizado na autoridade de certificação  
 
-1.  На рядовом сервере с запущенной консолью центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление** для загрузки консоли управления шаблонами сертификатов.  
+1.  No servidor membro que está a executar a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** para carregar a consola de gestão de modelos de certificado.  
 
-2.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Проверка подлинности рабочей станции**, и нажмите кнопку **Скопировать шаблон**.  
+2.  No painel de resultados, faça duplo clique na entrada que tem **autenticação de estação de trabalho** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
 
-3.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
+3.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**.  
 
-4.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона, например **Сертификат точки распространения клиента ConfigMgr**, для создания сертификата проверки подлинности клиента для точек распространения.  
+4.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de ponto de distribuição de cliente do ConfigMgr**para gerar o certificado de autenticação de cliente para pontos de distribuição.  
 
-5.  Перейдите на вкладку **Обработка запроса** и выберите параметр **Разрешить экспортировать закрытый ключ**.  
+5.  Escolha o **processamento de pedidos** separador e, em seguida, escolha **permitir que a chave privada seja exportada**.  
 
-6.  Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из группы безопасности **Администраторы предприятия**.  
+6.  Escolha o **segurança** separador e, em seguida, remova o **inscrever** permissão a partir do **Admins de empresa** grupo de segurança.  
 
-7.  Нажмите кнопку **Добавить**, в текстовом поле введите **IIS-серверы Configuration Manager** и нажмите кнопку **ОК**.  
+7.  Escolha **adicionar**, introduza **servidores IIS do ConfigMgr** no texto da caixa e, em seguida, escolha **OK**.  
 
-8.  Установите разрешение **Регистрация** для этой группы, но не снимайте разрешение **Читать** .  
+8.  Selecione a permissão **Inscrever** para este grupo e não desmarque a permissão **Leitura** .  
 
-9. Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
+9. Escolha **OK**e, em seguida, feche **consola de modelos de certificado**.  
 
-10. В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите **Выдаваемый шаблон сертификата**.  
+10. Na consola de autoridade de certificação, clique com botão direito **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-11. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный шаблон **Сертификат точки распространения клиента ConfigMgr** и нажмите кнопку **ОК**.  
+11. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de ponto de distribuição de cliente do ConfigMgr**e, em seguida, escolha **OK**.  
 
-12. Если создавать и выдавать сертификаты больше не требуется, закройте консоль **Центр сертификации**.  
+12. Se não necessitar de criar e emitir mais certificados, feche **autoridade de certificação**.  
 
-###  <a name="BKMK_clientdistributionpoint12008"></a> Запрос пользовательского сертификата проверки подлинности рабочей станции  
- Эта процедура используется для запроса пользовательского сертификата клиента и его установки на рядовом сервере с запущенными службами IIS, который будет настроен в качестве точки распространения.  
+###  <a name="BKMK_clientdistributionpoint12008"></a>Pedir o certificado de autenticação de estação de trabalho personalizado  
+ Este procedimento pede e, em seguida, instala o certificado de cliente personalizadas no servidor membro que executa o IIS e que irá ser configurado como um ponto de distribuição.  
 
-##### <a name="to-request-the-custom-workstation-authentication-certificate"></a>Запрос настраиваемого сертификата проверки подлинности рабочей станции  
+##### <a name="to-request-the-custom-workstation-authentication-certificate"></a>Para pedir o certificado de Autenticação de Estação de Trabalho personalizado  
 
-1.  Нажмите кнопку **Пуск**, выберите пункт **Выполнить** и введите **mmc.exe**. В пустой консоли щелкните **Файл**, а затем выберите команду **Добавить или удалить оснастку**.  
+1.  Escolha **iniciar**, escolha **executar**e, em seguida, introduza **mmc.exe.** Na consola vazia, escolha **ficheiro**e, em seguida, escolha **Adicionar/Remover Snap-in**.  
 
-2.  В диалоговом окне **Добавление и удаление оснасток** выберите **Сертификаты** из списка **Доступные оснастки** и нажмите кнопку **Добавить**.  
+2.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **certificados** da lista de **snap-ins disponíveis**e, em seguida, escolha **adicionar**.  
 
-3.  В диалоговом окне **Оснастка диспетчера сертификатов** выберите пункт **Учетная запись компьютера** и нажмите кнопку **Далее**.  
+3.  No **snap-in de certificados** diálogo caixa, escolha **conta de computador**e, em seguida, escolha **seguinte**.  
 
-4.  В диалоговом окне **Выбор компьютера** выберите **Локальный компьютер: (компьютер, на котором запущена эта консоль)** и нажмите кнопку **Готово**.  
+4.  No **selecionar computador** diálogo caixa, certifique-se de que **computador Local: (o computador onde esta consola está em execução no)** está selecionada e, em seguida, escolha **concluir**.  
 
-5.  В диалоговом окне **Добавление и удаление оснасток** нажмите кнопку **ОК**.  
+5.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **OK**.  
 
-6.  В консоли разверните узел **Сертификаты (локальный компьютер)** и выберите **Личные**.  
+6.  Na consola, expanda **certificados (computador Local)**e, em seguida, escolha **pessoais**.  
 
-7.  Щелкните правой кнопкой мыши **Сертификаты**, выберите пункт **Все задачи**, а затем **Запросить новый сертификат**.  
+7.  Clique com botão direito **certificados**, escolha **todas as tarefas**e, em seguida, escolha **requisitar um novo certificado**.  
 
-8.  На странице **Перед началом работы** нажмите кнопку **Далее**.  
+8.  No **antes de começar** página, escolha **seguinte**.  
 
-9. При отображении страницы **Выбор политики регистрации сертификатов** нажмите кнопку **Далее**.  
+9. Se vir o **selecionar política de inscrição de certificado** página, escolha **seguinte**.  
 
-10. На странице **Запрос сертификатов** в списке доступных сертификатов выберите вариант **Сертификат точки распространения клиента ConfigMgr** и нажмите кнопку **Регистрация**.  
+10. No **pedir certificados** página, escolha **certificado de ponto de distribuição de cliente do ConfigMgr** da lista de certificados disponíveis e, em seguida, escolha **inscrever**.  
 
-11. Откроется страница **Результаты установки сертификатов**. Дождитесь окончания установки сертификата и нажмите кнопку **Готово**.  
+11. No **resultados da instalação de certificados** página, aguarde até que o certificado está instalado e, em seguida, escolha **concluir**.  
 
-12. В области результатов убедитесь в том, что для сертификата в столбце **Назначение** указано **Проверка подлинности клиента**, а в столбце **Шаблон сертификата** — **Сертификат точки распространения клиента Configuration Manager**.  
+12. No painel de resultados, confirme que tem um certificado **autenticação de cliente** no **objetivo pretendido** e que a coluna **certificado de ponto de distribuição de cliente do ConfigMgr** está a ser o **modelo de certificado** coluna.  
 
-13. Не закрывайте окно **Сертификаты (локальный компьютер)**.  
+13. Não feche **Certificados (Computador Local)**.  
 
-###  <a name="BKMK_exportclientdistributionpoint22008"></a> Экспорт сертификата клиента для точек распространения  
- Ниже описана процедура экспорта пользовательского сертификата проверки подлинности рабочей станции в файл для последующего импорта в свойства точки распространения.  
+###  <a name="BKMK_exportclientdistributionpoint22008"></a>Exportar o certificado de cliente para pontos de distribuição  
+ Este procedimento exporta o certificado de autenticação de estação de trabalho personalizado para um ficheiro para que possa ser importado nas propriedades do ponto de distribuição.  
 
-##### <a name="to-export-the-client-certificate-for-distribution-points"></a>Экспорт сертификат клиента для точек распространения  
+##### <a name="to-export-the-client-certificate-for-distribution-points"></a>Para exportar o certificado de cliente para pontos de distribuição  
 
-1.  В консоли **Сертификаты (локальный компьютер)** щелкните только что установленный сертификат правой кнопкой мыши, выберите пункт **Все задачи**, а затем — **Экспорт**.  
+1.  No **certificados (computador Local)** consola, faça duplo clique no certificado que acabou de instalar, escolha **todas as tarefas**e, em seguida, escolha **exportar**.  
 
-2.  В мастере экспорта сертификатов нажмите кнопку **Далее**.  
+2.  No Assistente para exportar certificados, escolha **seguinte**.  
 
-3.  На странице **Экспорт закрытого ключа** выберите пункт **Да, экспортировать закрытый ключ**, а затем нажмите кнопку **Далее**.  
+3.  No **exportar chave privada** página, escolha **Sim, exportar a chave privada**e, em seguida, escolha **seguinte**.  
 
     > [!NOTE]  
-    >  Если эта функция недоступна, сертификат был создан без функции экспорта закрытого ключа. В этом случае нельзя экспортировать сертификат в требуемом формате. Потребуется настроить шаблон сертификата, разрешив экспорт закрытого ключа, а затем повторить запрос сертификата.  
+    >  Se esta opção não estiver disponível, o certificado foi criado sem a opção para exportar a chave privada. Neste cenário, não é possível exportar o certificado no formato necessário. Tem de configurar o modelo de certificado para que a chave privada pode ser exportado e, em seguida, pedir o certificado novamente.  
 
-4.  На странице **Формат экспортируемого файла** убедитесь в том, что выбран вариант **Файл обмена личной информацией — PKCS #12 (.PFX)**.  
+4.  No **exportar formato de ficheiro** página, certifique-se de que o **Personal Information Exchange - PKCS #12 (. PFX)** opção está selecionada.  
 
-5.  На странице **Пароль** укажите надежный пароль для защиты экспортированного сертификата с его закрытым ключом и нажмите кнопку **Далее**.  
+5.  No **palavra-passe** página, especifique uma palavra-passe segura para proteger o certificado exportado com a respetiva chave privada e, em seguida, escolha **seguinte**.  
 
-6.  На странице **Имя экспортируемого файла** укажите имя файла, который необходимо экспортировать, и нажмите кнопку **Далее**.  
+6.  No **ficheiro a exportar** página, especifique o nome do ficheiro que pretende exportar e, em seguida, escolha **seguinte**.  
 
-7.  Чтобы закрыть окно мастера, на странице **Мастер экспорта сертификатов** нажмите кнопку **Готово**, а затем в диалоговом окне подтверждения — кнопку **ОК**.  
+7.  Para fechar o assistente, escolha **concluir** no **Assistente para exportar certificados** página e escolha **OK** na caixa de diálogo de confirmação.  
 
-8.  Закройте окно **Сертификаты (локальный компьютер)**.  
+8.  Feche **Certificados (Computador Local)**.  
 
-9. Сохраните файл в безопасном месте и убедитесь в том, что к нему можно получить доступ из консоли System Center Configuration Manager.  
+9. Guarde o ficheiro de forma segura e certifique-se de que consegue aceder-lhe a partir da consola do System Center Configuration Manager.  
 
- Теперь сертификат готов к импорту для настройки точки распространения.  
+ O certificado está agora pronto para ser importado quando configurar o ponto de distribuição.  
 
 > [!TIP]  
->  Вы можете использовать тот же файл сертификата при настройке образов носителей для развертывания ОС, не использующих загрузку PXE, и для которых последовательность задач для установки образа должна подключаться к точке управления, требующей HTTPS-подключения клиентов.  
+>  Pode utilizar o mesmo ficheiro de certificado quando configurar imagens de suportes de dados para uma implementação de sistema operativo que não utilize arranque PXE e a sequência de tarefas para instalar a imagem tem de contactar um ponto de gestão requer ligações de cliente HTTPS.  
 
-##  <a name="BKMK_mobiledevices2008_cm2012"></a> Развертывание сертификата регистрации для мобильных устройств  
- Развертывание этого сертификата включает одну процедуру по созданию и выдаче шаблона сертификата регистрации в центре сертификации.  
+##  <a name="BKMK_mobiledevices2008_cm2012"></a>Implementar o certificado de inscrição para dispositivos móveis  
+ Esta implementação de certificado tem um procedimento único para criar e emitir o modelo de certificado de inscrição na autoridade de certificação.  
 
-### <a name="create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Создание и выдача шаблона сертификата регистрации в центре сертификации  
- Эта процедура используется для создания шаблона сертификата регистрации для мобильных устройств System Center Configuration Manager, который затем добавляется в центр сертификации.  
+### <a name="create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Criar e emitir o modelo de certificado de inscrição na autoridade de certificação  
+ Este procedimento cria um modelo de certificado de inscrição para dispositivos móveis do System Center Configuration Manager e adiciona-o à autoridade de certificação.  
 
-##### <a name="to-create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Создание и выдача шаблона сертификата регистрации в центре сертификации  
+##### <a name="to-create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Para criar e emitir o modelo de certificado de inscrição na autoridade de certificação  
 
-1.  Создайте группу безопасности, содержащую пользователей, которые будут регистрировать мобильные устройства в System Center Configuration Manager.  
+1.  Crie um grupo de segurança que tenha os utilizadores que irão inscrever dispositivos móveis no System Center Configuration Manager.  
 
-2.  На рядовом сервере с установленными службами сертификации в консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление**, чтобы загрузить консоль управления "Шаблоны сертификатов".  
+2.  No servidor membro que tem os serviços de certificados instalados, a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** para carregar a consola de gestão de modelos de certificado.  
 
-3.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Проверенный сеанс**, и нажмите кнопку **Скопировать шаблон**.  
+3.  No painel de resultados, faça duplo clique na entrada que tem **sessão autenticada** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
 
-4.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
+4.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**.  
 
-5.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона, например **Сертификат регистрации мобильного устройства Configuration Manager**, чтобы создать сертификаты регистрации для мобильных устройств, управляемых с помощью System Center Configuration Manager.  
+5.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de inscrição de dispositivos do ConfigMgr móvel**para gerar os certificados de inscrição para os dispositivos móveis para serem geridos pelo System Center Configuration Manager.  
 
-6.  Перейдите на вкладку **Имя субъекта**, убедитесь в том, что установлен флажок **Строится на основе данных Active Directory**, выберите **Общее имя** для параметра **Формат имени субъекта:** и снимите флажок **Имя субъекта-пользователя (UPN)** для параметра **Включить эту информацию в альтернативное имя субъекта**.  
+6.  Escolha o **nome do requerente** separador, certifique-se de que **incorporar a partir destas informações do Active Directory** está selecionado, selecione **nome comum** para o **formato de nome do requerente:**e, em seguida, desmarque **nome principal de utilizador (UPN)** de **incluir estas informações no nome do requerente alternativo**.  
 
-7.  Перейдите на вкладку **Безопасность**, выберите группу безопасности, содержащую пользователей, которым требуется зарегистрировать мобильные устройства, и выберите дополнительное разрешение **Регистрация**. Не снимайте флажок **Чтение**.  
+7.  Escolha o **segurança** separador, escolha o grupo de segurança que tenha os utilizadores que tenham dispositivos móveis para inscrever e, em seguida, escolha a permissão adicional de **inscrever**. Não desmarque **Leitura**.  
 
-8.  Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
+8.  Escolha **OK**e, em seguida, feche **consola de modelos de certificado**.  
 
-9. В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите **Выдаваемый шаблон сертификата**.  
+9. Na consola de autoridade de certificação, clique com botão direito **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-10. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный шаблон **Сертификат регистрации мобильного устройства Configuration Manager** и нажмите кнопку **ОК**.  
+10. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de inscrição de dispositivos do ConfigMgr móvel**e, em seguida, escolha **OK**.  
 
-11. Если создавать и выдавать сертификаты больше не требуется, закройте консоль центра сертификации.  
+11. Se não for necessário criar e emitir mais certificados, feche a consola de autoridade de certificação.  
 
- Теперь шаблон сертификата регистрации мобильного устройства можно будет выбрать при настройке профиля регистрации мобильного устройства в параметрах клиента.  
+ O modelo de certificado de inscrição de dispositivos móveis está agora pronto para ser selecionado quando configurar um perfil de inscrição de dispositivos móveis nas definições do cliente.  
 
-##  <a name="BKMK_AMT2008_cm2012"></a> Развертывание сертификатов для AMT  
- Процесс развертывания сертификата включает следующие процедуры.  
+##  <a name="BKMK_AMT2008_cm2012"></a>Implementar os certificados para AMT  
+ Esta implementação de certificados possui os seguintes procedimentos:  
 
--   Создание, выдача и установка сертификата подготовки AMT  
+-   Criar, emitir e instalar o certificado de aprovisionamento de AMT  
 
--   Создание и выдача сертификата веб-сервера для компьютеров на базе технологии AMT  
+-   Criar e emitir o certificado de servidor web para computadores baseados em AMT  
 
--   Создание и выдача сертификатов проверки подлинности клиентов для компьютеров, основанных на AMT, с проверкой подлинности 802.1X  
+-   Criar e emitir certificados de autenticação 802.1 X AMT em computadores de cliente  
 
-###  <a name="BKMK_AMTprovisioning2008"></a> Создание, выдача и установка сертификата подготовки AMT  
- Сертификат подготовки следует создавать с помощью внутреннего центра сертификации, если компьютеры на основе AMT настроены с использованием отпечатка сертификата внутреннего корневого ЦС. Если это условие не соблюдается и требуется использовать внешний ЦС, используйте инструкции организации, предоставившей сертификат подготовки AMT. Как правило, для этого потребуется запросить сертификат на общедоступном веб-сайте этой организации. Подробные указания для выбранного внешнего ЦС также приведены на веб-сайте [Intel vPro Expert Center: Microsoft vPro Manageability](http://go.microsoft.com/fwlink/?LinkId=132001).  
+###  <a name="BKMK_AMTprovisioning2008"></a>Criar, emitir e instalar o certificado de aprovisionamento de AMT  
+ Crie o certificado de aprovisionamento com a AC interna quando os computadores baseados em AMT estão configurados com o thumbprint do certificado da sua AC de raiz interna. Quando não for este o caso e tem de utilizar uma autoridade de certificação externa, utilize as instruções da empresa que emitiu o certificado de aprovisionamento de AMT, que geralmente envolverá pedir o certificado de web site público da empresa. Também poderá encontrar instruções detalhadas para sua escolhida AC externa no [Intel vPro Expert Center: Capacidade de gestão web site do Microsoft vPro](http://go.microsoft.com/fwlink/?LinkId=132001).  
 
 > [!IMPORTANT]  
->  Внешние центры сертификации могут не поддерживать идентификатор объекта обеспечения Intel AMT. В таком случае укажите атрибут подразделения **Intel(R) Client Setup Certificate**.  
+>  As ACs externas poderão não suportar o identificador do objeto de aprovisionamento de AMT da Intel. Quando for este o caso, forneça o **Intel (r) Client Setup Certificate** atributo UO.  
 
- Если сертификат подготовки AMT запрашивается из внешнего ЦС, установите его в личном хранилище сертификатов на рядовом сервере, на котором будет размещаться точка обслуживания аппаратного контроллера управления.  
+ Quando solicitar um certificado de uma AC externa de aprovisionamento de AMT, instale o certificado no arquivo de certificados pessoais do computador no servidor membro que irá alojar o ponto de serviço fora de banda.  
 
-##### <a name="to-request-and-issue-the-amt-provisioning-certificate"></a>Запрос и выдача сертификата инициализации AMT  
+##### <a name="to-request-and-issue-the-amt-provisioning-certificate"></a>Para pedir e emitir o certificado de aprovisionamento de AMT  
 
-1.  Создайте группу безопасности, содержащую учетные записи компьютеров для серверов системы сайта, на которых будет выполняться точка обслуживания внешнего контроллера управления.  
+1.  Crie um grupo de segurança que tenha as contas de computador dos servidores do sistema de sites que executarão o ponto de serviço fora de banda.  
 
-2.  На рядовом сервере с установленными службами сертификации в консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление**, чтобы загрузить консоль **Шаблоны сертификатов**.  
+2.  No servidor membro que tem os serviços de certificados instalados, a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** ao carregar o **modelos de certificado** consola.  
 
-3.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Веб-сервер**, и выберите команду **Скопировать шаблон**.  
+3.  No painel de resultados, faça duplo clique na entrada que tem **servidor Web** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
 
-4.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
+4.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**.  
 
-5.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя, например **Подготовка AMT Configuration Manager**, для шаблона сертификата подготовки AMT.  
+5.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **aprovisionamento de AMT do ConfigMgr**, para o modelo de certificado de aprovisionamento de AMT.  
 
-6.  Откройте вкладку **Имя субъекта**, выберите пункт **Строится на основе данных Active Directory**, а затем выберите **Обычное имя**.  
+6.  Escolha o **nome do requerente** separador, escolha **incorporar a partir destas informações do Active Directory**e, em seguida, escolha **nome comum**.  
 
-7.  Перейдите на вкладку **Расширения**, убедитесь в том, что выбран параметр **Политики применения**, и нажмите кнопку **Изменить**.  
+7.  Escolha o **extensões** separador, certifique-se de que **políticas de aplicações** está selecionada e, em seguida, escolha **editar**.  
 
-8.  В диалоговом окне **Изменение расширения политик применения** нажмите кнопку **Добавить**.  
+8.  No **Editar extensão de políticas de aplicação** diálogo caixa, escolha **adicionar**.  
 
-9. В диалоговом окне **Добавление политики применения** нажмите кнопку **Создать**.  
+9. No **Adicionar política de aplicação** diálogo caixa, escolha **novo**.  
 
-10. В диалоговом окне **Новая политика применения** введите в поле **Имя** **Подготовка AMT**, а затем в поле **Идентификатор объекта** введите следующий номер: **2.16.840.1.113741.1.2.3**.  
+10. No **nova política de aplicação** caixa de diálogo, introduza **aprovisionamento de AMT** no **nome** campo e, em seguida, introduza o número seguinte para o **identificador de objeto**: **2.16.840.1.113741.1.2.3**.  
 
-11. Нажмите кнопку **ОК**, а затем в диалоговом окне **Добавление политики применения** еще раз нажмите кнопку **ОК**.  
+11. Escolha **OK**e, em seguida, escolha **OK** no **Adicionar política de aplicação** caixa de diálogo.  
 
-12. В диалоговом окне **Изменение расширения политик применения** нажмите кнопку **ОК**.  
+12. Escolha **OK** no **Editar extensão de políticas de aplicação** caixa de diálogo.  
 
-13. В диалоговом окне **Свойства нового шаблона** в описании **Политики применения** должны отображаться следующие сведения: **Проверка подлинности сервера** и **Подготовка AMT**.  
+13. No **propriedades de novo modelo** caixa de diálogo, o seguinte está listado como o **políticas de aplicações** Descrição: **Autenticação de servidor** e **aprovisionamento de AMT**.  
 
-14. Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из групп безопасности **Администраторы домена** и **Администраторы предприятия**.  
+14. Escolha o **segurança** separador e, em seguida, remova o **inscrever** permissão a partir do **Admins do domínio** e **Admins de empresa** grupos de segurança.  
 
-15. Нажмите кнопку **Добавить**, введите имя группы безопасности, содержащей учетную запись компьютера для роли системы сайта "Точка обслуживания внешнего контроллера управления", а затем нажмите кнопку **ОК**.  
+15. Escolha **adicionar**, introduza o nome de um grupo de segurança que tenha a conta de computador para a função de sistema de sites de ponto de serviço fora de banda e, em seguida, escolha **OK**.  
 
-16. Установите разрешение **Регистрация** для этой группы, но не снимайте разрешение **Чтение**.  
+16. Escolha o **inscrever** permissão para este grupo e não desmarque a **leitura** permissão...  
 
-17. Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
+17. Escolha **OK**e, em seguida, feche o **modelos de certificado** consola.  
 
-18. В консоли **центра сертификации** щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите пункт **Выдаваемый шаблон сертификата**.  
+18. No **autoridade de certificação**, faça duplo clique **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-19. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный шаблон **Подготовка AMT Configuration Manager** и нажмите кнопку **ОК**.  
+19. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **aprovisionamento de AMT do ConfigMgr**e, em seguida, escolha **OK**.  
 
     > [!NOTE]  
-    >  Если не удается выполнить шаг 18 или 19, убедитесь, что используется Windows Server 2008 Enterprise Edition. Хотя можно настроить шаблоны с помощью Windows Server Standard Edition и служб сертификации, развернуть сертификаты, используя измененные шаблоны сертификатов, можно только в Windows Server 2008 Enterprise Edition.  
+    >  Se não conseguir concluir o passo 18 ou 19, certifique-se de que está a utilizar a Enterprise Edition do Windows Server 2008. Apesar de poder configurar modelos com o Windows Server Standard Edition e os serviços de certificados, não é possível implementar certificados utilizando os modelos de certificado modificados, exceto se estiver a utilizar a Enterprise Edition do Windows Server 2008.  
 
-20. Не закрывайте **Центр сертификации**.  
+20. Não feche a **Autoridade de Certificação**.  
 
- Теперь сертификат подготовки AMT, выданный внутренним ЦС, готов к установке на компьютер точки обслуживания аппаратного контроллера управления.  
+ O certificado de aprovisionamento de AMT da AC interna está agora pronto para ser instalada no computador do ponto de serviço fora de banda.  
 
-##### <a name="to-install-the-amt-provisioning-certificate"></a>Установка сертификата инициализации AMT  
+##### <a name="to-install-the-amt-provisioning-certificate"></a>Para instalar o certificado de aprovisionamento de AMT  
 
-1.  Перезапустите рядовой сервер со службами IIS, чтобы убедиться в том, что он может получить доступ к шаблону сертификата с настроенным разрешением.  
+1.  Reinicie o servidor membro que executa o IIS para garantir que este consegue aceder ao modelo de certificado com a permissão configurada.  
 
-2.  Нажмите кнопку **Пуск**, выберите пункт **Выполнить** и введите **mmc.exe**. В пустой консоли щелкните **Файл**, а затем выберите команду **Добавить или удалить оснастку**.  
+2.  Escolha **iniciar**, escolha **executar**e, em seguida, introduza **mmc.exe.** Na consola vazia, escolha **ficheiro**e, em seguida, escolha **Adicionar/Remover Snap-in**.  
 
-3.  В диалоговом окне **Добавление и удаление оснасток** выберите **Сертификаты** из списка **Доступные оснастки** и нажмите кнопку **Добавить**.  
+3.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **certificados** da lista de **snap-ins disponíveis**e, em seguida, escolha **adicionar**.  
 
-4.  В диалоговом окне **Оснастка диспетчера сертификатов** выберите пункт **Учетная запись компьютера** и нажмите кнопку **Далее**.  
+4.  No **snap-in de certificados** diálogo caixa, escolha **conta de computador**e, em seguida, escolha **seguinte**.  
 
-5.  В диалоговом окне **Выбор компьютера** выберите **Локальный компьютер: (компьютер, на котором запущена эта консоль)** и нажмите кнопку **Готово**.  
+5.  No **selecionar computador** diálogo caixa, certifique-se de que **computador Local: (o computador onde esta consola está em execução no)** está selecionada e, em seguida, escolha **concluir**.  
 
-6.  В диалоговом окне **Добавление и удаление оснасток** нажмите кнопку **ОК**.  
+6.  No **adicionar ou Remover Snap-ins** diálogo caixa, escolha **OK**.  
 
-7.  В консоли разверните узел **Сертификаты (локальный компьютер)** и выберите **Личные**.  
+7.  Na consola, expanda **certificados (computador Local)**e, em seguida, escolha **pessoais**.  
 
-8.  Щелкните правой кнопкой мыши **Сертификаты**, выберите пункт **Все задачи**, а затем **Запросить новый сертификат**.  
+8.  Clique com botão direito **certificados**, escolha **todas as tarefas**e, em seguida, escolha **requisitar um novo certificado**.  
 
-9. На странице **Перед началом работы** нажмите кнопку **Далее**.  
+9. No **antes de começar** página, escolha **seguinte**.  
 
-10. При отображении страницы **Выбор политики регистрации сертификатов** нажмите кнопку **Далее**.  
+10. Se vir o **selecionar política de inscrição de certificado** página, escolha **seguinte**.  
 
-11. На странице **Запрос сертификатов** в списке доступных сертификатов выберите **Подготовка AMT** и нажмите кнопку **Регистрация**.  
+11. No **pedir certificados** página, selecione **aprovisionamento de AMT** da lista de certificados disponíveis e, em seguida, escolha **inscrever**.  
 
-12. Откроется страница **Результаты установки сертификатов**. Дождитесь окончания установки сертификата и нажмите кнопку **Готово**.  
+12. No **resultados da instalação de certificados** página, aguarde até que o certificado está instalado e, em seguida, escolha **concluir**.  
 
-13. Закройте окно **Сертификаты (локальный компьютер)**.  
+13. Feche **Certificados (Computador Local)**.  
 
- Сертификат подготовки AMT из внутреннего ЦС установлен. Теперь его можно выбрать в свойствах точки обслуживания аппаратного контроллера управления.  
+ O certificado de aprovisionamento de AMT da AC interna está agora instalado e está pronto para ser selecionado nas propriedades do ponto de serviço fora de banda.  
 
-### <a name="create-and-issue-the-web-server-certificate-for-amt-based-computers"></a>Создание и выдача сертификата веб-сервера для компьютеров на базе технологии AMT  
- Чтобы подготовить сертификаты веб-сервера для компьютеров, основанных на AMT, воспользуйтесь следующей процедурой.  
+### <a name="create-and-issue-the-web-server-certificate-for-amt-based-computers"></a>Criar e emitir o certificado de servidor web para computadores baseados em AMT  
+ Utilize o procedimento seguinte para preparar os certificados de servidor Web para computadores baseados em AMT.  
 
-##### <a name="to-create-and-issue-the-web-server-certificate-template"></a>Создание и выдача шаблона сертификата веб-сервера  
+##### <a name="to-create-and-issue-the-web-server-certificate-template"></a>Para criar e emitir o modelo de certificado de servidor web  
 
-1.  Создайте пустую группу безопасности, которая будет содержать учетные записи компьютеров на основе AMT, создаваемые System Center Configuration Manager во время подготовки AMT.  
+1.  Crie um grupo de segurança vazio com as contas de computador AMT System Center Configuration Manager cria durante o aprovisionamento de AMT.  
 
-2.  На рядовом сервере с установленными службами сертификации в консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление**, чтобы загрузить консоль **Шаблоны сертификатов**.  
+2.  No servidor membro que tem os serviços de certificados instalados, a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** ao carregar o **modelos de certificado** consola.  
 
-3.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Веб-сервер**, и выберите команду **Скопировать шаблон**.  
+3.  No painel de resultados, faça duplo clique na entrada que tem **servidor Web** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
 
-4.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
-
-    > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition.**  
-
-5.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона, например **Сертификат веб-сервера AMT Configuration Manager**, для создания веб-сертификатов, которые будут использоваться на компьютерах на основе AMT для управления с помощью аппаратного контроллера управления.  
-
-6.  Перейдите на вкладку **Имя субъекта**, установите флажок **Строится на основе данных Active Directory**, для параметра **Формат имени субъекта** выберите **Общее имя**, а затем для альтернативного имени субъекта снимите флажок **Имя субъекта-пользователя (UPN)**.  
-
-7.  Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из групп безопасности **Администраторы домена** и **Администраторы предприятия**.  
-
-8.  Нажмите кнопку **Добавить** и введите имя группы безопасности, созданной для подготовки AMT, после чего нажмите кнопку **ОК**.  
-
-9. Установите для этой группы безопасности флажок **Разрешить** для следующих разрешений: **Чтение** и **Регистрация**.  
-
-10. Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
-
-11. В консоли **центра сертификации** щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите пункт **Выдаваемый шаблон сертификата**.  
-
-12. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный шаблон **Сертификат веб-сервера AMT Configuration Manager** и нажмите кнопку **ОК**.  
-
-13. Если создавать и выдавать сертификаты больше не требуется, закройте консоль **Центр сертификации**.  
-
- Шаблон веб-сервера AMT готов для настройки компьютеров на основе AMT с сертификатами веб-сервера. Выберите этот шаблон сертификата в свойствах компонента управления с помощью аппаратного контроллера управления.  
-
-### <a name="create-and-issue-the-client-authentication-certificates-for-8021x-amt-based-computers"></a>Создание и выдача сертификатов проверки подлинности клиентов для компьютеров, основанных на AMT, с проверкой подлинности 802.1X  
- Если предполагается, что компьютеры, основанные на AMT, будут использовать клиентские сертификаты для проводных и беспроводных сетей с проверкой подлинности 802.1X, воспользуйтесь следующей процедурой.  
-
-##### <a name="to-create-and-issue-the-client-authentication-certificate-template-on-the-ca"></a>Создание и выдача шаблона сертификата проверки подлинности клиента в центре сертификации  
-
-1.  На рядовом сервере с установленными службами сертификации в консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление**, чтобы загрузить консоль **Шаблоны сертификатов**.  
-
-2.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Проверка подлинности рабочей станции**, и нажмите кнопку **Скопировать шаблон**.  
+4.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition.**  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition.**  
 
-3.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона, например **Сертификат проверки подлинности клиента AMT 802.1X Configuration Manager**, для создания сертификатов клиентов, которые будут использоваться на компьютерах на основе AMT для управления с помощью аппаратного контроллера управления.  
+5.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de servidor Web de AMT do ConfigMgr**para gerar os certificados web que serão utilizados para gestão fora de banda em computadores AMT.  
 
-4.  Откройте вкладку **Имя субъекта**, выберите пункт **Строится на основе данных Active Directory**, а затем для параметра **Формат имени субъекта** выберите **Общее имя**. В поле "Альтернативное имя субъекта" снимите флажок **DNS-имя**, а затем выберите **Имя субъекта-пользователя (UPN)**.  
+6.  Escolha o **nome do requerente** separador, escolha **incorporar a partir destas informações do Active Directory**, escolha **nome comum** para o **formato de nome de requerente**e, em seguida, desmarque **nome principal de utilizador (UPN)** para o nome alternativo do requerente.  
 
-5.  Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из групп безопасности **Администраторы домена** и **Администраторы предприятия**.  
+7.  Escolha o **segurança** separador e, em seguida, remova o **inscrever** permissão a partir do **Admins do domínio** e **Admins de empresa** grupos de segurança.  
 
-6.  Нажмите кнопку **Добавить** и введите имя группы безопасности, которая будет указываться в свойствах компонента управления с помощью аппаратного контроллера управления и содержать учетные записи компьютеров на основе AMT, после чего нажмите кнопку **ОК**.  
+8.  Escolha **adicionar**, introduza o nome do grupo de segurança que criou para o aprovisionamento de AMT e, em seguida, escolha **OK**.  
 
-7.  Установите для этой группы безопасности флажок **Разрешить** для следующих разрешений: **Читать** и **Регистрация**.  
+9. Escolha o seguinte **permitir** permissões para este grupo de segurança: **Leitura** e **inscrever**.  
 
-8.  Нажмите кнопку **ОК** и закройте консоль управления **Шаблоны сертификатов**, **certtmpl — [Шаблоны сертификатов]**.  
+10. Escolha **OK**e, em seguida, feche o **modelos de certificado** consola.  
 
-9. В консоли управления **центра сертификации** щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите пункт **Выдаваемый шаблон сертификата**.  
+11. No **autoridade de certificação** consola, faça duplo clique **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-10. В диалоговом окне **Включение шаблонов сертификатов** выберите созданный ранее шаблон **Сертификат проверки подлинности клиента AMT 802.1X Configuration Manager** и нажмите кнопку **ОК**.  
+12. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de servidor Web de AMT do ConfigMgr**e, em seguida, escolha **OK**.  
 
-11. Если создавать и выдавать сертификаты больше не требуется, закройте консоль **Центр сертификации**.  
+13. Se não necessitar de criar e emitir mais certificados, feche **autoridade de certificação**.  
 
- Шаблон проверки подлинности клиента готов для выдачи сертификатов компьютерам, основанным на AMT, для использования при проверке подлинности клиентов 802.1X. Выберите этот шаблон сертификата в свойствах компонента управления с помощью аппаратного контроллера управления.  
+ O modelo de servidor AMT Web está agora preparado para configurar computadores baseados em AMT com certificados de servidor web. Escolha este modelo de certificado no propriedades do componente de gestão fora de banda.  
 
-##  <a name="BKMK_MacClient_SP1"></a> Развертывание сертификата клиента для компьютеров Mac  
+### <a name="create-and-issue-the-client-authentication-certificates-for-8021x-amt-based-computers"></a>Criar e emitir certificados de autenticação 802.1 X AMT em computadores de cliente  
+ Utilize o procedimento seguinte se os computadores baseados em AMT forem utilizar certificados de cliente para redes com ou sem fios com autenticação 802.1X.  
 
-Развертывание этого сертификата включает одну процедуру по созданию и выдаче шаблона сертификата регистрации в центре сертификации.  
+##### <a name="to-create-and-issue-the-client-authentication-certificate-template-on-the-ca"></a>Para criar e emitir o modelo de certificado de autenticação de cliente da AC  
 
-###  <a name="BKMK_MacClient_CreatingIssuing"></a> Создание и выдача шаблона сертификата для клиентов Mac в центре сертификации  
- Эта процедура используется для создания пользовательского шаблона сертификата для компьютеров Mac в System Center Configuration Manager и последующего добавления шаблона сертификата в центр сертификации.  
+1.  No servidor membro que tem os serviços de certificados instalados, a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** ao carregar o **modelos de certificado** consola.  
+
+2.  No painel de resultados, faça duplo clique na entrada que tem **autenticação de estação de trabalho** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
+
+    > [!IMPORTANT]  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition.**  
+
+3.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de autenticação de cliente do ConfigMgr AMT 802.1 X**, para gerar os certificados de cliente que serão utilizados para gestão fora de banda em computadores AMT.  
+
+4.  Escolha o **nome do requerente** separador, escolha **incorporar a partir destas informações do Active Directory**e, em seguida, escolha **nome comum** para o **formato de nome de requerente**. Limpar **nome DNS** para o requerente alternativo nome e, em seguida, escolha **nome principal de utilizador (UPN)**.  
+
+5.  Escolha o **segurança** separador e, em seguida, remova o **inscrever** permissão a partir do **Admins do domínio** e **Admins de empresa** grupos de segurança.  
+
+6.  Escolha **adicionar**, introduza o nome do grupo de segurança que irá especificar nas propriedades do componente de gestão fora de banda para conter as contas de computador dos computadores baseados em AMT e, em seguida, escolha **OK**.  
+
+7.  Selecione o seguinte **permitir** permissões para este grupo de segurança: **Leitura** e **inscrever**.  
+
+8.  Escolha **OK**e, em seguida, feche o **modelos de certificado** consola de gestão, **certtmpl - [modelos de certificado]**.  
+
+9. No **autoridade de certificação** consola de gestão, faça duplo clique **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
+
+10. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de autenticação de cliente do ConfigMgr AMT 802.1 X**e, em seguida, escolha **OK**.  
+
+11. Se não precisar de criar e emitir mais certificados, feche **autoridade de certificação**.  
+
+ O modelo de certificado de autenticação de cliente está agora pronto para emitir certificados para computadores baseados em AMT que podem ser utilizados para autenticação 802.1 X de clientes. Escolha este modelo de certificado no propriedades do componente de gestão fora de banda.  
+
+##  <a name="BKMK_MacClient_SP1"></a>Implementar o certificado de cliente para computadores Mac  
+
+Esta implementação de certificado tem um procedimento único para criar e emitir o modelo de certificado de inscrição na autoridade de certificação.  
+
+###  <a name="BKMK_MacClient_CreatingIssuing"></a>Criar e emitir o modelo de certificado na autoridade de certificação de um cliente de Mac  
+ Este procedimento cria um modelo de certificado personalizado para computadores Mac do System Center Configuration Manager e adiciona o modelo de certificado à autoridade de certificação.  
 
 > [!NOTE]  
->  В этой процедуре используется шаблон сертификата, отличный от шаблона сертификата, который вы могли создать для клиентских компьютеров Windows или точек распространения.  
+>  Este procedimento utiliza um modelo de certificado diferente do modelo de certificado que pode ter criado para computadores cliente com Windows ou para pontos de distribuição.  
 >   
->  При создании шаблона сертификата для данного сертификата вы можете ограничить круг пользователей, которые могут запрашивать сертификат, авторизованными пользователями.  
+>  Quando cria um novo modelo de certificado para este certificado, pode restringir o pedido de certificado para os utilizadores autorizados.  
 
-##### <a name="to-create-and-issue-the-mac-client-certificate-template-on-the-certification-authority"></a>Создание и выдача шаблона сертификата для клиентов Mac в центре сертификации  
+##### <a name="to-create-and-issue-the-mac-client-certificate-template-on-the-certification-authority"></a>Para criar e emitir o modelo de certificado de cliente Mac na autoridade de certificação  
 
-1.  Создайте группу безопасности, содержащую учетные записи пользователей с административными правами, которые будут регистрировать сертификат на компьютере Mac с помощью System Center Configuration Manager.  
+1.  Crie um grupo de segurança que tenha as contas de utilizador para os utilizadores administrativos que irão inscrever o certificado no computador Mac utilizando o System Center Configuration Manager.  
 
-2.  На рядовом сервере с запущенной консолью центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, а затем выберите пункт **Управление** для загрузки консоли управления шаблонами сертификатов.  
+2.  No servidor membro que está a executar a consola da autoridade de certificação, clique com botão direito **modelos de certificado**e, em seguida, escolha **gerir** para carregar a consola de gestão de modelos de certificado.  
 
-3.  В области результатов щелкните правой кнопкой мыши строку, в которой в столбце **Отображаемое имя шаблона** указано **Проверенный сеанс**, и нажмите кнопку **Скопировать шаблон**.  
+3.  No painel de resultados, faça duplo clique na entrada que apresenta **sessão autenticada** no **nome a apresentar do modelo** coluna e, em seguida, escolha **Duplicar modelo**.  
 
-4.  Убедитесь в том, что в диалоговом окне **Скопировать шаблон** выбран параметр **Windows Server 2003, Enterprise Edition**, и нажмите кнопку **ОК**.  
+4.  No **Duplicar modelo** diálogo caixa, certifique-se de que **Windows 2003 Server, Enterprise Edition** está selecionada e, em seguida, escolha **OK**.  
 
     > [!IMPORTANT]  
-    >  Не выбирайте параметр **Windows Server 2008, Enterprise Edition**.  
+    >  Não selecione **Windows 2008 Server, Enterprise Edition**.  
 
-5.  В диалоговом окне **Свойства нового шаблона** на вкладке **Общие** введите имя шаблона для создания сертификата Mac, например **Сертификат клиента Mac ConfigMgr**.  
+5.  No **propriedades de novo modelo** caixa de diálogo a **geral** separador, introduza um nome de modelo, tal como **certificado de cliente Mac do ConfigMgr**para gerar o certificado de cliente Mac.  
 
-6.  Перейдите на вкладку **Имя субъекта**, убедитесь в том, что установлен флажок **Строится на основе данных Active Directory**, выберите **Общее имя** для параметра **Формат имени субъекта:** и снимите флажок **Имя субъекта-пользователя (UPN)** для параметра **Включить эту информацию в альтернативное имя субъекта**.  
+6.  Escolha o **nome do requerente** separador, certifique-se de que **incorporar a partir destas informações do Active Directory** é selecionado, escolher **nome comum** para o **formato de nome do requerente:**e, em seguida, desmarque **nome principal de utilizador (UPN)** de **incluir estas informações no nome alternativo do requerente**.  
 
-7.  Откройте вкладку **Безопасность** и удалите разрешение **Регистрация** из групп безопасности **Администраторы домена** и **Администраторы предприятия**.  
+7.  Escolha o **segurança** separador e, em seguida, remova o **inscrever** permissão a partir do **Admins do domínio** e **Admins de empresa** grupos de segurança.  
 
-8.  Нажмите кнопку **Добавить**, укажите группу безопасности, созданную на первом шаге, а затем нажмите кнопку **ОК**.  
+8.  Escolha **adicionar**, especifique o grupo de segurança que criou no passo um e, em seguida, escolha **OK**.  
 
-9. Установите разрешение **Регистрация** для этой группы, но не снимайте разрешение **Чтение**.  
+9. Escolha o **inscrever** permissão para este grupo e não desmarque a **leitura** permissão.  
 
-10. Нажмите кнопку **ОК** и закройте консоль **Шаблоны сертификатов**.  
+10. Escolha **OK**e, em seguida, feche **consola de modelos de certificado**.  
 
-11. В консоли центра сертификации щелкните правой кнопкой мыши **Шаблоны сертификатов**, выберите команду **Создать**, а затем выберите **Выдаваемый шаблон сертификата**.  
+11. Na consola de autoridade de certificação, clique com botão direito **modelos de certificado**, escolha **novo**e, em seguida, escolha **modelo de certificado a emitir**.  
 
-12. В диалоговом окне **Включение шаблонов сертификатов** выберите только что созданный шаблон **Сертификат клиента Mac Configuration Manager** и нажмите кнопку **ОК**.  
+12. No **ativar modelos de certificado** diálogo caixa, selecione o novo modelo que acabou de criar, **certificado de cliente Mac do ConfigMgr**e, em seguida, escolha **OK**.  
 
-13. Если создавать и выдавать сертификаты больше не требуется, закройте консоль **Центр сертификации**.  
+13. Se não necessitar de criar e emitir mais certificados, feche **autoridade de certificação**.  
 
- Шаблон сертификата клиента Mac готов к применению во время настройки параметров клиента для регистрации.
+ O modelo de certificado de cliente Mac está agora pronto para ser selecionado quando configurar as definições de cliente para inscrição.

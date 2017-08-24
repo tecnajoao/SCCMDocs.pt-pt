@@ -1,6 +1,6 @@
 ---
-title: "Использование и обслуживание отчетов | Документы Майкрософт"
-description: "Сведения об управлении отчетами и подписками на отчеты в System Center Configuration Manager."
+title: "Operações e manutenção de relatórios | Microsoft Docs"
+description: "Saiba os detalhes da gestão de relatórios e subscrições de relatórios no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,347 +16,347 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: df572cd0c64c82e25164430a53e1b893b3ba3cf5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Использование и обслуживание отчетов в System Center Configuration Manager
+# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Operações e manutenção de relatórios no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-После создания инфраструктуры отчетов в System Center Configuration Manager можно выполнить ряд операций, которые обычно используются для управления отчетами и подписками на отчеты.  
+Depois da infraestrutura no local para relatórios no System Center Configuration Manager, há um número de operações que são geralmente efetuadas para gerir relatórios e subscrições de relatórios.  
 
-##  <a name="BKMK_ManageReports"></a> Управление отчетами Configuration Manager  
- В Configuration Manager есть около 400 предустановленных отчетов, помогающих собирать, упорядочивать и представлять сведения о пользователях, инвентаризации оборудования и программного обеспечения, обновлениях, приложениях, статусе сайтов и других операциях Configuration Manager в организации. Предустановленные отчеты можно использовать в том виде, в каком они есть, а можно изменить отчет в соответствии с требованиями организации. Кроме того, можно создавать свои собственные отчеты, основанные на моделях и SQL, которые отвечают предъявляемым требованиям. В следующих разделах приведены сведения об управлении отчетами Configuration Manager.  
+##  <a name="BKMK_ManageReports"></a>Gerir relatórios do Configuration Manager  
+ Configuration Manager fornece mais de 400 relatórios predefinidos que o ajudam a recolher, organizam e apresentam informações sobre utilizadores, hardware e inventário de software, atualizações de software, aplicações, estado do site e outras operações do Configuration Manager na sua organização. Pode utilizar os relatórios predefinidos tal como estão ou pode modificar um relatório para satisfazer os seus requisitos. Também pode criar o modelo personalizado\-com base e SQL\-com base em relatórios que satisfaçam os requisitos. Utilize as secções seguintes para ajudar a gerir relatórios do Configuration Manager.  
 
-###  <a name="BKMK_RunReport"></a> Запуск отчета Configuration Manager  
- Отчеты в Configuration Manager, хранятся в SQL Server Reporting Services и отображаемые в отчете данные извлекаются из базы данных сайта Configuration Manager. Можно воспользоваться отчетами на консоли Configuration Manager или с помощью диспетчера отчетов, доступ к которому осуществляется через веб-браузер. Отчеты можно открывать на любом компьютере, у которого есть доступ к компьютеру с SQL Server Reporting Services, и у пользователя должны быть соответствующие права для просмотра отчетов. При запуске отчета его название, описание и категория отображаются на языке операционной системы.  
+###  <a name="BKMK_RunReport"></a>Executar um relatório do Configuration Manager  
+ Relatórios no Configuration Manager são armazenados no SQL Server Reporting Services e os dados compostos no relatório obtidos da base de dados do site do Configuration Manager. Pode aceder a relatórios na consola do Configuration Manager ou utilizando o Gestor de relatórios, que poderá aceder num browser. Pode abrir relatórios em qualquer computador que tenha acesso ao computador que está a executar o SQL Server Reporting Services e tem de ter direitos suficientes para ver os relatórios. Quando executar um relatório, o título do relatório, a descrição e a categoria são apresentados no idioma do sistema operativo local.  
 
 > [!NOTE]  
->  На некоторых языках, отличных от английского, символы в отчетах могут отображаться неправильно.  В этом случае для просмотра отчетов можно использовать веб\-диспетчер отчетов или консоль удаленного администрирования.  
+>  Em algumas não\-inglês idiomas, os carateres poderão não ser corretamente apresentados nos relatórios.  Neste caso, relatórios podem ser visualizados através da web\-com base em Gestor de relatórios ou através da consola do administrador remoto.  
 
 > [!WARNING]  
->  Для запуска отчетов необходимо иметь права **Чтение** для разрешения **Сайт** , а также разрешение **Выполнить отчет** , настроенное для определенных объектов.  
+>  Para executar relatórios, tem de ter **leitura** direitos para o **Site** permissão e o **executar relatório** permissão que está configurado para objetos específicos.  
 
 > [!IMPORTANT]    
-> Чтобы запустить отчет, нужно установить двустороннее отношение доверия между доменом пользователей и доменом, в котором находится учетная запись точки служб отчетов.
+> Tem de existir uma confiança bidirecional estabelecida para os utilizadores de um domínio diferente do que a conta de ponto de Reporting Services Servicies com êxito executar relatórios.
 
 > [!NOTE]  
->  Диспетчер отчетов — это интернет\-средство доступа к отчетам и их управления, предназначенное для администрирования одного экземпляра сервера отчетов в удаленном расположении через HTTP-соединение. Диспетчер отчетов можно использовать для таких задач как просмотр отчетов, изменение свойств отчета, а также управление связанными подписками на отчет. В этой статье приводятся инструкции по просмотру и изменению свойств отчета в диспетчере отчетов. Более подробные сведения о других параметрах, имеющихся в диспетчере отчетов, см. в статье [Диспетчер отчетов](http://go.microsoft.com/fwlink/p/?LinkId=224916) в SQL Server 2008 Books Online.  
+>  Gestor de relatórios é uma web\-com base a ferramenta de gestão e acesso de relatório que utilizar para administrar uma instância de servidor único relatório numa localização remota através de uma ligação HTTP. Pode utilizar Gestor de relatórios para tarefas operacionais, por exemplo, para ver relatórios, modificar propriedades de relatórios e gerir subscrições de relatórios associada. Este tópico fornece os passos para visualizar um relatório e modificar propriedades de relatórios no Gestor de relatórios para mais informações sobre as restantes opções que o Gestor de relatórios fornece, consulte [Gestor de relatórios](http://go.microsoft.com/fwlink/p/?LinkId=224916) no SQL Server 2008 Books Online.  
 
- Используйте следующие процедуры для запуска отчета Configuration Manager.  
+ Utilize os procedimentos seguintes para executar um relatório do Configuration Manager.  
 
-##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Создание отчета в консоли Configuration Manager  
+##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Para executar um relatório na consola do Configuration Manager  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-2.  В рабочей области **Мониторинг** разверните узел **Отчеты**и щелкните **Отчеты** , чтобы отобразить список доступных отчетов.  
+2.  No **monitorização** área de trabalho, expanda **relatórios**e, em seguida, clique em **relatórios** para listar os relatórios disponíveis.  
 
     > [!IMPORTANT]  
-    >  В данной версии Configuration Manager отчеты **Все содержимое** содержат только пакеты, но не приложения.  
+    >  Nesta versão do Configuration Manager, o **todo o conteúdo** apresentam apenas pacotes, e não aplicações.  
 
     > [!TIP]  
-    >  Если отчеты отсутствуют, убедитесь, что точка служб отчетов установлена и настроена. Дополнительные сведения см. в статье [Настройка отчетов](configuring-reporting.md).  
+    >  Se forem listados quaisquer relatórios, certifique-se de que o ponto do reporting services está instalado e configurado. Para obter mais informações, consulte [configurar relatórios](configuring-reporting.md).  
 
-3.  Выберите отчет, который требуется запустить, затем на вкладке **Главная** в разделе **Группа отчетов** нажмите кнопку **Запустить** , чтобы открыть отчет.  
+3.  Selecione o relatório que pretende executar, e, em seguida, no **home page** separador o **grupo de relatórios** secção, clique em **executar** para abrir o relatório.  
 
-4.  Если есть обязательные параметры, укажите эти параметры, после чего щелкните **Просмотреть отчет**.  
+4.  Se existirem parâmetros necessários, especifique os parâmetros e, em seguida, clique em **Ver relatório**.  
 
-#### <a name="to-run-a-report-in-a-web-browser"></a>Выполнение отчета в обозревателе  
+#### <a name="to-run-a-report-in-a-web-browser"></a>Para executar um relatório num browser  
 
-1.  В браузере введите URL-адрес диспетчера отчетов, например **http:\/\/Server1\/Reports**. Можно определить URL-адрес диспетчера отчетов на **URL-адрес диспетчера отчетов** страницы в диспетчер конфигурации служб отчетов.  
+1.  No seu browser, introduza o URL do Gestor de relatórios, por exemplo, **http:\/\/servidor1\/relatórios**. Pode determinar o URL do Gestor de relatórios no **URL do Gestor de relatórios** página no Reporting Services Configuration Manager.  
 
-2.  В диспетчере отчетов щелкните папку отчетов для Configuration Manager, например **ConfigMgr\_CAS**.  
-
-    > [!TIP]  
-    >  Если отчеты отсутствуют, убедитесь, что точка служб отчетов установлена и настроена. Дополнительные сведения см. в статье [Настройка отчетов](configuring-reporting.md).  
-
-3.  Щелкните категорию отчетов, содержащую требуемый отчет, после чего щелкните ссылку отчета. Отчет откроется в диспетчере отчетов.  
-
-4.  Если есть обязательные параметры, укажите эти параметры, после чего щелкните **Просмотреть отчет**.  
-
-###  <a name="BKMK_ModifyReportProperties"></a> Изменение свойств отчета Configuration Manager  
- В консоли Configuration Manager можно просматривать свойства отчета, например имя отчета и его описание, но для изменения свойств следует использовать диспетчер отчетов. Выполните следующую процедуру, чтобы настроить свойства отчета Configuration Manager.  
-
-#### <a name="to-modify-report-properties-in-report-manager"></a>Изменение свойств отчета в диспетчере отчетов  
-
-1.  В браузере введите URL-адрес диспетчера отчетов, например **http:\/\/Server1\/Reports**. Можно определить URL-адрес диспетчера отчетов на **URL-адрес диспетчера отчетов** страницы в диспетчер конфигурации служб отчетов.  
-
-2.  В диспетчере отчетов щелкните папку отчетов для Configuration Manager, например **ConfigMgr\_CAS**.  
+2.  No Gestor de relatórios, clique na pasta de relatórios no Configuration Manager, por exemplo, **ConfigMgr\_ACs**.  
 
     > [!TIP]  
-    >  Если отчеты отсутствуют, убедитесь, что точка служб отчетов установлена и настроена. Дополнительные сведения см. в статье [Настройка отчетов](configuring-reporting.md).  
+    >  Se forem listados quaisquer relatórios, certifique-se de que o ponto do reporting services está instalado e configurado. Para obter mais informações, consulte [configurar relatórios](configuring-reporting.md).  
 
-3.  Щелкните категорию отчетов, содержащую отчет, свойства которого требуется изменить, после чего щелкните ссылку отчета. Отчет откроется в диспетчере отчетов.  
+3.  Clique na categoria de relatório para o relatório que pretende executar e, em seguida, clique na ligação para o relatório. O relatório é apresentado no Gestor de relatórios.  
 
-4.  Перейдите на вкладку **Свойства** . Можно изменить имя и описание отчета.  
+4.  Se existirem parâmetros necessários, especifique os parâmetros e, em seguida, clique em **Ver relatório**.  
 
-5.  По окончании работы нажмите кнопку **Применить**. Свойства отчета сохранятся на сервере отчетов, а консоль Configuration Manager получит обновленные свойства отчета.  
+###  <a name="BKMK_ModifyReportProperties"></a>Modificar as propriedades de um relatório do Configuration Manager  
+ Na consola do Configuration Manager, pode ver as propriedades de um relatório, tais como o nome do relatório e a descrição, mas para alterar as propriedades, utilize o Gestor de relatórios. Utilize o procedimento seguinte para modificar as propriedades de um relatório do Configuration Manager.  
 
-###  <a name="BKMK_EditReport"></a> Изменение отчета Configuration Manager  
- Если в существующем отчете Configuration Manager не отображаются имеющиеся сведения или его структура не соответствует нуждам пользователя, можно изменить отчет в построителе отчетов.  
+#### <a name="to-modify-report-properties-in-report-manager"></a>Para modificar propriedades de relatório no Gestor de relatórios  
+
+1.  No seu browser, introduza o URL do Gestor de relatórios, por exemplo, **http:\/\/servidor1\/relatórios**. Pode determinar o URL do Gestor de relatórios no **URL do Gestor de relatórios** página no Reporting Services Configuration Manager.  
+
+2.  No Gestor de relatórios, clique na pasta de relatórios no Configuration Manager, por exemplo, **ConfigMgr\_ACs**.  
+
+    > [!TIP]  
+    >  Se forem listados quaisquer relatórios, certifique-se de que o ponto do Reporting Services está instalado e configurado. Para obter mais informações, consulte [configurar relatórios](configuring-reporting.md)  
+
+3.  Clique na categoria de relatório para o relatório para o qual pretende modificar as propriedades e, em seguida, clique na ligação para o relatório. O relatório é apresentado no Gestor de relatórios.  
+
+4.  Clique em de **propriedades** separador. Pode modificar o nome do relatório e a descrição.  
+
+5.  Quando tiver terminado, clique em **aplicar**. As propriedades de relatório são guardadas no servidor de relatórios e consola do Configuration Manager obtém as propriedades atualizadas para o relatório.  
+
+###  <a name="BKMK_EditReport"></a>Editar um relatório do Configuration Manager  
+ Quando um relatório existente do Configuration Manager não obtiver as informações que tem de ter ou não fornecer o esquema ou estrutura pretendidos, pode editar o relatório no Report Builder.  
 
 > [!NOTE]  
->  Также можно создать копию существующего отчета, открыв его для изменения и щелкнув **Сохранить как** , чтобы сохранить его как новый отчет.  
+>  Também pode optar por clonar um relatório existente, abrindo-o para edição e clicando em **guardar como** para guardá-lo como um novo relatório.  
 
 > [!IMPORTANT]  
->  Пользователь должен иметь разрешение на **Изменение сайтов** и **Изменение отчетов** для определенных объектов, связанных с отчетом, который требуется изменить.  
+>  A conta de utilizador tem de ter **modificar Site** permissão e **modificar relatório** permissões nos objetos específicos associados ao relatório que pretende modificar.  
 
 > [!IMPORTANT]  
->  Когда Configuration Manager обновляется до более новой версии, новые отчеты записываются поверх предустановленных. В случае изменения предустановленного отчета необходимо выполнить резервное копирование отчета, установить новую версию, после чего восстановить отчет в службах отчетов. Если в предустановленный отчет требуется внести значительные изменения, рекомендуется вместо этого создать новый отчет. Новые отчеты, созданные перед обновлением сайта, не перезаписываются.  
+>  Quando o Configuration Manager é atualizado para uma versão mais recente, os novos relatórios substituem os relatórios predefinidos. Se modificar um relatório predefinido, tem de copiar o relatório antes de instalar a nova versão e, em seguida, restaure o relatório no Reporting Services. Se estiver a efetuar alterações significativas a um relatório predefinido, considere criar um novo relatório em vez disso. Os novos relatórios que criar antes de atualizar um site não são substituídos.  
 
- Выполните следующую процедуру, чтобы изменить свойства отчета Configuration Manager.  
+ Utilize o procedimento seguinte para editar as propriedades de um relatório do Configuration Manager.  
 
-#### <a name="to-edit-report-properties"></a>Изменение свойств отчета  
+#### <a name="to-edit-report-properties"></a>Para editar as propriedades de relatório  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-2.  В рабочей области **Мониторинг** разверните узел **Отчеты**и щелкните **Отчеты** , чтобы отобразить список доступных отчетов.  
+2.  No **monitorização** área de trabalho, expanda **relatórios**e, em seguida, clique em **relatórios** para listar os relatórios disponíveis.  
 
-3.  Выберите отчет, который требуется изменить, а затем на вкладке **Главная** в разделе **Группа отчетов** нажмите кнопку **Изменить**. Введите имя пользователя и пароль, если отобразился соответствующий запрос, после чего нажмите кнопку **ОК**. Если построитель отчетов не установлен на компьютере, будет предложено установить его. Нажмите кнопку **Выполнить** , чтобы установить построитель очтетов, необходимый для изменения и создания отчетов.  
+3.  Selecione o relatório que pretende modificar, e, em seguida, no **home page** separador o **grupo de relatórios** secção, clique em **editar**. Introduza a conta de utilizador e a palavra-passe se for pedido e, em seguida, clique em **OK**. Se o Report Builder não está instalado no computador, lhe for pedido para instalá-lo. Clique em **executar** para instalar o Report Builder, necessário para modificar e criar relatórios.  
 
-4.  В построителе отчетов измените требуемые параметры отчета и нажмите кнопку **Сохранить** , чтобы сохранить отчет на сервере отчетов.  
+4.  No Report Builder, modifique as definições de relatório adequadas e, em seguida, clique em **guardar** para guardar o relatório para o servidor de relatórios.  
 
-###  <a name="BKMK_CreateModelBasedReport"></a> Создание отчета на основе модели  
- Отчет на основе модели позволяет интерактивно выбирать элементы, которые требуется включить в отчет. Дополнительные сведения о создании моделей отчетов см. в статье [Создание моделей пользовательских отчетов для System Center Configuration Manager в службах SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
-
-> [!IMPORTANT]  
->  Учетная запись пользователя должна иметь разрешение на **Изменение сайтов** , чтобы создать новый отчет. Пользователь может создавать отчеты только в папках, для которых у него есть разрешение на **Изменение отчетов** .  
-
- Ниже приведена процедура создания и отчета Configuration Manager на основе модели.  
-
-#### <a name="to-create-a-model-based-report"></a>Создание отчета на основе модели  
-
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
-
-2.  В рабочей области **Мониторинг** разверните узел **Отчеты** и щелкните элемент **Отчеты**.  
-
-3.  На вкладке **Главная** в разделе **Создание** выберите **Создать отчет** , чтобы открыть **Мастер создания отчета**.  
-
-4.  На странице **Сведения** настройте следующие параметры.  
-
-    -   **Тип**: выберите **Отчет на основе модели**, чтобы создать отчет в построителе запросов, используя модель служб Reporting Services.  
-
-    -   **Имя**. Укажите имя отчета.  
-
-    -   **Описание**. Введите описание отчета.  
-
-    -   **Сервер**. Отображает имя сервера отчетов, на котором создается данный отчет.  
-
-    -   **Путь**. Щелкните **Обзор** , чтобы указать папку, в которой будет сохранен отчет.  
-
-     Нажмите кнопку **Далее**.  
-
-5.  На странице **Выбор модели** выберите в списке доступную модель, которая будет использоваться для создания этого отчета. При выборе модели отчета в разделе **Предварительный просмотр** отображаются представления и экземпляры SQL Server, которые становятся доступными благодаря выбранной модели отчета.  
-
-6.  Проверьте параметры на странице **Сводка** . Нажмите кнопку **Назад**, чтобы изменить параметры, или **Далее**, чтобы создать отчет в Configuration Manager.  
-
-7.  На странице **Подтверждение** нажмите кнопку **Закрыть** , чтобы выйти из мастера, после чего откройте построитель отчетов для настройки параметров отчета. Введите имя пользователя и пароль, если отобразился соответствующий запрос, после чего нажмите кнопку **ОК**. Если построитель отчетов не установлен на компьютере, будет предложено установить его. Нажмите кнопку **Выполнить** , чтобы установить построитель очтетов, необходимый для изменения и создания отчетов.  
-
-8.  В построителе отчетов создайте структуру отчета, выберите данные, доступные в представлениях SQL Server, добавьте параметры в отчет и т. д. Дополнительные сведения об использовании построителя отчетов для создания нового отчета см. в справке построителя отчетов.  
-
-9. Нажмите кнопку **Запустить** , чтобы выполнить отчет. Убедитесь, что отчет содержит ожидаемые сведения. Нажмите кнопку **Конструктор** , чтобы вернуться в представление "Конструктор" для изменения отчета, если это требуется.  
-
-10. Нажмите кнопку **Сохранить** для сохранения отчета на сервере отчетов. Запустить и изменить новый очтет можно в узле **Отчеты** в рабочей области **Мониторинг** .  
-
-###  <a name="BKMK_CreateSQLBasedReport"></a> Создание отчета на основе SQL  
- Отчет на основе SQL позволяет принимать данные, основанные на выражении SQL.  
+###  <a name="BKMK_CreateModelBasedReport"></a>Criar um modelo\-relatório baseado em  
+ Um modelo\-com base permite de relatório selecionar interativamente os itens que pretende incluir no relatório. Para obter mais informações sobre como criar modelos de relatórios personalizados, consulte [criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
 > [!IMPORTANT]  
->  При создании SQL-оператора для настраиваемого отчета не используйте прямые ссылки на таблицы SQL Server. Вместо этого следует ссылаться на представления отчетов SQL Server \(имена которых начинаются с v\_\) в базе данных сайта. Можно также обращаться к общедоступным хранимым процедурам \(это хранимые процедуры, имена которых начинаются с sp\_\) в базе данных сайта.  
+>  A conta de utilizador tem de ter **modificar Site** permissão para criar um novo relatório. O utilizador só pode criar um relatório em pastas para a qual o utilizador tem **modificar relatório** permissões.  
+
+ Utilize o procedimento seguinte para criar um modelo\-com base relatório do Configuration Manager.  
+
+#### <a name="to-create-a-model-based-report"></a>Para criar um modelo\-relatório baseado em  
+
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
+
+2.  No **monitorização** área de trabalho, expanda **relatórios** e clique em **relatórios**.  
+
+3.  No **home page** separador o **criar** secção, clique em **criar relatório** para abrir o **Assistente para criar relatório**.  
+
+4.  No **informações** página, configure as seguintes definições:  
+
+    -   **Tipo**: Selecione **modelo\-relatório baseado em** para criar um relatório no Report Builder utilizando um modelo do Reporting Services.  
+
+    -   **Nome**: Especifique um nome para o relatório.  
+
+    -   **Descrição**: Especifique uma descrição para o relatório.  
+
+    -   **Servidor**: Apresenta o nome do servidor de relatórios no qual está a criar este relatório.  
+
+    -   **Caminho**: Clique em **procurar** para especificar uma pasta na qual pretende armazenar o relatório.  
+
+     Clique em **Seguinte**.  
+
+5.  No **seleção do modelo** página, selecione um modelo disponível na lista que é utilizado para criar este relatório. Quando seleciona o modelo de relatório, o **pré-visualização** secção apresenta as vistas do SQL Server e entidades que são disponibilizadas pelo modelo de relatório selecionado.  
+
+6.  Na página **Resumo** , reveja as definições. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar o relatório no Configuration Manager.  
+
+7.  No **confirmação** página, clique em **fechar** para sair do assistente e reabrir o Report Builder para configurar as definições do relatório. Introduza a conta de utilizador e a palavra-passe se for pedido e, em seguida, clique em **OK**. Se o Report Builder não está instalado no computador, lhe for pedido para instalá-lo. Clique em **executar** para instalar o Report Builder, necessário para modificar e criar relatórios.  
+
+8.  No Microsoft Report Builder, criar o esquema do relatório, selecione os dados nas vistas do SQL Server disponíveis, adicione parâmetros ao relatório e assim sucessivamente. Para obter mais informações sobre como utilizar o Report Builder para criar um novo relatório, consulte a ajuda do Report Builder.  
+
+9. Clique em **executar** para executar o relatório. Certifique-se de que o relatório fornece informações que pretende. Clique em **Design** para regressar à vista estrutura e modificar o relatório, se necessário.  
+
+10. Clique em **guardar** para guardar o relatório para o servidor de relatórios. Pode executar e modificar o novo relatório no **relatórios** no nó de **monitorização** área de trabalho.  
+
+###  <a name="BKMK_CreateSQLBasedReport"></a>Criar um SQL\-relatório baseado em  
+ Um SQL\-com base permite relatório obter dados com base na instrução SQL de relatório.  
 
 > [!IMPORTANT]  
->  Учетная запись пользователя должна иметь разрешение на **Изменение сайтов** , чтобы создать новый отчет. Пользователь может создавать отчеты только в папках, для которых у него есть разрешение на **Изменение отчетов** .  
+>  Quando cria uma instrução SQL para um relatório personalizado, não faça diretamente referência a tabelas do SQL Server. Em alternativa, fazer referência a vistas do SQL Server Reporting Services \(ver os nomes que começam por v\_ \) da base de dados do site. Também pode referenciar procedimentos armazenados públicos \(armazenados nomes que começam por sp\_ \) da base de dados do site.  
 
- Ниже приведена процедура создания и отчета Configuration Manager на основе SQL.  
+> [!IMPORTANT]  
+>  A conta de utilizador tem de ter **modificar Site** permissão para criar um novo relatório. O utilizador só pode criar um relatório em pastas para a qual o utilizador tem **modificar relatório** permissões.  
 
-#### <a name="to-create-a-sql-based-report"></a>\- Создание отчета на основе SQL  
+ Utilize o procedimento seguinte para criar um SQL\-com base relatório do Configuration Manager.  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+#### <a name="to-create-a-sql-based-report"></a>Para criar um SQL\-relatório baseado em  
 
-2.  В рабочей области **Мониторинг** разверните узел **Отчеты**и щелкните элемент **Отчеты**.  
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-3.  На вкладке **Главная** в разделе **Создание** выберите **Создать отчет** , чтобы открыть **Мастер создания отчета**.  
+2.  Na área de trabalho **Monitorização** , expanda **Comunicar**e clique em **Relatórios**.  
 
-4.  На странице **Сведения** настройте следующие параметры.  
+3.  No **home page** separador o **criar** secção, clique em **criar relatório** para abrir o **Assistente para criar relatório**.  
 
-    -   **Тип**: выберите **Отчет на основе SQL**, чтобы создать отчет в построителе запросов, используя выражение SQL.  
+4.  No **informações** página, configure as seguintes definições:  
 
-    -   **Имя**. Укажите имя отчета.  
+    -   **Tipo**: Selecione **SQL\-relatório baseado em** para criar um relatório no Report Builder utilizando uma instrução SQL.  
 
-    -   **Описание**. Введите описание отчета.  
+    -   **Nome**: Especifique um nome para o relatório.  
 
-    -   **Сервер**. Отображает имя сервера отчетов, на котором создается данный отчет.  
+    -   **Descrição**: Especifique uma descrição para o relatório.  
 
-    -   **Путь**. Щелкните **Обзор** , чтобы указать папку, в которой будет сохранен отчет.  
+    -   **Servidor**: Apresenta o nome do servidor de relatórios no qual está a criar este relatório.  
 
-     Нажмите кнопку **Далее**.  
+    -   **Caminho**: Clique em **procurar** para especificar uma pasta na qual pretende armazenar o relatório.  
 
-5.  Проверьте параметры на странице **Сводка** . Нажмите кнопку **Назад**, чтобы изменить параметры, или **Далее**, чтобы создать отчет в Configuration Manager.  
+     Clique em **Seguinte**.  
 
-6.  На странице **Подтверждение** нажмите кнопку **Закрыть** , чтобы выйти из мастера, после чего откройте построитель отчетов для настройки параметров отчета. Введите имя пользователя и пароль, если отобразился соответствующий запрос, после чего нажмите кнопку **ОК**. Если построитель отчетов не установлен на компьютере, будет предложено установить его. Нажмите кнопку **Выполнить** , чтобы установить построитель отчетов, необходимый для изменения и создания отчетов.  
+5.  Na página **Resumo** , reveja as definições. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar o relatório no Configuration Manager.  
 
-7.  В Microsoft Report Builder укажите выражение SQL для отчета или сформируйте выражение SQL, используя столбцы в доступных представлениях SQL Server, добавьте параметры в отчет и т. д.  
+6.  No **confirmação** página, clique em **fechar** para sair do assistente e reabrir o Report Builder para configurar as definições de relatório. Introduza a conta de utilizador e a palavra-passe se for pedido e, em seguida, clique em **OK**. Se o Report Builder não está instalado no computador, lhe for pedido para instalá-lo. Clique em **executar** para instalar o Report Builder, necessário para modificar e criar relatórios.  
 
-8.  Нажмите кнопку **Запустить** , чтобы выполнить отчет. Убедитесь, что отчет содержит ожидаемые сведения. Нажмите кнопку **Конструктор** , чтобы вернуться в представление "Конструктор" для изменения отчета, если это требуется.  
+7.  No Microsoft Report Builder, forneça a instrução SQL para o relatório ou crie-a utilizando colunas nas vistas do SQL Server disponíveis, adicione parâmetros ao relatório e assim sucessivamente.  
 
-9. Нажмите кнопку **Сохранить** для сохранения отчета на сервере отчетов. Запустить новый отчет можно в узле **Отчеты** в рабочей области **Мониторинг** .  
+8.  Clique em **executar** para executar o relatório. Certifique-se de que o relatório fornece informações que pretende. Clique em **Design** para regressar à vista estrutura e modificar o relatório, se necessário.  
 
-##  <a name="BKMK_ManageReportSubscriptions"></a> Управление подписками на отчеты  
- Подписки на отчеты в SQL Server Reporting Services позволяют настраивать автоматическую доставку указанных отчетов по электронной почте или в хранилище файлов в соответствии с установленными временными интервалами. Используйте **мастер создания подписки** в System Center 2012 Configuration Manager для настройки подписок на отчеты.  
+9. Clique em **guardar** para guardar o relatório para o servidor de relatórios. Pode executar o novo relatório no **relatórios** no nó de **monitorização** área de trabalho.  
 
-###  <a name="BKMK_ReportSubscriptionFileShare"></a> Создание подписки на отчет для доставки отчета в общую папку  
- При создании подписки на отчет с целью доставки отчета в общую папку отчет копируется в указанном формате в назначенную общую папку. Можно подписаться и запросить доставку только для одного отчета.  
+##  <a name="BKMK_ManageReportSubscriptions"></a>Gerir subscrições de relatórios  
+ Subscrições de relatórios no SQL Server Reporting Services permitem configurar a entrega automática de relatórios especificados por correio eletrónico ou uma partilha de ficheiros em intervalos agendados. Utilize o **Assistente para criar subscrição** no System Center 2012 Configuration Manager para configurar subscrições de relatórios.  
 
- В отличие от отчетов, размещенных и управляемых на сервере отчетов, отчеты доставляемые в общую папку, представляют собой статичные файлы. Интерактивные возможности, предусмотренные для отчета, не функционируют для отчетов, хранимых в виде файлов в файловой системе. Возможности взаимодействия представляются в виде статических элементов. Если отчет включает диаграммы, используется представление по умолчанию. Если в отчете есть ссылка на другой отчет, ссылка отображается в виде статичного текста. Чтобы сохранить интерактивные возможности в доставляемом отчете, используйте вместо этого метода доставку по электронной почте. Дополнительные сведения о доставке по электронной почте см. в разделе [Создание подписки на отчет для доставки отчета по электронной почте](#BKMK_ReportSubscriptionEmail) далее в этой статье.  
+###  <a name="BKMK_ReportSubscriptionFileShare"></a>Criar uma subscrição de relatório para entregar um relatório numa partilha de ficheiros  
+ Quando cria uma subscrição de relatório para entregar um relatório para uma partilha de ficheiros, o relatório é copiado no formato especificado para a partilha de ficheiros que especificar. Pode subscrever e solicitar a entrega de apenas um relatório a uma hora.  
 
- При создании подписки, использующей доставку в общую папку, необходимо в качестве папки назначения указывать существующую папку. Сервер отчетов не создает папки в файловой системе. Указанная папка должна быть доступна через сетевое подключение. При указании папки назначения в подписке следует использовать UNC-путь, который не должен содержать символов обратной косой черты. Например, правильный UNC-путь папки назначения может иметь следующий вид: \\\\&lt;имя_сервера\>\\файлы_отчета\\operations\\2011.  
+ Ao contrário dos relatórios alojados e geridos por um servidor de relatórios, relatórios que são entregues a uma pasta partilhada são ficheiros estáticos. As funcionalidades interativas definidas para o relatório não funcionam em relatórios que são armazenados como ficheiros no sistema de ficheiros. As funcionalidades de interação são representadas como elementos estáticos. Se o relatório incluir gráficos, é utilizada a apresentação predefinida. Se o relatório ligar a outro relatório, a ligação é apresentada como texto estático. Se pretender manter as funcionalidades interativas num relatório entregue, utilize em vez disso, entrega de correio eletrónico. Para obter mais informações sobre a entrega de correio eletrónico, consulte o [criar uma subscrição de relatório para entregar um relatório por correio eletrónico](#BKMK_ReportSubscriptionEmail) posterior deste tópico.  
 
- Отчеты могут формироваться в ряде различных форматов, таких как MHTML или Excel. Чтобы сохранить отчет в определенном формате, выберите формат отчета при создании подписки. Например, если выбрать вариант Excel, отчет будет сохранен в файле Microsoft Excel. Хотя можно выбрать любой поддерживаемый формат, некоторые форматы больше подходят для сохранения отчетов в файл, чем другие.  
+ Quando cria uma subscrição que utiliza a entrega em partilha de ficheiros, tem de especificar uma pasta existente como a pasta de destino. O servidor de relatórios não cria pastas no sistema de ficheiros. A pasta que especificar tem de estar acessível através de uma ligação de rede. Quando especificar a pasta de destino numa subscrição, utilize um caminho UNC e não inclua barras invertidas no caminho da pasta. Por exemplo, é um caminho UNC válido para a pasta de destino: \\ \\ &lt;servername\>\\reportfiles\\operações\\2011.  
 
- Следующая процедура позволяет создать подписку на отчет с целью доставки отчета в общую папку.  
+ Relatórios podem ser compostos numa variedade de formatos de ficheiro, tais como MHTML ou Excel. Para guardar o relatório no formato de ficheiro específico, selecione esse formato de composição ao criar a sua subscrição. Por exemplo, escolher Excel guarda o relatório como um ficheiro do Microsoft Excel. Embora possa selecionar qualquer formato de composição suportado, alguns formatos funcionam melhor do que outros durante a composição para um ficheiro.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>Чтобы создать подписку на отчет для доставки в общую папку, выполните следующие действия.  
+ Utilize o procedimento seguinte para criar uma subscrição de relatório para entregar um relatório para uma partilha de ficheiros.  
 
-1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>Para criar uma subscrição de relatório para entregar um relatório para uma partilha de ficheiros  
 
-2.  В рабочей области **Мониторинг** разверните узел **Отчеты** и щелкните **Отчеты** , чтобы отобразить список доступных отчетов. Можно указать, чтобы в папке отчетов отображались только те отчеты, которые связаны с папкой.  
+1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-3.  Выберите отчет, который требуется добавить в подписку, затем на вкладке **Главная** в разделе **Группа отчетов** нажмите кнопку **Создать подписку** , чтобы открыть **Мастер создания подписки**.  
+2.  No **monitorização** área de trabalho, expanda **relatórios** e clique em **relatórios** para listar os relatórios disponíveis. Pode selecionar uma pasta de relatório para listar apenas os relatórios que estão associados essa pasta.  
 
-4.  На странице **Доставка подписки** настройте следующие параметры.  
+3.  Selecione o relatório que pretende adicionar à subscrição e, em seguida, no **home page** separador o **grupo de relatórios** secção, clique em **criar subscrição** para abrir o **Assistente para criar subscrição**.  
 
-    -   Способ доставки отчета. Выберите **Общая папка Windows** , чтобы отчет доставлялся в общую папку.  
+4.  No **entrega de subscrição** página, configure as seguintes definições:  
 
-    -   **Имя файла**. Укажите имя файла для отчета. По умолчанию у имени файла отчета отсутствует расширение. Выберите **Добавлять расширение файла при создании** , чтобы автоматически добавлять расширение имени файла этого отчета в зависимости от формата.  
+    -   Relatório entregue por: Selecione **partilha de ficheiros Windows** para entregar o relatório para uma partilha de ficheiros.  
 
-    -   **Путь**: укажите UNC-путь к существующей папке, в которую должен доставляться отчет \(например \\\\&lt;имя_сервера\>\\&lt;общая_папка_на_сервере\>\\&lt;папка_отчета\>\).  
+    -   **Nome de ficheiro**: Especifique o nome de ficheiro para o relatório. Por predefinição, o ficheiro de relatório não inclui uma extensão de nome de ficheiro. Selecione **Adicionar extensão de ficheiro ao criar** para adicionar automaticamente uma extensão de nome de ficheiro a esse relatório com base no formato de composição.  
+
+    -   **Caminho**: Especifique um caminho UNC para uma pasta existente em que pretende enviar o relatório \(por exemplo, \\ \\ &lt;nome do servidor\>\\&lt;partilha de servidor\>\\&lt;à pasta de relatórios\>\).  
 
         > [!NOTE]  
-        >  Для имени пользователя, указанного ранее на этой странице, должен быть открыт доступ к этой общей папке на сервере и должны быть предоставлены разрешения записи в отношении целевой папки.  
+        >  O nome de utilizador especificado posteriormente nesta página tem de ter acesso a esta partilha de servidor e permissões de escrita na pasta de destino.  
 
-    -   **Формат визуализации**. Выберите один из следующих форматов файла отчета.  
+    -   **Formato de composição**: Selecione um dos seguintes formatos para o ficheiro de relatório:  
 
-        -   **XML-файл с данными отчета**. Сохраняет отчет в формате расширяемого языка разметки.  
+        -   **Ficheiro XML com dados de relatório**: Guarda o relatório no formato Extensible Markup Language.  
 
-        -   **CSV-файл \(разделители-запятые\)**: сохраняет отчет в формате с разделителями\-запятыми\-.  
+        -   **CSV \(delimitado por vírgulas\)**: Guarda o relatório no vírgulas\-separados\-formato de valores.  
 
-        -   **TIFF-файл**. Сохраняет отчет в формате TIFF.  
+        -   **Ficheiro TIFF**: Guarda o relatório no formato de ficheiro de imagem etiquetados.  
 
-        -   **Файл Acrobat \(PDF\)**: сохраняет отчет в формате Acrobat PDF.  
+        -   **Acrobat \(PDF\) ficheiro**: Guarda o relatório no formato de documento portátil Acrobat.  
 
-        -   **HTML 4.0**. Сохраняет отчет в виде веб-страницы, доступной для просмотра только в браузерах, поддерживающих HTML 4.0. Internet Explorer 5 и более поздние версии поддерживают HTML 4.0.  
+        -   **HTML 4.0**: Guarda o relatório como uma página Web visualizável apenas em browsers que suportam HTML 4.0. O Internet Explorer 5 e versões posteriores suportam HTML 4.0.  
 
             > [!NOTE]  
-            >  Если в отчете есть изображения, они не будут сохранены при использовании формата HTML 4.0.  
+            >  Se tiver imagens no relatório, o formato HTML 4.0 não as inclui no ficheiro.  
 
-        -   **MHTML \(веб-архив\)**: сохраняет отчет в формате MIME HTML \(MHTML\), который можно просматривать во многих браузерах.  
+        -   **MHTML \(arquivo da web\)**: Guarda o relatório no formato MIME HTML \(mhtml\), que é visualizável em muitos browsers.  
 
-        -   **Средство визуализации RPL**: сохраняет отчет в формате макета страницы отчета \(RPL\).  
+        -   **Compositor de RPL**: Guarda o relatório no esquema de página do relatório \(RPL\) formato.  
 
-        -   **Excel**. Сохраняет отчет в виде электронной таблицы Microsoft Excel.  
+        -   **Excel**: Guarda o relatório como uma folha de cálculo do Microsoft Excel.  
 
-        -   **Word**. Сохраняет отчет как документ Microsoft Word.  
+        -   **Word**: Guarda o relatório como um documento do Microsoft Word.  
 
-    -   **Имя пользователя**. Укажите учетную запись пользователя Windows с разрешениями на доступ к целевому серверу и общей папке на нем. Учетной записи пользователя должен быть предоставлен доступ к этому общему ресурсу на сервере, а также разрешение на запись в целевую папку.  
+    -   **Nome de utilizador**: Especifique uma conta de utilizador do Windows com permissões para aceder a partilha de servidor de destino e a pasta. A conta de utilizador tem de ter acesso a esta partilha de servidor e permissão de escrita na pasta de destino.  
 
-    -   **Пароль**. Необходимо указать пароль для учетной записи пользователя Windows. В поле **Подтверждение пароля** повторно введите пароль.  
+    -   **Palavra-passe**: Especifique a palavra-passe da conta de utilizador do Windows. No **Confirmar palavra-passe**, re\-introduza a palavra-passe.  
 
-    -   Выберите один из следующих параметров для настройки поведения в случае, если в конечной папке уже есть файл с указанным именем.  
+    -   Selecione uma das seguintes opções para configurar o comportamento quando existe um ficheiro com o mesmo nome na pasta de destino:  
 
-        -   **Перезаписать существующий файл более новым**. Указывает, что если файл отчета уже существует, новая версия записывается поверх него.  
+        -   **Substituir ficheiro existente com uma versão mais recente**: Especifica que quando o ficheiro de relatório já existe, a nova versão substitui-lo.  
 
-        -   **Не перезаписывать существующий файл**. Указывает, что если файл отчета уже существует, дальнейшие действия не выполняются.  
+        -   **Não substituir um ficheiro existente**: Não especifica que quando o ficheiro de relatório já existe, não existe nenhuma ação.  
 
-        -   **Дополнять имена файлов числами при добавлении более новых версий**. Указывает, что если файл отчета уже существует, к имени файла нового отчета добавляется число, которое позволит отличать этот файл от других версий отчета.  
+        -   **Incrementar nomes de ficheiro são adicionadas novas versões**: Especifica que, quando o ficheiro de relatório já existe, um número é adicionado para o novo relatório para o nome de ficheiro para o distinguir de outras versões.  
 
-    -   **Описание**. Указывает описание отчета в рамках подписки.  
+    -   **Descrição**: Especifica a descrição para a subscrição do relatório.  
 
-     Нажмите кнопку **Далее**.  
+     Clique em **Seguinte**.  
 
-5.  На странице **Расписание подписки** выберите один из следующих вариантов расписания доставки для подписки на отчет.  
+5.  No **agendamento da subscrição** página, selecione uma das seguintes opções de agendamento de entrega para a subscrição de relatório:  
 
-    -   **Использовать общее расписание**. Общее расписание – это заранее определенное расписание, которое может использоваться другими подписками на отчеты. Установите этот флажок, после чего выберите общее расписание в списке, если таковое было указано.  
+    -   **Utilizar agendamento partilhado**: Um agendamento partilhado é um agendamento definido anteriormente que pode ser utilizado por outras subscrições de relatório. Selecione esta caixa de verificação e, em seguida, selecione um agendamento partilhado na lista se tiver sido especificado algum.  
 
-    -   **Создать новое расписание**. Настройте расписание, в соответствии с которым будет выполняться этот отчет, включая интервал, дату и время начала, а также дату окончания подписки.  
+    -   **Criar novo agendamento**: Configurar a agenda em que executa este relatório, incluindo o intervalo, inicie a hora e data e a data de fim para esta subscrição.  
 
-6.  На странице **Свойства подписки** укажите параметры этого отчета, которые будут использоваться при его автоматическом выполнении. Если параметры отчета не указаны, эта страница не отображается.  
+6.  No **parâmetros de subscrições** página, especifique os parâmetros deste relatório, que são utilizados quando é executado de forma automática. Quando não existem sem parâmetros para o relatório, esta página não é apresentada.  
 
-7.  Проверьте параметры подписки на отчет на странице **Сводка** . Нажмите кнопку **Назад** , чтобы изменить параметры, или **Далее** , чтобы создать подписку на отчет.  
+7.  No **resumo** , reveja as definições de subscrição de relatório. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar a subscrição de relatório.  
 
-8.  На странице **Завершение** нажмите кнопку **Закрыть** , чтобы закрыть окно мастера. Убедитесь, что подписка на отчет успешно создана. Просмотреть и изменить подписки на отчет можно в узле **Подписки** в пункте **Отчеты** в рабочей области **Мониторинг** .  
+8.  Na página **Conclusão** , clique em **Fechar** para sair do assistente. Certifique-se de que a subscrição do relatório foi criada com êxito. Pode ver e modificar subscrições de relatórios no **subscrições** nó **relatórios** no **monitorização** área de trabalho.  
 
-###  <a name="BKMK_ReportSubscriptionEmail"></a> Создание подписки на отчет для доставки отчета по электронной почте  
- При создании подписки на отчет с доставкой по электронной почте указанному получателю отправляется сообщение электронной почты с файлом отчета во вложении. Сервер отчетов не проверяет адреса электронной почты не получает адреса с почтового сервера. Необходимо заранее знать, какие адреса электронной почты будут использоваться. По умолчанию можно направлять отчеты на любые действительные адреса внутри или за пределами организации. Можно выбрать один или оба варианта доставки по электронной почте.  
+###  <a name="BKMK_ReportSubscriptionEmail"></a>Criar uma subscrição de relatório para entregar um relatório por correio eletrónico  
+ Quando cria uma subscrição de relatório para entregar um relatório por correio eletrónico, é enviado um e-mail para destinatários que configurou e o relatório é incluído como um anexo. O servidor de relatórios não validar endereços de e-mail ou obter endereços de e-mail a partir de um servidor de correio eletrónico. Tem de saber antecipadamente qual e-mail endereços que pretende utilizar. Por predefinição, pode enviar por e-mail relatórios a qualquer conta de e-mail válido dentro ou fora da organização. Pode selecionar uma ou ambas as seguintes opções de entrega de e-mail:  
 
--   Отправьте уведомление и гиперссылку на созданный отчет.  
+-   Envie uma notificação e uma hiperligação para o relatório gerado.  
 
--   Отправьте внедренный или прикрепленный отчет. Формат визуализации и браузер определяют, является ли отчет внедренным или прикрепленным. Если браузер поддерживает HTML 4.0 и MHTML и выбран вариант визуализации MHTML \(веб-архив\), отчет внедряется в виде части сообщения. При использовании всех остальных форматов \(CSV, PDF, Word и т. д.\) отчеты доставляются в виде вложений. Службы отчетов не проверяют размер вложения и сообщения перед отправкой. Если размер вложения или сообщения превышает максимальный предел, разрешенный почтовым сервером пользователя, отчет доставлен не будет.  
+-   Envie um relatório incorporado ou anexado. O formato de composição e o browser determinam se o relatório é incorporado ou anexado. Se o browser suporta HTML 4.0 e MHTML e selecione o MHTML \(arquivo da web\) formato de composição, o relatório é incorporado como parte da mensagem. Todos os outros formatos de composição \(CSV, PDF, Word, e assim sucessivamente\) fornecem relatórios como anexos. O Reporting Services não verifica se o tamanho do anexo ou da mensagem antes de enviar o relatório. Se o anexo ou da mensagem excede o limite máximo permitido pelo servidor de correio, o relatório não for entregue.  
 
 > [!IMPORTANT]  
->  Чтобы вариант доставки **Электронная почта** был доступен, необходимо настроить параметры электронной почты в службах отчетов. Дополнительные сведения о настройке параметров в службах отчетов см. в статье [Настройка сервера отчетов на доставку электронной почты](http://go.microsoft.com/fwlink/p/?LinkId=226668) в SQL Server Books Online.  
+>  Tem de configurar as definições de correio eletrónico no Reporting Services para o **E-Mail** opção de entrega para estar disponível. Para obter mais informações sobre como configurar as definições de correio eletrónico no Reporting Services, consulte [configurar um servidor de relatórios para entrega de correio eletrónico](http://go.microsoft.com/fwlink/p/?LinkId=226668) no SQL Server Books Online.  
 
- Следующая процедура позволяет создать подписку на отчет с целью доставки отчета по электронной почте.  
+ Utilize o procedimento seguinte para criar uma subscrição de relatório para entregar um relatório por correio eletrónico.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>Создание подписки на отчет с доставкой по электронной почте  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>Para criar uma subscrição de relatório para entregar um relatório por correio eletrónico  
 
--   В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+-   Na consola do Configuration Manager, clique em **monitorização**.  
 
--   В рабочей области **Мониторинг** разверните узел **Отчеты** и щелкните **Отчеты** , чтобы отобразить список доступных отчетов. Можно указать, чтобы в папке отчетов отображались только те отчеты, которые связаны с папкой.  
+-   No **monitorização** área de trabalho, expanda **relatórios** e clique em **relatórios** para listar os relatórios disponíveis. Pode selecionar uma pasta de relatório para listar apenas os relatórios que estão associados essa pasta.  
 
--   Выберите отчет, который требуется добавить в подписку, затем на вкладке **Главная** в разделе **Группа отчетов** нажмите кнопку **Создать подписку** , чтобы открыть **Мастер создания подписки**.  
+-   Selecione o relatório que pretende adicionar à subscrição e, em seguida, no **home page** separador o **grupo de relatórios** secção, clique em **criar subscrição** para abrir o **Assistente para criar subscrição**.  
 
--   На странице **Доставка подписки** настройте следующие параметры.  
+-   No **entrega de subscrição** página, configure as seguintes definições:  
 
-    -   **Способ доставки отчета**: выберите **Электронная почта**, чтобы доставлять отчет в виде вложения сообщения электронной почты.  
+    -   **Relatório entregue por**: Selecione **i\-correio** para entregar o relatório como um anexo numa mensagem de e-mail.  
 
-    -   **До**. Укажите действительный адрес электронной почты для отправки этого отчета.  
+    -   **Para**: Especifique um endereço de e-mail válido para enviar este relatório.  
 
         > [!NOTE]  
-        >  Можно указать несколько получателей, разделив их адреса точкой с запятой.  
+        >  Pode introduzir vários destinatários de correio eletrónico, separando cada endereço de correio eletrónico com ponto e vírgula.  
 
-    -   **Копия**. При необходимости укажите адрес электронной почты, на который будет направляться копия этого отчета.  
+    -   **Cc**: Opcionalmente, especifique um endereço de correio eletrónico para copiar este relatório.  
 
-    -   **Слепая копия**. При необходимости укажите адрес электронной почты, на который будет направляться слепая копия этого отчета.  
+    -   **Bcc**: Opcionalmente, especifique um endereço de correio eletrónico para enviar uma cópia oculta do relatório.  
 
-    -   **Кому отвечать**. Укажите адрес электронной почты, по которому будет направлен отчет, если пользователь ответит на сообщение.  
+    -   **Responda a**: Especifique o endereço de resposta a utilizar se o destinatário responder à mensagem de e-mail.  
 
-    -   **Тема**. Укажите тему сообщения подписки.  
+    -   **Requerente**: Especifique uma linha de assunto para a mensagem de correio eletrónico de subscrição.  
 
-    -   **Приоритет**. Установите флаг приоритета данного сообщения электронной почты. Выберите **Низкий**, **Обычный**или **Высокий**. Параметр приоритета используется в Microsoft Exchange для установки флага, обозначающего важность сообщения.  
+    -   **Prioridade**: Selecione o sinalizador de prioridade desta mensagem de correio eletrónico. Selecione **baixa**, **Normal**, ou **elevada**. A definição de prioridade é utilizada pelo Microsoft Exchange para definir um sinalizador que indica a importância da mensagem de e-mail.  
 
-    -   **Комментарий**: Укажите текст, который будет добавляться в тело сообщения подписки.  
+    -   **Comentário**: Especifique o texto a ser adicionado ao corpo da mensagem de correio eletrónico de subscrição.  
 
-    -   **Описание**. Укажите описание для этой подписки на отчет.  
+    -   **Descrição**: Especifique a descrição para esta subscrição de relatório.  
 
-    -   **Добавить ссылку**. Включает URL-адрес отчета с подпиской в тело сообщения.  
+    -   **Incluir ligação**: Inclui um URL para o relatório subscrito no corpo da mensagem de correio eletrónico.  
 
-    -   **Добавить отчет**: указывает, что отчет присоединяется к сообщению электронной почты. Формат, в котором отчет будет присоединяться в сообщению, указывается в списке **Формат визуализации** .  
+    -   **Incluir relatório**: Especifique que o relatório é anexado ao i\-mensagem de correio. O formato no qual o relatório será anexado é especificado no **formato de composição** lista.  
 
-    -   **Формат визуализации**. Выберите один из следующих форматов файла отчета.  
+    -   **Formato de composição**: Selecione um dos seguintes formatos para o relatório anexado:  
 
-        -   **XML-файл с данными отчета**. Сохраняет отчет в формате расширяемого языка разметки.  
+        -   **Ficheiro XML com dados de relatório**: Guarda o relatório no formato Extensible Markup Language.  
 
-        -   **CSV-файл \(разделители-запятые\)**: сохраняет отчет в формате с разделителями\-запятыми\-.  
+        -   **CSV \(delimitado por vírgulas\)**: Guarda o relatório no vírgulas\-separados\-formato de valores.  
 
-        -   **TIFF-файл**. Сохраняет отчет в формате TIFF.  
+        -   **Ficheiro TIFF**: Guarda o relatório no formato de ficheiro de imagem etiquetados.  
 
-        -   **Файл Acrobat \(PDF\)**: сохраняет отчет в формате Acrobat PDF.  
+        -   **Acrobat \(PDF\) ficheiro**: Guarda o relatório no formato de documento portátil Acrobat.  
 
-        -   **MHTML \(веб-архив\)**: сохраняет отчет в формате MIME HTML \(MHTML\), который можно просматривать во многих браузерах.  
+        -   **MHTML \(arquivo da web\)**: Guarda o relatório no formato MIME HTML \(mhtml\), que é visualizável em muitos browsers.  
 
-        -   **Excel**. Сохраняет отчет в виде электронной таблицы Microsoft Excel.  
+        -   **Excel**: Guarda o relatório como uma folha de cálculo do Microsoft Excel.  
 
-        -   **Word**. Сохраняет отчет как документ Microsoft Word.  
+        -   **Word**: Guarda o relatório como um documento do Microsoft Word.  
 
--   На странице **Расписание подписки** выберите один из следующих вариантов расписания доставки для подписки на отчет.  
+-   No **agendamento da subscrição** página, selecione uma das seguintes opções de agendamento de entrega para a subscrição de relatório:  
 
-    -   **Использовать общее расписание**. Общее расписание – это заранее определенное расписание, которое может использоваться другими подписками на отчеты. Установите этот флажок, после чего выберите общее расписание в списке, если таковое было указано.  
+    -   **Utilizar agendamento partilhado**: Um agendamento partilhado é um agendamento definido anteriormente que pode ser utilizado por outras subscrições de relatório. Selecione esta caixa de verificação e, em seguida, selecione um agendamento partilhado na lista se tiver sido especificado algum.  
 
-    -   **Создать новое расписание**. Настройте расписание, в соответствии с которым будет выполняться этот отчет, включая интервал, дату и время начала, а также дату окончания подписки.  
+    -   **Criar novo agendamento**: Configure a agenda de execução deste relatório, incluindo o intervalo, a hora de início e a data e a data de fim para esta subscrição.  
 
--   На странице **Свойства подписки** укажите параметры этого отчета, которые будут использоваться при его автоматическом выполнении. Если параметры отчета не указаны, эта страница не отображается.  
+-   No **parâmetros de subscrições** página, especifique os parâmetros deste relatório, que são utilizados quando é executado de forma automática. Quando não existem sem parâmetros para o relatório, esta página não é apresentada.  
 
--   Проверьте параметры подписки на отчет на странице **Сводка** . Нажмите кнопку **Назад** , чтобы изменить параметры, или **Далее** , чтобы создать подписку на отчет.  
+-   No **resumo** , reveja as definições de subscrição de relatório. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar a subscrição de relatório.  
 
--   На странице **Завершение** нажмите кнопку **Закрыть** , чтобы закрыть окно мастера. Убедитесь, что подписка на отчет успешно создана. Просмотреть и изменить подписки на отчет можно в узле **Подписки** в пункте **Отчеты** в рабочей области **Мониторинг** .  
+-   Na página **Conclusão** , clique em **Fechar** para sair do assistente. Certifique-se de que a subscrição do relatório foi criada com êxito. Pode ver e modificar subscrições de relatórios no **subscrições** nó **relatórios** no **monitorização** área de trabalho.  

@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг клиентов | Документы Майкрософт"
-description: "Узнайте, как осуществлять мониторинг клиентов и управлять ими в System Center Configuration Manager."
+title: Monitorizar clientes | Microsoft Docs
+description: Saiba como monitorizar e gerir clientes no System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,22 +16,22 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 828f615e14b2ad40108d0c7afdc050c7d17d4038
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-and-manage-clients-in-system-center-configuration-manager"></a>Мониторинг клиентов и управление ими в System Center Configuration Manager
+# <a name="monitor-and-manage-clients-in-system-center-configuration-manager"></a>Monitorizar e gerir clientes no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager (SCCM) предоставляет несколько способов мониторинга клиентского программного обеспечения и управления им после развертывания на компьютерах и устройствах в организации.  Вы можете отслеживать клиенты для проверки их состояния, а в некоторых случаях Configuration Manager может выполнить автоматическое исправление в зависимости от обнаруженной проблемы. Консоль Configuration Manager также позволяет управлять клиентами для отдельных устройств или их коллекций.  
+System Center Configuration Manager (também conhecido como do ConfigMgr ou SCCM) fornece várias formas de monitorizar e gerir o software de cliente depois de ser implementado nos computadores e dispositivos na sua organização.  Pode monitorizar os clientes para verificar o respetivo estado e, em alguns casos, o Configuration Manager podem executar automática remediação (ou correções) com base no problema detetado. Consola do Configuration Manager também fornece formas de gerir clientes em dispositivos individuais ou coleções de dispositivos.  
 
- В следующих разделах приведены сведения о мониторинге клиентов и управлении ими, а также о получении дополнительных сведений о мониторинге и управлении для серверов Linux и UNIX:  
+ Com as informações nos seguintes tópicos, saiba como monitorizar e gerir clientes, bem como obter detalhes adicionais para monitorização e gestão de clientes para servidores Linux e UNIX:  
 
--   [Мониторинг клиентов в System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
+-   [Como monitorizar clientes no System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
 
--   [Мониторинг клиентов для серверов Linux и UNIX в System Center Configuration Manager](../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md)  
+-   [Como monitorizar clientes para servidores Linux e UNIX no System Center Configuration Manager](../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md)  
 
--   [Управление клиентами в System Center Configuration Manager](../../../core/clients/manage/manage-clients.md)  
+-   [Como gerir clientes no System Center Configuration Manager](../../../core/clients/manage/manage-clients.md)  
 
--   [Управление клиентами для серверов Linux и UNIX в System Center Configuration Manager](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md)  
+-   [Como gerir clientes para servidores Linux e UNIX no System Center Configuration Manager](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md)  

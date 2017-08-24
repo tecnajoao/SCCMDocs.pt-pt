@@ -1,6 +1,6 @@
 ---
-title: "Развертывание приложений | Документы Майкрософт"
-description: "Создайте тип развертывания или имитируйте развертывание приложения с помощью System Center Configuration Manager."
+title: "Implementar aplicações | Microsoft Docs"
+description: "Criar um tipo de implementação ou simular a implementação de uma aplicação utilizando o System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,178 +17,178 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: f704d1b0ec48e3a7bbea784a7c18de77b21cd0ee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-applications-with-system-center-configuration-manager"></a>Развертывание приложений с помощью System Center Configuration Manager
+# <a name="deploy-applications-with-system-center-configuration-manager"></a>Implementar aplicações com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Перед развертыванием приложения System Center Configuration Manager необходимо создать хотя бы один тип развертывания для приложения. Дополнительные сведения о создании приложений и типов развертываний см. в статье [Создание приложений с помощью System Center Configuration Manager](/sccm/apps/deploy-use/create-applications).
+Antes de poder implementar uma aplicação do System Center Configuration Manager, tem de criar pelo menos um tipo de implementação para a aplicação. Para obter mais informações sobre como criar aplicações e tipos de implementação, consulte [criar aplicações](/sccm/apps/deploy-use/create-applications).
 
- Кроме того, вы можете имитировать развертывание приложения. Этот тип развертывания позволяет проверить применимость развертывания приложения на компьютерах, не устанавливая и не удаляя приложение. Имитация развертывания позволяет выполнить оценку метода обнаружения, требований и зависимостей для данного типа развертывания. Результаты оценки отображаются в узле **Развертывания** рабочей области **Наблюдение**. Дополнительные сведения см. в статье [Имитация развертываний приложений в System Center Configuration Manager](/sccm/apps/deploy-use/simulate-application-deployments).
+ Também pode simular a implementação de uma aplicação. Este tipo de implementação testa a aplicabilidade da implementação de uma aplicação em computadores sem instalar ou desinstalar a aplicação. Uma implementação simulada avalia o método de deteção, requisitos e dependências para um tipo de implementação e reporta os resultados no **implementações** o nó do **monitorização** área de trabalho. Para obter mais informações, consulte [simular implementações de aplicações](/sccm/apps/deploy-use/simulate-application-deployments).
 
 > [!IMPORTANT]
->  Можно развернуть необходимые приложения (установка и удаление), но не пакеты или обновления ПО. Устройства, зарегистрированные в системе управления мобильными устройствами, также не поддерживают имитацию развертывания, взаимодействие с пользователем и параметры планирования.
+>  Pode implementar (instalar ou desinstalar) necessário aplicações, mas não pacotes ou atualizações de software. Dispositivos inscritos no MDM também não suportam implementações simuladas, experiência de utilizador ou as definições de agendamento.
 
-## <a name="deploy-an-application"></a>Развертывание приложения
+## <a name="deploy-an-application"></a>Implementar uma aplicação
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.
+1.  Na consola do Configuration Manager, vá para **biblioteca de Software** > **gestão de aplicações** > **aplicações**.
 
-2.  В списке **Приложения** выберите приложение, которое нужно развернуть. Затем на **Главная** вкладке **развертывания** щелкните **Развернуть**.
+2.  Na lista **Aplicações** , selecione a aplicação que pretende implementar. No separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.
 
-### <a name="specify-general-information-about-the-deployment"></a>Указание общих сведений о развертывании
+### <a name="specify-general-information-about-the-deployment"></a>Especificar informações gerais sobre a implementação
 
-На странице **Общие** мастера развертывания программного обеспечения укажите приведенные ниже сведения.
+No **geral** página do Assistente de implementação de Software, especifique as seguintes informações:
 
-- **Программное обеспечение**  
-Отображает приложение, которое требуется развернуть. Чтобы выбрать другое приложение, нажмите кнопку **Обзор** .
-- **Коллекция**  
-Нажмите кнопку **Обзор**, чтобы выбрать коллекцию, в которой требуется развернуть приложение.
-- **Использовать группы точек распространения по умолчанию, связанные с этой коллекцией**.  
-Выберите этот вариант, если нужно хранить содержимое приложения в группе точек распространения по умолчанию для коллекции. Этот параметр недоступен, если выбранная коллекция не была связана с группой точек распространения.
-- **Автоматически распространять содержимое для зависимостей**.  
-Если включен этот параметр, а любой из типов развертывания в приложении содержит зависимости, содержимое зависимого приложения также будет отправляться в точки распространения.
+- **Software**  
+Esta ação apresenta a aplicação a implementar. Pode clicar em **Procurar** para selecionar uma aplicação diferente.
+- **Recolha**  
+Clique em **procurar** para selecionar a coleção para implementar a aplicação.
+- **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**  
+Selecione esta opção se pretender armazenar o conteúdo da aplicação no grupo de pontos de distribuição de predefinido da coleção. Se não associou a coleção selecionada com um grupo de pontos de distribuição, esta opção está desativada.
+- **Distribuir automaticamente o conteúdo para dependências**  
+Se esta opção estiver ativada e algum dos tipos de implementação da aplicação contiver dependências, o conteúdo da aplicação dependente é também enviado para pontos de distribuição.
 
     >[!IMPORTANT]
-    > При обновлении зависимого приложения после его развертывания новое содержимое для зависимости не будет распространяться автоматически.
+    > Se atualizar a aplicação dependente após a implementação da aplicação principal, os eventuais conteúdos novos da dependência não serão automaticamente distribuídos.
 
-- **Комментарии (необязательно)**.  
-При необходимости введите описание для этого развертывания.
+- **Comentários (opcional)**  
+Opcionalmente, introduza uma descrição para esta implementação.
 
-### <a name="specify-content-options-for-the-deployment"></a>Настройка параметров содержимого для развертывания
+### <a name="specify-content-options-for-the-deployment"></a>Especificar opções de conteúdo para a implementação
 
-На странице **Содержимое** нажмите кнопку **Добавить**, чтобы добавить связанное с этим развертыванием содержимое в точки распространения или группы точек распространения. На странице **Общие** можно выбрать параметр **Использовать точки распространения по умолчанию, связанные с этой коллекцией**. В таком случае этот параметр заполняется автоматически и становится недоступным для изменения пользователям, не являющимся членами роли безопасности "Администратор приложений".
+No **conteúdo** página, clique em **adicionar** para adicionar o conteúdo associado esta implementação a pontos de distribuição ou grupos de pontos de distribuição. Se tiver selecionado **utilizar pontos de distribuição predefinidos associados a esta coleção** no **geral** página, em seguida, esta opção é preenchida automaticamente e só pode ser modificada por um membro da função de segurança de administrador da aplicação.
 
-### <a name="specify-deployment-settings"></a>Указание параметров развертывания
+### <a name="specify-deployment-settings"></a>Especificar definições de implementação
 
-На странице **Параметры развертывания** мастера развертывания программного обеспечения укажите приведенные ниже сведения.
+No **definições de implementação** página do Assistente de implementação de Software, especifique as seguintes informações:
 
-- **Действие**  
-В раскрывающемся списке выберите цель развертывания: **Установка** или **Удаление** приложения.
+- **Ação**  
+Na lista pendente, escolha se esta implementação visa **instalar** ou **desinstalação** a aplicação.
 
     > [!NOTE]
-    >  Если приложение развертывается на устройстве дважды (один раз с действием **Установка** и один раз с действием **Удаление**), приоритетным считается развертывание приложения с действием **Установка**.
+    >  Se uma aplicação for implementada duas vezes num dispositivo, uma vez com uma ação **instalar** e uma vez com uma ação **desinstalação**, a implementação de aplicação com uma ação **instalar** tem prioridade.
 
-Созданное действие развертывания изменить нельзя.
+Após ter sido criada, não é possível alterar a ação de uma implementação.
 
-- **Назначение**  
-В раскрывающемся списке выберите одно из следующих значений.
-    - **Доступное**  
-    Если приложение развертывается для пользователя, этот пользователь увидит опубликованное приложение в центре программного обеспечения и сможет по запросу установить его.
-    - **Обязательное**  
-    Приложение развертывается автоматически в соответствии с расписанием. Если состояние развертывания приложения не является скрытым, любой пользователь приложения может отслеживать состояние его развертывания и устанавливать приложение из центра программного обеспечения до наступления крайнего срока.
+- **Objetivo**  
+Na lista pendente, escolha uma das seguintes opções:
+    - **Disponível**  
+    Se a aplicação for implementada para um utilizador, o utilizador verá a aplicação publicada no Centro de Software e pode instalá-la a pedido.
+    - **Necessário**  
+    A aplicação é implementada automaticamente, de acordo com a agenda. Se o estado de implementação da aplicação não se encontre oculto, qualquer pessoa a utilizar a aplicação pode controlar o estado de implementação e instalar a aplicação a partir do Centro de Software antes do prazo.
 
     > [!NOTE]   
-    >  Если в качестве действия развертывания выбрано **Удаление**, намерение развертывания автоматически получает значение **Обязательное** и не может быть изменено.  
+    >  Quando a ação de implementação estiver definida como **Desinstalar**, o objetivo da implementação é automaticamente definido como **Necessária** , não podendo ser alterado.  
 
-- **Развертывать автоматически по расписанию независимо от того, вошел ли пользователь в систему**  
-Если развертывание адресовано пользователю, выберите данный вариант, чтобы сразу развернуть приложение на основных устройствах пользователя. В этом варианте пользователю не требуется входить в систему перед выполнением развертывания. Не выбирайте этот вариант, если пользователь должен предоставить входные данные для выполнения установки. Этот вариант доступен только в том случае, если имеется цель развертывания **Обязательно**.
+- **Implementar automaticamente de acordo com a agenda quer exista ou não um utilizador tiver sessão iniciado**  
+Se a implementação for para um utilizador, selecione esta opção para implementar a aplicação em dispositivos primários do utilizador. Esta definição não requer que o utilizador inicie sessão antes da execução da implementação. Não selecione esta opção se o utilizador tiver de fornecer dados para concluir a instalação. Esta opção só está disponível quando a implementação tem um objetivo de **Necessária**.
 
-- **Отправлять wake-up пакеты**  
-Если для развертывания указано назначение **Обязательное** и установлен этот параметр, то перед установкой развертывания на компьютеры отправляются wake-up пакеты. Эти пакеты выводят компьютеры из спящего режима при наступлении крайнего срока установки. Для использования этой возможности необходимо включить поддержку пробуждения по локальной сети на компьютерах и в сетях.
-- **Все клиенты должны использовать тарифицируемое подключение к Интернету для скачивания содержимого после наступления крайнего срока установки. Это может повлечь дополнительные затраты**  
-Этот вариант доступен, только если указана цель развертывания **Обязательно**.
-- **Автоматически закрывать все запущенные исполняемые файлы, указанные на вкладке "Способ установки" диалогового окна "Свойства типа развертывания"**.  
-Дополнительные сведения о настройке списка исполняемых файлов, которые могут помешать установке приложения, см. в разделе **Как проверить наличие запущенных исполняемых файлов перед установкой приложения** далее в этой статье.
-- **Запрос пользователем этого приложения должен утвердить администратор**  
-Если выбран этот параметр, администратор должен утверждать все запросы пользователя до установки приложения. Этот параметр недоступен при развертывании с целью **Обязательно** и тогда, когда приложение развертывается в коллекции устройств.
+- **Enviar pacotes de reativação**  
+Se o objetivo da implementação estiver definido como **necessário** e esta opção estiver selecionada, é enviado um pacote de reativação para computadores antes da instalação da implementação. Este pacote sair os computadores na hora de prazo de instalação. Para poder utilizar esta opção, os computadores e redes terão de estar configurados para Reativação por LAN.
+- **Permitir que os clientes numa ligação à Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**  
+Esta opção só está disponível para implementações com um objetivo de **necessário**.
+- **Fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**  
+Para obter mais informações sobre como configurar uma lista dos executáveis que podem impedir que uma aplicação a instalar, consulte **como verificar para executar ficheiros executáveis antes de instalar uma aplicação** mais adiante neste tópico.
+- **Exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**  
+Se esta opção for selecionada, o administrador terá de aprovar os pedidos de utilizador para a aplicação antes de poderem ser instaladas. Esta opção é desativada quando o objetivo de implementação for **necessário** ou quando a aplicação for implementada para uma coleção de dispositivos.
 
     > [!NOTE]
-    >  Запросы на утверждение приложений отображаются в узле **Запросы утверждения** в разделе **Управление приложениями** в рабочей области **Библиотека программного обеспечения** . Если запрос не утверждается в течение 45 дней, он удаляется. Кроме того, переустановка клиента Configuration Manager может привести к отмене всех ожидающих запросов утверждения.
-    >  После утверждения приложения к установке вы можете впоследствии отклонить запрос, нажав кнопку **Отклонить** в консоли Configuration Manager (ранее эта кнопка была неактивна после утверждения).
-    >  Это действие не приводит к удалению приложения с устройств, но блокирует установку его новых копий пользователями из центра программного обеспечения.
+    >  Os pedidos de aprovação da aplicação são apresentados no nó **Pedidos de Aprovação** , sob **Gestão de Aplicações** , na área de trabalho **Biblioteca de Software** . Se um pedido não está aprovado no prazo de 45 dias, é removido. Além disso, se reinstalar o cliente do Configuration Manager, poderá cancelar quaisquer pedidos de aprovação pendentes.
+    >  Depois de aprovar uma aplicação para a instalação, pode, subsequentemente, optar por negar o pedido ao clicar em **negar** na consola do Configuration Manager (anteriormente, este botão era cinzento após a aprovação).
+    >  Esta ação não irá causar a aplicação a ser desinstalados a partir de qualquer dispositivo, mas mesmo impedir que os utilizadores de instalar novas cópias da aplicação a partir do Centro de Software.
 
-- **Автоматически обновлять замененные версии этого приложения**  
-Если выбран этот параметр, все замененные версии приложения обновляются до заменяющего приложения.
+- **Atualizar automaticamente qualquer versão substituída desta aplicação**  
+Se esta opção for selecionada, qualquer versão da aplicação substituída está atualizado com a aplicação substituta.
 
-### <a name="specify-scheduling-settings-for-the-deployment"></a>Указание параметров планирования для развертывания
+### <a name="specify-scheduling-settings-for-the-deployment"></a>Especificar definições de agendamento para a implementação
 
-На странице **Планирование** мастера развертывания программного обеспечения укажите время развертывания или доступности приложения для клиентских устройств.
-В зависимости от установленного действия развертывания (**Доступно к установке** или **Обязательное**) параметры на этой странице будут отличаться.
+No **agendamento** página do Software implementar assistente, defina o período de quando esta aplicação é implementada ou disponível para dispositivos cliente.
+As opções desta página diferentes consoante a ação de implementação esteja definida **disponível** ou **necessário**.
 
-В некоторых случаях может потребоваться предоставить пользователям больше времени на установку обязательных развертываний приложений или обновлений программного обеспечения (по сравнению с настроенными крайними сроками). Как правило, это требуется, когда компьютер был отключен в течение длительного времени, и на нем нужно установить много приложений или обновлений. Например, когда пользователь возвращается из отпуска, ему придется довольно долго ожидать, пока не завершится установка просроченных развертываний. Чтобы решить эту проблему, теперь можно определять льготный период применения, развернув параметры клиента Configuration Manager в коллекции.
+Em alguns casos, pode querer dar aos utilizadores mais tempo para as implementações de aplicações de instalação necessária ou atualizações de software para além de qualquer prazos que configurou. Isto é normalmente necessário quando um computador foi desativado por um longo período de tempo e tem de instalar um grande número de atualizações ou implementações de aplicações. Por exemplo, se um utilizador tiver devolvido de férias, poderá ter de aguardar durante muito tempo, como implementações de aplicações em atraso são instaladas. Para ajudar a resolver este problema, agora pode definir um período de tolerância de imposição ao implementar as definições de cliente do Configuration Manager para uma coleção.
 
-Чтобы настроить льготный период, выполните указанные далее действия.
+Para configurar o período de tolerância, efetuar as seguintes ações:
 
-- На странице **Агент компьютера** параметров клиента настройте новое свойство **Льготный период для принудительного применения после крайнего срока развертывания (ч)** со значением в диапазоне от **1** до **120** часов.
-- В новом обязательном развертывании приложения или в окне свойств существующего развертывания на странице **Планирование** установите флажок **Отложить применение этого развертывания в соответствии с пользовательскими предпочтениями вплоть до окончания льготного периода, определенного в настройках клиента**. Льготный период применения действует для всех развертываний, для которых установлен этот флажок и которые предназначены для устройств с развернутым параметром клиента.
+- No **agente do computador** página de definições de cliente, configure a nova propriedade **período de tolerância para a imposição após a implementação do prazo (horas)** com um valor entre **1** e **120** horas.
+- No **agendamento** página numa nova implementação de aplicação necessária ou nas propriedades de uma implementação existente, selecione a caixa **atrasar imposição para esta implementação, de acordo com as preferências do utilizador, até ao período de tolerância definido nas definições de cliente**. O período de tolerância de imposição é utilizado por todas as implementações que tenham esta caixa selecionada e são direcionadas para os dispositivos nos quais tiver implementado também a definição de cliente.
 
-По достижении крайнего срока установки приложения оно будет установлено в первом нерабочем периоде, настроенном пользователем, в течение такого льготного периода. Тем не менее, пользователь может открыть Центр программного обеспечения и установить приложение в любой момент по мере необходимости. По истечении льготного периода режим принудительного применения возвращается к нормальному поведению для просроченных развертываний.
+Depois de instalar a aplicação for atingido o prazo, a aplicação será instalada na primeira janela de empresa-empresa que o utilizador configurado até esse período de tolerância. No entanto, o utilizador pode ainda abrir o Centro de Software e instalar a aplicação em qualquer altura em que pretende. Depois do período de tolerância expirar, imposição reverte para o comportamento normal para implementações em atraso.
 
-Если развертываемое приложение заменяет другое, можно настроить крайний срок для установки этого нового приложения. Для этого воспользуйтесь параметром **Крайний срок установки** для обновления пользователей с заменяемыми приложениями.
+Se a aplicação que estiver a implementar substituir outra aplicação, pode definir o prazo de instalação quando os utilizadores recebem a nova aplicação. Fazê-lo através da definição **prazo de instalação** para atualizar utilizadores com aplicação substituída.
 
-### <a name="specify-user-experience-settings-for-the-deployment"></a>Указание параметров взаимодействия с пользователем для развертывания
+### <a name="specify-user-experience-settings-for-the-deployment"></a>Especificar definições de experiência de utilizador para a implementação
 
 
-На странице **Взаимодействие с пользователем** мастера развертывания программного обеспечения укажите сведения о действиях пользователей при установке приложения.
+No **experiência de utilizador** página do Assistente de implementação de Software, especifique informações sobre a forma como os utilizadores poderão interagir com a instalação da aplicação.
 
-При развертывании приложений на устройствах Windows Embedded с включенным фильтром записи можно задать установку приложений на временном наложении, чтобы зафиксировать изменения позже, либо зафиксировать изменения по наступлении крайнего срока установки или в течение периода обслуживания. При фиксации изменений по наступлении крайнего срока установки или в течение периода обслуживания необходимо перезагрузить устройство. Изменения сохраняются на устройстве.
+Ao implementar aplicações em dispositivos Windows Embedded com filtro de escrita ativado, poderá especificar a instalação da aplicação na sobreposição temporária e consolidar as alterações posteriormente, ou consolidar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no prazo de instalação ou durante uma janela de manutenção, tem de reiniciar o dispositivo. As alterações sejam mantidas no dispositivo.
 
 >[!NOTE]
-    >  При развертывании приложения на устройстве Windows Embedded последнее должно входить в коллекцию с настроенным периодом обслуживания. Дополнительные сведения о том, как периоды обслуживания используются при развертывании приложений для устройств Windows Embedded, см. в разделе [Создание приложений Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).
-    > Если для намерения развертывания задано значение **Доступно к установке** , параметры **Установка программного обеспечения** и **Перезагрузка системы (если это необходимо для завершения установки)**не используются. Можно также настроить уровень уведомлений, отображаемых для пользователя во время установки приложения.
+    >  Ao implementar uma aplicação num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada. Para obter mais informações sobre como janelas de manutenção ao implementar aplicações em dispositivos Windows Embedded, consulte [aplicações criar Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).
+    > As opções **Instalação de Software** e **Reinício do Sistema (se for necessário para concluir a instalação)** não serão utilizadas se o objetivo da implementação estiver definido como **Disponível**. Também poderá configurar o nível de notificações apresentadas aos utilizadores quando a aplicação é instalada.
 
-### <a name="specify-alert-options-for-the-deployment"></a>Настройка параметров оповещений для развертывания
+### <a name="specify-alert-options-for-the-deployment"></a>Especifique as opções de alerta para a implementação
 
-На странице **Оповещения** мастера развертывания программного обеспечения настройте способ создания оповещений в Configuration Manager и System Center Operations Manager для этого развертывания. Можно настроить пороговые значения для оповещений об отчетах и отключить функцию создания отчетов на время развертывания.
+No **alertas** página do Assistente de implementação de Software, configurar a forma como o Configuration Manager e o System Center Operations Manager geram alertas para esta implementação. Poderá configurar limiares para alertas de relatórios e desativar os relatórios durante a implementação.
 
-### <a name="associate-the-deployment-with-an-ios-app-configuration-policy"></a>Связывание развертывания с политикой конфигурации приложения iOS
+### <a name="associate-the-deployment-with-an-ios-app-configuration-policy"></a>Associar a implementação de uma política de configuração de aplicação iOS
 
-На странице **Политики конфигурации приложений** щелкните **Создать**, чтобы связать это развертывание с политикой конфигурации приложения iOS (если вы ее создали). Дополнительные сведения об этом типе политики см. в разделе [Настройка приложений iOS с помощью политик конфигурации приложений](../../apps/deploy-use/configure-ios-apps-with-app-configuration-policies.md).
+No **políticas de configuração de aplicação** página, clique em **novo** para associar esta implementação de uma política de configuração de aplicação iOS (se tiver criado uma). Para mais informações sobre este tipo de política, consulte [configurar aplicações iOS com políticas de configuração de aplicação](../../apps/deploy-use/configure-ios-apps-with-app-configuration-policies.md).
 
-### <a name="finish-up"></a>Завершение
+### <a name="finish-up"></a>Concluir a cópia de segurança
 
-На странице **Сводка** мастера развертывания программного обеспечения просмотрите действия, которые выполняются в ходе развертывания, и завершите работу мастера, нажав кнопку **Далее**.
+No **resumo** página do Assistente de implementação de Software, reveja as ações que são executadas por esta implementação e, em seguida, clique em **seguinte** para concluir o assistente.
 
-Новое развертывание сразу отображается в списке **Развертывания** в узле **Развертывания** в рабочей области **Мониторинг**. Можно изменить свойства этого развертывания или удалить его со вкладки **Развертывания** области сведений о приложении.
+A nova implementação é apresentada no **implementações** lista o **implementações** nó do **monitorização** área de trabalho. Pode editar as propriedades desta implementação ou eliminar a implementação do separador **Implementações** do painel de detalhes da aplicação.
 
-## <a name="delete-an-application-deployment"></a>Удаление развертывания приложения
+## <a name="delete-an-application-deployment"></a>Eliminar uma implementação de aplicação
 
-1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.
-3.  В списке **Приложения** выберите приложение, к которому относится удаляемое развертывание.
-4.  На вкладке **Развертывание** в списке *<имя_приложения\>* выберите удаляемое развертывание приложения. Затем на вкладке **Развертывание** в группе **Развертывание** нажмите кнопку **Удалить**.
+1.  Na consola do Configuration Manager, vá para **biblioteca de Software** > **gestão de aplicações** > **aplicações**.
+3.  No **aplicações** lista, selecione a aplicação que inclui a implementação eliminar.
+4.  No separador **Implementações** da lista *<nome da aplicação\>*, selecione a implementação da aplicação a eliminar. Em seguida, no **implementação** separador o **implementação** , clique em **eliminar**.
 
-При удалении развертывания приложения уже установленные экземпляры приложения не удаляются. Чтобы удалить эти приложения, необходимо развернуть приложение на компьютерах с действием **Удаление**. После удаления развертывания приложения или ресурса из коллекции, в которой выполняется развертывание, приложение больше не будет отображаться в центре программного обеспечения.
+Quando elimina uma implementação de aplicações, as instâncias da aplicação que já tenham sido instaladas não serão removidas. Para remover estas aplicações, tem de implementar a aplicação em computadores com **desinstalação**. Se eliminar uma implementação de aplicações ou remover um recurso da coleção em que esteja a implementar, a aplicação deixará de estar visível no Centro de Software.
 
-## <a name="user-notifications-for-required-deployments"></a>Уведомления для пользователей об обязательных развертываниях
-Когда вы получаете обязательное программное обеспечение, вы можете установить для параметра **Отложить и напомнить снова через** значение, выбрав нужный вариант в раскрывающемся списке.
-- **Позднее**.  
-Указывает, что вывод уведомлений запланирован на основе параметров уведомлений, настроенных в окне параметров агента клиента.
-- **Фиксированное время**.  
-Указывает, что запланировано повторное отображение уведомления через установленный период времени. Например, если вы выбрали 30 минут, уведомление от отобразится повторно через 30 минут.
+## <a name="user-notifications-for-required-deployments"></a>Notificações de utilizador para as implementações necessárias
+Quando receber o software necessário a partir de **Snooze e avisar-me depois** definição, pode selecionar a partir da seguinte na lista pendente de valores:
+- **Mais tarde**  
+Especifica que as notificações são agendadas baseada nas definições de notificação configuradas nas definições do agente de cliente.
+- **Tempo fixo**  
+Especifica que a notificação será agendada a apresentar depois do tempo selecionado. Por exemplo, se selecionar 30 minutos, a notificação é apresentada novamente dentro de 30 minutos.
 
-![Страница "Агент компьютера " в параметрах агента клиента](media/ComputerAgentSettings.png)
+![Página de agente do computador nas definições do agente de cliente](media/ComputerAgentSettings.png)
 
-Максимальное значение времени переноса всегда зависит от значений уведомлений, каждый раз настраиваемых в параметрах агента клиента, а также от временной шкалы развертывания. Например, если для параметра **Крайний срок развертывания более 24 часов, напоминать пользователю каждые (в часах)** на странице **Агент компьютера** задано значение 10 часов, а до наступления крайнего срока более 24 часов, то при открытии диалогового окна вам будет доступен набор параметров переноса со значениями до 10 часов, но никак не больше. По мере приближения крайнего срока в диалоговом окне предлагается меньше вариантов в соответствии с параметрами агента клиента для каждого компонента временной шкалы развертывания.
+O tempo máximo de suspensão é sempre com base nos valores de notificação configurados nas definições do agente do cliente em sempre ao longo da linha cronológica de implementação. Por exemplo, se o **implementação prazo superior a 24 horas, lembrar utilizadores cada (horas)** definição o **agente do computador** página está configurada para 10 horas e que é mais de 24 horas antes do prazo quando a caixa de diálogo é iniciada, o poderia ser apresentados com um conjunto de opções de suspensão até mas nunca superior a 10 horas. Como se aproxima do prazo, a caixa de diálogo mostra menos opções, consistentes com as definições de agente do cliente relevantes para cada componente da linha cronológica de implementação.
 
-Кроме того, для развертывания с высоким уровнем риска, такого как последовательность задач для развертывания операционной системы, уведомление конечных пользователей осуществляется более активно. Вместо временных уведомлений на панели задач на экране компьютера отображается диалоговое окно, информирующее о необходимости обслуживания важного программного обеспечения, наподобие показанного ниже.
+Além disso, para uma implementação de alto risco, como uma sequência de tarefas que implementa um sistema operativo, a experiência de notificação do utilizador é agora mais intrusivo. Em vez de uma notificação da barra de tarefas transitório, uma caixa de diálogo, tal como o seguinte apresenta no seu computador sempre for notificado de que é necessária a manutenção crítica do software:
 
-![Диалоговое окно "Необходимое программное обеспечение"](media/client-toast-notification.png)
+![Caixa de diálogo de Software necessária](media/client-toast-notification.png)
 
-## <a name="how-to-check-for-running-executable-files-before-installing-an-application"></a>Как проверить наличие запущенных исполняемых файлов перед установкой приложения
+## <a name="how-to-check-for-running-executable-files-before-installing-an-application"></a>Como verificar para executar ficheiros executáveis antes de instalar uma aplicação
 
 >[!Tip]
->Эта функция появилась в версии 1702 и пока находится в статусе предварительной версии. О том, как ее включить, вы узнаете из статьи [Функции предварительной версии в System Center Configuration Manager](https://docs.microsoft.com/sccm/core/servers/manage/pre-release-features).
+>Introduzido com a versão 1702, esta é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [no System Center Configuration Manager de funcionalidades de pré-lançamento](https://docs.microsoft.com/sccm/core/servers/manage/pre-release-features).
 
-В диалоговом окне **Свойства** для типа развертывания на вкладке **Способ установки** теперь можно указать один или несколько исполняемых файлов, выполнение которых блокирует установку этого типа развертывания. Перед установкой типа развертывания пользователь должен закрыть запущенный исполняемый файл (или он может быть автоматически закрыт для развертываний как обязательное условие). Чтобы настроить эту возможность, выполните следующие действия.
+No **propriedades** , na caixa de diálogo de uma implementação de tipo de **instalar comportamento** separador, pode especificar um ou mais ficheiros executáveis que, se executar, bloqueiam a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado. Para configurar este:
 
-1. Откройте диалоговое окно **Свойства** для любого типа развертывания.
-2. На вкладке **Способ установки** диалогового окна *<deployment type name>***Свойства** нажмите кнопку **Добавить**.
-3. В диалоговом окне **Добавление или изменение исполняемого файла** введите имя исполняемого файла, при работе которого блокируется установка приложения. Можно также ввести необязательное описательное имя для приложения, которое поможет идентифицировать его в списке.
-4. Нажмите кнопку **ОК** и закройте диалоговое окно *<deployment type name>* **Свойства**.
-5. Теперь, развертывая приложение,на странице **Параметры развертывания** в мастере развертывания программного обеспечения выберите параметр **Automatically close any running executables you specified on the install behavior tab of the deployment type properties dialog box** (Автоматически закрывать все работающие исполняемые файлы, указанные на вкладке "Способ установки" в диалоговом окне свойств типа развертывания), а затем продолжите развертывание приложения.
+1. Abra o **propriedades** caixa de diálogo para qualquer tipo de implementação.
+2. No **instalar comportamento** separador do  *<deployment type name>*  **propriedades** caixa de diálogo, clique em **adicionar**.
+3. No **adicionar ou Editar ficheiro executável** caixa de diálogo, introduza o nome do ficheiro executável que, se executar, bloqueia a instalação da aplicação. Opcionalmente, também pode introduzir um nome amigável para a aplicação para o ajudar a identificá-la na lista.
+4. Clique em **OK**, em seguida, feche o  *<deployment type name>*  **propriedades** caixa de diálogo.
+5. Em seguida, quando implementa uma aplicação, no **definições de implementação** página do Assistente de implementação Software, selecione **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**, em seguida, avance para implementar a aplicação.
 
-Когда приложение передается на клиентские компьютеры, применяются следующие правила:
+Depois da aplicação atinge os computadores cliente, o seguinte comportamento aplica-se:
 
-- Если приложение развернуто как **доступное** и пользователь пытается установить приложение, ему будет предложено закрыть все запущенные исполняемые файлы, включенные в этот список, перед продолжением установки.
+- Se a aplicação foi implementada como **disponível**e um utilizador final tenta instalá-lo, são-lhe pedidos para fechar a qualquer executáveis em execução, especificado antes de poderão avançar com a instalação.
 
-- Если приложение развернуто как **обязательное** с параметром **Автоматически закрывать все запущенные исполняемые файлы, указанные на вкладке "Способ установки" диалогового окна "Свойства типа развертывания"**, пользователь увидит диалоговое окно с сообщением от том, что указанные исполняемые файлы будут автоматически закрыты по достижении крайнего срока установки приложения. Отображение этих диалоговых окон можно запланировать, выбрав **Параметры клиента** > **Агент компьютера**. Если пользователь не должен видеть эти сообщения, выберите параметр **Скрыть в центре программного обеспечения и во всех уведомлениях** на вкладке **Взаимодействие с пользователем** в окне свойств развертывания.
+- Se a aplicação foi implementada como **necessário**e a opção **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação** é selecionado, veem uma caixa de diálogo que os informa de que o executáveis que especificou são fechadas automaticamente quando é atingido o prazo de instalação da aplicação. Pode agendar estas caixas de diálogo no **as definições de cliente** > **agente do computador**. Se não pretender que o utilizador final para ver estas mensagens, selecione **ocultar no Centro de Software e em todas as notificações** no **experiência de utilizador** separador de propriedades da implementação.
 
-- Если приложение развернуто как **обязательное** без параметра **Автоматически закрывать все запущенные исполняемые файлы, указанные на вкладке "Способ установки" диалогового окна "Свойства типа развертывания"**, установка приложения завершится ошибкой, если запущено одно или несколько указанных приложений.
+- Se a aplicação foi implementada como **necessário** e a opção **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação** não estiver selecionada, em seguida, a instalação da aplicação falhe se um ou mais das aplicações especificadas estão em execução.
 
-## <a name="for-more-information"></a>Дополнительные сведения
+## <a name="for-more-information"></a>Para obter mais informações
 
-   -  [Параметры для управления развертываниями с высоким риском](../../protect/understand/settings-to-manage-high-risk-deployments.md)  
-   -  [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md)
+   -  [Definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md)  
+   -  [Como configurar as definições do cliente](../../core/clients/deploy/configure-client-settings.md)

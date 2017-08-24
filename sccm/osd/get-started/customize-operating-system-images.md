@@ -1,6 +1,6 @@
 ---
-title: "Настройка образов операционных систем в Configuration Manager | Документы Майкрософт"
-description: "Используйте последовательности задач записи и создания, ручную настройку или сочетание этих двух методов для настройки образа операционной системы."
+title: Personalizar imagens de sistema operativo - Configuration Manager | Microsoft Docs
+description: "Utilize sequências de tarefas de captura e compilação, a configuração manual ou uma combinação de ambos para personalizar uma imagem do sistema operativo."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,122 +17,122 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Настройка образов операционных систем с помощью System Center Configuration Manager
+# <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Personalizar imagens de sistema operativo com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Образы операционной системы в System Center Configuration Manager — это файлы формата WIM, которые представляют собой набор сжатых эталонных файлов и папок, необходимых для успешной установки и настройки операционной системы на компьютере. Пользовательский образ операционной системы создается и записывается на эталонном компьютере, конфигурация которого включает все необходимые файлы операционной системы, файлы поддержки, обновления программного обеспечения, средства и другие приложения. Вы сами решаете, какие действия по настройке эталонного компьютера следует выполнить вручную. Можно полностью автоматизировать настройку эталонного компьютера с помощью последовательности задач создания и сбора данных, настроить вручную некоторые параметры эталонного компьютера, завершив настройку автоматически с помощью последовательностей задач, или настроить эталонный компьютер вручную, не прибегая к последовательностям задач. Используйте сведения из следующих разделов для настройки операционной системы:
+Imagens de sistema operativo no System Center Configuration Manager são ficheiros WIM e representam uma coleção comprimida de ficheiros de referência e pastas que são necessários para instalar e configurar um sistema operativo num computador com êxito. Uma imagem de sistema operativo personalizada é criada e capturada num computador de referência que é configurado com todos os ficheiros do sistema operativo, ficheiros de suporte, atualizações de software, ferramentas e outras aplicações de software necessários. Poderá decidir até que ponto configurar manualmente o computador de referência. Poderá automatizar completamente a configuração do computador de referência utilizando uma sequência de tarefas de criação e captura, configurar manualmente determinados aspetos do computador de referência e automatizar o resto utilizando sequências de tarefas ou configurar manualmente o computador de referência sem utilizar sequências de tarefas. Utilize as secções seguintes para personalizar um sistema operativo.
 
-##  <a name="BKMK_PrepareReferenceComputer"></a> Подготовка компьютера-образца  
- Перед созданием образа операционной системы компьютера-образца нужно принять во внимание некоторые аспекты.  
+##  <a name="BKMK_PrepareReferenceComputer"></a>Preparar para o computador de referência  
+ Existem vários aspetos a ter em conta antes de utilizar a captura de uma imagem de sistema operativo a partir de um computador de referência.  
 
-###  <a name="BKMK_RefComputerDecide"></a> Выбор автоматической или ручной настройки  
- Ниже указаны преимущества и недостатки автоматической и ручной настройки эталонного компьютера.  
+###  <a name="BKMK_RefComputerDecide"></a>Decidir entre uma configuração automatizada ou manual  
+ Os seguintes destaques descrevem as vantagens e desvantagens de configurações automatizadas e manuais do computador de referência.  
 
-#### <a name="automated-configuration"></a>Автоматическая настройка  
- **Преимущества**  
+#### <a name="automated-configuration"></a>Configuração automatizada  
+ **Vantagens**  
 
--   Настройка может осуществляться в полностью автоматическом режиме, не требуя участия администратора или пользователя.  
+-   A configuração pode ser completamente autónoma, eliminando a necessidade da presença de um administrador ou utilizador.  
 
--   Последовательность задач можно использовать для настройки дополнительных эталонных компьютеров с предсказуемым результатом.  
+-   Poderá reutilizar a sequência de tarefas para repetir a configuração de computadores de referência adicionais com um elevado nível de confiança.  
 
--   Последовательность задач можно изменять с учетом различий между эталонными компьютерами, не создавая ее с нуля.  
+-   Poderá modificar a sequência de tarefas para acomodar as diferenças dos computadores de referência, sem ter de recriar toda a sequência de tarefas.  
 
- **Недостатки**  
+ **Desvantagens**  
 
--   На создание и тестирование последовательности задач может потребоваться много времени.  
+-   A criação e teste da ação inicial para criar uma sequência de tarefas poderá demorar muito tempo.  
 
--   При существенном изменении требований к эталонному компьютеру на повторное создание и тестирование последовательности задач может потребоваться много времени.  
+-   Se os requisitos do computador de referência foram alterados de forma significativa, a reconstrução e teste da sequência de tarefas poderá demorar muito tempo.  
 
-#### <a name="manual-configuration"></a>Ручная настройка  
- **Преимущества**  
+#### <a name="manual-configuration"></a>Configuração manual  
+ **Vantagens**  
 
--   Не нужно тратить время на создание последовательности задач, а также ее настройку и устранение неполадок.  
+-   Não é necessário criar uma sequência de tarefas ou perder tempo a testar e resolver problemas relacionados com a mesma.  
 
--   Установку можно производить непосредственно с компакт-дисков, не помещая все программные пакеты (включая саму ОС Windows) в пакет Configuration Manager.  
+-   Poderá instalar diretamente a partir de CDs sem incluir todos os pacotes de software (incluindo o próprio Windows) para um pacote de Configuration Manager.  
 
- **Недостатки**  
+ **Desvantagens**  
 
--   Правильность настройки эталонного компьютера зависит от администратора или пользователя, который ее производит.  
+-   A exatidão da configuração do computador de referência depende do administrador ou utilizador que o configura.  
 
--   Необходимо проверять правильность настройки эталонного компьютера.  
+-   Continuará a ter de verificar e testar se o computador de referência se encontra corretamente configurado.  
 
--   Нельзя многократно использовать конфигурацию.  
+-   Não é possível reutilizar o método de configuração.  
 
--   Процесс требует активного участия человека.  
+-   Isso requer o envolvimento ativo de uma pessoa ao longo do processo.  
 
-###  <a name="BKMK_RefComputerConsiderations"></a> Рекомендации для компьютера-образца  
- Ниже перечислены основные элементы, которые следует рассмотреть при настройке эталонного компьютера.  
+###  <a name="BKMK_RefComputerConsiderations"></a>Considerações para o computador de referência  
+ Segue-se uma listagem dos itens básicos a considerar ao configurar um computador de referência.  
 
--   **Развертываемая операционная система**  
+-   **Implementar o sistema operativo**  
 
-     На эталонном компьютере должна быть установлена операционная система, которую планируется развертывать на конечные компьютеры. Дополнительные сведения о доступных для развертывания операционных системах см. в разделе [Требования к инфраструктуре для развертывания операционной системы](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     O sistema operativo que pretende implementar nos computadores de destino tem de estar instalado no computador de referência. Para obter mais informações sobre os sistemas operativos que poderá implementar, consulte [requisitos de infraestrutura de implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
--   **Надлежащий пакет обновления**  
+-   **Service pack adequado**  
 
-     На эталонном компьютере должна быть установлена операционная система, которую планируется развертывать на конечные компьютеры.  
+     O sistema operativo que pretende implementar nos computadores de destino tem de estar instalado no computador de referência.  
 
--   **Соответствующие обновления ПО**  
+-   **Atualizações de software apropriadas**  
 
-     Установите все приложения, которые необходимо включить в образ операционной системы, создаваемый на основе эталонного компьютера. Приложения можно также устанавливать в процессе развертывания созданного образа операционной системы на конечных компьютерах.  
+     Instale todas as aplicações de software que pretende incluir na imagem do sistema operativo a capturar a partir do computador de referência. Também poderá instalar aplicações de software quando implementar a imagem do sistema operativo capturada nos computadores de destino.  
 
--   **Членство в рабочей группе**  
+-   **Associação de grupo de trabalho**  
 
-     Эталонный компьютер должен входить в рабочую группу.  
+     O computador de referência tem de estar configurado como membro de um grupo de trabalho.  
 
 -   **Sysprep**  
 
-     Средство подготовки системы (Sysprep) — это технология, которая используется с другими средствами развертывания для установки операционных систем Windows на новом оборудовании. Программа Sysprep подготавливает компьютер к созданию образа диска или к доставке его клиенту путем настройки компьютера для создания нового идентификатора безопасности (SID) при перезапуске компьютера. Кроме того, программа Sysprep очищает пользовательские и компьютерные настройки и данные, которые не следует копировать на конечный компьютер.  
+     A ferramenta de preparação do sistema (Sysprep) é uma tecnologia que pode utilizar com outras ferramentas de implementação para instalar sistemas operativos Windows em novo hardware. O Sysprep prepara o computador para criação de imagens do disco ou entrega ao cliente, configurando-o para criar um novo identificador de segurança (SID) do computador quando este é reiniciado. Além disso, o Sysprep limpa as definições específicas do utilizador e do computador e os dados que não deverão ser copiados para o computador de destino.  
 
-     Чтобы подготовить эталонный компьютер вручную с помощью средства Sysprep, выполните указанную ниже команду:  
+     Poderá executar manualmente o Sysprep no computador de referência, através do seguinte comando:  
 
      `Sysprep /quiet /generalize /reboot`  
 
-     Параметр /generalize предписывает программе Sysprep удалить сведения о системе из установки Windows. Сведения о системе включают журналы событий, уникальные идентификаторы безопасности (SID) и другие уникальные данные. После удаления уникальных сведений о системе компьютер будет перезагружен.  
+     A opção /generalize dá instruções ao Sysprep para remover dados específicos de sistema da instalação do Windows. As informações específicas do sistema incluem registos de eventos, IDs de segurança exclusiva (SIDs) e outras informações exclusivas. Depois de as informações exclusivas do sistema serem removidas, o computador é reiniciado.  
 
-     Также можно автоматизировать выполнение средства Sysprep с помощью шага последовательности задач [Подготовка Windows перед снятием образа](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) или носителя для снятия образа.  
+     Pode automatizar o Sysprep utilizando o suporte de dados de captura ou o passo da sequência de tarefas [Preparar Windows para Captura](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture).  
 
     > [!IMPORTANT]  
-    >  Перед выполнением средства Sysprep шаг [Подготовка Windows перед снятием образа](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) последовательности задач пытается сбросить пароль локального администратора до пустого значения на компьютере-образце. Если включена локальная политика безопасности **Пароль должен отвечать требованиям сложности** , сделать это не удастся. В этом случае отключите эту политику перед выполнением последовательности задач.  
+    >  O passo da sequência de tarefas [Preparar Windows para Captura](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) tenta repor a palavra-passe do administrador local do computador de referência para um valor em branco antes da execução do Sysprep. Se a política de Segurança Local **A palavra-passe tem de satisfazer requisitos de complexidade** estiver ativa, este passo da sequência de tarefas não conseguirá repor a palavra-passe do administrador. Neste cenário, desative esta política antes de executar a sequência de tarefas.  
 
-     Дополнительные сведения о Sysprep см. в разделе [Техническое руководство по средству подготовки системы (Sysprep)](http://go.microsoft.com/fwlink/?LinkId=280286).  
+     Para mais informações sobre o Sysprep, veja [Referência Técnica sobre Preparação do Sistema (Sysprep)](http://go.microsoft.com/fwlink/?LinkId=280286).  
 
--   **Соответствующие средства и скрипты, необходимые для успешного выполнения сценариев установки**  
+-   **As ferramentas apropriadas e os scripts necessários para atenuar os cenários de instalação**  
 
-     Соответствующие средства и сценарии, необходимые для успешного выполнения сценариев установки  
+     Ferramentas e scripts adequados necessários para atenuar os cenários de instalação  
 
--   **Соответствующие настройки рабочего стола, такие как фоновый рисунок, фирменная символика и профиль пользователя по умолчанию**  
+-   **Personalização de ambiente de trabalho adequada, tais como o padrão de fundo, imagem corporativa e perfil de utilizador predefinido**  
 
-     На эталонном компьютере можно настроить свойства рабочего стола, которые следует включить в создаваемый образ операционной системы. К этим свойствам относятся фоновый рисунок, фирменная символика организации и профиль пользователя по умолчанию.  
+     Poderá configurar o computador de referência com as propriedades de personalização do ambiente de trabalho que pretender incluir ao capturar a imagem do sistema operativo do computador de referência. As propriedades de ambiente de trabalho incluem o padrão de fundo, imagem corporativa e um perfil de utilizador predefinido padrão.  
 
-##  <a name="BKMK_ManuallyBuildReference"></a> Создание компьютера-образца вручную  
- Для создания эталонного компьютера вручную выполните следующие действия.  
+##  <a name="BKMK_ManuallyBuildReference"></a>Criar manualmente um computador de referência  
+ Utilize o procedimento seguinte para criar manualmente um computador de referência.  
 
 > [!NOTE]  
->  При создании эталонного компьютера вручную образ операционной системы можно снять с помощью носителя для снятия образа. Дополнительные сведения см. в разделе [Создание носителя для снятия образа](../deploy-use/create-capture-media.md).  
+>  Ao criar manualmente o computador de referência, poderá capturar a imagem do sistema operativo utilizando um suporte de dados de captura. Para obter mais informações, consulte [criar suportes de dados de captura](../deploy-use/create-capture-media.md).  
 
-#### <a name="to-manually-build-the-reference-computer"></a>Создание эталонного компьютера вручную  
+#### <a name="to-manually-build-the-reference-computer"></a>Para criar manualmente o computador de referência  
 
-1.  Определите компьютер для использования в качестве эталонного.  
+1.  Identifique o computador a utilizar como computador de referência.  
 
-2.  Настройте эталонный компьютер, установив на нем соответствующую операционную систему и любое другое программное обеспечение, необходимое для создания образа развертываемой операционной системы.  
+2.  Configure o computador de referência com o sistema operativo adequado e o restante software necessário para criar a imagem do sistema operativo que pretende implementar.  
 
     > [!WARNING]  
-    >  Как минимум следует установить требуемую операционную систему, пакет обновления, вспомогательные драйверы и обязательные обновления.  
+    >  No mínimo, instale o sistema operativo e Service Pack adequados, os controladores de suporte as atualizações de software eventualmente necessárias.  
 
-3.  Эталонный компьютер необходимо сделать членом рабочей группы.  
+3.  Configure o computador de referência de modo a que seja membro de um grupo de trabalho.  
 
-4.  Выполните сброс пароля локального администратора на эталонном компьютере, чтобы оставить поле пароля пустым.  
+4.  Reponha a palavra-passe do Administrador local no computador de referência de modo a que o valor da palavra-passe esteja em branco.  
 
-5.  Запустите программу Sysprep с помощью следующей команды:  **sysprep /quiet /generalize /reboot**. Параметр /generalize предписывает программе Sysprep удалить сведения о системе из установки Windows. Сведения о системе включают журналы событий, уникальные идентификаторы безопасности (SID) и другие уникальные данные. После удаления уникальных сведений о системе компьютер будет перезагружен.  
+5.  Execute o Sysprep utilizando o comando: **sysprep /quiet /generalize /reboot**. A opção /generalize dá instruções ao Sysprep para remover dados específicos de sistema da instalação do Windows. As informações específicas do sistema incluem registos de eventos, IDs de segurança exclusiva (SIDs) e outras informações exclusivas. Depois de as informações exclusivas do sistema serem removidas, o computador é reiniciado.  
 
- Когда компьютер-образец готов, используйте последовательность задач, чтобы записать с него образ операционной системы.  Более подробное пошаговое описание см. в разделе [Запись образа операционной системы с существующего компьютера-образца](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer).  
+ Quando o computador de referência estiver pronto, utilize uma sequência de tarefas para capturar a imagem do sistema operativo a partir do computador de referência.  Para obter os passos detalhados, veja [Capturar uma imagem do sistema operativo a partir de um computador de referência existente](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer).  
 
-##  <a name="BKMK_UseTSToBuildReference"></a> Использование последовательности задач для создания компьютера-образца  
- В целях автоматизации создания эталонного компьютера можно использовать последовательность задач для развертывания операционной системы, драйверов, приложений и т. п.  Воспользуйтесь следующими шагами, чтобы записать образ операционной системы с компьютера-образца.  
+##  <a name="BKMK_UseTSToBuildReference"></a>Utilizar uma sequência de tarefas para criar um computador de referência  
+ Pode automatizar o processo de criação de um computador de referência utilizando uma sequência de tarefas para implementar o sistema operativo, controladores, aplicações, etc.  Utilize os passos seguintes para criar o computador de referência e, em seguida, capturar a imagem do sistema operativo a partir do computador de referência.  
 
--   Используйте последовательность задач для сборки и записи образа операционной системы с компьютера-образца.  Подробные инструкции см. в разделе [Использование последовательности задач для создания и записи компьютера-образца](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS).  
+-   Utilize uma sequência de tarefas para criar e capturar a imagem do sistema operativo a partir do computador de referência.  Para obter passos detalhados, veja [Utilizar uma sequência de tarefas para compilar e capturar um computador de referência](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS).  

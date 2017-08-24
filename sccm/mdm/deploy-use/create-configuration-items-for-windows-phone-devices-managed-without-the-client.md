@@ -1,5 +1,5 @@
 ---
-title: "Как создавать элементы конфигурации для устройств Windows Phone, управляемых без использования Intune | Документация Майкрософт"
+title: "Como criar itens de configuração para dispositivos Windows Phone geridos com o Intune | Microsoft Docs"
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,291 +16,291 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: bcb2d14ef097afc2915932fe09f6d83c968aecf9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Создание элементов конфигурации для устройств Windows Phone, управляемых без использования клиента System Center Configuration Manager
-Используйте элемент конфигурации **Windows Phone** в System Center Configuration Manager для управления параметрами устройств Windows Phone, которые зарегистрированы в Microsoft Intune или которые управляются локально с помощью Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Windows Phone geridos sem o cliente do System Center Configuration Manager
+Utilizar o System Center Configuration Manager**Windows Phone** item de configuração para gerir as definições para dispositivos Windows Phone que são inscritos pelo Configuration Manager no Microsoft Intune ou geridos no local.  
   
-### <a name="to-create-a-windows-phone-configuration-item"></a>Создание элемента конфигурации Windows Phone  
+### <a name="to-create-a-windows-phone-configuration-item"></a>Para criar um item de configuração do Windows Phone  
   
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade**.  
   
-2.  В рабочей области **Активы и соответствие** разверните узел **Параметры соответствия**и выберите **Элементы конфигурации**.  
+2.  Na área de trabalho **Ativos e Conformidade** , expanda **Definições de Conformidade**e, em seguida, clique em **Itens de Configuração**.  
   
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации**.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
   
-4.  На странице **Общие** **мастера создания элемента конфигурации**укажите имя и необязательное описание элемента.  
+4.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
   
-5.  В разделе **Укажите тип элемента конфигурации, который требуется создать**, выберите **Windows Phone**.  
+5.  Em **especificar o tipo de item de configuração que pretende criar**, selecione **Windows Phone**.  
   
-6.  Щелкните элемент **Категории**, если хотите создать и назначить категории для поиска и фильтрации элементов конфигурации в консоли Configuration Manager.  
+6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
   
-7.  На странице **Поддерживаемые платформы** в мастере выберите конкретные платформы Windows Phone, которые будут вычислять данный элемент конфигурации.  
+7.  No **plataformas suportadas** página do assistente, selecione as plataformas específicas do Windows Phone que irão avaliar o item de configuração.  
   
-8.  На странице **Параметры устройства** мастера выберите группу параметров, которую необходимо настроить. См. раздел [Справочник по параметрам элементов конфигурации Windows Phone](#BKMK_Setref) этой статьи для получения дополнительных сведений, а затем нажмите кнопку **Далее**.  
-  
-    > [!TIP]  
-    >  Если нужного параметра нет в списке, установите флажок **Настроить дополнительные параметры, не входящие в группы параметров по умолчанию**.  
-  
-9. На каждой странице параметров настройте необходимые параметры и укажите, требуется ли исправлять их, если они не соответствуют требованиям на устройствах (если это поддерживается).  
-  
-10. Кроме того, вы можете настроить для каждой группы параметров уровень серьезности, который выводится при обнаружении несоответствующего элемента конфигурации:  
-  
-    -   **Нет**. Устройства, которые не отвечают этому правилу соответствия, не передают для отчетов Configuration Manager сведения о серьезности сбоя.  
-  
-    -   **Информация**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Информация**.  
-  
-    -   **Предупреждение**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Предупреждение**.  
-  
-    -   **Критический**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критический**.  
-  
-    -   **Критическая с событием**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критическая с событием**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
-  
-11. На странице **Применим. платформы** мастера просмотрите все параметры, которые не совместимы с поддерживаемыми платформами, выбранными ранее. Вы можете вернуться назад и удалить эти параметры или продолжить.  
+8.  Na página **Definições do Dispositivo** do assistente, selecione o grupo de definições que pretende configurar. Veja [Referência das definições do item de configuração do Windows Phone](#BKMK_Setref) neste tópico para obter detalhes e clique em **Seguinte**.  
   
     > [!TIP]  
-    >  Неподдерживаемые параметры не проверяются на соответствие.  
+    >  Se a definição pretendida não estiver listada, selecione a caixa de verificação **Configurar definições adicionais que não estejam incluídas nos grupos de predefinições**.  
   
-12. Завершите работу мастера.  
+9. Em cada página de definições, configure as definições de que necessita e se pretende resolvê-las quando não forem compatíveis com dispositivos (quando esta opção é suportada).  
   
- Созданный элемент конфигурации вы можете просмотреть в узле **Элементы конфигурации** рабочей области **Активы и соответствие** .  
+10. Para cada grupo de definições, também pode configurar a gravidade que será comunicada quando um item de configuração não for compatível:  
   
-##  <a name="windows-phone-configuration-item-settings-reference"></a>Справочник по параметрам элементов конфигурации Windows Phone  
+    -   **Nenhum** -dispositivos que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-### <a name="password"></a>Пароль  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+    -   **Informações** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-|Параметр|Подробные сведения|  
+    -   **Aviso** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
+  
+    -   **Crítico** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
+  
+    -   **Crítico com evento** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos da aplicação.  
+  
+11. Na página **Aplicabilidade da Plataforma** do assistente, reveja as definições que não são compatíveis com as plataformas suportadas que selecionou anteriormente. Pode voltar atrás e remover estas definições ou pode continuar.  
+  
+    > [!TIP]  
+    >  As definições não suportadas não são avaliadas em termos de compatibilidade.  
+  
+12. Conclua o assistente.  
+  
+ Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade** .  
+  
+##  <a name="windows-phone-configuration-item-settings-reference"></a>Referência das definições do item de configuração do Windows Phone  
+  
+### <a name="password"></a>Palavra-passe  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
+  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Требовать параметры пароля на устройствах**|Запрашивается пароль на поддерживаемых устройствах.|  
-|**Минимальная длина пароля (символов)**|Минимальная длина пароля.|  
-|**Истечение срока действия пароля в днях**|Число дней до смены пароля.|  
-|**Количество запоминаемых паролей**|Предотвращает повторное использование предыдущих паролей.|  
-|**Число неудачных попыток входа до стирания памяти устройства**|Очищает устройство, если превышено это число попыток входа.|  
-|**Сложность пароля**|Выберите, допустимы ли простые ПИН-коды, такие как «1234», или необходим ввод надежного пароля.|  
-|**Отправить ПИН-код восстановления пароля на сервер Exchange Server**||  
+|**Exigir definições de palavra-passe em dispositivos**|Exigir uma palavra-passe em dispositivos suportados.|  
+|**Comprimento mínimo de palavra-passe (carateres)**|O comprimento mínimo da palavra-passe.|  
+|**Expiração da palavra-passe em dias**|O número de dias antes de uma palavra-passe tem de ser alterado.|  
+|**Número de palavras-passe memorizadas**|Impede a reutilização de palavras-passe.|  
+|**Número de tentativas de início de sessão falhadas antes de o dispositivo ser apagado**|Apaga o dispositivo em caso de falha deste número de tentativas de início de sessão.|  
+|**Complexidade de palavra-passe**|Escolher se pretende especificar um PIN como "1234" ou se tem de fornecer uma palavra-passe segura.|  
+|**Enviar PIN de recuperação da palavra-passe para o Exchange Server**||  
   
-### <a name="device"></a>Устройство  
+### <a name="device"></a>Dispositivo  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Снимок экрана**|Позволяет пользователю делать снимки экрана устройства.<br /><br /> (Только Windows Phone 8.1)|  
-|**Отправка диагностических данных**|Разрешает отправку файлов журнала приложения.|  
-|**Географическое положение**|Разрешает устройству использовать сведения служб расположения.<br /><br /> (Только Windows Phone 8.1)|  
-|**Копирование и вставка**|Использование копирования и вставки для передачи данных между приложениями.<br /><br /> (Только Windows Phone 8.1)|  
-|**Bluetooth**|Разрешает использование функций Bluetooth устройства.|  
+|**Captura de ecrã**|Permitir que o utilizador tirar uma captura de ecrã do ecrã do dispositivo.<br /><br /> (Apenas Windows Phone 8.1)|  
+|**Submissão de dados de diagnóstico**|Permitir a submissão de ficheiros de registo de aplicações.|  
+|**Geolocalização**|Permitir que o dispositivo utilize informações dos serviços de localização.<br /><br /> (Apenas Windows Phone 8.1)|  
+|**Copiar e Colar**|Utilizar a ação copiar e colar para transferir dados entre aplicações.<br /><br /> (Apenas Windows Phone 8.1)|  
+|**Bluetooth**|Permite a utilização da funcionalidade Bluetooth do dispositivo.|  
   
-### <a name="email-management"></a>Управление электронной почтой  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+### <a name="email-management"></a>Gestão de e-mail  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Электронная почта POP и IMAP**|Разрешает подключение к учетным записям электронной почты, которые используют стандарты POP и IMAP.|  
-|**Максимальное время хранения электронной почты**|Срок хранения сообщений перед удалением с сервера.|  
-|**Разрешенные форматы сообщений**|Определяет, могут ли сообщения использовать формат HTML или только обычный текст.|  
-|**Максимальный размер текстового сообщения (загружается автоматически)**|Определяет максимальный размер текстового сообщения при автоматической загрузке.|  
-|**Максимальный размер HTML-сообщения (загружается автоматически)**|Определяет максимальный размер текстового сообщения в формате HTML при автоматической загрузке.|  
-|**Максимальный размер вложения (для автоматической загрузки)**|Определяет максимальный размер сообщения при автоматической загрузке.|  
-|**Синхронизация календаря**||  
-|**Настраиваемая учетная запись электронной почты**|Разрешить использование на устройстве учетной записи, отличной от учетной записи Майкрософт.|  
-|**Сделать учетную запись Майкрософт необязательной в приложении Почта Windows.**|Не нужно использовать учетную запись Майкрософт для входа в Почту Windows.|  
+|**E-mail POP e IMAP**|Permite a ligação a contas de e-mail que utilizam as normas POP e IMAP.|  
+|**Tempo máximo para guardar e-mail**|Durante quanto tempo guardar o e-mail antes de este ser eliminado do servidor.|  
+|**Formatos de mensagem permitidos**|Especificar se os e-mails dos utilizadores podem ser HTML ou apenas em texto simples.|  
+|**Tamanho máximo de correio eletrónico com texto simples (transferido automaticamente)**|Controla o tamanho máximo de e-mail com texto simples quando transferidos automaticamente.|  
+|**Tamanho máximo de e-mail HTML (transferido automaticamente)**|Controla o tamanho máximo de e-mails HTML quando transferidos automaticamente.|  
+|**Tamanho máximo de um anexo (transferido automaticamente)**|Configura o tamanho máximo de e-mail que será transferido automaticamente.|  
+|**Sincronização de calendário**||  
+|**Conta de e-mail personalizada**|Permitir a utilização de uma conta não Microsoft no dispositivo.|  
+|**Tornar a Conta Microsoft opcional na aplicação Windows Mail**|Não necessitam de utilização de uma conta Microsoft para iniciar sessão no Windows Mail.|  
   
-### <a name="store"></a>Магазин  
- Эти параметры применяются только к устройствам Windows Phone 8.1.  
+### <a name="store"></a>Arquivo  
+ Estas definições aplicam-se apenas a dispositivos Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Магазин приложений**|Разрешает доступ к магазину приложения на устройстве.|  
+|**Loja de aplicações**|Permite o acesso à loja de aplicações no dispositivo.|  
   
-### <a name="browser"></a>Браузер  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+### <a name="browser"></a>Browser  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Разрешить веб-браузер**|Включить или отключить веб-браузер по умолчанию.|  
-|**Автозаполнение**|Пользователь может изменять параметры автозаполнения в браузере.|  
-|**Активные сценарии**|Браузер может выполнять сценарии, например Active X.|  
-|**Подключаемые модули**|Пользователь может добавлять подключаемые модули для Internet Explorer.|  
-|**Блокирование всплывающих окон**|Включает или отключает блокировку всплывающих окон в браузере.|  
-|**Предупреждение о мошенничестве**|Включить или отключить предупреждения о потенциально мошеннических веб-сайтах.|  
+|**Permitir browser**|Ativar ou desativar o browser de Internet predefinido.|  
+|**Preenchimento automático**|O utilizador pode alterar as definições de conclusão automática no browser.|  
+|**Scripting ativo**|O browser pode executar scripts, como scripts do Active X.|  
+|**Plug-ins**|O utilizador pode adicionar plug-ins ao Internet Explorer.|  
+|**Bloqueador de janelas pop-up**|Ativa ou desativa o bloqueador de janelas pop-up do browser.|  
+|**Aviso de fraude**|Ativar ou desativar avisos de sites potencialmente fraudulentos.|  
   
 ### <a name="internet-explorer"></a>Internet Explorer  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Всегда отправлять заголовок "Не отслеживать"**|Предотвращает передачу данных о просмотре сторонним сайтам.|  
-|**Зона безопасности интрасети**||  
-|**Уровень безопасности зоны Интернета**|Настройка уровня безопасности для зоны Интернета.|  
-|**Уровень безопасности зоны интрасети**|Настройка уровня безопасности для зоны интрасети.|  
-|**Уровень безопасности зоны надежных узлов**|Настройка уровня безопасности для зоны доверенных узлов.|  
-|**Уровень безопасности зоны ограниченных узлов**|Настройка уровня безопасности для зоны ограниченных узлов.|  
-|**Пространства имен для зоны интрасети**||  
-|**При запросе из одного слова переходить на сайт интрасети**|Включает или отключает параметр, разрешающий Internet Explorer автоматически переходить на сайт интрасети, если введено допустимое имя сайта без префикса HTTP:|  
-|**Пункт меню "Режим предприятия"**|Разрешить пользователям включать и отключать режим предприятия в меню **Сервис** Internet Explorer.|  
-|**Расположение отчета о ведении журнала (URL-адрес)**|Укажите URL-адрес, по которому будут регистрироваться посещенные веб-сайты при включенном режиме предприятия.|  
-|**Расположение списка сайтов режима предприятия (URL-адрес)**|Укажите расположение списка веб-сайтов, которые будут использовать режим предприятия, когда он включен.|  
+|**Enviar sempre cabeçalho Não Controlar**|Impede que as informações de navegação sejam enviadas para sites de terceiros.|  
+|**Zona de segurança da intranet**||  
+|**Nível de segurança da zona de Internet**|Configurar o nível de segurança da zona de Internet.|  
+|**Nível de segurança da zona de intranet**|Configurar o nível de segurança da zona de intranet.|  
+|**Nível de segurança da zona de sites fidedignos**|Configurar o nível de segurança da zona de sites fidedignos.|  
+|**Nível de segurança da zona de sites restritos**|Configurar o nível de segurança da zona de sites restritos.|  
+|**Espaços de nomes da zona de intranet**||  
+|**Ir para o site da intranet para introdução de uma única palavra**|Ativa ou desativa a definição que permite ao Internet Explorer aceder automaticamente a um site de intranet se for introduzido um nome de site válido sem HTTP: precedente|  
+|**Opção de menu do modo de empresa**|Permitir que os utilizadores ativem e desativem o Modo de Empresa a partir do menu **Ferramentas** do Internet Explorer.|  
+|**Localização do relatório de registo (URL)**|Especificar um URL onde os sites visitados serão registados quando o Modo de Empresa estiver ativo.|  
+|**Localização (URL) da lista de sites do Modo de Empresa**|Especificar a localização da lista de sites que utilizarão o Modo de Empresa quando este está ativo.|  
   
-### <a name="cloud"></a>Облако  
+### <a name="cloud"></a>Nuvem  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Синхронизация параметров**|Разрешить синхронизацию параметров между устройствами.|  
-|**Синхронизация учетных данных**|Разрешить синхронизацию учетных данных между устройствами.|  
-|**Учетная запись Майкрософт**|Разрешить использование учетной записи Майкрософт на устройстве.<br /><br /> (Только Windows Phone 8.1)|  
-|**Синхронизация параметров по сетям с лимитными тарифными планами**|Разрешить синхронизацию при подключении к Интернету с лимитными тарифными планами.|  
+|**Sincronização de definições**|Permite a sincronização de definições entre dispositivos.|  
+|**Sincronização de credenciais**|Permite a sincronização de credenciais entre dispositivos.|  
+|**Conta Microsoft**|Permitir a utilização de uma conta Microsoft no dispositivo.<br /><br /> (Apenas Windows Phone 8.1)|  
+|**Sincronização de definições através de ligações com tráfego limitado**|Permitir a sincronização de definições quando a ligação à Internet tem tráfego limitado.|  
   
-### <a name="security"></a>Безопасность  
+### <a name="security"></a>Segurança  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Установка неподписанного файла**|Разрешить загружать неподписанные файлы.|  
-|**Неподписанные приложения**|Разрешить загружать неподписанные приложения.|  
-|**SMS- и MMS-сообщения**|Разрешить SMS- и MMS-сообщения с устройства.|  
-|**Съемные носители**|Разрешить использование съемных носителей, например SD-карт, на устройстве.|  
-|**Камера**|Разрешить использование камеры устройства.|  
-|**NFC**|Разрешить взаимодействие с использованием NFC на устройстве.<br /><br /> (Только Windows Phone 8.1)|  
-|**Разрешить USB-подключение**|Разрешить периферийным устройствам подключаться к этому устройству через интерфейс USB.|
+|**Instalação de ficheiros não atribuídos**|Permite o carregamento de ficheiros não atribuídos.|  
+|**Aplicações não atribuídas**|Permite o carregamento de aplicações não atribuídas.|  
+|**Mensagens de SMS e MMS**|Permitir o envio de mensagens SMS e MMS a partir do dispositivo.|  
+|**Armazenamento amovível**|Permitir a utilização de armazenamento amovível, como um cartão SD, no dispositivo.|  
+|**Câmara**|Permitir a utilização da câmara do dispositivo.|  
+|**Comunicação de proximidade (NFC)**|Permitir a comunicação através de NFC no dispositivo.<br /><br /> (Apenas Windows Phone 8.1)|  
+|**Permitir ligação USB**|Permita periféricos ligar a este dispositivo através de USB.|
   
-### <a name="peak-synchronization"></a>Синхронизация в рабочее время  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+### <a name="peak-synchronization"></a>Sincronização de pico  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Указание времени высокой загрузки**|Укажите интервал времени, который будут использовать следующие два параметра.|  
-|**Периодичность синхронизации при высокой загрузке**|Частота синхронизации устройства в указанное пиковое время.|  
-|**Периодичность синхронизации при низкой загрузке**|Частота синхронизации устройства в непиковое время.|  
+|**Especificar a hora de ponta**|Especifique uma janela de tempo que será utilizado por duas definições seguintes.|  
+|**Frequência de sincronização dentro do período de ponta**|Escolha com que frequência o dispositivo irá sincronizar durante o período de pico que especificou.|  
+|**Frequência de sincronização fora do período de ponta**|Escolha com que frequência o dispositivo irá sincronizar fora da hora de pico que especificou.|  
   
-### <a name="roaming"></a>Роуминг  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+### <a name="roaming"></a>Roaming  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Управление устройством в роуминге**|Разрешает управление устройством в роуминге с помощью Configuration Manager.|  
-|**Загрузка программного обеспечения в роуминге**|Разрешить загрузку приложений и программного обеспечения в роуминге.|  
-|**Загрузка электронной почты в роуминге**|Разрешить загрузку электронной почты в роуминге.|  
-|**Передача данных в роуминге**|Разрешить роуминг между сетями при доступе к данным.|  
+|**Gestão de dispositivos no modo de roaming**|Permite que o dispositivo seja gerido pelo Configuration Manager quando estiver em roaming.|  
+|**Transferência de software em roaming**|Permite a transferência de aplicações e de software quando está em roaming.|  
+|**Transferência de e-mail em roaming**|Permite as transferências de e-mail quando está em roaming.|  
+|**Roaming de dados**|Permitir roaming entre redes ao aceder a dados.|  
   
-### <a name="encryption"></a>Шифрование  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+### <a name="encryption"></a>Encriptação  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Шифрование карты памяти**|Требовать шифрование всех карт памяти, используемых с устройством.|  
-|**Шифрование файлов на устройстве**|Требовать шифрование файлов на мобильном устройстве.|  
-|**Требуется подпись электронной почты**|Требовать подпись сообщений электронной почты перед их отправкой.|  
-|**Алгоритм подписи**|Выберите алгоритм, используемый для подписи сообщений электронной почты.|  
-|**Требуется шифрование электронной почты**|Требовать шифрование сообщений электронной почты перед их отправкой.|  
-|**Алгоритм шифрования**|Выберите алгоритм, используемый для шифрования сообщений электронной почты.|  
+|**Encriptação do cartão de armazenamento**|Exigir a encriptação de cartões de armazenamento utilizados com o dispositivo.|  
+|**Encriptação de ficheiros no dispositivo**|Necessita que os ficheiros no dispositivo móvel sejam encriptados.|  
+|**Exigir assinatura de e-mail**|Requer que os e-mails sejam assinados antes de serem enviados.|  
+|**Algoritmo de assinatura**|Selecione o algoritmo utilizado para assinar e-mails.|  
+|**Exigir encriptação de correio eletrónico**|Requer que os e-mails sejam encriptados antes de serem enviados.|  
+|**Algoritmo de encriptação**|Selecione o algoritmo utilizado para encriptar e-mails.|  
   
-###  <a name="wireless-communications"></a>Беспроводная связь  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+###  <a name="wireless-communications"></a>Comunicações sem fios  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Беспроводное сетевое подключение**|Включение или отключение функции Wi-Fi на устройстве.|  
-|**Модем Wi-Fi**|Разрешить пользователям применять устройство как мобильную точку доступа.|  
-|**Разгрузка данных по Wi-Fi, когда это возможно**||  
-|**Обнаружение хот-спотов Wi-Fi**||  
+|**Ligação de rede sem fios**|Ativar ou desativar a funcionalidade Wi-Fi dos dispositivos.|  
+|**Tethering Wi-Fi**|Permite que os utilizadores utilizem o dispositivo como um hotspot móvel.|  
+|**Descarregar dados para Wi-Fi quando possível**||  
+|**Relatórios de hotspots de Wi-Fi**||  
   
-##### <a name="to-configure-a-wireless-network-connection"></a>Настройка беспроводного сетевого подключения  
+##### <a name="to-configure-a-wireless-network-connection"></a>Para configurar uma ligação de rede sem fios  
   
-1.  На странице **Настройка параметров беспроводной связи мобильных устройств** нажмите кнопку **Добавить**.  
+1.  Na página **Configurar definições da comunicação sem fios do dispositivo móvel**, clique em **Adicionar**.  
   
-2.  В диалоговом окне **Беспроводное сетевое подключение** укажите следующие сведения о беспроводном подключении, которое будет настроено для мобильных устройств:  
+2.  Na caixa de diálogo **Ligação de Rede sem Fios**, especifique as seguintes informações acerca da ligação sem fios que será aprovisionada em dispositivos móveis:  
   
-|Параметр|Дополнительные сведения|  
+|Definição|Mais informações|  
 |-------------|----------------------|  
-|**Имя сети (SSID)**||  
-|**Сетевое подключение**|Выберите **Интернет** или **Рабочая**.|  
-|**Проверка подлинности**|Выберите метод проверки подлинности для подключения:<br><br> - **Открыть**<br> - **Общий**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
-|**Шифрование данных**|Выберите метод шифрования, используемый для этого подключения. Доступные значения зависят от выбранного метода **проверки подлинности** :<br><br> - **Отключено**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
-|**Индекс ключа**|Выберите индекс ключа от **1** до **4** , который будет использоваться с параметром **Шифрование данных** **WEP**.|  
-|**Эта сеть подключается к Интернету**|Выберите этот параметр, чтобы указать параметры прокси-сервера, позволяющие мобильным устройствам с беспроводным соединением подключаться к Интернету.|  
-|**Параметры прокси-сервера**|При необходимости укажите параметры **сервер** и **порт** для **HTTP**, **WAP** и **сокетов**.|  
-|**Включить доступ к сети 802.1X**|Выберите этот параметр, чтобы защитить подключение, указав тип EAP.|  
-|**Тип EAP**|Выберите используемый тип EAP:<br><br> - **PEAP**<br> - **Смарт-карта или сертификат**|  
+|**Nome da rede (SSID)**||  
+|**Ligação de rede**|Escolha entre **Internet** ou **Trabalho**.|  
+|**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br><br> - **Abrir**<br> - **Partilhado**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2 PSK**|  
+|**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar serão diferentes consoante o método de **Autenticação** que selecionou:<br><br> - **Desativado**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
+|**Índice de chaves**|Selecione um índice de chaves de **1** a **4** , que será utilizado com uma definição de **Encriptação de dados** de **WEP**.|  
+|**Esta rede liga-se à Internet**|Selecione esta opção se quiser fornecer definições proxy que permitam que dispositivos móveis numa ligação sem fios se liguem à Internet.|  
+|**Definições do servidor proxy**|Especificar conforme necessário as definições **Servidor** e **Porta** para **HTTP**, **WAP** e **Sockets**.|  
+|**Ativar o acesso à rede 802.1X**|Selecionar esta opção se pretender assegurar a ligação ao especificar um tipo EAP.|  
+|**Tipo EAP**|Escolher o tipo EAP a utilizar entre:<br><br> - **PEAP**<br> - **Smart card ou certificado**|  
     
   
-###  <a name="certificates"></a>Сертификаты  
- Позволяет импортировать сертификаты для установки на мобильных устройствах.  
+###  <a name="certificates"></a>Certificados  
+ Permite-lhe importar certificados para instalar em dispositivos móveis.  
   
- Щелкните **Импорт**, а затем укажите следующие значения.  
+ Clique em **Importar** e, em seguida, especifique os seguintes valores:  
   
--   **Файл сертификата** — нажмите кнопку **Обзор** и выберите файл сертификата с расширением **.cer** , который требуется импортировать.  
+-   **Ficheiro de certificado** – clique em **procurar** e, em seguida, selecione o ficheiro de certificado com a extensão **. cer** que pretende importar.  
   
--   **Конечное хранилище** — выберите целевое хранилище, в которое будет добавлен импортированный сертификат с мобильного устройства:  
+-   **Arquivo de destino** – selecione um ou mais arquivos de destino onde o certificado importado será adicionado no dispositivo móvel de entre:  
   
-    -   **Корневое**  
+    -   **Raiz**  
   
-    -   **ЦС**  
+    -   **AC**  
   
-    -   **Обычное**  
+    -   **Normal**  
   
-    -   **Привилегированное**  
+    -   **Com privilégios**  
   
     -   **SPC**  
   
-    -   **Одноранговое**  
+    -   **Ponto a ponto**  
   
--   **Роль** — если **SPC** (сертификат издателя программного обеспечения) выбран в качестве конечного хранилища, выберите роль, связанную с сертификатом:  
+-   **Função** – se **SPC** (Software Publisher Certificate) estiver selecionado como arquivo de destino, escolha a função que será associada ao certificado de entre:  
   
-    -   **Оператор мобильной связи**  
+    -   **Operadora de rede móvel**  
   
-    -   **Руководитель**  
+    -   **Gestor**  
   
-    -   **Пользователь, прошедший проверку подлинности**  
+    -   **Utilizador autenticado**  
   
-    -   **ИТ-администратор**  
+    -   **Administrador de TI**  
   
-    -   **Пользователь, не прошедший проверку подлинности**  
+    -   **Utilizador não autenticado**  
   
-    -   **Доверенный сервер отслеживания использования**  
+    -   **Servidor de aprovisionamento fidedigno**  
   
-### <a name="system-security"></a>Безопасность системы  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+### <a name="system-security"></a>Segurança do sistema  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Контроль учетных записей пользователей**|Включение или отключение контроля учетных записей Windows на устройстве.|  
-|**Сетевой брандмауэр**|Включение или отключение брандмауэра Windows.|  
-|**Обновления**|Выберите, как обновления программного обеспечения Windows будут скачиваться на компьютеры. Например, можно автоматически скачивать обновления, но позволить пользователю выбирать время установки.|  
-|**Минимальная классификация обновлений**|Выберите минимальную классификацию обновлений, которые будут загружаться на компьютеры Windows: **Нет**, **Важные**или **Рекомендуемые**.|  
-|**SmartScreen**|Включить или отключить Windows SmartScreen.|  
-|**Защита от вирусов**|Защита устройства антивирусным программным обеспечением.|  
-|**Определения вирусов обновлены**|Поддержание сигнатур антивирусного программного обеспечения в актуальном состоянии.|
-|**Разрешить отмену регистрации вручную**|Разрешить пользователям удалять их устройства из MDM.|  
+|**Controlo de Conta de Utilizador**|Ativa ou desativa o Controlo de Conta de Utilizador do Windows no dispositivo.|  
+|**Firewall da rede**|Ativa ou desativa a Firewall do Windows.|  
+|**Atualizações**|Escolha como as atualizações de software do Windows serão transferidas para os computadores. Por exemplo, pode transferir as atualizações automaticamente mas permitir que o utilizador decida quando as instalar.|  
+|**Classificação mínima de atualizações**|Escolha a classificação mínima de atualizações que será transferida para computadores Windows: **Nenhuma**, **Importante**ou **Recomendadas**.|  
+|**SmartScreen**|Ativar ou desativar o Windows Smart Screen.|  
+|**Proteção contra vírus**|Certifique-se de que o dispositivo está protegido por software antivírus|  
+|**As assinaturas da proteção contra vírus estão atualizadas**|Certifique-se de que as assinaturas de software antivírus estão atualizadas.|
+|**Permitir anular inscrições**|Vamos o utilizador de remover o dispositivo de MDM.|  
   
-### <a name="windows-server-work-folders"></a>Рабочие папки Windows Server  
- Эти параметры применяются как к Windows Phone 8, так и к Windows Phone 8.1.  
+### <a name="windows-server-work-folders"></a>Pastas de Trabalho do Windows Server  
+ Estas definições se aplicam ao Windows Phone 8 e Windows Phone 8.1.  
   
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**URL-адрес рабочих папок**|Настраивает расположение рабочей папки Windows Server, к которой пользователи могут подключаться со своего устройства.|  
+|**URL das Pastas de Trabalho**|Configura a localização de uma pasta de trabalho do Windows Server a que os utilizadores podem ligar a partir do respetivo dispositivo.|  
   
-### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Список разрешенных и заблокированных приложений (только для Windows Phone 8.1)  
- Укажите список приложений для Windows Phone, соответствующих или не соответствующих политике вашей организации. Пользователи не смогут устанавливать приложения, указанные как заблокированные. Если составить список разрешенных приложений, пользователи смогут устанавливать только приложения из этого списка.  
+### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Lista de aplicações permitidas e bloqueadas (apenas Windows Phone 8.1)  
+ Permite-lhe especificar uma lista de aplicações Windows Phone que estão em conformidade ou não conformes com a sua empresa. As aplicações que especifica como bloqueadas não podem ser instaladas pelos utilizadores. Se especificar uma lista de aplicações permitidas, os utilizadores só podem instalar as aplicações na lista.  
   
- В одном и том же элементе конфигурации нельзя указать как разрешенные, так и заблокированные приложения.  
+ Não é possível especificar ambas aplicações permitidas e bloqueadas no mesmo item de configuração.  
   
 > [!IMPORTANT]  
->  Если указывается список разрешенных приложений, необходимо убедиться, что приложение корпоративного портала и все приложения, развернутые на устройствах Windows Phone 8.1, включены в список **разрешенных приложений** .  
+>  Se especificar uma lista de aplicações permitidas, tem de garantir que a aplicação do portal da empresa e quaisquer aplicações implementadas em dispositivos Windows Phone 8.1 estão no **permitidos** lista de aplicações.  
   
-##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>Составление списков разрешенных или заблокированных приложений  
+##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>Para especificar uma lista de aplicações permitidas ou bloqueadas  
   
-1.  На странице **Разрешенные и заблокированные приложения (Windows Phone 8.1)** укажите следующие сведения.  
+1.  No **lista de aplicações permitidas e bloqueadas (Windows Phone 8.1)** página, especifique as seguintes informações:  
   
 |||  
 |-|-|  
-|Параметр|Дополнительные сведения|  
-|**Список заблокированных приложений**|Выберите этот вариант, если требуется указать список приложений, которые не разрешено устанавливать пользователям.|  
-|**Список разрешенных приложений**|Выберите этот вариант, если требуется указать список приложений, которые разрешено устанавливать пользователям.|  
-|**Добавить**|Добавляет приложение в указанный список. Укажите имя, при необходимости издателя приложения, и URL-адрес приложения в магазине приложений.<br /><br /> Чтобы указать URL-адрес, на странице Магазина Windows Phone найдите приложение, которое хотите использовать.<br /><br /> **Пример:** выполните поиск приложения **Skype** в магазине. Нужный URL-адрес будет следующим: http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Для приложения корпоративного портала или бизнес-приложения не нужно указывать полный URL-адрес, достаточно указать код GUID приложения.|  
-|**Правка**|Позволяет изменить имя, издателя и URL-адрес выбранного приложения.|  
-|**Remove**|Удаляет выбранное приложение из списка.|  
-|**Импорт**|Импортирует список приложений, указанных в файле с разделителями-запятыми. Используйте формат, имя приложения, издателя, URL-адрес приложения в файле.|  
+|Definição|Mais informações|  
+|**Lista de aplicações bloqueadas**|Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores não poderão instalar.|  
+|**Lista de aplicações permitidas**|Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores podem instalar.|  
+|**Adicionar**|Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o fabricante da aplicação (opcional) e o URL para a aplicação na loja de aplicações.<br /><br /> Para especificar o URL, na página da Loja do Windows Phone, procure a aplicação que pretende utilizar.<br /><br /> **Exemplo:** Procure na loja a **Skype** aplicação. O URL a utilizar será: http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Para a aplicação portal da empresa ou linha de negócio, não é necessário especificar um URL completo, apenas o GUID da aplicação.|  
+|**Editarar**|Permite-lhe editar o nome, o fabricante e o URL da aplicação selecionada.|  
+|**Remove**|Elimina a aplicação selecionada da lista.|  
+|**Importarar**|Importa uma lista de aplicações especificadas num ficheiro de valores separados por vírgulas. Utilize o formato, o nome da aplicação, o fabricante e o URL da aplicação no ficheiro.|  
   
-## <a name="see-also"></a>См. также  
- [Элементы конфигурации для устройств, управляемых без использования клиента System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
+## <a name="see-also"></a>Consulte Também  
+ [Itens de configuração para dispositivos geridos sem o cliente do System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

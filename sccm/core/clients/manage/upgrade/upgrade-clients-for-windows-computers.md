@@ -1,6 +1,6 @@
 ---
-title: "Обновление клиентов | Документы Майкрософт"
-description: "Вы можете обновить клиенты на компьютерах Windows в System Center Configuration Manager."
+title: Atualizar clientes | Microsoft Docs
+description: Atualize clientes em computadores com Windows no System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 98b8c92e4dad3cef1ed3701b9c0f9111eb9941ea
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-upgrade-clients-for-windows-computers-in-system-center-configuration-manager"></a>Обновление клиентов для компьютеров Windows в System Center Configuration Manager
+# <a name="how-to-upgrade-clients-for-windows-computers-in-system-center-configuration-manager"></a>Como atualizar clientes em computadores Windows no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете обновить клиент на компьютерах Windows с помощью методов установки или функции автоматического обновления клиента в Configuration Manager. Ниже приведены допустимые способы обновления клиентского программного обеспечения на компьютерах Windows:  
+Pode atualizar o cliente em computadores Windows utilizando métodos de instalação de cliente ou as funcionalidades de atualização automática do cliente no Configuration Manager. Os seguintes métodos de instalação de cliente são formas válidas de atualizar o software de cliente em computadores Windows:  
 
--   Установка с использованием групповой политики  
+-   Instalação da política de grupo  
 
--   Установка сценария входа  
+-   Instalação do script de início de sessão  
 
--   Установка вручную  
+-   Instalação manual  
 
--   Установка обновления  
+-   Instalação de atualização  
 
- Если вы заинтересованы в обновлении клиента с использованием методов установки, дополнительные сведения о них см. в разделе [Развертывание клиентов на компьютерах Windows в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).
+ Se estiver interessado em Atualizar o cliente utilizando métodos de instalação de cliente, saiba mais sobre como utilizar esses métodos em [como implementar clientes em computadores Windows no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).
 
- Начиная с версии 1610 можно исключить клиенты из обновления, указав группу исключения. Дополнительные сведения см. в разделе [Исключение клиентов на компьютерах Windows из обновления](exclude-clients-windows.md).  
+ A partir da versão 1610, pode excluir os clientes de que está a ser atualizado, especificando um grupo de exclusão. Para obter mais informações, consulte [como excluir atualizar clientes em computadores Windows](exclude-clients-windows.md).  
 
 
 > [!TIP]  
->  Если вы обновляете серверную инфраструктуру предыдущей версии Configuration Manager \(например, Configuration Manager 2007 или System Center 2012 Configuration Manager\), то перед обновлением клиентов Configuration Manager рекомендуется выполнить обновление серверов, включая установку всех обновлений текущей ветви.   Последнее обновление текущей ветви содержит последнюю версию клиента, поэтому лучше выполнить обновление клиента после установки всех обновлений Configuration Manager, которые вы хотите использовать.
+>  Se estiver a atualizar a infraestrutura do servidor a partir de uma versão anterior do \(como o Configuration Manager 2007 ou o System Center 2012 Configuration Manager\), recomendamos que conclua a atualização do servidor incluindo a instalação de todas as atualizações do current branch, antes de atualizar os clientes do Configuration Manager.   A atualização mais recente do current branch contém a versão mais recente do cliente. Deste modo, é melhor fazer as atualizações de cliente depois de instalar todas as atualizações do Configuration Manager que pretende utilizar.
 
 > [!NOTE]
-> Если вы планируете переназначить сайт для клиентов во время обновления, можно указать новый сайт с помощью свойства SMSSITECODE client.msi. Если для параметра SMSSITECODE используется значение AUTO, необходимо также задать параметр SITEREASSIGN=TRUE, чтобы разрешить автоматическое переназначение сайтов во время обновления. Дополнительные сведения см. в разделе [SMSSITECODE](../../deploy/about-client-installation-properties.md#smssitecode).
+> Se planeia reatribuir o site para os clientes durante a atualização, pode especificar o novo site utilizando a propriedade de client.msi SMSSITECODE. Se utilizar automática para o SMSSITECODE, também tem de especificar SITEREASSIGN = TRUE para permitir a reatribuição de automática de site ocorrer durante a atualização. Para obter mais informações, consulte [SMSSITECODE](../../deploy/about-client-installation-properties.md#smssitecode).
 
-## <a name="use-automatic-client-upgrade"></a>Использование автоматического обновления клиента  
- В Configuration Manager можно настроить автоматическое обновление клиентского ПО до последней версии клиентов Configuration Manager, когда Configuration Manager определяет, что версия клиента, назначенного иерархии Configuration Manager, ниже используемой в иерархии. Этот сценарий включает обновление клиента до последней версии клиента при попытке назначения узлу Configuration Manager.  
+## <a name="use-automatic-client-upgrade"></a>Utilizar a atualização automática de cliente  
+ Também pode configurar o Configuration Manager para atualizar automaticamente o software de cliente para a versão mais recente do cliente do Configuration Manager quando Configuration Manager identifica que um cliente atribuído à hierarquia do Configuration Manager é a versão anterior à utilizada na hierarquia. Este cenário inclui a atualização do cliente para a versão mais recente, quando o mesmo tenta a atribuição a um site do Configuration Manager.  
 
- Клиент может быть автоматически обновлен в следующих случаях.  
+ Um cliente pode ser atualizado automaticamente nos seguintes cenários:  
 
--   Версии клиента ниже, чем версия, которая используется в иерархии.  
+-   A versão do cliente é anterior à versão utilizada na hierarquia.  
 
--   Клиент на сайте центра администрирования имеет языковой пакет, а существующий клиент — нет.  
+-   O cliente no site de administração central tem um pacote de idiomas instalado e o cliente existente não.  
 
--   Обязательный для клиента компонент в иерархии имеет версию, отличную от версии, установленной на клиенте.  
+-   Um pré-requisito de cliente na hierarquia tem uma versão diferente da instalada no cliente.  
 
--   Один или несколько клиентских установочных файлов имеют другую версию.  
-
-> [!NOTE]  
->  Можно запустить отчет **Число клиентов Configuration Manager по версии клиента** в папке отчетов **Сайт — информация о клиентах**, чтобы узнать о различных версиях клиентов Configuration Manager в иерархии.  
-
- Configuration Manager по умолчанию создает пакет обновления, который автоматически отправляется во все точки распространения в иерархии. Если вы вносите изменения в пакет клиента на сайте центра администрирования, например добавляя языковой пакет, то Configuration Manager автоматически обновляет пакет и распространяет его во всех точках распространения в иерархии. Если автоматическое обновление клиента включено, каждый клиент автоматически установит новый языковой пакет.  
+-   Um ou mais dos ficheiros de instalação de cliente têm uma versão diferente.  
 
 > [!NOTE]  
->  Configuration Manager не выполняет автоматическую отправку пакета обновления клиента в облачные точки распространения Configuration Manager.  
+>  Pode executar o relatório **clientes de contagem do Configuration Manager por versões de cliente** na pasta de relatórios **Site - informação de cliente** para identificar as diversas versões do cliente do Configuration Manager na sua hierarquia.  
 
- Вы рекомендуем включить автоматическое обновление клиентов в рамках иерархии. Это позволит поддерживать клиенты в актуальном состоянии с минимальными затратами на администрирование.  
+ Por predefinição que é enviada automaticamente a todos os pontos de distribuição na hierarquia, o Configuration Manager cria um pacote de atualização. Se efetuar alterações ao pacote de cliente no site de administração central, por exemplo, adicionar um pacote de idiomas de cliente do Configuration Manager atualizará automaticamente o pacote e distribuirá o mesmo por todos os pontos de distribuição na hierarquia. Se a atualização automática de cliente estiver ativada, todos os clientes irão instalar o novo pacote de idiomas de cliente automaticamente.  
 
- Используйте следующую процедуру, чтобы настроить автоматическое обновление клиента. Автоматическое обновление клиента должно быть настроено на сайте центра администрирования, и такая конфигурация применяется ко всем клиентским компьютерам в вашей иерархии.  
+> [!NOTE]  
+>  O Configuration Manager não envia automaticamente a atualização de cliente pacote para pontos de distribuição baseados na nuvem do Configuration Manager.  
 
-### <a name="to-configure-automatic-client-upgrades"></a>Настройка автоматического обновления клиента  
+ Recomendamos que ative atualizações automáticas de cliente através da hierarquia. Isto irá manter os seus clientes atualizados com minimizando a sobrecarga administrativa.  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+ Utilize o procedimento seguinte para configurar a atualização automática de cliente. A atualização automática de cliente tem de ser configurada num site de administração central e esta configuração aplica-se a todos os clientes da hierarquia.  
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Сайты**.  
+### <a name="to-configure-automatic-client-upgrades"></a>Para configurar atualizações automáticas de clientes  
 
-3.  На вкладке **Главная** в группе **Сайты** нажмите кнопку **Параметры иерархии**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-4.  На вкладке **Обновление клиента** диалогового окна **Свойства параметров иерархии** просмотрите версию и дату рабочего клиента и убедитесь, что это именно та версия, которая будет использоваться для обновления компьютеров Windows.  Если версия отличается от ожидаемой, может потребоваться повышение уровня предварительного клиента до рабочего. Дополнительные сведения см. в разделе [Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+2.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.  
 
-5.  Щелкните элемент **Обновить все клиенты в иерархии с помощью рабочего клиента** и нажмите кнопку **ОК** в диалоговом окне подтверждения.  
+3.  No separador **Home Page** , no grupo **Sites** , clique em **Definições de Hierarquia**.  
 
-6.  Если вы не хотите применять обновление клиента к серверам, щелкните элемент **Не обновлять серверы**.  
+4.  No separador **Atualização de Cliente** da caixa de diálogo **Propriedades das Definições de Hierarquia** , reveja a versão e a data do cliente de produção e certifique-se de que corresponde à versão que pretende utilizar para a atualização de computadores Windows.  Se não for a versão do cliente que esperava ver, poderá ter de promover o cliente de pré-produção para produção. Para obter mais informações, consulte [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
-7.  Укажите количество дней после получения политики клиента, в течение которых на компьютерах должен быть обновлен клиент. Клиент будет обновлен с произвольным интервалом в течение данного количества дней. Благодаря этому исключаются случаи одновременного обновления большого количества клиентов.
+5.  Clique em **Atualizar todos os clientes na hierarquia utilizando o cliente de produção** e clique em **OK** na caixa de diálogo de confirmação.  
+
+6.  Se não pretender que as atualizações de cliente sejam aplicadas a servidores, clique em **Não atualizar os servidores**.  
+
+7.  Especifique o número de dias em que os computadores têm de atualizar o cliente após receberem a política de cliente. O cliente será atualizado num intervalo aleatório dentro deste prazo. Isto impede cenários em que um grande número de computadores cliente é atualizado simultaneamente.
 
     > [!NOTE]
-    > Для обновления клиента компьютер должен быть запущен. Если компьютер не запущен, когда по расписанию он должен получить обновление, обновление не производится. Вместо этого при перезапуске компьютера другое обновление планируется на случайное время в пределах допустимого числа дней. Если число дней, отведенное для обновления, истекло, обновление планируется на случайное время в течение 24 часов после перезапуска компьютера.
+    > Tem de executar um computador para atualizar o cliente. Se um computador não está em execução quando tem agendada para receber a atualização, a atualização não ocorrer. Em vez disso, quando o computador é reiniciado, outra atualização está agendada para um tempo aleatório num número de dias permitido. Se isto ocorrer depois do número de dias para atualizar tiver expirado, a atualização irá ser agendada para ocorrer num momento aleatórios dentro de 24 horas depois do computador foi reiniciado.
     >     
-    > Вследствие этого обновление компьютеров, работа которых регулярно завершается по окончании рабочего дня, может происходить дольше ожидаемого, если случайным образом назначаемое время обновления не приходится на рабочие часы.
+    > Devido a este comportamento, computadores que regularmente encerrar no final do workday podem um demorar mais tempo a atualizar a que o esperado se a hora de atualização agendada aleatoriamente não se encontra dentro do horário de trabalho normal.
 
-7. Начиная с версии 1610, если требуется исключить клиенты из обновления, щелкните **Исключить указанные клиенты из обновления** и укажите исключаемую коллекцию.
+7. A partir de versão 1610, se pretender excluir os clientes da ser atualizado, clique em **excluir especificado de clientes de atualização** e especifique a coleção para excluir.
 
-8.  Если вы хотите скопировать пакет установки клиента на точки распространения, где разрешено предварительно подготовленное содержимое, щелкните элемент **Автоматически распространять пакет установки клиента на точки распространения, на которых разрешено предварительно подготовленное содержимое**.  
+8.  Se pretender que o pacote de instalação de cliente seja copiado para pontos de distribuição que tenham o conteúdo pré-configurado ativado, clique em **Distribuir automaticamente o pacote de instalação de cliente aos pontos de distribuição que tenham o conteúdo pré-configurado ativado**.  
 
-9. Нажмите кнопку **ОК** , чтобы сохранить параметры и закрыть диалоговое окно **Свойства параметров иерархии** . Клиенты получат эти параметры при следующей загрузке политики.
+9. Clique em **OK** para guardar as definições e fechar o caixa de diálogo **Propriedades das Definições de Hierarquia** . Os clientes receberão estas definições da próxima vez que transferirem a política.
 
 >[!NOTE]
->При обновлении клиента учитываются все настроенные периоды обслуживания Configuration Manager.
+>As atualizações de cliente honrar janelas de manutenção do Configuration Manager, que configurou.

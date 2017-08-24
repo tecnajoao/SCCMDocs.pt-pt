@@ -1,6 +1,6 @@
 ---
-title: "Развертывание содержимого | Документы Майкрософт"
-description: "После установки точек распространения в System Center Configuration Manager в них можно развертывать содержимое. Для выполнения соответствующих операций используйте информацию из этой статьи."
+title: "Implementar conteúdo | Microsoft Docs"
+description: "Depois de instalar pontos de distribuição para o System Center Configuration Manager, eis como pode começar a implementar o conteúdo aos mesmos."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,500 +16,500 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 36b08285ef78d0acb9ba9c44abe2d57e311d44b3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Развертывание содержимого и управление им с помощью System Center Configuration Manager
+# <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Implementar e gerir conteúdo para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-После установки точек распространения в System Center Configuration Manager в них можно развертывать содержимое. Как правило, содержимое передается на точки распространения по сети. Однако существуют и другие способы распространения содержимого на точки распространения. Содержимое, переданное на точку распространения, можно обновлять, распространять, удалять и проверять.  
+Depois de instalar pontos de distribuição para o System Center Configuration Manager, pode começar a implementar o conteúdo aos mesmos. Normalmente, as transferências de conteúdo para pontos de distribuição através da rede, mas existe outras opções para obter conteúdo aos pontos de distribuição. Depois de as transferências de conteúdo para um ponto de distribuição, pode atualizar, redistribuir, remover e validar esse conteúdo em pontos de distribuição.  
 
-##  <a name="bkmk_distribute"></a> Распространение содержимого  
- В общем случае необходимо распространить содержимое на точки распространения, чтобы оно было доступно на клиентских компьютерах. (Исключением из этого является использование распространения содержимого по запросу для конкретного развертывания.)  При распространении содержимого Configuration Manager сохраняет файлы содержимого в пакете, а затем распространяет пакет на точку распространения. Существует несколько типов содержимого, которое можно распространять, включая указанные далее.  
+##  <a name="bkmk_distribute"></a>Distribuir conteúdo  
+ Normalmente, distribuir conteúdo para pontos de distribuição para que fiquem disponível para computadores cliente. (A exceção é quando utiliza a distribuição de conteúdo a pedido para um implementação específica.)  Quando distribui conteúdo, o Configuration Manager armazena os ficheiros de conteúdo num pacote e, em seguida, distribui o pacote ao ponto de distribuição. Os tipos de conteúdo que podem ser distribuídos, incluem:  
 
--   Типы развертываний приложения  
+-   Tipos de implementação de aplicação  
 
--   пакеты,  
+-   Pacotes  
 
--   пакеты развертывания,  
+-   Pacotes de implementação  
 
--   пакеты драйверов,  
+-   Pacotes de controladores  
 
--   Образы операционной системы  
+-   Imagens de sistema operativo  
 
--   Установщики операционной системы  
+-   Instaladores do sistema operativo  
 
--   загрузочные образы,  
+-   Imagens de arranque  
 
--   последовательности задач;  
+-   Sequências de tarefas  
 
-При создании пакета, содержащего исходные файлы, например тип развертывания приложения или пакет развертывания, сайт, на котором создается пакет, становится владельцем источника содержимого пакета. Configuration Manager копирует исходные файлы из папки исходных файлов, указанной для объекта, в библиотеку содержимого на сервере сайта, которому принадлежит источник содержимого пакета.  Затем Configuration Manager реплицирует информацию на дополнительные сайты. (Дополнительные сведения см. в статье [Библиотека содержимого](../../../../core/plan-design/hierarchy/the-content-library.md).)  
+Quando cria um pacote que contém ficheiros de origem, tal como uma aplicação tipo ou implementação de pacote de implementação, o site no qual o pacote é criado torna-se o proprietário do site para a origem de conteúdo do pacote. O Configuration Manager copia os ficheiros de origem do caminho de ficheiro de origem que especificar para o objeto à biblioteca de conteúdos no servidor do site que é proprietário da origem de conteúdo do pacote.  Em seguida, o Configuration Manager replica as informações nos sites adicionais. (Consulte [a biblioteca de conteúdos](../../../../core/plan-design/hierarchy/the-content-library.md) para obter mais informações sobre esta.)  
 
-Следующая процедура используется для распространения содержимого в точки распространения.  
+Utilize o seguinte procedimento para distribuir conteúdo para pontos de distribuição.  
 
-#### <a name="to-distribute-content-on-distribution-points"></a>Распространение содержимого в точки распространения  
+#### <a name="to-distribute-content-on-distribution-points"></a>Para distribuir conteúdo em pontos de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** выберите одно из следующих действий для типа содержимого, который требуется распространить.  
+2.  No **biblioteca de Software** área de trabalho, selecione um dos seguintes passos para o tipo de conteúdo que pretende distribuir:  
 
-    -   **Приложения**: разверните узел **Управление приложениями** > **Приложения**, а затем выберите приложения, которые требуется распространить.  
+    -   **Aplicações**: Expanda **gestão de aplicações** > **aplicações**e, em seguida, selecione as aplicações que pretende distribuir.  
 
-    -   **Пакеты**: разверните узел **Управление приложениями** >  **Пакеты**, а затем выберите пакеты, которые требуется распространить.  
+    -   **Pacotes**: Expanda **gestão de aplicações** >  **pacotes**e, em seguida, selecione os pacotes que pretende distribuir.  
 
-    -   **Пакеты развертывания**: разверните узел **Обновления программного обеспечения** >  **Пакеты развертывания**, а затем выберите пакеты развертывания, которые требуется распространить.  
+    -   **Pacotes de implementação**: Expanda **atualizações de Software** >  **pacotes de implementação**e, em seguida, selecione os pacotes de implementação que pretende distribuir.  
 
-    -   **Пакеты драйверов**: разверните узел **Операционные системы** >  **Пакеты драйверов**, а затем выберите пакеты драйверов, которые требуется распространить.  
+    -   **Pacotes de controladores**: Expanda **sistemas operativos** >  **pacotes de controladores**e, em seguida, selecione os pacotes de controladores que pretende distribuir.  
 
-    -   **Образы операционной системы**: разверните узел **Операционные системы** >  **Образы операционной системы**, а затем выберите образы операционной системы, которые требуется распространить.  
+    -   **Imagens de sistema operativo**: Expanda **sistemas operativos** >  **imagens do sistema operativo**e, em seguida, selecione as imagens de sistema operativo que pretende distribuir.  
 
-    -   **Установщики операционной системы**: разверните узел **Операционные системы** > **Установщики операционной системы**, а затем выберите установщики операционной системы, которые требуется распространить.  
+    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos** > **instaladores do sistema operativo**e, em seguida, selecione os instaladores do sistema operativo que pretende distribuir.  
 
-    -   **Загрузочные образы**: разверните узел **Операционные системы** >  **Загрузочные образы**, а затем выберите загрузочные образы, которые требуется распространить.  
+    -   **Imagens de arranque**: Expanda **sistemas operativos** >  **imagens de arranque**e, em seguida, selecione as imagens de arranque que pretende distribuir.  
 
-    -   **Последовательности задач**: разверните узел **Операционные системы** >  **Последовательности задач**, а затем выберите последовательность задач, которую требуется распространить. Несмотря на то, что в последовательностях задач нет содержимого, они располагают зависимостями связанного содержимого, которые можно распространить.  
-
-        > [!NOTE]  
-        >  В случае изменения последовательности задач необходимо распределить содержимое повторно.  
-
-3.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Распространить содержимое**. Откроется мастер распространения содержимого.  
-
-4.  На странице **Главная** убедитесь, что указано необходимое для распространения содержимое, выберите, следует ли Configuration Manager обнаруживать зависимости содержимого, связанные с выбранным содержимым, и добавьте зависимости в распространение, а затем нажмите кнопку **Далее**.  
-
-    > [!NOTE]  
-    >  Параметр **Определить зависимости данного пакета и добавить их к данному распространению** можно настроить только для типа содержимого приложения. Configuration Manager автоматически настраивает этот параметр для последовательностей задач. Параметр изменить нельзя.  
-
-5.  На вкладке **Содержимое** проверьте, что указано необходимое для распространения содержимое, а затем нажмите кнопку **Далее**.  
-
-    > [!NOTE]  
-    >  Станица **Содержимое** отображается только в том случае, если на странице мастера **Общие** выбран параметр **Определить зависимости данного пакета и добавить их к данному распространению** .  
-
-6.  На странице **Места распространения содержимого** нажмите кнопку **Добавить**, выберите один из следующих объектов и выполните связанное действие.  
-
-    -   **Коллекции**. Выберите **Коллекции пользователей** или **Коллекции устройств**, выберите коллекцию, связанную с одной или несколькими группами точек распространения, а затем нажмите кнопку **ОК**.  
+    -   **As sequências de tarefas**: Expanda **sistemas operativos** >  **sequências de tarefas**e, em seguida, selecione a sequência de tarefas que pretende distribuir. Embora as sequências de tarefas não contêm conteúdo, podem tem conteúdas dependências associadas que são distribuídas.  
 
         > [!NOTE]  
-        >  Будут отображены только коллекции, связанные с группой точек распространения. Дополнительные сведения о сопоставлении коллекций с группами точек распространения см. в разделе [Управление группами точек распространения](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) статьи [Установка и настройка точек распространения в System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+        >  Se modificar a sequência de tarefas, necessitará de redistribuir o conteúdo.  
 
-    -   **Точка распространения**. Выберите существующую точку распространения, а затем нажмите кнопку **ОК**. Точки распространения, получившие содержимое ранее, не отображаются.  
+3.  No separador **Início** , no grupo **Implementação** , clique em **Distribuir Conteúdo** É aberto o Assistente para distribuir conteúdo.  
 
-    -   **Группа точек распространения**. Выберите существующую группу точек распространения, а затем нажмите кнопку **ОК**. Группы точек распространения, получившие содержимое ранее, не отображаются.  
-
-    Закончив добавление мест распространения содержимого, нажмите кнопку **Далее**.  
-
-7.  Прежде чем продолжить, на странице **Сводка** проверьте параметры распространения. Чтобы распространить содержимое в выбранные места, нажмите кнопку **Далее**.  
-
-8.  На странице **Ход выполнения** отображается ход выполнения распространения.  
-
-9. На странице **Подтверждение** отображается результат назначения содержимого точкам. Сведения о мониторинге распространения содержимого см. в статье [Мониторинг содержимого, распространенного с помощью System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
-
-##  <a name="bkmk_prestage"></a> Использование предварительно подготовленного содержимого  
- Можно предварительно подготовить файлы содержимого для приложений и различных типов пакетов.  
-
--   В консоли Configuration Manager выберите нужное содержимое, а затем с помощью **мастера создания файлов с предварительно подготовленным содержимым** создайте сжатый файл с предварительно подготовленным содержимым, содержащий файлы и связанные метаданные для выбранного содержимого.  
-
--   После этого можно вручную импортировать содержимое на сервере сайта, на вторичном сайте или в точке распространения.  
-
--   При импорте файла с предварительно подготовленным содержимым на сервер сайта файлы содержимого добавляются в библиотеку содержимого на сервере сайта, а затем регистрируются в базе данных сайта.  
-
--   При импорте файла с предварительно подготовленным содержимым на точку распространения файлы содержимого добавляются в библиотеку содержимого в точке распространения, а на сервер сайта отправляется сообщение о состоянии, указывающее, что содержимое доступно в точке распространения.  
-
-**Ограничения и рекомендации для предварительно подготовленного содержимого**  
-
--   **Если точка распространения находится на сервере сайта**, не включайте точку распространения для предварительно подготовленного содержимого. Вместо этого используйте процедуру, описанную в статье [Предварительная подготовка содержимого в точках распространения, расположенных на сервере сайта](#bkmk_dpsiteserver).  
-
--   **Если точка распространения настроена как точка распространения по запросу**, не включайте точку распространения для предварительно подготовленного содержимого. Конфигурация предварительно подготовленного содержимого для точки распространения переопределяет конфигурацию точки распространения по запросу. Точка распространения по запросу, настроенная для поддержки предварительно подготовленного содержимого, не запрашивает содержимое у исходной точки распространения и не получает содержимое с сервера сайта.  
-
--   **Перед предварительной подготовкой содержимого в точке распространения необходимо создать библиотеку содержимого в этой точке распространения**. Необходимо по крайней мере один раз распространить содержимое по сети перед предварительной подготовкой содержимого в точке распространения.  
-
--   **При подготовке содержимого для пакета с длинным исходным путем** (например, больше 140 символов) у программы командной строки для извлечения содержимого может не получиться извлечь содержимое этого пакета в библиотеку содержимого.  
-
-Сведения о том, когда следует предварительно готовить файлы содержимого, см. в разделе *Предварительно подготовленное содержимое* статьи [Управление пропускной способностью сети для управления содержимым](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).  
-
-Для предварительной подготовки содержимого используйте информацию следующих разделов.  
-
-###  <a name="BKMK_CreatePrestagedContentFile"></a> Шаг 1. Создание файла с предварительно подготовленным содержимым  
- Можно создать сжатый файл с предварительно подготовленным содержимым, который будет содержать файлы и метаданные содержимого, выбранного в консоли Configuration Manager. Используйте следующую процедуру, чтобы создать файл с предварительно подготовленным содержимым.  
-
-##### <a name="to-create-a-prestaged-content-file"></a>Создание файла с предварительно подготовленным содержимым  
-
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
-
-2.  В рабочей области **Библиотека программного обеспечения** выберите один из следующих шагов в зависимости от типа содержимого, которое нужно предварительно подготовить.  
-
-    -   **Приложения**. Разверните узел **Управление приложениями**, щелкните **Приложения**, затем выберите приложения, которые нужно предварительно подготовить.  
-
-    -   **Пакеты**. Разверните узел **Управление приложениями**, щелкните **Пакеты**, затем выберите пакеты, которые нужно предварительно подготовить.  
-
-    -   **Пакеты драйверов**. Разверните узел **Операционные системы**, щелкните **Пакеты драйверов**, затем выберите пакеты драйверов, которые нужно предварительно подготовить.  
-
-    -   **Образы операционной системы**. Разверните узел **Операционные системы**, щелкните **Образы операционной системы**, затем выберите образы операционной системы, которые нужно предварительно подготовить.  
-
-    -   **Установщики операционной системы**. Разверните узел **Операционные системы**, щелкните **Установщики операционной системы**, затем выберите установщики операционной системы, которые нужно предварительно подготовить.  
-
-    -   **Загрузочные образы**. Разверните узел **Операционные системы**, щелкните **Загрузочные образы**, затем выберите загрузочные образы, которые нужно предварительно подготовить.  
-
-    -   **Последовательности задач**. Разверните узел **Операционные системы**, щелкните **Последовательности задач**, затем выберите последовательность задач, которую нужно предварительно подготовить.  
-
-3.  На вкладке **Главная** в группе **Развертывание** щелкните **Создать файл с предварительно подготовленным содержимым**. Откроется мастер создания файлов с предварительно подготовленным содержимым.  
+4.  No **geral** página, certifique-se de que os conteúdos apresentados correspondem aos conteúdos que pretende distribuir, especifique se pretende que o Configuration Manager para detetar as dependências de conteúdos que estão associados a conteúdos selecionados e adicione as dependências à distribuição e, em seguida, clique em **seguinte**.  
 
     > [!NOTE]  
-    >  **Для приложений.** На вкладке **Главная** в группе **Приложение** щелкните **Создать файл с предварительно подготовленным содержимым**.  
+    >  Tem a opção para configurar o **detetar dependências de conteúdo associado e adicioná-las a esta distribuição** definição apenas para o tipo de conteúdo da aplicação. O Configuration Manager configura automaticamente esta definição para sequências de tarefas e não pode ser modificado.  
+
+5.  No **conteúdo** separador, caso seja apresentado, certifique-se de que os conteúdos apresentados correspondem aos conteúdos que pretende distribuir e, em seguida, clique em **seguinte**.  
+
+    > [!NOTE]  
+    >  O **conteúdo** página é apresentada apenas quando o **detetar dependências de conteúdo associado e adicioná-las a esta distribuição** definição está selecionada no **geral** página do assistente.  
+
+6.  No **destino do conteúdo** página, clique em **adicionar**, escolha uma das seguintes e, em seguida, siga o passo associado:  
+
+    -   **Coleções**: Selecione **coleções de utilizadores** ou **coleções de dispositivos**, clique na coleção associada um ou mais grupos de pontos de distribuição e, em seguida, clique em **OK**.  
+
+        > [!NOTE]  
+        >  São apresentadas apenas as coleções que estão associadas um grupo de pontos de distribuição. Para obter mais informações sobre como associar coleções a grupos de pontos de distribuição, consulte [gerir grupos de pontos de distribuição](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) no [instalar e configurar pontos de distribuição para o System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md) tópico.  
+
+    -   **Ponto de distribuição**: Selecione um ponto de distribuição existente e, em seguida, clique em **OK**. Pontos de distribuição que tenham anteriormente recebido o conteúdo não são apresentados.  
+
+    -   **Grupo de pontos de distribuição**: Selecione um grupo de pontos de distribuição existente e, em seguida, clique em **OK**. Grupos de pontos de distribuição que tenham anteriormente recebido o conteúdo não serão apresentados.  
+
+    Quando acabar de adicionar destinos de conteúdo, clique em **seguinte**.  
+
+7.  No **resumo** , reveja as definições da distribuição antes de continuar. Para distribuir o conteúdo aos destinos selecionados, clique em **seguinte**.  
+
+8.  O **progresso** página apresenta o progresso da distribuição.  
+
+9. O **confirmação** página mostra se os conteúdos foram atribuídos com êxito aos pontos. Para monitorizar a distribuição de conteúdos, consulte [monitorizar conteúdo que distribuiu com o System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+
+##  <a name="bkmk_prestage"></a>Utilize conteúdo pré-configurado  
+ Pode pré-configurar ficheiros de conteúdo para aplicações e tipos de pacote:  
+
+-   Na consola do Configuration Manager, selecione o conteúdo necessário e, em seguida, utilizar o **criar Assistente de ficheiro de conteúdo pré-configurado** para criar um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros e metadados associados para o conteúdo que selecionou.  
+
+-   Em seguida, pode importar manualmente o conteúdo no servidor do site, site secundário, ou ponto de distribuição.  
+
+-   Quando importar o ficheiro de conteúdo pré-configurado num servidor do site, os ficheiros de conteúdo são adicionados à biblioteca de conteúdos no servidor do site e, em seguida, registados na base de dados do servidor do site.  
+
+-   Quando importar o ficheiro de conteúdo pré-configurado num ponto de distribuição, os ficheiros de conteúdo são adicionados à biblioteca de conteúdos no ponto de distribuição e é enviada uma mensagem de estado para o servidor de site que informa o site que o conteúdo está disponível no ponto de distribuição.  
+
+**Limitações e considerações para conteúdo pré-configurado:**  
+
+-   **Quando o ponto de distribuição estiver localizado no servidor do site**, não ative o ponto de distribuição para conteúdo pré-configurado. Em alternativa, utilize o procedimento [como pré-configurar conteúdo num ponto de distribuição num servidor do site](#bkmk_dpsiteserver).  
+
+-   **Quando o ponto de distribuição é configurado como um ponto de distribuição de solicitação**, não ative o ponto de distribuição para conteúdo pré-configurado. A configuração de conteúdo pré-configurado para um ponto de distribuição substitui a configuração de ponto de distribuição de solicitação. Um ponto de distribuição de solicitação que esteja configurado para conteúdos pré-configurados não solicitará conteúdos a partir do ponto de distribuição de origem e recebe os conteúdos do servidor do site.  
+
+-   **A biblioteca de conteúdos tem de ser criada no ponto de distribuição para que possa pré-configurar conteúdo para o ponto de distribuição**. Distribua conteúdo através da rede, pelo menos, uma vez para pré-configurar conteúdo para o ponto de distribuição.  
+
+-   **Quando pré-configura conteúdo para um pacote com um caminho de origem do pacote extenso** (por exemplo, mais de 140 caracteres), a ferramenta de linha de comandos extrair conteúdo poderá não concluir com êxito a extração dos conteúdos desse pacote para a biblioteca de conteúdos.  
+
+Para obter informações sobre quando pré-configurar ficheiros de conteúdo, consulte *conteúdo pré-configurado* no [gerir a largura de banda de rede para a gestão de conteúdo](/sccm/core/plan-design/hierarchy/manage-network-bandwidth) tópico.  
+
+Utilize as secções seguintes para pré-configurar conteúdo.  
+
+###  <a name="BKMK_CreatePrestagedContentFile"></a>Passo 1: Criar um ficheiro de conteúdo pré-configurado  
+ Pode criar um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros e metadados associados para o conteúdo que selecionou na consola do Configuration Manager. Utilize o procedimento seguinte para criar um ficheiro de conteúdo pré-configurado.  
+
+##### <a name="to-create-a-prestaged-content-file"></a>Para criar um ficheiro de conteúdo pré-configurado  
+
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+
+2.  No **biblioteca de Software** área de trabalho, selecione um dos seguintes passos para o tipo de conteúdo que pretende pré-configurar:  
+
+    -   **Aplicações**: Expanda **gestão de aplicações**, clique em **aplicações**e, em seguida, selecione as aplicações que pretende pré-configurar.  
+
+    -   **Pacotes**: Expanda **gestão de aplicações**, clique em **pacotes**e, em seguida, selecione os pacotes que pretende pré-configurar.  
+
+    -   **Pacotes de controladores**: Expanda **sistemas operativos**, clique em **pacotes de controladores**e, em seguida, selecione os pacotes de controladores que pretende pré-configurar.  
+
+    -   **Imagens de sistema operativo**: Expanda **sistemas operativos**, clique em **imagens do sistema operativo**e, em seguida, selecione as imagens de sistema operativo que pretende pré-configurar.  
+
+    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos**, clique em **instaladores do sistema operativo**e, em seguida, selecione os instaladores do sistema operativo que pretende pré-configurar.  
+
+    -   **Imagens de arranque**: Expanda **sistemas operativos**, clique em **imagens de arranque**e, em seguida, selecione as imagens de arranque que pretende pré-configurar.  
+
+    -   **As sequências de tarefas**: Expanda **sistemas operativos**, clique em **sequências de tarefas**e, em seguida, selecione a sequência de tarefas que pretende pré-configurar.  
+
+3.  No **home page** separador o **implementação** , clique em **criar ficheiro de conteúdo de pré-configurado**. A criar pré-configurado conteúdo ficheiro é aberto o assistente.  
+
+    > [!NOTE]  
+    >  **Para aplicações:** No **home page** separador o **aplicação** , clique em **criar pré-configurado ficheiro de conteúdo**.  
     >   
-    >  **Для пакетов.** на вкладке **Главная** в группе &lt;*Имя_пакета*> щелкните пункт **Создать файл с предварительно подготовленным содержимым**.  
+    >  **Para pacotes:** No **home page** separador o &lt; *PackageName*>, clique em **criar pré-configurado ficheiro de conteúdo**.  
 
-4.  На странице **Общие** нажмите кнопку **Обзор**, выберите расположение файла с предварительно подготовленным содержимым, укажите имя файла, а затем нажмите кнопку **Сохранить**. Этот файл с предварительно подготовленным содержимым используется на серверах первичных сайтов, серверах вторичных сайтов и в точках распространения для импорта содержимого и метаданных.  
+4.  No **geral** página, clique em **procurar**, escolha a localização de ficheiro de conteúdo pré-configurado, especifique um nome para o ficheiro e, em seguida, clique em **guardar**. Utilize o ficheiro de conteúdo pré-configurado em servidores de site primário, servidores de sites secundários ou pontos de distribuição para importar o conteúdo e metadados.  
 
-5.  Для приложений выберите параметр **Экспорт всех зависимостей**, чтобы Configuration Manager обнаруживал и добавлял зависимости, связанные с приложением, в файл с предварительно подготовленным содержимым. По умолчанию этот параметр выбран.  
+5.  Para aplicações, selecione **exportar todas as dependências** para que o Configuration Manager detete e adicione as dependências associadas à aplicação para o ficheiro de conteúdo pré-configurado. Por predefinição, esta definição está selecionada.  
 
-6.  В поле **Комментарии администратора**введите дополнительные комментарии о файле с предварительно подготовленным содержимым, затем нажмите кнопку **Далее**.  
+6.  No **comentários do administrador**, introduza comentários opcionais sobre o ficheiro de conteúdo pré-configurado e, em seguida, clique em **seguinte**.  
 
-7.  На странице **Содержимое** проверьте, что указанное содержимое — именно то, которое требуется добавить в файл с предварительно подготовленным содержимым, затем нажмите кнопку **Далее**.  
+7.  No **conteúdo** página, certifique-se de que os conteúdos apresentados correspondem aos conteúdos que pretende adicionar ao ficheiro de conteúdo pré-configurado e, em seguida, clique em **seguinte**.  
 
-8.  На странице **Расположения содержимого** укажите точки распространения, из которых следует получать файлы содержимого для создания файла с предварительно подготовленным содержимым. Можно выбрать несколько точек распространения для получения содержимого. Точки распространения перечисляются в разделе "Расположения содержимого". В столбце **Содержимое** отображается, сколько выбранных пакетов или приложений доступно в каждой точке распространения. Configuration Manager сначала пытается получить выбранное содержимое с первой точки распространения, а затем передвигается далее по списку, чтобы получить оставшееся содержимое, необходимое для файла с предварительно подготовленным содержимым. Используйте кнопки **Вверх** или **Вниз** , чтобы изменить порядок приоритета точек распространения. Если точки распространения в списке не содержат все выбранное содержимое, нужно добавить в список точки распространения, содержащие нужное содержимое, или закрыть мастер, распространить содержимое по крайней мере в одну точку распространения, а затем еще раз запустить мастер.  
+8.  No **localizações de conteúdo** página, especifique os pontos de distribuição a partir do qual obter os ficheiros de conteúdo para o ficheiro de conteúdo pré-configurado. Pode selecionar mais do que um ponto de distribuição para obter o conteúdo. Os pontos de distribuição estão listados na secção Localizações de conteúdo. O **conteúdo** coluna indica quantos dos selecionado pacotes ou aplicações estão disponíveis em cada ponto de distribuição. Configuration Manager começa com o primeiro ponto de distribuição na lista para obter o conteúdo selecionado e, em seguida, percorre a lista para obter os restantes conteúdos necessários para o ficheiro de conteúdo pré-configurado. Clique em **mover para cima** ou **mover para baixo** para alterar a ordem de prioridade dos pontos de distribuição. Quando os pontos de distribuição na lista não contiverem todo o conteúdo selecionado, tem de adicionar pontos de distribuição para a lista que contenham o conteúdo ou sair do assistente, distribuir o conteúdo para, pelo menos, um ponto de distribuição e, em seguida, reinicie o assistente.  
 
-9. На странице **Сводка** подтвердите введенные данные. Можно вернуться к предыдущим страницам и внести необходимые изменения. Нажмите кнопку **Далее** , чтобы создать файл с предварительно подготовленным содержимым.  
+9. No **resumo** página, confirme os detalhes. Pode voltar atrás às páginas anteriores e efetuar alterações. Clique em **seguinte** para criar o ficheiro de conteúdo pré-configurado.  
 
-10. На странице **Выполнение** будет показано содержимое, добавляемое в файл с предварительно подготовленным содержимым.  
+10. O **progresso** página apresenta os conteúdos que está a ser adicionado ao ficheiro de conteúdo pré-configurado.  
 
-11. На странице **Завершение** убедитесь, что файл с предварительно подготовленным содержимым успешно создан, затем нажмите кнопку **Закрыть**.  
+11. No **conclusão** página, certifique-se de que o ficheiro de conteúdo pré-configurado foi criado com êxito e, em seguida, clique em **fechar**.  
 
-###  <a name="BKMK_AssignContentToDistributionPoint"></a> Шаг 2. Назначение содержимого в точки распространения  
- После подготовки файла с содержимым следует назначить содержимое точкам распространения.  
+###  <a name="BKMK_AssignContentToDistributionPoint"></a>Passo 2: Atribua o conteúdo para pontos de distribuição  
+ Depois de pré-configurar o ficheiro de conteúdo, atribua o conteúdo para pontos de distribuição.  
 
 > [!NOTE]  
->  Эту процедуру можно пропустить, если файл с предварительно подготовленным содержимым используется для восстановления библиотеки содержимого на сервере сайта, и при этом не требуется предварительная подготовка файлов содержимого в точке распространения.  
+>  Quando utilizar um ficheiro de conteúdo pré-configurado para recuperar a biblioteca de conteúdos num servidor do site e necessitar de pré-configurar os ficheiros de conteúdo num ponto de distribuição, pode ignorar este procedimento.  
 
- Используйте следующую процедуру, чтобы назначить содержимое файла с предварительно подготовленным содержимым точкам распространения.  
+ Utilize o procedimento seguinte para atribuir o conteúdo do ficheiro de conteúdo pré-configurado para pontos de distribuição.  
 
 > [!IMPORTANT]  
->  Убедитесь, что точки распространения, которые следует предварительно подготовить, настроены как подготовленные точки распространения или что содержимое распространяется в точки распространения по сети.  
+>  Certifique-se de que os pontos de distribuição que pretende pré-configurar estão configurados como pontos de distribuição pré-configurados ou que o conteúdo é distribuído aos pontos de distribuição através da rede.  
 
-##### <a name="to-assign-the-content-to-distribution-points"></a>Назначение содержимого в точки распространения  
+##### <a name="to-assign-the-content-to-distribution-points"></a>Para atribuir o conteúdo a pontos de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** выберите один из следующих шагов в зависимости от типа содержимого, выбранного при создании файла с предварительно подготовленным содержимым.  
+2.  No **biblioteca de Software** área de trabalho, selecione um dos seguintes passos para o tipo de conteúdo que selecionou quando criou o ficheiro de conteúdo pré-configurado:  
 
-    -   **Приложения**. Разверните узел **Управление приложениями**, щелкните **Приложения**, затем выберите предварительно подготовленные приложения.  
+    -   **Aplicações**: Expanda **gestão de aplicações**, clique em **aplicações**e, em seguida, selecione as aplicações que pré-configurou.  
 
-    -   **Пакеты**. Разверните узел **Управление приложениями**, щелкните **Пакеты**, затем выберите предварительно подготовленные пакеты.  
+    -   **Pacotes**: Expanda **gestão de aplicações**, clique em **pacotes**e, em seguida, selecione os pacotes que pré-configurou.  
 
-    -   **Пакеты развертывания**. Разверните узел **Обновления программного обеспечения**, щелкните **Пакеты развертывания**, затем выберите предварительно подготовленные пакеты развертывания.  
+    -   **Pacotes de implementação**: Expanda **atualizações de Software**, clique em **pacotes de implementação**e, em seguida, selecione os pacotes de implementação que pré-configurou.  
 
-    -   **Пакеты драйверов**. Разверните узел **Операционные системы**, щелкните **Пакеты драйверов**, затем выберите предварительно подготовленные пакеты драйверов.  
+    -   **Pacotes de controladores**: Expanda **sistemas operativos**, clique em **pacotes de controladores**e, em seguida, selecione os pacotes de controladores que pré-configurou.  
 
-    -   **Образы операционной системы**. Разверните узел **Операционные системы**, щелкните **Образы операционной системы**, затем выберите предварительно подготовленные образы операционной системы.  
+    -   **Imagens de sistema operativo**: Expanda **sistemas operativos**, clique em **imagens do sistema operativo**e, em seguida, selecione as imagens de sistema operativo que pré-configurou.  
 
-    -   **Установщики операционной системы**. Разверните узел **Операционные системы**, щелкните **Установщики операционной системы**, затем выберите предварительно подготовленные установщики операционной системы.  
+    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos**, clique em **instaladores do sistema operativo**e, em seguida, selecione os instaladores do sistema operativo que pré-configurou.  
 
-    -   **Загрузочные образы**. Разверните узел **Операционные системы**, щелкните **Загрузочные образы**, затем выберите предварительно подготовленные загрузочные образы.  
+    -   **Imagens de arranque**: Expanda **sistemas operativos**, clique em **imagens de arranque**e, em seguida, selecione as imagens de arranque que pré-configurou.  
 
-3.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Распространить содержимое**. Откроется мастер распространения содержимого.  
+3.  No separador **Início** , no grupo **Implementação** , clique em **Distribuir Conteúdo** É aberto o Assistente para distribuir conteúdo.  
 
-4.  На странице **Содержимое** проверьте, что указанное содержимое — именно то, которое было предварительно подготовлено, выберите, должен ли Configuration Manager обнаружить зависимости, связанные с выбранным содержимым, и добавить зависимости в распространение, затем нажмите кнопку **Далее**.  
-
-    > [!NOTE]  
-    >  Параметр **Определить зависимости данного пакета и добавить их к данному распространению** можно настроить только для типа содержимого приложения. Configuration Manager автоматически настраивает этот параметр для последовательностей задач. Параметр изменить нельзя.  
-
-5.  На вкладке **Содержимое** проверьте, что указано необходимое для распространения содержимое, а затем нажмите кнопку **Далее**.  
+4.  No **geral** página, certifique-se de que os conteúdos apresentados correspondem aos conteúdos que pré-configurou, especifique se pretende que o Configuration Manager para detetar as dependências de conteúdos que estão associados a conteúdos selecionados e adicione as dependências à distribuição e, em seguida, clique em **seguinte**.  
 
     > [!NOTE]  
-    >  Станица **Содержимое** отображается только в том случае, если на странице мастера **Общие** выбран параметр **Определить зависимости данного пакета и добавить их к данному распространению** .  
+    >  Tem a opção para configurar o **detetar dependências de conteúdo associado e adicioná-las a esta distribuição** definição apenas para o tipo de conteúdo da aplicação. O Configuration Manager configura automaticamente esta definição para sequências de tarefas e não pode ser modificado.  
 
-6.  На странице **Места распространения содержимого** , нажмите кнопку **Добавить**, выберите один из следующих объектов с точками распространения, требующими подготовки, и выполните связанное действие.  
+5.  No **conteúdo** página, se for apresentada, certifique-se de que os conteúdos apresentados correspondem aos conteúdos que pretende distribuir e, em seguida, clique em **seguinte**.  
 
-    -   **Коллекции**. Выберите **Коллекции пользователей** или **Коллекции устройств**, выберите коллекцию, связанную с одной или несколькими группами точек распространения, а затем нажмите кнопку **ОК**.  
+    > [!NOTE]  
+    >  O **conteúdo** página é apresentada apenas quando o **detetar dependências de conteúdo associado e adicioná-las a esta distribuição** definição está selecionada no **geral** página do assistente.  
+
+6.  No **destino do conteúdo** página, clique em **adicionar**, escolha um dos seguintes itens que incluem os pontos de distribuição a pré-configurar e, em seguida, siga o passo associado:  
+
+    -   **Coleções**: Selecione **coleções de utilizadores** ou **coleções de dispositivos**, clique na coleção associada um ou mais grupos de pontos de distribuição e, em seguida, clique em **OK**.  
 
         > [!NOTE]  
-        >  Будут отображены только коллекции, связанные с группой точек распространения.  См. раздел [Управление группами точек распространения](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) в статье [Установка и настройка точек распространения в System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+        >  São apresentadas apenas as coleções que estão associadas um grupo de pontos de distribuição.  Para obter mais informações, consulte [gerir grupos de pontos de distribuição](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) no [instalar e configurar pontos de distribuição para o System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md) tópico.  
 
-    -   **Точка распространения**. Выберите существующую точку распространения, а затем нажмите кнопку **ОК**. Точки распространения, получившие содержимое ранее, не отображаются.  
+    -   **Ponto de distribuição**: Selecione um ponto de distribuição existente e, em seguida, clique em **OK**. Pontos de distribuição que tenham anteriormente recebido o conteúdo não são apresentados.  
 
-    -   **Группа точек распространения**. Выберите существующую группу точек распространения, а затем нажмите кнопку **ОК**. Группы точек распространения, получившие содержимое ранее, не отображаются.  
+    -   **Grupo de pontos de distribuição**: Selecione um grupo de pontos de distribuição existente e, em seguida, clique em **OK**. Grupos de pontos de distribuição que tenham anteriormente recebido o conteúdo não serão apresentados.  
 
-    Закончив добавление мест распространения содержимого, нажмите кнопку **Далее**.  
+    Quando acabar de adicionar destinos de conteúdo, clique em **seguinte**.  
 
-7.  Прежде чем продолжить, на странице **Сводка** проверьте параметры распространения. Чтобы распространить содержимое в выбранные места, нажмите кнопку **Далее**.  
+7.  No **resumo** , reveja as definições da distribuição antes de continuar. Para distribuir o conteúdo aos destinos selecionados, clique em **seguinte**.  
 
-8.  На странице **Ход выполнения** отображается ход выполнения распространения.  
+8.  O **progresso** página apresenta o progresso da distribuição.  
 
-9. На странице **Подтверждение** отображается результат назначения содержимого точкам распространения. Сведения о мониторинге распространения содержимого см. в статье [Мониторинг содержимого, распространенного с помощью System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+9. O **confirmação** página é apresentada se ou não os conteúdos foram atribuídos com êxito aos pontos de distribuição. Para monitorizar a distribuição de conteúdos, consulte [monitorizar conteúdo que distribuiu com o System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-###  <a name="BKMK_ExportContentFromPrestagedContentFile"></a> Шаг 3. Извлечение содержимого из файла с предварительно подготовленным содержимым  
- После создания файла с предварительно подготовленным содержимым и назначения содержимого точкам распространения можно извлечь файлы содержимого в библиотеку содержимого на сервере сайта или в точке распространения. Как правило, следует скопировать файл с предварительно подготовленным содержимым на переносной накопитель, например на USB-накопитель, или записать содержимое на диск, например на DVD-диск, чтобы требуемое содержимое было доступно в расположении сервера сайта или точки распространения.  
+###  <a name="BKMK_ExportContentFromPrestagedContentFile"></a>Passo 3: Extrair o conteúdo do ficheiro de conteúdo pré-configurado  
+ Depois de criar o ficheiro de conteúdo pré-configurado e atribuir o conteúdo a pontos de distribuição, pode extrair os ficheiros de conteúdo à biblioteca de conteúdos no ponto de servidor ou a distribuição de um site. Normalmente, que copiou o ficheiro de conteúdo pré-configurado para uma unidade portátil, como uma unidade USB, ou gravado o conteúdo para o suporte de dados como um DVD e tiver disponível na localização do site servidor ou ponto de distribuição que necessite do conteúdo.  
 
- Используйте следующую процедуру, чтобы вручную экспортировать файлы содержимого из файла с предварительно подготовленным содержимым с помощью программы командной строки Extract Content.  
+ Utilize o procedimento seguinte para exportar manualmente os ficheiros de conteúdo do ficheiro de conteúdo pré-configurado utilizando a ferramenta de linha de comandos extrair conteúdo.  
 
 > [!IMPORTANT]  
->  При запуске программы командной строки для извлечения содержимого она создает временный файл во время создания файла с подготовленным содержимым. Затем файл копируется в конечную папку, а временный файл удаляется. На диске должно быть достаточно места для временного файла, иначе в процессе произойдет ошибка. Временный файл создается в следующем каталоге.  
+>  Quando executar a ferramenta de linha de comandos extrair conteúdo, a ferramenta cria um ficheiro temporário à medida que cria o ficheiro de conteúdo pré-configurado. Em seguida, o ficheiro é copiado para a pasta de destino e o ficheiro temporário é eliminado. Tem de ter espaço suficiente em disco para este ficheiro temporário ou o processo de falha. O ficheiro temporário é criado na seguinte localização:  
 >   
->  -   Временный файл создается в конечной папке для файла с предварительно подготовленным содержимым.  
+>  -   O ficheiro temporário é criado na mesma pasta que especificar como a pasta de destino para o ficheiro de conteúdo pré-configurado.  
 
 > [!IMPORTANT]  
->  Пользователь, запускающий программу командной строки Extract Content, должен обладать правами **администратора** на компьютере, где производится извлечение предварительно подготовленного содержимого.  
+>  O utilizador que executa a ferramenta de linha de comandos extrair conteúdo tem de ter **administrador** direitos no computador a partir do qual está a extrair o conteúdo pré-configurado.  
 
-##### <a name="to-extract-the-content-files-from-the-prestaged-content-file"></a>Извлечение файлов содержимого из файла с предварительно подготовленным содержимым  
+##### <a name="to-extract-the-content-files-from-the-prestaged-content-file"></a>Para extrair os ficheiros de conteúdo do ficheiro de conteúdo pré-configurado  
 
-1.  Скопируйте файл с предварительно подготовленным содержимым на компьютер, на котором нужно извлечь содержимое.  
+1.  Copie o ficheiro de conteúdo pré-configurado para o computador a partir do qual pretende extrair o conteúdo.  
 
-2.  Скопируйте программу командной строки Extract Content из папки &lt;*путь_установки_Configuration_Manager*>\bin\\&lt;*платформа*> на компьютер, на котором нужно извлечь файл с предварительно подготовленным содержимым.  
+2.  Copie a ferramenta de linha de comandos extrair conteúdo de &lt; *Caminhodeinstalaçãodoconfigmgr*> \bin\\&lt;*plataforma*> para o computador a partir do qual pretende extrair o ficheiro de conteúdo pré-configurado.  
 
-3.  Откройте командную строку и перейдите в папку, где находится файл с предварительно подготовленным содержимым и программа Extract Content.  
+3.  Abra a linha de comandos e navegue para a localização da pasta do ficheiro de conteúdo pré-configurado e da ferramenta extrair conteúdo.  
 
     > [!NOTE]  
-    >  Можно извлечь один или несколько файлов с предварительно подготовленным содержимым на сервере сайта, на вторичном сайте или в точке распространения.  
+    >  Pode extrair um ou mais ficheiros de conteúdo num servidor do site, o servidor de site secundário ou ponto de distribuição de pré-configurado.  
 
-4.  Введите команду **extractcontent /P:**&lt;*расположение_файлов*>**\\**&lt;*имя_файла*> **/S**, чтобы импортировать один файл.  
+4.  Tipo **extractcontent /p:**&lt;*localizaçãodoficheiropré-configurado*>**\\**&lt;*nomedoficheiropré-configurado*> **/S** para importar um único ficheiro.  
 
-     Введите команду **extractcontent /P:**&lt;*расположение_файлов*> **/S**, чтобы импортировать все файлы с предварительно подготовленным содержимым, находящиеся в указанной папке.  
+     Tipo **extractcontent /p:**&lt;*localizaçãodoficheiropré-configurado*> **/S** importar todos os ficheiros pré-configurados na pasta especificada.  
 
-     Например, введите команду **extractcontent /P:D:\PrestagedFiles\MyPrestagedFile.pkgx /S**, где `D:\PrestagedFiles\` — расположение файлов, `MyPrestagedFile.pkgx` — имя файла с предварительно подготовленным содержимым, а параметр `/S` указывает, что Configuration Manager должен извлекать только более новые по сравнению с находящимися в настоящее время в точке распространения файлы содержимого.  
+     Por exemplo, digite **extractcontent /P:D:\PrestagedFiles\MyPrestagedFile.pkgx /S** onde `D:\PrestagedFiles\` corresponde a Localficheiropreconfigurado, `MyPrestagedFile.pkgx` é o nome do ficheiro pré-configurado e `/S` informa o Configuration Manager para extrair apenas os ficheiros de conteúdo que são mais recentes do que o que está atualmente no ponto de distribuição.  
 
-     При извлечении файла с предварительно подготовленным содержимым на сервере сайта файлы содержимого добавляются в библиотеку содержимого на сервере сайта, а затем сведения о доступности содержимого записываются в базу данных сервера сайта. При экспорте файла с предварительно подготовленным содержимым в точке распространения файлы содержимого добавляются в библиотеку содержимого в точке распространения, точка распространения отправляет сообщение о состоянии на родительский сервер сайта, а затем сведения о доступности содержимого записываются в базу данных сервера сайта.  
+     Quando extrair o ficheiro de conteúdo pré-configurado num servidor do site, os ficheiros de conteúdo são adicionados à biblioteca de conteúdos no servidor do site e, em seguida, a disponibilidade de conteúdos está registada na base de dados do servidor do site. Ao exportar o ficheiro de conteúdo pré-configurado num ponto de distribuição, os ficheiros de conteúdo são adicionados à biblioteca de conteúdos no ponto de distribuição, o ponto de distribuição envia uma mensagem de estado para o servidor de site primário principal e, em seguida, a disponibilidade de conteúdos está registada na base de dados do site.  
 
     > [!IMPORTANT]  
-    >  В следующем сценарии необходимо обновить содержимое, извлеченное из файла с предварительно подготовленным содержимым, при обновлении содержимого до новой версии.  
+    >  No cenário seguinte, tem de atualizar o conteúdo que extraiu de um ficheiro de conteúdo pré-configurado quando o conteúdo é atualizado para uma nova versão:  
     >   
-    >  1.  Создается файл с предварительно подготовленным содержимым для версии 1 пакета.  
-    >  2.  Обновляются исходные файлы этого пакета до версии 2.  
-    >  3.  Извлекается файл с предварительно подготовленным содержимым (версия 1 пакета) в точке распространения.  
+    >  1.  Criar um ficheiro de conteúdo pré-configurado para a versão 1 de um pacote.  
+    >  2.  Atualizar os ficheiros de origem para o pacote com a versão 2.  
+    >  3.  Extraia o ficheiro de conteúdo pré-configurado (versão 1 do pacote) num ponto de distribuição.  
     >   
-    > Configuration Manager не распространяет автоматически пакет версии 2 в точке распространения. Необходимо создать новый файл с новой версией, а затем извлечь содержимое, обновить точку распространения, чтобы распространить изменившиеся файлы, или повторно распространить все файлы пакета.  
+    > O Configuration Manager não distribui automaticamente a versão 2 do pacote ao ponto de distribuição. Tem de criar um novo ficheiro de conteúdo pré-configurado que contém a nova versão do ficheiro e, em seguida, extrair os conteúdos, atualizar o ponto de distribuição para distribuir os ficheiros que tenham sido alterados ou redistribuir os ficheiros do pacote.  
 
-###  <a name="bkmk_dpsiteserver"></a> Порядок предварительной подготовки содержимого в точке распространения, расположенной на сервере сайта  
- Если на сервере сайта установлена точка распространения, необходимо с помощью следующей процедуры выполнить предварительную подготовку содержимого. Это вызвано тем, что файлы содержимого уже находятся в библиотеке содержимого.  
+###  <a name="bkmk_dpsiteserver"></a>Como pré-configurar conteúdo num ponto de distribuição num servidor do site  
+ Quando um ponto de distribuição é instalado num servidor do site, tem de utilizar o procedimento seguinte para pré-configurar com sucesso o conteúdo. Isto acontece porque os ficheiros de conteúdo já estão na biblioteca de conteúdos.  
 
- Если точка распространения не включена для предварительно подготовленного содержимого или точка распространения расположена не на сервере сайта, обратитесь к подразделу [Использование предварительно подготовленного содержимого](#bkmk_prestage) этого раздела.  
+ Quando o ponto de distribuição não estiver ativado para pré-configurar conteúdo ou quando o ponto de distribuição não estiver localizado num servidor do site, consulte o [utilizar ficheiro de conteúdo](#bkmk_prestage) deste tópico.  
 
-##### <a name="to-prestage-content-on-distribution-points-located-on-a-site-server"></a>Чтобы выполнить предварительную подготовку содержимого на точках распространения, расположенных на сервере сайта, выполните следующие действия.  
+##### <a name="to-prestage-content-on-distribution-points-located-on-a-site-server"></a>Para pré-configurar conteúdo em pontos de distribuição localizados num servidor do site  
 
-1.  Выполните следующие шаги, чтобы убедиться в том, что точка распространения не включена для предварительно подготовленного содержимого.  
+1.  Utilize os seguintes passos para verificar que o ponto de distribuição não está ativado para conteúdo pré-configurado.  
 
-    1.  В консоли Configuration Manager щелкните **Администрирование**.  
+    1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-    2.  В рабочей области **Администрирование** щелкните **Точки распространения**, а затем выберите точку распространения, расположенную на сервере сайта.  
+    2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição que esteja localizado no servidor do site.  
 
-    3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+    3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-    4.  Убедитесь, что на вкладке **Общие** не установлен флажок **Включить эту точку распространения в режиме предварительного копирования содержимого** .  
+    4.  No **geral** separador, certifique-se de que o **ativar conteúdo pré-configurado para este ponto de distribuição** não estiver selecionada a caixa de verificação.  
 
-2.  Создайте файл с предварительно подготовленным содержимым, используя сведения в подразделе [Шаг 1. Создание файла с предварительно подготовленным содержимым](#BKMK_CreatePrestagedContentFile) этого раздела.  
+2.  Criar o ficheiro de conteúdo pré-configurado utilizando a [passo 1: Criar um ficheiro de conteúdo pré-configurado](#BKMK_CreatePrestagedContentFile) deste tópico.  
 
-3.  Назначьте содержимое точке распространения, используя сведения в подразделе [Шаг 2. Назначение содержимого в точки распространения](#BKMK_AssignContentToDistributionPoint) этого раздела.  
+3.  Atribua o conteúdo ao ponto de distribuição utilizando o [passo 2: Atribua o conteúdo para pontos de distribuição](#BKMK_AssignContentToDistributionPoint) deste tópico.  
 
-4.  На сервере сайта извлеките содержимое из файла с предварительно подготовленным содержимым, используя сведения в подразделе [Шаг 3. Извлечение содержимого из файла с предварительно подготовленным содержимым](#BKMK_ExportContentFromPrestagedContentFile) этого раздела.  
+4.  No servidor do site, extrair o conteúdo do ficheiro de conteúdo pré-configurado utilizando a [passo 3: Extrair os conteúdos do ficheiro de conteúdo pré-configurado](#BKMK_ExportContentFromPrestagedContentFile) deste tópico.  
 
     > [!NOTE]  
-    >  Если точка распространения находится на вторичном сайте, подождите не менее 10 минут, после чего с помощью консоли Configuration Manager, подключенной к первичному родительскому сайту, назначьте содержимое точке распространения на вторичном сайте.  
+    >  Quando o ponto de distribuição num site secundário, aguarde pelo menos 10 minutos e, em seguida, utilizando uma consola do Configuration Manager que está ligada ao site primário principal, atribua o conteúdo ao ponto de distribuição no site secundário.  
 
-##  <a name="bkmk_manage"></a> Управление распространенным содержимым  
- Существуют следующие варианты управления содержимым.  
- - [Обновление содержимого](#update-content)
- - [Повторное распространение содержимого](#redistribute-content)
- - [Удаление содержимого](#remove-content)
- - [Проверка содержимого](#validate-content)
+##  <a name="bkmk_manage"></a>Gerir o conteúdo que distribuiu  
+ Tem as seguintes opções para gestão de conteúdo:  
+ - [Atualizar conteúdo](#update-content)
+ - [Redistribuir conteúdo](#redistribute-content)
+ - [Remover o conteúdo](#remove-content)
+ - [Validar conteúdo](#validate-content)
 
-### <a name="update-content"></a>Обновление содержимого
-Когда вы обновляете исходное расположение файлов для развертывания посредством добавления новых файлов или замены существующих файлов более новой версией, файлы содержимого в точках распространения можно обновить, выполнив действие **Обновить точки распространения** или **Обновить содержимое**:  
--   Файлы содержимого копируются из папки исходных файлов в библиотеку содержимого на сайте, которому принадлежит источник содержимого пакета.  
--   Версия пакета увеличивается.  
--   Каждый экземпляр библиотеки содержимого на серверах сайта и на точках распространения обновляется с использованием только тех файлов, которые были изменены.  
+### <a name="update-content"></a>Atualizar conteúdo
+Quando a localização do ficheiro de origem para uma implementação é atualizada através da adição de novos ficheiros ou substituir ficheiros existente com uma versão mais recente, pode atualizar os ficheiros de conteúdo em pontos de distribuição utilizando o **atualizar pontos de distribuição** ou **atualizar conteúdos** ação:  
+-   Os ficheiros de conteúdos são copiados do caminho de ficheiro de origem para a biblioteca de conteúdos no site que é proprietário da origem de conteúdo do pacote  
+-   A versão do pacote é incrementada  
+-   Cada instância da biblioteca de conteúdos em servidores do site e na distribuição pontos de atualizações apenas com os ficheiros que tenham sido alterados  
 
 > [!WARNING]  
->  Пакет для приложений всегда имеет версию 1. После обновления содержимого для типа развертывания приложения Configuration Manager создаст новый идентификатор содержимого для типа развертывания, и пакет будет ссылаться на новый идентификатор содержимого.  
+>  A versão do pacote de aplicações é sempre 1. Quando atualizar o conteúdo de um tipo de implementação de aplicação, o Configuration Manager cria um novo ID de conteúdo para o tipo de implementação e o pacote referenciará o novo ID de conteúdo.  
 
-#### <a name="to-update-content-on-distribution-points"></a>Обновление содержимого в точках распространения  
+#### <a name="to-update-content-on-distribution-points"></a>Para atualizar conteúdo em pontos de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** выберите одно из следующих действий для типа содержимого, который требуется распространить.  
+2.  No **biblioteca de Software** área de trabalho, selecione um dos seguintes passos para o tipo de conteúdo que pretende distribuir:  
 
-    -   **Приложения**: разверните узел **Управление приложениями** > **Приложения**, а затем выберите приложения, которые требуется распространить. Откройте вкладку **Типы развертываний** и выберите тип развертывания, который требуется обновить.  
+    -   **Aplicações**: Expanda **gestão de aplicações** > **aplicações**e, em seguida, selecione as aplicações que pretende distribuir. Clique em de **tipos de implementação** separador e, em seguida, selecione o tipo de implementação que pretende atualizar.  
 
-    -   **Пакеты**: разверните узел **Управление приложениями** > **Пакеты**, а затем выберите пакеты, которые требуется обновить.  
+    -   **Pacotes**: Expanda **gestão de aplicações** > **pacotes**e, em seguida, selecione os pacotes que pretende atualizar.  
 
-    -   **Пакеты развертывания**: разверните узел **Обновления программного обеспечения** > **Пакеты развертывания**, а затем выберите пакеты развертывания, которые требуется обновить.  
+    -   **Pacotes de implementação**: Expanda **atualizações de Software** > **pacotes de implementação**e, em seguida, selecione os pacotes de implementação que pretende atualizar.  
 
-    -   **Пакеты драйверов**: разверните узел **Операционные системы** > **Пакеты драйверов**, а затем выберите пакеты драйверов, которые требуется обновить.  
+    -   **Pacotes de controladores**: Expanda **sistemas operativos** > **pacotes de controladores**e, em seguida, selecione os pacotes de controladores que pretende atualizar.  
 
-    -   **Образы операционной системы**: разверните узел **Операционные системы** > **Образы операционной системы**, а затем выберите образы операционной системы, которые требуется обновить.  
+    -   **Imagens de sistema operativo**: Expanda **sistemas operativos** > **imagens do sistema operativo**e, em seguida, selecione as imagens de sistema operativo que pretende atualizar.  
 
-    -   **Установщики операционной системы**: разверните узел **Операционные системы** > **Установщики операционной системы**, а затем выберите установщики операционной системы, которые требуется обновить.  
+    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos** > **instaladores do sistema operativo**e, em seguida, selecione os instaladores do sistema operativo que pretende atualizar.  
 
-    -   **Загрузочные образы**: разверните узел **Операционные системы** >  **Загрузочные образы**, а затем выберите загрузочные образы, которые требуется обновить.  
+    -   **Imagens de arranque**: Expanda **sistemas operativos** >  **imagens de arranque**e, em seguida, selecione as imagens de arranque que pretende atualizar.  
 
-3.  На вкладке **Главная** в группе **Развертывание** щелкните **Обновить точки распространения**, а затем нажмите кнопку **ОК** для подтверждения обновления содержимого.  
-
-    > [!NOTE]  
-    >  Чтобы обновить содержимое для приложений, откройте вкладку **Типы развертывания** , правой кнопкой мыши щелкните тип развертывания, выберите команду **Обновить содержимое**, а затем нажмите кнопку **ОК** для подтверждения обновления содержимого.  
+3.  No **home page** separador o **implementação** , clique em **atualizar pontos de distribuição**e, em seguida, clique em **OK** para confirmar que pretende atualizar o conteúdo.  
 
     > [!NOTE]  
-    >  При обновлении содержимого для загрузочных образов откроется мастер управления точками распространения. Проверьте сведения на странице **Сводка** и завершите работу мастера по обновлению содержимого.  
+    >  Para atualizar conteúdos de aplicações, clique o **tipos de implementação** separador, clique com o botão direito do tipo de implementação, clique em **atualizar conteúdos**e, em seguida, clique em **OK** para confirmar que pretende atualizar o conteúdo.  
 
-### <a name="redistribute-content"></a>Повторное распространение содержимого
-Повторное распространения пакета выполняется для того, чтобы скопировать все файлы содержимого пакета в точки распространения или группы точек распространения и перезаписать тем самым существующие файлы.  
+    > [!NOTE]  
+    >  Quando atualizar o conteúdo para imagens de arranque, é aberto o Assistente para gerir pontos de distribuição. Reveja as informações de **resumo** página e, em seguida, conclua o Assistente para atualizar o conteúdo.  
 
- Используйте это действие для восстановления файлов содержимого в пакете или повторной отправки содержимого в случае сбоя первоначального распространения. Пакет можно повторно распространить из:  
+### <a name="redistribute-content"></a>Redistribuir conteúdo
+Pode redistribuir um pacote para copiar todos os ficheiros de conteúdo no pacote para pontos de distribuição ou grupos de pontos de distribuição e substituindo os ficheiros existentes.  
 
--   свойств пакета;  
--   свойств точки распространения;  
--   свойств группы точек распространения.  
+ Utilize esta operação para reparar ficheiros de conteúdo no pacote ou reenviar o conteúdo quando a distribuição inicial falha. Pode redistribuir um pacote de:  
+
+-   Propriedades do pacote  
+-   Propriedades do ponto de distribuição  
+-   Propriedades do grupo de ponto de distribuição.  
 
 
-#### <a name="to-redistribute-content-from-package-properties"></a>Повторное распространение содержимого из свойств пакета  
+#### <a name="to-redistribute-content-from-package-properties"></a>Para redistribuir conteúdos a partir das propriedades de pacote  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** выберите одно из следующих действий для типа содержимого, который требуется распространить.  
+2.  No **biblioteca de Software** área de trabalho, selecione um dos seguintes passos para o tipo de conteúdo que pretende distribuir:  
 
-    -   **Приложения**: разверните узел **Управление приложениями** >  **Приложения**, а затем выберите приложение, которое требуется повторно распространить.  
+    -   **Aplicações**: Expanda **gestão de aplicações** >  **aplicações**e, em seguida, selecione a aplicação que pretende redistribuir.  
 
-    -   **Пакеты**: разверните узел **Управление приложениями** > **Пакеты**, а затем выберите пакет, который требуется повторно распространить.  
+    -   **Pacotes**: Expanda **gestão de aplicações** > **pacotes**e, em seguida, selecione o pacote que pretende redistribuir.  
 
-    -   **Пакеты развертывания**: разверните узел**Обновления программного обеспечения** >  **Пакеты развертывания**, а затем выберите пакет развертывания, который требуется повторно распространить.  
+    -   **Pacotes de implementação**: Expanda **atualizações de Software** >  **pacotes de implementação**e, em seguida, selecione o pacote de implementação que pretende redistribuir.  
 
-    -   **Пакеты драйверов**: разверните узел **Операционные системы** > **Пакеты драйверов**, а затем выберите пакет драйверов, который требуется повторно распространить.  
+    -   **Pacotes de controladores**: Expanda **sistemas operativos** > **pacotes de controladores**e, em seguida, selecione o pacote de controladores que pretende redistribuir.  
 
-    -   **Образы операционной системы**: разверните узел **Операционные системы** > **Образы операционной системы**, а затем выберите образ операционной системы, который требуется повторно распространить.  
+    -   **Imagens de sistema operativo**: Expanda **sistemas operativos** > **imagens do sistema operativo**e, em seguida, selecione a imagem de sistema operativo que pretende redistribuir.  
 
-    -   **Установщики операционной системы**: разверните узел **Операционные системы** > **Установщики операционной системы**, а затем выберите установщик операционной системы, который требуется повторно распространить.  
+    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos** > **instaladores do sistema operativo**e, em seguida, selecione o programa de instalação do sistema operativo que pretende redistribuir.  
 
-    -   **Загрузочные образы**: разверните узел **Операционные системы** >  **Загрузочные образы**, а затем выберите загрузочный образ, который требуется повторно распространить.  
+    -   **Imagens de arranque**: Expanda **sistemas operativos** >  **imagens de arranque**e, em seguida, selecione a imagem de arranque que pretende redistribuir.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-4.  На вкладке **Расположения содержимого** , выберите точку распространения или группу точек распространения, в которую требуется повторно распространить содержимое, нажмите кнопку **Повторить**, а затем — кнопку **ОК**.  
+4.  Clique em de **localizações de conteúdo** separador, selecione o ponto de distribuição ou grupo de pontos de distribuição nos quais pretende redistribuir o conteúdos, clique em **redistribuir**e, em seguida, clique em **OK**.  
 
-#### <a name="to-redistribute-content-from-distribution-point-properties"></a>Повторное распространение содержимого из свойств точки распространения  
+#### <a name="to-redistribute-content-from-distribution-point-properties"></a>Para redistribuir conteúdos a partir das propriedades do ponto de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** щелкните **Точки распространения**, а затем выберите точку распространения, в которую требуется повторно распространить содержимое.  
+2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição em que pretende redistribuir o conteúdo.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-4.  Откройте вкладку **Содержимое** , выберите содержимое для повторного распространения, нажмите кнопку **Повторить**, а затем — кнопку **ОК**.  
+4.  Clique em de **conteúdo** separador, selecione o conteúdo a redistribuir, clique em **redistribuir**e, em seguida, clique em **OK**.  
 
-#### <a name="to-redistribute-content-from-distribution-point-group-properties"></a>Повторное распространение содержимого из окна свойств группы точек распространения  
+#### <a name="to-redistribute-content-from-distribution-point-group-properties"></a>Para redistribuir conteúdos a partir das propriedades do grupo de ponto de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** щелкните узел **Группы точек распространения**, затем выберите группу точек распространения, в которой нужно повторно распространить содержимое.  
+2.  No **administração** área de trabalho, clique em **grupos de pontos de distribuição**e, em seguida, selecione o grupo de pontos de distribuição nos quais pretende redistribuir o conteúdo.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-4.  Откройте вкладку **Содержимое** , выберите содержимое для повторного распространения, нажмите кнопку **Повторить**, а затем — кнопку **ОК**.  
+4.  Clique em de **conteúdo** separador, selecione o conteúdo a redistribuir, clique em **redistribuir**e, em seguida, clique em **OK**.  
 
     > [!IMPORTANT]  
-    >  Содержимое пакета будет повторно распространено во всех точках распространения в группе.  
+    >  O conteúdo do pacote é redistribuído a todos os pontos de distribuição no grupo de pontos de distribuição.  
 
 
-#### <a name="use-the-sdk-to-force-replication-of-content"></a>Использование пакета SDK для принудительной репликации содержимого
-С помощью метода класса **RetryContentReplication** инструментария управления Windows (WMI) из пакета SDK Configuration Manager можно сделать так, чтобы диспетчер распространения скопировал содержимое из исходного расположения в библиотеку содержимого.  
+#### <a name="use-the-sdk-to-force-replication-of-content"></a>Utilize o SDK para forçar a replicação de conteúdo
+Pode utilizar o **RetryContentReplication** método de classe de Windows Management Instrumentation (WMI) do SDK do Configuration Manager para forçar o Gestor de distribuição para copiar o conteúdo na localização de origem para a biblioteca de conteúdos.  
 
-Используйте принудительную репликацию, только если необходимо принудительно распространить содержимое после возникновения проблем с обычной репликацией содержимого (обычно проверяется с помощью узла "Наблюдение" консоли).   
+Só utilize este método para forçar a replicação tem de redistribuir conteúdos após ocorreram problemas com replicação normal do conteúdo (normalmente confirmada através da utilização do nó de monitorização da consola).   
 
-Дополнительные сведения об этом параметре SDK см. в разделе [Метод RetryContentReplication класса SMS_CM_UpdatePackages](https://msdn.microsoft.com/library/mt762092(CMSDK.16).aspx) на сайте MSDN.Microsoft.com.
+Para obter mais informações sobre esta opção de SDK, consulte [RetryContentReplication método na classe SMS_CM_UpdatePackages](https://msdn.microsoft.com/library/mt762092(CMSDK.16).aspx) no MSDN. Microsoft.com.
 
-### <a name="remove-content"></a>Удаление содержимого
-Если содержимое больше не нужно в точках распространения, можно удалить файлы содержимого из точек распространения.  
+### <a name="remove-content"></a>Remover o conteúdo
+Quando já não necessita de conteúdo em pontos de distribuição, pode remover os ficheiros de conteúdo no ponto de distribuição.  
 
--   свойств пакета;  
--   свойств точки распространения;  
--   свойств группы точек распространения.  
+-   Propriedades do pacote  
+-   Propriedades do ponto de distribuição  
+-   Propriedades do grupo de ponto de distribuição.  
 
-Однако если содержимое сопоставлено с другим пакетом, распространенным в ту же точку распространения, то это содержимое удалить нельзя.  
+No entanto, quando o conteúdo estiver associado a outro pacote que tenha sido distribuído para o mesmo ponto de distribuição, não é possível remover o conteúdo.  
 
-#### <a name="to-remove-package-content-files-from-distribution-points"></a>Удаление файлов пакетов содержимого из точек распространения  
+#### <a name="to-remove-package-content-files-from-distribution-points"></a>Para remover ficheiros de conteúdo do pacote a pontos de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** выберите один из следующих шагов в зависимости от типа содержимого, которое нужно удалить.  
+2.  No **biblioteca de Software** área de trabalho, selecione um dos seguintes passos para o tipo de conteúdo que pretende eliminar:  
 
-    -   **Приложения**: разверните узел **Управление приложениями** > **Приложения**, а затем выберите приложение, которое требуется удалить.  
+    -   **Aplicações**: Expanda **gestão de aplicações** > **aplicações**e, em seguida, selecione a aplicação que pretende remover.  
 
-    -   **Пакеты**: разверните узел **Управление приложениями** > **** Пакеты, а затем выберите пакет, который требуется удалить.  
+    -   **Pacotes**: Expanda **gestão de aplicações** > **pacotes**e, em seguida, selecione o pacote que pretende remover.  
 
-    -   **Пакеты развертывания**: разверните узел **Обновления программного обеспечения** > **Пакеты развертывания**, а затем выберите пакет развертывания, который требуется удалить.  
+    -   **Pacotes de implementação**: Expanda **atualizações de Software** > **pacotes de implementação**e, em seguida, selecione o pacote de implementação que pretende remover.  
 
-    -   **Пакеты драйверов**: разверните узел **Операционные системы** > **Пакеты драйверов**, а затем выберите пакет драйверов, который требуется удалить.  
+    -   **Pacotes de controladores**: Expanda **sistemas operativos** > **pacotes de controladores**e, em seguida, selecione o pacote de controladores que pretende remover.  
 
-    -   **Образы операционной системы**: разверните узел **Операционные системы** > **Образы операционной системы**, а затем выберите образ операционной системы, который требуется удалить.  
+    -   **Imagens de sistema operativo**: Expanda **sistemas operativos** > **imagens do sistema operativo**e, em seguida, selecione a imagem do sistema operativo que pretende remover.  
 
-    -   **Установщики операционной системы**: разверните узел **Операционные системы** > **Установщики операционной системы**, а затем выберите установщик операционной системы, который требуется удалить.  
+    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos** > **instaladores do sistema operativo**e, em seguida, selecione o instalador do sistema operativo que pretende remover.  
 
-    -   **Загрузочные образы**: разверните узел **Операционные системы** > **Загрузочные образы**, а затем выберите загрузочный образ, который требуется удалить.  
+    -   **Imagens de arranque**: Expanda **sistemas operativos** > **imagens de arranque**e, em seguida, selecione a imagem de arranque que pretende remover.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-4.  Перейдите на вкладку **Расположения содержимого** , выберите точку распространения или группу точек распространения, из которой нужно удалить содержимое, нажмите кнопку **Удалить**, затем нажмите кнопку **ОК**.  
+4.  Clique em de **localizações de conteúdo** separador, selecione o ponto de distribuição ou grupo de pontos de distribuição que pretende remover conteúdo, clique em **remover**e, em seguida, clique em **OK**.  
 
-#### <a name="to-remove-package-content-from-distribution-point-properties"></a>Удаление содержимого пакетов из окна свойств точки распространения  
+#### <a name="to-remove-package-content-from-distribution-point-properties"></a>Para remover o conteúdo do pacote a partir das propriedades do ponto de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** щелкните **Точки распространения**, затем выберите точку распространения, в которой нужно удалить содержимое.  
+2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição em que pretende eliminar o conteúdo.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-4.  Перейдите на вкладку **Содержимое** , выберите содержимое для удаления, нажмите кнопку **Удалить**, затем нажмите кнопку **ОК**.  
+4.  Clique em de **conteúdo** separador, selecione o conteúdo a remover, clique em **remover**e, em seguida, clique em **OK**.  
 
-#### <a name="to-remove-content-from-distribution-point-group-properties"></a>Удаление содержимого из окна свойств группы точек распространения  
+#### <a name="to-remove-content-from-distribution-point-group-properties"></a>Para remover o conteúdo a partir das propriedades do grupo de ponto de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** щелкните **Группы точек распространения**, затем выберите группу точек распространения, из которой нужно удалить содержимое.  
+2.  No **administração** área de trabalho, clique em **grupos de pontos de distribuição**e, em seguida, selecione o grupo de pontos de distribuição em que pretende remover o conteúdo.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-4.  Перейдите на вкладку **Содержимое** , выберите содержимое для удаления, нажмите кнопку **Удалить**, затем нажмите кнопку **ОК**.  
-
-
-### <a name="validate-content"></a>Проверка содержимого
-Процесс проверки содержимого определяет целостность файлов содержимого на точках распространения. Проверку содержимого можно назначить с помощью расписания или запустить вручную из свойств точек распространения и пакетов.  
-
- После запуска процесса проверки содержимого Configuration Manager проверяет файлы содержимого на точках распространения, и если обнаруживается неожиданный хэш у файлов на точке распространения, Configuration Manager создает сообщение о состоянии, которое можно просмотреть в рабочей области **Мониторинг**.  
-
- Дополнительные сведения о настройке расписания проверки содержимого см. в разделе [Изменение свойств точки распространения](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) статьи [Настройка управления содержимым в Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+4.  Clique em de **conteúdo** separador, selecione o conteúdo a remover, clique em **remover**e, em seguida, clique em **OK**.  
 
 
-#### <a name="to-initiate-content-validation-for-all-content-on-a-distribution-point"></a>Чтобы начать проверку всего содержимого на точке распространения, выполните следующие действия.  
+### <a name="validate-content"></a>Validar conteúdo
+O processo de validação do conteúdo verifica a integridade dos ficheiros de conteúdo em pontos de distribuição. Ativar a validação de conteúdo com base numa agenda ou iniciar manualmente a validação de conteúdo das propriedades dos pontos de distribuição e pacotes.  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+ Quando o processo de validação de conteúdos é iniciado, o Configuration Manager verifica os ficheiros de conteúdo em pontos de distribuição e se o hash de ficheiro for inesperado para os ficheiros no ponto de distribuição, o Configuration Manager cria uma mensagem de estado que poderá consultar no **monitorização** área de trabalho.  
 
-2.  В рабочей области **Администрирование** щелкните **Точки распространения**, а затем выберите точку распространения, для которой требуется проверить содержимое.  
+ Para obter mais informações sobre como configurar a agenda de validação de conteúdos, consulte [as configurações do ponto de distribuição](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) no [instalar e configurar pontos de distribuição para o System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md) tópico.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-4.  На вкладке **Содержимое** выберите пакет, в содержимое которого требуется проверить, нажмите кнопку **Проверить**, нажмите кнопку **ОК**, после чего еще раз нажмите **ОК**. Начнется процесс проверки содержимого для пакета на точке распространения.  
+#### <a name="to-initiate-content-validation-for-all-content-on-a-distribution-point"></a>Para iniciar a validação de conteúdos para todo o conteúdo num ponto de distribuição  
 
-5.  Для просмотра результатов процесса проверки содержимого в рабочей области **Мониторинг** разверните узел **Состояние распространения**и щелкните узел **Состояние содержимого** . Будет показано содержимое для каждого типа пакета (например, "Приложение", "Пакет обновления программного обеспечения" и "Загрузочный образ"). Дополнительные сведения о мониторинге состояния содержимого см. в статье [Мониторинг содержимого, распространенного с помощью System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-#### <a name="to-initiate-content-validation-for-a-package"></a>Запуск проверки содержимого пакета  
+2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição em que pretende validar o conteúdo.  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** выберите один из следующих шагов в зависимости от типа содержимого, которое нужно проверить.  
+4.  No **conteúdo** separador, selecione o pacote em que pretende validar o conteúdos, clique em **validar**, clique em **OK**e, em seguida, clique em **OK**. Inicia o processo de validação de conteúdo para o pacote no ponto de distribuição.  
 
-    -   **Приложения**: разверните узел **Управление приложениями** > **Приложения**, а затем выберите приложение, которое требуется проверить.  
+5.  Para ver os resultados do processo de validação de conteúdo, no **monitorização** área de trabalho, expanda **estado da distribuição**e clique no **estado do conteúdo** nós. O conteúdo para cada tipo de pacote (por exemplo, aplicação, pacote de atualização de Software e imagem de arranque) é apresentado. Para obter mais informações sobre a monitorização de estado do conteúdo, consulte [monitorizar conteúdo que distribuiu com o System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-    -   **Пакеты**: разверните узел **Управление приложениями** > **Пакеты**, а затем выберите пакет, который требуется проверить.  
+#### <a name="to-initiate-content-validation-for-a-package"></a>Para iniciar a validação de conteúdo de um pacote  
 
-    -   **Пакеты развертывания**: разверните узел **Обновления программного обеспечения** > **Пакеты развертывания**, а затем выберите пакет развертывания, который требуется проверить.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-    -   **Пакеты драйверов**: разверните узел **Операционные системы** > **Пакеты драйверов**, а затем выберите пакет драйверов, который требуется проверить.  
+2.  No **biblioteca de Software** área de trabalho, selecione um dos seguintes passos para o tipo de conteúdo que pretende validar:  
 
-    -   **Образы операционной системы**: разверните узел **Операционные системы** > **Образы операционной системы**, а затем выберите образ операционной системы, который требуется проверить.  
+    -   **Aplicações**: Expanda **gestão de aplicações** > **aplicações**e, em seguida, selecione a aplicação que pretende validar.  
 
-    -   **Установщики операционной системы**: разверните узел **Операционные системы** >  **Установщики операционной системы**, а затем выберите установщик операционной системы, который требуется проверить.  
+    -   **Pacotes**: Expanda **gestão de aplicações** > **pacotes**e, em seguida, selecione o pacote que pretende validar.  
 
-    -   **Загрузочные образы**: разверните узел **Операционные системы** > **Загрузочные образы**, а затем выберите загрузочный образ, который требуется предварительно подготовить.  
+    -   **Pacotes de implementação**: Expanda **atualizações de Software** > **pacotes de implementação**e, em seguida, selecione o pacote de implementação que pretende validar.  
 
-3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+    -   **Pacotes de controladores**: Expanda **sistemas operativos** > **pacotes de controladores**e, em seguida, selecione o pacote de controladores que pretende validar.  
 
-4.  На вкладке **Содержимое** выберите пакет, в содержимое которого требуется проверить, нажмите кнопку **Проверить**, нажмите кнопку **ОК**, после чего еще раз нажмите **ОК**. Начнется процесс проверки содержимого для выбранной точки распространения или группы точек распространения.  
+    -   **Imagens de sistema operativo**: Expanda **sistemas operativos** > **imagens do sistema operativo**e, em seguida, selecione a imagem de sistema operativo que pretende validar.  
 
-5.  Для просмотра результатов процесса проверки содержимого в рабочей области **Мониторинг** разверните узел **Состояние распространения**и щелкните узел **Состояние содержимого** . Будет показано содержимое для каждого типа пакета (например, "Приложение", "Пакет обновления программного обеспечения" и "Загрузочный образ"). Дополнительные сведения о мониторинге состояния содержимого см. в статье [Мониторинг содержимого, распространенного с помощью System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos** >  **instaladores do sistema operativo**e, em seguida, selecione o instalador do sistema operativo que pretende validar.  
+
+    -   **Imagens de arranque**: Expanda **sistemas operativos** > **imagens de arranque**e, em seguida, selecione a imagem de arranque que pretende pré-configurar.  
+
+3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+
+4.  No **localizações de conteúdo** separador, selecione o ponto de distribuição ou grupo de pontos de distribuição nos quais validar o conteúdos, clique em **validar**, clique em **OK**e, em seguida, clique em **OK**. O processo de validação de conteúdos é iniciado para o conteúdo no ponto de distribuição selecionados ou grupo de pontos de distribuição.  
+
+5.  Para ver os resultados do processo de validação de conteúdo, no **monitorização** área de trabalho, expanda **estado da distribuição**e clique no **estado do conteúdo** nós. O conteúdo para cada tipo de pacote (por exemplo, aplicação, pacote de atualização de Software e imagem de arranque) é apresentado. Para obter mais informações sobre como monitorizar o estado do conteúdo, consulte [monitorizar conteúdo que distribuiu com o System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Создание профилей сертификатов SCEP | Документация Майкрософт"
-description: "Узнайте, как использовать профили сертификатов для предоставления управляемым устройствам сертификатов, которые необходимы им в System Center Configuration Manager."
+title: Como criar perfis de certificado SCEP | Microsoft Docs
+description: Saiba como utilizar perfis de certificado para aprovisionar dispositivos geridos com certificados que precisam no System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -17,179 +17,179 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 1e00804d27ecef2aadd8bfa395db1919c46243ee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-certificate-profiles"></a>Создание профилей сертификатов
+# <a name="create-certificate-profiles"></a>Criar perfis de certificado
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
-
-
-Профили сертификатов в Configuration Manager (SCCM) служат для предоставления управляемым устройствам сертификатов, которые требуются им для доступа к ресурсам организации. Прежде чем создавать профили сертификатов, настройте инфраструктуру сертификатов, как описано в разделе [Настройка инфраструктуры сертификатов для System Center Configuration Manager](certificate-infrastructure.md).  
-
-В этом разделе описывается создание профилей доверенных корневых сертификатов и профилей сертификатов SCEP. Сведения о создании профилей сертификатов PFX см. в разделе [Создание профилей сертификатов PFX](../../protect/deploy-use/create-pfx-certificate-profiles.md).
-
-Создание профиля сертификата.
-
-1.  Запустите мастер создания профилей сертификатов.
-1.  Укажите общие сведения о профиле сертификата.
-1.  Настройте сертификат доверенного центра сертификации (ЦС).  
-1.  Настройте сведения о сертификате SCEP (только для сертификатов SCEP)  
-1.  Укажите поддерживаемые платформы для профиля сертификата.
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-## <a name="start-the-create-certificate-profile-wizard"></a>Запустите мастер создания профилей сертификатов.  
+Utilize perfis de certificado no Configuration Manager (SCCM) para aprovisionar dispositivos geridos com certificados necessitam para aceder a recursos da empresa. Antes de criar perfis de certificado, configurar a infraestrutura de certificados conforme descrito em [configurar a infraestrutura de certificados para o System Center Configuration Manager](certificate-infrastructure.md).  
 
-1.  В консоли System Center Configuration Manager щелкните элемент **Активы и соответствие**.  
+Este tópico descreve como criar de raiz fidedigna e perfis de certificado SCEP. Se pretender criar perfis de certificado PFX, consulte [perfis de certificado PFX criar](../../protect/deploy-use/create-pfx-certificate-profiles.md).
 
-2.  В рабочей области **Активы и соответствие** разверните узлы **Параметры соответствия**и **Доступ к ресурсам компании**, а затем выберите пункт **Профили сертификатов**.  
+Para criar um perfil de certificado:
 
-3.  На вкладке **Главная** в группе **Создать** щелкните пункт **Создать профиль сертификата**.  
-
-## <a name="provide-general-information-about-the-certificate-profile"></a>Указание общих сведений о профиле сертификата  
-
-На странице **Общие** мастера создания профиля сертификата укажите перечисленные ниже сведения.  
-
--   **Имя**: введите уникальное имя для профиля сертификата. Можно использовать не более 256 символов.  
-
--   **Описание**: введите описание, которое позволяет получить представление о профиле сертификата и содержит другие важные сведения для его идентификации в консоли System Center Configuration Manager. Можно использовать не более 256 символов.  
-
--   **Укажите тип профиля сертификата, который вы хотите создать**: выберите один из следующих типов профиля сертификата.  
-
--   **Доверенный сертификат ЦС**: выберите этот тип профиля сертификата, если необходимо развернуть сертификат доверенного корневого центра сертификации (ЦС) или промежуточного ЦС для формирования цепочки сертификатов, когда пользователь или устройство должны проверять подлинность другого устройства. Этим устройством может быть, например, сервер RADIUS или VPN-сервер. Перед созданием профиля сертификата SCEP необходимо настроить профиль сертификата доверенного ЦС. В этом случае сертификат доверенного ЦС должен быть доверенным корневым сертификатом для ЦС, выдающего сертификат для пользователя или устройства.  
-
--   **Параметры SCEP**: выберите этот тип профиля сертификата, если необходимо запросить сертификат для пользователя или устройства с помощью протокола SCEP и службы роли службы регистрации сертификатов для сетевых устройств.
-
--   **Файл обмена личной информацией — параметры PKCS 12 (PFX) — импорт**: выберите этот вариант, чтобы импортировать сертификат PFX. Дополнительные сведения о создании сертификата PFX см. в статье об [импорте профилей сертификатов PFX](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md).
-
--   **Файл обмена личной информацией — параметры PKCS 12 (PFX) — создать**: выберите этот вариант, чтобы создать сертификаты PFX с помощью центра сертификации. Дополнительные сведения о создании сертификата PFX см. в разделе [Создание профилей сертификатов PFX](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md).
+1.  Inicie o Assistente de perfil de certificado de criar.
+1.  Fornece informações gerais sobre o certificado.
+1.  Configure um certificado de autoridade (AC) de certificados fidedignos.  
+1.  Configure informações de certificado SCEP (apenas para certificados SCEP).  
+1.  Especificar as plataformas suportadas para o perfil de certificado.
 
 
-## <a name="configure-a-trusted-ca-certificate"></a>Настройка сертификата доверенного ЦС  
+## <a name="start-the-create-certificate-profile-wizard"></a>Iniciar o Assistente para criar perfil de certificado  
+
+1.  Na consola do System Center Configuration Manager, clique em **ativos e compatibilidade**.  
+
+2.  Na área de trabalho **Ativos e Compatibilidade** , expanda **Definições de Compatibilidade**, expanda **Acesso a Recursos da Empresa**e clique em **Perfis de Certificado**.  
+
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Perfil de Certificado**.  
+
+## <a name="provide-general-information-about-the-certificate-profile"></a>Fornecer informações gerais sobre o perfil de certificado  
+
+Na página **Geral** do Assistente para Criar Perfil de Certificado, especifique as seguintes informações:  
+
+-   **Nome**: Introduza um nome exclusivo para o perfil de certificado. Pode utilizar até 256 carateres.  
+
+-   **Descrição**: Forneça uma descrição que proporcione uma descrição geral do perfil de certificado e outras informações relevantes que ajudem a identificá-lo na consola do System Center Configuration Manager. Pode utilizar até 256 carateres.  
+
+-   **Especifique o tipo de perfil de certificado que pretende criar**: Escolha um certificado que se segue tipos de perfil:  
+
+-   **Certificado de AC fidedigna**: Selecione este tipo de perfil de certificado se pretender implementar uma autoridade de certificação (AC) de raiz fidedigna ou certificado de AC intermediária para formar uma cadeia de fidedignidade de certificados quando o utilizador ou dispositivo tem de autenticar outro dispositivo. Por exemplo, o dispositivo poderá ser um servidor RADIUS (Remote Authentication Dial-In User Service) ou um servidor de rede privada virtual (VPN). Tem também de configurar um perfil de certificado de AC fidedigna para poder criar um perfil de certificado SCEP. Neste caso, o certificado de AC fidedigna tem de ser o certificado de raiz fidedigna para a AC que emitirá o certificado para o utilizador ou o dispositivo.  
+
+-   **Definições do protocolo de inscrição de certificados (SCEP) Simple**: Selecione este tipo de perfil de certificado se pretender pedir um certificado para um utilizador ou dispositivo, utilizando o protocolo de inscrição de certificado simples e o serviço de função Serviço de inscrição de dispositivos de rede.
+
+-   **Definições de informações Exchange PKCS #12 (PFX) pessoais - importar**: Selecione esta opção para importar um certificado PFX. Para obter mais informações sobre a criação do certificado PFX, consulte [perfis de certificado PFX importação](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md).
+
+-   **Criar definições de informações Exchange PKCS #12 (PFX) pessoais -**: Selecione esta opção para processar os certificados PFX através de uma autoridade de certificação. Para obter mais informações sobre a criação do certificado PFX, consulte [perfis de certificado PFX criar](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md).
+
+
+## <a name="configure-a-trusted-ca-certificate"></a>Configurar um certificado de AC fidedigna  
 
 > [!IMPORTANT]  
->  Перед созданием профиля сертификата SCEP необходимо настроить по крайней мере один профиль сертификата доверенного ЦС.    
+>  Tem de configurar pelo menos um perfil de certificado de AC fidedigna para poder criar um perfil de certificado SCEP.    
 >  
->  При изменении любого из этих значений после развертывания сертификата запрашивается новый сертификат.
->  -  Поставщик хранилища ключей
->  -  Имя шаблона сертификата
->  -  Тип сертификата
->  -  Формат имени субъекта
->  -  Альтернативное имя субъекта
->  -  Срок действия сертификата
->  -  Использование ключа
->  -  Размер ключа
->  -  Расширенное использование ключа
->  -  Сертификат корневого ЦС
+>  Se alterar qualquer um destes valores depois do certificado é implementado um novo certificado ser solicitado:
+>  -  Fornecer armazenamento de chaves
+>  -  Nome do modelo de certificado
+>  -  Tipo de certificado
+>  -  Formato de nome do requerente
+>  -  Nome alternativo do requerente
+>  -  Período de validade do certificado
+>  -  Utilização de chave
+>  -  Tamanho da chave
+>  -  Utilização alargada da chave
+>  -  Certificado de AC de raiz
 
-1.  На странице **Сертификат доверенного ЦС** мастера создания профиля сертификата укажите перечисленные ниже сведения.  
+1.  Na página **Certificado de AC fidedigna** do Assistente para Criar Perfil de Certificado, especifique as seguintes informações:  
 
- -   **Файл сертификата**: нажмите кнопку **Импортировать** и выберите файл сертификата, который необходимо использовать.  
+ -   **Ficheiro de certificado**: Clique em **importação** e, em seguida, navegue para o ficheiro de certificado que pretende utilizar.  
 
- -   **Конечное хранилище**: на устройствах, имеющих более одного хранилища сертификатов, выберите место для хранения сертификата. На устройствах с одним хранилищем этот параметр игнорируется.  
+ -   **Arquivo de destino**: Para dispositivos que tenham mais do que um arquivo de certificados, selecione onde pretende armazenar o certificado. Para dispositivos que têm apenas um armazenamento, esta definição é ignorada.  
 
-2.  Используйте значение параметра **Отпечаток сертификата** , чтобы проверить правильность импортированного сертификата.  
+2.  Utilize o valor **Thumbprint do certificado** para verificar se importou o certificado correto.  
 
 
-## <a name="configure-scep-certificate-information-only-for-scep-certificates"></a>Настройка сведений о сертификате SCEP (только для сертификатов SCEP)  
+## <a name="configure-scep-certificate-information-only-for-scep-certificates"></a>Configure as informações de certificado SCEP (apenas para certificados SCEP)  
 
-1.  На странице **Серверы SCEP** мастера создания профилей сертификатов укажите URL-адреса для серверов NDES, которые будут выдавать сертификаты через SCEP. Можно выбрать автоматическое присвоение URL-адреса NDES на основе конфигурации сервера системы сайта точки регистрации сертификатов либо добавить URL-адреса вручную.  
+1.  Na página **Servidores do SCEP** do Assistente para Criar Perfil de Certificado, especifique os URLs para os Servidores NDES que irão emitir certificados através do SCEP. Pode optar por atribuir automaticamente um URL de NDES com base na configuração do servidor do sistema de sites Ponto de Registo de Certificados ou adicionar os URLs manualmente.  
 
-2.  На странице **Регистрация SCEP** мастера создания профиля сертификата задайте сведения.
+2.  Concluir o **inscrição SCEP** página do Assistente para criar perfil de certificado.
 
- -  **Повторы**: укажите количество повторных попыток, автоматически предпринимаемых устройством для запроса сертификата с сервера, на котором работает служба регистрации сертификатов для сетевых устройств. Этот параметр поддерживает сценарий, в котором диспетчер ЦС должен утвердить запрос на сертификат, прежде чем он будет принят. Этот параметр обычно используется в средах с высоким уровнем безопасности или при наличии автономного выдающего ЦС вместо ЦС предприятия. Этот параметр также можно использовать для тестирования, чтобы проверить параметры запроса на сертификат перед тем как выдающий ЦС его обработает. Используйте этот параметр совместно с параметром **Пауза между попытками (в минутах)** .  
+ -  **Repete**: Especifique o número de vezes que o dispositivo repete automaticamente o pedido de certificado para o servidor que está a executar o serviço de inscrição de dispositivos de rede. Esta definição suporta o cenário onde um gestor de AC tem de aprovar um pedido de certificado antes de ser aceite. Esta definição é normalmente utilizada para ambientes de alta segurança ou se tiver uma AC emissora autónoma, em vez de uma AC empresarial. Também poderá utilizar esta definição para fins de teste, para poder inspecionar as opções de pedido de certificado antes de a AC emissora processar o pedido de certificado. Utilize esta definição com a definição **Intervalo entre repetições (minutos)** .  
 
- -   **Задержка между повторными попытками (в минутах)**: укажите интервал (в минутах) между попытками регистрации, если перед обработкой запроса на сертификат выдающим ЦС используется утверждение диспетчером ЦС. Если утверждение диспетчером используется для тестирования, рекомендуется указать наименьшее значение параметра, чтобы после утверждения запроса не дожидаться в течение длительного времени повторного запроса на сертификат от устройства. Однако, если утверждение диспетчером используется в рабочей сети, следует установить более высокое значение параметра, чтобы у администратора ЦС имелось достаточно времени на проверку и утверждение или отклонение запросов, ожидающих утверждения.  
+ -   **Intervalo entre repetições (minutos)**: Especifique o intervalo, em minutos, entre cada tentativa de inscrição quando utilizar a aprovação do Gestor de AC antes da AC emissora processar o pedido de certificado. Se utilizar a aprovação do gestor para fins de teste, provavelmente pretenderá especificar um valor baixo, de modo a não esperar muito tempo para que o dispositivo repita o pedido de certificado após a aprovação do pedido. No entanto, se utilizar a aprovação do gestor numa rede de produção, é provável que pretenda especificar um valor maior para dar tempo suficiente ao administrador da AC para verificar e aprovar ou negar aprovações pendentes.  
 
- -   **Порог обновления (%)**: укажите процент времени существования сертификата, который остается, прежде чем устройство запросит его возобновление.  
+ -   **Limiar de renovação (%)**: Especifique a percentagem da duração do certificado que permanece antes do dispositivo pedir renovação do certificado.  
 
- -   **Поставщик хранилища ключей**: укажите, где будет храниться ключ для сертификата. Выберите одно из следующих значений:  
+ -   **Chave (KSP) do fornecedor de armazenamento**: Especifique onde será armazenada a chave para o certificado. Escolha um dos seguintes valores:  
 
-   -   **Установить в доверенный платформенный модуль (TPM) при его наличии**: устанавливает ключ в доверенный платформенный модуль. Если доверенный платформенный модуль отсутствует, ключ будет установлен в поставщик хранилища ключей программного обеспечения.  
+   -   **Instalar no Trusted Platform Module (TPM) caso esteja presente**: Instala a chave no TPM. Se o TPM não estiver presente, a chave será instalada no fornecedor de armazenamento da chave de software.  
 
-   -   **Установить в доверенный платформенный модуль (TPM), в противном случае выдать отказ**: устанавливает ключ в доверенный платформенный модуль. Если доверенный платформенный модуль отсутствует, произойдет сбой установки.  
+   -   **Instalar no Trusted Platform Module (TPM) de falhar, caso contrário**: Instala a chave no TPM. Se o módulo TPM não estiver presente, a instalação falhará.  
 
-   -   **Установить в Windows Hello для бизнеса, в противном случае выдать отказ**: этот параметр доступен для устройств Windows 10 Desktop и Mobile. Он регистрирует ключ в службе **Windows Hello для бизнеса**, которая описывается в разделе [Параметры Windows Hello для бизнеса в System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md). Этот параметр также позволяет **Требовать многофакторную проверку подлинности** во время регистрации устройств перед выдачей сертификатов для них. Дополнительные сведения см. в статье [Защита устройств Windows с помощью многофакторной проверки подлинности](https://technet.microsoft.com/library/dn889751.aspx) .
+   -   **Instalar para Windows Hello para falhar caso contrário, negócio**: Esta opção está disponível para dispositivos Windows 10 Desktop e Mobile. Inscreve a chave para **Windows Hello para empresas**, descritas na [Windows Hello para definições da empresa no System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md). Esta opção também lhe permite **Exigir autenticação multifator** durante a inscrição de dispositivos antes de emitir certificados para os mesmos. Consulte [Proteger os dispositivos Windows com a autenticação multifator](https://technet.microsoft.com/library/dn889751.aspx) para mais informações.
 
    > [!NOTE]  
    > 
-   > При создании пользователем ПИН-кода для Windows Hello для бизнеса система Windows отправляет уведомление, которое прослушивается Configuration Manager. Это позволяет Configuration Manager быстро узнать о том, кто из пользователей создал PIN-код для Windows Hello. После этого Configuration Manager может также выдать этим пользователям новые сертификаты, если служба Windows Hello используется в профиле сертификата в качестве поставщика хранилища ключей.  
+   > Quando um utilizador cria um Windows Hello para empresas PIN, o Windows envia uma notificação que o Configuration Manager escuta. Isto permite tornar-se rapidamente com suporte para o Configuration Manager dos utilizadores que criou um Windows Hello PIN. O Configuration Manager, em seguida, também podem emitir novos certificados para esses utilizadores se o Windows Hello é utilizado como o fornecedor de armazenamento de chaves num perfil de certificado.  
 
-   -   **Установить в поставщик хранилища ключей программного обеспечения**: устанавливает ключ в поставщик хранилища ключей программного обеспечения.  
+   -   **Instalar no fornecedor de armazenamento de chaves de Software**: Instala a chave para o fornecedor de armazenamento da chave de software.  
 
- -   **Устройства для регистрации сертификата**: если профиль сертификата развертывается в коллекции пользователей, укажите, будет ли разрешена регистрация сертификата только на основном устройстве пользователя или на всех устройствах, на которые входит пользователь. Если профиль сертификата развертывается в коллекции устройств, укажите, будет ли разрешена регистрация сертификата только для основного пользователя устройства или для всех пользователей, которые входят на устройство.  
+ -   **Dispositivos para inscrição de certificados**: Se o perfil de certificado for implementado numa coleção de utilizador, selecione se pretende permitir inscrição de certificados apenas o dispositivo primário do utilizador ou em todos os dispositivos que o utilizador inicia sessão. Se o perfil de certificado for implementado numa coleção de dispositivos, selecione se pretende permitir a inscrição de certificados apenas ao utilizador principal do dispositivo ou a todos os utilizadores que iniciem sessão no dispositivo.  
 
-3.  На странице **Свойства сертификата** мастера создания профиля сертификата укажите перечисленные ниже сведения.  
+3.  Na página **Propriedades do Certificado** do Assistente para Criar Perfil de Certificado, especifique as seguintes informações:  
 
- -   **Имя шаблона сертификата**: нажмите кнопку **Обзор** , чтобы выбрать имя шаблона сертификата, для использования которого настроена служба регистрации сертификатов для сетевых устройств и который добавлен в выдающий ЦС. Чтобы успешно перейти к шаблонам сертификатов, учетная запись пользователя, которая используется для запуска консоли System Center Configuration Manager, должна обладать разрешением на чтение шаблона сертификата. Если нельзя использовать кнопку **Обзор**, введите имя шаблона сертификата.  
+ -   **Nome do modelo de certificado**: Clique em **procurar** para selecionar o nome de um modelo de certificado que o serviço de inscrição de dispositivos de rede está configurado para utilizar e que tenha sido adicionado a uma AC emissora. Para encontrar modelos de certificado, a conta de utilizador que está a utilizar para executar a consola do System Center Configuration Manager tem de ter permissão de leitura para o modelo de certificado. Em alternativa, se não conseguir utilizar **Procurar**, escreva o nome do modelo de certificado.  
 
  > [!IMPORTANT]
  >   
- >  Если имя шаблона сертификата содержит символы, не являющиеся символами ASCII (например, символы из китайского алфавита), сертификат развернут не будет. Чтобы обеспечить развертывание сертификата, сначала необходимо создать копию шаблона сертификата в ЦС, а затем переименовать эту копию, используя символы ASCII.  
+ >  Se o nome do modelo de certificado contiver carateres não ASCII (por exemplo, carateres do alfabeto chinês), o certificado não será implementado. Para garantir que o certificado é implementado, tem de criar primeiro uma cópia do modelo de certificado na AC e mudar o nome da cópia utilizando carateres ASCII.  
 
-   В зависимости от способа указания имени шаблона сертификата (использование кнопки "Обзор" или ввод), обратите внимание на следующее.  
+   Tenha em atenção o seguinte, consoante procurar o modelo de certificado ou escrever o nome do certificado:  
 
- -   Если для выбора имени шаблона сертификата используется кнопка "Обзор", некоторые поля на странице заполняются автоматически на основе шаблона сертификата. В некоторых случаях эти значения нельзя изменить, не выбрав другой шаблон сертификата.  
+ -   Se procurar para selecionar o nome do modelo de certificado, alguns campos da página serão preenchidos automaticamente a partir do modelo de certificado. Em alguns casos, não é possível alterar estes valores, a menos que escolha um modelo de certificado diferente.  
 
- -   Если имя шаблона сертификата вводится вручную, убедитесь, что оно в точности совпадает с именем одного из шаблонов сертификатов, перечисленных в реестре сервера, на котором запущена служба регистрации сертификатов для сетевых устройств. Убедитесь, что вы ввели имя шаблона сертификата, а не отображаемое имя шаблона сертификата.  
+ -   Se escrever o nome do modelo de certificado, certifique-se de que o nome corresponde exatamente a um dos modelos de certificado listados no registo do servidor com o Serviço de Inscrição de Dispositivos de Rede em execução. Certifique-se de que especifica o nome do modelo de certificado e não o nome a apresentar do modelo de certificado.  
 
-   Чтобы найти имена шаблонов сертификатов, перейдите к следующему разделу реестра: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP. Вы увидите шаблоны сертификатов, перечисленные в виде значений для параметров **EncryptionTemplate**, **GeneralPurposeTemplate**и **SignatureTemplate**. По умолчанию для всех трех шаблонов сертификатов используется значение **IPSECIntermediateOffline**, которое соответствует отображаемому имени шаблона **IPSec (автономный запрос)**.  
+   Para localizar os nomes dos modelos de certificado, navegue para a seguinte chave: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP. Verá os modelos de certificado listados como valores para **EncryptionTemplate**, **GeneralPurposeTemplate**e **SignatureTemplate**. Por predefinição, o valor dos três modelos de certificado é **IPSECIntermediateOffline**, que é mapeado para o nome a apresentar de modelo **IPSec (Pedido offline)**.  
 
    > [!WARNING]  
    > 
-   >  Так как System Center Configuration Manager не может проверить содержимое шаблона сертификата, если его имя вводится, а не выбирается с помощью кнопки "Обзор", существует возможность задания параметров, которые не поддерживаются шаблоном сертификата, что приведет к невыполнению запроса на сертификат. В этом случае вы увидите сообщение об ошибке для w3wp.exe в файле CPR.log, в котором говорится о том, что имя шаблона в запросе подписи сертификата не соответствует запросу.  
+   >  Porque o System Center Configuration Manager não consegue verificar o conteúdo do modelo de certificado quando escreve o nome do modelo de certificado em vez de procurar, poderá conseguir Selecionar opções que não suporta o modelo de certificado, que resultará num pedido de certificado falhado. Quando isto acontecer, verá uma mensagem de erro de w3wp.exe no ficheiro CPR.log que indica que o nome do modelo na solicitação de assinatura de certificado (CSR) do certificado e no desafio não coincidem.  
    >   
-   >  При вводе имени шаблона сертификата, которое указано в значении для ключа **GeneralPurposeTemplate** , необходимо выбрать параметры **Шифрование ключей** и **Цифровая подпись** для этого профиля сертификата. Однако, если необходимо включить в этот профиль сертификата только параметр **Шифрование ключей** , укажите имя шаблона сертификата для ключа **EncryptionTemplate** . Аналогично, если вы хотите включить в этот профиль сертификата только параметр **Цифровая подпись** , укажите имя шаблона сертификата для ключа **SignatureTemplate** .  
+   >  Quando escrever o nome do modelo de certificado especificado para o valor **GeneralPurposeTemplate** , terá de selecionar as opções **Cifragem de chaves** e **Assinatura digital** para este perfil de certificado. No entanto, se pretender ativar apenas a opção **Cifragem de chaves** neste perfil de certificado, especifique o nome do modelo de certificado da chave **EncryptionTemplate** . Da mesma forma, se pretender ativar apenas a opção **Assinatura digital** neste perfil de certificado, especifique o nome do modelo de certificado da chave **SignatureTemplate** .  
 
- -   **Тип сертификата**: укажите тип развертывания сертификата — для устройства или для пользователя.  
- -   **Формат имени субъекта**: выберите в списке способ, посредством которого System Center Configuration Manager автоматически создает имя субъекта в запросе на сертификат. Если сертификат предназначен для пользователя, в имя субъекта можно также включить адрес электронной почты пользователя. 
+ -   **Tipo de certificado**: Selecione se o certificado será implementado num dispositivo ou um utilizador.  
+ -   **Formato de nome de requerente**: Na lista, selecione a forma como o System Center Configuration Manager cria automaticamente o nome do requerente no pedido de certificado. Se o certificado se destinar a um utilizador, pode também incluir o endereço de e-mail do utilizador no nome do requerente. 
     
    > [!NOTE]  
    > 
-   > Выбор **номера IMEI** или **серийного номера** позволяет различать устройства, принадлежащие одному пользователю. Например, устройства могут иметь одинаковое имя, но номера IMEI или серийные номера будут разными. Если устройство не сообщает свой номер IMEI или серийный номер, сертификат будет выпущен с общим именем.
+   > Selecionar **número IMEI** ou **número de série** permite-lhe diferenciar entre vários dispositivos que pertencem ao mesmo utilizador. Por exemplo, esses dispositivos foi possível partilhar o nome comum, mas não um número IMEI ou número de série. Se o dispositivo não comunica um número de série ou IMEI, o certificado será emitido com o nome comum.
 
- -   **Альтернативное имя субъекта**: укажите способ, посредством которого System Center Configuration Manager автоматически создает значения для альтернативного имени субъекта в запросе на сертификат. Например, если вы выбрали тип сертификата пользователя, в альтернативное имя субъекта можно включить имя участника-пользователя.  Если сертификат клиента будет использоваться для проверки подлинности сервера политики сети, в качестве альтернативного имени субъекта необходимо задать имя участника-пользователя.  
+ -   **Nome alternativo do requerente**: Especifique a forma como o System Center Configuration Manager cria automaticamente os valores de nome alternativo do requerente (SAN) no pedido de certificado. Por exemplo, se tiver selecionado um tipo de certificado de utilizador, pode incluir o nome principal de utilizador (UPN) no nome alternativo do requerente.  Se o certificado de cliente for utilizado para autenticar um Servidor de Políticas de Rede, tem de definir o nome alternativo do requerente com o UPN.  
 
    > [!NOTE]  
-   >  - Устройства iOS поддерживают ограниченный набор форматов имени субъекта и альтернативного имени субъекта в сертификатах SCEP. Если вы указали неподдерживаемый формат, сертификат для устройств iOS не будет зарегистрирован. При настройке профиля сертификата SCEP для развертывания на устройствах iOS используйте значение **Общее имя** в поле **Формат имени субъекта**и значение **DNS-имя**, **Адрес электронной почты** или **Имя участника-пользователя** в поле **Дополнительное имя субъекта**.  
+   >  - Os dispositivos iOS suportam formatos de nome do requerente e de nome alternativo do requerente limitados em certificados SCEP. Se especificar um formato que não seja suportado, os certificados não serão inscritos em dispositivos iOS. Quando configurar um perfil de certificado SCEP para implementação em dispositivos iOS, utilize o **Nome comum** para o **Formato de nome do requerente**e **Nome DNS**, **Endereço de correio eletrónico** ou **UPN** para o **Nome alternativo do requerente**.  
 
- -   **Срок действия сертификата**: запустив на выдающем ЦС команду "certutil - setreg Policy\EditFlags +EDITF_ATTRIBUTEENDDATE", которая позволяет использовать настраиваемый срок действия, вы можете указать оставшееся время до истечения срока действия сертификата. Дополнительные сведения об этой команде см. в разделе [Инфраструктура сертификатов в System Center Configuration Manager](../../protect/deploy-use/certificate-infrastructure.md).  
+ -   **Período de validade do certificado**: Se tiver executado o certutil - setreg Policy\EditFlags + comando EDITF_ATTRIBUTEENDDATE na AC emissora, que permite um período de validade personalizado, pode especificar a quantidade de tempo restante até o certificado expirar. Para obter mais informações sobre este comando, consulte [infraestrutura de certificados no System Center Configuration Manager](../../protect/deploy-use/certificate-infrastructure.md) tópico.  
 
-   Можно указать значение, ниже, но не выше периода действия в указанном шаблоне сертификата. Например, если в шаблоне сертификата указан срок действия сертификата в два года, можно указать значение в один год, но не в пять лет. Кроме того, значение не должно превышать значение оставшегося периода действия сертификата, выдаваемого центром сертификации.  
+   Pode especificar um valor inferior ao período de validade do modelo de certificado especificado, mas não superior. Por exemplo, se o período de validade do certificado no modelo de certificado for dois anos, pode especificar um valor de um ano, mas não um valor de cinco anos. O valor deve também ser inferior ao período de validade restante do certificado da AC emissora.  
 
- -   **Использование ключа**: укажите параметры использования ключа для сертификата. Можно выбрать один из следующих вариантов.  
+ -   **Utilização da chave**: Especifique as opções de utilização de chave para o certificado. Pode selecionar de entre as seguintes opções:  
 
-        -   **Шифрование ключей**: обмен ключами разрешается, только если они зашифрованы.  
+        -   **Cifragem de chaves**: Permitir a troca de chaves apenas quando a chave for encriptada.  
 
-        -   **Цифровая подпись**: обмен ключами разрешается, только если они защищены с помощью цифровой подписи.  
+        -   **Assinatura digital**: Permitir a troca de chave apenas quando uma assinatura digital ajudar a proteger a chave.  
 
-   Если для выбора шаблона сертификата использовалась кнопка **Обзор**, возможно, эти параметры не удастся изменить, не выбрав другой шаблон сертификата.  
+   Se tiver selecionado um modelo de certificado utilizando **Procurar**, poderá não conseguir alterar estas definições, a menos que selecione outro modelo de certificado.  
 
-   Выбранный шаблон сертификата должен быть настроен с использованием одного или обоих параметров использования ключа, описанных выше. Если это не так, в файле журнала точки регистрации сертификатов, **Crp.log** , появится сообщение **Key usage in CSR and challenge do not match**.  
-
-
-   -   **Размер ключа (разрядов)**: выберите размер ключа в битах.  
-
-   -   **Расширенное использование ключа**: нажмите кнопку **Выбрать**, чтобы добавить значения для назначения сертификата. В большинстве случаев для сертификата потребуется **Проверка подлинности клиента** , чтобы пользователь или устройство могли выполнить проверку подлинности на сервере. Однако при необходимости можно добавить любые другие варианты использования ключа.  
+   O modelo de certificado selecionado deve ser configurado com uma ou ambas as duas opções de utilização da chave acima. Caso contrário, verá a mensagem **Utilização da chave no CSR e no desafio não correspondem** no ficheiro de registo do ponto de registo de certificados, **Crp.log**.  
 
 
-   -   **Алгоритм хэширования**: используйте с этим сертификатом один из доступных типов хэш-алгоритмов. Выберите максимальный уровень безопасности, который поддерживают подключающиеся устройства.  
+   -   **Tamanho da chave (bits)**: Selecione o tamanho da chave em bits.  
+
+   -   **Utilização da chave expandida**: Clique em **selecione** para adicionar valores para o certificado do objetivo. Na maioria dos casos, o certificado irá exigir a **Autenticação de Cliente** para o utilizador ou dispositivo poder ser autenticado num servidor. Contudo, pode adicionar mais utilizações de chave conforme necessário.  
+
+
+   -   **Algoritmo hash**: Selecione um dos tipos de algoritmo hash disponíveis para utilizar com este certificado. Selecione o maior nível de segurança que os dispositivos de ligação suportam.  
 
    > [!NOTE]  
    > 
-   >  **SHA-2** поддерживает SHA-256, SHA-384 и SHA-512. **SHA-3** поддерживает только SHA-3.  
+   >  **SHA-2** suporta SHA-256, SHA-384 e SHA-512. O**SHA-3** suporta apenas SHA-3.  
 
-   -   **Сертификат корневого ЦС**: нажмите кнопку **Выбрать** , чтобы выбрать профиль корневого сертификата ЦС, настроенный ранее и развернутый для пользователя или устройства. Этот сертификат ЦС должен быть корневым сертификатом ЦС, который выдаст сертификат, настраиваемый в данном профиле сертификата.  
+   -   **Certificado de AC de raiz**: Clique em **selecione** para selecionar um perfil de certificado de AC que tenha configurado anteriormente e implementado no utilizador ou dispositivo de raiz. Este certificado da AC tem de ser o certificado de raiz da AC que irá emitir o certificado que está a configurar neste perfil de certificado.  
 
    > [!IMPORTANT]  
-   >  Если указать сертификат корневого ЦС, который не развернут для пользователя или устройства, System Center Configuration Manager не инициирует запрос на сертификат, настраиваемый в данном профиле сертификата.  
+   >  Se especificar um certificado de AC de raiz que não seja implementado no utilizador ou dispositivo, o System Center Configuration Manager não iniciará o pedido de certificado que está a configurar neste perfil de certificado.  
 
 
-##  <a name="specify-supported-platforms-for-the-certificate-profile"></a>Указание поддерживаемых платформ для профиля сертификата  
+##  <a name="specify-supported-platforms-for-the-certificate-profile"></a>Especificar as plataformas suportadas para o perfil de certificado  
 
-1. На странице **Поддерживаемые платформы** мастера создания профиля сертификата выберите операционные системы, в которых необходимо установить профиль сертификата. Или щелкните **Выбрать все** , чтобы установить профиль сертификата во все доступные операционные системы.
-2. На странице **Сводка** мастера проверьте параметры, а затем нажмите кнопку **Готово**. 
+1. Na página **Plataformas Suportadas** do Assistente para Criar Perfil de Certificado, selecione os sistemas operativos onde pretende instalar o perfil de certificado. Ou, clique em **Selecionar tudo** para instalar o perfil de certificado para todos os sistemas operativos disponíveis.
+2. Reveja o **resumo** página do assistente e escolha **concluir**. 
  
  
-Новый профиль сертификата появится в узле **Профили сертификатов** рабочей области **Активы и соответствие** и будет готов к развертыванию для пользователей или устройств, как описано в разделе [Развертывание профилей в System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  
+O novo perfil de certificado aparece no **perfis de certificado** no nó de **ativos e compatibilidade** área de trabalho e está pronto para ser implementada para utilizadores ou dispositivos, conforme descrito em [como implementar perfis no System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  

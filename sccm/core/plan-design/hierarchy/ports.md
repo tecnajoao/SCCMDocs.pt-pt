@@ -1,6 +1,6 @@
 ---
-title: "Порты, используемые Configuration Manager | Документы Майкрософт"
-description: "Сведения об обязательных и настраиваемых портах, которые System Center Configuration Manager использует для подключений."
+title: Portas utilizadas pelo Configuration Manager | Microsoft Docs
+description: "Saiba mais sobre as portas necessárias e personalizáveis, que utiliza o System Center Configuration Manager para ligações."
 ms.custom: na
 ms.date: 3/20/2017
 ms.prod: configuration-manager
@@ -17,703 +17,703 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 78caa69e10f5d386daab1e61e484d4d134469708
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="ports-used-in-system-center-configuration-manager"></a>Порты, используемые в System Center Configuration Manager
+# <a name="ports-used-in-system-center-configuration-manager"></a>Portas utilizadas no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager — это распределенная система клиент-сервер. Распределенный характер решения Configuration Manager означает, что подключения могут создаваться между серверами сайта, системами сайта и клиентами. В некоторых подключениях используются порты без возможности настройки, а некоторые поддерживают настраиваемые порты, которые можно указать. При использовании каких-либо технологий фильтрации портов, таких как брандмауэры, маршрутизаторы, прокси-серверы и IPsec, необходимо проверить, что требуемые порты доступны.  
+System Center Configuration Manager é um sistema cliente/servidor distribuído. A natureza distribuída do Configuration Manager, significa que podem estabelecer ligações entre servidores de sites, sistemas de sites e clientes. Algumas ligações utilizam portas que não são configuráveis e outras suportam portas personalizadas que especificar. Tem de verificar que as portas necessárias estão disponíveis se utilizar qualquer porta de filtragem de tecnologia, tais como firewalls, routers, servidores proxy ou IPsec.  
 
 > [!NOTE]  
->  Если реализуется поддержка интернет-клиентов посредством использования мостов SSL, то, помимо требований к портам, может также потребоваться разрешить некоторые HTTP-команды и заголовки на брандмауэре.   
+>  Se suportar clientes baseados na Internet utilizando o protocolo de bridge SSL, para além dos requisitos de porta, também terá de permitir que alguns verbos e cabeçalhos HTTP para atravessem a firewall.   
 
- Приведенные ниже списки портов используются в Configuration Manager и не включают сведения о стандартных службах Windows, например параметрах групповой политики для доменных служб Active Directory или проверке подлинности Kerberos. Сведения о службах и портах Windows Server см. в статье [Обзор требований системы Windows Server к службам и сетевым портам](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
+ As listagens de porta que se seguem são utilizadas pelo Configuration Manager e não incluem informações relativas a serviços padrão do Windows, tais como definições de política de grupo para serviços de domínio do Active Directory ou a autenticação Kerberos. Para informações sobre serviços e portas do Windows Server, consulte [Descrição geral dos serviços e requisitos de portas de rede para o sistema do Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
 
-##  <a name="BKMK_ConfigurablePorts"></a> Порты, которые можно настроить  
- Configuration Manager позволяет настроить порты для связи следующих типов.  
+##  <a name="BKMK_ConfigurablePorts"></a> Portas que pode configurar  
+ O Configuration Manager permite-lhe configurar as portas para os seguintes tipos de comunicação:  
 
--   Между точкой веб-сайта каталога приложения и точкой веб-службы каталога приложения  
+-   Ponto de Web site do catálogo de aplicações para o ponto de serviço web do catálogo de aplicações  
 
--   Прокси-точка регистрации — точка регистрации  
+-   Ponto proxy de registo com o ponto de registo  
 
--   Клиентско-сайтовые системы со службами IIS  
+-   Sistemas de site de cliente que executam o IIS  
 
--   Между клиентом и Интернетом (как параметры прокси-сервера)  
+-   Cliente com a Internet (como definições do servidor proxy)  
 
--   Между точкой обновления программного обеспечения и Интернетом (как параметры прокси-сервера)  
+-   Ponto de atualização de software com a Internet (como definições do servidor proxy)  
 
--   Между точкой обновления программного обеспечения и сервером WSUS  
+-   Ponto de atualização de software com o servidor WSUS  
 
--   Между сервером сайта и сервером базы данных сайта  
+-   Servidor do site com o servidor da base de dados do site  
 
--   Точки служб отчетов  
+-   Pontos do Reporting Services  
 
     > [!NOTE]  
-    >  Порты, используемые ролью системы сайта "точка служб отчетов", настраиваются в SQL Server Reporting Services. Эти порты используются Configuration Manager при подключении к точке служб отчетов. Обязательно просмотрите эти порты, которые определяют IP-фильтрацию для политик IPsec и при настройке брандмауэров.  
+    >  As portas que estão em utilização para a função de sistema de sites de ponto do Reporting Services serviços estão configuradas no SQL Server Reporting Services. Estas portas são depois utilizadas pelo Configuration Manager durante as comunicações com o ponto do Reporting Services. Lembre-se de que reveja estas portas que definem as informações de filtro IP para políticas IPsec ou para configurar firewalls.  
 
-Портом HTTP, который служит для связи клиента с системой сайта, по умолчанию является порт 80, а портом HTTPS по умолчанию является порт 443. Порты для связи клиента системой сайта через HTTP или HTTPS можно изменить в разделах "Установка" или "Свойства сайта" для сайта Configuration Manager.  
+Por predefinição, a porta HTTP que é utilizada para comunicação do sistema de site de cliente é a porta 80 e a porta HTTPS predefinida é 443. Portas para comunicação do sistema de site de cliente por HTTP ou HTTPS podem ser alteradas durante a configuração ou nas propriedades do site para o seu site do Configuration Manager.  
 
-Порты, используемые ролью системы сайта "точка служб отчетов", настраиваются в SQL Server Reporting Services. Эти порты используются Configuration Manager при подключении к точке служб отчетов. Обязательно просмотрите эти порты при настройке IP-фильтрации в политиках IPsec и при настройке брандмауэров.  
+As portas que estão em utilização para a função de sistema de sites de ponto do Reporting Services serviços estão configuradas no SQL Server Reporting Services. Estas portas são depois utilizadas pelo Configuration Manager durante as comunicações com o ponto do Reporting Services. Lembre-se de que reveja estas portas quando estiver a definir as informações de filtro IP para políticas IPsec ou para configurar firewalls.  
 
-##  <a name="BKMK_NonConfigurablePorts"></a> Порты без возможности настройки  
-Configuration Manager не позволяет настроить порты для связи следующих типов.  
+##  <a name="BKMK_NonConfigurablePorts"></a> Portas não configuráveis  
+O Configuration Manager permite configurar portas para os seguintes tipos de comunicação:  
 
--   Между сайтом и сайтом  
+-   Site para site  
 
--   Между сервером сайта и системой сайта  
+-   Servidor do site com o sistema de sites  
 
--   Между консолью Configuration Manager и поставщиком SMS  
+-   Consola do Configuration Manager para o fornecedor de SMS  
 
--   Консоль Configuration Manager — Интернет  
+-   Consola do Configuration Manager para a Internet  
 
--   Подключения к облачным службам, например Microsoft Intune, и облачным точкам распространения  
+-   Ligações a serviços em nuvem, como o Microsoft Intune e pontos de distribuição baseado na nuvem  
 
-##  <a name="BKMK_CommunicationPorts"></a> Порты, используемые клиентами и системами сайта Configuration Manager  
-В следующих разделах приводятся подробные сведения о портах, используемых для соединений в Configuration Manager. Стрелки в заголовке раздела указывают направление соединения.  
+##  <a name="BKMK_CommunicationPorts"></a> Portas utilizadas por clientes e sistemas de sites do Configuration Manager  
+As secções seguintes pormenorizadamente as portas que são utilizadas para comunicação no Configuration Manager. As setas no título da secção representam a direção da comunicação:  
 
--   -- > означает, что один компьютер инициирует соединение, а другой всегда отвечает  
+-   -> Indica que um computador inicia a comunicação e o outro computador responde sempre  
 
--   &lt; -- > означает, что любой компьютер может инициировать соединение  
+-   &lt;-> Indica que ambos os computadores podem iniciar comunicações  
 
-###  <a name="BKMK_PortsAI"></a> Точка синхронизации каталога аналитики активов -- > Майкрософт  
+###  <a name="BKMK_PortsAI"></a>Ponto de sincronização do Asset Intelligence-- > Microsoft  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsAI-to-SQL"></a> Точка синхронизации каталога аналитики активов -- > SQL Server  
+###  <a name="BKMK_PortsAI-to-SQL"></a>Ponto de sincronização do Asset Intelligence-- > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsAppCatalogService-SQL"></a> Точка веб-службы каталога приложений -- > SQL Server  
+###  <a name="BKMK_PortsAppCatalogService-SQL"></a>Ponto de serviço de web de catálogo de aplicações-- > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsAppCatalogWebSitePoint_AppCatalogWebServicePoint"></a> Точка веб-сайта каталога приложений -- > точка веб-службы каталога приложений  
+###  <a name="BKMK_PortsAppCatalogWebSitePoint_AppCatalogWebServicePoint"></a>Ponto de Web site do catálogo de aplicações-- > ponto de serviço web do catálogo de aplicações  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-AppCatalogWebsitePoint"></a> Клиент -- > точка веб-сайта каталога приложений  
+###  <a name="BKMK_PortsClient-AppCatalogWebsitePoint"></a>Cliente--> Ponto de Web site do catálogo de aplicações  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-ClientWakeUp"></a> Клиент -- &gt; Клиент  
- В дополнение к портам, перечисленным в предыдущей таблице, прокси пробуждения также использует сообщения эхо-запросов протокола ICMP от клиента к клиенту, если на них настроен прокси пробуждения.
+###  <a name="BKMK_PortsClient-ClientWakeUp"></a> Cliente -- &gt; Cliente  
+ Além das portas que estão listadas na seguinte tabela, proxy de reativação também utiliza mensagens de pedido de eco do controlo mensagem ICMP (Internet Protocol) de um cliente a outro cliente quando são configurados para proxy de reativação.
 
-Эта связь используется для проверки того, активен ли другой клиентский компьютер в сети. Протокол ICMP иногда называют командами проверки связи TCP/IP. Он не имеет номера протокола UDP или TCP и потому не указан в следующей таблице. Тем не менее, для успешной связи прокси пробуждения промежуточные сетевые устройства в подсети и брандмауэры на этих клиентских компьютерах должны пропускать трафик ICMP.  
+Esta comunicação é utilizada para confirmar se o outro computador cliente está ativo na rede. Por vezes, o ICMP é também referido como comandos ping de TCP/IP. O ICMP não tem um número de protocolo UDP ou TCP e, por isso, não está listado na tabela a seguir. No entanto, as firewalls baseadas no anfitrião existentes nestes computadores cliente ou em dispositivos de rede intervenientes na sub-rede devem permitir o tráfego ICMP para que a comunicação de proxy de reativação tenha êxito.  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Пробуждение по локальной сети|9 (см. примечание 2 **Доступен альтернативный порт**)|--|  
-|Прокси пробуждения|25 536 (см. примечание 2 **Доступен альтернативный порт**)|--|  
+|Reativação Por LAN|9 (ver nota 2, **alternativa porta disponível**)|--|  
+|Proxy de reativação|25536 (ver nota 2, **alternativa porta disponível**)|--|  
 
-###  <a name="BKMK_PortsClient-PolicyModule"></a> Клиент -- &gt; модуль политики Configuration Manager (служба регистрации сетевых устройств)  
+###  <a name="BKMK_PortsClient-PolicyModule"></a> Cliente -- &gt; Módulo de Política do Configuration Manager (Serviço de Inscrição de Dispositivos de Rede)  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP||80|  
-|Протокол HTTPS|--|443|  
+|Protocolo HTTP (Hypertext Transfer Protocol)||80|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsClient-CloudDP"></a> Клиент -- > облачная точка распространения  
+###  <a name="BKMK_PortsClient-CloudDP"></a>Cliente--> Ponto de distribuição baseados na nuvem  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsClient-DP"></a> Клиент -- > точка распространения  
+###  <a name="BKMK_PortsClient-DP"></a>Cliente--> Ponto de distribuição  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-DP2"></a> Клиент -- > точка распространения, настроенная для многоадресной рассылки  
+###  <a name="BKMK_PortsClient-DP2"></a>Cliente--> Ponto de distribuição configurado para multicast  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Протокол многоадресной рассылки|63 000–64 000|--|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Protocolo multicast|63000-64000|--|  
 
-###  <a name="BKMK_PortsClient-DP3"></a> Клиент -- > точка распространения, настроенная для PXE  
+###  <a name="BKMK_PortsClient-DP3"></a>Cliente--> Ponto de distribuição configurado para PXE  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол DHCP|67 и 68|--|  
-|Протокол TFTP|69 (см. примечание 4, **Управляющая программа TFTP**)|--|  
-|Протокол BINL|4011|--|  
+|Protocolo DHCP (Dynamic Host Configuration Protocol)|67 e 68|--|  
+|Protocolo TFTP (Trivial File Transfer Protocol)|69 (ver nota 4, **Daemon Trivial FTP (TFTP)**)|--|  
+|Boot Information Negotiation Layer (BINL)|4011|--|  
 
-###  <a name="BKMK_PortsClient-FSP"></a> Клиент -- > резервная точка состояния  
+###  <a name="BKMK_PortsClient-FSP"></a>Cliente--> Ponto de estado de contingência  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-GCDC"></a> Клиент -- > контроллер домена глобального каталога  
- Клиент Configuration Manager не обращается к серверу глобального каталога, когда он является компьютером рабочей группы или настроен для связи только с Интернетом.  
+###  <a name="BKMK_PortsClient-GCDC"></a>Cliente--> Controlador de domínio de Catálogo Global  
+ Um cliente do Configuration Manager não contacta um servidor de catálogo global quando é um computador de grupo de trabalho ou quando está configurado para comunicação apenas através da Internet.  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Глобальный каталог LDAP|--|3268|  
-|Глобальный каталог LDAP SSL|--|3269|  
+|LDAP de catálogo global|--|3268|  
+|LDAP SSL de catálogo global|--|3269|  
 
-###  <a name="BKMK_PortsClient-MP"></a> Клиент -- > точка управления  
+###  <a name="BKMK_PortsClient-MP"></a>Cliente--> Ponto de gestão  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Клиентское уведомление (связь по умолчанию перед возвратом к HTTP или HTTPS)|--|10 123 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Notificação de cliente (comunicação predefinida antes de reverter para HTTP ou HTTPS)|--|10123 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-SUP"></a> Клиент -- > точка обновления программного обеспечения  
+###  <a name="BKMK_PortsClient-SUP"></a>Cliente--> Ponto de atualização de Software  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 или 8530 (см. примечание 3 **Службы Windows Server Update Services**)|  
-|Протокол HTTPS|--|443 или 8531 (см. примечание 3, **Службы обновлений Windows Server**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Ver nota 3, **Windows Server Update Services**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Ver nota 3, **Windows Server Update Services**)|  
 
-###  <a name="BKMK_PortsClient-SMP"></a> Клиент -- > точка миграции состояния  
+###  <a name="BKMK_PortsClient-SMP"></a>Cliente--> Ponto de migração de estado  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол SMB|--|445|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
 
-###  <a name="BKMK_PortsConsole-Client"></a> Консоль Configuration Manager -- > клиент  
+###  <a name="BKMK_PortsConsole-Client"></a>Consola do Configuration Manager-- > cliente  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Удаленное управление (элемент управления)|--|2701|  
-|Удаленный помощник (RDP и RTC)|--|3389|  
+|Controlo Remoto (controlo)|--|2701|  
+|Assistência Remota (RDP e RTC)|--|3389|  
 
-###  <a name="BKMK_PortsConsole-Internet"></a> Консоль Configuration Manager -- > Интернет  
+###  <a name="BKMK_PortsConsole-Internet"></a>Consola do Configuration Manager-- > Internet  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80|  
 
-###  <a name="BKMK_PortsConsole-RSP"></a> Консоль Configuration Manager -- > точка служб Reporting Services  
+###  <a name="BKMK_PortsConsole-RSP"></a>Consola do Configuration Manager-- > ponto do Reporting Services  
 
 
-|Описание|Протокол UDP|TCP|
+|Descrição|UDP|TCP|
 |-----------------|---------|---------|   
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsConsole-Site"></a> Консоль Configuration Manager -- > сервер сайта  
+###  <a name="BKMK_PortsConsole-Site"></a>Consola do Configuration Manager-- > servidor do Site  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|RPC (исходное соединение с WMI для поиска системы поставщика)|--|135|  
+|RPC (ligação inicial ao WMI para localizar o sistema do fornecedor)|--|135|  
 
-###  <a name="BKMK_PortsConsole-Provider"></a> Консоль Configuration Manager -- > поставщик SMS  
+###  <a name="BKMK_PortsConsole-Provider"></a>Consola do Configuration Manager-- > fornecedor de SMS  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a> Модуль политики Configuration Manager (служба регистрации сетевых устройств) -- > точка регистрации сертификатов  
+###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a>Módulo de política do Configuration Manager (serviço dispositivos de rede inscrição) - > Ponto de registo de certificados  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsDist_MP"></a> Точка распространения -- > точка управления  
- Точка распространения взаимодействует с точкой управления в следующих сценариях:  
+###  <a name="BKMK_PortsDist_MP"></a>Ponto de distribuição-- > ponto de gestão  
+ Um ponto de distribuição comunica com o ponto de gestão nos seguintes cenários:  
 
--   для отчета о состоянии предварительно подготовленного содержимого;  
+-   Para comunicar o estado do conteúdo pré-configurado  
 
--   для отчета об использовании сводных данных;  
+-   Para reportar dados de resumo de utilização  
 
--   для отчета по проверке содержимого;  
+-   Para reportar validação de conteúdo  
 
--   для уведомления о состоянии загрузок пакетов (точка распространения по запросу).
+-   Para comunicar o estado de transferências do pacote (ponto de distribuição de solicitação)
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 2 **Доступен альтернативный порт**)|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsEndpointProtection_Internet"></a> Точка Endpoint Protection -- > Интернет  
+###  <a name="BKMK_PortsEndpointProtection_Internet"></a>Ponto do Endpoint Protection-- > Internet  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80|  
 
-###  <a name="BKMK_PortsEP-to-SQL"></a> Точка Endpoint Protection -- > SQL Server  
+###  <a name="BKMK_PortsEP-to-SQL"></a>Ponto do Endpoint Protection-- > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsEnrollmentProxyEnrollmentPoint"></a> Прокси-точка регистрации -- > точка регистрации  
+###  <a name="BKMK_PortsEnrollmentProxyEnrollmentPoint"></a>Ponto de proxy de registo-- > ponto de registo  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsEnrollmentEnrollmentSQL"></a> Точка регистрации -- > SQL Server  
+###  <a name="BKMK_PortsEnrollmentEnrollmentSQL"></a>Ponto de registo-- > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsExchangeConnectorHosted"></a> Коннектор Exchange Server -- &gt; Exchange Online  
+###  <a name="BKMK_PortsExchangeConnectorHosted"></a> Conector do Exchange Server -- &gt; Exchange Online  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Удаленное управление Windows по протоколу HTTPS|--|5986|  
+|Gestão Remota do Windows através de HTTPS|--|5986|  
 
-###  <a name="BKMK_PortsExchangeConnectorOnPrem"></a> Коннектор Exchange Server -- > локальный сервер Exchange Server  
+###  <a name="BKMK_PortsExchangeConnectorOnPrem"></a>Conector do Exchange Server - > Exchange Server no local  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Удаленное управление Windows по протоколу HTTP|--|5985|  
+|Gestão Remota do Windows através de HTTP|--|5985|  
 
-###  <a name="BKMK_PortsMacEnrollmentProxyPoint"></a> Компьютер Mac -- > прокси-точка регистрации  
+###  <a name="BKMK_PortsMacEnrollmentProxyPoint"></a>Computador Mac-- > ponto proxy de registo  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsMP-DC"></a> Точка управления -- > контроллер домена  
+###  <a name="BKMK_PortsMP-DC"></a>Ponto de gestão-- > controlador de domínio  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол LDAP|--|389|  
-|Протокол LDAP (соединение по протоколу SSL)|636|636|  
-|Глобальный каталог LDAP|--|3268|  
-|Глобальный каталог LDAP SSL|--|3269|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|LDAP (Lightweight Directory Access Protocol)|--|389|  
+|LDAP (ligação SSL [Secure Sockets Layer])|636|636|  
+|LDAP de catálogo global|--|3268|  
+|LDAP SSL de catálogo global|--|3269|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsMP-Site"></a> Точка управления &lt; -- > сервер сайта  
- (См. примечание 5, **Передача данных между сервером сайта и системами сайта**)  
+###  <a name="BKMK_PortsMP-Site"></a>Ponto de gestão &lt; -> servidor do Site  
+ (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Сопоставитель конечных точек RPC|--|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
-|Протокол SMB|--|445|  
+|Mapeador de Pontos Finais RPC|--|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
 
-###  <a name="BKMK_PortsMP-SQL"></a> Точка управления-- > SQL Server  
+###  <a name="BKMK_PortsMP-SQL"></a>Ponto de gestão-- > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsMobileDeviceClient-EnrollmentProxyPoint"></a> Мобильное устройство -- > прокси-точка регистрации  
+###  <a name="BKMK_PortsMobileDeviceClient-EnrollmentProxyPoint"></a>Dispositivo móvel-- > ponto proxy de registo  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsMobileDeviceClient-WindowsIntune"></a> Мобильное устройство -- > Microsoft Intune  
+###  <a name="BKMK_PortsMobileDeviceClient-WindowsIntune"></a>Dispositivo móvel-- > Microsoft Intune  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsRSP-SQL"></a> Точка служб Reporting Services -- > SQL Server  
+###  <a name="BKMK_PortsRSP-SQL"></a>Relatório de ponto de serviços-- > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsIntuneConnector-WindowsIntune"></a> Точка подключения службы -- > Microsoft Intune  
+###  <a name="BKMK_PortsIntuneConnector-WindowsIntune"></a>Serviço de ponto de ligação-- > Microsoft Intune  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443|
-Дополнительные сведения см. в разделе [Требования для доступа к Интернету для точки подключения службы](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls).
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|
+Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) para o ponto de ligação de serviço.
 
-###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a> Сервер сайта &lt; -- > точка веб-службы каталога приложений  
+###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a>Servidor do site &lt; -> ponto de serviço web do catálogo de aplicações  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsAppCatalogWebSitePoint_SiteServer"></a> Сервер сайта &lt; -- > точка веб-сайта каталога приложений  
+###  <a name="BKMK_PortsAppCatalogWebSitePoint_SiteServer"></a>Servidor do site &lt; -> ponto de Web site do catálogo de aplicações  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-AISP"></a> Сервер сайта &lt; -- > точка синхронизации каталога аналитики активов  
+###  <a name="BKMK_PortsSite-AISP"></a>Servidor do site &lt; -> ponto de sincronização do Asset Intelligence  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-Client"></a> Сервер сайта -- > клиент  
+###  <a name="BKMK_PortsSite-Client"></a>Servidor do site-- > cliente  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Пробуждение по локальной сети|9 (см. примечание 2 **Доступен альтернативный порт**)|--|  
+|Reativação Por LAN|9 (ver nota 2, **alternativa porta disponível**)|--|  
 
-###  <a name="BKMK_PortsSiteServer-CloudDP"></a> Сервер сайта -- > облачная точка распространения  
+###  <a name="BKMK_PortsSiteServer-CloudDP"></a>Servidor do site-- > ponto de distribuição baseado na nuvem  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTPS|--|443|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsSite-DP"></a> Сервер сайта -- > точка распространения  
- (См. примечание 5, **Передача данных между сервером сайта и системами сайта**)  
+###  <a name="BKMK_PortsSite-DP"></a>Servidor do site-- > ponto de distribuição  
+ (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-DC"></a> Сервер сайта -- > контроллер домена  
+###  <a name="BKMK_PortsSite-DC"></a>Servidor do site-- > controlador de domínio  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол LDAP|--|389|  
-|Протокол LDAP (соединение по протоколу SSL)|636|636|  
-|Глобальный каталог LDAP|--|3268|  
-|Глобальный каталог LDAP SSL|--|3269|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|LDAP (Lightweight Directory Access Protocol)|--|389|  
+|LDAP (ligação SSL [Secure Sockets Layer])|636|636|  
+|LDAP de catálogo global|--|3268|  
+|LDAP SSL de catálogo global|--|3269|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a> Сервер сайта &lt; -- > точка регистрации сертификатов  
+###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a>Servidor do site &lt; -> ponto de registo de certificados  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsEndpointProtection_SiteServer"></a> Сервер сайта &lt; -- > точка Endpoint Protection  
+###  <a name="BKMK_PortsEndpointProtection_SiteServer"></a>Servidor do site &lt; -> ponto de Endpoint Protection  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_EnrollmentPoint_SiteServer"></a> Сервер сайта &lt; -- > точка регистрации  
+###  <a name="BKMK_EnrollmentPoint_SiteServer"></a>Servidor do site &lt; -> ponto de registo  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_EnrollmentProxyPoint_SiteServer"></a> Сервер сайта &lt; -- > прокси-точка регистрации  
+###  <a name="BKMK_EnrollmentProxyPoint_SiteServer"></a>Servidor do site &lt; -> ponto proxy de registo  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-FSP"></a> Сервер сайта &lt; -- > резервная точка состояния  
- (См. примечание 5, **Передача данных между сервером сайта и системами сайта**)  
+###  <a name="BKMK_PortsSite-FSP"></a>Servidor do site &lt; -> ponto de estado de contingência  
+ (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortSite-Internet"></a> Сервер сайта -- > Интернет  
+###  <a name="BKMK_PortSite-Internet"></a>Servidor do site-- > Internet  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 1, **Порт прокси-сервера**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 1, **porta do servidor Proxy**)|  
 
-###  <a name="BKMK_PortsIssuingCA_SiteServer"></a> Сервер сайта &lt; -- > выдающий центр сертификации (ЦС)  
- Эта связь используется при развертывании профилей сертификатов с помощью точки регистрации сертификатов. Эта связь используется не для всех серверов сайтов в иерархии. Она применяется только для сервера сайта на верхнем уровне иерархии.  
+###  <a name="BKMK_PortsIssuingCA_SiteServer"></a>Servidor do site &lt; -> autoridade de certificação (AC) emissora  
+ Esta comunicação é utilizada na implementação de perfis de certificado, utilizando o ponto de registo de certificados. A comunicação não é utilizada para cada servidor do site na hierarquia. Em vez disso, é utilizado apenas para o servidor do site na parte superior da hierarquia.  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC (DCOM)|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC (DCOM)|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-RSP"></a> Сервер сайта &lt; -- > точка служб Reporting Services  
- (См. примечание 5, **Передача данных между сервером сайта и системами сайта**)  
+###  <a name="BKMK_PortsSite-RSP"></a>Servidor do site &lt; -> ponto do Reporting Services  
+ (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-Site"></a> Сервер сайта &lt; -- > сервер сайта  
+###  <a name="BKMK_PortsSite-Site"></a>Servidor do site &lt; -> servidor do Site  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
 
-###  <a name="BKMK_PortsSite-SQL"></a> Сервер сайта -- > Server  
+###  <a name="BKMK_PortsSite-SQL"></a>Servidor do site-- > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
- Во время установки сайта, который использует удаленный экземпляр SQL Server для размещения базы данных сайта, необходимо открыть следующие порты между сервером сайта и SQL Server.  
+ Durante a instalação de um site que utiliza o SQL Server remoto para alojar a base de dados do site, tem de abrir as seguintes portas entre o servidor do site e o SQL Server:  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-Provider"></a> Сервер сайта -- > поставщик SMS  
+###  <a name="BKMK_PortsSite-Provider"></a>Servidor do site-- > fornecedor de SMS  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
-|RPC|--|DYNAMIC (см. примечание 6, **Динамические порты**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-SUP"></a> Сервер сайта &lt; -- > точка обновления программного обеспечения  
- (См. примечание 5, **Передача данных между сервером сайта и системами сайта**)  
+###  <a name="BKMK_PortsSite-SUP"></a>Servidor do site &lt; -> ponto de atualização de Software  
+ (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Протокол HTTP|--|80 или 8530 (см. примечание 3 **Службы Windows Server Update Services**)|  
-|Протокол HTTPS|--|443 или 8531 (см. примечание 3, **Службы обновлений Windows Server**)|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Ver nota 3, **Windows Server Update Services**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Ver nota 3, **Windows Server Update Services**)|  
 
-###  <a name="BKMK_PortsSite-SMP"></a> Сервер сайта &lt; -- > точка миграции состояния  
- (См. примечание 5, **Передача данных между сервером сайта и системами сайта**)  
+###  <a name="BKMK_PortsSite-SMP"></a>Servidor do site &lt; -> ponto de migração de estado  
+ (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
-|Сопоставитель конечных точек RPC|135|135|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
 
-###  <a name="BKMK_PortsProvider-SQL"></a> Поставщик SMS -- &gt; SQL Server  
+###  <a name="BKMK_PortsProvider-SQL"></a> Fornecedor de SMS -- &gt; SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsSUP-Internet"></a> Точка обновления программного обеспечения -- > Интернет  
+###  <a name="BKMK_PortsSUP-Internet"></a>Ponto de atualização de software-- > Internet  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 (см. примечание 1, **Порт прокси-сервера**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 1, **porta do servidor Proxy**)|  
 
-###  <a name="BKMK_PortsSUP-WSUS"></a> Точка обновления программного обеспечения -- > вышестоящий сервер WSUS  
+###  <a name="BKMK_PortsSUP-WSUS"></a>Ponto de atualização de software-- > servidor WSUS a montante  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол HTTP|--|80 или 8530 (см. примечание 3 **Службы Windows Server Update Services**)|  
-|Протокол HTTPS|--|443 или 8531 (см. примечание 3, **Службы обновлений Windows Server**)|  
+|Protocolo HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Ver nota 3, **Windows Server Update Services**)|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Ver nota 3, **Windows Server Update Services**)|  
 
 ###  <a name="BKMK_PortsSQL-SQL"></a> SQL Server --&gt; SQL Server  
- Во время межсайтовой репликации базы данных необходимо, чтобы SQL Server на одной стороне напрямую подключался с SQL Server родительского или дочернего сайта.  
+ A replicação de base de dados entre sites requer o SQL Server num site para comunicar diretamente com o SQL Server no respetivo site principal ou subordinado.  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Служба SQL Server|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
-|SQL Server Service Broker|--|4022 (см. примечание 2 **Доступен альтернативный порт**)|  
+|Serviço do SQL Server|--|1433 (ver nota 2, **alternativa porta disponível**)|  
+|SQL Server Service Broker|--|4022 (ver nota 2, **alternativa porta disponível**)|  
 
 > [!TIP]  
->  Configuration Manager не требует обозревателя SQL Server, который использует порт UDP 1434.  
+>  O Configuration Manager não requer o SQL Server Browser, que utiliza a porta UDP 1434.  
 
-###  <a name="BKMK_PortsStateMigrationPoint-to-SQL"></a> Точка миграции состояния -- > SQL Server  
+###  <a name="BKMK_PortsStateMigrationPoint-to-SQL"></a>Estado do ponto de migração - > SQL Server  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL через TCP|--|1433 (см. примечание 2 **Доступен альтернативный порт**)|  
+|SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
 
 
-###  <a name="BKMY_PortNotes"></a> Примечания для портов, используемых клиентами и системами сайта Configuration Manager  
+###  <a name="BKMY_PortNotes"></a> Notas relativas às portas utilizadas por clientes e sistemas de sites do Configuration Manager  
 
-1.  **Порт прокси-сервера.** Этот порт невозможно настроить, но можно маршрутизировать через настроенный прокси-сервер.  
+1.  **Porta do servidor proxy**: Esta porta não pode ser configurada, mas pode ser encaminhada através de um servidor proxy configurado.  
 
-2.  **Доступен альтернативный порт.** Для этого значения в Configuration Manager можно определить альтернативный порт. Если задан специальный порт, замените этот специальный порт при определении информации IP-фильтра для политик IPsec или при настройке брандмауэров.  
+2.  **Alternate porta disponível**: Uma porta alternativa pode ser definida no Configuration Manager para este valor. Se tiver sido definida uma porta personalizada, substitua-a quando definir as informações de filtro IP para políticas IPsec ou para configurar firewalls.  
 
-3.  **Службы Windows Server Update Services (WSUS)**: службы WSUS можно установить для обмена данными с клиентов с использованием портов 80/443 или 8530/8531. Когда вы запускаете службы WSUS в Windows Server 2012 или Windows Server 2016, для них по умолчанию настраивается использование HTTP-порта 8530 и HTTPS-порта 8531.  
+3.  **Windows Server Update Services (WSUS)**: WSUS pode ser instaladas para utilizar as portas 80/443 ou as portas 8530/8531 para comunicações de clientes. Quando executar o WSUS no Windows Server 2012 ou Windows Server 2016, o WSUS está configurado por predefinição para utilizar a porta 8530 para HTTP e a porta 8531 para HTTPS.  
 
-     После установки порт можно изменить. Нет необходимости использовать один номер порта во всей иерархии сайтов.  
+     Após a instalação, a porta pode ser alterada. Não é necessário utilizar o mesmo número de porta ao longo da hierarquia do site.  
 
-    -   Если для HTTP используется порт 80, для HTTPS необходимо использовать порт 443.  
+    -   Se a porta HTTP for 80, a porta HTTPS tem de ser 443.  
 
-    -   Если используется другой HTTP-порт (например, 8530), номер HTTPS-порта должен быть больше на 1 (8531).   
+    -   Se a porta HTTP for qualquer outra, a porta HTTPS tem de ser 1 ou superior, por exemplo, 8530 e 8531.   
 
     > [!NOTE]  
-    >  При настройке точки обновления программного обеспечения на использование протокола HTTPS HTTP-порт также должен быть открыт. Незашифрованные данные, такие как лицензионное соглашение для конкретных обновлений, используют HTTP-порт.  
+    >  Quando configura o ponto de atualização de software para utilizar HTTPS, a porta HTTP também tem de estar aberta. Os dados não encriptados, como o EULA para atualizações específicas, utilizam a porta HTTP.  
 
-4.  **Управляющая программа TFTP.** Служба системы управляющей программы TFTP является составной частью службы развертывания Windows, и для нее не требуется имя пользователя или пароль. Служба управляющей программы TFTP реализует поддержку протокола TFTP, определенного следующими RFC:  
+4.  **Daemon trivial FTP (TFTP)**: O serviço de sistema do Daemon Trivial FTP (TFTP) não requer um nome de utilizador ou palavra-passe e é uma parte integral de serviços de implementação do Windows (WDS). O serviço do Trivial FTP Daemon implementa suporte para o protocolo TFTP definido pelos RFC seguintes:  
 
-    -   RFC 350 — TFTP;  
+    -   RFC 350: TFTP  
 
-    -   RFC 2347 — расширение параметра;  
+    -   RFC 2347: Extensão de opção  
 
-    -   RFC 2348 — размер блока;  
+    -   RFC 2348: Opção de tamanho de bloco  
 
-    -   RFC 2349 — интервал времени ожидания и размер передачи.  
+    -   RFC 2349: Opções de tamanho de intervalo e transferência do tempo limite  
 
-     Протокол TFTP предназначен для поддержки бездисковой загрузки. Управляющие программы TFTP ожидают передачи данных через порт UDP 69, но отвечают через динамически выделяемый верхний порт. Поэтому включение этого порта разрешит службе TFTP принимать входящие запросы TFTP, но не разрешит выбранному серверу отвечать на эти запросы. Невозможно разрешить выбранному серверу отвечать на входящие запросы TFTP, если сервер TFTP не настроен на ответ через порт 69.  
+     O Protocolo TFTP (Trivial File Transfer Protocol) foi concebido para suportar ambientes de arranque sem disco. Os Daemons TFTP escutam a porta UDP 69 mas respondem a partir de uma porta alta alocada dinamicamente. Por conseguinte, a ativação desta porta permite que o serviço TFTP receber pedidos de TFTP de entrada mas não permite que o servidor selecionado responda a esses pedidos. Não é possível ativar o servidor selecionado responda a pedidos TFTP de entrada, a menos que o servidor TFTP esteja configurado para responder na porta 69.  
 
-5.  **Передача данных между сервером сайта и системами сайта**: по умолчанию передача данных между сервером сайта и системами сайта является двунаправленной. Сервер сайта инициирует соединение для настройки системы сайта, а затем большинство систем сайта вновь подключаются к серверу сайта для передачи информации о состоянии. Точки служб отчетов и точки распространения не передают сведения о состоянии. Если в свойствах системы сайта включить параметр **Сервер сайта должен инициировать подключения к этой системе сайта**, после установки системы сайта она не будет инициировать подключение к серверу сайта. Вместо этого соединения будут инициироваться сервером сайта, и для проверки подлинности на сервере системы сайта будет использоваться учетная запись установки системы сайта.  
+5.  **Comunicação entre o servidor do site e sistemas de sites**: Por predefinição, a comunicação entre o servidor do site e sistemas de sites é bidirecional. O servidor do site inicia a comunicação para configurar o sistema de sites e, em seguida, a maioria dos sistemas de sites restabelece ligação ao servidor do site para enviar informações de estado. Os pontos do Reporting Services e os pontos de distribuição não enviam informações de estado. Se selecionar **exigir que o servidor do site inicie ligações a este sistema de sites** nas propriedades do sistema de sites após a instalação do sistema de sites, o sistema de sites não irá iniciar a comunicação com o servidor do site. Em vez disso, o servidor do site inicia a comunicação e utiliza a conta de instalação do sistema de sites para autenticação para o servidor de sistema de sites.  
 
-6.  **Динамические порты.** Динамические порты (известные также как временные порты) используют диапазон номеров портов, определяемый версией операционной системы. Дополнительные сведения о применяемых по умолчанию диапазонах портов см. в статье [Обзор служб и требования к сетевым портам в Windows](http://go.microsoft.com/fwlink/p/?LinkId=317965).  
+6.  **Portas dinâmicas**: Portas dinâmicas (também conhecidas como portas efémeras) utilizam um intervalo de números de porta que são definidos pela versão do sistema operativo. Para mais informações sobre os intervalos de portas predefinidos, consulte [Descrição geral do serviço e requisitos de portas de rede para o Windows](http://go.microsoft.com/fwlink/p/?LinkId=317965).  
 
-##  <a name="BKMK_AdditionalPorts"></a> Дополнительные списки портов  
- В следующих разделах приводятся дополнительные сведения о портах, используемых в Configuration Manager.  
+##  <a name="BKMK_AdditionalPorts"></a> Listas de portas adicionais  
+ As secções seguintes fornecem informações adicionais sobre as portas que são utilizadas pelo Configuration Manager.  
 
-###  <a name="BKMK_ClientShares"></a> Клиент-серверные общие папки  
- Клиенты используют SMB при подключении к общим UNC-папкам. Пример.  
+###  <a name="BKMK_ClientShares"></a> Partilhas de cliente para servidor  
+ Os clientes utilizam o Bloco de Mensagens de Servidor (SMB) sempre que ligam a partilhas UNC. Por exemplo:  
 
--   Ручная установка клиента, в которой задано свойство командной строки **/source:** для CCMSetup.exe.  
+-   Instalação de cliente manual que especifica o CCMSetup.exe **/Source:** propriedade da linha de comandos  
 
--   Клиенты Endpoint Protection, загружающие файлы определений по UNC-пути.
+-   Clientes do Endpoint Protection que transferem ficheiros de definição de um caminho UNC
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Протокол SMB|--|445|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
 
-###  <a name="BKMK_SQLPorts"></a> Подключения к Microsoft SQL Server  
- Для обмена данными с компонентом SQL Server Database Engine, а также для межсайтовой репликации можно использовать порты SQL Server по умолчанию или указать другие порты.  
+###  <a name="BKMK_SQLPorts"></a> Ligações ao Microsoft SQL Server  
+ Para comunicação com o motor de base de dados do SQL Server e para replicação entre sites, pode utilizar a porta predefinida do SQL Server ou especificar portas personalizadas:  
 
--   Для межсайтовых связей используются:  
+-   As comunicações entre sites utilizam:  
 
-    -   Компонент SQL Server Service Broker, который по умолчанию использует порт TCP 4022.  
+    -   SQL Server Service Broker, que utiliza por predefinição a porta TCP 4022.  
 
-    -   Служба SQL Server, которая по умолчанию использует порт TCP 1433.  
+    -   Serviço do SQL Server, que utiliza por predefinição a porta TCP 1433.  
 
--   Для обмена данными между системой базы данных SQL Server и различными ролями системы сайта Configuration Manager по умолчанию используется порт TCP 1433.  
+-   Comunicações intra-site entre o motor de base de dados do SQL Server e várias funções de sistema de site do Configuration Manager, será assumida a porta TCP 1433.  
 
-- Configuration Manager использует одинаковые порты и протоколы для взаимодействия с каждой репликой группы доступности SQL, в которой размещается база данных сайта, как если бы реплика была отдельным экземпляром SQL Server.
+- O Configuration Manager utiliza as mesmas portas e protocolos para comunicar com cada réplica de grupo de disponibilidade do SQL Server que aloja a base de dados do site, como se a réplica estava uma instância do SQL Server autónomo.
 
-Если при использовании Azure база данных сайта отстает от внутреннего или внешнего балансировщика нагрузки, настройте следующие исключения брандмауэра на каждой реплике и добавьте правила балансировки нагрузки для следующих портов:
- - SQL по TCP: TCP-порт 1433
- - SQL Server Service Broker: TCP-порт 4022
- - SMB: TCP-порт 445
- - Сопоставитель конечных точек RPC: TCP-порт 135
+Quando utiliza o Azure e a base de dados do site estiver atrás de um interno ou o Balanceador de carga externo, configure as seguintes exceções de firewall em cada réplica e adicione regras para as seguintes portas de balanceamento de carga:
+ - SQL sobre TCP: TCP 1433
+ - SQL Server Service Broker: TCP 4022
+ - Bloco de mensagem de servidor (SMB): TCP 445
+ - Mapeador de pontos finais RPC: TCP 135
 
 > [!WARNING]  
->  Configuration Manager не поддерживает динамические порты. Именованные экземпляры SQL Server по умолчанию используют динамические порты для подключения к компоненту Database Engine, поэтому при использовании именнованного экземпляра необходимо вручную настроить статический порт для внутрисайтовой передачи данных.  
+>  O Configuration Manager não suporta portas dinâmicas. Uma vez que, por predefinição, as instâncias nomeadas de SQL Server utilizam portas dinâmicas para ligações ao motor da base de dados, quando utilizar uma instância nomeada tem de configurar manualmente a porta estática que pretende utilizar para comunicação entre sites.  
 
- Следующие роли систем сайта соединяются напрямую с базой данных SQL Server.  
+ As seguintes funções do sistema de sites comunicam diretamente com a base de dados do SQL Server:  
 
--   Тточка веб-службы каталога приложений  
+-   Ponto de serviço Web do Catálogo de Aplicações  
 
--   Роль точки регистрации сертификатов  
+-   Função de ponto de registo de certificados  
 
--   Роль точки регистрации  
+-   Função de ponto de registo  
 
--   Точка управления.  
+-   Ponto de gestão  
 
--   Сервер сайтов  
+-   Servidor do site  
 
--   Точка служб отчетов  
+-   Ponto do Reporting Services  
 
--   поставщика SMS  
+-   Fornecedor de SMS  
 
--   SQL Server --> SQL Server  
+-   SQL Server--> SQL Server  
 
-Если на сервере SQL Server размещены базы данных нескольких сайтов, каждая база данных должна использовать отдельный экземпляр SQL Server и для каждого экземпляра должен быть настроен уникальный набор портов.  
+Quando um SQL Server aloja bases de dados de mais de um site, cada base de dados deve utilizar uma instância separada do SQL Server e cada instância deve ser configurada com um conjunto exclusivo de portas.  
 
-Если на компьютере с SQL Server включен брандмауэр, убедитесь, что он настроен для работы портов, используемых в развертывании. Настройте брандмауэры, находящиеся в дополнительных сетевых расположениях между компьютерами, взаимодействующими с SQL Server, для разрешения использования тех же портов.  
+Se tiver uma firewall ativada no computador do SQL Server, certifique-se de que está configurado para permitir que as portas utilizadas pela sua implementação. Também configure firewalls que estão em localizações adicionais na rede entre computadores que comunicam com o SQL Server para permitir estas portas do mesmas.  
 
-Пример того, как настроить SQL Server на использование конкретного порта, см. в статье [Практическое руководство. Настройка сервера для прослушивания определенного TCP-порта (диспетчер конфигурации SQL Server)](http://go.microsoft.com/fwlink/p/?LinkID=226349) в разделе библиотеки TechNet, посвященном SQL Server.  
-
-
-### <a name="bkmk_discovery"> </a> Обнаружение и публикация
-Для обнаружения и публикации сведений о сайтах используются следующие порты.
- - Протокол LDAP — 389
- - Протокол LDAP (соединение по протоколу SSL) — 636
+Para obter um exemplo de como configurar o SQL Server para utilizar uma porta específica, consulte [como: Configurar um servidor para escutar numa porta TCP específica (SQL Server Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkID=226349) na Biblioteca TechNet do SQL Server.  
 
 
- - Глобальный каталог LDAP — 3268
- - Глобальный каталог LDAP SSL — 3269
+### <a name="bkmk_discovery"></a> Deteção e de publicação
+As seguintes portas são utilizadas para a deteção e a publicação de informações do site:
+ - Lightweight Directory Access Protocol (LDAP): 389
+ - LDAP (ligação Secure Sockets Layer [SSL]): 636
 
 
- - Сопоставитель конечных точек RPC — 135
- - RPC — динамически назначаемые старшие порты ТСР
+ - LDAP de catálogo global: 3268
+ - LDAP SSL de catálogo global: 3269
+
+
+ - Mapeador de pontos finais RPC: 135
+ - RPC: Atribuído dinamicamente portas TCP elevada
 
 
  - TCP: 1024: 5000
- - TCP: 49 152: 65 535
+ - TCP:  49152: 65535
 
 
-###  <a name="BKMK_External"></a> Внешние подключения, устанавливаемые Configuration Manager  
- Клиенты и системы сайтов Configuration Manager могут устанавливать следующие внешние подключения:  
+###  <a name="BKMK_External"></a> Ligações externas efetuadas pelo Configuration Manager  
+ Clientes do Configuration Manager ou sistemas de sites podem efetuar as seguintes ligações externas:  
 
--   [Точка синхронизации каталога аналитики активов -- &gt; Майкрософт](#BKMK_PortsAI)  
+-   [Ponto de sincronização do Asset Intelligence-- &gt; Microsoft](#BKMK_PortsAI)  
 
--   [Точка Endpoint Protection -- &gt; Интернет](#BKMK_PortsEndpointProtection_Internet)  
+-   [Ponto do Endpoint Protection-- &gt; Internet](#BKMK_PortsEndpointProtection_Internet)  
 
--   [Клиент -- &gt; контроллер домена глобального каталога](#BKMK_PortsClient-GCDC)  
+-   [Cliente-- &gt; controlador de domínio de Catálogo Global](#BKMK_PortsClient-GCDC)  
 
--   [Консоль Configuration Manager -- &gt; Интернет](#BKMK_PortsConsole-Internet)  
+-   [Consola do Configuration Manager-- &gt; Internet](#BKMK_PortsConsole-Internet)  
 
--   [Точка управления -- &gt; контроллер домена](#BKMK_PortsMP-DC)  
+-   [Ponto de gestão-- &gt; controlador de domínio](#BKMK_PortsMP-DC)  
 
--   [Сервер сайта -- &gt; контроллер домена](#BKMK_PortsSite-DC)  
+-   [Servidor do site-- &gt; controlador de domínio](#BKMK_PortsSite-DC)  
 
--   [Сервер сайта &lt; -- &gt; выдающий центр сертификации (ЦС)](#BKMK_PortsIssuingCA_SiteServer)  
+-   [Servidor do site &lt;  --  &gt; autoridade de certificação emissora (AC)](#BKMK_PortsIssuingCA_SiteServer)  
 
--   [Точка обновления программного обеспечения -- &gt; Интернет](#BKMK_PortsSUP-Internet)  
+-   [Ponto de atualização de software-- &gt; Internet](#BKMK_PortsSUP-Internet)  
 
--   [Точка обновления программного обеспечения -- &gt; вышестоящий сервер WSUS](#BKMK_PortsSUP-WSUS)  
+-   [Ponto de atualização de software-- &gt; servidor WSUS a montante](#BKMK_PortsSUP-WSUS)  
 
--   [Точка подключения службы -- &gt; Microsoft Intune](#BKMK_PortsIntuneConnector-WindowsIntune)  
+-   [Serviço de ponto de ligação – &gt; Microsoft Intune](#BKMK_PortsIntuneConnector-WindowsIntune)  
 
-###  <a name="BKMK_IBCMports"></a> Требования к установке для систем сайта, поддерживающих интернет-клиентов  
- Точки управления и точки распространения, поддерживающие интернет-клиентов, точка обновления программного обеспечения, а также резервная точка состояния используют следующие порты для установки и восстановления.  
+###  <a name="BKMK_IBCMports"></a> Requisitos de instalação para sistemas de sites que suportam clientes baseados na Internet  
+ Pontos de gestão e pontos de distribuição que suportam clientes baseados na Internet, o ponto de atualização de software e o ponto de estado de contingência utilizam as seguintes portas para instalação e reparação:  
 
--   Сервер сайта --> система сайта: сопоставитель конечных точек RPC с использованием порта 135 UDP и TCP.  
+-   Servidor do site--> sistema de sites: Mapeador de ponto final RPC utilizando a porta UDP e TCP 135.  
 
--   Сервер сайта --> система сайта: динамические TCP-порты RPC.  
+-   Servidor do site--> sistema de sites: Portas TCP dinâmicas de RPC  
 
--   Сервер сайта &lt; --> система сайта: протокол SMB с использованием порта TCP 445.
+-   Servidor do site &lt; --> sistema de sites: Blocos de mensagens de servidor (SMB) através de TCP a porta 445
 
-Для установки пакетов и приложений в точках распространения требуются следующие порты RPC.  
+As instalações de aplicações e pacotes em pontos de distribuição exigem as seguintes portas RPC:  
 
--   Сервер сайта --> точка распространения: сопоставитель конечных точек RPC с использованием порта 135 UDP и TCP.
+-   Servidor do site--> ponto de distribuição: Mapeador de ponto final RPC utilizando a porta UDP e TCP 135
 
--   Сервер сайта --> точка распространения: динамические TCP-порты RPC  
+-   Servidor do site--> ponto de distribuição: Portas TCP dinâmicas de RPC  
 
-Используйте протокол IPSec для защиты обмена данными между сервером сайта и системами сайта. Если необходимо ограничить динамические порты, используемые RPC, можно использовать средство настройки RPC (Майкрософт) (rpccfg.exe) для настройки ограниченного диапазона портов для передачи пакетов RPC. Дополнительные сведения о средстве настройки RPC см. в статье [Настройка RPC на использование определенных портов и защита этих портов с помощью IPsec](http://go.microsoft.com/fwlink/p/?LinkId=124096).  
+Utilize o IPsec para ajudar a proteger o tráfego entre o servidor do site e os sistemas de sites. Se for preciso restringir as portas dinâmicas utilizadas com RPC, pode utilizar a ferramenta de configuração Microsoft RPC (rpccfg.exe) para configurar um intervalo limitado de portas para estes pacotes RPC. Para obter mais informações sobre a ferramenta de configuração RPC, consulte [Como configurar o RPC para utilizar determinadas portas e como ajudar a proteger essas portas utilizando o IPsec](http://go.microsoft.com/fwlink/p/?LinkId=124096).  
 
 > [!IMPORTANT]  
->  Перед установкой этих систем сайта проверьте, что на сервере системы сайта запущена служба удаленного реестра и что указана учетная запись установки системы сайта, если система сайта находится в другом лесу Active Directory без отношений доверия.  
+>  Antes de instalar estes sistemas de sites, certifique-se de que o serviço registo remoto está em execução no servidor do sistema de site e que especificou uma conta de instalação do sistema de sites se o sistema de sites noutra floresta do Active Directory sem uma relação de fidedignidade.  
 
-###  <a name="BKMK_PortsClientInstall"></a> Порты, используемые при установке клиента Configuration Manager  
-Набор портов, используемых при установке клиента, зависит от метода его развертывания. Список портов для каждого метода развертывания клиента см. в подразделе **Порты, используемые при развертывании клиентов Configuration Manager** раздела [Параметры брандмауэра Windows и портов для клиентов в System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md). Сведения о настройке брандмауэра Windows на клиентских компьютерах для установки клиента и его последующего использования см. в разделе [Параметры брандмауэра Windows и портов для клиентов в System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+###  <a name="BKMK_PortsClientInstall"></a> Portas utilizadas pela instalação do cliente do Configuration Manager  
+As portas utilizadas durante a instalação do cliente dependem do método de implementação do cliente. Para obter uma lista de portas para cada método de implementação do cliente, consulte **portas utilizadas durante a implementação de cliente do Configuration Manager** no [Firewall do Windows e definições de porta para clientes no System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md) tópico. Para obter informações sobre como configurar a Firewall do Windows no cliente para a instalação de cliente e comunicação pós-instalação, consulte [Firewall do Windows e definições de porta para clientes no System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
-###  <a name="BKMK_MigrationPorts"></a> Порты, используемые при миграции  
-Сервер сайта, выполняющий миграцию, использует определенные порты для подключения к соответствующим сайтам в исходной иерархии для сбора данных из базы данных SQL Server исходных сайтов и для общего доступа к точкам распространения.  
+###  <a name="BKMK_MigrationPorts"></a> Portas utilizadas pela migração  
+O servidor do site que executa a migração utiliza várias portas para ligar a sites aplicáveis na hierarquia de origem para recolher dados de bases de dados sites de origem e para partilhar pontos de distribuição.  
 
- Дополнительные сведения об этих портах см. в подразделе [Требуемые настройки для миграции](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) раздела [Необходимые условия для миграции в System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md).  
+ Para obter informações sobre estas portas, consulte o [configurações necessárias para a migração](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) secção o [pré-requisitos para migração no System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md) tópico.  
 
-###  <a name="BKMK_ServerPorts"></a> Порты, используемые сервером Windows Server  
- В следующей таблице перечислены некоторые ключевые порты, используемые Windows Server, и связанные с ними функции. Более подробный список служб Windows Server и требований к сетевым портам см. в статье [Обзор служб и требований к сетевым портам в системе Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
+###  <a name="BKMK_ServerPorts"></a> Portas utilizadas pelo Windows Server  
+ A tabela seguinte lista algumas das principais portas utilizadas pelo Windows Server, juntamente com as respetivas funções. Para obter uma lista mais completa dos serviços e dos requisitos de portas de rede do Windows Server, consulte [Descrição geral dos serviços e requisitos de portas de rede para o sistema do Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
 
-|Описание|Протокол UDP|TCP|  
+|Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Служба доменных имен (DNS)|53|53|  
-|Протокол DHCP|67 и 68|--|  
-|Разрешение NetBIOS-имен|137|--|  
-|Служба датаграмм NetBIOS|138|--|  
-|Служба сеанса NetBIOS|--|139|  
+|Sistema de Nomes de Domínio (DNS)|53|53|  
+|Protocolo DHCP (Dynamic Host Configuration Protocol)|67 e 68|--|  
+|Resolução de Nomes NetBIOS|137|--|  
+|Serviço de Datagrama NetBIOS|138|--|  
+|Serviço de Sessão NetBIOS|--|139|  

@@ -1,6 +1,6 @@
 ---
-title: "Мониторинг состояния развертывания клиентов | Документы Майкрософт"
-description: "Мониторинг состояния развертывания клиентов в System Center Configuration Manager."
+title: "Monitorizar o estado de implementação do cliente | Microsoft Docs"
+description: "Monitorizar o estado de implementação do cliente no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,48 +17,48 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3d9d02d8c56aea17e563112f92173c2b56781da6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>Мониторинг состояния развертывания клиентов в System Center Configuration Manager
+# <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>Como monitorizar o estado de implementação do cliente no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для развертывания клиентов на сайте требуется некоторое время, и не всегда установка проходит успешно с первой попытки. Консоль System Center Configuration Manager позволяет следить за развертыванием клиентов в пределах коллекции, предоставляя отчеты о состоянии развертывания клиента в реальном времени.  
+A implementação de clientes no seu site demora algum tempo e algumas instalações não são bem sucedidas à primeira vez. A consola do System Center Configuration Manager fornece uma forma atento em implementações de cliente numa coleção pelo relatório de estado de implementação do cliente em tempo real.  
 
 > [!NOTE]  
->  Самый лучший и самый надежный способ отслеживать развертывание клиентов — с помощью консоли Configuration Manager (как описано в этой статье). Раздел **Состояние клиента** в рабочей области **Мониторинг** консоли в реальном времени отображает точные сведения о состоянии развертывания клиентов. Можно отслеживать развертывания клиентов с помощью других средств, таких как диспетчер серверов в Windows Server или System Center Operations Manager, но при этом могут отображаться предупреждения, несмотря на нормальные действия установки клиента. Из-за того, что программа установки клиентов (CCMSetup.exe) выполняется в различных средах, другие средства могут создавать ложные сигналы и предупреждения, которые не отражают точное состояние развертываний клиентов.  
+>  A forma de melhor e mais fiável de monitorizar a implementação do cliente é com a consola do Configuration Manager (como descrito neste artigo). A secção **Estado do Cliente** da área de trabalho **Monitorização** na consola mostra o estado da implementação do cliente com precisão e em tempo real. Pode monitorizar as implementações de cliente com outras ferramentas, como o Gestor de Servidores no Windows Server ou o System Center Operations Manager, mas pode receber alarmes da atividade normal de instalação de cliente. Devido à maneira como o programa de instalação de cliente (CCMSetup.exe) é executado em vários ambientes, estas outras ferramentas podem gerar alarmes e avisos falsos que não refletem com precisão o estado das implementações de cliente.  
 
- В рабочей области **Мониторинг** консоли можно отслеживать следующие состояния развертываний клиентов, выполняющиеся в пределах указанной коллекции.  
+ Na área de trabalho **Monitorização** da consola, pode monitorizar os seguintes estados para as implementações de cliente executadas numa coleção que especificar:  
 
--   Соответствие  
+-   Compatível  
 
--   Выполняется  
+-   Em curso  
 
--   Несоответствие  
+-   Não compatível  
 
--   Сбой  
+-   Falhou  
 
--   Неизвестно  
+-   Desconhecido  
 
- Configuration Manager создает отчеты о развертываниях рабочих или подготовительных клиентов. Configuration Manager также предоставляет диаграмму ошибок, произошедших при развертывании клиентов за указанный период времени, которая помогает определить, способствовали ли действия, предпринятые вами для устранения неполадок, повышению уровня успешности развертываний в дальнейшем.  
+ Os relatórios do Gestor de Configuração sobre implementações para clientes de produção ou de clientes de pré-produção. A consola do Configuration Manager também fornece um gráfico das implementações de cliente falhadas durante um determinado período de tempo para o ajudar a determinar se as ações que toma para resolver implementações estão a melhorar a taxa de sucesso de implementação com o tempo.  
 
-## <a name="to-monitor-client-deployments"></a>Мониторинг развертываний клиентов  
+## <a name="to-monitor-client-deployments"></a>Monitorizar as implementações do cliente  
 
--   В консоли Configuration Manager щелкните элемент **Наблюдение** > **Состояние клиентов**.  
+-   Na consola do Configuration Manager, clique em **monitorização** > **estado do cliente**.  
 
--   В зависимости от версии отслеживаемого клиента щелкните **Рабочее развертывание клиента** или **Предварительное развертывание клиента**.  
+-   Clique em **Implementação do Cliente de Produção** ou em **Implementação do Cliente de Pré-produção** consoante a versão do cliente que pretende monitorizar.  
 
--   Просмотрите диаграммы состояний развертываний клиентов и ошибок при развертывании.  
+-   Reveja os gráficos do estado de implementação do cliente e de falha de implementação do cliente.  
 
--   Чтобы изменить область отчета, нажмите кнопку **Обзор...** и выберите другую коллекцию.  
+-   Se pretender alterar o âmbito do relatório, clique em **procurar...**  e escolha uma coleção diferente.  
 
- Дополнительные сведения о предварительном развертывании клиентов см. в разделе [Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
+ Para obter mais informações sobre implementações de cliente de pré-produção, consulte [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
 
  > [!NOTE]
- > Состояние развертывания на компьютерах, где размещаются роли системы сайта, в предварительной коллекции может отображаться как **Не соответствует** даже после успешного развертывания клиента. При переходе к рабочему развертыванию клиента состояние развертывания отображается правильно.   
+ > O estado de implementação em computadores que alojam funções do sistema de sites de uma coleção de pré-produção, pode ser comunicado como **não compatíveis** , mesmo quando o cliente foi implementado com êxito. Ao promover o cliente para produção, o estado de implementação é reportado corretamente.   
 
- Сведения об отслеживании состояния развернутых клиентов см. в статье [Мониторинг клиентов в System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
+ Para monitorizar o estado dos clientes implementados, veja [Como monitorizar clientes no System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
 
- С помощью отчетов Configuration Manager можно получить более подробные сведения о состоянии клиентов на сайте. Дополнительные сведения о запуске отчетов см. в разделе [Ведение отчетов в System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
+ Pode utilizar os relatórios do Configuration Manager para obter mais informações sobre o estado de clientes do site. Para obter mais informações sobre como executar relatórios, veja [Os relatórios do System Center Configuration Manager](../../../core/servers/manage/reporting.md).  

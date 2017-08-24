@@ -1,6 +1,6 @@
 ---
-title: "Планирование развертывания клиентов на компьютерах Mac | Документы Майкрософт"
-description: "Спланируйте развертывание клиентов на компьютерах Mac в System Center Configuration Manager."
+title: "Planear a implementação do cliente para computadores Mac | Microsoft Docs"
+description: "Planear a implementação do cliente para computadores Mac no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,94 +17,94 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 75bddb41d4d1cf209fa7595c52b5a6aa831ba3dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Планирование развертывания клиентов на компьютерах Mac в System Center Configuration Manager
+# <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Planear a implementação do cliente para computadores Mac no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Клиент Configuration Manager можно установить на компьютерах Mac с операционной системой Mac OS X для использования перечисленных ниже возможностей управления.  
+Pode instalar o cliente do Configuration Manager em computadores Mac que executam o sistema de operativo Mac OS X e utilizam as seguintes capacidades de gestão:  
 
--   **Инвентаризация оборудования**  
+-   **Inventário de hardware**  
 
-     Средство инвентаризации оборудования Configuration Manager можно использовать для сбора информации об оборудовании компьютеров Mac и установленных на них приложениях. Затем эту информацию можно просмотреть с помощью обозревателя ресурсов в консоли Configuration Manager и использовать для создания коллекций, запросов и отчетов. Дополнительные сведения см. в разделе [Использование обозревателя ресурсов для просмотра данных инвентаризации оборудования в System Center Configuration Manager](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
+     Pode utilizar o inventário de hardware do Configuration Manager para recolher informações sobre o hardware e aplicações instaladas em computadores Mac. Estas informações podem ser visualizadas no Explorador de recursos na consola do Configuration Manager e utilizadas para criar coleções, consultas e relatórios. Para obter mais informações, consulte [como utilizar o Explorador de recursos para ver o inventário de hardware no System Center Configuration Manager](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
-     Configuration Manager собирает следующие сведения об оборудовании на компьютерах Mac:  
+     O Configuration Manager recolhe as seguintes informações de hardware de computadores Mac:  
 
-    -   Процессор  
+    -   Processador  
 
-    -   Компьютерная система  
+    -   Sistema de computador  
 
-    -   Диск  
+    -   Unidade de disco  
 
-    -   Раздел диска  
+    -   Partição de disco  
 
-    -   Сетевой адаптер  
+    -   Adaptador de rede  
 
-    -   Операционная система  
+    -   Sistema Operativo  
 
-    -   Служба  
+    -   Serviço  
 
-    -   Как это работает  
+    -   Processo  
 
-    -   Установленное ПО  
+    -   Software instalado  
 
-    -   Продукт компьютерной системы  
+    -   Produto de sistema do computador  
 
-    -   USB-контроллер  
+    -   Controlador USB  
 
-    -   USB-устройство  
+    -   Dispositivo USB  
 
-    -   Устройство чтения компакт-дисков  
+    -   Unidade de CD-ROM  
 
-    -   Видеоконтроллер  
+    -   Controlador de vídeo  
 
-    -   Настольный монитор  
+    -   Monitor de secretária  
 
-    -   Переносная батарея  
+    -   Bateria portátil  
 
-    -   Физическая память  
+    -   Memória física  
 
-    -   Принтер  
+    -   Impressora  
 
     > [!IMPORTANT]  
-    >  Данные об оборудовании, собираемые на компьютерах Mac в процессе инвентаризации оборудования, расширить нельзя.  
+    >  Não é possível expandir as informações de hardware recolhidas de computadores Mac durante o inventário de hardware.  
 
--   **Параметры соответствия**  
+-   **Definições de compatibilidade**  
 
-     Параметры соответствия Configuration Manager можно использовать для просмотра состояния соответствия и исправления предпочитаемых параметров Mac OS X (PLIST). Например, можно настроить принудительное применение параметра, который устанавливает домашнюю страницу веб-браузера Safari, или же обеспечить включение брандмауэра Apple. Вы также можете использовать сценарии оболочки для отслеживания и исправления параметров Mac OS X.  
+     Pode utilizar as definições de compatibilidade do Configuration Manager para ver a compatibilidade e remediar as definições de preferência (. plist) do Mac OS X. Por exemplo, pode impor definições para a home page do Safari browser ou certifique-se de que a firewall Apple está ativada. Também pode utilizar scripts de shell para monitorizar e remediar as definições no MAC OS X.  
 
--   **Управление приложениями**  
+-   **Gestão de aplicações**  
 
-     Configuration Manager позволяет развертывать программное обеспечение на компьютерах Mac. На компьютеры Mac можно развертывать программное обеспечение в следующих форматах:  
+     O Configuration Manager pode implementar software em computadores Mac. Pode implementar os seguintes formatos de software para computadores Mac:  
 
-    -   образ диска Apple (DMG);  
+    -   Imagem de disco Apple (. DMG)  
 
-    -   метафайл пакета (MPKG);  
+    -   Ficheiro de pacote meta (. MPKG)  
 
-    -   пакет установщика Mac OS X (PKG);  
+    -   Mac pacote instalador OS X (. PKG)  
 
-    -   приложение Mac OS X (APP).  
+    -   Aplicação do Mac OS X (. APLICAÇÃO)  
 
- При установке клиента Configuration Manager на компьютерах Mac нельзя использовать следующие возможности управления, поддерживаемые клиентом Configuration Manager на компьютерах Windows:  
+ Quando instalar o cliente do Configuration Manager em computadores Mac, não é possível utilizar as seguintes capacidades de gestão que são suportadas pelo cliente do Configuration Manager em computadores baseados em Windows:  
 
--   Принудительная установка клиента  
+-   Instalação push do cliente  
 
--   Развертывание операционной системы  
+-   Implementação do sistema operativo  
 
--   Обновления программного обеспечения  
+-   Atualizações de software  
 
     > [!NOTE]  
-    >  Можно использовать реализованные в Configuration Manager средства управления приложениями для развертывания обязательных обновлений ПО Mac OS X на компьютерах Mac. Кроме того, можно использовать параметры соответствия для проверки наличия на компьютерах обязательных обновлений программного обеспечения.  
+    >  Pode utilizar a gestão de aplicações do Configuration Manager para implementar atualizações de software necessárias do Mac OS X em computadores Mac. Além disso, pode utilizar as definições de compatibilidade para se certificar de que os computadores têm todas as atualizações de software necessárias.  
 
--   Периоды обслуживания  
+-   Janelas de manutenção  
 
--   Удаленное управление  
+-   Controlo remoto  
 
--   Исключение брандмауэра Windows для прокси-сервера пробуждения  
+-   Gestão de energia  
 
--   Проверка и исправление состояния клиента  
+-   Verificação de cliente do estado do cliente e remediação  
 
- Дополнительные сведения об установке и настройке клиента Configuration Manager для Mac см. в разделе [Развертывание клиентов на компьютерах Mac в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md).
+ Para obter mais informações sobre como instalar e configurar o cliente do Configuration Manager Mac, consulte [como implementar clientes em Mac no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md).

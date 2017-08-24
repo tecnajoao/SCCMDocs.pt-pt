@@ -1,6 +1,6 @@
 ---
-title: "Обновление ознакомительных версий | Документы Майкрософт"
-description: "Узнайте, как обновить ознакомительную версию System Center Configuration Manager до полной версии."
+title: "Atualizar a instalação de avaliação | Microsoft Docs"
+description: "Saiba como atualizar uma instalação de avaliação para uma instalação completa do System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8f951805c2fc25059965c15c94934c0f8546735c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-an-evaluation-installation-of-system-center-configuration-manager-to-a-full-installation"></a>Обновление ознакомительной версии System Center Configuration Manager до полной версии
+# <a name="upgrade-an-evaluation-installation-of-system-center-configuration-manager-to-a-full-installation"></a>Atualizar uma instalação de avaliação do System Center Configuration Manager para uma instalação completa
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Если продукт System Center Configuration Manager установлен для ознакомления, через 180 дней консоль Configuration Manager будет доступна только для чтения до тех пор, пока продукт не будет активирован на странице **Обслуживание сайта** программы установки. Обновить ознакомительную версию до полной можно в любое время до или после 180-дневного периода.  
+Se tiver instalado o System Center Configuration Manager como uma versão de avaliação, após o prazo de 180 dias, a consola do Configuration Manager torna-se só de leitura até ativar o produto do **manutenção do Site** página na configuração. Em qualquer altura antes ou após o período de 180 dias, terá a opção para atualizar uma instalação de avaliação para uma instalação completa.  
 
 > [!NOTE]  
->  При подключении консоли Configuration Manager к ознакомительной версии Configuration Manager в заголовке окна консоли отображается количество дней до истечения срока действия ознакомительной версии. Количество дней не обновляется автоматически. Оно обновляется только при новом подключении к сайту.  
+>  Quando ligar uma consola do Configuration Manager para uma instalação de avaliação do Configuration Manager, na barra de título da consola mostra o número de dias remanescentes até que a instalação de avaliação expire. O número de dias não é automaticamente atualizado e apenas atualizações quando efetuar uma nova ligação a um site.  
 
- Вы можете обновить следующие сайты, где используется ознакомительная версия:  
+ Pode atualizar os sites seguintes que executam uma instalação de avaliação:  
 
--   Сайт центра администрирования  
--   Первичный сайт  
+-   Site de administração central  
+-   Site primário  
 
-Поскольку вторичные сайты не считаются ознакомительными версиями, их не требуется изменять после обновления родительского первичного сайта до полной версии.  
+Porque os sites secundários não são processados como instalações de avaliação, não terá de modificar um site secundário após a atualização do site primário principal para uma instalação completa.  
 
-Предварительные требования для обновления ознакомительной версии до лицензированной  
+Pré-requisitos para atualizar uma versão de avaliação para uma versão licenciada:  
 
--   Нужно располагать соответствующим продуктом, который будет использоваться во время обновления.  
--   Ваша учетная запись должна иметь права **администратора** на компьютере, где устанавливается сайт.  
+-   Tem de ter um produto válido para utilizar durante a atualização.  
+-   A conta tem de ter **administrador** direitos no computador onde a instalação do site.  
 
-### <a name="to-upgrade-an-evaluation-version-of-configuration-manager-to-a-licensed-version"></a>Обновление ознакомительной версии Configuration Manager до лицензированной версии  
+### <a name="to-upgrade-an-evaluation-version-of-configuration-manager-to-a-licensed-version"></a>Para atualizar uma versão de avaliação do Configuration Manager para uma versão licenciada  
 
-1.  На сервере сайта запустите файл **Setup.exe** (программа установки Configuration Manager) из папки установки Configuration Manager (**%path%\BIN\X64**). Необходимо запустить копию программы установки, расположенную на сервере сайта в папке Configuration Manager, так как при запуске программы установки с установочного носителя будут недоступны параметры обслуживания сайта.  
-2.  На странице **Перед началом работы** нажмите кнопку **Далее**.  
-3.  На странице **Приступая к работе** выберите **Выполнить обслуживание или сброс параметров этого сайта**, а затем нажмите кнопку **Далее**.  
-4.  На странице **Обслуживание сайта** выберите **Преобразовать ознакомительную версию продукта в лицензированную**, введите действительный ключ продукта и нажмите кнопку **Далее**.  
-5.  На странице **Условия лицензионного соглашения на использование программного обеспечения Майкрософт** прочтите и примите условия лицензии, а затем нажмите кнопку **Далее**.  
-6.  На странице **Конфигурация** нажмите кнопку **Закрыть**, чтобы завершить работу мастера.  
+1.  No servidor do site, execute **Setup.exe** (configuração do Configuration Manager) da pasta de instalação do Configuration Manager (**%path%\BIN\X64**). Tem de executar a cópia do programa de configuração que está localizado no servidor do site na pasta Configuration Manager, porque as opções de manutenção do site não estão disponíveis quando executa a configuração do suporte de dados de instalação.  
+2.  No **antes de começar** página, selecione **seguinte**.  
+3.  No **introdução** página, selecione **executar a manutenção do site ou repor o Site**e, em seguida, selecione **seguinte**.  
+4.  No **manutenção do Site** página, selecione **atualizar a edição de avaliação para uma edição licenciada**, introduza uma chave de produto válida e, em seguida, selecione **seguinte**.  
+5.  No **termos de licenciamento de Software Microsoft** página, leia e aceite os termos de licenciamento e, em seguida, selecione **seguinte**.  
+6.  No **configuração** página, selecione **fechar** para concluir o assistente.  
 
     > [!NOTE]  
-    >  В заголовке консоли Configuration Manager, которая осталась подключенной к обновляемому сайту, может быть по-прежнему указано использование ознакомительной версии (до повторного подключения консоли к сайту).  
+    >  A barra de título da consola do Configuration Manager que permanecem ligada ao site que atualizar pode indicar que o site ainda é uma versão de avaliação até voltar a ligar a consola ao site.  

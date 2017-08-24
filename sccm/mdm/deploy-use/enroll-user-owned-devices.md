@@ -1,6 +1,6 @@
 ---
-title: "Регистрация пользовательских устройств для гибридных развертываний с помощью Configuration Manager | Документация Майкрософт"
-description: "Ознакомьтесь с различными способами регистрации пользовательских устройств для гибридных развертываний с помощью Configuration Manager."
+title: "Inscrever dispositivos propriedade do utilizador para implementações híbridas com o Configuration Manager | Microsoft Docs"
+description: "Saiba mais sobre métodos diferentes para inscrever dispositivos propriedade do utilizador para implementações híbridas com o Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,16 +16,16 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 6793e4736fe2603dfaef9f98b0fb54e5584aa7cd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-user-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Регистрация пользовательских устройств для гибридных развертываний с помощью Configuration Manager
+# <a name="enroll-user-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Inscrever dispositivos propriedade do utilizador para implementações híbridas com o Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Пользовательские устройства (BYOD) можно регистрировать для управления различными методами в зависимости от типа устройства и способа его приобретения.  
+Dispositivos propriedade do utilizador (BYOD) podem ser colocados em gestão de variadas formas consoante o dispositivo e como foi comprado.  
 
-После включения регистрации пользовательские устройства можно зарегистрировать через приложение корпоративного портала.
+Quando a inscrição estiver ativada, os dispositivos detidos podem ser inscritos através da aplicação portal da empresa.
 
-[Ресурсы по пользовательскому интерфейсу Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) позволяют рассмотреть некоторые действия, которые выполняют конечные пользователи для реализации различных задач в Intune после регистрации устройств.
+[Recursos sobre o utilizador final experiência com o Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) revê alguns dos passos que os utilizadores finais utilizam para efetuar diferentes tarefas no Intune, depois de se inscrever os respetivos dispositivos.

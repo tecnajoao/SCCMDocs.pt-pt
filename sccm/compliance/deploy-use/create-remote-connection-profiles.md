@@ -1,6 +1,6 @@
 ---
-title: "Создание профилей удаленного подключения | Документы Майкрософт"
-description: "С помощью профилей удаленного подключения System Center Configuration Manager можно разрешить пользователям подключаться удаленно к рабочим компьютерам."
+title: "Criar perfis de ligação remota | Microsoft Docs"
+description: "Utilize perfis de ligação remota do System Center Configuration Manager para permitir que os utilizadores liguem remotamente a computadores de trabalho."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,167 +17,167 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 72fc94c6449649656a7e8b81659c2b5cc2551107
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Профили удаленного подключения в System Center Configuration Manager
+# <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Perfis de ligação remota no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Профили удаленного подключения System Center Configuration Manager используются для предоставления пользователям возможности удаленного подключения к рабочим компьютерам, когда они не подключены к домену или если их персональные компьютеры подключены через Интернет.  
+Perfis de ligação remota do Configuration Manager utilizar o System Center para permitir que os utilizadores liguem remotamente a computadores de trabalho quando não estiverem ligados ao domínio ou se os seus computadores pessoais estiverem ligados através da Internet.  
 
- Пользователи могут подключаться к своим рабочим компьютерам с устройств следующих типов.  
+ Os utilizadores podem ligar-se aos seus PC de trabalho a partir dos seguintes tipos de dispositivos:  
 
--   Компьютеры под управлением Microsoft Windows  
+-   Computadores com o Microsoft Windows  
 
--   Устройства под управлением iOS  
+-   Dispositivos com iOS  
 
--   Устройства под управлением Android  
+-   Dispositivos com Android  
 
-Профили удаленного подключения позволяют развертывать параметры подключения к удаленному рабочему столу для пользователей в иерархии Configuration Manager. После этого пользователи могут использовать портал компании для доступа к любому из своих основных рабочих компьютеров с помощью параметров подключения к удаленному рабочему столу, предоставляемых порталом компании.  
+Os perfis de ligação remota permitem implementar definições de ligação de ambiente de trabalho remoto para os utilizadores na sua hierarquia do Configuration Manager. Os utilizadores podem depois utilizar o portal da empresa para aceder a qualquer computador de trabalho primário através do Ambiente de Trabalho Remoto, utilizando as definições de Ligação ao Ambiente de Trabalho Remoto fornecidas pelo portal.  
 
-Для подключения пользователей к своим рабочим компьютерам с помощью корпоративного портала требуется Microsoft Intune. Если Intune не используется, пользователи все равно могут использовать сведения из профиля удаленного подключения для подключения к своим рабочим компьютерам с помощью подключения к удаленному рабочему столу по VPN.  
-
-> [!IMPORTANT]  
->  Если параметры профиля удаленного подключения указываются с помощью консоли Configuration Manager, они сохраняются в локальной политике клиентского компьютера. Эти параметры могут переопределять параметры удаленного рабочего стола, настроенные с помощью другого приложения. Кроме того, если для настройки параметров удаленного рабочего стола используется групповая политика Windows, параметры, указанные в групповой политике, переопределяют параметры, настроенные с помощью Configuration Manager.  
-
- При установке Configuration Manager создается новая группа безопасности **Remote PC Connect**. Эта группа заполняется при развертывании профиля удаленного подключения, содержащего основных пользователей компьютера, на котором развертывается профиль. Хотя локальный администратор может добавить имена пользователей в эту группу, эти пользователи будут удалены из группы при последующей проверке развернутых профилей удаленного подключения на соответствие.  
-
- Если пользователя добавить в эту группу вручную, он сможет инициировать удаленные подключения, однако сведения о подключениях не будут публиковаться на портале компании.  
-
- Если пользователя, добавленного Configuration Manager, удалить из группы вручную, Configuration Manager автоматически исправит это изменение, снова добавив пользователя при следующей проверке профиля удаленного подключения на соответствие.  
+O Microsoft Intune é necessário se pretender que os utilizadores liguem aos seus computadores de trabalho através do portal da empresa. Se não estiver a utilizar o Intune, os utilizadores continuam a poder utilizar as informações do perfil de ligação remota para ligar aos seus PC de trabalho, utilizando o Ambiente de Trabalho Remoto através de uma ligação VPN.  
 
 > [!IMPORTANT]  
->  Если связь сопоставления между пользователем и устройством изменится (например, компьютер, к которому подключается пользователь, перестанет быть основным устройством этого пользователя), Configuration Manager отключит профиль удаленного подключения и параметры брандмауэра Windows, чтобы запретить подключения к компьютеру.  
+>  Quando especifica definições de perfil de ligação remota utilizando a consola do Configuration Manager, as definições são armazenadas na política local do computador cliente. Estas definições podem substituir as definições de Ambiente de Trabalho Remoto configuradas por outra aplicação. Além disso, se utilizar a política de grupo do Windows para configurar as definições de ambiente de trabalho remoto, as definições especificadas na política de grupo substituirão as configuradas através do Configuration Manager.  
 
-## <a name="prerequisites"></a>Предварительные требования  
+ Quando instala um novo grupo de segurança, o Configuration Manager, **ligação ao PC remoto**, é criado. Este grupo é preenchido quando é implementado um perfil de ligação remota que inclui os utilizadores primários do computador em que o perfil é implementado. Embora um administrador local possa adicionar nomes de utilizadores a este grupo, esses utilizadores serão removidos do grupo na próxima vez que for avaliada a compatibilidade dos perfis de ligação remota implementados.  
 
-### <a name="external-dependencies"></a>Внешние зависимости  
+ Se adicionar manualmente um utilizador a este grupo, o utilizador pode iniciar ligações remotas, mas a informação da ligação não será publicada no portal da empresa.  
 
-|Зависимость|Дополнительные сведения|  
+ Se remover manualmente do grupo de um utilizador que tenha sido adicionado pelo Configuration Manager, Configuration Manager irá remediar automaticamente esta alteração ao adicionar o utilizador de volta quando o perfil de ligação remota é seguinte avaliado relativamente à compatibilidade.  
+
+> [!IMPORTANT]  
+>  Se a relação de afinidade de dispositivo do utilizador entre um utilizador e um dispositivo for alterada (por exemplo, o computador liga um utilizador, deixa de ser um dispositivo primário do utilizador, o Configuration Manager desativa o perfil de ligação remota e as definições da Firewall do Windows para impedir ligações ao computador.  
+
+## <a name="prerequisites"></a>Pré-requisitos  
+
+### <a name="external-dependencies"></a>Dependências externas  
+
+|Dependência|Mais informações|  
 |----------------|----------------------|  
-|Сервер шлюза удаленных рабочих столов.|Чтобы разрешить пользователям подключаться через Интернет, находясь за пределами домена компании, необходимо установить и настроить сервер шлюза удаленных рабочих столов.<br /><br /> Если параметры служб удаленных рабочих столов или терминалов находятся под управлением параметров другого приложения или групповой политики, профили удаленного подключения могут работать неправильно. При развертывании профилей удаленных подключений из консоли Configuration Manager их параметры сохраняются в локальной политике клиентского компьютера. Эти параметры могут переопределить параметры удаленного рабочего стола, установленные другим приложением. Кроме того, если для настройки параметров удаленного рабочего стола используются параметры групповой политики, параметры, указанные в групповой политике, переопределяют параметры, настроенные с помощью Configuration Manager.<br /><br /> Дополнительные сведения об установке и настройке сервера шлюза удаленных рабочих столов см. в документации Windows Server.|  
-|Если на клиентских компьютерах работает брандмауэр на основе узла, он должен разрешать запуск программы Mstsc.exe.|При настройке профиля удаленного подключения необходимо включить параметр **Разрешить исключение брандмауэра Windows для подключений в доменах Windows и частных сетях** . Если этот параметр включен, Configuration Manager автоматически настраивает в брандмауэре Windows разрешение на запуск программы Mstsc.exe. Однако если на клиентских компьютерах работает другой брандмауэр на основе узла, необходимо вручную настроить эту зависимость брандмауэра.<br /><br /> Параметры групповой политики для настройки брандмауэра Windows могут переопределить конфигурацию, настроенную в Configuration Manager. При использовании групповой политики для настройки брандмауэра Windows убедитесь, что параметры групповой политики не блокируют программу Mstsc.exe.|  
+|Servidor de Gateway de Ambiente de Trabalho Remoto.|Se pretender permitir que os utilizadores estabeleçam ligação à Internet fora do domínio da empresa, terá de instalar e configurar um servidor de Gateway de Ambiente de Trabalho remoto.<br /><br /> Se as definições do Ambiente de Trabalho Remoto ou dos Serviços de Terminal forem geridas por outra aplicação ou pelas definições de Política de Grupo, os perfis de ligação remota poderão não funcionar corretamente. Quando implementa perfis de ligação remota a partir da consola do Configuration Manager, as respetivas definições são armazenadas na política local do computador cliente. Estas definições poderão substituir as definições de Ambiente de Trabalho Remoto configuradas por outra aplicação. Além disso, se utilizar definições de política de grupo para configurar as definições de ambiente de trabalho remoto, as definições que são especificadas nas definições de política de grupo substituirão as definições que são configuradas pelo Configuration Manager.<br /><br /> Para mais informações sobre como instalar e configurar um servidor de Gateway de Ambiente de Trabalho Remoto, consulte a documentação do Windows Server.|  
+|Se os computadores cliente executarem uma firewall baseada no anfitrião, terão de ativar o programa Mstsc.exe.|Quando configura um perfil de ligação remota, tem de ativar a definição **Permitir exceção de Firewall do Windows para ligações em domínios do Windows e em redes privadas** . Quando esta definição estiver ativada, o Configuration Manager configura automaticamente a Firewall do Windows para ativar o programa Mstsc.exe. No entanto, se os computadores cliente executarem outra firewall baseada no anfitrião, terá de configurar manualmente esta dependência de firewall.<br /><br /> As definições de Política de Grupo para configurar a Firewall do Windows poderão substituir a configuração definida no Configuration Manager. Se utilizar a Política de Grupo para configurar a Firewall do Windows, certifique-se de que as definições de Política de Grupo não bloqueiam o programa Mstsc.exe.|  
 
-### <a name="configuration-manager-dependencies"></a>Зависимости Configuration Manager  
+### <a name="configuration-manager-dependencies"></a>Dependências do Configuration Manager  
 
-|Зависимость|Дополнительные сведения|  
+|Dependência|Mais informações|  
 |----------------|----------------------|  
-|Configuration Manager должен быть подключен к Microsoft Intune (известно как гибридная конфигурация).|Дополнительные сведения о подключении Configuration Manager к Microsoft Intune см. в разделе "Управление мобильными устройствами с помощью Configuration Manager и Windows Intune".|  
-|Чтобы пользователь мог подключиться к рабочему компьютеру в локальной сети, этот компьютер должен быть основным устройством пользователя.|Дополнительные сведения о сопоставлении пользователей и устройств см. в разделе [Связывание пользователей и устройств с помощью сопоставления пользователей и устройств](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
-|Для управления профилями удаленных подключений должны быть предоставлены определенные разрешения системы безопасности.|Роль безопасности **Менеджер по параметрам соответствия** включает разрешения, необходимые для управления профилями удаленного подключения. Дополнительные сведения см. на странице <br />[Настройка ролевого администрирования](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
+|O Configuration Manager tem de estar ligado ao Microsoft Intune (conhecido como configuração híbrida).|Para obter mais informações sobre a ligação do Configuration Manager para o Microsoft Intune, consulte Gerir dispositivos móveis com o Configuration Manager e o Microsoft Intune.|  
+|Para que um utilizador possa ligar a um computador de trabalho na rede da empresa, esse computador terá de ser um dispositivo primário do utilizador.|Para obter mais informações sobre a afinidade dispositivo / utilizador, consulte [associar utilizadores e dispositivos à afinidade dispositivo / utilizador](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
+|Deverão ter sido concedidas permissões de segurança específicas para gerir perfis de ligação remota.|A função de segurança **Gestor de Definições de Conformidade** inclui as permissões necessárias para gerir os perfis de ligação remota. Para mais informações, consulte <br />[Configurar a administração baseada em funções](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
 
-## <a name="security-and-privacy-considerations-for-remote-connection-profiles"></a>Вопросы безопасности и конфиденциальности для профилей удаленного подключения  
+## <a name="security-and-privacy-considerations-for-remote-connection-profiles"></a>Considerações de segurança e privacidade para perfis de ligação remota  
 
-### <a name="security-considerations"></a>Вопросы безопасности  
+### <a name="security-considerations"></a>Considerações de segurança  
 
-|Рекомендация по безопасности|Дополнительные сведения|  
+|Procedimento recomendado de segurança|Mais informações|  
 |----------------------------|----------------------|  
-|Укажите сопоставление пользователей и устройств вручную, а не позволяйте пользователям идентифицировать свое основное устройство. Кроме того, не включайте конфигурацию на основе использования.|Поскольку перед развертыванием профиля удаленного подключения необходимо включить параметр **Разрешить удаленное подключение всем основным пользователям рабочего компьютера** , всегда следует вручную указывать сопоставление пользователя и устройства. Не считайте информацию, полученную от пользователей или от устройства, заслуживающей доверия. Если выполняется развертывание профилей удаленного подключения и доверенный пользователь с правами администратора не указал сопоставление пользователей и устройств, неавторизованные пользователи могут получить повышенные привилегии, после чего они смогут удаленно подключаться к компьютерам.<br /><br /> Если включена конфигурация на основе использования, для сбора этих сведений применяются сообщения о состоянии, которые не защищены с помощью Configuration Manager. Чтобы минимизировать эту угрозу, используйте подписывание SMB или набор протоколов IPsec между клиентскими компьютерами и точкой управления.|  
-|Ограничьте права локального администратора на компьютере сервера сайта.|Пользователь с правами локального администратора на сервере сайта может вручную добавлять членов в группу безопасности "Remote PC Connect", которую автоматически создает и обслуживает Configuration Manager. Это может привести к повышению привилегий, поскольку членам, добавленным в эту группу, предоставляются разрешения на доступ к удаленному рабочему столу.|  
+|Especifique manualmente a afinidade dispositivo/utilizador em vez de permitir que os utilizadores identifiquem o respetivo dispositivo primário. Além disso, não ative a configuração baseada na utilização.|Uma vez que tem de ativar a opção **Permitir a todos os utilizadores primários do computador de trabalho ligar de forma remota** para poder implementar um perfil de ligação remota, especifique sempre manualmente a afinidade dispositivo/utilizador. Não considere autoritativas as informações recolhidas junto dos utilizadores ou do dispositivo. Se implementar perfis de ligação remota e um utilizador administrativo fidedigno não especificar a afinidade dispositivo/utilizador, os utilizadores não autorizados poderão obter privilégios elevados, sendo capazes de estabelecer ligação remota aos computadores.<br /><br /> Se ativar a configuração baseada na utilização, estas informações serão obtidas através de mensagens de estado para o qual o Configuration Manager não fornece segurança. Para ajudar a atenuar esta ameaça, utilize a assinatura de Bloco de Mensagem de Servidor (SMB) ou o protocolo IPsec (Internet Protocol Security) entre os computadores cliente e o ponto de gestão.|  
+|Restrinja os direitos administrativos locais no computador do servidor de site.|Um utilizador que possua direitos administrativos locais no servidor do site pode adicionar manualmente membros ao grupo de segurança ligação ao PC remoto do Configuration Manager automaticamente cria e mantém. Isto poderá provocar uma elevação de privilégios, uma vez que os membros que são adicionados a este grupo recebem permissões de Ambiente de Trabalho Remoto.|  
 
-### <a name="privacy-considerations"></a>Вопросы конфиденциальности  
+### <a name="privacy-considerations"></a>Considerações de privacidade  
 
--   Если пользователь инициирует подключение к рабочему компьютер из портала компании, загружается файл с расширением .rdp или .wsrdp, который содержит имя устройства и имя сервера шлюза удаленных рабочих столов, необходимого для запуска сеанса удаленного рабочего стола. Расширение файла зависит от операционной системы устройства. Например, в операционных системах Windows 7 и Windows 8 используется RDP-файл, а в Windows 8.1 — WSRDP-файл.  
+-   Se um utilizador iniciar uma ligação a um computador de trabalho a partir do portal da empresa, será transferido um ficheiro com extensão .rdp ou .wsrdp, contendo o nome do dispositivo e o nome do Servidor de Gateway de Ambiente de Trabalho Remoto necessário para iniciar a sessão do Ambiente de Trabalho Remoto. A extensão do ficheiro depende do sistema operativo do dispositivo. Por exemplo, os sistemas operativos Windows 7 e Windows 8 utilizam um ficheiro .rdp, e o Windows 8.1 utiliza um ficheiro .wsrdp.  
 
--   Пользователь может открыть или сохранить RDP-файл. Если пользователь открывает RDP-файл, этот файл может сохраниться в кэше браузера в зависимости от параметров хранения, настроенных для браузера. Если пользователь сохраняет файл, этот файл не хранится в кэше браузера. Файл сохраняется до тех пор, пока пользователь не удалит его вручную.  
+-   O utilizador poderá optar por abrir ou guardar o ficheiro .rdp. Se o utilizador optar por abrir o ficheiro .rdp, o ficheiro poderá ser armazenado na cache do browser, conforme as definições de retenção configuradas no browser. Se o utilizador optar por guardar o ficheiro, o ficheiro não será armazenado na cache do browser. O ficheiro será guardado até que o utilizador o elimine manualmente.  
 
--   WSRDP-файл загружается и автоматически сохраняется локально. Этот файл перезаписывается при следующем запуске пользователем сеанса удаленного рабочего стола.  
+-   O ficheiro .wsrdp é transferido e guardado localmente, de forma automática. O ficheiro será substituído da próxima vez que o utilizador executar uma sessão de Ambiente de Trabalho Remoto.  
 
--   Перед настройкой профилей удаленного подключения следует учесть требования к конфиденциальности.  
+-   Antes de configurar os perfis de ligação remota, considere os requisitos de privacidade.  
 
 
-## <a name="create-a-remote-connection-profile"></a>Создание профиля удаленного подключения
+## <a name="create-a-remote-connection-profile"></a>Criar um perfil de ligação remota
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Профили удаленного подключения**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **perfis de ligação remota**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать профиль удаленного подключения**.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Perfil de Ligação Remota**.  
 
-4.  На странице **Общие** **мастера создания профиля удаленного подключения**укажите имя и необязательное описание профиля, используя не более 256 символов для каждого из них.  
+4.  Na página **Geral** do **Assistente para Criar Perfil de Ligação Remota**, especifique um nome e uma descrição opcional para o perfil com um máximo de 256 carateres para cada um.  
 
-5.  На странице **Параметры профиля** настройте перечисленные ниже параметры для профиля удаленного подключения.  
+5.  No **perfil** página de definições, especifique as seguintes definições para o perfil de ligação remota:  
 
-    -   **Полное имя и порт сервера шлюза удаленных рабочих столов (необязательно):** укажите имя сервера шлюза удаленных рабочих столов для подключений.  
+    -   **Nome completo e porta do servidor de Gateway de Ambiente de Trabalho Remoto (opcional)** - especifique o nome do Servidor de Gateway de Ambiente de Trabalho Remoto para ser utilizado nas ligações.  
 
         > [!NOTE]  
-        >  Configuration Manager не поддерживает использование международного доменного имени для указания сервера в этом поле.  
+        >  O Configuration Manager não suporta um nome de domínio internacionalizado para ser utilizado para especificar um servidor nesta caixa.  
         >   
-        >  Имя сервера не должно быть длиннее 256 символов. Оно может содержать символы верхнего регистра, символы нижнего регистра, цифры, а также символы **–** и **_** , разделенные точками.  
+        >  O nome do servidor não deve exceder os 256 carateres e pode conter carateres maiúsculos, carateres minúsculos, carateres numéricos e os carateres **–** e **_** , separados por pontos.  
 
-    -   **Разрешить подключения только от компьютеров с удаленным рабочим столом с проверкой подлинности на сетевом уровне**  
+    -   **Permitir ligações apenas de computadores que executem o Ambiente de Trabalho Remoto com Autenticação de Nível de Rede**  
 
-6.  Выберите значение **Включено** или **Отключено** для каждого из следующих параметров подключения.  
+6.  Selecione **Ativado** ou **Desativado** para cada uma das seguintes definições de ligação:  
 
-    -   **Разрешить удаленные подключения к рабочим компьютерам**  
+    -   **Permitir ligações remotas a computadores de trabalho**  
 
-    -   **Разрешить всем основным пользователям этого рабочего компьютера удаленное подключение**  
+    -   **Permitir a ligação remota de todos os utilizadores primários do computador de trabalho**  
 
-    -   **Разрешить исключение брандмауэра Windows для подключений в доменах Windows и в частных сетях**  
+    -   **Permitir exceção da Firewall do Windows para ligações em domínios do Windows e em redes privadas**  
 
     > [!IMPORTANT]  
-    >  Для перехода к следующей странице мастера все три параметра должны иметь одинаковые значения.  
+    >  As três definições têm de ser idênticas para poder passar esta página do assistente.  
 
-7.  На странице **Сводка** просмотрите список необходимых действий и завершите работу мастера.  
+7.  No **resumo** página, reveja as ações a executar e, em seguida, conclua o assistente.  
 
- Новый профиль удаленного подключения отобразится в узле **Профили удаленного подключения** рабочей области **Активы и соответствие** .  
+ O novo perfil de ligação remota é apresentado no nó **Perfis de Ligação Remota** da área de trabalho **Ativos e Compatibilidade** .  
 
-Развертывание профиля удаленного подключения  
+Implementar um perfil de ligação remota  
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Профили удаленного подключения**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **perfis de ligação remota**.  
 
-3.  В списке **Профили удаленного подключения** выберите профиль удаленного подключения, который необходимо развернуть, а затем на вкладке **Главная** в группе **Развертывание** щелкните элемент **Развернуть**.  
+3.  Na lista **Perfis de Ligação Remota** , selecione o perfil de ligação remota que pretende implementar e, no separador **Home Page** do grupo **Implementação** , clique em **Implementar**.  
 
-4.  В диалоговом окне **Развертывание профиля удаленного подключения** укажите следующие сведения.  
+4.  Na caixa de diálogo **Implementar Perfil de Ligação Remota** , especifique as seguintes informações:  
 
-    -   **Коллекция** . Нажмите кнопку **Обзор** , чтобы выбрать коллекцию устройств, в которой требуется развернуть профиль удаленного подключения.  
+    -   **Coleção** - Clique em **Procurar** para selecionar a coleção de dispositivos onde pretende implementar o perfil de ligação remota.  
 
-    -   **Исправлять несоответствующие параметры, когда это возможно**. Установите этот флажок, чтобы автоматически исправлять профиль удаленного подключения при обнаружении его несоответствия на устройстве (например, если он отсутствует).  
+    -   **Remediar regras incompatíveis quando suportado** -ative esta opção para retificar automaticamente o perfil de ligação remota quando encontra-se não for compatível num dispositivo, por exemplo, se não estiver presente.  
 
-    -   **Разрешить исправление за пределами периодов обслуживания**. Если для коллекции, в которой развертывается профиль удаленного подключения, был настроен период обслуживания, установите этот флажок, чтобы разрешить Configuration Manager исправлять профиль удаленного подключения за пределами периода обслуживания. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Permitir remediação fora da janela de manutenção** - se uma janela de manutenção tiver sido configurada para a coleção em que pretende implementar o perfil de ligação remota, ative esta opção para permitir que o Configuration Manager retifique o perfil de ligação remota fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-    -   **Создать оповещение** . Включите этот параметр, чтобы настроить оповещение, которое создается, если соответствие профиля удаленного подключения меньше заданного процентного значения в указанную дату и время. Также можно указать, требуется ли отправлять оповещение в System Center Operations Manager.  
+    -   **Gerar um alerta** - Ative esta opção para configurar um alerta que será gerado se a compatibilidade do perfil de ligação remota for inferior a uma determinada percentagem num data e hora especificadas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.  
 
-    -   **Задайте расписание оценки соответствия для этого шаблона базовой конфигурации** : укажите расписание проверки развернутого профиля удаленного подключения на устройствах. Можно указать простое или настраиваемое расписание.  
+    -   **Especifique o agendamento de avaliação de compatibilidade para esta linha de base de configuração** - Especifique a agenda para avaliação do perfil de ligação remota implementado nos dispositivos. É possível especificar uma agenda simples ou personalizada.  
 
     > [!TIP]  
-    >  При удалении устройства из коллекции, в которой был развернут профиль удаленного подключения, параметры профиля удаленного подключения на данном устройстве отключаются. Однако для правильного выполнения этого процесса уже должен быть развернут хотя бы один элемент конфигурации или шаблон базовой конфигурации, содержащий элемент конфигурации из вашего сайта.  
+    >  Se um dispositivo deixa uma coleção na qual foi implementado um perfil de ligação remota, as definições do perfil de ligação remota são desativadas no dispositivo. No entanto, para que este processo decorra corretamente, deve ter implementado pelo menos um item de configuração ou uma linha de base de configuração que contenha um item de configuração do site.  
     >   
-    >  Проверка профиля выполняется устройствами при входе пользователя в систему.  
+    >  O perfil é avaliado por dispositivos quando o utilizador inicia sessão.  
     >   
-    >  Если в одной коллекции устройств развернуто два профиля удаленного подключения, в одном из которых флажок **Исправлять несоответствующие параметры, когда это возможно** установлен, а в другом снят и эти два профиля удаленного подключения содержат разные параметры подключения, профиль со снятым флажком может переопределить параметры другого профиля. Этот тип развертывания профиля удаленного подключения в Configuration Manager не поддерживается.  
+    >  Se forem implementados dois perfis de ligação remota na mesma coleção de dispositivos, estando selecionada a opção **Remediar regras incompatíveis quando suportado** num dos perfis e desativada no outro, e se os dois perfis de ligação remota contiverem definições de ligação diferentes, o perfil com a opção desativada pode substituir as definições do outro perfil. Este tipo de implementação de perfil de ligação remota não é suportado pelo Configuration Manager.  
 
-5.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Развертывание профиля сертификата** и создать развертывание.  
+5.  Clique em **OK** para fechar a caixa de diálogo **Implementar Perfil de Ligação Remota** e criar a implementação.  
 
-## <a name="monitor-a-remote-connection-profile"></a>Мониторинг профиля удаленного подключения  
+## <a name="monitor-a-remote-connection-profile"></a>Monitorizar um perfil de ligação remota  
 
-### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Просмотр результатов проверки на соответствие в консоли Configuration Manager  
+### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Ver os resultados de compatibilidade na consola do Configuration Manager  
 
-1.  В консоли Configuration Manager щелкните **Мониторинг** > **Развертывания**.  
+1.  Na consola do Configuration Manager, clique em **monitorização** > **implementações**.  
 
-3.  В списке **Развертывания** выберите развертывание профиля удаленного подключения, для которого требуется просмотреть сведения о соответствии.  
+3.  Na lista **Implementações** , selecione a implementação de perfil de ligação remota cujas informações de compatibilidade pretende rever.  
 
-4.  Сводные сведения о соответствии развертывания профиля удаленного подключения можно просмотреть на главной странице. Для просмотра подробных сведений выберите развертывание профиля удаленного подключения, а затем на вкладке **Главная** в группе **Развертывание** щелкните элемент **Просмотр состояния** , чтобы открыть страницу **Состояние развертывания** .  
+4.  Poderá rever as informações de resumo sobre a conformidade da implementação do perfil de ligação remota na página principal. Para ver informações mais detalhadas, selecione a implementação de perfil de ligação remota e, no separador **Home Page** , no grupo **Implementação** , clique em **Ver Estado** para abrir a página **Estado da Implementação** .  
 
-     Страница **Состояние развертывания** содержит следующие вкладки.  
+     A página **Estado da Implementação** contém os seguintes separadores:  
 
-    -   **Соответствует:** содержит сведения о соответствии профиля удаленного подключения в зависимости от числа затронутых активов. Можно дважды щелкнуть правило, чтобы создать временный узел в узле **Пользователи** рабочей области **Активы и соответствие** . Этот узел будет включать все устройства, которые соответствуют профилю удаленного подключения. В области **Сведения об активе** также отображаются устройства, соответствующие данному профилю. Чтобы просмотреть дополнительные сведения, дважды щелкните устройство в списке.  
+    -   **Compatível:** Apresenta a compatibilidade do perfil de ligação remota com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os dispositivos compatíveis com o perfil de ligação remota. O painel **Detalhes do Ativo** também apresenta os dispositivos que são compatíveis com este perfil. Faça duplo clique num dispositivo da lista para visualizar informações adicionais.  
 
         > [!IMPORTANT]  
-        >  Профиль удаленного подключения не проверяется, если он неприменим к клиентскому устройству. Однако он возвращается как соответствующий.  
+        >  Um perfil de ligação remota não é avaliado se não for aplicável num dispositivo cliente. No entanto, é devolvido como compatível.  
 
-    -   **Ошибка:** содержит список всех ошибок для выбранного развертывания профиля удаленного подключения в зависимости от числа затронутых активов. Можно дважды щелкнуть правило, чтобы создать временный узел в узле **Пользователи** рабочей области **Активы и соответствие** . Этот узел будет включать все устройства, которые создали ошибки, связанные с данным профилем. При выборе устройства в области **Сведения об активе** отображаются устройства, затронутые выбранной проблемой. Чтобы просмотреть дополнительные сведения о проблеме, дважды щелкните устройство в списке.  
+    -   **Erro:** Mostra uma lista de todos os erros para a implementação de perfil de ligação remota selecionado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os dispositivos que geraram erros com este perfil. Quando um dispositivo é selecionado, o painel **Detalhes do Ativo** apresenta os dispositivos que o problema selecionado afeta. Faça duplo clique num dispositivo da lista para visualizar informações adicionais sobre o problema.  
 
-    -   **Не соответствует:** содержит список всех несоответствующих правил для профиля удаленного подключения в зависимости от числа затронутых активов. Можно дважды щелкнуть правило, чтобы создать временный узел в узле **Пользователи** рабочей области **Активы и соответствие** . Этот узел будет включать все устройства, которые не соответствуют данному профилю. При выборе устройства в области **Сведения об активе** отображаются устройства, затронутые выбранной проблемой. Чтобы просмотреть дополнительные сведения о проблеме, дважды щелкните устройство в списке.  
+    -   **Não compatível:** Mostra uma lista de todas as regras não compatíveis no perfil de ligação remota com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os dispositivos que não são compatíveis com este perfil. Quando um dispositivo é selecionado, o painel **Detalhes do Ativo** apresenta os dispositivos que o problema selecionado afeta. Faça duplo clique num dispositivo da lista para visualizar informações adicionais sobre o problema.  
 
-    -   **Неизвестно:** содержит список всех устройств, не передавших данные о соответствии для выбранного развертывания профиля удаленного подключения, а также сведения о текущем состоянии клиента для устройств.  
+    -   **Desconhecido:** Mostra uma lista de todos os dispositivos que não comunicaram compatibilidade para a implementação de perfil de ligação remota selecionado, juntamente com o estado atual do cliente dos dispositivos.  
 
-5.  На странице **Состояние развертывания** можно просмотреть подробные сведения о соответствии развернутого профиля удаленного подключения. В узле **Развертывания** создается временный узел, который упрощает повторный поиск этих сведений.  
+5.  Na página **Estado da Implementação** , poderá rever informações detalhadas sobre a compatibilidade do perfil de ligação remota implementado. É criado um nó temporário no nó **Implementações** que o ajuda a localizar novamente estas informações de forma rápida.  
 
-### <a name="view-compliance-results-with-reports"></a>Просмотр результатов проверки на соответствие с помощью отчетов  
- Configuration Manager включает в себя встроенные отчеты, с помощью которых вы можете отслеживать сведения о профилях удаленного подключения. Такие отчеты относятся к категории **Управление соответствием и параметрами**.  
+### <a name="view-compliance-results-with-reports"></a>Ver resultados de compatibilidade com relatórios  
+ O Configuration Manager inclui relatórios incorporados que pode utilizar para monitorizar informações sobre perfis de ligação remota. Estes relatórios têm a categoria de relatório de **Gestão de Compatibilidade e Definições**.  
 
 > [!IMPORTANT]  
->  При использовании параметров **Фильтр устройств** и **Фильтр пользователей** в отчетах о параметрах соответствия необходимо использовать подстановочный знак (%).  
+>  Deverá utilizar um caráter universal (%) ao utilizar os parâmetros **Filtro do dispositivo** e **Filtro do utilizador** nos relatórios de definições de compatibilidade.  
 
- Дополнительные сведения о настройке отчетов в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](/sccm/core/servers/manage/reporting).  
+ Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](/sccm/core/servers/manage/reporting).  

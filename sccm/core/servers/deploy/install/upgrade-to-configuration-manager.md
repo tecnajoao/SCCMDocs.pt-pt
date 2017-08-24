@@ -1,6 +1,6 @@
 ---
-title: "Обновление до System Center Configuration Manager | Документы Майкрософт"
-description: "Дополнительные сведения о процедурах для успешного обновления на месте сайта и иерархии, основанных на System Center 2012 Configuration Manager."
+title: Atualizar para o System Center Configuration Manager | Microsoft Docs
+description: "Saiba os passos para executar uma atualização no local com êxito a partir de um site e hierarquia que executa o System Center 2012 Configuration Manager."
 ms.custom: na
 ms.date: 6/6/2017
 ms.prod: configuration-manager
@@ -16,44 +16,44 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 1166b739e1e8d667172d97883f484fdbc3a142c1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-to-system-center-configuration-manager"></a>Обновление до System Center Configuration Manager
+# <a name="upgrade-to-system-center-configuration-manager"></a>Atualizar para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Для обновления сайта и иерархии, основанных на System Center 2012 Configuration Manager, до System Center Configuration Manager можно выполнить обновление на месте.  
+Pode executar uma atualização no local a atualização para System Center Configuration Manager de um site e hierarquia que executa o System Center 2012 Configuration Manager.  
 
- Перед обновлением System Center 2012 Configuration Manager необходимо подготовить сайты (удалить определенные конфигурации, которые могут помешать успешному обновлению), а затем выполнить последовательность действий по обновлению (если затронуто несколько сайтов).  
+ Antes de atualizar do System Center 2012 Configuration Manager, tem de preparar sites que requer a remoção de configurações específicas que podem impedir uma atualização com êxito e, em seguida, siga a sequência de atualização quando mais do que um único site está envolvida.  
 
  > [!TIP]
- > При управлении инфраструктурой иерархий и сайтов System Center Configuration Manager термины *модернизация*, *обновление* и *установка* обозначают три разных понятия. Сведения о значении каждого термина см. в разделе [Переход, обновление и установка](/sccm/core/understand/upgrade-update-install).
+ > Ao gerir o site do System Center Configuration Manager e a infraestrutura de hierarquia, os termos de licenciamento *atualizar*, *atualizar*, e *instalar* são utilizados para descrever três conceitos diferentes. Para saber como cada termo é utilizado, consulte [sobre a atualização, atualização e instalação](/sccm/core/understand/upgrade-update-install).
 
-##  <a name="bkmk_path"></a> Варианты обновления на месте  
+##  <a name="bkmk_path"></a> Caminhos de atualização no local  
 
-**Обновление до версии 1702**   
-При наличии базового носителя версии 1702 можно обновить следующие версии до полностью лицензированной версии System Center Configuration Manager 1702:   
--     ознакомительная установка System Center Configuration Manager версии 1702;
--     System Center 2012 Configuration Manager с пакетом обновления 1 (SP1);
--     System Center 2012 Configuration Manager с пакетом обновления 2 (SP2);
+**Atualize para versão 1702**   
+Quando tiver versão 1702 da linha de base de dados, pode atualizar o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1702:   
+-     Uma instalação de avaliação do System Center Configuration Manager versão 1702
+-     System Center 2012 Configuration Manager sem Service Pack 1
+-     System Center 2012 Configuration Manager sem Service Pack 2
 -     System Center 2012 R2 Configuration Manager
--     System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1).
+-     System Center 2012 R2 Configuration Manager sem Service Pack 1
 
-**Обновление до версии 1606**  
-15 декабря 2016 г. был выпущен базовый носитель для версии 1606, обеспечивающий поддержку дополнительных сценариев обновления. Этот новый выпуск поддерживает обновление следующих версий до полностью лицензированной версии System Center Configuration Manager 1606:  
--   ознакомительная установка System Center Configuration Manager версии 1606;
--   установка версии-кандидата System Center Configuration Manager.  
--   System Center 2012 Configuration Manager с пакетом обновления 1 (SP1);  
--   System Center 2012 Configuration Manager с пакетом обновления 2 (SP2);  
+**Atualize para versão 1606**  
+No dia 15 de Dezembro de 2016, o suporte de dados de linha de base para a versão 1606 foi rereleased para adicionar suporte para cenários de atualização adicionais. Esta nova versão suporta a atualização dos seguintes procedimentos para uma versão totalmente licenciada do System Center Configuration Manager versão 1606 de:  
+-   Uma instalação de avaliação do System Center Configuration Manager versão 1606
+-   Uma instalação de release candidate do System Center Configuration Manager  
+-   System Center 2012 Configuration Manager sem Service Pack 1  
+-   System Center 2012 Configuration Manager sem Service Pack 2  
 -   System Center 2012 R2 Configuration Manager  
--   System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1).  
+-   System Center 2012 R2 Configuration Manager sem Service Pack 1  
 
-При использовании базового носителя версии 1606, скачанного до 15 декабря 2016 г., можно обновить только следующие версии до полностью лицензированной версии System Center Configuration Manager 1606:
--   ознакомительная установка System Center Configuration Manager версии 1606;
--   System Center 2012 Configuration Manager с пакетом обновления 2 (SP2);
--   System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1).
+Se utilizar o suporte de dados de linha de base 1606 versão transferido antes do dia 15 de Dezembro de 2016, pode atualizar apenas o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1606 de:
+-   Uma instalação de avaliação do System Center Configuration Manager versão 1606
+-   System Center 2012 Configuration Manager sem Service Pack 2
+-   System Center 2012 R2 Configuration Manager sem Service Pack 1
 
 <!-- Version 1511 has now dropped out of support
 **Upgrade to version 1511**  
@@ -68,334 +68,334 @@ When you have version 1511 baseline media, you can upgrade the following to a fu
 
 
 > [!TIP]  
->  При обновлении версии System Center 2012 Configuration Manager до Current Branch можно упростить процесс обновления. Дополнительные сведения см. в следующих разделах.  
+>  Ao atualizar a partir de uma versão do System Center 2012 Configuration Manager Current Branch, poderá simplificar o processo de atualização. Para obter mais informações, consulte o seguinte:  
 >   
->  -   Раздел [Базовые и обновленные версии](../../../../core/servers/manage/updates.md#bkmk_Baselines) статьи [Обновления для System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
->  -   [Папка CD.Latest для System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md)  
+>  -   A secção [Versões de linha de base e de atualização](../../../../core/servers/manage/updates.md#bkmk_Baselines) em [Atualizações para o System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
+>  -   [CD. Pasta mais recente para o System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md)  
 
- **Следующие возможности не поддерживаются.**  
--   Обновление Technical Preview для System Center Configuration Manager до полностью лицензированной версии не поддерживается.  Версию Technical Preview можно обновить только до более поздней версии Technical Preview.  
+ **As seguintes ações não são suportadas:**  
+-   Não é suportada para atualizar uma versão de pré-visualização técnica do System Center Configuration Manager para uma instalação totalmente licenciada.  Uma versão de Technical Preview só pode atualizar para uma versão posterior do Technical Preview.  
 
--   Не поддерживается миграция Technical Preview на полностью лицензированную версию.  
+-   A migração de um Technical Preview para uma versão totalmente licenciada não é suportada.  
 
-##  <a name="bkmk_checklist"></a> Контрольные списки обновлений  
- Следующие контрольные списки помогут вам спланировать успешное обновление до System Center Configuration Manager.  
+##  <a name="bkmk_checklist"></a> Listas de verificação de atualização  
+ As listas de verificação seguintes podem ajudar a planear uma atualização com êxito para o System Center Configuration Manager.  
 
-### <a name="before-you-upgrade"></a>Перед обновлением  
+### <a name="before-you-upgrade"></a>Antes da atualização  
 
-**Проверьте среду System Center 2012 Configuration Manager** и устраните проблемы, как описано в статье KB4018655 [Клиенты Configuration Manager переустанавливаются каждые пять часов из-за повторяющейся задачи "Повторить", что может привести к случайному обновлению клиента](https://support.microsoft.com/help/4018655).
+**Reveja o seu ambiente do System Center 2012 Configuration Manager** e resolver problemas conforme detalhado no KB4018655: [Clientes do Configuration Manager reinstale a cada cinco horas devido a uma tarefa de repetição periódica e pode provocar uma atualização de cliente inadvertida](https://support.microsoft.com/help/4018655).
 
-**Убедитесь, что вычислительная среда соответствует поддерживаемым конфигурациям**, необходимым для обновления до System Center Configuration Manager.  
+**Certifique-se de que o ambiente informático satisfaz as configurações suportadas** que são necessárias para atualizar para o System Center Configuration Manager:  
 
-Просмотрите серверные операционные системы, используемые для размещения ролей системы сайта.  
+Reveja os sistemas operativos de servidor utilizados para alojar funções do sistema de sites:  
 
--   Некоторые старые операционные системы, поддерживаемые System Center 2012 Configuration Manager, не поддерживаются System Center Configuration Manager. Перед обновлением необходимо переместить или удалить роли системы сайта в этих операционных системах. См. статью [Поддерживаемые операционные системы для серверов системы сайта](../../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).   
--   Средство проверки готовности к установке для Configuration Manager не проверяет предварительные требования для ролей системы сайта на сервере сайта и на удаленных системах сайта.  
+-   Alguns sistemas operativos suportados pelo System Center 2012 Configuration Manager não são suportados pelo System Center Configuration Manager e funções de sistema de sites nesses sistemas operativos têm de ser relocalizadas ou removidas antes da atualização. Reveja o [sistemas operativos suportados pelo servidores do sistema de sites](../../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md) documentação.   
+-   Verificador de pré-requisitos para o Configuration Manager não verificar os pré-requisitos de funções de sistema de sites no servidor do site ou nos sistemas de sites remoto  
 
-Проверьте необходимые компоненты на каждом компьютере, где размещается роль системы сайта.  
+Reveja os pré-requisitos necessários de cada computador que aloje uma função do sistema de sites:  
 
--   Например, для развертывания операционной системы System Center Configuration Manager использует комплект средств для развертывания и оценки Windows 10 (Windows ADK). Перед запуском программы установки необходимо загрузить и установить Windows 10 ADK на сервере сайта и на каждом компьютере, на котором работает экземпляр поставщика SMS.  
+-   Por exemplo, para implementar um sistema operativo, System Center Configuration Manager utiliza o Windows 10 Assessment and Deployment Kit (Windows ADK). Antes de executar o Programa de Configuração, tem de transferir e instalar o Windows 10 ADK no servidor do site e em cada computador que execute uma instância do Fornecedor de SMS.  
 
-Общие сведения о поддерживаемых платформах и требуемой конфигурации см. в разделе [Supported configurations for System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md).  
+Para obter informações gerais sobre as plataformas suportadas e configurações de pré-requisitos, veja [Configurações suportadas do System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md).  
 
-Сведения об использовании Windows ADK с Configuration Manager см. в статье [Требования к инфраструктуре для развертывания операционной системы в System Center Configuration Manager](../../../../osd/plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+Para obter informações sobre como utilizar o Windows ADK com o Configuration Manager, consulte [requisitos de infraestrutura de implementação do sistema operativo no System Center Configuration Manager](../../../../osd/plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
-**Проверьте состояние сайта и иерархии и убедитесь в том, что все проблемы разрешены:**  
-Перед обновлением сайта решите все проблемы эксплуатации для сервера сайта, сервера базы данных сайта и ролей системы сайта, установленных на удаленных компьютерах. Обновление сайта может завершиться неудачей из-за существующих проблем в работе.  
+**Rever o estado de site e da hierarquia e certifique-se de que existem não existem problemas por resolver:**  
+Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, do servidor da base de dados do site e de funções de sistema de sites que se encontrem instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.  
 
-**Установите все доступные важные обновления для операционных систем на компьютерах, где размещен сайт, сервер базы данных сайта и удаленные роли системы сайта:**  
-Перед обновлением сайта следует установить все важные обновления на каждой соответствующей системе сайта. Если обновление, которое требуется установить, требует перезагрузки, перезагрузите соответствующие компьютеры перед началом установки пакета обновления.  
+**Instale todas as atualizações críticas aplicáveis para sistemas operativos em computadores que alojam o site, o servidor de base de dados do site e as funções do sistema de sites remoto:**  
+Antes de atualizar um site, instale as atualizações críticas em cada sistema de sites aplicável. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização do service pack.  
 
-Дополнительные сведения см. в разделе [Центр обновления Windows](http://go.microsoft.com/fwlink/p/?LinkId=105851).  
+Para obter mais informações, consulte [Windows Update](http://go.microsoft.com/fwlink/p/?LinkId=105851).  
 
-**Удаление ролей системы сайта не поддерживается System Center Configuration Manager:**  
-Следующие роли системы сайта больше не используются в System Center Configuration Manager и должны быть удалены перед обновлением System Center 2012 Configuration Manager.  
+**Desinstale as funções de sistema de sites não suportadas pelo System Center Configuration Manager:**  
+As seguintes funções do sistema de sites já não são utilizadas no System Center Configuration Manager e tem de ser desinstaladas antes de atualizar do System Center 2012 Configuration Manager:  
 
--   Точка аппаратного контроллера управления  
--   Точка проверки работоспособности систем  
+-   Ponto de Gestão Fora de Banda  
+-   Ponto de Validação do Estado de Funcionamento do Sistema  
 
-**Выключите реплики базы данных для точек управления на первичных сайтах:**  
-Configuration Manager не может обновить первичный сайт с включенными репликами баз данных для точек управления. Отключите репликацию базы данных, прежде чем выполнять следующие задачи.  
+**Desative réplicas de base de dados para pontos de gestão em sites primários:**  
+O Configuration Manager não é possível atualizar com êxito um site primário que tenha uma réplica de base de dados para pontos de gestão ativada. Desative a replicação de base de dados antes de:  
 
--   Создание резервной копии базы данных сайта для тестирования обновления базы данных  
--   Обновление рабочего сайта до System Center Configuration Manager  
+-   Criar uma cópia de segurança da base de dados do site para testar a atualização da base de dados  
+-   Atualizar o site de produção para o System Center Configuration Manager  
 
-Дополнительные сведения см. в следующих разделах.  
--   System Center 2012 Configuration Manager: [Настройка реплик базы данных для точек управления](https://technet.microsoft.com/library/hh846234.aspx)  
--   System Center Configuration Manager: [Реплики базы данных для точек управления для System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
+Para obter mais informações, consulte o seguinte:  
+-   System Center 2012 Configuration Manager:  [Configurar réplicas de base de dados para pontos de gestão](https://technet.microsoft.com/library/hh846234.aspx)  
+-   O System Center Configuration Manager: [Réplicas de base de dados para pontos de gestão do System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
 
-**Перенастройте точки обновления программного обеспечения, использующие балансировку сетевой нагрузки:**  
-Configuration Manager не может обновить сайт, использующий NLB-кластер для точек обновления программного обеспечения.  
+**Reconfigure os pontos de atualização de software que utilizem NLB:**  
+O Configuration Manager não consegue atualizar um site que utiliza um cluster de balanceamento de carga na rede (NLB) para alojar pontos de atualização de software.  
 
-Если для точек обновления программного обеспечения используются кластеры балансировки сетевой нагрузки, удалите кластер балансировки сетевой нагрузки с помощью PowerShell. (Начиная с System Center 2012 Configuration Manager с пакетом обновления 1 (SP1) отсутствовала возможность настройки кластера балансировки сетевой нагрузки в консоли Configuration Manager.)  
+Se utilizar clusters de NLB em pontos de atualização de software, utilize o PowerShell para remover o cluster de NLB. (A partir do System Center 2012 Configuration Manager SP1, não havia nenhuma opção na consola do Configuration Manager para configurar um cluster NLB)  
 
-**Отключите все задачи обслуживания сайта на каждом сайте на период обновления этого сайта:**  
-Перед обновлением до System Center Configuration Manager отключите все задачи обслуживания сайта, которые могут запускаться в то время, когда активен процесс обновления. В частности, необходимо отключить следующие задачи:  
+**Desative todas as tarefas de manutenção do site em cada site durante a atualização desse site:**  
+Antes de atualizar para o System Center Configuration Manager, desative as tarefas de manutenção do site que possam ser executadas enquanto o que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:  
 
--   Резервное копирование сервера сайта  
--   Удаление устаревших операций клиента  
--   Удаление устаревших данных обнаружения  
+-   Servidor do Site de Reserva  
+-   Eliminar Operações de Cliente Desatualizadas  
+-   Eliminar Dados de Deteção Desatualizados  
 
-Если в процессе обновления запустится задача обслуживания базы данных сайта, обновление сайта может завершиться сбоем.  
+Se uma tarefa de manutenção de base de dados do site for executada durante o processo de atualização, a atualização do site poderá falhar.  
 
-Прежде чем отключать задачу, запишите ее расписание, чтобы восстановить ее конфигурацию после завершения обновления сайта.  
+Antes de desativar uma tarefa, registe a agenda da tarefa para que possa restaurar a respetiva configuração uma vez concluída a atualização do site.  
 
-Дополнительные сведения о задачах обслуживания сайта см. в следующих разделах:  
+Para obter mais informações sobre tarefas de manutenção do site, consulte:  
 
--   System Center 2012 Configuration Manager: [Планирование задач обслуживания для Configuration Manager](https://technet.microsoft.com/library/gg712686.aspx)  
--   System Center Configuration Manager: [Справочник по задачам обслуживания для System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
+-   System Center 2012 Configuration Manager:  [Planear tarefas de manutenção para o Configuration Manager](https://technet.microsoft.com/library/gg712686.aspx)  
+-   O System Center Configuration Manager:  [Referência das tarefas de manutenção do System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
 
-**Запустите средство проверки готовности к установке**.  
-Перед обновлением сайта можно запустить **средство проверки готовности к установке** независимо от программы установки, чтобы проверить, выполнены ли на сайте предварительные условия. Позднее при обновлении сайта средство запускается снова.  
+**Execute o Verificador de Pré-requisitos da Configuração**:  
+Antes de atualizar um site, pode executar o **Verificador de Pré-requisitos** independentemente da Configuração para confirmar que o site cumpre os pré-requisitos. Mais tarde, quando atualizar o site, o Verificador de pré-requisitos é executado novamente.  
 
-Если вы используете базовый носитель версии 1606 из выпуска за октябрь 2016 г., независимое средство проверки готовности оценивает возможность обновления сайта как до версии Current Branch, так и до версии Long-Term Servicing Branch (LTSB) System Center Configuration Manager. Так как некоторые функции не поддерживаются выпуском LTSB, в журнале *ConfigMgrPrereq.log* могут быть примерно такие записи.
- - ИНФОРМАЦИЯ. Сайт представляет собой выпуск LTSB.
- - Неподдерживаемая роль системы сайта "Точка синхронизации каталога аналитики активов" для выпуска LTSB. Ошибка: Configuration Manager обнаружил, что установлена "Точка синхронизации каталога аналитики активов". Аналитика активов не поддерживается в выпуске LTSB. Удалите роль системы сайта "Точка синхронизации каталога аналитики активов" перед тем, как продолжить.
+Se utilizar o suporte de dados de linha de base para a versão 1606 a partir da versão de Outubro de 2016, a verificação de pré-requisitos independente avalia o site para atualizar para o ramo atual e a longo prazo Servicing Branch (LTSB) do System Center Configuration gerir. Porque algumas funcionalidades não são suportadas pelo LTSB, poderá ver entradas no *ConfigMgrPrereq.log* que são semelhante ao seguinte:
+ - INFO: O site é uma edição de LTSB.
+ - Função de sistema de sites não suportada 'Ponto de sincronização do Asset Intelligence' para a edição de LTSB;    Erro;    Configuration Manager detetou que o 'ponto de sincronização do Asset Intelligence' está instalado. Asset Intelligence não é suportado na edição LTSB. Tem de desinstalar a função de sistema de sites do ponto de sincronização do Asset Intelligence antes de poder continuar.
 
-Если вы планируете произвести обновление до выпуска Current Branch, ошибки, касающиеся выпуска LTSB, можно спокойно проигнорировать. Они имеют значение только в том случае, если вы планируете обновление до выпуска LTSB.
+Se pretender atualizar para o ramo atual, o erros para a edição de LTSB podem ser ignorados. Apenas aplicam-se de que pretende atualizar para o LTSB.
 
-Позже при запуске программы установки Configuration Manager для обновления средство проверки готовности будет запущено снова и оценит возможность обновления сайта до выбранной ветви System Center Configuration Manager (Current Branch или LTSB). Если вы решили произвести обновление до Current Branch, проверка функций, которые не поддерживаются выпуском LTSB, не проводится.
+Mais tarde, quando executar a configuração do Configuration Manager para efetuar a atualização, a verificação de pré-requisitos irá executar novamente e avaliar o seu site com base no ramo do System Center Configuration Manager optar por instalar (ramo atual, ou LTSB). Se optar por atualizar para o ramo atual, a verificação de funcionalidades que não são suportadas pelo LTSB não são executadas.
 
-Дополнительные сведения см. в разделах [Средство проверки готовности](/sccm/core/servers/deploy/install/prerequisite-checker) и [Список проверок готовности для System Center Configuration Manager](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
+Para obter mais informações, consulte o [Verificador de pré-requisitos](/sccm/core/servers/deploy/install/prerequisite-checker) e [lista de pré-requisitos verifica para o System Center Configuration Manager](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
 
-**Скачайте обязательные и распространяемые файлы для System Center Configuration Manager.**    
-Используйте **загрузчик программы установки** для скачивания файлов необходимых распространяемых компонентов, языковых пакетов и последних обновлений продукта для System Center Configuration Manager.  
+**Transfira os ficheiros de pré-requisitos e os ficheiros redistribuíveis para o System Center Configuration Manager:**    
+Utilize **dispositivo de transferência da configuração** para transferir os ficheiros redistribuíveis de pré-requisitos, pacotes de idiomas e as atualizações de produto mais recentes para o System Center Configuration Manager.  
 
-Сведения см. в разделе [Загрузчик программы установки](/sccm/core/servers/deploy/install/setup-downloader).  
+Para informações, consulte [dispositivo de transferência da configuração](/sccm/core/servers/deploy/install/setup-downloader).  
 
-**Планирование управления языками серверов и клиентов**.  
-При обновлении сайта устанавливаются только версии языковых пакетов, выбранные во время обновления.  
+**Planeie a gestão do servidor e dos idiomas de cliente**:  
+Quando atualiza um site, a atualização do site instala apenas as versões do pacote de idiomas que selecionar durante a atualização.  
 
--   Программа установки проверяет текущую языковую конфигурацию сайта, а затем определяет языковые пакеты, доступные в папке, где хранятся ранее скачанные необходимые файлы.  
--   Можно затем подтвердить выбор текущих серверных и клиентских языковых пакетов или изменить параметры, чтобы добавлять или удалять поддержку языков.  
--   Можно выбрать только те языковые пакеты, которые доступны при запуске программы установки (которая входит в состав скачиваемых необходимых файлов).  
+-   O Programa de Configuração analisa a configuração de idioma atual do site e, em seguida, identifica os pacotes de idiomas que estão disponíveis na pasta onde armazenou os ficheiros de pré-requisitos previamente transferidos.  
+-   Em seguida, poderá confirmar a seleção dos pacotes de idiomas atuais do servidor e dos clientes, ou alterar as seleções de forma a adicionar ou remover o suporte para idiomas.  
+-   Apenas pode selecionar os pacotes de idiomas que estão disponíveis quando executa o Programa de Configuração (os quais obtém juntamente com os ficheiros dos pré-requisitos que transfere).  
 
 > [!NOTE]  
->  Нельзя использовать языковые пакеты из System Center 2012 Configuration Manager для включения языков на сайте System Center Configuration Manager.  
+>  Não é possível utilizar pacotes de idiomas do System Center 2012 Configuration Manager para ativar idiomas num site do System Center Configuration Manager.  
 
-Дополнительные сведения о языковых пакетах см. в разделе [Языковые пакеты в System Center Configuration Manager](../../../../core/servers/deploy/install/language-packs.md).  
+Para obter mais informações sobre pacotes de idiomas, consulte [pacotes de idiomas no System Center Configuration Manager](../../../../core/servers/deploy/install/language-packs.md).  
 
-**Некоторые особенности обновлений сайтов**.  
-Когда вы обновляете сайт, некоторые функции и настройки будут возвращены к значениям по умолчанию. Сведения, которые могут помочь при подготовке к этим и связанным изменениям, см. в разделе  [Вопросы обновления](#bkmk_considerations).  
+**Reveja as considerações sobre as atualizações de sites**:  
+Ao atualizar um site, algumas funcionalidades e configurações são repostas para uma configuração predefinida. Para o ajudar a preparar-se para estas e outras alterações relacionadas, reveja a informação disponível em  [Considerações sobre atualizações](#bkmk_considerations).  
 
-**Создайте резервную копию базы данных сайта на сайте центра администрирования и первичных сайтах.**  
-Перед обновлением сайта создайте резервную копию базы данных сайта, чтобы гарантировать успешное резервирование для использования при аварийном восстановлении.  
+**Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:**  
+Antes de atualizar um site, efetue uma cópia de segurança da base de dados do site para garantir que poderá utilizar uma cópia de segurança válida em caso de recuperação de desastres.  
 
-См. раздел [Резервное копирование и восстановление в System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
+Consulte [cópia de segurança e recuperação para o System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
 
-**Создайте резервную копию настроенного файла Configuration.mof**.  
-Если вы используете настроенный файл Configuration.mof для определения классов данных, используемых при инвентаризации оборудования, создайте резервную копию этого файла перед обновлением сайта. После обновления восстановите этот файл на сайт. Дополнительные сведения об использовании этого файла см. в разделе [Расширение инвентаризации оборудования в System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+**Cópia de segurança de um ficheiro Configuration.mof personalizado**:  
+Se utilizar um ficheiro Configuration.mof personalizado para definir as classes de dados que utiliza com o inventário de hardware, crie uma cópia de segurança deste ficheiro antes de atualizar o site. Em seguida, após a atualização, restaure este ficheiro para o seu site. Para obter mais informações sobre como utilizar este ficheiro consulte [como expandir o inventário de hardware no System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
-**Протестируйте процесс обновления базы данных на копии последней резервной копии базы данных сайта:**  
-Перед обновлением сайта центра администрирования Configuration Manager или первичного сайта следует протестировать процесс обновления базы данных сайта на копии базы данных сайта.  
+**Teste o processo de atualização de base de dados numa cópia da cópia de segurança de base de dados site mais recente:**  
+Antes de atualizar um site de administração central do Configuration Manager ou um site primário, teste o processo de atualização da base de dados do site numa cópia da base de dados do site.  
 
--   Это необходимо сделать, так как при обновлении сайта базы данных сайта могут быть изменены.  
--   Проверка обновления не является обязательной, но она может выявить проблемы при обновлении до того, как будет затронута ваша рабочая база данных.  
--   Неудача обновления базы данных сайта может привести к повреждению базы данных сайта и потребовать восстановления сайта для возврата функциональных возможностей.  
--   Хотя база данных сайта распределена между сайтами в иерархии, следует протестировать ее на каждом соответствующем сайте перед его обновлением.  
--   Если вы используете реплики баз данных для точек управления на первичном сайте, следует отключить репликацию перед созданием резервной копии базы данных сайта.  
+-   Deve testar o processo de atualização da base de dados do site porque, ao atualizar um site, a base de dados do mesmo pode ser modificada  
+-   Embora não seja necessário testar a atualização da base de dados, o teste pode identificar problemas da atualização antes que a base de dados de produção seja afetada  
+-   Uma atualização da base de dados do site efetuada incorretamente pode deixar a base de dados do site inoperável, podendo ser necessário efetuar uma recuperação do site de forma a restaurar o funcionamento  
+-   Embora a base de dados do site seja partilhada entre os sites de uma hierarquia, planeie o teste da base de dados em cada site aplicável antes de atualizar esse site  
+-   Se utiliza réplicas de bases de dados para pontos de gestão num site primário, desative a replicação antes de criar a cópia de segurança da base de dados do site  
 
-Configuration Manager не поддерживает ни резервное копирование вторичных сайтов, ни тестовое обновление базы данных вторичных сайтов.  
+O Configuration Manager não suporta a cópia de segurança dos sites secundários nem o teste da atualização de uma base de dados do site secundário.  
 
-Тестовое обновление базы данных для базы данных рабочего сайта не поддерживается. Это приведет к обновлению базы данных сайта, в случае чего сайт может перестать работать.  
+A execução de um teste de atualização da base de dados na base de dados do site de produção não é suportada. Tal procedimento atualiza a base de dados do site, podendo fazer com que este deixe de funcionar.  
 
-Дополнительные сведения см. в разделе [Тестирование обновления базы данных сайта](#bkmk_test).  
+Para obter mais informações, veja [Testar a atualização da base de dados do site](#bkmk_test).  
 
-**Перезапустите сервер сайта и все компьютеры, на которых размещаются роли системы сайта**:  
-Это позволит убедиться в том, что отсутствуют ожидающие действия в результате недавней установки обновлений или необходимых компонентов. Внутренний процесс, характерный для компании.  
+**Reinicie o servidor de site e cada computador que aloje uma função de sistema de sites**:  
+Isto é feito para se certificar de que existe existem ações pendentes de uma instalação recente de atualizações ou de pré-requisitos e é um processo interno específico da empresa.  
 
-**Обновление сайтов**.  
-Начав с сайта верхнего уровня в иерархии, запустите файл Setup.exe с исходного носителя System Center Configuration Manager.  
+**Atualizar sites**:  
+Começando no site de nível superior na hierarquia, execute Setup.exe a partir do suporte de dados de origem do System Center Configuration Manager.  
 
-После обновления сайта верхнего уровня можно начать обновление каждого дочернего сайта. Завершите обновление каждого сайта, прежде чем начинать обновление следующего.  
+Após a atualização do site de nível superior, pode começar a atualização de cada site subordinado. Conclua a atualização de cada site antes de iniciar a atualização do site seguinte  
 
-Пока все сайты в иерархии не будут обновлены до System Center Configuration Manager, иерархия будет работать в режиме смешанных версий.  
+Até que todos os sites na sua hierarquia atualizam para o System Center Configuration Manager, a hierarquia funciona num modo com versões mistas.  
 
-Дополнительные сведения о выполнении обновления см. в разделе [Обновление сайтов](#bkmk_upgrade).  
+Para obter informações sobre como executar a atualização, consulte [atualizar sites](#bkmk_upgrade).  
 
-### <a name="after-you-upgrade"></a>После обновления  
-**Обновление автономных консолей Configuration Manager**  
-По умолчанию при обновлении сайта центра администрирования или первичного сайта также обновляются установленные на сервере сайта консоли Configuration Manager. Тем не менее, необходимо вручную обновить каждую консоль, установленную на компьютере, отличном от сервера сайта.  
-
-> [!TIP]  
->  Перед началом обновления закройте все открытые консоли.  
-
-Дополнительные сведения см. в статье [Install System Center Configuration Manager consoles](../../../../core/servers/deploy/install/install-consoles.md).  
-
-**Перенастройте реплики базы данных для точек управления на первичных сайтах:**  
-При использовании реплик баз данных для точек управления на первичных сайтах необходимо удалить их перед обновлением сайта. После обновления первичного сайта нужно перенастроить реплику базы данных для точек управления.   
-Дополнительные сведения см. в статье  [Database replicas for management points for System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
-
-**Перенастройте все задачи обслуживания базы данных, которые были отключены перед обновлением:**  
-Если перед обновлением вы отключили [ссылки базы данных на задачи обслуживания для System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md) на сайте, перенастройте эти задачи, используя те же параметры, которые использовались до обновления.  
-
-**Обновление клиентов**.  
-После обновления всех сайтов в System Center Configuration Manager спланируйте обновление клиентов.  
-
-При обновлении клиента существующее программное обеспечение клиента удаляется и устанавливается новое. Для обновления клиентов можно использовать любой метод, поддерживаемый Configuration Manager.  
+### <a name="after-you-upgrade"></a>Depois da atualização  
+**Atualizar consolas do Configuration Manager autónomo**:  
+Por predefinição, quando atualizar um site de administração central ou site primário, a instalação também atualiza as consola do Configuration Manager que está instalada no servidor do site. No entanto, tem de atualizar manualmente cada consola que esteja instalada num computador que não seja o servidor do site.  
 
 > [!TIP]  
->  При обновлении сайта верхнего уровня иерархии также обновляется пакет установки клиента на каждой точке распространения в иерархии. При обновлении первичного сайта обновляется и пакет обновления клиента, который можно загрузить с первичного сайта.  
+>  Feche cada consola aberta antes de iniciar a atualização.  
 
-Сведения о том, как обновить существующие клиенты и установить новые, см. в статье [Обновление клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+Para obter mais informações, veja [Instalar consolas do System Center Configuration Manager](../../../../core/servers/deploy/install/install-consoles.md).  
 
-##  <a name="bkmk_considerations"></a> Вопросы обновления  
-**Автоматические действия**:  
-При обновлении до System Center Configuration Manager автоматически выполняются указанные ниже действия.  
+**Reconfigure réplicas de base de dados para pontos de gestão em sites primários:**  
+Se utilizar réplicas de base de dados para pontos de gestão em sites primários, necessitará de desinstalar as réplicas de base de dados antes de atualizar o site. Após atualizar um site primário, reconfigure a réplica da base de dados para pontos de gestão.   
+Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
--   Сайт выполняет сброс, который вызывает переустановку всех ролей системы сайта.  
--   Если сайт является сайтом верхнего уровня иерархии, он обновляет пакет установки клиента на каждой точке распространения в иерархии. Сайт также обновляет образы загрузки по умолчанию для использования новой версии среды предустановки Windows, которая предоставляется вместе с комплектом средств для развертывания и оценки Windows 10. Однако это обновление не обновляет существующий носитель для использования с развертыванием образа.  
--   Если сайт является первичным, он обновляет свой пакет обновления клиента.  
+**Reconfigure as tarefas de manutenção de base de dados desativadas antes da atualização:**  
+Se tiver desativado [tarefas de manutenção da base de dados para o System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md) num site antes da atualização, reconfigure essas tarefas no site com as definições que estavam aplicadas antes da atualização do site.  
 
-**Ручные действия администратора после обновления**   
-После обновления сайта следует выполнить указанные ниже действия.  
+**Atualizar clientes**:  
+Depois de todos os seus sites atualizam para o System Center Configuration Manager, planeie a atualização dos clientes.  
 
--   Обновите и установите программное обеспечение новой версии для клиентов, назначенных каждому первичному сайту.  
--   Обновите все консоли Configuration Manager, которые подключаются к сайту и работают на удаленных по отношению к серверу сайта компьютерах.  
--   На первичных сайтах, где используются реплики базы данных для точек управления, перенастройте эти реплики.  
--   После обновлений сайтов вы должны вручную обновить физический носитель, например ISO-файлы для компакт-дисков, DVD-дисков или USB-устройств флэш-памяти либо предварительно подготовленный носитель, используемый для развертываний Windows To Go или предоставленный поставщикам оборудования. Несмотря на то, что обновление сайта обновляет образы загрузки по умолчанию, оно не может обновить эти файлы носителей или внешние устройства до Configuration Manager.  
--   Запланируйте обновление образов загрузки не по умолчанию, когда не требуется исходная (более старая) версия среды Windows PE.  
-
-**Действия, которые влияют на параметры и конфигурацию**   
-Когда сайт обновляется до System Center Configuration Manager, некоторые конфигурации и параметры не сохраняются после обновления или получают новые значения по умолчанию. В следующей таблице перечислены параметры, которые не сохраняются при изменении, и приведены сведения, позволяющие учесть их при обновлении сайта.  
-
--   **Центр программного обеспечения.**  
-    Следующие элементы центра программного обеспечения возвращаются к значениям по умолчанию.  
-    -   **Сведения о работе** — возвращаются к рабочим часам с **05:00** до **10:00** с понедельника по пятницу.  
-    -   Значение **Обслуживание компьютера** задается равным **Приостанавливать действия центра программного обеспечения, когда компьютер работает в режиме презентации**.  
-    -   Параметр **Удаленное управление** получает значение из клиентских настроек на компьютере.  
--   **Расписания формирования сводных данных обновлений программного обеспечения.**  
-     Настраиваемые расписания формирования сводных данных для обновлений программного обеспечения или их групп возвращаются к значению по умолчанию (1 час). После завершения обновления следует вернуть нужные настраиваемые значения.  
-
-##  <a name="bkmk_test"></a> Тестирование обновления базы данных сайта  
-Приведенная ниже информация относится только к тем случаям, когда System Center 2012 Configuration Manager обновляется до System Center Configuration Manager.
-
-Перед обновлением сайта проверьте готовность копии базы данных сайта к обновлению.  
-
-Для проверки базы данных необходимо сначала восстановить копию базы данных сайта на экземпляре SQL Server, на котором не размещается сайт Configuration Manager. Версия SQL Server, используемая для размещения копии базы данных, должна совпадать с версией SQL Server, поддерживаемой той версией Configuration Manager, из которой взята копия базы данных.  
-
-Затем после восстановления базы данных сайта на компьютере, где установлен SQL Server, запустите программу установки Configuration Manager из папки на исходном носителе для System Center Configuration Manager с параметром командной строки **/TESTDBUPGRADE**.  
-
--   Сведения о создании резервной копии и восстановлении базы данных сайта см. в статье [Параметры командной строки для программы установки](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
--   Сведения о параметре командной строки **/TESTDBUPGRADE** см. в таблице в статье [Параметры командной строки для программы установки](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
--   Дополнительные сведения о поддерживаемых версиях SQL Server см. в статье [Поддержка версий SQL Server для System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+Ao atualizar um cliente, o software atual do cliente é desinstalado e é instalada a nova versão do software de cliente. Para atualizar os clientes, pode utilizar qualquer método suportado pelo Configuration Manager.  
 
 > [!TIP]  
->  Интеграция Microsoft Intune с Configuration Manager  
+>  Ao atualizar o site de nível superior de uma hierarquia, também é atualizado o pacote de instalação de cliente de cada ponto de distribuição da hierarquia. Ao atualizar um site primário, o pacote de atualização de cliente disponível nesse site primário é atualizado.  
+
+Para obter informações sobre como atualizar clientes existentes e sobre como instalar novos clientes, veja [Como atualizar clientes em computadores Windows no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+
+##  <a name="bkmk_considerations"></a> Considerações sobre atualizações  
+**Ações automáticas**:  
+Quando atualizar para o System Center Configuration Manager, as seguintes ações ocorrem automaticamente:  
+
+-   O site efetua uma reposição do site, a qual inclui uma reinstalação de todas as funções do sistema de sites.  
+-   Caso o site seja o site de nível superior de uma hierarquia, atualizará o pacote de instalação de cliente em todos os pontos de distribuição da hierarquia. O site também atualiza as imagens de arranque predefinidas para utilizar a nova versão do Windows PE incluída no Windows Assessment and Deployment Kit 10. No entanto, a atualização não atualiza suportes de dados existentes para utilização com implementação de imagens.  
+-   Caso o site seja um site primário, atualizará o pacote de atualização de cliente para esse site.  
+
+**Ações manuais para o utilizador administrativo após uma atualização**   
+Depois de atualizar um site, certifique-se de que as seguintes ações são efetuadas:  
+
+-   Certifique-se de que os clientes atribuídos a cada site primário atualizam e instalam o software de cliente da nova versão  
+-   Atualizar cada consola do Configuration Manager que liga ao site e que é executado no computador que esteja remoto a partir do servidor do site  
+-   Nos sites primários onde utiliza réplicas de bases de dados para pontos de gestão, reconfigure as réplicas de base de dados  
+-   Depois da atualização do site, tem de atualizar manualmente os suportes de dados físicos, tais como ficheiros ISO para CD e DVD ou pens USB, ou suportes de dados pré-configurados utilizados para implementações do Windows To Go ou fornecidos a fornecedores de hardware. Embora a atualização do site atualiza as imagens de arranque predefinidas, não pode atualizar estes ficheiros de suporte de dados ou dispositivos utilizados externamente em relação ao Configuration Manager  
+-   Planeie a atualização de imagens de arranque não predefinidas quando não precisa da versão original (mais antiga) do Windows PE.  
+
+**Ações que afetam configurações e definições**   
+Quando um site é atualizado para o System Center Configuration Manager, algumas configurações e definições não são mantidas após a atualização ou são definidas para uma nova configuração predefinida. A tabela seguinte inclui as definições que não são mantidas ou que são alteradas, bem como informações que o ajudam a efetuar o planeamento das mesmas durante a atualização de sites:  
+
+-   **Centro de Software:**  
+    Os seguintes itens do Centro de Software são repostos nos valores predefinidos:  
+    -   A opção**Informação de trabalho** é reposta para um horário de expediente das **5h00** às **22h00** Monday às Friday.  
+    -   O valor de **Manutenção do computador** é definido como **Suspender as atividades do Centro de Software quando o computador estiver em modo de apresentação**.  
+    -   O valor de **Controlo remoto** é definido com o valor existente nas definições de cliente que foram atribuídas ao computador.  
+-   **Agendamentos de resumo de atualização de software:**  
+     Os agendamentos de resumo personalizados para atualizações de software ou grupos de atualizações de software são repostos no valor predefinido de 1 hora. Após a conclusão da atualização, reponha os valores de resumo personalizados na frequência pretendida.  
+
+##  <a name="bkmk_test"></a> Testar a atualização da base de dados do site  
+As seguintes informações aplicam-se apenas quando estiver a atualizar uma versão anterior, como o System Center 2012 Configuration Manager para o System Center Configuration Manager.
+
+Antes de atualizar um site, teste uma cópia da base de dados desse site para a atualização.  
+
+Para testar a base de dados para uma atualização, restaure primeiro uma cópia da base de dados do site para uma instância do SQL Server que não aloje um site do Configuration Manager. A versão do SQL Server que utiliza para alojar a cópia da base de dados tem de ser uma versão do SQL Server que suporta a origem da cópia da base de dados que é a versão do Configuration Manager.  
+
+Em seguida, depois de restaurar a base de dados do site, no computador do SQL Server, execute a configuração do Configuration Manager da pasta de suporte de dados de origem para o System Center Configuration Manager com o **/testdbupgrade.** opção da linha de comandos.  
+
+-   Para obter informações sobre como criar e restaurar uma cópia de segurança da base de dados do site, veja [Opções da linha de comandos para Configuração](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+-   Para obter informações sobre a opção da linha de comandos **/TESTDBUPGRADE**, veja a tabela da secção [Opções da linha de comandos para Configuração](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+-   Para obter informações sobre as versões suportadas do SQL Server, veja o tópico [Suporte para versões do SQL Server para o System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+
+> [!TIP]  
+>  Se integrar o Microsoft Intune com o Configuration Manager:  
 >   
->  при тестировании обновления базы данных на копии базы данных сайта старше 5 дней может появиться одно из следующих сообщений:  
+>  Quando executa um teste de atualização da base de dados numa cópia da base de dados do site com 5 ou mais dias, poderá receber uma das seguintes mensagens:  
 >   
->  -   ПРЕДУПРЕЖДЕНИЕ. Обновление приведет к полной синхронизации с облаком.  
->  -   ОШИБКА. Обновление базы данных приведет к полной синхронизации с облаком.  
+>  -   AVISO: Atualização irá forçar a sincronização completa com a nuvem.  
+>  -   ERRO: Atualização de base de dados irá forçar a sincronização completa com a nuvem.  
 >   
-> Эти сообщения можно пропустить во время тестирования обновления базы данных, так как они не указывают на сбой или проблемы с тестовым обновлением. Они означают, что во время реального обновления данные из группы репликации базы данных **Облако** могут синхронизироваться с Microsoft Intune.  
+> Ambos podem ser ignoradas durante o teste de uma atualização de base de dados que não indicam uma falha ou um problema com o teste da atualização. Em vez disso, indicam que, durante a atualização real, dados a partir de **nuvem** grupo de replicação de base de dados poderão ser sincronizados com o Microsoft Intune.  
 
-Используйте следующую процедуру для каждого сайта центра администрирования и первичного сайта, который вы планируете обновить.  
+Utilize o seguinte procedimento em cada site de administração central e site primário que pretenda atualizar.  
 
-#### <a name="to-test-a-site-database-for-upgrade"></a>Тестирование обновления базы данных сайта  
+#### <a name="to-test-a-site-database-for-upgrade"></a>Para testar uma base de dados do site para atualização  
 
-1.  Создайте копию базы данных сайта, а затем восстановите эту копию на экземпляре SQL Server того же выпуска, что и у базы данных сайта, на котором не размещается сайт Configuration Manager. Например, если база данных сайта находится на экземпляре SQL Server Enterprise Edition, необходимо восстановить базу данных на экземпляре SQL Server Enterprise Edition.  
+1.  Faça uma cópia da base de dados do site e, em seguida, restaure-a para uma instância do SQL Server que utilize a mesma edição que a base de dados do site e que não aloje um site do Configuration Manager. Por exemplo, se a base de dados do site for executada numa instância da edição Enterprise do SQL Server, certifique-se de que restaura a base de dados para uma instância do SQL Server que também execute a edição Enterprise do SQL Server.  
 
-2.  После восстановления копии базы данных запустите программу установки с исходного носителя для System Center Configuration Manager. При запуске программы установки используйте параметр командной строки **/TESTDBUPGRADE** . Если экземпляр SQL Server, на котором размещена копия базы данных, не является экземпляром по умолчанию, необходимо также указать параметры командной строки, чтобы задать экземпляр, на котором размещена копия базы данных сайта.  
+2.  Depois de restaurar a cópia da base de dados, execute a configuração do suporte de dados de origem para o System Center Configuration Manager. Ao executar a Configuração, utilize a opção da linha de comandos **/TESTDBUPGRADE** . Se a instância do SQL Server que aloja a cópia da base de dados não for a instância predefinida, terá de fornecer também os argumentos da linha de comandos para identificar a instância que aloja a cópia da base de dados do site.  
 
-     Например, планируется обновление базы данных сайта с именем SMS_ABC. Следует восстановить копию этой базы данных сайта на поддерживаемом экземпляре SQL Server с именем экземпляра DBTest. Чтобы проверить обновление этой копии базы данных сайта, используйте следующую командную строку: **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**.  
+     Por exemplo, planeia atualizar uma base de dados do site denominada SMS_ABC. Restaura uma cópia desta base de dados do site para uma instância suportada do SQL Server com o nome de instância DBTest. Para testar uma atualização desta cópia da base de dados do site, use a seguinte linha de comandos: **Setup.exe /testdbupgrade. DBtest\CM_ABC**  
 
-     Setup.exe можно найти в следующем каталоге исходного носителя System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
+     Pode encontrar o Setup.exe na seguinte localização no suporte de dados de origem para o System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
 
-3.  На экземпляре SQL Server, на котором выполняется проверка готовности базы данных, следите за журналом ConfigMgrSetup.log в корневом каталоге системного диска.  
+3.  Na instância do SQL Server em que executou o teste da atualização da base de dados, monitorize o progresso e êxito do ficheiro ConfigMgrSetup.log, na raiz da unidade do sistema:  
 
-    -   Если тестовое обновление заканчивается неудачей, устраните все проблемы, мешающие обновлению базы данных сайта, создайте новую резервную копию базы данных сайта, а затем протестируйте обновление для новой копии базы данных сайта.  
-    -   После того, как процесс успешно завершится, можно удалить копию базы данных.  
+    -   Se o teste da atualização falhar, resolva eventuais problemas relacionados com a falha da atualização da base de dados do site, crie uma nova cópia de segurança da base de dados do site e teste a atualização da nova cópia da base de dados do site.  
+    -   Após a conclusão do processo com êxito, poderá eliminar a cópia da base de dados.  
 
         > [!NOTE]  
-        >  Восстановление копии базы данных сайта, которая используется для тестового обновления сайта, для применения в качестве базы данных сайта не поддерживается.  
+        >  O restauro da cópia da base de dados do site utilizada para o teste da atualização não é suportado para utilização como base de dados de qualquer site.  
 
-После успешного обновления копии базы данных сайта продолжите обновление сайта Configuration Manager и его базы данных.  
+Depois de atualizar com êxito uma cópia da base de dados do site, prossiga com a atualização do site do Configuration Manager e a respetiva base de dados do site.  
 
-##  <a name="bkmk_upgrade"></a> Обновление сайтов  
-После предварительной настройки сайта проверьте обновление копии базы данных сайта, а затем загрузите необходимые файлы и языковые пакеты для версии пакета обновления, которую планируется установить. После этого все будет готово к обновлению сайта Configuration Manager.  
+##  <a name="bkmk_upgrade"></a> Atualizar sites  
+Depois de concluir as configurações de pré-atualização para o seu site, testar a atualização da base de dados do site numa cópia da base de dados e transferir ficheiros de pré-requisitos e pacotes de idiomas da versão do service pack que planeia instalar, estará pronto atualizar o seu site do Configuration Manager.  
 
-При обновлении сайта в иерархии в первую очередь происходит обновление сайта верхнего уровня иерархии. Это сайт верхнего уровня является сайтом центра администрирования или автономным первичным сайтом. После того как завершения обновления сайта центра администрирования можно обновить дочерние первичные сайты в любом порядке. После обновления первичного сайта можно обновить его дочерние вторичные сайты или обновить дополнительные первичные сайты перед обновлением всех вторичных сайтов.  
+Ao atualizar um site numa hierarquia, deverá atualizar primeiro o site de nível superior da hierarquia. Este site de nível superior é um site de administração central ou um site primário autónomo. Após a conclusão da atualização de um site de administração central, será possível atualizar os sites primários subordinados pela ordem que entender. Depois de atualizar um site primário, pode atualizar os sites secundários subordinados desse site ou atualizar sites primários adicionais antes de atualizar quaisquer sites secundários.  
 
-Для обновления первичного сайта или сайта центра администрирования запустите программу установки с исходного носителя System Center Configuration Manager. Программа установки не используется для обновления вторичных сайтов. Вместо этого для обновления вторичных сайтов после завершения обновления родительского первичного сайта нужно использовать консоль Configuration Manager.  
+Para atualizar um site de administração central ou site primário, executar a configuração do suporte de dados de origem do System Center Configuration Manager. No entanto, não deverá executar o Programa de Configuração para atualizar sites secundários. Em alternativa, utilize a consola do Configuration Manager para atualizar um site secundário após concluir a atualização do respetivo site primário principal.  
 
-Перед обновлением сайта закройте консоль Configuration Manager, установленную на сервере сайта, на время обновления сайта. Также закройте все консоли Configuration Manager на компьютерах, отличных от сервера сайта. Консоли можно подключить снова после завершения обновления сайта. Пока вы не обновите консоль Configuration Manager до новой версии Configuration Manager, она не сможет отображать некоторые объекты и информацию, доступные в новой версии Configuration Manager.  
+Antes de atualizar um site, feche a consola do Configuration Manager que está instalada no servidor de site até que a atualização do site esteja concluída. Além disso, feche cada consola do Configuration Manager que é executada em computadores que não seja o servidor do site. Poderá voltar a ligar a consola após a conclusão da atualização do site. No entanto, enquanto não atualizar uma consola do Configuration Manager para a nova versão do Configuration Manager, essa consola não é possível apresentar alguns objetos e informações que estão disponíveis na nova versão do Configuration Manager.  
 
-Используйте следующие процедуры для обновления сайтов Configuration Manager.  
+Utilize os procedimentos seguintes para atualizar sites do Configuration Manager:  
 
-#### <a name="to-upgrade-a-central-administration-site-or-primary-site"></a>Обновление первичного сайта или сайта центра администрирования  
+#### <a name="to-upgrade-a-central-administration-site-or-primary-site"></a>Para atualizar um site de administração central ou site primário  
 
-1.  Убедитесь, что пользователь, запускающий программу установки, имеет следующие права безопасности:  
+1.  Certifique-se de que o utilizador que executa o Programa de Configuração possui os seguintes direitos de segurança:  
 
-    -   права локального администратора на сервере сайта;  
-    -   права локального администратора на удаленном сервере базы данных сайта, если он является удаленным.    </br></br>
+    -   Direitos de Administrador Local no computador do servidor de site.  
+    -   Direitos de Administrador Local no servidor da base de dados do site remoto, se for remoto.    </br></br>
 
-2.  На компьютере сервера сайта откройте проводник Windows и перейдите в папку **&lt;исходный_носитель_ConfigMg\>\SMSSETUP\BIN\X64**.  
+2.  No computador do servidor do site, abra o Explorador do Windows e navegue para  **&lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
 
-3.  Дважды щелкните файл **Setup.exe**. Откроется мастер установки Configuration Manager.  
+3.  Faça duplo clique em **Setup.exe**. É aberto o Assistente de configuração do Configuration Manager.  
 
-4.  На странице **Перед началом работы** нажмите кнопку **Далее**.  
+4.  Na página **Antes de Começar** , clique em **Seguinte**.  
 
-5.  На странице **Приступая к работе** выберите **Обновить этот сайт Configuration Manager**, а затем нажмите кнопку **Далее**.  
+5.  Na página **Introdução** , selecione **Atualizar este site do Configuration Manager**e clique em **Seguinte**.  
 
-6.  На странице **Ключ продукта** нажмите кнопку **Далее**.  
+6.  Na página **Chave de Produto** , clique em **Seguinte**.  
 
-     Если вы ранее установили ознакомительную версию Configuration Manager, можно выбрать вариант **Установить лицензионный выпуск продукта** и ввести ключ продукта для полной установки Configuration Manager, чтобы преобразовать сайт в полную версию.  
+     Se instalou anteriormente a avaliação do Configuration Manager, pode selecionar **instalar a edição licenciada deste produto**e, em seguida, introduza a chave de produto para a instalação completa do Configuration Manager para converter o site para a versão completa.  
 
-     Начиная с выпуска версии 1606 базового носителя для System Center Configuration Manager в октябре 2016 г. можно указывать дату окончания срока действия соглашения Software Assurance. Кроме того, можно указать **дату окончания срока действия программы Software Assurance** по лицензионному соглашению. В итоге вы получите удобное напоминание. Если эти данные не введены во время установки, это можно сделать позднее из консоли Configuration Manager.
+     Começando com a versão de Outubro de 2016 do suporte de dados de linha de base do versão 1606 para o System Center Configuration Manager, pode especificar a data de expiração do seu contrato de Software Assurance. Também tem a opção de especificar o **data de expiração do Software Assurance** do seu contrato de licenciamento em como um lembrete para si conveniente dessa data. Se não introduzir este durante a configuração, pode especificá-la mais tarde a partir da consola do Configuration Manager.
 
      >  [!NOTE]   
-     >  Майкрософт не проверяет указанную дату окончания срока действия и не будет использовать ее для проверки лицензии.  Вы сами можете использовать эти сведения в качестве напоминания об окончании срока действия. Это удобно, так как Configuration Manager периодически проверяет наличие новых обновлений программного обеспечения, предлагаемых через Интернет, поэтому ваши лицензии в рамках Software Assurance должны иметь соответствующее состояние для использования этих дополнительных обновлений.    
+     >  Microsoft não valida a data de expiração introduzido e não utilize esta data para validação da licença.  Em vez disso, pode utilizá-lo como um lembrete da sua data de expiração. Isto é útil porque o Configuration Manager periodicamente verifica a existência de novas atualizações de software disponibilizadas online e o estado de licença do software assurance deve ser atual para serem elegíveis para utilizar estas atualizações adicionais.    
 
-     Дополнительные сведения см. в разделе [Лицензирование и ветви в System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+     Para obter mais informações, consulte [licenciamento e ramos para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-7.  На странице **Условия лицензионного соглашения корпорации Майкрософт** прочтите и примите условия лицензии, а затем нажмите кнопку **Далее**.  
+7.  Na página **Termos de Licenciamento para Software Microsoft** , leia e aceite os termos de licenciamento e clique em **Seguinte**.  
 
-8.  На странице **Необходимые лицензии** прочтите и примите условия лицензий необходимых программных компонентов и нажмите кнопку **Далее**. При необходимости программа установки автоматически загрузит и установит программное обеспечение на системы сайта и на клиентские компьютеры. Перед переходом на следующую страницу необходимо установить все флажки.  
+8.  Na página **Licenças de Pré-requisitos** , leia e aceite os termos de licenciamento do software de pré-requisito e clique em **Seguinte**. O programa de configuração transfere e instala automaticamente o software em sistemas de sites ou clientes, quando necessário. Tem de selecionar todas as caixas de verificação para avançar para a página seguinte.  
 
-9. На странице **Загрузки необходимых компонентов** укажите, должна ли программа установки загрузить последние версии необходимых распространяемых компонентов, языковых пакетов и последних обновлений продуктов из Интернета или использовать загруженные ранее файлы, а затем нажмите кнопку **Далее**. Если файлы были ранее загружены с помощью загрузчика программы установки, выберите пункт **Использовать ранее загруженные файлы** и укажите папку загрузки. Дополнительные сведения см. в разделе [Загрузчик программы установки](/sccm/core/servers/deploy/install/setup-downloader).
+9. Na página **Transferências de Pré-requisitos** , especifique se a Configuração deverá transferir os ficheiros redistribuíveis de pré-requisitos, pacotes de idiomas e atualizações de produto mais recentes a partir da Internet ou utilizar ficheiros transferidos anteriormente, e clique em **Seguinte**. Se tiver transferido anteriormente os ficheiros através do Dispositivo de Transferência da Configuração, selecione **Utilizar ficheiros anteriormente transferidos** e especifique a pasta para transferência. Para obter mais informações, consulte [dispositivo de transferência da configuração](/sccm/core/servers/deploy/install/setup-downloader).
 
     > [!NOTE]  
-    >  При использовании загруженных ранее файлов убедитесь, что путь указывает на папку загрузки с файлами самой последней версии.  
+    >  Quando utilizar ficheiros transferidos anteriormente, verifique se o caminho para a pasta de transferência contém a versão mais recente dos ficheiros.  
 
-10. На странице **Выбор языков интерфейса сервера** просмотрите список языков, установленных для данного сайта. Выберите дополнительные языки, доступные на этом сайте, для консоли Configuration Manager и отчетов, или снимите флажки для языков, которые больше не требуется поддерживать на этом сайте, а затем нажмите кнопку **Далее**. По умолчанию выбран английский язык, удалить его нельзя.  
-
-    > [!IMPORTANT]  
-    >  Каждая следующая версия Configuration Manager не может использовать языковые пакеты из предыдущей версии Configuration Manager. Чтобы включить поддержку языка на обновляемом сайте Configuration Manager, необходимо использовать версию языкового пакета для данной новой версии. Например, во время обновления System Center 2012 Configuration Manager до System Center Configuration Manager, если версия System Center Configuration Manager языкового пакета недоступна в загружаемом пакете необходимых файлов, поддержку этого языка установить нельзя.  
-
-11. На странице **Выбор языков интерфейса клиентов** просмотрите список языков, установленных для данного сайта. Выберите дополнительные языки, доступные на этом сайте для клиентских компьютеров, или уберите языки, которые больше не требуется поддерживать на этом сайте. Укажите, требуется ли включать все клиентские языки для мобильных устройств, а затем нажмите **Далее**. По умолчанию выбран английский язык, удалить его нельзя.  
+10. Na página **Seleção do Idioma do Servidor** , veja a lista de idiomas atualmente instalados para o site. Selecione idiomas adicionais disponíveis neste site para a consola do Configuration Manager e para relatórios ou desmarque os idiomas que já não é necessário suportar no site e, em seguida, clique em **seguinte**. Por predefinição, está seleccionado o inglês e não pode ser removido.  
 
     > [!IMPORTANT]  
-    >  Каждая следующая версия Configuration Manager не может использовать языковые пакеты из предыдущей версии Configuration Manager. Чтобы включить поддержку языка на обновляемом сайте Configuration Manager, необходимо использовать версию языкового пакета для данной новой версии. Например, во время обновления System Center 2012 Configuration Manager до System Center Configuration Manager, если версия System Center Configuration Manager языкового пакета недоступна в загружаемом пакете необходимых файлов, поддержку этого языка установить нельзя.  
+    >  Cada versão do Configuration Manager não é possível utilizar pacotes de idiomas de uma versão anterior do Configuration Manager. Para ativar o suporte para um idioma num site do Configuration Manager que atualizar, tem de utilizar a versão do pacote de idiomas dessa nova versão. Para o exemplo, durante a atualização do System Center 2012 Configuration Manager para System Center Configuration Manager, se a versão do System Center Configuration Manager de um pacote de idiomas não está disponível com os ficheiros de pré-requisitos que transferir, suporte para esse idioma não pode ser instalado.  
 
-12. На странице **Сводка параметров** нажмите **Далее** для запуска средства проверки готовности к установке, чтобы проверить готовность сервера к обновлению сайта.  
+11. Na página **Seleção do Idioma do Cliente** , veja a lista de idiomas atualmente instalados para o site. Selecione idiomas adicionais disponíveis neste site para computadores cliente ou desmarque os idiomas que já não seja necessário suportar no site. Especifique se pretende ativar todos os idiomas de cliente para clientes de dispositivos móveis e clique em **Seguinte**. Por predefinição, está seleccionado o inglês e não pode ser removido.  
 
-13. Если в списке на странице **Проверка готовности к установке** отсутствуют проблемы, нажмите кнопку **Далее** , чтобы обновить сайт и роли системы сайта. Если средство проверки готовности к установке обнаружит проблему, щелкните соответствующий элемент списка для получения сведений о том, как устранить эту проблему. Перед продолжением установки следует разрешить все элементы в списке, имеющие состояние **Ошибка** . Устранив проблему, нажмите кнопку **Выполнить проверку** , чтобы повторить проверку готовности к установке. Чтобы ознакомиться с результатами проверки, можно открыть файл ConfigMgrPrereq.log, находящийся в корневой папке диска C. Файл журнала может содержать дополнительную информацию, которая не отображается в интерфейсе пользователя. Список правил и описаний необходимых условий для установки см. в статье [Средство проверки готовности к установке](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
+    > [!IMPORTANT]  
+    >  Cada versão do Configuration Manager não é possível utilizar pacotes de idiomas de uma versão anterior do Configuration Manager. Para ativar o suporte para um idioma num site do Configuration Manager que atualizar, tem de utilizar a versão do pacote de idiomas dessa nova versão. Para o exemplo, durante a atualização do System Center 2012 Configuration Manager para System Center Configuration Manager, se a versão do System Center Configuration Manager de um pacote de idiomas não está disponível com os ficheiros de pré-requisitos que transferir, suporte para esse idioma não pode ser instalado.  
 
-На странице **Обновление** программа установки отображает общий ход выполнения. После того как программа установки завершит установку основного сервера сайта и системы сайта, можно закрыть мастер. Настройка сайта продолжится в фоновом режиме.  
+12. Na página **Resumo de Definições** , clique em **Seguinte** para iniciar o Verificador de Pré-requisitos para verificar a prontidão do servidor para a atualização do site.  
 
-#### <a name="to-upgrade-a-secondary-site"></a>Обновление вторичного сайта  
+13. Se não forem listados problemas na página **Verificação da Instalação de Pré-requisitos** , clique em **Seguinte** para atualizar o site e as funções do sistema de sites. Quando o Verificador de Pré-requisitos detetar um problema, clique num item da lista para obter detalhes sobre como resolver o problema. Antes de continuar a Configuração, resolva todos os itens da lista com estado de **Erro** . Depois de resolver o problema, clique em **Executar Verificação** para reiniciar a verificação de pré-requisitos. Pode também abrir o ficheiro ConfigMgrPrereq.log na raiz da unidade do sistema para rever os resultados do Verificador de Pré-requisitos. O ficheiro de registo pode conter informações adicionais que não são apresentadas na interface de utilizador. Para obter uma lista de regras de pré-requisitos de instalação e as descrições, consulte [verificador](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
 
-1.  Убедитесь, что пользователь, запускающий программу установки, имеет следующие права безопасности:  
+Na página **Atualizar** , a Configuração apresenta o estado do progresso global. Quando o Programa de Configuração concluir a instalação do servidor do site principal e do sistema de sites, pode fechar o assistente. A configuração do site continua em segundo plano.  
 
-    -   права локального администратора на компьютере вторичного сайта;  
-    -   роль администратора инфраструктуры или полного администратора на родительском первичном сайте;  
-    -   права системного администратора в базе данных вторичного сайта.  
+#### <a name="to-upgrade-a-secondary-site"></a>Para atualizar um site secundário  
+
+1.  Certifique-se de que o utilizador administrativo que executa o Programa de Configuração possui os seguintes direitos de segurança:  
+
+    -   Direitos de Administrador Local no computador do site secundário  
+    -   Administrador de Infraestrutura ou um direito de acesso de Administrador Total no site primário principal  
+    -   Direitos de administrador de sistema (AS) na base de dados do site secundário  
     </br>
-2.  В консоли Configuration Manager щелкните **Администрирование**.  
+2.  Na consola do Configuration Manager, clique em **Administração**.  
 
-3.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Сайты**.  
+3.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.  
 
-4.  Выберите вторичный сайт для обновления, а затем на вкладке **Главная** в группе **Сайт** щелкните пункт **Обновить**.  
+4.  Selecione o site secundário que pretende atualizar e, no separador **Home Page** , no grupo **Site** , clique em **Atualizar**.  
 
-5.  Нажмите кнопку **Да** , чтобы подтвердить решение и запустить обновление вторичного сайта.  
+5.  Clique em **Sim** para confirmar a decisão e iniciar a atualização do site secundário.  
 
-Вторичный сайт обновляется в фоновом режиме. После завершения обновления можно проверить состояние в консоли Configuration Manager. Для этого выберите сервер вторичного сайта, а затем на вкладке **Главная** в группе **Сайт** щелкните пункт **Показать состояние установки**.  
+A atualização do site secundário continuará em segundo plano. Após a conclusão da atualização, pode confirmar o estado na consola do Configuration Manager. Para confirmar o estado, selecione o servidor do site secundário e, no separador **Home Page** , no grupo **Site** , clique em **Mostrar Estado da Instalação**.  
 
-##  <a name="BKMK_PostUpgrade"></a> Действия после обновления  
-После обновления сайта до нового пакета обновления может потребоваться выполнить дополнительные задачи, чтобы завершить обновление или перенастроить сайт. Они могут включать обновление клиентов или консолей Configuration Manager, повторное включение реплик базы данных для точек управления или восстановление параметров функций Configuration Manager, которые вы используете и которые не сохраняются после обновления.  
+##  <a name="BKMK_PostUpgrade"></a> Efetuar tarefas pós-atualização  
+Após atualizar um site para um novo Service Pack, poderá ter de executar tarefas adicionais para concluir a atualização ou reconfigurar o site. Estas tarefas podem incluir a atualização de clientes do Configuration Manager ou de consolas do Configuration Manager, voltando a reativar réplicas de base de dados para pontos de gestão ou o restauro de definições para a funcionalidade do Configuration Manager que utilize e que não sejam mantidas após a atualização do pacote de serviço.  
 
-**Известные проблемы для вторичных сайтов**  
-- **Обновление до версии 1511**. Чтобы клиенты на вторичных сайтах могли найти точку управления с вторичного сайта (прокси-точку управления), вручную добавьте точку управления в группы границ, которые также включают точки распространения на вторичном сайте.  
+**Problemas conhecidos para sites secundários:**  
+- **Ao atualizar a versão 1511:** Para garantir que os clientes em sites secundários pode localizar o ponto de gestão do site secundário (ponto de gestão do proxy), adicione manualmente o ponto de gestão para grupos de limites que incluam também os pontos de distribuição no site secundário.  
 
-- **Обновление до версии 1606 или более поздней версии**. Прокси-точки управления автоматически добавляются в группы границ, включающие точки распространения на вторичном сайте.
+- **Ao atualizar a versão 1606 ou posterior:** Pontos de gestão do proxy são automaticamente adicionados a grupos de limites que incluam pontos de distribuição no site secundário.

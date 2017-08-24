@@ -1,6 +1,6 @@
 ---
-title: "Устранение неполадок интеграции с Lookout | System Center Configuration Manager"
-description: "В этом разделе описывается устранение часто возникающих неполадок интеграции с Lookout."
+title: "Resolver problemas de integração de Lookout | O System Center Configuration Manager"
+description: "Este tópico descreve problemas de resolução de problemas que ocorrem frequentemente com Lookout integração."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,71 +16,71 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 4fd2d3b8aae6a2f42e7c6a87723d16368be30984
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="troubleshoot-lookout-integration-with-intune"></a>Устранение неполадок интеграции Lookout с Intune
+# <a name="troubleshoot-lookout-integration-with-intune"></a>Resolver problemas Lookout integração com o Intune
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-## <a name="troubleshoot-login-errors"></a>Устранение ошибок входа
-### <a name="403-errors"></a>Ошибки 403
-Ошибка 403 может возникнуть при входе в [консоль Lookout MTP](https://aad.lookout.com): **у вас нет прав доступа к службе** Это может происходить, если указанное имя пользователя не входит в группу Azure Active Directory (Azure AD), для которой настроен доступ к Lookout MTP.
+## <a name="troubleshoot-login-errors"></a>Resolver erros de início de sessão
+### <a name="403-errors"></a>403 erros
+Poderá ver um erro 403 quando iniciar sessão para o [consola Lookout MTP](https://aad.lookout.com): **não está autorizado a aceder ao serviço** Isto pode acontecer se o nome de utilizador especificado não é um membro do grupo do Azure Active Directory (Azure AD) que está configurado para aceder à Lookout MTP.
 
-Служба Lookout MTP настроена так, что доступ к ней разрешен только пользователям из настроенной группы Azure AD. Если вы не знаете, для какой группы настроен доступ к Lookout MTP, обратитесь в службу поддержки Lookout.
+Lookout MTP está configurado para permitir que apenas utilizadores de um configurado do Azure AD de grupo para ter acesso. Se não souber qual o grupo está configurado com acesso ao Lookout MTP, contacte o suporte de Lookout.
 
-Связаться со службой поддержки Lookout можно одним из следующих способов:
+Pode contactar o suporte de Lookout através nos seguintes métodos:
 
-* Электронная почта: enterprisesupport@lookout.com
-* Войдите в [консоль MTP](http://aad.lookout.com) и перейдите в модуль **Поддержка**.
-* Перейдите на страницу по адресу https://enterprise.support.lookout.com/hc/en-us/requests и подайте запрос в службу поддержки.
+* E-mail:enterprisesupport@lookout.com
+* Início de sessão para o [MTP consola](http://aad.lookout.com)e navegue para o **suporte** módulo.
+* Aceda a: https://enterprise.support.lookout.com/hc/en-us/requests e faça um pedido de suporte.
 
-### <a name="unable-to-sign-in"></a>Не удается выполнить вход
-Если глобальный администратор Azure AD не принял начальную конфигурацию Lookout, может возникнуть показанная ниже ошибка.
+### <a name="unable-to-sign-in"></a>Não é possível iniciar sessão
+Poderá ver o seguinte erro quando o utilizador de administrador global do Azure AD não aceitou o programa de configuração inicial do Lookout.
 
-![снимок экрана: экран входа в Lookout с ошибкой входа](media/lookout-consent-not-accepted-error.png)
+![captura de ecrã do ecrã de início de sessão Lookout que mostra o início de sessão no registo de erros](media/lookout-consent-not-accepted-error.png)
 
-Чтобы устранить эту проблему, глобальному администратору необходимо войти на страницу по адресу https://aad.lookout.com/les?action=consent и принять запрос на инициацию настройки. Более подробные сведения можно найти в разделе [Настройка подписки с Lookout MTP](set-up-your-subscription-with-lookout.md).
+Para resolver este problema, tem do utilizador de administrador global no início de sessão https://aad.lookout.com/les?action=consent e aceitar o pedido para iniciar o programa de configuração. Pode encontrar informações mais detalhadas no [configurar a sua subscrição com o Lookout MTP](set-up-your-subscription-with-lookout.md) tópico
 
-## <a name="troubleshoot-device-status-issues"></a>Устранение неполадок с состоянием устройства
+## <a name="troubleshoot-device-status-issues"></a>Resolver problemas de estado do dispositivo
 
-### <a name="device-not-showing-up-in-the-lookout-mtp-console-device-list"></a>Устройство не отображается в списке устройств в консоли Lookout MTP
+### <a name="device-not-showing-up-in-the-lookout-mtp-console-device-list"></a>Dispositivo não ser apresentado na lista de dispositivos de consola Lookout MTP
 
-Это может произойти в двух случаях.
-* Если пользователь, которому принадлежит устройство, не входит в **группу регистрации**, указанную в **консоли Lookout MTP**.  В модуле **Система** перейдите на вкладку **Соединитель Intune** и посмотрите на параметр **Управление регистрацией**.  В нем должна быть указана одна или несколько групп Azure AD, настроенных для регистрации.  Убедитесь в том, что пользователь, которому принадлежит отсутствующее устройство, входит в одну из указанных групп Azure AD.  После добавления нового пользователя в группу регистрации для появления устройства в модуле **Устройства** консоли Lookout MTP может потребоваться период времени, равный настроенному интервалу опроса (по умолчанию — 5 минут).
+Isto pode acontecer dos seguintes cenários:
+* Quando o utilizador proprietário este dispositivo não está no **inscrição grupo** especificado no **Lookout MTP consola**.  Do **sistema** módulo, acedo ao **conector do Intune** separador e observe o **inscrição gestão** definições.  Deverá ver uma ou mais grupos do Azure AD configurados para a inscrição.  Certifique-se de que o utilizador proprietário do dispositivo em falta faz parte de um especificado dos grupos do Azure AD.  Assim que um novo utilizador é adicionado ao grupo de inscrição irá demorar para o intervalo de consulta configurado (a predefinição é 5 minutos) para ver o dispositivo apresentada no **dispositivos** módulo da consola de MTP Lookout.
 
-* Если устройство не поддерживается Lookout MTP.  Неподдерживаемые устройства отображаются в разделе **Управляемые устройства** параметров соединителя в консоли Lookout MTP.
+* Se o dispositivo não é suportado por Lookout MTP.  Os dispositivos são não suportado serão apresentados no **dispositivos geridos pelo** secção das definições na consola de MTP Lookout conector.
 
-### <a name="device-continues-to-be-reported-as-pending"></a>Устройство по-прежнему находится в состоянии **ожидание**
+### <a name="device-continues-to-be-reported-as-pending"></a>Dispositivo continua a ser reportados como **pendente**
 
-Если устройство имеет состояние **Ожидание**, значит конечный пользователь не открыл приложение Lookout for Work и не нажал кнопку **Активировать**. Дополнительные сведения об активации устройства с помощью приложения Lookout for Work см. в следующем разделе:
+Um dispositivo que está a ser mostrada **pendente** significa que o utilizador final não abriu o Lookout para a aplicação de trabalho e tapped o **ativar** botão. Para obter mais detalhes sobre a ativação de dispositivos com o Lookout para a aplicação de trabalho, leia o tópico seguinte:
 
-[Вам предложено установить Lookout for Work на устройстве Android ](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
+[É-lhe pedido que instale o Lookout for Work no seu dispositivo Android](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
 
-### <a name="in-the-lookout-mtp-console-a-device-is-showing-as-active-but-does-not-have-a-device-id"></a>В консоли Lookout MTP устройство отображается как активное, но не имеет идентификатора устройства.
-Это означает, что пользователь, которому принадлежит устройство, не входит в группу регистрации, указанную в консоли Lookout MTP.   Устройство может принять это состояние, если пользователь, которому оно принадлежит, был удален из группы регистрации либо если группа регистрации, к которой относится пользователь, была удалена.
+### <a name="in-the-lookout-mtp-console-a-device-is-showing-as-active-but-does-not-have-a-device-id"></a>Na consola do Lookout MTP, um dispositivo que mostra como Active Directory, mas não tem um ID de dispositivo.
+Isto significa que o utilizador proprietário este dispositivo não está no grupo de inscrição, especificado na consola de MTP Lookout.   Um dispositivo pode entrar neste estado é se o utilizador proprietário do dispositivo foi removido do grupo de inscrição ou o grupo de inscrição que o utilizador pertence a tem foi removido.
 
-В модуле **Система** в консоли Lookout MTP перейдите на вкладку **Соединитель Intune** и посмотрите на параметры **Регистрация**.  В нем должна быть указана одна или несколько групп Azure AD, настроенных для регистрации.  Убедитесь в том, что пользователь, которому принадлежит устройство, входит в одну из указанных групп Azure AD.
+Do **sistema** módulo na consola do Lookout MTP, vá para o **conector do Intune** separador e rever o **inscrição** definições.  Deverá ver uma ou mais grupos do Azure AD configurados para a inscrição.  Certifique-se de que o utilizador proprietário do dispositivo faz parte de um dos grupos do Azure AD especificados.
 
-Пока устройство находится в этом состоянии, Lookout продолжит уведомлять пользователя обо всех обнаруженных угрозах, но не будет отправлять сведения об угрозах в Intune.
+Enquanto um dispositivo está neste estado, o Lookout irá continuar a notificar o utilizador de qualquer ameaças detetadas, mas não irá enviar quaisquer informações de ameaças para o Intune.
 
-### <a name="device-shows-disconnected-state"></a>Устройство отображается как находящееся в отключенном состоянии
+### <a name="device-shows-disconnected-state"></a>Dispositivo mostra o estado desligado
 
-Отключенное состояние означает, что служба Lookout MTP не получала сведений от устройства в течение периода, превышающего предварительно настроенное значение (значение по умолчанию — 30 дней; минимальное — 7 дней). Это означает, что либо приложение корпоративного портала, либо приложение Lookout for Work не установлено на устройстве или было удалено. Повторная установка приложения должна решить проблему. Когда пользователь открывает Lookout for Work и активирует приложение, устройство повторно синхронизируется с Lookout MTP и Intune.
+Desligado significa que não tem ouvidos Lookout MTP do dispositivo para através de um intervalo de tempo pré-configurada (a predefinição é 30 dias com um mínimo de 7 dias). Isto significa que a aplicação Portal da empresa ou o Lookout para a aplicação de trabalho não está instalado no dispositivo ou tiver sido desinstalado. Reinstalar as aplicações deve resolver este problema. Quando o utilizador abre o Lookout for Work e ativa a aplicação, os resyncs de dispositivo com o Lookout MTP e o Intune.
 
-### <a name="forcing-a-resync-on-the-device"></a>Принудительная повторная синхронизация на устройстве
-В модуле **Устройства** консоли Lookout MTP администратор может выбрать устройство и удалить его.   Когда владелец устройства в следующий раз откроет приложение Lookout for Work и нажмет кнопку **Активировать**, полная синхронизация состояния устройства будет выполнена повторно.
+### <a name="forcing-a-resync-on-the-device"></a>Forçar uma ressincronização no dispositivo
+Do **dispositivos** módulo da consola Lookout MTP, o administrador pode selecionar o dispositivo e escolher eliminá-la.   Da próxima vez que o proprietário do dispositivo abre o Lookout para aplicação de trabalho e taps **ativar**, o estado do dispositivo executará uma ressincronização completa.
 
-### <a name="the-owner-of-the-device-is-no-longer-using-this-device"></a>Владелец устройства больше не использует устройство
-Необходимо очистить устройство и попросить нового пользователя зарегистрировать его, как описано в [этом разделе](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
+### <a name="the-owner-of-the-device-is-no-longer-using-this-device"></a>O proprietário do dispositivo já não está a utilizar este dispositivo
+Tem de apagar o dispositivo e pedir ao utilizador para inscrever, tal como descrito no novo [neste tópico](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
 
 
-Также можно перейти в модуль **Устройства** консоли Lookout MTP и нажать кнопку **Удалить**.
+Também pode ir para o **dispositivos** módulo da consola de MTP Lookout e escolha **eliminar**.
 
-Если новый пользователь входит в одну из групп регистрации, указанных в консоли Lookout MTP, устройство будет отображаться после того, как служба Azure AD свяжет его с новым пользователем.
+O novo utilizador está a ser um dos grupos de inscrição especificados na consola do Lookout MTP, desde que o dispositivo será apresentada uma vez do Azure AD associa o dispositivo para o novo utilizador.
 
-## <a name="compliance-remediation-workflows"></a>Рабочие процессы исправления проблем с соответствием требованиям
-[Вам предложено установить Lookout for Work на устройстве Android]( http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
+## <a name="compliance-remediation-workflows"></a>Fluxos de trabalho de remediação de conformidade
+[É-lhe pedido que instale o Lookout for Work no seu dispositivo Android]( http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
 
-[Вам необходимо устранить угрозу, которую приложение Lookout for Work обнаружило на устройстве Android ](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)
+[É necessário resolver uma ameaça que Lookout for Work, foi encontrado no seu dispositivo Android](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)

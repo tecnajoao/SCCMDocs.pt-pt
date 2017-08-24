@@ -1,6 +1,6 @@
 ---
-title: "Данные о диагностике и использовании | Документация Майкрософт"
-description: "Дополнительные сведения о данных о диагностике и использовании, собираемых System Center Configuration Manager для собственных компонентов."
+title: "Os diagnósticos e dados de utilização | Microsoft Docs"
+description: "Saiba mais sobre os diagnósticos e dados de utilização que o System Center Configuration Manager recolhe sobre si próprio."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4a4b7c9c0d40b6bd3ea2f318e37d744f1a0cc084
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Данные о диагностике и использовании для System Center Configuration Manager
+# <a name="diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Dados de diagnóstico e de utilização para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager собирает собственные данные о диагностике и использовании, которые применяются корпорацией Майкрософт для улучшения процесса установки, качества и безопасности будущих выпусков.  
+System Center Configuration Manager recolhe os diagnósticos e dados de utilização sobre si próprio, que são utilizados pela Microsoft para melhorar a experiência de instalação, qualidade e segurança de versões futuras.  
 
- Сбор данных о диагностике и использовании включен для всех иерархий System Center Configuration Manager. Они составляются посредством запросов SQL Server, выполняемых еженедельно на каждом первичном сайте и сайте центра администрирования. Когда иерархия использует сайт центра администрирования, данные из первичных сайтов реплицируются на этот сайт. На верхнем сайте иерархии точка подключения службы отправляет эти сведения при выполнении проверки на наличие обновлений. Если точка подключения службы находится в автономном режиме, данные передаются с помощью средства подключения службы.  
+ Os diagnósticos e dados de utilização está ativada para cada hierarquia do System Center Configuration Manager. Consiste em consultas do SQL Server que são executadas semanalmente em cada site primário e no site de administração central. Quando a hierarquia utiliza um site de administração central, os dados de sites primários são replicados para esse site. No site de nível superior da hierarquia, o ponto de ligação de serviço envia estas informações quando verifica a existência de atualizações. Se o ponto de ligação de serviço estiver no modo offline, as informações são transferidas ao utilizar a ferramenta de ligação de serviço.  
 
 > [!NOTE]  
->  Configuration Manager собирает данные только из базы данных SQL Server сайта, не получая их непосредственно с клиентов или серверов сайта.  
+>  O Configuration Manager recolhe os dados apenas a partir SQL server da base de dados do site e não recolhe dados diretamente a partir de clientes ou servidores de site.  
 
- Дополнительные сведения см. в статье [Заявление о конфиденциальности для System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkID=626527).  
+ Para obter mais informações, consulte o [declaração de privacidade do System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkID=626527).  
 
- Дополнительные сведения о данных диагностики и использования для System Center Configuration Manager можно найти в следующих разделах:  
+ Saiba mais sobre os dados de diagnóstico e utilização para o System Center Configuration Manager nos seguintes artigos:  
 
--   [Как используются данные о диагностике и использовании для System Center Configuration Manager](../../../core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)  
+-   [Como os dados de diagnóstico e utilização são utilizados para o System Center Configuration Manager](../../../core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)  
 
--   Уровни сбора данных о диагностике и использовании:
-    - [Диагностические данные для версии 1702](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702)      
-    - [Диагностические данные для 1610](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610)  
-    - [Диагностические данные для 1606](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606)    
+-   Níveis de recolha de dados de diagnóstico de utilização:
+    - [Dados de diagnóstico da versão 1702](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702)      
+    - [Dados de diagnóstico da versão 1610](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610)  
+    - [Dados de diagnóstico para 1606](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606)    
 
 <!--
     - [Diagnostic data for 1602](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602)
     - [Diagnostic data for  1511](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511)
 -->
 
--   [Как System Center Configuration Manager собирает данные о диагностике и использовании](../../../core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected.md)  
+-   [Como os diagnósticos e dados de utilização são recolhidos pelo System Center Configuration Manager](../../../core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected.md)  
 
--   [Как просмотреть данные о диагностике и использовании для System Center Configuration Manager](../../../core/plan-design/diagnostics/view-diagnostics-and-usage-data.md)  
+-   [Como visualizar diagnósticos e dados de utilização para o System Center Configuration Manager](../../../core/plan-design/diagnostics/view-diagnostics-and-usage-data.md)  
 
--   [Программа улучшения качества программного обеспечения (CEIP) для System Center Configuration Manager](../../../core/plan-design/diagnostics/customer-experience-improvement-program-ceip.md)  
+-   [Programa de melhoramento da experiência do cliente (PMEC) do System Center Configuration Manager](../../../core/plan-design/diagnostics/customer-experience-improvement-program-ceip.md)  
 
--   [Часто задаваемые вопросы о данных по диагностике и использовании для System Center Configuration Manager](../../../core/understand/frequently-asked-questions-about-diagnostics-and-usage-data.md)  
+-   [Perguntas mais frequentes sobre diagnósticos e dados de utilização para o System Center Configuration Manager](../../../core/understand/frequently-asked-questions-about-diagnostics-and-usage-data.md)  
 
-## <a name="see-also"></a>См. также  
- [Сведения о точке подключения службы в System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md)
+## <a name="see-also"></a>Consulte Também  
+ [Acerca do ponto de ligação de serviço no System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md)

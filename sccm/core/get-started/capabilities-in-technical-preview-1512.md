@@ -1,6 +1,6 @@
 ---
-title: "Возможности в Technical Preview 1512 для Configuration Manager"
-description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1512."
+title: Funcionalidades no Technical Preview 1512 Configuration Manager
+description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1512."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,77 +17,77 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 5cf8d54fbaa98a75ac2a875a23a43b1d3e5be0dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1512 для System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1512 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
-В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1512. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.  
+Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1512. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.  
 
- Ниже перечислены новые возможности, доступные в этой версии.  
+ Seguem-se novas funcionalidades que pode experimentar com esta versão.  
 
-##  <a name="bkmk_devicehealth"></a> Аттестация работоспособности устройств  
- Начиная с Technical Preview 1512, администраторы могут просматривать состояние аттестации работоспособности устройств Windows 10 в консоли Configuration Manager.  Эта функция доступна для Configuration Manager и Configuration Manager с Microsoft Intune. Аттестация работоспособности устройств позволяет администратору гарантировать, что клиентские компьютеры имеют надежные конфигурации BIOS, модуля TPM и загрузочного программного обеспечения. Для поддержки аттестации работоспособности устройств клиентские устройства должны работать под управлением Windows 10 с включенным модулем TPM 2. Аттестация работоспособности устройств отображает количество устройств, которые включены для использования каждой из следующих функций:  
+##  <a name="bkmk_devicehealth"></a> Device Health Attestation  
+ A partir do Technical Preview 1512, os administradores podem ver o estado do atestado de estado de funcionamento de dispositivo do Windows 10 na consola do Configuration Manager.  Esta funcionalidade está disponível para o Configuration Manager e o Configuration Manager com o Microsoft Intune. O Device health attestation permite ao administrador garantir que o cliente computadores ter fidedignas de BIOS, TPM e configurações de software de arranque. Para suportar o device health attestation, os dispositivos cliente devem ser o Win10 com TPM 2 ativado. O Device health attestation apresenta o número de dispositivos ativados para cada um dos seguintes:  
 
--   Ранний запуск защиты от вредоносных программ  
+-   Antimalware de início antecipado  
 
 -   BitLocker  
 
--   Безопасная загрузка  
+-   Arranque seguro  
 
--   Целостность кода  
+-   Integridade do código  
 
-В консоли также отображаются основные отсутствующие настройки аттестации работоспособности с количеством устройств.  
+A consola também apresenta a parte superior falta definições de atestado de estado de funcionamento com o número de dispositivos.  
 
-Чтобы просмотреть представление аттестации работоспособности устройства, в консоли Configuration Manager перейдите в рабочую область **Мониторинг**, щелкните узел **Безопасность**, а затем **Аттестация работоспособности**.  
+Para pré-visualizar a vista de atestado de estado de funcionamento do dispositivo, na consola do Configuration Manager vá para o **monitorização** área de trabalho da, clique em **segurança** nó e, em seguida, clique em **atestado de estado de funcionamento**.  
 
-##  <a name="bkmk_viewterms"></a> Выполняемый в консоли мониторинг условий и положений  
-Начиная с версии Technical Preview 1512, при интеграции Configuration Manager с Microsoft Intune можно использовать консоль Configuration Manager для просмотра того, какие пользователи приняли условия и положения, настроенные вашим ИТ-отделом, а какие — нет.  
+##  <a name="bkmk_viewterms"></a>Monitorização de termos e condições na consola  
+A partir do Technical Preview 1512, quando integrar o Configuration Manager com o Microsoft Intune, pode utilizar a consola do Configuration Manager para ver que utilizadores aceitaram os termos e condições configurados pelo departamento de TI e os utilizadores que não têm.  
 
-**Просмотр сводных данных**  
+**Para ver informações de resumo:**  
 
--   В консоли Configuration Manager последовательно выберите **Мониторинг** > **Обзор** > **Развертывания** и выберите условия развертывания для просмотра.  
+-   Na consola do Configuration Manager, vá para **monitorização** > **descrição geral** > **implementações** e selecione a implementação de termos e condições que pretende visualizar.  
 
-**Просмотр подробных сведений**  
+**Para ver informações detalhadas:**  
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > **Параметры соответствия** > **Условия**, а затем выберите условия для просмотра.  
+1.  Na consola do Configuration Manager, vá para **ativos e compatibilidade** > **descrição geral** > **as definições de compatibilidade** > **termos e condições**e, em seguida, selecione os termos e condições que pretende visualizar.  
 
-2.  В нижней части консоли откройте вкладку **Развертывания**, выберите развертывание и щелкните **Просмотреть состояние**.  
+2.  Na parte inferior da consola, selecione o **implementações** separador, selecione a implementação e, em seguida, clique em **Ver estado.**  
 
-##  <a name="bkmk_EPpolicy"></a> Усовершенствования параметров политики Endpoint Protection  
-В Technical Preview 1512 мы добавили следующие новые параметры для политики защиты от вредоносных программ Endpoint Protection.  
+##  <a name="bkmk_EPpolicy"></a>Melhoramentos às definições de política do Endpoint Protection  
+No 1512 Technical Preview, foram adicionados as seguintes definições novas de política antimalware do Endpoint Protection:  
 
--   Защита в режиме реального времени: **Блокировать потенциально нежелательные приложения при скачивании и до установки**  
+-   Proteção em tempo real: **Bloquear Aplicações Potencialmente Indesejáveis ao transferir e antes da instalação**  
 
-    -   Потенциально нежелательные приложения (PUA) — это классификация угроз на основе репутации и ориентированной на исследования идентификации. Чаще всего это средства увязки нежелательных приложений в пакеты или их упакованные приложения.  
+    -   PUA (Potential Unwanted Applications) é uma classificação de ameaça baseada em reputação e identificação orientada por pesquisa. Normalmente, trata-se de bundlers de aplicações indesejadas ou das respetivas aplicações agregadas.  
 
-    -   Параметр политики защиты включен по умолчанию (задано значение "Да"). Если параметр включен, он блокирует PUA при скачивании и установке. Тем не менее вы можете исключить определенные файлы или папки в соответствии с потребностями среды.  
+    -   A definição de política de proteção está ativada (definida como "Sim") por predefinição. Quando ativada, esta definição bloqueia PUA no momento da transferência e da instalação. No entanto, pode excluir ficheiros ou pastas para satisfazer as necessidades específicas do seu ambiente específicos.  
 
--   Параметры проверки: **Проверять подключенные сетевые диски при выполнении полной проверки**  
+-   Definições de análise: **Analisar unidades de rede mapeadas ao executar uma análise completa**  
 
-    -   Этот параметр позволяет администраторам более тщательно выполнять проверки сетевых файлов по требованию без риска постоянной проверки подключенных сетевых дисков во время запланированной полной проверки.  
+    -   Esta definição proporciona maior granularidade para o administrador possa permitir análises a pedido dos ficheiros de rede sem o risco de analisar sempre as unidades de rede mapeadas durante uma análise completa agendada.  
 
-    -   Параметр **Проверять сетевые файлы** должен быть включен ("Да"), чтобы его можно было настроить.  
+    -   A definição **analisar ficheiros de rede** primeiro tem de ser ativado ("Sim") para esta definição esteja disponível para configurar.  
 
-    -   По умолчанию значение "Нет" для этого параметра означает, что полная проверка не затронет подключенные сетевые диски.  
+    -   Por predefinição, esta definição é "Não" significado que uma análise completa não terão acesso às unidades de rede mapeadas.  
 
--   Параметры автоматической отправки примеров файлов  
+-   Definições de submissão de ficheiros de exemplo automática:  
 
-     Модуль защиты от вредоносных программ может запросить примеры файлов, отправляемых в корпорацию Майкрософт для дальнейшего анализа. По умолчанию он всегда будет выводить запрос перед отправкой таких примеров. Теперь администраторы могут управлять следующими параметрами для настройки этого поведения.  
+     O motor antimalware pode solicitar exemplos de ficheiros para serem enviados à Microsoft para análise adicional. Por predefinição, será sempre apresentado um aviso antes de enviar esses exemplos. Os administradores podem agora gerir as seguintes definições para configurar este comportamento:  
 
-    -   Дополнительно. **Включить автоматическую отправку примеров файлов, чтобы помочь Майкрософт определить, являются ли некоторые обнаруженные элементы вредоносными** — задайте этому параметру значение "Да", чтобы включить автоматическую отправку примеров файлов. По умолчанию этому параметру задано значение "Нет", означающее, что автоматическая отправка примеров файлов отключена, и пользователи будут получать запрос перед отправкой примеров.   (Этот параметр впервые появился в System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1).)  
+    -   Avançado: **Ativar a submissão de ficheiros de exemplo automática ajudar a Microsoft a determinar se certos itens detetados são maliciosos**:  Altere esta definição para "Sim" para ativar a submissão automática de ficheiros de exemplo. Por predefinição, esta definição é "Não" o que significa submissão automática de ficheiros de exemplo está desativada e os utilizadores serão avisados antes de enviarem exemplos.   (Esta definição foi introduzida inicialmente no System Center 2012 R2 Configuration Manager SP1)  
 
-    -   Дополнительно. **Разрешить пользователям изменять параметры автоматической отправки примеров файлов** — этот параметр определяет, может ли пользователь с правами локального администратора на устройстве изменять параметр автоматической отправки примера файла в интерфейсе клиента. По умолчанию этому параметру задано значение "Нет", означающее, что параметры можно изменять только в консоли Configuration Manager, а локальные администраторы на устройстве не могут изменять эту настройку.  
+    -   Avançado: **Permitir aos utilizadores modificar definições de submissão automática de ficheiros de exemplo**: Esta definição determina se um utilizador com direitos administrativos locais num dispositivo pode alterar a definição de submissão de ficheiros de exemplo automática na interface do cliente. Por predefinição, esta definição é "Não", que significa que só podem ser alteradas as definições da consola do Configuration Manager e os administradores locais num dispositivo não é possível alterar esta configuração.  
 
-         Например, ниже показано, что администратор задал параметр Защитника Windows в Windows 10 как включенный, и пользователь не может изменить его.  
+         Por exemplo, o seguinte mostra a definição do Windows Defender no Windows 10 definido pelo administrador como ativada e o utilizador não é permitido modificar:  
 
-         ![TechRef&#95;WinDefender](../../core/get-started/media/TechRef_WinDefender.png "TechRef_WinDefender")  
+         ![TechRef &#95; WinDefender](../../core/get-started/media/TechRef_WinDefender.png "TechRef_WinDefender")  
 
-    Кроме того, существующий параметр **Исключить файлы и папки** в разделе "Параметры исключения" политики защиты от вредоносных программ Endpoint Protection усовершенствован и разрешает исключать устройства. Например, теперь можно указать следующее в качестве исключения: **\device\mvfs** (для файловой системы с несколькими версиями). Политика не проверяет путь к устройству. Политика Endpoint Potection доступна в модуле защиты от вредоносных программ на клиентском компьютере, который должен интерпретировать строки устройств.  
+    Além disso, o existente **excluir ficheiros e pastas** política de definição na secção "Definições de exclusão" antimalware do endpoint protection foi melhorada para permitir exclusões de dispositivos. Por exemplo, agora pode especificar o seguinte como exclusão: **\device\mvfs** (em Sistema de Ficheiros com Múltiplas Versões). A política não valida o caminho do dispositivo; a política do endpoint protection é fornecida ao motor antimalware no cliente, que tem de conseguir interpretar a cadeia do dispositivo.  
 
-**Необходимые компоненты для использования политик Endpoint Protection**  
+**Pré-requisitos para utilizar políticas do Endpoint Protection:**  
 
-Перед использованием политик Endpoint Protection необходимо установить клиент Endpoint Protection и организовать управление им в помощью параметров клиента Endpoint Protection. Для этого используется клиент System Center Endpoint Protection для Windows 7, Windows 8, Windows 8.1 или управляемый Защитник Windows для Windows 10. См. статью [Endpoint Protection в System Center Configuration Manager](../../protect/deploy-use/endpoint-protection.md).  
+Antes de poder utilizar as políticas de proteção de ponto final tem de instalar e gerir o cliente do Endpoint Protection utilizando as definições de cliente do Endpoint Protection. Isto é feito utilizando o cliente do System Center Endpoint Protection para Windows 7, Windows 8, Windows 8.1 ou geridos Windows Defender para Windows 10. Consulte [Endpoint Protection no System Center Configuration Manager](../../protect/deploy-use/endpoint-protection.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Возможности в Technical Preview 1609 для Configuration Manager"
-description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1609."
+title: "Capacidades na pré-visualização técnica 1609 do Configuration Manager"
+description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1609."
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
@@ -16,441 +16,441 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 89a41c8a3137d0e54011ddf9a1d9b4894ecb7df8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1609-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1609 для System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1609-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1609 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Technical Preview)*
-
-
-
-В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1609. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager.      Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.    
-
-**Известные проблемы в этой версии Technical Preview:**  
-*  При обновлении до Configuration Manager 1609 Technical Preview все развернутые политики обновления выпусков будут удалены. Чтобы продолжить использование этих политик, их необходимо создать повторно и развернуть.
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
 
-**Ниже перечислены новые возможности, доступные в этой версии.**  
 
-## <a name="improvements-to-endpoint-protection"></a>Усовершенствования Endpoint Protection
-Усовершенствования параметров политики защиты от вредоносных программ Endpoint Protection — теперь можно указать уровень, на котором служба Endpoint Protection Cloud Protection Service будет блокировать подозрительные файлы. Благодаря новому параметру администраторы могут указывать небезопасные компьютеры на основе большого количества обнаруженных вредоносных программ.
+Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1609. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager.      Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.    
 
-## <a name="increased-number-of-enrolled-devices"></a>Увеличенное количество зарегистрированных устройств
-Теперь администраторы могут разрешить пользователям регистрировать до 15 устройств в гибридном управлении мобильными устройствами с Intune. Ранее существовало ограничение в 5 устройств на пользователя.
+**Problemas conhecidos neste Technical Preview:**  
+*  Quando atualizar para a pré-visualização técnica do Configuration Manager 1609, serão eliminadas quaisquer políticas de atualização de edição que implementou. Para continuar a utilizar estas políticas, tem de recriar e implementá-las.
 
-## <a name="additional-apple-dep-settings"></a>Дополнительные параметры Apple DEP
 
-Теперь администраторы могут настраивать следующие параметры Apple DEP в профиле DEP для устройств iOS и Mac:
+**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
+
+## <a name="improvements-to-endpoint-protection"></a>Melhoramentos ao Endpoint Protection
+Melhoramento às definições de política de antimalware do Endpoint Protection - pode agora especificar o nível no qual o serviço de proteção de nuvem do Endpoint Protection irá impedir que ficheiros suspeitos. Uma nova definição permite aos administradores especificar "duvidosos" computadores com base nas quantidades elevadas de software maligno que se deparam.
+
+## <a name="increased-number-of-enrolled-devices"></a>Aumento do número de dispositivos inscritos
+Os administradores podem agora ativar aos utilizadores a inscrição até 15 dispositivos em gestão de dispositivos móveis híbrida com o Intune. O limite era anteriormente 5 dispositivos por utilizador.
+
+## <a name="additional-apple-dep-settings"></a>Definições adicionais do DEP da Apple
+
+Os administradores podem configurar agora as seguintes definições do programa de inscrição de dispositivos da Apple (DEP) no perfil do DEP para dispositivos iOS e Mac:
 - **Touch ID**
-- **Масштаб**
+- **Zoom**
 - **Siri**
 
-Если включен, помощник по установке Apple будет запрашивать параметры службы во время активации устройства.
+Se estiver ativada, Assistente da Apple de configuração solicita este serviço durante a ativação do dispositivo.
 
-## <a name="integration-with-upgrade-analytics"></a>Интеграция с Upgrade Analytics
+## <a name="integration-with-upgrade-analytics"></a>Integração com a análise de atualização
 
-Upgrade Analytics позволяет оценивать и анализировать готовность устройства и его совместимость с Windows 10 для более плавного и простого процесса обновления. Благодаря интеграции Upgrade Analytics с Configuration Manager вы можете обращаться к данным совместимости обновлений в консоли администрирования Configuration Manager, а затем выбирать устройства для обновления или исправления.
+Análise de atualização permite-lhe avaliar e analisar a preparação do dispositivo e a compatibilidade com o Windows 10, para permitir atualizações smoother e mais fácil. Com a integração de análise de atualização com o Configuration Manager, pode aceder aos dados de compatibilidade da atualização na consola de administração do Configuration Manager e, em seguida, na lista de dispositivos de destino dispositivos para atualização ou correção.
 
-Дополнительные сведения об Upgrade Analytics см. в статье [Приступая к работе с Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/upgrade-analytics-get-started).
+Pode ler mais sobre a análise de atualização no [introdução à análise de atualização](https://technet.microsoft.com/itpro/windows/deploy/upgrade-analytics-get-started).
 
-## <a name="native-connection-types-for-windows-10-vpn-hybrid-profiles"></a>Типы собственного подключения для гибридных профилей VPN для Windows 10
+## <a name="native-connection-types-for-windows-10-vpn-hybrid-profiles"></a>Perfis de VPN híbrida de tipos de ligação de nativo para Windows 10
 
-Теперь, используя Configuration Manager с Intune, в консоли Configuration Manager можно создавать профили VPN для Windows 10 с типами подключения Microsoft Automatic, IKEv2, L2TP и PPTP типов без применения OMA-URI.
+Quando utilizar o Configuration Manager com o Intune, agora, pode criar perfis de VPN do Windows 10 com o Microsoft Automatic, IKEv2, PPTP e L2TP tipos de ligação na consola do Configuration Manager sem utilizar definições OMA-URI.
 
-## <a name="enhancements-to-windows-store-for-business-integration-with-configuration-manager"></a>Усовершенствования интеграции Магазина Windows для бизнеса с Configuration Manager
+## <a name="enhancements-to-windows-store-for-business-integration-with-configuration-manager"></a>Melhoramentos à loja Windows para integração de negócios com o Configuration Manager
 
-В этом выпуске [интеграция Магазина Windows для бизнеса](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) получила следующие новые функции:
+Nesta versão, atualizámos [da loja Windows para integração de negócios](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) com estas novas funcionalidades:
 
-**Обновление.** В текущем выпуске Technical Preview функция немедленной синхронизации не работает.
+**Atualização:** A versão de pré-visualização técnica atual, a funcionalidade de sincronização imediata não está funcional.
 
-- Ранее можно было развертывать только бесплатные приложения из Магазина Windows для бизнеса. Теперь Configuration Manager также поддерживает развертывание платных лицензированных веб-приложений (только для зарегистрированных устройств Intune).
-- Вы можете запускать немедленную синхронизацию между Магазином Windows для бизнеса и Configuration Manager.
-- Теперь можно изменить секретный ключ клиента, полученный из Azure Active Directory
+- Anteriormente, só foi possível implementar aplicações gratuitas da loja Windows para empresas. Gestor de configuração agora adicionalmente suporta a implementação de paga online licenciado aplicações (apenas para dispositivos inscritos no Intune).
+- Agora, pode iniciar uma sincronização imediata entre a loja Windows para empresas e o Configuration Manager.
+- Agora pode modificar a chave secreta do cliente que obteve do Azure Active Directory
 
-### <a name="try-it-out"></a>Попробуйте!
+### <a name="try-it-out"></a>Experimente!
 
-#### <a name="purchase-and-sync-a-paid-online-licensed-app"></a>Приобретение и синхронизация платного лицензированного веб-приложения
+#### <a name="purchase-and-sync-a-paid-online-licensed-app"></a>Comprar e sincronizar uma aplicações licenciadas online paga
 
-1. Приобретите платное лицензированное веб-приложение в Магазине Windows для бизнеса.
-2. В рабочей области **Администрирование** консоли Configuration Manager последовательно выберите **Облачные службы** > **Обновления и обслуживание** > **Магазин Windows для бизнеса**.
-3. На вкладке **Главная** в группе **Синхронизация** нажмите кнопку **Синхронизировать**.
-4. Вскоре после этого приобретенное приложение появится в узле **Информация о лицензиях для приложений из Магазина** рабочей области **Управление приложениями**.
+1. Compre uma aplicações licenciadas online paga da loja Windows para empresas.
+2. No **administração** área de trabalho da consola do Configuration Manager, clique em **serviços em nuvem** > **atualizações e manutenção** > **loja Windows para empresas**.
+3. No **home page** separador o **sincronização** , clique em **sincronizar agora**.
+4. Em breve, em seguida, a aplicação que comprou será apresentado o **informações de licença para aplicações da loja** o nó do **gestão de aplicações** área de trabalho.
 
-#### <a name="create-and-deploy-a-configuration-manager-application-from-the-synchronized-app-data"></a>Создание и развертывание приложения Configuration Manager на основе данных синхронизированного приложения
+#### <a name="create-and-deploy-a-configuration-manager-application-from-the-synchronized-app-data"></a>Criar e implementar uma aplicação do Configuration Manager de dados da aplicação sincronizados
 
-Процедура создания и развертывания приложения Configuration Manager из платного приложения из магазина аналогична процедуре создания приложения на основе бесплатного приложения. См. сведения в разделе **Создание и развертывание приложения Configuration Manager из приложения Магазина Windows для бизнеса** статьи [Управление приложениями из Магазина Windows для бизнеса с помощью System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+O procedimento para criar e implementar uma aplicação do Configuration Manager de uma aplicação da loja paga é igual para criar uma aplicação a partir de uma aplicação gratuita. Consulte a secção **criar e implementar uma aplicação do Configuration Manager de uma loja Windows para a aplicação de negócio** no [gerir aplicações da loja Windows para empresas com o System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
 
-#### <a name="modify-the-client-secret-key-from-azure-active-directory"></a>Изменение секретного ключа клиента из Azure Active Directory
+#### <a name="modify-the-client-secret-key-from-azure-active-directory"></a>Modificar a chave secreta do cliente do Azure Active Directory
 
-1. В рабочей области **Администрирование** консоли Configuration Manager последовательно выберите **Облачные службы** > **Обновления и обслуживание** > **Магазин Windows для бизнеса**.
-2. Выберите свою учетную запись Магазина Windows для бизнеса и щелкните **Свойства**.
-3. В диалоговом окне **Свойства учетной записи Магазина Windows для бизнеса** введите новый ключ в поле **Секретный ключ клиента**, а затем нажмите кнопку **Проверить**. После проверки нажмите кнопку **Применить**, а затем закройте диалоговое окно.
+1. No **administração** área de trabalho da consola do Configuration Manager, clique em **serviços em nuvem** > **atualizações e manutenção** > **loja Windows para empresas**.
+2. Selecione a loja Windows para a conta de empresa e, em seguida, clique em **propriedades**.
+3. No **da loja Windows para empresas propriedades da conta** caixa de diálogo, introduza uma nova chave no **chave secreta do cliente** campo e, em seguida, clique em **verifique**. Depois de verificar, clique em **aplicar**, em seguida, feche a caixa de diálogo.
 
 
-## <a name="new-compliance-settings-for-configuration-items"></a>Новые параметры соответствия для элементов конфигурации
+## <a name="new-compliance-settings-for-configuration-items"></a>Novas definições de conformidade para itens de configuração
 
-Добавлено много новых параметров, которые можно использовать в элементах конфигурации для различных платформ устройств.
-Это параметры, ранее существовавшие в Microsoft Intune в изолированной конфигурации. Теперь они доступны при использовании Intune с Configuration Manager.
-Если вам необходима помощь по использованию этих параметров, откройте статью [Управление параметрами и компонентами на устройствах с помощью политик Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies) и выберите раздел с описанием параметров для нужной платформы.
+Adicionámos muitas novas definições, que pode utilizar os itens de configuração para várias plataformas de dispositivos.
+Estas são as definições que existiam no Microsoft Intune numa configuração autónoma e anteriormente estão agora disponíveis ao utilizar o Intune com o Configuration Manager.
+Se precisar de ajuda com qualquer uma destas definições, abra [gerir definições e funcionalidades nos seus dispositivos com políticas do Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies) e, em seguida, selecione o subtopic definições para a plataforma que pretende.
 
 
-### <a name="new-settings-for-android-devices"></a>Новые параметры для устройств Android
+### <a name="new-settings-for-android-devices"></a>Novas definições para dispositivos Android
 
-#### <a name="password-settings"></a>Параметры пароля
+#### <a name="password-settings"></a>Definições de palavra-passe
 
-- **Запоминать историю паролей**
-- **Разрешить разблокировку по отпечатку пальца**
+- **Memorizar histórico de palavra-passe**
+- **Permitir impressões digitais desbloquear**
 
-#### <a name="security-settings"></a>параметры безопасности;
+#### <a name="security-settings"></a>Definições de segurança
 
-- **Обязательное использование шифрования на картах памяти**
-- **Разрешить снимок экрана**
-- **Разрешить отправку диагностических данных**
+- **Exigir encriptação em cartões de armazenamento**
+- **Permitir captura de ecrã**
+- **Permitir submissão de dados de diagnóstico**
 
-#### <a name="browser-settings"></a>Параметры браузера
+#### <a name="browser-settings"></a>Definições do browser
 
-- **Разрешить веб-браузер**
-- **Разрешить автозаполнение**
-- **Разрешить блокирование всплывающих окон**
-- **Разрешить файлы cookie**
-- **Разрешить выполнение активных сценариев**
+- **Permitir browser**
+- **Permitir Preenchimento automático**
+- **Permitir Bloqueador de janelas de pop-up**
+- **Permitir cookies**
+- **Permitir scripting ativo**
 
-#### <a name="app-settings"></a>Параметры приложения
+#### <a name="app-settings"></a>Definições de aplicação
 
-- **Разрешить использование магазина Google Play**
+- **Permitir loja do Google Play**
 
-#### <a name="device-capability-settings"></a>Параметры возможностей устройств
+#### <a name="device-capability-settings"></a>Definições de capacidade de dispositivo
 
-- **Разрешить съемные носители**
-- **Разрешить модем Wi-Fi**
-- **Разрешить геолокацию**
-- **Разрешить NFC**
-- **Разрешить Bluetooth**
-- **Разрешить голосовой роуминг**
-- **Разрешить передачу данных в роуминге**
-- **Разрешить обмен SMS и MMS**
-- **Разрешить использование голосового помощника**
-- **Разрешить голосовой набор**
-- **Разрешить копирование и вставку**
+- **Permitir armazenamento amovível**
+- **Permitir tethering Wi-Fi**
+- **Permitir geolocalização**
+- **Permitir NFC**
+- **Permitir Bluetooth**
+- **Permitir chamadas em roaming**
+- **Permitir roaming de dados**
+- **Permitir mensagens SMS/MMS**
+- **Permitir Assistente de voz**
+- **Permitir marcação por voz**
+- **Permitir copiar e colar**
 
 
-### <a name="new-settings-for-ios-devices"></a>Новые параметры для устройств iOS
+### <a name="new-settings-for-ios-devices"></a>Novas definições para dispositivos iOS
 
-#### <a name="password-settings"></a>Параметры пароля
+#### <a name="password-settings"></a>Definições de palavra-passe
 
-- **Число обязательных сложных символов в пароле**
-- **Разрешить простые пароли**
-- **Минут бездействия до требования пароля**
-- **Запоминать историю паролей**
+- **Número de carateres complexos necessários na palavra-passe**
+- **Permitir palavras-passe simples**
+- **Minutos de inatividade antes da palavra-passe é exigida**
+- **Memorizar histórico de palavra-passe**
 
-### <a name="new-settings-for-mac-os-x-devices"></a>Новые параметры для устройств Mac OS X
+### <a name="new-settings-for-mac-os-x-devices"></a>Novas definições para dispositivos Mac OS X
 
-#### <a name="password-settings"></a>Параметры пароля
+#### <a name="password-settings"></a>Definições de palavra-passe
 
-- **Число обязательных сложных символов в пароле**
-- **Разрешить простые пароли**
-- **Запоминать историю паролей**
-- **Время бездействия (в минутах), по истечении которого включается экранная заставка**
+- **Número de carateres complexos necessários na palavra-passe**
+- **Permitir palavras-passe simples**
+- **Memorizar histórico de palavra-passe**
+- **Minutos de inatividade antes da proteção de ecrã ser ativada**
 
-### <a name="new-settings-for-windows-10-desktop-and-mobile-devices"></a>Новые параметры для устройств Windows 10 Desktop и Mobile
+### <a name="new-settings-for-windows-10-desktop-and-mobile-devices"></a>Novas definições para dispositivos Windows 10 Desktop e Mobile
 
-#### <a name="password-settings"></a>Параметры пароля
+#### <a name="password-settings"></a>Definições de palavra-passe
 
-- **Минимальное число наборов символов**
-- **Запоминать историю паролей**
-- **Требовать пароль при возвращении устройства из состояния простоя**
+- **Número mínimo de conjuntos de carateres**
+- **Memorizar histórico de palavra-passe**
+- **Exigir uma palavra-passe quando o dispositivo regressa de um estado inativo**
 
-#### <a name="security-settings"></a>параметры безопасности;
+#### <a name="security-settings"></a>Definições de segurança
 
-- **Требовать шифрование на мобильном устройстве**
-- **Разрешить отмену регистрации вручную**
+- **Encriptação obrigatória no dispositivo móvel**
+- **Permitir anular inscrições**
 
-#### <a name="device-capability-settings"></a>Параметры возможностей устройств
+#### <a name="device-capability-settings"></a>Definições de capacidade de dispositivo
 
-- **Разрешить VPN через сотовую сеть**
-- **Разрешить роуминг VPN через сотовую сеть**
-- **Разрешить сброс по телефону**
-- **Разрешить USB-подключение**
-- **Разрешить использование Кортаны**
-- **Разрешить уведомления центра поддержки**
+- **Permitir VPN sobre redes móveis**
+- **Permitir roaming do VPN sobre redes móveis**
+- **Permitir reposição do telefone**
+- **Permitir ligação USB**
+- **Permitir Cortana**
+- **Permitir notificações de centro de ação**
 
-### <a name="new-settings-for-windows-10-team-devices"></a>Новые параметры для устройств Windows 10 для совместной работы
+### <a name="new-settings-for-windows-10-team-devices"></a>Novas definições para dispositivos Windows 10 Team
 
-#### <a name="device-settings"></a>Параметры устройства
+#### <a name="device-settings"></a>Definições do dispositivo
 
-- **Включить Azure Operational Insights**
-- **Включить беспроводную проекцию Miracast**
-- **Выберите информацию о собрании, отображаемую на экране приветствия**
-- **URL-адрес фонового изображения экрана блокировки**
+- **Ativar a informações operacionais do Azure**
+- **Ativar projeção sem fios Miracast**
+- **Escolha as informações de reunião apresentadas no ecrã de boas-vindas**
+- **URL de imagem de fundo do ecrã de bloqueio**
 
 
-### <a name="new-settings-for-windows-81-devices"></a>Новые параметры для устройств Windows 8.1
+### <a name="new-settings-for-windows-81-devices"></a>Novas definições para dispositivos Windows 8.1
 
-#### <a name="applicability-settings"></a>Параметры применимости
+#### <a name="applicability-settings"></a>Definições de aplicabilidade
 
-- **Применить все конфигурации к Windows 10**
+- **Aplicar todas as configurações ao Windows 10**
 
-#### <a name="password-settings"></a>Параметры пароля
+#### <a name="password-settings"></a>Definições de palavra-passe
 
-- **Требуемый тип пароля**
-- **Минимальное число наборов символов**
-- **Минимальная длина пароля**
-- **Число разрешенных неудачных попыток входа перед очисткой устройства**
-- **Период бездействия до отключения экрана (в минутах)**
-- **Срок действия пароля (дней)**
-- **Запоминать историю паролей**
-- **Запретить использование предыдущих паролей**
-- **Разрешить графические пароли и ПИН-коды**
+- **Tipo de palavra-passe obrigatório**
+- **Número mínimo de conjuntos de carateres**
+- **Comprimento mínimo da palavra-passe**
+- **Número de falhas de início de sessão repetidas permitidas antes do dispositivo ser apagado**
+- **Minutos de inatividade antes do ecrã se desligar**
+- **Expiração da palavra-passe (dias)**
+- **Memorizar histórico de palavra-passe**
+- **Impedir a reutilização de palavras-passe anteriores**
+- **Permitir palavra-passe de imagem e PIN**
 
-#### <a name="browser-settings"></a>Параметры браузера
+#### <a name="browser-settings"></a>Definições do browser
 
-- **Разрешить автоматическое определение интрасети**
+- **Permitir deteção automática de rede intranet**
 
 
-### <a name="new-settings-for-windows-phone-81-devices"></a>Новые параметры для устройств Windows Phone 8.1
+### <a name="new-settings-for-windows-phone-81-devices"></a>Novas definições para dispositivos Windows Phone 8.1
 
-#### <a name="applicability-settings"></a>Параметры применимости
+#### <a name="applicability-settings"></a>Definições de aplicabilidade
 
-- **Применить все конфигурации к Windows 10**
+- **Aplicar todas as configurações ao Windows 10**
 
-#### <a name="password-settings"></a>Параметры пароля
+#### <a name="password-settings"></a>Definições de palavra-passe
 
-- **Минимальное число наборов символов**
-- **Разрешить простые пароли**
-- **Запоминать историю паролей**
+- **Número mínimo de conjuntos de carateres**
+- **Permitir palavras-passe simples**
+- **Memorizar histórico de palavra-passe**
 
-#### <a name="device-capability-settings"></a>Параметры возможностей устройств
+#### <a name="device-capability-settings"></a>Definições de capacidade de dispositivo
 
-- **Разрешить автоматическое подключение к бесплатным хот-спотам Wi-Fi**
+- **Permitir ligação automática a hotspots Wi-Fi**
 
 
-## <a name="improvements-for-boundary-groups"></a>Усовершенствования для групп границ
-В этой предварительной версии представлены важные изменения, касающиеся групп границ и их работы с точками распространения. Эти изменения направлены на упрощение процесса разработки инфраструктуры содержимого, предоставляя повышенный уровень контроля способов и случаев отката клиентов в целях поиска дополнительных точек распространения в качестве расположений источников содержимого. К таким точкам относятся локальные и облачные точки распространения.
+## <a name="improvements-for-boundary-groups"></a>Melhoramentos para os grupos de limites
+Esta pré-visualização introduz alterações importantes para os grupos de limites e como funcionam com pontos de distribuição. Estas alterações ajudará a simplificar a estrutura da sua infraestrutura de conteúdo ao dando-lhe mais controlo sobre como e quando os pontos de contingência de clientes para procurar distribuição adicionais como localizações de origem de conteúdo. Isto inclui pontos de distribuição baseado na nuvem e no local.
 
-Эти усовершенствования приходят на смену понятиям и поведениям, которые могут быть вам знакомы на данный момент (например, настройка точек распространения как быстрых или медленных), и заменяют их новой моделью с простой установкой и обслуживанием. Кроме того, эти изменения являются основой для будущих преобразований, которые улучшат другие роли системы сайта, связываемые с группами границ.  
+Estas melhorias substituir conceitos e comportamentos poderá estar familiarizado com hoje em dia (como configurar pontos de distribuição para ser rápida ou lenta) e substitui-os com um novo modelo que deve ser mais fácil de configurar e manter. Estas alterações também são base para as alterações futuras que irá melhorar outras funções de sistema de sites, que associar a grupos de limites.  
 
-Во время обновления до версии 1609 конфигурации текущей группы границ преобразуются в соответствии с новой моделью так, чтобы эти изменения не затрагивали конфигурации распространения содержимого (см. статью [Обновление существующих групп границ до новой модели](/sccm/core/get-started/capabilities-in-technical-preview-1609#bkmk_update)).
+Durante a atualização 1609, a atualização converte das configurações de grupo de limites atuais para ajustar o novo modelo de modo a que estas alterações não disturb as configurações de distribuição de conteúdo (consulte [atualizar os grupos de limites existentes para o novo modelo](/sccm/core/get-started/capabilities-in-technical-preview-1609#bkmk_update)).
 
-В следующих разделах подробно описываются изменения, представленные в этой предварительной версии, рассказывается, как работает новая модель и чего можно ожидать при обновлении сайта, для которого уже настроена группа границ.
+As secções seguintes pormenorizadamente as alterações introduzidas com esta pré-visualização, como funciona o novo modelo e o que pode esperar quando atualizar um site que já tenha configurados os grupos de limites.
 
 
 
-### <a name="changes-in-ui-and-behavior-for-boundary-groups-and-content-locations"></a>Изменения в пользовательском интерфейсе и поведении для групп границ и расположений содержимого
-Ниже приведены ключевые изменения в группах границ и способах обнаружения содержимого клиентами. Многие из этих изменений и основных понятий работают вместе.
--   **Удалена настройка быстрых или медленных точек распространения.** Больше не требуется настраивать отдельные точки распространения как быстрые или медленные.  Теперь каждая система сайта, связанная с группой границ, обрабатывается одинаково. В связи с этим изменением на вкладке **Ссылки** в окне свойств группы границ больше не поддерживается настройка быстрых или медленных точек распространения.
--   **Новая группа границ по умолчанию на каждом сайте.** Каждый первичный сайт имеет новую группу границ по умолчанию с именем ***группа_границ_сайта_по_умолчанию\<код_сайта >***.  Если клиент отсутствует в сетевом расположении, назначенном группе границ, он будет использовать системы сайта, связанные с группой по умолчанию, с назначенного ему сайта. Запланируйте использовать эту группу границ в качестве замены понятия резервного источника содержимого.    
- -  Удален параметр **Разрешить резервные источники**. Вы больше не можете явным образом настраивать точку распространения для отката — соответствующие параметры удалены из пользовательского интерфейса.
+### <a name="changes-in-ui-and-behavior-for-boundary-groups-and-content-locations"></a>Alterações na IU e o comportamento para grupos de limites e localizações de conteúdo
+Seguem-se chave alterações aos grupos de limites e a forma como os clientes localizam os conteúdos. Muitas destas alterações e conceitos funcionam em conjunto.
+-   **Configurações para rápida ou lenta são removidas:** Já não está a configurar pontos de distribuição individuais para serem rápida ou lenta.  Em vez disso, cada sistema de sites associado a um grupo de limites é Tratado da mesma. Devido a esta alteração, o **referências** separador das propriedades do grupo de limites já não suporta a configuração rápida ou lenta.
+-   **Novo grupo de limites de predefinição em cada site:**  Cada site primário tem um novo grupo de limites de predefinição com o nome ***predefinição-Site-limite-grupo\<sitecode >***.  Quando um cliente não está numa localização de rede que está atribuída a um grupo de limites, esse cliente utilizará os sistemas de sites associados ao grupo predefinido do seu site atribuído. Planear a utilização deste grupo de limites como uma substituição para o conceito de localização de conteúdo de contingência.    
+ -  **'Permitir que as localizações de origem de contingência para conteúdo'** for removido: Já não está explicitamente a configurar um ponto de distribuição para ser utilizado para contingência e as opções para configurar esta são removidas da IU.
 
-    Кроме того, изменен результат действия параметра **Разрешить клиентам использовать резервный источник содержимого** в типе развертывания приложений. Теперь этот параметр в типе развертывания позволяет клиенту использовать группу границ сайта по умолчанию в качестве источника содержимого.
+    Além disso, o resultado da definição **permitir que os clientes utilizem uma localização de origem de contingência para conteúdo** numa implementação tipo para aplicações foi alterada. Esta definição num tipo de implementação agora permite que um cliente para utilizar o grupo de limites de site predefinido como uma localização de origem de conteúdo.
 
- -  **Отношения групп границ.** Каждую группу границ можно связать с одной или несколькими дополнительными группами границ. Эти связи формируют отношения, настраиваемые на новой вкладке свойств группы границ **Отношения**.
-    -   Каждая группа границ, с которой клиент связан напрямую, называется **текущей** группой границ.  
-    -   Группа границ, которую клиент может использовать из-за связи между *текущей* группой границ и другой группой, называется **соседней**.
-    -  На вкладке **Отношения** можно добавлять группы границ, которые будут использоваться в качестве *соседних*. Также можно настроить время в минутах, которое определяет, когда клиенту, которому не удалось найти содержимое в точке распространения в *текущей* группе, следует начать поиск источников содержимого в *соседних* группах границ.
+ -  **Relações de grupos de limites:** Cada grupo de limites pode ser associado a um ou mais grupos de limites adicionais. Estas ligações formam relações que estão configuradas no novo limite grupo separador de propriedades com o nome **relações**:
+    -   Cada grupo de limites que um cliente é diretamente associado é chamado um **atual** grupo de limites.  
+    -   Nenhum grupo de limites pode utilizar um cliente devido a uma associação entre esse cliente *atual* grupo de limites e outro grupo é chamado um **vizinho** grupo de limites.
+    -  É o **relações** separador adicionar grupos de limites que podem ser utilizados como um *vizinho* grupo de limites. Também pode configurar um período de tempo em minutos que determina quando um cliente que não consegue localizar o conteúdo a partir de um ponto de distribuição no *atual* grupo irá começar a procurar nas localizações de conteúdo das *vizinho* grupos de limites.
 
-        При добавлении или изменении конфигурации группы границ у вас будет возможность заблокировать откат к определенной группе границ из текущей настраиваемой группы.
+        Quando adicionar ou alterar uma configuração do grupo de limites, terá a opção para o bloco de contingência para esse grupo de limites específico do grupo atual que estiver a configurar.
 
-    Чтобы использовать новую конфигурацию, определите явные ассоциации (связи) одной группы границ с другой и настройте все точки распространения в этой связанной группе, указав то же значение времени в минутах. Настроенное время определяет, когда клиенту, которому не удалось найти источник содержимого в его *текущей* группе границ, следует начать поиск источников содержимого из соседней группы границ.
+    Para utilizar a nova configuração, pode define associações explícitas (ligações) a partir de um grupo de limites para outro e configura todos os pontos de distribuição nesse grupo associados com o mesmo tempo em minutos. O tempo que configura determina quando um cliente que não consegue encontrar uma origem de conteúdo do respetivo *atual* grupo de limites pode começar a pesquisar origens de conteúdo desse grupo de limites de vizinho.
 
-    Помимо явной настройки, каждая группа границ имеет неявную связь с группой границ сайта по умолчанию. Эта связь становится активной через 120 минут. В это время группа границ сайта по умолчанию становится соседней группой границ, что позволяет клиентам использовать точки распространения, связанные с этой группой границ, как источники содержимого.
+    Além dos grupos de limites que configurar explicitamente, cada grupo de limites tem uma ligação implícita para o grupo de limites de site predefinido. Esta ligação fica ativa depois de 120 minutos em que momento o grupo de limites de site predefinido torna-se um grupo de limites de vizinho que permite que os clientes utilizar os pontos de distribuição associados esse grupo de limites como localizações de origem de conteúdo.
 
-    Это поведение заменяет то, что ранее называлось откатом содержимого.  Можно переопределить это заданное по умолчанию поведение, явным образом связав группу границ сайта по умолчанию с *текущей* группой и указав определенное время в минутах либо полностью заблокировав откат, чтобы исключить его использование.
+    Este comportamento substitui que anteriormente foi referido como contingência para conteúdo.  Pode substituir este comportamento predefinido de 120 minutos associando explicitamente o grupo de limites de site predefinido para um *atual* grupo e definir uma hora específica em minutos ou bloquear contingência inteiramente para impedir a sua utilização.
 
 
--   **Клиенты пытаются получить содержимое из каждой точки распространения за 2 минуты.** Когда клиент выполняет поиск источника содержимого, он пытается получить доступ к каждой точке распространения за 2 минуты, а затем переходит к другой точке распространения. Этим данный выпуск отличается от предыдущих версий, когда клиенты пытались подключиться к точке распространения до 2 часов.
+-   **Os clientes tentam obter conteúdos de cada ponto de distribuição para 2 minutos:** Quando um cliente procura de uma localização de origem de conteúdo, este tenta aceder a cada ponto de distribuição para 2 minutos antes de, em seguida, tentar outro ponto de distribuição. Esta é uma alteração de versões anteriores onde os clientes tentaram ligar a um ponto de distribuição de até 2 horas.
 
-    - Первая точка распространения, используемая клиентом, случайным образом выбирается из пула доступных точек распространения *текущей* группы (или групп) границ клиента.
+    - O primeiro ponto de distribuição que um cliente tenta utilizar aleatoriamente está selecionado do agrupamento de pontos de distribuição disponíveis do cliente *atual* grupo de limites (ou grupos).
 
-    - Если клиенту не удалось найти содержимое, через две минуты он переключается на новую точку распространения и пытается получить содержимое с этого сервера. Этот процесс повторяется каждые две минуты, пока клиент не найдет содержимое или не перейдет к последнему серверу в пуле.
+    - Depois de dois minutos, se o cliente não foi encontrado o conteúdo, muda para um novo ponto de distribuição e tenta obter conteúdo a partir desse servidor. Este processo repete-se a cada dois minutos até que o cliente localiza o conteúdo ou atinge o último servidor no seu conjunto.
 
-    - Если клиенту не удается найти допустимый источник содержимого из *текущего* до наступления времени отката в *соседнюю* группу границ, он добавляет точки распространения из этой *соседней* группы в конец текущего списка, а затем выполняет поиск в расширенной группе источников, включающий точки распространения из обеих групп границ.
+    - Se um cliente não é possível encontrar uma localização de origem de conteúdo válida a partir do respetivo *atual* agrupamento antes do período de contingência para um *vizinho* for atingido o grupo de limites, o cliente, em seguida, adiciona os pontos de distribuição do *vizinho* até ao fim da respetiva lista atual de grupo e, em seguida, irá procurar o grupo expandido das localizações de origem que inclua os pontos de distribuição a partir de ambos os grupos de limites.
 
         > [!TIP]  
-        > При создании явной связи из текущей группы границ с группой границ сайта по умолчанию и определении времени отката, которое меньше времени отката для связи с соседней группой границ, клиенты будут начинать поиск источников из группы границ сайта по умолчанию до включения соседней группы.
+        > Quando criar uma ligação explícita do grupo de limites atuais para o grupo de limites de site predefinido e definir uma hora de contingência que é inferior à hora de contingência para uma ligação a um grupo de limites de vizinho, os clientes começam a pesquisar localizações de origem do grupo de limites de site predefinido antes, incluindo o grupo de vizinho.
 
-    - Если клиенту не удается получить содержимое из последнего сервера в пуле, он начнет процесс заново.
+    - Quando o cliente não consegue obter conteúdos do último servidor no agrupamento, começar o processo de novo.
 
 
-### <a name="how-the-new-model-works"></a>Принцип работы новой модели
-При настройке групп границ вы связываете границы (сетевые расположения) и роли системы сайта, например точки распространения, с группой границ. Это помогает связать клиентов с серверами системы сайта, такими как точки распространения, расположенными рядом с клиентами в сети.   
--   Одну и ту же границу можно назначить нескольким группам границ
--   Серверы системы сайта, например точки распространения, могут быть связаны с несколькими группами границ, что делает их доступными для широкого диапазона сетевых расположений.
--   Если точка распространения не связана с группой границ, клиенты не смогут использовать эту точку распространения в качестве источника содержимого.
+### <a name="how-the-new-model-works"></a>Como funciona o novo modelo
+Quando configura grupos de limites, associar limites (localizações de rede) e funções de sistema de sites, como pontos de distribuição, para o grupo de limites. Isto ajuda os clientes de ligação a servidores do sistema de sites como perto de pontos de distribuição que estão localizados os clientes na rede.   
+-   É possível atribuir o mesmo limite a vários grupos de limites
+-   Servidores do sistema de sites, como pontos de distribuição, podem ser associados a vários grupos de limites, disponibilizando-as para uma vasta gama de localizações de rede
+-   Se um ponto de distribuição não estiver associado a um grupo de limites, os clientes não poderão utilizar esse ponto de distribuição como localização de origem de conteúdo.
 
-Начиная с этой ознакомительной технической версии, определение связей групп границ требуется для настройки резервного поведения для источников содержимого. Этот новый режим настраивается на новой вкладке **Отношения** окна свойств группы границ и заменяет настройку медленных или быстрых систем сайта, а также настройку группы границ для разрешения использования резервного источника содержимого.
+A partir desta pré-visualização técnica, é possível definir relações de grupo de limites para configurar o comportamento de contingência para localizações de origem de conteúdo. Este novo comportamento está configurado no novo **relações** separador de propriedades do grupo de limites e substitui a configuração de sistemas de sites para ser rápida ou lenta e configurar um grupo de limites para permitir a localização de origem de contingência para conteúdo.
 
-На вкладке "Отношения" добавьте другие группы границ, чтобы настроить отношение с этими группами. Каждое отношение является односторонней связью от **текущей** группы границ к добавленной группе, которая называется **соседней**. Для каждой создаваемой связи можно настроить точки распространения с временем отката в минутах. Это значение используется для определения того, сколько времени клиентам в *текущей* группе границ нужно ждать, прежде чем они могут начать использовать точки распространения в *соседней* группе границ, если им не удастся найти допустимый источник содержимого из своей текущей группы границ.
+No separador relações adicionar outros grupos de limites para configurar uma relação a esses grupos. Cada relação é uma hiperligação unidirecional do **atual** grupo de limites para o grupo de limites que adiciona, que é chamado um **vizinho**. Para cada ligação de que criar, pode configurar pontos de distribuição com um tempo de contingência em minutos. Este tempo é utilizado para determinar após clientes quanto a *atual* grupo de limites pode começar a utilizar pontos de distribuição a *vizinho* grupo de limites que se encontrem não é possível encontrar uma localização de origem de conteúdo válida do respetivo grupo de limites atual.
 
-Когда клиент не может найти содержимое и начинает поиск расположений из соседних групп границ, он контролированным образом увеличивает пул доступных точек распространения для клиента.  
+Quando um cliente não é possível localizar o conteúdo e começa a procurar nas localizações dos grupos de limites de vizinho, aumenta o conjunto de pontos de distribuição disponíveis para que o cliente de forma controlada.  
 
--   Группа границ может иметь несколько отношений. Это позволяет настроить переход к разным соседним группам через различные периоды времени.
--   Клиенты будут переходить только к группе границ, являющейся прямым соседом по отношению к их текущей группе границ.
--   Если клиент входит в несколько групп границ, текущая группа границ определяется как объединение всех групп границ клиента.  Этот клиент может выполнять откат к любой из этих исходных групп границ.
+-   Um grupo de limites pode ter mais de uma relação. Isto permite-lhe configurar contingência aos diferentes vizinhos para ocorrer após os períodos de tempo diferentes.
+-   Os clientes irão contingência apenas a um grupo de limites que é um vizinho direto do respetivo grupo de limites atuais.
+-   Quando um cliente é um membro de vários grupos de limites, o grupo de limites atual está definido como uma União de tudo o que os grupos de limites do cliente.  Que o cliente pode, em seguida, contingência para um vizinho de qualquer um desses grupos de limites original.
 
-Помимо определяемых связей существует неявная связь, создаваемая автоматически между формируемыми вами группами границ и группой границ по умолчанию, автоматически создаваемой для каждого узла. Это автоматическая связь:
--   используется клиентами, которые не находятся на границе, связанной с группой границ, автоматически использующей группу границ по умолчанию из назначенного сайта для определения допустимых источников содержимого;   
--   является вариантом отката по умолчанию из текущей группы границ к группе границ сайтов по умолчанию, используемым через 120 минут.
+Para além das ligações que define, há uma ligação implícita que é criada automaticamente entre os grupos de limites que cria e o grupo de limites predefinido que é criado automaticamente para cada site. Esta ligação automática:
+-   É utilizado por clientes que são não num limite associado a nenhum grupo de limites na hierarquia automaticamente utilizar o grupo de limites predefinidos do respetivo site atribuído para identificar as localizações de origem de conteúdo válida.   
+-   É uma opção de contingência de predefinição do grupo de limites atuais ao grupo de limites de sites predefinido que é utilizado depois de 120 minutos.
 
-**Пример использования новой модели**     
-Создайте три группы границ, не имеющих общих границ или общих серверов системы сайта:
--   Группа BG_A с точками распространения DP_A1 и DP_A2, связанными с группой
--   Группа BG_B с точками распространения DP_B1 и DP_B2, связанными с группой
--   Группа BG_C с точками распространения DP_C1 и DP_C2, связанными с группой
+**Exemplo de como utilizar o novo modelo:**     
+Crie três grupos de limites que não partilham limites ou servidores de sistema de sites:
+-   Grupo BG_A com pontos de distribuição DP_A1 e DP_A2 associados ao grupo
+-   Grupo BG_B com pontos de distribuição DP_B1 e DP_B2 associados ao grupo
+-   Grupo BG_C com pontos de distribuição DP_C1 e DP_C2 associados ao grupo
 
-Добавьте сетевые расположения клиентов в качестве границ только в группу границ BG_A, а затем настройте связи из этой группы границ с двумя другими группами.
--   Настройте точки распространения для первой *соседней* группы (BG_B), которая будет использоваться через 10 минут. Эта группа содержит точки распространения DP_B1 и DP_B2. Они также подключены к расположениям границ первой группы.
--   Настройте вторую *соседнюю* группу (BG_C), которая будет использоваться через 20 минут. Эта группа содержит точки распространения DP_C1 и DP_C2. Они находятся в глобальной сети из двух других групп границ.
--   Добавьте дополнительную точку распространения, расположенную на сервере сайта, в группу границ сайта по умолчанию. Это наименее предпочтительное расположение источника содержимого, однако он имеет централизованное местоположение относительно всех групп границ.
+A adicionar as localizações de rede dos clientes como limites para apenas o grupo de limites BG_A e, em seguida, configurar relações desse grupo de limites para os outros dois grupos de limites:
+-   Configurar pontos de distribuição para o primeiro *vizinho* grupo (BG_B) a ser utilizada após 10 minutos. Este grupo contém pontos de distribuição DP_B1 e DP_B2. Ambos são boas ligações para as localizações de limites de grupos primeiro.
+-   Configurar a segunda *vizinho* grupo (BG_C) a ser utilizada após 20 minutos. Este grupo contém pontos de distribuição DP_C1 e DP_C2. Ambos são através de uma WAN dos outros grupos de limites de dois.
+-   Pode também adiciona um ponto de distribuição adicionais que está localizado no servidor do site ao grupo de limites de site de sites predefinido. Esta é a localização de origem de conteúdo menos preferencial, mas está centralmente localizado para todos os grupos de limites.
 
-    Пример группы границ и времени отката
+    Exemplo de grupos de limites e tempos de contingência:
 
      ![BG_Fallack](media/BG_Fallback.png)
 
 
-В этой конфигурации:
--   Клиент начинает поиск содержимого из точек распространения в его *текущей* группе границ (BG_A). Поиск выполняется в течение двух минут до перехода к следующей точке распространения в группе границ. В пул клиентов допустимых источников содержимого входят точки распространения DP_A1 и DP_A2.
--   Если клиенту не удается найти содержимое из его *текущей* группы границ после поиска в течение 10 минут, он добавляет в область поиска точки распространения из группы границ BG_B. Затем он продолжает поиск содержимого из точки распространения в объединенном пуле точек распространения, в который теперь входят точки из групп границ BG_A и BG_B. Клиент продолжает обращаться к каждой точке распространения в течение двух минут до перехода к следующей точке распространения из пула. В пул клиентов допустимых источников содержимого входят точки распространения DP_A1, DP_A2, DP_B1 и DP_B2.
--   Если через 10 дополнительных минут (всего 20 минут) клиенту по-прежнему не удалось найти точку распространения с содержимым, он расширяет пул доступных точек распространения, включая точки из второй *соседней* группы — группы границ BG_C. Теперь у клиента есть 6 точек распространения для поиска (DP_A1, DP_A2, DP_B2, DP_B2, DP_C1 и DP_C2), и он продолжит переходить на новую точку распространения каждые две минуты до тех пор, пока не найдет содержимое.
--   Если клиент не нашел содержимое через 120 минут, он возвращается, чтобы включить *группу границ сайта по умолчанию* в состав дальнейшего поиска. Теперь в пул точек распространения входят все точки распространения из трех настроенных групп границ и последняя точка распространения, расположенная на компьютере сервера сайта.  Клиент продолжает поиск содержимого, каждые две минуты, переходя на новые точки распространения, пока содержимое не будет найдено.
+Com esta configuração:
+-   O cliente começa a procurar conteúdo dos pontos de distribuição no respetivo *atual* pesquisar a distribuição de cada grupo de limites (BG_A), para que aponte do dois minutos antes de mudar para o próximo ponto de distribuição no grupo de limites. O conjunto de clientes de localizações de origem de conteúdo válida inclui DP_A1 e DP_A2.
+-   Se o cliente não conseguir localizar o conteúdo do respetivo *atual* grupo de limites depois de procurar durante 10 minutos, em seguida, adiciona os pontos de distribuição do grupo de limites BG_B para a sua pesquisa. Em seguida, continua a pesquisar conteúdo a partir de um ponto de distribuição no respetivo conjunto combinado de pontos de distribuição que inclui os grupos de limites BG_A tanto BG_B agora. O cliente continua a contactar cada ponto de distribuição de dois minutos antes de mudar para o próximo ponto de distribuição do seu conjunto. O conjunto de clientes de localizações de origem de conteúdo válida inclui DP_A1, DP_A2, DP_B1 e DP_B2.
+-   Após um adicionais de 10 minutos (totais de 20 minutos) se o cliente ainda não encontrou um ponto de distribuição com conteúdo, que expande o conjunto de pontos de distribuição disponíveis para incluir as da segunda *vizinho* grupo, o grupo de limites BG_C. O cliente agora tem 6 pontos de distribuição para pesquisa (DP_A1, DP_A2, DP_B2, DP_B2, DP_C1 e DP_C2) e continua a alteração cada dois minutos até ser encontrado conteúdo para um novo ponto de distribuição.
+-   Se o cliente não foi encontrado conteúdo depois de um total de 120 minutos, fica novamente para incluir o *grupo de limites de site predefinido* como parte da sua pesquisa contínua. O conjunto de pontos de distribuição inclui agora todos os pontos de distribuição dos três grupos de limites configurado e o ponto de distribuição final localizado no computador do servidor do site.  O cliente, em seguida, continua a pesquisa de conteúdo, alterar a cada dois minutos até ser encontrado conteúdo de pontos de distribuição.
 
-Настроив доступность различных соседних групп в разное время, вы можете контролировать время добавления определенных точек распространения в качестве источника содержимого, а также время или возможность отката клиента к группе границ сайта по умолчанию в качестве резервного расположения для содержимого, которое недоступно из другого места.
+Ao configurar os grupos de vizinho diferentes para estar disponível em alturas diferentes, pode controlar quando são adicionados como uma localização de origem de conteúdo, pontos de distribuição específico e quando, ou se, o cliente utiliza a contingência para o grupo de limites de site predefinido como uma rede de segurança para o conteúdo que não está disponível a partir de qualquer outra localização.
 
 
-### <a name="bkmk_update"></a>Обновление существующих групп границ для новой модели
-При установке версии 1609 и обновлении сайта автоматически выполняются следующие настройки. Они предназначены для обеспечения доступности текущего резервного поведения, сохраняемого до настройки новых групп границ и связей.  
--   Незащищенные точки распространения на сайте добавляются в группу границ *группа_границ_сайта_по_умолчанию\<код_сайта>* этого сайта.
--   Создается копия каждой существующей группы границ, в состав которой входит сервер сайта, настроенный с медленным подключением. Имя новой группы — ***\<исходное_имя_группы_границ>-Slow-Tmp***:  
-    -   Системы сайта с быстрым подключением остаются в исходной группе границ.
-    -   Копия системы сайта с медленным подключением добавляется в копию группы границ. Исходные системы сайта, настроенные как медленные, остаются в исходной группе границ для обеспечения обратной совместимости, но не используются из этой группы.
-    -   У этой копии группы границ нет связанных с ней границ. Однако между исходной группой и копией новой группы границ создается резервная связь с временем отката, равным нулю.
+### <a name="bkmk_update"></a>Atualizar os grupos de limites existentes para o novo modelo
+Quando instalar a versão 1609 e atualizar o site, as seguintes configurações são efetuadas automaticamente. Estes são concebidas para Certifique-se de que o comportamento de contingência atual permanece disponível, até configurar novos grupos de limites e relações.  
+-   Pontos de distribuição não protegido num site são adicionados para o *predefinição-Site-limite-grupo\<sitecode >* grupo de limites desse site.
+-   É efetuada uma cópia de cada grupo de limites existentes, que inclui um servidor de site configurado com uma ligação lenta. O nome do novo grupo é *** \<nome original do grupo de limites > Tmp - lenta -***:  
+    -   Sistemas de sites que tenham uma ligação rápida são mantidos no grupo de limites original.
+    -   Uma cópia dos sistemas de sites que tenham uma ligação lenta são adicionadas para a cópia do grupo de limites. Os sistemas de site original configurados como lenta permanecem no grupo de limites original para compatibilidade com versões anteriores, mas não são utilizados desse grupo de limites.
+    -   Esta cópia do grupo de limites não tem limites associados à mesma. No entanto, é criada uma ligação de contingência entre o grupo original e a nova cópia do grupo de limites com o tempo de contingência definido como zero.
 
- В следующей таблице описано новое поведение, ожидаемое при использовании сочетания исходных параметров развертывания и конфигураций точек распространения.
+ A tabela seguinte identifica o novo comportamento contingência pode esperar da combinação de definições de implementação original e a distribuição de configurações de pontos:
 
-Исходная конфигурация развертывания для параметра "Не запускать программу" в медленной сети  |Исходная конфигурация точки распространения для параметра "Разрешить клиентам использовать резервный источник содержимого"  |Новое резервное поведение  
+Configuração de implementação original "não executaram" na rede lenta  |Configuração para "Permitir ao utilizar uma localização de origem de contingência para conteúdo de cliente" do ponto de distribuição original  |Novo comportamento de contingência  
 ---------|---------|---------
-Выбрано     |  Выбрано    |  **Без отката** — использование только точек распространения в текущей группе границ       
-Выбрано     |  Не выбрано|  **Без отката** — использование только точек распространения в текущей группе границ       
-Не выбрано |  Не выбрано|  **Откат к соседней группе** — использование точек распространения в текущей группе границ, а затем добавление точки распространения из соседней группы границ. Пока не будет настроена явная связь с группой границ сайта по умолчанию, клиенты не будут выполнять откат к этой группе.    
-Не выбрано | Выбрано     |   **Обычный откат** — использование точек распространения в текущей группе границ, затем из соседней группы и группы границ сайта по умолчанию.
+Selecionado     |  Selecionado    |  **Não existem contingência** -utilizar apenas os pontos de distribuição no grupo de limites atual       
+Selecionado     |  Não selecionada|  **Não existem contingência** -utilizar apenas os pontos de distribuição no grupo de limites atual       
+Não selecionada |  Não selecionada|  **Contingência para vizinho** - utilizar os pontos de distribuição no grupo de limites atual e, em seguida, adicione os pontos de distribuição do grupo de limites de vizinho. A menos que uma ligação explícita para o grupo de limites de site predefinido está configurada, os clientes irão não contingência a esse grupo.    
+Não selecionada | Selecionado     |   **Contingência normal** -utilizar pontos de distribuição no grupo de limites atual, em seguida, os do site e vizinho predefinido de grupos de limites
 
- Результатом всех остальных конфигураций развертывания является **обычный откат**.  
+ Todas as outras configurações de implementação resultam em **contingência Normal**.  
 
 
 
-## <a name="office-365-client-management-dashboard"></a>Панель мониторинга для управления клиентом Office 365  
-В Configuration Manager 1609 Technical Preview представлена новая панель мониторинга. Чтобы открыть панель мониторинга, в консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Обзор** > **Управление клиентом Office 365**.
+## <a name="office-365-client-management-dashboard"></a>Dashboard de gestão de clientes do Office 365  
+O Configuration Manager 1609 Technical Preview introduz um novo dashboard. Para ver o dashboard, na consola do Configuration Manager vá para **biblioteca de Software** > **descrição geral** > **gestão de clientes do Office 365**.
 >[!NOTE]
->В консоли Configuration Manager в рабочей области **Новые возможности** указано неверное имя новой панели мониторинга — **Панель мониторинга обслуживания Office 365**.
+>No **Novidades** área de trabalho na consola do Configuration Manager, o novo dashboard incorretamente denominado **dashboard de manutenção do Office 365**.
 
-На панели мониторинга отображаются следующие диаграммы:
+O dashboard apresenta gráficos para o seguinte:
 
-- Число клиентов Office 365
-- Версии клиентов Office 365
-- Языки клиентов Office 365
-- Ветви клиентов Office 365     
-Дополнительные сведения см. в статье [Обзор ветвей обновлений для Office 365 профессиональный плюс](https://technet.microsoft.com/library/mt455210.aspx).
-- Правила автоматического развертывания, в которых клиент Office 365 выбран в наборе доступных продуктов.
+- Número de clientes do Office 365
+- Versões de cliente do Office 365
+- Idiomas de cliente do Office 365
+- Canais de cliente do Office 365     
+Para obter mais informações, consulte [canais de consumo de descrição geral da atualização para o Office 365 ProPlus](https://technet.microsoft.com/library/mt455210.aspx).
+- Regras de implementação automática que tenham o cliente do Office 365 selecionadas no conjunto de produtos disponíveis.
 
-На панели мониторинга можно выполнять следующие действия.
-- В верхней части панели мониторинга, используйте раскрывающийся список **Коллекции** для фильтрации данных на панели мониторинга по членству в определенной коллекции.
-- В правой верхней части панели мониторинга щелкните **Установщик Office 365**, чтобы запустить мастер установки клиентов Office 365 для развертывания приложений Office 365 на клиентах. Дополнительные сведения см. в статье [Развертывание приложений Office 365 на клиентах](#deploy-office-365-apps-to-clients).
-- В средней правой части панели мониторинга щелкните **Создать ADR**, чтобы запустить мастер правил автоматического развертывания для создания нового правила автоматического развертывания (ADR). Чтобы создать ADR для приложений Office 365, щелкните **Клиент Office 365** при выборе продукта. Дополнительные сведения см. в статье [Автоматическое развертывание обновлений программного обеспечения](/sccm/sum/deploy-use/automatically-deploy-software-updates).
-- В правой нижней части панели мониторинга щелкните **Создать параметры агента клиента**, чтобы открыть окно параметров агента клиента. Дополнительные сведения см. в разделе [Сведения о параметрах клиентов](/sccm/core/clients/deploy/about-client-settings).
+Pode efetuar as seguintes ações no dashboard:
+- Na parte superior do dashboard, utilize o **coleção** definição de lista pendente para filtrar os dados de dashboard por membros da coleção específica.
+- No lado superior direito do dashboard, clique em **instalador do Office 365** para iniciar o Assistente de instalação de cliente do Office 365 para implementar aplicações do Office 365 nos clientes. Para obter mais informações, consulte [aplicações de implementar o Office 365 para clientes](#deploy-office-365-apps-to-clients).
+- No lado direito de meio do dashboard, clique em **criar uma ADR** para abrir o Assistente de regra de implementação automática para criar uma nova regra de implementação automática (ADR). Para criar uma ADR para aplicações do Office 365, selecione **cliente do Office 365** quando escolhe o produto. Para obter mais informações, consulte [implementar automaticamente atualizações de software](/sccm/sum/deploy-use/automatically-deploy-software-updates).
+- No lado direito de inferior do dashboard, clique em **criar definições de agente de cliente** para abrir as definições do agente de cliente. Para obter mais informações, consulte [sobre definições de cliente](/sccm/core/clients/deploy/about-client-settings).
 
 
 
-Дополнительные сведения об обновлениях Office 365 профессиональный плюс см. в статье [Управление обновлениями Office 365 профессиональный плюс с помощью System Center Configuration Manager](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
+Para obter mais informações sobre as atualizações do Office 365 ProPlus, consulte [gerir o Office 365 ProPlus atualizações com o Configuration Manager](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
-## <a name="deploy-office-365-apps-to-clients"></a>Развертывание приложений Office 365 на клиентах
-В этом выпуске на панели мониторинга для управления клиентами Office 365 можно запустить установщик Office 365, который позволяет настраивать параметры установки Office 365, загружать файлы из сети CDN Office и развертывать файлы как приложение в Configuration Manager.
+## <a name="deploy-office-365-apps-to-clients"></a>Implementar aplicações do Office 365 nos clientes
+Nesta versão, a partir do dashboard de gestão de clientes do Office 365, pode iniciar o instalador de 365 do Office que lhe permite configurar definições de instalação do Office 365, transfira ficheiros a partir de redes de entrega de conteúdo (CDNs) do Office e implementar os ficheiros como uma aplicação no Configuration Manager.
 
-### <a name="limitations-of-office-365-deployment"></a>Ограничения для развертывания Office 365
-- При попытке импортировать существующие параметры клиента (XML) в мастере установки приложения Office 365 у вас могут возникнуть проблемы. Чтобы их избежать, настройте параметры клиента вручную.
+### <a name="limitations-of-office-365-deployment"></a>Limitações da implementação do Office 365
+- Poderá ter problemas ao tentar importar as definições de cliente existente (XML) no Assistente de instalação de aplicações do Office 365. Pode configurar manualmente as definições de cliente sem um problema.
 
-#### <a name="to-deploy-office-365-apps-to-clients"></a>Развертывание приложений Office 365 на клиентах
-1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Обзор** > **Управление клиентом Office 365**.
-2. В верхней правой части окна щелкните **Установщик Office 365**. Откроется мастер установки клиента Office 365.
-3. На странице **Параметры приложения** укажите имя и описание приложения, введите расположение загрузки для файлов и нажмите кнопку **Далее**. Обратите внимание, что расположение должно быть указано в виде &#92;&#92;*server*&#92;*share*.
-4. На странице **Импорт параметров клиента** укажите, требуется ли импортировать параметры клиента Office 365 из существующего XML-файла конфигурации, или вручную задайте параметры, а затем нажмите кнопку **Далее**.
-При наличии существующего файла конфигурации ведите путь к файлу и перейдите к шагу 7. Обратите внимание, что расположение должно быть указано в виде &#92;&#92;*server*&#92;*share*&#92;*filename*.XML.
+#### <a name="to-deploy-office-365-apps-to-clients"></a>Para implementar aplicações do Office 365 nos clientes
+1. Na consola do Configuration Manager, navegue até à **biblioteca de Software** > **descrição geral** > **gestão de clientes do Office 365**.
+2. Clique em **instalador do Office 365** no painel superior direito. É aberto o Assistente de instalação de cliente do Office 365.
+3. No **definições da aplicação** página, forneça um nome e descrição para a aplicação, introduza a localização de transferência para os ficheiros e, em seguida, clique em **seguinte**. Tenha em atenção que a localização tem de ser especificada no formulário &#92; &#92; *servidor*&#92; *partilhar*.
+4. No **importar as definições de cliente** página, escolha se importar as definições de cliente do Office 365 a partir de um ficheiro de configuração XML existente ou especifique manualmente as definições e, em seguida, clique em **seguinte**.
+Quando tiver um ficheiro de configuração existente, introduza a localização do ficheiro e avance para o passo 7. Tenha em atenção que a localização tem de ser especificada no formulário &#92; &#92; *server*&#92; *partilhar*&#92; *nome de ficheiro*. XML.
 
     > [!IMPORTANT]
-    >При попытке импортировать существующие параметры клиента (XML) в этом выпуске у вас могут возникнуть проблемы.
+    >Poderá ter problemas ao tentar importar as definições de cliente existente (XML) nesta pré-visualização técnica.
 
-5. На странице **Продукты клиента** выберите используемый набор Office 365, приложения, которые требуется включить, дополнительные продукты Office, которые должны быть включены, а затем нажмите кнопку **Далее**.
-6. На странице **Параметры клиента** выберите параметры, которые будут включены, а затем нажмите кнопку **Далее**.
-7. На странице **Развертывания** укажите необходимость развертывания приложения, а затем нажмите кнопку **Далее**.
-Если вы решили не развертывать пакет в мастере, перейдите к шагу 9.
-8. Настройте параметры в остальной части мастера, как для обычного развертывания приложения. Дополнительные сведения см. в статье [Создание и развертывание приложения](/sccm/apps/get-started/create-and-deploy-an-application).
-9. Завершите работу мастера.
-10. Можно развернуть или изменить приложение так же, как и любое другое приложение в Configuration Manager, последовательно выбрав **Библиотека программного обеспечения** > **Обзор** > **Управление приложениями** > **Приложения**.
+5. No **cliente produtos** página, selecione o Office 365 suite que utilizar, selecione as aplicações que pretende incluir, selecione os produtos de Office adicionais que devem ser incluídos e, em seguida, clique em **seguinte**.
+6. No **as definições de cliente** página, escolha as definições para incluir e, em seguida, clique em **seguinte**.
+7. No **implementação** página, escolha se pretende implementar a aplicação e, em seguida, clique em **seguinte**.
+Se optar por não implementar o pacote no assistente, avance para o passo 9.
+8. Configure as restantes páginas do assistente, tal como faria para uma implementação de aplicação típica. Para obter mais informações, consulte [criar e implementar uma aplicação](/sccm/apps/get-started/create-and-deploy-an-application).
+9. Conclua o assistente.
+10. Pode implementar ou editar a aplicação, tal como faria com qualquer outra aplicação no Configuration Manager de **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **aplicações**.
 
 >[!NOTE]
->После развертывания приложений Office 365 можно создать правила автоматического развертывания для обслуживания приложений. Чтобы создать ADR для приложений Office 365, щелкните **Создать ADR**, а затем при выборе продукта щелкните **Клиент Office 365**. Дополнительные сведения см. в статье [Автоматическое развертывание обновлений программного обеспечения](/sccm/sum/deploy-use/automatically-deploy-software-updates).
+>Depois de implementar aplicações do Office 365, pode criar regras de implementação automática para manter as aplicações. Para criar uma ADR para aplicações do Office 365, clique em **criar uma ADR**e selecione **cliente do Office 365** quando escolhe o produto. Para obter mais informações, consulte [implementar automaticamente atualizações de software](/sccm/sum/deploy-use/automatically-deploy-software-updates).
 
-## <a name="BKMK_UEFIConversion"></a>Усовершенствования преобразования BIOS в UEFI
-Последовательность задач развертывания операционной системы можно настроить с использованием новой переменной TSUEFIDrive таким образом, чтобы на шаге "Перезагрузить компьютер" выполнялась подготовка раздела FAT32 на жестком диске для перехода на UEFI. Далее приводится пример создания шагов последовательности задач для подготовки жесткого диска к преобразованию BIOS в UEFI.
+## <a name="BKMK_UEFIConversion"></a>Melhoramentos para BIOS para conversão de UEFI
+Agora, pode personalizar uma sequência de tarefas de implementação do sistema operativo com uma nova variável, TSUEFIDrive, para que o passo de reiniciar o computador irá preparar uma partição FAT32 no disco rígido para transição para UEFI. O procedimento seguinte fornece um exemplo de como pode criar os passos de sequência de tarefas para preparar a unidade de disco rígido para o BIOS para conversão de UEFI.
 
-#### <a name="to-prepare-the-fat32-partition-for-the-conversion-to-uefi"></a>Подготовка раздела FAT32 для преобразования в UEFI
-В существующую последовательность задач для установки операционной системы будет добавлена новая группа с шагами для преобразования BIOS в UEFI.
+#### <a name="to-prepare-the-fat32-partition-for-the-conversion-to-uefi"></a>Para preparar a partição FAT32 para a conversão para UEFI:
+Uma sequência de tarefas existente para instalar um sistema operativo, irá adicionar um novo grupo com os passos para fazer o BIOS para conversão de UEFI.
 
-1. Создайте новую группу последовательности задач после шагов для сбора файлов и параметров и перед шагами по установке операционной системы. Например, после группы **Сбор файлов и параметров** создайте группу с именем **BIOS-to-UEFI**.
-2. На вкладке **Параметры** новой группы добавьте новую переменную последовательности задач как условие, где **_SMSTSBootUEFI** **не равно** **true**. Это предотвратит выполнение шагов в группе, когда компьютер уже находится в режиме UEFI.
-![Группа "BIOS-to-UEFI"](media/BIOS-to-UEFI-group.png)
-3. В новой группе добавьте шаг последовательности задач **Перезагрузить компьютер**. В разделе **Укажите программы, которые необходимо запустить после перезагрузки** выберите **Выбран загрузочный образ, назначенный этой последовательности задач**, чтобы запускать компьютер в среде Windows PE.  
-4. На вкладке **Параметры** добавьте переменную последовательности задач как условие, где **_SMSTSInWinPE равно false**. Это предотвратит выполнение шага, если компьютер уже работает в среде Windows PE.
+1. Crie um novo grupo de sequência de tarefas depois dos passos para capturar ficheiros e definições e antes dos passos para instalar o sistema operativo. Por exemplo, crie um grupo depois do **capturar ficheiros e definições** com o nome de grupo **BIOS para UEFI**.
+2. No **opções** separador do novo grupo, adicione uma nova variável de sequência de tarefas como uma condição em que **smstsbootuefi sempre** é **não igual a** para **verdadeiro**. Isto impede que os passos no grupo de executar quando um computador já está no modo UEFI.
+![BIOS para o grupo de UEFI](media/BIOS-to-UEFI-group.png)
+3. No novo grupo, adicione o **reiniciar o computador** passo de sequência de tarefas. No **especificam o que executar após o reinício**, selecione **a imagem de arranque atribuída a esta sequência de tarefas está selecionada** para iniciar o computador no Windows PE.  
+4. No **opções** separador, adicione uma variável de sequência de tarefas como uma condição em que **smstsinwinpe é igual a FALSO**. Isto impede que este passo em execução se o computador já está no Windows PE.
 
-    ![Шаг "Перезагрузить компьютер"](media/Restart-in-Windows-PE.png)
-5. Добавьте шаг для запуска средства OEM, которое преобразует встроенное ПО с BIOS в UEFI. Как правило, это будет шаг последовательности задач **Выполнить из командной строки** для запуска средства OEM.
-5.  Добавьте шаг последовательности задач "Отформатировать диск и создать разделы", который отформатирует жесткий диск и создаст разделы. На этом шаге выполните следующие действия.
-    1.  Создайте раздел FAT32, который будет преобразован в UEFI перед установкой операционной системы. Выберите **GPT** в качестве значения параметра **Тип диска**.
-    ![Шаг "Отформатировать диск и создать разделы"](media/Format-and-partition-disk.png)
-    2.  Перейдите к свойствам раздела FAT32. Введите **TSUEFIDrive** в поле **Переменная**. Обнаружив эту переменную, последовательность задач подготовит переход на UEFI перед перезагрузкой компьютера.
-    ![Свойства раздела](media/Partition-properties.png)
-    3. Создайте раздел NTFS, который подсистема последовательности задач использует для сохранения своего состояния и хранения файлов журнала.
-6.  Добавьте шаг последовательности задач **Перезагрузить компьютер**. В разделе **Укажите программы, которые необходимо запустить после перезагрузки** выберите **Выбран загрузочный образ, назначенный этой последовательности задач**, чтобы запускать компьютер в среде Windows PE.  
-
-
+    ![Reinicie o passo de computador](media/Restart-in-Windows-PE.png)
+5. Adicione um passo para iniciar a ferramenta de OEM converterá o firmware da BIOS em UEFI. Normalmente, este será um **executar linha de comandos** passo de sequência de tarefas com uma linha de comandos para iniciar a ferramenta OEM.
+5.  Adicione o passo de sequência de tarefas formatar e particionar disco que será particionar e formatar o disco rígido. No passo, efetue o seguinte:
+    1.  Crie a partição de FAT32 será convertida em UEFI antes do sistema operativo está instalado. Escolha **GPT** para **tipo de disco**.
+    ![Formatar e particionar passo de disco](media/Format-and-partition-disk.png)
+    2.  Vá para as propriedades para a partição FAT32. Introduza **TSUEFIDrive** no **variável** campo. Quando a sequência de tarefas Deteta esta variável, irá preparar para a transição de UEFI antes de reiniciar o computador.
+    ![Propriedades da partição](media/Partition-properties.png)
+    3. Crie uma partição NTFS que o motor de sequência de tarefas utiliza para guardar o estado e armazenar ficheiros de registo.
+6.  Adicionar o **reiniciar o computador** passo de sequência de tarefas. No **especificam o que executar após o reinício**, selecione **a imagem de arranque atribuída a esta sequência de tarefas está selecionada** para iniciar o computador no Windows PE.  
 
 
-## <a name="intune-compliance-charts"></a>Диаграммы соответствия Intune
-В этом выпуске можно быстро просмотреть общее состояние соответствия устройств и основные причины несоответствия. Это можно сделать с помощью новых диаграмм в рабочей области **Мониторинг** в консоли Configuration Manager.
 
-#### <a name="to-view-the-intune-compliance-charts"></a>Просмотр диаграмм соответствия Intune
-1. В консоли Configuration Manager последовательно выберите **Мониторинг** > **Обзор** > **Параметры соответствия**.
-2. Откроется диаграмма **Общее соответствие устройств**.
-3. Щелкните узел **Политики соответствия**, чтобы просмотреть диаграммы **Общее соответствие устройств** и **Основные причины несоответствия**.
 
-### <a name="limitations-of-intune-compliance-charts-in-tp-1609"></a>Ограничения диаграмм соответствия Intune в TP 1609
-- В настоящее время детализация диаграммы **Общее соответствие устройств** приводит к возникновению ошибки.
-- В диаграмме **Основные причины несоответствия** указывается имя политики, а не отдельные причины несоответствия. Щелкните политику, чтобы выполнить детализацию и увидеть устройства, которые не соответствуют этой политике.
+## <a name="intune-compliance-charts"></a>Gráficos de conformidade do Intune
+Nesta versão, pode obter uma vista rápida do gerais de conformidade para dispositivos e principais razões para inconformidade utilizando o novo gráficos em **área de trabalho de monitorização** na consola do Configuration Manager.
 
-### <a name="try-it-out"></a>Попробуйте!
-Выполните действия в приведенных далее разделах.
+#### <a name="to-view-the-intune-compliance-charts"></a>Para ver os gráficos de conformidade do Intune
+1. Na consola do Configuration Manager, vá para **monitorização** > **descrição geral** > **as definições de compatibilidade**.
+2. O **gerais de conformidade de dispositivo** gráfico é apresentado.
+3. Clique em de **políticas de conformidade** nó para ver o **gerais de conformidade de dispositivo** e **por motivos de não conformidade superior** gráficos.
 
-#### <a name="check-overall-compliance-chart"></a>Просмотр диаграммы "Общее соответствие"
-1. В Configuration Manager добавьте две политики соответствия iOS. Одна политика должна иметь один набор параметров для устройств (например, в качестве значения длины ПИН-кода задано "6"). Другая политика должна иметь другой набор параметров (например, сложность ПИН-кода). Параметры политик не должны перекрываться или конфликтовать.
-2. Разверните две политики для группы пользователей.
-3. Зарегистрируйте два устройства iOS в Intune с помощью одной учетной записи и учетной записи, которая получила политики на предыдущем шаге. Устройства не должны соответствовать условиям политики соответствия.
-4. В Configuration Manager просмотрите диаграмму **Общее соответствие устройств**. Оба устройства должны быть указаны как несоответствующие.
+### <a name="limitations-of-intune-compliance-charts-in-tp-1609"></a>Limitações de gráficos de conformidade do Intune no TP 1609
+- Desagregar para o **gerais de conformidade de dispositivo** gráfico atualmente produz um erro.
+- O **principais razões de não conformidade** gráfico apresenta o nome da política e não as razões de não conformidade individuais. Pode clicar a política para desagregar e ver os dispositivos que são incompatíveis para essa política.
+
+### <a name="try-it-out"></a>Experimente
+Conclua as seguintes secções por ordem:
+
+#### <a name="check-overall-compliance-chart"></a>Gráfico da conformidade global de verificação
+1. Adicione no duas iOS políticas de conformidade no Configuration Manager. Uma política deve ter um conjunto de definições para dispositivos (por exemplo, conjunto de comprimento do PIN 6). A outra política deve ter outro conjunto de definições (por exemplo, a complexidade PIN). As definições de política não devem sobrepor-se ou em conflito.
+2. Implemente as duas políticas para um conjunto de utilizadores.
+3. Inscrever-se dois dispositivos iOS no Intune com a mesma conta de utilizador e uma conta que receberam as políticas no passo anterior. Os dispositivos devem não cumpre os critérios da política de conformidade.
+4. No Configuration Manager, verifique o **gerais de conformidade de dispositivo** gráfico. Ambos os dispositivos devem reportar como não conforme.
 <!-- 5. Click the **Non-compliant** section of the chart. Both devices should appear in the filtered view under **Assets and Compliance** > **Overview** > **Device**. -->
 
-#### <a name="check-the-top-non-compliance-reasons-chart"></a>Просмотр диаграммы "Основные причины несоответствия"
-5. Просмотрите диаграмму **Основные причины несоответствия**. На этой диаграмме указаны 5 основных причин несоответствия, но если для политик было задано только два параметра соответствия, будут отображаться только первые две причины несоответствия.
-6. Щелкните один из разделов на диаграмме. Оба устройства должны появиться в отфильтрованном представлении в разделе, доступном после выбора **Активы и соответствия** > **Обзор** > **Устройства**.
+#### <a name="check-the-top-non-compliance-reasons-chart"></a>Verifique o gráfico de principais razões de não conformidade
+5. Verifique o **principais razões de não conformidade** gráfico. Este gráfico apresenta uma lista de 5 principais razões para não conformidade, mas quando apenas duas definições de conformidade foram definidas através de políticas apenas parte superior 2 inconformidade motivos são apresentados.
+6. Clique das secções no gráfico. Ambos os dispositivos devem aparecer na vista filtrada em **ativos e compatibilidade** > **descrição geral** > **dispositivo**.
 
-#### <a name="make-devices-compliant-and-check-the-charts"></a>Обеспечение соответствия устройств и просмотр диаграмм
-7. Сделайте одно из устройств соответствующим одной из политик. Еще раз просмотрите диаграмму **Общее соответствие устройств**. На ней должно отображаться одно соответствующее и одно несоответствующее устройство.
-8. Сделайте другое устройство соответствующим той же политике. При этом одно устройство будет соответствовать обеим политикам и одно устройство будет соответствовать только одной политике.
-9. Просмотрите диаграмму **Основные причины несоответствия**. Должна быть указана только одна причина несоответствия.
+#### <a name="make-devices-compliant-and-check-the-charts"></a>Tornar os dispositivos em conformidade e consulte os gráficos
+7. -Um dos dispositivos compatíveis com uma das políticas. Verifique o **gerais de conformidade de dispositivo** gráfico novamente. O gráfico deve apresentar um dispositivo compatível e dispositivos não conformes.
+8. -O outros dispositivos compatíveis com a mesma política. Isto faz com que um dispositivo compatível com as políticas e de um dispositivo compatível com apenas uma das políticas.
+9. Verifique o **principais razões de não conformidade** gráfico. Só deve ser um motivo de não conformidade listado.
 <!--7. Click the **Compliant** section of the chart. Only the compliant device should appear in the filtered view. -->
 
 
 
 
 
-## <a name="see-also"></a>См. также
-[Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md)
+## <a name="see-also"></a>Consulte Também
+[Pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md)

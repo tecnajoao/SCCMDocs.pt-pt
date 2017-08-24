@@ -1,6 +1,6 @@
 ---
-title: "Возможности в Technical Preview 1607 для Configuration Manager"
-description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1607."
+title: "Capacidades na pré-visualização técnica 1607 do Configuration Manager"
+description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1607."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -16,63 +16,63 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4717e0f8eef01501fb5b5790e855c476c1ca4590
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1607-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1607 для System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1607-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1607 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
-В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1607. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager.      Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.    
+Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1607. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager.      Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.    
 
 
-**Ниже перечислены новые возможности, доступные в этой версии.**  
+**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-## <a name="dmp_edition"></a> Улучшения для политики обновления выпуска Windows 10
+## <a name="dmp_edition"></a>Política de atualização de melhoramentos para a edição do Windows 10
 
-В этом выпуске эта политика содержит следующие усовершенствования:
+Nesta versão, as seguintes melhorias foram efetuadas a esta política:
 
-* Теперь политику обновления выпусков можно использовать на ПК под управлением Windows 10, где запущен клиент Configuration Manager, а также на ПК с Windows 10, зарегистрированных в Microsoft Intune.
-* Вы можете обновить Windows 10 Профессиональная до любой из указанных в мастере платформ, которые совместимы с оборудованием.
+* Agora, pode utilizar a política de atualização de edição com PCs Windows 10 com o Configuration Manager de cliente para além de Windows 10 PCs inscritos com o Microsoft Intune.
+* Pode atualizar do Windows 10 Professional para qualquer uma das plataformas no Assistente de que são compatíveis com o seu hardware.
 
-[Узнать больше о политике обновления выпуска Windows 10](/sccm/compliance/deploy-use/upgrade-windows-version)
+[Leia mais sobre a política de atualização de edição do Windows 10](/sccm/compliance/deploy-use/upgrade-windows-version)
 
-### <a name="try-it-out"></a>Попробуйте!
+### <a name="try-it-out"></a>Experimente!
 
-1. Используйте сведения в [статье о существующей политике обновления выпусков](/sccm/compliance/deploy-use/upgrade-windows-version), чтобы создать политику обновления выпуска.
-2. Разверните эту политику на ПК Windows 10, где запущен клиент Configuration Manager.
-После подключения политики к целевому ПК Windows в течение двух часов устройство будет перезагружено для применения изменений. В настоящее время отключить перезагрузку невозможно. Обязательно проинформируйте всех пользователей, для которых развертывается политика, или запланируйте выполнение политики во внерабочее время пользователей.
+1. Utilize as informações de [existente tópico de política de atualização de edição](/sccm/compliance/deploy-use/upgrade-windows-version) para criar uma política de atualização de edição.
+2. Aplicar esta política para Windows 10 PC com o cliente do Configuration Manager.
+Assim que a política atingir um PC Windows de destino, o PC será reiniciado dentro de duas horas para aplicar a atualização. Atualmente não pode suprimir este reinício. Certifique-se de informar os utilizadores nos quais implementou a política ou agendar a política a executar os utilizadores fora do horário de trabalho.
 
-### <a name="known-issue-with-this-release"></a>Известные проблемы в этом выпуске
-В параметрах клиента Configuration Manager вы можете увидеть параметры для **обновления выпуска**. В этом выпуске эти параметры не работают. Чтобы обновить Windows 10 до более новой версии, следуйте приведенным выше инструкциям.
+### <a name="known-issue-with-this-release"></a>Problema conhecido com esta versão
+Nas definições de cliente do Configuration Manager, poderá ver as definições para **de atualização de edição**. Nesta versão, estas definições não estão funcionais. Utilize as instruções especificadas acima para atualizar o Windows 10 para uma versão mais recente.
 
-## <a name="customizable-branding-for-software-center-dialogs"></a>Настраиваемая фирменная символика для диалоговых окон центра программного обеспечения
+## <a name="customizable-branding-for-software-center-dialogs"></a>Imagem Corporativa Personalizável para Caixas de Diálogo do Centro de Software
 
-В Configuration Manager версии 1602 была представлена настраиваемая фирменная символика для центра программного обеспечения. В Technical Preview версии 1607 фирменная символика используется для всех связанных диалоговых окон и уведомлений на панели задач. В результате пользователи центра программного обеспечения получают возможность более согласованного взаимодействия.
+Uma imagem corporativa personalizado para o Centro de Software introduzida no Configuration Manager versão 1602. Na versão de pré-visualização técnica 1607, essa imagem corporativa abranger agora todas as caixas de diálogo associada e notificações da barra de tarefas para fornecer uma experiência mais consistente para utilizadores do Centro de Software.
 
-### <a name="try-it-out"></a>Попробуйте!
+### <a name="try-it-out"></a>Experimente!
 
-Настраиваемая фирменная символика для центра программного обеспечения применяется согласно указанным далее правилам.
+Uma imagem corporativa personalizado para o Centro de Software é aplicada, de acordo com as seguintes regras:
 
-1. Если роль сервера сайта "Точка веб-сайта каталога приложений" не установлена, то в центре программного обеспечения будет отображаться название организации, указанное в параметре клиента **Агент компьютера** > **Название организации, которое отображается в центре программного обеспечения**. Инструкции см. в статье [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md).
+1. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações não está instalada, em seguida, o Centro de Software apresentará o nome da organização especificado no **agente do computador** definição de cliente **nome da organização apresentada no Centro de Software**. Para obter instruções, consulte [como configurar as definições de cliente](../../core/clients/deploy/configure-client-settings.md).
 
-2. Если роль сервера сайта "Точка веб-сайта каталога приложений" установлена, то в центре программного обеспечения отобразятся те название организации и цвет, которые указаны в свойствах роли сервера сайта "Точка веб-сайта каталога приложений". Дополнительные сведения см. в статье [Параметры конфигурации для точки веб-сайта каталога приложений](../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md#BKMK_ApplicationCatalog_Website).
+2. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações estiver instalada, em seguida, o Centro de Software apresentará o nome da organização e a cor especificados nas propriedades de função do servidor de ponto de sites catálogo de aplicações Web site. Para obter mais informações, consulte [opções de configuração para o ponto de Web site do catálogo de aplicações](../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md#BKMK_ApplicationCatalog_Website).
 
-3. Если подписка Microsoft Intune настроена и подключена к среде Configuration Manager, то в центре программного обеспечения будут отображаться название организации, цвет и эмблема компании, указанные в свойствах подписки Intune. Дополнительные сведения см. в разделе [Настройка подписки Microsoft Intune](/mdm/deploy-use/configure-intune-subscription).
+3. Se uma subscrição do Microsoft Intune estiver configurada e ligada ao ambiente do Configuration Manager, em seguida, o Centro de Software apresentará o nome da organização, o logótipo de cor e da empresa especificados nas propriedades de subscrição do Intune. Para obter mais informações, consulte [configurar a subscrição do Microsoft Intune](/mdm/deploy-use/configure-intune-subscription).
 
-## <a name="use-the-same-network-adapter-for-multiple-pxe-initiated-deployments"></a>Использование одного сетевого адаптера для нескольких инициированных PXE развертываний
-В Technical Preview версии 1607 при использовании адаптера Ethernet для нескольких устройств (например, адаптера USB Ethernet, используемого на нескольких устройствах) можно включить новый параметр, который позволяет вводить идентификаторы оборудования для адаптеров Ethernet. При выполнении установки PXE и при регистрации клиента Configuration Manager игнорирует идентификаторы оборудования в списке.
+## <a name="use-the-same-network-adapter-for-multiple-pxe-initiated-deployments"></a>Implementações iniciadas por utilizar o mesmo adaptador de rede para vários PXE
+Na versão de pré-visualização técnica 1607, quando utiliza um adaptador de ethernet de a imagem de vários dispositivos (por exemplo, um adaptador USB ethernet que utiliza em vários dispositivos), pode ativar uma nova definição que permite-lhe introduzir identificadores de hardware para os adaptadores de ethernet. Gestor de configuração ignora os identificadores de hardware na lista quando efetuar uma instalação de PXE e para o registo de cliente.
 
-Дополнительные сведения об этой проблеме см. в [блоге группы поддержки Configuration Manager OSD](https://blogs.technet.microsoft.com/system_center_configuration_manager_operating_system_deployment_support_blog/2015/08/27/reusing-the-same-nic-for-multiple-pxe-initiated-deployments-in-system-center-configuration-manger-osd/).  
+Para obter mais informações sobre este problema, consulte o [blogue de equipa do suporte de OSD do Configuration Manager](https://blogs.technet.microsoft.com/system_center_configuration_manager_operating_system_deployment_support_blog/2015/08/27/reusing-the-same-nic-for-multiple-pxe-initiated-deployments-in-system-center-configuration-manger-osd/).  
 
-### <a name="enable-the-feature-to-manage-duplicate-hardware-identifiers"></a>Включение функции для управления повторяющимися идентификаторами оборудования  
-1. В консоли Configuration Manager и последовательно выберите **Администрирование** > **Обзор** > **Облачные службы** > **Обновления и обслуживание** > **Функции**.
-2. На панели отображения выберите **Управление повторяющимися идентификаторами оборудования**.
-3. На вкладке **Главная** в группе **Функции** нажмите кнопку **Включить**.
+### <a name="enable-the-feature-to-manage-duplicate-hardware-identifiers"></a>Ativar a funcionalidade para gerir os identificadores de hardware duplicados  
+1. Na consola do Configuration Manager, vá para **administração** > **descrição geral** > **serviços em nuvem** > **atualizações e manutenção** > **funcionalidades**.
+2. No painel de visualização, selecione **identificadores de hardware duplicados gerir**.
+3. No **home page** separador o **funcionalidades** , clique em **ativar**.
 
-### <a name="add-hardware-identifiers-for-configuration-manager-to-ignore"></a>Добавление идентификаторов оборудования, которые Configuration Manager будет пропускать  
-1. В консоли Configuration Manager последовательно выберите **Администрирование** > **Обзор** > **Конфигурация сайта** > **Сайты**.
-2. На вкладке **Главная** в группе **Сайты** нажмите кнопку **Параметры иерархии**.
-3. Перейдите на вкладку **Утверждение клиентов и конфликтующие записи**.
-4. Нажмите кнопку **Добавить** в разделе **Повторяющиеся идентификаторы оборудования**, чтобы добавить новые идентификаторы оборудования.
+### <a name="add-hardware-identifiers-for-configuration-manager-to-ignore"></a>Adicionar identificadores de hardware para o Configuration Manager para ignorar  
+1. Na consola do Configuration Manager, vá para **administração** > **descrição geral** > **configuração do Site** > **Sites**.
+2. No separador **Home Page** , no grupo **Sites** , clique em **Definições de Hierarquia**.
+3. Vá para o **aprovação do cliente e registos em conflito** separador.
+4. Clique em **adicionar** no **duplicado identificadores de hardware** secção para adicionar os identificadores de hardware novo.

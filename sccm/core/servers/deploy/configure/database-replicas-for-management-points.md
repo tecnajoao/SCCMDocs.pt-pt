@@ -1,6 +1,6 @@
 ---
-title: "Реплики базы данных для точек управления | Документы Майкрософт"
-description: "Используйте реплики базы данных, чтобы снизить нагрузку на ЦП сервера базы данных сайта, которую создают точки управления."
+title: "Réplicas de base de dados do ponto de gestão | Microsoft Docs"
+description: "Utilize uma réplica de base de dados para reduzir a carga de CPU colocada no servidor de base de dados do site por pontos de gestão."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,236 +16,236 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 130c053c9f2a1817dd85b1f3c01285aab19d59cb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="database-replicas-for-management-points-for-system-center-configuration-manager"></a>Реплики базы данных для точек управления для System Center Configuration Manager
+# <a name="database-replicas-for-management-points-for-system-center-configuration-manager"></a>Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Первичные сайты System Center Configuration Manager могут использовать реплики базы данных, чтобы снизить нагрузку на ЦП сервера базы данных сайта, которую создают точки управления при обработке запросов от клиентов.  
+Sites primários do System Center Configuration Manager podem utilizar uma réplica de base de dados para reduzir a carga da CPU colocada no servidor de base de dados do site por pontos de gestão à medida que atendem pedidos de clientes.  
 
--   Если точка управления использует реплику базы данных, она запрашивает данные с компьютера SQL Server, где размещается эта реплика базы данных, а не с сервера базы данных сайта.  
+-   Quando um ponto de gestão utiliza uma réplica de base de dados, esse ponto de gestão solicita dados ao computador com o SQL Server que aloja a réplica da base de dados em vez de solicitar ao servidor da base de dados do site.  
 
--   Это может помочь снизить требования к мощности ЦП на сервере базы данных сайта за счет разгрузки часто выполняемых задач обработки, связанных с клиентами.  Примеры часто выполняемых задач обработки для клиентов включают в себя сайты с большим количеством клиентов, часто отправляющих запросы на политику клиентов.  
+-   Isto pode ajudar a reduzir os requisitos de processamento da CPU no servidor da base de dados do site ao descarregar tarefas de processamento frequentes relacionadas com clientes.  Um exemplo de tarefas de processamento frequentes para clientes inclui sites onde existe um grande número de clientes que efetuam pedidos frequentes de política de cliente  
 
 
-##  <a name="bkmk_Prepare"></a> Подготовка к использованию реплик базы данных  
-**Сведения о репликах базы данных для точек управления:**  
+##  <a name="bkmk_Prepare"></a> Preparar a utilização de réplicas de bases de dados  
+**Acerca das réplicas de bases de dados para pontos de gestão:**  
 
--   Реплика — это частичная копия базы данных сайта, которая реплицируется в отдельный экземпляр SQL Server:  
+-   Réplicas são uma cópia parcial da base de dados do site que é replicada para uma instância separada do SQL Server:  
 
-    -   Первичные сайты поддерживают выделенную реплику базу данных для каждой точки управления на сайте (вторичные сайты не поддерживают реплики базы данных).  
+    -   Os sites primários suportam uma réplica de base de dados dedicado para cada ponto de gestão no site (os sites secundários não suportam réplicas de base de dados)  
 
-    -   Одну реплику базы данных могут использовать сразу несколько точек управления с одного сайта.  
+    -   Uma réplica de base de dados única pode ser utilizada por mais de um ponto de gestão do mesmo site  
 
-    -   В SQL Server можно разместить несколько реплик базы данных для использования разными точками управления, если каждая из них выполняется в отдельном экземпляре SQL Server.  
+    -   Um SQL Server pode alojar várias réplicas de base de dados para utilização por pontos de gestão diferentes, desde que cada uma seja executada numa instância separada do SQL Server  
 
--   Реплики синхронизируют копию базы данных сайта по фиксированному графику на основе данных, опубликованных сервером базы данных сайтов специально для этой цели.  
+-   As réplicas sincronizam uma cópia da base de dados do site numa agenda fixa a partir dos dados publicados pelo servidor da base de dados do site para este fim.  
 
--   Точки управления можно настроить на использование реплики в процессе установки точки управления или позднее путем повторной настройки ранее установленной точки управления на использование реплики базы данных.  
+-   Os pontos de gestão podem ser configurados para utilizar uma réplica quando o utilizador instala o ponto de gestão ou numa altura posterior ao reconfigurar o ponto de gestão anteriormente instalado para utilizar a réplica da base de dados  
 
--   Регулярно осуществляйте мониторинг сервера базы данных сайта и каждого сервера реплики базы данных, чтобы убедиться в выполнении репликации между этими серверами и соответствии производительности сервера реплики базы данных необходимому уровню производительности сайта и клиента.  
+-   Monitorize regularmente o servidor da base de dados do site e todos os servidores de réplicas da base de dados para garantir que a replicação ocorre entre eles e que o desempenho do servidor de réplicas da base de dados é suficiente para o desempenho pretendido para o site e cliente  
 
-**Необходимые условия для реплик баз данных:**  
+**Pré-requisitos para réplicas de base de dados:**  
 
--   **Требования к SQL Server:**  
+-   **Requisitos do SQL Server:**  
 
-    -   SQL Server, где размещается реплика базы данных, должен соответствовать тем же требованиям, что и сервер базы данных сайта. Однако серверу реплики не требуется та же версия или тот же выпуск SQL Server, которые используются для сервера базы данных сайта, пока он работает под управлением поддерживаемой версии или поддерживаемого выпуска SQL Server. Дополнительные сведения см. в статье [Поддержка версий SQL Server в System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+    -   O SQL Server que aloja a réplica da base de dados tem de preencher os mesmos requisitos que o servidor da base de dados do site. No entanto, o servidor da réplica não precisa de executar a mesma versão ou edição do SQL Server que o servidor da base de dados do site, desde que execute uma versão e edição suportadas do SQL Server. Para obter informações, veja [Suporte para versões do SQL Server para o System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md)  
 
-    -   Служба SQL Server на компьютере, на котором размещается реплика базы данных, должна выполняться с **системной** учетной записью.  
+    -   O Serviço SQL Server no computador que aloja a réplica da base de dados tem de ser executado como a conta do **Sistema** .  
 
-    -   Как для SQL Server с базой данных сайта, так и для SQL Server с репликой базы данных должен быть установлен компонент **Репликация SQL Server** .  
+    -   O SQL Server que aloja a base de dados do site e que aloja uma réplica de base de dados têm de ter **replicação do SQL Server** instalada.  
 
-    -   База данных сайта должна **опубликовать** реплику базы данных, а каждый удаленный сервер реплики базы данных должен **подписаться** на эти опубликованные данные.  
+    -   A base de dados do site tem de **publicar** a réplica da base de dados e cada servidor de réplica de base de dados remota tem de **subscrever** os dados publicados.  
 
-    -   Как для SQL Server с базой данных сайта, так и для SQL Server с репликой базы данных следует указать параметр **Max Text Repl Size** , равный 2 ГБ. Пример того, как выполнить эту настройку в SQL Server 2012, см. в разделе [Configure the max text repl size Server Configuration Option (Настройка параметра конфигурации сервера "max text repl size")](http://go.microsoft.com/fwlink/p/?LinkId=273960).  
+    -   O SQL Server que aloja a base de dados do site e que aloja uma réplica da base de dados têm de estar configurados para suportar um **Tamanho de Replicação de Texto Máx.** de 2 GB. Para ver um exemplo desta configuração para o SQL Server 2012, veja [Configure the max text repl size Server Configuration Option (Configurar a Opção de Configuração de Servidor max text repl size)](http://go.microsoft.com/fwlink/p/?LinkId=273960).  
 
--   **Самозаверяющий сертификат:** для настройки реплики базы данных необходимо создать самозаверяющий сертификат на сервере реплики базы данных и сделать его доступным для каждой точки управления, которая будет использовать этот сервер реплики базы данных.  
+-   **Certificado autoassinado:** Para configurar uma réplica de base de dados, tem de criar um certificado autoassinado no servidor de réplica de base de dados e disponibilizar este certificado para cada ponto de gestão que irão utilizar esse servidor de réplica de base de dados.  
 
-    -   Точка управления, установленная на сервере реплики базы данных, получит доступ к сертификату автоматически.  
+    -   O certificado é automaticamente disponibilizado aos pontos de gestão que estejam instalados no servidor de réplicas da base de dados.  
 
-    -   Чтобы сертификат был доступен и для удаленных точек управления, его следует экспортировать, а затем добавить в хранилище сертификатов **Доверенные лица** в удаленной точке управления.  
+    -   Para disponibilizar este certificado a pontos de gestão remotos, terá de exportar o certificado e adicioná-lo ao arquivo de certificados **Pessoas Fidedignas** no ponto de gestão remoto.  
 
--   **Уведомление клиента:** для поддержки клиентских уведомлений с репликой базы данных для точки управления необходимо настроить соединение между сервером базы данных сайта и сервером реплики базы данных для **SQL Server Service Broker**. Для этого необходимо выполнить следующее:  
+-   **Notificação do cliente:** Para suportar a notificação do cliente com uma réplica de base de dados para um ponto de gestão, tem de configurar a comunicação entre o servidor de base de dados do site e o servidor de réplica de base de dados para o **SQL Server Service Broker**. Isto requer a:  
 
-    -   Настроить каждую базу данных с использованием сведений о другой базе данных.  
+    -   Configuração de cada base de dados com informações sobre a outra base de dados  
 
-    -   Осуществить обмен сертификатами между двумя базами данных для обеспечения безопасной связи.  
+    -   Troca de certificados entre as duas bases de dados para comunicação segura  
 
-**Ограничения при использовании реплик базы данных:**  
+**Limitações ao utilizar réplicas de base de dados:**  
 
--   После настройки веб-сайта на публикацию реплик базы данных вместо стандартных инструкций следует руководствоваться описанными ниже процедурами.  
+-   Quando o site está configurado para publicar réplicas de base de dados, devem ser utilizados os procedimentos seguintes em vez dos procedimentos normais:  
 
-    -   [Удаление сервера сайта, который публикует реплику базы данных](#BKMK_DBReplicaOps_Uninstall)  
+    -   [Desinstalar um servidor do site que publica uma réplica de base de dados](#BKMK_DBReplicaOps_Uninstall)  
 
-    -   [Перемещение базы данных сервера сайта, которая публикует реплику базы данных](#BKMK_DBReplicaOps_Move)  
+    -   [Mover um servidor do site que publica uma réplica de base de dados](#BKMK_DBReplicaOps_Move)  
 
--   **Обновление до System Center Configuration Manager**. Перед обновлением сайта System Center 2012 Configuration Manager до версии System Center Configuration Manager необходимо отключить реплики базы данных для точек управления.  После обновления сайта можно перенастроить реплики базы данных для точек управления.  
+-   **Atualizações para o System Center Configuration Manager**: Antes de atualizar um site do System Center 2012 Configuration Manager para o System Center Configuration Manager, tem de desativar as réplicas de base de dados para pontos de gestão.  Após a atualização do site, pode reconfigurar as réplicas de base de dados para pontos de gestão.  
 
--   **Несколько реплик на одном сервере SQL Server**. Если вы настраиваете сервер реплики базы данных, чтобы разместить несколько реплик базы данных для точек управления (каждая реплика должна находиться в отдельном экземпляре), необходимо использовать измененный скрипт настройки (из шага 4 в следующем разделе) для предотвращения перезаписи самозаверяющего сертификата, используемого ранее настроенными репликами базы данных на этом сервере.  
+-   **Várias réplicas num único SQL Server:**  Se configurar um servidor de réplica de base de dados para alojar várias réplicas de base de dados para pontos de gestão (cada réplica tem de estar numa instância separada) tem de utilizar um script de configuração modificado (no passo 4 da secção seguinte) para impedir a substituição do certificado autoassinado em utilização por réplicas de base de dados anteriormente configuradas nesse servidor.  
 
-##  <a name="BKMK_DBReplica_Config"></a> Настройка реплик базы данных  
-Чтобы настроить реплику базы данных, необходимо выполнить следующие действия:  
+##  <a name="BKMK_DBReplica_Config"></a> Configurar réplicas de base de dados  
+Para configurar uma réplica de base de dados, são necessários os passos seguintes:  
 
--   [Шаг 1. Настройка сервера базы данных сайта на публикацию реплики базы данных](#BKMK_DBReplica_ConfigSiteDB)  
+-   [Passo 1 - Configurar o servidor da base de dados do site para publicar a réplica da base de dados](#BKMK_DBReplica_ConfigSiteDB)  
 
--   [Шаг 2. Настройка сервера реплики базы данных](#BKMK_DBReplica_ConfigSrv)  
+-   [Passo 2 - Configurar o servidor de réplicas da base de dados](#BKMK_DBReplica_ConfigSrv)  
 
--   [Шаг 3. Настройка точек управления на использование реплики базы данных](#BKMK_DBReplica_ConfigMP)  
+-   [Passo 3 - Configurar pontos de gestão para utilizar a réplica da base de dados](#BKMK_DBReplica_ConfigMP)  
 
--   [Шаг 4. Настройка самозаверяющего сертификата для сервера реплики базы данных](#BKMK_DBReplica_Cert)  
+-   [Passo 4 - Configurar um certificado autoassinado para o servidor de réplica da base de dados](#BKMK_DBReplica_Cert)  
 
--   [Шаг 5. Настройка SQL Server Service Broker для сервера реплики базы данных](#BKMK_DBreplica_SSB)  
+-   [Passo 5 - Configurar o SQL Server Service Broker para o servidor de réplica da base de dados](#BKMK_DBreplica_SSB)  
 
-###  <a name="BKMK_DBReplica_ConfigSiteDB"></a> Шаг 1. Настройка сервера базы данных сайта на публикацию реплики базы данных  
- Следующая процедура используется в качестве примера настройки сервера базы данных сайта на компьютере Windows Server 2008 R2 для публикации реплики базы данных. При наличии другой версии операционной системы обратитесь к документации по имеющейся операционной системе и соответствующим образом измените действия в этой процедуре.  
+###  <a name="BKMK_DBReplica_ConfigSiteDB"></a> Passo 1 - Configurar o servidor da base de dados do site para publicar a réplica da base de dados  
+ Utilize o procedimento seguinte como exemplo de como configurar o servidor da base de dados do site num computador com o Windows Server 2008 R2 para publicar a réplica da base de dados. Se tiver outra versão do sistema operativo, consulte a respetiva documentação e ajuste os passos deste procedimento conforme necessário.  
 
-##### <a name="to-configure-the-site-database-server"></a>Настройка сервера базы данных сайта  
+##### <a name="to-configure-the-site-database-server"></a>Para configurar o servidor da base de dados do site  
 
-1.  На сервере базы данных сайта задайте автоматический запуск агента SQL Server.  
+1.  No servidor da base de dados do site, defina o SQL Server Agent para ser iniciado automaticamente.  
 
-2.  На сервере базы данных сайта создайте локальную группу пользователей с именем **ConfigMgr_MPReplicaAccess**. Чтобы включить синхронизацию серверов реплики базы данных с опубликованной репликой базы данных, в эту группу необходимо добавить учетную запись компьютера для каждого сервера реплики базы данных, используемого на этом сайте.  
+2.  No servidor de base de dados do site, crie um grupo de utilizadores local com o nome **ConfigMgr_MPReplicaAccess**. Terá de adicionar a este grupo a conta de computador de cada servidor de réplicas da base de dados que utiliza neste site, para permitir que esses servidores de réplicas sincronizem com a réplica da base de dados publicada.  
 
-3.  На сервере базы данных сайта настройте общий файловый ресурс с именем **ConfigMgr_MPReplica**.  
+3.  No servidor de base de dados do site, configure uma partilha de ficheiros com o nome **ConfigMgr_MPReplica**.  
 
-4.  Добавьте следующие разрешения для общего ресурса **ConfigMgr_MPReplica** :  
+4.  Adicione as seguintes permissões para o **ConfigMgr_MPReplica** partilhar:  
 
     > [!NOTE]  
-    >  Если агент SQL Server использует учетную запись, отличную от учетной записи локальной системы, замените SYSTEM именем учетной записи из следующего списка.  
+    >  Se o SQL Server Agent utilizar uma conta diferente da conta do sistema local, substitua SYSTEM por esse nome de conta na lista seguinte.  
 
-    -   **Разрешения для общего ресурса**.  
+    -   **Permissões de Partilha**:  
 
-        -   SYSTEM: **Запись**  
+        -   SYSTEM: **Escrita**  
 
-        -   ConfigMgr_MPReplicaAccess: **Чтение**  
+        -   ConfigMgr_MPReplicaAccess: **Leitura**  
 
-    -   **Разрешения NTFS**.  
+    -   **Permissões de NTFS**:  
 
-        -   SYSTEM: **Полный доступ**  
+        -   SYSTEM: **Controlo total**  
 
-        -   ConfigMgr_MPReplicaAccess: **Чтение**, **Чтение и выполнение**, **Список содержимого папки**  
+        -   ConfigMgr_MPReplicaAccess: **Leitura**, **leitura & executar**, **listar conteúdo da pasta**  
 
-5.  С помощью **SQL Server Management Studio** подключитесь к базе данных сайта и выполните следующую хранимую процедуру как запрос: **spCreateMPReplicaPublication**.  
+5.  Utilize o **SQL Server Management Studio** para estabelecer ligação à base de dados do site e execute o seguinte procedimento armazenado como uma consulta: **spCreateMPReplicaPublication**  
 
-После выполнения хранимой процедуры сервер базы данных сайта будет настроен для публикации реплики базы данных.  
+Quando o procedimento armazenado for concluído, o servidor da base de dados do site estará configurado para publicar a réplica da base de dados.  
 
-###  <a name="BKMK_DBReplica_ConfigSrv"></a> Шаг 2. Настройка сервера реплики базы данных  
-Сервер реплики базы данных — это компьютер, на котором выполняется SQL Server и на котором размещена реплика базы данных сайта, используемая точками управления. Сервер реплики базы данных по фиксированному расписанию синхронизирует свою копию базы данных с репликой базы данных, опубликованной сервером базы данных сайта.  
+###  <a name="BKMK_DBReplica_ConfigSrv"></a> Passo 2 - Configurar o servidor de réplicas da base de dados  
+O servidor de réplica da base de dados é um computador que executa o SQL Server e que aloja uma réplica da base de dados do site para utilização pelos pontos de gestão. Numa agenda fixa, o servidor de réplicas da base de dados sincroniza a sua cópia da base de dados com a réplica da base de dados que é publicada pelo servidor da base de dados do site.  
 
-Сервер реплики базы данных должен соответствовать тем же требованиям, что и сервер базы данных сайта. Однако выпуск или версия SQL Server на сервере реплики базы данных может отличаться от выпуска или версии, запущенной на сервере базы данных сайта. Дополнительные сведения о поддерживаемых версиях SQL Server см. в статье [Поддержка версий SQL Server для System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+O servidor de réplicas da base de dados tem de satisfazer os mesmos requisitos que o servidor da base de dados do site. No entanto, o servidor de réplica da base de dados poderá executar uma edição ou versão do SQL Server diferente da utilizada pelo servidor da base de dados do site. Para obter informações sobre as versões suportadas do SQL Server, veja o tópico [Suporte para versões do SQL Server para o System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
 > [!IMPORTANT]  
->  Служба SQL Server на компьютере, на котором размещается реплика база данных, должна выполняться с системной учетной записью.  
+>  O Serviço do SQL Server no computador que aloja a réplica da base de dados tem de ser executado como a conta do Sistema.  
 
-Следующая процедура используется в качестве примера настройки сервера реплики базы данных на компьютере Windows Server 2008 R2. При наличии другой версии операционной системы обратитесь к документации по имеющейся операционной системе и соответствующим образом измените действия в этой процедуре.  
+Utilize o seguinte procedimento como exemplo de como configurar um servidor de réplica da base de dados num computador com o Windows Server 2008 R2. Se tiver outra versão do sistema operativo, consulte a respetiva documentação e ajuste os passos deste procedimento conforme necessário.  
 
-##### <a name="to-configure-the-database-replica-server"></a>Настройка сервера реплики базы данных  
+##### <a name="to-configure-the-database-replica-server"></a>Para configurar o servidor de réplicas da base de dados  
 
-1.  На сервере реплики базы данных задайте автоматический запуск агента SQL Server.  
+1.  No servidor de réplicas da base de dados, defina o SQL Server Agent para arrancar automaticamente.  
 
-2.  На сервере реплики базы данных с помощью **SQL Server Management Studio** подключитесь к локальному серверу, найдите папку **Репликация** , щелкните "Локальные подписки" и выберите **Создать подписки** , чтобы запустить **мастер создания подписки**.  
+2.  No servidor de réplica da base de dados, utilize o **SQL Server Management Studio** para estabelecer ligação ao servidor local, navegue para a pasta **Replicação** , clique em Subscrições Locais e selecione **Novas Subscrições** para iniciar o **Assistente de Nova Subscrição**:  
 
-    1.  На странице **Публикация** в списке **Издатель** выберите **Найти издатель SQL Server**, введите имя сервера базы данных сайта, а затем нажмите кнопку **Подключить**.  
+    1.  Na página **Publicação** , na caixa de listagem **Publicador** , selecione **Procurar Publicador do SQL Server**, introduza o nome do servidor da base de dados do site e clique em **Ligar**.  
 
-    2.  Выберите **ConfigMgr_MPReplica**, а затем нажмите кнопку **Далее**.  
+    2.  Selecione **ConfigMgr_MPReplica**e, em seguida, clique em **seguinte**.  
 
-    3.  На странице **Расположение агента распространителя** выберите параметр **Выполнять каждый агент на своем подписчике (подписки по запросу)**, а затем нажмите кнопку **Далее**.  
+    3.  No **localização do agente de distribuição** página, selecione **executar cada agente no seu subscritor (subscrições de solicitação)**e clique em **seguinte**.  
 
-    4.  На странице **Подписчики** выполните одно из следующих действий.  
+    4.  Na página **Subscritores** , execute um dos seguintes procedimentos:  
 
-        -   На сервере реплики базы данных выберите существующую базу данных, которую будет использовать реплика базы данных, а затем нажмите кнопку **ОК**.  
+        -   Selecione uma base de dados existente no servidor de réplica da base de dados a utilizar para a réplica da base de dados e clique em **OK**.  
 
-        -   Чтобы создать новую базу данных для реплики базы данных, щелкните **Создать базу данных** . На странице **Создание базы данных** укажите имя базы данных, а затем нажмите кнопку **ОК**.  
+        -   Selecione **Nova base de dados** para criar uma nova base de dados para a réplica da base de dados. Na página **Nova Base de Dados** , especifique um nome para a base de dados e clique em **OK**.  
 
-    5.  Чтобы продолжить, нажмите кнопку **Далее** .  
+    5.  Clique em **Seguinte** para continuar.  
 
-    6.  На странице **Безопасность агента распространителя** в строке "Соединение с подписчиком" диалогового окна нажмите кнопку свойств **(.…)**, а затем настройте параметры безопасности для соединения.  
+    6.  No **segurança do agente de distribuição** página, clique no botão de propriedades **(…)**  na linha ligação do subscritor da caixa de diálogo caixa e, em seguida, configure as definições de segurança para a ligação.  
 
         > [!TIP]  
-        >  Кнопка свойств, **(….)**, находится в четвертом столбце окна отображения.  
+        >  O botão de propriedades **(…)** , está na quarta coluna da caixa de visualização.  
 
-        **Параметры безопасности.**  
+        **Definições de segurança:**  
 
-        -   Настройте учетную запись, используемую для запуска процесса агента распространителя (учетную запись процесса).  
+        -   Configure a conta que executa o processo de agente de distribuição (a conta de processo):  
 
-            -   Если агент SQL Server выполняется как локальная система, выберите параметр **Выполнять с учетной записью службы "SQL Server, агент" (с точки зрения безопасности это не лучшее решение)**.  
+            -   Se o SQL Server Agent for executado como sistema local, selecione **executado sob a conta de serviço do SQL Server Agent (não é uma melhor prática de segurança recomendado.)**  
 
-            -   Если агент SQL Server выполняется под другой учетной записью, выберите параметр **Использовать следующую учетную запись Windows**, а затем настройте эту учетную запись. Можно указать учетную запись Windows или учетную запись SQL Server.  
+            -   Se o SQL Server Agent for executado utilizando outra conta, selecione **Executar sob a seguinte conta do Windows**e configure essa conta. Poderá especificar uma conta do Windows ou uma conta do SQL Server.  
 
             > [!IMPORTANT]  
-            >  Учетной записи, которая используется для запуска агента распространителя, необходимо предоставить разрешения к издателю как "Подписка по запросу". Сведения о настройке этих разрешений см. в статье [Безопасность агента распространителя](http://go.microsoft.com/fwlink/p/?LinkId=238463) в библиотеке TechNet для SQL Server.  
+            >  Terá de conceder à conta que executa o Agente de Distribuição permissões para o publicador como subscrição de solicitação. Para obter informações sobre a configuração destas permissões, veja [Distribution Agent Security (Segurança do Agente de Distribuição)](http://go.microsoft.com/fwlink/p/?LinkId=238463) na Biblioteca TechNet do SQ Server.  
 
-        -   Параметру **Соединиться с распространителем**задайте значение **Путем олицетворения учетной записи процесса**.  
+        -   Em **Ligar ao Distribuidor**, selecione **Representando a conta de processo**.  
 
-        -   Параметру **Соединиться с подписчиком**задайте значение **Путем олицетворения учетной записи процесса**.  
+        -   Em **Ligar ao Subscritor**, selecione **Representando a conta de processo**.  
 
-         После настройки параметров безопасности подключения нажмите кнопку **ОК** , чтобы их сохранить, а затем нажмите кнопку **Далее**.  
+         Após configurar as definições de segurança da ligação, clique em **OK** para guardá-las e clique em **Seguinte**.  
 
-    7.  На странице **Расписание синхронизации** в списке **Расписание агента** выберите пункт **Задать расписание**, а затем настройте параметр **Создание расписания задания**. Для периодичности выполнения выберите значение **Ежедневно**, для повтора — каждые **5 минут**, а для продолжительности — **Нет даты окончания**. Нажмите кнопку **Далее** , чтобы сохранить расписание, а затем нажмите кнопку **Далее** еще раз.  
+    7.  Na página **Agendamento da Sincronização** , na caixa de listagem **Agenda do Agente** , selecione **Definir agenda**e configure a **Nova Agenda de Tarefa**. Defina a frequência como **diária**, repetir cada **5 minuto (s)**e a duração como **sem data de fim**. Clique em **Seguinte** para guardar o agendamento e clique novamente em **Seguinte** .  
 
-    8.  На странице **Действия мастера** установите флажок **Создать подписку(-и)**и нажмите кнопку **Далее**.  
+    8.  No **ações do assistente** página, selecione a caixa de verificação **criar as subscrições (s)**e, em seguida, clique em **seguinte**.  
 
-    9. На странице **Завершение работы мастера** нажмите кнопку **Готово**, а затем нажмите кнопку **Закрыть** , чтобы завершить работу мастера.  
+    9. Na página **Concluir o Assistente** , clique em **Concluir**e em **Fechar** para concluir o Assistente.  
 
-3.  Сразу после завершения работы мастера создания подписки воспользуйтесь **SQL Server Management Studio** для подключения к базе данных сервера реплики базы данных, а затем выполните следующий запрос, чтобы включить свойство базы данных TRUSTWORTHY:  `ALTER DATABASE <MP Replica Database Name> SET TRUSTWORTHY ON;`  
+3.  Imediatamente depois de concluir o Assistente de nova subscrição, utilize **SQL Server Management Studio** para estabelecer ligação à base de dados do servidor de réplica da base de dados e execute a seguinte consulta para ativar a propriedade de base de dados TRUSTWORTHY:  `ALTER DATABASE <MP Replica Database Name> SET TRUSTWORTHY ON;`  
 
-4.  Просмотрите состояние синхронизации, чтобы убедиться в успешной синхронизации подписки.  
+4.  Consulte o estado da sincronização para confirmar que a subscrição teve êxito:  
 
-    -   На компьютере подписчика выполните следующие действия.  
+    -   No computador subscritor:  
 
-        -   В **SQL Server Management Studio**подключитесь к серверу реплики базы данных и разверните узел **Репликация**.  
+        -   No **SQL Server Management Studio**, estabeleça ligação ao servidor de réplica da base de dados e expanda **Replicação**.  
 
-        -   Разверните узел **Локальные подписки**, правой кнопкой мыши щелкните подписку на публикацию базы данных сайта, а затем в контекстном меню выберите пункт **Просмотр состояния синхронизации**.  
+        -   Expanda **subscrições locais**, faça duplo clique a subscrição da publicação de base de dados do site e, em seguida, selecione **Ver estado da sincronização**.  
 
-    -   На компьютере издателя выполните следующие действия.  
+    -   No computador publicador:  
 
-        -   В **SQL Server Management Studio**, подключитесь к компьютеру базы данных сайта, правой кнопкой щелкните папку **Репликация** , а затем в контекстном меню выберите команду **Запустить монитор репликации**.  
+        -   No **SQL Server Management Studio**, estabeleça ligação ao computador da base de dados do site, clique com botão direito do **replicação** pasta e, em seguida, selecione **iniciar o Monitor de replicação**.  
 
-5.  Чтобы включить интеграцию среды CLR для реплики базы данных, подключитесь к реплике базы данных на сервере реплики базы данных с помощью **SQL Server Management Studio** и выполните следующую хранимую процедуру как запрос: **exec sp_configure 'clr enabled', 1; RECONFIGURE WITH OVERRIDE**.  
+5.  Para ativar a integração language runtime (CLR) para a réplica de base de dados, utilize **SQL Server Management Studio** para estabelecer ligação à réplica da base de dados no servidor de réplica de base de dados e execute o seguinte procedimento armazenado como uma consulta: **exec sp_configure 'clr enabled', 1; RECONFIGURAR COM SUBSTITUIÇÃO**  
 
-6.  Для каждой точки управления, которая использует сервер реплики базы данных, добавьте учетную запись компьютера точек управления в локальную группу **Администраторы** на этом сервере реплики базы данных.  
+6.  Para cada ponto de gestão que utilize um servidor de réplica da base de dados, adicione a respetiva conta de computador ao grupo local **Administradores** desse servidor de réplica da base de dados.  
 
     > [!TIP]  
-    >  Выполнять это действие для точки управления, установленной на сервере реплики базы данных, необязательно.  
+    >  Este passo não é necessário para pontos de gestão que sejam executados no servidor de réplicas da base de dados.  
 
- Теперь точки управления могут использовать реплику базы данных.  
+ A réplica da base de dados está agora pronta para ser utilizada por um ponto de gestão.  
 
-###  <a name="BKMK_DBReplica_ConfigMP"></a> Шаг 3. Настройка точек управления на использование реплики базы данных  
- Во время установки роли точки управления точку управления на первичном сайте можно настроить для использования реплики базы данных. Или можно перенастроить существующую точку управления.  
+###  <a name="BKMK_DBReplica_ConfigMP"></a> Passo 3 - Configurar pontos de gestão para utilizar a réplica da base de dados  
+ Poderá configurar um ponto de gestão num site primário para utilizar uma réplica da base de dados quando instalar a função de ponto de gestão, ou poderá reconfigurar um ponto de gestão existente para utilizar uma réplica da base de dados.  
 
- Используйте следующие сведения, чтобы настроить точку управления для использования реплики базы данных.  
+ Utilize as informações seguintes para configurar um ponto de gestão para utilizar uma réplica da base de dados:  
 
--   **Настройка новой точки управления** В мастере, используемом для установки точки управления, на странице **База данных точки управления** выберите параметр **Использовать реплику базы данных**и укажите полное доменное имя компьютера, на котором размещена реплика базы данных. Затем для параметра **Имя базы данных сайта Configuration Manager**укажите имя базы данных для реплики базы данных на этом компьютере.  
+-   **Para configurar um novo ponto de gestão:** No **base de dados de ponto de gestão** página do assistente que utilizar para instalar o ponto de gestão, selecione **utilizar uma réplica de base de dados**, e especifique o FQDN do computador que aloja a réplica de base de dados. Em seguida, em **Nome da base de dados do site do ConfigMgr**, especifique o nome da base de dados da réplica da base de dados nesse computador.  
 
--   **Настройка ранее установленной точки управления**Откройте станицу свойств точки управления, перейдите на вкладку **База данных точки управления** , выберите параметр **Использовать реплику базы данных**, а затем укажите полное доменное имя компьютера, на котором размещена реплика базы данных. Затем для параметра **Имя базы данных сайта Configuration Manager**укажите имя базы данных для реплики базы данных на этом компьютере.  
+-   **Para configurar um ponto de gestão instalado anteriormente**: Abrir a página de propriedades do ponto de gestão, selecione o **base de dados de ponto de gestão** separador, selecione **utilizar uma réplica de base de dados**, e, em seguida, especifique o FQDN do computador que aloja a réplica de base de dados. Em seguida, em **Nome da base de dados do site do ConfigMgr**, especifique o nome da base de dados da réplica da base de dados nesse computador.  
 
--   **Для каждой точки управления, использующей реплику базы данных**, необходимо вручную добавить учетную запись компьютера сервера точки управления в роль **db_datareader** реплики базы данных.  
+-   **Para cada ponto de gestão que utiliza uma réplica de base de dados**, tem de adicionar manualmente a conta de computador do servidor de ponto de gestão para o **db_datareader** função para a réplica de base de dados.  
 
-Кроме настройки точки управления для использования сервера реплики базы данных в ней необходимо включить параметр **Проверка подлинности Windows** в **IIS** . Для этого выполните следующие действия.  
+Além de configurar o ponto de gestão para utilizar o servidor de réplica da base de dados, terá de ativar a **Autenticação do Windows** no **IIS** no ponto de gestão:  
 
-1.  Откройте **диспетчер служб IIS**.  
+1.  Abra **serviços de informação Internet (IIS) Manager**.  
 
-2.  Выберите веб-сайт, используемый точкой управления, и откройте компонент **Проверка подлинности**.  
+2.  Selecione o site utilizado pelo ponto de gestão e abra **Autenticação**.  
 
-3.  Задайте параметру **Проверка подлинности Windows** значение **Включено**, а затем закройте **диспетчер служб IIS**.  
+3.  Definir **autenticação do Windows** para **ativado**e, em seguida, feche **Gestor dos serviços de informação Internet (IIS)**.  
 
-###  <a name="BKMK_DBReplica_Cert"></a> Шаг 4. Настройка самозаверяющего сертификата для сервера реплики базы данных  
- На сервере реплики базы данных необходимо создать самозаверяющий сертификат и сделать его доступным для каждой точки управления, которая будет использовать этот сервер реплики базы данных.  
+###  <a name="BKMK_DBReplica_Cert"></a> Passo 4 - Configurar um certificado autoassinado para o servidor de réplica da base de dados  
+ Tem de criar um certificado autoassinado no servidor de réplica de base de dados e disponibilizar este certificado para cada ponto de gestão que irão utilizar esse servidor de réplica de base de dados.  
 
- Точка управления, установленная на сервере реплики базы данных, получит доступ к сертификату автоматически. Чтобы сертификат был доступен и для удаленных точек управления, его следует экспортировать, а затем добавить в хранилище сертификатов "Доверенные лица" в удаленной точке управления.  
+ O certificado é automaticamente disponibilizado aos pontos de gestão que estejam instalados no servidor de réplicas da base de dados. No entanto, para disponibilizar o certificado aos pontos de gestão remotos, terá de exportar o certificado e adicioná-lo ao arquivo de certificados de Pessoas Fidedignas no ponto de gestão remoto.  
 
- Следующие процедуры используются в качестве примера настройки самозаверяющего сертификата на сервере реплики базы данных для компьютера Windows Server 2008 R2. При наличии другой версии операционной системы обратитесь к документации по имеющейся операционной системе и соответствующим образом измените действия в этих процедурах.  
+ Utilize os procedimentos seguintes como um exemplo de como configurar o certificado autoassinado no servidor de réplica de base de dados para um computador Windows Server 2008 R2. Se tiver outra versão do sistema operativo, consulte a respetiva documentação e ajuste os passos destes procedimentos conforme necessário.  
 
-##### <a name="to-configure-a-self-signed-certificate-for-the-database-replica-server"></a>Настройка самозаверяющего сертификата для сервера реплики базы данных  
+##### <a name="to-configure-a-self-signed-certificate-for-the-database-replica-server"></a>Para configurar um certificado autoassinado para o servidor de réplica de base de dados  
 
-1.  На сервере реплики базы данных откройте командную строку PowerShell с правами администратора, а затем запустите следующую команду: **set-executionpolicy UnRestricted**.  
+1.  No servidor de réplica de base de dados, abra uma linha de comandos do PowerShell com privilégios administrativos e, em seguida, execute o seguinte comando: **set-executionpolicy UnRestricted**  
 
-2.  Скопируйте следующий сценарий PowerShell и сохраните его как файл с именем **CreateMPReplicaCert.ps1**. Поместите копию файла в корневую папку системного раздела сервера реплики базы данных.  
+2.  Copie o seguinte script do PowerShell e guarde-o como um ficheiro com o nome **CreateMPReplicaCert.ps1**. Coloque uma cópia deste ficheiro na pasta raiz da partição do sistema do servidor de réplicas da base de dados.  
 
     > [!IMPORTANT]  
-    >  При настройке нескольких реплик базы данных на одном сервере SQL Server для каждой последующей настроенной реплики необходимо использовать измененную версию этого сценария для выполнения данной процедуры. См. статью  [Вспомогательный сценарий для дополнительных реплик базы данных на одном сервере SQL Server](#bkmk_supscript).  
+    >  Se estiver a configurar mais do que uma réplica de base de dados num único SQL Server, para cada réplica subsequente que configurar tem de utilizar uma versão modificada deste script para este procedimento. Veja  [Script suplementar para réplicas de base de dados adicionais num único SQL Server](#bkmk_supscript)  
 
     ```  
     # Script for creating a self-signed certificate for the local machine and configuring SQL Server to use it.  
@@ -372,140 +372,140 @@ ms.lasthandoff: 08/07/2017
     Restart-Service $SQLServiceName -Force  
     ```  
 
-3.  На сервере реплики базы данных выполните следующую команду, которая применяется к конфигурации SQL Server.  
+3.  No servidor de réplica da base de dados, execute o seguinte comando que se aplica à configuração do SQL Server:  
 
-    -   Выполните следующие действия для заданного по умолчанию экземпляра SQL Server. Правой кнопкой мыши щелкните файл **CreateMPReplicaCert.ps1** , а затем в контекстном меню выберите команду **Выполнить с помощью PowerShell**. Во время выполнения сценарий создает самозаверяющий сертификат и настраивает SQL Server для его использования.  
+    -   Para uma instância predefinida do SQL Server: O ficheiro com o botão direito **CreateMPReplicaCert.ps1** e selecione **executar com PowerShell**. Quando o script é executado, cria o certificado autoassinado e configura o SQL Server para utilizar o certificado.  
 
-    -   Выполните следующие действия для именованного экземпляра SQL Server. С помощью PowerShell выполните команду **%path%\CreateMPReplicaCert.ps1 xxxxxx** , где **xxxxxx** является именем экземпляра SQL Server.  
+    -   Para uma instância nomeada do SQL Server: Utilizar o PowerShell para executar o comando **%path%\CreateMPReplicaCert.ps1 xxxxxx** onde **xxxxxx** é o nome da instância do SQL Server.  
 
-    -   После завершения сценария убедитесь, что агент SQL Server запущен. Если это не так, перезапустите агент SQL Server.  
+    -   Após a conclusão do script, certifique-se de que o SQL Server Agent está em execução. Se não estiver, reinicie o SQL Server Agent.  
 
-##### <a name="to-configure-remote-management-points-to-use-the-self-signed-certificate-of-the-database-replica-server"></a>Настройка удаленных точек управления для использования самозаверяющего сертификата сервера реплики базы данных  
+##### <a name="to-configure-remote-management-points-to-use-the-self-signed-certificate-of-the-database-replica-server"></a>Para configurar pontos de gestão remota para utilizar o certificado autoassinado do servidor de réplica de base de dados  
 
-1.  На сервере реплики базы данных выполните приведенные ниже инструкции по экспорту самозаверяющего сертификата сервера:  
+1.  Execute os seguintes passos no servidor de réplica de base de dados para exportar o certificado autoassinado do servidor:  
 
-    1.  Нажмите кнопку **Пуск**, выберите пункт **Выполнить**и введите **mmc.exe.** В пустой консоли щелкните **Файл**, а затем выберите команду **Добавить или удалить оснастку**.  
+    1.  Clique em **Iniciar**, clique em **Executar**e escreva **mmc.exe**. Na consola vazia, clique em **Ficheiro**e clique em **Adicionar/Remover Snap-in**.  
 
-    2.  В диалоговом окне **Добавление или удаление оснасток** выберите **Сертификаты** из списка **Доступные оснастки**и нажмите кнопку **Добавить**.  
+    2.  Na caixa de diálogo **Adicionar ou Remover Snap-ins** , selecione **Certificados** na lista de **Snap-ins disponíveis**e clique em **Adicionar**.  
 
-    3.  В диалоговом окне **Оснастка диспетчера сертификатов** выберите пункт **Учетная запись компьютера**и нажмите кнопку **Далее**.  
+    3.  Na caixa de diálogo **Snap-in de certificado** , selecione **Conta de computador**e clique em **Seguinte**.  
 
-    4.  В диалоговом окне **Выбор компьютера** выберите **Локальный компьютер: (компьютер, на котором запущена эта консоль)** и нажмите кнопку **Готово**.  
+    4.  Na caixa de diálogo **Selecionar Computador** , certifique-se de que **Computador local: (o computador onde esta consola está a ser executada)** está selecionado e, em seguida, clique em **Concluir**.  
 
-    5.  В диалоговом окне **Добавление или удаление оснасток** нажмите кнопку **ОК**.  
+    5.  Na caixa de diálogo **Adicionar ou Remover Snap-ins** , clique em **OK**.  
 
-    6.  В консоли разверните узел **Сертификаты (локальный компьютер)**, затем разверните узел **Личные**и выберите **Сертификаты**.  
+    6.  Na consola, expanda **certificados (computador Local)**, expanda **pessoais**e selecione **certificados**.  
 
-    7.  Правой кнопкой мыши щелкните сертификат с понятным именем **идентификационного сертификата SQL Server Configuration Manager**, в контекстном меню выберите **Все задачи**, а затем — **Экспорт**.  
+    7.  Faça duplo clique no certificado com o nome amigável da **ConfigMgr SQL Server Identification Certificate**, clique em **todas as tarefas**e, em seguida, selecione **exportar**.  
 
-    8.  Завершите работу **Мастера экспорта сертификатов** , оставив параметры по умолчанию, и сохраните сертификат с расширением файла **.cer** .  
+    8.  Conclua o **Assistente para Exportar Certificados** , utilizando as opções predefinidas, e guarde o certificado com a extensão de nome de ficheiro **.cer** .  
 
-2.  На компьютере точки управления выполните следующие действия по добавлению самозаверяющего сертификата сервера реплики базы данных в хранилище сертификатов "Доверенные лица" в точке управления.  
+2.  Execute os seguintes passos no computador do ponto de gestão para adicionar o certificado autoassinado para o servidor de réplica de base de dados para o arquivo de certificados de pessoas fidedignas no ponto de gestão:  
 
-    1.  Повторите предыдущие шаги с 1.a по 1.e, чтобы настроить оснастку MMC **Сертификат** на компьютере точки управления.  
+    1.  Repita os passos anteriores de 1.a a 1.e Para configurar o **certificado** snap-in MMC no computador do ponto de gestão.  
 
-    2.  В консоли разверните узел **Сертификаты (Локальный компьютера)**, разверните узел **Доверенные лица**, щелкните правой кнопкой мыши пункт **Сертификаты**, выберите **Все задачи**, после чего выберите **Импортировать** , чтобы открыть **Мастер импорта сертификатов**.  
+    2.  Na consola, expanda **Certificados (Computador Local)**, expanda **Pessoas Fidedignas**, clique com o botão direito do rato em **Certificados**, selecione **Todas as Tarefas**e, em seguida, selecione **Importar** para iniciar o **Assistente para Importar Certificados**.  
 
-    3.  На странице **Файл для импорта** выберите сертификат, сохраненный в шаге 1.h, после чего нажмите кнопку **Далее**.  
+    3.  Na página **Ficheiro a Importar** , selecione o certificado guardado no passo 1.h e, em seguida, clique em **Seguinte**.  
 
-    4.  На странице **Хранилище сертификатов** выберите **Разместить все сертификаты в следующем хранилище**, установив для параметра **Хранилище сертификатов** значение **Доверенные лица**и нажмите кнпоку **Далее**.  
+    4.  Na página **Arquivo de Certificados** , selecione **Colocar todos os certificados no seguinte arquivo**, com o **Arquivo de certificados** definido como **Pessoas Fidedignas**e clique em **Seguinte**.  
 
-    5.  Нажмите кнопку **Готово** , чтобы закрыть мастер и завершить настройку сертификата на точке управления.  
+    5.  Clique em **Concluir** para fechar o assistente e concluir a configuração do certificado no ponto de gestão.  
 
-###  <a name="BKMK_DBreplica_SSB"></a> Шаг 5. Настройка SQL Server Service Broker для сервера реплики базы данных  
-Для поддержки клиентских уведомлений с репликой базы данных для точки управления необходимо настроить соединение между сервером базы данных сайта и сервером реплики базы данных для SQL Server Service Broker. Для этого потребуется настроить в каждой базе данных сведения о другой базе данных и обменять сертификаты между двумя базами данных для защиты соединения.  
-
-> [!NOTE]  
->  Перед использованием следующей процедуры сервер реплики базы данных должен успешно завершить процесс первоначальной синхронизации с сервером базы данных сайта.  
-
- Следующая процедура не изменяет порт Service Broker, настроенный в SQL Server для сервера базы данных сайта или сервера реплики базы данных. Напротив, она настраивает каждую базу данных для связи с другой базой данных, используя правильный порт Service Broker.  
-
- Используйте описанную ниже процедуру, чтобы настроить Service Broker для сервера базы данных сайта и сервера реплики базы данных.  
-
-##### <a name="to-configure-the-service-broker-for-a-database-replica"></a>Настройка Service Broker для реплики базы данных  
-
-1.  Используйте **SQL Server Management Studio** для подключения к серверу реплики базы данных, а затем выполните следующий запрос, чтобы включить Service Broker на сервере реплики базы данных: **ALTER DATABASE &lt;имя_реплики_базы_данных\> SET ENABLE_BROKER, HONOR_BROKER_PRIORITY ON WITH ROLLBACK IMMEDIATE**.  
-
-2.  Далее на сервере реплики базы данных настройте Service Broker для уведомления клиентов и экспорта сертификата Service Broker. Чтобы сделать это, запустите хранимую процедуру SQL Server, которая настраивает Service Broker и экспортирует сертификат в составе единой операции. При запуске хранимой процедуры необходимо указать полное доменное имя сервера реплики базы данных, имя базы данных реплики базы данных и расположение для экспорта файла сертификата.  
-
-     Выполните следующий запрос, чтобы настроить нужные сведения на сервере реплики базы данных и экспортировать сертификат для сервера реплики базы данных: **EXEC sp_BgbConfigSSBForReplicaDB '&lt;полное_доменное_имя_SQL_Server_реплики\>', '&lt;имя_реплики_базы_данных\>', '&lt;путь_к_файлу_резервной_копии_сертификата\>'**.  
-
-    > [!NOTE]  
-    >  Если сервер реплики базы данных не находится на экземпляре SQL Server по умолчанию, для этого шага необходимо указать имя экземпляра в дополнение к имени базы данных реплики. Для этого замените **&lt;имя_базы_данных_реплики\>** на **&lt;имя_экземпляра\\имя_базы_данных_реплики\>**.  
-
-     После экспорта сертификата с сервера реплики базы данных поместите копию сертификата на сервер базы данных первичного сайта.  
-
-3.  Используйте **SQL Server Management Studio** для подключения к базе данных первичного сайта. После подключения к базе данных первичного сайта выполните запрос для импорта сертификата и укажите порт Service Broker, используемый на сервере реплики базы данных, полное доменное имя сервера реплики базы данных и имя базы данных реплики базы данных. При этом для базы данных первичного сайта настраивается использование Service Broker для связи с базой данных на сервере реплики базы данных.  
-
-     Выполните следующий запрос для импорта сертификата на сервере реплики базы данных и укажите необходимые сведения: **EXEC sp_BgbConfigSSBForRemoteService 'REPLICA', '&lt;порт SQL Service Broker\>', '&lt;путь_к_файлу_сертификата\>', '&lt;полное_доменное_имя_SQL_Server_реплики\>', '&lt;имя_реплики_базы_данных\>'**.  
-
-    > [!NOTE]  
-    >  Если сервер реплики базы данных не находится на экземпляре SQL Server по умолчанию, для этого шага необходимо указать имя экземпляра в дополнение к имени базы данных реплики. Для этого замените **&lt;имя_базы_данных_реплики\>** на **\имя_экземпляра\\имя_базы_данных_реплики\>**.  
-
-4.  Далее на сервере базы данных сайта выполните следующую команду, чтобы экспортировать сертификат для сервера базы данных сайта: **EXEC sp_BgbCreateAndBackupSQLCert '&lt;путь_к_файлу_резервной_копии_сертификата\>'**.  
-
-     После экспорта сертификата с сервера базы данных сайта поместите копию сертификата на сервер реплики базы данных.  
-
-5.  Используйте **SQL Server Management Studio** для подключения к базе данных сервера реплики базы данных. После подключения к базе данных сервера реплики базы данных выполните запрос для импорта сертификата и укажите код первичного сайта, а также порт Service Broker, который используется на сервере базы данных сайта. При этом для базы данных реплики базы данных настраивается использование Service Broker для связи с базой данных первичного сайта.  
-
-     Выполните следующий запрос для импорта сертификата с сервера базы данных сайта: **EXEC sp_BgbConfigSSBForRemoteService '&lt;код_сайта\>', '&lt;порт SQL Service Broker\>', '&lt;путь_к_файлу_сертификата\>'**.  
-
- Через несколько минут после завершения конфигурации базы данных сайта и базы данных реплики базы данных диспетчер уведомлений на первичном сайте настроит беседу Service Broker для клиентских уведомлений из базы данных первичного сайта в реплику базы данных.  
-
-###  <a name="bkmk_supscript"></a> Вспомогательный сценарий для дополнительных реплик базы данных на одном сервере SQL Server  
- При использовании сценария из шага 4 для настройки самозаверяющего сертификата для сервера реплики базы данных на сервере SQL Server, где уже есть копия реплики базы данных, которую вы планируете продолжить использовать, необходимо воспользоваться измененной версией исходного сценария. Следующие изменения не позволяют сценарию удалить существующий сертификат на сервере и обеспечивают создание последующих сертификатов с уникальными понятными именами.  Внесите в исходный сценарий следующие изменения:  
-
--   Закомментируйте (запретите выполнение) каждую строку между записями сценария **# Delete existing cert if one exists** (Удаление существующего сертификата при его наличии) и **# Create the new cert**(Создание нового сертификата). Чтобы сделать это, добавьте  **#**  в качестве первого символа каждой соответствующей строки.  
-
--   Для каждой последующей реплики базы данных, которая настраивается с помощью этого сценария, обновляйте понятное имя для сертификата.  Для этого измените строку **$enrollment.CertificateFriendlyName = "ConfigMgr SQL Server Identification Certificate"** , заменив **ConfigMgr SQL Server Identification Certificate** новым именем, например  **ConfigMgr SQL Server Identification Certificate1**.  
-
-##  <a name="BKMK_DBReplicaOps"></a> Управление конфигурациями реплик базы данных  
- При использовании реплики базы данных на сайте следует руководствоваться сведениями в дальнейших разделах этой статьи, связанными с процессом удаления реплики базы данных, удаления сайта, использующего реплику базы данных, или перемещения базы данных сайта на новую установку SQL Server. При применении данных в следующих разделах для удаления публикаций используйте рекомендации для удаления репликации транзакций в версии SQL Server, используемой для реплики базы данных. Например, если используется SQL Server 2008 R2, см. [Руководство. Удаление публикации (программирование репликации на Transact-SQL)](http://go.microsoft.com/fwlink/p/?LinkId=273934).  
+###  <a name="BKMK_DBreplica_SSB"></a> Passo 5 - Configurar o SQL Server Service Broker para o servidor de réplica da base de dados  
+Para suportar a notificação de cliente com uma réplica de base de dados para um ponto de gestão, é necessário configurar a comunicação entre o servidor da base de dados do site e o servidor de réplica de base de dados para o SQL Server Service Broker. Isto requer a configuração de cada base de dados com informações sobre a outra base de dados e a troca de certificados entre as duas bases de dados para uma comunicação segura.  
 
 > [!NOTE]  
->  После восстановления базы данных сайта, для которой были настроены реплики баз данных, перед использованием реплик необходимо заново настроить каждую реплику базы данных, создав публикации и подписки.  
+>  Para poder utilizar o procedimento seguinte, o servidor de réplica de base de dados deve concluir com êxito a sincronização inicial com o servidor de base de dados do site.  
 
-###  <a name="BKMK_UninstallDbReplica"></a> Удаление реплики базы данных  
- При использовании реплики базы данных для точки управления может потребоваться удалить реплику базы данных на какое-то время, а затем заново настроить ее использование. Например, необходимо удалить реплики баз данных перед обновлением сайта Configuration Manager до нового пакета обновления. После завершения обновления сайта можно восстановить использование реплики базы данных.  
+ O procedimento seguinte não modifica a porta do Service Broker que está configurada no SQL Server para o servidor de base de dados do site ou para o servidor de réplica de base de dados. Em vez disso, este procedimento configura cada base de dados para comunicar com a outra base de dados, utilizando a porta correta do Service Broker.  
 
- Выполните следующие действия для удаления реплики базы данных.  
+ Utilize o procedimento seguinte para configurar o Service Broker para o servidor da base de dados e para o servidor de réplica da base de dados.  
 
-1.  В рабочей области **Администрирование** консоли Configuration Manager откройте раздел **Конфигурация сайта**, затем выберите пункт **Серверы и роли системы сайта** и в области сведений выберите сервер системы сайта, где размещена точка управления, использующая удаляемую реплику базы данных.  
+##### <a name="to-configure-the-service-broker-for-a-database-replica"></a>Para configurar o Service Broker para uma réplica de base de dados  
 
-2.  В области **Системные роли сайта** щелкните пункт **Точка управления** правой кнопкой мыши и выберите **Свойства**.  
+1.  Utilize **SQL Server Management Studio** para ligar à base de dados de servidor de réplica de base de dados e, em seguida, execute a seguinte consulta para ativar o Service Broker no servidor de réplica de base de dados: **Alterar base de dados &lt;nome de base de dados de réplica\> SET ENABLE_BROKER, HONOR_BROKER_PRIORITY no WITH ROLLBACK IMMEDIATE**  
 
-3.  На вкладке **База данных точки управления** выберите команду **Использовать базу данных сайта** , чтобы настроить для точки управления использование базы данных сайта, а не ее реплики. Затем нажмите кнопку **ОК** , чтобы сохранить настройки.  
+2.  Em seguida, no servidor de réplica de base de dados, configure o Service Broker para notificação de cliente e exporte o certificado do Service Broker. Para isso, execute um procedimento armazenado do SQL Server que configura o Service Broker e exporta o certificado numa única ação. Ao executar o procedimento armazenado, deve especificar o FQDN do servidor de réplica de base de dados, o nome da base de dados de réplicas de bases de dados e uma localização para a exportação do ficheiro de certificado.  
 
-4.  Затем используйте **SQL Server Management Studio** для выполнения следующих задач.  
+     Execute a consulta seguinte para configurar os detalhes necessários no servidor de réplica de base de dados e para exportar o certificado para o servidor de réplica de base de dados: **EXEC sp_BgbConfigSSBForReplicaDB '&lt;FQDN do servidor de SQL Server de réplica\>','&lt;nome de base de dados de réplica\>','&lt;caminho do ficheiro de cópia de segurança de certificado\>'**  
 
-    -   Удалите публикацию для реплики базы данных с сервера базы данных сайта.  
+    > [!NOTE]  
+    >  Para este passo, se o servidor de réplica da base de dados não estiver na instância predefinida do SQL Server, é necessário especificar também o nome da instância além do nome da base de dados de réplica. Para isso, substitua o **&lt;Nome da Base de Dados de Réplica\>** por **&lt;Nome da Instância\\Nome da Base de Dados de Réplica\>**.  
 
-    -   Удалите подписку для реплики базы данных с сервера базы данных сайта.  
+     Depois de exportar o certificado do servidor de réplica de base de dados, coloque uma cópia do certificado no servidor de base de dados de sites primários.  
 
-    -   Удалите базу данных реплики с сервера.  
+3.  Utilize o **SQL Server Management Studio** para ligar à base de dados do site primário. Depois de ligar à base de dados de sites primários, execute uma consulta para importar o certificado e especificar a porta do Service Broker que está a ser utilizada no servidor de réplica de base de dados, o FQDN do servidor de réplica de base de dados e o nome da base de dados de réplicas de bases de dados. Isto configura a base de dados de sites primários que o Service Broker utilizará para comunicar com a base de dados do servidor de réplica de base de dados.  
 
-    -   Отключите публикацию и распространение на сервере базы данных сайта. Для отключения публикации и распространения щелкните правой кнопкой мыши папку "Репликация", а затем выберите команду **Отключить публикацию и распространение**.  
+     Execute a consulta seguinte para importar o certificado do servidor de réplica de base de dados e especificar os detalhes necessários: **EXEC sp_BgbConfigSSBForRemoteService 'REPLICA', '&lt;porta do SQL Server Service Broker\>','&lt;caminho do ficheiro de certificado\>','&lt;FQDN do servidor de SQL Server de réplica\>','&lt;nome de base de dados de réplica\>'**  
 
-5.  После удаления публикации, подписки, базы данных реплики, а также выключения публикации на сервере базы данных сайта реплика базы данных удаляется.  
+    > [!NOTE]  
+    >  Para este passo, se o servidor de réplica da base de dados não estiver na instância predefinida do SQL Server, é necessário especificar também o nome da instância além do nome da base de dados de réplica. Para isso, substitua  **&lt;nome de base de dados de réplica\>**  com **\Instance nome\\nome de base de dados de réplica\>**.  
 
-###  <a name="BKMK_DBReplicaOps_Uninstall"></a> Удаление сервера сайта, который публикует реплику базы данных  
- Перед удалением сайта, на котором опубликована реплика базы данных, используйте следующие действия для очистки публикации и всех подписок.  
+4.  Em seguida, no servidor de base de dados do site, execute o seguinte comando para exportar o certificado para o servidor de base de dados do site: **EXEC sp_BgbCreateAndBackupSQLCert '&lt;caminho do ficheiro de cópia de segurança de certificado\>'**  
 
-1.  Удалите публикацию реплики базы данных из базы данных сервера сайта, используя **SQL Server Management Studio** .  
+     Depois de exportar o certificado do servidor de base de dados do site, coloque uma cópia do certificado no servidor de réplica de base de dados.  
 
-2.  Используйте **SQL Server Management Studio** , чтобы удалить подписку реплики базы данных с каждого удаленного сервера SQL Server, на котором размещена реплика базы данных для этого сайта.  
+5.  Utilize o **SQL Server Management Studio** para ligar à base de dados do servidor de réplica da base de dados. Depois de ligar à base de dados do servidor de réplica de base de dados, execute uma consulta para importar o certificado e especificar o código do site do site primário e a porta do Service Broker que está a ser utilizada no servidor de base de dados do site. Isto configura o servidor de réplica de base de dados para utilizar o Service Broker para comunicar com a base de dados do site primário.  
 
-3.  Удаление сайта.  
+     Execute a consulta seguinte para importar o certificado do servidor de base de dados do site: **EXEC sp_BgbConfigSSBForRemoteService '&lt;código do Site\>','&lt;porta do SQL Server Service Broker\>','&lt;caminho do ficheiro de certificado\>'**  
 
-###  <a name="BKMK_DBReplicaOps_Move"></a> Перемещение базы данных сервера сайта, которая публикует реплику базы данных  
- При перемещении базы данных сайта на новый компьютер выполните следующие действия.  
+ Alguns minutos depois de concluir a configuração da base de dados do site e da base de dados de réplica de base de dados, o Notification Manager do site primário configura a conversação do Service Broker para notificação de cliente da base de dados do site primário para a réplica de base de dados.  
 
-1.  Удалите публикацию реплики базы данных из базы данных сервера сайта, используя **SQL Server Management Studio** .  
+###  <a name="bkmk_supscript"></a> Script suplementar para réplicas de base de dados adicionais num único SQL Server  
+ Quando utilizar o script do passo 4 para configurar um certificado autoassinado para o servidor de réplica de base de dados num SQL Server que já tenha uma réplica de base de dados que pretende continuar a utilizar, tem de utilizar uma versão modificada do original script. As seguintes modificações impedem o script de eliminar um certificado existente no servidor e criam certificados subsequentes com nomes amigáveis exclusivos.  Edite o script original da seguinte forma:  
 
-2.  Удалите подписку на реплику базы данных с каждого сервера реплики базы данных для этого сайта, используя **SQL Server Management Studio** .  
+-   Comente (impedir a execução) cada linha entre as entradas de script **# eliminar o certificado existente se existir** e **# criar o novo certificado**. Para tal, adicione um  **#**  como o primeiro caráter de cada linha aplicável.  
 
-3.  Перемещение базы данных на новый компьютер с SQL Server. Дополнительные сведения см. в разделе [Modify the site database configuration](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_dbconfig) статьи [Modify your System Center Configuration Manager infrastructure](../../../../core/servers/manage/modify-your-infrastructure.md) .  
+-   Para cada réplica de base de dados subsequente, utilize este script para configurar, atualizar e atribuir um nome amigável ao certificado.  Para fazê-lo, edite a linha **$enrollment. CertificateFriendlyName = "ConfigMgr SQL Server Identification Certificate"** e substitua **ConfigMgr SQL Server Identification Certificate** com um novo nome, como **ConfigMgr SQL Server identificação Certificate1**.  
 
-4.  Повторно создайте публикацию для реплики базы данных на сервере базы данных сайта. Дополнительные сведения см. в разделе [Шаг 1. Настройка сервера базы данных сайта на публикацию реплики базы данных](#BKMK_DBReplica_ConfigSiteDB) этой статьи.  
+##  <a name="BKMK_DBReplicaOps"></a> Gerir configurações de réplica de base de dados  
+ Quando utilizar uma réplica de base de dados num site, utilize as informações das secções seguintes para complementar o processo de desinstalação de uma réplica de base de dados, o processo de desinstalação de um site que utiliza uma réplica de base de dados ou o processo de transferência da base de dados do site para uma nova instalação do SQL Server. Quando utilizar informações das secções seguintes para eliminar publicações, utilize as orientações para eliminar a replicação transacional para a versão do SQL Server utilizada para a réplica de base de dados. Por exemplo, se utilizar o SQL Server 2008 R2, consulte o artigo [como: Eliminar uma publicação (programação do Transact-SQL de replicação)](http://go.microsoft.com/fwlink/p/?LinkId=273934).  
 
-5.  Повторно создайте подписки для реплики базы данных на каждом сервере реплики базы данных. Дополнительные сведения см. в разделе [Шаг 2. Настройка сервера реплики базы данных](#BKMK_DBReplica_ConfigSrv) этой статьи.  
+> [!NOTE]  
+>  Depois de restaurar uma base de dados do site configurada para réplicas de bases de dados, antes de poder utilizar as réplicas de bases de dados, tem de reconfigurar cada réplica de base de dados, recriando as publicações e as subscrições.  
+
+###  <a name="BKMK_UninstallDbReplica"></a> Desinstalar uma réplica de base de dados  
+ Ao utilizar uma réplica de base de dados para um ponto de gestão, poderá ser necessário desinstalar a réplica de base de dados durante um período de tempo e depois reconfigurá-la para utilização. Por exemplo, tem de remover as réplicas de base de dados antes de atualizar um site do Configuration Manager para um novo service pack. Após a conclusão da atualização do site, pode restaurar a réplica de base de dados para utilização.  
+
+ Utilize os passos seguintes para desinstalar uma réplica de base de dados.  
+
+1.  No **administração** área de trabalho da consola do Configuration Manager, expanda **configuração do Site**, em seguida, selecione **servidores e funções de sistema de sites**e, em seguida, no painel de detalhes, selecione o servidor de sistema de sites que aloja o ponto de gestão que utiliza a réplica de base de dados que irá desinstalar.  
+
+2.  No painel **Funções de Sistema de Sites** , clique com o botão direito do rato em **Ponto de gestão** e selecione **Propriedades**.  
+
+3.  No separador **Base de Dados do Ponto de Gestão** , selecione **Utilizar a base de dados do site** para configurar o ponto de gestão para utilizar a base de dados em vez da réplica da base de dados. Em seguida, clique em **OK** para guardar a configuração.  
+
+4.  Depois, utilize o **SQL Server Management Studio** para executar as seguintes tarefas:  
+
+    -   Eliminar a publicação da réplica de base de dados na base de dados de servidor do site.  
+
+    -   Eliminar a subscrição da réplica de base de dados no servidor de réplica de base de dados.  
+
+    -   Eliminar a base de dados de réplica no servidor de réplica de base de dados.  
+
+    -   Desativar a publicação e a distribuição no servidor de base de dados do site. Para desativar a publicação e distribuição, clique com o botão direito na pasta replicação e, em seguida, clique em **Desativar publicação e distribuição**.  
+
+5.  Depois de eliminar a publicação, a subscrição e a base de dados de réplica e de desativar a publicação no servidor de base de dados do site, a réplica de base de dados é desinstalada.  
+
+###  <a name="BKMK_DBReplicaOps_Uninstall"></a> Desinstalar um servidor do site que publica uma réplica de base de dados  
+ Antes de desinstalar um site que publica uma réplica de base de dados, utilize os passos seguintes para limpar a publicação e quaisquer subscrições.  
+
+1.  Utilize o **SQL Server Management Studio** para eliminar a publicação da réplica de base de dados na base de dados do servidor do site.  
+
+2.  Utilize o **SQL Server Management Studio** para eliminar a subscrição da réplica de base de dados de cada SQL Server remoto que aloja uma réplica de base de dados deste site.  
+
+3.  Desinstale o site.  
+
+###  <a name="BKMK_DBReplicaOps_Move"></a> Mover um servidor do site que publica uma réplica de base de dados  
+ Quando mover a base de dados do site para um novo computador, utilize os seguintes passos:  
+
+1.  Utilize o **SQL Server Management Studio** para eliminar a publicação da réplica de base de dados na base de dados do servidor do site.  
+
+2.  Utilize o **SQL Server Management Studio** para eliminar a subscrição da réplica de base de dados em cada servidor de réplica de base de dados deste site.  
+
+3.  Mova a base de dados para o novo computador com SQL Server. Para obter mais informações, veja a secção [Modificar a configuração da base de dados do site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_dbconfig) do tópico [Modificar a infraestrutura do System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
+
+4.  Recrie a publicação da réplica de base de dados no servidor da base de dados do site. Para obter mais informações, veja o [Passo 1 - Configurar o servidor da base de dados do site para publicar a réplica da base de dados](#BKMK_DBReplica_ConfigSiteDB) deste tópico.  
+
+5.  Recrie as subscrições para a réplica de base de dados em cada servidor de réplica de base de dados. Para obter mais informações, veja o [Passo 2 - Configurar o servidor de réplica da base de dados](#BKMK_DBReplica_ConfigSrv) deste tópico.  

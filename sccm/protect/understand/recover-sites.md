@@ -1,6 +1,6 @@
 ---
-title: "Восстановление сайтов | Документация Майкрософт"
-description: "Узнайте, как восстанавливать сайты в System Center Configuration Manager."
+title: "Recuperação de sites | Microsoft Docs"
+description: Saiba como recuperar os sites no System Center Configuration Manager.
 ms.custom: na
 ms.date: 6/5/2017
 ms.prod: configuration-manager
@@ -16,228 +16,228 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 49eea15ea2888f8f93c33eb771c09147ba21529e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="recover-a-configuration-manager-site"></a>Восстановление сайта Configuration Manager
+#  <a name="recover-a-configuration-manager-site"></a>Recuperar um site do Gestor de Configuração
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Восстановите сайт Configuration Manager после его сбоя или потери данных в базе данных сайта. Исправление и повторная синхронизация данных — основные задачи восстановления сайта, выполнить которые необходимо, чтобы избежать перебоев в работе.
+Execute um Gestor de configuração de recuperação de site depois de um site do Configuration Manager falha ou ocorrer perda de dados na base de dados do site. Reparar e ressincronizar dados são as tarefas principais de uma recuperação de site e são necessárias para evitar a interrupção das operações.
 
-В этой статье описано, как восстанавливать сайты Configuration Manager. Сведения о создании резервных копий см. в статье [Резервное копирование сайтов Configuration Manager](/sccm/protect/understand/backup-and-recovery).
+As secções neste tópico podem ajudar a recuperar um site do Configuration Manager. Para criar uma cópia de segurança, consulte [cópia de segurança para o Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-## <a name="considerations-before-recovering-a-site"></a>Предварительные требования
-**Необходимо использовать одну и ту же версию и выпуск SQL Server.** Например, базу данных, которая выполнялась в SQL Server 2014, нельзя восстановить в SQL Server 2016. Точно также базу данных сайта, которая выполнялась в среде SQL Server 2016 Standard Edition, нельзя восстановить в среде SQL Server 2016 Enterprise Edition.
--   SQL Server не должен быть настроен на работу в **однопользовательском режиме**.
--   Убедитесь, что файлы MDF и LDF являются допустимыми. Когда вы восстанавливаете сайт, проверка состояния восстанавливаемых файлов не выполняется.
+## <a name="considerations-before-recovering-a-site"></a>Considerações sobre antes de recuperar um site
+**Tem de utilizar a mesma versão e edição do SQL Server:** Por exemplo, restaurar uma base de dados que tenha sido executada no SQL Server 2014 2016is do SQL Server não suportada. Da mesma forma, a restaurar uma base de dados do site que tenha sido executada numa edição Standard do SQL Server 2016 para uma edição Enterprise do SQL Server 2016 não é suportada.
+-   O SQL Server não pode estar definido como **modo de utilizador único**.
+-   Certifique-se de que os ficheiros .MDF e .LDF são válidos. Quando recupera um site, não há nenhuma verificação para o estado dos ficheiros que está a restaurar.
 
-**Если вы используете группу доступности SQL Server AlwaysOn для размещения базы данных сайта**, измените планы восстановления (см. руководство по [подготовке к использованию SQL Server AlwaysOn](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-recovery)).
+**Se utilizar um grupo de disponibilidade SQL Server Always On para alojar a base de dados do site:** Modifique os planos de recuperação, conforme descrito em [preparar para utilizar o SQL Server Always On](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-recovery).
 
-**Использование реплик базы данных.** Прежде чем вы сможете использовать реплики базы данных (после того, как восстановите базу данных сайта с настройками для реплик базы данных), вам нужно повторно настроить каждую реплику базы данных, заново создав публикации и подписки.
+**Ao utilizar réplicas de base de dados:** Depois de restaurar uma base de dados do site configurada para réplicas de bases de dados, antes de poder utilizar as réplicas de bases de dados, tem de reconfigurar cada réplica de base de dados, recriando as publicações e as subscrições.
 
-## <a name="determine-your-recovery-options"></a>Определение параметров восстановления
-Есть два основных компонента, которые следует учитывать при восстановлении сервера первичного сайта Configuration Manager и сайта центра администрирования: **сервер сайта** и **база данных сайта**.
-В следующих разделах описано, как выбрать оптимальный вариант для вашего сценария восстановления.
+## <a name="determine-your-recovery-options"></a>Determinar as opções de recuperação
+Existem duas áreas principais a considerar para o servidor de site primário do Configuration Manager e a recuperação de site de administração central; o **servidor do site** e **base de dados do site**.
+As secções seguintes podem ajudar a selecionar as opções melhor para o seu cenário de recuperação.
 
 > [!NOTE]   
-> Когда программа установки обнаруживает на сервере существующий сайт Configuration Manager, для него можно запустить восстановление, но варианты восстановления сервера сайта в этом случае ограничены. Например, если запустить программу установки на существующем сервере сайта, при выборе восстановления можно будет восстановить сервер базы данных сайта, но возможность восстановления сервера сайта будет отключена.
+> Quando o programa de configuração Deteta um site existente do Configuration Manager no servidor, pode iniciar uma recuperação de site, mas as opções de recuperação para o servidor de site são limitadas. Por exemplo, se executar o Programa de Configuração num servidor de site existente, quando escolher a recuperação, poderá recuperar o servidor de base de dados do site, mas a opção de recuperação do servidor de site é desativada.
 
-### <a name="site-server-recovery-options"></a>Параметры восстановления сервера сайта
-Запустите программу установки из копии папки **CD.Latest**, созданной за пределами папки установки Configuration Manager.
--   Если запустить программу установки Configuration Manager из меню **Пуск** на сервере сайта, вариант **Восстановить сайт** будет недоступен.
--   Если вы установили обновления из консоли Configuration Manager до резервного копирования, вы не сможете переустановить сайт, используя программу установки с установочного носителя или из соответствующего расположения Configuration Manager.
+### <a name="site-server-recovery-options"></a>Opções de recuperação do servidor do site
+Inicie o programa a partir de uma cópia do **CD. Mais recente** pasta que criar fora da pasta de instalação do Configuration Manager.
+-   Se executar a configuração do Configuration Manager a partir de **iniciar** menu no servidor do site, o **recuperar um site** opção não está disponível.
+-   Se instalou as atualizações da consola do Configuration Manager antes de efetuar a cópia de segurança, não é possível reinstalar com êxito o site utilizando a configuração a partir do suporte de instalação ou o caminho de instalação do Configuration Manager.
 
-Затем выберите вариант **Восстановить сайт**. Предлагаются следующие варианты восстановления отказавшего сервера сайта.
+Em seguida, selecione o **recuperar um site** opção. Tem as seguintes opções de recuperação para o servidor de site em falha:
 
--   **Восстановить сервер сайта с помощью существующей резервной копии.** Используйте этот вариант, если у вас есть резервная копия сервера сайта Configuration Manager, созданная на этом сервере при выполнении задачи обслуживания **Резервное копирование сайта** до того, как произошел сбой сайта. Сайт переустанавливается, а его параметры настраиваются исходя из тех, которые установлены для резервной копии.
--   **Переустановить сервер сайта.** Используйте этот вариант, если у вас нет резервной копии сервера сайта. Сервер сайта переустанавливается, и при этом необходимо задать параметры сайта, как во время первоначальной установки.
-  -   Обязательно укажите те же код сайта и имя базы данных сайта, которые использовались при первоначальной установке отказавшего сайта.
-  -   Сайт можно переустановить на новом компьютере с новой операционной системой.
-  -   Имя компьютера (полное доменное имя) должно быть таким же, как у исходного сервера сайта.   
+-   **Recupere o servidor do site utilizando uma cópia de segurança existente:** Utilize esta opção quando tiver uma cópia de segurança do servidor do site do Configuration Manager que foi criada no servidor do site como parte do **cópia de segurança de servidor de Site** tarefa de manutenção antes da falha do site. O site é reinstalado e as definições de site são configuradas, com base no site do qual foi efetuada a cópia de segurança.
+-   **Reinstale o servidor do site:** Utilize esta opção quando não tiver uma cópia de segurança do servidor do site. O servidor local é reinstalado e têm de ser especificadas as definições de site, tal como necessário durante uma instalação inicial.
+  -   Tem de utilizar o mesmo código de site e o nome de base de dados do site que utilizou quando o site em falha foi instalado pela primeira vez.
+  -   Pode reinstalar o site num novo computador que executa um novo sistema operativo.
+  -   O computador tem de utilizar o mesmo nome, o FQDN, do servidor do site original.   
 
-### <a name="site-database-recovery-options"></a>Параметры восстановления базы данных сайта
-В программе установки предлагаются следующие варианты восстановления базы данных сайта.
--   **Восстановить базу данных сайта с помощью резервного набора данных.** Используйте этот вариант, если у вас есть резервная копия базы данных сайта Configuration Manager, созданная при выполнения задачи обслуживания **Резервное копирование сайта** до того, как произошел сбой базы данных сайта. В случае иерархии изменения, сделанные в базе данных сайта после ее последнего резервного копирования, загружаются с сайта центра администрирования (для первичного сайта) или с эталонного первичного сайта (для сайта центра администрирования). Если восстанавливается база данных автономного первичного сайта, то изменения, сделанные на сайте после последнего резервного копирования, теряются.
+### <a name="site-database-recovery-options"></a>Opções de recuperação da base de dados do site
+Quando executar o Programa de Configuração, tem as seguintes opções de recuperação da base de dados do site:
+-   **Recupere a base de dados do site utilizando um conjunto de cópia de segurança:** Utilize esta opção quando tiver uma cópia de segurança da base de dados do site do Configuration Manager foi criado como parte do **cópia de segurança de servidor de Site** tarefas de manutenção executada no site antes da falha de base de dados do site. Quando tem uma hierarquia, as alterações efetuadas à base de dados do site após a última cópia de segurança da mesma são obtidas a partir do site de administração central para um site primário ou de um site primário de referência para um site de administração central. Quando recuperar a base de dados do site para um site primário autónomo, perderá as alterações do site posteriores à última cópia de segurança.
 
-   Если восстанавливается база данных сайта в иерархии, логика восстановления различается для сайта центра администрирования и первичного сайта различается, а также для случаев, когда последняя резервная копия сделана в течение срока хранения данных отслеживания изменений SQL Server или после истечения этого срока. Дополнительные сведения см. в разделе [Сценарии восстановления базы данных сайта](##site-database-recovery-scenarios) этой статьи.
+   Quando recupera a base de dados de site para um site numa hierarquia, o comportamento da recuperação é diferente para um site de administração central e um site primário, e quando a última cópia de segurança é dentro ou fora do período de retenção de registo de alterações do SQL Server. Para obter mais informações, veja a secção [Cenários de Recuperação de Bases de Dados de Site](##site-database-recovery-scenarios) deste tópico.
   > [!NOTE]   
-  > Восстановление завершится сбоем, если выбрать восстановление базы данных сайта из резервного набора данных, но база данных сайта уже существует.  
+  > A recuperação falha se for escolhido o restauro da base de dados do site utilizando um conjunto de cópia de segurança, mas a base de dados do site já existe.  
 
--   **Создать базу данных для этого сайта.** Используйте этот вариант, если у вас нет резервной копии базы данных сайта Configuration Manager. В случае иерархии создается новая база данных сайта, и данные восстанавливаются по реплицированным данным с сайта центра администрирования (для первичного сайта) или с эталонного первичного сайта (для сайта центра администрирования). Этот вариант недоступен при восстановлении автономного первичного сайта или сайта центра администрирования, не имеющего первичных сайтов.
+-   **Crie uma nova base de dados para este site:** Utilize esta opção quando não tiver uma cópia de segurança da base de dados do site do Configuration Manager. Quando tem uma hierarquia, é criada uma nova base de dados do site e os dados são recuperados utilizando dados replicados do site de administração central para um site primário ou de um site primário de referência para um site de administração central. Esta opção não está disponível quando recupera um site primário autónomo ou um site de administração central que não tenha sites primários.
 
--   **Использовать базу данных сайта, восстановленную вручную.** Используйте этот вариант, если база данных сайта Configuration Manager уже восстановлена, но вам нужно завершить процесс восстановления.
-    -   Configuration Manager может восстановить базу данных сайта из задачи обслуживания "Резервное копирование Configuration Manager" или из резервной копии базы данных сайта, созданной с помощью DPM или другого процесса. Если база данных сайта была восстановлена без использования штатных методов Configuration Manager, для завершения ее восстановления необходимо запустить программу установки и выбрать этот вариант.
+-   **Utilize uma base de dados do site que tenha sido recuperada manualmente:** Utilize esta opção quando já tiver recuperado a base de dados do site do Configuration Manager, mas tem de concluir o processo de recuperação.
+    -   O Configuration Manager pode recuperar a base de dados da tarefa de manutenção cópia de segurança do Configuration Manager ou a partir de uma cópia de segurança do site efetuada utilizando DPM ou outro processo. Depois de restaurar a base de dados do site utilizando um método fora do Configuration Manager, tem de executar a configuração e selecionar esta opção para concluir a recuperação de base de dados do site.
 
     > [!NOTE]   
-    > При использовании DPM для резервного копирования базы данных сайта используйте процедуры DPM для восстановления базы данных сайта в указанном расположении перед продолжением процесса восстановления в Configuration Manager. Дополнительные сведения о DPM см. в [библиотеке документации к Data Protection Manager]() в сети TechNet.    
+    > Quando utilizar o DPM para cópia de segurança da base de dados do site, utilize os procedimentos do DPM para restaurar a base de dados do site para uma localização especificada antes de continuar o processo de restauro no Configuration Manager. Para obter mais informações sobre o DPM, veja a [Biblioteca de Documentação do Data Protection Manager]() no TechNet.    
 
-    -   В случае иерархии изменения, сделанные в базе данных сайта после ее последнего резервного копирования, загружаются с сайта центра администрирования (для первичного сайта) или с эталонного первичного сайта (для сайта центра администрирования). Если восстанавливается база данных автономного первичного сайта, то изменения, сделанные на сайте после последнего резервного копирования, теряются.     
-
-
--   **Пропустить восстановление базы данных.** Используйте этот вариант, если на сервере базы данных сайта Configuration Manager не было потери данных. Данный вариант действителен только тогда, когда база данных сайта находится на разных компьютерах с восстанавливаемым сервером сайта.
-
-### <a name="sql-server-change-tracking-retention-period"></a>Срок хранения данных для отслеживания изменений в SQL Server
-Для базы данных в SQL Server включено отслеживание изменений. Функция отслеживания изменений позволяет Configuration Manager запрашивать информацию об изменениях, которые были сделаны в таблицах базы данных с некоторого момента времени. Срок хранения определяет, как долго хранится информация об отслеженных изменениях. По умолчанию для базы данных сайта срок хранения установлен равным 5 дням. При восстановлении базы данных сайта процесс восстановления протекает по разному в зависимости от того, сделана ли резервная копия на протяжении срока хранения или после его окончания. Например, если произошел сбой сервера базы данных сайта, а последняя резервная копия сделана 7 дней назад, срок хранения истек.
-
-Дополнительные сведения о внутреннем устройстве отслеживания изменений SQL Server см. в блогах группы разработчиков SQL Server: [Change Tracking Cleanup - part 1](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-1/) (Очистка отслеживания изменений — часть 1) и [Change Tracking Cleanup - part 2](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-2) (Очистка отслеживания изменений — часть 2).
-
-### <a name="reinitialization-of-site-or-global-data"></a>Повторная инициализация данных сайта или глобальных данных
-В процессе повторной инициализации данных сайта или глобальных данных существующие данные в базе данных сайта заменяются данными из другой базы данных сайта. Например, если сайт "Отчеты" повторно инициализирует данные с сайта "Списки", выполняются следующие действия.
--   Данные копируются с сайта "Списки" на сайт "Отчеты".
--   Существующие данные сайта "Списки" удаляются из базы данных сайта на сайте "Отчеты".
--   Данные, скопированные с сайта "Списки", вставляются в базу данных сайта для сайта "Отчеты".
-
-#### <a name="example-scenario-1"></a>Пример сценария 1
-**Первичный сайт повторно инициализирует глобальные данные с сайта центра администрирования**. При восстановлении существующие глобальные данные этого первичного сайта удаляются из его базы данных и заменяются глобальными данными, скопированными с сайта центра администрирования.
-
-#### <a name="example-scenario-2"></a>Пример сценария 2
-**Сайт центра администрирования повторно инициализирует данные сайта с первичного сайта**. При восстановлении существующие данные этого первичного сайта удаляются из базы данных сайта центра администрирования и заменяются данными сайта, скопированными с первичного сайта. Данные сайта других первичных сайтов остаются без изменений.
-
-### <a name="site-database-recovery-scenarios"></a>Сценарии восстановления базы данных сайта
-После восстановления базы данных сайта из резервной копии Configuration Manager предпринимает попытку восстановления изменений данных сайта и глобальных данных, внесенных с момента последнего резервного копирования базы данных. Ниже представлены действия, выполняемые Configuration Manager после восстановления базы данных сайта из резервной копии.
-
-**Восстановленный сайт представляет собой сайт центра администрирования.**
--   **Резервная копия базы данных в пределах срока хранения отслеживания изменений**
-    -   **Глобальные данные** . Изменения глобальных данных после архивации реплицируются со всех первичных сайтов.
-    -   **Данные сайта** . Изменения данных сайта после архивации реплицируются со всех первичных сайтов.
+    -   Quando tem uma hierarquia, as alterações efetuadas à base de dados do site após a última cópia de segurança da mesma são obtidas a partir do site de administração central para um site primário ou de um site primário de referência para um site de administração central. Quando recuperar a base de dados do site para um site primário autónomo, perderá as alterações do site posteriores à última cópia de segurança.     
 
 
--   **Резервная копия базы данных старше, чем срок хранения отслеживания изменений**
-    -   **Глобальные данные.** Сайт центра администрирования повторно инициализирует глобальные данные с эталонного первичного сайта (если он указан). Затем все остальные первичные сайты повторно инициализируют глобальные данные с сайта центра администрирования. Если эталонный сайт не указан, все первичные сайты повторно инициализируют глобальные данные с сайта центра администрирования (данные, которые были восстановлены из резервной копии).
-    -   **Данные сайта** . Сайт центра администрирования повторно инициализирует данные сайта с каждого первичного сайта.
+-   **Ignorar recuperação de base de dados:** Utilize esta opção quando tiver ocorrido qualquer perda de dados no servidor de base de dados do site do Configuration Manager. Esta opção só é válida quando a base de dados do site estiver num computador diferente do servidor do site que está a recuperar.
+
+### <a name="sql-server-change-tracking-retention-period"></a>Período de retenção do registo de alterações do SQL Server
+O registo de alterações está ativado para a base de dados do site no SQL Server. Registo de alterações permite ao Configuration Manager consulta para obter informações sobre as alterações que foram efetuadas às tabelas da base de dados após um ponto anterior no tempo. O período de retenção especifica por quanto tempo as informações de registo de alterações são retidas. Por predefinição, a base de dados do site é configurada com um período de retenção de cinco dias. Quando recupera a base de dados de um site, o processo de recuperação procede de forma diferente se a sua cópia de segurança estiver dentro ou fora do período de retenção. Por exemplo, se o servidor da base de dados do site falhar e a última cópia de segurança tiver sido efetuada há 7 dias, está fora do período de retenção.
+
+Para obter mais informações sobre as características de registo de alterações do SQL Server, consulte os seguintes blogues da equipa do SQL Server: [Limpeza - parte 1 de registo de alterações](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-1/) e [limpeza de alteração de controlo - parte 2](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-2).
+
+### <a name="reinitialization-of-site-or-global-data"></a>Reinicialização do site ou dados globais
+O processo para reinicializar um site ou dados globais substitui dados existentes na base de dados do site por dados da base de dados de outro site. Por exemplo, quando o site ABC reinicializa dados do site XYZ, ocorrem os seguintes passos:
+-   Os dados são copiados do site XYZ para o site ABC.
+-   Os dados existentes do site XYZ são removidos da base de dados do site no site ABC.
+-   Os dados copiados do site XYZ são inseridos na base de dados do site ABC.
+
+#### <a name="example-scenario-1"></a>Cenário de exemplo 1
+**O site primário reinicializa os dados globais a partir do site de administração central:** O processo de recuperação remove os dados globais existentes para o site primário na base de dados do site primário e substitui os dados com os dados globais copiados do site de administração central.
+
+#### <a name="example-scenario-2"></a>Cenário de exemplo 2
+**O site de administração central reinicializa os dados do site de um site primário:** O processo de recuperação remove os dados do site existentes para esse site primário na base de dados de site de administração central e substitui os dados com os dados do site copiados do site primário. Os dados de site de outros sites primários não são afetados.
+
+### <a name="site-database-recovery-scenarios"></a>Cenários de recuperação de bases de dados de site
+Depois de uma base de dados do site é restaurado a partir de uma cópia de segurança, o Configuration Manager tenta restaurar as alterações nos dados globais e de site após a última cópia de segurança da base de dados. O seguinte descreve as ações que o Configuration Manager começará após o restauro da cópia de segurança de uma base de dados do site.
+
+**O site recuperado é um site de administração central:**
+-   **Cópia de segurança da base de dados dentro do período de retenção do registo de alterações**
+    -   **Dados globais:** As alterações nos dados globais posteriores à cópia de segurança são replicadas a partir de todos os sites primários.
+    -   **Dados do site:** As alterações nos dados de site após a cópia de segurança são replicadas a partir de todos os sites primários.
 
 
-**Восстановленный сайт представляет собой первичный сайт.**
--   **Резервная копия базы данных в пределах срока хранения отслеживания изменений**
-    -   **Глобальные данные** . Изменения глобальных данных после архивации реплицируются с сайта центра администрирования.
-    -   **Данные сайта** . Сайт центра администрирования повторно инициализирует данные сайта с первичного сайта. При резервном копировании изменения теряются, но клиенты, отправляющие сведения на первичный сайт, повторно создают их большую часть.
+-   **Cópia de segurança da base de dados anterior ao período de retenção do registo de alterações**
+    -   **Dados globais:** O site de administração central reinicializa os dados globais a partir do site primário de referência, caso o especifique. Em seguida, todos os outros sites primários reinicializam os dados globais a partir do site de administração central. Se não for especificado nenhum site de referência, todos os sites primários reinicializam os dados globais a partir do site de administração central (os dados que foram restaurados a partir da cópia de segurança).
+    -   **Dados do site:** O site de administração central reinicializa os dados de cada site primário.
 
 
--   **Резервная копия базы данных старше, чем срок хранения отслеживания изменений**
-    -   **Глобальные данные** . Первичный сайт повторно инициализирует глобальные данные с сайта центра администрирования.
-    -   **Данные сайта** . Сайт центра администрирования повторно инициализирует данные сайта с первичного сайта. При резервном копировании изменения теряются, но клиенты, отправляющие сведения на первичный сайт, повторно создают их большую часть.
+**O site recuperado é um site primário:**
+-   **Cópia de segurança da base de dados dentro do período de retenção do registo de alterações**
+    -   **Dados globais:** As alterações nos dados globais posteriores à cópia de segurança são replicadas a partir do site de administração central.
+    -   **Dados do site:** O site de administração central reinicializa os dados do site do site primário. As alterações posteriores à cópia de segurança são perdidas, mas a maioria dos dados são novamente gerada por clientes que enviam informações para o site primário.
 
-## <a name="site-recovery-procedures"></a>Процедуры по восстановлению сайта
-Для восстановления сервера сайта и базы данных сайта используется одна из следующих процедур.
 
-### <a name="to-start-a-site-recovery-in-the-setup-wizard"></a>Начало восстановления сайта в мастере установки
-1.  Скопируйте [папку CD.Latest](/sccm/core/servers/manage/the-cd.latest-folde) в расположение за пределами папки установки Configuration Manager.
-В копии папки CD.Latest запустите мастер установки Configuration Manager.
+-   **Cópia de segurança da base de dados anterior ao período de retenção do registo de alterações**
+    -   **Dados globais:** O site primário reinicializa os dados globais a partir do site de administração central.
+    -   **Dados do site:** O site de administração central reinicializa os dados do site do site primário. As alterações posteriores à cópia de segurança são perdidas, mas a maioria dos dados são novamente gerada por clientes que enviam informações para o site primário.
 
-2.  На странице **Приступая к работе** выберите **Восстановить сайт**, а затем нажмите кнопку **Далее**.
+## <a name="site-recovery-procedures"></a>Procedimentos de recuperação de sites
+Utilize um dos seguintes procedimentos para recuperar o servidor e a base de dados do site.
 
-3.  Завершите работу мастера, выбрав параметры, необходимые для восстановления сайта.
+### <a name="to-start-a-site-recovery-in-the-setup-wizard"></a>Para iniciar a recuperação de um site no Assistente de Configuração
+1.  Copiar o [CD. Pasta mais recente](/sccm/core/servers/manage/the-cd.latest-folde) para uma localização fora da pasta de instalação do Configuration Manager.
+A partir de cópia do CD. Pasta mais recente, execute o Assistente de configuração do Configuration Manager.
 
-  -   Во время восстановления программа установки определит порт SQL Server Service Broker (SSB), используемый сервером SQL Server. Не изменяйте этот порт во время выполнения восстановления, иначе после его завершения репликация данных будет нарушена.
+2.  Na página **Introdução** , selecione **Recuperar um site**e clique em **Seguinte**.
 
-  -   Вы можете указать в мастере установки любой путь (исходный или новый) для установки Configuration Manager.
+3.  Conclua o assistente utilizando as opções adequadas para a recuperação do seu site.
 
-### <a name="to-start-an-unattended-site-recovery"></a>Запуск автоматического восстановления сайта
-  1.    Подготовьте сценарий автоматической установки с параметрами, необходимыми для восстановления сайта.  См. дополнительные сведения о [ключах файлов сценариев для автоматического восстановления сайтов](/sccm/protect/understand/unattended-site-recovery-script-file-keys).
+  -   Durante a recuperação, a Configuração identifica a porta do SQL Server Service Broker (SSB) utilizada pelo SQL Server. Não altere esta definição de porta durante a recuperação ou a replicação de dados não funcionará corretamente depois da recuperação ser concluída.
 
-  2.    Запустите программу установки Configuration Manager с помощью параметра команды **/script**. Например, если файл настройки установки называется ConfigMgrUnattend.ini и хранится в папке C:\Temp на компьютере, где запускается программа установки, команда будет выглядеть следующим образом: **Setup /script C:\temp\ConfigMgrUnattend.ini**.
+  -   Pode especificar original ou um novo caminho a utilizar para a instalação do Configuration Manager no Assistente de configuração.
+
+### <a name="to-start-an-unattended-site-recovery"></a>Para iniciar uma recuperação de site automática
+  1.    Prepare o script de instalação automática para as opções de que necessita para a recuperação do site.  Consulte [chaves de ficheiro de script de recuperação de site automática](/sccm/protect/understand/unattended-site-recovery-script-file-keys).
+
+  2.    Execute a configuração do Configuration Manager, utilizando o comando **/script** opção. Por exemplo, se o nome configmgrunattend.ini do ficheiro de inicialização de configuração e guardou no diretório C:\Temp do computador no qual está a executar o programa de configuração, o comando seria o seguinte: **Setup /script C:\temp\ConfigMgrUnattend.ini**.
 
   > [!NOTE]   
-  >  После восстановления сайта центра администрирования может произойти сбой репликации определенных данных сайта с дочерних сайтов. Это могут быть данные об инвентаризации оборудования или программного обеспечения, а также сообщения о состоянии.
+  >  Depois de recuperar um site de administração central, a replicação de alguns dados do site a partir de sites subordinados poderá não ser estabelecida. Isto pode incluir inventário de hardware, inventário de software e mensagens de estado.
   >
-  >  В этом случае необходимо повторно инициализировать **ConfigMgrDRSSiteQueue** для репликации базы данных.  Чтобы сделать это, используйте **SQL Server Manager** для выполнения следующего запроса к базе данных сайта Configuration Manager на сайте центра администрирования:
+  >  Se esta situação ocorrer, tem de reinicializar **ConfigMgrDRSSiteQueue** para a replicação da base de dados.  Para tal, utilize **SQL Server Manager** para executar a seguinte consulta no Gestor de configuração da base de dados do site no site de administração central:
   >
-  >  **IF EXISTS (SELECT \* FROM sys.service_queues WHERE name = "ConfigMgrDRSSiteQueue" AND is_receive_enabled = 0)**
+  >  **IF EXISTS (SELECIONE \* EM sys.service_queues EM QUE name = “ConfigMgrDRSSiteQueue” AND is_receive_enabled = 0)**
   >
   >  **ALTER QUEUE [dbo].[ConfigMgrDRSSiteQueue] WITH STATUS = ON**
 
 
-## <a name="post-recovery-tasks"></a>Задачи, выполняемые после восстановления
-После восстановления сайта необходимо выполнить несколько задач, чтобы завершить процесс. Следующие разделы содержат сведения о завершении процесса восстановления.
+## <a name="post-recovery-tasks"></a>Tarefas de pós-recuperação
+Depois de recuperar o seu site, existem várias tarefas pós-recuperação que tem de considerar para concluir a recuperação do site. Utilize as secções seguintes para concluir o processo de recuperação do site.
 
-### <a name="re-enter-user-account-passwords"></a>Повторно введите пароли учетных записей пользователей
-После восстановления сервера сайта необходимо повторно задать пароли учетных записей пользователей сайта, т. к. пароли сбрасываются во время восстановления сайта. Учетные записи отображаются на странице **Готово** мастера установки после восстановления сайта и сохраняются в файле C:\ConfigMgrPostRecoveryActions.html на сервере восстановленного сайта.
+### <a name="re-enter-user-account-passwords"></a>Reintroduzir palavras-passe de contas de utilizador
+Após a recuperação de um servidor do site, as palavras-passe das contas de utilizador especificadas para o site tem de ser reintroduzidas, porque são repostas durante a recuperação do site. As contas são listadas na página **Terminado** do Assistente de Configuração após a recuperação do site ser concluída e guardada em C:\ConfigMgrPostRecoveryActions.html, no servidor de site recuperado.
 
-#### <a name="to-re-enter-user-account-passwords-after-site-recovery"></a>Повторный ввод паролей учетных записей пользователей после восстановления сайта
+#### <a name="to-re-enter-user-account-passwords-after-site-recovery"></a>Para reintroduzir palavras-passe de contas de utilizador após a recuperação do site
 
-1.  Откройте консоль Configuration Manager и подключитесь к восстановленному сайту.
+1.  Abra a consola do Configuration Manager e ligue ao site recuperado.
 
-2.  В консоли Configuration Manager щелкните **Администрирование**.
+2.  Na consola do Configuration Manager, clique em **Administração**.
 
-3.  В рабочей области **Администрирование** разверните узел **Безопасность**и выберите элемент **Учетные записи**.
+3.  Na área de trabalho **Administração** , expanda **Segurança**e clique em **Contas**.
 
-4.  Вот как можно изменить пароль для учетной записи:
+4.  Para cada conta na qual a introduzir a palavra-passe, proceda do seguinte modo:
 
-    1.  Выберите учетную запись в списке учетных записей, определенных после восстановления сайта. Этот список находится в файле C:\ConfigMgrPostRecoveryActions.html на сервере восстановленного сайта.
+    1.  Selecione a conta na lista de contas que foram identificadas depois da recuperação do site. Pode encontrar esta lista em C:\ConfigMgrPostRecoveryActions.html, no servidor do site recuperado.
 
-    2.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства** , чтобы открыть свойства учетной записи.
+    2.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades** para abrir as propriedades da conta.
 
-    3.  На вкладке **Общие** щелкните **Задать**, после чего повторно введите пароли учетной записи.
+    3.  No separador **Geral** , clique em **Definir**e reintroduza as palavras-passe da conta.
 
-    4.  Нажмите кнопку **Проверить**, укажите соответствующий источник данных для выбранной учетной записи пользователя и затем щелкните **Проверить подключение** , чтобы убедиться в том, что учетная запись пользователя может подключиться к источнику данных.
+    4.  Clique em **Verificar**, selecione a origem de dados adequada para a conta de utilizador selecionada e clique em **Testar ligação** para verificar se a conta de utilizador se consegue ligar à origem de dados.
 
-    5.  Нажмите кнопку **ОК** , чтобы сохранить измененный пароль, после чего нажмите кнопку **ОК**еще раз.
+    5.  Clique em **OK** para guardar as alterações de palavra-passe e, em seguida, clique em **OK**.
 
-### <a name="re-enter-sideloading-keys"></a>Повторный ввод ключей для загрузки неопубликованных приложений
-После восстановления сервера сайта необходимо повторно ввести ключи Windows для загрузки неопубликованных приложений, указанные для сайта, поскольку во время восстановления сайта они сбрасываются. После повторного ввода ключей для загрузки неопубликованных приложений счетчик ключей Windows для загрузки неопубликованных приложений в столбце **Количество использованных активаций** в консоли Configuration Manager сбрасывается. Например, предположим, что до того, как произошел сбой сайта, счетчик **Всего активаций** имел значение **100**, а счетчик **Количество использованных активаций** — **90** (по количеству ключей, использованных устройствами). После восстановления сайта в столбце **Всего активаций** будет по-прежнему отображаться значение **100**, а в столбце **Количество использованных активаций** будет отображаться неправильное значение **0**. Однако после того, как 10 новых устройств используют ключ для загрузки неопубликованных приложений, ключей для загрузки неопубликованных приложений больше не останется, и следующему устройству не удастся применить ключ для загрузки неопубликованных приложений.
+### <a name="re-enter-sideloading-keys"></a>Reintroduzir chaves de sideload
+Após uma recuperação do servidor do site, é necessário reintroduzir as chaves de sideload do Windows especificadas para o site porque foram repostas durante a recuperação do site. Depois de reintroduzir as chaves de sideload, a contagem no **ativações utilizadas** coluna de chaves de sideload do Windows é reposta na consola do Configuration Manager. Por exemplo, vamos supor que, antes da falha do site tiver um **Total de ativações** estava definido como **100** e **ativações utilizadas** no **90** para o número de chaves que foram utilizadas pelos dispositivos. Após a recuperação do site, a coluna **Total de ativações** continua a apresentar **100**, mas a coluna **Ativações utilizadas** apresenta incorretamente **0**. No entanto, depois de 10 novos dispositivos utilizarem uma chave de sideload, não existirão chaves de sideload restantes e o dispositivo seguinte não conseguirá aplicar uma chave de sideload.
 
-### <a name="recreate-the-microsoft-intune-subscription"></a>Повторное создание подписки Microsoft Intune
- Если восстановить сервер сайта Configuration Manager после переустановки компьютера сервера сайта из образа, подписка Microsoft Intune не восстанавливается. После восстановления сайта необходимо повторно подключить подписку.  Не создавайте новый запрос APN. Вместо этого отправьте текущий действительный PEM-файл, который был отправлен при последней настройке или продлении системы управления iOS. Дополнительные сведения см. в разделе [Configuring the Microsoft Intune subscription](/sccm/mdm/deploy-use/configure-intune-subscription).
+### <a name="recreate-the-microsoft-intune-subscription"></a>Recriar a subscrição do Microsoft Intune
+ Se estiver a recuperar um servidor de site do Configuration Manager depois do computador do servidor de site é novamente instalado, a subscrição do Microsoft Intune não é restaurada. Deve voltar a ligar a subscrição depois de recuperar o site.  Não crie um novo pedido de APN, mas em vez disso, carregue o atual válido. pem-ficheiro que foi carregado a última vez em gestão de iOS foi configurada ou renovada. Para obter mais informações, veja [Configurar a Subscrição do Microsoft Intune](/sccm/mdm/deploy-use/configure-intune-subscription).
 
-### <a name="configure-ssl-for-site-system-roles-that-use-iis"></a>Настройка SSL для ролей систем сайта, использующих IIS
-При восстановлении систем сайта, использующих IIS и настроенных на работу по протоколу HTTPS до возникновения сбоя, необходимо заново настроить IIS на использование сертификата веб-сервера.
+### <a name="configure-ssl-for-site-system-roles-that-use-iis"></a>Configurar o SSL para funções do sistema de sites que utilizam IIS
+Ao recuperar sistemas de sites que executam o IIS e estavam configurados para HTTPS antes da falha, é necessário reconfigurar o IIS para utilizar o certificado do servidor Web.
 
-### <a name="reinstall-hotfixes-in-the-recovered-site-server"></a>Повторная установка исправлений на сервере восстановленного сайта
-После восстановления сайта необходимо переустановить все исправления, которые были применены к серверу сайта. Восстановив сайт, просмотрите список ранее установленных исправлений на странице **Завершено** мастера установки. Этот список также находится в файле **C:\ConfigMgrPostRecoveryActions.html** на сервере восстановленного сайта.
+### <a name="reinstall-hotfixes-in-the-recovered-site-server"></a>Reinstalar correções no servidor do site recuperado
+Após uma recuperação de site, é necessário reinstalar as correções que foram aplicadas ao servidor do site. Ver a lista das correções instaladas anteriormente no **concluído** página do Assistente de configuração após a recuperação de site. Esta lista é guardada também **C:\ConfigMgrPostRecoveryActions.html** no servidor do site recuperado.
 
-### <a name="recover-custom-reports-on-the-computer-running-reporting-services"></a>Восстановление настраиваемых отчетов на компьютере со службами отчетов
-Если в службах отчетов с ранее созданными настраиваемыми отчетами возникает сбой, можно восстановить отчеты из резервной копии сервера отчетов. Дополнительные сведения о восстановлении настраиваемых отчетов в службах отчетов см. в статье [Резервное копирование и восстановление установки служб отчетов](http://go.microsoft.com/fwlink/p/?LinkId=228724) в SQL Server 2008 Books Online.
+### <a name="recover-custom-reports-on-the-computer-running-reporting-services"></a>Recuperar relatórios personalizados no computador com o Reporting Services
+Quando tiverem sido criados relatórios personalizados do Reporting Services e o Reporting Services falhar, é possível recuperar os relatórios se tiver sido efetuada uma cópia de segurança do servidor de relatórios. Para obter mais informações sobre o restauro de relatórios personalizados no Reporting Services, veja [Operações de Cópia de Segurança e Restauro de uma Instalação do Reporting Services](http://go.microsoft.com/fwlink/p/?LinkId=228724) na Documentação Online do SQL Server 2008.
 
-### <a name="recover-content-files"></a>Восстановление файлов содержимого
- База данных сайта содержит сведения о том, где на сервере сайта хранятся файлы содержимого, однако файлы содержимого не архивируются и не восстанавливаются при выполнении резервного копирования и восстановления. Чтобы полностью восстановить файлы содержимого, необходимо восстановить библиотеку содержимого и исходные файлы пакета в первоначальном расположении. Существует несколько способов восстановления файлов содержимого, однако самый простой из них заключается в восстановлении файлов из резервной копии файловой системы сервера сайта.
+### <a name="recover-content-files"></a>Recuperar ficheiros de conteúdo
+ A base de dados do site contém informações sobre o local onde os ficheiros de conteúdo estão armazenados no servidor do site, mas a cópia de segurança dos ficheiros de conteúdo e o seu restauro não são efetuados como parte do processo de cópia de segurança e restauro. Para recuperar os ficheiros de conteúdo na totalidade, é necessário restaurar a biblioteca de conteúdos e os ficheiros de origem do pacote para a localização original. Existem vários métodos para recuperar os ficheiros de conteúdo, mas o método mais simples consiste em restaurar os ficheiros a partir de uma cópia de segurança do sistema de ficheiros do servidor do site.
 
- Если у вас нет резервной копии файловой системы с исходными файлами пакета, вам нужно вручную скопировать или скачать их — так же, как и при создании пакета. Найти местоположение источника пакета для всех пакетов и приложений можно с помощью следующего запроса SQL Server: `SELECT * FROM v_Package`. Опознать сайт источника пакета можно по первым трем символам идентификатора пакета. Например, если пакет имеет идентификатор CEN00001, то код сайта источника — CEN. Исходные файлы пакетов должны восстанавливаться в том же месте, где они находились до сбоя.
+ Se não tiver uma cópia de segurança do sistema de ficheiros para os ficheiros de origem do pacote, a tem copiar ou transferir manualmente tal como fez quando criou o pacote inicialmente. Pode executar a seguinte consulta no SQL Server para encontrar a localização de origem do pacote para todos os pacotes e aplicações: `SELECT * FROM v_Package`. Pode identificar o site de origem do pacote atravésdos primeiros três carateres do ID de pacote. Por exemplo, se o ID de pacote for CEN00001, o código de site do site de origem é CEN. Ao restaurar os ficheiros de origem do pacote, estes devem ser restaurados para a mesma localização em que se encontravam antes da falha.
 
- Если отсутствует резервная копия файловой системы, содержащая библиотеку содержимого, возможны следующие варианты восстановления.
+ Se não tiver uma cópia de segurança do sistema de ficheiros que contém a biblioteca de conteúdos, dispõe das seguintes opções de restauro:
 
--   **Импорт файла предварительно подготовленного содержимого**: если имеется иерархия Configuration Manager, можно создать файл предварительно подготовленного содержимого со всеми пакетами и приложениями из другого расположения, после чего импортировать файл с предварительно подготовленным содержимым для восстановления библиотеки содержимого на сервере сайта.
+-   **Importar um ficheiro de conteúdo pré-configurado**: Quando tiver uma hierarquia do Configuration Manager, pode criar um ficheiro de conteúdo pré-configurado com todos os pacotes e aplicações de outra localização e, em seguida, importar o ficheiro de conteúdo pré-configurado para recuperar a biblioteca de conteúdos no servidor do site.
 
--   **Обновление содержимого**. При запуске обновления содержимого для пакета или типа развертывания приложения содержимое копируется из источника пакета в библиотеку содержимого. Для успешного выполнения этого действия исходные файлы пакета должны быть доступны в исходном расположении. Необходимо выполнить это действие для каждого пакета и приложения.
+-   **Atualizar conteúdo**: Quando inicia a ação de conteúdo de atualização para um tipo de implementação de pacote ou aplicação, o conteúdo é copiado da origem do pacote para a biblioteca de conteúdos. Os ficheiros de origem do pacote têm de estar disponíveis na localização original para que esta ação seja concluída com êxito. É necessário executar esta ação em cada pacote e em cada aplicação.
 
-### <a name="recover-custom-software-updates-on-the-computer-running-updates-publisher"></a>Восстановление пользовательских обновлений программного обеспечения на компьютере с Updates Publisher
-Если в план резервного копирования были включены файлы базы данных Updates Publisher, можно восстановить базы данных в случае сбоя на компьютере с Updates Publisher. Подробные сведения о приложении Updates Publisher см. в статье [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) библиотеки технического центра System Center.
+### <a name="recover-custom-software-updates-on-the-computer-running-updates-publisher"></a>Recuperar atualizações de software personalizadas no computador com o Updates Publisher
+Quando tiver incluído os ficheiros de base de dados do Updates Publisher no seu plano de cópia de segurança, pode recuperar as bases de dados em caso de falha no computador no qual é executado o Updates Publisher. Para obter mais informações sobre o Updates Publisher, veja [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) na Biblioteca TechCenter do System Center.
 
-Для восстановления базы данных Updates Publisher используйте следующую процедуру.
+Utilize o procedimento seguinte para restaurar a base de dados do Updates Publisher.
 
-#### <a name="to-restore-the-updates-publisher-2011-database"></a>Восстановление базы данных Updates Publisher 2011
-1.  Переустановите Updates Publisher на восстанавливаемом компьютере.
+#### <a name="to-restore-the-updates-publisher-2011-database"></a>Para restaurar a base de dados do Updates Publisher 2011
+1.  Reinstale o Updates Publisher no computador recuperado.
 
-2.  Скопируйте файл базы данных (Scupdb.sdf) из папки резервной копии в папку %*профиль_пользователя*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\ на компьютере с Updates Publisher.
+2.  Copie o ficheiro de base de dados (Scupdb.sdf) do destino da cópia de segurança para %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\ no computador que executa o Updates Publisher.
 
-3.  Если несколько пользователей используют Updates Publisher на компьютере, необходимо скопировать каждый файл базы данных в соответствующую папку профиля пользователя.
+3.  Quando mais do que um utilizador com o Updates Publisher no computador, tem de copiar cada ficheiro de base de dados para a localização de perfil de utilizador adequada.
 
-### <a name="user-state-migration-data"></a>Данные миграции состояния пользователя
-В свойствах системы сайта точки миграции состояния указываются папки, в которых хранятся данные миграции состояния пользователей. После восстановления сервера с папкой, в которой хранятся данные состояния миграции пользователей, следует вручную восстановить данные миграции состояния пользователей на сервере, записав файлы в те же папки, в которых они находились до возникновения неполадки.
+### <a name="user-state-migration-data"></a>Dados de migração de estado de utilizador
+Como parte das propriedades do sistema de sites do ponto de migração de estado, deve especificar as pastas que armazenam dados de migração de estado de utilizador. Depois de recuperar um servidor com uma pasta que armazena dados de migração de estado de utilizador, tem de restaurar manualmente os dados de migração de estado de utilizador no servidor para a mesma pasta que armazenava os dados antes da falha.
 
-### <a name="regenerate-the-certificates-for-distribution-points"></a>Повторное создание сертификатов для точек распространения
-После восстановления сайта файл distmgr.log может содержать следующую запись для одной точки распространения или нескольких: **Failed to decrypt cert PFX data**(Не удалось расшифровать данные PFX сертификата). Эта запись означает, что сайту не удалось расшифровать данные сертификата точки распространения. Чтобы устранить эту проблему, необходимо повторно создать или импортировать сертификат для затронутых точек распространения. Это можно сделать с помощью командлета PowerShell [Set-CMDistributionPoint](https://technet.microsoft.com/library/jj821872\(v=sc.20\).aspx).
+### <a name="regenerate-the-certificates-for-distribution-points"></a>Gerar novamente os certificados para pontos de distribuição
+Depois de restaurar um site, o distmgr.log poderá conter a seguinte entrada para um ou mais pontos de distribuição: **Falha ao desencriptar dados do certificado PFX**. Esta entrada indica que não é possível desencriptar os dados de certificado do ponto de distribuição pelo site. Para resolver este problema, tem de voltar a gerar ou voltar a importar o certificado para pontos de distribuição afetados. Pode fazê-lo com o cmdlet do PowerShell [Set-CMDistributionPoint](https://technet.microsoft.com/library/jj821872\(v=sc.20\).aspx).
 
-### <a name="update-certificates-used-for-cloud-based-distribution-points"></a>Обновлять сертификаты, используемые для облака точек распространения
- Configuration Manager требуется сертификат управления, который будет использован для обмена данными между сервером сайта и облачной точкой распространения. После восстановления сайта необходимо обновить сертификаты для облачных точек распространения.
+### <a name="update-certificates-used-for-cloud-based-distribution-points"></a>Atualizar Certificados Utilizados para pontos de distribuição Baseados na Nuvem
+ O Configuration Manager requer um certificado de gestão que utiliza para o servidor de site para comunicação de ponto de distribuição baseados na nuvem. Após uma recuperação de site, é necessário atualizar os certificados dos pontos de distribuição baseados na nuvem.
 
-## <a name="recover-a-secondary-site"></a>Восстановление вторичного сайта
- Configuration Manager не поддерживает резервное копирование базы данных на вторичном сайте, но поддерживает восстановление путем повторной установки вторичного сайта. Восстановление вторичного сайта требуется в случае сбоя вторичного сайта Configuration Manager.
+## <a name="recover-a-secondary-site"></a>Recuperar um site secundário
+ O Configuration Manager não suporta a cópia de segurança da base de dados num site secundário, mas suporta a recuperação através da reinstalação do site secundário. Recuperação de site secundário é necessária quando ocorre uma falha de um site secundário do Configuration Manager.
 
-### <a name="requirements-for-reinstalling-a-secondary-site"></a>Требования к повторной установке вторичного сайта
--   Компьютер с настроенными необходимыми правами безопасности должен отвечать всем требованиям, применимым к вторичному сайту.
--   Кроме того, используемый путь установки должен быть таким же, как на отказавшем сайте.
--   Для успешного восстановления вторичного сайта необходимо использовать компьютер с такой же конфигурацией, как у отказавшего компьютера, в частности, с таким же полным доменным именем.
--   Конфигурации SQL Server для этого компьютера должны быть такими же, как на отказавшем сайте.
-  -   При восстановлении вторичного сайта Configuration Manager не устанавливает SQL Server Express, если этот компонент отсутствует на компьютере.
-  -   Необходимо использовать такую же версию SQL Server и такой же экземпляр SQL Server, какой был использован для базы данных вторичного сайта перед сбоем.
+### <a name="requirements-for-reinstalling-a-secondary-site"></a>Requisitos para reinstalar um site secundário
+-   O computador tem de cumprir todos os pré-requisitos de site secundário e ter a segurança adequada direitos configurados.
+-   Tem de utilizar o mesmo caminho de instalação que foi utilizado para o site em falha.
+-   Tem de utilizar um computador com a mesma configuração do computador que falhou, tal como o seu FQDN, para recuperar com êxito o site secundário.
+-   O computador tem de ter a mesma configuração do SQL Server como o site em falha.
+  -   Durante uma recuperação de site secundário, Configuration Manager instala o SQL Server Express se não estiver já instalado no computador.
+  -   Tem de utilizar a mesma versão do SQL Server e a mesma instância do SQL Server que utilizou para a base de dados do site secundário antes da falha.
 
-### <a name="to-recover-a-secondary-site"></a>Восстановление вторичного сайта
-Чтобы восстановить вторичный сайт, используйте действие **Восстановить вторичный сайт** в узле **Сайты** в консоли Configuration Manager. В отличие от восстановления сайта центра администрирования или основного сайта при восстановлении вторичного сайта не используется файл резервной копии, и вместо этого выполняется переустановка файлов вторичного сайта на компьютере вторичного сайта после сбоя. После повторной установки данные вторичного сайта повторно инициализируются с использованием данных с родительского первичного сайта.
+### <a name="to-recover-a-secondary-site"></a>Para recuperar um site secundário:
+Para recuperar um site secundário, utilize o **recuperar Site secundário** ação o **Sites** nó na consola do Configuration Manager. Ao contrário da recuperação de um site de administração central ou site primário, a recuperação de um site secundário não utiliza um ficheiro de cópia de segurança e, em vez disso, reinstala os ficheiros do site secundário no computador do site secundário que falhou. Depois do site reinstala, os dados do site secundário são reinicializados com dados do site primário principal.
 
-В процессе восстановления Configuration Manager проверяет наличие библиотеки содержимого на компьютере вторичного сайта, а также проверяет доступность необходимого содержимого. Вторичный сайт будет использовать существующую библиотеку содержимого, если она содержит соответствующее содержимое. В противном случае для восстановления библиотеки содержимого восстановленного вторичного сайта необходимо повторно распространить или предварительно подготовить содержимое на этом восстановленном сайте.
+Durante o processo de recuperação, o Configuration Manager verifica se a biblioteca de conteúdos existe no computador do site secundário e que o conteúdo apropriado está disponível. O site secundário utilizará a biblioteca de conteúdos existente, caso contenha o conteúdo apropriado. Caso contrário, a recuperação da biblioteca de conteúdos de um site secundário recuperado requer a redistribuição ou pré-configuração do conteúdo para esse site recuperado.
 
-При наличии точки распространения, не находящейся на вторичном сайте, нет необходимости переустанавливать эту точку распространения при восстановлении вторичного сайта. После восстановления вторичного сайта происходит автоматическая синхронизация с точкой распространения.
+Quando tem um ponto de distribuição que não se encontra no site secundário, não é necessário reinstalar o ponto de distribuição durante a recuperação do site secundário. Após a recuperação do site secundário, o site sincroniza automaticamente com o ponto de distribuição.
 
-Проверить состояние восстановления вторичного сайта можно с помощью действия **Показать состояние установки** узла **Сайты** в консоли Configuration Manager.
+Pode verificar o estado da recuperação de site secundário, utilizando o **Mostrar estado da instalação** ação o **Sites** nó na consola do Configuration Manager.

@@ -1,6 +1,6 @@
 ---
-title: "Управление клиентами через Интернет | Документы Майкрософт"
-description: "Создание плана управления интернет-клиентами в System Center Configuration Manager."
+title: "Gestão de clientes baseados na Internet | Microsoft Docs"
+description: Crie um plano para gerir clientes baseados na Internet no System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/16/2017
 ms.prod: configuration-manager
@@ -17,136 +17,136 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 90c30bfb22735f73422f1547301552bf42022bb9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Планирование управления клиентами через Интернет в System Center Configuration Manager
+# <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Planear a gestão de clientes baseados na Internet no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Управление клиентами через Интернет позволяет управлять клиентами System Center Configuration Manager, не подключенными к сети компании, но имеющими стандартное подключение к Интернету. У такого подхода есть несколько преимуществ, в том числе снижение расходов благодаря отсутствию необходимости запускать виртуальные частные сети и возможность своевременного развертывания обновлений программного обеспечения.  
+Permite de gestão (algumas vezes referido como IBCM) de clientes baseados na Internet que gere o System Center Configuration Manager quando não estiverem ligados à sua empresa de clientes de rede, mas tem uma ligação padrão à Internet. Este esquema apresenta diversas vantagens, incluindo a redução de custos associada à não execução de redes privadas virtuais (VPNs) e à capacidade de implementar atempadamente as atualizações de software.  
 
- Поскольку при управлении клиентскими компьютерами в общедоступной сети действуют более строгие требования в области безопасности, в случае управления клиентами через Интернет клиенты и серверы системы сайта, к которым они подключаются, должны использовать PKI-сертификаты. Это гарантирует, что подключения проходят проверку подлинности независимым центром, а передаваемые между системами сайта данные шифруются при помощи протокола SSL.  
+ Devido aos requisitos de segurança superiores associados à gestão de computadores cliente numa rede pública, a gestão de clientes baseada na Internet requer que os clientes e os servidores do sistema de sites a que estes ligam utilizem certificados PKI. Isto permite garantir que as ligações são autenticadas por uma autoridade independente e que os dados de e para estes sistemas de sites são encriptados utilizando Secure Sockets Layer (SSL).  
 
- В следующих разделах содержатся сведения о планировании управления клиентами через Интернет.  
+ Utilize as secções seguintes para o ajudar a planear a gestão de clientes baseada na Internet.  
 
-##  <a name="features-that-are-not-supported-on-the-internet"></a>Возможности, которые не поддерживаются при управлении через Интернет  
- Не все возможности управления клиентами подходят для использования в Интернете, поэтому они не поддерживаются при управлении клиентами через Интернет. Возможности, которые не поддерживаются при управлении через Интернет, обычно связаны с доменными службами Active Directory или не подходят для общедоступной сети (например, функции обнаружения сетевых ресурсов и пробуждения по локальной сети).  
+##  <a name="features-that-are-not-supported-on-the-internet"></a>Funcionalidades que Não São Suportadas na Internet  
+ Nem todas as funcionalidades de gestão de clientes são adequadas para a Internet. Por conseguinte, não são suportadas quando os clientes são geridos na Internet. Normalmente, as funcionalidades que não são suportadas para gestão na Internet baseiam-se nos Serviços de Domínio do Active Directory ou não são adequadas para uma rede pública, como é o caso da deteção de rede e da reativação por LAN (WOL).  
 
- При управлении клиентами через Интернет не поддерживаются следующие возможности.  
+ As funcionalidades seguintes não são suportadas quando os clientes são geridos na Internet:  
 
--   Развертывание клиентов через Интернет, например развертывание клиента на основе принудительной установки клиента и обновления ПО. Вместо этого используется установка клиента вручную.  
+-   Implementação de cliente através da Internet, como por exemplo push de cliente e implementação de cliente baseada em atualização de software. Em vez disso, utilize a instalação manual de cliente.  
 
--   Автоматическое назначение сайта.  
+-   Atribuição automática de site.  
 
--   Пробуждение по локальной сети.  
+-   Reativação por LAN.  
 
--   Развертывание операционной системы. Однако допускается развертывание последовательностей задач, которые не предназначены для развертывания операционной системы; например, последовательности задач, которые запускают сценарии и задачи обслуживания на клиентах.  
+-   Implementação do sistema operativo. No entanto, poderá implementar sequências de tarefas que não implementem um sistema operativo, como por exemplo sequências de tarefas que executem scripts e tarefas de manutenção em clientes.  
 
--   Удаленное управление.  
+-   Controlo remoto.  
 
--   Развертывание программного обеспечения для пользователей, если точка управления интернет-клиентами не проверяет подлинность пользователя в доменных службах Active Directory с помощью проверки подлинности Windows (Kerberos или NTLM). Это возможно в случае, если точка управления интернет-клиентами доверяет лесу, где находится учетная запись пользователя.  
+-   Implementação de software para utilizadores, a menos que o ponto de gestão baseado na Internet consiga autenticar o utilizador nos Serviços de Domínio do Active Directory utilizando a autenticação do Windows (Kerberos ou NTLM). Tal poderá suceder quando o ponto de gestão baseado na Internet confiar na floresta em que reside a conta do utilizador.  
 
- Кроме того, управление клиентом через Интернет не поддерживает роуминг. Роуминг дает клиентам возможность всегда находить ближайшие точки распространения для загрузки контента. Клиенты, управляемые через Интернет, взаимодействуют с системами сайта с назначенного им сайта, если эти системы сайта настроены для использования полного доменного имени в Интернете и роли системы сайта разрешают подключения клиентов из Интернета. Независимо от пропускной способности или физического расположения клиенты недетермирированно выбирают одну из систем сайта управления интернет-клиентами.  
+ Além disso, a gestão de clientes baseada na Internet não suporta roaming. O roaming permite aos clientes localizar sempre os pontos de distribuição mais próximos para transferir conteúdo. Os clientes geridos na Internet comunicam com os sistemas de sites a partir do site atribuído quando tais sistemas são configurados para utilizar um FQDN da Internet, e as funções do sistema de sites permitem ligações de cliente a partir da Internet. Os clientes selecionam de forma não determinística um dos sistemas de sites baseados na Internet, independentemente da largura de banda ou da localização física.  
 
- При наличии точки обновления программного обеспечения, принимающей подключения из Интернета, интернет-клиенты Configuration Manager в Интернете постоянно проверяют эту точку обновления, чтобы определить потребность в обновлениях программного обеспечения. Однако находясь в Интернете, эти клиенты сначала пытаются загрузить обновления программного обеспечения из Центра обновления Майкрософт, а не из точки распространения в Интернете. Если это сделать невозможно, они будут загружать необходимые обновления из точки распространения в Интернете. Клиенты, не настроенные для управления через Интернет, никогда не загружают обновления программного обеспечения из Центра обновления Майкрософт, а всегда используют точки распространения Configuration Manager.  
+ Quando tiver um ponto de atualização de software configurado para aceitar ligações a partir da Internet, os clientes baseados na Internet do Configuration Manager que se encontram na Internet efetuam sempre uma análise desse ponto de atualização de software para determinar que atualizações de software são necessárias. No entanto, quando estes clientes se encontram na Internet, começam por tentar transferir as atualizações de software a partir do Microsoft Update, em vez de recorrerem a um ponto de distribuição baseado na Internet. Só em caso de insucesso é que tentarão transferir as atualizações de software necessárias a partir de um ponto de distribuição baseado na Internet. Os clientes que não estão configurados para gestão de clientes baseados na Internet não tentam nunca transferir as atualizações de software do Microsoft Update, utilizando sempre pontos de distribuição do Configuration Manager.  
 
-##  <a name="considerations-for-client-communications-from-the-internet-or-untrusted-forest"></a>Рекомендации по взаимодействию с клиентами из Интернета или ненадежного леса  
- Следующие роли системы сайта, установленные на первичных сайтах, поддерживают соединения от клиентов, находящихся в ненадежных расположениях, таких как Интернет или лес без доверия (вторичные сайты не поддерживают подключения клиентов из ненадежных расположений):  
+##  <a name="considerations-for-client-communications-from-the-internet-or-untrusted-forest"></a>Considerações sobre comunicações do cliente a partir da Internet ou de uma floresta não fidedigna  
+ As seguintes funções do sistema de sites instaladas nos sites primários suportam ligações de clientes que se encontram em localizações não fidedignas, como a Internet ou uma floresta não fidedigna (os sites secundários não suportam ligações de clientes de localizações não fidedignas):  
 
--   Точка веб-сайта каталога приложений  
+-   Ponto de site do Catálogo de Aplicações  
 
--   Модуль политики Configuration Manager  
+-   Módulo de Política do Configuration Manager  
 
--   Точка распространения (для облачных точек распространения требуется протокол HTTPS)  
+-   Ponto de distribuição (os pontos de distribuição baseados na nuvem precisam de HTTPS)  
 
--   Прокси-точка регистрации.  
+-   Ponto proxy de registo  
 
--   Резервная точка состояния  
+-   Ponto de estado de contingência  
 
--   Точка управления  
+-   Ponto de gestão  
 
--   Точка обновления программного обеспечения  
+-   Ponto de atualização de Software  
 
- **Сведения о системах сайта с выходом в Интернет:**   
-Несмотря на то, что доверие между лесом клиента и лесом сервера системы сайта (в случае, если лес, который содержит систему сайта с выходом в Интернет, доверяет лесу, который содержит учетные записи пользователей) не требуется, эта конфигурация поддерживает пользовательские политики для устройств в Интернете при включении параметра **Включить запросы политик пользователей с интернет-клиентов** клиента **Политика клиента**.  
+ **Acerca dos sistemas de sites com acesso à Internet:**   
+Apesar de não é necessário ter uma confiança entre a floresta do cliente e que o servidor de sistema de sites, quando a floresta que contém uma com acesso à sistema de sites de Internet confia na floresta que contém as contas de utilizador, esta configuração suporta políticas baseadas no utilizador para dispositivos na Internet quando ativa a **política de cliente** definição de cliente **ativar pedidos da política de utilizador dos clientes Internet**.  
 
- Например, следующие конфигурации демонстрируют ситуации, когда управление клиентами через Интернет поддерживает политики пользователей для устройств в Интернете.  
+ Por exemplo, as configurações seguintes ilustram quando a gestão de clientes baseada na Internet suporta políticas de utilizador para dispositivos na Internet:  
 
--   Интернет-точка управления находится в сети периметра, где размещен контроллер домена только для чтения для проверки подлинности пользователей, и промежуточный брандмауэр разрешает передачу пакетов Active Directory.  
+-   O ponto de gestão baseado na Internet encontra-se na rede de perímetro em que reside um controlador de domínio para autenticar o utilizador e uma firewall intermediária permite pacotes do Active Directory.  
 
--   Учетная запись пользователя находится в лесу А (интрасеть), а интернет-точка управления — в лесу Б (сеть периметра). Лес Б доверяет лесу А, а промежуточный брандмауэр разрешает передачу пакетов проверки подлинности.  
+-   A conta de utilizador encontra-se na Floresta A (a intranet) e o ponto de gestão baseado na Internet encontra-se na Floresta B (a rede de perímetro). A Floresta B confia na Floresta A e uma firewall intermediária permite os pacotes de autenticação.  
 
--   Учетная запись пользователя и интернет-точка управления находятся в лесу А (интрасеть). Точка управления публикуется в Интернете с помощью сервера веб-прокси (такого как Forefront Threat Management Gateway).  
-
-> [!NOTE]  
->  Если происходит сбой проверки подлинности Kerberos, автоматически предпринимается попытка выполнения проверки подлинности NTLM.  
-
- Как показано в предыдущем примере, системы сайта управления интернет-клиентами можно разместить в интрасети, если они публикуются в Интернете с помощью прокси-сервера в Интернете, такого как ISA Server и Forefront Threat Management Gateway. Эти системы сайта настраиваются только для подключений клиента из Интернета или для подключений клиента из Интернета и интрасети. Используемый прокси-сервер в Интернете можно настроить для моста SSL-SSL (более высокий уровень безопасности) или туннелирования SSL.  
-
--   **Мост SSL-SSL.**   
-    При использовании серверов веб-прокси для управления клиентом через Интернет рекомендуется использовать мост SSL-SSL, где применяется завершение запросов SSL с проверкой подлинности. Клиентские компьютеры должны пройти проверку подлинности с помощью проверки подлинности компьютера, а устаревшие клиенты мобильных устройств проходят проверку подлинности пользователей. Мобильные устройства, зарегистрированные в Configuration Manager, не поддерживают мост SSL.  
-
-     Преимущество завершения запросов SSL на прокси-сервере в Интернете заключается в том, что пакеты из Интернета должны пройти проверку до перенаправления в интрасеть. Прокси-сервер в Интернете проверяет подлинность подключения от клиента, закрывает его, а затем открывает новое проверенное подключение к системам сайта управления интернет-клиентами. Если клиент Configuration Manager использует прокси-сервер в Интернете, удостоверение клиента (идентификатор GUID клиента) безопасно хранится в полезных данных пакета, поэтому точка управления не принимает прокси-сервер в Интернете за клиент. В Configuration Manager не поддерживаются мосты HTTP-HTTPS или HTTPS-HTTP.  
-
--   **Туннелирование**.   
-    Туннелирование SSL также поддерживается в случае, если сервер веб-прокси не поддерживает требования к мосту SSL или нужно настроить интернет-поддержку для мобильных устройств, зарегистрированных в Configuration Manager. Это менее безопасный вариант, поскольку пакеты SSL из Интернета перенаправляются в системы сайта без завершения запросов и не могут быть проверены на наличие вредоносного содержимого. При использовании туннелирования SSL сертификаты для прокси-сервера в Интернете не требуются.  
-
-##  <a name="planning-for-internet-based-clients"></a>Планирование интернет-клиентов  
- Необходимо решить, будут ли клиентские компьютеры, управление которыми будет осуществляться через Интернет, настроены для управления в интрасети и Интернете или для управления клиентами только через Интернет. Параметр управления клиентом можно настроить только во время установки клиентского компьютера. При изменении решения требуется переустановить клиент.  
+-   A conta de utilizador e o ponto de gestão baseado na Internet encontram-se na Floresta A (a intranet). O ponto de gestão é publicado na Internet através de um servidor Web proxy (como o Forefront Threat Management Gateway).  
 
 > [!NOTE]  
->  При настройке точки управления, поддерживающей Интернет, клиенты, подключающиеся к точке управления, становятся поддерживающими Интернет при следующем обновлении их списков доступных точек управления.  
+>  Se a autenticação Kerberos falhar, será automaticamente tentada a autenticação NTLM.  
+
+ Como mostra o exemplo anterior, é possível colocar sistemas de sites baseados na Internet na intranet quando estes forem publicados na Internet utilizando um servidor Web proxy, tal como o ISA Server ou o Forefront Threat Management Gateway. Estes sistemas de sites podem ser configurados apenas para ligações de cliente a partir da Internet, ou para ligações de cliente provenientes da Internet e da intranet. Ao utilizar um servidor Web proxy, poderá configurá-lo para bridge de Secure Sockets Layer (SSL) para SSL (mais seguro) ou túnel SSL:  
+
+-   **Protocolo de bridge SSL para SSL:**   
+    A configuração recomendada quando utiliza servidores Web proxy para a gestão de clientes baseados na Internet é o protocolo de bridge SSL para SSL, que utiliza a terminação de SSL com a autenticação de SSL. Os computadores cliente têm de ser autenticados utilizando a autenticação de computador e os clientes antigos do dispositivo móvel são autenticados utilizando a autenticação de utilizador. Dispositivos móveis que são inscritos pelo Configuration Manager não suportam o protocolo de bridge SSL.  
+
+     A vantagem da terminação de SSL no servidor Web proxy é que os pacotes da Internet são sujeitos a inspeção antes de serem encaminhados para a rede interna. O servidor Web proxy autentica a ligação do cliente, termina-a e, em seguida, abre uma nova ligação autenticada para os sistemas de sites baseados na Internet. Quando os clientes do Configuration Manager utilizam um servidor web proxy, a identidade do cliente (GUID do cliente) está contida em segurança no payload do pacote para que o ponto de gestão não considere o servidor do web proxy como o cliente. Protocolo de bridge não é suportado no Configuration Manager com HTTP para HTTPS ou de HTTPS para HTTP.  
+
+-   **Protocolo de túnel**:   
+    Se o servidor web proxy não suporta os requisitos para o protocolo de bridge SSL ou se quiser configurar o suporte de Internet para dispositivos móveis que são inscritos pelo Configuration Manager, o túnel SSL também é suportado. É uma opção menos segura porque os pacotes SSL da Internet são encaminhados para os sistemas de sites sem a terminação de SSL, não podendo ser, assim, inspecionados quanto a conteúdo malicioso. Quando utiliza o protocolo de túnel SSL, não existem requisitos de certificado para o servidor Web proxy.  
+
+##  <a name="planning-for-internet-based-clients"></a>Planear Clientes Baseados na Internet  
+ É necessário decidir se os computadores cliente que são geridos pela Internet são configurados para gestão na intranet e Internet ou para gestão de clientes apenas na Internet. Apenas é possível configurar a opção de gestão de clientes durante a instalação de um computador cliente. Se mudar de ideias mais tarde, tem de reinstalar o cliente.  
+
+> [!NOTE]  
+>  Se configurar um ponto de gestão compatível com Internet, os clientes que se liguem ao ponto de gestão serão compatíveis com Internet quando atualizarem a respetiva lista de pontos de gestão disponíveis.  
 
 > [!TIP]  
->  Не обязательно ограничивать конфигурацию управления клиентами в Интернете только лишь зоной Интернета; можно использовать данный метод управления и в интрасети.  
+>  Não é necessário restringir à Internet a configuração de gestão de clientes apenas na Internet e também é possível utilizá-la na intranet.  
 
- Клиенты, настроенные на управление только в Интернете, соединяются только с системами сайта, настроенными на подключения клиентов из Интернета. Управление через Интернет предназначено для компьютеров, которые заведомо не подключаются к интрасети компании, например компьютеров в удаленных точках розничной торговли. Такой метод управления также может использоваться, если необходимо, чтобы клиенты подключались только по протоколу HTTPS (например, для обеспечения соответствия политике брандмауэра и ограниченной политике безопасности), а также при установке интернет-систем сайта в демилитаризованной зоне и необходимости управления этими серверами с помощью клиента Configuration Manager.  
+ Os clientes que estão configurados para gestão de clientes apenas na Internet comunicam apenas com os sistemas de sites que estão configurados para ligações de cliente da Internet. Esta configuração seria adequada para computadores que sabe que nunca ligam à intranet da empresa, por exemplo, computadores em pontos de venda em localizações remotas. Também pode ser apropriada se pretender restringir a comunicação de cliente HTTPS só (por exemplo, para suportar a firewall e políticas de segurança restringidas) e, quando instalar sistemas de sites baseados na Internet numa rede de perímetro e pretender gerir esses servidores utilizando o cliente do Configuration Manager.  
 
- При необходимости управления клиентами рабочей группы через Интернет такие клиенты следует устанавливать как интернет-клиенты.  
+ Se pretender gerir clientes de grupo de trabalho na Internet, tem de os como apenas Internet.  
 
 > [!NOTE]  
->  Клиенты мобильных устройств автоматически становятся интернет-клиентами, если они настраиваются на использование точки управления, расположенной в Интернете.  
+>  Os clientes de dispositivo móvel são configurados automaticamente como apenas Internet quando são configurados para utilizar um ponto de gestão baseado na Internet.  
 
- Другие клиентские компьютеры можно настроить на управление в Интернете и в интрасети. В данном случае возможно автоматическое переключение между управлением через Интернет и управлением через интрасеть, происходящее при обнаружении смены сети. Если такие клиенты могут обнаружить точку управления, настроенную на подключения клиентов из интрасети, и подключиться к ней, управление ими осуществляется как для клиентов в интрасети, имеющих полный набор функций управления Configuration Manager. Если клиенты не могут обнаружить точку управления, настроенную на подключения клиентов из интрасети, или подключиться к ней, предпринимаются попытки подключиться к точке управления в Интернете, и в случае успешного подключения управление такими клиентами осуществляется интернет-системами сайта на назначенном им сайте.  
+ Outros computadores cliente podem ser configurados para gestão de clientes na Internet e intranet. Estes podem alternar automaticamente entre a gestão de clientes baseada na Internet e a gestão de clientes na intranet quando detetam uma alteração de rede. Se estes clientes podem localizar e ligar a um ponto de gestão que está configurado para ligações de cliente na intranet, estes clientes são geridos como clientes de intranet que possuem total funcionalidade de gestão do Configuration Manager. Se os clientes não conseguirem localizar ou estabelecer ligação a um ponto de gestão que está configurado para ligações de cliente na intranet, tentam estabelecer ligação a um ponto de gestão baseado na Internet, e se esta ligação tiver êxito, estes clientes são geridos pelos sistemas de sites baseados na Internet no respetivo site atribuído.  
 
- Преимущество автоматического переключения между управлением клиентами через Интернет и управлением через интрасеть заключается в том, что клиентские компьютеры могут автоматически использовать все возможности Configuration Manager, будучи подключенными через интрасеть, а также оставаться управляемыми при расположении в Интернете с обеспечением ключевых функций управления. Кроме того, процесс загрузки, начатый через Интернет, может быть автоматически продолжен в интрасети, и наоборот.  
+ A vantagem da mudança automática entre gestão de clientes baseados na Internet e gestão de clientes na intranet é que os computadores cliente podem utilizar automaticamente todas as funcionalidades do Configuration Manager sempre que estiverem ligados à intranet e continuarem a ser geridos em funções de gestão essenciais quando estão na Internet. Além disso, uma transferência que começou na Internet pode continuar sem interrupções na intranet e vice versa.  
 
-##  <a name="prerequisites-for-internet-based-client-management"></a>Необходимые условия для управления клиентами через Интернет  
- Управление клиентами через Интернет в Configuration Manager предусматривает следующие внешние зависимости.  
+##  <a name="prerequisites-for-internet-based-client-management"></a>Pré-requisitos da Gestão de Clientes Baseada na Internet  
+ Gestão de clientes baseados na Internet no Configuration Manager tem as seguintes dependências externas:  
 
--   Клиенты, управление которыми будет осуществляться через Интернет, должны иметь подключение к Интернету.  
+-   Os clientes que são geridos na Internet têm de ter uma ligação à Internet.  
 
-     Configuration Manager использует существующие подключения к Интернету через поставщика услуг Интернета; это может быть как постоянное подключение, так и временное соединение. Клиенты мобильных устройств должны иметь прямое подключение к Интернету, а клиентские компьютеры могут подключаться как напрямую, так и через прокси-сервер.  
+     O Configuration Manager utiliza as ligações existentes do fornecedor de serviços Internet (ISP) à Internet, que podem ser ligações permanentes ou temporárias. Os dispositivos móveis clientes têm de ter uma ligação à Internet direta, mas com computadores cliente podem ter uma ligação à Internet direta ou estabelecer ligação utilizando um servidor Web proxy.  
 
--   Системы сайта, поддерживающие управление клиентами через Интернет, должны иметь подключение к Интернету и должны являться членами домена Active Directory.  
+-   Os sistemas de sites que suportam a gestão de clientes baseados na Internet têm de ter conectividade à Internet e têm de estar num domínio do Active Directory.  
 
-     Системы сайта, расположенные в Интернете, не требуют наличия отношений доверия с лесом Active Directory сервера сайта. Однако если Интернет-точка управления проверяет подлинность пользователя с помощью проверки подлинности Windows, то поддерживаются политики пользователей. При сбое проверки подлинности Windows поддерживаются только политики компьютера.  
+     Os sistemas de sites baseados na Internet não necessitam de uma relação de confiança com a floresta do Active Directory do servidor de sites. No entanto, quando o ponto de gestão baseado na Internet consegue autenticar o utilizador através da autenticação do Windows, são suportadas as políticas de utilizador. Se a autenticação do Windows falhar, apenas são suportadas as políticas de computador.  
 
     > [!NOTE]  
-    >  Для поддержки политик пользователей также необходимо задать значение **True** для двух параметров клиента **Политика клиента** :  
+    >  Para suportar as políticas de utilizador, é necessário configurar para **Verdadeiro** as duas definições de cliente **Política do Cliente**:  
     >   
-    >  -   **Включить опрос политики пользователя на клиентах**  
-    > -   **Включить запросы политик пользователей с интернет-клиентов**  
+    >  -   **Ativar consulta de política de utilizador nos clientes**  
+    > -   **Ativar pedidos da política do utilizador dos clientes Internet**  
 
-     Интернет-точка веб-сайта каталога приложений также требует выполнения проверки подлинности Windows в отношении пользователей, если они подключаются с компьютера, расположенного в Интернете. Это требование не зависит от политик пользователя.  
+     Um ponto do Web site do Catálogo de Aplicações baseado na Internet também necessita de autenticação do Windows para autenticar os utilizadores quando o respetivo computador está na Internet. Este requisito é independente das políticas de utilizador.  
 
--   Необходимо наличие вспомогательной инфраструктуры открытых ключей (PKI), которая может развертывать сертификаты, необходимые клиентам, и управлять такими сертификатами, причем управление должно осуществляться через Интернет и на серверах систем сайта, расположенных в Интернете.  
+-   É necessário ter uma infraestrutura de chaves públicas (PKI) compatível que possa implementar e gerir os certificados que os clientes necessitam e que são geridos na Internet e nos servidores dos sistemas de site baseados na Internet.  
 
-     Дополнительные сведения о PKI-сертификатах см. в разделе [Требования к PKI-сертификатам для System Center Configuration Manager](/sccm/core/plan-design/network/pki-certificate-requirements).  
+     Para obter mais informações sobre o certificado PKI, veja [Requisitos de Certificado PKI para o Configuration Manager](/sccm/core/plan-design/network/pki-certificate-requirements).  
 
--   Полные доменные имена (FQDN) систем сайта в Интернете, поддерживающих управление клиентами через Интернет, должны быть зарегистрированы в качестве записей узлов на публичных DNS-серверах.  
+-   O nome de domínio completamente qualificado (FQDN) na Internet dos sistemas de sites que suportam a gestão de clientes baseados na Internet tem de estar registado como entradas de anfitrião nos servidores DNS públicos.  
 
--   Промежуточные брандмауэры или прокси-серверы должны разрешать подключения клиентов, связанные с системами сайтов в Интернете.  
+-   Servidores proxy ou firewalls intermediários: têm de permitir a comunicação de clientes que está associada a sistemas de sites baseados na Internet.  
 
-     Требования к подключениям клиентов.  
+     Requisitos da comunicação de clientes:  
 
-    -   Поддержка HTTP 1.1  
+    -   Suportar HTTP 1.1  
 
-    -   Разрешить тип содержимого HTTP для составного вложения в формате MIME (multipart/mixed и application/octet-stream)  
+    -   Permitir que o tipo de conteúdo HTTP do anexo multiparte de MIME (multiparte/misto e aplicação/sequência de octetos)  
 
-    -   Разрешить следующие команды для интернет-точки управления.  
+    -   Permitir os seguintes verbos para o ponto de gestão baseado na Internet:  
 
         -   HEAD  
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 08/07/2017
 
         -   PROPFIND  
 
-    -   Разрешить следующие команды для интернет-точки распространения.  
+    -   Permitir os seguintes verbos para o ponto de distribuição baseado na Internet:  
 
         -   HEAD  
 
@@ -166,19 +166,19 @@ ms.lasthandoff: 08/07/2017
 
         -   PROPFIND  
 
-    -   Разрешить следующие команды для резервной точки состояния в Интернете.  
+    -   Permitir os seguintes verbos para o ponto de estado de contingência baseado na Internet:  
 
         -   POST  
 
-    -   Разрешить следующие команды для интернет-точки веб-сайта каталога приложений.  
+    -   Permitir os seguintes verbos para o ponto de Web site do Catálogo de Aplicações baseado na Internet:  
 
         -   POST  
 
         -   GET  
 
-    -   Разрешить следующие заголовки HTTP для интернет-точки управления.  
+    -   Permitir os seguintes cabeçalhos HTTP para o ponto de gestão baseado na Internet:  
 
-        -   Range:  
+        -   Intervalo:  
 
         -   CCMClientID:  
 
@@ -188,10 +188,10 @@ ms.lasthandoff: 08/07/2017
 
         -   CCMClientTimestampsSignature:  
 
-    -   Разрешить следующий заголовок HTTP для интернет-точки распространения.  
+    -   Permitir o seguinte cabeçalho HTTP para o ponto de distribuição baseado na Internet:  
 
-        -   Range:  
+        -   Intervalo:  
 
-     Для получения сведений о настройках, обеспечивающих соответствие этим требованиям, обратитесь к документации брандмауэра или прокси-сервера.  
+     Para informações de configuração para suportar estes requisitos, consulte a documentação da sua firewall ou do seu servidor proxy.  
 
-     Для получения сведений об аналогичных требованиях к соединениям при использовании точки обновления программного обеспечения с подключением клиентов из Интернета обратитесь к документации служб WSUS. Например, см. параметры безопасности WSUS на Windows Server 2003 в разделе [Приложение D: параметры безопасности](http://go.microsoft.com/fwlink/p/?LinkId=143368).
+     Para requisitos de comunicação semelhantes quando utiliza o ponto de atualização de software para ligações de cliente a partir da Internet, consulte a documentação do Windows Server Update Services (WSUS). Por exemplo, para o WSUS no Windows Server 2003, consulte [apêndice d: Definições de segurança](http://go.microsoft.com/fwlink/p/?LinkId=143368), o anexo de implementação para definições de segurança.

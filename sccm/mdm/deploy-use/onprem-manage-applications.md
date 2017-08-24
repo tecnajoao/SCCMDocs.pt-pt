@@ -1,6 +1,6 @@
 ---
-title: "Управление приложениями с помощью локального управления мобильными устройствами | Документация Майкрософт"
-description: "Управление приложениями с помощью локального управления мобильными устройствами."
+title: "Gerir aplicações para gestão de dispositivos móveis no local | Microsoft Docs"
+description: "Gerir aplicações para gestão de dispositivos móveis no local."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,14 +17,14 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 4085b007f006a4cfaeaef802d750b03018d6a683
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-applications-for-on-premises-mobile-device-management"></a>Управление приложениями с помощью локального управления мобильными устройствами
+# <a name="manage-applications-for-on-premises-mobile-device-management"></a>Gerir aplicações para gestão de dispositivos móveis no local
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-При управлении устройствами с помощью локального управления мобильными устройствами в Configuration Manager вы можете управлять определенными типами приложений. Управление приложениями в локальной среде управления мобильными устройствами аналогично управлению приложениями в гибридной среде управления мобильными устройствами.
+Quando gerir dispositivos através do local Mobile Device Management (MDM) no Configuration Manager, pode gerir determinados tipos de aplicação adicional. Gerir aplicações na MDM no local é igual a gestão de aplicações num ambiente híbrido MDM.
 
-Подробные сведения о создании приложений и управлении ими с помощью гибридного или локального управления мобильными устройствами см. в статье [Управление приложениями в System Center Configuration Manager](management-tasks-applications.md).
+[Gerir aplicações móveis](management-tasks-applications.md) fornece informações detalhadas sobre como criar e gerir aplicações através de MDM híbrida ou a MDM no local

@@ -1,6 +1,6 @@
 ---
-title: "Размер и масштаб | Документы Майкрософт"
-description: "Определите количество ролей системы сайта и сайтов, необходимое для поддержки устройств в среде System Center Configuration Manager."
+title: Tamanho e a escala | Microsoft Docs
+description: "Identifica o número de funções de sistema de sites e os sites que terá de suportar os dispositivos no seu ambiente do System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/24/2017
 ms.prod: configuration-manager
@@ -16,179 +16,179 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f539e2d282b56e56a9c58c773788325b27ea6b37
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Изменение размера и масштабирование для System Center Configuration Manager
+# <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Tamanho e números da escala do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
-
-
-
-Каждое развертывание System Center Configuration Manager может поддерживать некоторое максимальное количество сайтов, ролей системы сайта и устройств. Эти числа зависят от структуры вашей иерархии (сколько сайтов вы используете и какого типа) и развертываемых ролей системы сайта.  Приведенные ниже сведения помогут вам определить количество ролей системы сайта и сайтов, необходимое для поддержки устройств, которыми вы планируете управлять в своей среде.
-
-Используйте сведения в этом разделе в сочетании с информацией в следующих статьях:
--   [Рекомендуемое оборудование](../../../core/plan-design/configs/recommended-hardware.md)
--   [Поддерживаемые операционные системы для серверов системы сайта](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
--   [Поддерживаемые операционные системы для клиентов и устройств](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)
--   [Предварительные требования к сайтам и системе сайта](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Значения в этом разделе приводятся для рекомендуемого оборудования Configuration Manager и параметров по умолчанию для всех доступных компонентов Configuration Manager. Если не использовать рекомендуемое оборудование или использовать настраиваемые значения параметров, превышающие рекомендуемые (например, выполнять инвентаризацию оборудования или программного обеспечения чаще, чем раз в семь дней, что является частотой по умолчанию), то производительность систем сайта может снижаться и не соответствовать заявленным уровням поддержки.
 
-##  <a name="bkmk_SiteSystemScale"></a> Типы сайтов  
- **Сайт центра администрирования:**  
+Cada implementação do System Center Configuration Manager irá ter um número máximo de sites, funções de sistema de sites e dispositivos que pode suportar. Estes números variam consoante a estrutura de hierarquia (que tipos e o número de sites que utiliza) e as funções de sistema de sites que implementar.  As informações nas seguintes áreas podem ajudar a identificar o número de funções de sistema de sites e os sites que terá de suportar os dispositivos que pretende gerir com o seu ambiente.
 
--   Сайт центра администрирования поддерживает до 25 подчиненных первичных сайтов.  
+Utilize as informações neste tópico em conjunto com as informações nos seguintes artigos:
+-   [Hardware recomendado](../../../core/plan-design/configs/recommended-hardware.md)
+-   [Sistemas operativos suportados para servidores do sistema de sites](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
+-   [Sistemas operativos suportados por clientes e dispositivos](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)
+-   [Pré-requisitos do site e sistema de sites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
-**Первичный сайт:**  
 
--   Каждый первичный сайт поддерживать до 250 вторичных сайтов.  
+Os seguintes números de suporte baseiam-se utilizando o hardware recomendado para o Configuration Manager e as predefinições para todas as funcionalidades disponíveis do Configuration Manager. Quando não utiliza o hardware recomendado, ou se utilizar mais agressiva definições personalizadas (como em execução no hardware ou software inventário mais frequentemente do que as predefinições de uma vez a cada sete dias), o desempenho dos sistemas de sites pode ser degradado e poderá não cumprir os níveis declarados de suporte.
 
--   Число вторичных сайтов для каждого первичного сайта зависит от качества и надежности подключений к глобальной сети. В расположениях с менее 500 клиентами вместо вторичного сайта рекомендуется установить точку распространения.  
+##  <a name="bkmk_SiteSystemScale"></a>Tipos de site  
+ **Site de administração central:**  
 
- Сведения о числе клиентов и устройств, которые может поддерживать первичный сайт, см. в подразделе [Число клиентов для сайтов и иерархий](#bkmk_clientnumbers) этого раздела.  
+-   Um site de administração central suporta até 25 sites primários subordinados.  
 
-**Вторичный сайт:**  
+**Site primário:**  
 
--   Вторичные сайты не поддерживают подчиненные сайты.  
+-   Cada site primário suporta até 250 sites secundários.  
 
--   Сайт центра администрирования поддерживает до 25 подчиненных первичных сайтов.  
+-   O número de sites secundários por site primário é baseado em ligações de rede (WAN) continuamente estabelecidas e fiáveis alargada. Para localizações com menos de 500 clientes, considere um ponto de distribuição em vez de um site secundário.  
 
-**Точка веб-сайта каталога приложений:**  
+ Para obter informações sobre o número de clientes e dispositivos que um site primário pode suportar, consulte [números de clientes para sites e hierarquias](#bkmk_clientnumbers) neste tópico.  
 
--   На первичный сайтах можно установить несколько экземпляров точки веб-сайта каталога приложений.  
+**Site secundário:**  
 
-    > [!TIP]  
-    >  Точку веб-сайта каталога приложений рекомендуется установить вместе с точкой веб-службы каталога приложений в одной системе сайта, где они предоставляют службу клиентам, находящимся в интрасети.  
+-   Os sites secundários não suportam sites subordinados.  
 
-    -   Для повышения производительности запланируйте поддержку до 50 000 клиентов на каждом экземпляре.  
+-   Um site de administração central suporta até 25 sites primários subordinados.  
 
-    -   У каждого экземпляра этой роли системы сайта есть максимальное число клиентов, поддерживаемых иерархией.  
+**Ponto de Web site do catálogo de aplicações:**  
 
-## <a name="bkmk_roles"></a> Site system roles    
-
-**Точка веб-службы каталога приложений:**  
-
--   На первичный сайтах можно установить несколько экземпляров точки веб-службы каталога приложений.  
+-   Pode instalar várias instâncias do ponto de Web site do catálogo de aplicações nos sites primários.  
 
     > [!TIP]  
-    >  Точку веб-сайта каталога приложений рекомендуется установить вместе с точкой веб-службы каталога приложений в одной системе сайта, где они предоставляют службу клиентам, находящимся в интрасети.  
+    >  Como melhor prática, instale o ponto de Web site do catálogo de aplicações e o ponto de serviço web do catálogo de aplicações em conjunto no mesmo sistema de sites quando fornecerem serviço aos clientes que estão na intranet.  
 
-    -   Для повышения производительности запланируйте поддержку до 50 000 клиентов на каждом экземпляре.  
+    -   Para um melhor desempenho, planeie suportar até 50 000 clientes por instância.  
 
-    -   У каждого экземпляра этой роли системы сайта есть максимальное число клиентов, поддерживаемых иерархией.  
+    -   Cada instância desta função de sistema de sites suporta o número máximo de clientes que são suportados pela hierarquia.  
 
-**Точка распространения:**  
+## <a name="bkmk_roles"></a>Funções do sistema de sites    
 
--   Число точек распространения на каждый сайт:  
+**Ponto de serviço de web de catálogo de aplicações:**  
 
-    -   Каждый первичный и вторичный сайт поддерживает не более 250 точек распространения.  
+-   Pode instalar várias instâncias do ponto de serviço do catálogo de aplicações web em sites primários.  
 
-    -   Каждый первичный и вторичный сайт поддерживает до 2000 дополнительных точек распространения, настроенных в качестве точек распространения по запросу. **Например**, один первичный сайт поддерживает 2250 точек распространения, причем 2000 из них настроены как точки распространения по запросу.  
+    > [!TIP]  
+    >  Como melhor prática, instale o ponto de Web site do catálogo de aplicações e o ponto de serviço web do catálogo de aplicações em conjunto no mesmo sistema de sites quando fornecerem serviço aos clientes que estão na intranet.  
 
-    -   Каждая точка распространения поддерживает подключения клиентов в количестве до 4000.  
+    -   Para um melhor desempenho, planeie suportar até 50 000 clientes por instância.  
 
-    -   Точка распространения по запросу действует как клиент, когда она осуществляет доступ к содержимому в исходной точке распространения.  
+    -   Cada instância desta função de sistema de sites suporta o número máximo de clientes que são suportados pela hierarquia.  
 
--   Каждый первичный сайт поддерживает всего до 5 000 точек распространения. В это число входят все точки распространения на первичном сайте и все точки распространения, принадлежащие подчиненным вторичным сайтам первичного сайта.  
+**Ponto de distribuição:**  
 
--   Каждая точка распространения поддерживает всего до 10 000 пакетов и приложений.  
+-   Pontos de distribuição por site:  
+
+    -   Cada site primário e secundário suporta até 250 pontos de distribuição.  
+
+    -   Cada site primário e secundário suporta até 2 000 pontos de distribuição adicionais configurados como pontos de distribuição de solicitação. **Por exemplo**, um único site primário suporta 2250 pontos de distribuição, se 2000 desses pontos de distribuição estão configurados como pontos de distribuição de solicitação.  
+
+    -   Cada ponto de distribuição suporta ligações de até 4 000 clientes.  
+
+    -   Um ponto de distribuição de extração funciona como um cliente quando acede a conteúdo de um ponto de distribuição de origem.  
+
+-   Cada site primário suporta um total combinado de até 5 000 pontos de distribuição. Este total inclui todos os pontos de distribuição no site primário e todos os pontos de distribuição que pertencem aos sites secundários subordinados do site primário.  
+
+-   Cada ponto de distribuição suporta um total combinado de até 10 000 pacotes e aplicações.  
 
 > [!WARNING]  
->  Фактическое число клиентов, поддерживаемых одной точкой распространения, зависит от скорости сети и конфигурации оборудования компьютера точки распространения.  
+>  O número real de clientes que um ponto de distribuição consegue suportar depende da velocidade da rede e a configuração de hardware do computador do ponto de distribuição.  
 >   
->  Аналогично количество точек распространения по запросу, поддерживаемых одной исходной точкой распространения, зависит от скорости сети и конфигурации оборудования компьютера исходной точки распространения. Это число также зависит от объема развернутого содержимого. Это происходит потому, что, в отличие от клиентов, которые обычно обращаются к содержимому в разное время в течение периода развертывания, все точки распространения по запросу запрашивают содержимое в одно и то же время и могут запросить все доступное содержимое сразу, а не только то содержимое, которое касается их, как это делает клиент. Если исходная точка распространения чрезмерно нагружена, это может привести к непредсказуемым задержкам при распространении содержимого в ожидаемые точки распространения в вашей среде.  
+>  O número de pontos de distribuição de extração que um ponto de distribuição de origem consegue suportar depende da mesma forma a velocidade da rede e a configuração de hardware do computador de ponto de distribuição de origem. Mas este número também é afetado pela quantidade de conteúdos que tenha implementado. Isto acontece porque, ao contrário dos clientes que geralmente acedem ao conteúdo em momentos diferentes durante uma implementação, todos os pontos de distribuição de extração pedem conteúdo em simultâneo — e podem pedir todos os conteúdos disponíveis, não apenas o conteúdo que se aplicam aos mesmos, teria de um cliente. Quando a demasiada carga de processamento é colocada num ponto de distribuição de origem, pode haver atrasos inesperados na distribuição de conteúdos aos pontos de distribuição previstos no seu ambiente.  
 
 
-**Резервная точка состояния:**  
+**Ponto de estado de contingência:**  
 
--   Каждая резервная точка состояния может поддерживать до 100 000 клиентов.  
+-   Cada ponto de estado de contingência pode suportar até 100.000 clientes.  
 
-**Точка управления:**  
+**Ponto de gestão:**  
 
--   Каждый первичный сайт поддерживает до 15 точек управления.  
+-   Cada site primário suporta até 15 pontos de gestão.  
 
     > [!TIP]  
-    >  Точки управления не следует устанавливать на серверах с медленным каналом связи с сервером первичного сайта или с сервером базы данных сайта.  
+    >  Não instale pontos de gestão em servidores que estão numa ligação lenta a partir do servidor do site primário ou do servidor de base de dados do site.  
 
--   Каждый вторичный сайт поддерживает одну точку управления, которая должна быть установлена на сервере вторичного сайта.  
+-   Cada site secundário suporta um único ponto de gestão que deve ser instalado no servidor do site secundário.  
 
- Сведения о числе клиентов и устройств, которые может поддерживать точка управления, см. в подразделе [Точки управления](#bkmk_mp) этого раздела.  
+ Para obter informações sobre o número de clientes e dispositivos que um ponto de gestão pode suportar, consulte o [pontos de gestão](#bkmk_mp) deste tópico.  
 
-**Точка обновления программного обеспечения:**  
+**Ponto de atualização de software:**  
 
--   Точка обновления программного обеспечения, установленная на сервере сайта, может поддерживать до 25 000 клиентов.  
+-   Um ponto de atualização de software que está instalado no servidor do site consegue suportar até 25.000 clientes.  
 
--   Точка обновления программного обеспечения, удаленная от сервера сайта, может поддерживать до 150 000 клиентов при условии, что удаленный компьютер удовлетворяет требованиям служб Windows Server Update Services (WSUS) для поддержки такого числа клиентов.  
+-   Um ponto de atualização de software que seja remoto do servidor do site consegue suportar até 150.000 clientes quando o computador remoto cumpre os requisitos do Windows Server Update Services (WSUS) para suportar este número de clientes.  
 
--   По умолчанию Configuration Manager не поддерживает настройку точек обновления программного обеспечения для работы в качестве кластеров балансировки сетевой нагрузки (NLB). Но с помощью пакета SDK для Configuration Manager можно настроить до четырех точек обновления программного обеспечения в кластере NLB.  
+-   Por predefinição, o Configuration Manager não suporta configurar pontos de atualização de software como clusters de balanceamento de carga na rede (NLB). No entanto, pode utilizar o SDK do Configuration Manager para configurar até quatro pontos de atualização de software num NLB cluster.  
 
-##  <a name="bkmk_clientnumbers"></a> Число клиентов для сайтов и иерархий  
- Используйте следующие сведения, чтобы определить, сколько клиентов и какие типы клиентов могут поддерживаться на сайте или в иерархии.  
+##  <a name="bkmk_clientnumbers"></a>Números de clientes para sites e hierarquias  
+ Utilize as seguintes informações para determinar quantos clientes e os tipos de clientes, pode suportar num site ou hierarquia.  
 
-###  <a name="bkmk_cas"></a> Иерархия с сайтом центра администрирования  
-Общее число устройств, которое поддерживает сайт центра администрирования, включает в себя все устройства, входящие в состав следующих трех групп:  
+###  <a name="bkmk_cas"></a>Hierarquia com um site de administração central  
+Um site de administração central suporta um número total de dispositivos que inclui até ao número de dispositivos listados para os seguintes três grupos:  
 
--   700 000 настольных компьютеров (компьютеры с ОС Windows, Linux и UNIX). См. также поддержку [встроенных устройств](#embedded).
+-   700.000 ambientes de trabalho (computadores que executam o Windows, Linux e UNIX). Consulte também, o suporte para [dispositivos embedded](#embedded).
 
--   25 000 устройств под управлением Mac и Windows CE 7.0.  
+-   25.000 dispositivos que executam o Mac e Windows CE 7.0  
 
--   Один из следующих вариантов в зависимости от того, как развертывание поддерживает управление мобильными устройствами:  
+-   Um dos seguintes, dependendo de como a implementação suporta a gestão de dispositivos móveis (MDM):  
 
-    -   100 000 устройств, управляемых с помощью локального управления мобильными устройствами;  
+    -   100 000 dispositivos que gere com MDM no local  
 
-    -   300 000 облачных устройств.  
+    -   300.000 dispositivos baseados na nuvem  
 
- Например, в иерархии можно поддерживать 700 000 настольных компьютеров, до 25 000 клиентов Mac и Windows CE 7.0 и до 300 000 облачных устройств при интеграции Microsoft Intune — всего 1 025 000 устройств. Если поддерживаются устройства, управляемые с помощью локального управления мобильными устройствами, общее число для иерархии составит 825 000 устройств.  
+ Por exemplo, numa hierarquia, pode suportar 700.000 ambientes de trabalho, até 25.000 Mac e Windows CE 7.0 e até 300.000 dispositivos baseados na nuvem quando integrar o Microsoft Intune — para um total de 1.025.000 dispositivos. Se suportar dispositivos que são geridos pela MDM no local, o total para a hierarquia é 825.000 dispositivos.  
 
 > [!IMPORTANT]  
->  В иерархии, где сайт центра администрирования использует выпуск Standard сервера SQL Server, иерархия поддерживает не более 50 000 настольных компьютеров и устройств. Выпуск SQL Server, используемый на автономном первичном сайте, не ограничивает емкость сайта и позволяет поддерживать указанное число клиентов.  
+>  Numa hierarquia onde o site de administração central utiliza uma edição Standard do SQL Server, a hierarquia suporta um máximo de 50 000 computadores de secretária e dispositivos. A edição do SQL Server que está a ser utilizado num site primário autónomo não limita a capacidade desse site para suportar até ao número declarado de clientes.  
 
 
-###  <a name="bkmk_chipri"></a> Дочерний первичный сайт  
-Каждый подчиненный первичный сайт в иерархии с сайтом центра администрирования поддерживает следующее число устройств:  
+###  <a name="bkmk_chipri"></a>Site primário subordinado  
+Cada site primário subordinado numa hierarquia com um site de administração central suporta o seguinte:  
 
--   В общей сумме 150 000 клиентов и устройств, не ограничиваясь определенной группой или типом, при условии, что не превышено число поддерживаемых устройств для иерархии. См. также поддержку [встроенных устройств](#embedded).
+-   150.000 total de clientes e dispositivos que não estão limitados a um grupo específico ou tipo, desde que o suporte não excede o número que é suportado para a hierarquia. Consulte também, o suporte para [dispositivos embedded](#embedded).
 
-Например, первичный сайт, поддерживающий 25 000 компьютеров Mac и Windows CE 7.0 (предельное значение для иерархии), может поддерживать еще 125 000 настольных компьютеров. То есть общее количество поддерживаемых устройств равно максимальному количеству, поддерживаемому подчиненным первичным сайтом, — 150 000.
+Por exemplo, um site primário que suporta 25.000 computadores que executam o Mac e Windows CE 7.0 (uma vez que é o limite de uma hierarquia), em seguida, pode suportar um computadores de secretária 125,000 adicionais. Isto apresenta o número total de dispositivos suportados até o limite máximo suportado de 150 000 subordinado do site primário.
 
-###  <a name="bkmk_pri"></a> Автономный первичный сайт  
-Автономный первичный сайт поддерживает следующее число устройств:  
+###  <a name="bkmk_pri"></a>Site primário autónomo  
+Um site primário autónomo suporta o seguinte número de dispositivos:  
 
--   В общей сумме 175 000 клиентов и устройств, при этом не более:  
+-   175.000 clientes e dispositivos, não exceder:  
 
-    -   150 000 настольных компьютеров (компьютеры с ОС Windows, Linux и UNIX). См. также поддержку [встроенных устройств](#embedded).
+    -   150.000 ambientes de trabalho (computadores que executam o Windows, Linux e UNIX). Consulte também, o suporte para [dispositivos embedded](#embedded).
 
-    -   25 000 устройств под управлением Mac и Windows CE 7.0.
+    -   25.000 dispositivos que executam o Mac e Windows CE 7.0
 
-    -   Один из следующих вариантов в зависимости от того, как развертывание поддерживает управление мобильными устройствами:  
+    -   Um dos seguintes, dependendo de como a implementação suporta a gestão de dispositivos móveis:  
 
-        -   50 000 устройств, управляемых с помощью локального управления мобильными устройствами;  
+        -   50 000 dispositivos que gere com MDM no local  
 
-        -   150 000 облачных устройств.  
+        -   150.000 dispositivos baseados na nuvem  
 
 
-Например, автономный первичный сайт, который поддерживает 150 000 настольных компьютеров и 10 000 клиентов Mac или Windows CE 7.0, может поддерживать дополнительно только 15 000 устройств. Эти устройства могут быть облачными или управляться с помощью локального управления мобильными устройствами.  
+Por exemplo, um site primário autónomo que suporte 150,000 ambientes de trabalho e 10.000 Mac ou Windows CE 7.0 pode suportar apenas 15.000 dispositivos adicionais. Esses dispositivos podem ser baseados na nuvem ou geridos através de MDM no local.  
 
-### <a name="embedded"></a> Первичные сайты и устройства Windows Embedded
-Первичные сайты поддерживают устройства Windows Embedded с активными файловыми фильтрами записи (FBWF). Если на встроенных устройствах не включены фильтры записи, первичный сайт может поддерживать то количество встроенных устройств, которое допустимо для этого сайта. Из общего числа устройств, поддерживаемых первичным сайтом, не больше 10 000 могут быть устройствами Windows Embedded при условии, что эти на этих устройствах настроены исключения, перечисленные в важном примечании раздела [Планирование развертывания клиентов на устройствах Windows Embedded](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices). Первичный сайт поддерживает только 3000 устройств Windows Embedded с активными расширенными фильтрами записи (EWF) и без настройки исключений.
+### <a name="embedded"></a>Sites primários e de dispositivos Windows Embedded
+Os sites primários suportam dispositivos Windows Embedded que possuem baseados em ficheiros filtros de escrita (FBWF) ativados. Quando os dispositivos embedded não têm filtros de escrita ativados, um site primário pode suportar um número de dispositivos embedded até o número permitido de dispositivos para esse site. O número total de dispositivos que um site primário suporta, um máximo de 10 000 destes pode ser dispositivos Windows Embedded quando esses dispositivos são configurados para as exceções listadas na nota importante encontrada no [planear a implementação do cliente em dispositivos Windows Embedded](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices). Um site primário suporta apenas 3,000 dispositivos Windows Embedded que tenham o EWF ativado e que não estejam configurados para as exceções.
 
-###  <a name="bkmk_sec"></a> Вторичные сайты  
-Вторичные сайты поддерживают следующее число устройств:  
+###  <a name="bkmk_sec"></a>Sites secundários  
+Os sites secundários suportam o seguinte:  
 
--   15 000 настольных компьютеров (компьютеры с ОС Windows, Linux и UNIX).  
+-   15.000 ambientes de trabalho (computadores que executam o Windows, Linux e UNIX)  
 
-###  <a name="bkmk_mp"></a> Точки управления  
-Каждая точка управления может поддерживать следующее число устройств:  
+###  <a name="bkmk_mp"></a>Pontos de gestão  
+Cada ponto de gestão pode suportar o seguinte número de dispositivos:  
 
--   В общей сумме 25 000 клиентов и устройств, при этом не более:  
+-   25.000 total de clientes e dispositivos, não exceder:  
 
-    -   25 000 настольных компьютеров (компьютеры с ОС Windows, Linux и UNIX).  
+    -   25.000 ambientes de trabalho (computadores que executam o Windows, Linux e UNIX)  
 
-    -   Один из следующих вариантов (не оба):  
+    -   Um dos seguintes (não ambos):  
 
-        -   10 000 устройств, управляемых с помощью локального управления мобильными устройствами;  
+        -   10 000 dispositivos que são geridos com MDM no local  
 
-        -   10 000 устройств с клиентами Mac и Windows CE 7.0.
+        -   10.000 dispositivos que executam os clientes Mac e Windows CE 7.0

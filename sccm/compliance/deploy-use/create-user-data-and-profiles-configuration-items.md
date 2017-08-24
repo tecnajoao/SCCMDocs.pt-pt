@@ -1,6 +1,6 @@
 ---
-title: "Создание элементов конфигурации данных и профилей пользователя | Документы Майкрософт"
-description: "Используйте элементы конфигурации данных и профилей в System Center Configuration Manager для управления перенаправлением папок, автономными файлами и перемещаемыми профилями."
+title: "Criar itens de configuração de perfis e dados de utilizador | Microsoft Docs"
+description: "Utilize itens de configuração de perfis e dados no System Center Configuration Manager para gerir o redirecionamento de pastas, ficheiros offline e perfis itinerantes."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,101 +17,101 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 85b984d739dc9f9d2046186b381eff54ba687c66
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Создание элементов конфигурации данных и профилей пользователя в System Center Configuration Manager
+# <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Criar perfis e dados de utilizador itens de configuração no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Элементы конфигурации данных и профилей пользователя в System Center Configuration Manager содержат параметры, управляющие перенаправлением папок, автономными файлами и перемещаемыми профилями на компьютерах с Windows 8 и более поздней версии для пользователей вашей иерархии. Например, администратор может сделать следующее:  
+Utilizador dados e perfis de itens de configuração no System Center Configuration Manager contém definições que gerem o redirecionamento de pastas, ficheiros offline e perfis itinerantes em computadores que executam o Windows 8 e posterior para utilizadores na sua hierarquia. Por exemplo, pode:  
 
--   Перенаправлять папку документы пользователя в сетевую папку.  
+-   Redirecionar a pasta de documentos de um utilizador para uma partilha de rede.  
 
--   Гарантировать, что указанные файлы, хранящиеся в сети, доступны на компьютере пользователя, когда сетевое подключение недоступно.  
+-   Garantir que os ficheiros especificados armazenados na rede estão disponíveis no computador do utilizador quando a ligação de rede está indisponível.  
 
--   Выбрать файлы в переносимом профиле пользователя, которые будут синхронизироваться с сетевой папкой при входе и выходе пользователя из системы.  
+-   Configurar os ficheiros no perfil itinerante do utilizador, que são sincronizados com uma partilha de rede quando o utilizador iniciar e fechar sessão.  
 
- В отличие от других элементов конфигурации в Configuration Manager вы не добавляете элементы конфигурации данных и профилей пользователя в базовую конфигурационную базу, которую затем развертываете. Вместо этого элемент конфигурации развертывается напрямую с помощью диалогового окна **Элемент конфигурации развертывания данных и профилей пользователя** .  
+ Ao contrário de outros itens de configuração no Configuration Manager, não adicionar dados de utilizador e itens de configuração para uma linha de base de configuração que irá depois implementar de perfil. Em vez disso, implementa o item de configuração diretamente através da caixa de diálogo **Implementar Item de Configuração de Perfis e Dados do Utilizador** .  
 
 > [!IMPORTANT]  
->  Элементы конфигурации данных и профилей пользователя можно развертывать только в коллекциях пользователей.  
+>  Só pode implementar itens de configuração de dados e perfis de utilizador em coleções de utilizadores.  
 
-## <a name="enable-user-data-and-profiles-for-compliance-settings"></a>Включение элементов конфигурации данных и профилей пользователя для параметров соответствия  
- Используйте следующую процедуру для настройки параметров клиента по умолчанию для элементов конфигурации данных и профилей пользователя для параметров соответствия пользователя, которые будут применены ко всем компьютерам в иерархии. Если требуется, чтобы этот параметр применялся только к некоторым компьютерам, создайте настраиваемый параметр для клиента устройства и назначьте его коллекции, содержащей компьютеры, на которых будут использоваться параметры соответствия для элементов конфигурации данных и профилей пользователя. Дополнительные сведения о создании настраиваемых параметров устройства см. в разделе [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md).  
+## <a name="enable-user-data-and-profiles-for-compliance-settings"></a>Ativar dados e perfis de utilizador para definições de compatibilidade  
+ Utilize o procedimento seguinte para configurar a predefinição do cliente para definições de compatibilidade de dados e perfis de utilizador, que serão aplicadas a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e atribua-a a uma coleção que contenha os computadores para os quais pretende utilizar as definições de compatibilidade de dados e perfis de utilizador. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [como configurar as definições de cliente](../../core/clients/deploy/configure-client-settings.md).  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры по умолчанию**.  
+1.  Na consola do Configuration Manager, clique em **administração** > **as definições de cliente** > **predefinições**.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-5.  В диалоговом окне **Параметры по умолчанию** выберите **Параметры соответствия**.  
+5.  Na caixa de diálogo **Predefinições** , clique em **Definições de Compatibilidade**.  
 
-6.  В раскрывающемся списке **Включить данные и профили пользователей** выберите **Да**.  
+6.  Na lista pendente **Ativar Dados e Perfis de Utilizador** , selecione **Sim**.  
 
-7.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Параметры по умолчанию** .  
+7.  Clique em **OK** para fechar a caixa de diálogo **Predefinições** .  
 
-## <a name="create-a-user-data-and-profiles-configuration-item"></a>Создание элемента конфигурации данных и профилей пользователя  
+## <a name="create-a-user-data-and-profiles-configuration-item"></a>Criar um item de configuração de perfis e dados do utilizador  
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Профили и данные пользователя**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **perfis e dados de utilizador**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации "Данные и профиль пользователя"**.  
+3.  No separador **Início** , no grupo **Criar** , clique em **Criar Item de Configuração de Dados e Perfis de Utilizador**.  
 
-4.  На странице **Общие** **мастера создания элемента конфигурации данных и профилей пользователей**укажите следующие сведения.  
+4.  Na página **Geral** do **Assistente para Criar Itens de Configuração de Perfis e Dados do Utilizador**, especifique as seguintes informações:  
 
-    -   **Имя:** введите уникальное имя для элемента конфигурации. Можно использовать не более 256 символов.  
+    -   **Nome:** Introduza um nome exclusivo para o item de configuração. Pode utilizar até 256 carateres.  
 
-    -   **Описание:** Введите описание, которое предоставляет обзор элемента конфигурации и другие важные сведения для его идентификации в консоли Configuration Manager. Можно использовать не более 256 символов.  
+    -   **Descrição:** Forneça uma descrição que proporcione uma descrição geral do item de configuração e outras informações relevantes que ajudem a identificá-la na consola do Configuration Manager. Pode utilizar até 256 carateres.  
 
-    -   **Перенаправление папок:** установите этот флажок, если требуется настроить параметры перенаправления папок для этого элемента конфигурации.  
+    -   **Redirecionamento de pastas:** Selecione esta caixa se quiser configurar as definições de redirecionamento de pastas para este item de configuração.  
 
-    -   **Автономные файлы:** установите этот флажок, если требуется настроить параметры автономных файлов для этого элемента конфигурации.  
+    -   **Ficheiros offline:** Esta caixa de verificação se pretender configurar definições para os ficheiros offline para este item de configuração.  
 
-    -   **Перемещаемые профили пользователей:** установите этот флажок, если требуется настроить параметры перемещаемых профилей пользователей для этого элемента конфигурации.  
+    -   **Itinerância de perfis de utilizador:** Selecione esta caixa se quiser configurar as definições de perfis de utilizador itinerantes para este item de configuração.  
 
-5.  На странице **Перенаправление папок** страница **мастера создания элемента конфигурации данных и профилей пользователей**укажите, как клиентские компьютеры пользователей, получающих этот элемент конфигурации, должны управлять перенаправлением папок. Параметры можно настроить для любого устройства, на котором пользователь входит в систему, либо только для основных устройств пользователя. Дополнительные сведения о перенаправлении папок см. в документации по Windows Server.  
-
-    > [!NOTE]  
-    >  Эта страница появляется только в том случае, если установлен флажок **Перенаправление папок** на странице **Общие** мастера.  
-
-6.  На странице **Автономные файлы** **мастера создания элемента конфигурации данных и профилей пользователей**можно включить или отключить использование автономных файлов для пользователей, которые получают этот элемент конфигурации, и настроить параметры для поведения автономных файлов. Можно также указать автономные файлы, которые всегда будут доступны на любом компьютере, где пользователь входит в систему. Дополнительные сведения об автономных фалах см. в документации по Windows Server.  
+5.  Na página **Redirecionamento de Pastas** do **Assistente para Criar Itens de Configuração de Perfis e Dados do Utilizador**, especifique como pretende que os computadores cliente dos utilizadores que recebam este item de configuração façam a gestão do redirecionamento de pastas. Pode configurar as definições de qualquer dispositivo a que o utilizador inicie sessão ou apenas para os dispositivos primários do utilizador. Para mais informações sobre redirecionamento de pastas, consulte a documentação do Windows Server.  
 
     > [!NOTE]  
-    >  Эта страница появляется только в том случае, если установлен флажок **Автономные файлы** на странице **Общие** мастера.  
+    >  Esta página apenas será apresentada se tiver selecionado **redirecionamento de pastas** no **geral** página do assistente.  
 
-7.  На странице **Перемещаемые профили** страница **мастера создания элемента конфигурации данных и профилей пользователей**можно настроить доступность перемещаемых профилей на компьютерах, где пользователь входит в систему, а также задать дополнительные сведения о поведении этих профилей. Дополнительные сведения о перемещаемых профилях см. в документации по Windows Server.  
+6.  Na página **Ficheiros Offline** do **Assistente para Criar Itens de Configuração de Perfis e Dados do Utilizador**, pode ativar ou desativar a utilização de ficheiros offline para os utilizadores que recebem este item de configuração e configuram definições para o comportamento dos ficheiros offline. Também pode especificar os ficheiros offline que estarão sempre disponíveis em qualquer computador em que o utilizador inicie sessão. Para mais informações sobre ficheiros offline, consulte a documentação do Windows Server.  
 
     > [!NOTE]  
-    >  Эта страница появляется только в том случае, если установлен флажок **Перемещаемые профили пользователей** на странице **Общие** мастера.  
+    >  Esta página apenas será apresentada se tiver selecionado a caixa **ficheiros Offline** no **geral** página do assistente.  
 
-8.  Завершите работу мастера.  
+7.  Na página **Perfis Itinerantes** do **Assistente para Criar Itens de Configuração de Perfis e Dados do Utilizador**, pode configurar se os perfis itinerantes estão disponíveis nos computadores onde o utilizador iniciar sessão e também configurar outras informações sobre como se comportam estes perfis. Para mais informações sobre perfis itinerantes, consulte a documentação do Windows Server.  
 
- Новый элемент конфигурации данных и профилей пользователя отображается в узле **Профили и данные пользователя** рабочей области **Активы и соответствие** .  
+    > [!NOTE]  
+    >  Esta página apenas será apresentada se tiver selecionado a caixa **perfis de utilizador itinerantes** no **geral** página do assistente.  
 
-## <a name="deploy-a-user-data-and-profiles-configuration-item"></a>Развертывание элемента конфигурации данных и профилей пользователя  
+8.  Conclua o assistente.  
 
-1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Профили и данные пользователя**.  
+ Os novos itens de configuração de perfis e dados do utilizador são mostrados no nó **Perfis e Dados do Utilizador** da área de trabalho **Ativos e Compatibilidade** .  
 
-3.  Выберите элемент конфигурации данных и профилей пользователя, который необходимо развернуть, а затем на вкладке **Главная** в группе **Развертывание** щелкните элемент **Развернуть**.  
+## <a name="deploy-a-user-data-and-profiles-configuration-item"></a>Implementar um item de configuração de perfis e dados do utilizador  
 
-4.  В диалоговом окне **Элемент конфигурации развертывания данных и профилей пользователя** укажите следующие сведения.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **perfis e dados de utilizador**.  
 
-    -   **Коллекция** — нажмите кнопку **Обзор** , чтобы выбрать коллекцию пользователей, в которой требуется развернуть элемент конфигурации.  
+3.  Selecione o item de configuração de perfis e dados do utilizador que pretende implementar e, em seguida, no separador **Início** , no grupo **Implementação** , clique em **Implementar**.  
+
+4.  Na caixa de diálogo **Implementar Item de Configuração de Perfis e Dados do Utilizador** , especifique as seguintes informações.  
+
+    -   **Coleção** - Clique em **Procurar** para selecionar a coleção do utilizador na qual pretende implementar o item de configuração.  
 
         > [!IMPORTANT]  
-        >  Элементы конфигурации данных и профилей пользователя можно развертывать только в коллекциях пользователей.  
+        >  Só pode implementar itens de configuração de dados e perfis de utilizador em coleções de utilizadores.  
 
-    -   **Исправлять несоответствующие параметры, когда это возможно** — включите этот параметр, чтобы автоматически исправлять все правила, оцениваемые как не соответствующие требованиям на клиентских компьютерах.  
+    -   **Remediar regras incompatíveis quando suportado** – Ative esta opção para retificar automaticamente quaisquer regras que sejam consideradas não compatíveis em computadores cliente.  
 
-    -   **Разрешить исправление за пределами периодов обслуживания** — если для коллекции, в которой развертывается элемент конфигурации, был настроен период обслуживания, установите этот флажок, чтобы разрешить исправление параметров соответствия за пределами периода обслуживания. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Permitir remediação fora da janela de manutenção** – Se uma janela de manutenção tiver sido configurada para a coleção onde pretende implementar o item de configuração, ative esta opção para que as definições de conformidade retifiquem o valor fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Создавать оповещение** — установите этот флажок, чтобы настроить предупреждение, которое будет создаваться, если соответствие элемента конфигурации меньше заданного процентного значения в указанную дату и время. Также можно указать, требуется ли отправлять оповещение в System Center Operations Manager.  
+    -   **Gerar um alerta** - Ative esta opção para configurar um alerta que é gerado se a compatibilidade do item de configuração for inferior a uma percentagem especificada por data e hora específicas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.  
 
-    -   **Укажите расписание проверки соответствия для этого элемента конфигурации** : укажите расписание проверки развернутого элемента конфигурации на клиентских компьютерах. Это может быть простое или настраиваемое расписание.  
+    -   **Especificar a agenda de avaliação de conformidade deste item de configuração** - Especifica o agendamento através do qual o item de configuração implementado é avaliado nos computadores cliente. Pode ser um agendamento simples ou personalizado.  
 
-5.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Элемент конфигурации развертывания данных и профилей пользователя** и создать развертывание.  
+5.  Clique em **OK** para fechar a caixa de diálogo **Implementar Item de Configuração de Perfis e Dados do Utilizador** e criar a implementação.  
 
-## <a name="monitor-a-user-data-and-profiles-configuration-item"></a>Мониторинг элемента конфигурации данных и профилей пользователя  
- Мониторинг этого типа элемента конфигурации осуществляется точно так же, как и мониторинг других параметров соответствия.  
+## <a name="monitor-a-user-data-and-profiles-configuration-item"></a>Monitorizar um item de configuração de perfis e dados do utilizador  
+ Monitorizar este tipo de item de configuração da mesma forma que monitoriza outras definições de compatibilidade.  
 
- Дополнительные сведения см. в разделе [Мониторинг параметров соответствия требованиям](../../compliance/deploy-use/monitor-compliance-settings.md).  
+ Para obter mais informações, consulte [como monitorizar as definições de compatibilidade](../../compliance/deploy-use/monitor-compliance-settings.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Регистрация устройств iOS по программе регистрации устройств (DEP) в Configuration Manager | Документы Майкрософт"
-description: "Включите регистрацию по программе регистрации устройств iOS (DEP) для гибридных развертываний в Configuration Manager с Intune."
+title: "Inscrever dispositivos iOS com o programa de inscrição de dispositivos (DEP) - Configuration Manager | Microsoft Docs"
+description: "Ative a inscrição do programa de inscrição de dispositivos (DEP) para implementações híbridas no Configuration Manager com o Intune para iOS."
 ms.custom: na
 ms.date: 08/15/2017
 ms.prod: configuration-manager
@@ -16,96 +16,96 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: e76e46ce0d6ee0582d5161709ff114b936ac5660
 ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/16/2017
 ---
-# <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>Регистрация по программе регистрации устройств iOS (DEP) для гибридных развертываний с использованием Configuration Manager
+# <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>inscrição do iOS Device Enrollment Program (DEP) para implementações híbridas com o Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Организации могут приобретать устройства iOS по программе регистрации устройств Apple, а затем управлять ими с помощью Microsoft Intune. Для управления корпоративными устройствами iOS с использованием программы регистрации устройств Apple (DEP) организациям следует выполнить необходимые действия в Apple, чтобы принять участие в программе и приобретать устройства с помощью этой программы. Подробные сведения об этом процессе доступны по адресу  [https://deploy.apple.com](https://deploy.apple.com). К преимуществам программы относится автоматическая настройка устройств без подключения каждого из них к порту USB компьютера.  
+As empresas podem comprar dispositivos iOS através do programa de inscrição de dispositivos da Apple e, em seguida, geri-los através do Microsoft Intune. Para gerir dispositivos iOS pertencentes à empresa com o Programa de Inscrição de Dispositivos (DEP) da Apple, as empresas têm de concluir os passos junto da Apple para participar no programa e adquirir dispositivos através do mesmo. Os detalhes desse processo estão disponíveis em:  [https://deploy.apple.com](https://deploy.apple.com). As vantagens do programa incluem a configuração automatizada de dispositivos sem ligar por USB cada dispositivo a um computador.  
 
- Перед регистрацией корпоративных устройств iOS с помощью программы DEP необходимо получить токен DEP от Apple. Этот маркер позволяет службе Intune синхронизировать сведения о корпоративных устройствах, участвующих в программе DEP. Он также позволяет Intune передавать профили регистрации в Apple и назначать им устройства.  
+ Antes de poder inscrever dispositivos iOS pertencentes à empresa com o DEP, precisa de um token do DEP da Apple. Este token permite ao Intune sincronizar informações sobre os participantes no DEP dispositivos pertencentes à. Também permite ao Intune carregue perfis de inscrição para a Apple e atribua dispositivos a esses perfis.  
 
-## <a name="apple-dep-enrollment-for-ios-devices"></a>Регистрация Apple DEP для устройств iOS  
- Ниже описываются процедуры указания устройств iOS, приобретенных по программе DEP компании Apple, в качестве корпоративных устройств, управляемых с помощью Intune. Когда пользователь впервые включает устройство, оно получает профиль управления DEP, запускается помощник по настройке и устройство регистрируется для управления.  
+## <a name="apple-dep-enrollment-for-ios-devices"></a>Inscrição através do Apple DEP de dispositivos iOS  
+ Os procedimentos seguintes descrevem como especificar os dispositivos iOS adquiridos através do DEP da Apple como gerido do Intune dispositivos pertencentes à empresa. Quando os powers primeiro utilizador até o dispositivo possa receber o perfil de gestão de DEP e executar o Assistente de configuração e colocá-los para gestão.  
 
-##  <a name="enable-dep-enrollment-in-configuration-manager-with-intune"></a>Включение регистрации DEP в Configuration Manager с Intune  
+##  <a name="enable-dep-enrollment-in-configuration-manager-with-intune"></a>Ativar a inscrição de DEP no Configuration Manager com Intune  
 
-1.  **Начало управления устройствами iOS с помощью Configuration Manager**   
-    Прежде чем регистрировать устройства iOS по программе регистрации устройств (DEP), необходимо выполнить инструкции в разделе [Настройка гибридного управления мобильными устройствами](../../mdm/deploy-use/setup-hybrid-mdm.md), включая [инструкции по обеспечению поддержки регистрации устройств iOS](../deploy-use/enroll-hybrid-ios-mac.md).
-2.  **Создание запроса токена DEP**   
-    В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Конфигурация иерархии**, затем узел **Облачные службы** и щелкните **Подписки Microsoft Intune**. Щелкните **Создать запрос токена DEP** на вкладке **Главная** , нажмите кнопку **Обзор** , чтобы указать расположение загрузки для запроса токена DEP, а затем нажмите кнопку **Загрузить**. Сохраните PEM-файл запроса токена DEP локально. PEM-файл используется для запроса доверенного токена (P7M) с портала программы регистрации устройств Apple.  
-3.  **Получение токена программы регистрации устройств**   
-    Перейдите на [портал программы регистрации устройств](https://deploy.apple.com) (https://deploy.apple.com) и выполните вход с идентификатором Apple ID. Этот идентификатор Apple ID в дальнейшем будет необходимо использовать для обновления маркера DEP.  
-    1.  В рабочей области [портал программы регистрации устройств](https://deploy.apple.com)перейдите в меню **Программа регистрации устройств** > **Управление серверами**и щелкните **Добавить сервер MDM**.  
-    2.  Введите **имя сервера MDM**и щелкните **Далее**. Имя сервера MDM используется в качестве справочной информации для идентификации сервера MDM. Это не имя или URL-адрес сервера Intune или Configuration Manager.  
-    3.  Откроется диалоговое окно **Добавление <имя_сервера\>**. Щелкните **Выбрать файл...** для отправки PEM-файла, созданного на предыдущем шаге, и нажмите кнопку **Далее**.  
-    4.  В диалоговом окне **Добавление <имя_сервера\>** отображается ссылка на **ваш токен сервера**. Загрузите файл маркера сервера (P7M) на свой компьютер и нажмите кнопку **Готово**.  
+1.  **Começar a gerir dispositivos iOS com o Configuration Manager**   
+    Antes de poder inscrever programa de inscrição de dispositivos (DEP) dispositivos iOS, tem de concluir os passos para [configurar a gestão de dispositivos móveis híbridos](../../mdm/deploy-use/setup-hybrid-mdm.md) incluindo [passos para suportar a inscrição do iOS](../deploy-use/enroll-hybrid-ios-mac.md).
+2.  **Criar um pedido de token DEP**   
+    Na consola do Configuration Manager, no **administração** área de trabalho, expanda **configuração da hierarquia**, expanda **serviços em nuvem**e clique em **subscrições do Microsoft Intune**. Clique em **Criar Pedido de Token DEP** no separador **Home Page** , clique em **Procurar** para especificar a localização da transferência para o pedido de token DEP e, em seguida, clique em **Transferir**. Guarde o ficheiro de pedido de token do DEP (.pem) localmente. O ficheiro .pem é serve para pedir um token fidedigno (.p7m) a partir do portal do Programa de Inscrição de Dispositivos da Apple.  
+3.  **Obter um token do Programa de Inscrição de Dispositivos**   
+    Aceda ao [portal do Programa de Inscrição de Dispositivos](https://deploy.apple.com) (https://deploy.apple.com) e inicie sessão com o Apple ID da sua empresa. Este ID Apple tem de ser utilizado no futuro para renovar o seu token do DEP.  
+    1.  Na consola do [portal do Programa de Inscrição de Dispositivos](https://deploy.apple.com), aceda a **Programa de Inscrição de Dispositivos** > **Gerir Servidores**e, em seguida, clique em **Adicionar Servidor MDM**.  
+    2.  Introduza o **Nome do Servidor MDM**e, em seguida, clique em **Seguinte**. O nome do servidor é uma referência para identificar o servidor MDM. Não é o nome ou URL do servidor do Intune ou do Configuration Manager.  
+    3.  O **adicionar < ServerName\>**  é aberta a caixa de diálogo. Clique em **Escolher ficheiro…** para carregar o ficheiro .pem que criou no passo anterior e, em seguida, clique em **Seguinte**.  
+    4.  O **adicionar < ServerName\>**  caixa de diálogo apresenta um **Token do seu servidor** ligação. Transfira o ficheiro de token (.p7m) do servidor para o seu computador e, em seguida, clique em **Concluído**.  
 
-     Этот файл сертификата (P7M-файл) используется для установления отношений доверия между Intune и серверами программы регистрации устройств Apple.  
-4.  **Добавление токена DEP в Configuration Manager**   
-    В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Конфигурация иерархии** и щелкните **Подписки Microsoft Intune**. Нажмите кнопку **Настроить платформы** на вкладке **Главная** и щелкните **iOS**. Выберите параметр **Включить программу регистрации устройств**, перейдите к файлу сертификата (P7M), нажмите кнопку **Открыть**, щелкните **Отправить**и нажмите кнопку **ОК**.  
+     Este ficheiro de certificado (.p7m) serve para estabelecer uma relação de confiança entre os servidores do Programa de Inscrição de Dispositivos do Intune e da Apple.  
+4.  **Adicionar o token do DEP ao Configuration Manager**   
+    Na consola do Configuration Manager, no **administração** área de trabalho, expanda **configuração da hierarquia** e clique em **subscrições do Microsoft Intune**. Clique em **Configurar Plataformas** no separador **Home Page** e, em seguida, clique em **iOS**. Selecione **Ativar o Programa de Inscrição de Dispositivos**, procure o ficheiro de certificado (.p7m), clique em **Abrir**, clique em **Carregar**e, em seguida, clique em **OK**.  
 
-## <a name="add-a-corporate-device-enrollment-policy"></a>Добавление корпоративной политики регистрации устройств  
+## <a name="add-a-corporate-device-enrollment-policy"></a>Adicionar uma política de inscrição de dispositivos da empresa  
 
-1. В рабочей области **Активы и соответствие** консоли Configuration Manager разверните узел **Обзор**, узел **Все корпоративные устройства**, затем — узел **iOS** и щелкните **Профили регистрации**. Нажмите кнопку **Создать профиль** на вкладке **Главная** , чтобы открыть мастер создания профилей. Настройте параметры на следующих страницах.  
-2. On the **Общие** настройте следующие параметры, затем нажмите кнопку **Далее**.  
-  -   **Имя** — имя профиля регистрации устройства. (Не отображается для пользователей.)  
-  -   **Описание** — описание профиля регистрации устройства. (Не отображается для пользователей.)  
-  -   **Сходство пользователей** (не отображается для пользователей) — указывает способ регистрации устройств. См. раздел [Сопоставление пользователей для устройств с гибридным управлением в Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
+1. Na consola do Configuration Manager, no **ativos e compatibilidade** área de trabalho, expanda **descrição geral**, expanda **todos os dispositivos pertencentes**, expanda **iOS**e clique em **perfis de inscrição**. Clique em **Criar Perfil** no separador **Home Page** para abrir o assistente Criar Perfil. Configure as definições nas seguintes páginas:  
+2. On the **Geral** , especifique as seguintes informações e clique em **Seguinte**.  
+  -   **Nome** – nome do perfil de inscrição de dispositivos. (Não visível aos utilizadores)  
+  -   **Descrição** -descrição do perfil de inscrição de dispositivos. (Não visível aos utilizadores)  
+  -   **Afinidade do utilizador** – especifica como os dispositivos são inscritos. Consulte [afinidade de utilizador para híbrida geridos dispositivos no Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
 
-      -  **Запрос на сходство пользователей**— устройство должно быть связано с пользователем во время начальной настройки и затем должно получить доступ к данным и электронной почте организации от имени этого пользователя.  Сопоставление пользователей необходимо настроить для устройств, управляемых DEP, которые принадлежат пользователям и должны использовать корпоративный портал (для установки приложений).  
+      -  **Pedido de afinidade de utilizador de**: O dispositivo tem de ser afiliado a um utilizador durante a configuração inicial e, em seguida, pode ser autorizado a aceder ao e-mail do utilizador e dados da empresa.  A afinidade de utilizador deve ser configurada para dispositivos geridos por DEP que pertencem aos utilizadores e que precisam de utilizar o portal da empresa (por exemplo, para instalar aplicações).  
       > [!NOTE]
-      > DEP с сопоставлением пользователей требует включения конечной точки ADFS WS-Trust 1.3 в режиме "Имя пользователя/Смешанный" для запроса токена пользователя.
+      > DEP com afinidade de utilizador requer o ponto final de nome de utilizador de 1.3 de WS-Trust de ADFS/Mixed esteja ativado para solicitar o token de utilizador.
 
-      -   **Без сходства пользователей**— устройство не связано с пользователем. Используйте эту принадлежность для устройств, которые выполняют задачи без осуществления доступа к локальным данным пользователя. Приложения, требующие сходства пользователей, не будут работать.  
-    ![Снимок экрана имени профиля DEP, описания и запроса на сопоставление пользователей](../media/dep-general.png)
+      -   **Sem afinidade de utilizador**: O dispositivo não está afiliado a um utilizador. Utilize esta afiliação em dispositivos que efetuem tarefas sem aceder aos dados de utilizador locais. As aplicações que precisem da afiliação de utilizador não funcionam.  
+    ![Nome do perfil de captura de ecrã do DEP, descrição e o pedido de afinidade de utilizador](../media/dep-general.png)
 
-3. На странице **Параметры программы регистрации устройств** укажите следующие сведения, а затем нажмите кнопку **Далее**.  
-    -   **Отдел** — отображается, когда пользователь выбирает пункт "О конфигурации" во время активации.  
-    -   **Телефон службы поддержки** — отображается, когда пользователь нажимает кнопку **Необходима помощь** во время активации.
-       ![Снимок экрана назначения профиля DEP устройствам iOS](../media/dep-settings.png)
+3. No **definições do programa de inscrição de dispositivos** página, especifique as seguintes informações e, em seguida, clique em **seguinte**.  
+    -   **Departamento**: Esta informação é apresentada quando os utilizadores tocam em "Sobre a configuração de" durante a ativação.  
+    -   **Número de telefone de suporte**: Apresentado quando o utilizador clica o **precisa de ajuda** botão durante a ativação.
+       ![Captura de ecrã de atribuição de perfil do DEP para dispositivos iOS](../media/dep-settings.png)
 
-    - **Режим подготовки** — это состояние устанавливается во время активации, и его нельзя изменить без сброса устройства до заводских настроек:  
-        -   **Неконтролируемый** — ограниченные возможности управления.  
-        -   **Контролируемый** — обеспечивает дополнительные возможности управления и отключает блокировку активации по умолчанию.  
-    - **Фиксировать профиль регистрации на устройстве** — это состояние устанавливается во время активации, и его нельзя изменить без сброса устройства до заводских настроек.  
-      -   **Отключить** — позволяет удалить профиль управления из меню **Параметры**.  
-      -   **Включить** (требуется выбрать **Режим подготовки** = **Контролируемый**) — отключает параметры iOS, которые делают возможным удаление профиля управления.  
+    - **Modo de preparação**: Este estado é definido durante a ativação e não pode ser alterado sem o dispositivo de reposição de fábrica:  
+        -   **Supervisionados** -capacidades de gestão limitadas  
+        -   **Supervisionado** - ativa mais opções de gestão e desativa o bloqueio de ativação por predefinição  
+    - **Bloquear perfil de inscrição no dispositivo**: Este estado é definido durante a ativação e não pode ser alterado sem uma reposição de fábrica.  
+      -   **Desativar** -permite que o perfil de gestão a ser removido o **definições** menu  
+      -   **Ativar** -(requer **modo de preparação** = **supervisionado**) desativa as definições do iOS que poderiam permitir a remoção do perfil de gestão  
 
-4.  На странице **Помощник по настройке** задайте необходимые параметры помощника по настройке iOS, применяемые при первом включении устройства, и нажмите кнопку **Далее**. Эти параметры включают:  
-  -   **Секретный код** — запрашивать секретный код во время активации. Всегда требовать секретный код, если устройство не защищено каким-либо другим способом или доступ к нему не контролируется иным образом (например, полноэкранный режим, который ограничивает устройство до одного приложения).  
-  -   **Службы определения местоположения** — если включено, помощник по установке будет запрашивать параметры службы во время активации.  
-  -   **Восстановление** — если включено, помощник по установке будет запрашивать параметры резервного копирования iCloud во время активации.  
-  -   **Идентификатор Apple ID** — идентификатор Apple ID необходим для скачивания приложений Магазина iOS App Store, включая те, которые были установлены с помощью Intune. Если включено, iOS будет запрашивать у пользователей идентификатор Apple ID, когда Intune попытается установить приложение без идентификатора.  
-  -   **Положения и условия** — если включено, помощник по установке предложит пользователям принять условия Apple во время активации.  
-  -   **Touch ID** — если включено, помощник по установке будет запрашивать параметры службы во время активации.
-  -   **Apple Pay** — если включено, помощник по установке будет запрашивать параметры службы во время активации.
-  -   **Zoom** — если включено, помощник по установке будет запрашивать параметры службы во время активации.
-  -   **Siri** — если включено, помощник по установке будет запрашивать параметры службы во время активации.  
-  -   **Отправить данные диагностики в Apple** — если включено, помощник по установке будет запрашивать параметры службы во время активации.  
-    ![Снимок экрана назначения профиля DEP устройствам iOS](../media/dep-setup-assistant.png)
-5.  На странице **Дополнительное управление** укажите, можно ли использовать USB-подключение для дополнительных параметров управления. При выборе параметра **Требовать сертификат**необходимо импортировать сертификат управления Apple Configurator для этого профиля.  Выберите значение **Запретить**, чтобы запретить синхронизацию файлов с iTunes и управление через Apple Configurator. Корпорация Майкрософт рекомендует выбрать значение **Запретить**, экспортировать все дальнейшие настройки из Apple Configurator, а затем выполнить развертывание в виде настраиваемого профиля конфигурации iOS вместо того, чтобы разрешать развертывание вручную с сертификатом или без него с помощью этого параметра.  
+4.  Na página **Assistente de Configuração** , configure as definições que personalizam o Assistente de Configuração iOS que inicia quando o dispositivo é ligado pela primeira vez e, em seguida, clique em **Seguinte**. Estas definições incluem:  
+  -   **Código de acesso** - pedido de código de acesso durante a ativação. Exigir sempre um código de acesso, a menos que o dispositivo esteja protegido ou tenha o acesso controlado de outra forma (ou seja, a modo de local público que restringe o dispositivo a uma aplicação).  
+  -   **Os serviços de localização** - se ativado, o Assistente de configuração solicita o serviço durante a ativação  
+  -   **Restaurar** - se ativado, o Assistente de configuração solicita para cópia de segurança de iCloud durante a ativação  
+  -   **Apple ID** -é necessário um ID Apple para transferir aplicações da loja de aplicações, incluindo as instaladas pelo Intune iOS. Se estiver ativada, iOS irá pedir aos utilizadores um ID Apple quando o Intune tenta instalar uma aplicação sem um ID.  
+  -   **Termos e condições** -se ativado, o Assistente de configuração solicita aos utilizadores que aceitem os termos e condições da Apple durante a ativação  
+  -   **Touch ID** - se ativado, o Assistente de configuração solicita este serviço durante a ativação
+  -   **Apple Pay** - se ativado, o Assistente de configuração solicita este serviço durante a ativação
+  -   **Zoom** - se ativado, o Assistente de configuração solicita este serviço durante a ativação
+  -   **Siri** - se ativado, o Assistente de configuração solicita este serviço durante a ativação  
+  -   **Enviar dados de diagnóstico para a Apple** - se ativado, o Assistente de configuração solicita este serviço durante a ativação  
+    ![Captura de ecrã de atribuição de perfil do DEP para dispositivos iOS](../media/dep-setup-assistant.png)
+5.  No **gestão adicional** página, especifique se uma ligação USB pode ser utilizada para definições de gestão adicional. Quando seleciona **necessitam de um certificado**, tem de importar um certificado de gestão do Apple Configurator para utilizar este perfil.  Definido como **não permitir** para impedir a sincronização de ficheiros com o iTunes ou de gestão através do Apple Configurator. A Microsoft recomenda que defina para **não permitir**, exporte qualquer configuração adicional do Apple Configurator e, em seguida, implementar como um perfil de configuração iOS personalizada, em vez de utilizar esta definição para permitir a implementação manual com ou sem um certificado.  
 
-  -   **Запретить** — запрещает обмен данными устройства через USB (отключает связывание).  
-  -   **Разрешить** — позволяет устройству взаимодействовать через USB-подключение с любым компьютером с Windows или Mac OS.  
-  -   **Требуется сертификат** — позволяет выполнить связывание с компьютером Mac с помощью сертификата, импортированного в профиль регистрации.  
+  -   **Não permitir** -impede o dispositivo de comunicar através de USB (desativa o emparelhamento)  
+  -   **Permitir** -permite que o dispositivo comunique através de uma ligação USB com qualquer PC ou Mac  
+  -   **Requer certificado**-permite o emparelhamento com um Mac com um certificado importado para o perfil de inscrição  
 
-## <a name="assign-dep-devices-for-management"></a>Назначение устройств DEP для управления
+## <a name="assign-dep-devices-for-management"></a>Atribuir dispositivos DEP para gestão
 
-1. Перейдите на [портал программы регистрации устройств](https://deploy.apple.com) (https://deploy.apple.com) и выполните вход с идентификатором Apple ID.
-2. Перейдите в меню **Программа развертывания** > **Программа регистрации устройств** > **Управление устройствами**. Укажите, каким образом вы будете **выбирать устройства**, предоставьте сведения об устройстве и укажите **серийный номер**и **номер заказа**для каждого устройства или **отправьте CSV-файл**. Затем выберите **Назначить серверу**, выберите <*имя_сервера*>, указанное в шаге 3, и нажмите кнопку **ОК**.  
+1. Aceda ao [portal do Programa de Inscrição de Dispositivos](https://deploy.apple.com) (https://deploy.apple.com) e inicie sessão com o Apple ID da sua empresa.
+2. Aceda a **Programa de Implementação** > **Programa de Inscrição de Dispositivos** > **Gerir Dispositivos**. Especifique como irá **Escolher Dispositivos**, forneça informações sobre o dispositivo e especifique detalhes por **Número de Série**e **Número da Encomenda**do dispositivo, ou como **Carregar Ficheiro CSV**. Em seguida, selecione **atribuir ao servidor** e selecione o <*ServerName*> que especificou no passo 3 e, em seguida, clique em **OK**.  
 
-3.  **Синхронизация устройств, управляемых DEP**   
-    В рабочей области **Активы и соответствие** последовательно выберите пункты **Все корпоративные устройства** > **Предварительно объявленные устройства**. На вкладке **Главная** нажмите кнопку **Синхронизация DEP**. Запрос на синхронизацию будет отправлен в Apple. После завершения синхронизации отображаются устройства, управляемые DEP.
+3.  **Sincronizar dispositivos geridos pelo DEP**   
+    No **ativos e compatibilidade** área de trabalho, aceda a **todos os dispositivos pertencentes** > **Predeclared dispositivos**. No separador **Home Page** , clique em **Sincronização DEP**. É enviado um pedido de sincronização para a Apple. Após a conclusão da sincronização, são apresentados os dispositivos geridos pelo DEP.
 
     > [!NOTE]
-    > В гибридной конфигурации операция синхронизации DEP запускается вручную. Для этого нужно нажать кнопку **Синхронизировать DEP** в консоли Configuration Manager.
+    > Na configuração híbrida, a operação de sincronização do DEP manualmente é acionada clicando **sincronização do DEP** na consola do Configuration Manager.
 
-4.  **Назначение профиля DEP**<br>В рабочей области **Активы и соответствие** последовательно выберите пункты **Все корпоративные устройства** > **iOS** > **Профили регистрации**. Выберите профиль регистрации DEP, а затем на вкладке **Главная** щелкните **Назначить устройствам**. Выберите устройства, которые будут использовать этот профиль регистрации, нажмите кнопку **Добавить**, а затем нажмите кнопку **ОК**.   
-     ![Снимок экрана назначения профиля DEP устройствам iOS](../media/dep-assign-profile.png)
+4.  **Atribuir perfil do DEP**<br>No **ativos e compatibilidade** área de trabalho, aceda a **todos os dispositivos pertencentes** > **iOS** > **perfis de inscrição**. Selecione o perfil de inscrição de DEP e, em seguida, no **home page** separador, clique em **atribuir aos dispositivos**. Selecione os dispositivos que irá utilizar este perfil de inscrição, clique em **adicionar**e, em seguida, clique em **OK**.   
+     ![Captura de ecrã de atribuição de perfil do DEP para dispositivos iOS](../media/dep-assign-profile.png)
 
-## <a name="distribute-devices-to-users"></a>Распределение устройств пользователям
-Теперь корпоративные устройства можно распределить между пользователями. Откроется диалоговое окно **Состояние регистрации** для управляемых устройств указывается как **Не связано** , пока устройство не будет включено и на нем не будет запущен помощник по настройке для регистрации устройства. При включении устройство iOS будет зарегистрировано для управления с помощью Intune.
+## <a name="distribute-devices-to-users"></a>Distribuir dispositivos pelos utilizadores
+Já pode dar os dispositivos pertencentes à empresa aos utilizadores. A caixa de diálogo **Estado de Inscrição** dos dispositivos geridos indica **Não contactado** até que o dispositivo seja ligado e execute o Assistente de Configuração para inscrever o dispositivo. Quando um dispositivo iOS é ativado, será inscrito para gestão pelo Intune.

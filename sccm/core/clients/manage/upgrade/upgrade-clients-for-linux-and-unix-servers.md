@@ -1,6 +1,6 @@
 ---
 itle: 'Upgrade clients | Microsoft Docs | Linux UNIX '
-description: "Обновите клиент на сервере Linux или UNIX в System Center Configuration Manager."
+description: Atualize um cliente num servidor Linux ou UNIX no System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,36 +17,36 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 394ba7c236c05cc90a3d7f99eb6146b15d620f11
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-upgrade-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Обновление клиентов для серверов Linux и UNIX в System Center Configuration Manager
+# <a name="how-to-upgrade-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Como atualizar clientes para servidores Linux e UNIX no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете обновить версию клиента для Linux и UNIX на компьютере до более новой версии клиента без удаления текущего клиента. Для этого нужно установить пакет установки клиента на компьютере с использованием свойства командной строки **-keepdb** . При установке клиента для Linux и UNIX существующие данные клиента заменяются на новые файлы клиента. Однако свойство командной строки **-keepdb** указывает процессу установки сохранить уникальный идентификатор клиента (GUID), локальную базу данных информации и хранилище сертификатов. Эта информация затем используется при новой установке клиента.  
+Pode atualizar a versão do cliente para Linux e UNIX num computador para uma versão mais recente do cliente, sem desinstalar previamente o cliente atual. Para o fazer, instale o novo pacote de instalação de cliente no computador, ao utilizar a propriedade **-keepdb** da linha de comandos. Quando o cliente para Linux e UNIX é instalado, substitui dados existentes do cliente pelos novos ficheiros do cliente. No entanto, o **- keepdb** propriedade de linha de comandos direciona o processo de instalação para reter o clientes Identificador exclusivo (GUID), base de dados local das informações e arquivo de certificados. Esta informação é seguidamente utilizada pela nova instalação do cliente.  
 
- Например, у вас есть компьютер RHEL5 x64 с клиентом из первоначального выпуска Configuration Manager для Linux и UNIX. Чтобы обновить этот клиент до версии из накопительного пакета обновления 1, вручную запустите скрипт **install** для установки применимого пакета клиента из накопительного пакета обновления 1 с добавлением параметра командной строки **-keepdb**. Используемая команда должна выглядеть примерно так: **./install -mp <имя_узла\> -sitecode <код\> -keepdb ccm-Universal-x64.<сборка\>.tar**  
+ Por exemplo, tem um computador RHEL5 x64 que executa o cliente a partir da versão original do cliente do Configuration Manager para Linux e UNIX. Para atualizar este cliente para a versão de cliente da atualização cumulativa 1, executar manualmente o **instalar** script para instalar o pacote de cliente aplicável a partir da atualização cumulativa 1, com a adição do **- keepdb** comutador de linha de comandos. A linha de comandos utiliza é semelhante ao seguinte: **. / instalar -mp < hostname\> - sitecode < código\> - keepdb ccm-Universal-x64. < criar\>. tar**  
 
-## <a name="how-to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Использование развертывания программного обеспечения для обновления клиента на серверах UNIX и Linux  
- Вы можете использовать развертывание программного обеспечения для обновления клиента для Linux и UNIX до новой версии. Однако клиент System Center Configuration Manager не может запустить скрипт установки нового клиента напрямую, так как для установки нового клиента сначала необходимо удалить текущий клиент. Это приведет к завершению клиентского процесса Configuration Manager, который запускает скрипт установки перед началом установки нового клиента. Чтобы успешно использовать развертывание программного обеспечения для установки нового клиента, необходимо запланировать запуск установки в будущем и его выполнение встроенной функцией планирования операционной системы.  
+## <a name="how-to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Como utilizar uma Implementação de Software para Atualizar o Cliente em Servidores Linux e UNIX  
+ Pode utilizar uma implementação de software para atualizar o cliente do UNIX para uma nova versão do cliente. No entanto, o cliente do System Center Configuration Manager não é possível executar diretamente o script de instalação para instalar o cliente novo porque a instalação de um novo cliente tem de desinstalar primeiro o cliente atual. Isto terminaria o processo de cliente do Configuration Manager que executa o script de instalação, antes do começo da instalação do cliente novo. Para utilizar com êxito uma implementação de software para instalar o cliente novo, tem de agendar a instalação iniciar num momento futuro e para ser executada pelas capacidades de agendamento incorporadas do sistema operativo.  
 
- Для этого используйте развертывание программного обеспечения, чтобы сначала скопировать файлы для нового пакета установки на клиентский компьютер, а затем разверните и выполните сценарий, чтобы запланировать время установки клиента. Этот скрипт использует встроенную команду операционной системы **at**, чтобы отложить запуск. Затем, после запуска скрипта, его работа контролируется клиентской операционной системой, а не клиентом Configuration Manager на компьютере. Это позволяет в командной строке, вызванной скриптом, сначала удалить клиент Configuration Manager, а затем установить новый клиент, завершив процесс обновления клиента на компьютере UNIX или Linux. После завершения обновления обновленный клиент остается под управлением Configuration Manager.  
+ Para tal, utilize uma implementação de software para, primeiro, copiar os ficheiros para o novo pacote de instalação do cliente para o computador cliente e, em seguida, implementar e executar um script para agendar o processo de instalação do cliente. O script utiliza incorporada do sistema operativo **em** comando para atrasar o início. Em seguida, quando o script é executado, a conclusão da operação é gerida pelo sistema operativo cliente e não o cliente de Configuration Manager no computador. Isto permite que a linha de comandos chamada pelo script desinstale primeiro o cliente do Configuration Manager e, em seguida, instalar o novo cliente, concluindo o processo de atualização do cliente no computador Linux ou UNIX. Após a conclusão da atualização, o cliente atualizado permanecerá gerido pelo Configuration Manager.  
 
- Используйте следующую процедуру, чтобы настроить развертывание программного обеспечения для обновления клиента для Linux и UNIX. Следующие шаги и примеры демонстрируют обновление компьютера RHEL5 x64 с первоначальным выпуском клиента до версии клиента накопительного пакета обновления 1.  
+ Utilize o procedimento seguinte para o ajudar a configurar uma implementação de software para atualizar o cliente para Linux e UNIX. Os seguintes passos e exemplos atualizam um computador RHEL5 x64 que executa a versão inicial do cliente para a versão de cliente da atualização cumulativa 1.  
 
-#### <a name="to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Использование развертывания программного обеспечения для обновления клиента на серверах UNIX и Linux  
+#### <a name="to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Para utilizar uma implementação de software para atualizar o cliente em servidores Linux e UNIX  
 
-1.  Скопируйте новый файл пакета установки клиента на компьютер, где установлен клиент Configuration Manager, который планируется обновить.  
+1.  Copie o novo ficheiro de pacote de instalação de cliente para o computador que executa o cliente do Configuration Manager que pretende atualizar.  
 
-     Например, вы можете разместить в пакет установки клиента и установить сценарий для накопительного пакета обновления 1 в следующем расположении на клиентском компьютере: **/tmp/PATCH**.  
+     Por exemplo, poderá colocar o pacote de instalação de cliente e instalar o script da atualização cumulativa 1 na seguinte localização do computador cliente: **/tmp/PATCH**  
 
-2.  Создайте скрипт для управления обновлением клиента Configuration Manager, а затем поместите копию скрипта в ту же папку на клиентском компьютере, где находятся файлы установки из шага 1.  
+2.  Criar um script para gerir a atualização do cliente do Configuration Manager e, em seguida, coloque uma cópia do script na mesma pasta no computador cliente, como ficheiros de instalação do cliente do passo 1.  
 
-     Скрипту не требуется определенное имя, но он должен содержать достаточно команд, чтобы использовать файлы установки из локальной папки на клиентском компьютере, а также для установки пакета клиента с помощью свойства командной строки **-keepdb**. Используйте свойство командной строки **-keepdb**, чтобы сохранить уникальный идентификатор текущего клиента для использования новым клиентом, который вы устанавливаете.  
+     O script não necessita de um nome específico, mas tem de conter linhas de comandos suficientes para utilizar os ficheiros de instalação de cliente a partir de uma pasta local no computador cliente e para instalar o pacote de instalação de cliente, utilizando o **- keepdb** propriedade de linha de comandos. Utilizar o **- keepdb** propriedade de linha de comandos para manter o identificador exclusivo do cliente atual para utilização pelo cliente novo que está a instalar.  
 
-     Например, создайте сценарий с именем **upgrade.sh** , содержащий следующие строки, и скопируйте его в папку **/tmp/PATCH** на клиентском компьютере:  
+     Por exemplo, crie um script com o nome **upgrade.sh** que contenha as linhas seguintes e, em seguida, copie-o para a pasta **/tmp/PATCH** no computador cliente:  
 
     ```  
     #!/bin/sh  
@@ -55,8 +55,8 @@ ms.lasthandoff: 08/07/2017
 
     ```  
 
-3.  Используйте развертывание программного обеспечения, чтобы каждый клиент использовал встроенную в компьютер команду **at** для выполнения сценария **upgrade.sh** с небольшой задержкой.  
+3.  Utilize a implementação de software para que cada cliente utilize o comando **at** incorporado nos computadores para executar o script **upgrade.sh** com um pequeno atraso antes de executar o script.  
 
-     Например, используйте следующую командную строку для запуска скрипта: **at -f /tmp/upgrade.sh -m now + 5 minutes**  
+     Por exemplo, utilize a seguinte linha de comandos para executar o script: **em -f /tmp/upgrade.sh -m agora + 5 minutos**  
 
- После успешного планирования выполнения сценария **upgrade.sh** клиент отправляет сообщение о состоянии, указывающее на успешное завершение развертывания программного обеспечения. Однако фактической установкой клиента затем, после задержки, управляет компьютер. После завершения обновления клиента проверьте установку, просмотрев файл **/var/opt/microsoft/scxcm.log** на клиентском компьютере. Кроме того, вы можете убедиться в том, что клиент установлен и взаимодействует с сайтом, просмотрев сведения о клиенте в узле **Устройства** рабочей области **Активы и соответствие** консоли Configuration Manager.  
+ Depois de o cliente agendar com êxito a execução do script **upgrade.sh** , o cliente envia uma mensagem de estado que indica que a implementação de software foi concluída com êxito. No entanto, a instalação atual do cliente é então gerida pelo computador, depois do atraso. Depois de concluída a atualização do cliente, valide a instalação ao rever o ficheiro **/var/opt/microsoft/scxcm.log** no computador cliente. Além disso, pode confirmar que o cliente é instalado e a comunicar com o site através da visualização dos detalhes do cliente no **dispositivos** o nó do **ativos e compatibilidade** área de trabalho na consola do Configuration Manager.  

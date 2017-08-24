@@ -1,6 +1,6 @@
 ---
-title: "Настройка инвентаризации программного обеспечения | Документы Майкрософт"
-description: "Настройте инвентаризацию программного обеспечения и исключите папки из инвентаризации программного обеспечения в Configuration Manager."
+title: "Configurar o inventário de software | Microsoft Docs"
+description: "Configurar o inventário de software e excluir pastas do inventário de software no Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,42 +17,42 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: e60cec71c425e5e42d450cbeee366528d4b42405
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Настройка инвентаризации программного обеспечения в System Center Configuration Manager
+# <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Como configurar inventário de software no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Эта процедура позволяет настроить параметры клиентов, используемые по умолчанию для инвентаризации оборудования и применяемые ко всем компьютерам в иерархии. Если требуется, чтобы эти параметры применялись только к некоторым компьютерам, создайте настраиваемый параметр для клиента устройства и назначьте его коллекции, содержащей компьютеры, которые будут включены в инвентаризацию программного обеспечения. Дополнительные сведения о создании настраиваемых параметров устройства см. в статье [Как настраивать параметры клиента в Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+ Este procedimento configura as predefinições de cliente para inventário de software e aplica-se a todos os computadores na sua hierarquia. Se pretender aplicar estas definições apenas a alguns computadores, crie uma definição de cliente de dispositivo personalizada e atribua-a uma coleção que contenha os computadores que pretende utilizar o inventário de software. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
-## <a name="to-configure-software-inventory"></a>Настройка инвентаризации программного обеспечения  
+## <a name="to-configure-software-inventory"></a>Para configurar o inventário de software  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** **Параметры клиента по умолчанию**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente****predefinições de cliente**.    
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  В диалоговом окне **Параметры по умолчанию** щелкните пункт **Инвентаризация программного обеспечения**.  
+5.  No **predefinições** diálogo caixa, escolha **inventário de Software**.  
 
-6.  В списке **Параметры устройства** настройте следующие значения.  
+6.  Na lista **Definições do Dispositivo** , configure os seguintes valores:  
 
-    -   **Включить инвентаризацию программного обеспечения для клиентов** — в раскрывающемся списке выберите **True**.  
+    -   **Ativar inventário de software nos clientes** - na lista pendente, selecione **verdadeiro**.  
 
-    -   **Расписание инвентаризации программного обеспечения и сбора файлов** — настройка интервала сбора клиентами файлов и данных инвентаризации.   
+    -   **Agendar software ficheiros e inventário coleção agenda** - configura o intervalo no qual os clientes recolhem inventário de software e ficheiros.   
 
-7.  Настройте требуемые параметры клиента. Список параметров клиента инвентаризации программного обеспечения, которые можно настроить, см. в разделе [Инвентаризация программного обеспечения](../../../../core/clients/deploy/about-client-settings.md#software-inventory) статьи [О параметрах клиентов в System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
+7.  Configure as definições de cliente de que necessita. Para obter uma lista das definições de cliente de inventário de software que pode configurar, consulte o [inventário de Software](../../../../core/clients/deploy/about-client-settings.md#software-inventory) secção o [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) tópico.  
 
- Заданные параметры будут применены к клиентским компьютерам при следующей загрузке политики клиента. Сведения о запуске получения политики для отдельного клиента см. в разделе [Управление клиентами в System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+ Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, veja [Como gerir clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 
 
-## <a name="to-exclude-folders-from-software-inventory"></a>Исключение папок из инвентаризации программного обеспечения  
+## <a name="to-exclude-folders-from-software-inventory"></a>Excluir pastas do inventário de software  
 
-1.  С помощью программы Notepad.exe создайте пустой файл с именем **Skpswi.dat**.  
+1.  Utilizando o Notepad.exe, crie um ficheiro vazio designado **Skpswi.dat**.  
 
-2.  Щелкните правой кнопкой мыши файл **Skpswi.dat** и выберите пункт **Свойства**. В окне свойств файла Skpswi.dat выберите атрибут **Скрытый** .  
+2.  Clique com o botão direito do rato no ficheiro **Skpswi.dat** e clique em **Propriedades**. Nas propriedades do ficheiro do ficheiro Skpswi.dat, selecione o atributo **Oculto** .  
 
-3.  Расположите файл **Skpswi.dat** в корне жесткого диска каждого клиента или структуры папок, которую требуется исключить из области инвентаризации ПО.  
+3.  Coloque o ficheiro **Skpswi.dat** na raiz de cada unidade de disco rígido cliente ou estrutura de pasta que pretenda excluir do inventário de software.  
 
 > [!NOTE]  
->  Инвентаризация ПО не будет запускаться снова на диске клиентского компьютера, если этот файл будет присутствовать на нем.
+>  O inventário de software só irá fazer de novo um inventário da unidade de cliente se este ficheiro for eliminado da unidade no computador cliente.

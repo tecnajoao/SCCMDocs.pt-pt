@@ -1,6 +1,6 @@
 ---
-title: "Создание и применение схем управления питанием | Документы Майкрософт"
-description: "Создание и применение схем управления питанием в System Center Configuration Manager."
+title: Criar e aplicar esquemas de energia | Microsoft Docs
+description: Criar e aplicar esquemas de energia no System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,97 +17,97 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: de81da31b524cebe8e820766a64ecc5fdb7e4771
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-and-apply-power-plans-in-system-center-configuration-manager"></a>Создание и применение схем управления питанием в System Center Configuration Manager
+# <a name="how-to-create-and-apply-power-plans-in-system-center-configuration-manager"></a>Como criar e aplicar esquemas de energia no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Функции управления питанием в System Center Configuration Manager позволяют применять к коллекциям компьютеров в иерархии схемы управления питанием, встроенные в Configuration Manager, а также создавать и применять собственные схемы. Ниже приведена процедура применения встроенной или настраиваемой схемы управления питанием к компьютерам.  
-
-> [!IMPORTANT]  
->  Схемы управления питанием Configuration Manager можно применять только к коллекциям устройств.  
-
- Если компьютер входит в несколько коллекций, к которым применяются различные схемы управления питанием, предпринимаются следующие действия.  
-
--   Схема управления питанием: если для компьютера применено несколько различных значений параметров управления питанием, используется наименее ограничительное значение.  
-
--   Время выхода из спящего режима: если для настольного компьютера применено несколько различных значений времени выхода из спящего режима, используется значение времени, наиболее близкое к полуночи.  
-
- Отчет **Компьютеры с несколькими схемами управления питанием** содержит список всех компьютеров, к которым применено несколько схем управления питанием. Он помогает идентифицировать компьютеры с конфликтующими параметрами управления питанием. Дополнительные сведения об отчетах управления питанием см. в статье [Отслеживание и планирование управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
+Gestão de energia no System Center Configuration Manager permite-lhe aplicar esquemas de energia que são fornecidas com o Configuration Manager para coleções de computadores na sua hierarquia ou criar os seus próprios esquemas de energia personalizados. Utilize o procedimento neste tópico para aplicar um esquema de energia incorporado ou personalizado a computadores.  
 
 > [!IMPORTANT]  
->  Параметры управления питанием, настроенные с помощью групповой политики Windows, переопределяют параметры, заданные с помощью функции управления питанием Configuration Manager.  
+>  Só pode aplicar esquemas de energia do Configuration Manager para coleções de dispositivos.  
 
- Ниже приведена процедура создания и применения схемы управления питанием Configuration Manager.  
+ Se um computador for membro de várias coleções, em que cada aplica esquemas de energia diferentes, serão executadas as seguintes ações:  
 
-### <a name="to-create-and-apply-a-power-plan"></a>Создание и применение схемы управления питанием  
+-   Esquema de energia: Se forem aplicados vários valores para definições de energia para um computador, é utilizado o valor menos restritivo.  
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+-   Hora de reativação: Se forem aplicadas várias horas de reativação a um computador de secretária, será utilizada a hora mais próxima da meia-noite.  
 
-2.  В рабочей области **Активы и соответствие** щелкните **Коллекции устройств**.  
+ Utilize o relatório **Computadores com Vários Esquemas de Energia** para apresentar todos os computadores com vários esquemas de energia aplicados aos mesmos. Isto pode ajudar a detetar os computadores que têm conflitos de energia. Para obter mais informações sobre os relatórios de gestão de energia, consulte [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
-3.  В списке **Коллекции устройств** выберите коллекцию, к которой требуется применить параметры управления питанием, затем на вкладке **Главная** в группе **Свойства** щелкните элемент **Свойства**.  
+> [!IMPORTANT]  
+>  Definições de energia configuradas utilizando a política de grupo do Windows irão substituir as definições configuradas pela gestão de energia do Configuration Manager.  
 
-4.  На вкладке **Управление питанием** окна *Свойства\>***<имя коллекции** установите флажок **Задать параметры управления питанием для этой коллекции**.  
+ Utilize o procedimento seguinte para criar e aplicar um esquema de energia do Configuration Manager.  
+
+### <a name="to-create-and-apply-a-power-plan"></a>Para criar e aplicar um esquema de energia  
+
+1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+
+2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Coleções de Dispositivos**.  
+
+3.  Na lista **Coleções de Dispositivos** , clique na coleção para a qual pretende aplicar as definições de gestão de energia e, em seguida, no separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+
+4.  No **gestão de energia** separador do *< nome da coleção\>***propriedades** caixa de diálogo, selecione **especificar definições de gestão de energia para esta coleção**.  
 
     > [!NOTE]  
-    >  Кроме того, можно нажать кнопку **Обзор** и затем скопировать параметры управления питанием из одной коллекции в другую.  
+    >  Também pode clicar em **Procurar** e, em seguida, copiar as definições de gestão de energia de uma determinada coleção para a coleção selecionada.  
 
-5.  В полях **Начало** и **Окончание** укажите время начала и окончания периода пиковой загрузки.  
+5.  Nos campos **Início** e **Fim** , especifique a hora de início e de fim das horas de pico (ou horário comercial).  
 
-6.  Включите параметр **Время пробуждения (настольные компьютеры)** , чтобы указать время пробуждения или выхода из режима гибернации настольного компьютера для установки запланированных обновлений и программ.  
+6.  Ative a **Hora de reativação (computadores de secretária)** para especificar a hora em que um computador de secretária será reativado da suspensão ou da hibernação para instalar atualizações agendadas ou instalar software.  
 
     > [!IMPORTANT]  
-    >  В управлении питанием для пробуждения компьютеров из спящего режима или гибернации используется встроенная функция времени пробуждения Windows. Параметры времени выхода из спящего режима не применяются к портативным компьютерам для предотвращения выхода из спящего режима в момент, когда они не подключены к сети. Время выхода из спящего режима задается произвольно, и компьютеры включаются в течение одного часа с заданного момента пробуждения.  
+    >  A gestão de energia utiliza a funcionalidade de hora de reativação interna do Windows para reativar os computadores do modo de suspensão ou hibernação. As definições de hora de reativação não se aplicam aos computadores portáteis, de modo a evitar cenários em que poderão ser reativados quando não estão ligados à corrente. A hora de reativação é aleatória e os computadores serão reativados durante um período de uma hora a partir da hora de reativação especificada.  
 
-7.  Если необходимо настроить собственную схему управления питанием для пиковых (рабочих) часов, выберите в раскрывающемся списке **Пиковая схема** значение **Настроенная пиковая (Configuration Manager)** и нажмите кнопку **Изменить**. Если необходимо настроить собственную схему управления питанием для непиковых (нерабочих) часов, выберите в раскрывающемся списке **Непиковая схема** значение **Настроенная непиковая (Configuration Manager)** и нажмите кнопку **Изменить**.  
-
-    > [!NOTE]  
-    >  Отчет **Активность компьютеров** можно использовать для создания расписаний для рабочего и нерабочего времени при применении схем управления питанием к коллекциям компьютеров. Дополнительные сведения см. в статье [Отслеживание и планирование управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
-
-     Можно также выбрать одну из встроенных схем ( **Сбалансированный (ConfigMgr)**, **Высокая производительность (ConfigMgr)** и **Экономия энергии (ConfigMgr)**), а затем нажать кнопку **Просмотр** для просмотра свойств выбранной схемы.  
+7.  Se pretender configurar um esquema de energia personalizada para as horas de pico (ou horário comercial), selecione **Pico Personalizado (ConfigMgr)** a partir da lista pendente **Esquema de pico** e clique em **Editar**. Se pretender configurar um esquema de energia para as horas fora de pico (ou horário não comercial), selecione **Fora de Pico Personalizado (ConfigMgr)** a partir do **Esquema fora de pico** na lista pendente e, em seguida, clique em **Editar**.  
 
     > [!NOTE]  
-    >  Встроенные схемы управления питанием изменять нельзя.  
+    >  Pode utilizar o relatório **Atividade do Computador** para o ajudar a decidir as agendas a utilizar para as horas de pico e fora de pico quando aplicar os esquemas de energia a coleções de computadores. Para obter mais informações, consulte [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
-8.  В диалоговом окне *Свойства\>***<имя схемы управления питанием** настройте следующие параметры.  
+     Também pode selecionar a partir de esquemas de energia incorporados, **Equilibrado (ConfigMgr)**, **Elevado Desempenho (ConfigMgr)** e **Poupança de Energia (ConfigMgr)**, e clicar em **Ver** para apresentar as propriedades de cada esquema de energia.  
 
-    -   **Имя:** укажите имя схемы управления питанием или используйте имеющееся имя по умолчанию.  
+    > [!NOTE]  
+    >  Não é possível modificar os esquemas de energia incorporados.  
 
-    -   **Описание:**  укажите описание схемы управления питанием или используйте имеющееся описание по умолчанию.  
+8.  No *< nome do plano de energia\>***propriedades** diálogo caixa, configure as seguintes definições:  
 
-    -   **Укажите свойства для этой схемы управления питанием:** настройте свойства схемы управления питанием. Для отключения свойства снимите флажок. Дополнительные сведения о доступных параметрах см. в разделе [Available power management plan settings](#BKMK_Plans) этой статьи.  
+    -   **Nome:** Especifique um nome para este esquema de energia ou utilize o valor predefinido fornecido.  
+
+    -   **Descrição:**  Especifique uma descrição para este esquema de energia ou utilize o valor predefinido fornecido.  
+
+    -   **Especifique as propriedades deste esquema de energia:** Configure as propriedades do plano de energia. Para desativar uma propriedade, desmarque a respetiva caixa de verificação. Para obter informações sobre as definições disponíveis, consulte [Available power management plan settings](#BKMK_Plans) neste tópico.  
 
         > [!IMPORTANT]  
-        >  Включенные параметры применяются к компьютерам при применении схемы управления питанием. При снятии флажка значение параметра на клиентских компьютерах не изменится при применении схемы управления питанием. Снятие флажка не приводит к восстановлению значения параметра управления питанием, существовавшего до применения схемы.  
+        >  As definições ativadas são aplicadas nos computadores quando o esquema de energia é aplicado. Se desmarcar a caixa de verificação de uma definição de energia, o valor no computador cliente não é alterado quando o esquema de energia é aplicado. Desmarcar uma caixa de verificação não restaura a definição de energia para o valor anterior antes de ter sido aplicado um esquema de energia.  
 
-9. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства\>***<имя схемы управления питанием**.  
+9. Clique em **OK** para fechar o *< nome do plano de energia\>***propriedades** caixa de diálogo.  
 
-10. Нажмите кнопку **ОК**, чтобы закрыть окно *Параметры\>***<имя коллекции** и применить схему управления питанием.  
+10. Clique em **OK** para fechar o *< nome da coleção\>***definições** caixa de diálogo e para aplicar o esquema de energia.  
 
 ##  <a name="BKMK_Plans"></a> Available power management plan settings  
- В таблице ниже приведены параметры управления питанием, доступные в Configuration Manager. Для питания компьютера от сети и от батареи можно применять разные параметры управления питанием. В зависимости от используемой версии ОС Windows некоторые параметры могут оказаться недоступными для настройки.  
+ A tabela seguinte lista as definições de gestão de energia disponíveis no Configuration Manager. Pode configurar diferentes definições para quando o computador está ligado à corrente ou em execução com energia da bateria. Dependendo da versão do Windows que estiver a utilizar, algumas definições poderão não ser configuráveis.  
 
 > [!NOTE]  
->  Параметры, значения которых не были настроены, сохраняют на клиентских компьютерах значения по умолчанию.  
+>  As definições de energia que não configurar irão manter o respetivo valor atual nos computadores cliente.  
 
-|Имя|Описание|  
+|Nome|Descrição|  
 |----------|-----------------|  
-|**Отключать экран через (мин.)**|Указывает период времени, в течение которого компьютер должен оставаться неактивным перед отключением экрана. Укажите значение **0** , если не следует отключать экран при помощи параметров управления питанием.|  
-|**Спящий режим через (мин.)**|Указывает период времени, в течение которого компьютер должен оставаться неактивным перед переходом в спящий режим. Укажите значение **0** , если не следует переводить компьютер в спящий режим при помощи параметров управления питанием.|  
-|**Запрос пароля при пробуждении**|Значение **Да** или **Нет** указывает, нужно ли запрашивать пароль для разблокирования компьютера при выходе из спящего режима.|  
-|**Действие кнопки питания**|Указывает действие при нажатии кнопки питания компьютера. Указывает действие, выполняемое при закрытии пользователем крышки портативного компьютера. Возможные значения — **Ничего не делать**, **Спящий режим**, **Режим гибернации** и **Завершение работы**.|  
-|**Кнопка питания меню "Пуск"**|Указывает действие, выполняемое при нажатии кнопки питания в меню **Пуск** . Указывает действие, выполняемое при закрытии пользователем крышки портативного компьютера. Возможные значения — **Спящий режим**, **Режим гибернации** и **Завершение работы**.|  
-|**Действие кнопки спящего режима**|Указывает действие, выполняемое при нажатии **Спящий режим** . Указывает действие, выполняемое при закрытии пользователем крышки портативного компьютера. Возможные значения — **Ничего не делать**, **Спящий режим**, **Режим гибернации** и **Завершение работы**.|  
-|**Действие закрытия крышки**|Указывает действие, выполняемое при закрытии пользователем крышки портативного компьютера. Возможные значения — **Ничего не делать**, **Спящий режим**, **Режим гибернации** и **Завершение работы**.|  
-|**Отключать жесткий диск через (мин.)**|Указывает период времени, в течение которого компьютер должен оставаться неактивным перед отключением жесткого диска. Укажите значение **0** , если не следует отключать жесткий диск при помощи параметров управления питанием.|  
-|**Режим гибернации через (мин.)**|Указывает период времени в минутах, в течение которого компьютер должен оставаться неактивным перед переходом в режим гибернации. Укажите значение **0** , если не следует переводить компьютер в режим гибернации при помощи параметров управления питанием.|  
-|**Действие низкого заряда батарей**|Указывает действие, выполняемое при достижении уровня заряда батареи указанного низкого значения. Указывает действие, выполняемое при закрытии пользователем крышки портативного компьютера. Возможные значения — **Ничего не делать**, **Спящий режим**, **Режим гибернации** и **Завершение работы**.|  
-|**Действие почти полной разрядке батарей**|Указывает действие, выполняемое при достижении уровня заряда батареи указанного критически низкого значения. Указывает действие, выполняемое при закрытии пользователем крышки портативного компьютера. Возможные значения — **Спящий режим**, **Режим гибернации** и **Завершение работы**.|  
-|**Разрешить гибридный спящий режим**|Значение **Включить** или **Отключить** указывает, следует ли ОС Windows сохранять файл гибернации при переходе в спящий режим (этот файл можно использовать для восстановления состояния компьютера при сбое питания в период, когда компьютер находится в спящем режиме).<br /><br /> Гибридный спящий режим предназначен для настольных компьютеров и по умолчанию выключен для портативных компьютеров. На компьютерах под управлением ОС Windows 7 включение гибридного спящего режима приводит к отключению режима гибернации.|  
-|**Разрешить состояние ожидания во время спящего действия**|Значение **Включить** или **Отключить** допускает переход компьютера в режим ожидания, в котором он потребляет электроэнергию, однако может быстро вернуться к работе. Если для этого параметра указано значение **Автономно**, компьютер может только перейти в режим гибернации или выключиться.|  
-|**Время простоя для перехода в спящий режим (%)**|Указывает необходимый процент времени простоя процессора компьютера для перехода в спящий режим. На компьютерах под управлением ОС Windows 7 для этого параметра всегда используется значение **0**.|  
-|**Включить таймер пробуждения Windows для настольных компьютеров**|Значение **Включить** или **Отключить** позволяет включить встроенный таймер Windows для использования функцией управления питанием в целях пробуждения настольных компьютеров. При пробуждении настольного компьютера при помощи таймера пробуждения Windows он по умолчанию пробуждается на 10 минут для установки обновлений или получения политики.<br /><br /> Таймеры пробуждения не поддерживаются на портативных компьютерах для предотвращения пробуждения в момент, когда они не подключены.|  
+|**Desligar o ecrã após (minutos)**|Especifica o período de tempo, em minutos, que o computador tem de estar inativo antes de o ecrã ser desativado. Especifique o valor **0** se não pretender que a gestão de energia desative o ecrã.|  
+|**Suspensão após (minutos)**|Especifica o período de tempo, em minutos, que o computador tem de estar inativo antes de ser suspenso. Especifique um valor de **0** se não pretender que a gestão de energia suspenda o computador.|  
+|**Pedir uma palavra-passe ao reativar**|A **Sim** ou **não** valor Especifica se uma palavra-passe é necessária para desbloquear o computador quando é reativado da suspensão.|  
+|**Ação do botão de energia**|Especifica a ação que é executada quando é premido o botão de energia do computador. Especifica a ação que ocorre quando o utilizador fecha a tampa de um computador portátil. Os valores possíveis **fazer nada**, **no modo de suspensão**, **hibernação**, e **Encerrar**.|  
+|**Botão de energia do menu Iniciar**|Especifica a ação que ocorre quando prime o botão de energia do menu **Iniciar** do computador. Especifica a ação que ocorre quando o utilizador fecha a tampa de um computador portátil. Os valores possíveis **no modo de suspensão**, **hibernação**, e **Encerrar**.|  
+|**Ação do botão de suspensão**|Especifica a ação que ocorre quando prime o botão **Suspender** do computador. Especifica a ação que ocorre quando o utilizador fecha a tampa de um computador portátil. Os valores possíveis **fazer nada**, **no modo de suspensão**, **hibernação**, e **Encerrar**.|  
+|**Ação de fechar a tampa**|Especifica a ação que ocorre quando o utilizador fecha a tampa de um computador portátil. Os valores possíveis **fazer nada**, **no modo de suspensão**, **hibernação**, e **Encerrar**.|  
+|**Desligar o disco rígido após (minutos)**|Especifica o período de tempo, em minutos, que o disco rígido do computador tem de estar inativo antes de ser desligado. Especifique um valor de **0** se não pretender que a gestão de energia desative o disco rígido do computador.|  
+|**Hibernar após (minutos)**|Especifica o período de tempo, em minutos, que o computador tem de estar inativo antes de ser hibernado. Especifique um valor de **0** se não pretender que a gestão de energia hiberne o computador.|  
+|**Ação de pouca bateria**|Especifica a ação que ocorre quando a bateria do computador atinge o nível de notificação de bateria baixa especificado. Especifica a ação que ocorre quando o utilizador fecha a tampa de um computador portátil. Os valores possíveis **fazer nada**, **no modo de suspensão**, **hibernação**, e **Encerrar**.|  
+|**Ação de bateria crítica**|Especifica a ação que é tomada quando a bateria do computador atinge o nível de notificação de bateria crítica especificado. Especifica a ação que ocorre quando o utilizador fecha a tampa de um computador portátil. Os valores possíveis incluem **no modo de suspensão**, **hibernação**, e **Encerrar**.|  
+|**Permitir suspensão híbrida**|Selecionar o **no** ou **desativar** valor Especifica se o Windows guarda um ficheiro de hibernação quando em suspensão, que podem ser utilizados para restaurar o estado do computador em caso de perda de energia enquanto entrou em suspensão.<br /><br /> A suspensão híbrida foi concebida para computadores de secretária e, por predefinição, não está ativada nos computadores portáteis. Em computadores que executem o Windows 7, ativar o modo de suspensão híbrida desativa a funcionalidade de hibernação.|  
+|**Permitir ação de estado de espera durante a suspensão**|Selecionar o **no** ou **desativar** valor permite que o computador esteja no modo de espera, ainda consome alguma energia, mas permite que o computador seja reativado mais rapidamente. Se esta definição estiver definida como **Desativada**, o computador só pode hibernar ou ser desligado.|  
+|**Inatividade necessária para suspender (%)**|Especifica a percentagem de tempo inativo no tempo de processador do computador necessária para o computador entrar no modo de suspensão. Para computadores com o Windows 7, este valor é sempre definido como **0**.|  
+|**Ativar o temporizador de reativação do Windows para computadores de secretária**|Selecionar o **ativar** ou **desativar** valor pode ativar o temporizador incorporado do Windows ser utilizado pela gestão de energia para reativar um computador de secretária. Quando um computador de secretária é reativado com o temporizador de reativação do Windows, permanecerá ativo durante dez minutos por predefinição, para ter tempo para instalar atualizações ou receber políticas.<br /><br /> Os temporizadores de reativação não são suportados em computadores portáteis para impedir cenários em que poderão ser reativados quando não estão ligados.|  

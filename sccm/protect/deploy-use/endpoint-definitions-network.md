@@ -1,6 +1,6 @@
 ---
-title: "Скачивание определений Endpoint Protection из сетевой папки | Документы Майкрософт"
-description: "Узнайте, как вручную загрузить последние обновления определений с сайта корпорации Майкрософт и затем настроить клиенты для скачивания этих определений."
+title: "Definições de software maligno do Endpoint Protection da partilha de rede | Microsoft Docs"
+description: "Saiba como transferir manualmente as atualizações de definições mais recentes da Microsoft e, em seguida, configure clientes para transferirem estas definições."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,42 +16,42 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 110bd9a9d04b27ef6794145fae66dbd910308bdc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enable-endpoint-protection-malware-definitions-to-download-from-a-network-share-for-configuration-manager"></a>Включение скачивания определений вредоносных программ Endpoint Protection из сетевой папки для Configuration Manager
+# <a name="enable-endpoint-protection-malware-definitions-to-download-from-a-network-share-for-configuration-manager"></a>Ativar as definições de software maligno do Endpoint Protection transferir a partir de uma partilha de rede para o Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Вы можете вручную загрузить последние обновления определений из корпорации Майкрософт и затем настроить клиенты для загрузки этих определений из общей папки в сети. Когда вы используете этот источник обновления, пользователи также могут инициировать обновления.
+ Pode transferir manualmente as atualizações de definições mais recentes da Microsoft e, em seguida, configurar os clientes para transferirem estas definições a partir de uma pasta partilhada na rede. Os utilizadores também podem iniciar atualizações de definições quando utiliza esta origem de atualização.
 
 > [!NOTE]
->  Чтобы загружать обновления определений, клиенты должны иметь доступ на чтение общей папки.
+>  Os clientes têm de ter acesso de leitura à pasta partilhada para conseguirem transferir as atualizações de definições.
 
- Дополнительные сведения о скачивании обновлений определений и антивирусного модуля для сохранения в общей папке см. в разделе [Установка последнего антивредоносного и антишпионского ПО Майкрософт](http://www.microsoft.com/security/portal/Definitions/HowToForeFront.aspx).
+ Para obter mais informações sobre como transferir as atualizações de definições e de motor para armazenar na partilha de ficheiros, consulte [instalar o software mais recente do antimalware e antisspyware Microsoft](http://www.microsoft.com/security/portal/Definitions/HowToForeFront.aspx).
 
-## <a name="to-configure-definition-downloads-from-a-file-share"></a>Настройка загрузки определений из общей папки
+## <a name="to-configure-definition-downloads-from-a-file-share"></a>Para configurar transferências de definições a partir de uma partilha de ficheiros
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
+1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
 
-2.  В рабочей области **Активы и соответствие** разверните узел **Endpoint Protection**и щелкните **Политики защиты от вредоносных программ**.
+2.  Na área de trabalho **Ativos e Compatibilidade** , expanda **Endpoint Protection**e clique em **Políticas Antimalware**.
 
-3.  Откройте страницу свойств **политики защиты от вредоносных программ по умолчанию** или создайте новую политику защиты от вредоносных программ. Дополнительные сведения о создании политик защиты от вредоносных программ см. в разделе [Создание и развертывание политик защиты от вредоносных программ для Endpoint Protection в System Center Configuration Manager](endpoint-antimalware-policies.md).
+3.  Abra a página de propriedades da **Política Antimalware Predefinida** ou crie uma nova política antimalware. Para obter mais informações sobre como criar políticas antimalware, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-4.  В разделе **Обновления определений** диалогового окна свойств защиты от вредоносных программ щелкните **Задать источник**.
+4.  Na secção **Atualizações da definição** da caixa de diálogo de propriedades de antimalware, clique em **Definir Origem**.
 
-5.  В диалоговом окне **Настройка источников обновления определений** выберите **Обновления из общих папок в формате UNC**.
+5.  Na caixa de diálogo **Configurar Origens de Atualização da Definição** , selecione **Atualizações a partir de partilhas de ficheiros UNC**.
 
-6.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Настройка источников обновления определений** .
+6.  Clique em **OK** para fechar a caixa de diálogo **Configurar Origens de Atualização da Definição** .
 
-7.  Нажмите кнопку **Задать пути**. Затем в диалоговом окне **Настройка UNC-путей обновления определений** добавьте UNC-пути к расположению файлов обновлений определений на общем сетевом ресурсе.
+7.  Clique em **Definir Caminhos**. Em seguida, na caixa de diálogo **Configurar Caminhos UNC de Atualização da Definição** , adicione um ou mais caminhos UNC para a localização dos ficheiros de atualizações de definições numa partilha de rede.
 
-8.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Настройка UNC-путей обновления определений** .
+8.  Clique em **OK** para fechar a caixa de diálogo **Configurar Caminhos UNC de Atualização da Definição** .
 
-
-> [!div class="button"]
-[Следующий этап >](endpoint-antimalware-policies.md)
 
 > [!div class="button"]
-[Назад >](endpoint-configure-alerts.md)
+[Passo seguinte >](endpoint-antimalware-policies.md)
+
+> [!div class="button"]
+[Volta >](endpoint-configure-alerts.md)

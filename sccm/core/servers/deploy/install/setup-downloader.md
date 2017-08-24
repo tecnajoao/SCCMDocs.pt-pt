@@ -1,6 +1,6 @@
 ---
-title: "Загрузчик программы установки | Документы Майкрософт"
-description: "Узнайте об этом автономном приложении, предназначенном для обеспечения актуальности ключевых файлов при установке сайта."
+title: "Transferência de configuração | Microsoft Docs"
+description: "Leia sobre esta aplicação autónoma concebida para garantir que a instalação de site utiliza as versões atuais dos ficheiros de instalação chave."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,80 +16,80 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b72148ecc16141843178cbd220fe021fab8be992
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="setup-downloader-for-system-center-configuration-manager"></a>Загрузчик программы установки для System Center Configuration Manager
+# <a name="setup-downloader-for-system-center-configuration-manager"></a>Dispositivo de transferência da configuração do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Прежде чем запускать программу установки для установки или обновления сайта System Center Configuration Manager, можно использовать автономное приложение загрузчика программы установки из версии Configuration Manager, которую вы хотите установить, чтобы скачать обновленные файлы программы установки.  
+Antes de executar a configuração para instalar ou atualizar um site do System Center Configuration Manager, pode utilizar a aplicação autónoma do programa de configuração da versão do Configuration Manager que pretende instalar para transferir ficheiros de configuração atualizados.  
 
-Использование обновленных файлов установки позволяет обеспечить актуальность ключевых файлов при установке сайта. В обзоре:   
--   При скачивании файлов с помощью загрузчика перед запуском программы установки необходимо указать папку для сохранения файлов.  
--   Учетная запись, используемая для запуска загрузчика программы установки, должна иметь разрешения **полного доступа** для папки загрузки.  
--   При запуске программы установки для установки или обновления сайта вы можете использовать для нее локальную копию ранее скачанных файлов. Это устраняет потребность в подключении к ресурсам корпорации Майкрософт при запуске установки или обновления сайта.  
--   Одну локальную копию файлов установки вы можете использовать для последующих установок или обновлений сайта.  
+Utilizar ficheiros de configuração atualizados garante que a instalação de site utiliza as versões atuais dos ficheiros de instalação chave. No oveview:   
+-   Quando utilizar o dispositivo de transferência da configuração para transferir ficheiros antes de iniciar a configuração, especifique uma pasta que contém os ficheiros.  
+-   A conta utilizada para executar o programa de configuração tem de ter **controlo total** permissões para a pasta de transferência.  
+-   Quando executar a configuração para instalar ou atualizar um site, pode direcionar o mesmo para utilizar esta cópia local dos ficheiros que transferiu anteriormente. Isto impede que o formulário da configuração terem de se ligar à Microsoft quando iniciar a instalação do site ou a atualização.  
+-   Pode utilizar a mesma cópia local dos ficheiros de configuração para o site subsequentes instalações ou atualizações.  
 
-Загрузчик программы установки скачивает следующие типы файлов:  
--   Распространяемые файлы необходимых условий  
--   Языковые пакеты  
--   Последние обновления для программы установки  
+Os seguintes tipos de ficheiros são transferidos pelo dispositivo de transferência da configuração:  
+-   Ficheiros redistribuíveis dos pré-requisitos necessários  
+-   Pacotes de idiomas  
+-   As atualizações mais recentes do produto para a configuração  
 
-Существуют два варианта запуска загрузчика программы установки.
-- Запуск приложения с помощью пользовательского интерфейса
-- Для параметров командной строки запуск приложения из командной строки
+Tem duas opções para executar o programa de configuração:
+- Executar a aplicação com a interface de utilizador
+- Para obter opções da linha de comandos, executadas a aplicação numa linha de comandos
 
 
-## <a name="run-setup-downloader-with-the-user-interface"></a>Запуск загрузчика программы установки с помощью пользовательского интерфейса  
+## <a name="run-setup-downloader-with-the-user-interface"></a>Execute o programa de configuração com a interface de utilizador  
 
-1.  На компьютере с доступом к Интернету откройте Проводник Windows и перейдите к папке **&lt;ConfigMgrInstallationMedia\>\SMSSETUP\BIN\X64**.  
+1.  Num computador que tenha acesso à Internet, abra o Explorador do Windows e aceda a  **&lt;Suportededadosdeinstalaçãodoconfigmgr\>\SMSSETUP\BIN\X64**.  
 
-2.  Чтобы открыть загрузчик программы установки, дважды щелкните файл **setupdl.exe**.   
+2.  Para abrir o dispositivo de transferência da configuração, faça duplo clique **Setupdl.exe**.   
 
-3. Укажите путь к папке, где будут находиться обновленные файлы установки, а затем нажмите кнопку **Загрузить**. Затем загрузчик программы установки проверит файлы в папке загрузки. Он загрузит отсутствующие файлы и файлы более новой версии. Загрузчик программы установки создаст вложенные папки для загруженных языков и другие необходимые вложенные папки.  
+3. Especifique o caminho para a pasta que irá alojar os ficheiros de instalação atualizados e, em seguida, clique em **transferir**. Dispositivo de transferência da configuração verifica os ficheiros que estão atualmente na pasta de transferência. Transfere apenas os ficheiros que estão em falta ou que são mais recentes do que os ficheiros existentes. Dispositivo de transferência da configuração cria subpastas para idiomas transferidos e outras subpastas necessárias.  
 
-4.  Чтобы просмотреть результаты загрузки, откройте файл **ConfigMgrSetup.log** в корне диска C.  
+4.  Para rever os resultados da transferência, abra o **ConfigMgrSetup.log** ficheiro no diretório de raiz da unidade C.  .  
 
-## <a name="run-setup-downloader-from-a-command-prompt"></a>Запуск загрузчика программы установки из командной строки  
+## <a name="run-setup-downloader-from-a-command-prompt"></a>Executar o programa de configuração numa linha de comandos  
 
-1.  В окне командной строки перейдите к папке **&lt;*установочный носитель Configuration Manager*\>\SMSSETUP\BIN\X64**.   
+1.  Na janela de linha de comandos, vá para  **&lt;* suporte de instalação do Configuration Manager*\>\SMSSETUP\BIN\X64**.   
 
-2.  Чтобы открыть загрузчик программы установки, запустите **setupdl.exe**.
+2.  Para abrir o dispositivo de transferência da configuração, execute **Setupdl.exe**.
 
-    С файлом **setupdl.exe** можно использовать следующие параметры командной строки.   
+    Pode utilizar as seguintes opções da linha de comandos com **Setupdl.exe**:   
 
-    -   **/VERIFY**: используйте этот параметр, чтобы проверить файлы в папке загрузки, включая языковые файлы. Найдите файл ConfigMgrSetup.log в корне диска C и просмотрите список устаревших файлов. При использовании этого параметра загрузка файлов не выполняется.  
+    -   **/ VERIFICAR**: Utilize esta opção para verificar os ficheiros na pasta de transferência, que incluem ficheiros de idioma. Reveja o ficheiro do ficheiro configmgrsetup.log, localizado no diretório de raiz da unidade C para obter uma lista de ficheiros que estão desatualizados. Não são transferidos ficheiros quando utiliza esta opção.  
 
-    -   **/VERIFYLANG**: используйте этот параметр, чтобы проверить языковые файлы в папке загрузки. Найдите файл ConfigMgrSetup.log в корне диска C и просмотрите список устаревших языковых файлов.
+    -   **/ VERIFYLANG**: Utilize esta opção para verificar os ficheiros de idioma na pasta de transferência. Reveja o ficheiro do ficheiro configmgrsetup.log, localizado no diretório de raiz da unidade C para obter uma lista de ficheiros de idioma que estão desatualizados.
 
-    -   **/LANG**: используйте этот параметр, чтобы загрузить в папку загрузки только языковые файлы.  
+    -   **/ LANG**: Utilize esta opção para transferir os ficheiros de idioma para a pasta de transferência.  
 
-    -   **/NOUI**: используйте этот параметр, чтобы запустить загрузчик программы установки без отображения пользовательского интерфейса. В этом случае в командной строке необходимо указать **путь загрузки**.  
+    -   **/SEMIU**: Utilize esta opção para iniciar o dispositivo de transferência da configuração sem apresentar a interface de utilizador. Quando utilizar esta opção, tem de especificar o **caminho de transferência** como parte do comando na linha de comandos.  
 
-    -   **&lt;DownloadPath\>**: укажите путь к папке загрузки, чтобы автоматически запустить процесс проверки или загрузки. Путь загрузки указывается при использовании параметра **/NOUI**. Если путь загрузки не указан, это следует сделать после открытия загрузчика программы установки. Если папка не существует, загрузчик создаст ее.  
+    -   **&lt;Caminhodatransferência\>**: Pode especificar o caminho para a pasta de transferência para iniciar automaticamente a verificação ou processo de transferência. Tem de especificar o caminho de transferência quando utilizar o **/NOUI** opção. Se não especificar um caminho de transferência, tem de especificar o caminho quando o dispositivo de transferência da configuração abre. Dispositivo de transferência da configuração cria uma pasta, se não existir.  
 
-    Примеры команд:
+    Comandos de exemplo:
 
-    -   **setupd &lt;DownloadPath\>**  
+    -   **setupd &lt;Caminhodatransferência\>**  
 
-        -   Запускается загрузчик программы установки, который проверяет файлы в указанной папке скачивания и скачивает отсутствующие файлы и файлы более новой версии.     
+        -   Dispositivo de transferência da configuração é iniciado, verifica os ficheiros na pasta de transferência especificada e, em seguida, transfere apenas os ficheiros que estão em falta ou que tenham versões mais recentes de ficheiros existentes.     
 
-    -   **setupdl /VERIFY &lt;DownloadPath\>**  
+    -   **setupdl /VERIFY &lt;Caminhodatransferência\>**  
 
-        -   Запустится загрузчик программы установки и проверит файлы в указанной папке загрузки.  
+        -   Dispositivo de transferência da configuração é iniciado e verifica os ficheiros na pasta de transferência especificada.  
 
-    -   **setupdl /NOUI &lt;DownloadPath\>**  
+    -   **setupdl /NOUI &lt;Caminhodatransferência\>**  
 
-        -   Запускается загрузчик программы установки, который проверяет файлы в указанной папке скачивания и скачивает отсутствующие файлы и файлы более новой версии.  
+        -   Dispositivo de transferência da configuração é iniciado, verifica os ficheiros na pasta de transferência especificada e, em seguida, transfere apenas os ficheiros que estão em falta ou que são mais recentes do que os ficheiros existentes.  
 
-    -   **setupdl /LANG &lt;DownloadPath\>**  
+    -   **setupdl /LANG &lt;Caminhodatransferência\>**  
 
-        -   Запускается загрузчик программы установки, который проверяет языковые файлы в указанной папке скачивания и скачивает отсутствующие языковые файлы и файлы более новой версии.  
+        -   Dispositivo de transferência da configuração é iniciado, verifica os ficheiros de idioma na pasta de transferência especificada e, em seguida, transfere apenas os ficheiros de idioma que estão em falta ou que são mais recentes do que os ficheiros existentes.  
 
     -   **setupdl /VERIFY**  
 
-        -   Запустится загрузчик программы установки, после чего необходимо будет указать путь к папке загрузки. Затем после нажатия кнопки **Проверить** загрузчик программы установки проверит файлы в папке загрузки.  
+        -   Configuração é iniciado de dispositivo de transferência e, em seguida, tem de especificar o caminho para a pasta de transferência. Em seguida, depois de clicar em **verifique**, o dispositivo de transferência da configuração verifica os ficheiros na pasta de transferência.  
 
-3.  Чтобы просмотреть результаты загрузки, откройте файл **ConfigMgrSetup.log** в корне диска C.
+3.  Para rever os resultados da transferência, abra o **ConfigMgrSetup.log** ficheiro no diretório de raiz da unidade C.

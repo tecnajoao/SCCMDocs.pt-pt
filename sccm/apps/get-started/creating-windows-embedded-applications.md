@@ -1,6 +1,6 @@
 ---
-title: "Создание приложений Windows Embedded | Документы Майкрософт"
-description: "Узнайте, какие аспекты необходимо учитывать при создании и развертывании приложений для устройств Windows Embedded."
+title: "Criar aplicações Windows Embedded | Microsoft Docs"
+description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações para dispositivos Windows Embedded."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,36 +16,36 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: cb0c22f3060ba654778dca958d620f1e1725b93c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-embedded-applications-with-system-center-configuration-manager"></a>Создание приложений Windows Embedded с помощью System Center Configuration Manager
+# <a name="create-windows-embedded-applications-with-system-center-configuration-manager"></a>Criar aplicações Windows Embedded com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Наряду с другими требованиями и процедурами System Center Configuration Manager по созданию приложения необходимо принять во внимание следующие аспекты, касающиеся создания и развертывания приложений для устройств Windows Embedded.  
+Para além de outros requisitos do System Center Configuration Manager e procedimentos para criar uma aplicação, terá também de ter em conta as seguintes considerações ao criar e implementar aplicações para dispositivos Windows Embedded.  
 
-## <a name="general-considerations"></a>Общие вопросы  
+## <a name="general-considerations"></a>Considerações gerais  
 
--   При развертывании приложений на устройствах Windows Embedded с включенными фильтрами записи можно указать необходимость отключения фильтров записи на устройстве в ходе развертывания. После развертывания приложения фильтр записи можно перезапустить. Если фильтр записи не отключен, программное обеспечение развертывается во временный оверлей. Это означает, что его установка уже не будет выполнена после перезапуска устройства, если только другое развертывание не обеспечит принудительное сохранение изменений.  
+-   Ao implementar aplicações em dispositivos Windows Embedded que estão ativados para filtragem de escrita, pode especificar se pretende desativar o filtro de escrita no dispositivo durante a implementação da aplicação. Em seguida, pode optar por reiniciar o filtro de escrita após a implementação de aplicação. Se o filtro de escrita não estiver desativado, o software é implementado numa sobreposição temporária. Isto significa que, a menos que outra implementação Force a manter as alterações, o software será já não é instalado quando o dispositivo for reiniciado.  
 
--   При развертывании приложения на устройстве Windows Embedded последнее должно входить в коллекцию с настроенным периодом обслуживания. Это позволит управлять включением и отключением фильтра записи, а также перезапуском устройства.  
+-   Ao implementar uma aplicação num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada. Desta forma, poderá gerir a desativação e a ativação do filtro de escrita, bem como o reinício do dispositivo.  
 
--   Параметр, отвечающий за режим работы фильтра записи, называется **Применить изменения при наступлении крайнего срока или во время периода обслуживания (требуется перезагрузка)**.  
+-   A definição que controla o comportamento do filtro de escrita consiste numa caixa de verificação designada **Confirmar alterações dentro do prazo ou durante uma janela de manutenção (requer reinicialização)**.  
 
-## <a name="tips-for-deploying-applications"></a>Советы по развертыванию приложений  
+## <a name="tips-for-deploying-applications"></a>Sugestões para implementar aplicações  
 
-**Используйте обязательные приложения вместо доступных приложений для устройств Windows Embedded, где включены фильтры записи.** Так как пользователи не могут устанавливать приложения из центра программного обеспечения на устройстве Windows Embedded с включенными фильтрами записи, приложения на таких устройствах всегда следует развертывать как **обязательные**, а не **доступные** с точки зрения цели развертывания. Как правило, это не будет проблемой, так как компьютеры с операционной системой Windows Embedded часто запускаются с одним приложением, которое должно выполняться одним и тем же образом для нескольких пользователей. Из-за этого такие устройства являются высокоуправляемыми и блокируются ИТ-отделом. Обязательные приложения подходят для этого сценария.
+**Utilize aplicações necessárias em vez de aplicações disponíveis para dispositivos Windows Embedded que tenham filtros de escrita ativados.** Como os utilizadores não podem instalar aplicações do Centro de Software num dispositivo Windows Embedded com filtros de escrita ativados, implemente sempre as aplicações com um objetivo de implementação **necessário** vez **disponíveis** nestes dispositivos. Normalmente, este não é um problema porque os computadores que executam um sistema operativo Windows Embedded, muitas vezes, executar uma única aplicação que deve ser executada da mesma forma para vários utilizadores. Por este motivo, estes dispositivos são altamente geridos e bloqueados pelo departamento de TI. As aplicações necessárias são ideais para este cenário.
 
- Если же пользователи запускают больше одного приложения на встраиваемых устройствах, то при включении фильтров записи следует сообщить этим пользователям о следующих ограничениях:  
+ No entanto, se os utilizadores executarem mais de uma aplicação em dispositivos incorporados quando os filtros de escrita estiverem ativados, informe estes utilizadores sobre as seguintes limitações:  
 
--   Пользователи не смогут установить требуемое программное обеспечение из центра программного обеспечения.  
+-   Os utilizadores não podem instalar o software necessário a partir do Centro de Software.  
 
--   Пользователи не могут изменять свои рабочие часы на вкладке «Параметры» центра программного обеспечения.  
+-   Os utilizadores não podem alterar o seu horário comercial no separador Opções do Centro de Software.  
 
--   Пользователи не смогут откладывать установку необходимых приложений.  
+-   Os utilizadores não podem adiar a instalação de uma aplicação necessária.  
 
-Кроме того, пользователи с ограниченными правами не смогут войти в систему в течение периода обслуживания, если Configuration Manager фиксирует изменения для установок и обновлений программного обеспечения. В течение этого периода пользователи видят сообщение о том, что устройство недоступно, поскольку идет обслуживание.  
+Além disso, os utilizadores direitos limitados não podem iniciar sessão durante um período de manutenção se o Configuration Manager está a consolidar as alterações para instalações de software e atualizações. Durante este período, os utilizadores veem uma mensagem a informá-los de que o dispositivo não está disponível porque está em manutenção.  
 
-**Не следует развертывать приложения на устройствах Windows Embedded с включенными фильтрами записи, если пользователь должен принять условия лицензии.** Когда фильтры записи отключены и Configuration Manager может устанавливать программное обеспечение на встраиваемых устройствах, пользователи с ограниченными правами не могут войти в систему на устройстве. Если при установке пользователь должен принять условия лицензионного соглашения, это будет невозможно и установка закончится неудачей. Убедитесь, что вы не развертываете программное обеспечение на устройствах Windows Embedded, если оно требует взаимодействия с пользователем. Вы можете использовать список «Применимые платформы» для фильтрации этих операционных систем.  
+**Não implemente aplicações para Windows Embedded dispositivos que tenham filtros de escrita ativados se as aplicações exigirem que o utilizador aceite os termos de licenciamento.** Quando os dispositivos embedded escrita filtros estão desativados para que o Configuration Manager pode instalar software, utilizadores com direitos limitados não podem iniciar sessão no dispositivo. Se a instalação exigir que o utilizador aceite os termos de licenciamento, isto não será possível e a instalação falhará. Certifique-se de que não implementa software em dispositivos Windows Embedded se a instalação exigir a interação do utilizador. Pode utilizar a lista Plataformas Aplicáveis para filtrar estes sistemas operativos.  

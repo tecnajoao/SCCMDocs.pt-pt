@@ -1,6 +1,6 @@
 ---
-title: "Технический справочник по запросам | Документы Майкрософт"
-description: "Список разделов, которые помогут вам в использовании запросов для получения сведений о ресурсах на сайте."
+title: "Referência técnica de consulta | Microsoft Docs"
+description: "Ver uma lista de tópicos para o ajudar a utilizar consultas para obter informações sobre os recursos no seu site."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,21 +16,21 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 44f454d2f7c9d317d1ad99ba724931b4631bd11e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="queries-technical-reference-for-system-center-configuration-manager"></a>Технический справочник по запросам для System Center Configuration Manager
+# <a name="queries-technical-reference-for-system-center-configuration-manager"></a>Referência técnica para consultas no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Запросы в System Center Configuration Manager возвращают сведения из базы данных сайта в соответствии с заданными условиями. Запросы можно использовать для получения сведений о ресурсах сайта, данных инвентаризации и сообщений о состоянии.  
+As consultas no System Center Configuration Manager devolvem informações da base de dados do site com base nos critérios que especificar. Pode utilizar consultas para obter informações sobre os recursos no site ou os dados do inventário e as mensagens de estado.  
 
-## <a name="topics-about-using-queries-in-configuration-manager"></a>Статьи об использовании запросов в Configuration Manager  
- Следующие статьи содержат сведения об использовании запросов в Configuration Manager.  
+## <a name="topics-about-using-queries-in-configuration-manager"></a>Tópicos sobre utilizar consultas no Configuration Manager  
+ Utilize os tópicos seguintes para o ajudar a utilizar consultas no Configuration Manager:  
 
--   [Общие сведения о запросах в System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md)  
+-   [Introdução às consultas no System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md)  
 
--   [Использование и обслуживание запросов в System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)  
+-   [Operações e manutenção de consultas no System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)  
 
--   [Безопасность и конфиденциальность запросов в System Center Configuration Manager](../../../core/servers/manage/security-and-privacy-for-queries.md)  
+-   [Segurança e privacidade para consultas no System Center Configuration Manager](../../../core/servers/manage/security-and-privacy-for-queries.md)  

@@ -1,6 +1,6 @@
 ---
-title: "Подготовка серверов Windows | Документы Майкрософт"
-description: "Убедитесь в том, что компьютер соответствует предварительным требованиям для использования в качестве сервера сайта или сервера системы сайта System Center Configuration Manager."
+title: Preparar servidores do Windows | Microsoft Docs
+description: "Certifique-se de que o se um computador cumpre os pré-requisitos para utilização como um servidor de site ou um servidor de sistema de sites para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -17,125 +17,125 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 9b97dedb5d2be0bd2e47260033e6e4361467dc4e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Подготовка серверов Windows для поддержки System Center Configuration Manager
+# <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Preparar Servidores do Windows para suportar o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Прежде чем использовать компьютер Windows в качестве сервера системы сайта для System Center Configuration Manager, убедитесь, что он соответствует требованиям, предъявляемым для применения в качестве сервера сайта или сервера системы сайта.  
+Antes de poder utilizar um computador com o Windows como um servidor de sistema de sites para o System Center Configuration Manager, o computador tem de cumprir os pré-requisitos para poder ser utilizado como um servidor do site ou servidor de sistema de sites.  
 
--   В эти требования часто входит одна или несколько функций или ролей Windows, которые включаются с помощью диспетчера серверов на компьютере.  
+-   Estes pré-requisitos frequentemente incluem uma ou mais funcionalidades do Windows ou funções, que estão ativadas utilizando os Gestor de servidores de computadores.  
 
--   Так как способ включения функций и ролей Windows зависит от конкретной операционной системы, см. документацию со сведениями о настройке используемой версии операционной системы.  
+-   Porque o método para ativar as funções e funcionalidades do Windows é diferente entre sistemas operativos, consulte a documentação do seu sistema operativo para obter informações detalhadas sobre como configurar o sistema operativo que utilizar.  
 
-Этот раздел содержит обзор типов конфигураций Windows, которые необходимы для поддержки систем сайта Configuration Manager. Подробные сведения о конфигурациях для отдельных ролей системы сайта см. в статье [Предварительные требования для сайта и системы сайта в System Center Configuration Manager](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
+As informações neste artigo fornecem uma descrição geral dos tipos de configurações do Windows que são necessários para suportar os sistemas de sites do Configuration Manager. Para detalhes de configuração para funções de sistema de sites específicas, consulte [Site e os pré-requisitos de sistema de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-##  <a name="BKMK_WinFeatures"></a> Функции и роли Windows  
- При настройке функций и ролей Windows на компьютере может потребоваться его перезагрузить, чтобы завершить эту настройку. Перед установкой сайта или сервера системы сайта Configuration Manager мы рекомендуем определить компьютеры, на которых будут располагаться конкретные роли системы сайта.
-### <a name="features"></a>Функции  
- Следующие функции Windows необходимы для определенных серверов системы сайта. Их следует настроить перед установкой роли системы сайта на данном компьютере.  
+##  <a name="BKMK_WinFeatures"></a>Funções e funcionalidades do Windows  
+ Quando configurar funcionalidades do Windows e funções num computador, poderá ser necessário reiniciar o computador para concluir essa configuração. Por conseguinte, é uma boa ideia para identificar os computadores que irão alojar funções do sistema de sites específicas antes de instalar um site do Configuration Manager ou o servidor do sistema de sites.
+### <a name="features"></a>Funcionalidades  
+ As seguintes funcionalidades do Windows são necessárias em determinados servidores de sistema de sites e devem ser configuradas antes de instalar uma função de sistema de sites nesse computador.  
 
--   **.NET Framework**, включая  
+-   **.NET framework**: Incluindo  
 
     -   ASP.NET  
-    -   Активация по HTTP  
-    -   Не-HTTP активация  
-    -   Службы Windows Communication Foundation  
+    -   Ativação HTTP  
+    -   Ativação não HTTP  
+    -   Serviços do Windows comunicação Foundation (WCF)  
 
-    Разным ролям системы сайта требуются разные версии платформы .NET Framework.  
+    Funções de sistema de sites diferentes necessitam de diferentes versões do .NET Framework.  
 
-    Платформа .NET Framework 4.0 и более поздних версий не обладает обратной совместимостью, позволяющей заменить платформу 3.5 и более ранних версий, поэтому если требуется использовать разные версии платформы, планируйте внедрение каждой из них на одном компьютере.  
+    Porque o .NET Framework 4.0 e posterior não é retrocompatível para substituir as versões 3.5 e anteriores, quando são listadas diferentes versões como necessário, planeie ativar cada versão no mesmo computador.  
 
--   **Фоновая интеллектуальная служба передачи (BITS)**. Точкам управления требуется BITS (и автоматически выбранные параметры) для поддержки связи с управляемыми устройствами.  
+-   **Em segundo plano (BITS) dos serviços de transferência inteligente**: Pontos de gestão requerem os BITS (e as opções selecionadas automaticamente) para suportar a comunicação com os dispositivos geridos.  
 
--   **BranchCache.** Точки распространения можно настроить с помощью BranchCache для поддержки клиентов, использующих BranchCache.  
+-   **BranchCache**: Pontos de distribuição podem ser configurados com o BranchCache para suportar clientes que utilizem o BranchCache.  
 
--   **Дедупликация данных.** Точки распространения можно настроить для использования преимуществ дедупликации данных.  
+-   **A eliminação de duplicados de dados**: Pontos de distribuição podem ser configurados com e beneficiam da eliminação de duplicados de dados.  
 
--   **Удаленное разностное сжатие (RDC)**. Для каждого компьютера, на котором размещен сервер сайта или точка распространения, требуется настроить RDC.   
-    RDC используется для формирования подписей пакетов и сравнения подписей.  
+-   **Compressão de diferencial remota (RDC)**: Cada computador que aloja um servidor de site ou um ponto de distribuição requer RDC.   
+    O RDC é utilizado para gerar assinaturas de pacote e efetuar comparações de assinaturas.  
 
-### <a name="roles"></a>Роли  
- следующие роли Windows требуются для поддержки определенных функциональных возможностей, таких как обновления программного обеспечения и развертывания операционных систем, а службы IIS требуются для наиболее типичных ролей системы сайта.  
+### <a name="roles"></a>Funções  
+ As seguintes funções do Windows são necessárias para suportar funcionalidades específicas, como atualizações de software e implementações do sistema operativo, enquanto o IIS é necessário para as funções do sistema de sites mais comuns.  
 
- -   **Служба регистрации сертификатов для сетевых устройств** (в разделе "Службы сертификатов Active Directory"). Эта роль Windows является предварительным условием для использования профилей сертификатов в Configuration Manager.  
+ -   **Serviço de inscrição de dispositivos de rede** (em serviços de certificados do Active Directory):  Esta função do Windows é um pré-requisito para utilizar perfis de certificado no Configuration Manager.  
 
- -   **Веб-сервер (IIS)**. Включает в себя:  
-    -   Основные функции HTTP >  
-        -   Перенаправление HTTP  
-    -   Разработка приложения >  
-        -   Расширяемость .NET  
+ -   **Servidor Web (IIS)**: Incluindo:  
+    -   Funcionalidades HTTP comuns >  
+        -   Redirecionamento HTTP  
+    -   Desenvolvimento de aplicações >  
+        -   Extensibilidade .NET  
         -   ASP.NET  
-        -   Расширения ISAPI  
-        -   Фильтры ISAPI  
-    -   Средства управления >  
-        -   Совместимость управления IIS 6  
-        -   Совместимость метабазы IIS 6  
-        -   Совместимость с инструментарием управления Windows IIS 6  
-    -   Безопасность >  
-        -   Фильтрация запросов  
-        -   Проверка подлинности Windows  
+        -   Extensões ISAPI  
+        -   Filtros ISAPI  
+    -   Ferramentas de gestão >  
+        -   Compatibilidade de Gestão do IIS 6  
+        -   Compatibilidade com Metabase do IIS 6  
+        -   Compatibilidade do IIS 6 Windows Management Instrumentation (WMI)  
+    -   Segurança >  
+        -   Filtragem de Pedidos  
+        -   Autenticação do Windows  
 
- Следующие роли системы сайта используют одну или несколько указанных конфигураций IIS:  
-    -   Точка веб-службы каталога приложений  
-    -   Точка веб-сайта каталога приложений.  
-    -   Точка распространения.  
-    -   Точка регистрации  
-    -   Прокси-точка регистрации.  
-    -   Резервная точка состояния  
-    -   Точка управления  
-    -   Точка обновления программного обеспечения  
-    -   Точка миграции среды     
+ As seguintes funções do sistema de sites utilizam uma ou mais das configurações do IIS listadas:  
+    -   Ponto de serviço Web do Catálogo de Aplicações  
+    -   Ponto de Web site do Catálogo de Aplicações  
+    -   Ponto de distribuição  
+    -   Ponto de inscrição  
+    -   Ponto proxy de registo  
+    -   Ponto de estado de contingência  
+    -   Ponto de gestão  
+    -   Ponto de atualização de Software  
+    -   Ponto de migração de estado     
 
-    Минимальная необходимая версия служб IIS представляет собой версию, входящую в состав операционной системы сервера сайта.  
+    A versão mínima do IIS necessária é a versão fornecida com o sistema operativo do servidor do site.  
 
-    Помимо этих конфигураций IIS может потребоваться настроить [фильтрацию запросов служб IIS для точек распространения](#BKMK_IISFiltering).  
+    Além destas configurações do IIS, poderá ter de configurar [IIS filtragem de pedidos para pontos de distribuição](#BKMK_IISFiltering).  
 
--   **Службы развертывания Windows**. Эта роль используется при развертывании операционной системы.  
--   **Службы Windows Server Update Services**. Эта роль необходима при развертывании обновлений программного обеспечения.  
+-   **Serviços de implementação do Windows**: Esta função é utilizada na implementação do sistema operativo.  
+-   **Windows Server Update Services**: Esta função é necessária quando implementar atualizações de software.  
 
-##  <a name="BKMK_IISFiltering"></a> Фильтрация запросов служб IIS для точек распространения  
- По умолчанию службы IIS используют фильтрацию запросов, чтобы заблокировать доступ к различным расширениям имен файлов и расположениям папок для подключений по протоколу HTTP или HTTPS. На точке распространения это не позволяет клиентам скачивать пакеты, содержащие заблокированные расширения или папки.  
+##  <a name="BKMK_IISFiltering"></a>IIS filtragem de pedidos para pontos de distribuição  
+ Por predefinição, o IIS utiliza filtragem de pedidos para bloquear várias extensões de nome de ficheiro e localizações de pastas contra o acesso por comunicação HTTP ou HTTPS. Num ponto de distribuição, isto impede que os clientes de transferirem pacotes que tenham bloqueados extensões ou localizações de pastas.  
 
- Если исходные файлы пакета содержат расширения, заблокированные в службах IIS конфигурацией фильтрации запросов, необходимо настроить фильтрацию запросов, чтобы разрешить их. Это можно сделать, [изменив функцию фильтрации запросов](https://technet.microsoft.com/library/hh831621.aspx) в диспетчере IIS на компьютерах точек распространения.  
+ Quando os ficheiros de origem do pacote tiverem extensões bloqueadas no IIS pela sua configuração de filtragem de pedidos, tem de configurar filtragem de pedidos para as permitir. Isto é efetuado ao [editar a Funcionalidade de Filtragem de Pedidos](https://technet.microsoft.com/library/hh831621.aspx) no Gestor do IIS nos computadores dos pontos de distribuição.  
 
- Кроме того, Configuration Manager использует перечисленные ниже расширения имен файлов для пакетов и приложений. Убедитесь, что конфигурации фильтрации запросов не блокируют эти расширения имен файлов:  
+ Além disso, as seguintes extensões de nome de ficheiro são utilizadas pelo Configuration Manager para pacotes e aplicações. Certifique-se de que as configurações de filtragem de pedidos não bloqueiam estas extensões de ficheiro:  
 
--   PCK,  
--   PKG,  
--   STA,  
--   TAR.  
+-   .PCK  
+-   .PKG  
+-   .STA  
+-   .TAR  
 
-Например, в пакете развертывания программного обеспечения могут содержаться исходные файлы, включающие папку с именем **bin** или файл с расширением **MDB**.  
+Por exemplo, ficheiros de origem para uma implementação de software pode incluir uma pasta denominada **bin** ou ter um ficheiro que tenha o **. mdb** extensão de nome de ficheiro.  
 
--   По умолчанию фильтрация запросов IIS блокирует доступ к этим элементам (**bin** блокируется как скрытый сегмент, а **MDB** блокируется как расширение имени файла).  
+-   Por predefinição, a filtragem de pedidos do IIS bloqueia o acesso a estes elementos (**bin** está bloqueado como um segmento oculto e **. mdb** está bloqueado como uma extensão de nome de ficheiro).  
 
--   Если на точке распространения используется конфигурация IIS по умолчанию, клиенты, использующие службу BITS, не смогут скачать этот пакет развертывания программного обеспечения с точки распространения и отображают состояние ожидания содержимого.  
+-   Quando utiliza a configuração predefinida do IIS num ponto de distribuição, os clientes que utilizam o BITS não conseguem transferir esta implementação de software a partir do ponto de distribuição e indicam que estão a aguardar conteúdo.  
 
--   Чтобы дать клиентам возможность скачать это содержимое, на каждой соответствующей точке распространения измените значение **Фильтрация запросов** в диспетчере IIS для разрешения доступа к расширениям файлов и папкам, содержащимся в развертываемых пакетах и приложениях.  
+-   Para permitir que os clientes transferir este conteúdo, em cada ponto de distribuição aplicável, edite **filtragem de pedidos** no Gestor do IIS para permitir o acesso para as extensões de ficheiros e pastas que estão nos pacotes e aplicações que implementar.  
 
 > [!IMPORTANT]  
->  Изменение фильтра запросов повышает уязвимость компьютера.  
+>  As edições ao Filtro de Pedidos podem aumentar a superfície de ataque do computador.  
 >   
->  -   Изменения, вносимые на уровне сервера, применяются ко всем веб-сайтам на сервере.  
-> -   Изменения, вносимые для отдельного веб-сайта, применяются только к этому веб-сайту.  
+>  -   As edições efetuadas ao nível do servidor se aplicam a todos os Web sites no servidor.  
+> -   As edições efetuadas a Web sites individuais aplicam-se apenas esse site.  
 >   
->  В целях безопасности рекомендуется использовать Configuration Manager на выделенном веб-сервере. Если на веб-сервере требуется запускать другие приложения, используйте для Configuration Manager специальный веб-сайт. Сведения см. в разделе [Веб-сайты для серверов системы сайта в System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md).  
+>  É a melhor prática de segurança executar o Configuration Manager no servidor web dedicado. Se tiver de executar outras aplicações no servidor web, utilize um Web site personalizado para o Configuration Manager. Para obter informações, veja [Sites para servidores do sistema de sites no System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-## <a name="http-verbs"></a>Команды HTTP
-**Точки управления.** Чтобы обеспечить возможность связи клиентов с точкой управления, на сервере точки управления необходимо разрешить следующие команды HTTP:  
+## <a name="http-verbs"></a>Verbos HTTP
+**Pontos de gestão:** Para garantir que os clientes podem comunicar com um ponto de gestão, no servidor de ponto de gestão Certifique-se que os seguintes verbos HTTP são permitidos:  
  - GET
  - POST
  - CCM_POST
  - HEAD
  - PROPFIND
 
-**Точки распространения.** Для точек распространения необходимо разрешить следующие команды HTTP:
+**Pontos de distribuição:** Pontos de distribuição requerem que os seguintes verbos HTTP como permitidos:
  - GET
  - HEAD
  - PROPFIND
 
-Сведения о настройке фильтрации запросов см. в разделе [Настройка не включенных в список HTTP-команд с помощью командной строки](https://technet.microsoft.com/library/hh831621.aspx#Verbs) на сайте TechNet или в аналогичном документе для версии Windows Server, в которой размещается точка управления.
+Para obter informações sobre como configurar a filtragem de pedidos, consulte [configurar filtragem de pedidos no IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) na TechNet ou em documentação semelhante que se aplica à versão do Windows Server que aloja o ponto de gestão.

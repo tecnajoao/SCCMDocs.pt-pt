@@ -1,6 +1,6 @@
 ---
-title: "Расширения схемы | Документы Майкрософт"
-description: "Расширьте схему Active Directory для поддержки System Center Configuration Manager."
+title: "Extensões de esquema | Microsoft Docs"
+description: Expanda o esquema do Active Directory para suportar o System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -18,133 +18,133 @@ manager: angrobe
 robots: noindex
 ms.openlocfilehash: 5b5540c35c02df6e3d06e4aa9269b8da3238233e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="schema-extensions-for-system-center-configuration-manager"></a>Расширения схемы для System Center Configuration Manager
+# <a name="schema-extensions-for-system-center-configuration-manager"></a>Extensões de esquema para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете расширить схему Active Directory для поддержки Configuration Manager. Это изменит схему леса Active Directory: в нее будет добавлен новый контейнер и несколько атрибутов, используемых сайтами Configuration Manager для публикации информации о ключах в Active Directory, где клиенты смогут безопасно применять ее. Эти сведения могут упростить развертывание и настройку клиентов и помогают клиентам находить ресурсы сайта, такие как серверы с развернутым содержимым, или предоставляют клиентам различные службы.  
+Pode expandir o esquema do Active Directory para suportar o Configuration Manager. Isto edita o esquema do Active Directory de uma floresta para adicionar um novo contentor e vários atributos que sites do Configuration Manager utilizam para publicar informações chave no Active Directory, onde os clientes podem em segurança utilizá-lo. Esta informação pode simplificar a implementação e configuração de clientes de clientes e ajuda a localizar recursos de site como servidores de conteúdo implementado ou que fornecem serviços diferentes aos clientes.  
 
--   Расширять схему Active Directory рекомендуется, но не требуется.  
+-   É uma boa ideia para expandir o esquema do Active Directory, mas não é necessário.  
 
-Перед [расширением схемы Active Directory](https://msdnstage.redmond.corp.microsoft.com/en-US/library/mt345589\(TechNet.10\).aspx)необходимо ознакомиться с доменными службами Active Directory и [изменением схемы Active Directory](https://technet.microsoft.com/library/cc759402\(v=ws.10\).aspx).  
+Antes de [expandir o esquema do Active Directory](https://msdnstage.redmond.corp.microsoft.com/en-US/library/mt345589\(TechNet.10\).aspx), deve estar familiarizado com os Serviços de Domínio do Active Directory e à vontade para [modificar o esquema do Active Directory](https://technet.microsoft.com/library/cc759402\(v=ws.10\).aspx).  
 
-## <a name="considerations-for-extending-the-active-directory-schema-for-configuration-manager"></a>Вопросы по расширению схемы Active Directory для Configuration Manager  
+## <a name="considerations-for-extending-the-active-directory-schema-for-configuration-manager"></a>Considerações para expandir o esquema do Active Directory para o Configuration Manager  
 
--   Расширения схемы Active Directory для System Center Configuration Manager не изменились по сравнению с используемыми в Configuration Manager 2007 и Configuration Manager 2012. Если вы расширили схему ранее для любой версии, вам не потребуется расширять ее снова.  
+-   As extensões de esquema do Active Directory para o System Center Configuration Manager são iguais às que utilizam o Configuration Manager 2007 e do Configuration Manager 2012. Caso tenha expandido anteriormente o esquema de uma das versões, não precisa de expandir novamente o esquema.  
 
--   Расширение схемы происходит на уровне леса, однократно и необратимо.  
+-   Expandir o esquema é uma ação de toda a floresta, única e irreversível.  
 
--   Его может выполнять только пользователь, являющийся членом группы "Администраторы схемы", или пользователь, которому были предоставлены разрешения, достаточные для изменения схемы.  
+-   Apenas um utilizador que seja um membro do grupo Admins de esquemas ou a quem tenham sido delegadas permissões suficientes para alterar o esquema pode expandir o esquema.  
 
--   Хотя схему можно расширить до или после выполнения установки Configuration Manager, рекомендуется делать это перед началом настройки параметров сайтов и иерархии. Это позволяет упростить многие из описанных далее этапов конфигурации.  
+-   Embora possa expandir o esquema antes ou depois de executar a configuração do Configuration Manager, é uma boa ideia para expandir o esquema antes de começar a configurar os seus sites e definições de hierarquia. Isto poderá simplificar muitos passos de configuração posteriores.  
 
--   После расширения схемы глобальный каталог Active Directory реплицируется во всем лесу. Поэтому расширение схемы следует запланировать на такое время суток, в которое трафик репликации не окажет негативного влияния на другие процессы, использующие ресурсы сети:  
+-   Depois de expandir o esquema, o catálogo global do Active Directory é replicado em toda a floresta. Por conseguinte, planeie expandir o esquema quando o tráfego de replicação não afete negativamente outros processos dependentes da rede:  
 
-    -   В лесах Windows 2000 расширение схемы обуславливает полную синхронизацию всего глобального каталога.  
+    -   Em florestas do Windows 2000, a expansão do esquema provoca uma sincronização completa de todo o catálogo global.  
 
-    -   Начиная с лесов Windows 2003, реплицируются только вновь добавляемые атрибуты.  
+    -   A partir do Windows 2003 florestas, são replicados apenas os atributos adicionados recentemente.  
 
-**Устройства и клиенты, которые не используют схему Active Directory:**  
+**Dispositivos e clientes que utilizam o esquema do Active Directory:**  
 
--   Мобильные устройства под управлением коннектора Exchange Server  
+-   Dispositivos móveis geridos pelo conector do Exchange Server  
 
--   Клиент для компьютеров Mac  
+-   O cliente para computadores Mac  
 
--   Клиент для серверов Linux и UNIX  
+-   O cliente para servidores Linux e UNIX  
 
--   Мобильные устройства, зарегистрированные Configuration Manager  
+-   Dispositivos móveis que são inscritos pelo Configuration Manager  
 
--   Мобильные устройства, зарегистрированные с помощью Microsoft Intune  
+-   Dispositivos móveis que são inscritos pelo Microsoft Intune  
 
--   Устаревшие клиенты мобильных устройств  
+-   Clientes legados do dispositivo móvel  
 
--   Клиенты Windows, настроенные для управления только через Интернет  
+-   Clientes do Windows que estão configurados para gestão de clientes apenas de Internet  
 
--   клиенты Windows, которые определяются Configuration Manager как находящиеся в Интернете.  
+-   Clientes Windows detetados pelo Configuration Manager na Internet  
 
-## <a name="capabilities-that-benefit-from-extending-the-schema"></a>Возможности, которые выигрывают от расширения схемы  
-**Установка клиентского компьютера и назначение сайта**. При установке нового клиента на компьютер Windows клиент ищет свойства установки в доменных службах Active Directory.  
+## <a name="capabilities-that-benefit-from-extending-the-schema"></a>Capacidades que beneficiam da expansão do esquema  
+**Cliente computador instalação e atribuição de site** -computador Windows uma quando instala um novo cliente, o cliente procura serviços de domínio do Active Directory para as propriedades de instalação.  
 
--   **Обходные пути**. Если вы не расширили схему, следует использовать одно из следующих решений, чтобы предоставить сведения о конфигурации, требуемые для установки компьютеров:  
+-   **Soluções:** Se não expandir o esquema, utilize uma das seguintes opções para fornecer os detalhes de configuração que os computadores têm de instalar:  
 
-    -   **Принудительная установка клиента**. Перед использованием какого-либо метода установки клиента убедитесь в том, что соблюдаются все необходимые условия. Дополнительные сведения см. в подразделе "Зависимости, связанные с конкретными методами установки" раздела [Необходимые условия для развертывания клиентов на компьютерах с Windows](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers).  
+    -   **Utilize a instalação push de cliente**. Antes de utilizar um método de instalação de cliente, certifique-se de que todos os pré-requisitos são cumpridos. Para obter mais informações, consulte a secção 'Dependências do método de instalação' [pré-requisitos para implementar clientes em computadores Windows](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers).  
 
-    -   **Установка клиентов вручную** и предоставление свойств установки клиента посредством выполнения команды CCMSetup с соответствующими параметрами командной строки. К таким параметрам относятся следующие элементы.  
+    -   **Instale manualmente os clientes** e forneça as propriedades de instalação de cliente utilizando as propriedades de linha de comandos de instalação do CCMSetup. Isto deve incluir o seguinte:  
 
-        -   Укажите точку управления или путь источника, из которого компьютер может скачать файлы установки. Для этого во время установки клиента укажите в командной строке CCMSetup свойство CCMSetup **/mp:=&lt;имя компьютера точки управления\>** или **/source:&lt;путь к исходным файлам клиента\>**.  
+        -   Especifique um caminho de origem ou de ponto de gestão do qual o computador pode transferir os ficheiros de instalação utilizando a propriedade de CCMSetup **/mp: =&lt;nome do computador do ponto de gestão\>**  ou **/Source:&lt;caminho para ficheiros de origem do cliente\>**  na linha de comandos CCMSetup durante a instalação de cliente.  
 
-        -   Укажите список исходных точек управления, которые должен использовать клиент для назначения сайту, а затем скачайте политику клиента и параметры сайта. Для этого используйте свойство SMSMP программы установки Client.msi CCMSetup.  
+        -   Especifique uma lista de pontos de gestão inicial para o cliente a utilizar para que possa atribuir-lhes para o site e, em seguida, transferir as definições de política e o site do cliente. Para o efeito, utilize a propriedade SMSMP do CCMSetup Client.msi.  
 
-    -   **Опубликуйте точку управления в DNS или WINS** и настройте клиенты на использование этого метода нахождения службы.  
+    -   **Publique o ponto de gestão no DNS ou WINS** e configure clientes para utilizar este método de localização do serviço.  
 
-**Конфигурация порта для передачи данных между клиентами и серверами**. При установке клиента выполняется настройка используемых им портов на основе сведений, хранящихся в Active Directory. Если вы впоследствии измените порт обмена данными между клиентом и сервером для сайта, клиент сможет получить данные о новом порте из доменных служб Active Directory.  
+**Configuração da porta para comunicação cliente-servidor** - quando instala um cliente, este é configurado com informações da porta armazenadas no Active Directory. Se posteriormente alterar a porta de comunicação cliente-servidor para um site, um cliente pode obter esta nova definição da porta dos serviços de domínio do Active Directory.  
 
--   **Обходные пути.** Если схема не была расширена, используйте один из следующих параметров для предоставления новой конфигурации порта для существующих клиентов:  
+-   **Soluções:** Se não expandir o esquema, utilize uma das seguintes opções para fornecer novas configurações de porta aos clientes existentes:  
 
-    -   **Переустановите клиенты** с использованием параметров для настройки нового порта.  
+    -   **Reinstale os clientes** utilizando as opções que configuram a porta nova.  
 
-    -   **Разверните на клиентских компьютерах пользовательский сценарий, который обновляет сведения о порте**. Если клиенты не могут обмениваться данными с сайтом из-за того, что был изменен порт, развертывать этот скрипт с помощью Configuration Manager нельзя. Например, можно использовать групповую политику.  
+    -   **Implemente um script personalizado nos clientes para atualizar as informações da porta**. Se os clientes não conseguirem comunicar com um site devido a uma alteração de porta, não é possível utilizar o Configuration Manager para implementar este script. Por exemplo, pode utilizar a Política de Grupo.  
 
-**Сценарии развертывания содержимого**. При создании содержимого на одном сайте и последующем развертывании этого содержимого на другом сайте в иерархии конечный сайт должен иметь возможность проверить подпись данных содержимого, если таковая имеется. Для этого необходим доступ к открытому ключу исходного сайта, где были созданы эти данные. При расширении схемы Active Directory для Configuration Manager открытый ключ сайта доступен всем сайтам в иерархии.  
+**Cenários de implementação de conteúdo** - quando cria conteúdo num site e, em seguida, implementar que o conteúdo para outro site na hierarquia, o site recetor deve ter capacidade para verificar a assinatura dos dados do conteúdo assinados. Isto requer acesso à chave pública do site de origem onde são criados estes dados. Quando expande o esquema do Active Directory para o Configuration Manager, chave pública do site está disponível para todos os sites na hierarquia.  
 
--   **Обходной путь** . Если схема не была расширена, воспользуйтесь средством обслуживания иерархии **preinst.exe**для безопасного обмена сведениями о ключах между сайтами.  
+-   **Solução:** Se não expandir o esquema, utilize a ferramenta manutenção da hierarquia, **preinst.exe**, para trocar as informações da chaves segura entre sites.  
 
-     Например, если вы планируете создать содержимое на первичном сайте и развернуть его на вторичном сайте, который находится под другим первичным сайтом в иерархии, следует либо расширить схему Active Directory, чтобы вторичный сайт мог получить открытый ключ исходного первичного сайта, либо напрямую предоставить обоим сайтам доступ к ключам с помощью средства preinst.exe.  
+     Por exemplo, se pretender criar conteúdo num site primário e implementar esse conteúdo para um site secundário abaixo de um site principal diferente, tem de alargar o esquema do Active Directory para permitir que o site secundário obter chave pública de origem do site primário ou utilizar preinst.exe para partilhar as chaves entre os dois sites diretamente.  
 
-## <a name="active-directory-attributes-and-classes"></a>Классы и атрибуты Active Directory  
-При расширении схемы для System Center Configuration Manager перечисленные ниже классы и атрибуты добавляются в схему и становятся доступными для всех сайтов Configuration Manager в этом лесу Active Directory.  
+## <a name="active-directory-attributes-and-classes"></a>Classes e atributos do Active Directory  
+Quando expande o esquema para o System Center Configuration Manager, os atributos e classes seguintes são adicionados ao esquema e disponíveis para todos os sites do Configuration Manager nessa floresta do Active Directory.  
 
--   Атрибуты:  
+-   Atributos:  
 
-    -   cn=mS-SMS-Assignment-Site-Code  
+    -   CN = mS-SMS-atribuição--código do Site  
 
-    -   cn=mS-SMS-Capabilities  
+    -   CN = capacidades de SMS mS  
 
-    -   cn=MS-SMS-Default-MP  
+    -   CN = MS--predefinição-MP do SMS  
 
-    -   cn=mS-SMS-Device-Management-Point  
+    -   CN = mS-SMS---ponto de gestão dispositivos  
 
-    -   cn=mS-SMS-Health-State  
+    -   CN = mS--estado de funcionamento-estado do SMS  
 
-    -   cn=MS-SMS-MP-Address  
+    -   CN = MS-SMS-MP-endereço  
 
-    -   cn=MS-SMS-MP-Name  
+    -   CN = MS-SMS-MP-Name  
 
-    -   cn=MS-SMS-Ranged-IP-High  
+    -   CN = MS SMS-Ranged-IP-alto  
 
-    -   cn=MS-SMS-Ranged-IP-Low  
+    -   CN = MS-SMS-Ranged-IP-baixa  
 
-    -   cn=MS-SMS-Roaming-Boundaries  
-        на  
+    -   CN = MS-SMS-Roaming-limites  
+        em  
 
-    -   cn=MS-SMS-Site-Boundaries  
+    -   CN = MS-SMS--limites do Site  
 
-    -   cn=MS-SMS-Site-Code  
+    -   CN = MS-SMS--código do Site  
 
-    -   cn=mS-SMS-Source-Forest  
+    -   CN = mS-SMS-origem-floresta  
 
-    -   cn=mS-SMS-Version  
+    -   CN = SMS-mS-Version  
 
--   Классы:  
+-   Classes:  
 
-    -   cn=MS-SMS-Management-Point  
+    -   CN = MS---ponto de gestão SMS  
 
-    -   cn=MS-SMS-Roaming-Boundary-Range  
+    -   CN = MS-SMS-Roaming-limite-intervalo  
 
-    -   cn=MS-SMS-Server-Locator-Point  
+    -   CN = MS-SMS--ponto localizador de servidor  
 
-    -   cn=MS-SMS-Site  
+    -   CN = MS-Site de SMS  
 
 > [!NOTE]  
 
->  Расширения схемы могут включать атрибуты и классы, которые переносятся из предыдущих версий продукта, но не используются System Center Configuration Manager. Пример.  
+>  As extensões de esquema podem incluir atributos e classes provenientes de versões anteriores do produto, mas não utilizadas pelo System Center Configuration Manager. Por exemplo:  
 
 >   
->  -   Атрибут: cn=MS-SMS-Site-Boundaries  
-> -   Класс: cn=MS-SMS-Server-Locator-Point  
+>  -   Atributo: cn = MS-SMS--limites do Site  
+> -   Classe: cn = MS-SMS--ponto localizador de servidor  
 
-Актуальность приведенных выше списков можно проверить, просмотрев файл **ConfigMgr_ad_schema.LDF** в папке **\SMSSETUP\BIN\x64** на установочном носителе System Center Configuration Manager.  
+Pode garantir as listas anteriores estão atualizadas, visualizando o **ConfigMgr_ad_schema. LDF** ficheiro a partir de **\SMSSETUP\BIN\x64** pasta do suporte de dados de instalação do System Center Configuration Manager.  

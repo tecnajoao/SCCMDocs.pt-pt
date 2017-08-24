@@ -1,6 +1,6 @@
 ---
-title: "Управление данными конфигурации | Документы Майкрософт"
-description: "После создания элементов конфигурации и шаблонов базовой конфигурации в System Center Configuration Manager можно использовать другие команды для выполнения различных действий."
+title: "Gerir os dados de configuração | Microsoft Docs"
+description: "Depois de criar itens de configuração e linhas de base no System Center Configuration Manager, pode utilizar outros comandos para efetuar diversas ações."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,43 +17,43 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 1a6084834384e695b49a71fe23833049c86f8dbc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Управление данными конфигурации в System Center Configuration Manager
+# <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Gerir os dados de configuração no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-После создания элементов конфигурации и шаблонов базовой конфигурации в System Center Configuration Manager можно использовать приведенные далее команды для выполнения различных действий.  
+Depois de criar itens de configuração e linhas de base de configuração no System Center Configuration Manager, são disponibilizados mais comandos para o ajudar a realizar várias ações.  
 
-## <a name="manage-configuration-items"></a>Управление элементами конфигурации  
+## <a name="manage-configuration-items"></a>Gerir itens de configuração  
 
--   В рабочей области **Активы и соответствие** разверните узел **Параметры соответствия** > **Элементы конфигурации**, выберите элемент конфигурации, управление которым будет осуществляться, а затем выберите задачу управления.  
+-   No **ativos e compatibilidade** área de trabalho, expanda **as definições de compatibilidade** > **itens de configuração**, selecione o item de configuração para gerir e, em seguida, selecione uma tarefa de gestão.  
 
-|Задача управления|Подробные сведения|  
+|Tarefa de gestão|Detalhes|  
 |---------------------|-------------|  
-|**Создать дочерний элемент конфигурации**|Задача открывает **мастер создания дочерних элементов конфигурации** , с помощью которого можно создать дочерний элемент конфигурации на основе выбранного элемента.<br /><br /> Нельзя создать дочерний элемент конфигурации на основе элемента конфигурации мобильного устройства.<br /><br /> Сведения см. в статье [Создание дочерних элементов конфигурации](../../compliance/deploy-use/create-child-configuration-items.md).|  
-|**Журнал исправлений**|Задача открывает диалоговое окно **Журнал редакций элемента конфигурации** , в котором можно просматривать предыдущие редакции выбранного элемента конфигурации и управлять ими.|  
-|**Просмотреть определение XML**|Задача открывает XML-файл определения выбранного элемента конфигурации в новом окне. Эти сведения могут потребоваться при создании данных конфигурации вручную.|  
-|**Экспортировать**|Экспорт элемента конфигурации в формате CAB-файла, при условии что он был создан в этом сайте. Затем файл можно импортировать в тот же или другой сайт Configuration Manager. Данные конфигурации преобразуется в дайджест DCM.|  
-|**Копировать**|Задача создает копию выбранного элемента конфигурации с указанным именем. Новый элемент конфигурации не сохраняет отношений с исходным элементом конфигурации. Это означает, что копия элемента конфигурации не продолжает наследовать данные конфигурации из исходного элемента конфигурации.|  
-|**Удалить**|Задача открывает диалоговое окно **Удалить элемент конфигурации** , где можно просмотреть все ссылки на этот элемент конфигурации.<br /><br /> Прежде чем можно будет удалить элемент конфигурации, необходимо удалить все ссылки на этот элемент.|  
+|**Criar um item de configuração subordinado**|Abre o **Assistente de Criação de Item de Configuração Subordinado** onde pode criar um item de configuração subordinado a partir do item de configuração selecionado.<br /><br /> Não é possível criar um item de configuração subordinado a partir de um item de configuração do dispositivo móvel.<br /><br /> Para obter mais informações, consulte [criar itens de configuração subordinados](../../compliance/deploy-use/create-child-configuration-items.md).|  
+|**Histórico de Revisão**|Abre a caixa de diálogo **Histórico de Revisão do Item de Configuração** onde pode ver e gerir as revisões anteriores do item de configuração selecionado.|  
+|**Ver Definição XML**|Apresenta o ficheiro de definição de XML para o item de configuração selecionado numa nova janela. Estas informações podem ser úteis quando pretende criar manualmente os dados de configuração.|  
+|**Exportarar**|Exporta um item de configuração num formato de ficheiro cabinet (.cab), desde que tenha sido criado nesse site. Pode, em seguida, importá-lo para o mesmo ou outro site do Configuration Manager. Os dados de configuração são convertidos para Resumo DCM.|  
+|**Copiar**|Cria uma cópia do item de configuração selecionado com o nome que especificar. O novo item de configuração não mantém qualquer relação com o item de configuração original. Isto significa que o item de configuração duplicado não continua a herdar as informações de configuração do item de configuração original.|  
+|**Eliminar**|Abre a caixa de diálogo **Eliminar Item de Configuração** onde poderá consultar quaisquer referências a este item de configuração.<br /><br /> Deve remover todas as referências a um item de configuração antes de poder eliminá-lo.|  
 
-## <a name="manage-configuration-baselines"></a>Управление шаблонами базовой конфигурации  
+## <a name="manage-configuration-baselines"></a>Gerir linhas de base de configuração  
 
--   В рабочей области **Активы и соответствие** разверните узел **Параметры соответствия** > **Шаблоны базовых конфигураций**, выберите шаблон базовой конфигурации, управление которым будет осуществляться, а затем выберите задачу управления.  
+-   No **ativos e compatibilidade** área de trabalho, expanda **as definições de compatibilidade** > **linhas de base de configuração**, selecione a linha de base de configuração para gerir e, em seguida, selecione uma tarefa de gestão.  
 
 
-|Задача управления|Подробные сведения|  
+|Tarefa de gestão|Detalhes|  
 |---------------------|-------------|  
-|**Показать участников**|Эта задача отображает все элементы конфигурации, на которые ссылается шаблон базовой конфигурации.|  
-|**Запланировать формирование сводных данных**|Задача позволяет настроить расписание обновления сведений, отображаемых в узле **Шаблоны базовой конфигурации** консоли Configuration Manager, в соответствии с последними данными из базы данных сайта.|  
-|**Сформировать сводку**|При выполнении формирования сводных данных для обновления данных в узле **Шаблоны базовой конфигурации** используются последние данные из базы данных. Выполнение этого действия может занять несколько минут. Может потребоваться нажать кнопку **Обновить** , чтобы отобразить актуальные данные в консоли.|  
-|**Просмотреть определение XML**|Задача открывает XML-файл определения конфигурационной базы в новом окне. Эти сведения могут потребоваться при создании данных конфигурации вручную.|  
-|**Разрешить**|Задача активирует шаблон базовой конфигурации для мониторинга соответствия.|  
-|**Отключено**|Задача отключает шаблон базовой конфигурации, чтобы он был недоступен для оценки соответствия на клиентских компьютерах. Конфигурационные базы, которые ссылаются на эту конфигурационную базу, будут также отключены.|  
-|**Экспортировать**|Экспорт шаблона базовой конфигурации в формате CAB-файла, при условии что он был создан в этом сайте. Затем файл можно импортировать в тот же или другой сайт Configuration Manager. Данные конфигурации преобразуется в дайджест DCM.<br /><br /> Сведения об импорте данных конфигурации см. в статье [Импорт данных конфигурации](../../compliance/deploy-use/import-configuration-data.md).|  
-|**Копировать**|Задача создает копию выбранной конфигурационной базы с указанным именем. Новый шаблон базовой конфигурации не сохраняет отношений с исходным шаблоном конфигурации.|  
-|**Удалить**|Задача открывает диалоговое окно **Удалить шаблон базовой конфигурации** , где можно просмотреть все ссылки на эту конфигурационную базу.<br /><br /> Прежде чем можно будет удалить шаблон базовой конфигурации, необходимо удалить все ссылки на этот шаблон.|  
-|**Развернуть**|Задача открывает диалоговое окно **Развертывание шаблонов базовой конфигурации** , с помощью которого можно развернуть один или несколько шаблонов базовой конфигурации на устройствах иерархии.<br /><br /> Сведения см. в статье [Развертывание шаблонов базовой конфигурации](../../compliance/deploy-use/deploy-configuration-baselines.md).|  
+|**Mostrar Membros**|Apresenta todos os itens de configuração referidos pela linha de base de configuração.|  
+|**Agendar Resumo**|Configura o agendamento através do qual os dados apresentados a **linhas de base de configuração** nó na consola do Configuration Manager é atualizado com as informações mais recentes da base de dados do site.|  
+|**Executar o Resumo**|O resumo faz com que os dados no nó **Linhas de Base de Configuração** sejam atualizados com os dados mais recentes a partir da base de dados do site. Esta ação pode demorar vários minutos a ser concluída. Poderá ter de clicar em **Atualizar** para visualizar os dados mais recentes na consola.|  
+|**Ver Definição XML**|Apresenta o ficheiro de definição de XML da linha de base de configuração selecionada numa nova janela. Estas informações podem ser úteis quando pretende criar manualmente os dados de configuração.|  
+|**Ativar**|Permite uma linha de base de configuração para monitorização de compatibilidade.|  
+|**Desativar**|Desativa uma linha de base de configuração para que já não seja avaliada relativamente a compatibilidade em computadores cliente. As linhas de base de configuração que referem esta linha de base de configuração também serão desativadas.|  
+|**Exportarar**|Exporta uma linha de base de configuração num formato de ficheiro cabinet (.cab), desde que tenha sido criado nesse site. Pode, em seguida, importá-lo para o mesmo ou outro site do Configuration Manager. Os dados de configuração são convertidos para Resumo DCM.<br /><br /> Para obter informações sobre como importar dados de configuração, consulte [importar dados de configuração](../../compliance/deploy-use/import-configuration-data.md).|  
+|**Copiar**|Cria uma cópia da linha de base de configuração selecionada com o nome que especificar. A nova linha de base de configuração não mantém qualquer relação com a linha de base de configuração original.|  
+|**Eliminar**|Abre a caixa de diálogo **Eliminar Linha de Base de Configuração** onde pode consultar quaisquer referências a esta linha de base de configuração.<br /><br /> Deve remover todas as referências a uma linha de base de configuração antes de poder eliminá-la.|  
+|**Implementar**|Abre a caixa de diálogo **Implementar Baseline da Configuração** para poder implementar uma ou mais linhas de base de configuração para dispositivos na sua hierarquia.<br /><br /> Para obter mais informações, consulte [implementar linhas de base de configuração](../../compliance/deploy-use/deploy-configuration-baselines.md).|  

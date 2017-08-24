@@ -1,5 +1,5 @@
 ---
-title: "System Center Configuration Manager | Документы Майкрософт"
+title: O System Center Configuration Manager | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
@@ -17,14 +17,14 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 10fb029b4e3f9d3386df616a1a238674443d2c76
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+# <a name="system-center-configuration-manager"></a>O System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вас приветствует Microsoft System Center Configuration Manager. Использование Configuration Manager позволяет повысить эффективность ИТ-услуг за счет безопасного и масштабируемого развертывания программного обеспечения, управления параметрами соответствия и комплексного управления активами серверов, настольных компьютеров и мобильных устройств.  
+Bem-vindo ao Microsoft System Center Configuration Manager. Utilize o Configuration Manager para fornecer serviços de TI mais eficientes através da implementação de software segura e escalável, gestão das definições de conformidade e uma gestão abrangente de recursos de servidores, computadores de secretária e dispositivos móveis.  
 
- Наиболее актуальные материалы по этой версии Configuration Manager находятся здесь: [Документация по System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkID=533344).
+ Localize o conteúdo mais atualizado para esta versão do Configuration Manager online, na seguinte localização: [Documentação online do System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkID=533344)

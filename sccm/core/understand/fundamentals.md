@@ -1,6 +1,6 @@
 ---
-title: "Основные сведения о System Center Configuration Manager | Документы Майкрософт"
-description: "Основные понятия, связанные с System Center Configuration Manager."
+title: "Noções básicas do System Center Configuration Manager | Microsoft Docs"
+description: "Saiba mais sobre conceitos básicos para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -17,33 +17,33 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 662ac092746f37c354e5accf288e3375c16b9c72
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-system-center-configuration-manager"></a>Основные сведения о Microsoft System Center Configuration Manager
+# <a name="fundamentals-of-system-center-configuration-manager"></a>Noções Básicas do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Если вы еще не работали с System Center Configuration Manager, прежде чем запускать программу установки для установки своего первого сайта, прочитайте основополагающие разделы, чтобы узнать об основных понятиях Configuration Manager. Если вы уже знакомы с Configuration Manager, можете сразу приступить к работе. Мы рекомендуем начать с раздела [Новые возможности System Center Configuration Manager](/sccm/core/plan-design/changes/what-has-changed-from-configuration-manager-2012).  
+Se não estiver familiarizado para o System Center Configuration Manager, leia os tópicos fundamentais para saber mais sobre conceitos básicos para o Configuration Manager antes de executar o programa de configuração para instalar o primeiro site. Se estiver familiarizado com o Configuration Manager, em seguida, pode começar à direita em. Recomendamos que comece com [que há de novo no System Center Configuration Manager](/sccm/core/plan-design/changes/what-has-changed-from-configuration-manager-2012).  
 
- Для получения сведений о поддерживаемых операционных системах и средах, требованиях к аппаратному обеспечению и возможностях см. раздел [Supported configurations for System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md).  
+ Para obter mais informações sobre sistemas operativos e ambientes suportados, requisitos de hardware e informações de capacidade, veja [Configurações suportadas do System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md).  
 
- При развертывании Configuration Manager развертывается один или несколько сайтов.  
+ Quando implementar o Configuration Manager, implementar um ou mais sites:  
 
--   **При развертывании нескольких сайтов**между ними формируются иерархические отношения. Иерархия позволяет централизованно управлять большим количеством сайтов и устройств.  Данные и информация передаются с верхних уровней в нижние и таким образом достигают управляемых устройств. Сведения об устройствах, результаты выполнения задач настройки и поток запросов поднимаются по иерархии вверх.  
+-   **Quando implementa vários sites**, os sites formam relações de subordinados para principais, coletivamente referidas como hierarquias. Utilize uma hierarquia para gerir centralmente um grande número de sites e dispositivos.  Dados e as informações fluem no sentido descendente da hierarquia para chegarem aos dispositivos que gere. Informações sobre dispositivos e resultados de configuração tarefas e os pedidos fluem no sentido ascendente da hierarquia.  
 
--   Иерархия возникает, даже если **развертывается всего один сайт**.  
+-   **Ao implementar um único site**, este também é referido como uma hierarquia.  
 
- Одни задачи настройки и параметры применяются ко всем сайтам в иерархии, в то время как другие относятся только к отдельным сайтам.  
+ Algumas tarefas e definições de configuração serão aplicadas a todos os sites numa hierarquia, enquanto outras se aplicam a sites individuais.  
 
-## <a name="fundamental-concepts-for-system-center-configuration-manager"></a>Основные понятия System Center Configuration Manager
-В следующих разделах описаны основные понятия System Center Configuration Manager:  
+## <a name="fundamental-concepts-for-system-center-configuration-manager"></a>Conceitos fundamentais do System Center Configuration Manager
+Ver os seguintes tópicos para saber mais sobre conceitos fundamentais do System Center Configuration Manager:  
 
--   [Основные принципы работы сайтов и иерархий в System Center Configuration Manager](../../core/understand/fundamentals-of-sites-and-hierarchies.md)  
+-   [Noções básicas sobre sites e hierarquias do System Center Configuration Manager](../../core/understand/fundamentals-of-sites-and-hierarchies.md)  
 
--   [Основные принципы управления устройствами с помощью System Center Configuration Manager](../../core/understand/fundamentals-of-managing-devices.md)  
+-   [Noções básicas de gestão de dispositivos com o System Center Configuration Manager](../../core/understand/fundamentals-of-managing-devices.md)  
 
--   [Основные принципы выполнения задач управления клиентами для System Center Configuration Manager](../../core/understand/fundamentals-of-client-management-tasks.md)  
+-   [Noções básicas de tarefas de gestão de cliente para o System Center Configuration Manager](../../core/understand/fundamentals-of-client-management-tasks.md)  
 
--   [Основы безопасности для System Center Configuration Manager](../../core/understand/fundamentals-of-security.md)  
+-   [Noções básicas de segurança para o System Center Configuration Manager](../../core/understand/fundamentals-of-security.md)  

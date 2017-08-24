@@ -1,6 +1,6 @@
 ---
-title: "Установка облачных точек распространения | Документы Майкрософт"
-description: "Сведения, необходимые для начала использования облачных точек распространения в Microsoft Azure."
+title: "Instalar pontos de distribuição baseado na nuvem | Microsoft Docs"
+description: "Saiba o que precisa de fazer para começar a utilizar pontos de distribuição baseado na nuvem no Microsoft Azure."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -16,117 +16,117 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 39b35cccf78bba4e69a7de0ca3a5a8dc516201e3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Установка облачных точек распространения в Microsoft Azure для System Center Configuration Manager
+# <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Instalar pontos de distribuição baseado na nuvem no Microsoft Azure para o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Облачные точки распространения System Center Configuration Manager можно установить в Microsoft Azure. Если принципы работы облачных точек распространения вам незнакомы, перед продолжением см. раздел [Использование облачной точки распространения](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md).
+Pode instalar pontos de distribuição baseados na nuvem do System Center Configuration Manager no Microsoft Azure. Se não estiver familiarizado com os pontos de distribuição baseados na nuvem, consulte [utilizar um ponto de distribuição baseados na nuvem](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) antes de continuar.
 
- Перед установкой убедитесь в наличии необходимых файлов сертификатов.  
+ Antes de iniciar a instalação, certifique-se de que os ficheiros de certificado necessários:  
 
--   Сертификат управления Microsoft Azure, экспортированный в CER-файл и в PFX-файл.  
+-   Um certificado de gestão do Microsoft Azure que seja exportado para um ficheiro. cer e para um ficheiro. pfx.  
 
--   Сертификат службы облачной точки распространения Configuration Manager, экспортированный в PFX-файл.  
+-   Um Gestor de configuração baseado na nuvem certificado ponto de distribuição serviço que seja exportado para um ficheiro. pfx.  
 
     > [!TIP]
-    >   Дополнительные сведения об этих сертификатах см. в подразделе, посвященном облачным точкам распространения, раздела [Требования к сертификатам PKI в Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Пример развертывания этого сертификата службы см. в разделе "Развертывание сертификата службы для облачных точек распространения" статьи [Пример пошагового развертывания PKI-сертификатов для System Center Configuration Manager: центр сертификации Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+    >   Para obter mais informações sobre estes certificados, consulte a secção de pontos de distribuição baseado na nuvem a [requisitos de certificado PKI para o System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md) tópico. Para um exemplo de implementação do certificado de serviço do ponto de distribuição baseados na nuvem, consulte a secção "Implementar o certificado de serviço para pontos de distribuição baseado na nuvem" [exemplo passo a passo de implementação da PKI certificados para o System Center Configuration Manager: Autoridade de certificação do Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
 
- После установки облачной точки распространения в Azure будет автоматически создан GUID службы, который будет добавлен к DNS-суффиксу **cloudapp.net**. С помощью этого GUID необходимо настроить DNS, указав DNS-псевдоним (запись CNAME). Это позволит сопоставить имя службы, определенное в сертификате службы облачной точки распространения Configuration Manager, с автоматически созданным GUID.  
+ Depois de instalar o ponto de distribuição baseado na nuvem, Azure automaticamente gera um GUID para o serviço e o acrescenta este para o sufixo DNS de **cloudapp.net**. Utilizando este GUID, terá de configurar DNS com um alias de DNS (registo CNAME). Isto permite-lhe mapear o nome do serviço definido no certificado de serviço de ponto de distribuição baseados na nuvem do Configuration Manager para o GUID automaticamente gerado.  
 
- При использовании прокси-сервера может потребоваться настроить параметры прокси-сервера, чтобы обеспечить подключение к облачной службе, в которой размещена точка распространения.  
+ Se utilizar um servidor web proxy, poderá ter de configurar as definições de proxy para ativar a comunicação com o serviço em nuvem que aloja o ponto de distribuição.  
 
-##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a> Настройка Azure и установка облачных точек распространения  
- Используйте следующие процедуры для настройки поддержки точек распространения в Azure, затем установите облачную точку распространения в Configuration Manager.  
+##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a>Configurar o Azure e instalar pontos de distribuição baseado na nuvem  
+ Utilize os procedimentos seguintes para configurar o Azure para suportar pontos de distribuição e, em seguida, instale o ponto de distribuição baseado na nuvem no Configuration Manager.  
 
-### <a name="to-set-up-a-cloud-service-in-azure-for-a-distribution-point"></a>Настройка облачной службы в Azure для точки распространения  
+### <a name="to-set-up-a-cloud-service-in-azure-for-a-distribution-point"></a>Para configurar um serviço em nuvem no Azure para um ponto de distribuição  
 
-1.  Откройте веб-браузер, перейдите на портал управления Azure по адресу: https://manage.windowsazure.com и войдите с помощью своей учетной записи.  
+1.  Abra um browser para o portal do Azure, em https://manage.windowsazure.com e aceder à sua conta.  
 
-2.  Щелкните **Размещенные службы, учетные записи хранения и сеть кэширующих серверов**, затем выберите **Сертификаты управления**.  
+2.  Clique em **serviços alojados, contas de armazenamento e CDN**e, em seguida, selecione **certificados de gestão**.  
 
-3.  Щелкните подписку правой кнопкой мыши и выберите **Добавление сертификата**.  
+3.  Faça duplo clique sua subscrição e, em seguida, selecione **adicionar certificado**.  
 
-4.  В поле **Файл сертификата** укажите CER-файл с экспортированным сертификатом управления Azure для этой облачной службы, затем нажмите кнопку **ОК**.  
+4.  Para **ficheiro de certificado**, especifique o ficheiro. cer que contém o certificado de gestão do Azure exportado a utilizar para este serviço em nuvem e, em seguida, clique em **OK**.  
 
-Сертификат управления будет загружен в Azure. Теперь можно установить облачную точку распространения.  
+O certificado de gestão será carregado no Azure e poderá agora instalar um ponto de distribuição baseado na nuvem.  
 
-### <a name="to-install-a-cloud-based-distribution-point-for-configuration-manager"></a>Чтобы установить облачную точку распространения для Configuration Manager  
+### <a name="to-install-a-cloud-based-distribution-point-for-configuration-manager"></a>Para instalar um ponto de distribuição baseados na nuvem para o Configuration Manager  
 
-1.  Выполните действия, описанные в предыдущей процедуре, чтобы настроить в Azure облачную службу с сертификатом управления.  
+1.  Conclua os passos no procedimento anterior para configurar um serviço em nuvem no Azure com um certificado de gestão.  
 
-2.  В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Облачные службы** и щелкните **Облачные точки распространения**. На вкладке **Главная** щелкните **Создать облачную точку распространения**.  
+2.  No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**e selecione **pontos de distribuição de nuvem**. No **home page** separador, clique em **criar ponto de distribuição na nuvem**.  
 
-3.  На странице **Общие** мастера создания облачных точек распространения настройте следующие параметры.  
+3.  No **geral** página do assistente criar uma nuvem distribuição ponto, configure o seguinte:  
 
-    -   Укажите **Идентификатор подписки** учетной записи Azure.  
+    -   Especifique o **ID de subscrição** para a sua conta do Azure.  
 
         > [!TIP]  
-        >  Идентификатор подписки Azure можно узнать на портале Azure.  
+        >  Pode encontrar o ID de subscrição do Azure no portal do Azure.  
 
-    -   Укажите **сертификат управления**. Нажмите кнопку **Обзор**, чтобы указать PFX-файл с экспортированным сертификатом управления Azure, затем введите пароль сертификата. Дополнительно можно указать версию 1 PUBLISHSETTINGS-файла из пакета SDK 1.7 для Azure.  
+    -   Especifique o **certificado de gestão**. Clique em **procurar** para especificar o ficheiro. pfx que contém o certificado de gestão do Azure exportado e, em seguida, introduza a palavra-passe do certificado. Opcionalmente, pode especificar um ficheiro de 1. publishsettings da versão do Azure SDK 1.7.  
 
-4.  Нажмите кнопку **Далее**. Configuration Manager подключится к Azure для проверки сертификата управления.  
+4.  Clique em **Seguinte**. O Configuration Manager liga-se no Azure para validar o certificado de gestão.  
 
-5.  На странице **Параметры** введите следующие параметры, затем нажмите кнопку **Далее**.  
+5.  No **definições** página, efetue o seguinte e, em seguida, clique em **seguinte**:  
 
-    -   В разделе **Регион** выберите регион Azure, где нужно создать облачную службу для размещения этой точки распространения.  
+    -   Para **região**, selecione a região do Azure onde pretende criar o serviço em nuvem que aloja este ponto de distribuição.  
 
-    -   В поле **Файл сертификата** укажите PFX-файл с экспортированным сертификатом службы облачной точки распространения Configuration Manager. Затем введите пароль.  
+    -   Para **ficheiro de certificado**, especifique o ficheiro. pfx que contém o certificado exportado para o serviço de ponto de distribuição baseados na nuvem do Configuration Manager. Em seguida, introduza a palavra-passe.  
 
         > [!NOTE]  
-        >  В поле **Полное доменное имя службы** автоматически появится значение из раздела имени субъекта сертификата. В большинстве случаев это поле не нужно редактировать. Исключением является случай использование подстановочного сертификата в тестовой среде. Например,при этом не указывается имя сервера, поэтому сертификат может быть использован несколькими компьютерами с одинаковым DNS-суффиксом. В этом случае в поле субъекта сертификата будет указано значение, аналогичное **CN=\*.contoso.com**, а в Configuration Manager будет выведено сообщение о том, что необходимо указать правильное полное доменное имя. Нажмите кнопку **ОК** , чтобы закрыть это сообщение, а затем введите имя перед DNS-суффиксом, чтобы указать полное доменное имя. Например, может потребоваться добавить **clouddp1** , чтобы указать полное доменное имя службы **clouddp1.contoso.com**. Полное доменное имя службы должно быть уникальным в домене и не должно совпадать с любым устройством, присоединенным к домену.  
+        >  O **FQDN de serviço** caixa é preenchida automaticamente do nome de requerente do certificado. Na maioria dos casos, não terá editá-lo. A exceção é se estiver a utilizar um certificado de caráter universal num ambiente de teste. Por exemplo, neste caso, poderá não especificou o nome do anfitrião, para que vários computadores que tenham o mesmo sufixo DNS, podem utilizar o certificado. Neste cenário, o requerente do certificado contém um valor semelhante a **CN =\*. contoso.com**, e do Configuration Manager apresenta uma mensagem que tem de especificar o FQDN correto. Clique em **OK** para fechar a mensagem e, em seguida, introduza um nome específico antes do sufixo DNS para fornecer um FQDN completo. Por exemplo, poderá adicionar **clouddp1** para especificar a service FQDN do **clouddp1.contoso.com**. O FQDN de serviço tem de ser exclusivo no seu domínio e não corresponde a qualquer dispositivo associado a um domínio.  
         >   
-        >  Произвольные сертификаты поддерживаются только в средах тестирования.  
+        >  Certificados de caráter universal são suportados para só a ambientes de teste.  
 
-6.  На странице **Предупреждения** настройте квоты хранилища, квоты передачи данных и процент квот, для которого требуется получать предупреждения Configuration Manager. Нажмите кнопку **Далее**.  
+6.  No **alertas** página, defina quotas de armazenamento, quotas de transferência e em que percentagem destas quotas pretende que o Configuration Manager para gerar alertas. Em seguida, clique em **Seguinte**.  
 
-7.  Завершите работу мастера.  
+7.  Conclua o assistente.  
 
-Мастер создаст новую размещенную службу для облачной точки распространения. После закрытия мастера можно следить за ходом установки облачной точки распространения в консоли Configuration Manager. Можно также отслеживать файл **CloudMgr.log** на сервере первичного сайта. Подготовку облачной службы также можно отслеживать с помощью портала управления Azure.  
+O assistente cria um novo serviço alojado para o ponto de distribuição baseado na nuvem. Depois de fechar o assistente, pode monitorizar o progresso da instalação do ponto de distribuição baseado na nuvem na consola do Configuration Manager. Também pode monitorizar o **CloudMgr.log** ficheiro no servidor do site primário. Pode monitorizar o aprovisionamento do serviço de nuvem no portal do Azure.  
 
 > [!NOTE]  
->  Инициализация новой точки распространения в Azure может занять до 30 минут. Следующее сообщение будет повторяться в файле **CloudMgr.log** до инициализации учетной записи хранения: **Ожидание проверки существования контейнера. Проверка будет повторена через 10 секунд**. Затем служба будет создана и настроена.  
+>  Pode demorar até 30 minutos para aprovisionar um novo ponto de distribuição no Azure. A mensagem seguinte será repetida no **CloudMgr.log** ficheiros até que a conta de armazenamento seja aprovisionada: **A aguardar que verifique existência do contentor. Irá verificar novamente dentro de 10 segundos**. Em seguida, o serviço é criado e configurado.  
 
- Убедиться в завершении установки облачной точки распространения можно следующими способами:  
+ Pode identificar que a instalação do ponto de distribuição baseados na nuvem é concluída, utilizando os seguintes métodos:  
 
--   В портале управления Azure в области **Развертывание** облачной точки распространения будет отображаться состояние **Готово**.  
+-   No portal do Azure, o **implementação** apresenta o estado de distribuição baseado na nuvem ponto **pronto**.  
 
--   В консоли Configuration Manager в рабочей области **Администрирование** в узле **Конфигурация иерархии**, **Облако** для облачной точки распространения будет отображаться состояние **Готово**.  
+-   Na consola do Configuration Manager, no **administração** área de trabalho, **configuração da hierarquia**, **nuvem** nó, o ponto de distribuição baseado na nuvem apresenta o estado **pronto**.  
 
--   В Configuration Manager будет отображаться идентификатор сообщения о состоянии **9409** для компонента SMS_CLOUD_SERVICES_MANAGER.  
+-   Configuration Manager apresenta um ID de mensagem de estado **9409** para o componente SMS_CLOUD_SERVICES_MANAGER.  
 
-##  <a name="BKMK_ConfigDNSforCloudDPs"></a> Настройка разрешения имен для облачных точек распространения  
- Перед тем, как клиенты смогут получить доступ к облачной точке распространения, они должны иметь возможность преобразовать имя облачной точки распространения в IP-адрес, находящийся под управлением Azure. Клиенты осуществляют это в два этапа:  
+##  <a name="BKMK_ConfigDNSforCloudDPs"></a>Configurar a resolução de nomes para pontos de distribuição baseado na nuvem  
+ Antes dos clientes podem aceder ao ponto de distribuição baseado na nuvem, deve conseguir resolver o nome do ponto de distribuição baseado na nuvem para um endereço IP que gere o Azure. Os clientes fazem-em duas fases:  
 
-1.  Они сопоставляют имя службы, предоставленное вместе с сертификатом службы облачной точки распространения Configuration Manager, с полным доменным именем службы Azure. Это полное доменное имя содержит уникальный идентификатор GUID и DNS-суффикс **cloudapp.net**. Идентификатор GUID формируется автоматически после установки облачной точки распространения. Полное доменное имя можно просмотреть на портале Azure в разделе **SITE URL** на панели мониторинга облачной службы. Пример URL-адреса сайта: **http://d1594d4527614a09b934d470.cloudapp.net**.  
+1.  Mapeiam o nome de serviço fornecido com o certificado do serviço de ponto de distribuição baseados na nuvem do Configuration Manager para o FQDN de serviço do Azure. Este FQDN contém um GUID e o sufixo DNS de **cloudapp.net**. O GUID é gerado automaticamente depois de instalar o ponto de distribuição baseado na nuvem. Pode ver o FQDN completo no portal do Azure, consultando o **URL do SITE** no dashboard do serviço em nuvem. Um exemplo de site URL é **http://d1594d4527614a09b934d470.cloudapp.net**.  
 
-2.  Клиенты преобразуют полное доменное имя службы Azure в IP-адрес, выделяемый службой Azure. Этот IP-адрес можно также определить на панели мониторинга облачной службы на портале Azure — он называется **PUBLIC VIRTUAL IP ADDRESS (VIP)**.  
+2.  Resolvem o FQDN de serviço do Azure para o endereço IP que o Azure atribui. Este endereço IP também pode ser identificado no dashboard para o serviço em nuvem no portal do Azure e é denominado **pública endereço IP VIRTUAL (VIP)**.  
 
-Чтобы сопоставить имя службы, предоставленное вместе с сертификатом службы облачной точки распространения Configuration Manager (например, **clouddp1.contoso.com**), с полным доменным именем службы Azure (например, **d1594d4527614a09b934d470.cloudapp.net**), у DNS-серверов в Интернете должен быть DNS-псевдоним (запись CNAME). После этого клиенты могут преобразовать полное доменное имя службы Azure в IP-адрес с помощью DNS-серверов в Интернете.  
+Para mapear o nome de serviço fornecido com o certificado de serviço do ponto de distribuição baseados na nuvem do Configuration Manager (por exemplo, **clouddp1.contoso.com**) para o Azure FQDN de serviço (por exemplo, **d1594d4527614a09b934d470.cloudapp.net**), servidores DNS na Internet tem de ter um alias de DNS (registo CNAME). Os clientes podem, em seguida, resolver o FQDN de serviço do Azure para o endereço IP utilizando servidores DNS na Internet.  
 
-##  <a name="BKMK_ConfigProxyforCloud"></a> Настройка параметров прокси-сервера для первичных сайтов, которые управляют облачными службами  
- При использовании облачных служб с Configuration Manager первичный сайт, который управляет облачной точкой распространения, должен быть способен подключиться к порталу управления Azure. Сайт подключается с помощью учетной записи **System** компьютера первичного сайта. Это подключение устанавливается с помощью веб-браузера по умолчанию на компьютере основного сервера сайта.  
+##  <a name="BKMK_ConfigProxyforCloud"></a>Configurar as definições de proxy para sites primários que gerem serviços cloud  
+ Ao utilizar serviços em nuvem com o Configuration Manager, o site primário que gere o ponto de distribuição baseados na nuvem tem de ser capaz de ligar ao portal do Azure. O site estabelece a ligação utilizando o **sistema** conta de computador do site primário. Esta ligação é efetuada utilizando o browser predefinido no computador do servidor de site primário.  
 
- На сервере основного сайта, который управляет облачной точкой распространения, может потребоваться настройка параметров прокси-сервера, чтобы обеспечить доступ основного сайта к Интернету и к Azure.  
+ No servidor do site primário que gere o ponto de distribuição baseados na nuvem, poderá ser necessário configurar as definições de proxy para ativar o site primário para aceder à Internet e ao Azure.  
 
- С помощью следующей процедуры можно настроить параметры прокси-сервера для сервера первичного сайта на консоли Configuration Manager.  
+ Utilize o procedimento seguinte para configurar definições de proxy do servidor do site primário na consola do Configuration Manager.  
 
 > [!TIP]  
->  Также можно настроить параметры прокси-сервера при установки новых ролей систем сайта на основном сервере системы сайта с помощью **мастера добавления ролей систем сайта**.  
+>  Pode também configurar o servidor proxy ao instalar novas funções do sistema de sites no servidor do site primário, utilizando o **Adicionar Assistente de funções de sistema de Site**.  
 
-#### <a name="to-set-up-proxy-settings-for-the-primary-site-server"></a>Чтобы настроить параметры прокси-сервера для сервера основного сайта  
+#### <a name="to-set-up-proxy-settings-for-the-primary-site-server"></a>Para configurar definições de proxy do servidor do site primário  
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.  
+1.  Na consola do Configuration Manager, clique em **Administração**.  
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Серверы и роли системы сайта**. Затем выберите сервер первичного сайта, который управляет облачной точкой распространения.  
+2.  Na área de trabalho **Administração** , expanda a opção **Configuração do Site**e clique em **Servidores e Funções do Sistema de Sites**. Em seguida, selecione o servidor de site primário que gere o ponto de distribuição baseados na nuvem.  
 
-3.  В области результатов щелкните правой кнопкой мыши **Система сайта**, затем щелкните **Свойства**.  
+3.  No painel de detalhes, faça duplo clique **sistema de sites**e, em seguida, clique em **propriedades**.  
 
-4.  В окне **Свойства системы сайта** перейдите на вкладку **Прокси-сервер** и настройте параметры прокси-сервера для этого сервера первичного сайта.  
+4.  No **propriedades do sistema de sites**, selecione o **Proxy** separador e, em seguida, configure as definições de proxy para este servidor de site primário.  
 
-5.  Нажмите кнопку **ОК**, чтобы сохранить параметры.  
+5.  Clique em **OK** para guardar as definições.  

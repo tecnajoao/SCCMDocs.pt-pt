@@ -1,6 +1,6 @@
 ---
-title: "Политики соответствия устройств | Документация Майкрософт"
-description: "Узнайте, как управлять политиками соответствия в System Center Configuration Manager, чтобы обеспечить соответствие устройств политикам условного доступа."
+title: "Políticas de conformidade do dispositivo | Microsoft Docs"
+description: "Saiba como gerir políticas de conformidade no System Center Configuration Manager, para tornar os dispositivos em conformidade com acesso condicional políticas."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,57 +17,57 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: bcaa2a9b5474e06bf344dc4fd47dbb160ea36297
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="device-compliance-policies-in-system-center-configuration-manager"></a>Политики соответствия устройств в System Center Configuration Manager
+# <a name="device-compliance-policies-in-system-center-configuration-manager"></a>Políticas de conformidade de dispositivos no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-**Политики соответствия** в System Center Configuration Manager определяют правила и параметры, которым должно соответствовать устройство, чтобы согласно политикам условного доступа оно рассматривалось как совместимое. Политики соответствия также можно использовать для отслеживания и устранения проблем совместимости у устройств, независимо от условного доступа.  
+**Políticas de conformidade** no System Center Configuration Manager definem as regras e políticas de definições que um dispositivo tem de cumprir para ser considerado conforme com acesso condicional. Também pode utilizar as políticas de conformidade para monitorizar e resolver problemas de conformidade com dispositivos independentemente do acesso condicional.  
 
 
 > [!IMPORTANT]  
->  В этом разделе описываются политики соответствия требованиям для устройств, управляемых Microsoft Intune.    Политики соответствия требованиям для компьютеров, управляемых System Center Configuration Manager, описаны в разделе [Управление доступом к службам Office 365 для компьютеров под управлением System Center Configuration Manager](../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
+>  Este artigo descreve as políticas de conformidade para dispositivos geridos pelo Microsoft Intune.    As políticas de conformidade para PCs geridos pelo System Center Configuration Manager estão descritas em [Gerir o acesso aos serviços do O365 para PCs geridos pelo System Center Configuration Manager](../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
 
- Эти правила включают такие требования, как:  
+ Estas regras incluem requisitos como:  
 
--   ПИН-код и пароли для доступа к устройству;
+-   PINS e palavras-passe para aceder a dispositivos
 
--   шифрование данных, хранящихся на устройстве;
+-   Encriptação de dados armazenados no dispositivo
 
--   открыт ли на устройстве доступ к корневому каталогу и сняты ли ограничения на доступ к файловой системе;  
+-   Se o dispositivo está desbloqueado por jailbrake ou rooting  
 
--   управляется ли электронная почта на устройстве политикой Intune и не сообщила ли служба аттестации работоспособности устройств Windows о неработоспособности устройства;
--   приложения, которые нельзя устанавливать на устройство.
+-   Se o e-mail no dispositivo é gerido por uma política do Intune ou se o dispositivo é considerado como mau estado de funcionamento pelo serviço de atestado de estado de funcionamento de dispositivos do Windows.
+-   Aplicações que não podem ser instaladas no dispositivo.
 
 
- Политики соответствия требованиям развертываются для коллекций пользователей. При развертывании политики соответствия для пользователя все его устройства проверяются на соответствие.  
+ As políticas de conformidade são implementas em coleções de utilizadores. Quando uma política de conformidade é implementada num utilizador, todos os dispositivos do utilizador são verificados relativamente à conformidade.  
 
- В следующей таблице перечислены типы устройств, поддерживаемые политиками соответствия, а также способы управления несоответствующими параметрами при использовании политики с политикой условного доступа.  
+ A tabela seguinte lista os tipos de dispositivos suportados pelas políticas de conformidade e como são geridas as definições não conformes quando as políticas são utilizadas com uma política de acesso condicional.  
 
-|Правило|Windows 8.1 и более поздние версии|Windows Phone 8.1 и более поздней версии|iOS 6.0 и более поздних версий|Android 4.0 и более поздние версии с Samsung Knox Standard 4.0 и более поздними версиями, Android for Work|  
+|Regra|Windows 8.1 e posterior|Windows Phone 8.1 e posterior|iOS 6.0 e posterior|Android 4.0 e posterior Samsung KNOX Standard 4.0 e posterior, Android de trabalho|  
 |----------|---------------------------|---------------------------------|-----------------------|---------------------------|-----------------------------------------|  
-|**Конфигурация ПИН-кода или пароля**|Исправлено|Исправлено|Исправлено|Помещено в карантин|  
-|**Шифрование устройства**|Н/Д|Исправлено|Исправлено (путем установки ПИН-кода)|Помещено в карантин<br>(в Android for Work всегда выполняется шифрование)|  
-|**Устройство со снятой защитой или административным доступом**|Н/Д|Н/Д|Карантин (не параметр)|Карантин (не параметр)|  
-|**Профиль электронной почты**|Н/Д|Н/Д|Помещено в карантин|Н/Д|  
-|**Минимальная версия ОС**|Помещено в карантин|Помещено в карантин|Помещено в карантин|Помещено в карантин|  
-|**Максимальная версия ОС**|Помещено в карантин|Помещено в карантин|Помещено в карантин|Помещено в карантин|  
-|**Аттестация работоспособности устройств (обновление 1602)**|Параметр неприменим к Windows 8.1<br /><br /> Windows 10 и Windows 10 Mobile помещены в карантин.|Н/Д|Н/Д|Н/Д|  
-|**Приложения, которые нельзя устанавливать**|Н/Д|Н/Д|Помещено в карантин|Помещено в карантин|
+|**Configuração de PIN ou palavra-passe**|Corrigido|Corrigido|Corrigido|Em quarentena|  
+|**Encriptação de dispositivos**|N/D|Corrigido|Corrigido (ao definir um PIN)|Em quarentena<br>(Android para trabalho sempre encriptado)|  
+|**Com Jailbreak ou rooting**|N/D|N/D|Em quarentena (não é uma definição)|Em quarentena (não é uma definição)|  
+|**Perfil de e-mail**|N/D|N/D|Em quarentena|N/D|  
+|**Versão mínima do SO**|Em quarentena|Em quarentena|Em quarentena|Em quarentena|  
+|**Versão máxima do SO**|Em quarentena|Em quarentena|Em quarentena|Em quarentena|  
+|**O atestado de estado de funcionamento (atualização 1602)**|A definição não é aplicável ao Windows 8.1<br /><br /> O Windows 10 e o Windows 10 Mobile foram estão Em Quarentena.|N/D|N/D|N/D|  
+|**Aplicações que não podem ser instaladas**|N/D|N/D|Em quarentena|Em quarentena|
 
- **Исправлено** : соответствие обеспечивается операционной системой устройства (например, пользователь вынужден установить ПИН-код).  Параметр ни в коем случае не может быть несоответствующим.  
+ **Remediado** = a conformidade é imposta pelo sistema operativo do dispositivo (por exemplo, o utilizador é forçado a definir um PIN).  Nunca se dá o caso de a definição não ser conforme.  
 
- **Карантин** : операционная система устройства не применяет шаги по обеспечению соответствия (например, не используется принудительное шифрование устройств Android пользователями).  В этом случае:  
+ **Em Quarentena** = o sistema operativo do dispositivo não impõe a conformidade (por exemplo, os dispositivos Android não forçam o utilizador a encriptar o dispositivo).  Neste caso:  
 
--   Устройство будет заблокировано, если пользователь является целью для политики условного доступа.  
+-   O dispositivo será bloqueado se for aplicada uma política de acesso condicional ao utilizador.  
 
--   Корпоративный портал или веб-портал будет уведомлять пользователя о любых проблемах соответствия.  
+-   O portal da empresa ou o portal Web notificará o utilizador sobre eventuais problemas de conformidade.  
 
 
-### <a name="next-steps"></a>Дальнейшие шаги  
-[Создание и развертывание политики соответствия устройств](create-compliance-policy.md)
-### <a name="see-also"></a>См. также  
- [Управление доступом к службам в System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)
+### <a name="next-steps"></a>Passos Seguintes  
+[Criar e implementar uma política de conformidade do dispositivo](create-compliance-policy.md)
+### <a name="see-also"></a>Consulte também  
+ [Gerir o acesso a serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)

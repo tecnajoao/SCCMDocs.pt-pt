@@ -1,6 +1,6 @@
 ---
-title: "Подготовка однорангового кэша среды предустановки Windows для снижения трафика глобальной сети | Документы Майкрософт"
-description: "Одноранговый кэш Windows PE работает в среде предустановки Windows для получения содержимого из локального однорангового узла и уменьшения объема трафика глобальной сети при отсутствии локальной точки распространения."
+title: "Preparar a cache de ponto a ponto do Windows PE para reduzir o tráfego WAN | Microsoft Docs"
+description: "A Cache ponto a ponto do Windows PE funciona no Windows PE, para obter conteúdo de um elemento de rede local e minimizar o tráfego WAN quando não existe nenhum ponto de distribuição local."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,127 +16,127 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 814c6133a30b1116d05aaeafddb0dfb7fe2a390e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-windows-pe-peer-cache-to-reduce-wan-traffic-in-system-center-configuration-manager"></a>Подготовка однорангового кэша Windows PE для снижения трафика глобальной сети в System Center Configuration Manager
+# <a name="prepare-windows-pe-peer-cache-to-reduce-wan-traffic-in-system-center-configuration-manager"></a>Preparar a cache ponto a ponto do Windows PE para reduzir o tráfego WAN no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-При развертывании новой операционной системы в System Center Configuration Manager компьютеры, на которых выполняется последовательность задач, могут использовать одноранговый кэш среды предустановки Windows для получения содержимого из локального узла (источника однорангового кэша) вместо скачивания содержимого из точки распространения. Это позволяет уменьшить объем трафика глобальной сети (WAN) в сценариях с филиалами, где локальные точки распространения отсутствуют.  
+Quando implementa um novo sistema operativo no System Center Configuration Manager, computadores que executam a sequência de tarefas podem utilizar a Cache do Windows PE para obter conteúdo de um elemento de rede local (uma origem de cache ponto a ponto) em vez de transferirem conteúdo de um ponto de distribuição. Isto ajuda a minimizar o tráfego da rede alargada (WAN) em cenários de uma sucursal onde não existe um ponto de distribuição local.  
 
- Одноранговый кэш Windows PE похож на [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), но функционирует в среде предустановки Windows (Windows PE). В случае запуска последовательности задач из контекста операционной системы, например из центра программного обеспечения на клиенте, одноранговый кэш Windows PE не используется. Для описания клиентов, использующих одноранговый кэш Windows PE, применяются следующие термины:  
+ A Cache do Windows PE é semelhante à [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), mas funciona no ambiente de pré-instalação do Windows (Windows PE). Se iniciar a sequência de tarefas do contexto do sistema operativo, como do Centro de Software no cliente, a Cache Ponto a Ponto do Windows PE não é utilizada. Os termos seguintes são utilizados para descrever os clientes que utilizam a Cache Ponto a Ponto do Windows PE:  
 
--   **Клиент однорангового кэша** — это компьютер, настроенный на использование однорангового кэша Windows PE.  
+-   Um **cliente de cache ponto a ponto** é um computador que está configurado para utilizar a Cache Ponto a Ponto do Windows PE.  
 
--   **Источник однорангового кэша** — это клиент, настроенный для однорангового кэша, который делает содержимое доступным для других клиентов однорангового кэша, запрашивающих данное содержимое.  
+-   Uma **origem de cache ponto a ponto** é um cliente que está configurado para a cache ponto a ponto e que fornece conteúdo a outros clientes de cache ponto a ponto que pedem esse conteúdo.  
 
-Ниже приведены процедуры управления одноранговым кэшем.
+Utilize as secções seguintes para gerir a Cache ponto a ponto.
 
-##  <a name="BKMK_PeerCacheObjects"></a> Объекты, хранящиеся в источнике однорангового кэша  
- Последовательность задач, настроенная на использование однорангового кэша Windows PE, может получить следующие объекты содержимого во время выполнения в Windows PE:  
+##  <a name="BKMK_PeerCacheObjects"></a> Objetos armazenados numa origem de Cache Ponto a Ponto  
+ Uma sequência de tarefas configurada para utilizar a Cache Ponto a Ponto do Windows PE pode obter os seguintes objetos de conteúdos durante a execução no Windows PE:  
 
--   Образ операционной системы  
+-   Imagem do sistema operativo  
 
--   Пакет драйвера  
+-   Pacote de controladores  
 
--   Пакеты и программы (когда клиент продолжает выполнять последовательность задач в полной операционной системе, он получает это содержимое из источника однорангового кэша, если последовательность задач была изначально настроена для однорангового кэша при работе в среде Windows PE).  
+-   Pacotes e programas (quando o cliente continua a executar a sequência de tarefas no sistema operativo completo, o cliente obtém este conteúdo de uma origem de cache ponto a ponto se a sequência de tarefas foi originalmente configurada para a cache ponto a ponto quando em execução no Windows PE.)  
 
--   Дополнительные загрузочные образы.  
+-   Imagens de arranque adicionais  
 
- Следующие объекты содержимого никогда не передаются с помощью однорангового кэша. Вместо этого они передаются из точки распространения или кэшем Windows BranchCache, если Windows BranchCache настроен в вашей среде.  
+ Os objetos de conteúdos seguintes nunca são transferidos com a cache ponto a ponto. Em vez disso, são transferidos de um ponto de distribuição ou pelo Windows BranchCache se tiver configurado o Windows BranchCache no seu ambiente:  
 
--   Приложения  
+-   Aplicações  
 
--   Обновления программного обеспечения  
+-   Atualizações de software  
 
-##  <a name="BKMK_PeerCacheWork"></a> Принцип работы однорангового кэша Windows PE  
- Рассмотрим ситуацию с филиалом, где нет точки распространения, но имеются несколько клиентов, которые могут использовать одноранговый кэш Windows PE. Последовательность задач, настроенная на использование однорангового кэша, развертывается на нескольких клиентах, которые включены в состав источника однорангового кэша. Первый клиент, предназначенный для выполнения последовательности задач, осуществляет вещание запроса на одноранговый узел с содержимым. Он не находит его и получает содержимое из точки распространения по глобальной сети. Клиент устанавливает новый образ, а затем сохраняет содержимое в своем кэше клиента Configuration Manager, поэтому он может работать как источник однорангового кэша для других клиентов. Когда следующий клиент выполняет последовательность задач, он осуществляет вещание запроса в подсети на источник однорангового кэша, первый клиент отвечает и делает доступным свое кэшированное содержимое.  
+##  <a name="BKMK_PeerCacheWork"></a> Como funciona a Cache Ponto a Ponto do Windows PE?  
+ Considere um cenário onde uma sucursal não tem um ponto de distribuição mas tem vários clientes ativados para utilizar a Cache Ponto a Ponto do Windows PE. Implementa a sequência de tarefas configurada para utilizar a cache ponto a ponto em vários clientes que estão configurados para fazer parte da origem da cache ponto a ponto. O primeiro cliente a executar a sequência de tarefas difunde um pedido para um elemento com o conteúdo. Se não encontrar nenhum elemento, obtém o conteúdo a partir de um ponto de distribuição na WAN. O cliente instala a nova imagem e, em seguida, armazena o conteúdo na respetiva cache do cliente do Configuration Manager para que possa funcionar como uma origem de cache ponto a ponto para outros clientes. Quando o cliente seguinte executar a sequência de tarefas, difunde um pedido na sub-rede para uma origem de cache ponto a ponto e o primeiro cliente responde e torna o seu conteúdo na cache disponível.  
 
-##  <a name="BKMK_PeerCacheDetermine"></a> Определение клиентов, входящих в состав источника однорангового кэша Windows PE  
- Чтобы помочь вам определить, какие компьютеры следует выбрать в качестве источника однорангового кэша Windows PE, отметим несколько вещей, которые следует учитывать:  
+##  <a name="BKMK_PeerCacheDetermine"></a> Determinar os clientes que vão fazer parte da origem da Cache Ponto a Ponto do Windows PE  
+ Para ajudar a determinar quais os computadores a selecionar como origem da Cache Ponto a Ponto do Windows PE, deve considerar vários aspetos:  
 
--   Источником однорангового кэша Windows PE должен быть настольный компьютер, который всегда включен и доступен для клиентов однорангового кэша.  
+-   A origem da Cache Ponto a Ponto do Windows PE deve ser um computador de secretária sempre ligado e disponível para os clientes da cache ponto a ponto.  
 
--   Одноранговый кэш Windows PE должен иметь размер кэша клиента достаточного размера для хранения образов.  
+-   A Cache Ponto a Ponto do Windows PE tem um tamanho de cache de cliente suficiente para armazenar as imagens.  
 
-##  <a name="BKMK_PeerCacheRequirements"></a> Требования к клиенту для использования источника однорангового кэша Windows PE  
- Чтобы использовать источник однорангового кэша Windows PE, клиенты должны соответствовать следующим требованиям:  
+##  <a name="BKMK_PeerCacheRequirements"></a> Requisitos para um cliente utilizar uma origem de Cache Ponto a Ponto do Windows PE  
+ Para os clientes utilizarem uma origem de Cache Ponto a Ponto do Windows PE, têm de cumprir os seguintes requisitos:  
 
--   Клиент Configuration Manager должен быть способен взаимодействовать через следующие порты в сети:  
+-   O cliente do Configuration Manager tem de ser capaz de comunicar através das seguintes portas na sua rede:  
 
-    -   Порт для начального вещания по сети для нахождения источника однорангового кэша. По умолчанию используется порт 8004.  
+    -   Porta para a difusão de rede inicial, para encontrar uma origem de cache ponto a ponto. Por predefinição, a porta é 8004.  
 
-    -   Порт для скачивания содержимого из источника однорангового кэша (HTTP и HTTPS). По умолчанию используется порт 8003.  
+    -   Porta para transferência de conteúdos de uma origem de cache ponto a ponto (HTTP e HTTPS). Por predefinição, esta porta é 8003.  
 
         > [!TIP]  
-        >  Клиенты будут использовать HTTPS для скачивания содержимого, если оно доступно. Однако и для HTTP, и для HTTPS используется один и тот же номер порта.  
+        >  Os clientes utilizarão HTTPS para transferir conteúdos, quando estiverem disponíveis. No entanto, é utilizado o mesmo número de porta para HTTP ou HTTPS.  
 
--   [Настройте кэш клиента для клиентов Configuration Manager](../../core/clients/manage/manage-clients.md#BKMK_ClientCache), чтобы обеспечить наличие на них достаточного места для удержания и хранения развертываемых образов. Одноранговый кэш Windows PE не влияет на конфигурацию или поведение кэша клиента.  
+-   [Configure a Cache de Cliente dos Clientes do Configuration Manager](../../core/clients/manage/manage-clients.md#BKMK_ClientCache) nos clientes para se certificar de que os mesmos têm espaço suficiente para manter e armazenar as imagens que implementa. A Cache Ponto a Ponto do Windows PE não afeta a configuração ou nem comportamento da cache do cliente.  
 
--   В параметрах развертывания для развертывания последовательности задач должна быть настроена возможность локального скачивания содержимого в случаях, когда это требуется для последовательности задач.  
+-   As opções de implementação para a implementação da sequência de tarefas têm de estar configuradas como Transferir o conteúdo localmente quando necessário para a sequência de tarefas em execução.  
 
-##  <a name="BKMK_PeerCacheConfigure"></a> Настройка однорангового кэша Windows PE  
- Вы можете применять следующие методы для предоставления клиенту содержимого однорангового кэша, чтобы он мог служить источником однорангового кэша.  
+##  <a name="BKMK_PeerCacheConfigure"></a> Configurar a Cache Ponto a Ponto do Windows PE  
+ Pode utilizar os métodos seguintes para aprovisionar um cliente com conteúdo de cache ponto a ponto, para que possa servir como uma origem de cache ponto a ponto:  
 
--   Клиент однорангового кэша, который не может найти источник однорангового кэша с содержимым, загрузит его из точки распространения.  Если клиент получает параметры клиента, разрешающие одноранговый кэш, и последовательность задач настроена на сохранение кэшированного содержимого, данный клиент становится источником однорангового кэша.  
+-   Um cliente de cache ponto a ponto que não consegue encontrar uma origem de cache ponto a ponto com o conteúdo irá transferir o mesmo de um ponto de distribuição.  Se o cliente recebe as definições de cliente que permitem uma cache ponto a ponto e a sequência de tarefas estiver configurada para preservar o conteúdo da cache, o cliente torna-se numa origem de cache ponto a ponto.  
 
--   Клиент однорангового кэша может получать содержимое от другого клиента однорангового кэша (источника однорангового кэша).  Так как клиент настроен для однорангового кэша, когда он запускает последовательность задач, настроенную на сохранение кэшированного содержимого, сам клиент становится источником однорангового кэша.  
+-   Um cliente de cache ponto a ponto pode obter conteúdo de outro cliente de cache ponto a ponto (uma origem de cache ponto a ponto).  Como o cliente está configurado como uma cache ponto a ponto, quando executa uma sequência de tarefas que está configurada para preservar os conteúdos em cache, o cliente torna-se numa origem de cache ponto a ponto.  
 
--   Клиент запускает последовательность задач, включающую в себя дополнительный шаг — [Загрузить содержимое пакета](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent). Этот шаг используется для предварительной подготовки соответствующего содержимого, включенного в последовательность задач однорангового кэша Windows PE. При использовании этого метода  
+-   Um cliente executa uma sequência de tarefas que inclui o passo opcional [Transferir Conteúdo do Pacote](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent), que é utilizado para pré-configurar o conteúdo relevante que está incluído na sequência de tarefas da Cache Ponto a Ponto do Windows PE. Quando utiliza este método:  
 
-    -   Клиенту не требуется устанавливать развертываемый образ.  
+    -   O cliente não necessita de instalar a imagem que está a ser implementada.  
 
-    -   Помимо параметра **Скачать содержимое пакета** , последовательность задач также должна использовать параметр **Кэш клиента Configuration Manager** . Этот параметр следует использовать для хранения содержимого в кэше клиентов, чтобы клиент мог работать в качестве источника однорангового кэша для других клиентов однорангового кэша.  
+    -   Além da opção **Transferir Conteúdo do Pacote** , a sequência de tarefas tem também de utilizar a opção **Cache do cliente do Configuration Manager** . O utilizador utiliza esta opção para armazenar conteúdo na cache do cliente para que o cliente possa funcionar como uma origem de cache ponto a ponto para outros clientes de cache ponto a ponto.  
 
- С помощью следующих процедур можно настроить одноранговый кэш Windows PE на клиентах и настроить последовательности задач, которые поддерживают одноранговый кэш.  
+ Os seguintes procedimentos ajudá-lo-ão a configurar a Cache Ponto a Ponto do Windows PE em clientes e a configurar as sequências de tarefas que suporta a cache ponto a ponto.  
 
-### <a name="to-configure-the-windows-pe-peer-cache-source-computers"></a>Настройка компьютеров источника однорангового кэша Windows PE  
+### <a name="to-configure-the-windows-pe-peer-cache-source-computers"></a>Para configurar os computadores de origem da Cache Ponto a Ponto do Windows PE  
 
-1.  В консоли Configuration Manager выберите **Администрирование** > **Параметры клиента**, а затем создайте **настраиваемые параметры клиентского устройства** или измените существующий объект параметров. Это можно также настроить для объекта **параметров клиента по умолчанию** .  
+1.  Na consola do Configuration Manager, navegue até à **administração** > **as definições de cliente**e, em seguida, crie um novo **definições personalizadas do dispositivo cliente** ou editar um objeto de definições existente. Também pode configurar estas opções para o objeto **Predefinições de Cliente** .  
 
     > [!TIP]  
-    >  Используйте объект настраиваемых параметров для выбора клиентов, которые получат эту конфигурацию. Например, такая конфигурация может оказаться нецелесообразной для ноутбуков пользователей, которые часто находятся в пути. Чрезвычайно мобильная система вряд ли будет хорошим источником для предоставления содержимого другим клиентам однорангового кэша.  
+    >  Utilize um objeto de definições personalizado para gerir que clientes recebem esta configuração. Por exemplo, é aconselhável evitar esta configuração nos portáteis dos utilizadores que frequentemente trabalham em viagem. Um sistema com elevada mobilidade pode ser uma origem fraca para fornecer conteúdo a outros clientes de cache ponto a ponto.  
     >   
-    >  Также следует помнить, что при настройке этого параметра в составе **параметров клиента по умолчанию**конфигурация применяется ко всем клиентам в вашей среде.  
+    >  Lembre-se também de que quando configura esta definição como parte das **Predefinições de Cliente**, a configuração aplica-se a todos os clientes do seu ambiente.  
 
-2.  В разделе **Одноранговый кэш Windows PE**для параметра **Включить клиент Configuration Manager в полной ОС для общего доступа к содержимому** установите значение **Да**.  
+2.  Em **Cache Ponto a Ponto do Windows PE**, defina **Permitir que clientes do Configuration Manager em OS completo partilhem conteúdo** para **Sim**.  
 
-    -   По умолчанию включен только HTTP. Если нужно разрешить клиентам загружать содержимое по протоколу HTTPS, для параметра **Включить HTTPS для одноранговой связи с клиентами** установите значение **Да**.  
+    -   Por predefinição, apenas está ativado HTTP. Se quer permitir que clientes transfiram conteúdo através de HTTPS, defina **Permitir HTTPS para comunicação entre elementos de rede do cliente** como **Sim**.  
 
-    -   По умолчанию для порта для вещания установлено значение 8004, а для порта для загрузки содержимого — 8003. Оба эти значения можно изменить.  
+    -   Por predefinição, a porta que difunde está definida como a porta 8004 e a porta para transferência de conteúdo está definida como a porta 8003. Pode alterar ambas.  
 
-3.  Сохраните и разверните параметры клиента для клиентов, выбранных в качестве источника однорангового кэша.  
+3.  Guarde e implemente as Definições de Cliente nos clientes que selecionou como origem de cache ponto a ponto.  
 
- После настройки устройства с этим объектом параметров данное устройство будет работать как источник однорангового кэша. Эти параметры следует развернуть на потенциальных клиентах однорангового кэша для настройки требуемых портов и протоколов.  
+ Depois de um dispositivo estar configurado com este objeto de definições, o mesmo está configurado para agir como uma origem de cache ponto a ponto. Estas definições devem ser implementadas em potenciais clientes de cache ponto a ponto para configurar as portas e protocolos necessários.  
 
-###  <a name="BKMK_PeerCacheConfigureTS"></a> Настройка последовательности задач для однорангового кэша Windows PE  
- При настройке последовательности задач используйте следующие переменные последовательности задач как переменные коллекции, для которой выполняется развертывание последовательности задач:  
+###  <a name="BKMK_PeerCacheConfigureTS"></a> Configurar uma sequência de tarefas para a Cache Ponto a Ponto do Windows PE  
+ Quando configurar uma sequência de tarefas, utilize as seguintes variáveis de sequência de tarefas como Variáveis da Coleção na coleção onde pretende que seja implementada a sequência de tarefas:  
 
 -   **SMSTSPeerDownload**  
 
-     Значение: TRUE.  
+     Value:  VERDADEIRO  
 
-     Это позволяет клиенту использовать одноранговый кэш Windows PE.  
+     Isto permite ao cliente utilizar a Cache Ponto a Ponto do Windows PE.  
 
 -   **SMSTSPeerRequestPort**  
 
-     Значение: <номер порта\>  
+     Valor: < número da porta\>  
 
-     Если не используется порт по умолчанию, настроенный в параметрах клиента (8004), для этой переменной необходимо указать пользовательское значение сетевого порта, который будет применяться для начального вещания.  
+     Quando utiliza a porta predefinida configurada nas definições do cliente (8004), tem de configurar esta variável com um valor personalizado da porta de rede a utilizar para a difusão inicial.  
 
 -   **SMSTSPreserveContent**  
 
-     Значение: TRUE.  
+     Value: VERDADEIRO  
 
-     Указывает, что содержимое в последовательности задач должно храниться в кэше клиента Configuration Manager после развертывания. Это отличается от случая с применением переменной SMSTSPersistContent, которая сохраняет содержимое лишь на время выполнения последовательности задач и использует кэш последовательности задач, а не кэш клиента Configuration Manager.  
+     Este processo sinaliza o conteúdo na sequência de tarefas a ser mantido na cache do cliente do Configuration Manager após a implementação. Isto é diferente de utilizar o smstspersiscontent, que apenas preserva o conteúdo durante a duração da sequência de tarefas e utiliza a cache da sequência de tarefas, não a cache do cliente do Configuration Manager.  
 
- Дополнительные сведения см. в разделе [Встроенные переменные последовательности задач](../understand/task-sequence-built-in-variables.md).  
+ Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](../understand/task-sequence-built-in-variables.md).  
 
-###  <a name="BKMK_PeerCacheValidate"></a> Проверка успешного применения однорангового кэша Windows PE  
- После использования однорангового кэша Windows PE для развертывания и установки последовательности задач можно убедиться в успешном применении однорангового кэша, просмотрев **smsts.log** на клиенте, который запустил последовательность задач.  
+###  <a name="BKMK_PeerCacheValidate"></a> Validar o êxito de utilizar a cache ponto a ponto do Windows PE  
+ Depois de utilizar a cache ponto a ponto do Windows PE para implementar e instalar uma sequência de tarefas, pode confirmar que a cache ponto a ponto foi utilizada no processo visualizando o **smsts.log** no cliente que executou a sequência de tarefas.  
 
- В журнале найдите запись, подобную показанной ниже, где <*SourceServerName*> определяет компьютер, с которого клиент получил содержимое. Этот компьютер должен быть источником однорангового кэша, а не сервером точки распространения. Другие данные будут зависеть от вашей локальной среды и конфигурации.  
+ No registo, localize uma entrada semelhante à seguinte em que <*Nomedoservidordeorigem*> identifica o computador a partir do qual o cliente obteve o conteúdo. Este computador deve ser uma origem de cache ponto a ponto e não um servidor de ponto de distribuição. Outros detalhes irão variar com base no seu ambiente e configurações locais.  
 
--   *<![LOG[Downloaded file from http:// <SourceServerName\>:8003/SCCM_BranchCache$/SS10000C/sccm?/install.wim to C:\\_SMSTaskSequence\Packages\SS10000C\install.wim ]LOG]!><time="14:24:33.329+420" date="06-26-2015" component="ApplyOperatingSystem" context="" type="1" thread="1256" file="downloadcontent.cpp:1626">*  
+-   *<! [Registo [Downloaded file from http:// < Nomedoservidordeorigem\>: 8003/SCCM_BranchCache$/SS10000C/sccm?/install.wim para c:\\_SMSTaskSequence\Packages\SS10000C\install.wim] registo]! >< tempo = "14:24:33.329 + 420" date = "06-26-2015" component = "ApplyOperatingSystem" context = "" tipo = "1" thread = "1256" Downloadcontent.cpp: 1626 ">*  

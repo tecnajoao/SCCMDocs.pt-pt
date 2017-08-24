@@ -1,6 +1,6 @@
 ---
-title: "Управление клиентами в инфраструктуре виртуальных рабочих столов (VDI) | Документы Майкрософт "
-description: "Управление клиентами System Center Configuration Manager в инфраструктуре виртуальных рабочих столов (VDI)."
+title: "Gestão de clientes de infraestrutura de ambiente de trabalho virtual (VDI) | Microsoft Docs "
+description: Gerir clientes do System Center Configuration Manager numa infraestrutura de ambiente de trabalho virtual (VDI).
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,33 +17,33 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d73daf6427b8c58d21d579f3b41df513cc3e3b0b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Рекомендации по управлению клиентами System Center Configuration Manager в инфраструктуре виртуальных рабочих столов (VDI)
+# <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Considerações para gerir clientes do System Center Configuration Manager numa infraestrutura de ambiente de Trabalho Virtual (VDI)
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager поддерживает установку клиента Configuration Manager в следующих сценариях инфраструктуры виртуальных рабочих столов (VDI).  
+System Center Configuration Manager suporta a instalação do cliente do Configuration Manager nos seguintes cenários de infraestrutura de ambiente de trabalho virtual (VDI):  
 
--   **Личные виртуальные машины**. Личные виртуальные машины обычно используются для обеспечения сохранности данных и пользовательских параметров на виртуальной машине между сеансами.  
+-   **Máquinas virtuais pessoais** -as máquinas virtuais pessoais são utilizadas geralmente quando pretender certificar-se de que os dados de utilizador e as definições são mantidas na máquina virtual entre sessões.  
 
--   **Сеансы служб удаленных рабочих столов**. Службы удаленных рабочих столов позволяют размещать на сервере несколько одновременно выполняющихся сеансов клиента. Пользователи могу подключиться к сеансу и затем запустить на этом сервере приложения.  
+-   **Sessões de serviços de ambiente de trabalho remoto** -serviços de ambiente de trabalho remoto permite que um servidor alojar várias sessões de cliente simultâneas. Os utilizadores podem ligar a uma sessão e, em seguida, executar aplicações nesse servidor.  
 
--   **Виртуальные машины в составе пула**. Виртуальные машины в составе пула не сохраняются между сеансами. После закрытия сеанса все данные и параметры удаляются. Виртуальные машины в составе пула полезны в ситуациях, если использование служб удаленных рабочих столов невозможно, поскольку необходимое бизнес-приложение не может быть запущено на сервере Windows Server, где находятся сеансы клиента.  
+-   **Máquinas virtuais agrupadas** -máquinas virtuais agrupadas não são mantidas entre sessões. Quando uma sessão é fechada, todos os dados e definições são eliminadas. Máquinas virtuais agrupadas são úteis quando os serviços de ambiente de trabalho remoto não é possível utilizar uma aplicação empresarial necessária não é possível executar no Windows Server que aloja as sessões de cliente.  
 
- В следующей таблице перечислены факторы, которые необходимо учесть при управлении клиентом Configuration Manager в инфраструктуре виртуальных рабочих столов.  
+ A tabela seguinte lista as considerações para gerir o cliente do Configuration Manager numa infraestrutura de ambiente de trabalho virtual.  
 
-|Тип виртуальной машины|Особенности|  
+|Tipo de máquina virtual|Considerações|  
 |--------------------------|--------------------|  
-|Личные виртуальные машины|Configuration Manager рассматривает личные виртуальные машины как физические компьютеры. Клиент Configuration Manager может быть предустановлен в образе виртуальной машины или развернут после подготовки виртуальной машины.|  
-|Службы удаленных рабочих столов|Клиент Configuration Manager не следует устанавливать для отдельных сеансов удаленных рабочих столов. Он устанавливается только один раз на сервере служб удаленных рабочих столов. На сервере служб удаленных рабочих столов можно использовать все функции Configuration Manager.|  
-|Виртуальные машины в составе пула|В случае вывода из эксплуатации виртуальной машины в составе пула будут утеряны все изменения, внесенные с помощью Configuration Manager.<br /><br /> Данные, возвращенные из таких функций Configuration Manager, как инвентаризация оборудования, инвентаризация программного обеспечения и контроль использования программных продуктов, могут не соответствовать вашим потребностям, поскольку виртуальная машина может находиться в рабочем состоянии только в течение непродолжительного периода времени. Из задач инвентаризации рекомендуется исключить виртуальные машины в составе пула.|  
+|Máquinas virtuais pessoais|O Configuration Manager trata as máquinas virtuais pessoais de forma idêntica para um computador físico. O cliente do Configuration Manager pode ser pré-instalado na imagem de máquina virtual ou implementado depois da máquina virtual estar aprovisionada.|  
+|Serviços de Ambiente de Trabalho Remoto|O cliente do Configuration Manager não está instalado para sessões individuais de ambiente de trabalho remoto. Em vez disso, o cliente só é instalado uma vez no servidor de serviços de ambiente de trabalho remoto. Todas as funcionalidades do Configuration Manager podem ser utilizadas no servidor de serviços de ambiente de trabalho remoto.|  
+|Máquinas virtuais agrupadas|Quando uma máquina virtual agrupada é encerrada, quaisquer alterações efetuadas utilizando o Gestor de configuração serão perdidas.<br /><br /> Dados devolvidos pelo funcionalidades do Configuration Manager, tais como inventário de hardware, inventário de software e medição de software podem não ser relevantes para as suas necessidades que a máquina virtual poderá estar operacional apenas por um curto período de tempo. Considere excluir máquinas virtuais agrupadas das tarefas de inventário.|  
 
- Поскольку виртуализация позволяет поддерживать запуск нескольких клиентов Configuration Manager на одном и том же физическом компьютере, многие клиентские операции предусматривают встроенную случайную задержку выполняемых по расписанию действий, таких как инвентаризация оборудования и ПО, проверка на наличие вредоносного ПО, установка ПО и сканирование для выявления необходимых обновлений ПО. Эта задержка помогает распределить вычислительные мощности ЦП и организовать передачу данных на компьютере, где запущены несколько виртуальных машин с клиентом Configuration Manager.  
+ Porque a virtualização suporta vários clientes do Configuration Manager a ser executado no mesmo computador físico, muitas operações de cliente têm um atraso aleatório incorporado para ações agendadas, tais como o hardware e análises de inventário de software, antimalware, instalações de software e atualização de software análises. Este atraso ajuda a distribuir a transferência de dados e processamento de CPU para um computador que disponha de várias máquinas virtuais que executam o cliente do Configuration Manager.  
 
 > [!NOTE]  
->  За исключением клиентов Windows Embedded в режиме обслуживания, эту случайную задержку также используют клиенты Configuration Manager, работающие не в виртуализованных средах. При наличии большого числа развернутых клиентов подобный режим работы помогает избежать высокой пиковой нагрузки на пропускную способность сети и уменьшает требования к доступным вычислительным мощностям ЦП компьютеров сайта Configuration Manager, таких как точка управления и сервер сайта. Интервал этой задержки варьируется в зависимости от возможности Configuration Manager.  
+>  Com exceção dos clientes Windows Embedded que estão no modo de manutenção, os clientes do Configuration Manager que não estão em execução em ambientes virtualizados também utilizam este atraso aleatório. Quando tiver muitos clientes implementados, este comportamento ajuda a evitar picos na largura de banda de rede e reduz os requisitos de processamento de CPU nos sistemas de sites do Configuration Manager, tais como o servidor de ponto e o site de gestão. O intervalo de atraso varia de acordo com a capacidade do Configuration Manager.  
 >   
->  Случайная задержка для обязательных обновлений ПО и обязательных к развертыванию приложений отключается по умолчанию с помощью следующего клиентского параметра: **Агент компьютера**: **запретить случайный выбор срока**.
+>  O atraso de aleatoriedade é desativado por predefinição para atualizações de software necessárias e implementações de aplicações necessárias utilizando a seguinte definição de cliente: **Agente do computador**: **Desativar a aleatoriedade de prazos**.

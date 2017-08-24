@@ -1,5 +1,5 @@
 ---
-title: "Как создавать элементы конфигурации для устройств Android for Work, управляемых с помощью Intune"
+title: "Como criar itens de configuração para Android para dispositivos de trabalho geridos com o Intune"
 ms.custom: na
 ms.date: 2017-07-31
 ms.prod: configuration-manager
@@ -33,90 +33,90 @@ translation.priority.ht:
 - zh-tw
 ms.openlocfilehash: 87b34f0a3cce87f6e2ba813957a69b743648c1ca
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-android-for-work-devices-managed-with-intune"></a>Как создавать элементы конфигурации для устройств Android for Work, управляемых с помощью Intune
+# <a name="how-to-create-configuration-items-for-android-for-work-devices-managed-with-intune"></a>Como criar itens de configuração para Android para dispositivos de trabalho geridos com o Intune
 
- Используйте элемент конфигурации **Android for Work** в System Center Configuration Manager, чтобы управлять параметрами устройств Android for Work, зарегистрированных в Microsoft Intune или управляемых локально с помощью Configuration Manager.  
+ Utilizar o System Center Configuration Manager **Android para trabalho** item de configuração para gerir as definições para Android para dispositivos de trabalho que são inscritos pelo Configuration Manager no Microsoft Intune ou geridos no local.  
 
-### <a name="to-create-an-android-for-work-configuration-item"></a>Создание элемента конфигурации для Android for Work  
+### <a name="to-create-an-android-for-work-configuration-item"></a>Para criar um Android para o item de configuração de trabalho  
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade**.  
 
-2.  В рабочей области **Активы и соответствие** разверните узел **Параметры соответствия**и выберите **Элементы конфигурации**.  
+2.  Na área de trabalho **Ativos e Conformidade** , expanda **Definições de Conformidade**e, em seguida, clique em **Itens de Configuração**.  
 
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации**.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
 
-4.  На странице **Общие** **мастера создания элемента конфигурации**укажите имя и необязательное описание элемента.  
+4.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
 
-5.  В разделе **Укажите тип элемента конфигурации, который требуется создать** выберите **Android for Work**.  
+5.  Em **especificar o tipo de item de configuração que pretende criar**, selecione **Android para trabalho**.  
 
-6.  Выберите элемент **Категории**, если хотите создать и назначить категории для поиска и фильтрации элементов конфигурации в консоли Configuration Manager.  
+6.  Escolha **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
 
-  Нажмите кнопку **Далее**.
+  Clique em **Seguinte**.
 
-7.  На странице **Параметры устройства** мастера выберите группы параметров, которые необходимо настроить. Дополнительные сведения см. в разделе [Параметры элемента конфигурации Android for Work](#android-for-work-configuration-item-settings-reference), затем нажмите кнопку **Далее**.  
+7.  No **definições do dispositivo** página do assistente, selecione os grupos de definições que pretende configurar. Consulte [Android para definições de item de configuração de trabalho](#android-for-work-configuration-item-settings-reference) para obter detalhes e, em seguida, clique em **seguinte**.  
 
   > [!TIP]  
-  >  Если нужного параметра нет в списке, установите флажок **Настроить дополнительные параметры, не входящие в группы параметров по умолчанию**.  
+  >  Se a definição pretendida não estiver listada, selecione a caixa de verificação **Configurar definições adicionais que não estejam incluídas nos grupos de predefinições**.  
 
-9. На каждой странице параметров настройте необходимые параметры и укажите, требуется ли исправлять их, если они не соответствуют требованиям на устройствах (если это поддерживается).  
+9. Em cada página de definições, configure as definições de que necessita e se pretende resolvê-las quando não forem compatíveis com dispositivos (quando esta opção é suportada).  
 
-10. Кроме того, вы можете настроить для каждой группы параметров уровень серьезности, который выводится при обнаружении несоответствующего элемента конфигурации:  
+10. Para cada grupo de definições, também pode configurar a gravidade que será comunicada quando um item de configuração não for compatível:  
 
-    -   **Нет**. Устройства, которые не отвечают этому правилу соответствия, не передают для отчетов Configuration Manager сведения о серьезности сбоя.  
+    -   **Nenhum** -dispositivos que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
 
-    -   **Информация**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Информация**.  
+    -   **Informações** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
 
-    -   **Предупреждение**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Предупреждение**.  
+    -   **Aviso** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
 
-    -   **Критический**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критический**.  
+    -   **Crítico** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
 
-    -   **Критическая с событием**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критическая с событием**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
+    -   **Crítico com evento** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos da aplicação.  
 
-11. На странице **Применим. платформы** мастера просмотрите все параметры, которые не совместимы с поддерживаемыми платформами, выбранными ранее. Вы можете вернуться назад и удалить эти параметры или продолжить.  
+11. Na página **Aplicabilidade da Plataforma** do assistente, reveja as definições que não são compatíveis com as plataformas suportadas que selecionou anteriormente. Pode voltar atrás e remover estas definições ou pode continuar.  
 
     > [!TIP]  
-    >  Неподдерживаемые параметры не проверяются на соответствие.  
+    >  As definições não suportadas não são avaliadas em termos de compatibilidade.  
 
-12. Завершите работу мастера.  
+12. Conclua o assistente.  
 
- Созданный элемент конфигурации вы можете просмотреть в узле **Элементы конфигурации** рабочей области **Активы и соответствие** .  
+ Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade** .  
 
-##  <a name="android-for-work-configuration-item-settings-reference"></a>Справочник по параметрам элементов конфигурации Android for Work  
+##  <a name="android-for-work-configuration-item-settings-reference"></a>Android para a referência de definições de item de configuração de trabalho  
 
-### <a name="password"></a>Пароль  
+### <a name="password"></a>Palavra-passe  
 
-|Параметр|Подробные сведения|  
+|Definição|Detalhes|  
 |-------------|-------------|  
-|**Требовать параметры пароля на устройствах**|Запрашивается пароль на поддерживаемых устройствах.|  
-|**Минимальная длина пароля (символов)**|Минимальная длина пароля.|  
-|**Истечение срока действия пароля в днях**|Число дней до смены пароля.|  
-|**Количество запоминаемых паролей**|Предотвращает повторное использование последних использованных паролей.|  
-|**Число неудачных попыток входа до стирания памяти устройства**|Очищает устройство, если превышено это число попыток входа.|  
-|**Время бездействия до блокировки устройства**|Укажите время простоя устройства до его блокировки.|
-|**Качество пароля**|Выберите требуемый уровень сложности пароля и укажите, можно ли использовать биометрические устройства.|  
-|**Разрешить Smart Lock и другие доверенные агенты**|Позволяет контролировать функцию Smart Lock на совместимых устройствах Android. Эта функция телефона, которую иногда называют доверенными агентами, позволяет отключать или обходить пароль блокировки экрана устройства, когда устройство находится в надежном расположении, например при подключении к определенному устройству Bluetooth, или когда оно находится рядом с NFC-тегом. С помощью этого параметра можно запретить пользователям настраивать функцию Smart Lock.|
-|**Отпечаток пальца для разблокировки**|&nbsp;|
+|**Exigir definições de palavra-passe em dispositivos**|Exigir uma palavra-passe em dispositivos suportados.|  
+|**Comprimento mínimo de palavra-passe (carateres)**|O comprimento mínimo da palavra-passe.|  
+|**Expiração da palavra-passe em dias**|O número de dias antes de uma palavra-passe tem de ser alterado.|  
+|**Número de palavras-passe memorizadas**|Impede a reutilização de palavras-passe utilizadas recentes.|  
+|**Número de tentativas de início de sessão falhadas antes de o dispositivo ser apagado**|Apaga o dispositivo em caso de falha deste número de tentativas de início de sessão.|  
+|**Tempo de inatividade antes do dispositivo está bloqueado**|Selecione a quantidade de tempo que não é utilizado o dispositivo antes de esta bloqueia.|
+|**Qualidade da palavra-passe**|Selecionar o nível de complexidade da palavra-passe exigido e se podem ser utilizados dispositivos biométricos.|  
+|**Permitir Smart Lock e outros agentes de confiança**|Vamos controlar a funcionalidade Smart Lock em dispositivos Android compatíveis. Esta capacidade de telefone, por vezes conhecida como agentes de confiança, permite desativar ou ignorar a palavra-passe da ecrã de bloqueio do dispositivo se o dispositivo estiver numa localização fidedigna, como quando está ligado a um dispositivo Bluetooth específico ou quando está próximo de uma etiqueta NFC. Pode utilizar esta definição para impedir que os utilizadores finais configurem o Smart Lock.|
+|**Impressão digital para desbloquear**|&nbsp;|
 
-###  <a name="work-profile"></a>Рабочий профиль  
- Эти параметры применяются только к устройствам Samsung KNOX.  
+###  <a name="work-profile"></a>Perfil de trabalho  
+ Estas definições aplicam-se apenas a dispositivos Samsung KNOX.  
 
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Разрешить обмен данными между рабочим и личным профилями**|Выберите один из следующих типов.<br>- **Не настроено**<br>- **Ограничения общего доступа по умолчанию**<br>- **Приложения в рабочем профиле могут обрабатывать запросы на совместный доступ из личного профиля**<br>- **Приложения в личном профиле могут обрабатывать запросы на совместный доступ из рабочего профиля**<br><br>(См. также сведения о [настройке копирования и вставки](#copy-paste-configuration-item-settings) с помощью специального URI).|  
-|**Скрывать уведомления из рабочего профиля при блокировке устройства (Android 6.0+)**||
-|**Задать политику разрешений приложений по умолчанию (Android 6.0+)**|Выберите один из следующих типов.<br>- **Не настроено**<br>- **Всегда запрашивать**<br>- **Автоматически предоставлять**<br>- **Автоматически запрещать**|
+|**Permitir partilha de dados entre perfis pessoais e de trabalho**|Escolha entre:<br>- **Não configurado**<br>- **Predefinição restrições de partilha**<br>- **As aplicações no perfil de trabalho podem processar o pedido do perfil pessoal**<br>- **Aplicações pessoais perfil podem processar o pedido do perfil de trabalho**<br><br>(Consulte também [definições copiar-colar](#copy-paste-configuration-item-settings) com o URI personalizado)|  
+|**Ocultar as notificações de perfil de trabalho quando o dispositivo está bloqueado (Android 6.0 +)**||
+|**Definir a política de permissão de aplicação predefinido (Android 6.0 +)**|Escolha entre:<br>- **Não configurado**<br>- **Sempre apresentado um aviso**<br>- **Automática conceder**<br>- **Negar automática**|
 
-### <a name="copy-paste-configuration-item-settings"></a>Параметры элемента конфигурации копирования и вставки
-Ни один из вариантов **обмена данными между рабочим и личным профилем** не мешают использовать действия копирования и вставки. Действия копирования и вставки можно запретить с помощью пользовательской настройки. Ее можно настроить с помощью специального URI.
+### <a name="copy-paste-configuration-item-settings"></a>Definições do item de configuração de copiar-colar
+Nenhuma do **permitir partilha de dados entre a vida profissional e a pessoais perfis** opções evitar o comportamento de copiar-colar. Utilize uma definição personalizada que pode ser configurada para impedir a copiar-colar. Isto pode ser definido através de URI personalizada.
 
 - OMA-URI: ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
-- Тип значения: логическое значение
+- Tipo de valor: Booleano
 
-Если вы установите значение True для параметра DisallowCrossProfileCopyPaste, копирование и вставка будут запрещены между личным и рабочим профилями Android for Work.
+Definição DisallowCrossProfileCopyPaste para verdadeiro impede o comportamento de copiar-colar entre Android para trabalho pessoal e perfis de trabalho.
 
-## <a name="see-also"></a>См. также  
- [Элементы конфигурации для устройств, управляемых без использования клиента System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
+## <a name="see-also"></a>Consulte Também  
+ [Itens de configuração para dispositivos geridos sem o cliente do System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

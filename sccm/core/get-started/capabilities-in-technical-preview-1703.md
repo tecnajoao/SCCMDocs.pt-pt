@@ -1,6 +1,6 @@
 ---
-title: "Возможности в Technical Preview 1703 для Configuration Manager"
-description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1703."
+title: "Capacidades na pré-visualização técnica 1703 do Configuration Manager"
+description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1703."
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
@@ -16,148 +16,148 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: bb1b96a56db68dcea22270855b899ba3a90afd0d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1703 для System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1703 do System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
-Эта статья содержит сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1703. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.    
+Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1703. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.    
 
 
-**Ниже перечислены новые возможности, доступные в этой версии.**  
+**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-## <a name="deploy-volume-purchased-ios-apps-to-device-collections"></a>Развертывание приложений iOS, приобретенных по программе Volume Purchase Program, в коллекциях устройств
+## <a name="deploy-volume-purchased-ios-apps-to-device-collections"></a>Implementar aplicações iOS compradas em volume para coleções de dispositivos
 
-Теперь можно развернуть лицензированные приложения для устройств или пользователей. В зависимости от способности приложения поддерживать лицензирование устройств при развертывании будет получена соответствующая лицензия, как описано ниже.
+Pode agora implementar aplicações licenciadas para dispositivos, bem como os utilizadores. Consoante a capacidade de aplicações para suportar o dispositivo de licenciamento, uma licença adequada irá ser reclamada quando a implementá-la, da seguinte forma:
 
 |||||
 |-|-|-|-|
-|Версия Configuration Manager|Приложение поддерживает лицензирование устройств?|Тип коллекции для развертывания|Запрашиваемая лицензия|
-|До 1702|Да|пользователя|Лицензия пользователя|
-|До 1702|Нет|пользователя|Лицензия пользователя|
-|До 1702|Да|Устройство|Лицензия пользователя|
-|До 1702|Нет|Устройство|Лицензия пользователя|
-|1702 и выше|Да|пользователя|Лицензия пользователя|
-|1702 и выше|Нет|пользователя|Лицензия пользователя|
-|1702 и выше|Да|Устройство|Лицензия устройства|
-|1702 и выше|Нет|Устройство|Лицензия пользователя|
+|Versão do Configuration Manager|Aplicação suporta o licenciamento do dispositivo?|Tipo de coleção de implementação|Licença pedida|
+|Anteriores ao 1702|Sim|Utilizador|Licença de utilizador|
+|Anteriores ao 1702|Não|Utilizador|Licença de utilizador|
+|Anteriores ao 1702|Sim|Dispositivo|Licença de utilizador|
+|Anteriores ao 1702|Não|Dispositivo|Licença de utilizador|
+|1702 e posterior|Sim|Utilizador|Licença de utilizador|
+|1702 e posterior|Não|Utilizador|Licença de utilizador|
+|1702 e posterior|Sim|Dispositivo|Licença de dispositivo|
+|1702 e posterior|Não|Dispositivo|Licença de utilizador|
 
-Дополнительные сведения о приложениях iOS, приобретенных по программе Volume Purchase Program, см. в разделе [Управление приложениями iOS, приобретенными по программе Volume Purchase Program](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
+Para mais informações sobre as aplicações iOS compradas em volume, consulte [gerir aplicações iOS compradas em volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-## <a name="direct-links-to-applications-in-software-center"></a>Прямые ссылки на приложения в центре программного обеспечения
+## <a name="direct-links-to-applications-in-software-center"></a>Ligações diretas para aplicações no Centro de Software
 
-Теперь вы можете предоставить конечным пользователям прямую ссылку на приложение в центре программного обеспечения. Благодаря этому им не придется открывать центр программного обеспечения и искать приложение перед его установкой. Эта функция доступна только для приложений Configuration Manager и не работает для пакетов, программ или последовательностей задач.
+Agora pode fornecer aos utilizadores finais com uma ligação direta para uma aplicação no Centro de Software. Isto significa que já não tem de abrir o Centro de Software e procure uma aplicação antes de poderem instalar. Isto só está disponível para o Configuration Manager aplicações, não pacotes e programas ou sequências de tarefas.
 
-### <a name="try-it-out"></a>Попробуйте!                 
+### <a name="try-it-out"></a>Experimente                 
 
-Чтобы открыть центр программного обеспечения для конкретного приложения, используйте следующий формат URL-адреса:
+Utilize o seguinte formato de URL para abrir o Centro de Software a uma determinada aplicação:
 
-**Softwarecenter:SoftwareId=*идентификатор приложения***
+**Softwarecenter:SoftwareId =*identificador da aplicação***
 
-### <a name="how-to-get-the-application-identifier-of-an-application"></a>Получение идентификатора для приложения
+### <a name="how-to-get-the-application-identifier-of-an-application"></a>Como obter o identificador da aplicação de uma aplicação.
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.
-2.  В рабочей области "Библиотека программного обеспечения" разверните узел **Управление приложениями** и выберите **Приложения**.
-3.  В представлении **Приложения** щелкните правой кнопкой мыши один из заголовков столбцов и выберите **Уникальный ИД элемента конфигурации** в списке. Вы увидите, что теперь в списке отображается уникальный идентификатор каждого из приложений.
-4.  Запишите **Уникальный ИД элемента конфигурации** приложения, на которое нужно предоставить ссылку, например: **ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f/2**.
-5.  Затем удалите весь текст, стоящий после GUID приложения. В данном случае это **/2**. В результате вы получаете идентификатор приложения.
-6.  Наконец, чтобы завершить создание ссылки, нужно вставить **Softwarecenter:SoftwareID=** в ее начало. Для приведенного выше примера итоговая ссылка будет иметь вид: **Softwarecenter:SoftwareId= ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.
+2.  Na área de trabalho biblioteca de Software, expanda **gestão de aplicações**e, em seguida, clique em **aplicações**.
+3.  No **aplicações** ver, faça duplo clique de um dos cabeçalhos de coluna e, em seguida, na lista, selecione **ID exclusivo de CI**. Verá que o ID exclusivo de cada aplicação agora é apresentado na lista.
+4.  Tenha em atenção o **ID exclusivo de CI** da aplicação que pretende disponibilizar uma ligação para, por exemplo: **ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f/2**
+5.  Em seguida, remova qualquer texto após a aplicação GUID, neste caso **/2**. Isso deixa o identificador da aplicação.
+6.  Por fim, para concluir a construir a ligação, coloque-o com **Softwarecenter:SoftwareID =**. A ligação final utilizando o exemplo acima, serão lidos: **Softwarecenter:SoftwareId = ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
 
-С помощью этой ссылки конечные пользователи могут сразу открыть в центре программного обеспечения именно то приложение, которое вы указали.
-
-
-## <a name="pfx-certificates-for-configuration-manager-windows-client-computers"></a>Сертификаты PFX для клиентских компьютеров Windows в Configuration Manager
-
-Теперь вы можете развернуть профили сертификатов PFX, импортированные на клиентские компьютеры Configuration Manager под управлением Windows 10.
-
-### <a name="try-it-out"></a>Попробуйте!
-
-Следуйте указаниям из статьи [Создание профилей сертификатов PFX](/sccm/mdm/deploy-use/create-pfx-certificate-profiles), чтобы импортировать профиль PFX, разверните его и проверьте, что сертификат был установлен для нужного пользователя.
+Ao utilizar esta ligação, os utilizadores finais podem abrir o Centro de Software diretamente para a aplicação que especificou.
 
 
+## <a name="pfx-certificates-for-configuration-manager-windows-client-computers"></a>Certificados PFX para computadores de cliente do Windows do Configuration Manager
 
-## <a name="configure-azure-services-wizard"></a>Мастер настройки служб Azure
-В Technical Preview 1703 появился мастер **настройки служб Azure**. Он предоставляет общий интерфейс конфигурации, который заменяет отдельные рабочие процессы для настройки облачных служб, используемые в Configuration Manager. При этом **веб-приложение Azure** предоставляет сведения о подписках и конфигурации, которые в противном случае вам пришлось бы вводить каждый раз при настройке компонента Configuration Manager или службы с помощью Azure.
+Agora pode implementar perfis de certificado PFX importado para computadores de cliente do Configuration Manager com o Windows 10.
 
-В Technical Preview 1703с помощью этого мастера настраивается только Магазин Windows для бизнеса (WSfB).  Другие облачные службы настраиваются с помощью отдельных рабочих процессов.
+### <a name="try-it-out"></a>Experimente
 
--   Используйте сведения из этой статьи для замены шагов настройки в разделе [Настройка синхронизации с Магазином Windows для бизнеса](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business#set-up-windows-store-for-business-synchronization) статьи [Управление приложениями из Магазина Windows для бизнеса с помощью System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) по Current Branch.
-
--   Дополнительные сведения о веб-приложениях см. в статьях [Проверка подлинности и авторизация в службе приложений Azure](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) и [Обзор веб-приложений](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
-
-### <a name="prerequisites-and-planning"></a>Предварительные условия и планирование
-При настройке подключения между Configuration Manager и Магазином Windows для бизнеса необходимо указать папку, где будет храниться содержимое приложений, синхронизируемых с Магазином. Чтобы гарантировать безопасность этой папки и возможность развертывания ее содержимого на устройствах, убедитесь в наличии указанных ниже разрешений.
--   Компьютер, на котором устанавливается роль системы сайта "Точка подключения службы" (сайт верхнего уровня в иерархии), должен иметь разрешения на чтение и запись для папки, которую вы указали при использовании учетной записи **Computer$**.  
-
--   Автор приложения должен иметь разрешения на чтение из указанной папки.  
-
--   Учетная запись **Computer$** каждого компьютера, на котором размещается экземпляр поставщика SMS, должна иметь возможность использовать указанную папку.
-
-В Azure Active Directory зарегистрируйте Configuration Manager как средство управления "Веб-приложение и/или веб-API". При этом создается идентификатор клиента, который понадобится вам позже.
-
-### <a name="use-the-wizard-to-configure-the-wsfb-cloud-service"></a>Использование мастера для настройки облачной службы Магазина Windows для бизнеса
-
-1. В консоли перейдите в **Администрирование** > **Обзор** > **Cloud Services Management** (Управление облачными службами) > **Azure** > **Службы Azure** и выберите **Configure Azure Services** (Настроить службы Azure), чтобы запустить **мастер служб Azure**.
-
-2. На странице **Службы Azure** выберите службу, которую нужно настроить, и нажмите кнопку **Далее**. В этой предварительной версии можно настроить только Магазин Windows для бизнеса.
-
-3. На странице **Общие** укажите понятное имя в поле **Имя службы Azure** и необязательное описание, а затем нажмите кнопку **Далее**.
-
-4. На странице **Приложения** укажите среду Azure и нажмите кнопку **Обзор**, чтобы открыть окно серверного приложения.
-
-5. В окне **Server App** (Серверное приложение) выберите нужное серверное приложение и нажмите кнопку **ОК**.
-Серверные приложения — это веб-приложения Azure, содержащие конфигурации для вашей учетной записи Azure, включая идентификаторы клиента и секретный ключ для клиентов. Если у вас нет серверного приложения, используйте одну из следующих функций:
-  - **Создать**: чтобы создать серверное приложение, щелкните **Создать**. Укажите понятное имя для приложения и клиента. После вашего входа в Azure средство Configuration Manager создает веб-приложение, включая нужный идентификатор клиента и секретный ключ. Позже вы можете просмотреть их на портале Azure.
-  - **Импорт**: чтобы использовать веб-приложение, которое уже существует в вашей подписке Azure, щелкните **Импорт**. Введите понятное имя для приложения и клиента, а затем укажите идентификаторы клиента и секретный ключ для веб-приложения Azure, которые должен использовать Configuration Manager. **Проверив** сведения, нажмите кнопку **ОК** для продолжения.  </br></br>
-
-6. Просмотрите страницу **Сведения** и завершите все дополнительные шаги и конфигурации, согласно инструкциям. Эти конфигурации нужны, чтобы использовать службу с Configuration Manager.
-Например, чтобы настроить Магазин Windows для бизнеса:
-
-  1. В Azure вам нужно зарегистрировать Configuration Manager как средство управления "Веб-приложение и/или веб-API" и записать идентификатор клиента. Кроме того, укажите ключ клиента для использования средством управления (здесь им является Configuration Manager).
-
-  2.    В консоли Магазина Windows для бизнеса нужно настроить Configuration Manager в качестве средства управления магазином, включить поддержку автономных лицензированных приложений и приобрести хотя бы одно приложение.   </br>
-
-  Когда будете готовы продолжить, нажмите кнопку **Далее**.
-
-7. На странице **App Configurations** (Конфигурации приложений) настройте каталог приложений и язык для этой службы, а затем нажмите кнопку **Далее**.
-8. После завершения работы мастера консоль Configuration Manager показывает, что вы настроили **Магазин Windows для бизнеса** как **Тип облачной службы**.
-
-Теперь вы можете использовать оставшуюся часть [материалов по Current Branch](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) для управления приложениями из Магазина Windows для бизнеса, чтобы синхронизировать, создавать, развертывать и отслеживать приложения Магазина.
-
-### <a name="modify-a-cloud-service-configuration"></a>Изменение конфигурации облачной службы
-Вы можете просматривать и редактировать свойства облачной службы для изменения конфигурации.
-
-В консоли перейдите в **Администрирование** > **Обзор** > **Cloud Services Management** (Управление облачными службами) > **Azure** > **Службы Azure**, а затем выберите **Configure Azure Services** (Настроить службы Azure), облачную службу и **Свойства**.
-
-## <a name="convert-from-bios-to-uefi-during-an-in-place-upgrade"></a>Переход от BIOS к UEFI при обновлении на месте
-В обновлении Windows 10 Creators Update представлено простое средство преобразования, которое автоматизирует процесс повторного разбиения жесткого диска для оборудования с поддержкой UEFI. Это средство преобразования интегрировано в процесс обновления на месте от Windows 7 до Windows 10. Если объединить это средство с последовательностью задач обновления операционной системы и средством OEM, которое преобразует встроенное ПО из BIOS в UEFI, вы сможете выполнять на компьютерах преобразование из BIOS в UEFI в процессе обновления на месте до версии Windows 10 Creators Update. Подробные сведения см. в разделе [Этапы последовательности задач для управления преобразованием BIOS в UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
-
-## <a name="collapsible-task-sequence-groups"></a>Свертываемые группы последовательностей задач
-В этой версии появилась возможность разворачивать и сворачивать группы последовательностей задач. Вы можете развернуть или свернуть отдельные группы либо все группы одновременно.
+Utilize as instruções no [como criar perfis de certificado PFX](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) para importar um perfil PFX, implemente o perfil e, em seguida, verifique se o certificado foi instalado para o utilizador de destino.
 
 
-## <a name="client-settings-to-configure-windows-analytics-for-upgrade-readiness"></a>Параметры клиента для настройки аналитики Windows для подготовки к обновлению
-Начиная с этой версии, параметры клиента устройства позволяют упростить настройку телеметрии Windows, необходимую для использования таких решений [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics), как [Проверка готовности к обновлению](/sccm/core/clients/manage/upgrade/upgrade-analytics), с Configuration Manager. Configuration Manager может получать из Windows Analytics сведения, которые помогают оценивать текущее состояние среды на основе данных телеметрии Windows, предоставленных клиентскими компьютерами. Данные телеметрии Windows передаются клиентскими компьютерами в службу телеметрии Windows. Впоследствии соответствующие данные передаются в решения Windows Analytics, которые размещаются в одной из корпоративных рабочих областей OMS. Проверка готовности к обновлению — это одно из решений Windows Analytics, которое помогает определиться в отношении обновления продуктов для управляемых устройств.
 
-Сведения о параметрах телеметрии Windows см. в статье [Настройка телеметрии Windows в вашей организации](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
+## <a name="configure-azure-services-wizard"></a>Configurar o Assistente de serviços do Azure
+Pré-visualização técnica 1703 introduz o **configurar os serviços do Azure** assistente. Este assistente fornece uma experiência de configuração comum que substitui os fluxos de trabalho individuais para configurar os serviços em nuvem que utiliza com o Configuration Manager. Isto é feito utilizando um **aplicação web do Azure** para fornecer os detalhes da subscrição e a configuração que introduziu, caso contrário, sempre que configurou um novo componente do Configuration Manager ou o serviço com o Azure.
 
-### <a name="prerequisites"></a>Предварительные требования
-- Вам нужно настроить свой сайт, чтобы использовать облачную службу проверки готовности к обновлению. См. дополнительные сведения о [проверке готовности к обновлению](/sccm/core/clients/manage/upgrade/upgrade-analytics).
+Com a pré-visualização técnica 1703, está configurada apenas loja Windows para empresas (WSfB) ao utilizar este assistente.  Outros serviços em nuvem estão configurados utilizando os seus fluxos de trabalho separados.
 
-### <a name="configure-windows-analytics-client-settings"></a>Настройка параметров клиента Windows Analytics
-Чтобы настроить Windows Analytics, в консоли Configuration Manager перейдите к пункту **Администрирование** > **Параметры клиента**, дважды щелкните элемент **Создать пользовательские параметры параметрах клиента устройства** и выберите **Windows Analytics**.  
+-   Utilize as informações neste tópico de pré-visualização para substituir os passos de configuração encontradas no [configurar loja Windows para a sincronização de negócio](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business#set-up-windows-store-for-business-synchronization) secção do tópico Current Branch [gerir aplicações da loja Windows para empresas com o System Center Configuration Manager](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-Затем на вкладке с параметрами **Windows Analytics** настройте следующее:
-- **Коммерческий идентификатор**  
-Ключ коммерческого идентификатора сопоставляет сведения с управляемых устройств с рабочей областью OMS, в которой размещаются корпоративные данные Windows Analytics. Если вы уже настроили ключ коммерческого идентификатора для использования с функцией проверки готовности к обновлению, выберите его. Если у вас еще нет ключа коммерческого идентификатора, см. инструкции по [его созданию]( https://technet.microsoft.com /itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
+-   Para mais informações sobre as aplicações web, consulte [autenticação e autorização no serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview), e [descrição geral das aplicações Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview).
 
-- Задайте **уровень телеметрии для устройств Windows 10**:   
-Сведения о том, какие данные собираются на каждом уровне телеметрии Windows 10, см. в статье о [настройке телеметрии Windows в организации]( https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
+### <a name="prerequisites-and-planning"></a>Pré-requisitos e planear
+Quando configurar uma ligação entre o Configuration Manager e na loja Windows para empresas, tem de fornecer uma pasta em que será mantido sincronizado a partir da loja de conteúdo de aplicação. Para se certificar de que esta pasta está protegida e que o respetivo conteúdo pode ser implementado em dispositivos, certifique-se que as seguintes permissões são cumpridos:
+-   O computador no qual instala a função de sistema de sites de ponto de ligação serviço (site de nível superior na hierarquia) tem de ter de leitura e permissões de escrita para a pasta que especificou quando utilizar o **computador$** conta.  
 
-- Дайте **согласие на сбор коммерческих данных на устройствах под управлением Windows 7, 8 и 8.1**:   
-Сведения о данных, собираемых в этих операционных системах после вашего согласия, см. в PDF-файле [Windows 7, Windows 8, and Windows 8.1 appraiser telemetry events and fields](https://go.microsoft.com/fwlink/?LinkID=822965) (Поля и события по оценке телеметрии для Windows 7, Windows 8 и Windows 8.1) от корпорации Майкрософт.
+-   O autor da aplicação tem de ter permissões de leitura para a pasta que especificou.  
 
-- **Настройка сбора данных Internet Explorer**. На устройствах под управлением Windows 8.1 или более ранних версий для сбора данных в Internet Explorer доступна следующая конфигурация. Функция проверки готовности к обновлению может находить несовместимости веб-приложений, которые могут препятствовать обновлению до Windows 10. Сбор данных Internet Explorer можно включить для каждой зоны Интернета. Дополнительные сведения о зонах Интернета см. в статье [о зонах безопасности URL-адресов](https://msdn.microsoft.com/en-us/library/ms537183(v=vs.85).aspx).
+-   O **computador$** conta de cada computador que aloja uma instância do fornecedor de SMS tem de ser capaz de utilizar a pasta que especificou.
+
+No Azure Active Directory, registe o Configuration Manager como uma aplicação web ou a ferramenta de gestão de Web API. Esta ação cria o ID de cliente que irá precisar mais tarde.
+
+### <a name="use-the-wizard-to-configure-the-wsfb-cloud-service"></a>Utilize o Assistente para configurar o serviço de nuvem WSfB
+
+1. Na consola, aceda a **administração** > **descrição geral** > **gestão de serviços em nuvem** > **Azure** > **serviços do Azure**e, em seguida, escolha **configurar os serviços do Azure** para iniciar o **Assistente de serviços do Azure**.
+
+2. No **serviços do Azure** página, selecione o serviço que pretende configurar e, em seguida, clique em **seguinte**. Com esta pré-visualização, WSfB só pode ser configurado.
+
+3. No **geral** , indique um nome amigável para o **nome do serviço do Azure** e uma descrição opcional e, em seguida, clique em **seguinte**.
+
+4. No **aplicação** página, especifique o seu ambiente do Azure e, em seguida, clique em **procurar** para abrir a janela de aplicação de servidor.
+
+5. No **aplicação Server** janela, selecione a aplicação de servidor que pretende utilizar e, em seguida, clique em **OK**.
+Aplicações de servidor são as aplicações web do Azure que contêm as configurações para a sua conta do Azure, incluindo o ID de inquilino, ID de cliente e uma chave secreta para clientes. Se não tiver uma aplicação de servidor disponível, utilize um dos seguintes:
+  - **Criar**: Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e de inquilino. Em seguida, depois, inicie sessão no Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode ver estes do portal do Azure.
+  - **Importar**: Para utilizar uma aplicação web que já existe na sua subscrição do Azure, clique em **importação**. Forneça um nome amigável para a aplicação e de inquilino e, em seguida, especifique o ID do inquilino, ID de cliente e a chave secreta para a aplicação web do Azure que pretende utilizar o Configuration Manager. Depois de **verifique** informações, clique em **OK** para continuar.  </br></br>
+
+6. Reveja o **informações** página e conclua quaisquer passos adicionais e configurações, conforme indicado. Estas configurações são necessárias para utilizar o serviço com o Configuration Manager.
+Por exemplo, para configurar WSfB:
+
+  1. No Azure tem de registar o Configuration Manager como uma aplicação web ou a Web API e registar o ID de cliente. Também especificar uma chave de cliente para utilização pela ferramenta de gestão (que é o Configuration Manager).
+
+  2.    Na consola do WSfB tem de configurar o Configuration Manager como a ferramenta de gestão de armazenamento, ativar o suporte para aplicações licenciadas offline e, em seguida, comprar, pelo menos, uma aplicação.   </br>
+
+  Clique em **seguinte** quando estiver pronto para continuar.
+
+7. No **configurações aplicação** página, conclua as configurações de idioma e o catálogo de aplicações para este serviço e, em seguida, clique em **seguinte**.
+8. Depois de concluir o assistente, a consola do Configuration Manager mostra que configurou **loja Windows para empresas** como um **o tipo de serviço de nuvem**.
+
+Agora, pode utilizar o resto do [conteúdo Current Branch](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) para gestão de aplicações do WSfB sincronizar, criar e implementar e monitorizar a loja Windows para as aplicações da empresa.
+
+### <a name="modify-a-cloud-service-configuration"></a>Modificar a configuração do serviço de nuvem
+Pode ver e editar as propriedades de um serviço em nuvem para modificar a configuração.
+
+Na consola, aceda a **administração** > **descrição geral** > **gestão de serviços em nuvem** > **Azure** > **serviços do Azure**e, em seguida, escolha **configurar os serviços do Azure**, selecione um serviço em nuvem e, em seguida, escolha **propriedades**.
+
+## <a name="convert-from-bios-to-uefi-during-an-in-place-upgrade"></a>A conversão de BIOS em UEFI durante uma atualização no local
+Atualização do Windows 10 criadores introduz uma ferramenta de conversão simples que automatiza o processo para reparticionar o disco rígido para hardware ativado para UEFI e integra-se a ferramenta de conversão para o Windows 7 para o processo de atualização do Windows 10 no local. Ao combinar esta ferramenta com a sequência de tarefas de atualização do sistema operativo e a ferramenta do OEM que converte o firmware de BIOS para UEFI, pode converter os seus computadores de BIOS para UEFI durante uma atualização no local para o Windows 10 criadores Update. Para obter mais informações, consulte [para gerir o BIOS para conversão de UEFI, os passos de sequência de tarefas](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
+
+## <a name="collapsible-task-sequence-groups"></a>Grupos de sequências de tarefas expansível
+Esta versão apresenta a capacidade para expandir e fechar a grupos de sequências de tarefas. Pode expandir ou fechar grupos individuais ou expandir ou fechar todos os grupos em simultâneo.
+
+
+## <a name="client-settings-to-configure-windows-analytics-for-upgrade-readiness"></a>Definições de cliente para configurar a análise do Windows para a preparação da atualização
+Começando com esta versão, pode utilizar as definições de cliente do dispositivo para simplificar a configuração de telemetria do Windows necessária utilizar [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics) soluções como [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) com o Configuration Manager. O Configuration Manager pode obter dados de análise do Windows que podem fornecer informações valiosas para o estado atual do seu ambiente com base nos dados de telemetria do Windows relatados pelos seus computadores de cliente. Os dados telemétricos do Windows são reportados pelos computadores cliente para o serviço de telemetria do Windows e, em seguida, os dados relevantes, subsequentemente, são transferidos para soluções de análise do Windows que estão alojadas das áreas de trabalho OMS da sua organização. Preparação de atualização é uma solução de análise do Windows que pode ajudar a atribuir prioridades a tomar decisões sobre a atualizações do Windows para os seus dispositivos geridos.
+
+Para obter informações sobre definições de telemetria do Windows, consulte [telemetria de configurar o Windows na sua organização](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
+
+### <a name="prerequisites"></a>Pré-requisitos
+- Tem de ter configurado o site para utilizar o serviço de nuvem de preparação de atualização. Para obter mais informações consulte [preparação de atualização](/sccm/core/clients/manage/upgrade/upgrade-analytics)
+
+### <a name="configure-windows-analytics-client-settings"></a>Configurar definições de cliente Windows Analytics
+Para configurar a análise do Windows, na consola do Configuration Manager vá para **administração** > **as definições de cliente**, faça duplo clique em **criar definições personalizadas do dispositivo cliente** e, em seguida, verifique **Windows Analytics**.  
+
+Em seguida, configure o seguinte após ao navegar para o **Windows Analytics** separador definições:
+- **ID comercial**  
+A chave de ID comercial mapeia informações dos dispositivos que gere para a área de trabalho do OMS que aloja os dados de análise do Windows da sua organização. Se já tiver configurado uma chave de ID comercial para utilização com a preparação de atualização, utilize esse ID. Se ainda não tiver uma chave de ID comercial, consulte [gerar a chave de ID comercial]( https://technet.microsoft.com /itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
+
+- Definir um **nível de telemetria para dispositivos Windows 10**   
+Para obter informações sobre o que é recolhido por cada nível de telemetria do Windows 10, consulte [telemetria de configurar o Windows na sua organização]( https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
+
+- Optar por **optar ativamente por participar na recolha de dados comerciais em dispositivos Windows 7, 8 e 8.1**   
+Para informações sobre os dados recolhidos a partir destes sistemas operativos quando que optar ativamente por participar sessão, consulte Transferir o [eventos de telemetria appraiser Windows 7, Windows 8 e Windows 8.1 e campos](https://go.microsoft.com/fwlink/?LinkID=822965) ficheiro pdf da Microsoft.
+
+- **Configurar a recolha de dados de Internet explorar** em dispositivos Windows 8.1 ou anterior em execução, recolha de dados do Internet Explorer pode permitir que a preparação de atualização detetar incompatibilidades de aplicação web que podem impedir uma atualização sem problemas para o Windows 10. Recolha de dados do Internet Explorer, pode ser ativada num por base de zona de internet. Para obter mais informações sobre as zonas de internet, consulte [sobre zonas de segurança do URL](https://msdn.microsoft.com/en-us/library/ms537183(v=vs.85).aspx).

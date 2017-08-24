@@ -1,6 +1,6 @@
 ---
-title: "Расширение инвентаризации оборудования | Документы Майкрософт"
-description: "Сведения о способах расширения инвентаризации оборудования в System Center Configuration Manager."
+title: "Expandir o inventário de hardware | Microsoft Docs"
+description: "Saiba mais formas de expandir o inventário de hardware no System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,140 +17,140 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 3e5517e1710d0d12e51fba58efda5dc5edd08544
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-extend-hardware-inventory-in-system-center-configuration-manager"></a>Расширение инвентаризации оборудования в System Center Configuration Manager
+# <a name="how-to-extend-hardware-inventory-in-system-center-configuration-manager"></a>Como expandir o inventário de hardware no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Функция инвентаризации оборудования считывает информацию с компьютеров Windows с помощью инструментария управления Windows (WMI). WMI — это реализация корпорацией Майкрософт системы управления предприятием через Интернет (WBEM), являющейся отраслевым стандартом доступа к данным управления в корпоративной среде. В более ранних версиях Configuration Manager можно было расширить инвентаризацию оборудования, изменив файл sms_def.mof на сервере сайта. Этот файл содержал список классов WMI, считываемых функцией инвентаризации оборудования. При изменении этого файла можно было включать и отключать существующие классы, а также создавать новые классы для инвентаризации.  
+Inventário de hardware lê as informações a partir de Windows PCs utilizando o Windows Management Instrumentation (WMI). O WMI é a implementação Microsoft de baseada na web Enterprise Management (WBEM), uma norma da indústria para aceder a informações de gestão numa empresa. Em versões anteriores do Configuration Manager, podia expandir o inventário de hardware ao modificar o ficheiro sms_def.mof no servidor do site. Este ficheiro continha uma lista de classes WMI que podiam ser lidas pelo inventário de hardware. Se editasse este ficheiro, podia ativar e desativar as classes existentes, bem como criar novas classes para o inventário.  
 
-Файл Configuration.mof используется для определения классов данных, учитываемых функцией инвентаризации оборудования на клиенте, и не изменялся с версии Configuration Manager 2012. Вы можете создавать классы данных для инвентаризации существующих или пользовательских классов данных репозитория WMI или разделов реестра на клиентских компьютерах.  
+O ficheiro Configuration.mof é utilizado para definir as classes de dados a inventariar pelo inventário de hardware no cliente e não de Configuration Manager 2012. Pode criar classes de dados para inventariar classes de dados existentes ou personalizados do repositório WMI ou chaves de registo presentes em sistemas cliente.  
 
- Файл Configuration.mof также определяет и регистрирует поставщики WMI, которые обращаются к сведений об устройстве в ходе инвентаризации оборудования. Регистрация поставщиков определяет тип используемого поставщика и классы, которые он поддерживает.  
+ O ficheiro Configuration.mof também define e regista os fornecedores WMI que acedem a informações de dispositivos durante o inventário de hardware. Registar fornecedores define o tipo de fornecedor a utilizar e as classes que o fornecedor suporta.  
 
- Когда клиенты Configuration Manager запрашивают политику, например во время их интервала опроса политики стандартного клиента, файл Configuration.mof вкладывается в текст политики. Затем этот файл загружается и компилируемый клиентами. Если добавить, изменить или удалить классы данных из файла Configuration.mof клиенты автоматически скомпилируйте эти изменения, внесенные в классы данных, связанные с запасами. Для инвентаризации новых или измененных классов данных на клиентах Configuration Manager никаких дополнительных действий не требуется. Этот файл расположен в папке **<каталог_установки_Configuration_Manager>\>\Inboxes\clifiles.src\hinv\\** на серверах первичных сайтов.  
+ Quando a política de pedido de clientes do Configuration Manager, por exemplo, durante o intervalo de consulta da política de cliente padrão, o Configuration.mof é anexado ao corpo de política. Em seguida, este ficheiro é transferido e compilado pelos clientes. Quando adicionar, modificar ou eliminar classes de dados a partir do ficheiro Configuration.mof, os clientes compilam automaticamente estas alterações efetuadas em classes de dados relacionadas com o inventário. Nenhuma ação adicional é necessária para inventariar classes de dados novas ou modificada em clientes do Configuration Manager. Este ficheiro está localizado em **<CMInstallLocation\>\Inboxes\clifiles.src\hinv\\** nos servidores de site primários.  
 
- В Configuration Manager вы больше не можете изменять файл sms_def.mof, как это делалось в Configuration Manager 2007. Вместо этого вы можете включать и отключать классы WMI, а также добавлять новые классы для сбора функцией инвентаризации оборудования с помощью параметров клиентов. Configuration Manager предоставляет следующие методы расширения инвентаризации оборудования.  
+ No Configuration Manager, já não edita o ficheiro sms_def.mof como acontecia no Configuration Manager 2007. Em vez disso, pode ativar e desativar classes WMI e adicionar novas classes para recolher pelo inventário de hardware, utilizando as definições do cliente. Configuration Manager fornece os seguintes métodos para expandir o inventário de hardware.  
 
 > [!NOTE]  
->  Если вы вручную изменили файл Configuration.mof, чтобы добавить пользовательские классы инвентаризации, эти изменения будут перезаписаны при обновлении до версии 1602. Чтобы продолжить использовать пользовательские классы после обновления до выпуска 1602, необходимо добавить их в раздел "Added extensions" в файле Configuration.mof.  
-> Тем не менее, не следует изменять что-либо над этим разделом, так как эти разделы зарезервированы для изменения Configuration Manager. Резервная копия вашего пользовательского файла Configuration.mof находится здесь:  
-> **<каталог_установки_Configuration_Manager>\>\data\hinvarchive\\**.  
+>  Se tiver alterado manualmente o ficheiro Configuration.mof para adicionar classes de inventário personalizadas, estas alterações serão substituídas quando atualizar para a versão 1602. Para continuar a utilizar classes personalizadas depois de atualizar, tem de adicionar estas à secção "Extensões adicionadas" do ficheiro Configuration.mof depois de atualizar para a versão 1602.  
+> No entanto, não deve modificar nada acima desta secção, visto que estas secções estão reservadas para serem modificadas pelo Configuration Manager. Está disponível uma cópia de segurança do Configuration.mof em:  
+> **<CM Install dir\>\data\hinvarchive\\**.  
 
-|Метод|Дополнительные сведения|  
+|Método|Mais informações|  
 |------------|----------------------|  
-|Включение или отключение существующих классов инвентаризации|Включите или отключите классы инвентаризации по умолчанию, либо создайте настраиваемые клиентские параметры, позволяющие собирать другие классы инвентаризации оборудования в указанных коллекциях клиентов. См. описание процедуры [Процедура включения или отключения существующих классов инвентаризации](#BKMK_Enable) в этом разделе.|  
-|Добавление нового класса инвентаризации|Добавьте новый класс инвентаризации из пространства имен WMI другого устройства. См. описание процедуры [Процедура добавления нового класса инвентаризации](#BKMK_Add) в этом разделе.|  
-|Импорт и экспорт классов инвентаризации оборудования|В консоли Configuration Manager можно импортировать и экспортировать MOF-файлы, содержащие классы инвентаризации. См. описание процедур [Процедура импорта классов инвентаризации оборудования](#BKMK_Import) и [Процедура экспорта классов инвентаризации оборудования](#BKMK_Export) в этом разделе.|  
-|Создание NOIDMIF-файлов|Используйте NOIDMIF-файлы для сбора сведений о клиентских устройствах, не учитываемых Configuration Manager. Например можно собирать активов номеров сведений об устройстве, существует только в качестве метки на устройстве. NOIDMIF инвентаризации автоматически связывается с устройством клиента, собранные из. См. подраздел [Создание NOIDMIF-файлов](#BKMK_NOIDMIF) в этом разделе.|  
-|Создать idmif-файлы|Используйте IDMIF-файлы для сбора сведений об активах в вашей организации, которые не связаны с клиентом Configuration Manager, таких как проекторы, фотокопиры и сетевые принтеры. См. подраздел [Создание IDMIF-файлов](#BKMK_IDMIF) в этом разделе.|  
+|Ativar ou desativar classes de inventário existentes|Ativar ou desativar as classes de inventário predefinidas ou criar as definições que lhe permitem recolher classes de inventário de hardware diferentes a partir de coleções de clientes especificadas de cliente personalizadas. Consulte o [para ativar ou desativar classes de inventário existentes](#BKMK_Enable) procedimento deste tópico.|  
+|Adicionar uma nova classe de inventário|Adicione uma nova classe de inventário do espaço de nomes WMI de outro dispositivo. Consulte o [para adicionar uma nova classe de inventário](#BKMK_Add) procedimento deste tópico.|  
+|Importar e exportar classes de inventário de hardware|Importar e exportar ficheiros de formato (Managed Object) que contêm classes de inventário a partir da consola do Configuration Manager. Consulte o [para importar classes de inventário de hardware](#BKMK_Import) e [para exportar classes de inventário de hardware](#BKMK_Export) procedimentos neste tópico.|  
+|Criar Ficheiros NOIDMIF|Utilize ficheiros NOIDMIF para recolher informações sobre dispositivos cliente que não podem ser inventariados pelo Configuration Manager. Por exemplo, pode pretender recolher informações sobre o número de ativos de dispositivo existentes apenas como uma etiqueta no dispositivo. O inventário NOIDMIF é automaticamente associado ao dispositivo cliente a partir do qual foi recolhido. Consulte [para criar ficheiros NOIDMIF](#BKMK_NOIDMIF) neste tópico.|  
+|Criar Ficheiros IDMIF|Utilize ficheiros IDMIF para recolher informações sobre os ativos da sua organização que não estão associados um cliente de Configuration Manager, por exemplo, projetores, fotocopiadoras e impressoras de rede. Consulte [para criar ficheiros IDMIF](#BKMK_IDMIF) neste tópico.|  
 
-## <a name="procedures-to-extend-hardware-inventory"></a>Процедуры для расширения инвентаризации оборудования  
-Эти процедуры позволяют настроить параметры клиента по умолчанию для инвентаризации оборудования и применяются ко всем клиентам в иерархии. Если требуется, чтобы эти параметры применялись только к некоторым клиентам, создайте настраиваемый параметр для клиентского устройства и назначьте его коллекции, содержащей определенные клиенты. См. раздел [Настройка параметров клиента в System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+## <a name="procedures-to-extend-hardware-inventory"></a>Procedimentos para expandir o inventário de hardware  
+Estes procedimentos ajudam a configurar as predefinições de cliente para o inventário de hardware e aplicam-se a todos os clientes na sua hierarquia. Se pretender que estas definições se apliquem apenas a determinados clientes, crie uma definição de dispositivo de cliente personalizadas e atribua-a uma coleção de clientes específicos. Consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
-###  <a name="BKMK_Enable"></a> Процедура включения или отключения существующих классов инвентаризации  
+###  <a name="BKMK_Enable"></a> Para ativar ou desativar as classes de inventário existentes  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры клиента по умолчанию**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  В диалоговом окне **Параметры клиента по умолчанию** выберите пункт **Инвентаризация оборудования**.  
+5.  No **predefinições de cliente** diálogo caixa, escolha **inventário de Hardware**.  
 
-6.  В списке **Параметры устройства** выберите **Задать классы**.  
+6.  Na lista **Definições do Dispositivo** , clique em **Definir Classes**.  
 
-7.  В диалоговом окне **Классы инвентаризации оборудования** установите или снимите флажки для классов и свойств классов, собираемых функцией инвентаризации оборудования. Классы можно развернуть для выбора или отмены выбора отдельных свойств рассматриваемого класса. Используйте поле **Поиск классов инвентаризации** для поиска отдельных классов.  
+7.  Na caixa de diálogo **Classes de Inventário de Hardware** , selecione ou desmarque as classes e propriedades de classes que pretende que sejam recolhidas pelo inventário de hardware. Pode expandir classes para selecionar ou desmarcar propriedades individuais dentro dessa classe. Utilize o campo **Procurar classes de inventário** para procurar classes individuais.  
 
     > [!IMPORTANT]  
-    >  При добавлении новых классов в компонент инвентаризации оборудования Configuration Manager размер файла инвентаризации, собираемого и отправляемого на сервер сайта, увеличивается. Это может отрицательно повлиять на производительность сети и сайта Configuration Manager. Включайте только классы инвентаризации, которые необходимо собрать.  
+    >  Quando adicionar novas classes ao inventário de hardware do Configuration Manager, o tamanho do ficheiro de inventário que é recolhido e enviado para o servidor do site aumentará. Isto poderá afetar negativamente o desempenho da sua rede e do site do Configuration Manager. Ative apenas as classes de inventário que pretende recolher.  
 
 
-###  <a name="BKMK_Add"></a> Процедура добавления нового класса инвентаризации  
+###  <a name="BKMK_Add"></a> Para adicionar uma nova classe de inventário  
 
-Классы инвентаризации можно добавить только с сервера верхнего уровня в иерархии и путем изменения параметров клиента по умолчанию. При создании настраиваемых параметров устройства эта возможность недоступна.
+Só é possível adicionar classes de inventário do servidor de nível superior na hierarquia e ao modificar as predefinições de cliente. Esta opção não está disponível quando criar definições personalizadas do dispositivo.
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры клиента по умолчанию**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  В диалоговом окне **Параметры клиента по умолчанию** выберите пункт **Инвентаризация оборудования**.  
+5.  No **predefinições de cliente** diálogo caixa, escolha **inventário de Hardware**.  
 
-6.  В списке **Параметры устройства** выберите **Задать классы**.  
+6.  No **definições do dispositivo** lista, escolha **definir Classes**.  
 
-7.  В диалоговом окне **Классы инвентаризации оборудования** нажмите кнопку **Добавить**.  
+7.  No **Classes de inventário de Hardware** diálogo caixa, escolha **adicionar**.  
 
-8.  В диалоговом окне **Добавление класса инвентаризации оборудования** нажмите кнопку **Подключить**.  
+8.  Na caixa de diálogo **Adicionar Classe de Inventário de Hardware** , clique em **Ligar**.  
 
-9. В диалоговом окне **Подключение к инструментарию управления Windows (WMI)** укажите имя компьютера, с которого будут получены классы WMI, и пространство имен WMI, используемое для их получения. Если требуется получить все классы из указанного пространства имен WMI, щелкните пункт **Рекурсивно**. Если компьютер, к которому вы подключаетесь, не является локальным, укажите данные для входа учетной записи, которой предоставлено разрешение на доступ к инструментарию WMI на удаленном компьютере.  
+9. Na caixa de diálogo **Ligar à Windows Management Instrumentation (WMI)** , especifique o nome do computador a partir do qual irá obter as classes WMI e o espaço de nomes WMI a utilizar para obter as classes. Se pretender obter todas as classes abaixo do espaço de nomes WMI que especificou, clique em **Recursiva**. Se o computador ao qual está a ligar não for o computador local, forneça as credenciais de início de sessão para uma conta que tenha permissão para aceder ao WMI no computador remoto.  
 
-10. Выберите **Подключить**.  
+10. Escolha **ligar**.  
 
-11. В списке **Классы инвентаризации** диалогового окна **Добавление класса инвентаризации оборудования** выберите классы WMI, которые требуется добавить в инвентаризацию оборудования Configuration Manager.  
+11. No **adicionar classe de inventário de Hardware** caixa de diálogo a **classes de inventário** lista, selecione as classes WMI que pretende adicionar ao inventário de hardware do Configuration Manager.  
 
-12. Если требуется изменить сведения о выбранном классе WMI, нажмите кнопку **Изменить** и в диалоговом окне **Квалификаторы класса** укажите приведенную ниже информацию.  
+12. Se pretender editar informações sobre a classe WMI selecionada, escolha **editar**e o **qualificadores de classe** diálogo caixa, forneça as seguintes informações:  
 
-    -   **Отображаемое имя** — будет отображаться в обозревателе ресурсов.  
+    -   **Nome a apresentar** -este será apresentado no Explorador de recursos.  
 
-    -   **Свойства** — укажите единицы измерения, в которых будет отображаться каждое свойство класса WMI.  
+    -   **Propriedades** -especifique as unidades nas quais cada propriedade da WMI classe será apresentada.  
 
-     Кроме того, для уникальной идентификации каждого экземпляра класса можно назначить свойства в качестве свойства ключа. Если ключ не определен для класса и несколько экземпляров класса передаются от клиента, только последний экземпляр, находящийся хранится в базе данных.  
+     Também pode designar propriedades como uma propriedade de chave para o ajudar a identificar exclusivamente cada instância da classe. Se não for definida qualquer chave para a classe e várias instâncias da classe forem comunicadas a partir do cliente, apenas a instância mais recente encontrada é armazenada na base de dados.  
 
-     После окончания настройки свойств нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Квалификаторы класса** и другие открытые диалоговые окна. 
+     Quando terminar de configurar as propriedades, clique em **OK** para fechar o **qualificadores de classe** e outra a caixa de diálogo Abrir caixas de diálogo. 
 
 
-###  <a name="BKMK_Import"></a> Процедура импорта классов инвентаризации оборудования  
+###  <a name="BKMK_Import"></a> Para importar classes de inventário de hardware  
 
-Импортировать классы инвентаризации можно только при изменении параметров клиента, используемых по умолчанию. Однако можно использовать настраиваемые параметры клиента для импорта данных, не содержит изменения схемы, таких как изменение свойств существующего класса из **True** для **False**.  
+Só pode importar classes de inventário quando modificar as predefinições de cliente. No entanto, pode utilizar definições de cliente personalizadas para importar informações que não contenham uma alteração de esquema, tal como alterar a propriedade de uma classe existente de **Verdadeiro** para **Falso**.  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** >  **Параметры клиента** > **Параметры клиента по умолчанию**.  
+1.  Na consola do Configuration Manager, escolha **administração** >  **as definições de cliente** > **predefinições de cliente**.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  В диалоговом окне **Параметры клиента по умолчанию** выберите пункт **Инвентаризация оборудования**.  
+5.  No **predefinições de cliente** diálogo caixa, escolha **inventário de Hardware**.  
 
-6.  В списке **Параметры устройства** выберите **Задать классы**.  
+6.  No **definições do dispositivo** lista, escolha **definir Classes**.  
 
-7.  В диалоговом окне **Классы инвентаризации оборудования** нажмите кнопку **Импорт**.  
+7.  No **Classes de inventário de Hardware** diálogo caixa, escolha **importação**.  
 
-8.  В диалоговом окне **Импорт** выберите MOF-файл, который требуется импортировать, и нажмите кнопку **ОК**. Просмотрите список элементов, которые будут импортированы, и нажмите кнопку **Импорт**.  
+8.  No **importar** caixa de diálogo, selecione o gerido objeto ficheiro de formato MOF (Managed) que pretende importar e, em seguida, escolha **OK**. Reveja os itens que serão importados e, em seguida, clique em **importação**.  
 
-###  <a name="BKMK_Export"></a> Процедура экспорта классов инвентаризации оборудования  
+###  <a name="BKMK_Export"></a> Para exportar classes de inventário de hardware  
 
-1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры клиента по умолчанию**.  
+1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
 
-4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  В диалоговом окне **Параметры клиента по умолчанию** выберите пункт **Инвентаризация оборудования**.  
+5.  No **predefinições de cliente** diálogo caixa, escolha **inventário de Hardware**.  
 
-6.  В списке **Параметры устройства** выберите **Задать классы**.  
+6.  No **definições do dispositivo** lista, escolha **definir Classes**.  
 
-7.  В диалоговом окне **Классы инвентаризации оборудования** нажмите кнопку **Экспорт**.  
+7.  No **Classes de inventário de Hardware** diálogo caixa, escolha **exportar**.  
 
     > [!NOTE]  
-    >  Будут экспортированы все выбранные в настоящий момент классы.  
+    >  Quando exporta classes, todas as classes atualmente selecionadas serão exportadas.  
 
-8.  В диалоговом окне **Экспорт** укажите MOF-файл, в который требуется экспортировать классы, и нажмите кнопку **Сохранить**.  
+8.  No **exportar** diálogo caixa, especifique o ficheiro de formato (Managed Object) que pretende exportar as classes e, em seguida, escolha **guardar**.  
 
-## <a name="how-to-use-management-information-files-mif-files-to-extend-hardware-inventory"></a>Использование файлов сведений об управлении (MIF-файлы) для расширения инвентаризации оборудования  
- Используйте MIF-файлы для расширения данных инвентаризации, собираемых Configuration Manager с клиентов. В ходе инвентаризации оборудования сведения, хранящиеся в файлах MIF добавляется отчет об инвентаризации клиента и хранятся в базе данных сайта, где можно использовать данные теми же способами, как использовать данные инвентаризации клиента по умолчанию. Существует два типа MIF-файлов, NOIDMIF и IDMIF.
-
-> [!IMPORTANT]  
->  Прежде чем добавлять сведения из MIF-файлов в базу данных Configuration Manager, необходимо создать или импортировать сведения о классе для них. Дополнительные сведения см. в разделах [Процедура добавления нового класса инвентаризации](#BKMK_Add) и [Процедура импорта классов инвентаризации оборудования](#BKMK_Import) этой статьи.  
-
-###  <a name="BKMK_NOIDMIF"></a> Создание NOIDMIF-файлов  
- NOIDMIF-файлы можно использовать для добавления данных инвентаризации оборудования клиентов, которые невозможно собрать с помощью Configuration Manager, и связанных с конкретным клиентским устройством. Например, многие компании назначают каждому компьютеру в организации инвентаризационный номер, а затем вручную заносят эти номера в каталог. При создании NOIDMIF-файла эти сведения можно добавить в базу данных Configuration Manager и использовать для составления запросов и отчетов. Дополнительные сведения о создании NOIDMIF-файлов см. в документации пакета SDK для Configuration Manager.  
+## <a name="how-to-use-management-information-files-mif-files-to-extend-hardware-inventory"></a>Como Utilizar Ficheiros MIF (Management Information Files) para expandir o inventário de hardware  
+ Utilize ficheiros de formato MIF (Management Information) para expandir as informações de inventário de hardware recolhidas nos clientes pelo Configuration Manager. Durante o inventário de hardware, as informações armazenadas em ficheiros MIF são adicionadas ao relatório de inventário de cliente e armazenadas na base de dados do site, onde pode utilizar os dados da forma mesmo que utiliza dados de inventário de cliente predefinido. Existem dois tipos de ficheiros MIF: NOIDMIF e IDMIF.
 
 > [!IMPORTANT]  
->  При создании NOIDMIF-файла его необходимо сохранить в кодировке ANSI. NOIDMIF-файлы, сохраненные в кодировке UTF-8, не поддерживаются Configuration Manager.  
+>  Antes de poder adicionar informações de ficheiros MIF à base de dados do Configuration Manager, tem de criar ou importar informações de classe para os mesmos. Para obter mais informações, veja as secções [Para adicionar uma nova classe de inventário](#BKMK_Add) e [Para importar classes de inventário de hardware](#BKMK_Import) , neste tópico.  
 
- Создав NOIDMIF-файл, сохраните его в папке *%Windir%***\CCM\Inventory\Noidmifs** на каждом клиенте. Configuration Manager будет собирать данные из NOIDMIF-файла в этой папке во время следующего запланированного цикла инвентаризации оборудования.  
+###  <a name="BKMK_NOIDMIF"></a> Para criar ficheiros NOIDMIF  
+ Os ficheiros NOIDMIF podem ser utilizados para adicionar informações a um inventário de hardware de cliente que normalmente não pode ser recolhido pelo Configuration Manager e está associados um dispositivo cliente específico. Por exemplo, muitas empresas identificam cada computador na organização com um número de recurso e, em seguida, catálogo estes manualmente. Quando cria um ficheiro NOIDMIF, estas informações podem ser adicionadas à base de dados do Configuration Manager e ser utilizadas para consultas e relatórios. Para obter informações sobre como criar ficheiros NOIDMIF, consulte a documentação do SDK do Configuration Manager.  
 
-###  <a name="BKMK_IDMIF"></a> Создание IDMIF-файлов  
- IDMIF-файлы можно использовать для добавления в базу данных Configuration Manager сведений об активах, которые не могут быть собраны с помощью стандартных операций Configuration Manager и не сопоставлены с конкретным клиентским устройством. Например, IDMIF-файлы можно использовать для сбора сведений о проекторах, DVD-проигрывателях, фотокопирах и другом оборудовании, на котором не установлен клиент Configuration Manager. Дополнительные сведения о создании IDMIF-файлов см. в документации пакета SDK для Configuration Manager.  
+> [!IMPORTANT]  
+>  Quando cria um ficheiro NOIDMIF tem de ser guardado num formato codificado ANSI. Os ficheiros NOIDMIF guardados no formato codificado UTF-8 não não possível ler pelo Configuration Manager.  
 
- Создав IDMIF-файл, сохраните его в папке *%Windir%***\CCM\Inventory\Idmifs** на клиентских компьютерах. Configuration Manager будет собирать сведения из этого файла во время следующего запланированного цикла инвентаризации оборудования. Для данных, содержащихся в этом файле, необходимо объявить новые классы, добавив или импортировав их.  
+ Depois de criar um ficheiro NOIDMIF, armazene-o no *% Windir %***\CCM\Inventory\Noidmifs** em cada cliente. O Configuration Manager irá recolher informações dos ficheiros NODMIF nesta pasta durante o próximo ciclo de inventário de hardware agendado.  
+
+###  <a name="BKMK_IDMIF"></a> Para criar ficheiros IDMIF  
+ Ficheiros IDMIF podem ser utilizados para adicionar informações sobre os recursos que não podem normalmente ser inventariadas pelo Configuration Manager e não está associado um dispositivo cliente específico, para a base de dados do Configuration Manager. Por exemplo, pode utilizar IDMIFS para recolher informações sobre projetores, leitores de DVD, fotocopiadoras ou outro equipamento que não contenha um cliente do Configuration Manager. Para obter informações sobre como criar ficheiros IDMIF, consulte a documentação do SDK do Configuration Manager.  
+
+ Depois de criar um ficheiro IDMIF, armazene-o no *% Windir %***\CCM\Inventory\Idmifs** nos computadores cliente. O Configuration Manager irá recolher informações deste ficheiro durante o próximo ciclo de inventário de hardware agendado. Tem de declarar as novas classes relativamente a informações incluídas no ficheiro adicionando ou importando as mesmas.  
 
 > [!NOTE]
-> MIF-файлы могут содержать большие объемы данных, и сбор таких данных может отрицательно повлиять на производительность сайта. Включайте сбор MIF-файлов, только когда это действительно необходимо, и настройте параметр **Максимальный размер пользовательского MIF-файла (КБ)** в параметрах инвентаризации оборудования. Дополнительные сведения см. в статье [Общие сведения об инвентаризации оборудования в System Center Configuration Manager](introduction-to-hardware-inventory.md).
+> Os ficheiros MIF podem conter grandes quantidades de dados e a recolha destes dados pode afetar negativamente o desempenho do seu site. Ativar a recolha de MIF apenas quando necessário e configure a opção **tamanho de ficheiro MIF personalizado do máximo (KB)** nas definições de inventário de hardware. Para obter mais informações, consulte [introdução ao inventário de hardware no System Center Configuration Manager](introduction-to-hardware-inventory.md).

@@ -1,6 +1,6 @@
 ---
-title: "Управление последовательностями задач для автоматизации задач| Документация Майкрософт"
-description: "Последовательности задач можно создавать, изменять, развертывать, импортировать и экспортировать для управления ими в среде System Center Configuration Manager."
+title: "Gerir sequências de tarefas para automatizar tarefas | Microsoft Docs"
+description: "Pode criar, editar, implementar, importar e exportar sequências de tarefas para geri-los no seu ambiente do System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
@@ -16,456 +16,456 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 2f3d66362c49d28a52d7f9c535eb0b3b4cc4eaf7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Управление последовательностями задач для автоматизации задач в System Center Configuration Manager
+# <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gerir sequências de tarefas para automatizar tarefas no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Последовательности задач служат для автоматизации задач в среде System Center Configuration Manager. С помощью этих действий может осуществляться развертывание образа операционной системы на конечный компьютер, сбор данных из набора файлов установки операционной системы и создание с их помощью образа ОС, а также сбор и восстановление данных о пользовательской среде. Последовательности задач находятся в разделе **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач** консоли Configuration Manager. Узел **Последовательность задач**, включая все созданные вложенные папки, реплицируется в рамках иерархии Configuration Manager. Дополнительные сведения о планировании см. в статье [Вопросы планирования для автоматизации задач](../plan-design/planning-considerations-for-automating-tasks.md).  
+Utilize sequências de tarefas para automatizar passos no seu ambiente do System Center Configuration Manager. Estes passos podem implementar uma imagem de sistema operativo num computador de destino, criar e capturar uma imagem de sistema operativo a partir de um conjunto de ficheiros de instalação de sistema operativo, e capturar e restaurar informações de estado do utilizador. Sequências de tarefas na consola do Configuration Manager em **biblioteca de Software** > **sistemas operativos** > **sequência de tarefas**. O **sequência de tarefas** nó, incluindo as subpastas que crie, é replicado em toda a hierarquia do Configuration Manager. Para obter informações de planeamento, consulte [considerações sobre planeamento para automatizar tarefas](../plan-design/planning-considerations-for-automating-tasks.md).  
 
- Для управления последовательностями задач используйте следующие сценарии.
+ Utilize as secções seguintes para gerir sequências de tarefas.
 
-##  <a name="BKMK_CreateTaskSequence"></a> Создание последовательностей задач  
- Создание новой последовательности с помощью мастера создания последовательности задач. Этот мастер создает следующие типы последовательностей задач:  
+##  <a name="BKMK_CreateTaskSequence"></a> Criar sequências de tarefas  
+ Crie sequências de tarefas utilizando o Assistente de Criação de Sequência de Tarefas. Este assistente pode criar os seguintes tipos de sequências de tarefas:  
 
-|Тип последовательностей задач|Дополнительные сведения|  
+|Tipo de sequência de tarefas|Mais informações|  
 |------------------------|----------------------|  
-|[Последовательность задач для установки операционной системы](create-a-task-sequence-to-install-an-operating-system.md)|Этот тип последовательности задач создает шаги для установки операционной системы, а также дает возможность переноса данных пользователя, включения обновлений программного обеспечения и установки приложений.|  
-|[Последовательность задач для обновления операционной системы](create-a-task-sequence-to-upgrade-an-operating-system.md)|Этот тип последовательности задач создает шаги для обновления операционной системы, а также дает возможность включения обновлений программного обеспечения и установки приложений.|  
-|[Последовательность задач для записи операционной системы](create-a-task-sequence-to-capture-an-operating-system.md)|Этот тип последовательности задач создает шаги для создания и записи операционной системы с компьютера-образца. До записи образа вы можете включать обновления программного обеспечения и устанавливать приложения на компьютере-образце.|  
-|[Последовательность задач для записи и восстановления пользовательской среды](create-a-task-sequence-to-capture-and-restore-user-state.md)|Эта последовательность задач предоставляет шаги, которые можно добавить в существующую последовательность задач для сбора и восстановления данных о пользовательской среде.|  
-|[Последовательность задач для управления виртуальными жесткими дисками](use-a-task-sequence-to-manage-virtual-hard-disks.md)|Этот тип последовательности задач содержит шаги для создания виртуального жесткого диска, что включает в себя установку операционной системы и приложений, которые можно опубликовать в System Center Virtual Machine Manager (VMM) из консоли Configuration Manager.|  
-|[Настраиваемая последовательность задач](create-a-custom-task-sequence.md)|Этот тип последовательности задач не добавляет никакие шаги. Вам необходимо изменить последовательность задач после ее создания и добавить в нее шаги.|  
+|[Sequência de tarefas para instalar um sistema operativo](create-a-task-sequence-to-install-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para instalar um sistema operativo, bem como a opção para migrar dados de utilizador, incluir atualizações de software e instalar aplicações.|  
+|[Sequência de tarefas para atualizar um sistema operativo](create-a-task-sequence-to-upgrade-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para atualizar um sistema operativo, bem como a opção para incluir atualizações de software e instalar aplicações.|  
+|[Sequência de tarefas para capturar um sistema operativo](create-a-task-sequence-to-capture-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para criar e capturar um sistema operativo a partir de um computador de referência. Pode incluir atualizações de software e instalar aplicações no computador de referência antes da captura da imagem.|  
+|[Sequência de tarefas para capturar e restaurar o estado do utilizador](create-a-task-sequence-to-capture-and-restore-user-state.md)|Esta sequência de tarefas fornece os passos a adicionar a uma sequência de tarefas existente para capturar e restaurar dados de estado do utilizador.|  
+|[Sequência de tarefas para gerir discos rígidos virtuais](use-a-task-sequence-to-manage-virtual-hard-disks.md)|Este tipo de sequência de tarefas contém os passos para criar um VHD, o que inclui a instalação de um sistema operativo e aplicações, que pode publicar para o System Center Virtual Machine Manager (VMM) a partir da consola do Configuration Manager.|  
+|[Sequência de tarefas personalizada](create-a-custom-task-sequence.md)|Este tipo de sequência de tarefas não adiciona quaisquer passos à sequência de tarefas. Tem de editar a sequência de tarefas e adicionar passos à mesma depois de ser criada.|  
 
-## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Возврат на предыдущую страницу при сбое последовательности задач
-В Configuration Manager версии 1702 появилась возможность вернуться на предыдущую страницу, если запуск последовательности задач завершился сбоем. До этого выпуска в случае сбоя необходимо было перезапускать последовательность задач. Например, кнопку **Назад** можно использовать в описанных ниже сценариях.
+## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Regressar à página anterior, quando ocorre uma falha de uma sequência de tarefas
+A partir do Configuration Manager versão 1702, poderá regressar à página anterior quando executa uma sequência de tarefas e não existe uma falha. Antes desta versão, era necessário reiniciar a sequência de tarefas quando ocorreu uma falha. Por exemplo, pode utilizar o **anterior** botão nos seguintes cenários:
 
-- Когда компьютер загружается в среде Windows PE, диалоговое окно начальной загрузки последовательности задач может выводиться до того, как последовательность задач станет доступна. Если нажать кнопку "Далее" в этой ситуации, откроется последняя страница последовательности задач с сообщением о том, что нет доступных последовательностей задач. Теперь можно нажать кнопку **Назад**, чтобы еще раз выполнить поиск доступных последовательностей. Эту процедуру можно повторять до тех пор, пока последовательность задач не станет доступна.
-- Если при запуске последовательности задач зависимые пакеты содержимого еще не доступны в точках распространения, последовательность задач завершается сбоем. Теперь можно распространить отсутствующее содержимое (если оно еще не было распространено) или подождать, когда содержимое станет доступно в точках распространения, а затем нажать кнопку **Назад**, чтобы последовательность задач еще раз выполнила поиск содержимого.
+- Quando um computador é iniciado no Windows PE, o diálogo de arranque de configuração de sequência de tarefas pode apresentar antes da sequência de tarefas está disponível. Quando clicar em seguinte neste cenário, a página final da sequência de tarefas é apresentada uma mensagem que existem não existem sequências de tarefas disponíveis. Agora, pode clicar em **anterior** para novamente procurar sequências de tarefas disponíveis. Pode repetir este processo até que a sequência de tarefas esteja disponível.
+- Quando executa uma sequência de tarefas, mas os pacotes de conteúdos dependentes ainda não estão disponíveis nos pontos de distribuição, a sequência de tarefas falhará. Pode agora distribuir o conteúdo em falta (se não foi distribuída ainda) ou aguardar que o conteúdo fique disponível nos pontos de distribuição e, em seguida, clique em **anterior** ter a pesquisa de sequência de tarefas novamente para o conteúdo.
 
-##  <a name="BKMK_ModifyTaskSequence"></a> Изменение последовательности задач  
- Последовательность задач можно изменить, добавив или удалив шаги последовательности задач, добавив или удалив группы последовательности задач или изменив порядок шагов. Используйте следующую процедуру для изменения существующей последовательности задач.  
+##  <a name="BKMK_ModifyTaskSequence"></a> Editar uma sequência de tarefas  
+ Pode modificar uma sequência de tarefas adicionando ou removendo passos de sequência de tarefas, adicionando ou removendo grupos de sequências de tarefas ou alterando a ordem dos passos. Utilize o procedimento seguinte para modificar uma sequência de tarefas existente.  
 
 > [!IMPORTANT]  
->  Во время редактирования последовательности задач, созданной мастером создания последовательности задач, отображается имя шага, которое может быть действием шага или типом шага. Например, можно увидеть шаг с именем "Создать разделы на диске 0", являющийся действием для шага с типом [Отформатировать диск и создать разделы](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Все шаги последовательности задач документируются по своему типу, не обязательно по имени шага, отображаемому в редакторе.  
+>  Quando edita uma sequência de tarefas criada com o Assistente de Criação de Sequência de Tarefas, o nome do passo pode ser a ação do passo ou o tipo do mesmo. Por exemplo, poderá ver um passo com o nome "Criar partições do disco 0", que é a ação de um passo do tipo [formatar e particionar disco](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Todos os passos de sequência de tarefas estão documentados pelo respetivo tipo, não necessariamente pelo nome do passo que é apresentado no Editor.  
 
-#### <a name="to-edit-a-task-sequence"></a>Процедура редактирования последовательности задач  
+#### <a name="to-edit-a-task-sequence"></a>Para editar uma sequência de tarefas  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  В списке **Последовательность задач** выберите последовательность задач, которую требуется отредактировать.  
+3.  Na lista **Sequência de Tarefas** , selecione a sequência de tarefas que pretende editar.  
 
-4.  На вкладке **Главная** в группе **Последовательность задач** нажмите кнопку **Изменить**, а затем выполните любое из следующих действий:  
+4.  No separador **Home Page** , no grupo **Sequência de Tarefas** , clique em **Editar**e efetue qualquer uma das seguintes operações:  
 
-    -   Чтобы добавить шаг последовательности задач, щелкните **Добавить**, выберите тип шага, затем шаг последовательности задач, который требуется добавить. Например, чтобы добавить шаг запуска из командной строки, нажмите кнопку **Добавить**, выберите **Общие**, а затем нажмите кнопку **Выполнить из командной строки**.  
+    -   Para adicionar um passo de sequência de tarefas, clique em **Adicionar**, selecione o tipo de passo e, em seguida, clique no passo de sequência de tarefas que pretende adicionar. Por exemplo, para adicionar o passo Executar Linha de Comandos, clique em **Adicionar**, selecione **Geral**e, em seguida, clique em **Executar Linha de Comandos**.  
 
-         Список всех шагов последовательности задач и их типов см. в таблице, которая приводится после этой процедуры.  
+         Para obter uma lista de todos os passos de sequência de tarefas e o respetivo tipo, consulte a tabela que se segue a este procedimento.  
 
-    -   Чтобы добавить в последовательность задач группу, нажмите кнопку **Добавить**, а затем щелкните **Новая группа**. После добавления группы в нее можно добавить шаги.  
+    -   Para adicionar um grupo à sequência de tarefas, clique em **Adicionar**e clique em **Novo Grupo**. Depois de adicionar um grupo, pode adicionar passos ao grupo.  
 
-    -   Чтобы изменить последовательность шагов и групп в последовательности задач, выберите шаг или группу, для которых требуется изменить порядок, и затем используйте значки **Переместить элемент вверх** или **Переместить элемент вниз** . Одним действием можно переместить только один шаг или группу.  
+    -   Para alterar a ordem dos passos e grupos na sequência de tarefas, selecione o passo ou o grupo que pretende reordenar e utilize os ícones **Mover Item Para Cima** ou **Mover Item Para Baixo** . Apenas pode mover um passo ou um grupo de cada vez.  
 
-    -   Чтобы удалить шаг или группу, выберите шаг или группу и щелкните **Удалить**.  
+    -   Para remover um passo ou um grupo, selecione o passo ou o grupo e clique em **Remover**.  
 
-5.  Нажмите кнопку **ОК** , чтобы сохранить изменения.  
+5.  Clique em **OK** para guardar as alterações.  
 
- Список доступных шагов последовательности задач см. в статье [Шаги последовательности задач](../understand/task-sequence-steps.md).  
+ Para obter uma lista dos passos de sequência de tarefas disponíveis, consulte [passos de sequência de tarefas](../understand/task-sequence-steps.md).  
 
-## <a name="configure-software-center-properties"></a>Настройка свойств центра программного обеспечения
-Следующая процедура предназначена для настройки сведений о последовательности задач, отображаемой в центре программного обеспечения. Эти сведения приведены исключительно в информационных целях.  
-1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач**.
-2. Выберите последовательность задач, которую нужно изменить, и нажмите кнопку **Свойства**.
-3. На вкладке **Общее** вкладки доступны следующие параметры для центра программного обеспечения.
-  - **Требуется перезагрузка**: позволяет пользователям узнать, требуется ли перезагрузка во время установки.
-  - **Размер скачиваемого файла (МБ)**: указывает, сколько мегабайтов отображается в Центре программного обеспечения для последовательности задач.  
-  - **Предполагаемое время выполнения (в минутах)**: указывает предполагаемое время выполнения в минутах, которое отображается в Центре программного обеспечения для последовательности задач.
+## <a name="configure-software-center-properties"></a>Configurar propriedades de centro de Software
+Utilize o procedimento seguinte para configurar os detalhes para a sequência de tarefas apresentadas no Centro de Software. Estes detalhes estão apenas para informação.  
+1. Na consola do Configuration Manager, vá para **biblioteca de Software** > **sistemas operativos** > **sequências de tarefas**.
+2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
+3. No **geral** separador, estão disponíveis as seguintes definições no Centro de Software:
+  - **Reinício necessário**: Permite que o utilizador saber se é necessário reiniciar durante a instalação.
+  - **Transferir o tamanho (MB)**: Especifica a quantidade de megabytes é apresentada no Centro de Software para a sequência de tarefas.  
+  - **Estimado (minutos) o tempo de execução**: Especifica que o estimado tempo de execução em minutos, que é apresentado no Centro de Software para a sequência de tarefas.
 
-## <a name="configure-advanced-task-sequence-settings"></a>Настройка дополнительных параметров для последовательностей задач
-Следующая процедура предназначена для настройки сведений о последовательности задач, отображаемой в центре программного обеспечения. Эти сведения приведены исключительно в информационных целях.  
-1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач**.
-2. Выберите последовательность задач, которую нужно изменить, и нажмите кнопку **Свойства**.
-3. На вкладке **Дополнительно** доступны следующие параметры:
+## <a name="configure-advanced-task-sequence-settings"></a>Configurar as definições de sequência de tarefas avançadas
+Utilize o procedimento seguinte para configurar os detalhes para a sequência de tarefas apresentadas no Centro de Software. Estes detalhes estão apenas para informação.  
+1. Na consola do Configuration Manager, vá para **biblioteca de Software** > **sistemas operativos** > **sequências de tarefas**.
+2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
+3. No **avançadas** separador, estão disponíveis as seguintes definições:
 
-    - **Запустить сначала другую программу**    
-    Установите этот флажок для запуска другой программы (в другом пакете) перед выполнением последовательности задач. По умолчанию этот флажок снят. Нет необходимости отдельно объявлять программу, которую следует запустить первой.
+    - **Executar outro programa primeiro**    
+    Selecione esta caixa de verificação para executar outro programa (por outro pacote) antes de executar a sequência de tarefas. Por predefinição, esta caixa de verificação está desmarcada. O programa que especificar para ser executado primeiro não tem de ser anunciado separadamente.
 
         > [!IMPORTANT]     
-        Этот параметр применяется только к последовательности задач, которая выполняется в полнофункциональной операционной системе. Configuration Manager пропускает этот параметр, если последовательность задач запускается по сети (PXE) или с загрузочного носителя.
+        Esta definição só se aplica a sequências de tarefas que são executados no sistema operativo completo. Gestor de configuração ignora esta definição se a sequência de tarefas é iniciada através de suportes de dados de arranque ou PXE.
 
-    - **Пакет**     
-        Выбрав параметр **Запустить сначала другую программу**, введите или найдите имя пакета, содержащего программу, которая должна быть запущена перед последовательностью задач.
+    - **Pacote**     
+        Quando seleciona **executar outro programa primeiro**, introduza ou procure o pacote que contém o programa que tem de executar antes desta sequência de tarefas.
 
-    - **Программа**     
-    Выбрав параметр **Запустить сначала другую программу**, выберите программу, которая должна быть запущена перед последовательностью задач, в раскрывающемся списке **Программа**.
+    - **Programa**     
+    Quando seleciona **executar outro programa primeiro**, seleccione o programa que tem de executar antes desta sequência de tarefas a partir de **programa** na lista pendente.
 
         > [!NOTE]    
-        > Если выбранную программу не удается выполнить в клиенте, последовательность задач не запустится. Выполняемая выбранная программа больше не будет запускаться, даже если последовательность задач в этом клиенте выполняется повторно.
+        > Se o programa selecionado não for executado num cliente, a sequência de tarefas não será executada. Se o programa selecionado é executada com êxito, não será executado novamente, mesmo se a sequência de tarefas será novamente executada no mesmo cliente.
  
-    - **Отключить эту последовательность задач на компьютерах, на которых она развернута**    
-    Если этот флажок установлен, все развертывания, содержащие эту последовательностью задач, будут временно отключены. Последовательность задач удаляется из списка объявлений, доступных для выполнения, и не будет запускаться до повторного включения. По умолчанию этот параметр не выбран.
+    - **Desativar esta sequência de tarefas nos computadores onde está implementada**    
+    Se selecionar esta opção, todas as implementações que contêm esta sequência de tarefas estão temporariamente desativadas. A sequência de tarefas é removida da lista de anúncios disponíveis para ser executada e não será executado até ter sido ativada novamente. Por predefinição, esta opção estiver desmarcada.
 
-    - **Максимально допустимое время выполнения**    
-    Максимальное ожидаемое время (в минутах) выполнения последовательности задач на конечном компьютере. Необходимо использовать целое число, равное нулю или больше него. По умолчанию устанавливается значение 120 минут.
+    - **Tempo de execução máximo permitido**    
+    Especifica o tempo máximo (em minutos) que é esperado para executar a sequência de tarefas no computador de destino. Tem de utilizar um número inteiro igual ou maior que zero. Por predefinição, este valor é definido para 120 minutos.
 
         > [!IMPORTANT]    
-        > Если для коллекции, в которой выполняется эта последовательность задач, используются периоды обслуживания, а значение параметра **Максимально допустимое время выполнения** больше запланированного периода обслуживания, может произойти конфликт. Если для параметра максимально допустимого времени выполнения задано значение **0**, последовательность задач запустится в течение периода обслуживания. Она будет выполняться до своего завершения или сбоя по причине закрытия периода обслуживания. В результате последовательности задач, для которых максимальное время выполнения имеет значение **0**, могут выполняться после окончания их периода обслуживания. Если для максимально допустимого времени выполнения задан определенный период (а не значение **0**), превышающий длительность любого доступного периода обслуживания, такая последовательность задач выполняться не будет. Дополнительные сведения см. в разделе [Использование периодов обслуживания](/sccm/core/clients/manage/collections/use-maintenance-windows).
+        > Se estiver a utilizar janelas de manutenção para a coleção em que esta sequência de tarefas é executada, poderá ocorrer um conflito se o **máximo tempo de execução permitido** é superior à janela de manutenção agendada. Se o tempo de execução máximo for definido como **0**, a sequência de tarefas irá iniciar durante a janela de manutenção e continuar a ser executado até concluir ou falhar depois de fechar a janela de manutenção. Como resultado, as sequências de tarefas com um tempo máximo de execução definido como **0** poderá ser executado depois do fim do respetivos janelas de manutenção. Se definir o tempo máximo de execução para um período específico (ou seja, não definido como **0**) que excede o comprimento de qualquer janela de manutenção disponível, em seguida, a sequência de tarefas não será executada. Para obter mais informações, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).
  
-        Если задано значение **0**, Configuration Manager устанавливает максимальное допустимое время выполнения мониторинга, равное **12** часам (720 минутам). При этом последовательность задач будет запускаться, пока продолжительность обратного отсчета не превысит значение периода обслуживания.
+        Se o valor é definido como **0**, Configuration Manager avalia o tempo máximo de execução permitido como **12** horas (720 minutos) para monitorizar o progresso. No entanto, a sequência de tarefas começará desde que a duração da contagem decrescente não pode exceder o valor de janela de manutenção.
 
     > [!NOTE]    
-    > Когда максимальное время выполнения будет достигнуто. Configuration Manager остановит последовательность задач, если она запущена с правами администратора, но без разрешения пользователям взаимодействовать с этой программой. Если последовательность задач не останавливается, Configuration Manager останавливает ее мониторинг по достижении максимального допустимого периода выполнения. 
+    > Se for atingido o tempo de execução máximo, o Configuration Manager irá parar a sequência de tarefas se está definido para executar com direitos de administrador e os permitir que os utilizadores interajam com esta definição de programa não está selecionada. Se a sequência de tarefas propriamente dito não está parada, o Configuration Manager para a monitorização da sequência de tarefas após o máximo permitido tempo de execução foi atingido. 
 
-    - **Use a boot image**  (Использование образа загрузки)  
-        Включите этот параметр, чтобы использовать выбранный образ загрузки при выполнении последовательности задач. 
+    - **Utilizar uma imagem de arranque**   
+        Ative esta opção para utilizar a imagem de arranque selecionada quando a sequência de tarefas é executada. 
 
-        Чтобы выбрать другой образ загрузки, нажмите кнопку **Обзор**. Не выбирайте этот параметр, если не нужно использовать выбранный образ загрузки при выполнении последовательности задач.
+        Clique em **procurar** para selecionar uma imagem de arranque diferentes. Desmarque esta opção para desativar a utilização da imagem de arranque selecionada quando a sequência de tarefas é executada.
 
-    - **This task sequence can run on any platform**    (Эта последовательность задач может запускаться на любой платформе)  
-        Если этот флажок установлен, Configuration Manager не проверяет тип платформы конечного компьютера при развертывании последовательности задач. Этот параметр установлен по умолчанию.
+    - **Esta sequência de tarefas pode executar em qualquer plataforma**     
+        Se selecionar esta opção, o Configuration Manager não verifica se o tipo de plataforma do computador de destino quando a sequência de tarefas é implementada. Esta opção está selecionada por predefinição.
 
-    - **This task sequence can only run on the specified client platforms**   (Эта последовательность задач может выполняться только на указанных клиентских платформах)  
-        Параметр используется для определения процессоров, операционных систем и пакетов обновления, для которых можно запустить эту последовательность задач. Если этот флажок установлен, необходимо выбрать в списке хотя бы одну платформу. По умолчанию платформы не выбраны. Configuration Manager использует эти сведения при определении в коллекции конечных компьютеров, которые будут получать развернутую последовательность задач.
+    - **Esta sequência de tarefas só pode ser executada em plataformas cliente especificadas**    
+        Esta opção especifica os processadores, sistemas operativos e os service packs no qual pode executar esta sequência de tarefas. Quando seleciona esta opção, também é necessário selecionar pelo menos uma plataforma da lista. Por predefinição, são selecionadas não plataformas. O Configuration Manager utiliza estas informações quando é avalia os computadores de destino numa coleção recebem a sequência de tarefas implementada.
 
         > [!NOTE]    
-        > Если последовательность задач запускается с загрузочного носителя или при загрузке PXE, этот параметр игнорируется и последовательность выполняется, как при выбранном параметре **Эта программа может запускаться на любой платформе**.
+        > Quando uma sequência de tarefas é executada a partir do suporte de dados ou pelo arranque PXE, esta opção é ignorada e a sequência de tarefas é executada, embora a opção **este programa pode ser executado em qualquer plataforma** está selecionada.
 
-## <a name="configure-high-impact-task-sequence-settings"></a>Настройка параметров для последовательностей задач, которые обладают значительным воздействием
-В Configuration Manager версии 1702 появилась возможность указать, что последовательность задач имеет значительное влияние, и настроить сообщения, которые пользователи получают при выполнении такой последовательности.
+## <a name="configure-high-impact-task-sequence-settings"></a>Configurar as definições de sequência de tarefas de elevado impacto
+A partir do Configuration Manager versão 1702, pode definir uma sequência de tarefas como de elevado impacto e personalizar as mensagens que os utilizadores recebem quando executam a sequência de tarefas.
 
-### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Задание последовательности задач как имеющую значительное влияние
-Чтобы задать последовательность задач как имеющую значительное влияние, воспользуйтесь описанной ниже процедурой.
+### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Definir uma sequência de tarefas como uma sequência de tarefas de elevado impacto
+Utilize o procedimento seguinte para definir uma sequência de tarefas como de elevado impacto.
 > [!NOTE]    
-> Любая последовательность задач, которая соответствуют определенным условиям, автоматически определяется как имеющая значительный уровень влияния. Дополнительные сведения см. в разделе [Управление развертываниями с высоким риском](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+> Qualquer sequência de tarefas que cumpra determinadas condições é automaticamente definida como impacto elevado. Para obter mais informações, consulte [gerir implementações de alto risco](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
 
-1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач**.
-2. Выберите последовательность задач, которую нужно изменить, и нажмите кнопку **Свойства**.
-3. На вкладке **Уведомление для пользователей** выберите **Это последовательность задач со значительным уровнем влияния**.
+1. Na consola do Configuration Manager, vá para **biblioteca de Software** > **sistemas operativos** > **sequências de tarefas**.
+2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
+3. No **notificação do utilizador** separador, selecione **esta é uma sequência de tarefas de elevado impacto**.
 
-### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Создание настраиваемого уведомления для развертываний с высоким уровнем риска
-Чтобы создать настраиваемое уведомление для развертываний, обладающих значительным влиянием, выполните описанные ниже действия.
-1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач**.
-2. Выберите последовательность задач, которую нужно изменить, и нажмите кнопку **Свойства**.
-3. На вкладке **Уведомление пользователя** выберите **Использовать пользовательский текст**.
+### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Criar uma notificação para implementações de alto risco
+Utilize o procedimento seguinte para criar uma notificação para implementações de impacto elevado.
+1. Na consola do Configuration Manager, vá para **biblioteca de Software** > **sistemas operativos** > **sequências de tarefas**.
+2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
+3. No **notificação do utilizador** separador, selecione **utilizar texto personalizado**.
 >  [!NOTE]    
->  Текст уведомления для пользователей можно задать, только если выбран параметр **Это последовательность задач со значительным уровнем влияния**.
+>  Só é possível definir texto de notificação do utilizador quando o **esta é uma sequência de tarefas de elevado impacto** está selecionada.
 
-4. Настройте следующие параметры (максимум 255 символов в каждом текстовом поле).
+4. Configure as seguintes definições (máximo de 255 carateres para cada caixa de texto):
 
-  **Текст заголовка уведомления для пользователей**. Задает выделенный синим цветом текст, отображаемый в уведомлении для пользователей Центра программного обеспечения. Например, в уведомлении для пользователей по умолчанию в этом разделе содержится нечто вроде "Подтвердите необходимость обновления операционной системы на этом компьютере".
+  **Texto do título de notificação de utilizador**: Especifica o texto azul que apresenta na notificação de utilizador do Centro de Software. Por exemplo, a predefinição de notificação de utilizador, esta secção contém algo semelhante a "Confirmar que pretende atualizar o sistema operativo neste computador".
 
-  **Текст сообщения уведомления для пользователей**. Существует три текстовых поля, в которых содержится текст настраиваемого уведомления. Каждое поле нужно заполнить.
-  - Первое текстовое поле: основной текст, обычно содержащий инструкции для пользователя. Например, в уведомлении для пользователей по умолчанию в этом разделе содержится примерно следующее сообщение — "Обновление операционной системы может занять некоторое время; также несколько раз может перезагрузиться компьютер".
-  - Второе текстовое поле: полужирный текст под основным текстом. Например, в уведомлении для пользователей по умолчанию в этом разделе содержится примерно следующее сообщение — "Это выполняемое на месте обновление установит новую операционную систему и автоматически перенесет приложения, данные и параметры".
-  - Третье текстовое поле: последняя строка текста под полужирным текстом. Например, в уведомлении для пользователей в этом разделе содержится примерно следующее сообщение — "Чтобы начать, нажмите кнопку «Установить». В противном случае нажмите кнопку «Отмена»".   
+  **Texto de mensagem de notificação do utilizador**: Existem três caixas de texto que fornecem o corpo da notificação personalizada. Todas as caixas de texto requerem que adicione o texto.
+  - caixa de texto 1ª: Especifica o corpo do principal de texto, normalmente, que contém instruções para o utilizador. Por exemplo, a predefinição de notificação de utilizador, esta secção contém algo como "a atualização do sistema operativo irá demorar tempo e o computador poderá reiniciar várias vezes."
+  - caixa de texto 2nd: Especifica o texto a negrito no corpo do principal do texto. Por exemplo, a predefinição de notificação de utilizador, esta secção contém algo como "esta atualização no local instala o novo sistema operativo e migra automaticamente as suas definições, aplicações e dados."
+  - caixa de texto 3rd: Especifica a última linha de texto com o texto a negrito. Por exemplo, a predefinição de notificação de utilizador, esta secção contém algo semelhante a "clique em instalar para iniciar. Caso contrário, clique em Cancelar."   
     
-Предположим, что вы настраиваете следующее уведомление в окне свойств.
+Vamos supor que configura a seguinte notificação personalizada nas propriedades.
 
-![Настраиваемое уведомление для последовательности задач](..\media\user-notification.png)
+![Notificação personalizada para uma sequência de tarefas](..\media\user-notification.png)
 
-Следующее уведомление отображается, когда конечный пользователь открывает установку из центра программного обеспечения.
+Será apresentada a seguinte mensagem de notificação quando o utilizador final abre a instalação do Centro de Software.
 
-![Настраиваемое уведомление для последовательности задач](..\media\user-notification-enduser.png)
+![Notificação personalizada para uma sequência de tarefas](..\media\user-notification-enduser.png)
 
 
-##  <a name="BKMK_DistributeTS"></a> Распространение содержимого, на которое ссылается последовательность задач  
- Перед тем, как клиенты будут запускать последовательность задач, ссылающуюся на содержимое, необходимо распространить это содержимое на точки распространения. В любое время можно выбрать последовательность задач и распространить ее содержимое, чтобы создать новый список пакетов, на которые имеются ссылки, для распространения. При внесении изменений в последовательность задач с обновленным содержимым необходимо повторно распространить такое содержимое, прежде чем оно станет доступно клиентам. Используйте следующую процедуру для распространения содержимого, на которое ссылается последовательность задач.  
+##  <a name="BKMK_DistributeTS"></a> Distribuir conteúdo referenciado por uma sequência de tarefas  
+ Para que os clientes possam executar uma sequência de tarefas que referencie conteúdos, é necessário distribuir esses conteúdos aos pontos de distribuição. Em qualquer altura, pode selecionar a sequência de tarefas e distribuir o respetivo conteúdo para criar uma nova lista de pacotes de referência para distribuição. Se efetuar alterações à sequência de tarefas com conteúdo atualizado, tem de redistribuir o conteúdo antes de ser disponibilizado aos clientes. Utilize o seguinte procedimento para distribuir os conteúdos que são referenciados por uma sequência de tarefas.  
 
-#### <a name="to-distribute-referenced-content-to-distribution-points"></a>Процедура распределения содержимого, на которое имеется ссылка, на точки распространения  
+#### <a name="to-distribute-referenced-content-to-distribution-points"></a>Para distribuir conteúdo referenciado a pontos de distribuição  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  В списке **Последовательность задач** выберите последовательность задач, которую требуется распространить.  
+3.  Na lista **Sequência de Tarefas** , selecione a sequência de tarefas que pretende distribuir.  
 
-4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Распространить содержимое** , чтобы открыть "Мастер распространения содержимого".  
+4.  No separador **Home Page** , no grupo **Implementação** , clique em **Distribuir Conteúdo** para iniciar o Assistente para Distribuir Conteúdo.  
 
-5.  На странице **Общие** убедитесь, что выбрано распространение требуемой последовательности задач, после чего нажмите кнопку **Далее**.  
+5.  Na página **Geral** , verifique se a sequência de tarefas correta está selecionada para distribuição e, em seguida, clique em **Seguinte**.  
 
-6.  На странице **Содержимое** проверьте, какое содержимое будет распространяться, например загрузочный образ, на который ссылается последовательность задач, после чего нажмите кнопку **Далее**.  
+6.  Na página **Conteúdo** , confirme os conteúdos a distribuir, por exemplo a imagem de arranque referenciada pela sequência de tarefas e, em seguida, clique em **Seguinte**.  
 
-7.  На странице **Места распространения содержимого** укажите коллекции, точку распространения или группу точек распространения, в которую требуется распространить содержимое последовательности задач, после чего нажмите кнопку **Далее**.  
+7.  Na página **Destino do Conteúdo** , especifique as coleções, o ponto de distribuição ou grupo de pontos de destino aos quais pretende distribuir os conteúdos da sequência de tarefas e, em seguida, clique em **Seguinte**.  
 
     > [!IMPORTANT]  
-    >  Если выбранная последовательность задач ссылается на содержимое, уже распространенное в определенную точку распространения, эта точка распространения не отображается мастером.  
+    >  Se a sequência de tarefas que selecionou referenciar conteúdos que já tenham sido distribuídos a um ponto de distribuição específico, esse ponto de distribuição não será incluído na lista do assistente.  
 
-8.  Завершите работу мастера.  
+8.  Conclua o assistente.  
 
- Вы можете предварительно подготавливать содержимое, на которое ссылается последовательность задач. Configuration Manager создает сжатый файл с предварительно подготовленным содержимым, который включает в себя файлы, связанные зависимости и связанные метаданные для выбранного содержимого. После этого можно вручную импортировать содержимое на сервере сайта, на вторичном сайте или в точке распространения. Дополнительные сведения о предварительной подготовке файлов с содержимым см. в статье [Предварительная подготовка содержимого](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
+ Pode pré-configurar o conteúdo referenciado na sequência de tarefas. O Configuration Manager cria um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros, dependências associadas e metadados associados para o conteúdo que selecionar. Em seguida, poderá importar manualmente os conteúdos para um servidor de sites, site secundário ou ponto de distribuição. Para obter mais informações sobre como pré-configurar ficheiros de conteúdo, consulte [pré-configurar conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
 
-##  <a name="BKMK_DeployTS"></a> Развертывание последовательности задач  
- Для развертывания последовательности задач на компьютерах в коллекции используйте следующую процедуру.  
+##  <a name="BKMK_DeployTS"></a> Implementar uma sequência de tarefas  
+ Utilize o seguinte procedimento para implementar uma sequência de tarefas nos computadores de uma coleção.  
 
 > [!WARNING]  
->  Вы можете управлять поведением развертываний последовательности задач с высоким риском. Развертывание с высоким риском — это развертывание, которое устанавливается автоматически и потенциально может привести к нежелательным результатам. Например, последовательность задач с целью **Обязательно** , которая выполняет развертывание операционной системы, считается развертыванием с высоким риском. Дополнительные сведения см. в разделе [Параметры для управления развертываниями с высоким риском](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Pode gerir o comportamento de implementações de sequência de tarefas de alto risco. Uma implementação de alto risco é uma implementação que é automaticamente instalada e que tem o potencial de causar resultados indesejados. Por exemplo, uma sequência de tarefas que tenha um objetivo **Obrigatório** que implemente um sistema operativo é considerada uma implementação de alto risco. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
 > [!NOTE]  
->  Сообщения о состоянии развертывания последовательности задач отображаются в окне "Сообщение" на первичном сайте, но не отображаются на сайте центра администрирования.  
+>  As mensagens de estado para a implementação da sequência de tarefas são apresentadas na janela Mensagem de um site primário, mas não são apresentadas num site de administração central.  
 
-#### <a name="to-deploy-a-task-sequence"></a>Развертывание последовательности задач  
+#### <a name="to-deploy-a-task-sequence"></a>Para implementar uma sequência de tarefas  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  В списке **Последовательность задач** выберите последовательность задач, которую требуется развернуть.  
+3.  Na lista **Sequência de Tarefas** , selecione a sequência de tarefas que pretende implementar.  
 
-4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Развернуть**.  
+4.  No separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.  
 
     > [!NOTE]  
-    >  Если кнопка **Развернуть** недоступна, последовательность задач имеет недействительную ссылку.  Исправьте ссылку и попробуйте развернуть последовательность задач еще раз.  
+    >  Se a opção **Implementar** não estiver disponível, a sequência de tarefas tem uma referência que não é válida.  Corrija a referência e tente implementar a sequência de tarefas novamente.  
 
-5.  На странице **Общие** укажите следующие данные и нажмите кнопку **Далее**.  
+5.  Na página **Geral** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   **Последовательность задач**. Укажите последовательность задач, которую требуется развернуть. По умолчанию в этом поле отображается выбранная последовательность задач.  
+    -   **Sequência de tarefas**: Especifique a sequência de tarefas que pretende implementar. Por predefinição, esta caixa apresenta a sequência de tarefas que selecionou.  
 
-    -   **Коллекция**. Укажите коллекцию, содержащую компьютеры, на которых будет выполняться последовательность задач.  
+    -   **Coleção**: Especifique a coleção que contenha os computadores que executarão a sequência de tarefas.  
 
-         Не следует развертывать последовательности задач, устанавливающие операционные системы, в несоответствующих коллекциях, таких как **Все системы** . Убедитесь, что выбранная коллекция содержит только те компьютеры, на которых должна выполняться последовательность задач.  
-
-        > [!NOTE]  
-        >  При осуществлении развертывания с высоким риском, например операционной системы, в окне **Выбор коллекции** отображаются только пользовательские коллекции, которые соответствуют параметрам проверки развертывания, настроенным в свойствах сайта. Развертывания с высоким риском всегда ограничены пользовательскими коллекциями, создаваемыми вами коллекциями и встроенной коллекцией **Неизвестные компьютеры** . При создании развертывания с высоким риском нельзя выбрать встроенную коллекцию, например **Все системы**. Снимите флажок **Скрыть коллекции с количеством элементов больше, чем конфигурация минимального размера сайта** для просмотра всех пользовательских коллекций, в которых число клиентов меньше установленного предела. Дополнительные сведения см. в разделе [Параметры для управления развертываниями с высоким риском](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
-        >   
-        >  Параметры проверки развертывания основываются на текущем членстве в коллекции. После развертывания последовательности задач членство в коллекции повторно не анализируется с учетом параметров развертывания высокого риска.  
-        >   
-        >  Например, предположим, что для параметра **Размер по умолчанию** установлено значение 100, а для параметра **Максимальный размер** — значение 1000. При создании развертывания с высоким риском в окне **Выбор коллекции** будут отображаться только те коллекции, которые содержат не более 100 клиентов. Если снять флажок **Скрыть коллекции с количеством элементов больше, чем конфигурация минимального размера сайта**, в окне будут отображаться коллекции, содержащие менее 1000 клиентов.  
-        >   
-        >  При выборе коллекции, содержащей роль сайта, применяется следующее правило.  
-        >   
-        >  -   Если коллекция содержит сервер системы сайта в параметрах проверки развертывания, которые вы настраиваете для блокировки коллекций с серверами системы сайта, то возникает ошибка, а продолжение работы невозможно.  
-        > -   Если коллекция содержит сервер системы сайта, а в параметрах проверки развертывания вы включаете предупреждение о том, что коллекции имеют серверы системы сайта, коллекция превышает размер по умолчанию или коллекция содержит сервер, то мастер развертывания программного обеспечения покажет предупреждение о высоком риске. Подтвердите его для создания развертывания с высоким риском, после чего будет создано сообщение о состоянии аудита.  
-
-    -   **Комментарии (необязательно)**. Укажите дополнительные сведения, описывающие это развертывание последовательности задач.  
-
-6.  На странице **Параметры развертывания** укажите следующие сведения, затем нажмите кнопку **Далее**.  
-
-    -   **Намерение**. В раскрывающемся списке выберите одно из следующих значений.  
-
-        -   **Доступно**. Если последовательность задач развертывается для пользователя, он увидит ее после публикации в каталоге приложений и сможет запросить ее по требованию. Если последовательность развертывается для устройства, пользователь увидит ее в центре программного обеспечения и сможет установить его по запросу.  
-
-        -   **Обязательно**. Последовательность задач развертывается автоматически по настроенному расписанию. Однако пользователь может отслеживать состояние ее развертывания (если оно не скрыто) и установить ее с помощью центра программного обеспечения до наступления заданного крайнего срока.  
-
-    -   **Развертывать автоматически по расписанию независимо от того, вошел ли пользователь в систему**. При развертывании последовательности задач этот параметр недоступен.  
-
-    -   **Отправлять пакеты пробуждения**. Если в качестве намерения развертывания выбрано **Обязательно** и установлен этот параметр, wake-up пакеты будут отправляться на компьютеры до установки развертывания, чтобы пробудить компьютеры при наступлении крайнего срока установки. Для использования этой возможности необходимо включить поддержку пробуждения по локальной сети на компьютерах и в сетях.  
-
-    -   **Разрешить клиентам, использующим лимитное подключение к Интернету, загружать содержимое после наступления крайнего срока установки (может повлечь дополнительные затраты)**. Для последовательности задач, устанавливающей приложение, но не развертывающей операционную систему, можно указать, разрешено ли клиентам скачивать содержимое по истечении крайнего срока установки, если они используют лимитное подключение к Интернету. Иногда поставщики интернет-услуг взимают плату по объему передаваемых данных, если вы используете лимитное подключение к Интернету.  
+         Não implemente sequências de tarefas que instalem sistemas operativos em coleções inadequadas, por exemplo a coleção **Todos os Sistemas** . Certifique-se de que a coleção que selecionou apenas contém os computadores nos quais pretende executar a sequência de tarefas.  
 
         > [!NOTE]  
-        >  Хотя лимитное подключение к Интернету может работать нормально для последовательностей задач, не развертывающих операционные системы, такое использование не поддерживается.  
+        >  Ao implementar uma implementação de alto risco, como um sistema operativo, o **selecionar coleção** janela apresenta apenas as coleções personalizadas que cumprem as definições de verificação de implementação que estão configuradas nas propriedades do site. As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e à coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não pode selecionar uma coleção incorporada, como **Todos os Sistemas**. Desmarque **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** para ver todas as coleções personalizadas que incluem menos clientes do que o tamanho máximo configurado. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+        >   
+        >  As definições de verificação da implementação são baseadas na associação atual da coleção. Após implementar a sequência de tarefas, a associação da coleção não é reavaliada relativamente às definições de implementação de alto risco.  
+        >   
+        >  Por exemplo, digamos que definiu **tamanho predefinido** a 100 e o **tamanho máximo** a 1000. Quando cria uma implementação de alto risco, a janela **Selecionar Coleção** só apresenta as coleções com menos de cem clientes. Se desmarcar a **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** definição, a janela apresentará as coleções com menos de 1 000 clientes.  
+        >   
+        >  Quando seleciona uma coleção que contém uma função do site, são aplicáveis as seguintes situações:  
+        >   
+        >  -   Se a coleção contiver um servidor do sistema de sites e nas definições de verificação de implementação configurar o bloqueio das coleções com servidores do sistema de sites, ocorrerá um erro e não conseguirá continuar.  
+        > -   Se a coleção contiver um servidor do sistema de sites e nas definições de verificação da implementação configurar a apresentação de um aviso caso as coleções incluam servidores do sistema de sites, se a coleção ultrapassar o valor do tamanho predefinido ou se a coleção contiver um servidor, o Assistente de Implementação de Software apresentará um aviso de alto risco. Tem de aceitar criar uma implementação de alto risco e é criada uma mensagem de estado de auditoria.  
 
-    -   **Запрос пользователем этого приложения должен утвердить администратор**. Этот параметр недоступен при развертывании последовательности задач.  
+    -   **Comentários (opcional)**: Especifique informações adicionais que descrevam esta implementação da sequência de tarefas.  
 
-    -   **Сделать доступной для**. Укажите, доступна ли последовательность задач для клиентов Configuration Manager, носителя или PXE.  
+6.  Na página **Definições de Implementação** , especifique as seguintes informações e clique em **Seguinte**.  
+
+    -   **Objetivo**: Na lista pendente, escolha uma das seguintes opções:  
+
+        -   **Disponível**: Se a sequência de tarefas for implementada para um utilizador, o utilizador verá a sequência de tarefas publicada no catálogo de aplicações e poderá solicitá-la a pedido. Se a sequência de tarefas for implementada num dispositivo, o utilizador irá vê-la no Centro de Software e pode instalá-la a pedido.  
+
+        -   **Necessário**: A sequência de tarefas é implementada automaticamente, de acordo com a agenda configurada. No entanto, um utilizador poderá controlar o estado de implementação da sequência de tarefas (desde que não esteja oculta) e instalar a sequência de tarefas antes do prazo utilizando o Centro de Software.  
+
+    -   **Implementar automaticamente de acordo com a agenda quer exista ou não um utilizador tiver sessão iniciado**: Esta opção não está disponível ao implementar uma sequência de tarefas.  
+
+    -   **Enviar pacotes de reativação**: Se o objetivo da implementação estiver definido como **necessário** e esta opção estiver selecionada, um pacote de reativação será enviado aos computadores antes da instalação da implementação para reativar o computador da suspensão quando for atingido o prazo instalação. Para poder utilizar esta opção, os computadores e redes terão de estar configurados para Reativação por LAN.  
+
+    -   **Permitir que os clientes numa ligação à Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**: Quando tiver uma sequência de tarefas que instala uma aplicação, mas não implementa um sistema operativo, pode especificar se pretende permitir que os clientes transfiram conteúdos após um prazo de instalação quando estiverem a utilizar ligações à Internet limitadas. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
+
+        > [!NOTE]  
+        >  Embora uma ligação de Internet limitada possa funcionar para sequências de tarefas que não implementam um sistema operativo, tal não é suportado.  
+
+    -   **Exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**: Esta opção não está disponível ao implementar uma sequência de tarefas.  
+
+    -   **Tornar disponível para o seguinte**: Especifique se a sequência de tarefas está disponível para clientes do Configuration Manager, suportes de dados ou PXE.  
 
         > [!IMPORTANT]  
-        >  Используйте для автоматизированного развертывания последовательностей задач вариант **Только носители и PXE (скрытые)** . Выберите пункт **Разрешить автоматическое развертывание операционной системы** и задайте переменную SMSTSPreferredAdvertID в составе носителя, чтобы компьютер автоматически загружался в режиме развертывания без вмешательства пользователя. Дополнительные сведения о переменных последовательностей задач см. в статье [Встроенные переменные последовательности задач в Configuration Manager](../understand/task-sequence-built-in-variables.md).  
+        >  Utilize a definição **Apenas suportes de dados e PXE (oculto)** para implementações com sequências de tarefas automatizadas. Selecione **Permitir implementação de sistema operativo autónoma** e defina a variável SMSTSPreferredAdvertID como parte do suporte de dados para que o computador arranque automaticamente para a implementação, sem interação do utilizador. Para obter mais informações sobre as variáveis de sequência de tarefas, consulte [variáveis incorporadas de sequência de tarefas](../understand/task-sequence-built-in-variables.md)  
 
-7.  На странице **Расписание** укажите следующие сведения, затем нажмите кнопку **Далее**.  
+7.  Na página **Agendamento** , especifique as seguintes informações e clique em **Seguinte**.  
 
     > [!IMPORTANT]  
-    >  При запуске клиента Windows PE с PXE или с загрузочного носителя клиент не оценивает расписания развертывания (срок запуска, действия или завершения). Настраивайте расписания только в развертываниях на клиентах, начинающихся с полной операционной системы Windows. Рассмотрите возможность использования других способов, таких как периоды обслуживания, для управления активными последовательностями задач, разворачиваемыми на клиентах, которые начинают с Windows PE.  
+    >  Quando um cliente Windows PE é iniciado a partir de um suporte de dados de arranque ou PXE, o cliente não avalia agendas de implementação (iniciar, extinguir ou horas de prazos). Configure apenas agendamentos em implementações para clientes que sejam iniciados a partir do sistema operativo Windows completo. Considere a utilização de outros métodos, como janelas de manutenção, para controlar sequências de tarefas ativas implementadas em clientes iniciados a partir do Windows PE.  
 
-    -   **Планирование условий доступности этого развертывания**: укажите дату и время, когда последовательность задач будет доступной для выполнения на конечном компьютере. Если установить флажок **Время в формате UTC** , последовательность задач станет доступна нескольким конечным компьютерам одновременно, а не в различные моменты времени, в соответствии с местным временем на конечных компьютерах.  
+    -   **Agendar quando esta implementação ficará disponível**: Especifique a data e hora em que a sequência de tarefas ficará disponível para ser executada no computador de destino. Se selecionar a caixa de verificação **UTC** , esta definição garantirá que a sequência de tarefas ficará disponível para vários computadores de destino ao mesmo tempo, em vez de em alturas diferentes, de acordo com a hora local dos computadores de destino.  
 
-         Если назначено более раннее время запуска, чем требуется, клиент загружает последовательность задач в указанное администратором время запуска.  
+         Se a hora de início for anterior à hora necessária, o cliente transfere a sequência de tarefas à hora de início que especificou.  
 
-    -   **Планирование условий окончания срока действия этого развертывания**: укажите дату и время, когда последовательность задач перестанет быть доступной для выполнения на конечном компьютере. Если установить флажок **Время в формате UTC** , срок действия последовательности задач завершится на нескольких конечных компьютерах одновременно, а не в различные моменты времени, в соответствии с заданным на них местным временем.  
+    -   **Agendar quando esta implementação expirará**: Especifique a data e hora em que a sequência de tarefas expira no computador de destino. Se seleciona a caixa de verificação **UTC** , a definição correspondente fará com que a sequência de tarefas expire em vários computadores de destino no mesmo tempo, em vez de tal acontecer em diferentes momentos, de acordo com a hora local dos computadores de destino.  
 
-    -   **Расписание установки**. Укажите, когда требуемая последовательность задач выполняется на конечном компьютере. Можно добавить несколько расписаний.  
+    -   **Agenda de atribuição**: Especifique quando a sequência de tarefas necessária é executada no computador de destino. Pode adicionar múltiplas agendas.  
 
-         Вы можете указать дату и время начала расписания, задать еженедельное, ежемесячное выполнение последовательности задач или указать свой собственный интервал, а также указать, выполняется ли последовательность задач после определенного события, такого как вход в систему или выход из системы компьютера.  
+         Pode especificar a data e hora em que a agenda é iniciada, se a sequência de tarefas é executada semanalmente, mensalmente ou num intervalo personalizado e se a sequência de tarefas é executada após um registo de eventos como, por exemplo, o início ou o fim de sessão num computador.  
 
         > [!NOTE]  
-        >  Если указать время начала требуемой последовательности задач, задав более ранние дату и время доступности последовательности задач, клиент Configuration Manager загрузит последовательность задач в назначенное время, даже если она будет доступна ранее.  
+        >  Se agendar uma hora de início para uma sequência de tarefas necessária que seja anterior à data e hora em que a sequência de tarefas ficará disponível, o cliente do Configuration Manager transfere a sequência de tarefas à hora de início agendada, mesmo que a sequência de tarefas esteja mais cedo.  
 
-    -   **Поведение повторного запуска**. Укажите время повторного выполнения последовательности задач. Можно указать один из следующих параметров.  
+    -   **Comportamento da nova execução**: Especifique quando a sequência de tarefas será novamente executada. Pode especificar uma das seguintes opções.  
 
-        -   **Никогда не повторять запуск развернутой программы**. Последовательность задач не выполняется повторно на клиенте, если ранее она уже была выполнена на нем. Последовательность задач не выполняется повторно, если она была изначально завершена неудачно или если файлы последовательности были изменены.  
+        -   **Nunca executar novamente o programa implementado**: A sequência de tarefas não voltar a executar no cliente se a sequência de tarefas tiver sido executada anteriormente no cliente. A sequência de tarefas não será novamente executada, mesmo que a respetiva execução inicial tenha falhado ou que os ficheiros de sequência de tarefas tenham sido alterados.  
 
-        -   **Всегда повторять запуск программы**. В случае запланированного развертывания последовательность задач всегда будет запускаться повторно на клиенте, даже если она уже была успешно выполнена ранее. Этот параметр в особенности полезен при использовании повторяющихся развертываний, когда происходит плановое обновление последовательности задач.  
+        -   **Executar sempre novamente o programa**: A sequência de tarefas será sempre novamente executada no cliente quando a implementação estiver agendada, mesmo se a sequência de tarefas foi executada com êxito anteriormente. Esta definição é particularmente útil se utilizar implementações periódicas cuja sequência de tarefas seja regularmente atualizada.  
 
             > [!IMPORTANT]  
-            >  Хотя этот параметр задан по умолчанию, он не действует до тех пор, пока не будет назначено необходимое оборудование. Всегда можно повторно запустить доступные развертывания.  
+            >  Embora esta opção esteja definida por predefinição, não terá qualquer efeito enquanto não lhe for atribuída uma implementação necessária. As implementações disponíveis podem ser sempre novamente executadas por um utilizador.  
 
-        -   **Повторить запуск, если предыдущая попытка не удалась**. Последовательность задач выполняется повторно при запланированном развертывании, только если ее выполнение, инициированное ранее, завершилось неудачно. Этот параметр в особенности полезен для обязательных развертываний, т. к. он позволяет автоматически повторять попытки выполнения в соответствии с расписанием назначения, если последняя попытка оказалась неудачной.  
+        -   **Executar novamente se a tentativa anterior**: A sequência de tarefas será novamente executada se a implementação é agendada apenas se a sequência de tarefas não executou anteriormente. Esta definição é particularmente útil para implementações necessárias e permite que a execução das mesmas seja automaticamente repetida, de acordo com a agenda de atribuição, caso a última tentativa de execução não tenha sido concluída com êxito.  
 
-        -   Повторить запуск, если предыдущая попытка была успешной. Последовательность задач выполняется повторно только в случае успешной предыдущей попытки запуска на клиенте. Этот параметр полезен при использовании повторяющихся развертываний, когда происходит плановое обновление последовательности задач, и для каждого последующего обновления требуется успешная установка предыдущего обновления.  
-
-        > [!NOTE]  
-        >  Так как пользователь может перезапустить развертывание доступной последовательности задач, перед развертыванием доступной последовательности задач в производственной среде следует выяснить, что произойдет, если пользователь перезапустит последовательность задач несколько раз, и протестировать данную ситуацию.  
-
-8.  На странице **Взаимодействие с пользователем** укажите следующие сведения, затем нажмите кнопку **Далее**.  
-
-    -   **Разрешить пользователям запускать программу независимо от расписания**. Укажите, разрешено ли пользователю выполнять требуемую последовательность задач независимо от назначений развертываний.  
-
-    -   **Показать ход выполнения последовательности задач**. Укажите, должен ли ход выполнения последовательности задач отображаться в клиенте Configuration Manager.  
-
-    -   **Установка программного обеспечения**: укажите, разрешено ли пользователю устанавливать программное обеспечение вне заданных периодов обслуживания после назначенного времени.  
-
-    -   **Перезагрузка системы (если это необходимо для завершения установки)**. Укажите, разрешено ли пользователю перезагружать компьютер после установки программного обеспечения вне заданного периода обслуживания по прошествии назначенного времени.  
-
-    -   **Разрешить выполнение последовательности задач для клиента в Интернете**. Укажите, разрешено ли выполнение последовательности задач на интернет-клиенте, который был обнаружен Configuration Manager в Интернете. Операции, устанавливающие программное обеспечение, например, операционную систему, не поддерживаются этим параметром. Этот параметр следует использовать только для выполнения типовых последовательностей задач на основе скриптов, выполняющих операции в стандартной операционной системе.  
-
-9. На странице **Оповещения** укажите параметры оповещений, необходимые для развертывания этой последовательности задач, затем нажмите кнопку **Далее**.  
-
-10. На странице **Точки распространения** укажите следующие сведения, затем нажмите кнопку **Далее**.  
-
-    -   **Параметры развертывания**. Укажите один из следующих параметров:  
+        -   Executar novamente se tiver êxito tentativa anterior: A sequência de tarefas é executado novamente apenas se tiver sido anteriormente executada com êxito no cliente. Esta definição é útil se utilizar implementações periódicas cuja sequência de tarefas seja regularmente atualizada e cada atualização necessitar que a atualização anterior tenha sido instalada com êxito.  
 
         > [!NOTE]  
-        >  При использовании многоадресного развертывания операционных систем содержимое должно быть загружено на конечные компьютеры по мере необходимости или перед запуском последовательности задач.  
+        >  Uma vez que um utilizador pode executar novamente uma sequência de tarefas de implementação, certifique-se de que, antes de implementar uma sequência de tarefas disponível num ambiente de produção, avalia e testa cuidadosamente o que acontece quando um utilizador volta a executar a sequência de tarefas múltiplas vezes.  
 
-        -   Укажите, что клиенты должны загружать содержимое на конечный компьютер с точки распространения по мере того, как оно будет требоваться последовательности задач.  
+8.  Na página **Experiência de Utilizador** , especifique as seguintes informações e clique em **Seguinte**.  
 
-        -   Укажите, что клиенты должны загружать все содержимое на конечный компьютер с точки распространения перед запуском последовательности задач. Этот вариант не отображается, если вы указали, что последовательность задач доступна для PXE и загрузочных носителей (см. страницу **Параметры развертывания** ).  
+    -   **Permitir que o utilizador executar o programa independentemente das atribuições**: Especifique se o utilizador tem permissão para executar uma sequência de tarefas necessária, independentemente das atribuições da implementação da.  
 
-        -   Укажите, что клиенты должны запускать содержимое из точки распространения. Этот вариант доступен только в случае, если все пакеты, связанные с последовательностью задач, могут использовать общую папку пакетов на точке распространения. Чтобы включить использование общей папки пакетов, используйте вкладку **Доступ к данным** в окне **Свойства** у каждого пакета.  
+    -   **Mostrar Progresso da sequência de tarefas**: Especifique se o cliente do Configuration Manager apresenta o progresso da sequência de tarefas.  
 
-    -   **Если нет доступных локальных точек распространения, использовать удаленную точку распространения**: укажите, могут ли клиенты использовать точки распространения, находящиеся в низкоскоростных и ненадежных сетях, для скачивания содержимого, необходимого для последовательности задач.  
+    -   **Instalação de software**: Especifique se o utilizador tem permissão para instalar o software fora das janelas de manutenção configuradas e depois da data agendada.  
 
-11. Завершите работу мастера.  
+    -   **Reinício do sistema (se for necessário para concluir a instalação)**: Especifique se o utilizador tem permissão para reiniciar o computador após uma instalação de software fora de uma janela de manutenção configuradas e depois da hora da atribuição.  
 
-##  <a name="BKMK_ExportImport"></a> Экспорт и импорт последовательностей задач  
- Можно экспортировать и импортировать последовательности задач вместе со связанными объектами или без них, например с образом операционной системы, загрузочным образом, пакетом агента клиента, пакетом драйверов и приложениями, имеющими зависимости.  
+    -   **Permitir que a sequência de tarefas executar o cliente na Internet**: Especifique se a sequência de tarefas pode ser executada num cliente baseado na Internet que o Configuration Manager Deteta na Internet. As operações que instalam software, por exemplo um sistema operativo, não são suportadas por esta definição. Só deve utilizar esta opção para sequências de tarefas genéricas, baseadas em scripts, que executem operações padrão do sistema operativo.  
 
- Рассмотрите следующие возможности при экспорте и импорте последовательностей задач.  
+9. Na página **Alertas** , especifique as definições de alerta pretendidas para esta implementação de sequências de tarefas e, em seguida, clique em **Seguinte**.  
 
--   Пароли, сохраненные в последовательности задач, не экспортируются. При экспорте и импорте последовательности задач, содержащей пароли, необходимо отредактировать импортированную последовательность задач и заново указать имеющиеся пароли. Обязательно укажите пароли для действий [Присоединить к домену или рабочей группе](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [Подключить к сетевой папке](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder) и [Выполнить из командной строки](../understand/task-sequence-steps.md#BKMK_RunCommandLine).  
+10. Na página **Pontos de Distribuição** , especifique as seguintes informações e, em seguida, clique em **Seguinte**.  
 
-- При экспорте последовательности задач с помощью шага **Задать динамические переменные** значения переменных, для которых настроен параметр **Секретное значение**, не экспортируются. После импорта последовательности задач необходимо повторно ввести значения этих переменных.
+    -   **Opções de implementação**: Especifique uma das seguintes opções:  
 
--   При наличии нескольких первичных сайтов рекомендуется импортировать последовательности задач на сайте центра администрирования.  
+        > [!NOTE]  
+        >  Se utilizar multicast para implementar um sistema operativo, os conteúdos deverão ser transferidos para os computadores de destino quer à medida que forem necessários ou antes de a sequência de tarefas ser executada.  
 
- Используйте следующие процедуры для экспорта и импорта последовательности задач.  
+        -   Especifique que os clientes devem transferir os conteúdos do ponto de distribuição para o computador de destino, se tal for necessário para a sequência de tarefas.  
 
-#### <a name="to-export-task-sequences"></a>Экспорт последовательности задач  
+        -   Especifique se os clientes deverão transferir todos os conteúdos do ponto de distribuição para o computador de destino antes de a sequência de tarefas ser executada. Esta opção não será apresentada se tiver especificado que a sequência de tarefas estará disponível para implementações com arranque PXE ou com suportes de dados (consulte a página **Definições de Implementação** ).  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+        -   Especifique se os clientes deverão executar os conteúdos a partir do ponto de distribuição. Esta opção só estará disponível se todos os pacotes associados à sequência de tarefas estiverem configurados para utilizar uma partilha de pacote no ponto de distribuição. Para permitir que os conteúdos utilizem uma partilha de pacote, consulte o separador **Acesso a Dados** nas **Propriedades** de cada pacote.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+    -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição localizados em redes lentas e pouco fiáveis para transferir o conteúdo necessário pela sequência de tarefas.  
 
-3.  В списке **Последовательность задач** выберите последовательности задач, которые требуется экспортировать. Если выбрать больше одной последовательности задач, они будут сохранены в одном файле экспорта.  
+11. Conclua o assistente.  
 
-4.  На вкладке **Главная** в группе **Последовательность задач** выберите **Экспорт** , чтобы запустить мастер экспорта последовательности задач.  
+##  <a name="BKMK_ExportImport"></a> Exportar e importar sequências de tarefas  
+ Pode exportar e importar sequências de tarefas, com ou sem os objetos a elas associados, como por exemplo uma imagem de sistema operativo, uma imagem de arranque, um pacote de agente do cliente, um pacote de controladores e aplicações que tenham dependências.  
 
-5.  На странице **Общие** укажите следующие параметры, затем нажмите кнопку **Далее**.  
+ Pondere os seguintes aspetos ao exportar e importar sequências de tarefas.  
 
-    -   В поле **Файл** укажите расположение и имя файла экспорта. Если имя файла вводится напрямую, обязательно укажите расширение имени файла .zip. При выборе файла экспорта с помощью обзора мастер автоматически добавляет это расширение.  
+-   As palavras-passe que se encontram armazenadas na sequência de tarefas não são exportadas. Se exportar e importar uma sequência de tarefas que contenha palavras-passe, deverá editar a sequência de tarefas importada e especificar novamente as palavras-passe. Certifique-se de que especifica palavras-passe para [associar domínio ou grupo de trabalho](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [ligar à pasta de rede](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder), e [executar linha de comandos](../understand/task-sequence-steps.md#BKMK_RunCommandLine) ações.  
 
-    -   Удалите флажок **Экспортировать все зависимости последовательности задач** , если не требуется экспортировать зависимости последовательности задач. По умолчанию мастер выполняет сканирование всех связанных объектов и экспортирует их вместе с последовательностью задач. Это относится ко всем зависимостям приложений.  
+- Quando exporta uma sequência de tarefas com o **definir variáveis de Dynanmic** passo, são exportados sem valores das variáveis que estão configuradas com o **valor secreto** definição. Tem reintroduza os valores para estas variáveis, depois de importar a sequência de tarefas.
 
-    -   Снимите флажок **Экспортировать все содержимое для выбранных последовательностей задач и зависимостей** , если вы не хотите копировать содержимое из источника пакета в расположение экспорта. Если этот флажок установлен, мастер импорта последовательности задач использует путь импорта в качестве нового расположения для источника пакета.  
+-   Como procedimento recomendado, sempre que existam vários sites primários, as sequências de tarefas deverão ser importadas no site de administração central.  
 
-    -   В поле **Комментарии администратора** добавьте описание экспортируемых последовательностей задач.  
+ Utilize os seguintes procedimentos para exportar e importar uma sequência de tarefas.  
 
-6.  Завершите работу мастера.  
+#### <a name="to-export-task-sequences"></a>Para exportar sequências de tarefas  
 
- Мастер создаст следующие выходные файлы.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
--   Если не выполняется экспорт содержимого: файл ZIP.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
--   Если экспорт содержимого выполняется: ZIP-файл и папка с именем *export*_files, где *export* — это имя ZIP-файла, содержащего экспортируемое содержимое.  
+3.  Na lista **Sequência de Tarefas** , selecione as sequências de tarefas que pretende exportar. Se selecionar mais do que uma sequência de tarefas, estas serão armazenadas num ficheiro de exportação.  
 
- Если в процедуру экспорта последовательности задач включено содержимое, обязательно скопируйте ZIP-файл и папку *export*_files, иначе импорт завершится неудачей.  
+4.  No separador **Início** , no grupo **Sequência de Tarefas** , clique em **Exportar** para iniciar o Assistente de Criação de Sequência de Tarefas.  
 
-#### <a name="to-import-task-sequences"></a>Импорт последовательностей задач  
+5.  Na página **Geral** , especifique as seguintes definições e clique em **Seguinte**.  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+    -   Na caixa **Ficheiro** , especifique a localização e o nome do ficheiro de exportação. Se introduzir diretamente o nome do ficheiro, certifique-se de que inclui a extensão .zip no nome do ficheiro. Se navegar para o ficheiro de exportação, o assistente adicionará automaticamente esta extensão de nome de ficheiro.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
+    -   Desative a caixa de verificação **Exportar todas as dependências de sequência de tarefas** se não pretender exportar as dependências das sequências de tarefas. Por predefinição, o assistente verifica se existem todos os objetos relacionados e exporta-os juntamente com a sequência de tarefas. Esta operação abrange eventuais dependências de aplicações.  
 
-3.  На вкладке **Главная** в группе **Создать** выберите **Импортировать последовательность задач** , чтобы запустить мастер импорта последовательности задач.  
+    -   Desative a caixa de verificação **Exportar todo o conteúdo para as dependências e sequências de tarefas selecionadas** se não pretender que os conteúdos da origem do pacote sejam copiados para a localização de exportação. Se esta caixa de verificação estiver selecionada, o Assistente para Importar Sequência de Tarefas utilizará o caminho de importação como a nova localização de origem do pacote.  
 
-4.  На странице **Общие** укажите экспортируемый ZIP-файл, затем нажмите кнопку **Далее**.  
+    -   Na caixa **Comentários do administrador** , adicione uma descrição das sequências de tarefas a exportar.  
 
-5.  На странице **Содержимое файла** выберите действие, необходимое для каждого импортируемого объекта. На этой странице отображаются все объекты, которые будут импортированы Configuration Manager.  
+6.  Conclua o assistente.  
 
-    -   Если объект не был импортирован, выберите **Создать новый**.  
+ O assistente cria os seguintes ficheiros de saída:  
 
-    -   Если объект был импортирован ранее, выберите один из следующих вариантов.  
+-   Se não exportar conteúdos: um ficheiro .zip.  
 
-        -   **Пропускать повторяющиеся данные** (используется по умолчанию). Это действие не импортирует объект. Вместо этого мастер связывает существующий объект с последовательностью задач.  
+-   Se não exportar conteúdos: um ficheiro .zip e uma pasta designada *exportar*_files, em que *exportar* corresponde ao nome do ficheiro .zip que contém os conteúdos exportados.  
 
-        -   **Перезаписать**. Это действие перезаписывает существующий объект импортируемым объектом. При работе с приложениями можно добавить выпуск для обновления существующего приложения или создания нового приложения.  
+ Se incluir conteúdos ao exportar uma sequência de tarefas, certifique-se de que o ficheiro .zip e a pasta *exportar*_files são copiados, caso contrário a importação não será concluída com êxito.  
 
-6.  Завершите работу мастера.  
+#### <a name="to-import-task-sequences"></a>Para importar sequências de tarefas  
 
- После импорта последовательности задач следует указать в ней все пароли, которые были в исходной последовательности задач. По соображениям безопасности пароли не экспортируются.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-##  <a name="BKMK_CreateTSVariables"></a> Создание переменных последовательности задач для компьютеров и коллекций  
-Для компьютеров и коллекций можно задать настраиваемые переменные последовательности задач. Переменные, определенные для компьютера, называются переменными последовательности задач для компьютера. Переменные, определенные для коллекции, называются переменными последовательности задач для коллекции. При возникновении конфликта переменные для компьютера имеют преимущество перед переменными для коллекции. Это означает, что переменные последовательности задач, автоматически назначенные определенному компьютеру, имеют более высокий приоритет, чем переменные, назначенные коллекции, содержащей компьютер.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-Например, если коллекции ABC назначена переменная и компьютеру XYZ, который является членом коллекции ABC, назначена переменная с таким же именем, то переменная, назначенная компьютеру XYZ, имеет более высокий приоритет, чем переменная, назначенная коллекции ABC.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Importar Sequência de Tarefas** para iniciar o Assistente Importar Sequência de Tarefas.  
 
-Вы можете скрыть переменные для компьютера и для коллекции, чтобы они не отображались в консоли Configuration Manager. Чтобы отменить скрытое состояние для этих переменных, необходимо удалить их и повторно определить, не выбирая параметр скрытия. При использовании параметра **Не показывать это значение в консоли Configuration Manager** значение переменной не отображается в консоли, но может по-прежнему использоваться последовательностью задач при запуске.  
+4.  Na página **Geral** , especifique o ficheiro .zip exportado e clique em **Seguinte**.  
+
+5.  Na página **Conteúdo do Ficheiro** , selecione a ação de que necessita para cada objeto que importar. Esta página mostra todos os objetos do Configuration Manager irá importar.  
+
+    -   Se o objeto nunca tiver sido importado, selecione **Criar Novo**.  
+
+    -   Se o objeto tiver sido importado anteriormente, selecione uma das seguintes ações:  
+
+        -   **Ignorar duplicado** (predefinição): Esta ação não importa o objeto. Em vez disso, o assistente liga o objeto existente à sequência de tarefas.  
+
+        -   **Substituir**: Esta ação substitui o objeto existente pelo objeto importado. Para aplicações, pode adicionar uma revisão para atualizar a aplicação existente ou criar uma nova aplicação.  
+
+6.  Conclua o assistente.  
+
+ Depois de importar a sequência de tarefas, edite-a para especificar as palavras-passe que estavam na sequência de tarefas original. Por razões de segurança, as palavras-passe não são exportadas.  
+
+##  <a name="BKMK_CreateTSVariables"></a> Criar variáveis de sequência de tarefas para computadores e coleções  
+Pode definir variáveis de sequência de tarefas personalizadas para computadores e coleções. As variáveis definidas para um computador são designadas variáveis de sequência de tarefas por computador. As variáveis definidas para uma coleção são designadas variáveis de sequência de tarefas por coleção. Em caso de conflito, as variáveis por computador têm precedência sobre as variáveis por coleção. Isto significa que as variáveis de sequência de tarefas atribuídas a um computador específico possuem automaticamente prioridade sobre as variáveis atribuídas à coleção que contém o computador.  
+
+Por exemplo, se a coleção ABC tiver atribuída uma variável e o computador XYZ, que é um membro da coleção ABC, tiver atribuída uma variável com o mesmo nome, a variável atribuída ao computador XYZ terá prioridade sobre a variável atribuída à coleção ABC.  
+
+Pode ocultar as variáveis por computador e por coleção para que não fiquem visíveis na consola do Configuration Manager. Se pretender que deixem de ficar ocultas, tem de as eliminar e redefinir sem selecionar a opção para as ocultar. Quando utiliza a opção **não apresentar este valor na consola do Configuration Manager**, o valor da variável não for apresentado na consola, mas pode continuar a ser utilizado pela sequência de tarefas quando for executada.  
 
 > [!WARNING]    
-> Параметр **Не показывать это значение в консоли Configuration Manager** применяется в консоли Configuration Manager, но значения для переменных по-прежнему отображаются в файле журнала последовательности задач (SMSTS.LOG). 
+> O **não apresentar este valor na consola do Configuration Manager** definição aplica-se a consola do Configuration Manager, mas os valores para as variáveis ainda são apresentados no ficheiro de registo de sequência de tarefas (SMSTS. REGISTO). 
 
-Управление переменными для компьютера может осуществляться на первичном сайте или на сайте центра администрирования. Configuration Manager не поддерживает более 1000 назначенных переменных для компьютера.  
+Pode gerir variáveis por computador num site primário ou num site de administração central. O Configuration Manager não suporta mais de 1000 variáveis atribuídas para um computador.  
 
 > [!IMPORTANT]  
->  При использовании переменных коллекции для последовательностей задач необходимо иметь в виду следующее.  
+>  Quando utiliza variáveis por coleção para sequências de tarefas, considere o seguinte:  
 >   
-> - Так как изменения в коллекциях всегда реплицируются по всей иерархии, любые изменения, вносимые в переменные коллекции, применяются не только к членам текущего сайта, но и ко всем членам коллекции в рамках всей иерархии.  
-> - При удалении коллекции также происходит удаление переменных последовательности задач, настроенных для коллекции.  
+> - Como as alterações nas coleções são sempre replicadas em toda a hierarquia, quaisquer alterações efetuadas nas variáveis da coleção serão aplicadas não apenas aos membros do site atual, mas a todos os membros da coleção de toda a hierarquia.  
+> - Quando elimina uma coleção, esta ação também elimina as variáveis de sequência de tarefas configuradas para a coleção.  
 
- Используйте следующие процедуры для создания переменных последовательности задач для компьютера или коллекции.  
+ Utilize os procedimentos seguintes para criar variáveis de sequência de tarefas para um computador ou uma coleção.  
 
-#### <a name="to-create-task-sequence-variables-for-a-computer"></a>Создание переменных последовательности задач для компьютера  
+#### <a name="to-create-task-sequence-variables-for-a-computer"></a>Para criar variáveis de sequência de tarefas para um computador  
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
-2.  В рабочей области **Активы и соответствие** разверните узел коллекции, содержащей компьютер, для которого требуется добавить переменную.  
+2.  Na área de trabalho **Ativos e Compatibilidade** , expanda a coleção que contém o computador ao qual pretende adicionar a variável.  
 
-3.  Выберите компьютер и щелкните **Свойства**.  
+3.  Selecione o computador e clique em **Propriedades**.  
 
-4.  В диалоговом окне **Свойства** откройте вкладку **Переменные** .  
+4.  Na caixa de diálogo **Propriedades** , clique no separador **Variáveis** .  
 
-5.  Для каждой переменной, которую требуется создать, щелкните значок **Создать** в диалоговом окне **<Новая\> переменная** и укажите имя и значение переменной в последовательности задач. Снимите флажок **Не показывать это значение в консоли Configuration Manager**, если хотите скрыть переменные, чтобы они не отображались в консоли Configuration Manager.  
+5.  Para cada variável que pretende criar, clique o **novo** ícone no **< novo\> variável** diálogo caixa e especifique o nome e o valor da variável de sequência de tarefas. Limpar o **não apresentar este valor na consola do Configuration Manager** caixa de verificação se pretender ocultar as variáveis, para que não fiquem visíveis na consola do Configuration Manager.  
 
-6.  После добавления всех переменных на компьютер нажмите кнопку **OK**.  
+6.  Depois de ter adicionado todas as variáveis ao computador, clique em **OK**.  
 
-#### <a name="to-create-task-sequence-variables-for-a-collection"></a>Создание переменных последовательности задач для коллекции  
+#### <a name="to-create-task-sequence-variables-for-a-collection"></a>Para criar variáveis de sequência de tarefas para uma coleção  
 
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
-2.  В рабочей области **Активы и соответствие** выберите коллекцию, в которую требуется добавить переменную, и нажмите **Свойства**.  
+2.  Na área de trabalho **Ativos e Compatibilidade** , selecione a coleção à qual pretende adicionar a variável e clique em **Propriedades**.  
 
-3.  В диалоговом окне **Свойства** откройте вкладку **Переменные коллекции** .  
+3.  Na caixa de diálogo **Propriedades** , clique no separador **Variáveis da Coleção** .  
 
-4.  Для каждой переменной, которую требуется создать, щелкните значок **Создать** в диалоговом окне **<Новая\> переменная** и укажите имя и значение переменной в последовательности задач. Снимите флажок **Не показывать это значение в консоли Configuration Manager**, если хотите скрыть переменные, чтобы они не отображались в консоли Configuration Manager.  
+4.  Para cada variável que pretende criar, clique o **novo** ícone no **< novo\> variável** diálogo caixa e especifique o nome e o valor da variável de sequência de tarefas. Limpar o **não apresentar este valor na consola do Configuration Manager** caixa de verificação se pretender ocultar as variáveis, para que não fiquem visíveis na consola do Configuration Manager.  
 
-5.  Как вариант, можно указать приоритет для использования в Configuration Manager при оценке переменных последовательности задач.  
+5.  Opcionalmente, especifique a prioridade para o Configuration Manager para utilizar quando são avaliadas as variáveis de sequência de tarefas.  
 
-6.  После добавления всех переменных в коллекцию нажмите кнопку **OK**.  
+6.  Depois de ter adicionado todas as variáveis à coleção, clique em **OK**.  
 
-##  <a name="BKMK_AdditionalActionsTS"></a> Дополнительные действия для управления последовательностями задач  
- Можно управлять последовательностями задач, используя при их выборе дополнительные действия.  
+##  <a name="BKMK_AdditionalActionsTS"></a> Ações adicionais para gerir sequências de tarefas  
+ Pode gerir sequências de tarefas com ações adicionais ao selecionar uma sequência de tarefas.  
 
-#### <a name="to-select-a-task-sequence-to-manage"></a>Выбор последовательности задач для управления  
+#### <a name="to-select-a-task-sequence-to-manage"></a>Para selecionar uma sequência de tarefas para gerir  
 
-1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы** и выберите элемент **Последовательности задач**.  
+2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos** e clique em **Sequências de Tarefas**.  
 
-3.  В списке **Последовательность задач** выберите последовательность задач, которой требуется управлять, после чего выберите один из доступных вариантов.  
+3.  Na lista **Sequência de Tarefas** , selecione a sequência de tarefas que pretende gerir e selecione uma das opções disponíveis.  
 
- Более подробные сведения о некоторых дополнительных действиях по управлению последовательностями задач см. в таблице ниже.  
+ Utilize a seguinte tabela para obter mais informações sobre algumas das ações adicionais para gerir as sequências de tarefas.  
 
-|Действие|Описание|  
+|Ação|Descrição|  
 |------------|-----------------|  
-|**Копировать**|Создает копию выбранной последовательности задач. Это действие может быть полезным, когда требуется создать новую последовательность задач, основанную на существующей последовательности.<br /><br /> Если в папке создается копия последовательности задач, то копия отображается в этой папке до тех пор, пока не будет обновлен узел последовательности задач.  После обновления копия появляется в корневой папке.|  
-|**Отключено**|Отключает последовательность задач, в результате чего ее запуск на компьютерах становится невозможным. Отключенные последовательности задач можно развертывать на компьютерах, однако последовательности задач не выполняются на компьютерах до тех пор, пока они не будут включены.|  
-|**Разрешить**|Включает последовательность задач, чтобы ее можно было запустить. После включения развернутой последовательности задач ее повторное развертывание не требуется.|  
-|**Создать файл с предварительно подготовленным содержимым**|Запускает мастер создания файлов с предварительно подготовленным содержимым для предварительной подготовки содержимого последовательности задач. Дополнительные сведения о создании файлов с предварительно подготовленным содержимым см. в разделе [Предварительная подготовка содержимого](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
-|**Переместить**|Перемещает выбранную последовательность задач в другую папку.|  
+|**Copiar**|Efetua uma cópia da sequência tarefas selecionada. Esta ação pode ser útil quando pretender criar uma nova sequência de tarefas baseada numa sequência de tarefas existente.<br /><br /> Quando efetuar uma cópia de uma sequência de tarefas numa pasta, esta é listada nessa pasta até a atualizar o nó da sequência de tarefas.  Após a atualização, cópia aparece na pasta raiz.|  
+|**Desativar**|Desativa a sequência de tarefas para não ser executada nos computadores. As sequências de tarefas desativadas podem ser implementadas nos computadores, mas os computadores não executam a sequência de tarefas enquanto não for ativada.|  
+|**Ativar**|Ativa a sequência de tarefas para poder ser executada. Não necessita de voltar a implementar uma sequência de tarefas implementada depois de ser ativada.|  
+|**Criar Ficheiro de Conteúdo Pré-configurado**|Inicia o Assistente para Criar Ficheiro de Conteúdo Pré-configurado para pré-configurar o conteúdo da sequência de tarefas. Para obter informações sobre como criar um ficheiro de conteúdo pré-configurado, consulte [pré-configurar conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
+|**Moverr**|Move a sequência de tarefas selecionada para outra pasta.|  
 
-## <a name="next-steps"></a>Дальнейшие действия
-[Сценарии развертывания операционных систем предприятия](scenarios-to-deploy-enterprise-operating-systems.md)
+## <a name="next-steps"></a>Passos seguintes
+[Cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md)

@@ -1,6 +1,6 @@
 ---
-title: "Синхронизация обновлений при отсутствии подключения к Интернету в Configuration Manager | Документы Майкрософт"
-description: "Вы можете выполнять синхронизацию обновлений программного обеспечения в точке обновления ПО верхнего уровня, отключенной от Интернета."
+title: "Sincronizar atualizações com nenhuma ligação à Internet - Configuration Manager | Microsoft Docs"
+description: "Execute a sincronização de atualizações de software no ponto de atualização de software de nível superior estiver desligado da Internet."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,94 +13,94 @@ ms.technology: configmgr-sum
 ms.assetid: 1a997c30-8e71-4be5-89ee-41efb2c8d199
 ms.openlocfilehash: fd9c1e9418ff1956c6ef98753e23a293440179be
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Синхронизация обновлений программного обеспечения из отсоединенной точки обновления программного обеспечения  
+# <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Sincronizar atualizações de software a partir de um ponto de atualização de software desligado  
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Если точка обновления программного обеспечения для сайта верхнего уровня отключена от Интернета, необходимо воспользоваться функциями экспорта и импорта, представленными в средстве WSUSUtil, чтобы выполнить синхронизацию метаданных обновлений программного обеспечения. Можно выбрать существующий сервер WSUS, не входящий в вашу иерархию Configuration Manager, как источник синхронизации. В этом разделе содержится информация об использовании функций экспорта и импорта средства WSUSUtil.  
+ Quando o ponto de atualização de software no site de nível superior está desligado da Internet, terá de utilizar as funções de exportação e importação da ferramenta WSUSUtil para sincronizar os metadados de atualizações de software. Pode escolher um servidor WSUS existente não na hierarquia do Configuration Manager como origem de sincronização. Este tópico fornece informações sobre como utilizar a exportação e importação de funções da ferramenta WSUSUtil.  
 
- Для экспорта и импорта метаданных обновлений программного обеспечения необходимо экспортировать метаданные обновлений из базы данных WSUS на указанном сервере экспорта, скопировать локально хранящиеся файлы условий лицензионного соглашения в отсоединенную точку обновления программного обеспечения, а затем импортировать метаданные обновлений в базу данных WSUS в отсоединенной точке обновления.  
+ Para exportar e importar metadados de atualizações de software, terá de exportar metadados de atualizações de software a partir da base de dados do WSUS num servidor de exportação especificado e, em seguida, copiar os ficheiros de termos de licenciamento armazenados a nível local para o ponto de atualização de software desligado e, em seguida, importar os metadados de atualizações de software para a base de dados do WSUS no ponto de atualização de software desligado.  
 
- Сведения в следующей таблице помогут определить сервер экспорта, с которого следует экспортировать метаданные обновлений программного обеспечения.  
+ Utilize a tabela seguinte para identificar o servidor de exportação para o qual pretende exportar os metadados de atualizações de software.  
 
-|Точка обновления программного обеспечения|Вышестоящий источник обновления для подключенных точек обновления программного обеспечения|Сервер экспорта для отсоединенной точки обновления программного обеспечения|  
+|Ponto de atualização de software|Origem das atualizações a montante para pontos de atualização de software ligados|Servidor de exportação para um ponto de atualização de software desligado|  
 |---------------------------|-----------------------------------------------------------------|------------------------------------------------------------|  
-|Сайт центра администрирования|Центр обновления Майкрософт (Интернет)<br /><br /> Существующий сервер WSUS|Выберите сервер WSUS, синхронизированный с Центром обновления Майкрософт, с использованием классификаций, продуктов и языков обновления программного обеспечения, необходимых в среде Configuration Manager.|  
-|Автономный первичный сайт|Центр обновления Майкрософт (Интернет)<br /><br /> Существующий сервер WSUS|Выберите сервер WSUS, синхронизированный с Центром обновления Майкрософт, с использованием классификаций, продуктов и языков обновления программного обеспечения, необходимых в среде Configuration Manager.|  
+|Site de administração central|Microsoft Update (Internet)<br /><br /> Servidor WSUS existente|Escolha um servidor WSUS que está sincronizado com o Microsoft Update utilizando as classificações de atualizações de software, produtos e idiomas de que necessita no seu ambiente do Configuration Manager.|  
+|Site primário autónomo|Microsoft Update (Internet)<br /><br /> Servidor WSUS existente|Escolha um servidor WSUS que está sincronizado com o Microsoft Update utilizando as classificações de atualizações de software, produtos e idiomas de que necessita no seu ambiente do Configuration Manager.|  
 
- Перед началом процесса экспорта проверьте, что на выбранном сервере экспорта завершена синхронизация обновлений программного обеспечения и самые последние метаданные обновлений программного обеспечения уже синхронизированы. Чтобы убедиться в успешном завершении синхронизации, выполните следующую процедуру.  
+ Antes de iniciar o processo de exportação, verifique se a sincronização de atualizações de software está concluída no servidor de exportação selecionado para garantir a sincronização dos metadados de atualizações de software mais recentes. Para verificar que a sincronização de atualizações do software foi concluída com êxito, utilize o seguinte procedimento.  
 
-#### <a name="to-verify-that-software-updates-synchronization-has-completed-successfully-on-the-export-server"></a>Проверка успешного завершения синхронизации обновлений программного обеспечения на сервере экспорта  
+#### <a name="to-verify-that-software-updates-synchronization-has-completed-successfully-on-the-export-server"></a>Para verificar se a sincronização de atualizações do software foi concluída com êxito no servidor de exportação  
 
-1.  Откройте консоль администрирования WSUS и подключитесь к базе данных WSUS на сервере экспорта.  
+1.  Abra a consola de Administração do WSUS e ligue à base de dados do WSUS no servidor de exportação.  
 
-2.  В консоли администрирования WSUS щелкните элемент **Синхронизации**. В области результатов будет отображен список попыток синхронизации обновлений программного обеспечения.  
+2.  Na consola de Administração do WSUS, clique em **Sincronizações**. Uma lista das tentativas de sincronização de atualizações do software é apresentada no painel de resultados.  
 
-3.  Найдите последнюю попытку синхронизации обновлений программного обеспечения и убедитесь в ее успешном завершении.  
+3.  No painel de resultados, encontre a mais recente tentativa de sincronização de atualizações de software e verifique que foi concluída com êxito.  
 
 > [!IMPORTANT]  
->  Чтобы экспортировать метаданные обновлений программного обеспечения, средство WSUSUtil необходимо запустить локально на сервере экспорта, а чтобы импортировать метаданные обновлений программного обеспечения, это средство нужно запустить на сервере отсоединенной точки обновления программного обеспечения. Кроме того, пользователь, работающий со средством WSUSUtil, должен входить в локальную группу "Администраторы" на каждом сервере.  
+>  A ferramenta WSUSUtil tem de ser executada localmente no servidor de exportação para exportar os metadados de atualizações de software e tem também de ser executada no ponto de atualização de software desligado para importar os metadados de atualizações de software. Além disso, o utilizador que executa a ferramenta WSUSUtil tem de ser membro do grupo de Administradores local em cada servidor.  
 
-## <a name="export-process-for-software-updates"></a>Процесс экспорта обновлений программного обеспечения  
- Процесс экспорта обновлений программного обеспечения состоит из двух основных этапов: копирование локально хранящихся файлов условий лицензионного соглашения в отсоединенную точку обновления программного обеспечения и экспорт метаданных обновлений программного обеспечения из базы данных WSUS на сервере экспорта.  
+## <a name="export-process-for-software-updates"></a>Processo de exportação para atualizações de software  
+ O processo de exportação para atualizações de software consiste em dois passos principais: copiar os ficheiros de termos de licenciamento armazenados a nível local para o ponto de atualização de software desligado e exportar metadados de atualização de software a partir da base de dados WSUS no servidor de exportação.  
 
- Следующая процедура используется для копирования локальных метаданных условий лицензионного соглашения в отсоединенную точку обновления программного обеспечения.  
+ Utilize o seguinte procedimento para copiar os metadados de termos de licenciamento locais para o ponto de atualização de software desligado.  
 
-#### <a name="to-copy-local-files-from-the-export-server-to-the-disconnected-software-update-point-server"></a>Копирование локальных файлов с сервера экспорта на сервер отсоединенной точки обновления программного обеспечения  
+#### <a name="to-copy-local-files-from-the-export-server-to-the-disconnected-software-update-point-server"></a>Para copiar ficheiros locais do servidor de exportação para o servidor de ponto de atualização de software desligado  
 
-1.  На сервере экспорта найдите папку с обновлениями программного обеспечения и условиями лицензионного соглашения для обновления программного обеспечения. По умолчанию службы WSUS хранят файлы в каталоге <*установочный_диск_WSUS*>\WSUS\WSUSContent\\, где *установочный_диск_WSUS* — это диск, на котором установлены службы WSUS.  
+1.  No servidor de exportação, navegue para a pasta onde as atualizações de software e os termos de licenciamento para atualizações de software estão armazenados. Por predefinição, o servidor WSUS armazena os ficheiros em <*WSUSInstallationDrive*>\WSUS\WSUSContent\\, onde *WSUSInstallationDrive* é a unidade na qual o WSUS está instalado.  
 
-2.  Скопируйте все файлы и папки из этого расположения в папку WSUSContent на сервере отсоединенной точки обновления программного обеспечения.  
+2.  Copie todos os ficheiros e pastas a partir desta localização para a pasta WSUSContent no servidor de ponto de atualização de software desligado.  
 
- Следующая процедура используется для экспорта метаданных обновления программного обеспечения из базы данных WSUS на сервере экспорта.  
+ Utilize o seguinte procedimento para exportar os metadados de atualizações de software da base de dados do WSUS no servidor de exportação.  
 
-#### <a name="to-export-software-updates-metadata-from-the-wsus-database-on-the-export-server"></a>Экспорт метаданных обновления программного обеспечения из базы данных WSUS на сервере экспорта  
+#### <a name="to-export-software-updates-metadata-from-the-wsus-database-on-the-export-server"></a>Para exportar metadados de atualizações de software a partir da base de dados do WSUS no servidor de exportação  
 
-1.  В командной строке на сервере экспорта перейдите в папку, содержащую файл WSUSutil.exe. По умолчанию средство находится в каталоге %*ProgramFiles*%\Update Services\Tools. Например, если средство находится в расположении по умолчанию, введите **cd %ProgramFiles%\Update Services\Tools**.  
+1.  Na linha de comandos no servidor de exportação, aceda à pasta que contém o ficheiro WSUSutil.exe. Por predefinição, a ferramenta está localizada em %*ProgramFiles*%\Update Services\Tools. Por exemplo, se a ferramenta estiver localizada na localização predefinida, escreva **cd %ProgramFiles%\Update Services\Tools**.  
 
-2.  Чтобы экспортировать метаданные обновлений программного обеспечения в файл пакета, введите:  
+2.  Escreva o seguinte para exportar os metadados de atualizações de software para um ficheiro de pacote:  
 
-     **wsusutil.exe export**  *имя_пакета*  *файл_журнала*  
+     **wsusutil.exe export**  *packagename*  *logfile*  
 
-     Пример.  
+     Por exemplo:  
 
      **wsusutil.exe export export.cab export.log**  
 
-     Формат можно интерпретировать следующим образом: за WSUSutil.exe следует параметр экспорта, имя CAB-файла экспорта, созданного во время операции экспорта, и имя файла журнала. Средство WSUSutil.exe экспортирует метаданные с севера экспорта и создает файл журнала для выполненной операции.  
+     O formato pode ser resumido da seguinte forma: WSUSutil.exe é seguido pela opção de exportação, o nome do ficheiro. cab de exportação criado durante a operação de exportação e o nome de um ficheiro de registo. WSUSutil.exe exporta os metadados do servidor de exportação e cria um ficheiro de registo da operação.  
 
     > [!NOTE]  
-    >  Имена файла пакета (CAB-файла) и файла журнала должны быть уникальными в текущей папке.  
+    >  O pacote (ficheiro. cab) e o nome do ficheiro de registo devem ser exclusivos na pasta atual.  
 
-3.  Переместите пакет экспорта в папку, содержащую средство WSUSutil.exe, на сервере импорта WSUS.  
+3.  Mova o pacote de exportação para a pasta que contém WSUSutil.exe no servidor WSUS de importação.  
 
     > [!NOTE]  
-    >  Если переместить пакет в эту папку, операция импорта будет проще. Пакет можно переместить в любое доступное серверу импорта расположение, которое следует указать при выполнении средства WSUSutil.exe.  
+    >  Se mover o pacote para esta pasta, a experiência de importação pode ser mais fácil. Pode mover o pacote para qualquer localização que seja acessível ao servidor de importação e, em seguida, especifique a localização quando executar o WSUSutil.exe.  
 
-## <a name="import-software-updates-metadata"></a>Импорт метаданных обновлений программного обеспечения  
- Выполните следующую процедуру по импорту метаданных обновлений программного обеспечения с сервера экспорта в отсоединенную точку обновления программного обеспечения.  
+## <a name="import-software-updates-metadata"></a>Importar metadados de atualizações de software  
+ Utilize o seguinte procedimento para importar os metadados de atualizações de software do servidor de exportação para o ponto de atualização de software desligado.  
 
 > [!IMPORTANT]  
->  Экспортированные данные необходимо импортировать только из доверенного источника. Импорт содержимого из ненадежного источника может подвергнуть риску безопасность сервера WSUS.  
+>  Nunca importe quaisquer dados exportados de uma fonte que não seja fidedigna. Se importar conteúdo de uma fonte que não seja fidedigna, tal poderá comprometer a segurança do servidor WSUS.  
 
-#### <a name="to-import-metadata-to-the-database-of-the-import-server"></a>Импорт метаданных в базу данных сервера импорта  
+#### <a name="to-import-metadata-to-the-database-of-the-import-server"></a>Para importar metadados para a base de dados do servidor de importação  
 
-1.  В командной строке на сервере импорта WSUS перейдите в папку, содержащую файл WSUSutil.exe. По умолчанию средство находится в каталоге %*ProgramFiles*%\Update Services\Tools.  
+1.  Na linha de comandos no servidor WSUS de importação, aceda à pasta que contém o ficheiro WSUSutil.exe. Por predefinição, a ferramenta está localizada em %*ProgramFiles*%\Update Services\Tools.  
 
-2.  Введите следующее:  
+2.  Escreva o seguinte:  
 
-     **wsusutil.exe import**  *имя_пакета*  *файл_журнала*  
+     **wsusutil.exe import**  *packagename*  *logfile*  
 
-     Пример.  
+     Por exemplo:  
 
      **wsusutil.exe import export.cab import.log**  
 
-     Формат можно интерпретировать следующим образом: за WSUSutil.exe следует команда импорта, имя файла пакета (CAB-файла), созданного во время операции экспорта (и путь к файлу пакета, если пакет находится в другой папке), и имя файла журнала. Средство WSUSutil.exe импортирует метаданные с севера экспорта и создает файл журнала для выполненной операции.  
+     O formato pode ser resumido da seguinte forma: WSUSutil.exe é seguido pelo comando de importação, o nome do ficheiro de pacote (. cab) que é criado durante a operação de exportação, o caminho para o ficheiro de pacote se faz parte de uma pasta diferente e o nome de um ficheiro de registo. WSUSutil.exe importa os metadados do servidor de exportação e cria um ficheiro de registo da operação.  
 
-## <a name="next-steps"></a>Дальнейшие действия
-После первоначальной синхронизации обновлений ПО либо появления новых классификаций или продуктов необходимо [настроить новые классификации и продукты](configure-classifications-and-products.md), чтобы синхронизировать обновления ПО с новыми условиями.
+## <a name="next-steps"></a>Passos seguintes
+Depois de sincronizar as atualizações de software pela primeira vez ou depois de existirem novas classificações ou produtos disponíveis, tem [configurar novas classificações e produtos](configure-classifications-and-products.md) para sincronizar atualizações de software com os critérios de novo.
 
-После синхронизации обновлений ПО с нужными условиями вы можете [управлять параметрами обновлений ПО](manage-settings-for-software-updates.md).  
+Depois das atualizações de software syncrhonize com os critérios que precisa, [gerir as definições das atualizações de software](manage-settings-for-software-updates.md).  

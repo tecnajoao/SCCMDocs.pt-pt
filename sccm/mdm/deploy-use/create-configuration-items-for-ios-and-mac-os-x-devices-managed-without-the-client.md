@@ -1,6 +1,6 @@
 ---
-title: "Создание элементов конфигурации для устройств iOS и Mac OS X, управляемых с помощью Intune | Документация Майкрософт"
-description: "Использование элемента конфигурации iOS и Mac OS X System Center Configuration Manager для управления параметрами устройств iOS и Mac OS X."
+title: "Criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune | Microsoft Docs"
+description: "Utilize o item de configuração do Mac OS X e iOS do System Center Configuration Manager para gerir as definições para dispositivos iOS e Mac OS X."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -17,398 +17,398 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 6e2cb628217598480973d4f728a9e0a7cd5873e7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Как создавать элементы конфигурации для устройств iOS и Mac OS X, управляемых с помощью Intune
-Используйте элемент конфигурации **iOS и Mac OS X** System Center Configuration Manager для управления параметрами устройств iOS и Mac OS X, зарегистрированных в Microsoft Intune или локально управляемых Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Como criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune
+Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de configuração para gerir as definições do iOS e Mac OS X inscritos no Microsoft Intune ou geridos no local pelo Configuration Manager.  
   
-### <a name="to-create-an-ios-and-mac-os-x-configuration-item"></a>Создание элемента конфигурации iOS и Mac OS X  
+### <a name="to-create-an-ios-and-mac-os-x-configuration-item"></a>Para criar um item de configuração do iOS e Mac OS X  
   
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade**.  
   
-2.  В рабочей области **Активы и соответствие** разверните узел **Параметры соответствия**и выберите **Элементы конфигурации**.  
+2.  Na área de trabalho **Ativos e Conformidade** , expanda **Definições de Conformidade**e, em seguida, clique em **Itens de Configuração**.  
   
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации**.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
   
-4.  На странице **Общие** **мастера создания элемента конфигурации**укажите имя и необязательное описание элемента.  
+4.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
   
-5.  В разделе **Укажите тип элемента конфигурации, который требуется создать**, выберите **iOS и Mac OS X**.  
+5.  Em **Especifique o tipo de item de configuração que pretende criar**, selecione **iOS e Mac OS X**.  
   
-6.  Щелкните элемент **Категории**, если хотите создать и назначить категории для поиска и фильтрации элементов конфигурации в консоли Configuration Manager.  
+6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
   
-7.  На странице **Поддерживаемые платформы** в мастере выберите конкретные платформы iOS или Mac OS X, которые будет вычислять данный элемент конфигурации.  
+7.  Na página **Plataformas Suportadas** do assistente, selecione as plataformas específicas do iOS ou do Mac OS X que irão avaliar o item de configuração.  
   
-8.  На странице **Параметры устройства** мастера выберите группу параметров, которую необходимо настроить. См. раздел [Справочник по параметрам элементов конфигурации iOS и Mac OS X](#BKMK_Setref) этой статьи для получения дополнительных сведений, а затем нажмите кнопку **Далее**.  
-  
-    > [!TIP]  
-    >  Если нужного параметра нет в списке, установите флажок **Настроить дополнительные параметры, не входящие в группы параметров по умолчанию**.  
-  
-9. На каждой странице параметров настройте необходимые параметры и укажите, требуется ли исправлять их, если они не соответствуют требованиям на устройствах (если это поддерживается).  
-  
-10. Кроме того, вы можете настроить для каждой группы параметров уровень серьезности, который выводится при обнаружении несоответствующего элемента конфигурации:  
-  
-    -   **Нет**. Устройства, которые не отвечают этому правилу соответствия, не передают для отчетов Configuration Manager сведения о серьезности сбоя.  
-  
-    -   **Информация**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Информация**.  
-  
-    -   **Предупреждение**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Предупреждение**.  
-  
-    -   **Критический**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критический**.  
-  
-    -   **Критическая с событием**. Устройства, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критическая с событием**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
-  
-11. На странице **Применим. платформы** мастера просмотрите все параметры, которые не совместимы с поддерживаемыми платформами, выбранными ранее. Вы можете вернуться назад и удалить эти параметры или продолжить.  
+8.  Na página **Definições do Dispositivo** do assistente, selecione o grupo de definições que pretende configurar. Veja [Referência das definições do item de configuração do iOS e Mac OS X](#BKMK_Setref) neste tópico para obter detalhes e clique em **Seguinte**.  
   
     > [!TIP]  
-    >  Неподдерживаемые параметры не проверяются на соответствие.  
+    >  Se a definição pretendida não estiver listada, selecione a caixa de verificação **Configurar definições adicionais que não estejam incluídas nos grupos de predefinições**.  
   
-12. Завершите работу мастера.  
+9. Em cada página de definições, configure as definições de que necessita e se pretende resolvê-las quando não forem compatíveis com dispositivos (quando esta opção é suportada).  
   
- Созданный элемент конфигурации вы можете просмотреть в узле **Элементы конфигурации** рабочей области **Активы и соответствие** .  
+10. Para cada grupo de definições, também pode configurar a gravidade que será comunicada quando um item de configuração não for compatível:  
   
-##  <a name="ios-and-mac-os-x-configuration-item-settings-reference"></a>Справочник по параметрам элементов конфигурации iOS и Mac OS X  
+    -   **Nenhum** -dispositivos que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-###  <a name="password"></a>Пароль  
+    -   **Informações** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-|Имя параметра|Подробные сведения|  
+    -   **Aviso** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
+  
+    -   **Crítico** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
+  
+    -   **Crítico com evento** -dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos da aplicação.  
+  
+11. Na página **Aplicabilidade da Plataforma** do assistente, reveja as definições que não são compatíveis com as plataformas suportadas que selecionou anteriormente. Pode voltar atrás e remover estas definições ou pode continuar.  
+  
+    > [!TIP]  
+    >  As definições não suportadas não são avaliadas em termos de compatibilidade.  
+  
+12. Conclua o assistente.  
+  
+ Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade**.  
+  
+##  <a name="ios-and-mac-os-x-configuration-item-settings-reference"></a>Referência das definições do item de configuração do iOS e Mac OS X  
+  
+###  <a name="password"></a>Palavra-passe  
+  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Требуются параметры пароля для мобильных устройств**|Запрашивается пароль на поддерживаемых устройствах.|  
-|**Минимальная длина пароля (символов)**|Минимальная длина пароля.|  
-|**Истечение срока действия пароля в днях**|Число дней до смены пароля.|  
-|**Количество запоминаемых паролей**|Предотвращает повторное использование предыдущих паролей.|  
-|**Число неудачных попыток входа до стирания памяти устройства**|Очищает устройство, если превышено это число попыток входа.<br /><br /> (Только iOS)|  
-|**Сложность пароля**|Выберите, допустимы ли простые ПИН-коды, такие как «1234», или необходим ввод надежного пароля.| 
-|**Разрешить простые пароли**|Разрешает простые пароли, например **0000** или **1234**.|
-|**Отпечаток пальца для разблокировки**|Позволяет разблокировать устройство при помощи отпечатка пальца.|
-|**Изменение секретного кода** (только в защищенном режиме)|Разрешает добавлять, изменять или удалять пароли устройства.|
+|**Exigir definições de palavra-passe em dispositivos móveis**|Exigir uma palavra-passe em dispositivos suportados.|  
+|**Comprimento mínimo de palavra-passe (carateres)**|O comprimento mínimo da palavra-passe.|  
+|**Expiração da palavra-passe em dias**|O número de dias antes de uma palavra-passe tem de ser alterado.|  
+|**Número de palavras-passe memorizadas**|Impede a reutilização de palavras-passe.|  
+|**Número de tentativas de início de sessão falhadas antes de o dispositivo ser apagado**|Apaga o dispositivo em caso de falha deste número de tentativas de início de sessão.<br /><br /> (Apenas no iOS)|  
+|**Complexidade de palavra-passe**|Escolher se pretende especificar um PIN como "1234" ou se tem de fornecer uma palavra-passe segura.| 
+|**Permitir palavras-passe simples**|Permitir palavras-passe simples, como **0000** e **1234**.|
+|**Impressão digital para desbloquear**|Permite a utilização de uma impressão digital para desbloquear o dispositivo.|
+|**Modificação do código de acesso** (supervisionado apenas)|Permitir que a palavra-passe do dispositivo ser adicionado, alteradas ou removidas.|
   
-###  <a name="device"></a>Устройство  
- Эти параметры применяются к устройствам под управлением iOS или Mac OS X.  
+###  <a name="device"></a>Dispositivo  
+ Estas definições aplicam-se a dispositivos iOS e Mac OS X.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Добавление друзей по игровому центру**|Позволяет добавлять друзей в приложении игрового центра.|
-|**Голосовой набор**|Позволяет использовать голосовой набор на устройстве.|  
-|**Голосовой помощник**|Позволяет использовать голосовой помощник, например Siri.|  
-|**Голосовой помощник при блокировке**|Позволяет использовать голосовой помощник, например Siri, когда устройство заблокировано.|  
-|**Снимок экрана**|Позволяет делать снимки экрана устройства.|  
-|**Клиент видеочата**|Позволяет использовать приложения для видеосвязи, например Facetime.|  
-|**Многопользовательские игры**|Позволяет играть с другими пользователями в Интернете.|  
-|**Личный бумажник в заблокированном состоянии**|Разрешает использование личного бумажника, например Passbook.|  
-|**Отправка диагностических данных**|Разрешает отправку файлов журнала приложения.|  
-|**Уведомления центра уведомлений**|Разрешает пользователю доступ к просмотру уведомлений без разблокировки устройства.|
-|**Apple Music** (только в защищенном режиме)|Разрешает использовать приложение Apple Music.|
-|**Подкасты** (только в защищенном режиме)|Разрешает использовать приложение для подкастов.|
-|**Приложение "Сообщения"** (только в защищенном режиме)|Разрешает использование приложение для отправки текстовых сообщений.|
-|**Изменение обоев** (только в защищенном режиме)|Разрешает пользователю изменять обои на устройстве.|
-|**Поиск определения слова** (только в защищенном режиме)|Разрешает использовать компонент iOS, который позволяет выделить слово и найти его определение.|
-|**Функция "Wrist Detection" для связанных часов Apple Watch**|Если этот параметр включен, часы Apple Watch не отображают уведомление о том, что они не надеты на руку.|
-|**Фильтр ненормативной лексики Siri** (только в защищенном режиме)|Запрещает Siri набирать под диктовку или произносить оскорбительные слова.|
-|**Изменение имени устройства** (только в защищенном режиме)|Разрешает пользователю изменять имя устройства.|
-|**Изменение настроек отправки диагностических данных** (только в защищенном режиме)|Разрешает или запрещает устройству передавать диагностические данные в Apple.|
-|**Игровой центр** (только в защищенном режиме)|Разрешает использовать приложение игрового центра.|
-|**Служба iTunes Radio** (только в защищенном режиме)|Разрешает использовать приложение iTunes Radio.|
-|**Apple News** (только в защищенном режиме)|Разрешает использовать приложение Apple News.|
-|**Связывание с Apple Watch** (только в защищенном режиме)|Разрешает связывать устройство с часами Apple Watch.|
-|**Автозамена** (только в защищенном режиме)|Позволяет устройству автоматически исправлять слова с ошибками.|
-|**Изменение Bluetooth** (только в защищенном режиме)|Разрешает пользователю изменять параметры Bluetooth на устройстве.|
-|**Изменения параметров использования данных сотовой связи в приложении** (только в защищенном режиме)|Разрешает пользователю управлять разрешениями на использование приложениями данных о сотовой связи.|
-|**Сочетания клавиш** (только в защищенном режиме)|Позволяет использовать сочетания клавиш.|
-|**Клавиатуры с прогнозируемым вводом** (только в защищенном режиме)|Разрешает использовать клавиатуры с прогнозируемым вводом, которые предлагают подходящие слова.|
-|**Проверка орфографии** (только в защищенном режиме)|Позволяет использовать средство проверки орфографии.|
-|**Изменение настроек уведомлений** (только в защищенном режиме)|Разрешает пользователю изменять настройки уведомлений на устройстве.|
-|**Возвращение результатов из Интернета в поиске Spotlight** (только в защищенном режиме)|Разрешает поиску Spotlight подключаться к Интернету для улучшения результатов поиска.|
-|**Использование Siri для запроса созданного пользователями контента из Интернета** (только в защищенном режиме)|Разрешает Siri обращаться к веб-сайтам, чтобы отвечать на вопросы.|
+|**Adicionar amigos do Centro de jogos**|Permite-lhe adicionar amigos na aplicação do centro de jogos.|
+|**Marcação por voz**|Permite a utilização da funcionalidade de marcação por voz no dispositivo.|  
+|**Assistente de voz**|Permite a utilização de uma aplicação de assistente de voz como o Siri.|  
+|**Assistente de voz quando bloqueado**|Permite a utilização de uma aplicação de assistente de voz como o Siri quando o dispositivo está bloqueado.|  
+|**Captura de ecrã**|Permite-lhe tirar uma captura de ecrã do ecrã do dispositivo.|  
+|**Cliente de chat por vídeo**|Permite a utilização de aplicações de chat de vídeo como o Facetime.|  
+|**Jogos multijogador**|Permite-lhe jogar jogos com outros jogadores na Internet.|  
+|**Software de carteira pessoal quando bloqueado**|Permite a utilização de software de carteira pessoal como o Passbook.|  
+|**Submissão de dados de diagnóstico**|Permitir a submissão de ficheiros de registo de aplicações.|  
+|**Notificações de centro de ação**|Permitir que o utilizador aceda à vista de notificações sem desbloquear o dispositivo.|
+|**Música Apple** (supervisionado apenas)|Permita a utilização da aplicação Apple música.|
+|**Podcasts** (supervisionado apenas)|Permita a utilização da aplicação Podcasts.|
+|**Aplicação mensagens** (supervisionado apenas)|Permita a utilização da aplicação mensagens para enviar mensagens de texto.|
+|**Imagem de fundo modificação** (supervisionado apenas)|Permitir ao utilizador alterar a imagem de fundo do dispositivo.|
+|**Pesquisa de definição de palavra** (supervisionado apenas)|Permitir a funcionalidade de iOS permite-lhe uma palavra de realce e procurar a respetiva definição.|
+|**Deteção de wrist para emparelhado observa da Apple**|Quando ativada, a Apple Watch não será apresentado notificações quando não está a ser worn.|
+|**Filtro de profanity Siri** (supervisionado apenas)|Impede que a Siri dictating ou utilizando um idioma profanas.|
+|**Modificação de nome de dispositivo** (supervisionado apenas)|Permitir ao utilizador alterar o nome do dispositivo.|
+|**Modificação de definições de submissão de diagnóstico** (supervisionado apenas)|Permitir ou bloquear o dispositivo de submeter dados de diagnóstico para a Apple.|
+|**Centro de jogos** (supervisionado apenas)|Permita a utilização da aplicação Game Center.|
+|**botões de opção do iTunes** (supervisionado apenas)|Permita a utilização da aplicação de botões de opção do iTunes.|
+|**Apple notícias** (supervisionado apenas)|Permita a utilização da aplicação notícias da Apple.|
+|**O emparelhamento do Apple Watch** (supervisionado apenas)|Permitir que o dispositivo ser emparelhado com um Apple Watch.|
+|**Correção automática** (supervisionado apenas)|Permite que o dispositivo corrigir automaticamente palavras com erros ortográficos.|
+|**Modificação de Bluetooth** (supervisionado apenas)|Permite ao utilizador alterar as definições de Bluetooth no dispositivo.|
+|**Alterações das definições de utilização de dados via rede móvel aplicação** (supervisionado apenas)|Permitir que o utilizador controle que aplicações estão autorizadas a utilizar dados via rede móvel.|
+|**Atalhos de teclado** (supervisionado apenas)|Permite a utilização de atalhos de teclado.|
+|**Teclados preditivos** (supervisionado apenas)|Permita a utilização de teclados preditivos que sugerimos palavras que poderá pretender que o utilizador.|
+|**Teclado verificação ortográfica** (supervisionado apenas)|Permite que o Verificador de ortográfica do dispositivo.|
+|**Modificação das definições de notificação** (supervisionado apenas)|Permitir ao utilizador alterar as definições de notificação do dispositivo.|
+|**Devolver resultados da Internet na pesquisa Spotlight** (supervisionado apenas)|Permita a pesquisa Spotlight à Internet para fornecer mais resultados.|
+|**Utilize a siri Consulte conteúdos gerados pelo utilizador de consulta da Internet** (supervisionado apenas)|Permitir a Siri aceda a sites para responder a perguntas.|
 
   
-###  <a name="store"></a>Магазин  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="store"></a>Arquivo  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Магазин приложений**|Разрешает доступ к магазину приложения на устройстве.|  
-|**Введите пароль для доступа к магазину приложений**|Пользователи должны ввести пароль для доступа к магазину приложений.|  
-|**Покупки из приложений**|Позволяет пользователям совершать покупки из приложений.|
-|**Установка приложений только с помощью Apple Configurator и iTunes** (только в защищенном режиме)|Включает или отключает доступ к App Store с главного экрана устройства. Пользователи могут использовать iTunes или средство Apple Configurator для установки и обновления приложений.|
-|**Доступ к магазину iBooks** (только в защищенном режиме)|Разрешает пользователю просматривать и покупать книги в магазине iBooks.|
-|**Автоматическое скачивание приложений** (только в защищенном режиме)|Разрешает автоматически скачивать на устройство приложения, приобретенные на других устройствах. Этот параметр не влияет на обновление приложений.|
+|**Loja de aplicações**|Permite o acesso à loja de aplicações no dispositivo.|  
+|**Introduzir uma palavra-passe para aceder à loja de aplicações**|Os utilizadores têm de introduzir uma palavra-passe para aceder à loja de aplicações.|  
+|**Compras via aplicação**|Permite que os utilizadores façam compras via aplicação.|
+|**Instalar aplicações com o Apple Configurator e apenas iTunes** (supervisionado apenas)|Ativa ou desativa a loja de aplicações a partir do ecrã inicial do dispositivo. Os utilizadores podem continuar a utilizar iTunes ou a ferramenta Apple Configurator para instalar e atualizar aplicações.|
+|**Acesso à loja iBooks** (supervisionado apenas)|Permitir que o utilizador procure e compre livros da loja iBooks.|
+|**Aplicação automática transferências** (supervisionado apenas)|Permitir que as aplicações compradas em outros dispositivos para transferir automaticamente a este dispositivo. Esta definição não afeta as atualizações de aplicações.|
 
   
-###  <a name="browser"></a>Браузер  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="browser"></a>Browser  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Браузер по умолчанию**|Пользователь может изменить веб-браузер по умолчанию.|  
-|**Автозаполнение**|Пользователь может изменять параметры автозаполнения в браузере.|  
-|**Активные сценарии**|Браузер может выполнять сценарии, например Active X.|  
-|**Блокирование всплывающих окон**|Включает или отключает блокировку всплывающих окон в браузере.|  
-|**Файлы "cookie"**|Разрешить сохранять файлы cookie на устройстве.|  
-|**Предупреждение о мошенничестве**|Включить или отключить предупреждения о потенциально мошеннических веб-сайтах.|  
+|**Browser predefinido**|O utilizador pode alterar o browser de Internet predefinido.|  
+|**Preenchimento automático**|O utilizador pode alterar as definições de conclusão automática no browser.|  
+|**Scripting ativo**|O browser pode executar scripts, como scripts do Active X.|  
+|**Bloqueador de janelas pop-up**|Ativa ou desativa o bloqueador de janelas pop-up do browser.|  
+|**Cookies**|Permitir que os cookies sejam guardados no dispositivo.|  
+|**Aviso de fraude**|Ativar ou desativar avisos de sites potencialmente fraudulentos.|  
   
-###  <a name="content-rating"></a>Рейтинг содержимого  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="content-rating"></a>Classificação de conteúdo  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Откровенный контент в магазине мультимедиа**|Укажите, следует ли разрешить доступ к откровенному содержимому из магазина приложений.|  
-|**Регион рейтинга**|Указывает страну, для которой вы хотите применить ограничения по возрастным категориям.|  
-|**Рейтинг фильма**|Укажите максимальный рейтинг контента фильмов, который вы хотите разрешить.|  
-|**Рейтинг телепередачи**|Укажите максимальный рейтинг контента телепередач, который вы хотите разрешить.|  
-|**Рейтинг приложения**|Укажите максимальный рейтинг контента приложений, который вы хотите разрешить.| 
-|**Содержимое из магазина iBook, помеченное как "Эротика"** (только в защищенном режиме)|Разрешает пользователю скачивать книги из категории "Эротика".| 
+|**Conteúdo explícito no arquivo de multimédia**|Especificar se pretende permitir o acesso a conteúdo para adultos a partir da App Store.|  
+|**Região das classificações**|Especifica o país/região ao qual quer aplicar restrições de classificações.|  
+|**Classificação do filme**|Especifica a classificação máxima de conteúdos de filmes que pretende permitir.|  
+|**Classificação de TV**|Especifica a classificação máxima de conteúdos de programa de TV que pretende permitir.|  
+|**Classificação da aplicação**|Especifica a classificação máxima de conteúdos da aplicação que pretende permitir.| 
+|**Conteúdo da loja iBook sinalizado como "Erótico"** (supervisionado apenas)|Permitir que o utilizador transferir livros da categoria "Erótico".| 
   
 > [!NOTE]  
->  Доступные рейтинги зависят от выбранного **региона рейтинга** .  
+>  As classificações que pode selecionar irão variar dependendo da **Região das classificações** que selecionou.  
   
-###  <a name="cloud"></a>Облако  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="cloud"></a>Nuvem  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Резервное копирование в облако**|Разрешить резервное копирование в облачную службу, например iCloud.|  
-|**Зашифрованное резервное копирование**|Разрешить шифрование резервной копии в облачной службе.|  
-|**Синхронизация документов**|Разрешить синхронизацию документов в облачной службе.|  
-|**Синхронизация фотографий**|Разрешить синхронизацию фотографий в облачной службе.| 
-|**Медиатека iCloud**|Если установлено значение **Нет**, пользователь не сможет использовать медиатеку iCloud, которая позволяет хранить фотографии и видео в облаке. При установке значения **Нет** все фотографии, не полностью скачанные из медиатеки iCloud на устройство, удаляются.|
-|**Общий доступ к фото в iCloud**|Выберите значение **Нет**, чтобы отключить общий доступ к фото в iCloud на этом устройстве.|
-|**Перемещение вручную для продолжения действий на другом устройстве**|Разрешает пользователю продолжить работу, начатую на устройстве iOS, на другом устройстве с операционной системой iOS или Mac OS X.|
-|**Синхронизация данных из управляемых приложений с iCloud**|Разрешает приложениям, управляемым с помощью Intune, синхронизировать данные с учетной записью iCloud.|
+|**Cópia de segurança de nuvem**|Permitir a cópia de segurança para um serviço em nuvem como o iCloud.|  
+|**Cópia de segurança encriptada**|Permitir que a cópia de segurança para um serviço em nuvem seja encriptada.|  
+|**Sincronização de documentos**|Permitir a sincronização de documentos com um serviço em nuvem.|  
+|**Sincronização de fotografias**|Permitir a sincronização de fotografias com um serviço em nuvem.| 
+|**Biblioteca de fotografias do iCloud**|Se definido como **não**, desativa a utilização da biblioteca de fotografias do iCloud que permite que os utilizadores a armazenar as suas fotografias e vídeos na nuvem. Qualquer fotografias não totalmente transferidas a partir do iCloud biblioteca fotografias no dispositivo serão removidas do dispositivo se isto estiver definido como **não**.|
+|**Partilha de fotografias do iCloud**|Definido como **não** desativar iCloud partilha de fotografias no dispositivo.|
+|**Handoff continue as atividades outro dispositivo**|Permitir ao utilizador continuar o trabalho que iniciaram num dispositivo iOS no iOS outro ou dispositivo Mac OS X.|
+|**Sincronizar os dados de aplicações geridas para iCloud**|Permitir que as aplicações que gere com o Intune sincronizem dados para a conta de utilizador iCloud.|
 
   
-###  <a name="security"></a>Безопасность  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="security"></a>Segurança  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Камера**|Разрешить использование камеры устройства.| 
-|**Доверие авторам новых приложений предприятия**|Позволяет пользователю устанавливать отношения доверия с приложениями, полученными из других источников, кроме магазина приложений.| 
+|**Câmara**|Permitir a utilização da câmara do dispositivo.| 
+|**Os autores de aplicação do novo enterprise de confiança**|Permite ao utilizador selecionar aplicações que não foram transferidas da loja de aplicações de fidedignidade.| 
   
-###  <a name="roaming"></a>Роуминг  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="roaming"></a>Roaming  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Голосовой роуминг**|Разрешить голосовые вызовы в роуминге.|  
-|**Автоматическая синхронизация в роуминге**|Разрешить устройству автоматическую синхронизацию в роуминге.|  
-|**Передача данных в роуминге**|Разрешить роуминг между сетями при доступе к данным.|  
+|**Chamadas em roaming**|Permite chamadas quando está em roaming.|  
+|**Sincronização automática em roaming**|Permite a sincronização automática do dispositivo quando está em roaming.|  
+|**Roaming de dados**|Permitir roaming entre redes ao aceder a dados.|  
   
-###  <a name="system-security"></a>Безопасность системы  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="system-security"></a>Segurança do sistema  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Пользователь может принимать недоверенные сертификаты TLS**|Если выбрано значение **Разрешено**, пользователь может принимать эти сертификаты. Если выбрано значение **Запрещено**, недоверенные сертификаты отклоняются автоматически.|
-|**Разрешить блокировку активации (в защищенном режиме)**|Этот параметр служит для включения блокировки активации iOS на **защищенных** устройствах iOS, которыми вы управляете. Дополнительные сведения о блокировке активации см. в статье [Manage iOS Activation Lock with System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md) (Управление блокировкой активации iOS с помощью System Center Configuration Manager).
-|**Центр управления экрана блокировки**|Определяет, доступно ли приложение центра управления при блокировке устройства.|  
-|**Представление уведомлений экрана блокировки**|Определяет, можно ли просматривать уведомления при блокировке устройства.|  
-|**Представление сегодняшнего дня на экране блокировки**|Определяет, можно ли просматривать представление «Сегодня» при блокировке устройства.|  
-|**Изменение параметров учетной записи** (только в защищенном режиме)|Разрешает пользователю изменять параметры учетной записи, например настройки электронной почты.|
-|**Изменение настроек в приложении Find My Friends** (только в защищенном режиме)|Позволяет пользователю изменять параметры для приложения Find My Friends.|
-|**Использование связывания узлов для выбора устройств, с которыми может связываться устройство iOS** (только в защищенном режиме)|Разрешает связывание узлов, чтобы администратор мог определять, с какими устройствами можно связывать это устройство iOS.|
-|**Удаление всего содержимого и настроек** (только в защищенном режиме)|Разрешает пользователю использовать действие удаления всех параметров устройства и содержимого.|
-|**Настройка ограничений на устройстве** (только в защищенном режиме)|Разрешает пользователю настраивать ограничения для устройства (родительский контроль).|
-|**Установка профилей и сертификатов конфигураций** (только в защищенном режиме)|Разрешает пользователю устанавливать профили и сертификаты конфигураций.|
-|**Пароль для исходящих запросов AirPlay**|Требует вводить пароль для связывания, когда пользователь использует AirPlay для потоковой передачи данных на другие устройства Apple.|
+|**Utilizador para aceitar certificado TLS não fidedigno**|Se **Permitido**, permite ao utilizador aceitar estes certificados. Se **Proibido**, rejeita automaticamente certificados não fidedignos.|
+|**Permitir bloqueio de ativação (modo supervisionado apenas)**|Utilize esta definição para ativar o Bloqueio de Ativação do iOS nos dispositivos iOS **supervisionados** que gere. Para obter mais informações sobre o Bloqueio de Ativação, veja [Gerir o Bloqueio de Ativação do iOS com o System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
+|**Centro de controlo do ecrã de bloqueio**|Controla se a aplicação do centro de controlo pode ser acedida quando o dispositivo está bloqueado.|  
+|**Vista de notificações do ecrã de bloqueio**|Controla se as notificações podem ser visualizadas quando o dispositivo está bloqueado.|  
+|**Vista atual do ecrã de bloqueio**|Controla se a vista Hoje pode ser visualizada quando o dispositivo está bloqueado.|  
+|**Modificar as definições da conta** (supervisionado apenas)|Permitir ao utilizador alterar as definições de conta, tais como configurações de e-mail.|
+|**Efetuar alterações às definições da aplicação encontrar amigos** (supervisionado apenas)|Permitir ao utilizador alterar as definições da aplicação encontrar amigos.|
+|**Utilize emparelhamento de anfitrião para controlar os dispositivos um dispositivo iOS pode ser emparelhado com** (supervisionado apenas)|Permitir emparelhamento de anfitrião para permitir que o controlo de administrador que dispositivos um dispositivo iOS pode ser emparelhado com.|
+|**Apagar todos os conteúdos e definições** (supervisionado apenas)|Permitir ao utilizador utilizar a opção de apagar todos os conteúdos e definições do dispositivo.|
+|**Configure as restrições no dispositivo** (supervisionado apenas)|Permitir ao utilizador configurar as restrições de dispositivo (restrições de acesso) no dispositivo.|
+|**Instalar a configuração de perfis e certificados** (supervisionado apenas)|Permitir que o utilizador instale perfis de configuração e certificados.|
+|**Palavra-passe para AirPlay pedidos de envio**|Exigir uma palavra-passe emparelhada quando o utilizador utiliza AirPlay para transmitir o conteúdo para outros dispositivos da Apple.|
   
-###  <a name="data-protection"></a>Защита данных  
- Эти параметры применяются только для устройств iOS.  
+###  <a name="data-protection"></a>Proteção de dados  
+ Estas definições aplicam-se apenas a dispositivos iOS.  
   
-|Имя параметра|Подробные сведения|  
+|Nome da definição|Detalhes|  
 |------------------|-------------|  
-|**Открыть документы управляемых приложений в других неуправляемых приложениях**|Для использования с приложениями, которые контролируются политиками управления приложениями Configuration Manager.|  
-|**Открыть документы неуправляемых приложений в других управляемых приложениях**|Для использования с приложениями, которые контролируются политиками управления приложениями Configuration Manager.| 
-|**Указание AirDrop как неуправляемого назначения** (только в защищенном режиме)|Запрещает управляемым приложениям отправлять данные через Airdrop.|
-|**AirDrop** (только в защищенном режиме)|Разрешает использовать функцию AirDrop для обмена содержимым с близлежащими устройствами.|
+|**Abrir documentos em aplicações geridas noutras aplicações não geridas**|Para utilização com aplicações geridas por políticas de gestão de aplicações do Configuration Manager.|  
+|**Abrir documentos em aplicações não geridas noutras aplicações geridas**|Para utilização com aplicações geridas por políticas de gestão de aplicações do Configuration Manager.| 
+|**Tratar AirDrop como um destino de não gerido** (supervisionado apenas)|Interrompe aplicações geridas conseguir enviar dados via. Airdrop.|
+|**AirDrop** (supervisionado apenas)|Permita a utilização da funcionalidade AirDrop para trocar conteúdos com dispositivos próximos em.|
   
-###  <a name="compliant-and-noncompliant-apps-ios"></a>Соответствующие и несоответствующие приложения (iOS)  
- Укажите список приложений для iOS, соответствующих или не соответствующих политике вашей компании. Затем вы можете использовать отчеты для отображения устройств, на которых установлены несовместимые приложения, и соответствующих им пользователей.  
+###  <a name="compliant-and-noncompliant-apps-ios"></a>Aplicações compatíveis e incompatíveis (iOS)  
+ Permite-lhe especificar uma lista de aplicações iOS que são compatíveis ou incompatíveis com a sua empresa. Pode utilizar relatórios para apresentar dispositivos que tenham aplicações incompatíveis instaladas e o utilizador associado.  
   
- В одном и том же элементе конфигурации нельзя указать как совместимые, так и несовместимые приложения.  
+ Não é possível especificar aplicações compatíveis e incompatíveis no mesmo item de configuração.  
   
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Составление списков совместимых или несовместимых приложений  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Especificar a lista de aplicações compatíveis ou incompatíveis  
   
-1.  На странице **Совместимые и несовместимые приложения (iOS)** укажите следующие сведения.  
+1.  Na página **Aplicações Compatíveis e Incompatíveis (iOS)**, especifique as seguintes informações:  
   
-    -   **Список несовместимых приложений**. Выберите этот вариант, если требуется указать список приложений, которые должны отображаться как несовместимые при установке пользователями.  
+    -   **Lista de aplicações incompatíveis** - Selecione esta opção se pretende especificar uma lista de aplicações que serão comunicadas como incompatíveis se forem instaladas por utilizadores.  
   
-    -   **Список совместимых приложений**. Выберите этот вариант, если требуется указать список приложений, которые разрешено устанавливать пользователям. Все другие устанавливаемые приложения будут считаться несовместимыми.  
+    -   **Lista de aplicações compatíveis** - Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores podem instalar. Quaisquer outras aplicações instaladas serão comunicadas como incompatíveis.  
   
-    -   **Добавить**. Добавляет приложение в выбранный список. Укажите имя, при необходимости издателя приложения и URL-адрес приложения в магазине приложений.  
+    -   **Adicionar** - Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o fabricante da aplicação (opcional) e o URL para a aplicação na loja de aplicações.  
   
-         Чтобы указать URL-адрес, в магазине приложений iTunes найдите приложение, которые хотите использовать.  
+         Para especificar o URL, a partir da App Store do iTunes, procure a aplicação que pretende utilizar.  
   
-         Откройте страницу приложения и скопируйте URL-адрес в буфер обмена. После этого его можно использовать как URL-адрес в списке приложений, соответствующих или не соответствующих политике.  
+         Abra a página da aplicação e copie o URL para a área de transferência. Agora pode utilizar este URL na lista de aplicações em conformidade ou na lista de aplicações não conformes.  
   
-         **Пример:** выполните поиск приложения **Microsoft Word для iPad** в магазине. Нужный URL-адрес будет следующим: **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
+         **Exemplo:** Procure na loja a **Microsoft Word para iPad** aplicação. O URL a utilizar é o seguinte **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
   
-    -   **Изменить**. Позволяет изменить имя, издателя и URL-адрес выбранного приложения.  
+    -   **Editar** - Permite-lhe editar o nome, o fabricante e o URL da aplicação selecionada.  
   
-    -   **Удалить**. Удаляет выбранное приложение из списка.  
+    -   **Remover** - Elimina a aplicação selecionada da lista.  
   
-    -   **Импорт**. Импортирует список приложений, указанных в файле с разделителями-запятыми (CSV). Используйте формат, имя приложения, издателя, URL-адрес приложения в файле.  
+    -   **Importar** - Importa uma lista de aplicações especificadas num ficheiro de valores separados por vírgulas. Utilize o formato, o nome da aplicação, o fabricante e o URL da aplicação no ficheiro.  
   
-2.  Завершив настройку, нажмите кнопку **Далее**.  
+2.  Quando tiver terminado, clique em **Seguinte**.  
   
- Можно использовать один из следующих отчетов для мониторинга совместимых и несовместимых приложений:  
+ Pode utilizar um dos seguintes relatórios para monitorizar aplicações compatíveis e não compatíveis:  
   
--   **Список несоответствующих приложений и устройств для указанного пользователя** . Отображает сведения о пользователях и устройствах, на которых установлены приложения, не совместимые с заданной политикой.  
+-   **Lista de Aplicações e Dispositivos incompatíveis para um utilizador especificado** - apresenta informações sobre utilizadores e dispositivos que têm instaladas aplicações que não são compatíveis com uma política especificada por si.  
   
--   **Сводка о пользователях с не соответствующими политике приложениями** . Отображает сведения о пользователях, установивших приложения, не соответствующие заданной политике.  
+-   **Resumo de Utilizadores com Aplicações Não Conformes** - Apresenta informações sobre utilizadores que têm instaladas aplicações que não são compatíveis com uma política especificada por si.  
   
- Сведения о работе с отчетами см. в статье [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Para obter informações sobre como utilizar relatórios, veja [Relatórios do System Center Configuration Manager](../../core/servers/manage/reporting.md).  
   
-###  <a name="compliant-and-noncompliant-apps-mac-os-x"></a>Соответствующие и несоответствующие приложения (Mac OS X)  
- Укажите список приложений для Mac OS X, соответствующих или не соответствующих политике вашей компании. Затем вы можете использовать отчеты для отображения устройств, на которых установлены несовместимые приложения, и соответствующих им пользователей.  
+###  <a name="compliant-and-noncompliant-apps-mac-os-x"></a>Aplicações compatíveis e incompatíveis (Mac OS X)  
+ Permite-lhe especificar uma lista de aplicações Mac OS X que são compatíveis ou incompatíveis na sua empresa. Pode utilizar relatórios para apresentar dispositivos que tenham aplicações incompatíveis instaladas e o utilizador associado.  
   
- В одном и том же элементе конфигурации нельзя указать как совместимые, так и несовместимые приложения.  
+ Não é possível especificar aplicações compatíveis e incompatíveis no mesmo item de configuração.  
   
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Составление списков совместимых или несовместимых приложений  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Especificar a lista de aplicações compatíveis ou incompatíveis  
   
-1.  На странице **Совместимые и несовместимые приложения (Mac OS X)** укажите следующие сведения.  
+1.  Na página **Aplicações Compatíveis e Não Compatíveis (Mac OS X)**, especifique as seguintes informações:  
   
-    -   **Список несовместимых приложений**. Выберите этот вариант, если требуется указать список приложений, которые должны отображаться как несовместимые при установке пользователями.  
+    -   **Lista de aplicações incompatíveis** - Selecione esta opção se pretende especificar uma lista de aplicações que serão comunicadas como incompatíveis se forem instaladas por utilizadores.  
   
-    -   **Список совместимых приложений**. Выберите этот вариант, если требуется указать список приложений, которые разрешено устанавливать пользователям. Все другие устанавливаемые приложения будут считаться несовместимыми.  
+    -   **Lista de aplicações compatíveis** - Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores podem instalar. Quaisquer outras aplicações instaladas serão comunicadas como incompatíveis.  
   
-    -   **Добавить**. Добавляет приложение в выбранный список. Укажите имя, при необходимости издателя приложения и ИД набора приложения.  
+    -   **Adicionar** - Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o publicador da aplicação (opcional) e o ID do pacote da aplicação.  
   
         > [!TIP]  
-        >  Чтобы найти идентификатор набора приложения, выполните следующие действия на компьютере Mac с установленным приложением:  
+        >  Para localizar o ID do pacote de uma aplicação, utilize os passos seguintes num computador Mac que tenha a aplicação instalada:  
         >   
-        >  1.  Откройте папку установки приложения (например **/Applications**).  
-        > 2.  Выберите набор *<имя приложения\>***.app** и выберите команду **Показать содержимое пакета**.  
-        > 3.  Откройте файл **Info.plist** .  
-        > 4.  Изучите значение, связанное с ключом **CFBundleIdentifier**.  
+        >  1.  Abra a pasta na qual a aplicação está instalada (por exemplo, **/Applications**)  
+        > 2.  Selecione o grupo *<App Name\>***.app** e escolha **Mostrar Conteúdo do Pacote**  
+        > 3.  Abra o ficheiro **Info.plist**  
+        > 4.  Verifique o valor associado à chave **CFBundleIdentifier**  
         >   
-        >  Формат ИД набора — **com.contoso.имя_приложения**.  
+        >  O formato do ID do pacote é **com.contoso.appname**  
   
-    -   **Изменить**. Позволяет изменить имя, издателя и идентификатор пакета выбранного приложения.  
+    -   **Editar** - Permite-lhe editar o nome, o publicador e o ID do pacote da aplicação selecionada.  
   
-    -   **Удалить**. Удаляет выбранное приложение из списка.  
+    -   **Remover** - Elimina a aplicação selecionada da lista.  
   
-    -   **Импорт**. Импортирует список приложений, указанных в файле с разделителями-запятыми (CSV). Используйте формат, имя приложения, издателя, ИД набора в файле.  
+    -   **Importar** - Importa uma lista de aplicações especificadas num ficheiro de valores separados por vírgulas. Utilize o formato, o nome da aplicação, o publicador e o ID do pacote de aplicações no ficheiro.  
   
-2.  Завершив настройку, нажмите кнопку **Далее**.  
+2.  Quando tiver terminado, clique em **Seguinte**.  
   
- Можно использовать один из следующих отчетов для мониторинга совместимых и несовместимых приложений:  
+ Pode utilizar um dos seguintes relatórios para monitorizar aplicações compatíveis e não compatíveis:  
   
--   **Список несоответствующих приложений и устройств для указанного пользователя** . Отображает сведения о пользователях и устройствах, на которых установлены приложения, не совместимые с заданной политикой.  
+-   **Lista de Aplicações e Dispositivos incompatíveis para um utilizador especificado** - apresenta informações sobre utilizadores e dispositivos que têm instaladas aplicações que não são compatíveis com uma política especificada por si.  
   
--   **Сводка о пользователях с не соответствующими политике приложениями** . Отображает сведения о пользователях, установивших приложения, не соответствующие заданной политике.  
+-   **Resumo de Utilizadores com Aplicações Não Conformes** - Apresenta informações sobre utilizadores que têm instaladas aplicações que não são compatíveis com uma política especificada por si.  
   
- Сведения о работе с отчетами см. в статье [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Para obter informações sobre como utilizar relatórios, veja [Relatórios do System Center Configuration Manager](../../core/servers/manage/reporting.md).  
   
-### <a name="ios-and-mac-os-x-custom-profile-settings"></a>Параметры настраиваемых профилей iOS и Mac OS X  
- Используйте **настраиваемые профили iOS и Mac OS X** для развертывания параметров, созданных с помощью [средства "Конфигуратор Apple"](https://itunes.apple.com/us/app/apple-configurator-2/id1037126344?mt=12) , на устройствах iOS и Mac OS X. Это средство позволяет создавать множество параметров, управляющих работой таких устройств, и экспортировать их в профиль конфигурации. Затем можно импортировать этот профиль конфигурации в настраиваемый профиль iOS и Mac OS X и развернуть параметры для пользователей и устройств в организации.  
+### <a name="ios-and-mac-os-x-custom-profile-settings"></a>Definições do perfil personalizado do iOS e do Mac OS X  
+ Utilize **Perfis Personalizados do iOS e do Mac OS X** para implementar as definições criadas com a [Ferramenta Apple Configurator](https://itunes.apple.com/us/app/apple-configurator-2/id1037126344?mt=12) em dispositivos iOS e Mac OS X. Esta ferramenta permite criar muitas definições que controlam o funcionamento destes dispositivos e exportá-las para um perfil de configuração. Em seguida, pode importar este perfil de configuração para um perfil personalizado do iOS e do Mac OS X e implementar as definições em utilizadores e dispositivos na sua organização.  
   
 > [!NOTE]  
->  Убедитесь, что параметры, экспортированные из средства "Конфигуратор Apple", совместимы с версией iOS или Mac OS X, установленной на устройствах, на которых вы развертываете профиль. Для получения сведений о том, как несовместимые параметры разрешаются, выполните поиск фраз Configuration Profile Reference (Справочник по профилям конфигурации) и Mobile Device Management Protocol Reference (Справочник по протоколу управления мобильными устройствами) на веб-сайте для [разработчиков Apple](https://developer.apple.com/) .  
+>  Certifique-se de que as definições que exportar a partir da ferramenta Apple Configurator são compatíveis com a versão do iOS ou do Mac OS X nos dispositivos nos quais implementar o perfil. Para obter informações sobre como são resolvidas as definições incompatíveis, pesquise Configuration Profile Reference (Referência de Perfil de Configuração) e Mobile Device Management Protocol Reference (Referência do Protocolo de Gestão de Dispositivos Móveis) no site [Apple Developer](https://developer.apple.com/).  
   
-#### <a name="to-create-an-ios-and-mac-os-x-custom-profile"></a>Создание настраиваемого профиля iOS и Mac OS X  
+#### <a name="to-create-an-ios-and-mac-os-x-custom-profile"></a>Criar um perfil personalizado do iOS e do Mac OS X  
   
-1.  На странице **Настройка параметров настраиваемого профиля iOS и Mac OS X** **мастера создания элемента конфигурации**укажите следующие сведения.  
+1.  Na página **Configurar definições de perfil personalizado do iOS e do Mac OS X** do **Assistente de Criação de Item de Configuração**, especifique as seguintes informações:  
   
-    -   **Имя настраиваемого профиля конфигурации (отображается пользователям)**. Введите имя для политики, которое будет отображаться на устройстве и в отчетах Configuration Manager.  
+    -   **Nome do perfil de configuração personalizada (apresentado aos utilizadores)** -forneça um nome para a política tal como será apresentado no dispositivo e na configuração do Gestor de relatórios.  
   
-    -   **Импорт**. Выберите файл, экспортированный из средства Apple Configurator.  
+    -   **Importar** - Escolha um ficheiro que tenha exportado a partir da ferramenta Apple Configurator.  
   
-    -   **Сведения о профиле конфигурации**. Отображает импортированный файл.  
+    -   **Detalhes do perfil de configuração** - Apresenta o ficheiro que importou.  
   
-    -   **Исправлять несоответствующие параметры** -  
+    -   **Remediar definições incompatíveis** -  
   
-         Выберите, если хотите исправлять несоответствующие параметры (если поддерживается).  
+         Selecione se pretende resolver definições de configuração incompatíveis (quando suportadas).  
   
-    -   **Степень важности несоответствия для отчетов**. Укажите степень важности, которая передается, если по этой политике соответствия требованиям определяется несоответствие. Ниже перечислены доступные степени важности.  
+    -   **Gravidade de não conformidade para relatórios** - Especifica o nível de gravidade comunicado se esta política de conformidade for avaliada como não conforme. Os níveis de gravidade disponíveis são os seguintes:  
   
         > [!NOTE]  
-        >  После перехода устройства Mac OS X в спящий режим политики и профили нельзя доставлять или инвентаризировать. В результате в консоли Configuration Manager может временно отображаться состояние "Параметры политики с ошибками" до выхода устройства из спящего режима.  
+        >  Quando um dispositivo Mac OS X está no modo de Suspensão, não é possível entregar ou inventariar políticas e perfis. Como resultado, a consola do Configuration Manager poderá apresentar temporariamente as definições de política de estado no erro até à próxima vez que o dispositivo sair do modo de suspensão.  
   
-        -   **Нет** — устройства, для которых не выполняется данное правило соответствия, не передают сведения о серьезности сбоя для отчетов Configuration Manager.  
+        -   **Nenhum** dispositivos que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-        -   **Информация** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Информация**.  
+        -   **Informações** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-        -   **Предупреждение** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Предупреждение**.  
+        -   **Aviso** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
   
-        -   **Ошибка** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Ошибка**.  
+        -   **Crítico** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
   
-        -   **Ошибка с событием** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Ошибка**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
+        -   **Crítico com evento** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos da aplicação.  
   
-#### <a name="how-to-create-a-configuration-profile-file"></a>Создание файла профиля конфигурации  
- Существует два способа создания файла профиля конфигурации, используемого настраиваемой политикой.  
+#### <a name="how-to-create-a-configuration-profile-file"></a>Como criar um ficheiro de perfil de configuração  
+ Pode criar o ficheiro de perfil de configuração utilizado pela política personalizada de duas formas:  
   
--   Экспорт файла (с расширением **.mobileconfig**) из средства Apple Configurator.  
+-   Exporte o ficheiro (com a extensão **.mobileconfig**) a partir da ferramenta Apple Configurator.  
   
--   Создание файла вручную с помощью подходящей схемы из [справочника по ключам профилей конфигурации Apple](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html).  
+-   Crie o ficheiro com o esquema adequado a partir da página [Apple Configuration Profile Key Reference (Referência de Chaves de Perfis de Configuração da Apple)](https://developer.apple.com/library/ios/featuredarticles/iPhoneConfigurationProfileRef/Introduction/Introduction.html).  
   
-###  <a name="kiosk-mode-ios"></a>Режим киоска (iOS)  
- Режим киоска позволяет блокировать устройство, разрешая работу только некоторых функций. Например, можно разрешить устройству выполнять только одно управляемое приложение или отключить кнопки громкости на устройстве. Эти параметры могут использоваться для демонстрационной модели устройства или устройства, предназначенного для выполнения только одной функции, например кассовый терминал.  
+###  <a name="kiosk-mode-ios"></a>Modo de Local Público (iOS)  
+ O modo Kiosk permite-lhe bloquear um dispositivo e permitir que apenas determinadas funcionalidades funcionem. Por exemplo, pode permitir que um dispositivo execute apenas uma aplicação gerida que especificar ou pode desativar os botões de volume num dispositivo. Estas definições podem ser utilizadas para um modelo de demonstração de um dispositivo ou para um dispositivo com a finalidade de desempenhar apenas uma função, como um dispositivo de ponto de venda.  
   
-#### <a name="to-configure-kiosk-mode-for-ios-devices"></a>Настройка режима киоска для устройств iOS  
+#### <a name="to-configure-kiosk-mode-for-ios-devices"></a>Configurar o modo de local público para dispositivos iOS  
   
-1.  На странице **Настройка параметров режима киоска для устройств iOS** **мастера создания элемента конфигурации**укажите следующие сведения:  
+1.  Na página **Configurar Definições do Modo de Local Público para Dispositivos iOS** do **Assistente de Criação de Item de Configuração**, especifique as seguintes informações:  
   
-    -   **Выбор приложения**. Выберите приложение, запуск которого будет разрешен, если устройство работает в полноэкранном режиме. Другим приложениям не будет разрешено выполняться на устройстве. Выберите один из следующих типов.  
+    -   **Selecionar Aplicação** - Selecione a aplicação que terá permissão para ser executada quando o dispositivo estiver no modo de local público. Não será permitida a execução de outras aplicações no dispositivo. Escolha entre:  
   
-        -   **Управляемое приложение** — нажмите кнопку "Обзор", а затем выберите управляемое приложение.  
+        -   **Aplicação Gerida** – Clique em Procurar e, em seguida, selecione uma aplicação gerida.  
   
-        -   **Приложение магазина** — укажите URL-адрес приложения в магазине приложений, а затем нажмите кнопку **Получить идентификатор приложения** для заполнения поля **Идентификатор приложения** .  
+        -   **Aplicação da Loja** – Especifique o URL de uma aplicação na loja de aplicações e, em seguida, clique em **Obter ID da Aplicação** para preencher o campo **ID da Aplicação**.  
   
-         Чтобы найти URL-адрес приложения:  
+         Para encontrar o URL da aplicação:  
   
-        -   Найдите с помощью поисковой системы iTunes App Store приложение, которое вы хотите использовать, и откройте его страницу.  
+        -   Através de um motor de pesquisa, localize a aplicação que pretende utilizar na App Store do iTunes e abra a página da aplicação.  
   
-        -   Скопируйте URL-адрес страницы и используйте его, чтобы указать приложение, которое следует запустить в режиме киоска.  
+        -   Copie o URL da página e utilize-o como URL para especificar a aplicação que pretende executar no modo de local público.  
   
-        -   **Пример:** выполните поиск по запросу **Microsoft Word для iPad**. Нужный URL-адрес будет следующим: **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
+        -   **Exemplo:** Procurar **Microsoft Word para iPad**. O URL a utilizar é o seguinte **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
   
-    -   **Касание**. Включает или отключает сенсорный экран на устройстве.  
+    -   **Toque** - Ativa ou desativa o ecrã tátil do dispositivo.  
   
-    -   **Поворот экрана**. Включает или отключает изменение ориентации экрана при повороте устройства.  
+    -   **Rotação do ecrã** - Ativa ou desativa a mudança da orientação do ecrã ao rodar o dispositivo.  
   
-    -   **Кнопки громкости**. Включает или отключает использование кнопок громкости на устройстве.  
+    -   **Botões de volume** - Ativa ou desativa a utilização dos botões de volume no dispositivo.  
   
-    -   **Переключатель звонка**. Включает или отключает переключатель звонка (отключить звук) на устройстве.  
+    -   **Comutador do toque** - Ativa ou desativa a alteração do toque (desativar som) no dispositivo.  
   
-    -   **Кнопка перехода в спящий режим и выхода из него**. Включает или отключает кнопку пробуждения от спящего режима на устройстве.  
+    -   **Suspensão de ecrã e botão de reativação** - Ativa ou desativa o botão suspender/reativar ecrã do dispositivo.  
   
-    -   **Автоблокировка**. Включает или отключает автоматическую блокировку устройства.  
+    -   **Bloqueio automático** - Ativa ou desativa o bloqueio automático do dispositivo.  
   
-    -   **Монозвук**. Включает или отключает параметр специальных возможностей **Монозвук**.  
+    -   **Áudio mono** - Ativa ou desativa a definição de acessibilidade **Áudio mono**.  
   
-    -   **VoiceOver**. Включает или отключает функцию специальных возможностей **VoiceOver**, которая "зачитывает" текст с экрана устройства.  
+    -   **Voice over** - Ativa ou desativa a definição de acessibilidade **VoiceOver** que lê em voz alta o texto no ecrã do dispositivo.  
   
-    -   **Настройки наложения речи**. Включает или отключает корректировки VoiceOver, которые позволяют настроить функцию VoiceOver (например, скорость чтения текста).  
+    -   **Ajustes do voice over** - Ativa ou desativa os ajustes do VoiceOver, o que lhe permite ajustar a função VoiceOver (por exemplo, a rapidez de leitura em voz alta do texto no ecrã).  
   
-    -   **Увеличение**. Включает или отключает специальную возможность **Увеличение**, которая позволяет использовать сенсорный ввод для увеличения изображения на экране устройства.  
+    -   **Zoom** - Ativa ou desativa a definição de acessibilidade **Zoom**, o que lhe permite utilizar o toque para aplicar zoom no ecrã do dispositivo.  
   
-    -   **Настройки увеличения**. Включает или отключает настройку изменения масштаба.  
+    -   **Ajustes de zoom** - Ativa ou desativa os ajustes de Zoom, o que lhe permite ajustar a função Zoom.  
   
-    -   **Обратить цвета**. Включает или отключает специальную возможность **Обратить цвета**, которая настраивает изображение для пользователей с нарушениями зрения.  
+    -   **Inverter cores** - Ativa ou desativa a definição de acessibilidade **Inverter Cores** que ajusta o ecrã para ajudar utilizadores com deficiências visuais.  
   
-    -   **Настройка обращения цветов**. Включает или отключает настройку обращения цветов.  
+    -   **Inverter ajustes de cores** - Ativa ou desativa os ajustes da funcionalidade Inverter Cores, o que lhe permite ajustar a função Inverter Cores.  
   
-    -   **Специальное касание**. Включает или отключает специальную возможность **Специальное касание**, которая помогает пользователям выполнять некоторые сложные для них жесты на экране.  
+    -   **Toque de apoio** - Ativa ou desativa a definição de acessibilidade **Toque de apoio** que ajuda os utilizadores a executar gestos no ecrã que lhes poderão ser difíceis.  
   
-    -   **Настройки специального касания**. Включает или отключает настройку специального касания.  
+    -   **Ajustes do toque de apoio** - Ativa ou desativa os ajustes de toque de apoio, o que lhe permite ajustar a função de Toque de apoio.  
   
-    -   **Выбор речи**. Включает или отключает специальную возможность **Проговорить выделенное**, которая может зачитать выделенный текст.  
+    -   **Seleção de voz** - Ativa ou desativa a definição de acessibilidade **Enunciar Seleção** que lê em voz alta o texto que selecionou.  
   
-    -   **Исправлять несоответствующие параметры**. Выберите этот параметр, если хотите исправлять несоответствующие параметры (если это поддерживается).  
+    -   **Remediar definições incompatíveis** - Selecione se pretende resolver definições de configuração incompatíveis (quando suportadas).  
   
-    -   **Степень важности несоответствия для отчетов**. Укажите степень важности, которая передается, если по этой политике соответствия требованиям определяется несоответствие. Ниже перечислены доступные степени серьезности.  
+    -   **Gravidade de não conformidade para relatórios** - Especifica o nível de gravidade comunicado se esta política de conformidade for avaliada como não conforme. Os níveis de gravidade disponíveis são:  
   
-        -   **Нет** — устройства, для которых не выполняется данное правило соответствия, не передают сведения о серьезности сбоя для отчетов Configuration Manager.  
+        -   **Nenhum** dispositivos que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-        -   **Информация** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Информация**.  
+        -   **Informações** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-        -   **Предупреждение** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Предупреждение**.  
+        -   **Aviso** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
   
-        -   **Ошибка** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Ошибка**.  
+        -   **Crítico** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
   
-        -   **Ошибка с событием** — устройства, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager серьезность сбоя с уровнем **Ошибка**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
+        -   **Crítico com evento** dispositivos que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos da aplicação.  
   
-## <a name="see-also"></a>См. также  
- [Элементы конфигурации для устройств, управляемых без использования клиента System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
+## <a name="see-also"></a>Consulte Também  
+ [Itens de configuração para dispositivos geridos sem o cliente do System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

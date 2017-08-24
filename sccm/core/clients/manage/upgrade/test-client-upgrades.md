@@ -1,6 +1,6 @@
 ---
-title: "Проверка обновления клиента в предварительной коллекции | Документация Майкрософт"
-description: "Проверяйте обновления клиента в предварительной коллекции в System Center Configuration Manager."
+title: "Cliente de teste atualiza a coleção de pré-produção | Microsoft Docs"
+description: "Testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -17,71 +17,71 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 572ef13883f7930e69ec1f1f53c9bfe029898c81
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-test-client-upgrades-in-a-pre-production-collection-in-system-center-configuration-manager"></a>Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager
+# <a name="how-to-test-client-upgrades-in-a-pre-production-collection-in-system-center-configuration-manager"></a>Como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Вы можете протестировать новую версию клиента Configuration Manager в предварительной коллекции перед обновлением остальной части сайта.  При этом обновляются только те устройства, которые являются частью тестовой коллекции. После тестирования клиента вы можете повысить его уровень, сделав новую версию клиентского программного обеспечения доступной остальной части сайта.
+Pode testar uma nova versão do cliente do Configuration Manager na coleção de pré-produção antes de atualizar o resto do site com o mesmo.  Ao fazê-lo, apenas os dispositivos que fazem parte da coleção de teste são atualizados. Depois de ter tido oportunidade de testar o cliente pode promover o cliente, que disponibiliza a nova versão do software de cliente para o resto do site.
 
 > [!NOTE]
-> Чтобы повысить уровень тестового клиента до рабочего, необходимо войти в систему как пользователь с ролью безопасности **Полный администратор** и областью безопасности **Все**. Дополнительные сведения см. в разделе [Основы ролевого администрирования](/sccm/core/understand/fundamentals-of-role-based-administration). Необходимо также войти на сервер, подключенный к сайту центра администрирования или автономному первичному сайту верхнего уровня.
+> Para promover um cliente de teste para produção, deve ter sessão iniciada como um utilizador com função de segurança de **administrador total** e um âmbito de segurança de **todos os**. Para obter mais informações, consulte [Noções básicas da administração baseada em funções](/sccm/core/understand/fundamentals-of-role-based-administration). Também tem de ser registado para um servidor ligado ao site de administração central ou site primário autónomo nível superior.
 
- Существует три основных шага по тестированию клиентов в предварительной среде.  
+ Existem 3 passos básicos para testar os clientes em pré-produção.  
 
-1.  Настройка автоматических обновлений клиента для использования предварительной коллекции.  
+1.  Configure atualizações automáticas de cliente para utilizar uma coleção de pré-produção.  
 
-2.  Установка обновления Configuration Manager, включающего в себя новую версию клиента.  
+2.  Instale uma atualização do Configuration Manager que inclui uma nova versão do cliente.  
 
-3.  Повышение уровня нового клиента до рабочего.  
+3.  Promova o novo cliente para produção.  
 
-##  <a name="to-configure-automatic-client-upgrades-to-use-a-pre-production-collection"></a>Настройка автоматических обновлений клиента для использования предварительной коллекции  
+##  <a name="to-configure-automatic-client-upgrades-to-use-a-pre-production-collection"></a>Para configurar atualizações automáticas de cliente para utilizar uma coleção de pré-produção  
 
-1. [Настройте коллекцию](..\collections\create-collections.md), содержащую компьютеры, на которых необходимо развернуть подготовительный клиент. Не включайте в предварительные коллекции компьютеры рабочей группы. На этих компьютерах не может использоваться проверка подлинности, которая необходима для доступа точки распространения к пакету подготовительного клиента.   
+1. [Configurar uma coleção](..\collections\create-collections.md) que contenha os computadores que pretende implementar o cliente de pré-produção. Não inclua computadores de grupo de trabalho em coleções de pré-produção. Estes não podem utilizar a autenticação necessária para o ponto de distribuição para aceder ao pacote de cliente de pré-produção.   
 
-1.  В консоли Configuration Manager откройте узел **Администрирование** > **Конфигурация сайта** > **Сайты** и щелкните **Параметры иерархии**.  
+1.  Na consola do Configuration Manager, abra **administração** > **configuração do Site** > **Sites**e escolha **definições de hierarquia**.  
 
-     На вкладке **Обновление клиентов** в разделе **Свойства параметров иерархии**:  
+     No separador **Atualização de Clientes** nas **Propriedades das Definições de Hierarquia**:  
 
-    -   выберите **Обновлять все клиенты в подготовительной коллекции автоматически с помощью подготовительной версии клиента**;  
+    -   Selecione **Atualizar todos os clientes na coleção de pré-produção automaticamente ao utilizar o cliente de pré-produção**  
 
-    -   введите имя коллекции, которая будет использоваться в качестве подготовительной;  
+    -   Introduza o nome de uma coleção para utilizar como coleção de pré-produção  
 
-![Проверка обновлений клиента](media/test-client-upgrades.png)
+![Testar as atualizações de cliente](media/test-client-upgrades.png)
 
 >[!NOTE]
->Чтобы изменить эти параметры, учетная запись должна быть членом роли безопасности **Полный администратор** и области безопасности **Все**.
+>Para alterar estas definições, a conta tem de ser um membro do **administrador total** função de segurança e o **todos os** âmbito de segurança.
 
 
-##  <a name="to-install-a-configuration-manager-update-that-includes-a-new-version-of-the-client"></a>Установка обновления Configuration Manager, включающего в себя новую версию клиента  
+##  <a name="to-install-a-configuration-manager-update-that-includes-a-new-version-of-the-client"></a>Para instalar uma atualização do Configuration Manager que inclua uma nova versão do cliente  
 
-1.  В консоли Configuration Manager откройте узел **Администрирование** > **Обновления и обслуживание**, выберите **доступное** обновление и щелкните **Установить пакет обновления**. (До версии 1702 раздел "Обновления и обслуживание" находился в узле **Администрирование** > **Облачные службы**.)
+1.  Na consola do Configuration Manager, abra **administração** > **atualizações e manutenção**, selecione um **disponível** atualizar e, em seguida, escolha **Instalar pacote de atualizações**. (Antes da versão 1702, atualizações e manutenção estava **administração** > **serviços em nuvem**.)
 
-     Дополнительные сведения об установке обновлений см. в статье [Обновления для System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
+     Para obter mais informações sobre como instalar atualizações, veja [Atualizações para o System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
 
-2.  Во время установки обновления на странице **Параметры клиента** мастера выберите **Тестировать в предварительной коллекции**.  
+2.  Durante a instalação da atualização, no **opções de clientes** página do assistente, selecione **testar na coleção de pré-produção**.  
 
-3.  Выполните оставшиеся действия мастера и установите пакет обновления.  
+3.  Conclua o resto do assistente e instale o pacote de atualizações.  
 
-     После завершения работы мастера клиенты в подготовительной коллекции начнут развертывание обновленного клиента. Развертывание обновленных клиентов можно отслеживать в разделе **Мониторинг** > **Состояние клиента** > **Предварительное развертывание клиента**. Дополнительные сведения см. в статье [мониторинг состояния развертывания клиента в System Center Configuration Manager](../../../../core/clients/deploy/monitor-client-deployment-status.md).
+     Depois de concluído o assistente, os clientes na coleção de pré-produção começarm a implementar o cliente atualizado. Pode monitorizar a implementação de clientes atualizados acedendo a **Monitorização** > **Estado de Cliente** > **Implementação do Cliente de Pré-produção**. Para obter mais informações, veja [Como monitorizar o estado de implementação do cliente no System Center Configuration Manager](../../../../core/clients/deploy/monitor-client-deployment-status.md).
 
     > [!NOTE]
-    > Состояние развертывания на компьютерах, где размещаются роли системы сайта, в предварительной коллекции может отображаться как **Не соответствует** даже после успешного развертывания клиента. При переходе к рабочему развертыванию клиента состояние развертывания отображается правильно.
+    > O estado de implementação em computadores que alojam funções do sistema de sites de uma coleção de pré-produção, pode ser comunicado como **não compatíveis** , mesmo quando o cliente foi implementado com êxito. Ao promover o cliente para produção, o estado de implementação é reportado corretamente.
 
-##  <a name="to-promote-the-new-client-to-production"></a>Для повышения уровня нового клиента до рабочей среды  
+##  <a name="to-promote-the-new-client-to-production"></a>Para promover o novo cliente para produção  
 
-1.  В консоли Configuration Manager откройте узел **Администрирование** > **Обновления и обслуживание** и щелкните **Повысить предварительный уровень клиента**. (До версии 1702 раздел "Обновления и обслуживание" находился в узле **Администрирование** > **Облачные службы**.)
+1.  Na consola do Configuration Manager, abra **administração** > **atualizações e manutenção**e escolha **promover o cliente de pré-produção**. (Antes da versão 1702, atualizações e manutenção estava **administração** > **serviços em nuvem**.)
 
     > [!TIP]
-    > Кнопка **Повысить предварительный уровень клиента** также доступна при отслеживании развертываний клиента в консоли в узле **Мониторинг** > **Состояние клиента** > **Предварительное развертывание клиента**.
+    > Também está disponível o botão **Promover Cliente de Pré-produção** quando está a monitorizar implementações de cliente na consola em **Monitorização** > **Estado de Cliente** > **Implementação do Cliente de Pré-produção**.
 
-2.  Проверьте версии клиента в рабочей и предварительной среде, убедитесь, что указана правильная предварительная коллекция, нажмите кнопку **Повысить уровень**, а затем — кнопку **Да**.  
+2.  Reveja as versões de cliente na produção e de pré-produção, certifique-se de que o correto a coleção de pré-produção é especificada e, em seguida, clique em **promover**, em seguida, **Sim**.  
 
-3.  После закрытия диалогового окна обновленная версия клиента заменит текущую версию клиента в иерархии. Затем вы можете обновить клиенты для всего сайта. Дополнительные сведения см. в разделе [Обновление клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+3.  Depois de fecha a caixa de diálogo, a versão do cliente atualizada irá substituir a versão de cliente em utilização na sua hierarquia. Em seguida, pode atualizar os clientes para todo o site. Para obter mais informações, consulte [Como atualizar clientes para computadores Windows no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
 >[!NOTE]
->Чтобы включить подготовительный клиент или повысить уровень предварительного клиента до рабочего, учетная запись должен быть членом роли безопасности с правами на **чтение** и **изменение** для объекта **Пакеты обновлений**.
->При обновлении клиента учитываются все настроенные периоды обслуживания Configuration Manager.
+>Para ativar o cliente de pré-produção, ou para promover um cliente de pré-produção para um cliente de produção, a conta tem de ser um membro de uma função de segurança que tenha **leitura** e **modificar** permissões para o **pacotes de atualização** objeto.
+>As atualizações de cliente honrar janelas de manutenção do Configuration Manager, que configurou.

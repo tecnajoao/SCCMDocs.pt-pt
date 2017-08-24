@@ -1,6 +1,6 @@
 ---
-title: "Подготовка к управлению обновлением программного обеспечения | Документы Майкрософт"
-description: "Чтобы подготовиться к управлению обновлениями, выполните описанные в этом разделе задачи для вывода данных оценки соответствия требованиям в консоли System Center Configuration Manager."
+title: "Preparar para a gestão de atualizações de software | Microsoft Docs"
+description: "Para se preparar para gerir as atualizações, conclua estas tarefas para apresentar os dados da avaliação de compatibilidade na consola do System Center Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,24 +13,24 @@ ms.technology: configmgr-sum
 ms.assetid: 01907900-e28b-4cd7-9479-42906416707b
 ms.openlocfilehash: 5c34bd1ea108dffda10c30281fb9c97ba38ae1ae
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-for-software-updates-management"></a>Подготовка к управлению обновлениями программного обеспечения
+# <a name="prepare-for-software-updates-management"></a>Preparar a gestão de atualizações de software
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Перед тем как данные оценки соответствия требованиям для обновления ПО будут отображены в консоли System Center Configuration Manager и можно будет развернуть обновления ПО на клиентские компьютеры, необходимо выполнить указанные ниже действия.
+Apresenta os dados da avaliação de compatibilidade da atualização de software na consola do System Center Configuration Manager e antes de poder implementar atualizações de software para computadores cliente, tem de concluir os passos nas secções seguintes.
 
-## <a name="step-1-install-a-software-update-point"></a>Шаг 1. Установка точки обновления программного обеспечения  
-На сайте центра администрирования или на автономном первичном сайте, а также на первичных сайтах должна иметься точка обновления ПО, позволяющая оценивать соответствие обновлений ПО требованиям и развертывать обновления ПО на клиентских устройствах. Точка обновления программного обеспечения является необязательной для вторичных сайтов. Подробные сведения см. в разделе [Установка точки обновления программного обеспечения](install-a-software-update-point.md).  
+## <a name="step-1-install-a-software-update-point"></a>Passo 1: Instalar um ponto de atualização de software  
+É necessário o ponto de atualização de software no site de administração central ou site primário autónomo e em sites primários para ativar o software de avaliação de compatibilidade de atualizações e para implementar software atualizações aos clientes. O ponto de atualização de software é opcional em site secundários. Para obter mais informações, consulte [instalar um ponto de atualização de software](install-a-software-update-point.md)  
 
-## <a name="step-2-synchronize-software-updates"></a>Шаг 2. Синхронизация обновлений программного обеспечения
-Синхронизация обновлений программного обеспечения представляет собой процесс получения метаданных обновлений программного обеспечения, которые соответствуют настроенным критериям. Обновления программного обеспечения не отображаются в консоли Configuration Manager, пока они не будут синхронизированы. Подробные сведения см. в разделе [Синхронизация обновлений программного обеспечения](synchronize-software-updates.md).   
+## <a name="step-2-synchronize-software-updates"></a>Passo 2: Sincronizar atualizações de Software
+Sincronização de atualizações de software é o processo de obtenção de metadados de atualizações de software que cumprem os critérios que configurou. As atualizações de software não são apresentadas na consola do Configuration Manager até sincronizar as atualizações de software. Para obter mais informações, consulte [sincronizar atualizações de software](synchronize-software-updates.md).   
 
-## <a name="step-3-configure-classifications-and-products-to-synchronize"></a>Шаг 3. Настройка классификаций и продуктов для синхронизации
-Данная конфигурация выполняется только на сайте центра администрирования или на автономном первичном сайте. После первоначальной синхронизации обновлений ПО Configuration Manager получает обновленный список классификаций и продуктов. После этого вы можете выбрать новые значения в свойствах компонента точки обновления программного обеспечения. После настройки новых классификаций и продуктов повторите шаг 2, чтобы запустить синхронизацию обновлений ПО для получения метаданных обновлений ПО в соответствии с новыми условиями. Подробные сведения см. в разделе [Настройка классификаций и продуктов для синхронизации](configure-classifications-and-products.md).
+## <a name="step-3-configure-classifications-and-products-to-synchronize"></a>Passo 3: Configurar classificações e produtos a sincronizar
+Realize esta configuração no site de administração central ou site primário autónomo. Depois de sincronizar as atualizações de software pela primeira vez, o Configuration Manager obtém uma lista atualizada de classificações e produtos. Agora, pode selecionar de entre as novas opções nas propriedades do componente de ponto de atualização de Software. Depois de configurar novas classificações e produtos, repita o passo 2 para iniciar a sincronização de atualizações de software para obter metadados de atualizações de software para os critérios de novo. Para obter mais informações, consulte [configurar classificações e produtos para sincronizar](configure-classifications-and-products.md).
 
-## <a name="step-4-manage-settings-for-software-updates"></a>Шаг 4. Управление параметрами для обновлений программного обеспечения
-После синхронизации обновлений ПО проверьте параметры клиента Configuration Manager, конфигурации групповой политики и параметры обновлений ПО, прежде чем развертывать обновления ПО. Подробные сведения см. в разделе [Управление параметрами для обновлений программного обеспечения](manage-settings-for-software-updates.md).
+## <a name="step-4-manage-settings-for-software-updates"></a>Passo 4: Gerir as definições das atualizações de software
+Depois de sincronizar as atualizações de software, certifique-se as definições de cliente do Configuration Manager, as configurações da política de grupo e definições de atualizações de software antes de implementar atualizações de software. Para obter mais informações, consulte [gerir as definições das atualizações de software](manage-settings-for-software-updates.md).

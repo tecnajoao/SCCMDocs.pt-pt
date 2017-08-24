@@ -1,6 +1,6 @@
 ---
-title: Upgrade Readiness | System Center Configuration Manager
-description: "Интегрируйте Upgrade Readiness с Configuration Manager. Получайте доступ к данным по совместимости обновления в консоли администратора. Назначайте устройства для обновления или исправления."
+title: "Preparação para a atualização | O System Center Configuration Manager"
+description: "Integre com o Configuration Manager de preparação de atualização. Aceder a dados de compatibilidade da atualização na consola do administrador. Dispositivos de destino para a atualização ou correção."
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
@@ -13,130 +13,130 @@ ms.technology: configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
 ms.openlocfilehash: b1f4cd4a6f19a02d2b2dc3f9a841aeeb2a1403dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Интеграция Upgrade Readiness с System Center Configuration Manager
+# <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Integrar a preparação de atualização com o System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Решение "Проверка готовности к обновлению" (ранее называлось Upgrade Analytics) позволяет оценивать и анализировать готовность устройства к работе с Windows 10. Интегрируйте Upgrade Readiness с Configuration Manager, чтобы получать доступ к данным по совместимости обновления клиентов в консоли администратора Configuration Manager. Вы сможете назначать устройства из списка устройств для обновления или исправления.
+Preparação de atualização (anteriormente, análise de atualização) permite-lhe avaliar e analisar a preparação do dispositivo com o Windows 10. Integre com o Configuration Manager para aceder aos dados de compatibilidade de atualização de cliente na consola de administração do Configuration Manager de preparação de atualização. É capaz de dispositivos de destino para a atualização ou correção da lista de dispositivos.
 
-Upgrade Readiness — это решение в составе Microsoft Operations Management Suite (OMS). Дополнительные сведения об Upgrade Readiness см. в статье [Приступая к работе с Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
+Preparação de atualização é uma solução no Microsoft Operations Management Suite (OMS). Pode ler mais sobre a preparação de atualização no [começar a atualizar preparação](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
 
-## <a name="configure-clients"></a>Настройка клиентов
+## <a name="configure-clients"></a>Configurar os clientes
 
-Чтобы клиенты могли предоставлять данные в Upgrade Readiness, необходимо выполнить несколько действий по настройке.
+Existem vários passos de configuração que terá de executar para assegurar que os clientes podem fornecer dados a preparação de atualização:
 
--  Настройте параметры телеметрии клиентов, как описано в разделе [Настройка телеметрии Windows в вашей организации](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
--  Установите обновления из базы знаний, описываемые в разделе с инструкциями по *развертыванию обновления совместимости и соответствующих баз знаний* в статье о [начале работы с решением "Проверка готовности к обновлению"](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
+-  Configurar definições de telemetria de cliente conforme descrito em [telemetria de configurar o Windows na sua organização](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
+-  Instalar KBs descritos no * implementar a atualização de compatibilidade e KBs relacionados * secção [começar a preparação de atualização](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
 
     > [!NOTE]
-    > Чтобы автоматизировать многие задачи настройки клиентов, можно скачать скрипт. Сведения об этом скрипте см. в разделе *Запуск скрипта развертывания Upgrade Readiness* статьи [Начало работы с Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
+    > Pode transferir um script para automatizar muitas das tarefas de configuração de cliente. Consulte o *executar o script de implementação de preparação de atualização* secção [começar a atualizar preparação](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness) para obter informações sobre o script.
 
-## <a name="connect-to-upgrade-readiness"></a>Подключение к решению "Проверка готовности к обновлению"
+## <a name="connect-to-upgrade-readiness"></a>Ligar a preparação para a atualização
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Pré-requisitos
 
-Начиная с версии 1706 Current Branch доступен мастер служб Azure. Он упрощает настройку служб Azure, используемых с Configuration Manager. Чтобы использовать этот мастер, нужно настроить веб-приложение Azure. Дополнительные сведения см. в статье о [мастере служб Azure](/sccm/core/servers/deploy/configureazure-services-wizard).
+O Assistente de serviços do Azure a partir da versão do ramo atual 1706, é utilizado para simplificar o processo de configuração de serviços do Azure que utiliza com o Configuration Manager. Para utilizar o assistente, terá de configurar uma aplicação web do Azure. Para obter mais informações, consulte, [Assistente de serviços do Azure](/sccm/core/servers/deploy/configureazure-services-wizard).
 
-### <a name="use-the-azure-wizard-to-create-the-connection"></a>Использование мастера Azure для создания подключения
+### <a name="use-the-azure-wizard-to-create-the-connection"></a>Utilize o Assistente do Azure para criar a ligação
 
-1.  В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Облачные службы** и щелкните **Службы Azure**.
-2.  На вкладке **Главная** в группе **Службы Azure** щелкните **Настроить службы Azure**.
-3.  На странице служб Azure введите понятное имя. Можно также ввести описание. Затем выберите **Соединитель службы проверки готовности к обновлению** и щелкните **Далее**.
-4.  Укажите среду Azure на странице приложения. Щелкните **Обзор**, чтобы настроить приложение сервера.
-5.  Щелкните **Импорт**, чтобы подключиться к веб-приложению в Azure.
-    -  Введите **имя клиента Azure AD**.
-    -  Введите **идентификатор клиента Azure AD**.
-    -  Введите **имя приложения**.
-    -  Введите **идентификатор клиента**.
-    -  Введите **секретный ключ**.
-    -  Выберите дату для параметра **Срок действия секретного ключа**.
-    -  Введите любой URL-адрес в поле **URI идентификатора приложения**.
-    -  Щелкните **Проверить**, а затем подтвердите информацию, нажав кнопку **OK**.
+1.  No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**e, em seguida, clique em **serviços do Azure**.
+2.  No **home page** separador o **serviços do Azure** , clique em **configurar os serviços do Azure**.
+3.  Escreva um nome amigável na página de serviços do Azure. Também pode escrever uma descrição. Em seguida, selecione **conector de preparação de atualização** e clique em **seguinte**.
+4.  Especifique o seu ambiente do Azure na página da aplicação. Clique em **procurar** para configurar uma aplicação de servidor.
+5.  Clique em **importação** para ligar à sua aplicação Web no Azure.
+    -  Tipo de **nome de inquilino do Azure AD**.
+    -  Tipo de **ID de inquilino do Azure AD**.
+    -  Tipo de **nome da aplicação**.
+    -  Tipo de **ID de cliente**.
+    -  Tipo de **chave secreta**.
+    -  Selecione a data de **expiração de chave de segredo** data.
+    -  Escreva qualquer URL para o **URI de ID de aplicação**.
+    -  Clique em **verifique**e, em seguida, clique em **OK**.
 
-6.  Укажите подключение к решению "Проверка готовности к обновлению" на странице "Конфигурация". Выберите следующие значения.  
-    -  подписки Azure;
-    -  группа ресурсов Azure;
-    -  рабочая область Windows Analytics.
-8.  Нажмите кнопку **Далее**. На странице сводки можно проверить сведения о подключении. 
+6.  Especifique a ligação a preparação de atualização na página de configuração. Selecione os seguintes valores:  
+    -  Subscrições do Azure
+    -  Grupo de recursos do Azure
+    -  Área de trabalho de análise do Windows
+8.  Clique em **Seguinte**. Pode rever a ligação na página de resumo. 
 
-## <a name="complete-upgrade-readiness-tasks"></a>Выполнение задач Upgrade Readiness  
+## <a name="complete-upgrade-readiness-tasks"></a>Concluir as tarefas de preparação de atualização  
 
-После создания подключения выполните указанные ниже задачи, как описано в руководстве по [началу работы с решением"Проверка готовности к обновлению"](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).  
+Depois de ter de criar a ligação, efetuar estas tarefas, conforme descrito em [começar a atualizar preparação](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).  
 
-1. Добавьте службу UpgradeReadiness в рабочую область OMS.  
-2. Создайте коммерческий идентификатор.  
-3. Подпишитесь на службу Upgrade Readiness.   
+1. Adicione o serviço de UpgradeReadiness à área de trabalho do OMS.  
+2. Gerar um ID comercial.  
+3. Subscreve a preparação para a atualização.   
 
-## <a name="use-the-upgrade-readiness-deployment-script"></a>Использование скрипта развертывания Upgrade Readiness  
+## <a name="use-the-upgrade-readiness-deployment-script"></a>Utilize o script de implementação de preparação de atualização  
 
-Вы можете автоматизировать многие задачи Upgrade Readiness и устранять неполадки, связанные с общим доступом к данным, с помощью **скрипта развертывания Upgrade Readiness**, предоставляемого Майкрософт.  
-Скрипт развертывания Upgrade Readiness выполняет перечисленные ниже задачи.  
+Pode automatizar muitas das tarefas de preparação de atualização e resolver problemas de dados de partilha problemas com o Microsoft **script de implementação de preparação de atualização**.  
+O script de implementação de preparação de atualização faz o seguinte:  
 
-- Задает ключ коммерческого идентификатора, а также ключи CommercialDataOptIn и RequestAllAppraiserVersions.  
-- Проверяет возможность отправки данных с компьютеров пользователей в корпорацию Майкрософт.  
-- Проверяет, ожидается ли на компьютере перезагрузка.   
-- Проверяет, установлена ли последняя версия пакета из базы знаний 10.0.x (требуется версия 10.0.14913 или более поздняя).  
-- При необходимости включает режим подробного протоколирования для устранения неполадок.  
-- Инициирует коллекцию данных телеметрии, которые требуются корпорации Майкрософт для оценки готовности вашей организации к обновлению.  
-- Если параметр включен, в окне командной строки отображается ход выполнения скрипта. Это позволяет отслеживать проблемы (состояние выполнения для каждого шага) и (или) события записи в файл журнала.  
+- Define a chave de ID comercial + CommercialDataOptIn + RequestAllAppraiserVersions chaves.  
+- Verifica se os computadores de utilizador podem enviar dados à Microsoft.  
+- Verifica se o computador tem um reinício pendente.   
+- Verifica se a versão mais recente da BDC pacote 10.0.x está instalado (requer 10.0.14913 ou versões posteriores).  
+- Se estiver ativada, transforma em modo verboso para a resolução de problemas.  
+- Inicia a recolha de dados de telemetria que necessita de Microsoft para avaliar a preparação de atualização da sua organização.  
+- Se estiver ativada, apresenta o progresso do script numa janela cmd. Isto dá-lhe visibilidade para problemas (êxito ou falha de cada passo) e/ou escreve no ficheiro de registo.  
 
-## <a name="to-run-the-upgrade-readiness-deployment-script"></a>Использование скрипта развертывания Upgrade Readiness  
+## <a name="to-run-the-upgrade-readiness-deployment-script"></a>Para executar o script de implementação de preparação de atualização:  
 
-1. Скачайте [скрипт развертывания Upgrade Readiness](https://go.microsoft.com/fwlink/?LinkID=822966&clcid=0x409) и распакуйте файл UpgradeReadiness.zip. Файлы в папке **Diagnostics** необходимы только в том случае, если вы планируете выполнять скрипт в режиме устранения неполадок.  
-2. Измените указанные ниже параметры в файле RunConfig.bat.  
-- Место хранения данных журнала. Пример: %SystemDrive%\URDiagnostics. Данные журнала можно сохранять в удаленной общей папке или локальном каталоге. Если создание файла журнала по указанному пути блокируется, скрипт создает файлы журнала на диске с каталогом Windows.  
-- Ключ коммерческого идентификатора.  
-- По умолчанию скрипт отправляет данные журнала как в консоль, так и в файл журнала. Чтобы изменить поведение по умолчанию, используйте одно из следующих значений:  
-    - logMode = 0 — вывод только в консоль;  
-    - logMode = 1 — вывод в файл и консоль;  
-    - logMode = 2 — вывод только в файл.  
-    - В целях устранения неполадок присвойте параметру **isVerboseLogging** значение **$true**. Это приведет к созданию данных журнала, которые могут помочь в диагностике проблем. По умолчанию параметр **isVerboseLogging** имеет значение **$false**. Для использования этого режима папка Diagnostics должна быть установлена в том же каталоге, что и скрипт.  
-    - Если пользователям необходимо перезагрузить компьютеры, уведомите их об этом. По умолчанию эта функция выключена.  
+1. Transferir o [script de implementação de preparação de atualização](https://go.microsoft.com/fwlink/?LinkID=822966&clcid=0x409) e extrair UpgradeReadiness.zip. Os ficheiros no **diagnóstico** pasta são necessários apenas se pretender executar o script no modo de resolução de problemas.  
+2. Edite estes parâmetros em RunConfig.bat:  
+- Localização de armazenamento para as informações de registo. Exemplo: % SystemDrive%\URDiagnostics. Pode armazenar informações de registo na partilha de ficheiros remota ou um diretório local. Se o script é bloqueado de criar o ficheiro de registo para o caminho fornecido, cria os ficheiros de registo na unidade com o diretório do Windows.  
+- Chave de ID comercial.  
+- Por predefinição, o script envia informações de registo para a consola e o ficheiro de registo. Para alterar o comportamento predefinido, utilize uma das seguintes opções:  
+    - logMode = 0 registos para apenas a consola  
+    - logMode = 1 registo para o ficheiro e a consola do  
+    - logMode = 2 registo apenas de ficheiros  
+    - Para resolver problemas, defina **isVerboseLogging** para **$true** para gerar informações de registo que podem ajudar a diagnosticar problemas. Por predefinição, **isVerboseLogging** está definido como **$false**. Certifique-se de que a pasta de diagnóstico é instalada no mesmo diretório que o script a utilizar este modo.  
+    - Notificar os utilizadores se de que precisam para reiniciar os respetivos computadores. Por predefinição, está definida para desativado.  
 
-3. Завершив изменение параметров в файле RunConfig.bat, запустите скрипт с правами администратора.  
+3. Depois de concluir a edição parâmetros RunConfig.bat, execute o script como um administrador.  
 
 
-## <a name="view-microsoft-upgrade-readiness-properties-in-configuration-manager"></a>Просмотр свойств Microsoft Upgrade Readiness в Configuration Manager  
+## <a name="view-microsoft-upgrade-readiness-properties-in-configuration-manager"></a>Ver propriedades de preparação de atualização da Microsoft no Configuration Manager  
 
-1.  В консоли Configuration Manager перейдите в раздел **Облачные службы**, а затем выберите **Соединитель OMS**, чтобы открыть страницу **Свойства подключения OMS**.  
+1.  Na consola do Configuration Manager, navegue até à **serviços em nuvem**, em seguida, escolha **OMS conector** para abrir o **propriedades de ligação do OMS** página.  
 
-2.  На этой странице есть две вкладки.
-  * На вкладке **Azure Active Directory** отображаются сведения о **клиенте**, **идентификаторе клиента** и **сроке действия секретного ключа клиента**, кроме того, здесь можно **проверить** срок действия **секретного ключа клиента**.
-  * На вкладке **Upgrade Readiness** показаны значения **Подписка Azure**, **Группа ресурсов Azure** и **Рабочая область Operations Management Suite**.
+2.  Dentro desta página, existem dois separadores:
+  * O **do Azure Active Directory** separador mostra o **inquilino**, **ID de cliente**, **expiração chave secreta de cliente**, e permite-lhe **verifique** sua **chave secreta do cliente** se tiver expirado.
+  * O **atualizar preparação** separador mostra o **subscrição do Azure**, **grupo de recursos do Azure**, e **área de trabalho do Operations Management Suite**.
 
-## <a name="view-and-use-the-upgrade-information"></a>Просмотр и использование сведений об обновлении
+## <a name="view-and-use-the-upgrade-information"></a>Ver e utilizar as informações de atualização
 
-Интегрировав Upgrade Readiness с Configuration Manager, вы можете просматривать результаты анализа готовности ваших клиентов к обновлению, а затем принимать меры.
+Depois de ter integrado preparação de atualização com o Configuration Manager, pode ver a análise de preparação de atualização dos clientes e, em seguida, a ação.
 
-1. В консоли Configuration Manager выберите **Наблюдение** > **Обзор** > **Upgrade Readiness**.
-2. Просмотрите данные, которые включают в себя состояние готовности к обновлению и процент устройств Windows, сообщающих данные телеметрии.
-3. Данные на панели мониторинга можно отфильтровать так, чтобы просмотреть данные по устройствам в определенных коллекциях.
-4. Вы можете просмотреть устройства, находящиеся в определенном состоянии готовности, и создать динамическую коллекцию для них, чтобы готовые устройства обновлялись, а в отношении остальных выполнялись определенные действия по подготовке.
+1. Na consola do Configuration Manager, escolha **monitorização** > **descrição geral** > **atualizar preparação**.
+2. Reveja os dados, que incluem o estado de preparação de atualização e a percentagem de dispositivos do Windows que estão a denunciar telemetria.
+3. Pode filtrar o dashboard para ver os dados para dispositivos em coleções específicas.
+4. Pode ver os dispositivos num estado específico de preparação e criar uma coleção dinâmica para os dispositivos para que possa atualizar esses dispositivos se pronto ou, efetue uma ação para colocá-los para um Estado de preparação.
 
-## <a name="create-a-connection-to-upgrade-readiness-1702-and-earlier"></a>Создание подключения к решению "Проверка готовности к обновлению" (версия 1702 или более старая)
+## <a name="create-a-connection-to-upgrade-readiness-1702-and-earlier"></a>Criar uma ligação a preparação de atualização (1702 e anterior)
 
-В версиях Configuration Manager старше ветви 1706 подключение к решению "Проверка готовности к обновлению" создавалось следующим образом.
+Antes do 1706 ramo do Configuration Manager, para criar uma ligação para atualizar preparação necessários os seguintes passos.
 
-### <a name="prerequisites"></a>Предварительные требования
+### <a name="prerequisites"></a>Pré-requisitos
 
-- Чтобы добавить подключение, в среде Configuration Manager необходимо сначала настроить [точку подключения службы](/sccm/core/servers/deploy/configure/about-the-service-connection-point) в [оперативном режиме](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). При добавлении подключения в среду выполняется установка агента Microsoft Monitoring Agent на компьютере, где запущена эта роль системы сайта.
-- Зарегистрируйте Configuration Manager как средство управления "Веб-приложение и (или) веб-API" и получите [идентификатор клиента для регистрации](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
-- Создайте ключ клиента для зарегистрированного средства управления в Azure Active Directory.
-- На портале Azure укажите зарегистрированное веб-приложение с разрешением на доступ к OMS, как описано в разделе [Предоставление Configuration Manager разрешений для OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
+- Para poder adicionar a ligação, o ambiente do Configuration Manager primeiro tem de configurar um [ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point) num [modo online](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). Quando adicionar a ligação ao seu ambiente, este irá também instalar o Microsoft Monitoring Agent no computador que executa esta função de sistema de sites.
+- Registe o Configuration Manager como uma ferramenta de gestão "Aplicação Web e/ou API Web" e obter o [ID de cliente deste registo](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
+- Crie uma chave de cliente para a ferramenta de gestão registado no Azure Active Directory.
+- No portal do Azure, forneça a aplicação web registado com permissão para aceder à OMS, conforme descrito em [fornecer do Configuration Manager com permissões para OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
 
     > [!IMPORTANT]
-    > При настройке разрешения на доступ к OMS выберите роль **Участник** и предоставьте ей разрешения на доступ к группе ресурсов зарегистрированного приложения.
+    > Quando configurar permissões para aceder à OMS, lembre-se de que escolha o **contribuinte** função e atribua-lhe as permissões para o grupo de recursos da aplicação registada.
 
-### <a name="create-the-connection"></a>Создание подключения
+### <a name="create-the-connection"></a>Criar a ligação
 
-1.  В консоли Configuration Manager последовательно выберите пункты **Администрирование** > **Облачные службы** > **Соединитель готовности к обновлению** > **Создать подключение к Upgrade Analytics**, чтобы запустить **Мастер создания подключения к Upgrade Analytics**.
-3.  На экране **Azure Active Directory** заполните поля **Клиент**, **Идентификатор клиента** и **Секретный ключ клиента**, а затем нажмите кнопку **Далее**.
-4.  На экране **Upgrade Readiness** укажите параметры подключения, заполнив поля **Подписка Azure**, **Группа ресурсов Azure** и **Рабочая область Operations Management Suite**.
-5.  Проверьте параметры подключения на экране **Сводка**, а затем выберите **Далее**.
+1.  Na consola do Configuration Manager, escolha **administração** > **serviços em nuvem** > **conector de preparação de atualização** > **criar ligação para atualizar análise** para iniciar o **Adicionar Assistente de ligação de análise de atualização**.
+3.  No **do Azure Active Directory** ecrã, forneça **inquilino**, **ID de cliente**, e **chave secreta do cliente**, em seguida, selecione **seguinte**.
+4.  No **atualizar preparação** ecrã, forneça as definições de ligação ao preencher a **subscrição do Azure**, **grupo de recursos do Azure**, e **área de trabalho do Operations Management Suite**.
+5.  Verifique as definições de ligação no **resumo** ecrã, em seguida, selecione **seguinte**.
 
     > [!NOTE]
-    > Upgrade Readiness необходимо подключить к сайту верхнего уровня в иерархии. Если вы подключаете Upgrade Readiness к автономному первичному сайту, а затем добавляете в среду сайт центра администрирования, потребуется удалить и повторно создать подключение OMS в новой иерархии.
+    > Preparação de atualização tem de ligar para o site de nível superior na sua hierarquia. Se ligar a preparação de atualização para um site primário autónomo e, em seguida, adicionar um site de administração central ao seu ambiente, tem de eliminar e recriar a ligação do OMS dentro da nova hierarquia.

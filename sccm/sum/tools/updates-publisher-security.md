@@ -1,6 +1,6 @@
 ---
-title: "Сертификаты и безопасность | Документация Майкрософт"
-description: "Управление сертификатами и безопасностью в System Center Updates Publisher"
+title: "Certificados e segurança | Microsoft Docs"
+description: "Gerir certificados e segurança para o System Center Updates Publisher"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,85 +17,85 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: c43af95a539a9284e4e49822b284783e02f9fa21
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-certificates-and-security-for-updates-publisher"></a>Управление сертификатами и безопасностью в Updates Publisher
+# <a name="manage-certificates-and-security-for-updates-publisher"></a>Gerir certificados e segurança para o Updates Publisher
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Указанные ниже процедуры помогут настроить хранилище сертификатов на сервере обновлений, самозаверяющий сертификат на клиентском компьютере и групповую политику, чтобы разрешить агенту обновления Windows на компьютерах проверить опубликованные обновления.
+Os procedimentos seguintes podem ajudá-lo a configurar o arquivo de certificados no servidor de atualização, configure um certificado autoassinado no computador cliente e configurar a política de grupo para permitir que o Windows Update Agent nos computadores para verificar a existência de atualizações publicado.
 
-## <a name="configure-the-certificate-store-on-the-update-server"></a>Настройка хранилища сертификатов на сервере обновлений
- Для подписывания обновлений в публикуемых каталогах Updates Publisher использует цифровой сертификат. Перед публикацией каталога на сервере обновлений убедитесь, что сертификат находится в хранилище сертификатов на сервере обновлений и в хранилище сертификатов на компьютере с Updates Publisher (если этот компьютер расположен удаленно от сервера обновлений).
+## <a name="configure-the-certificate-store-on-the-update-server"></a>Configurar o arquivo de certificados no servidor de atualização
+ Publicador de atualizações utiliza um certificado digital para assinar as atualizações de catálogos publica. Antes de um catálogo pode ser publicado para o servidor de atualização, se o certificado tem de ser no arquivo de certificados no servidor de atualização e no arquivo de certificados do computador Updates Publisher esteja remoto a partir do servidor de atualização nesse computador.
 
-Ниже описан один из нескольких возможных способов добавления сертификата в хранилище сертификатов на сервере обновлений.
+O procedimento seguinte é um dos vários métodos possíveis para adicionar o certificado ao arquivo de certificados no servidor de atualização.
 
-### <a name="to-configure-the-certificate-store"></a>Настройка хранилища сертификатов
-1.  На компьютере с доступом к компьютеру с Updates Publisher и к серверу обновлений щелкните **Пуск**, **Выполнить**, в текстовом поле введите **MMC** и нажмите кнопку **ОК**, чтобы открыть консоль управления (MMC).
+### <a name="to-configure-the-certificate-store"></a>Para configurar o arquivo de certificados
+1.  Num computador que pode aceder ao computador do Updates Publisher e o servidor de atualização, clique em **iniciar**, clique em **executar**, tipo **MMC** na caixa de texto e, em seguida, clique em **OK** para abrir a consola de gestão da Microsoft (MMC).
 
-2.  Последовательно щелкните **Файл** > **Добавить или удалить оснастку** > **Добавить** > **Сертификаты** > **Добавить**, выберите **Учетная запись компьютера**, а затем нажмите кнопку **Далее**.
+2.  Clique em **ficheiro**, clique em **Adicionar/Remover Snap-in**, clique em **adicionar**, clique em **certificados**, clique em **adicionar**, selecione **conta de computador**e, em seguida, clique em **seguinte**.
 
-3.  Выберите **Другой компьютер**, введите имя сервера обновлений или щелкните **Обзор**, чтобы найти компьютер с сервером обновлений, а затем последовательно щелкните **Готово** > **Закрыть** и нажмите кнопку **ОК**.
+3.  Selecione **noutro computador**, escreva o nome do servidor de atualização ou clique em **procurar** para localizar o computador do servidor de atualização, clique em **concluir**, clique em **fechar**e, em seguida, clique em **OK**.
 
-4.  Разверните область **Сертификаты (*имя сервера обновления*)**, после чего разверните область **WSUS** и щелкните **Сертификаты**.
+4.  Expanda  **certificados (*nome do servidor de atualização*) * *, expanda **WSUS**e, em seguida, clique em **certificados**.
 
-5.  В области результатов щелкните нужный сертификат правой кнопкой мыши и в контекстном меню выберите **Все задачи**, а затем щелкните **Экспорт**.
+5.  No painel de resultados, clique no certificado pretendido, clique em **todas as tarefas**e, em seguida, clique em **exportar**.
 
-6.  Используйте параметры по умолчанию в мастере экспорта сертификатов, чтобы создать экспортируемый файл с именем и местоположением, указанными в мастере. Прежде чем перейти к следующему шагу, убедитесь, что этот файл доступен на сервере обновлений.
+6.  No Assistente para exportar certificados, utilize as predefinições para criar um ficheiro de exportação com o nome e a localização especificada no assistente. Este ficheiro tem de estar disponível para o servidor de atualização antes de avançar para o passo seguinte.
 
-7.  Щелкните правой кнопкой мыши **Доверенные издатели**, **Все задачи**, а затем щелкните **Импорт**. Завершите работу мастера импорта сертификатов, используя экспортируемый файл из шага 6.
+7.  Clique com botão direito **fabricantes fidedignos**, clique em **todas as tarefas**e, em seguida, clique em **importação**. Conclua o Assistente de importação de certificados utilizando o ficheiro exportado no passo 6.
 
-8.  Если используется самозаверяющий сертификат, такой как **WSUS Publishers Self-signed**, щелкните правой кнопкой мыши **Доверенные корневые центры сертификации**, **Все задачи** и выберите **Импорт**. Завершите работу мастера импорта сертификатов, используя экспортируемый файл из шага 6.
+8.  Se for utilizado um certificado autoassinado, tal como **WSUS Publishers autoassinado**, faça duplo clique **autoridades de certificação de raiz fidedigna**, clique em **todas as tarefas**e, em seguida, clique em **importação**. Conclua o Assistente de importação de certificados utilizando o ficheiro exportado no passo 6.
 
-9.  Щелкните правой кнопкой мыши **Сертификаты (*имя сервера обновления*)**, выберите **Подключиться к другому компьютеру**, а затем введите имя компьютера для компьютера с Updates Publisher и нажмите кнопку **ОК**.
+9.  Clique com botão direito  **certificados (*nome do servidor de atualização*) * *, clique em **ligar a outro computador**, introduza o nome do computador para o computador do Updates Publisher e clique em **OK**.
 
-10. Если Updates Publisher расположен удаленно от сервера обновлений, повторите действия, указанные в шагах 7–9, чтобы импортировать сертификат в хранилище сертификатов на компьютер с Updates Publisher.
+10. Se for remoto a partir do servidor de atualização Updates Publisher, repita os passos 7 a 9 para importar o certificado ao arquivo de certificados no computador do Updates Publisher.
 
 
 
-## <a name="configure-a-self-signing-certificate-on-client-computers"></a>Настройка самозаверяющего сертификата на клиентских компьютерах
-На клиентских компьютерах агент обновления Windows (WUA) сканирует каталог на предмет обновлений. Процесс обновления завершится сбоем, если агент не сможет найти цифровой сертификат в хранилище надежных издателей на локальном компьютере. Если для публикации каталога обновления использовался самозаверяющий сертификат, например **WSUS Publishers Self-signed**, этот сертификат должен также присутствовать в хранилище "Доверенные корневые центры сертификации" на локальном компьютере, чтобы агент мог проверить действительность этого сертификата.
+## <a name="configure-a-self-signing-certificate-on-client-computers"></a>Configurar um certificado autoassinado em computadores cliente
+Em computadores cliente, o Windows Update Agent (WUA) irá procurar as atualizações do catálogo. Este processo irá falhar instalar atualizações quando o agente não é possível localizar o certificado digital no arquivo fabricantes fidedignos no computador local. Se um certificado autoassinado utilizado para publicar as atualizações do catálogo, tais como **WSUS Publishers autoassinado**, o certificado também tem de estar no arquivo de certificados de autoridades de certificação de raiz fidedigna no computador local para que o agente pode verificar a validade do certificado.
 
-Вы можете использовать один из методов настройки сертификатов на клиентских компьютерах, например применить групповую политику и **мастер импорта сертификатов** или средство Certutil и распространение программного обеспечения.
+Pode utilizar um dos vários métodos para configurar certificados nos computadores cliente, utilizando a política de grupo e o **Assistente para importar certificados** ou utilizando a Certutil ferramenta e distribuição de software.
 
-Далее указан один из примеров настройки сертификата подписи на клиентских компьютерах.
+O seguinte é fornecido como um exemplo de como configurar o certificado de assinatura em computadores cliente.
 
-### <a name="to-configure-a-self-signing-certificate-on-client-computers"></a>Настройка самозаверяющего сертификата на клиентских компьютерах
-1.  На компьютере с доступом к серверу обновлений щелкните **Пуск**, **Выполнить**, в текстовом поле введите **MMC** и нажмите кнопку **ОК**, чтобы открыть консоль управления (MMC).
+### <a name="to-configure-a-self-signing-certificate-on-client-computers"></a>Para configurar um certificado autoassinado em computadores cliente
+1.  Num computador com acesso ao servidor de atualização, clique em **iniciar**, clique em **executar**, tipo **MMC** na caixa de texto e, em seguida, clique em **OK** para abrir a consola de gestão da Microsoft (MMC).
 
-2.  Последовательно щелкните **Файл** > **Добавить или удалить оснастку** > **Добавить** > **Сертификаты** > **Добавить**, выберите **Учетная запись компьютера**, а затем нажмите кнопку **Далее**.
+2.  Clique em **ficheiro**, clique em **Adicionar/Remover Snap-in**, clique em **adicionar**, clique em **certificados**, clique em **adicionar**, selecione **conta de computador**e, em seguida, clique em **seguinte**.
 
-3.  Выберите **Другой компьютер**, введите имя сервера обновлений или щелкните **Обзор**, чтобы найти компьютер с сервером обновлений, а затем последовательно щелкните **Готово** > **Закрыть** и нажмите кнопку **ОК**.
+3.  Selecione **noutro computador**, escreva o nome do servidor de atualização ou clique em **procurar** para localizar o computador do servidor de atualização, clique em **concluir**, clique em **fechar**e, em seguida, clique em **OK**.
 
-4.  Разверните область **Сертификаты (*имя сервера обновления*)**, после чего разверните область **WSUS** и щелкните **Сертификаты**.
+4.  Expanda  **certificados (*nome do servidor de atualização*) * *, expanda **WSUS**e, em seguida, clique em **certificados**.
 
-5.  В области результатов щелкните сертификат правой кнопкой мыши и в контекстном меню выберите **Все задачи**, а затем щелкните **Экспорт**. Завершите работу **мастера экспорта сертификатов**, используя параметры по умолчанию, чтобы создать экспортируемый файл сертификата с именем и местоположением, указанными в мастере.
+5.  Clique com o botão direito do certificado no painel de resultados, clique em **todas as tarefas**e, em seguida, clique em **exportar**. Concluir o **Assistente para exportar certificados** utilizando as predefinições para criar um ficheiro de exportação de certificado com o nome e a localização especificada no assistente.
 
-6.  Используйте один из указанных ниже методов, чтобы добавить сертификат, используемый для подписи каталога обновлений, на каждом клиентском компьютере, который будет использовать агент обновления Windows для поиска обновлений в каталоге. Добавьте сертификат на клиентский компьютер, как показано ниже.
+6.  Utilize um dos seguintes métodos para adicionar o certificado utilizado para assinar o catálogo de atualizações para cada computador cliente que irá utilizar o WUA para analisar as atualizações no catálogo. Adicione o certificado no computador cliente da seguinte forma:
 
-    -   Самозаверяющие сертификаты. Добавьте сертификат в хранилища сертификатов **доверенных корневых центров сертификации** и **доверенных издателей**.
+    -   Para certificados autoassinados: Adicionar o certificado para o **autoridades de certificação de raiz fidedigna** e **fabricantes fidedignos** arquivos de certificados.
 
-    -   Сертификаты, выданные центром сертификации. Добавьте сертификат в хранилище сертификатов **доверенных издателей**.
+    -   Para certificados de emitidos a autoridade de certificação (AC): Adicionar o certificado para o **fabricantes fidedignos** arquivo de certificados.
 
     > [!NOTE]
-    > WUA также проверяет, включен ли на локальном компьютере параметр групповой политики **Allow signed content from intranet Microsoft update service location** (Разрешить прием содержимого с подписью из службы обновления Майкрософт в интрасети). Этот параметр политики должен быть включен, чтобы агент обновления Windows искал обновления, созданные и опубликованные с помощью Updates Publisher. Дополнительные сведения о включении этого параметра групповой политики см. в статье [Настройка групповой политики на клиентских компьютерах] (https://technet.microsoft.com/library/bb530967.aspx(d=robot).
+    > O WUA também verifica se o **permitir conteúdo assinado da localização de serviço de atualização de Microsoft na intranet** definição de política de grupo está ativada no computador local. Esta definição de política tem de estar ativada para que o WUA procure atualizações criadas e publicadas com o Updates Publisher. Para obter mais informações sobre como ativar esta definição de política de grupo, consulte [como configurar a política de grupo nos computadores cliente] (https://technet.microsoft.com/library/bb530967.aspx(d=robot).
 
 
 
-## <a name="configuring-group-policy-to-allow-wua-on-computers-to-scan-for-published-updates"></a>Настройка групповой политики для разрешения WUA выполнить на компьютерах проверку опубликованных обновлений
-Необходимо включить параметр политики Allow signed content from an intranet Microsoft update service location (Разрешить прием содержимого с подписью из службы обновления Майкрософт в интрасети), прежде чем агент обновления Windows сможет проверить обновления, созданные и опубликованные с помощью Updates Publisher. Если эта политика включена, агент WUA будет принимать обновления, полученные через расположение в интрасети, если обновления подписаны в хранилище сертификатов **доверенных издателей** на локальном компьютере. Существует несколько способов настройки групповой политики на компьютерах в среде.
+## <a name="configuring-group-policy-to-allow-wua-on-computers-to-scan-for-published-updates"></a>Configurar a política de grupo para permitir que o WUA nos computadores para procurar atualizações publicadas
+Antes do Windows Update Agent (WUA) em computadores irá procurar as atualizações que foram criadas e publicadas com o Updates Publisher, uma definição de política tem de estar ativada para permitir conteúdo assinado da localização do serviço intranet Microsoft update. A definição de política é ativada, o WUA aceita as atualizações recebidas através de uma localização de intranet se as atualizações forem assinadas no **fabricantes fidedignos** arquivo de certificados no computador local. Existem vários métodos para configurar a política de grupo nos computadores no ambiente.
 
-Для компьютеров вне домена можно включить параметр раздела реестра Allow signed content from an intranet Microsoft Update service location (Разрешить прием содержимого с подписью из службы обновления Майкрософт в интрасети).
+Para computadores que não estão no domínio, pode ser configurada uma definição de chave de registo que permite conteúdo assinado da localização de serviço do Microsoft Update da intranet.
 
-В указанных ниже процедурах приводятся основные шаги, которые можно использовать для настройки групповой политики на компьютерах в домене и значения ключа реестра на компьютерах вне домена.
+Os procedimentos seguintes fornecem os passos básicos que podem ser utilizados para configurar política de grupo de computadores no domínio e um valor de chave de registo em computadores que não estão no domínio.
 
-### <a name="to-configure-group-policy-to-allow-wua-to-scan-for-published-updates"></a>Настройка групповой политики для разрешения WUA выполнить проверку опубликованных обновлений
-1.  Откройте оснастку консоли управления (MMC) редактора объектов групповой политики, используя соответствующие права безопасности пользователя для настройки групповой политики.
+### <a name="to-configure-group-policy-to-allow-wua-to-scan-for-published-updates"></a>Para configurar a política de grupo para permitir que o WUA procure publicados atualizações
+1.  Abra o snap-in do grupo política objeto Editor gestão consola Microsoft (MMC) com um utilizador que tem os direitos de segurança adequados para configurar a política de grupo.
 
-2.  Щелкните **Обзор** и выберите домен, подразделение или групповою политику, связанные с сайтом, на котором настроенные параметры групповой политики будут распространены на нужные клиентские компьютеры. Нажмите кнопку **ОК**, щелкните **Готово**, **Закрыть**, а затем нажмите кнопку **ОК** еще раз.
+2.  Clique em **procurar** e selecione o domínio, UO ou GPOs ligados a sites onde a política de grupo configurada serão propagadas aos computadores cliente pretendido. Clique em **OK**, clique em **concluir**, clique em **fechar**e, em seguida, clique em **OK**.
 
-3.  Разверните выбранный параметр политики в дереве консоли и последовательно разверните **Конфигурация компьютера**, **Административные шаблоны** и **Компоненты Windows**, а затем щелкните **Центр обновления Windows**.
+3.  Expanda a definição de política selecionado na árvore da consola, expanda **configuração do computador**, expanda **modelos administrativos**, expanda **componentes do Windows**e, em seguida, clique em **Windows Update**.
 
-4.  В области результатов щелкните правой кнопкой мыши **Allow signed content from intranet Microsoft update service location** (Разрешить прием содержимого с подписью из службы обновления Майкрософт в интрасети), выберите **Свойства**, **Включено** и нажмите кнопку **ОК**.
+4.  No painel de resultados, faça duplo clique **permitir conteúdo assinado da localização de serviço de atualização de Microsoft na intranet**, clique em **propriedades**, clique em **ativado**e, em seguida, clique em **OK**.

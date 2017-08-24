@@ -1,6 +1,6 @@
 ---
-title: "Создание роли системы сайта для точки Endpoint Protection | Документы Майкрософт"
-description: "Узнайте, как настроить Endpoint Protection для управления системой безопасности и защиты от вредоносных программ на клиентских компьютерах Configuration Manager."
+title: "Criar função de sistema de sites de ponto de Endpoint Protection | Microsoft Docs"
+description: "Saiba como configurar o Endpoint Protection para gerir a segurança e software maligno em computadores de cliente do Configuration Manager."
 defintion: 
 definition: 
 ms.custom: na
@@ -18,68 +18,68 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 6e717bcbe5ef8c3f2efa717d0cebb9e675e7c127
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-an-endpoint-protection-point-site-system-role"></a>Создание роли системы сайта для точки Endpoint Protection
+# <a name="create-an-endpoint-protection-point-site-system-role"></a>Criar uma função de sistema de sites de ponto de Endpoint Protection
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Прежде чем использовать Endpoint Protection, устанавливается роль системы сайта точки Endpoint Protection. Ее следует устанавливать только на одном сервере системы сайта (на верхнем уровне иерархии сайта центра администрирования или автономного первичного сайта).
+ A função de sistema de sites de ponto do Endpoint Protection tem de ser instalada antes de poder utilizar o Endpoint Protection. Tem de ser instalada apenas num servidor do sistema de sites e tem de ser instalada na parte superior da hierarquia num site de administração central ou num site primário autónomo.
 
- Выполните одну из приведенных ниже процедур в зависимости от того, требуется ли установить новый сервер системы сайта для Endpoint Protection или использовать существующий сервер.
- - [Установка на новом сервере системы сайта](#new-site-system-server)
- - [Установка на существующем сервере системы сайта](#existing-site-system-server)
+ Utilize um dos seguintes procedimentos consoante pretenda instalar um novo servidor de sistema de sites do Endpoint Protection ou utilizar um servidor de sistema de sites existente:
+ - [Instalar um novo servidor de sistema de sites](#new-site-system-server)
+ - [Instalar um servidor de sistema de sites existente](#existing-site-system-server)
 
 > [!IMPORTANT]
->  При установке точки Endpoint Protection клиент Endpoint Protection устанавливается на сервере, на котором размещается точка Endpoint Protection. Службы и проверки на этом клиенте отключены, чтобы позволить ему работать вместе с любым существующим решением для защиты от вредоносных программ, установленным на сервере. Если впоследствии этот сервер включается для управления с помощью Endpoint Protection и выбран вариант удаления любого другого антивредоносного решения, продукт стороннего производителя не будет удален. Такой продукт необходимо удалить вручную.
+>  Quando instala um ponto de Endpoint Protection, um cliente do Endpoint Protection está instalado no servidor que aloja o ponto de Endpoint Protection. Os serviços e análises estão desativados neste cliente para permitir que coexista com qualquer solução antimalware existente que esteja instalada no servidor. Se mais tarde ative este servidor para gestão pelo Endpoint Protection e selecionar a opção para remover qualquer solução antimalware de terceiros, o produto de terceiros não será removido. Tem de desinstalar este produto manualmente.
 
-## <a name="new-site-system-server"></a>новый сервер системы сайта
+## <a name="new-site-system-server"></a>Novo servidor do sistema de sites
 
-1.  В консоли Configuration Manager щелкните **Администрирование**.
+1.  Na consola do Configuration Manager, clique em **Administração**.
 
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Серверы и роли системы сайта**.
+2.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Servidores e Funções de Sistema de Sites**.
 
-3.  На вкладке **Главная** в группе **Создать** щелкните **Создать сервер системы сайта**.
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Servidor do Sistema de Sites**.
 
-4.  На странице **Общие** укажите общие параметры для системы сайта и нажмите кнопку **Далее**.
+4.  Na página **Geral** , especifique as definições gerais do sistema de sites e clique em **Seguinte**.
 
-5.  На странице **Выбор системной роли** выберите **Точка Endpoint Protection** в списке доступных ролей и нажмите кнопку **Далее**.
+5.  Na página **Seleção da Função do Sistema** , selecione **Ponto do Endpoint Protection** na lista de funções disponíveis e clique em **Seguinte**.
 
-6.  На странице **Endpoint Protection** установите флажок **Я принимаю условия лицензионного соглашения на использование Endpoint Protection** и нажмите кнопку **Далее**.
-
-    > [!IMPORTANT]
-    >  Чтобы использовать Endpoint Protection в Configuration Manager, необходимо принять условия лицензии.
-
-7.  На странице **Cloud Protection Service** выберите уровень информации, которую требуется отправлять в Майкрософт для помощи в разработке новых определений, а затем нажмите кнопку **Далее**.
-
-    > [!NOTE]
-    >  Этот параметр позволяет настроить параметры службы Cloud Protection Service (ранее называвшейся Microsoft Active Protection Service или MAPS), используемые по умолчанию. Затем можно задать значения настраиваемых параметров для каждой созданной политики защиты от вредоносных программ. Присоединитесь к службе Cloud Protection Service, чтобы повысить уровень защиты своих компьютеров, предоставляя корпорации Майкрософт образцы вредоносных программ, и быстрее получать новые определения для антивредоносных приложений. Кроме того, присоединение к Cloud Protection Service позволяет клиенту Endpoint Protection использовать службу динамических подписей для скачивания новых определений до того, как они будут опубликованы в Центре обновления Windows. Дополнительные сведения см. в разделе [Создание и развертывание политик защиты от вредоносных программ для Endpoint Protection в System Center Configuration Manager](endpoint-antimalware-policies.md).
-
-8.  Завершите работу мастера.
-
-
-## <a name="existing-site-system-server"></a>существующий сервер системы сайта
-
-1.  В консоли Configuration Manager щелкните **Администрирование**.
-
-2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**, выберите **Серверы и роли системы сайта**, а затем выберите сервер, который требуется использовать для Endpoint Protection.
-
-3.  На вкладке **Главная** в группе **Сервер** щелкните **Добавить роли системы сайта**.
-
-4.  На странице **Общие** укажите общие параметры для системы сайта и нажмите кнопку **Далее**.
-
-5.  На странице **Выбор системной роли** выберите **Точка Endpoint Protection** в списке доступных ролей и нажмите кнопку **Далее**.
-
-6.  На странице **Endpoint Protection** установите флажок **Я принимаю условия лицензионного соглашения на использование Endpoint Protection** и нажмите кнопку **Далее**.
+6.  Na página **Endpoint Protection** , selecione a caixa de verificação **Aceito os termos de licenciamento do Endpoint Protection** e clique em **Seguinte**.
 
     > [!IMPORTANT]
-    >  Чтобы использовать Endpoint Protection в Configuration Manager, необходимо принять условия лицензии.
+    >  Não é possível utilizar o Endpoint Protection no Configuration Manager a menos que aceite os termos de licenciamento.
 
-7.  На странице **Cloud Protection Service** выберите уровень информации, которую требуется отправлять в Майкрософт для помощи в разработке новых определений, а затем нажмите кнопку **Далее**.
+7.  No **serviço de proteção de nuvem** página, selecione o nível de informações que pretende enviar à Microsoft para ajudar a desenvolver novas definições e, em seguida, clique em **seguinte**.
 
     > [!NOTE]
-    >  Этот параметр позволяет настроить параметры службы Cloud Protection Service (ранее называвшейся MAPS), используемые по умолчанию. Затем можно задать значения настраиваемых параметров для каждой настроенной политики защиты от вредоносных программ. Дополнительные сведения см. в разделе [Создание и развертывание политик защиты от вредоносных программ для Endpoint Protection в System Center Configuration Manager](endpoint-antimalware-policies.md).
+    >  Esta opção configura as definições do serviço de proteção de nuvem (anteriormente conhecida como Microsoft Active Protection Service ou MAPS) que são utilizadas por predefinição. Em seguida, pode configurar definições personalizadas para cada política antimalware que criar. Aderir ao serviço de proteção de nuvem, para ajudar a manter os seus computadores mais seguros ao fornecer à Microsoft exemplos de software maligno que podem ajudar a manter as definições de antimalware mais atualizadas. Além disso, quando associa o serviço de proteção de nuvem, o cliente do Endpoint Protection pode utilizar o serviço de assinaturas dinâmicas para transferir novas definições antes de serem publicadas no Windows Update. Para obter mais informações, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-8.  Завершите работу мастера.
+8.  Conclua o assistente.
+
+
+## <a name="existing-site-system-server"></a>Servidor do sistema de sites existente
+
+1.  Na consola do Configuration Manager, clique em **Administração**.
+
+2.  No **administração** área de trabalho, expanda **configuração do Site**, clique em **servidores e funções de sistema de sites**e, em seguida, selecione o servidor que pretende utilizar para o Endpoint Protection.
+
+3.  No separador **Home Page** , no grupo **Servidor** , clique em **Adicionar Funções do Sistema de Sites**.
+
+4.  Na página **Geral** , especifique as definições gerais do sistema de sites e clique em **Seguinte**.
+
+5.  Na página **Seleção da Função do Sistema** , selecione **Ponto do Endpoint Protection** na lista de funções disponíveis e clique em **Seguinte**.
+
+6.  Na página **Endpoint Protection** , selecione a caixa de verificação **Aceito os termos de licenciamento do Endpoint Protection** e clique em **Seguinte**.
+
+    > [!IMPORTANT]
+    >  Não é possível utilizar o Endpoint Protection no Configuration Manager a menos que aceite os termos de licenciamento.
+
+7.  No **serviço de proteção de nuvem** página, selecione o nível de informações que pretende enviar à Microsoft para ajudar a desenvolver novas definições e, em seguida, clique em **seguinte**.
+
+    > [!NOTE]
+    >  Esta opção configura as definições do serviço de proteção de nuvem (anteriormente conhecidas como MAPS) que são utilizadas por predefinição. Pode configurar definições personalizadas para cada política antimalware que configurar. Para obter mais informações, consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).
+
+8.  Conclua o assistente.

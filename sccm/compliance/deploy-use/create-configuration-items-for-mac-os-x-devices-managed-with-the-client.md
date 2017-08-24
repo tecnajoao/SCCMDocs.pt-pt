@@ -1,6 +1,6 @@
 ---
-title: "Создание элементов конфигурации для компьютеров Mac под управлением клиентов Configuration Manager | Документация Майкрософт"
-description: "Использование элемента конфигурации Mac OS X System Center Configuration Manager для управления параметрами устройств Mac OS X."
+title: "Criar itens de configuração para o Configuration Manager do cliente gerido Macs - | Microsoft Docs"
+description: "Utilize o item de configuração do Mac OS X do System Center Configuration Manager para gerir as definições para dispositivos Mac OS X."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -17,159 +17,159 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 541e5ad629a9e2ed9c353dff150f9b86b9d12b7d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Создание элементов конфигурации для устройств Mac OS X, управляемых клиентом System Center Configuration Manager
-Используйте элемент конфигурации **Mac OS X (настраиваемая)** в System Center Configuration Manager, чтобы управлять параметрами устройств Mac OS X, которыми управляет клиент Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Mac OS X geridos com o cliente System Center Configuration Manager
+Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item de configuração para gerir as definições para dispositivos Mac OS X que são geridos pelo cliente do Configuration Manager.  
   
- Операционная система Mac OS X использует файлы списка свойств (PLIST) для хранения параметров приложения. Используйте параметры соответствия для оценки и исправления параметров в файле списка свойств. Кроме того, вы можете управлять параметрами Mac OS X, написав сценарий оболочки, возвращающий значение, которое вы можете оценивать и исправлять для обеспечения соответствия.  
+ O sistema operativo Mac OS X utiliza ficheiros de lista de propriedades (ou plist) para armazenar as definições das aplicações. Utilize as definições de compatibilidade para avaliar e corrigir as definições num ficheiro de lista de propriedades. Também pode gerir as definições de Mac OS X ao escrever um Script de Shell que devolva um valor que pode avaliar e corrigir para fins de compatibilidade.  
   
-### <a name="to-create-a-custom-mac-os-x-configuration-item"></a>Создание пользовательского элемента конфигурации Mac OS X  
+### <a name="to-create-a-custom-mac-os-x-configuration-item"></a>Para criar um item de configuração do Mac OS X personalizado  
   
-1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade**.  
   
-2.  В рабочей области **Активы и соответствие** разверните узел **Параметры соответствия**и выберите **Элементы конфигурации**.  
+2.  Na área de trabalho **Ativos e Conformidade** , expanda **Definições de Conformidade**e, em seguida, clique em **Itens de Configuração**.  
   
-3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации**.  
+3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
   
-4.  На странице **Общие** **мастера создания элемента конфигурации**укажите имя и необязательное описание элемента.  
+4.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.  
   
-5.  В разделе **Укажите тип элемента конфигурации, который требуется создать** выберите **Mac OS X (настраиваемая)**.  
+5.  Em **Especifique o tipo de item de configuração que pretende criar**, selecione **Mac OS X (personalizado)**.  
   
-6.  Щелкните элемент **Категории**, если хотите создать и назначить категории для поиска и фильтрации элементов конфигурации в консоли Configuration Manager.  
+6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
   
-7.  На странице **Поддерживаемые платформы** в мастере выберите конкретные версии Mac OS X, которые будут вычислять данный элемент конфигурации.  
+7.  Na página **Plataformas Suportadas** do assistente, selecione as versões do Mac OS X específicas que irão avaliar o item de configuração.  
   
-8.  На странице **Параметры** мастера вы добавите новые параметры, которые будут оцениваться на соответствие на компьютерах Mac. Щелкните **Создать** , чтобы открыть диалоговое окно **Создание параметра** .  
+8.  Na página **Definições** do assistente, terá de adicionar novas definições cuja compatibilidade em computadores Mac será avaliada. Clique em **Nova** para abrir a caixa de diálogo **Criar Definição**.  
   
-9. В диалоговом окне **Создание параметра** введите уникальное имя и описание для параметра.  
+9. Na caixa de diálogo **Criar Definição**, introduza um nome único e uma descrição para a definição.  
   
-10. Выберите требуемый **Тип параметра** , а затем предоставьте необходимые сведения, как показано в следующей таблице:  
+10. Escolha o **Tipo de Definição** que pretende e, em seguida, escreva as informações necessárias, conforme apresentado na seguinte tabela:  
   
-    -   **Настройки Mac OS X** -  
+    -   **Preferências do Mac OS X** -  
   
-        -   **Идентификатор приложения** : укажите идентификатор приложения для файла списка свойств, из которого требуется оценить ключ на соответствие.  
+        -   **ID da Aplicação** – especifique o ID da aplicação do ficheiro de lista de propriedades a partir do qual pretende avaliar a compatibilidade de uma chave.  
   
-             Например, если вы хотите изменить параметры браузера Safari, можно использовать **com.apple.Safari.plist**.  
+             Por exemplo, se pretender editar as definições do browser Safari, poderá utilizar **com.apple.Safari.plist**.  
   
-        -   **Ключ** — укажите имя ключа, необходимый для оценки соответствия на компьютерах Mac. Используйте следующий синтаксис: */<словарь\>/<имя_ключа>\>*.  
-  
-            > [!IMPORTANT]  
-            >  Имя ключа зависит от регистра и не будет оценено, если отличается от имени ключа на компьютере Mac. Кроме того, имя ключа нельзя изменить после его указания. Если необходимо изменить имя ключа, удалите и заново создайте параметр.  
-  
-    -   **Сценарий** -  
-  
-        -   **Сценарий обнаружения** : щелкните элемент **Добавить сценарий**, а затем введите сценарий оболочки для оценки параметров на компьютере Mac на предмет соответствия. Используйте команду **echo** в сценарии оболочки для возврата значений в Configuration Manager для обеспечения соответствия. Configuration Manager использует результаты, возвращенные в **STDOUT**, для оценки соответствия.  
+        -   **Chave** – especifique o nome da chave cuja compatibilidade quer avaliar nos computadores Mac. Utilize a sintaxe */<dictionary\>/<keyname\>*.  
   
             > [!IMPORTANT]  
-            >  Не включайте в сценарий обнаружения команду **reboot** . Поскольку сценарий обнаружения выполняется при каждом перезапуске клиента, это приведет к постоянной перезагрузке компьютера Mac.  
+            >  O nome da chave é sensível a maiúsculas e minúsculas e não será avaliado caso seja diferente do nome da chave no computador Mac. Além disso, não é possível editar o nome da chave depois de o ter especificado. Se precisar de editar o nome da chave, elimine a definição e, em seguida, recrie-a.  
   
-        -   **Сценарий исправления (необязательно)** : при необходимости щелкните элемент **Добавить сценарий** , а затем введите сценарий оболочки, используемый для исправления всех несоответствующих параметров на клиентских компьютерах Mac.  
+    -   **Script** -  
+  
+        -   **Script de Deteção** – clique em **Adicionar Script** e, em seguida, introduza um script de shell para avaliar a compatibilidade das definições no computador Mac. Utilize o **eco** comando no script de shell para devolver valores para o Configuration Manager para compatibilidade. O Configuration Manager utiliza os resultados devolvidos no **STDOUT** para avaliar a compatibilidade.  
   
             > [!IMPORTANT]  
-            >  Чтобы не внести символы форматирования, которые компьютер Mac не в состоянии интерпретировать, не используйте функцию копирования и вставки, а вводите сценарий вручную.  
+            >  Não inclua o comando **reiniciar** no script de deteção. Uma vez que o script de deteção é executado sempre que o cliente é reiniciado, isto fará com que o computador Mac reinicie continuamente.  
   
-11. Выберите **Тип данных** , представляющий собой формат, в котором условие возвращает данные перед их использованием для оценки параметра.  
+        -   **Script de remediação (opcional)** -opcionalmente, clique em **Adicionar Script** e, em seguida, introduza um script de shell utilizado para corrigir as definições não compatíveis encontradas nos computadores cliente Mac.  
+  
+            > [!IMPORTANT]  
+            >  Para garantir que não introduz carateres de formatação que o computador Mac não consegue interpretar, em vez de copiar e colar, escreva o script.  
+  
+11. Escolha o **Tipo de dados** que é o formato no qual a condição devolve os dados antes de ser utilizada para avaliar a definição.  
   
     > [!NOTE]  
-    >  Тип данных **с плавающей запятой** поддерживает только 3 цифры после десятичной запятой.  
+    >  O tipo de dados **Vírgula flutuante** suporta apenas três dígitos depois da casa decimal.  
     >   
-    >  Configuration Manager не поддерживает использование **логического** типа данных для параметров сценария элемента конфигурации Mac. Вместо этого задайте тип данных **Целое число** и убедитесь, что сценарий возвращает целочисленное значение.  
+    >  O Configuration Manager não suporta a utilização de **booleano** tipo de dados para definições de script de item de configuração de Mac. Em alternativa, defina o tipo de dados como **Número inteiro** e certifique-se de que o script devolve um valor inteiro.  
   
-12. Нажмите кнопку **ОК** , чтобы сохранить параметр и закрыть диалоговое окно **Создание параметра** , а затем продолжайте добавлять столько параметров, сколько требуется.  
+12. Clique em **OK** para guardar a definição, feche a caixa de diálogo **Criar Definição** e, em seguida, continue a adicionar as definições que forem necessárias.  
   
-13. На странице **Правила соответствия** мастера указываются условия, определяющие соответствие элемента конфигурации требованиям. Перед тем как оценить параметр на соответствие требованиям, необходимо создать по крайней мере одно правило соответствия. Щелкните элемент **Создать** для добавления нового правила.  
+13. Na página **Regras de Compatibilidade** do assistente, vai especificar as condições que definem a compatibilidade de um item de configuração. Antes de poder ser avaliada a compatibilidade de uma definição, esta tem de ter, pelo menos, uma regra de compatibilidade. Clique em **Nova** para adicionar uma nova regra.  
   
-14. В диалоговом окне **Создать правило** укажите следующие сведения.  
+14. Na caixa de diálogo **Criar Regra**, forneça as seguintes informações:  
   
-    -   **Имя.** Введите имя для правила соответствия.  
+    -   **Nome:** Introduza um nome para a regra de compatibilidade.  
   
-    -   **Описание:** Введите описание для правила соответствия.  
+    -   **Descrição:** Introduza uma descrição para a regra de compatibilidade.  
   
-    -   **Выбранный параметр:** Щелкните **Обзор** Открытие **выберите параметр** диалоговое окно. Выберите параметр, который требуется определить правило, или нажмите кнопку **новый параметр**. По окончании работы нажмите кнопку **Выбрать**.  
+    -   **Definição selecionada:** Clique em **procurar** para abrir o **selecionar definição** caixa de diálogo. Selecione a definição na qual pretende definir uma regra ou clique em **Nova Definição**. Quando terminar, clique em **Selecionar**.  
   
         > [!TIP]  
-        >  Можно также нажать кнопку **Свойства** , чтобы просмотреть сведения о выбранном в настоящий момент параметре.  
+        >  Também pode clicar em **Propriedades** para ver informações sobre a definição atualmente selecionada.  
   
-    -   **Тип правила:** выберите тип правила соответствия, которое требуется использовать.  
+    -   **Tipo de regra:** Selecione o tipo de regra de compatibilidade que pretende utilizar:  
   
-        -   **Значение** : создайте правило, сравнивающее значение, которое вернул элемент конфигурации, с указанным вами значением.  
+        -   **Valor:** Crie uma regra que compara o valor devolvido pelo item de configuração em relação a um valor que especificar.  
   
-        -   **Существование** : создайте правило, оценивающее параметр в зависимости от того, существует ли он на устройстве.  
+        -   **Existencial** - crie uma regra que avalie a definição dependendo de existir num dispositivo.  
   
-    -   Для типа правила **Значение**укажите следующую информацию.  
+    -   Num tipo de regra de **Valor**, especifique as seguintes informações:  
   
-        -   "Этот параметр должен соответствовать следующему правилу": выберите оператор и значение, соответствие которого будет оцениваться для выбранного параметра. Можно использовать следующие операторы.  
+        -   A definição deve estar em conformidade com a seguinte regra – Selecione um operador e um valor que é avaliado quanto à compatibilidade com a definição selecionada. Pode utilizar os seguintes operadores:  
   
-            -   **Равно**  
+            -   **Igual a**  
   
-            -   **Не равно**  
+            -   **Não é igual a**  
   
-            -   **Больше**  
+            -   **Maior que**  
   
-            -   **Меньше**  
+            -   **Inferior a**  
   
-            -   **Между**  
+            -   **Entre**  
   
-            -   **Больше или равно**  
+            -   **Maior ou igual a**  
   
-            -   **Меньше или равно**  
+            -   **Menor ou igual a**  
   
-            -   **Один из** : в текстовом поле укажите одну запись в каждой строке.  
+            -   **Um de** - na caixa de texto, especifique uma entrada em cada linha.  
   
-            -   **Ни один из** : в текстовом поле укажите одну запись в каждой строке.  
+            -   **Nenhum de** - na caixa de texto, especifique uma entrada em cada linha.  
   
-        -   **Исправлять несоответствующие параметры, когда это возможно** : выберите этот параметр, если требуется, чтобы Configuration Manager автоматически исправлял несоответствующие правила.  
+        -   **Remediar regras incompatíveis quando suportado** – selecione esta opção se pretender que o Configuration Manager retifique automaticamente as regras incompatíveis.  
   
             > [!IMPORTANT]  
-            >  Исправлять несоответствующие правила можно только в случае, когда оператор правила настроен со значением **Равно**.  
+            >  Só pode remediar regras incompatíveis quando o operador de regra estiver definido como **É igual a**.  
   
-        -   **Сообщить о несоответствии, если не удастся найти экземпляр этого параметра** : элемент конфигурации сообщает о несоответствии, если этот параметр не найден на компьютере Mac.  
+        -   **Comunicar incompatibilidade se não for encontrada a instância desta definição** – o item de configuração comunica a incompatibilidade se esta definição não for encontrada no computador Mac.  
   
-    -   **Серьезность несоответствия для отчетов** : укажите степень серьезности, добавляемую в отчет, если данное правило соответствия не выполняется. Ниже перечислены доступные степени важности.  
+    -   **Gravidade de incompatibilidade para relatórios** - especifica o nível de gravidade reportado se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
   
-        -   **Нет**. Компьютеры, которые не отвечают этому правилу соответствия, не передают сведения о серьезности сбоя для отчетов Configuration Manager.  
+        -   **Nenhum** -computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-        -   **Информация**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Информация**.  
+        -   **Informações** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-        -   **Предупреждение**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Предупреждение**.  
+        -   **Aviso** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
   
-        -   **Критический**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критический**.  
+        -   **Crítico** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
   
-        -   **Критическая с событием**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критическая с событием**. Кроме того, этот уровень серьезности регистрируется клиентским компьютером Mac.  
+        -   **Crítico com evento** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade também é registado pelo computador cliente Mac.  
   
-    -   Для типа правила **Существующий**укажите следующую информацию.  
+    -   Para um tipo de regra **Existencial**, especifique as seguintes informações:  
   
-        -   Выберите один из следующих.  
+        -   Escolha um dos seguintes:  
   
-            -   **Параметр должен существовать на клиентских устройствах**  
+            -   **A definição deve existir nos dispositivos cliente**  
   
-            -   **Параметр не должен существовать на клиентских устройствах**  
+            -   **A definição não deve existir nos dispositivos cliente**  
   
-        -   **Степень важности несоответствия для отчетов:** Укажите уровень серьезности, которая передается при сбое указанное правило соответствия. Ниже перечислены доступные степени важности.  
+        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
   
-            -   **Нет**. Компьютеры, которые не отвечают этому правилу соответствия, не передают сведения о серьезности сбоя для отчетов Configuration Manager.  
+            -   **Nenhum** -computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-            -   **Информация**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Информация**.  
+            -   **Informações** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-            -   **Предупреждение**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Предупреждение**.  
+            -   **Aviso** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
   
-            -   **Критический**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критический**.  
+            -   **Crítico** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
   
-            -   **Критическая с событием**. Компьютеры, которые не отвечают этому правилу соответствия, передают для отчетов Configuration Manager сведения о сбое с уровнем серьезности **Критическая с событием**. Кроме того, этот уровень серьезности регистрируется клиентским компьютером Mac.  
+            -   **Crítico com evento** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade também é registado pelo computador cliente Mac.  
   
         > [!NOTE]  
-        >  Отображаемые параметры могут различаться в зависимости от типа параметра, для которого настраивается правило.  
+        >  As opções apresentadas podem variar consoante o tipo de definição para o qual está a configurar uma regra.  
   
-    -   Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Создать правило** .  
+    -   Clique em **OK** para fechar a caixa de diálogo **Criar Regra**.  
   
-15. На странице **Сводка** проверьте параметры для нового элемента конфигурации, а затем завершите работу мастера.  
+15. Na página **Resumo**, confirme as definições do novo item de configuração e, em seguida, conclua o assistente.  
   
- Созданный элемент конфигурации отображается в узле **Элементы конфигурации** рабочей области **Активы и соответствие** .  
+ O novo item de configuração é apresentado no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade**.  
   
- Сведения о том, как добавить этот элемент конфигурации в конфигурационную базу, см. в статье [Создание конфигурационных баз в System Center Configuration Manager](../../compliance/deploy-use/create-configuration-baselines.md).  
+ Se pretender agora adicionar este item de configuração a uma linha de base de configuração, veja [Como criar linhas de base de configuração no System Center Configuration Manager](../../compliance/deploy-use/create-configuration-baselines.md).  
   
-## <a name="see-also"></a>См. также  
- [Элементы конфигурации для устройств, управляемых с помощью клиента System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
+## <a name="see-also"></a>Consulte Também  
+ [Itens de configuração para dispositivos geridos com o cliente do System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)

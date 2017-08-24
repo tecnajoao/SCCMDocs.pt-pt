@@ -1,6 +1,6 @@
 ---
-title: "Безопасность и конфиденциальность параметров соответствия требованиям | Документы Майкрософт"
-description: "Сведения о рекомендациях по обеспечению безопасности параметров соответствия требованиям в System Center Configuration Manager."
+title: "Segurança e privacidade para definições de compatibilidade | Microsoft Docs"
+description: "Saiba mais sobre a segurança melhores práticas para definições de compatibilidade no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,27 +17,27 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: e7dc554ffcd23978eed44819b525f6cc239b2135
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-compliance-settings-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность параметров соответствия требованиям в System Center Configuration Manager
+# <a name="security-and-privacy-for-compliance-settings-in-system-center-configuration-manager"></a>Segurança e privacidade para definições de compatibilidade no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-## <a name="security-best-practices-for-compliance-settings"></a>Рекомендации по безопасности для параметров соответствия требованиям  
+## <a name="security-best-practices-for-compliance-settings"></a>Procedimentos recomendados de segurança para definições de compatibilidade  
 
-|Рекомендация по безопасности|Дополнительные сведения|  
+|Procedimento recomendado de segurança|Mais informações|  
 |----------------------------|----------------------|  
-|Не отслеживайте конфиденциальные данные.|Чтобы избежать раскрытия сведений, не настраивайте элементы конфигурации для отслеживания конфиденциальных данных.|  
-|Не настраивайте правила соответствия, которые используют данные, доступные для изменения конечными пользователями.|При создании правила соответствия требованиям на основе данных, которые пользователи могут изменять, таких как параметры реестра для вариантов конфигурации, результаты проверки соответствия будут ненадежными.|  
-|Импортируйте пакеты конфигурации Microsoft System Center и другие данные конфигурации из внешних источников, только если они имеют действительную цифровую подпись доверенного издателя.|Опубликованные данные конфигурации могут иметь цифровую подпись, чтобы проверить источник публикации и убедиться в том, что данные не были незаконно изменены. Если проверка цифровой подписи не пройдена, отображается соответствующее предупреждение и запрос на продолжение импорта. Не импортируйте неподписанные данные, если невозможно проверить их источник и целостность.|  
-|Внедряйте средства управления доступом для защиты эталонных компьютеров.|Убедитесь в том, что при настройке пользователем параметра реестра или файловой системы путем обзора компьютера-образца этот компьютер не был скомпрометирован.|  
-|Обеспечьте безопасность коммуникационного канала при обзоре компьютера-образца.|Чтобы предотвратить незаконное изменение данных, передаваемых по сети, используйте протокол IPsec или SMB для взаимодействия между компьютером с запущенной консолью Configuration Manager и компьютером-образцом.|  
-|Ограничьте и отслеживайте действия пользователей, которым предоставлена роль системы безопасности на основе роли "Менеджер параметров соответствия".|Пользователи с правами администратора, которым предоставлена роль **Менеджер по параметрам соответствия** , могут развертывать элементы конфигурации на всех устройствах и для всех пользователей иерархии. Элементы конфигурации могут предоставлять большие возможности и включать в себя, например, сценарии и изменение настройки реестра.|  
+|Não monitorize dados confidenciais.|Para ajudar a evitar a divulgação de informações, não configure os itens de configuração para monitorizar informações potencialmente confidenciais.|  
+|Não configure regras de conformidade que utilizem dados passíveis de serem modificados por utilizadores finais.|Se criar uma regra de compatibilidade com base em dados que os utilizadores podem modificar, como definições de registo para opções de configuração, os resultados de compatibilidade não serão fiáveis.|  
+|Importe pacotes de configuração do Microsoft System Center e outros dados de configuração de origens externas apenas se tiverem uma assinatura digital válida de um fabricante fidedigno.|Os dados de configuração publicados podem ser assinados digitalmente para que possa verificar a origem da publicação e certificar-se de que os dados não foram adulterados. Se a verificação da assinatura digital falhar, é apresentado um aviso e é-lhe perguntado se pretende continuar com a importação. Não importe dados não assinados se não conseguir verificar a origem e a integridade dos dados.|  
+|Implemente controlos de acesso para proteger computadores de referência.|Certifique-se de que quando um utilizador administrativo configura uma definição de registo ou de sistema de ficheiros navegando para um computador de referência, o computador de referência não tinha sido comprometido.|  
+|Proteja o canal de comunicação ao navegar para um computador de referência.|Para impedir a adulteração dos dados quando é transferido através da rede, utilize a segurança de protocolo de Internet (IPsec) ou bloco de mensagem de servidor (SMB) entre o computador que executa a consola do Configuration Manager e o computador de referência.|  
+|Restrinja e monitorize os utilizadores administrativos a quem é concedida a função de segurança baseada em funções de Gestor de Definições de Conformidade.|Os utilizadores administrativos a quem é concedida a função **Gestor de Definições de Compatibilidade** podem implementar itens de configuração em todos os dispositivos e em todos os utilizadores na hierarquia. Os itens de configuração podem ser muito eficientes e podem incluir, por exemplo, scripts e reconfiguração do registo.|  
 
-## <a name="privacy-information-for-compliance-settings"></a>Сведения о соблюдении конфиденциальности для параметров соответствия требованиям  
- Параметры соответствия требованиям можно использовать для оценки соответствия клиентских устройств элементам конфигурации, развертываемым в базовых шаблонах конфигурации. Часть параметров можно автоматически исправлять, если они не соответствуют требованиям. Сведения о соответствии отправляются точкой управления на сервер сайта и сохраняются в базе данных сайта. Эта информация шифруется, когда устройства отправляют ее в точку управления, но не хранится в зашифрованном виде в базе данных сайта. Информация хранится в базе данных до тех пор, пока не будет удалена при выполнении задачи обслуживания сайта **Удаление устаревших данных управления конфигурацией** через каждые 90 дней. Можно настроить интервал удаления. Сведения о соответствии не отправляются в Майкрософт.  
+## <a name="privacy-information-for-compliance-settings"></a>Informações de privacidade para definições de compatibilidade  
+ Pode utilizar definições de compatibilidade para avaliar se os dispositivos cliente são compatíveis com os itens de configuração que implementar em linhas de base de configuração. Algumas definições podem ser remediadas automaticamente se não forem compatíveis. As informações de conformidade são enviadas para o servidor do site pelo ponto de gestão e armazenadas na base de dados do site. As informações são encriptadas quando os dispositivos as enviam para o ponto de gestão, mas não são armazenadas em formato encriptado na base de dados do site. As informações são retidas na base de dados até que a tarefa de manutenção do site **Eliminar Dados de Gestão de Configuração Desatualizados** as elimine todos os 90 dias. Pode configurar o intervalo de eliminação. As informações de conformidade não são enviadas à Microsoft.  
 
- По умолчанию устройства не оценивают параметры соответствия. Кроме того, необходимо настроить элементы и базовые шаблоны конфигурации, а затем развернуть их на устройствах.  
+ Por predefinição, os dispositivos não avaliam as definições de compatibilidade. Além disso, tem de configurar os itens de configuração e as linhas de base de configuração e, em seguida, implementá-los nos dispositivos.  

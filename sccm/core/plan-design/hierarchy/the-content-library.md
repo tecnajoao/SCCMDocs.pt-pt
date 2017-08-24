@@ -1,6 +1,6 @@
 ---
-title: "Библиотека содержимого | Документы Майкрософт"
-description: "Дополнительные сведения о библиотеке содержимого, используемой System Center Configuration Manager для уменьшения общего объема распространяемого содержимого."
+title: "A biblioteca de conteúdos | Microsoft Docs"
+description: "Saiba mais sobre a biblioteca de conteúdos do System Center Configuration Manager utiliza para reduzir o tamanho geral do conteúdo distribuído."
 ms.custom: na
 ms.date: 2/14/2017
 ms.reviewer: na
@@ -16,51 +16,51 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0fa9f431c00476d71b2b08f92f914d76636d1a27
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: ru-RU
+ms.translationtype: MT
+ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-content-library-in-system-center-configuration-manager"></a>Библиотека содержимого в System Center Configuration Manager.
+# <a name="the-content-library-in-system-center-configuration-manager"></a>A biblioteca de conteúdos no System Center Configuration Manager
 
-*Применимо к: System Center Configuration Manager (Current Branch)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Библиотека содержимого — это хранилище единственных копий содержимого, которое System Center Configuration Manager использует, чтобы уменьшить общий размер распространяемого содержимого. В библиотеке содержимого хранятся все файлы контента для обновлений ПО, приложений, развертываний операционных систем и т.д.
+A biblioteca de conteúdos é um arquivo de instância única de conteúdo que o System Center Configuration Manager utiliza para reduzir o tamanho geral do corpo combinado de conteúdo que distribui. A biblioteca de conteúdos armazena todos os ficheiros de conteúdo para atualizações de software, aplicações, implementações do sistema operativo e assim sucessivamente.
 
- - Копия библиотеки содержимого автоматически создается и сохраняется на каждом **сервере сайта** и в каждой **точке распространения**.
+ - Uma cópia da biblioteca de conteúdos é automaticamente criada e mantida em cada **servidor do site** e em cada **ponto de distribuição**.
 
- - Перед тем как Configuration Manager скачивает файлы содержимого на сервер сайта или копирует их в точки распространения, Configuration Manager проверяет, не находятся ли эти файлы в библиотеке содержимого.
- - Если файл содержимого доступен, Configuration Manager не копирует файл, а связывает существующий файл содержимого с приложением или пакетом.
+ - Antes do Configuration Manager transfere ficheiros de conteúdo para o servidor do site ou copia os ficheiros para pontos de distribuição, o Configuration Manager verifica se cada ficheiro de conteúdo já se encontra na biblioteca de conteúdos.
+ - Se o ficheiro de conteúdo estiver disponível, o Configuration Manager não copia o ficheiro e em vez disso, associa o ficheiro de conteúdo existente à aplicação ou pacote.
 
-На компьютерах, где вы устанавливаете точку распространения, можно настроить следующее:
+Em computadores onde instala um ponto de distribuição, pode configurar:
 
-- Один или несколько дисков, на которых требуется создать библиотеку содержимого.
-- Приоритет для каждого используемого диска.
+- Uma ou mais unidades de disco no qual pretende criar a biblioteca de conteúdos.
+- Uma prioridade para cada unidade que utiliza.
 
-Configuration Manager копирует файлы содержимого на диск с самым высоким приоритетом до тех пор, пока на нем доступно пространство достаточного объема.
-- Параметры диска настраиваются во время установки точки распространения.
-- Вы не можете настроить параметры диска точки распространения после завершения установки.
+Quando o Configuration Manager copia os ficheiros de conteúdo, copia-os para a unidade com a prioridade mais alta até essa unidade conter menos do que uma quantidade mínima de espaço livre que especificar.
+- Configurar as definições de unidade durante a instalação do ponto de distribuição.
+- Não é possível configurar as definições de unidade nas propriedades do ponto de distribuição após a conclusão da instalação.
 
 
-Дополнительные сведения о настройке параметров диска для точки распространения см. в статье [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+Para obter mais informações sobre como configurar as definições de unidade para o ponto de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
 >  [!IMPORTANT]  
->  Чтобы переместить библиотеку содержимого в другое расположение в точке распространения после установки, используйте **средство переноса библиотеки содержимого** в наборе средств System Center Configuration Manager 2012 R2. Набор средств можно загрузить в [Центре загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=279566).  
+>  Para mover a biblioteca de conteúdos para uma localização diferente num ponto de distribuição após a instalação, utilize o **ferramenta de transferência da biblioteca de conteúdos** no Toolkit do System Center 2012 R2 Configuration Manager. Pode transferir o toolkit a partir do [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=279566).  
 
-## <a name="about-the-content-library-on-the-central-administration-site"></a>Сведения о библиотеке содержимого на сайте центра администрирования  
- По умолчанию Configuration Manager создает библиотеку содержимого на сайте центра администрирования, где установлен сайт. Библиотека контента размещается на диске сервера сайта с наибольшим свободным пространством на диске. Так как вы не можете установить точку распространения на сайте центра администрирования, вы не можете указать приоритеты дисков, используемых для библиотеки содержимого. Как и для библиотеки контента на других серверах сайта и в точках распространения, если на диск с библиотекой контента заканчивается свободное место, библиотека автоматически начинает использовать следующий доступный диск.  
+## <a name="about-the-content-library-on-the-central-administration-site"></a>Sobre a biblioteca de conteúdos no site de administração central  
+ Por predefinição, o Configuration Manager cria uma biblioteca de conteúdos no site de administração central, quando a instalação do site. A biblioteca de conteúdos é colocada na unidade do servidor do site que tenha mais disco espaço livre. Uma vez que não é possível instalar um ponto de distribuição no site de administração central, não é possível atribuir prioridades aos processos unidades para utilização da biblioteca de conteúdos. Semelhante à biblioteca de conteúdos noutros servidores de site e pontos de distribuição, quando a unidade que contém a biblioteca de conteúdos fica sem espaço em disco disponível, a biblioteca de conteúdos aplica-se automaticamente para a unidade disponível seguinte.  
 
- Configuration Manager использует библиотеку содержимого на сайте центра администрирования в следующих случаях:  
+ O Configuration Manager utiliza a biblioteca de conteúdos no site de administração central, nos seguintes cenários:  
 
--   при создании содержимого на сайте центра администрирования;  
+-   Quando cria conteúdo no site de administração central.  
 
--   при переносе содержимого с другого сайта Configuration Manager и назначении сайта центра администрирования сайтом, который будет управлять этим содержимым.  
+-   Quando migra o conteúdo a partir de outro site do Configuration Manager e atribui o site de administração central como o site que gere esse conteúdo.  
 
 > [!NOTE]  
->  При создании контента на первичном сайте и последующем распространении на другой первичный сайт или вторичный сайт другого первичного сайта контент папки "Входящие" планировщика временно сохраняется на сайте центра администрирования, но этот контент не добавляется в библиотеку контента сайта центра администрирования.  
+>  Quando cria conteúdo num site primário e, em seguida, distribui-lo para outro site primário ou um site secundário abaixo de um site principal diferente, o site de administração central temporariamente armazena esse conteúdo na pasta a receber do Programador no site de administração central, mas não adiciona esse conteúdo à respetiva biblioteca de conteúdos.  
 
- Используйте следующие параметры для управления библиотекой контента на сайте центра администрирования.  
+ Utilize as seguintes opções para gerir a biblioteca de conteúdos no site de administração central:  
 
--   Чтобы библиотека содержимого не устанавливалась на определенных дисках, создайте пустой файл с именем **no_sms_on_drive.sms** и перед созданием библиотеки содержимого скопируйте его в корневую папку диска.  
+-   Para impedir que a biblioteca de conteúdos que está a ser instalado numa unidade específica, crie um ficheiro vazio designado **no_sms_on_drive.sms**e, em seguida, copie-o para a pasta raiz da unidade antes da biblioteca de conteúdos é criada.  
 
--   После создания библиотеки содержимого воспользуйтесь **средством переноса библиотеки содержимого** из набора средств System Center Configuration Manager 2012 R2, чтобы задать расположение библиотеки. Набор средств можно загрузить в [Центре загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=279566).  
+-   Depois da biblioteca de conteúdos tiver sido criada, utilize **ferramenta de transferência da biblioteca de conteúdos** do Toolkit do System Center 2012 R2 Configuration Manager, para gerir a localização da biblioteca de conteúdos. Pode transferir o toolkit a partir do [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=279566).  
