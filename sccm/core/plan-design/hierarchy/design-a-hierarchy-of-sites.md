@@ -2,7 +2,7 @@
 title: Estruturar uma hierarquia do site - Configuration Manager | Microsoft Docs
 description: "Compreenda as topologias disponíveis e as opções de gestão do System Center Configuration Manager, pelo que pode planear a hierarquia de sites."
 ms.custom: na
-ms.date: 6/16/2017
+ms.date: 8/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 4710b1b89eb50cb7bcf4c4ee50c12a96b6561bc9
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 2c587c0ad894dc567a6f1804626db611ff9a1013
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Estruturar uma hierarquia de sites do System Center Configuration Manager
 
@@ -27,6 +27,13 @@ ms.lasthandoff: 08/07/2017
 
 Antes de instalar o primeiro site numa nova hierarquia do System Center Configuration Manager, é boa ideia compreender as topologias disponíveis para o Configuration Manager, os tipos de sites disponíveis e relações entre si e o âmbito de gestão que cada tipo de site fornece.
 Em seguida, após a consideração dos opções de gestão de conteúdo que podem reduzir o número de sites que tem de instalar, que pode planear a topologia de forma eficiente serve as necessidades atuais e pode expandir mais tarde para gerir o crescimento futuro.  
+
+Quando planear, tenha em limitações de atenção para adicionar sites adicionais para uma hierarquia ou site autónomo:
+-   Pode instalar um novo site primário abaixo de um site de administração central, até o [suportado número de sites primários](/sccm/core/plan-design/configs/size-and-scale-numbers) para a hierarquia.
+-   Pode [expandir um site primário autónomo para instalar um novo site de administração central](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), para que, em seguida, pode instalar sites primários adicionais.
+-   Pode instalar novos sites secundários abaixo de um site primário, até [suportado limites para o site primário](/sccm/core/plan-design/configs/size-and-scale-numbers) e hierarquia geral.
+-   Não é possível adicionar um site instalado anteriormente a uma hierarquia existente para intercalar os dois sites autónomos. É suportada apenas uma instalação de novos sites para uma hierarquia de sites existente.
+
 
 > [!NOTE]
 > Quando planear uma nova instalação do Configuration Manager, tenha em atenção o [notas de versão]( /sccm/core/servers/deploy/install/release-notes), que detalhe atuais problemas nas versões do Active Directory. As notas de versão aplicam-se a todos os ramos do Configuration Manager.  No entanto, quando utiliza o [ramo de pré-visualização técnica]( /sccm/core/get-started/technical-preview), irá encontrar problemas específicos apenas nessa sucursal na documentação de cada versão do Technical Preview.  
@@ -63,7 +70,7 @@ Em seguida, após a consideração dos opções de gestão de conteúdo que pode
 
 -   O site de administração central é o site de nível superior numa hierarquia.  
 
--   Quando configura uma hierarquia que tenha mais do que um site primário, tem de instalar um site de administração central. Se precisar de dois ou mais sites primários imediatamente, instale primeiro o site de administração central. Quando já tiver um site primário e para, em seguida, instalar um site de administração central, deve [expandir o site primário autónomo](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) para instalar o site de administração central. 
+-   Quando configura uma hierarquia que tenha mais do que um site primário, tem de instalar um site de administração central. Se precisar de dois ou mais sites primários imediatamente, instale primeiro o site de administração central. Quando já tiver um site primário e para, em seguida, instalar um site de administração central, deve [expandir o site primário autónomo](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) para instalar o site de administração central.
 
 -   O site de administração central suporta apenas sites primários como sites subordinados.  
 

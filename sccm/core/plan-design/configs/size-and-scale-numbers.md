@@ -14,11 +14,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: f539e2d282b56e56a9c58c773788325b27ea6b37
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 9c50f6633a5ca04b62f4c3b06119fb1fbcab2643
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Tamanho e números da escala do System Center Configuration Manager
 
@@ -56,18 +56,9 @@ Os seguintes números de suporte baseiam-se utilizando o hardware recomendado pa
 
 -   Um site de administração central suporta até 25 sites primários subordinados.  
 
-**Ponto de Web site do catálogo de aplicações:**  
-
--   Pode instalar várias instâncias do ponto de Web site do catálogo de aplicações nos sites primários.  
-
-    > [!TIP]  
-    >  Como melhor prática, instale o ponto de Web site do catálogo de aplicações e o ponto de serviço web do catálogo de aplicações em conjunto no mesmo sistema de sites quando fornecerem serviço aos clientes que estão na intranet.  
-
-    -   Para um melhor desempenho, planeie suportar até 50 000 clientes por instância.  
-
-    -   Cada instância desta função de sistema de sites suporta o número máximo de clientes que são suportados pela hierarquia.  
 
 ## <a name="bkmk_roles"></a>Funções do sistema de sites    
+
 
 **Ponto de serviço de web de catálogo de aplicações:**  
 
@@ -79,6 +70,18 @@ Os seguintes números de suporte baseiam-se utilizando o hardware recomendado pa
     -   Para um melhor desempenho, planeie suportar até 50 000 clientes por instância.  
 
     -   Cada instância desta função de sistema de sites suporta o número máximo de clientes que são suportados pela hierarquia.  
+
+**Ponto de Web site do catálogo de aplicações:**  
+
+-   Pode instalar várias instâncias do ponto de Web site do catálogo de aplicações nos sites primários.  
+
+    > [!TIP]  
+    >  Como melhor prática, instale o ponto de Web site do catálogo de aplicações e o ponto de serviço web do catálogo de aplicações em conjunto no mesmo sistema de sites quando fornecerem serviço aos clientes que estão na intranet.  
+
+    -   Para um melhor desempenho, planeie suportar até 50 000 clientes por instância.  
+
+    -   Cada instância desta função de sistema de sites suporta o número máximo de clientes que são suportados pela hierarquia.  
+
 
 **Ponto de distribuição:**  
 

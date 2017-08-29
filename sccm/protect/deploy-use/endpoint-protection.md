@@ -14,11 +14,11 @@ caps.latest.revision: "11"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 3c31271f3e3ae7aa45da03b3d75fd78242330646
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 76319b935695df204b4b83a645504079c60db12b
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="endpoint-protection"></a>Endpoint Protection
 
@@ -91,9 +91,9 @@ A partir da versão 1606 do Configuration Manager (ramo atual), Endpoint Protect
 ## <a name="endpoint-protection-client-for-mac-computers-and-linux-servers"></a>Cliente do Endpoint Protection para Computadores Mac e Servidores Linux  
  System Center Endpoint Protection inclui um cliente do Endpoint Protection para Linux e para computadores Mac. Estes clientes não são fornecidos com o Configuration Manager; em vez disso, tem de transferir os seguintes produtos a partir de [Microsoft Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx).  
 
--   System Center 2012 Endpoint Protection para Mac  
+-   O System Center Endpoint Protection para Mac  
 
--   System Center 2012 Endpoint Protection para Linux  
+-   O System Center Endpoint Protection para Linux  
 
 
 > [!IMPORTANT]  
@@ -108,7 +108,13 @@ Utilize os seguintes passos para transferir o ficheiro de imagem que contém o s
 2. Selecione o **transfere e chaves** separador no topo do Web site.
 3. Filtro no produto **System Center Endpoint Protection (ramo atual)**.
 4. Clique em ligação para **transferir**
-5. Clique em **Continuar**. Deverá ver vários ficheiros, incluindo um com o nome: **System Center Endpoint Protection (ramo atual - versão 1606) para o SO Linux e Macintosh SO Multilanguage 32/64 bit 1507 MB ISO**.
-6. Clique no ícone de seta para transferir o ficheiro. O nome de ficheiro é **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_EptProt_Lin_Mac_MLF_X21 30777. ISO**.
+5. Clique em **Continuar**. Deverá ver vários ficheiros, incluindo um com o nome: **System Center Endpoint Protection (ramo atual - versão 1606) para o SO Linux e Macintosh SO Multilanguage 32/64 bit 1579 MB ISO**.
+6. Clique no ícone de seta para transferir o ficheiro. O nome de ficheiro é **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_-2_EptProt_Lin_Mac_MLF_X21-44498. ISO**.
+
+Este Julho atualização 2017 (X21 44498) inclui o seguinte:
+
+- System Center Endpoint Protection para Mac 4.5.28.1 (certificado de instalação atualizados)
+- System Center Endpoint Protection para Linux 4.5.18.0 (novos pacotes de idiomas)
+- System Center Endpoint Protection para Linux documentação (revista orientações sobre a proteção em tempo real)
 
  Para mais informações sobre como instalar e gerir os clientes do Endpoint Protection para computadores Linux e Mac, utilize a documentação que acompanha estes produtos, que está localizada na pasta **Documentação** .

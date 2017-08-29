@@ -2,7 +2,7 @@
 title: "Armazém de dados | Microsoft Docs"
 description: "Ponto de serviço do armazém de dados e base de dados para o System Center Configuration Manager"
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 8/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: eedbf12d3bf628666efc90c85a8dfab37e4dc9ab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 744614d7e1ec97a4d4b4646c45cb41d734c6be34
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>O ponto de serviço do armazém de dados para o System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -49,8 +49,8 @@ Quando instala a função de sistema de sites, instala e configura a base de dad
 - O computador onde instalou a função de sistema de sites requer o .NET Framework 4.5.2 ou posterior.
 - A conta de computador do computador onde instalou a função de sistema de sites é utilizada para sincronizar dados com a base de dados do armazém de dados. Esta conta necessita das seguintes permissões:  
   - **Administrador** no computador que alojará a base de dados do armazém de dados.
-  - **DB_owner** permissão na base de dados de armazém de dados.
-  - **DB_reader** e **executar** permissões para os sites de nível superior da base de dados do site.
+  - **DB_Creator** permissão na base de dados de armazém de dados.
+  - O **DB_owner** ou **DB_reader** com **executar** permissões para os sites de nível superior da base de dados do site.
 - A base de dados do armazém de dados requer a utilização do SQL Server 2012 ou posterior. A edição pode ser Standard, Enterprise ou Datacenter.
 - As seguintes configurações do SQL Server são suportadas para alojar a base de dados do armazém:  
   - Uma instância predefinida

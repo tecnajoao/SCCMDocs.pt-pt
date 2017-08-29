@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: fabbcfd2d5656d4fa8cb87feffe87e17998df145
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 43316e4915b27aaeca563eaf52b51f053a839222
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="create-an-mdm-collection-with-system-center-configuration-manager-and-microsoft-intune"></a>Criar uma coleção de MDM com o System Center Configuration Manager e o Microsoft Intune
 
@@ -30,7 +30,7 @@ Uma coleção de utilizadores do Gestor de configuração é necessário especif
 > [!NOTE]
 > Para inscrever dispositivos com o Intune, não terá de atribuir licenças aos utilizadores no portal do Office 365 ou portal do Azure Active Directory. Incluindo os utilizadores numa coleção que obtém associada à subscrição do Intune (num [passo posterior](configure-intune-subscription.md)) é tudo o que é necessário.
 
-Para fins de teste que pode configurar um **regra direta** e adicionar utilizadores específicos que podem inscrever dispositivos. Na consola do Configuration Manager athe, escolha, **ativos e compatibilidade** > **coleções de utilizadores**, clique em de **home page** separador > **criar** grupo e, em seguida, clique em **criar coleção de utilizador**. Para distribuição mais vasto, deve utilizar **consultar regras** para definir os utilizadores. Para obter mais informações sobre coleções, consulte [como criar coleções](https://technet.microsoft.com/library/mt629371.aspx).
+Para fins de teste que pode configurar um **regra direta** e adicionar utilizadores específicos que podem inscrever dispositivos. Na consola do Configuration Manager, escolha, **ativos e compatibilidade** > **coleções de utilizadores**, clique em de **home page** separador > **criar** grupo e, em seguida, clique em **criar coleção de utilizador**. Para distribuição mais vasto, deve utilizar **consultar regras** para definir os utilizadores. Para obter mais informações sobre coleções, consulte [como criar coleções](https://technet.microsoft.com/library/mt629371.aspx).
 
 ![Criar uma coleção de utilizador da MDM](../media/mdm-create-user-collection.png)
 

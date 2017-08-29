@@ -2,7 +2,7 @@
 title: "Pré-visualização técnica para o Configuration Manager | Microsoft Docs"
 description: "Saiba mais sobre a versão de pré-visualização técnica que permite-lhe test-drive novas funcionalidades e capacidades no System Center Configuration Manager."
 ms.custom: na
-ms.date: 08/11/2017
+ms.date: 08/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 6d7bac392cf5a4ba01b25758fd91f1003b153589
-ms.sourcegitcommit: 398e30ec703218c4b3680bbb055d686807ca7f1d
+ms.openlocfilehash: 0cdbccc0147cb1f4d5130863b9610d0b190d6658
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview do System Center Configuration Manager
 
@@ -84,7 +84,7 @@ Os produtos e tecnologias que se seguem são suportadas por este ramo do Configu
 
  Para utilizar a versão de pré-visualização técnica, primeiro tem de instalar uma **versão de linha de base** da compilação da versão de pré-visualização técnica. Depois de instalar uma versão de linha de base, pode então utilizar as **atualizações na consola** para atualizar a sua instalação com a versão de pré-visualização mais recente.     Normalmente, existem novas versões mensais da Technical Preview.
 
-Cada versão de pré-visualização é suportado até três versões sucessivas estão disponíveis. Ou seja, quando versão 1702 versões, versão 1610 já não seria suporte, mas versões 1611, 1612 e 1701 permanecerá suporte. Quando uma linha de base está fora de suporte (como a versão 1610), ainda é suportada para instalar um novo site de pré-visualização técnica até que uma nova versão de linha de base está disponível, desde que, em seguida, atualizar essa instalação para uma versão suportada. Quando a atualização, se não vir a versão mais recente disponível na consola do seu, atualize para a versão mais recente oferecidos e, em seguida, repita esse processo até que pode instalar a versão mais recente do technical preview.
+Cada versão de pré-visualização é suportado até três versões sucessivas estão disponíveis. Ou seja, quando versão 1708 versões, versão 1704 já não seria suporte, mas versões 1705, 1706 e 1707 permanecerá suporte. Quando uma linha de base está fora de suporte (como a versão 1703), ainda é suportada para instalar um novo site de pré-visualização técnica até que uma nova versão de linha de base está disponível, desde que, em seguida, atualizar essa instalação para uma versão suportada. Quando a atualização, se não vir a versão mais recente disponível na consola do seu, atualize para a versão mais recente oferecidos e, em seguida, repita esse processo até que pode instalar a versão mais recente do technical preview.
 
 > [!TIP]  
 >  Quando instala uma atualização da versão de pré-visualização técnica, atualiza a instalação de pré-visualização para essa nova versão de pré-visualização técnica.    Uma instalação de pré-visualização técnica nunca inclui a opção de atualizar para uma instalação do ramo atual, nem de receber atualizações da versão do ramo atual.  
@@ -93,8 +93,9 @@ Cada versão de pré-visualização é suportado até três versões sucessivas 
 Pode instalar uma versão de linha de até 1 ano após a respetiva versão. No entanto, quando instala um novo site de pré-visualização técnica, recomendamos que utilize a versão de linha de base mais recente que está disponível.
 -  **Technical Preview 1703** -o Configuration Manager Technical Preview 1703 está disponível como ambos os uma atualização na consola do Configuration Manager Technical Preview e como uma nova versão de linha de base é [disponível a partir do Web site do Centro de avaliação TechNet](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
 
--  **Technical Preview 1610** -o Configuration Manager Technical Preview 1610 estava disponível como ambos os uma atualização na consola do Configuration Manager Technical Preview e como uma versão de linha de base. Se tiver suporte de dados para a instalação 1610, recomendamos que transfira a versão 1703 e instalar em vez disso, essa versão.
-
+<!-- out of support. Use baseline 1703
+-  **Technical Preview 1610** - The Configuration Manager Technical Preview 1610 was available as both an in-console update for the Configuration Manager Technical Preview, and as a baseline version. If you have media for installing 1610, we recommend you download version 1703 and install that version instead.
+-->
 
 
 
@@ -113,10 +114,10 @@ Pode instalar uma versão de linha de até 1 ano após a respetiva versão. No e
 
  |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
  |----------------|---------------------|--------------------|
- |Suporte de Cache ponto a ponto do cliente para ficheiros de instalação rápida para Windows 10 e o Office 365|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Não foi adicionada](media/Red_X.gif)|
- |Dashboard de dispositivo superfície|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Não foi adicionada](media/Red_X.gif)|
- |Configurar e implementar políticas de proteção de aplicações do Windows Defender|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Não foi adicionada](media/Red_X.gif)|
- |Adicionar parâmetros ao implementar scripts do PowerShell do Configuration Manager|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Não foi adicionada](media/Red_X.gif)|
+ |Melhoramentos para especificar os parâmetros do script ao implementar scripts do PowerShell do Configuration Manager<!-- 1236459 -->|[Pré-visualização do técnico 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Não foi adicionada](media/Red_X.gif)|
+ |Informações de gestão<!-- 1353967 --> |[Pré-visualização do técnico 1708](capabilities-in-technical-preview-1708.md#management-insights)|![Não foi adicionada](media/Red_X.gif)|
+ |Reinicie os computadores a partir da consola do Configuration Manager<!-- 1356283 --> |[Pré-visualização do técnico 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|![Não foi adicionada](media/Red_X.gif)|
+ |Personalização de centro de software<!-- 1351224 --> |[Pré-visualização do técnico 1708](capabilities-in-technical-preview-1708.md#software-center-customization)|![Não foi adicionada](media/Red_X.gif)|
 
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Capacidades fornecidas em pré-visualizações técnicas anteriores
@@ -124,6 +125,10 @@ Pode instalar uma versão de linha de até 1 ano após a respetiva versão. No e
 
  |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
  |----------------|---------------------|--------------------|
+ |Suporte de Cache ponto a ponto do cliente para ficheiros de instalação rápida para Windows 10 e o Office 365|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Não foi adicionada](media/Red_X.gif)|
+ |Dashboard de dispositivo superfície|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Não foi adicionada](media/Red_X.gif)|
+ |Configurar e implementar políticas de proteção de aplicações do Windows Defender|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Não foi adicionada](media/Red_X.gif)|
+ |Adicionar parâmetros ao implementar scripts do PowerShell do Configuration Manager|[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Não foi adicionada](media/Red_X.gif)|
  |Novas definições de política de gestão de aplicações móveis|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|![Não foi adicionada](media/Red_X.gif)|
  |Grupos de limites melhorada para pontos de atualização de software|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|[Versão 1706](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points)|
  |Disponibilidade elevada de função do servidor de site|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |![Não foi adicionada](media/Red_X.gif)|
