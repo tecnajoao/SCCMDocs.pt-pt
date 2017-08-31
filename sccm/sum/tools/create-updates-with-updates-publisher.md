@@ -34,7 +34,7 @@ Como estes dois assistentes têm um fluxo de trabalho semelhante, o procedimento
 
 2.  No **pacote** página, utilize as seguintes informações para ajudar a configurar a atualização:
 
-    -   Escolha **procurar** para localizar o pacote de atualização de software que irá utilizar como uma origem de pacote. Incluem origens válidas. MSI. \\&Lt;ServerName>\SMS_<SITECODE>\HOTFIX\<KB, ou. Ficheiros. EXE. Publicador de atualizações requer acesso ao ficheiro para criar um hash de ficheiro. O nome de ficheiro e hash, em seguida, são utilizados nos metadados da atualização para a atualização que está a criar.
+    -   Escolha **procurar** para localizar o pacote de atualização de software que irá utilizar como uma origem de pacote. Incluem origens válidas .MSI. .MSP, ou. Ficheiros .EXE. Publicador de atualizações requer acesso ao ficheiro para criar um hash de ficheiro. O nome de ficheiro e hash, em seguida, são utilizados nos metadados da atualização para a atualização que está a criar.
 
     -   Especifique a localização de origem do conteúdo para esta atualização. Normalmente, esta é a localização onde o binário de atualização será transferido da durante a publicação para um servidor WSUS.  Se o **utilizar uma origem local para publicar conteúdo de atualização de software** opção está selecionada, em seguida, o caminho não é necessário.
 
@@ -44,13 +44,13 @@ Como estes dois assistentes têm um fluxo de trabalho semelhante, o procedimento
 
     -   Especifique **códigos de retorno de êxito**, e **êxito pendente de reinício códigos** para a atualização. Separe os vários códigos de retorno com uma vírgula. Pode utilizar códigos de retorno para determinar quando a instalação da atualização foi concluída com êxito e, quando reinícios eram necessários.
 
-        -   Ficheiros do Windows installer e patches (. MSI e. Ficheiros de \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB) definido automaticamente estes valores e que não podem ser modificados.
+        -   Ficheiros do Windows installer e patches (.MSI e. Ficheiros de .MSP) definido automaticamente estes valores e que não podem ser modificados.
 
         -   Para. EXE de atualizações, os códigos de predefinição definidos pelo. O ficheiro EXE são utilizados se forem especificados códigos de retorno.
 
     -   Especifique os argumentos da linha de comandos que são necessários para instalar a atualização de software.
 
-        -   Ficheiros do Windows installer e patches (. MSI e. Ficheiros de \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB) são definidas automaticamente estes valores. Para estes tipos de ficheiros de argumentos tem de ser especificados como  **\[nome\]=\[valor\]**. Além disso, todas as opções que começar a utilizar um  **/**  (como **/qn**) não são suportadas. MSI ou. Atualizações de software \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB.
+        -   Ficheiros do Windows installer e patches (.MSI e. Ficheiros de .MSP) são definidas automaticamente estes valores. Para estes tipos de ficheiros de argumentos tem de ser especificados como  **\[nome\]=\[valor\]**. Além disso, todas as opções que começar a utilizar um  **/**  (como **/qn**) não são suportadas .MSI ou. Atualizações de software .MSP.
 
         -   Para. Atualizações EXE, todos os argumentos são válidos.
 
@@ -154,7 +154,7 @@ Como estes dois assistentes têm um fluxo de trabalho semelhante, o procedimento
 
     -   **Sistema –** esta regra utiliza detalhes de sistema para determinar a aplicabilidade. Pode escolher entre definir uma versão do Windows, um idioma do Windows, a arquitetura de processador ou especificar uma consulta WMI para identificar o sistema operativo de dispositivos.
 
-    -   **Windows Installer –** utilizar este tipo de regra para determinar a aplicabilidade com base num instalado. MSI ou do Windows Installer patch (. \\&LT;SERVERNAME&GT;\SMS_&LT;SITECODE&GT;\HOTFIX\&LT;KB). Também pode determinar se os componentes específicos ou funcionalidades são instaladas como parte do requisito.
+    -   **Windows Installer –** utilizar este tipo de regra para determinar a aplicabilidade com base num instalado. MSI ou do Windows Installer patch (.MSP). Também pode determinar se os componentes específicos ou funcionalidades são instaladas como parte do requisito.
 
         > [!IMPORTANT]  
         > No geridos deices, o Windows Update Agent não conseguiu detetar o Windows instalar pacotes que são instaladas por utilizador. Quando utilizar este tipo de regra, configure as regras de aplicabilidade adicionais, como as versões de ficheiro ou valores de chave de registo, para que o pacote Windows Installer pode ser detetado corretamente independentemente numa base por utilizador ou por sistema.

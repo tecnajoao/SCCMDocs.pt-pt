@@ -107,7 +107,7 @@ Para ativar a operação, o computador que aloja o ponto de ligação de serviç
 
 -   *manage.microsoft.com  
 -   https://bspmts.MP.microsoft.com/V
--   https://login.microsoftonline.com/ {TenantID}
+-   https://login.microsoftonline.com/{TenantID}
 
 
 **Manutenção do Windows 10**  
