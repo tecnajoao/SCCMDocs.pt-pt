@@ -65,7 +65,7 @@ As seguintes informações são semelhantes à forma como as regras a partir do 
 
     -   **Sistema –** esta regra utiliza detalhes de sistema para determinar a aplicabilidade. Pode escolher entre definir uma versão do Windows, um idioma do Windows, a arquitetura de processador ou especificar uma consulta WMI para identificar o sistema operativo de dispositivos.
 
-    -   **Windows Installer –** utilizar este tipo de regra para determinar a aplicabilidade com base num instalado. MSI ou do Windows Installer patch (. \\&LT;SERVERNAME&GT;\SMS_&LT;SITECODE&GT;\HOTFIX\&LT;KB). Também pode determinar se os componentes específicos ou funcionalidades são instaladas como parte do requisito.
+    -   **Windows Installer –** utilizar este tipo de regra para determinar a aplicabilidade com base num instalado. MSI ou do Windows Installer patch (.MSP). Também pode determinar se os componentes específicos ou funcionalidades são instaladas como parte do requisito.
 
        > [!IMPORTANT]   
        > No geridos deices, o Windows Update Agent não conseguiu detetar o Windows instalar pacotes que são instaladas por utilizador. Quando utilizar este tipo de regra, configure as regras de aplicabilidade adicionais, como as versões de ficheiro ou valores de chave de registo, para que o pacote Windows Installer pode ser detetado corretamente independentemente numa base por utilizador ou por sistema.
