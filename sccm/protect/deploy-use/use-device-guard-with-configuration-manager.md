@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.openlocfilehash: 3921748d3c99c2a35b670f3ca121dc7ab92d43bc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 2d305df5e67c3f46360e1735cb6fe263afbaed41
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="device-guard-management-with-configuration-manager"></a>Gestão de proteção de dispositivos com o Configuration Manager
 
@@ -104,7 +104,7 @@ Ao adicionar confiança para ficheiros específicos para pastas numa política D
 5.  Quando tiver terminado, clique em **OK** para implementar a política. 
 
 Assim que a política é processada num cliente PC, um reinício é agendado em que o cliente em conformidade com a **as definições de cliente** para **reiniciar computador**.
-Enquanto não reiniciar o cliente do PC, a política não requeira effect.* *
+Enquanto não reiniciar o cliente do PC, a política não entram em vigor.
 
 ## <a name="how-to-monitor-a-device-guard-policy"></a>Como monitorizar uma política de proteção de dispositivos
 

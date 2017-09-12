@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5668ba3ead3b7415508f9ecf02f2e119c3cd9cc6
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Gerir imagens de arranque com o System Center Configuration Manager
 
@@ -49,11 +49,10 @@ Antes de versão 1702, Configuration Manager atualiza a imagem de arranque (boot
 Quando a atualização do Configuration Manager 2012 para CB do Configuration Manager, utilizando o processo de configuração, do Configuration Manager irá regenerar as imagens de arranque predefinidas. Isto inclui a nova versão do PE de janela do Windows ADK atualizado, a nova versão do cliente do Configuration Manager, e todas as personalizações permanecem inalteradas. Imagens de arranque personalizadas não são modificadas.
 
 ### <a name="update-distribution-points-with-the-boot-image"></a>Atualizar pontos de distribuição com a imagem de arranque
-Quando utiliza o **atualizar pontos de distribuição** ação o **imagens de arranque** nó na consola do Configuration Manager, Configuration Manager atualiza as imagens de arranque predefinido com os componentes de cliente, controladores, personalizações, etc.    
+Quando utiliza o **atualizar pontos de distribuição** ação o **imagens de arranque** nó na consola do Configuration Manager, Configuration Manager atualiza a imagem de arranque de destino com os componentes de cliente controladores, personalizações, etc.    
 
 A partir do Configuration Manager versão 1706, pode optar por recarregar a versão mais recente do Windows PE (a partir do diretório de instalação do Windows ADK) na imagem de arranque. O **geral** página do assistente atualizar pontos de distribuição fornece informações sobre a versão do Windows ADK instalada no servidor do site, a versão do Windows ADK partir do qual o Windows PE foi utilizado na imagem de arranque e a versão do cliente do Configuration Manager. Pode utilizar estas informações para ajudar a decidir se pretende recarregar a imagem de arranque. Além disso, uma nova coluna (**versão de cliente**) foi adicionado ao ver as imagens de arranque no **imagens de arranque** nó para saber qual a versão do cliente do Configuration Manager utiliza de cada imagem de arranque.    
 
-Imagens de arranque personalizadas não são modificadas.
 
 ##  <a name="BKMK_BootImageCustom"></a>Personalizar uma imagem de arranque  
  Pode personalizar uma imagem de arranque, ou [modificar uma imagem de arranque](#BKMK_ModifyBootImages), da consola do Configuration Manager quando se basear numa versão do Windows PE da versão suportada do Windows ADK. Quando um site é atualizado com uma nova versão e uma nova versão do Windows ADK estiver instalada, as imagens de arranque personalizadas (que não estejam na localização das imagens de arranque predefinidas) não são atualizadas com a nova versão do Windows ADK. Quando isso acontece, já não será possível personalizar as imagens de arranque na consola do Configuration Manager. No entanto, estas continuarão a funcionar como antes da atualização.  

@@ -14,11 +14,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 22203b358830903cf2e531c0532ae3111b8265fc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3046003f000c8abde28a5b6e3bcb88b159be5357
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="configure-azure-services-for-use-with-configuration-manager"></a>Configurar os serviços do Azure para utilização com o Configuration Manager
 
@@ -30,7 +30,7 @@ Este assistente fornece uma experiência de configuração comum utilizando um *
 
 Os seguintes serviços do Azure são configurados utilizando o Assistente para configurar os serviços do Azure:
 -   **Gestão de nuvem**   
-    [Permitir que os clientes autenticar com o Azure Active Directory]() (Azure AD). Também pode [configurar a deteção de utilizador do Azure AD](/sccm/core/servers/deploy/configure/configure-discovery-methods#azureaadisc).
+    [Permitir que os clientes autenticar com o Azure Active Directory](/sccm/core/clients/deploy/deploy-clients-cmg-azure) (Azure AD). Também pode [configurar a deteção de utilizador do Azure AD](/sccm/core/servers/deploy/configure/configure-discovery-methods#azureaadisc).
 -   **Conector do OMS**
     [ligar ao Operations Manager Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS) e sincronizar os dados, como coleções para análise de registos do OMS.
 -   **Preparação para a atualização**
@@ -85,7 +85,7 @@ A aplicação web de serviços do Azure liga o site do Configuration Manager par
 
 6.  No **deteção** página do assistente, clique em **ativar o Azure Active Directory deteção de utilizadores**e, em seguida, clique em **definições**.
 No **definições de deteção de utilizador do Azure AD** diálogo caixa, configure uma agenda para quando ocorre a deteção. Também pode ativar a deteção de diferenças que verifica a existência de apenas novos ou alterados contas no Azure AD. Saiba mais sobre [do Azure AD User Discovery](/sccm/core/servers/deploy/configure/about-discovery-methods#azureaddisc).
- 
+
  7. Conclua o assistente.
 
 Neste momento, ligou-se o site do Configuration Manager para o Azure AD.

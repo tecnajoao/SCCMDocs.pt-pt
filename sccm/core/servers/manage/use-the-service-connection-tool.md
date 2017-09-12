@@ -2,7 +2,7 @@
 title: "Ferramenta de ligação de serviço | Microsoft Docs"
 description: "Saiba mais sobre esta ferramenta que permite-lhe ligar ao serviço de nuvem do Configuration Manager para carregar manualmente as informações de utilização."
 ms.custom: na
-ms.date: 4/7/2017
+ms.date: 09/06/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 0da80521bf223a765c3731f8ad59623d85a4c9fa
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8039ee0c704bbe570ec3e45ba648f779923087c6
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 
@@ -81,7 +81,7 @@ Ao executar o seguinte comando, a ferramenta prepara um ficheiro. cab que conté
 Também terá da copiar a pasta ServiceConnectionTool com todo o conteúdo para a unidade USB ou pode disponibilizá-la no computador que irá utilizar para os passos 3 e 4.  
 
 ### <a name="overview"></a>Descrição Geral
-**Existem três passos principais para utilizar a ferramenta de ligação de serviço:**  
+#### <a name="there-are-three-primary-steps-to-using-the-service-connection-tool"></a>Existem três passos principais para utilizar a ferramenta de ligação de serviço  
 
 1.  **Preparar**:  Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando a ferramenta é executada coloca os dados de utilização num ficheiro. cab e armazena-a numa unidade USB (ou localização de transferência alternativa que especificar).  
 
@@ -91,15 +91,28 @@ Também terá da copiar a pasta ServiceConnectionTool com todo o conteúdo para 
 
 A partir da versão 1606, quando ligar à Microsoft, pode carregar vários ficheiros .cab ao mesmo tempo (cada um deles a partir de uma hierarquia diferente) e especificar um servidor proxy e um utilizador para o servidor proxy.   
 
-**Para carregar vários ficheiros .cab:**
+#### <a name="to-upload-multiple-cab-files"></a>Para carregar ficheiros. cab de vários
  -  Coloque cada ficheiro .cab que exportar de hierarquias separadas na mesma pasta. O nome de cada ficheiro tem de ser exclusivo e pode mudar o nomes do mesmo manualmente, se necessário.
  -  Em seguida, ao executar o comando para carregar dados para a Microsoft, especifique a pasta que contém os ficheiros .cab. (Antes da atualização 1606, só podia carregar dados de uma única hierarquia de cada vez e a ferramenta necessários para especificar o nome do ficheiro .cab na pasta.)
  -  Mais tarde, quando executar a tarefa de importação no ponto de ligação de serviço de uma hierarquia, a ferramenta só importa automaticamente os dados para essa hierarquia.  
 
-**Para especificar um servidor proxy:**  
+#### <a name="to-specify-a-proxy-server"></a>Para especificar um servidor proxy
 Pode utilizar os seguintes parâmetros opcionais para especificar um servidor proxy (mais informações sobre como utilizar estes parâmetros estão disponíveis na secção Parâmetros de linha de comandos deste tópico):
   - **-proxyserveruri [FQDN_of_proxy_sever]**  Utilize este parâmetro para especificar o servidor proxy a utilizar para esta ligação.
   -  **-proxyusername [username]**  Utilize este parâmetro quando tiver de especificar um utilizador para o servidor proxy.
+
+#### <a name="specify-the-type-of-updates-to-download"></a>Especifique o tipo de atualizações a transferir
+A partir da versão 1706, foi alterado o comportamento de transferência da predefinição de ferramentas e a ferramenta suporta opções para controlar os ficheiros que transfere.
+-   Por predefinição, a ferramenta transfere apenas a atualização mais recente disponível que se aplica à versão do seu site. Não transfere as correções.
+
+Para modificar este comportamento, utilize um dos parâmetros seguintes para alterar a que os ficheiros são transferidos. A versão do seu site é determinada a partir dos dados no ficheiro. cab que é carregado quando a ferramenta é executada.
+-   **-downloadall** esta opção transfere tudo, incluindo atualizações e correções, independentemente da versão do seu site.
+-   **-downloadhotfix** esta opção transfere todas as correções, independentemente da versão do seu site.
+-   **-downloadsiteversion** esta opção transfere atualizações e correções que tenham uma versão superior à versão do seu site.
+
+Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
+- **serviceconnectiontool.exe-ligar *- downloadsiteversion* - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
+
 
 
 

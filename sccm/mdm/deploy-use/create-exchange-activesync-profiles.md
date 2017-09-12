@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 7434c98f2217cf63fdcd250b91e772de72daaea9
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0af556b5b63b465a99650c8889eae3adbf7307f6
+ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Perfis de e-mail do Exchange ActiveSync no System Center Configuration Manager
 
@@ -31,9 +31,8 @@ Ao utilizar o Microsoft Intune e Exchange ActiveSync, pode configurar dispositiv
 
 - Windows 10
 - Windows Phone 8.1
-- Windows Phone 8.0
-- iPhones a executar o iOS 5, iOS 6, iOS 7 e iOS 8  
-- iPads a executar o iOS 5, iOS 6, iOS 7 e iOS 8  
+- iPhones com o iOS 8  
+- iPads com o iOS 8  
 - Samsung KNOX Standard (4 e posterior)
 - Android for Work
 

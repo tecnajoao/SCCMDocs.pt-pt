@@ -2,7 +2,7 @@
 title: "Inscrever dispositivos com o Gestor de inscrição de dispositivos - Configuration Manager | Microsoft Docs"
 description: "Inscreva dispositivos pertencentes à empresa com a conta de Gestor de inscrição de dispositivos com o System Center Configuration Manager."
 ms.custom: na
-ms.date: 08/15/2017
+ms.date: 09/08/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "8"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: c90ecca1ee46523d16fc1cf11495e40707631e03
-ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.openlocfilehash: dcc35fb6ebe385d07a3b60e8968e06dec8ad60af
+ms.sourcegitcommit: 40f2a4e3cc546e6bfd10f195a8e87af2b0780928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="enroll-devices-with-device-enrollment-manager-with-configuration-manager"></a>Inscrever dispositivos com o Gestor de inscrição de dispositivos com o Configuration Manager
 
@@ -40,7 +40,7 @@ As seguintes limitações aplicam-se aos dispositivos geridos através de uma co
 -  Para implementar aplicações da empresa em dispositivos geridos com o Gestor de inscrição de dispositivos, implementar a aplicação Portal da empresa, como um **instalação necessária** a conta de utilizador do Gestor de inscrição de dispositivos. O Gestor de inscrição de dispositivos, em seguida, pode iniciar a aplicação Portal da empresa para instalar aplicações adicionais.
 - Para melhorar o desempenho, a aplicação Portal da empresa apenas mostra o dispositivo local. Gestão remota de outros dispositivos DEM só pode ser efetuada a partir da consola do Configuration Manager por e administrador
 - O Web site do Portal da empresa não está disponível para contas de Gestor de inscrição de dispositivos. Utilize a aplicação do Portal da empresa.
-- (apenas iOS) Se utilizar DEM para inscrever dispositivos iOS, não é possível utilizar o programa de inscrição de dispositivos da Apple (DEP) ou o Apple Configurator para inscrever dispositivos.
+- Se utilizar DEM para inscrever dispositivos iOS, não é possível utilizar o programa de inscrição de dispositivos da Apple (DEP) ou o Apple Configurator para inscrever dispositivos. (Apenas no iOS) 
 
  **Exemplos de cenários do Gestor de inscrição de dispositivos:**   
 Um restaurante pretende obter tablets para a sua equipa de espera de mesa e monitores para os empregados da cozinha. Os empregados nunca precisam de aceder aos dados da empresa ou para iniciar sessão como um utilizador. O administrador do Intune cria uma conta de Gestor de inscrição de dispositivos e inscreve os dispositivos pertencentes à empresa através dessa conta. Em alternativa, o administrador poderia conceder a inscrição do dispositivo credenciais do Gestor a um Gestor de restaurante, permitindo-lhe ou a pessoa inscrever e gerir os dispositivos.  

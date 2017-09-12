@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 32b24b3637dfafe401ea1d9f51b3769aa749f544
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 09e1105521f5e72830c2816d04e16690064f4f64
+ms.sourcegitcommit: 40f2a4e3cc546e6bfd10f195a8e87af2b0780928
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Variáveis incorporadas de sequência de tarefas no System Center Configuration Manager
 
@@ -97,6 +97,6 @@ ms.lasthandoff: 08/07/2017
 |SMSTSRebootMessage|Especifica a mensagem a apresentar na caixa de diálogo de encerramento quando é pedido um reinício. Se esta variável não for definida, será apresentada uma mensagem predefinida.<br /><br /> Exemplo:<br /><br /> **Este computador está a ser reiniciado pelo gestor de sequência de tarefas**.|  
 |SMSTSRebootRequested|Indica que é pedido um reinício após a conclusão do passo de sequência de tarefas atual. Se for necessário reiniciar, basta definir esta variável como **verdadeiro**e o gestor da sequência de tarefas irá reiniciar o computador após este passo da sequência de tarefas. O passo da sequência de tarefas tem de definir esta variável de sequência de tarefas, caso precise do reinício para concluir o passo da sequência de tarefas. Após o reinício do computador, a sequência de tarefas irá continuar a ser executada a partir do passo seguinte da sequência de tarefas.|  
 |SMSTSRetryRequested|Pede uma repetição após a conclusão do passo de sequência de tarefas atual. Se esta variável de sequência de tarefas estiver definida, a variável **SMSTSRebootRequested** também tem de estar definida como **verdadeiro**. Após o reinício do computador, o gestor da sequência de tarefas irá executar novamente o mesmo passo da sequência de tarefas.|  
-|SMSTSSoftwareUpdateScanTimeout| Dá-lhe a capacidade de controlar o tempo limite para a análise de atualizações de software durante o passo [Instalar Atualizações de Software](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) da sequência de tarefas. Por exemplo, poderá aumentar o valor predefinido se tiver muitas atualizações de software para instalar. O valor predefinido é 30 minutos. |
+|SMSTSSoftwareUpdateScanTimeout| Dá-lhe a capacidade de controlar o tempo limite para a análise de atualizações de software durante o passo [Instalar Atualizações de Software](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) da sequência de tarefas. Por exemplo, poderá aumentar o valor predefinido se tiver muitas atualizações de software para instalar. O valor predefinido é 1,800 segundos (30 minutos). Tenha em atenção que o valor da variável está definido em segundos. |
 |SMSTSUDAUsers|Especifica o utilizador primário do computador de destino. Especifique os utilizadores, utilizando o seguinte formato. Separe múltiplos utilizadores com uma vírgula (,).<br /><br /> Exemplo:<br /><br /> **domínio\utilizador1, domínio\utilizador2, domínio\utilizador3**<br /><br /> Para obter mais informações sobre como associar utilizadores ao computador de destino, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).|  
 |SMSTSWaitForSecondReboot|A partir do Configuration Manager versão 1602, esta variável de sequência de tarefas opcionais está disponível para ajudar a controlar o comportamento do cliente, quando uma instalação de atualização de software necessita de dois reinicializações. Esta variável tem de ser definida antes do passo [Instalar Atualizações de Software](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) para impedir que uma sequência de tarefas falhe devido a um segundo reinício da instalação da atualização de software.<br /><br /> Defina o valor de SMSTSWaitForSecondReboot em segundos para especificar durante quanto tempo a sequência de tarefas é interrompida durante o passo Instalar Atualizações de Software quando o computador é reiniciado para permitir tempo suficiente no caso de uma segunda reinicialização. <br />Por exemplo, se definir SMSTSWaitForSecondReboot para 600, a sequência de tarefas é interrompida durante 10 minutos após um reinício antes da execução dos passos da sequência de tarefa adicional. Isto é útil quando centenas de atualizações de software estão instaladas num único passo de sequência de tarefas Instalar Atualizações de Software.|  
