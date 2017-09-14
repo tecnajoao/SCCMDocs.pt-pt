@@ -49,6 +49,7 @@
 ### [Aplicações iOS compradas em volume](deploy-use/manage-volume-purchased-ios-apps.md)
 ### [Criar aplicações Windows Phone](deploy-use/creating-windows-phone-applications.md)
 ### [Criar aplicações Android](deploy-use/creating-android-applications.md)
+### [Políticas de configuração de aplicações Android](deploy-use/configure-android-apps-with-app-configuration-policies.md)
 ### [Políticas de gestão de aplicações móveis](deploy-use/protect-apps-using-mam-policies.md)
 ### [Políticas de browser gerido](deploy-use/manage-internet-access-using-managed-browser-policies.md)
 ### [Aplicações da Loja Windows para Empresas](deploy-use/windows-store-for-business.md)
