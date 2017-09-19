@@ -14,11 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 49eea15ea2888f8f93c33eb771c09147ba21529e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f5aff56e9948536944140fbadb0539c7a4e20f26
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/18/2017
 ---
 #  <a name="recover-a-configuration-manager-site"></a>Recuperar um site do Gestor de Configuração
 
@@ -29,7 +29,7 @@ Execute um Gestor de configuração de recuperação de site depois de um site d
 As secções neste tópico podem ajudar a recuperar um site do Configuration Manager. Para criar uma cópia de segurança, consulte [cópia de segurança para o Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
 ## <a name="considerations-before-recovering-a-site"></a>Considerações sobre antes de recuperar um site
-**Tem de utilizar a mesma versão e edição do SQL Server:** Por exemplo, restaurar uma base de dados que tenha sido executada no SQL Server 2014 2016is do SQL Server não suportada. Da mesma forma, a restaurar uma base de dados do site que tenha sido executada numa edição Standard do SQL Server 2016 para uma edição Enterprise do SQL Server 2016 não é suportada.
+**Tem de utilizar a mesma versão e edição do SQL Server:** Por exemplo, a restaurar uma base de dados que tenha sido executada no SQL Server 2014 para SQL Server 2016 não é suportada. Da mesma forma, a restaurar uma base de dados do site que tenha sido executada numa edição Standard do SQL Server 2016 para uma edição Enterprise do SQL Server 2016 não é suportada.
 -   O SQL Server não pode estar definido como **modo de utilizador único**.
 -   Certifique-se de que os ficheiros .MDF e .LDF são válidos. Quando recupera um site, não há nenhuma verificação para o estado dos ficheiros que está a restaurar.
 
