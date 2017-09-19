@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 5fef04f26b12bced073332fd1f7b4e7c7bd7d398
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 35f527f83799125aa298b99e2cc56867435272ec
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Gerir pacotes de atualização do sistema operativo com o System Center Configuration Manager
 
@@ -59,7 +59,7 @@ Um pacote de atualização no System Center Configuration Manager contém os fic
  É agora possível distribuir o programa de instalação do sistema operativo pelos pontos de distribuição a que se acede através das sequências de tarefas de implementação.  
 
 ##  <a name="BKMK_DistributeBootImages"></a> Distribuir imagens do sistema operativo por pontos de distribuição  
- As imagens do sistema operativo são distribuídas por pontos de distribuição da mesma forma que são distribuídos outros conteúdos. Na maioria dos casos, terá de distribuir a imagem do sistema operativo por, pelo menos, um ponto de distribuição antes de implementar o sistema operativo. Para obter os passos para distribuir uma imagem do sistema operativo, veja [Distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+ As imagens do sistema operativo são distribuídas por pontos de distribuição da mesma forma que são distribuídos outros conteúdos. Na maioria dos casos, terá de distribuir a imagem do sistema operativo por, pelo menos, um ponto de distribuição antes de implementar o sistema operativo. Para obter os passos para distribuir uma imagem do sistema operativo, veja [Distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 ##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Aplicar atualizações de software num pacote de atualização do sistema operativo  
  A partir do Configuration Manager versão 1602, pode aplicar novas atualizações de software à imagem do sistema operativo no seu pacote de atualização do sistema operativo. Antes de poder aplicar as atualizações de software a um pacote de atualização que tem de ter o software de atualizações de infraestrutura no local e com êxito atualizações de software sincronizadas, transferir as atualizações de software para a biblioteca de conteúdos no servidor do site. Para obter mais informações, consulte [implementar atualizações de software](../../sum/deploy-use/deploy-software-updates.md).  

@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 03cec407-0f9f-454f-a360-b005af738d29
 caps.latest.revision: "6"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d016ec3fe106b2d90b3c14b4f9296aed4d198644
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0526dccc21be8419bf772374a67bc7cd262e6375
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Como configurar computadores cliente para localizar pontos de gestão utilizando a publicação de DNS no System Center Configuration Manager
 
@@ -43,7 +43,7 @@ Os clientes no System Center Configuration Manager tem de localizar um ponto de 
 
 -   Instale o cliente com a seguinte propriedade do CCMSetup Client.msi:  
 
-    -   **DNSSUFFIX =**  *&lt;domínio de ponto de gestão\>*  
+    -   **DNSSUFFIX =** * &lt;domínio de ponto de gestão\>*  
 
          Se o site tiver mais que um ponto de gestão e estes estiverem em mais de um domínio, especifique apenas um domínio. Quando os clientes estabelecem ligação a um ponto de gestão deste domínio, transferem uma lista de pontos de gestão disponíveis que inclui os pontos de gestão de outros domínios.  
 

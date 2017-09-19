@@ -5,14 +5,14 @@ ms.date: 06/07/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: a7380ae781447880ffcba0778694ea62e10c4889
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: d3e658714c30a1eba64f94e248d5e11095ca1dcb
+ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planear para o gateway de gestão de nuvem no Configuration Manager
 
@@ -159,7 +159,7 @@ O URL interno é o ponto de ligação de CMG utilizado para reencaminhar pedidos
 #### <a name="example"></a>Exemplo:
 Quando ativar o tráfego de CMG num ponto de gestão, o Configuration Manager cria um conjunto de mapeamentos de URL internamente para cada servidor de ponto de gestão, como ccm_system, ccm_incoming e sms_mp.
 O URL externo para o ponto final ccm_system de ponto de gestão aspeto que poderá ter **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  na respetiva lista de pontos de gestão de internet.
+O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como ** <CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID> ** na respetiva lista de pontos de gestão de internet.
 Todos os URLs externos publicados são carregados para o CMG automaticamente, em seguida, CMG é capaz de fazer a filtragem de URL. Todos os mapeamentos de URL é replicado para o ponto de ligação de CMG para que possa reencaminhar para servidores internos, de acordo com o cliente solicitar o URL externo.
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>As portas que são utilizadas pelo gateway de gestão na nuvem?

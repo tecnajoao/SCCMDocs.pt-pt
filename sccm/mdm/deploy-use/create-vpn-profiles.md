@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 23ff28189c8010c21ed8b23c35598746a4f09fe7
-ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
+ms.openlocfilehash: 5b5385cebe7952e519d59a239983733dd93e661e
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Perfis da VPN em dispositivos móveis no System Center Configuration Manager
 
@@ -52,7 +52,7 @@ Utilize perfis VPN no System Center Configuration Manager para implementar defin
 ## <a name="create-vpn-profiles"></a>Criar perfis de VPN
 [Como criar perfis VPN no System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md) fornece informações gerais sobre como criar perfis VPN.
 
-###   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Funcionalidades de VPN do Windows 10 estão disponíveis ao utilizar o Configuration Manager com o Intune  
+## <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Funcionalidades de VPN do Windows 10 estão disponíveis ao utilizar o Configuration Manager com o Intune  
 
 
 > [!NOTE]  
@@ -157,7 +157,7 @@ Utilize perfis VPN no System Center Configuration Manager para implementar defin
 
 **Implementar**: Consulte [implementar Wi-Fi, VPN, e-mail e perfis de certificado](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) para obter mais informações sobre como implementar perfis VPN.
 
-### <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Passos seguintes  
  Utilize os tópicos seguintes para o ajudar a planear, configurar, operar e manter perfis VPN no Configuration Manager.  
 
 -   [Pré-requisitos para perfis VPN no System Center Configuration Manager](../../protect/plan-design/prerequisites-for-wifi-vpn-profiles.md)  

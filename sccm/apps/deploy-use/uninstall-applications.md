@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 0ea3edaa-27c6-4391-9896-cd97d9c5d06d
 caps.latest.revision: "4"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: f42fee5974567f667c015a6b0bf34d9a9a7d2dab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 1e9c5506b94eecc1c95af5f31ad4c2d923c2b74f
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="uninstall-applications-with-system-center-configuration-manager"></a>Desinstalar aplicações com o System Center Configuration Manager
 
@@ -63,7 +63,7 @@ Execute as ações seguintes para desinstalar uma aplicação que implementou an
         > [!NOTE]  
         >  O **conteúdo** página só é apresentada se selecionar a opção **especificar manualmente as informações de tipo de implementação** no **geral** página do Assistente para criar tipo de implementação.  
 
-    -   No **programas** separador do  **<* nome do tipo de implementação*> propriedades * * a caixa de diálogo caixa, especifique a linha de comandos para desinstalar a aplicação no **programa de desinstalação** campo.  
+    -   No **programas** separador do * * < *nome do tipo de implementação*> propriedades * * a caixa de diálogo caixa, especifique a linha de comandos para desinstalar a aplicação no **programa de desinstalação** campo.  
 
 2.  Implemente a aplicação e, em seguida, selecione a ação de implementação **desinstalação** no **definições de implementação** página do Assistente de implementação de Software.  
 

@@ -14,11 +14,11 @@ caps.latest.revision: "26"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2c2c0f81736c1b00ea487ae1261803a8105bb5e4
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: fe02981433482ebf6880feec3e1822e6e8f4550f
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gerir o Windows como um serviço com o System Center Configuration Manager
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/07/2017
 
 -   WSUS 4.0 com a [correção 3159706](https://support.microsoft.com/kb/3159706) tem de estar instalado nos seus pontos de atualização de software e servidores para atualizar computadores para o Windows 10 aniversário da Update, bem como para versões subsequentes do site. Existem passos manuais descritos no artigo de suporte que tem de efetuar para instalar esta correção. Para obter mais informações, consulte o [blogue Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
 
--   Ative a Deteção Heartbeat. Os dados apresentados no dashboard de manutenção do Windows 10 são encontrados através da deteção. Para obter mais informações, veja [Configure Heartbeat Discovery (Configurar a Deteção de Heartbeat)](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
+-   Ative a Deteção Heartbeat. Os dados apresentados no dashboard de manutenção do Windows 10 são encontrados através da deteção. Para obter mais informações, veja [Configure Heartbeat Discovery (Configurar a Deteção de Heartbeat)](../../core/servers/deploy/configure/configure-discovery-methods.md#BKMK_ConfigHBDisc).  
 
      As informações de ramo e compilação do Windows 10 são detetadas e armazenadas nos seguintes atributos:  
 

@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: ad4b923bd6d3e8acfe799a4ebe2adec737939d75
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f50331f107ead5f83c3f76658718ff3ad6a2f4d7
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="verify-mdm-configuration-with-system-center-configuration-manager"></a>Verifique a configuração de MDM com o System Center Configuration Manager
 
@@ -31,7 +31,7 @@ Pode verificar determinados componentes de gestão do dispositivo ao selecionar 
 
 -   Consulte o Sitecomp.log para verificar se o ponto de ligação de serviço foi criado com êxito.
 
-Pode rever [ficheiros de registo no System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md#a-namebkmkfunctionlogsa-log-files-for-configuration-manager-functionality) para obter mais informações sobre estes ficheiros de registo específicos e como visualizá-los.
+Pode rever [ficheiros de registo no System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md##BKMK_FunctionLogs) para obter mais informações sobre estes ficheiros de registo específicos e como visualizá-los. 
 
 > [!div class="button"]
 [< Anterior passo](set-up-additional-management.md)

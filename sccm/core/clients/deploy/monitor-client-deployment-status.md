@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.assetid: 20a573b3-53cb-4ed5-bae1-7542f533ed20
 caps.latest.revision: "11"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 3d9d02d8c56aea17e563112f92173c2b56781da6
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: bddc2cf4ae335a8b407035a90818d7fa01dcc398
+ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>Como monitorizar o estado de implementação do cliente no System Center Configuration Manager
 
@@ -52,7 +52,7 @@ A implementação de clientes no seu site demora algum tempo e algumas instalaç
 
 -   Reveja os gráficos do estado de implementação do cliente e de falha de implementação do cliente.  
 
--   Se pretender alterar o âmbito do relatório, clique em **procurar...**  e escolha uma coleção diferente.  
+-   Se pretender alterar o âmbito do relatório, clique em **procurar... ** e escolha uma coleção diferente.  
 
  Para obter mais informações sobre implementações de cliente de pré-produção, consulte [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
 

@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: b88ab3799027c78a8c605e934b247097b31e1d21
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 57292b1c6f6e8b6be91eace06dbf12d788522e0b
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utilizar o PXE para implementar o Windows na rede com o System Center Configuration Manager
 
@@ -46,7 +46,7 @@ Para utilizar o PXE para implementar um sistema operativo, tem de ter imagens de
 
 -   Para ativar o PXE numa imagem de arranque, selecione **implementar esta imagem de arranque a partir do ponto de distribuição com PXE ativado** do **origem de dados** separador nas propriedades da imagem de arranque.
 
--   Se alterar as propriedades da imagem de arranque, redistribuir a imagem de arranque para pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).
+-   Se alterar as propriedades da imagem de arranque, redistribuir a imagem de arranque para pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).
 
 ##  <a name="BKMK_PXEExclusionList"></a> Criar uma lista de exclusões para implementações PXE
 Quando implementar sistemas operativos com PXE, pode criar uma lista de exclusões em cada ponto de distribuição. Adicione os endereços MAC à lista de exclusão dos computadores que pretende que o ponto de distribuição para ignorar. Os computadores listados não irão receber as sequências de tarefas de implementação utilizadas pelo Configuration Manager para a implementação de PXE.

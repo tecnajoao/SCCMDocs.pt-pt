@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 830f715b688cc9929a179da94eba9c81de8db11a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f44fa4ef0946d3500d15db536333adab571a5f64
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="planning-considerations-for-automating-tasks-in-system-center-configuration-manager"></a>Considerações sobre planeamento para automatizar tarefas no System Center Configuration Manager
 
@@ -282,7 +282,7 @@ Pode criar sequências de tarefas para automatizar tarefas no seu ambiente do Sy
 ##  <a name="BKMK_TSNetworkAccessAccount"></a> Sequências de tarefas e Conta de Acesso à Rede  
  Embora as sequências de tarefas executadas apenas no contexto da conta do sistema Local, poderá ter de configurar a conta de acesso de rede nas seguintes circunstâncias:  
 
--   Tem de configurar a conta de acesso à rede corretamente ou a sequência de tarefas falhará se tentar aceder aos pacotes do Configuration Manager em pontos de distribuição para concluir a tarefa. Para obter mais informações sobre a conta de acesso à rede, consulte [conta de acesso à rede](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account).  
+-   Tem de configurar a conta de acesso à rede corretamente ou a sequência de tarefas falhará se tentar aceder aos pacotes do Configuration Manager em pontos de distribuição para concluir a tarefa. Para obter mais informações sobre a conta de acesso à rede, consulte [conta de acesso à rede](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
 
     > [!NOTE]  
     >  A conta de acesso à rede nunca é utilizada como o contexto de segurança para executar programas, instalar aplicações, instalação de atualizações ou executar sequências de tarefas No entanto, a conta de acesso à rede é utilizada para aceder aos recursos associados na rede.  

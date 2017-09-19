@@ -14,11 +14,11 @@ caps.latest.revision: "40"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: 93609815ab4d93eddb99b8461dda9f4b4bf8058e
-ms.sourcegitcommit: 9a6f8e028fb5eb2e752da70f42a5b548339bd8f4
+ms.openlocfilehash: c93ba688ba33c309e4d12e924061718e5a33759e
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -32,9 +32,15 @@ Este artigo fornece detalhes sobre o dispositivo móvel novo funcionalidades de 
 
 |Categorias de funcionalidade|Descrição|
 |-|-|
-|**Novo no Microsoft Intune** | Em geral, todas as funcionalidades listadas nesta categoria devem funcionar com todas as versões do Configuration Manager, incluindo versões do System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades apenas requerem o serviço do Intune e não necessitam de funcionalidades adicionais no Configuration Manager.|
+|**Novo no Microsoft Intune** | Em geral, todas as funcionalidades listadas nesta categoria devem funcionar com todas as versões do Configuration Manager. Versões este incluindo System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades apenas requerem o serviço do Intune e não necessitam de funcionalidades adicionais no Configuration Manager.|
 |**Novo no Configuration Manager Technical Preview**| Todas as funcionalidades listadas na categoria deste só funcionam com a versão de pré-visualização técnica especificada. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição da funcionalidade. Para obter mais informações, consulte [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Novo no Configuration Manager (ramo atual)**| Todas as funcionalidades listadas na categoria deste funcionam apenas com a versão especificada do Configuration Manager (ramo atual), como versão 1511 ou 1602. Se estiver a utilizar uma versão mais antiga do Configuration Manager para a implementação híbrida, tem de atualizar para a versão do Configuration Manager (ramo atual) especificada na descrição da funcionalidade. Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+## <a name="august-2017"></a>Agosto de 2017
+
+### <a name="new-signed-in-experience-for-android-company-portal-users-and-app-protection-policy-users----621669---"></a>Experiência de início de sessão iniciada novo para utilizadores do Portal da empresa para Android e utilizadores de política de proteção de aplicações<!-- 621669 -->
+Os utilizadores finais pode procurar as aplicações, gerir dispositivos e ver contacto de TI informações utilizando a aplicação Portal da empresa Android sem inscrever os respetivos dispositivos Android. Além disso, se um utilizador final já utiliza uma aplicação protegida por políticas de proteção de aplicações do Intune e inicia o Portal da empresa Android, o utilizador final deixará de receber uma mensagem para se inscrever o dispositivo.
+
 
 ## <a name="july-2017"></a>Julho de 2017
 
@@ -42,8 +48,7 @@ Este artigo fornece detalhes sobre o dispositivo móvel novo funcionalidades de 
 
 - **Fim de avisos de suporte adicionado para Android e Windows Phone**
 
-    Foram adicionados novos avisos de fim de suporte para versões de Android e Windows Phone. Para obter mais informações, consulte [avisos](#notices).
-
+    Novo avisos foram adicionados para fim de suporte para versões de Android e Windows Phone. Para obter mais informações, consulte [avisos](#notices).
 
 
 ### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
@@ -64,11 +69,11 @@ As seguintes funcionalidades que se encontravam anteriormente disponíveis em ve
 
 - **Alterar a autoridade MDM**
 
-  A partir do Configuration Manager versão 1610 e Microsoft Intune version 1705, pode alterar a autoridade de MDM sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a autoridade de MDM]( /sccm/mdm/deploy-use/change-mdm-authority).
+  A partir do Configuration Manager versão 1610, pode alterar a autoridade de MDM sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a autoridade de MDM]( /sccm/mdm/deploy-use/change-mdm-authority).
 
 - **Integração de proxy de aplicações e o browser gerida**
 
-  Agora, o Browser gerido do Intune pode integrar com o serviço de Proxy de aplicações do Azure AD para permitir que os utilizadores acedam a web sites internos, mesmo quando estão a trabalhar remotamente. Os utilizadores do browser basta introduzir o URL do site como fariam normalmente e o Browser gerido encaminha o pedido através do gateway de web de proxy de aplicações. Para obter mais informações, consulte [acesso gerir Internet através de políticas de browser gerido](/intune/app-configuration-managed-browser).
+  Agora, o Browser gerido do Intune pode integrar com o serviço de Proxy de aplicações do Azure AD para permitir que os utilizadores acedam a web sites internos, mesmo quando estão a trabalhar remotamente. Os utilizadores do browser introduza o URL do site, tal como fariam normalmente e o Browser gerido encaminha o pedido através do gateway de web de proxy de aplicações. Para obter mais informações, consulte [acesso gerir Internet através de políticas de browser gerido](/intune/app-configuration-managed-browser).
 
 - **Aplicação do Portal da empresa para Android tem agora uma nova experiência de utilizador final para as políticas de proteção da aplicação**
 
@@ -84,7 +89,7 @@ As seguintes funcionalidades que se encontravam anteriormente disponíveis em ve
 
 - **Nova experiência orientada para o Portal da empresa do Windows 10**
 
-  Aplicação Portal da empresa para Windows 10 incluirá uma experiência assistida para a explicação passo a passo de Intune para dispositivos que não foram identificados ou inscritos. A nova experiência fornece instruções passo a passo que o guiam de utilizador através do registo no Azure Active Directory (necessário para funcionalidades de acesso condicional) e a inscrição MDM (necessário para funcionalidades de gestão de dispositivos). A experiência orientada estará acessível a partir da home page do Portal da empresa. Os utilizadores podem continuar a utilizar a aplicação se não concluir o registo e a inscrição, mas irá ocorrer funcionalidade limitada.
+  Aplicação Portal da empresa para Windows 10 inclui uma explicação passo a passo experiência orientada do Intune para dispositivos que não foram identificados ou inscritos. A nova experiência fornece instruções passo a passo que o guiam de utilizador através do registo no Azure Active Directory (necessário para funcionalidades de acesso condicional) e a inscrição MDM (necessário para funcionalidades de gestão de dispositivos). A experiência orientada estará acessível a partir da home page do Portal da empresa. Os utilizadores podem continuar a utilizar a aplicação se não concluir o registo e a inscrição, mas irá ocorrer funcionalidade limitada.
 
   Esta atualização só é visível em dispositivos com Windows 10 aniversário da atualização (compilação 1607) ou superior. Pode ver estas alterações no [Novidades na aplicação IU](/intune/whats-new-app-ui) página.
 

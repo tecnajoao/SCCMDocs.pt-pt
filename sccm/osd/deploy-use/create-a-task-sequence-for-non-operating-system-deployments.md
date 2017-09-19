@@ -14,11 +14,11 @@ caps.latest.revision: "6"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: b4b04907f2cd48d81e864e46ca47c14a0b98a9f7
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: a50354070c03ad8acbd21432a192f949c0a196fa
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="create-a-task-sequence-for-non-operating-system-deployments-with-system-center-configuration-manager"></a>Criar uma sequência de tarefas para implementações do sistema de operativo com o System Center Configuration Manager
 
@@ -42,7 +42,7 @@ O poder das sequências de tarefas reside na respetiva flexibilidade e como pode
 
 -   [Instalar atualizações de Software](../understand/task-sequence-steps.md#BKMK_InstallSoftwareUpdates)  
 
--   [Reiniciar computador](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer)  
+-   [Reiniciar computador](../understand/task-sequence-steps.md#BKMK_RestartComputer)   
 
 -   [Executar linha de comandos](../understand/task-sequence-steps.md#BKMK_RunCommandLine)  
 
@@ -52,5 +52,5 @@ O poder das sequências de tarefas reside na respetiva flexibilidade e como pode
 
 -   [Definir variável da sequência de tarefas](../understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable)  
 
-## <a name="next-steps"></a>Passos seguintes
-[Implementar a sequência de tarefas](manage-task-sequences-to-automate-tasks.md#a-namebkmkdeploytsa-deploy-a-task-sequence)
+## <a name="next-steps"></a>Passos seguintes 
+[Implementar a sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS)

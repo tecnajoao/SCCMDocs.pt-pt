@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4b3668094d576b1b8710f08b384aa2f7c5eb0cca
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3a8e2759812dae2a328cd09efdc13f8534d14379
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para capturar e restaurar o estado do utilizador no System Center Configuration Manager
 
@@ -56,7 +56,7 @@ Pode utilizar sequências de tarefas do System Center Configuration Manager para
 
     -   Na caixa **Intervalo de repetição (em segundos)** , especifique quantos segundos a sequência de tarefas deverá aguardar antes de voltar a tentar capturar os dados.  
 
-    -   Selecione o **se a conta de computador falhar a ligação ao armazenamento de Estados, utilize a conta de acesso à rede** caixa de verificação para especificar se pretende utilizar o Gestor de configuração [conta de acesso à rede](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) para ligar ao arquivo de Estados.  
+    -   Selecione o **se a conta de computador falhar a ligação ao armazenamento de Estados, utilize a conta de acesso à rede** caixa de verificação para especificar se pretende utilizar o Gestor de configuração [conta de acesso à rede](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA) para ligar ao arquivo de Estados.  
 
      No separador **Opções** , especifique as seguintes opções:  
 
@@ -141,7 +141,7 @@ Pode utilizar sequências de tarefas do System Center Configuration Manager para
 
     -   Selecione **Continuar se não for possível restaurar alguns ficheiros** se pretender que o passo **Restaurar Estado do Utilizador** continue caso não seja possível restaurar um ficheiro.  
 
-         Se armazenar o estado do utilizador utilizando ligações locais e a restauração não for bem-sucedida, o utilizador administrativo pode eliminar manualmente as ligações fixas criadas para armazenar os dados ou a sequência de tarefas pode executar a ferramenta USMTUtils. Se utilizar o USMTUtils para eliminar a ligação fixa, adicione um [reiniciar o computador](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) passo após a execução do USMTUtils.  
+         Se armazenar o estado do utilizador utilizando ligações locais e a restauração não for bem-sucedida, o utilizador administrativo pode eliminar manualmente as ligações fixas criadas para armazenar os dados ou a sequência de tarefas pode executar a ferramenta USMTUtils. Se utilizar o USMTUtils para eliminar a ligação fixa, adicione um [reiniciar o computador](../understand/task-sequence-steps.md#BKMK_RestartComputer) passo após a execução do USMTUtils.  
 
     -   Selecione **Ativar registo verboso** para especificar a quantidade de informações a escrever nos ficheiros de registo, se ocorrer um erro.  
 
