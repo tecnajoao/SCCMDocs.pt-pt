@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c890fd27-7a8c-4f51-bbe2-f9908af1f42b
 caps.latest.revision: "15"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 36bcbbca4fdee3e95d293c436a105a41a6e3953e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5148fe852e4d63e1cfd2d5b9c62369155dbecb89
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Acerca das propriedades de instalação do cliente no System Center Configuration Manager
 
@@ -45,7 +45,7 @@ Utilize o comando CCMSetup.exe do System Center Configuration Manager para insta
 > [!IMPORTANT]  
 >  Especifique as propriedades de CCMSetup antes de especificar as propriedades de Client.msi.  
 
- CCMSetup.exe e respetivos ficheiros de suporte estão localizados no servidor de site do Configuration Manager no **cliente** pasta da pasta de instalação do Configuration Manager. Esta pasta é partilhada na rede como  **&lt;nome do servidor de Site\>\SMS_&lt;código do Site\>\Client**.  
+ CCMSetup.exe e respetivos ficheiros de suporte estão localizados no servidor de site do Configuration Manager no **cliente** pasta da pasta de instalação do Configuration Manager. Esta pasta é partilhada na rede como ** &lt;nome do servidor de Site\>\SMS_&lt;código do Site\>\Client**.  
 
  Na linha de comandos, o comando CCMSetup.exe utiliza o seguinte formato:  
 
@@ -267,7 +267,7 @@ Exemplo: **CCMSetup.exe CCMALLOWSILENTREBOOT**
  `CCMCERTISSUERS=”CN=Contoso Root CA; OU=Servers; O=Contoso, Ltd; C=US &#124; CN=Litware Corporate Root CA; O=Litware, Inc.”`  
 
 > [!TIP]  
->  Referência ao ficheiro mobileclient.tcf no &lt;diretório do Configuration Manager\>\bin\\&lt;plataforma\> pasta no computador do servidor do site para copiar o **CertificateIssuers =&lt;cadeia\>**  que está configurado para o site.  
+>  Referência ao ficheiro mobileclient.tcf no &lt;diretório do Configuration Manager\>\bin\\&lt;plataforma\> pasta no computador do servidor do site para copiar o **CertificateIssuers =&lt;cadeia\> ** que está configurado para o site.  
 
 ### <a name="ccmcertsel"></a>CCMCERTSEL
 

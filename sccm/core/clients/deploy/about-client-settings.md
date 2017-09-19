@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: a8233c361e1a78b14a02f328da445814624e38d8
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5eeeb9337926b983c26f681bff043fa1598dd4ee
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
@@ -524,7 +524,7 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 
     -   Escolha o **novo** ícone para adicionar um novo tipo de ficheiro ao inventário. Em seguida, especifique as seguintes informações no **propriedades do ficheiro inventariado** caixa de diálogo:  
 
-        -   **Nome**: Forneça um nome para o ficheiro que pretende inventariar. Pode utilizar o * *\**  para representar qualquer cadeia de texto e o **?** para representar um único caráter. Por exemplo, se pretender inventariar todos os ficheiros com a extensão. doc, especifique o nome de ficheiro  **\*. doc**.  
+        -   **Nome**: Forneça um nome para o ficheiro que pretende inventariar. Pode utilizar o ** \* * para representar qualquer cadeia de texto e o **?** para representar um único caráter. Por exemplo, se pretender inventariar todos os ficheiros com a extensão. doc, especifique o nome de ficheiro ** \*. doc**.  
 
         -   **Localização**: Escolha **definir** para abrir o **propriedades do caminho** caixa de diálogo. Pode configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro especificado, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
 
@@ -547,7 +547,7 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 
     -   Na caixa de diálogo **Propriedades do Ficheiro Recolhido** , forneça as seguintes informações:  
 
-        -   **Nome**: Forneça um nome para o ficheiro que pretende recolher. Pode utilizar o * *\**  para representar qualquer cadeia de texto e o **?** para representar um único caráter.  
+        -   **Nome**: Forneça um nome para o ficheiro que pretende recolher. Pode utilizar o ** \* * para representar qualquer cadeia de texto e o **?** para representar um único caráter.  
 
         -   **Localização**: Escolha **definir** para abrir o **propriedades do caminho** caixa de diálogo. Poderá configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro que pretende recolher, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
 
@@ -556,7 +556,7 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
         -   **Parar a recolha de ficheiros quando o tamanho total dos ficheiros excede (KB)**: Especifica o tamanho do ficheiro (em quilobytes) após o qual dos ficheiros especificados em **nome** serão recolhidos.  
 
           > [!NOTE]  
-          >  O servidor do site recolhe as cinco versões mais recentes dos ficheiros recolhidos e armazena-os no  *&lt;diretório de instalação do ConfigMgr\>*\Inboxes\Sinv.box\Filecol diretório. Se um ficheiro não tiver sido alterado desde a recolha do último inventário de software, o ficheiro não será novamente recolhido.  
+          >  O servidor do site recolhe as cinco versões mais recentes dos ficheiros recolhidos e armazena-os no * &lt;diretório de instalação do ConfigMgr\>*\Inboxes\Sinv.box\Filecol diretório. Se um ficheiro não tiver sido alterado desde a recolha do último inventário de software, o ficheiro não será novamente recolhido.  
           >   
           >  Inventário de software não recolher ficheiros com mais de 20 MB.  
           >   
