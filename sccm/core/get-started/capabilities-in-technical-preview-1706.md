@@ -2,7 +2,7 @@
 title: "Pré-visualização técnica 1706 | Microsoft Docs"
 description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1706 para o System Center Configuration Manager."
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 09/15/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.reviewer: na
@@ -13,11 +13,11 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d45f504dfe0a4c7852b0e2c8ff60d54005346c02
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5633047669f9730446159781c4ac0b1248178bf4
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1706 do System Center Configuration Manager
 
@@ -328,8 +328,8 @@ No Configuration Manager, pode implementar scripts de utilização de pacotes e 
 
 Para utilizar scripts, tem de ser um membro da função de segurança adequado do Configuration Manager.
 
-- **Para importar e criar scripts** -a conta tem de ter **criar** permissões para **SMS Scripts** no **Gestor de definições de compatibilidade** função de segurança.
-- **Para aprovar ou negar scripts** -a conta tem de ter **aprovar** permissões para **SMS Scripts** no **Gestor de definições de compatibilidade** função de segurança.
+- **Para importar e criar scripts** -a conta tem de ter **criar** permissões para **SMS Scripts** no **administrador total** função de segurança.
+- **Para aprovar ou negar scripts** -a conta tem de ter **aprovar** permissões para **SMS Scripts** no **administrador total** função de segurança.
 - **Para executar scripts** -a conta tem de ter **executar Script** permissões para **coleções** no **Gestor de definições de compatibilidade** função de segurança.
 
 Para mais informações sobre funções de segurança do Configuration Manager, consulte [Noções básicas da administração baseada em funções](/sccm/core/understand/fundamentals-of-role-based-administration).

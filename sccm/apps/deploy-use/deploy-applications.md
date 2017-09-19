@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
 caps.latest.revision: "10"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: f704d1b0ec48e3a7bbea784a7c18de77b21cd0ee
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 801c21e0015d63f736fb2207e85f484dc50d56dc
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Implementar aplicações com o System Center Configuration Manager
 
@@ -175,9 +175,9 @@ Além disso, para uma implementação de alto risco, como uma sequência de tare
 No **propriedades** , na caixa de diálogo de uma implementação de tipo de **instalar comportamento** separador, pode especificar um ou mais ficheiros executáveis que, se executar, bloqueiam a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado. Para configurar este:
 
 1. Abra o **propriedades** caixa de diálogo para qualquer tipo de implementação.
-2. No **instalar comportamento** separador do  *<deployment type name>*  **propriedades** caixa de diálogo, clique em **adicionar**.
+2. No **instalar comportamento** separador do * <deployment type name> * **propriedades** caixa de diálogo, clique em **adicionar**.
 3. No **adicionar ou Editar ficheiro executável** caixa de diálogo, introduza o nome do ficheiro executável que, se executar, bloqueia a instalação da aplicação. Opcionalmente, também pode introduzir um nome amigável para a aplicação para o ajudar a identificá-la na lista.
-4. Clique em **OK**, em seguida, feche o  *<deployment type name>*  **propriedades** caixa de diálogo.
+4. Clique em **OK**, em seguida, feche o * <deployment type name> * **propriedades** caixa de diálogo.
 5. Em seguida, quando implementa uma aplicação, no **definições de implementação** página do Assistente de implementação Software, selecione **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**, em seguida, avance para implementar a aplicação.
 
 Depois da aplicação atinge os computadores cliente, o seguinte comportamento aplica-se:

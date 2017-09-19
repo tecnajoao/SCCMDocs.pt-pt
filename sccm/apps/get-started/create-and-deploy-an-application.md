@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 3bd1e487-ea18-43c1-b7c3-acbd9b86d429
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bbbf278f5d31c51bfe061dd44e170f7ab1ca70ad
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f52dbb5e89746e30562132d4fe19886e7d9b5ea7
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-and-deploy-an-application-with-system-center-configuration-manager"></a>Criar e implementar uma aplicação com o System Center Configuration Manager
 
@@ -60,7 +60,7 @@ Certifique-se de que tenha de rever as informações [introdução à gestão de
 
     -   **Tipo**: Escolha **do Windows Installer (\*ficheiro. msi)**.  
 
-    -   **Localização**: Escreva a localização (ou escolha **procurar** para selecionar a localização) do ficheiro de instalação **Contoso.msi**. Tenha em atenção que a localização tem de ser especificada no formato  *\\\Server\Share\File* para o Configuration Manager para localizar os ficheiros de instalação.  
+    -   **Localização**: Escreva a localização (ou escolha **procurar** para selecionar a localização) do ficheiro de instalação **Contoso.msi**. Tenha em atenção que a localização tem de ser especificada no formato * \\\Server\Share\File* para o Configuration Manager para localizar os ficheiros de instalação.  
 
     Irá acaba por ficar com algo que se assemelha a captura de ecrã seguinte:  
 

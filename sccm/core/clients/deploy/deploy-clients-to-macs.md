@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
 caps.latest.revision: "12"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 6ce212c6745b70a47553891e5dbc124b4c4e50fa
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: af6faf4cd317452f635ec30e74a3aa2e14f1662a
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="how-to-deploy-clients-to-macs"></a>Como implementar clientes em Mac
 
@@ -164,7 +164,7 @@ Utilize este procedimento para inscrição de certificados de cliente com a ferr
      Exemplo: Se o servidor de ponto de proxy de inscrição é denominado **server02.contoso.com**e um nome de utilizador **contoso\mnorth** ter sido concedidas permissões para o modelo de certificado de cliente Mac, escreva o seguinte: **sudo. / /cmenroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
 
     > [!NOTE]  
-    >  Se o nome de utilizador contiver qualquer um dos carateres  **&lt;> "+ =,** inscrição irá falhar. Obtenha um certificado de fora de banda com um nome de utilizador que não contenha estes carateres.  
+    >  Se o nome de utilizador contiver qualquer um dos carateres ** &lt;> "+ =,** inscrição irá falhar. Obtenha um certificado de fora de banda com um nome de utilizador que não contenha estes carateres.  
     >  
     >  Para assegurar uma experiência de utilizador mais estável, pode criar scripts dos passos e comandos de instalação para que os utilizadores apenas precisem de indicar o respetivo nome de utilizador e palavra-passe.  
 

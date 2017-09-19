@@ -2,7 +2,7 @@
 title: "Atualizações na consola | Microsoft Docs"
 description: "System Center Configuration Manager sincroniza com a nuvem da Microsoft para obter atualizações que pode instalar a consola."
 ms.custom: na
-ms.date: 06/13/2017
+ms.date: 09/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 10ddbcc19da8c5fc6451f62500f17790a0349389
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Instalar atualizações na consola para o System Center Configuration Manager
 
@@ -106,6 +106,9 @@ Antes de instalar uma atualização, considere executar a verificação de pré-
 
 -   A verificação de pré-requisitos é executado automaticamente novo quando optar por instalar a atualização.  
 
+> [!NOTE]
+> Quando iniciar uma verificação de pré-requisitos e, em seguida, ver o estado, o **instalação** fase parece estar ativo, no entanto, não é, na verdade, instalar a atualização. A apresentação lista a fase de instalação, porque algumas tarefas, como os binários necessários para executar a verificação, a extrair também fazem parte da fase de instalação.  
+
 Mais tarde, quando instala a atualização, pode configurar a atualização para ignorar os avisos de verificação de pré-requisitos.  
 
 #### <a name="to-run-the-prerequisite-checker-before-installing-an-update"></a>Para executar o verificador de pré-requisitos antes de instalar uma atualização  
@@ -183,7 +186,7 @@ Utilize o seguinte procedimento para monitorizar o progresso:
 
     -   **Após a instalação** ([tarefas de pós-instalação](#post-installation-tasks) disponíveis a partir versão 1610.)  
 
--   Pode ver o **CMUpdate.log** ficheiros  **&lt;ConfigMgr_Installation_Directory > \Logs**  
+-   Pode ver o **CMUpdate.log** ficheiros ** &lt;ConfigMgr_Installation_Directory > \Logs**  
 
 **4. Quando a instalação da atualização é concluída**  
 Após a instalação da primeira atualização do site ser concluída:  
@@ -288,7 +291,7 @@ As tarefas de pós-instalação incluem:
 Quando a instalação de uma atualização falhar, reveja os comentários na consola para identificar resoluções de avisos e erros. Também pode ver o ConfigMgrPrereq.log no servidor do site para obter mais detalhes. Antes de repetir a instalação de uma atualização, é necessário corrigir os erros e deve corrigir os avisos.  
 
 > [!TIP]  
-> Se uma atualização tem problemas de transferir ou replicar, pode utilizar o [ferramenta de reposição de atualização](/sccm/core/servers/manage/update-reset-tool). Esta ferramenta é disponíveis a partir dos sites que executam a versão 1706 ou posterior. 
+> Se uma atualização tem problemas de transferir ou replicar, pode utilizar o [ferramenta de reposição de atualização](/sccm/core/servers/manage/update-reset-tool). Esta ferramenta é disponíveis a partir dos sites que executam a versão 1706 ou posterior.
 
 Quando estiver pronto para repetir a instalação de uma atualização, selecione a atualização falhada e, em seguida, escolha uma opção aplicável. O comportamento de tentativas de instalação de atualização depende do nó onde deve começar a repetição e a opção de repetição que utilizar.  
 

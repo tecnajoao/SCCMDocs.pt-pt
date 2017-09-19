@@ -2,7 +2,7 @@
 title: Criar e executar scripts com o Configuration Manager | Microsoft Docs
 description: Criar e executar scripts nos dispositivos cliente com o Configuration Manager.
 ms.custom: na
-ms.date: 08/09/2017
+ms.date: 09/15/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 caps.latest.revision: "14"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: lleonard-msft
+ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
-ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
+ms.openlocfilehash: e6b29cd85504742e8638a55db2f6c4ecc8ab3e55
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
@@ -44,8 +44,8 @@ Clientes do Configuration Manager tem de executar o cliente a partir da versão 
 
 Para utilizar scripts, tem de ser um membro da função de segurança adequado do Configuration Manager.
 
-- Para importar e criar scripts - a conta tem de ter **criar** permissões para **SMS Scripts** no **Gestor de definições de compatibilidade** função de segurança.
-- Para aprovar ou negar scripts - a conta tem de ter **aprovar** permissões para **SMS Scripts** no **Gestor de definições de compatibilidade** função de segurança.
+- Para importar e criar scripts - a conta tem de ter **criar** permissões para **SMS Scripts** no **administrador total** função de segurança.
+- Para aprovar ou negar scripts - a conta tem de ter **aprovar** permissões para **SMS Scripts** no **administrador total** função de segurança.
 - Para executar scripts - a conta tem de ter **executar Script** permissões para **coleções** no **Gestor de definições de compatibilidade** função de segurança.
 
 Para mais informações sobre funções de segurança do Configuration Manager, consulte [Noções básicas da administração baseada em funções](/sccm/core/understand/fundamentals-of-role-based-administration).
@@ -78,9 +78,9 @@ Seguem-se alguns exemplos que ilustram scripts que pode querer utilizar com esta
 
 #### <a name="create-a-folder"></a>Crie uma pasta
 
-*Novo Item "c:\scripts"-nome de pasta do tipo* 
- 
- 
+*Novo Item "c:\scripts"-nome de pasta do tipo*
+
+
 #### <a name="create-a-file"></a>Criar um ficheiro
 
 *Novo Item c:\scripts\new_file.txt-nome do tipo de ficheiro*
