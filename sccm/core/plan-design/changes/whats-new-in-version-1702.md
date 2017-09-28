@@ -12,11 +12,11 @@ ms.assetid: 409e26e1-7716-4f1d-a0ee-34feabf20792
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: a2954b3c6f9a09b7246347e780c4cfc49ba39ca1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ff7f6c3b9f183502c95a2c551b1131c5abf1dd90
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1702 do System Center Configuration Manager
 
@@ -256,7 +256,13 @@ Esta alteração afeta os assistentes para criar os seguintes itens:
 
 Com esta alteração, implementações híbridas podem fornecer suporte mais rapidamente para novas versões de Android e iOS sem necessitar de uma nova versão do Configuration Manager ou a extensão. Depois de uma nova versão é suportada no Intune autónomo, os utilizadores conseguirão atualizar os respetivos dispositivos móveis para essa versão.
 
-Para evitar problemas ao atualizar a partir de versões anteriores do Configuration Manager, versões de sistema operativo móvel ainda estão disponíveis as páginas de propriedades para estes itens. Se ainda precisar de uma versão específica de destino, pode criar o novo item e, em seguida, especifique a versão especificada na página de propriedades do item criado recentemente.
+Para evitar problemas ao atualizar a partir de versões anteriores do Configuration Manager, versões de sistema operativo móvel ainda estão disponíveis as páginas de propriedades para estes itens. Se ainda precisar de uma versão específica de destino, pode criar o novo item e, em seguida, especifique a versão especificada na página de propriedades do item criado recentemente. 
+
+> [!NOTE]
+> A última versão de sistema operativo móvel disponível nas páginas de propriedades aplica-se de que a versão e todas as versões subsequentes. Páginas de propriedades fornecem as seguintes opções de filtragem de sistemas operativos posteriores ao Android 7 e iOS 10: 
+> - **Android 7 e superior**
+> - **Todos os 10 superiores iPhone ou iPod touch os dispositivos iOS e**
+> - **Todos os iOS 10 e superiores dispositivos iPad**
 
 ### <a name="android-for-work-support"></a>Android para o suporte de trabalho
 A partir do 1702, gestão de dispositivos móveis híbrida com o Microsoft Intune suporta agora Android para gestão e de inscrição de dispositivos de trabalho. Android gerido para obter orientações de dispositivos de trabalho:

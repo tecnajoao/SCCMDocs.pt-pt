@@ -14,11 +14,11 @@ caps.latest.revision: "40"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: c93ba688ba33c309e4d12e924061718e5a33759e
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: 2ef4964a74e000feac029b158f6fe0c52e3de370
+ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -36,9 +36,30 @@ Este artigo fornece detalhes sobre o dispositivo móvel novo funcionalidades de 
 |**Novo no Configuration Manager Technical Preview**| Todas as funcionalidades listadas na categoria deste só funcionam com a versão de pré-visualização técnica especificada. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição da funcionalidade. Para obter mais informações, consulte [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Novo no Configuration Manager (ramo atual)**| Todas as funcionalidades listadas na categoria deste funcionam apenas com a versão especificada do Configuration Manager (ramo atual), como versão 1511 ou 1602. Se estiver a utilizar uma versão mais antiga do Configuration Manager para a implementação híbrida, tem de atualizar para a versão do Configuration Manager (ramo atual) especificada na descrição da funcionalidade. Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
 
+## <a name="september-2017"></a>Setembro de 2017
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune     
+
+- **Notificações de push adicionais para os utilizadores finais na aplicação Portal da empresa para Android Oreo**<!--1475932-->    
+    Os utilizadores finais irão ver notificações adicionais para indicar-lhes quando a aplicação Portal da empresa para Android Oreo está a efetuar tarefas em segundo plano, tais como obtenção de políticas do serviço do Intune. Isto aumenta a transparência para os utilizadores finais sobre quando o Portal da empresa está a realizar tarefas administrativas no respetivo dispositivo. Esta é a parte do global [Otimização da IU de Portal da empresa](https://blogs.technet.microsoft.com/intunesupport/2017/08/21/android-8-0-o-behaviour-changes-and-microsoft-intune) para a aplicação do Portal da empresa para Android Oreo. 
+
+- **Informar os utilizadores finais as informações do dispositivo podem ser vistas para iOS**<!--739894-->    
+    Foi adicionado **o tipo de propriedade** para o ecrã de detalhes do dispositivo na aplicação Portal da empresa para iOS. Isto permitirá aos utilizadores encontrar mais informações sobre privacidade diretamente a partir desta página de documentos do utilizador final do Intune. Também irá ser capazes de localizar estas informações no ecrã Acerca. 
+
+- **Mais fácil de compreender phrasing para a aplicação Portal da empresa para Android**<!---1396349-->       
+    O processo de inscrição para a aplicação Portal da empresa para Android foi simplificado por um novo texto para tornar mais fácil para os utilizadores finais a inscrever. Se tiver de documentação da inscrição personalizada, será pretende atualizá-la para refletir ecrãs de novo. Pode encontrar as imagens de exemplo no nosso [atualizações de IU para aplicações de utilizador final do Intune](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-september-11-2017) página.
+
+- **Aplicação do Portal da empresa do Windows 10 adicionada ao Windows Information Protection Permitir política**<!-- 677129 -->    
+    A aplicação Portal da empresa do Windows 10 foi atualizada para suportar a proteção de informações do Windows (WIP). A aplicação pode ser adicionada para o WIP Permitir política. Com esta alteração, a aplicação já não tem de ser adicionado para o **excluído** lista. 
+
+- **Fim de aviso de suporte adicionado para o iOS 8.0**    
+    Foi adicionado um aviso para o fim de suporte para o iOS 8.0. Para obter mais informações, consulte [avisos](#notices).
+
 ## <a name="august-2017"></a>Agosto de 2017
 
-### <a name="new-signed-in-experience-for-android-company-portal-users-and-app-protection-policy-users----621669---"></a>Experiência de início de sessão iniciada novo para utilizadores do Portal da empresa para Android e utilizadores de política de proteção de aplicações<!-- 621669 -->
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune     
+
+- **Experiência de início de sessão iniciada novo para utilizadores do Portal da empresa para Android e utilizadores de política de proteção da aplicação**<!-- 621669 -->    
 Os utilizadores finais pode procurar as aplicações, gerir dispositivos e ver contacto de TI informações utilizando a aplicação Portal da empresa Android sem inscrever os respetivos dispositivos Android. Além disso, se um utilizador final já utiliza uma aplicação protegida por políticas de proteção de aplicações do Intune e inicia o Portal da empresa Android, o utilizador final deixará de receber uma mensagem para se inscrever o dispositivo.
 
 
@@ -311,6 +332,10 @@ As seguintes funcionalidades adicionais híbrida também estão incluídas na ve
 
 
 ## <a name="notices"></a>Avisos
+
+### <a name="end-of-support-for-ios-80"></a>Fim de suporte para o iOS 8.0 
+<!---1164477--->
+Aplicações geridas e a aplicação Portal da empresa para iOS exigirá iOS 9.0 e superior para aceder a recursos da empresa. Dispositivos que não são atualizados antes de Setembro já não será possível aceder ao Portal da empresa ou a essas aplicações. 
 
 ### <a name="platform-support-reminder-windows-phone-81-mainstream-support-ended-july-11-2017"></a>Lembrete de suporte de plataforma: Suporte de base do Windows Phone 8.1 terminou 11 de Julho de 2017
 <!-- 1327781 -->

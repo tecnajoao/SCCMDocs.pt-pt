@@ -2,7 +2,7 @@
 title: "Suportado domínios do Active Directory | Microsoft Docs"
 description: "Obter os requisitos para a associação de um sistema de site do System Center Configuration Manager num domínio do Active Directory."
 ms.custom: na
-ms.date: 3/23/2017
+ms.date: 9/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 2654ab4eaaaf6a4bf3bd7dca9908e7033647dc2c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 813c2f55a5815ae3739149abc3f650a750d52cd8
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Domínios do Active Directory suportados para o System Center Configuration Manager
 
@@ -33,7 +33,7 @@ Todos os sistemas de site do System Center Configuration Manager tem de ser memb
 
 -   Não é suportado para alterar as seguintes opções para um computador que aloje uma função de sistema de sites:  
 
-    -   Associação ao domínio  
+    -   Associação ao domínio *(Isto inclui a remoção de um sistema de sites do domínio e, em seguida, rejoining mesmo domínio.)*
 
     -   Nome do domínio  
 

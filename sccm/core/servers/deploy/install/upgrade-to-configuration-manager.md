@@ -14,11 +14,11 @@ caps.latest.revision: "21"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 1166b739e1e8d667172d97883f484fdbc3a142c1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e65c22240555563cdb011849562069baf5d5887f
+ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Atualizar para o System Center Configuration Manager
 
@@ -47,7 +47,7 @@ No dia 15 de Dezembro de 2016, o suporte de dados de linha de base para a versã
 -   Uma instalação de release candidate do System Center Configuration Manager  
 -   System Center 2012 Configuration Manager sem Service Pack 1  
 -   System Center 2012 Configuration Manager sem Service Pack 2  
--   System Center 2012 R2 Configuration Manager  
+-   System Center 2012 R2 Configuration Manager sem service Pack
 -   System Center 2012 R2 Configuration Manager sem Service Pack 1  
 
 Se utilizar o suporte de dados de linha de base 1606 versão transferido antes do dia 15 de Dezembro de 2016, pode atualizar apenas o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1606 de:
@@ -330,7 +330,7 @@ Utilize os procedimentos seguintes para atualizar sites do Configuration Manager
     -   Direitos de Administrador Local no computador do servidor de site.  
     -   Direitos de Administrador Local no servidor da base de dados do site remoto, se for remoto.    </br></br>
 
-2.  No computador do servidor do site, abra o Explorador do Windows e navegue para  **&lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
+2.  No computador do servidor do site, abra o Explorador do Windows e navegue para ** &lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
 
 3.  Faça duplo clique em **Setup.exe**. É aberto o Assistente de configuração do Configuration Manager.  
 

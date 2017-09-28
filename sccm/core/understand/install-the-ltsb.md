@@ -14,11 +14,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 82ec84923cc60e7a91d4afa4e9f59564fd416055
-ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
+ms.openlocfilehash: 06565bc52e2c409b905bbc448262cf9da25eabb0
+ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Instalar e atualizar com a versão 1606 suporte de dados de linha de base para o System Center Configuration Manager
 
@@ -126,7 +126,7 @@ Quando atualizar a partir do System Center 2012 Configuration Manager, utilize o
 ### <a name="in-place-upgrade-paths-for-the-1606-baseline-media"></a>Caminhos de atualização para o suporte de dados de linha de base de 1606 no local
 Pode utilizar o suporte de dados de linha de base de 1606 para atualizar o seguinte procedimento para uma edição licenciada do System Center Configuration Manager:
 - System Center 2012 R2 Configuration Manager sem Service Pack 1
-- System Center 2012 R2 Configuration Manager (sem nenhum service pack)
+- System Center 2012 R2 Configuration Manager sem service Pack (Isto requer a utilização de suporte de linha de base para versão 1606 de que foi rereleased no dia 15 de Dezembro de 2016.)
 - System Center 2012 Configuration Manager sem Service Pack 2
 - System Center 2012 Configuration Manager sem Service Pack 1
 

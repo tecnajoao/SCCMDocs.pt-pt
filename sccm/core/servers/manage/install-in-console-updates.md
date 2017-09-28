@@ -14,11 +14,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 10ddbcc19da8c5fc6451f62500f17790a0349389
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 5302b5712e33c753d0193a32498bc02a2241428c
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Instalar atualizações na consola para o System Center Configuration Manager
 
@@ -106,8 +106,8 @@ Antes de instalar uma atualização, considere executar a verificação de pré-
 
 -   A verificação de pré-requisitos é executado automaticamente novo quando optar por instalar a atualização.  
 
-> [!NOTE]
-> Quando iniciar uma verificação de pré-requisitos e, em seguida, ver o estado, o **instalação** fase parece estar ativo, no entanto, não é, na verdade, instalar a atualização. A apresentação lista a fase de instalação, porque algumas tarefas, como os binários necessários para executar a verificação, a extrair também fazem parte da fase de instalação.  
+> [!NOTE]   
+> Quando iniciar uma verificação de pré-requisitos e, em seguida, ver o estado, o **instalação** fase parece estar ativo, no entanto, não é, na verdade, instalar a atualização. Para executar a verificação de pré-requisitos, o processo de atualização extrai o pacote da biblioteca de conteúdos e coloca-o para uma pasta de transição onde as verificações de pré-requisitos atuais podem ser acedidas.  Este processo mesmo executa quando instala uma atualização. Por este motivo, a instalação mostra como "Em curso". Apenas o *pacote de atualização de extrair* passo é apresentado na categoria de instalação.  
 
 Mais tarde, quando instala a atualização, pode configurar a atualização para ignorar os avisos de verificação de pré-requisitos.  
 

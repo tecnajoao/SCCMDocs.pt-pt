@@ -2,7 +2,7 @@
 title: "Windows Hello para definições da empresa | Microsoft Docs"
 description: Saiba como integrar o Windows Hello para empresas com o System Center Configuration Manager.
 ms.custom: na
-ms.date: 08/10/2017
+ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "17"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 1985428df0f82ef2e0a92fdec86189d5ffa03aee
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 43586e55f2c0c5cf117b94c61250f26ba4233f53
+ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="windows-hello-for-business-settings-in-system-center-configuration-manager"></a>Definições do Windows Hello para Empresas no System Center Configuration Manager
 
@@ -65,8 +65,11 @@ Algumas configurações poderão não ser necessário configurar permissões, ou
 |||||
 |-|-|-|-|
 |Versão de cliente do Windows|Configuration Manager 1602 1606|1610 o Configuration Manager|Gestor de configuração 1702 ou posterior|
-|Atualização do Windows 10 Anniversary|Não existem correção necessária<br><br>Não existem permissões necessárias<br><br>Não existe nenhuma atualização de esquema do Windows necessária|Não existem correção necessária<br><br>Não existem permissões necessárias<br><br>Não existe nenhuma atualização de esquema do Windows necessária|Não é necessária nenhuma ação|
+|Atualização do Windows 10 Anniversary|Não existem correção necessária<br><br>Não existem permissões necessárias<br><br>Não existe nenhuma atualização de esquema do Windows necessária|Não existem correção necessária (consulte **aviso**)<br><br>Não existem permissões necessárias<br><br>Não existe nenhuma atualização de esquema do Windows necessária|Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 ao Active Directory|
 |Atualização do Windows 10 criadores ou posterior|Não suportado|Instalar [Esta correção](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v)<br><br>Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 ao Active Directory|Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 ao Active Directory|
+
+> [!WARNING]
+> Enquanto [a correção](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v) não é necessário para o Configuration Manager 1610 e Windows 10 aniversário da atualização, este pode ser instalado.  Se a correção está instalada, terá de configurar as permissões e aplicar o esquema do Windows Server 2016 ao Active Directory.
 
 ## <a name="to-configure-permissions"></a>Configurar as permissões
 

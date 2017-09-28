@@ -2,7 +2,7 @@
 title: "Monitorizar a utilização de aplicação com a medição de software | Microsoft Docs"
 description: 
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 09/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "8"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: d7bc0bebeb0355156553376a3535ed76d5e44835
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 87bafd8ce28d58993666057b6c5bfd8bdc0c4ed9
+ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="software-metering-in-system-center-configuration-manager"></a>Medição de software no System Center Configuration Manager
 
@@ -86,7 +86,7 @@ A medição de software não tem dependências externas, apenas dependências no
         >
         >  Esta caixa é opcional, se for especificado um valor para **Nome do Ficheiro** .
 
-    -   **Versão** - a versão do ficheiro executável que pretende medir. Poderá utilizar o caráter universal (*) para representar qualquer cadeia de caracteres ou o caráter universal (?) para representar um único caráter. Se pretender medir todas as versões de um ficheiro executável, utilize o valor predefinido (\*).
+    -   **Versão** - a versão do ficheiro executável que pretende medir. Pode utilizar o caráter universal (&#42;) para representar qualquer cadeia de caracteres ou o caráter universal caráter (? ) para representar um único caráter. Se pretender medir todas as versões de um ficheiro executável, utilize o valor predefinido (&#42;).
 
     -   **Idioma** - o idioma do ficheiro executável a medir. O valor predefinido é a região atual do sistema operativo que está a utilizar. Se selecionar um ficheiro executável para ser medido ao clicar no botão **Procurar** , esta caixa é preenchida automaticamente se a informação do idioma estiver presente no cabeçalho do ficheiro. Para medir todas as versões de idiomas de um ficheiro, selecione **Qualquer** na lista pendente.
 

@@ -2,7 +2,7 @@
 title: "Versões do SQL Server suportadas | Microsoft Docs"
 description: "Obter os requisitos de configuração e a versão do SQL Server para alojar uma base de dados do site do System Center Configuration Manager."
 ms.custom: na
-ms.date: 05/10/2017
+ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "21"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: b35e45b9514297e2f9ce405a3244462ed735f39f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0e6613873c09b5e5df4f25ce0dbc16c289ccbd41
+ms.sourcegitcommit: b13fa2885acaa21f16c48df789f1edacb5a4f7cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Versões suportadas do SQL Server para o System Center Configuration Manager
 
@@ -212,7 +212,7 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
  **Serviço do SQL Server:**  
  Pode configurar o serviço do SQL Server para executar utilizando:  
 
--   O **utilizador de domínio local** conta:  
+-   A *utilizador de domínio de direitos restritos* conta:  
 
     -   Esta é uma melhor prática e pode implicar registar manualmente o nome principal de serviço (SPN) para a conta.  
 
