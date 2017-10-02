@@ -140,7 +140,7 @@ Para além de transferir novas informações do catálogo do Asset Intelligence,
 
 2.  No **home page** separador o **do Asset Intelligence** grupo, escolha **importar licenças de Software**.   
 
-4.  Na página **Importar** , especifique se está a importar um ficheiro de Licenciamento em Volume da Microsoft (MVLS) (.xml ou .csv) ou um ficheiro de Declaração de Licença Geral (.csv). Para obter mais informações sobre a criação de um ficheiro de Declaração de Licença Geral, consulte [Create a general license statement information file for import](#BKMK_CreateGeneralLicenseStatement) mais à frente neste tópico.  
+4.  Na página **Importar** , especifique se está a importar um ficheiro de Licenciamento em Volume da Microsoft (MVLS) (.xml ou .csv) ou um ficheiro de Declaração de Licença Geral (.csv). Para obter mais informações sobre a criação de um ficheiro de Declaração de Licença Geral, consulte [Criar um ficheiro de informações de declaração de licença geral para importação](#BKMK_CreateGeneralLicenseStatement) mais à frente neste tópico.  
 
     > [!WARNING]  
     >  Para transferir um ficheiro MVLS no formato .csv, que pode importar para o catálogo do Asset Intelligence, consulte [Microsoft Volume Licensing Service Center](http://go.microsoft.com/fwlink/p/?LinkId=226547). Para aceder a estas informações, tem de ter uma conta registada no site. Tem de contactar o seu representante de conta Microsoft para obter informações sobre como obter o seu ficheiro MVLS no formato .xml.  
@@ -152,7 +152,7 @@ Para além de transferir novas informações do catálogo do Asset Intelligence,
 
 6. Conclua o assistente.  
 
-###  <a name="BKMK_CreateGeneralLicenseStatement"></a> Create a general license statement information file for import  
+###  <a name="BKMK_CreateGeneralLicenseStatement"></a>Criar um ficheiro de informações de declaração de licença geral para importação  
  Também é possível importar uma declaração de licença geral para o catálogo do Asset Intelligence, utilizando um ficheiro de importação de licença criado manualmente no formato de ficheiro delimitado por vírgulas (.csv).  
 
 > [!NOTE]  
