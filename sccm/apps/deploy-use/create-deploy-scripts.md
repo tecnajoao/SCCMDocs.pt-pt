@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: e6b29cd85504742e8638a55db2f6c4ecc8ab3e55
-ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
+ms.openlocfilehash: 4c90617890ba3751a7215e9ac54042d64cc1a227
+ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
@@ -59,9 +59,12 @@ Por predefinição, os utilizadores não podem aprovar um script que tenham cria
 3. Na lista de sites, selecione o site e, em seguida, no **home page** separador o **Sites** , clique em **definições de hierarquia**.
 4. No **geral** separador do **propriedades de definições de hierarquia** diálogo caixa, desmarque a caixa de verificação **não permitir autores de script aprovar os seus próprios scripts**.
 
+>[!IMPORTANT]
+>Como melhor prática, não deve permitir que um autor de script para aprovar os seus próprios scripts. Só deve ser permitido num cenário de laboratório. . Considere cuidadosamente o impacto potencial da alteração desta definição num ambiente de produção.
+
 ## <a name="import-and-edit-a-script"></a>Importar e editar um script
 
-1. Na consola do Configuration Manager, clique em **Software Librar**y.
+1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.
 2. No **biblioteca de Software** área de trabalho, clique em **Scripts**.
 3. No **home page** separador o **criar** , clique em **criar Script**.
 4. No **Script** página do criar **Script** assistente, configure as seguintes definições:
@@ -108,6 +111,9 @@ Depois de um script é aprovado, podem ser executada em relação a uma coleçã
 
 >[!IMPORTANT]
 >O script é dado um período de tempo de uma hora para executar. Se não é executado (por exemplo, se o computador estiver desativado) neste período de tempo, deve executá-la novamente.
+
+>[!IMPORTANT]
+>O script é executado como conta de sistema ou o computador em que os clientes visados. Esta conta tem muito limitado de acesso à rede. Qualquer acesso à sistemas remotos e localizações pelo script têm de ser aprovisionado com isto em mente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

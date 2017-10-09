@@ -1,6 +1,6 @@
 ---
 title: Alterar a autoridade de MDM | Microsoft Docs
-description: "Saiba como alterar a autoridade de MDM do Configuration Manager (híbrido) para o Intune autónomo ou vice-versa."
+description: "Saiba como alterar a autoridade de MDM do Configuration Manager (híbrido) para o Intune autónomo"
 keywords: 
 author: dougeby
 manager: angrobe
@@ -9,14 +9,17 @@ ms.topic: article
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: cc397ab5-125f-4f17-905b-fab980194f49
-ms.openlocfilehash: d24e6e736397a4612db7b47e997d8cb1f97c4de9
-ms.sourcegitcommit: 948644072bd158b156f782a4376bcd50fac7c73a
+ms.openlocfilehash: 489c01f92d42ed12ac5464307a16713ca898d251
+ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="change-your-mdm-authority"></a>Alterar a autoridade de MDM
 A partir do Configuration Manager versão 1610, pode alterar a autoridade de MDM sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Este tópico fornece os passos para alterar um inquilino do Microsoft Intune existente configurado na consola do Configuration Manager (híbrido) para o Intune autónomo.
+
+> [!Note]    
+> Se pretender alterar um inquilino do Microsoft Intune existente, com o conjunto de autoridade MDM ao Intune, para o Configuration Manager (híbrido), consulte o artigo [alterar a autoridade de MDM](https://docs.microsoft.com/intune-classic/deploy-use/change-mdm-authority).
 
 > [!Important]    
 > Este tópico é para alterar a sua autoridade MDM não tenha sido anteriormente migrados os utilizadores. Para alterar a autoridade de MDM, depois de ter [migrado um subconjunto de utilizadores](migrate-hybridmdm-to-intunesa.md), consulte [alterar a autoridade de MDM](migrate-change-mdm-authority.md).

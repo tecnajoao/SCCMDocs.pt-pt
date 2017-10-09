@@ -2,7 +2,7 @@
 title: Atestado de estado de funcionamento | Microsoft Docs
 description: Saiba mais sobre a funcionalidade de atestado de estado de funcionamento do dispositivo podem ser visualizada na consola do Configuration Manager.
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 10/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "17"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 54b3433a002b8ef29059bab04458138348f95d66
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 11d58237ea1e88785f6991450b3e898562b23918
+ms.sourcegitcommit: a17f5dece340a70cedbec03d19938dab90ae60b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="health-attestation-for-system-center-configuration-manager"></a>Atestado de estado de funcionamento do System Center Configuration Manager
 
@@ -37,9 +37,9 @@ Esta funcionalidade está disponível para PCs e recursos no local geridos pelo 
 
  **Requisitos:**  
 
--   Dispositivos de cliente com o Windows 10 versão 1607 ou Windows Server 2016 versão 1607 com [atestado de estado de funcionamento do dispositivo ativada](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
--    TPM 1.2 ou dispositivos de TPM 2 ativado
--   Comunicação entre o agente de cliente do Configuration Manager e has.spserv.microsoft.com (porta 443) serviço de atestado de estado de funcionamento (gestão de nuvem) ou com o ponto de gestão ativado para atestado de estado de funcionamento de dispositivo (no local)
+-   Dispositivos de cliente com o Windows 10 versão 1607 ou Windows Server 2016 versão 1607 com [Device Health Attestation ativada](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation).
+-   TPM 1.2 ou TPM 2 ativado dispositivos.
+-   Quando utilizar a gestão de nuvem, os pontos de comunicação entre o agente do cliente do Configuration Manager e a gestão com *has.spserv.microsoft.com* serviço de atestado de estado de funcionamento (porta 443) (gestão de nuvem). Quando no local, o cliente tem de ser capaz de comunicar com o ponto de gestão ativado para atestado de estado de funcionamento do dispositivo.
 
 ### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Como ativar a comunicação do serviço de Atestado do Estado de Funcionamento em computadores cliente do Configuration Manager
 

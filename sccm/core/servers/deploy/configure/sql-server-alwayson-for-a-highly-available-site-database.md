@@ -2,7 +2,7 @@
 title: SQL Server Always On | Microsoft Docs
 description: Planear utilizar um SQL Server sempre no grupo de disponibilidade com o SCCM.
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 09/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "16"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: c746365238e1255d73387a9496521bb03a56b21b
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3e275f6203a9e0b9210bfbadbf9addf64f6533d8
+ms.sourcegitcommit: 8faf42135a8dc9c384407e64f3f8ba204fb15847
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar para utilizar grupos de disponibilidade SQL Server Always On com o Configuration Manager
 
@@ -210,8 +210,11 @@ Pode executar o script seguinte para verificar as configurações de base de dad
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 As seguintes limitações aplicam-se a todos os cenários.   
 
-**Grupos de disponibilidade básico não são suportados:**  
-Introduzida com o SQL Server 2016 Standard edition, [grupos de disponibilidade básico](https://msdn.microsoft.com/library/mt614935.aspx) não suportam o acesso de leitura para as réplicas secundárias, um requisito para utilização com o Configuration Manager.
+**Opções do SQL Server e as configurações que não são suportadas:**
+- **Grupos de disponibilidade básico**  
+  Introduzida com o SQL Server 2016 Standard edition, [grupos de disponibilidade básico](https://msdn.microsoft.com/library/mt614935.aspx) não suportam o acesso de leitura para as réplicas secundárias, um requisito para utilização com o Configuration Manager.
+- **Instância de Cluster de ativação pós-falha**  
+  [Instâncias de Cluster de ativação pós-falha](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) não são suportados para uma réplica a utilizar com o Configuration Manager.
 
 **Servidores SQL que alojam os grupos de disponibilidade adicionais:**   
 Antes do Configuration Manager versão 1610, quando um grupo de disponibilidade em anfitriões um SQL Server um ou mais grupos de disponibilidade para além do grupo a utilizar para o Configuration Manager, cada réplica em cada um desses grupos de disponibilidade adicionais tem de ter as seguintes configurações definido no momento em que executar a configuração do Configuration Manager ou instala uma atualização para o Configuration Manager:

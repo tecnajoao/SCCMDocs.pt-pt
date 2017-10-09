@@ -14,11 +14,11 @@ caps.latest.revision: "13"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: c8034497299a9b5646674031a40fdee49d55ff7c
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 1519ec79eb6b1da6b9666b2ce12a46553116b364
+ms.sourcegitcommit: c145e515843a0f37c2e5ca5dbd22072a219d06b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/03/2017
 ---
 # <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Planear e configurar a gestão de aplicações no System Center Configuration Manager
 
@@ -181,9 +181,9 @@ Utilize as informações neste artigo para o ajudar a implementar as dependênci
 
 Uma imagem corporativa personalizado para o Centro de Software é aplicada, de acordo com as seguintes regras:
 
-1. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações não está instalada, em seguida, o Centro de Software apresentará o nome da organização especificado no **agente do computador** definição de cliente **nome da organização** apresentada no Centro de Software. Para obter instruções, consulte [como configurar as definições de cliente](https://docs.microsoft.com/en-us/sccm/core/clients/deploy/configure-client-settings).
-2. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações estiver instalada, em seguida, o Centro de Software apresentará o nome da organização e a cor especificados nas propriedades de função do servidor de ponto de sites catálogo de aplicações Web site. Para obter mais informações, consulte [opções de configuração para o ponto de Web site do catálogo de aplicações](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
-3. Se uma subscrição do Microsoft Intune estiver configurada e ligada ao Configuration Manager, em seguida, o Centro de Software apresentará o nome da organização, o logótipo de cor e da empresa especificados nas propriedades de subscrição do Intune. Para obter mais informações, veja [Configurar a Subscrição do Microsoft Intune](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
+1. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações não está instalada, em seguida, o Centro de Software apresentará o nome da organização especificado no **agente do computador** definição de cliente **nome da organização** apresentada no Centro de Software. Para obter instruções, consulte [como configurar as definições de cliente](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).
+2. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações estiver instalada, em seguida, o Centro de Software apresentará o nome da organização e a cor especificados nas propriedades de função do servidor de ponto de sites catálogo de aplicações Web site. Para obter mais informações, consulte [opções de configuração para o ponto de Web site do catálogo de aplicações](https://docs.microsoft.com/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
+3. Se uma subscrição do Microsoft Intune estiver configurada e ligada ao Configuration Manager, em seguida, o Centro de Software apresentará o nome da organização, o logótipo de cor e da empresa especificados nas propriedades de subscrição do Intune. Para obter mais informações, veja [Configurar a Subscrição do Microsoft Intune](https://docs.microsoft.com/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
 
 > [!IMPORTANT]  
 >  Imagem corporativa do Centro de software está sincronizada com o serviço do Intune a cada 14 dias, por isso, poderá haver um atraso antes das alterações efetuadas no Intune são apresentadas no Configuration Manager.

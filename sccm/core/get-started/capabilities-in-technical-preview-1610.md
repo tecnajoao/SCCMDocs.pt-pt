@@ -14,11 +14,11 @@ caps.latest.revision: "2"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 59633ce68e2bb2d722900215751f345d6d098721
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b164b6a177b8b4d1eebd0bbd54e67e90376929be
+ms.sourcegitcommit: c145e515843a0f37c2e5ca5dbd22072a219d06b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/03/2017
 ---
 # <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1610 do System Center Configuration Manager
 
@@ -63,7 +63,7 @@ Como um administrador pode agora negar um pedido de aplicação anteriormente ap
 #### <a name="try-it-out"></a>Experimente
 Para negar uma aplicação aprovou o pedido:
 
-1.  Na consola do Configuration Manager, [criar e implementar uma aplicação](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications) que necessita de aprovação.
+1.  Na consola do Configuration Manager, [criar e implementar uma aplicação](https://docs.microsoft.com/sccm/apps/deploy-use/create-applications) que necessita de aprovação.
 2.  Num computador cliente, abra o Centro de Software e submeter um pedido para a aplicação.
 3.  Na consola do Configuration Manager, aprove o pedido de aplicação.
 4.  Negar o pedido de aplicação aprovados: Na consola do Configuration Manager, navegue **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **pedidos de aprovação** e selecione o pedido de aplicação que pretende negar.  No Friso, clique em **negar**.

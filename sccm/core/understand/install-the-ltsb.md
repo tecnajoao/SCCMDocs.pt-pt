@@ -14,11 +14,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 06565bc52e2c409b905bbc448262cf9da25eabb0
-ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
+ms.openlocfilehash: 247fbe5313c17be906802acfaa6952ab3358122e
+ms.sourcegitcommit: a17f5dece340a70cedbec03d19938dab90ae60b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Instalar e atualizar com a versão 1606 suporte de dados de linha de base para o System Center Configuration Manager
 
@@ -121,14 +121,14 @@ Quando atualizar a partir do System Center 2012 Configuration Manager, utilize o
 **Atualizar para o LTSB:**  
 - Passos adicionais para seguinte da lista de verificação de pré-atualização.
 - Durante a configuração tem de escolher o LTSB e pode especificar os detalhes do contrato de Software Assurance.
-- Só é possível atualizar um site que executa o System Center 2012 Configuration Manager com Service Pack 2 ou System Center 2012 R2 Configuration Manager com Service Pack 1.
+- Só é possível atualizar um site que executa o System Center 2012 Configuration Manager com Service Pack 1, o System Center 2012 Configuration Manager com Service Pack 2, o System Center 2012 R2 Configuration Manager com Service Pack 1 ou o System Center 2012 R2 Configuration Gestor de sem nenhum service pack.
 
 ### <a name="in-place-upgrade-paths-for-the-1606-baseline-media"></a>Caminhos de atualização para o suporte de dados de linha de base de 1606 no local
 Pode utilizar o suporte de dados de linha de base de 1606 para atualizar o seguinte procedimento para uma edição licenciada do System Center Configuration Manager:
 - System Center 2012 R2 Configuration Manager sem Service Pack 1
 - System Center 2012 R2 Configuration Manager sem service Pack (Isto requer a utilização de suporte de linha de base para versão 1606 de que foi rereleased no dia 15 de Dezembro de 2016.)
 - System Center 2012 Configuration Manager sem Service Pack 2
-- System Center 2012 Configuration Manager sem Service Pack 1
+- System Center 2012 Configuration Manager com Service Pack 1 (Isto requer a utilização do suporte de dados de linha de base para a versão 1606 foi rereleased no dia 15 de Dezembro de 2016.)
 
 
 Também pode utilizar este suporte de dados para atualizar uma edição de avaliação não licenciado do ramo atual para uma versão totalmente licenciada do ramo atual.

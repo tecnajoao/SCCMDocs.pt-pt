@@ -1,18 +1,18 @@
 ---
 title: "Planear para o gateway de gestão na nuvem | Microsoft Docs"
 description: 
-ms.date: 06/07/2017
+ms.date: 10/06/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d3e658714c30a1eba64f94e248d5e11095ca1dcb
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
+ms.openlocfilehash: c3d036eb91d16ed95c26bbf2bcce1e37851f90a2
+ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planear para o gateway de gestão de nuvem no Configuration Manager
 
@@ -46,9 +46,9 @@ São necessários certificados de cliente e certificados de Secure Socket Layer 
 
     -   Implementação de clientes
     -   Atribuição automática de site
-    -   Políticas de utilizador
     -   Catálogo de aplicações (incluindo pedidos de aprovação de software)
     -   Implementação completa do sistema operativo (OSD)
+    -   Sequências de tarefas (todos)
     -   Consola do Configuration Manager
     -   Ferramentas remotas
     -   Relatórios Web site
@@ -61,7 +61,7 @@ São necessários certificados de cliente e certificados de Secure Socket Layer 
 ## <a name="cost-of-cloud-management-gateway"></a>Custo de gateway de gestão de nuvem
 
 >[!IMPORTANT]
->As informações de custo fornecidas abaixo são para estimar apenas a fins. O ambiente, poderá ter outras variáveis que afetam o custo global de utilizar o gateway de gestão de nuvem.
+>Informação do custo que se segue para estimar apenas a fins. O ambiente, poderá ter outras variáveis que afetam o custo global de utilizar o gateway de gestão de nuvem.
 
 Gateway de gestão de nuvem utiliza a seguinte funcionalidade Microsoft Azure, o que implica os encargos para a conta de subscrição do Azure:
 
@@ -78,7 +78,7 @@ Gateway de gestão de nuvem utiliza a seguinte funcionalidade Microsoft Azure, o
 
 -   Transferência de dados de saída
 
-    -   São cobradas taxas de dados que fluem do serviço fora de... Consulte o [largura de banda do Azure, os detalhes de preços](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) para ajudar a determinar os custos de potenciais.
+    -   São cobradas taxas de dados que fluem fora de serviço. Consulte o [largura de banda do Azure, os detalhes de preços](https://azure.microsoft.com/pricing/details/bandwidth/) para ajudar a determinar os custos de potenciais.
 
     -   Para estimar apenas a fins, espere aproximadamente 100 MB por cliente por mês para clientes baseados na Internet fazer atualizações da política a cada hora.
 
@@ -93,7 +93,7 @@ Gateway de gestão de nuvem utiliza a seguinte funcionalidade Microsoft Azure, o
 
     - Consulte o custo de utilização um [distribuição baseados na nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution) para obter mais detalhes.
 
-## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Perguntas mais frequentes sobre o Gateway de gestão de nuvem (CMG)
+## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Perguntas mais frequentes sobre o gateway de gestão de nuvem (CMG)
 
 ### <a name="why-use-the-cloud-management-gateway"></a>Porquê utilizar o gateway de gestão da nuvem?
 
@@ -105,20 +105,20 @@ Utilize esta função para simplificar a gestão de clientes baseada na Internet
 
 ### <a name="how-does-the-cloud-management-gateway-work"></a>Como funciona o gateway de gestão da nuvem?
 
-- O ponto de ligação de gateway de gestão de nuvem permite uma ligação de consistente e de elevado desempenho a partir da Internet para o gateway de gestão de nuvem.
+- O ponto de ligação de gateway de gestão de nuvem permite uma ligação consistente e de elevado desempenho através da Internet para o gateway de gestão de nuvem.
 - O Configuration Manager publica definições CMG, incluindo as definições de segurança e informações de ligação.
 - O CMG autentica e reencaminha os pedidos de cliente do Configuration Manager para o ponto de ligação de gateway de gestão de nuvem. Estes pedidos são reencaminhados para funções na rede da empresa, de acordo com os mapeamentos de URL.
 
 ### <a name="how-is-the-cloud-management-gateway-deployed"></a>Como é implementar o gateway de gestão da nuvem?
 
-O componente de Gestor do serviço de nuvem no ponto de ligação de serviço processa todas as tarefas de implementação de CMG. Além disso, monitoriza e comunica informações de estado de funcionamento e o registo de serviço do Azure AD.
+O componente de Gestor do serviço de nuvem no ponto de ligação de serviço processa todas as tarefas de implementação de CMG. Além disso, monitoriza e comunica informações de estado de funcionamento e o registo de serviço do Azure AD. Certifique-se de que o ponto de ligação de serviço está no [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_modes).
 
 #### <a name="certificate-requirements"></a>Requisitos de certificados
 
-Vai precisar dos seguintes certificados para proteger o CMG:
+Terá dos seguintes certificados para proteger o CMG:
 
 - **Certificado de gestão** -Isto pode ser qualquer certificado, incluindo certificados autoassinados. Pode utilizar um certificado público carregado para o Azure AD ou um [PFX com chave privada](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) importados para o Configuration Manager para autenticar com o Azure AD.
-- **Certificado do serviço Web** -Recomendamos que utilize um certificado de AC público ganhar confiança nativa pelos clientes. O CName tem de ser criados na registar DNS público. Certificados de caráter universal não são suportados.
+- **Certificado do serviço Web** -Recomendamos que utilize um certificado de AC público ganhar confiança nativa pelos clientes. Crie o CName na entidade de registo DNS pública. Certificados de caráter universal não são suportados.
 - **Certificados de raiz/SubCA carregar para CMG** -CMG o tem completa a validação da cadeia no certificados PKI de cliente. Se utilizar uma AC empresarial para emitir certificados PKI de cliente e os respetivos raiz ou AC subordinada não está disponível na internet, tem carregá-lo para o CMG.
 
 #### <a name="deployment-process"></a>Processo de implementação
@@ -131,6 +131,9 @@ Existem duas fases para a implementação:
 - Configurar o componente CMG no seu servidor do Azure AD e os pontos finais, processadores HTTP e serviços nos serviços de informações Internet (IIS)
 
 Se alterar a configuração de CMG, uma implementação de configuração é iniciada para o CMG.
+
+### <a name="where-do-i-set-up-the-cloud-management-gateway"></a>Onde posso configurar o gateway de gestão da nuvem?
+Pode criar o gateway de gestão de nuvem no site de nível superior da sua hierarquia. Se isto é um site de administração central, em seguida, pode criar pontos de ligação de CMG em sites primários subordinados.
 
 ### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Como é que o gateway de gestão de nuvem ajuda a garantir a segurança?
 
@@ -147,10 +150,10 @@ O CMG ajuda a garantir a segurança das seguintes formas:
 
 - Protege o ponto de ligação CMG
     - Baseia-se consistente ligações HTTP/TCP para todas as instâncias virtuais CMG a ligação. Verifica e mantém as ligações a cada minuto.
-    - Mutuamente autheticates autenticação de SSL com CMG utilizando certificados internos.
+    - Autentica mutuamente autenticação de SSL com CMG utilizando certificados internos.
     - Pedidos HTTP de reencaminhamentos com base nos mapeamentos de URL.
     - Relatórios de estado de ligação para mostrar o estado de funcionamento do serviço de administração.
-    - Relatório de tráfego de ponto final de relatórios por ponto final a cada 5 minutos.
+    - Relatório de tráfego de ponto final de relatórios por ponto final a cada cinco minutos.
 
 - Proteger a publicação ponto final do Configuration Manager com clientes funções, como o ponto de gestão e o software update ponto anfitrião pontos finais no IIS para servir pedidos do cliente. Cada ponto final publicado para o CMG tem um mapeamento de URL.
 O URL externo for um cliente utiliza para comunicar com o CMG.
@@ -159,12 +162,12 @@ O URL interno é o ponto de ligação de CMG utilizado para reencaminhar pedidos
 #### <a name="example"></a>Exemplo:
 Quando ativar o tráfego de CMG num ponto de gestão, o Configuration Manager cria um conjunto de mapeamentos de URL internamente para cada servidor de ponto de gestão, como ccm_system, ccm_incoming e sms_mp.
 O URL externo para o ponto final ccm_system de ponto de gestão aspeto que poderá ter **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como ** <CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID> ** na respetiva lista de pontos de gestão de internet.
+O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  na respetiva lista de pontos de gestão de internet.
 Todos os URLs externos publicados são carregados para o CMG automaticamente, em seguida, CMG é capaz de fazer a filtragem de URL. Todos os mapeamentos de URL é replicado para o ponto de ligação de CMG para que possa reencaminhar para servidores internos, de acordo com o cliente solicitar o URL externo.
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>As portas que são utilizadas pelo gateway de gestão na nuvem?
 
-- Nenhuma porta de entrada necessária na rede no local. Implementação de CMG criará um bunch em CMG automaticamente.
+- Nenhuma porta de entrada é necessária para a rede no local. Implementação de CMG criará um bunch em CMG automaticamente.
 - Para além de 443, algumas portas de saída são necessários pelo ponto de ligação de CMG.
 
 |||||
@@ -177,9 +180,9 @@ Todos os URLs externos publicados são carregados para o CMG automaticamente, em
 
 ### <a name="how-can-you-improve-performance-of-the-cloud-management-gateway"></a>Como pode melhorar o desempenho do gateway de gestão na nuvem?
 
-- Se possível, configure o CMG, ponto de ligação de CMG e o servidor do site do Configuration Manager na mesma região para reduzir a latência de rede.
+- Se possível, configure o CMG, CMG ponto de ligação e o servidor de site do Configuration Manager na mesma região de rede para reduzir a latência.
 - Atualmente, a ligação entre o cliente do Configuration Manager e o CMG não é com suporte para a região.
-- Para obter elevada disponibilidade, recomendamos um mínimo de 2 instâncias virtuais o CMG e dois pontos de ligação de CMG por site
+- Para obter elevada disponibilidade, recomendamos que, pelo menos, duas instâncias virtuais o CMG e dois pontos de ligação de CMG por site
 - Pode dimensionar o CMG para suportar mais clientes ao adicionar mais instâncias VM. São com pelo balanceador de carga do Azure AD de balanceamento de carga.
 - Crie mais pontos de ligação de CMG distribuir a carga entre elas. O CMG será round-robin o tráfego para os respetivos pontos de ligação CMG ligação.
 - Número de cliente de suporte por instância de CMG VM é 6k na versão 1702. Quando o canal CMG está sob carga elevada, o pedido irá ainda ser processado, mas poderá demorar mais do que o normal.
