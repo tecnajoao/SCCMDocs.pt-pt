@@ -222,7 +222,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
     > [!NOTE]  
     >  A conta de computador do servidor do site tem de ter direitos de acesso de **Leitura** para a pasta de origem.  
 
-2.  Copie o ficheiro de suporte de dados pré-configurado criado na secção [Create prestaged media](#BKMK_CreatePrestagedMedia) para a pasta de origem do pacote.  
+2.  Copie o ficheiro de suporte de dados pré-configurado criado na secção [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia) para a pasta de origem do pacote.  
 
 3.  Copie a ferramenta Windows To Go Creator (WTGCreator.exe) para a pasta de origem do pacote. A ferramenta de criação está disponível em qualquer servidor de site primário na seguinte localização: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
 
@@ -281,7 +281,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
  O Windows To Go ativa o BitLocker numa unidade de arranque externa sem a utilização do TPM. Por conseguinte, terá de utilizar uma ferramenta separada para configurar o BitLocker na unidade do Windows To Go. Para ativar o BitLocker, terá de adicionar uma ação à sequência de tarefas após o passo **Configurar Windows e ConfigMgr** .  
 
 > [!NOTE]  
->  O BitLocker para Windows To Go necessita de uma frase de acesso. No passo [Create prestaged media](#BKMK_CreatePrestagedMedia) , defina a frase de acesso enquanto parte de um comando pré-arranque utilizando a variável OSDBitLockerPIN.  
+>  O BitLocker para Windows To Go necessita de uma frase de acesso. No passo [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia) , defina a frase de acesso enquanto parte de um comando pré-arranque utilizando a variável OSDBitLockerPIN.  
 
  Utilize o seguinte procedimento para atualizar a sequência de tarefas do Windows 8 para ativar o BitLocker para Windows To Go.  
 
@@ -410,7 +410,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
     2.  **Coleção**: Clique em **procurar** para selecionar a coleção que inclui todos os dispositivos para os quais um utilizador pode aprovisionar o Windows To Go.  
 
         > [!IMPORTANT]  
-        >  Se os suportes de dados pré-configurados que criou na secção [Create prestaged media](#BKMK_CreatePrestagedMedia) utilizarem a variável SMSTSPreferredAdvertID, poderá implementar a sequência de tarefas na coleção **Todos os Sistemas** e especificar a definição **Apenas Windows PE (oculto)** na página **Conteúdo** . Porque a sequência de tarefas está oculta, só estará disponível para suportes de dados.  
+        >  Se os suportes de dados pré-configurados que criou na secção [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia) utilizarem a variável SMSTSPreferredAdvertID, poderá implementar a sequência de tarefas na coleção **Todos os Sistemas** e especificar a definição **Apenas Windows PE (oculto)** na página **Conteúdo** . Porque a sequência de tarefas está oculta, só estará disponível para suportes de dados.  
 
     3.  **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Selecione esta opção se pretender armazenar o conteúdo do pacote no grupo de ponto de distribuição da predefinição de coleções. Se não tiver associado a coleção selecionada a um grupo de pontos de distribuição, esta opção estará indisponível.  
 
@@ -421,7 +421,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
     -   **Tornar disponível para o seguinte**: Especifique se a sequência de tarefas está disponível para clientes do Configuration Manager, suportes de dados ou PXE.  
 
         > [!IMPORTANT]  
-        >  Utilize a definição **Apenas suportes de dados e PXE (oculto)** para implementações com sequências de tarefas automatizadas. Selecione **Permitir implementação de sistema operativo autónoma** e defina a variável SMSTSPreferredAdvertID como parte dos suporte de dados pré-configurados para que o computador arranque automaticamente para a implementação de Windows To Go, sem interação do utilizador quando deteta uma unidade do Windows To Go. Para mais informações sobre estas definições de suporte de dados pré-configurados, consulte a secção [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
+        >  Utilize a definição **Apenas suportes de dados e PXE (oculto)** para implementações com sequências de tarefas automatizadas. Selecione **Permitir implementação de sistema operativo autónoma** e defina a variável SMSTSPreferredAdvertID como parte dos suporte de dados pré-configurados para que o computador arranque automaticamente para a implementação de Windows To Go, sem interação do utilizador quando deteta uma unidade do Windows To Go. Para mais informações sobre estas definições de suporte de dados pré-configurados, consulte a secção [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia) .  
 
 7.  Na página **Agendamento** , confirme as seguintes definições e clique em **Seguinte**.  
 
@@ -459,7 +459,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
  Depois de implementar o pacote Windows To Go e a sequência de tarefas do Windows 8, o Windows To Go Creator fica disponível para o utilizador. O utilizador pode ir para o catálogo de software, ou o Centro de Software se o Windows To Go Creator foi implementado em dispositivos, e executar o programa Windows To Go Creator. Depois de o pacote de autor é transferido, será apresentado um ícone intermitente na barra de tarefas. Quando o utilizador clica no ícone, é apresentada uma caixa de diálogo para o utilizador selecionar a unidade do Windows To Go a aprovisionar (exceto se a /opção da linha de comandos da unidade for utilizada). Caso a unidade não satisfaça os requisitos para o Windows To Go ou caso a unidade não tenha espaço livre suficiente no disco para instalar a imagem, o programa de autor apresenta uma mensagem de erro. O utilizador pode verificar a unidade e a imagem que serão aplicadas a partir da página de confirmação. Enquanto o autor configura e prepara conteúdo para a unidade do Windows To Go, apresenta uma caixa de diálogo de progresso. Uma vez concluída a pré-configuração, o criador apresenta um aviso para reiniciar o computador para arrancar para a unidade do Windows To Go.  
 
 > [!NOTE]  
->  Se não tiver ativado o redirecionamento do arranque enquanto parte da linha de comandos para o programa de autor na secção [Create a Windows To Go Creator package](#BKMK_CreatePackage) , é possível que o utilizador tenha de arrancar manualmente a unidade do Windows To Go em cada reinício do sistema.  
+>  Se não tiver ativado o redirecionamento do arranque enquanto parte da linha de comandos para o programa de autor na secção [Criar um pacote do Windows To Go Creator](#BKMK_CreatePackage) , é possível que o utilizador tenha de arrancar manualmente a unidade do Windows To Go em cada reinício do sistema.  
 
 ###  <a name="BKMK_ConfigureStageDrive"></a> O Configuration Manager configura e prepara a unidade do Windows To Go  
  Depois de o computador reiniciar a unidade do Windows To Go, a unidade arrancará no Windows PE e ligar-se-á ao ponto de gestão para obter a política para concluir a implementação do sistema operativo. O Configuration Manager configura e prepara a unidade. Depois do Gestor de configuração prepara a unidade, o utilizador pode reiniciar o computador para finalizar o processo de aprovisionamento (como juntar-se um domínio ou instalar aplicações). Este processo é o mesmo para qualquer suporte de dados pré-configurado.  
