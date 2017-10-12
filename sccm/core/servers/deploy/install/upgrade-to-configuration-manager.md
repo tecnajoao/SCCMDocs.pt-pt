@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: e65c22240555563cdb011849562069baf5d5887f
 ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2017
 ---
@@ -330,7 +330,7 @@ Utilize os procedimentos seguintes para atualizar sites do Configuration Manager
     -   Direitos de Administrador Local no computador do servidor de site.  
     -   Direitos de Administrador Local no servidor da base de dados do site remoto, se for remoto.    </br></br>
 
-2.  No computador do servidor do site, abra o Explorador do Windows e navegue para ** &lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
+2.  No computador do servidor do site, abra o Explorador do Windows e navegue para  **&lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
 
 3.  Faça duplo clique em **Setup.exe**. É aberto o Assistente de configuração do Configuration Manager.  
 

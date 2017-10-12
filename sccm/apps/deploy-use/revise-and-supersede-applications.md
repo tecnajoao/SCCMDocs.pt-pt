@@ -17,7 +17,7 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: c0a43ac7b529444b33edf8afbf52911127226f88
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -102,7 +102,7 @@ Neste tópico, irá aprender como trabalhar com versões de aplicações do Syst
 
 3.  No **home page** separador o **propriedades** grupo, escolha **propriedades** para abrir o nome da aplicação **propriedades** caixa de diálogo.  
 
-4.  No **substituição** separador do *< nome da aplicação\> * **propriedades** diálogo caixa, escolha **adicionar**.  
+4.  No **substituição** separador do *< nome da aplicação\>*  **propriedades** diálogo caixa, escolha **adicionar**.  
 
 5.  Na caixa de diálogo **Especificar Relação de Substituição** , clique em **Procurar**.  
 
@@ -115,7 +115,7 @@ Neste tópico, irá aprender como trabalhar com versões de aplicações do Syst
 
 8.  Escolha **OK** para fechar o **especificar relação de substituição** caixa de diálogo.  
 
-9. Escolha **OK** para fechar o *< nome da aplicação\> * **propriedades** caixa de diálogo.  
+9. Escolha **OK** para fechar o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
 
 ### <a name="to-display-applications-that-supersede-the-current-application"></a>Para apresentar as aplicações que substituem a aplicação atual  
 
@@ -123,8 +123,8 @@ Neste tópico, irá aprender como trabalhar com versões de aplicações do Syst
 
 2.  No **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**, escolha **aplicações**e, em seguida, escolha a aplicação que pretende.  
 
-3.  No **home page** separador o **propriedades** grupo, escolha **propriedades** para abrir o *< nome da aplicação\> * **propriedades** caixa de diálogo.  
+3.  No **home page** separador o **propriedades** grupo, escolha **propriedades** para abrir o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
 
-4.  No **referências** separador do *< nome da aplicação\> * **propriedades** diálogo caixa, escolha **as aplicações que substituem esta aplicação** do **tipo de relação** na lista pendente.  
+4.  No **referências** separador do *< nome da aplicação\>*  **propriedades** diálogo caixa, escolha **as aplicações que substituem esta aplicação** do **tipo de relação** na lista pendente.  
 
-5.  Reveja a lista de aplicações que substituem a aplicação selecionada e, em seguida, escolha **OK** para fechar o *< nome da aplicação\> * **propriedades** caixa de diálogo.  
+5.  Reveja a lista de aplicações que substituem a aplicação selecionada e, em seguida, escolha **OK** para fechar o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  

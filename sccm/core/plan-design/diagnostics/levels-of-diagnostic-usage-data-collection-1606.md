@@ -34,7 +34,7 @@ translation.priority.ht:
 - zh-tw
 ms.openlocfilehash: 27eb4225b7e907772fa5ed8b209fc04fa9f3a677
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

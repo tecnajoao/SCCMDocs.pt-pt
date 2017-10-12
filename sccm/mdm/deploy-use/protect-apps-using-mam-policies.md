@@ -17,7 +17,7 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 50c137f159b0ef631f7173b8eec190182ce41cee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

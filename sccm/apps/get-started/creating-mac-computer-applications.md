@@ -16,7 +16,7 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 703f2d4d73334ef66a7c217c04e66658a7b56157
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -117,7 +117,7 @@ Utilize o procedimento seguinte para ajudar a criar uma aplicação para computa
 
 5.  Na lista pendente **Tipo** , selecione **Mac OS X**.  
 
-6.  No **localização** campo, especifique o caminho UNC no formato * \\ \\< servidor\>\\< partilhar\>\\< filename\> * para o ficheiro de instalação de aplicação Mac (**. cmmac** ficheiro) que detetará as informações da aplicação. Em alternativa, optar **procurar** procurar e especificar a localização do ficheiro de instalação.  
+6.  No **localização** campo, especifique o caminho UNC no formato  *\\ \\< servidor\>\\< partilhar\>\\< filename\>*  para o ficheiro de instalação de aplicação Mac (**. cmmac** ficheiro) que detetará as informações da aplicação. Em alternativa, optar **procurar** procurar e especificar a localização do ficheiro de instalação.  
 
     > [!NOTE]  
     >  Terá de ter acesso ao caminho UNC que contém a aplicação.  
@@ -146,7 +146,7 @@ Utilize o procedimento seguinte para ajudar a criar uma aplicação para computa
 3.  Selecione uma aplicação. Em seguida, no **home page** separador o **aplicação** grupo, escolha **criar tipo de implementação** para criar um novo tipo de implementação para esta aplicação.  
 
     > [!NOTE]  
-    >  Também pode iniciar o **implementação Assistente para criar tipo** do **Assistente para criar aplicação** e para o **tipos de implementação** separador do *< nome da aplicação\> * **propriedades** caixa de diálogo.  
+    >  Também pode iniciar o **implementação Assistente para criar tipo** do **Assistente para criar aplicação** e para o **tipos de implementação** separador do *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
 
 4.  No **geral** página do **implementação Assistente para criar tipo**, no **tipo** na lista pendente, selecione **Mac OS X**.  
 
@@ -171,7 +171,7 @@ Utilize o procedimento seguinte para ajudar a criar uma aplicação para computa
 11. Escolha **adicionar** para abrir o **criar requisito** diálogo caixa e adicionar um novo requisito.  
 
     > [!NOTE]  
-    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\> * **propriedades** caixa de diálogo.  
+    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo.  
 
 12. Na lista pendente **Categoria** , selecione que este requisito se aplica a um dispositivo.  
 
