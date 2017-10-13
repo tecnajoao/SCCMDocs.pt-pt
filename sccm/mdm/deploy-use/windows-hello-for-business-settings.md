@@ -16,7 +16,7 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: a97b3d97eb302e4133b0a79a8c7e27004872c8b1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

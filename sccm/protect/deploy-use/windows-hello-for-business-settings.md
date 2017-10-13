@@ -16,7 +16,7 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 43586e55f2c0c5cf117b94c61250f26ba4233f53
 ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2017
 ---
@@ -76,9 +76,9 @@ Algumas configurações poderão não ser necessário configurar permissões, ou
 1.  Início de sessão para um domínio controlador ou a gestão de estações de trabalho com o administrador de domínio, ou equivalentes credenciais.
 2.  Abra **utilizadores e computadores do Active Directory**.
 3.  No painel de navegação, clique no seu nome de domínio e, em seguida, clique em **propriedades**.
-4.  No **segurança** separador do * <domain name> * **propriedades** caixa de diálogo, clique em **avançadas**. Se o **segurança** separador não for apresentado, ative **funcionalidades avançadas** do **vista** menu de **computadores e utilizadores do Active Directory**.
+4.  No **segurança** separador do  *<domain name>*  **propriedades** caixa de diálogo, clique em **avançadas**. Se o **segurança** separador não for apresentado, ative **funcionalidades avançadas** do **vista** menu de **computadores e utilizadores do Active Directory**.
 5.  Clique em **Adicionar**.
-6.  No **entrada de permissão para** * <domain name> * caixa de diálogo, clique em **selecionar um principal**.
+6.  No **entrada de permissão para**  *<domain name>*  caixa de diálogo, clique em **selecionar um principal**.
 7.  No **selecionar utilizador, computador, conta de serviço ou grupo** caixa de diálogo, escreva **chave Admins** no **introduza o nome de objeto a selecionar** caixa de texto.  Clique em **OK**.
 8.  Do **aplica-se a** lista, selecione **objetos de utilizador descendente**.
 9.  Desloque-se na parte inferior da página e clique em **Desmarcar tudo**.
