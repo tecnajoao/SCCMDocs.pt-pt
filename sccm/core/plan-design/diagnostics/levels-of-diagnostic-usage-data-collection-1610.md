@@ -70,9 +70,9 @@ A partir da versão 1610, alterar o nível de recolha de dados de dentro da cons
 
       - Utilização do anel rápida de atualização
 
-    - ***[Novo] *** Pré-lançamento utilização, o tipo de suporte de dados de configuração, o tipo de sucursais
+    - ***[Novo]***  Pré-lançamento utilização, o tipo de suporte de dados de configuração, o tipo de sucursais
 
-    - ***[Novo] *** Data de expiração do software Assurance
+    - ***[Novo]***  Data de expiração do software Assurance
 
 - Métricas de desempenho de bases de dados (informações de processamento de replicação, principais procedimentos armazenados do SQL Server por processador e utilização de disco)
 
@@ -145,7 +145,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -  Política tamanho e complexidade das estatísticas da aplicação
 
-    - ***[Atualizado] *** Contagem da loja Windows para aplicações empresariais e estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado estado da aplicação e o número de online e offline licenciado aplicações)  
+    - ***[Atualizado]***  Contagem da loja Windows para aplicações empresariais e estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado estado da aplicação e o número de online e offline licenciado aplicações)  
 
     - Estatísticas de grupo de limites (quantos rápido, quantos lenta e count por grupo de)
 
@@ -157,7 +157,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     - Utilização de acesso de dados (UDA) universal, como criado
 
-    - ***[Novo] *** Frequência de utilização e estatísticas de aprovação de aplicações
+    - ***[Novo]***  Frequência de utilização e estatísticas de aprovação de aplicações
 
 
 
@@ -169,7 +169,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Contagem de falhas de instalação de cliente  
 
-    -  ***[Atualizado] *** Atualização automática de cliente: configuração de implementação, incluindo pilotagem e exclusão de utilização de cliente (cliente de interoperabilidade expandido)
+    -  ***[Atualizado]***  Atualização automática de cliente: configuração de implementação, incluindo pilotagem e exclusão de utilização de cliente (cliente de interoperabilidade expandido)
 
     -  Estatísticas de estado de funcionamento do cliente e o resumo do problema superior
 
@@ -189,7 +189,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     - Configuração de tamanho de cache do cliente
 
-    - ***[Novo] *** Número de classes de inventário de hardware, as regras de inventário de software e regras de recolha de ficheiros
+    - ***[Novo]***  Número de classes de inventário de hardware, as regras de inventário de software e regras de recolha de ficheiros
 
 
 
@@ -200,9 +200,9 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
   -  Indica se o conector em nuvem do Operations Management Suite está ativado
 
-  - ***[Novo] *** Estatísticas de configuração e utilização do Gateway de gestão de nuvem
+  - ***[Novo]***  Estatísticas de configuração e utilização do Gateway de gestão de nuvem
 
-  - ***[Novo] *** Contagem dos conectores de análise de atualização
+  - ***[Novo]***  Contagem dos conectores de análise de atualização
 
 
 
@@ -240,7 +240,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Informações sobre grupos de limites (contagem de limites e sistemas de sites que estão atribuídos a cada grupo de limites)  
 
-    - ***[Novo] *** Relações de grupo de limites e a configuração de contingência
+    - ***[Novo]***  Relações de grupo de limites e a configuração de contingência
 
     -   Informações do grupo de ponto de distribuição (contagem de pacotes e pontos de distribuição que estão atribuídos a cada grupo de pontos de distribuição)  
 
@@ -248,9 +248,9 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Informações de configuração do Gestor de distribuição (threads, repita o atraso, número de tentativas e as definições do ponto de distribuição de extração)  
 
-    - ***[Novo] *** Contagem de clientes de cache ponto a ponto e estatísticas de utilização
+    - ***[Novo]***  Contagem de clientes de cache ponto a ponto e estatísticas de utilização
 
-    - ***[Novo] *** Estatísticas de transferência do conteúdo de cliente
+    - ***[Novo]***  Estatísticas de transferência do conteúdo de cliente
 
 
 -   **Endpoint Protection:**  
@@ -274,7 +274,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
 -   **Gestão de dispositivos móveis (MDM):**  
 
-    -   ***[Atualizado] *** Número emitido ações do dispositivo móvel: bloquear, afixar rest, apagar, extinguir e sincronizar agora comandos  
+    -   ***[Atualizado]***  Número emitido ações do dispositivo móvel: bloquear, afixar rest, apagar, extinguir e sincronizar agora comandos  
 
     -   Contagem de dispositivos móveis que são geridos pelo Configuration Manager e Microsoft Intune e como foram inscritos (em massa, baseado no utilizador)  
 
@@ -307,7 +307,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Contagens de utilização de passo de sequência de tarefas
 
-    - ***[Novo] *** Contagem de políticas de atualização de edição
+    - ***[Novo]***  Contagem de políticas de atualização de edição
 
 
 
@@ -362,7 +362,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Estatísticas de balanceamento de carga de ponto de atualização de software
 
-    -  ***[Novo] *** Configuração do Windows 10 express atualizações
+    -  ***[Novo]***  Configuração do Windows 10 express atualizações
 
 
 
@@ -371,7 +371,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     -   Contagem das maiores tabelas de bases de dados  
 
-    -   ***[Atualizado] *** Estado de informações, utilização e estado de funcionamento da réplica SQL AlwaysOn
+    -   ***[Atualizado]***  Estado de informações, utilização e estado de funcionamento da réplica SQL AlwaysOn
 
     -  Período de retenção de registo de alterações SQL
 
@@ -387,7 +387,7 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
     - Contagem de sites com reativação numa Lan (WOL)
 
-    - ***[Novo] *** Estatísticas de utilização e desempenho de relatórios  
+    - ***[Novo]***  Estatísticas de utilização e desempenho de relatórios  
 
 
 
@@ -435,4 +435,4 @@ Para o System Center Configuration Manager versão 1610, este nível inclui o se
 
 -   Erros de instalação de implementação do cliente de detalhado
 
-- ***[Novo] *** Da loja Windows para detalhes de negócio da aplicação (não sejam de agregação lista de aplicações sincronizadas, incluindo AppID, o estado online ou o estado offline e contagens de licenças adquiridas total)
+- ***[Novo]***  Da loja Windows para detalhes de negócio da aplicação (não sejam de agregação lista de aplicações sincronizadas, incluindo AppID, o estado online ou o estado offline e contagens de licenças adquiridas total)

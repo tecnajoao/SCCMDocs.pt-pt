@@ -73,7 +73,7 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
 - Configuração de base de dados básica (processadores, configuração de cluster e a configuração das vistas distribuídas)
 
-- ***[Atualizado] *** Estatísticas de deteção básica (deteção contagem e máximo/mínimo/médio tamanhos de grupos), incluindo quando o site está em execução completamente com serviços de diretório do Azure Active Directory.
+- ***[Atualizado]***  Estatísticas de deteção básica (deteção contagem e máximo/mínimo/médio tamanhos de grupos), incluindo quando o site está em execução completamente com serviços de diretório do Azure Active Directory.
 
 - Informações básicas do Endpoint Protection (versões de cliente antimalware)
 
@@ -133,13 +133,13 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
    - Frequência de utilização e estatísticas de aprovação de aplicações
 
-   - ***[Atualizado] *** Informações de implementação de aplicação (utilizar instalação em comparação com a desinstalação, necessita de aprovação, interação do utilizador ativada/desativada, dependência, substituição e contagem de utilização da funcionalidade do comportamento de instalação)  
+   - ***[Atualizado]***  Informações de implementação de aplicação (utilizar instalação em comparação com a desinstalação, necessita de aprovação, interação do utilizador ativada/desativada, dependência, substituição e contagem de utilização da funcionalidade do comportamento de instalação)  
 
    - Política tamanho e complexidade das estatísticas da aplicação
 
    - Estatísticas de pedidos de aplicação disponíveis
 
-   - ***[Novo] *** Informações de configuração básica de pacotes e programas (opções de implementação e sinalizadores de programa)
+   - ***[Novo]***  Informações de configuração básica de pacotes e programas (opções de implementação e sinalizadores de programa)
 
    - Informações básicas de utilização/segmentação para tipos de implementação que são utilizados na sua organização (utilizador versus dispositivo segmentado, necessário versus aplicações disponíveis e universais)
 
@@ -149,7 +149,7 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
    - Contagem de aplicabilidade de aplicações por sistema operativo  
 
-   - ***[Novo] *** Contagem das aplicações que são referenciados por uma sequência de tarefas
+   - ***[Novo]***  Contagem das aplicações que são referenciados por uma sequência de tarefas
 
    - Contagem de pacotes por tipo  
 
@@ -163,11 +163,11 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
    - Número máximo/mínimo/médio de implementações de aplicações por utilizador/dispositivo por período de tempo
 
-   - ***[Novo] *** Mais comuns códigos de erro de instalação de aplicações através da tecnologia de implementação
+   - ***[Novo]***  Mais comuns códigos de erro de instalação de aplicações através da tecnologia de implementação
 
    - Contagens e opções de configuração de MSI
 
-   - ***[Novo] *** Estatísticas de interação do utilizador final com a notificação para implementações de software necessárias   
+   - ***[Novo]***  Estatísticas de interação do utilizador final com a notificação para implementações de software necessárias   
 
    - Utilização de acesso de dados (UDA) universal, como criado
 
@@ -193,11 +193,11 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
    - Contagem de falhas de instalação de cliente  
 
-   - ***[Novo] *** Contagem de dispositivos virtualizado pelo Hyper-V ou do Azure  
+   - ***[Novo]***  Contagem de dispositivos virtualizado pelo Hyper-V ou do Azure  
 
    - Ações de contagem de centro de Software   
 
-   - ***[Novo] *** Dispositivos com capacidade de contagem de UEFI
+   - ***[Novo]***  Dispositivos com capacidade de contagem de UEFI
 
    - Métodos de implementação de cliente e a contagem de clientes por método de implementação
 
@@ -207,7 +207,7 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
    - Número de classes de inventário de hardware, as regras de inventário de software e regras de recolha de ficheiros
 
-   - ***[Novo] *** Os códigos de estatísticas de atestado de estado de funcionamento do dispositivo, incluindo erro mais comuns, número de servidores no local e o número de dispositivos em vários Estados.
+   - ***[Novo]***  Os códigos de estatísticas de atestado de estado de funcionamento do dispositivo, incluindo erro mais comuns, número de servidores no local e o número de dispositivos em vários Estados.
 
 
 
@@ -215,7 +215,7 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
   - Estatísticas de configuração e utilização do Gateway de gestão de nuvem
 
-  - ***[Novo] *** Contagem de clientes associados a serviços de diretório do Azure Active Directory
+  - ***[Novo]***  Contagem de clientes associados a serviços de diretório do Azure Active Directory
 
   - Contagem das coleções sincronizados para o Operations Management Suite
 
@@ -393,7 +393,7 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
 - **Dados de desempenho/SQL:**  
 
-    - ***[Novo] *** Configuração e a duração do resumo de site
+    - ***[Novo]***  Configuração e a duração do resumo de site
 
     - Contagem das maiores tabelas de bases de dados  
 
@@ -407,13 +407,13 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
     - Período de retenção de registo de alterações SQL
 
-    - ***[Novo] *** Estatísticas de desempenho, incluindo os tipos de mensagens mais comuns e mais dispendiosos de mensagens de estado
+    - ***[Novo]***  Estatísticas de desempenho, incluindo os tipos de mensagens mais comuns e mais dispendiosos de mensagens de estado
 
 
 
 - **Diversas**
 
-    - ***[Novo] *** Configuração de dados do armazém de ponto de serviço, incluindo a hora de agendamento e a média de sincronização
+    - ***[Novo]***  Configuração de dados do armazém de ponto de serviço, incluindo a hora de agendamento e a média de sincronização
 
     - Contagem de sites com reativação numa Lan (WOL)
 
@@ -441,7 +441,7 @@ Para o System Center Configuration Manager versão 1702, este nível inclui o se
 
 - Configuração da política do Endpoint Protection
 
-- ***[Novo] *** Lista dos processos configurados com o comportamento de instalação de aplicações
+- ***[Novo]***  Lista dos processos configurados com o comportamento de instalação de aplicações
 
 - Número máximo/mínimo/médio de horas desde a última análise de atualização de software
 

@@ -79,7 +79,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
 - Implementação básica do sistema operativo (OSD) conta (imagens)
 
-- ***[Atualizado] *** Informações de servidor de sistema básico do site (funções de sistema de sites utilizadas, estado e SSL da Internet, sistema operativo, processadores, físico ou máquina virtual e utilização de elevada disponibilidade do servidor de site)
+- ***[Atualizado]***  Informações de servidor de sistema básico do site (funções de sistema de sites utilizadas, estado e SSL da Internet, sistema operativo, processadores, físico ou máquina virtual e utilização de elevada disponibilidade do servidor de site)
 
 - Esquema de base de dados do Configuration Manager (hash de todas as definições de objetos)
 
@@ -97,7 +97,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
 - Ponto de distribuição e ponto de gestão tipos e informações básicas de configuração (protegida, pré-configurado, PXE, multicast, estado SSL, pontos de distribuição de extração/ponto a ponto, MDM ativado, com SSL ativado, etc.)
 
-- ***[Novo] *** Hashed lista de extensões para páginas de propriedades de consola de administração e assistentes
+- ***[Novo]***  Hashed lista de extensões para páginas de propriedades de consola de administração e assistentes
 
 - Informações de configuração:
      - Criar, instalar o tipo, pacotes de idiomas, funcionalidades que tiver ativado   
@@ -135,7 +135,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
    - Frequência de utilização e estatísticas de aprovação de aplicações
 
-   - ***[Novo] *** Estatísticas de tamanho do conteúdo da aplicação
+   - ***[Novo]***  Estatísticas de tamanho do conteúdo da aplicação
 
    - Informações de implementação de aplicação (utilizar instalação em comparação com a desinstalação, necessita de aprovação, interação do utilizador ativada/desativada, dependência, substituição e contagem de utilização da funcionalidade do comportamento de instalação)  
 
@@ -155,9 +155,9 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
    - Contagem de aplicações que são referenciados por uma sequência de tarefas
 
-   - ***[Novo] *** Contagem de imagem corporativa distintos do catálogo de aplicações
+   - ***[Novo]***  Contagem de imagem corporativa distintos do catálogo de aplicações
 
-   - ***[Novo] *** Criadas com o dashboard de aplicações de contagem do Office 365
+   - ***[Novo]***  Criadas com o dashboard de aplicações de contagem do Office 365
 
    - Contagem de pacotes por tipo  
 
@@ -165,7 +165,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
    - Contagem de licenças de aplicação licenciadas para Windows 10  
 
-   - ***[Novo] *** Tipos de implementação de contagem do Windows Installer desinstalar por definições de conteúdo
+   - ***[Novo]***  Tipos de implementação de contagem do Windows Installer desinstalar por definições de conteúdo
 
    - Contagem da loja Windows para aplicações empresariais e estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado estado da aplicação e o número de online e offline licenciado aplicações)  
 
@@ -190,9 +190,9 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
    - Idade do BIOS no anos
    
-   - ***[Novo] *** Contagem de dispositivos com o arranque seguro ativado
+   - ***[Novo]***  Contagem de dispositivos com o arranque seguro ativado
    
-   - ***[Novo] *** Contagem de dispositivos por Estado TPM
+   - ***[Novo]***  Contagem de dispositivos por Estado TPM
 
    - A atualização automática de cliente: configuração de implementação, incluindo pilotagem e exclusão de utilização de cliente (cliente de interoperabilidade expandido)
 
@@ -227,11 +227,11 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
 - **Serviços de cloud:**
 
-  - ***[Novo] *** Estatísticas de deteção do azure Active Directory
+  - ***[Novo]***  Estatísticas de deteção do azure Active Directory
 
-  - ***[Atualizado] *** Estatísticas de configuração e utilização do Gateway de gestão de nuvem, incluindo contagens dos ambientes e regiões e estatísticas de autenticação/autorização
+  - ***[Atualizado]***  Estatísticas de configuração e utilização do Gateway de gestão de nuvem, incluindo contagens dos ambientes e regiões e estatísticas de autenticação/autorização
 
-  - ***[Novo] *** Contagem do Azure Active Directory aplicações e serviços ligados para o Configuration Manager
+  - ***[Novo]***  Contagem do Azure Active Directory aplicações e serviços ligados para o Configuration Manager
 
   - Contagem de clientes associados a serviços de diretório do Azure Active Directory
 
@@ -260,7 +260,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
     - Informações básicas de linha de base de configuração (contagem, número de implementações e número de referências)
 
-    - ***[Novo] *** Estatísticas de erro de política de conformidade
+    - ***[Novo]***  Estatísticas de erro de política de conformidade
 
     - Contagem de itens de configuração por tipo  
 
@@ -285,7 +285,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
     - Contagem de limites por tipo  
 
-    - ***[Atualizado] *** Contagem de clientes de cache ponto a ponto, estatística de utilização e estatísticas de transferência parcial
+    - ***[Atualizado]***  Contagem de clientes de cache ponto a ponto, estatística de utilização e estatísticas de transferência parcial
 
     - Informações de configuração do Gestor de distribuição (threads, repita o atraso, número de tentativas e as definições do ponto de distribuição de extração)  
 
@@ -353,19 +353,19 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
     - Contagem de imagens de arranque, controladores, pacotes de controladores, pontos de distribuição preparados com multicast ativado, pontos de distribuição com PXE ativado e sequências de tarefas  
 
-    - ***[Novo] *** Imagens de contagem de arranque pela versão de cliente do Configuration Manager
+    - ***[Novo]***  Imagens de contagem de arranque pela versão de cliente do Configuration Manager
 
-    - ***[Novo] *** Imagens de contagem de arranque pela versão do Windows PE
+    - ***[Novo]***  Imagens de contagem de arranque pela versão do Windows PE
 
     - Contagem de políticas de atualização de edição
 
-    - ***[Novo] *** Contagem de identificadores de hardware excluídos PXE
+    - ***[Novo]***  Contagem de identificadores de hardware excluídos PXE
 
-    - ***[Novo] *** Contagem de implementações de sequência de tarefas utilizando a opção para transferir o conteúdo previamente
+    - ***[Novo]***  Contagem de implementações de sequência de tarefas utilizando a opção para transferir o conteúdo previamente
 
     - Contagens de utilização de passo de sequência de tarefas
 
-    - ***[Novo] *** Versão do Windows ADK instalado
+    - ***[Novo]***  Versão do Windows ADK instalado
 
 
 - **Atualizações de sites:**
@@ -392,7 +392,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
     - Contagem de atualizações do Office 365 implementadas  
 
-    - ***[Novo] *** Controladores de contagem de superfície da Microsoft sincronizadas
+    - ***[Novo]***  Controladores de contagem de superfície da Microsoft sincronizadas
 
     - Contagem de grupos de atualização e atribuições  
 
@@ -402,7 +402,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
     - Clientes de contagem do Windows 10 que utilizam o Windows Update para empresas  
 
-    - ***[Novo] *** Contagem do Windows Update para criar e implementar as políticas de negócio
+    - ***[Novo]***  Contagem do Windows Update para criar e implementar as políticas de negócio
 
     - Número de regras de implementação automática que estão associadas a sincronização  
 
@@ -427,7 +427,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
 - **Dados de desempenho/SQL:**  
 
-    - ***[Novo] *** Configuração e a duração do resumo de site
+    - ***[Novo]***  Configuração e a duração do resumo de site
 
     - Contagem das maiores tabelas de bases de dados  
 
@@ -449,7 +449,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
     - Configuração do ponto de serviço de armazém de dados, incluindo a hora de agendamento e a média de sincronização
 
-    - ***[Novo] *** Contagem de Scripts e estatísticas de execução
+    - ***[Novo]***  Contagem de Scripts e estatísticas de execução
 
     - Contagem de sites com reativação numa Lan (WOL)
 
@@ -468,7 +468,7 @@ Para o System Center Configuration Manager versão 1706, este nível inclui o se
 
 - Estatísticas de avaliação e de atualização de coleções
 
-- ***[Novo] *** Estatísticas de política de conformidade de erros e de conformidade
+- ***[Novo]***  Estatísticas de política de conformidade de erros e de conformidade
 
 - Definições de compatibilidade: Detalhes de configuração de modelo contagem de grupos que têm atualizações de software expiradas de SCEP, VPN, Wi-Fi e política de conformidade
 

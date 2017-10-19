@@ -108,7 +108,7 @@ As alterações de versões anteriores são assinaladas com ***[New]***, ***[atu
      -  Estatísticas sobre as ligações da consola (versão do sistema operativo, idioma, SKU e arquitetura, memória do sistema, contagem de processadores lógicos, ligar o ID do site, versões de .NET instaladas e pacotes de idiomas da consola)    
 
 
-- ***[Novo] *** Versão SQL, nível de service pack, edição, ID de agrupamento e caráter definido
+- ***[Novo]***  Versão SQL, nível de service pack, edição, ID de agrupamento e caráter definido
 
 
 ##  <a name="bkmk_level2"></a> Nível 2 - Avançado
@@ -142,17 +142,17 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
     -  Política tamanho e complexidade das estatísticas da aplicação
 
-    - ***[Novo] *** Contagem da loja Windows para aplicações empresariais e as estatísticas de sincronização (incluindo resumidos tipos de aplicações)  
+    - ***[Novo]***  Contagem da loja Windows para aplicações empresariais e as estatísticas de sincronização (incluindo resumidos tipos de aplicações)  
 
-    - ***[Novo] *** Estatísticas de grupo de limites (quantos rápido, quantos lenta e count por grupo de)
+    - ***[Novo]***  Estatísticas de grupo de limites (quantos rápido, quantos lenta e count por grupo de)
 
-    - ***[Novo] *** Contagens e opções de configuração de MSI
+    - ***[Novo]***  Contagens e opções de configuração de MSI
 
-    - ***[Novo] *** Requisitos da aplicação (contagem de condições incorporadas é referenciada por tecnologia de implementação)
+    - ***[Novo]***  Requisitos da aplicação (contagem de condições incorporadas é referenciada por tecnologia de implementação)
 
-    - ***[Novo] *** Substituição de aplicações, a profundidade máxima de cadeia
+    - ***[Novo]***  Substituição de aplicações, a profundidade máxima de cadeia
 
-    - ***[Novo] *** Utilização de acesso de dados universal (UDA) e como criada
+    - ***[Novo]***  Utilização de acesso de dados universal (UDA) e como criada
 
 
 
@@ -164,43 +164,43 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
     -   Contagem de falhas de instalação de cliente  
 
-    -  ***[Novo] *** Configuração de implementação de atualização automática de cliente, incluindo testes de implementação de cliente
+    -  ***[Novo]***  Configuração de implementação de atualização automática de cliente, incluindo testes de implementação de cliente
 
-    -  ***[Novo] *** Estatísticas de estado de funcionamento do cliente e o resumo do problema superior
+    -  ***[Novo]***  Estatísticas de estado de funcionamento do cliente e o resumo do problema superior
 
-    - ***[Novo] *** Idade do BIOS no anos
+    - ***[Novo]***  Idade do BIOS no anos
 
-    - ***[Novo] *** Idade do sistema operativo nos meses
+    - ***[Novo]***  Idade do sistema operativo nos meses
 
-    - ***[Novo] *** Ações de contagem de centro de Software
+    - ***[Novo]***  Ações de contagem de centro de Software
 
-    - ***[Novo] *** Versão do cliente active Management Technology (AMT)
+    - ***[Novo]***  Versão do cliente active Management Technology (AMT)
 
-    - ***[Novo] *** Erros de transferência de implementação do cliente
+    - ***[Novo]***  Erros de transferência de implementação do cliente
 
-    - ***[Novo] *** Notificação operação ação estado do cliente (o quantas vezes é o número de execução, máximo de clientes alvo e a taxa de êxito médio)
+    - ***[Novo]***  Notificação operação ação estado do cliente (o quantas vezes é o número de execução, máximo de clientes alvo e a taxa de êxito médio)
 
-    - ***[Novo] *** Os métodos de implementação de cliente e a contagem de clientes por método de implementação
+    - ***[Novo]***  Os métodos de implementação de cliente e a contagem de clientes por método de implementação
 
-    - ***[Novo] *** Configuração de tamanho de cache do cliente
+    - ***[Novo]***  Configuração de tamanho de cache do cliente
 
 
 
-- ***[Novo] *** **Serviços em nuvem:**
+- ***[Novo]***  **Serviços em nuvem:**
 
-  - ***[Novo] *** Contagem de coleções que são sincronizados para o Operations Management Suite
+  - ***[Novo]***  Contagem de coleções que são sincronizados para o Operations Management Suite
 
-  - ***[Novo] *** Conector da nuvem se o Operations Management Suite está ativado
+  - ***[Novo]***  Conector da nuvem se o Operations Management Suite está ativado
 
 
 
 - ***[Novo] Coleções:***
 
-    -  ***[Movido] *** Estatísticas de avaliação de coleção (tempo, atribuído versus contagens não atribuídas, contagens por tipo, rollover de ID e a utilização de regra de consulta)
+    -  ***[Movido]***  Estatísticas de avaliação de coleção (tempo, atribuído versus contagens não atribuídas, contagens por tipo, rollover de ID e a utilização de regra de consulta)
 
-    - ***[Novo] *** Coleções sem uma implementação
+    - ***[Novo]***  Coleções sem uma implementação
 
-    - ***[Novo] *** Utilização de ID de coleção (não a ficar sem IDs)
+    - ***[Novo]***  Utilização de ID de coleção (não a ficar sem IDs)
 
 
 
@@ -210,14 +210,14 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
     -   Informações básicas de linha de base de configuração (contagem, número de implementações e número de referências)  
 
-    -   ***[Atualizado] *** Contagem de implementações que referenciam definições incorporadas (agora capturar remediar definição)  
+    -   ***[Atualizado]***  Contagem de implementações que referenciam definições incorporadas (agora capturar remediar definição)  
 
-    -   ***[Atualizado] *** Contagem de regras e implementações criadas para as definições personalizadas (agora capturar remediar definição)  
+    -   ***[Atualizado]***  Contagem de regras e implementações criadas para as definições personalizadas (agora capturar remediar definição)  
     -   Contagem de modelos de certificado de inscrição de SCEP (Simple Protocol), VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas
 
     -  Contagem do certificado de SCEP, VPN, Wi-Fi, certificado (. pfx) e implementações de política de conformidade por plataforma
 
-    - ***[Novo] *** Passport para a política de trabalho (criado, implementado)
+    - ***[Novo]***  Passport para a política de trabalho (criado, implementado)
 
 
 
@@ -244,21 +244,21 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
     -   Contagem de alertas que estão configurados para a funcionalidade Endpoint Protection  
 
-    - ***[Novo] *** Políticas advanced Threat Protection (ATP) (contagem de políticas e se as políticas são implementadas)
+    - ***[Novo]***  Políticas advanced Threat Protection (ATP) (contagem de políticas e se as políticas são implementadas)
 
 
--   ***[Removida] *** **Gestão de aplicações móveis (MAM):**  
+-   ***[Removida]***  **Gestão de aplicações móveis (MAM):**  
 
-    -   ***[Removida] *** Aplicações Office com contagem de MAM, aplicações de linha de negócio e políticas pelo sistema operativo  
+    -   ***[Removida]***  Aplicações Office com contagem de MAM, aplicações de linha de negócio e políticas pelo sistema operativo  
 
-    -   ***[Removida] *** Implementações de aplicações/política de contagem de MAM  
+    -   ***[Removida]***  Implementações de aplicações/política de contagem de MAM  
 
-    -   ***[Removida] *** Contagem de regras que são criadas por definição de MAM  
+    -   ***[Removida]***  Contagem de regras que são criadas por definição de MAM  
 
 
-- ***[Novo] *** **Migração:**
+- ***[Novo]***  **Migração:**
 
-  -  ***[Novo] *** Contagem de objetos migrados (utilize do Assistente de migração)
+  -  ***[Novo]***  Contagem de objetos migrados (utilize do Assistente de migração)
 
 
 
@@ -295,7 +295,7 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
     -   Contagem de imagens de arranque, controladores, pacotes de controladores, pontos de distribuição preparados com multicast ativado, pontos de distribuição com PXE ativado e sequências de tarefas  
 
-    -   ***[Novo] *** Contagens de sequência de tarefas passo utilização
+    -   ***[Novo]***  Contagens de sequência de tarefas passo utilização
 
 
 
@@ -348,7 +348,7 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
     -   Classificações são sincronizadas pelo ponto de atualização de Software
 
-    -   ***[Novo] *** Estatísticas de balanceamento de carga de ponto de atualização de software
+    -   ***[Novo]***  Estatísticas de balanceamento de carga de ponto de atualização de software
 
 
 
@@ -360,17 +360,17 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
     -  Período de retenção de registo de alterações SQL
 
-    - ***[Novo] *** Tipos de deteção, ativados e o agendamento (completo, incremental)
+    - ***[Novo]***  Tipos de deteção, ativados e o agendamento (completo, incremental)
 
-    - ***[Novo] *** Estatísticas operacionais de deteção (contagem de objetos encontrado)
+    - ***[Novo]***  Estatísticas operacionais de deteção (contagem de objetos encontrado)
 
-    - ***[Novo] *** Problemas de desempenho, o período de retenção e o estado de automático limpeza o registo de alterações do SQL Server
+    - ***[Novo]***  Problemas de desempenho, o período de retenção e o estado de automático limpeza o registo de alterações do SQL Server
 
 
 
-- ***[Novo] *** **Diversas**
+- ***[Novo]***  **Diversas**
 
-    - ***[Novo] *** Contagem de sites com reativação numa Lan (WOL)
+    - ***[Novo]***  Contagem de sites com reativação numa Lan (WOL)
 
 
 
@@ -391,7 +391,7 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
 -   Informações de agenda de avaliação de regras de implementações automáticas
 
--   ***[REMOVIDA] *** Número de clientes que têm políticas de proteção de acesso de rede
+-   ***[REMOVIDA]***  Número de clientes que têm políticas de proteção de acesso de rede
 
 -   Contagens e códigos de erro de implementação de atualizações de software
 
@@ -410,12 +410,12 @@ Começando com o System Center Configuration Manager versão 1606, este nível i
 
 -    Tipo de políticas de acesso condicional do EAS (bloquear ou colocar em quarentena) para dispositivos que gere o Intune
 
--   ***[Novo] *** Principais 50 CPUs no ambiente
+-   ***[Novo]***  Principais 50 CPUs no ambiente
 
--   ***[Novo] *** Pacote de configuração de DCM para utilização do System Center Configuration Manager
+-   ***[Novo]***  Pacote de configuração de DCM para utilização do System Center Configuration Manager
 
--   ***[Novo] *** Código de produto MSI (aplicações comuns que os clientes implementar)
+-   ***[Novo]***  Código de produto MSI (aplicações comuns que os clientes implementar)
 
--   ***[Novo] *** Resumo do Estado de funcionamento ATP
+-   ***[Novo]***  Resumo do Estado de funcionamento ATP
 
--   ***[Novo] *** Detalhadas erros de instalação de implementação do cliente
+-   ***[Novo]***  Detalhadas erros de instalação de implementação do cliente

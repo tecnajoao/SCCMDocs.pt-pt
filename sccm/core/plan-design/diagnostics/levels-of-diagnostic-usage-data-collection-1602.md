@@ -65,11 +65,11 @@ As alterações de versões anteriores são assinaladas com ***[New]*** ou ***[a
  -   Informações de configuração:
     - Criar, instalar o tipo, pacotes de idiomas, funcionalidades que tiver ativado  
 
-    - ***[Atualizado] *** Atualizar estado de implementação de pacote e erros, o progresso da transferência e erros de pré-requisitos     
+    - ***[Atualizado]***  Atualizar estado de implementação de pacote e erros, o progresso da transferência e erros de pré-requisitos     
 
-    - ***[Novo] *** Versão do script pós-atualização
+    - ***[Novo]***  Versão do script pós-atualização
 
-    - ***[Novo] *** Utilização do anel rápida de atualização
+    - ***[Novo]***  Utilização do anel rápida de atualização
 
 -   Métricas de desempenho de base de dados (replicação processar informações, principais procedimentos armazenados do SQL Server por processador e utilização do disco)
 
@@ -101,10 +101,10 @@ As alterações de versões anteriores são assinaladas com ***[New]*** ou ***[a
 
 -   Estatísticas de telemetria (quando executadas, tempo de execução e erros)
 
-- ***[Novo] *** Configurada a nível de telemetria, modo (online ou offline) e da configuração rápida de atualização
+- ***[Novo]***  Configurada a nível de telemetria, modo (online ou offline) e da configuração rápida de atualização
 
-- ***[Novo] *** Utilização da deteção de rede (ativada ou desativada)
-- ***[Novo] *** Consola de administração:
+- ***[Novo]***  Utilização da deteção de rede (ativada ou desativada)
+- ***[Novo]***  Consola de administração:
 
     -  Estatísticas sobre as ligações da consola (versão do sistema opeating, idioma, SKU e arquitetura, memória do sistema, contagem de processadores lógicos, ligar o ID do site, versões de .NET instaladas e pacotes de idiomas da consola)
 
@@ -117,9 +117,9 @@ Começando com o System Center Configuration Manager versão 1602, este nível i
 
 -   **Gestão de aplicações:**
 
-  -   ***[Atualizado] *** Informações básicas de utilização/segmentação para tipos de implementação que são utilizados na sua organização (utilizador versus dispositivo segmentado, necessário versus aplicações disponíveis e universais)  
+  -   ***[Atualizado]***  Informações básicas de utilização/segmentação para tipos de implementação que são utilizados na sua organização (utilizador versus dispositivo segmentado, necessário versus aplicações disponíveis e universais)  
 
-  -  ***[Atualizado] *** Informações de implementação de aplicação (instalar/desinstalar, necessita de aprovação, interação do utilizador ativada/desativada, dependências e substituições)  
+  -  ***[Atualizado]***  Informações de implementação de aplicação (instalar/desinstalar, necessita de aprovação, interação do utilizador ativada/desativada, dependências e substituições)  
 
   -   Estatísticas de pedidos de aplicação disponíveis  
 
@@ -133,11 +133,11 @@ Começando com o System Center Configuration Manager versão 1602, este nível i
 
   -   Contagem de licenças de aplicação licenciadas para Windows 10  
 
-  -   ***[Atualizado] *** Número máximo/mínimo/médio de implementações de aplicações por utilizador/dispositivo por período de tempo
+  -   ***[Atualizado]***  Número máximo/mínimo/médio de implementações de aplicações por utilizador/dispositivo por período de tempo
 
   -   Tipo e duração da janela de manutenção  
 
-  -  ***[Novo] *** Política tamanho e complexidade das estatísticas da aplicação
+  -  ***[Novo]***  Política tamanho e complexidade das estatísticas da aplicação
 
 -   **Cliente:**
 
@@ -157,9 +157,9 @@ Começando com o System Center Configuration Manager versão 1602, este nível i
 
     -   Contagem de regras e implementações criadas para as definições personalizadas
 
-    -   ***[Atualizado] *** Contagem de modelos de Simple Certificate Enrollment Protocol, VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas   
+    -   ***[Atualizado]***  Contagem de modelos de Simple Certificate Enrollment Protocol, VPN, Wi-Fi, certificado (. pfx) e política de conformidade implementadas   
 
-    -  ***[Novo] *** Certificado de contagem de SCEP Simple Certificate Enrollment Protocol (), VPN, Wi-Fi, certificado (. pfx) e implementações de política de conformidade por plataforma
+    -  ***[Novo]***  Certificado de contagem de SCEP Simple Certificate Enrollment Protocol (), VPN, Wi-Fi, certificado (. pfx) e implementações de política de conformidade por plataforma
 
 -   **Conteúdo:**
 
@@ -261,7 +261,7 @@ Começando com o System Center Configuration Manager versão 1602, este nível i
 
     -   Contagem de atualizações do Office 365 implementadas
 
-    -   ***[Novo] *** Classificações são sincronizadas pelo ponto de atualização de Software
+    -   ***[Novo]***  Classificações são sincronizadas pelo ponto de atualização de Software
 
 -   **Dados de desempenho/SQL:**
 
@@ -271,13 +271,13 @@ Começando com o System Center Configuration Manager versão 1602, este nível i
 
     -   Contagem de coleções por tipo
 
-    -   ***[Atualizado] *** Estatísticas de avaliação de coleção (tempo, atribuído versus contagens não atribuídas, contagens por tipo, rollover de ID e a utilização de regra de consulta)
+    -   ***[Atualizado]***  Estatísticas de avaliação de coleção (tempo, atribuído versus contagens não atribuídas, contagens por tipo, rollover de ID e a utilização de regra de consulta)
 
-    - ***[Novo] *** Período de retenção de registo de alterações SQL
+    - ***[Novo]***  Período de retenção de registo de alterações SQL
 
 -   ***[Novo] Atualizações de sites:***
 
-    - ***[Novo] *** Versões das correções instaladas do Configuration Manager
+    - ***[Novo]***  Versões das correções instaladas do Configuration Manager
 
 ##  <a name="bkmk_level3"></a> Nível 3 - Completo
 O nível completo inclui todos os dados os níveis básico e avançado. Também inclui informações adicionais sobre o Endpoint Protection, percentagens de compatibilidade de atualização e informações de atualização de software. Este nível também pode incluir informações de diagnóstico avançadas como instantâneos de memória, que podem incluir informações pessoais que existiam na memória ou ficheiros de registo no momento da captura e de ficheiros de sistema.
@@ -310,7 +310,7 @@ Começando com o System Center Configuration Manager versão 1602, este nível i
 
 -   Número máximo/mínimo/médio de horas desde a última análise de atualização de software
 
--   ***[Novo] *** Produtos de atualização de software sincronizados com êxito pelo ponto de atualização de Software
--   ***[Novo] *** As definições de compatibilidade: Detalhes de configuração de modelo do SCEP, VPN, Wi-Fi e política de conformidade
+-   ***[Novo]***  Produtos de atualização de software sincronizados com êxito pelo ponto de atualização de Software
+-   ***[Novo]***  As definições de compatibilidade: Detalhes de configuração de modelo do SCEP, VPN, Wi-Fi e política de conformidade
 
--   ***[Novo] *** Tipo do EAS políticas de acesso condicional (bloquear ou colocar em quarentena) dispositivos geridos pelo Intune
+-   ***[Novo]***  Tipo do EAS políticas de acesso condicional (bloquear ou colocar em quarentena) dispositivos geridos pelo Intune
