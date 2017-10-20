@@ -16,7 +16,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: af6faf4cd317452f635ec30e74a3aa2e14f1662a
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -125,7 +125,7 @@ Para automatização que ativa o registo de muitos clientes, utilize o [ferramen
 
         -   'domínio \ nome'. Por exemplo: 'contoso\mnorth'  
 
-        -   'user@domain'. Por exemplo: 'mnorth@contoso.com'  
+        -   'user@domain'.  Por exemplo: 'mnorth@contoso.com'  
 
             > [!IMPORTANT]  
             >  Quando utilizar um endereço de correio eletrónico para preencher o **nome de utilizador** campo, o Configuration Manager utiliza automaticamente o nome de domínio do endereço de correio eletrónico e o nome predefinido do servidor de ponto de proxy de inscrição para preencher o **nome do servidor** campo. Se este nome de domínio e o nome do servidor não corresponder ao nome do servidor de ponto de proxy de inscrição, dizer aos utilizadores o nome correto a utilizar quando inscrever os respetivos computadores Mac.  
@@ -157,14 +157,14 @@ Utilize este procedimento para inscrição de certificados de cliente com a ferr
 
     -   'domínio \ nome'. Por exemplo: 'contoso\mnorth'  
 
-    -   'user@domain'. Por exemplo: 'mnorth@contoso.com'  
+    -   'user@domain'.   Por exemplo: 'mnorth@contoso.com'  
 
      O nome de utilizador e a palavra-passe correspondente têm de corresponder a uma conta de utilizador do Active Directory que disponha de permissões de Leitura e Inscrição no modelo de certificado do cliente Mac.  
 
      Exemplo: Se o servidor de ponto de proxy de inscrição é denominado **server02.contoso.com**e um nome de utilizador **contoso\mnorth** ter sido concedidas permissões para o modelo de certificado de cliente Mac, escreva o seguinte: **sudo. / /cmenroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
 
     > [!NOTE]  
-    >  Se o nome de utilizador contiver qualquer um dos carateres ** &lt;> "+ =,** inscrição irá falhar. Obtenha um certificado de fora de banda com um nome de utilizador que não contenha estes carateres.  
+    >  Se o nome de utilizador contiver qualquer um dos carateres  **&lt;> "+ =,** inscrição irá falhar. Obtenha um certificado de fora de banda com um nome de utilizador que não contenha estes carateres.  
     >  
     >  Para assegurar uma experiência de utilizador mais estável, pode criar scripts dos passos e comandos de instalação para que os utilizadores apenas precisem de indicar o respetivo nome de utilizador e palavra-passe.  
 
