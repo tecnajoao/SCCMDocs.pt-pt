@@ -17,7 +17,7 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

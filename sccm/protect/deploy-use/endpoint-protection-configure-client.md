@@ -16,7 +16,7 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 1488aaa465fb9810bc1b641d41dad95189d37418
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

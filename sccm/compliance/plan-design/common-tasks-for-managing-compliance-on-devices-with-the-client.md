@@ -16,7 +16,7 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 84b030284602853aab6c99268a74444a693edec7
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---

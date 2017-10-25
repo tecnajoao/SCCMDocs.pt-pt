@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5debc6559f4b1c213e8ca513d685941c9e669063
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
@@ -210,7 +210,7 @@ Quando atualizar para versão antes de 1610, as seguintes configurações são e
 -   É criado um grupo de limites de site predefinido para cada site primário, o nome é ***predefinição-Site-limite-grupo&lt;sitecode >.***
   - Pontos de distribuição com *permitir a localização de origem de contingência para conteúdo* marcada e pontos de migração de estado em sites primários são adicionados para o *grupo-de-Site-limites-predefinição&lt;sitecode >* grupo de limites desse site.
   - A partir da versão 1702, pontos de atualização de software são adicionados para cada sites *predefinição-Site-limite-grupo&lt;sitecode >*.
--   É efetuada uma cópia de cada grupo de limites existentes, que inclui um servidor de site configurado com uma ligação lenta. O nome do novo grupo é *** &lt;nome original do grupo de limites >-&lt;ID do grupo de limites original >***:  
+-   É efetuada uma cópia de cada grupo de limites existentes, que inclui um servidor de site configurado com uma ligação lenta. O nome do novo grupo é  ***&lt;nome original do grupo de limites >-&lt;ID do grupo de limites original >***:  
     -   Sistemas de sites que tenham uma ligação rápida são mantidos no grupo de limites original.
     -   Uma cópia dos sistemas de sites (pontos de distribuição, pontos de gestão) que tenham uma ligação lenta são adicionadas para a cópia do grupo de limites. Os sistemas de site original configurados como lenta permanecem no respetivos original grupos de limites para compatibilidade com versões anteriores, mas não são utilizados a partir desses grupos de limites.
     - Esta cópia do grupo de limites não tem limites associados à mesma. No entanto, é criada uma ligação de contingência entre o grupo original e a nova cópia do grupo de limites com o tempo de contingência definido como zero.  

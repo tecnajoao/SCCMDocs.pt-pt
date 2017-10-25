@@ -16,7 +16,7 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: ded2a085510def60d388d9754da9c2c41de565d4
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---

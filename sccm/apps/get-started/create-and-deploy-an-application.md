@@ -17,7 +17,7 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: f52dbb5e89746e30562132d4fe19886e7d9b5ea7
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -60,7 +60,7 @@ Certifique-se de que tenha de rever as informações [introdução à gestão de
 
     -   **Tipo**: Escolha **do Windows Installer (\*ficheiro. msi)**.  
 
-    -   **Localização**: Escreva a localização (ou escolha **procurar** para selecionar a localização) do ficheiro de instalação **Contoso.msi**. Tenha em atenção que a localização tem de ser especificada no formato * \\\Server\Share\File* para o Configuration Manager para localizar os ficheiros de instalação.  
+    -   **Localização**: Escreva a localização (ou escolha **procurar** para selecionar a localização) do ficheiro de instalação **Contoso.msi**. Tenha em atenção que a localização tem de ser especificada no formato  *\\\Server\Share\File* para o Configuration Manager para localizar os ficheiros de instalação.  
 
     Irá acaba por ficar com algo que se assemelha a captura de ecrã seguinte:  
 

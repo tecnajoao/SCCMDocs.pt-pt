@@ -17,7 +17,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 25619d91522193178e0415f649ca4b34c94ecc89
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

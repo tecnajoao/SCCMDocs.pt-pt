@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: f03102c170e1e7de3a11349f4a66380c4291dcac
 ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/14/2017
 ---
@@ -159,7 +159,7 @@ A atualização de software para o cliente do Configuration Manager não é atua
 ##  <a name="BKMK_ClientGP"></a>Como instalar clientes com a política de grupo  
  Pode utilizar política de grupo nos serviços de domínio do Active Directory para publicar ou atribuir o cliente do Configuration Manager para instalar nos computadores da sua empresa. A instalar o cliente quando o computador é iniciado. Quando utilizar a política de grupo, o cliente será apresentado no painel de controlo **adicionar ou remover programas** para o utilizador instalar.  
 
- Utilize o pacote do Windows Installer (CCMSetup.msi) para instalações baseadas na Política de Grupo. Este ficheiro está localizado na pasta ** &lt;diretório de instalação do ConfigMgr\>\bin\i386** no servidor do site do Configuration Manager. Não é possível adicionar propriedades a este ficheiro para modificar o comportamento de instalação.  
+ Utilize o pacote do Windows Installer (CCMSetup.msi) para instalações baseadas na Política de Grupo. Este ficheiro está localizado na pasta  **&lt;diretório de instalação do ConfigMgr\>\bin\i386** no servidor do site do Configuration Manager. Não é possível adicionar propriedades a este ficheiro para modificar o comportamento de instalação.  
 
 > [!IMPORTANT]  
 >  Tem de ter permissões de administrador para aceder aos ficheiros de instalação do cliente.  
@@ -175,14 +175,14 @@ Para obter informações sobre como utilizar a Política de Grupo nos Serviços 
 
  \\\\*&lt;Nome do servidor do site\>*\SMS_*&lt;código do Site\>*\Client\  
 
- onde * &lt;nome do servidor de Site\> * é o nome de um dos servidores que alojam um ponto de gestão e * &lt;código do Site\> * são o código de site primário, o cliente irão pertencer a.  Para executar CCMSetup.exe a partir da linha de comandos no cliente, tem de mapear uma unidade de rede para esta localização e, em seguida, execute o comando.  
+ onde  *&lt;nome do servidor de Site\>*  é o nome de um dos servidores que alojam um ponto de gestão e  *&lt;código do Site\>*  são o código de site primário, o cliente irão pertencer a.  Para executar CCMSetup.exe a partir da linha de comandos no cliente, tem de mapear uma unidade de rede para esta localização e, em seguida, execute o comando.  
 
 > [!IMPORTANT]  
 >  Tem de ter permissões de administrador para aceder aos ficheiros de instalação do cliente.  
 
  CCMSetup.exe copia todos os pré-requisitos necessários para o computador cliente e chama o pacote do Windows Installer (Client.msi) para instalar o cliente. Não é possível executar Client.msi diretamente.  
 
- Pode especificar propriedades da linha de comandos para CCMSetup.exe e Client.msi para modificar o comportamento da instalação do cliente. Certifique-se de que especifica as propriedades de CCMSetup (as propriedades que começam com ** / **) antes de especificar as propriedades de Client.msi. Por exemplo:  
+ Pode especificar propriedades da linha de comandos para CCMSetup.exe e Client.msi para modificar o comportamento da instalação do cliente. Certifique-se de que especifica as propriedades de CCMSetup (as propriedades que começam com  **/** ) antes de especificar as propriedades de Client.msi. Por exemplo:  
 
 ```  
 CCMSetup.exe /mp:SMSMP01 /logon SMSSITECODE=AUTO FSP=SMSFP01  
@@ -342,7 +342,7 @@ Verifique os pré-requisitos, em seguida, siga as indicações na secção [como
 ##  <a name="BKMK_ClientInternet"></a>Como instalar clientes para gestão de clientes baseados na Internet  
  Quando o site do Configuration Manager suporta a gestão de clientes baseada na Internet para clientes que umas vezes estão na intranet e, por vezes na Internet, tem duas opções ao instalar clientes na intranet:  
 
--   Pode incluir a propriedade Client.msi de CCMHOSTNAME =*&lt;FQDN de Internet do ponto de gestão baseado na Internet\> * quando instala o cliente, por exemplo, utilizando push de cliente ou de instalação manual. Se utilizar este método, deve também atribuir diretamente o cliente ao site e não pode utilizar a atribuição automática do site. A secção [Como Instalar Manualmente Clientes do Configuration Manager](#BKMK_Manual) deste tópico fornece um exemplo deste método de configuração.  
+-   Pode incluir a propriedade Client.msi de CCMHOSTNAME =*&lt;FQDN de Internet do ponto de gestão baseado na Internet\>*  quando instala o cliente, por exemplo, utilizando push de cliente ou de instalação manual. Se utilizar este método, deve também atribuir diretamente o cliente ao site e não pode utilizar a atribuição automática do site. A secção [Como Instalar Manualmente Clientes do Configuration Manager](#BKMK_Manual) deste tópico fornece um exemplo deste método de configuração.  
 
 -   Pode instalar o cliente para gestão de clientes de intranet e, em seguida, atribuir ponto de gestão de clientes baseada na Internet ao cliente utilizando as propriedades de cliente do Configuration Manager no painel de controlo ou através de um script. Se utilizar este método, pode utilizar a atribuição automática de clientes. Para obter mais informações, veja a secção [Como Configurar Clientes para Gestão de Clientes baseada na Internet após a Instalação do Cliente](#BKMK_ConfigureIBCM_MP) deste tópico.  
 
@@ -350,7 +350,7 @@ Verifique os pré-requisitos, em seguida, siga as indicações na secção [como
 
 -   Fornecer um mecanismo para estes clientes liguem temporariamente à intranet com uma rede privada virtual (VPN) e, em seguida, instalá-los utilizando um método de instalação de cliente adequado.  
 
--   Utilize um método de instalação que seja independente do Configuration Manager, como o empacotamento dos ficheiros de origem de instalação de cliente num suporte de dados amovível que possa ser enviado para os utilizadores para instalar com instruções. Os ficheiros de origem de instalação do cliente estão localizados no * &lt;Caminhodainstalação\>*pasta \Client os pontos de gestão e servidor de site do Configuration Manager. Inclua no suporte de dados um script para copiar e substituir manualmente a pasta do cliente e, a partir desta pasta, instale o cliente, utilizando CCMSetup.exe e todas as propriedades da linha de comandos CCMSetup.exe adequadas.  
+-   Utilize um método de instalação que seja independente do Configuration Manager, como o empacotamento dos ficheiros de origem de instalação de cliente num suporte de dados amovível que possa ser enviado para os utilizadores para instalar com instruções. Os ficheiros de origem de instalação do cliente estão localizados no  *&lt;Caminhodainstalação\>*pasta \Client os pontos de gestão e servidor de site do Configuration Manager. Inclua no suporte de dados um script para copiar e substituir manualmente a pasta do cliente e, a partir desta pasta, instale o cliente, utilizando CCMSetup.exe e todas as propriedades da linha de comandos CCMSetup.exe adequadas.  
 
 > [!NOTE]  
 >  O Configuration Manager não suporta a instalação do cliente diretamente a partir do ponto de gestão baseado na Internet ou a partir do ponto de atualização de software baseado na Internet.  

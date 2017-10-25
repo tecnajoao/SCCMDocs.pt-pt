@@ -10,7 +10,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: c3d036eb91d16ed95c26bbf2bcce1e37851f90a2
 ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/07/2017
 ---

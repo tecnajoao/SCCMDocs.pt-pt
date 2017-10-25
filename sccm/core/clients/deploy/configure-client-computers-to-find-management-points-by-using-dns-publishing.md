@@ -16,7 +16,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 0526dccc21be8419bf772374a67bc7cd262e6375
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -43,7 +43,7 @@ Os clientes no System Center Configuration Manager tem de localizar um ponto de 
 
 -   Instale o cliente com a seguinte propriedade do CCMSetup Client.msi:  
 
-    -   **DNSSUFFIX =** * &lt;domínio de ponto de gestão\>*  
+    -   **DNSSUFFIX =**  *&lt;domínio de ponto de gestão\>*  
 
          Se o site tiver mais que um ponto de gestão e estes estiverem em mais de um domínio, especifique apenas um domínio. Quando os clientes estabelecem ligação a um ponto de gestão deste domínio, transferem uma lista de pontos de gestão disponíveis que inclui os pontos de gestão de outros domínios.  
 

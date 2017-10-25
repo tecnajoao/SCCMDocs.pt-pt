@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: fc898bf2433ab99eb0da9c60bd0e890bba97a415
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -76,7 +76,7 @@ Antes de poder monitorizar o estado de cliente do System Center Configuration Ma
     > [!NOTE]  
     >  Não é possível configurar alertas de coleções de utilizadores.  
 
-4.  No **alertas** separador do * &lt;coleção nome\>***propriedades** caixa de diálogo, clique em **adicionar**.  
+4.  No **alertas** separador do  *&lt;coleção nome\>***propriedades** caixa de diálogo, clique em **adicionar**.  
 
     > [!NOTE]  
     >  O separador **Alertas** só está visível se a função de segurança a que o utilizador está associado tiver permissões para alertas.  
@@ -91,7 +91,7 @@ Antes de poder monitorizar o estado de cliente do System Center Configuration Ma
 
     -   **Emitir um alerta** -especifique a percentagem de limiar do alerta.  
 
-7.  Clique em **OK** para fechar o * &lt;coleção nome\>***propriedades** caixa de diálogo.  
+7.  Clique em **OK** para fechar o  *&lt;coleção nome\>***propriedades** caixa de diálogo.  
 
 ##  <a name="BKMK_3"></a>Para excluir computadores da remediação automática  
 

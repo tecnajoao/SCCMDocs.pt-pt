@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 89a41c8a3137d0e54011ddf9a1d9b4894ecb7df8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
@@ -322,7 +322,7 @@ Ao configurar os grupos de vizinho diferentes para estar disponível em alturas 
 ### <a name="bkmk_update"></a>Atualizar os grupos de limites existentes para o novo modelo
 Quando instalar a versão 1609 e atualizar o site, as seguintes configurações são efetuadas automaticamente. Estes são concebidas para Certifique-se de que o comportamento de contingência atual permanece disponível, até configurar novos grupos de limites e relações.  
 -   Pontos de distribuição não protegido num site são adicionados para o *predefinição-Site-limite-grupo\<sitecode >* grupo de limites desse site.
--   É efetuada uma cópia de cada grupo de limites existentes, que inclui um servidor de site configurado com uma ligação lenta. O nome do novo grupo é *** \<nome original do grupo de limites > Tmp - lenta -***:  
+-   É efetuada uma cópia de cada grupo de limites existentes, que inclui um servidor de site configurado com uma ligação lenta. O nome do novo grupo é  ***\<nome original do grupo de limites > Tmp - lenta -***:  
     -   Sistemas de sites que tenham uma ligação rápida são mantidos no grupo de limites original.
     -   Uma cópia dos sistemas de sites que tenham uma ligação lenta são adicionadas para a cópia do grupo de limites. Os sistemas de site original configurados como lenta permanecem no grupo de limites original para compatibilidade com versões anteriores, mas não são utilizados desse grupo de limites.
     -   Esta cópia do grupo de limites não tem limites associados à mesma. No entanto, é criada uma ligação de contingência entre o grupo original e a nova cópia do grupo de limites com o tempo de contingência definido como zero.

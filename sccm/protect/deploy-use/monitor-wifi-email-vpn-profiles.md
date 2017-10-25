@@ -16,7 +16,7 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 73d941633d270cf9628f8be14e1e56f3c78624b6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

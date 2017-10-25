@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: d04fa417b311dc9f20e0691f6edffcf287cf43b8
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -149,7 +149,7 @@ Os computadores cliente no System Center Configuration Manager que executam a Fi
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
-|Bloco de Mensagem de Servidor (SMB) entre o computador cliente e uma partilha de rede a partir da qual o CCMSetup.exe é executado.<br /><br /> Quando instalar o Configuration Manager, os ficheiros de origem de instalação do cliente são copiados e automaticamente partilhados a partir de * &lt;Caminhodainstalação\>*pasta \Client nos pontos de gestão. No entanto, pode copiar esses ficheiros e criar uma nova partilha em qualquer computador na rede. Em alternativa, pode eliminar este tráfego de rede executando o CCMSetup.exe localmente, por exemplo, utilizando um suporte de dados amovível.|--|445|  
+|Bloco de Mensagem de Servidor (SMB) entre o computador cliente e uma partilha de rede a partir da qual o CCMSetup.exe é executado.<br /><br /> Quando instalar o Configuration Manager, os ficheiros de origem de instalação do cliente são copiados e automaticamente partilhados a partir de  *&lt;Caminhodainstalação\>*pasta \Client nos pontos de gestão. No entanto, pode copiar esses ficheiros e criar uma nova partilha em qualquer computador na rede. Em alternativa, pode eliminar este tráfego de rede executando o CCMSetup.exe localmente, por exemplo, utilizando um suporte de dados amovível.|--|445|  
 |Protocolo HTTP (Hypertext Transfer) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTP e não especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|80 (Ver nota 1, **Porta Alternativa Disponível**)|  
 |Secure Hypertext Transfer Protocol (HTTPS) do computador cliente para um ponto de gestão quando a ligação é efetuada através de HTTPS e não especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|443 (Ver nota 1, **Porta Alternativa Disponível**)|  
 |Bloco de mensagem de servidor (SMB) entre o servidor de origem e o computador cliente quando especificar a propriedade da linha de comandos CCMSetup **/Source:&lt;caminho\>**.|--|445|  

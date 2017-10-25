@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 9ce5adccb9944daa4fb2b0ab132fc7cf52bd7b1b
 ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/14/2017
 ---
@@ -94,4 +94,4 @@ CmRcViewer.exe suporta as seguintes opções da linha de comandos:
 - *Nome do servidor do site* -Especifica o nome do servidor do site do System Center Configuration Manager para o qual pretende enviar mensagens de estado relacionadas com a sessão de controlo remoto.
 - **/?** -Apresenta as opções da linha de comandos para o Visualizador de controlo remoto.  
      
-**Example:CmRcViewer.exe** *< endereço\> * * < \\\Site o nome do servidor >*  
+**Example:CmRcViewer.exe** *< endereço\>*   *< \\\Site o nome do servidor >*  

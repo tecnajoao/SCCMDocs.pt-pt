@@ -17,7 +17,7 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: b66ed0a5e1c87d8c82853da86e3d55b0e2c043bb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---

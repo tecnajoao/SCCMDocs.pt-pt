@@ -17,7 +17,7 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 1e9c5506b94eecc1c95af5f31ad4c2d923c2b74f
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/15/2017
 ---
@@ -63,7 +63,7 @@ Execute as ações seguintes para desinstalar uma aplicação que implementou an
         > [!NOTE]  
         >  O **conteúdo** página só é apresentada se selecionar a opção **especificar manualmente as informações de tipo de implementação** no **geral** página do Assistente para criar tipo de implementação.  
 
-    -   No **programas** separador do * * < *nome do tipo de implementação*> propriedades * * a caixa de diálogo caixa, especifique a linha de comandos para desinstalar a aplicação no **programa de desinstalação** campo.  
+    -   No **programas** separador do  **<* nome do tipo de implementação*> propriedades * * a caixa de diálogo caixa, especifique a linha de comandos para desinstalar a aplicação no **programa de desinstalação** campo.  
 
 2.  Implemente a aplicação e, em seguida, selecione a ação de implementação **desinstalação** no **definições de implementação** página do Assistente de implementação de Software.  
 

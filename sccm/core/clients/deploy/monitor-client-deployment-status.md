@@ -17,7 +17,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: bddc2cf4ae335a8b407035a90818d7fa01dcc398
 ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/14/2017
 ---
@@ -52,7 +52,7 @@ A implementação de clientes no seu site demora algum tempo e algumas instalaç
 
 -   Reveja os gráficos do estado de implementação do cliente e de falha de implementação do cliente.  
 
--   Se pretender alterar o âmbito do relatório, clique em **procurar... ** e escolha uma coleção diferente.  
+-   Se pretender alterar o âmbito do relatório, clique em **procurar...**  e escolha uma coleção diferente.  
 
  Para obter mais informações sobre implementações de cliente de pré-produção, consulte [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
 

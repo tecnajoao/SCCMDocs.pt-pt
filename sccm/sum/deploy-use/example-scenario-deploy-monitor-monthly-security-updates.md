@@ -13,7 +13,7 @@ ms.service:
 ms.assetid: c32f757a-02da-43f2-b055-5cfd097d8c43
 ms.openlocfilehash: 0e6e2b3a9455bb6eda437eb1325aaaadb3d83420
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
