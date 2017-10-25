@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5302b5712e33c753d0193a32498bc02a2241428c
 ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/19/2017
 ---
@@ -186,7 +186,7 @@ Utilize o seguinte procedimento para monitorizar o progresso:
 
     -   **Após a instalação** ([tarefas de pós-instalação](#post-installation-tasks) disponíveis a partir versão 1610.)  
 
--   Pode ver o **CMUpdate.log** ficheiros ** &lt;ConfigMgr_Installation_Directory > \Logs**  
+-   Pode ver o **CMUpdate.log** ficheiros  **&lt;ConfigMgr_Installation_Directory > \Logs**  
 
 **4. Quando a instalação da atualização é concluída**  
 Após a instalação da primeira atualização do site ser concluída:  
