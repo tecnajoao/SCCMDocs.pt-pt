@@ -16,7 +16,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: ef515da67a7293de60a7678dee69e9785d339352
 ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2017
 ---
