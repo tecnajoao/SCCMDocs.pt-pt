@@ -17,7 +17,7 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 9951dd9333ebef00c7acd5d72b20a02382e3206c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/07/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/07/2017
 Modelos de relatórios de exemplo estão incluídos no System Center Configuration Manager, mas pode também definir modelos de relatórios que satisfaçam os seus requisitos de negócio e, em seguida, implementar o modelo de relatório para o Configuration Manager para utilizar quando criar novos relatórios baseados em modelos. A tabela seguinte fornece os passos para criar e implementar um modelo de relatório básico.  
 
 > [!NOTE]  
->  Consulte os passos de criação de um modelo de relatório mais avançado na secção [Steps for Creating an Advanced Report Model in SQL Server Reporting Services](#AdvancedReportModel) deste tópico.  
+>  Consulte os passos de criação de um modelo de relatório mais avançado na secção [Etapas para criar um modelo de relatório avançado no SQL Server Reporting Services](#AdvancedReportModel) deste tópico.  
 
 |Passo|Descrição|Mais informações|  
 |----------|-----------------|----------------------|  
@@ -37,7 +37,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 |Definir uma origem de dados para um modelo de relatório|Depois de criar um projeto de modelo de relatório, terá de definir uma origem de dados a partir da qual extrair os dados de negócio. Normalmente, esta é a base de dados do site do Configuration Manager.|Para obter mais informações, consulte a secção [To define the data source for the report model](#BKMK_DefineReportModelDataSource) neste tópico.|  
 |Definir uma vista de origem de dados para um modelo de relatório|Após definir as origens de dados que utiliza no seu projeto de modelo de relatório, o passo seguinte será definir uma vista de origem de dados para o projeto. Uma vista de origem de dados é um modelo de dados lógico baseado numa ou mais origens de dados. As vistas de origem de dados encapsulam o acesso aos objetos físicos, tais como tabelas e vistas, contidos nas origens de dados subjacentes. O SQL Server Reporting Services gera o modelo de relatório a partir da vista de origem de dados.<br /><br /> As vistas de origem de dados facilitam o processo de criação do modelo, fornecendo uma representação útil dos dados que especificou. Sem alterar a origem de dados subjacente, poderá mudar o nome de tabelas e campos e adicionar campos agregados e tabelas derivadas numa vista de origem de dados. Para um modelo eficiente, adicione apenas à vista de origem de dados as tabelas que pretender utilizar.|Para obter mais informações, consulte a secção [Para definir a vista de origem de dados para o modelo de relatório](#BKMK_DefineReportModelDataSourceView) neste tópico.|  
 |Criar um modelo de relatório|Um modelo de relatório é uma camada sobreposta a uma base de dados que identifica as entidades de negócio, campos e funções. Quando publicado utilizando estes modelos, os utilizadores do Report Builder poderão desenvolver relatórios sem terem de se familiarizar com as estruturas de bases de dados nem compreender e escrever consultas. Os modelos são compostos por conjuntos de itens de relatório relacionados, agrupados sob um nome amigável, com relações predefinidas entre estes itens de negócio e com cálculos predefinidos. Os modelos são definidos utilizando uma linguagem XML denominada SMDL (Semantic Model Definition Language). A extensão do nome de ficheiro dos modelos de relatório é .smdl.|Para obter mais informações, consulte a secção [To create the report model](#BKMK_CreateReportModel) neste tópico.|  
-|Publicar um modelo de relatório|Para criar um relatório utilizando o modelo que acabou de criar, terá de o publicar num servidor de relatórios. A origem de dados e a vista de origem de dados serão incluídas no modelo, quando este for publicado.|Para obter mais informações, consulte a secção [To publish the report model for use in SQL Server Reporting Services](#BKMK_PublishReportModel) neste tópico.|  
+|Publicar um modelo de relatório|Para criar um relatório utilizando o modelo que acabou de criar, terá de o publicar num servidor de relatórios. A origem de dados e a vista de origem de dados serão incluídas no modelo, quando este for publicado.|Para obter mais informações, consulte a secção [Para publicar o modelo de relatório para utilização no SQL Server Reporting Services](#BKMK_PublishReportModel) neste tópico.|  
 |Implementar o modelo de relatório do Configuration Manager|Antes de poder utilizar um modelo de relatório personalizado no **Assistente para criar relatório** para criar um relatório baseado num modelo, terá de implementar o modelo de relatório do Configuration Manager.|Para obter mais informações, consulte a secção [To deploy the custom report model to Configuration Manager](#BKMK_DeployReportModel) neste tópico.|  
 
 ## <a name="steps-for-creating-a-basic-report-model-in-sql-server-reporting-services"></a>Passos para criar um modelo de relatório básico no SQL Server Reporting Services  
