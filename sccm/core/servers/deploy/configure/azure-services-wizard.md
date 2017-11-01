@@ -1,5 +1,6 @@
 ---
-title: "Assistente de serviços do Azure | Microsoft Docs"
+title: "Assistente de serviços do Azure"
+titleSuffix: Configuration Manager
 description: "Sobre o Assistente de serviços do Azure para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 3046003f000c8abde28a5b6e3bcb88b159be5357
-ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
+ms.openlocfilehash: 1e26c87d7f5edef3443496ac87c1edcf71271470
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="configure-azure-services-for-use-with-configuration-manager"></a>Configurar os serviços do Azure para utilização com o Configuration Manager
 

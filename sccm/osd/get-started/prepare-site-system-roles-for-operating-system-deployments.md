@@ -1,5 +1,6 @@
 ---
-title: "Preparar funções do sistema de sites para implementações do sistema de operativo | Microsoft Docs"
+title: "Preparar funções do sistema de sites para implementações de sistemas operativos"
+titleSuffix: Configuration Manager
 description: "Configure as funções do sistema de site antes de implementar sistemas operativos no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 11c0f169afebdb071fefb5ce300fd1ae3481a94f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: c07172bec1032b021c2d7b7ccaabe33c96b930d2
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Preparar funções do sistema de sites para implementações de sistemas operativos com o System Center Configuration Manager
 
@@ -67,7 +68,7 @@ Para implementar sistemas operativos no System Center Configuration Manager, pri
 
 2.  Selecione o ponto de distribuição que pretende configurar e, no separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-3.  Na página de propriedades do ponto de distribuição, clique no separador **PXE** e selecione **Ativar suporte PXE para clientes** para ativar o PXE neste ponto de distribuição.  
+3.  Na página de propriedades do ponto de distribuição, clique em de **PXE** separador e selecione **ativar suporte PXE para clientes** para ativar o PXE deste ponto de distribuição.  
 
 4.  Clique em **Sim** na caixa de diálogo **Analisar as Portas Necessárias para PXE** para confirmar que pretende ativar o PXE. O Configuration Manager configura automaticamente as portas predefinidas uma firewall do Windows. Tem de configurar manualmente as portas se utilizar uma firewall diferente.  
 

@@ -1,5 +1,6 @@
 ---
-title: "Passos de sequência - Configuration Manager tarefas | Microsoft Docs"
+title: "Passos de sequência de tarefas"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre os passos de sequência de tarefas que pode adicionar uma sequência de tarefas do Configuration Manager."
 ms.custom: na
 ms.date: 03/26/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 18a987141e212158424924402859799ba42f8eae
-ms.sourcegitcommit: 5b4fd2d36f06be5bcc7f8ebbfb92c48b7240085d
-ms.translationtype: HT
+ms.openlocfilehash: 8bc73b8aaafa9af4e12589b2d2a742bfc18afd0e
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 

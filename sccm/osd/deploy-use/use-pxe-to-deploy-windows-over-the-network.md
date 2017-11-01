@@ -1,5 +1,6 @@
 ---
-title: "Utilizar o PXE para implementar o Windows através da rede | Microsoft Docs"
+title: "Utilizar o PXE para implementar o Windows através da rede"
+titleSuffix: Configuration Manager
 description: "Utilize implementações de sistema operativo iniciadas por PXE para atualizar o sistema operativo do computador ou para instalar uma nova versão do Windows num novo computador."
 ms.custom: na
 ms.date: 06/15/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 57292b1c6f6e8b6be91eace06dbf12d788522e0b
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: 017a8f0d5b38145f6708e61ff5d7b2c3614b62a0
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utilizar o PXE para implementar o Windows na rede com o System Center Configuration Manager
 

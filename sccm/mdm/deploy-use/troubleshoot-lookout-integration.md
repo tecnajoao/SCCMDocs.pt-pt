@@ -1,5 +1,6 @@
 ---
-title: "Resolver problemas de integração de Lookout | O System Center Configuration Manager"
+title: "Resolver problemas de integração de Lookout"
+titleSuffix: Configuration Manager
 description: "Este tópico descreve problemas de resolução de problemas que ocorrem frequentemente com Lookout integração."
 ms.custom: na
 ms.date: 03/05/2017
@@ -11,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e36b98c7-d0f4-4dd6-bac3-6a6c4b4bf841
 caps.latest.revision: 
-author: mtillman
-ms.author: mtillman
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: d353f47671a0c1e67c34bb9641fa9dd007b9f8be
-ms.sourcegitcommit: c145e515843a0f37c2e5ca5dbd22072a219d06b4
+ms.openlocfilehash: 244d32e98ad863f6c9ea1747b4f786c3a1279fc0
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="troubleshoot-lookout-integration-with-intune"></a>Resolver problemas Lookout integração com o Intune
 

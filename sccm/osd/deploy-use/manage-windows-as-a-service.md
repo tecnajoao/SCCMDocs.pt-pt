@@ -1,5 +1,6 @@
 ---
-title: "Gerir o Windows como um serviço - do Configuration Manager | Microsoft Docs"
+title: "Gerir o Windows como um serviço "
+titleSuffix: Configuration Manager
 description: "Ver o estado do Windows como um serviço utilizando o Gestor de configuração, criar planos de manutenção para anéis de implementação do formulário e ver alertas quando os clientes do Windows 10 estão perto do final de suporte."
 ms.custom: na
 ms.date: 03/26/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "26"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: fe02981433482ebf6880feec3e1822e6e8f4550f
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: e4ebbcec6df0bd5fdf5f94788d00f590d5e38d4d
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gerir o Windows como um serviço com o System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: "Monitorizar a replicação | Microsoft Docs"
+title: "Monitor de replicação"
+titleSuffix: Configuration Manager
 description: "Saiba como monitorizar a infraestrutura e operações no Configuration Manager utilizando a área de trabalho monitorização na consola do."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 132803a1aa9aad5c5462686bd656688418e47d07
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5b3a85e6aebcfeb9c302273d717554f8a18e14ee
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-hierarchy-and-replication-infrastructure-in-system-center-configuration-manager"></a>Monitorizar a infraestrutura de hierarquia e replicação no System Center Configuration Manager
 

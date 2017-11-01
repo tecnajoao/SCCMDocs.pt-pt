@@ -1,5 +1,6 @@
 ---
-title: "Instalar pontos de distribuição baseado na nuvem | Microsoft Docs"
+title: "Instalar pontos de distribuição baseado na nuvem"
+titleSuffix: Configuration Manager
 description: "Saiba o que precisa de fazer para começar a utilizar pontos de distribuição baseado na nuvem no Microsoft Azure."
 ms.custom: na
 ms.date: 2/8/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "7"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 39b35cccf78bba4e69a7de0ca3a5a8dc516201e3
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 3ce4e78fd49ab328e6d9037e429885e9770c9738
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Instalar pontos de distribuição baseado na nuvem no Microsoft Azure para o System Center Configuration Manager
 

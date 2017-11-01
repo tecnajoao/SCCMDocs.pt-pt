@@ -1,5 +1,6 @@
 ---
-title: "Suportado domínios do Active Directory | Microsoft Docs"
+title: "Suportado domínios do Active Directory"
+titleSuffix: Configuration Manager
 description: "Obter os requisitos para a associação de um sistema de site do System Center Configuration Manager num domínio do Active Directory."
 ms.custom: na
 ms.date: 9/18/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 813c2f55a5815ae3739149abc3f650a750d52cd8
-ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
+ms.openlocfilehash: d4862a3354717a603535b6ad0de42f24c67cc314
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Domínios do Active Directory suportados para o System Center Configuration Manager
 

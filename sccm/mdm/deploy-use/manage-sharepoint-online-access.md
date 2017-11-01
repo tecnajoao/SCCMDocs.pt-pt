@@ -1,5 +1,6 @@
 ---
-title: Gerir o acesso ao SharePoint Online | Microsoft Docs
+title: Gerir o acesso ao SharePoint Online
+titleSuffix: Configuration Manager
 description: "Saiba como utilizar a System Center Configuration Manager SharePoint Online política de acesso condicional para gerir o acesso ao OneDrive."
 ms.custom: na
 ms.date: 03/05/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: c564c1fc25c5156a2d9ddfa1b4123024c658bf61
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 2c1d7cd3462a54a064ec47d0b375ee4cdb25a4b4
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-sharepoint-online-access-in-system-center-configuration-manager"></a>Gerir o acesso ao SharePoint Online no System Center Configuration Manager
 

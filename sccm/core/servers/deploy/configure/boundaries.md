@@ -1,5 +1,6 @@
 ---
-title: Definir limites | Microsoft Docs
+title: Definir limites
+titleSuffix: Configuration Manager
 description: "Compreenda como definem localizações de rede na sua intranet que pode conter dispositivos que pretende gerir."
 ms.custom: na
 ms.date: 3/27/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: bed70809008fde5e2b0215f4dce049402edf83ba
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: fda54ad44a037a7b7952f6339c33625759a79e17
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Definir localizações de rede como limites para o System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: "Utilizar serviços em nuvem com o Configuration Manager | Microsoft Docs"
+title: "Utilizar serviços em nuvem para completar a infraestrutura no local"
+titleSuffix: Configuration Manager
 description: Aprovisionar a recursos de nuvem para o System Center Configuration Manager, para complementar a sua infraestrutura no local.
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 52f7c63d155d5c34f0f12e13020767dec1867dab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f3a167433f90dc111d8f7e5e912db7360df5bfcf
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-cloud-services-with-system-center-configuration-manager"></a>Utilizar serviços cloud com o System Center Configuration Manager
 

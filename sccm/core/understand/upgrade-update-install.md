@@ -1,5 +1,6 @@
 ---
-title: "Sobre a atualização, atualização e instalação | Microsoft Docs"
+title: "Sobre a atualização, atualização e instalação"
+titleSuffix: Configuration Manager
 description: "Saiba a diferença entre os termos de licenciamento para a instalação, atualização e atualização, quando gerir a infraestrutura do Configuration Manager."
 ms.custom: na
 ms.date: 1/11/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 6bd6cd7ea3c41fa1d70e17a1290c9f1f74cc9e37
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: b78f35e60365742ceda9773ae63eae5bb3d5b538
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="about-upgrade-update-and-install-for-site-and-hierarchy-infrastructure"></a>Sobre a atualização, atualizar e instalar a infraestrutura de hierarquia e site
 

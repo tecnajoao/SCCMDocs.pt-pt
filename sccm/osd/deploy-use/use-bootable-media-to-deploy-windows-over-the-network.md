@@ -1,5 +1,6 @@
 ---
-title: "Utilizar suportes de dados para implementar o Windows através da rede | Microsoft Docs"
+title: "Utilizar suportes de dados para implementar o Windows através da rede"
+titleSuffix: Configuration Manager
 description: "Utilize implementações de suportes de dados no System Center Configuration Manager para implementar o sistema operativo quando iniciar o computador de destino."
 ms.custom: na
 ms.date: 6/16/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: mattbriggs
 ms.author: mattbriggs
 manager: angrobe
-ms.openlocfilehash: 9b20e5e2a66d92038033e816e6fc701581c48a7f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ca5cabc18659ed52cd4e0b9130f0179faf2c9d28
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-bootable-media-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utilizar suportes de dados para implementar o Windows através da rede com o System Center Configuration Manager
 

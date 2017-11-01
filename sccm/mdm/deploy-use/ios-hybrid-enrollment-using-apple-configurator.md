@@ -1,5 +1,6 @@
 ---
-title: Inscrever dispositivos iOS Apple Configurator - Configuration Manager | Microsoft Docs
+title: 'Inscrever dispositivos iOS Apple Configurator '
+titleSuffix: Configuration Manager
 descriptions: Pre-enroll iOS devices by using Apple Configurator with Configuration Manager.
 ms.custom: na
 ms.date: 08/15/2017
@@ -11,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61a19d95-83ff-4ad8-9a67-f304d2ba54f2
 caps.latest.revision: "5"
-author: mtillman
-ms.author: mtillman
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 403f3b730e24c0f76314b04bcdd1d2f817bcd908
-ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.openlocfilehash: e5f7356e2cfe003071a0f090add67cd66acfe062
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="ios-hybrid-enrollment-using-apple-configurator-with-configuration-manager"></a>inscrição do iOS híbrida com o Apple Configurator com o Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: O ramo devo utilizar | Microsoft Docs
+title: O ramo devo utilizar
+titleSuffix: Configuration Manager
 description: "Saber as diferenças entre ramos disponíveis do System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/02/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 26356a80bd8c78d4517253bae73e53d8d8f3a73a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 047ffc0953db4a4cc5d543d880136ce61fa99fa7
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>O ramo do Configuration Manager devo utilizar?
 
@@ -149,5 +150,4 @@ Ao visualizar informações de versão para um site do Configuration Manager, ta
 Para verificar a versão do seu site, além da consola, aceda a **sobre o System Center Configuration Manager** no canto superior esquerdo da consola onde a **versão do Site** aparece. Consulte [ ]() para uma lista de versões de sites.
 
 **Sucursal**  
-Para confirmar o ramo do seu site (como o LTSB ou o ramo atual), na consola, aceda a **administração** > **configuração do Site** > **Sites**e abra **definições de hierarquia**. Se existir uma opção para converter para o ramo atual e este está ativo, o site executa a versão LTSB. Quando o site é executado o ramo atual, esta opção está desativada.
-Para obter informações sobre as diferentes versões do Configuration Manager, consulte "versões de linha de base e a atualização" no [atualizações para o Configuration Manager](/sccm/core/servers/manage/updates).
+Para confirmar o ramo do seu site (como o LTSB ou o ramo atual), na consola, aceda a **administração** > **configuração do Site** > **Sites**e abra **definições de hierarquia**. Se existir uma opção para converter para o ramo atual e este está ativo, o site executa a versão LTSB. Quando o site é executado o ramo atual, esta opção está desativada. Para obter informações sobre as diferentes versões do Configuration Manager, consulte "versões de linha de base e a atualização" no [atualizações para o Configuration Manager](/sccm/core/servers/manage/updates).

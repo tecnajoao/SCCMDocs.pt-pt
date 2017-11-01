@@ -1,5 +1,6 @@
 ---
-title: "Transições de Estados de validação de exemplo para o Asset Intelligence | Microsoft Docs"
+title: "Transições de Estados de validação de exemplo para o Asset Intelligence"
+titleSuffix: Configuration Manager
 description: "Veja exemplos de transições de estado de validação do Asset Intelligence no System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: f280e06f34c0ed355b7c2652c571e36eb6684c59
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 469234a229d641bc897f5be6f4076be5cf72b64e
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Transições de Estados de validação de exemplo para o Asset Intelligence no System Center Configuration Manager
 

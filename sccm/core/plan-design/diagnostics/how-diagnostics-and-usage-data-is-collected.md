@@ -1,5 +1,6 @@
 ---
-title: "Recolha de dados de diagnóstico | Microsoft Docs"
+title: "Recolha de dados de diagnóstico"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre como o System Center Configuration Manager recolhe os diagnósticos e dados de utilização sobre si próprio."
 ms.custom: na
 ms.date: 12/29/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 9c0165212fe34f460be2ce870d0542b616f3bc4d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e83588ebff1238b308ab9cf99fb3593df7a27efa
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-diagnostics-and-usage-data-is-collected-by-system-center-configuration-manager"></a>Como os diagnósticos e dados de utilização são recolhidos para o System Center Configuration Manager
 

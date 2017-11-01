@@ -1,5 +1,6 @@
 ---
-title: Implementar os clientes Mac | Microsoft Docs
+title: Implementar os clientes Mac
+titleSuffix: Configuration Manager
 description: Saiba como implementar clientes em computadores Mac no System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/04/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "12"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: af6faf4cd317452f635ec30e74a3aa2e14f1662a
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: 1b7f20a48e0e7219d933c367fb9f0315fc287dfd
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-deploy-clients-to-macs"></a>Como implementar clientes em Mac
 
@@ -125,7 +126,7 @@ Para automatização que ativa o registo de muitos clientes, utilize o [ferramen
 
         -   'domínio \ nome'. Por exemplo: 'contoso\mnorth'  
 
-        -   'user@domain'.  Por exemplo: 'mnorth@contoso.com'  
+        -   'user@domain'.   Por exemplo: 'mnorth@contoso.com'  
 
             > [!IMPORTANT]  
             >  Quando utilizar um endereço de correio eletrónico para preencher o **nome de utilizador** campo, o Configuration Manager utiliza automaticamente o nome de domínio do endereço de correio eletrónico e o nome predefinido do servidor de ponto de proxy de inscrição para preencher o **nome do servidor** campo. Se este nome de domínio e o nome do servidor não corresponder ao nome do servidor de ponto de proxy de inscrição, dizer aos utilizadores o nome correto a utilizar quando inscrever os respetivos computadores Mac.  

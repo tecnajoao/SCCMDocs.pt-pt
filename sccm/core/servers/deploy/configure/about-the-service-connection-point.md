@@ -1,5 +1,6 @@
 ---
-title: "Ponto de ligação de serviço | Microsoft Docs"
+title: "Ponto de ligação de serviço"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre esta função de sistema de sites do Configuration Manager e compreenda e planeie as várias utilizações."
 ms.custom: na
 ms.date: 6/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: e3d41dc1bb732e887d722f39ee86deaf0aae3240
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 94e412399f4ad8e1a045d3556a63b7757f17968b
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Acerca do ponto de ligação de serviço no System Center Configuration Manager
 

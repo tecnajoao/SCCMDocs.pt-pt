@@ -1,5 +1,6 @@
 ---
-title: "Comandos de suporte de dados de sequência de tarefas de Pré-início | Microsoft Docs"
+title: "Comandos de Pré-início para suportes de dados de sequência de tarefas"
+titleSuffix: Configuration Manager
 description: "Criar um script para utilizar para o comando de Pré-início, distribuir o conteúdo associado o comando de Pré-início e configurar o comando de Pré-início no suporte de dados."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 52a4dccfe547f8c25759669dd1b09976302d5c50
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Comandos de Pré-início para suportes de dados do sequência de tarefas no System Center Configuration Manager
 

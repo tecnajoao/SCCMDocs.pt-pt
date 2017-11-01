@@ -1,5 +1,6 @@
 ---
-title: "Definições de software maligno do Endpoint Protection | Microsoft Docs"
+title: "Definições de software maligno do Endpoint Protection"
+titleSuffix: Configuration Manager
 description: "Saiba como configurar atualizações de software do Configuration Manager para fornecer atualizações de definições para os computadores cliente."
 ms.custom: na
 ms.date: 10/06/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: d2c29ea4c2b49142c6e63e2b5e829271098eac70
-ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
-ms.translationtype: HT
+ms.openlocfilehash: cf488babe28267c2438e03fa94c514c872f960c7
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 #  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Utilizar atualizações de Software do Configuration Manager para fornecer atualizações de definições
 

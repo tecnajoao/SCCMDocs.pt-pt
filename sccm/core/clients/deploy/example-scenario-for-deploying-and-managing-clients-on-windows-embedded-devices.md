@@ -1,5 +1,6 @@
 ---
-title: "Cenário de exemplo - implementar clientes Windows Embedded | Microsoft Docs"
+title: "Cenário de exemplo - implementar clientes Windows Embedded"
+titleSuffix: Configuration Manager
 description: "Ver um cenário de exemplo para implementar e gerir clientes do System Center Configuration Manager em dispositivos Windows Embedded."
 ms.custom: na
 ms.date: 04/23/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "8"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 2b5731e80393468b5d434b97fca8c18b7eae7be9
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: HT
+ms.openlocfilehash: fc55aacfc1eae7a427ca4a0ae1bb3197b74fd2be
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Cenário de exemplo para implementação e gestão de clientes do System Center Configuration Manager em dispositivos Windows Embedded
 

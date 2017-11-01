@@ -1,5 +1,6 @@
 ---
-title: SQL Server Always On | Microsoft Docs
+title: SQL Server AlwaysOn
+titleSuffix: Configuration Manager
 description: Planear utilizar um SQL Server sempre no grupo de disponibilidade com o SCCM.
 ms.custom: na
 ms.date: 09/22/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "16"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 3e275f6203a9e0b9210bfbadbf9addf64f6533d8
-ms.sourcegitcommit: 8faf42135a8dc9c384407e64f3f8ba204fb15847
+ms.openlocfilehash: 24eaa33f1f9b333894817f089149e2cbed35df75
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar para utilizar grupos de disponibilidade SQL Server Always On com o Configuration Manager
 
@@ -75,7 +76,7 @@ Para obter mais informações consulte [criar um ponto final de espelhamento de 
 -   Antes de versão 1706, pode ter até duas réplicas secundárias síncronas.
 -   A partir da versão 1706, pode utilizar o mesmo número e tipo de réplicas num grupo de disponibilidade como suportada pela versão do SQL Server que utilizar.
 
-    Pode utilizar uma réplica de consolidação assíncrona para recuperar a réplica síncrona. Consulte [opções de recuperação de base de dados do site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) no tópico cópia de segurança e recuperação para obter informações sobre como efetuar este procedimento.
+-   A partir da versão 1706, pode utilizar uma réplica de consolidação assíncrona para recuperar a réplica síncrona. Consulte [opções de recuperação de base de dados do site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) no tópico cópia de segurança e recuperação para obter informações sobre como efetuar este procedimento.
     > [!CAUTION]  
     > O Configuration Manager não suporta a ativação pós-falha para utilizar a réplica de consolidação assíncrona como a base de dados do site.
 Porque o Configuration Manager não valide o estado da réplica de consolidação assíncrona para confirmar a sua atual, e [por predefinição, este tipo uma réplica pode ser sincronizada]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), utilização de uma réplica de consolidação assíncrona, como a base de dados do site pode colocar a integridade do seu site e os dados em risco.

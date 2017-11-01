@@ -1,5 +1,6 @@
 ---
-title: "Utilize o Centro de Software para implementar o Windows através da rede | Microsoft Docs"
+title: "Utilizar o Centro de Software para implementar o Windows através da rede"
+titleSuffix: Configuration Manager
 description: "Pode implementar um sistema operativo ao centro de Software para atualizar um computador existente com uma nova versão do Windows ou para atualizar o Windows para a versão mais recente."
 ms.custom: na
 ms.date: 6/16/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 8988409c68b7f69439ed03872c316b2139d25616
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: b9fe1248c59b8093b5e69780ff6f08e798408714
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-software-center-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utilizar o Centro de Software para implementar o Windows através da rede com o System Center Configuration Manager
 

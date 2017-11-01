@@ -1,5 +1,6 @@
 ---
-title: "Testar a atualização de base de dados | Microsoft Docs"
+title: "Atualização de base de dados de teste"
+titleSuffix: Configuration Manager
 description: "Teste de atualização de base de dados do site quando instalar atualizações para o Configuration Manager."
 ms.custom: na
 ms.date: 06/13/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 6b76c97cd205bb02683a7bfa1eb378471a75551d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0cf3f836d907271c4fadf60087258cda9f4558ed
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="test-the-database-upgrade-when-installing-an-update"></a>Testar a atualização de base de dados quando instalar uma atualização
 

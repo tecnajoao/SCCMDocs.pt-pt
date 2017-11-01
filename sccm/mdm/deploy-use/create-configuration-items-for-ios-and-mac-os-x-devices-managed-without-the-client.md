@@ -1,5 +1,6 @@
 ---
-title: "Criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune | Microsoft Docs"
+title: "Criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune"
+titleSuffix: Configuration Manager
 description: "Utilize o item de configuração do Mac OS X e iOS do System Center Configuration Manager para gerir as definições para dispositivos iOS e Mac OS X."
 ms.custom: na
 ms.date: 03/28/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 039173c9411a530348bf550e4be7b771756d57dc
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: d101ffc649928c1136386bc7979d4a37ad404af1
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Como criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune
 Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de configuração para gerir as definições do iOS e Mac OS X inscritos no Microsoft Intune ou geridos no local pelo Configuration Manager.  

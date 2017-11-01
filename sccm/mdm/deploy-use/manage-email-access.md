@@ -1,5 +1,6 @@
 ---
-title: Gerir o acesso ao e-mail | Microsoft Docs
+title: Gerir o acesso ao e-mail
+titleSuffix: Configuration Manager
 description: Saiba como utilizar o acesso condicional do System Center Configuration Manager para gerir o acesso ao e-mail do Exchange.
 ms.custom: na
 ms.date: 03/05/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "24"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: a5c2a8912cd2ef95a778b81d0b7f1f98315b8413
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 8ab177067d0308b863274a7ae05574374b0af4ba
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Gerir o acesso ao e-mail no System Center Configuration Manager
 

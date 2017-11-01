@@ -1,5 +1,6 @@
 ---
-title: "Preparar a cache de ponto a ponto do Windows PE para reduzir o tráfego WAN | Microsoft Docs"
+title: "Preparar a cache ponto a ponto do Windows PE para reduzir o tráfego WAN"
+titleSuffix: Configuration Manager
 description: "A Cache ponto a ponto do Windows PE funciona no Windows PE, para obter conteúdo de um elemento de rede local e minimizar o tráfego WAN quando não existe nenhum ponto de distribuição local."
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "11"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 814c6133a30b1116d05aaeafddb0dfb7fe2a390e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: bb0ed6809d1350c4ce28e20d1a83082a51c2e687
+ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prepare-windows-pe-peer-cache-to-reduce-wan-traffic-in-system-center-configuration-manager"></a>Preparar a cache ponto a ponto do Windows PE para reduzir o tráfego WAN no System Center Configuration Manager
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 08/07/2017
 
 Quando implementa um novo sistema operativo no System Center Configuration Manager, computadores que executam a sequência de tarefas podem utilizar a Cache do Windows PE para obter conteúdo de um elemento de rede local (uma origem de cache ponto a ponto) em vez de transferirem conteúdo de um ponto de distribuição. Isto ajuda a minimizar o tráfego da rede alargada (WAN) em cenários de uma sucursal onde não existe um ponto de distribuição local.  
 
- A Cache do Windows PE é semelhante à [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), mas funciona no ambiente de pré-instalação do Windows (Windows PE). Se iniciar a sequência de tarefas do contexto do sistema operativo, como do Centro de Software no cliente, a Cache Ponto a Ponto do Windows PE não é utilizada. Os termos seguintes são utilizados para descrever os clientes que utilizam a Cache Ponto a Ponto do Windows PE:  
+ A Cache do Windows PE é semelhante à [Windows BranchCache](http://technet.microsoft.com/library/mt617255\(TechNet.10\).aspx#bkmk_branchcache), mas funciona no ambiente de pré-instalação do Windows (Windows PE). Os termos seguintes são utilizados para descrever os clientes que utilizam a Cache Ponto a Ponto do Windows PE:  
 
 -   Um **cliente de cache ponto a ponto** é um computador que está configurado para utilizar a Cache Ponto a Ponto do Windows PE.  
 

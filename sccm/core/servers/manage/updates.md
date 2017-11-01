@@ -1,5 +1,6 @@
 ---
-title: "Atualizações | Microsoft Docs"
+title: "Atualizações"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre um método de manutenção na consola denominado * * as atualizações e manutenção * * que torna mais fácil localizar e instalar as atualizações recomendadas."
 ms.custom: na
 ms.date: 07/31/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d46aca88111d4ee0e96b75ca5a3ec57aa4274d6d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: bca724f15dc18d7273bbca122b6428b4704a5d43
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Atualizações para o System Center Configuration Manager
 
@@ -111,7 +112,7 @@ As atualizações na consola garantem uma maior estabilidade e resolvem problema
 
 O Configuration Manager Deteta novas atualizações para si quando sincronizar a sua função de sistema de sites de ponto de ligação de serviço com o serviço de nuvem da Microsoft e Centro de transferências:  
 
--   Quando o seu ponto de ligação de serviço está no modo online, o seu site sincroniza-se com a Microsoft todos os dias para identificar automaticamente novas atualizações que se apliquem à sua infraestrutura.  Para transferir atualizações e ficheiros de redist para atualizações, o computador que aloja a função de sistema de sites do ponto de ligação de serviço utiliza o **sistema** contexto para aceder a localizações de Internet seguintes: go.microsoft.com e download.microsoft.com. Para obter informações sobre localizações adicionais que o ponto de ligação de serviço liga ao, consulte [requisitos de acesso à Internet](../../../core/servers/deploy/configure/about-the-service-connection-point.md#bkmk_urls) no [sobre a ligação de serviço do ponto no System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+-   Quando o seu ponto de ligação de serviço está no modo online, o seu site sincroniza-se com a Microsoft todos os dias para identificar automaticamente novas atualizações que se apliquem à sua infraestrutura.  Para transferir atualizações e ficheiros de redist para atualizações, o computador que aloja a função de sistema de sites do ponto de ligação de serviço utiliza o **sistema** contexto para aceder a localizações de Internet seguintes: go.microsoft.com e download.microsoft.com. Para obter informações sobre localizações adicionais que o ponto de ligação de serviço liga ao, consulte [requisitos de acesso à Internet](../../../core/servers/deploy/configure/about-the-service-connection-point.md#bkmk_urls) no [sobre a ligação de serviço do ponto no System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md) .  
 
 -   Quando o seu ponto de ligação de serviço está no modo offline, utilize a ferramenta de ligação de serviço para sincronizar manualmente com a Microsoft Cloud. Para obter mais informações,ver [ Utilize a Ferramenta de Ligação de Serviço para o System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
 

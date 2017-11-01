@@ -1,5 +1,6 @@
 ---
-title: "Perfis de Wi-Fi e VPN segurança e privacidade | Microsoft Docs"
+title: "Perfis de Wi-Fi e VPN segurança e privacidade"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre a segurança melhores práticas para gerir perfis Wi-Fi e VPN para dispositivos no System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.openlocfilehash: 6d1d0a393a2ce614ae5f819475bd47b05e699b45
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 9c66945e498042ef013fb00f56cfb73598a9776f
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="security-and-privacy-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Segurança e privacidade para perfis de Wi-Fi e VPN no System Center Configuration Manager
 

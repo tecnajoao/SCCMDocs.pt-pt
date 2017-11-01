@@ -1,5 +1,6 @@
 ---
-title: "Definições de firewall e a porta de cliente do Windows | Microsoft Docs"
+title: "Definições de firewall e a porta de cliente do Windows"
+titleSuffix: Configuration Manager
 description: "Selecione a Firewall do Windows e definições de porta para clientes no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d04fa417b311dc9f20e0691f6edffcf287cf43b8
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: fe9f98ad6567b4f691dcfe6f70868fc63d61a63d
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="windows-firewall-and-port-settings-for-clients-in-system-center-configuration-manager"></a>Firewall do Windows e definições de porta para clientes no System Center Configuration Manager
 

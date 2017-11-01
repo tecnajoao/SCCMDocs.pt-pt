@@ -1,5 +1,6 @@
 ---
-title: Criar suportes de dados com o System Center Configuration Manager | Microsoft Docs
+title: Criar suportes de dados
+titleSuffix: Configuration Manager
 description: "Crie suportes de dados no System Center Configuration Manager, para simplificar a implementação do Windows em vários cenários."
 ms.custom: na
 ms.date: 04/11/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "12"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 33abf3853d912d423e427db4d35fb4a16167164e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 4b10aab0674e4066b399c636ecf2226ae109260e
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Criar suportes de dados com o System Center Configuration Manager
 

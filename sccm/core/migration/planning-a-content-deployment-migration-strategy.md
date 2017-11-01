@@ -1,5 +1,6 @@
 ---
-title: "Migrar conteúdo | Microsoft Docs"
+title: "Migração de conteúdo"
+titleSuffix: Configuration Manager
 description: "Utilize pontos de distribuição para gerir o conteúdo ao migrar dados para uma hierarquia de destino do System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 25619d91522193178e0415f649ca4b34c94ecc89
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 09e4fd0237d16cdaa25ba3c26a8661bd14fd6692
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="plan-a-content-deployment-migration-strategy-in-system-center-configuration-manager"></a>Planear uma estratégia de migração de implementação de conteúdos no System Center Configuration Manager
 
@@ -113,7 +114,7 @@ A tabela seguinte lista as localizações suportadas para cada tipo de ponto de 
 > [!WARNING]  
 >  Antes de atualizar um ponto de distribuição secundário, desinstale o software de cliente do Configuration Manager 2007. Quando atualiza um ponto de distribuição secundário com o software de cliente do Configuration Manager 2007, o conteúdo que foi anteriormente implementado no computador é removido do computador e a atualização do ponto de distribuição falha.  
 
-Para identificar os pontos de distribuição que são elegíveis para atualização na consola do Configuration Manager no **hierarquia de origem** nó, selecione um site de origem e, em seguida, selecione o **pontos de distribuição partilhados** separador. Os pontos de distribuição elegíveis apresentam **Sim** na coluna **Elegível para Atualização** .  
+Para identificar os pontos de distribuição que são elegíveis para atualização na consola do Configuration Manager no **hierarquia de origem** nó, selecione um site de origem e, em seguida, selecione o **pontos de distribuição partilhados** separador. Pontos de distribuição elegível apresentam **Sim** no **elegível para atualização** coluna.  
 
 Ao atualizar um ponto de distribuição que está instalado no servidor do site secundário do Configuration Manager 2007, o site secundário é desinstalado da hierarquia de origem. Embora este cenário seja designado uma atualização de site secundário, apenas se aplica à função de ponto de distribuição do sistema de sites. Por conseguinte, o site secundário não é atualizado e, em vez disso, é desinstalado. Esta opção deixa um ponto de distribuição da hierarquia de destino no computador que era o servidor de site secundário. Se pretender atualizar o ponto de distribuição num site secundário, consulte [planear a atualização dos sites secundários do Configuration Manager 2007](#BKMK_UpgradeSS) neste tópico.  
 
@@ -180,7 +181,7 @@ Se optar por não atualizar um ponto de distribuição partilhado, ainda assim i
 
 -   Um ponto de distribuição partilhado não pode ser localizado conjuntamente com quaisquer funções adicionais do sistema de sites.  
 
-Para identificar os pontos de distribuição que são elegíveis para reatribuição na consola do Configuration Manager no **hierarquia de origem** nó, selecione um site de origem e, em seguida, selecione o **pontos de distribuição partilhados** separador. Pontos de distribuição elegível apresentam **Sim** no **elegível para reatribuição** coluna (esta coluna é denominada **elegível para atualização** antes do System Center 2012 R2 Configuration Manager).  
+Para identificar os pontos de distribuição que são elegíveis para reatribuição na consola do Configuration Manager no **hierarquia de origem** nó, selecione um site de origem e, em seguida, selecione o **pontos de distribuição partilhados** separador. Pontos de distribuição elegível apresentam **Sim** no **elegível para reatribuição** coluna (esta coluna é denominada **elegível para atualização** antes do System Center 2012 R2 Do Configuration Manager).  
 
 ###  <a name="BKMK_ReassignProcess"></a> Processo de reatribuição de pontos de distribuição  
  Pode utilizar a consola do Configuration Manager para reatribuir os pontos de distribuição que tenha partilhado a partir de uma hierarquia de origem ativa. Quando reatribuir um ponto de distribuição partilhado, o ponto de distribuição é desinstalado do site de origem e, em seguida, instalado como um ponto de distribuição que está ligado a um site primário ou secundário que especificou na hierarquia de destino.  

@@ -1,5 +1,6 @@
 ---
-title: "Partilha de aplicações do System Center Configuration Manager | Microsoft Docs"
+title: "Partilhar aplicações no Centro de Software"
+titleSuffix: Configuration Manager
 description: "Partilhe uma ligação para uma aplicação no Centro de Software no System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/31/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 9e6b32caa6c5f27f3b535b224c2a9fe31905547f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3433a61ae561cacb103c868da367b57ecf627c05
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="share-an-application-from-software-center"></a>Partilhar uma aplicação a partir do Centro de Software
 

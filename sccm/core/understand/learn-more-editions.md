@@ -1,5 +1,6 @@
 ---
-title: Saiba mais sobre licenciamento e ramos | Microsoft Docs
+title: Saiba mais sobre o licenciamento e ramos
+titleSuffix: Configuration Manager
 description: "Utilize este tópico para saber mais sobre os requisitos de licenciamento para as opções de instalação disponíveis com a versão de Outubro de 2016 do System Center Configuration Manager, que incluem a versão de Current Branch 1606, a longo prazo Servicing Branch (LTSB) e a instalação de avaliação da filial atual."
 ms.custom: na
 ms.date: 10/12/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 90e16b316872cb370c9c2e645f46ac12afab7107
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 88cc85a98b9281ec07ead766c415bebe46c5a82c
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenciamento e ramos para o System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: "Itens de configuração para dispositivos geridos pelo cliente - Configuration Manager | Microsoft Docs"
+title: "Itens de configuração para dispositivos geridos pelo cliente "
+titleSuffix: Configuration Manager
 description: "Saiba como configurar os dispositivos Windows e Mac que são geridos com o cliente do System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: a589d95cf770d669e1759d6da5b26a0ce9444e32
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 77db856b22c4be009e805f3137e45355b1d88952
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="configuration-items-for-devices-managed-with-the-system-center-configuration-manager-client"></a>Itens de configuração para dispositivos geridos com o cliente do System Center Configuration Manager
 

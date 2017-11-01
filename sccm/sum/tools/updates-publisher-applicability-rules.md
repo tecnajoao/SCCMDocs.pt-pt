@@ -1,5 +1,6 @@
 ---
-title: As regras de aplicabilidade | Microsoft Docs
+title: Regras de aplicabilidade
+titleSuffix: Configuration Manager
 description: Gerir as regras de aplicabilidade para o System Center Updates Publisher
 ms.custom: na
 ms.date: 4/29/2017
@@ -15,11 +16,11 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 2925abda07abaa46ad56b9b433ce003c22aede5e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: bab3c0f928767378f885c7631f7f9bdd6b13e15e
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-applicability-rules-in-updates-publisher"></a>Gerir as regras de aplicabilidade Updates Publisher
 

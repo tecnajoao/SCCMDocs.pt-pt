@@ -1,5 +1,6 @@
 ---
-title: "Monitorizar aplicações a partir da consola do System Center Configuration Manager | Microsoft Docs"
+title: "Monitorizar aplicações a partir da consola do"
+titleSuffix: Configuration Manager
 description: "Monitorizar a implementação de software, incluindo atualizações, definições de compatibilidade e aplicações utilizando a área de trabalho de monitorização no Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "5"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: ded2a085510def60d388d9754da9c2c41de565d4
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: 015f4410f576fac90d913abfa30064b2eecb2a5b
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Monitorizar aplicações a partir da consola do System Center Configuration Manager
 

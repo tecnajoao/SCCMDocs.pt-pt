@@ -1,5 +1,6 @@
 ---
-title: "Gerir as definições das atualizações de software | Microsoft Docs"
+title: "Gerir as definições das atualizações de software"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre as definições de cliente são adequadas para atualizações de software no seu site depois de instalar o ponto de atualização de software."
 keywords: 
 author: dougeby
@@ -11,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 0d484c1a-e903-4bff-9e9b-e452c62e38a8
-ms.openlocfilehash: fe4a8f56e0b554e206bcc4503a0268dc761ded81
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 54fb48ca210f66eabe8d438f0aa23d9ad82e0bd9
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 #  <a name="BKMK_ManageSUSettings"></a>Gerir as definições das atualizações de software  
 

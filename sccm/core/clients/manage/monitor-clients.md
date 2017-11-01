@@ -1,5 +1,6 @@
 ---
-title: Monitorizar clientes - Configuration Manager | Microsoft Docs
+title: 'Clientes de monitor '
+titleSuffix: Configuration Manager
 description: "Obter orientações detalhadas sobre como monitorizar clientes no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "23"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: ec912dc60492ad3879a576970f93ff2fa016099d
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 1abd791817af5b59e850cec4d529f57d9e541674
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-monitor-clients-in-system-center-configuration-manager"></a>Como monitorizar clientes no System Center Configuration Manager
 

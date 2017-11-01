@@ -1,5 +1,6 @@
 ---
-title: Alertas e o sistema de estado | Microsoft Docs
+title: Alertas e o sistema de estado
+titleSuffix: Configuration Manager
 description: "Configurar alertas e utilizar o sistema de estado para manter-se informado sobre o estado da implementação do Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: ed692bdea055775890535d2666f09ba5f5c7c4e1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 690709c0067099a022f4a29de4e7d935952e4260
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utilizar alertas e o sistema de estado para o System Center Configuration Manager
 

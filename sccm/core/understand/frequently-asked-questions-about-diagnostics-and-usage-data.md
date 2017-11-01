@@ -1,5 +1,6 @@
 ---
-title: "Dados de diagnóstico FAQ | Microsoft Docs"
+title: "Dados de diagnóstico FAQ"
+titleSuffix: Configuration Manager
 description: "Localize perguntas mais frequentes sobre os dados de diagnóstico e utilização para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/8/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 177a30a30f6b8579fa1956d28581d4f9d3a11838
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: cf5b44c9d838f49e2de795338f3068621febf6c8
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="frequently-asked-questions-about-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Perguntas frequentes sobre diagnósticos e dados de utilização para o System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Preparar para implementar o software de cliente para Macs | Microsoft Docs
+title: Preparar para implementar o software de cliente para Macs
+titleSuffix: Configuration Manager
 description: "Tarefas de configuração antes de implementar o cliente do Configuration Manager em Mac."
 ms.custom: na
 ms.date: 05/04/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "12"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 06dd4afe94c97b1ffd7d136666fddc623933fcd6
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: b878c7b0328e89ff7b12bf44167fd12444a0cba4
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prepare-to-deploy-client-software-to-macs"></a>Preparar para implementar o software de cliente para Macs
 

@@ -1,5 +1,6 @@
 ---
-title: "A ferramenta de limpeza da biblioteca de conteúdos | Microsoft Docs"
+title: "A ferramenta de limpeza da biblioteca de conteúdos"
+titleSuffix: Configuration Manager
 description: "Utilize a ferramenta de limpeza da biblioteca de conteúdos para remover o conteúdo órfão já não está associado a uma implementação do System Center Configuration Manager."
 ms.custom: na
 ms.date: 4/7/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 76e6772bdd5cbd32d525e728f6ebc988b045da78
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: c5bb9c055378c769613de45ffd776bbbdc1d0080
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="the-content-library-cleanup-tool-for-system-center-configuration-manager"></a>A ferramenta de limpeza da biblioteca de conteúdos para o System Center Configuration Manager
 

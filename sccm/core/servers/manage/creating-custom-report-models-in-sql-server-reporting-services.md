@@ -1,5 +1,6 @@
 ---
-title: "Criar relatórios personalizados | Microsoft Docs"
+title: "Criar relatórios personalizados"
+titleSuffix: Configuration Manager
 description: "Definir modelos de relatórios para satisfazer os seus requisitos empresariais e, em seguida, implementar modelos de relatórios no Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 9951dd9333ebef00c7acd5d72b20a02382e3206c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 56274cbec336219a7734d23bf1bade8a7892de30
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 08/07/2017
 Modelos de relatórios de exemplo estão incluídos no System Center Configuration Manager, mas pode também definir modelos de relatórios que satisfaçam os seus requisitos de negócio e, em seguida, implementar o modelo de relatório para o Configuration Manager para utilizar quando criar novos relatórios baseados em modelos. A tabela seguinte fornece os passos para criar e implementar um modelo de relatório básico.  
 
 > [!NOTE]  
->  Consulte os passos de criação de um modelo de relatório mais avançado na secção [Etapas para criar um modelo de relatório avançado no SQL Server Reporting Services](#AdvancedReportModel) deste tópico.  
+>  Consulte os passos de criação de um modelo de relatório mais avançado na secção [Steps for Creating an Advanced Report Model in SQL Server Reporting Services](#AdvancedReportModel) deste tópico.  
 
 |Passo|Descrição|Mais informações|  
 |----------|-----------------|----------------------|  

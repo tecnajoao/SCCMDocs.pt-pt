@@ -1,5 +1,6 @@
 ---
-title: "Dados de diagnóstico para 1606 | Microsoft Docs"
+title: "Dados de diagnóstico para 1606"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre os níveis de diagnósticos e dados de utilização que o System Center Configuration Manager versão 1606 recolhe."
 ms.custom: na
 ms.date: 12/29/2016
@@ -32,11 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 27eb4225b7e907772fa5ed8b209fc04fa9f3a677
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
+ms.openlocfilehash: 86ff24b54fcd54b417c8d8a8526936a624928781
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1606-of-system-center-configuration-manager"></a>Níveis de diagnóstico de utilização de recolha de dados para a versão 1606 do System Center Configuration Manager
 

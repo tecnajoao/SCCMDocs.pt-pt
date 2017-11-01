@@ -1,5 +1,6 @@
 ---
-title: "Localização de origem de conteúdo | Microsoft Docs"
+title: "Localização de origem de conteúdo"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre as definições do System Center Configuration Manager que permitem aos clientes localizar conteúdo numa rede lenta."
 ms.custom: na
 ms.date: 1/3/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: a823458dc3b891b1c32d1cb44a96e8cafd376ed5
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 27818daf0eaaf7d498bd3d11de3ae2e62df216fa
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Cenários de localização de origem de conteúdo no System Center Configuration Manager
 

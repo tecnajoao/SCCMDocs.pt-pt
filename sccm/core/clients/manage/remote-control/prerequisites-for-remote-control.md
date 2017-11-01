@@ -1,5 +1,6 @@
 ---
-title: "Pré-requisitos de controlo remoto | Microsoft Docs"
+title: "Pré-requisitos de controlo remoto"
+titleSuffix: Configuration Manager
 description: "Obter os pré-requisitos para controlo remoto no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: a99a18bcb5c981a56e5b38eb631cfabbad8c44d7
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
+ms.openlocfilehash: e7287ae7df68ebbcb8f251b8d001233a647596ee
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="prerequisites-for-remote-control-in-system-center-configuration-manager"></a>Pré-requisitos para controlo remoto no System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Atualizar infraestrutura no local | Microsoft Docs
+title: Atualizar infraestrutura no local
+titleSuffix: Configuration Manager
 description: Saiba como atualizar a infraestrutura, como o SQL Server e o sistema operativo do site dos sistemas de sites.
 ms.custom: na
 ms.date: 06/05/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 188b7f2537dd0e569a5c00995620124512cf311b
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 97e63fe76eeb07460d28a82487eb810cc559c383
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Atualizar a infraestrutura no local que suporta o System Center Configuration Manager
 

@@ -1,5 +1,6 @@
 ---
-title: Gerir imagens de sistema de operativo | Microsoft Docs
+title: Gerir imagens de sistema operativo
+titleSuffix: Configuration Manager
 description: "No Configuration Manager, saiba mais sobre os métodos que pode utilizar para gerir imagens de sistema operativo são armazenadas em ficheiros do Windows Imaging (WIM)."
 ms.custom: na
 ms.date: 12/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 9edefdbe77085d157b524904a514a2b5c472b1be
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
-ms.translationtype: HT
+ms.openlocfilehash: 4408865626009b35162e4d7408248d9ab2bdd7d2
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-operating-system-images-with-system-center-configuration-manager"></a>Gerir imagens de sistema operativo com o System Center Configuration Manager
 

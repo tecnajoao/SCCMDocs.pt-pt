@@ -1,5 +1,6 @@
 ---
-title: "Configurar o Android para aplicações de trabalho com políticas de configuração de aplicação | Microsoft Docs"
+title: "Configurar o Android para aplicações de trabalho com políticas de configuração de aplicação"
+titleSuffix: Configuration Manager
 description: "Ajude a eliminar os problemas de configuração em dispositivos com Android para trabalho ao implementar políticas de configuração de aplicação para os utilizadores antes de poderem executam as aplicações."
 ms.custom: na
 ms.date: 09/12/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: NathBarn
 ms.author: NathBarn
 manager: angrobe
-ms.openlocfilehash: bd8388689a49873860fa9951b7d522f9d96fc11f
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: 79d1b3fed3baa74c8ad195925ccda35713cb8865
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="apply-settings-to-android-for-work-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Aplicar as definições para o Android para aplicações de trabalho com políticas de configuração de aplicações no System Center Configuration Manager
 

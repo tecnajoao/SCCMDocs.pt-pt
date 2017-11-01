@@ -1,5 +1,6 @@
 ---
-title: "Versões do Current Branch | Microsoft Docs"
+title: "Versões do ramo atuais"
+titleSuffix: Configuration Manager
 description: "Reveja o histórico da versão do System Center Configuration Manager e saber mais sobre as fases de serviço fornecido."
 ms.custom: na
 ms.date: 7/31/2017
@@ -15,11 +16,11 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 1c02d2c51964fed960ffab42175762c1b04e6445
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3907a8f764ddd4dcea992875d0181b93d4760b42
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do System Center Configuration Manager
 
@@ -31,7 +32,7 @@ Microsoft planos de lançamento atualizações para o ramo atual do System Cente
 
 -   Atualizações de segurança (apenas) manutenção fase - depois de versões de uma nova versão do ramo atual, o suporte ramos anteriores irão reduzir as atualizações de segurança apenas para o resto do ciclo de vida de suporte de 12 meses (mostrado na figura 1).  
 
- ![CM &#95; Manutenção & #95 suporte &#95; linha cronológica](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
+ ![CM &#95; Manutenção &#95;suporte &#95; linha cronológica](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
 Figura 1. Exemplo de sobreposição de ciclo de versão para filial atual de suporte de manutenção.
 
 > [!NOTE]  

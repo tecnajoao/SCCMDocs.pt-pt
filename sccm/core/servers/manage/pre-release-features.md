@@ -1,5 +1,6 @@
 ---
-title: "Funcionalidades de pré-lançamento | Microsoft Docs"
+title: "Funcionalidades de pré-lançamento"
+titleSuffix: Configuration Manager
 description: "As funcionalidades de pré-lançamento no System Center Configuration Manager"
 ms.custom: na
 ms.date: 7/31/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 7b594daeed81ef2d991ad06489f9184a69804117
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 6d7ec308aa465f2b715ce51b8c6bbbe59faaf2cb
+ms.sourcegitcommit: b36f8c8b06e4b2e13f8c1500a82af79a071ab4f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>As funcionalidades de pré-lançamento no System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -50,7 +51,7 @@ Se forneceu consentimento num site primário autónomo e, em seguida, expanda a 
 |------------------|---------------------|---------------------|
 | Criar e executar scripts do PowerShell a partir da consola do Configuration Manager |  [Versão 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Gestão de proteção de dispositivos com o Configuration Manager |  [Versão 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Verifique a existência de executar ficheiros executáveis antes de instalar uma aplicação  |   [Versão 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Verifique a existência de executar ficheiros executáveis antes de instalar uma aplicação  |   [Versão 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |[Versão 1706](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application)|
 | Ponto de serviço do armazém de dados  |  [Versão 1702](/sccm/core/servers/manage/data-warehouse) |[Versão 1706](/sccm/core/servers/manage/data-warehouse)|
 | Cache ponto a ponto de distribuição de conteúdo para clientes |  [Versão 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Gateway de gestão de nuvem |  [Versão 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|

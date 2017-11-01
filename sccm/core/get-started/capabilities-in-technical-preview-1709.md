@@ -1,5 +1,6 @@
 ---
-title: "Pré-visualização técnica 1709 | Microsoft Docs"
+title: "Pré-visualização técnica 1709"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1709 para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 09/28/2017
@@ -13,11 +14,11 @@ ms.assetid: a3ef6bdc-a204-4c4c-a02f-2bd03f35183e
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 3348bc91e6810c873d50cb4efd3efb9fbd024bd3
-ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
+ms.openlocfilehash: 90e31c26204323e33560270044ebac7dfe135684
+ms.sourcegitcommit: 1573a1bd0bd58fefb1ea651b3ea8d6fd53eff546
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="capabilities-in-technical-preview-1709-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1709 do System Center Configuration Manager
 
@@ -43,8 +44,8 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 
 **Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-## <a name="improved-vpn-profile-experience-in-configuration-manager-console----1313282---"></a>Experiência melhorada de perfil da VPN na consola do Configuration Manager<!-- 1313282 -->
-
+## <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Experiência melhorada de perfil da VPN na consola do Configuration Manager
+<!-- 1313282 -->
 Com esta versão, atualizámos as páginas de assistente e propriedades de perfil VPN para apresentar as definições adequadas da plataforma selecionada. Especificamente:
 
 - Cada plataforma tem o suas próprias fluxo de trabalho, que significa que os novos perfis VPN contém apenas a definição suportada pela plataforma do.
@@ -80,8 +81,7 @@ Crie um novo perfil VPN utilizando o processo normal. Tenha em atenção que a p
 
 ## <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
 <!-- 1350871 -->
-Muitos clientes pretendem gerir dispositivos Windows 10 da mesma forma que o se gerem dispositivos móveis utilizando um custo simplificado, inferior, uma solução baseada na nuvem. No entanto, efetuar a transição do gestão tradicional para gestão moderna pode ser um desafio. Gestão conjunta é uma solução em dispositivos Windows 10 pode ser simultaneamente gerida pelo Configuration Manager e o Intune, bem como associada ao Active Directory (AD) e Azure Active Directory (Azure AD) para fornecer uma forma para que possa modernize ao longo do tempo. É uma solução para fornecer uma ponte de tradicional para gestão moderna e fornece um caminho para fazer a transição utilizando uma abordagem faseada.  
-
+Muitos clientes pretendem gerir dispositivos Windows 10 da mesma forma que o se gerem dispositivos móveis utilizando um custo simplificado, inferior, uma solução baseada na nuvem. No entanto, efetuar a transição do gestão tradicional para gestão moderna pode ser um desafio. Iniciando com o Windows 10, versão 1607 (também conhecido como aniversário da atualização), pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). Gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo os dispositivos Windows 10 através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Tem de ter os seguintes pré-requisitos no local antes de poder ativar gestão conjunta. Existem pré-requisitos gerais e pré-requisitos diferentes para dispositivos que não são clientes e os clientes existentes do Configuration Manager.
@@ -200,7 +200,7 @@ Para dispositivos Windows 10 que não estão inscritos no Intune ou que têm o c
 Para dispositivos Windows 10 que já estejam inscritos no Intune, crie uma aplicação no Intune para implementar o cliente do Configuration Manager. Utilize o [linha de comandos para instalar o cliente do Configuration Manager](#command-line-to-install-configuration-manager-client) quando percorrer os passos para [instalar clientes da Internet com o Azure AD](https://docs.microsoft.com/en-us/sccm/core/clients/deploy/deploy-clients-cmg-azure).  
 
 ### <a name="switch-configuration-manager-workloads-to-intune"></a>Cargas de trabalho do Gestor de configuração do comutador para o Intune
-Na secção anterior, que preparou de dispositivos Windows 10 para gestão conjunta. Estes dispositivos agora estão associados ao AD e o Azure AD e estarem inscritos no Intune têm o cliente do Configuration Manager. Provavelmente, ainda tem de dispositivos Windows 10 que estão associados ao AD e o cliente do Configuration Manager, mas não associados ao Azure AD ou inscritos no Intune. O procedimento seguinte fornece os passos para ativar a gestão conjunta, preparar o resto dos seus dispositivos Windows 10 (clientes do Configuration Manager sem inscrição no Intune) para a gestão conjunta e permite-lhe iniciar mudar específico do Configuration Manager cargas de trabalho para o Intune.
+Na secção anterior, que preparou de dispositivos Windows 10 para gestão conjunta. Estes dispositivos agora estão associados ao AD e o Azure AD e estão inscritos no Intune e têm o cliente do Configuration Manager. Provavelmente, ainda tem de dispositivos Windows 10 que estão associados ao AD e o cliente do Configuration Manager, mas não associados ao Azure AD ou inscritos no Intune. O procedimento seguinte fornece os passos para ativar a gestão conjunta, preparar o resto dos seus dispositivos Windows 10 (clientes do Configuration Manager sem inscrição no Intune) para a gestão conjunta e permite-lhe iniciar mudar específico do Configuration Manager cargas de trabalho para o Intune.
 
 1. Na consola do Configuration Manager, vá para **administração** > **descrição geral** > **serviços em nuvem**  >  **Gestão conjunta**.    
 2. No separador início, no grupo de gerir, escolha **configurar a gestão conjunta** para abrir o Assistente de integração de gestão conjunta.    
@@ -210,7 +210,6 @@ Na secção anterior, que preparou de dispositivos Windows 10 para gestão conju
     - **Produção**: Quando seleciona esta definição, todos os dispositivos suportados do Windows 10 estão ativados para a gestão conjunta. Configurar o **grupo de exclusão** com uma ou mais coleções. Dispositivos que são membros de qualquer uma das coleções deste grupo são excluídos da gestão conjunta a utilizar. 
 5. Na página de ativação, escolha o **piloto** ou **todos os** (consoante as definições que configurou na página de teste) para ativar a inscrição automática no Intune e, em seguida, clique em **seguinte**. Quando escolhe **piloto**, apenas os clientes de Gestor de configuração são membros do grupo piloto automaticamente estão inscritos no Intune. Isto permite-lhe ativar a gestão conjunta num subconjunto de clientes para testar inicialmente conjunta gestão e implementação da gestão conjunta utilizando uma abordagem faseada. 
 6. Na página de cargas de trabalho, escolha se pretende mudar cargas de trabalho do Configuration Manager para serem geridos pelo Intune e, em seguida, clique em **seguinte**. Utilize os controlos de deslize para selecionar se pretende mudar a carga de trabalho para o grupo de piloto ou para todos os clientes Windows 10 (consoante as definições que configurou na página de teste). 
-
 7. Para ativar a gestão conjunta, conclua o assistente.  
 
 <!--### Modify your co-management settings

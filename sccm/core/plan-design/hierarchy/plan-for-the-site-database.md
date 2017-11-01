@@ -1,5 +1,6 @@
 ---
-title: Planear a base de dados do site | Microsoft Docs
+title: Planear a base de dados do site
+titleSuffix: Configuration Manager
 description: "Considere a base de dados do site e a função de servidor de base de dados do site quando planear a hierarquia do System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d4efe1f013dbb74efca79cd27f7248fc085c7424
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 1bebb28bccc8b1faa79a56c97c56793d391bf70c
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="plan-for-the-site-database-for-system-center-configuration-manager"></a>Planear a base de dados do site para o System Center Configuration Manager
 

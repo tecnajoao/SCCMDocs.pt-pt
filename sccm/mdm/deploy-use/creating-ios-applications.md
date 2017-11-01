@@ -1,5 +1,6 @@
 ---
-title: "Criar aplicações iOS | Microsoft Docs"
+title: "Criar aplicações iOS"
+titleSuffix: Configuration Manager
 description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações em dispositivos iOS."
 ms.custom: na
 ms.date: 03/05/2017
@@ -14,11 +15,11 @@ caps.latest.revision: "10"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: af3479a75a1024bdcf9ce6c354c073ee5fb837b6
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
+ms.openlocfilehash: 2b21a50b18384740eda8744c3442fe060325fd15
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-ios-applications-with-system-center-configuration-manager"></a>Criar aplicações iOS com o System Center Configuration Manager
 

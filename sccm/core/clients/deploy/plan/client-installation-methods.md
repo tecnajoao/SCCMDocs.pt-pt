@@ -1,5 +1,6 @@
 ---
-title: "Métodos de instalação de cliente | Microsoft Docs"
+title: "Métodos de instalação de cliente"
+titleSuffix: Configuration Manager
 description: "Saiba mais métodos de instalação de cliente para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/25/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 23dcf515b12cc91b25bedf8b42397cc815f901eb
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 4c600212c817e8b490e93938387b18c65baee042
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="client-installation-methods-in-system-center-configuration-manager"></a>Métodos de instalação de cliente no System Center Configuration Manager
 

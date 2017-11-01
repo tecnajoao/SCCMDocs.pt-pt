@@ -1,5 +1,6 @@
 ---
-title: "Melhores práticas para gestão de energia | Microsoft Docs"
+title: "Melhores práticas para gestão de energia"
+titleSuffix: Configuration Manager
 description: "Obter as melhores práticas para gestão de energia no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 68b8be80152da52be427a3d2fdbf5c466029add6
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
-ms.translationtype: HT
+ms.openlocfilehash: f4fac4064102439857904d3227ba65878ac6c65f
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="best-practices-for-power-management-in-system-center-configuration-manager"></a>Melhores práticas para gestão de energia no System Center Configuration Manager
 

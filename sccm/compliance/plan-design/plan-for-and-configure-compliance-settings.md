@@ -1,5 +1,6 @@
 ---
-title: "Planear e configurar as definições de compatibilidade | Microsoft Docs"
+title: "Planear e configurar as definições de compatibilidade"
+titleSuffix: Configuration Manager
 description: "Saiba mais sobre os pré-requisitos e as tarefas de configuração para trabalhar com as definições de compatibilidade no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
@@ -14,11 +15,11 @@ caps.latest.revision: "8"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 603f82d9589f17fdbbdcd38baa236fb23424ef34
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 970ebabc8a275f46cf005c6f3571c62d64889ea8
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>Planear e configurar as definições de compatibilidade no System Center Configuration Manager
 

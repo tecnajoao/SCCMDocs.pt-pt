@@ -1,5 +1,6 @@
 ---
-title: "Implementar linhas de base de configuração | Microsoft Docs"
+title: "Implementar linhas de base de configuração"
+titleSuffix: Configuration Manager
 description: "Implemente linhas de base de configuração para definir implementações da linha de base de configuração e para adicionar ou remover linhas de base de configuração de implementações."
 ms.custom: na
 ms.date: 10/06/2016
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: b9c46766b953016d852c21317db72b45e23f1ee7
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: e61314c5c10f4a4c9eda1f0a292cb5a9c72b32bb
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Como implementar linhas de base de configuração no System Center Configuration Manager
 
