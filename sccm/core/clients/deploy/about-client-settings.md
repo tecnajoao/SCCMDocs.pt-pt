@@ -1,5 +1,6 @@
 ---
-title: "Definições de cliente | Microsoft Docs"
+title: "Definições do cliente"
+titleSuffix: Configuration Manager
 description: "Escolha as definições de cliente utilizando a consola de administrador no System Center Configuration Manager."
 ms.custom: na
 ms.date: 08/01/2017
@@ -15,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 5eeeb9337926b983c26f681bff043fa1598dd4ee
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: HT
+ms.openlocfilehash: f34479d6cf0c1153615c612480f204b71a8d84cb
+ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
