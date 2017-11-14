@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 12633eced1850b718bf7cad019cd943305a7d9fb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 4eedd96fd399cf9577da8069bd0c8d5702f50d7b
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Proteger aplicações através de políticas de gestão de aplicações móveis no System Center Configuration Manager
 
@@ -30,7 +30,7 @@ Políticas de gestão de aplicações do System Center Configuration Manager per
 
 -   Dispositivos a executar o Android 4 e posterior  
 
--   Dispositivos que executem iOS 7 e versões posteriores  
+-   Dispositivos que executam o iOS 9 e posteriores  
 
 Também pode utilizar políticas de gestão de aplicações móveis para proteger as aplicações em dispositivos que não são geridos pelo Intune. Através desta nova funcionalidade, pode aplicar políticas de gestão de aplicações móveis para aplicações que se ligam aos serviços do Office 365. Não é suportada para aplicações que ligam à local no Exchange ou do SharePoint.  
 

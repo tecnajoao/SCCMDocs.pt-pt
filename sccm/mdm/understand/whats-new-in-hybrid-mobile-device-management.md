@@ -3,7 +3,7 @@ title: "Novidades da MDM híbrido"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune."
 ms.custom: na
-ms.date: 10/04/2017
+ms.date: 11/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 102a84c4bc850ca7aef7dfd8bd6271b6feee0b18
-ms.sourcegitcommit: b517c791554500209435bca21fbf3ef8a26828c9
+ms.openlocfilehash: 29dd4bff6d35712c23d66751db16a00aa761b8b4
+ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -110,6 +110,8 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 
 - **Aplicação do Portal da empresa do Windows 10 adicionada ao Windows Information Protection Permitir política**<!-- 677129 -->    
     A aplicação Portal da empresa do Windows 10 foi atualizada para suportar a proteção de informações do Windows (WIP). A aplicação pode ser adicionada para o WIP Permitir política. Com esta alteração, a aplicação já não tem de ser adicionado para o **excluído** lista. 
+
+     Apenas um item de configuração de WIP único pode ser fornecido para um dispositivo.  Se dois itens de configuração de WIP são direcionadas para o mesmo dispositivo, nenhuma política WIP aplica-se.
 
 - **Fim de aviso de suporte adicionado para o iOS 8.0**    
     Foi adicionado um aviso para o fim de suporte para o iOS 8.0. Para obter mais informações, consulte [avisos](#notices).
