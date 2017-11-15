@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 98f9f44373b854b61714c21105a28b3240b4a7f7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 48530c177a03b66dbc126025ca61e0078bc89d9f
+ms.sourcegitcommit: 5ec9f8c312688bf7f4de4d6007b121d743b80c4d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para capturar um sistema operativo no System Center Configuration Manager
 
@@ -171,6 +171,9 @@ Quando utilizar uma sequência de tarefas para implementar um sistema operativo 
 9. Utilize este passo apenas se o cliente do Configuration Manager está instalado no computador de referência.  
 
      Clique em **adicionar**, clique em **imagens**e, em seguida, clique em [preparar ConfigMgr Client para captura](../understand/task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture). Este passo de sequência de tarefas executa o cliente do Configuration Manager no computador de referência e prepara-o para captura como parte do processamento de imagens.  
+
+    > [!Note]  
+    >  A sequência de tarefas não suporta a desinstalar o cliente do Configuration Manager.
 
 10. Clique em **adicionar**, clique em **imagens**e, em seguida, clique em [preparar Windows para captura](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture). Esta ação de sequência de tarefas executa o Sysprep e, em seguida, reinicia o computador na imagem de arranque do Windows PE especificada para a sequência de tarefas. O computador de referência não deve ser associado a um domínio para que esta ação seja concluída com êxito.  
 
