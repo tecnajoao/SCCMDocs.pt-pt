@@ -1,21 +1,22 @@
 ---
-title: "Introdução às atualizações de software | Microsoft Docs"
+title: "Introdução às atualizações de software"
+titleSuffix: Configuration Manager
 description: "Aprender as noções básicas de atualizações de software no System Center Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 10/30/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
-ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 66aa73e5c1aae68feeacb0eabe6233845289d104
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Introdução às atualizações de software no System Center Configuration Manager
 
@@ -254,7 +255,7 @@ Para um cenário de exemplo que mostra como poderá implementar atualizações d
 ##  <a name="BKMK_DeploymentProcess"></a> Processo de implementação de atualizações de software  
  Depois de implementar atualizações de software ou quando uma regra de implementação automática é executada e implementa atualizações de software, é adicionada uma política de atribuição de política à política da máquina para o site. As atualizações de software são transferidas da localização de transferência, Internet ou pasta de rede partilhada, para a origem do pacote. As atualizações de software são copiadas da origem do pacote para a biblioteca de conteúdos no servidor de sites e, em seguida, copiadas para a biblioteca de conteúdos no ponto de distribuição.  
 
- Quando um computador cliente na coleção de destino da implementação recebe a política da máquina, o Agente do Cliente de Atualização de Software inicia uma pesquisa de avaliação. O agente do cliente transfere o conteúdo das atualizações de software necessárias a partir de um ponto de distribuição para a cache do cliente local poucos instantes após receber a implementação, embora aguarde pela definição **Hora de disponibilização do software** da implementação para que as atualizações de software fiquem disponíveis para instalação. As atualizações de software de implementações opcionais (implementações que não tenham um prazo de instalação) não são transferidas até que um utilizador inicie manualmente a instalação.  
+ Quando um computador cliente na coleção de destino da implementação recebe a política da máquina, o Agente do Cliente de Atualização de Software inicia uma pesquisa de avaliação. O agente do cliente transfere o conteúdo do software necessário das atualizações a partir de uma distribuição aponta para a cache do cliente local no **hora de disponibilização do Software** definição para a implementação e, em seguida, o software estão disponíveis para instalar atualizações . As atualizações de software de implementações opcionais (implementações que não tenham um prazo de instalação) não são transferidas até que um utilizador inicie manualmente a instalação.  
 
  Após o prazo configurado, o Agente do Cliente de Atualizações de Software executa uma verificação para verificar se as atualizações de software ainda são necessárias. Em seguida, verifica a cache local do computador cliente para verificar se os ficheiros de origem de atualização de software ainda estão disponíveis. Por fim, o cliente instala as atualizações de software. Se o conteúdo tiver sido eliminado da cache do cliente para criar espaço para outra implementação, o cliente volta a transferir as atualizações de software a partir do ponto de distribuição para a cache do cliente. As atualizações de software são sempre transferidas para a cache do cliente, independentemente do tamanho máximo de cache configurado no cliente. Após a conclusão da instalação, o agente do cliente confirma se as atualizações de software já não são necessárias e, em seguida, envia ao ponto de gestão uma mensagem de estado a indicar que as atualizações de software estão atualmente instaladas no cliente.  
 

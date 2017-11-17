@@ -1,21 +1,22 @@
 ---
-title: "Configurar classificações e produtos para sincronizar | Microsoft Docs"
+title: "Configurar classificações e produtos a sincronizar"
+titleSuffix: Configuration Manager
 description: "Siga estes passos para configurar classificações e produtos para sincronizar na consola do Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 10/04/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
-ms.openlocfilehash: 2da61e6e06850b36543b9fd41bd9a7d2368006fb
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 7e12cc7deeb86ebd222e0acd02e570d32b7518d3
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurar classificações e produtos a sincronizar  
 
@@ -52,16 +53,16 @@ ms.lasthandoff: 08/07/2017
     >       
 
     > [!NOTE]    
-    > A partir do Configuration Manager versão 1706, também pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface. Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016.     
-    >    
-    > Esta é uma funcionalidade de pré-lançamento. As funcionalidades de pré-lançamento estão incluídas no produto para um teste antecipado num ambiente de produção, mas devem não ser consideradas prontas para produção. Tem de ativar esta funcionalidade para que fique disponível. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+    > A partir do Configuration Manager versão 1706, pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface. Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016. Se ativar um ponto de atualização de software num computador com o Windows Server 2012 depois de ativar a superfície controladores, os resultados da análise para as atualizações de controladores não estão corretos. Isto resulta em dados de conformidade incorreto apresentados na consola do Configuration Manager e nos relatórios do Configuration Manager.  
+    > 
+    > Funcionalidades de pré-lançamento são funcionalidades que estão no ramo atual para um teste antecipado num ambiente de produção. Estas funcionalidades são totalmente suportadas, mas ainda estão em desenvolvimento Active Directory e poderão receber alterações até que mudam fora da categoria da versão de pré-lançamento. Ative esta funcionalidade para que fique disponível. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 5.  No separador **Produtos** , especifique os produtos para os quais quer sincronizar atualizações de software e, em seguida, clique em **Fechar**.  
 
     > [!NOTE]  
-    >  Os metadados para cada atualização de software definem os produtos para os quais a atualização é aplicável. Um produto é uma edição específica de um sistema operativo ou aplicação, como o Windows Server 2012. Uma família de produtos é o sistema operativo base ou a aplicação a partir da qual derivam os produtos individuais. Um exemplo de uma família de produtos é o Windows, do qual o Windows Server 2012 é membro. Pode especificar uma família de produtos ou produtos individuais dentro de uma família de produtos. Quantos mais produtos selecionar, mais tempo demorará para sincronizar atualizações de software.  
+    >  Os metadados para cada atualização de software definem os produtos para os quais a atualização é aplicável. Um produto é uma edição específica de um sistema operativo ou aplicação, como o Windows Server 2012. Uma família de produtos é o sistema operativo base ou a aplicação a partir da qual derivam os produtos individuais. Um exemplo de uma família de produtos é o Windows, do qual o Windows Server 2012 é membro. Pode especificar uma família de produtos ou produtos individuais dentro de uma família de produtos. Quantos mais produtos selecionar, mais tempo demorará a sincronizar atualizações de software.  
     >   
-    >  Quando as atualizações de software sejam aplicam a vários produtos e pelo menos um dos produtos foi selecionado para sincronização, todos os produtos aparecerão na consola do Configuration Manager, mesmo se alguns produtos não foram selecionados. Por exemplo, se o Windows Server 2012 for o único sistema operativo que selecionou, e se uma atualização de software se aplicar ao Windows 8 e Windows Server 2012, ambos os produtos serão apresentados na consola do Configuration Manager.  
+    >  Quando as atualizações de software sejam aplicam a vários produtos e pelo menos um dos produtos foi selecionado para sincronização, todos os produtos são apresentados na consola do Configuration Manager, mesmo se alguns produtos não foram selecionados. Por exemplo, se o Windows Server 2012 for o único sistema operativo que selecionou, e se uma atualização de software se aplicar ao Windows 8 e Windows Server 2012, ambos os produtos são apresentados na consola do Configuration Manager.  
 
     > [!IMPORTANT]  
     >  O Configuration Manager armazena uma lista de produtos e famílias de produtos a partir dos quais pode escolher quando instalar pela primeira vez o software de um ponto de atualização. Produtos e famílias de produtos que são lançadas depois do Configuration Manager ser lançado poderão não estar disponíveis para seleção até concluir a sincronização de atualizações de software, que atualiza a lista de produtos disponíveis e famílias de produtos a partir da qual pode escolher.  

@@ -1,42 +1,41 @@
 ---
-title: "Configurar o Gateway de gestão na nuvem | Microsoft Docs"
+title: "Configurar o Gateway de gestão de nuvem"
+titleSuffix: Configuration Manager
 description: 
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.date: 05/01/2017
+ms.date: 09/26/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
-ms.openlocfilehash: 84b617b3e83636ab4578174ef40e786dcf1178cd
-ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.openlocfilehash: 7463cd7199098b21843fd5b99ed284a12ff91e00
+ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="set-up-cloud-management-gateway-for-configuration-manager"></a>Configurar o gateway de gestão de nuvem para o Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
-
-A partir da versão 1610, o processo de configuração do gateway de gestão de nuvem no Configuration Manager inclui os seguintes passos:
+*Aplica-se a: System Center Configuration Manager (ramo atual)* o processo de configuração do gateway de gestão de nuvem no Configuration Manager inclui os seguintes passos:
 
 ## <a name="step-1-configure-required-certificates"></a>Passo 1: Configurar os certificados necessários
 
 > [!TIP]  
-> Antes de pedir um certificado, confirme que o nome de domínio do Azure pretendida (por exemplo, GraniteFalls.CloudApp.Net) é exclusivo. Para fazer este registo para o [portal do Microsoft Azure](https://manage.windowsazure.com), clique em **novo**, selecione **serviço em nuvem** e, em seguida, **criação personalizada**. No **URL** campo escreva o nome de domínio pretendida (não clique na marca de verificação para criar o serviço). O portal irá refletir se o nome de domínio está disponível ou já se encontra em utilização por outro serviço.
+> Antes de pedir um certificado, confirme que o nome de domínio do Azure pretendida (por exemplo, GraniteFalls.CloudApp.Net) é exclusivo. Para tal, inicie sessão no [portal do Microsoft Azure](https://manage.windowsazure.com), clique em **novo**, selecione **serviço em nuvem**e, em seguida, **criação personalizada**. No **URL** campo escreva o nome de domínio pretendida (não clique na marca de verificação para criar o serviço). O portal irá refletir se o nome de domínio está disponível ou já se encontra em utilização por outro serviço.
 
-## <a name="option-1-preferred---use-the-server-authentication-certificate-from-a-public-and-globally-trusted-certificate-provider-like-verisign"></a>Opção 1 (preferencial) - utilizar o certificado de autenticação de servidor de um fornecedor de certificado pública e globalmente fidedignas (por exemplo, VeriSign)
+### <a name="option-1-preferred---use-the-server-authentication-certificate-from-a-public-and-globally-trusted-certificate-provider-like-verisign"></a>Opção 1 (preferencial) - utilizar o certificado de autenticação de servidor de um fornecedor de certificado pública e globalmente fidedignas (por exemplo, VeriSign)
 
-Quando utiliza este método, os clientes confiarão automaticamente o certificado e não terá de criar um certificado SSL personalizado por si.
+Quando utiliza este método, os clientes automaticamente confiam no certificado e não terá de criar um certificado SSL personalizado por si.
 
 1. Crie um registo de nome canónico (CNAME) no serviço de nome de domínio público da sua organização (DNS) para criar um alias para o serviço de gateway de gestão de nuvem para um nome amigável que será utilizado o certificado público.
-Por exemplo, Contoso nomes os serviço de gateway de gestão de nuvem **GraniteFalls** que no Azure será **GraniteFalls.CloudApp.Net**. O administrador DNS público contoso.com espaço de nomes DNS da Contoso, cria um novo registo CNAME para **GraniteFalls.Contoso.com** para o nome de anfitrião real, **GraniteFalls.CloudApp.net**.
+Por exemplo, Contoso nomes os serviço de gateway de gestão de nuvem **GraniteFalls**, que no Azure será **GraniteFalls.CloudApp.Net**. O administrador DNS público contoso.com espaço de nomes DNS da Contoso, cria um novo registo CNAME para **GraniteFalls.Contoso.com** para o nome de anfitrião real, **GraniteFalls.CloudApp.net**.
 2. Em seguida o pedido de um fornecedor público com o nome comum (CN) do CNAME alias de um certificado de autenticação de servidor.
 Por exemplo, a Contoso utiliza **GraniteFalls.Contoso.com** para o CN do certificado.
 3. Crie o serviço de gateway de gestão de nuvem na consola do Configuration Manager utilizando este certificado.
-    - No **definições** página do assistente criar uma nuvem gestão de Gateway ao adicionar o certificado de servidor para este serviço em nuvem (de **ficheiro de certificado**), o assistente extrair o nome de anfitrião do certificado CN como o nome do serviço e, em seguida, anexe que para **cloudapp.net** (ou **usgovcloudapp.net** para a nuvem do Azure US Government) como o FQDN de serviço para criar o serviço no Azure.
+    - No **definições** página do assistente criar uma nuvem gestão Gateway: Ao adicionar o certificado de servidor para este serviço em nuvem (de **ficheiro de certificado**), o assistente extrair o nome de anfitrião do certificado CN como o nome do serviço e, em seguida, anexe que para **cloudapp.net**(ou **usgovcloudapp.net** para a nuvem do Azure US Government) como o FQDN de serviço para criar o serviço no Azure.
 Por exemplo, quando criar o gateway de gestão de nuvem contoso, o nome de anfitrião **GraniteFalls** é extraído do certificado CN, para que o serviço real do Azure é criado como **GraniteFalls.CloudApp.net**.
 
 ### <a name="option-2---create-a-custom-ssl-certificate-for-cloud-management-gateway-in-the-same-way-as-for-a-cloud-based-distribution-point"></a>Opção 2 - criar um certificado SSL personalizado para o gateway de gestão de nuvem da mesma forma para um ponto de distribuição baseado na nuvem
@@ -48,9 +47,9 @@ Pode criar um certificado SSL personalizado para o gateway de gestão de nuvem d
 
 ## <a name="step-2-export-the-client-certificates-root"></a>Passo 2: Exportar a raiz do certificado de cliente
 
-A forma mais fácil de obter a raiz dos certificados de cliente utilizado na rede, está a abrir um certificado de cliente numa das máquinas associados a um domínio que tenha um e copie-a exportação.
+É a forma mais fácil para exportar a raiz dos certificados de cliente utilizado na rede, para abrir um certificado de cliente numa das máquinas associados a um domínio que tenha um e copiá-lo.
 
-> [!NOTE] 
+> [!NOTE]
 >
 > São necessários certificados de cliente em qualquer computador que pretende gerir com o gateway de gestão de nuvem e no servidor do sistema de sites que aloja o conector de gateway de gestão de nuvem do ponto. Se precisar de adicionar um certificado de cliente a qualquer uma destas máquinas, consulte [implementar o cliente certificados para computadores com o Windows](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_client2008_cm2012).
 
@@ -58,7 +57,7 @@ A forma mais fácil de obter a raiz dos certificados de cliente utilizado na red
 
 2.  No menu ficheiro, escolha **Adicionar/Remover Snap-in...** .
 
-3.  Na caixa de diálogo Adicionar ou Remover Snap-ins, escolha **certificados** > **adicionar &gt;**   >  **conta de computador** > **seguinte** > **computador Local** > **concluir**. 
+3.  Na caixa de diálogo Adicionar ou Remover Snap-ins, escolha **certificados** > **adicionar &gt;**   >  **conta de computador** > **seguinte** > **computador Local** > **concluir**.
 
 4.  Aceda a **certificados** &gt; **pessoais** &gt; **certificados**.
 
@@ -66,10 +65,10 @@ A forma mais fácil de obter a raiz dos certificados de cliente utilizado na red
 
 6.  No separador de detalhes, selecione **copiar para ficheiro...** .
 
-7.  Conclua o Assistente para exportar certificados utilizando o formato de certificado predefinido. Tome nota do nome do e localização do certificado de raiz que cria. Precisará dele para configurar o gateway de gestão em nuvem um [passo posterior](#step-4-set-up-cloud-management-gateway).
+7.  Conclua o Assistente para exportar certificados utilizando o formato de certificado predefinido. Tome nota do nome do e localização do certificado de raiz que cria. Terá de configurar o gateway de gestão em nuvem um [passo posterior](#step-4-set-up-cloud-management-gateway).
 
 >[!NOTE]
->Se o certificado de cliente foi emitido por uma autoridade de certificação subordinada, terá de repetir este passo para cada certificado na cadeia.
+>Se o certificado de cliente foi emitido por uma autoridade de certificação subordinada terá de repetir este passo para cada certificado na cadeia.
 
 ## <a name="step-3-upload-the-management-certificate-to-azure"></a>Passo 3: Carregar o certificado de gestão para o Azure
 
@@ -122,7 +121,7 @@ Um certificado de gestão do Azure é necessário para o Configuration Manager p
 
 5. Se pretender monitorizar o tráfego de gateway de gestão de nuvem com um limiar de 14 dias, selecione a caixa de verificação para ativar o alerta do limiar. Em seguida, especifique o limiar e a percentagem no qual pretende elevar os níveis de alerta diferentes. Escolha **seguinte** quando tiver terminado.
 
-6. Reveja as definições e escolha **seguinte**. Gestor de configuração é iniciado como configurar o serviço. Depois de fechar o assistente irá demorar entre 5 a 15 minutos para aprovisionar o serviço completamente no Azure. Verifique o **estado** coluna para o recentemente a configuração em nuvem gateway de gestão para determinar quando o serviço está pronto.
+6. Reveja as definições e escolha **seguinte**. Gestor de configuração é iniciado como configurar o serviço. Depois de fechar o assistente, irá demorar entre 5 a 15 minutos para aprovisionar o serviço completamente no Azure. Verifique o **estado** coluna para o novo gateway de gestão de nuvem determinar quando o serviço está pronto.
 
 ## <a name="step-5-configure-primary-site-for-client-certification-authentication"></a>Passo 5: Configurar o site primário certificação para autenticação de cliente
 
@@ -141,7 +140,7 @@ O ponto de conector de gateway de gestão de nuvem é uma nova função de siste
 
 ## <a name="step-7-configure-roles-for-cloud-management-gateway-traffic"></a>Passo 7: Configurar funções para o tráfego de gateway de gestão de nuvem
 
-O passo final na configuração do gateway de gestão de nuvem é configurar as funções de sistema de sites para aceitar o tráfego de gateway de gestão de nuvem. Apenas as software e de ponto de atualização ponto funções de gestão são suportadas para o gateway de gestão de nuvem. Tem de configurar cada função em separado.
+O passo final na configuração do gateway de gestão de nuvem é configurar as funções de sistema de sites para aceitar o tráfego de gateway de gestão de nuvem. Apenas as software e de ponto de atualização ponto funções de gestão são suportadas para o gateway de gestão de nuvem. Configure cada função em separado.
 
 1. Na consola do Configuration Manager, vá para **administração** > **configuração do Site** > **servidores e funções de sistema de sites**.
 
@@ -155,7 +154,7 @@ O passo final na configuração do gateway de gestão de nuvem é configurar as 
 
 Após a gestão de nuvem se encontram completamente configuradas funções do sistema de gateway e o site e em execução, os clientes obtêm a localização do serviço de gateway de gestão de nuvem automaticamente no próximo pedido de localização. Os clientes tem de estar na rede empresarial para receber a localização do serviço de gateway de gestão de nuvem. O ciclo de consulta de pedidos de localização é a cada 24 horas. Se não pretender aguardar que o pedido de localização normalmente agendada, pode forçar o pedido reiniciando o serviço de anfitrião de agente do SMS (ccmexec.exe) no computador.
 
-Com a localização do serviço de gateway de gestão de nuvem configurado no cliente, pode automaticamente determinar se se encontra numa intranet ou à Internet. Se o cliente pode contactar o controlador de domínio ou o ponto de gestão no local, irá utilizá-lo para comunicar com o Configuration Manager, caso contrário, iremos considerar está na Internet e utilize a localização do gateway de gestão de nuvem de serviço para comunicar.
+Com a localização do serviço de gateway de gestão de nuvem configurado no cliente, pode automaticamente determinar se se encontra numa intranet ou à Internet. Se o cliente pode contactar o controlador de domínio ou no local ponto de gestão, irá utilizá-lo para comunicar com o Configuration Manager. Caso contrário, iremos considerar está na Internet e utilizar a localização do serviço de gateway de gestão de nuvem para comunicar.
 
 >[!NOTE]
 > Pode forçar o cliente utiliza sempre o gateway de gestão de nuvem independentemente de ser na intranet ou à Internet. Para tal, defina a seguinte chave de registo no computador cliente: \
