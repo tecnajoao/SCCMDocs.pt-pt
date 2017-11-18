@@ -3,7 +3,7 @@ title: "Versões do Technical Preview"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre a versão de pré-visualização técnica que permite-lhe test-drive novas funcionalidades e capacidades no System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/30/2017
+ms.date: 11/17/2017
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 0f6fb329dae1dda18bbb1869dc77872a2a6a1b98
-ms.sourcegitcommit: 5437b2823bada8f8c9e67940f584953b9d190628
+ms.openlocfilehash: 1c09a8566fe309be651cc34f1261bd4fe021e554
+ms.sourcegitcommit: b74c1beaabbb628fdf5d6948fa9a6ad719fd5035
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview do System Center Configuration Manager
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/31/2017
 
  Como se trata de uma versão de pré-visualização técnica, os detalhes e a funcionalidade estão sujeitos a alterações.  
 
- Este tópico contém informações que se aplica a todas as versões do Technical Preview e também apresenta uma lista de cada nova capacidade (ou funcionalidade), juntamente com a versão de pré-visualização técnica em que a capacidade aparece pela primeira vez, como a versão 1701 de Janeiro de 2017. Os detalhes destas capacidades estão descritos em tópicos separados dedicados a cada versão de pré-visualização.  
+ Este tópico contém informações que se aplica a todas as versões do Technical Preview e também apresenta uma lista de cada nova capacidade (ou funcionalidade), juntamente com a versão de pré-visualização técnica em que a capacidade aparece pela primeira vez, como a versão 1710 de Outubro de 2017. Os detalhes destas capacidades estão descritos em tópicos separados dedicados a cada versão de pré-visualização.  
 
  Para obter informações sobre quais são as novidades no ramo atual do Configuration Manager, consulte [que há de novo no System Center Configuration Manager](/sccm/core/plan-design/changes/what-has-changed-from-configuration-manager-2012).
 
@@ -83,7 +83,7 @@ Os produtos e tecnologias que se seguem são suportadas por este ramo do Configu
 ##  <a name="bkmk_install"></a> Instalar e atualizar o Technical Preview  
  O System Center Configuration Manager Technical Preview é distinto da versão atual do System Center Configuration Manager.  
 
- Para utilizar a versão de pré-visualização técnica, primeiro tem de instalar uma **versão de linha de base** da compilação da versão de pré-visualização técnica. Depois de instalar uma versão de linha de base, pode então utilizar as **atualizações na consola** para atualizar a sua instalação com a versão de pré-visualização mais recente.     Normalmente, existem novas versões mensais da Technical Preview.
+ Para utilizar a versão de pré-visualização técnica, primeiro tem de instalar uma **versão de linha de base** da compilação da versão de pré-visualização técnica. Depois de instalar uma versão de linha de base, pode então utilizar as **atualizações na consola** para atualizar a sua instalação com a versão de pré-visualização mais recente. Normalmente, existem novas versões mensais da Technical Preview.
 
 Cada versão de pré-visualização é suportado até três versões sucessivas estão disponíveis. Ou seja, quando versão 1708 versões, versão 1704 já não seria suporte, mas versões 1705, 1706 e 1707 permanecerá suporte. Quando uma linha de base está fora de suporte (como a versão 1703), ainda é suportada para instalar um novo site de pré-visualização técnica até que uma nova versão de linha de base está disponível, desde que, em seguida, atualizar essa instalação para uma versão suportada. Quando a atualização, se não vir a versão mais recente disponível na consola do seu, atualize para a versão mais recente oferecidos e, em seguida, repita esse processo até que pode instalar a versão mais recente do technical preview.
 
@@ -92,8 +92,8 @@ Cada versão de pré-visualização é suportado até três versões sucessivas 
 
 **Versões de linha de base ativas da Technical Preview:**  
 Pode instalar uma versão de linha de até 1 ano após a respetiva versão. No entanto, quando instala um novo site de pré-visualização técnica, recomendamos que utilize a versão de linha de base mais recente que está disponível.
--  **Technical Preview 1703** -o Configuration Manager Technical Preview 1703 está disponível como ambos os uma atualização na consola do Configuration Manager Technical Preview e como uma nova versão de linha de base é [disponível a partir do Web site do Centro de avaliação TechNet](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
-
+-  **Technical Preview 1711** -o Configuration Manager Technical Preview 1711 está disponível como ambos os uma atualização na consola do Configuration Manager Technical Preview e como uma nova versão de linha de base é [disponível a partir do TechNet Web site do Centro de avaliação](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
+-  **Technical Preview 1703** -o Configuration Manager Technical Preview 1703 está disponível como ambos os uma atualização na consola do Configuration Manager Technical Preview e como uma versão de linha de base. Se estiver a instalar uma nova linha de base, recomendamos que utilize versão 1711.
 
 
 ##  <a name="BKMK_TPFeedback"></a> Fornecer comentários  
@@ -111,6 +111,16 @@ Seguem-se as capacidades fornecidas em cada versão de pré-visualização técn
 
  |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
  |----------------|---------------------|--------------------|
+ |Melhoramentos ao executar o passo de sequência de tarefas<!-- 1261338 --> | [Pré-visualização do técnico 1711](capabilities-in-technical-preview-1711.md) |![Não foi adicionada](media/Red_X.gif)    |
+ |Permitir interação do utilizador quando instalar uma aplicação<!-- 1356976 --> | [Pré-visualização do técnico 1711](capabilities-in-technical-preview-1711.md) |![Não foi adicionada](media/Red_X.gif)    |
+ |Novas políticas de conformidade para o Windows 10<!-- 1356976 --> | [Pré-visualização do técnico 1711](capabilities-in-technical-preview-1711.md#new-compliance-policy-options-for-windows-10) |![Não foi adicionada](media/Red_X.gif)    |
+
+
+## <a name="capabilities-delivered-in-previous-technical-previews"></a>Capacidades fornecidas em pré-visualizações técnicas anteriores
+ Quando todas as funcionalidades de uma versão de pré-visualização técnica estão disponíveis na versão mínima suportada do ramo atual, os detalhes para essa versão de pré-visualização são removidos da tabela seguinte.  
+
+ |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
+ |----------------|---------------------|--------------------|
  |Windows 10 telemetria para o estado de funcionamento de dispositivo de análise de Windows<!--1356148 --> | [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |![Não foi adicionada](media/Red_X.gif)    |
  |Melhoramentos para os ícones de centro de Software<!-- 1356194 --> | [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |![Não foi adicionada](media/Red_X.gif)    |
  |Verificação de conformidade do Centro de Software para dispositivos geridos conjuntamente<!-- 1356374 -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|![Não foi adicionada](media/Red_X.gif)    |
@@ -119,12 +129,6 @@ Seguem-se as capacidades fornecidas em cada versão de pré-visualização técn
  |Descrições melhoradas para pendentes reinícios de computador<!-- 1356283  -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md)|![Não foi adicionada](media/Red_X.gif)    |
  |Alterações de política de proteção de dispositivos<!-- 1355092  -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md)|![Não foi adicionada](media/Red_X.gif)    |
  |Configurar e implementar políticas de proteção de aplicações do Windows Defender<!-- 1351960  -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md)|![Não adicionado](media/Red_X.gif)    |
- 
-## <a name="capabilities-delivered-in-previous-technical-previews"></a>Capacidades fornecidas em pré-visualizações técnicas anteriores
- Quando todas as funcionalidades de uma versão de pré-visualização técnica estão disponíveis na versão mínima suportada do ramo atual, os detalhes para essa versão de pré-visualização são removidos da tabela seguinte.  
-
- |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
- |----------------|---------------------|--------------------|
  |Experiência de perfil VPN melhorada na consola do Configuration Manager<!-- 1313282 --> | [Pré-visualização do técnico 1709](capabilities-in-technical-preview-1709.md) |![Não foi adicionada](media/Red_X.gif)    |
  |Gestão conjunta para dispositivos Windows 10|[Pré-visualização do técnico 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|![Não foi adicionada](media/Red_X.gif)    |
  |Melhoramentos para especificar os parâmetros do script ao implementar scripts do PowerShell do Configuration Manager<!-- 1236459 -->|[Pré-visualização do técnico 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Não foi adicionada](media/Red_X.gif)|
@@ -276,4 +280,3 @@ Seguem-se as capacidades fornecidas em cada versão de pré-visualização técn
 ## <a name="see-also"></a>Consulte Também  
 [Quais são as novidades no System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
  [Introdução ao System Center Configuration Manager](../../core/understand/introduction.md)
-
