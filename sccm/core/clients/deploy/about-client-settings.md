@@ -3,7 +3,7 @@ title: "Definições do cliente"
 titleSuffix: Configuration Manager
 description: "Escolha as definições de cliente utilizando a consola de administrador no System Center Configuration Manager."
 ms.custom: na
-ms.date: 08/01/2017
+ms.date: 11/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: f34479d6cf0c1153615c612480f204b71a8d84cb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 46429a02debaaaa90562b9586af57e43a9aab92c
+ms.sourcegitcommit: b74c1beaabbb628fdf5d6948fa9a6ad719fd5035
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
@@ -71,7 +71,7 @@ Permite que o BranchCache nos computadores cliente.
 - **Configurar o tamanho da cache do cliente**
 
   A cache do cliente em computadores Windows armazena ficheiros temporários utilizados para instalar aplicações e programas. Escolha **Sim** , em seguida, especifique:
-    - **Tamanho máximo da cache** (em megabytes). 
+    - **Tamanho máximo da cache** (em megabytes).
     - **Tamanho máximo da cache** (percentagem do disco).
 Pode expandir o tamanho da cache do cliente para o tamanho máximo em MB ou percentagem do disco, **que for menor**. Se esta opção é **não**, o tamanho predefinido é 5,120 MB.
 
@@ -288,6 +288,8 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
  Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
+>  [!Tip]   
+> Além das informações seguintes, pode encontrar detalhes adicionais sobre como utilizar as definições de cliente do Endpoint Protection no [cenário de exemplo: Utilizar o System Center Endpoint Protection para proteger os computadores contra software maligno no System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
 
 -   **Gerir o cliente do Endpoint Protection nos computadores cliente**  
 
@@ -344,9 +346,9 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 
      Para um ficheiro MIF possa ser recolhido pelo inventário de hardware, é necessário no local correto no computador cliente. Por predefinição, os ficheiros estão localizados da seguinte forma:  
 
-    -   Ficheiros IDMIF devem estar na pasta windows\system32\ccm\inventory\idmif.  
+    -   Ficheiros IDMIF devem estar na pasta windows\system32\ccm\inventory\idmif..  
 
-    -   Os ficheiros NOIDMIF devem estar na pasta windows\system32\ccm\inventory\noidmif.  
+    -   Os ficheiros NOIDMIF devem estar na pasta windows\system32\ccm\inventory\noidmif..  
 
     > [!NOTE]  
     >  Esta definição está disponível apenas nas predefinições do cliente.
