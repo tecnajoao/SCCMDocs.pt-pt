@@ -3,7 +3,7 @@ title: "Planear e configurar a gestão de aplicações"
 titleSuffix: Configuration Manager
 description: "Implementar e configurar as dependências necessárias para implementar aplicações no System Center Configuration Manager."
 ms.custom: na
-ms.date: 02/09/2017
+ms.date: 11/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "13"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 66317bea84adbddf2d2e94c30a4a72e19229439b
-ms.sourcegitcommit: 18ac58374d2d513fe2a197c80f7c8c6890a7d612
+ms.openlocfilehash: cd06d3ee2ea14c9ff1b9cf09980c2b25a5263db9
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Planear e configurar a gestão de aplicações no System Center Configuration Manager
 
@@ -185,6 +185,26 @@ Uma imagem corporativa personalizado para o Centro de Software é aplicada, de a
 1. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações não está instalada, em seguida, o Centro de Software apresentará o nome da organização especificado no **agente do computador** definição de cliente **nome da organização** apresentada no Centro de Software. Para obter instruções, consulte [como configurar as definições de cliente](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).
 2. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações estiver instalada, em seguida, o Centro de Software apresentará o nome da organização e a cor especificados nas propriedades de função do servidor de ponto de sites catálogo de aplicações Web site. Para obter mais informações, consulte [opções de configuração para o ponto de Web site do catálogo de aplicações](https://docs.microsoft.com/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
 3. Se uma subscrição do Microsoft Intune estiver configurada e ligada ao Configuration Manager, em seguida, o Centro de Software apresentará o nome da organização, a cor e o logótipo da empresa especificados nas propriedades de subscrição do Intune. Para obter mais informações, veja [Configurar a Subscrição do Microsoft Intune](https://docs.microsoft.com/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
+
+#### <a name="to-manually-set-software-center-branding"></a>Definir manualmente a imagem corporativa do Centro de Software
+<!-- 1351224 -->
+Com o lançamento 1710, pode manualmente adicionar enterprise elementos de imagem corporativa e especificar a visibilidade dos separadores no Centro de Software. Pode adicionar o seu nome de empresa específica do Centro de Software, definir um tema de cor de configuração de centro de Software, defina um logótipo de empresa e definir os separadores visíveis para os dispositivos cliente.
+
+1. No **do Configuration Manager** consola, escolha **administração** > **as definições de cliente**. Clique na sua instância de definição de cliente pretendidos.
+2. No **home page** separador o **propriedades** grupo, escolha **propriedades**.
+3. No **predefinições** diálogo caixa, escolha **Centro de Software**.
+4. Selecione **Sim** para **Selecione as novas definições para especificar as informações da empresa** para ativar as definições de personalização do Centro de Software.
+5. Tipo sua **nome da empresa**.
+6. Selecione o **cor esquema no Centro de Software**.
+7. Clique em **procurar** para navegar para o logótipo no Centro de Software. O logótipo tem de ser um JPEG ou PNG de 400 x 100 pixéis com um tamanho máximo de 750 KB.
+8. Selecione **Sim** para tornar os separadores visível no Centro de Software para dispositivos cliente. Pelo menos um separador tem de estar visível:
+
+    -  Ativar o separador aplicações
+    -  Ativar o separador de atualizações
+    -  Ativar o separador de sistemas operativos
+    -  Ativar o separador de estado da instalação
+    -  Ativar o separador de conformidade do dispositivo
+    -  Ativar o separador Opções
 
 > [!IMPORTANT]  
 >  Imagem corporativa do Centro de software está sincronizada com o serviço do Intune a cada 14 dias. Por conseguinte, poderá haver um atraso antes das alterações efetuadas no Intune são apresentadas no Configuration Manager.

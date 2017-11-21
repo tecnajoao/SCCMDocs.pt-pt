@@ -3,9 +3,9 @@ title: "Gerir sequências de tarefas para automatizar tarefas"
 titleSuffix: Configuration Manager
 description: "Pode criar, editar, implementar, importar e exportar sequências de tarefas para geri-los no seu ambiente do System Center Configuration Manager."
 ms.custom: na
-ms.date: 03/24/2017
+ms.date: 11/15/2017
 ms.prod: configuration-manager
-ms.reviewer: na
+ms.reviewer: nac
 ms.suite: na
 ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ caps.latest.revision: "10"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 0174a95f1d3a487cab66d8152a3de70d91b07635
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 44e6afbfac3ef1e8318991854c8fdd22ead4c6ed
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gerir sequências de tarefas para automatizar tarefas no System Center Configuration Manager
 
@@ -446,6 +446,22 @@ Pode gerir variáveis por computador num site primário ou num site de administr
 5.  Opcionalmente, especifique a prioridade para o Configuration Manager para utilizar quando são avaliadas as variáveis de sequência de tarefas.  
 
 6.  Depois de ter adicionado todas as variáveis à coleção, clique em **OK**.  
+
+## <a name="add-child-task-sequences-to-a-task-sequence"></a>Adicionar sequências de tarefas de subordinados a uma sequência de tarefas
+
+A partir do Configuration Manager versão 1710, pode adicionar um novo passo de sequência de tarefas executa outra sequência de tarefas. Esta ação cria uma relação principal-subordinado entre as sequências de tarefas. Isto permite-lhe criar mais sequências de tarefas modulares que pode utilizar novamente.
+
+Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere o seguinte:
+
+ - As sequências de tarefas principais e subordinados eficazmente são combinadas uma única política que executa o cliente.
+ - O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, alterada pela sequência de tarefas subordinado, a variável permanece alterado mover reencaminhar. Da mesma forma, se a sequência de tarefas subordinado cria uma nova variável, a variável está disponível para os passos restantes da sequência de tarefas principal.
+ - Mensagens de estado são enviadas por normal para uma operação de sequência de tarefas único.
+ - As sequências de tarefas escreverem entradas no ficheiro smsts.log, com o novo registo de entradas que desmarque quando uma sequência de tarefas subordinado é iniciado.
+
+### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Para adicionar uma sequência de tarefas subordinados a uma sequência de tarefas
+
+1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
+2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.  
 
 ##  <a name="BKMK_AdditionalActionsTS"></a> Ações adicionais para gerir sequências de tarefas  
  Pode gerir sequências de tarefas com ações adicionais ao selecionar uma sequência de tarefas.  

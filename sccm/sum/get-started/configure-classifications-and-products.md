@@ -6,17 +6,17 @@ keywords:
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/04/2017
+ms.date: 11/20/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
-ms.openlocfilehash: 7e12cc7deeb86ebd222e0acd02e570d32b7518d3
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: f36ff74b794e57b51742c40d10bd25a9cb4a13a5
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/21/2017
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurar classificações e produtos a sincronizar  
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 11/17/2017
     > [!NOTE]    
     > A partir do Configuration Manager versão 1706, pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface. Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016. Se ativar um ponto de atualização de software num computador com o Windows Server 2012 depois de ativar a superfície controladores, os resultados da análise para as atualizações de controladores não estão corretos. Isto resulta em dados de conformidade incorreto apresentados na consola do Configuration Manager e nos relatórios do Configuration Manager.  
     > 
-    > Funcionalidades de pré-lançamento são funcionalidades que estão no ramo atual para um teste antecipado num ambiente de produção. Estas funcionalidades são totalmente suportadas, mas ainda estão em desenvolvimento Active Directory e poderão receber alterações até que mudam fora da categoria da versão de pré-lançamento. Ative esta funcionalidade para que fique disponível. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+    > O **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação está sempre disponível no Configuration Manager versão 1710. No entanto, é uma funcionalidade de pré-lançamento do Configuration Manager versão 1706 e tem de ativar esteja disponível. Funcionalidades de pré-lançamento são funcionalidades que estão no ramo atual para um teste antecipado num ambiente de produção. Estas funcionalidades são totalmente suportadas, mas ainda estão em desenvolvimento Active Directory e poderão receber alterações até que mudam fora da categoria da versão de pré-lançamento. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 5.  No separador **Produtos** , especifique os produtos para os quais quer sincronizar atualizações de software e, em seguida, clique em **Fechar**.  
 

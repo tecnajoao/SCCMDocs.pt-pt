@@ -3,7 +3,7 @@ title: "Passos de sequência de tarefas"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre os passos de sequência de tarefas que pode adicionar uma sequência de tarefas do Configuration Manager."
 ms.custom: na
-ms.date: 03/26/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,17 +16,20 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 8bc73b8aaafa9af4e12589b2d2a742bfc18afd0e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 02d3ca5ed494c20266125686f26b66cebcc7c2a2
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Os seguintes passos de sequência de tarefas podem ser adicionados a uma sequência de tarefas do Configuration Manager. Para obter informações sobre a edição de uma sequência de tarefas, veja [Editar uma sequência de tarefas](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+
+> [!TIP]  
+> **Suporte para Windows 10, versão 1709 (também conhecido como a atualização de criadores de reversão)**.  A partir desta versão do Windows, o suporte de dados do Windows inclui várias edições. Quando configurar uma sequência de tarefas para utilizar um pacote de atualização do sistema operativo ou a imagem do sistema operativo, é necessário selecionar um [edição que é suportada para utilização pelo Configuration Manager](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
 
 
 ##  <a name="BKMK_ApplyDataImage"></a>Aplique o passo de sequência de tarefas de imagem de dados  
@@ -536,6 +539,22 @@ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é e
  **Certifique-se de SO atual atualizar**  
  Selecione esta definição para verificar se o sistema operativo instalado no computador de destino cumpre o requisito especificado. Por predefinição, esta definição está selecionada com um valor de **CLIENT**.  
 
+##  <a name="child-task-sequence"></a>Sequência de tarefas de subordinados
+
+A partir do Configuration Manager versão 1710, pode adicionar um novo passo de sequência de tarefas executa outra sequência de tarefas. Esta ação cria uma relação principal-subordinado entre as sequências de tarefas. Com seqeucne uma tarefa subordinada, pode criar sequências de tarefas modulares, reutilizáveis.
+
+Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere o seguinte:
+
+ - As sequências de tarefas principais e subordinados eficazmente são combinadas uma única política que executa o cliente.
+ - O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, alterada pela sequência de tarefas subordinado, a variável permanece alterado mover reencaminhar. Da mesma forma, se a sequência de tarefas subordinado cria uma nova variável, a variável está disponível para os passos restantes da sequência de tarefas principal.
+ - Mensagens de estado são enviadas por normal para uma operação de sequência de tarefas único.
+ - As sequências de tarefas escreverem entradas no ficheiro smsts.log, com o novo registo de entradas que desmarque quando uma sequência de tarefas subordinado é iniciado.
+
+### <a name="details"></a>Detalhes
+
+1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
+2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.  
+
 ##  <a name="BKMK_ConnectToNetworkFolder"></a>Ligar à pasta de rede  
  Utilize a ação de sequência de tarefas **Ligar à Pasta de Rede** para criar uma ligação para uma pasta de rede partilhada.  
 
@@ -745,7 +764,7 @@ Este passo é executado num sistema operativo padrão ou no Windows PE. No entan
  O número do disco físico do disco que será formatado. O número é baseado na ordem de enumeração de discos do Windows.  
 
  **Tipo de disco**  
- O tipo do disco formatado. Existem duas opções disponíveis para seleção na lista pendente:  
+ O tipo do disco formatado. Existem duas opções disponíveis para seleção na lista pendente: 
 
 -   Padrão (MBR) - registo de arranque principal.  
 

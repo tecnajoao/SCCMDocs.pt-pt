@@ -13,11 +13,11 @@ ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 9b3248f30470ee8250efcbf171642ea476627d68
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2889de0709096aa481ca6203c5ab2bac1f064d5e
+ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1706 do System Center Configuration Manager
 
@@ -189,10 +189,6 @@ Para obter mais informações, consulte [criar e executadas scripts do PowerShel
 A partir desta versão, pode utilizar três novas aplicações móveis (MAM) definições de política:
 
 - **Bloquear captura de ecrã (apenas dispositivos Android):** Especifica que as funcionalidades de captura de ecrã do dispositivo estão bloqueadas durante a utilização desta aplicação.
-
-- **Desative a sincronização de contactos:** Impede a aplicação de guardar os dados para a aplicação de contactos nativa no dispositivo.
-
-- **Desative a impressão:** Impede que a aplicação de trabalho de impressão ou dados escola.
 
 Consulte [proteger aplicações ao utilizar políticas de proteção de aplicações no Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) para experimentar as novas definições de política de proteção de aplicação.
 

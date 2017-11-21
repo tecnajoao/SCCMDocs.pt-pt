@@ -3,7 +3,7 @@ title: "Proteger aplicações ao utilizar políticas de gestão de aplicações 
 titleSuffix: Configuration Manager
 description: "Modificar a funcionalidade das aplicações que implementa para que irão cumprir a conformidade da empresa e as políticas de segurança."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4eedd96fd399cf9577da8069bd0c8d5702f50d7b
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: 3365f46026178d30c9bffa5078d251186d0ffba3
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Proteger aplicações através de políticas de gestão de aplicações móveis no System Center Configuration Manager
 
@@ -134,6 +134,8 @@ Para aplicar restrições a uma aplicação, a aplicação tem de incorporar o M
 |**Verificar novamente os requisitos de acesso após (minutos)**|Especifica o período de tempo antes dos requisitos de acesso da aplicação serem novamente verificados após a aplicação for iniciada (no **tempo limite** campo).<br /><br /> No **período de tolerância Offline** campo, se o dispositivo estiver offline, especifica o período de tempo antes dos requisitos de acesso da aplicação serem novamente verificados.|  
 |**Encriptar dados da aplicação**|Especifica que todos os dados que está associados esta aplicação são encriptados, incluindo dados armazenados externamente, como os dados armazenados em cartões SD.<br /><br /> **Encriptação para iOS**<br /><br /> Para aplicações que estão associadas uma política de gestão de aplicações móveis do Configuration Manager, os dados são encriptados em descanso ao utilizar a encriptação ao nível do dispositivo fornecida pelo sistema operativo. Isto é ativado através de um dispositivo de política de PIN tem de ser definida pelo administrador de TI. Quando for necessário um PIN, os dados são encriptados de acordo com as definições na política de gestão de aplicações móveis. Conforme indicado na documentação da Apple, [os módulos utilizados pelo iOS 7 têm certificação FIPS 140-2](http://support.apple.com/en-us/HT202739).<br /><br /> **Encriptação para Android**<br /><br /> Para aplicações que estão associadas uma política de gestão de aplicações móveis do Configuration Manager, a encriptação é fornecida pela Microsoft. Os dados são encriptados em sincronia durante operações de E/S de ficheiros, de acordo com a definição na política de gestão de aplicações móveis. As aplicações geridas no Android utilizam encriptação AES-128 no modo CBC ao utilizar as bibliotecas de criptografia da plataforma. O método de encriptação não tem certificação FIPS 140-2. O conteúdo no armazenamento do dispositivo é sempre encriptado.|  
     |**Bloquear captura de ecrã** (apenas dispositivos Android)|Especifica que as funcionalidades de captura de ecrã do dispositivo estão bloqueadas durante a utilização desta aplicação.|  
+    |**Desativar a sincronização de contactos**| A partir da versão 1710, esta opção impede que a aplicação guardar os dados para a aplicação de contactos nativa no dispositivo. Se selecionar não, a aplicação pode guardar os dados para a aplicação de contactos nativa no dispositivo.|  
+    |**Desativar a impressão**| A partir da versão 1710, esta opção impede que a aplicação de trabalho de impressão ou dados escola. |  
 
 6)  No **Managed Browser** página, selecione se é permitido ao browser gerido abra apenas URLs na lista ou para bloquear o browser gerido abra os URLs na lista e, em seguida, escolha **seguinte**.  
 Para obter mais informações, consulte [Internet gerir o acesso através de políticas de browser gerido](manage-internet-access-using-managed-browser-policies.md).  

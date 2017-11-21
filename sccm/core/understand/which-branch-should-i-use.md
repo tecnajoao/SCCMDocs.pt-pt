@@ -15,11 +15,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 047ffc0953db4a4cc5d543d880136ce61fa99fa7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a1d9144db864d261c13992a2ef4d01223d927d88
+ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>O ramo do Configuration Manager devo utilizar?
 
@@ -147,7 +147,7 @@ Para obter mais informações, consulte [pré-visualização técnica do System 
 Ao visualizar informações de versão para um site do Configuration Manager, também confirmar o ramo.
 
 **Versão**   
-Para verificar a versão do seu site, além da consola, aceda a **sobre o System Center Configuration Manager** no canto superior esquerdo da consola onde a **versão do Site** aparece. Consulte [ ]() para uma lista de versões de sites.
+Para verificar a versão do seu site, além da consola, aceda a **sobre o System Center Configuration Manager** no canto superior esquerdo da consola onde a **versão do Site** aparece. Consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#bkmk_Baselines) para uma lista de versões de sites.
 
 **Sucursal**  
 Para confirmar o ramo do seu site (como o LTSB ou o ramo atual), na consola, aceda a **administração** > **configuração do Site** > **Sites**e abra **definições de hierarquia**. Se existir uma opção para converter para o ramo atual e este está ativo, o site executa a versão LTSB. Quando o site é executado o ramo atual, esta opção está desativada. Para obter informações sobre as diferentes versões do Configuration Manager, consulte "versões de linha de base e a atualização" no [atualizações para o Configuration Manager](/sccm/core/servers/manage/updates).

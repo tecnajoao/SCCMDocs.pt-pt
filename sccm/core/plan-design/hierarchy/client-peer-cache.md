@@ -3,7 +3,7 @@ title: A Cache do cliente
 titleSuffix: Configuration Manager
 description: "Utilize a Cache ponto a ponto para localizações de origem de conteúdo de cliente quando implementar o conteúdo com o System Center Configuration Manager."
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 11/20/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 20438f51a67fb29da21c879620870caf3328121d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2bf8f0e5a2636ffd92f8ba1898cc4f1b250f925f
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/12/2017
 Começando com o System Center Configuration Manager versão 1610, pode utilizar **Cache ponto a ponto** para ajudar a gerir a implementação de conteúdos para clientes em localizações remotas. A Cache é uma solução incorporada do Configuration Manager que permite que os clientes partilhem conteúdos com outros clientes diretamente a partir da respetiva cache local.   
 
 > [!TIP]  
-> Introduzido com a versão 1610, Cache ponto a ponto e o dashboard de origens de dados de cliente são funcionalidades de pré-lançamento. Para ativá-los, consulte o artigo [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/pre-release-features).
+> Esta funcionalidade foi introduzida pela primeira vez na versão 1610 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1710, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
 
 ## <a name="overview"></a>Descrição Geral
 Um cliente de Cache ponto a ponto é um cliente de Configuration Manager que está ativado para utilizar a Cache ponto a ponto. Uma Cache ponto a ponto cliente que tem o conteúdo pode partilhar com clientes adicionais é uma origem de Cache ponto a ponto.

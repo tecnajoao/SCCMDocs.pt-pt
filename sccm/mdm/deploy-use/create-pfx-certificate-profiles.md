@@ -3,7 +3,7 @@ title: "Criar perfis de certificado PFX através de uma autoridade de certifica�
 titleSuffix: Configuration Manager
 description: "Saiba como utilizar ficheiros PFX no System Center Configuration Manager para gerar certificados específicos do utilizador que suportam a troca de dados encriptados."
 ms.custom: na
-ms.date: 04/04/2017
+ms.date: 11/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 26bbe68fb593404d59389de223212511e6b44ed5
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ee51d395026b03d251e65f510b1df3ba5b03325d
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-create-pfx-certificate-profiles-using-a-certificate-authority"></a>Como criar perfis de certificado PFX através de uma autoridade de certificação
 
@@ -58,11 +58,12 @@ A página de plataformas suportadas identifica os sistemas operativos e disposit
 
 Certificado perfis podem suportar vários sistemas operativos e dispositivos, no entanto, determinadas sistema operativo ou combinações de dispositivo podem necessitar de definições diferentes.  Nestes casos, é melhor criar perfis separados para cada conjunto exclusivo de definições.  
 
-A partir da versão 1706, estão disponíveis as seguintes opções:
+A partir da versão 1710, estão disponíveis as seguintes opções:
 
 - Windows 10
     - Todas as edições Windows 10 (64-bit)
     - Todas as edições Windows 10 (32-bit)
+    - Todas as edições Windows 10 (ARM64)
     - Todos os Windows 10 Holographic Enterprise e superiores
     - Todas as versões do Windows 10 Holographic e superiores
     - Todos os Windows 10 Team e superiores

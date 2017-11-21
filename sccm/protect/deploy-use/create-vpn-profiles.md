@@ -3,7 +3,7 @@ title: 'Como criar perfis VPN '
 titleSuffix: Configuration Manager
 description: Saiba como criar perfis VPN no System Center Configuration Manager.
 ms.custom: 
-ms.date: 4/19/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ author: lleonard-msft
 caps.handback.revision: "0"
 ms.author: alleonar
 ms.manager: angrobe
-ms.openlocfilehash: 4e8a082bff8b0f734da620669ddf403c0fe3eca6
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 21fc286cdcc05244e1895ded5623d346e6cb8ebe
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-create-vpn-profiles-in-system-center-configuration-manager"></a>Como criar perfis VPN no System Center Configuration Manager
 
@@ -34,16 +34,19 @@ Para ligações de VPN de terceiros, distribua a aplicação VPN antes de implem
 
 1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **as definições de compatibilidade** > **acesso a recursos da empresa** > **perfis VPN**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar perfil VPN**.  
+2.  No **home page** separador o **criar** grupo, escolha **criar perfil VPN**.  
 
 
-1.  Concluir o **geral** página. Tenha em atenção o seguinte:  
+3.  Concluir o **geral** página. Tenha em atenção o seguinte:  
 
-    - Utilize os carateres \\/ :*?&lt; > &#124; ou o caráter de espaço no nome do perfil VPN. Os seguintes carateres não são suportados pelo perfil de VPN do Windows Server.  
+    - Selecione as adequadas **plataforma**.
 
-     -   Selecione **importar um item de perfil VPN existente de um ficheiro** para importar informações do perfil VPN que foi exportadas para um ficheiro XML (Windows 8.1 e Windows RT apenas).  
+       - Se selecionar a plataforma do Windows 8.1, tem a opção para selecionar **importar um item de perfil VPN existente de um ficheiro** para importar informações do perfil VPN que foi exportadas para um ficheiro XML.
 
-1.  No **ligação** página, especifique:  
+    - Utilize os carateres \\/ :*?&lt; > & #124; ou o caráter de espaço no nome do perfil VPN. Os seguintes carateres não são suportados pelo perfil de VPN do Windows Server.  
+
+
+4.  No **ligação** página, especifique:  
 
     -   **Tipo de ligação**: Escolha o tipo de ligação VPN. Pode escolher entre os tipos de ligação na seguinte tabela.  
 

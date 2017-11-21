@@ -3,7 +3,7 @@ title: Gerir clientes
 titleSuffix: Configuration Manager
 description: Saiba como gerir clientes no System Center Configuration Manager.
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "17"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d62138f573745a16634e06aeb9301a248f707cae
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ae1bc53cf15b2a1746656667f7bf546742432c11
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Como gerir clientes no System Center Configuration Manager
 
@@ -51,7 +51,7 @@ Tenha em atenção que, dependendo do tipo de dispositivo, algumas destas opçõ
     -   **Adicionar o dispositivo a uma coleção nova ou existente**  
 
          Adicione o dispositivo a uma coleção com uma regra direta.  
-         
+
     -   **Instalar e reinstalar o cliente utilizando o assistente Push do Cliente**  
 
          Instalar e reinstalar o cliente do Configuration Manager para o reparar ou reconfigurar em computadores que executam o Windows. Inclui opções de configuração do site e as propriedades de client.msi que definiu para a instalação push do cliente.  
@@ -185,6 +185,21 @@ Tenha em atenção que, dependendo do tipo de dispositivo, algumas destas opçõ
 
          As tarefas de notificação do cliente são apresentadas no nó **Operações do Cliente** , na área de trabalho **Monitorização** .  
 
+
+## <a name="restart-clients"></a>Reinicie os clientes
+A partir da versão 1710, pode utilizar a consola do Configuration Manager para identificar dispositivos cliente que requerem o reinício e, em seguida, utilizar uma ação de notificação de cliente reiniciá-las.
+
+Para identificar dispositivos que tenham um reinício pendente, aceda a **ativos e compatibilidade** > **dispositivos** e selecione uma coleção com dispositivos que possam necessitar de um reinício. Depois de selecionar uma coleção pode ver o estado de cada dispositivo no painel de detalhes de uma nova coluna com o nome **reinício pendente**. Cada dispositivo tem um valor de **Sim**, ou **não**.
+
+**Para criar a notificação de cliente para reiniciar um dispositivo:**
+1.  Localize o dispositivo que pretende reiniciar o nó de dispositivos da consola.
+2.  Faça duplo clique no dispositivo, selecione **notificação do cliente**e, em seguida, selecione **reiniciar**. Esta ação abre uma janela de informações sobre o reinício. Clique em **OK** para confirmar o pedido de reinício.
+
+Quando a notificação é recebida por um cliente, um **Centro de Software** é aberta a janela de notificação a informar o utilizador sobre o reinício. Por predefinição, o reinício ocorre após 90 minutos. Pode modificar a hora de reinício configurando [as definições de cliente](/sccm/core/clients/deploy/configure-client-settings). Definições para o comportamento de reinício se encontram no [reinício do computador](/sccm/core/clients/deploy/about-client-settings#computer-restart) separador das definições predefinidas.
+
+
+
+
 ##  <a name="BKMK_ClientCache"></a> Configurar a Cache do Cliente para Clientes do Configuration Manager  
 A cache do cliente armazena ficheiros temporários para quando os clientes instalam as aplicações e programas. As atualizações de software também utilizam a cache do cliente, mas não estão restringidas pelo tamanho da cache configurado e tentarão sempre transferir para a cache. Pode configurar as definições de cache do cliente, por exemplo, tamanho e localização, quando instala o cliente do Configuration Manager manualmente, quando utilizar a instalação de push de cliente ou após a instalação do cliente.
 
@@ -257,8 +272,8 @@ Para obter mais informações sobre como utilizar estas propriedades de linha de
 5.  Para eliminar os ficheiros na pasta de cache, escolha **eliminar ficheiros**.  
 
     > [!NOTE]
-    > 
-    > A pasta de cache é uma pasta de Windows regular, para que possa automatizar a eliminação do conteúdo da pasta através de um script, um utilitário ou com o cmdlet do PowerShell `Remove-Item`. 
+    >
+    > A pasta de cache é uma pasta de Windows regular, para que possa automatizar a eliminação do conteúdo da pasta através de um script, um utilitário ou com o cmdlet do PowerShell `Remove-Item`.
 
 
 ### <a name="to-configure-client-cache-size-in-client-settings"></a>Para configurar o tamanho da cache do cliente nas Definições do Cliente
@@ -273,6 +288,8 @@ A partir da versão 1606, pode ajustar o tamanho da pasta de cache do cliente se
  3. Escolha **as definições de Cache do cliente** e escolha **Sim** para **configurar o tamanho da cache do cliente**, em seguida, utilizar um o **MB** ou **percentagem das definições de disco**. A cache é ajustada para o tamanho que for menor.
 
      O cliente do Configuration Manager irá configurar o tamanho da cache com estas definições, quando a política de cliente seguinte é transferida.
+
+
 
 ##  <a name="BKMK_UninstalClient"></a> Desinstalar o Cliente do Configuration Manager  
  Pode desinstalar o software de cliente do Gestor de configuração do Windows a partir de um computador utilizando **CCMSetup.exe** com o **/desinstalar** propriedade. Execute o ficheiro CCMSetup.exe num computador individual a partir da linha de comandos ou implemente um pacote e um programa para desinstalar o cliente para uma coleção de computadores.  
@@ -331,7 +348,7 @@ A partir do Configuration Manager versão 1610, pode fornecer uma lista de IDs d
 Pode iniciar a obtenção de política utilizar:
 
 
-- [Notificação do cliente](#initiate-client-policy-retrieval-using-client-notification) 
+- [Notificação do cliente](#initiate-client-policy-retrieval-using-client-notification)
 - [O **ações** separador no cliente](#manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client)
 - [Um script](#manually-initiate-client-policy-retrieval-by-script)
 

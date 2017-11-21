@@ -3,7 +3,7 @@ title: Suporte para Windows 10
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre as versões do Windows 10 que são suportadas como clientes ou para OSD com o System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/11/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 8ce7230a3aa64b78937b305fee4dc8e3f38abead
-ms.sourcegitcommit: f9c38b87fcd543ab8a5d7a7f446b42fd3e55450c
+ms.openlocfilehash: aae4a3d504ea5dad901a6248cb219aff7a03b585
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="support-for-windows-10-for-system-center-configuration-manager"></a>Suporte para Windows 10 para o System Center Configuration Manager  
 
@@ -38,13 +38,13 @@ Por exemplo, uma versão do Configuration Manager irá remover da matriz após [
 -   Os seguinte suplementos de informações [sistemas operativos suportados para os clientes e dispositivos](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices).
 -   Se utilizar a longo prazo manutenção ramo do Configuration Manager, consulte [configurações suportadas para o ramo de manutenção de longo prazo](/sccm/core/understand/supported-configurations-for-ltsb).
 
-|Versão do Windows 10                    |1610 o Configuration Manager          |    1702 o Configuration Manager          |    1706 o Configuration Manager |
+|Versão do Windows 10                    |  1702 o Configuration Manager          |    1706 o Configuration Manager |1710 o Configuration Manager          |  
 |---------------------|-----|-----|-----|
-|LTSB 2015 de Enterprise                   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) |
-|Enterprise LTSB de 2016                   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) |
+|LTSB 2015 de Enterprise                   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+|Enterprise LTSB de 2016                   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 |1607   <br />(Também conhecido como a atualização de aniversário da)<br />(*Consulte edições*)   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png)            |![Suportado](media/green_check.png) |
-|1703   <br />(Também conhecido como a atualização criadores)<br />(*Consulte edições*)      |![Não suportado](media/Red_X.png)   |![Retrocompatíveis com o](media/blue_compat.png) |![Suportado](media/green_check.png) |
-|1709   <br />(Também conhecido como a atualização de criadores de reversão)<br />(*Consulte edições*) |![Não suportado](media/Red_X.png)   |![Não suportado](media/Red_X.png)   |![Retrocompatíveis com o](media/blue_compat.png) |
+|1703   <br />(Também conhecido como a atualização criadores)<br />(*Consulte edições*)      |![Retrocompatíveis com o](media/blue_compat.png) |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+|1709   <br />(Também conhecido como a atualização de criadores de reversão)<br />(*Consulte edições*) |![Não suportado](media/Red_X.png)   |![Retrocompatíveis com o](media/blue_compat.png) | ![Suportado](media/green_check.png) |
 
 
 
@@ -62,11 +62,11 @@ Quando implementar sistemas operativos com o Configuration Manager, o [Windows A
 
 A tabela seguinte lista as versões do Windows 10 ADK que pode utilizar com diferentes versões do Configuration Manager.
 
-|Versão do Windows 10 ADK  |1610 o Configuration Manager |1702 o Configuration Manager   |1706 o Configuration Manager |
+|Versão do Windows 10 ADK  |1702 o Configuration Manager   |1706 o Configuration Manager |1710 o Configuration Manager |
 |--------------------|-----|-----|-----|
-|1607  |![Suportado](media/green_check.png)           |![Retrocompatíveis com o](media/blue_compat.png) |![Não suportado](media/Red_X.png)|
-|1703  |![Não suportado](media/Red_X.png)             |![Suportado](media/green_check.png)            |![Suportado](media/green_check.png) |  
-|1709  |![Não suportado](media/Red_X.png)             |![Não suportado](media/Red_X.png)              |![Suportado](media/green_check.png) |  
+|1607  |![Retrocompatíveis com o](media/blue_compat.png) |![Não suportado](media/Red_X.png)| ![Não suportado](media/Red_X.png) |
+|1703  |![Suportado](media/green_check.png)            |![Suportado](media/green_check.png) | ![Retrocompatíveis com o](media/blue_compat.png)|
+|1709  |![Não suportado](media/Red_X.png)              |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png)|
 
 |Chave|
 |--|

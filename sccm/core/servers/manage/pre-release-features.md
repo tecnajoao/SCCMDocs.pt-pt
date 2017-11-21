@@ -3,7 +3,7 @@ title: "Funcionalidades de pré-lançamento"
 titleSuffix: Configuration Manager
 description: "As funcionalidades de pré-lançamento no System Center Configuration Manager"
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 6d7ec308aa465f2b715ce51b8c6bbbe59faaf2cb
-ms.sourcegitcommit: b36f8c8b06e4b2e13f8c1500a82af79a071ab4f6
+ms.openlocfilehash: 299f0cd71b1aac80a1e226a0fa035f323aed38cb
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>As funcionalidades de pré-lançamento no System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -53,7 +53,7 @@ Se forneceu consentimento num site primário autónomo e, em seguida, expanda a 
 | Gestão de proteção de dispositivos com o Configuration Manager |  [Versão 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Verifique a existência de executar ficheiros executáveis antes de instalar uma aplicação  |   [Versão 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |[Versão 1706](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application)|
 | Ponto de serviço do armazém de dados  |  [Versão 1702](/sccm/core/servers/manage/data-warehouse) |[Versão 1706](/sccm/core/servers/manage/data-warehouse)|
-| Cache ponto a ponto de distribuição de conteúdo para clientes |  [Versão 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Cache ponto a ponto de distribuição de conteúdo para clientes |  [Versão 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) | [Versão 1710](/sccm/core/plan-design/hierarchy/client-peer-cache)|
 | Gateway de gestão de nuvem |  [Versão 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Dashboard de origens de dados de cliente |  [Versão 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
 | Conector do Microsoft Operations Management Suite  | [Versão 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|

@@ -9,11 +9,11 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: ffe7b2aa025b20d5b1d1a718e0eaa045817a66ee
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: b1063826841c37973e26954e164d867649c3fb9f
+ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planear para o gateway de gestão de nuvem no Configuration Manager
 
@@ -45,7 +45,7 @@ São necessários certificados de cliente e certificados de Secure Socket Layer 
 - Gateway de gestão de nuvem suporta apenas os software e de ponto de atualização ponto funções de gestão.
 -   As seguintes funcionalidades no Configuration Manager não são atualmente suportadas para o gateway de gestão de nuvem:
 
-    -   Implementação de clientes
+    -   Instalação push do cliente
     -   Atribuição automática de site
     -   Catálogo de aplicações (incluindo pedidos de aprovação de software)
     -   Implementação completa do sistema operativo (OSD)
@@ -163,7 +163,7 @@ O URL interno é o ponto de ligação de CMG utilizado para reencaminhar pedidos
 #### <a name="example"></a>Exemplo:
 Quando ativar o tráfego de CMG num ponto de gestão, o Configuration Manager cria um conjunto de mapeamentos de URL internamente para cada servidor de ponto de gestão, como ccm_system, ccm_incoming e sms_mp.
 O URL externo para o ponto final ccm_system de ponto de gestão aspeto que poderá ter **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  na respetiva lista de pontos de gestão de internet.
+O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como ** <CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID> ** na respetiva lista de pontos de gestão de internet.
 Todos os URLs externos publicados são carregados para o CMG automaticamente, em seguida, CMG é capaz de fazer a filtragem de URL. Todos os mapeamentos de URL é replicado para o ponto de ligação de CMG para que possa reencaminhar para servidores internos, de acordo com o cliente solicitar o URL externo.
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>As portas que são utilizadas pelo gateway de gestão na nuvem?

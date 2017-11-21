@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 7d63aa43062b331dde993ae5f59f1d2a7e846482
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 20a8f91d10d98542f08e440bcfbc1a6f98a51932
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Como configurar as definições de cliente no System Center Configuration Manager
 
@@ -66,6 +66,19 @@ Quando implementar estas definições personalizadas, elas substituirão as pred
 10. Veja a ordem da definição personalizada do cliente que acabou de criar. Quando tem várias definições personalizadas de cliente, estas são aplicadas de acordo com o seu número de ordem. Se existirem conflitos, a definição que tiver o menor número de ordem substitui as outras definições. Para alterar o número de ordem, no **home page** separador o **as definições de cliente** grupo, escolha **Mover Item para cima** ou **Mover Item para baixo**.  
 
  Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [iniciar a obtenção da política para um cliente do Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) no [como gerir clientes no System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+
+## <a name="limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health"></a>Limitar a telemetria melhorada do Windows 10 para apenas enviar dados relevantes para o estado de funcionamento de dispositivo de análise de Windows
+<!-- 1356148 -->
+
+Com a atualização 1710, pode definir a recolha de dados de telemetria do Windows 10 para **avançado (limitado)**. Esta definição permite-lhe ganhar acionável conhecimentos aprofundados sobre os dispositivos no seu ambiente sem dispositivos que reportam a todos os dados no **avançado** nível de telemetria com o Windows 10 versão 1709 ou posterior.
+
+O nível de telemetria avançado (limitado) inclui as métricas de nível básico, bem como um subconjunto dos dados recolhidos a partir de **avançado** nível relevante à análise do Windows. Para obter mais informações sobre níveis de telemetria, consulte [níveis de telemetria](https://docs.microsoft.com/windows/configuration/configure-windows-telemetry-in-your-organization#telemetry-levels).
+
+1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
+
+2.  No **home page** separador, escolha **propriedades**.  
+
+3.  Abra **serviços em nuvem**e definir a telemetria do Windows 10 para **avançado**.
 
 ##  <a name="view-client-settings"></a>Ver definições de cliente  
  Quando tiverem sido implementadas várias definições do cliente no mesmo dispositivo, utilizador ou grupo de utilizadores, a atribuição de prioridades e a combinação de definições podem ser complexas. Para ver as definições de cliente:  

@@ -3,7 +3,7 @@ title: "Atualizações"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre um método de manutenção na consola denominado * * as atualizações e manutenção * * que torna mais fácil localizar e instalar as atualizações recomendadas."
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: bca724f15dc18d7273bbca122b6428b4704a5d43
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ecd458cc5f86a65926d44481c894228bae5f5fbe
+ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Atualizações para o System Center Configuration Manager
 
@@ -75,12 +75,13 @@ As seguintes versões do Configuration Manager estão disponíveis como linha de
 
 |Versão |Data de disponibilidade|[Data de fim de suporte](/sccm/core/servers/manage/current-branch-versions-supported) |Linha de base|Atualização na consola|  
 |-------------|-----------|------------|--------------|------------------------|  
+|[1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)<br /><br /> 5.00.8577.1000|20 de Novembro de 2017|20 de Novembro de 2018|Não|Sim|
 |[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 de Julho de 2017|31 de Julho de 2018|Não|Sim|
 |[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 de Março de 2017| 27 de Março de 2018|Sim|Sim|
 |[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 de Novembro de 2016| 18 de Novembro de 2017|Não|Sim|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|22 de Julho de 2016| 22 de Julho de 2017|Não|Sim|
 |[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) com o rollup de correção 1606 (KB3186654) </br></br>5.00.8412.1307 *(tenha em atenção 1)* |12 de Outubro de 2016| 12 de Outubro de 2017|Sim|Não|
-| 1602<br /><br /> 5.00.8355.1000|11 de Março de 2016| 11 de Março de 2017|Não|Sim| 
+| 1602<br /><br /> 5.00.8355.1000|11 de Março de 2016| 11 de Março de 2017|Não|Sim|
 | 1511 <br /><br /> 5.00.8325.1000|8 de Dezembro de 2015| 8 de Dezembro de 2016|Sim|Não|  
 
 
