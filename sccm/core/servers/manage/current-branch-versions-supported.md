@@ -3,7 +3,7 @@ title: "Versões do ramo atuais"
 titleSuffix: Configuration Manager
 description: "Reveja o histórico da versão do System Center Configuration Manager e saber mais sobre as fases de serviço fornecido."
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 11/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 628c01d3f746155076e5bab68a38c0a50c73697d
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 8909c4de81ef0ca914120a67be1634380dc50c53
+ms.sourcegitcommit: 29196ffba45b16b2b6a2dc71de981dead850c41c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do System Center Configuration Manager
 
@@ -32,7 +32,7 @@ Microsoft planos de lançamento atualizações para o ramo atual do System Cente
 
 -   Atualizações de segurança (apenas) manutenção fase - após o lançamento de uma nova versão do ramo atual, o suporte ramos anteriores irão reduzir para atualizações de segurança apenas para o resto que versões suportam o ciclo de vida (mostrado na figura 1).  
 
- ![CM & #95; Manutenção & #95 suporte & #95; linha cronológica](media/CM_Servicing_support_timeline1.png "CM_Servicing_support_timeline")  
+ ![CM &#95; Manutenção &#95;suporte &#95; linha cronológica](media/CM_Servicing_support_timeline1.png "CM_Servicing_support_timeline")  
 Figura 1. Exemplo de sobreposição de ciclo de versão para filial atual de suporte de manutenção. Este exemplo é para fins de ilustração do ciclo e não representa a versão real ou esperado datas.
 
 > [!NOTE]  
@@ -44,9 +44,9 @@ Figura 1. Exemplo de sobreposição de ciclo de versão para filial atual de sup
 
  **Histórico da versão**  
 
-|Versão|Data de disponibilidade|Data de fim de suporte|  
+|Versão |Data de disponibilidade |Data de fim de suporte|  
 |-------------|-----------------------|----------------------|  
-|1710|20 de Novembro de 2017|20 de Novembro de 2018|
+|1710|20 de Novembro de 2017|20 de Maio de 2019 |
 |1706|31 de Julho de 2017|31 de Julho de 2018|
 |1702|27 de Março de 2017|27 de Março de 2018|
 |1610|18 de Novembro de 2016|18 de Novembro de 2017|
