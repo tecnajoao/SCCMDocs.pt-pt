@@ -346,9 +346,9 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 
      Para um ficheiro MIF possa ser recolhido pelo inventário de hardware, é necessário no local correto no computador cliente. Por predefinição, os ficheiros estão localizados da seguinte forma:  
 
-    -   Ficheiros IDMIF devem estar na pasta windows\system32\ccm\inventory\idmif..  
+    -   Ficheiros IDMIF devem estar na pasta windows\system32\ccm\inventory\idmif.  
 
-    -   Os ficheiros NOIDMIF devem estar na pasta windows\system32\ccm\inventory\noidmif..  
+    -   Os ficheiros NOIDMIF devem estar na pasta windows\system32\ccm\inventory\noidmif.  
 
     > [!NOTE]  
     >  Esta definição está disponível apenas nas predefinições do cliente.
@@ -527,7 +527,7 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 
     -   Escolha o **novo** ícone para adicionar um novo tipo de ficheiro ao inventário. Em seguida, especifique as seguintes informações no **propriedades do ficheiro inventariado** caixa de diálogo:  
 
-        -   **Nome**: Forneça um nome para o ficheiro que pretende inventariar. Pode utilizar o * *\**  para representar qualquer cadeia de texto e o **?** para representar um único caráter. Por exemplo, se pretender inventariar todos os ficheiros com a extensão. doc, especifique o nome de ficheiro  **\*. doc**.  
+        -   **Nome**: Forneça um nome para o ficheiro que pretende inventariar. Pode utilizar o **\** para representar qualquer cadeia de texto e o **?** para representar um único caráter. Por exemplo, se pretender inventariar todos os ficheiros com a extensão. doc, especifique o nome de ficheiro  **\*. doc**.  
 
         -   **Localização**: Escolha **definir** para abrir o **propriedades do caminho** caixa de diálogo. Pode configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro especificado, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
 
@@ -550,7 +550,7 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 
     -   Na caixa de diálogo **Propriedades do Ficheiro Recolhido** , forneça as seguintes informações:  
 
-        -   **Nome**: Forneça um nome para o ficheiro que pretende recolher. Pode utilizar o * *\**  para representar qualquer cadeia de texto e o **?** para representar um único caráter.  
+        -   **Nome**: Forneça um nome para o ficheiro que pretende recolher. Pode utilizar o **\** para representar qualquer cadeia de texto e o **?** para representar um único caráter.  
 
         -   **Localização**: Escolha **definir** para abrir o **propriedades do caminho** caixa de diálogo. Poderá configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro que pretende recolher, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
 
