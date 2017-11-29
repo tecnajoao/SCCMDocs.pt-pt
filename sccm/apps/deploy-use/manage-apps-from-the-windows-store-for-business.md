@@ -1,7 +1,7 @@
 ---
-title: "Gerir aplicações a partir da Loja Windows para Empresas"
+title: "Gerir aplicações da loja Microsoft para empresas"
 titleSuffix: Configuration Manager
-description: "Gerir e implementar aplicações da loja Windows para empresas com o System Center Configuration Manager."
+description: "Gerir e implementar aplicações da Microsoft Store para empresas com o System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -15,26 +15,26 @@ caps.latest.revision: "11"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 2dd6a2f9c62903119ba8c8374dcf222199c19fd5
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 0400262c6d00a83a3da10cb0a60072552dd14360
+ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="manage-apps-from-the-windows-store-for-business-with-system-center-configuration-manager"></a>Gerir aplicações da Loja Windows para Empresas com o System Center Configuration Manager
-O [loja Windows para empresas](https://www.microsoft.com/business-store) é onde pode encontrar e adquirir aplicações do Windows para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode sincronizar a lista de aplicações que comprou com o Configuration Manager. Em seguida, pode ver estas aplicações na consola do Configuration Manager e implementá-las como poderia implementar qualquer outra aplicação.
+# <a name="manage-apps-from-the-microsoft-store-for-business-with-system-center-configuration-manager"></a>Gerir aplicações da loja Microsoft para empresas com o System Center Configuration Manager
+O [Microsoft Store para empresas](https://www.microsoft.com/business-store) é onde pode encontrar e adquirir aplicações do Windows para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode sincronizar a lista de aplicações que comprou com o Configuration Manager. Em seguida, pode ver estas aplicações na consola do Configuration Manager e implementá-las como poderia implementar qualquer outra aplicação.
 
 
 ## <a name="online-and-offline-apps"></a>Aplicações online e offline
 
-Na loja Windows para empresas suportam dois tipos de aplicação:
+A Microsoft Store para empresas suportam dois tipos de aplicação:
 
 - **Online** -requer que este tipo de licença aos utilizadores e dispositivos para ligar ao arquivo de obter uma aplicação e a sua licença. Dispositivos Windows 10 tem de ser do Azure Active Directory associados a um domínio.
 - **Offline** -permite-lhe cache aplicações e de licenças para implementar diretamente na sua rede no local, sem ligar ao arquivo de ou ter uma ligação à Internet.
 
-[Leia mais](https://technet.microsoft.com/itpro/windows/whats-new/windows-store-for-business-overview?f=255&MSPPError=-2147217396) sobre a loja Windows para empresas.
+[Leia mais](https://docs.microsoft.com/microsoft-store/microsoft-store-for-business-overview) sobre o Microsoft Store para empresas.
 
-O Configuration Manager suporta a gerir a loja Windows para aplicações empresariais em dispositivos Windows 10 com o cliente do Configuration Manager tanto também os dispositivos Windows 10 inscritos com o Microsoft Intune (conhecido como configuração híbrida). O Configuration Manager oferece as seguintes capacidades para aplicações online e offline.
+O Configuration Manager suporta a gestão de Microsoft Store para aplicações empresariais em dispositivos Windows 10 com o cliente do Configuration Manager tanto também os dispositivos Windows 10 inscritos com o Microsoft Intune (conhecido como configuração híbrida). O Configuration Manager oferece as seguintes capacidades para aplicações online e offline.
 
 > [!IMPORTANT]
 > Para utilizar esta capacidade, dispositivos Windows 10 tem de executar a versão de Novembro de 2015 (versão 1511) ou posterior.
@@ -52,22 +52,22 @@ O Configuration Manager suporta a gerir a loja Windows para aplicações empresa
 
 Para implementar as aplicações licenciadas online para Windows 10 PCs com o cliente do Configuration Manager, tem de executar o Windows 10 criadores Update, ou posterior.
 
-## <a name="deploying-online-apps-using-the-windows-store-for-business-with-pcs-that-run-the-configuration-manager-client"></a>Implementação de aplicações online utilizando a loja Windows para empresas com computadores que executem o cliente do Configuration Manager
-Antes de implementar a loja Windows para empresas aplicações para computadores que executem o cliente do Configuration Manager completa, considere os seguintes pontos:
+## <a name="deploying-online-apps-using-the-microsoft-store-for-business-with-pcs-that-run-the-configuration-manager-client"></a>Implementação de aplicações online utilizando o Microsoft Store para empresas com computadores que executem o cliente do Configuration Manager
+Antes de implementar o Microsoft Store para aplicações empresariais para os computadores que executam o cliente do Configuration Manager completa, considere os seguintes pontos:
 
 - Para uma funcionalidade completa, PCs tem de executar o Windows 10 criadores Update, ou posterior.
-- PCs têm de estar associados a um Azure Active Directory à área de trabalho e de estar no mesmo inquilino do AAD onde registada na loja Windows para empresas como uma ferramenta de gestão.
-- Quando PCs tem sessão iniciados com a conta de administrador incorporada, não vão conseguir aceder loja Windows para as aplicações da empresa.
-- PCs tem de ter uma ligação de internet em direto para a loja Windows para empresas.
+- PCs têm de estar associados a um Azure Active Directory à área de trabalho e de estar no mesmo inquilino do AAD onde registada da Microsoft Store para empresas como uma ferramenta de gestão.
+- Quando PCs tem sessão iniciados com a conta de administrador incorporada, não vão conseguir aceder Microsoft Store para aplicações empresariais.
+- PCs tem de ter uma ligação de internet em direto para o Microsoft Store para empresas.
 
 ### <a name="notes-for-pcs-running-earlier-versions-of-windows-10"></a>Notas para os computadores com versões anteriores do Windows 10
 Em computadores que executam uma versão anterior do que a atualização criadores (com o cliente do Configuration Manager) do Windows 10, aplica-se a seguinte funcionalidade:
 
 
 - Quando instalação é imposta ao utilizador instalar a aplicação, seja pela aplicação atingir o prazo de instalação ou por post instalação reavaliação para implementações necessárias:
-    - A aplicação é "imposta", iniciando a loja Windows para a aplicação de negócio. 
+    - A aplicação é "imposta", iniciando a Store Microsoft para a aplicação de negócio. 
     - O utilizador final tem de concluir, em seguida, a instalação a partir da loja, antes da aplicação está instalada
-    - O estado da aplicação nos relatórios de consola do Configuration Manager falhou com o erro "aplicação loja Windows foi aberta no cliente do PC e está à espera que o utilizador concluir a instalação."
+    - O estado da aplicação nos relatórios de consola do Configuration Manager falhou com o erro "a aplicação Microsoft Store foi aberta no cliente do PC e está à espera que o utilizador concluir a instalação."
 - No próximo ciclo de avaliação do aplicação:
     - Se a aplicação foi instalada pelo utilizador final da loja, a aplicação comunica o estado **êxito**. 
     - Se o utilizador final não tentou instalar a aplicação da loja:
@@ -76,12 +76,12 @@ Em computadores que executam uma versão anterior do que a atualização criador
 
 #### <a name="further-notes-for-pcs-running-earlier-versions-of-windows-10"></a>Notas adicionais para computadores com versões anteriores do Windows 10:
 
-- Não é possível implementar aplicações de linha de negócio da loja Windows para empresas
+- Não é possível implementar aplicações de linha de negócio da Microsoft Store para empresas
 - Quando implementa pagas aplicações da loja, os utilizadores finais tem início de sessão para o arquivo de compra e a aplicação próprios.
-- Se tiver implementado um acesso de desativação de política de grupo para a versão de consumidor da loja Windows, as implementações da loja Windows para empresas não funcionam, mesmo que a loja Windows para empresas está ativada.
+- Se tiver implementado um acesso de desativação de política de grupo para a versão de consumidor do Microsoft Store, implementações da Microsoft Store para empresas não funcionam, mesmo que a Microsoft Store para empresas está ativada.
 
 
-## <a name="set-up-windows-store-for-business-synchronization"></a>Configurar a loja Windows para a sincronização de negócio
+## <a name="set-up-microsoft-store-for-business-synchronization"></a>Configurar o Microsoft Store para a sincronização de negócio
 
 ### <a name="for-configuration-manager-versions-prior-to-1706"></a>Para versões do Configuration Manager antes de 1706
 
@@ -94,9 +94,9 @@ Em computadores que executam uma versão anterior do que a atualização criador
 
 **No Azure Active Directory, crie uma chave de cliente para a ferramenta de gestão registado**
 1.  Realce a aplicação que criou e clique em **configurar**.
-2.  Em **chaves**, selecione uma duração da lista e, em seguida, clique em **guardar**. Esta ação cria uma nova chave de cliente. Não saia desta página até ter com êxito integrado na loja do Windows para empresas para o Configuration Manager.
+2.  Em **chaves**, selecione uma duração da lista e, em seguida, clique em **guardar**. Esta ação cria uma nova chave de cliente. Não saia desta página até ter com êxito integrado Store da Microsoft para empresas para o Configuration Manager.
 
-**Na loja Windows para empresas, configurar o Configuration Manager como a ferramenta de gestão de arquivo**
+**Na Microsoft Store para empresas, configurar o Configuration Manager como a ferramenta de gestão de arquivo**
 1.  Abra [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) e início de sessão se lhe for pedido.
 2.  Se o pedido de aceitar os termos de utilização.
 3.  Em **ferramentas de gestão**, clique em **adicionar uma ferramenta de gestão**.
@@ -106,10 +106,10 @@ Em computadores que executam uma versão anterior do que a atualização criador
 
 **Adicione a conta de arquivo para o Configuration Manager**
 
-1. Certifique-se de que adquiriu, pelo menos, uma aplicação da loja Windows para empresas. No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**, em seguida, clique em **loja Windows para empresas**.
-2.  No **home page** separador o **loja Windows para empresas** , clique em **adicionar da loja Windows para empresas conta**. 
+1. Certifique-se de que adquiriu, pelo menos, uma aplicação do Microsoft Store para empresas. No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**, em seguida, clique em **Microsoft Store para empresas**.
+2.  No **home page** separador o **Microsoft Store para empresas** , clique em **adicionar Microsoft conta da loja para empresas**. 
 3.  Adicione o ID do inquilino, o id de cliente e a chave de cliente do Azure Active Directory, em seguida, conclua o assistente.
-4. Quando tiver terminado, pode ver a conta configurada no **loja Windows para empresas** lista na consola do Configuration Manager.
+4. Quando tiver terminado, pode ver a conta configurada no **Microsoft Store para empresas** lista na consola do Configuration Manager.
 
 ### <a name="for-configuration-manager-version-1706-and-later"></a>Para o Configuration Manager versão 1706 e posterior
 
@@ -120,20 +120,20 @@ Em computadores que executam uma versão anterior do que a atualização criador
 5. No **aplicação Server** janela, selecione a aplicação de servidor que pretende utilizar e, em seguida, clique em **OK**. Aplicações de servidor são as aplicações web do Azure que contêm as configurações para a sua conta do Azure, incluindo o ID de inquilino, ID de cliente e uma chave secreta para clientes. Se não tiver uma aplicação de servidor disponível, utilize um dos seguintes:
     - **Crie:** Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e de inquilino. Em seguida, depois, inicie sessão no Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode ver estes do portal do Azure.
     - **Importar:** Para utilizar uma aplicação web que já existe na sua subscrição do Azure, clique em **importação**. Forneça um nome amigável para a aplicação e de inquilino e, em seguida, especifique o ID do inquilino, ID de cliente e a chave secreta para a aplicação web do Azure que pretende utilizar o Configuration Manager. Depois de **verifique** informações, clique em **OK** para continuar. 
-6. Reveja o **informações** página e conclua quaisquer passos adicionais e configurações, conforme indicado. Estas configurações são necessárias para utilizar o serviço com o Configuration Manager. Por exemplo, para configurar a loja Windows para empresas:
+6. Reveja o **informações** página e conclua quaisquer passos adicionais e configurações, conforme indicado. Estas configurações são necessárias para utilizar o serviço com o Configuration Manager. Por exemplo, para configurar o Microsoft Store para empresas:
     - No Azure tem de registar o Configuration Manager como uma aplicação web ou a Web API e registar o ID de cliente. Também especificar uma chave de cliente para utilização pela ferramenta de gestão (que é o Configuration Manager).
-    - Na loja Windows para a consola de negócio tem de configurar o Configuration Manager como a ferramenta de gestão de armazenamento, ativar o suporte para aplicações licenciadas offline e, em seguida, comprar, pelo menos, uma aplicação. 
+    - Na Microsoft Store para a consola de negócio tem de configurar o Configuration Manager como a ferramenta de gestão de arquivo, ativar o suporte para aplicações licenciadas offline e, em seguida, comprar, pelo menos, uma aplicação. 
 7. Clique em **seguinte** quando estiver pronto para continuar.
 8. No **configurações aplicação** página, conclua as configurações de idioma e o catálogo de aplicações para este serviço e, em seguida, clique em **seguinte**.
-9. Depois de concluir o assistente, a consola do Configuration Manager mostra que configurou **loja Windows para empresas** como um **o tipo de serviço de nuvem**.
+9. Depois de concluir o assistente, a consola do Configuration Manager mostra que configurou **Microsoft Store para empresas** como um **o tipo de serviço de nuvem**.
 
 
 
 
-## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Criar e implementar uma aplicação do Configuration Manager de uma loja Windows para a aplicação de negócio.
+## <a name="create-and-deploy-a-configuration-manager-application-from-a-microsoft-store-for-business-app"></a>Criar e implementar uma aplicação do Configuration Manager a partir de um Store Microsoft para a aplicação de negócio.
 1.  No **biblioteca de Software** área de trabalho da consola do Configuration Manager, expanda **gestão de aplicações**, em seguida, clique em **informações de licença para aplicações da loja**.
 2.  Escolha a aplicação que pretende implementar, em seguida, no **home page** separador o **criar** , clique em **Criar aplicação**.
-Uma aplicação do Configuration Manager é criada que contém a loja Windows para a aplicação de negócio. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.
+Uma aplicação do Configuration Manager é criada que contém o Store Microsoft para a aplicação de negócio. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.
 
 > [!IMPORTANT]
 > Para dispositivos inscritos no Intune, as aplicações implementadas só estão disponíveis ao utilizador que inscreveu originalmente o dispositivo. Não existem outros utilizadores podem aceder à aplicação.
@@ -143,3 +143,7 @@ Uma aplicação do Configuration Manager é criada que contém a loja Windows pa
 No **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**, em seguida, clique em **informações de licença para aplicações da loja**.
 
 Para cada aplicação da loja que gere, pode ver informações sobre a aplicação, incluindo o respetivo nome, plataforma e número de licenças para a aplicação que lhe pertence e o número de licenças que tem disponíveis.
+
+Depois de implementar as aplicações online, tenha em atenção que todas as atualizações para essa aplicação ficará diretamente a partir da Microsoft Store.
+
+Ao implementar aplicações offline para dispositivos Windows 10 com o cliente do Configuration Manager (especialmente em ambientes de vários utilizadores como classrooms), desative a Microsoft Store e/ou as atualizações da aplicação através do Microsoft Store (por exemplo, utilizando [política de grupo](https://docs.microsoft.com/en-us/windows/configuration/stop-employees-from-using-microsoft-store#a-href-idblock-store-group-policyablock-microsoft-store-using-group-policy)) para que os utilizadores não podem atualizar aplicações externas para implementações do Configuration Manager. Além disso, depois de comprar o Microsoft Store para o administrador da empresa a aplicação (deste modo, tornando-a disponível num estado offline para sincronização com o Configuration Manager) não publicar a aplicação para utilizadores que podem instalar ou atualizar online. Isto irá garantir que todos os utilizadores só recebem as atualizações de aplicações através do Gestor de configuração. 

@@ -15,11 +15,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: c0277fed7db5803aa2b2246ca879640136dce02a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2652a7353821c616ada2bf594073b13e327c93ee
+ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Tamanho e números da escala do System Center Configuration Manager
 
@@ -147,7 +147,10 @@ Um site de administração central suporta um número total de dispositivos que 
  Por exemplo, numa hierarquia, pode suportar 700.000 ambientes de trabalho, até 25.000 Mac e Windows CE 7.0 e até 300.000 dispositivos baseados na nuvem quando integrar o Microsoft Intune — para um total de 1.025.000 dispositivos. Se suportar dispositivos que são geridos pela MDM no local, o total para a hierarquia é 825.000 dispositivos.  
 
 > [!IMPORTANT]  
->  Numa hierarquia onde o site de administração central utiliza uma edição Standard do SQL Server, a hierarquia suporta um máximo de 50 000 computadores de secretária e dispositivos. A edição do SQL Server que está a ser utilizado num site primário autónomo não limita a capacidade desse site para suportar até ao número declarado de clientes.  
+>  Numa hierarquia onde o site de administração central utiliza uma edição Standard do SQL Server, a hierarquia suporta um máximo de 50 000 computadores de secretária e dispositivos. Para suportar mais de 50.000 ambientes de trabalho e dispositivos, tem de utilizar uma edição Enterprise do SQL Server. Este requisito aplica-se apenas a um site de administração central e não se aplica a um site primário autónomo ou site primário subordinado onde a edição do SQL Server que utiliza não limita a capacidade desse site para suportar o número declarado de clientes.   
+
+
+ A edição do SQL Server que está a ser utilizado num site primário autónomo não limita a capacidade desse site para suportar até ao número declarado de clientes.  
 
 
 ###  <a name="bkmk_chipri"></a>Site primário subordinado  
