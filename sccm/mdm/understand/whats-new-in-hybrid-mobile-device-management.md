@@ -3,7 +3,7 @@ title: "Novidades da MDM híbrido"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune."
 ms.custom: na
-ms.date: 11/12/2017
+ms.date: 11/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4877d05004bd883a3ae0ad353a78643cf559275e
-ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
+ms.openlocfilehash: aa72e57077cbeba525895dd394720dc24f28568c
+ms.sourcegitcommit: 5d46ed593b1cc461ea3f6ff6917bcd272b095ed7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -48,7 +48,7 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 
 - **Aplicação do Portal da empresa para macOS está disponível** <!--1541700--> o Portal de empresa do Intune no macOS tem uma experiência atualizada, o qual foi otimizada para apresentar corretamente todas as notificações de informações e conformidade os utilizadores precisam para todos os dispositivos tiverem inscrito. E, depois do Portal da empresa do Intune tem sido implementado num dispositivo, a Microsoft AutoUpdate para macOS irá fornecer atualizações ao mesmo. Pode transferir o novo Portal de empresa do Intune para macOS, iniciando sessão no site de Portal da empresa do Intune a partir de um dispositivo macOS.
 
-- **Microsoft Planner faz agora parte da lista de gestão (MAM) de aplicação móvel de aplicações aprovadas** <!-- 1248473 --> o planeador de Microsoft aplicação para iOS e Android faz agora parte das aplicações aprovadas para gestão de aplicações móveis (MAM).   A aplicação pode ser configurada através do painel de proteção de aplicação do Intune no portal do Azure para todos os inquilinos. Para obter mais informações, consulte [lista MAM das aplicações aprovadas](https://www.microsoft.com/cloud-platform/microsoft-intune-apps).
+- **Microsoft Planner faz agora parte da lista de gestão (MAM) de aplicação móvel de aplicações aprovadas** <!-- 1248473 --> o planeador de Microsoft aplicação para iOS e Android faz agora parte das aplicações aprovadas para gestão de aplicações móveis (MAM). A aplicação pode ser configurada através do painel de proteção de aplicação do Intune no portal do Azure para todos os inquilinos. Para obter mais informações, consulte [lista MAM das aplicações aprovadas](https://www.microsoft.com/cloud-platform/microsoft-intune-apps).
 
 - **Os registos de acesso à aplicação gerida para iOS** <!-- 1469920 --> os utilizadores finais com o Browser gerido instalado podem agora ver o estado de gestão de todos os Microsoft publicado aplicações e o envio de registos para as suas aplicações iOS geridas de resolução de problemas.
   
@@ -81,7 +81,7 @@ Experiência de perfil VPN melhorada na consola do Configuration Manager
 
 ### <a name="new-in-configuration-manger-technical-preview-1711"></a>Novo no Configuration Manager Technical Preview 1711
 
-- **Novas opções de política de conformidade para o Windows 10** agora, pode configurar novas opções de políticas de conformidade para dispositivos Windows 10. As novas definições incluem as políticas de Firewall, o controlo de conta de utilizador, o Windows Defender Anitivirus e controlo de versões de compilação do SO. Para obter mais informações, consulte [novas opções de política de conformidade para o Windows 10](/sccm/core/get-started/capabilities-in-technical-preview-1711#new-compliance-policy-options-for-windows-10).
+- **Novas opções de política de conformidade para o Windows 10** agora, pode configurar novas opções de políticas de conformidade para dispositivos Windows 10. As novas definições incluem as políticas de Firewall, o controlo de conta de utilizador, o Windows Defender antivírus e controlo de versões de compilação do SO. Para obter mais informações, consulte [novas opções de política de conformidade para o Windows 10](/sccm/core/get-started/capabilities-in-technical-preview-1711#new-compliance-policy-options-for-windows-10).
 
 
 ## <a name="october-2017"></a>Outubro de 2017
