@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0e9f0fbd-e442-4509-a021-bfdedf2d04dd
 caps.latest.revision: "5"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 842bbdf2ad83f89345b1ed99c2c12b91b7622219
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ca8104827e0c7bd62115d4933f06f2891fefa308
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configuration-options-for-site-system-roles-for-system-center-configuration-manager"></a>Opções de configuração para funções do sistema de sites do System Center Configuration Manager
 

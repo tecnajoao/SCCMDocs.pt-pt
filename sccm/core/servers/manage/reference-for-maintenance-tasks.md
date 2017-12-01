@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 68dc6acd-5848-47a4-b4c1-ffa40e47890b
 caps.latest.revision: "16"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 6cff26b689b3fb1139d235295530faa9d30f9bf6
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c10578dd6fbaa167687f65b01e73e448b5523d13
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Referência das tarefas de manutenção para o System Center Configuration Manager
 

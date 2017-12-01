@@ -13,15 +13,15 @@ ms.topic: article
 ms.assetid: 95c13c00-909f-4fbb-bbaa-1eba9d54d8c5
 caps.latest.revision: "8"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
 robots: noindex
-ms.openlocfilehash: 3067a4b2b53f57b45a81d56b4505a84831df39f1
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 517998dead8d679e682ad125b50d8bd8581e78b3
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="schema-extensions-for-system-center-configuration-manager"></a>Extensões de esquema para o System Center Configuration Manager
 

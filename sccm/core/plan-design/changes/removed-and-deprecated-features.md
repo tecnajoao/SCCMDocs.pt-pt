@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 7a87e03cdade6339bc0ea0055edf8791e197e6f1
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 11d175a4ac42d62a440c6b374463c778b58b0973
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Funcionalidades removidas e preteridas do System Center Configuration Manager
 

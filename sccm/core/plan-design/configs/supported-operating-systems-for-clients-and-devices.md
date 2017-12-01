@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
 caps.latest.revision: "5"
-author: arob98
-ms.author: angrobe
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 79c71c4e90fe4457f8cb08810d705c1a8ceb11d7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 46ef788245b631baac63a6a6d59825602e78e4a3
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Sistemas operativos suportados para os clientes e dispositivos para o System Center Configuration Manager
 

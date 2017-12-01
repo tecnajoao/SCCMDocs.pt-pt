@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7def067e-845c-4db3-9d56-fa1dcf2fd7c7
 caps.latest.revision: 
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8bfaef2b19449cf6fe1487b32cffcdb5731f1602
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: fd8f7c47eef0bf67cb97394d2dc9aa891f965650
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="checklist-for-installing-update-1706-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1706 para o System Center Configuration Manager
 

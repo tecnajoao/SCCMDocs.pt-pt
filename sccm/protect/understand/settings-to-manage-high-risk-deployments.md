@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 8d37b983-a964-402c-819d-2512ed2d463b
 caps.latest.revision: "6"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 6c0ae39c674202bc999c3fccc9547a60ff8c6627
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 8a720f566906440ed15f851249dd6f82b9756653
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Definições para gerir implementações de alto risco para o System Center Configuration Manager
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2200b02b-e76b-4aa7-a77a-6dc5e70f1333
 caps.latest.revision: "1"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 356e63b3743f17d4c0b3985723c26e51ce9dd6c8
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ecd8811db25ea179fcdfb26f71f475710119803b
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="system-center-updates-publisher"></a>O System Center Updates Publisher
 

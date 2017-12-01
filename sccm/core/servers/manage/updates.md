@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 3a832943-580a-4a40-b454-961d0854ac2b
 caps.latest.revision: "51"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5dff8641767270272bc671f19841214a141b1ea3
-ms.sourcegitcommit: ccf28bcc317f0e3cee49dae2d5b6a999ff11e956
+ms.openlocfilehash: 7cd17175b8e2137654f85f923358440523b206d5
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Atualizações para o System Center Configuration Manager
 

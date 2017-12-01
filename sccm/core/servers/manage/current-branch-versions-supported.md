@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35b5baec-d313-46aa-9d14-c443aa0d6c09
 caps.latest.revision: "8"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 8909c4de81ef0ca914120a67be1634380dc50c53
-ms.sourcegitcommit: 29196ffba45b16b2b6a2dc71de981dead850c41c
+ms.openlocfilehash: 952ebd2576ae90722a3ffe6920f6f482ff3a982a
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do System Center Configuration Manager
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: a7975dc8-46ab-4dae-86b6-dc3e3cf3b2f0
 caps.latest.revision: "19"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5bf39d5d20d94b4dda666741c5887edfbc82ca0f
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ca42dbd0db0913bfc71990f5db1e5d6fc6e3b35d
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modificar a infraestrutura do System Center Configuration Manager
 

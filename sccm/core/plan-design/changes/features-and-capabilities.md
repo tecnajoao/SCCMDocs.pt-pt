@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 5d388399-07ca-431c-a9b2-56c69771aa87
 caps.latest.revision: "18"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c9b6720d08260c7a2a06e0ccc525228e5089b279
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a247181f4e1ec634291d09a7e30b83496139bcd3
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Funcionalidades e capacidades removidas do System Center Configuration Manager
 

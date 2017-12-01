@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3ae68fa6-8b30-45dd-9d12-50bb67cb4a9d
 caps.latest.revision: "51"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 97882e89076b994c60760621dbab3fa8e75126fc
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 1763fee826e446d9da19f0c11683414af169c557
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>O que &#39; s alteradas no System Center Configuration Manager, do System Center 2012 Configuration Manager
 

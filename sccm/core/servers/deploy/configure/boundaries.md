@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 4a9dc4d9-e114-42ec-ae2b-73bee14ab04f
 caps.latest.revision: "10"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: fda54ad44a037a7b7952f6339c33625759a79e17
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 90499d6879a2671aa0d16fe32d05e458a4b7a485
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Definir localizações de rede como limites para o System Center Configuration Manager
 

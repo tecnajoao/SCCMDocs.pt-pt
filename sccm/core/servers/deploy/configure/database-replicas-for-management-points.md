@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: b06f781b-ab25-4d9a-b128-02cbd7cbcffe
 caps.latest.revision: "9"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c33bed2244e259edc0c5a7bb547be8bf69213920
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 06f03b77fd79cd7aaf02127220683bd4327ab809
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="database-replicas-for-management-points-for-system-center-configuration-manager"></a>Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager
 

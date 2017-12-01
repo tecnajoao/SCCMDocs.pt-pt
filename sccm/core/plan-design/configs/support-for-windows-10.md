@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a1626a65-da22-49e0-9564-d2f752ea3f4b
 caps.latest.revision: "5"
-author: brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: aae4a3d504ea5dad901a6248cb219aff7a03b585
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: b3a11357f068416bfa4d4c9faf20aa154618306d
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="support-for-windows-10-for-system-center-configuration-manager"></a>Suporte para Windows 10 para o System Center Configuration Manager  
 

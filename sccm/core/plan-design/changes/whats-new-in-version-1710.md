@@ -10,14 +10,14 @@ ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 33a5bff1e202822ce3ec5755958d34af461957e9
-ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
+ms.openlocfilehash: 5812133d183c76ab479d547e0f848c2287e5e950
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1710 do System Center Configuration Manager
 
@@ -28,8 +28,8 @@ Atualize 1710 para o ramo atual do System Center Configuration Manager está dis
 > [!TIP]  
 > Para instalar um novo site, tem de utilizar uma versão de linha de base do Configuration Manager.  
 >  Saiba mais sobre:    
->   - [Instalar novos sites](https://technet.microsoft.com/library/mt590197.aspx)  
->   - [Instalar atualizações em sites](https://technet.microsoft.com/library/mt607046.aspx)  
+>   - [Instalar novos sites](/sccm/core/servers/deploy/install/installing-sites)  
+>   - [Instalar atualizações em sites](/sccm/core/servers/manage/updates)  
 >   - [Versões de linha de base e atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
 
 As secções seguintes fornecem detalhes sobre as alterações e novas funcionalidades introduzidas na versão 1710 do Configuration Manager.  
@@ -60,7 +60,7 @@ Agora, pode utilizar [pontos de distribuição baseado na nuvem](/sccm/core/plan
 <!-- 1350871 -->
 Iniciando com o Windows 10, versão 1607 (também conhecido como aniversário da atualização), pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). Gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo os dispositivos Windows 10 através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. Para obter mais informações, consulte [conjunta management para Windows 10 dispositivos](/sccm/core/clients/manage/co-management-overview).
 
-### <a name="restart-computers-form-the-configuration-manager-console-----1356283---"></a>Reinicie os computadores de forma a consola do Configuration Manager<!-- 1356283 -->
+### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Reinicie os computadores a partir da consola do Configuration Manager<!-- 1356283 -->
 A partir desta versão, pode utilizar a consola do Configuration Manager para identificar dispositivos cliente que requerem o reinício e, em seguida, utilizar uma ação de notificação de cliente reiniciá-las.
 
 Consulte [como gerir clientes no System Center Configuration Manager](/sccm/core/clients/manage/manage-clients#restart-clients)

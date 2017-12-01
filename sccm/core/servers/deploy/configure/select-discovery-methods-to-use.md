@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 127ce713-d085-430f-ac7b-2701637fe126
 caps.latest.revision: "9"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 9f3ddd5f94c60155f742be97e92810f00ee968ac
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: b932c4670521af366c5cb40adf5b1076263a9c8e
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="select-discovery-methods-to-use-for-system-center-configuration-manager"></a>Selecione os métodos de deteção a utilizar para o System Center Configuration Manager
 

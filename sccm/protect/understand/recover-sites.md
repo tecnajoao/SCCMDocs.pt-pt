@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 19539f4d-1667-4b4c-99a1-9995f12cf5f7
 caps.latest.revision: 
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 497860c9b5698271d7ca6e4683e99350100f596f
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 0a53f13ea4c7c22e80542819432c2a6e5c17f853
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 #  <a name="recover-a-configuration-manager-site"></a>Recuperar um site do Gestor de Configuração
 

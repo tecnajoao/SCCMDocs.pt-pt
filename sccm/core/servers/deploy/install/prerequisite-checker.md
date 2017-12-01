@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aaf13bb8-4ba2-4bd7-9fac-d36a9d88a1b6
 caps.latest.revision: "3"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 7481da26a2dcbbc215750ed8363a9481bae1138a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 6709ee7e9e570c827ec9fc3433fa3acded11e0e4
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Verificador de pré-requisitos do System Center Configuration Manager
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9efb4061-f642-48bd-8332-3357ff5b3118
 caps.latest.revision: "15"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: e71a2153571fdaa069c8e75827661eb7c939d57a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 540a3aac3d489fb1655d769b6e31a1b4c5cc0092
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-sites-and-hierarchies-for-system-center-configuration-manager"></a>Configurar sites e hierarquias do System Center Configuration Manager
 

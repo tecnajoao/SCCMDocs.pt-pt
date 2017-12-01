@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6bce416b-761d-4b23-bd33-5b7c30edb10d
 caps.latest.revision: "36"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 299f0cd71b1aac80a1e226a0fa035f323aed38cb
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: ea976dd7c89225bcd243014c7238f30951b96099
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="pre-release-features-in-system-center-configuration-manager"></a>As funcionalidades de pré-lançamento no System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*

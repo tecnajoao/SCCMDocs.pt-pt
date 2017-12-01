@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: bc15ee7e-4d0a-4463-ae2c-f72d8d45d65d
 caps.latest.revision: "17"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 747d194d8244d42d557bc442f09035808f6eb2f0
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 65b5c7321dce8ed54ed9369ca5dfb27ad5fc9731
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="prepare-active-directory-for-site-publishing"></a>Preparar o Active Directory para publicação de site
 

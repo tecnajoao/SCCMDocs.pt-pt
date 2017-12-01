@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
 caps.latest.revision: "21"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: b16d9779c130bd83304d1b369c48c7e691bd8db3
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 49a356ac1777c971d997a2109328001d750d15b0
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Atualizar para o System Center Configuration Manager
 

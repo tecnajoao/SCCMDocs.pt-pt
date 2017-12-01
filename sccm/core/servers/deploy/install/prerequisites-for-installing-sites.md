@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92b339ef-2723-4322-bec6-077b3e8846b0
 caps.latest.revision: "5"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 167f7db44ba19c6c97571c691c63d68edd47af93
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 382453097bc46f1785887fcda0b9a6908b1cd976
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Pré-requisitos de instalação de sites do System Center Configuration Manager
 

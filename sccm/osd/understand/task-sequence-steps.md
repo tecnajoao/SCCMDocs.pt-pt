@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 02d3ca5ed494c20266125686f26b66cebcc7c2a2
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 40a2d91baf8c02cdda96e9520ce155032272ebdd
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
@@ -538,22 +538,6 @@ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é e
 
  **Certifique-se de SO atual atualizar**  
  Selecione esta definição para verificar se o sistema operativo instalado no computador de destino cumpre o requisito especificado. Por predefinição, esta definição está selecionada com um valor de **CLIENT**.  
-
-##  <a name="child-task-sequence"></a>Sequência de tarefas de subordinados
-
-A partir do Configuration Manager versão 1710, pode adicionar um novo passo de sequência de tarefas executa outra sequência de tarefas. Esta ação cria uma relação principal-subordinado entre as sequências de tarefas. Com seqeucne uma tarefa subordinada, pode criar sequências de tarefas modulares, reutilizáveis.
-
-Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere o seguinte:
-
- - As sequências de tarefas principais e subordinados eficazmente são combinadas uma única política que executa o cliente.
- - O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, alterada pela sequência de tarefas subordinado, a variável permanece alterado mover reencaminhar. Da mesma forma, se a sequência de tarefas subordinado cria uma nova variável, a variável está disponível para os passos restantes da sequência de tarefas principal.
- - Mensagens de estado são enviadas por normal para uma operação de sequência de tarefas único.
- - As sequências de tarefas escreverem entradas no ficheiro smsts.log, com o novo registo de entradas que desmarque quando uma sequência de tarefas subordinado é iniciado.
-
-### <a name="details"></a>Detalhes
-
-1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
-2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.  
 
 ##  <a name="BKMK_ConnectToNetworkFolder"></a>Ligar à pasta de rede  
  Utilize a ação de sequência de tarefas **Ligar à Pasta de Rede** para criar uma ligação para uma pasta de rede partilhada.  
@@ -1423,6 +1407,22 @@ Antes do Configuration Manager versão 1610, este passo efetua as seguintes tare
 
 > [!IMPORTANT]  
 >  O PowerShell 1.0 não suporta as políticas de execução Indefinido e Ignorar.  
+
+##  <a name="child-task-sequence"></a>Executar a sequência de tarefas
+
+A partir do Configuration Manager versão 1710, pode adicionar um novo passo de sequência de tarefas executa outra sequência de tarefas. Esta ação cria uma relação principal-subordinado entre as sequências de tarefas. Com uma sequência de tarefas subordinadas, pode criar sequências de tarefas modulares, reutilizáveis.
+
+Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere o seguinte:
+
+ - As sequências de tarefas principais e subordinados eficazmente são combinadas uma única política que executa o cliente.
+ - O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, alterada pela sequência de tarefas subordinado, a variável permanece alterado mover reencaminhar. Da mesma forma, se a sequência de tarefas subordinado cria uma nova variável, a variável está disponível para os passos restantes da sequência de tarefas principal.
+ - Mensagens de estado são enviadas por normal para uma operação de sequência de tarefas único.
+ - As sequências de tarefas escreverem entradas no ficheiro smsts.log, com o novo registo de entradas que desmarque quando uma sequência de tarefas subordinado é iniciado.
+
+### <a name="details"></a>Detalhes
+
+1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
+2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.  
 
 ##  <a name="BKMK_SetDynamicVariables"></a>Definir variáveis dinâmicas  
  Utilize o passo de sequência de tarefas **Definir Variáveis Dinâmicas** para fazer o seguinte:  

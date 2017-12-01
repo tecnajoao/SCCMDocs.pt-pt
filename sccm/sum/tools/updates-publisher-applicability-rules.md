@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3cf0c2cd-397a-4622-b11c-961f334fb7d7
 caps.latest.revision: "1"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: bab3c0f928767378f885c7631f7f9bdd6b13e15e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 9d13aea7f8ae98f47a6ff2cab2df997c5126cc7e
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-applicability-rules-in-updates-publisher"></a>Gerir as regras de aplicabilidade Updates Publisher
 

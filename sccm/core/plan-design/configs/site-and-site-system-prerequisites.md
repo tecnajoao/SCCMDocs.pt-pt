@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1392797b-76cb-46b4-a3e4-8f349ccaa078
 caps.latest.revision: "5"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8e55af275a2c585273602f9b9308eaed03679ae4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: de5b2be56fc1b8cdbc78abec7b3c8e42aa45d32e
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Site e os pré-requisitos do sistema de site para o System Center Configuration Manager
 

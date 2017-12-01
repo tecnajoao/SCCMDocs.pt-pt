@@ -10,14 +10,14 @@ ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2889de0709096aa481ca6203c5ab2bac1f064d5e
-ms.sourcegitcommit: c4a1bafcd004638d264a93d307c70d8b6f7fe023
+ms.openlocfilehash: e72207da4d612f14afcfa3e48edd45456e2019fc
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1706 do System Center Configuration Manager
 

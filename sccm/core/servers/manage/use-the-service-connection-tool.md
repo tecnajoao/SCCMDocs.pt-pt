@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6e4964c5-43cb-4372-9a89-b62ae6a4775c
 caps.latest.revision: "11"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: dda4a9b3977d55dbe3e2a0bf746a658eadc788d5
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 29e90ca6c47178d25a58f611fc4b50e1394f71c7
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 

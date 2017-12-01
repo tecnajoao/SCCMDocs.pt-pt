@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ed931751-18f2-4230-a09e-a0a329fbfa1c
 caps.latest.revision: "8"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8753b423c1884fa7faddb6a834ef91b7c8fbde72
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 002c3a33eaf3d4c175d168a78579cdacc31faee2
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="about-discovery-methods-for-system-center-configuration-manager"></a>Acerca dos métodos de deteção no System Center Configuration Manager
 

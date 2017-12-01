@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
 caps.latest.revision: "21"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 740a37478b4159fb9dcbfd9eaceeeaa307edd745
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 9db753a7efb4a3fd56eaf38a31eb2b992c114ddc
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Versões suportadas do SQL Server para o System Center Configuration Manager
 

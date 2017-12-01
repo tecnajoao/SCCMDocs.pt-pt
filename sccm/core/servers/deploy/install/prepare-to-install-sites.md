@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9089e1b5-cba4-42bd-a2de-126ef882a3af
 caps.latest.revision: "5"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 56dc57a487e78948538a25d48c344f0ed424b692
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 6ef738b209cfd26b4424f96ad5ea28b4121c4270
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Preparar a instalação de sites do System Center Configuration Manager
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cdb9fb0c-0912-41e4-b427-f40620971763
 caps.latest.revision: "22"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: b7228da1623b5caf1679455e535e282ecf20724a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 48d14d4dd0e5ad71d94554961cb912ff4d992e45
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="reference-for-system-center-configuration-manager-setup"></a>Referência para o Programa de Configuração do System Center Configuration Manager
 

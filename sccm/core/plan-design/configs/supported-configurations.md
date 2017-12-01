@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 45a10878-ff48-4318-9c6d-c014b38a4039
 caps.latest.revision: "9"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 41f339c2a4be80ae247fcc0e5b2e21d3682a7cbc
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: aa7b60d0515c442e0b059eeb2255d3144e869f1b
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="supported-configurations-for-system-center-configuration-manager"></a>Configurações suportadas do System Center Configuration Manager
 

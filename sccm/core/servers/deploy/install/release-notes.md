@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: 030947fd-f5e0-4185-8513-2397fb2ec96f
 caps.latest.revision: "41"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: b156cd7762be59092bb46f4a4a992badcbd9d74a
-ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
+ms.openlocfilehash: 3dc573df9d954894704c9c7b78013b4e11ad449a
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="release-notes-for-system-center-configuration-manager"></a>Notas de versão do System Center Configuration Manager
 

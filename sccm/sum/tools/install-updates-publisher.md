@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ab5cda93-b67c-4aa5-904d-7b63ce790aa0
 caps.latest.revision: "1"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 2e11a380ba4c2b3640997d0ce610cba53d5391be
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 4bb0b61d8002dda398d131d235a9fab3dc26cd25
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-updates-publisher"></a>Instalar o publicador de atualizações
 

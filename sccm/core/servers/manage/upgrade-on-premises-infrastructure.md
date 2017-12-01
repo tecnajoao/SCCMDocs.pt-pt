@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
 caps.latest.revision: "7"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 97e63fe76eeb07460d28a82487eb810cc559c383
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 40fc7ac8680149b7ec73a19d6778929c05b5fb0d
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Atualizar a infraestrutura no local que suporta o System Center Configuration Manager
 

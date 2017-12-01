@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c5a42100-2f60-4952-b495-918025ea6559
 caps.latest.revision: "4"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2652a7353821c616ada2bf594073b13e327c93ee
-ms.sourcegitcommit: 1dd051d8548a19b724bb8f9e6a2278a4901ed916
+ms.openlocfilehash: a92a33b77a0d6323d1d546edc75329b505c6f0d9
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Tamanho e números da escala do System Center Configuration Manager
 

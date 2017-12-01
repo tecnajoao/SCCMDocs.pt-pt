@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7e8ab8ca-41ef-467a-943b-a115d88cafe0
 caps.latest.revision: 
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 57d53a66b5bf12796e9e37e7ab3d13c8a5c95d72
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: cf0d2ab65f93a106defee7e654ec6282bcd4ccd7
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="checklist-for-installing-update-1710-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1710 para o System Center Configuration Manager
 

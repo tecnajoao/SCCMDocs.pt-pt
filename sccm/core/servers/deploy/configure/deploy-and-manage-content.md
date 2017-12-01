@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d50dcca0-4419-449d-a487-73abcadf328f
 caps.latest.revision: "6"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: b409e8b050a3f1871819bd857c225a8cf6333712
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 72d3a4e86b79624c98813a5c7f642f9072b00d24
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Implementar e gerir conteúdo para o System Center Configuration Manager
 

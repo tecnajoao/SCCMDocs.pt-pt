@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 500a9aa6-68aa-44eb-bf49-350c1314a697
 caps.latest.revision: "3"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: dae48a5374dd1e4ec90e3e0d10a7335cff55ddc7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 9eeb083f8602562941cd52abfbaa327c8bcbcdc2
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="custom-locations-for-system-center-configuration-manager-site-database-files"></a>Ficheiros de base de dados do site localizações personalizadas para o System Center Configuration Manager
 

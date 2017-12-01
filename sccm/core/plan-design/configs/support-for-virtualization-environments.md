@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1098e8c5-9676-4c2b-841b-ec88bd04e495
 caps.latest.revision: "6"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 25806078d0133c188918f788c543fa86db5b3be8
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 5e3de1dc22c3fb7adc6584fd042eb6e62ca23a95
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="support-for-virtualization-environments-for-system-center-configuration-manager"></a>Suporte para ambientes de Virtualização do System Center Configuration Manager
 

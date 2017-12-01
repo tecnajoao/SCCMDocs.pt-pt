@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1f703376-5f2c-4fd2-8209-7028c931ddc7
 caps.latest.revision: "3"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 88aaed5b4b0fb126bb4042aabfb1acaebbaa86ca
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 3b27c785a6c27e61098291c9a1bcd4115ce874c6
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilize o Assistente de configuração para instalar sites do System Center Configuration Manager
 

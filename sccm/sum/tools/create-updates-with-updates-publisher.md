@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 46a1a8ac-126c-4ee6-ae09-32dfbdb83368
 caps.latest.revision: "1"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 37e2d83dd463f4ffe71fa09ab68b94be980d434b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 2ddb48d4397c2278da7a01b0c64f807efd4bc2e5
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Criar as atualizações de software e atualizar os pacotes com o Updates Publisher
 

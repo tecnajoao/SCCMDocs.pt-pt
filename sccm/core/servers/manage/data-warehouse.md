@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
 caps.latest.revision: 
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: bb4ad248b82de24a13308c45d060445b362517f3
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 8af1a4dffb4a4d37a752ac8b93f9e9baf675eddd
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>O ponto de serviço do armazém de dados para o System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 5fccbbeb-0faa-4943-83c2-e67db62d392d
 caps.latest.revision: "9"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5998d853723f50302d0572a54b073292035ed382
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 02dafca90232e23717454ccaabc8f021087f3d6c
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="site-components-for-system-center-configuration-manager"></a>Componentes do site para o System Center Configuration Manager
 

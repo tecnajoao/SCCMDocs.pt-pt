@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7eb0803-3f8f-4ab6-825a-99ac11f5ba7d
 caps.latest.revision: "40"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: d2150105f93a616e18a72fa42f91f74b70db7cea
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 0f6a1e0cfad6efea314225a39edcf62c8784a662
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="what39s-new-in-version-1610-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1610 do System Center Configuration Manager
 

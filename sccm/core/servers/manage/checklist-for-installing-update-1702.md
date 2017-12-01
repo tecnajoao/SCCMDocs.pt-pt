@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b587779e-1bd3-4ee3-8146-8e31f53499bd
 caps.latest.revision: "7"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 83a249f860d8523bd211d65b32fe85724df95fca
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: bb09c9a52a548ac70acd878c9bec30afd711338d
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="checklist-for-installing-update-1702-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1702 para o System Center Configuration Manager
 

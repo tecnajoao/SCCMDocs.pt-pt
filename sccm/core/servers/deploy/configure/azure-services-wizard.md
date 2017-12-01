@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a26a653e-17aa-43eb-ab36-0e36c7d29f49
 caps.latest.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 833bc6588e079e124209d9c7adb91062e6afe6c3
-ms.sourcegitcommit: d025a2cbd1ed82f42f67255c97b913f2163b3baf
+ms.openlocfilehash: e45d489a73d37f1bb174390ef48f939c5e081db0
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-azure-services-for-use-with-configuration-manager"></a>Configurar os serviços do Azure para utilização com o Configuration Manager
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f3058277-c597-4dac-86d1-41b6f7e62b36
 caps.latest.revision: "9"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2ffb5c913a6863de3dbf1415961bb6987033b6ea
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c5ac5029158f5d0197331ce2fb183269b4188936
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-the-hotfix-installer-to-install-updates-for-system-center-configuration-manager"></a>Utilize o Instalador de Correções para instalar atualizações no System Center Configuration Manager
 

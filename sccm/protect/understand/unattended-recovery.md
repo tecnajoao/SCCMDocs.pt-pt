@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 828c31d1-3d70-4412-b1a8-c92e7e504d39
 caps.latest.revision: 
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 45db0a824f325d2391f784cbf9bb8e3a35166579
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: b1724bd8ba4e1b1518452d67317ea9dca7320d50
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="unattended-site-recovery-for-configuration-manager"></a>Recuperação automática de site do Configuration Manager   
 

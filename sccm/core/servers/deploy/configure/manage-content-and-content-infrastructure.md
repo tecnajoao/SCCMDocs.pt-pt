@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: ceff72f5-f19d-43a0-a8c0-72f1c09b9bf5
 caps.latest.revision: "17"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 4173442c0813d6aa2cec0bc4be013a039e55380a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 04cef3ea172c12f08ff369d4581f14a39301dcba
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-content-and-content-infrastructure-for-system-center-configuration-manager"></a>Gerir conteúdo e a infraestrutura de conteúdo do System Center Configuration Manager
 

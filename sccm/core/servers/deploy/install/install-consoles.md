@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d39c201f-d364-4e7b-bde4-faa76d747f33
 caps.latest.revision: "3"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: f367f94f809863403ed562a65cf44f21de698005
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: cb4c78b5f648c7d1429575952565ef4b94cc5df0
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-the-system-center-configuration-manager-console"></a>Instalar a consola do System Center Configuration Manager
 

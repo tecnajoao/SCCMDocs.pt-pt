@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e7cdb1a9-140a-436e-ac71-72d083110223
 caps.latest.revision: "3"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: dfef96a5512ca79252360da4b5eee39c04d90046
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 0117de7d24c263ad94bb8b188a3d3f1f70f6372f
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utilize uma linha de comandos para instalar sites do System Center Configuration Manager
 

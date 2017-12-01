@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0da167f1-52cf-4dfd-8f73-833ca3eb8478
 caps.latest.revision: "3"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 21b35888b6d3790736f204faca4458227fe0b6d3
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: b9815db2a37cb43eca0b3757007ec34bdd2e43b2
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Opções da linha de comandos para a configuração no System Center Configuration Manager
 

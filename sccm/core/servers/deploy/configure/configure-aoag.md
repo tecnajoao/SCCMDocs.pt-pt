@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 7e4ec207-bb49-401f-af1b-dd705ecb465d
 caps.latest.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 12ba7c1cbfdb0c3ab9885e839b05a48862ea0e5d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 4d1efe2fcfa58c8fe7739ac67e6c33d298bcbc1c
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-sql-server-always-on-availability-groups-for-configuration-manager"></a>Configurar grupos de disponibilidade SQL Server Always On para o Configuration Manager
 

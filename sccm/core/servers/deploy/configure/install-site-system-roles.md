@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61f5c774-7667-44ae-b8e4-a4951318b183
 caps.latest.revision: "4"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: cfb43015204a6651d89c75470754aa7a5791eb72
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: a5be3c0283b03f64a2722e586efea5e4af1835eb
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-site-system-roles-for-system-center-configuration-manager"></a>Instalar funções do sistema de sites para o System Center Configuration Manager
 

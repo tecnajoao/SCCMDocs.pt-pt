@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7832d83-9ae2-4530-8a77-790e0845e12f
 caps.latest.revision: "22"
-author: Brenduns
-ms.author: brenduns
+author: mstewart
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 7dae5ada647146713b884b09d0eda1c7ec6531ef
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 55d7f4c45ac8cf95da3c46616d436e227ff87369
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="back-up-a-configuration-manager-site"></a>Efetuar uma Cópia de Segurança de um Site do Gestor de Configuração
 
