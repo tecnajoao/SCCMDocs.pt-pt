@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 72d7b174-f015-498f-a0a7-2161b9929198
 caps.latest.revision: "7"
 caps.handback.revision: "0"
-author: Brenduns
-ms.author: brenduns
+author: aaroncz
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: ed1013226bbcd1094214adc2b327dfe8ed5a4ad5
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 16416313b1ea171f695d2b4908331f78f584d28f
+ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Contas utilizadas no System Center Configuration Manager
 
@@ -72,7 +72,7 @@ A tabela seguinte lista os detalhes adicionais para este grupo:
 |------------|----------------------|  
 |Tipo e localização|Este grupo é um grupo de segurança local criado em cada computador que tem um fornecedor de SMS.<br /><br /> Quando desinstala um site, este grupo não é removido automaticamente. Tem de ser manualmente eliminado.|  
 |Associação|O Configuration Manager gere automaticamente a associação ao grupo. Por predefinição, cada utilizador administrativo numa hierarquia e a conta do computador do servidor de site são membros do grupo Admins de SMS em cada computador do Fornecedor de SMS num site.|  
-|Permissões|Permissões e direitos de Admins de SMS estão definidas no snap-in MMC de controlo WMI. Por predefinição, o grupo de Admins de SMS recebe **ativar conta** e **ativar remoto** no espaço de nomes root\sms. Os utilizadores autenticados tem **executar métodos**, **escrita do fornecedor**, e **ativar conta**.<br /><br /> Os utilizadores administrativos que irão utilizar uma consola do Configuration Manager remoto requerem permissões de ativação remota DCOM no computador do servidor do site e o computador do fornecedor de SMS. É um procedimento recomendado conceder estes direitos a Admins de SMS para simplificar a administração em vez de conceder estes direitos diretamente a utilizadores ou grupos. Para obter mais informações, veja a secção [Configurar permissões de DCOM para consolas remotas do Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) do tópico [Modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
+|Permissões|Permissões e direitos de Admins de SMS estão definidas no snap-in MMC de controlo WMI. Por predefinição, o grupo de Admins de SMS recebe **ativar conta** e **ativar remoto** no espaço de nomes root\sms.. Os utilizadores autenticados tem **executar métodos**, **escrita do fornecedor**, e **ativar conta**.<br /><br /> Os utilizadores administrativos que irão utilizar uma consola do Configuration Manager remoto requerem permissões de ativação remota DCOM no computador do servidor do site e o computador do fornecedor de SMS. É um procedimento recomendado conceder estes direitos a Admins de SMS para simplificar a administração em vez de conceder estes direitos diretamente a utilizadores ou grupos. Para obter mais informações, veja a secção [Configurar permissões de DCOM para consolas remotas do Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) do tópico [Modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
 
 ### <a name="smssitesystemtositeserverconnectionmpltsitecode"></a>SMS_SiteSystemToSiteServerConnection_MP_&lt;sitecode\>  
  Pontos de gestão do Configuration Manager que são remotos, o servidor do site utilizam este grupo para ligar à base de dados do site. Este grupo fornece acesso de ponto de gestão às pastas a receber no servidor do site e na base de dados do site.  
