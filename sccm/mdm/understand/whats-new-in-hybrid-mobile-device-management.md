@@ -14,8 +14,8 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: f6ca5a7eb9befd82af3a54c6db868e15291b1621
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 189e737eca5dee5bca3f0748cd1b4d944f868565
+ms.sourcegitcommit: 4af1da9c18f5bdff31426cf1d58c7d949372292d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2017
@@ -74,6 +74,9 @@ Foi adicionado **o tipo de propriedade** para o ecrã de detalhes do dispositivo
 
 
 ### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
+
+- **As ações de não conformidade**<!--1321366 -->    
+  Agora, pode configurar uma sequência ordenada de tempo das ações que são aplicadas aos dispositivos que deixarem de estar em conformidade. Por exemplo, pode notificar os utilizadores de dispositivos não conformes por correio eletrónico ou marcar os dispositivos não conformes. Para obter mais informações, consulte [configurar as ações de não conformidade](/sccm/mdm/deploy-use/actions-for-noncompliance).
 
 - **Novas definições de política de gestão de aplicações móveis**<!-- 1324760 -->    
   Foram adicionadas as seguintes definições para as definições de política de gestão de aplicações móveis:

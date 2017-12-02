@@ -13,8 +13,8 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mstewart
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5812133d183c76ab479d547e0f848c2287e5e950
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 71510d7f28941bbac56888afcc2332ed1ebec3b8
+ms.sourcegitcommit: 4af1da9c18f5bdff31426cf1d58c7d949372292d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2017
@@ -66,7 +66,7 @@ A partir desta versão, pode utilizar a consola do Configuration Manager para id
 Consulte [como gerir clientes no System Center Configuration Manager](/sccm/core/clients/manage/manage-clients#restart-clients)
 
 
-<!--  ## Compliance settings  -->
+<!-- ## Compliance settings -->
 
 
 ## <a name="application-management"></a>Gestão de Aplicações
@@ -130,6 +130,10 @@ Para obter mais informações, consulte [como configurar as definições de clie
 
 
 ## <a name="mobile-device-management"></a>Gestão de dispositivos móveis
+
+### <a name="actions-for-non-compliance"></a>Ações de não conformidade 
+<!--1321366 -->    
+Agora, pode configurar uma sequência ordenada de tempo das ações que são aplicadas aos dispositivos que deixarem de estar em conformidade. Por exemplo, pode notificar os utilizadores de dispositivos não conformes por correio eletrónico ou marcar os dispositivos não conformes. Para obter mais informações, consulte [configurar as ações de não conformidade](/sccm/mdm/deploy-use/actions-for-noncompliance).
 
 ### <a name="windows-10-arm64-device-support"></a>Suporte de dispositivos Windows 10 ARM64
 <!-- 1355000 -->
