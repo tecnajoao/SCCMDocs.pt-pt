@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b411cb0-4fd1-41f2-a2f6-33738a5bde96
 caps.latest.revision: "7"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2ea2e7c5fa2ab400bfd3e95e9706f922744116b0
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 8099e90fcd16b677b260d1d693c69d0cbe698295
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="checklist-for-installing-update-1610-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1610 para o System Center Configuration Manager
 

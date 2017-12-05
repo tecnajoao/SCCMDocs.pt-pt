@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abb696f3-a816-4f12-a9f1-0503a81e1976
 caps.latest.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3187b8c7e9b95608092b11807974698f748360eb
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 455116fc153e099af298657da9e8038f7202b39b
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="test-the-database-upgrade-when-installing-an-update"></a>Testar a atualização de base de dados quando instalar uma atualização
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 25fa89d6-7e47-45a6-8f4e-70b77560fba6
 caps.latest.revision: "0"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 80a778d361800d263b286914ba8cc08379579ada
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: cf854b1ea571991c1f070d6b3896db7861fe020f
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="update-reset-tool"></a>Ferramenta de reposição de atualização
 

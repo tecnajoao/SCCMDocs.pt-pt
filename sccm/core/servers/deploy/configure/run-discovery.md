@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: 30844519-ce14-456f-bfb8-4318b578e9f6
 caps.latest.revision: "20"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: e2141619edba78e7b2b78bf5085dae0cf0212c18
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b380df38c4e08a04691a0bca9d46580fedf7b78a
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="run-discovery-for-system-center-configuration-manager"></a>Executar a deteção no System Center Configuration Manager
 

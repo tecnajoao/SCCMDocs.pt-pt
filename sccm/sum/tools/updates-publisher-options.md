@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4e620080-5400-45bb-87c2-fbdbc8aeacac
 caps.latest.revision: "1"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 3a54022ad53107a0dcc4fb9d040ab586f46e6451
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 0080e8067c0689d4a681a135b16d62b4af4f0fb8
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="configure-options-for-updates-publisher"></a>Configurar opções para o Updates Publisher
 

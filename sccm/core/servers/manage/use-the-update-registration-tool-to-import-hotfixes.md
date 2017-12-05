@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cc13635-85d6-4b07-a3ec-c42188bc5c74
 caps.latest.revision: "8"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2faa7f0d5aca197f5f2462044776952cd1eb0ef5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 2e62d3d1df75bd7edd7ef12e7cefd7613cf794bd
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-the-update-registration-tool-to-import-hotfixes-to-system-center-configuration-manager"></a>Utilizar a Ferramenta de Registo de Atualização para importar correções para o System Center Configuration Manager
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: cead6825-6113-4ba5-a381-ac3598dfee86
 caps.latest.revision: "7"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 641dccd321bf9e48f1229e7023b8958896d0a19e
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 02bd5bfe0fc4ccc976d95b944bd51e9f0a276db0
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="hierarchy-maintenance-tool-preinstexe-for-system-center-configuration-manager"></a>Ferramenta Manutenção da Hierarquia (Preinst.exe) para o System Center Configuration Manager
 

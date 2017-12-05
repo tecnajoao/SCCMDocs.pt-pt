@@ -11,14 +11,14 @@ ms.topic: article
 ms.assetid: 32609a30-465c-4406-b227-aca5c276e015
 caps.latest.revision: "4"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: fcef8692018fd9dde47daaeb2f801cbf3d12e0a8
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 4b6f50fb8fc2b816e4dc94132d505e2486727a59
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="start-using-system-center-configuration-manager"></a>Começar a utilizar o System Center Configuration Manager
 

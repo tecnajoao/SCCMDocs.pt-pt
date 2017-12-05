@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bda87fc5-2e4c-4992-98a4-01770365038c
 caps.latest.revision: "3"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 29e75960297b5a16974931fef1deb1b316205523
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: dec591ac845b6c54421197099e56d7a4a86783ae
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="setup-downloader-for-system-center-configuration-manager"></a>Dispositivo de transferência da configuração do System Center Configuration Manager
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b57acf0b-05b7-46af-ad4c-f3e707bd3861
 caps.latest.revision: "4"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 18090d4602b410e05686daa0237410c8c931ee17
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 4c29d2499dd5fe9665492219cbdc8300bab7568a
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="whats-new-in-system-center-configuration-manager-incremental-versions"></a>Novidades nas versões incrementais de System Center Configuration Manager
 

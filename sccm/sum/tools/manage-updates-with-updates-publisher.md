@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cd64994c-b426-4465-96cd-54b0edc2778d
 caps.latest.revision: "1"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e6a74030d937c41cfaa328a386daea8760bb01e5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b6e2f2a117613087cd3ef561391cdcf665f0db6a
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-software-updates-in-updates-publisher"></a>Gerir atualizações de software Updates Publisher
 

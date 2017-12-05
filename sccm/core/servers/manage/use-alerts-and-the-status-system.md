@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7341cc6e-9e08-41e4-bcc6-6c1ff12e85ca
 caps.latest.revision: "10"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 21ef1ddce1167acc253f52daba5cdd9f9e8e0a12
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 37ad3eb2d7e6796dcd88b2b01b8b0cea97bb41fe
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utilizar alertas e o sistema de estado para o System Center Configuration Manager
 

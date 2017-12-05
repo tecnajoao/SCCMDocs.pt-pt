@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: b90de2d9-494e-43ad-b269-c8ed589f37d3
 caps.latest.revision: "12"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5b6e9f833804a9a7249a42b3124f44436ba9ede3
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 179ba49bd1ccb4372f6586d2a1bf89462f173304
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="add-site-system-roles-for-system-center-configuration-manager"></a>Adicionar funções do sistema de sites para o System Center Configuration Manager
 

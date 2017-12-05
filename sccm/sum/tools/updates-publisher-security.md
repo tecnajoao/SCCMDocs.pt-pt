@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a7f91e63-4750-402e-9970-dd14be7f76a3
 caps.latest.revision: "1"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 26ed31aa3bc74e262d28712a419f7795e8117a28
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 9d8812da3588b60f388288cef6f9a093731d873f
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-certificates-and-security-for-updates-publisher"></a>Gerir certificados e segurança para o Updates Publisher
 

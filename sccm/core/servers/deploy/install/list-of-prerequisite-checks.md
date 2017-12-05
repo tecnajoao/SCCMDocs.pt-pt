@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6a279624-ffc9-41aa-8132-df1809708dd5
 caps.latest.revision: "12"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 97d7de79a01a5e534996654833d14946dbf7e189
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 9ae5abeb5fe175f2e01a05cbda1a21232b54dd70
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="list-of-prerequisite-checks-for-system-center-configuration-manager"></a>Lista de verificações de pré-requisitos para o System Center Configuration Manager
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
 caps.latest.revision: "18"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: d70b785924ba01c0a79d185c5f01c8cd15de38ed
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 145fe172665310caa48d8f152ad46d72df4168dd
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Acerca do ponto de ligação de serviço no System Center Configuration Manager
 

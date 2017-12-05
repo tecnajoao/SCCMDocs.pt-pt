@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 21a80050-6452-4b7d-8424-99bddf9fa1f4
 caps.latest.revision: "3"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 6e8afa5048bac1270ca5b1737345dd8baabe1be4
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: a9d2fddd1210fc9b83026e27aafefd50fc5aac4d
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-consoles"></a>Sistemas operativos suportados por consolas do System Center Configuration Manager
 

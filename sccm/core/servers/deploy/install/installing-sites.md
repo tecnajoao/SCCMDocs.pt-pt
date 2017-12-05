@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: d0e4ddc3-d9c4-4f5c-8b1f-af098e54f5c8
 caps.latest.revision: "31"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 945f49c356ae16a914ca011e6ea96def212720e5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 9812b529309e374db14fe92170016c1bbad6c46d
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Recursos para a instalação de sites do System Center Configuration Manager
 

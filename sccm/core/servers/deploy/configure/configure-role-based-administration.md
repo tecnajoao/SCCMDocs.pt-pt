@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.assetid: 57413dd3-b2f8-4a5f-b27f-8464d357caff
 caps.latest.revision: "7"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 47a032ff548fd8c9af1a46ee104ffd6742df813f
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: e893cc051839a631b4d38f8dacd132ffb1c521c6
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Configurar a administração baseada em funções para o System Center Configuration Manager   
 

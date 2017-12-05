@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: 2aca914f-641e-4bc8-98d4-bbf0a2a5276f
 caps.latest.revision: "10"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 26c77b484629f6e02ca5b54a1eea8488f90a407b
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: a55322868d45cf1d2b3004e21d641ca5299aa957
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Preparar Servidores do Windows para suportar o System Center Configuration Manager
 

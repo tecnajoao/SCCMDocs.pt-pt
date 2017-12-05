@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 9123a87a-0b6f-43c7-b5c2-fac5d09686b1
 caps.latest.revision: "6"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5c60af99af03a20e6ee25908a1bc230c6a50e343
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: fe42d5ca64b5a969e1a6def4266466875c4a3183
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="proxy-server-support-in-system-center-configuration-manager"></a>Suporte para o servidor proxy no System Center Configuration Manager
 

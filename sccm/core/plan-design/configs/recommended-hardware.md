@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 5267f0af-34d3-47a0-9ab8-986c41276e6c
 caps.latest.revision: "26"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: cadca3dd3d7e98830df755cc3e7509fee889b7cb
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 5def3fdef8e9182cb624640fa54ff2eae224e6a1
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="recommended-hardware-for-system-center-configuration-manager"></a>Hardware recomendado para o System Center Configuration Manager
 

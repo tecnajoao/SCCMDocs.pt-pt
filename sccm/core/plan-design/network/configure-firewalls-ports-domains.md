@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: d6993bba-f6bd-4639-adbf-efc1c638b2f3
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5a4803c68cc461f1cc0d1ca430c803f45e7880f7
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 999fe84933449d5624c8dbad1014291f8e5c2f7f
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="set-up-firewalls-ports-and-domains-for-system-center-configuration-manager"></a>Configurar firewalls, portas e domínios para o System Center Configuration Manager
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 82e8a693-9adf-4ca3-8484-7e101c34c7c1
 caps.latest.revision: "5"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 108f3e7ae61bb720c765675530258db6c1628792
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 5b1c0401c0b1ce2aa8765ccfb8898b90cf7a5c93
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Monitorizar o conteúdo que distribuiu com o System Center Configuration Manager
 

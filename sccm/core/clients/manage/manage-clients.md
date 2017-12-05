@@ -15,11 +15,11 @@ caps.latest.revision: "17"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: ae1bc53cf15b2a1746656667f7bf546742432c11
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 8afb217524d5c2236fb07b13cb42ca50ae200183
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Como gerir clientes no System Center Configuration Manager
 
@@ -269,12 +269,7 @@ Para obter mais informações sobre como utilizar estas propriedades de linha de
 
 2.  No **Cache** separador definir as propriedades de espaço e a localização. A localização predefinida é *%windir%*\ccmcache.  
 
-5.  Para eliminar os ficheiros na pasta de cache, escolha **eliminar ficheiros**.  
-
-    > [!NOTE]
-    >
-    > A pasta de cache é uma pasta de Windows regular, para que possa automatizar a eliminação do conteúdo da pasta através de um script, um utilitário ou com o cmdlet do PowerShell `Remove-Item`.
-
+3.  Para eliminar os ficheiros na pasta de cache, escolha **eliminar ficheiros**.  
 
 ### <a name="to-configure-client-cache-size-in-client-settings"></a>Para configurar o tamanho da cache do cliente nas Definições do Cliente
 

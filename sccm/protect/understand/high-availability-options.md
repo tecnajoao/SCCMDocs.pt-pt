@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1a38421d-24c1-4fef-bf6c-42fce53109ac
 caps.latest.revision: "4"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 10d4cef1d753b8828be91a0dbfcba89025cd583f
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: bfc40f13f166a4f4aeda4a363ec633a54206dce4
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="high-availability-options-for-system-center-configuration-manager"></a>Opções de elevada disponibilidade para o System Center Configuration Manager
 

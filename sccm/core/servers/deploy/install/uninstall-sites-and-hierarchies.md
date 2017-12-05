@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: d466edd2-97f0-44c1-a73e-d71abbdbf4a8
 caps.latest.revision: "6"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 67b37bd68d514d06fd4e5b454c3509110ef13d97
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 78d745ed9ed7e8f11f6fc165701dcf4a7004573c
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Desinstalar sites e hierarquias no System Center Configuration Manager
 

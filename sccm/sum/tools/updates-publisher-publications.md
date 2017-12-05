@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e6c1df1d-7728-4980-9199-bc32cde5439e
 caps.latest.revision: "1"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: b9a0ee1e8d2efb96b082cdcdbaf1a4436128fb9f
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: e616738fa1ee0f67ee0515cc6590d9824527e6da
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-publications-in-updates-publisher"></a>Gerir as publicações no publicador de atualizações
 

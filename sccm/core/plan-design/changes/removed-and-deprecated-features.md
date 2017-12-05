@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 11d175a4ac42d62a440c6b374463c778b58b0973
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 95df27d4bf21a2cb1b6d613415a3eff4c3a73552
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Funcionalidades removidas e preteridas do System Center Configuration Manager
 
@@ -55,7 +55,7 @@ Para obter mais informações, consulte:
 |Windows Server 2008|10 de Julho de 2015|Versão 1511 </br></br>Suporta como um sistema de sites é removido. (Ver nota 1).|  
 |Windows Server 2008 R2|10 de Julho de 2015| Versão 1702 (ver nota 2)|  
 
--   Nota 1: Este sistema operativo não é suportado para servidores de site ou funções de sistema de sites com a exceção do ponto de distribuição e ponto de distribuição de solicitação. Pode continuar a utilizar este sistema operativo como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte expandido deste sistema operativo expira. Para obter mais informações, consulte [instalação do System Center Configuration Manager CB e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
+-   Nota 1: Este sistema operativo não é suportado para servidores de site ou funções de sistema de sites, exceto para o ponto de distribuição e ponto de distribuição de solicitação. Pode continuar a utilizar este sistema operativo como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte expandido deste sistema operativo expira. Para obter mais informações, consulte [instalação do System Center Configuration Manager CB e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
 
 -   Nota 2:    A partir da versão 1702, este sistema operativo não é suportado para servidores de site ou a maioria das funções do sistema de sites, no entanto, as versões anteriores 1702 continuam a suportar a sua utilização. Este sistema operativo ser suportado para a função de sistema de sites de ponto de distribuição (incluindo pontos de distribuição de extração e para PXE e multicast), até que a desaprovação deste suporte é anunciada ou expandido deste sistema operativo período de suporte expira. A partir da versão 1602, pode atualizar no local o sistema operativo de um servidor de site do Windows Server 2008 R2 para o Windows Server 2012 R2.  
 
@@ -89,7 +89,7 @@ Para obter mais informações, consulte:
 
 Se precisar de atualizar a sua versão do SQL Server, recomendamos os seguintes métodos, de fácil mais complexas.
 1. [Atualizar o SQL Server no local](/sccm/core/servers/manage/upgrade-on-premises-infrastructure#a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server) (recomendado).
-2. Instalar uma nova versão do SQL Server num novo computador e, em seguida, [utilizar a opção de mover a base de dados](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) de configuração do Configuration Manager para apontar o seu servidor do site para o novo SQL Server.
+2. Instale uma nova versão do SQL Server num novo computador. Em seguida, [utilizar a opção de mover a base de dados](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) de configuração do Configuration Manager para apontar o seu servidor do site para o novo SQL Server.
 3. Utilize [cópia de segurança e recuperação](/sccm/protect/understand/backup-and-recovery).
 
 
@@ -104,7 +104,7 @@ Se precisar de atualizar a sua versão do SQL Server, recomendamos os seguintes 
 |Centro de software tem um aspeto novo e moderno. Nos próximos meses, a versão anterior do Centro de Software já não estará disponível.<br><br>Pode configurar clientes para utilizar o novo Centro de Software, ativando o definição de cliente **agente do computador** > **utilizar o novo Centro de Software**.<br><br>Para obter mais informações acerca do Centro de Software, consulte [planear e configurar a gestão de aplicações no System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 de Dezembro de 2016|Suporte para a versão anterior do Centro de Software extremidades com a primeira atualização lançada após 1 de Janeiro de 2018.|
 |Com a chegada da nova experiência de centro de Software na versão 1511, as aplicações que eram apenas no catálogo de aplicações (aplicações disponíveis ao utilizador) agora apresentadas no Centro de Software. </br></br>Com esta funcionalidade principal do catálogo de aplicações agora incluída no Centro de Software, a experiência de catálogo de aplicações baseadas na web deixará de estar disponível nos próximos meses.|11 de Agosto de 2017| Suporte para as extremidades de experiência do utilizador do web site do catálogo de aplicações com a primeira atualização lançada após 1 de Junho de 2018|
 |Gestão de discos rígidos virtuais (VHDs) com o Configuration Manager. </br></br>Isto inclui a remoção das opções para criar um novo VHD ou gerir um VHD através de uma sequência de tarefas e a remoção do nó de discos rígidos virtuais a partir da consola do Configuration Manager. </br></br>Quando este suporte é removido, VHDs existentes não serão eliminados, mas deixará de estar acessíveis a partir da consola do Configuration Manager.  |6 de Janeiro de 2017 |Suporte para os VHDs extremidades com a primeira atualização lançada após 1 de Junho de 2017.|
-|Ferramenta de avaliação de atualização do Configuration Manager do System Center. </br></br>A ferramenta de avaliação de atualização depende do System Center Configuration Manager e do Application Compatibility Toolkit (ACT) 6. x. A versão final do ACT foi incluída no Windows 10 v1511 ADK. Como vai haver não existem atualizações adicionais para ACT, suporte para a ferramenta de avaliação da atualização serão descontinuadas. </br></br>A ferramenta de avaliação da atualização foi substituída pelo [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) funcionalidade. Aviso de preterição foi adicionado para o [página de transferência de UAT](https://www.microsoft.com/download/details.aspx?id=37145) no 9/12/2016. |9/12/2016  | 11 de Julho de 2017 |
+|Ferramenta de avaliação de atualização do Configuration Manager do System Center. </br></br>A ferramenta de avaliação de atualização depende do System Center Configuration Manager e do Application Compatibility Toolkit (ACT) 6. x. A versão final do ACT foi incluída no Windows 10 v1511 ADK. Como vai haver não existem atualizações adicionais para ACT, suporte para a ferramenta de avaliação da atualização serão descontinuadas. </br></br>A ferramenta de avaliação da atualização foi substituída pelo [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) funcionalidade. Aviso de preterição foi adicionado para o [página de transferência de UAT](https://www.microsoft.com/download/details.aspx?id=37145) no dia 12 de Setembro de 2016. | 12 de Setembro de 2016  | 11 de Julho de 2017 |
 
 
 <br></br>

@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.assetid: 681f0893-e83b-476e-9ec0-a5dc7c9deeb6
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: mstewart
+author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 6249a46714396c2dee0c061e8c2c26480fee8569
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 7d91bc91ec1992ecf06244adf48b76332fc25a1b
+ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Sites para servidores do sistema de sites no System Center Configuration Manager
 
