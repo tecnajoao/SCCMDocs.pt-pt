@@ -15,11 +15,11 @@ caps.latest.revision: "9"
 author: aaroncz
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: ea8eead4706472a02f216b432ea9f2e6bdf23f66
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: f0feba771dcc75d84cd1233fea562472ff6c1158
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Utilizar um ponto de distribuição de solicitação com o System Center Configuration Manager
 
@@ -105,8 +105,10 @@ Quando um ponto de distribuição de extração transfere conteúdo de um ponto 
 -   Esta estrutura é instalada pelo **Pulldp.msi** quando configurar o ponto de distribuição para um ponto de distribuição de solicitação. A estrutura não necessita do cliente do Configuration Manager.  
 
 -   Após a instalação do ponto de distribuição de solicitação, o serviço CCMExec do computador do ponto de distribuição tem de estar operacional para que o ponto de distribuição de solicitação funcione.  
+<!--sms.503672 -Clarified BITS use-->
+-   Quando o ponto de distribuição de solicitação transfere conteúdos, transfere a utilizar o **Background Intelligent Transfer Service** (BITS) incorporado no sistema operativo Windows. A funcionalidade de extensão de servidor IIS de BITS opcional para ser instalada não necessita de um ponto de distribuição de solicitação.
 
--   Quando o ponto de distribuição de extração transferir conteúdo, transferirá o conteúdo utilizando o **Serviço de Transferência Inteligente em Segundo Plano** (BITS) e regista as respetivas operações nos ficheiros **datatransferservice.log** e **pulldp.log** no computador do ponto de distribuição.  
+-  O ponto de distribuição de solicitação regista a conclusão da operação no **datatransferservice.log** e **pulldp.log** no computador do ponto de distribuição.
 
 ## <a name="see-also"></a>Consulte também  
  [Conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   

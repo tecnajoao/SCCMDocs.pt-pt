@@ -10,15 +10,15 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: c0a577c6076630f0615f953091f35c4f3c2d0a7d
-ms.sourcegitcommit: 536f7295e9ea361f1f9ead6c25f3685deb041ad8
+ms.openlocfilehash: 4b582d5fbd9e2e916c439b149e117f1a65da98bf
+ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
 <!-- 1350871 -->
-Muitos clientes pretendem gerir dispositivos Windows 10 da mesma forma que o se gerem dispositivos móveis utilizando um custo simplificado, inferior, uma solução baseada na nuvem. No entanto, efetuar a transição do gestão tradicional para gestão moderna pode ser um desafio. No Windows 10, versão 1709 (também conhecido como a atualização de criadores de reversão) e posterior, pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). A partir do Configuration Manager versão 1710, gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo os dispositivos Windows 10 através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. 
+Muitos clientes pretendem gerir dispositivos Windows 10 da mesma forma que o se gerem dispositivos móveis utilizando um custo simplificado, inferior, uma solução baseada na nuvem. No entanto, efetuar a transição do gestão tradicional para gestão moderna pode ser um desafio. Nas atualizações anteriores do Windows 10, já pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). A partir do Configuration Manager versão 1710, gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo Windows 10, dispositivos de 1709 (também conhecido como a atualização de criadores de reversão) versão através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. 
 
 Existem dois caminhos principais para aceder à gestão conjunta.  É um Gestor de configuração de gestão conjunta aprovisionada em dispositivos Windows 10 geridos pelo Configuration Manager e o Azure AD híbrido associados ser inscrito no Intune. O outro está Intune aprovisionado para dispositivos que estão inscritos no Intune e, em seguida, instalado com o alcance de cliente do Configuration Manager num Estado de gestão conjunta.  
 
@@ -84,4 +84,4 @@ Quando um dispositivo Windows 10 está ativado para a gestão conjunta, tem as s
 - [Início de raiz](https://docs.microsoft.com/intune/device-fresh-start)
 
 ## <a name="next-steps"></a>Passos seguintes
-[Preparar os dispositivos Windows 10 para gestão conjunta](co-management-prepare.md)
+[Preparar os dispositivos com Windows 10 para a cogestão](co-management-prepare.md)

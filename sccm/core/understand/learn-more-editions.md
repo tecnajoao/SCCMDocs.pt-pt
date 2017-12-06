@@ -3,7 +3,7 @@ title: Saiba mais sobre o licenciamento e ramos
 titleSuffix: Configuration Manager
 description: "Utilize este tópico para saber mais sobre os requisitos de licenciamento para as opções de instalação disponíveis com a versão de Outubro de 2016 do System Center Configuration Manager, que incluem a versão de Current Branch 1606, a longo prazo Servicing Branch (LTSB) e a instalação de avaliação da filial atual."
 ms.custom: na
-ms.date: 10/12/2016
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aaroncz
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 0890b25f4b5b96a8d39b0dcf6f0aa659c07265db
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: bcb25fc6faad3d5f7162ae4ceb200c6de1c1c25b
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenciamento e ramos para o System Center Configuration Manager
 
@@ -42,7 +42,7 @@ Este tópico referencia o contrato de Software Assurance (ou direitos equivalent
 
 |Sucursal|Licensing|Detalhes|
 |----------------|---------------------|--------------------|
-|Ramo atual | Requer um contrato de Software Assurance Active Directory (ou direitos equivalentes) para o Configuration Manager. </br></br> Consulte [Software Assurance e o ramo atual](#software-assurance-and-the-current-Branch) neste tópico.| Suportado para utilização em ambientes de produção que pretende receber atualizações regulares de qualidade e a funcionalidade da Microsoft. </br></br> Este ramo fornece acesso a utilizar todas as funcionalidades e melhoramentos. </br></br> Cada atualização de versão é suportada para um (1) ano após o lançamento, tempo de que tem de atualizar para uma versão mais recente do que é ainda [suporte](/sccm/core/servers/manage/current-branch-versions-supported).|
+|Ramo atual | Requer um contrato de Software Assurance Active Directory (ou direitos equivalentes) para o Configuration Manager. </br></br> Consulte [Software Assurance e o ramo atual](#software-assurance-and-the-current-Branch) neste tópico.| Suportado para utilização em ambientes de produção que pretende receber atualizações regulares de qualidade e a funcionalidade da Microsoft. </br></br> Este ramo fornece acesso a utilizar todas as funcionalidades e melhoramentos. </br></br> Para versões do Configuration Manager lançadas antes 1710, o suporte está durante 12 meses. Cada versão de atualização a partir do lançamento 1710, permanece no suporte para 18 meses a partir da respetiva data de lançamento de disponibilidade geral. Consulte [suporte para versões do System Center Configuration Manager current branch](/sccm/core/servers/manage/current-branch-versions-supported) para obter mais detalhes.|
 |Longa duração manutenção Branch (LTSB)| Requer um contrato de Software Assurance atual com a Microsoft no momento da versão (1 de Outubro de 2016) </br></br> Consulte [Software Assurance e a LTSB](#software-assurance-and-the-ltsb) neste tópico. | Suportado para utilização em ambientes de produção. Se destina a utilizar por clientes que tenham permitem que respetivo Software Assurance (SA) ou direitos equivalentes subscrições para o Configuration Manager expiram após 1 de Outubro de 2016. </br></br> Este ramo está limitado quando comparado com o ramo atual. </br></br> São disponibilizadas atualizações de segurança críticas para o Configuration Manager para este ramo, mas não existem novas funcionalidades ficam disponíveis. |
 |Instalação de avaliação do ramo atual| Não necessita de um contrato de Software Assurance com a Microsoft. | [A instalação de avaliação](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection) são sempre o ramo atual e pode ser utilizado por 180 dias. </br></br> A instalação de avaliação pode ser atualizada para uma instalação completa do ramo atual. Não é possível atualizar uma instalação de avaliação para o ramo de manutenção de longo prazo.|
 

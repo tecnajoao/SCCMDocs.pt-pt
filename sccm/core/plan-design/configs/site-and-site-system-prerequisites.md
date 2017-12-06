@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 34886a38ed4b797b254e3fb83eb66588c7e1d116
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 2c87cf0e63e4b95f5b94b6cda9e2aa40c4389184
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Site e os pré-requisitos do sistema de site para o System Center Configuration Manager
 
@@ -258,8 +258,9 @@ ms.lasthandoff: 12/04/2017
     > [!NOTE]  
     >  O WDS é instalado e configurado automaticamente quando configura um ponto de distribuição para suportar PXE ou multicast num servidor que executa o Windows Server 2012 ou posterior.  
 
+<!--sms.503672 -Clarified BITS use-->
 > [!NOTE]  
-> A função de sistema de sites de ponto de distribuição não necessita de serviço de transferência inteligente em segundo plano (BITS). Quando BITS estiver configurado no computador do ponto de distribuição, BITS no computador do ponto de distribuição não é utilizada para facilitar a transferência do conteúdo por clientes que utilizam o BITS.  
+> Quando o ponto de distribuição transfere conteúdo, transfere a utilizar o **Background Intelligent Transfer Service** (BITS) incorporado no sistema operativo Windows. A função de ponto de distribuição não necessita da funcionalidade de extensão de servidor IIS de BITS opcional para ser instalado porque o cliente não carregar informações para a mesma.  
 
 ###  <a name="bkmk_2012EPPpreq"></a>Ponto de Endpoint Protection  
 **Funcionalidades e funções de servidor do Windows:**  
@@ -626,8 +627,9 @@ Quando utiliza uma configuração personalizada do IIS, pode remover opções qu
     > [!NOTE]  
     >  O WDS é instalado e configurado automaticamente quando configura um ponto de distribuição para suportar PXE ou multicast num servidor que executa o Windows Server 2012 ou posterior.  
 
+<!--sms.503672 -Clarified BITS use-->
 > [!NOTE]  
-> A função de sistema de sites de ponto de distribuição não necessita de serviço de transferência inteligente em segundo plano (BITS). Quando BITS estiver configurado no computador do ponto de distribuição, BITS no computador do ponto de distribuição não é utilizada para facilitar a transferência do conteúdo por clientes que utilizam o BITS.  
+> Quando o ponto de distribuição transfere conteúdo, transfere a utilizar o **Background Intelligent Transfer Service** (BITS) incorporado no sistema operativo Windows. A função de ponto de distribuição não necessita da funcionalidade de extensão de servidor IIS de BITS opcional para ser instalado porque o cliente não carregar informações para a mesma.   
 
 
 ###  <a name="bkmk_2008EPPpreq"></a>Ponto de Endpoint Protection  

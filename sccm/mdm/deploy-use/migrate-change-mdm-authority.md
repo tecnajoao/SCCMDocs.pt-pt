@@ -5,16 +5,16 @@ description: "Saiba como alterar a autoridade de MDM do Configuration Manager (h
 keywords: 
 author: dougeby
 manager: angrobe
-ms.date: 09/14/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: be503ec9-5324-4f7c-bcf5-77204328e99c
-ms.openlocfilehash: 746bf7d7ef7dd411c47840731edfe664510e5a77
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 8884883c6e4e82cf38d83b9b7843002be3742bf1
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="change-your-mdm-authority-to-intune-standalone"></a>Alterar a autoridade de MDM ao Intune autónomo
 
@@ -25,7 +25,7 @@ Pode alterar um inquilino do Microsoft Intune existente configurado na consola d
 > [!Important]    
 > Para alterar a autoridade de MDM sem primeiro utilizadores MDM híbrida migrar para o Intune, consulte [alterar a autoridade de MDM](change-mdm-authority.md).
 
-Os passos neste tópico mudar a autoridade de MDM para o inquilino para o Intune e migrar todos os dispositivos que já não terem sido migrados para o Intune autónomo. Este tópico fornece informações sobre como alterar um inquilino do Microsoft Intune existente configurado na consola do Configuration Manager (híbrido) para o Intune autónomo e pressupõe que já tenha concluído os passos seguintes:
+Este artigo fornece informações sobre como alterar um inquilino do Microsoft Intune existente configurado na consola do Configuration Manager (híbrido) para o Intune autónomo e pressupõe que já tenha concluído os passos seguintes:
 - Utilizar o [ferramenta de importação de dados do Intune](migrate-import-data.md) para importar objetos do Configuration Manager para o Intune. 
 - [Preparar o Intune para a migração de utilizador](migrate-prepare-intune.md) para garantir que os utilizadores e os respetivos dispositivos continuam a ser geridos depois de serem migrados.
 - [Alterar a autoridade de MDM para utilizadores específicos (misturadas autoridade de MDM)](migrate-mixed-authority.md) para começar a gerir dispositivos de utilizador do portal do Azure.
@@ -33,7 +33,7 @@ Os passos neste tópico mudar a autoridade de MDM para o inquilino para o Intune
 
 ## <a name="users-and-devices-that-have-not-been-migrated"></a>Utilizadores e dispositivos que não foram migrados
 Tiver já migrado muitos utilizadores e testar a funcionalidade do Intune para se certificar de que coisas estão a funcionar conforme esperado. Por conseguinte, as políticas, perfis, aplicações, etc. foram configuradas no Intune e tiver testado exaustivamente os objetos sobre os dispositivos. Não deverá haver nenhum as novas configurações necessárias para as políticas ao nível do inquilino após a alteração na autoridade de MDM. No entanto, para os utilizadores e dispositivos que não foram migrados anteriormente, reveja as seguintes informações sobre o que esperar após a alteração na autoridade de MDM:    
-- Será há provavelmente ser hora de transição (até oito horas) antes do dispositivo ser registado e sincroniza com o serviço.
+- É provável que uma transição tempo (até oito horas) antes do dispositivo ser registado e sincroniza com o serviço.
 - Os seus dispositivos tem de ligar com o serviço após a alteração, para que as definições da autoridade de MDM novo (Intune autónomo) substituem as definições existentes no dispositivo.
 - Algumas das definições básicas (por exemplo, perfis) da autoridade de MDM anterior (híbrido) permanecem no dispositivo até sete dias. 
 - Dispositivos que não tem utilizadores associados (normalmente, quando tiver iOS Device Enrollment Program ou efetuar a cenários de inscrição em massa) não são migrados para a autoridade de MDM de novo. Para os dispositivos, tem de chamar o suporte para obter ajuda para movê-los para a autoridade de MDM de novo.
@@ -44,7 +44,7 @@ Reveja as informações seguintes para se preparar para a alteração à autorid
 - Certifique-se de que todos os utilizadores que sejam atualmente geridos pelo híbrida MDM tem uma licença do Intune/EMS atribuída antes da alteração na autoridade de MDM. Ter a licença assegura que o utilizador e os respetivos dispositivos são geridos pelo Intune autónomo após a alteração na autoridade de MDM. Para obter mais informações, consulte [licenças do Intune atribuir às suas contas de utilizador](https://docs.microsoft.com/intune/get-started/start-with-a-paid-subscription-to-microsoft-intune-step-4).
 - Certifique-se de que a conta de utilizador de administrador tem uma licença do Intune/EMS atribuída.
 
-### <a name="change-the-mdm-authority-to-intune"></a>Alterar a autoridade de MDM ao Intune
+## <a name="change-the-mdm-authority-to-intune"></a>Alterar a autoridade de MDM ao Intune
 Utilize o procedimento seguinte para alterar a autoridade de MDM de inquilinos para o Intune.
 
 1.  Na consola do Configuration Manager, vá para **administração** &gt; **descrição geral** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e eliminar a sua subscrição do Intune existente.
@@ -72,10 +72,10 @@ Depois de concluída a alteração na autoridade de MDM, reveja as seguintes inf
 - Se tiver problemas com dispositivos específicos, pode anular a inscrição e inscrever-se novamente os dispositivos para obtê-los à autoridade de novo e geridas como rapidamente quanto possível.
 - Para utilizadores e dispositivos que não foram migrados anteriormente:
     - Certifique-se de que os dispositivos são agora apresentados no **dispositivos** painel como os dispositivos geridos. Estes dispositivos têm de verificação e sincronizar com o serviço após a alteração na autoridade de MDM antes de são apresentadas. 
-    - Quando o serviço Intune Deteta que a autoridade de MDM de um inquilino foi alterado, que envia uma mensagem de notificação para todos os dispositivos inscritos para registar e sincronizar com o serviço (fora da agendadas regularmente dar entrada no). Por conseguinte, depois da autoridade de MDM para o inquilino foi alterada híbrida ao Intune autónomo, todos os dispositivos que estão a alimentação ligados e online irão ligar-se com o serviço, receber a nova autoridade de MDM e de ser gerido pelo Intune autónomo de agora no. Será sem interrupções da gestão e a proteção destes dispositivos.
+    - Quando o serviço Intune Deteta que a autoridade de MDM de um inquilino foi alterado, que envia uma mensagem de notificação para todos os dispositivos inscritos para registar e sincronizar com o serviço (fora da agendadas regularmente dar entrada no). Por conseguinte, depois da autoridade de MDM para o inquilino foi alterada híbrida ao Intune autónomo, todos os dispositivos que estão ligados à corrente no e online estabelecer ligação com o serviço, recebem a nova autoridade de MDM e de ser geridos pelo Intune autónomo de agora no. Não há sem interrupções da gestão e a proteção destes dispositivos.
     - Dispositivos que estão ligados desativado ou offline durante a (ou pouco depois) a alteração na autoridade de MDM ligar e sincronizar com o serviço sob a autoridade de MDM novo quando estão ligados à corrente no e online.  
     - Os utilizadores podem alterar rapidamente para a autoridade de MDM novo iniciando manualmente um verificação-in do dispositivo para o serviço. Os utilizadores podem facilmente Verifique utilizando a aplicação Portal da empresa e iniciar uma verificação de conformidade do dispositivo.
-    - Não há um período provisória quando um dispositivo estiver offline durante a alteração na autoridade de MDM e quando verifica a que o dispositivo para o serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcionais durante este período intermédio, os seguintes perfis permanecem no dispositivo até sete dias (ou até que o dispositivo estabelece ligação com a autoridade de MDM novo e recebe as novas definições de substituição a existentes):
+    - Não há um período provisória quando um dispositivo estiver offline durante a alteração na autoridade de MDM e quando verifica a que o dispositivo para o serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcionais durante este período intermédio, os seguintes perfis permanecem no dispositivo até sete dias (ou até que o dispositivo estabelece ligação com a autoridade de MDM novo e recebe novas definições de substituir a existente aqueles):
         - Perfil de e-mail
         - Perfil da VPN
         - Perfil de certificado

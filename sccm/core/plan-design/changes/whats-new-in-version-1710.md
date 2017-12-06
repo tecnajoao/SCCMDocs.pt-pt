@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 83bd5fc972bc0bef07b206e160463db71837e827
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8fca0aa86798023b92c1c16a893f9becf6ac444e
+ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1710 do System Center Configuration Manager
 
@@ -58,7 +58,7 @@ Agora, pode utilizar [pontos de distribuição baseado na nuvem](/sccm/core/plan
 
 ### <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
 <!-- 1350871 -->
-Iniciando com o Windows 10, versão 1607 (também conhecido como aniversário da atualização), pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). Gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo os dispositivos Windows 10 através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. Para obter mais informações, consulte [conjunta management para Windows 10 dispositivos](/sccm/core/clients/manage/co-management-overview).
+Nas atualizações anteriores do Windows 10, já pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). A partir do Configuration Manager versão 1710, gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo Windows 10, dispositivos de 1709 (também conhecido como a atualização de criadores de reversão) versão através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. Para obter mais informações, consulte [conjunta management para Windows 10 dispositivos](/sccm/core/clients/manage/co-management-overview).
 
 ### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Reinicie os computadores a partir da consola do Configuration Manager<!-- 1356283 -->
 A partir desta versão, pode utilizar a consola do Configuration Manager para identificar dispositivos cliente que requerem o reinício e, em seguida, utilizar uma ação de notificação de cliente reiniciá-las.

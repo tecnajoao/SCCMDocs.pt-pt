@@ -11,11 +11,11 @@ ms.prod: configmgr-hybrid
 ms.service: 
 ms.technology: 
 ms.assetid: 1dd696ce-3e46-4dfa-a76d-592fe0f0320e
-ms.openlocfilehash: a6e430248fdeedd310087c9a32c6d69ca1864a09
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: 30474f6dd0216078ab1ac1f4bd9f5044f1b174f0
+ms.sourcegitcommit: 8c6e9355846ff6a73c534c079e3cdae09cf13c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="migrate-hybrid-mdm-users-and-devices-to-intune-standalone"></a>Migrar os utilizadores MDM híbrida e de dispositivos para o Intune autónomo
 
@@ -35,22 +35,3 @@ Os tópicos seguintes fornecem os passos para migrar os seus utilizadores ao Int
     Configure uma autoridade MDM mista no mesmo inquilino ao selecionar a alguns utilizadores para serem geridos no Intune e todos os outros dispositivos continuam a ser geridos com híbrida MDM (Intune integrado com o Configuration Manager). Pode testar a funcionalidade do Intune está a funcionar conforme esperado nos dispositivos para que um pequeno subconjunto de utilizadores antes de começar a migrar utilizadores adicionais. 
 4.  [Alterar a autoridade de MDM ao Intune autónomo](change-mdm-authority.md)     
     Altere a autoridade de MDM de inquilinos do Configuration Manager para o Intune. Todos os restantes utilizadores e dispositivos são migrados para o Intune autónomo. Irá alterar a autoridade de MDM de inquilinos depois de ter testado exaustivamente funcionalidade do Intune no passo anterior e provavelmente migraram a maioria ou todos os utilizadores já.
-
-<!--
-The following provides a typical workflow for migrating users from hybrid MDM to Intune standalone:
-1.  Admin runs the Microsoft Intune Data Importer Tool, selecting which objects and assignments to import. Selected objects are imported into Intune standalone.
-    1. Some objects cannot be imported because they contain settings the tool does not understand or setting that are not available in Intune standalone.
-    2. Assignments are migrated. However, only if the collection an object was targeted to is based on a single Active Directory (AD) security group and the same group exists in Azure Active Directory (AAD).
-    > [!Note]    
-    > If you want, you can skip this step and create the objects that you want directly in Intune in the Azure portal without running the Intune Data Importer Tool. 
-2.  Admin logs into the Intune on Azure portal
-    1. Creates any additional objects required for their organization that were not imported by the Microsoft Intune Data Importer tool.
-    2. Creates any required AAD groups and makes any additional assignments for each object to AAD groups.
-    3. Installs the NDES connector on an on-premises server if using SCEP or PFX certificate deployment.
-    4. Installs the Exchange connector on an on-premises server if using conditional access. 
-3.  Admin ensures that all existing Intune users in their organization have an Intune license assigned to them using AAD or the Office administrator portal.
-4.  Admin selects some test users to migrate to Intune standalone and removes them from the collection associated with the Intune subscription in Configuration Manager.
-5.  Once removed from the collection, the user and all devices are managed by Intune in the Azure portal. Remaining users and devices continue to be managed by hybrid mobile device management in Configuration Manager. 
-6.  Admin validates that things are working as expected on the device and moves more users to Intune standalone by removing them from the collection associated with the Intune subscription in Configuration Manager.
-7.  Once the admin is comfortable with the functionality in Intune standalone, they can move the rest of their users and devices by switching their MDM authority to Intune standalone. This can be done by removing the Intune subscription from SCCM and choosing to change the MDM authority. Tenant level policies will be automatically migrated to Intune standalone, all objects and assignments in Intune standalone will remain, and devices will not be required to re-enroll.
--->
