@@ -3,7 +3,7 @@ title: "Monitorizar conteúdo"
 titleSuffix: Configuration Manager
 description: "Compreenda como monitorizar conteúdo distribuído ao utilizar a consola do Configuration Manager."
 ms.custom: na
-ms.date: 4/17/2017
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5b1c0401c0b1ce2aa8765ccfb8898b90cf7a5c93
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 62d783735e64b6f3f11dae9af6ac5a7584d689ef
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Monitorizar o conteúdo que distribuiu com o System Center Configuration Manager
 
@@ -155,7 +155,8 @@ Utilize o seguinte procedimento para ver o estado da configuração do ponto de 
 A partir da versão 1610, pode utilizar o **origens de dados de cliente** dashboard para ajudar a compreender a utilização de [Cache ponto a ponto](/sccm/core/plan-design/hierarchy/client-peer-cache) no seu ambiente. O dashboard será iniciada a apresentar dados depois dos clientes transferem conteúdo e o relatório de informações de volta para o site. Esta operação pode demorar até 24 horas.
 
 > [!TIP]  
-> **A Cache do cliente** e **origens de dados de cliente** dashboard são funcionalidades de pré-lançamento introduzidas na versão 1610. Tem de ativar a Cache do cliente para que o dashboard de origens de dados de cliente fica visível na consola. Para ativar a Cache ponto a ponto do cliente, consulte [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). Pode demorar até 24 horas depois de a ativar iniciar a apresentar dados.
+> **A Cache do cliente** e **origens de dados de cliente** dashboard foram primeiro introduzidas na versão 1610 como [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1710, estas funcionalidades são já não são funcionalidades de pré-lançamento. Tem de ativar a Cache do cliente para que o dashboard de origens de dados de cliente fica visível na consola.
+
 
 Na consola, aceda a **monitorização** > **estado da distribuição** > **origens de dados de cliente**. Aqui, pode selecionar um período de tempo para aplicar ao dashboard. Em seguida, no ecrã, pode selecionar o grupo de limites ou o pacote para o qual pretende ver informações. Ao visualizar informações, pode pairar o rato sobre a superfície de para ver mais detalhes sobre o conteúdo diferente ou origens de política.
 

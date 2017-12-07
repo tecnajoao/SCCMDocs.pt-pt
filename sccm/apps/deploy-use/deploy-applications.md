@@ -3,7 +3,7 @@ title: "Implementar aplicações"
 titleSuffix: Configuration Manager
 description: "Criar um tipo de implementação ou simular a implementação de uma aplicação utilizando o System Center Configuration Manager."
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 31c8a2e212de8c112b68d68e108db3463516142f
-ms.sourcegitcommit: b36f8c8b06e4b2e13f8c1500a82af79a071ab4f6
+ms.openlocfilehash: 97d1ac775a3b38f63372f0ab01243dfdfeb4edb5
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Implementar aplicações com o System Center Configuration Manager
 
@@ -171,8 +171,7 @@ Além disso, para uma implementação de alto risco, como uma sequência de tare
 ## <a name="how-to-check-for-running-executable-files-before-installing-an-application"></a>Como verificar para executar ficheiros executáveis antes de instalar uma aplicação
 
 >[!Tip]
->Com a versão 1702, esta é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [no System Center Configuration Manager de funcionalidades de pré-lançamento](https://docs.microsoft.com/sccm/core/servers/manage/pre-release-features).
-> A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
+> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
 
 No **propriedades** , na caixa de diálogo de uma implementação de tipo de **instalar comportamento** separador, pode especificar um ou mais ficheiros executáveis que, se executar, bloqueiam a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado. Para configurar este:
 

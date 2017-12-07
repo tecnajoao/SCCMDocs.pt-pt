@@ -3,7 +3,7 @@ title: "Criar uma sequência de tarefas para atualizar um sistema operativo"
 titleSuffix: Configuration Manager
 description: "Sequências de tarefas no System Center Configuration Manager podem atualizar automaticamente um sistema operativo do Windows 7 ou posterior para Windows 10."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "12"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2787c8a692321a49cf287fc2f09858690360dc25
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 002acbcff01105e612e8c090606a6aa5d45a014b
+ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para atualizar um sistema operativo no System Center Configuration Manager
 
@@ -78,7 +78,7 @@ Utilize sequências de tarefas no System Center Configuration Manager para atual
 ## <a name="configure-pre-cache-content"></a>Configurar pré-armazenar conteúdo em cache
 A partir da versão 1702, para as implementações disponíveis de sequências de tarefas, pode optar por utilizar a funcionalidade de pré-cache para que os clientes transferir apenas o conteúdo relevante antes de um utilizador instala o conteúdo.
 > [!TIP]  
-> Introduzido com a versão 1702, a cache de pré-lançamento é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/pre-release-features).
+> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
 
 Por exemplo, digamos que pretende implementar uma sequência de tarefas de atualização no local do Windows 10, apenas pretende uma única sequência de tarefas para todos os utilizadores e ter várias arquiteturas de e/ou idiomas. Antes de versão 1702, se criar uma implementação disponível e, em seguida, o utilizador clica em **instalar** no Centro de Software, as transferências de conteúdo nessa altura. Esta ação adiciona mais tempo antes da instalação estiver pronta para começar. Além disso, todo o conteúdo referenciado na sequência de tarefas é transferido. Isto inclui o pacote de atualização do sistema operativo para todos os idiomas e arquiteturas. Se cada aproximadamente três GB de tamanho, o pacote de transferência pode ser bastante grande.
 
