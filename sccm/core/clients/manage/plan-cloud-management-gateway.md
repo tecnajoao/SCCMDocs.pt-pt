@@ -163,7 +163,7 @@ O URL interno é o ponto de ligação de CMG utilizado para reencaminhar pedidos
 #### <a name="example"></a>Exemplo:
 Quando ativar o tráfego de CMG num ponto de gestão, o Configuration Manager cria um conjunto de mapeamentos de URL internamente para cada servidor de ponto de gestão, como ccm_system, ccm_incoming e sms_mp.
 O URL externo para o ponto final ccm_system de ponto de gestão aspeto que poderá ter **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como ** <CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID> ** na respetiva lista de pontos de gestão de internet.
+O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>** na respetiva lista de pontos de gestão de internet.
 Todos os URLs externos publicados são carregados para o CMG automaticamente, em seguida, CMG é capaz de fazer a filtragem de URL. Todos os mapeamentos de URL é replicado para o ponto de ligação de CMG para que possa reencaminhar para servidores internos, de acordo com o cliente solicitar o URL externo.
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>As portas que são utilizadas pelo gateway de gestão na nuvem?
