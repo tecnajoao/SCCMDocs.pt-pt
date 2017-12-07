@@ -43,7 +43,7 @@ Para ligações de VPN de terceiros, distribua a aplicação VPN antes de implem
 
        - Se selecionar a plataforma do Windows 8.1, tem a opção para selecionar **importar um item de perfil VPN existente de um ficheiro** para importar informações do perfil VPN que foi exportadas para um ficheiro XML.
 
-    - Utilize os carateres \\/:*?&lt;>&#124; ou o caráter de espaço no nome do perfil VPN. Os seguintes carateres não são suportados pelo perfil de VPN do Windows Server.  
+    - Utilize os carateres \\/:\*?&lt;>&#124; ou o caráter de espaço no nome do perfil VPN. Os seguintes carateres não são suportados pelo perfil de VPN do Windows Server.  
 
 
 4.  No **ligação** página, especifique:  

@@ -59,7 +59,7 @@ Utilize os seguintes passos para criar aplicações do Configuration Manager e t
 
 2.  No **tipo** na lista pendente, selecione a instalação da aplicação tipo de ficheiro que pretende utilizar para detetar informações sobre a aplicação. Para obter informações sobre os tipos de instalação disponíveis, veja [Tipos de implementação suportados pelo Configuration Manager](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) neste tópico.  
 
-3.  No **localização** caixa, especifique o caminho UNC (no formato * \\ \\servidor\\partilhar\\\filename*) ou a hiperligação do arquivo para o ficheiro de instalação da aplicação que pretende utilizar para detetar informações sobre a aplicação. Em alternativa, clique em **Procurar** para procurar o ficheiro de instalação.  
+3.  No **localização** caixa, especifique o caminho UNC (no formato *\\\\servidor\\partilhar\\\filename*) ou a hiperligação do arquivo para o ficheiro de instalação da aplicação que pretende utilizar para detetar informações sobre a aplicação. Em alternativa, clique em **Procurar** para procurar o ficheiro de instalação.  
 
     > [!IMPORTANT]  
     >  Quando seleciona **do Windows Installer (\*ficheiro. msi)** como um tipo de aplicação, todos os ficheiros na pasta que especificar serão importados com a aplicação e serão enviados para os pontos de distribuição. Certifique-se de que a pasta que especificou contém apenas os ficheiros que são necessários para instalar a aplicação. O Configuration Manager é testado para suportar até 20.000 ficheiros de aplicação no pacote de aplicação. Se a sua aplicação tiver mais ficheiros, considere criar múltiplas aplicações que têm um número mais pequeno de ficheiros.  
@@ -141,7 +141,7 @@ A nova aplicação aparece no **aplicações** nós da consola do Configuration 
 3.  Selecione uma aplicação e, em seguida, no **home page** separador o **aplicação** grupo, escolha **criar tipo de implementação**.  
 
 > [!TIP]  
->  Também pode iniciar o Assistente para criar tipo de implementação do Assistente para criar aplicação e do **tipos de implementação** separador do *< nome da aplicação\> * **propriedades** caixa de diálogo.  
+>  Também pode iniciar o Assistente para criar tipo de implementação do Assistente para criar aplicação e do **tipos de implementação** separador do *< nome da aplicação\>* **propriedades** caixa de diálogo.  
 
 ## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Especifique se pretende detetar automaticamente informações de tipo de implementação ou configurar manualmente as informações  
  Utilize um dos seguintes procedimentos para detetar automaticamente ou definir manualmente informações de tipo de implementação.  
@@ -152,7 +152,7 @@ A nova aplicação aparece no **aplicações** nós da consola do Configuration 
 
 2.  No **tipo** caixa, selecione o tipo de ficheiro de instalação de aplicações que pretende utilizar para detetar as informações de tipo de implementação.  
 
-3.  No **localização** caixa, especifique o caminho UNC (no formato * \\ \\servidor\\partilhar\\filename*) ou especificar a hiperligação do arquivo para os ficheiros de instalação da aplicação e o conteúdo que pretende utilizar para detetar as informações de tipo de implementação. Também pode optar por **procurar** para localizar o ficheiro de instalação.  
+3.  No **localização** caixa, especifique o caminho UNC (no formato *\\\\servidor\\partilhar\\filename*) ou especificar a hiperligação do arquivo para os ficheiros de instalação da aplicação e o conteúdo que pretende utilizar para detetar as informações de tipo de implementação. Também pode optar por **procurar** para localizar o ficheiro de instalação.  
 
     > [!NOTE]  
     >  Tem de ter acesso ao caminho UNC que tenha a aplicação e eventuais subpastas que contêm o conteúdo da aplicação.  
@@ -344,7 +344,7 @@ A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode
 1.  No **requisitos** página do Assistente para criar tipo de implementação, escolha **adicionar** para abrir o **criar requisito** diálogo caixa e adicionar um novo requisito.  
 
     > [!NOTE]  
-    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\> * **propriedades** caixa de diálogo.  
+    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
 
 2.  Na lista pendente **Categoria**, indique se este requisito corresponde a um dispositivo ou utilizador, ou selecione **Personalizada** para utilizar uma condição global criada anteriormente. Quando seleciona **personalizada**, também pode optar por **criar** para criar uma nova condição global. Para obter mais informações sobre as condições globais, consulte [como criar condições globais](../../apps/deploy-use/create-global-conditions.md).  
 
@@ -373,7 +373,7 @@ A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode
 1.  No **dependências** página do Assistente para criar tipo de implementação, escolha **adicionar** se pretender especificar os tipos de implementação que devem ser instalados antes de instalar este tipo de implementação.  
 
     > [!IMPORTANT]  
-    >  Também pode adicionar novas dependências no **dependências** separador do *< nome do tipo de implementação\> * **propriedades** caixa de diálogo.  
+    >  Também pode adicionar novas dependências no **dependências** separador do *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
 
 2.  No **adicionar dependência** diálogo caixa, escolha **adicionar**.  
 
@@ -412,17 +412,17 @@ A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode
 
 2.  No **aplicações** lista, selecione uma aplicação que tenha um tipo de implementação de App-V. Em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-3.  No *< nome da aplicação\> * **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
+3.  No *< nome da aplicação\>* **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
 
-4.  No *< nome do tipo de implementação\> * **propriedades** caixa de diálogo a **conteúdo** separador, configure as seguintes opções, se necessário:  
+4.  No *< nome do tipo de implementação\>* **propriedades** caixa de diálogo a **conteúdo** separador, configure as seguintes opções, se necessário:  
 
     -   **Manter conteúdo na cache do cliente**– Selecione esta opção para garantir que o conteúdo para este tipo de implementação não é eliminado da cache do cliente do Configuration Manager.  
 
     -   **Carregar conteúdo para a cache de App-V antes de iniciar**– Selecione esta opção para garantir que todo o conteúdo da aplicação virtual é carregado para a cache de App-V antes de iniciar a aplicação. A seleção desta opção também garante que o conteúdo da aplicação não seja fixado na cache e pode ser eliminado conforme necessário.  
 
-5.  Escolha **OK** para fechar o *< nome do tipo de implementação\> * **propriedades** caixa de diálogo.  
+5.  Escolha **OK** para fechar o *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
 
-6.  Escolha **OK** para fechar o *< nome da aplicação\> * **propriedades** caixa de diálogo.  
+6.  Escolha **OK** para fechar o *< nome da aplicação\>* **propriedades** caixa de diálogo.  
 
 ### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Configurar as opções para tipos de implementação de App-V de publicação  
 
@@ -430,13 +430,13 @@ A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode
 
 3.  No **aplicações** lista, selecione uma aplicação que tenha um tipo de implementação de App-V. Em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-4.  No *< nome da aplicação\> * **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
+4.  No *< nome da aplicação\>* **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
 
-5.  No *< nome do tipo de implementação\> * **propriedades** caixa de diálogo a **publicação** separador, selecione os itens na aplicação virtual que pretende publicar.  
+5.  No *< nome do tipo de implementação\>* **propriedades** caixa de diálogo a **publicação** separador, selecione os itens na aplicação virtual que pretende publicar.  
 
-6.  Escolha **OK** para fechar o *< nome do tipo de implementação\> * **propriedades** caixa de diálogo.  
+6.  Escolha **OK** para fechar o *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
 
-7.  Escolha **OK** para fechar o *< nome da aplicação\> * **propriedades** caixa de diálogo.  
+7.  Escolha **OK** para fechar o *< nome da aplicação\>* **propriedades** caixa de diálogo.  
 
 ## <a name="import-an-application"></a>Importar uma aplicação  
  Utilize o procedimento seguinte para importar uma aplicação para o Configuration Manager. Para obter informações sobre como exportar uma aplicação, consulte [tarefas de gestão do System Center Configuration Manager aplicações](../../apps/deploy-use/management-tasks-applications.md).  
