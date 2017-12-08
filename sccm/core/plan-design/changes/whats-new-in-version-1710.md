@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8fca0aa86798023b92c1c16a893f9becf6ac444e
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: 8431ebffc6d1aa463c5622bd67db8a140c0cfe69
+ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1710 do System Center Configuration Manager
 
@@ -165,7 +165,6 @@ Com esta versão, atualizámos as páginas de assistente e propriedades de perfi
 - Quando a plataforma está definida como **Android**, **Android para trabalho**, ou **Windows Phone 8.1**, a **plataformas suportadas** página não é necessária e é Não é apresentada.
 - O Configuration Manager baseada em cliente fluxo de trabalho foi combinado com híbrida dispositivos móveis (MDM) baseada no cliente Windows 10 fluxos de trabalho; suportam as mesmas definições.
 - Cada fluxo de trabalho de plataforma inclui apenas as definições adequadas para esse fluxo de trabalho.  Por exemplo, o fluxo de trabalho Android contém as definições adequadas para Android; as definições adequadas para iOS ou Windows 10 Mobile não aparecem no fluxo de trabalho Android.
-- Para dispositivos Windows 8.1, tipos de ligação são geridos pelo cliente de Configuration Manager apenas (não é suportada pelo Intune) são claramente assinalado.
 - A página de VPN automática está obsoleta e foi removida.
 
 Aplicam estas alterações para novos perfis VPN.  

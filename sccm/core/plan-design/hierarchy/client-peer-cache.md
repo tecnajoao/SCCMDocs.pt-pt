@@ -3,7 +3,7 @@ title: A Cache do cliente
 titleSuffix: Configuration Manager
 description: "Utilize a Cache ponto a ponto para localizações de origem de conteúdo de cliente quando implementar o conteúdo com o System Center Configuration Manager."
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 12/07/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: "3"
 author: aaroncz
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 60f70d3e24f6290fb022b9bd8ca1512b0ed3d719
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: cadc62ab21ac8cd43120a5baa79dd635a12b4069
+ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
@@ -36,7 +36,7 @@ Um cliente de Cache ponto a ponto é um cliente de Configuration Manager que est
  -  Para partilhar conteúdo como uma origem de Cache ponto a ponto, um cliente de Cache ponto a ponto:
     -  Tem de ser associados a um domínio. No entanto, um cliente que não está associado a um domínio pode obter conteúdo de um domínio associado a origem de Cache ponto a ponto.
     -  Tem de ser um membro do grupo de limites atual do cliente que está a pesquisa o conteúdo. Um cliente de Cache ponto a ponto num grupo de limites vizinho não está incluído com o conjunto de localizações de origem de conteúdo disponível quando um cliente utiliza a contingência para conteúdo a partir de um grupo de limites de vizinho de pesquisa. Para mais informações sobre grupos de limites atuais e vizinhança, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
- - Cada tipo de conteúdo que é mantido na cache do cliente do Configuration Manager pode ser fornecido para outros clientes através da utilização de Cache ponto a ponto.
+ - Cada tipo de conteúdo que é mantido na cache do cliente do Configuration Manager pode ser fornecido para outros clientes através da utilização de Cache ponto a ponto, incluindo ficheiros do Office 365 e ficheiros de instalação rápida.<!--SMS.500850-->
  -  Cache ponto a ponto não substitui a utilização de outras soluções como o BranchCache, mas em vez disso, funciona lado lado a lado com o mesmo para lhe dar mais opções para expandir as soluções de implementação de conteúdos tradicionais, como pontos de distribuição. Esta é uma solução personalizada com nenhuma dependência em BranchCache, pelo que o se não ativar ou utilizar o Windows BranchCache, ainda funciona.
 
 ### <a name="operations"></a>Operações
