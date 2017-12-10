@@ -1,25 +1,23 @@
 ---
 title: "Referência técnica de controlos criptográficos"
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre como assinatura e encriptação podem ajudar a proteger a ataques de leitura de dados no System Center Configuration Manager."
+description: "Saiba como assinatura e encriptação podem ajudar a proteger a ataques de leitura de dados no System Center Configuration Manager."
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 12/5/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
 ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.assetid: 0c63dcc5-a1bd-4037-959a-2e6ba0fd1b2c
-caps.latest.revision: "6"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 616a781ee40fc3cde7f6c4c6525da74560a9072f
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ebaff93d346b53afea8770fbe0634112bcecf82d
+ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Referência técnica de controlos criptográficos
 
@@ -279,5 +277,14 @@ System Center Configuration Manager utiliza assinaturas e encriptação para aju
 
  Quando um ponto de gestão autentica pela primeira vez um cliente utilizando o certificado de cliente autoassinado, este mecanismo fornece uma segurança mínima porque qualquer computador pode gerar um certificado autoassinado. Neste cenário, o processo de identificação de clientes tem de ser aumentado mediante aprovação. Apenas a computadores fidedignos devem ser aprovados automaticamente pelo Configuration Manager, ou manualmente, por um utilizador administrativo. Para obter mais informações, consulte a secção sobre aprovação em [comunicações entre pontos finais no System Center Configuration Manager](../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-##  <a name="about-ssl-vulnerabilities"></a>Acerca de vulnerabilidades SSL  
- Recomendamos que desative o SSL 3.0, que ative o TLS 1.1 e 1.2 e que volte a ordenar os conjuntos relacionados com cifras TLS para melhorar a segurança dos seus servidores do Configuration Manager. Pode saber como realizar estas ações [neste artigo BDC](https://support.microsoft.com/en-us/kb/245030/). Esta ação não afetará a funcionalidade do Configuration Manager.  
+## <a name="to-make-configuration-manager-servers-more-secure"></a>Para tornar os servidores do Configuration Manager mais seguros  
+Servidores do Configuration Manager tornar mais segura, efetue o seguinte:
+
+-   Ativar o TLS 1.2
+
+    Para ativar o TLS 1.2 para o Configuration Manager, consulte o seguinte artigo KB: [Como ativar o TLS 1.2 para o Configuration Manager]( https://support.microsoft.com/en-us/help/4040243/how-to-enable-tls-1-2-for-configuration-manager).
+-   Desativar o SSL 3.0, TLS 1.0 e TLS 1.1 
+-   Reordenar os conjuntos de cifras relacionados com TLS 
+
+Para obter mais informações, consulte o seguinte artigo KB: [Como restringir a utilização de determinados algoritmos criptográficos e protocolos no Schannel.dll](https://support.microsoft.com/en-us/kb/245030/). Estes procedimentos não afetam a funcionalidade do Configuration Manager.
+

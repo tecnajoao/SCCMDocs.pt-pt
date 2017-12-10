@@ -3,7 +3,7 @@ title: Gerir o acesso ao SharePoint Online
 titleSuffix: Configuration Manager
 description: "Saiba como utilizar a System Center Configuration Manager SharePoint Online política de acesso condicional para gerir o acesso ao OneDrive."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 12/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 49cec466-1676-4fe2-a2fe-5004f01d735e
 caps.latest.revision: "11"
 caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 2c1d7cd3462a54a064ec47d0b375ee4cdb25a4b4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 99b2aca418b7ce28a4216b38e711b3d38973e2b7
+ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-sharepoint-online-access-in-system-center-configuration-manager"></a>Gerir o acesso ao SharePoint Online no System Center Configuration Manager
 
@@ -164,7 +164,7 @@ Aplicações de ambiente de trabalho do Office podem aceder ao SharePoint Online
 
 4.  Em **acesso ao Browser** ao SharePoint Online e OneDrive para empresas, pode optar por permitir o acesso ao Exchange Online apenas através de browsers suportados: Safari (iOS) e o Chrome (Android). O acesso a partir de outros browsers será bloqueado.  As mesmas restrições de plataforma que selecionou para Acesso da aplicação para o OneDrive também se aplicam aqui.
 
-    Em dispositivos **Android** , os utilizadores têm de ativar o acesso ao browser.  Para tal, o utilizador final tem de ativar œEnable de € â opção Browser Accessâ€ no dispositivo inscrito da seguinte forma:
+    Em dispositivos **Android** , os utilizadores têm de ativar o acesso ao browser.  Para tal, o utilizador final tem de ativar o **ativar o acesso ao Browser** opção no dispositivo inscrito da seguinte forma:
     1.  Inicie a **aplicação Portal da Empresa**.
     2.  Vá para o **definições** página a partir das reticências (â €¦) ou no botão do menu de hardware.
     3.  Prima o botão **Ativar acesso ao browser** .
