@@ -3,7 +3,7 @@ title: "Nova versão 1710 | Microsoft Docs"
 titleSuffix: Configuration Manager
 description: "Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1710 do System Center Configuration Manager."
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 12/08/2017
 ms.reviewer: na
 ms.suite: na
 ms.technology: configmgr-other
@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8431ebffc6d1aa463c5622bd67db8a140c0cfe69
-ms.sourcegitcommit: 2dc9c83e57e9734ffc4a93f79cd71285036eeb8b
+ms.openlocfilehash: c09f401d3221aa8637eea57f91063387b612187d
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1710 do System Center Configuration Manager
 
@@ -49,6 +49,9 @@ A partir desta versão, a Cache já não é uma funcionalidade de pré-lançamen
 
 ### <a name="cloud-distribution-point-support-for-azure-government-cloud------sms491428---"></a>Suporte de ponto de distribuição de nuvem para a nuvem do Azure Government<!-- sms491428 -->
 Agora, pode utilizar [pontos de distribuição baseado na nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) na nuvem do Azure Government.   
+
+### <a name="inventory-default-unit-revision----sms503697---"></a>Revisão de unidade de predefinição de inventário<!-- sms503697 -->
+Como os dispositivos incluem agora unidades de disco rígido com tamanhos nos gigabyte (GB), com vários terabytes (TB) e escalas maiores, esta versão altera a unidade de predefinição (SMS_Units) utilizada em várias vistas de megabytes (MB) para GB. Por exemplo, o valor de v_gs_LogicalDisk.FreeSpace agora relatórios unidades GB.
 
 
 <!-- ## Migration  -->

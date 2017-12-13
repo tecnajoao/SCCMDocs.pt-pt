@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: c6b9ccd2-78d9-4f0e-b25a-70d0866300ba
 caps.latest.revision: "21"
 caps.handback.revision: "0"
-author: Dougeby
-ms.author: dougeby
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 533b3942136255dd396df81529dad100d4db0a95
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ef9ee10c94cea3e9d8437a8d8b3df8427d0cc524
+ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-stand-alone-media-with-system-center-configuration-manager"></a>Criar suportes de dados autónomos com o System Center Configuration Manager
 
