@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 9ae26c55cf92c954a54311e2e698353bbe359a83
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: ee038d8579d63f2afbf0b677181dd06751403ba0
+ms.sourcegitcommit: 0a6b2c53ff4445b5d4f3638fdb0b489d54e333d3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-service-connection-point-with-system-center-configuration-manager-and-microsoft-intune"></a>Criar um ponto de ligação de serviço com o System Center Configuration Manager e o Microsoft Intune
 
@@ -38,7 +38,7 @@ Quando tiver criado a sua subscrição, poderá instalar a função do sistema d
 
 1.  Na consola do Configuration Manager, clique em **Administração**.
 
-2.  No **administração** área de trabalho, expanda **Sites**e, em seguida, clique em **servidores e funções de sistema de sites**.
+2.  No **administração** área de trabalho, expanda **configuração do Site**, em seguida, clique em **servidores e funções de sistema de sites**.
 
 3.  Adicione a função **Ponto de ligação de serviço** a um servidor do sistema de sites novo ou existente através do passo associado:
 
