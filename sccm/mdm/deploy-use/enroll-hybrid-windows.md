@@ -15,11 +15,11 @@ caps.latest.revision: "9"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: dd62748f853915d71fcbad1964f5a67785aaf3f6
-ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
+ms.openlocfilehash: 95808d4fd743d5cc18cacb69bb38bc729acdda25
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos híbridos do Windows com o System Center Configuration Manager e o Microsoft Intune
 
@@ -35,7 +35,7 @@ Para ativar a gestão de dispositivos do Windows para PCs ou dispositivos móvei
 3.  No Friso, clique em **configurar plataformas**e, em seguida, selecione a plataforma do Windows:
     - **Windows** para Windows PCs e computadores portáteis, em seguida, execute os seguintes passos:
       1. No **geral** separador, clique em de **ativar inscrição Windows** caixa de verificação.
-      2. Se utilizar um certificado para assinar com código e implementar a aplicação Portal da empresa, navegue para o **certificado de assinatura de código**. Os utilizadores de dispositivos também podem instalar a aplicação Portal da empresa da loja Windows ou pode implementar a aplicação da loja Windows para empresas sem assinatura de código.
+      2. Se utilizar um certificado para assinar com código e implementar a aplicação Portal da empresa, navegue para o **certificado de assinatura de código**. Os utilizadores de dispositivos também podem instalar a aplicação Portal da empresa da Microsoft Store ou pode implementar a aplicação a partir do Microsoft Store para empresas sem assinatura de código.
       3. Também pode configurar [Windows Hello para definições da empresa](windows-hello-for-business-settings.md).
     - **Windows Phone** para dispositivos Windows Phone e tablets, em seguida, execute os seguintes passos:
       1. No **geral** separador, clique em de **Windows Phone 8.1 e Windows 10 Mobile** caixa de verificação. Windows Phone 8.0 já não é suportada.
@@ -107,13 +107,13 @@ Crie CNAME DNS de registos de recursos para o domínio da sua empresa. Por exemp
 
 Embora a criar entradas de CNAME DNS seja opcional, registos CNAME facilitar a inscrição para utilizadores. Não se for encontrada nenhum registo CNAME de inscrição, os utilizadores recebem introduzir manualmente o nome do servidor MDM, enrollment.manage.microsoft.com.
 
-|Tipo|Nome do anfitrião|Aponta para|VALOR DE TTL|  
+|Type|Nome do anfitrião|Aponta para|VALOR DE TTL|  
 |----------|---------------|---------------|---|
 |CNAME|EnterpriseEnrollment.dominio_da_empresa.com|EnterpriseEnrollment-s.manage.microsoft.com| 1 hora|
 
 Se tiver mais do que um sufixo UPN, terá de criar um CNAME para cada nome de domínio e do ponto de cada um para EnterpriseEnrollment-s.manage.microsoft.com. Por exemplo, se os utilizadores contoso utilizar name@contoso.com, mas também utilizar name@us.contoso.com, e name@eu.constoso.com como o e-mail/UPN, o administrador da Contoso DNS é necessário criar o seguimento de CNAMEs.
 
-|Tipo|Nome do anfitrião|Aponta para|VALOR DE TTL|  
+|Type|Nome do anfitrião|Aponta para|VALOR DE TTL|  
 |----------|---------------|---------------|---|
 |CNAME|EnterpriseEnrollment.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 hora|
 |CNAME|EnterpriseEnrollment.us.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 hora|

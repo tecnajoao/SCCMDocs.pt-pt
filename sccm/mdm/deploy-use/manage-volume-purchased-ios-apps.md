@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: c5ce168afe8668c67d7a66aaf79fce91d082afd5
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 1411675b11074b610d7370f93eafd7359cfb46ee
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-volume-purchased-ios-apps-with-system-center-configuration-manager"></a>Gerir aplicações iOS adquiridas em volume com o System Center Configuration Manager
 
@@ -104,7 +104,7 @@ Totalmente pode sincronizar os dados retidos pela Apple com o Configuration Mana
 1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **informações de licença para aplicações da loja**.  
 
 3.  Escolha a aplicação que pretende implementar, e, em seguida, no **home page** separador o **criar** grupo, escolha **Criar aplicação**.
-A aplicação do Configuration Manager que é criada tem o Windows aplicação da loja para empresas. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.
+A aplicação do Configuration Manager que é criada tem o Microsoft Store para a aplicação de negócio. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.
 
     > [!IMPORTANT]  
     > Tem de escolher um objetivo de implementação **necessário**. As instalações disponíveis não são atualmente suportadas.

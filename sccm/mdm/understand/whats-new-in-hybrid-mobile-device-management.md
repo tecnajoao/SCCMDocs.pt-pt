@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 189e737eca5dee5bca3f0748cd1b4d944f868565
-ms.sourcegitcommit: 4af1da9c18f5bdff31426cf1d58c7d949372292d
+ms.openlocfilehash: bf07e4fd187a71e6c4270e62cfb9ba2f8b743519
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -374,9 +374,9 @@ As seguintes funcionalidades adicionais híbrida também estão incluídas na ve
 
   Para mais informações sobre as aplicações iOS compradas em volume, consulte [gerir aplicações iOS compradas em volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-- **Suporte para aplicações de linha de negócio na loja Windows para empresas**
+- **Suporte para aplicações de linha de negócio no Microsoft Store para empresas**
 
-  Agora pode sincronizar aplicações de linha de negócio personalizadas da loja Windows para empresas.
+  Agora pode sincronizar personalizadas aplicações de linha de negócio da Store Microsoft para empresas.
 
 - **Defesa de ameaça Mobile novas ferramentas de monitorização**
 

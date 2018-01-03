@@ -3,7 +3,7 @@ title: "Versões do Technical Preview"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre a versão de pré-visualização técnica que permite-lhe test-drive novas funcionalidades e capacidades no System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/15/2017
+ms.date: 12/22/2017
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 31daf18a0b276b691e606ea2737ea1838dd8b211
-ms.sourcegitcommit: ed8b2438ef85c9160741ef61f9171be41dd1ae0a
+ms.openlocfilehash: c9650d202096b223baf9c62fef96c35ba6d245c2
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview do System Center Configuration Manager
 
@@ -96,9 +96,9 @@ Pode instalar uma versão de linha de base para até um ano depois da versão. N
 
 
 ##  <a name="BKMK_TPFeedback"></a> Fornecer comentários  
- Gostaríamos de receber o seu feedback sobre as nossas versões de pré-visualização técnica. Para submeter comentários sobre as funcionalidades de cada versão de pré-visualização, siga a hiperligação para o nosso formulário de resposta na página do [programa de comentários do Configuration Manager](https://connect.microsoft.com/ConfigurationManagervnext/Feedback) no site do Microsoft Connect.  
+ Iremos adoram ouvir os seus comentários sobre as funcionalidades no nosso pré-visualizações técnicas. Para obter mais informações, consulte [comentários sobre produtos](../understand/find-help.md#product-feedback).
 
- Se tiver ideias sobre novas funcionalidades que gostaria de ver, estamos interessados. Para submeter novas ideias e votar nas ideias submetidas por outras pessoas, [visite a nossa página do UserVoice](http://configurationmanager.uservoice.com).  
+Se tiver ideias sobre novas funcionalidades que gostaria de ver, queremos interessados. Para submeter novas ideias e votar nas ideias submetidas por outras pessoas, [visite a nossa página do UserVoice](http://configurationmanager.uservoice.com).  
 
 <!--   ##  <a name="bdmk_tpknownissues"></a> General changes introduced in Technical Previews    -->
 

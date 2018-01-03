@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 2875a90b1f2ae853563d7716fcfe634efd551fe5
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 07e57a15834d2f29444f47b9503cc04947f36150
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Pré-requisitos de instalação de sites do System Center Configuration Manager
 
@@ -106,7 +106,7 @@ Quando utilizar um dos seguintes serviços do Azure com o Configuration Manager 
 Serviços:  
 -       [Operations Manager Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS)
 -       [Preparação para a atualização](/sccm/core/clients/manage/upgrade/upgrade-analytics)
--       [Loja Windows para empresas](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+-       [Microsoft loja para empresas](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
 
 Utilize os seguintes passos para resolver este problema:
  1.    Na consola do Configuration Manager, elimine o serviço do Azure a partir do nó de serviços do Azure.

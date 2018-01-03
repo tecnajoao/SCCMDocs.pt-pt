@@ -33,11 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ce5239340032db7deb5bcb20d00aba77c9b140e2
-ms.sourcegitcommit: da27d37cc4e4e06cf23758846cdd7acb617f744b
+ms.openlocfilehash: 1129da43f9c50d21f2ce8392721c77a4e614e410
+ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1710-of-system-center-configuration-manager"></a>Níveis de diagnóstico de utilização de recolha de dados para a versão 1710 do System Center Configuration Manager
 
@@ -168,7 +168,7 @@ Para o System Center Configuration Manager versão 1710, este nível inclui o se
 
    - Tipos de implementação de contagem do Windows Installer por desinstalar definições de conteúdo
 
-   - Contagem da loja Windows para aplicações empresariais e estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado estado da aplicação e o número de online e offline licenciado aplicações)  
+   - Contagem do Microsoft Store para aplicações empresariais e estatísticas de sincronização (incluindo resumidos tipos de aplicações, licenciado estado da aplicação e o número de online e offline licenciado aplicações)  
 
    - Tipo e duração da janela de manutenção  
 
@@ -519,4 +519,4 @@ Para o System Center Configuration Manager versão 1710, este nível inclui o se
 
 - Tipo de políticas de acesso condicional do EAS (bloquear ou colocar em quarentena) para dispositivos que gere o Intune
 
-- Loja Windows para detalhes de negócio da aplicação (não sejam de agregação lista de aplicações sincronizadas, incluindo AppID, o estado online ou o estado offline e contagens de licenças adquiridas total)
+- Microsoft Store para detalhes de negócio da aplicação (não sejam de agregação lista de aplicações sincronizadas, incluindo AppID, o estado online ou o estado offline e contagens de licenças adquiridas total)

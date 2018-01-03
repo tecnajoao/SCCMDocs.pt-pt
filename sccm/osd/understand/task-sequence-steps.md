@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 3dce1f322936b38580c29459c1a4746b9b835d27
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 77ce50cf363c9429f9ef38aa2acf5b898bc8052d
+ms.sourcegitcommit: b97aa456b392d817bc9723cbd5c0ce6602e7ae34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/28/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
@@ -1477,7 +1477,7 @@ Quando adicionar uma sequência de tarefas subordinados a uma sequência de tare
 
 -   **Marca e modelo**: Utilize esta categoria de regra para avaliar os valores da marca e modelo de um computador. A marca e o modelo têm de avaliar como verdadeiro para a regra avaliar como verdadeiro.   
 
-    A partir do Configuration Manager versão 1610, pode especificar um asterisco (*) e o ponto de interrogação (**?**) como os carateres universais, onde *** corresponde a vários carateres e **?** corresponde a um único caráter. Por exemplo, a cadeia "DELL * 900?" corresponderá DELL-ABC-9001 e DELL9009.
+    A partir do Configuration Manager versão 1610, pode especificar um asterisco (**&#42;**) e o ponto de interrogação (**?**) como os carateres universais, onde **&#42;** corresponde a várias carateres e **?** corresponde a um único caráter. Por exemplo, a cadeia "DELL * 900?" corresponderá DELL-ABC-9001 e DELL9009. 
 
 -   **Variável de sequência de tarefas**: Utilize esta categoria de regra para adicionar uma variável de sequência de tarefas, condição e valor a avaliar. A regra avalia como verdadeiro quando o conjunto de valores da variável cumpre a condição especificada.  
 
