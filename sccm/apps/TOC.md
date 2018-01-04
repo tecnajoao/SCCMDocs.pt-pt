@@ -31,7 +31,7 @@
 ## Gerir aplicações
 ### [Tarefas de gestão](deploy-use/management-tasks-applications.md)
 ### [Afinidade dispositivo/utilizador](deploy-use/link-users-and-devices-with-user-device-affinity.md)
-### [Aplicações compradas em volume na Loja Windows para Empresas](deploy-use/manage-apps-from-the-windows-store-for-business.md)
+### [Aplicações compradas em volume na Microsoft Store para Empresas](deploy-use/manage-apps-from-the-windows-store-for-business.md)
 ### [Ambientes virtuais App-V](deploy-use/create-app-v-virtual-environments.md)
 
 ## Atualizar e extinguir aplicações
