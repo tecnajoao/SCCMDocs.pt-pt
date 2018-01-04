@@ -3,7 +3,7 @@ title: "Configurar definições de cliente"
 titleSuffix: Configuration Manager
 description: "Selecione as definições de cliente no System Center Configuration Manager."
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 12/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 95e9858a-bad4-4651-9e61-2e31dc5050fa
 caps.latest.revision: "5"
-author: arob98
-ms.author: angrobe
+author: aczechowski
+ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 20a8f91d10d98542f08e440bcfbc1a6f98a51932
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: c777e800d154b060040363aefbc611e284f233b4
+ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Como configurar as definições de cliente no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode gerir todas as definições do cliente no System Center Configuration Manager, do **administração** > **as definições de cliente**. Modifique as predefinições quando pretender configurar definições para todos os utilizadores e dispositivos da hierarquia que não têm definições personalizadas aplicadas. Se pretender aplicar definições diferentes apenas nalguns utilizadores ou dispositivos, crie definições personalizadas e implemente-as nas coleções.  
+Pode gerir todas as definições do cliente no System Center Configuration Manager, do **administração** > **as definições de cliente**. Modifique as predefinições quando pretender configurar definições para todos os utilizadores e dispositivos da hierarquia que não têm definições personalizadas aplicadas. Se pretender aplicar definições diferentes apenas nalguns utilizadores ou dispositivos, crie definições personalizadas e implementar em coleções.  
 
 Para obter informações sobre cada definição do cliente, consulte [sobre definições de cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-settings.md).
 
@@ -63,25 +63,14 @@ Quando implementar estas definições personalizadas, elas substituirão as pred
 
 9. No **selecionar coleção** , seleccione a colecção apropriada e, em seguida, escolha **OK**. Pode verificar a coleção selecionada clicando no separador **Implementações** do painel de detalhes.  
 
-10. Veja a ordem da definição personalizada do cliente que acabou de criar. Quando tem várias definições personalizadas de cliente, estas são aplicadas de acordo com o seu número de ordem. Se existirem conflitos, a definição que tiver o menor número de ordem substitui as outras definições. Para alterar o número de ordem, no **home page** separador o **as definições de cliente** grupo, escolha **Mover Item para cima** ou **Mover Item para baixo**.  
+10. Ver a ordem dos personalizada que criou a definição do cliente. Quando tem várias definições personalizadas de cliente, estas são aplicadas de acordo com o seu número de ordem. Se existirem conflitos, a definição que tiver o menor número de ordem substitui as outras definições. Para alterar o número de ordem, no **home page** separador o **as definições de cliente** grupo, escolha **Mover Item para cima** ou **Mover Item para baixo**.  
 
  Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [iniciar a obtenção da política para um cliente do Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) no [como gerir clientes no System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
 
-## <a name="limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health"></a>Limitar a telemetria melhorada do Windows 10 para apenas enviar dados relevantes para o estado de funcionamento de dispositivo de análise de Windows
-<!-- 1356148 -->
 
-Com a atualização 1710, pode definir a recolha de dados de telemetria do Windows 10 para **avançado (limitado)**. Esta definição permite-lhe ganhar acionável conhecimentos aprofundados sobre os dispositivos no seu ambiente sem dispositivos que reportam a todos os dados no **avançado** nível de telemetria com o Windows 10 versão 1709 ou posterior.
-
-O nível de telemetria avançado (limitado) inclui as métricas de nível básico, bem como um subconjunto dos dados recolhidos a partir de **avançado** nível relevante à análise do Windows. Para obter mais informações sobre níveis de telemetria, consulte [níveis de telemetria](https://docs.microsoft.com/windows/configuration/configure-windows-telemetry-in-your-organization#telemetry-levels).
-
-1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
-
-2.  No **home page** separador, escolha **propriedades**.  
-
-3.  Abra **serviços em nuvem**e definir a telemetria do Windows 10 para **avançado**.
 
 ##  <a name="view-client-settings"></a>Ver definições de cliente  
- Quando tiverem sido implementadas várias definições do cliente no mesmo dispositivo, utilizador ou grupo de utilizadores, a atribuição de prioridades e a combinação de definições podem ser complexas. Para ver as definições de cliente:  
+ Quando implementar várias definições de cliente no mesmo dispositivo, utilizador ou grupo de utilizadores, a atribuição de prioridades e a combinação de definições é complexa. Para ver as definições de cliente:  
 
 1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **dispositivos** > **utilizadores** ou **coleções de utilizadores**.  
 

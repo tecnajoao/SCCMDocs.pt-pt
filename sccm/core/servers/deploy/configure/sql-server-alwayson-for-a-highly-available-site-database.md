@@ -3,7 +3,7 @@ title: SQL Server AlwaysOn
 titleSuffix: Configuration Manager
 description: Planear utilizar um SQL Server sempre no grupo de disponibilidade com o SCCM.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 12/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.latest.revision: "16"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 42d5a059e11dffc7890ec78ce7361ebfe905a050
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 7efd0c76a0723a98661b0861eb16298eee524f35
+ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar para utilizar grupos de disponibilidade SQL Server Always On com o Configuration Manager
 
@@ -78,7 +78,7 @@ Para obter mais informações consulte [criar um ponto final de espelhamento de 
 
 -   A partir da versão 1706, pode utilizar uma réplica de consolidação assíncrona para recuperar a réplica síncrona. Consulte [opções de recuperação de base de dados do site]( /sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) no tópico cópia de segurança e recuperação para obter informações sobre como efetuar este procedimento.
     > [!CAUTION]  
-    > O Configuration Manager não suporta a ativação pós-falha para utilizar a réplica de consolidação assíncrona como a base de dados do site.
+    > Gestor de configuração não suporta [ativação pós-falha](https://go.microsoft.com/fwlink/?linkid=626885) para utilizar a réplica de consolidação assíncrona como a base de dados do site.
 Porque o Configuration Manager não valide o estado da réplica de consolidação assíncrona para confirmar a sua atual, e [por predefinição, este tipo uma réplica pode ser sincronizada]( https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), utilização de uma réplica de consolidação assíncrona, como a base de dados do site pode colocar a integridade do seu site e os dados em risco.
 
 Tem de cada membro de réplica:
