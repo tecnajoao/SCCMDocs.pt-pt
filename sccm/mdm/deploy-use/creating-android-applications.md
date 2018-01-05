@@ -15,11 +15,11 @@ caps.latest.revision: "6"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 2ec4f4fdd1e351379922302e81af88e311a37c8e
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: c512cba550e405c866204af981aba75639665de2
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-android-applications-with-system-center-configuration-manager"></a>Criar aplicações Android com o System Center Configuration Manager
 
@@ -48,7 +48,7 @@ As seguintes ações de implementação são suportadas:
 |Tipo de Dispositivo|Ações suportadas|
 |-|-|
 |Android|**Disponível**, **necessário** o utilizador tenha de consentir a instalação e desinstalação.|
-|Android for Work | **Necessário** |
+|Android for Work |**Disponível**, **necessário** |
 
 ## <a name="approve-and-deploy-android-for-work-apps"></a>Aprovar e implementar Android para aplicações de trabalho
 Como administrador do Configuration Manager, também pode aprovar aplicações no [Play para o Web site de trabalho](https://play.google.com/work)e implementar essas aplicações para Android gerida para dispositivos de trabalho.
@@ -65,3 +65,5 @@ Siga estes passos para aprovar aplicações na Play para o arquivo de trabalho, 
 8. Aceda a **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **aplicações**, escolha um Android para a aplicação de trabalho e implementar como habitualmente.
 
 Para sincronizar Play para aplicações de trabalho com o Configuration Manager, necessitará de aprovar pela primeira vez, pelo menos, uma aplicação na Play para o Web site de trabalho.
+
+As aplicações implementadas como **disponível** apresentar na aplicação do Google Play badged de trabalho em vez do Portal da empresa. Isto permite-lhe implementar aplicações de uma origem fidedigna (a aplicação do Google Play badged de trabalho é uma origem fidedigna) e têm de permitir que as aplicações de fontes não fidedignas.

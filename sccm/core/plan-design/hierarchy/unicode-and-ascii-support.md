@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: 2bdec799-905f-48bc-aed5-2d92134739e8
 caps.latest.revision: "6"
 caps.handback.revision: "0"
-author: aaroncz
+author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: c35a33ffb20e548d4c9e51de01da803bdcf47f50
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 654d70d97adefca6801bb64b1e23797e71c75f40
+ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Suporte de Unicode e ASCII no System Center Configuration Manager
 
@@ -83,7 +83,7 @@ System Center Configuration Manager cria a maior parte dos objetos utilizando ca
 
     -   Ponto de serviço Web do Catálogo de Aplicações  
 
-    -   Ponto de Web site do Catálogo de Aplicações  
+    -   Ponto de site do Catálogo de Aplicações  
 
     -   Ponto de inscrição  
 
@@ -91,7 +91,7 @@ System Center Configuration Manager cria a maior parte dos objetos utilizando ca
 
     -   Ponto do Reporting Services  
 
-    -   Ponto de migração de estado  
+    -   Ponto de Migração de Estado  
 
 -   O caminho para as seguintes pastas:  
 
