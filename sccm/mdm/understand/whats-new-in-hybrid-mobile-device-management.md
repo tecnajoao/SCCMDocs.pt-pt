@@ -3,7 +3,7 @@ title: "Novidades da MDM híbrido"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune."
 ms.custom: na
-ms.date: 11/29/2017
+ms.date: 01/04/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: af475bbc17fe1514dab626524007134be9b5f608
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 243daf8626e329214ce1b94f109d19773bbc57c5
+ms.sourcegitcommit: 2da6b06818371e93f28e36cadf3a154d50ce5bf4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -45,7 +45,8 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-- **As implementações de aplicações disponível agora suportadas para Android Enterprise** pode agora implementar aplicações da empresa Android (anteriormente Android para trabalho) como **disponíveis**, para além **necessário**. Para obter mais informações, consulte [Android criar aplicações com o System Center Configuration Manager](/sccm/mdm/deploy-use/creating-android-applications.md).
+- **Implementações de aplicações disponível agora suportadas para Android da empresa**    
+  Pode agora implementar aplicações da empresa Android (anteriormente Android para trabalho) como **disponível**, para além **necessário**. Para obter mais informações, consulte [Android criar aplicações com o System Center Configuration Manager](/sccm/mdm/deploy-use/creating-android-applications).
 
 
 ## <a name="november-2017"></a>Novembro de 2017
