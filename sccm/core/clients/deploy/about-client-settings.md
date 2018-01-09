@@ -3,7 +3,7 @@ title: "Definições do cliente"
 titleSuffix: Configuration Manager
 description: "Escolha as definições de cliente utilizando a consola de administrador no System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/29/2017
+ms.date: 01/05/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: fe6b3508b7d54dca1d80818c159cfd4b723f7986
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 230d608c9ebc8126d7d8e18f7211875a2155bb7b
+ms.sourcegitcommit: ac9268e31440ffe91b133c2ba8405d885248d404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
@@ -552,7 +552,7 @@ Gerir todas as definições de cliente na consola do Configuration Manager do **
     - **Esquema de cores para o Centro de Software** </br>
         Clique em **selecione cor** para definir a cor primária utilizado pelo centro de Software.
     - **Selecionar um logótipo no Centro de Software** </br>
-        Clique em **procurar** para selecionar uma imagem a apresentar no Centro de Software. O logótipo tem de ser um JPEG ou PNG de 400 x 100 pixéis com um tamanho máximo de 750 KB.
+        Clique em **procurar** para selecionar uma imagem a apresentar no Centro de Software. O logótipo tem de ser um JPEG, PNG ou BMP de 400 x 100 pixéis com um tamanho máximo de 750 KB. O nome de ficheiro de logótipo não deve conter espaços. <!--SMS.503731 space in filename, noticed BMP missing as filetype-->
 
 -   Visibilidade de separador de centro de software </br>
     Configurar as definições adicionais neste grupo para **Sim** para fazer com que os seguintes separadores visível no Centro de Software:
