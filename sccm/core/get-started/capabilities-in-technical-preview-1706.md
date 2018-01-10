@@ -14,11 +14,11 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: d7819dd71a37bc581b629ac180f657134495f50c
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: cfb14ebb7b4f7eb9a008ad4464978778e57514a6
+ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1706 do System Center Configuration Manager
 
@@ -462,10 +462,10 @@ Pode configurar Entrust como a autoridade de certificação quando adicionar uma
 **Problema de conhecido**: No 1706 technical preview, os certificados PFX não são emitidos para autoridades de certificação da Microsoft. Isto não afeta os certificados PFX importados ou perfis SCEP.
 
 
-## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Suporte para perfis VPN macOS Cisco (IPsec)
+## <a name="cisco-ipsec-support-for-ios-vpn-profiles"></a>Suporte de Cisco (IPsec) para perfis VPN do iOS
 <!-- 1321367 -->
 
-Pode criar um macOS perfil da VPN com o Cisco (IPsec) como o tipo de ligação. Para obter mais informações, consulte [criar perfis VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
+Pode criar um iOS perfil da VPN com o Cisco (IPsec) como o tipo de ligação. Para obter mais informações, consulte [criar perfis VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
 
 
 ## <a name="new-windows-configuration-item-settings"></a>Novas definições de item de configuração do Windows

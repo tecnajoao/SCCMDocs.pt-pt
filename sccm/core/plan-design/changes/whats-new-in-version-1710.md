@@ -3,7 +3,7 @@ title: "Nova versão 1710 | Microsoft Docs"
 titleSuffix: Configuration Manager
 description: "Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1710 do System Center Configuration Manager."
 ms.custom: na
-ms.date: 12/08/2017
+ms.date: 1/08/2018
 ms.reviewer: na
 ms.suite: na
 ms.technology: configmgr-other
@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c09f401d3221aa8637eea57f91063387b612187d
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: ac64ae3b49b94c0b0428d5268bd307823ae68c73
+ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1710 do System Center Configuration Manager
 
@@ -148,7 +148,7 @@ Estes cenários incluem:
 - [Inscrever dispositivos](../../../mdm/deploy-use/enroll-hybrid-windows.md)
 - [Executar ações de eliminação seletiva e completa](../../../mdm/deploy-use/wipe-lock-reset-devices.md)
 - [Gerir as definições através de itens de configuração e linhas de base](../../../mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)
-- [Gerir a política de conformidade](../../../mdm/deploy-use/device-compliance-policies.md)
+- [Gerir a política de conformidade](../../../mdm/deploy-use/device-compliance-policies.md) e [acesso condicional](../../../protect/deploy-use/create-vpn-profiles.md)
 - Gerir o acesso aos recursos da empresa através de:
    - [Perfis de certificados](../../../mdm/deploy-use/create-pfx-certificate-profiles.md)
    - [Perfis VPN](../../../mdm/deploy-use/create-vpn-profiles.md)
@@ -156,6 +156,9 @@ Estes cenários incluem:
    - [Perfis de e-mail](../../../mdm/deploy-use/create-exchange-activesync-profiles.md)
 - [Configurar o Windows Hello para a política de negócio](../../../mdm/deploy-use/windows-hello-for-business-settings.md)
 - [Gerir aplicações](../../../mdm/deploy-use/management-tasks-applications.md)
+
+> [!NOTE]
+> Implementação de aplicações. appxbundle incorporadas para várias arquiteturas poderão não funcionar nestes dispositivos, e este cenário não é suportado neste momento.
 
 ### <a name="improved-vpn-profile-experience-in-configuration-manager-console"></a>Experiência de perfil VPN melhorada na consola do Configuration Manager 
 <!-- 1318232 -->
