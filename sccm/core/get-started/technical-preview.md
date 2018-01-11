@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/04/2018
 ---
-# <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview do System Center Configuration Manager
+# <a name="technical-preview-for-system-center-configuration-manager"></a>Pré-visualização técnica do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 

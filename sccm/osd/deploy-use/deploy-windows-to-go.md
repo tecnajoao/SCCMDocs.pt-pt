@@ -235,7 +235,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 7.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Pacote**.  
 
-8.  Na página **Pacote** , especifique o nome e a descrição do pacote. Por exemplo, introduza **Windows To Go** para o nome do pacote e especifique **Package to configure a Windows To Go drive using System Center Configuration Manager** para a descrição do pacote.  
+8.  Na página **Pacote** , especifique o nome e a descrição do pacote. Por exemplo, introduza **Windows To Go** para o pacote de nome e especifique **pacote para configurar uma unidade do Windows To Go utilizando o System Center Configuration Manager** para a descrição do pacote.  
 
 9. Selecione **Este pacote contém ficheiros de origem**, especifique o caminho da pasta de origem do pacote que criou no passo 1 e clique em **Seguinte**.  
 
