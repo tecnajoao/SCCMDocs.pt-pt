@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 55d49c388b4ea60627f72ffe61796c70de6f9416
-ms.sourcegitcommit: a5f8b5cfdabf0298e4302e24210e725a06a9de82
+ms.openlocfilehash: e8121480f3a9d61ba0a04667407a305119d80e12
+ms.sourcegitcommit: ba23ff90709a5fde1a63c650ab0d848f441afc43
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Proteger dados através de eliminação remota, bloqueio ou reposição utilizando o System Center Configuration Manager do código de acesso
 
@@ -171,17 +171,17 @@ Os dados e aplicações que EFS seletivo apagar atualmente suporta são:
 ##  <a name="passcode-reset"></a>Repor código de acesso  
 Se um utilizador se esquecer do respetivo código de acesso, pode ajudá-lo ao remover o código de acesso de um dispositivo ou ao aplicar um novo código de acesso temporário num dispositivo. A tabela seguinte lista como a reposição de código de acesso funciona em diferentes plataformas móveis.  
 
-|Plataforma|Repor código de acesso|  
-|--------------|--------------------|  
-|iOS|Suportado para a eliminação do código de acesso de um dispositivo. Não cria um novo código de acesso temporário.|
-|MacOS| Não suportada.|
-|Android|Suportado, e um código de acesso temporário é criado.|
-|Android for Work | Não suportada.|
-|PCs Windows 10|Não suportada.|  
-|Windows 10 mobile|Suportado, excluir o Azure AD dispositivos associados a um.|
-|Windows Phone 8.1|Suportado.|  
-|Windows RT 8.1 |Não suportada.|  
-|PCs Windows 8.1 |Não suportada.|  
+| Plataforma                              | Repor código de acesso                                                                               |
+|---------------------------------------|----------------------------------------------------------------------------------------------|
+| iOS                                   | Suportado para a eliminação do código de acesso de um dispositivo. Não cria um novo código de acesso temporário. |
+| MacOS                                 | Não suportada.                                                                               |
+| Android                               | Suportado em versões anteriores ao Android 7.0. Cria um código de acesso temporário.                |
+| Android for Work                      | Não suportada.                                                                               |
+| PCs Windows 10                        | Não suportada.                                                                               |
+| Windows 10 mobile                     | Suportado, excluir o Azure AD dispositivos associados a um.  |
+| Windows Phone 8 e Windows Phone 8.1 | Suportado.                                                                                   |
+| Windows RT 8.1                        | Não suportada.                                                                               |
+| PCs Windows 8.1                       | Não suportada.                                                                               |
 
 > [!Note]    
 > Tem de efetuar a ação de reposição do código de acesso do site de nível superior no seu ambiente. Por exemplo, se utilizar um site de administração central, só pode efetuar a ação desse site. Se estiver a utilizar um site primário autónomo, só pode efetuar a ação desse site.

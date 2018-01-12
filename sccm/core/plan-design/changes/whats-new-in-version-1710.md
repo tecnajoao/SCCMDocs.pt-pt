@@ -13,11 +13,11 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: ac64ae3b49b94c0b0428d5268bd307823ae68c73
-ms.sourcegitcommit: d029b373113051634ed030545348a458eb7b25f4
+ms.openlocfilehash: f944d4625e2e67a82098bf3b4373ea5f0ed70619
+ms.sourcegitcommit: 9de3d74030b7c3313c34b5cbe2dbe6e18a48c043
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1710 do System Center Configuration Manager
 
@@ -148,7 +148,7 @@ Estes cenários incluem:
 - [Inscrever dispositivos](../../../mdm/deploy-use/enroll-hybrid-windows.md)
 - [Executar ações de eliminação seletiva e completa](../../../mdm/deploy-use/wipe-lock-reset-devices.md)
 - [Gerir as definições através de itens de configuração e linhas de base](../../../mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)
-- [Gerir a política de conformidade](../../../mdm/deploy-use/device-compliance-policies.md) e [acesso condicional](../../../protect/deploy-use/create-vpn-profiles.md)
+- [Gerir a política de conformidade](../../../mdm/deploy-use/device-compliance-policies.md) e [acesso condicional](../../../protect/deploy-use/manage-access-to-services.md)
 - Gerir o acesso aos recursos da empresa através de:
    - [Perfis de certificados](../../../mdm/deploy-use/create-pfx-certificate-profiles.md)
    - [Perfis VPN](../../../mdm/deploy-use/create-vpn-profiles.md)

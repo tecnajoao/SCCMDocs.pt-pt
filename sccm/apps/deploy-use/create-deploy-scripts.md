@@ -3,7 +3,7 @@ title: Criar e executar scripts
 titleSuffix: Configuration Manager
 description: Criar e executar scripts do Powershell nos dispositivos cliente.
 ms.custom: na
-ms.date: 11/29/2017
+ms.date: 01/05/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 caps.latest.revision: "14"
 caps.handback.revision: "0"
-author: BrucePerlerMS
-ms.author: bruceper
+author: mestew
+ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 1472f697ae8b82e6268433aa6398fcc10a429994
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: b00dfb875ca032032a9782e9950247eb3fceb124
+ms.sourcegitcommit: 9de3d74030b7c3313c34b5cbe2dbe6e18a48c043
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
@@ -75,9 +75,9 @@ Scripts devem ser aprovados, pelo *script aprovador* função, antes de estes se
 1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.
 2. No **biblioteca de Software** área de trabalho, clique em **Scripts**.
 3. No **Script** lista, selecione o script que pretende aprovar ou recusar e, em seguida, no **home page** separador o **Script** , clique em **aprovar/negação**.
-4. No **aprovar ou negar o script** caixa de diálogo, selecione **aprovar** ou **negar** para o script e, opcionalmente, introduza um comentário sobre a sua decisão.  Se negar um script, não pode ser executado nos dispositivos cliente. <br>
+4. No **aprovar ou negar o script** caixa de diálogo, selecione **aprovar** ou **negar** para o script. Opcionalmente, introduza um comentário sobre a sua decisão.  Se negar um script, não pode ser executado nos dispositivos cliente. <br>
 ![Script - aprovação](./media/run-scripts/RS-approval.png)
-5. Conclua o assistente. No **Script** lista, verá o **estado de aprovação** alteração de coluna consoante a ação que demorou.
+1. Conclua o assistente. No **Script** lista, verá o **estado de aprovação** alteração de coluna consoante a ação que demorou.
 
 ### <a name="allow-users-to-approve-their-own-scripts"></a>Permitir que os utilizadores aprovar os seus próprios scripts
 
@@ -106,7 +106,11 @@ Execute utiliza Scripts âmbitos de segurança, uma funcionalidade existente do 
     - **Importar** -importar um script do PowerShell para a consola. O script é apresentado no **Script** campo.
     - **Limpar** -remove o script atual o campo de Script.
     - **Script** -apresenta o script atualmente importado. Pode editar o script neste campo, conforme necessário.
-1. Conclua o assistente. O novo script é apresentado no **Script** lista com um Estado de **aguardar aprovação**. Antes de poder executar este script nos dispositivos cliente, terá de o aprovar.
+5. Conclua o assistente. O novo script é apresentado no **Script** lista com um Estado de **aguardar aprovação**. Antes de poder executar este script nos dispositivos cliente, terá de o aprovar. 
+
+> [!IMPORTANT]
+    >  Evite um reinício de dispositivo ou reiniciar o agente do Configuration Manager de processamento de scripts ao utilizar a funcionalidade de executar Scripts. Se o fizer, poderão levar para um Estado rebooting contínuo. Se for necessário, existem melhoramentos para a funcionalidade de notificação de cliente que permitem dispositivos reiniciar, a partir do Configuration Manager versão 1710. O [pendente da coluna de reinício](/sccm/core/clients/manage/manage-clients#Restart-clients) pode ajudar a identificar dispositivos que necessitam de um reinício. 
+<!--SMS503978--Script reboot warning-->
 
 ## <a name="script-parameters"></a>Parâmetros do script
 *(Introduzida com a versão 1710)*  
@@ -132,7 +136,7 @@ A secção de validação do **propriedades de parâmetro de Script** diálogo c
 - **Comprimento mínimo** - mínimo número de carateres da *FirstName* campo.
 - **Comprimento máximo**- máximo número de carateres da *FirstName* campo
 - **RegEx** - curto para *expressão Regular*. Para obter mais informações sobre como utilizar a expressão Regular, consulte a secção seguinte, *validação de expressão Regular utilizando*.
-- **Erro personalizado** - útil para adicionar a sua própria mensagem de erro personalizada supercedes quaisquer mensagens de erro de validação do sistema.
+- **Erro personalizado** - útil para adicionar a sua própria mensagem de erro personalizada que substitui quaisquer mensagens de erro de validação do sistema.
 
 #### <a name="using-regular-expression-validation"></a>Utilizando a validação de expressão Regular
 
@@ -191,7 +195,7 @@ O script é executado como o *sistema* ou *computador* conta nas clientes de des
 
 ## <a name="script-monitoring"></a>Script de monitorização
 
-Depois de terem iniciado a executar um script numa coleção de dispositivos, utilize o procedimento seguinte para monitorizar a operação. A partir da versão 1710, é ambos poderá monitorizar um script em tempo real, ser executada e também pode regressar a um relatório para uma execução de executar o Script especificado. <br>
+Depois de terem iniciado a executar um script numa coleção de dispositivos, utilize o procedimento seguinte para monitorizar a operação. A partir da versão 1710, são ambos poderá monitorizar um script em tempo real, como a ser executada e também pode regressar a um relatório para uma execução de executar o Script especificado. <br>
 
 ![Monitor de script - estado de execução do Script](./media/run-scripts/RS-monitoring-three-bar.png)
 
