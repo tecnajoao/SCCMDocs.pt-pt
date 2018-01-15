@@ -12,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.openlocfilehash: 6aaa15ff4908fe7e71e0b9c14fc021a57ccbb727
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: becab57c5f04bb67512d665175038f6c477b65b1
+ms.sourcegitcommit: e13bb2c86c40a88e5f4602beb1d31e4adc90e099
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="BKMK_ManualDeploy"></a> Implementar manualmente atualizações de software  
 
@@ -169,7 +169,7 @@ ms.lasthandoff: 11/17/2017
 
 3.  Selecione o grupo de atualização de software que pretende implementar.  
 
-4.  No separador **Home Page** , no grupo **Implementação** , clique em **Implementar**. É aberto o **Assistente de Implementação de Atualização de Software** .  
+4.  No separador **Home Page**, no grupo **Implementação**, clique em **Implementar**. É aberto o **Assistente de Implementação de Atualização de Software** .  
 
 5.  Na página Geral, configure as seguintes definições:  
 
@@ -232,10 +232,10 @@ ms.lasthandoff: 11/17/2017
 
     -   **As notificações de utilizador**: Especifique se pretende apresentar a notificação de atualizações de software no Centro de Software no computador cliente à configurada **hora de disponibilização do Software** e se pretende apresentar as notificações de utilizador nos computadores cliente. Se **Tipo de implementação** estiver definido como **Disponível** na página Definições de Implementação, não poderá selecionar **Ocultar no Centro de Software e em todas as notificações**.  
 
-    -   **Comportamento do prazo**: * disponível apenas quando **tipo de implementação** * está definido como **necessário** *na página de definições de implementação.*   
+    -   **Comportamento do prazo**: Disponível apenas quando **tipo de implementação** está definido como **necessário** na página de definições de implementação.   
     Especifique o comportamento a adotar quando é atingido o prazo para a implementação de atualização de software. Especifique se pretende instalar as atualizações de software da implementação. Especifique também se pretende reiniciar o sistema após a instalação da atualização de software, independentemente de uma janela de manutenção configurada. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Comportamento de reinício do dispositivo**: * disponível apenas quando **tipo de implementação** * está definido como **necessário** *na página de definições de implementação.*    
+    -   **Comportamento de reinício do dispositivo**: Disponível apenas quando **tipo de implementação** está definido como **necessário** na página de definições de implementação.    
     Especifique se pretende suprimir um reinício do sistema em servidores e estações de trabalho após as atualizações de software estão instaladas e reiniciar o sistema é necessário para concluir a instalação.  
 
         > [!IMPORTANT]  
