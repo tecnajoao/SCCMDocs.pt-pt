@@ -15,11 +15,11 @@ caps.latest.revision: "5"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 412bddaa604c053662a605115acdabe76a2cb03c
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: c740e9b23cb2968463e8843b5f3cdcbaba7c4d91
+ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Sistemas operativos suportados para os clientes e dispositivos para o System Center Configuration Manager
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 12/04/2017
 
 -   **Windows Server 2012** (x64): Standard, Datacenter <sup>1</sup>    
 
--   **O Windows Storage Server 2012** (x64)    
+-   **Windows Storage Server 2012** (x64)    
 
 -   **Windows Server 2008 R2 com SP1** (x64): Standard, Enterprise, Datacenter <sup>1</sup>    
 
--   **Windows Storage Server 2008 R2** (x86, x64): Grupo de trabalho, Standard, Enterprise    
+-   **Windows Storage Server 2008 R2** (x86, x64): Workgroup, Standard, Enterprise    
 
 -   **Windows Server 2008 com SP2** (x86, x64): Standard, Enterprise, Datacenter <sup>1</sup>    
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/04/2017
 
 -   **Windows 8.1** (x86, x64): Professional, Enterprise    
 
--   **Windows 8** (x86, x64): Professional, Enterprise    
+<!---   **Windows 8** (x86, x64): Professional, Enterprise  -removed Jan 12,2018 sms505863-->
 
 -   **Windows 7 com SP1** (x86, x64): Professional, Enterprise e Ultimate    
 
@@ -111,11 +111,11 @@ Os ficheiros **WBEMDISP. DLL** e **WBEMDISP. TLB** tem de existir e estar regist
 
 -   **Windows Embedded 8.1 Industry** (x86, x64)    
 
--   **Windows Embedded 8 Industry** (x86, x64)    
+   <!----   **Windows Embedded 8 Industry** (x86, x64)  -removed Jan 12,2018 sms505863-->
 
 -   **Windows Embedded 8 Standard** (x86, x64)    
 
--   **Windows Embedded 8 Pro** (x86, x64)    
+<!---   **Windows Embedded 8 Pro** (x86, x64)    -removed Jan 12,2018 sms505863-->
 
 -   **Windows dinâmico PC** (x86, x64)    
 
@@ -196,7 +196,7 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 ##  <a name="linux-and-unix-servers"></a>Servidores Linux e UNIX  
  Pode gerir servidores Linux e UNIX com o cliente do Configuration Manager para Linux e UNIX.  
 
- A instalação do cliente Linux e UNIX são pacotes não são fornecidos com o suporte de dados do Configuration Manager. Transferir o **clientes para sistemas operativos adicionais** do [Centro de transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). Para além de pacotes de instalação de cliente, a transferência do cliente inclui o script que gere a instalação do cliente em cada computador.  
+ Os pacotes de instalação de cliente Linux e UNIX não são fornecidos com o suporte de dados do Configuration Manager. Transferir o **clientes para sistemas operativos adicionais** do [Centro de transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). Para além de pacotes de instalação de cliente, a transferência do cliente inclui o script que gere a instalação do cliente em cada computador.  
 
 **Requisitos e limitações:**  
 
@@ -214,89 +214,89 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 
 |||  
 |-|-|  
-|Versão 6.1 (Power)|CCM-Aix61ppc. &lt;criar\>. tar|  
-|Versão 7.1 (Power)|CCM-Aix71ppc. &lt;criar\>. tar|  
+|Versão 6.1 (Power)|ccm-Aix61ppc.&lt;build\>.tar|  
+|Versão 7.1 (Power)|ccm-Aix71ppc.&lt;build\>.tar|  
 
 ### <a name="centos"></a>CentOS  
 
 |||  
 |-|-|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="debian"></a>Debian  
 
 |||  
 |-|-|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 8 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 8 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 8 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 8 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="hp-ux"></a>HP-UX  
 
 |||  
 |-|-|  
-|Versão 11iv3 IA64|CCM-HpuxB.11.31i64. &lt;criar\>. tar|  
+|Versão 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;build\>.tar|  
 
 ### <a name="oracle-linux"></a>Oracle Linux  
 
 |||  
 |-|-|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL)  
 
 |||  
 |-|-|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="solaris"></a>Solaris  
 
 |||  
 |-|-|  
-|Versão 10 x86|CCM-Sol10x86. &lt;criar\>. tar|  
-|Versão 10 SPARC|CCM-Sol10sparc. &lt;criar\>. tar|  
-|Versão 11 x86|CCM-Sol11x86. &lt;criar\>. tar|  
-|Versão 11 SPARC|CCM-Sol11sparc. &lt;criar\>. tar|  
+|Versão 10 x86|ccm-Sol10x86.&lt;build\>.tar|  
+|Versão 10 SPARC|ccm-Sol10sparc.&lt;build\>.tar|  
+|Versão 11 x86|ccm-Sol11x86.&lt;build\>.tar|  
+|Versão 11 SPARC|ccm-Sol11sparc.&lt;build\>.tar|  
 
 ### <a name="suse-linux-enterprise-server-sles"></a>SUSE Linux Enterprise Server (SLES)  
 
 |||  
 |-|-|  
-|Versão 10 SP1 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 10 SP1 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 11 SP1 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 11 SP1 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 12 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 10 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 10 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 11 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 11 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 12 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="ubuntu"></a>Ubuntu  
 
 |||  
 |-|-|  
-|Versão 10.04 LTS x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 10.04 LTS x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 12.04 LTS x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 12.04 LTS x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 14.04 LTS x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 14.04 LTS x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 16.04 LTS x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 16.04 LTS x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 10.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 10.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 12.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 12.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 14.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 14.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 16.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 16.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
 
 
 ##  <a name="mobile-devices-enrolled-by-microsoft-intune"></a>Dispositivos móveis inscritos pelo Microsoft Intune  
@@ -316,13 +316,13 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 
 - **Windows 10 Pro** (x86, x64)  
 
-- **Windows 10 Enterprise Pro** (x86, x64)  
+- **Windows 10 Pro Enterprise** (x86, x64)  
 
 - **Windows 10 Enterprise de IoT** (x86, x64)
 
 - **Windows 10 Mobile**  
 
-- **Windows 10 Enterprise móveis**  
+- **Windows 10 Mobile Enterprise**  
 
 - **Windows 10 IoT Mobile Enterprise**
 
