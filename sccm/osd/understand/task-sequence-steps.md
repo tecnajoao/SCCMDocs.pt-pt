@@ -3,7 +3,7 @@ title: "Passos de sequência de tarefas"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre os passos de sequência de tarefas que pode adicionar uma sequência de tarefas do Configuration Manager."
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 01/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 77ce50cf363c9429f9ef38aa2acf5b898bc8052d
-ms.sourcegitcommit: b97aa456b392d817bc9723cbd5c0ce6602e7ae34
+ms.openlocfilehash: 695d21eb065f4d89143644dad28bfdb711392ab9
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
@@ -28,233 +28,200 @@ ms.lasthandoff: 12/28/2017
 
 Os seguintes passos de sequência de tarefas podem ser adicionados a uma sequência de tarefas do Configuration Manager. Para obter informações sobre a edição de uma sequência de tarefas, veja [Editar uma sequência de tarefas](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
-> [!TIP]  
-> **Suporte para Windows 10, versão 1709 (também conhecido como a atualização de criadores de reversão)**.  A partir desta versão do Windows, o suporte de dados do Windows inclui várias edições. Quando configurar uma sequência de tarefas para utilizar um pacote de atualização do sistema operativo ou a imagem do sistema operativo, é necessário selecionar um [edição que é suportada para utilização pelo Configuration Manager](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
+As seguintes definições são comuns a todos os passos de sequência de tarefas:
+
+No **propriedades** separador:
+ - **Nome**: O editor de sequência de tarefas requer que especifique um nome abreviado para descrever este passo. Quando adiciona um novo passo, o editor de sequência de tarefas define o nome para o tipo por predefinição. O **nome** não pode exceder 50 carateres.
+ - **Descrição**: Opcionalmente, especifique as informações mais detalhadas sobre este passo. O **Descrição** comprimento não pode exceder os 256 carateres.
+O resto deste artigo descreve as outras definições no **propriedades** separador para cada passo de sequência de tarefas.
+
+No **opções** separador:  
+-   **Desativar este passo**: A sequência de tarefas ignore este passo quando é executada num computador. O ícone para este passo é esbatido no editor de sequência de tarefas. 
+-   **Continuar com o erro**: A sequência de tarefas continua se ocorrer um erro ao executar o passo.  
+-   **Adicionar condição**: A sequência de tarefas avalia as declarações de condicionais para determinar se executa o passo.   
+As secções abaixo para os passos de sequência de tarefas específica descrevem outras definições de possíveis no **opções** separador.
 
 
-##  <a name="BKMK_ApplyDataImage"></a>Aplique o passo de sequência de tarefas de imagem de dados  
- Utilize o passo de sequência de tarefas **Aplicar Imagem de Dados** para copiar a imagem de dados para a partição de destino especificada.  
 
- Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
+##  <a name="BKMK_ApplyDataImage"></a>Aplicar imagem de dados   
+ Utilize este passo para copiar a imagem de dados para a partição de destino especificado.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens**e selecione **aplicar imagem de dados** para adicionar este passo. 
 
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Pacote de imagem**  
- Especifique o **Pacote de Imagem** que será utilizado por este passo de sequência de tarefas, clicando em **Procurar**. Selecione o pacote que pretende instalar na caixa de diálogo **Selecionar um Pacote**. As informações sobre propriedades associadas para cada pacote de imagem existente são apresentadas na parte inferior da caixa de diálogo **Selecionar um Pacote**. Utilize a lista pendente para selecionar a **Imagem** que pretende instalar a partir do **Pacote de Imagem** selecionado.  
+ Clique em **procurar** para especificar o **pacote de imagem** utilizado por esta sequência de tarefas. Selecione o pacote que pretende instalar na caixa de diálogo **Selecionar um Pacote**. As informações sobre propriedades associadas para cada pacote de imagem existente são apresentadas na parte inferior da caixa de diálogo **Selecionar um Pacote**. Utilize a lista pendente para selecionar a **Imagem** que pretende instalar a partir do **Pacote de Imagem** selecionado.  
 
 > [!NOTE]  
->  Esta ação de sequência de tarefas processa a imagem como um ficheiro de dados e não efetua nenhuma configuração necessária para arrancar a imagem como sistema operativo.  
+>  Esta ação de sequência de tarefas processa a imagem como um ficheiro de dados. Esta ação não efetuar qualquer configuração para arrancar a imagem como um sistema operativo.  
 
  **Destino**  
- Especifica uma partição e um disco rígido formatados existentes, uma letra de unidade lógica específica ou o nome de uma variável de sequência de tarefas que contém a letra de unidade lógica.  
+ Configure uma das seguintes opções:
 
--   **Partição disponível seguinte** -utilize a partição sequencial seguinte que não tenha sido direcionada anteriormente por uma ação aplicar sistema operativo ou aplicar imagem de dados nesta sequência de tarefas.  
+-   **Partição disponível seguinte**: Utilize a partição sequencial seguinte que um **aplicar sistema operativo** ou **aplicar imagem de dados** ação nesta sequência de tarefas não tem o destino já.  
 
--   **Partição e disco específico** - selecione o **disco** número (começando com 0) e o **partição** número (começando com 1).  
+-   **Partição e disco específico**: Selecione o **disco** número (começando com 0) e o **partição** número (começando com 1).  
 
--   **Letra de unidade lógica específica** -especifique o **letra de unidade** atribuída à partição pelo Windows PE. Tenha em atenção que esta letra de unidade pode ser diferente da letra de unidade que o sistema operativo recentemente implementado atribuirá.  
+-   **Letra de unidade lógica específica**: Especifique o **letra da unidade** atribuída à partição pelo Windows PE. Esta letra de unidade pode ser diferente da letra de unidade que atribui o sistema operativo recentemente implementado.  
 
--   **Letra de unidade lógica armazenada numa variável** -especifique a variável de sequência de tarefas que contém a letra de unidade atribuída à partição pelo Windows PE. Normalmente, esta variável seria definida na secção Avançadas da caixa de diálogo **Propriedades de Partição** para a ação de sequência de tarefas **Formatar e Particionar Disco**.  
+-   **Letra de unidade lógica armazenada numa variável**: Especifique a variável de sequência de tarefas que contém a letra de unidade atribuída à partição pelo Windows PE. Esta variável é normalmente definida na secção avançada da **propriedades da partição** caixa de diálogo a **formatar e particionar disco** ação de sequência de tarefas.  
 
- **Elimine todo o conteúdo na partição antes de aplicar a imagem**  
- Especifica que todos os ficheiros na partição de destino serão eliminados antes de a imagem ser instalada. Ao não eliminar o conteúdo da partição, este passo pode ser utilizado para aplicar conteúdo adicional a uma partição direcionada anteriormente.  
+**Elimine todo o conteúdo na partição antes de aplicar a imagem**  
+ Especifica que a sequência de tarefas Elimina todos os ficheiros na partição de destino antes de instalar a imagem. Ao não eliminar o conteúdo da partição, este passo pode ser utilizado para aplicar conteúdo adicional a uma partição direcionada anteriormente.  
+
+
 
 ##  <a name="BKMK_ApplyDriverPackage"></a>Aplicar pacote de controlador  
- Utilize o passo de sequência de tarefas **Aplicar Pacote de Controlador** para transferir todos os controladores no pacote de controlador e instalá-los no sistema operativo Windows.
+ Utilize este passo para transferir todos os controladores no pacote de controlador e instalá-los no sistema operativo Windows.
 
- O passo de sequência de tarefas **Aplicar Pacote de Controlador** torna todos os controladores de dispositivo num pacote de controlador disponíveis para serem utilizados pelo Windows. Este passo pode ser adicionado a uma sequência de tarefas entre os passos **Aplicar Sistema Operativo** e **Configurar Windows e ConfigMgr** para tornar os controladores de dispositivo no pacote de controlador disponíveis no Windows. Normalmente, o passo **Aplicar Pacote de Controlador** é colocado depois do passo de sequência de tarefas **Aplicar Controladores Automaticamente**. O passo de sequência de tarefas **Aplicar Pacote de Controlador** também é útil em cenários de implementação de suportes de dados autónomos.  
+ O passo de sequência de tarefas **Aplicar Pacote de Controlador** torna todos os controladores de dispositivo num pacote de controlador disponíveis para serem utilizados pelo Windows. Adicionar este passo entre o **aplicar sistema operativo** e **configurar Windows e ConfigMgr** passos para disponibilizar os controladores no pacote do Windows. Normalmente, o passo **Aplicar Pacote de Controlador** é colocado depois do passo de sequência de tarefas **Aplicar Controladores Automaticamente**. O passo de sequência de tarefas **Aplicar Pacote de Controlador** também é útil em cenários de implementação de suportes de dados autónomos.  
 
- Certifique-se de que os controladores de dispositivo semelhantes são colocados num pacote de controlador e distribuídos para os pontos de distribuição adequados. Depois de serem distribuídos computadores de cliente do Configuration Manager podem instalá-los. Por exemplo, pode colocar todos os controladores de dispositivo de um fabricante num pacote de controlador e, em seguida, distribuir o pacote para os pontos de distribuição onde os computadores associados podem aceder aos mesmos.
+ Certifique-se de que os controladores de dispositivo semelhantes são colocados num pacote de controlador e distribuídos para os pontos de distribuição adequados. Depois de serem distribuídos, computadores de cliente do Configuration Manager podem instalá-los. Por exemplo, colocar todos os controladores de um fabricante num pacote de controlador. Em seguida, distribua o pacote para pontos de distribuição em que os computadores associados podem aceder aos mesmos.
 
- Este passo é útil para suportes de dados autónomos e administradores que pretendem instalar um conjunto específico de controladores, incluindo controladores para dispositivos que não seriam detetados numa análise Plug-n-Play (por exemplo, impressoras de rede).  
+ O **aplicar pacote de controlador** passo é útil para suportes de dados autónomos. Este passo também é útil se pretender instalar um conjunto específico de controladores. Estes tipos de controladores incluem os dispositivos que uma análise plug and play, como impressoras de rede não serão detetados.  
 
  Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Pacote de Controlador](task-sequence-action-variables.md#BKMK_ApplyDriverPackage).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **controladores**e selecione **aplicar pacote de controlador** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Pacote de controladores**  
  Especifique o pacote de controlador que contém os controladores de dispositivo necessários, clicando em **Procurar** e iniciando a caixa de diálogo **Selecionar um Pacote**. Especifique um pacote existente para ser disponibilizado. As propriedades do pacote associado são apresentadas na parte inferior da caixa de diálogo.  
 
  **Selecione o controlador de armazenamento em massa no pacote que tem de ser instalado antes da configuração em sistemas de operativos anteriores ao Windows Vista**  
- Especifique quaisquer controladores de dispositivo de armazenamento em massa necessários para instalações de sistemas operativos anteriores ao Windows Vista.  
+ Especifique quaisquer controladores de armazenamento em massa necessários para instalar um sistema operativo clássico.  
 
  **Controlador**  
- Selecione o ficheiro do controlador de dispositivo de armazenamento em massa a instalar antes da configuração em implementações de sistemas operativos anteriores ao Windows Vista. A lista pendente é preenchida a partir do pacote especificado.  
+ Selecione o ficheiro de controlador de armazenamento em massa a instalar antes da configuração de um sistema operativo clássico. Povoa na lista pendente do pacote especificado.  
 
  **Modelo**  
  Especifique o dispositivo crítico de arranque necessário para implementações de sistemas operativos anteriores ao Windows Vista.  
 
  **Efetuar a instalação autónoma de controladores não assinados numa versão do Windows em que tal é permitido**  
- Selecione esta opção para permitir que o Windows instale controladores não assinados no computador de referência.  
+ Esta opção permite que o Windows instale controladores sem uma assinatura digital.  
 
-##  <a name="BKMK_ApplyNetworkSettings"></a>Aplique o passo de definições de rede  
- Utilize o passo de sequência de tarefas **Aplicar Definições de Rede** para especificar as informações de configuração da rede ou do grupo de trabalho para o computador de destino. Os valores especificados são armazenados no formato de ficheiro de resposta adequado que será utilizado pela Configuração do Windows quando for executado o passo de sequência de tarefas **Configurar Windows e ConfigMgr**.  
+
+
+##  <a name="BKMK_ApplyNetworkSettings"></a>Aplicar definições de rede   
+ Utilize este passo para especificar as informações de configuração de rede ou o grupo de trabalho para o computador de destino. A sequência de tarefas armazena estes valores no ficheiro de resposta adequado. Este ficheiro de resposta durante a configuração do Windows utiliza o **configurar Windows e ConfigMgr** ação.  
 
  Este passo de sequência de tarefas é executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Definições de Rede](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **definições**e selecione **aplicar definições de rede** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Aderir a um grupo de trabalho**  
  Selecione esta opção para associar o computador de destino ao grupo de trabalho especificado. Introduza o nome do grupo de trabalho na linha **Grupo de Trabalho**. Este valor pode ser substituído pelo valor capturado pelo passo de sequência de tarefas **Capturar Definições de Rede**.  
 
  **Aderir a um domínio**  
- Selecione esta opção para associar o computador de destino ao domínio especificado. Especifique ou navegue até ao domínio, tal como *fabricam.com*. Especifique ou navegue até um caminho de acesso protocolo LDAP (Lightweight Directory) para uma unidade organizacional (ou seja, LDAP / / UO = computadores, DC = fabricam.com, C = com).  
+ Selecione esta opção para associar o computador de destino ao domínio especificado. Especifique ou navegue até ao domínio, tal como *fabricam.com*. Especifique ou navegue até um caminho de acesso protocolo LDAP (Lightweight Directory) para uma unidade organizacional. Por exemplo: *LDAP / / UO = computadores, DC = fabricam.com, C = com*  
 
  **Conta**  
- Clique em **Definir** para especificar uma conta com as permissões necessárias para associar o computador ao domínio. No **conta de utilizador do Windows** caixa de diálogo, pode introduzir o nome de utilizador usando o seguinte formato: **Domínio \ utilizador** .  
+ Clique em **Definir** para especificar uma conta com as permissões necessárias para associar o computador ao domínio. No **conta de utilizador do Windows** caixa de diálogo, pode introduzir o nome de utilizador usando o seguinte formato: **Domínio \ utilizador**.  
 
  **Definições do adaptador**  
- Especifique as configurações de rede para cada placa de rede no computador. Clique em **Novo** para abrir a caixa de diálogo **Definições de Rede** e, em seguida, especifique as definições de rede. Se as definições de rede tiverem sido capturadas num passo de sequência de tarefas **Capturar Definições de Rede** anterior, as definições anteriores são aplicadas à placa de rede e as definições especificadas neste passo não são aplicadas. Se as definições de rede não tiverem sido capturadas anteriormente, as definições especificadas no passo **Aplicar Definições de Rede** são aplicada às placas de rede pela ordem de enumeração do dispositivo Windows.  
+ Especifique as configurações de rede para cada placa de rede no computador. Clique em **Novo** para abrir a caixa de diálogo **Definições de Rede** e, em seguida, especifique as definições de rede. Se também de utilizar o **capturar definições de rede** passo, a sequência de tarefas aplica as definições de capturados anteriormente para o adaptador de rede. A sequência de tarefas não aplicar as definições que especificar neste passo. Se a sequência de tarefas não anteriormente capturar definições de rede, aplica-se as definições especificadas no **aplicar definições de rede** passo. A sequência de tarefas aplica estas definições para os adaptadores de rede por ordem de enumeração de dispositivo do Windows.  
+
+
 
 ##  <a name="BKMK_ApplyOperatingSystemImage"></a>Aplicar imagem do sistema operativo  
- Utilize o passo de sequência de tarefas **Aplicar Imagem do Sistema Operativo** para instalar um sistema operativo no computador de destino. Este passo de sequência de tarefas executa um conjunto de ações consoante estiver a utilizar uma imagem do sistema operativo ou um pacote de instalação para instalar o sistema operativo.  
 
- O passo **Aplicar Imagem do Sistema Operativo** executa as ações seguintes quando é utilizada uma imagem do sistema operativo.  
+> [!TIP]  
+> Começando com o Windows 10, versão 1709, o suporte de dados inclui várias edições. Quando configura uma sequência de tarefas para utilizar um pacote de atualização do SO ou a imagem do SO, é necessário selecionar um [suportado edição](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
 
-1.  Elimina todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelo &#95; Variável de sequência de tarefas SMSTSUserStatePath.  
+ Utilize este passo para instalar um sistema operativo no computador de destino. Este passo executa ações, dependendo se utiliza uma imagem do SO ou um pacote de atualização do SO.  
 
-2.  Extrai o conteúdo do ficheiro .wim especificado para a partição de destino especificada.  
+ O **aplicar imagem do sistema operativo** passo efetua as seguintes ações quando utilizar uma imagem do SO:  
 
-3.  Prepara o ficheiro de resposta:  
+1.  Elimine todo o conteúdo no volume de destino, exceto ficheiros na pasta o &#95; Especifica a variável de SMSTSUserStatePath.
 
-    1.  Cria um novo ficheiro de resposta de Configuração do Windows predefinido (sysprep.inf ou unattend.xml) para o sistema operativo que está a ser implementado.  
+2.  Extraia os conteúdos do ficheiro. wim especificado para a partição de destino especificado.  
+
+3.  Prepare o ficheiro de resposta:  
+
+    1.  Crie um nova configuração do Windows resposta ficheiro predefinido (sysprep.inf ou unattend.xml) para o sistema operativo que está a ser implementado.  
 
     2.  Intercala quaisquer valores do ficheiro de resposta fornecido pelo utilizador.  
 
-4.  Copia carregadores de arranque do Windows para a partição ativa.  
+4.  Copie carregadores de arranque do Windows para a partição ativa.  
 
-5.  Configura o ficheiro boot.ini ou a BCD (Boot Configuration Database) para referenciar o sistema operativo recentemente instalado.  
+5.  Defina o ficheiro boot.ini ou a base de dados de configuração de arranque (BCD) para referenciar o sistema operativo recentemente instalado.  
 
- O passo **Aplicar Imagem do Sistema Operativo** executa as ações seguintes quando é utilizado um pacote de instalação do sistema operativo.  
+ O **aplicar imagem do sistema operativo** passo efetua as seguintes ações quando utilizar um pacote de atualização do SO:  
 
-1.  Elimina todo o conteúdo no volume de destino, exceto os ficheiros na pasta especificada pelo &#95; Variável de sequência de tarefas SMSTSUserStatePath.  
+1.  Elimine todo o conteúdo no volume de destino, exceto ficheiros na pasta o &#95; Especifica a variável de SMSTSUserStatePath.  
 
-2.  Prepara o ficheiro de resposta:  
+2.  Prepare o ficheiro de resposta:  
 
-    1.  Cria um ficheiro de resposta novo com valores padrão criados pelo Configuration Manager.  
+    1.  Crie um ficheiro de resposta novo com valores padrão criados pelo Configuration Manager.  
 
     2.  Intercala quaisquer valores do ficheiro de resposta fornecido pelo utilizador.  
 
 > [!NOTE]  
->  A instalação real do Windows é iniciada pelo passo de sequência de tarefas **Configurar Windows e ConfigMgr**. Após a execução da ação de sequência de tarefas **Aplicar Sistema Operativo**, a variável de sequência de tarefas OSDTargetSystemDrive é definida para a letra de unidade da partição que contém os ficheiros do sistema operativo.  
+>  O **configurar Windows e ConfigMgr** passo inicia a instalação do Windows. 
+
+ Depois do **aplicar sistema operativo** ação é executada, OSDTargetSystemDrive variável é definida para a letra de unidade da partição que contém os ficheiros de sistema operativo.  
 
  Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Imagem do Sistema Operativo](task-sequence-action-variables.md#BKMK_ApplyOperatingSystem).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens**e selecione **aplicar imagem do sistema operativo** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   **Aceder ao conteúdo diretamente a partir do ponto de distribuição**:  
-
-     Utilize esta opção para especificar se pretende que a sequência de tarefas aceda diretamente à imagem do sistema operativo a partir do ponto de distribuição. Por exemplo, pode utilizar esta opção quando implementar sistemas operativos em dispositivos incorporados com uma capacidade de armazenamento limitada. Quando esta opção é selecionada, também tem de configurar as definições de partilha de pacote no separador **Acesso a Dados** das propriedades do pacote.  
-
-    > [!NOTE]  
-    >  Esta definição substitui a opção de implementação configurada na página **Pontos de Distribuição** no **Assistente de Implementação de Software** apenas para a imagem do sistema operativo especificada neste passo de sequência de tarefas e não para todo o conteúdo da sequência de tarefas.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Aplicar o sistema operativo a partir de uma imagem capturada**  
- Instala uma imagem do sistema operativo capturada anteriormente. Clique em **Procurar** para abrir a caixa de diálogo **Selecionar um pacote** e selecione o pacote de imagem existente que pretende instalar. Se estiverem associadas várias imagens ao **Pacote de imagem** especificado, utilize a lista pendente para especificar a imagem associada que será utilizada para esta implementação. Pode ver informações básicas sobre cada imagem existente clicando na imagem.  
+ Instala uma imagem do sistema operativo capturada anteriormente. Clique em **Procurar** para abrir a caixa de diálogo **Selecionar um pacote** e selecione o pacote de imagem existente que pretende instalar. Se várias imagens associados especificado **pacote de imagem**, utilize a lista pendente para especificar a imagem associada a utilizar para esta implementação. Pode ver informações básicas sobre cada imagem existente clicando na imagem.  
 
  **Aplicar imagem do sistema operativo a partir de uma origem de instalação original**  
- Instala um sistema operativo utilizando uma origem de instalação original. Clique em **Procurar** para abrir a caixa de diálogo **Selecionar um Pacote de Instalação do Sistema Operativo** e selecione o pacote de instalação do sistema operativo existente que pretende utilizar. Pode ver informações básicas sobre cada origem de imagem existente clicando na origem da imagem. As propriedades da origem da imagem associada são apresentadas no painel de resultados, na parte inferior da caixa de diálogo. Se existirem várias edições associadas ao pacote especificado, utilize a lista pendente para especificar a **Edição** associada que será utilizada.  
+ Instala um sistema operativo utilizando uma origem de instalação original. Clique em **procurar** para abrir o **Select e pacote de instalação do sistema operativo** caixa de diálogo. Em seguida, selecione o pacote de atualização SO existente que pretende utilizar. Pode ver informações básicas sobre cada origem de imagem existente clicando na origem da imagem. As propriedades da origem da imagem associada são apresentadas no painel de resultados, na parte inferior da caixa de diálogo. Se existirem várias edições associadas ao pacote especificado, utilize a lista pendente para especificar a **Edição** associada que será utilizada.  
 
  **Utilizar um ficheiro de resposta sysprep ou autónomo para uma instalação personalizada**  
- Utilize esta opção para fornecer um ficheiro de resposta de configuração do Windows (**unattend.xml**, **unattend.txt** ou **sysprep.inf**), consoante a versão do sistema operativo e o método de instalação. O ficheiro que especificar pode incluir qualquer uma das opções de configuração padrão suportadas pelos ficheiros de resposta do Windows. Por exemplo, pode utilizá-lo para especificar a home page predefinida do Internet Explorer. Tem de especificar o pacote que contém o ficheiro de resposta e o caminho associado para o ficheiro no pacote.  
+ Utilize esta opção para fornecer um ficheiro de resposta de configuração do Windows (**unattend.xml**, **unattend.txt** ou **sysprep.inf**), consoante a versão do sistema operativo e o método de instalação. O ficheiro que especificar pode incluir qualquer uma das opções de configuração padrão suportadas pelos ficheiros de resposta do Windows. Por exemplo, pode utilizá-lo para especificar a home page predefinida do Internet Explorer. Especifique o pacote que contém o ficheiro de resposta e o caminho associado para o ficheiro do pacote.  
 
 > [!NOTE]  
->  O ficheiro de resposta de configuração do Windows que fornecer pode conter variáveis de sequência de tarefas incorporadas no formato %*varname*%, em que varname corresponde ao nome da variável. A cadeia %*varname*% será substituída pelos valores da variável real na ação de sequência de tarefas **Configurar Windows e ConfigMgr**. No entanto, tenha em atenção que essas variáveis de sequência de tarefas incorporadas não podem ser utilizadas em campos apenas numéricos num ficheiro de resposta unattend.xml.  
+>  O ficheiro de resposta de configuração que fornecer pode conter do Windows embedded variáveis de sequência de tarefas da % formulário*varname*%, onde *varname* é o nome da variável. O **configurar Windows e ConfigMgr** passo substitui o %*varname*cadeia % para os valores de variáveis reais. Estas variáveis de sequência de tarefas incorporadas não podem ser utilizados em campos apenas numéricos num ficheiro de resposta unattend.xml.  
 
- Se não fornecer um ficheiro de resposta de configuração do Windows, esta ação de sequência de tarefas irá gerar automaticamente um ficheiro de resposta.  
+ Se não fornecer um ficheiro de resposta de configuração do Windows, esta ação de sequência de tarefas gera automaticamente um ficheiro de resposta.  
 
  **Destino**  
- Especifica uma partição e um disco rígido formatados existentes, uma letra de unidade lógica específica ou o nome de uma variável de sequência de tarefas que contém a letra de unidade lógica.  
+ Configure uma das seguintes opções:  
 
--   **Partição disponível seguinte** -utilize a partição sequencial seguinte que não tenha sido direcionada anteriormente por uma ação aplicar sistema operativo ou aplicar imagem de dados nesta sequência de tarefas.  
+-   **Partição disponível seguinte**: Utilize a partição sequencial seguinte que um **aplicar sistema operativo** ou **aplicar imagem de dados** ação nesta sequência de tarefas não tem o destino já. 
 
--   **Partição e disco específico** - selecione o **disco** número (começando com 0) e o **partição** número (começando com 1).  
+-   **Partição e disco específico**: Selecione o **disco** número (começando com 0) e o **partição** número (começando com 1).  
 
--   **Letra de unidade lógica específica** -especifique o **letra de unidade** atribuída à partição pelo Windows PE. Tenha em atenção que esta letra de unidade pode ser diferente da letra de unidade que o sistema operativo recentemente implementado atribuirá.  
+-   **Letra de unidade lógica específica**: Especifique o **letra da unidade** atribuída à partição pelo Windows PE. Esta letra de unidade pode ser diferente da letra de unidade que atribui o sistema operativo recentemente implementado.  
 
--   **Letra de unidade lógica armazenada numa variável** -especifique a variável de sequência de tarefas que contém a letra de unidade atribuída à partição pelo Windows PE. Normalmente, esta variável seria definida na secção Avançadas da caixa de diálogo **Propriedades de Partição** para a ação de sequência de tarefas **Formatar e Particionar Disco**.  
+-   **Letra de unidade lógica armazenada numa variável**: Especifique a variável de sequência de tarefas que contém a letra de unidade atribuída à partição pelo Windows PE. Esta variável é normalmente definida na secção avançada da **propriedades da partição** caixa de diálogo a **formatar e particionar disco** ação de sequência de tarefas.  
+
+### <a name="options"></a>Opções  
+ Para além das opções predefinidas, configure as seguintes definições adicionais no **opções** separador deste passo de sequência de tarefas:  
+
+-   **Aceder ao conteúdo diretamente a partir do ponto de distribuição**  
+     Configure a sequência de tarefas para aceder à imagem do sistema operativo diretamente a partir do ponto de distribuição. Por exemplo, utilize esta opção quando implementar sistemas operativos em dispositivos embedded que tenham limitada a capacidade de armazenamento. Quando selecionar esta opção, também de configurar as definições de partilha de pacote no **acesso a dados** separador das propriedades do pacote.  
+
+    > [!NOTE]  
+    >  Esta definição substitui a opção de implementação que configurou no **pontos de distribuição** página no **Assistente de implementação de Software**. Esta substituição destina-se apenas a imagem do SO que especifique este passo, não para todos os conteúdos de sequência de tarefas.  
+
+
 
 ##  <a name="BKMK_ApplyWindowsSettings"></a>Aplicar definições do Windows  
- Utilize o passo de sequência de tarefas **Aplicar Definições do Windows** para configurar as definições do Windows para o computador de destino. Os valores especificados são armazenados no formato de ficheiro de resposta adequado que será utilizado pela Configuração do Windows quando for executado o passo de sequência de tarefas **Configurar Windows e ConfigMgr**.  
+ Utilize este passo para configurar as definições do Windows para o computador de destino. A sequência de tarefas armazena estes valores no ficheiro de resposta adequado. Este ficheiro de resposta durante a configuração do Windows utiliza o **configurar Windows e ConfigMgr** ação.  
 
  Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Definições do Windows](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **definições**e selecione **aplicar definições do Windows** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Nome de utilizador**  
  Especifique o nome de utilizador registado associado ao computador de destino. Este valor pode ser substituído pelo valor capturado pela ação de sequência de tarefas **Capturar Definições do Windows**.  
@@ -266,100 +233,80 @@ Os seguintes passos de sequência de tarefas podem ser adicionados a uma sequên
  Especifique a chave de produto utilizada para a instalação do Windows no computador de destino.  
 
  **Licenciamento do servidor**  
- Especifique o modo de licenciamento do servidor. Pode selecionar **Por servidor** ou **Por utilizador** como modo de licenciamento. Se selecionar Por servidor como modo de licenciamento, também terá de especificar o número máximo de ligações que será permitido por contrato de licença. Selecione **Não especificar** se o computador de destino não for um servidor ou o utilizador não pretender especificar o modo de licenciamento.  
+ Especifique o modo de licenciamento do servidor. Pode selecionar **Por servidor** ou **Por utilizador** como modo de licenciamento. Se selecionar **por servidor**, também especificar o número máximo de ligações permitido por contrato de licença. Selecione **Não especificar** se o computador de destino não for um servidor ou o utilizador não pretender especificar o modo de licenciamento.  
 
  **Número máximo de ligações**  
  Especifique o número máximo de ligações disponíveis para este computador, conforme indicado no contrato de licença.  
 
  **Aleatoriamente gerar a palavra-passe de administrador local e desativar a conta nas plataformas suportadas (recomendado)**  
- Selecione esta opção para gerar aleatoriamente uma palavra-passe de administrador local. É criada uma palavra-passe de administrador local e a conta é desativada nas plataformas suportadas.  
+ Selecione esta opção para definir a palavra-passe de administrador local para uma cadeia gerado aleatoriamente. Esta opção também desativa a conta de administrador local em plataformas que suportam esta capacidade.  
 
  **Ativar a conta e especificar a palavra-passe de administrador local**  
- Selecione esta opção para ativar a conta de administrador local e criar a palavra-passe de administrador local. Introduza a palavra-passe na linha **Palavra-passe** e confirme-a na linha **Confirmar palavra-passe**.  
+ Selecione esta opção para ativar a conta de administrador local utilizando a palavra-passe especificada. Introduza a palavra-passe na linha **Palavra-passe** e confirme-a na linha **Confirmar palavra-passe**.  
 
  **Fuso horário**  
  Especifique o fuso horário a configurar no computador de destino. Este valor pode ser substituído pelo valor capturado pelo passo de sequência de tarefas **Capturar Definições do Windows**.  
 
+
+
 ##  <a name="BKMK_AutoApplyDrivers"></a>Aplicar controladores automaticamente  
- Utilize o passo de sequência de tarefas **Aplicar Controladores Automaticamente** para corresponder e instalar controladores como parte da implementação do sistema operativo.  
+ Utilize este passo para corresponder e instalar controladores como parte da implementação do sistema operativo.  
 
  O passo de sequência de tarefas **Aplicar Controladores Automaticamente** executa as seguintes ações:  
 
-1.  Analisa o hardware e localiza os IDs Plug-n-Play para todos os dispositivos existentes no sistema.  
+1.  Análise de hardware e localize os IDs plug and play para todos os dispositivos existentes no sistema.  
 
-2.  Envia a lista de dispositivos e os respetivos IDs Plug-n-Play para o ponto de gestão. O ponto de gestão devolve uma lista de controladores compatíveis a partir do catálogo de controladores de cada dispositivo. O ponto de gestão considera todos os controladores independentemente do pacote de controlador em que possam estar incluídos. Apenas são considerados os controladores marcados com a categoria de controlador especificada e os controladores não marcados como desativados.  
+2.  Envie a lista de dispositivos e os respetivos IDs plug and play para o ponto de gestão. O ponto de gestão devolve uma lista de controladores compatíveis a partir do catálogo de controladores para cada dispositivo de hardware. A lista inclui todos os controladores independentemente de estarem no pacote de controlador, controladores marcados com a categoria de controladores especificados e os controladores não desativados.  
 
-3.  Para cada dispositivo, o cliente escolhe o controlador mais adequado para o sistema operativo no qual está a ser implementado e que esteja num ponto de distribuição acessível.  
+3.  Para cada dispositivo de hardware, a sequência de tarefas escolhe o melhor controlador. Este controlador é adequado para o sistema operativo implementado e no ponto de distribuição acessível.  
 
-4.  Os controladores selecionados são transferidos a partir de um ponto de distribuição e pré-configurados no sistema operativo de destino.  
+4.  A sequência de tarefas transfere os controladores selecionados a partir de um ponto de distribuição e prepara os controladores no sistema de operativo de destino.  
 
-    1.  Para instalações baseadas em imagens, os controladores são colocados no arquivo de controladores do sistema operativo.  
+    1.  Para instalações baseadas em imagem, a sequência de tarefas coloca os controladores para o arquivo de controladores do sistema operativo.  
 
-    2.  Para instalações baseadas em configurações, a Configuração do Windows é efetuada com a localização dos controladores.  
+    2.  Para instalações baseadas em configurações, a sequência de tarefas configura a configuração do Windows com a localização dos controladores.  
 
-5.  Quando a ação de sequência de tarefas **Configurar Windows e ConfigMgr** for executada e o Windows arrancar inicialmente, os controladores pré-configurados serão localizados por esta ação.  
+5.  Durante a **configurar Windows e ConfigMgr** passo da sequência de tarefas, a configuração do Windows encontra os controladores pré-configurados por esta ação.  
 
 > [!IMPORTANT]
->  O **aplicar controladores automaticamente** passo de sequência de tarefas não pode ser utilizado com suportes de dados autónomos, porque a configuração do Windows não terá nenhuma ligação ao site do Configuration Manager.
+>  Não é possível utilizar suportes de dados autónomos a **aplicar controladores automaticamente** passo. Configuração do Windows não tem uma ligação ao site do Configuration Manager neste cenário.
 
 Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Aplicar Controladores Automaticamente](task-sequence-action-variables.md#BKMK_AutoApplyDrivers).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **controladores**e selecione **aplicar controladores automaticamente** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Instalar apenas o melhor correspondência de controladores compatíveis**  
  Especifica que o passo de sequência de tarefas instala apenas os controladores com melhor compatibilidade para cada dispositivo de hardware detetado.  
 
  **Instalar todos os controladores compatíveis**  
- Especifica que o passo de sequência de tarefas instala todos os controladores compatíveis para cada dispositivo de hardware detetado e permite que a configuração do Windows escolha o melhor controlador. Esta opção utiliza mais largura de banda de rede e espaço em disco porque transfere mais controladores, mas pode resultar na seleção de um controlador mais adequado.  
+ A sequência de tarefas instale todos os controladores compatíveis para cada dispositivo de hardware detetado. Configuração do Windows, em seguida, escolhe o melhor controlador. Esta opção utiliza mais espaço de disco e largura de banda de rede. A sequência de tarefas transfere mais controladores, mas o Windows pode selecionar um controlador mais adequado.  
 
  **Considerar controladores de todas as categorias**  
- Especifica que a ação de sequência de tarefas procura todas as categorias de controladores disponíveis para obter os controladores de dispositivo adequados.  
+ A sequência de tarefas procura todas as categorias de controladores disponíveis para os controladores de dispositivo adequados.  
 
  **Limitar a correspondência de controladores para apenas considerar controladores nas categorias selecionadas**  
- Especifica que a ação de sequência de tarefas procura controladores de dispositivo nas categorias de controladores especificadas para obter os controladores de dispositivo adequados.  
+ A sequência de tarefas procura nas categorias de controladores especificados para os controladores de dispositivo adequados.  
 
  **Efetuar a instalação autónoma de controladores não assinados nas versões do Windows em que tal é permitido**  
- Permite que esta ação de sequência de tarefas instale controladores de dispositivo do Windows não assinados.  
+ Esta opção permite que o Windows instale controladores sem uma assinatura digital.   
 
-> [!IMPORTANT]  
->  Esta opção não é aplicável a sistemas operativos em que não é possível configurar a política de assinatura de controladores.  
+  > [!IMPORTANT]  
+  >  Esta opção não é aplicável a sistemas operativos onde não é possível configurar a política de assinatura de controladores.  
+
+
 
 ##  <a name="BKMK_CaptureNetworkSettings"></a>Capturar definições de rede  
- Utilize o passo de sequência de tarefas **Capturar Definições de Rede** para capturar as definições de rede Microsoft do computador que está a executar a sequência de tarefas. As definições são guardadas em variáveis de sequência de tarefas que substituirão as predefinições configuradas no passo de sequência de tarefas **Aplicar Definições de Rede**.  
+ Utilize este passo para capturar definições de rede Microsoft do computador que executa a sequência de tarefas. A sequência de tarefas guarda estas definições em variáveis de sequência de tarefas. Estas definições substituem as predefinições configuradas no **aplicar definições de rede** passo.  
 
  Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Definições de Rede](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **definições**e selecione **capturar definições de rede** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Fornece informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Migrar a associação ao domínio e grupo de trabalho**  
  Captura as informações de associação de domínios e grupos de trabalho do computador de destino.  
@@ -367,33 +314,23 @@ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é e
  **Migrar a configuração do adaptador de rede**  
  Captura a configuração da placa de rede do computador de destino. As informações capturadas incluem as definições de rede globais, o número de placas e as definições de rede associadas a cada placa. Estas definições incluem as definições associadas a DNS, WINS, IP e filtros de portas.  
 
+
+
 ##  <a name="BKMK_CaptureOperatingSystemImage"></a>Capturar imagem do sistema operativo  
- Utilize o passo de sequência de tarefas **Capturar Imagem do Sistema Operativo** para capturar uma ou mais imagens de um computador de referência e armazená-las num ficheiro WIM na partilha de rede especificada. O assistente pacote da imagem de sistema operativo adicionar, em seguida, pode ser utilizado para importar este. Ficheiro WIM para o Configuration Manager para que possam ser utilizado para implementações do sistema de operativo baseada em imagem.  
+ Este passo captura uma ou mais imagens a partir de um computador de referência. A sequência de tarefas cria um ficheiro de imagem do Windows (. wim) na partilha de rede especificado. Em seguida, utilize o **Adicionar pacote de imagem do sistema operativo** Assistente para importar esta imagem para o Configuration Manager para implementações do sistema de operativo baseada em imagem.  
 
- Cada volume (unidade) no computador de referência é capturado como uma imagem separada no ficheiro .wim. Se o computador referenciado tiver vários volumes, o ficheiro WIM resultante irá conter uma imagem separada para cada volume. Apenas são capturados os volumes formatados como NTFS ou FAT32. Os volumes com outros formatos e os volumes USB são ignorados.  
+ O Configuration Manager captura cada volume (unidade) do computador de referência para uma imagem separada no ficheiro. wim. Se o computador referenciado tiver vários volumes, o ficheiro. wim resultante contém uma imagem separada para cada volume. Apenas são capturados os volumes formatados como NTFS ou FAT32. Os volumes com outros formatos e os volumes USB são ignorados.  
 
- O sistema operativo instalado no computador de referência tem de ser uma versão do Windows que são suportados pelo Configuration Manager e tem de ter sido preparado através da ferramenta SysPrep. O volume do sistema operativo instalado e o volume de arranque têm de ser o mesmo volume.  
+ O sistema operativo instalado no computador de referência tem de ser uma versão do Windows que suporte do Configuration Manager. Utilize a ferramenta SysPrep para preparar o sistema de operativo de computador de referência. O volume do sistema operativo instalado e o volume de arranque têm de ser o mesmo volume.  
 
- Também tem de introduzir uma conta do Windows com permissões de escrita para a partilha de rede selecionada.  
+ Especifique uma conta com permissões de escrita para a partilha de rede selecionada.  
 
  Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Imagem do Sistema Operativo](task-sequence-action-variables.md#BKMK_CaptureOperatingSystemImage).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens**e selecione **Capturar imagem do sistema operativo** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Destino**  
  Caminho de sistema de ficheiros para a localização que o Configuration Manager utiliza para armazenar a imagem do sistema operativo capturada.  
@@ -410,153 +347,136 @@ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é e
  **Conta de imagem do sistema operativo para captura**  
  Tem de introduzir a conta do Windows com permissões para a partilha de rede especificada. Clique em **Definir** para especificar o nome dessa conta do Windows.  
 
+
+
 ##  <a name="BKMK_CaptureUserState"></a>Capturar estado do utilizador  
- Utilize o passo de sequência de tarefas **Capturar Estado do Utilizador** para utilizar o User State Migration Tool (USMT) para capturar o estado e as definições de utilizador do computador que está a executar a sequência de tarefas. Este passo de sequência de tarefas é utilizado em conjunto com o passo de sequência de tarefas **Restaurar Estado do Utilizador**. Com o USMT 3.0.1 e posterior, esta opção encripta sempre o armazenamento de Estados do USMT através de uma chave de encriptação gerada e gerida pelo Configuration Manager.  
+ Utilize este passo para utilizar a ferramenta de migração de estado de utilizador (USMT) para capturar o estado do utilizador e as definições do computador que executa a sequência de tarefas. Este passo de sequência de tarefas é utilizado em conjunto com o passo de sequência de tarefas **Restaurar Estado do Utilizador**. Com o USMT 3.0.1 e posterior, esta opção encripta sempre o armazenamento de Estados do USMT através de uma chave de encriptação gerada e gerida pelo Configuration Manager.  
 
  Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Também pode utilizar o **capturar estado do utilizador** passo de sequência de tarefas com o **solicitar armazenamento de Estados** e **disponibilizar armazenamento de Estados** passos de sequência de tarefas se pretender guardar as definições de estado ou restaurar definições a partir de uma migração de estado para o ponto no site do Configuration Manager.  
+ Se pretender guardar e restaurar as definições de estado do utilizador a partir de um ponto de migração de estado, utilize o **capturar estado do utilizador** passo com o **solicitar armazenamento de Estados** e **disponibilizar armazenamento de Estados** passos.  
 
  O passo de sequência de tarefas **Capturar Estado do Utilizador** fornece controlo sobre um subconjunto limitado das opções mais utilizadas pelo USMT. Podem ser especificadas opções da linha de comandos adicionais com a variável de sequência de tarefas OSDMigrateAdditionalCaptureOptions.  
 
  Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Estado do Utilizador](task-sequence-action-variables.md#BKMK_CaptureUserState).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **estado do utilizador**e selecione **capturar estado do utilizador** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Pacote de ferramenta de migração de estado de utilizador**  
- Introduza o pacote de Configuration Manager que contém a versão do USMT para este passo de sequência de tarefas a utilizar ao capturar o estado do utilizador e as definições. Este pacote não requer um programa. Quando o passo de sequência de tarefas for executado, a sequência de tarefas utilizará a versão do USMT no pacote especificado. Especifique um pacote com a versão de 32 bits ou x64 do USMT, consoante a arquitetura do sistema operativo a partir do qual está a capturar o estado.  
+ Especifique o pacote que contém a ferramenta de migração de estado de utilizador (USMT). A sequência de tarefas utiliza esta versão do USMT para capturar o estado do utilizador e as definições. Este pacote não requer um programa. Especifique um pacote com a versão de 32 bits ou 64 bits do USMT. A arquitetura do USMT depende da arquitetura do sistema operativo a partir da qual a sequência de tarefas é capturar o estado.  
 
  **Capturar todos os perfis de utilizador com opções padrão**  
- Selecione esta opção para migrar todas as informações dos perfis de utilizador. Esta opção está selecionada por predefinição.  
+ Migre todas as informações de perfil de utilizador. Esta é a opção predefinida.  
 
- Se selecionar esta opção, mas não selecionar a opção para restaurar perfis de utilizador do computador local no passo de sequência de tarefas restaurar estado do utilizador, a sequência de tarefas irá falhar porque o Configuration Manager não é possível migrar as novas contas sem lhes atribuir palavras-passe. Além disso, se utilizar o assistente **Nova Sequência de Tarefas** e criar uma sequência de tarefas para **Instalar um pacote de imagem existente**, a sequência de tarefas resultante utilizará a predefinição Capturar todos os perfis de utilizador com opções padrão, mas não selecionará a opção para Restaurar perfis de utilizador do computador local (ou seja, contas não pertencentes ao domínio).  
+ Se selecionar esta opção, mas não selecionar **restaurar perfis de utilizador do computador local** no **restaurar estado do utilizador** passo, a sequência de tarefas falhará. O Configuration Manager não é possível migrar as novas contas sem lhes atribuir palavras-passe. 
+
+ Quando utiliza o **instalar um pacote de imagem existente** opção o **nova sequência de tarefas** assistente, a sequência de tarefas resultante utilizará a predefinição **capturar todos os perfis de utilizador com opções padrão**. Esta sequência de tarefas predefinida não selecione a opção para **restaurar perfis de utilizador do computador local**, por outras palavras, contas de utilizador de domínio.  
 
  Selecione **Restaurar perfis de utilizador do computador local** e forneça uma palavra-passe para a conta a ser migrada. Numa sequência de tarefas criada manualmente, esta definição pode ser encontrada no passo Restaurar Estado do Utilizador. Numa sequência de tarefas criada pelo assistente **Nova Sequência de Tarefas**, esta definição pode ser encontrada na página do assistente no passo **Restaurar Definições e Ficheiros do Utilizador**.  
 
- Se não tiver contas de utilizador locais, isto não é aplicável.  
+ Se tiver não existem contas de utilizador local, esta definição não se aplica.  
 
  **Personalizar como os perfis de utilizador são capturados**  
- Selecione esta opção para especificar uma migração de ficheiros de perfil personalizados. Clique em **Ficheiros** para selecionar os ficheiros de configuração para o USMT utilizar neste passo. Tem de especificar um ficheiro .xml personalizado que contenha regras que definam os ficheiros de estado do utilizador a migrar.  
+ Selecione esta opção para especificar uma migração de ficheiros de perfil personalizados. Clique em **Ficheiros** para selecionar os ficheiros de configuração para o USMT utilizar neste passo. Especifique um ficheiro. XML personalizado que contém as regras que definam os ficheiros de estado de utilizador a migrar.  
 
  **Clique aqui para selecionar os ficheiros de configuração:**  
  Selecione esta opção para selecionar os ficheiros de configuração no pacote do USMT que pretende utilizar para capturar os perfis de utilizador. Clique no botão **Ficheiros** para iniciar a caixa de diálogo **Ficheiros de Configuração**. Para especificar um ficheiro de configuração, introduza o nome do ficheiro na linha **Nome do ficheiro** e clique no botão **Adicionar**.  
 
  **Ativar o registo verboso**  
- Ative esta opção para gerar informações de ficheiros de registo mais detalhadas. Ao capturar o estado, o registo Scanstate.log é gerado e armazenado por predefinição na pasta de Registo da sequência de tarefas na pasta \windows\system32\ccm\logs.  
+ Ative esta opção para gerar informações de ficheiros de registo mais detalhadas. Ao capturar o estado, a sequência de tarefas por predefinição gera ScanState.log na pasta de registo da sequência de tarefas, \windows\system32\ccm\logs.   
 
  **Ignorar ficheiros que utilizam o sistema de ficheiros encriptados**  
- Ative esta opção se pretender ignorar a captura de ficheiros encriptados com o Sistema de Encriptação de Ficheiros (EFS), incluindo ficheiros de perfil. Consoante o sistema operativo e a versão do USMT, os ficheiros encriptados podem não ser legíveis após o restauro. Para mais informações, consulte a documentação do USMT.  
+ Ative esta opção para ignorar a captura de ficheiros encriptado com o sistema de ficheiros encriptados (EFS). Estes ficheiros incluem ficheiros de perfil de utilizador. Consoante o sistema operativo e a versão do USMT, os ficheiros encriptados podem não ser legíveis após o restauro. Para mais informações, consulte a documentação do USMT.  
 
  **Copiar utilizando o acesso do sistema de ficheiros**  
  Ative esta opção para especificar qualquer uma das seguintes definições:  
 
--   **Continuar se não for possível capturar alguns ficheiros**: Ative esta definição continuar o processo de migração, mesmo se não for possível capturar alguns ficheiros. Se desativar esta opção e não for possível capturar um ficheiro, o passo de sequência de tarefas falhará. Por predefinição, esta opção encontra-se ativada.  
+-   **Continuar se não for possível capturar alguns ficheiros**: Ative esta definição continuar o processo de migração, mesmo se não for possível capturar alguns ficheiros. Se desativar esta opção se não for possível capturar um ficheiro, em seguida, este passo falhe. Por predefinição, esta opção encontra-se ativada.  
 
 -   **Capturar localmente ao utilizar hiperligações em vez de copiar ficheiros**: Ative esta definição para utilizar ligações fixas NTFS para capturar ficheiros.  
 
      Para obter mais informações sobre a migração de dados com ligações fixas, veja [Hard-Link Migration Store](http://go.microsoft.com/fwlink/p/?LinkId=240222) (em inglês).  
 
 -   **Capturar no modo offline (apenas Windows PE)**: Ative esta definição capturar o estado do utilizador no Windows PE em vez do sistema operativo completo.  
-
- **Capturar utilizando o serviço de sombra de cópia de Volume (VSS)**  
+    
+**Capturar utilizando o serviço de sombra de cópia de Volume (VSS)**  
  Esta opção permite-lhe capturar ficheiros mesmo que estejam bloqueados para edição por outra aplicação.  
 
+
+
 ##  <a name="BKMK_CaptureWindowsSettings"></a>Capturar definições do Windows  
- Utilize o passo de sequência de tarefas **Capturar Definições do Windows** para capturar as definições do Windows do computador que está a executar a sequência de tarefas. As definições são guardadas em variáveis de sequência de tarefas que substituirão as predefinições configuradas no passo de sequência de tarefas **Aplicar Definições do Windows**.  
+ Utilize este passo para capturar as definições do Windows do computador que executa a sequência de tarefas. A sequência de tarefas guarda estas definições em variáveis de sequência de tarefas. Estas definições capturadas substituem as predefinições configuradas por si no **aplicar definições do Windows** passo.  
 
  Este passo de sequência de tarefas é executado no Windows PE ou num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Capturar Definições do Windows](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **definições**e selecione **capturar definições do Windows** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Migrar o nome do computador**  
- Selecione esta opção para capturar o nome NetBIOS do computador.  
+ Capture o nome do computador NetBIOS do computador.  
 
  **Migrar nomes organizacionais e de utilizador registados**  
- Selecione esta opção para capturar os nomes de utilizador e organização registados do computador.  
+ Capture os nomes de utilizador e da organização registados do computador.  
 
  **Migrar fuso horário**  
- Selecione esta opção para capturar a definição de fuso horário do computador.  
+ Capture a definição de fuso horário no computador.  
+
+
 
 ##  <a name="BKMK_CheckReadiness"></a>Verificar preparação  
- Utilize o passo de sequência de tarefas **Verificar a Preparação** para verificar se o computador de destino cumpre as condições de pré-requisitos de implementação especificadas.  
+ Utilize este passo para verificar se o computador de destino cumpre as condições de pré-requisitos de implementação especificado.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **verificar disponibilidade** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo. Para este passo, não selecione esta definição ou o passo apenas registará as verificações de disponibilidade e não parará a sequência de tarefas quando uma verificação falhar.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Certifique-se a memória mínima (MB)**  
- Selecione esta definição para verificar se a quantidade de memória, em megabytes, instalada no computador de destino cumpre ou excede o valor especificado. Por predefinição, esta definição está selecionada.  
+ Certifique-se de que a quantidade de memória, em megabytes (MB), cumpre ou excede o valor especificado. O passo ativa esta definição, por predefinição.  
 
  **Certifique-se a velocidade mínima do processador (MHz)**  
- Selecione esta definição para verificar se a velocidade do processador, em megahertz (MHz), instalada no computador de destino cumpre ou excede o valor especificado. Por predefinição, esta definição está selecionada.  
+ Certifique-se de que a velocidade do processador, em megahertz (MHz), cumpre ou excede o valor especificado. O passo ativa esta definição, por predefinição.  
 
  **Certifique-se o espaço mínimo livre em disco (MB)**  
- Selecione esta definição para verificar se a quantidade de espaço livre em disco, em megabytes, no computador de destino cumpre ou excede o valor especificado.  
+ Certifique-se de que a quantidade de espaço livre em disco, em megabytes (MB), cumpre ou excede o valor especificado.  
 
  **Certifique-se de SO atual atualizar**  
- Selecione esta definição para verificar se o sistema operativo instalado no computador de destino cumpre o requisito especificado. Por predefinição, esta definição está selecionada com um valor de **CLIENT**.  
+ Certifique-se de que o sistema operativo instalado no computador de destino cumpre o requisito especificado. O passo define este como **cliente** por predefinição.  
+
+### <a name="options"></a>Opções
+ > [!NOTE]  
+ > Se ativar o **continuar com o erro** definição o **opções** separador deste passo apenas registará os resultados da verificação de preparação. Se uma verificação falhar, a sequência de tarefas não parou.
+
+
 
 ##  <a name="BKMK_ConnectToNetworkFolder"></a>Ligar à pasta de rede  
- Utilize a ação de sequência de tarefas **Ligar à Pasta de Rede** para criar uma ligação para uma pasta de rede partilhada.  
+ Utilize este passo para criar uma ligação para uma pasta de rede partilhada.  
 
  Este passo de sequência de tarefas é executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ligar à Pasta de Rede](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **ligar à pasta de rede** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
--   Desativar o passo.  
+ **Caminho**  
+ Clique em **procurar** para especificar o caminho da pasta de rede. Utilize o formato  *\\\server\share*.
 
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
+ **Unidade**  
+ Selecione a letra de unidade local para atribuir para esta ligação. 
 
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
+ **Conta**  
+ Clique em **definir** para especificar a conta de utilizador com permissões para ligar a esta pasta de rede.
+
+
 
 ##  <a name="BKMK_DisableBitLocker"></a>Desativar BitLocker  
- Utilize o passo de sequência de tarefas **Desativar BitLocker** para desativar a encriptação BitLocker na unidade do sistema operativo atual ou numa unidade específica. Esta ação deixa os protetores de chave visíveis em texto não encriptado no disco rígido, mas não desencripta o conteúdo da unidade. Por conseguinte, esta ação é concluída quase instantaneamente.  
+ Utilize este passo para desativar a encriptação BitLocker na unidade do sistema operativo atual ou numa unidade específica. Esta ação deixa os protetores de chave visíveis em texto não encriptado no disco rígido, mas não desencripta o conteúdo da unidade. Por conseguinte, esta ação é concluída quase instantaneamente.  
 
 > [!NOTE]  
 >  A encriptação de unidade BitLocker fornece encriptação de baixo nível do conteúdo de um volume do disco.  
@@ -565,22 +485,10 @@ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é e
 
  Este passo é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **discos**e selecione **desativar BitLocker** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Fornece informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Unidade de sistema operativo atual**  
  Desativa o BitLocker na unidade do sistema operativo atual.  
@@ -588,8 +496,10 @@ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é e
  **Unidade específica**  
  Desativa o BitLocker numa unidade específica. Utilize a lista pendente para especificar a unidade na qual o BitLocker está desativado.  
 
+
+
 ##  <a name="BKMK_DownloadPackageContent"></a>Transferir conteúdo do pacote  
- Utilize o passo de sequência de tarefas **Transferir Conteúdo do Pacote** para transferir qualquer um dos seguintes tipos de pacotes:  
+ Utilize este passo para transferir qualquer um dos seguintes tipos de pacotes:  
 
 -   Imagens de sistema operativo  
 
@@ -598,34 +508,22 @@ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é e
 -   Pacotes de controladores  
 
 -   Pacotes  
+    
+Este passo funciona bem numa sequência de tarefas para atualizar um sistema operativo nos seguintes cenários:  
 
- Este passo funciona bem numa sequência de tarefas para atualizar um sistema operativo nos seguintes cenários:  
+-   Para utilizar uma única sequência de tarefas de atualização que funciona com plataformas x86 e x64. Inclua dois **transferir conteúdo do pacote** os passos no **preparar a atualização** grupo. Especificar as condições de **opções** separador para detetar a arquitetura do cliente e transferir apenas o adequado SO pacote de atualização. Configure cada **transferir conteúdo do pacote** passo para utilizar a mesma variável. Utilize a variável para o caminho de suporte de dados no **atualizar sistema operativo** passo.  
 
--   Para utilizar uma única sequência de tarefas de atualização que funciona com plataformas x86 e x64. Para tal, inclua dois passos **Transferir Conteúdo do Pacote** no grupo **Preparar para Atualização** com condições para detetar a arquitetura do cliente e transferir apenas o pacote de atualização do sistema operativo adequado. Configure cada passo **Transferir Conteúdo do Pacote** para utilizar a mesma variável e utilize a variável para o caminho do suporte de dados no passo **Atualizar Sistema Operativo** .  
-
--   Para transferir dinamicamente um pacote de controlador aplicável, utilize dois passos **Transferir Conteúdo do Pacote** com condições para detetar o tipo de hardware adequado a cada pacote de controlador. Configure cada passo **Transferir Conteúdo do Pacote** para utilizar a mesma variável e utilize a variável para o valor **Conteúdo de teste** na secção de controladores no passo **Atualizar Sistema Operativo**.  
+-   Para transferir dinamicamente um pacote de controlador aplicável, utilize dois passos **Transferir Conteúdo do Pacote** com condições para detetar o tipo de hardware adequado a cada pacote de controlador. Configure cada **transferir conteúdo do pacote** passo para utilizar a mesma variável. Utilize a variável para o **conteúdo de teste** valor na secção controladores o **atualizar sistema operativo** passo.  
 
 > [!NOTE]    
-> Ao implementar uma sequência de tarefas que contém o passo transferir conteúdo do pacote, não selecione **transferir todo o conteúdo localmente antes de iniciar a sequência de tarefas** para **opções de implementação** no **pontos de distribuição** página do Assistente de implementação de Software.  
+> Ao implementar uma sequência de tarefas que contém o passo transferir conteúdo do pacote, não selecione **transferir todo o conteúdo localmente antes de iniciar a sequência de tarefas** ou **aceder ao conteúdo diretamente a partir de um ponto de distribuição** para **opções de implementação** no **pontos de distribuição** página do Assistente de implementação de Software.  
 
 Este passo é executado num sistema operativo padrão ou no Windows PE. No entanto, a opção para guardar o pacote na cache do cliente do Configuration Manager não é suportada no WinPE.
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **Software**e selecione **transferir conteúdo do pacote** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Fornece informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  Ícone **Selecionar pacote**  
  Clique no ícone para selecionar o pacote a transferir. Depois de selecionar um pacote, pode clicar no ícone novamente para escolher outro.  
@@ -635,68 +533,53 @@ Este passo é executado num sistema operativo padrão ou no Windows PE. No entan
 
  -   **Diretório de trabalho de sequência de tarefas**  
 
- -   **Cache do cliente do Configuration Manager**: Utilize esta opção para armazenar o conteúdo na cache de clientes. Isto permite que o cliente atue como uma origem de cache ponto a ponto para outros clientes de cache ponto a ponto. Para obter mais informações, consulte [cache ponto a ponto de preparar o Windows PE para reduzir o tráfego WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
+ -   **Cache do cliente do Configuration Manager**: Utilize esta opção para armazenar o conteúdo na cache do cliente. O cliente funciona como uma origem de cache ponto a ponto para outros clientes de cache ponto a ponto. Para obter mais informações, consulte [cache ponto a ponto de preparar o Windows PE para reduzir o tráfego WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
  -   **Caminho personalizado**  
+   
+**Guardar caminho como uma variável**  
+ É possível guardar o caminho como uma variável que pode utilizar noutro passo de sequência de tarefas. Gestor de configuração adiciona um sufixo numérico ao nome da variável. Por exemplo, se especificar uma variável de %*omeuconteúdo*% como uma variável personalizada, esta é a raiz onde a sequência de tarefas armazena conteúdo referenciado todos os. Este conteúdo pode conter vários pacotes. Quando fizer referência à variável, adicione um sufixo numérico. Por exemplo, para o primeiro pacote, consulte %*osmeusconteúdos01*%. Quando fizer referência à variável em passos subsequentes, tais como **atualizar sistema operativo**, utilize %*osmeusconteúdos02*% ou %*mycontent03*%, onde o número corresponde do ordem pela qual o **transferir conteúdo do pacote** passo lista os pacotes.  
 
- **Guardar caminho como uma variável**  
- É possível guardar o caminho como uma variável que pode utilizar noutro passo de sequência de tarefas. Gestor de configuração adiciona um sufixo numérico ao nome da variável. Por exemplo, se especificar uma variável de %*omeuconteúdo*% como uma variável personalizada, é a raiz para armazenar todos os conteúdos referenciados (que pode ser vários pacotes). Quando fizer referência à variável, irá adicionar um sufixo numérico para a variável. Por exemplo, para o primeiro pacote, irá referir-se a %*osmeusconteúdos01*variável %. Quando fizer referência à variável num passos subsequentes, tais como atualizar sistema operativo, teria de utilizar %*osmeusconteúdos02*% ou %*mycontent03*% onde o número corresponde à ordem na qual o pacote está listado no passo.  
+**Se a transferência de um pacote falhar, continue a transferir os outros pacotes na lista**  
+ Se a sequência de tarefas não conseguir transferir um pacote, começa a transferir o pacote seguinte na lista.  
 
- **Se a transferência de um pacote falhar, continue a transferir os outros pacotes na lista**  
- Especifica que, se a transferência do pacote falhar, irá para o pacote seguinte da lista e iniciará a transferência.  
+
 
 ##  <a name="BKMK_EnableBitLocker"></a>Ativar o BitLocker  
- Utilize o passo de sequência de tarefas **Ativar BitLocker** para ativar a encriptação BitLocker em, pelo menos, duas partições no disco rígido. A primeira partição ativa contém o código de arranque do sistema do Windows. Outra partição contém o sistema operativo. A partição de arranque do sistema tem de permanecer desencriptada.  
+Utilize este passo para ativar a encriptação BitLocker em, pelo menos, duas partições no disco rígido. A primeira partição ativa contém o código de arranque do sistema do Windows. Outra partição contém o sistema operativo. A partição de arranque do sistema tem de permanecer desencriptada.  
 
- Utilize o passo de sequência de tarefas **Provisão prévia do BitLocker** para ativar o BitLocker numa unidade no Windows PE. Para obter mais informações, veja a secção [Provisão prévia do BitLocker](#BKMK_PreProvisionBitLocker) deste tópico.  
+Utilize o passo de sequência de tarefas **Provisão prévia do BitLocker** para ativar o BitLocker numa unidade no Windows PE. Para obter mais informações, consulte o [provisão prévia do BitLocker](#BKMK_PreProvisionBitLocker) secção.  
 
 > [!NOTE]  
 >  A encriptação de unidade BitLocker fornece encriptação de baixo nível do conteúdo de um volume do disco.  
 
- O passo **Ativar BitLocker** é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ativar BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
+O passo **Ativar BitLocker** é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ativar BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
- O Trusted Platform Module (TPM) tem de estar no seguinte estado quando especificar **Apenas TPM**, **TPM e Chave de Arranque em USB** ou **TPM e PIN**, para poder executar o passo **Ativar BitLocker**:  
-
--   Ativado  
+Quando especificar **apenas TPM**, **TPM e chave de arranque em USB**, ou **TPM e PIN**, o Trusted Platform Module (TPM) tem de ser no seguinte estado antes de poder executar o  **Ativar o BitLocker** passo:  
 
 -   Ativado  
-
+-   Ativado  
 -   Propriedade Permitida  
-
- O passo de sequência de tarefas pode concluir qualquer inicialização de TPM restante, porque os passos restantes não requerem presença física ou reinícios. Os passos de inicialização de TPM restantes que podem ser concluídos de forma transparente pelo passo **Ativar BitLocker** (se necessário) incluem:  
+   
+Este passo conclui qualquer inicialização de TPM restante. Os passos restantes não requerem presença física ou reinícios. O **ativar BitLocker** passo transparente é concluído os passos de inicialização de TPM restantes, se necessário:  
 
 -   Criar par de chaves de endossamento  
-
 -   Criar valor de autorização do proprietário e efetuar caução para o Active Directory, expandido para suportar este valor  
-
 -   Obter propriedade  
-
 -   Criar SRK (Storage Root Key) ou repor se já existir mas for incompatível  
+   
+Se pretender que a sequência de tarefas deve aguardar para que o **ativar BitLocker** passo para concluir o processo de encriptação de unidade, em seguida, selecione o **aguarde** opção. Se não selecionar a **aguarde** opção, o processo de encriptação de unidade ocorre em segundo plano. A sequência de tarefas continua imediatamente para o passo seguinte.  
 
- Se pretender que o passo **Ativar BitLocker** aguarde pela conclusão do processo de encriptação da unidade antes de prosseguir para o passo seguinte na sequência de tarefas, selecione a caixa de verificação **Aguardar**. Se não selecionar a caixa de verificação **Aguardar**, o processo de encriptação da unidade será realizado em segundo plano e a execução da sequência de tarefas prosseguirá de imediato para o passo seguinte.  
+O BitLocker pode ser utilizado para encriptar várias unidades num sistema informático (sistema operativo e unidades de dados). Para encriptar uma unidade de dados, encriptar a unidade do sistema operativo e concluir o processo de encriptação. Este requisito é porque a unidade de sistema operativo armazena os protetores de chaves para as unidades de dados. Se a encriptar o sistema operativo e unidades de dados na mesma sequência de tarefas, selecione o **aguarde** opção o **ativar BitLocker** passo para a unidade de sistema operativo.  
 
- O BitLocker pode ser utilizado para encriptar várias unidades num sistema informático (sistema operativo e unidades de dados). Para encriptar uma unidade de dados, o sistema operativo já tem de estar encriptado e o processo de encriptação tem de estar concluído, porque os protetores de chave das unidades de dados estão armazenados na unidade do sistema operativo. Como resultado, se encriptar a unidade do sistema operativo e a unidade de dados no mesmo processo, a opção de aguardar tem de ser selecionada para o passo que ativa o BitLocker para a unidade do sistema operativo.  
+Se o disco rígido já estiver encriptado, mas o BitLocker estiver desativado, o **ativar BitLocker** passo novamente permite que os protetores de chaves e concluído rapidamente. A reencriptação do disco rígido não é necessária neste caso.  
 
- Se o disco rígido já estiver encriptado mas o BitLocker estiver desativado, o passo Ativar BitLocker reativa os protetores de chave e será concluído quase instantaneamente. A reencriptação do disco rígido não é necessária neste caso.  
+Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ativar BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
- Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Ativar BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **discos**e selecione **ativar BitLocker** para adicionar este passo. 
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
-
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome descritivo para este passo de sequência de tarefas.  
-
- **Descrição**  
- Permite introduzir opcionalmente uma descrição para este passo de sequência de tarefas.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Selecione a unidade a encriptar**  
  Especifica a unidade a encriptar. Para encriptar a unidade do sistema operativo atual, selecione **Unidade do sistema operativo atual** e, em seguida, configure uma das seguintes opções para a gestão de chaves:  
@@ -708,74 +591,63 @@ Este passo é executado num sistema operativo padrão ou no Windows PE. No entan
 -   **TPM e chave de arranque em USB**: Selecione esta opção para utilizar o TPM e uma chave de arranque armazenada numa pen USB. Ao selecionar esta opção, o BitLocker bloqueia o processo de arranque normal até um dispositivo USB com uma chave de arranque BitLocker ser ligado ao computador.  
 
 -   **TPM e PIN**:  Selecione esta opção para utilizar o TPM e um número de identificação pessoal (PIN). Ao selecionar esta opção, o BitLocker bloqueia o processo de arranque normal até o utilizador fornecer o PIN.  
+   
+Para encriptar uma unidade de dados específica, não pertencente ao sistema operativo, selecione **Unidade específica** e, em seguida, selecione a unidade a partir da lista.  
 
- Para encriptar uma unidade de dados específica, não pertencente ao sistema operativo, selecione **Unidade específica** e, em seguida, selecione a unidade a partir da lista.  
+**Selecione onde criar a chave de recuperação**  
+ Para especificar onde o BitLocker cria a palavra-passe de recuperação e caução-lo no Active Directory, selecione **no Active Directory**. Se selecionar esta opção, tem de expandir o Active Directory para o site. O BitLocker, em seguida, pode guardar as informações de recuperação associados no Active Directory. Selecione **não criar chave de recuperação** por não criar uma palavra-passe. Criar uma palavra-passe é uma melhor prática.  
 
- **Selecione onde criar a chave de recuperação**  
- Para especificar onde será criada a palavra-passe de recuperação, selecione **No Active Directory** para fazer a caução da palavra-passe no Active Directory. Se selecionar esta opção, tem de expandir o Active Directory para o site, para que as informações de recuperação do BitLocker associadas sejam guardadas. Pode optar por não criar uma palavra-passe, selecionando **Não criar chave de recuperação**. No entanto, criar uma palavra-passe é uma melhor prática.  
+**Aguarde que o BitLocker conclua o processo de encriptação de unidade em todas as unidades antes da execução de sequência de tarefas continuar**  
+ Selecione esta opção para permitir a encriptação de unidade BitLocker concluir antes de executar o passo seguinte na sequência de tarefas. Se selecionar esta opção, o BitLocker encripta o volume de disco completo antes do utilizador é conseguirão iniciar sessão no computador.  
 
- **Aguarde que o BitLocker conclua o processo de encriptação de unidade em todas as unidades antes da execução de sequência de tarefas continuar**  
- Selecione esta opção para permitir que a encriptação de unidade BitLocker seja concluída antes da execução do passo seguinte na sequência de tarefas. Se esta opção estiver selecionada, todo o volume do disco será encriptado para que o utilizador consiga iniciar sessão no computador.  
+O processo de encriptação pode demorar horas a concluir quando encriptar uma unidade de disco rígida grande. Não selecionar esta opção permite que a sequência de tarefas prosseguir imediatamente.  
 
- O processo de encriptação pode demorar horas a ser concluído quando está a ser encriptado um disco rígido grande. A não seleção desta opção permitirá continuar a sequência de tarefas de imediato.  
+
 
 ##  <a name="BKMK_FormatandPartitionDisk"></a>Formatar e particionar disco  
- Utilize o passo de sequência de tarefas **Formatar e Particionar Disco** para formatar e particionar um disco especificado no computador de destino.  
+ Utilize este passo para formatar e particionar um disco especificado no computador de destino.  
 
 > [!IMPORTANT]  
->  Cada definição que especificar para este passo de sequência de tarefas aplica-se a um único disco especificado. Se pretender formatar e particionar outro disco no computador de destino, tem de adicionar um passo de sequência de tarefas **Formatar e Particionar Disco** adicional à sequência de tarefas.  
+>  Cada definição que especificar para este passo de sequência de tarefas aplica-se a um único disco especificado. Para formatar e particionar outro disco no computador de destino, adicione mais **formatar e particionar disco** passo à sequência de tarefas.  
 
  Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação, veja [Variáveis de Ação da Sequência de Tarefas Formatar e Particionar Disco](task-sequence-action-variables.md#BKMK_FormatPartitionDisk).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **discos**e selecione **formatar e particionar disco** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Número do disco**  
- O número do disco físico do disco que será formatado. O número é baseado na ordem de enumeração de discos do Windows.  
+ O número do disco físico do disco para formatar. O número é baseado na ordem de enumeração de discos do Windows.  
 
  **Tipo de disco**  
  O tipo do disco formatado. Existem duas opções disponíveis para seleção na lista pendente: 
 
--   Padrão (MBR) - registo de arranque principal.  
-
+-   Padrão (MBR) - registo de arranque principal
 -   GPT - tabela de partições GUID  
 
 > [!NOTE]  
->  Se alterar o tipo de disco de **Padrão (MBR)** para **GPT** e o esquema de partição tiver uma partição expandida, todas as partições expandidas e lógicas serão removidas do esquema. Ser-lhe-á pedido para confirmar esta ação antes de alterar o tipo de disco.  
-
- **Volume**  
- Informações específicas sobre a partição ou o volume que será criado, incluindo as seguintes:  
+>  Se alterar o tipo de disco **padrão (MBR)** para **GPT**e o esquema de partição contém uma partição expandida, a sequência de tarefas remove todas as partições expandidas e lógicas do esquema. O editor de sequência de tarefas pede-lhe para confirmar esta ação antes de alterar o tipo de disco.  
+   
+**Volume**  
+ Informações específicas sobre a partição ou volume que cria a sequência de tarefas, incluindo os seguintes atributos:  
 
 -   Nome  
-
 -   Espaço em disco restante  
-
- Para criar uma nova partição, clique em **Novo** para iniciar a caixa de diálogo **Propriedades de Partição**. Pode especificar o tipo e o tamanho da partição, e se será uma partição de arranque. Para modificar uma partição existente, clique na partição que pretende modificar e, em seguida, clique no botão de propriedades. Para mais informações sobre como configurar partições de discos rígidos, consulte um dos seguintes artigos:  
+   
+Para criar uma nova partição, clique em **Novo** para iniciar a caixa de diálogo **Propriedades de Partição**. Especifique o tipo de partição e o tamanho, e se se tratar de uma partição de arranque. Para modificar uma partição existente, clique na partição que pretende modificar e, em seguida, clique no botão de propriedades. Para obter mais informações sobre como configurar partições de disco rígido, consulte um dos seguintes artigos:  
 
 -   [Como configurar partições de disco rígido baseadas em UEFI/GPT](http://go.microsoft.com/fwlink/?LinkID=272104)  
-
 -   [Como configurar partições de disco rígido baseados em BIOS/MBR](http://go.microsoft.com/fwlink/?LinkId=272105)  
 
- Para eliminar uma partição, selecione a partição que pretende eliminar e clique em **Eliminar**.  
+Para eliminar uma partição, selecione a partição que pretende eliminar e clique em **Eliminar**.  
+
+
 
 ##  <a name="BKMK_InstallApplication"></a>Instalar a aplicação  
- Utilize o passo de sequência de tarefas **Instalar Aplicação** para instalar aplicações como parte da sequência de tarefas. Este passo pode instalar um conjunto de aplicações especificadas pelo passo de sequência de tarefas ou um conjunto de aplicações especificadas por uma lista dinâmica de variáveis de sequência de tarefas. Quando este passo é executado, a instalação da aplicação começa de imediato, sem aguardar por um intervalo de consulta da política.  
+Este passo instala aplicações especificadas ou um conjunto de aplicações definidos por uma lista dinâmica de variáveis de sequência de tarefas. Quando este passo é executado, a instalação da aplicação começa de imediato, sem aguardar por um intervalo de consulta da política.  
 
- A aplicação instalada tem de cumprir os seguintes critérios:  
+A aplicação instalada tem de cumprir os seguintes critérios:  
 
 -   Esta aplicação tem de ser um tipo de implementação do Windows Installer ou instalador de Script. Os tipos de implementação do pacote de aplicação do Windows (ficheiro .appx) não são suportados.  
 
@@ -783,127 +655,112 @@ Este passo é executado num sistema operativo padrão ou no Windows PE. No entan
 
 -   Não pode interagir com o ambiente de trabalho. O programa tem de ser executado no modo silencioso ou no modo automático.  
 
--   Não pode iniciar um reinício por si só. A aplicação tem de solicitar um reinício utilizando o código de reinício padrão, um código de saída 3010. Isto assegura que o passo de sequência de tarefas processará o reinício corretamente. Se a aplicação devolver um código de saída 3010, o motor de sequência de tarefas subjacente executa o reinício. Após o reinício, a sequência de tarefas continua automaticamente.  
+-   Não pode iniciar um reinício por si só. A aplicação tem de solicitar um reinício utilizando o código de reinício padrão, um código de saída 3010. Este comportamento assegura que o passo de sequência de tarefas processa corretamente o reinício. Se a aplicação devolver um código de saída 3010, o motor de sequência de tarefas subjacente executa o reinício. Após o reinício, a sequência de tarefas continua automaticamente.  
 
- Quando o passo **Instalar Aplicação** é executado, a aplicação verifica a aplicabilidade das regras de requisitos e o método de deteção nos tipos de implementação da aplicação. Com base nos resultados desta verificação, a aplicação instala o tipo de implementação aplicável. Se um tipo de implementação tiver dependências, o tipo de implementação dependente é avaliado e instalado como parte do passo de instalação da aplicação. As dependências da aplicação não são suportadas no suporte de dados autónomo.  
+Quando o **instalar aplicação** passo é executado, a aplicação verifica a aplicabilidade das regras de requisitos e método de deteção nos respetivos tipos de implementação. Com base nos resultados desta verificação, a aplicação instala o tipo de implementação aplicável. Se um tipo de implementação tiver dependências, o tipo de implementação dependente é avaliado e instalado como parte do passo de instalação da aplicação. As dependências da aplicação não são suportadas no suporte de dados autónomo.  
 
 > [!NOTE]  
->  Para instalar uma aplicação que substitui outra aplicação, os ficheiros de conteúdo da aplicação substituída têm de estar disponíveis ou o passo de sequência de tarefas falhará. Por exemplo, o Microsoft Visio 2010 é instalado num cliente ou numa imagem capturada. Quando o passo de sequência de tarefas Instalar Aplicação é executado para instalar o Microsoft Visio 2013, os ficheiros de conteúdo do Microsoft Visio 2010 (a aplicação substituída) têm de estar disponíveis num ponto de distribuição ou a sequência de tarefas falhará. Um cliente ou imagem capturada sem o Microsoft Visio instalado concluirá a instalação do Microsoft Visio 2013 sem verificar os ficheiros de conteúdo do Microsoft Visio 2010.  
+>  Para instalar uma aplicação que substitui outra aplicação, os ficheiros de conteúdo da aplicação substituída devem estar disponíveis. Caso contrário, este passo de sequência de tarefas falhará. Por exemplo, o Microsoft Visio 2010 é instalado num cliente ou numa imagem capturada. Quando o **instalar aplicação** passo instala o Microsoft Visio 2013, os ficheiros de conteúdo para o Microsoft Visio 2010 (a aplicação substituída) tem de estar disponíveis num ponto de distribuição. Se o Microsoft Visio não está instalado em todos os num cliente ou capturado imagem, a sequência de tarefas instala o Microsoft Visio 2013 sem verificar para os ficheiros de conteúdo do Microsoft Visio 2010.  
 
 > [!NOTE]
-> Pode utilizar o SMSTSMPListRequestTimeoutEnabled e lista de pontos de variáveis incorporadas de SMSTSMPListRequestTimeout para ativar e especificar quantos milissegundos uma sequência de tarefas aguarda antes de tentar para instalar uma aplicação ou software da atualização após a falha ao obter a gestão dos serviços de localização. Para obter mais informações, consulte [varliables incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
+> Se o cliente não conseguir obter a lista de pontos de gestão dos serviços de localização, utilize as variáveis incorporadas SMSTSMPListRequestTimeoutEnabled e SMSTSMPListRequestTimeout para especificar quantos milissegundos uma tarefa de sequência aguarda antes de repetir a instalar um aplicação ou atualização de software. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
 
  Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **Software**e selecione **instalar aplicação** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   especificar para repetir este passo se o computador reiniciar inesperadamente. Também pode especificar o número de vezes a repetir após o computador reiniciar.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Instale as seguintes aplicações**  
- Esta definição especifica as aplicações instaladas pela ordem que estão especificadas.  
+ A sequência de tarefas instala estas aplicações, pela ordem especificada.  
 
- O Configuration Manager filtrará quaisquer aplicações desativadas ou aplicações com as seguintes definições. Estas aplicações não serão apresentadas na caixa de diálogo **Selecionar a aplicação a instalar**.  
+ Filtros de Gestor de configuração fora de quaisquer aplicações desativadas, ou todas as aplicações com as seguintes definições:  
 
 -   Apenas quando um utilizador tiver sessão iniciada  
-
 -   Executar com direitos de utilizador  
 
- **Instalar aplicações de acordo com a lista de variáveis dinâmicas**  
- Esta definição especifica o nome base de um conjunto de variáveis de sequência de tarefas definidas para uma coleção ou um computador. Estas variáveis especificam as aplicações que serão instaladas para essa coleção ou computador. Cada nome de variável é constituído pelo nome base comum e um sufixo numérico a partir de 01. O valor de cada variável tem de conter o nome da aplicação e mais nada.  
+Estas aplicações não aparecem no **selecionar a aplicação a instalar** caixa de diálogo.
+  
+**Instalar aplicações de acordo com a lista de variáveis dinâmicas**  
+A sequência de tarefas instala aplicações com este nome de variável base. O nome de variável base é para um conjunto de variáveis de sequência de tarefas definidas para uma coleção ou computador. Estas variáveis especificam as aplicações que a sequência de tarefas instala para essa coleção ou computador. Cada nome de variável é constituído pelo nome base comum e um sufixo numérico a partir de 01. O valor de cada variável tem de conter o nome da aplicação e mais nada.  
 
- Para as aplicações sejam instaladas através da utilização de uma lista de variáveis dinâmicas, a definição seguinte tem de ser ativada no **geral** separador da aplicação **propriedades** caixa de diálogo: **Permitir que esta aplicação ser instalado a partir da ação de sequência de tarefas instalar aplicação, sem ser implementada**  
+Sequência de tarefas instalar aplicações, utilizando uma lista de variáveis dinâmicas, ative a definição seguinte no **geral** separador da aplicação **propriedades**: **Permitir que esta aplicação ser instalado a partir da ação de sequência de tarefas instalar aplicação, sem ser implementada**  
 
 > [!NOTE]  
 >  Não é possível instalar aplicações através de uma lista de variáveis dinâmicas em implementações de suportes de dados autónomos.  
 
- Por exemplo, para instalar uma única aplicação através de uma variável de sequência de tarefas denominada AA01, tem de especificar a seguinte variável:  
+Por exemplo, para instalar uma única aplicação através de uma variável de sequência de tarefas denominada AA01, tem de especificar a seguinte variável:  
 
 |Nome da Variável|Valor da Variável|  
 |-------------------|--------------------|  
 |AA01|Microsoft Office|  
 
- Para instalar duas aplicações, tem de especificar as seguintes variáveis:  
+Para instalar duas aplicações, tem de especificar as seguintes variáveis:  
 
 |Nome da Variável|Valor da Variável|  
 |-------------------|--------------------|  
 |AA01|Microsoft Lync|  
 |AA02|Microsoft Office|  
 
- As seguintes condições afetarão o que é instalado:  
+As seguintes condições afetam as aplicações instaladas pela sequência de tarefas:  
 
--   O valor de uma variável contém quaisquer informações além do nome da aplicação. Essa aplicação não é instalada e a sequência de tarefas continua.  
+-   O valor de uma variável contém quaisquer informações além do nome da aplicação. A sequência de tarefas não instala a aplicação e a sequência de tarefas continua.  
 
--   Se não for encontrada nenhuma variável com o nome base especificado nem o sufixo "01", não é instalada nenhuma aplicação. Quando seleciona **continuar com o erro** no separador Opções do passo de sequência de tarefas, a sequência de tarefas continua quando a instalação de uma aplicação falha. Quando a definição não estiver selecionada, a sequência de tarefas falha e não instalará as restantes aplicações.  
+-   Se a sequência de tarefas não encontrou uma variável com o nome base especificado e o sufixo "01", a sequência de tarefas não instalar quaisquer aplicações. 
+   
+**Se uma aplicação falhar, continue a instalar outras aplicações na lista**  
+ Esta definição especifica que o passo continuará quando a instalação de uma aplicação individual falhar. Se especificar esta definição, a sequência de tarefas continuará independentemente de quaisquer erros de instalação. Se não especificar esta definição e a instalação falhar, o passo termina imediatamente.  
 
- **Se uma aplicação falhar, continue a instalar outras aplicações na lista**  
- Esta definição especifica que o passo continuará se a instalação de uma aplicação individual falhar. Se esta definição for especificada, a sequência de tarefas continuará independentemente de quaisquer erros de instalação devolvidos. Se não for especificada, a instalação falhará e a sequência de tarefas terminará de imediato.  
+### <a name="options"></a>Opções
+ > [!NOTE] 
+ > Quando seleciona **continuar com o erro** no **opções** separador deste passo, a sequência de tarefas continua quando a instalação de uma aplicação falha. Quando não ativar esta opção, a sequência de tarefas falha e não instala as restantes aplicações.  
+ 
+Para além das opções predefinidas, configure as seguintes definições adicionais no **opções** separador deste passo de sequência de tarefas:  
+
+-   **Repita este passo se o computador reiniciar inesperadamente**  
+    Se o computador de um das instalações de aplicações reiniciar inesperadamente, repita este passo. O passo ativa esta definição, por predefinição com duas tentativas. Pode especificar uma a cinco tentativas.  
+
+
 
 ##  <a name="BKMK_InstallPackage"></a>Instalar pacote
+Utilize este passo para instalar um pacote de software como parte da sequência de tarefas. Quando este passo é executado, a instalação começa de imediato, sem aguardar por um intervalo de consulta de política.  
 
- Utilize o passo de sequência de tarefas **Instalar Pacote** para instalar software como parte da sequência de tarefas. Quando este passo é executado, a instalação começa de imediato, sem aguardar por um intervalo de consulta da política.  
+O pacote tem de cumprir os seguintes critérios:  
 
- O software instalado tem de cumprir os seguintes critérios:  
-
--   Tem de ser executada na conta do sistema local e não na conta de utilizador.  
+-   Tem de ser executada sob a conta de sistema local e não uma conta de utilizador.  
 
 -   Não deve interagir com o ambiente de trabalho. O programa tem de ser executado no modo silencioso ou no modo automático.  
 
--   Não pode iniciar um reinício por si só. O software tem de solicitar um reinício utilizando o código de reinício padrão, um código de saída 3010. Isto assegura que o passo de sequência de tarefas processará o reinício corretamente. Se o software devolver um código de saída 3010, o motor de sequência de tarefas subjacente executará o reinício. Após o reinício, a sequência de tarefas continuará automaticamente.  
+-   Não pode iniciar um reinício por si só. O software tem de solicitar um reinício utilizando o código de reinício padrão, um código de saída 3010. Este comportamento assegura que o passo de sequência de tarefas processa corretamente o reinício. Se o software devolver um código de saída 3010, o motor de sequência de tarefas subjacente reinicia o computador. Após o reinício, a sequência de tarefas continua automaticamente.  
 
- Os programas que utilizam a opção **Executar outro programa primeiro** para instalar um programa dependente não são suportados quando implementar um sistema operativo. Se a opção **Executar outro programa primeiro** estiver ativada para o software e o programa dependente já tiver sido executado no computador de destino, o programa dependente será executado e a sequência de tarefas continuará. No entanto, se o programa dependente ainda não tiver sido executado no computador de destino, o passo de sequência de tarefas falhará.  
+Os programas que utilizam a opção **Executar outro programa primeiro** para instalar um programa dependente não são suportados quando implementar um sistema operativo. Se ativar a opção de pacote **executar outro programa primeiro**e o programa dependente já tiver executado no computador de destino, o programa dependente é executado e a sequência de tarefas continua. No entanto, se não o programa dependente já tiver executado no computador de destino, o passo de sequência de tarefas falhará.  
 
 > [!NOTE]  
->  O site de administração central não possui as políticas de configuração de cliente necessárias para ativar o agente de distribuição de software durante a execução da sequência de tarefas. Quando cria um suporte de dados autónomo para uma sequência de tarefas do site de administração central e a sequência de tarefas inclui um passo **Instalar Pacote**, pode aparecer o erro seguinte no ficheiro CreateTsMedia.log:  
+>  O site de administração central não tem as políticas de configuração de cliente necessárias para ativar o agente de distribuição de software durante a sequência de tarefas. Quando cria um suporte de dados autónomo para uma sequência de tarefas do site de administração central e a sequência de tarefas inclui um passo **Instalar Pacote**, pode aparecer o erro seguinte no ficheiro CreateTsMedia.log:  
 >   
 >  `"WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"`  
 >   
->  No caso de suportes de dados autónomos que incluem um passo Instalar Pacote, tem de criar o suporte de dados autónomo num site primário com o agente de distribuição de software ativado ou adicionar um passo **Executar Linha de Comandos** a seguir ao passo **Configurar Windows e ConfigMgr** e antes do primeiro passo **Instalar Pacote**. O passo **Executar Linha de Comandos** executa um comando WMIC para ativar o agente de distribuição de software antes da execução do primeiro passo Instalar Pacote. Pode utilizar o seguinte no passo da sequência de tarefas **Executar Linha de Comandos** :  
+>  Para suporte de dados autónomo que inclua um **Instalar pacote** passo, criar suportes de dados autónomo num site primário que tenha o agente de distribuição de software ativado. Em alternativa, adicione um **executar linha de comandos** passo após o **configurar Windows e ConfigMgr** passo e antes do primeiro **Instalar pacote** passo. O **executar linha de comandos** passo é executado um comando WMIC para ativar o agente de distribuição de software antes do primeiro **Instalar pacote** passo. Utilize o seguinte comando no **executar linha de comandos** passo:  
 >   
->  **Linha de comandos**: **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig caminho ccm_SoftwareDistributionClientConfig criar ComponentName = "Ativar SWDist", ativado = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0" SiteSettingsKey = "1" /NOINTERACTIVE**  
+>  **Linha de comandos**:`WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE`  
 >   
 >  Para obter mais informações sobre como criar suportes de dados autónomos, consulte [criar suportes de dados autónomos](../deploy-use/create-stand-alone-media.md).  
 
- Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
+Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **Software**e selecione **Instalar pacote** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Instalar um único pacote de software**  
- Esta definição especifica um pacote de software do Configuration Manager. O passo aguardará pela conclusão da instalação.  
+ Esta definição especifica um pacote de software do Configuration Manager. O passo aguarda até que a instalação estiver concluída.  
 
  **Instalar pacotes de software, de acordo com a lista de variável dinâmicas**  
- Esta definição especifica o nome base de um conjunto de variáveis de sequência de tarefas definidas para uma coleção ou um computador. Estas variáveis especificam os pacotes que serão instalados para essa coleção ou computador. Cada nome de variável é constituído pelo nome base comum e um sufixo numérico a partir de 001. O valor de cada variável tem de conter um ID de pacote e o nome do software separados por dois pontos.  
+ A sequência de tarefas instala os pacotes com este nome de variável base. O nome de variável base é para um conjunto de variáveis de sequência de tarefas definidas para uma coleção ou computador. Estas variáveis especificam os pacotes de que a sequência de tarefas instala para essa coleção ou computador. Cada nome de variável é constituído pelo nome base comum e um sufixo numérico a partir de 001. O valor de cada variável tem de conter um ID de pacote e o nome do software separados por dois pontos.  
 
- Para o software seja instalado utilizando uma lista de variáveis dinâmicas, a definição seguinte tem de estar ativada no **avançadas** separador do pacote **propriedades** caixa de diálogo: **Permitir que este programa ser instalado a partir da sequência de tarefas Instalar pacote sem ser implementada**  
+ Sequência de tarefas instalar o software utilizando uma lista de variáveis dinâmicas, ative a definição seguinte no **avançadas** separador do pacote **propriedades**: **Permitir que este programa ser instalado a partir da sequência de tarefas Instalar pacote sem ser implementada**  
 
 > [!NOTE]  
 >  Não é possível instalar pacotes de software através de uma lista de variáveis dinâmicas em implementações de suportes de dados autónomos.  
@@ -922,105 +779,88 @@ Este passo é executado num sistema operativo padrão ou no Windows PE. No entan
 |AA002|CEN00107:Install Silent|  
 |AA003|CEN00031:Install|  
 
- As seguintes condições afetarão o que é instalado:  
+ As seguintes condições afetam os pacotes instalados pela sequência de tarefas:  
 
--   Se o valor de uma variável não for criado no formato correto ou não especificar um ID e um nome de aplicação válidos, a instalação do software falhará.  
+-   Se não criar o valor da variável no formato correto ou não especifique um ID de pacote válido e um nome, a instalação de software falha.  
 
--   Se o ID do pacote incluir carateres minúsculos, a instalação desse software falhará.  
+-   Se o ID de pacote incluir carateres minúsculos, a instalação de software falha.  
 
--   Se não for encontrada nenhuma variável com o nome base especificado nem o sufixo "001", não é instalado nenhum pacote e a sequência de tarefas continuará.  
+-   Se a sequência de tarefas não encontrou uma variável com o nome base especificado e o sufixo "001", a sequência de tarefas instale quaisquer pacotes. A sequência de tarefas continua.  
+   
+**Se a instalação de um pacote de software falhar, continue a instalar outros pacotes na lista**  
+ Esta definição especifica que o passo continuará se a instalação de um pacote de software individual falhar. Se especificar esta definição, a sequência de tarefas continuará independentemente de quaisquer erros de instalação. Se não especificar esta definição e a instalação falhar, o passo termina imediatamente.  
 
- **Se a instalação de um pacote de software falhar, continue a instalar outros pacotes na lista**  
- Esta definição especifica que o passo continuará se a instalação de um pacote de software individual falhar. Se esta definição for especificada, a sequência de tarefas continuará independentemente de quaisquer erros de instalação devolvidos. Se não for especificada, a instalação falhará e a sequência de tarefas terminará de imediato.  
+
 
 ##  <a name="BKMK_InstallSoftwareUpdates"></a>Instalar atualizações de Software  
- Utilize o passo de sequência de tarefas **Instalar Atualizações de Software** para instalar atualizações de software no computador de destino. O computador de destino não é avaliado relativamente a atualizações de software aplicáveis até ser executado este passo de sequência de tarefas. Nessa altura, o computador de destino é avaliado relativamente a atualizações de software como qualquer outro cliente gerido pelo Configuration Manager. Em particular, este passo instala apenas as atualizações de software direcionadas para coleções das quais o computador é atualmente membro.  
+Utilize este passo para instalar atualizações de software no computador de destino. O computador de destino não é avaliado relativamente a atualizações de software aplicáveis até ser executado este passo de sequência de tarefas. Nessa altura, o computador de destino é avaliado relativamente a atualizações de software como qualquer outro cliente de Configuration Manager. Para este passo instalar atualizações de software, tem de implementar as atualizações para uma coleção de que o computador de destino é um membro.  
 >  [!IMPORTANT]
->Recomendamos vivamente que instale a versão mais recente do Windows Update Agent para um melhor desempenho ao utilizar o passo de sequência de tarefas instalar atualizações de Software.
+> É uma prática de segurança para um desempenho ideal instalar a versão mais recente do agente do Windows Update. 
 >* Para Windows 7, veja o [Artigo da Base de dados de conhecimento 3161647](https://support.microsoft.com/kb/3161647).
 >* Para Windows 8, veja o [Artigo da Base de dados de conhecimento 3163023](https://support.microsoft.com/kb/3163023).
 
  Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Instalar Atualizações de Software](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates).
 
  > [!NOTE]
- > Pode utilizar o SMSTSMPListRequestTimeoutEnabled e lista de pontos de variáveis incorporadas de SMSTSMPListRequestTimeout para ativar e especificar quantos milissegundos uma sequência de tarefas aguarda antes de tentar para instalar uma aplicação ou software da atualização após a falha ao obter a gestão dos serviços de localização. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
+ > Se o cliente não conseguir obter a lista de pontos de gestão dos serviços de localização, utilize as variáveis incorporadas SMSTSMPListRequestTimeoutEnabled e SMSTSMPListRequestTimeout para especificar quantos milissegundos uma tarefa de sequência aguarda antes de repetir a instalar um aplicação ou atualização de software. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
 
-> [!NOTE]
->No separador de opções, pode configurar esta sequência de tarefas para repetir se o computador reiniciar inesperadamente. Por exemplo, a instalação de uma atualização de software que reinicia automaticamente o computador. A partir do Configuration Manager 1602, pode configurar a variável de SMSTSWaitForSecondReboot para especificar o período de tempo (em segundos) a sequência de tarefas deve colocar em pausa depois de reiniciar o computador ao instalar as atualizações de software. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **Software**e selecione **instalar atualizações de Software** para adicionar este passo. 
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
-
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   especificar para repetir este passo se o computador reiniciar inesperadamente. Também pode especificar o número de vezes a repetir após o computador reiniciar.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Necessário para instalação - apenas atualizações de software obrigatórias**  
- Selecione esta opção para instalar todas as atualizações de software sinalizadas no Configuration Manager como obrigatórias para os computadores de destino que recebem a sequência de tarefas. As atualizações de software obrigatórias têm prazos de instalação definidos pelo administrador.  
+ Selecione esta opção para instalar todas as atualizações de software obrigatórias com prazos de instalação definidos pelo administrador.  
 
  **Disponível para instalação - todas as atualizações de software**  
- Selecione esta opção para instalar todas as atualizações de software disponível direcionadas para a coleção do Configuration Manager que receberá a sequência de tarefas. Todas as atualizações de software disponíveis serão instaladas nos computadores de destino.  
+ Selecione esta opção para instalar todas as atualizações de software disponível. Tem de implementar estas atualizações para uma coleção de que o computador é um membro. A sequência de tarefas instala todas as atualizações de software disponíveis nos computadores de destino.  
 
  **Avaliar atualizações de software a partir dos resultados de análise em cache**  
-A partir do Configuration Manager versão 1606, terá a opção de realizar uma pesquisa completa de atualizações de software em vez de utilizar os resultados da análise em cache. Por predefinição, a sequência de tarefas utiliza resultados em cache. Pode desmarcar a caixa de verificação para que o cliente estabeleça ligação ao ponto de atualização de software para processar e transferir o catálogo de atualizações de software mais recente. Poderá escolher esta opção quando utiliza uma sequência de tarefas para [capturar e compilar uma imagem do sistema operativo](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), onde sabe que haverá um grande número de atualizações de software, especialmente muitas que têm dependências (necessidade de instalar X antes de Y irá aparecer como aplicável). Ao desmarcar esta definição e implementar a sequência de tarefas para um grande número de clientes, todos serão ligados ao ponto de atualização de software ao mesmo tempo. Isto poderá dar origem a problemas de desempenho durante o processo e a transferência do catálogo. Na maioria dos casos, recomendamos que utilize a predefinição.
+ Por predefinição, a sequência de tarefas utiliza os resultados da análise em cache do Windows Update Agent. Desmarque a caixa de verificação ao instruir o agente do Windows Update para transferir o catálogo mais recente a partir da atualização de software ponto. Escolha esta opção quando utilizar uma sequência de tarefas para [capturar e criar uma imagem do sistema operativo](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md). Este cenário é provavelmente um grande número de atualizações de software. Muitas destas atualizações serão têm dependências, por exemplo, instalar X antes de Y aparece como aplicável. Ao desmarcar esta definição e implementar a sequência de tarefas para muitos clientes, todos eles estabelecer ligação ao ponto de atualização de software ao mesmo tempo. Este comportamento resulta em problemas de desempenho durante o processo e a transferência do catálogo. A melhor prática é a predefinição para utilizar os resultados da análise em cache. 
 
-Uma nova variável de sequência de tarefas, SMSTSSoftwareUpdateScanTimeout, foi introduzida no Configuration Manager versão 1606 para lhe dar a capacidade de controlar o tempo limite da pesquisa de atualizações de software durante o passo de sequência de tarefas Instalar atualizações de software. O valor predefinido é 30 minutos. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
+A variável de sequência de tarefas SMSTSSoftwareUpdateScanTimeout controla o tempo de limite de análise de atualizações de software, durante este passo. O valor predefinido é 30 minutos. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
+
+### <a name="options"></a>Opções   
+ Para além das opções predefinidas, configure as seguintes definições adicionais no **opções** separador deste passo de sequência de tarefas:  
+
+-   **Repita este passo se o computador reiniciar inesperadamente**  
+    Se uma das atualizações inesperadamente reinicia o computador, repita este passo. O passo ativa esta definição, por predefinição com duas tentativas. Pode especificar uma a cinco tentativas.  
+
+    > [!NOTE]
+    > Configure a variável de SMSTSWaitForSecondReboot para especificar quantos segundos a sequência de tarefas interrompe depois do computador for reiniciado neste cenário. Para obter mais informações, consulte [variáveis incorporadas de sequência de tarefas](task-sequence-built-in-variables.md).
+
 
 
 ##  <a name="BKMK_JoinDomainorWorkgroup"></a>Associar domínio ou grupo de trabalho  
- Utilize o passo de sequência de tarefas **Associar Domínio ou Grupo de Trabalho** para adicionar o computador de destino a um grupo de trabalho ou domínio.  
+ Utilize este passo para adicionar o computador de destino a um grupo de trabalho ou domínio.  
 
  Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Associar Domínio ou Grupo de Trabalho](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **associar domínio ou grupo de trabalho** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Aderir a um grupo de trabalho**  
- Selecione esta opção para associar o computador de destino ao grupo de trabalho especificado. Se o computador for atualmente membro de um domínio, a seleção desta opção causará o reinício do computador.  
+ Selecione esta opção para associar o computador de destino ao grupo de trabalho especificado. Se o computador for atualmente membro de um domínio, se selecionar esta opção faz com que o reinício do computador.  
 
  **Aderir a um domínio**  
  Selecione esta opção para associar o computador de destino ao domínio especificado.  
 
- Opcionalmente, introduza ou procure uma unidade organizacional (UO) no domínio especificado para o computador ser associado. Se o computador for atualmente membro de outro domínio ou grupo de trabalho, isto causará o reinício do computador. Se o computador já for membro de outra UO, o Active Directory Domain Services não permite a alteração da UO e esta definição é ignorada.  
+ Opcionalmente, introduza ou procure uma unidade organizacional (UO) no domínio especificado para o computador ser associado. Se o computador for atualmente membro de outro domínio ou grupo de trabalho, esta opção faz com que o reinício do computador. Se o computador já for um membro de outra UO, uma vez que os serviços de domínio do Active Directory não permite a alteração da UO através deste método, o Windows configuração ignora esta definição.  
 
  **Introduza a conta que tenha permissão para aderir ao domínio**  
- Clique em **Definir** para introduzir uma conta e uma palavra-passe com permissões para ser associada ao domínio. A conta tem de ser introduzida no seguinte formato:  
+ Clique em **definir** para introduzir o nome de utilizador e palavra-passe para uma conta com permissões para aderir ao domínio. Introduza a conta no formato:  *Domínio \ conta*  
 
- *Domínio \ conta*  
+
 
 ## <a name="BKMK_PrepareConfigMgrClientforCapture"></a>Preparar ConfigMgr Client para captura  
-Utilize o **preparar ConfigMgr Client para captura** passo para remover o cliente do Configuration Manager ou configurar o cliente no computador de referência para o preparar para captura como parte do processamento de imagens.
+Utilize este passo para remover ou configurar o cliente do Configuration Manager no computador de referência. Esta ação prepara o computador para captura como parte do processamento de imagens.
 
-A partir do Configuration Manager versão 1610, o passo de preparar ConfigMgr Client remove completamente o cliente do Configuration Manager, em vez de apenas remover informações de chave. Quando a sequência de tarefas, implementa a imagem do sistema operativo capturada, instalará um novo cliente de Configuration Manager cada vez.  
+A partir do Configuration Manager versão 1610, o **preparar ConfigMgr Client** passo remove completamente o cliente do Configuration Manager, em vez de apenas remover informações de chave. Quando a sequência de tarefas, implementa a imagem do sistema operativo capturada, instala um novo cliente de Configuration Manager cada vez.  
 
 > [!Note]  
->  O cliente só é removido durante a **compilar e capturar uma imagem de sistema operativo de referência** sequência de tarefas. Outros métodos de captura, como suporte de dados de captura ou de uma sequência de tarefas personalizada, não irão remover o cliente.
+>  O motor de sequência de tarefas apenas remove o cliente durante o **compilar e capturar uma imagem de sistema operativo de referência** sequência de tarefas. O motor de sequência de tarefas não remover o cliente durante a outros métodos de captura, como suporte de dados de captura ou de uma sequência de tarefas personalizada.
 
 Antes do Configuration Manager versão 1610, este passo efetua as seguintes tarefas:  
 
@@ -1036,268 +876,186 @@ Antes do Configuration Manager versão 1610, este passo efetua as seguintes tare
 
 -   Remove a chave de raiz fidedigna para o cliente do Configuration Manager.  
 
- Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
+Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens**e selecione **preparar ConfigMgr Client para captura** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
+### <a name="properties"></a>Propriedades  
+ Este passo não necessitam de quaisquer definições no **propriedades** separador.
 
--   Desativar o passo.  
 
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
 
 ##  <a name="BKMK_PrepareWindowsforCapture"></a>Preparar Windows para captura  
- Utilize o passo de sequência de tarefas **Preparar Windows para Captura** para especificar as opções do Sysprep a utilizar ao capturar uma imagem do sistema operativo no computador de referência. Esta ação de sequência de tarefas executa o Sysprep e, em seguida, reinicia o computador na imagem de arranque do Windows PE especificada para a sequência de tarefas. O computador de referência não deve ser associado a um domínio para que esta ação seja concluída com êxito.  
+ Utilize este passo para especificar as opções do Sysprep ao capturar uma imagem de sistema operativo no computador de referência. Esta ação de sequência de tarefas executa o Sysprep e, em seguida, reinicia o computador na imagem de arranque do Windows PE especificada para a sequência de tarefas. Esta ação irá falhar se o computador de referência está associado a um domínio.  
 
  Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Preparar Windows para Captura](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens**e selecione **preparar Windows para captura** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Compilar automaticamente a lista de controladores de armazenamento em massa**  
- Selecione esta opção para o Sysprep compilar automaticamente uma lista de controladores de armazenamento em massa a partir do computador de referência. Esta opção ativa a opção Compilar Controladores de Armazenamento em Massa no ficheiro sysprep.inf no computador de referência. Para mais informações sobre esta definição, consulte a documentação do Sysprep.  
+ Selecione esta opção para o Sysprep compilar automaticamente uma lista de controladores de armazenamento em massa a partir do computador de referência. Esta opção ativa a opção Compilar Controladores de Armazenamento em Massa no ficheiro sysprep.inf no computador de referência. Para obter mais informações sobre esta definição, consulte a documentação do Sysprep.  
 
  **Repor o sinalizador de ativação**  
  Selecione esta opção para impedir o Sysprep de repor o sinalizador de ativação do produto.  
 
+
+
 ##  <a name="BKMK_PreProvisionBitLocker"></a>Provisão prévia do BitLocker  
- Utilize o passo de sequência de tarefas **Provisão prévia do BitLocker** para ativar o BitLocker numa unidade no Windows PE. Apenas o espaço de disco utilizado é encriptado e, portanto, os tempos de encriptação são muito mais rápidos. Aplique as opções de gestão de chaves utilizando o passo de sequência de tarefas [Ativar BitLocker](#BKMK_EnableBitLocker) após a instalação do sistema operativo. Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão.  
+ Utilize este passo para ativar o BitLocker numa unidade no Windows PE. Apenas o espaço de disco utilizado é encriptado e, portanto, os tempos de encriptação são muito mais rápidos. Aplique as opções de gestão de chaves utilizando o passo de sequência de tarefas [Ativar BitLocker](#BKMK_EnableBitLocker) após a instalação do sistema operativo. Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão.  
 
 > [!IMPORTANT]  
->  Para pré-aprovisionar o BitLocker, tem de implementar um sistema operativo mínimo do Windows 7 e o TPM tem de ser suportado e ativado no computador.  
+>  Pré-aprovisionar o BitLocker requer, pelo menos, Windows 7. O computador também tem de conter um suportado e ativado Trusted Platform Module (TPM).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **discos**e selecione **provisão prévia do BitLocker** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifique um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Especifique informações detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Aplicar BitLocker ao drive especificado**  
  Especifique a unidade para a qual pretende ativar o BitLocker. Apenas o espaço utilizado na unidade é encriptado.  
 
  **Ignore este passo em computadores que não têm TPM ou quando o TPM não está ativado**  
- Selecione esta opção para ignorar a encriptação da unidade quando o hardware do computador não suportar o TPM ou quando o TPM não estiver ativado. Por exemplo, pode utilizar esta opção ao implementar um sistema operativo numa máquina virtual.  
+ Selecione esta opção para ignorar a encriptação de unidade num computador que não contenha um TPM suportado ou ativado conforme necessário. Por exemplo, utilize esta opção quando implementar um sistema operativo para uma máquina virtual.  
+
+
 
 ##  <a name="BKMK_ReleaseStateStore"></a>Disponibilizar armazenamento de Estados  
- Utilize o passo de sequência de tarefas **Disponibilizar Armazenamento de Estados** para notificar o ponto de migração de estado de que a ação de captura ou restauro está concluída. Este passo é utilizado em conjunto com os passos de sequência de tarefas **Solicitar Armazenamento de Estados**, **Capturar Estado do Utilizador** e **Restaurar Estado do Utilizador** para migrar os dados de estado do utilizador com um ponto de migração de estado e o User State Migration Tool (USMT).  
+ Utilize este passo para notificar o estado do ponto de migração de que a ação de captura ou restauro está concluída. Utilize este passo juntamente com o **solicitar armazenamento de Estados**, **capturar estado do utilizador**, e **restaurar estado do utilizador** passos. Utilize estes passos para migrar dados de estado de utilizador utilizando um ponto de migração de estado e a ferramenta de migração de estado de utilizador (USMT).  
 
  Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Se tiver solicitado acesso a um ponto de migração de estado para capturar o estado do utilizador no passo de sequência de tarefas **Solicitar Armazenamento de Estados**, este passo notifica o ponto de migração de estado de que o processo de captura está concluído e de que os dados de estado do utilizador estão disponíveis para serem restaurados. O ponto de migração de estado define as permissões de controlo de acesso para o estado capturado, para que apenas possa ser acedido (como só de leitura) pelo computador de restauro.  
+ Se utilizar o **solicitar armazenamento de Estados** passo para solicitar acesso a um ponto de migração de estado para *capturar* de estado do utilizador, este passo notifica o ponto de migração de estado a processar a captura está concluído. O ponto de migração de estado, em seguida, marca os dados de estado de utilizador como disponíveis para restauro. O ponto de migração de estado define o acesso de permissões de controlo para os dados de estado de utilizador para que apenas o computador de restauro tem acesso só de leitura.  
 
- Se tiver solicitado acesso a um ponto de migração de estado para restaurar o estado do utilizador no passo de sequência de tarefas **Solicitar Armazenamento de Estados**, este passo notifica o ponto de migração de estado de que o processo de restauro está concluído. Nesta altura, são ativadas as definições de retenção que tiver configurado para o ponto de migração de estado.  
+ Se utilizar o **solicitar armazenamento de Estados** passo para solicitar acesso a um ponto de migração de estado para *restaurar* de estado do utilizador, este passo notifica o ponto de migração de estado que o processo de restauro está concluído. A migração de estado do ponto de, em seguida, Ativa as definições de retenção de dados configurados.  
 
 > [!IMPORTANT]  
->  Uma melhor prática é definir **Continuar com o erro** em quaisquer passos de sequência de tarefas entre os passos **Solicitar Armazenamento de Estados** e **Disponibilizar Armazenamento de Estados**, para que todas as ações de sequência de tarefas **Solicitar Armazenamento de Estados** tenham uma ação de sequência de tarefas **Disponibilizar Armazenamento de Estados** correspondente.  
+>  Uma melhor prática é definir o **continuar com o erro** opção para quaisquer passos entre o **solicitar armazenamento de Estados** e **disponibilizar armazenamento de Estados** passos. Cada **solicitar armazenamento de Estados** passo tem de ter uma correspondência **disponibilizar armazenamento de Estados** passo.  
 
  Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência Disponibilizar Armazenamento de Estados](task-sequence-action-variables.md#BKMK_ReleaseStateStore).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **estado do utilizador**e selecione **disponibilizar armazenamento de Estados** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
+### <a name="properties"></a>Propriedades  
+ Este passo não necessitam de quaisquer definições no **propriedades** separador.
 
--   Desativar o passo.  
 
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
 
 ##  <a name="BKMK_RequestStateStore"></a>Solicitar armazenamento de Estados  
- Utilize o passo de sequência de tarefas **Solicitar Armazenamento de Estados** para solicitar acesso a um ponto de migração de estado ao capturar o estado de um computador ou ao restaurar o estado para um computador.  
+ Utilize este passo para pedir acesso a um ponto de migração de estado ao capturar ou restaurar o estado.  
 
  Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Pode utilizar o passo de sequência de tarefas **Solicitar Armazenamento de Estados** em conjunto com os passos de sequência de tarefas **Disponibilizar Armazenamento de Estados**, **Capturar Estado do Utilizador** e **Restaurar Estado do Utilizador**, para migrar o estado do computador com um ponto de migração de estado e o User State Migration Tool (USMT).  
+ Utilize este passo juntamente com o **disponibilizar armazenamento de Estados**, **capturar estado do utilizador**, e **restaurar estado do utilizador** passos. Utilize estes passos para migrar o estado do computador utilizando um ponto de migração de estado e a ferramenta de migração de estado de utilizador (USMT).  
 
 > [!NOTE]  
->  Se tiver acabado de estabelecer uma nova função de sites do ponto de migração de estado (SMP), pode demorar até uma hora a estar disponível para armazenamento do estado do utilizador. Para agilizar a disponibilidade do SMP, pode ajustar qualquer definição de propriedade do ponto de migração de estado para acionar uma atualização do ficheiro de controlo do site.  
+>  Ao criar um novo ponto de migração de estado, o armazenamento de Estados do utilizador não está disponível para até uma hora. Para agilizar a disponibilidade, ajuste as definições de propriedade no ponto de migração de estado para acionar uma atualização de ficheiro de controlo do site.  
 
  Este passo de sequência de tarefas é executado num sistema operativo padrão e no Windows PE para o USMT offline. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Solicitar Armazenamento de Estados](task-sequence-action-variables.md#BKMK_RequestState).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **estado do utilizador**e selecione **solicitar armazenamento de Estados** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Capturar estado do computador**  
- Localiza um ponto de migração de estado que cumpre os requisitos mínimos, conforme configurado nas definições do ponto de migração de estado (número máximo de clientes e quantidade mínima de espaço livre em disco), mas não garante que esteja disponível espaço suficiente no momento da migração de estado. A seleção desta opção solicitará acesso ao ponto de migração de estado para capturar o estado e as definições de utilizador de um computador.  
+ Localize um ponto de migração de estado que cumpre os requisitos mínimos, conforme configurado nas definições de ponto de migração de estado. Por exemplo, **número máximo de clientes** e **quantidade mínima de espaço livre em disco**. Esta opção não garante esteja disponível espaço suficiente no momento da migração de estado. Esta opção de solicita acesso ao ponto de migração de estado para capturar o estado do utilizador e as definições de um computador.  
 
- Se o site do Configuration Manager tiver vários pontos de migração de estado ativados, este passo de sequência de tarefas localiza um ponto de migração de estado com espaço em disco disponível consultando o ponto de gestão do site para obter uma lista dos pontos de migração de estado e, em seguida, avaliando cada um até encontrar um que cumpra os requisitos mínimos.  
+ Se o site do Configuration Manager tiver vários pontos de migração de estado ativo, este passo localiza um ponto de migração de estado com espaço em disco disponível. A sequência de tarefas consulta o ponto de gestão para obter uma lista dos pontos de migração de estado e, em seguida, avalia cada um até encontrar um que cumpra os requisitos mínimos.  
 
  **Restaurar estado a partir de outro computador**  
- Selecione esta opção para solicitar acesso a um ponto de migração de estado para restaurar o estado e as definições de utilizador capturados anteriormente para um computador de destino.  
+ Pedir acesso a um ponto de migração de estado para restaurar o estado de utilizador capturados anteriormente e definições para um computador de destino.  
 
- Se o site do Configuration Manager tiver vários pontos de migração de estado, este passo de sequência de tarefas localiza o ponto de migração de estado que possui o estado do computador armazenado para o computador de destino.  
+ Se existirem vários pontos de migração de estado, este passo localiza o ponto de migração de estado que possui o estado para o computador de destino.  
 
  **Número de tentativas**  
- Número de vezes que este passo de sequência de tarefas tentará localizar um ponto de migração de estado adequado antes de falhar.  
+ O número de vezes que este passo tenta localizar um ponto de migração de estado adequado antes de falhar.  
 
  **Intervalo de repetição (em segundos)**  
  Período de tempo em segundos que o passo de sequência de tarefas aguarda entre as tentativas.  
 
  **Se a conta de computador falhar a ligação ao armazenamento de Estados, utilize a conta de acesso de rede.**  
- Especifica que as credenciais de conta de acesso de rede do Configuration Manager irão ser utilizadas para ligar ao ponto de migração de estado se o cliente do Configuration Manager não é possível aceder ao armazenamento de estado SMP com a conta de computador. Esta opção é menos segura porque outros computadores poderão utilizar a conta de acesso à rede para aceder ao estado armazenado, mas pode ser necessária se o computador de destino não estiver associado ao domínio.  
+ Se a sequência de tarefas não é possível aceder ao ponto de migração de estado utilizando a conta de computador, utiliza as credenciais de conta de acesso de rede para ligar. Esta opção é menos segura porque outros computadores poderia utilizar a conta de acesso de rede para o estado armazenado de acesso. Esta opção pode ser necessária se o computador de destino não está associado a um domínio.  
+
+
 
 ##  <a name="BKMK_RestartComputer"></a>Reiniciar computador  
- Utilize o passo de sequência de tarefas **Reiniciar Computador** para reiniciar o computador que está a executar a sequência de tarefas. Após o reinício, o computador prosseguirá automaticamente para o passo seguinte na sequência de tarefas.  
+ Utilize este passo para reiniciar o computador que executa a sequência de tarefas. Após o reinício, o computador continua automaticamente com o passo seguinte na sequência de tarefas.  
 
  Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, consulte [reiniciar variáveis de ação de sequência de tarefas do computador](task-sequence-action-variables.md#BKMK_RestartComputer).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **reiniciar o computador** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **A imagem de arranque atribuída a esta sequência de tarefas**  
- Selecione esta opção para o computador de destino utilizar a imagem de arranque atribuída à sequência de tarefas. A imagem de arranque será utilizada para executar passos de sequência de tarefas subsequentes executados no Windows PE.  
+ Selecione esta opção para o computador de destino a utilizar a imagem de arranque atribuída à sequência de tarefas. A sequência de tarefas utiliza a imagem de arranque para executar os passos subsequentes no Windows PE.  
 
  **O sistema operativo predefinido atualmente instalado**  
  Selecione esta opção para o computador de destino ser reiniciado no sistema operativo instalado.  
 
  **Notificar o utilizador antes de reiniciar**  
- Selecione esta opção para apresentar uma notificação ao utilizador a informar que o computador de destino será reiniciado. Esta opção está selecionada por predefinição.  
+ Selecione esta opção para apresentar uma notificação ao utilizador antes do reinício do computador de destino. O passo seleciona esta opção, por predefinição.  
 
  **Mensagem de notificação**  
- Introduza uma mensagem de notificação que será apresentada ao utilizador antes de o computador de destino ser reiniciado.  
+ Introduza uma mensagem de notificação para apresentar ao utilizador antes do reinício do computador de destino.  
 
  **Tempo limite de visualização da mensagem**  
- Especifique o período de tempo em segundos concedido a um utilizador antes de o computador de destino ser reiniciado. O período de tempo predefinido é sessenta (60) segundos.  
+ Especifique a quantidade de tempo em segundos antes do reinício do computador de destino. A predefinição é 60 segundos.  
+
+
 
 ##  <a name="BKMK_RestoreUserState"></a>Restaurar estado do utilizador  
- Utilize o passo de sequência de tarefas **Restaurar Estado do Utilizador** para iniciar o User State Migration Tool (USMT) para restaurar o estado e as definições de utilizador para o computador de destino. Este passo de sequência de tarefas é utilizado em conjunto com o passo de sequência de tarefas **Capturar Estado do Utilizador**.  
+ Utilize este passo para iniciar o utilizador State Migration Tool (USMT) para restaurar o estado de utilizador e as definições para o computador de destino. Utilize este passo em conjunto com o **capturar estado do utilizador** passo.  
 
  Para obter mais informações sobre como gerir o estado do utilizador ao implementar sistemas operativos, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
 
- Também pode utilizar o **restaurar estado do utilizador** passo de sequência de tarefas com o **solicitar armazenamento de Estados** e **disponibilizar armazenamento de Estados** passos de sequência de tarefas se pretender guardar as definições de estado ou restaurar definições a partir de uma migração de estado para o ponto no site do Configuration Manager. Com o USMT 3.0 e superior, esta opção desencripta sempre o armazenamento de Estados do USMT através de uma chave de encriptação gerada e gerida pelo Configuration Manager.  
+ Utilize este passo com o **solicitar armazenamento de Estados** e **disponibilizar armazenamento de Estados** passos para guardar ou restaurar as definições de estado com um ponto de migração de estado. Com o USMT 3.0 e superior, esta opção desencripta sempre o armazenamento de Estados do USMT através de uma chave de encriptação gerada e gerida pelo Configuration Manager.  
 
- O passo de sequência de tarefas **Restaurar Estado do Utilizador** fornece controlo sobre um subconjunto limitado das opções mais utilizadas pelo USMT. Podem ser especificadas opções da linha de comandos adicionais através da variável de sequência de tarefas OSDMigrateAdditionalRestoreOptions.  
+ O **restaurar estado do utilizador** passo fornece controlo sobre um subconjunto limitado das mais frequentemente opções utilizadas pelo USMT. Especifique as opções da linha de comandos adicionais com a variável de sequência de tarefas OSDMigrateAdditionalRestoreOptions.  
 
 > [!IMPORTANT]  
->  Se estiver a utilizar o passo de sequência de tarefas **Restaurar Estado do Utilizador** para um objetivo não relacionado com um cenário de implementação de sistema operativo, adicione o passo de sequência de tarefas [Reiniciar Computador](#BKMK_RestartComputer) imediatamente a seguir ao passo de sequência de tarefas **Restaurar Estado do Utilizador**.  
+>  Se estiver a utilizar este passo para um objetivo não relacionado com um cenário de implementação do sistema operativo, adicione o [reiniciar o computador](#BKMK_RestartComputer) passo imediatamente a seguir a **restaurar estado do utilizador** passo.  
 
- Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Restaurar Estado do Utilizador](task-sequence-action-variables.md#BKMK_RestoreUserState).  
+ Este passo é executado apenas num sistema operativo padrão. Não é executado no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Restaurar Estado do Utilizador](task-sequence-action-variables.md#BKMK_RestoreUserState).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **estado do utilizador**e selecione **restaurar estado do utilizador** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Especifica informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Pacote de ferramenta de migração de estado de utilizador**  
- Introduza o pacote de Configuration Manager que contém a versão do USMT para este passo a utilizar ao restaurar o estado do utilizador e as definições. Este pacote não requer um programa. Quando o passo de sequência de tarefas for executado, a sequência de tarefas utilizará a versão do USMT no pacote especificado. Especifique um pacote com a versão de 32 bits ou x64 do USMT, consoante a arquitetura do sistema operativo para o qual está a restaurar o estado.  
+ Especifique o pacote que contém a versão do USMT para este passo para utilizar. Este pacote não requer um programa. Quando o passo é executado, a sequência de tarefas utiliza a versão do USMT no pacote especificado. Especifique um pacote com a versão de 32 bits ou 64 bits do USMT. A arquitetura do USMT depende da arquitetura do sistema operativo para que a sequência de tarefas é de restaurar o estado. 
 
  **Restaurar todos os perfis de utilizador capturados com opções padrão**  
- Restaura todos os perfis de utilizador capturados com as opções padrão. Para personalizar as opções que serão restauradas, selecione **Personalizar captura de perfil do utilizador**.  
+ Restaura todos os perfis de utilizador capturados com as opções padrão. Para personalizar as opções que restaura do USMT, selecione **personalizar captura de perfil de utilizador**.  
 
  **Personalizar como os perfis de utilizador são restaurados**  
- Permite personalizar os ficheiros que pretende restaurar para o computador de destino. Clique em **Ficheiros** para especificar os ficheiros de configuração no pacote do USMT que pretende utilizar para restaurar os perfis de utilizador. Para adicionar um ficheiro de configuração, introduza o nome do ficheiro na caixa **Nome do ficheiro** e clique em **Adicionar**. Os ficheiros de configuração que serão utilizados para a operação estão listados no painel Ficheiros. O ficheiro .xml especificado define o ficheiro de utilizador que será restaurado.  
+ Permite personalizar os ficheiros que pretende restaurar para o computador de destino. Clique em **Ficheiros** para especificar os ficheiros de configuração no pacote do USMT que pretende utilizar para restaurar os perfis de utilizador. Para adicionar um ficheiro de configuração, introduza o nome do ficheiro na caixa **Nome do ficheiro** e clique em **Adicionar**. Painel ficheiros lista os ficheiros de configuração que utiliza a USMT. O ficheiro. XML especificado define o ficheiro de utilizador restaura USMT.  
 
  **Restaurar perfis de utilizador do computador local**  
- Restaura os perfis de utilizador do computador local (e não perfis de utilizador do domínio). Terá de atribuir novas palavras-passe para as contas de utilizador locais restauradas, porque as palavras-passe das contas de utilizador locais originais não podem ser migradas. Introduza a nova palavra-passe na caixa **Palavra-passe** e confirme-a na caixa **Confirmar Palavra-passe**.  
+ Restaura os perfis de utilizador do computador local. Estes perfis não são utilizadores do domínio. Tem de atribuir novas palavras-passe para as contas de utilizador locais restauradas. USMT não é possível migrar as palavras-passe original. Introduza a nova palavra-passe na caixa **Palavra-passe** e confirme-a na caixa **Confirmar Palavra-passe**.  
 
  **Continuar se não não possível restaurar alguns ficheiros**  
- Continua o restauro do estado e das definições de utilizador, mesmo se não for possível restaurar alguns ficheiros. Por predefinição, esta opção encontra-se ativada. Se desativar esta opção e forem encontrados erros ao restaurar ficheiros, o passo de sequência de tarefas terminará de imediato com uma falha e nem todos os ficheiros serão restaurados.  
+ Continua o restauro do Estado de utilizador e as definições, mesmo que esteja não é possível restaurar alguns ficheiros USMT. O passo ativa esta opção, por predefinição. Se desativar esta opção e USMT encontra erros ao restaurar os ficheiros, este passo falhe imediatamente. USMT não restaure todos os ficheiros.   
 
  **Ativar o registo verboso**  
- Ative esta opção para gerar informações de ficheiros de registo mais detalhadas. Ao restaurar o estado, o registo Loadstate.log é gerado e armazenado por predefinição na pasta de registo da sequência de tarefas na pasta \windows\system32\ccm\logs.  
+ Ative esta opção para gerar informações de ficheiros de registo mais detalhadas. Ao restaurar o estado, a sequência de tarefas por predefinição gera Loadstate.log na pasta de registo da sequência de tarefas, \windows\system32\ccm\logs.  
+
+
 
 ##  <a name="BKMK_RunCommandLine"></a>Executar linha de comandos  
- Utilize o passo de sequência de tarefas **Executar Linha de Comandos** para executar uma linha de comandos especificada.  
+ Utilize este passo para executar a linha de comandos especificada.  
 
  Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para obter informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, veja [Variáveis de Ação da Sequência de Tarefas Executar Linha de Comandos](task-sequence-action-variables.md#BKMK_RunCommand).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+ No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **executar linha de comandos** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome abreviado definido pelo utilizador que descreve a linha de comandos que é executada.  
-
- **Descrição**  
- Especifica informações mais detalhadas sobre a linha de comandos que é executada.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Linha de comandos**  
  Especifica a linha de comandos que é executada. Este campo é obrigatório. As extensões de nome de ficheiro, incluindo são uma melhor prática, por exemplo,. vbs e .exe. Inclua todos os ficheiros de definições necessários, opções da linha de comandos ou parâmetros.  
@@ -1306,15 +1064,15 @@ Antes do Configuration Manager versão 1610, este passo efetua as seguintes tare
 
  Exemplos:  
 
- **Setup.exe /a**  
+ `setup.exe /a`  
 
- **cmd.exe /c cópia Jan98.dat c:\sales\Jan98.dat**  
+ `cmd.exe /c copy Jan98.dat c:\sales\Jan98.dat`  
 
 > [!NOTE]  
->  Ações da linha de comandos, como redirecionamento de saída, encaminhamento ou cópia, como no exemplo anterior, tem de ser precedidas pelo **cmd.exe /c** comando a executar com êxito.  
+>  Para executar com êxito, preceder ações da linha de comandos com o **cmd.exe /c** comando. Exemplo destas ações incluem o redirecionamento de saída, encaminhando e copiar comandos.  
 
  **Desativar redirecionamento de sistema de ficheiros de 64 bits**  
- Por predefinição, numa execução num sistema operativo de 64 bits, o executável na linha de comandos está localizado e é executado com o redirecionador do sistema de ficheiros WOW64, para que sejam encontradas as versões de 32 bits dos executáveis e DLLs do sistema operativo.  A seleção desta opção desativa a utilização do redirecionador do sistema de ficheiros WOW64, para que sejam encontradas as versões de 64 bits nativas dos executáveis e DLLs do sistema operativo.  A seleção desta opção não tem efeito numa execução num sistema operativo de 32 bits.  
+ sistemas operativos de 64 bits utilizam o redirecionador de sistema de ficheiros WOW64 por predefinição para executar linhas de comandos. Este comportamento é corretamente encontrar versões de 32 bits dos executáveis de sistema operativo e bibliotecas. Selecione esta opção para desativar a utilização do redirecionador do sistema de ficheiros WOW64. Windows é executado o comando utilizando as versões de 64 bits nativas de executáveis de sistema operativo e bibliotecas. Esta opção não tem efeito numa execução num sistema operativo de 32 bits.  
 
  **Iniciar**  
  Especifica a pasta executável do programa, até 127 carateres. Esta pasta pode ser um caminho absoluto no computador de destino ou um caminho relativo para a pasta do ponto de distribuição que contém o pacote. Este campo é opcional.  
@@ -1326,55 +1084,45 @@ Antes do Configuration Manager versão 1610, este passo efetua as seguintes tare
  **i386**  
 
 > [!NOTE]  
->  O botão **Procurar** procura ficheiros e pastas no computador local, pelo que tudo o que selecionar desta forma também tem de existir no computador de destino na mesma localização e com os mesmos nomes de ficheiros e pastas.  
+>  O **procurar** botão de procura no computador local para ficheiros e pastas. Tudo o que selecionar também têm de existir no computador de destino na mesma localização e com o mesmo ficheiro e os nomes de pastas.  
 
  **Pacote**  
  Ao especificar ficheiros ou programas na linha de comandos que já não estão presentes no computador de destino, selecione esta opção para especificar o pacote de Configuration Manager que contém os ficheiros adequados. O pacote não requer um programa. Esta opção não é necessária se os ficheiros especificados existirem no computador de destino.  
 
  **Tempo limite**  
- Especifica um valor que representa o período de retenção do Configuration Manager irá permitir que a linha de comandos executar. Este valor pode ser de 1 minuto a 999 minutos. O valor predefinido é 15 minutos.  
+ Especifica um valor que representa o período de tempo do Configuration Manager permite que a linha de comandos executar. Este valor pode ser de 1 minuto a 999 minutos. O valor predefinido é 15 minutos.  
 
  Esta opção está desativada por predefinição.  
 
 > [!IMPORTANT]  
->  Se introduzir um valor que não permita tempo suficiente para o passo de sequência de tarefas Executar Linha de Comandos ser concluído com êxito, o passo de sequência de tarefas falhará e toda a sequência de tarefas poderá falhar, consoante as restantes definições de controlo. Se o tempo limite expirar, o Configuration Manager irá terminar o processo da linha de comandos.  
+>  Se introduzir um valor que não permita tempo suficiente para o comando especificado concluir com êxito, este passo falhe. A sequência de tarefas completo foi falhar, consoante as restantes definições de controlo. Se o tempo limite expirar, o Configuration Manager termina o processo da linha de comandos.  
 
  **Executar este passo de como a seguinte conta**  
  Especifica que a linha de comandos é executada como uma conta de utilizador do Windows em vez da conta de sistema local.  
 
 > [!NOTE]  
->  Quando especificar outra conta para este passo e ocorrer depois de um passo de instalação do sistema operativo, a conta tem de ser adicionada para o computador antes de poder executar scripts simples ou comandos e o perfil para a conta de utilizador do Windows tem de ser restaurados para executar programas mais complexos, como um MSI.  
+>  Para executar scripts simples ou comandos com outra conta depois de instalar o sistema operativo, tem de adicionar a conta de computador. Além disso, tem de restaurar o perfil de conta de utilizador do Windows para executar programas mais complexos, tais como um Windows Installer.  
 
  **Conta**  
- Especifica a conta de utilizador do Windows Run As para a tarefa da linha de comandos na sequência de tarefas a ser executada por esta ação. A linha de comandos será executada com as permissões da conta especificada. Clique em **Definir** para especificar a conta de utilizador local ou de domínio.  
+ Especifica a conta de utilizador do Windows que neste passo utiliza para executar a linha de comandos. A linha de comandos é executada com as permissões da conta especificada. Clique em **Definir** para especificar a conta de utilizador local ou de domínio.  
 
 > [!IMPORTANT]  
->  Se uma ação de sequência de tarefas **Executar Linha de Comandos** que especifique uma conta de utilizador for executada no Windows PE, a ação falhará porque o Windows PE não pode ser associado a um domínio. A falha será registada no ficheiro smsts.log.  
+>  Se este passo Especifica uma conta de utilizador e é executado no Windows PE, a ação falhará. Não é possível associar o Windows PE para um domínio. O ficheiro smsts.log regista esta falha.  
+
+
 
 ##  <a name="BKMK_RunPowerShellScript"></a>Executar Script do PowerShell  
- Utilize o passo de sequência de tarefas **Executar Script do PowerShell** para executar um script do PowerShell especificado.  
+ Utilize este passo para executar o script do PowerShell especificado.  
 
  Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para executar este passo no Windows PE, o PowerShell tem de estar ativado na imagem de arranque. Pode ativar o Windows PowerShell (WinPE-PowerShell) a partir do separador **Componentes Opcionais** nas propriedades da imagem de arranque. Para obter mais informações sobre como modificar uma imagem de arranque, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
 
 > [!NOTE]  
 >  Por predefinição, o PowerShell não está ativado nos sistemas operativos Windows Embedded.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **executar Script do PowerShell** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome abreviado definido pelo utilizador que descreve a linha de comandos que é executada.  
-
- **Descrição**  
- Especifica informações mais detalhadas sobre a linha de comandos que é executada.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Pacote**  
  Especifique o pacote de Configuration Manager que contém o script do PowerShell. Um pacote pode conter vários scripts do PowerShell.  
@@ -1383,279 +1131,237 @@ Antes do Configuration Manager versão 1610, este passo efetua as seguintes tare
  Especifica o nome do script do PowerShell a executar. Este campo é obrigatório.  
 
  **Parâmetros**  
- Especifica os parâmetros a transmitir ao script do Windows PowerShell. Configure os parâmetros como se estivesse a adicioná-los ao script do Windows PowerShell a partir de uma linha de comandos.  
+ Especifica os parâmetros transmitidos para o script do Windows PowerShell. Estes parâmetros são os mesmos que os parâmetros do script do Windows PowerShell na linha de comandos.  
 
 > [!IMPORTANT]  
 >  Forneça parâmetros consumidos pelo script e não para a linha de comandos do Windows PowerShell.  
 >   
 >  O exemplo seguinte contém parâmetros válidos:  
 >   
->  **-MyParameter1 MyValue1-MyParameter2 MyValue2**  
+>  `-MyParameter1 MyValue1 -MyParameter2 MyValue2`  
 >   
->  O exemplo seguinte contém parâmetros inválidos. Os itens a negrito são parâmetros da linha de comandos do Windows PowerShell (-nologo e - executionpolicy sem restrições) e não são consumidos pelo script.  
+>  O exemplo seguinte contém parâmetros inválidos. Os primeiros dois itens são parâmetros da linha de comandos do Windows PowerShell (**- NoLogo** e **- ExecutionPolicy Unrestricted**). O script não consumir estes parâmetros.  
 >   
->  **-nologo-executionpolicy sem restrições ficheiro MyScript.ps1-MyParameter1 MyValue1-MyParameter2 MyValue2**  
+>  `-NoLogo -ExecutionPolicy Unrestricted -File MyScript.ps1 -MyParameter1 MyValue1 -MyParameter2 MyValue2`  
 
  **Política de execução do PowerShell**  
- A seleção da política de execução do PowerShell permite determinar quais os scripts do Windows PowerShell (se existirem) cuja execução será permitida no computador. Escolha uma das seguintes políticas de execução:  
+ Determinar quais os scripts do Windows PowerShell (se aplicável) permite a execução no computador. Escolha uma das seguintes políticas de execução:  
 
--   **AllSigned**: Apenas os scripts assinados por um fabricante fidedigno podem ser executados.  
+-   **AllSigned**: Executar apenas scripts assinados por um fabricante fidedigno  
 
--   **Indefinido**: Está definida qualquer política de execução. .  
+-   **Indefinido**: Não defina qualquer política de execução  
 
--   **Ignorar**: Carrega todos os ficheiros de configuração e executa todos os scripts. Se executar um script não assinado transferido da Internet, não lhe é pedida permissão antes da execução.  
+-   **Ignorar**: Carregar todos os ficheiros de configuração e executar todos os scripts. Se transferir um script não assinado da Internet, do Windows PowerShell não pedir permissão antes de executar o script.  
 
 > [!IMPORTANT]  
 >  O PowerShell 1.0 não suporta as políticas de execução Indefinido e Ignorar.  
 
+
+
 ##  <a name="child-task-sequence"></a>Executar a sequência de tarefas
 
-A partir do Configuration Manager versão 1710, pode adicionar um novo passo de sequência de tarefas executa outra sequência de tarefas. Esta ação cria uma relação principal-subordinado entre as sequências de tarefas. Com uma sequência de tarefas subordinadas, pode criar sequências de tarefas modulares, reutilizáveis.
+A partir do Configuration Manager versão 1710, pode adicionar um novo passo executa outra sequência de tarefas. Este passo cria uma relação principal-subordinado entre as sequências de tarefas. Com sequências de tarefas subordinadas, pode criar mais sequências de tarefas modulares e reutilizáveis.
 
-Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere o seguinte:
-
+Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere as seguintes instruções:
  - As sequências de tarefas principais e subordinados eficazmente são combinadas uma única política que executa o cliente.
- - O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, alterada pela sequência de tarefas subordinado, a variável permanece alterado mover reencaminhar. Da mesma forma, se a sequência de tarefas subordinado cria uma nova variável, a variável está disponível para os passos restantes da sequência de tarefas principal.
+ - O ambiente é global. Se a sequência de tarefas principal define uma variável e, em seguida, a sequência de tarefas subordinado alterará essa variável, retém o valor mais recente. Se a sequência de tarefas subordinado cria uma nova variável, está disponível para os restantes da sequência de tarefas principal.
  - Mensagens de estado são enviadas por normal para uma operação de sequência de tarefas único.
  - As sequências de tarefas escreverem entradas no ficheiro smsts.log, com o novo registo de entradas que desmarque quando uma sequência de tarefas subordinado é iniciado.
 
-### <a name="details"></a>Detalhes
+No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **executar a sequência de tarefas** para adicionar este passo. 
 
-1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
-2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.  
+### <a name="properties"></a>Propriedades
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
+
+**Selecione a sequência de tarefas para executar**  
+ Clique em **procurar** para selecionar a sequência de tarefas subordinado. O **Selecione uma sequência de tarefas** caixa de diálogo não apresenta a sequência de tarefas do principal.
+
+
 
 ##  <a name="BKMK_SetDynamicVariables"></a>Definir variáveis dinâmicas  
- Utilize o passo de sequência de tarefas **Definir Variáveis Dinâmicas** para fazer o seguinte:  
+ Utilize este passo para efetuar as seguintes ações:  
 
 1.  Recolher informações do computador e do ambiente em que está e, em seguida, definir variáveis de sequência de tarefas especificadas com as informações.  
 
 2.  Avaliar as regras definidas e definir variáveis de sequência de tarefas com base nas variáveis e nos valores configurados para as regras avaliadas como verdadeiras.  
 
- A sequência de tarefas define automaticamente as seguintes variáveis de sequência de tarefas só de leitura:  
-
+A sequência de tarefas define automaticamente as seguintes variáveis de sequência de tarefas só de leitura:  
  -   &#95; SMSTSMake  
-
  -   &#95; SMSTSModel  
-
  -   &#95; SMSTSMacAddresses  
-
  -   &#95; SMSTSIPAddresses  
-
  -   &#95; SMSTSSerialNumber  
-
  -   &#95; SMSTSAssetTag  
-
  -   &#95; SMSTSUUID  
 
- Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
+Este passo pode ser executado num sistema operativo padrão ou no Windows PE. Para obter mais informações sobre as variáveis de sequência de tarefas, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **definir variáveis dinâmicas** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
-**Nome**  
- Nome abreviado definido pelo utilizador para este passo de sequência de tarefas.  
-
-**Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
 **Regras e variáveis dinâmicas**  
- Para definir uma variável dinâmica para utilizar na sequência de tarefas, pode adicionar uma regra e, em seguida, especificar um valor para cada variável especificada para a regra ou adicionar uma ou mais variáveis para definir sem adicionar uma regra. Ao adicionar uma regra, pode escolher de entre as seguintes categorias de regras:  
+ Para definir uma variável dinâmica para utilização na sequência de tarefas, adicione uma regra. Em seguida, defina um valor para cada variável especificada na regra. Além disso, adicione uma ou mais variáveis sem adicionar uma regra. Quando adicionar uma regra, escolha entre as seguintes categorias:  
 
- -   **Computador**: Utilize esta categoria de regra para avaliar os valores de etiqueta de recursos, UUID, número de série ou endereço mac. Pode definir vários valores e, se qualquer valor for verdadeiro, a regra avaliará como verdadeiro. Por exemplo, a regra seguinte avalia como verdadeiro se o Número de Série for 5892087, independentemente de o endereço MAC ser 26-78-13-5A-A4-22.  
+ -   **Computador**: Avalie os valores de etiqueta de recursos de hardware, UUID, número de série ou endereço MAC. Defina vários valores conforme necessário. Se qualquer valor for VERDADEIRO, a regra avalia como verdadeiro. Por exemplo, a regra seguinte avalia como VERDADEIRO se o número de série do dispositivo for 5892087 e o endereço MAC é 22-A4-5A-13-78-26.  
 
      `IF Serial Number = 5892087 OR MAC address = 26-78-13-5A-A4-22 THEN`  
 
--   **Localização**: Utilize esta categoria de regra para avaliar os valores para o gateway predefinido.  
+-   **Localização**: Avaliar os valores para o gateway de rede predefinido  
 
--   **Marca e modelo**: Utilize esta categoria de regra para avaliar os valores da marca e modelo de um computador. A marca e o modelo têm de avaliar como verdadeiro para a regra avaliar como verdadeiro.   
+-   **Marca e modelo**: Avalie os valores da marca e modelo de um computador. A marca e o modelo têm de avaliar como verdadeiro para a regra avaliar como verdadeiro.   
+
+    <!-- for future edits: an escape code must be used for the bolded asterisk character, but may be removed somewhere along the way. Instead of five asterisk, should be bold tags with &#42; in-between -->
 
     A partir do Configuration Manager versão 1610, pode especificar um asterisco (**&#42;**) e o ponto de interrogação (**?**) como os carateres universais, onde **&#42;** corresponde a várias carateres e **?** corresponde a um único caráter. Por exemplo, a cadeia "DELL * 900?" corresponderá DELL-ABC-9001 e DELL9009. 
 
--   **Variável de sequência de tarefas**: Utilize esta categoria de regra para adicionar uma variável de sequência de tarefas, condição e valor a avaliar. A regra avalia como verdadeiro quando o conjunto de valores da variável cumpre a condição especificada.  
+    Especifique um asterisco (**&#42;**) e o ponto de interrogação (**?**) como os carateres universais, onde **&#42;** corresponde a vários carateres e **?** corresponde a um único caráter. Por exemplo, a cadeia "DELL * 900?" corresponde a ABC-DELL-9001 e DELL9009.
 
-Pode especificar uma ou mais variáveis que serão definidas para uma regra que avalia como verdadeiro ou definir variáveis sem utilizar uma regra. Pode selecionar de entre as variáveis existentes ou criar uma variável personalizada.  
+-   **Variável de sequência de tarefas**: Adicione uma variável de sequência de tarefas, condição e valor a avaliar. A regra avalia como verdadeiro quando o conjunto de valores da variável cumpre a condição especificada.  
 
- -   **Variáveis de sequência de tarefas existente**: Utilize esta definição para selecionar uma ou mais variáveis a partir de uma lista de variáveis de sequência de tarefas existentes. As variáveis da matriz não estão disponíveis para seleção.  
+    Especifique um ou mais variáveis a definir para uma regra que avalia como VERDADEIRO ou definir variáveis sem utilizar uma regra. Selecione uma variável existente ou crie uma variável personalizada.  
 
- -   **As variáveis de sequência de tarefas personalizada**: Utilize esta definição para definir uma variável de sequência de tarefas personalizada. Também pode especificar uma variável de sequência de tarefas existente. Isto é útil para especificar uma matriz de variável existente, como OSDAdapter, uma vez que as matrizes de variáveis não estão na lista de variáveis de sequência de tarefas existentes.  
+     -   **Variáveis de sequência de tarefas existente**: Selecione uma ou mais variáveis a partir de uma lista de variáveis de sequência de tarefas existentes. As variáveis da matriz não estão disponíveis para seleção.  
+
+     -   **As variáveis de sequência de tarefas personalizada**: Defina uma variável de sequência de tarefas personalizada. Também pode especificar uma variável de sequência de tarefas existente. Esta definição é útil para especificar uma matriz de variável existente, como OSDAdapter, uma vez que as matrizes de variáveis não estão na lista de variáveis de sequência de tarefas existente.  
 
 Depois de selecionar as variáveis para uma regra, tem de fornecer um valor para cada variável. A variável é definida para o valor especificado quando a regra avalia como verdadeiro. Para cada variável, pode selecionar **Valor secreto** para ocultar o valor da variável. Por predefinição, algumas variáveis existentes ocultam valores, como a variável de sequência de tarefas OSDCaptureAccountPassword.  
 
 > [!IMPORTANT]  
->  Ao importar uma sequência de tarefas com o passo Definir Variáveis Dinâmicas e **Valor secreto** estiver selecionado para o valor da variável, o valor é removido quando importar a sequência de tarefas. Como resultado, tem de reintroduzir o valor para a variável dinâmica depois de importar a sequência de tarefas.  
+>  Gestor de configuração remove todos os valores das variáveis marcados como um **valor secreto** quando importar uma sequência de tarefas com o **definir variáveis dinâmicas** passo. Volte a introduzir o valor da variável dinâmica depois de importar a sequência de tarefas.  
+
+
 
 ##  <a name="BKMK_SetTaskSequenceVariable"></a>Definir variável da sequência de tarefas  
-Utilize o passo de sequência de tarefas **Definir Variável da Sequência de Tarefas** para definir o valor de uma variável utilizada com a sequência de tarefas.  
+Utilize este passo para definir o valor de uma variável utilizada com a sequência de tarefas.  
 
-Este passo pode ser executado num sistema operativo padrão ou no Windows PE. As variáveis de sequência de tarefas são lidas pelas ações de sequência de tarefas e especificam o comportamento dessas ações. Para obter mais informações sobre variáveis de sequência de tarefas específicas, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md).  
+Este passo pode ser executado num sistema operativo padrão ou no Windows PE. As variáveis de sequência de tarefas são lidas pelas ações de sequência de tarefas e especificam o comportamento dessas ações. Para mais informações sobre variáveis de ação de sequência de tarefas específicas, consulte [variáveis de ação da sequência de tarefas](task-sequence-action-variables.md). Para mais informações sobre variáveis incorporadas de sequência de tarefas específica, consulte [variáveis incorporadas de sequência de tarefas](/sccm/osd/understand/task-sequence-built-in-variables).
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e selecione **Set Task Sequence Variable** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador para este passo de sequência de tarefas.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Variável de sequência de tarefas**  
- Nome definido pelo utilizador para a variável da sequência de tarefas.  
+ Especifique o nome de uma sequência de tarefas incorporada ou uma variável de ação ou especifique o seu próprio nome de variável definida pelo utilizador.  
 
  **Valor**  
- Valor associado à variável da sequência de tarefas. O valor pode ser outra variável da sequência de tarefas na sintaxe %<varname\>%.  
+ A sequência de tarefas define a variável para este valor. Defina esta variável de sequência de tarefas para o valor de outra variável de sequência de tarefas com a sintaxe % varname %.  
 
-## <a name="hide-task-sequence-progress"></a>Ocultar o progresso da sequência de tarefas
-<!-- 1354291 -->
-Com o lançamento 1706, pode controlar quando o progresso da sequência de tarefas é apresentado aos utilizadores finais através da utilização de uma nova variável. Na sua sequência de tarefas, utilize o **definir variável da sequência de tarefas** passo para definir o valor para o **TSDisableProgressUI** variável para ocultar ou mostrar progresso da sequência de tarefas. Pode utilizar o passo Definir variável da sequência de tarefas múltiplas vezes numa sequência de tarefas para alterar o valor da variável. Isto permite-lhe ocultar ou mostrar progresso da sequência de tarefas nas secções diferentes da sequência de tarefas.
 
- - **Para ocultar o progresso da sequência de tarefas**  
-No editor de sequência de tarefas, utilize o [definir variável da sequência de tarefas](#BKMK_SetTaskSequenceVariable) passo para definir o valor da **TSDisableProgressUI** variável à **verdadeiro** para ocultar o progresso da sequência de tarefas.
-
- - **Para apresentar o progresso da sequência de tarefas**  
-No editor de sequência de tarefas, utilize o [definir variável da sequência de tarefas](#BKMK_SetTaskSequenceVariable) passo para definir o valor da **TSDisableProgressUI** variável à **falso** para apresentar o progresso da sequência de tarefas.
 
 ##  <a name="BKMK_SetupWindowsandConfigMgr"></a>Configurar Windows e ConfigMgr  
- Utilize o passo de sequência de tarefas **Configurar Windows e ConfigMgr** para fazer a transição do Windows PE para o novo sistema operativo. Este passo da sequência de tarefas é uma parte necessária de qualquer implementação do sistema operativo. Instala o cliente do Configuration Manager para o novo sistema operativo e prepara a sequência de tarefas continuar a execução no novo sistema operativo.  
+ Utilize este passo para efetuar a transição do Windows PE para o novo sistema operativo. Este passo da sequência de tarefas é uma parte necessária de qualquer implementação do sistema operativo. Instala o cliente do Configuration Manager para o novo sistema operativo e prepara a sequência de tarefas continuar a execução no novo sistema operativo.  
 
  Este passo é executado apenas no Windows PE. Não é executado num sistema operativo padrão. Para mais informações sobre as variáveis de sequência de tarefas para esta ação de sequência de tarefas, consulte [variáveis de ação da sequência de tarefas configurar Windows e ConfigMgr](task-sequence-action-variables.md#BKMK_SetupWindows).  
 
- O **configurar Windows e ConfigMgr** ação de sequência de tarefas substitui variáveis de diretório sysprep.inf ou unattend.xml, como % WINDIR % e % ProgramFiles %, pelo diretório de instalação do Windows PE X:\Windows. As variáveis de sequência de tarefas especificadas através destas variáveis de ambiente serão ignoradas.  
+ Este passo substitui as variáveis de diretório sysprep.inf ou unattend.xml, como % WINDIR % e % ProgramFiles %, com o diretório de instalação do Windows PE, X:\Windows. A sequência de tarefas ignora variáveis especificadas utilizando estas variáveis de ambiente.  
 
  Utilize este passo de sequência de tarefas para executar as seguintes ações:  
 
 1.  Preliminares: Windows PE  
 
-    1.  Faz uma substituição de variável de sequência de tarefas no ficheiro unattend.xml.  
+    1.  Substitua as variáveis de sequência de tarefas no ficheiro unattend.xml.  
 
-    2.  Transfere o pacote que contém o cliente do Configuration Manager e coloca-o na imagem implementada.  
+    2.  Transferir o pacote que contém o cliente do Configuration Manager. Adicione o pacote na imagem implementada.  
 
 2.  Configurar o Windows  
 
-    1.  Instalação baseada em imagem.  
+    1.  Instalação baseada em imagem  
 
-        1.  Desativa o cliente do Configuration Manager na imagem (ou seja, desativa o início automático para o serviço de cliente do Configuration Manager).  
+        1.  Desative o cliente do Configuration Manager na imagem, se existir. Por outras palavras, desative o início automático para o serviço de cliente do Configuration Manager.  
 
-        2.  Atualiza o registo na imagem implementada para assegurar que o sistema operativo implementado começa pela mesma letra de unidade que tinha no computador de referência.  
+        2.  Atualize o registo na imagem implementada para iniciar o sistema operativo implementado com a mesma letra de unidade que o computador de referência.  
 
-        3.  Reinicia no sistema operativo implementado.  
+        3.  Reiniciar para o sistema operativo implementado.  
 
-        4.  A mini-configuração do Windows é executada através do ficheiro sysprep.inf ou unattend.xml especificado anteriormente, que tem todas as interações do utilizador final suprimidas. Nota: Se **aplicar definições de rede** especificado para associar um domínio, em seguida, essas informações estão no ficheiro sysprep.inf ou unattend.xml e a mini-configuração do Windows efetua a associação ao domínio.  
+        4.  A mini-configuração do Windows é executada através de especificado anteriormente ficheiro sysprep.inf ou unattend.xml resposta que tem todas as interações do utilizador final suprimidas. Se utilizar o **aplicar definições de rede** passo aderir a um domínio, em seguida, essas informações estão no ficheiro de resposta. A mini-configuração do Windows associa o computador ao domínio.  
 
     2.  Instalação baseada em Setup.exe.  Executa Setup.exe, que segue o processo de configuração normal do Windows:  
 
-        1.  Copia o pacote de instalação do sistema operativo especificado numa sequência de tarefas **Aplicar Sistema Operativo** anterior para o disco rígido.  
+        1.  Pacote de atualização de SO de cópia, especificado no **aplicar sistema operativo** passo, a unidade de disco rígido.  
 
-        2.  Reinicia no sistema operativo recentemente implementado.  
+        2.  Reinicie o sistema operativo recentemente implementado.  
 
-        3.  A mini-configuração do Windows é executada através do ficheiro sysprep.inf ou unattend.xml especificado anteriormente, que tem todas as definições da interface de utilizador suprimidas. Nota: Se **aplicar definições de rede** especificado para associar um domínio, em seguida, essas informações estão no ficheiro sysprep.inf ou unattend.xml e a mini-configuração do Windows efetua a associação ao domínio.  
+        3.  A mini-configuração do Windows é executada através de especificado anteriormente ficheiro sysprep.inf ou unattend.xml resposta que tem todas as definições de interface de utilizador suprimidas. Se utilizar o **aplicar definições de rede** passo aderir a um domínio, em seguida, essas informações estão no ficheiro de resposta. A mini-configuração do Windows associa o computador ao domínio.  
 
 3.  Configurar o cliente do Configuration Manager  
 
     1.  Após a conclusão da miniconfiguração do Windows, a sequência de tarefas é retomada com o setupcomplete.cmd.  
 
-    2.  Ativa ou desativa a conta de administrador local com base na opção selecionada no passo **Aplicar Definições do Windows**.  
+    2.  Ativar ou desativar a conta de administrador local, com base na opção selecionada no **aplicar definições do Windows** passo.  
 
-    3.  Instala o cliente do Configuration Manager, utilizando o pacote transferido anteriormente (1.b) e as propriedades de instalação especificadas no Editor de sequência de tarefas. O cliente é instalado no "modo de aprovisionamento" para impedi-lo de processar novos pedidos de políticas até a sequência de tarefas estar concluída.  
+    3.  Instale o cliente do Configuration Manager utilizando o pacote transferido anteriormente e propriedades de instalação especificadas neste passo. A instalação do cliente no "modo de aprovisionamento" para impedi-lo de processar novos pedidos de política, até que conclua a sequência de tarefas.  
 
-    4.  Aguarda até o cliente estar totalmente operacional.  
+    4.  Aguarde que o cliente estar totalmente operacional.  
 
-    5.  Se o computador estiver a funcionar num ambiente com a Proteção de Acesso à Rede ativada, o cliente procura e instala todas as atualizações necessárias para que estas estejam presentes antes de a sequência de tarefas continuar a execução.  
+4.  A sequência de tarefas continua a executar o passo seguinte.  
 
-4.  A sequência de tarefas continua a ser executada através do passo seguinte.  
-
+<!-- Engineering confirmed that the task sequence does nothing with respect to group policy processing.
 > [!NOTE]  
->  A ação de sequência de tarefas **Configurar Windows e ConfigMgr** é responsável pela execução da Política de Grupo no computador recentemente instalado. A Política de Grupo é aplicada após a conclusão da sequência de tarefas.  
+>  The **Setup Windows and ConfigMgr** task sequence action is responsible for running Group Policy on the newly installed computer. The Group Policy is applied after the task sequence is finished.  
+-->
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens**e selecione **configurar Windows e ConfigMgr** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
-
--   Desativar o passo.  
-
--   Não selecionar para que a sequência de tarefas continue se ocorrer um erro ao executar o passo. Se ocorrer um erro, a sequência de tarefas falhará independentemente de selecionar esta definição.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Especifica um nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Especifica informações adicionais sobre a ação executada neste passo.  
+### <a name="properties"></a>Propriedades  
+ No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
  **Pacote de cliente**  
- Especifica o pacote de instalação de cliente do Configuration Manager que será utilizado por este passo de sequência de tarefas. Clique em **procurar** e selecione o pacote de instalação de cliente que pretende utilizar para instalar o cliente do Configuration Manager.  
+ Clique em **procurar**, em seguida, selecione o pacote de instalação de cliente do Configuration Manager para utilizar neste passo.  
 
  **Utilize o pacote de cliente de pré-produção quando disponível**  
- Especifica que, se existir um pacote de cliente de pré-produção disponível, o passo de sequência de tarefas irá utilizar esse pacote em vez do pacote de cliente de produção. Normalmente, o cliente de pré-produção é uma versão mais recente que está a ser testada no ambiente de produção. Clique em **procurar** e selecione o pacote de instalação de cliente de pré-produção que pretende utilizar para instalar o cliente do Configuration Manager.  
+ Se existir um pacote de cliente de pré-produção disponível, a sequência de tarefas utiliza este pacote em vez do pacote de cliente de produção. O cliente de pré-produção é uma versão mais recente para fins de teste no ambiente de produção. Clique em **procurar**, em seguida, selecione o pacote de instalação de cliente de pré-produção para utilizar com este passo.  
 
  **Propriedades de instalação**  
  A atribuição de sites e a configuração predefinida são especificadas automaticamente pela ação de sequência de tarefas. Pode utilizar este campo para especificar propriedades de instalação adicionais a utilizar quando instalar o cliente. Para introduzir várias propriedades de instalação, separe-as com um espaço.  
 
  Pode especificar opções da linha de comandos a utilizar durante a instalação do cliente. Por exemplo, pode introduzir **/skipprereq: silverlight.exe** para informar o ficheiro CCMSetup.exe para não instalar o pré-requisito Microsoft Silverlight. Para obter mais informações sobre as opções da linha de comandos disponíveis para CCMSetup.exe, consulte [acerca das propriedades de instalação de cliente](../../core/clients/deploy/about-client-installation-properties.md).  
 
+### <a name="options"></a>Opções
+> [!NOTE]
+> Não ative **continuar com o erro** no **opções** separador. Se ocorrer um erro durante este passo, a sequência de tarefas falhará se ou não ativar esta definição.
+
+
+
 ##  <a name="BKMK_UpgradeOS"></a>Atualizar sistema operativo  
- Utilize o passo de sequência de tarefas **Atualizar Sistema Operativo** para atualizar um sistema operativo Windows 7, Windows 8, Windows 8.1 ou Windows 10 existente para o Windows 10.  
+ > [!TIP]  
+ > Começando com o Windows 10, versão 1709, o suporte de dados inclui várias edições. Quando configura uma sequência de tarefas para utilizar um pacote de atualização do SO ou a imagem do SO, é necessário selecionar um [suportado edição](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-as-a-client).
+
+ Utilize este passo para atualizar uma versão mais antiga do Windows para uma versão mais recente do Windows 10.  
 
  Este passo de sequência de tarefas é executado apenas num sistema operativo padrão. Não é executado no Windows PE.  
 
-### <a name="details"></a>Detalhes  
- No separador **Propriedades** para este passo, pode configurar as definições descritas nesta secção.  
+No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens**e selecione **atualizar sistema operativo** para adicionar este passo. 
 
- Além disso, utilize o separador **Opções** para executar as seguintes ações:  
+### <a name="properties"></a>Propriedades  
+No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
--   Desativar o passo.  
-
--   Especificar se a sequência de tarefas continua se ocorrer um erro ao executar o passo.  
-
--   Especificar condições que têm de ser cumpridas para o passo ser executado.  
-
- **Nome**  
- Nome abreviado definido pelo utilizador que descreve a ação executada neste passo.  
-
- **Descrição**  
- Informações mais detalhadas sobre a ação executada neste passo.  
-
- **Pacote de atualização**  
+**Pacote de atualização**  
  Selecione esta opção para especificar o pacote de atualização do sistema operativo Windows 10 para utilizar na atualização.  
 
- **Caminho de origem**  
- Especifica um caminho de rede ou local para o suporte de dados do Windows 10 que vai ser utilizado (corresponde à opção da linha de comandos /installFrom). Também pode especificar uma variável, tal como %caminhodomeuconteúdo% ou %DPC01%. Quando utilizar uma variável para o caminho de origem, esta tem de ter sido especificada anteriormente na sequência de tarefas. Por exemplo, se utilizar o passo [Transferir Conteúdo do Pacote](#BKMK_DownloadPackageContent) na sequência de tarefas, pode especificar uma variável para a localização do pacote de atualização do sistema operativo. Em seguida, pode utilizar essa variável para o caminho de origem deste passo.  
+**Caminho de origem**  
+ Especifica uma local ou o caminho para o suporte de dados do Windows 10 de rede que utiliza a configuração do Windows. Esta definição corresponde à opção da linha de comandos da configuração do Windows **/InstallFrom**. Também pode especificar uma variável, tal como %caminhodomeuconteúdo% ou %DPC01%. Quando utilizar uma variável para o caminho de origem, esta tem de ter sido especificada anteriormente na sequência de tarefas. Por exemplo, se utilizar o passo [Transferir Conteúdo do Pacote](#BKMK_DownloadPackageContent) na sequência de tarefas, pode especificar uma variável para a localização do pacote de atualização do sistema operativo. Em seguida, pode utilizar essa variável para o caminho de origem deste passo.  
 
- **Edição**  
+**Edição**  
  Especifique a edição no suporte de dados do sistema operativo a utilizar para a atualização.  
 
- **Chave de produto**  
+**Chave de produto**  
  Especifique a chave de produto a aplicar ao processo de atualização  
 
- **Fornecer o seguinte conteúdo de controladores à configuração do Windows durante a atualização**  
- Selecione esta definição para adicionar controladores ao computador de destino durante o processo de atualização (corresponde à opção da linha de comandos /InstallDriver). Os controladores têm de ser compatíveis com o Windows 10. Especifique uma das seguintes opções:  
+**Fornecer o seguinte conteúdo de controladores à configuração do Windows durante a atualização**  
+ Adicione controladores ao computador de destino durante o processo de atualização. Esta definição corresponde à opção da linha de comandos da configuração do Windows **/InstallDriver**. Os controladores têm de ser compatíveis com o Windows 10. Especifique uma das seguintes opções:  
 
 -   **Pacote de controladores**: Clique em **procurar** e selecione um pacote de controladores existente na lista.  
 
 -   **Conteúdo de teste**:  Selecione esta opção para especificar a localização para o pacote de controladores. Pode especificar uma pasta local, um caminho de rede ou uma variável de sequência de tarefas. Quando utilizar uma variável para o caminho de origem, esta tem de ter sido especificada anteriormente na sequência de tarefas. Por exemplo, utilizando o passo [Transferir Conteúdo do Pacote](task-sequence-steps.md#BKMK_DownloadPackageContent).  
 
- **Tempo limite (minutos)**  
- Especifica o número de minutos que a configuração tem de executar antes do Configuration Manager irá falhar o passo de sequência de tarefas.  
+**Tempo limite (minutos)**  
+ Especifica o número de minutos antes do Gestor de configuração não consegue este passo. Esta opção é útil se a configuração do Windows para o processamento, mas não terminar.  
 
- **Efetuar análise de compatibilidade de configuração do Windows sem iniciar a atualização**  
- Especifica como fazer a análise de compatibilidade da Configuração do Windows sem iniciar o processo de atualização (corresponde à opção da linha de comandos /Compat ScanOnly). Tem de implementar a origem da instalação completa quando utilizar esta opção. A Configuração devolve um código de saída como resultado da análise. A tabela seguinte fornece alguns dos códigos de saída mais comuns.  
+**Efetuar análise de compatibilidade de configuração do Windows sem iniciar a atualização**  
+ Efetue a análise de compatibilidade de configuração do Windows sem iniciar o processo de atualização. Esta definição corresponde à opção da linha de comandos da configuração do Windows **/compat ScanOnly**. Tem de implementar a origem de instalação completa quando utilizar esta opção. A Configuração devolve um código de saída como resultado da análise. A tabela seguinte fornece alguns dos códigos de saída mais comuns.  
 
 |Código de saída|Detalhes|  
 |-|-|  
@@ -1665,12 +1371,12 @@ No editor de sequência de tarefas, utilize o [definir variável da sequência d
 |MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Não é elegível para Windows 10.|  
 |MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0XC190020E)|Não existe espaço livre suficiente no disco.|  
 
- Para obter mais informações sobre este parâmetro, veja [Windows Setup Command-Line Options](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx) (Opções da Linha de Comandos de Configuração do Windows)  
+Para obter mais informações sobre este parâmetro, veja [Windows Setup Command-Line Options](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx) (Opções da Linha de Comandos de Configuração do Windows)  
 
- **Ignorar mensagens de compatibilidade dispensáveis**  
- Especifica que a Configuração conclui a instalação, ignorando quaisquer mensagens de compatibilidade dispensáveis (corresponde à opção da linha de comandos /Compat IgnoreWarning).  
+**Ignorar mensagens de compatibilidade dispensáveis**  
+ Especifica que a configuração conclui a instalação, ignorando quaisquer mensagens de compatibilidade dispensáveis. Esta definição corresponde à opção da linha de comandos da configuração do Windows **/compat IgnoreWarning**.  
 
- **Atualizar dinamicamente a configuração do Windows com o Windows Update**  
- Especifica se a Configuração irá efetuar operações de Atualização Dinâmica, como atualizações de pesquisa, de transferência e de instalação (corresponde à opção da linha de comandos /DynamicUpdate). Esta definição não é compatível com atualizações de software do Configuration Manager, mas pode ser ativada quando para processar as atualizações com WSUS (autónomo) ou o Windows Update.  
+**Atualizar dinamicamente a configuração do Windows com o Windows Update**  
+ Ativar a configuração para efetuar operações de atualização dinâmica, como pesquisa, transferir e instalar atualizações. Esta definição corresponde à opção da linha de comandos da configuração do Windows **/DynamicUpdate**. Esta definição não é compatível com atualizações de software do Configuration Manager. Ative esta opção quando gere as atualizações com autónomo Windows Server Update Services (WSUS) ou o Windows Update para empresas.  
 
- **Ignorar política e utilizar o Microsoft Update por predefinição**: Selecione esta definição para substituir temporariamente a política local em tempo real para executar operações de atualização dinâmica e o computador obter as atualizações do Windows Update.  
+**Ignorar política e utilizar o Microsoft Update por predefinição** substituir temporariamente a política local em tempo real para executar operações de atualização dinâmica e o computador obter as atualizações do Windows Update.

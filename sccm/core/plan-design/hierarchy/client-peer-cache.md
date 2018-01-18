@@ -15,11 +15,11 @@ caps.latest.revision: "3"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: ed1da87da42ffdbf0bb869e6a64b99e216f1b3c2
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 424f4030f2dd2a337a29d48ca831fa3a791de610
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
@@ -35,33 +35,33 @@ Um cliente de Cache ponto a ponto é um cliente de Configuration Manager que est
  -  Pode utilizar as definições de cliente para permitir que os clientes utilizar a Cache ponto a ponto.
  -  Para partilhar conteúdo como uma origem de Cache ponto a ponto, um cliente de Cache ponto a ponto:
     -  Tem de ser associados a um domínio. No entanto, um cliente que não está associado a um domínio pode obter conteúdo de um domínio associado a origem de Cache ponto a ponto.
-    -  Tem de ser um membro do grupo de limites atual do cliente que está a pesquisa o conteúdo. Um cliente de Cache ponto a ponto num grupo de limites vizinho não está incluído com o conjunto de localizações de origem de conteúdo disponível quando um cliente utiliza a contingência para conteúdo a partir de um grupo de limites de vizinho de pesquisa. Para mais informações sobre grupos de limites atuais e vizinhança, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
- - Cada tipo de conteúdo que é mantido na cache do cliente do Configuration Manager pode ser fornecido para outros clientes através da utilização de Cache ponto a ponto, incluindo ficheiros do Office 365 e ficheiros de instalação rápida.<!--SMS.500850-->
- -  Cache ponto a ponto não substitui a utilização de outras soluções como o BranchCache, mas em vez disso, funciona lado lado a lado com o mesmo para lhe dar mais opções para expandir as soluções de implementação de conteúdos tradicionais, como pontos de distribuição. Esta é uma solução personalizada com nenhuma dependência em BranchCache, pelo que o se não ativar ou utilizar o Windows BranchCache, ainda funciona.
+    -  Tem de ser um membro do grupo de limites atual do cliente que está a pesquisa o conteúdo. Quando um cliente utiliza a contingência para conteúdo a partir de um grupo de limites de vizinho de pesquisa, a lista de localizações de origem de conteúdo não inclui um cliente de Cache ponto a ponto num grupo de limites vizinho. Para mais informações sobre grupos de limites atuais e vizinhança, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
+ - O cliente do Configuration Manager serve cada tipo de conteúdo na cache para outros clientes através da utilização de Cache ponto a ponto. Este conteúdo inclui ficheiros do Office 365 e expresse de precisa de ficheiros de instalação.<!--SMS.500850-->
+ -  Cache ponto a ponto não substitui a utilização de outras soluções como o BranchCache. Cache ponto a ponto funciona juntamente com outras soluções para lhe dar mais opções para expandir as soluções de implementação de conteúdos tradicionais, como pontos de distribuição. A Cache é uma solução personalizada com nenhuma dependência no BranchCache.  Se não ativar ou utilizar o Windows BranchCache, Cache ponto a ponto ainda funciona.
 
 ### <a name="operations"></a>Operações
 
-Depois de implementar as definições de cliente que permitem a Cache ponto a ponto numa coleção, os membros dessa coleção podem atuar como uma origem de conteúdo ponto a ponto para outros clientes no mesmo grupo de limites:
+Para ativar a cache ponto a ponto, implemente as definições de cliente numa coleção. Em seguida, os membros dessa coleção agirem como uma origem de conteúdo ponto a ponto para outros clientes no mesmo grupo de limites.
  -  Um cliente que funciona como uma origem de conteúdo do elemento de rede envia uma lista de conteúdos em cache disponíveis para o respetivo ponto de gestão.
- -  Em seguida, quando o cliente seguinte nesse grupo de limites pede esse conteúdo, cada origem de cache ponto a ponto que tem o conteúdo é devolvida como uma origem de conteúdo potencial juntamente com os pontos de distribuição e outras localizações de origem de conteúdo nesse grupo de limites.
- -  Pelo processo normal de sistema operativo, o cliente que está a pesquisa o conteúdo seleciona uma origem de conteúdo do agrupamento de origens que forneceu e, em seguida, continua a tentar obter o conteúdo.
+ -  Quando o cliente seguinte nesse grupo de limites pede esse conteúdo, cada origem de cache ponto a ponto, que tem o conteúdo e estiver online, é devolvida na lista de origens de conteúdo potenciais. Esta lista inclui também os pontos de distribuição e outras localizações de origem de conteúdo nesse grupo de limites.
+ -  Pelo processo normal, o cliente que está a pesquisa o conteúdo seleciona uma origem da lista fornecida. O cliente tenta, em seguida obter o conteúdo.
 
 > [!NOTE]
-> Se contingência para um grupo de limites de vizinho para conteúdo ocorrer, a Cache ponto a ponto localizações de origem de conteúdo do grupo de limites de vizinho não são adicionadas ao agrupamento do cliente de potenciais localizações de origem de conteúdo.  
+> Se o cliente retrocede para um grupo de limites de vizinho para conteúdo, não adiciona as localizações de origem de conteúdo de Cache ponto a ponto do grupo de limites de vizinho à lista de potenciais localizações de origem de conteúdo.  
 
 
-Apesar do que pode efetuar todos os clientes participam como uma origem de cache ponto a ponto, o seu melhor prática de escolher apenas os clientes que são melhor adequada que está a ser ponto a ponto origens de cache.  A adequabilidade dos clientes pode ser avaliada com base no tipo de chassis de um cliente, espaço em disco, a conectividade de rede e muito mais. Para obter mais informações que podem ajudar a selecionar os melhor clientes a utilizar para a Cache ponto a ponto, consulte [este blogue por um consultor de Microsoft](https://blogs.technet.microsoft.com/setprice/2016/06/29/pe-peer-cache-custom-reporting-examples/).
+A melhor prática é escolher apenas clientes melhor adequados como origens de cache ponto a ponto. Avalie a adequabilidade do cliente com base em atributos como tipo de chassis, espaço em disco e conectividade de rede. Para obter mais informações que podem ajudar a selecionar os melhor clientes a utilizar para a Cache ponto a ponto, consulte [este blogue por um consultor de Microsoft](https://blogs.technet.microsoft.com/setprice/2016/06/29/pe-peer-cache-custom-reporting-examples/).
 
 **Acesso limitado a uma origem de cache ponto a ponto**  
-A partir da versão 1702, um computador de origem de cache ponto a ponto irão rejeitar um pedido para o conteúdo quando o computador de origem de cache ponto a ponto cumpre qualquer uma das seguintes condições:  
+A partir da versão 1702, um computador de origem de cache ponto a ponto rejeita pedidos para o conteúdo quando o computador de origem de cache ponto a ponto cumpre qualquer uma das seguintes condições:  
   -  Está no modo de bateria baixo.
   -  Carga da CPU excede 80% momento solicitados.
   -  E/s de disco tem um *AvgDiskQueueLength* excede que 10.
   -  Não existem ligações mais não disponíveis para o computador.   
 
-Pode configurar estas definições com o servidor de configuração de cliente classe WMI para a funcionalidade de origem do elemento de rede (*SMS_WinPEPeerCacheConfig*) ao utilizar o SDK do System Center Configuration Manager.
+Configurar estas definições com o servidor de configuração de cliente classe WMI para a funcionalidade de origem do elemento de rede (*SMS_WinPEPeerCacheConfig*) no SDK do Configuration Manager.
 
-Quando o computador rejeita um pedido para o conteúdo, o computador que efetuou irá continuar a pesquisa de conteúdo a partir de origens alternativas no seu conjunto das localizações de origem de conteúdo disponível.   
+Quando o computador rejeita um pedido para o conteúdo, o computador que efetuou continua a pesquisa o conteúdo da lista de localizações de origem de conteúdo disponível.   
 
 
 
@@ -70,8 +70,8 @@ Para ajudar a compreender a utilização de Cache ponto a ponto, pode ver o dash
 
 A partir da versão 1702, pode utilizar três relatórios para ver a utilização de cache ponto a ponto. Na consola, aceda a **monitorização** > **relatórios** > **relatórios**. Os relatórios de todas as tem um tipo de **conteúdo de distribuição de Software**:
 1.  **Elemento de rejeição de conteúdo de origem de cache**:  
-Utilize este relatório para compreender a frequência as origens de cache ponto a ponto num grupo de limites rejeitaram um pedido de conteúdo.
- - **Problema conhecido:** Quando desagregar os resultados como *MaxCPULoad* ou *MaxDiskIO*, poderá receber um erro que sugere o relatório ou não não possível encontrar os detalhes. Para contornar este problema, utilize os dois relatórios seguintes que mostram os resultados diretamente.
+Utilize este relatório para compreender a frequência as origens de cache ponto a ponto num grupo de limites rejeitar um pedido de conteúdo.
+ - **Problema conhecido:** Quando desagregar os resultados como *MaxCPULoad* ou *MaxDiskIO*, poderá receber um erro que sugere o relatório ou não não possível encontrar os detalhes. Para contornar este problema, utilize os dois relatórios seguintes que diretamente mostram os resultados.
 
 2. **Elemento de rejeição de conteúdo de origem de cache pela condição**:  
 Utilize este relatório para compreender a rejeição os detalhes para um tipo de grupo ou rejeição de limite especificado. Pode especificar
@@ -79,11 +79,11 @@ Utilize este relatório para compreender a rejeição os detalhes para um tipo d
   - **Problema conhecido:** Não é possível selecionar a partir de parâmetros disponíveis e em vez disso, tem de introduzi-los manualmente. Introduza os valores para *nome do grupo de limites* e *rejeição tipo* visto no relatório do primeiro. Por exemplo, para *rejeição tipo* poderá introduzir *MaxCPULoad* ou *MaxDiskIO*.
 
 3. **Detalhes de rejeição de conteúdo de origem de cache de elemento**:   
-  Utilize este relatório para compreender os conteúdos que está a ser pedida quando foi rejeitado.
+  Utilize este relatório para compreender o conteúdo que o cliente pediu quando rejeitado.
 
- - **Problema conhecido:** Não é possível selecionar a partir de parâmetros disponíveis e em vez disso, tem de introduzi-los manualmente. Introduza o valor para *rejeição tipo* tal como apresentado no primeiro relatório (ponto a ponto cache origem conteúda rejeição) e, em seguida, introduza o *ID de recurso* para a origem de conteúdo que pretende obter mais informações sobre.  Para localizar o ID de recurso da origem de conteúdo:  
+ - **Problema conhecido:** Não é possível selecionar a partir de parâmetros disponíveis e em vez disso, tem de introduzi-los manualmente. Introduza o valor para *rejeição tipo* tal como apresentado no **elemento rejeição de conteúdo de origem de cache** relatório. Em seguida, introduza o *ID de recurso* para a origem de conteúdo sobre os quais pretende obter mais informações.  Para localizar o ID de recurso da origem de conteúdo:  
 
-    1. Localizar o nome do computador que mostra como o *origem de cache ponto a ponto* nos resultados do relatório 2nd (ponto a ponto cache origem conteúdo rejeição pela condição).  
+    1. Localizar o nome do computador que mostra como o *origem de cache ponto a ponto* nos resultados do **elemento rejeição de conteúdo de origem de cache pela condição** relatório.  
     2. Em seguida, aceda a **ativos e compatibilidade** > **dispositivos** e, em seguida, procure esse nome de computadores. Utilize o valor da coluna de ID de recurso.  
 
 
@@ -92,19 +92,14 @@ Utilize este relatório para compreender a rejeição os detalhes para um tipo d
 
 -   Os clientes só podem transferir conteúdo a partir de clientes de Cache ponto a ponto que se encontrem no respetivo grupo de limites atuais.
 
--   Antes de versão 1706, cada site onde os clientes utilizam a Cache ponto a ponto deve ser configurado com um [conta de acesso à rede](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). A partir da versão 1706, que a conta já não é necessária com uma exceção.  A exceção é quando um cliente utiliza a cache ponto a ponto para obter e executar uma sequência de tarefas a partir do Centro de Software e a sequência de tarefas reinicia o cliente no WinPE.  Neste cenário, o cliente ainda requer que a conta de acesso de rede quando estiver no WinPE para que possam aceder a origem de cache ponto a ponto ao obter conteúdo.
+-   Antes de versão 1706, cada site onde os clientes utilizam a Cache ponto a ponto deve ser configurado com um [conta de acesso à rede](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). A partir da versão 1706, que a conta já não é necessária com uma exceção.  O cenário de exceção é quando um cliente de ativar a cache ponto a ponto executa uma sequência de tarefas a partir do Centro de Software e de que a sequência de tarefas reinicia a uma imagem de arranque. Neste cenário, o cliente ainda requer a conta de acesso de rede. Quando o cliente está no Windows PE, utiliza a conta de acesso de rede para obter conteúdo a partir da origem de cache ponto a ponto.
 
-    Quando tem necessário, a conta de acesso de rede é utilizada pelo computador de origem de Cache ponto a ponto para autenticar pedidos de transferência de elementos de rede e requer apenas permissões de utilizador de domínio para esta finalidade.
+    Quando necessário, o computador de origem de Cache ponto a ponto utiliza a conta de acesso de rede para autenticar pedidos de transferência de elementos. Esta conta requer permissões de utilizador de domínio apenas para esta finalidade.
 
--   Porque o limite atual de uma origem de conteúdo de Cache ponto a ponto é determinado pela submissão de inventário de hardware do que o cliente último, um cliente fizer roaming para uma localização de rede e está num grupo de limites diferentes pode ainda ser considerados como estando um membro do respetivo grupo de limites anteriores para efeitos de Cache ponto a ponto. Isto pode resultar num cliente oferecido uma origem de conteúdo de Cache ponto a ponto que não se encontra na respetiva localização de rede imediata. Recomendamos, excluindo os clientes que são suscetíveis a esta configuração de participar como uma origem de Cache ponto a ponto.
+-   Submissão de inventário de hardware do cliente último determina o limite atual de uma origem de conteúdo de Cache ponto a ponto. Um cliente fizer roaming para um grupo de limites diferentes ainda poderá ser um membro do respetivo grupo de limites anteriores para efeitos de Cache ponto a ponto. Este comportamento resulta num cliente oferecido uma origem de conteúdo de Cache ponto a ponto que não se encontra na respetiva localização de rede imediata. Recomendamos, excluindo os clientes que são suscetíveis a esta configuração de participar como uma origem de Cache ponto a ponto.
+-    A partir da versão 1706, o cliente de cache ponto a ponto primeiro valida que a origem de conteúdo de cache ponto a ponto online antes de tentar transferir conteúdo. <!--sms.498675-->
 
 ## <a name="to-configure-client-peer-cache-client-settings"></a>Para configurar as definições de cliente de Cache ponto a ponto do cliente
-1.  Na consola do Configuration Manager, vá para **administração** > **as definições de cliente**e, em seguida, abra o objeto de definições de cliente de dispositivo que pretende utilizar. Também pode modificar o objecto de predefinições de cliente.
-2.  A partir da lista de definições disponíveis, escolha **as definições de Cache do cliente**.
-3.  Definir **cliente de ativar o Configuration Manager no SO completo para partilhar conteúdo** para **Sim**.
-4.  Configure as seguintes definições para definir as portas que pretende utilizar para a Cache ponto a ponto:  
-  -  **Porta para difusão de rede inicial**
-  -  **Ativar HTTPS para comunicação de ponto a ponto do cliente**
-  -  **Porta para transferência do conteúdo de elemento de rede (HTTP/HTTPS)**
+Para obter informações sobre como configurar as definições de cliente, consulte [as definições de cache do cliente](/sccm/core/clients/deploy/about-client-settings#client-cache-settings). Para obter mais informações, consulte [como configurar as definições de cliente](/sccm/core/clients/deploy/configure-client-settings).
 
-Em cada computador que está ativada para a Cache ponto a ponto, se a Firewall do Windows está a ser utilizado, o Configuration Manager configura-la para permitir a utilização das portas que configurar.
+No elemento de rede ativada em cache os clientes que utiliza a Firewall do Windows, o Configuration Manager configura as portas de firewall que especificou nas definições do cliente.

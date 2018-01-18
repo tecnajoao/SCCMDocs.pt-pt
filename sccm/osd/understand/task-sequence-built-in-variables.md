@@ -3,7 +3,7 @@ title: "Variáveis incorporadas de sequência de tarefas"
 titleSuffix: Configuration Manager
 description: "Variáveis incorporadas de sequência de tarefas fornecem informações sobre o ambiente em que a sequência de tarefas é executado e estão disponíveis durante a sequência de tarefas de todo."
 ms.custom: na
-ms.date: 03/26/2017
+ms.date: 01/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: e29efd4de847a861afa75a7a10868cad30e4cf97
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 29b2ae2a9a8ee41d11fbf7e032ef8262411f3dd0
+ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Variáveis incorporadas de sequência de tarefas no System Center Configuration Manager
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/12/2017
 |OSDSetupAdditionalUpgradeOptions|A partir do Configuration Manager versão 1602, pode utilizar esta variável para especificar a atualizar as opções adicionais para a configuração do Windows.
 |SMSTSAssignmentsDownloadInterval|Utilize esta variável para especificar o número de segundos a aguardar antes de o cliente tentar transferir a política desde a última tentativa (que não tenha devolvido políticas). Por predefinição, o cliente irá aguardar **0** segundos antes de tentar novamente.<br /><br /> Pode definir esta variável utilizando um comando de pré-início do suporte de dados ou do PXE.|  
 |SMSTSAssignmentsDownloadRetry|Utilize esta variável para especificar o número de vezes que o cliente irá tentar transferir a política caso não sejam encontradas políticas durante a primeira tentativa. Por predefinição, o cliente irá repetir **0** vezes.<br /><br /> Pode definir esta variável utilizando um comando de pré-início do suporte de dados ou do PXE.|  
-|SMSTSAssignUsersMode|Especifica como uma sequência de tarefas associa os utilizadores ao computador de destino. Defina a variável como um dos seguintes valores.<br /><br /> -Automática: A sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.<br />-Pendente: A sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino, mas aguarda a aprovação do utilizador administrativo antes da relação é definida.<br />-Desativada: A sequência de tarefas não associa utilizadores ao computador de destino quando implementa o sistema operativo.|  
+|SMSTSAssignUsersMode|Especifica como uma sequência de tarefas associa os utilizadores ao computador de destino. Defina a variável como um dos seguintes valores.<br /><br /> -   Auto: A sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.<br />-Pendente: A sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino, mas aguarda a aprovação do utilizador administrativo antes da relação é definida.<br />-Desativada: A sequência de tarefas não associa utilizadores ao computador de destino quando implementa o sistema operativo.|  
 |SMSTSDownloadAbortCode|Esta variável contém o valor do código abortar para o dispositivo de transferência do programa externo (especificado na variável SMSTSDownloadProgram). Se o programa devolver um código de erro igual ao valor da variável SMSTSDownloadAbortCode, falha de transferência do conteúdo e nenhum outro método de transferência é tentado.
 |SMSTSDownloadProgram|Utilize esta variável para especificar um fornecedor de conteúdo alternativo, um programa de dispositivo de transferência que é utilizado para transferir conteúdo em vez de transferências predefinido do Configuration Manager, para a sequência de tarefas. No âmbito do processo de transferência de conteúdos, a sequência de tarefas analisa a variável para identificar um programa de transferência especificado. Se for especificada, a sequência de tarefas executará o programa para efetuar a transferência.|  
 |SMSTSDownloadRetryCount|Utilize esta variável para especificar o número de vezes que o Configuration Manager tenta transferir conteúdo de um ponto de distribuição. Por predefinição, o cliente irá repetir **2** vezes.|  
@@ -81,8 +81,8 @@ ms.lasthandoff: 12/12/2017
 |SMSTSDriverRequestResolveTimeOut|Utilize esta variável para especificar o número de segundos a aguardar para resolução de nomes HTTP quando para um pedido de catálogo de controladores durante o passo de sequência de tarefas aplicar controladores automaticamente. Se a ligação demora mais que a definição de tempo limite, o pedido foi cancelado. Por predefinição, o tempo limite está definido como 60 segundos.|
 |SMSTSDriverRequestSendTimeOut|Utilize esta variável para especificar o número de segundos a utilizar ao enviar um pedido de catálogo de controladores durante o passo de sequência de tarefas aplicar controladores automaticamente. Se o pedido demora mais que a definição de tempo limite, o pedido foi cancelado. Por predefinição, o tempo limite está definido como 60 segundos.|
 |SMSTSErrorDialogTimeout|Quando ocorre um erro numa sequência de tarefas, é apresentada uma caixa de diálogo que é automaticamente dispensada após um número de segundos especificado por esta variável. Por predefinição, a caixa de diálogo é automaticamente dispensada após **900** segundos (15 minutos).|  
-| TSDisableProgressUI | Utilize esta variável para ocultar ou mostrar progresso da sequência de tarefas nas secções diferentes da sequência de tarefas. | 
-|TSErrorOnWarning|Utilize esta variável para especificar se o motor da sequência de tarefas considera um aviso detetado como um erro durante o passo de sequência de tarefas de Instalação da Aplicação. A sequência de tarefas define a variável _TSAppInstallStatus como **Aviso** quando uma ou mais aplicações, ou uma dependência necessária, não foi instalada porque não foi cumprido um requisito. Ao definir a variável TSErrorOnWarning como **Verdadeiro** e a variável _TSAppInstallStatus está definida como Aviso, esta é tratada como um erro. Um valor de **Falso** corresponde ao comportamento predefinido.| 
+| TSDisableProgressUI | <!-- 1354291 -->A partir do Configuration Manager versão 1706, utilize esta variável para controlar quando a sequência de tarefas mostra o progresso aos utilizadores finais. Defina esta variável várias vezes na sequência de tarefas para ocultar ou mostrar o progresso em alturas diferentes. Para ocultar o progresso da sequência de tarefas, defina o valor desta variável como **verdadeiro**. Para apresentar o progresso da sequência de tarefas, defina o valor desta variável como **falso**. | 
+| TSErrorOnWarning |Utilize esta variável para especificar se o motor da sequência de tarefas considera um aviso detetado como um erro durante o passo de sequência de tarefas de Instalação da Aplicação. A sequência de tarefas define a variável _TSAppInstallStatus como **Aviso** quando uma ou mais aplicações, ou uma dependência necessária, não foi instalada porque não foi cumprido um requisito. Ao definir a variável TSErrorOnWarning como **Verdadeiro** e a variável _TSAppInstallStatus está definida como Aviso, esta é tratada como um erro. Um valor de **Falso** corresponde ao comportamento predefinido.| 
 |SMSTSLanguageFolder|Utilize esta variável para alterar o idioma de apresentação de uma imagem de arranque de idioma neutro.|  
 |SMSTSLocalDataDrive|Especifica onde os ficheiros temporários são armazenados no computador de destino enquanto a sequência de tarefas é executada.<br /><br /> Esta variável tem de ser definida antes de a sequência de tarefas ser iniciada, como, por exemplo, definindo uma variável de coleção. Assim que a sequência de tarefas for iniciada, o Configuration Manager define a variável smstsmdatapath assim que a sequência de tarefas for iniciada.|  
 |SMSTSMP|Utilize esta variável para especificar o URL ou endereço IP do ponto de gestão do Configuration Manager.|  
