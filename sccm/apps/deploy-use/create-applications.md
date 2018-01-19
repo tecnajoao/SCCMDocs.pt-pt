@@ -16,11 +16,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: f680b692f3ae92fb8a5e8b6640ed053ceedba436
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: d7073b397cdf7b233f8264bd07019303a77a610f
+ms.sourcegitcommit: 2f6a13d208dcd8aa59c88f107791f9c4388e78e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Criar aplicações com o System Center Configuration Manager
 
@@ -280,7 +280,7 @@ A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode
 |**WScript.StdErr.Write "O Script falhou"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída zero, mas o valor de STDERR não está vazio, o que significa que o script não foi executado com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.|  
 |**WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. No entanto, o valor de STDOUT está vazio, o que significa que a aplicação não está instalada.|  
 |**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. O valor de STDOUT não está vazio, o que significa que a aplicação está instalada.|  
-|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.StdErr.Write "Concluída"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. Os valores de STDOUT e STDERR não estão vazios, o que significa que a aplicação está instalada.|  
+|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.StdErr.Write "Completed"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. Os valores de STDOUT e STDERR não estão vazios, o que significa que a aplicação está instalada.|  
 
  > [!NOTE]  
  >  O tamanho máximo que pode utilizar para um script é 32 kilobytes (KB).  
@@ -337,7 +337,16 @@ A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode
         > [!IMPORTANT]  
         >  Poderá ocorrer um conflito se o **máximo tempo de execução permitido** é superior à janela de manutenção agendada. Se o utilizador definir o tempo máximo de execução para um período que exceda a duração de qualquer janela de manutenção disponível, esse tipo de implementação não será executado.  
 
-2.  **Instalação tempo estimado (minutos)**– especifique o tempo estimado que a instalação do tipo de implementação irá demorar. Esta informação é apresentada aos utilizadores do Centro de Software.  
+    -   **Instalação tempo estimado (minutos)**– especifique o tempo estimado que a instalação do tipo de implementação irá demorar. Esta informação é apresentada aos utilizadores do Centro de Software.  
+
+    -   **Especificar o comportamento de reinício específico**– especifique a ação de pós-instalação. Estão disponíveis as seguintes opções:  
+
+        -   **Determinar comportamento baseado em códigos de retorno**– processar reinícios baseados em códigos configurados no separador de códigos de retorno.  O Centro de Software apresentará **pode exigir um reinício**.  Se um utilizador inicia sessão durante a instalação serão solicitados consoante a configuração de experiência de utilizador a implementação.  
+
+        -   **Nenhuma ação específica**-sem reinício necessário após a instalação.  O Centro de Software irão comunicar que não é necessário nenhum reinício.  
+        -   **O programa de instalação de software poderá forçar um reinício de dispositivo**– Configuration Manager irá controla nem iniciar um reinício, mas a instalação real poderá fazê-lo sem aviso.  Utilize esta definição para impedir que o Configuration Manager reporting falha de instalação quando o instalador inicia um reinício.  O Centro de Software apresentará **pode exigir um reinício**.  
+
+        -   **Cliente do Configuration Manager irá forçar um reinício de dispositivo obrigatório**– Configuration Manager irá forçar um reinício do dispositivo após a instalação com êxito.  O Centro de Software irão comunicar que é necessário um reinício.  Se um utilizador inicia sessão durante a instalação serão solicitados consoante a configuração de experiência de utilizador a implementação.
 
 ## <a name="specify-requirements-for-the-deployment-type"></a>Especificar requisitos para o tipo de implementação  
 
