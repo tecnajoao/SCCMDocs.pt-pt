@@ -15,11 +15,11 @@ caps.latest.revision: "157"
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 692cf74cbae3f176bab254aeec0e63c10929cfcc
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: b6a64d4e407c15ec721860a17a3c40769a182c49
+ms.sourcegitcommit: 3373a07ff88f1ca6d5bdea128a3d9dffc58c1dfb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Pré-visualização técnica do System Center Configuration Manager
 
@@ -68,6 +68,7 @@ Os produtos e tecnologias que se seguem são suportadas por este ramo do Configu
 
 -   Apenas são suportadas as seguintes versões do SQL Server:  
 
+    -   SQL Server 2017 (com a atualização cumulativa 2 e posterior) que começa no Configuration Manager versão 1710
     -   SQL Server 2016 (sem Service Pack e posterior)
     -   SQL Server 2014 (com Service Pack 1 e posterior)
     -   SQL Server 2012 (com Service Pack 3, ou posterior)
@@ -77,20 +78,20 @@ Os produtos e tecnologias que se seguem são suportadas por este ramo do Configu
 
       -   Windows 10  
       -   Windows 8,1  
-      -   Windows 8  
       -   Windows 7  
 
 ##  <a name="bkmk_install"></a> Instalar e atualizar o Technical Preview  
  O System Center Configuration Manager Technical Preview é distinto da versão atual do System Center Configuration Manager.  
 
- Para utilizar a pré-visualização técnica, primeiro tem de instalar um **versão de linha** da versão de pré-visualização técnica. Depois de instalar uma versão de linha de base, pode então utilizar as **atualizações na consola** para atualizar a sua instalação com a versão de pré-visualização mais recente. Normalmente, existem novas versões mensais da Technical Preview.
+ Para utilizar a pré-visualização técnica, primeiro tem de instalar um **versão de linha** da versão de pré-visualização técnica. Depois de instalar uma versão de linha de base, em seguida, utilizar **atualizações na consola** para ter a sua instalação atualizada com a versão de pré-visualização mais recente. Normalmente, existem novas versões mensais da Technical Preview.
 
 Cada versão de pré-visualização é suportado até três versões sucessivas estão disponíveis. Ou seja, quando 1708 lançada, versão 1704 foi versão já não suporte, mas versões 1705, 1706 e 1707 permanecer suporte. Quando uma linha de base está fora do suporte, ainda é suportada para instalar um novo site de pré-visualização técnica até que uma nova versão de linha de base está disponível, desde que, em seguida, atualizar essa instalação para uma versão suportada. Atualizar para a versão mais recente disponível e, em seguida, repita esse processo até que pode instalar a versão mais recente do technical preview.
 
 > [!TIP]  
 >  Quando instala uma atualização da versão de pré-visualização técnica, atualiza a instalação de pré-visualização para essa nova versão de pré-visualização técnica.    Uma instalação de pré-visualização técnica nunca inclui a opção de atualizar para uma instalação do ramo atual, nem de receber atualizações da versão do ramo atual.  
 
-**Versões de linha de base ativas da Technical Preview:**  
+**Versões de linha de base ativas da Technical Preview:**
+   
 Pode instalar uma versão de linha de base para até um ano depois da versão. No entanto, quando instala um novo site de pré-visualização técnica, recomendamos que utilize a versão de linha de base mais recente que está disponível.
 -  **Technical Preview 1711** -o Configuration Manager Technical Preview 1711 está disponível como uma atualização de na consola e como uma nova versão de linha de base. Transferir as versões de linha de base [do Centro de avaliação TechNet](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
 
@@ -130,19 +131,19 @@ Seguem-se as capacidades fornecidas em versões anteriores da versão de pré-vi
 
  |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
  |----------------|---------------------|--------------------|
- |Executar o passo de sequência de tarefas<!-- 1261338 --> | [Pré-visualização do técnico 1711](capabilities-in-technical-preview-1711.md) |[Versão 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence)    |
- |Permitir interação do utilizador quando instalar uma aplicação<!-- 1356976 --> | [Pré-visualização do técnico 1711](capabilities-in-technical-preview-1711.md) |![Não foi adicionada](media/Red_X.gif)    |
- |Windows 10 telemetria para o estado de funcionamento de dispositivo de análise de Windows<!--1356148 --> | [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |[Versão 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710#reporting)    |
- |Melhoramentos para os ícones de centro de Software<!-- 1356194 --> | [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |[Versão 1710](/sccm/apps/plan-design/plan-for-and-configure-application-management#supplemental-procedures-to-install-and-configure-the-application-catalog-and-software-center)    |
- |Verificação de conformidade do Centro de Software para dispositivos geridos conjuntamente<!-- 1356374 -->|[Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|[Versão 1710](/sccm/core/clients/manage/co-management-overview)    |
- |Suporte limitado para certificados CNG<!-- 1356191 -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#limited-support-for-cng-certificates)|[Versão 1710](/sccm/core/plan-design/network/cng-certificates-overview)    |
- |Suporte para proteção de exploração<!--1355468 --> | [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |[Versão 1710](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy)    |
- |Descrições melhoradas para pendentes reinícios de computador<!-- 1356283  -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md)|[Versão 1710](/sccm/core/clients/manage/manage-clients)    |
- |Alterações de política de proteção de dispositivos<!-- 1355092  -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md)|[Versão 1710](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)    |
- |Configurar e implementar políticas de proteção de aplicações do Windows Defender<!-- 1351960  -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md)|[Versão 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)    |
- |Melhoramentos para a implementação de scripts do PowerShell do Configuration Manager<!-- 1236459 -->| [Pré-visualização do técnico 1710](capabilities-in-technical-preview-1710.md#improvements-for-deploying-powershell-scripts-from-configuration-manager) | [Versão 1710](/sccm/apps/deploy-use/create-deploy-scripts)
- |Experiência de perfil VPN melhorada na consola do Configuration Manager<!-- 1313282 --> | [Pré-visualização do técnico 1709](capabilities-in-technical-preview-1709.md) |[Versão 1710](/sccm/protect/deploy-use/create-vpn-profiles)    |
- |Gestão conjunta para dispositivos Windows 10|[Pré-visualização do técnico 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|[Versão 1710](/sccm/core/clients/manage/co-management-overview.md)|
+ |Executar o passo de sequência de tarefas<!-- 1261338 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |[Versão 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence)    |
+ |Permitir interação do utilizador quando instalar uma aplicação<!-- 1356976 --> | [Tech Preview 1711](capabilities-in-technical-preview-1711.md) |![Não foi adicionada](media/Red_X.gif)    |
+ |Windows 10 telemetria para o estado de funcionamento de dispositivo de análise de Windows<!--1356148 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#limit-windows-10-enhanced-telemetry-to-only-send-data-relevant-to-windows-analytics-device-health) |[Versão 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710#reporting)    |
+ |Melhoramentos para os ícones de centro de Software<!-- 1356194 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#software-center-no-longer-distorts-icons-larger-than-250x250) |[Versão 1710](/sccm/apps/plan-design/plan-for-and-configure-application-management#supplemental-procedures-to-install-and-configure-the-application-catalog-and-software-center)    |
+ |Verificação de conformidade do Centro de Software para dispositivos geridos conjuntamente<!-- 1356374 -->|[Tech Preview 1710](capabilities-in-technical-preview-1710.md#check-compliance-from-software-center-for-co-managed-devices)|[Versão 1710](/sccm/core/clients/manage/co-management-overview)    |
+ |Suporte limitado para certificados CNG<!-- 1356191 -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md#limited-support-for-cng-certificates)|[Versão 1710](/sccm/core/plan-design/network/cng-certificates-overview)    |
+ |Suporte para proteção de exploração<!--1355468 --> | [Tech Preview 1710](capabilities-in-technical-preview-1710.md#support-for-exploit-guard) |[Versão 1710](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy)    |
+ |Descrições melhoradas para pendente de reinício do computador<!-- 1356283  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versão 1710](/sccm/core/clients/manage/manage-clients)    |
+ |Alterações de política de proteção de dispositivos<!-- 1355092  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versão 1710](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)    |
+ |Configurar e implementar políticas de proteção de aplicações do Windows Defender<!-- 1351960  -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md)|[Versão 1710](/sccm/protect/deploy-use/create-deploy-application-guard-policy)    |
+ |Melhoramentos para a implementação de scripts do PowerShell do Configuration Manager<!-- 1236459 -->| [Tech Preview 1710](capabilities-in-technical-preview-1710.md#improvements-for-deploying-powershell-scripts-from-configuration-manager) | [Versão 1710](/sccm/apps/deploy-use/create-deploy-scripts)
+ |Experiência de perfil VPN melhorada na consola do Configuration Manager<!-- 1313282 --> | [Tech Preview 1709](capabilities-in-technical-preview-1709.md) |[Versão 1710](/sccm/protect/deploy-use/create-vpn-profiles)    |
+ |Gestão conjunta para dispositivos Windows 10|[Tech Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|[Versão 1710](/sccm/core/clients/manage/co-management-overview.md)|
  
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Capacidades fornecidas em pré-visualizações técnicas anteriores
@@ -152,16 +153,16 @@ Seguem-se as capacidades específicas fornecidas com versões anteriores da vers
 
  |Funcionalidade |Versão de pré-visualização técnica |  
  |----------------|---------------------|
- |Informações de gestão<!-- 1353967 --> |[Pré-visualização do técnico 1708](capabilities-in-technical-preview-1708.md#management-insights)|
- |Dashboard de dispositivo superfície<!-- 1355788 --> |[Pré-visualização do técnico 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|
- |Disponibilidade elevada de função do servidor de site<!-- 1128774 --> |[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |
- |Suporte de arranque de rede do PXE para IPv6<!-- 1269793 --> |[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|
- |Avaliação de atestado de estado de funcionamento do dispositivo para as políticas de conformidade de acesso condicional<!-- 1235616 -->|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#device-health-attestation-assessment-for-compliance-policies-for-conditional-access)|
- |Utilizar o Azure Active Directory<!-- 1322145? --> | [Pré-visualização do técnico 1702](capabilities-in-technical-preview-1702.md#azurediscovery) |
- |Avaliação de compatibilidade para o Windows Update para atualizações de negócio<!-- 1235390 --> | [Pré-visualização do técnico 1702](capabilities-in-technical-preview-1702.md#compliance-assessment-for-windows-update-for-business-updates) |
- |Acesso de dados de ponto final de OData<!-- 1321523 --> |[Pré-visualização do técnico 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|
- |Melhoramentos ao Asset Intelligence<!-- 1307390 --> |[Pré-visualização do técnico 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|
- |Os utilizadores finais podem instalar aplicações a partir do Portal da empresa<!-- 1037233? --> |[Pré-visualização do técnico 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|
+ |Informações de gestão<!-- 1353967 --> |[Tech Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|
+ |Dashboard de dispositivo superfície<!-- 1355788 --> |[Tech Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|
+ |Disponibilidade elevada de função do servidor de site<!-- 1128774 --> |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |
+ |Suporte de arranque de rede do PXE para IPv6<!-- 1269793 --> |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|
+ |Avaliação de atestado de estado de funcionamento do dispositivo para as políticas de conformidade de acesso condicional<!-- 1235616 -->|[Tech Preview 1706](capabilities-in-technical-preview-1706.md#device-health-attestation-assessment-for-compliance-policies-for-conditional-access)|
+ |Utilizar o Azure Active Directory<!-- 1322145? --> | [Tech Preview 1702](capabilities-in-technical-preview-1702.md#azurediscovery) |
+ |Avaliação de compatibilidade para o Windows Update para atualizações de negócio<!-- 1235390 --> | [Tech Preview 1702](capabilities-in-technical-preview-1702.md#compliance-assessment-for-windows-update-for-business-updates) |
+ |Acesso de dados de ponto final de OData<!-- 1321523 --> |[Tech Preview 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|
+ |Melhoramentos ao Asset Intelligence<!-- 1307390 --> |[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|
+ |Os utilizadores finais podem instalar aplicações a partir do Portal da empresa<!-- 1037233? --> |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|
 
 
 
