@@ -15,18 +15,18 @@ caps.latest.revision: "26"
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3848d0d6a9f3b5d778879c598bf859fb1e8a7ac7
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: a67d75f27cbc2d53cc5d8c418e25232d88b4f067
+ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gerir o Windows como um serviço com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- No System Center Configuration Manager, pode ver o estado do Windows como um serviço no seu ambiente, criar planos de manutenção para anéis de implementação do formulário e certifique-se de que são lançadas ramo atual sistemas são mantidos atualizados quando novas compilações do Windows 10 e ver alertas quando os clientes do Windows 10 estiverem prestes a fim de suporte para a respetiva compilação de Current Branch (CB) ou Current Branch for Business (CBB).  
+ No System Center Configuration Manager, pode ver o estado do Windows como um serviço no seu ambiente, criar planos de manutenção para formar anéis de implementação e certifique-se de que são lançadas ramo atual sistemas são mantidos atualizados quando novas compilações do Windows 10 e ver alertas quando os clientes do Windows 10 estiverem prestes a fim de suporte para a respetiva compilação de Current Branch (CB) ou Current Branch for Business (CBB).  
 
  Para obter mais informações sobre as opções de manutenção do Windows 10, veja  [Windows 10 servicing options for updates and upgrades (Opções de manutenção do Windows 10 para atualizações)](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/12/2017
     -   **Compilação de sistema operativo**: Especificar a compilação de sistema operativo. Por exemplo, **10.0.10240** (RTM) ou **10.0.10586** (versão 1511)  
 
 -   O ponto de ligação de serviço tem de estar instalado e configurado para o modo **Online, ligação persistente** , para ver dados no dashboard de manutenção do Windows 10. Quando estiver no modo offline, não verá as atualizações de dados no dashboard quando obtiver as atualizações de manutenção do Configuration Manager.   
-     Para obter mais informações, consulte [acerca do ponto de ligação de serviço](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+      Para obter mais informações, consulte [acerca do ponto de ligação de serviço](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
 
 -   Internet Explorer 9 ou posterior tem de estar instalado no computador que executa a consola do Configuration Manager.  
@@ -280,3 +280,6 @@ Utilize o procedimento seguinte para modificar as propriedades de um plano de ma
 
     > [!NOTE]  
     >  Pode rever os alertas de atualizações de software recentes a partir do nó **Atualizações de Software** da área de trabalho **Biblioteca de Software** .  
+
+**Para obter mais informações:** <br/>
+[Noções básicas do Configuration Manager como um serviço e o Windows como um serviço](/sccm/core/understand/configuration-manager-and-windows-as-service.md)
