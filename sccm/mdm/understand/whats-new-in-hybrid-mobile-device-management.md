@@ -14,11 +14,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 243daf8626e329214ce1b94f109d19773bbc57c5
-ms.sourcegitcommit: 2da6b06818371e93f28e36cadf3a154d50ce5bf4
+ms.openlocfilehash: 04ed2ac1abe54c3b8c7c86f210b35f5f52d80ef6
+ms.sourcegitcommit: c432624b8816f59d51a3c8ef68960ed4099d9124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -40,6 +40,17 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 |**Novo no Microsoft Intune** | Em geral, todas as funcionalidades listadas nesta categoria devem funcionar com todas as versões do Configuration Manager. Versões este incluindo System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades apenas requerem o serviço do Intune e não necessitam de funcionalidades adicionais no Configuration Manager.|
 |**Novo no Configuration Manager Technical Preview**| Todas as funcionalidades listadas na categoria deste só funcionam com a versão de pré-visualização técnica especificada. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição da funcionalidade. Para obter mais informações, consulte [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Novo no Configuration Manager (ramo atual)**| Todas as funcionalidades listadas na categoria deste funcionam apenas com a versão especificada do Configuration Manager (ramo atual), como versão 1511 ou 1602. Se estiver a utilizar uma versão mais antiga do Configuration Manager para a implementação híbrida, tem de atualizar para a versão do Configuration Manager (ramo atual) especificada na descrição da funcionalidade. Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+
+## <a name="january-2018"></a>De 2018 Janeiro
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+- **Bloqueio remoto disponível na aplicação Portal da empresa para Windows 10**<!--676506-->    
+  Os utilizadores finais podem agora bloquear remotamente os seus dispositivos a partir da aplicação Portal da empresa para Windows 10. Este não será apresentado para o dispositivo local que está a utilizar ativamente.
+
+- **Resolução mais fácil de problemas de conformidade para a aplicação do Portal da empresa para Windows 10**<!--676546-->    
+  Os utilizadores finais com dispositivos Windows será possível toque o motivo de não conformidade na aplicação Portal da empresa. Sempre que possível, isto é reencaminhado diretamente para a localização correta na aplicação definições para corrigir o problema.
 
 ## <a name="december-2017"></a>Dezembro de 2017
 
@@ -114,6 +125,11 @@ Foi adicionado **o tipo de propriedade** para o ecrã de detalhes do dispositivo
 
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune  
+
+- **Ajudar as utilizadores ajuda próprios com a aplicação Portal da empresa para Android**<!-- 1573324, 1573150, 1558616, 1564878 -->      
+  A aplicação Portal da empresa para Android adicionou instruções aos utilizadores finais ajudar a compreender e sempre que possível, resolver automática em casos de utilização de novo.
+    - Os utilizadores finais serão guiados para o [portal do Azure Active Directory](https://account.activedirectory.windowsazure.com/r/#/profile) para remover um dispositivo se estes atingiu o número máximo de dispositivos que estão autorizados a adicionar.
+    - Os utilizadores finais são fornecidos os passos a seguir para ajudá-los [corrija os erros de ativação em Samsung Knox dispositivos](https://go.microsoft.com/fwlink/?linkid=859718) ou [desativar o modo de energia-guardar](https://docs.microsoft.com/intune-user-help/power-saving-mode-android). Se nenhuma destas soluções resolver seu problema, vamos fornecerá uma explicação de como [submeter os registos para a Microsoft](https://docs.microsoft.com/intune-user-help/send-logs-to-microsoft-android).
 
 - **Indicador de progresso do programa de configuração de dispositivo no Portal da empresa Android**<!--1565657-->    
   A aplicação Portal da empresa para Android mostra um indicador de progresso do programa de configuração de dispositivo quando um utilizador inscrever o respetivo dispositivo. O indicador apresenta Estados novos, começando com "Como configurar o seu dispositivo …", em seguida, "Registar o seu dispositivo …", em seguida, "A concluir a registar o seu dispositivo...", em seguida, "A concluir a configuração do seu dispositivo...".  
