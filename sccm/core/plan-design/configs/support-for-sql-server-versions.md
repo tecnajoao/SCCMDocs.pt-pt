@@ -14,12 +14,12 @@ ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
 caps.latest.revision: "21"
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: ccc07aa709c0a168a8df7a1bd7944e9399bec13f
-ms.sourcegitcommit: 3dea4342f79909c5064289bd18ed36269812e30c
+manager: dougeby
+ms.openlocfilehash: 2dcf7ab67c0f57d442f6ab0a0ea9f0f476fe8415
+ms.sourcegitcommit: bc86be110c8d2a7a076e17f433d8c5ffd51a7d04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Versões suportadas do SQL Server para o System Center Configuration Manager
 
@@ -110,7 +110,7 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
 -   Um site primário  
 -   Um site secundário
 
-### <a name="sql-server-2012-sp4-standard-enterprise"></a>SP4 do SQL Server 2012: Standard, Enterprise  
+### <a name="sql-server-2012-sp4-standard-enterprise"></a>SQL Server 2012 SP4: Standard, Enterprise  
  Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
 
 -   Um site de administração central  
@@ -143,21 +143,21 @@ Quando suportado pela versão do Configuration Manager, pode utilizar esta vers�
 -   Um site primário
 -   Um site secundário
 
-### <a name="sql-server-2017-express"></a>SQL Server 2017 rápida   
+### <a name="sql-server-2017-express"></a>SQL Server 2017 Express   
 Pode utilizar esta versão do SQL Server, com um mínimo de [versão da atualização cumulativa 2](https://support.microsoft.com/help/4052574), começando com [do Configuration Manager versão 1710](https://docs.microsoft.com/en-us/sccm/core/plan-design/changes/whats-new-in-version-1710) para os seguintes sites:
 -   Um site secundário
 <!--SMS.498506-->
 
-### <a name="sql-server-2016-express-sp1"></a>SP1 Express do SQL Server 2016  
+### <a name="sql-server-2016-express-sp1"></a>SQL Server 2016 Express SP1  
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:
 -   Um site secundário
 
-### <a name="sql-server-2016-express"></a>Express do SQL Server 2016
+### <a name="sql-server-2016-express"></a>SQL Server 2016 Express
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:
 -   Um site secundário
 
 
-### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 SP2 rápida   
+### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 Express SP2   
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
 
 -   Um site secundário  
@@ -191,6 +191,9 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
  Em cada site, a instância do SQL Server que é utilizado para o site e a base de dados do site tem de utilizar o seguinte agrupamento: **SQL_Latin1_General_CP1_CI_AS**.  
 
  O Configuration Manager suporta duas exceções a este agrupamento para cumprir as normas definidas na GB18030 para utilização na China. Para obter mais informações, veja [Suporte internacional no System Center Configuration Manager](../../../core/plan-design/hierarchy/international-support.md).  
+
+ **Nível de compatibilidade de base de dados:** </br>
+ O Configuration Manager requer que o nível de compatibilidade da base de dados do site ser não menor que a mais baixa versão suportada do SQL Server para a sua versão do Configuration Manager. Por exemplo, a partir da versão 1702, terá de ter um [nível de compatibilidade de base de dados](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) igual ou superior para 110. <!-- SMS.506266--> 
 
  **Funcionalidades do SQL Server:**  
  Só é necessária a funcionalidade **Serviços de Motor da Base de Dados** para cada servidor do site.  
