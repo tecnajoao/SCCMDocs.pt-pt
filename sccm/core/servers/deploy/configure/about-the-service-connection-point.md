@@ -7,20 +7,21 @@ ms.date: 6/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
-caps.latest.revision: "18"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 145fe172665310caa48d8f152ad46d72df4168dd
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 9651694530d1258100c9c564bfc59447ac454a96
+ms.sourcegitcommit: ac20475ae9c1ea5ca3632cb6a44440c316f171f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Acerca do ponto de ligação de serviço no System Center Configuration Manager
 
@@ -84,13 +85,13 @@ Para utilizar o Configuration Manager Service Manager, na consola de ir para **m
 -   O Gestor de distribuição no servidor do site utiliza a conta de instalação do sistema de sites para transferir atualizações a partir do ponto de ligação de serviço.
 
 ##  <a name="bkmk_urls"></a>Requisitos de acesso à Internet  
-Para ativar a operação, o computador que aloja o ponto de ligação de serviço e quaisquer firewalls entre esse computador e da Internet tem de passar as comunicações através de **porta TCP 443** e **porta TCP 443** para as localizações de Internet seguintes. A serviço do ponto de ligação também suporta a utilização de um proxy web (com ou sem autenticação) para utilizar estas localizações.  Se precisar de configurar uma conta de proxy web consulte: [Suporte para servidor proxy no System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
+Para ativar a operação, o computador que aloja o ponto de ligação de serviço e quaisquer firewalls entre esse computador e da Internet tem de transmitir comunicações através da porta de saída **TCP 443** para HTTPS e a porta de saída  **TCP 80** para HTTP para as localizações de Internet seguintes. A serviço do ponto de ligação também suporta a utilização de um proxy web (com ou sem autenticação) para utilizar estas localizações.  Se precisar de configurar uma conta de proxy web consulte: [Suporte para servidor proxy no System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
 
 **Atualizações e manutenção**  
 
 -   *.akamaiedge.net  
 
--   *. akamaitechnologies.com 
+-   *.akamaitechnologies.com 
 
 -   *.manage.microsoft.com
 
@@ -107,7 +108,7 @@ Para ativar a operação, o computador que aloja o ponto de ligação de serviç
 **Microsoft Intune**  
 
 -   *manage.microsoft.com  
--   https://bspmts.MP.microsoft.com/V
+-   https://bspmts.mp.microsoft.com/V
 -   https://login.microsoftonline.com/{TenantID}
 
 
