@@ -7,20 +7,21 @@ ms.date: 01/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: "26"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 695d21eb065f4d89143644dad28bfdb711392ab9
-ms.sourcegitcommit: e121d8d3dd82b9f2dde2cb5206cbee602ab8e107
+ms.openlocfilehash: 158817547d40f09fb8bd30ebedd5aea6420a8571
+ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
@@ -535,7 +536,7 @@ Este passo é executado num sistema operativo padrão ou no Windows PE. No entan
 
  -   **Cache do cliente do Configuration Manager**: Utilize esta opção para armazenar o conteúdo na cache do cliente. O cliente funciona como uma origem de cache ponto a ponto para outros clientes de cache ponto a ponto. Para obter mais informações, consulte [cache ponto a ponto de preparar o Windows PE para reduzir o tráfego WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
- -   **Caminho personalizado**  
+ -    **Caminho personalizado**: Com esta opção o motor de sequência de tarefas primeiro transfere o pacote para a diretório de trabalho de sequência de tarefas, em seguida, move-o para este caminho que especificar. O motor de sequência de tarefas acrescenta o caminho com o ID de pacote. 
    
 **Guardar caminho como uma variável**  
  É possível guardar o caminho como uma variável que pode utilizar noutro passo de sequência de tarefas. Gestor de configuração adiciona um sufixo numérico ao nome da variável. Por exemplo, se especificar uma variável de %*omeuconteúdo*% como uma variável personalizada, esta é a raiz onde a sequência de tarefas armazena conteúdo referenciado todos os. Este conteúdo pode conter vários pacotes. Quando fizer referência à variável, adicione um sufixo numérico. Por exemplo, para o primeiro pacote, consulte %*osmeusconteúdos01*%. Quando fizer referência à variável em passos subsequentes, tais como **atualizar sistema operativo**, utilize %*osmeusconteúdos02*% ou %*mycontent03*%, onde o número corresponde do ordem pela qual o **transferir conteúdo do pacote** passo lista os pacotes.  
