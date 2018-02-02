@@ -6,18 +6,19 @@ ms.custom: na
 ms.date: 08/11/2017
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: fddb31279587df5306c07a9f23dfc4dace418ea7
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: fb6c377edee5cbf387398ed2166ca2cca0cdb765
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1706 do System Center Configuration Manager
 
@@ -36,7 +37,7 @@ As secções seguintes fornecem detalhes sobre as alterações e novas funcional
 
 <!--
 ## Deprecated features and operating systems
-Learn about support changes before they are implemented in [removed and deprecated features](/sccm/core/plan-design/changes/removed-and-deprecated-features).
+Learn about support changes before they are implemented in [removed and deprecated items](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
 
 Version 1706 drops support for the following products:
 -->
@@ -117,7 +118,7 @@ Cache ponto a ponto já não utiliza a conta de acesso de rede para autenticar p
 <!-- 1354715 -->
 Nesta versão, adicionámos novas definições de item de configuração para dispositivos Windows 10 que estão inscritos no Intune ou geridos no local pelo Configuration Manager. As definições são:
 
-- **Palavra-passe**
+- **Password**
     - Encriptação de dispositivos
 - **Dispositivo**
     - Modificação de definições de região (apenas ambiente de trabalho)
@@ -146,7 +147,7 @@ Para detalhes de todas as definições do Windows 10, consulte [como criar itens
 
  **Suportado no:**
  * Windows Phone 8+
- * Windows 8.1 +
+ * Windows 8.1+
  * iOS 6+
 <br></br>
 * **Depuração USB de bloco no dispositivo**. Não é necessário configurar esta definições como a depuração USB já está desativada no Android para dispositivos de trabalho.

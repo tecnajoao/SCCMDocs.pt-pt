@@ -16,11 +16,11 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: a0f2c2c0885982bb25606f117031a36c2dcd2e60
-ms.sourcegitcommit: ac20475ae9c1ea5ca3632cb6a44440c316f171f4
+ms.openlocfilehash: 614226e60f9bcd7b8e3c1330f52a4847e89e0880
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Sistemas operativos suportados para os clientes e dispositivos para o System Center Configuration Manager
 
@@ -124,7 +124,7 @@ Os ficheiros **WBEMDISP. DLL** e **WBEMDISP. TLB** tem de existir e estar regist
 
 -   **Windows Embedded Standard 7 com SP1** (x86, x64)    
 
-Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas suportados com 1610 de versão do Configuration Manager e versões anteriores. [A partir da versão 1702, estes sistemas operativos incorporados já não são suportados](/sccm/core/plan-design/changes/removed-and-deprecated-features#client-operating-systems).  
+Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas suportados com 1610 de versão do Configuration Manager e versões anteriores. [A partir da versão 1702, estes sistemas operativos incorporados já não são suportados](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-client#deprecated-client-operating-systems).  
 
 -   **WEPOS 1.1 com SP3** (x86)    
 

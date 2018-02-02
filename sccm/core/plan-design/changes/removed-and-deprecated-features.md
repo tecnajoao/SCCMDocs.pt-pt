@@ -7,20 +7,21 @@ ms.date: 08/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
-caps.latest.revision: "15"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
 ms.openlocfilehash: 95df27d4bf21a2cb1b6d613415a3eff4c3a73552
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Funcionalidades removidas e preteridas do System Center Configuration Manager
 
@@ -73,7 +74,7 @@ Para obter mais informações, consulte:
 |Windows XP Embedded <br><br> Isto inclui todos os [sistemas de operativos incorporados baseados no XP](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-embedded-computers).|10 de Julho de 2015|Versão 1702|  
 |Windows Server 2003|10 de Julho de 2015|Versão 1511|  
 |Windows Server 2003 R2|10 de Julho de 2015|Versão 1511|  
-|Windows Vista|10 de Julho de 2015|Versão 1511|  
+|Windows Vista|10 de Julho de 2015|Versão 1511|  
 |Mac OS X 10.6 10.8|10 de Julho de 2015|Versão 1511|  
 |Windows Mobile 6.0 6.5|10 de Julho de 2015|Versão 1511|  
 |Nokia Symbian Belle|10 de Julho de 2015|Versão 1511|  

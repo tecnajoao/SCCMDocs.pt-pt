@@ -7,19 +7,20 @@ ms.date: 01/04/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c8534a1e-57b8-4688-b6e6-299d82cfcec9
-caps.latest.revision: "1"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 90542085af2a1e5cf0701c5eac6d2625c23eb8c6
-ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
+ms.openlocfilehash: 40894c4ebb562e5c979f1226349ff91c38516618
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="keep-windows-10-up-to-date-in-the-enterprise-using-configuration-manager"></a>Par Windows 10 na empresa com o Configuration Manager
 
@@ -33,7 +34,7 @@ System Center Configuration Manager fornece controlo abrangente sobre atualizaç
 | ------------- |-------------|
 |[Descrição geral do Configuration Manager como um serviço](/sccm/core/plan-design/changes/whats-new-incremental-versions)|Fornece um breve resumo dos pontos de chaves para o novo modelo de manutenção para o Configuration Manager (ramo atual)|
 |[Ciclo de vida de suporte](/sccm/core/servers/manage/current-branch-versions-supported)|Explica o novo suporte e manutenção de modelo.|
-|[Funcionalidades removidas e preteridas](/sccm/core/plan-design/changes/removed-and-deprecated-features)|Fornece o aviso antecipado sobre futuras alterações que podem afetar a utilização do Configuration Manager.|
+|[Itens removidos e preteridos](/sccm//core/plan-design/changes/deprecated/removed-and-deprecated)|Fornece o aviso antecipado sobre futuras alterações que podem afetar a utilização do Configuration Manager.|
 |[Configuration Manager como um serviço](/sccm/core/servers/manage/updates)|Explica o método fácil de na consola de aplicação de atualizações de funcionalidade do Configuration Manager.|
 |[Obter as atualizações disponíveis](/core/servers/manage/install-in-console-updates#get-available-updates)|Explica os dois modos de disponíveis para obter o novo Gestor de configuração de atualizações de funcionalidade.|
 |[Lista de verificação de atualização](/sccm/core/servers/manage/install-in-console-updates#bkmk_beforeinstall)|Fornece listas de verificação de atualização específico da versão, se aplicável.| 

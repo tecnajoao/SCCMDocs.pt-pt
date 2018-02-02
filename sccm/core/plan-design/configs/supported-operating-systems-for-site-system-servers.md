@@ -7,19 +7,20 @@ ms.date: 06/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 17905b4c-3895-4ad4-a69c-5e0d0fc5a8c3
-caps.latest.revision: "44"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 03618b541f8f00ccab69fa4ebcef81ffc146010c
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.openlocfilehash: 18df431f0fd1b355b1ad629a10126907187ddbbd
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Sistemas operativos suportados para servidores de sistema de sites do System Center Configuration Manager
 
@@ -180,7 +181,7 @@ Este sistema operativo a partir da versão 1606 com o rollup de correção de KB
 -   Ponto de Migração de Estado  
 
 ## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 com SP1 (x64): Standard, Enterprise e Datacenter  
- Windows Server 2008 R2 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 R2 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [sistemas operativos do servidor preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
 
  A partir do Configuration Manager versão 1702, este sistema operativo não é suportado para servidores do site ou a maioria das funções de sistema de sites, mas permanecem suportado para a função de sistema de sites de ponto de distribuição (incluindo pontos de distribuição de extração e para PXE e multicast).
 
@@ -234,7 +235,7 @@ Este sistema operativo a partir da versão 1606 com o rollup de correção de KB
 -   Ponto de Migração de Estado  
 
 ## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 com SP2 (x86, x64): Standard, Enterprise e Datacenter  
- Windows Server 2008 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [sistemas operativos do servidor preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
 
 Este sistema operativo não é suportado para servidores de site ou funções de sistema de sites com a exceção do ponto de distribuição e ponto de distribuição de solicitação. Pode continuar a utilizar este sistema operativo como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte expandido deste sistema operativo expira. Para obter mais informações, consulte [instalação do System Center Configuration Manager CB e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
 

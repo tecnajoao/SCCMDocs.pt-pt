@@ -7,20 +7,21 @@ ms.date: 2/9/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 72d7b174-f015-498f-a0a7-2161b9929198
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 518be0c1cb4c361d8802ed70779d192725eb8feb
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 1b8248cbbade7d46d1a1ad41edd704b5ad8d49aa
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Contas utilizadas no System Center Configuration Manager
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/04/2018
 Utilize as seguintes informações para identificar os grupos do Windows e as contas que são utilizadas no System Center Configuration Manager, como são utilizados e quaisquer requisitos.  
 
 ## <a name="windows-groups-that-configuration-manager-creates-and-uses"></a>Grupos do Windows Criados e Utilizados pelo Configuration Manager  
- Configuration Manager cria automaticamente e em muitos casos mantém automaticamente, os seguintes grupos do Windows.  
+ Configuration Manager cria automaticamente e em muitos casos mantém automaticamente, os seguintes grupos do Windows:  
 
 > [!NOTE]  
 >  Quando o Configuration Manager cria um grupo num computador que seja um membro de domínio, o grupo é um grupo de segurança local. Se o computador for um controlador de domínio, o grupo é um grupo local de domínio que é partilhado entre todos os controladores de domínio no domínio.  
@@ -68,18 +69,18 @@ A tabela seguinte lista os detalhes adicionais para este grupo:
 
  A tabela seguinte lista os detalhes adicionais para este grupo:  
 
-|Detalhe|Mais informações|  
+|Detalhe|Obter mais informações|  
 |------------|----------------------|  
 |Tipo e localização|Este grupo é um grupo de segurança local criado em cada computador que tem um fornecedor de SMS.<br /><br /> Quando desinstala um site, este grupo não é removido automaticamente. Tem de ser manualmente eliminado.|  
 |Associação|O Configuration Manager gere automaticamente a associação ao grupo. Por predefinição, cada utilizador administrativo numa hierarquia e a conta do computador do servidor de site são membros do grupo Admins de SMS em cada computador do Fornecedor de SMS num site.|  
-|Permissões|Permissões e direitos de Admins de SMS estão definidas no snap-in MMC de controlo WMI. Por predefinição, o grupo de Admins de SMS recebe **ativar conta** e **ativar remoto** no espaço de nomes root\sms. Os utilizadores autenticados tem **executar métodos**, **escrita do fornecedor**, e **ativar conta**.<br /><br /> Os utilizadores administrativos que irão utilizar uma consola do Configuration Manager remoto requerem permissões de ativação remota DCOM no computador do servidor do site e o computador do fornecedor de SMS. É um procedimento recomendado conceder estes direitos a Admins de SMS para simplificar a administração em vez de conceder estes direitos diretamente a utilizadores ou grupos. Para obter mais informações, veja a secção [Configurar permissões de DCOM para consolas remotas do Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) do tópico [Modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
+|Permissões|Permissões e direitos de Admins de SMS estão definidas no snap-in MMC de controlo WMI. Por predefinição, o grupo de Admins de SMS recebe **ativar conta** e **ativar remoto** no espaço de nomes root\sms. Os utilizadores autenticados tem **executar métodos**, **escrita do fornecedor**, e **ativar conta**.<br /><br /> Os utilizadores administrativos que irão utilizar uma consola do Configuration Manager remoto requerem permissões de ativação remota DCOM no computador do servidor do site e o computador do fornecedor de SMS. É um procedimento recomendado conceder estes direitos a Admins de SMS para simplificar a administração em vez de conceder estes direitos diretamente a utilizadores ou grupos. Para obter mais informações, consulte o [configurar do DCOM para consolas remotas do Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) secção o [modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md) artigo.|  
 
 ### <a name="smssitesystemtositeserverconnectionmpltsitecode"></a>SMS_SiteSystemToSiteServerConnection_MP_&lt;sitecode\>  
  Pontos de gestão do Configuration Manager que são remotos, o servidor do site utilizam este grupo para ligar à base de dados do site. Este grupo fornece acesso de ponto de gestão às pastas a receber no servidor do site e na base de dados do site.  
 
  A tabela seguinte lista os detalhes adicionais para este grupo:  
 
-|Detalhe|Mais informações|  
+|Detalhe|Obter mais informações|  
 |------------|----------------------|  
 |Tipo e localização|Este grupo é um grupo de segurança local criado em cada computador que tem um fornecedor de SMS.<br /><br /> Quando desinstala um site, este grupo não é removido automaticamente. Tem de ser manualmente eliminado.|  
 |Associação|O Configuration Manager gere automaticamente a associação ao grupo. Por predefinição, a associação inclui as contas de computador de computadores remotos que têm um ponto de gestão para o site.|  
@@ -163,7 +164,7 @@ A tabela seguinte lista os detalhes adicionais para este grupo:
 
  A conta tem de ter permissões de **Leitura** e **Escrita** na partilha de rede onde a imagem capturada está armazenada.  
 
- Se a palavra-passe para a conta for alterada no Windows, tem de atualizar a sequência de tarefas com a nova palavra-passe. O cliente do Configuration Manager irá receber a nova palavra-passe quando transferir a política de cliente.  
+ Se a palavra-passe para a conta for alterada no Windows, tem de atualizar a sequência de tarefas com a nova palavra-passe. O cliente do Configuration Manager recebe a nova palavra-passe quando transferir a política de cliente.  
 
  Se utilizar esta conta, pode criar uma conta de utilizador de conta de domínio com as permissões mínimas para aceder aos recursos de rede necessários e utilizá-la para todas as contas de sequência de tarefas.  
 
@@ -245,6 +246,8 @@ A tabela seguinte lista os detalhes adicionais para este grupo:
 
 ### <a name="reporting-services-point-account"></a>Conta do ponto do Reporting Services  
  SQL Server Reporting Services utiliza o **conta de ponto do Reporting Services** para obter os dados para relatórios do Configuration Manager a partir da base de dados do site. A conta de utilizador do Windows e a palavra-passe que especificar são encriptadas e armazenadas na base de dados do SQL Server Reporting Services.  
+>[!NOTE]
+>A conta que especificar tem de ter iniciar sessão localmente permissões no computador que aloja a base de dados do Reporting Services.
 
 ### <a name="remote-tools-permitted-viewer-accounts"></a>Contas de visualizador permitidas por ferramentas remotas  
  As contas que especificar como **Visualizadores Autorizados** para o controlo remoto são uma lista de utilizadores autorizados a utilizar a funcionalidade de ferramentas remotas em clientes.  
@@ -255,7 +258,7 @@ A tabela seguinte lista os detalhes adicionais para este grupo:
  Esta conta requer permissões administrativas locais nos sistemas de site que administradores irão instalar e configurar. Além disso, esta conta tem de ter **aceder a este computador a partir da rede** na política de segurança nos sistemas de site que administradores irão instalar e configurar.  
 
 > [!TIP]  
->  Se tiver muitos controladores de domínio e estas contas forem utilizadas em vários domínios, certifique-se de que as contas foram replicadas antes de configurar o sistema de sites.  
+>  Se tiver muitos controladores de domínio e estas contas são utilizadas em vários domínios, certifique-se de que as contas foram replicadas antes de configurar o sistema de sites.  
 >   
 >  Quando especificar uma conta local em cada sistema de sites a gerir, esta configuração é mais segura do que utilizar contas de domínio, pois limita os danos que podem ser feitos por atacantes se a conta for comprometida. No entanto, as contas de domínio são mais fáceis de gerir. Considere o compromisso entre a segurança e administração eficiente.  
 
@@ -306,7 +309,7 @@ Esta conta tem de ser um administrador local no computador onde o WSUS está ins
 ### <a name="task-sequence-editor-domain-joining-account"></a>Conta de adesão ao domínio do editor de sequência de tarefas  
  A **Conta de Associação de Domínio do Editor de Sequência de Tarefas** é utilizada numa sequência de tarefas para associar um computador com imagem recentemente duplicada a um domínio. Esta conta é necessária se adicionar o passo **Associar Domínio ou Grupo de Trabalho** a uma sequência de tarefas e selecionar **Aderir a um domínio**. Esta conta também pode ser configurada se adicionar o passo **aplicar definições de rede** para uma tarefa sequência, mas não é necessária.  
 
- Esta conta precisa do direito **Associação a um Domínio** no domínio ao qual o computador será associado.  
+ Esta conta requer o **associar ao domínio** diretamente no domínio a que o computador está associado.  
 
 > [!TIP]  
 >  Se necessitar desta conta para as sequências de tarefas, pode criar uma conta de utilizador de domínio com as permissões mínimas para aceder aos recursos de rede necessários e utilizá-la para todas as contas de sequências de tarefas.  
@@ -339,8 +342,8 @@ Esta conta tem de ser um administrador local no computador onde o WSUS está ins
 >   
 >  Nunca torne a conta um administrador de domínio.  
 >   
->  Nunca configure perfis itinerantes para esta conta. Quando a sequência de tarefas é executada, transferirá o perfil itinerante para a conta. Isto deixará o perfil vulnerável a acesso no computador local.  
+>  Nunca configure perfis itinerantes para esta conta. Quando a sequência de tarefas é executada, transfere o perfil itinerante para a conta. Esta opção deixa o perfil vulnerável a acesso no computador local.  
 >   
 >  Limite o âmbito da conta. Por exemplo, crie Contas Run As de Sequência de Tarefas diferentes para cada sequência de tarefas, de modo a que, se uma conta for comprometida, apenas sejam comprometidos os computadores cliente a que essa conta tenha acesso.  
 >   
->  Se a linha de comandos exigir acesso administrativo no computador, considere a criação de uma conta de administrador local apenas para a tarefa de sequência de conta Run As em todos os computadores que executarão a sequência de tarefas. Elimina a conta, assim que já não precisar dele.  
+>  Se a linha de comandos exigir acesso administrativo no computador, considere a criação de uma conta de administrador local apenas para a tarefa de sequência de conta Run As em todos os computadores que executam a sequência de tarefas. Elimina a conta, assim que já não precisar dele.  

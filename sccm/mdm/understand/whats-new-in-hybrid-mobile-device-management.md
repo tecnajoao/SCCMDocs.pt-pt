@@ -7,18 +7,19 @@ ms.date: 01/04/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 04ed2ac1abe54c3b8c7c86f210b35f5f52d80ef6
-ms.sourcegitcommit: c432624b8816f59d51a3c8ef68960ed4099d9124
+ms.openlocfilehash: aca30a199e38b2d4ed38a458694d98010b5e2496
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -45,6 +46,9 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 ## <a name="january-2018"></a>De 2018 Janeiro
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+- **Novas funcionalidades para a ação "Resolve" para dispositivos Android**<!--1583480-->    
+  A aplicação Portal da empresa para Android é expandir a ação "Resolve" para **atualizar as definições de dispositivo** resolver [problemas de encriptação de dispositivos](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android).
 
 - **Bloqueio remoto disponível na aplicação Portal da empresa para Windows 10**<!--676506-->    
   Os utilizadores finais podem agora bloquear remotamente os seus dispositivos a partir da aplicação Portal da empresa para Windows 10. Este não será apresentado para o dispositivo local que está a utilizar ativamente.

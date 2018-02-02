@@ -6,18 +6,19 @@ ms.custom: na
 ms.date: 05/02/2017
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 409e26e1-7716-4f1d-a0ee-34feabf20792
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: aa8d80cf9c036e63dc74ffe78bc8d5b060d6053e
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: cf46bb32994ddb8a1fa3b9de0dbffc94228ad7fd
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1702 do System Center Configuration Manager
 
@@ -35,13 +36,13 @@ Atualize 1702 para o ramo atual do System Center Configuration Manager está dis
 As secções seguintes fornecem detalhes sobre as alterações e novas funcionalidades introduzidas na versão 1702 do Configuration Manager.  
 
 ## <a name="deprecated-features-and-operating-systems"></a>Funcionalidades preteridas e sistemas operativos
-Saiba mais sobre as alterações de suporte antes de são implementados no [funcionalidades removidas e preteridas](/sccm/core/plan-design/changes/removed-and-deprecated-features).
+Saiba mais sobre as alterações de suporte antes de são implementados no [removidas e preteridas itens](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
 
 1702 remoções versão suportem para os seguintes produtos:
-- **SQL Server 2008 R2**, para os servidores de base de dados do site. Descontinuação do suporte foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database) no dia 10 de Julho de 2015. Esta versão do SQL Server continua a ser suportada quando utiliza uma versão do Configuration Manager antes da versão 1702.
-- **Windows Server 2008 R2**para servidores do sistema de sites e a maioria das funções de sistema de sites. Descontinuação do suporte foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) no dia 10 de Julho de 2015. Esta versão do Windows continua a ser suportada quando utiliza uma versão do Configuration Manager antes da versão 1702.  
-- **Windows Server 2008**para servidores do sistema de sites e a maioria das funções de sistema de sites. Descontinuação do suporte foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) no dia 10 de Julho de 2015.
-- **Windows XP Embedded**, como um sistema operativo cliente. Descontinuação foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) no dia 10 de Julho de 2015. Esta versão do Windows continua a ser suportada quando utiliza uma versão do Configuration Manager antes da versão 1702.
+- **SQL Server 2008 R2**, para os servidores de base de dados do site. Descontinuação do suporte foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-support-for-sql-server-versions-as-a-site-database) no dia 10 de Julho de 2015. Esta versão do SQL Server continua a ser suportada quando utiliza uma versão do Configuration Manager antes da versão 1702.
+- **Windows Server 2008 R2**para servidores do sistema de sites e a maioria das funções de sistema de sites. Descontinuação do suporte foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems) no dia 10 de Julho de 2015. Esta versão do Windows continua a ser suportada quando utiliza uma versão do Configuration Manager antes da versão 1702.  
+- **Windows Server 2008**para servidores do sistema de sites e a maioria das funções de sistema de sites. Descontinuação do suporte foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems) no dia 10 de Julho de 2015.
+- **Windows XP Embedded**, como um sistema operativo cliente. Descontinuação foi [anunciada pela primeira vez](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-client#deprecated-client-operating-systems) no dia 10 de Julho de 2015. Esta versão do Windows continua a ser suportada quando utiliza uma versão do Configuration Manager antes da versão 1702.
 
 
 

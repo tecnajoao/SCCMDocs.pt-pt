@@ -17,11 +17,11 @@ caps.handback.revision:
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 158817547d40f09fb8bd30ebedd5aea6420a8571
-ms.sourcegitcommit: aee9ac45c15f27d8cf827890edcae94c03f5fd5e
+ms.openlocfilehash: 5320d7747f7e2c6164da8c1801e631b749935d6d
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
@@ -1313,7 +1313,7 @@ No editor de sequência de tarefas, clique em **adicionar**, selecione **imagens
  Clique em **procurar**, em seguida, selecione o pacote de instalação de cliente do Configuration Manager para utilizar neste passo.  
 
  **Utilize o pacote de cliente de pré-produção quando disponível**  
- Se existir um pacote de cliente de pré-produção disponível, a sequência de tarefas utiliza este pacote em vez do pacote de cliente de produção. O cliente de pré-produção é uma versão mais recente para fins de teste no ambiente de produção. Clique em **procurar**, em seguida, selecione o pacote de instalação de cliente de pré-produção para utilizar com este passo.  
+ Se existir um pacote de cliente de pré-produção disponível, e o computador é um membro da coleção de pilotagem, a sequência de tarefas utiliza este pacote em vez do pacote de cliente de produção. O cliente de pré-produção é uma versão mais recente para fins de teste no ambiente de produção. Clique em **procurar**, em seguida, selecione o pacote de instalação de cliente de pré-produção para utilizar com este passo.  
 
  **Propriedades de instalação**  
  A atribuição de sites e a configuração predefinida são especificadas automaticamente pela ação de sequência de tarefas. Pode utilizar este campo para especificar propriedades de instalação adicionais a utilizar quando instalar o cliente. Para introduzir várias propriedades de instalação, separe-as com um espaço.  

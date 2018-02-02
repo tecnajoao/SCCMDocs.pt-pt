@@ -6,19 +6,20 @@ ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3ae68fa6-8b30-45dd-9d12-50bb67cb4a9d
-caps.latest.revision: "51"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: fb8b7dd27d890750fb93f02d38c0fd9d6c0feca6
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 6e0da4f8c42bb0b2275566eba35b1e06b2028c1b
+ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>O que &#39; s alteradas no System Center Configuration Manager, do System Center 2012 Configuration Manager
 
@@ -81,7 +82,7 @@ Tenha em atenção que a gestão fora de banda no System Center 2012 Configurati
 ##  <a name="bkmk_out"></a> Funcionalidades preteridas  
  Algumas funcionalidades, como nativo [suporte para Intel Active Management Technology (AMT)](#bkmk_AMT) com base em computadores, são removidas da consola do Configuration Manager. Outras funcionalidades, como a proteção de acesso à rede, foram removidas completamente. Além disso, alguns produtos Microsoft mais antigos como o Windows Vista, Windows Server 2008 e o SQL Server 2008, já não são suportados.  
 
- Para obter uma lista das funcionalidades preteridas, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Para obter uma lista das funcionalidades preteridas, consulte [removidas e preteridas itens para o System Center Configuration Manager](../../../core/plan-design/changes/deprecated/removed-and-deprecated.md).  
 
  Para obter detalhes sobre os produtos suportados, sistemas operativos e configurações, consulte [configurações suportadas para o System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md).  
 
