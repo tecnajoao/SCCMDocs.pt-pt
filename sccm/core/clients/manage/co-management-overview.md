@@ -10,20 +10,23 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 4b582d5fbd9e2e916c439b149e117f1a65da98bf
-ms.sourcegitcommit: 5f4a584d4a833b0cc22bd8c47da7dd55aced97fa
+ms.openlocfilehash: 0cc11a05013fd9c25ee98ec35adcbe822d8a21fb
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
 <!-- 1350871 -->
 Muitos clientes pretendem gerir dispositivos Windows 10 da mesma forma que o se gerem dispositivos móveis utilizando um custo simplificado, inferior, uma solução baseada na nuvem. No entanto, efetuar a transição do gestão tradicional para gestão moderna pode ser um desafio. Nas atualizações anteriores do Windows 10, já pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). A partir do Configuration Manager versão 1710, gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo Windows 10, dispositivos de 1709 (também conhecido como a atualização de criadores de reversão) versão através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. 
 
-Existem dois caminhos principais para aceder à gestão conjunta.  É um Gestor de configuração de gestão conjunta aprovisionada em dispositivos Windows 10 geridos pelo Configuration Manager e o Azure AD híbrido associados ser inscrito no Intune. O outro está Intune aprovisionado para dispositivos que estão inscritos no Intune e, em seguida, instalado com o alcance de cliente do Configuration Manager num Estado de gestão conjunta.  
+Existem dois caminhos principais para aceder à gestão conjunta.  É um Gestor de configuração de gestão conjunta aprovisionada em dispositivos Windows 10 geridos pelo Configuration Manager e o Azure AD híbrido associados ser inscrito no Intune. O outro está Intune aprovisionado para dispositivos que estão inscritos no Intune e, em seguida, instalado com o alcance de cliente do Configuration Manager num Estado de gestão conjunta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Tem de ter os seguintes pré-requisitos no local antes de poder ativar gestão conjunta. Existem pré-requisitos gerais e pré-requisitos diferentes para dispositivos com o cliente do Configuration Manager e dispositivos que não tenham o cliente instalado.
+
+> [!IMPORTANT]
+> Dispositivos móveis Windows 10 não suportam gestão conjunta.
 
 ### <a name="general-prerequisites"></a>Pré-requisitos gerais
 Seguem-se pré-requisitos gerais para a ativar a gestão conjunta:  

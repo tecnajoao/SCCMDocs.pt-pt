@@ -10,14 +10,17 @@ ms.prod: configuration-manager
 ms.service: 
 ms.technology: 
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: d605dd4770be6878b08f4ac61da6ab27e3b6d61f
-ms.sourcegitcommit: ac9268e31440ffe91b133c2ba8405d885248d404
+ms.openlocfilehash: 902787f173c714fd2a73cc657aad758bd79ce3c8
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="prepare-windows-10-devices-for-co-management"></a>Preparar os dispositivos Windows 10 para gestão conjunta
 Pode ativar a gestão conjunta em dispositivos Windows 10 que estejam associados ao AD e o Azure AD e inscritos no Intune e um cliente no Configuration Manager. Para novos dispositivos Windows 10 e para os dispositivos já inscritos no Intune, antes de instalar o cliente do Configuration Manager podem ser conjuntamente geridos. Para dispositivos Windows 10 que já estão a clientes do Configuration Manager, pode inscrever dispositivos com o Intune e ativar a gestão conjunta na consola do Configuration Manager.
+
+> [!IMPORTANT]
+> Dispositivos móveis Windows 10 não suportam gestão conjunta.
 
 ## <a name="command-line-to-install-configuration-manager-client"></a>Linha de comandos para instalar o cliente do Configuration Manager
 Tem de criar uma aplicação nos dispositivos do Intune para Windows 10 que já não são clientes do Configuration Manager. Quando cria a aplicação nas secções seguintes, utilize a seguinte linha de comandos:
@@ -43,7 +46,7 @@ Por exemplo, se tiver os seguintes valores:
 
 Pretende utilizar a seguinte linha de comandos:
 
-ccmsetup.msi CCMSETUPCMD = "/ mp:https: / &#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode = PS1 SMSMP = https: / &#47; sccmmp.corp.contoso.com AADTENANTID = 72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME = contoso AADCLIENTAPPID = bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI = https: / &#47; ConfigMgrServer"
+ccmsetup.msi CCMSETUPCMD="/mp:https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode=PS1 SMSMP=https:/&#47;sccmmp.corp.contoso.com AADTENANTID=72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME=contoso  AADCLIENTAPPID=bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI=https:/&#47;ConfigMgrServer”
 
 > [!Tip]
 > Pode encontrar os parâmetros da linha de comandos para o seu site, utilizando os seguintes passos:     

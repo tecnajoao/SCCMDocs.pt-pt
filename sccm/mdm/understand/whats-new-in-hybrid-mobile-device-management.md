@@ -3,7 +3,7 @@ title: "Novidades da MDM híbrido"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune."
 ms.custom: na
-ms.date: 01/04/2018
+ms.date: 02/06/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: aca30a199e38b2d4ed38a458694d98010b5e2496
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: c724d9eafde6aa9abc0d3f9bfa867418046b2ecb
+ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
 
@@ -46,6 +46,16 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 ## <a name="january-2018"></a>De 2018 Janeiro
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+- **Aprovar a aplicação do Portal da empresa para Android para o trabalho**<!--1797090 -->    
+  Se a sua organização utiliza o Android de trabalho, terá de aprovar manualmente a aplicação Portal da empresa para Android, para que continuará a receber atualizações automáticas da loja do Google Play gerida.
+
+- **Políticas de acesso condicional para o Intune só está disponível a partir do portal do Azure**  <!-- 1737088 1634311 -->    
+  A partir desta versão, tem de configurar e gerir as políticas de acesso condicional no [portal do Azure](https://portal.azure.com) de **do Azure Active Directory** > **acesso condicional** . Para sua comodidade, também pode aceder neste painel do Intune no portal do Azure em **Intune** > **acesso condicional**.
+
+- **As atualizações à conformidade e-mails**<!--1637547 -->    
+  Quando é enviado um e-mail para reportar um dispositivo não conforme, os detalhes sobre os dispositivos não conformes estão incluídos. 
+
 
 - **Novas funcionalidades para a ação "Resolve" para dispositivos Android**<!--1583480-->    
   A aplicação Portal da empresa para Android é expandir a ação "Resolve" para **atualizar as definições de dispositivo** resolver [problemas de encriptação de dispositivos](https://docs.microsoft.com/intune-user-help/encrypt-your-device-android).
