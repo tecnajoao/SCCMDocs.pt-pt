@@ -7,20 +7,21 @@ ms.date: 8/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0cf4bacb-6b6d-4d4f-8640-b13fe15873de
-caps.latest.revision: "8"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 0cc1915a73ed55403eca27021b77aab1fd1ddb03
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 91e86bd578403d17ec7e4cc9dc6284c51a57053e
+ms.sourcegitcommit: 37e990d191028160486dbca286d2ea945bd5c8c3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Suporte para funcionalidades do Windows e redes no System Center Configuration Manager
 
@@ -56,7 +57,7 @@ Estes clientes também colocam em cache o conteúdo. Desta forma, os clientes se
 
 **O Configuration Manager suporta os seguintes sistemas de operativos de cliente com o Windows BranchCache:**  
 
-|Sistema operativo|Detalhes do suporte|  
+|Sistema Operativo|Detalhes do suporte|  
 |----------------------|---------------------|  
 |Windows 7 com SP1|Suportado por predefinição|  
 |Windows 8|Suportado por predefinição|  
@@ -66,10 +67,11 @@ Estes clientes também colocam em cache o conteúdo. Desta forma, os clientes se
 |Windows Server 2008 R2|Suportado por predefinição|  
 |Windows Server 2012|Suportado por predefinição|  
 |Windows Server 2012 R2|Suportado por predefinição|  
+|Windows Server 2016|Suportado por predefinição|  
 
  Para obter mais informações sobre o BranchCache, consulte o artigo [BranchCache para Windows](http://go.microsoft.com/fwlink/p/?LinkId=177945) na documentação do Windows Server.  
 
-##  <a name="bkmk_Workgroups"></a>Computadores em grupos de trabalho  
+##  <a name="bkmk_Workgroups"></a> Computadores em grupos de trabalho  
 O Configuration Manager fornece suporte para clientes em grupos de trabalho.  
 
 -   O Configuration Manager suporta a mudança de um cliente de um grupo de trabalho a um domínio ou de um domínio a um grupo de trabalho. Para obter mais informações, consulte [como instalar clientes do Configuration Manager em computadores de grupo de trabalho](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup) no [como implementar clientes em computadores Windows no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md) tópico.  
@@ -110,7 +112,7 @@ O Configuration Manager não suporta o seguinte através do DirectAccess:
 ##  <a name="bkmk_dualboot"></a> Computadores de arranque duplo  
  O Configuration Manager não consegue gerir mais do que um sistema operativo num único computador. Se existir mais do que um sistema operativo num computador que tem de ser gerido, ajuste os métodos de deteção e instalação que são utilizados para se certificar de que o Configuration Manager de cliente é instalado apenas no sistema operativo que tem de ser geridos.  
 
-##  <a name="bkmk_IPv6"></a>Protocolo IP versão 6  
+##  <a name="bkmk_IPv6"></a> Protocolo IP versão 6  
  Para além do protocolo IP versão 4 (IPv4), o Configuration Manager suporta o protocolo IP versão 6 (IPv6) com as seguintes exceções:  
 
 |Função| Exceção no suporte de IPv6|  
