@@ -3,28 +3,29 @@ title: "Ficheiros de registo para resolução de problemas"
 titleSuffix: Configuration Manager
 description: Utilize ficheiros de registo para resolver problemas de uma hierarquia do System Center Configuration Manager.
 ms.custom: na
-ms.date: 7/03/2017
+ms.date: 02/14/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
-caps.latest.revision: "9"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: c310e23b543e8767a393ca5bf87a224a9269e359
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: b0f15b0c7cf983234f41e3f202be7d46ce4954e2
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="log-files-in-system-center-configuration-manager"></a>Ficheiros de registo no System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 No System Center Configuration Manager, os componentes de servidor do site e cliente registam informações de processo nos ficheiros de registo individuais. Pode utilizar as informações nos ficheiros de registo para o ajudar a resolver problemas que possam ocorrer na hierarquia do Configuration Manager. Por predefinição, o registo de componente de cliente e o servidor está ativado no Configuration Manager.   
 
@@ -50,7 +51,9 @@ No System Center Configuration Manager, os componentes de servidor do site e cli
 
     -   [Servidor e o local registos sistema de sites servidor](#BKMK_SiteSiteServerLog)  
 
-    -   [Ficheiros de registo de instalação de servidor do site](#BKMK_SiteInstallLog)  
+    -   [Ficheiros de registo de instalação de servidor do site](#BKMK_SiteInstallLog) 
+
+    -   [Ficheiros de registo do ponto de serviço do armazém de dados](#BKMK_DataWarehouse)
 
     -   [Ficheiros de registo do ponto de estado de contingência](#BKMK_FSPLog)  
 
@@ -74,6 +77,8 @@ No System Center Configuration Manager, os componentes de servidor do site e cli
 
     -   [Definições de compatibilidade e acesso a recursos da empresa](#BKMK_CompSettingsLog)  
 
+    -   [Acesso condicional](#BKMK_CA)
+
     -   [Consola do Configuration Manager](#BKMK_ConsoleLog)  
 
     -   [Gestão de conteúdo](#BKMK_ContentLog)  
@@ -82,7 +87,7 @@ No System Center Configuration Manager, os componentes de servidor do site e cli
 
     -   [Endpoint Protection](#BKMK_EPLog)  
 
-    -   [Extensões](#BKMK_Extensions)  
+    -   [extensões](#BKMK_Extensions)  
 
     -   [Inventário](#BKMK_InventoryLog)  
 
@@ -114,15 +119,15 @@ No System Center Configuration Manager, os componentes de servidor do site e cli
 
     -   [Servidor WSUS](#BKMK_WSUSLog)  
 
-##  <a name="BKMK_AboutLogs"></a>Sobre os ficheiros de registo do Configuration Manager  
- A maioria dos processos no Configuration Manager escrevem informações operacionais num ficheiro de registo que está dedicado a esse processo. Os ficheiros de registo são identificados pelo **. log** ou **. lo _** extensões de ficheiros. O Configuration Manager escreve num ficheiro. log até esse registo chegar ao tamanho máximo. Quando o registo está cheio, o ficheiro. log é copiado para um ficheiro com o mesmo nome mas com a extensão. lo _ e o processo ou componente continua a escrever no ficheiro. log. Quando o ficheiro. log atinge novamente o tamanho máximo, o ficheiro. lo _ é substituído e o processo é repetido. Alguns componentes criam um histórico de ficheiros de registo, acrescentando um carimbo de data e hora ao nome do ficheiro de registo e mantendo a extensão. log. Uma exceção ao tamanho máximo e a utilização do ficheiro. lo _ é o cliente para Linux e UNIX. Para obter informações sobre como o cliente para Linux e UNIX utiliza ficheiros de registo, consulte [gerir os ficheiros de registo do cliente para Linux e UNIX](#BKMK_ManageLinuxLogs) neste tópico.  
+##  <a name="BKMK_AboutLogs">Sobre os ficheiros de registo do Configuration Manager</a>  
+ A maioria dos processos no Configuration Manager escrevem informações operacionais num ficheiro de registo que está dedicado a esse processo. Os ficheiros de registo são identificados pelo **. log** ou **. lo _** extensões de ficheiros. O Configuration Manager escreve num ficheiro. log até esse registo chegar ao tamanho máximo. Quando o registo está cheio, o ficheiro. log é copiado para um ficheiro com o mesmo nome mas com a extensão. lo _ e o processo ou componente continua a escrever no ficheiro. log. Quando o ficheiro. log atinge novamente o tamanho máximo, o ficheiro. lo _ é substituído e o processo é repetido. Alguns componentes criam um histórico de ficheiros de registo, acrescentando um carimbo de data e hora ao nome do ficheiro de registo e mantendo a extensão. log. Uma exceção ao tamanho máximo e a utilização do ficheiro. lo _ é o cliente para Linux e UNIX. Para obter informações sobre como o cliente para Linux e UNIX utiliza ficheiros de registo, consulte [gerir os ficheiros de registo do cliente para Linux e UNIX](#BKMK_ManageLinuxLogs) neste artigo.  
 
  Para ver os registos, utilize a ferramenta Gestor de configuração registo Visualizador CMTrace, localizada no \\SMSSetup\\pasta Ferramentas de suporte de dados de origem do Configuration Manager. A ferramenta CMTrace é adicionada a todas as imagens de arranque que são adicionadas à biblioteca de Software.  
 
-###  <a name="BKMK_LogOptions"></a>Configurar opções de registo utilizando o Gestor de serviço do Configuration Manager  
+###  <a name="BKMK_LogOptions">Configurar opções de registo utilizando o Gestor de serviço do Configuration Manager</a>  
  No Configuration Manager, pode alterar onde estão armazenados os ficheiros de registo e pode alterar o tamanho do ficheiro de registo.  
 
- Para modificar o tamanho dos ficheiros de registo, mudar o nome e localização do ficheiro de registo ou para forçar vários componentes a escreverem num ficheiro de registo único, efetue os seguintes passos.  
+ Para modificar o tamanho dos ficheiros de registo, mudar o nome e localização do ficheiro de registo ou para forçar vários componentes a escreverem num ficheiro de registo único, efetue os seguintes passos:  
 
 #### <a name="to-modify-logging-for-a-component"></a>Para modificar o registo para um componente  
 
@@ -135,13 +140,13 @@ No System Center Configuration Manager, os componentes de servidor do site e cli
 7.  Na caixa de diálogo **Registo de Componente do Configuration Manager**, preencha as opções de configuração disponíveis para a sua seleção.  
 8.  Selecione **OK** para guardar a configuração.  
 
-###  <a name="BKMK_LogLocation"></a>Localizar registos do Configuration Manager  
+###  <a name="BKMK_LogLocation"></a> Localizar registos do Configuration Manager  
 Ficheiros de registo do Configuration Manager são armazenados em várias localizações que dependem do processo que cria o ficheiro de registo e a configuração dos sistemas de sites. Uma vez que a localização do registo num computador pode variar, utilize a função de pesquisa para encontrar os ficheiros de registo relevantes nos computadores do Configuration Manager se precisar de resolver problemas com um cenário específico.  
 
-##  <a name="BKMK_ClientLogs"></a>Registos de cliente do Configuration Manager  
+##  <a name="BKMK_ClientLogs">Registos de cliente do Configuration Manager</a>  
 As secções seguintes listam os ficheiros de registo relacionados com operações de cliente e a instalação de cliente.  
 
-###  <a name="BKMK_ClientOpLogs"></a>Operações de cliente  
+###  <a name="BKMK_ClientOpLogs">Operações de cliente</a>  
 A tabela seguinte lista os ficheiros de registo localizados no cliente do Configuration Manager.  
 
 |Nome do registo|Descrição|  
@@ -187,13 +192,13 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |PolicySdk.log|Regista atividades das interfaces SDK do sistema de políticas.|  
 |Pwrmgmt.log|Regista informações sobre a ativação ou desativação e a configuração de definições de cliente do proxy de reativação.|  
 |PwrProvider.log|Regista as atividades do fornecedor de gestão de energia (PWRInvProvider) alojado no serviço WMI. Em todas as versões suportadas do Windows, o fornecedor enumera as definições atuais nos computadores durante o inventário de hardware e aplica as definições do plano de energia.|  
-|SCClient_&lt;*domínio*\>@&lt;*username*\>_1.log|Regista a atividade no Centro de Software para o utilizador especificado no computador cliente.|  
-|SCClient_&lt;*domínio*\>@&lt;*username*\>_2.log|Regista a atividade do histórico no Centro de Software para o utilizador especificado no computador cliente.|  
+|SCClient_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade no Centro de Software para o utilizador especificado no computador cliente.|  
+|SCClient_&lt;*domain*\>@&lt;*username*\>_2.log|Regista a atividade do histórico no Centro de Software para o utilizador especificado no computador cliente.|  
 |Scheduler.log|Regista atividades de tarefas agendadas para todas as operações de cliente.|  
-|SCNotify_&lt;*domínio*\>@&lt;*username*\>_1.log|Regista a atividade para notificar os utilizadores sobre software para o utilizador especificado.|  
-|SCNotify_&lt;*domínio*\>@&lt;*username*\>_1 -&lt;*Data_Hora*>. log|Regista a informação do histórico para notificar os utilizadores sobre software para o utilizador especificado.|  
+|SCNotify_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade para notificar os utilizadores sobre software para o utilizador especificado.|  
+|SCNotify_&lt;*domain*\>@&lt;*username*\>_1-&lt;*date_time*>.log|Regista a informação do histórico para notificar os utilizadores sobre software para o utilizador especificado.|  
 |setuppolicyevaluator.log|Regista a configuração e a criação da política de inventário no WMI.|  
-|SleepAgent_&lt;*domínio*\>@SYSTEM_0.log|O ficheiro de registo principal do proxy de reativação.|  
+|SleepAgent_&lt;*domain*\>@SYSTEM_0.log|O ficheiro de registo principal do proxy de reativação.|  
 |smscliui.log|Utilizam registos de cliente do Configuration Manager no painel de controlo.|  
 |SrcUpdateMgr.log|Regista a atividade das aplicações do Windows Installer instaladas que são atualizadas com as localizações de origem do ponto de distribuição atual.|  
 |StatusAgent.log|Regista mensagens de estado que são criadas pelos componentes de cliente.|  
@@ -204,7 +209,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |wakeprxy-install.log|Regista informações de instalação quando os clientes recebem a opção de definição de cliente para ativar o proxy de reativação.|  
 |wakeprxy-uninstall.log|Regista informações sobre a desinstalação do proxy de reativação quando os clientes recebem o definição de cliente a opção para desativar o proxy de reativação, se um proxy de reativação foi anteriormente ligado.|  
 
-###  <a name="BKMK_ClientInstallLog"></a>Ficheiros de registo de instalação do cliente  
+###  <a name="BKMK_ClientInstallLog">Ficheiros de registo de instalação do cliente</a>  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a instalação do cliente do Configuration Manager.  
 
 |Nome do registo|Descrição|  
@@ -214,7 +219,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |CcmRepair.log|Regista as atividades de reparação do agente de cliente.|  
 |Client.msi.log|Os registos configuram tarefas executadas por client.msi. Pode ser utilizado para resolver problemas de instalação ou remoção de clientes.|  
 
-###  <a name="BKMK_LogFilesforLnU"></a>Cliente para Linux e UNIX  
+###  <a name="BKMK_LogFilesforLnU">Cliente para Linux e UNIX</a>  
  O cliente do Configuration Manager para Linux e UNIX regista informações nos seguintes ficheiros de registo.  
 
 > [!TIP]  
@@ -235,7 +240,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 
 -   **scxcm.log**. Para alterar o nível de registo, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere cada instância do **módulo** etiqueta para o nível de registo que pretende:  
 
-    -   ERRO: Indica problemas que necessitam da atenção  
+    -   ERROR: Indica problemas que necessitam da atenção  
 
     -   AVISO: Indica possíveis problemas para operações de cliente  
 
@@ -245,7 +250,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 
 -   **scxcmprovider.log**. Para alterar o nível de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere cada instância do **módulo** etiqueta para o nível de registo que pretende:  
 
-    -   ERRO: Indica problemas que necessitam da atenção  
+    -   ERROR: Indica problemas que necessitam da atenção  
 
     -   AVISO: Indica possíveis problemas para operações de cliente
 
@@ -253,29 +258,29 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 
 Em condições de operação normais, utilize o nível de registo de erro. Este nível de registo cria o ficheiro de registo mais pequeno. Como o nível de registo aumenta de ERROR para aviso, informações e, em seguida, para o rastreio, é criado um ficheiro de registo maior que são escritos mais dados no ficheiro.  
 
-####  <a name="BKMK_ManageLinuxLogs"></a>Gerir ficheiros de registo para o cliente Linux e UNIX  
+####  <a name="BKMK_ManageLinuxLogs"></a> Gerir ficheiros de registo para o cliente Linux e UNIX  
 O cliente para Linux e UNIX não limita o tamanho máximo dos ficheiros de registo de cliente, nem o cliente automaticamente copia os conteúdos dos respetivos ficheiros. log para outro ficheiro, tal como para um ficheiro. lo _. Se pretender controlar o tamanho máximo dos ficheiros de registo, implemente um processo para gerir os ficheiros de registo independentes do cliente do Configuration Manager para Linux e UNIX.  
 
 Por exemplo, pode utilizar o comando padrão Linux e UNIX **logrotate** para gerir o tamanho e a rotação dos ficheiros de registo de cliente. O cliente do Configuration Manager para Linux e UNIX tem uma interface que permite **logrotate** sinalizar o cliente quando a rotação do registo é concluída, por isso, o cliente pode retomar o registo para o ficheiro de registo.  
 
 Para obter informações sobre o comando **logrotate**, veja a documentação das distribuições de Linux e UNIX que utiliza.  
 
-###  <a name="BKMK_LogfilesforMac"></a>Cliente para computadores Mac  
+###  <a name="BKMK_LogfilesforMac">Cliente para computadores Mac</a>  
 O cliente do Configuration Manager para computadores Mac regista as informações nos seguintes ficheiros de registo.  
 
 |Nome do registo|Detalhes|  
 |--------------|-------------|  
-|CCMClient -&lt;*Data_Hora*>. log|Regista atividades relacionadas com as operações de cliente Mac, incluindo gestão de aplicações, inventário e registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta /Library/Application Support/Microsoft/CCM/Logs no computador Mac.|  
-|CCMAgent -&lt;*Data_Hora*>. log|Regista informações relacionadas com operações de cliente, incluindo o início de sessão do utilizador e as operações de terminar sessão e atividade do computador Mac.<br /><br /> Este ficheiro de registo é na pasta ~/Library/Logs no computador Mac.|  
-|CCMNotifications -&lt;*Data_Hora*>. log|Regista atividades relacionadas com as notificações do Configuration Manager apresentadas no computador Mac.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
-|CCMPrefPane -&lt;*Data_Hora*>. log|Regista atividades relacionadas com a caixa de diálogo de preferências do Configuration Manager no computador Mac, que inclui o estado geral e o registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
+|CCMClient-&lt;*date_time*>.log|Regista atividades relacionadas com as operações de cliente Mac, incluindo gestão de aplicações, inventário e registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta /Library/Application Support/Microsoft/CCM/Logs no computador Mac.|  
+|CCMAgent-&lt;*date_time*>.log|Regista informações relacionadas com operações de cliente, incluindo o início de sessão do utilizador e as operações de terminar sessão e atividade do computador Mac.<br /><br /> Este ficheiro de registo é na pasta ~/Library/Logs no computador Mac.|  
+|CCMNotifications-&lt;*date_time*>.log|Regista atividades relacionadas com as notificações do Configuration Manager apresentadas no computador Mac.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
+|CCMPrefPane-&lt;*date_time*>.log|Regista atividades relacionadas com a caixa de diálogo de preferências do Configuration Manager no computador Mac, que inclui o estado geral e o registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
 
 O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista a comunicação entre computadores Mac e o ponto de gestão que esteja configurado para dispositivos móveis e computadores Mac.  
 
-##  <a name="BKMK_ServerLogs"></a>Ficheiros de registo do servidor de site do Configuration Manager  
+##  <a name="BKMK_ServerLogs">Ficheiros de registo do servidor de site do Configuration Manager</a>  
  As secções seguintes listam os ficheiros de registo que estão no servidor do site ou que estão relacionados com funções de sistema de sites específicas.  
 
-###  <a name="BKMK_SiteSiteServerLog"></a>Servidor e o local registos sistema de sites servidor  
+###  <a name="BKMK_SiteSiteServerLog">Servidor e o local registos sistema de sites servidor</a>  
  A tabela seguinte lista os ficheiros de registo que se encontrem no servidor de site do Configuration Manager e servidores de sistema de sites.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -350,7 +355,7 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
 |statmgr.log|Regista a escrita de todas as mensagens de estado na base de dados.|Servidor do site|  
 |swmproc.log|Regista o processamento de ficheiros e definições de medição.|Servidor do site|  
 
-###  <a name="BKMK_SiteInstallLog"></a>Ficheiros de registo de instalação de servidor do site  
+###  <a name="BKMK_SiteInstallLog"></a> Ficheiros de registo de instalação de servidor do site  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a instalação do site.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -361,7 +366,16 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
 |SMS_BOOTSTRAP.log|Regista informações sobre o progresso do início do processo de instalação do site secundário. Os detalhes do processo de configuração estão contidos no ficheiro ConfigMgrSetup.log.|Servidor do Site|  
 |smstsvc.log|Regista informações sobre a instalação, utilização e remoção de um serviço do Windows que é utilizado para testar a conectividade de rede e as permissões entre servidores, utilizando a conta de computador do servidor que inicia a ligação.|Servidor do site e o servidor do sistema de sites|  
 
-###  <a name="BKMK_FSPLog"></a>Ficheiros de registo do ponto de estado de contingência  
+###  <a name="BKMK_DataWarehouse"></a> Ficheiros de registo do ponto de serviço do armazém de dados  
+ A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de serviço do armazém de dados.  
+
+|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|--------------|-----------------|----------------------------|  
+|DWSSMSI.log|Regista mensagens geradas pela instalação de um ponto de serviço do armazém de dados.|Servidor do sistema de sites|  
+|DWSSSetup.log|Regista mensagens geradas pela instalação de um ponto de serviço do armazém de dados.|Servidor do sistema de sites|  
+|Microsoft.ConfigMgrDataWarehouse.log|Regista informações sobre a sincronização de dados entre a base de dados do site e a base de dados do armazém de dados.|Servidor do sistema de sites|  
+
+###  <a name="BKMK_FSPLog"></a> Ficheiros de registo do ponto de estado de contingência  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de estado de contingência.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -370,7 +384,7 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
 |fspMSI.log|Regista mensagens geradas pela instalação de um ponto de estado de contingência.|Servidor do sistema de sites|  
 |fspmgr.log|Regista atividades da função de sistema de sites do ponto de estado de contingência.|Servidor do sistema de sites|  
 
-###  <a name="BKMK_MPLog"></a>Ficheiros de registo do ponto de gestão  
+###  <a name="BKMK_MPLog"></a> Ficheiros de registo do ponto de gestão  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de gestão.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -389,13 +403,13 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
 |MP_Retry.log|Processos de repetição de inventário de hardware de registos.|Servidor do sistema de sites|  
 |MP_Sinv.log|Regista detalhes sobre a conversão de registos de inventário de software XML a partir de clientes e a cópia desses ficheiros para o servidor do site.|Servidor do sistema de sites|  
 |MP_SinvCollFile.log|Regista detalhes sobre a recolha de ficheiros.|Servidor do sistema de sites|  
-|MP_Status.log|Regista detalhes sobre a conversão de ficheiros de mensagens de estado XML.svf a partir de clientes e a cópia desses ficheiros para o servidor do site.|Servidor do sistema de sites|  
+|MP_Status.log|Regista detalhes sobre a conversão de ficheiros de mensagens de estado XML.svf a partir de clientes e a cópia desses ficheiros para o servidor do site.|Servidor do sistema de sites|
 |mpcontrol.log|Regista o registo do ponto de gestão com o WINS. Regista a disponibilidade do ponto de gestão a cada 10 minutos.|Servidor do site|  
 |mpfdm.log|Regista as ações do componente do ponto de gestão que move ficheiros de cliente para a pasta A RECEBER correspondente no servidor do site.|Servidor do sistema de sites|  
 |mpMSI.log|Regista detalhes sobre a gestão de instalação do ponto.|Servidor do site|  
 |MPSetup.log|Regista o processo do wrapper de instalação do ponto de gestão.|Servidor do site|  
 
-###  <a name="BKMK_SUPLog"></a>Ficheiros de registo do ponto de atualização de software  
+###  <a name="BKMK_SUPLog"></a> Ficheiros de registo do ponto de atualização de software  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de atualização de software.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -409,10 +423,10 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
 |wsyncmgr.log|Regista detalhes sobre o processo de sincronização de atualizações de software.|Servidor do sistema de sites|  
 |WUSSyncXML.log|Regista detalhes sobre a ferramenta de inventário para o Microsoft Updates processo de sincronização.|Computador cliente configurado como o anfitrião de sincronização da ferramenta de inventário Updates da Microsoft|  
 
-##  <a name="BKMK_FunctionLogs"></a>Ficheiros de registo para funcionalidade do Configuration Manager  
+##  <a name="BKMK_FunctionLogs"></a> Ficheiros de registo para funcionalidade do Configuration Manager  
  A lista de secções seguintes ficheiros relacionados com funções do Gestor de configuração de registo.  
 
-###  <a name="BKMK_AppManageLog"></a>Gestão de aplicações  
+###  <a name="BKMK_AppManageLog"></a> Gestão de aplicações  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a gestão de aplicações.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -441,7 +455,7 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
 |colleval.log|Regista detalhes sobre o momento de criação, alteração e eliminação das coleções pelo Avaliador de Coleção.|Servidor do site|  
 |execmgr.log|Regista os detalhes sobre pacotes e sequências de tarefas que são executados.|Cliente|  
 
-###  <a name="BKMK_AILog"></a>Do Asset intelligence  
+###  <a name="BKMK_AILog"></a> Do Asset intelligence  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o Asset Intelligence.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -464,7 +478,7 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
 |smssqlbkup.log|Regista a saída do processo de cópia de segurança de base de dados de site quando o SQL Server é instalado num servidor que não seja o servidor do site.|Servidor da base de dados do site|  
 |Smswriter.log|Regista informações sobre o estado do escritor de VSS do Configuration Manager que é utilizado pelo processo de cópia de segurança.|Servidor do site|  
 
-###  <a name="BKMK_CertificateEnrollment"></a>Inscrição de certificados  
+###  <a name="BKMK_CertificateEnrollment"></a> Inscrição de certificados  
  A tabela seguinte lista os ficheiros de registo do Configuration Manager que contêm informações relacionadas com a inscrição de certificados. Inscrição de certificado utiliza o ponto de registo de certificados e o módulo de política do Configuration Manager no servidor que está a executar o serviço de inscrição de dispositivos de rede.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -486,7 +500,7 @@ O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista 
     > [!NOTE]  
     >  Este ficheiro está localizado na pasta do perfil da conta do Serviço de Inscrição de Dispositivos de Rede, por exemplo, em C:\Users\SCEPSvc. Para obter mais informações sobre como ativar o registo do Serviço de Inscrição de Dispositivos de Rede, veja a secção [Ativar Registo](http://go.microsoft.com/fwlink/?LinkId=320576) no Serviço de Inscrição de Dispositivos de Rede (NDES) do artigo dos Serviços de Certificados do Active Directory (AD CS) da Wiki da TechNet.  
 
-###  <a name="BKMK_BGB"></a>Notificação do cliente  
+###  <a name="BKMK_BGB"></a> Notificação do cliente  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a notificação do cliente.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -506,18 +520,18 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |-|-|-|
 |Nome do registo|Descrição|Computador com o ficheiro de registo|
 |CloudMgr.log|Regista detalhes sobre como implementar o serviço de gateway de gestão de nuvem, o estado de interrupção contínua do serviço e a utilizar os dados associados ao serviço.<br>Pode configurar o nível de registo de editar o registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging nível**|O *installdir* pasta no servidor de site primário ou ACs.|
-|CMGSetup.log ou CMG -*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Regista detalhes sobre a fase de 2nd da implementação de gateway de gestão da nuvem (implementação local no Azure)<br>Pode configurar o nível de registo utilizando a definição **nível de rastreio** (**informações** (predefinida), **verboso**, **erro**) no **configuração de serviços do Azure portal\Cloud** separador.|O **%approot%\logs** no seu servidor do Azure ou a pasta SMS/Logs no servidor do sistema de sites|
+|CMGSetup.log ou CMG -*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Regista detalhes sobre a segunda fase da implementação de gateway de gestão da nuvem (implementação local no Azure)<br>Pode configurar o nível de registo utilizando a definição **nível de rastreio** (**informações** (predefinida), **verboso**, **erro**) no **configuração de serviços do Azure portal\Cloud** separador.|O **%approot%\logs** no seu servidor do Azure ou a pasta SMS/Logs no servidor do sistema de sites|
 |CMGHttpHandler.log ou CMG -*RoleInstanceID*-CMGHttpHandler.log<sup>1</sup>|Regista detalhes sobre o enlace de processador de http de gateway de gestão do cloud com serviços de informação de Internet no Azure<br>Pode configurar o nível de registo utilizando a definição **nível de rastreio** (**informações** (predefinida), **verboso**, **erro**) no **configuração de serviços do Azure portal\Cloud** separador.|O **%approot%\logs** no seu servidor do Azure ou a pasta SMS/Logs no servidor do sistema de sites|
 |CMGService.log ou CMG -*RoleInstanceID*-CMGService.log<sup>1</sup>|Regista detalhes sobre o componente de núcleo de serviço de gateway de gestão do cloud no Azure<br>Pode configurar o nível de registo utilizando a definição **nível de rastreio** (**informações** (predefinida), **verboso**, **erro**) no **configuração de serviços do Azure portal\Cloud** separador.|O **%approot%\logs** no seu servidor do Azure ou a pasta SMS/Logs no servidor do sistema de sites|
 |SMS_Cloud_ProxyConnector.log|Regista detalhes sobre como configurar ligações entre o serviço de gateway de gestão de nuvem e a ligação de gateway de gestão de nuvem ponto.|Servidor do sistema de sites|
 
-<sup>1</sup> estes são os ficheiros de registo do Configuration Manager local na nuvem a sincronização de Gestor do serviço de armazenamento do Azure a cada 5 minutos. O gateway de gestão de nuvem transmite os registos para o armazenamento do Azure a cada 5 minutos. por isso, o atraso máximo será de 10 minutos. Comutadores verbosos irão afetar os registos de locais e remotos.
+<sup>1</sup> estes são os ficheiros de registo do Configuration Manager local na nuvem a sincronização de Gestor do serviço de armazenamento do Azure a cada 5 minutos. O gateway de gestão de nuvem pushes registos para o armazenamento do Azure a cada 5 minutos. para que o máximo de atraso é de 10 minutos. Comutadores verbosos afetam os registos de locais e remotos.
 
 - Para resolver problemas com implementações, utilize **CloudMgr.log** e **CMGSetup.log**
 - Para resolver problemas com o estado de funcionamento do serviço, utilize **CMGService.log** e **SMS_Cloud_ProxyConnector.log**.
 - Para resolver problemas com o tráfego de cliente, utilize **CMGHttpHandler.log**, **CMGService.log**, e **SMS_Cloud_ProxyConnector.log**.
 
-###  <a name="BKMK_CompSettingsLog"></a>Definições de compatibilidade e acesso a recursos da empresa  
+###  <a name="BKMK_CompSettingsLog"></a> Definições de compatibilidade e acesso a recursos da empresa  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com as definições de compatibilidade e o acesso a recursos da empresa.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -528,7 +542,20 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |DCMReporting.log|Regista informações sobre os relatórios de resultados da plataforma de política em mensagens de estado para itens de configuração.|Cliente|  
 |DcmWmiProvider.log|Regista informações sobre a leitura de synclets de itens de configuração a partir da WMI.|Cliente|  
 
-###  <a name="BKMK_ConsoleLog"></a>Consola do Configuration Manager  
+###  <a name="BKMK_CA"></a> Acesso condicional
+ A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com acesso condicional.  
+
+|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|--------------|-----------------|----------------------------|  
+|ADALOperationProvider.log|Regista detalhes sobre a aquisição do token do AAD.|Cliente|  
+|cloudusersync.log|Regista a ativação de licenças para os utilizadores.|Computador com o ponto de ligação de serviço|  
+|ComplRelayAgent.log|Recebe o estado de conformidade geral de DCM, adquirir token de pacote de gestão, adquirir o token do AAD e reporta a conformidade para o Intune (o serviço de reencaminhamento de AC).|Cliente|  
+|DcmWmiProvider.log|Regista informações sobre a leitura de synclets de itens de configuração a partir da WMI.|Cliente|  
+|dmpdownloader.log|Regista detalhes sobre transferências do Microsoft Intune.|Computador com o ponto de ligação de serviço|
+|dmpuploader.log|Detalhe de registos relacionados com o carregamento de alterações de base de dados para o Microsoft Intune.|Computador com o ponto de ligação de serviço|   
+|MP_Token.log|Pedidos de token de registos de clientes.|Servidor do sistema de sites|  
+
+###  <a name="BKMK_ConsoleLog"></a> Consola do Configuration Manager  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a consola do Configuration Manager.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -542,7 +569,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
-|Clouddp-<nomedoserviço>.log&lt;guid\>. log|Regista os detalhes de um ponto de distribuição baseado na nuvem específico, incluindo informações sobre armazenamento e acesso ao conteúdo.|Servidor do sistema de sites|  
+|CloudDP-&lt;guid\>.log|Regista os detalhes de um ponto de distribuição baseado na nuvem específico, incluindo informações sobre armazenamento e acesso ao conteúdo.|Servidor do sistema de sites|  
 |CloudMgr.log|Regista detalhes sobre o aprovisionamento de conteúdo, recolha as ações iniciadas pelo administrador para interromper ou iniciar o serviço em nuvem que executa um ponto de distribuição baseados na nuvem, armazenamento e estatísticas de largura de banda.|Servidor do sistema de sites|  
 |DataTransferService.log|Regista todas as comunicações BITS para acesso a políticas ou pacotes. Este registo também é utilizado para gestão de conteúdos por pontos de distribuição de solicitação.|Computador que está configurado como um ponto de distribuição de solicitação|  
 |PullDP.log|Regista os detalhes sobre o conteúdo que o ponto de distribuição de extração transfere dos pontos de distribuição de origem.|Computador que está configurado como um ponto de distribuição de solicitação|  
@@ -550,8 +577,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |SMSdpmon.log|Regista detalhes sobre o estado de funcionamento do ponto de distribuição monitorização tarefas agendadas que estão configuradas num ponto de distribuição.|Função do sistema de sites|  
 |smsdpprov.log|Regista os detalhes sobre a extração de ficheiros comprimidos recebidos de um site primário. Este registo é gerado pelo fornecedor WMI do ponto de distribuição remoto.|Computador de ponto de distribuição que não seja colocalizado com o servidor do site|  
 
-
-###  <a name="BKMK_DiscoveryLog"></a>Deteção  
+###  <a name="BKMK_DiscoveryLog"></a> Deteção  
 A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a deteção.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -574,7 +600,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |EPMgr.log|Monitoriza o estado da função do sistema de sites do Endpoint Protection.|Servidor do sistema de sites|  
 |EPSetup.log|Fornece informações sobre a instalação da função de sistema de sites do Endpoint Protection.|Servidor do sistema de sites|  
 
-###  <a name="BKMK_Extensions"></a>Extensões  
+###  <a name="BKMK_Extensions"></a>extensões  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com extensões.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -583,7 +609,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |FeatureExtensionInstaller.log|Regista informações sobre a instalação e remoção de extensões individuais quando estão ativadas ou desativadas na consola do Configuration Manager.|Computador que executa a consola do Configuration Manager|  
 |SmsAdminUI.log|Regista a atividade de consola do Configuration Manager.|Computador que executa a consola do Configuration Manager|  
 
-###  <a name="BKMK_InventoryLog"></a>Inventário  
+###  <a name="BKMK_InventoryLog"></a> Inventário  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o processamento de dados de inventário.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -592,24 +618,24 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |invproc.log|Regista o reencaminhamento de ficheiros MIF de um site secundário para o seu site principal.|Servidor do Site Secundário|  
 |sinvproc.log|Regista informações sobre o processamento de dados de inventário de software para a base de dados do site.|Servidor do site|  
 
-###  <a name="BKMK_MeteringLog"></a>Medição  
+###  <a name="BKMK_MeteringLog"></a> Medição  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a medição.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
 |mtrmgr.log|Monitoriza todos os processos de medição de software.|Servidor do site|  
 
-###  <a name="BKMK_MigrationLog"></a>Migração  
+###  <a name="BKMK_MigrationLog"></a> Migração  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a migração.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
 |migmctrl.log|Regista informações sobre ações de migração que envolvam tarefas de migração, pontos de distribuição partilhados e atualizações de pontos de distribuição.|Site de nível superior na hierarquia do Configuration Manager e cada site primário subordinado.<br /><br /> Numa hierarquia com vários sites primários, utilize o ficheiro de registo criado no site de administração central.|  
 
-###  <a name="BKMK_MDMLog"></a>Dispositivos móveis  
+###  <a name="BKMK_MDMLog"></a> Dispositivos móveis  
  As secções seguintes listam os ficheiros de registo que contêm informações relacionadas com a gestão de dispositivos móveis.  
 
-####  <a name="BKMK_EnrollmentLog"></a>Inscrição  
+####  <a name="BKMK_EnrollmentLog"></a> Inscrição  
  A tabela seguinte lista registos que contêm informações relacionadas com a inscrição de dispositivos móveis.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -623,14 +649,14 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |enrollmentservice.log|Regista a comunicação entre um ponto proxy de registo e um ponto de registo.|Servidor do sistema de sites|  
 |SMS_DM.log|Regista a comunicação entre dispositivos móveis, computadores Mac e o ponto de gestão ativado para dispositivos móveis e computadores Mac.|Servidor do sistema de sites|  
 
-####  <a name="BKMK_ExchSrvLog"></a>Conector do Exchange Server  
+####  <a name="BKMK_ExchSrvLog"></a> Conector do Exchange Server  
  Os seguintes registos contêm informações relacionadas com o conector do Exchange Server.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
 |easdisc.log|Regista as atividades e o estado do conector do Exchange Server.|Servidor do site|  
 
-####  <a name="BKMK_MDLegLog"></a>Legado do dispositivo móvel  
+####  <a name="BKMK_MDLegLog"></a> Legado do dispositivo móvel  
  A tabela seguinte lista registos que contêm informações relacionadas com o cliente legado do dispositivo móvel.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -654,7 +680,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |DmSvc.log|Regista a comunicação de cliente dos clientes legados de dispositivos móveis com um ponto de gestão ativado para dispositivos móveis.|Cliente|  
 |FspIsapi.log|Regista detalhes sobre comunicações com o ponto de estado de contingência a partir de clientes legados de dispositivos móveis e de computadores cliente.|Servidor do sistema de sites|  
 
-###  <a name="BKMK_OSDLog"></a>Implementação do sistema operativo  
+###  <a name="BKMK_OSDLog"></a> Implementação do sistema operativo  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a implementação do sistema operativo.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -714,7 +740,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |srsrpMSI.log|Regista resultados detalhados do processo de instalação do ponto do Reporting Services a partir da saída MSI.|Servidor do sistema de sites|  
 |srsrpsetup.log|Regista resultados do processo de instalação do ponto do Reporting Services.|Servidor do sistema de sites|  
 
-###  <a name="BKMK_RBALog"></a>Administração baseada em funções  
+###  <a name="BKMK_RBALog"></a> Administração baseada em funções  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a gestão da administração baseada em funções.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -722,7 +748,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |hman.log|Regista informações sobre as alterações de configuração do site e a publicação de informações do site para serviços de domínio do Active Directory.|Servidor do site|  
 |SMSProv.log|Regista o acesso do fornecedor WMI à base de dados do site.|Computador com o Fornecedor de SMS|  
 
-###  <a name="BKMK_WITLog"></a>Ponto de ligação de serviço  
+###  <a name="BKMK_WITLog"></a> Ponto de ligação de serviço  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de ligação de serviço.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
@@ -734,7 +760,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |ddm.log|Regista atividades do gestor de dados de deteção.|Servidor do site|  
 |Distmgr.log|Regista detalhes sobre pedidos de distribuição de conteúdo.|Servidor de site de nível superior|  
 |Dmpdownloader.log|Regista detalhes sobre transferências do Microsoft Intune.|Computador com o ponto de ligação de serviço|  
-|Dmpuploader.log|Regista detalhes relacionados para carregamento de alterações de base de dados para o Microsoft Intune.|Computador com o ponto de ligação de serviço|  
+|Dmpuploader.log|Detalhe de registos relacionados com o carregamento de alterações de base de dados para o Microsoft Intune.|Computador com o ponto de ligação de serviço|  
 |hman.log|Regista informações sobre o reencaminhamento de mensagens.|Servidor do site|  
 |objreplmgr.log|Regista o processamento de política e de atribuição.|Servidor do site principal|  
 |PolicyPV.log|Regista a criação de política de todas as políticas.|Servidor do site|  
@@ -768,11 +794,11 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |wsyncmgr.log|Regista detalhes sobre o software de atualização do processo de sincronização.|Servidor do site|  
 |WUAHandler.log|Regista detalhes sobre o Windows Update Agent no cliente quando este procura atualizações de software.|Cliente|  
 
-###  <a name="BKMK_WOLLog"></a>Reativação por LAN  
+###  <a name="BKMK_WOLLog"></a> Reativação por LAN  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a utilização de reativação por LAN.  
 
 > [!NOTE]  
->  Quando completar Wake On LAN utilizando um proxy de reativação, esta atividade é registada no cliente. Por exemplo, veja CcmExec.log and SleepAgent_ <*domínio* \> @SYSTEM_0.log no [operações de cliente](#BKMK_ClientOpLogs) secção deste tópico.  
+>  Quando completar Wake On LAN utilizando um proxy de reativação, esta atividade é registada no cliente. Por exemplo, veja CcmExec.log and SleepAgent_ <*domínio* \> @SYSTEM_0.log no [operações de cliente](#BKMK_ClientOpLogs) secção deste artigo.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
@@ -792,7 +818,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |ScanAgent.log|Regista detalhes sobre pedidos de análise de atualizações de software, a localização do WSUS e ações relacionadas.|Cliente|  
 |SdmAgent.log|Regista detalhes sobre o controlo da remediação e conformidade. No entanto, o ficheiro de registo de atualizações de software, UpdatesHandler.log, fornece mais detalhes informativos sobre a instalação de atualizações de software que são necessárias para compatibilidade.<br /><br /> Este ficheiro de registo é partilhado com definições de compatibilidade.|Cliente|  
 |ServiceWindowManager.log|Regista detalhes sobre a avaliação de janelas de manutenção.|Cliente|  
-|Setupact.log|Ficheiro de registo primário para a maioria dos erros ocorridos durante o processo de instalação do Windows. O ficheiro de registo está localizado em % windir %\$Windows.~BT\sources\panther pasta.|Cliente|
+|setupact.log|Ficheiro de registo primário para a maioria dos erros ocorridos durante o processo de instalação do Windows. O ficheiro de registo está localizado em % windir %\$Windows.~BT\sources\panther pasta.|Cliente|
 |SmsWusHandler.log|Regista detalhes sobre o processo de análise da Ferramenta de Inventário das Atualizações da Microsoft.|Cliente|  
 |StateMessage.log|Regista detalhes sobre as mensagens de estado de atualizações de software que são criadas e enviadas para o ponto de gestão.|Cliente|  
 |SUPSetup.log|Regista detalhes sobre a instalação do ponto de atualização de software. Quando a instalação de ponto de atualização de software estiver concluída, é escrito **Instalação bem-sucedida** neste ficheiro de registo.|Servidor do sistema de sites|  
@@ -804,14 +830,14 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |wsyncmgr.log|Regista detalhes sobre o software de atualização do processo de sincronização.|Servidor do site|  
 |WUAHandler.log|Regista detalhes sobre o Windows Update Agent no cliente quando este procura atualizações de software.|Cliente|  
 
-###  <a name="BKMK_WULog"></a>Agente do Windows Update  
+###  <a name="BKMK_WULog"></a> Agente do Windows Update  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o Windows Update Agent.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
 |--------------|-----------------|----------------------------|  
 |WindowsUpdate.log|Regista detalhes sobre quando o Windows Update Agent liga ao servidor WSUS e obtém as atualizações de software para avaliação de compatibilidade, e se existem atualizações para os componentes do agente.|Cliente|  
 
-###  <a name="BKMK_WSUSLog"></a>Servidor WSUS  
+###  <a name="BKMK_WSUSLog"></a> Servidor WSUS  
  A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o servidor WSUS.  
 
 |Nome do registo|Descrição|Computador com o ficheiro de registo|  
