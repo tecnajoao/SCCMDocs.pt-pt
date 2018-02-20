@@ -7,740 +7,807 @@ ms.date: 01/05/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
-caps.latest.revision: "15"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 230d608c9ebc8126d7d8e18f7211875a2155bb7b
-ms.sourcegitcommit: ac9268e31440ffe91b133c2ba8405d885248d404
+ms.openlocfilehash: dddfde242a67a0b4a9311c0fb6f0b2f0e6742cc2
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramo atual)*
+Aplica-se a: System Center Configuration Manager (ramo atual)*
 
-Gerir todas as definições de cliente na consola do Configuration Manager do **as definições de cliente** no nó de **administração** área de trabalho. O Configuration Manager inclui um conjunto de predefinições. Quando alterar as predefinições de cliente, estas definições são aplicadas a todos os clientes na hierarquia. Também pode configurar as definições de cliente personalizadas, que substituem as predefinições de cliente quando atribua estas definições a coleções. Para obter mais informações, consulte [como configurar as definições de cliente](../../../core/clients/deploy/configure-client-settings.md).  
+Gerir todas as definições de cliente na consola do Configuration Manager do **as definições de cliente** no nó de **administração** área de trabalho. O Configuration Manager inclui um conjunto de predefinições. Quando alterar as predefinições de cliente, estas definições são aplicadas a todos os clientes na hierarquia. Também pode configurar as definições de cliente personalizadas, que substituem as predefinições de cliente quando atribuí-las a coleções. Para obter mais informações, consulte [como configurar as definições de cliente](../../../core/clients/deploy/configure-client-settings.md).
+
+As secções seguintes descrevem as definições e as opções mais detalhadamente.  
  
 
-## <a name="background-intelligent-transfer-service"></a>Serviço de transferência inteligente em segundo plano  
+## <a name="background-intelligent-transfer-service-bits"></a>Serviço de transferência inteligente em segundo plano (BITS)  
 
--   **Limitar a largura de banda de rede máxima para transferências BITS em segundo plano**   </br>
-   Quando esta opção é **Sim**, os clientes utilizam a limitação de largura de banda do BITS. Para configurar outras definições, este grupo, tem de ativar esta definição. 
+### <a name="limit-the-maximum-network-bandwidth-for-bits-background-transfers"></a>Limitar a largura de banda de rede máxima para transferências de fundo do BITS
+Quando esta opção é **Sim**, os clientes utilizam a limitação de largura de banda do BITS. Para configurar outras definições, este grupo, tem de ativar esta definição. 
 
--   **Hora de início da janela de limitação**   </br>
-   Especifique a hora de início local para a janela de limitação do BITS.  
+### <a name="throttling-window-start-time"></a>Hora de início da janela de limitação
+Especifique a hora de início local para a janela de limitação do BITS.  
 
--   **Hora de fim da janela de limitação**   </br>
-   Especifique a hora de fim local para a janela de limitação do BITS. Se igual a **hora de início da janela de limitação**, limitação do BITS é sempre ativado.  
+### <a name="throttling-window-end-time"></a>Hora de fim da janela de limitação
+Especifique a hora de fim local para a janela de limitação do BITS. Se a hora de fim é igual do **hora de início da janela de limitação**, limitação do BITS é sempre ativado.  
 
--   **Velocidade máxima de transferência durante a janela de limitação (Kbps)** </br>
-    Especifica a velocidade máxima de transferência que os clientes podem utilizar durante a janela.  
+### <a name="maximum-transfer-rate-during-throttling-window-kbps"></a>Velocidade máxima de transferência durante a janela de limitação (Kbps)
+Especifique a velocidade máxima de transferência que os clientes podem utilizar durante a janela.  
 
--   **Permitir transferências BITS fora da janela de limitação**   </br>
-   Permitir aos clientes utilizar definições de BITS separadas fora da janela especificada.  
+### <a name="allow-bits-downloads-outside-the-throttling-window"></a>Permitir transferências BITS fora da janela de limitação
+Permitir aos clientes utilizar definições de BITS separadas fora da janela especificada.  
 
--   **Velocidade máxima de transferência fora da janela de limitação (Kbps)**   </br>
-   Especifique a velocidade máxima de transferência que os clientes utilizam fora do janela de limitação do BITS.  
+### <a name="maximum-transfer-rate-outside-the-throttling-window-kbps"></a>Velocidade máxima de transferência fora da janela de limitação (Kbps)
+Especifique a velocidade máxima de transferência que os clientes podem utilizar fora do janela de limitação do BITS.  
 
 
 
 ## <a name="client-cache-settings"></a>Definições de cache do cliente
 
-- **Configurar o BranchCache** </br>
-  Utilize esta definição para configurar o computador cliente para [Windows BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Para permitir a colocação em cache de BranchCache no cliente, defina **ativar BranchCache** para **Sim**.
+### <a name="configure-branchcache"></a>Configurar o BranchCache
+Configurar o computador cliente para [Windows BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Para permitir a colocação em cache de BranchCache no cliente, defina **ativar BranchCache** para **Sim**.
 
-    - **Ativar o BranchCache** </br>
+- **Ativar o BranchCache** </br>
     Permite que o BranchCache nos computadores cliente.
 
-    - **Tamanho máximo da cache do BranchCache (percentagem do disco)** </br>
+- **Tamanho máximo da cache do BranchCache (percentagem do disco)** </br>
     A percentagem do disco que permitem o BranchCache utilizar. 
 
-- **Configurar o tamanho da cache do cliente** </br>
-  A cache do cliente do Configuration Manager em computadores Windows armazena ficheiros temporários utilizados para instalar aplicações e programas. Se esta opção é **não**, o tamanho predefinido é 5,120 MB.</br>
-    Escolha **Sim**, em seguida, especifique:
-    - **Tamanho máximo da cache (MB)**
-    - **Tamanho máximo da cache (percentagem do disco)** </br>
-    Expande o tamanho da cache do cliente para o tamanho máximo em megabytes (MB) ou a percentagem do disco, *que for menor*. 
+### <a name="configure-client-cache-size"></a>Configurar o tamanho da cache do cliente
+A cache do cliente do Configuration Manager em computadores Windows armazena ficheiros temporários utilizados para instalar aplicações e programas. Se esta opção estiver definida como **não**, o tamanho predefinido é 5,120 MB.
 
-- **Ativar cliente do Configuration Manager no SO completo para partilhar conteúdo** </br>
-    Permite [elemento cache](/sccm/core/plan-design/hierarchy/client-peer-cache) para clientes do Configuration Manager. Escolha **Sim**, em seguida, especifique as informações de porta que o cliente comunica com o computador de ponto a ponto. 
-    - **Porta para difusão de rede inicial** (predefinida 8004)
-    - **Porta para transferência do conteúdo de elemento de rede** (8003 predefinida) </br>
-    O Configuration Manager configura automaticamente regras de Firewall do Windows para permitir que este tráfego. Se utilizar uma firewall diferente, tem de configurar manualmente as regras para permitir que este tráfego.
+Se optar por **Sim**, em seguida, especifique:
+- **Tamanho máximo da cache (MB)**
+- **Tamanho máximo da cache (percentagem do disco)** </br>
+Expande o tamanho da cache do cliente para o tamanho máximo em megabytes (MB) ou a percentagem do disco, o que for menor. 
+
+### <a name="enable-configuration-manager-client-in-full-os-to-share-content"></a>Ativar cliente do Configuration Manager no SO completo para partilhar conteúdo
+Permite [elemento cache](/sccm/core/plan-design/hierarchy/client-peer-cache) para clientes do Configuration Manager. Escolha **Sim**e, em seguida, especifique a porta através do qual o cliente comunica com o computador de ponto a ponto. 
+- **Porta para difusão de rede inicial** (predefinida 8004)
+- **Porta para transferência do conteúdo de elemento de rede** (8003 predefinida) </br>
+O Configuration Manager configura automaticamente regras de Firewall do Windows para permitir que este tráfego. Se utilizar uma firewall diferente, tem de configurar manualmente as regras para permitir que este tráfego.
 
 
 
 
 ## <a name="client-policy"></a>Política do cliente  
 
--   **Intervalo de consulta da política de cliente (minutos)**  </br>
-     Especifica a frequência os seguintes clientes do Configuration Manager transferirem a política de cliente:  
-      -   Computadores Windows (por exemplo, ambientes de trabalho, servidores, computadores portáteis)  
-      -   Dispositivos móveis que inscreve do Configuration Manager  
-      -   Computadores Mac  
-      -   Computadores com o Linux ou UNIX  
+### <a name="client-policy-polling-interval-minutes"></a>Intervalo de consulta da política de cliente (minutos)
 
--   **Ativar política de utilizador nos clientes**   </br>
-   Quando definir esta opção **Sim**e utilizar [deteção de utilizadores](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser), em seguida, os clientes recebem aplicações e programas direcionadas para o utilizador com sessão iniciada.  
+Especifica a frequência os seguintes clientes do Configuration Manager transferirem a política de cliente:
+-   Computadores Windows (por exemplo, ambientes de trabalho, servidores, computadores portáteis)  
+-   Dispositivos móveis que inscreve do Configuration Manager  
+-   Computadores Mac  
+-   Computadores com o Linux ou UNIX  
 
-    O catálogo de aplicações recebe a lista do software disponível para utilizadores do servidor do site. Deste modo, esta definição não tem de ser **Sim** para os utilizadores possam visualizar e pedir aplicações a partir do catálogo de aplicações. Se esta definição é **não**, seguintes comportamentos não funcionam quando os utilizadores utilizam o catálogo de aplicações:  
+### <a name="enable-user-policy-on-clients"></a>Ativar política de utilizador nos clientes
 
-      -   Os utilizadores não podem instalar as aplicações que veem no Catálogo de Aplicações.  
+Quando definir esta opção **Sim**e utilizar [deteção de utilizadores](../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutUser), em seguida, os clientes recebem aplicações e programas direcionadas para o utilizador com sessão iniciada.  
 
-      -   Os utilizadores veem notificações sobre os seus pedidos de aprovação de aplicações. Em vez disso, devem atualizar o Catálogo de Aplicações e verificar o estado de aprovação.  
+O catálogo de aplicações recebe a lista do software disponível para utilizadores do servidor do site. Assim, esta definição não tem de ser **Sim** para os utilizadores possam visualizar e pedir aplicações a partir do catálogo de aplicações. Se esta definição é **não**, seguintes comportamentos não funcionam quando os utilizadores utilizam o catálogo de aplicações:  
 
-      -   Os utilizadores não recebem revisões nem atualizações para as aplicações que são publicadas no catálogo de aplicações. Os utilizadores veem alterações às informações da aplicação no catálogo de aplicações.  
+-   Os utilizadores não podem instalar as aplicações que veem no Catálogo de Aplicações.  
 
-      -   Se remover uma implementação de aplicação depois do cliente instala a aplicação no catálogo de aplicações, os clientes continuam a verificar que a aplicação está instalada até dois dias.  
+-   Os utilizadores veem notificações sobre os seus pedidos de aprovação de aplicações. Em vez disso, devem atualizar o Catálogo de Aplicações e verificar o estado de aprovação.  
 
-    Além disso, quando esta definição for **não**, os utilizadores não recebem as aplicações necessárias que implementar nos utilizadores. Os utilizadores também não receber quaisquer outras tarefas de gestão em políticas de utilizador.  
+-   Os utilizadores não recebem revisões nem atualizações para as aplicações que são publicadas no catálogo de aplicações. Os utilizadores veem alterações às informações da aplicação no catálogo de aplicações.  
 
-    Esta definição aplica-se aos utilizadores cujos computadores estão na intranet e Internet. Tem de ser **Sim** se também pretender ativar políticas de utilizador na Internet.  
+-   Se remover uma implementação de aplicação depois do cliente instala a aplicação no catálogo de aplicações, os clientes continuam a verificar que a aplicação está instalada até dois dias.  
 
--   **Ativar pedidos da política do utilizador dos clientes Internet**   </br>
-   Configure esta definição para **Sim** para os utilizadores receberem a política de utilizador em computadores baseados na Internet. Também tem de aplicar os seguintes requisitos:  
+Além disso, se esta definição é **não**, os utilizadores não recebem as aplicações necessárias que implementar nos utilizadores. Os utilizadores também não receber quaisquer outras tarefas de gestão em políticas de utilizador.  
 
-      -   O cliente e o site estão configurados para gestão de clientes baseados na Internet
+Esta definição aplica-se aos utilizadores cujos computadores estão na intranet ou à internet. Tem de ser **Sim** se também pretender ativar políticas de utilizador na internet.  
 
-      -   O **ativar política de utilizador nos clientes** definição é **Sim**  
+### <a name="enable-user-policy-requests-from-internet-clients"></a>Ativar pedidos da política de utilizador dos clientes internet
 
-      -   O ponto de gestão baseado na Internet autentica com êxito o utilizador ao utilizar a autenticação do Windows (Kerberos ou NTLM)  
+Defina esta opção para **Sim** para os utilizadores receberem a política de utilizador em computadores baseados na internet. Também são aplicáveis os seguintes requisitos:  
 
-       Se definir esta opção como **não**, ou qualquer um dos requisitos anteriores não são cumpridos, em seguida, um computador com a Internet apenas recebe políticas de computador. Neste cenário, os utilizadores ainda podem ver, pedir e instalar aplicações a partir de um Catálogo de Aplicações baseado na Internet. Se esta definição é **não**, mas **ativar política de utilizador nos clientes** é **Sim**, os utilizadores não recebem políticas de utilizador, até que o computador está ligado à intranet.  
+-   O cliente e o site estão configurados para gestão de clientes baseados na internet.
 
-       Para obter mais informações sobre a gestão de clientes na Internet, consulte [considerações sobre comunicações do cliente da Internet ou numa floresta não fidedigna](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
+-   O **ativar política de utilizador nos clientes** definição é **Sim**.  
 
-      > [!NOTE]  
-      >  Os pedidos de aprovação de aplicações dos utilizadores não necessitam de políticas de utilizador ou de autenticação de utilizador.  
+-   O ponto de gestão baseado na internet autentica com êxito o utilizador ao utilizar a autenticação do Windows (Kerberos ou NTLM).  
+
+Se definir esta opção para **não**, ou qualquer um dos requisitos anteriores não são cumpridos, em seguida, um computador com a internet apenas recebe políticas de computador. Neste cenário, os utilizadores ainda podem ver, pedir e instalar aplicações a partir de um catálogo de aplicações baseado na internet. Se esta definição é **não**, mas **ativar política de utilizador nos clientes** é **Sim**, os utilizadores não recebem políticas de utilizador, até que o computador está ligado à intranet.  
+
+Para obter mais informações sobre a gestão de clientes na internet, consulte [considerações sobre comunicações do cliente da internet ou numa floresta não fidedigna](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
+
+> [!NOTE]  
+>  Os pedidos de aprovação de aplicações dos utilizadores não necessitam de políticas de utilizador ou de autenticação de utilizador.  
 
 
 ## <a name="cloud-services"></a>Serviços cloud
 
--   **Permitir o acesso ao ponto de distribuição de nuvem** </br>
-    Configure esta definição para **Sim** para os clientes obter conteúdo de um ponto de distribuição na nuvem. Esta definição não requer que o dispositivo ser baseados na Internet.
+### <a name="allow-access-to-cloud-distribution-point"></a>Permitir o acesso ao ponto de distribuição de nuvem
+Defina esta opção para **Sim** para os clientes obter conteúdo de um ponto de distribuição na nuvem. Esta definição não requer que o dispositivo ser baseados na internet.
 
--    **Registar automaticamente novos dispositivos do Windows 10 associados a um domínio com o Azure Active Directory** </br> Quando configurar o Azure Active Directory para suportar a associação de híbrida, em seguida, Configuration Manager configura os dispositivos Windows 10 para esta funcionalidade. Para obter mais informações, consulte [como para configurar híbrida do Azure Active Directory dispositivos associados a um](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
+### <a name="automatically-register-new-windows-10-domain-joined-devices-with-azure-active-directory"></a>Registar automaticamente novos dispositivos do Windows 10 associados a um domínio com o Azure Active Directory 
+Quando configurar o Azure Active Directory para suportar a associação de híbrida, o Configuration Manager configura dispositivos Windows 10 para esta funcionalidade. Para obter mais informações, consulte [como para configurar híbrida do Azure Active Directory dispositivos associados a um](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
--   **Permitir que os clientes utilizar um gateway de gestão de nuvem** </br>
-    Por predefinição, todos os clientes de roaming de Internet utilizam disponível qualquer [gateway de gestão de nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway). Um exemplo de quando configurar esta definição para **não** é a utilização do âmbito do serviço, tal como durante um projeto piloto ou para reduzir os custos.
+### <a name="enable-clients-to-use-a-cloud-management-gateway"></a>Permitir que os clientes utilizar um gateway de gestão de nuvem
+Por predefinição, todos os clientes de roaming de internet utilizam disponível qualquer [gateway de gestão de nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway). Um exemplo de quando configurar esta definição para **não** é a utilização do âmbito do serviço, tal como durante um projeto piloto ou para reduzir os custos.
 
 
 
 ##  <a name="compliance-settings"></a>Definições de compatibilidade  
 
--   **Ativar a avaliação de compatibilidade nos clientes** </br>
-    Configure esta definição para **Sim** para configurar outras definições deste grupo.
+### <a name="enable-compliance-evaluation-on-clients"></a>Ativar avaliação de compatibilidade nos clientes
+Defina esta opção para **Sim** para configurar outras definições deste grupo.
  
--   **Agendar avaliação de compatibilidade**   </br>
-     Clique em **agenda** para criar a agenda predefinida para a configuração de implementações de linha de base. Este valor é configurável para cada linha de base a **implementar linhas de base de configuração** caixa de diálogo.  
+### <a name="schedule-compliance-evaluation"></a>Agendar avaliação de compatibilidade
+Selecione **agenda** para criar a agenda predefinida para a configuração de implementações de linha de base. Este valor é configurável para cada linha de base a **implementar linhas de base de configuração** caixa de diálogo.  
 
--   **Ativar Dados e Perfis de Utilizador**   </br>
-     Escolha **Sim** se pretender implementar [perfis e dados de utilizador](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md) itens de configuração.
+### <a name="enable-user-data-and-profiles"></a>Ativar perfis e dados de utilizador
+Escolha **Sim** se pretender implementar [perfis e dados de utilizador](../../../compliance/deploy-use/create-user-data-and-profiles-configuration-items.md) itens de configuração.
 
 
 
 ## <a name="computer-agent"></a>Agente do computador  
--   Notificações de utilizador para as implementações necessárias </br>
-    Para mais informações sobre as seguintes três definições, consulte [notificações de utilizador para as implementações necessárias](/sccm/apps/deploy-use/deploy-applications#user-notifications-for-required-deployments):
-    -   **Prazo de implementação superior a 24 horas, lembrar o utilizador a cada (horas)**
-    -   **Implementação prazo inferior a 24 horas, lembrar o utilizador a cada (horas)**  </br>
-    -   **Implementação prazo inferior a 1 hora, lembrar o utilizador a cada (minutos)**  </br>
 
--   **Ponto de Web sites Predefinido do Catálogo de Aplicações**   </br>
-     O Configuration Manager utiliza esta definição para ligar utilizadores ao catálogo de aplicações a partir do Centro de Software. Clique em **conjunto site** para especificar um servidor que aloja o ponto de Web site do catálogo de aplicações. Introduza o nome NetBIOS ou FQDN, especificar deteção automática ou especificar um URL para implementações personalizadas. Na maioria dos casos, a deteção automática é a melhor opção uma vez que oferece as seguintes vantagens:  
+### <a name="user-notifications-for-required-deployments"></a>Notificações de utilizador para as implementações necessárias
 
-    -   Se o site tiver um ponto de Web site do catálogo de aplicações, em seguida, os clientes recebem automaticamente um ponto de Web site do catálogo de aplicações do respetivo site.  
+Para mais informações sobre as seguintes três definições, consulte [notificações de utilizador para as implementações necessárias](/sccm/apps/deploy-use/deploy-applications#user-notifications-for-required-deployments):
 
-    -   O cliente prefers pontos de Web site do catálogo de aplicações ativadas por HTTPS da intranet através de servidores apenas de HTTP. Esta capacidade ajuda a proteger contra um servidor não autorizado.
+-   **Prazo de implementação superior a 24 horas, lembrar o utilizador a cada (horas)**
+-   **Implementação prazo inferior a 24 horas, lembrar o utilizador a cada (horas)** 
+-   **Implementação prazo inferior a 1 hora, lembrar o utilizador a cada (minutos)** 
 
-    -   O ponto de gestão proporciona um ponto de Web site do catálogo de aplicações baseado na Internet de clientes baseados na Internet. O ponto de gestão proporciona um ponto de Web site do catálogo de aplicações baseado na intranet de clientes baseados na intranet.  
+### <a name="default-application-catalog-website-point"></a>Ponto de Web sites Predefinido do Catálogo de Aplicações
 
-     A deteção automática não garante que os clientes recebem o ponto de Web site do catálogo de aplicações mais próximo. Pode decidir não utilizar **Detetar automaticamente** pelos seguintes motivos:  
+O Configuration Manager utiliza esta definição para ligar utilizadores ao catálogo de aplicações a partir do Centro de Software. Selecione **conjunto site** para especificar um servidor que aloja o ponto de Web site do catálogo de aplicações. Introduza o nome NetBIOS ou FQDN, especificar deteção automática ou especificar um URL para implementações personalizadas. Na maioria dos casos, a deteção automática é a melhor opção, porque este oferece as seguintes vantagens:  
 
-     -   Pretende configurar manualmente o servidor mais próximo dos clientes ou certificar-se de que não ligam a um servidor através de uma ligação de rede lenta.  
+-   Se o site tiver um ponto de Web site do catálogo de aplicações, em seguida, os clientes recebem automaticamente um ponto de Web site do catálogo de aplicações do respetivo site.  
 
-     -   Pretende controlar que clientes ligam ao servidor. Esta configuração pode ser para fins de teste, desempenho ou por razões empresariais.  
+-   O cliente prefers pontos de Web site do catálogo de aplicações ativadas por HTTPS da intranet através de servidores apenas de HTTP. Esta capacidade ajuda a proteger contra um servidor não autorizado.
 
-     -   Não pretende esperar até 25 horas ou para uma alteração de rede para os clientes utilizar um site do catálogo de aplicações diferentes ponto.  
+-   O ponto de gestão proporciona um ponto de Web site do catálogo de aplicações baseado na internet de clientes baseados na internet. O ponto de gestão proporciona um ponto de Web site do catálogo de aplicações baseado na intranet de clientes baseados na intranet.  
 
-     Se, especifique o ponto de Web site do catálogo de aplicações em vez de utiliza a deteção automática, especifique o nome NetBIOS em vez do FQDN da intranet. Esta configuração reduz a probabilidade de que o browser pede-lhe que os utilizadores de credenciais quando acedem a um catálogo de aplicações baseado na intranet. Para utilizar o nome NetBIOS, tem de aplicar as seguintes condições:  
+A deteção automática não garante que os clientes recebem o ponto de Web site do catálogo de aplicações mais próximo. Pode decidir não utilizar **Detetar automaticamente** pelos seguintes motivos:  
 
-     -   O nome NetBIOS é especificado nas propriedades do ponto de Web sites do Catálogo de Aplicações.  
+-   Pretende configurar o servidor mais próximo para clientes manualmente ou certifique-se de que não ligam a um servidor através de uma ligação de rede lenta.  
 
-     -   Utilizar o WINS ou todos os clientes estão no mesmo domínio que o ponto de Web site do catálogo de aplicações.  
+-   Pretende controlar que clientes ligam ao servidor. Esta configuração pode ser para fins de teste, desempenho ou por razões empresariais.  
 
-     -   Configurar o ponto de Web site do catálogo de aplicações para ligações de cliente HTTP ou configurar o servidor para HTTPS e o certificado de servidor web com o nome de NetBIOS.  
+-   Não pretende esperar até 25 horas ou para uma alteração de rede para os clientes utilizar um site do catálogo de aplicações diferentes ponto.  
 
-     Normalmente, os utilizadores recebem um pedido de credenciais quando o URL tem um FQDN mas não quando o URL é um nome NetBIOS. É expectável que os utilizadores recebam sempre esse pedido quando ligam a partir da Internet, uma vez que esta ligação tem de utilizar o FQDN da Internet. Quando utilizar um cliente baseado na Internet e o browser solicita aos utilizadores credenciais, certifique-se de que o ponto de Web site do catálogo de aplicações pode ligar a um controlador de domínio para a conta de utilizador. Esta configuração permite ao utilizador autenticar através de Kerberos.  
+Se, especifique o ponto de Web site do catálogo de aplicações em vez de utiliza a deteção automática, especifique o nome NetBIOS em vez do FQDN da intranet. Esta configuração reduz a probabilidade de que o browser pede-lhe que os utilizadores de credenciais quando acedem a um catálogo de aplicações baseado na intranet. Para utilizar o nome NetBIOS, tem de aplicar as seguintes condições:  
 
-    > [!NOTE]  
-    >  Como funciona a deteção automática:  
-    >   
-    >  O cliente faz um pedido de localização de serviço para um ponto de gestão. Se houver um ponto de Web sites do Catálogo de Aplicações no mesmo site que o cliente, este servidor é atribuído ao cliente como o servidor do Catálogo de Aplicações a utilizar. Quando estiver disponível mais do que um ponto de Web site do catálogo de aplicações no site, um servidor ativado para HTTPS tem precedência sobre um servidor que não está ativado para HTTPS. Após esta filtragem, todos os clientes recebem um dos servidores a utilizar como catálogo de aplicações; O Configuration Manager não não-balanceamento de carga entre múltiplos servidores. Quando o site do cliente não tem um ponto de Web site do catálogo de aplicações, o ponto de gestão devolve não deterministicamente um ponto de Web site do catálogo de aplicações da hierarquia.  
-    >   
-    >  Os clientes baseados na intranet, se configurar o ponto de Web site do catálogo de aplicações com um nome de NetBIOS para o URL do catálogo de aplicações, o ponto de gestão fornece clientes este nome de NetBIOS em vez do FQDN da intranet. Para clientes baseados na Internet, o ponto de gestão fornece apenas o FQDN de Internet ao cliente.  
-    >   
-    >  O cliente efetua este pedido de localização de serviço em 25 horas ou sempre que detetar uma alteração de rede. Por exemplo, se o cliente passa da intranet à Internet e o cliente localiza um ponto de gestão baseado na Internet, o ponto de gestão baseado na Internet dá-servidores de ponto de Web site do catálogo de aplicações baseado na Internet para clientes.  
+-   O nome NetBIOS é especificado nas propriedades do ponto de Web sites do Catálogo de Aplicações.  
 
--   **Adicionar Web site predefinido do Catálogo de Aplicações à zona de sites fidedignos do Internet Explorer**   </br>
-     Se esta opção é **Sim**, o cliente adiciona automaticamente o atual URL de Web site do catálogo de aplicações predefinido a zona de sites fidedignos do Internet Explorer.  
+-   Utilizar o WINS ou todos os clientes estão no mesmo domínio que o ponto de Web site do catálogo de aplicações.  
 
-     Esta definição garante que a definição do Internet Explorer para o Modo Protegido não está ativada. Se o modo protegido estiver ativado, o cliente do Configuration Manager poderão não conseguir instalar aplicações a partir do catálogo de aplicações. Por predefinição, a zona de sites fidedignos também suporta o início de sessão de utilizador para o Catálogo de Aplicações, que requer autenticação do Windows.  
+-   Configurar o ponto de Web site do catálogo de aplicações para ligações de cliente HTTP ou configurar o servidor para HTTPS e o certificado de servidor web com o nome de NetBIOS.  
 
-     Se deixar esta opção como **não**, clientes do Configuration Manager poderão não conseguir instalar aplicações a partir do catálogo de aplicações. É um método alternativo configurar estas definições do Internet Explorer noutra zona para o URL do catálogo de aplicações que os clientes utilizam.  
+Normalmente, os utilizadores recebem um pedido de credenciais quando o URL tem um FQDN, mas não quando o URL é um nome NetBIOS. Espere que os utilizadores sempre ser-lhe pedido quando ligam a partir da internet, porque esta ligação tem de utilizar o FQDN de internet. Para um cliente baseado na internet, quando o browser solicita aos utilizadores credenciais, certifique-se de que o ponto de Web site do catálogo de aplicações pode ligar a um controlador de domínio para a conta de utilizador. Esta configuração permite ao utilizador autenticar através de Kerberos.  
 
-    > [!NOTE]  
-    >  Sempre que o Configuration Manager adiciona um catálogo de aplicações predefinido para a zona sites fidedignos, o Configuration Manager remove quaisquer anteriormente adicionados URL do catálogo de aplicações.  
-    >   
-    >  Se o URL já estiver especificado das zonas de segurança, o Configuration Manager não é possível adicionar o URL. Neste cenário, tem de remover o URL da outra zona ou configurar manualmente as definições do Internet Explorer necessárias.  
+> [!NOTE]  
+>  Segue-se a deteção automática como funciona:  
+>   
+>  O cliente faz um pedido de localização de serviço para um ponto de gestão. Se houver um ponto de Web sites do Catálogo de Aplicações no mesmo site que o cliente, este servidor é atribuído ao cliente como o servidor do Catálogo de Aplicações a utilizar. Quando estiver disponível mais do que um ponto de Web site do catálogo de aplicações no site, um servidor ativado para HTTPS tem precedência sobre um servidor que não está ativado para HTTPS. Após esta filtragem, todos os clientes recebem um dos servidores a utilizar como catálogo de aplicações. O Configuration Manager não não-balanceamento de carga entre múltiplos servidores. Quando o site do cliente não tem um ponto de Web site do catálogo de aplicações, o ponto de gestão devolve não deterministicamente um ponto de Web site do catálogo de aplicações da hierarquia.  
+>   
+>  Os clientes baseados na intranet, se configurar o ponto de Web site do catálogo de aplicações com um nome de NetBIOS para o URL do catálogo de aplicações, o ponto de gestão utiliza-o. Não utilize o FQDN da intranet. Os clientes baseados na internet, o ponto de gestão fornece apenas o FQDN de internet ao cliente.  
+>   
+>  O cliente efetua este pedido de localização de serviço cada 25 horas ou sempre que Deteta uma alteração de rede. Por exemplo, se o cliente passar da intranet à internet, que é uma alteração de rede. Se o cliente, em seguida, localiza um ponto de gestão baseado na internet, o ponto de gestão baseado na internet atribui baseado na internet servidores de ponto de Web site do catálogo de aplicações aos clientes.  
 
--   **Permitir que as aplicações Silverlight sejam executadas em modo de confiança elevada**   </br>
-     Esta definição tem de ser **Sim** os utilizadores utilizarem o catálogo de aplicações.  
+### <a name="add-default-application-catalog-website-to-internet-explorer-trusted-sites-zone"></a>Adicionar Web site predefinido do Catálogo de Aplicações à zona de sites fidedignos do Internet Explorer
 
-     Se alterar esta definição, ela tem efeito assim que os utilizadores carregarem o respetivo browser ou atualizarem a respetiva janela do browser atualmente aberta.  
+Se esta opção é **Sim**, o cliente adiciona automaticamente o atual URL de Web site do catálogo de aplicações predefinido a zona de sites fidedignos do Internet Explorer.  
 
-     Para obter mais informações sobre esta definição, consulte [certificados do Microsoft Silverlight 5 e modo de confiança elevada necessários para o catálogo de aplicações](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5).  
+Esta definição garante que a definição do Internet Explorer para o Modo Protegido não está ativada. Se o modo protegido estiver ativado, o cliente do Configuration Manager poderão não conseguir instalar aplicações a partir do catálogo de aplicações. Por predefinição, a zona sites fidedignos também suporta a sessão do utilizador para o catálogo de aplicações, que requer autenticação do Windows.  
 
--   **Nome da organização apresentada no Centro de Software**   </br>
-     Escreva o nome que os utilizadores visualizam no Centro de Software. Estas informações de imagem corporativa ajudam os utilizadores a identificar esta aplicação como uma origem fidedigna.  
+Se deixar esta opção como **não**, clientes do Configuration Manager poderão não conseguir instalar aplicações a partir do catálogo de aplicações. É um método alternativo configurar estas definições do Internet Explorer noutra zona para o URL do catálogo de aplicações que os clientes utilizam.  
 
--   **Utilizar o novo Centro de Software**   </br>
-     Se configurar esta definição de cliente para **Sim**, em seguida, todos os computadores cliente utilizam o novo Centro de Software. Centro de software mostra as aplicações disponíveis ao utilizador que foram anteriormente acessíveis apenas no catálogo de aplicações. O catálogo de aplicações requer o Silverlight, que não é um pré-requisito para o novo Centro de Software.   
+> [!NOTE]  
+>  Sempre que o Gestor de configuração adiciona um URL do catálogo de aplicações predefinido para a zona sites fidedignos, o Configuration Manager remove quaisquer anteriormente adicionados URL do catálogo de aplicações.  
+>   
+>  Se o URL já estiver especificado das zonas de segurança, o Configuration Manager não é possível adicionar o URL. Neste cenário, tem de remover o URL da outra zona ou configurar manualmente as definições do Internet Explorer necessárias.  
 
-     O ponto de Web site do catálogo de aplicações e serviço web do catálogo de aplicações do ponto de sistema de sites funções ainda são necessárias para aplicações disponíveis ao utilizador a aparecer no Centro de Software.  
+### <a name="allow-silverlight-applications-to-run-in-elevated-trust-mode"></a>Permitir que as aplicações Silverlight sejam executadas em modo de confiança elevada
 
-     Para obter mais informações, consulte [planear e configurar a gestão de aplicações](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+Esta definição tem de ser **Sim** os utilizadores utilizarem o catálogo de aplicações.  
 
--   **Ativar comunicação com o serviço de atestado de estado de funcionamento**  </br>
-    Configure esta definição para **Sim** para dispositivos Windows 10 utilizar [atestado de estado de funcionamento](/sccm/core/servers/manage/health-attestation). Quando ativa esta definição, a seguinte definição também está disponível para a configuração.
+Se alterar esta definição, entra em vigor quando os utilizadores em seguida o respetivo browser ou Atualize a respetiva janela do browser atualmente aberta.  
 
-    -   **Utilizar o serviço de atestado de estado de funcionamento no local** </br>
-        Configure esta definição para **Sim** nos dispositivos utilizar um serviço no local. Configure esta definição para **não** nos dispositivos utilizar o serviço de baseado na nuvem da Microsoft.  
+Para obter mais informações sobre esta definição, consulte [certificados do Microsoft Silverlight 5 e modo de confiança elevada necessários para o catálogo de aplicações](../../../apps/plan-design/security-and-privacy-for-application-management.md#BKMK_CertificatesSilverlight5).  
 
--   **Permissões de Instalação**   </br>
-    > [!WARNING]  
-    >  Esta definição aplica-se ao Catálogo de Aplicações e ao Centro de Software. Esta definição não tem efeito quando os utilizadores utilizam o Portal da empresa.  
+### <a name="organization-name-displayed-in-software-center"></a>Nome da organização apresentada no Centro de Software
 
-     Configure a forma como os utilizadores podem iniciar a instalação de software, atualizações de software e sequências de tarefa:  
+Escreva o nome que os utilizadores visualizam no Centro de Software. Estas informações de imagem corporativa ajudam os utilizadores a identificar esta aplicação como uma origem fidedigna.  
 
-    -   **Todos os utilizadores**: Utilizadores com qualquer permissão, exceto convidado  
+### <a name="use-new-software-center"></a>Utilizar o novo Centro de Software
 
-    -   **Apenas os administradores**: Os utilizadores têm de ser um membro do grupo Administradores local  
+Se definir esta opção para **Sim**, em seguida, todos os computadores cliente utilizam o Centro de Software. Centro de software mostra as aplicações disponíveis ao utilizador que foram anteriormente acessíveis apenas no catálogo de aplicações. O catálogo de aplicações requer o Silverlight, que não é um pré-requisito para o Centro de Software.   
 
-    -   **Apenas administradores e utilizadores primários**: Os utilizadores têm de ser um membro do grupo local de administradores ou utilizadores primários do computador  
+O ponto de Web site do catálogo de aplicações e serviço web do catálogo de aplicações do ponto de sistema de sites funções ainda são necessárias para aplicações disponíveis ao utilizador a aparecer no Centro de Software.  
 
-    -   **Não existem utilizadores**: Nenhum utilizador com sessão iniciada num computador cliente poderá iniciar a instalação de software, atualizações de software e sequências de tarefas. As implementações necessárias para o computador instalar sempre na data limite. Os utilizadores não é possível iniciar a instalação de software a partir do catálogo de aplicações ou centro de Software.  
+Para obter mais informações, consulte [planear e configurar a gestão de aplicações](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
--   **Suspender a introdução do PIN do BitLocker após reiniciar**  </br>
-     Se a computadores exigirem a introdução do PIN do BitLocker, esta opção ignora o requisito de introduzir um PIN quando o computador for reiniciado após uma instalação de software.  
+### <a name="enable-communication-with-health-attestation-service"></a>Ativar comunicação com o serviço de atestado de estado de funcionamento
 
-    -   **Sempre**: O Configuration Manager suspende temporariamente o BitLocker após a instalação de software que requeira um reinício, iniciou um reinício do computador. Esta definição só se aplica a um reinício do computador iniciado pelo Configuration Manager. Esta definição não suspende o requisito de introduzir o PIN do BitLocker quando o utilizador reinicia o computador. O requisito de introdução do PIN do BitLocker retoma após o arranque do Windows.
+Defina esta opção para **Sim** para dispositivos Windows 10 utilizar [atestado de estado de funcionamento](/sccm/core/servers/manage/health-attestation). Quando ativa esta definição, a seguinte definição também está disponível para a configuração.
 
-    -   **Nunca**: O Configuration Manager não suspende o BitLocker no próximo arranque do computador após a instalação de software que requeira um reinício. Neste cenário, a instalação de software não ficará concluída enquanto o utilizador não introduzir o PIN para concluir o processo de arranque padrão e carregar o Windows.
+### <a name="use-on-premises-health-attestation-service"></a>Utilizar o serviço de atestado de estado de funcionamento no local
 
--   **O software adicional gere a implementação de aplicações e atualizações de software**  </br>
-     Apenas deverá ativar esta opção nas seguintes condições:  
+Defina esta opção para **Sim** nos dispositivos utilizar um serviço no local. Definido como **não** nos dispositivos utilizar o serviço baseado na nuvem da Microsoft.  
 
-    -   Está a utilizar uma solução de fornecedor que necessita que esta definição seja ativada.  
+### <a name="install-permissions"></a>Permissões de instalação
 
-    -   Utilizar o Configuration Manager software development kit (SDK) para gerir as notificações de agente do cliente e a instalação de aplicações e atualizações de software.  
+> [!IMPORTANT]  
+>  Esta definição aplica-se ao Catálogo de Aplicações e ao Centro de Software. Esta definição não tem efeito quando os utilizadores utilizam o Portal da empresa.  
 
-    > [!WARNING]  
-    >  Se escolher esta opção quando nenhuma destas condições aplicam-se, o cliente não instala atualizações de software e as aplicações necessárias. Esta definição não impede que os utilizadores instalar aplicações a partir do catálogo de aplicações ou a instalação de sequências de tarefas, pacotes e programas.  
+Configure a forma como os utilizadores podem iniciar a instalação de software, atualizações de software e sequências de tarefa:  
 
--   **Política de execução do PowerShell**  </br>
-     Configure a forma como os clientes do Configuration Manager podem executar scripts do Windows PowerShell. Estes scripts são frequentemente utilizados para deteção de itens de configuração para definições de compatibilidade. Também podem ser enviados numa implementação como um script padrão.  
+-   **Todos os utilizadores**: Utilizadores com qualquer permissão, exceto convidado.  
 
-    -   **Ignorar**: O cliente do Configuration Manager ignora a configuração do Windows PowerShell no computador cliente para que possam ser executados scripts não assinados.  
+-   **Apenas os administradores**: Os utilizadores tem de ser um membro do grupo de administradores locais.  
 
-    -   **Restrito**: O cliente do Configuration Manager utiliza a configuração atual do Windows PowerShell no computador cliente. Esta configuração determina se podem executar scripts não assinados.  
+-   **Apenas administradores e utilizadores primários**: Os utilizadores tem de ser um membro do grupo local de administradores ou utilizadores primários do computador.  
 
-    -   **Todas assinadas**: O cliente do Configuration Manager apenas executa scripts um fabricante fidedigno assinou-los. Esta restrição aplica-se de forma independente a partir da configuração atual do Windows PowerShell no computador cliente.  
+-   **Não existem utilizadores**: Nenhum utilizador com sessão iniciada num computador cliente poderá iniciar a instalação de software, atualizações de software e sequências de tarefas. As implementações necessárias para o computador instalar sempre na data limite. Os utilizadores não é possível iniciar a instalação de software a partir do catálogo de aplicações ou centro de Software.  
 
-     Esta opção necessita, pelo menos, o Windows PowerShell versão 2.0. A predefinição é **todas assinadas**.  
+### <a name="suspend-bitlocker-pin-entry-on-restart"></a>Suspender introdução de PIN do BitLocker no reinício
 
-    > [!TIP]  
-    >  Se os scripts não assinados falham para executar devido a esta definição de cliente, o Configuration Manager apresenta este erro das seguintes formas:  
-    >   
-    > -   O **monitorização** área de trabalho na consola apresenta o ID de erro de estado de implementação **0x87D00327** e uma descrição **Script não está assinado**  
-    > -   Os relatórios apresentam o tipo de erro **erro de deteção**e, em seguida, o código de erro **0x87D00327** e uma descrição **Script não está assinado**, ou um código de erro  **0x87D00320** e uma descrição **o anfitrião do script ainda não foi instalado**. Um relatório de exemplo é **detalhes de erros de itens de configuração numa linha de base de configuração para um recurso**.  
-    > -   O **DcmWmiProvider.log** ficheiro apresenta a mensagem **Script não está assinado (erro: 87D 00327; Origem: CCM)**.  
+Se a computadores exigirem a introdução do PIN do BitLocker, esta opção ignora o requisito de introduzir um PIN quando o computador for reiniciado após uma instalação de software.  
 
--   **Mostrar notificações para novas implementações**  </br>
-     Escolha **Sim** para apresentar uma notificação para as implementações disponíveis a menos que uma semana.  Esta mensagem apresenta sempre que o agente do cliente é iniciado.
+-   **Sempre**: O Configuration Manager suspende temporariamente o BitLocker após a instalação de software que requeira um reinício, iniciou um reinício do computador. Esta definição só se aplica a um reinício do computador iniciado pelo Configuration Manager. Esta definição não suspende o requisito de introduzir o PIN do BitLocker quando o utilizador reinicia o computador. O requisito de introdução do PIN do BitLocker retoma após o arranque do Windows.
 
--   **Desativar a aleatoriedade de prazos**  </br>
-     Após o prazo de implementação, esta definição determina se o cliente utiliza um atraso de ativação de até duas horas para instalar atualizações de software necessárias. Por predefinição, o atraso de ativação está desativado.  
+-   **Nunca**: O Configuration Manager não suspende o BitLocker após a instalação de software que requeira um reinício. Neste cenário, a instalação de software não ficará concluída enquanto o utilizador não introduzir o PIN para concluir o processo de arranque padrão e carregar o Windows.
 
-     Para cenários com infraestrutura de ambiente de trabalho virtual (VDI), este atraso ajuda a distribuir o processamento de CPU e a transferência de dados para uma máquina anfitriã com várias máquinas virtuais. Mesmo que não utilize VDI, muitos clientes a instalar as mesmas atualizações em simultâneo negativamente podem aumentar a utilização da CPU no servidor do site. Este comportamento pode também mais lentos pontos de distribuição e reduzir significativamente a largura de banda de rede disponível.  
+### <a name="additional-software-manages-the-deployment-of-applications-and-software-updates"></a>O software adicional gere a implementação de aplicações e atualizações de software
 
-     Se os clientes tem de instalar atualizações de software necessárias no prazo de implementação sem atrasos, em seguida, configure esta definição para **Sim**. 
+Ative esta opção apenas se um dos seguintes condições se aplicar:  
 
--   **Período de tolerância para aplicação após o prazo de implementação (horas)** </br>
-     Se quiser conceder aos utilizadores mais tempo a instalar a aplicação necessária ou implementações de atualização de software para além do prazo, em seguida, configure esta definição para **Sim**. Este período de tolerância é de um computador desativado para um período de tempo alargado e o utilizador tem de instalar várias aplicações ou implementações de atualizações. Por exemplo, se um utilizador devolvido a partir das férias e, tem de aguardar durante muito tempo ao cliente instala as implementações de aplicações em atraso. 
+-   Está a utilizar uma solução de fornecedor que necessita que esta definição seja ativada.  
 
-     Defina um período de tolerância de 1 a 120 horas. Utilize esta definição juntamente com a propriedade de implementação **atrasar imposição para esta implementação, de acordo com as preferências do utilizador**. Para obter mais informações, consulte [implementar aplicações](/sccm/apps/deploy-use/deploy-applications).
+-   Utilizar o Configuration Manager software development kit (SDK) para gerir as notificações de agente do cliente e a instalação de aplicações e atualizações de software.  
 
+> [!WARNING]  
+>  Se escolher esta opção quando nenhuma destas condições aplicam-se, o cliente não instala atualizações de software e as aplicações necessárias. Esta definição não impede que os utilizadores instalar aplicações a partir do catálogo de aplicações ou a instalação de sequências de tarefas, pacotes e programas.  
+
+### <a name="powershell-execution-policy"></a>Política de execução do PowerShell
+
+Configure a forma como os clientes do Configuration Manager podem executar scripts do Windows PowerShell. Pode utilizar estes scripts para a deteção de itens de configuração para definições de compatibilidade. Também pode enviar os scripts numa implementação como um script padrão.  
+
+-   **Ignorar**: O cliente do Configuration Manager ignora a configuração do Windows PowerShell no computador cliente, para que possam ser executados scripts não assinados.  
+
+-   **Restrito**: O cliente do Configuration Manager utiliza a configuração atual do PowerShell no computador cliente. Esta configuração determina se podem executar scripts não assinados.  
+
+-   **Todas assinadas**: O cliente do Configuration Manager apenas executa scripts um fabricante fidedigno assinou-los. Esta restrição aplica-se independentemente da configuração atual do PowerShell no computador cliente.  
+
+Esta opção necessita, pelo menos, o Windows PowerShell versão 2.0. A predefinição é **todas assinadas**.  
+
+> [!TIP]  
+>  Se os scripts não assinados falham para executar devido a esta definição de cliente, o Configuration Manager apresenta este erro das seguintes formas:  
+>   
+> -   O **monitorização** área de trabalho na consola apresenta o ID de erro de estado de implementação **0x87D00327**. Também apresenta a descrição **Script não está assinado**.  
+> -   Os relatórios apresentam o tipo de erro **erro de deteção**. Em seguida, apresentam o código de erro **0x87D00327** e a descrição **Script não está assinado**, ou um código de erro **0x87D00320** e a descrição **o anfitrião do script ainda não foi instalado**. É um relatório de exemplo: **Detalhes de erros de itens de configuração numa linha de base de configuração para um recurso**.  
+> -   O **DcmWmiProvider.log** ficheiro apresenta a mensagem **Script não está assinado (erro: 87D00327; Source: CCM)**.  
+
+### <a name="show-notifications-for-new-deployments"></a>Mostrar notificações para novas implementações
+
+Escolha **Sim** para apresentar uma notificação para as implementações disponíveis para menos de uma semana. Esta mensagem é apresentada sempre que o agente do cliente é iniciado.
+
+### <a name="disable-deadline-randomization"></a>Desativar a aleatoriedade de prazos
+
+Após o prazo de implementação, esta definição determina se o cliente utiliza um atraso de ativação de até duas horas para instalar atualizações de software necessárias. Por predefinição, o atraso de ativação está desativado.  
+
+Para cenários com infraestrutura de ambiente de trabalho virtual (VDI), este atraso ajuda a distribuir o processamento de CPU e a transferência de dados para uma máquina anfitriã com várias máquinas virtuais. Mesmo que não utilize VDI, muitos clientes a instalar as mesmas atualizações ao mesmo tempo podem negativamente aumentar a utilização da CPU no servidor do site. Este comportamento pode também mais lentos pontos de distribuição e reduzir significativamente a largura de banda de rede disponível.  
+
+Se os clientes tem de instalar atualizações de software necessárias no prazo de implementação sem atrasos, em seguida, configure esta definição para **Sim**. 
+
+### <a name="grace-period-for-enforcement-after-deployment-deadline-hours"></a>Período de tolerância para aplicação após o prazo de implementação (horas)
+
+Se quiser conceder aos utilizadores mais tempo a instalar a aplicação necessária ou implementações de atualização de software para além do prazo, defina esta opção para **Sim**. Este período de tolerância é de um computador desativado para um período de tempo alargado e o utilizador tem de instalar várias aplicações ou implementações de atualizações. Por exemplo, esta definição é útil se um utilizador devolvido a partir das férias e, tem de aguardar durante muito tempo, enquanto o cliente instala as implementações de aplicações em atraso. 
+
+Defina um período de tolerância de 1 a 120 horas. Utilize esta definição juntamente com a propriedade de implementação **atrasar imposição para esta implementação, de acordo com as preferências do utilizador**. Para obter mais informações, consulte [implementar aplicações](/sccm/apps/deploy-use/deploy-applications).
 
 
 ##  <a name="computer-restart"></a>Reinício do computador  
- As seguintes definições tem de ser mais curtas duração a janela de manutenção mais curta aplicada ao computador.  
-
- Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
+As seguintes definições tem de ser mais curtas duração a janela de manutenção mais curta aplicada ao computador.  
 
 -   **Apresentar uma notificação temporária ao utilizador que indica o intervalo antes do utilizador sessão é terminada ou do computador reinicia (minutos)**
 -   **Apresentar uma caixa de diálogo que o utilizador não é possível fechar, que apresenta o intervalo em contagem decrescente antes do utilizador sessão é terminada ou o computador reinicia (minutos)**
 
-
+Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).
 
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
 >  [!Tip]   
-> Além das informações seguintes, pode encontrar detalhes adicionais sobre como utilizar as definições de cliente do Endpoint Protection no [cenário de exemplo: Utilizar o System Center Endpoint Protection para proteger os computadores contra software maligno no System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
+> Além das informações seguintes, pode obter detalhes sobre como utilizar as definições de cliente do Endpoint Protection no [cenário de exemplo: Utilizar o System Center Endpoint Protection para proteger os computadores contra software maligno no System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
 
--   **Gerir o cliente do Endpoint Protection nos computadores cliente**  </br>
-     Escolha **Sim** se pretender gerir os clientes existentes do Endpoint Protection e o Windows Defender em computadores na sua hierarquia.  
+### <a name="manage-endpoint-protection-client-on-client-computers"></a>Gerir o cliente do Endpoint Protection nos computadores cliente
 
-     Escolha esta opção se já tiver instalado o cliente do Endpoint Protection e pretender geri-lo com o Configuration Manager.  Esta instalação separada inclui um processo com script utilizando uma aplicação do Configuration Manager ou o pacote e programa.
+Escolha **Sim** se pretender gerir os clientes existentes do Endpoint Protection e o Windows Defender em computadores na sua hierarquia.  
 
--   **Instalar o cliente do Endpoint Protection nos computadores cliente**   </br>
-     Escolha **Sim** para instalar e ativar o cliente do Endpoint Protection nos computadores cliente ainda não estiver a executar o cliente.  
+Escolha esta opção se já tiver instalado o cliente do Endpoint Protection e pretender geri-lo com o Configuration Manager. Esta instalação separada inclui um processo com script que utiliza uma aplicação do Configuration Manager ou o pacote e programa.
 
-    > [!NOTE]  
-    >  Se o cliente do Endpoint Protection já estiver instalado, escolher **não** não desinstala o cliente do Endpoint Protection. Para desinstalar o cliente do Endpoint Protection, configure o **cliente gerir o Endpoint Protection nos computadores cliente** definição de cliente para **não**. Em seguida, implemente um pacote e programa para desinstalar o cliente do Endpoint Protection.  
+### <a name="install-endpoint-protection-client-on-client-computers"></a>Instalar o cliente do Endpoint Protection nos computadores cliente
 
--   **Remover automaticamente software antimalware anteriormente instalado antes da instalação do Endpoint Protection** </br>
-    Configure esta definição para **Sim** para o cliente do Endpoint Protection tentar desinstalar outras aplicações de antimalware. Vários clientes antimalware no mesmo dispositivo podem entrar em conflito e afetar o desempenho do sistema.
+Escolha **Sim** para instalar e ativar o cliente do Endpoint Protection nos computadores cliente que não executem o cliente.  
 
--   **Permite ao cliente do Endpoint Protection para instalação e reinicia fora das janelas de manutenção. Janelas de manutenção tem de ser, pelo menos, 30 minutos longa para a instalação do cliente** </br>
-    Configure esta definição para **Sim** para substituir os comportamentos de instalação típicas com janelas de manutenção. Esta definição cumpre os requisitos de negócio para a prioridade de manutenção do sistema para fins de segurança. 
+> [!NOTE]  
+>  Se o cliente do Endpoint Protection já estiver instalado, escolher **não** não desinstala o cliente do Endpoint Protection. Para desinstalar o cliente do Endpoint Protection, configure o **cliente gerir o Endpoint Protection nos computadores cliente** definição de cliente para **não**. Em seguida, implemente um pacote e programa para desinstalar o cliente do Endpoint Protection.  
 
--   **Para dispositivos Windows Embedded com filtros de escrita, consolide a instalação de cliente do Endpoint Protection (requer reinicialização)**  </br>
-     Escolha **Sim** para desativar o filtro de escrita no dispositivo Windows Embedded e reiniciar o dispositivo. Esta ação consolida a instalação no dispositivo.  
+### <a name="automatically-remove-previously-installed-antimalware-software-before-endpoint-protection-is-installed"></a>Remover automaticamente software antimalware anteriormente instalado antes da instalação do Endpoint Protection
 
-     Se configurar esta definição para **não**, em seguida, o cliente será instalado numa sobreposição temporária que limpa quando o dispositivo for reiniciado. Neste cenário, o cliente do Endpoint Protection não ficar totalmente instalados enquanto outra instalação consolida as alterações no dispositivo. Esta configuração é a predefinição.  
+Defina esta opção para **Sim** para o cliente do Endpoint Protection tentar desinstalar outras aplicações de antimalware. Vários clientes antimalware no mesmo dispositivo podem entrar em conflito e o impacto no desempenho do sistema.
 
--   **Suprimir quaisquer reinícios necessários após o cliente do Endpoint Protection está instalado**  </br>
-     Escolha **Sim** para suprimir um reinício do computador se for necessário, após a instalação de cliente do Endpoint Protection.  
+### <a name="allow-endpoint-protection-client-installation-and-restarts-outside-maintenance-windows-maintenance-windows-must-be-at-least-30-minutes-long-for-client-installation"></a>Permite ao cliente do Endpoint Protection para instalação e reinicia fora das janelas de manutenção. Janelas de manutenção tem de ser, pelo menos, 30 minutos longa para a instalação do cliente
 
-    > [!IMPORTANT]  
-    >  Se o cliente do Endpoint Protection requer um reinício do computador e esta definição **não**, em seguida, o computador seja reiniciado independentemente de quaisquer janelas de manutenção configuradas.  
+Defina esta opção para **Sim** para substituir os comportamentos de instalação típicas com janelas de manutenção. Esta definição cumpre os requisitos de negócio para a prioridade de manutenção do sistema para fins de segurança. 
 
--   **Permitido período de tempo que os utilizadores pode adiar um reinício necessário para concluir a instalação do Endpoint Protection (horas)**  </br>
-     Se for necessário um reinício após a instalação de cliente do Endpoint Protection, esta definição especifica o número de horas que os utilizadores podem adiar o reinício necessário. Esta definição requer que o **suprimir reinícios de qualquer computador necessários após a instalação do cliente do Endpoint Protection** definição é **não**.  
+### <a name="for-windows-embedded-devices-with-write-filters-commit-endpoint-protection-client-installation-requires-restarts"></a>Para dispositivos Windows Embedded com filtros de escrita, consolide a instalação de cliente do Endpoint Protection (requer reinicialização)
 
--   **Desativar origens alternativas (tais como Microsoft Windows Update, Microsoft Windows Server Update Services ou partilhas UNC) para a atualização inicial da definição nos computadores cliente**  </br>
-     Escolha **Sim** se pretender que o Configuration Manager para instalar apenas a atualização inicial da definição nos computadores cliente. Esta definição pode ser útil para evitar ligações de rede desnecessárias e reduzir a largura de banda de rede durante a instalação inicial da atualização das definições.  
+Escolha **Sim** para desativar o filtro de escrita no dispositivo Windows Embedded e reiniciar o dispositivo. Esta ação consolida a instalação no dispositivo.  
+
+Se optar por **não**, o cliente será instalado numa sobreposição temporária que limpa quando o dispositivo for reiniciado. Neste cenário, o cliente do Endpoint Protection não ficar totalmente instalados enquanto outra instalação consolida as alterações no dispositivo. Esta configuração é a predefinição.  
+
+### <a name="suppress-any-required-computer-restarts-after-the-endpoint-protection-client-is-installed"></a>Suprimir quaisquer reinícios necessários após o cliente do Endpoint Protection está instalado
+
+Escolha **Sim** para suprimir um reinício do computador após a instalação de cliente do Endpoint Protection.  
+
+> [!IMPORTANT]  
+>  Se o cliente do Endpoint Protection requer um reinício do computador e esta definição **não**, em seguida, o computador seja reiniciado independentemente de quaisquer janelas de manutenção configuradas.  
+
+### <a name="allowed-period-of-time-users-can-postpone-a-required-restart-to-complete-the-endpoint-protection-installation-hours"></a>Permitido período de tempo que os utilizadores pode adiar um reinício necessário para concluir a instalação do Endpoint Protection (horas)
+
+Se for necessário um reinício após a instalação de cliente do Endpoint Protection, esta definição especifica o número de horas que os utilizadores podem adiar o reinício necessário. Esta definição necessita que a definição de **suprimir reinícios de qualquer computador necessários após a instalação do cliente do Endpoint Protection** é **não**.  
+
+### <a name="disable-alternate-sources-such-as-microsoft-windows-update-microsoft-windows-server-update-services-or-unc-shares-for-the-initial-definition-update-on-client-computers"></a>Desativar origens alternativas (tais como Microsoft Windows Update, Microsoft Windows Server Update Services ou partilhas UNC) para a atualização inicial da definição nos computadores cliente
+
+Escolha **Sim** se pretender que o Configuration Manager para instalar apenas a atualização inicial da definição nos computadores cliente. Esta definição pode ser útil para evitar ligações de rede desnecessárias e reduzir a largura de banda de rede, durante a instalação inicial da atualização da definição.  
 
 
 
 ##  <a name="enrollment"></a>Inscrição
 
--   **Intervalo de consulta para clientes legados de dispositivos móveis** </br>
-    Clique em **intervalo definido** para especificar o período de tempo, em minutos ou horas, o que dispositivos móveis legados consultam de política. Estes dispositivos incluem plataformas, tais como o Windows CE, Mac OS X e Unix ou Linux.
+### <a name="polling-interval-for-mobile-device-legacy-clients"></a>Intervalo de consulta para clientes legados de dispositivos móveis
+Selecione **intervalo definido** para especificar o período de tempo, em minutos ou horas, o que dispositivos móveis legados consultam de política. Estes dispositivos incluem plataformas, tais como o Windows CE, Mac OS X e Unix ou Linux.
 
--   **Intervalo de consulta para dispositivos modernos (minutos)** </br>
-    Introduza o número de minutos que consultam dispositivos modernos para a política. Esta definição destina-se a dispositivos Windows 10 geridos através da gestão de dispositivos móveis no local.
+### <a name="polling-interval-for-modern-devices-minutes"></a>Intervalo de consulta para dispositivos modernos (minutos)
+Introduza o número de minutos que consultam dispositivos modernos para a política. Esta definição é para dispositivos Windows 10 que são geridos através da gestão de dispositivos móveis no local.
 
--   **Permitir que os utilizadores a inscrição de dispositivos móveis e computadores Mac** </br>
-    Para ativar a inscrição de utilizador com base dos dispositivos legados, configure esta definição para **Sim**e, em seguida, configure a definição seguinte:
+### <a name="allow-users-to-enroll-mobile-devices-and-mac-computers"></a>Permitir que os utilizadores a inscrição de dispositivos móveis e computadores Mac
+Para ativar a inscrição de utilizador com base dos dispositivos legados, defina esta opção para **Sim**e, em seguida, configure a definição seguinte:
 
-    -   **Perfil de inscrição** </br>
-        Clique em **definir perfil** criar ou selecionar um perfil de inscrição. Para obter mais informações, consulte [configurar as definições de cliente para inscrição](/sccm/core/clients/deploy/deploy-clients-to-macs#configure-client-settings-for-enrollment).
+-   **Perfil de inscrição** </br>
+Selecione **definir perfil** criar ou selecionar um perfil de inscrição. Para obter mais informações, consulte [configurar as definições de cliente para inscrição](/sccm/core/clients/deploy/deploy-clients-to-macs#configure-client-settings-for-enrollment).
 
--   **Permitir que os utilizadores inscreverem dispositivos modernos** </br>
-    Para ativar a inscrição de utilizador com base dos dispositivos modernos, configure esta definição para **Sim**e, em seguida, configure a definição seguinte:
+### <a name="allow-users-to-enroll-modern-devices"></a>Permitir que os utilizadores inscreverem dispositivos modernos
+Para ativar a inscrição de utilizador com base dos dispositivos modernos, defina esta opção para **Sim**e, em seguida, configure a definição seguinte:
 
-    -   **Perfil de inscrição de dispositivos modernos** </br>
-        Clique em **definir perfil** criar ou selecionar um perfil de inscrição. Para obter mais informações, consulte [criar um perfil de inscrição que permite aos utilizadores inscreverem dispositivos modernos](/sccm/mdm/get-started/set-up-device-enrollment-on-premises-mdm#bkmk_createProf).
+-   **Perfil de inscrição de dispositivos modernos** </br>
+Selecione **definir perfil** criar ou selecionar um perfil de inscrição. Para obter mais informações, consulte [criar um perfil de inscrição que permite aos utilizadores inscreverem dispositivos modernos](/sccm/mdm/get-started/set-up-device-enrollment-on-premises-mdm#bkmk_createProf).
 
 
 
 ##  <a name="hardware-inventory"></a>Inventário de Hardware  
 
--   **Ativar inventário de hardware nos clientes** </br>
-    Esta definição está definida como **Sim** por predefinição. Para obter mais informações, consulte [introdução ao inventário de hardware](/sccm/core/clients/manage/inventory/introduction-to-hardware-inventory).
+### <a name="enable-hardware-inventory-on-clients"></a>Ativar inventário de hardware nos clientes
 
--   **Agenda de inventário de hardware** </br>
-    Clique em **agenda** para ajustar a frequência com que os clientes a executar o inventário de hardware ciclo. Por predefinição, este ciclo ocorre a cada sete dias.
+Por predefinição, esta definição é **Sim**. Para obter mais informações, consulte [introdução ao inventário de hardware](/sccm/core/clients/manage/inventory/introduction-to-hardware-inventory).
 
--   **Máximo de atraso aleatório (minutos)** </br>
-    Especifique o número máximo de minutos para que o cliente do Configuration Manager Utilize uma ordem aleatória do inventário de hardware ciclo da agenda definida. Este prazos em todos os clientes ajuda-o processamento de inventário de balanceamento de carga no servidor do site. Pode especificar um valor de 0 a 480 minutos. Por predefinição, este valor é definido como 240 minutos (quatro horas).
+### <a name="hardware-inventory-schedule"></a>Agenda de inventário de hardware
 
--   **Tamanho máximo do ficheiro MIF personalizado (KB)**  </br>
-     Especifica o tamanho máximo, em quilobytes (KB) permitido para cada ficheiro de formato MIF (Management Information Format) personalizado que o cliente recolhe durante um ciclo de inventário de hardware. O agente de inventário de hardware do Configuration Manager não processa ficheiros MIF personalizados que excedem este tamanho. Pode especificar um tamanho de 1 KB 5,120 KB. Por predefinição, este valor é definido para 250 KB. Esta definição não afeta o tamanho do ficheiro de dados de inventário de hardware normal.  
+Selecione **agenda** para ajustar a frequência com que os clientes a executar o inventário de hardware ciclo. Por predefinição, este ciclo ocorre a cada sete dias.
 
-    > [!NOTE]  
-    >  Esta definição está disponível apenas nas predefinições do cliente.  
+### <a name="maximum-random-delay-minutes"></a>Máximo de atraso aleatório (minutos)
 
--   **Classes de inventário de hardware**  </br>
-     Clique em **definir Classes** para expandir as informações de hardware recolhidas dos clientes sem necessitar de editar manualmente o ficheiro sms_def.mof. Para obter mais informações, consulte [como configurar inventário de hardware](../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
+Especifique o número máximo de minutos para que o cliente do Configuration Manager Utilize uma ordem aleatória do inventário de hardware ciclo da agenda definida. Este prazos em todos os clientes ajuda-o processamento de inventário de balanceamento de carga no servidor do site. Pode especificar qualquer valor entre 0 e 480 minutos. Por predefinição, este valor é definido como 240 minutos (4 horas).
 
--   **Recolher ficheiros MIF**  </br>
-     Utilize esta definição para especificar se pretende recolher ficheiros MIF de clientes do Configuration Manager durante o inventário de hardware.  
+### <a name="maximum-custom-mif-file-size-kb"></a>Máximo personalizado tamanho de ficheiro MIF (KB)
 
-     Para um ficheiro MIF possa ser recolhido pelo inventário de hardware, tem de ser no local correto no computador cliente. Por predefinição, os ficheiros estão localizados nos seguintes caminhos:  
+Especifica o tamanho máximo, em quilobytes (KB) permitido para cada ficheiro de formato MIF (Management Information Format) personalizado que o cliente recolhe durante um ciclo de inventário de hardware. O agente de inventário de hardware do Configuration Manager não processa ficheiros MIF personalizados que excedem este tamanho. Pode especificar um tamanho de 1 KB 5,120 KB. Por predefinição, este valor é definido para 250 KB. Esta definição não afeta o tamanho do ficheiro de dados de inventário de hardware normal.  
 
-    -   **Ficheiros IDMIF** deve estar na pasta windows\system32\ccm\inventory\idmif. 
+> [!NOTE]  
+>  Esta definição está disponível apenas nas predefinições do cliente.  
 
-    -   **Os ficheiros NOIDMIF** deve estar na pasta windows\system32\ccm\inventory\noidmif.
+### <a name="hardware-inventory-classes"></a>Classes de inventário de hardware
 
-    > [!NOTE]  
-    >  Esta definição está disponível apenas nas predefinições do cliente.
+Selecione **definir Classes** para expandir as informações de hardware recolhidas dos clientes sem necessitar de editar manualmente o ficheiro sms_def.mof. Para obter mais informações, consulte [como configurar inventário de hardware](../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
+
+### <a name="collect-mif-files"></a>Recolher ficheiros MIF
+
+Utilize esta definição para especificar se pretende recolher ficheiros MIF de clientes do Configuration Manager durante o inventário de hardware.  
+
+Para um ficheiro MIF possa ser recolhido pelo inventário de hardware, tem de ser no local correto no computador cliente. Por predefinição, os ficheiros estão localizados nos seguintes caminhos:  
+
+-   **Ficheiros IDMIF** deve estar na pasta windows\system32\ccm\inventory\idmif. 
+
+-   **Os ficheiros NOIDMIF** deve estar na pasta windows\system32\ccm\inventory\noidmif.
+
+> [!NOTE]  
+>  Esta definição está disponível apenas nas predefinições do cliente.
 
    
 
-##  <a name="metered-internet-connections"></a>Ligações de Internet com tráfego limitado  
- Gerir como Windows 8 e posteriores computadores utilizam ligações à Internet com tráfego limitado para comunicar com o Configuration Manager. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
+##  <a name="metered-internet-connections"></a>Ligações de internet com tráfego limitado  
+ Gerir como Windows 8 e posteriores computadores utilizam ligações à internet com tráfego limitado para comunicar com o Configuration Manager. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à internet limitada.  
 
 > [!NOTE]  
 >  A definição de cliente configurado não é aplicado nos seguintes cenários:  
 >   
-> -   O computador estiver numa ligação de dados de roaming: O cliente do Configuration Manager não efetua as tarefas que exigem a dados a serem transferidos para sites do Configuration Manager.  
-> -   As propriedades de ligação de rede do Windows estão configuradas como não limitadas: O cliente do Configuration Manager comporta-se como se a ligação se tratasse e, por isso, transfere dados para o site.  
+> -   Se o computador estiver numa ligação de dados de roaming, o cliente do Configuration Manager efetua as tarefas que exigem a dados a serem transferidos para sites do Configuration Manager.  
+> -   Se as propriedades de ligação de rede do Windows estão configuradas como não limitadas, o cliente do Configuration Manager funciona como se a ligação se tratasse e, por isso, transfere dados para o site.  
 
--   **Comunicação com clientes em ligações à Internet com tráfego limitado**  </br>
-     Escolha uma das seguintes opções para esta definição:  
+### <a name="client-communication-on-metered-internet-connections"></a>Comunicação com clientes em ligações à internet com tráfego limitado
 
-    -   **Permitir**: Todas as comunicações de cliente são permitidas através da ligação de Internet limitada, a menos que o dispositivo cliente está a utilizar uma ligação de dados de roaming.  
+Escolha uma das seguintes opções para esta definição:  
 
-    -   **Limite**: Apenas as seguintes comunicações de cliente serão permitidas através da ligação à Internet com tráfego limitado:  
+-   **Permitir**: Todas as comunicações de cliente são permitidas através da ligação de internet limitada, a menos que o dispositivo cliente está a utilizar uma ligação de dados de roaming.  
 
-        -   Obtenção de políticas de cliente  
+-   **Limit**: Apenas as seguintes comunicações de cliente serão permitidas através da ligação à internet com tráfego limitado:  
 
-        -   Mensagens de estado de cliente a enviar para o site  
+    -   Obtenção de políticas de cliente  
 
-        -   Pedidos de instalação de software utilizando o Catálogo de Aplicações  
+    -   Mensagens de estado de cliente a enviar para o site  
 
-        -   Implementações necessárias (quando for atingido o prazo de instalação)  
+    -   Pedidos de instalação de software utilizando o Catálogo de Aplicações  
 
-        > [!IMPORTANT]  
-        >  O cliente permite sempre instalações de software a partir do Centro de Software ou o catálogo de aplicações, independentemente das definições de ligação à Internet com tráfego limitado.  
+    -   Implementações necessárias (quando for atingido o prazo de instalação)  
 
-         Se for atingido o limite de transferência de dados para a ligação à Internet com tráfego limitado, o cliente tenta já não está a comunicar com sites do Configuration Manager.  
+    > [!IMPORTANT]  
+    >  O cliente permite sempre instalações de software a partir do Centro de Software ou o catálogo de aplicações, independentemente da internet com tráfego limitado, as definições de ligação.  
 
-    -   **Bloco**: O cliente do Configuration Manager não tenta comunicar com sites do Configuration Manager quando estiver a utilizar uma ligação à Internet com tráfego limitado. Esta é a opção predefinida.  
+    Se o cliente atingir o limite de transferência de dados para a ligação à internet com tráfego limitado, o cliente tenta já não está a comunicar com sites do Configuration Manager.  
+
+-   **Block**: O cliente do Configuration Manager não tenta comunicar com sites do Configuration Manager quando estiver a utilizar uma ligação à internet com tráfego limitado. Esta é a opção predefinida.  
 
 
 
 ##  <a name="power-management"></a>Gestão de energia  
 
--   **Permitir a gestão de energia dos dispositivos** </br>
-    Configure esta definição para **Sim** para ativar a gestão de energia nos clientes. Para obter mais informações, consulte [introdução à gestão de energia](/sccm/core/clients/manage/power/introduction-to-power-management).
+### <a name="allow-power-management-of-devices"></a>Permitir a gestão de energia dos dispositivos
 
--   **Permitir aos utilizadores excluir o respetivo dispositivo da gestão de energia**  </br>
-     Escolha **Sim** para permitir que os utilizadores do Centro de Software excluam os respetivos computadores a partir de qualquer definições de gestão de energia configuradas.  
+Defina esta opção para **Sim** para ativar a gestão de energia nos clientes. Para obter mais informações, consulte [introdução à gestão de energia](/sccm/core/clients/manage/power/introduction-to-power-management).
 
--   **Ativar reativação proxy** </br> 
-     Especifique **Sim** para completar a definição de reativação por LAN do site quando estiver configurado para pacotes unicast.  
+### <a name="allow-users-to-exclude-their-device-from-power-management"></a>Permitir aos utilizadores excluir o respetivo dispositivo da gestão de energia
 
-     Para obter mais informações sobre o proxy de reativação, consulte [planear como reativar os clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
+Escolha **Sim** para permitir que os utilizadores do Centro de Software excluam os respetivos computadores a partir de qualquer definições de gestão de energia configuradas.  
 
-    > [!WARNING]  
-    >  Não ative a reativação proxy numa rede de produção sem compreender primeiro como funciona e avaliá-la num ambiente de teste.  
+### <a name="enable-wake-up-proxy"></a>Ativar o proxy de reativação
 
-    Em seguida, configure as seguintes definições adicionais, conforme necessário:
+Especifique **Sim** para completar a definição de reativação por LAN do site, quando está configurado para pacotes unicast.  
 
-    -   **Reativar o número da porta proxy (UDP)**  </br>
+Para obter mais informações sobre o proxy de reativação, consulte [planear como reativar os clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
+
+> [!WARNING]  
+>  Não ative a reativação proxy numa rede de produção sem compreender primeiro como funciona e avaliá-la num ambiente de teste.  
+
+Em seguida, configure as seguintes definições adicionais, conforme necessário:
+
+-   **Reativar o número da porta proxy (UDP)**  </br>
          O número de porta que os clientes utilizam para enviar pacotes de reativação para computadores de suspensão. Mantenha a porta predefinida 25536 ou altere o número para um valor à sua escolha.  
 
-    -   **Reativar por LAN o número da porta (UDP)** </br> 
+-   **Reativar por LAN o número da porta (UDP)** </br> 
          Mantenha o valor predefinido 9, exceto se tiver alterado o número de porta de reativação por LAN (UDP) no **portas** separador do site **propriedades**.  
 
-        > [!IMPORTANT]  
-        >  Este número tem de corresponder ao número nas **Propriedades**do site. Se alterar este número num único local, não é automaticamente atualizado no outro.  
+    > [!IMPORTANT]  
+    >  Este número tem de corresponder ao número nas **Propriedades**do site. Se alterar este número num único local, não é automaticamente atualizado no outro.  
 
-    -   **Exceção de Firewall do Windows Defender para proxy de reativação** </br>
-         O cliente do Configuration Manager configura automaticamente o número de porta de proxy de reativação nos dispositivos que executam a Firewall do Windows Defender. Clique em **configurar** para especificar os perfis de firewall pretendido.
+-   **Exceção de Firewall do Windows Defender para proxy de reativação** </br>
+         O cliente do Configuration Manager configura automaticamente o número de porta de proxy de reativação nos dispositivos que executam a Firewall do Windows Defender. Selecione **configurar** para especificar os perfis de firewall pretendido.
 
-        Se os clientes executarem uma firewall diferente, tem de configurar manualmente para permitir a **número de porta de proxy de reativação (UDP)**.  
+    Se os clientes executarem uma firewall diferente, tem de configurar manualmente para permitir a **número de porta de proxy de reativação (UDP)**.  
         
-    -   **Prefixos IPv6 se necessários para DirectAccess ou outros dispositivos de rede intervenientes. Utilize uma vírgula para separar várias entradas** </br>
+-   **Prefixos IPv6 se necessários para DirectAccess ou outros dispositivos de rede intervenientes. Utilize uma vírgula para separar várias entradas** </br>
         Introduza os prefixos IPv6 necessários para um proxy de reativação a funcionar na sua rede.
 
 
 
 ##  <a name="remote-tools"></a>Ferramentas remotas  
 
--   **Ativar Controlo Remoto nos clientes** e **Perfis de exceção de firewall**  </br>
-     Clique em **configurar** para ativar a funcionalidade de controlo remoto do Configuration Manager. Opcionalmente, configure as definições da firewall para permitir o controlo remoto funcione nos computadores cliente.  
+### <a name="enable-remote-control-on-clients-and-firewall-exception-profiles"></a>Ativar controlo remoto nos clientes e perfis de exceção de Firewall
 
-     Por predefinição, o controlo remoto encontra-se desativado.  
+Selecione **configurar** para ativar a funcionalidade de controlo remoto do Configuration Manager. Opcionalmente, configure as definições da firewall para permitir o controlo remoto funcione nos computadores cliente.  
 
-    > [!IMPORTANT]  
-    >  Se as definições da firewall não estiverem configuradas, o controlo remoto poderá não funcionar corretamente.  
+Por predefinição, o controlo remoto encontra-se desativado.  
 
--   **Os utilizadores podem alterar as definições de política ou de notificação no Centro de Software**  </br>
-     Escolha se os utilizadores podem alterar as opções de controlo remoto no Centro de Software.  
+> [!IMPORTANT]  
+>  Se as definições da firewall não estiverem configuradas, o controlo remoto poderá não funcionar corretamente.  
 
--   **Permitir o Controlo Remoto de um computador autónomo**  </br>
-     Escolha se um administrador pode utilizar o controlo remoto para aceder a um computador cliente que está a sessão terminada ou bloqueado. Apenas um computador com sessão iniciada e desbloqueado pode ser controlado remotamente quando esta definição estiver desativada.  
+### <a name="users-can-change-policy-or-notification-settings-in-software-center"></a>Os utilizadores podem alterar as definições de política ou de notificação no Centro de Software
 
--   **Solicitar ao utilizador permissão do Controlo Remoto**  </br>
-     Escolha se o computador cliente mostra uma mensagem solicitando a permissão de utilizador antes de permitir que uma sessão de controlo remoto.  
+Escolha se os utilizadores podem alterar as opções de controlo remoto no Centro de Software.  
 
--   **Pedir ao utilizador permissão transferir o conteúdo da área de transferência partilhada** </br>
-    Permitir que os utilizadores a oportunidade de aceitar ou recusar as transferências de ficheiros antes de transferir o conteúdo da área de transferência partilhada numa sessão de controlo remoto. Os utilizadores só têm de conceder permissão, uma vez por sessão e o Visualizador não tem a capacidade de conceder si próprios permissão para continuar com a transferência de ficheiros.
+### <a name="allow-remote-control-of-an-unattended-computer"></a>Permitir o controlo remoto de um computador autónomo
 
--   **Conceder permissão de Controlo Remoto ao grupo de Administradores local**  </br>
-     Escolha se a administradores locais no servidor que inicia a ligação de controlo remoto podem estabelecer sessões de controlo remoto nos computadores cliente.  
+Escolha se um administrador pode utilizar o controlo remoto para aceder a um computador cliente que está a sessão terminada ou bloqueado. Apenas um computador com sessão iniciada e desbloqueado pode ser controlado remotamente quando esta definição estiver desativada.  
 
--   **Nível de acesso permitido**  </br>
-     Especifique o nível de acesso de controlo remoto para permitir. Escolha entre as seguintes definições:  
-    - **Sem acesso**
-    - **Ver apenas**
-    - **Controlo total**  
+### <a name="prompt-user-for-remote-control-permission"></a>Pedir ao utilizador permissão do controlo remoto
 
--   **Visualizadores de controlo remoto e assistência remota**  </br>
-     Clique em **definir visualizadores** para especificar os nomes dos utilizadores Windows que poderão estabelecer sessões de controlo remoto para computadores cliente.  
+Escolha se o computador cliente mostra uma mensagem solicitando a permissão de utilizador antes de permitir que uma sessão de controlo remoto.  
 
--   **Mostrar ícone de notificação de sessão na barra de tarefas**  </br>
-     Configure esta definição para **Sim** para mostrar um ícone na barra de tarefas para indicar uma sessão ativa de controlo remoto do cliente Windows.  
+### <a name="prompt-user-for-permission-to-transfer-content-from-shared-clipboard"></a>Pedir ao utilizador permissão transferir o conteúdo da área de transferência partilhada
 
--   **Mostrar barra de ligação da sessão**  </br>
-     Configure esta definição para **Sim** para mostrar uma barra de ligação de sessão de alta visibilidade nos clientes para indicar uma sessão ativa de controlo remoto.  
+Permitir que os utilizadores a oportunidade de aceitar ou recusar transferências de ficheiros, antes de transferir o conteúdo da área de transferência partilhada numa sessão de controlo remoto. Os utilizadores só têm de conceder permissão, uma vez por sessão e o Visualizador não tem a capacidade de conceder si próprios permissão para continuar com a transferência de ficheiros.
 
--   **Reproduzir um som no cliente**  </br>
-     Configure esta definição para utilizar som para indicar quando uma sessão de controlo remoto está ativa num computador cliente. Selecione uma das seguintes opções:
-    - **Sem som**
-    - **Início e o envio de sessão** (predefinição)
-    - **Repetidamente durante a sessão**  
+### <a name="grant-remote-control-permission-to-local-administrators-group"></a>Conceder permissão de controlo remoto ao grupo de administradores local
 
--   **Gerir definições da Assistência Remota não solicitada**  </br>
-     Configure esta definição para **Sim** para permitir que o Configuration Manager gerir sessões de assistência remota não solicitadas.  
+Escolha se a administradores locais no servidor que inicia a ligação de controlo remoto podem estabelecer sessões de controlo remoto nos computadores cliente.  
 
-     Numa sessão de assistência remota não solicitada, o utilizador do computador cliente não pediu a assistência para iniciar a sessão.  
+### <a name="access-level-allowed"></a>Nível de acesso permitido
 
--   **Gerir definições da Assistência Remota solicitada**  </br>
-     Configure esta definição para **Sim** para permitir que o Configuration Manager gerir sessões de assistência remota solicitadas.  
+Especifique o nível de acesso de controlo remoto para permitir. Escolha entre as seguintes definições:  
+- **Sem acesso**
+- **Ver apenas**
+- **Controlo total**  
 
-     Numa sessão de assistência remota solicitada, o utilizador do computador cliente enviou um pedido para o administrador para a assistência remota.  
+### <a name="permitted-viewers-of-remote-control-and-remote-assistance"></a>Visualizadores de controlo remoto e assistência remota
 
--   **Nível de acesso para a Assistência Remota**  </br>
-     Escolha o nível de acesso a atribuir às sessões de assistência remota que sejam iniciadas na consola do Configuration Manager.  Selecione uma das seguintes opções:
-    - **Nenhum** (predefinição)
-    - **Visualização remota**
-    - **Controlo total**
+Selecione **definir visualizadores** para especificar os nomes dos utilizadores Windows que poderão estabelecer sessões de controlo remoto para computadores cliente.  
 
-    > [!NOTE]  
-    >  O utilizador do computador cliente tem sempre de conceder permissão para que ocorra uma sessão de Assistência Remota.  
+### <a name="show-session-notification-icon-on-taskbar"></a>Mostrar ícone de notificação de sessão na barra de tarefas
 
--   **Gerir definições de Ambiente de Trabalho Remoto**  </br>
-     Configure esta definição para **Sim** para permitir que o Configuration Manager gerir sessões de ambiente de trabalho remoto para computadores.  
+Configure esta definição para **Sim** para mostrar um ícone na barra de tarefas para indicar uma sessão ativa de controlo remoto do cliente Windows.  
 
--   **Permitir que os visualizadores autorizados estabeleçam ligação utilizando a ligação ao Ambiente de Trabalho Remoto**  </br>
-     Configure esta definição para **Sim** para adicionar os utilizadores especificados na lista de visualizadores autorizados para o grupo de utilizadores local do ambiente de trabalho remoto nos clientes.  
+### <a name="show-session-connection-bar"></a>Mostrar barra de ligação de sessão
 
--   **Exigir autenticação de nível de rede nos computadores com o sistema operativo Windows Vista e versões posteriores**  </br>
-     Configure esta definição para **Sim** para utilizar a autenticação de nível de rede (NLA) para estabelecer ligações de ambiente de trabalho remoto para os computadores cliente. NLA inicialmente requer menos recursos do computador remoto porque concluído a autenticação de utilizador antes de estabelecer uma ligação de ambiente de trabalho remoto. Utilizar NLA é uma configuração mais segura. NLA ajuda a proteger o computador contra utilizadores mal intencionados ou software e reduz o risco de ataques denial-of-service.  
+Defina esta opção para **Sim** para mostrar uma barra de ligação de sessão de alta visibilidade nos clientes, para indicar uma sessão ativa de controlo remoto.  
+
+### <a name="play-a-sound-on-client"></a>Reproduzir um som no cliente
+
+Defina esta opção para utilizar som para indicar quando uma sessão de controlo remoto está ativa num computador cliente. Selecione uma das seguintes opções:
+- **Sem som**
+- **Início e o envio de sessão** (predefinição)
+- **Repetidamente durante a sessão**  
+
+### <a name="manage-unsolicited-remote-assistance-settings"></a>Gerir definições de assistência remota não solicitada
+
+Configure esta definição para **Sim** para permitir que o Configuration Manager gerir sessões de assistência remota não solicitadas.  
+
+Numa sessão de assistência remota não solicitada, o utilizador do computador cliente não pediu a assistência para iniciar a sessão.  
+
+### <a name="manage-solicited-remote-assistance-settings"></a>Gerir definições da assistência remota solicitada
+
+Defina esta opção para **Sim** para permitir que o Configuration Manager gerir sessões de assistência remota solicitadas.  
+
+Numa sessão de assistência remota solicitada, o utilizador do computador cliente enviou um pedido para o administrador para a assistência remota.  
+
+### <a name="level-of-access-for-remote-assistance"></a>Nível de acesso para a assistência remota
+
+Escolha o nível de acesso a atribuir às sessões de assistência remota que sejam iniciadas na consola do Configuration Manager. Selecione uma das seguintes opções:
+- **Nenhum** (predefinição)
+- **Visualização remota**
+- **Controlo total**
+
+> [!NOTE]  
+>  O utilizador do computador cliente tem sempre de conceder permissão para que ocorra uma sessão de Assistência Remota.  
+
+### <a name="manage-remote-desktop-settings"></a>Gerir definições de ambiente de trabalho remoto
+
+Defina esta opção para **Sim** para permitir que o Configuration Manager gerir sessões de ambiente de trabalho remoto para computadores.  
+
+### <a name="allow-permitted-viewers-to-connect-by-using-remote-desktop-connection"></a>Permitir que os visualizadores autorizados estabeleçam ligação utilizando a ligação de ambiente de trabalho remoto
+
+Defina esta opção para **Sim** para adicionar os utilizadores especificados na lista de visualizadores autorizados para o grupo de utilizadores local do ambiente de trabalho remoto nos clientes.  
+
+### <a name="require-network-level-authentication-on-computers-that-run-windows-vista-operating-system-and-later-versions"></a>Exigir autenticação de nível de rede nos computadores que executam o sistema operativo Windows Vista e versões posteriores
+
+Defina esta opção para **Sim** para utilizar a autenticação de nível de rede (NLA) para estabelecer ligações de ambiente de trabalho remoto para os computadores cliente. NLA requer inicialmente menos recursos do computador remoto, uma vez concluído a autenticação de utilizador antes de estabelecer uma ligação de ambiente de trabalho remoto. Utilizar NLA é uma configuração mais segura. NLA ajuda a proteger o computador contra utilizadores mal intencionados ou software e reduz o risco de ataques denial-of-service.  
 
 
 
 ## <a name="software-center"></a>Centro de software
 
--   **Selecione estas novas definições para especificar as informações da empresa** </br>
-    Configure esta definição para **Sim**e, em seguida, especifique as seguintes definições para marca Centro de Software para a sua organização:
+### <a name="select-these-new-settings-to-specify-company-information"></a>Selecione estas novas definições para especificar as informações da empresa
+Defina esta opção para **Sim**e, em seguida, especifique as seguintes definições para marca Centro de Software para a sua organização:
 
-    - **Nome da empresa** </br>
-        Introduza o nome da organização que os utilizadores visualizam no Centro de Software.
-    - **Esquema de cores para o Centro de Software** </br>
-        Clique em **selecione cor** para definir a cor primária utilizado pelo centro de Software.
-    - **Selecionar um logótipo no Centro de Software** </br>
-        Clique em **procurar** para selecionar uma imagem a apresentar no Centro de Software. O logótipo tem de ser um JPEG, PNG ou BMP de 400 x 100 pixéis com um tamanho máximo de 750 KB. O nome de ficheiro de logótipo não deve conter espaços. <!--SMS.503731 space in filename, noticed BMP missing as filetype-->
+- **Nome da empresa** </br>
+Introduza o nome da organização que os utilizadores visualizam no Centro de Software.
+- **Esquema de cores para o Centro de Software** </br>
+Selecione **selecione cor** para definir a cor primária utilizada pelo centro de Software.
+- **Selecionar um logótipo no Centro de Software** </br>
+Selecione **procurar** para selecionar uma imagem a apresentar no Centro de Software. O logótipo tem de ser um JPEG, PNG ou BMP de 400 x 100 pixéis, com um tamanho máximo de 750 KB. O nome de ficheiro de logótipo não deve conter espaços. <!--SMS.503731 space in filename, noticed BMP missing as filetype-->
 
--   Visibilidade de separador de centro de software </br>
-    Configurar as definições adicionais neste grupo para **Sim** para fazer com que os seguintes separadores visível no Centro de Software:
-    - **Aplicações**
-    - **Atualizações**
-    - **Sistemas operativos**
-    - **Estado da instalação**
-    - **Conformidade do dispositivo**
-    - **Opções**
+### <a name="software-center-tab-visibility"></a>Visibilidade de separador de centro de software
+Configurar as definições adicionais neste grupo para **Sim** para fazer com que os seguintes separadores visível no Centro de Software:
+- **Aplicações**
+- **Atualizações**
+- **Sistemas operativos**
+- **Estado da instalação**
+- **Conformidade do dispositivo**
+- **Opções**
 
-    Por exemplo, se a sua organização utilizar políticas de conformidade e pretender ocultar o separador de conformidade do dispositivo no Centro de Software, configure o **separador de ativar a conformidade do dispositivo** definição **não**.
+Por exemplo, se a sua organização utilizar políticas de conformidade e, se pretender ocultar o separador de conformidade do dispositivo no Centro de Software, defina **separador de ativar a conformidade do dispositivo** para **não**.
 
 
 
 ## <a name="software-deployment"></a>Implementação de software  
 
--   **Agendar reavaliação das implementações**  </br>
-     Configure uma agenda para quando o Configuration Manager deverá reavaliar as regras de requisitos para todas as implementações. O valor predefinido é de sete em sete dias.  
+### <a name="schedule-re-evaluation-for-deployments"></a>Agendar a reavaliação das implementações
+Configure uma agenda para quando o Configuration Manager deverá reavaliar as regras de requisitos para todas as implementações. O valor predefinido é de sete em sete dias.  
 
-    > [!IMPORTANT]  
-    >  Recomendamos que altere este valor para um valor inferior à predefinição de. Uma agenda de reavaliação mais agressiva afeta negativamente o desempenho da sua rede e os computadores cliente.  
+> [!IMPORTANT]  
+>  Recomendamos que altere este valor para um valor inferior à predefinição de. Uma agenda de reavaliação mais agressiva afeta negativamente o desempenho da sua rede e os computadores cliente.  
 
-     Iniciar esta ação de um cliente escolhendo o **ciclo de avaliação de implementação de aplicação** do **ações** separador do **do Configuration Manager** painel de controlo.  
+Iniciar esta ação de um cliente da seguinte forma: no **do Configuration Manager** painel, de controlo do **ações** separador, selecione **ciclo de avaliação de implementação de aplicação**.  
 
 
 
 ##  <a name="software-inventory"></a>Inventário de software  
 
--   **Ativar inventário de software nos clientes** </br>
-    Esta definição está definida como **Sim** por predefinição. Para obter mais informações, consulte [introdução ao inventário de software](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).
+### <a name="enable-software-inventory-on-clients"></a>Ativar inventário de software nos clientes
 
--   **Agendar a recolha de ficheiros e de inventário de software** </br>
-    Clique em **agenda** para ajustar a frequência de que os clientes executam ciclos de recolha de ficheiros e inventário de software. Por predefinição, este ciclo ocorre a cada sete dias.
+Isto está definido como **Sim** por predefinição. Para obter mais informações, consulte [introdução ao inventário de software](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).
 
--   **Inventariar detalhe de relatórios**  </br>
-     Especifique um dos seguintes níveis de informações de ficheiro ao inventário:
-    - **Apenas ficheiro**
-    - **Apenas o produto**
-    - **Total detalhes** (predefinição)
+### <a name="schedule-software-inventory-and-file-collection"></a>Agendar a recolha de ficheiros e de inventário de software
 
--   **Inventariar estes tipos de ficheiro**  </br>
-     Se pretender especificar os tipos de ficheiro a inventariar, clique em **definir tipos**e, em seguida, configure as seguintes opções:  
+Selecione **agenda** para ajustar a frequência de que os clientes executam ciclos de recolha de ficheiros e inventário de software. Por predefinição, este ciclo ocorre a cada sete dias.
+
+### <a name="inventory-reporting-detail"></a>Inventariar detalhe de relatórios
+
+Especifique um dos seguintes níveis de informações de ficheiro ao inventário:
+- **Apenas ficheiro**
+- **Apenas o produto**
+- **Total detalhes** (predefinição)
+
+### <a name="inventory-these-file-types"></a>Inventariar estes tipos de ficheiro
+
+Se pretender especificar os tipos de ficheiro a inventariar, selecione **definir tipos**e, em seguida, configure as seguintes opções:  
+
+> [!NOTE]  
+>  Se forem aplicadas várias definições personalizadas de cliente para um computador, o inventário que cada definição devolve intercalado.  
+
+-   Selecione **novo** para adicionar um novo tipo de ficheiro ao inventário. Em seguida, especifique as seguintes informações no **propriedades do ficheiro inventariado** caixa de diálogo:  
+
+    -   **Nome**: Forneça um nome para o ficheiro que pretende inventariar. Utilize um asterisco (**&#42;**) universal para representar qualquer cadeia de texto e um ponto de interrogação (**?**) para representar um único caráter. Por exemplo, se pretender inventariar todos os ficheiros com a extensão. doc, especifique o nome de ficheiro  **\*. doc**.  
+
+    -   **Localização**: Selecione **definir** para abrir o **propriedades do caminho** caixa de diálogo. Configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro especificado, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
+
+    -   **Excluir ficheiros comprimidos e encriptados**: Quando seleciona esta opção, todos os ficheiros comprimidos ou encriptados não são inventariados.  
+
+    -   **Excluir ficheiros da pasta Windows**: Quando seleciona esta opção, os ficheiros na pasta Windows e respetivas subpastas não são inventariados.  
+
+    Selecione **OK** para fechar o **propriedades do ficheiro inventariado** caixa de diálogo. Adicionar todos os ficheiros que pretende inventariar e, em seguida, selecione **OK** para fechar o **configurar definições do cliente** caixa de diálogo.  
+
+### <a name="collect-files"></a>Recolher ficheiros
+
+Se pretender recolher ficheiros de computadores cliente, selecione **definir ficheiros**e, em seguida, configure as seguintes definições:  
+
+> [!NOTE]  
+>  Se forem aplicadas várias definições personalizadas de cliente para um computador, o inventário que cada definição devolve intercalado.  
+
+-   No **configurar definições do cliente** caixa de diálogo, selecione **novo** para adicionar um ficheiro a serem recolhidos.  
+
+-   Na caixa de diálogo **Propriedades do Ficheiro Recolhido** , forneça as seguintes informações:  
+
+    -   **Nome**: Forneça um nome para o ficheiro que pretende recolher. Utilize um asterisco (**&#42;**) universal para representar qualquer cadeia de texto e um ponto de interrogação (**?**) para representar um único caráter.  
+
+    -   **Localização**: Selecione **definir** para abrir o **propriedades do caminho** caixa de diálogo. Configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro que pretende recolher, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
+
+    -   **Excluir ficheiros comprimidos e encriptados**: Quando seleciona esta opção, todos os ficheiros comprimidos ou encriptados não são recolhidos.  
+
+    -   **Parar a recolha de ficheiros quando o tamanho total dos ficheiros excede (KB)**: Especifique o tamanho do ficheiro, em quilobytes (KB) após o qual o cliente deixa de recolher os ficheiros especificados.  
 
     > [!NOTE]  
-    >  Se forem aplicadas várias definições personalizadas de cliente para um computador, o inventário que cada definição devolve intercalado.  
+    >  Servidor do site recolhe as cinco versões mais recentes dos ficheiros recolhidos e armazena-os no  *&lt;diretório de instalação do ConfigMgr\>*\Inboxes\Sinv.box\Filecol diretório. Se um ficheiro não foi alterada desde o último ciclo de inventário de software, o ficheiro não é recolhido novamente.  
+    >   
+    >  Inventário de software não recolher ficheiros com mais de 20 MB.  
+    >   
+    >  O valor **tamanho máximo para todos ficheiros recolhidos (KB)** no **configurar definições do cliente** caixa de diálogo mostra o tamanho máximo para todos ficheiros recolhidos. Quando este tamanho for atingido, interrompe a recolha de ficheiros. Todos os ficheiros já recolhidos serão mantidos e enviados para o servidor do site.  
 
-    -   Clique em de **novo** ícone para adicionar um novo tipo de ficheiro ao inventário. Em seguida, especifique as seguintes informações no **propriedades do ficheiro inventariado** caixa de diálogo:  
+    > [!IMPORTANT]
+    >  Se configurar o inventário de software para recolher muitos ficheiros grandes, esta configuração poderá afetar negativamente o desempenho do seu servidor de site e de rede.  
 
-        -   **Nome**: Forneça um nome para o ficheiro que pretende inventariar. Utilize um asterisco (**&#42;**) universal para representar qualquer cadeia de texto e um ponto de interrogação (**?**) para representar um único caráter. Por exemplo, se pretender inventariar todos os ficheiros com a extensão. doc, especifique o nome de ficheiro  **\*. doc**.  
+    Para obter informações sobre como visualizar ficheiros recolhidos, consulte [como utilizar o Explorador de recursos para ver o inventário de software](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
 
-        -   **Localização**: Clique em **definir** para abrir o **propriedades do caminho** caixa de diálogo. Configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro especificado, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
+    Selecione **OK** para fechar o **propriedades do ficheiro recolhido** caixa de diálogo. Adicionar todos os ficheiros que pretende recolher e, em seguida, selecione **OK** para fechar o **configurar definições do cliente** caixa de diálogo.  
 
-        -   **Excluir ficheiros comprimidos e encriptados**: Quando seleciona esta opção, todos os ficheiros comprimidos ou encriptados não são inventariados.  
+### <a name="set-names"></a>Definir nomes
 
-        -   **Excluir ficheiros da pasta Windows**: Quando seleciona esta opção, os ficheiros na pasta Windows e respetivas subpastas não são inventariados.  
+O agente de inventário de software obtém nomes de produto e fabricante de informações de cabeçalho de ficheiro. Estes nomes não são normalizados sempre as informações de cabeçalho de ficheiro. Quando visualiza o inventário de software no Explorador de recursos, podem aparecer versões diferentes do mesmo fabricante ou o nome de produto. Padronizar estes nomes a apresentar, selecione **definir nomes**e, em seguida, configure as seguintes definições:  
 
-    -   Clique em **OK** para fechar a caixa de diálogo **Propriedades do Ficheiro Inventariado** .  
+-   **Nome do tipo**: Inventário de software recolhe informações sobre produtos e fabricantes. Escolha se pretende configurar os nomes a apresentar para um **fabricante** ou um **produto**.  
 
-    -   Adicionar todos os ficheiros que pretende inventariar e, em seguida, clique em **OK** para fechar o **configurar definições do cliente** caixa de diálogo.  
+-   **Nome a apresentar**: Especifique o nome a apresentar que pretende utilizar em vez dos nomes de **nomes inventariados** lista. Para especificar um novo nome de apresentação, selecione **novo**.  
 
--   **Recolher ficheiros**  </br>
-     Se pretender recolher ficheiros de computadores cliente, clique em **definir ficheiros** e, em seguida, configure as seguintes definições:  
-
-    > [!NOTE]  
-    >  Se forem aplicadas várias definições personalizadas de cliente para um computador, o inventário que cada definição devolve intercalado.  
-
-    -   No **configurar definições do cliente** caixa de diálogo, clique em de **novo** ícone para adicionar um ficheiro a serem recolhidos.  
-
-    -   Na caixa de diálogo **Propriedades do Ficheiro Recolhido** , forneça as seguintes informações:  
-
-        -   **Nome**: Forneça um nome para o ficheiro que pretende recolher. Utilize um asterisco (**&#42;**) universal para representar qualquer cadeia de texto e um ponto de interrogação (**?**) para representar um único caráter.  
-
-        -   **Localização**: Clique em **definir** para abrir o **propriedades do caminho** caixa de diálogo. Configurar o inventário de software para procurar todos os discos de rígido do cliente para o ficheiro que pretende recolher, procurar num caminho especificado (por exemplo, **C:\Folder**), ou procure numa variável especificada (por exemplo, *% windir %*). Também poderá procurar em todas as subpastas do caminho especificado.  
-
-        -   **Excluir ficheiros comprimidos e encriptados**: Quando seleciona esta opção, todos os ficheiros comprimidos ou encriptados não são recolhidos.  
-
-        -   **Parar a recolha de ficheiros quando o tamanho total dos ficheiros excede (KB)**: Especifique o tamanho do ficheiro, em quilobytes (KB) após o qual o cliente deixa de recolher os ficheiros especificados.  
-
-          > [!NOTE]  
-          >  O servidor do site recolhe as cinco versões mais recentes dos ficheiros recolhidos e armazena-os no  *&lt;diretório de instalação do ConfigMgr\>*\Inboxes\Sinv.box\Filecol diretório. Se um ficheiro não foi alterada desde o último ciclo de inventário de software, o ficheiro não é recolhido novamente.  
-          >   
-          >  Inventário de software não recolher ficheiros com mais de 20 MB.  
-          >   
-          >  O valor **tamanho máximo para todos ficheiros recolhidos (KB)** no **configurar definições do cliente** caixa de diálogo mostra o tamanho máximo para todos ficheiros recolhidos. Quando este tamanho for atingido, interrompe a recolha de ficheiros. Todos os ficheiros já recolhidos serão mantidos e enviados para o servidor do site.  
-
-          > [!IMPORTANT]
-          >  Se configurar o inventário de software para recolher muitos ficheiros grandes, esta configuração poderá afetar negativamente o desempenho do seu servidor de site e de rede.  
-
-        Para obter informações sobre como visualizar ficheiros recolhidos, consulte [como utilizar o Explorador de recursos para ver o inventário de software](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
-
-    -   Clique em **OK** para fechar a caixa de diálogo **Propriedades do Ficheiro Recolhido** .  
-
-    -   Adicionar todos os ficheiros que pretende recolher e, em seguida, clique em **OK** para fechar o **configurar definições do cliente** caixa de diálogo.  
-
--   **Definir Nomes**  </br>
-     O agente de inventário de software obtém nomes de produto e fabricante de informações de cabeçalho de ficheiro. Estes nomes não são normalizados sempre as informações de cabeçalho de ficheiro. Quando visualiza o inventário de software no Explorador de recursos, podem aparecer versões diferentes do mesmo fabricante ou o nome de produto. Padronizar estes nomes a apresentar, clique em **definir nomes** e, em seguida, configure as seguintes definições:  
-
-    -   **Nome do tipo**: Inventário de software recolhe informações sobre produtos e fabricantes. Escolha se pretende configurar os nomes a apresentar para um **fabricante** ou um **produto**.  
-
-    -   **Nome a apresentar**: Especifique o nome a apresentar que pretende utilizar em vez dos nomes de **nomes inventariados** lista. Clique em de **novo** ícone para especificar um novo nome a apresentar.  
-
-    -   **Nomes inventariados**: Clique em de **novo** ícone para adicionar um nome inventariado. Este nome é substituído no inventário de software pelo nome selecionado no **nome a apresentar** lista. Pode adicionar vários nomes a substituir.  
+-   **Nomes inventariados**: Para adicionar um nome inventariado, selecione **novo**. Este nome é substituído no inventário de software pelo nome selecionado no **nome a apresentar** lista. Pode adicionar vários nomes a substituir.  
 
 
 
 ##  <a name="software-metering"></a>Medição de Software
 
--   **Ativar medição de software nos clientes** </br>
-    Esta definição está definida como **Sim** por predefinição. Para obter mais informações, consulte [medição de Software](/sccm/apps/deploy-use/monitor-app-usage-with-software-metering#configure-software-metering).
+### <a name="enable-software-metering-on-clients"></a>Ativar medição de software nos clientes
+Esta definição está definida como **Sim** por predefinição. Para obter mais informações, consulte [medição de Software](/sccm/apps/deploy-use/monitor-app-usage-with-software-metering#configure-software-metering).
 
--   **Recolha de dados de agenda** </br>
-    Clique em **agenda** para ajustar a frequência de que os clientes executam o ciclo de medição de software. Por predefinição, este ciclo ocorre a cada sete dias.
+### <a name="schedule-data-collection"></a>Recolha de dados de agenda
+Selecione **agenda** para ajustar a frequência de que os clientes executam o ciclo de medição de software. Por predefinição, este ciclo ocorre a cada sete dias.
 
 
 
 ##  <a name="software-updates"></a>Atualizações de software  
 
--   **Ativar atualizações de software nos clientes**  </br>
-     Utilize esta definição para ativar atualizações de software nos clientes do Configuration Manager. Quando desativar esta definição, o Configuration Manager removerá as políticas de implementação existentes do cliente. Quando voltar a ativar esta definição, o cliente transferirá a política de implementação atual.  
+### <a name="enable-software-updates-on-clients"></a>Ativar atualizações de software nos clientes
 
-    > [!IMPORTANT]  
-    >  Ao desativar esta definição, as políticas de conformidade que dependem de atualizações de software deixarão de funcionar.  
+Utilize esta definição para ativar atualizações de software nos clientes do Configuration Manager. Quando desativar esta definição, o Configuration Manager removerá as políticas de implementação existentes do cliente. Quando voltar a ativar esta definição, o cliente transferirá a política de implementação atual.  
 
--   **Agendamento da análise de atualização de software**  </br>
-     Clique em **agenda** para especificar a frequência que o cliente inicia uma análise da avaliação de compatibilidade. Esta análise determina o estado das atualizações de software no cliente (por exemplo, é necessário ou instalado). Para obter mais informações sobre a avaliação de compatibilidade, consulte [avaliação de compatibilidade de atualizações de Software](../../../sum/understand/software-updates-introduction.md#BKMK_SUMCompliance).  
+> [!IMPORTANT]  
+>  Ao desativar esta definição, as políticas de conformidade que dependem de atualizações de software deixarão de funcionar.  
 
-     Por predefinição, esta análise utiliza uma agenda simples para iniciar a cada sete dias. Pode criar uma agenda personalizada para especificar um dia de início exatas e a hora, utilizar tempo Universal Coordenado (UTC) ou na hora local e configurar o intervalo periódico para um dia da semana específico.  
+### <a name="software-update-scan-schedule"></a>Agendamento da análise de atualização de software
 
-    > [!NOTE]  
-    >  Se especificar um intervalo de menos de um dia, o Configuration Manager assume-se automaticamente como um dia.  
+Selecione **agenda** para especificar a frequência que o cliente inicia uma análise da avaliação de compatibilidade. Esta análise determina o estado das atualizações de software no cliente (por exemplo, é necessário ou instalado). Para obter mais informações sobre a avaliação de compatibilidade, consulte [avaliação de compatibilidade de atualizações de Software](../../../sum/understand/software-updates-introduction.md#BKMK_SUMCompliance).  
 
-    > [!WARNING]  
-    >  A hora de início real em computadores cliente é a hora de início mais um período de tempo aleatório de cópia de segurança duas horas. Este prazos impede que os computadores cliente de iniciar a análise e em simultâneo a ligar ao ponto de atualização de software ativo.  
+Por predefinição, esta análise utiliza uma agenda simples para iniciar a cada sete dias. Pode criar uma agenda personalizada. Pode especificar um dia de início exatas e a hora, utilizar tempo Universal Coordenado (UTC) ou na hora local e configurar o intervalo periódico para um dia da semana específico.  
 
--   **Agendar a reavaliação de implementação**  </br>
-     Clique em **agenda** para configurar a frequência a atualizações de software cliente agente deverá reavaliar as atualizações de software para o estado de instalação nos computadores de cliente do Configuration Manager. Quando as atualizações de software instaladas anteriormente já não se encontram nos clientes, mas são ainda necessárias, o cliente Reinstala as atualizações de software.
+> [!NOTE]  
+>  Se especificar um intervalo de menos de um dia, o Configuration Manager assume-se automaticamente como um dia.  
 
-     Ajuste esta agenda com base na política da empresa para compatibilidade de atualização de software e indica se os utilizadores podem desinstalarem atualizações de software. Cada ciclo de reavaliação da implementação resulta na atividade de processador de computador cliente e rede. Por predefinição, esta definição utiliza uma agenda simples para iniciar a análise de reavaliação de implementação a cada sete dias.  
+> [!WARNING]  
+>  A hora de início real em computadores cliente é a hora de início mais um período de tempo aleatório, até duas horas. Este prazos impede que os computadores cliente de iniciar a análise e em simultâneo a ligar ao ponto de atualização de software ativo.  
 
-    > [!NOTE]  
-    >  Se especificar um intervalo de menos de um dia, o Configuration Manager assume-se automaticamente como um dia.  
+### <a name="schedule-deployment-re-evaluation"></a>Agendar reavaliação de implementação
 
--   **Quando qualquer prazo de implementação de atualização de software é alcançado, instale todas as outras implementações de atualização de software com prazo a terminar no período de tempo especificado**  </br>
-     Configure esta definição para **Sim** instalar todas as atualizações de software a partir de implementações necessárias com prazos ocorrer dentro de um período de tempo especificado. Quando uma implementação de atualização de software necessárias atinge um prazo, o cliente inicia a instalação para as atualizações de software na implementação. Esta definição determina se deve instalar as atualizações de software a partir de outras implementações necessárias com um prazo no período de tempo especificado.  
+Selecione **agenda** para configurar a frequência a atualizações de software cliente agente deverá reavaliar as atualizações de software para o estado de instalação nos computadores de cliente do Configuration Manager. Quando as atualizações de software instaladas anteriormente já não se encontram nos clientes, mas são ainda necessárias, o cliente Reinstala as atualizações de software.
 
-     Utilize esta definição para agilizar a instalação de atualizações de software necessárias. Esta definição também potencialmente aumenta a segurança do cliente, potencialmente diminui notificações do utilizador final e diminui potencialmente os reinícios do cliente. Por predefinição, esta definição está definida como **não** , por conseguinte, não ativada.  
+Ajustar esta agenda com base na política da empresa relativamente a compatibilidade de atualização de software, e se os utilizadores podem desinstalarem atualizações de software. Cada ciclo de reavaliação da implementação resulta na atividade de processador de computador cliente e rede. Por predefinição, esta definição utiliza uma agenda simples para iniciar a análise de reavaliação de implementação a cada sete dias.  
 
--   **Período de tempo para o qual todas as implementações pendentes com prazo nesta hora também serão instaladas**  </br>
-     Utilize esta definição para especificar o período de tempo da definição anterior. Pode introduzir um valor de 1 a 23 horas e de 1 a 365 dias. Por predefinição, esta definição é configurada durante sete dias.  
+> [!NOTE]  
+>  Se especificar um intervalo de menos de um dia, o Configuration Manager assume-se automaticamente como um dia.  
 
--   **Ativar a instalação dos ficheiros de instalação rápida nos clientes** </br>
-    Configure esta definição para **Sim** para permitir aos clientes utilizar ficheiros de instalação rápida. Para obter mais informações, consulte [ficheiros de instalação gerir Express para Windows 10 das atualizações](/sccm/sum/deploy-use/manage-express-installation-files-for-windows-10-updates).
+### <a name="when-any-software-update-deployment-deadline-is-reached-install-all-other-software-update-deployments-with-deadline-coming-within-a-specified-period-of-time"></a>Quando qualquer prazo de implementação de atualização de software é alcançado, instale todas as outras implementações de atualização de software com prazo a terminar no período de tempo especificado
 
-    -   **Porta utilizada para transferir conteúdo para os ficheiros de instalação rápida** </br>
-        Esta definição configura a porta local para o serviço de escuta HTTP transferir conteúdo rápido. Está definido para 8005 por predefinição. Não é necessário abrir esta porta na firewall do cliente.
+Defina esta opção para **Sim** instalar todas as atualizações de software a partir de implementações necessárias com prazos ocorrer dentro de um período de tempo especificado. Quando uma implementação de atualização de software necessárias atinge um prazo, o cliente inicia a instalação para as atualizações de software na implementação. Esta definição determina se deve instalar as atualizações de software a partir de outras implementações necessárias com um prazo no período de tempo especificado.  
 
--   **Ativar a gestão do agente de cliente do Office 365** </br>
-    Utilize esta definição para ativar a gestão do agente de cliente do Office 365. Quando definir o valor **Sim**, permite que a configuração do Office 365 definições de instalação, transferir os ficheiros a partir de redes de entrega de conteúdo (CDNs) do Office e implementar os ficheiros como uma aplicação no Configuration Manager. Para obter mais informações, consulte [gerir o Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
+Utilize esta definição para agilizar a instalação de atualizações de software necessárias. Esta definição também tem o potencial de aumentar a segurança de cliente, diminuir notificações para o utilizador e diminuir a reinícios de cliente. Por predefinição, esta definição encontra-se definida como **Não**.  
+
+### <a name="period-of-time-for-which-all-pending-deployments-with-deadline-in-this-time-will-also-be-installed"></a>Período de tempo para o qual todas as implementações pendentes com prazo nesta hora também serão instaladas
+
+Utilize esta definição para especificar o período de tempo da definição anterior. Pode introduzir um valor de 1 a 23 horas e, de 1 a 365 dias. Por predefinição, esta definição está configurada para 7 dias.  
+
+### <a name="enable-installation-of-express-installation-files-on-clients"></a>Ativar a instalação dos ficheiros de instalação rápida nos clientes
+
+Defina esta opção para **Sim** para permitir aos clientes utilizar ficheiros de instalação rápida. Para obter mais informações, consulte [ficheiros de instalação gerir Express para Windows 10 das atualizações](/sccm/sum/deploy-use/manage-express-installation-files-for-windows-10-updates).
+
+### <a name="port-used-to-download-content-for-express-installation-files"></a>Porta utilizada para transferir conteúdo para os ficheiros de instalação rápida
+
+Esta definição configura a porta local para o serviço de escuta HTTP transferir conteúdo rápido. Está definido para 8005 por predefinição. Não é necessário abrir esta porta na firewall do cliente.
+
+### <a name="enable-management-of-the-office-365-client-agent"></a>Ativar a gestão do agente de cliente do Office 365
+
+Quando definir esta opção para **Sim**, permite que a configuração das definições de instalação do Office 365. Também lhe permite transferir os ficheiros de redes de entrega de conteúdo (CDNs) do Office e implementar os ficheiros como uma aplicação no Configuration Manager. Para obter mais informações, consulte [gerir o Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
 
 
 ## <a name="state-messaging"></a>Mensagens de estado
 
--   **Mensagem de estado (minutos) de ciclo de comunicação**  </br>
-     Especifica com que frequência os clientes reportam mensagens de estado. Esta definição é de 15 minutos por predefinição.
+### <a name="state-message-reporting-cycle-minutes"></a>Mensagem de estado (minutos) de ciclo de comunicação
+Especifica com que frequência os clientes reportam mensagens de estado. Esta definição é de 15 minutos por predefinição.
 
 
 
 ##  <a name="user-and-device-affinity"></a>Afinidade dispositivo / utilizador  
 
--   **Limiar de utilização de afinidade de dispositivo e utilizador (minutos)**  </br>
-     Especifique o número de minutos antes do Configuration Manager cria um mapeamento de afinidade de dispositivo do utilizador.  Por predefinição, este valor é 2880 minutos (dois dias).
+### <a name="user-device-affinity-usage-threshold-minutes"></a>Limiar de utilização de afinidade de dispositivo de utilizador (minutos)
+Especifique o número de minutos antes do Configuration Manager cria um mapeamento de afinidade de dispositivo do utilizador.  Por predefinição, este valor é 2880 minutos (2 dias).
 
--   **Limiar de utilização de afinidade de dispositivo e utilizador (dias)**  </br>
-     Especifique o número de dias durante o qual o cliente mede o limiar de afinidade de dispositivo baseada na utilização.  Por predefinição, este valor é 30 dias.
+### <a name="user-device-affinity-usage-threshold-days"></a>Limiar de utilização de afinidade de dispositivo do utilizador (dias)
+Especifique o número de dias durante o qual o cliente mede o limiar de afinidade de dispositivo baseada na utilização.  Por predefinição, este valor é 30 dias.
 
-    > [!NOTE]  
-    >  Por exemplo, pode especificar **limiar de utilização de afinidade de dispositivo de utilizador (minutos)** como **60** minutos e **limiar de utilização de afinidade de dispositivo do utilizador (dias)** como **5**  dias. Em seguida, o utilizador tem de utilizar o dispositivo durante 60 minutos num período de cinco dias para criar uma afinidade automática com o dispositivo.  
+> [!NOTE]  
+>  Por exemplo, pode especificar **limiar de utilização de afinidade de dispositivo de utilizador (minutos)** como **60** minutos, e **limiar de utilização de afinidade de dispositivo do utilizador (dias)** como **5**  dias. Em seguida, o utilizador tem de utilizar o dispositivo durante 60 minutos num período de 5 dias para criar uma afinidade automática com o dispositivo.  
 
--   **Configurar automaticamente a afinidade de dispositivo e utilizador a partir dos dados de utilização**  </br>
-     Escolha **Sim** criar automática afinidade dispositivo / utilizador com base nas informações de utilização que recolhe do Configuration Manager.  
+### <a name="automatically-configure-user-device-affinity-from-usage-data"></a>Configurar automaticamente a afinidade de dispositivo do utilizador a partir dos dados de utilização
+Escolha **Sim** criar automática afinidade dispositivo / utilizador com base nas informações de utilização que recolhe do Configuration Manager.  
 
--   **Permitir ao utilizador a definição dos seus dispositivos primários** </br>
-    Quando esta definição for **Sim** , em seguida, os utilizadores podem identificar os seus dispositivos primários no Centro de Software.
+### <a name="allow-user-to-define-their-primary-devices"></a>Permitir que o utilizador definir os seus dispositivos primários
+Quando esta definição for **Sim**, os utilizadores podem identificar os seus dispositivos primários no Centro de Software.
 
 
 
-## <a name="windows-analytics"></a>Análise do Windows
+## <a name="windows-analytics"></a>Windows Analytics
 
 Para obter mais informações sobre estas definições, consulte [configurar clientes para dados de relatório para o Windows Analytics](/sccm/core/clients/manage/monitor-windows-analytics#configure-clients-to-report-data-to-windows-analytics).
     

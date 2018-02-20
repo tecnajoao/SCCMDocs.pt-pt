@@ -15,15 +15,15 @@ ms.assetid: 4884a2d3-13ce-44e5-88c4-a66dc7ec6014
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 83648c791117dd537968e8c0b0d71203f14f1075
-ms.sourcegitcommit: e15516983883a4dd002c4bdd114147b04b811021
+ms.openlocfilehash: 1b5e8f744573680ab55fcfff26622e312206ca1a
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="capabilities-in-technical-preview-1802-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1802 do System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
 Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1802. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. 
 
@@ -406,7 +406,7 @@ A partir desta versão que cliente do Configuration Manager é suportado em disp
 
 ## <a name="changes-to-phased-deployments"></a>Alterações das implementações faseada
 <!-- 1357405 -->
-Implementações faseadas automatizam uma coordenada, sequenciada implementação de software sem criar múltiplas implementações. Nesta versão do Technical Preview, o Assistente de implementação faseada pode ser concluído para sequências de tarefas na consola de administração e as implementações são criadas. No entanto, a fase de produção não for iniciado automaticamente após que satisfaçam os critérios de êxito da fase piloto. A fase de produção pode ser manualmente iniciada com uma instrução SQL.   
+Implementações faseadas automatizam uma coordenada, sequenciada implementação de software através de várias coleções. Nesta versão do Technical Preview, o Assistente de implementação faseada pode ser concluído para sequências de tarefas na consola de administração e as implementações são criadas. No entanto, a segunda fase não for iniciado automaticamente após que satisfaçam os critérios de sucesso da primeira fase. A segunda fase pode ser manualmente iniciada com uma instrução SQL.   
 
 ### <a name="try-it-out"></a>Experimente!  
   Experimente concluir as tarefas. Em seguida, enviar **comentários** do **home page** separador do Friso nos informar como correu.
@@ -414,14 +414,14 @@ Implementações faseadas automatizam uma coordenada, sequenciada implementaçã
 **Criar uma implementação faseada para uma sequência de tarefas** </br>
 1. No **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**.
 2. Faça duplo clique na sequência de tarefas existente e selecione **criar implementação fases**. 
-3. No **geral** separador, atribua a implementação faseada um nome, descrição (opcional) e selecione **criar automaticamente as fases de piloto e de produção predefinido**. 
-4. Preencher o **piloto coleção** e **coleção de produção** campos. Selecione **seguinte**.
+3. No **geral** separador, atribua a implementação faseada um nome, descrição (opcional) e selecione **criar automaticamente uma implementação de fase dois predefinido**. 
+4. Preencher o **primeira coleção** e **segunda coleção** campos. Selecione **seguinte**.
 5. No **definições** separador, escolha uma opção para cada uma das definições de agendamento e selecione **seguinte** quando concluir. 
 6. No **fases** separador, editar qualquer das fases, se necessário, em seguida, clique em **seguinte**.
 7. Confirme as suas seleções no **resumo** separador, em seguida, clique em **seguinte** para continuar.
-8. Quando for atingida os critérios de êxito para a fase piloto, siga as instruções para começar a fase de produção com uma instrução SQL.
+8. Quando for atingida os critérios de êxito para a primeira fase, siga as instruções para a segunda fase de começar com uma instrução SQL.
  
-**Começar a fase de produção por uma instrução de SQL**
+**Segunda fase de começar com uma instrução SQL**
 1. Identificar PhasedDeploymentID para a implementação que criou com a seguinte consulta SQL:<br/> `Select * from PhasedDeployment`
 2. Execute a seguinte instrução para iniciar a fase de produção:<br/> `UPDATE PhasedDeployment SET EvaluatePhasedDeployment = 1, Action = 3 WHERE PhasedDeploymentID = <Phased Deployment ID>`
 

@@ -3,36 +3,37 @@ title: Atualizar infraestrutura no local
 titleSuffix: Configuration Manager
 description: Saiba como atualizar a infraestrutura, como o SQL Server e o sistema operativo do site dos sistemas de sites.
 ms.custom: na
-ms.date: 06/05/2017
+ms.date: 02/15/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3296fe01ebe7d3343a174ffd18483156683b69f7
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8e17ffad2b972119c92e449bef8f086b950b106c
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Atualizar a infraestrutura no local que suporta o System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Utilize as informações neste tópico para o ajudar a atualizar a infraestrutura de servidor que executa o System Center Configuration Manager.  
+Utilize as informações neste artigo para o ajudar a atualizar a infraestrutura de servidor que executa o System Center Configuration Manager.  
 
  - Se pretender atualizar a partir de uma versão anterior do Configuration Manager para o System Center Configuration Manager, consulte [atualizar para o System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
 
 - Se pretender atualizar a infraestrutura do System Center Configuration Manager para uma nova versão, consulte [atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a>Atualize o sistema operativo dos sistemas de sites  
+##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a> Atualize o sistema operativo dos sistemas de sites  
  O Configuration Manager suporta a atualização no local do sistema operativo de servidores que alojam um servidor de site e de servidores remotos que alojar qualquer função de sistema de sites, nas seguintes situações:  
 
 -   Atualização no local para um service pack posterior do Windows Server se o nível do Windows continua a ser suportado pelo Configuration Manager.  
@@ -43,20 +44,19 @@ Utilize as informações neste tópico para o ajudar a atualizar a infraestrutur
     - Quando utilizar o Configuration Manager versão 1602 ou posterior, também é suportada para atualizar o Windows Server 2008 R2 para o Windows Server 2012 R2 ([ver detalhes adicionais](#bkmk_from2008r2).
 
     > [!WARNING]  
-    >  Antes de atualizar para o Windows Server 2012 R2, *tem de desinstalar o WSUS 3.2* do servidor.  
-    >   
-    >  Para obter informações sobre este passo crítico, consulte a secção "Funcionalidades novas e alteradas" [descrição geral do Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) na documentação do Windows Server.  
+    >  Antes de atualizar para um sistema operativo diferente, *tem de desinstalar o WSUS* do servidor. Pode manter o SUSDB e reattach-lo assim que o WSUS é reinstalado. Para obter informações sobre este passo crítico, consulte a secção "Funcionalidades novas e alteradas" [descrição geral do Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) na documentação do Windows Server.  
 
 Para atualizar um servidor, utilize os procedimentos de atualização fornecidos pelo sistema operativo que estiver a atualizar.  Consulte o seguinte:
   -  [Atualizar opções para o Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) na documentação do Windows Server.  
   - [Opções de atualização e a conversão para o Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/supported-upgrade-paths) na documentação do Windows Server.
 
-### <a name="bkmk_2016"></a>Atualizar o Windows Server 2012 ou Windows Server 2012 R2 para 2016
+### <a name="bkmk_2016"></a>  Atualizar o Windows Server 2012 ou Windows Server 2012 R2 para 2016
 Quando atualizar o Windows Server 2012 ou Windows Server 2012 R2 para Windows Server 2016, situações seguintes:
 
 
 **Antes da atualização:**  
 -   Remova o cliente do System Center Endpoint Protection (SCEP). Windows Server 2016 tem o Windows Defender incorporada, que substitui o cliente SCEP. A presença do cliente SCEP pode impedir uma atualização ao Windows Server 2016.
+-   Remova a função WSUS do servidor se estiver instalado. Pode manter o SUSDB e reattach-lo assim que o WSUS é reinstalado.
 
 **Após a atualização:**
 -   Certifique-se de que o Windows Defender estiver ativado, definido para o início automático e em execução.
@@ -90,10 +90,10 @@ Depois de atualizar o servidor do site ou um servidor que aloja uma instância d
   -   Ativar remoto
 5. Guarde as permissões para restaurar o acesso para a consola do Configuration Manager.
 
-### <a name="bkmk_2012r2"></a>Windows Server 2012 para o Windows Server 2012 R2
+### <a name="bkmk_2012r2"></a> Windows Server 2012 para o Windows Server 2012 R2
 
 **Antes da atualização:**
--  Ao contrário de outros cenários suportados, este cenário não requer considerações adicionais antes da atualização.
+-   Remova a função WSUS do servidor se estiver instalado. Pode manter o SUSDB e reattach-lo assim que o WSUS é reinstalado.
 
 **Após a atualização:**
   - Certifique-se de que o serviço de implementação do Windows está iniciado e em execução para as seguintes funções de sistema de sites (este serviço for parado durante a atualização):
@@ -113,7 +113,7 @@ Depois de atualizar o servidor do site ou um servidor que aloja uma instância d
 
   Depois de restaurar os pré-requisitos em falta, reinicie o servidor mais uma vez para garantir que os serviços são iniciadas e operacional.
 
-### <a name="bkmk_from2008r2"></a>Atualizar o Windows Server 2008 R2 para o Windows Server 2012 R2
+### <a name="bkmk_from2008r2"></a>  Atualizar o Windows Server 2008 R2 para o Windows Server 2012 R2
 Neste cenário de atualização do sistema operativo tem as seguintes condições:  
 
 **Antes da atualização:**
@@ -148,7 +148,7 @@ Os cenários de atualização do Windows Server seguintes são geralmente mais f
 
 
 
-##  <a name="BKMK_SupConfigUpgradeClient"></a>Atualize o sistema operativo dos clientes do Configuration Manager  
+##  <a name="BKMK_SupConfigUpgradeClient"></a> Atualize o sistema operativo dos clientes do Configuration Manager  
  O Configuration Manager suporta uma atualização no local do sistema operativo para clientes do Configuration Manager nas seguintes situações:  
 
 -   Atualização no local para um service pack posterior do Windows se o nível de service pack resultante continua a ser suportado pelo Configuration Manager.  
@@ -157,7 +157,7 @@ Os cenários de atualização do Windows Server seguintes são geralmente mais f
 
 -   Atualizações de manutenção de compilação em compilação do Windows 10.  Para obter mais informações, consulte [Gerir o Windows como um serviço com o System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
 
-##  <a name="BKMK_SupConfigUpgradeDBSrv"></a>Atualizar o SQL Server no servidor de base de dados do site  
+##  <a name="BKMK_SupConfigUpgradeDBSrv"></a> Atualizar o SQL Server no servidor de base de dados do site  
   O Configuration Manager suporta uma atualização no local do SQL Server de uma versão suportada do SQL Server no servidor de base de dados do site. Os cenários de atualização do SQL Server nesta secção são suportados pelo Configuration Manager e incluem os requisitos para cada cenário.
 
  Para obter informações sobre as versões do SQL Server que são suportadas pelo Configuration Manager, consulte [suporte para versões do SQL Server para o System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  

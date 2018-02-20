@@ -18,15 +18,15 @@ author: mestew
 ms.author: mstewart
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: e077c83277e7ca2633ca29633327398b96e5e712
-ms.sourcegitcommit: e15516983883a4dd002c4bdd114147b04b811021
+ms.openlocfilehash: cfc54c1beb92d0102897f77ce3c287cc0ef9e0f4
+ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="use-the-product-lifecycle-dashboard-to-manage-microsoft-lifecycle-policy-in-system-center-configuration-manager"></a>Utilize o Dashboard de ciclo de vida do produto para gerir a política de ciclo de vida da Microsoft no System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
 Começando com [versão Technical Preview 1802](/sccm/core/get-started/capabilities-in-technical-preview-1802), pode utilizar o dashboard do ciclo de vida do Gestor de configuração do produto. O dashboard apresenta o estado da política de ciclo de vida de produto de Microsoft para produtos da Microsoft instalado nos dispositivos geridos com o Configuration Manager. O dashboard fornece informações sobre os produtos da Microsoft no seu ambiente, o estado de Suportabilidade e datas de fim de suporte. Pode utilizar o dashboard para compreender a disponibilidade de suporte para cada produto. Ajudar a planear quando atualizar produtos da Microsoft utiliza antes do respetivo fim de suporte atual for atingido.  
 
@@ -40,6 +40,9 @@ Para obter mais informações sobre a política de ciclo de vida do produto Micr
 - O ponto de sincronização do Asset Intelligence tem de ser configurado e sincronizado. Para obter mais informações, consulte [configurar do Asset Intelligence no System Center Configuration Manager](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence).
 
 Os dados no dashboard dependem do ponto de sincronização do Asset Intelligence instalado. O dashboard utiliza o catálogo do Asset Intelligence como metadados para títulos de produtos. Os metadados são comparados aos dados de inventário na sua hierarquia. 
+
+>[!NOTE]
+>Se estiver a configurar o ponto de serviço do Asset Intelligence pela primeira vez, certifique-se de que [ativar classes de inventário de hardware do Asset Intelligence](/sccm/core/clients/manage/asset-intelligence/configuring-asset-intelligence#BKMK_EnableAssetIntelligence). O dashboard de ciclo de vida está dependente essas classes de inventário de hardware do Asset Intelligence e irão não apresentar dados até que os clientes tenham analisado e devolvido o inventário de hardware.  
 
 ## <a name="use-the-microsoft-product-lifecycle-dashboard"></a>Utilize o dashboard de ciclo de vida do Microsoft produto
 
