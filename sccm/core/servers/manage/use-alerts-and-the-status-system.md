@@ -7,23 +7,24 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7341cc6e-9e08-41e4-bcc6-6c1ff12e85ca
-caps.latest.revision: "10"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 37ad3eb2d7e6796dcd88b2b01b8b0cea97bb41fe
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 84fe2fd0959051ea42e555cb484c95fb82ec8fb3
+ms.sourcegitcommit: 1378532fac2620ddcfd31061982f344a290c2e67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utilizar alertas e o sistema de estado para o System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Configurar alertas e utilizar o sistema de estado incorporado para manter-se informado sobre o estado da implementação do System Center Configuration Manager.  
 
@@ -196,7 +197,7 @@ Uma vez que o sistema de estado mantém configurações separadas para cada site
  Utilize a tabela seguinte para obter informações sobre como configurar alertas e subscrições de alertas no Configuration Manager:  
 
 
-|Ação|Mais Informações|  
+|Action|Mais Informações|  
 |------------|----------------------|  
 |Configurar alertas de Endpoint Protection para uma coleção|Consulte **como configurar alertas para o Endpoint Protection no Configuration Manager** no [configurar o Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)|  
 |Configurar alertas de estado do cliente para uma coleção|Consulte [como configurar o estado do cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
@@ -219,9 +220,9 @@ Uma vez que o sistema de estado mantém configurações separadas para cada site
     |**Adiar**|Suspende a monitorização do alerta até que a data especificada seja atingida. Nessa altura, o estado do alerta é atualizado.<br /><br /> Só é possível adiar um alerta quando o mesmo está ativado.|  
     |**Criar subscrição**|Abre a caixa de diálogo **Nova Subscrição** , onde pode criar uma subscrição de e-mail para o alerta selecionado.|  
 
-##### <a name="to-configure-endpoint-protection-alerts-for-a-collection"></a>Para configurar alertas do Endpoint Protection para uma coleção  
+<!--##### To configure Endpoint Protection alerts for a collection  
 
-1.  pendente  
+1.  pending  -->
 
 ##### <a name="to-configure-client-status-alerts-for-a-collection"></a>Para configurar alertas de estado do cliente para uma coleção  
 

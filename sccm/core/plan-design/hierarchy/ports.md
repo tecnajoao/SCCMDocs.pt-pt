@@ -3,30 +3,31 @@ title: "Portas utilizadas para ligações"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre as portas necessárias e personalizáveis, que utiliza o System Center Configuration Manager para ligações."
 ms.custom: na
-ms.date: 09/19/2017
+ms.date: 02/16/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c6777fb0-0754-4abf-8a1b-7639d23e9391
-caps.latest.revision: "8"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 0b6fa22a7bc3de7bb5bc0d26f8e35b51d55c5e72
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 8db098f69180aac3785087af6ee305b3651094e5
+ms.sourcegitcommit: 1378532fac2620ddcfd31061982f344a290c2e67
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="ports-used-in-system-center-configuration-manager"></a>Portas utilizadas no System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-System Center Configuration Manager é um sistema cliente/servidor distribuído. A natureza distribuída do Configuration Manager, significa que podem estabelecer ligações entre servidores de sites, sistemas de sites e clientes. Algumas ligações utilizam portas que não são configuráveis e outras suportam portas personalizadas que especificar. Tem de verificar que as portas necessárias estão disponíveis se utilizar qualquer porta de filtragem de tecnologia, tais como firewalls, routers, servidores proxy ou IPsec.  
+System Center Configuration Manager é um sistema cliente/servidor distribuído. A natureza distribuída do Configuration Manager, significa que podem estabelecer ligações entre servidores de sites, sistemas de sites e clientes. Algumas ligações utilizam portas que não são configuráveis e outras suportam portas personalizadas que especificar. Certifique-se de que as portas necessárias estão disponíveis se utilizar qualquer porta de filtragem de tecnologia, tais como firewalls, routers, servidores proxy ou IPsec.  
     
 > [!NOTE]  
 >  Se suportar clientes baseados na Internet utilizando o protocolo de bridge SSL, para além dos requisitos de porta, também terá de permitir que alguns verbos e cabeçalhos HTTP para atravessem a firewall.   
@@ -77,34 +78,34 @@ As secções seguintes pormenorizadamente as portas que são utilizadas para com
 
 -   -> Indica que um computador inicia a comunicação e o outro computador responde sempre  
 
--   &lt;-> Indica que ambos os computadores podem iniciar comunicações  
+-   &lt; -> Indica que ambos os computadores podem iniciar comunicações  
 
-###  <a name="BKMK_PortsAI"></a>Ponto de sincronização do Asset Intelligence-- > Microsoft  
+###  <a name="BKMK_PortsAI"></a> Ponto de sincronização do Asset Intelligence-- > Microsoft  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsAI-to-SQL"></a>Ponto de sincronização do Asset Intelligence-- > SQL Server  
+###  <a name="BKMK_PortsAI-to-SQL"></a> Ponto de sincronização do Asset Intelligence-- > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsAppCatalogService-SQL"></a>Ponto de serviço de web de catálogo de aplicações-- > SQL Server  
+###  <a name="BKMK_PortsAppCatalogService-SQL"></a> Ponto de serviço de web de catálogo de aplicações-- > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsAppCatalogWebSitePoint_AppCatalogWebServicePoint"></a>Ponto de Web site do catálogo de aplicações-- > ponto de serviço web do catálogo de aplicações  
+###  <a name="BKMK_PortsAppCatalogWebSitePoint_AppCatalogWebServicePoint"></a> Ponto de Web site do catálogo de aplicações-- > ponto de serviço web do catálogo de aplicações  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-AppCatalogWebsitePoint"></a>Cliente--> Ponto de Web site do catálogo de aplicações  
+###  <a name="BKMK_PortsClient-AppCatalogWebsitePoint"></a> Cliente--> Ponto de Web site do catálogo de aplicações  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -114,7 +115,7 @@ As secções seguintes pormenorizadamente as portas que são utilizadas para com
 ###  <a name="BKMK_PortsClient-ClientWakeUp"></a> Cliente -- &gt; Cliente  
  Além das portas que estão listadas na seguinte tabela, proxy de reativação também utiliza mensagens de pedido de eco do controlo mensagem ICMP (Internet Protocol) de um cliente a outro cliente quando são configurados para proxy de reativação.
 
-Esta comunicação é utilizada para confirmar se o outro computador cliente está ativo na rede. Por vezes, o ICMP é também referido como comandos ping de TCP/IP. O ICMP não tem um número de protocolo UDP ou TCP e, por isso, não está listado na tabela a seguir. No entanto, as firewalls baseadas no anfitrião existentes nestes computadores cliente ou em dispositivos de rede intervenientes na sub-rede devem permitir o tráfego ICMP para que a comunicação de proxy de reativação tenha êxito.  
+Esta comunicação é utilizada para confirmar se o outro computador cliente está ativo na rede. Por vezes, o ICMP é também referido como comandos ping de TCP/IP. ICMP não tem um número de protocolo UDP ou TCP e, por isso, não está listado na tabela abaixo. No entanto, as firewalls baseadas no anfitrião existentes nestes computadores cliente ou em dispositivos de rede intervenientes na sub-rede devem permitir o tráfego ICMP para que a comunicação de proxy de reativação tenha êxito.  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -128,27 +129,27 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |Protocolo HTTP (Hypertext Transfer Protocol)||80|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsClient-CloudDP"></a>Cliente--> Ponto de distribuição baseados na nuvem  
+###  <a name="BKMK_PortsClient-CloudDP"></a> Cliente--> Ponto de distribuição baseados na nuvem  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsClient-DP"></a>Cliente--> Ponto de distribuição  
+###  <a name="BKMK_PortsClient-DP"></a> Cliente--> Ponto de distribuição  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-DP2"></a>Cliente--> Ponto de distribuição configurado para multicast  
+###  <a name="BKMK_PortsClient-DP2"></a> Cliente--> Ponto de distribuição configurado para multicast  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Bloco de Mensagem de Servidor (SMB)|--|445|  
 |Protocolo multicast|63000-64000|--|  
 
-###  <a name="BKMK_PortsClient-DP3"></a>Cliente--> Ponto de distribuição configurado para PXE  
+###  <a name="BKMK_PortsClient-DP3"></a> Cliente--> Ponto de distribuição configurado para PXE  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -156,13 +157,13 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |Protocolo TFTP (Trivial File Transfer Protocol)|69 (ver nota 4, **Daemon Trivial FTP (TFTP)**)|--|  
 |Boot Information Negotiation Layer (BINL)|4011|--|  
 
-###  <a name="BKMK_PortsClient-FSP"></a>Cliente--> Ponto de estado de contingência  
+###  <a name="BKMK_PortsClient-FSP"></a> Cliente--> Ponto de estado de contingência  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-GCDC"></a>Cliente--> Controlador de domínio de Catálogo Global  
+###  <a name="BKMK_PortsClient-GCDC"></a> Cliente--> Controlador de domínio de Catálogo Global  
  Um cliente do Configuration Manager não contacta um servidor de catálogo global quando é um computador de grupo de trabalho ou quando está configurado para comunicação apenas através da Internet.  
 
 |Descrição|UDP|TCP|  
@@ -170,7 +171,7 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |LDAP de catálogo global|--|3268|  
 
 
-###  <a name="BKMK_PortsClient-MP"></a>Cliente--> Ponto de gestão  
+###  <a name="BKMK_PortsClient-MP"></a> Cliente--> Ponto de gestão  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -178,14 +179,14 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsClient-SUP"></a>Cliente--> Ponto de atualização de Software  
+###  <a name="BKMK_PortsClient-SUP"></a> Cliente--> Ponto de atualização de Software  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Ver nota 3, **Windows Server Update Services**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Ver nota 3, **Windows Server Update Services**)|  
 
-###  <a name="BKMK_PortsClient-SMP"></a>Cliente--> Ponto de migração de estado  
+###  <a name="BKMK_PortsClient-SMP"></a> Cliente--> Ponto de migração de estado  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -193,20 +194,27 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 |Bloco de Mensagem de Servidor (SMB)|--|445|  
 
-###  <a name="BKMK_PortsConsole-Client"></a>Consola do Configuration Manager-- > cliente  
+###  <a name="BKMK_PortsConsole-Client"></a> Consola do Configuration Manager-- > cliente  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Controlo Remoto (controlo)|--|2701|  
 |Assistência Remota (RDP e RTC)|--|3389|  
 
-###  <a name="BKMK_PortsConsole-Internet"></a>Consola do Configuration Manager-- > Internet  
+###  <a name="BKMK_PortsConsole-Internet"></a> Consola do Configuration Manager-- > Internet  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80|  
+|Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|
 
-###  <a name="BKMK_PortsConsole-RSP"></a>Consola do Configuration Manager-- > ponto do Reporting Services  
+Consola do Configuration Manager utiliza o acesso à internet para o seguinte: 
+- Transferir atualizações de software do Microsoft Update para pacotes de implementação.
+- O item de comentários no Friso.
+- Ligações a documentação da consola.
+<!--506823-->
+
+###  <a name="BKMK_PortsConsole-RSP"></a> Consola do Configuration Manager-- > ponto do Reporting Services  
 
 
 |Descrição|UDP|TCP|
@@ -214,26 +222,26 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsConsole-Site"></a>Consola do Configuration Manager-- > servidor do Site  
+###  <a name="BKMK_PortsConsole-Site"></a> Consola do Configuration Manager-- > servidor do Site  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |RPC (ligação inicial ao WMI para localizar o sistema do fornecedor)|--|135|  
 
-###  <a name="BKMK_PortsConsole-Provider"></a>Consola do Configuration Manager-- > fornecedor de SMS  
+###  <a name="BKMK_PortsConsole-Provider"></a> Consola do Configuration Manager-- > fornecedor de SMS  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a>Módulo de política do Configuration Manager (serviço dispositivos de rede inscrição) - > Ponto de registo de certificados  
+###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a> Módulo de política do Configuration Manager (serviço dispositivos de rede inscrição) - > Ponto de registo de certificados  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsDist_MP"></a>Ponto de distribuição-- > ponto de gestão  
+###  <a name="BKMK_PortsDist_MP"></a> Ponto de distribuição-- > ponto de gestão  
  Um ponto de distribuição comunica com o ponto de gestão nos seguintes cenários:  
 
 -   Para comunicar o estado do conteúdo pré-configurado  
@@ -249,25 +257,25 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 2, **alternativa porta disponível**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsEndpointProtection_Internet"></a>Ponto do Endpoint Protection-- > Internet  
+###  <a name="BKMK_PortsEndpointProtection_Internet"></a> Ponto do Endpoint Protection-- > Internet  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80|  
 
-###  <a name="BKMK_PortsEP-to-SQL"></a>Ponto do Endpoint Protection-- > SQL Server  
+###  <a name="BKMK_PortsEP-to-SQL"></a> Ponto do Endpoint Protection-- > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsEnrollmentProxyEnrollmentPoint"></a>Ponto de proxy de registo-- > ponto de registo  
+###  <a name="BKMK_PortsEnrollmentProxyEnrollmentPoint"></a> Ponto de proxy de registo-- > ponto de registo  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsEnrollmentEnrollmentSQL"></a>Ponto de registo-- > SQL Server  
+###  <a name="BKMK_PortsEnrollmentEnrollmentSQL"></a> Ponto de registo-- > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -279,19 +287,19 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |-----------------|---------|---------|  
 |Gestão Remota do Windows através de HTTPS|--|5986|  
 
-###  <a name="BKMK_PortsExchangeConnectorOnPrem"></a>Conector do Exchange Server - > Exchange Server no local  
+###  <a name="BKMK_PortsExchangeConnectorOnPrem"></a> Conector do Exchange Server - > Exchange Server no local  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Gestão Remota do Windows através de HTTP|--|5985|  
 
-###  <a name="BKMK_PortsMacEnrollmentProxyPoint"></a>Computador Mac-- > ponto proxy de registo  
+###  <a name="BKMK_PortsMacEnrollmentProxyPoint"></a> Computador Mac-- > ponto proxy de registo  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsMP-DC"></a>Ponto de gestão-- > controlador de domínio  
+###  <a name="BKMK_PortsMP-DC"></a> Ponto de gestão-- > controlador de domínio  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -300,7 +308,7 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsMP-Site"></a>Ponto de gestão &lt; -> servidor do Site  
+###  <a name="BKMK_PortsMP-Site"></a> Ponto de gestão &lt; -> servidor do Site  
  (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
 |Descrição|UDP|TCP|  
@@ -309,46 +317,38 @@ Esta comunicação é utilizada para confirmar se o outro computador cliente est
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 |Bloco de Mensagem de Servidor (SMB)|--|445|  
 
-###  <a name="BKMK_PortsMP-SQL"></a>Ponto de gestão-- > SQL Server  
+###  <a name="BKMK_PortsMP-SQL"></a> Ponto de gestão-- > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsMobileDeviceClient-EnrollmentProxyPoint"></a>Dispositivo móvel-- > ponto proxy de registo  
+###  <a name="BKMK_PortsMobileDeviceClient-EnrollmentProxyPoint"></a> Dispositivo móvel-- > ponto proxy de registo  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsMobileDeviceClient-WindowsIntune"></a>Dispositivo móvel-- > Microsoft Intune  
+###  <a name="BKMK_PortsMobileDeviceClient-WindowsIntune"></a> Dispositivo móvel-- > Microsoft Intune  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsRSP-SQL"></a>Relatório de ponto de serviços-- > SQL Server  
+###  <a name="BKMK_PortsRSP-SQL"></a> Relatório de ponto de serviços-- > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsIntuneConnector-WindowsIntune"></a>Serviço de ponto de ligação-- > Microsoft Intune  
+###  <a name="BKMK_PortsIntuneConnector-WindowsIntune"></a> Serviço de ponto de ligação-- > Microsoft Intune  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|
-Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) para o ponto de ligação de serviço.
+Para obter mais informações, consulte [requisitos de acesso à Internet](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) para o ponto de ligação de serviço.
 
-###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a>Servidor do site &lt; -> ponto de serviço web do catálogo de aplicações  
-
-|Descrição|UDP|TCP|  
-|-----------------|---------|---------|  
-|Bloco de Mensagem de Servidor (SMB)|--|445|  
-|Mapeador de Pontos Finais RPC|135|135|  
-|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
-
-###  <a name="BKMK_PortsAppCatalogWebSitePoint_SiteServer"></a>Servidor do site &lt; -> ponto de Web site do catálogo de aplicações  
+###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a> Servidor do site &lt; -> ponto de serviço web do catálogo de aplicações  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -356,7 +356,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-AISP"></a>Servidor do site &lt; -> ponto de sincronização do Asset Intelligence  
+###  <a name="BKMK_PortsAppCatalogWebSitePoint_SiteServer"></a> Servidor do site &lt; -> ponto de Web site do catálogo de aplicações  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -364,19 +364,27 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-Client"></a>Servidor do site-- > cliente  
+###  <a name="BKMK_PortsSite-AISP"></a> Servidor do site &lt; -> ponto de sincronização do Asset Intelligence  
+
+|Descrição|UDP|TCP|  
+|-----------------|---------|---------|  
+|Bloco de Mensagem de Servidor (SMB)|--|445|  
+|Mapeador de Pontos Finais RPC|135|135|  
+|RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
+
+###  <a name="BKMK_PortsSite-Client"></a> Servidor do site-- > cliente  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Reativação Por LAN|9 (ver nota 2, **alternativa porta disponível**)|--|  
 
-###  <a name="BKMK_PortsSiteServer-CloudDP"></a>Servidor do site-- > ponto de distribuição baseado na nuvem  
+###  <a name="BKMK_PortsSiteServer-CloudDP"></a> Servidor do site-- > ponto de distribuição baseado na nuvem  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsSite-DP"></a>Servidor do site-- > ponto de distribuição  
+###  <a name="BKMK_PortsSite-DP"></a> Servidor do site-- > ponto de distribuição  
  (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
 |Descrição|UDP|TCP|  
@@ -385,7 +393,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-DC"></a>Servidor do site-- > controlador de domínio  
+###  <a name="BKMK_PortsSite-DC"></a> Servidor do site-- > controlador de domínio  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -394,7 +402,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a>Servidor do site &lt; -> ponto de registo de certificados  
+###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a> Servidor do site &lt; -> ponto de registo de certificados  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -402,7 +410,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsEndpointProtection_SiteServer"></a>Servidor do site &lt; -> ponto de Endpoint Protection  
+###  <a name="BKMK_PortsEndpointProtection_SiteServer"></a> Servidor do site &lt; -> ponto de Endpoint Protection  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -410,7 +418,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_EnrollmentPoint_SiteServer"></a>Servidor do site &lt; -> ponto de registo  
+###  <a name="BKMK_EnrollmentPoint_SiteServer"></a> Servidor do site &lt; -> ponto de registo  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -418,7 +426,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_EnrollmentProxyPoint_SiteServer"></a>Servidor do site &lt; -> ponto proxy de registo  
+###  <a name="BKMK_EnrollmentProxyPoint_SiteServer"></a> Servidor do site &lt; -> ponto proxy de registo  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -426,7 +434,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-FSP"></a>Servidor do site &lt; -> ponto de estado de contingência  
+###  <a name="BKMK_PortsSite-FSP"></a> Servidor do site &lt; -> ponto de estado de contingência  
  (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
 |Descrição|UDP|TCP|  
@@ -435,13 +443,13 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortSite-Internet"></a>Servidor do site-- > Internet  
+###  <a name="BKMK_PortSite-Internet"></a> Servidor do site-- > Internet  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 1, **porta do servidor Proxy**)|  
 
-###  <a name="BKMK_PortsIssuingCA_SiteServer"></a>Servidor do site &lt; -> autoridade de certificação (AC) emissora  
+###  <a name="BKMK_PortsIssuingCA_SiteServer"></a> Servidor do site &lt; -> autoridade de certificação (AC) emissora  
  Esta comunicação é utilizada na implementação de perfis de certificado, utilizando o ponto de registo de certificados. A comunicação não é utilizada para cada servidor do site na hierarquia. Em vez disso, é utilizado apenas para o servidor do site na parte superior da hierarquia.  
 
 |Descrição|UDP|TCP|  
@@ -449,7 +457,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC (DCOM)|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-RSP"></a>Servidor do site &lt; -> ponto do Reporting Services  
+###  <a name="BKMK_PortsSite-RSP"></a> Servidor do site &lt; -> ponto do Reporting Services  
  (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
 |Descrição|UDP|TCP|  
@@ -458,13 +466,13 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-Site"></a>Servidor do site &lt; -> servidor do Site  
+###  <a name="BKMK_PortsSite-Site"></a> Servidor do site &lt; -> servidor do Site  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Bloco de Mensagem de Servidor (SMB)|--|445|  
 
-###  <a name="BKMK_PortsSite-SQL"></a>Servidor do site-- > SQL Server  
+###  <a name="BKMK_PortsSite-SQL"></a> Servidor do site-- > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -478,7 +486,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-Provider"></a>Servidor do site-- > fornecedor de SMS  
+###  <a name="BKMK_PortsSite-Provider"></a> Servidor do site-- > fornecedor de SMS  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -486,7 +494,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Mapeador de Pontos Finais RPC|135|135|  
 |RPC|--|DINÂMICAS (Ver nota 6, **Portas dinâmicas**)|  
 
-###  <a name="BKMK_PortsSite-SUP"></a>Servidor do site &lt; -> ponto de atualização de Software  
+###  <a name="BKMK_PortsSite-SUP"></a> Servidor do site &lt; -> ponto de atualização de Software  
  (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
 |Descrição|UDP|TCP|  
@@ -495,7 +503,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Ver nota 3, **Windows Server Update Services**)|  
 |Protocolo HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Ver nota 3, **Windows Server Update Services**)|  
 
-###  <a name="BKMK_PortsSite-SMP"></a>Servidor do site &lt; -> ponto de migração de estado  
+###  <a name="BKMK_PortsSite-SMP"></a> Servidor do site &lt; -> ponto de migração de estado  
  (Ver nota 5, **Comunicação entre o servidor do site e os sistemas de site**)  
 
 |Descrição|UDP|TCP|  
@@ -509,13 +517,13 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 |-----------------|---------|---------|  
 |SQL sobre TCP|--|1433 (ver nota 2, **alternativa porta disponível**)|  
 
-###  <a name="BKMK_PortsSUP-Internet"></a>Ponto de atualização de software-- > Internet  
+###  <a name="BKMK_PortsSUP-Internet"></a> Ponto de atualização de software-- > Internet  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
 |Protocolo HTTP (Hypertext Transfer Protocol)|--|80 (ver nota 1, **porta do servidor Proxy**)|  
 
-###  <a name="BKMK_PortsSUP-WSUS"></a>Ponto de atualização de software-- > servidor WSUS a montante  
+###  <a name="BKMK_PortsSUP-WSUS"></a> Ponto de atualização de software-- > servidor WSUS a montante  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -533,7 +541,7 @@ Para obter mais informações consulte [requisitos de acesso à Internet](/sccm/
 > [!TIP]  
 >  O Configuration Manager não requer o SQL Server Browser, que utiliza a porta UDP 1434.  
 
-###  <a name="BKMK_PortsStateMigrationPoint-to-SQL"></a>Estado do ponto de migração - > SQL Server  
+###  <a name="BKMK_PortsStateMigrationPoint-to-SQL"></a> Estado do ponto de migração - > SQL Server  
 
 |Descrição|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -626,7 +634,7 @@ Quando utiliza o Azure e a base de dados do site estiver atrás de um interno ou
 
 -   Fornecedor de SMS  
 
--   SQL Server--> SQL Server  
+-   SQL Server --> SQL Server  
 
 Quando um SQL Server aloja bases de dados de mais de um site, cada base de dados deve utilizar uma instância separada do SQL Server e cada instância deve ser configurada com um conjunto exclusivo de portas.  
 
@@ -635,7 +643,7 @@ Se tiver uma firewall ativada no computador do SQL Server, certifique-se de que 
 Para obter um exemplo de como configurar o SQL Server para utilizar uma porta específica, consulte [como: Configurar um servidor para escutar numa porta TCP específica (SQL Server Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkID=226349) na Biblioteca TechNet do SQL Server.  
 
 
-### <a name="bkmk_discovery"></a> Deteção e de publicação
+### <a name="bkmk_discovery"> </a> Deteção e de publicação
 As seguintes portas são utilizadas para a deteção e a publicação de informações do site:
  - Lightweight Directory Access Protocol (LDAP): 389
  - LDAP de catálogo global: 3268
@@ -689,12 +697,12 @@ Utilize o IPsec para ajudar a proteger o tráfego entre o servidor do site e os 
 >  Antes de instalar estes sistemas de sites, certifique-se de que o serviço registo remoto está em execução no servidor do sistema de site e que especificou uma conta de instalação do sistema de sites se o sistema de sites noutra floresta do Active Directory sem uma relação de fidedignidade.  
 
 ###  <a name="BKMK_PortsClientInstall"></a> Portas utilizadas pela instalação do cliente do Configuration Manager  
-As portas utilizadas durante a instalação do cliente dependem do método de implementação do cliente. Para obter uma lista de portas para cada método de implementação do cliente, consulte **portas utilizadas durante a implementação de cliente do Configuration Manager** no [Firewall do Windows e definições de porta para clientes no System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md) tópico. Para obter informações sobre como configurar a Firewall do Windows no cliente para a instalação de cliente e comunicação pós-instalação, consulte [Firewall do Windows e definições de porta para clientes no System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+As portas utilizadas durante a instalação do cliente dependem do método de implementação do cliente. Para obter uma lista de portas para cada método de implementação do cliente, consulte **portas utilizadas durante a implementação de cliente do Configuration Manager** no [Firewall do Windows e definições de porta para clientes no System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md) artigo. Para obter informações sobre como configurar a Firewall do Windows no cliente para a instalação de cliente e comunicação pós-instalação, consulte [Firewall do Windows e definições de porta para clientes no System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
 ###  <a name="BKMK_MigrationPorts"></a> Portas utilizadas pela migração  
 O servidor do site que executa a migração utiliza várias portas para ligar a sites aplicáveis na hierarquia de origem para recolher dados de bases de dados sites de origem e para partilhar pontos de distribuição.  
 
- Para obter informações sobre estas portas, consulte o [configurações necessárias para a migração](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) secção o [pré-requisitos para migração no System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md) tópico.  
+ Para obter informações sobre estas portas, consulte o [configurações necessárias para a migração](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) secção o [pré-requisitos para migração no System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md) artigo.  
 
 ###  <a name="BKMK_ServerPorts"></a> Portas utilizadas pelo Windows Server  
  A tabela seguinte lista algumas das principais portas utilizadas pelo Windows Server, juntamente com as respetivas funções. Para obter uma lista mais completa dos serviços e dos requisitos de portas de rede do Windows Server, consulte [Descrição geral dos serviços e requisitos de portas de rede para o sistema do Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
