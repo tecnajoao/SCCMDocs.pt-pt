@@ -7,23 +7,24 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 33bcf8b3-a6b6-4fc9-bb59-70a9621b2b0d
-caps.latest.revision: "9"
+caps.latest.revision: 
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bfe500c160bf2ddffd060baabb44cda81337e1cc
-ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
+ms.openlocfilehash: 5cb0ffd29f1b3de110101093a6644335a8167108
+ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/23/2018
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Sincronizar os dados do Configuration Manager para o Microsoft Operations Management Suite
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Pode utilizar o **Assistente de serviços do Azure** para configurar a ligação do Configuration Manager para o serviço de nuvem do Operations Management Suite (OMS). O assistente a partir da versão 1706, substitui o anteriores fluxos de trabalho para configurar esta ligação. Para versões anteriores, consulte [sincronizar os dados do Configuration Manager para o Microsoft Operations Management Suite (1702 e anterior)](#Sync-data-from-Configuration-Manager-to-the-Microsoft-Operations-Management-Suite-(1702-and-earlier)).
 
@@ -67,7 +68,7 @@ Pré-requisitos para configurar uma ligação ao OMS são iguais às [documentad
 ## <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite-1702-and-earlier"></a>Sincronizar os dados do Configuration Manager para o Microsoft Operations Management Suite (1702 e anterior)
 
 
-*Aplica-se a: System Center Configuration Manager (versões anteriores e 1702)*
+Aplica-se a: System Center Configuration Manager (versões anteriores e 1702)*
 
 Pode utilizar o conector do Microsoft Operations Management Suite (OMS) para sincronizar os dados, tais como as coleções do System Center Configuration Manager para análise de registos do OMS no Microsoft Azure. Isto torna visíveis na OMS dados da implementação do Configuration Manager.
 > [!TIP]
@@ -109,7 +110,7 @@ A partir da versão 1702, pode utilizar o conector do OMS para ligar a uma área
 Depois de ligação do Configuration Manager para OMS, pode adicionar ou remover coleções e ver as propriedades da ligação OMS.
 
 ### <a name="verify-the-oms-connector-properties"></a>Verifique as propriedades de conector do OMS
-1.  Na consola do Configuration Manager, vá para **administração** > **serviços em nuvem**e, em seguida, selecione **OMS conector** para abrir o **OMS ligação * * página**.
+1.  Na consola do Configuration Manager, vá para **administração** > **serviços em nuvem**e, em seguida, selecione **OMS conector** para abrir o **OMS Página de ligação**.
 2.  Dentro desta página, existem dois separadores:
   - **Azure Active Directory:**   
     Este separador mostra o **inquilino**, **ID de cliente**, **expiração chave secreta de cliente**, e permite-lhe verificar a chave secreta de cliente expirou.
@@ -117,7 +118,7 @@ Depois de ligação do Configuration Manager para OMS, pode adicionar ou remover
   - **Propriedades de ligação do OMS:**  
     Este separador mostra o **subscrição do Azure**, **grupo de recursos do Azure**, **área de trabalho do Operations Management Suite**e uma lista de **coleções de dispositivos que o Operations Management Suite pode obter os dados para**. Utilize o **adicionar** e **remover** botões para modificar as coleções são permitidos.
 
-### <a name="fairfaxconfig"></a> Utilizar o conector do OMS com a nuvem do Azure Government
+### <a name="fairfaxconfig"> </a> Utilizar o conector do OMS com a nuvem do Azure Government
 
 
 1.  Em qualquer computador que tenha a consola do Configuration Manager instalada, edite o ficheiro de configuração seguintes para apontar para a nuvem pública:  ***&lt;Caminho de instalação do CM > \AdminConsole\bin\Microsoft.configurationManagmenet.exe.config***
@@ -126,21 +127,21 @@ Depois de ligação do Configuration Manager para OMS, pode adicionar ou remover
 
     Altere o valor para o nome da definição *FairFaxArmResourceID* para ser igual a "https://management.usgovcloudapi.net/"
 
-   - **Original:** &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "Cadeia" >   
-      &lt;valor > &lt; /value >   
-      &lt;/ definição >
+   - **Original:** &lt;setting name="FairFaxArmResourceId" serializeAs="String">   
+      &lt;value>&lt;/value>   
+      &lt;/setting>
 
    - **Editadas:**     
-      &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "Cadeia" > &lt;valor > https://management.usgovcloudapi.net/ &lt; /value >  
-      &lt;/ definição >
+      &lt;setting name="FairFaxArmResourceId" serializeAs="String"> &lt;value>https://management.usgovcloudapi.net/&lt;/value>  
+      &lt;/setting>
 
   Altere o valor para o nome da definição *FairFaxAuthorityResource* para ser igual a "https://login.microsoftonline.us/"
 
-  - **Original:** &lt;nome da definição = "FairFaxAuthorityResource" serializeAs = "Cadeia" >   
-    &lt;valor > &lt; /value >
+  - **Original:** &lt;setting name="FairFaxAuthorityResource" serializeAs="String">   
+    &lt;value>&lt;/value>
 
     - **Editadas:** &lt;nome da definição = "FairFaxAuthorityResource" serializeAs = "Cadeia" >   
-    &lt;valor > https://login.microsoftonline.us/ &lt; /value >
+    &lt;value>https://login.microsoftonline.us/&lt;/value>
 
 2.  Depois de guardar o ficheiro com as duas alterações, reiniciar a consola do Configuration Manager no mesmo computador e, em seguida, utilize essa consola para instalar o conector do OMS. Para instalar o conector, utilize as informações em [sincronizar os dados do Configuration Manager para o Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite)e selecione o **área de trabalho do Operations Management Suite** que não está na nuvem do Microsoft Azure Government.
 

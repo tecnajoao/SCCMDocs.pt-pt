@@ -13,11 +13,11 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: aedfec9d423c52b1d6864cd8a10dd5c498fb3b0a
-ms.sourcegitcommit: 1378532fac2620ddcfd31061982f344a290c2e67
+ms.openlocfilehash: 2f765df84b94524cf56f6d1d9e051157f1a325ef
+ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gerir o Office 365 ProPlus com o Configuration Manager
 
@@ -134,7 +134,7 @@ Quando implementar uma atualização para um cliente do Office 365, as notifica�
 |1706|O cliente recebe as notificações de pop-up e na aplicação, bem como uma caixa de diálogo de contagem decrescente, antes de instalar a atualização.|
 
 > [!Important]
-> No Configuration Manager versão 1706, tenha em atenção os seguintes detalhes:
+> A partir do Configuration Manager versão 1706, tenha em atenção os seguintes detalhes:
 >
 >- Apresenta um ícone de notificação na área de notificação na barra de tarefas para as aplicações necessárias em que o prazo é no prazo de 48 horas no futuro e o conteúdo da atualização tenha sido transferido. 
 >- Apresenta uma caixa de diálogo de contagem decrescente para as aplicações necessárias em que o prazo é dentro 7.5 horas no futuro e a atualização foi transferida. O utilizador pode adiar a caixa de diálogo de contagem decrescente até três vezes antes do prazo. Quando adiar, mostra a contagem decrescente até depois de duas horas. Se não for adiar, existe uma contagem decrescente até de 30 minutos e atualização obtém instalada quando a contagem decrescente expira.
