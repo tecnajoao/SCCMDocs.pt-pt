@@ -3,7 +3,7 @@ title: "Armazém de dados"
 titleSuffix: Configuration Manager
 description: "Ponto de serviço do armazém de dados e base de dados para o System Center Configuration Manager"
 ms.custom: na
-ms.date: 02/21/2018
+ms.date: 02/26/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,14 +16,14 @@ caps.latest.revision:
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: a660b291eb7ae1e009330085d20c3908996c43f3
-ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
+ms.openlocfilehash: 954ec65bae15e087d6cf5afbcc8e0da1ebf83533
+ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/27/2018
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>O ponto de serviço do armazém de dados para o System Center Configuration Manager
-Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Versão 1702 pode utilizar o serviço de armazém de dados a partir do ponto para armazenar e elaborar relatórios sobre dados históricos a longo prazo para a sua implementação do Configuration Manager.
 
@@ -47,6 +47,7 @@ Quando instala a função de sistema de sites, instala e configura a base de dad
 ## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Pré-requisitos para os dados do armazém de ponto de serviço
 - A função de sistema de sites de armazém de dados é suportada apenas no site de nível superior da hierarquia. (Um site de administração central ou site primário autónomo).
 - O computador onde instalou a função de sistema de sites requer o .NET Framework 4.5.2 ou posterior.
+- Conceda o **conta de ponto do Reporting Services** o **db_datareader** permissão na base de dados de armazém de dados. 
 - A conta de computador do computador onde instalou a função de sistema de sites é utilizada para sincronizar dados com a base de dados do armazém de dados. Esta conta necessita das seguintes permissões:  
   - **Administrador** no computador que aloja a base de dados do armazém de dados.
   - **DB_Creator** permissão na base de dados de armazém de dados.
@@ -82,41 +83,30 @@ Quando instalar a função, o Configuration Manager cria a base de dados do arma
 
 **Geral** página:
 -   **Definições de ligação de base de dados do armazém de dados do Configuration Manager**:
- - **SQL Server nome de domínio completamente qualificado**:  
- Especifique o nome de domínio totalmente qualificado (FQDN) do servidor que aloja a base de dados de ponto de serviço de armazém do dados.
- - **Nome da instância do SQL Server, se aplicável**:   
- Se utilizar uma instância predefinida do SQL Server, tem de especificar a instância.
- - **Nome da base de dados**:   
- Especifique um nome para a base de dados do armazém de dados. O nome de base de dados não pode exceder 10 carateres. (Será possível aumentar o comprimento do nome suportados numa versão futura).
- O Configuration Manager cria a base de dados do armazém de dados com este nome. Se especificar um nome de base de dados que já existe na instância do SQL server, o Configuration Manager utiliza essa base de dados.
- - **Porta do SQL Server utilizada para ligação**:   
- Especifique o número de porta de TCP/IP utilizado pelo SQL Server que aloja a base de dados do armazém de dados. Esta porta é utilizada pelo serviço de sincronização do armazém de dados para ligar à base de dados do armazém de dados.  
+     - **SQL Server nome de domínio completamente qualificado**: Especifique o nome de domínio totalmente qualificado (FQDN) do servidor que aloja a base de dados de ponto de serviço de armazém do dados.
+     - **Nome da instância do SQL Server, se aplicável**: Se utilizar uma instância predefinida do SQL Server, tem de especificar a instância.
+     - **Nome da base de dados**: Especifique um nome para a base de dados do armazém de dados. O nome de base de dados não pode exceder 10 carateres. (Será possível aumentar o comprimento do nome suportados numa versão futura).
+     O Configuration Manager cria a base de dados do armazém de dados com este nome. Se especificar um nome de base de dados que já existe na instância do SQL server, o Configuration Manager utiliza essa base de dados.
+     - **Porta do SQL Server utilizada para ligação**: Especifique o número de porta de TCP/IP utilizado pelo SQL Server que aloja a base de dados do armazém de dados. Esta porta é utilizada pelo serviço de sincronização do armazém de dados para ligar à base de dados do armazém de dados.  
 
 **Agenda de sincronização** página:   
 - **Agenda de sincronização**:
- - **Hora de início**:  
- Especifique o tempo que pretende que a sincronização do armazém de dados para iniciar.
- - **Padrão de periodicidade**:
-    - **Diária**: Especifique que a sincronização é executada diariamente.
-    - **Semanalmente**: Especifique um único dia cada semana e a periodicidade semanal para sincronização.
+    - **Hora de início**: Especifique o tempo que pretende que a sincronização do armazém de dados para iniciar.
+    - **Padrão de periodicidade**:
+         - **Diária**: Especifique que a sincronização é executada diariamente.
+         - **Semanalmente**: Especifique um único dia cada semana e a periodicidade semanal para sincronização.
 
 ## <a name="reporting"></a>Relatórios
 Depois de instalar um ponto de serviço do armazém de dados, vários relatórios fiquem disponíveis no ponto do reporting services que está instalado no mesmo site. Se instalar o ponto de serviço do armazém de dados antes de instalar um ponto do Reporting Services, os relatórios são adicionados automaticamente quando, posteriormente, instalar o ponto do Reporting Services.
 
 A função de sistema de sites de armazém de dados inclui os seguintes relatórios, que tem uma categoria de **do armazém de dados**:
- - **Implementação da aplicação - histórica**:   
- Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.
+ - **Implementação da aplicação - histórica**: Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.
  - **Proteção de ponto final e atualização de Software conformidade - histórica**: Computadores de vista que estão em falta atualizações de software.  
- - **Inventário de Hardware geral - históricos**:   
- Ver todo o inventário de hardware para um computador específico.
- - **Inventário de Software geral - históricos**:   
- Ver todo o inventário de software para uma máquina específica.
- - **Descrição geral de estado de funcionamento do infraestrutura - histórico**:  
- Apresenta uma descrição geral do Estado de funcionamento da infraestrutura do Configuration Manager
- - **Lista de software maligno detetado - históricos**:    
- Software maligno de vista que foi detetado na organização.
- - **Resumo de distribuição de software - histórico**:   
- Um resumo de distribuição de software para um anúncio específico e a máquina.
+ - **Inventário de Hardware geral - históricos**: Ver todo o inventário de hardware para um computador específico.
+ - **Inventário de Software geral - históricos**: Ver todo o inventário de software para uma máquina específica.
+ - **Descrição geral de estado de funcionamento do infraestrutura - histórico**: Apresenta uma descrição geral do Estado de funcionamento da infraestrutura do Configuration Manager
+ - **Lista de software maligno detetado - históricos**:   Software maligno de vista que foi detetado na organização.
+ - **Resumo de distribuição de software - histórico**: Um resumo de distribuição de software para um anúncio específico e a máquina.
 
 
 ## <a name="expand-an-existing-stand-alone-primary-into-a-hierarchy"></a>Expandir um site primário autónomo existente numa hierarquia
@@ -139,26 +129,23 @@ Utilize os seguintes passos para mover a base de dados do armazém de dados para
 4.  Após a instalação da função de sistema de sites, a mudança está concluída.
 
 ## <a name="troubleshooting-data-warehouse-issues"></a>Resolução de problemas do armazém de dados
-**Ficheiros de registo**:  
+**Ficheiros de registo**  
 Utilize os seguintes registos para investigar problemas com a instalação do ponto de serviço do armazém de dados, ou uma sincronização de dados:
  - *DWSSMSI.log* e *DWSSSetup.log* -utilizar estes registos para investigar erros ao instalar o ponto de serviço do armazém de dados.
  - *Microsoft.ConfigMgrDataWarehouse.log* – utilizar este registo para investigar a sincronização de dados entre a base de dados do site para a base de dados do armazém de dados.
 
 **Falha de multimédia**  
  A instalação do ponto de serviço do armazém de dados falha num servidor de sistema de sites remoto quando o armazém de dados é a primeira função do sistema de sites que instala nesse computador.  
-  - **Solução**:   
-    Certifique-se de que o computador estiver a instalar o serviço de armazém de dados ponto em já anfitriões, pelo menos uma outra função do sistema de sites.  
+  - **Solução**: Certifique-se de que o computador estiver a instalar o serviço de armazém de dados ponto em já anfitriões, pelo menos uma outra função do sistema de sites.  
 
 
 **Problemas de sincronização conhecidos**:   
 A sincronização falhar com a seguinte mensagem no *Microsoft.ConfigMgrDataWarehouse.log*: **"Falha ao povoar objetos de esquema"**  
- - **Solução**:  
-    Certifique-se de que a conta de computador do computador que aloja a função de sistema de sites é um **db_owner** na base de dados de armazém de dados.
+ - **Solução**: Certifique-se de que a conta de computador do computador que aloja a função de sistema de sites é um **db_owner** na base de dados de armazém de dados.
 
 Relatórios de armazém de dados não abrirá quando a base de dados do armazém de dados e o ponto de serviço Reporting Services estão em diferentes sistemas de site.  
 
- - **Solução**:  
-    Conceda o **conta de ponto do Reporting Services** o **db_datareader** permissão na base de dados de armazém de dados.
+ - **Solução**: Conceda o **conta de ponto do Reporting Services** o **db_datareader** permissão na base de dados de armazém de dados.
 
 Quando abre um relatório de armazém de dados, é devolvido o erro seguinte:
 

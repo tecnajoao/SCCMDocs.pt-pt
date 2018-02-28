@@ -4,17 +4,18 @@ titleSuffix: Microsoft Deployment Toolkit
 description: "Saiba como utilizar o Toolkit de implementação do Microsoft 2013. "
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 10a846c2-e63c-4c2b-8210-7485bfe7e47f
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 1af6032dabf122d67b8bc5d003fe63b8e8ec7a9b
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+manager: dougeby
+ms.openlocfilehash: c55df0fe9aab04d4688f022caebc9412b3f511c8
+ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="using-the-microsoft-deployment-toolkit"></a>Utilizar o Microsoft Deployment Toolkit  
  Microsoft® Deployment Toolkit (MDT) 2013 permite-lhe automatizar a implementação de computadores na sua organização. Este documento fornece orientações sobre como planear, criar e implementar sistemas de operativos Windows® e aplicações com o MDT 2013.  
@@ -56,10 +57,10 @@ ms.lasthandoff: 01/16/2018
 |[Preparar os serviços de implementação do Windows](#PreparingWindowsDeploymentServices)|Fornece orientações para preparar os serviços de implementação do Windows para utilização em iniciar os processos de implementação LTI, ZTI e UDI, incluindo a criação de imagens e configurar para a integração com as implementações LTI, ZTI e UDI.|  
 |[Planear a implementação de aplicação](#PlanningforApplicationDeployment)|Fornece orientações sobre como implementar aplicações utilizando o MDT, Configuration Manager e do Microsoft Application Virtualization (App-V), incluindo a implementação de aplicações com a imagem do sistema operativo ou depois da imagem é implementada.|  
 
-##  <a name="PlanningMdtDeployments"></a>Planeamento de implementações do MDT  
+##  <a name="PlanningMdtDeployments">Planeamento de implementações do MDT</a>  
  O processo de planeamento ajuda-o a preparar para implementações num ambiente de produção. O processo é iniciado com designs de conceptuais, que são comprovadas e foi refinados num ambiente de teste. O resultado do processo de planeamento é um conjunto de documentos de conceção que pode utilizar para criar uma infraestrutura de implementação do MDT e executar automatizado do sistema operativo e as implementações de aplicações num ambiente de produção.  
 
-###  <a name="OverviewoftheMDTDeploymentProcess"></a>Descrição geral do processo de implementação MDT  
+###  <a name="OverviewoftheMDTDeploymentProcess"></a> Descrição geral do processo de implementação MDT  
  O objetivo do MDT consiste em ajudar a automatizar a implementação de sistemas operativos Windows e a aplicações de ambiente de trabalho, portáteis, computadores de servidor no ambiente. Um nível elevado, o MDT automatiza o processo de implementação ao configurar os ficheiros de configuração automáticas para o Windows e empacotar os ficheiros necessários para um ficheiro de imagem consolidado, que irá depois implementar nos computadores de referência e de destino.  
 
  Figura 1 ilustra os processos de implementação LTI, ZTI e UDI alto nível.  
@@ -86,7 +87,7 @@ ms.lasthandoff: 01/16/2018
 
 5.  Implemente as imagens capturadas dos computadores de referência para os computadores de destino.  
 
-###  <a name="PlanningChecklist"></a>Lista de verificação de planeamento  
+###  <a name="PlanningChecklist"></a> Lista de verificação de planeamento  
   Tabela 3 fornece uma lista de verificação planeamento sob a forma de uma lista de perguntas que pode utilizar para ajudar no processo de planeamento. Para cada pergunta, utilize as informações fornecidas a **descrição geral** coluna para o ajudar a encontrar respostas com base nos requisitos da sua organização.  
 
 #### <a name="table-3-planning-checklist"></a>Tabela 3. Lista de verificação de planeamento  
@@ -97,7 +98,7 @@ ms.lasthandoff: 01/16/2018
 |Irá implementar através da rede, com suporte de dados amovível, ou ambos? Irá utilizar implementações multicast?|Se estiver a implementar através da rede, verifique se existe largura de banda suficiente entre as partilhas de implementação, pontos de distribuição e computadores de destino e forneça pontos de distribuição regional. Para obter mais informações, consulte [escolher um método de implementação](#ChoosingaDeploymentMethod) e [avaliar requisitos de rede](#EvaluatingNetworkRequirements).|  
 |O que é a sua estratégia de ficheiro de origem e de processamento de imagens?|Para obter mais informações, consulte [através de computadores de referência em implementações de MDT](#UsingReferenceComputersinMDTDeployments).|  
 |Implementar um conjunto completo de ficheiros do sistema operativo ou uma imagem personalizada?|Para obter mais informações, consulte [através de computadores de referência em implementações de MDT](#UsingReferenceComputersinMDTDeployments).|  
-|Como irá para processar chaves de produto e o licenciamento?|As pequenas organizações podem ser atribuídos a cada utilizador uma chave de produto individuais. Organizações de maior devem utilizar a ativação do serviço de gestão de chaves (KMS) ou chave de ativação múltipla (MAK). Para obter mais informações, consulte [ativação do produto e as informações da chave](http://www.microsoft.com/licensing/existing-customers/product-activation.aspx).|  
+|Como irá para processar chaves de produto e o licenciamento?|As pequenas organizações podem ser atribuídos a cada utilizador uma chave de produto individuais. Organizações de maior devem utilizar a ativação do serviço de gestão de chaves (KMS) ou chave de ativação múltipla (MAK). Para obter mais informações, consulte [ativação do produto e as informações da chave](https://licensingapps.microsoft.com/product-activation).|  
 |Vão permitir aos utilizadores escolher seu próprio sistema operativo, aplicações, região, fuso horário e palavra-passe administrativa?|Os utilizadores podem selecionar estas informações no momento da implementação, ou pode configurar as informações de antecedência. Para obter mais informações, consulte [escolher LTI, ZTI ou implementações de UDI](#ChoosingLTIZTIorUDIDeployments).|  
 |Serão utilizadores atualizar os respetivos computadores no local atual, migrar as definições para uma nova instalação do sistema operativo ou obter um novo computador?|Para obter mais informações, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).|  
 |Os utilizadores que será possível instalar as aplicações?|Para obter mais informações, consulte [planear a implementação de aplicação do](#PlanningforApplicationDeployment).|  
@@ -108,7 +109,7 @@ ms.lasthandoff: 01/16/2018
 |Implementar a edições de produto diferente (por exemplo, Professional, Ultimate ou empresarial)?|Para obter mais informações, consulte [estimar os requisitos de armazenamento MDT](#EstimatingMDTStorageRequirements).|  
 |Tipo de implementações que será executado (por exemplo, implementar um novo computador, substituir um computador existente)?|Para obter mais informações, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).|  
 
-###  <a name="EstimatingMDTStorageRequirements"></a>Estimar os requisitos de armazenamento do MDT  
+###  <a name="EstimatingMDTStorageRequirements"></a> Estimar os requisitos de armazenamento do MDT  
  Implementações LTI armazenam as imagens do sistema, aplicações e outros ficheiros em partilhas de implementação. As implementações ZTI e UDI guarda estes ficheiros nos pontos de distribuição do Configuration Manager. Para determinar o seu armazenamento precisa, estimar os requisitos de armazenamento para:  
 
 -   Computadores com o MDT conforme descrito em [requisitos de armazenamento de estimativa para computadores a executar o MDT](#EstimateStorageRequirementsforComputersRunningMDT)  
@@ -121,14 +122,14 @@ ms.lasthandoff: 01/16/2018
 
 -   Cópia de segurança de computadores existentes antes da implementação para o cenário de implementação de computador atualizar conforme descrito em [requisitos de armazenamento de estimativa de cópia de segurança de computador de destino](#EstimateStorageRequirementsforTargetComputerBackup)  
 
-####  <a name="EstimateStorageRequirementsforComputersRunningMDT"></a>Estimar os requisitos de armazenamento para computadores com o MDT  
+####  <a name="EstimateStorageRequirementsforComputersRunningMDT"></a> Estimar os requisitos de armazenamento para computadores com o MDT  
  O computador com o MDT tem os seguintes requisitos de armazenamento:  
 
 -   É necessário, pelo menos, 4 gigabytes (GB) de espaço livre na unidade que contém a pasta % TEMP % se vai criar imagens de um suporte de dados. Caso contrário, é necessário 1 GB de espaço livre na unidade que contém a pasta % TEMP %.  
 
 -   É necessário de 1 GB de espaço livre na unidade que contém os ficheiros de programa do MDT.  
 
-####  <a name="EstimateStorageRequirementsforMDTDeploymentShares"></a>Estimar requisitos de armazenamento para partilhas de implementação do MDT  
+####  <a name="EstimateStorageRequirementsforMDTDeploymentShares"></a> Estimar requisitos de armazenamento para partilhas de implementação do MDT  
  Certifique-se de que existe espaço suficiente para armazenar as imagens de sistemas operativos, pacotes de idiomas e controladores de dispositivo utilizadas no Deployment Workbench. Armazenar estas imagens das partilhas de implementação do MDT criado no Deployment Workbench.  
 
  Determine os requisitos de armazenamento para cada um dos seguintes itens na partilha de implementação:  
@@ -149,19 +150,19 @@ ms.lasthandoff: 01/16/2018
 
 -   **Tipo de processador.** Uma imagem separada é necessária para as versões de 32 bits e 64 bits do Windows.  
 
-####  <a name="EstimateStorageRequirementsforConfigurationManagerDistributionPoints"></a>Estimar requisitos de armazenamento para pontos de distribuição do Configuration Manager  
+####  <a name="EstimateStorageRequirementsforConfigurationManagerDistributionPoints"></a> Estimar requisitos de armazenamento para pontos de distribuição do Configuration Manager  
  Estimar os requisitos de armazenamento para pontos de distribuição do Configuration Manager utilizando os mesmos cálculos descritos em [requisitos de armazenamento de estimativa de partilhas de implementação do MDT](#EstimateStorageRequirementsforMDTDeploymentShares). Se as imagens são distribuídas por vários pontos de distribuição, os requisitos de armazenamento aplicam a cada ponto de distribuição.  
 
  Para obter mais informações sobre o planeamento de pontos de distribuição do Configuration Manager, consulte a secção "Ponto de distribuição," na secção, "Planear a configuração do Gestor de Site sistemas para implementações do sistema operativo," no Configuration Manager Biblioteca de documentação, que é instalada com o Configuration Manager.  
 
-####  <a name="EstimateStorageRequirementsforUserStateMigrationData"></a>Estimar requisitos de armazenamento para dados de migração de estado do utilizador  
+####  <a name="EstimateStorageRequirementsforUserStateMigrationData"></a> Estimar requisitos de armazenamento para dados de migração de estado do utilizador  
  Estimar a quantidade de armazenamento necessário para dados de migração de estado de utilizador a State Migration Tool (USMT) do Windows utilizador guardados durante o processo de implementação por:  
 
 -   Determinar se pretende armazenar os dados de migração de estado do utilizador localmente numa rede de computadores de destino ou de pastas partilhadas, tal como descrito no [determinar onde para armazenar dados de migração de estado de utilizador](#DetermineWheretoStoreUserStateMigrationData)  
 
 -   Determinar os requisitos de armazenamento para dados de migração de estado do utilizador conforme descrito em [determinar os requisitos de armazenamento para dados de migração de estado de utilizador](#DetermineStorageRequirementsforUserStateMigrationData)  
 
-#####  <a name="DetermineWheretoStoreUserStateMigrationData"></a>Determinar onde os dados de migração de estado de utilizador do arquivo  
+#####  <a name="DetermineWheretoStoreUserStateMigrationData"></a> Determinar onde os dados de migração de estado de utilizador do arquivo  
  Após determinar os requisitos de armazenamento para dados de migração de estado do utilizador, determine onde pretende armazenar os dados. Armazenar dados de migração de estado de utilizador nestas localizações:  
 
 -   No computador local para reduzir o tempo para implementar o Windows, bem como utilização (recomendada) de rede  
@@ -175,7 +176,7 @@ ms.lasthandoff: 01/16/2018
 
  Crie uma partilha num servidor designado durante o processo de planeamento para que contém os ficheiros de arquivo da USMT. MDT utiliza valores encontrados no CustomSettings.ini para localizar a pasta de arquivo de estado do utilizador.  
 
-#####  <a name="DetermineStorageRequirementsforUserStateMigrationData"></a>Determinar os requisitos de armazenamento para dados de migração de estado do utilizador  
+#####  <a name="DetermineStorageRequirementsforUserStateMigrationData"></a> Determinar os requisitos de armazenamento para dados de migração de estado do utilizador  
  Para efeitos de planeamento, conclua as seguintes tarefas para estimar os requisitos de armazenamento de migração de estado de utilizador:  
 
 -   Executar Scanstate.exe no USMT com o **/p** opção para estimar o tamanho dos dados de migração de estado do utilizador. Utilizando o **/p** opção, pode estimar os requisitos de espaço em disco sem realmente efetuar a migração.  
@@ -184,7 +185,7 @@ ms.lasthandoff: 01/16/2018
 
  Calcule a capacidade total necessária multiplicando o tamanho médio de dados de migração de estado do utilizador, o número de dias a manter os dados e, em seguida, multiplicando que resultam pelo número de utilizadores a serem migradas durante o período de retenção. Por exemplo, se o tamanho de migração de estado do utilizador médio 3 GB, dados têm de ser armazenados durante cinco dias, 100 utilizadores estão a ser migrados todos os dias e o requisito de armazenamento total é 1.500 GB (3 GB × 5 dias × 100 utilizadores por dia).  
 
-####  <a name="EstimateStorageRequirementsforTargetComputerBackup"></a>Estimar requisitos de armazenamento de cópia de segurança de computador de destino  
+####  <a name="EstimateStorageRequirementsforTargetComputerBackup"></a> Estimar requisitos de armazenamento de cópia de segurança de computador de destino  
  Como um passo opcional no processo de implementação para o cenário de atualizar o computador, pode efetuar uma cópia de segurança de um computador de destino antes de implementar o sistema operativo de destino.  
 
  Executar o processo de cópia de segurança no MDT utilizando a ferramenta de Imagex.exe. O processo de cópia de segurança cria uma imagem do volume de disco no qual os dados de migração de estado do utilizador estão armazenados. O objetivo desta cópia de segurança é para a recuperação de dados de migração de estado de utilizador, não para restaurar o computador de destino a partir da imagem.  
@@ -194,7 +195,7 @@ ms.lasthandoff: 01/16/2018
 > [!NOTE]
 >  Por predefinição, o processo de cópia de segurança do MDT não efetuar cópias de segurança várias partições. Se precisar de fazer cópias de segurança de várias partições, modifique o processo de implementação do MDT ou utilize um método alternativo de cópia de segurança.  
 
-###  <a name="PlanningforApplicationDeployment"></a>Planear a implementação de aplicação  
+###  <a name="PlanningforApplicationDeployment">Planear a implementação de aplicação</a>  
  As aplicações podem ser implementadas como parte da imagem do sistema operativo ou depois do sistema operativo é implementado no computador de destino. Durante a preparação da implementação, efetue estas tarefas:  
 
 -   **Crie um portefólio de aplicação.** Portfolios aplicação incluem uma lista de aplicações e o estado de compatibilidade de cada aplicação. Pode criar este portefólio de aplicação utilizando o software de inventário de software, tais como a funcionalidade do Application Compatibility Toolkit (ACT), os ativos e compatibilidade no Configuration Manager.  
@@ -209,7 +210,7 @@ ms.lasthandoff: 01/16/2018
 
 -   **Identifica aplicações que requerem o reinício do sistema operativo.** As aplicações que requerem o reinício do sistema operativo após a instalação necessitam de configuração adicional. Para obter mais informações, consulte [Configure o computador para reiniciar após a instalação da aplicação](#ConfiguretheComputertoRestartAfterApplicationInstallation).  
 
-###  <a name="DefiningOperatingSystemComponentsandSettings"></a>Definir as definições e componentes do sistema operativo  
+###  <a name="DefiningOperatingSystemComponentsandSettings"></a> Definir as definições e componentes do sistema operativo  
  Como parte do estabelecimento de uma configuração normalizados, determine que componentes de sistema operativo para incluir e as definições desses componentes. Esta determinação inclui os componentes opcionais em todos os sistemas operativos, funções de servidor em sistemas operativos Windows Server e os componentes que incluir no ambiente de pré-instalação do Windows (Windows PE). Por exemplo, pode optar por remover componentes do sistema operativo Windows desnecessários implementações de computadores de secretária e portáteis para reduzir os requisitos de espaço de segurança desses computadores.  
 
  Para cada imagem de sistema operativo, determine o:  
@@ -222,14 +223,14 @@ ms.lasthandoff: 01/16/2018
 
 -   **Definições de configuração.** Identificar as definições de configuração de componentes incluídos nas imagens do. Selecione as definições de configuração que cumprem os requisitos comerciais e de segurança da organização. Para obter mais informações sobre a segurança do computador de destino, consulte [planeamento de segurança do computador de destino](#PlanningTargetComputerSecurity).  
 
-###  <a name="ChoosingaDeploymentMethod"></a>Escolher um método de implementação  
+###  <a name="ChoosingaDeploymentMethod"></a> Escolher um método de implementação  
  Normalmente, os computadores de destino têm ligações de alta velocidade, persistentes para a infraestrutura de implementação. No entanto, alguns computadores de destino podem ligar a uma intranet remotamente ou em todos os. MDT inclui os seguintes métodos para implementar sistemas operativos e aplicações com LTI com base na conetividade da rede:  
 
 -   **Partilha de implementação.** Este método utiliza uma pasta partilhada de rede na qual residem todos os ficheiros de implementação. O computador de destino inicia o Windows PE e, em seguida, liga à partilha de implementação para efetuar a implementação. Selecione este método quando os computadores de destino têm as ligações de alta velocidade, persistentes para a infraestrutura de implementação.  
 
--   **Suporte de dados.** Este método cria uma imagem que pode utilizar para efetuar implementações de suportes de dados amovíveis, como DVDs ou USB pens (UFDs). Utilizar o Windows PE para iniciar o computador do suporte de dados. Selecione este método quando os computadores de destino podem ser ligados remotamente ou podem não ter conectividade de todo.  
+-   **Media.** Este método cria uma imagem que pode utilizar para efetuar implementações de suportes de dados amovíveis, como DVDs ou USB pens (UFDs). Utilizar o Windows PE para iniciar o computador do suporte de dados. Selecione este método quando os computadores de destino podem ser ligados remotamente ou podem não ter conectividade de todo.  
 
-###  <a name="EvaluatingNetworkRequirements"></a>Avaliar requisitos de rede  
+###  <a name="EvaluatingNetworkRequirements"></a> Avaliar requisitos de rede  
  Devido ao tamanho das imagens que está a ser distribuídas aos computadores de destino (500 megabytes [MB] para 4 GB), os computadores devem ter uma ligação persistente de alta velocidade para os servidores utilizados no processo de implementação. Estes servidores têm de ser em sub-redes adjacentes aos computadores de destino para garantir a conectividade de alta velocidade para os computadores.  
 
 > [!NOTE]
@@ -247,7 +248,7 @@ ms.lasthandoff: 01/16/2018
 
  Para além da capacidade de rede, tem de ativar o tráfego e protocolos de rede adequado. Por exemplo, se pretender iniciar a implementação LTI, ZTI ou UDI utilizando os serviços de implementação do Windows e implementação multicast, tem de ativar o tráfego multicast entre os computadores de infraestrutura e o destino do MDT.  
 
-###  <a name="UsingReferenceComputersinMDTDeployments"></a>Através de computadores de referência em implementações de MDT  
+###  <a name="UsingReferenceComputersinMDTDeployments"></a> Através de computadores de referência em implementações de MDT  
  O processo de implementação do MDT utiliza o computador de referência como uma linha de base para a configuração de computadores de destino quando o processo de implementação estiver concluído. Configurar o computador de referência para cumprir os requisitos de negócio, técnica e a segurança da organização. Depois de configurar o computador de referência, capture uma imagem do computador de referência que, em seguida, pode implementar em computadores de destino.  
 
  Apenas em circunstâncias raras, será possível implementar imagens do suporte de dados de distribuição Windows, não modificada para os computadores de referência e de destino. Em vez disso, crie imagens personalizadas que incluem o sistema operativo Windows, idioma, pacotes, aplicações, controladores de dispositivo, as atualizações de software e outro software.  
@@ -259,7 +260,7 @@ ms.lasthandoff: 01/16/2018
 > [!NOTE]
 >  VMs, normalmente, não têm o mesmo desempenho de computadores físicos, para que criar as imagens de referência poderá demorar mais tempo.  
 
-###  <a name="ChoosingThickThinorHybridImages"></a>Escolher Thick, dinâmico, ou híbrida imagens  
+###  <a name="ChoosingThickThinorHybridImages"></a> Escolher Thick, dinâmico, ou híbrida imagens  
  Como parte do processo de planeamento, determine os tipos de imagens que irá criar. Os tipos de imagens que pode criar enquadram-se estas categorias:  
 
 -   **Imagens espesso.** Imagens de espesso são monolithic imagens que contêm core aplicações, pacotes de idiomas e outros ficheiros. Parte do processo de desenvolvimento de imagem está a instalar aplicações de núcleos e pacotes de idiomas no computador de referência antes de capturar a imagem de disco.  
@@ -290,7 +291,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
  À medida que aumenta o tamanho dos ficheiros de imagem, aumentam os custos. Imagens grandes tem mais de atualização, testar, distribuição, rede e os custos de armazenamento associados aos mesmos. Mesmo que apenas uma pequena parte da imagem é atualizada, toda a imagem deve ser redistribuída.  
 
-###  <a name="IdentifyingDeploymentScenarios"></a>Identificar os cenários de implementação  
+###  <a name="IdentifyingDeploymentScenarios"></a> Identificar os cenários de implementação  
  Tabela 5 apresenta os cenários de implementação e fornece uma breve descrição de cada.  
 
 #### <a name="table-5-deployment-scenarios"></a>Tabela 5. Cenários de implementação  
@@ -312,10 +313,10 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
  Como parte do cenário de implementação de computador substituir, eliminar as partições de disco do computador original. O formato de padrão como efetuada por sistemas operativos Windows não efetuar uma eliminação segura do disco como definido pelos E.U.A. Departamento da defesa milhão 5520.22 padrão. Se necessário, efetue eliminações seletivas de dados seguros de discos rígidos nos computadores de destino utilizando as ferramentas fornecidas pelos fornecedores de terceiros.  
 
-###  <a name="PlanningforBitLockerDriveEncryption"></a>Planear a encriptação de unidade BitLocker  
+###  <a name="PlanningforBitLockerDriveEncryption"></a> Planear a encriptação de unidade BitLocker  
  O BitLocker está incluído no Windows, por isso, inclui planeamento decisões para o BitLocker no seu ambiente. Uma decisão de BitLocker que tem de se é o armazenamento das chaves de recuperação. Pode armazenar chaves de recuperação do BitLocker no:  
 
--   `A local folder.`Selecione esta opção para armazenar a chave de recuperação no UFDs, que gere a cada utilizador.  
+-   `A local folder.` Selecione esta opção para armazenar a chave de recuperação no UFDs, que gere a cada utilizador.  
 
 -   **Uma pasta de rede.** Selecione esta opção para centralmente armazenar as chaves de recuperação na pasta partilhada de rede, que os administradores de rede gerem.  
 
@@ -328,11 +329,11 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
     > [!NOTE]
     >  Pode fornecer um PIN que os utilizadores podem introduzir em conjunto com TPM, ou pode utilizar uma pen USB para reforçar a segurança ao iniciar um computador.  
 
--   **PEN USB.** Neste método, as chaves de encriptação necessários são armazenadas numa pen USB, que tem de estar presente no computador quando o computador é iniciado. Este é o método preferencial, se o computador de destino não suporta o TPM.  
+-   **UFD.** Neste método, as chaves de encriptação necessários são armazenadas numa pen USB, que tem de estar presente no computador quando o computador é iniciado. Este é o método preferencial, se o computador de destino não suporta o TPM.  
 
- Para obter mais informações sobre o BitLocker, consulte [descrição de geral de encriptação de unidade BitLocker](http://windows.microsoft.com/windows-vista/BitLocker-Drive-Encryption-Overview).  
+ Para obter mais informações sobre o BitLocker, consulte [descrição de geral de encriptação de unidade BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-device-encryption-overview-windows-10).  
 
-###  <a name="EvaluatingTargetComputerReadiness"></a>Avaliação de preparação do computador de destino  
+###  <a name="EvaluatingTargetComputerReadiness"></a> Avaliação de preparação do computador de destino  
  Como parte do processo de planeamento, avalie a preparação do computador de destino para a implementação do sistema operativo de destino, controladores de dispositivo, aplicações e outros componentes. Avalie a preparação do computador de destino através de automatizada hardware e software inventário ferramentas, como do Configuration Manager ou o Microsoft Assessment e o Toolkit de planeamento (mapa).  
 
  Avalie a preparação do computador de destino para implementação pelo:  
@@ -343,7 +344,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Identificar as diferenças no processo de implementação entre computadores de 32 bits e 64 bits, conforme descrito em [identificar diferenças nas implementações de 64 bits e de 32 bits](#IdentifyDifferencesin64-bitand32-bitDeployments)  
 
-###  <a name="VerifyTargetComputerReadinessforRunningMDTScripts"></a>Verificar a preparação do computador de destino para executar Scripts de MDT  
+###  <a name="VerifyTargetComputerReadinessforRunningMDTScripts"></a> Verificar a preparação do computador de destino para executar Scripts de MDT  
  Antes de executar o resto dos MDT, executar scripts ZTIPrereq.vbs para se certificar de que o computador de destino cumpre os requisitos para executar os scripts de MDT restantes. Pré-requisitos do script incluem:  
 
 -   Script de anfitrião para WSH (Windows) versão 5.6 ou posterior instalada e em execução  
@@ -353,7 +354,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
     > [!NOTE]
     >  A versão do MSXML tem de ser versão 3.0. Versões do MSXML 4.0 e 6.0 não são compatíveis com os scripts do MDT.  
 
-###  <a name="VerifyAdequateTargetComputerResources"></a>Certifique-se de recursos do computador de destino adequado  
+###  <a name="VerifyAdequateTargetComputerResources"></a> Certifique-se de recursos do computador de destino adequado  
  Depois de ZTIPrereq.vbs determina se o computador cumpre os requisitos para executar os scripts restantes, ZTIValidate.wsf determina se o computador de destino tem o software adequado e recursos de sistema de hardware para implementar o sistema operativo de destino . Estes requisitos incluem:  
 
 -   O computador de destino tem 5.6 para WSH ou posterior instalado  
@@ -388,7 +389,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
  Determine se todos os computadores existentes têm recursos de sistema inadequado utilizando o Gestor de configuração ou outra ferramenta de inventário de software. Atualize os recursos do sistema nestes computadores de destino antes de implementar o Windows, se necessário.  
 
-###  <a name="IdentifyDifferencesin64-bitand32-bitDeployments"></a>Identificar as diferenças em implementações de 64 bits e de 32 bits  
+###  <a name="IdentifyDifferencesin64-bitand32-bitDeployments"></a> Identificar as diferenças em implementações de 64 bits e de 32 bits  
  A maioria das funções e funcionalidades presentes em versões de 32 bits do Windows são as mesmas em versões de 64 bits do Windows. No entanto, efetuar as seguintes diferenças em consideração quando implementar versões de 64 bits do Windows:  
 
 -   Para implementações LTI, a versão do Windows PE tem de corresponder à versão do Windows que está a ser implementada. Se implementar uma versão de 64 bits do Windows, utilize uma versão de 64 bits do Windows PE.  
@@ -407,27 +408,25 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   versões de 64 bits do Windows necessitam de controladores de dispositivos de 64 bits. Não é possível utilizar controladores de dispositivo de 32 bits em versões de 64 bits do Windows.  
 
-###  <a name="PlanningPerformanceandPowerManagement"></a>Planear o desempenho e a gestão de energia  
+###  <a name="PlanningPerformanceandPowerManagement"></a> Planear o desempenho e a gestão de energia  
  O Windows inclui um número de funcionalidades que ajudam a melhorar o desempenho e a utilização de energia dos computadores. Pode incorporar estas melhorias como parte das definições de configuração que implementa nos computadores de destino com o MDT.  
 
  Reveja os seguintes recursos para identificar o desempenho e a gestão de energia, definições de configuração para incluir quando efetuar as implementações de computador de destino:  
 
--   [Centro de programadores de análise de desempenho do Windows](http://msdn.microsoft.com/performance/default.aspx)  
+-   [Ferramentas de análise de desempenho do Windows](https://docs.microsoft.com/windows-hardware/test/wpt/)  
 
--   [Ferramentas de análise de desempenho do Windows](http://msdn.microsoft.com/performance/cc825801.aspx)  
+-   [A informática sustentável: Impor definições de gestão de energia na sua organização com a política de grupo](https://technet.microsoft.com/magazine/dd252731.aspx)  
 
--   [A informática sustentável: Impor definições de gestão de energia na sua organização com a política de grupo](http://technet.microsoft.com/magazine/dd252731.aspx)  
+-   [Soluções de vida de bateria móveis para Windows 7](https://msdn.microsoft.com/windows/hardware/gg487547)  
 
--   [Soluções de vida de bateria móveis para Windows 7](http://msdn.microsoft.com/windows/hardware/gg487547)  
+-   [Configuração da política de energia e a implementação do Windows](https://msdn.microsoft.com/windows/hardware/gg463243.aspx)  
 
--   [Configuração da política de energia e a implementação do Windows](http://msdn.microsoft.com/windows/hardware/gg463243.aspx)  
-
-###  <a name="PlanningTargetComputerSecurity"></a>Planear a segurança do computador de destino  
+###  <a name="PlanningTargetComputerSecurity"></a> Planear a segurança do computador de destino  
  Quando planear a configuração dos sistemas operativos Windows para computadores de destino, certifique-se de que o destino de computadores que são implementados em conformidade com os requisitos da sua organização. Microsoft desenvolveu Aceleradores de solução de segurança que podem ajudar a implementar os seus computadores de destino de uma configuração segura.  
 
- O Aceleradores de solução de segurança inclui orientações e ferramentas para ajudá-lo seguro Windows. Para obter mais informações sobre a implementação de computadores de destino de uma configuração segura utilizando estes aceleradores de solução, consulte [Aceleradores de solução de segurança](http://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
+ O Aceleradores de solução de segurança inclui orientações e ferramentas para ajudá-lo seguro Windows. Para obter mais informações sobre a implementação de computadores de destino de uma configuração segura utilizando estes aceleradores de solução, consulte [Aceleradores de solução de segurança](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).  
 
-###  <a name="ChoosingLTIZTIorUDIDeployments"></a>Escolher LTI, ZTI ou implementações de UDI  
+###  <a name="ChoosingLTIZTIorUDIDeployments"></a> Escolher LTI, ZTI ou implementações de UDI  
  As implementações LTI, ZTI e UDI utilizam o mesmo conjunto comum de scripts e ficheiros de configuração (por exemplo, CustomSettings.ini) para implementar computadores de destino. Tabela 6 compara as implementações LTI, ZTI e UDI.  
 
 #### <a name="table-6-comparison-of-lti-zti-and-udi-deployments"></a>Tabela 6. Comparação de LTI, ZTI e UDI implementações  
@@ -462,7 +461,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 |Totalmente|-É necessária sem interação com o técnico de utilizador ou implementação.<br /><br /> -É diminuído o risco de introdução de erros de configuração.<br /><br /> -Os utilizadores ou os técnicos de implementação não precisa de saber as informações de configuração antes de iniciar o processo de implementação do MDT.|-Mais tempo é necessário para fornecer informações de configuração necessárias para a implementação totalmente automatizada.<br /><br /> -As credenciais para aceder a recursos de rede e que tenham elevados permissões são armazenadas nos ficheiros de configuração que devem ser protegidos.|  
 |Parcialmente|-Menos tempo é necessário para preparar a implementação, porque as informações de configuração podem ser fornecidas de forma interativa.|-Não é necessária interação com o técnico de utilizador ou implementação.<br /><br /> -O risco de introdução de erros de configuração é aumentado.<br /><br /> -Os utilizadores ou os técnicos de implementação tem de ter credenciais que necessitam de permissões elevadas.<br /><br /> -Os utilizadores ou os técnicos de implementação tem de saber algumas informações de configuração antes de iniciar o processo de implementação do MDT.|  
 
-###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforMDT"></a>Rever os problemas conhecidos, limitações e recomendações para MDT  
+###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforMDT"></a> Rever os problemas conhecidos, limitações e recomendações para MDT  
  Reveja os problemas de know, limitações e as recomendações para:  
 
 -   Problemas gerais no MDT conforme descrito em [problemas conhecidos de revisão geral, limitações e recomendações para MDT](#ReviewGeneralKnownIssuesLimitationsandRecommendationsforMDT)  
@@ -483,7 +482,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Guardar e restaurar informações de utilizador conforme descrito em [problemas conhecidos de revisão, limitações e recomendações para guardar e restaurar informações de utilizador](#ReviewKnownIssuesLimitationsandRecommendationsforSavingandRestoringUserInformation)  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsforMDT"></a>Problemas conhecidos de revisão geral, limitações e recomendações para MDT  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsforMDT"></a> Problemas conhecidos de revisão geral, limitações e recomendações para MDT  
  Seguem-se uma lista dos problemas conhecidos de gerais, limitações e as recomendações que estão relacionadas com o MDT:  
 
 -   MDT suporta o Windows Assessment and Deployment Kit (Windows ADK) para Windows 8.1, a versão do Windows PE 5.0, System Center 2012 R2 Configuration Manager.  
@@ -496,7 +495,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Ao especificar uma conta Run As, tem de especificar um utilizador que seja um membro do grupo Administradores no servidor. Caso contrário, a conta não terão privilégios suficientes para aceder a ligações de rede estabelecidas pelos administradores.  
 
--   Ao criar partilhas de implementação em computadores que tenham 8.3 nomes de ficheiros desativados (consulte o artigo Microsoft Support [como criação de nome de desativar o 8.3 em partições NTFS](http://support.microsoft.com/kb/121007/)), o Deployment Workbench não consegue gerar o Windows PE imagem. Se os nomes de ficheiros 8.3 foram desativados, volte a ativá-los ao definir o **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation** valor de registo para **0**.  
+-   Ao criar partilhas de implementação em computadores que tenham 8.3 nomes de ficheiros desativados (consulte o artigo Microsoft Support [como criação de nome de desativar o 8.3 em partições NTFS](https://support.microsoft.com/kb/121007/)), o Deployment Workbench não consegue gerar o Windows PE imagem. Se os nomes de ficheiros 8.3 foram desativados, volte a ativá-los ao definir o **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation** valor de registo para **0**.  
 
 -   Numa pasta, evite criar uma subpasta e um ficheiro com o mesmo nome. Por exemplo, dentro da pasta de ficheiros, deve não nome subpasta Item e, em seguida, criar um ficheiro com o nome do Item.  
 
@@ -530,13 +529,13 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
     -   "D:\\\"  
 
-    -   "D:"  
+    -   “D:”  
 
 -   Configure a home page do Internet Explorer utilizando CustomSettings.ini, na base de dados do MDT, ou o Windows Internet Explorer Administration Kit (IEAK). Configurar a home page do Internet Explorer só funciona no instalação autónoma do Windows.  
 
 -   Durante a implementações LTI novos computadores, algumas páginas (tais como o **região do utilizador** e **teclado região** páginas) não apresentar o texto corretamente se for necessário tipos de letra não estão instalados no Windows PE. No cenário de atualizar o computador, os mesmos sintomas são apresentados se tipos de letra necessários não se encontram instalados no sistema operativo que está a ser substituído.  
 
--   Alguns esquemas de teclado podem necessitar de pacotes de idiomas ou editores de método de entrada que MDT não inclua automaticamente na imagem de arranque do Windows PE. MDT não Certifique-se de que o esquema do teclado é válido. Para obter mais informações, consulte o artigo Microsoft Support [como adicionar suporte de método de entrada Editor (IME) para o Windows PE 2.0](http://support.microsoft.com/kb/926181).  
+-   Alguns esquemas de teclado podem necessitar de pacotes de idiomas ou editores de método de entrada que MDT não inclua automaticamente na imagem de arranque do Windows PE. MDT não Certifique-se de que o esquema do teclado é válido. Para obter mais informações, consulte o artigo Microsoft Support [como adicionar suporte de método de entrada Editor (IME) para o Windows PE 2.0](https://support.microsoft.com/kb/926181).  
 
 -   Pode ser adicionado um máximo de dois endereços de servidor de WINS quando configurar as definições de configuração de IP estático para um adaptador de rede. Se mais de dois endereços de servidor WINS forem adicionados com o MDT, são utilizados apenas os primeiras duas WINS endereços do servidor.  
 
@@ -616,12 +615,12 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Marcar propriedades que não estejam configuradas, mesmo quando está presente no ficheiro de resposta, incluem o código de país/região, indicativo, acesso long-distance e regras de marcação. Para contornar este problema, configurar regras de marcação por criar e testar um ficheiro. reg num ambiente de laboratório e, em seguida, importar esse ficheiro. reg como uma tarefa personalizada durante a sequência de tarefas.  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoWindows"></a>Reveja os problemas conhecidos, limitações e as recomendações que estão relacionadas com o Windows  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoWindows"></a> Reveja os problemas conhecidos, limitações e as recomendações que estão relacionadas com o Windows  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações que estão relacionadas com o Windows:  
 
 -   A implementação falhará em computadores configurados para um idioma diferente do inglês, quando o serviço de partilha de rede do Windows Media® leitor é executado. Como solução, pare o Windows Media Player partilha serviço de rede até após a conclusão da implementação.  
 
--   Pode utilizar o AD DS para TPM e BitLocker cópias de segurança. As informações de recuperação incluem a palavra-passe de recuperação para cada valor encriptado, a palavra-passe de proprietário do TPM e as informações necessárias para associar as informações de recuperação, computadores e os volumes. Outra opção consiste em guardar um pacote que contém as chaves utilizadas para encriptar os dados para além da palavra-passe de recuperação necessário para essas chaves de acesso. Para obter mais informações, consulte [configurar o Active Directory para cópia de segurança a encriptação de unidade BitLocker do Windows e informações de recuperação do módulo de plataforma fidedigna](http://www.microsoft.com/downloads/details.aspx?FamilyID=3a207915-dfc3-4579-90cd-86ac666f61d4) no Microsoft Download Center.  
+-   Pode utilizar o AD DS para TPM e BitLocker cópias de segurança. As informações de recuperação incluem a palavra-passe de recuperação para cada valor encriptado, a palavra-passe de proprietário do TPM e as informações necessárias para associar as informações de recuperação, computadores e os volumes. Outra opção consiste em guardar um pacote que contém as chaves utilizadas para encriptar os dados para além da palavra-passe de recuperação necessário para essas chaves de acesso. Para obter mais informações, consulte [FAQ do BitLocker para AD DS](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions#bkmk-adds) no Microsoft Download Center.  
 
 -   Quando ativar o BitLocker, ficheiros de chave são gerados como ficheiros de sistema oculta, só de leitura. Para vê-los, defina a opção do Explorador do Windows para mostrar ocultos e ficheiros de sistema.  
 
@@ -645,7 +644,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   MDT oferece suporte a seleção de pacote de idioma do Windows durante a implementação para todos os cenários se os pacotes de idiomas configurados no Deployment Workbench. É possível selecionar vários pacotes de idiomas quando implementar Enterprise ou o Ultimate edições dos sistemas operativos. Quando são implementadas outras edições do Windows, o pacote de idiomas apenas uma pode ser selecionada devido a restrições de licenciamento do Windows.  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoDisksandPartitioning"></a>Reveja os problemas conhecidos, limitações e as recomendações que estão relacionadas com a discos e criação de partições  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoDisksandPartitioning"></a> Reveja os problemas conhecidos, limitações e as recomendações que estão relacionadas com a discos e criação de partições  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações que estão relacionadas com a criação de partições e de disco:  
 
 -   LTI não suporta a implementação do sistema de operativo de destino para as unidades lógicas ou discos dinâmicos.  
@@ -688,7 +687,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Ao configurar o **formatar e particionar disco** de tarefas, sempre especificar as partições expandidas e lógicas em conjunto e não adicione uma partição primária entre, que lhe dá indesejáveis resultados quando é um tamanho de partição lógica configurado através de uma percentagem. Por outras palavras, não adicione uma partição primária entre uma partição expandida e lógica.  
 
-####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoBitLocker"></a>Reveja os problemas conhecidos, limitações e as recomendações que estão relacionadas com o BitLocker  
+####  <a name="ReviewGeneralKnownIssuesLimitationsandRecommendationsThatRelatetoBitLocker"></a> Reveja os problemas conhecidos, limitações e as recomendações que estão relacionadas com o BitLocker  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações que estão relacionadas com o BitLocker:  
 
 -   Windows Server pode falhar se a imagem de sistema operativo utilizada para efetuar a implementação não tem o componente opcional do BitLocker. Esta situação pode ocorrer nos seguintes cenários:  
@@ -709,12 +708,12 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
     -   Implementar o computador sem suporte de dados de arranque; Por exemplo, utilize uma implementação de ambiente de execução pré-arranque (PXE).  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforLTIDeployments"></a>Reveja os problemas conhecidos, limitações e as recomendações para implementações LTI  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforLTIDeployments"></a> Reveja os problemas conhecidos, limitações e as recomendações para implementações LTI  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações que estão relacionadas com a implementações LTI:  
 
 -   A rede credenciais especificadas para aceder a recursos de rede (a USMT armazenar localização, localização de cópia de segurança do computador e assim sucessivamente) não são validadas se um utilizador com sessão iniciado computador utilizando uma conta de domínio e se o computador já tiver uma ligação estabelecida à outra partilha no mesmo servidor.  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforZTIDeploymentsUsingConfigurationManager"></a>Reveja os problemas conhecidos, limitações e as recomendações para as implementações ZTI utilizando o Configuration Manager  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforZTIDeploymentsUsingConfigurationManager"></a> Reveja os problemas conhecidos, limitações e as recomendações para as implementações ZTI utilizando o Configuration Manager  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações que estão relacionadas com a implementações ZTI utilizando o Gestor de configuração:  
 
 -   Quando implementar um sistema de operativo de destino de idioma não – do inglês, solicita o método de instalação para o idioma do utilizador, porque o modelo para o ficheiro unattend.xml contém definições para inglês dos Estados Unidos (en-us). Para contornar este problema, efetue uma das seguintes tarefas:  
@@ -729,12 +728,12 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Ao instalar as funções de servidor, do Configuration Manager pode apresentar uma linha de comandos para DLLs necessários para concluir a instalação da função. Se isto acontecer, especifique uma localização válida para os ficheiros necessários. Para evitar este passo, adicione um passo anteriormente na sequência de tarefas que copia os dll necessários para a pasta de ficheiros de configuração do Windows definida no registo. Esta localização de pasta está definida no **SourcePath** valor de registo, localizado na **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup**.  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforUDIDeployments"></a>Reveja os problemas conhecidos, limitações e as recomendações para implementações de UDI  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforUDIDeployments"></a> Reveja os problemas conhecidos, limitações e as recomendações para implementações de UDI  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações que estão relacionadas com a implementações de UDI:  
 
 -   As aplicações estão desativadas e não podem ser instaladas automaticamente. Este problema acontecer quando a aplicação requer aprovação do administrador, mas ainda não tiver sido aprovada. Se o **exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**caixa de verificação está selecionada para a aplicação, certifique-se de que a aplicação tiver sido aprovada.  
 
-     Para obter mais informações sobre como exigir aprovação do administrador e aprovação da concessão, consulte [como implementar aplicações no Configuration Manager](http://technet.microsoft.com/library/gg682082.aspx).  
+     Para obter mais informações sobre como exigir aprovação do administrador e aprovação da concessão, consulte [como implementar aplicações no Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications).  
 
 -   Quando efetuar o cenário de implementação do MDT atualizar computador com um disco de rígido USB ligado, erros de sequência de tarefas podem ocorrer, porque o sequenciador de tarefas do Configuration Manager colocada a pasta de _SMSTaskSequence a pen USB. Por predefinição, o sequenciador de tarefas do Configuration Manager coloca a pasta de _SMSTaskSequence na unidade com o mais espaço livre em disco, que pode causar problemas mais tarde no processo de implementação se a unidade USB é removida.  
 
@@ -750,7 +749,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
     5.  Conclua o assistente UDI.  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforRunningTaskSequencesonTargetComputers"></a>Rever sobre problemas conhecidos, limitações e as recomendações para executar as sequências de tarefas em computadores de destino  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforRunningTaskSequencesonTargetComputers"></a> Rever sobre problemas conhecidos, limitações e as recomendações para executar as sequências de tarefas em computadores de destino  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações para executar as sequências de tarefas em computadores de destino no MDT:  
 
 -   Para implementações LTI, certifique-se de que o controlo de conta de utilizador (UAC) está desativada para a conta de administrador local incorporada nos computadores de destino, até que a sequência de tarefas é concluída. Executar sequências de tarefas em computadores com o UAC ativado para a conta de administrador local faz com que as sequências de tarefas falhar.  
@@ -758,9 +757,9 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
     > [!NOTE]
     >  UAC deve ser desativado apenas para a conta de administrador local incorporada e ativado para todas as outras contas. Por predefinição, a conta de administrador local incorporada está excluída do UAC devido a **controlo de conta de utilizador: Modo de aprovação do Admin para a conta de administrador incorporada** definição de política (desativado).  
 
-     Para obter mais informações sobre [definições de política de grupo do UAC, consulte as definições de política de grupo UAC e definições de chave de registo](http://technet.microsoft.com/library/dd835564\(WS.10\).aspx).  
+     Para obter mais informações sobre [definições de política de grupo do UAC, consulte as definições de política de grupo UAC e definições de chave de registo](https://technet.microsoft.com/library/dd835564\(WS.10\).aspx).  
 
-####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforSavingandRestoringUserInformation"></a>Reveja os problemas conhecidos, limitações e as recomendações para guardar e restaurar informações de utilizador  
+####  <a name="ReviewKnownIssuesLimitationsandRecommendationsforSavingandRestoringUserInformation"></a> Reveja os problemas conhecidos, limitações e as recomendações para guardar e restaurar informações de utilizador  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações para guardar e restaurar informações de utilizador no MDT:  
 
 -   Para implementações LTI, não adicionar qualquer uma das seguintes dos parâmetros da linha de comandos USMT para o **ScanStateArgs** ou **LoadStateArgs** propriedades, como o fazer com que a gravação e restauro das informações de estado do utilizador a falha:  
@@ -769,17 +768,17 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
     -   **/nocompress**  
 
-    -   **/ encriptar**  
+    -   **/encrypt**  
 
-    -   **/Key**  
+    -   **/key**  
 
-    -   **/KeyFile**  
+    -   **/keyfile**  
 
-    -   **/VSC**  
+    -   **/vsc**  
 
     -   **/l**  
 
-    -   **I**  
+    -   **/I**  
 
 -   Dados de migração de estado de utilizador podem não ser restaurados corretamente dependendo da configuração de disco do computador de destino quando implementar o Windows.  
 
@@ -803,7 +802,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 > [!NOTE]
 >  Se estiver familiarizado com o UDI, reveja os termos UDI e terminologia no "Conceitos de UDI" no *Microsoft implementação Toolkit referência*. Familiarizing por si com estes termos de licenciamento e terminologia irão ajudá-lo seja mais bem-sucedida aplicar o resto deste guia para a sua organização.  
 
-##  <a name="InstallingorUpgradingtoMDT"></a>Instalar ou atualizar para o MDT  
+##  <a name="InstallingorUpgradingtoMDT"></a> Instalar ou atualizar para o MDT  
  Para preparar para a execução de implementações com o MDT, execute as seguintes tarefas:  
 
 1.  Reveja os problemas conhecidos, limitações e as recomendações para preparar os discos nos computadores de destino no MDT, conforme descrito em [Rever problemas conhecidos, limitações e recomendações para instalar ou atualizar para o MDT](#ReviewingKnownIssuesLimitationsandRecommendationsforInstallingorUpgradingtoMDT).  
@@ -821,7 +820,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 > [!NOTE]
 >  Windows PowerShell™ versão 2.0 ou posterior tem de ser instalado em qualquer computador no qual o MDT é instalado para a gestão de implementações LTI ou ZTI.  
 
-###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforInstallingorUpgradingtoMDT"></a>Rever os problemas conhecidos, limitações e as recomendações para instalar ou atualizar para o MDT  
+###  <a name="ReviewingKnownIssuesLimitationsandRecommendationsforInstallingorUpgradingtoMDT"></a> Rever os problemas conhecidos, limitações e as recomendações para instalar ou atualizar para o MDT  
  Segue-se uma lista dos problemas conhecidos, limitações e as recomendações para a instalação do MDT:  
 
 -   Certifique-se de que o volume de disco que contém a pasta temporária que utiliza o Deployment Workbench tem, pelo menos, 20 GB de espaço em disco disponível.  
@@ -834,7 +833,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
      Certifique-se de que o volume de disco especificado no **TEMP_DIR** registo subchave ou a variável de ambiente % TEMP % tem espaço suficiente em disco disponível.  
 
-###  <a name="PreparingthePrerequisiteInfrastructureforAllMDTDeploymentMethods"></a>A preparar a infraestrutura de pré-requisito para todos os métodos de implementação do MDT  
+###  <a name="PreparingthePrerequisiteInfrastructureforAllMDTDeploymentMethods"></a> A preparar a infraestrutura de pré-requisito para todos os métodos de implementação do MDT  
  MDT requer a instalação do seguinte software para LTI, ZTI e UDI:  
 
 -   Microsoft .NET Framework versão 3.5 com SP1  
@@ -849,7 +848,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   [Preparar o ambiente de implementação de UDI](#PreparingtheUDIDeploymentEnvironment)  
 
-###  <a name="InstallingaNewInstanceofMDT"></a>Instalar uma nova instância do MDT  
+###  <a name="InstallingaNewInstanceofMDT"></a> Instalar uma nova instância do MDT  
  Com todas as os pré-requisitos de software instalado, execute os seguintes passos para instalar o MDT (MicrosoftDeploymentToolkit_*plataforma.* MSI, onde *plataforma* é x86 ou x64):  
 
 1.  Faça duplo clique em **MicrosoftDeploymentToolkit2012_x64.msi** (para sistemas operativos de 64 bits) ou **MicrosoftDeploymentToolkit2012_x86.msi** (para sistemas operativos de 32 bits).  
@@ -871,14 +870,14 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
  Após a conclusão, o MDT é instalado na pasta de destino que selecionou no assistente.  
 
-###  <a name="UpgradingtoMDT"></a>Atualizar para o MDT  
+###  <a name="UpgradingtoMDT"></a> Atualizar para o MDT  
  MDT automaticamente desinstala versões anteriores antes de instalar, incluindo as seguintes versões:  
 
 -   MDT 2012 Update 1  
 
  Além de atualizar a instalação do MDT, atualize quaisquer partilhas de implementação existente. Para obter mais informações sobre este processo, consulte [atualizar uma partilha de implementação existente no Deployment Workbench](#UpgradeanExistingDeploymentShareintheDeploymentWorkbench).  
 
-##  <a name="PerformingLTIDeployments"></a>Efetuar implementações LTI  
+##  <a name="PerformingLTIDeployments"></a> Efetuar implementações LTI  
  Efetuar implementações LTI utilizando apenas o MDT e componentes de suporte. Pode efetuar implementações LTI através de uma rede ou a partir do suporte de dados amovível. Esta flexibilidade facilita a implementações LTI adequado para uma vasta gama de organizações.  
 
  Efetue implementações LTI por:  
@@ -893,7 +892,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Implementar as imagens capturadas a computadores de destino, conforme descrito em [implementar imagens capturadas para computadores de destino em LTI](#DeployingCapturedImagestoTargetComputersinLTI)  
 
-###  <a name="PreparingtheLTIDeploymentEnvironment"></a>Preparar o ambiente de implementação LTI  
+###  <a name="PreparingtheLTIDeploymentEnvironment">Preparar o ambiente de implementação LTI</a>  
  Depois de preparar a infraestrutura de pré-requisito do MDT, prepare o ambiente de implementação LTI.  
 
 ##### <a name="to-prepare-the-lti-deployment-environment"></a>Para preparar o ambiente de implementação LTI  
@@ -906,7 +905,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 4.  Obter o software que requer que o processo de implementação LTI conforme descrito em [obter o Software que requer que o processo de implementação LTI](#ObtaintheSoftwareThattheLTIDeploymentProcessRequiresh).  
 
-####  <a name="PreparethePrerequisiteLTIInfrastructure"></a>Preparar a infraestrutura de pré-requisito LTI  
+####  <a name="PreparethePrerequisiteLTIInfrastructure"></a> Preparar a infraestrutura de pré-requisito LTI  
  Implementações LTI necessitam que uma infraestrutura está corretamente configurada existe antes de instalar o MDT e efetuar implementações. Certifique-se de que a sua infraestrutura de nova ou existente está especificamente otimizada para as implementações de sistema operativo.  
 
 > [!NOTE]
@@ -918,14 +917,14 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   "Passo 1: Obter o Software necessário"  
 
-####  <a name="InstallorUpgradetoMDTforLTIDeployments"></a>Instalar ou atualizar para o MDT LTI implementações  
+####  <a name="InstallorUpgradetoMDTforLTIDeployments"></a> Instalar ou atualizar para o MDT LTI implementações  
  Para efetuar implementações LTI, tem de ter pelo menos uma instância do MDT que executar no seu ambiente. Se tiver o seu ambiente existente:  
 
 -   Não existem computadores com o MDT ou uma versão anterior do MDT, em seguida, instale uma ou mais instâncias novo do MDT, conforme descrito em [instalar uma nova instância do MDT](#InstallingaNewInstanceofMDT)  
 
 -   Um ou mais computadores com uma versão anterior do MDT, em seguida, atualizar as instâncias para MDT conforme descrito em [atualizar para o MDT](#UpgradingtoMDT).  
 
-####  <a name="InstallComponentsThatMDTandLTIRequire"></a>Instalar os componentes que necessitam de MDT e LTI  
+####  <a name="InstallComponentsThatMDTandLTIRequire"></a> Instalar os componentes que necessitam de MDT e LTI  
  Deployment Workbench é a consola de administração para LTI. A maioria das tarefas de gestão LTI é executada no Deployment Workbench. MDT também inclui um fornecedor de Windows PowerShell que permite a automatização das tarefas de gestão LTI através da shell de comandos do Windows PowerShell utilizando cmdlets do MDT.  
 
 > [!NOTE]
@@ -968,7 +967,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  MDT utiliza o Windows ADK para Windows 8.1 que inclui a USMT.  
 
-####  <a name="ObtaintheSoftwareThattheLTIDeploymentProcessRequiresh"></a>Obter o Software que requer que o processo de implementação LTI  
+####  <a name="ObtaintheSoftwareThattheLTIDeploymentProcessRequiresh"></a> Obter o Software que requer que o processo de implementação LTI  
  Recolha o software que irá implementar LTI. LTI irá importar ou adicione este software às partilhas de implementação. O software que pode ser implementado inclui:  
 
 -   Ficheiros de origem do sistema operativo ou ficheiros de imagem para cada sistema operativo ser implementado para os computadores de referência e de destino  
@@ -993,7 +992,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 -   Faixa de início de sessão para os computadores de destino não pode ser ativada através da política de grupo ou uma política de segurança local  
 
-###  <a name="PreparingforLTIDeploymenttotheReferenceComputer"></a>Preparar a implementação LTI ao computador de referência  
+###  <a name="PreparingforLTIDeploymenttotheReferenceComputer"></a> Preparar a implementação LTI ao computador de referência  
  Para muitos dos cenários de implementação LTI, melhor prática é criar um computador de referência, conforme descrito em [escolher espesso, Thin ou híbrida imagens](#ChoosingThickThinorHybridImages)e, em seguida, capturar uma imagem desse computador. Posteriormente no processo de implementação LTI, irá implementar a imagem capturada do computador de referência para os computadores de destino adequada.  
 
 > [!NOTE]
@@ -1046,7 +1045,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 6.  Atualize a partilha de implementação para criar as imagens do Windows PE utilizadas para iniciar a implementação LTI conforme descrito em [atualizar uma partilha de implementação no Deployment Workbench](#UpdateaDeploymentShareintheDeploymentWorkbench).  
 
-###  <a name="DeployingToandCapturinganImageoftheReferenceComputerinLTI"></a>Implementar e capturar uma imagem do computador de referência na LTI  
+###  <a name="DeployingToandCapturinganImageoftheReferenceComputerinLTI"></a> Implementar e capturar uma imagem do computador de referência na LTI  
  Depois de ter configurado a partilha de implementação, atualizar a partilha de implementação e criar as imagens do Windows PE, que incluem os scripts LTI, inicie o computador de referência com a imagem do Windows PE e conclua o Assistente de implementação. A sequência de tarefas que criou anteriormente no processo de implementar o sistema operativo de destino, controladores de dispositivo, sistema operativo pacotes e aplicações no computador de referência e, em seguida, capturar uma imagem do computador de referência.  
 
 ##### <a name="to-deploy-to-and-capture-an-image-of-the-reference-computer"></a>Para implementar e capturar uma imagem do computador de referência  
@@ -1057,7 +1056,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 3.  Adicionar a imagem do computador de referência capturada para o nó sistemas operativos no Deployment Workbench, conforme descrito em [adicionar a imagem capturada do computador de referência para o Deployment Workbench](#AddtheCapturedImageoftheReferenceComputertotheDeploymentWorkbench).  
 
-####  <a name="CreatetheLTIBootableMedia"></a>Criar LTI suportes de dados  
+####  <a name="CreatetheLTIBootableMedia"></a> Criar LTI suportes de dados  
  Tem de fornecer um método para iniciar o computador com a versão personalizada do Windows PE que criou quando atualizado a partilha de implementação. Deployment Workbench cria os os ficheiros litetouchpe_x86.ISO e LiteTouchPE_x86.wim (para computadores de destino de 32 bits) ou os ficheiros de ficheiros LiteTouchPE_x64.iso e LiteTouchPE_x64.wim (para computadores de destino de 64 bits) no *deployment_share*\Boot pasta (onde *deployment_share* é a pasta partilhada de rede utilizada como a partilha de implementação). Crie adequado LTI suportes de dados a partir de uma destas imagens.  
 
 ###### <a name="to-create-the-lti-bootable-media"></a>Para criar LTI suportes de dados  
@@ -1073,7 +1072,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     -   Se o computador de referência é uma VM, inicie a VM diretamente a partir do ficheiro ISO ou a partir de um CD ou DVD do ficheiro ISO.  
 
-####  <a name="CompletetheDeploymentWizard"></a>Conclua o Assistente de implementação  
+####  <a name="CompletetheDeploymentWizard"></a> Conclua o Assistente de implementação  
  Inicie o computador de referência com LTI suportes de dados que criou anteriormente no processo. O suporte de dados de arranque LTI inicia o Windows PE no computador de referência e inicia o processo de implementação. No final do processo, o sistema de operativo de destino é implementado no computador de referência e uma imagem do computador de referência é capturada.  
 
 > [!NOTE]
@@ -1105,7 +1104,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  O computador de referência é agora implementado e o ficheiro WIM capturado do computador de referência é armazenado na localização especificada no **Especifique se pretende capturar uma imagem** página do assistente.  
 
-####  <a name="AddtheCapturedImageoftheReferenceComputertotheDeploymentWorkbench"></a>Adicionar a imagem do computador de referência capturada ao Deployment Workbench  
+####  <a name="AddtheCapturedImageoftheReferenceComputertotheDeploymentWorkbench"></a> Adicionar a imagem do computador de referência capturada ao Deployment Workbench  
  Para implementar a imagem capturada do computador de referência para o computador de destino, adicione a imagem capturada à lista de sistemas operativos no nó sistemas operativos no Deployment Workbench. O Assistente de importação de sistema operativo copia os ficheiros de sistema operativo para o *deployment_share*\Operating sistemas\\*operating_system* pasta (onde *deployment_ partilhar* é a pasta de partilha de implementação criada anteriormente no processo e *operating_system* é o nome do sistema operativo adicionado à partilha de implementação).  
 
  Adicionar a imagem capturada do computador de referência, concluindo o processo de importação do sistema operativo, conforme descrito em [importar uma anteriormente Capturar imagem num computador de referência](#ImportaPreviouslyCapturedImageofaReferenceComputer), garantindo que siga especificamente a configuração definições nas páginas do assistente listados na tabela 12 e selecionar os valores nas outras páginas do assistente que são adequados para a sua organização.  
@@ -1114,11 +1113,11 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 |**Na página do Assistente** |**Fazê-lo** |  
 |-----------------------------|-----------------|  
-|**Imagem** |No **ficheiro de origem**, especifique o caminho completamente qualificado para o ficheiro WIM da imagem capturada do computador de referência.|  
+|**Image** |No **ficheiro de origem**, especifique o caminho completamente qualificado para o ficheiro WIM da imagem capturada do computador de referência.|  
 
  Concluir o Assistente de importação de sistema operativo. A imagem capturada do computador de referência é adicionada à lista de sistemas operativos no painel de informações e é copiada para a partilha de implementação.  
 
-###  <a name="PreparingforLTIDeploymenttoTargetComputers"></a>Preparar a implementação LTI nos computadores de destino  
+###  <a name="PreparingforLTIDeploymenttoTargetComputers"></a> Preparar a implementação LTI nos computadores de destino  
  Com as imagens do computador de referência capturada, implemente as imagens em computadores de destino. Durante a preparação, crie um ou mais sequências de tarefas para implementar as imagens capturadas, certifique-se de que a implementação necessária recursos existem e personalizar o processo de implementação.  
 
 ##### <a name="to-prepare-for-deployment-to-the-target-computers"></a>Para preparar a implementação aos computadores de destino  
@@ -1139,7 +1138,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
      Consoante os computadores de destino na sua organização, qualquer combinação dos cenários de implementações poderá ser necessária. Para mais informações sobre os cenários de implementação do MDT, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).  
 
-####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingLTI"></a>Preparar para o novo cenário de implementação de computador para computadores de destino com LTI  
+####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingLTI">Preparar para o novo cenário de implementação de computador para computadores de destino com LTI</a>  
  O cenário de implementação do novo computador, uma nova instalação de um sistema operativo Windows é implementada para um novo computador. Não há nenhuma informação de migração de utilizador para guardar e restaurar e nenhum sistemas de ficheiros existentes para preservar. Utilize os modelos de sequência de tarefas de cliente padrão ou sequência de tarefas de servidor padrão para implementar a imagem capturada do computador de referência para o computador de destino.  
 
 ###### <a name="to-prepare-for-the-new-computer-deployment-scenario"></a>Para preparar o cenário de implementação do novo computador  
@@ -1181,7 +1180,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     -   [Gerar imagens de suportes de dados no Deployment Workbench](#GenerateMediaImagesintheDeploymentWorkbench)  
 
-####  <a name="PrepareforaRefreshComputerDeploymentScenariotoTargetComputersUsingLTI"></a>Preparar para um cenário de implementação de computador de atualização para computadores de destino com LTI  
+####  <a name="PrepareforaRefreshComputerDeploymentScenariotoTargetComputersUsingLTI">Preparar para um cenário de implementação de computador de atualização para computadores de destino com LTI</a>  
  Cenário de implementação de atualização de computador, um computador é atualizado — ou seja, instalados novamente para uniformização de imagem ou para abordar um problema. Tem de guardar e restaurar as informações de migração de utilizador, porque os sistemas de ficheiros existentes no computador de destino não serão preservados. Utilize os modelos de sequência de tarefas de cliente padrão ou sequência de tarefas de servidor padrão para implementar a imagem capturada do computador de referência para o computador de destino.  
 
 ###### <a name="to-prepare-for-the-refresh-computer-deployment-scenario"></a>Para preparar o cenário de implementação de atualização de computador  
@@ -1223,7 +1222,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     -   [Gerar imagens de suportes de dados no Deployment Workbench](#GenerateMediaImagesintheDeploymentWorkbench)  
 
-####  <a name="PrepareforaReplaceComputerDeploymentScenariotoTargetComputersUsingLTI"></a>Preparar para um cenário de implementação de computador de substituição para computadores de destino com LTI  
+####  <a name="PrepareforaReplaceComputerDeploymentScenariotoTargetComputersUsingLTI">Preparar para um cenário de implementação de computador de substituição para computadores de destino com LTI</a>  
  No cenário de implementação de substituir o computador, um computador substitui noutro computador. Os dados de migração de estado de utilizador existente são guardados do computador original para uma pasta partilhada de rede ou o suporte de dados amovível. Em seguida, uma nova instalação do Windows é implementada para um novo computador. Por fim, os dados de estado do utilizador são restaurados para o novo computador, porque os sistemas de ficheiros no novo computador a formatados como parte da nova instalação do Windows. Utilize o:  
 
 -   Modelo de sequência de tarefas de substituir o cliente padrão para guardar os dados de migração de estado de utilizador do computador de destino existente  
@@ -1284,7 +1283,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     -   [Gerar imagens de suportes de dados no Deployment Workbench](#GenerateMediaImagesintheDeploymentWorkbench)  
 
-###  <a name="DeployingCapturedImagestoTargetComputersinLTI"></a>Implementar capturadas imagens para computadores de destino em LTI  
+###  <a name="DeployingCapturedImagestoTargetComputersinLTI"></a> Implementar capturadas imagens para computadores de destino em LTI  
  A implementação das imagens capturadas aos computadores de destino é ligeiramente diferente para LTI. Implemente a imagem capturada do computador de referência para computadores de destino para cada um dos cenários de implementação na sua organização, conforme descrito em:  
 
 -   [Implementar as imagens capturadas em computadores de destino no cenário de implementação de computador novo com LTI](#DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingLTI)  
@@ -1295,7 +1294,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  Consoante os computadores de destino na sua organização, qualquer combinação dos cenários de implementação poderá ser necessária. Para mais informações sobre os cenários de implementação do MDT, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingLTI"></a>Implementar as imagens capturadas em computadores de destino no cenário de implementação de computador novo com LTI  
+####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingLTI">Implementar as imagens capturadas em computadores de destino no cenário de implementação de computador novo com LTI</a>  
  Inicie o computador de destino com LTI suportes de dados que criou anteriormente no processo ou a partir de serviços de implementação do Windows. O suporte de dados de arranque LTI inicia o Windows PE no computador de destino e inicia a implementação. No final do processo, a imagem capturada do computador de referência é implementada nos computadores de destino.  
 
 ###### <a name="to-complete-the-deployment-wizard"></a>Para concluir o Assistente de implementação  
@@ -1322,7 +1321,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  Os computadores de destino são agora implementados.  
 
-####  <a name="DeployCapturedImagestoTargetComputersinaRefreshComputerDeploymentScenarioUsingLTI"></a>Implementar as imagens capturadas para computadores de destino de um cenário de implementação de computador de atualização utilizando LTI  
+####  <a name="DeployCapturedImagestoTargetComputersinaRefreshComputerDeploymentScenarioUsingLTI">Implementar as imagens capturadas para computadores de destino de um cenário de implementação de computador de atualização utilizando LTI</a>  
  Iniciar o Assistente de implementação no sistema operativo existente no computador de destino para iniciar o **cliente padrão** sequência de tarefas ou **servidor padrão** criada anteriormente no processo de sequência de tarefas. O Assistente de implementação guarda os dados de migração de estado de utilizador do computador de destino existente para a localização que especificar. Mais tarde na sequência de tarefas, os dados de migração de estado do utilizador são restaurados no computador de destino.  
 
 ###### <a name="to-complete-the-deployment-wizard"></a>Para concluir o Assistente de implementação  
@@ -1351,7 +1350,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  O computador de destino é agora implementado.  
 
-####  <a name="DeployCapturedImagestoTargetComputersinaReplaceComputerDeploymentScenarioUsingLTI"></a>Implementar as imagens capturadas para computadores de destino de um cenário de implementação de computador substituir com LTI  
+####  <a name="DeployCapturedImagestoTargetComputersinaReplaceComputerDeploymentScenarioUsingLTI">Implementar as imagens capturadas para computadores de destino de um cenário de implementação de computador substituir com LTI</a>  
  O cenário de implementação de substituir o computador necessita que execute o Assistente de implementação duas vezes. Execute o assistente pela primeira vez para capturar os dados de migração de estado de utilizador do computador de destino existente (computador antigo). Em seguida, execute-a novamente para implementar a imagem capturada do computador de referência para o novo computador (computador novo) de destino e restaurar o estado do utilizador guardado anteriormente no processo.  
 
  Certifique-se de que os dados de migração de estado do utilizador são armazenados numa localização segura e consistente para que os dados podem ser prontamente restaurar mais tarde no processo de LTI.  
@@ -1362,7 +1361,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 2.  Implemente a imagem capturada do computador de referência para o novo computador de destino, conforme descrito em [implementar a imagem capturada do computador de referência para o novo destino computador utilizando LTI](#DeploytheCapturedImageoftheReferenceComputertotheNewTargetComputerUsingLTI).  
 
-#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingLTI"></a>Guardar os dados de migração de estado do utilizador do computador de destino existente com LTI  
+#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingLTI"></a> Guardar os dados de migração de estado do utilizador do computador de destino existente com LTI  
  Inicie o Assistente de implementação no sistema operativo existente no computador de destino para iniciar o modelo de sequência de tarefas de substituir do cliente padrão que criou anteriormente no processo. O Assistente de implementação guarda os dados de migração de estado de utilizador do computador de destino existente para a localização que especificar.  
 
 ###### <a name="to-complete-the-deployment-wizard"></a>Para concluir o Assistente de implementação  
@@ -1391,7 +1390,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  Os dados de migração de estado de utilizador do computador de destino existente são guardados.  
 
-#####  <a name="DeploytheCapturedImageoftheReferenceComputertotheNewTargetComputerUsingLTI"></a>Implementar a imagem capturada do computador de referência para o novo computador de destino com LTI  
+#####  <a name="DeploytheCapturedImageoftheReferenceComputertotheNewTargetComputerUsingLTI"></a> Implementar a imagem capturada do computador de referência para o novo computador de destino com LTI  
  Inicie o computador de destino com LTI suportes de dados que criou anteriormente no processo ou a partir de serviços de implementação do Windows. O suporte de dados de arranque LTI inicia o Windows PE no computador de destino e inicia a implementação LTI. No final do processo, a imagem capturada do computador de referência é implementada no computador de destino.  
 
 ###### <a name="to-deploy-the-captured-image-of-the-reference-computer"></a>Para implementar a imagem capturada do computador de referência  
@@ -1417,7 +1416,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 4.  No **resumo de implementação** caixa de diálogo, clique em **concluir**.  
 
-##  <a name="ManagingLTIDeploymentsintheDeploymentWorkBench"></a>Gerir implementações LTI no Deployment Workbench  
+##  <a name="ManagingLTIDeploymentsintheDeploymentWorkBench"></a> Gerir implementações LTI no Deployment Workbench  
  Partilhas de implementação são o repositório para todos os ficheiros de implementação utilizados na implementação LTI. Pode armazenar uma partilha de implementação numa unidade local, na pasta partilhada de rede ou num sistema autónomos de ficheiros distribuído (DFS); não tem de residir em qualquer computador específico. Partilhas de implementação contém os sistemas operativos, aplicações, pacotes de sistema operativo e controladores de dispositivo.  
 
  Gerir implementações LTI no Deployment Workbench por:  
@@ -1446,7 +1445,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 -   A secção "Gerir MDT utilizando o Windows PowerShell", no documento do MDT, *guia de amostras do Toolkit de implementação do Microsoft*  
 
-###  <a name="ManagingDeploymentSharesintheDeploymentWorkbench"></a>Gerir partilhas de implementação no Deployment Workbench  
+###  <a name="ManagingDeploymentSharesintheDeploymentWorkbench"></a> Gerir partilhas de implementação no Deployment Workbench  
  MDT utiliza Deployment Workbench para gerir as partilhas de implementação na sua organização. Configurar as partilhas de implementação por:  
 
 -   Criar uma nova partilha de implementação, conforme descrito em [criar uma nova partilha de implementação no Deployment Workbench](#CreateaNewDeploymentShareintheDeploymentWorkbench)  
@@ -1467,19 +1466,19 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  No addtion para gerir partilhas de implementação no Deployment Workbench, pode gerir partilhas de implementação utilizando os cmdlets do Windows PowerShell do MDT. Para mais informações sobre a gestão de partilhas de implementação utilizando os cmdlets do Windows PowerShell do MDT, consulte as secções seguintes abaixo da secção "MDT Cmdlets do Windows PowerShell", no documento MDT Toolkit referência:  
 
--   **MDTPersistentDrive adicionar**  
+-   **Add-MDTPersistentDrive**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
 -   **Get-MDTPersistentDrive**  
 
--   **Remover MDTPersistentDrive**  
+-   **Remove-MDTPersistentDrive**  
 
--   **Restauro MDTPersistentDrive**  
+-   **Restore-MDTPersistentDrive**  
 
--   **Atualização MDTDeploymentShare**  
+-   **Update-MDTDeploymentShare**  
 
-####  <a name="CreateaNewDeploymentShareintheDeploymentWorkbench"></a>Criar uma nova partilha de implementação no Deployment Workbench  
+####  <a name="CreateaNewDeploymentShareintheDeploymentWorkbench"></a> Criar uma nova partilha de implementação no Deployment Workbench  
  Para criar uma nova partilha de implementação, execute os seguintes passos:  
 
 1.  Clique em **iniciar**e, em seguida, aponte para **todos os programas**. Aponte para **Microsoft Deployment Toolkit**e, em seguida, clique em **Deployment Workbench**.  
@@ -1496,8 +1495,8 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     |Na página do Assistente|Faça isto|  
     |-------------------------|-------------|  
-    |**Caminho** |No **caminho de partilha de implementação**, tipo **caminho** (onde *caminho* é o caminho completamente qualificado para uma pasta existente numa unidade local ou uma pasta partilhada de rede criado anteriormente no processo de implementação) e, em seguida, clique em **seguinte**.<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta existente numa pasta partilhada local unidade ou na rede.|  
-    |**Partilha** |Esta página é apresentada apenas se introduziu um caminho para uma pasta numa unidade local na página do Assistente de caminho.<br /><br /> -No **nome da partilha**, tipo **share_name** (onde *share_name* é o nome de partilha para a pasta numa unidade local especificada na página do Assistente de caminho).<br /><br /> -Tenha em atenção completamente qualificado para UNC caminho para a partilha a ser criada listado imediatamente abaixo da **nome da partilha** caixa e, em seguida, clique em **seguinte**.<br /><br /> O assistente concede acesso de controlo total de todas as pessoas ao nível da partilha do grupo local. Com base nos seus requisitos de segurança, poderá pretender restringir a segurança da partilha.|  
+    |**Path** |No **caminho de partilha de implementação**, tipo **caminho** (onde *caminho* é o caminho completamente qualificado para uma pasta existente numa unidade local ou uma pasta partilhada de rede criado anteriormente no processo de implementação) e, em seguida, clique em **seguinte**.<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta existente numa pasta partilhada local unidade ou na rede.|  
+    |**Share** |Esta página é apresentada apenas se introduziu um caminho para uma pasta numa unidade local na página do Assistente de caminho.<br /><br /> -No **nome da partilha**, tipo **share_name** (onde *share_name* é o nome de partilha para a pasta numa unidade local especificada na página do Assistente de caminho).<br /><br /> -Tenha em atenção completamente qualificado para UNC caminho para a partilha a ser criada listado imediatamente abaixo da **nome da partilha** caixa e, em seguida, clique em **seguinte**.<br /><br /> O assistente concede acesso de controlo total de todas as pessoas ao nível da partilha do grupo local. Com base nos seus requisitos de segurança, poderá pretender restringir a segurança da partilha.|  
     |**Nome descritivo** |No **descrição da partilha de implementação**, tipo **Descrição** (onde *Descrição* é um nome descritivo que, para a implementação, partilham especificados em páginas do assistente anterior), e, em seguida, clique em **seguinte**.|  
     |**Permitir captura de imagem** |Selecione ou desmarque o **perguntar se deve ser capturada uma imagem** com base nos requisitos de caixa de verificação e, em seguida, clique em **seguinte**.<br /><br /> Esta caixa de verificação configura o Assistente de implementação para permitir ao utilizador para, opcionalmente, capturar uma imagem do computador de destino, o que é normalmente o computador de referência. Se a caixa de verificação:<br /><br /> -Selecionado, o caminho para armazenar a imagem e o nome da imagem pode ser configurado no Assistente de implementação<br /><br /> -Desmarcada, uma imagem não é captura ou as informações de captura de imagem tem de ser definidas no ficheiro de configuração do MDT ou base de dados<br /><br /> Por predefinição, esta caixa de verificação está selecionada.|  
     |**Permitir palavra-passe de administrador** |Selecione ou desmarque o **peça ao utilizador para definir a palavra-passe de administrador local** com base nos requisitos de caixa de verificação e, em seguida, clique em **seguinte**.<br /><br /> Esta caixa de verificação configura o Assistente de implementação para permitir ao utilizador fornecer a palavra-passe para a conta de administrador local durante o processo de implementação. Se a caixa de verificação:<br /><br /> -Selecionado, a palavra-passe pode ser configurada no Assistente de implementação<br /><br /> -Desmarcada, a palavra-passe tem de ser definida no ficheiro de configuração do MDT ou base de dados<br /><br /> Por predefinição, esta caixa de verificação está desmarcada.|  
@@ -1507,7 +1506,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  Após a conclusão, a nova partilha de implementação é criada na pasta de destino que selecionou no assistente e é apresentada no Deployment Workbench.  
 
-####  <a name="OpenanExistingDeploymentShareintheDeploymentWorkbench"></a>Abra uma partilha de implementação existente no Deployment Workbench  
+####  <a name="OpenanExistingDeploymentShareintheDeploymentWorkbench"></a> Abra uma partilha de implementação existente no Deployment Workbench  
  Deployment Workbench pode abrir uma partilha de implementação existente utilizando a abrir o assistente partilha de implementação. Inicie o Assistente de partilha de implementação abrir por:  
 
 -   Clicar no nó de partilhas de implementação e, em seguida, clicando em**abra partilha de implementação**  
@@ -1532,18 +1531,18 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     |Na página do Assistente|Faça isto|  
     |-------------------------|-------------|  
-    |**Caminho** |a. No **caminho de partilha de implementação**, tipo **share_path** (onde *share_path* é o caminho completamente qualificado para a partilha de implementação existente).<br /><br /> Em alternativa pode clicar em Procurar para localizar o local ou a pasta partilhada de rede.<br /><br /> b. Selecione o **atualizar o conteúdo da partilha de implementação (se necessário)**caixa de verificação. Se a caixa de verificação:<br /><br /> -Selecionado, o Assistente de partilha de implementação abra atualiza a partilha de implementação<br /><br /> -Desmarcada, o Assistente de partilha de implementação aberto não irá atualizar a partilha de implementação<br /><br /> c. Clique em **Seguinte**.|  
+    |**Path** |a. No **caminho de partilha de implementação**, tipo **share_path** (onde *share_path* é o caminho completamente qualificado para a partilha de implementação existente).<br /><br /> Em alternativa pode clicar em Procurar para localizar o local ou a pasta partilhada de rede.<br /><br /> b. Selecione o **atualizar o conteúdo da partilha de implementação (se necessário)**caixa de verificação. Se a caixa de verificação:<br /><br /> -Selecionado, o Assistente de partilha de implementação abra atualiza a partilha de implementação<br /><br /> -Desmarcada, o Assistente de partilha de implementação aberto não irá atualizar a partilha de implementação<br /><br /> c. Clique em **Seguinte**.|  
     |**Resumo** |Reveja as informações de **detalhes** caixa e, em seguida, clique em **seguinte**.|  
     |**Confirmação** |Pode clicar em guardar a saída para guardar a saída do Assistente para um ficheiro. Também pode clicar em ver Script para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em **Concluir**.|  
 
-####  <a name="UpgradeanExistingDeploymentShareintheDeploymentWorkbench"></a>Atualizar uma partilha de implementação existente no Deployment Workbench  
+####  <a name="UpgradeanExistingDeploymentShareintheDeploymentWorkbench"></a> Atualizar uma partilha de implementação existente no Deployment Workbench  
  MDT pode atualizar uma partilha de implementação existente por:  
 
 -   Abrir uma partilha de implementação existente que ainda não esteja listada no Deployment Workbench, tal como descrito no [atualizar implementação partilhas ainda não esteja listado no Deployment Workbench](#UpgradeDeploymentSharesNotAlreadyListedintheDeploymentWorkbench)  
 
 -   Atualizar uma partilha de implementação existente que está listada no Deployment Workbench, conforme descrito em [atualizar implementação partilhas ainda esteja listado no Deployment Workbench](#UpgradeDeploymentSharesAlreadyListedintheDeploymentWorkbench)  
 
-#####  <a name="UpgradeDeploymentSharesNotAlreadyListedintheDeploymentWorkbench"></a>Partilhas de implementação da atualização ainda não estejam listadas no Deployment Workbench  
+#####  <a name="UpgradeDeploymentSharesNotAlreadyListedintheDeploymentWorkbench"></a> Partilhas de implementação da atualização ainda não estejam listadas no Deployment Workbench  
  Partilhas de implementação da atualização não listadas no Deployment Workbench com o Assistente de partilha de implementação aberta. Inicie o Assistente por:  
 
 -   Clicar a partilha de implementação e, em seguida, clicando em **abra partilha de implementação**  
@@ -1568,7 +1567,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     |**Na página do Assistente** |**Fazê-lo** |  
     |-----------------------------|-----------------|  
-    |**Caminho** |-No **caminho de partilha de implementação**, tipo **share_path** (onde *share_path* é o caminho completamente qualificado para a partilha de implementação existente).<br /><br /> Em alternativa, clique em Procurar para localizar o local ou a pasta partilhada de rede.<br /><br /> -Selecione o **atualizar o conteúdo da partilha de implementação (se necessário)** caixa de verificação e, em seguida, clique em **seguinte**.|  
+    |**Path** |-No **caminho de partilha de implementação**, tipo **share_path** (onde *share_path* é o caminho completamente qualificado para a partilha de implementação existente).<br /><br /> Em alternativa, clique em Procurar para localizar o local ou a pasta partilhada de rede.<br /><br /> -Selecione o **atualizar o conteúdo da partilha de implementação (se necessário)** caixa de verificação e, em seguida, clique em **seguinte**.|  
     |**Resumo** |Reveja as informações de **detalhes** caixa e, em seguida, clique em **seguinte**.|  
     |**Confirmação** |Clique em **guardar saída** para guardar a saída do Assistente para um ficheiro ou clique em **ver Script** para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em Concluir.|  
 
@@ -1576,7 +1575,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  Além de atualizar as partilhas de implementação existente, quaisquer instalações existentes das versões anteriores do MDT tem de ser atualizadas para o MDT. Para obter mais informações sobre atualizar quaisquer instalações anteriores para o MDT, consulte [atualizar para o MDT](#UpgradingtoMDT).  
 
-#####  <a name="UpgradeDeploymentSharesAlreadyListedintheDeploymentWorkbench"></a>Partilhas de implementação da atualização ainda esteja listadas no Deployment Workbench  
+#####  <a name="UpgradeDeploymentSharesAlreadyListedintheDeploymentWorkbench"></a> Partilhas de implementação da atualização ainda esteja listadas no Deployment Workbench  
  Atualização existente partilhas de implementação já listadas no Deployment Workbench com o Assistente para atualizar partilha de implementação. Inicie o Assistente por:  
 
 -   Clicar a partilha de implementação e, em seguida, clicando em **atualizar partilha de implementação**  
@@ -1606,7 +1605,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  Depois de concluído o assistente, a partilha de implementação existente está atualizada e agora pode ser acedida no Deployment Workbench.  
 
-####  <a name="ConfigureaDeploymentShareintheDeploymentWorkbench"></a>Configurar uma partilha de implementação no Deployment Workbench  
+####  <a name="ConfigureaDeploymentShareintheDeploymentWorkbench"></a> Configurar uma partilha de implementação no Deployment Workbench  
  Pode ver as propriedades de partilhas de implementação abaixo do nó de partilhas de implementação no Deployment Workbench, utilizando o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench).  
 
  Configurar uma aplicação no Deployment Workbench, efetuando as seguintes tarefas a **propriedades da aplicação** caixa de diálogo:  
@@ -1623,7 +1622,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 -   Configurar as definições no **componentes do Windows PE x64** separador conforme descrito em [configurar o separador de componentes do Windows PE implementação partilha propriedades x64](#ConfiguretheDeploymentSharePropertiesWindowsPEx64ComponentsTab).  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesGeneralTab"></a>Configurar o separador Geral de propriedades de partilha de implementação  
+#####  <a name="ConfiguretheDeploymentSharePropertiesGeneralTab"></a> Configurar o separador Geral de propriedades de partilha de implementação  
  As propriedades de partilha de implementação armazenadas no **geral** separador principalmente são configuradas ao executar o Assistente de partilha de implementação de novo. Pode atualizar as propriedades de partilha de implementação no **geral** separador através de **deployment_share propriedades** caixa de diálogo (onde *deployment_share* é o nome do partilha de implementação no Deployment Workbench).  
 
 ###### <a name="to-configure-the-general-tab"></a>Para configurar o separador Geral  
@@ -1645,7 +1644,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Descrição** |Contém o nome da partilha de implementação apresentado no Deployment Workbench. O valor predefinido é **partilha de implementação MDT**.|  
-    |**Comentários** |Fornece informações sobre a partilha de implementação.|  
+    |**comentários** |Fornece informações sobre a partilha de implementação.|  
     |**Caminho de rede (UNC)** |Caixa de texto que contém o caminho completamente qualificado em UNC para a partilha de implementação. Este valor é utilizado apenas para ativar o multicast e é necessário se pretender fazê-lo, selecionando o **multicast ativar para esta partilha de implementação** caixa de verificação.<br /><br /> Se a partilha de implementação foi criada a partir de uma pasta partilhada de rede existente, este valor é apresentado no painel de detalhes do Deployment Workbench.|  
     |**Caminho local** |Contém o caminho completamente qualificado para a pasta local em que foi criada a partilha de implementação. Este valor é utilizado apenas para ativar o multicast e é necessário se pretender fazê-lo, selecionando o **multicast ativar para esta partilha de implementação** caixa de verificação. Se criou a partilha de implementação a partir de:<br /><br /> -Um caminho local, em seguida, esta caixa de texto contém o caminho local utilizado no processo de criação<br /><br /> -Uma rede partilhada pasta, em seguida, esta caixa de texto está vazia<br /><br /> Se criou a partilha de implementação a partir de um caminho local, o caminho local em vez do caminho UNC, é apresentado no painel de detalhes do Deployment Workbench.|  
     |**Plataformas suportadas: x86** |Selecione para configurar o Assistente de partilha de implementação de atualização para criar ficheiros WIM e suportes de dados para computadores de destino de 32 bits.|  
@@ -1654,7 +1653,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  São guardadas as definições de configuração de partilha de implementação e a partilha de implementação aparece no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesRulesTab"></a>Configurar o separador de regras de propriedades de partilha de implementação  
+#####  <a name="ConfiguretheDeploymentSharePropertiesRulesTab"></a> Configurar o separador de regras de propriedades de partilha de implementação  
  As propriedades de partilha de implementação armazenadas no **regras** separador principalmente são configuradas ao executar o Assistente de partilha de implementação de novo. Estas definições de residir no CustomSettings.ini, que se encontra na pasta Control da partilha de implementação. Para obter mais informações sobre as definições que pode configurar neste separador, consulte o documento de MDT *Toolkit referência*.  
 
 ###### <a name="to-configure-the-rules-tab"></a>Para configurar o separador regras  
@@ -1680,7 +1679,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  São guardadas as definições de configuração de partilha de implementação e a partilha de implementação aparece no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86SettingsTab"></a>Configurar as janelas de propriedades de partilha de implementação PE x86 separador Definições  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86SettingsTab"></a> Configurar as janelas de propriedades de partilha de implementação PE x86 separador Definições  
  As propriedades de partilha de implementação armazenadas no **definições do Windows PE x86** separador principalmente são configuradas ao executar o Assistente de partilha de implementação de novo.  
 
 ###### <a name="to-configure-the-windows-pe-x86-settings-tab"></a>Para configurar o separador de definições do Windows PE x86  
@@ -1715,7 +1714,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  São guardadas as definições de configuração de partilha de implementação e a partilha de implementação aparece no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86ComponentsTab"></a>Configurar as janelas de propriedades de partilha de implementação PE x86 separador de componentes  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx86ComponentsTab"></a> Configurar as janelas de propriedades de partilha de implementação PE x86 separador de componentes  
  As propriedades de partilha de implementação armazenadas no **componentes do Windows PE x86** separador principalmente são configuradas ao executar o Assistente de partilha de implementação de novo.  
 
 ###### <a name="to-configure-the-windows-pe-x86-components-tab"></a>Para configurar o separador de componentes do Windows PE x86  
@@ -1748,7 +1747,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  São guardadas as definições de configuração de partilha de implementação e a partilha de implementação aparece no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64SettingsTab"></a>Configurar as janelas de propriedades de partilha de implementação PE x64 separador Definições  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64SettingsTab"></a> Configurar as janelas de propriedades de partilha de implementação PE x64 separador Definições  
  As propriedades de partilha de implementação armazenadas no separador de definições do Windows PE x64 principalmente são configuradas ao executar o Assistente de partilha de implementação de novo.  
 
 ###### <a name="to-configure-the-windows-pe-x64-settings-tab"></a>Para configurar o separador de definições do Windows PE x64  
@@ -1783,7 +1782,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  São guardadas as definições de configuração de partilha de implementação e a partilha de implementação aparece no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64ComponentsTab"></a>Configurar as janelas de propriedades de partilha de implementação PE x64 separador de componentes  
+#####  <a name="ConfiguretheDeploymentSharePropertiesWindowsPEx64ComponentsTab"></a> Configurar as janelas de propriedades de partilha de implementação PE x64 separador de componentes  
  As propriedades de partilha de implementação armazenadas no **componentes do Windows PE x64** separador principalmente são configuradas ao executar o Assistente de partilha de implementação de novo.  
 
 ###### <a name="to-configure-the-windows-pe-x64-components-tab"></a>Para configurar o separador de componentes do Windows PE x64  
@@ -1816,12 +1815,12 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
  São guardadas as definições de configuração de partilha de implementação e a partilha de implementação aparece no painel de detalhes do Deployment Workbench.  
 
-####  <a name="CopyaDeploymentShare"></a>Copiar uma partilha de implementação  
+####  <a name="CopyaDeploymentShare"></a> Copiar uma partilha de implementação  
  Partilhas de implementação são locais ou pastas partilhadas de rede. Pode efetuar uma cópia de uma partilha de implementação utilizando qualquer processo de cópia de ficheiros, tal como no Explorador do Windows. Quando copiar uma partilha de implementação para outro computador, certifique-se de que partilhe a pasta com as permissões adequadas.  
 
  Depois de copiar a partilha de implementação, abra-o no Deployment Workbench. Para obter mais informações sobre como abrir partilhas de implementação, consulte [abrir uma partilha de implementação existente no Deployment Workbench](#OpenanExistingDeploymentShareintheDeploymentWorkbench).  
 
-####  <a name="CloseaDeploymentShareintheDeploymentWorkbench"></a>Feche uma partilha de implementação no Deployment Workbench  
+####  <a name="CloseaDeploymentShareintheDeploymentWorkbench"></a> Feche uma partilha de implementação no Deployment Workbench  
 
 > [!NOTE]
 >  Fechar uma partilha de implementação não remova o local ou pasta partilhada de rede ou eliminar o conteúdo do local ou uma pasta partilhada de rede: Apenas remove a partilha de implementação da lista de partilhas de implementação no nó de partilhas de implementação no Deployment Workbench.  
@@ -1834,7 +1833,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 -   Clique em partilha de implementação e, em seguida, no painel ações, clique em **partilha de implementação fechar**.  
 
-####  <a name="UpdateaDeploymentShareintheDeploymentWorkbench"></a>Atualizar uma partilha de implementação no Deployment Workbench  
+####  <a name="UpdateaDeploymentShareintheDeploymentWorkbench"></a> Atualizar uma partilha de implementação no Deployment Workbench  
  Atualizar uma partilha de implementação cria as imagens de arranque do Windows PE (ficheiros WIM e ISO) necessário para iniciar a implementação LTI.  
 
 ###### <a name="to-update-a-deployment-share-in-the-deployment-workbench"></a>Para atualizar uma partilha de implementação no Deployment Workbench  
@@ -1862,7 +1861,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 > [!NOTE]
 >  Opcionalmente, criar um dispositivo de arranque, como um disco de rígido pen USB ou USB do ficheiro ISO para que possa começar o computador de destino a partir do dispositivo, tal como descrito no [criar suportes dispositivos das imagens de arranque do MDT](#CreateBootableDevicesfromMDTBootImages).  
 
-####  <a name="CreateBootableDevicesfromMDTBootImages"></a>Criar dispositivos de arranque a partir de imagens de arranque do MDT  
+####  <a name="CreateBootableDevicesfromMDTBootImages"></a> Criar dispositivos de arranque a partir de imagens de arranque do MDT  
  A partir de computadores de destino através de um dispositivo de arranque (como uma pen USB ou um disco de rígido USB) é, muitas vezes, mais rápida e fácil começar a utilizar CDs ou serviços de implementação do Windows de computadores.  
 
 > [!NOTE]
@@ -1878,19 +1877,19 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     -   **Selecione o disco N**  
 
-    -   **Limpar**  
+    -   **clean**  
 
     -   **criar a partição primária**  
 
     -   **Selecione a partição 1**  
 
-    -   **Active Directory**  
+    -   **active**  
 
-    -   **Formatar fs = fat32**  
+    -   **format fs=fat32**  
 
-    -   **atribuir**  
+    -   **assign**  
 
-    -   **sair**  
+    -   **exit**  
 
 4.  Copie o conteúdo de LiteTouchPE_x86.iso (para computadores de destino de 32 bits) ou ficheiros LiteTouchPE_x64.iso (para computadores de destino de 64 bits) para o dispositivo, executando uma das seguintes tarefas:  
 
@@ -1900,7 +1899,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
         xcopy <d>:\*.* <e>:\*.* /s /e /f  
         ```  
 
-         Onde *d* é a letra de unidade de CD e *i* é a letra de unidade do dispositivo.  
+         onde *d* é a letra de unidade de CD e *i* é a letra de unidade do dispositivo.  
 
     -   Em alternativa, montar o ficheiro ISO utilizando um programa de CD virtual e, em seguida, copie o respetivo conteúdo para o dispositivo utilizando o comando:  
 
@@ -1910,7 +1909,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
          onde *d* é a letra de unidade de CD e *i* é a letra de unidade do dispositivo.  
 
-###  <a name="ConfiguringOperatingSystemsintheDeploymentWorkbench"></a>Configurar os sistemas operativos no Deployment Workbench  
+###  <a name="ConfiguringOperatingSystemsintheDeploymentWorkbench"></a> Configurar os sistemas operativos no Deployment Workbench  
  MDT utiliza Deployment Workbench para gerir os sistemas operativos que pode implementar para os computadores de referência e de destino na sua organização. Configure os sistemas operativos no Deployment Workbench por:  
 
 -   Importar um sistema operativo, conforme descrito em [importar um sistema operativo no Deployment Workbench](#ImportanOperatingSystemintotheDeploymentWorkbench)  
@@ -1931,9 +1930,9 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 -   **Get-MDTOperatingSystemCatalog**  
 
--   **Importar MDTOperatingSystem**  
+-   **Import-MDTOperatingSystem**  
 
-####  <a name="ImportanOperatingSystemintotheDeploymentWorkbench"></a>Importar um sistema operativo no Deployment Workbench  
+####  <a name="ImportanOperatingSystemintotheDeploymentWorkbench"></a> Importar um sistema operativo no Deployment Workbench  
  Pode importar sistemas operativos no Deployment Workbench utilizando as opções listadas na tabela 31. Gerir este importação no Assistente para importar sistema operativo no Deployment Workbench.  
 
 ### <a name="table-31-options-for-importing-operating-systems-into-the-deployment-workbench"></a>31 de tabela. Opções de importação de sistemas operativos no Deployment Workbench  
@@ -1963,7 +1962,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
 -   As imagens WIM de existentes nos serviços de implementação do Windows conforme descrito em [importar um sistema operativo a partir de uma imagem de serviços de implementação existente do Windows](#ImportanOperatingSystemfromanExistingWindowsDeploymentServicesImage)  
 
-#####  <a name="ImportanOperatingSystemfromWindowsDistributionMedia"></a>Importar um sistema operativo do suporte de dados de distribuição de Windows  
+#####  <a name="ImportanOperatingSystemfromWindowsDistributionMedia"></a> Importar um sistema operativo do suporte de dados de distribuição de Windows  
  MDT permite-lhe importar sistemas operativos no Deployment Workbench do Windows distribuição suporte de dados, que inclui DVDs de produto, CDs ou pastas que contêm os ficheiros de distribuição. Importe o sistema operativo utilizando o Assistente de importação de sistema operativo no Deployment Workbench.  
 
 ###### <a name="to-import-an-operating-system-from-windows-distribution-media"></a>Para importar um sistema operativo do suporte de dados de distribuição de Windows  
@@ -1979,14 +1978,14 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
     |**Na página do Assistente** |**Fazê-lo** |  
     |-----------------------------|-----------------|  
     |**Tipo de SO** |Clique em **conjunto completo de ficheiros de origem**e, em seguida, clique em **seguinte**.|  
-    |**Origem** |No **diretório de origem**, tipo ***source_folder*** (onde *source_folder* é o caminho completamente qualificado para a pasta que contém os ficheiros de origem do sistema operativo) e, em seguida, Clique em **seguinte**.<br /><br /> Em alternativa, clique em Procurar para localizar a pasta de origem.|  
+    |**origem** |No **diretório de origem**, tipo ***source_folder*** (onde *source_folder* é o caminho completamente qualificado para a pasta que contém os ficheiros de origem do sistema operativo) e, em seguida, Clique em **seguinte**.<br /><br /> Em alternativa, clique em Procurar para localizar a pasta de origem.|  
     |**Destino** |No **nome do diretório de destino**, tipo ***destination_folder*** (onde *destination_folder* é o nome da pasta na partilha de implementação que irá conter o ficheiros de origem de sistema operativo) e, em seguida, clique em **seguinte**.|  
     |**Resumo** |Clique em **Seguinte**.|  
     |**Confirmação** |Clique em **guardar saída** para guardar a saída do Assistente para um ficheiro ou clique em **ver Script** para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em **Concluir**.|  
 
      Concluir o Assistente de importação de sistema operativo. O sistema operativo é adicionado à lista de sistemas operativos no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ImportaPreviouslyCapturedImageofaReferenceComputer"></a>Importar uma imagem capturada anteriormente de um computador de referência  
+#####  <a name="ImportaPreviouslyCapturedImageofaReferenceComputer"></a> Importar uma imagem capturada anteriormente de um computador de referência  
  MDT permite-lhe importar capturadas anteriormente imagens de computadores de referência ou outras imagens personalizadas para o Deployment Workbench. Importe o sistema operativo utilizando o Assistente de importação de sistema operativo no Deployment Workbench.  
 
 ###### <a name="to-import-an-operating-system-from-a-previously-captured-image-of-a-reference-computer"></a>Para importar um sistema operativo a partir de uma imagem capturada anteriormente de um computador de referência  
@@ -2004,8 +2003,8 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
     |**Na página do Assistente** |**Fazê-lo** |  
     |-----------------------------|-----------------|  
     |**Tipo de SO** |Clique em **ficheiro de imagem personalizada**e, em seguida, clique em **seguinte**.|  
-    |**Origem** |No **ficheiro de origem**, tipo ***source_file*** (onde *source_file* é o caminho completamente qualificado para o ficheiro WIM da imagem que contém os ficheiros de origem do sistema operativo) e, em seguida, clique em **Seguinte**.<br /><br /> Em alternativa, clique em **procurar** para localizar a imagem WIM de origem.|  
-    |**Programa de configuração** |Selecione uma das seguintes opções, com base nos seus requisitos e, em seguida, clique em **seguinte**:<br /><br /> **-Ficheiros de configuração não são necessários**. Selecione esta opção quando não existem ficheiros de configuração são necessários para uma imagem.<br /><br /> **-Copiar Windows 7, Windows Server 2008 R2 ou posteriores ficheiros de configuração do caminho especificado**. Selecione esta opção para copiar os ficheiros de configuração a partir de uma pasta que contém os ficheiros de configuração do Windows, quando esses ficheiros não estão disponíveis no outro sistema operativo no Deployment Workbench. No **diretório de origem do programa de configuração**, escreva ou clique em **procurar** para localizar a pasta que contém os ficheiros de configuração.<br /><br /> A opção predefinida é **não são necessários ficheiros de configuração e Sysprep**.|  
+    |**origem** |No **ficheiro de origem**, tipo ***source_file*** (onde *source_file* é o caminho completamente qualificado para o ficheiro WIM da imagem que contém os ficheiros de origem do sistema operativo) e, em seguida, clique em **Seguinte**.<br /><br /> Em alternativa, clique em **procurar** para localizar a imagem WIM de origem.|  
+    |**Setup** |Selecione uma das seguintes opções, com base nos seus requisitos e, em seguida, clique em **seguinte**:<br /><br /> **-Ficheiros de configuração não são necessários**. Selecione esta opção quando não existem ficheiros de configuração são necessários para uma imagem.<br /><br /> **-Copiar Windows 7, Windows Server 2008 R2 ou posteriores ficheiros de configuração do caminho especificado**. Selecione esta opção para copiar os ficheiros de configuração a partir de uma pasta que contém os ficheiros de configuração do Windows, quando esses ficheiros não estão disponíveis no outro sistema operativo no Deployment Workbench. No **diretório de origem do programa de configuração**, escreva ou clique em **procurar** para localizar a pasta que contém os ficheiros de configuração.<br /><br /> A opção predefinida é **não são necessários ficheiros de configuração e Sysprep**.|  
     |**Destino** |No **nome do diretório de destino**, tipo ***destination_folder*** (onde *destination_folder* é o nome da pasta na partilha de implementação que irá conter o ficheiros de origem de sistema operativo) e, em seguida, clique em **seguinte**.|  
     |**Resumo** |Clique em **Seguinte**.|  
     |**Confirmação** |Clique em **guardar saída** para guardar a saída do Assistente para um ficheiro ou clique em **ver Script** para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em **Concluir**.|  
@@ -2025,7 +2024,7 @@ ZTI ERROR – Non-zero return code by LTIApply, rc = 31.
 imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_description>  
 ```  
 
-#####  <a name="ImportanOperatingSystemfromanExistingWindowsDeploymentServicesImage"></a>Importar um sistema operativo a partir de uma imagem de serviços de implementação existente do Windows  
+#####  <a name="ImportanOperatingSystemfromanExistingWindowsDeploymentServicesImage"></a> Importar um sistema operativo a partir de uma imagem de serviços de implementação existente do Windows  
  MDT permite-lhe importar imagens WIM existentes nos serviços de implementação do Windows para o Deployment Workbench. Importe o sistema operativo utilizando o Assistente de importação de sistema operativo no Deployment Workbench.  
 
 ###### <a name="to-import-an-operating-system-from-an-existing-image-in-windows-deployment-services"></a>Para importar um sistema operativo a partir de uma imagem existente nos serviços de implementação do Windows  
@@ -2051,7 +2050,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluir o Assistente de importação de sistema operativo. O sistema operativo é adicionado à lista de sistemas operativos no painel de detalhes, mas não é copiado para a partilha de implementação. Deployment Workbench deixa a imagem do sistema operativo no servidor de serviços de implementação do Windows, mas a imagem está agora disponível para LTI.  
 
-####  <a name="ViewOperatingSystemPropertiesintheDeploymentWorkbench"></a>Ver propriedades do sistema operativo no Deployment Workbench  
+####  <a name="ViewOperatingSystemPropertiesintheDeploymentWorkbench"></a> Ver propriedades do sistema operativo no Deployment Workbench  
  Ver propriedades do sistema operativo sob o nó de sistema operativo no Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench).  
 
 35 tabela lista as definições de configuração no **geral** separador do sistema operativo **propriedades** caixa de diálogo e fornece uma descrição de cada definição.  
@@ -2064,36 +2063,36 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 |**Nome do sistema operativo** |Contém o nome do sistema operativo — por exemplo, Windows 8 ENTERPRISE no Windows 8 x64 install.wim.|  
 |**Descrição** |Contém a descrição do sistema operativo — por exemplo, o Windows 8 ENTERPRISE.|  
 |**Tipo de SO** |Contém o tipo de sistema operativo — por exemplo, a configuração baseada em imagem do Windows.|  
-|**Plataforma** |Contém a arquitetura de processador do sistema operativo — por exemplo, x64.|  
-|**Idiomas do (s)** |Contém os idiomas incluídos no sistema operativo — por exemplo, en-US.|  
+|**Platform** |Contém a arquitetura de processador do sistema operativo — por exemplo, x64.|  
+|**Languages(s)** |Contém os idiomas incluídos no sistema operativo — por exemplo, en-US.|  
 |**Inclui a configuração** |Contém **verdadeiro** ou **falso**, que indica se o sistema operativo inclui os ficheiros necessários para executar o programa de configuração.|  
-|**Caminho** |Contém o caminho para o sistema operativo relativamente à raiz da partilha de implementação.|  
+|**Path** |Contém o caminho para o sistema operativo relativamente à raiz da partilha de implementação.|  
 |**Ficheiro de imagem** |Contém o nome de ficheiro e caminho do sistema operativo relativamente à raiz da partilha de implementação.|  
 |**Índice de imagens** |Contém um valor numérico que indica o índice de imagem para a imagem — por exemplo, 1.|  
 |**Nome da imagem** |Inclui o nome da imagem — por exemplo, o Windows 8 ENTERPRISE.|  
 |**Tamanho da imagem (MB)** |Contém o tamanho da imagem em megabytes — por exemplo, 7921 indica 7,921 MB ou 7.921 GB.|  
 |**HAL** |Contém o tipo HAL para a imagem — por exemplo, acpiapic.|  
 
-####  <a name="CopyanOperatingSystemintheDeploymentWorkbench"></a>Copie um sistema operativo no Deployment Workbench  
+####  <a name="CopyanOperatingSystemintheDeploymentWorkbench"></a> Copie um sistema operativo no Deployment Workbench  
  Copie e cole as pastas sob o nó de sistema operativo e sistemas operativos no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [itens de cópia na implementação Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveanOperatingSystemintheDeploymentWorkbench"></a>Mover um sistema operativo no Deployment Workbench  
+####  <a name="MoveanOperatingSystemintheDeploymentWorkbench"></a> Mover um sistema operativo no Deployment Workbench  
  Move os sistemas operativos e pastas sob o nó de sistema operativo no Deployment Workbench com o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench ](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameanOperatingSystemintheDeploymentWorkbench"></a>Mudar o nome de um sistema operativo no Deployment Workbench  
+####  <a name="RenameanOperatingSystemintheDeploymentWorkbench"></a> Mudar o nome de um sistema operativo no Deployment Workbench  
  Mudar o nome de sistemas operativos e as pastas sob o nó de sistema operativo no Deployment Workbench com o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteanOperatingSystemfromtheDeploymentWorkbench"></a>Eliminar um sistema operativo do Deployment Workbench  
+####  <a name="DeleteanOperatingSystemfromtheDeploymentWorkbench"></a> Eliminar um sistema operativo do Deployment Workbench  
  Eliminar os sistemas operativos e as pastas sob o nó de sistema operativo no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permita a eliminação de ficheiros de sistema de operativo individuais ou de estruturas de pasta inteira.  
 
-####  <a name="ManageFoldersforOperatingSystemsintheDeploymentWorkbench"></a>Gerir pastas para sistemas operativos no Deployment Workbench  
+####  <a name="ManageFoldersforOperatingSystemsintheDeploymentWorkbench"></a> Gerir pastas para sistemas operativos no Deployment Workbench  
  Pode gerir pastas sob o nó sistemas operativos no Deployment Workbench para criar agrupamentos hierárquicos dos sistemas operativos. Para mais informações sobre:  
 
 -   Gestão de pastas, consulte [gerir pastas no Deployment Workbench](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Perfis de seleção, consulte [gerir perfis de seleção](#ManageSelectionProfiles)  
 
-###  <a name="ConfiguringApplicationsintheDeploymentWorkbench"></a>Configurar aplicações no Deployment Workbench  
+###  <a name="ConfiguringApplicationsintheDeploymentWorkbench"></a> Configurar aplicações no Deployment Workbench  
  MDT utiliza Deployment Workbench para gerir as aplicações implementadas para os computadores de referência e de destino na sua organização. Configure as aplicações no Deployment Workbench por:  
 
 -   Criar uma nova aplicação, conforme descrito em [criar uma nova aplicação no Deployment Workbench](#CreateaNewApplicationintheDeploymentWorkbench)  
@@ -2122,9 +2121,9 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   **Get-MDTDeploymentShareStatistics**  
 
--   **Importar MDTApplication**  
+-   **Import-MDTApplication**  
 
-####  <a name="CreateaNewApplicationintheDeploymentWorkbench"></a>Criar uma nova aplicação no Deployment Workbench  
+####  <a name="CreateaNewApplicationintheDeploymentWorkbench"></a> Criar uma nova aplicação no Deployment Workbench  
  Pode criar novas aplicações no Deployment Workbench utilizando uma das opções listadas na tabela 36. Importar sistemas operativos no Deployment Workbench com o novo Assistente de aplicação.  
 
 ### <a name="table-36-options-for-creating-a-new-application"></a>Tabela 36. Opções para criar uma nova aplicação  
@@ -2151,7 +2150,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Implementar as dependências da aplicação, conforme descrito em [criar uma nova aplicação para implementar as dependências da aplicação](#CreateaNewApplicationforDeployingApplicationDependencies)  
 
-#####  <a name="CreateaNewApplicationThatIsDeployedfromtheDeploymentShare"></a>Criar uma nova aplicação é implementada a partir da partilha de implementação  
+#####  <a name="CreateaNewApplicationThatIsDeployedfromtheDeploymentShare"></a> Criar uma nova aplicação é implementada a partir da partilha de implementação  
  MDT permite-lhe utilizar o novo Assistente de aplicação no Deployment Workbench para criar novas aplicações que são implementadas da partilha de implementação. O Assistente de nova aplicação copia os ficheiros de origem para este tipo de aplicações para a partilha de implementação.  
 
 ###### <a name="to-create-a-new-application-that-is-deployed-from-the-deployment-share"></a>Para criar uma nova aplicação é implementada a partir da partilha de implementação  
@@ -2172,7 +2171,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |-----------------------------|-----------------|  
     |**Tipo de aplicação** |Clique em **aplicação com ficheiros de origem**e, em seguida, clique em **seguinte**.|  
     |**Detalhes** |-No **publicador**, tipo ***publisher_name*** (onde *publisher_name* é o nome do publicador da aplicação).<br /><br /> -No **nome da aplicação**, tipo ***application_name*** (onde *application_name* é o nome descritivo da aplicação).<br /><br /> -No **versão**, tipo **versão** (onde *versão* é a versão da aplicação).<br /><br /> -No **idioma**, tipo **idioma** (onde *idioma* é o idioma da aplicação).<br /><br /> -Clique **seguinte**.|  
-    |**Origem** |a. No **diretório de origem**, tipo ***source_folder*** (onde *source_folder* é o caminho completamente qualificado para a pasta que contém os ficheiros de origem da aplicação).<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta de origem.<br /><br /> b. Selecione ou desmarque o **mover os ficheiros para a implementação partilha em vez de copiá-los** com base nos seus requisitos de caixa de verificação e, em seguida, clique em **seguinte**.<br /><br /> Esta caixa de verificação determina se o assistente copia ou move ficheiros de origem da aplicação para a partilha de implementação. Se a caixa de verificação:<br /><br /> -Selecionado, o assistente move os ficheiros de origem para a partilha de implementação<br /><br /> -Desmarcada, o assistente copia os ficheiros de origem para a partilha de implementação<br /><br /> Por predefinição, esta caixa de verificação está desmarcada.|  
+    |**origem** |a. No **diretório de origem**, tipo ***source_folder*** (onde *source_folder* é o caminho completamente qualificado para a pasta que contém os ficheiros de origem da aplicação).<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta de origem.<br /><br /> b. Selecione ou desmarque o **mover os ficheiros para a implementação partilha em vez de copiá-los** com base nos seus requisitos de caixa de verificação e, em seguida, clique em **seguinte**.<br /><br /> Esta caixa de verificação determina se o assistente copia ou move ficheiros de origem da aplicação para a partilha de implementação. Se a caixa de verificação:<br /><br /> -Selecionado, o assistente move os ficheiros de origem para a partilha de implementação<br /><br /> -Desmarcada, o assistente copia os ficheiros de origem para a partilha de implementação<br /><br /> Por predefinição, esta caixa de verificação está desmarcada.|  
     |**Destino** |No **especifique o nome do diretório que deve ser criado**, tipo ***destination_folder*** (onde *destination_folder* é o nome da pasta na partilha de implementação que irá conter os ficheiros de origem da aplicação) e, em seguida, clique em **seguinte**.|  
     |**Detalhes do comando** |-No **linha de comandos**, tipo ***command_line*** (onde *command_line* é a linha de comandos ser executada para iniciar a instalação da aplicação, incluindo qualquer linha de comandos parâmetros).<br /><br /> -No **diretório de trabalho**, tipo ***working_directory*** (onde *working_directory* é o caminho completamente qualificado ou relativo para a pasta designado como o de trabalho diretório para a aplicação).<br /><br /> -Clique **seguinte**.|  
     |**Resumo** |Clique em **Seguinte**.|  
@@ -2180,7 +2179,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluir o Assistente de nova aplicação. A aplicação é adicionada à lista de sistemas operativos no painel de detalhes no Deployment Workbench.  
 
-#####  <a name="CreateaNewApplicationThatIsDeployedfromAnotherNetworkSharedFolder"></a>Criar uma nova aplicação é implementada a partir da outra pasta partilhada de rede  
+#####  <a name="CreateaNewApplicationThatIsDeployedfromAnotherNetworkSharedFolder"></a> Criar uma nova aplicação é implementada a partir da outra pasta partilhada de rede  
  Permite a criação de novas aplicações que implementar a partir de uma pasta partilhada de rede diferente de partilha de implementação MDT. Crie uma nova aplicação com o novo Assistente de aplicação no Deployment Workbench. O novo Assistente de aplicação não copia os ficheiros de origem para este tipo de aplicação.  
 
 ###### <a name="to-create-a-new-application-that-is-deployed-from-a-network-shared-folder-other-than-the-deployment-share"></a>Para criar uma nova aplicação é implementada a partir da pasta de rede partilhada diferente de partilha de implementação  
@@ -2205,7 +2204,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluir o Assistente de nova aplicação. A aplicação é adicionada à lista de sistemas operativos no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="CreateaNewApplicationforDeployingApplicationDependencies"></a>Criar uma nova aplicação para implementar as dependências da aplicação  
+#####  <a name="CreateaNewApplicationforDeployingApplicationDependencies"></a> Criar uma nova aplicação para implementar as dependências da aplicação  
  MDT permite a criação de novas aplicações utilizados para implementar apenas as dependências para uma aplicação em vez de instalar a aplicação em si. Crie uma nova aplicação com o novo Assistente de aplicação no Deployment Workbench. O Assistente de nova aplicação copia os ficheiros de origem para a partilha de implementação.  
 
 ###### <a name="to-create-a-new-application-for-deploying-application-dependencies"></a>Para criar uma nova aplicação para implementar as dependências da aplicação  
@@ -2231,7 +2230,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluir o Assistente de nova aplicação. A aplicação é adicionada à lista de sistemas operativos no painel de detalhes do Deployment Workbench.  
 
-####  <a name="ViewandConfigureanApplicationintheDeploymentWorkbench"></a>Ver e configurar uma aplicação no Deployment Workbench  
+####  <a name="ViewandConfigureanApplicationintheDeploymentWorkbench"></a> Ver e configurar uma aplicação no Deployment Workbench  
  Ver as propriedades de aplicações por baixo do nó de aplicações no Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). Configurar uma aplicação no Deployment Workbench, efetuando os seguintes passos no **propriedades da aplicação** caixa de diálogo:  
 
 -   Configurar propriedades no **geral** separador conforme descrito em [configurar separador Geral de propriedades da aplicação](#ConfiguretheApplicationPropertiesGeneralTab).  
@@ -2242,7 +2241,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Configurar as propriedades no **Office produtos** separador conforme descrito em [configurar separador de produtos do Office de propriedades da aplicação](#ConfiguretheApplicationPropertiesOfficeProductsTab).  
 
-#####  <a name="ConfiguretheApplicationPropertiesGeneralTab"></a>Configurar o separador Geral de propriedades da aplicação  
+#####  <a name="ConfiguretheApplicationPropertiesGeneralTab"></a> Configurar o separador Geral de propriedades da aplicação  
  As propriedades da aplicação armazenadas no **geral** separador principalmente são configuradas quando o Assistente de nova aplicação é executada. Atualizar as propriedades da aplicação no **geral** separador através de ***application_name*** **propriedades** caixa de diálogo (onde *application_name* é o nome da aplicação no Deployment Workbench).  
 
 ###### <a name="to-configure-the-general-tab-for-application-properties"></a>Para configurar o separador Geral das propriedades da aplicação  
@@ -2264,12 +2263,12 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Nome** |Contém o nome da aplicação apresentado no Deployment Workbench. Se **nome a apresentar** não é configurado, este valor é também apresentado o Assistente de implementação.|  
-    |**Comentários** |Fornece informações sobre a aplicação.|  
+    |**comentários** |Fornece informações sobre a aplicação.|  
     |**Nome a apresentar** |(Opcional) Contém o nome apresentado no Assistente de implementação em vez do valor em **nome**. Se for especificado nenhum valor, o valor no **nome** é apresentado no Assistente de implementação.|  
     |**Nome abreviado** |Contém o nome da pasta na qual reside a aplicação.|  
     |**Versão** |Contém o número de versão da aplicação.<br /><br /> Introduza o número de versão nesta caixa; -Não é validado com o número de versão da aplicação real, mas é fornecido para fins informativos.|  
     |**Fabricante** |Contém o nome do publicador da aplicação.<br /><br /> Introduz o publicador nesta caixa; -Não é validado com o número de versão da aplicação real, mas é fornecido para fins informativos.|  
-    |**Idioma** |Contém o idioma da aplicação.<br /><br /> Introduza o idioma nesta caixa; -Não é validado com o idioma de aplicação real, mas é fornecido para fins informativos.|  
+    |**idioma** |Contém o idioma da aplicação.<br /><br /> Introduza o idioma nesta caixa; -Não é validado com o idioma de aplicação real, mas é fornecido para fins informativos.|  
     |**Diretório de origem** |Configura a pasta em que reside a origem dos ficheiros de aplicação.|  
     |**GUID de aplicação** |Contém o GUID para a aplicação.|  
     |**Ocultar esta aplicação no Assistente de implementação** |Selecione para controlar quando esta aplicação aparece no Assistente de implementação. Se a caixa de verificação:<br /><br /> -Selecionado, o Assistente de implementação não irá apresentar esta aplicação.<br /><br /> -Desmarcada, o Assistente de implementação apresenta esta aplicação.<br /><br /> Esta caixa de verificação está desmarcada por predefinição.<br /><br /> Esta definição também é apresentada no **ocultar** coluna no painel de detalhes do Deployment Workbench.|  
@@ -2277,7 +2276,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  As definições de configuração de aplicação são guardadas e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheApplicationPropertiesDetailsTab"></a>Configurar o separador de detalhes de propriedades da aplicação  
+#####  <a name="ConfiguretheApplicationPropertiesDetailsTab"></a> Configurar o separador de detalhes de propriedades da aplicação  
  As definições de configuração de aplicações armazenadas no **detalhes** separador inicialmente são configuradas quando o Assistente de nova aplicação é executada. Atualizar as propriedades da aplicação no **detalhes** separador através de ***application_name*** **propriedades** caixa de diálogo (onde *application_name* é o nome da aplicação no Deployment Workbench).  
 
 ###### <a name="to-configure-the-details-tab-for-application-properties"></a>Para configurar o separador de detalhes para propriedades da aplicação  
@@ -2298,7 +2297,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
-    |**Pacote de aplicação** |Selecione para configurar a aplicação a instalar as dependências da aplicação, mas não a aplicação. A outra opção disponível é **aplicação padrão**.|  
+    |Pacote de aplicação |Selecione para configurar a aplicação a instalar as dependências da aplicação, mas não a aplicação. A outra opção disponível é **aplicação padrão**.|  
     |**Aplicações Standard** |Selecione para configurar a aplicação ser uma aplicação padrão que tenha os ficheiros de origem, uma linha de comandos e outras opções apresentadas neste separador. A outra opção disponível é **pacote de aplicação**.|  
     |**Comando silenciosos** |Configura a linha de comandos para executar para efetuar uma instalação autónoma ou silenciosos, da aplicação. Esta caixa de texto só é ativada quando seleciona o **aplicação padrão** opção.|  
     |**Diretório de trabalho** |Configura o diretório de trabalho da aplicação e é ativado só quando selecionar **aplicação padrão**.|  
@@ -2309,7 +2308,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  As definições de configuração de aplicação são guardadas e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheApplicationPropertiesDependenciesTab"></a>Configurar o separador de dependências de propriedades da aplicação  
+#####  <a name="ConfiguretheApplicationPropertiesDependenciesTab"></a> Configurar o separador de dependências de propriedades da aplicação  
  MDT verifica as dependências de uma aplicação antes de instalar a aplicação. Da mesma forma, o MDT assegura que todas as dependências de aplicações são instaladas antes de instalar a aplicação.  
 
 > [!NOTE]
@@ -2342,7 +2341,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  As definições de configuração de aplicação são guardadas e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheApplicationPropertiesOfficeProductsTab"></a>Configurar o separador de produtos do Office de propriedades da aplicação  
+#####  <a name="ConfiguretheApplicationPropertiesOfficeProductsTab"></a> Configurar o separador de produtos do Office de propriedades da aplicação  
  As propriedades da aplicação armazenadas no **Office produtos** separador principalmente são configuradas quando o Assistente de nova aplicação é executada. Atualizar as propriedades da aplicação no **Office produtos** separador através de ***application_name*** **propriedades** caixa de diálogo (onde *application_name*  é o nome da aplicação no Deployment Workbench).  
 
 > [!NOTE]
@@ -2375,33 +2374,33 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Apenas a cache** |Selecione para determinar se o Deployment Workbench configura Config.xml para o programa de configuração do Microsoft Office instalar a cache de origem (LIS) de instalação local para o computador de destino durante o processo de configuração, mas não instale o Microsoft Office. Se a caixa de verificação:<br /><br /> -Selecionado, o ficheiro Config.xml está configurado para copiar a cache LIS durante a configuração do Microsoft Office, mas não instalar produtos do Microsoft Office<br /><br /> -Desmarcada, a cache LIS é copiada e produtos Microsoft Office são instalados durante a configuração do Microsoft Office|  
     |**Sempre suprime o reinício** |Selecione para determinar se o Deployment Workbench configura Config.xml para o programa de configuração do Microsoft Office impedir a reiniciar o computador de destino durante o processo de configuração. Se a caixa de verificação:<br /><br /> -Selecionado, o ficheiro Config.xml está configurado para impedir o reinício do computador de destino durante a configuração do Microsoft Office<br /><br /> -Desmarcada, o computador de destino pode ser reiniciado durante a configuração do Microsoft Office|  
     |**Adicionar** |Clique para adicionar pacotes de idiomas do Microsoft Office.|  
-    |**Editar Config.xml** |Clique para modificar o conteúdo do ficheiro Config.xml que gera o Deployment Workbench.|  
+    |**Edit Config.xml** |Clique para modificar o conteúdo do ficheiro Config.xml que gera o Deployment Workbench.|  
 
  As definições de configuração de aplicação são guardadas e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-####  <a name="CopyanApplicationintheDeploymentWorkbench"></a>Copiar uma aplicação no Deployment Workbench  
+####  <a name="CopyanApplicationintheDeploymentWorkbench"></a> Copiar uma aplicação no Deployment Workbench  
  Copie e cole as aplicações e as pastas sob o nó de aplicações no Deployment Workbench, utilizando o **cópia** e **colar** ações conforme descrito em [itens de cópia na implementação Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveanApplicationintheDeploymentWorkbench"></a>Mover uma aplicação no Deployment Workbench  
+####  <a name="MoveanApplicationintheDeploymentWorkbench"></a> Mover uma aplicação no Deployment Workbench  
  Mover as aplicações e as pastas sob o nó de aplicações no Deployment Workbench, utilizando o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameanApplicationintheDeploymentWorkbench"></a>Mudar o nome de uma aplicação no Deployment Workbench  
+####  <a name="RenameanApplicationintheDeploymentWorkbench"></a> Mudar o nome de uma aplicação no Deployment Workbench  
  Mudar o nome de aplicações e as pastas sob o nó de aplicações no Deployment Workbench, utilizando o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteanApplicationfromtheDeploymentWorkbench"></a>Eliminar uma aplicação do Deployment Workbench  
+####  <a name="DeleteanApplicationfromtheDeploymentWorkbench"></a> Eliminar uma aplicação do Deployment Workbench  
  Eliminar as aplicações e as pastas sob o nó de aplicações no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permita a eliminação de aplicações individuais ou de estruturas de pasta inteira.  
 
 > [!NOTE]
 >  Não deverá eliminar uma aplicação quando outras aplicações dependem dele. No entanto, o Deployment Workbench não impõe esta recomendação.  
 
-####  <a name="ManageFoldersforApplicationsintheDeploymentWorkbench"></a>Gerir pastas para aplicações no Deployment Workbench  
+####  <a name="ManageFoldersforApplicationsintheDeploymentWorkbench"></a> Gerir pastas para aplicações no Deployment Workbench  
  Pode gerir pastas sob o nó de aplicações no Deployment Workbench criar hierárquicos agrupamentos de aplicações. Para mais informações sobre:  
 
 -   Gestão de pastas, consulte [gerir pastas no Deployment Workbench](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Perfis de seleção, consulte [gerir perfis de seleção](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableanApplicationintheDeploymentWorkbench"></a>Ativar ou desativar uma aplicação no Deployment Workbench  
+####  <a name="EnableorDisableanApplicationintheDeploymentWorkbench"></a> Ativar ou desativar uma aplicação no Deployment Workbench  
  Controlo se as aplicações se encontram disponíveis para os outros assistentes e a caixa de diálogo caixas no Deployment Workbench, utilizando o **ativar esta aplicação** caixa de verificação a **geral** separador da aplicação **Propriedades** caixa de diálogo.  
 
 > [!TIP]
@@ -2409,13 +2408,13 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre a ativação ou desativação de aplicações no Deployment Workbench, consulte [configurar separador Geral de propriedades da aplicação](#ConfiguretheApplicationPropertiesGeneralTab).  
 
-####  <a name="PreventanApplicationfromBeingVisibleintheDeploymentWizard"></a>Impedir que uma aplicação que está a ser visível no Assistente de implementação  
+####  <a name="PreventanApplicationfromBeingVisibleintheDeploymentWizard"></a> Impedir que uma aplicação que está a ser visível no Assistente de implementação  
  Impedir que uma aplicação a ser visível no Assistente de implementação, selecionando o **ocultar esta aplicação no Assistente de implementação** caixa de verificação a **geral** separador da aplicação  **Propriedades** caixa de diálogo, conforme descrito em [configurar separador Geral de propriedades da aplicação](#ConfiguretheApplicationPropertiesGeneralTab).  
 
 > [!NOTE]
 >  O estado do **ocultar esta aplicação no Assistente de implementação** caixa de verificação é apresentada no **ocultar** coluna no painel de detalhes do **aplicação** nó.  
 
-####  <a name="ConfiguretheComputertoRestartAfterApplicationInstallation"></a>Configurar o computador seja reiniciado após a instalação da aplicação  
+####  <a name="ConfiguretheComputertoRestartAfterApplicationInstallation"></a> Configurar o computador seja reiniciado após a instalação da aplicação  
  Reinicie o computador de destino depois de instalar uma aplicação, selecionando o **reiniciar o computador depois de instalar esta aplicação** caixa de verificação a **detalhes** separador da aplicação  **Propriedades** caixa de diálogo. Se selecionar esta caixa de verificação faz com que o Assistente de implementação para reiniciar o computador de destino após a instalação da aplicação e, em seguida, continuar com o passo seguinte na sequência de tarefas.  
 
 > [!CAUTION]
@@ -2423,7 +2422,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre como configurar o MDT para reiniciar o computador de destino depois de instalar uma aplicação, consulte [configurar separador de detalhes de propriedades da aplicação](#ConfiguretheApplicationPropertiesDetailsTab).  
 
-####  <a name="CustomizeApplicationInstallationinTaskSequences"></a>Personalizar a instalação da aplicação nas sequências de tarefas  
+####  <a name="CustomizeApplicationInstallationinTaskSequences"></a> Personalizar a instalação da aplicação nas sequências de tarefas  
  A adição de aplicações no nó de aplicações na partilha de implementação através do Deployment Workbench é o método mais simples de implementar a maioria das aplicações. Sequências de tarefas do MDT implementar aplicações utilizando o **instalar aplicação** tipo de sequência de tarefas. Alguns dos modelos de sequência de tarefas incluídos no MDT têm o **instalar aplicações** passo de sequência de tarefas no **restauro de estado** grupo, o que se baseia no **instalar aplicação**tipo de sequência de tarefas.  
 
  O **instalar aplicação** tipo de sequência de tarefas permite a instalação de um ou mais aplicações no passo de sequência de tarefas único através de uma das opções de configuração indicados na tabela 44.  
@@ -2441,7 +2440,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Criar um novo passo de sequência de tarefas com base no **instalar aplicação** tipo de sequência de tarefas, conforme descrito em [criar um novo passo de sequência de tarefas para instalar aplicações](#CreateaNewTaskSequenceStepforInstallingApplications)  
 
-#####  <a name="ConfigureanExistingInstallApplicationsTaskSequenceStep"></a>Configurar um passo de sequência de tarefas de aplicações da instalação existente  
+#####  <a name="ConfigureanExistingInstallApplicationsTaskSequenceStep"></a> Configurar um passo de sequência de tarefas de aplicações da instalação existente  
  Configurar um existente **instalar aplicações** passo de sequência de tarefas ao modificar as definições de configuração no **propriedades** separador do passo de sequência de tarefas.  
 
 ###### <a name="to-configure-an-existing-install-applications-task-sequence-step"></a>Para configurar um passo de sequência de tarefas instalar aplicações existente  
@@ -2475,7 +2474,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A sequência de tarefas atualizado é apresentado no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="CreateaNewTaskSequenceStepforInstallingApplications"></a>Criar um novo passo de sequência de tarefas para instalar aplicações  
+#####  <a name="CreateaNewTaskSequenceStepforInstallingApplications"></a> Criar um novo passo de sequência de tarefas para instalar aplicações  
  Na maioria dos casos, o existente **instalar aplicações** passo de sequência de tarefas é suficiente para instalar aplicações em computadores de destino. No entanto, existem instâncias em que o existente **instalar aplicações** passo de sequência de tarefas não pode ser suficiente para os requisitos da sua organização ou poderá ter de instalar uma aplicação com uma sequência diferente da tarefa sequência.  
 
  Por exemplo, o processo de instalação de alguns controladores de dispositivo é executado mais como instalação de uma aplicação que o processo de instalação típicas para um controlador de dispositivo tradicional. Pode instalar estes controladores de dispositivo ao criar um novo passo de sequência de tarefas com base no **instalar aplicação** tipo de sequência de tarefas.  
@@ -2489,7 +2488,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  Configurar o novo passo de sequência de tarefas para implementar uma ou mais aplicações, conforme descrito em [configurar uma existente instalar aplicações passo de sequência](#ConfigureanExistingInstallApplicationsTaskSequenceStep).  
 
-###  <a name="ConfiguringPackagesintheDeploymentWorkbench"></a>Configuração de pacotes no Deployment Workbench  
+###  <a name="ConfiguringPackagesintheDeploymentWorkbench"></a> Configuração de pacotes no Deployment Workbench  
  Os pacotes no MDT são software instalado nos computadores de destino e armazenadas em ficheiros CAB ou MSU, tais como atualizações de segurança, service packs, pacotes de funcionalidades ou pacotes de idiomas do sistema operativo. Gerir pacotes de implementação para os computadores de referência e de destino na sua organização utilizar o Deployment Workbench. Configurar pacotes no Deployment Workbench no nó de pacotes de uma partilha de implementação por:  
 
 -   Importar um novo pacote, conforme descrito em [importar um novo pacote para o Deployment Workbench](#ImportaNewPackageintotheDeploymentWorkbench)  
@@ -2516,9 +2515,9 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   **Get-MDTDeploymentShareStatistics**  
 
--   **Importar MDTPackage**  
+-   **Import-MDTPackage**  
 
-####  <a name="ImportaNewPackageintotheDeploymentWorkbench"></a>Importar um novo pacote para o Deployment Workbench  
+####  <a name="ImportaNewPackageintotheDeploymentWorkbench"></a> Importar um novo pacote para o Deployment Workbench  
  Importar pacotes para o Deployment Workbench, utilizando o Assistente de importação de pacotes de SO. Inicie o Assistente de importação de pacotes de SO, utilizando um dos seguintes métodos:  
 
 -   Na árvore da consola, clique no nó de pacotes ou uma pasta sob o nó de pacotes. Em seguida, no painel ações, clique em **importar OS pacotes**.  
@@ -2547,7 +2546,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluído o Assistente de pacotes de SO de importação. O pacote é adicionado à lista de pacotes no painel de detalhes do Deployment Workbench.  
 
-####  <a name="ModifyanExistingPackageintheDeploymentWorkbench"></a>Modificar um pacote existente no Deployment Workbench  
+####  <a name="ModifyanExistingPackageintheDeploymentWorkbench"></a> Modificar um pacote existente no Deployment Workbench  
  Modificar pacotes no nó de pacotes no Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). As propriedades de pacote principalmente são configuradas ao executar o Assistente de importação de pacotes de SO. Atualizar as propriedades do pacote no **geral** separador através de ***package_name*** **propriedades** caixa de diálogo (onde *package_name* é o nome da aplicação no Deployment Workbench).  
 
 ###### <a name="to-modify-an-existing-package"></a>Para modificar um pacote existente  
@@ -2569,12 +2568,12 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Nome** |Contém o nome do pacote apresentado no Deployment Workbench. Se **nome a apresentar** não é configurado, este valor é também apresentado o Assistente de implementação.|  
-    |**Comentários** |Fornece informações sobre o pacote.|  
+    |**comentários** |Fornece informações sobre o pacote.|  
     |**Nome a apresentar** |(Opcional) Contém o nome apresentado no Assistente de implementação em vez do valor em **nome**. Se for especificado nenhum valor, o valor no **nome** é apresentado no Assistente de implementação.|  
     |**Tipo** |Tipo de pacote, que inclui normalmente os seguintes tipos de alto nível de pacotes:<br /><br /> -Pacotes de idiomas<br /><br /> -Correção patches<br /><br /> -Pacotes de funcionalidades<br /><br /> O tipo de pacote nesta caixa de texto é determinado automaticamente pelo Deployment Workbench e não pode ser modificado.|  
     |**Arquitetura de processador** |Arquitetura de processador de destino para o pacote; pode ser x86, amd64, ou ia64.<br /><br /> A arquitetura de processador nesta caixa automaticamente é determinada pelo Deployment Workbench e não pode ser modificada.|  
-    |**Idioma** |Contém o idioma da aplicação.<br /><br /> O idioma nesta caixa automaticamente é determinado pelo Deployment Workbench e não pode ser modificado.|  
-    |**Palavra-chave** |Utilizado para identificar a versão do pacote de idiomas.<br /><br /> A palavra-chave nesta caixa de texto é determinada automaticamente pelo Deployment Workbench e não pode ser modificada.|  
+    |**idioma** |Contém o idioma da aplicação.<br /><br /> O idioma nesta caixa automaticamente é determinado pelo Deployment Workbench e não pode ser modificado.|  
+    |**Keyword** |Utilizado para identificar a versão do pacote de idiomas.<br /><br /> A palavra-chave nesta caixa de texto é determinada automaticamente pelo Deployment Workbench e não pode ser modificada.|  
     |**Token de chave pública** |Contém o token de chave pública que utiliza o MDT para atualizar o ficheiro unattended.xml.<br /><br /> O token de chave pública nesta caixa de texto é determinado automaticamente pelo Deployment Workbench e não pode ser modificado.|  
     |**Versão** |Contém o número de versão do pacote.<br /><br /> O número de versão nesta caixa de texto é determinado automaticamente pelo Deployment Workbench e não pode ser modificado.|  
     |**Nome do produto** |Contém o nome do produto para o qual destina-se o pacote.<br /><br /> O nome de produto nesta caixa de texto é determinado automaticamente pelo Deployment Workbench e não pode ser modificado.|  
@@ -2585,26 +2584,26 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  As definições de configuração do pacote são guardadas e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-####  <a name="CopyaPackageintheDeploymentWorkbench"></a>Copiar um pacote no Deployment Workbench  
+####  <a name="CopyaPackageintheDeploymentWorkbench"></a> Copiar um pacote no Deployment Workbench  
  Pode copiar e colar pastas sob o nó de pacotes e pacotes no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [itens de cópia no Deployment Workbench ](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveaPackageintheDeploymentWorkbench"></a>Mover um pacote no Deployment Workbench  
+####  <a name="MoveaPackageintheDeploymentWorkbench"></a> Mover um pacote no Deployment Workbench  
  Pode mover pacotes e pastas sob o nó de pacotes no Deployment Workbench com o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameaPackageintheDeploymentWorkbench"></a>Mudar o nome de um pacote no Deployment Workbench  
+####  <a name="RenameaPackageintheDeploymentWorkbench"></a> Mudar o nome de um pacote no Deployment Workbench  
  Pode mudar o nome de pacotes e pastas sob o nó de pacotes no Deployment Workbench com o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteaPackagefromtheDeploymentWorkbench"></a>Eliminar um pacote do Deployment Workbench  
+####  <a name="DeleteaPackagefromtheDeploymentWorkbench"></a> Eliminar um pacote do Deployment Workbench  
  Pode eliminar pacotes e pastas sob o nó de aplicações no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permite-lhe eliminar pacote individuais ou de estruturas de pasta inteira.  
 
-####  <a name="ManageFoldersforPackagesintheDeploymentWorkbench"></a>Gerir pastas de pacotes no Deployment Workbench  
+####  <a name="ManageFoldersforPackagesintheDeploymentWorkbench"></a> Gerir pastas de pacotes no Deployment Workbench  
  Pode gerir pastas sob o nó de pacotes no Deployment Workbench para criar agrupamentos hierárquicos de pacotes do sistema operativo. Para mais informações sobre:  
 
 -   Gestão de pastas, consulte [gerir pastas no Deployment Workbench](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Perfis de seleção, consulte [gerir perfis de seleção](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableaPackageintheDeploymentWorkbench"></a>Ativar ou desativar um pacote no Deployment Workbench  
+####  <a name="EnableorDisableaPackageintheDeploymentWorkbench"></a> Ativar ou desativar um pacote no Deployment Workbench  
  Pode controlar se os pacotes estão disponíveis para os outros assistentes e caixas de diálogo no Deployment Workbench, selecionando o **ativar (aprovar) deste pacote** caixa de verificação a **geral** separador do pacote **Propriedades** caixa de diálogo.  
 
 > [!TIP]
@@ -2612,10 +2611,10 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre a ativação ou desativação de pacotes no Deployment Workbench, consulte [configurar pacotes no Deployment Workbench](#ConfiguringPackagesintheDeploymentWorkbench).  
 
-####  <a name="PreventaPackagefromBeingVisibleintheDeploymentWizard"></a>Impedir que um pacote que está a ser visível no Assistente de implementação  
+####  <a name="PreventaPackagefromBeingVisibleintheDeploymentWizard"></a> Impedir que um pacote que está a ser visível no Assistente de implementação  
  Pode impedir que um pacote a ser visível no Assistente de implementação, selecionando o **ocultar esta aplicação no Assistente de implementação** caixa de verificação a **geral** separador da aplicação  **Propriedades** caixa de diálogo. Para obter mais informações sobre pacotes a impedir a apresentação no Assistente de implementação, consulte [configurar pacotes no Deployment Workbench](#ConfiguringPackagesintheDeploymentWorkbench).  
 
-####  <a name="CustomizePackageInstallationinTaskSequences"></a>Personalizar a instalação do pacote nas sequências de tarefas  
+####  <a name="CustomizePackageInstallationinTaskSequences"></a> Personalizar a instalação do pacote nas sequências de tarefas  
  A adição de pacotes no nó de pacotes de uma partilha de implementação através do Deployment Workbench é o método mais simples para a maioria dos pacotes de implementação. Sequências de tarefas do MDT implementar pacotes utilizando o **instalar atualizações Offline** tipo de sequência de tarefas. Alguns dos modelos de sequência de tarefas incluídos no MDT têm o **aplicar Patches** passo de sequência de tarefas no **Preinstall/atualização apenas**grupo, o que se baseia no **instalar atualizações Offline** tipo de sequência de tarefas.  
 
  O **instalar atualizações Offline** tipo de sequência de tarefas permite-lhe instalar um ou mais pacotes num passo de sequência de tarefas único através de perfis de seleção, que permite que um ou mais pacotes selecionados e implementado como uma unidade. Para obter mais informações para gerir perfis de seleção, consulte [gerir perfis de seleção](#ManageSelectionProfiles).  
@@ -2628,7 +2627,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Adicionar idioma pacotes para os passos de sequência de tarefas, conforme descrito em [adicionar pacotes de idiomas para os passos de sequência de tarefas](#AddLanguagePackstoTaskSequenceSteps)  
 
-#####  <a name="ConfigureanExistingApplyPatchesTaskSequenceStep"></a>Configurar um passo de sequência de tarefas de Patches do existente aplicar  
+#####  <a name="ConfigureanExistingApplyPatchesTaskSequenceStep"></a> Configurar um passo de sequência de tarefas de Patches do existente aplicar  
  Configurar um existente **aplicar Patches** passo de sequência de tarefas ao modificar as definições de configuração no **propriedades** separador do passo de sequência de tarefas.  
 
 ###### <a name="to-configure-an-existing-apply-patches-task-sequence-step"></a>Para configurar um passo de sequência de tarefas aplicar Patches existente  
@@ -2659,7 +2658,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A sequência de tarefas atualizado é apresentado no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="CreateaNewTaskSequenceStepforInstallingPackages"></a>Criar um novo passo de sequência de tarefas para instalar pacotes  
+#####  <a name="CreateaNewTaskSequenceStepforInstallingPackages"></a> Criar um novo passo de sequência de tarefas para instalar pacotes  
  Na maioria dos casos, o existente **aplicar Patches** passo de sequência de tarefas é suficiente para instalar pacotes nos computadores de destino. No entanto, existem instâncias em que o existente **aplicar Patches** passo de sequência de tarefas não pode ser suficiente para os seus requisitos ou poderá ter de instalar um pacote de um local diferente na sequência de tarefas.  
 
  Por exemplo, os pacotes poderão ter de ser instalado por uma ordem específica ou podem ter dependências, tais como instalar um service pack antes de instalar as correções. Em primeiro lugar, crie pastas e perfis de seleção para cada agrupamento de pacotes que quer instalar separadamente. Em seguida, instale os grupos de pacotes através da criação de um novo passo de sequência de tarefas para cada grupo com base no **instalar atualizações Offline**– passo de sequência de tarefas de tipo.  
@@ -2673,7 +2672,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  Configurar o novo passo de sequência de tarefas para implementar um ou mais pacotes ao selecionar o perfil de seleção apropriada que contém os pacotes para ser instalada conforme descrito em [configurar uma existente instalar aplicações passo de sequência](#ConfigureanExistingInstallApplicationsTaskSequenceStep).  
 
-#####  <a name="AddLanguagePackstoTaskSequenceSteps"></a>Adicionar pacotes de idiomas para os passos de sequência de tarefas  
+#####  <a name="AddLanguagePackstoTaskSequenceSteps"></a> Adicionar pacotes de idiomas para os passos de sequência de tarefas  
  Pacotes de idiomas são um dos tipos de pacotes disponíveis no MDT e ativar um ambiente Windows multilingue. Windows agora é independente de idioma e todos os recursos do idioma e região são adicionados ao Windows através de pacotes de idiomas (Lp.cab ficheiros). Ao adicionar um ou mais pacotes de idiomas para o Windows, os idiomas selecionados podem ser ativados quando instalar o sistema operativo. Como resultado, a mesma imagem do Windows pode ser implementada em regiões com definições de região, reduzindo o desenvolvimento e o momento da implementação e de idioma diferente.  
 
  Consulte as seguintes referências para obter mais informações sobre pacotes de idiomas no Windows:  
@@ -2684,7 +2683,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Para obter mais informações sobre pacotes de idiomas do Windows, consulte "Gerir idiomas pacotes para o Windows" no Windows ADK.  
 
-###  <a name="ConfiguringDeviceDriversintheDeploymentWorkbench"></a>Configurar os controladores de dispositivo no Deployment Workbench  
+###  <a name="ConfiguringDeviceDriversintheDeploymentWorkbench"></a> Configurar os controladores de dispositivo no Deployment Workbench  
  Integre os controladores de dispositivo para os computadores de referência e de destino no Windows PE e o sistema operativo de destino, a menos que estes componentes são incluídos no Windows PE ou sistema operativo de destino. Deployment Workbench ajuda a centralizar e automatizar a gestão de controladores de dispositivo e a integração para LTI fornecendo um repositório centralizado de controladores de dispositivo, garantindo que os controladores de dispositivo adequados são implementados. Deployment Workbench também automatiza a injeção de controladores de dispositivo adequados para imagens do Windows PE que gera o Deployment Workbench. MDT suporta diferentes estratégias de gestão do controlador de dispositivo. Para obter mais informações sobre as estratégias de gestão de controladores de dispositivo, consulte [gerir controladores de dispositivo](#ManagingDeviceDrivers).  
 
  Configure os controladores de dispositivo no Deployment Workbench no nó de Out-of-Box de uma partilha de implementação por:  
@@ -2709,11 +2708,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  No addtion para gerir controladores de dispositivo no Deployment Workbench, pode gerir os controladores de dispositivo utilizando os cmdlets do Windows PowerShell do MDT. Para obter mais informações sobre gerir controladores de dispositivo utilizando os cmdlets do Windows PowerShell do MDT, consulte as seguintes secções abaixo a secção "MDT Cmdlets do Windows PowerShell", no documento MDT *Toolkit referência*:  
 
--   **Importar MDTDriver**  
+-   **Import-MDTDriver**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-####  <a name="ImportDeviceDriversintotheDeploymentWorkbench"></a>Importar controladores de dispositivo no Deployment Workbench  
+####  <a name="ImportDeviceDriversintotheDeploymentWorkbench"></a> Importar controladores de dispositivo no Deployment Workbench  
  Importe controladores de dispositivo no Deployment Workbench com o Assistente de importação de controladores. Inicie o Assistente de importação de controladores utilizando um dos seguintes métodos:  
 
 -   Na árvore da consola, clique no nó de controladores ou uma pasta sob o nó de controladores. Em seguida, no painel ações, clique em **importar controladores**.  
@@ -2744,14 +2743,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluir o Assistente de importação de controladores. Os controladores de dispositivo forem adicionados à lista de controladores de dispositivo no painel de detalhes do Deployment Workbench.  
 
-####  <a name="ModifyExistingDeviceDriversintheDeploymentWorkbench"></a>Modificar os controladores de dispositivo existente no Deployment Workbench  
+####  <a name="ModifyExistingDeviceDriversintheDeploymentWorkbench"></a> Modificar os controladores de dispositivo existente no Deployment Workbench  
  Modificar os controladores de dispositivo no nó de controladores no Deployment Workbench com o **propriedades** ação, tal como descrito no [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). Configurar os controladores de dispositivo no Deployment Workbench, efetuando os seguintes passos no controlador de dispositivo **propriedades** caixa de diálogo:  
 
 1.  Configurar propriedades no **geral** separador conforme descrito em [configurar separador Geral de propriedades de controladores do dispositivo](#ConfiguretheDeviceDriverPropertiesGeneralTab).  
 
 2.  Ver propriedades no **detalhes** separador conforme descrito em [ver o separador de detalhes de propriedades de controladores de dispositivo](#ViewtheDeviceDriverPropertiesDetailsTab).  
 
-#####  <a name="ConfiguretheDeviceDriverPropertiesGeneralTab"></a>Configurar o separador Geral de propriedades de controladores do dispositivo  
+#####  <a name="ConfiguretheDeviceDriverPropertiesGeneralTab"></a> Configurar o separador Geral de propriedades de controladores do dispositivo  
  As propriedades do controlador de dispositivo armazenadas no **geral** separador principalmente são configuradas ao executar o Assistente de importação de controladores de dispositivo. Atualizar as propriedades do controlador de dispositivo no **geral** separador através de ***driver_name*** **propriedades** caixa de diálogo (onde *driver_name* é o nome do controlador de dispositivo no Deployment Workbench).  
 
 ###### <a name="to-modify-existing-device-drivers-properties-on-the-general-tab"></a>Para modificar propriedades de controladores de dispositivo existente no separador Geral  
@@ -2773,14 +2772,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Nome do controlador** |Contém o nome do controlador de dispositivo apresentado no Deployment Workbench e o Assistente de implementação.|  
-    |**Comentários** |Fornece informações sobre o controlador de dispositivo.|  
+    |**comentários** |Fornece informações sobre o controlador de dispositivo.|  
     |**Plataformas: x86** |Selecione para controlar se é este controlador de dispositivo para o sistema operativo de 32 bits. Se a caixa de verificação:<br /><br /> -Selecionado, o controlador de dispositivo está disponível para implementação de sistemas operativos de 32 bits<br /><br /> -Desmarcada, o controlador de dispositivo está disponível para a implementação de sistemas operativos de 32 bits<br /><br /> Se o Deployment Workbench incorretamente Deteta as plataformas que suporta o controlador de dispositivo, pode desmarcar a seleção de plataforma. Por exemplo, se o Deployment Workbench incorretamente Deteta controladores de dispositivo de 32 bits e 64 bits, seleção de limpar o x64; o controlador será, em seguida, apenas utilizado para implementações de 32 bits.|  
     |**Plataformas: x64** |Selecione para controlar se é este controlador de dispositivo para o sistema operativo de 64 bits. Se a caixa de verificação:<br /><br /> -Selecionado, o controlador de dispositivo está disponível para implementação de sistemas operativos de 64 bits<br /><br /> -Desmarcada, o controlador de dispositivo está disponível para a implementação de sistemas operativos de 64 bits<br /><br /> Se o Deployment Workbench incorretamente Deteta as plataformas que suporta o controlador de dispositivo, pode desmarcar a seleção de plataforma. Por exemplo, se o Deployment Workbench incorretamente Deteta controladores de dispositivo de 32 bits e 64 bits, seleção de limpar o x64; o controlador será, em seguida, apenas utilizado para implementações de 32 bits.|  
     |**Ativar este controlador** |Selecione para controlar se este controlador de dispositivo está disponível para outros assistentes e caixas de diálogo no Deployment Workbench. Se a caixa de verificação:<br /><br /> -Selecionado, o controlador de dispositivo está disponível para outros assistentes e caixas de diálogo no Deployment Workbench<br /><br /> -Desmarcada, o controlador de dispositivo está disponível para outros assistentes e caixas de diálogo no Deployment Workbench<br /><br /> A caixa de verificação está selecionada por predefinição.|  
 
  São guardadas as definições de configuração do controlador de dispositivo e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ViewtheDeviceDriverPropertiesDetailsTab"></a>Ver o separador de detalhes de propriedades de controladores de dispositivo  
+#####  <a name="ViewtheDeviceDriverPropertiesDetailsTab"></a> Ver o separador de detalhes de propriedades de controladores de dispositivo  
  As propriedades do controlador de dispositivo armazenadas no **detalhes** separador são configuradas ao executar o Assistente de importação de controladores de dispositivo. Todas as informações sobre o **detalhes** separador é só de leitura e não pode ser modificado. Ver as propriedades do controlador de dispositivo no **detalhes** separador através de ***driver_name*** **propriedades** caixa de diálogo (onde *driver_name* é o nome do controlador de dispositivo no Deployment Workbench).  
 
 ###### <a name="to-view-existing-device-drivers-properties-on-the-details-tab"></a>Para ver as propriedades de controladores de dispositivo existente no separador de detalhes  
@@ -2814,26 +2813,26 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Suportado IDs PnP correspondentes** |Contém uma lista dos IDs plug and play, que suporta o controlador de dispositivo.|  
     |**Este controlador é WHQL assinado** |Selecione para indicar se o controlador de dispositivo está assinado pelo Windows Hardware Quality Labs (WHQL). Controladores de dispositivos de passar os testes WHQL, Microsoft cria um ficheiro de certificação assinados digitalmente que permite a instalação em versões de 64 bits do Windows e impede que as versões de 32 bits do Windows apresentando uma mensagem de aviso que o controlador não tiver sido certificadas pela Microsoft.If é a caixa de verificação:<br /><br /> -Selecionado, o controlador de dispositivo assinado pelo WHQL<br /><br /> -Desmarcada, o controlador de dispositivo não assinado pelo WHQL|  
 
-####  <a name="CopyDeviceDriversintheDeploymentWorkbench"></a>Copiar controladores de dispositivo no Deployment Workbench  
+####  <a name="CopyDeviceDriversintheDeploymentWorkbench"></a> Copiar controladores de dispositivo no Deployment Workbench  
  Pode copiar e colar os controladores de dispositivo e as pastas sob o nó de controladores no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [copiar itens a Deployment Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveDeviceDriversintheDeploymentWorkbench"></a>Mover os controladores de dispositivo no Deployment Workbench  
+####  <a name="MoveDeviceDriversintheDeploymentWorkbench"></a> Mover os controladores de dispositivo no Deployment Workbench  
  Pode mover controladores de dispositivo e as pastas sob o nó de controladores no Deployment Workbench com o **Cortar** e **colar** ações conforme descrito em [mover itens na implementação Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameDeviceDriversintheDeploymentWorkbench"></a>Mudar o nome dos controladores de dispositivo no Deployment Workbench  
+####  <a name="RenameDeviceDriversintheDeploymentWorkbench"></a> Mudar o nome dos controladores de dispositivo no Deployment Workbench  
  Pode mudar o nome de controladores de dispositivo e as pastas sob o nó de controladores no Deployment Workbench com o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteDeviceDriversfromtheDeploymentWorkbench"></a>Elimine os controladores de dispositivo do Deployment Workbench  
+####  <a name="DeleteDeviceDriversfromtheDeploymentWorkbench"></a> Elimine os controladores de dispositivo do Deployment Workbench  
  Pode eliminar os controladores de dispositivo e as pastas sob o nó de controladores no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permite-lhe eliminar pacotes individuais ou de estruturas de pasta inteira.  
 
-####  <a name="ManageFoldersforDeviceDriversintheDeploymentWorkbench"></a>Gerir pastas de controladores de dispositivo no Deployment Workbench  
+####  <a name="ManageFoldersforDeviceDriversintheDeploymentWorkbench"></a> Gerir pastas de controladores de dispositivo no Deployment Workbench  
  Pode gerir pastas sob o nó de controladores no Deployment Workbench para criar agrupamentos hierárquicos de controladores de dispositivo. Para mais informações sobre:  
 
 -   Gestão de pastas, consulte [gerir pastas no Deployment Workbench](#ManageFoldersintheDeploymentWorkbench)  
 
 -   Perfis de seleção, consulte [gerir perfis de seleção](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableDeviceDriversintheDeploymentWorkbench"></a>Ativar ou desativar os controladores de dispositivo no Deployment Workbench  
+####  <a name="EnableorDisableDeviceDriversintheDeploymentWorkbench"></a> Ativar ou desativar os controladores de dispositivo no Deployment Workbench  
  Pode controlar se os controladores de dispositivo estão disponíveis para outros assistentes e caixas de diálogo no Deployment Workbench, selecionando o **ivar este controlador** caixa de verificação a **geral** separador do controlador de dispositivo **Propriedades** caixa de diálogo.  
 
 > [!CAUTION]
@@ -2841,12 +2840,12 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre a ativar ou desativar os controladores de dispositivo no Deployment Workbench, consulte [modificar controladores de dispositivo existente no Deployment Workbench](#ModifyExistingDeviceDriversintheDeploymentWorkbench).  
 
-####  <a name="DeploySpecificDeviceDriverstoTargetComputersinLTI"></a>Implementar controladores de dispositivo específico em computadores de destino no LTI  
+####  <a name="DeploySpecificDeviceDriverstoTargetComputersinLTI"></a> Implementar controladores de dispositivo específico em computadores de destino no LTI  
  Por predefinição, as implementações LTI incluem todos os controladores de dispositivo no Windows PE e implementação-las em computadores de destino. Em seguida, o sistema operativo de destino utiliza IDs Plug and Play para identificar os controladores de dispositivo que são necessários para os dispositivos nos computadores de destino.  
 
  Para alterar este comportamento predefinido, configurar o processo de implementação LTI para instalar controladores específicos para computadores de destino, conforme descrito em [implementações de controladores de dispositivo de controlo para LTI](#ControlDeviceDriverDeploymentsforLTI). Para obter mais informações sobre as estratégias de gestão do controlador de dispositivo, consulte selecione o [estratégia de gestão de controladores de dispositivo](#SelecttheDeviceDriverManagementStrategy).  
 
-###  <a name="ConfiguringTaskSequencesintheDeploymentWorkbench"></a>Configurar sequências de tarefas no Deployment Workbench  
+###  <a name="ConfiguringTaskSequencesintheDeploymentWorkbench"></a> Configurar sequências de tarefas no Deployment Workbench  
  Sequências de tarefas no MDT contém os passos para ser executada durante LTI. Sequências de tarefas no MDT utilizam o mesmo motor de sequência de tarefas como do Configuration Manager; No entanto, o Configuration Manager não é necessário para efetuar implementações LTI. Utilize o Deployment Workbench para gerir as sequências de tarefas utilizadas para efetuar implementações para os computadores de referência e de destino na sua organização.  
 
  Configure sequências de tarefas no Deployment Workbench no nó de pacotes de uma partilha de implementação por:  
@@ -2873,11 +2872,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  No addtion para gerir sequências de tarefas no Deployment Workbench, pode gerir sequências de tarefas utilizando os cmdlets do Windows PowerShell do MDT. Para mais informações sobre como gerir sequências de tarefas utilizando os cmdlets do Windows PowerShell do MDT, consulte as seguintes secções abaixo a secção "MDT Cmdlets do Windows PowerShell", no documento MDT *Toolkit referência*:  
 
--   **Importar MDTTaskSequence**  
+-   **Import-MDTTaskSequence**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-####  <a name="CreateaNewTaskSequenceintheDeploymentWorkbench"></a>Criar uma nova sequência de tarefas no Deployment Workbench  
+####  <a name="CreateaNewTaskSequenceintheDeploymentWorkbench"></a> Criar uma nova sequência de tarefas no Deployment Workbench  
  Utilizar o Assistente de nova sequência de tarefas no Deployment Workbench para criar novos sequências de tarefas. Inicie a tarefa de novo Assistente de sequência utilizando um dos seguintes métodos:  
 
 -   Na árvore da consola, clique no nó sequências de tarefas ou uma pasta por baixo do nó sequência de tarefas e, em seguida, no painel ações, clique em **nova sequência de tarefas**.  
@@ -2890,7 +2889,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 52 tabela lista os modelos de sequência de tarefas no MDT.  
 
-|**Modelo** |**Descrição** |  
+|**modelo** |**Descrição** |  
 |------------------|---------------------|  
 |Sysprep e captura|Efetua uma operação Sysprep e capture uma imagem de um computador de referência.|  
 |Sequência de tarefas de cliente padrão|Cria a sequência de tarefas predefinida para implementar imagens do sistema operativo em computadores cliente, incluindo computadores de secretária e portáteis|  
@@ -2924,7 +2923,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definições gerais** |-No **ID de sequência de tarefas**, tipo ***task_sequence_id*** (onde *task_sequence_id* é um identificador exclusivo para a sequência de tarefas que está a criar).<br /><br /> Embora pode mudar nome de uma sequência de tarefas e os comentários mais tarde, não é possível alterar o ID de. uma sequência de tarefas Antes de criar sequências de tarefas, crie um esquema de nomenclatura para utilizar na criação de sequência de tarefas IDs que irá fornecer informações importantes sobre cada sequência de tarefas. Um esquema de nomenclatura de exemplo é *nível-etiqueta de versão e edição*, onde *versão* é a versão do sistema operativo (Win8, Win2012), *edição* for o sistema operativo edição (Enterprise, Standard, Ultimate), *nível* é o nível de service pack (SP1, SP2), e *etiqueta* é uma etiqueta descritiva que identifica as personalizações.<br /><br /> -No **nome da sequência de tarefas**, tipo ***task_sequence_name*** (onde *task_sequence_name* é um nome descritivo para a sequência de tarefas que está a criar).<br /><br /> -No **comentários de sequência de tarefas**, tipo ***task_sequence_comment*** (onde *task_sequence_comment* é o texto que descreve a finalidade ou a utilização da sequência de tarefas).<br /><br /> -Clique **seguinte**.|  
     |**Selecione o modelo** |No **os modelos de sequência de tarefas seguintes estão disponíveis. Selecione a que pretende utilizar como um ponto de partida**, selecione ***task_sequence***e, em seguida, clique em **seguinte**.|  
     |**Selecione o SO** |No **imagens de sistema operativo que se seguem estão disponíveis para implementação com esta sequência de tarefas. Selecione um para utilizar**, selecione ***operating_system*** (onde *operating_system* for o sistema operativo no nó sistemas operativos no Deployment Workbench que pretende implementar o computador recursos ou de destino) e, em seguida, clique em **seguinte**.|  
-    |**Especifique a chave de produto** |a. Clique das seguintes opções, com base nos requisitos da sua organização:<br /><br /> - **Não especifique uma chave de produto neste momento**. Selecione esta opção quando uma chave de produto não é necessária quando implementar o Windows; Quando a chave de produto será fornecida no Assistente de implementação; ou ao utilizar as licenças de volume ativados com o KMS.<br /><br /> -                                          **Especifique uma chave de ativação múltipla (MAK) para ativar este sistema operativo**. Selecione esta opção quando implementar o Windows utilizando chaves de produto MAK na implementação. Chaves de produto MAK são utilizadas por clientes de licenciamento em Volume da Microsoft.<br /><br /> -                                          **Especifique a chave de produto para este sistema operativo**. Selecione esta opção quando implementar a chave de produto de revenda.<br /><br /> Para obter mais informações sobre ativação em Volume e chaves de produto no MDT, consulte [descrição geral da ativação de Volume](http://technet.microsoft.com/library/hh831612.aspx).<br /><br /> b. Clique em **Seguinte**.|  
+    |**Especifique a chave de produto** |a. Clique das seguintes opções, com base nos requisitos da sua organização:<br /><br /> - **Não especifique uma chave de produto neste momento**. Selecione esta opção quando uma chave de produto não é necessária quando implementar o Windows; Quando a chave de produto será fornecida no Assistente de implementação; ou ao utilizar as licenças de volume ativados com o KMS.<br /><br /> -                                          **Especifique uma chave de ativação múltipla (MAK) para ativar este sistema operativo**. Selecione esta opção quando implementar o Windows utilizando chaves de produto MAK na implementação. Chaves de produto MAK são utilizadas por clientes de licenciamento em Volume da Microsoft.<br /><br /> -                                          **Especifique a chave de produto para este sistema operativo**. Selecione esta opção quando implementar a chave de produto de revenda.<br /><br /> Para obter mais informações sobre ativação em Volume e chaves de produto no MDT, consulte [descrição geral da ativação de Volume](https://technet.microsoft.com/library/hh831612.aspx).<br /><br /> b. Clique em **Seguinte**.|  
     |**Definições de SO** |-No **nome completo**, tipo ***user_full_name*** (onde *user_full_name* é o nome do utilizador do computador de destino).<br /><br /> -No **organização**, tipo ***organization_name*** (onde *organization_name* é o nome da organização).<br /><br /> -No **Home Page do Internet Explorer**, tipo ***home_url*** (onde *home_url* é o Uniform Resource Locator [URL] do Web site a site predefinido ao iniciar o Internet Explorador do).<br /><br /> -Clique **seguinte**.|  
     |**Palavra-passe de administrador** |No **palavra-passe de administrador** e **confirme a palavra-passe de administrador**, tipo ***palavra-passe*** (onde *palavra-passe* é a palavra-passe para ser atribuído à conta de administrador incorporada no computador de referência ou de destino) e, em seguida, clique em **seguinte**.|  
     |**Resumo** |Clique em **Seguinte**.|  
@@ -2932,7 +2931,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O Assistente de nova sequência de tarefas é concluída. O pacote é adicionado à lista de pacotes no painel de detalhes do Deployment Workbench.  
 
-####  <a name="ModifyanExistingTaskSequenceintheDeploymentWorkbench"></a>Modificar uma sequência de tarefas existente no Deployment Workbench  
+####  <a name="ModifyanExistingTaskSequenceintheDeploymentWorkbench"></a> Modificar uma sequência de tarefas existente no Deployment Workbench  
  Modificar as sequências de tarefas no nó sequências de tarefas no Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). Configurar sequências de tarefas no Deployment Workbench, efetuando os seguintes passos da sequência de tarefas **propriedades** caixa de diálogo:  
 
 1.  Configurar propriedades no **geral** separador conforme descrito em [separador de geral do propriedades de sequência de tarefas configurar](#ConfiguretheTaskSequencePropertiesGeneralTab).  
@@ -2941,7 +2940,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 3.  Configurar propriedades no **informações do SO** separador conforme descrito em [configurar separador de informações de SO de propriedades de sequência de tarefas](#ConfiguretheTaskSequencePropertiesOSInfoTab).  
 
-#####  <a name="ConfiguretheTaskSequencePropertiesGeneralTab"></a>Configurar o separador de geral de propriedades de sequência de tarefas  
+#####  <a name="ConfiguretheTaskSequencePropertiesGeneralTab"></a> Configurar o separador de geral de propriedades de sequência de tarefas  
  Propriedades da sequência de tarefas armazenadas no **geral** separador principalmente são configuradas ao executar o Assistente de nova sequência de tarefas. Atualizar propriedades da sequência de tarefas no **geral** separador através de ***task_sequence_name*** **propriedades** caixa de diálogo (onde *task_sequence_name*  é o nome da sequência de tarefas no Deployment Workbench).  
 
 ###### <a name="to-modify-existing-task-sequence-properties-on-the-general-tab"></a>Para modificar as propriedades de sequência de tarefas existente no separador Geral  
@@ -2964,7 +2963,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |-----------------|---------------------|  
     |**ID de sequência de tarefas** |Contém o identificador de sequência de tarefas que o Assistente de nova sequência de tarefas fornecido.<br /><br /> As informações nesta caixa de texto são geradas automaticamente pelo Deployment Workbench e não podem ser modificadas.|  
     |**Nome da sequência de tarefas** |Contém o nome da sequência de tarefas apresentado no Deployment Workbench e o Assistente de implementação.|  
-    |**Comentários** |Fornece informações sobre a sequência de tarefas.|  
+    |**comentários** |Fornece informações sobre a sequência de tarefas.|  
     |**Versão de sequência de tarefas** |Contém o número de versão da sequência de tarefas. Pode escrever qualquer número de versão que é adequado para as normas de controlo de versões da sua organização.|  
     |**Isto pode ser executado em qualquer plataforma** |Selecione para configurar a sequência de tarefas para executar em qualquer 32 bits ou 64 bits sistema operativo Windows suportado. A outra opção disponível é **Isto pode apenas ser executado nas plataformas cliente especificadas**.|  
     |**Isto pode apenas ser executado nas plataformas cliente especificadas** |Selecione para configurar a sequência de tarefas para executar em qualquer 32 bits ou 64 bits sistema operativo Windows suportado. A outra opção disponível é **Isto pode ser executado apenas em qualquer plataforma**.|  
@@ -2973,7 +2972,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  As definições de configuração de sequência de tarefas são guardadas e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConfiguretheTaskSequencePropertiesTaskSequenceTab"></a>Configurar o separador de sequência de tarefas de propriedades de sequência de tarefas  
+#####  <a name="ConfiguretheTaskSequencePropertiesTaskSequenceTab"></a> Configurar o separador de sequência de tarefas de propriedades de sequência de tarefas  
  Propriedades da sequência de tarefas armazenadas no **sequência de tarefas** separador principalmente são configuradas ao executar o Assistente de nova sequência de tarefas. No entanto, pode atualizar as propriedades de sequência de tarefas no **sequência de tarefas** separador através de ***task_sequence_name*** **propriedades** caixa de diálogo (onde  *task_sequence_name* é o nome da sequência de tarefas no Deployment Workbench).  
 
  O **sequência de tarefas** separador contém as áreas e outros controlos que utilizar para:  
@@ -2984,7 +2983,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Configure as opções do passo, conforme descrito no [configurar as opções de passo de sequência de tarefas](#ConfiguretheTaskSequenceStepOptions)  
 
-######  <a name="ConfiguretheTaskSequenceStepsandStepSequence"></a>Configurar os passos de sequência de tarefas e o passo de sequência  
+######  <a name="ConfiguretheTaskSequenceStepsandStepSequence"></a> Configurar os passos de sequência de tarefas e o passo de sequência  
  O **sequência de tarefas** separador contém uma representação hierárquica dos passos de sequência de tarefas e os respetivos sequência. Passos de sequência de tarefas estão organizados numa estrutura hierárquica de pasta com base nas fases de implementação.  
 
  Pode organizar um ou mais passos de sequência de tarefas ao criar um grupo. Pode organizar vários grupos e passos de sequência de tarefas para criar uma hierarquia de grupos e passos de sequência de tarefas. Utilize grupos de passo de sequência de tarefas para controlar o processamento de um ou mais passos de sequência de tarefas como uma unidade.  
@@ -3003,7 +3002,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definições** |-Aplicar definições de rede<br /><br /> -Capturar definições de rede<br /><br /> -Recuperar a partir de domínio|  
     |**Funções** |-Instalar funções e funcionalidades<br /><br /> -Desinstalar funções e funcionalidades<br /><br /> -Configurar o DHCP<br /><br /> -Configurar o DNS<br /><br /> -Configurar o ADDS<br /><br /> -Autorizar DHCP|  
 
--   **Remover**. Selecione esta opção para remover o passo de sequência de tarefas atualmente realçado ou grupo.  
+-   **Remove**. Selecione esta opção para remover o passo de sequência de tarefas atualmente realçado ou grupo.  
 
     > [!IMPORTANT]
     >  Se remover um grupo de sequência de tarefas, tem também de remover todos os passos de sequência de tarefas nesse grupo.  
@@ -3040,7 +3039,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Pacotes, consulte [personalizar o pacote de instalação nas sequências de tarefas](#CustomizePackageInstallationinTaskSequences)  
 
-######  <a name="ConfiguretheTaskSequenceStepProperties"></a>Configurar as propriedades de passo de sequência de tarefas  
+######  <a name="ConfiguretheTaskSequenceStepProperties"></a> Configurar as propriedades de passo de sequência de tarefas  
  No **propriedades** separador, pode configura as propriedades para grupos de sequências de tarefas ou passos de sequência de tarefas individuais. As definições de configuração para:  
 
 -   Grupos de sequências de tarefas são os mesmos para todos os grupos  
@@ -3079,7 +3078,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 6.  No **propriedades** separador, configure o grupo de sequência de tarefas ou passo individual com base nos requisitos da sua organização e, em seguida, clique em **OK**.  
 
-######  <a name="ConfiguretheTaskSequenceStepOptions"></a>Configurar as opções de passo de sequência de tarefas  
+######  <a name="ConfiguretheTaskSequenceStepOptions"></a> Configurar as opções de passo de sequência de tarefas  
  No **opções** separador, configurar as definições que controlam a forma como o passo de sequência de tarefas é executada. Estas definições permitem-lhe desativar o passo, especifique os códigos de retorno para o passo que indicar êxito, determinar se o passo deve avançar no evento de erro e quaisquer condições para executar o passo.  
 
  As definições de configuração a **opções** separador para:  
@@ -3117,7 +3116,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Continuar com o erro** |Selecione para controlar se a sequência de tarefas deverá continuar quando o passo ou grupo de sequência de tarefas encontra um erro. Se a caixa de verificação:<br /><br /> -Selecionado, a sequência de tarefas continua se o grupo ou passo encontra um erro<br /><br /> -Desmarcada, a sequência de tarefas não irá continuar se o grupo ou passo encontra um erro<br /><br /> Esta caixa de verificação está selecionada por predefinição.|  
     |**Caixa de listagem de condição** |Contém todos os critérios condicionais para executar este passo. Se não existem critérios forem especificados, o passo é executado. Adicione critérios para determinar quando o grupo de tarefas deve (ou não devem) executado. Utilize o **adicionar**, **remover**, e **editar** botões para modificar as condições em que o grupo de tarefas é executado.<br /><br /> Os critérios podem ser baseados em:<br /><br /> -Um **se** declaração<br /><br /> -A variável de sequência de tarefas<br /><br /> -A versão do sistema operativo de destino.<br /><br /> -Uma consulta de idioma de consulta do Windows Management Instrumentation (WMI) (WQL) num espaço de nomes WMI<br /><br /> Quaisquer condições configuradas para um grupo afetam todas as tarefas dentro de um grupo.<br /><br /> Para obter mais informações sobre as condições nos passos de sequência de tarefas, consulte [configurar condições de passo de sequência de tarefas](#ConfigureTaskSequenceStepConditions).|  
 
-#####  <a name="ConfiguretheTaskSequencePropertiesOSInfoTab"></a>Configurar o separador de informações do SO de propriedades de sequência de tarefas  
+#####  <a name="ConfiguretheTaskSequencePropertiesOSInfoTab"></a> Configurar o separador de informações do SO de propriedades de sequência de tarefas  
  Propriedades da sequência de tarefas armazenadas no **informações do SO** separador principalmente são configuradas ao executar o Assistente de nova sequência de tarefas. Atualizar propriedades da sequência de tarefas no **informações do SO** separador através de ***task_sequence_name*** **propriedades** caixa de diálogo (onde *task_sequence_name*  é o nome da sequência de tarefas no Deployment Workbench).  
 
 ###### <a name="to-modify-existing-task-sequence-properties-on-the-os-info-tab"></a>Para modificar as propriedades de sequência de tarefas existente no separador de informações do SO  
@@ -3140,37 +3139,37 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |-----------------|---------------------|  
     |**Descrição do sistema operativo** |Contém o nome do sistema operativo que forneceu ao criar a sequência de tarefas — por exemplo o Windows 8 ENTERPRISE.<br /><br /> As informações nesta caixa de texto são geradas automaticamente pelo Deployment Workbench e não podem ser modificadas.|  
     |**Compilação** |Contém o número de compilação do sistema operativo.<br /><br /> As informações nesta caixa de texto são geradas automaticamente pelo Deployment Workbench e não podem ser modificadas.|  
-    |**Plataforma** |Contém a arquitetura de processador do sistema operativo — por exemplo, x86.<br /><br /> As informações nesta caixa de texto são geradas automaticamente pelo Deployment Workbench e não podem ser modificadas.|  
-    |**Editar Unattend.xml** |Clique para modificar o conteúdo do ficheiro Unattended.xml que gera o Deployment Workbench para Windows.<br /><br /> Deployment Workbench não é possível criar ficheiros de catálogo para algumas imagens do Windows dos tipos de arquitetura diferente. A lista seguinte descreve os tipos de arquitetura com o Deployment Workbench e catálogos que pode criar para cada arquitetura:<br /><br /> -                                          **Deployment Workbench em execução no x86**. Cria as imagens do Windows de catálogos de x86 e x64<br /><br /> -                                          **Deployment Workbench em execução no x64**. Cria catálogos apenas para o x64 imagens do Windows<br /><br /> O Assistente para obter o catálogo de sistema operativo pode ser apresentado se um sistema operativo ainda não tiver um catálogo. Verá uma barra de progresso no Assistente de introdução de catálogo de sistema operativo, mas é necessária qualquer interação do utilizador. O assistente poderá demorar alguns minutos a concluir.|  
+    |**Platform** |Contém a arquitetura de processador do sistema operativo — por exemplo, x86.<br /><br /> As informações nesta caixa de texto são geradas automaticamente pelo Deployment Workbench e não podem ser modificadas.|  
+    |**Edit Unattend.xml** |Clique para modificar o conteúdo do ficheiro Unattended.xml que gera o Deployment Workbench para Windows.<br /><br /> Deployment Workbench não é possível criar ficheiros de catálogo para algumas imagens do Windows dos tipos de arquitetura diferente. A lista seguinte descreve os tipos de arquitetura com o Deployment Workbench e catálogos que pode criar para cada arquitetura:<br /><br /> -                                          **Deployment Workbench em execução no x86**. Cria as imagens do Windows de catálogos de x86 e x64<br /><br /> -                                          **Deployment Workbench em execução no x64**. Cria catálogos apenas para o x64 imagens do Windows<br /><br /> O Assistente para obter o catálogo de sistema operativo pode ser apresentado se um sistema operativo ainda não tiver um catálogo. Verá uma barra de progresso no Assistente de introdução de catálogo de sistema operativo, mas é necessária qualquer interação do utilizador. O assistente poderá demorar alguns minutos a concluir.|  
 
  As definições de configuração de sequência de tarefas são guardadas e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-####  <a name="CopyTaskSequencesintheDeploymentWorkbench"></a>Sequências de tarefas de cópia no Deployment Workbench  
+####  <a name="CopyTaskSequencesintheDeploymentWorkbench"></a> Sequências de tarefas de cópia no Deployment Workbench  
  Pode copiar e colar sequências de tarefas e as pastas sob o nó de sequência de tarefas no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [copiar itens a Deployment Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-####  <a name="MoveTaskSequencesintheDeploymentWorkbench"></a>Mover as sequências de tarefas no Deployment Workbench  
+####  <a name="MoveTaskSequencesintheDeploymentWorkbench"></a> Mover as sequências de tarefas no Deployment Workbench  
  Mover as sequências de tarefas e as pastas sob o nó de sequência de tarefas no Deployment Workbench, utilizando o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench ](#MoveItemsintheDeploymentWorkbench).  
 
-####  <a name="RenameTaskSequencesintheDeploymentWorkbench"></a>Mudar o nome de sequências de tarefas no Deployment Workbench  
+####  <a name="RenameTaskSequencesintheDeploymentWorkbench"></a> Mudar o nome de sequências de tarefas no Deployment Workbench  
  Mudar o nome de pastas sob o nó de sequência de tarefas no Deployment Workbench e sequências de tarefas utilizando o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-####  <a name="DeleteTaskSequencesfromtheDeploymentWorkbench"></a>Eliminar sequências de tarefas do Deployment Workbench  
+####  <a name="DeleteTaskSequencesfromtheDeploymentWorkbench"></a> Eliminar sequências de tarefas do Deployment Workbench  
  Eliminar sequências de tarefas e as pastas sob o nó de sequência de tarefas no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permite-lhe eliminar sequências de tarefas individuais ou de estruturas de pasta inteira.  
 
-####  <a name="ManageFoldersforTaskSequencesintheDeploymentWorkbench"></a>Gerir pastas para sequências de tarefas no Deployment Workbench  
+####  <a name="ManageFoldersforTaskSequencesintheDeploymentWorkbench"></a> Gerir pastas para sequências de tarefas no Deployment Workbench  
  Pode gerir pastas sob o nó de sequência de tarefas no Deployment Workbench para criar agrupamentos hierárquicos de sequências de tarefas. Para mais informações sobre:  
 
 1.  Gestão de pastas, consulte [gerir pastas no Deployment Workbench](#ManageFoldersintheDeploymentWorkbench)  
 
 2.  Perfis de seleção, consulte [gerir perfis de seleção](#ManageSelectionProfiles)  
 
-####  <a name="EnableorDisableaTaskSequenceintheDeploymentWorkbench"></a>Ativar ou desativar uma sequência de tarefas no Deployment Workbench  
+####  <a name="EnableorDisableaTaskSequenceintheDeploymentWorkbench"></a> Ativar ou desativar uma sequência de tarefas no Deployment Workbench  
  Pode controlar se existem sequências de tarefas para outros assistentes e caixas de diálogo no Deployment Workbench com o **ativar esta sequência de tarefas** caixa de verificação a **geral** separador do pacote  **Propriedades** caixa de diálogo, conforme descrito em [configurar sequências de tarefas no Deployment Workbench](#ConfiguringTaskSequencesintheDeploymentWorkbench).  
 
-####  <a name="PreventaTaskSequencefromBeingVisibleintheDeploymentWizard"></a>Impedir que uma sequência de tarefas a ser visível no Assistente de implementação  
+####  <a name="PreventaTaskSequencefromBeingVisibleintheDeploymentWizard"></a> Impedir que uma sequência de tarefas a ser visível no Assistente de implementação  
  Pode impedir que uma sequência de tarefas a ser visível no Assistente de implementação com o **ocultar esta sequência de tarefas no Assistente de implementação** caixa de verificação a **geral** separador da aplicação  **Propriedades** caixa de diálogo, conforme descrito em [configurar sequências de tarefas no Deployment Workbench](#ConfiguringTaskSequencesintheDeploymentWorkbench).  
 
-####  <a name="ModifytheUnattendedSetupAnswerFileAssociatedwiththeTaskSequence"></a>Modificar o ficheiro de resposta de configuração automática associado à sequência de tarefas  
+####  <a name="ModifytheUnattendedSetupAnswerFileAssociatedwiththeTaskSequence"></a> Modificar o ficheiro de resposta de configuração automática associado à sequência de tarefas  
  MDT atualizações automaticamente o ficheiro de resposta de configuração automática (Unattend.xml) para uma sequência de tarefas com base nas definições de configuração que fornecem no Deployment Workbench e o Assistente de implementação. No entanto, existem instâncias em que poderá ter de modificar o ficheiro de resposta de configuração automática para uma sequência de tarefas diretamente, tal como quando modifica um parâmetro de configuração que não está exposto no Deployment Workbench ou no Assistente de implementação. Modificar diretamente o ficheiro de resposta de configuração automática para uma sequência de tarefas clicando **editar Unattend.xml** no **informações do SO** separador da sequência de tarefas **propriedades** caixa de diálogo.  
 
  Para mais informações sobre:  
@@ -3179,7 +3178,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Unattend.XML, consulte o *guia de avaliação do Windows e do utilizador do Kit de implementação* no Windows ADK  
 
-###  <a name="PerformingCommonManagementTasksintheDeploymentWorkbench"></a>Executar tarefas de gestão comuns no Deployment Workbench  
+###  <a name="PerformingCommonManagementTasksintheDeploymentWorkbench"></a> Executar tarefas de gestão comuns no Deployment Workbench  
  Pode utilizar o Deployment Workbench para efetuar muitas das tarefas de gestão comuns. Embora alguns gestão é exclusivo para cada tipo de item, as seguintes tarefas são comuns a todos os itens no Deployment Workbench:  
 
 -   Gerir pastas, conforme descrito em [gerir pastas no Deployment Workbench](#ManageFoldersintheDeploymentWorkbench)  
@@ -3194,7 +3193,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Eliminar itens, conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench)  
 
-####  <a name="ManageFoldersintheDeploymentWorkbench"></a>Gerir pastas no Deployment Workbench  
+####  <a name="ManageFoldersintheDeploymentWorkbench"></a> Gerir pastas no Deployment Workbench  
  Utilizar as pastas para organizar os outros itens no Deployment Workbench, controladores de dispositivos, sistemas operativos e aplicações. Pastas permitem-lhe criar hierarquias para organizar os itens, bem como subconjuntos de itens que pode incluir em perfis de seleção.  
 
 > [!NOTE]
@@ -3216,7 +3215,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Ativar ou desativar uma pasta, conforme descrito em [ativar ou desativar uma pasta no Deployment Workbench](#EnableorDisableaFolderintheDeploymentWorkbench)  
 
-#####  <a name="CreateaNewFolderintheDeploymentWorkbench"></a>Crie uma nova pasta no Deployment Workbench  
+#####  <a name="CreateaNewFolderintheDeploymentWorkbench"></a> Crie uma nova pasta no Deployment Workbench  
  Crie pastas no Deployment Workbench com o novo Assistente de pasta. Inicie o Assistente de pasta novos utilizando um dos seguintes métodos:  
 
 -   Na árvore da consola, clique num nó ou uma pasta. Em seguida, no painel ações, clique em **nova pasta**.  
@@ -3247,7 +3246,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Depois de concluído o Assistente de pasta novo, é apresentada a nova pasta na partilha de implementação no Deployment Workbench.  
 
-#####  <a name="ModifyanExistingFolderintheDeploymentWorkbench"></a>Modificar uma pasta existente no Deployment Workbench  
+#####  <a name="ModifyanExistingFolderintheDeploymentWorkbench"></a> Modificar uma pasta existente no Deployment Workbench  
  Modificar pastas existentes no Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). As propriedades de pasta principalmente são configuradas ao executar o Assistente de nova pasta. Atualizar as propriedades da pasta no **geral** separador através de ***nome_da_pasta*** **propriedades** caixa de diálogo (onde *nome_da_pasta* é o nome da pasta no Deployment Workbench).  
 
 ###### <a name="to-modify-an-existing-folder"></a>Para modificar uma pasta existente  
@@ -3269,27 +3268,27 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Nome** |Contém o nome da pasta que é apresentado no Deployment Workbench.|  
-    |**Comentários** |Fornece informações sobre a pasta.|  
+    |**comentários** |Fornece informações sobre a pasta.|  
     |**Ativar esta pasta** |Selecione esta opção para ativar ou desativar a pasta. Se a caixa de verificação:<br /><br /> -Selecionada, pode selecionar a pasta em perfis de seleção<br /><br /> -Desmarcada, não é possível selecionar a pasta em perfis de seleção|  
 
  São guardadas as definições de configuração de pasta e as modificações são apresentadas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="CopyaFolderintheDeploymentWorkbench"></a>Copiar uma pasta no Deployment Workbench  
+#####  <a name="CopyaFolderintheDeploymentWorkbench"></a> Copiar uma pasta no Deployment Workbench  
  Pode copiar e colar pastas no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [itens de cópia no Deployment Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveaFolderintheDeploymentWorkbench"></a>Mover uma pasta no Deployment Workbench  
+#####  <a name="MoveaFolderintheDeploymentWorkbench"></a> Mover uma pasta no Deployment Workbench  
  Pode mover pastas no Deployment Workbench com o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="RenameaFolderintheDeploymentWorkbench"></a>Mudar o nome de uma pasta no Deployment Workbench  
+#####  <a name="RenameaFolderintheDeploymentWorkbench"></a> Mudar o nome de uma pasta no Deployment Workbench  
  Pode mudar o nome de pastas no Deployment Workbench com o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteaFolderfromtheDeploymentWorkbench"></a>Eliminar uma pasta do Deployment Workbench  
+#####  <a name="DeleteaFolderfromtheDeploymentWorkbench"></a> Eliminar uma pasta do Deployment Workbench  
  Pode eliminar uma pasta no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permite-lhe eliminar pastas individuais ou de uma hierarquia completa de pastas.  
 
-#####  <a name="EnableorDisableaFolderintheDeploymentWorkbench"></a>Ativar ou desativar uma pasta no Deployment Workbench  
+#####  <a name="EnableorDisableaFolderintheDeploymentWorkbench"></a> Ativar ou desativar uma pasta no Deployment Workbench  
  Pode controlar se as pastas estão disponíveis para os outros assistentes e caixas de diálogo no Deployment Workbench com o **ativar esta pasta** caixa de verificação a **geral** separador da pasta  **Propriedades** caixa de diálogo. Para obter mais informações sobre a ativação ou desativação pastas no Deployment Workbench, consulte [modificar uma pasta existente no Deployment Workbench](#ModifyanExistingFolderintheDeploymentWorkbench).  
 
-####  <a name="ViewItemPropertiesintheDeploymentWorkbench"></a>Ver propriedades de Item no Deployment Workbench  
+####  <a name="ViewItemPropertiesintheDeploymentWorkbench"></a> Ver propriedades de Item no Deployment Workbench  
  Pode ver as propriedades de sistemas operativos, controladores de dispositivo e outros itens do Deployment Workbench utilizando um dos seguintes métodos:  
 
 -   No painel de detalhes, clique num item. Em seguida, no painel ações, clique em **propriedades**.  
@@ -3314,7 +3313,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O ***item*** **propriedades** é apresentada a caixa de diálogo (onde *item* é o nome do item selecionado).  
 
-####  <a name="CopyItemsintheDeploymentWorkbench"></a>Copiar itens no Deployment Workbench  
+####  <a name="CopyItemsintheDeploymentWorkbench"></a> Copiar itens no Deployment Workbench  
  Utilize o Deployment Workbench para copiar os sistemas operativos, controladores de dispositivo e outros itens dentro de uma partilha de implementação ou entre partilhas de duas implementações. Quando copiar um item, o Deployment Workbench cria uma ligação para o item original em vez de criar uma cópia separada do item. Isto reduz o tamanho da partilha de implementação. Se pretender criar um duplicado de um item, importe o item novamente na pasta de destino.  
 
  Quando copiar um item entre um item com o mesmo e partilhas de implementação:  
@@ -3329,7 +3328,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  Funcionalidade de arrastar e largar conforme descrito em [copiar itens utilizando a funcionalidade de arrastar e largar](#CopyItemsUsingDragandDropFunctionality)  
 
-#####  <a name="CopyItemsUsingtheCutandPasteActions"></a>Copiar itens com o cortar e colar ações  
+#####  <a name="CopyItemsUsingtheCutandPasteActions"></a> Copiar itens com o cortar e colar ações  
  Pode copiar um item com o **Cortar** e **colar** ações no Deployment Workbench. Copie o item na localização de origem utilizando um dos seguintes métodos:  
 
 -   No painel de detalhes, clique num item. Em seguida, no painel ações, clique em **cópia**.  
@@ -3362,7 +3361,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A nova cópia do item é apresentado no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="CopyItemsUsingDragandDropFunctionality"></a>Copiar itens utilizando a funcionalidade de arrastar e largar  
+#####  <a name="CopyItemsUsingDragandDropFunctionality"></a> Copiar itens utilizando a funcionalidade de arrastar e largar  
  Pode copiar itens, arrastando um item na localização de origem para a localização de destino.  
 
 ###### <a name="to-copy-items-in-the-deployment-workbench-using-drag-and-drop-functionality"></a>Para copiar itens no Deployment Workbench utilizando a funcionalidade de arrastar e largar  
@@ -3375,14 +3374,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O item é copiado para a localização de destino no painel de detalhes do Deployment Workbench.  
 
-####  <a name="MoveItemsintheDeploymentWorkbench"></a>Mover os itens no Deployment Workbench  
+####  <a name="MoveItemsintheDeploymentWorkbench"></a> Mover os itens no Deployment Workbench  
  Utilize o Deployment Workbench para mover os sistemas operativos, controladores de dispositivo e outros itens dentro de uma partilha de implementação ou entre partilhas de duas implementações. Pode mover itens utilizando:  
 
 -   **Cortar** e **colar** ações conforme descrito em [mover itens utilizando as operações de cortar e colar ações](#MoveItemsUsingtheCutandPasteActions)  
 
 -   Funcionalidade de arrastar e largar conforme descrito em [mover itens utilizando a funcionalidade de arrastar e largar](#MoveItemsUsingDragandDropFunctionality)  
 
-#####  <a name="MoveItemsUsingtheCutandPasteActions"></a>Mover os itens utilizando o cortar e colar ações  
+#####  <a name="MoveItemsUsingtheCutandPasteActions"></a> Mover os itens utilizando o cortar e colar ações  
  Pode mover um item com o **Cortar** e **colar** no Deployment Workbench. Corte o item na localização de origem utilizando um dos seguintes métodos:  
 
 -   No painel de detalhes, clique num item. Em seguida, no painel ações, clique em **propriedades**.  
@@ -3405,7 +3404,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O **propriedades do item** é apresentada a caixa de diálogo (onde *item* é o nome do item selecionado).  
 
-#####  <a name="MoveItemsUsingDragandDropFunctionality"></a>Mover os itens utilizando a funcionalidade de arrastar e largar  
+#####  <a name="MoveItemsUsingDragandDropFunctionality"></a> Mover os itens utilizando a funcionalidade de arrastar e largar  
  Pode mover itens arrastando-los a partir da localização de origem para a localização de destino.  
 
 ###### <a name="to-move-items-in-the-deployment-workbench-using-drag-and-drop-functionality"></a>Para mover os itens no Deployment Workbench utilizando a funcionalidade de arrastar e largar  
@@ -3418,7 +3417,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O item é movido para a localização de destino.  
 
-####  <a name="RenameItemsintheDeploymentWorkbench"></a>Mudar o nome de itens no Deployment Workbench  
+####  <a name="RenameItemsintheDeploymentWorkbench"></a> Mudar o nome de itens no Deployment Workbench  
  Pode mudar o nome de sistemas operativos, controladores de dispositivo e outros itens no Deployment Workbench, utilizando um dos seguintes métodos:  
 
 -   No painel de detalhes, clique num item. Em seguida, no painel ações, clique em **mudar o nome**.  
@@ -3441,7 +3440,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O novo nome do item é apresentado no painel de detalhes do Deployment Workbench.  
 
-####  <a name="DeleteItemsfromtheDeploymentWorkbench"></a>Eliminar itens do Deployment Workbench  
+####  <a name="DeleteItemsfromtheDeploymentWorkbench"></a> Eliminar itens do Deployment Workbench  
  Pode eliminar os sistemas operativos, controladores de dispositivo e a outros itens do Deployment Workbench com o Assistente de itens selecionados para eliminação. Inicie o eliminar selecionado itens assistente utilizando um dos seguintes métodos:  
 
 -   No painel de detalhes, clique num item. Em seguida, no painel ações, clique em **eliminar**.  
@@ -3486,7 +3485,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Depois de concluído o Assistente de itens eliminar selecionado, o item e outros itens afectados são removidos do Deployment Workbench e da partilha de implementação.  
 
-###  <a name="PerformingAdvancedConfigurationTasksintheDeploymentWorkbench"></a>Executar tarefas de configuração avançada no Deployment Workbench  
+###  <a name="PerformingAdvancedConfigurationTasksintheDeploymentWorkbench"></a> Executar tarefas de configuração avançada no Deployment Workbench  
  Deployment Workbench inclui opções de configuração avançada que expandem as funcionalidades fornecidas nas implementações LTI básicas. Estas opções de configuração fornecem mais granular seleção do conteúdo que pretende incluir no suporte de implementações de suportes de dados autónomos sem a necessidade de se ligar a uma partilha de implementação, implementações de suporte em organizações de maior e implementação.  
 
  Tarefas de configuração avançadas que podem realizar incluem:  
@@ -3499,7 +3498,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Gerir a BD do MDT, conforme descrito em [gerir a BD do MDT](#ManagetheMDTDB)  
 
-####  <a name="ManageSelectionProfiles"></a>Gerir perfis de seleção  
+####  <a name="ManageSelectionProfiles"></a> Gerir perfis de seleção  
  Perfis de seleção permitem-lhe selecionar uma ou mais pastas no Deployment Workbench que contêm um ou mais itens no Deployment Workbench, incluindo aplicações, controladores de dispositivos, sistemas operativos, pacotes de sistema operativo e sequências de tarefas.  
 
  utilizar perfis de seleção para agrupar itens e, em seguida, utilizar esses agrupamentos de itens:  
@@ -3543,7 +3542,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Identifique fornece as diferenças entre a seleção e grupos, conforme descrito em [identificar os grupos e a relação entre seleção perfis](#IdentifytheRelationshipBetweenSelectionProfilesandGroups).  
 
-#####  <a name="CreateaNewSelectionProfileintheDeploymentWorkbench"></a>Criar um novo perfil de seleção no Deployment Workbench  
+#####  <a name="CreateaNewSelectionProfileintheDeploymentWorkbench"></a> Criar um novo perfil de seleção no Deployment Workbench  
  Crie perfis de seleção no Deployment Workbench com o novo Assistente de perfil de seleção. Inicie o Assistente de perfil de seleção de novo utilizando um dos seguintes métodos:  
 
 -   Na árvore da consola, clique no nó de perfis de seleção. Em seguida, no painel ações, clique em **novo perfil de seleção**.  
@@ -3575,7 +3574,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluir o Assistente de perfil de seleção de novo. O perfil de seleção é adicionado à lista de perfis de seleção no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ModifyanExistingSelectionProfileintheDeploymentWorkbench"></a>Modificar um perfil existente de seleção no Deployment Workbench  
+#####  <a name="ModifyanExistingSelectionProfileintheDeploymentWorkbench"></a> Modificar um perfil existente de seleção no Deployment Workbench  
  Modificar existente seleção perfis no nó de perfis de seleção do Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). As propriedades de perfil de seleção principalmente são configuradas ao executar o Assistente de perfil de seleção de novo. No entanto, pode atualizar as propriedades de perfil de seleção no **geral** separador do ***profile_name*** **propriedades** caixa de diálogo (onde *profile_name*  é o nome do perfil de seleção no Deployment Workbench).  
 
 ###### <a name="to-configure-the-general-tab-for-package-properties"></a>Para configurar o separador Geral das propriedades de pacote  
@@ -3597,24 +3596,24 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Nome** |Contém o nome da seleção apresentado no Deployment Workbench e o Assistente de implementação.|  
-    |**Comentários** |Fornece informações sobre o perfil de seleção.|  
+    |**comentários** |Fornece informações sobre o perfil de seleção.|  
     |**Pastas** |Lista hierárquica de pastas e o respetivo estado de seleção.|  
 
  São guardadas as definições de configuração do perfil de seleção, as modificações são apresentadas no painel de detalhes do Deployment Workbench e o *deployment_share*\Control\SelectionProfiles.xml ficheiro (onde  *deployment_share* é o nome da partilha de implementação) é atualizado com as definições de configuração do perfil de seleção.  
 
-#####  <a name="CopyaSelectionProfileintheDeploymentWorkbench"></a>Copie um perfil de seleção no Deployment Workbench  
+#####  <a name="CopyaSelectionProfileintheDeploymentWorkbench"></a> Copie um perfil de seleção no Deployment Workbench  
  Pode copiar e colar os perfis de seleção no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [itens de cópia no Deployment Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveaSelectionProfileintheDeploymentWorkbench"></a>Mover um perfil de seleção no Deployment Workbench  
+#####  <a name="MoveaSelectionProfileintheDeploymentWorkbench"></a> Mover um perfil de seleção no Deployment Workbench  
  Pode mover perfis de seleção no Deployment Workbench com o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="RenameaSelectionProfileintheDeploymentWorkbench"></a>Mudar o nome de um perfil de seleção no Deployment Workbench  
+#####  <a name="RenameaSelectionProfileintheDeploymentWorkbench"></a> Mudar o nome de um perfil de seleção no Deployment Workbench  
  Pode mudar o nome de perfis de seleção no Deployment Workbench com o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteaSelectionProfilefromtheDeploymentWorkbench"></a>Eliminar um perfil de seleção do Deployment Workbench  
+#####  <a name="DeleteaSelectionProfilefromtheDeploymentWorkbench"></a> Eliminar um perfil de seleção do Deployment Workbench  
  Pode eliminar um perfil de seleção no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permite-lhe eliminar perfis de seleção individuais.  
 
-#####  <a name="IdentifytheRelationshipBetweenSelectionProfilesandGroups"></a>Identificar a relação entre os perfis de seleção e grupos  
+#####  <a name="IdentifytheRelationshipBetweenSelectionProfilesandGroups"></a> Identificar a relação entre os perfis de seleção e grupos  
  Utilize perfis de seleção para criar grupos de itens do Deployment Workbench, como sistemas operativos, controladores de dispositivo ou aplicações. Utilize os perfis de seleção para especificar controladores de dispositivo, definir o conteúdo a incluir numa partilha de implementação ligado, definir o conteúdo para incluir para implementações de suportes de dados e outras tarefas.  
 
  A relação entre os itens e pastas num perfil de seleção é armazenada nos seguintes ficheiros no *deployment_share*\Control pasta (onde *deployment_share* é a localização da implementação partilha):  
@@ -3675,7 +3674,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      Para obter mais informações sobre estas propriedades, consulte as secções correspondentes no documento MDT *Toolkit referência*.  
 
-####  <a name="ManageLinkedDeploymentShares"></a>Gerir partilhas de implementação ligado  
+####  <a name="ManageLinkedDeploymentShares"></a> Gerir partilhas de implementação ligado  
  Partilhas de implementação ligado no MDT permitem-lhe fornecer uma ligação lógica entre duas partilhas de implementação: uma origem e uma partilha de implementação de destino. Um perfil de seleção determina os itens para ser ligada. Ao criar a ligação entre as partilhas de implementação, pode escolher se intercalar ou substitua o conteúdo no destino da partilha de implementação.  
 
  Utilizar partilhas de implementação ligado, pode facilmente replicar uma partilha de implementação de todo ou partes de uma partilha de implementação para outra partilha de implementação. Desta forma, pode efetuar alterações à partilha de uma implementação e, em seguida, atualizar facilmente outras partilhas de implementação com base nos perfis de seleção que escolheu ao criar as partilhas de implementação ligado.  
@@ -3698,11 +3697,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  No addtion para gerir partilhas de deployement ligado no Deployment Workbench, pode gerir partilhas de implementação ligado através de cmdlets do Windows PowerShell do MDT. Para obter mais informações sobre a gestão de implementação ligada partilham utilizando os cmdlets do Windows PowerShell do MDT, consulte as seguintes secções abaixo a secção "MDT Cmdlets do Windows PowerShell", no documento MDT *Toolkit referência*:  
 
--   **Atualização MDTLinkedDS**  
+-   **Update-MDTLinkedDS**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-#####  <a name="CreateaNewLinkedDeploymentShareintheDeploymentWorkbench"></a>Criar uma nova partilha de implementação ligado no Deployment Workbench  
+#####  <a name="CreateaNewLinkedDeploymentShareintheDeploymentWorkbench"></a> Criar uma nova partilha de implementação ligado no Deployment Workbench  
  Crie novas partilhas de implementação ligado no Deployment Workbench com o Assistente de nova partilha de implementação ligado. Inicie o Assistente de partilha de implementação ligado novos utilizando um dos seguintes métodos:  
 
 -   Na árvore da consola, clique no nó de partilha de implementação ligado. Em seguida, no painel ações, clique em **nova partilha de implementação ligado**.  
@@ -3733,7 +3732,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Conclusão do Assistente de nova ligado implementação partilha e a partilha de implementação ligado é adicionada à lista de implementações ligadas partilhas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ModifyanExistingLinkedDeploymentShareintheDeploymentWorkbench"></a>Modificar uma partilha de implementação ligado existente no Deployment Workbench  
+#####  <a name="ModifyanExistingLinkedDeploymentShareintheDeploymentWorkbench"></a> Modificar uma partilha de implementação ligado existente no Deployment Workbench  
  Modificar a partilha de implementação ligado existente no nó de partilhas de implementação ligado do Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). As propriedades de partilha de implementação ligado são configuradas ao executar o Assistente de nova ligado implementação partilha. No entanto, pode atualizar as propriedades de partilha de implementação ligado no **geral** separador do ***linked_deployment_share*** **propriedades** caixa de diálogo (onde *linked_deployment_share* é o nome da partilha de implementação ligado no Deployment Workbench).  
 
 ###### <a name="to-modify-an-existing-linked-deployment-share"></a>Para modificar uma partilha de implementação ligado existente  
@@ -3755,7 +3754,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Identificador de ligação** |Contém o identificador da partilha de implementação ligado.<br /><br /> O identificador nesta caixa de texto é gerado automaticamente pelo Deployment Workbench e não pode ser modificado.|  
-    |**Comentários** |Fornece informações sobre a partilha de implementação ligado.|  
+    |**comentários** |Fornece informações sobre a partilha de implementação ligado.|  
     |**Caminho UNC de partilha de implementação ligado** |Contém o caminho UNC completamente qualificado da partilha de implementação de destino.|  
     |**Escolha um perfil de seleção** |Contém o perfil de seleção que identifica o conteúdo a ser replicados entre as partilhas de implementação de origem e de destino.|  
     |**Intercalar o conteúdo selecionado para a partilha de implementação de destino** |Clique para configurar o Assistente para copiar o conteúdo no perfil de seleção para uma partilha de implementação de destino existente sem eliminar ou substituir quaisquer pastas ou os itens na partilha de implementação de destino. Também selecionar esta opção copia pastas padrão da partilha de implementação de origem, incluindo os Scripts, ferramentas, USMT e pastas de $ $OEM.|  
@@ -3766,19 +3765,19 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A implementação ligada partilham configuração definições são guardadas. As modificações são apresentadas no painel de detalhes no Deployment Workbench.  
 
-#####  <a name="CopyaLinkedDeploymentShareintheDeploymentWorkbench"></a>Copiar uma partilha de implementação ligado no Deployment Workbench  
+#####  <a name="CopyaLinkedDeploymentShareintheDeploymentWorkbench"></a> Copiar uma partilha de implementação ligado no Deployment Workbench  
  Pode copiar e colar partilhas de implementação ligado no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [itens de cópia no Deployment Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveaLinkedDeploymentShareintheDeploymentWorkbench"></a>Mover uma partilha de implementação ligado no Deployment Workbench  
+#####  <a name="MoveaLinkedDeploymentShareintheDeploymentWorkbench"></a> Mover uma partilha de implementação ligado no Deployment Workbench  
  Pode mover partilhas de implementação ligado no Deployment Workbench com o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="RenameaLinkedDeploymentShareintheDeploymentWorkbench"></a>Mudar o nome de uma partilha de implementação ligado no Deployment Workbench  
+#####  <a name="RenameaLinkedDeploymentShareintheDeploymentWorkbench"></a> Mudar o nome de uma partilha de implementação ligado no Deployment Workbench  
  Pode mudar o nome de partilhas de implementação ligado no Deployment Workbench com o **mudar o nome** ação, tal como descrito no [mudar o nome de itens no Deployment Workbench](#RenameItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteaLinkedDeploymentSharefromtheDeploymentWorkbench"></a>Eliminar uma partilha de implementação ligado do Deployment Workbench  
+#####  <a name="DeleteaLinkedDeploymentSharefromtheDeploymentWorkbench"></a> Eliminar uma partilha de implementação ligado do Deployment Workbench  
  Pode eliminar associado a um incidente partilhas de implementação no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permite-lhe eliminar partilhas de implementação ligado individuais.  
 
-#####  <a name="ReplicateLinkedDeploymentSharesintheDeploymentWorkbench"></a>Replicar partilhas de implementação ligado no Deployment Workbench  
+#####  <a name="ReplicateLinkedDeploymentSharesintheDeploymentWorkbench"></a> Replicar partilhas de implementação ligado no Deployment Workbench  
  Pode replicar os conteúdos da partilha de implementação de origem para as partilhas de implementação ligado no Deployment Workbench com o replicar ao Assistente de partilha de implementações ligado. Certifique-se de que existe armazenamento suficiente para a partilha de implementação ligado antes de executar a replicar para ligado implementações do Assistente de partilha, como o assistente não Certifique-se de que existe armazenamento suficiente existe antes do conteúdo a replicar.  
 
 > [!NOTE]
@@ -3810,7 +3809,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Conclusão da replicação ao Assistente de partilha de implementações ligado. As pastas e o conteúdo que especificou no perfil de seleção na partilha de implementação ligados são replicadas a partir da partilha de implementação de origem para a partilha de implementação de destino. Dependendo da configuração da partilha de implementação ligados, as pastas e o conteúdo na partilha de implementação de destino são intercaladas ou substituídas.  
 
-####  <a name="ManageLTIDeploymentMedia"></a>Gerir o suporte de dados de implementação de LTI  
+####  <a name="ManageLTIDeploymentMedia"></a> Gerir o suporte de dados de implementação de LTI  
  Suporte de dados no LTI permite-lhe efetuar implementações LTI apenas a partir do suporte de dados local, sem ligar a uma partilha de implementação. Pode armazenar o suporte de dados num DVD, USB disco rígido ou outro dispositivo portátil. Depois de criar o suporte de dados, gere imagens WIM de arranque que permitem a implementação ser efetuada a partir de dispositivos de um suporte portátil localmente disponíveis no computador de destino.  
 
  Determinar os itens sejam incluídos no suporte de dados num perfil de seleção que especificar ao criar o suporte de dados. Deployment Workbench inclui automaticamente do Windows PE a imagem WIM do suporte de dados, para que o Windows PE é iniciado a partir do suporte de dados disponíveis para o computador de destino. Quando o Windows PE é iniciado, o Assistente de implementação é iniciado automaticamente, bem.  
@@ -3833,11 +3832,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Addtion à gestão de suporte de dados de implementação no Deployment Workbench, pode gerir o suporte de dados de implementação utilizando os cmdlets do Windows PowerShell do MDT. Para mais informações sobre a gestão de suporte de dados de implementação utilizando os cmdlets do Windows PowerShell do MDT, consulte as seguintes secções abaixo a secção "MDT Cmdlets do Windows PowerShell", no documento MDT *Toolkit referência*:  
 
--   **Atualização MDTMedia**  
+-   **Update-MDTMedia**  
 
 -   **Get-MDTDeploymentShareStatistics**  
 
-#####  <a name="CreateNewDeploymentMediaintheDeploymentWorkbench"></a>Criar novo suporte de dados de implementação no Deployment Workbench  
+#####  <a name="CreateNewDeploymentMediaintheDeploymentWorkbench"></a> Criar novo suporte de dados de implementação no Deployment Workbench  
  Crie novo suporte de dados de implementação no Deployment Workbench com o novo Assistente de suporte de dados. Inicie o Assistente de suporte de dados de novo utilizando um dos seguintes métodos:  
 
 -   Na árvore da consola, clique no nó de suporte de dados. Em seguida, no painel ações, clique em **novo suporte de dados**.  
@@ -3868,7 +3867,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluir o Assistente do novo suporte de dados. O suporte de dados é adicionados à lista de suporte de dados no painel de detalhes do Deployment Workbench. O *media_path*\Content\Deploy pasta é criada (onde *media_path* é o nome do caminho de suporte de dados que especificou no assistente), e algumas pastas base são criadas. As pastas e conteúdo que especificou no perfil de seleção são copiados para a pasta de implementar quando o Assistente de conteúdo do suporte de dados de atualização é executado.  
 
-#####  <a name="ModifyExistingMediaintheDeploymentWorkbench"></a>Modificar o suporte de dados existente no Deployment Workbench  
+#####  <a name="ModifyExistingMediaintheDeploymentWorkbench"></a> Modificar o suporte de dados existente no Deployment Workbench  
  Modificar o suporte de dados existentes no nó de suporte de dados no Deployment Workbench com o **propriedades** ações conforme descrito em [ver propriedades do Item no Deployment Workbench](#ViewItemPropertiesintheDeploymentWorkbench). Configurar o suporte de dados no Deployment Workbench, efetuando os seguintes passos no suporte de dados **propriedades** caixa de diálogo:  
 
 -   Configurar propriedades no **geral** separador conforme descrito em [configurar o separador Geral de propriedades do suporte de dados](#ConfiguretheMediaPropertiesGeneralTab).  
@@ -3883,7 +3882,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Configurar as definições no **componentes do Windows PE x64** separador conforme descrito em [configurar o separador de componentes do suporte de dados propriedades Windows PE x64](#ConfiguretheMediaPropertiesWindowsPEx64ComponentsTab).  
 
-######  <a name="ConfiguretheMediaPropertiesGeneralTab"></a>Configurar o separador Geral de propriedades do suporte de dados  
+######  <a name="ConfiguretheMediaPropertiesGeneralTab"></a> Configurar o separador Geral de propriedades do suporte de dados  
  As propriedades do suporte de dados no **geral** separador são configuradas ao executar o Assistente de suporte de dados de novo. No entanto, pode atualizar as propriedades de partilha de implementação ligado no **geral** separador do ***suporte de dados*** **propriedades** caixa de diálogo (onde *multimédia*é o nome do suporte de dados no Deployment Workbench).  
 
 ###### <a name="to-modify-existing-media-properties-on-the-general-tab"></a>Para modificar propriedades de suporte de dados existente no separador Geral  
@@ -3905,7 +3904,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definição** |**Descrição** |  
     |-----------------|---------------------|  
     |**Identificador do suporte de dados** |Contém o identificador do suporte de dados.<br /><br /> O identificador nesta caixa de texto é gerado automaticamente pelo Deployment Workbench e não pode ser modificado.|  
-    |**Comentários** |Fornece informações sobre o suporte de dados.|  
+    |**comentários** |Fornece informações sobre o suporte de dados.|  
     |**Caminho de suporte de dados** |Contém o caminho completamente qualificado de UNC para a pasta de destino para os ficheiros de origem de suporte de dados e imagens geradas.|  
     |**Perfil de seleção** |Contém o perfil de seleção que identifica o conteúdo a ser incluído no WIM e ficheiros de imagem ISO que gera o Deployment Workbench.|  
     |**Plataformas suportadas: Gerar x86 imagem de arranque** |Selecione para configurar o Assistente de conteúdo de suporte de dados de atualização para criar ficheiros WIM e suportes de dados para computadores de destino de 32 bits.<br /><br /> Selecionar ambos o **x86** e **x64** caixas de verificação gera um ficheiro ISO de arranque duplo. Quando tiver sido iniciado, é apresentado um menu a partir da qual pode especificar a imagem de arranque para utilizar.|  
@@ -3914,7 +3913,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  As definições de configuração do suporte de dados são guardadas. As modificações são apresentadas no painel de detalhes do Deployment Workbench e o conteúdo a *media_folder* pasta é atualizada (onde *media_folder* é o nome da pasta que especificou o suporte de dados).  
 
-######  <a name="ConfiguretheMediaPropertiesRulesTab"></a>Configurar o separador de regras de propriedades do suporte de dados  
+######  <a name="ConfiguretheMediaPropertiesRulesTab"></a> Configurar o separador de regras de propriedades do suporte de dados  
  As propriedades do suporte de dados no **regras** separador são configuradas ao executar o Assistente de suporte de dados de novo. No entanto, pode atualizar as propriedades de partilha de implementação ligado no **regras** separador do ***suporte de dados*** **propriedades** caixa de diálogo (onde *multimédia*é o nome do suporte de dados no Deployment Workbench).  
 
 ###### <a name="to-modify-existing-media-properties-on-the-rules-tab"></a>Para modificar propriedades de suporte de dados existente no separador regras  
@@ -3940,7 +3939,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  As definições de configuração do suporte de dados são guardadas. As modificações são apresentadas no painel de detalhes do Deployment Workbench e o conteúdo a *media_folder* pasta (onde *media_folder* é o nome da pasta que especificou para o suporte de dados) é atualizado.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx86SettingsTab"></a>Configurar propriedades o suporte de dados do Windows PE x86 separador Definições  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx86SettingsTab"></a> Configurar propriedades o suporte de dados do Windows PE x86 separador Definições  
  As propriedades do suporte de dados no **definições do Windows PE x86** separador são configuradas ao executar o Assistente de suporte de dados de novo. No entanto, pode atualizar as propriedades de partilha de implementação ligado no **Windows PE x86** separador do ***suporte de dados*** **propriedades** caixa de diálogo (onde *desuportededados* é o nome do suporte de dados no Deployment Workbench).  
 
 ###### <a name="to-configure-the-windows-pe-x86-settings-tab"></a>Para configurar o separador de definições do Windows PE x86  
@@ -3975,7 +3974,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  São guardadas as definições de configuração do suporte de dados e o suporte de dados é apresentada no painel de detalhes do Deployment Workbench.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx86ComponentsTab"></a>Configurar propriedades o suporte de dados do Windows PE x86 separador de componentes  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx86ComponentsTab"></a> Configurar propriedades o suporte de dados do Windows PE x86 separador de componentes  
  As propriedades do suporte de dados no **componentes do Windows PE x86** separador são configuradas ao executar o Assistente de suporte de dados de novo. No entanto, pode atualizar as propriedades de partilha de implementação ligado no **componentes do Windows PE x86** separador do ***multimédia*** **propriedades** caixa de diálogo (onde  *suporte de dados* é o nome do suporte de dados no Deployment Workbench).  
 
 ###### <a name="to-configure-the-windows-pe-x86-components-tab"></a>Para configurar o separador de componentes do Windows PE x86  
@@ -4008,7 +4007,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  São guardadas as definições de configuração do suporte de dados e o suporte de dados é apresentada no painel de detalhes do Deployment Workbench.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx64SettingsTab"></a>Configurar propriedades o suporte de dados do Windows PE x64 separador Definições  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx64SettingsTab"></a> Configurar propriedades o suporte de dados do Windows PE x64 separador Definições  
  As propriedades do suporte de dados no **definições do Windows PE x64** separador são configuradas ao executar o Assistente de suporte de dados de novo. No entanto, pode atualizar as propriedades de partilha de implementação ligado no **definições do Windows PE x64** separador do ***suporte de dados*** **propriedades** caixa de diálogo (onde  *suporte de dados* é o nome do suporte de dados no Deployment Workbench).  
 
 ###### <a name="to-configure-the-windows-pe-x64-settings-tab"></a>Para configurar o separador de definições do Windows PE x64  
@@ -4043,7 +4042,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  São guardadas as definições de configuração do suporte de dados e o suporte de dados é apresentada no painel de detalhes do Deployment Workbench.  
 
-######  <a name="ConfiguretheMediaPropertiesWindowsPEx64ComponentsTab"></a>Configurar propriedades o suporte de dados do Windows PE x64 separador de componentes  
+######  <a name="ConfiguretheMediaPropertiesWindowsPEx64ComponentsTab"></a> Configurar propriedades o suporte de dados do Windows PE x64 separador de componentes  
  As propriedades do suporte de dados no **componentes do Windows PE x64** separador são configuradas ao executar o Assistente de suporte de dados de novo. No entanto, pode atualizar as propriedades de partilha de implementação ligado no **componentes do Windows PE x64** separador do ***multimédia*** **propriedades** caixa de diálogo (onde  *suporte de dados* é o nome do suporte de dados no Deployment Workbench).  
 
 ###### <a name="to-configure-the-windows-pe-x64-components-tab"></a>Para configurar o separador de componentes do Windows PE x64  
@@ -4076,16 +4075,16 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  São guardadas as definições de configuração do suporte de dados e o suporte de dados é apresentada no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="CopyMediaintheDeploymentWorkbench"></a>Suporte de dados de cópia no Deployment Workbench  
+#####  <a name="CopyMediaintheDeploymentWorkbench"></a> Suporte de dados de cópia no Deployment Workbench  
  Pode copiar e colar o suporte de dados no Deployment Workbench com o **cópia** e **colar** ações conforme descrito em [itens de cópia no Deployment Workbench](#CopyItemsintheDeploymentWorkbench).  
 
-#####  <a name="MoveMediaintheDeploymentWorkbench"></a>Mover o suporte de dados no Deployment Workbench  
+#####  <a name="MoveMediaintheDeploymentWorkbench"></a> Mover o suporte de dados no Deployment Workbench  
  Pode mover o suporte de dados no Deployment Workbench com o **Cortar** e **colar** ações conforme descrito em [mover itens no Deployment Workbench](#MoveItemsintheDeploymentWorkbench).  
 
-#####  <a name="DeleteMediafromtheDeploymentWorkbench"></a>Eliminar o suporte de dados a partir do Deployment Workbench  
+#####  <a name="DeleteMediafromtheDeploymentWorkbench"></a> Eliminar o suporte de dados a partir do Deployment Workbench  
  Pode eliminar o suporte de dados no Deployment Workbench com o Assistente de itens selecionados para eliminar conforme descrito em [eliminar itens do Deployment Workbench](#DeleteItemsfromtheDeploymentWorkbench). O Assistente de itens selecionados para eliminação permite-lhe eliminar suporte de dados individuais.  
 
-#####  <a name="GenerateMediaImagesintheDeploymentWorkbench"></a>Gerar imagens de suportes de dados no Deployment Workbench  
+#####  <a name="GenerateMediaImagesintheDeploymentWorkbench"></a> Gerar imagens de suportes de dados no Deployment Workbench  
  Pode gerar imagens de suportes de dados do conteúdo do suporte de dados no Deployment Workbench com o Assistente de conteúdo do suporte de dados de atualização. O Assistente de conteúdo do suporte de dados de atualização cria as imagens do ficheiro WIM do conteúdo do suporte de dados que pode utilizar para efetuar implementações de LTI autónomas do suporte de dados. Certifique-se de que não existe armazenamento suficiente para a pasta que contém o conteúdo do suporte de dados antes de executar o Assistente de conteúdo do suporte de dados de atualização, como o assistente não Certifique-se de que existe armazenamento suficiente existe antes de gerar o conteúdo do suporte de dados.  
 
 > [!NOTE]
@@ -4127,7 +4126,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Também pode criar um dispositivo de arranque que contém uma cópia do *media_folder*\Content pasta (onde *media_folder* é o nome da pasta que especificou para o suporte de dados) para que possa começar um destino computador a partir de um disco de rígido pen USB ou USB. Para obter mais informações, consulte [criar o arranque dispositivos a partir do suporte de dados de implementação](#CreateBootableDevicesfromDeploymentMedia).  
 
-#####  <a name="CreateBootableDevicesfromDeploymentMedia"></a>Criar dispositivos de arranque a partir do suporte de implementação  
+#####  <a name="CreateBootableDevicesfromDeploymentMedia"></a> Criar dispositivos de arranque a partir do suporte de implementação  
  Poderá ter de implementar imagens nos computadores de destino com um dispositivo de arranque (como uma pen USB ou um disco de rígido USB) quando o computador de destino não tem uma ligação persistente de alta velocidade para uma partilha de implementação.  
 
 > [!NOTE]
@@ -4143,34 +4142,34 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     -   **Selecione o disco *N***  
 
-    -   **Limpar**  
+    -   **clean**  
 
     -   **criar a partição primária**  
 
     -   **Selecione a partição 1**  
 
-    -   **Active Directory**  
+    -   **active**  
 
-    -   **Formatar fs = ntfs**  
+    -   **format fs=ntfs**  
 
-    -   **atribuir**  
+    -   **assign**  
 
-    -   **sair**  
+    -   **exit**  
 
 4.  Copie o conteúdo a *media_folder*\Content pasta (onde *media_folder* é o nome da pasta que especificou no suporte de dados) para o dispositivo.  
 
-####  <a name="ManagetheMDTDB"></a>Gerir a BD do MDT  
+####  <a name="ManagetheMDTDB"></a> Gerir a BD do MDT  
  A BD do MDT amplia a configuração que CustomSettings.ini fornece para implementações LTI e ZTI. A BD do MDT permite-lhe gerir centralmente as definições de configuração para os computadores de destino. Embora possa efetuar implementações em larga escala através do ficheiro CustomSettings.ini, a BD do MDT pode ajudar a reduzir a necessidade de esforço para gerir implementações deste tipo.  
 
  Para obter mais informações sobre a gestão da base de dados do MDT, consulte efetuar implementações utilizando a BD do MDT.  
 
  No addtion para gerir a BD no Deployment Workbench do MDT, pode gerir a BD do MDT com os cmdlets do Windows PowerShell do MDT. Para mais informações sobre a gestão da base de dados do MDT com os cmdlets do Windows PowerShell do MDT, consulte as seguintes secções abaixo a secção "MDT Cmdlets do Windows PowerShell", no documento MDT *Toolkit referência*:  
 
--   **Novo MDTDatabase**  
+-   **New-MDTDatabase**  
 
--   **Atualização MDTDatabaseSchema**  
+-   **Update-MDTDatabaseSchema**  
 
-###  <a name="ConfiguringLTITaskSequenceStepsintheDeploymentWorkbench"></a>Configurar a sequência de tarefas LTI passos no Deployment Workbench  
+###  <a name="ConfiguringLTITaskSequenceStepsintheDeploymentWorkbench"></a> Configurar a sequência de tarefas LTI passos no Deployment Workbench  
  Configure passos de sequências de tarefas LTI no Deployment Workbench por:  
 
 -   Configurar as condições do passo de sequência de tarefas do LTI, conforme descrito em [configurar condições de passo de sequência de tarefas](#ConfigureTaskSequenceStepConditions)  
@@ -4183,7 +4182,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Configurar o **verifique Bios** passo de sequência de tarefas para incluir uma lista das versões de sistema de entrada/saída (BIOS) básico incompatível, conforme descrito em [configurar passo sequência de tarefas BIOS de verificação para a lista de BIOS incompatível Versões](#ConfiguretheCheckBIOSTaskSequenceStepfortheListofIncompatibleBIOSVersions)  
 
-####  <a name="ConfigureTaskSequenceStepConditions"></a>Configurar as condições de passo de sequência de tarefas  
+####  <a name="ConfigureTaskSequenceStepConditions"></a> Configurar as condições de passo de sequência de tarefas  
  Em certos cenários, considere condicionalmente executar um passo de sequência de tarefas com base nos critérios definidos. Configurar as condições de passo de sequência de tarefas no **opções** separador de um passo de sequência de tarefas. Adicione quaisquer combinações destas condições para determinar se deve ser executado o passo de sequência de tarefas. Por exemplo, pode utilizar os valores de uma variável de sequência de tarefas e de um definição de registo para determinar se um passo de sequência de tarefas deve ser executado.  
 
  Configure passos de sequência de tarefas condicional efetuando qualquer combinação das seguintes ações:  
@@ -4204,7 +4203,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Adicionar o teste para várias propriedades de condição do passo de sequência de tarefas de ficheiros conforme descrito em [adicionar um teste para as propriedades do ficheiro para condições de passo de sequência de tarefas](#AddaTestforFilePropertiestoTaskSequenceStepConditions).  
 
-#####  <a name="AddIFStatementstoTaskSequenceStepConditions"></a>Adicionar se instruções para tarefas condições de passo de sequência  
+#####  <a name="AddIFStatementstoTaskSequenceStepConditions"></a> Adicionar se instruções para tarefas condições de passo de sequência  
  Todas as condições de sequência de tarefas incluem um ou mais `IF` declarações, que são a base para a criação de passos de sequência de tarefas condicional. Uma condição de passo de sequência de tarefas pode incluir apenas um `IF` declaração, mas pode ser aninhado vários `IF` as instruções abaixo de nível superior `IF` instrução para criar condições mais complexas.  
 
  Testar uma instrução se com base nas condições listadas na tabela 77, que configura o `IF` **propriedades da declaração** caixa de diálogo.  
@@ -4225,12 +4224,12 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  No  **`If` propriedades da declaração** caixa de diálogo, clique em ***condição*** (onde *condição* é uma das condições listada na tabela 77) e, em seguida, clique em  **OK**.  
 
-#####  <a name="AddTaskSequenceVariablestoTaskSequenceStepConditions"></a>Adicionar variáveis de sequência de tarefas para condições de passo de sequência de tarefas  
+#####  <a name="AddTaskSequenceVariablestoTaskSequenceStepConditions"></a> Adicionar variáveis de sequência de tarefas para condições de passo de sequência de tarefas  
  Crie condições com base em qualquer variável de sequência de tarefas (incluindo os que define o MDT). Estas variáveis também incluem variáveis de ambiente disponíveis no sistema operativo.  
 
  Para configurar uma condição com base na variável de sequência de tarefas, forneça as seguintes informações no **condição de variável de sequência de tarefas** caixa de diálogo:  
 
--   **Variável**. O nome da variável de sequência de tarefas para incluir como uma condição. Este nome tem de corresponder a ortografia exata da variável, mas não é sensível a maiúsculas e minúsculas.  
+-   **Variable**. O nome da variável de sequência de tarefas para incluir como uma condição. Este nome tem de corresponder a ortografia exata da variável, mas não é sensível a maiúsculas e minúsculas.  
 
 -   **Condição**. Isto pode ser **existe** (que é verdadeiro se a variável, independentemente do respetivo valor) ou um operador lógico padrão.  
 
@@ -4246,7 +4245,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  No **condição variável de sequência de tarefas** caixa de diálogo a **caixa valor**, tipo ***valor*** (onde o valor é o *valor* da tarefa variável de sequência) e, em seguida, clique em **OK**.  
 
-#####  <a name="AddOperatingSystemVersionstoTaskSequenceStepConditions"></a>Adicionar versões do sistema operativo para condições de passo de sequência de tarefas  
+#####  <a name="AddOperatingSystemVersionstoTaskSequenceStepConditions"></a> Adicionar versões do sistema operativo para condições de passo de sequência de tarefas  
  Criar condições com base na versão de sistema operativo, fornecendo as informações seguintes o **condição de SO de sequência de tarefas** caixa de diálogo:  
 
 -   **Arquitetura**. O nome da instrução conjunto no qual o sistema operativo é concebido, x86 ou x64  
@@ -4265,8 +4264,8 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  No **condição de SO de sequência de tarefas** caixa de diálogo a **caixa condição**, clique em ***condição*** (onde *condição* é lógico operação para utilizar na condição) e, em seguida, clique em **OK**.  
 
-#####  <a name="AddWMIQueriestoTaskSequenceStepConditions"></a>Adicionar consultas do WMI para condições de passo de sequência de tarefas  
- Pode utilizar consultas do WMI uma condição de sequência de tarefas. WMI é a tecnologia de gestão principal para sistemas operativos Windows e permite a gestão consistente e uniform, controlo e monitorização dos sistemas toda a empresa. Com base nas normas da indústria, WMI permite-lhe consultar, alterar e monitorizar definições de configuração em sistemas de servidor e de secretária, aplicações, redes e outros componentes de empresa. Também pode escrever scripts que utilizam o WMI biblioteca para trabalhar com a WMI e criar uma vasta gama de gestão de sistemas de processamento de scripts e scripts de monitorização. Para mais informações sobre o WMI, consulte o [manual de Scripting WMI](http://www.microsoft.com/technet/scriptcenter/guide/sas_wmi_overview.mspx?mfr=true).  
+#####  <a name="AddWMIQueriestoTaskSequenceStepConditions"></a> Adicionar consultas do WMI para condições de passo de sequência de tarefas  
+ Pode utilizar consultas do WMI uma condição de sequência de tarefas. WMI é a tecnologia de gestão principal para sistemas operativos Windows e permite a gestão consistente e uniform, controlo e monitorização dos sistemas toda a empresa. Com base nas normas da indústria, WMI permite-lhe consultar, alterar e monitorizar definições de configuração em sistemas de servidor e de secretária, aplicações, redes e outros componentes de empresa. Também pode escrever scripts que utilizam o WMI biblioteca para trabalhar com a WMI e criar uma vasta gama de gestão de sistemas de processamento de scripts e scripts de monitorização. Para mais informações sobre o WMI, consulte o [manual de Scripting WMI](https://technet.microsoft.com/library/ee156560.aspx).  
 
  Para configurar uma condição com base numa condição de WMI, forneça as seguintes informações no **condição de WMI de sequência de tarefas** caixa de diálogo:  
 
@@ -4282,7 +4281,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 3.  No **condição de WMI de sequência de tarefas** caixa de diálogo a **caixa de consulta WQL**, escreva o script de consulta para ser executado e, em seguida, clique em **OK**.  
 
-#####  <a name="AddRegistrySettingstoTaskSequenceStepConditions"></a>Adicionar definições de registo para condições de passo de sequência de tarefas  
+#####  <a name="AddRegistrySettingstoTaskSequenceStepConditions"></a> Adicionar definições de registo para condições de passo de sequência de tarefas  
  Avaliar as definições de registo durante a sequência de tarefas; com base nos critérios definidos, escolha se pretende executar processos adicionais. O registo contém dois elementos básicos: chaves e valores.  
 
 -   As chaves de registo são semelhantes às pastas. Cada chave pode conter subchaves, que por sua vez podem contém ainda outras subchaves, todos os que podem conter valores. As chaves são referenciadas com sintaxe semelhante para os nomes de caminho do Windows, utilizando barras invertidas (\\) para indicar os níveis de hierarquia. Por exemplo, **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows** refere-se para a subchave **Windows** da subchave **Microsoft** da chave **Software** de subárvore **HKEY_LOCAL_MACHINE**.  
@@ -4303,7 +4302,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   **Chave**. O valor da chave do registo para utilizar na condição  
 
--   **Condição**. Um operador lógico, tais como `AND` ou`OR`  
+-   **Condição**. Um operador lógico, tais como `AND` ou `OR`  
 
 -   **Nome do valor**. O nome do valor a utilizar na condição  
 
@@ -4333,7 +4332,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 7.  No **definição de registo** caixa de diálogo a **caixa valor**, tipo de valor para o teste será ocorrer e, em seguida, clique em **OK**.  
 
-#####  <a name="AddaTestforInstalledSoftwaretoTaskSequenceStepConditions"></a>Adicione um teste para o Software instalado a condições de passo de sequência de tarefas  
+#####  <a name="AddaTestforInstalledSoftwaretoTaskSequenceStepConditions"></a> Adicione um teste para o Software instalado a condições de passo de sequência de tarefas  
  Pode avaliar o software instalado com base nas informações de produto fornecidas no ficheiro do Microsoft Installer (MSI). Pode utilizar estas informações para corresponder a um produto específico utilizando o código de produto e o código de atualização ou, pode utilizá-lo para corresponder a qualquer versão deste produto utilizando apenas o código de atualização.  
 
 ###### <a name="to-add-an-installed-software-condition-to-a-task-sequence-step"></a>Para adicionar uma condição de Software instalado para um passo de sequência de tarefas  
@@ -4350,7 +4349,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  No **instalado Software** caixa de diálogo, clique em **OK**.  
 
-#####  <a name="AddaTestforFolderPropertiestoTaskSequenceStepConditions"></a>Adicione um teste para as propriedades da pasta a condições de passo de sequência de tarefas  
+#####  <a name="AddaTestforFolderPropertiestoTaskSequenceStepConditions"></a> Adicione um teste para as propriedades da pasta a condições de passo de sequência de tarefas  
  Pode avaliar pastas com base nas propriedades da pasta. Para além de avaliar o caminho da pasta a testar, teste para o respetivo carimbo de hora em várias condições.  
 
  Para configurar uma condição com base na propriedade de uma pasta, forneça as seguintes informações sobre o **as propriedades da pasta** caixa de diálogo:  
@@ -4373,7 +4372,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  No **as propriedades da pasta** caixa de diálogo, clique em **OK**.  
 
-#####  <a name="AddaTestforFilePropertiestoTaskSequenceStepConditions"></a>Adicione um teste para as propriedades do ficheiro para condições de passo de sequência de tarefas  
+#####  <a name="AddaTestforFilePropertiestoTaskSequenceStepConditions"></a> Adicione um teste para as propriedades do ficheiro para condições de passo de sequência de tarefas  
  Pode avaliar ficheiros com base nas propriedades de ficheiro. Para além de avaliar o caminho do ficheiro a ser testada, teste para o carimbo de versão e a hora em várias condições.  
 
  Para configurar uma condição com base numa propriedade de ficheiro, forneça as seguintes informações sobre o **propriedades do ficheiro**caixa de diálogo:  
@@ -4400,7 +4399,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 5.  No **propriedades do ficheiro** caixa de diálogo, clique em **OK**.  
 
-####  <a name="ConfigureDiskTaskSequenceSteps"></a>Configurar passos de sequência de tarefas do disco  
+####  <a name="ConfigureDiskTaskSequenceSteps"></a> Configurar passos de sequência de tarefas do disco  
  Pode personalizar as sequências de tarefas para configurar as definições de disco no computador de destino. Configure as definições de disco no Deployment Workbench ou na consola do Configuration Manager.  
 
  Para configurar os passos de sequência de tarefas executar funções relacionadas com o disco, execute os seguintes passos:  
@@ -4409,7 +4408,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Configurar **ativar BitLocker** tipos de passo de sequência de tarefas, conforme descrito em [configurar ativar BitLocker passos](#ConfigureEnableBitLockerTaskSequenceSteps)  
 
-#####  <a name="ConfigureFormatandPartitionDiskTaskSequenceSteps"></a>Configurar tarefas de disco de partição e o formato de sequência de passos  
+#####  <a name="ConfigureFormatandPartitionDiskTaskSequenceSteps"></a> Configurar tarefas de disco de partição e o formato de sequência de passos  
  Passos de sequência com base nas tarefas de **formatar e particionar disco** tipo de passo de sequência de tarefas permite a criação de várias partições e, normalmente, são utilizados para criar partições secundárias para armazenar dados. As partições de disco personalizados só são suportadas em cenários de novo computador.  
 
 > [!NOTE]
@@ -4437,7 +4436,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |-----------------|---------------------|  
     |**Tipo** |Contém o tipo de sequência de tarefas, que está sempre definido como **formatar e particionar disco**.|  
     |**Nome** |Contém o nome do passo de sequência de tarefas que é apresentado na hierarquia de sequência de tarefas.|  
-    |**Comentários** |Fornece informações descritivas sobre o passo de sequência de tarefas.|  
+    |**comentários** |Fornece informações descritivas sobre o passo de sequência de tarefas.|  
     |**Número do disco** |Inclui o número do disco a ser particionado e formatado; o número do disco é baseado em zero, o que significa que o primeiro disco será número zero (0).|  
     |**Tipo de disco** |Contém o tipo de tipo de partição, o que pode ser **padrão (MBR)** ou **GPT**.|  
     |**Volume** |Contém uma lista dos volumes de disco para criar a partição.|  
@@ -4458,9 +4457,9 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Tornar esta partição de arranque** |Selecione para configurar o passo de sequência de tarefas para configurar a partição como partição de arranque do computador de destino. Se a caixa de verificação:<br /><br /> -Selecionado, a partição está configurada como partição de arranque<br /><br /> -Desmarcada, a partição não está configurada como partição de arranque|  
     |**Sistema de ficheiros** |Contém o sistema de ficheiros para o processo de formato, o que pode ser **NTFS** ou **FAT32**.|  
     |**Formatação rápida** |Selecione para configurar o passo de sequência de tarefas para formatar a partição efetuando uma formatação rápida. Se a caixa de verificação:<br /><br /> -Selecionado, o formato de partição é executado com o processo de formatação rápida<br /><br /> -Desmarcada, o formato de partição é executado com o processo de formato padrão|  
-    |**Variável** |Contém o nome de uma variável de sequência de tarefas utilizada para armazenar a letra de unidade atribuída à partição.<br /><br /> MDT cria automaticamente uma partição adicional para novos computadores, quando implementar o Windows ou quando o BitLocker tiver sido solicitado.|  
+    |**Variable** |Contém o nome de uma variável de sequência de tarefas utilizada para armazenar a letra de unidade atribuída à partição.<br /><br /> MDT cria automaticamente uma partição adicional para novos computadores, quando implementar o Windows ou quando o BitLocker tiver sido solicitado.|  
 
-#####  <a name="ConfigureEnableBitLockerTaskSequenceSteps"></a>Configurar passos de sequência de tarefas do BitLocker ativar  
+#####  <a name="ConfigureEnableBitLockerTaskSequenceSteps"></a> Configurar passos de sequência de tarefas do BitLocker ativar  
  Utilize esta tarefa para ativar o **BitLocker** tarefas. O BitLocker é uma funcionalidade de encriptação de disco completo incluída no Windows foi concebida para proteger os dados ao fornecer encriptação para volumes de todos. Por predefinição, utiliza o padrão AES (Advanced Encryption), também conhecido como *Rijndael*, uma cifra de bloco adotado por uma larga maioria como um padrão de encriptação dos EUA.  
 
  O algoritmo AES no modo de encadeamento de bloco de cifras com uma chave de 128 bits, muitas vezes, é combinado com o Difusor Elephant para segurança adicional. O BitLocker está disponível apenas na Enterprise e Ultimate edições do Windows.  
@@ -4479,30 +4478,30 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   No ficheiro CustomSettings.ini, defina as seguintes propriedades:  
 
-    -   BDEInstall = TPM  
+    -   BDEInstall=TPM  
 
-    -   BdeInstallSuppress = não  
+    -   BdeInstallSuppress=NO  
 
-    -   BDeWaitForEncryption = False  
+    -   BDeWaitForEncryption=False  
 
-    -   BDEDriveSize = 2000  
+    -   BDEDriveSize=2000  
 
-    -   BDEDriveLetter = S:  
+    -   BDEDriveLetter=S:  
 
-    -   BDEKeyLocation = C:  
+    -   BDEKeyLocation=C:  
 
-    -   SkipBitLocker = YES  
+    -   SkipBitLocker=YES  
 
- Para obter mais informações sobre como ativar o BitLocker, consulte [BitLocker perguntas mais frequentes](http://technet.microsoft.com/library/hh831507.aspx).  
+ Para obter mais informações sobre como ativar o BitLocker, consulte [BitLocker perguntas mais frequentes](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions).  
 
-####  <a name="ConfigureNetworkTaskSequenceSteps"></a>Configurar passos de sequência de tarefas de rede  
+####  <a name="ConfigureNetworkTaskSequenceSteps"></a> Configurar passos de sequência de tarefas de rede  
  Pode personalizar as sequências de tarefas no Deployment Workbench para configurar as definições de rede no computador de destino. Para configurar passos de sequência de tarefas que efetuam funções relacionadas com a rede, execute os seguintes passos:  
 
 -   Configurar **capturar definições de rede** passos de sequência de tarefas, conforme descrito em [configurar captura de rede definições passos](#ConfigureCaptureNetworkSettingsTaskSequenceSteps)  
 
 -   Configurar **aplicar definições de rede** passos de sequência de tarefas, conforme descrito em [configurar aplicar rede definições passos](#ConfigureApplyNetworkSettingsTaskSequenceSteps)  
 
-#####  <a name="ConfigureCaptureNetworkSettingsTaskSequenceSteps"></a>Configurar passos de sequência de tarefas de definições de rede de captura  
+#####  <a name="ConfigureCaptureNetworkSettingsTaskSequenceSteps"></a> Configurar passos de sequência de tarefas de definições de rede de captura  
  Passos de sequência com base nas tarefas de **capturar definições de rede** passo de sequência de tarefas permitem-lhe capturar definições de configuração de rede para todas as placas de rede de computador de destino que configurou estaticamente endereços IP para Atualize os cenários de implementação de computador.  
 
  Os modelos de sequência de tarefas LTI fornecidos com o MDT não incluem um passo de sequência de tarefas com base no **capturar definições de rede** tipo de passo de sequência de tarefas. Para cenários de implementação de atualizar o computador, adicione um passo de sequência de tarefas com base no **capturar definições de rede** tipo de passo de sequência de tarefas na fase de captura de estado.  
@@ -4534,7 +4533,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Nome** |Contém o nome do passo de sequência de tarefas que é apresentado na hierarquia de sequência de tarefas|  
     |**Descrição** |Fornece informações descritivas sobre o passo de sequência de tarefas|  
 
-#####  <a name="ConfigureApplyNetworkSettingsTaskSequenceSteps"></a>Configurar aplicam-se passos de sequência de tarefas de definições de rede  
+#####  <a name="ConfigureApplyNetworkSettingsTaskSequenceSteps"></a> Configurar aplicam-se passos de sequência de tarefas de definições de rede  
  Passos de sequência com base nas tarefas de **aplicar definições de rede** tipo de passo de sequência de tarefas permitem a configuração das definições de rede para cada adaptador de rede no computador de destino. As definições de rede que configura este tipo de passo de sequência de tarefas são as mesmas definições configuradas nas propriedades de um adaptador de rede.  
 
  Para cada adaptador de rede no computador de destino, configure as definições de rede correspondente. Se forem especificadas sem definições de configuração, o **aplicar definições de rede** tipo de passo de sequência de tarefas configura o passo de sequência de tarefas que por sua vez configura os adaptadores de rede no computador de destino a utilizar a configuração dinâmica de anfitrião Protocolo (DHCP) para a configuração.  
@@ -4580,8 +4579,8 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Nome** |Contém o nome do adaptador de rede, que aparece na caixa de **aplicar definições de rede** do tipo de passo de sequência de tarefas **propriedades** separador.|  
     |**Obter um endereço IP automaticamente** |Selecione para configurar o passo de sequência de tarefas para configurar o endereço IP do adaptador de rede no computador de destino utilizando o DHCP.|  
     |**Utilize o seguinte endereço IP** |Selecione para configurar o passo de sequência de tarefas para configurar o endereço IP do adaptador de rede no computador de destino utilizando os valores que especificar no **as definições de rede** e **definições do Gateway** caixas.|  
-    |**Definições de rede** |Contém uma lista de endereços IP e máscaras de sub-rede ser configuradas para o adaptador de rede. Clique das seguintes opções para modificar os endereços IP e máscaras de sub-rede nesta lista:<br /><br /> -                                          **Adicionar**. Adicione uma combinação de máscara de sub-rede e endereço IP para a caixa de listagem.<br /><br /> -                                          **Propriedades**. Modificar a máscara de sub-rede e endereço IP para uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.<br /><br /> Esta caixa só é ativada se selecionar **utilize o seguinte endereço IP**.|  
-    |**Definições do gateway** |Contém uma lista de endereços IP do gateway e o encaminhamento de custo de métricas, ser configuradas para o adaptador de rede. Clique das seguintes ações para modificar o endereço IP do gateway e o encaminhamento custo métrica nesta lista:<br /><br /> -                                          **Adicionar**. Adicione o endereço IP e de custo métrica para um gateway para a caixa de listagem.<br /><br /> -                                          **Propriedades**. Modificar o endereço IP e de custo métrica para um gateway de uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.<br /><br /> Esta caixa só é ativada se selecionar **utilize o seguinte endereço IP**.|  
+    |**Definições de rede** |Contém uma lista de endereços IP e máscaras de sub-rede ser configuradas para o adaptador de rede. Clique das seguintes opções para modificar os endereços IP e máscaras de sub-rede nesta lista:<br /><br /> -                                          **Add**. Adicione uma combinação de máscara de sub-rede e endereço IP para a caixa de listagem.<br /><br /> -                                          **Propriedades**. Modificar a máscara de sub-rede e endereço IP para uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.<br /><br /> Esta caixa só é ativada se selecionar **utilize o seguinte endereço IP**.|  
+    |**Definições do gateway** |Contém uma lista de endereços IP do gateway e o encaminhamento de custo de métricas, ser configuradas para o adaptador de rede. Clique das seguintes ações para modificar o endereço IP do gateway e o encaminhamento custo métrica nesta lista:<br /><br /> -                                          **Add**. Adicione o endereço IP e de custo métrica para um gateway para a caixa de listagem.<br /><br /> -                                          **Propriedades**. Modificar o endereço IP e de custo métrica para um gateway de uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.<br /><br /> Esta caixa só é ativada se selecionar **utilize o seguinte endereço IP**.|  
 
     83 tabela lista as definições de configuração para o **DNS** separador do **as definições de rede** caixa de diálogo. Configurar as definições no 83 de tabela com base nos requisitos da sua organização e, em seguida, clique em **OK**.  
 
@@ -4591,8 +4590,8 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |-----------------|---------------------|  
     |**Obter automaticamente o servidor DNS** |Selecione para configurar o passo de sequência de tarefas para configurar as definições de DNS da placa de rede no computador de destino utilizando o DHCP.|  
     |**Utilize os seguintes servidores DNS** |Selecione para configurar o passo de sequência de tarefas para configurar as definições de DNS da placa de rede no computador de destino utilizando os valores especificados no **endereços de servidor DNS por ordem de utilização** caixa.|  
-    |**Endereços de servidor DNS por ordem de utilização** |Contém uma lista de endereços IP do servidor DNS configurado para o adaptador de rede. Clique das seguintes opções para modificar a lista de servidores DNS:<br /><br /> -                                          **Adicionar**. Adicione o endereço IP do servidor DNS para a caixa de listagem.<br /><br /> -                                          **Propriedades**. Modificar o endereço IP do servidor DNS para uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.|  
-    |**Sufixo DNS** |Contém o sufixo de nome de domínio DNS para ser adicionado a quaisquer consultas de DNS.|  
+    |**Endereços de servidor DNS por ordem de utilização** |Contém uma lista de endereços IP do servidor DNS configurado para o adaptador de rede. Clique das seguintes opções para modificar a lista de servidores DNS:<br /><br /> -                                          **Add**. Adicione o endereço IP do servidor DNS para a caixa de listagem.<br /><br /> -                                          **Propriedades**. Modificar o endereço IP do servidor DNS para uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.|  
+    |**DNS Suffix** |Contém o sufixo de nome de domínio DNS para ser adicionado a quaisquer consultas de DNS.|  
     |**Registar o endereço desta ligação no DNS** |Selecione para configurar o adaptador de rede para registar o endereço IP de adaptadores de rede do servidor DNS primário. Se a caixa de verificação:<br /><br /> -O endereço IP do adaptador de rede selecionada, é registado no DNS<br /><br /> -Desmarcada, o endereço IP do adaptador de rede não está registado no DNS<br /><br /> Por predefinição, esta caixa de verificação está selecionada.|  
     |**Utilize o sufixo desta ligação no registo de DNS** |Selecione para configurar o adaptador de rede para registar o endereço IP do adaptador de rede com o sufixo listado no **sufixo DNS**. Se a caixa de verificação:<br /><br /> -Selecionado, o endereço IP do adaptador de rede está registado com o sufixo listado no **sufixo DNS**<br /><br /> -Desmarcada, o endereço IP do adaptador de rede não está registado com o sufixo listado no **sufixo DNS**<br /><br /> Por predefinição, esta caixa de verificação está desmarcada.|  
 
@@ -4602,13 +4601,13 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |Definição|**Descrição** |  
     |-------------|---------------------|  
-    |**Endereços WINS por ordem de utilização** |Contém uma lista de endereços IP do servidor WINS ser configuradas para o adaptador de rede. Clique das seguintes ações para modificar a lista de servidores WINS:<br /><br /> -                                          **Adicionar**. Adicione o endereço IP do servidor WINS à caixa.<br /><br /> -                                          **Propriedades**. Modificar o endereço IP do servidor WINS para uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.|  
+    |**Endereços WINS por ordem de utilização** |Contém uma lista de endereços IP do servidor WINS ser configuradas para o adaptador de rede. Clique das seguintes ações para modificar a lista de servidores WINS:<br /><br /> -                                          **Add**. Adicione o endereço IP do servidor WINS à caixa.<br /><br /> -                                          **Propriedades**. Modificar o endereço IP do servidor WINS para uma entrada existente.<br /><br /> -                                          **Eliminar**. Elimine uma entrada existente.|  
     |**Ativar procura LMHOSTS** |Selecione para configurar o adaptador de rede para ativar pesquisas no ficheiro LMHOSTS no computador de destino. Se a caixa de verificação:<br /><br /> -O ficheiro LMHOSTS selecionada, é utilizado para a resolução de nome de rede BIOS (NetBIOS) no adaptador de rede<br /><br /> -Desmarcada, o ficheiro LMHOSTS não é utilizado para a resolução de nome de NetBIOS no adaptador de rede<br /><br /> Por predefinição, esta caixa de verificação está desmarcada.|  
     |**Predefinição** |Selecione para configurar a placa de rede para utilizar a predefinição NetBIOS através de definições de TCP/IP do sistema operativo de destino. As outras opções são **ativar NetBIOS através de TCP/IP** e **desativar NetBIOS por TCP/IP**.|  
     |**Ativar o NetBIOS sobre TCP/IP** |Selecione esta opção para ativar NetBIOS por TCP/IP para o adaptador de rede. As outras opções são **predefinido** e **desativar NetBIOS por TCP/IP**.|  
     |**Desativar NetBIOS por TCP/IP** |Selecione esta opção para desativar NetBIOS por TCP/IP do adaptador de rede. As outras opções são **predefinido** e **ativar NetBIOS através de TCP/IP**.|  
 
-####  <a name="ConfigureServerRoleTaskSequenceStepsforLTI"></a>Configurar passos de sequência de tarefas a função de servidor para LTI  
+####  <a name="ConfigureServerRoleTaskSequenceStepsforLTI"></a> Configurar passos de sequência de tarefas a função de servidor para LTI  
  LTI pode ajudá-lo a automatizar a implementação de funções de servidor no Windows Server. Configure passos de sequência de tarefas LTI para implementar as funções de servidor suportadas, que incluem:  
 
 -   AD DS  
@@ -4619,7 +4618,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O processo para configurar os passos de sequência de tarefas de função de servidor é semelhante para LTI e ZTI. Para obter mais informações sobre como configurar passos de sequência de tarefas a função de servidor para LTI, consulte [configurar servidor de função passos](#ConfiguringServerRoleTaskSequenceSteps).  
 
-####  <a name="ConfiguretheCheckBIOSTaskSequenceStepfortheListofIncompatibleBIOSVersions"></a>Configurar o passo de sequência de tarefas de BIOS de verificação para a lista de versões incompatíveis do BIOS  
+####  <a name="ConfiguretheCheckBIOSTaskSequenceStepfortheListofIncompatibleBIOSVersions"></a> Configurar o passo de sequência de tarefas de BIOS de verificação para a lista de versões incompatíveis do BIOS  
  A sequência de tarefas predefinida para uma sequência de tarefas inclui o **verifique BIOS** de tarefas no **não substituir** grupo o **validação** grupo. O **verifique BIOS** tarefa executa o script ZTIBIOSCheck.wsf, que verifica a versão do BIOS dos computadores de destino face à lista de versões incompatíveis do BIOS no ficheiro ZTIBIOSCheck.xml.  
 
  Modificar o ficheiro de ZTIBIOSCheck.xml para conter a lista de versões de BIOS incompatíveis com o sistema operativo de destino na compilação do sistema operativo. Modificar ZTIBIOSCheck.xml para cada sequência de tarefas criada no Deployment Workbench. O ficheiro ZTIBIOSCheck.xml reside no *deployment_share*\Scripts pasta (onde *deployment_share* é o nome da pasta que é a raiz da partilha de implementação).  
@@ -4649,7 +4648,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 5.  Atualize ZTIBIOSCheck.xml para incluir o BIOS com base nos atributos de obtidos nos passos anteriores.  
 
-##  <a name="RunningtheDeploymentWizard"></a>Executar o Assistente de implementação  
+##  <a name="RunningtheDeploymentWizard"></a> Executar o Assistente de implementação  
  Para iniciar a implementação do Windows nos computadores de destino, execute o Assistente de implementação. Inicie o Assistente de implementação manualmente ou através dos serviços de implementação do Windows. Cada cenário de implementação (substituir o computador, computador novo ou atualizar computador) utiliza um processo diferente. Inicie a implementação de serviços de implementação do Windows, uma partilha de rede, de unidades locais ou utilizando um DVD. O processo de implementação pede ao utilizador as definições de configuração ainda não estiver especificadas.  
 
  O Assistente de implementação é executado antes do Assistente de implementação e é responsável por ao inicializar o ambiente. O Assistente de implementação apresenta as páginas do assistente com base no cenário de implementação que selecionou e as opções de configuração especificadas na CustomSettings.ini. A lógica de apresentação (ou não estão apresentados) uma página do assistente é indicada para cada página do assistente nos passos seguintes.  
@@ -4709,7 +4708,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Propriedade** |**Condição** |  
     |------------------|-------------------|  
     |**UserID_isDirty** |Igual a VERDADEIRO|  
-    |**ID de utilizador** |Igual a ""|  
+    |**UserID** |Igual a ""|  
     |**DeploymentType** |Não é igual a substituir|  
     |**DeploymentMethod** |Não é igual a suportes de dados|  
 
@@ -4720,8 +4719,8 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Opção** |**Tipo** |  
     |----------------|--------------|  
     |**Nome de utilizador** |***user_name*** (onde *user_name* é o nome de utilizador da conta que tenha as permissões adequadas para as pastas partilhadas na rede que utilizam os scripts de implementação).|  
-    |**Palavra-passe** |***palavra-passe*** (onde *palavra-passe* é a palavra-passe para a conta de utilizador especificado no **nome de utilizador** caixa).|  
-    |**Domínio** |domínio (onde o domínio é o nome de domínio em que se encontra especificada na caixa de nome de utilizador, a conta de utilizador).|  
+    |**Password** |***palavra-passe*** (onde *palavra-passe* é a palavra-passe para a conta de utilizador especificado no **nome de utilizador** caixa).|  
+    |**Domain** |domínio (onde o domínio é o nome de domínio em que se encontra especificada na caixa de nome de utilizador, a conta de utilizador).|  
 
      O **sequência de tarefas** é apresentada a página.  
 
@@ -4760,7 +4759,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |**Propriedade** |Condição|  
     |------------------|---------------|  
-    |**SkipUserData** |**Não é igual a Sim** |  
+    |**SkipUserData** |Não é igual a Sim |  
     |**DeploymentType** |Não é igual a ATUALIZAÇÃO ou substituição ou StateRestore|  
     |**ImageFlags** |Não contém o servidor|  
     |**IsServerOS** |Não é igual a VERDADEIRO|  
@@ -5014,7 +5013,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Fecha o Assistente de implementação e começa a implementação do novo sistema operativo.  
 
-##  <a name="PerformingZTIDeploymentsUsingConfigurationManager"></a>Efetuar implementações ZTI utilizando o Configuration Manager  
+##  <a name="PerformingZTIDeploymentsUsingConfigurationManager"></a> Efetuar implementações ZTI utilizando o Configuration Manager  
  Efetuar implementações ZTI utilizando o Configuration Manager e o MDT dentro de um domínio do AD DS, dentro de um grupo de trabalho do Windows ou a partir de suportes de dados amovíveis. Efetue implementações ZTI por:  
 
 -   Preparar o ambiente de implementação de ZTI conforme descrito em [preparar o ambiente de implementação ZTI para o Configuration Manager](#PreparingtheZTIDeploymentEnvironmentforConfigurationManager)  
@@ -5027,7 +5026,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Implementar as imagens capturadas para o computador de destino no ZTI conforme descrito em [implementar capturadas imagens para destino computadores através do Configuration Manager](#DeployingCapturedImagestoTargetComputersUsingConfigurationManager)  
 
-###  <a name="PreparingtheZTIDeploymentEnvironmentforConfigurationManager"></a>Preparar o ambiente de implementação ZTI para o Configuration Manager  
+###  <a name="PreparingtheZTIDeploymentEnvironmentforConfigurationManager"></a> Preparar o ambiente de implementação ZTI para o Configuration Manager  
  Depois de preparar a infraestrutura de pré-requisito para MDT, está pronto para preparar o ambiente de implementação do MDT ZTI.  
 
 ##### <a name="to-prepare-the-mdt-deployment-environment-for-zti-deployments"></a>Para preparar o ambiente de implementação MDT para implementações ZTI  
@@ -5040,7 +5039,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  Ativar a integração da consola do Configuration Manager com o MDT, conforme descrito em [ativar a configuração do Gestor de integração da consola do Configuration Manager](#EnableConfigurationManagerConsoleIntegrationforConfigurationManager).  
 
-####  <a name="PreparethePrerequisiteZTIInfrastructureforUsewithConfigurationManager"></a>Preparar a infraestrutura de pré-requisito ZTI para utilização com o Configuration Manager  
+####  <a name="PreparethePrerequisiteZTIInfrastructureforUsewithConfigurationManager"></a> Preparar a infraestrutura de pré-requisito ZTI para utilização com o Configuration Manager  
  Implementações ZTI utilizando o Configuration Manager necessitam que uma infraestrutura do Configuration Manager está corretamente configurada existe antes de instalar o MDT e efetuar implementações. Certifique-se de que a sua infraestrutura de novo ou existente do Configuration Manager está especificamente otimizada para a funcionalidade de implementação do sistema operativo.  
 
 > [!NOTE]
@@ -5048,11 +5047,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para mais informações sobre:  
 
--   Requisitos de hardware e software no Configuration Manager, consulte [configurações suportadas para o Configuration Manager](http://technet.microsoft.com/library/gg682077.aspx)  
+-   Requisitos de hardware e software no Configuration Manager, consulte [configurações suportadas para o Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/configs/supported-configurations)  
 
 -   Configurar uma infraestrutura do Configuration Manager para suportar implementações ZTI, consulte a secção "passo 1: Preparar a infraestrutura de pré-requisito", no documento MDT *guia rápido para o Microsoft System Center 2012 R2 Configuration Manager*.  
 
-####  <a name="InstallorUpgradetoMDTfortheZTIDeploymentProcessUsingConfigurationManager"></a>Instalar ou atualizar para o MDT para o processo de implementação de ZTI utilizando o Configuration Manager  
+####  <a name="InstallorUpgradetoMDTfortheZTIDeploymentProcessUsingConfigurationManager"></a> Instalar ou atualizar para o MDT para o processo de implementação de ZTI utilizando o Configuration Manager  
  O primeiro passo para efetuar implementações ZTI é ter, pelo menos, uma instância do MDT que executar no seu ambiente. Instale o MDT em cada computador que tenha a consola do Configuration Manager instalada e que irá utilizar para criar ou editar sequências de tarefas que gera o MDT. Se tiver o seu ambiente existente:  
 
 -   Não existem computadores com o MDT ou uma versão anterior do MDT, instalar uma ou mais instâncias novo do MDT, conforme descrito em [instalar uma nova instância do MDT](#InstallingaNewInstanceofMDT).  
@@ -5070,7 +5069,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
         > [!NOTE]
         >  Se tiver efetuado a atualização a partir de uma versão anterior do Configuration Manager, pode utilizar sequências de tarefas ZTI para MDT que foram criadas na versão anterior do Configuration Manager, desde que foram criadas utilizando a mesma versão do MDT.  
 
-####  <a name="ObtaintheSoftwareThattheZTIDeploymentProcessUsingConfigurationManagerRequires"></a>Obter o Software que requer que o processo de implementação de ZTI utilizando o Configuration Manager  
+####  <a name="ObtaintheSoftwareThattheZTIDeploymentProcessUsingConfigurationManagerRequires"></a> Obter o Software que requer que o processo de implementação de ZTI utilizando o Configuration Manager  
  Recolha o software necessário durante o processo de implementação ZTI para o Configuration Manager. Este software será importado ou adicionar partilhas de implementação, a menos que já existe na partilha de implementação.  
 
 > [!NOTE]
@@ -5088,7 +5087,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Ficheiros de origem USMT utilizados para criar um pacote de software que é implementado nos computadores de destino para capturar os dados de migração de estado do utilizador  
 
-####  <a name="EnableConfigurationManagerConsoleIntegrationforConfigurationManager"></a>Ativar a integração da consola do Configuration Manager para o Configuration Manager  
+####  <a name="EnableConfigurationManagerConsoleIntegrationforConfigurationManager"></a> Ativar a integração da consola do Configuration Manager para o Configuration Manager  
  Antes de poder utilizar as funcionalidades de integração do Gestor de configuração do MDT, execute o Assistente para configurar a integração do ConfigMgr. Este assistente copia os ficheiros adequados para a integração de Configuration Manager para o *Manager_root configuração* (onde *Manager_root configuração* é a pasta na qual o Configuration Manager consola está instalada).  
 
  O assistente também adiciona classes WMI para as novas ações personalizadas do MDT. Adicione estas classes ao compilar um ficheiro de formato de objeto gerido (. mof) que contém as definições de classe de novo.  
@@ -5113,7 +5112,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Depois de concluído o assistente, a consola do Configuration Manager está configurada para integração do MDT.  
 
-###  <a name="PreparingforZTIDeploymenttotheReferenceComputerUsingConfigurationManager"></a>Preparar a implementação de ZTI para o computador de referência utilizando o Configuration Manager  
+###  <a name="PreparingforZTIDeploymenttotheReferenceComputerUsingConfigurationManager"></a> Preparar a implementação de ZTI para o computador de referência utilizando o Configuration Manager  
  Independentemente do cenário de implementação ZTI que estiver a efetuar sempre começar por criar um computador de referência e, em seguida, capturar uma imagem do computador. Posteriormente no processo de implementação ZTI, irá implementar a imagem capturada do computador de referência para os computadores de destino adequada.  
 
  Crie um computador de referência de cada imagem que pretende criar para a implementação aos computadores de destino. Para obter mais informações sobre como determinar o número de imagens necessários na sua organização (e, subsequentemente, o número de computadores de referência necessário), consulte [requisitos de armazenamento de estimativa de pontos de distribuição do Configuration Manager](#EstimateStorageRequirementsforConfigurationManagerDistributionPoints). Para obter mais informações sobre a utilização de computadores de referência nas implementações do MDT, consulte [através de computadores de referência em implementações de MDT](#UsingReferenceComputersinMDTDeployments).  
@@ -5153,7 +5152,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  A maioria das redes de produção tem vários pontos de distribuição. Quando executar este passo num ambiente de produção, selecione os pontos de distribuição apropriados para a rede.  
 
-###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingConfigurationManager"></a>Implementar e capturar uma imagem do computador de referência utilizando o Configuration Manager  
+###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingConfigurationManager"></a> Implementar e capturar uma imagem do computador de referência utilizando o Configuration Manager  
  Depois dos pontos de distribuição são atualizados, anunciar a sequência de tarefas para o computador de referência e iniciar o computador de referência com a imagem de arranque do Windows PE criada anteriormente no processo. A sequência de tarefas que criou anteriormente irá implementar o sistema operativo de destino, controladores de dispositivo, sistema operativo pacotes e aplicações no computador de referência e, em seguida, capturar uma imagem do computador de referência.  
 
 ##### <a name="to-deploy-to-and-capture-an-image-of-the-reference-computer"></a>Para implementar e capturar uma imagem do computador de referência  
@@ -5170,7 +5169,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 6.  Opcionalmente, monitorizar o processo de implementação utilizando o nó de monitorização no Deployment Workbench ou utilizando o **Get-MDTMonitorData** cmdlet.  
 
-###  <a name="PreparingforZTIDeploymenttoTargetComputersUsingConfigurationManager"></a>Preparar a implementação de ZTI para computadores de destino com o Configuration Manager  
+###  <a name="PreparingforZTIDeploymenttoTargetComputersUsingConfigurationManager"></a> Preparar a implementação de ZTI para computadores de destino com o Configuration Manager  
  Depois das imagens de referência de computadores são capturados, implementá-las em computadores de destino. Durante a preparação para implementar as imagens capturadas em computadores de destino, crie um ou mais sequências de tarefas para implementar as imagens capturadas, certifique-se de que a implementação necessária recursos existem e personalizar o processo de implementação do MDT.  
 
 ##### <a name="to-prepare-for-zti-deployment-to-target-computers"></a>Para preparar a implementação de ZTI nos computadores de destino  
@@ -5191,7 +5190,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Consoante os computadores de destino na sua organização, qualquer combinação destes cenários de implementações poderá ser necessária. Para mais informações sobre cenários de implementação do MDT, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).  
 
-####  <a name="PreparefortheZTINewComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a>Preparar para o ZTI novo computador cenário de implementação para computadores de destino com o Configuration Manager  
+####  <a name="PreparefortheZTINewComputerDeploymentScenariotoTargetComputersUsingConfigurationManager">Preparar para o ZTI novo computador cenário de implementação para computadores de destino com o Configuration Manager</a>  
  O cenário de implementação do novo computador, poderá implementa uma nova instalação de um sistema operativo Windows para um novo computador. Não há nenhuma informação de migração de utilizador para guardar e restaurar e nenhum sistemas de ficheiros existentes para preservar. Utilize o modelo de sequência de tarefas de cliente para implementar a imagem capturada do computador de referência para o computador de destino.  
 
 ###### <a name="to-prepare-for-the-new-computer-deployment-scenario-to-target-computers"></a>Para preparar o cenário de implementação do novo computador para computadores de destino  
@@ -5232,7 +5231,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  A maioria das redes de produção tem vários pontos de distribuição. Quando executar este passo num ambiente de produção, selecione os pontos de distribuição apropriados para a rede.  
 
-####  <a name="PreparefortheZTIRefreshComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a>Preparar para o cenário de implementação de computador do ZTI atualização nos computadores de destino com o Configuration Manager  
+####  <a name="PreparefortheZTIRefreshComputerDeploymentScenariotoTargetComputersUsingConfigurationManager">Preparar para o cenário de implementação de computador do ZTI atualização nos computadores de destino com o Configuration Manager</a>  
  Cenário de implementação de atualização de computador, um computador é atualizado, incluindo computadores que têm de ser recriadas para uniformização de imagem ou para abordar um problema. Não há informações de migração de utilizador para guardar e restaurar, mas não sistemas de ficheiros existentes para preservar. Utilize o modelo de sequência de tarefas de cliente para implementar a imagem capturada do computador de referência para o computador de destino.  
 
 ###### <a name="to-prepare-for-the-refresh-computer-deployment-scenario-to-target-computers"></a>Para preparar o cenário de implementação de atualizar o computador para computadores de destino  
@@ -5275,7 +5274,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  A maioria das redes de produção tem vários pontos de distribuição. Quando executar este passo num ambiente de produção, selecione os pontos de distribuição apropriados para a rede.  
 
-####  <a name="PreparefortheZTIReplaceComputerDeploymentScenariotoTargetComputersUsingConfigurationManager"></a>Preparar para o cenário de implementação de computador do ZTI substituir a computadores de destino com o Configuration Manager  
+####  <a name="PreparefortheZTIReplaceComputerDeploymentScenariotoTargetComputersUsingConfigurationManager">Preparar para o cenário de implementação de computador do ZTI substituir a computadores de destino com o Configuration Manager</a>  
  No cenário de implementação de substituir o computador, um computador substitui noutro computador. Crie um registo de associação do computador que associa o computador de destino existente e o novo computador de destino. Os dados de migração de estado de utilizador existente são guardados do computador de destino existente. Em seguida, uma nova instalação do Windows é implementada para um novo computador. Por fim, os dados de estado do utilizador são restaurados para o novo computador. Não existem nenhum sistemas de ficheiros existentes para preservar.  
 
 > [!IMPORTANT]
@@ -5340,7 +5339,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  A maioria das redes de produção tem vários pontos de distribuição. Quando executar este passo num ambiente de produção, selecione os pontos de distribuição apropriados para a rede.  
 
-###  <a name="DeployingCapturedImagestoTargetComputersUsingConfigurationManager"></a>Implementar as imagens capturadas a computadores de destino com o Configuration Manager  
+###  <a name="DeployingCapturedImagestoTargetComputersUsingConfigurationManager"></a> Implementar as imagens capturadas a computadores de destino com o Configuration Manager  
  A implementação das imagens capturadas aos computadores de destino é ligeiramente diferente para cada cenário de implementação do MDT com ZTI. Implemente a imagem capturada do computador de referência para computadores de destino para cada cenário de implementação respetivos na sua organização.  
 
 ##### <a name="to-deploy-the-capture-image-of-the-reference-computer-to-the-target-computers"></a>Para implementar a imagem de captura do computador de referência para os computadores de destino  
@@ -5374,7 +5373,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      Consoante os computadores de destino na sua organização, qualquer combinação dos cenários de implementações poderá ser necessária. Para mais informações sobre os cenários de implementação do MDT, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheZTINewComputerDeploymentScenarioUsingConfigurationManager"></a>Implementar as imagens capturadas em computadores de destino a ZTI novo computador cenário de implementação com o Configuration Manager  
+####  <a name="DeployCapturedImagestoTargetComputersintheZTINewComputerDeploymentScenarioUsingConfigurationManager">Implementar as imagens capturadas em computadores de destino a ZTI novo computador cenário de implementação com o Configuration Manager</a>  
  Inicie o computador de destino com a tarefa sequência suportes de dados criado anteriormente no processo ou dos serviços de implementação do Windows. O método inicia o Windows PE no computador de destino e iniciará o processo de implementação ZTI. No final do processo, a imagem capturada do computador de referência é implementada no computador de destino.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-zti-new-computer-deployment-scenario-using-configuration-manager"></a>Para implementar as imagens de captura para computadores de destino a ZTI novo computador cenário de implementação com o Configuration Manager  
@@ -5422,7 +5421,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  Implemente a imagem capturada do computador de referência para o novo computador de destino, conforme descrito em [implementar a imagem capturada para o novo computador de destino com os dados de migração de estado de utilizador do existente computador utilizando o Configuration Manager](#DeploytheCapturedImagetotheNewTargetComputerwiththeUserStateMigrationDatafromtheExistingComputerUsingConfigurationManager).  
 
-#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingConfigurationManager"></a>Guardar os dados de migração de estado do utilizador do computador de destino existente com o Configuration Manager  
+#####  <a name="SavetheUserStateMigrationDatafromtheExistingTargetComputerUsingConfigurationManager"></a> Guardar os dados de migração de estado do utilizador do computador de destino existente com o Configuration Manager  
  Inicie o processo de implementação de ZTI executando o anúncio do Configuration Manager para capturar os dados de migração de estado de utilizador que criou anteriormente no processo. Esta sequência de tarefas é executado no sistema operativo atual no computador de destino existente.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-replace-computer-deployment-scenario-using-configuration-manager"></a>Para implementar as imagens de captura para computadores de destino na substituir o computador implementação cenário através do Configuration Manager  
@@ -5435,7 +5434,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A sequência de tarefas é executado num sistema operativo atual para capturar os dados de migração de estado do utilizador. No final da sequência de tarefas, os dados de migração de estado de utilizador do computador de destino existente são guardados para o ponto de migração de estado do Configuration Manager.  
 
-#####  <a name="DeploytheCapturedImagetotheNewTargetComputerwiththeUserStateMigrationDatafromtheExistingComputerUsingConfigurationManager"></a>Implementar a imagem capturada para o novo computador de destino com os dados de migração de estado do utilizador do computador existente com o Configuration Manager  
+#####  <a name="DeploytheCapturedImagetotheNewTargetComputerwiththeUserStateMigrationDatafromtheExistingComputerUsingConfigurationManager"></a> Implementar a imagem capturada para o novo computador de destino com os dados de migração de estado do utilizador do computador existente com o Configuration Manager  
  Inicie o computador de destino com o ZTI suportes de dados criado anteriormente no processo ou dos serviços de implementação do Windows. O suporte de dados de arranque ZTI inicia o Windows PE no computador de destino e inicia o ZTI. No final do processo de implementação, a imagem capturada do computador de referência está implementada no computador de destino e os dados de migração de estado do utilizador são restaurados a partir do ponto de migração de estado do Configuration Manager.  
 
 ###### <a name="deployment-scenario-for-deploying-the-captured-image"></a>cenário de implementação para implementar a imagem capturada  
@@ -5463,7 +5462,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      O novo computador de destino é implementado com o estado do utilizador do computador de destino existente restaurado automaticamente para o novo computador de destino.  
 
-##  <a name="ManagingZTIDeploymentsInTheConfigurationManagerConsole"></a>Gerir implementações ZTI na consola do Configuration Manager  
+##  <a name="ManagingZTIDeploymentsInTheConfigurationManagerConsole"></a> Gerir implementações ZTI na consola do Configuration Manager  
  Gerir as implementações ZTI utilizando o Gestor de configuração através da consola do Configuration Manager. Utilizar o Deployment Workbench em implementações ZTI apenas para configurar a BD do MDT. Os assistentes utilizados para configurar ZTI estão integrados na consola do Configuration Manager.  
 
  Gerir implementações ZTI na consola do Configuration Manager por:  
@@ -5494,7 +5493,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Configurar passos de sequência de tarefas ZTI efetuar ações relacionadas com função de servidor, conforme descrito em [configurar ZTI servidor função sequência de passos de tarefas no Configuration Manager](#ConfiguringZTIServerRoleTaskSequenceStepsinConfigurationManager)  
 
-###  <a name="CreatingaZTITaskSequenceUsingMDTTaskSequenceTemplatesinConfigurationManager"></a>Criar uma sequência de tarefas ZTI utilizando modelos de sequência de tarefas do MDT no Configuration Manager  
+###  <a name="CreatingaZTITaskSequenceUsingMDTTaskSequenceTemplatesinConfigurationManager"></a> Criar uma sequência de tarefas ZTI utilizando modelos de sequência de tarefas do MDT no Configuration Manager  
  Utilize o Assistente de criação MDT tarefas sequência na consola do Configuration Manager para criar sequências de tarefas no Configuration Manager que estão integradas com o MDT. MDT inclui modelos de sequência de tarefas que pode utilizar para implementar os computadores de referência e de destino.  
 
  Crie sequências de tarefas ZTI utilizando os modelos de sequência de tarefas do MDT por:  
@@ -5505,24 +5504,24 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Criar sequências de tarefas ZTI conforme descrito em [sequências de tarefas ZTI de criar utilizando o Assistente de criação MDT tarefas sequência no Configuration Manager](#CreateZTITaskSequencesUsingtheCreateMDTTaskSequenceWizardinConfigurationManager)  
 
-####  <a name="IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager"></a>Identificar os modelos de sequência de tarefas no MDT no Configuration Manager  
+####  <a name="IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager"></a> Identificar os modelos de sequência de tarefas no MDT no Configuration Manager  
   Apresenta uma lista de tabela 121 as sequências de tarefas modelos incluídos no MDT no Configuration Manager, o nome de ficheiro para cada modelo e uma descrição do modelo. Os ficheiros de modelo são localizados no *install_folder*\SCCM pasta (onde *install_folder* é a pasta em que foi instalado o MDT).  
 
 ### <a name="table-121-task-sequence-templates-included-in-mdt-for-configuration-manager"></a>Tabela 121. Modelos de sequência de tarefas incluídos no MDT para o Configuration Manager  
 
-|**Modelo** |**Nome de ficheiro** |**Selecione este modelo para** |  
+|**modelo** |**Nome de ficheiro** |**Selecione este modelo para** |  
 |------------------|-------------------|---------------------------------|  
-|Sequência de tarefas de cliente|SCCM_Client.XML|Implemente sistemas operativos cliente em computadores de destino para todos os cenários, exceto o cenário de implementação do MDT substituir o computador.|  
-|Sequência de tarefas de substituição de cliente|SCCM_ClientReplace.XML|Captura de dados de migração de estado de utilizador dos computadores de destino para o cenário de implementação do MDT substituir o computador.|  
-|Sequência de tarefas personalizada de implementação da Microsoft|SCCM_Custom.XML|Crie uma sequência de tarefas que pode ser personalizável para satisfazer as necessidades da sua organização.|  
-|Sequência de tarefas de servidor padrão|SCCM_Server.XML|Implemente sistemas operativos de servidor para computadores de destino para todos os cenários.|  
-|Utilizador suscitada pelo departamento de sequência de tarefas de instalação|SCCM_UDI.XML|Implemente sistemas operativos em computadores de destino com o UDI.|  
-|Utilizador suscitada pelo departamento de sequência de tarefas de substituição de instalação|SCCM_UDIReplace.XML|Captura de dados de migração de estado de utilizador dos computadores de destino para o cenário de implementação do MDT substituir o computador com o UDI.|  
+|Sequência de tarefas de cliente|SCCM_Client.xml|Implemente sistemas operativos cliente em computadores de destino para todos os cenários, exceto o cenário de implementação do MDT substituir o computador.|  
+|Sequência de tarefas de substituição de cliente|SCCM_ClientReplace.xml|Captura de dados de migração de estado de utilizador dos computadores de destino para o cenário de implementação do MDT substituir o computador.|  
+|Sequência de tarefas personalizada de implementação da Microsoft|SCCM_Custom.xml|Crie uma sequência de tarefas que pode ser personalizável para satisfazer as necessidades da sua organização.|  
+|Sequência de tarefas de servidor padrão|SCCM_Server.xml|Implemente sistemas operativos de servidor para computadores de destino para todos os cenários.|  
+|Utilizador suscitada pelo departamento de sequência de tarefas de instalação|SCCM_UDI.xml|Implemente sistemas operativos em computadores de destino com o UDI.|  
+|Utilizador suscitada pelo departamento de sequência de tarefas de substituição de instalação|SCCM_UDIReplace.xml|Captura de dados de migração de estado de utilizador dos computadores de destino para o cenário de implementação do MDT substituir o computador com o UDI.|  
 
 > [!NOTE]
 >  Utilize sempre o Assistente de criação MDT tarefas sequência para importar os modelos de sequência de tarefas. Embora pode importar manualmente os modelos de sequência de tarefas, fazê-lo, por isso, não é recomendado.  
 
-####  <a name="IdentifythePackagesandImagesThattheMDTTaskSequenceTemplatesinConfigurationManagerRequire"></a>Identificar os pacotes e imagens que requerem os modelos de sequência de tarefas do MDT no Configuration Manager  
+####  <a name="IdentifythePackagesandImagesThattheMDTTaskSequenceTemplatesinConfigurationManagerRequire"></a> Identificar os pacotes e imagens que requerem os modelos de sequência de tarefas do MDT no Configuration Manager  
  122 tabela lista os pacotes e imagens que requerem os modelos de sequência de tarefas no MDT. Estes pacotes e imagens tem de existir (ou ser criadas) para as sequências de tarefas no Configuration Manager de funcionar corretamente.  
 
 ### <a name="table-122-packages-and-images-required-by-the-task-sequence-templates-included-in-mdt-for-configuration-manager"></a>122 de tabela. Pacotes e imagens necessárias para os modelos de sequência de tarefas incluídos no MDT para o Configuration Manager  
@@ -5560,7 +5559,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   **Pacote de controladores de dispositivo**. O Configuration Manager utiliza pacotes de controladores para controlar a distribuição de controladores aos pontos de distribuição. Pode especificar categorias de controladores de dispositivo de um **aplicar controladores automaticamente** tipo de passo de sequência de tarefas para limitar os controladores são instaladas, ou pode instalar todos os controladores de dispositivo utilizando um **aplicar pacote de controladores** tarefas tipo de passo de sequência. Para obter mais informações sobre como incluir controladores de dispositivo numa imagem do sistema operativo, consulte a secção "Como para instalar dispositivos controladores para computadores por utilizando sequências de tarefas," na biblioteca de documentação do Configuration Manager, que está incluído com a configuração Gestor.  
 
-####  <a name="CreateZTITaskSequencesUsingtheCreateMDTTaskSequenceWizardinConfigurationManager"></a>Criar sequências de tarefas ZTI utilizando a criar Assistente da sequência de tarefas do MDT no Configuration Manager  
+####  <a name="CreateZTITaskSequencesUsingtheCreateMDTTaskSequenceWizardinConfigurationManager"></a> Criar sequências de tarefas ZTI utilizando a criar Assistente da sequência de tarefas do MDT no Configuration Manager  
  A criar MDT assistente sequência de tarefas no Configuration Manager substitui os pacotes e imagens selecionadas para os marcadores de posição nos modelos de sequência de tarefas. Depois de concluir o assistente, a nova sequência de tarefas referencia o pacotes adequados e imagens.  
 
 > [!NOTE]
@@ -5608,7 +5607,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      O **resumo** página do assistente mostra uma barra de estado que mostra o progresso das tarefas definida no assistente. Assistente de criação MDT tarefas sequência fechada quando a sequência de tarefas é criada.  
 
-###  <a name="ManagingOperatingSystemsinConfigurationManager"></a>Gerir sistemas operativos no Configuration Manager  
+###  <a name="ManagingOperatingSystemsinConfigurationManager"></a> Gerir sistemas operativos no Configuration Manager  
  Gerir sistemas operativos no nó sistemas operativos na área de trabalho biblioteca de Software. Os sistemas operativos são contidos e geridos nos seguintes nós sob o nó sistemas operativos:  
 
 -   **Instaladores do sistema operativo**. Este nó contém sistemas operativos que são utilizados para implementar computadores de referência e baseiam-se no ficheiro install.wim do suporte de dados de sistema operativo original.  
@@ -5617,7 +5616,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre a gestão de sistemas operativos na consola do Configuration Manager, consulte a secção "Configurar o Configuration Manager para implementações do sistema operativo," na biblioteca de documentação do Configuration Manager, que é instalado com o Gestor de configuração.  
 
-###  <a name="ManagingDeviceDriversinConfigurationManager"></a>Gerir controladores de dispositivo no Configuration Manager  
+###  <a name="ManagingDeviceDriversinConfigurationManager"></a> Gerir controladores de dispositivo no Configuration Manager  
  Gerir controladores de dispositivo na consola do Configuration Manager no Configuration Manager por:  
 
 -   Importar os controladores de dispositivo para o Configuration Manager conforme descrito em [importar controladores para o Configuration Manager](#ImportDriversintoConfigurationManager)  
@@ -5628,13 +5627,13 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Implementação de controladores de dispositivo específico a computadores de destino para implementações ZTI conforme descrito em [implementar controladores de dispositivo específico a computadores de destino no Configuration Manager](#DeploySpecificDeviceDriverstoTargetComputersinConfigurationManager)  
 
-####  <a name="ImportDriversintoConfigurationManager"></a>Importar controladores para o Configuration Manager  
+####  <a name="ImportDriversintoConfigurationManager"></a> Importar controladores para o Configuration Manager  
  Para importar controladores para o Configuration Manager, utilize o Assistente para importar novo controlador. Para informações sobre este assistente, consulte a secção "Como a importação Windows dispositivo controladores para o catálogo de controladores," na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
 
-####  <a name="CreateaNewConfigurationManagerDriverPackage"></a>Criar um novo pacote de controladores do Configuration Manager  
+####  <a name="CreateaNewConfigurationManagerDriverPackage"></a> Criar um novo pacote de controladores do Configuration Manager  
  Um pacote de controladores contém o conteúdo associado um ou mais controladores de dispositivo. Tem de adicionar controladores de dispositivo a um pacote de controladores e copie-os para um ponto de distribuição antes de clientes do Configuration Manager podem instalá-los. Para obter informações sobre como criar um novo pacote de controladores, consulte a secção "Como para criar um novo pacote de controladores," a biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
 
-####  <a name="AddDeviceDriverstoOperatingSystemandBootImagesinConfigurationManager"></a>Adicionar controladores de dispositivo para o funcionamento do sistema e imagens de arranque no Configuration Manager  
+####  <a name="AddDeviceDriverstoOperatingSystemandBootImagesinConfigurationManager"></a> Adicionar controladores de dispositivo para o funcionamento do sistema e imagens de arranque no Configuration Manager  
  Quando tiver adicionado os controladores de dispositivo para o catálogo de controladores, pode adicioná-los para sistemas de operativos existentes e imagens de arranque. O catálogo de controladores ajuda a gerir o custo e a complexidade da implementação de um sistema operativo num ambiente que contém tipos diferentes de computadores e dispositivos. Armazenamento de controladores de dispositivo no catálogo de controladores e não com cada imagem de sistema de operativo individuais significativamente reduz o número de imagens do sistema operativo que precisa.  
 
  Para obter informações sobre como gerir o catálogo de controladores, consulte a secção "Como para gerir o controlador de catálogo no Configuration Manager," na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
@@ -5645,22 +5644,22 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Adicionar controladores de dispositivo do catálogo de controladores a imagens de arranque existentes, conforme descrito em [adicionar controladores de dispositivo a uma imagem de arranque no Configuration Manager](#AddDeviceDriverstoaBootImageinConfigurationManager).  
 
-#####  <a name="AddDeviceDriverstoanOperatingSysteminConfigurationManager"></a>Adicionar controladores de dispositivo a um sistema operativo no Configuration Manager  
+#####  <a name="AddDeviceDriverstoanOperatingSysteminConfigurationManager"></a> Adicionar controladores de dispositivo a um sistema operativo no Configuration Manager  
  Adicione novos controladores de dispositivo numa imagem do sistema operativo existente utilizando o Editor de sequência de tarefas. Para permitir que o Configuration Manager para procurar no catálogo de controladores para os novos controladores de dispositivo, adicione um **aplicar controladores automaticamente** passo de sequência de tarefas a uma sequência de tarefas existente.  
 
  Para obter informações sobre como adicionar controladores de dispositivo a um sistema operativo, consulte a secção "Como para instalar dispositivos controladores para computadores por utilizando sequências de tarefas," na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
 
-#####  <a name="AddDeviceDriverstoaBootImageinConfigurationManager"></a>Adicionar controladores de dispositivo a uma imagem de arranque no Configuration Manager  
+#####  <a name="AddDeviceDriverstoaBootImageinConfigurationManager"></a> Adicionar controladores de dispositivo a uma imagem de arranque no Configuration Manager  
  Pode adicionar controladores de dispositivo do Windows que importou para o catálogo de controladores para uma ou mais imagens de arranque. Apenas os controladores de dispositivo de armazenamento em massa e controladores de dispositivo do adaptador de rede devem ser adicionados imagens de arranque, uma vez que outros tipos de controladores não são necessários e aumentam o tamanho da imagem de arranque. Adicione apenas controladores de dispositivo válido que foram concebidos para utilização com o Windows 8.1, porque a versão do Windows PE baseia-se no Windows 8.1.  
 
  Para obter informações sobre como adicionar controladores de dispositivo a imagens de arranque, consulte a secção "Como para adicionar e remover dispositivos controladores que estão associados com controladores pacotes e imagens de arranque," na biblioteca de documentação do Configuration Manager, que é instalada com a configuração Gestor.  
 
-####  <a name="DeploySpecificDeviceDriverstoTargetComputersinConfigurationManager"></a>Implementar controladores de dispositivo específico em computadores de destino no Configuration Manager  
+####  <a name="DeploySpecificDeviceDriverstoTargetComputersinConfigurationManager"></a> Implementar controladores de dispositivo específico em computadores de destino no Configuration Manager  
  Por predefinição, o ZTI utilizando o Gestor de configuração implementa todos os controladores de dispositivo para os computadores de destino. Em seguida, o sistema operativo de destino utiliza IDs Plug and Play para identificar os controladores de dispositivo necessários para os dispositivos nos computadores de destino.  
 
  Para alterar este comportamento predefinido, configurar o processo de implementação para instalar controladores específicos para computadores de destino, conforme descrito em ZTI [controlo dispositivo controlador implementações através do Configuration Manager para ZTI](#ControlDeviceDriverDeploymentsUsingConfigurationManagerforZTI). Para obter mais informações sobre as estratégias de gestão do controlador de dispositivo, consulte [selecionar a estratégia de gestão do controlador de dispositivo](#SelecttheDeviceDriverManagementStrategy).  
 
-###  <a name="DeployinganOperatingSystemUsingTaskSequenceBootableMediainConfigurationManager"></a>Implementar um sistema operativo utilizando suportes de dados de sequência tarefas no Configuration Manager  
+###  <a name="DeployinganOperatingSystemUsingTaskSequenceBootableMediainConfigurationManager"></a> Implementar um sistema operativo utilizando suportes de dados de sequência tarefas no Configuration Manager  
  Para iniciar a implementação de ZTI utilizando o Configuration Manager a partir de suportes de dados, inicie o computador de destino com os suportes de dados. O processo de arranque inicia o Windows PE e, em seguida, inicia ZTI. Pode iniciar o computador de destino a partir de uma pen USB, CD ou DVD.  
 
 > [!NOTE]
@@ -5668,7 +5667,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre como implementar um sistema operativo utilizando suportes de dados de sequência tarefas, consulte a secção "Como para implementar sistemas operativos ao utilizar suportes de dados no Configuration Manager" na biblioteca de documentação do Configuration Manager, que é instalada com Gestor de configuração.  
 
-###  <a name="CreatingTaskSequenceBootableMediainConfigurationManager"></a>Criar suportes de dados de sequência tarefas no Configuration Manager  
+###  <a name="CreatingTaskSequenceBootableMediainConfigurationManager"></a> Criar suportes de dados de sequência tarefas no Configuration Manager  
  Para iniciar o processo de implementação de ZTI utilizando o Configuration Manager a partir de suportes de dados, fornecem um método para iniciar o computador com o Windows PE e o software necessário ao criar o disco de suportes de dados de sequência de tarefas. Utilize o Assistente de suporte de dados de sequência de tarefas na consola do Configuration Manager para criar suportes de dados para o armazenamento numa pen USB, CD ou DVD.  
 
 > [!NOTE]
@@ -5676,7 +5675,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre como criar suportes de dados de sequência tarefas, consulte a secção "Como para criar suportes de dados" na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
 
-###  <a name="CreatingZTIBootImagesinConfigurationManager"></a>Criar imagens de arranque ZTI no Configuration Manager  
+###  <a name="CreatingZTIBootImagesinConfigurationManager"></a> Criar imagens de arranque ZTI no Configuration Manager  
  Algumas situações chamada para criar uma nova imagem de arranque para o processo ZTI sem executar o Assistente de criação MDT tarefas sequência. Pode criar novas imagens de arranque para ZTI utilizando a imagem de arranque criar utilizando o Assistente do MDT no nó de imagens de arranque na consola do Configuration Manager.  
 
 ##### <a name="to-create-a-zti-boot-image-in-configuration-manager"></a>Para criar uma imagem de arranque ZTI no Configuration Manager  
@@ -5701,20 +5700,20 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     |**Definições gerais** |a. No **nome**, tipo ***package_name*** (onde *package_name* é o nome descritivo apresentado na consola do Configuration Manager).<br /><br /> b. No **versão**, tipo ***package_version*** (onde *package_version* é o número de versão que pretende atribuir ao pacote).<br /><br /> c. No **comentários**, tipo ***package_comments*** (onde *package_comments* é o texto que descreve a finalidade da imagem de arranque).<br /><br /> d. Clique em **Seguinte**.|  
     |**Definições gerais: Opções** |a. No **plataforma**, clique em ***plataforma*** (onde *plataforma* é a arquitetura da plataforma da imagem de arranque — x86 ou x64).<br /><br /> b. No **espaço Scratch**, selecione ***scratch_space*** (onde *scratch_space* é a quantidade de espaço gravável disponível no volume de sistema do Windows PE quando arranca no modo de disco de RAM e é especificada em MB).<br /><br /> c. Clique em **Seguinte**.|  
     |**Definições gerais: Componentes** |a. No **plataforma**, clique em ***plataforma*** (onde *plataforma* é a arquitetura da plataforma da imagem de arranque — x86 ou x64).<br /><br /> b. Selecione ou desmarque o ***componente*** caixa de verificação (onde o componente é o nome do componente para ser selecionado). Se a caixa de verificação:<br /><br /> -O componente selecionada, é adicionado à imagem de arranque<br /><br /> -Desmarcada, o componente não está adicionado à imagem de arranque<br /><br /> Suporte de scripts, HTA, XML e WMI sempre são adicionados à imagem de arranque.<br /><br /> c. Clique em **Seguinte**.|  
-    |**Personalização** |a. Selecione ou desmarque o **adicionar ficheiros de comando de Pré-início para ativar o Assistente de implementação para este suporte de dados de arranque** caixa de verificação. Se esta caixa de verificação:<br /><br /> -Os ficheiros de comando de Pré-início selecionado, serão adicionados à imagem de arranque. No **linha de comandos**, escreva o script de comando de Pré-início a executar, que está predefinida para ZTIMediaHook.wsf. No **pasta para os ficheiros de comando de Pré-início**, tipo ***unc_path*** (onde *unc_path* é o caminho completamente qualificado de UNC para uma pasta gravável).<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta na qual residem os ficheiros de comando de Pré-início.<br /><br /> -Desmarcada, os ficheiros de comando de Pré-início não foram adicionados à imagem de arranque.<br /><br /> b. Selecione ou desmarque o **adicionar os ficheiros adicionais para a nova imagem de arranque** caixa de verificação. Se esta caixa de verificação:<br /><br /> -Os ficheiros adicionais selecionado, serão adicionados à imagem de arranque. No **caminho**, tipo ***caminho*** (onde *caminho* é o local totalmente qualificado ou relativo ou um caminho UNC para uma pasta gravável).<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta na qual residem os ficheiros adicionais.<br /><br /> -Desmarcada, os ficheiros adicionais não foram adicionados à imagem de arranque.<br /><br /> c. No **utilizar um ficheiro de mapa de bits de fundo personalizado (caminho UNC)**, tipo ***unc_path*** (onde *unc_path* é o caminho UNC completamente qualificado para o ficheiro de mapa de bits que pretende utilizar como o em segundo plano).<br /><br /> Em alternativa, clique em **procurar** localizar o ficheiro de mapa de bits.<br /><br /> d. Selecione ou desmarque o **ativar suporte de comando (F8)** caixa de verificação.<br /><br /> e. Clique em **Seguinte**.|  
+    |Personalização** |a. Selecione ou desmarque o **adicionar ficheiros de comando de Pré-início para ativar o Assistente de implementação para este suporte de dados de arranque** caixa de verificação. Se esta caixa de verificação:<br /><br /> -Os ficheiros de comando de Pré-início selecionado, serão adicionados à imagem de arranque. No **linha de comandos**, escreva o script de comando de Pré-início a executar, que está predefinida para ZTIMediaHook.wsf. No **pasta para os ficheiros de comando de Pré-início**, tipo ***unc_path*** (onde *unc_path* é o caminho completamente qualificado de UNC para uma pasta gravável).<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta na qual residem os ficheiros de comando de Pré-início.<br /><br /> -Desmarcada, os ficheiros de comando de Pré-início não foram adicionados à imagem de arranque.<br /><br /> b. Selecione ou desmarque o **adicionar os ficheiros adicionais para a nova imagem de arranque** caixa de verificação. Se esta caixa de verificação:<br /><br /> -Os ficheiros adicionais selecionado, serão adicionados à imagem de arranque. No **caminho**, tipo ***caminho*** (onde *caminho* é o local totalmente qualificado ou relativo ou um caminho UNC para uma pasta gravável).<br /><br /> Em alternativa, clique em **procurar** para localizar a pasta na qual residem os ficheiros adicionais.<br /><br /> -Desmarcada, os ficheiros adicionais não foram adicionados à imagem de arranque.<br /><br /> c. No **utilizar um ficheiro de mapa de bits de fundo personalizado (caminho UNC)**, tipo ***unc_path*** (onde *unc_path* é o caminho UNC completamente qualificado para o ficheiro de mapa de bits que pretende utilizar como o em segundo plano).<br /><br /> Em alternativa, clique em **procurar** localizar o ficheiro de mapa de bits.<br /><br /> d. Selecione ou desmarque o **ativar suporte de comando (F8)** caixa de verificação.<br /><br /> e. Clique em **Seguinte**.|  
     |**Resumo** |Reveja as informações no **detalhes**e, em seguida, clique em **seguinte**.|  
     |**Confirmação** |Pode clicar em **guardar saída** para guardar a saída do Assistente para um ficheiro. Também pode clicar em **ver Script** para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em **Fechar**.|  
 
  Depois da imagem de arranque criar utilizar o Assistente do MDT estiver concluído, a nova imagem de arranque é apresentado no painel de pré-visualização, na consola do Configuration Manager.  
 
-###  <a name="ManagingSoftwarePackagesinConfigurationManager"></a>Gerir pacotes de Software no Configuration Manager  
+###  <a name="ManagingSoftwarePackagesinConfigurationManager"></a> Gerir pacotes de Software no Configuration Manager  
  Gerir pacotes de software na consola do Configuration Manager no Configuration Manager por:  
 
 -   Adicionar pacotes de idiomas, conforme descrito em [adicionar pacotes de idiomas no Configuration Manager](#AddLanguagePacksinConfigurationManager)  
 
 -   Adicionar atualizações de software, conforme descrito em [adicionar as atualizações de Software no Configuration Manager](#AddSoftwareUpdatesinConfigurationManager)  
 
-####  <a name="AddLanguagePacksinConfigurationManager"></a>Adicionar pacotes de idiomas no Configuration Manager  
+####  <a name="AddLanguagePacksinConfigurationManager"></a> Adicionar pacotes de idiomas no Configuration Manager  
  *Pacotes de idiomas* são ficheiros. cab que pode adicionar pacotes do Configuration Manager offline ou online. No entanto, antes de adicionar pacotes de idiomas, crie um pacote de Configuration Manager que contém um ou mais pacotes de idiomas.  
 
  O número de pacotes de idiomas que adicionar a um pacote de Configuration Manager é baseado no tipo de implementação a ser efetuada. Ao implementar pacotes de idiomas utilizando:  
@@ -5817,7 +5816,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 11. No ***task_sequence_name*** **Editor de sequência de tarefas** caixa de diálogo, clique em **OK**.  
 
-####  <a name="AddSoftwareUpdatesinConfigurationManager"></a>Adicionar atualizações de Software no Configuration Manager  
+####  <a name="AddSoftwareUpdatesinConfigurationManager"></a> Adicionar atualizações de Software no Configuration Manager  
  Utilize o Gestor de configuração para adicionar atualizações — online ou offline — durante a sequência de tarefas. Gerir atualizações de software no Configuration Manager utilizando um servidor configurado como um ponto de atualização de software. Para obter informações detalhadas sobre as atualizações de software com o Configuration Manager, consulte a secção "Configurar Software atualizações no Configuration Manager," na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
 
  Utilizar pacotes de implementação para implementar atualizações de software. Para obter mais informações sobre a configuração e implementação de software, pacotes de atualização, consulte a secção "Transferir atualizações de Software," na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
@@ -5901,15 +5900,15 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!NOTE]
 >  A função de ponto de atualização de Software e o Windows Server Update Services (WSUS) devem ser corretamente configurados para funcionar com este tipo de passo de sequência de tarefas.  
 
-###  <a name="ManagingTaskSequenceDeploymentinConfigurationManager"></a>Gerir a implementação de sequência de tarefas no Configuration Manager  
+###  <a name="ManagingTaskSequenceDeploymentinConfigurationManager"></a> Gerir a implementação de sequência de tarefas no Configuration Manager  
  Nas implementações de ZTI utilizando o Gestor de configuração, tem de implementar as sequências de tarefas para computadores de destino utilizando o Assistente de implementação de Software. A sequência de tarefas é implementada numa coleção que inclui o computador de referência ou computadores de destino. Para obter mais informações sobre como implementar sequências de tarefas, consulte a secção "Como para implementar uma sequência de tarefas," na secção, "Como para gerir tarefas sequências no Configuration Manager," na biblioteca de documentação do Configuration Manager, que é instalado com o Gestor de configuração.  
 
-###  <a name="ManuallyAddingComputerstotheSiteDatabaseinConfigurationManager"></a>Adicionar manualmente os computadores na base de dados do Site no Configuration Manager  
+###  <a name="ManuallyAddingComputerstotheSiteDatabaseinConfigurationManager"></a> Adicionar manualmente os computadores na base de dados do Site no Configuration Manager  
  Nas implementações de ZTI utilizando o Configuration Manager, computadores tem de existir na base de dados do site do Configuration Manager antes de pode anunciar uma sequência de tarefas para o computador. O Configuration Manager inclui uma funcionalidade de adição automática de computadores de destino para a base de dados do site. No entanto, para computadores de referência, é mais fácil adicionar manualmente o computador de referência para a base de dados do site.  
 
  Para obter mais informações sobre como adicionar manualmente os computadores na base de dados do site, consulte a secção "Como para adicionar um computador para o Configuration Manager da base de dados," na secção, "Como para implementar sistemas operativos no Configuration Manager," no Configuration Manager Biblioteca de documentação, que é instalada com o Configuration Manager.  
 
-###  <a name="ManagingComputerCollectionsinConfigurationManager"></a>Gerir coleções de computadores no Configuration Manager  
+###  <a name="ManagingComputerCollectionsinConfigurationManager"></a> Gerir coleções de computadores no Configuration Manager  
  Nas implementações de ZTI utilizando o Gestor de configuração, as sequências de tarefas devem ser anunciadas a uma coleção de computadores de destino. No Configuration Manager, *coleções* são um agrupamento de um ou mais computadores. Para obter mais informações sobre como gerir coleções de computador, consulte as secções seguintes na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager:  
 
 -   "Introdução às coleções no Configuration Manager"  
@@ -5920,14 +5919,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   "Segurança e privacidade para coleções no Configuration Manager"  
 
-###  <a name="ManagingDistributionPointsinConfigurationManager"></a>Gerir pontos de distribuição no Configuration Manager  
+###  <a name="ManagingDistributionPointsinConfigurationManager"></a> Gerir pontos de distribuição no Configuration Manager  
  Nas implementações ZTI utilizando o Gestor de configuração, *pontos de distribuição* são o repositório para os ficheiros que está a ser implementadas nos computadores de referência e de destino. A organização pode ter mais do que um ponto de distribuição. Configure pontos de distribuição para as imagens do sistema operativo e pacotes de software que utiliza o MDT, assegurando que cada computador de referência e de destino tem uma persistente, alta velocidade ponto de ligação para uma distribuição.  
 
  Se efetuar alterações às imagens do sistema operativo e pacotes de software que utiliza o MDT, atualize os pontos de distribuição onde estas imagens e pacotes estão armazenados.  
 
  Para obter mais informações sobre a gestão de pontos de distribuição, consulte a secção "Operações e manutenção para conteúdo gestão no Configuration Manager," na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
 
-###  <a name="ConfiguringZTITaskSequenceStepsinConfigurationManager"></a>Configurar a sequência de tarefas ZTI passos no Configuration Manager  
+###  <a name="ConfiguringZTITaskSequenceStepsinConfigurationManager"></a> Configurar a sequência de tarefas ZTI passos no Configuration Manager  
  Depois de criar uma sequência de tarefas ZTI utilizando o Assistente de criação MDT tarefas sequência no Configuration Manager, pode personalizá-la utilizando a consola do Configuration Manager. Consola do Configuration Manager permite-lhe:  
 
 -   Adicionar novos passos de sequência de tarefas  
@@ -5942,7 +5941,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   As sequências de tarefas, consulte a secção "Planear a tarefa de sequências de estratégia no Configuration Manager," na biblioteca de documentação do Configuration Manager, que é instalado com o Configuration Manager.  
 
-###  <a name="ConfiguringZTIServerRoleTaskSequenceStepsinConfigurationManager"></a>Configurar a sequência de tarefas da função de servidor ZTI passos no Configuration Manager  
+###  <a name="ConfiguringZTIServerRoleTaskSequenceStepsinConfigurationManager"></a> Configurar a sequência de tarefas da função de servidor ZTI passos no Configuration Manager  
  ZTI pode ajudá-lo a automatizar a implementação de funções de servidor no Windows Server. Configure passos de sequência de tarefas ZTI no Configuration Manager para implementar as funções de servidor suportadas, que incluem:  
 
 -   AD DS  
@@ -5953,7 +5952,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  O processo para configurar os passos de sequência de tarefas de função de servidor é semelhante para ZTI e UDI LTI. Para obter mais informações sobre como configurar passos de sequência de tarefas a função de servidor para ZTI no Configuration Manager, consulte [configurar servidor de função passos](#ConfiguringServerRoleTaskSequenceSteps).  
 
-##  <a name="PerformingUDIDeployments"></a>Efetuar implementações de UDI  
+##  <a name="PerformingUDIDeployments"></a> Efetuar implementações de UDI  
  Efetuar implementações de UDI no MDT com o Configuration Manager dentro de um domínio do AD DS, dentro de um grupo de trabalho do Windows ou a partir de suportes de dados amovíveis.  
 
 > [!NOTE]
@@ -5973,7 +5972,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Implementar as imagens capturadas ao computador de destino com o UDI conforme descrito em [implementar imagens capturadas UDI de utilização de computadores de destino](#DeployingCapturedImagestoTargetComputersUsingUDI)  
 
-###  <a name="OverviewofUDIDeployments"></a>Descrição geral de implementações de UDI  
+###  <a name="OverviewofUDIDeployments"></a> Descrição geral de implementações de UDI  
  UDI permite a implementação de sistemas operativos Windows e aplicações utilizando o Gestor de configuração interativa. Normalmente, quando implementar sistemas operativos utilizando a funcionalidade OSD no Configuration Manager e ZTI no MDT, tem de fornecer todas as informações necessárias para implementar o sistema operativo. Antes de efetuar a implementação, as informações estão configuradas nos ficheiros de configuração ou nas bases de dados (por exemplo, o ficheiro CustomSettings.ini ou da base de dados do MDT). Durante o processo de implementação de ZTI ZTI converte as definições de configuração adequado para variáveis de sequência de tarefas, as sequências de tarefas do MDT consumam para UDI. Todas as definições de configuração tem de ser fornecidas antes de iniciar a implementação.  
 
  UDI fornece uma interface de condicionada no Assistente de mensagens em fila que é executado no computador de destino, o que permite-lhe fornecer informações de configuração imediatamente antes da implementação de aplicação e de sistema operativo. Isto permite-lhe criar sequências de tarefas OSD genéricas e, em seguida, ter outros utilizadores fornecer informações específicas do computador no momento da implementação, que fornece uma maior flexibilidade no processo de implementação.  
@@ -6000,7 +5999,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 |*Guia para programadores do instalação orientado por utilizador*|Este conteúdo fornece orientações sobre como personalizar e expandem UDI para satisfazer as necessidades da sua organização.|  
 |"Conceitos UDI" secção *Microsoft implementação Toolkit de referência*|Este conteúdo fornece definições de termos UDI, terminologia e informações concetuais sobre UDI.|  
 
-####  <a name="OverviewofUDIinMDTDeploymentScenarios"></a>Descrição geral de UDI em cenários de implementação do MDT  
+####  <a name="OverviewofUDIinMDTDeploymentScenarios">Descrição geral de UDI em cenários de implementação do MDT</a>  
  UDI suporta o novo computador, atualize o computador e cenários de implementação de substituir o computador MDT, que foram descritos na [identificar cenários de implementação](#IdentifyingDeploymentScenarios). UDI suporta estes cenários de implementações com os modelos de sequência de tarefas do Configuration Manager fornecidos com o MDT. Tabela 136 apresenta os cenários de implementação do MDT e os modelos de sequência de tarefas UDI correspondentes utilizavam para executar o cenário de implementação.  
 
 ### <a name="table-136-mdt-deployment-scenarios-and-udi-task-sequence-templates-used-to-perform-the-scenarios"></a>Tabela 136. Cenários de implementação do MDT e modelos de sequência de tarefas UDI utilizados para executar os cenários  
@@ -6021,7 +6020,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais detalhes sobre a forma como o UDI funciona em cada um destes cenários de implementação do MDT, consulte as secções "UDI fase Reference" correspondentes na *Microsoft implementação Toolkit referência*.  
 
-#####  <a name="UDIintheNewComputerDeploymentScenario"></a>UDI o novo cenário de implementação de computador  
+#####  <a name="UDIintheNewComputerDeploymentScenario">UDI o novo cenário de implementação de computador</a>  
  Para o novo Assistente de implementação de computador, as imagens de sistema operativo podem ser nas seguintes localizações:  
 
 -   **Num ponto de distribuição**. Este método utiliza a metodologia de implementação de OSD tradicional no Configuration Manager.  
@@ -6040,14 +6039,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  **Figura 3. Fluxo de processo para UDI efetuar o cenário de implementação do novo computador para suportes de dados**  
 
-#####  <a name="UDIintheRefreshComputerDeploymentScenario"></a>UDI o cenário de implementação de computador de atualização  
+#####  <a name="UDIintheRefreshComputerDeploymentScenario">UDI o cenário de implementação de computador de atualização</a>  
  Sequências de tarefas utilizadas para executar o cenário de atualizar o computador utilizam o mesmo modelo de sequência de tarefas, como o cenário de novo computador, o **sequência de tarefas de instalação orientadas por utilizador** modelo de sequência de tarefas. O cenário de implementação de computador atualizar sempre começa com o computador de destino a executar o sistema operativo Windows existente, que é a forma como a sequência de tarefas conheça a diferença entre o cenário de implementação de atualizar o computador e as implementações do novo computador cenário. A figura 4 ilustra como UDI é utilizada no cenário de implementação de atualizar o computador.  
 
  ![MDTDevToolkit4](media/MDTDevToolkit4.jpg "MDTDevToolkit4")  
 
  Figura 4. Fluxo de processo para UDI efetuar o cenário de implementação de atualização de computador  
 
-#####  <a name="UDIintheReplaceComputerDeploymentScenario"></a>UDI o cenário de implementação de computador de substituição  
+#####  <a name="UDIintheReplaceComputerDeploymentScenario">UDI o cenário de implementação de computador de substituição</a>  
  O cenário de substituir o computador requer as seguintes sequências de tarefas.  
 
 -   Uma sequência de tarefas criada utilizando o **utilizador orientadas por instalação substituir sequência de tarefas** modelo de sequência de tarefas. Esta sequência de tarefas é executada primeiro o computador existente e é utilizada para capturar dados de migração para Estado de utilizador para uma pasta partilhada de rede ou para um disco USB que está ligado ao computador existente.  
@@ -6060,7 +6059,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  **Figura 5. Fluxo de processo para efetuar o cenário de implementação de substituir o computador UDI**  
 
-####  <a name="OverviewofBuiltinUDIComponents"></a>Descrição geral dos componentes UDI incorporadas  
+####  <a name="OverviewofBuiltinUDIComponents">Descrição geral dos componentes UDI incorporadas</a>  
  UDI vem com sequências de tarefas incorporadas do Configuration Manager, grupos de fase, fases, tarefas, validações e páginas assistente que podem realizar cenários mais comuns de implementação sem assistência de um programador. Estes componentes incorporados podem ser configurados com o UDI Wizard Designer:  
 
  Para obter mais informações sobre os componentes UDI incorporadas, consulte as secções seguintes o *Microsoft implementação Toolkit referência*:  
@@ -6075,7 +6074,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para além destes componentes incorporados, pode criar páginas do assistente personalizado, editores de página do assistente, tarefas e validações com o UDI software development kit (SDK). O SDK de UDI é instalado com o MDT e contém soluções de exemplo para o Microsoft Visual Studio 2010. Para obter mais informações sobre a expansão de UDI utilizando o SDK de UDI, consulte o documento de MDT *guia para programadores do modo instalação*.  
 
-###  <a name="PreparingtheUDIDeploymentEnvironment"></a>Preparar o ambiente de implementação de UDI  
+###  <a name="PreparingtheUDIDeploymentEnvironment"></a> Preparar o ambiente de implementação de UDI  
  Depois de preparar a infraestrutura de pré-requisito para MDT, está pronto para preparar o ambiente de implementação do MDT UDI.  
 
 ##### <a name="to-prepare-the-mdt-deployment-environment-for-udi-deployments"></a>Para preparar o ambiente de implementação MDT para implementações de UDI  
@@ -6088,7 +6087,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  Ativar a integração da consola do Configuration Manager com o MDT, conforme descrito em [ativar a configuração do Gestor de integração da consola para UDI](#EnableConfigurationManagerConsoleIntegrationforUDI).  
 
-####  <a name="PreparethePrerequisiteInfrastructureforUDIDeployments"></a>Preparar a infraestrutura de pré-requisito para implementações de UDI  
+####  <a name="PreparethePrerequisiteInfrastructureforUDIDeployments"></a> Preparar a infraestrutura de pré-requisito para implementações de UDI  
  Implementações de UDI necessitam que uma infraestrutura do Configuration Manager está corretamente configurada existe antes de instalar o MDT e efetuar implementações. Certifique-se de que a sua infraestrutura de novo ou existente do Configuration Manager está especificamente otimizada para a funcionalidade de implementação do sistema operativo.  
 
 > [!NOTE]
@@ -6096,11 +6095,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para mais informações sobre:  
 
--   Requisitos de hardware e software no Configuration Manager, consulte [configurações suportadas para o Configuration Manager](http://technet.microsoft.com/library/gg682077.aspx) ...  
+-   Requisitos de hardware e software no Configuration Manager, consulte [configurações suportadas para o Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/configs/supported-configurations) ...  
 
 -   Configurar uma infraestrutura do Configuration Manager para suportar implementações de UDI, consulte a secção "passo 1: Preparar a infraestrutura de pré-requisito", no MDT documentos guia rápido para o modo de instalação.  
 
-####  <a name="InstallorUpgradetoMDTforUDIDeployments"></a>Instalar ou atualizar para o MDT para implementações de UDI  
+####  <a name="InstallorUpgradetoMDTforUDIDeployments"></a> Instalar ou atualizar para o MDT para implementações de UDI  
  O primeiro passo para efetuar implementações de UDI é ter, pelo menos, uma instância do MDT que executar no seu ambiente. Instale o MDT em cada computador que tenha a consola do Configuration Manager instalada e que irá utilizar para criar ou editar sequências de tarefas que gera o MDT. Se tiver o seu ambiente existente:  
 
 -   Não existem computadores com o MDT ou uma versão anterior do MDT, instalar uma ou mais instâncias novo do MDT, conforme descrito em [instalar uma nova instância do MDT](#InstallingaNewInstanceofMDT).  
@@ -6113,7 +6112,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     -   **Certifique-se de que as sequências de tarefas UDI criadas antes da atualização utilizam o pacote de ficheiros do Microsoft implementação Toolkit que existia antes da atualização**. Pode modificar estas sequências de tarefas UDI, mas não é possível utilizar qualquer um dos passos ou ações de sequência de tarefas do novo MDT. Para utilizar as novas ações de sequência de tarefas MDT ou passos, crie uma nova sequência de tarefas UDI.  
 
-####  <a name="ObtaintheSoftwareThattheUDIDeploymentProcessRequires"></a>Obter o Software que requer que o processo de implementação de UDI  
+####  <a name="ObtaintheSoftwareThattheUDIDeploymentProcessRequires"></a> Obter o Software que requer que o processo de implementação de UDI  
  Recolha o software necessário durante o processo de implementação de UDI. Este software será importado ou adicionar partilhas de implementação, a menos que já existe na partilha de implementação.  
 
 > [!NOTE]
@@ -6131,7 +6130,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Ficheiros de origem USMT utilizados para criar um pacote de software que é implementado nos computadores de destino para capturar os dados de migração de estado do utilizador  
 
-####  <a name="EnableConfigurationManagerConsoleIntegrationforUDI"></a>Ativar a integração de consola do Configuration Manager para UDI  
+####  <a name="EnableConfigurationManagerConsoleIntegrationforUDI"></a> Ativar a integração de consola do Configuration Manager para UDI  
  Antes de poder utilizar as funcionalidades de integração do Gestor de configuração do MDT, execute o Assistente para configurar a integração do ConfigMgr. Este assistente copia os ficheiros adequados para a integração de Configuration Manager para o *_root do Configuration Manager* (onde *_root do Configuration Manager* é a pasta na qual o Configuration Manager consola está instalada).  
 
  O assistente também adiciona classes WMI para as novas ações personalizadas do MDT. Adicione estas classes ao compilar um ficheiro. MOF que contém as definições de classe de novo.  
@@ -6156,7 +6155,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Concluído o Assistente para configurar a integração do ConfigMgr e o MDT é integrado com o Configuration Manager.  
 
-###  <a name="PreparingforUDIDeploymenttotheReferenceComputer"></a>Preparar a implementação de UDI para o computador de referência  
+###  <a name="PreparingforUDIDeploymenttotheReferenceComputer"></a> Preparar a implementação de UDI para o computador de referência  
  Independentemente do cenário de implementação MDT que estão a funcionar com o UDI sempre começar por criar um computador de referência e, em seguida, capturar uma imagem do computador. Mais tarde no processo de implementação do MDT, irá implementar a imagem capturada do computador de referência para os computadores de destino adequada. Além disso, pode utilizar imagens de sistema operativo existente no formato WIM.  
 
  Crie um computador de referência de cada imagem que pretende criar para a implementação aos computadores de destino. Para obter mais informações sobre como determinar o número de imagens necessários na sua organização (e, subsequentemente, o número de computadores de referência necessário), consulte [requisitos de armazenamento de estimativa de pontos de distribuição do Configuration Manager](#EstimateStorageRequirementsforConfigurationManagerDistributionPoints). Para obter mais informações sobre a utilização de computadores de referência nas implementações do MDT, consulte [através de computadores de referência em implementações de MDT](#UsingReferenceComputersinMDTDeployments).  
@@ -6191,7 +6190,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  O processo de implementação de UDI não é possível efetuar operações de Sysprep num computador de destino que está encriptada utilizando a encriptação de unidade BitLocker. Não ativar o BitLocker no computador de referência e ativar o BitLocker nos computadores de destino apenas depois do sistema de operativo de destino completamente é implementado.  
 
-###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingUDI"></a>Implementar e capturar uma imagem do computador de referência utilizando UDI  
+###  <a name="DeployingToandCapturinganImageoftheReferenceComputerUsingUDI"></a> Implementar e capturar uma imagem do computador de referência utilizando UDI  
  Depois dos pontos de distribuição são atualizados, anunciar a sequência de tarefas para o computador de referência e iniciar o computador de referência com a imagem de arranque do Windows PE criada anteriormente no processo. A sequência de tarefas que criou anteriormente irá implementar o sistema operativo de destino, controladores de dispositivo, sistema operativo pacotes e aplicações no computador de referência e, em seguida, capturar uma imagem do computador de referência.  
 
 ##### <a name="to-deploy-to-and-capture-an-image-of-the-reference-computer"></a>Para implementar e capturar uma imagem do computador de referência  
@@ -6208,7 +6207,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 6.  Iniciar o computador de referência com a sequência de tarefas com suportes de dados em disco conforme descrito em [implementar um sistema operativo utilizando a tarefa de sequência de suportes de dados no Configuration Manager](#DeployinganOperatingSystemUsingTaskSequenceBootableMediainConfigurationManager) que é o mesmo processo para implementações de UDI e ZTI.  
 
-###  <a name="PreparingforUDIDeploymenttoTargetComputers"></a>Preparar a implementação de UDI para computadores de destino  
+###  <a name="PreparingforUDIDeploymenttoTargetComputers"></a> Preparar a implementação de UDI para computadores de destino  
  Depois das imagens de referência de computadores são capturados, implementá-las em computadores de destino. Durante a preparação para implementar as imagens capturadas em computadores de destino, crie um ou mais sequências de tarefas para implementar as imagens capturadas, certifique-se de que a implementação necessária recursos existem e personalizar o processo de implementação do MDT.  
 
 ##### <a name="to-prepare-for-udi-deployment-to-target-computers"></a>Para preparar a implementação de UDI nos computadores de destino  
@@ -6229,7 +6228,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      Consoante os computadores de destino na sua organização, qualquer combinação destes cenários de implementações poderá ser necessária. Para mais informações sobre cenários de implementação do MDT, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).  
 
-####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingUDI"></a>Preparar para o novo cenário de implementação de computador para computadores de destino com o UDI  
+####  <a name="PreparefortheNewComputerDeploymentScenariotoTargetComputersUsingUDI">Preparar para o novo cenário de implementação de computador para computadores de destino com o UDI</a>  
  O cenário de implementação do novo computador, poderá implementa uma nova instalação de um sistema operativo Windows para um novo computador. Não há nenhuma informação de migração de utilizador para guardar e restaurar e nenhum sistemas de ficheiros existentes para preservar. Utilize o modelo de sequência de tarefas de instalação de modo para implementar a imagem capturada do computador de referência para o computador de destino.  
 
 ###### <a name="to-prepare-for-the-new-computer-deployment-scenario-to-target-computers-using-udi"></a>Para preparar o cenário de implementação do novo computador para computadores de destino com o UDI  
@@ -6277,7 +6276,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  A maioria das redes de produção tem vários pontos de distribuição. Quando executar este passo num ambiente de produção, selecione os pontos de distribuição apropriados para a rede.  
 
-####  <a name="PreparefortheRefreshComputerDeploymentScenariotoTargetComputersUsingUDI"></a>Preparar para o cenário de implementação de computador de atualização para computadores de destino com o UDI  
+####  <a name="PreparefortheRefreshComputerDeploymentScenariotoTargetComputersUsingUDI">Preparar para o cenário de implementação de computador de atualização para computadores de destino com o UDI</a>  
  Cenário de implementação de atualização de computador, um computador é atualizado, incluindo computadores que têm de ser recriadas para uniformização de imagem ou para abordar um problema. Não há informações de migração de utilizador para guardar e restaurar, mas não sistemas de ficheiros existentes para preservar. Utilize o **sequência de tarefas de instalação orientadas por utilizador** modelo para implementar a imagem capturada do computador de referência para o computador de destino.  
 
 ###### <a name="to-prepare-for-the-refresh-computer-deployment-scenario-to-target-computers-using-udi"></a>Para preparar o cenário de implementação de atualizar o computador para computadores de destino com o UDI  
@@ -6322,7 +6321,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  A maioria das redes de produção tem vários pontos de distribuição. Quando executar este passo num ambiente de produção, selecione os pontos de distribuição apropriados para a rede.  
 
-####  <a name="PreparefortheReplaceComputerDeploymentScenariotoTargetComputersUsingUDI"></a>Preparar para o cenário de implementação de computador de substituição para computadores de destino com o UDI  
+####  <a name="PreparefortheReplaceComputerDeploymentScenariotoTargetComputersUsingUDI">Preparar para o cenário de implementação de computador de substituição para computadores de destino com o UDI</a>  
  No cenário de implementação de substituir o computador, um computador substitui noutro computador. Crie um registo de associação do computador que associa o computador de destino existente e o novo computador de destino. Os dados de migração de estado de utilizador existente são guardados do computador de destino existente. Em seguida, uma nova instalação do Windows é implementada para um novo computador. Por fim, os dados de estado do utilizador são restaurados para o novo computador. Não existem nenhum sistemas de ficheiros existentes para preservar.  
 
 > [!IMPORTANT]
@@ -6387,7 +6386,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!NOTE]
     >  A maioria das redes de produção tem vários pontos de distribuição. Quando executar este passo num ambiente de produção, selecione os pontos de distribuição apropriados para a rede.  
 
-###  <a name="DeployingCapturedImagestoTargetComputersUsingUDI"></a>Implementar capturadas imagens para computadores de destino com o UDI  
+###  <a name="DeployingCapturedImagestoTargetComputersUsingUDI"></a> Implementar capturadas imagens para computadores de destino com o UDI  
  A implementação das imagens capturadas aos computadores de destino é ligeiramente diferente para cada cenário de implementação do MDT com o UDI. Implemente a imagem capturada do computador de referência para computadores de destino para cada cenário de implementação respetivos na sua organização.  
 
 ##### <a name="to-deploy-the-capture-image-of-the-reference-computer-to-the-target-computers-using-udi"></a>Para implementar a imagem de captura do computador de referência para os computadores de destino com o UDI  
@@ -6424,7 +6423,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      Consoante os computadores de destino na sua organização, qualquer combinação dos cenários de implementações poderá ser necessária. Para mais informações sobre os cenários de implementação do MDT, consulte [identificar cenários de implementação](#IdentifyingDeploymentScenarios).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingUDI"></a>Implementar as imagens capturadas a computadores de destino, o novo cenário de implementação de computador com o UDI  
+####  <a name="DeployCapturedImagestoTargetComputersintheNewComputerDeploymentScenarioUsingUDI">Implementar as imagens capturadas a computadores de destino, o novo cenário de implementação de computador com o UDI</a>  
  Inicie o computador de destino com a tarefa sequência suportes de dados criado anteriormente no processo ou dos serviços de implementação do Windows. O método inicia o Windows PE no computador de destino e iniciará o processo de implementação de UDI. No final do processo, a imagem capturada do computador de referência é implementada no computador de destino.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-new-computer-deployment-scenario-using-udi"></a>Para implementar as imagens de captura para computadores de destino, o novo cenário de implementação de computador com o UDI  
@@ -6452,7 +6451,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  Conclua o Assistente de UDI selecionando os valores adequados nas páginas do Assistente para requisitos da sua organização, conforme descrito em [executar o Assistente de UDI](#RunningtheUDIWizard).  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheRefreshComputerDeploymentScenarioUsingUDI"></a>Implementar as imagens capturadas em computadores de destino no cenário de implementação de computador de atualização utilizando o UDI  
+####  <a name="DeployCapturedImagestoTargetComputersintheRefreshComputerDeploymentScenarioUsingUDI">Implementar as imagens capturadas em computadores de destino no cenário de implementação de computador de atualização utilizando o UDI</a>  
  Inicie neste cenário, executando a implementação de sequência de tarefas do Configuration Manager (anúncio) para capturar os dados de migração de estado de utilizador que criou anteriormente no processo. Esta sequência de tarefas é executado no sistema operativo atual no computador de destino existente.  
 
 ###### <a name="to-deploy-the-capture-images-to-the-target-computers-in-the-refresh-computer-deployment-scenario-using-udi"></a>Para implementar as imagens de captura para os computadores de destino a atualizar computador implementação cenário utilizando UDI  
@@ -6469,7 +6468,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A sequência de tarefas é executado no Windows PE para capturar os dados de migração de estado do utilizador. A sequência de tarefas reinicia o computador, inicia o Windows PE e, em seguida, inicia a instalação do novo sistema operativo. A sequência de tarefas reinicia o computador, inicia o novo sistema operativo, restaura os dados de migração de estado do utilizador, instala quaisquer pacotes, instala todas as aplicações e efetua quaisquer outras ações, configuradas na sequência de tarefas. Por fim, o programa de resultados de OSD, OSDResults.exe, é executado e apresenta os resultados da implementação. O computador de destino é agora implementado.  
 
-####  <a name="DeployCapturedImagestoTargetComputersintheReplaceComputerDeploymentScenarioUsingUDI"></a>Implementar as imagens capturadas em computadores de destino no cenário de implementação de computador substituir utilizando UDI  
+####  <a name="DeployCapturedImagestoTargetComputersintheReplaceComputerDeploymentScenarioUsingUDI">Implementar as imagens capturadas em computadores de destino no cenário de implementação de computador substituir utilizando UDI</a>  
  O cenário de implementação de substituir o computador requer dois passos separados para concluir a migração. Primeiro, execute a implementação (anúncio) para a sequência de tarefas que criou para capturar os dados de migração de estado de utilizador do computador de destino existente (computador antigo). Segundo, execute o Assistente de UDI para implementar a imagem capturada do computador de referência para o novo computador (computador novo) de destino e restaurar o estado do utilizador guardado anteriormente no processo.  
 
 ###### <a name="to-deploy-captured-images-of-the-reference-computer-to-target-computers-in-the-replace-computer-deployment-scenario-using-udi"></a>Para implementar captura imagens do computador de referência para computadores de destino, o cenário de implementação de substituir o computador com o UDI  
@@ -6478,7 +6477,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 2.  Implemente a imagem capturada do computador de referência para o novo computador de destino, conforme descrito em [implementar a imagem capturada e dados de migração de estado de utilizador a substituir o computador implementação cenário utilizando UDI](#DeploytheCapturedImageandUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI).  
 
-#####  <a name="SavetheUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a>Guardar os dados de migração de estado do utilizador no cenário de implementação de computador substituir utilizando UDI  
+#####  <a name="SavetheUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a> Guardar os dados de migração de estado do utilizador no cenário de implementação de computador substituir utilizando UDI  
  Inicie neste cenário, executando a implementação de sequência de tarefas (anúncio) para capturar os dados de migração de estado de utilizador que criou anteriormente no processo. Esta sequência de tarefas é executado no sistema operativo atual no computador de destino existente.  
 
 ###### <a name="to-save-the-user-state-migration-data-from-the-existing-target-computers-in-the-replace-computer-deployment-scenario-using-udi"></a>Para guardar os dados de migração de estado do utilizador dos computadores de destino existente no cenário de implementação de computador substituir utilizando o UDI  
@@ -6491,7 +6490,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A sequência de tarefas é executado num sistema operativo atual para capturar os dados de migração de estado do utilizador. No final da sequência de tarefas, os dados de migração de estado de utilizador do computador de destino existente são guardados para o ponto de migração de estado do Configuration Manager.  
 
-#####  <a name="DeploytheCapturedImageandUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a>Implementar a imagem capturada e dados de migração de estado do utilizador no cenário de implementação de computador substituir utilizando UDI  
+#####  <a name="DeploytheCapturedImageandUserStateMigrationDataintheReplaceComputerDeploymentScenarioUsingUDI"></a> Implementar a imagem capturada e dados de migração de estado do utilizador no cenário de implementação de computador substituir utilizando UDI  
  Inicie o computador de destino com o ZTI suportes de dados criado anteriormente no processo ou dos serviços de implementação do Windows. O suporte de dados de arranque ZTI inicia o Windows PE no computador de destino e iniciará o processo de implementação de UDI. No final do processo de implementação, a imagem capturada do computador de referência está implementada no computador de destino e os dados de migração de estado do utilizador são restaurados a partir do ponto de migração de estado do Configuration Manager.  
 
 ###### <a name="to-complete-the-windows-deployment-wizard-in-the-replace-computer-deployment-scenario-for-deploying-the-captured-image-using-udi"></a>Para concluir o Assistente de implementação do Windows no cenário de implementação de substituir o computador para implementar a imagem capturada através de UDI  
@@ -6521,7 +6520,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  A sequência de tarefas inicia o Windows PE e, em seguida, inicia a instalação do novo sistema operativo. A sequência de tarefas reinicia o computador, inicia o novo sistema operativo, restaura os dados de migração de estado do utilizador, instala quaisquer pacotes, instala todas as aplicações e efetua quaisquer outras ações, configuradas na sequência de tarefas. Por fim, o programa de resultados de OSD, OSDResults.exe, é executado e apresenta os resultados da implementação. O computador de destino é agora implementado.  
 
-##  <a name="ManagingUDIDeployments"></a>Gerir implementações de UDI  
+##  <a name="ManagingUDIDeployments"></a> Gerir implementações de UDI  
  Gerir implementações de UDI através da consola do Configuration Manager e o UDI Wizard Designer. Utilizar o Deployment Workbench em implementações de UDI apenas para configurar a BD do MDT. O assistente utilizado para criar sequências de tarefas UDI estão integradas na consola do Configuration Manager. Pode utilizar o UDI Wizard Designer para configurar o comportamento do Assistente de UDI.  
 
  Gerir implementações de UDI por:  
@@ -6556,7 +6555,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Criar uma página do assistente personalizados para recolher informações de implementação adicional, conforme descrito em [páginas do Assistente Criar personalizado utilizando a funcionalidade para criar página própria Your](#CreatingCustomWizardPagesUsingtheBuildYourOwnPageFeature)  
 
-###  <a name="OverviewofUDIAdministration"></a>Descrição geral da administração de UDI  
+###  <a name="OverviewofUDIAdministration"></a> Descrição geral da administração de UDI  
  O objetivo de administração de UDI consiste em configurar a experiência de utilizador no Assistente de UDI e, em última análise controlar a implementação de sistemas operativos Windows e aplicações em computadores de destino. Configurar a experiência de utilizador UDI utilizando o UDI Wizard Designer e ao personalizar as sequências de tarefas do Configuration Manager utilizadas com o UDI na consola do Configuration Manager.  
 
  A principal ferramenta para administrar UDI é o estruturador de Assistente de UDI. O UDI Wizard Designer é instalado como parte do MDT, que é instalado no mesmo computador na consola do Configuration Manager. Porque UDI é incorporada-na funcionalidade OSD no Configuration Manager, também utilizará a consola do Configuration Manager para administrar aspetos específicos das implementações de UDI.  
@@ -6597,7 +6596,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      AppInstaller permite que o Configuration Manager para identificar quaisquer aplicações instaladas utilizando o modelo de aplicação durante a sequência de tarefas. Isto permite que o Configuration Manager para utilizar funcionalidades como a funcionalidade de monitorização.  
 
-###  <a name="CreatingaUDITaskSequenceUsingMDTTaskSequenceTemplates"></a>Criar uma sequência de tarefas UDI utilizando modelos de sequência de tarefas do MDT  
+###  <a name="CreatingaUDITaskSequenceUsingMDTTaskSequenceTemplates"></a> Criar uma sequência de tarefas UDI utilizando modelos de sequência de tarefas do MDT  
  Utilize o Assistente de criação MDT tarefas sequência na consola do Configuration Manager para criar sequências de tarefas no Configuration Manager que estão integradas com o MDT. MDT inclui modelos de sequência de tarefas que pode utilizar para implementar os computadores de referência e de destino.  
 
  Crie sequências de tarefas UDI utilizando os modelos de sequência de tarefas do MDT por:  
@@ -6610,7 +6609,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Configurar UDI sequências de tarefas para implementar sistemas operativos diferentes, conforme descrito em [configurar UDI as sequências de tarefas para implementar sistemas operativos diferentes](#ConfigureUDITaskSequencestoDeployDifferentOperatingSystems)  
 
-####  <a name="IdentifytheUDITaskSequenceTemplatesinMDT"></a>Identificar os modelos de sequência de tarefas UDI no MDT  
+####  <a name="IdentifytheUDITaskSequenceTemplatesinMDT"></a> Identificar os modelos de sequência de tarefas UDI no MDT  
  MDT inclui modelos de sequência de tarefas que são utilizados para criar sequências de tarefas do MDT no Configuration Manager. Os modelos de sequência de tarefas incluídos no MDT descritos [identificar os modelos de sequência de tarefas no MDT no Configuration Manager](#IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager).  
 
  Dos modelos descritos [identificar os modelos de sequência de tarefas no MDT no Configuration Manager](#IdentifytheTaskSequenceTemplatesinMDTinConfigurationManager), as seguintes são utilizadas nos cenários de implementação do MDT com o UDI:  
@@ -6628,10 +6627,10 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!NOTE]
 >  Utilize sempre o Assistente de criação MDT tarefas sequência para criar sequências de tarefas. Embora possa criar manualmente as sequências de tarefas, fazê-lo, por isso, não é recomendado.  
 
-####  <a name="IdentifythePackagesandImagesThattheUDITaskSequenceTemplatesRequire"></a>Identificar os pacotes e imagens que requerem os modelos de sequência de tarefas UDI  
+####  <a name="IdentifythePackagesandImagesThattheUDITaskSequenceTemplatesRequire"></a> Identificar os pacotes e imagens que requerem os modelos de sequência de tarefas UDI  
  Os modelos de sequência de tarefas UDI exigem os mesmos pacotes e imagens conforme exigido pelas implementações ZTI, conforme descrito na [identificar os pacotes e imagens que os modelos de sequência de tarefas do MDT no Configuration Manager necessita](#IdentifythePackagesandImagesThattheMDTTaskSequenceTemplatesinConfigurationManagerRequire).  
 
-####  <a name="CreateUDITaskSequencesUsingtheCreateMDTTaskSequenceWizard"></a>Criar sequências de tarefas UDI utilizando a criar Assistente da sequência de tarefas do MDT  
+####  <a name="CreateUDITaskSequencesUsingtheCreateMDTTaskSequenceWizard"></a> Criar sequências de tarefas UDI utilizando a criar Assistente da sequência de tarefas do MDT  
  Assistente de criação MDT tarefas sequência substitui os pacotes e imagens selecionadas para os marcadores de posição nos modelos de sequência de tarefas. Depois de concluir o assistente, a nova sequência de tarefas referencia o pacotes adequados e imagens.  
 
 > [!NOTE]
@@ -6641,7 +6640,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Selecione o modelo de sequência do tarefas UDI adequado com base no cenário de implementação a ser efetuado. Para obter mais informações sobre os modelos de sequência de tarefas UDI no MDT, consulte [identificar os modelos de sequência de tarefas de UDI no MDT](#IdentifytheUDITaskSequenceTemplatesinMDT).  
 
-####  <a name="ConfigureUDITaskSequencestoDeployDifferentOperatingSystems"></a>Configurar UDI sequências de tarefas para implementar sistemas operativos diferentes  
+####  <a name="ConfigureUDITaskSequencestoDeployDifferentOperatingSystems"></a> Configurar UDI sequências de tarefas para implementar sistemas operativos diferentes  
  O **VolumePage** página em grupos de fase UDI incorporados permite-lhe selecionar as imagens de sistema operativo que configurou o UDI Wizard Designer. No entanto, a sequência de tarefas criada pelo assistente criar sequência de tarefas do MDT referencia apenas uma imagem de sistema operativo específico no **aplicar imagem do sistema operativo** passo de sequência de tarefas.  
 
  Quando seleciona a imagem do sistema operativo no **VolumePage** página, os conjuntos de Assistente de UDI o **OSDImageName** variável de sequência de tarefas para o valor do nome de imagem que foi selecionado. O valor da **OSDImageName** variável de sequência de tarefas corresponde ao nome da imagem do sistema operativo no **imagens do sistema operativo** ou **instaladores do sistema operativo**nós na consola do Configuration Manager.  
@@ -6660,7 +6659,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Depois de efetuar estes passos, quando o utilizador selecionar uma imagem do sistema operativo no **VolumePage** página correspondente **aplicar imagem do sistema operativo** passo de sequência de tarefas serão executadas e a implementar o imagem do sistema operativo adequado.  
 
-###  <a name="ConfiguringUDIWizardBehavior"></a>Configurar o comportamento do assistente UDI  
+###  <a name="ConfiguringUDIWizardBehavior"></a> Configurar o comportamento do assistente UDI  
  Os modelos de sequência de tarefas de instalação de modo e de instalação de modo substituir a sequência de tarefas incluem passos de sequência de tarefas que execute o Assistente de UDI. Quando um passo de sequência de tarefas executa o Assistente de UDI, o passo também referencia o ficheiro de UDIWizard_Config.xml, que controla o comportamento do Assistente de UDI e for armazenado na pasta de Scripts do pacote de ficheiros do MDT. Pode personalizar o ficheiro de UDIWizard_Config.xml com o UDI Wizard Designer.  
 
  Configure o comportamento do Assistente de UDI efetuando os seguintes passos no UDI Wizard Designer:  
@@ -6705,7 +6704,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Ignorar (remover) uma página do Assistente de uma fase, conforme descrito em [ignorar uma página do assistente](#SkipaWizardPage).  
 
-####  <a name="ReviewUDIWizardDesignerConcepts"></a>Rever conceitos de estruturador de assistente UDI  
+####  <a name="ReviewUDIWizardDesignerConcepts"></a> Rever conceitos de estruturador de assistente UDI  
  O UDI Wizard Designer é uma consola no MDT que lhe permite configurar facilmente o ficheiro de configuração do Assistente de UDI. O UDI Wizard Designer pode atualizar um ficheiro de configuração do Assistente de UDI existente ou criar um novo ficheiro de configuração do Assistente de UDI.  
 
 > [!NOTE]
@@ -6721,7 +6720,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter informações mais detalhadas sobre as tarefas que podem ser executadas no UDI Wizard Designer, consulte Configurar o comportamento do Assistente de UDI.  
 
-####  <a name="IdentifyUDIDeploymentProcessComponents"></a>Identificar os componentes do processo de implementação de UDI  
+####  <a name="IdentifyUDIDeploymentProcessComponents"></a> Identificar os componentes do processo de implementação de UDI  
  O processo de implementação de UDI baseia-se em implementações ZTI no MDT e requer o Configuration Manager. O processo UDI é executado como quaisquer outra MDT sequência de tarefas, exceto que as sequências de tarefas específicas de UDI executam o Assistente de UDI os passos adequados na sequência de tarefas.  
 
   143 tabela lista os componentes de processo de implementação de UDI e uma breve descrição do como funcionam em conjunto numa implementação de UDI.  
@@ -6735,7 +6734,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 |**Ficheiro de configuração do Assistente de UDI** |O Assistente de UDI é ler o ficheiro de configuração, o Assistente de UDI para determinar as páginas do assistente que são apresentadas, a sequência de páginas do assistente, quaisquer valores predefinidos para controlos e se os controlos estão ativados ou desativados para interação do utilizador.<br /><br /> O ficheiro de configuração do Assistente de UDI personalizado com o UDI Wizard Designer.<br /><br /> O ficheiro de configuração do Assistente de UDI predefinido é o nome UDIWizard_Config.xml e está armazenado na pasta de Scripts no pacote de ficheiros do MDT.|  
 |**Sequências de tarefas UDI** |As sequências de tarefas UDI são criadas utilizando modelos de sequência de tarefas relacionadas com o UDI MDT. Os modelos de sequência de tarefas UDI incluem o passo de sequência de tarefas para executar o Assistente de UDI no momento adequado no processo de implementação de UDI.<br /><br /> Para obter mais informações sobre modelos de sequência de tarefas UDI, consulte [identificar os modelos de sequência de tarefas de UDI no MDT](#IdentifytheUDITaskSequenceTemplatesinMDT).|  
 
-####  <a name="ReviewtheRelationshipAmongUDIWizardPagesWizardPageEditorsandtheUDIWizardConfigurationFile"></a>Reveja a relação entre as páginas do assistente UDI, editores de página do assistente e o ficheiro de configuração do assistente UDI  
+####  <a name="ReviewtheRelationshipAmongUDIWizardPagesWizardPageEditorsandtheUDIWizardConfigurationFile"></a> Reveja a relação entre as páginas do assistente UDI, editores de página do assistente e o ficheiro de configuração do assistente UDI  
  Para cada página do assistente apresentada no Assistente de UDI, há um editor de página de assistente correspondente que pode ser utilizado para configurar essa página do assistente com o UDI Wizard Designer. O ficheiro de configuração do Assistente de UDI (UDIWizard_Config.xml) é utilizado para armazenar as definições de configuração para cada página do assistente. A figura 7 ilustra a relação entre as páginas do assistente UDI, editores de página do assistente UDI e o ficheiro de configuração do Assistente de UDI.  
 
  ![MDTDevToolkit7](media/MDTDevToolkit7.jpg "MDTDevToolkit7")  
@@ -6751,7 +6750,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!NOTE]
 >  Não modificar diretamente o ficheiro de configuração do Assistente de UDI. Em vez disso, utilize os editores de página do assistente adequado o UDI Wizard Designer.  
 
-####  <a name="ReviewtheUDIWizardDesignerUserInterface"></a>Reveja a Interface de utilizador estruturador do assistente UDI  
+####  <a name="ReviewtheUDIWizardDesignerUserInterface"></a> Reveja a Interface de utilizador estruturador do assistente UDI  
  O UDI Wizard Designer é utilizado para personalizar a experiência de utilizador no Assistente de UDI, incluindo o:  
 
 -   Páginas do assistente que são apresentadas no Assistente de UDI (páginas do assistente podem ser adicionadas ou removidas)  
@@ -6776,7 +6775,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 4.  Reveja o **configurar** separador o UDI Wizard Designer conforme descrito no painel de detalhes [reveja o separador Configurar o UDI Wizard Designer](#ReviewtheConfigureTabintheUDIWizardDesigner).  
 
-#####  <a name="ReviewtheUDIWizardDesignerHighLevelUserInterfaceElements"></a>Rever os elementos de Interface de utilizador de alto nível estruturador de assistente UDI  
+#####  <a name="ReviewtheUDIWizardDesignerHighLevelUserInterfaceElements"></a> Rever os elementos de Interface de utilizador de alto nível estruturador de assistente UDI  
  Figura 8 ilustra os elementos de IU de alto nível de UDI Wizard Designer.  
 
  ![MDTDevToolkit8](media/MDTDevToolkit8.jpg "MDTDevToolkit8")  
@@ -6793,7 +6792,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 |Painel biblioteca de página|Contém as páginas do assistente que estão disponíveis para utilização no UDI Wizard Designer. O número de vezes que cada página é utilizada no ficheiro de configuração de Assistente de UDI é apresentado na extremidade direita parte a entrada de página do assistente. Por exemplo, o **idioma** três vezes enquanto está a ser utilizada por página o **analisar configuração** página é utilizada duas vezes.|  
 |Painel de detalhes|Fornece acesso os detalhes de configuração, o Assistente de UDI do ficheiro de configuração que está a ser personalizada.|  
 
-#####  <a name="ReviewthePageLibraryPaneintheUDIWizardDesigner"></a>Analise o painel de biblioteca de página no UDI Wizard Designer  
+#####  <a name="ReviewthePageLibraryPaneintheUDIWizardDesigner"></a> Analise o painel de biblioteca de página no UDI Wizard Designer  
   Figura 9 ilustra os elementos de IU no painel de biblioteca da página de UDI Wizard Designer.  
 
  ![MDTDevToolkit9](media/MDTDevToolkit9.jpg "MDTDevToolkit9")  
@@ -6812,7 +6811,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 |Nome da página|Este é o nome da instância do tipo de página do assistente. Este valor tem de ser exclusivo dentro de uma biblioteca de página.|  
 |Número de vezes que é utilizada a página|Este elemento mantém uma contagem do número de vezes que uma instância de página do assistente é utilizada nas fases. Por exemplo, como mostrado na REF _Ref307996589 \h figura 9, a **ComputerPage** for utilizada a instância de página do assistente em dois locais diferentes no ficheiro de configuração de Assistente de UDI.|  
 
-#####  <a name="ReviewtheFlowTabintheUDIWizardDesigner"></a>Reveja o separador fluxo o UDI Wizard Designer  
+#####  <a name="ReviewtheFlowTabintheUDIWizardDesigner"></a> Reveja o separador fluxo o UDI Wizard Designer  
   A figura 10 ilustra os elementos de IU no **fluxo** separador no painel de detalhes. O **fluxo** separador é utilizado para configurar o:  
 
 1.  Páginas assistente que serão apresentadas no Assistente de UDI para uma fase específica dentro de um grupo de fase específicos  
@@ -6830,11 +6829,11 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 |**Elemento de IU** |**Descrição** |  
 |--------------------|---------------------|  
 |Grupo de fase|Coleção de um ou mais conjuntos de agrupamentos de página de assistente (fases) que são utilizados pelos cenários de implementação que suporta o UDI, incluindo os cenários de implementação do novo computador, atualize e de computador substituir MDT do computador.<br /><br /> Os grupos de fase estão predefinidos no UDI. Adicionar ou remover grupos de fase não é suportada.|  
-|Fase|Coleção de um ou mais páginas do assistente utilizado num momento específico dentro de um grupo de fase.<br /><br /> Para o grupo de fase do novo computador, o MDT inclui as seguintes fases:<br /><br /> -                                  **NEWCOMPUTER**. Esta fase é utilizada para novas implementações de computador.<br /><br /> -                                  **NEWCOMPUTER. Pré-configurado**. Esta fase é utilizada para implementações de suportes de dados no Configuration Manager.<br /><br /> Para o grupo de fase de substituir o computador, o MDT inclui as seguintes fases:<br /><br /> 1.                                  **SUBSTITUA**. Esta fase é utilizada para a parte do grupo de fase de substituir o computador efetuada no sistema operativo original em execução no computador de destino.<br /><br /> 2.                                 **SUBSTITUA. WinPE**. Esta fase é utilizada para a parte do grupo de fase de substituir o computador executada no Windows PE.<br /><br /> As fases estão predefinidas no UDI. Não é suportada a adição ou remoção fases.|  
+|Fase|Coleção de um ou mais páginas do assistente utilizado num momento específico dentro de um grupo de fase.<br /><br /> Para o grupo de fase do novo computador, o MDT inclui as seguintes fases:<br /><br /> -                                  **NEWCOMPUTER**. Esta fase é utilizada para novas implementações de computador.<br /><br /> -                                  **NEWCOMPUTER. Pré-configurado**. Esta fase é utilizada para implementações de suportes de dados no Configuration Manager.<br /><br /> Para o grupo de fase de substituir o computador, o MDT inclui as seguintes fases:<br /><br /> 1.                                  **REPLACE**. Esta fase é utilizada para a parte do grupo de fase de substituir o computador efetuada no sistema operativo original em execução no computador de destino.<br /><br /> 2.                                 **REPLACE.WinPE**. Esta fase é utilizada para a parte do grupo de fase de substituir o computador executada no Windows PE.<br /><br /> As fases estão predefinidas no UDI. Não é suportada a adição ou remoção fases.|  
 |Página do Assistente|A página do assistente que será apresentado no Assistente de UDI para uma fase específica dentro de um grupo de fase específicos.<br /><br /> Uma página do assistente baseia-se numa instância de página do assistente, na biblioteca de página. Uma instância de uma página do assistente pode aparecer em várias fases e grupos de fase. Definições de configuração para uma página do assistente afetam a instância de página do assistente, não as páginas individuais que aparecem nos grupos de fase e fases.<br /><br /> Crie uma instância de uma página do assistente exclusiva na biblioteca de página para cada conjunto de definições de configuração exclusivo que pretende gerir para um tipo específico de página do assistente.|  
 |Sequência de página do Assistente|A sequência em que é apresentada a página do assistente no Assistente de UDI para uma fase específica dentro de um grupo de fase específicos.|  
 
-#####  <a name="ReviewtheConfigureTabintheUDIWizardDesigner"></a>Reveja o separador de configurar o UDI Wizard Designer  
+#####  <a name="ReviewtheConfigureTabintheUDIWizardDesigner"></a> Reveja o separador de configurar o UDI Wizard Designer  
  Figura 11 ilustra os elementos de IU no **configurar** separador no painel de detalhes. Utilizar o **configurar** separador para configurar os controlos individuais na página do assistente.  
 
 > [!NOTE]
@@ -6877,7 +6876,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para obter mais informações sobre como configurar os controlos específicos nas páginas de assistente específicos, consulte a secção correspondente para essa página do assistente no documento MDT *Toolkit referência*.  
 
-####  <a name="CreateaNewUDIWizardConfigurationFile"></a>Criar um novo ficheiro de configuração do assistente UDI  
+####  <a name="CreateaNewUDIWizardConfigurationFile"></a> Criar um novo ficheiro de configuração do assistente UDI  
  O Assistente de UDI apresenta as páginas do assistente com base nas opções de configuração especificadas no ficheiro UDIWizard_Config.xml na pasta de Scripts do pacote de ficheiros do MDT especificada na sequência de tarefas. Crie um novo ficheiro de configuração do Assistente de UDI utilizando o UDI Wizard Designer.  
 
 > [!TIP]
@@ -6901,7 +6900,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Depois de criar o novo ficheiro de configuração do Assistente de UDI, crie uma nova sequência de tarefas ou modifique um passos de sequência de tarefas existente para utilizar o pacote de ficheiros adequado do MDT. Terá também de atualizar os pontos de distribuição com o pacote de ficheiros modificado do MDT, conforme descrito no [gerir pontos de distribuição no Configuration Manager](#ManagingDistributionPointsinConfigurationManager), que é o mesmo processo para implementações de UDI e ZTI.  
 
-####  <a name="OpenanExistingUDIWizardConfigurationFile"></a>Abra um ficheiro de configuração de assistente UDI existente  
+####  <a name="OpenanExistingUDIWizardConfigurationFile"></a> Abra um ficheiro de configuração de assistente UDI existente  
  O Assistente de UDI apresenta as páginas com base nas opções de configuração especificadas no ficheiro UDIWizard_Config.xml na pasta de Scripts do pacote de ficheiros do MDT especificada na sequência de tarefas. Abra o ficheiro de configuração do Assistente de UDI existente com o UDI Wizard Designer.  
 
 ###### <a name="to-open-an-existing-udi-wizard-configuration-file-using-the-udi-wizard-designer"></a>Para abrir o ficheiro de configuração do Assistente de UDI existente com o UDI Wizard Designer  
@@ -6914,7 +6913,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 3.  No **abra** caixa de diálogo, aceda a ***folder_path*** (onde *folder_path* é o caminho completamente qualificado para a pasta de Scripts na origem do pacote de ficheiros MDT), clique em ***file_name*** (onde *file_name* é o nome de ficheiro para o ficheiro de configuração) e, em seguida, clique em **abra**.  
 
-####  <a name="SaveUDIWizardConfigurationUpdates"></a>Guardar as atualizações de configuração do assistente UDI  
+####  <a name="SaveUDIWizardConfigurationUpdates"></a> Guardar as atualizações de configuração do assistente UDI  
  Depois de atualizar a configuração do Assistente de UDI, terá de guardar as alterações para o ficheiro de configuração do assistente UDI. Guarde o ficheiro de configuração do Assistente de UDI na pasta de Scripts do pacote de ficheiros do MDT especificada na sequência de tarefas.  
 
 ###### <a name="to-save-the-udi-wizard-configuration-updates-using-the-udi-wizard-designer"></a>Para guardar a configuração do Assistente de UDI atualizações com o UDI Wizard Designer  
@@ -6935,7 +6934,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 6.  No **Guardar ficheiro** caixa de diálogo, clique em **OK**.  
 
-####  <a name="OverridetheConfigurationFileThattheUDIWizardUses"></a>Substituir o ficheiro de configuração que utiliza o assistente UDI  
+####  <a name="OverridetheConfigurationFileThattheUDIWizardUses"></a> Substituir o ficheiro de configuração que utiliza o assistente UDI  
  O Assistente de UDI por predefinição, utiliza o ficheiro UDIWizard_Config.xml na pasta de Scripts no pacote de ficheiros do MDT, para a configuração. Pode substituir o ficheiro de configuração predefinidas que utiliza o assistente modificando o **Assistente de UDI**passo de sequência de tarefas para utilizar o **/definition** parâmetro.  
 
 ###### <a name="to-override-the-configuration-file-that-the-udi-wizard-uses"></a>Para substituir o ficheiro de configuração que utiliza o Assistente de UDI  
@@ -6969,7 +6968,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 10. Clique em **OK**.  
 
-####  <a name="ConfiguretheUDIWizardTitleandBannerImage"></a>Configurar o título do assistente UDI e a imagem de faixa  
+####  <a name="ConfiguretheUDIWizardTitleandBannerImage"></a> Configurar o título do assistente UDI e a imagem de faixa  
  O Assistente de UDI apresenta um título e uma faixa na parte superior de páginas do assistente. Pode configurar a imagem do Assistente de UDI título e faixa na sua organização no UDI Wizard Designer.  
 
 ###### <a name="to-configure-the-udi-wizard-title-and-banner-image-using-the-udi-wizard-designer"></a>Para configurar a imagem de título e a faixa de Assistente de UDI com o UDI Wizard Designer  
@@ -7007,7 +7006,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 9. Feche todas as janelas abertas e caixas de diálogo.  
 
-####  <a name="AddaWizardPagetoaStage"></a>Adicionar uma página do Assistente para uma fase  
+####  <a name="AddaWizardPagetoaStage"></a> Adicionar uma página do Assistente para uma fase  
  O Assistente de UDI apresenta uma sequência de páginas assistente que são utilizados para recolher as informações necessárias para concluir o sistema operativo e a implementação de aplicação. Pode configurar as páginas do assistente e a sequência de páginas de assistente apresentado no Assistente de UDI com o UDI Wizard Designer.  
 
  A lista de páginas de assistente disponíveis é apresentada no painel de biblioteca de página. Pode adicionar as páginas do painel de página biblioteca, arrastando a página do assistente a partir do painel de biblioteca de página para a fase no painel de detalhes.  
@@ -7023,7 +7022,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!TIP]
     >  Lembre-se guardar o ficheiro de configuração do Assistente de UDI depois de efetuar alterações.  
 
-####  <a name="RemoveaWizardPagefromaStage"></a>Remover uma página do Assistente de uma fase  
+####  <a name="RemoveaWizardPagefromaStage"></a> Remover uma página do Assistente de uma fase  
  O Assistente de UDI apresenta uma sequência de páginas assistente que são utilizados para recolher as informações necessárias para concluir o sistema operativo e a implementação de aplicação. Pode configurar as páginas do assistente e a sequência de páginas de assistente apresentado no Assistente de UDI com o UDI Wizard Designer. Como parte deste processo, pode remover páginas do assistente dentro de uma fase. Remover uma página do Assistente de uma fase remove uma página do assistente a partir do painel a biblioteca de página.  
 
 > [!NOTE]
@@ -7046,7 +7045,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!TIP]
     >  Lembre-se guardar o ficheiro de configuração do Assistente de UDI depois de efetuar alterações.  
 
-####  <a name="ChangetheWizardPageSequenceFlowWithinaStage"></a>O fluxo de sequência de página do assistente dentro de uma fase de alteração  
+####  <a name="ChangetheWizardPageSequenceFlowWithinaStage"></a> O fluxo de sequência de página do assistente dentro de uma fase de alteração  
  O Assistente de UDI apresenta uma sequência de páginas do assistente utilizado para recolher as informações necessárias para concluir o sistema operativo e a implementação de aplicação. Pode configurar as páginas do assistente e a sequência de páginas de assistente apresentado no Assistente de UDI com o UDI Wizard Designer. Como parte deste processo, a sequência de páginas do assistente, pode dentro de uma fase.  
 
 ###### <a name="to-change-the-wizard-page-sequence-flow-within-a-stage-using-the-udi-wizard-designer"></a>Para alterar o fluxo de sequência de página do assistente dentro de uma fase com o UDI Wizard Designer  
@@ -7060,7 +7059,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!TIP]
 >  Lembre-se guardar o ficheiro de configuração do Assistente de UDI depois de efetuar alterações.  
 
-####  <a name="AlloworPreventUsersfromEnteringInformationinaControlonaWizardPage"></a>Permitir ou impedir que os utilizadores introduzir informações num controlo na página do Assistente  
+####  <a name="AlloworPreventUsersfromEnteringInformationinaControlonaWizardPage"></a> Permitir ou impedir que os utilizadores introduzir informações num controlo na página do Assistente  
  Cada página do assistente apresentada pelo Assistente de UDI apresenta informações sobre o processo de implementação de UDI ou recolhe informações a ser utilizado no processo de implementação de UDI. Em seguida, páginas do assistente que recolhem informações tem um ou mais controlos utilizados para recolher as informações.  
 
  Por predefinição, todos os controlos estão ativados em todas as páginas do assistente. Utilizar o UDI Wizard Designer, pode desativar os controlos individuais em cada página do Assistente para impedir que os utilizadores introduzir informações com os controlos. O estruturador de Assistente de UDI tem botão que apresenta o estado do seguinte:  
@@ -7087,7 +7086,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!TIP]
 >  Lembre-se guardar o ficheiro de configuração do Assistente de UDI depois de efetuar alterações.  
 
-####  <a name="ConfiguretheUserExperienceforaWizardPage"></a>Configurar a experiência de utilizador para uma página do Assistente  
+####  <a name="ConfiguretheUserExperienceforaWizardPage"></a> Configurar a experiência de utilizador para uma página do Assistente  
  Cada página do assistente recolhe informações exclusivas que ajuda a configurar o processo de implementação de UDI. Pode configurar a experiência de utilizador para cada página do assistente.  
 
 ###### <a name="to-configure-the-user-experience-for-a-specific-wizard-page-using-the-udi-wizard-designer"></a>Para configurar a experiência de utilizador para uma página do assistente específico utilizando o UDI Wizard Designer  
@@ -7105,7 +7104,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!TIP]
 >  Lembre-se guardar o ficheiro de configuração do Assistente de UDI depois de efetuar alterações.  
 
-####  <a name="PreviewWizardPagesandtheWizardPageSequenceFlow"></a>Páginas do Assistente de pré-visualização e o fluxo de sequência de página do Assistente  
+####  <a name="PreviewWizardPagesandtheWizardPageSequenceFlow"></a> Páginas do Assistente de pré-visualização e o fluxo de sequência de página do Assistente  
  Depois de ter as páginas do assistente apropriado na sequência correta para uma fase, pode pré-visualizar a forma como as páginas aparecerá no Assistente de UDI utilizar a funcionalidade de pré-visualização no UDI Wizard Designer. A funcionalidade de pré-visualização permite-lhe visualizar a experiência de utilizador e para efetuar quaisquer alterações à experiência de utilizador antes de efetuar implementações reais.  
 
 ###### <a name="to-preview-the-wizard-pages-and-wizard-page-sequence-flow-for-a-stage-using-the-udi-wizard-designer"></a>Para pré-visualizar as páginas do assistente e o fluxo de sequência de página do Assistente para uma fase com o UDI Wizard Designer  
@@ -7120,7 +7119,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Pode também pré-visualizar as páginas do assistente e o fluxo de sequência de página do Assistente para uma fase clicando a **pré-visualização** hyperlink na fase dentro de uma fase.  
 
-####  <a name="AddaWizardPagetothePageLibrary"></a>Adicionar uma página do Assistente para a biblioteca de página  
+####  <a name="AddaWizardPagetothePageLibrary"></a> Adicionar uma página do Assistente para a biblioteca de página  
  A biblioteca de página do UDI Wizard Designer contém uma lista das páginas assistente que pode adicionar a fases. Cada página do assistente na biblioteca de página mantém uma contagem do número de instâncias em que a página do assistente é utilizada na versão atual do ficheiro de configuração do Assistente de UDI.  
 
  Pode adicionar uma página do Assistente para a biblioteca de página, para que pode ser adicionada à fases.  
@@ -7149,7 +7148,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Também pode adicionar uma página do assistente, clicar em qualquer lugar na fase no painel de detalhes e, em seguida, clicando **Adicionar página**.  
 
-####  <a name="RemoveaWizardPagefromthePageLibrary"></a>Remover uma página do assistente a partir da biblioteca de página  
+####  <a name="RemoveaWizardPagefromthePageLibrary"></a> Remover uma página do assistente a partir da biblioteca de página  
  A biblioteca de página do UDI Wizard Designer contém uma lista das páginas assistente que pode adicionar a fases. Cada página do assistente na biblioteca de página mantém uma contagem do número de instâncias em que a página do assistente é utilizada na versão atual do ficheiro de configuração do Assistente de UDI.  
 
  Pode remover uma página do Assistente da biblioteca de página, para que já não pode ser adicionada à fases.  
@@ -7174,7 +7173,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!TIP]
 >  Lembre-se guardar o ficheiro de configuração do Assistente de UDI depois de efetuar alterações.  
 
-####  <a name="ChangetheSequenceofaStageGrouporaStage"></a>Alterar a sequência de um grupo de fase ou uma fase  
+####  <a name="ChangetheSequenceofaStageGrouporaStage"></a> Alterar a sequência de um grupo de fase ou uma fase  
  O painel de detalhes contém uma lista dos grupos de fase e fases que suporte o ficheiro de configuração do Assistente de UDI (UDIWizard_Config.xml). Cada listado no painel de detalhes do grupo de fase é utilizado em uma ou mais dos seguintes cenários de implementação do MDT:  
 
 -   Novo computador  
@@ -7219,7 +7218,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 > [!TIP]
 >  Lembre-se guardar o ficheiro de configuração do Assistente de UDI depois de efetuar alterações.  
 
-####  <a name="PrepareforLanguagePackDeploymentinUDI"></a>Preparar para a implementação de pacote de idiomas no UDI  
+####  <a name="PrepareforLanguagePackDeploymentinUDI"></a> Preparar para a implementação de pacote de idiomas no UDI  
  Um os tipos de página do Assistente de UDI disponíveis na biblioteca de página no UDI Wizard Designer é a **LanguagePage** tipo de página do assistente. O **LanguagePage** tipo de página do assistente permite-lhe selecionar o:  
 
 -   Linguagem predefinida  
@@ -7245,7 +7244,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Para mais informações sobre o **LanguagePage** tipo de página do assistente no UDI Wizard Designer, consulte a secção correspondente do *guia para programadores do modo instalação*.  
 
-####  <a name="SkipaWizardPage"></a>Ignorar uma página do Assistente  
+####  <a name="SkipaWizardPage"></a> Ignorar uma página do Assistente  
  Em alguns casos, poderá querer ainda mais controlo e simplificar a experiência de Assistente de UDI por ignorar (remover) páginas do assistente. A ignorar a uma página do assistente permite-lhe fornecer os valores de configuração, geralmente, fornecidos pelo utilizador para a página do assistente. Além disso, a ignorar a uma página do assistente é mais simples e menos confuso de Desativação (bloquear) todos os controlos na página do assistente.  
 
 ###### <a name="to-skip-a-wizard-page"></a>Para ignorar uma página do Assistente  
@@ -7258,7 +7257,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 3.  Remover a página do assistente a fase dentro de uma fase, utilizando o **Remover Item** ação no Friso do **estruturador de fluxo** grupo.  
 
-###  <a name="CreatingCustomWizardPagesUsingtheBuildYourOwnPageFeature"></a>Criar páginas de assistente personalizado utilizando a compilação sua própria funcionalidade da página  
+###  <a name="CreatingCustomWizardPagesUsingtheBuildYourOwnPageFeature"></a> Criar páginas de assistente personalizado utilizando a compilação sua própria funcionalidade da página  
  Podem existir instâncias em que pretende recolher informações de implementação adicionais para ser utilizado em UDI. Tem de recolher estas informações adicionais no Assistente de UDI utilizando uma página do assistente personalizado. Pode criar páginas de assistente personalizado utilizando a:  
 
 -   **Criar a funcionalidade da sua página própria**. Esta funcionalidade permite-lhe criar uma página do assistente personalizado para recolha de informações de implementação sem necessidade de escrever código ou ter as competências de programador. Utilize esta funcionalidade se de que precisa para recolher informações básicas, sem interação do utilizador avançado. Por exemplo, não é possível adicionar qualquer código ou personalizar tipos de letra IU utilizar esta funcionalidade.  
@@ -7285,7 +7284,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Verificar e testar a página do assistente personalizado depois de criar, tal como descrito no [verificar e testar uma página do assistente personalizado](#VerifyandTestaCustomWizardPage).  
 
-####  <a name="CreateaNewCustomWizardPage"></a>Criar uma nova página do assistente personalizado  
+####  <a name="CreateaNewCustomWizardPage"></a> Criar uma nova página do assistente personalizado  
  Páginas de assistente personalizada de UDI criadas utilizando a funcionalidade de criar sua própria página permitem-lhe recolher informações de implementação para além das informações recolhidas noutras páginas do Assistente de UDI. Criar páginas de assistente personalizadas com base no **página do assistente criar sua própria página** tipo. Depois de criar a página do assistente personalizado, pode adicionar controlos para a página do assistente e configurar as variáveis de sequência de tarefas que os controlos definidos.  
 
 ###### <a name="to-create-a-new-custom-wizard-page"></a>Para criar uma nova página do assistente personalizado  
@@ -7316,7 +7315,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 9. Na página biblioteca, clique em ***display_name***. Arraste a página para o local adequado no ***stage_group*** no **fluxo** separador (onde *display_name* é o nome amigável de utilizador da página do assistente e *stage_ grupo* é o nome do grupo de fase ao qual pretende adicionar a nova página do assistente personalizado).  
 
-####  <a name="AddaControltoaCustomWizardPage"></a>Adicionar um controlo a uma página do assistente personalizado  
+####  <a name="AddaControltoaCustomWizardPage"></a> Adicionar um controlo a uma página do assistente personalizado  
  Depois de uma nova página do assistente personalizada de UDI é adicionada a um grupo de fase, tem de adicionar os controlos adequados à página do assistente personalizada nova. Adicionar estes controlos da caixa de criar sua própria página ferramentas, que é apresentada quando visualiza a página do assistente personalizado no **configurar** separador o UDI Wizard Designer.  
 
   149 tabela lista os tipos de controlos para a página do assistente personalizadas, que é ilustrado na figura 13.  
@@ -7325,13 +7324,13 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 |**Tipo de controlo** |**Descrição** |  
 |----------------------|---------------------|  
-|**Caixa de verificação** |Este controlo permite selecionar ou desmarcar uma opção de configuração e funciona como uma caixa de verificação de IU tradicional. Este controlo tem uma etiqueta correspondente que pode utilizar para descrever o objetivo da caixa de verificação. O estado deste controlo é verdadeiro quando a caixa de verificação está selecionada e falso quando a caixa de verificação está desmarcada. O estado da caixa de verificação é armazenado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de caixa de verificação" no documento do MDT, *Toolkit referência*.|  
-|**Caixa de combinação** |Este controlo permite-lhe selecionar um item de uma lista de itens e funciona como uma tradicional IU na lista pendente. Este controlo permite-lhe adicionar ou remover itens da lista e forneça um valor correspondente, que será definido na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de caixa de combinação" no documento do MDT, *Toolkit referência*.|  
-|**Linha** |Este controlo permite-lhe adicionar uma linha horizontal dividir uma parte da página do assistente personalizada de outro. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. Para obter mais informações sobre este controlo, consulte "Controlo de linha" no documento do MDT, *Toolkit referência*.|  
-|**Etiqueta** |Este controlo permite-lhe adicionar texto descritivo só de leitura para a página do assistente. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. Para obter mais informações sobre este controlo, consulte "Controlo de etiqueta" no documento do MDT, *Toolkit referência*.|  
-|**Botões de opção** |Este controlo permite-lhe selecionar uma opção de configuração de um grupo de dois ou mais opções. Tal como acontece com botões de opção tradicionais, dois ou mais destes controlos podem ser agrupados em conjunto e, em seguida, o utilizador pode selecionar uma das opções no grupo de botões de opção. Um valor exclusivo é atribuído a cada opção. O valor atribuído ao controlo opção selecionada é guardado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de botões de opção" no documento do MDT, *Toolkit referência*.|  
-|**Mapa de bits** |Este controlo permite-lhe adicionar um gráfico de mapa de bits (*.bmp ficheiro) para a página do assistente personalizado. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. O caminho para o ficheiro *.bmp é relativo à localização do Assistente de UDI (OSDSetupWizard.exe). Para obter mais informações sobre este controlo, consulte "Controlo de mapa de bits" no documento do MDT, *Toolkit referência*.|  
-|**Caixa de texto** |Este controlo permite-lhe introduzir o texto na página do assistente personalizado. O texto digitado neste controlo é guardado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de caixa de texto" no documento do MDT, *Toolkit referência*.|  
+|**Checkbox** |Este controlo permite selecionar ou desmarcar uma opção de configuração e funciona como uma caixa de verificação de IU tradicional. Este controlo tem uma etiqueta correspondente que pode utilizar para descrever o objetivo da caixa de verificação. O estado deste controlo é verdadeiro quando a caixa de verificação está selecionada e falso quando a caixa de verificação está desmarcada. O estado da caixa de verificação é armazenado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de caixa de verificação" no documento do MDT, *Toolkit referência*.|  
+|**Combobox** |Este controlo permite-lhe selecionar um item de uma lista de itens e funciona como uma tradicional IU na lista pendente. Este controlo permite-lhe adicionar ou remover itens da lista e forneça um valor correspondente, que será definido na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de caixa de combinação" no documento do MDT, *Toolkit referência*.|  
+|**Line** |Este controlo permite-lhe adicionar uma linha horizontal dividir uma parte da página do assistente personalizada de outro. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. Para obter mais informações sobre este controlo, consulte "Controlo de linha" no documento do MDT, *Toolkit referência*.|  
+|**Label** |Este controlo permite-lhe adicionar texto descritivo só de leitura para a página do assistente. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. Para obter mais informações sobre este controlo, consulte "Controlo de etiqueta" no documento do MDT, *Toolkit referência*.|  
+|**Radio** |Este controlo permite-lhe selecionar uma opção de configuração de um grupo de dois ou mais opções. Tal como acontece com botões de opção tradicionais, dois ou mais destes controlos podem ser agrupados em conjunto e, em seguida, o utilizador pode selecionar uma das opções no grupo de botões de opção. Um valor exclusivo é atribuído a cada opção. O valor atribuído ao controlo opção selecionada é guardado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de botões de opção" no documento do MDT, *Toolkit referência*.|  
+|**Bitmap** |Este controlo permite-lhe adicionar um gráfico de mapa de bits (*.bmp ficheiro) para a página do assistente personalizado. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. O caminho para o ficheiro *.bmp é relativo à localização do Assistente de UDI (OSDSetupWizard.exe). Para obter mais informações sobre este controlo, consulte "Controlo de mapa de bits" no documento do MDT, *Toolkit referência*.|  
+|**Textbox** |Este controlo permite-lhe introduzir o texto na página do assistente personalizado. O texto digitado neste controlo é guardado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de caixa de texto" no documento do MDT, *Toolkit referência*.|  
 
  Pode adicionar qualquer combinação destes controlos para a página do assistente personalizadas com base nas informações que pretende recolher. Além disso, pode utilizar o **Mostrar linhas de grelha** caixa de verificação para mostrar ou ocultar linhas de grelha que podem ser utilizadas para ajudar a conceber visualmente a página do assistente personalizado.  
 
@@ -7355,14 +7354,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      O controlo é adicionado à página do assistente personalizado.  
 
-####  <a name="PositionaControlonaCustomWizardPage"></a>Posicionar um controlo numa página do assistente personalizado  
+####  <a name="PositionaControlonaCustomWizardPage"></a> Posicionar um controlo numa página do assistente personalizado  
  Depois de um controlo foi adicionado a uma página do assistente personalizado, pode posicionar o controlo executando uma das seguintes tarefas:  
 
 -   Posicionar um controlo numa página assistente personalizado utilizando a arrastar e largar conforme descrito em [posicionar um controlo num personalizado página de assistente através de arrastar e largar](#PositionaControlonaCustomWizardPageUsingDragandDrop).  
 
 -   Posicionar um controlo numa página do assistente personalizado utilizando propriedades de controlo, conforme descrito em [posicionar um controlo sobre um Assistente de página utilizando controlo propriedades personalizadas](#PositionaControlonaCustomWizardPageUsingControlProperties).  
 
-#####  <a name="PositionaControlonaCustomWizardPageUsingDragandDrop"></a>Posicionar um controlo numa página assistente personalizado utilizando a operação arrastar e largar  
+#####  <a name="PositionaControlonaCustomWizardPageUsingDragandDrop"></a> Posicionar um controlo numa página assistente personalizado utilizando a operação arrastar e largar  
  Pode posicionar um controlo numa página assistente personalizado utilizando a arrastar e largar para uma das seguintes situações:  
 
 1.  Inicialmente, colocando o controlo da criar sua própria página para a página do assistente personalizado  
@@ -7386,7 +7385,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
     > [!TIP]
     >  Pode utilizar o *x* e *y* coordenar localizações apresentadas na parte superior da página do assistente personalizado para o ajudar a posição do controlo.  
 
-#####  <a name="PositionaControlonaCustomWizardPageUsingControlProperties"></a>Posicionar um controlo numa página do assistente personalizado utilizando propriedades de controlo  
+#####  <a name="PositionaControlonaCustomWizardPageUsingControlProperties"></a> Posicionar um controlo numa página do assistente personalizado utilizando propriedades de controlo  
  Quando quiser controlar a colocação do controlo, para que todos os seus controlos estão alinhados precisamente de posição um controlo numa página do assistente personalizado. Posicione a utilizar o controlo de **X** e **Y** propriedades no **esquema** propriedades do controlo.  
 
  Para posicionar um controlo aproximadamente, tal como quando está a fazer a esquema inicial, efetue-lo ao utilizar arrastar e largar. Para obter mais informações sobre o posicionamento de um controlo numa página assistente personalizado utilizando a operação arrastar e largar, consulte [posicionar um controlo num personalizado página de assistente através de arrastar e largar](#PositionaControlonaCustomWizardPageUsingDragandDrop).  
@@ -7414,7 +7413,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      Depois das propriedades são configuradas, o controlo está posicionado de coordenadas especificado por estas propriedades.  
 
-####  <a name="ChangetheSizeofaControlonaCustomWizardPage"></a>Altere o tamanho de um controlo numa página do assistente personalizado  
+####  <a name="ChangetheSizeofaControlonaCustomWizardPage"></a> Altere o tamanho de um controlo numa página do assistente personalizado  
  Altere o tamanho de um controlo numa página do assistente personalizado para que o conteúdo do controlo é apresentado corretamente. Alterar o tamanho da utilização de controlo de **largura** e **altura** propriedades no **esquema** propriedades do controlo.  
 
 ###### <a name="to-change-the-size-of-a-control-on-a-custom-wizard-page"></a>Para alterar o tamanho de um controlo numa página do assistente personalizado  
@@ -7433,12 +7432,12 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |**Propriedade** |**Descrição** |  
     |------------------|---------------------|  
-    |**Largura** |Esta propriedade controla a largura do controlo.<br /><br /> Se o texto ou o gráfico apresentada no controlo vasta que a largura do controlo, o texto ou o gráfico é anexado e não apresentado.|  
-    |**Altura** |Esta propriedade controla a altura do controlo.<br /><br /> Se o texto ou o gráfico apresentada no controlo é superior à altura do controlo, o texto ou o gráfico é anexado e não apresentado.|  
+    |**Width** |Esta propriedade controla a largura do controlo.<br /><br /> Se o texto ou o gráfico apresentada no controlo vasta que a largura do controlo, o texto ou o gráfico é anexado e não apresentado.|  
+    |**Height** |Esta propriedade controla a altura do controlo.<br /><br /> Se o texto ou o gráfico apresentada no controlo é superior à altura do controlo, o texto ou o gráfico é anexado e não apresentado.|  
 
      Depois das propriedades são configuradas, o tamanho do controlo reflete os valores existentes nestas propriedades.  
 
-####  <a name="RemoveaControlfromaCustomWizardPage"></a>Remover um controlo de uma página do assistente personalizado  
+####  <a name="RemoveaControlfromaCustomWizardPage"></a> Remover um controlo de uma página do assistente personalizado  
  Remova um controlo de uma página do assistente personalizada quando o controlo já não é necessária na página do assistente personalizado. Depois de remover um controlo a partir de um assistente personalizado página, todos os **esquema** e **definições** propriedades associadas ao controlo também são removidas. Depois do controlo foi removido e o ficheiro de configuração do Assistente de UDI foi guardado, a remoção não pode ser anulada.  
 
 > [!TIP]
@@ -7456,7 +7455,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
      O controlo é removido da página do assistente personalizado.  
 
-####  <a name="EditCustomWizardPageControlProperties"></a>Editar propriedades de controlo de página do assistente personalizado  
+####  <a name="EditCustomWizardPageControlProperties"></a> Editar propriedades de controlo de página do assistente personalizado  
  Cada controlo que colocar na sua página do assistente personalizado tem propriedades. Estas propriedades são utilizadas para configurar o aspecto do controlo e como o Assistente de UDI processa as informações de controlo recolhe.  
 
  Os seguintes tipos de propriedades estão disponíveis para controlos de caixa de ferramentas de compilação da própria página:  
@@ -7487,7 +7486,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
          Para obter mais informações sobre o **definições** propriedades para um controlo específico, consulte as secções correspondentes para cada controlo em "Criar sua própria página Toolbox controlo referência de UDI" no documento do MDT, *Toolkit Referência*.  
 
-####  <a name="ShoworHideCustomWizardPageGridlines"></a>Mostrar ou ocultar linhas de grelha de página de assistente personalizado  
+####  <a name="ShoworHideCustomWizardPageGridlines"></a> Mostrar ou ocultar linhas de grelha de página de assistente personalizado  
  Pode mostrar ou ocultar linhas de grelha nas suas páginas de assistente personalizado. As linhas de grelha ajudá-lo implemente controlos de modo a que estiverem alinhadas corretamente entre si.  
 
 ###### <a name="to-show-or-hide-custom-wizard-page-gridlines"></a>Para mostrar ou ocultar linhas de grelha de página de assistente personalizado  
@@ -7506,14 +7505,14 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     -   Limpo, em seguida, as linhas de grelha não são apresentadas  
 
-####  <a name="VerifyandTestaCustomWizardPage"></a>Verificar e testar uma página do assistente personalizado  
+####  <a name="VerifyandTestaCustomWizardPage"></a> Verificar e testar uma página do assistente personalizado  
  Depois de criar a página do assistente personalizado e configurar os controlos adequados, certifique-se de que a página do assistente personalizado funciona conforme esperado. Pode verificar e testar a sua página do assistente personalizado utilizando a funcionalidade de pré-visualização no UDI Wizard Designer.  
 
  A funcionalidade de pré-visualização permite-lhe visualizar a experiência de utilizador e efetue as alterações à experiência de utilizador antes de efetuar implementações reais. Pode interagir com a página do assistente personalizado, como se era o utilizador que executa o Assistente de UDI.  
 
  Para obter mais informações sobre a pré-visualização páginas do assistente e o fluxo de sequência de página do assistente, consulte [páginas do Assistente de pré-visualização e o fluxo de sequência de página do assistente](#PreviewWizardPagesandtheWizardPageSequenceFlow).  
 
-##  <a name="RunningtheUDIWizard"></a>Executar o assistente UDI  
+##  <a name="RunningtheUDIWizard"></a> Executar o assistente UDI  
  O Assistente de UDI é iniciado automaticamente quando executa uma sequência de tarefas com base em UDI. Inicie a sequência de tarefas com base em UDI automaticamente ao utilizar os serviços de implementação do Windows ou manualmente, utilizando uma sequência de tarefas (anunciado) implementados no cliente do Configuration Manager. Cada cenário de implementação do MDT (novo computador, o computador de atualizar ou substituir o computador) utiliza um processo diferente. Iniciar a implementação de serviços de implementação do Windows ou utilizando suportes de dados de sequência de tarefas. O processo de implementação pede ao utilizador as definições de configuração ainda não estiver especificadas.  
 
  O Assistente de UDI apresenta as páginas do assistente com base no cenário de implementação do MDT que selecionou e as opções de configuração guardadas no ficheiro de configuração do Assistente de UDI (UDIWizard_Config.xml) na pasta de Scripts do pacote de ficheiros do MDT. Os controlos que estão ativados e os respetivos valores predefinidos também são controlados pelas opções de configuração guardadas no ficheiro de configuração do Assistente de UDI.  
@@ -7539,7 +7538,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
  Depois de concluir o Assistente de UDI, começa a implementação do novo sistema operativo. Quando o processo de implementação estiver concluído, o **resultados de OSD** é apresentada a página antes do primeiro registo de utilizador para o computador de destino. Para obter mais informações sobre como configurar o **resultados de OSD** página, consulte a secção "OSDResults.exe.config valores do elemento de ficheiro," no documento MDT *Toolkit referência*.  
 
-##  <a name="ConfiguringMDTDeployments"></a>Configurar as implementações do MDT  
+##  <a name="ConfiguringMDTDeployments"></a> Configurar as implementações do MDT  
  Configure as implementações do MDT:  
 
 -   Personalizar os ficheiros CustomSettings.ini e Bootstrap.ini conforme descrito em [personalizar ficheiros de configuração do MDT](#CustomizingMDTConfigurationFiles)  
@@ -7568,7 +7567,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Aplicar definições de configuração de segurança e conformidade utilizando pacotes de objeto de política de grupo, conforme descrito em [aplicar pacotes de objeto de política de grupo](#ApplyingGroupPolicyObjectPacks)  
 
--   Ativar a participação no [programa de melhoramento da experiência de cliente Windows](http://windows.microsoft.com/da-DK/windows-8/privacy-statement?T1=server#section_9)(CEIP) e [relatório de erros do Windows](http://msdn.microsoft.com/windows/hardware/gg487440) (REW), conforme descrito em [ativar participar no PMEC e WER](#EnablingParticipationinCEIPandWER)  
+-   Ativar a participação no [programa de melhoramento da experiência de cliente Windows](https://privacy.microsoft.com/privacystatement)(CEIP) e [relatório de erros do Windows](https://docs.microsoft.com/windows-hardware/drivers/dashboard/windows-error-reporting-getting-started) (REW), conforme descrito em [ativar participar no PMEC e WER](#EnablingParticipationinCEIPandWER)  
 
 -   Configurar os passos de sequência de tarefas que configurar funcionalidades e funções do Windows no computador de destino, conforme descrito em [configurar funções e funcionalidades passos de sequência de tarefas](#ConfiguringRolesandFeaturesTaskSequenceSteps)  
 
@@ -7578,7 +7577,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Criar scripts personalizados que se integram com a implementação do MDT processa conforme descrito em [criar Scripts personalizados para o MDT](#CreatingCustomScriptsforMDT)  
 
-###  <a name="CustomizingMDTConfigurationFiles"></a>Personalizar os ficheiros de configuração do MDT  
+###  <a name="CustomizingMDTConfigurationFiles"></a> Personalizar os ficheiros de configuração do MDT  
  O MDT é flexível e altamente personalizável com os ficheiros de configuração do MDT. As secções seguintes contêm os exemplos de configuração que demonstram como personalizar o processo de implementação.  
 
  Personalize os ficheiros de configuração do MDT por:  
@@ -7599,7 +7598,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
 -   Identificar a sintaxe do ficheiro BootStrap.ini conforme descrito em [identificar a sintaxe de ficheiro BootStrap.ini](#IdentifytheBootStrap.iniFileSyntax)  
 
-####  <a name="IdentifytheCustomSettings.iniFileSyntax"></a>Identificar a sintaxe do ficheiro CustomSettings.ini  
+####  <a name="IdentifytheCustomSettings.iniFileSyntax"></a> Identificar a sintaxe do ficheiro CustomSettings.ini  
  A sintaxe do ficheiro CustomSettings.ini é semelhante em muitos ficheiros. ini. Um ficheiro CustomSettings.ini inclui:  
 
 -   Secções  
@@ -7631,7 +7630,7 @@ CustomProperty=FALSE
 
 ```  
 
-####  <a name="SectionsintheCustomSettings.iniFile"></a>Secções no ficheiro CustomSettings.ini  
+####  <a name="SectionsintheCustomSettings.iniFile"></a> Secções no ficheiro CustomSettings.ini  
  Secções são identificadas por parênteses Retos (`[]`) que coloque o nome de secção (por exemplo, `[Settings]`). Na lista 1, as secções incluem `[Settings]`, `[Default]`, `[00:0F:20:35:DE:AC]`, e `[00:03:FF:FE:FF:FF]`.  
 
  As secções no ficheiro CustomSettings.ini, incluem o:  
@@ -7640,17 +7639,17 @@ CustomProperty=FALSE
 
 -   Opcional secções conforme descrito em [secções opcional](#OptionalSections)  
 
-#####  <a name="RequiredSections"></a>Secções necessárias  
+#####  <a name="RequiredSections"></a> Secções necessárias  
  Apenas o `[Settings]` secção não é necessária. Todas as outras secções são opcionais. Os scripts de MDT requerem o `[Settings]` secção CustomSettings.ini para localizar as propriedades reservadas (**prioridade** e **propriedades**).  
 
-#####  <a name="OptionalSections"></a>Secções opcionais  
+#####  <a name="OptionalSections"></a> Secções opcionais  
  Utilize as secções opcionais no ficheiro CustomSettings.ini, para atribuir um grupo de definições de configuração para:  
 
 -   **Um grupo de computadores**. Na lista 1, as definições de configuração no `[Default]`secção são aplicadas a mais do que um computador. Para obter mais informações, consulte [aplicar propriedades do MDT aos grupos de computadores](#ApplyingMDTPropertiestoGroupsofComputers), mais à frente neste guia.  
 
 -   **Um computador individual**. Na lista 1, as definições de configuração no `[00:0F:20:35:DE:AC]` e `[00:03:FF:FE:FF:FF]` secções são aplicadas ao computador correspondente (neste caso, identificado pelo endereço do media access control [MAC] do computador de destino). Para obter mais informações, consulte [aplicar propriedades MDT para computadores individuais](#ApplyingMDTPropertiestoIndividualComputers), mais à frente neste guia.  
 
-####  <a name="PropertiesintheCustomSettings.iniFile"></a>Propriedades no ficheiro CustomSettings.ini  
+####  <a name="PropertiesintheCustomSettings.iniFile"></a> Propriedades no ficheiro CustomSettings.ini  
  As propriedades são para o qual devem ser atribuídos a valores de variáveis. As propriedades são seguidas por um sinal de igual (=). O ficheiro CustomSettings.ini para localizar as propriedades de análise de scripts.  
 
  Os tipos de propriedades que pode utilizar na implementação de computadores de destino incluem propriedades que são:  
@@ -7678,7 +7677,7 @@ CustomProperty=FALSE
 
 -   Configurar os valores de propriedades, conforme descrito em [valores no ficheiro CustomSettings.ini](#ValuesintheCustomSettings.iniFile)  
 
-#####  <a name="PriorityReservedProperty"></a>Prioridade reservado propriedade  
+#####  <a name="PriorityReservedProperty"></a> Prioridade reservado propriedade  
  O **prioridade** propriedade reservada determina a secção onde pode encontrar valores de configuração e a sequência. Cada secção é procurada na ordem especificada. Quando é encontrado um valor de propriedade, as secções restantes não são utilizadas para essa propriedade. Na lista 1, o `[Default]` secção é primeiro analisado e, em seguida, a secção que corresponde ao endereço MAC do computador de destino (neste caso, `[00:0F:20:35:DE:AC]` ou `[00:03:FF:FE:FF:FF]`).  
 
   152 tabela lista os tipos de secções que se pode referenciar no **prioridade** propriedade.  
@@ -7691,7 +7690,7 @@ CustomProperty=FALSE
 |Nome da secção de literal|Um literal nome que especificou no **prioridade** propriedade. Por exemplo, se `MySection` está incluído no **prioridade** propriedade, o MDT deverá procure propriedades anteriormente não encontrado no `[MySection]`secção.|  
 |Referência indirecta|Um nome de literal que faça referência a uma secção, que por sua vez referencia outras secções. Por exemplo, se o **DefaultGateway** propriedade está incluída no **prioridade** propriedade, o MDT deverá procurar o `[DefaultGateway]` secção. Se o `[DefaultGateway]` secção referencia outras secções (com base no endereço IP do gateway predefinido), este é um exemplo de uma referência indirecta. Para obter um exemplo de utilização de referência indirecta a **DefaultGateway** propriedade, consulte "exemplo: Os agrupamentos do computador selecionado pelo Banco Woodgrove"na [selecione o método para agrupar computadores](#SelecttheMethodforGroupingComputers).|  
 
-#####  <a name="PropertiesReservedProperty"></a>Propriedade reservado de propriedades  
+#####  <a name="PropertiesReservedProperty"></a> Propriedade reservado de propriedades  
  O **propriedades** propriedade reservada (mostrada na listagem 1) define as propriedades personalizadas, definido pelo utilizador a ser utilizados na implementação. Estas propriedades definidas pelo utilizador estão localizadas pelo script de ZTIGather.wsf o ficheiro CustomSettings.ini (ou a base de dados de configuração). Estas propriedades são propriedades predefinidas no MDT.  
 
  Na lista 1, **CustomProperty** é uma propriedade definida pelo utilizador, e **ScanStateArgs** é uma propriedade predefinida. Para obter uma lista das propriedades predefinidas no MDT, consulte a secção "Propriedades" no documento MDT *Toolkit referência*.  
@@ -7709,7 +7708,7 @@ ListProperty001=New York City
 ListProperty002=Chicago  
 ```  
 
-#####  <a name="ValuesintheCustomSettings.iniFile"></a>Valores no ficheiro CustomSettings.ini  
+#####  <a name="ValuesintheCustomSettings.iniFile"></a> Valores no ficheiro CustomSettings.ini  
  *Valores* são as definições de configuração atribuídas para as propriedades. Os valores são precedidos por um sinal de igual (=). O ficheiro CustomSettings.ini para localizar os valores de análise de scripts. Na lista 1, o valor atribuído para o **LoadStateArgs** propriedade é:  
 
 ```  
@@ -7719,7 +7718,7 @@ ListProperty002=Chicago
 > [!NOTE]
 >  o ficheiro CustomSettings.ini é diferente do tradicionais ficheiros INI em que não coloque aspas à volta de valores, mesmo se o valor contiver espaços.  
 
-####  <a name="SubsectionsintheCustomSettings.iniFile"></a>Subsecções no ficheiro CustomSettings.ini  
+####  <a name="SubsectionsintheCustomSettings.iniFile"></a> Subsecções no ficheiro CustomSettings.ini  
  Pode criar subsecções no ficheiro Customsettings.ini, com base no valor de uma propriedade utilizando o **subsecção** diretiva. O valor da **subsecção** diretiva pode ser utilizada para referenciar dinamicamente subsecções que podem ser utilizadas para definições de configuração do grupo.  
 
   Listar 2 ilustra uma excerpt de um ficheiro CustomSettings.ini que utiliza o **subsecção** diretiva dinamicamente referenciar subsecções baseadas no modelo de computador, o que é especificado no **modelo** propriedade.  
@@ -7749,7 +7748,7 @@ Packages002=XXX00003:Program4
 
  A subsecção "Contoso Corporation de computador" contém um **subsecção** linha que referencia outras subsecções com base no valor da **modelo** propriedade. Neste exemplo, o "Contoso-MDT 6600" e "secções 2431" Contoso-MDT serão processadas pelo MDT dependendo do valor da **modelo** propriedade.  
 
-####  <a name="UserExitScriptsintheCustomSettings.iniFile"></a>Scripts de saída do utilizador no ficheiro CustomSettings.ini  
+####  <a name="UserExitScriptsintheCustomSettings.iniFile"></a> Scripts de saída do utilizador no ficheiro CustomSettings.ini  
  Um script de saída do utilizador é efetivamente uma biblioteca de função que pode ser chamada durante o processamento do ficheiro CustomSettings.ini, utilizando o **UserExit** diretiva. Um script de saída de utilizador contém uma ou mais funções que podem ser chamadas durante o processo do ficheiro CustomSettings.ini.  
 
  É chamado um script de saída do utilizador, especificando o **UserExit** diretiva e atribuir o nome da propriedade do script a ser chamado — por exemplo, **UserExit=TrimAssetTag.vbs**. Uma função no script de saída utilizador denomina-se ao especificar o nome de uma função entre o  **#**  carateres. Por exemplo, se o utilizador sair script contém uma função de chamada **TrimAssetTag()**, teria de ser chamado, especificando **#TrimAssetTag() #**.  
@@ -7843,7 +7842,7 @@ SkipProductKey=YES
 
 ```  
 
-####  <a name="BasicCustomSettings.iniFileforLTIDeployments"></a>Ficheiro CustomSettings.ini básico para implementações LTI  
+####  <a name="BasicCustomSettings.iniFileforLTIDeployments"></a> Ficheiro CustomSettings.ini básico para implementações LTI  
  Para implementações LTI, Deployment Workbench utiliza uma versão de modelo do ficheiro CustomSettings.ini (armazenado na *installation_folder*\Templates, onde *installation_folder* é a pasta na qual Instalação do MDT) como base para uma versão personalizada da CustomSettings.ini. A versão do modelo do ficheiro CustomSettings.ini é ilustrada na listagem 5. A versão do modelo na listagem 5 não contêm definições suficientes para implementar o Windows com êxito para um computador de destino. No entanto, o ficheiro será ainda mais personalizadas a utilizar o Deployment Workbench.  
 
  **Listar 5. Ficheiro CustomSettings.ini inalterado na pasta Modelos**  
@@ -7900,7 +7899,7 @@ SkipProductKey=YES
 
  Para obter mais informações sobre as propriedades individuais, consulte o artigo correspondente referenciar secção no documento MDT *Toolkit referência*.  
 
-####  <a name="BasicCustomSettings.iniFileforZTIDeploymentsUsingConfigurationManger"></a>Ficheiro CustomSettings.ini básico para implementações ZTI utilizando a configuração do Configuration Manager  
+####  <a name="BasicCustomSettings.iniFileforZTIDeploymentsUsingConfigurationManger"></a> Ficheiro CustomSettings.ini básico para implementações ZTI utilizando a configuração do Configuration Manager  
  Para implementações de ZTI utilizando o Gestor de configuração, o Deployment Workbench utiliza uma versão de modelo do ficheiro CustomSettings.ini (armazenado na *installation_folder*\Templates, onde *installation_folder* é a pasta na qual está instalado o MDT) como base para uma versão personalizada da CustomSettings.ini. A versão do modelo do ficheiro CustomSettings.ini é ilustrada na listagem 7. A versão do modelo na listagem 7 não contêm definições suficientes para implementar o Windows com êxito para um computador de destino. No entanto, o ficheiro será ainda mais personalizadas a utilizar o Deployment Workbench.  
 
  **Listar 7. Ficheiro CustomSettings.ini inalterado na pasta Modelos**  
@@ -7977,7 +7976,7 @@ Tabela 154 explica as propriedades e valores correspondentes utilizados na lista
 
  Para obter mais informações sobre as propriedades individuais, consulte o artigo correspondente referenciar secção no documento MDT *Toolkit referência*.  
 
-####  <a name="IdentifytheBootStrap.iniFileSyntax"></a>Identificar a sintaxe do ficheiro BootStrap.ini  
+####  <a name="IdentifytheBootStrap.iniFileSyntax"></a> Identificar a sintaxe do ficheiro BootStrap.ini  
  Em implementações LTI, utilize o ficheiro BootStrap.ini para especificar definições de propriedade antes de aceder ao ficheiro CustomSettings.ini. Utilize o ficheiro BootStrap.ini para fornecer informações do ponto de distribuição, credenciais de início de sessão e definições do Windows PE teclado região. As propriedades configuradas no BootStrap.ini ajudam os scripts de MDT localizar a partilha de distribuição do MDT adequada.  
 
  A sintaxe do ficheiro BootStrap.ini é idêntica ao ficheiro CustomSettings.ini. O ficheiro BootStrap.ini contém um subconjunto das propriedades utilizadas em CustomSettings.ini da seguinte forma:  
@@ -8013,7 +8012,7 @@ Priority=Default
 DeployRoot=\\NYC-MDT-01\Distribution$  
 ```  
 
-###  <a name="ConfiguringtheAppropriateMDTProperties"></a>Configurar as propriedades adequadas MDT  
+###  <a name="ConfiguringtheAppropriateMDTProperties"></a> Configurar as propriedades adequadas MDT  
  MDT utiliza assistentes para criar e gerir ficheiros de configuração. Para obter mais informações sobre os MDT ficheiros de configuração padrão, CustomSettings.ini e BootStrap.ini, consulte [personalizar ficheiros de configuração do MDT](#CustomizingMDTConfigurationFiles). No entanto, pode personalizar os ficheiros de configuração para satisfazer as necessidades da sua organização.  
 
  Antes de configurar o processo de implementação, selecione as propriedades para fazer referência a partir das propriedades predefinidas ou definido pelo utilizador. As propriedades selecionadas tem de incluir todas as definições de configuração fornecidos durante o processo de implementação.  
@@ -8038,7 +8037,7 @@ DeployRoot=\\NYC-MDT-01\Distribution$
 
  Para obter mais informações sobre cada um das propriedades utilizadas em cada fase, consulte a secção "Propriedades" no documento MDT *Toolkit referência*.  
 
-###  <a name="ApplyingMDTPropertiestoGroupsofComputers"></a>Aplicar propriedades MDT em grupos de computadores  
+###  <a name="ApplyingMDTPropertiestoGroupsofComputers"></a> Aplicar propriedades MDT em grupos de computadores  
  Sempre que possível, utilize regras baseadas em grupos para aplicar a maioria das definições de configuração do computador. Com base no grupo de regras permitir que as mesmas definições de configuração ser aplicada a um grupo de computadores cliente. Depois de aplicar regras baseadas em grupos, pode fornecer as definições de configuração específicas do computador utilizando regras baseadas no computador.  
 
  Aplicar propriedades a grupos de computadores, efetuando os seguintes passos:  
@@ -8047,7 +8046,7 @@ DeployRoot=\\NYC-MDT-01\Distribution$
 
 2.  Aplicar as propriedades para os agrupamentos de computadores, conforme descrito em [aplicam-se as propriedades para os grupos](#ApplythePropertiestotheGroups).  
 
-####  <a name="SelecttheMethodforGroupingComputers"></a>Selecione o método para agrupar os computadores  
+####  <a name="SelecttheMethodforGroupingComputers"></a> Selecione o método para agrupar os computadores  
  Métodos diferentes podem ser utilizados para computadores de cliente de grupo. Após determinar como os computadores de grupo, selecione as propriedades adequadas para o ajudar a agrupá-los.  
 
  Utilizar o processamento de regras no MDT, computadores de grupo com base em qualquer propriedade que pode ser aplicada a um grupo de computadores (tais como **tornar**, **modelo**, ou **DefaultGateway**).  Tabela 155 apresenta uma lista de métodos de computadores, uma descrição do método e as propriedades que podem ser utilizadas para agrupar os computadores de agrupamento.  
@@ -8098,7 +8097,7 @@ SLShare=\\DAL-AM-FIL-01\Logs
 Administrator1=WOODGROVEBANK\DAL Help Desk Staff  
 ```  
 
-####  <a name="ApplythePropertiestotheGroups"></a>Aplicar as propriedades para os grupos  
+####  <a name="ApplythePropertiestotheGroups"></a> Aplicar as propriedades para os grupos  
  Depois de identificar como agrupar as definições de configuração, determine que propriedades e definições de configuração correspondentes para aplicar a cada grupo. Propriedades que podem ser agrupadas são as que pode aplicar a vários computadores.  
 
  Alguns exemplos de propriedades que normalmente são aplicados aos grupos de computadores incluem:  
@@ -8139,7 +8138,7 @@ Administrator1=WOODGROVEBANK\DAL Help Desk Staff
 
 -   No NYC, os pacotes de localização específicas são designadas por `Packages1` e `Packages2`.  
 
-###  <a name="ApplyingMDTPropertiestoIndividualComputers"></a>Aplicar propriedades MDT em computadores individuais  
+###  <a name="ApplyingMDTPropertiestoIndividualComputers"></a> Aplicar propriedades MDT em computadores individuais  
  Após determinar os agrupamentos de computadores de destino e as definições de configuração para aplicar a cada grupo, determine o método para identificar os computadores individuais e as definições de configuração para atribuir a cada computador. As regras para computadores de destino permitem a substituição ou augmentation de regras de processamento baseadas em grupos com base na prioridade das regras baseadas no computador.  
 
  Para obter mais informações sobre como determinar a prioridade de processamento de regras, consulte [propriedade reservado prioridade](#PriorityReservedProperty), anteriormente neste guia.  
@@ -8156,7 +8155,7 @@ Administrator1=WOODGROVEBANK\DAL Help Desk Staff
 
 |Método de identificação|Descrição|Propriedades|  
 |---------------------------|-----------------|----------------|  
-|Atributos de hardware do computador de destino|Identifique o computador de destino a utilizar a configuração de hardware.|**AssetTag**, **MACAddress**, **SerialNumber**, **UUID**, **produto**, **tornar** , e **modelo** |  
+|Atributos de hardware do computador de destino|Identifique o computador de destino a utilizar a configuração de hardware.|**AssetTag**, **MACAddress**, **SerialNumber**, **UUID**, **produto**, **tornar**, e **modelo** |  
 |Atributos de software do computador de destino|Identifique o computador de destino utilizando a configuração de software ou firmware.|**OSVersion**, **IsServerOS**, e **OSSKU** |  
 |Atributos definidos pelo utilizador do computador de destino|Identifique o computador de destino utilizando os atributos que são atribuídos para o computador, mas não faz parte da configuração de hardware ou software.|**AssetTag SerialNumber** |  
 
@@ -8188,23 +8187,23 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 |Computador de destino|As definições e uma descrição|  
 |---------------------|------------------------------|  
-|`[00:03:FF:CB:4E:C2]`|`ComputerName`é o nome do computador após a implementação — neste caso, WasW2K.`OverRideProductKey` a chave de produto que seja atribuído ao computador — neste caso, TTTTT-VVVVV-WWWWW-XXXXX-YYYYY.|  
-|`[00:0F:20:35:DE:AC]`|`ComputerName`é o nome do computador após a implementação — neste caso, HPD530-1.`OverRideProductKey` a chave de produto que seja atribuído ao computador — neste caso, AAAAA-BBBBB-CCCCC-DDDDD-EEEEE.|  
-|`[00:03:FF:FE:FF:FF]`|`ComputerName`é o nome do computador após a implementação — neste caso, BVMXP.<br /><br /> `OverRideProductKey`a chave de produto que seja atribuído ao computador — neste caso, 11111-22222-33333-44444-55555.|  
+|`[00:03:FF:CB:4E:C2]`|`ComputerName` é o nome do computador após a implementação — neste caso, WasW2K.`OverRideProductKey` a chave de produto que seja atribuído ao computador — neste caso, TTTTT-VVVVV-WWWWW-XXXXX-YYYYY.|  
+|`[00:0F:20:35:DE:AC]`|`ComputerName` é o nome do computador após a implementação — neste caso, HPD530-1.`OverRideProductKey` a chave de produto que seja atribuído ao computador — neste caso, AAAAA-BBBBB-CCCCC-DDDDD-EEEEE.|  
+|`[00:03:FF:FE:FF:FF]`|`ComputerName` é o nome do computador após a implementação — neste caso, BVMXP.<br /><br /> `OverRideProductKey` a chave de produto que seja atribuído ao computador — neste caso, 11111-22222-33333-44444-55555.|  
 
-###  <a name="ConfiguringMDTProcessingRules"></a>Configurar regras de processamento de MDT  
+###  <a name="ConfiguringMDTProcessingRules"></a> Configurar regras de processamento de MDT  
  Scripts de MDT configurar definições de computador com base em regras e definições de configuração armazenadas no ficheiro CustomSettings.ini, ou na base de dados do MDT. Configure as regras de processamento do MDT, efetuando as seguintes tarefas:  
 
 -   Configurar as regras de processamento, conforme descrito em [configurar as regras no ficheiro CustomSettings.ini](#ConfiguretheRulesintheCustomSettings.iniFile).  
 
 -   Configurar as regras de processamento, conforme descrito em [configurar as regras na base de dados MDT](#ConfiguretheRulesintheMDTDB).  
 
-####  <a name="ConfiguretheRulesintheCustomSettings.iniFile"></a>Configurar as regras no ficheiro CustomSettings.ini  
+####  <a name="ConfiguretheRulesintheCustomSettings.iniFile"></a> Configurar as regras no ficheiro CustomSettings.ini  
  Configure regras no ficheiro CustomSettings.ini. A versão do modelo do ficheiro CustomSettings.ini, juntamente com as regras da organização, torna-se o ficheiro CustomSettings.ini personalizado.  
 
  Para implementações LTI, configurar as definições baseadas em grupo poderão ser suficiente, porque as definições específicas do computador podem ser fornecidas durante o processo de instalação do MDT. Para implementações de ZTI utilizando o Configuration Manager, adicione as definições de configuração exclusivas para um computador de cliente específico, porque ZTI parte do princípio de que todas as definições de configuração necessárias para a implementação estão configuradas com antecedência. Estas definições de configuração podem ser para além ou em vez das regras com base no grupo.  
 
-####  <a name="ConfiguretheRulesintheMDTDB"></a>Configurar as regras na base de dados do MDT  
+####  <a name="ConfiguretheRulesintheMDTDB"></a> Configurar as regras na base de dados do MDT  
  Utilize o Deployment Workbench para configurar as regras para implementações LTI e ZTI na base de dados do MDT. As vantagens da utilização da base de dados do MDT incluem:  
 
 -   **Tem uma versão mais genérica do CustomSettings.ini**. Armazenar as definições de configuração na base de dados MDT remove a maioria dos detalhes do ficheiro CustomSettings.ini. Esta alteração ajuda a tornar o ficheiro CustomSettings.ini mais genérico para que possa utilizar o mesmo ficheiro de múltiplas partilhas de implementação.  
@@ -8213,7 +8212,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
  Para obter informações sobre a BD do MDT e utilizá-la para efetuar implementações, consulte [implementações Performing utilizando a BD do MDT](#PerformingDeploymentsUsingtheMDTDB).  
 
-###  <a name="PreparingDisksonTargetComputers"></a>Preparar os discos nos computadores de destino  
+###  <a name="PreparingDisksonTargetComputers"></a> Preparar os discos nos computadores de destino  
  Antes de implementar o sistema operativo de destino num computador de destino, o processo de implementação do MDT prepara os discos no computador de destino para a implementação. O processo de preparação de disco inclui os seguintes passos:  
 
 1.  Crie partições numa ou mais unidades nos computadores de destino.  
@@ -8238,7 +8237,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 6.  Configurar as propriedades de MDT utilizadas em Guardar e restaurar informações de estado do utilizador conforme descrito em [configurar propriedades de preparação de disco](#ConfigureDiskPreparationProperties).  
 
-####  <a name="ReviewtheDefaultPartitionConfigurationCreatedbyMDT"></a>Reveja a configuração de partição predefinida criada pelo MDT  
+####  <a name="ReviewtheDefaultPartitionConfigurationCreatedbyMDT"></a> Reveja a configuração de partição predefinida criada pelo MDT  
  Os processos de implementação do MDT criar automaticamente as partições de disco necessários para tirar partido das funcionalidades fornecidas pelo computador de destino e do sistema operativo. Por predefinição, o MDT cria a configuração de partição para computadores baseados em BIOS, tal como descrito na tabela 158.  
 
 ### <a name="table-158-default-partition-configuration-created-by-mdt-for-bios-based-computers"></a>158 de tabela. Configuração de partição predefinida criada pelo MDT para computadores baseados em BIOS  
@@ -8258,9 +8257,9 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |MSR|Não formatado|128 MB|O *partição reservado Microsoft* (MSR) é uma partição num dispositivo de armazenamento de dados é denominado com um GUID igual a E3C9E316-0B5C-4DB8-817 D-F92DF00215AE. O dispositivo de armazenamento que contém tem de utilizar o novo formato de tabela de partições GUID (GPT), não o arranque principal tradicional registo (MBR) partição formato de tabela. Uma partição MSR é necessário em cada disco GPT e deve ser criada como o disco inicialmente está particionado. Deve estar localizado após a partição de sistema EFI (ESP) e quaisquer OEM do serviço de partições, mas — mais importante ainda, a primeira partição de dados tem de seguir imediato-lo.|  
 |OSDisk|NTFS|Espaço restante|Partição no qual Windows localizado, também é conhecido como o *unidade do sistema operativo*. Se for utilizado o BitLocker, trata-se a partição que é encriptada.|  
 
- Para além das configurações de partição do MDT predefinidas, pode criar configurações de partição personalizado. Por exemplo, as configurações de partição do MDT predefinidas não incluem outras partições utilitário ou imagens de recuperação. Para obter mais informações, consulte [partições de disco de compreender](http://technet.microsoft.com/library/dd799232\(WS.10\).aspx).  
+ Para além das configurações de partição do MDT predefinidas, pode criar configurações de partição personalizado. Por exemplo, as configurações de partição do MDT predefinidas não incluem outras partições utilitário ou imagens de recuperação. Para obter mais informações, consulte [partições de disco de compreender](https://technet.microsoft.com/library/dd799232\(WS.10\).aspx).  
 
-####  <a name="PrepareforDeploymenttoVirtualHardDiskswithNativeBoot"></a>Preparar para a implementação em discos rígidos virtuais com arranque nativo  
+####  <a name="PrepareforDeploymenttoVirtualHardDiskswithNativeBoot"></a> Preparar para a implementação em discos rígidos virtuais com arranque nativo  
  Arranque nativo permite que os VHDs ser executada num computador sem uma VM ou hipervisor.  
 
 > [!NOTE]
@@ -8286,9 +8285,9 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 -   **Limpar OSDDiskIndexVariable**. Este passo limpa o **OSDDiskIndexVariable** variável de sequência de tarefas que foi definido durante a **criar disco de VHD** passo de sequência de tarefas. Limpar o **OSDDiskIndexVariable** variável de sequência de tarefas permite que outros discos ser particionado e formatado como parte da sequência de tarefas.  
 
- Para obter mais informações sobre os VHDs com arranque nativo, consulte [Noções básicas sobre discos rígidos virtuais com arranque nativo](http://technet.microsoft.com/library/hh825689.aspx).  
+ Para obter mais informações sobre os VHDs com arranque nativo, consulte [Noções básicas sobre discos rígidos virtuais com arranque nativo](https://technet.microsoft.com/library/hh825689.aspx).  
 
-####  <a name="ConfiguretheCreateVHDDiskTaskSequenceStepType"></a>Configurar a criar o tipo de passo de sequência de tarefas de disco VHD  
+####  <a name="ConfiguretheCreateVHDDiskTaskSequenceStepType"></a> Configurar a criar o tipo de passo de sequência de tarefas de disco VHD  
  O **criar disco de VHD** tipo de passo de sequência de tarefas cria um ficheiro. vhd em preparação para efetuar uma implementação de um VHD com suporte para arranque nativo. Tabela 160 descreve como configurar o **criar disco de VHD** tipo de passo de sequência de tarefas.  
 
 ### <a name="table-160-configure-create-vhd-disk-task-sequence-step-type"></a>160 de tabela. Configurar criar tipo de passo de sequência de tarefas de disco VHD  
@@ -8303,7 +8302,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |Obter a unidade de destino para o ficheiro VHD a partir de uma variável|Esta ação Especifica o nome variável de sequência de tarefas utilizado para designar a unidade de destino para a variável de sequência de tarefas. Pode especificar qualquer variável de sequência de tarefas válido nesta definição. O valor predefinido é o **VHDTargetDisk** variável de sequência de tarefas. Para mais informações sobre o **VHDTargetDisk** consulte, variável de sequência de tarefas a **VHDTargetDisk** propriedade no no documento MDT *Toolkit referência*.|  
 |Atribuir o índice de disco criado a partir de VHD a uma variável|Esta definição especifica o nome variável de sequência de tarefas utilizado para designar o índice de disco a ser utilizado na implementação do sistema operativo. Pode especificar qualquer variável de sequência de tarefas válido nesta definição. O valor predefinido é o **OSDDiskIndex** variável de sequência de tarefas. Para mais informações sobre o **OSDDiskIndex** consulte, variável de sequência de tarefas a **OSDDiskIndex** propriedade no no documento MDT *Toolkit referência*.|  
 
-####  <a name="DeploytoComputerswithUEFI"></a>Implementar em computadores com UEFI  
+####  <a name="DeploytoComputerswithUEFI"></a> Implementar em computadores com UEFI  
  O UEFI é uma especificação que define uma interface de software entre um sistema operativo e o firmware da plataforma. UEFI é uma substituição mais segura para a mais antiga BIOS interface de firmware, presente em alguns computadores pessoais, que são vulnerável a software maligno que efetua a ataques durante o arranque ou processos de ativação automática de teste (POST).  
 
  Sistemas operativos Windows suportam revisões de firmware que se baseiam na UEFI 2.0 ou posterior a especificação da versão em plataformas de 64 bits e plataformas Intel Itanium. Windows também suporta revisões de firmware que se baseiam na especificação EFI versão 1.10 em plataformas Intel Itanium.  
@@ -8317,11 +8316,11 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
  Para obter mais informações, consulte os seguintes recursos:  
 
--   [Suporte de UEFI e os requisitos para sistemas operativos Windows](http://msdn.microsoft.com/windows/hardware/gg463144.aspx)  
+-   [Suporte de UEFI e os requisitos para sistemas operativos Windows](https://msdn.microsoft.com/windows/hardware/gg463144.aspx)  
 
--   [Partição de disco baseado em UEFI configurações recomendadas](http://technet.microsoft.com/library/dd744301\(WS.10\).aspx)  
+-   [Partição de disco baseado em UEFI configurações recomendadas](https://technet.microsoft.com/library/dd744301\(WS.10\).aspx)  
 
-####  <a name="ConfigureDiskPreparationTaskSequenceSteps"></a>Configurar passos de sequência de tarefas de preparação do disco  
+####  <a name="ConfigureDiskPreparationTaskSequenceSteps"></a> Configurar passos de sequência de tarefas de preparação do disco  
  MDT inclui modelos de sequência de tarefas para implementações LTI e ZTI. Estes modelos de sequência de tarefas incluem os passos listados na tabela 161, que são utilizados para efetuar os passos de preparação de disco.  
 
 ### <a name="table-161-disk-preparation-task-sequence-steps"></a>Tabela 161. Passos de sequência de tarefas de preparação do disco  
@@ -8335,7 +8334,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |Desativar os Protetores de BDE|Desativa os protetores de BitLocker no computador de destino; disponível em sequências de tarefas LTI apenas|  
 |Criar disco rígido Virtual (VHD)|Cria um ficheiro. vhd em preparação para implementar o Windows a um VHD com suporte para arranque nativo.|  
 
-####  <a name="ConfigureDiskPreparationProperties"></a>Configurar propriedades de preparação do disco  
+####  <a name="ConfigureDiskPreparationProperties"></a> Configurar propriedades de preparação do disco  
   162 tabela lista as propriedades do MDT que controlam a preparação de discos nos computadores de destino. Pode configurar estas propriedades no CustomSettings.ini ou na base de dados do MDT. Para obter mais informações sobre as propriedades na tabela 162, consulte a secção correspondente para cada propriedade no documento MDT *Toolkit referência*.  
 
 ### <a name="table-162-disk-preparation-properties"></a>162 de tabela. Propriedades de preparação do disco  
@@ -8364,7 +8363,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |**OSDPartitionsxVolumeName** |O nome do volume que será atribuído à partição|  
 |**WipeDisk** |Indica se o disco deve ser apagado|  
 
-###  <a name="SavingandRestoringUserStateInformation"></a>Guardar e restaurar informações de estado do utilizador  
+###  <a name="SavingandRestoringUserStateInformation"></a> Guardar e restaurar informações de estado do utilizador  
  Informações de estado do utilizador é constituído pelas informações de perfil de utilizador, Internet Explorer Favoritos, ficheiros de dados e outros dados específicos do utilizador armazenados no computador de destino. O processo de implementação do MDT automaticamente pode capturar e restaurar informações de estado de utilizador nos computadores de destino.  
 
  O processo de implementação do MDT utiliza a USMT para guardar e restaurar informações de estado do utilizador. Durante o estado da fase de captura no processo de implementação do MDT, USMT guarda as informações de estado de utilizador para uma localização pretendida. Mais tarde, durante a fase de restauro de estado, USMT restaura estas informações de estado do utilizador.  
@@ -8379,7 +8378,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 
 4.  Configurar o MDT para efetuar a captura do Estado do utilizador no Windows PE (offline) ou num sistema operativo existente (online) conforme descrito em [configurar USMT Offline utilizador migração de estado](#ConfigureUSMTOfflineUserStateMigration).  
 
-####  <a name="ReviewUserStateInformationTaskSequenceSteps"></a>Passos de sequência de tarefas de informações de estado do utilizador de revisão  
+####  <a name="ReviewUserStateInformationTaskSequenceSteps"></a> Passos de sequência de tarefas de informações de estado do utilizador de revisão  
  MDT inclui modelos de sequência de tarefas para implementações LTI e ZTI para o Configuration Manager. Estes modelos de sequência de tarefas incluem os passos listados na tabela 163, que são utilizados para guardar e restaurar informações de estado do utilizador.  
 
 ### <a name="table-163-user-state-information-task-sequence-steps"></a>163 de tabela. Passos de sequência de tarefas de informações de estado do utilizador  
@@ -8393,7 +8392,7 @@ OverRideProductKey=11111-22222-33333-44444-55555
 |**Restaurar a grupos** |Restaura as informações de associação de grupo que o **capturar grupos** passo de sequência de tarefas guardado para o computador de destino|  
 |**Captura de estado de utilizador offline** |Captura as informações de estado do utilizador durante a execução no Windows PE (offline), em vez do sistema de operativo orignial (online). Este passo de sequência de tarefas executa o script de ZTIUserState.wsf e é executado quando são satisfeitas as seguintes condições:<br /><br /> -O **smstsmediatype** propriedade não é igual ao **"OEMMedia"**.<br /><br /> -O **OSDDiskPart** propriedade não é igual ao **"TRUE"**.<br /><br /> Este passo de sequência de tarefas faz parte do grupo Offline USMT que é executado quando a **USMTOfflineMigration** é igual a **"TRUE"**.|  
 
-####  <a name="ConfigureUserStateInformationProperties"></a>Configurar propriedades de informações de estado do utilizador  
+####  <a name="ConfigureUserStateInformationProperties"></a> Configurar propriedades de informações de estado do utilizador  
   164 tabela lista as propriedades de MDT para implementações LTI que controlam a guardar e restaurar informações de estado do utilizador. Pode configurar estas propriedades no ficheiro CustomSettings.ini, ou na base de dados do MDT. Para obter mais informações sobre as propriedades de 164 de tabela, consulte a secção correspondente para cada propriedade no documento MDT *Toolkit referência*.  
 
 ### <a name="table-164-user-state-information-properties-for-lti-deployments"></a>164 de tabela. Propriedades de informações de estado do utilizador para implementações LTI  
@@ -8411,14 +8410,14 @@ OverRideProductKey=11111-22222-33333-44444-55555
 > [!IMPORTANT]
 >  Por predefinição o USMT irá capturar todas as contas de utilizador local e de domínio, a menos que explicitamente excluído. Qualquer capturados será contas locais em seguida, por predefinição, ser incluídos no processo de restauro. Em algumas circunstâncias, o passo de restauro falhará sem a inclusão do parâmetro /lae para definir a palavra-passe para estas contas locais.  
 
-####  <a name="ConfigureUserStateMigrationXMLControlFiles"></a>Configurar ficheiros de controlo do XML de migração de estado do utilizador  
+####  <a name="ConfigureUserStateMigrationXMLControlFiles"></a> Configurar ficheiros de controlo do XML de migração de estado do utilizador  
  USMT utiliza as versões de predefinido dos ficheiros XML de migração, a menos que o caminho para os ficheiros de controlo XML personalizados está indicado. Personalize os ficheiros de controlo XML de migração de estado de utilizador para o USMT, efetuando as seguintes tarefas:  
 
 -   Configurar os ficheiros de controlo XML para o USMT para implementações LTI, conforme descrito em [configurar o estado de migração XML controlo ficheiros do utilizador para implementações LTI](#ConfigureUserStateMigrationXMLControlFilesforLTIDeployments).  
 
 -   Configurar os ficheiros de controlo XML para o USMT para implementações ZTI conforme descrito em [configurar o estado de migração XML controlo ficheiros do utilizador para implementações ZTI](#ConfigureUserStateMigrationXMLControlFilesforZTIDeployments).  
 
-#####  <a name="ConfigureUserStateMigrationXMLControlFilesforLTIDeployments"></a>Configurar ficheiros de controlo do XML de migração de estado do utilizador para implementações LTI  
+#####  <a name="ConfigureUserStateMigrationXMLControlFilesforLTIDeployments"></a> Configurar ficheiros de controlo do XML de migração de estado do utilizador para implementações LTI  
  Para implementações LTI, insira um ou mais linhas no ficheiro CustomSettings.ini, que contêm o **USMTMigFiles** propriedade a todos os ficheiros de controlo XML da migração de USMT que pretende especificar. Os ficheiros XML tem de ser copiados para a pasta USMT ou a pasta de Scripts na partilha de distribuição.  
 
  Utilize o seguinte formato para estas linhas:  
@@ -8434,7 +8433,7 @@ USMTConfigFile=Config.xml
 > [!NOTE]
 >  Consulte o documento de MDT *Toolkit referência* para obter detalhes sobre as definições de configuração.  
 
-#####  <a name="ConfigureUserStateMigrationXMLControlFilesforZTIDeployments"></a>Configurar ficheiros de controlo do XML de migração de estado do utilizador para implementações ZTI  
+#####  <a name="ConfigureUserStateMigrationXMLControlFilesforZTIDeployments"></a> Configurar ficheiros de controlo do XML de migração de estado do utilizador para implementações ZTI  
  Para implementações ZTI para o Configuration Manager, inserir uma linha no ficheiro CustomSettings.ini, que contém o **OSDMigrateConfigFiles** variável de sequência de tarefas para o ficheiro de controlo XML da migração de USMT que pretende que especificar. Se especificar o **OSDMigrateConfigFiles** propriedade, Inserir linha outra que define o **OSDMigrateMode** variável de sequência de tarefas para avançadas.  
 
  Utilize o seguinte formato para estas linhas:  
@@ -8446,7 +8445,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
  O caminho para os ficheiros de controlo XML é relativo à pasta atual, que será a localização do pacote do USMT. Se a manter os ficheiros de controlo do XML no pacote do USMT, atualize este pacote sempre que alterar qualquer um dos ficheiros de controlo de XML. Caso contrário, pode armazenar os ficheiros de controlo do XML no pacote ou de rede partilhada pasta separada e especifique um caminho UNC completamente qualificado para a pasta partilhada de rede ou pacote.  
 
-####  <a name="ConfigureUSMTOfflineUserStateMigration"></a>Configurar a migração de estado de utilizador Offline USMT  
+####  <a name="ConfigureUSMTOfflineUserStateMigration"></a> Configurar a migração de estado de utilizador Offline USMT  
  USMT pode executar uma migração offline do Estado do utilizador num computador. Numa migração offline, a captura é executada no Windows PE em vez do sistema operativo existente. As vantagens de efetuar uma migração de estado do utilizador offline são:  
 
 -   Não é necessário iniciar sessão no computador no qual está a capturar estado do utilizador.  
@@ -8459,7 +8458,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   Poderá utilizar uma migração offline para recuperar ficheiros e definições, se um computador já não for iniciado corretamente.  
 
- A desvantagem da execução de uma migração de estado do utilizador offline é que algumas definições de utilizador não são capturadas, mas em vez disso só podem ser capturadas durante a execução USMT no sistema operativo de destino. Para obter uma lista das definições que não são capturadas quando efetuar uma captura do Estado do utilizador offline, consulte [que Does USMT migrar?](http://technet.microsoft.com/library/hh825238.aspx)  
+ A desvantagem da execução de uma migração de estado do utilizador offline é que algumas definições de utilizador não são capturadas, mas em vez disso só podem ser capturadas durante a execução USMT no sistema operativo de destino. Para obter uma lista das definições que não são capturadas quando efetuar uma captura do Estado do utilizador offline, consulte [que Does USMT migrar?](https://technet.microsoft.com/library/hh825238.aspx)  
 
  Pode efetuar a migração de estado de utilizador offline USMT no MDT:  
 
@@ -8470,7 +8469,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 > [!NOTE]
 >  Não é possível efetuar migração de estado de utilizador offline USMT no cenário de implementação MDT novo computador utilizando ZTI.8  
 
-###  <a name="JoiningTargetComputerstoADDSDomains"></a>Associar computadores de destino para domínios do AD DS  
+###  <a name="JoiningTargetComputerstoADDSDomains"></a> Associar computadores de destino para domínios do AD DS  
  Um dos passos finais na conclusão da implementação do sistema de operativo de destino para os computadores de destino é a associação do computador a um domínio do AD DS. Embora consiga concluir este processo manualmente, o MDT suporta os seguintes métodos automatizados para efetuar a adesão de computadores de destino para domínios de AD DS:  
 
 -   Utilizando o Assistente de implementação, conforme descrito em [associação a domínios através do Assistente de implementação](#JoinDomainsUsingtheDeploymentWizard)  
@@ -8483,7 +8482,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   Utilizar a funcionalidade de associação de domínio offline do Windows, conforme descrito em [associação domínios utilizando Offline associação a um domínio](#JoinDomainsUsingOfflineDomainJoin)  
 
-####  <a name="JoinDomainsUsingtheDeploymentWizard"></a>Associação a domínios através do Assistente de implementação  
+####  <a name="JoinDomainsUsingtheDeploymentWizard"></a> Associação a domínios através do Assistente de implementação  
  Para implementações LTI, o **associar o computador a um domínio ou grupo de trabalho** página do assistente no Assistente de implementação do Windows no MDT permite-lhe interativamente fornecer as definições de configuração necessárias para associar um domínio. 165 tabela lista as definições de configuração nesta página do assistente utilizado na associação a um domínio.  
 
 ### <a name="table-165-configuration-settings-on-the-join-the-computer-to-a-domain-or-workgroup-wizard-page-for-joining-domain"></a>Tabela 165. Definições de configuração a associar o computador para uma página do Assistente de domínio ou grupo de trabalho para associar domínio  
@@ -8491,43 +8490,43 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 |Definição|Descrição|  
 |-------------|-----------------|  
 |**Aderir a um domínio** |Selecione para configurar o Assistente de implementação para associar o computador de destino a um domínio.|  
-|**Domínio** |Especifica o domínio a que o computador de destino está a ser associada. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
+|**Domain** |Especifica o domínio a que o computador de destino está a ser associada. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
 |**Nome de utilizador** |Especifica a conta a ser utilizado na associação do computador de destino ao domínio especificado no **domínio**. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
-|**Palavra-passe** |Especifica a palavra-passe para a conta especificada no **nome de utilizador**. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
-|**Domínio** |Especifica o domínio em que a conta especificada no **nome de utilizador** está localizado. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
+|**Password** |Especifica a palavra-passe para a conta especificada no **nome de utilizador**. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
+|**Domain** |Especifica o domínio em que a conta especificada no **nome de utilizador** está localizado. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
 |**Unidade organizacional** |Especifica a UO na qual será criada a conta de computador no domínio especificado no **domínio**. Esta caixa de texto é ativada só quando selecionar **aderir a um domínio**.|  
 
  Para obter mais informações sobre a concluir o **associar o computador a um domínio ou grupo de trabalho** página do assistente no Assistente de implementação de Windows, consulte [conclua o Assistente de implementação](#CompletetheDeploymentWizard).  
 
-####  <a name="JoinDomainsbyModifyingtheCustomSettings.iniFile"></a>Associação a domínios através da modificação do ficheiro CustomSettings.ini  
+####  <a name="JoinDomainsbyModifyingtheCustomSettings.iniFile"></a> Associação a domínios através da modificação do ficheiro CustomSettings.ini  
  Pode automatizar o processo de associação de domínio para implementações LTI ou ZTI ao modificar as propriedades listadas na tabela 166 no ficheiro CustomSettings.ini utilizado no processo de implementação MDT.  
 
 ### <a name="table-166-properties-in-customsettingsini-to-modify-for-joining-a-domain"></a>166 de tabela. Propriedades no CustomSettings.ini para modificar para associação a um domínio  
 
 |Propriedade|Descrição|  
 |--------------|-----------------|  
-|**DomainAdmin** |As credenciais da conta de utilizador utilizadas para associar o computador de destino para o domínio especificado no **JoinDomain**; Especifique como *domain\user_name* ou*user_name@domain.com*|  
+|**DomainAdmin** |As credenciais da conta de utilizador utilizadas para associar o computador de destino para o domínio especificado no **JoinDomain**; Especifique como *domain\user_name* ou *user_name@domain.com*|  
 |**DomainAdminDomain** |O domínio em que as credenciais do utilizador especificado no **DomainAdmin** residem|  
 |**DomainAdminPassword** |A palavra-passe utilizada para a conta de administrador especificada no domínio a **DomainAdmin** propriedade para associar o computador ao domínio|  
 |**JoinDomain** |O domínio que o computador de destino é associado depois do sistema operativo de destino for implementado (este é o domínio em que é criada a conta de computador para o computador de destino. O **JoinDomain** propriedade pode conter carateres alfanuméricos, hífenes [-] e carateres de sublinhado [_]. O **JoinDomain** propriedade não pode estar em branco ou conter espaços.)|  
 |**MachineObjectOU** |AD DS UO no domínio de destino em que é criada a conta de computador para o computador de destino|  
 
-####  <a name="JoinDomainsbyModifyingtheUnattended.xmlFile"></a>Associação a domínios ao modificar o ficheiro Unattended.xml  
+####  <a name="JoinDomainsbyModifyingtheUnattended.xmlFile"></a> Associação a domínios ao modificar o ficheiro Unattended.xml  
  Pode automatizar o processo de associação de domínio para implementações LTI ou ZTI ao modificar as definições apresentadas na tabela 167 no ficheiro Unattended.xml utilizado no processo de implementação MDT.  
 
 ### <a name="table-167-settings-in-unattendedxml-to-modify-for-joining-a-domain"></a>167 de tabela. Definições no Unattended.xml para modificar para associação a um domínio  
 
 |Definição|Descrição|  
 |-------------|-----------------|  
-|**Nome de utilizador** |As credenciais da conta de utilizador utilizadas para associar o computador de destino para o domínio especificado no **JoinDomain** |  
-|**Domínio** |O domínio em que as credenciais do utilizador especificado no **Username** residem|  
-|**Palavra-passe** |A palavra-passe utilizada para a conta de administrador especificada no domínio a **Username** definição para associar o computador ao domínio|  
+|**nome de utilizador** |As credenciais da conta de utilizador utilizadas para associar o computador de destino para o domínio especificado no **JoinDomain** |  
+|**Domain** |O domínio em que as credenciais do utilizador especificado no **Username** residem|  
+|**Password** |A palavra-passe utilizada para a conta de administrador especificada no domínio a **Username** definição para associar o computador ao domínio|  
 |**JoinDomain** |O domínio que o computador de destino é associado depois do sistema operativo de destino for implementado|  
 |**MachineObjectOU** |AD DS UO no domínio de destino em que é criada a conta de computador para o computador de destino|  
 
- Para obter mais informações sobre estas definições, consulte [Microsoft-Windows-UnattendedJoin](http://technet.microsoft.com/library/cc748842\(WS.10\).aspx).  
+ Para obter mais informações sobre estas definições, consulte [Microsoft-Windows-UnattendedJoin](https://technet.microsoft.com/library/cc748842\(WS.10\).aspx).  
 
-####  <a name="JoinDomainsUsingtheRecoverfromDomainJoinFailureTaskSequenceStepType"></a>Associação a domínios utilizando a recuperar a partir do tipo de passo de sequência de tarefas falha adesão ao domínio  
+####  <a name="JoinDomainsUsingtheRecoverfromDomainJoinFailureTaskSequenceStepType"></a> Associação a domínios utilizando a recuperar a partir do tipo de passo de sequência de tarefas falha adesão ao domínio  
  Passos de sequência com base nas tarefas de **recuperar de uma falha de associação de domínio** tipo de passo de sequência de tarefas repetir o processo de associação de domínio utilizando as informações de configuração especificadas na CustomSettings.ini. Pode configurar o **recuperar de uma falha de associação do domínio** para recuperação utilizando um dos seguintes métodos de tipo de passo de sequência de tarefas:  
 
 -   **Auto recuperar (Reexecução associar domínio)**. Este método tenta automaticamente repete o processo de associação de domínio sem intervenção. Selecione este método quando pretender que o processo de MDT para repetir automaticamente o processo de associação de domínio.  
@@ -8558,12 +8557,12 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
         |-------------|-----------------|  
         |**Tipo** |Contém o tipo de sequência de tarefas, que está sempre definido como **recuperar de uma falha de associação do domínio** |  
         |**Nome** |Contém o nome do passo de sequência de tarefas apresentado na sequência de tarefas|  
-        |**Comentários** |Fornece informações descritivas sobre o passo de sequência de tarefas|  
+        |**comentários** |Fornece informações descritivas sobre o passo de sequência de tarefas|  
         |**Recuperação automática (Reexecução associar domínio)** |Selecione para configurar o passo de sequência de tarefas para repetir automaticamente o processo de associação de domínio sem a intervenção do|  
         |**Recuperar manual (permitir ao utilizador a adesão ao domínio)** |Selecione para configurar o passo de sequência de tarefas para permitir ao utilizador repetir o processo de associação de domínio|  
         |**Não recuperar (parar a execução do script)** |Selecione para configurar o passo de sequência de tarefas para parar a sequência de tarefas, se o computador não foi associado com êxito ao domínio|  
 
-####  <a name="JoinDomainsUsingOfflineDomainJoin"></a>Associação a domínios através de adesão ao domínio Offline  
+####  <a name="JoinDomainsUsingOfflineDomainJoin"></a> Associação a domínios através de adesão ao domínio Offline  
  Associação ao domínio offline é um processo para associar um domínio sem contactar um controlador de domínio. Este processo torna possível associar computadores ao domínio em localizações onde existe sem conectividade a uma rede empresarial.  
 
  Utilizar a associação a um domínio offline, computadores de destino podem ser associados ao domínio quando são iniciados inicialmente após a instalação do sistema operativo de destino. Sem reinício adicional é necessário para concluir o processo de associação de domínio, o que pode reduzir significativamente o tempo geral necessário para implementações de escala de toda a VM.  
@@ -8576,7 +8575,7 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   Configurar o ficheiro de Unattended.xml para efetuar a adesão, consulte a secção "Efetuar uma associação de domínio offline ao utilizar uma instalação de sistema operativo autónoma," no guia passo a passo de associação a um domínio Offline (Djoin.exe)  
 
-###  <a name="DeployingSoftwareUpdatestoTargetComputers"></a>Implementar atualizações de Software para computadores de destino  
+###  <a name="DeployingSoftwareUpdatestoTargetComputers"></a> Implementar atualizações de Software para computadores de destino  
  Para além do sistema operativo de destino, aplicações, controladores de dispositivo e outros componentes de software, poderá ter de aplicar atualizações de software para todos estes componentes de software. Estas atualizações de software são necessários para garantir que uma linha de base de configuração consistente para todos os computadores de destino.  
 
  Implemente atualizações de software para computadores de destino no MDT por:  
@@ -8589,14 +8588,14 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 
 -   Implementar atualizações de software com o Configuration Manager para implementações ZTI conforme descrito em [implementar as atualizações de Software com o Configuration Manager para implementações ZTI](#DeploySoftwareUpdateswithConfigurationManagerforZTIDeployments)  
 
-####  <a name="SelecttheSoftwareUpdateDeploymentStrategy"></a>Selecione a estratégia de implementação de atualização de Software  
+####  <a name="SelecttheSoftwareUpdateDeploymentStrategy"></a> Selecione a estratégia de implementação de atualização de Software  
  As estratégias de implementação de atualização de software são baseadas em quando as atualizações de software estão a ser instalado. Pode instalar as atualizações de software:  
 
 -   Como parte da imagem implementada nos computadores de destino  
 
 -   Depois do destino de sistema operativo é implementado para os computadores de destino  
 
-####  <a name="DeploySoftwareUpdateswithWindowsUpdateAgentforLTIDeployments"></a>Implementar atualizações de Software com o agente do Windows Update para implementações LTI  
+####  <a name="DeploySoftwareUpdateswithWindowsUpdateAgentforLTIDeployments"></a> Implementar atualizações de Software com o agente do Windows Update para implementações LTI  
  Em implementações LTI, pode instalar as atualizações de software do Windows Update ou do WSUS utilizando um passo de sequência de tarefas que executa o script de ZTIWindowsUpdate.wsf. Alguns dos modelos de sequência de tarefas LTI fornecidos no MDT incluem o **(pré-aplicações de instalação) do Windows Update** passo de sequência de tarefas e o **(pós-aplicação instalação) do Windows Update** tarefas passo de sequência.  
 
  Também pode criar um passo de sequência de tarefas personalizadas com base no **executar linha de comandos** tipo de passo de sequência que executa a linha de comandos de tarefas:  
@@ -8605,14 +8604,14 @@ OSDMigrateConfigFiles=MigApp.xml,MigUser.xml
 Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"  
 ```  
 
-####  <a name="DeploySoftwareUpdateswiththeDeploymentWorkbenchforLTIDeployments"></a>Implementar atualizações de Software com o Deployment Workbench para implementações LTI  
+####  <a name="DeploySoftwareUpdateswiththeDeploymentWorkbenchforLTIDeployments"></a> Implementar atualizações de Software com o Deployment Workbench para implementações LTI  
  Em implementações LTI, pode instalar as atualizações de software para o Windows no nó de pacotes no Deployment Workbench utilizando um passo de sequência de tarefas com base no **instalar atualizações Offline** tipo de passo de sequência de tarefas. Alguns dos modelos de sequência de tarefas LTI fornecidos no MDT incluem o **aplicar Patches** passo de sequência de tarefas, que se baseia no **instalar atualizações Offline** tipo de passo de sequência de tarefas.  
 
  Pode controlar as atualizações de software implementadas nos computadores de destino através deste método através de perfis de seleção. O **instalar atualizações Offline** passo de sequência de tarefas permite-lhe especificar um perfil de seleção para que pode especificar que atualizações de software para implementar. Se pretender implementar as atualizações de software com base em vários perfis de seleção, crie um passo de sequência de tarefas para cada perfil de seleção e, em seguida, especifique o perfil de seleção correspondente no passo de sequência de tarefas.  
 
  Para obter mais informações sobre a criação de perfis de seleção, consulte [criar um novo perfil de seleção no Deployment Workbench](#CreateaNewSelectionProfileintheDeploymentWorkbench).  
 
-####  <a name="DeploySoftwareUpdateswithConfigurationManagerforZTIDeployments"></a>Implementar atualizações de Software com o Configuration Manager para implementações ZTI  
+####  <a name="DeploySoftwareUpdateswithConfigurationManagerforZTIDeployments"></a> Implementar atualizações de Software com o Configuration Manager para implementações ZTI  
  Nas implementações de ZTI utilizando o Configuration Manager, podem iniciar atualizações de software utilizando um passo de sequência de tarefas com base no **instalar atualizações de Software** tipo de passo de sequência de tarefas. O **instalar atualizações de Software** tipo de sequência de tarefas permite-lhe instalar apenas obrigatório ou todas as atualizações de software no passo de sequência de tarefas único utilizando uma das opções de configuração indicadas na tabela 169.  
 
 ### <a name="table-169-configuration-settings-on-the-properties-tab-of-the-install-software-updates-type-task-sequence-step"></a>169 de tabela. Definições de configuração no separador Propriedades do passo de sequência de tarefas de tipo instalar Software atualizações  
@@ -8626,7 +8625,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  Para obter mais informações sobre o **instalar atualizações de Software** tipo de sequência de tarefas, consulte a secção "Instalar atualizações de Software," na secção, "Tarefa de sequência de passos no Configuration Manager," na documentação do Configuration Manager Biblioteca, o que é instalada com o Configuration Manager.  
 
-###  <a name="ManagingDeviceDrivers"></a>Gerir controladores de dispositivo  
+###  <a name="ManagingDeviceDrivers"></a> Gerir controladores de dispositivo  
  Gestão do controlador de dispositivo é um componente fundamental na implementação de sistemas operativos nos computadores de destino. Os controladores de dispositivo correto tem de estar disponíveis para Windows PE e o sistema operativo de destino para a implementação com êxito.  
 
  Gerir controladores de dispositivo com o MDT por:  
@@ -8639,7 +8638,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
 -   Resolver problemas de assinatura de controlador de dispositivo, tal como descrito no [resolver controlador assinatura problemas com dispositivos](#ResolveDeviceDriverSigningIssues)  
 
-####  <a name="SelecttheDeviceDriverManagementStrategy"></a>Selecione a estratégia de gestão do controlador de dispositivo  
+####  <a name="SelecttheDeviceDriverManagementStrategy"></a> Selecione a estratégia de gestão do controlador de dispositivo  
  Seguem-se as estratégias de alto nível para efetuar a gestão do controlador de dispositivo:  
 
 -   **Incluir todos os controladores de dispositivo**. Este é o comportamento predefinido para implementações LTI e ZTI. Esta estratégia, todos os controladores são implementados para o computador de destino. Em seguida, do Windows PE e o sistema operativo de destino utilizam IDs Plug and Play para identificar os controladores de dispositivo necessários para os dispositivos nos computadores de destino.  
@@ -8659,7 +8658,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  Na maioria dos casos, selecione uma estratégia de gestão de controladores de dispositivo que é uma versão híbrida estes estratégias e melhor se adequa à sua organização.  
 
-####  <a name="ControlDeviceDriverDeploymentsforLTI"></a>Implementações de controladores de dispositivo de controlo para LTI  
+####  <a name="ControlDeviceDriverDeploymentsforLTI"></a> Implementações de controladores de dispositivo de controlo para LTI  
  O objetivo de gerir controladores de dispositivo para implementações LTI é ajudar a garantir que apenas os controladores de dispositivo adequados são implementados nos computadores de destino sem introduzir esforço desnecessário e custos de gestão. A abordagem de alto nível para gestão de controladores de dispositivos com o Deployment Workbench para implementações LTI é o seguinte:  
 
 1.  Criar uma estrutura de pasta no nó de controladores do Deployment Workbench para organizar os controladores de dispositivo, conforme descrito em [criar pastas para organizar os controladores de dispositivo para implementações LTI](#CreateFolderstoOrganizeDeviceDriversforLTIDeployments).  
@@ -8668,7 +8667,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
 3.  Configurar sequências de tarefas para implementar os controladores de dispositivo os perfis de seleção, conforme descrito em [configurar sequências de tarefas para implementar controladores de dispositivo em perfis de seleção para implementações LTI](#ConfigureTaskSequencestoDeployDeviceDriversinSelectionProfilesforLTIDeployments).  
 
-#####  <a name="CreateFolderstoOrganizeDeviceDriversforLTIDeployments"></a>Criar pastas para organizar os controladores de dispositivo para implementações LTI  
+#####  <a name="CreateFolderstoOrganizeDeviceDriversforLTIDeployments"></a> Criar pastas para organizar os controladores de dispositivo para implementações LTI  
  Crie estruturas de pasta no nó de controladores no Deployment Workbench para fornecer o nível de controlo que pretende para implementar controladores de dispositivo em computadores de destino. A estrutura da pasta de grupos ou categoriza os controladores de dispositivo, para que possa selecionar agrupamentos específicos ou categorias de controladores através de perfis de seleção.  
 
  Selecione qualquer combinação dos seguintes métodos para criar estruturas de pasta:  
@@ -8706,23 +8705,23 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
     -   make_01\  
 
-         ...\model_01  
+         …\model_01  
 
-         ...\model_02  
+         …\model_02  
 
-         ...\model_03  
+         …\model_03  
 
     -   make_02\  
 
-         ...\model_aa  
+         …\model_aa  
 
-         ...\model_ab  
+         …\model_ab  
 
     -   make_03\  
 
-         ...\model_xx  
+         …\model_xx  
 
-         ...\model_xy  
+         …\model_xy  
 
  **Exemplo: Estrutura pastas de controladores de dispositivo do Banco Woodgrove para LTI**  
 
@@ -8736,7 +8735,7 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  **Figura 14. Estrutura de pastas de controladores de dispositivo criada pelo Banco Woodgrove**  
 
-#####  <a name="CreateSelectionProfilestoSelecttheDeviceDriversforLTIDeployments"></a>Criar perfis de seleção para selecionar os controladores de dispositivo para implementações LTI  
+#####  <a name="CreateSelectionProfilestoSelecttheDeviceDriversforLTIDeployments"></a> Criar perfis de seleção para selecionar os controladores de dispositivo para implementações LTI  
  Crie perfis de seleção para identificar a combinação de controladores de dispositivo que pretende implementar nos computadores de destino específicos com base na estrutura da pasta que criou no nó de controladores no Deployment Workbench. O processo de implementação LTI utiliza perfis de seleção para determinar os controladores de dispositivo a implementar o **inserir controladores** tipo de passo de sequência, CustomSettings.ini e na base de dados MDT de tarefas.  
 
  Por predefinição, os perfis de seleção implementar os controladores de dispositivo na pasta selecionada e as subpastas. Crie perfis de seleção com base no nível de controlo que pretender têm sobre os controladores de dispositivo que está a ser implementados. Se criar perfis de seleção em pastas:  
@@ -8756,13 +8755,13 @@ Cscript.exe "%SCRIPTROOT%\ZTIWindowsUpdate.wsf"
 
  Banco Woodgrove com o nome de perfis de seleção com base na estrutura da pasta no formato da seguinte forma:  
 
- disponibilizar – modelo-operating_system – arquitetura  
+ make–model-operating_system–architecture  
 
  Segue-se um exemplo do Banco Woodgrove seleção perfil Convenção de nomenclatura para controladores de dispositivos de 64 bits para o Windows 8 em execução num computador com "Fabrikam" como a marca e o "FK5323" como o modelo:  
 
- "Fabrikam – FK5323 – Win8 – x64"  
+ “Fabrikam–FK5323–Win8–x64”  
 
-#####  <a name="ConfigureTaskSequencestoDeployDeviceDriversinSelectionProfilesforLTIDeployments"></a>Configurar sequências de tarefas para implementar controladores de dispositivo em perfis de seleção para implementações LTI  
+#####  <a name="ConfigureTaskSequencestoDeployDeviceDriversinSelectionProfilesforLTIDeployments"></a> Configurar sequências de tarefas para implementar controladores de dispositivo em perfis de seleção para implementações LTI  
  Alterar a configuração para as sequências de tarefas para os perfis de seleção de referência e implementar os controladores de dispositivo adequados para os computadores de destino. Perfis de seleção são expostos ao processo de implementação LTI como:  
 
 -   Perfis de seleção que podem ser configurados no Deployment Workbench, o ficheiro CustomSettings.ini ou da base de dados do MDT  
@@ -8812,7 +8811,7 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 > [!NOTE]
 >  O sistema operativo é um valor estático para o **DriverSelectionProfile** variável de sequência de tarefas porque a sequência de tarefas irá implementar apenas um sistema operativo.  
 
-####  <a name="ControlDeviceDriverDeploymentsUsingConfigurationManagerforZTI"></a>Implementações do controlador de dispositivo de controlo utilizando o Gestor de configuração para ZTI  
+####  <a name="ControlDeviceDriverDeploymentsUsingConfigurationManagerforZTI"></a> Implementações do controlador de dispositivo de controlo utilizando o Gestor de configuração para ZTI  
  Implementações ZTI no Configuration Manager utilizam o catálogo de controladores no Configuration Manager como o repositório central para controladores de dispositivo. Depois de importar controladores de dispositivo para o catálogo de controladores, pode organizá-los por:  
 
 -   **Pacotes de controladores de dispositivo**. Como os pacotes de software, pacotes de controladores de dispositivo são distribuídos para pontos de distribuição para que fiquem acessíveis aos computadores de destino. Pode criar dispositivo vários pacotes de controladores para agrupar o controladores de dispositivo para ser implementado no computador de destino, tais como a marca e modelo do computador de destino. Pode controlar os controladores de dispositivo implementados com base nos pacotes de controladores de dispositivo utilizando o **aplicar pacote de controlador** passo de sequência de tarefas.  
@@ -8884,18 +8883,18 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 
 -   Quando efetuar implementações com suportes de dados autónomos, utilize um **aplicar pacote de controlador** passo de sequência de tarefas porque a **aplicar controladores automaticamente** sequência de tarefas necessita de conectividade para um ponto de gestão, e o suporte de dados autónomo não tentará uma ligação a um ponto de gestão.  
 
-####  <a name="ResolveDeviceDriverSigningIssues"></a>Resolver problemas de assinatura de controladores de dispositivo  
+####  <a name="ResolveDeviceDriverSigningIssues"></a> Resolver problemas de assinatura de controladores de dispositivo  
  Assinaturas digitais indicam se um controlador de dispositivo é fornecido por um fabricante legítimo. Funcionalidades do Windows tirar partido das tecnologias de assinatura de código e os requisitos de segurança no sistema operativo de impor a utilização de assinaturas digitais em alguns tipos de código.  
 
  Em muitos casos, os controladores de dispositivo dos fornecedores já têm sessão iniciados. No entanto, podem existir instâncias em que pode modifica os ficheiros incluem com os controladores de dispositivo e tem de assinar novamente os controladores de dispositivo. Por exemplo, poderá ter de modificar um ficheiro INF para um controlador de dispositivo e, em seguida, inicie o controlador de dispositivo.  
 
  Reveja os seguintes recursos para ajudar a resolver problemas de assinatura de controladores de dispositivo:  
 
--   [Requisitos de assinatura de controlador para o Windows](http://msdn.microsoft.com/windows/hardware/gg487317.aspx)  
+-   [Requisitos de assinatura de controlador para o Windows](https://msdn.microsoft.com/windows/hardware/gg487317.aspx)  
 
--   [Guia passo a passo de instalação e gestão de dispositivos: Assinatura e controladores de dispositivo no Windows 7 e Windows Server 2008 R2 de teste](http://technet.microsoft.com/library/dd919230.aspx)  
+-   [Guia passo a passo de instalação e gestão de dispositivos: Assinatura e controladores de dispositivo no Windows 7 e Windows Server 2008 R2 de teste](https://technet.microsoft.com/library/dd919230.aspx)  
 
-###  <a name="RunningOrchestratorRunbooks"></a>Execução de Runbooks do Orchestrator  
+###  <a name="RunningOrchestratorRunbooks"></a> Execução de Runbooks do Orchestrator  
  System Center 2012 Orchestrator pode juntar diferentes tarefas e procedimentos em conjunto, utilizando a interface de utilizador gráfica Runbook Designer para criar fiáveis, flexíveis e eficiente soluções ponto-a-ponto no ambiente de TI.  
 
  Pode realizar as seguintes tarefas através do Orchestrator:  
@@ -8933,8 +8932,8 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
     |-------------|-----------------|  
     |**Nome** |Escreva um nome para a tarefa.|  
     |**Descrição** |Escreva uma descrição da tarefa — por exemplo, ***runbook_name*** (onde *runbook_name* é o nome do runbook do Orchestrator que será executado este passo de sequência de tarefas).|  
-    |**Servidor do Orchestrator** |Escreva o URL para o Orchestrator web service, que inclui o nome do servidor. Serviço web do Orchestrator pode utilizar o protocolo HTTP (Hypertext Transfer) ou HTTP através de Secure Sockets Layer (HTTPS). Predefinições para a porta 81 do serviço web do Orchestrator.<br /><br /> Serviço web do Orchestrator suporta múltiplos servidores runbook. Por predefinição, um runbook pode ser executado em qualquer servidor runbook. Um runbook pode ser configurado para especificar quais os servidores runbook devem ser utilizados para executar o runbook.<br /><br /> Serviço web do Orchestrator suporta a capacidade para executar um runbook num servidor runbook específico. Esta funcionalidade não é suportada no MDT.<br /><br /> Especifique o URL em qualquer um dos seguintes formatos:<br /><br /> -                                  **ServerName**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername>:81/Orchestrator2012/Orchestrator.svc`<br /><br /> -                                  **servername:Port**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **http://servername:Port**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:Port**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **http://servername:Port/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com *. svc*.<br /><br /> -                                  **https://servername:Port/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com *. svc*.|  
-    |**Runbook** |Clique em **procurar**e, em seguida, selecione o nome do runbook do Orchestrator que esta sequência de tarefas deve ser executada.<br /><br /> Para procurar com êxito para os runbooks do Orchestrator, instale o [actualização do ADO.NET Data Services para .NET Framework 3.5 SP1 para Windows 7 e Windows Server 2008 R2](http://www.microsoft.com/download/details.aspx?displaylang=en&id=2343).|  
+    |**Servidor do Orchestrator** |Escreva o URL para o Orchestrator web service, que inclui o nome do servidor. Serviço web do Orchestrator pode utilizar o protocolo HTTP (Hypertext Transfer) ou HTTP através de Secure Sockets Layer (HTTPS). Predefinições para a porta 81 do serviço web do Orchestrator.<br /><br /> Serviço web do Orchestrator suporta múltiplos servidores runbook. Por predefinição, um runbook pode ser executado em qualquer servidor runbook. Um runbook pode ser configurado para especificar quais os servidores runbook devem ser utilizados para executar o runbook.<br /><br /> Serviço web do Orchestrator suporta a capacidade para executar um runbook num servidor runbook específico. Esta funcionalidade não é suportada no MDT.<br /><br /> Especifique o URL em qualquer um dos seguintes formatos:<br /><br /> -                                  **servername**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `https://<servername>:81/Orchestrator2012/Orchestrator.svc`<br /><br /> -                                  **servername:port**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:port**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:port**. Quando utilizar este formato, o URL será assumida a:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -                                  **https://servername:port/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com *. svc*.<br /><br /> -                                  **https://servername:port/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com *. svc*.|  
+    |**Runbook** |Clique em **procurar**e, em seguida, selecione o nome do runbook do Orchestrator que esta sequência de tarefas deve ser executada.<br /><br /> Para procurar com êxito para os runbooks do Orchestrator, instale o [actualização do ADO.NET Data Services para .NET Framework 3.5 SP1 para Windows 7 e Windows Server 2008 R2](https://www.microsoft.com/download/details.aspx?id=2343).|  
     |**Automaticamente fornecer valores de parâmetro de runbook** |Selecione esta opção para fornecer automaticamente valores de parâmetro de entrada do runbook do Orchestrator (a que parte do princípio de que os valores de parâmetro de runbook são variáveis de sequência de tarefas). Por exemplo, se um runbook tem um parâmetro de entrada com o nome **OSDComputerName**, em seguida, a **OSDComputerName** valor de variável de sequência de tarefas é transferida para o runbook.<br /><br /> Esta opção funciona apenas para os parâmetros de entrada que são nomes de variáveis de sequência de tarefas válido e não conter espaços ou outros carateres especiais. Apesar dos espaços e outros carateres especiais são suportados como nomes de parâmetro do Orchestrator, não têm nomes de variáveis de sequência de tarefas válido. Se tiver de passar valores para os parâmetros com espaços ou outros carateres especiais, utilize o **especificar os parâmetros do runbook explícita** opção.<br /><br /> A outra opção consiste **especificar os parâmetros do runbook explícita**.<br /><br /> Os valores fornecidos para os parâmetros de entrada do runbook para o serviço web do Orchestrator são formatados como XML. Passar valores que contêm dados que se assemelha dados formatado em XML ou poderá causar erros.|  
     |**Especifique os parâmetros do runbook explícita** |Selecione esta opção para fornecer explicitamente o Orchestrator parâmetros de entrada do runbook.<br /><br /> Tem de configurar as seguintes definições para cada parâmetro de entrada que o runbook do Orchestrator requer:<br /><br /> -                                  **Nome**. Este é o nome do parâmetro de entrada do runbook.<br /><br /> Se alterar os parâmetros de um runbook do Orchestrator existente, terá de procurar novamente, (reselect) para o runbook porque MDT apenas obtém a lista de parâmetros ao adicionar inicialmente o runbook do Orchestrator.<br /><br /> -                                  **Valor**. Isto pode ser uma constante ou uma variável, tal como uma variável de sequência de tarefas ou uma variável de ambiente. Por exemplo, pode especificar um valor de **% OSDComputerName %**, que irá passar o valor da **OSDComputerName** variável de sequência de tarefas para o parâmetro de entrada do runbook.|  
     |**Aguarde que o runbook para concluir antes de continuar** |Esta caixa de verificação controla se o passo de sequência de tarefas irá aguardar que o runbook para concluir antes de avançar para o seguinte passo de sequência de tarefas. Se esta caixa de verificação:<br /><br /> -                                  **Selecionado**, em seguida, o passo de sequência de tarefas irá aguardar que o runbook para concluir antes de prosseguir para o próximo passo de sequência de tarefas.<br /><br /> Quando esta caixa de verificação está selecionada, o passo de sequência de tarefas irá consultar o serviço web do Orchestrator para o runbook para concluir. A quantidade de tempo entre inquéritos comece em 1 segundo, em seguida, aumenta a 2, 4, 8, 16, 32 e 64 segundos entre cada consulta. Quando a quantidade de tempo atingirem 64 segundos, o passo de sequência de tarefas continua a consultar cada segundos 64.<br /><br /> -                                  **Limpo**, em seguida, o passo de sequência de tarefas não espera que o runbook para concluir antes de avançar para o seguinte passo de sequência de tarefas.<br /><br /> Tem de selecionar esta caixa de verificação se o runbook devolve os parâmetros de saída.|  
@@ -8949,7 +8948,7 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 > [!NOTE]
 >  O **aguardar que o runbook para concluir antes de continuar** caixa de verificação deve ser selecionada se o runbook devolve os parâmetros de saída.  
 
-###  <a name="RunningWindowsPowerShellScriptsDuringDeployment"></a>Executar Scripts do Windows PowerShell durante a implementação  
+###  <a name="RunningWindowsPowerShellScriptsDuringDeployment"></a> Executar Scripts do Windows PowerShell durante a implementação  
  MDT suporta scripts do Windows PowerShell em execução como parte do processo de implementação. Pode desenvolver scripts do Windows PowerShell para ajudar a automatizar o processo de implementação e, em seguida, executar os scripts dentro de uma sequência de tarefas do MDT.  
 
  Executar scripts do Windows PowerShell utilizando um passo de sequência de tarefas criado utilizando o **executar Script do PowerShell** tipo de passo de sequência de tarefas. Pode adicionar um passo de sequência de tarefas com base no **executar Script do PowerShell** para sequências de tarefas no LTI, ZTI ou UDI tipo de passo de sequência de tarefas.  
@@ -8979,7 +8978,7 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 
     -   Um caminho completamente qualificado e o nome do script, em seguida, certifique-se de que a sequência de tarefas tem acesso à pasta na qual o script é armazenado (por exemplo, se o script é armazenado numa pasta partilhada de rede, certifique-se de que existe uma ligação ao servidor antes de executar ésimo script i.)  
 
-###  <a name="ApplyingGroupPolicyObjectPacks"></a>Aplicar pacotes de objeto de política de grupo  
+###  <a name="ApplyingGroupPolicyObjectPacks"></a> Aplicar pacotes de objeto de política de grupo  
  Implementar sistemas operativos e aplicações que estão em conformidade com as normas de regulamentação e de segurança é uma parte essencial dos qualquer esforço de implementação. MDT permite-lhe aplicar modelos de configuração de segurança e conformidade para o sistema operativo e aplicações após estes são implementadas através de pacotes de objeto (GPO) de política de grupo.  
 
  Os pacotes de GPO são criados ao exportar uma cópia de segurança do GPO no Gestor de conformidade de segurança do Microsoft. Estes pacotes de GPO são aplicadas pelo **aplicar pacote de GPO Local** passo de sequência de tarefas para sequências de tarefas criada utilizando os modelos de sequência de tarefas do MDT. O **aplicar pacote de GPO Local** passo de sequência de tarefas executa o script de ZTIApplyGPOPack.wsf, que é responsável para aplicar o GPO de pacotes para o computador de destino.  
@@ -9018,21 +9017,21 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 
 3.  Pacotes de configurar o MDT para implementar o GPO, conforme descrito em [configurar o MDT para implementar os pacotes de GPO](#ConfigureMDTtoDeploytheGPOPacks).  
 
-####  <a name="IdentifyorCreatetheGPOPacks"></a>Identificar ou criar os pacotes de GPO  
+####  <a name="IdentifyorCreatetheGPOPacks"></a> Identificar ou criar os pacotes de GPO  
  Pode utilizar pacotes de GPO que estão:  
 
 -   **Gerado a partir do Gestor de conformidade de segurança**. O Gestor de conformidade de segurança pode exportar uma cópia de segurança do GPO que pode utilizar como um pacote de GPO. Pode copiar estes pacotes de GPO para a pasta de ficheiros do MDT e aplicá-las durante o processo de implementação.  
 
 -   **Personalizada por si**. Pode criar os seus próprios pacotes de GPO personalizados com base nos requisitos da sua organização. Pode utilizar as definições de configuração de segurança e conformidade no Gestor de conformidade de segurança como um início e, em seguida, personalizar essas definições para a sua organização. Em seguida, pode exportar as definições de configurações de segurança e conformidade, como uma cópia de segurança do GPO e, subsequentemente, um pacote de GPO.  
 
-####  <a name="PlacetheGPOPacksintheAppropriateMDTFolders"></a>Coloque o GPO pacotes nas pastas do MDT adequado  
+####  <a name="PlacetheGPOPacksintheAppropriateMDTFolders"></a> Coloque o GPO pacotes nas pastas do MDT adequado  
  Depois de ter identificado ou criar os pacotes de GPO que requer a sua organização, coloque o GPO pacotes na subpasta Templates\GPOPacksfolder no:  
 
 -   Partilha de implementação para LTI  
 
 -   Pacote de ficheiros do MDT para ZTI e UDI  
 
-####  <a name="ConfigureMDTtoDeploytheGPOPacks"></a>Configurar o MDT para implementar os pacotes de GPO  
+####  <a name="ConfigureMDTtoDeploytheGPOPacks"></a> Configurar o MDT para implementar os pacotes de GPO  
  O **aplicar pacote de GPO Local** passo de sequência de tarefas pode ser configurado utilizando as propriedades listadas na tabela 172. Estas propriedades podem ser configuradas utilizando o ficheiro CustomSettings.ini ou a base de dados do MDT.  
 
 ### <a name="table-172-properties-used-to-configure-the-apply-local-gpo-package-task-sequence-step"></a>172 de tabela. As propriedades utilizadas para configurar a aplicar pacote de GPO Local passo de sequência de tarefas  
@@ -9045,11 +9044,11 @@ DriverSelectionProfile =%MAKE%-%MODEL%-Win8-%ARCHITECTURE%
 > [!NOTE]
 >  O pacote de GPO adequado está selecionado com base no sistema operativo que está a ser implementado. Não se é possível encontrar nenhum pacote de GPO correspondente, sem pacote de GPO será aplicada.  
 
-###  <a name="EnablingParticipationinCEIPandWER"></a>Ativar a participar no PMEC e WER  
- MDT inclui um novo passo de sequência de tarefas que automatiza a configuração da participação no [programa de melhoramento da experiência de cliente Windows](http://www.microsoft.com/products/ceip/%20privacypolicy.mspx) (CEIP) e [relatório de erros do Windows](http://msdn.microsoft.com/%20windows/hardware/gg487440) (REW). O **optar ativamente por participar no PMEC e WER** passo de sequência de tarefas é utilizado para automatizar esta participação.  
+###  <a name="EnablingParticipationinCEIPandWER"></a> Ativar a participar no PMEC e WER  
+ MDT inclui um novo passo de sequência de tarefas que automatiza a configuração da participação no [programa de melhoramento da experiência de cliente Windows](https://privacy.microsoft.com/privacystatement) (CEIP) e [relatório de erros do Windows](https://docs.microsoft.com/windows-hardware/drivers/dashboard/windows-error-reporting-getting-started) (REW). O **optar ativamente por participar no PMEC e WER** passo de sequência de tarefas é utilizado para automatizar esta participação.  
 
 > [!NOTE]
->  Apesar de poder utilizar o MDT sequências de tarefas para ativar o PMEC e WER para sistemas operativos Windows (apenas quando o passo de sequência de tarefas correspondente está ativado), trata-se separados das informações de CEIP recolhidas quando que optar ativamente por participar no programa PMEC MDT. Para obter mais informações sobre as informações que MDT envia quando o PMEC está ativado, consulte o [declaração de privacidade do Microsoft implementação Toolkit](http://go.microsoft.com/fwlink/?LinkId=314082).  
+>  Apesar de poder utilizar o MDT sequências de tarefas para ativar o PMEC e WER para sistemas operativos Windows (apenas quando o passo de sequência de tarefas correspondente está ativado), trata-se separados das informações de CEIP recolhidas quando que optar ativamente por participar no programa PMEC MDT. Para obter mais informações sobre as informações que MDT envia quando o PMEC está ativado, consulte o [declaração de privacidade do Microsoft implementação Toolkit](https://go.microsoft.com/fwlink/?LinkId=314082).  
 
  O **optar ativamente por participar no PMEC e WER** passo de sequência de tarefas está incluído nos modelos de sequência de tarefas seguintes do MDT, mas está desativado por predefinição:  
 
@@ -9075,7 +9074,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
     -   **SIM**. Este valor Especifica para ativar a participação.  
 
-    -   **NÃO**. Este valor Especifica para não ativar a participação.  
+    -   **NO**. Este valor Especifica para não ativar a participação.  
 
     > [!NOTE]
     >  Qualquer valor diferente de **Sim** é tratado como **não**, incluindo não fornecer o parâmetro.  
@@ -9084,12 +9083,12 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
     -   **SIM**. Este valor Especifica para ativar a participação.  
 
-    -   **NÃO**. Este valor Especifica para não ativar a participação.  
+    -   **NO**. Este valor Especifica para não ativar a participação.  
 
 > [!NOTE]
 >  Qualquer valor diferente de **Sim** é tratado como **não**, incluindo não fornecer o parâmetro.  
 
-###  <a name="ConfiguringRolesandFeaturesTaskSequenceSteps"></a>Configurar funções e funcionalidades de passos de sequência de tarefas  
+###  <a name="ConfiguringRolesandFeaturesTaskSequenceSteps"></a> Configurar funções e funcionalidades de passos de sequência de tarefas  
  MDT automatiza a instalação e desinstalação de funções do Windows e funcionalidades utilizando o **instalar funções e funcionalidades** e **desinstalar funções e funcionalidades** tipos de passo de sequência de tarefas. Estes tipos de sequência de tarefas permitem às organizações implementar os computadores de destino com o Windows funções e funcionalidades que estão em conformidade com as normas de configuração definidas pelo autoridades de regulamentação ou na organização.  
 
  Configure os passos de sequência de tarefas de funções e funcionalidades para LTI e ZTI por:  
@@ -9098,7 +9097,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   Desinstalar as funcionalidades e funções de Windows apropriado, conforme descrito em [configurar desinstalar funções e funcionalidades passos de sequência de tarefas](#ConfigureUninstallRolesandFeaturesTaskSequenceSteps)  
 
-####  <a name="ConfigureInstallRolesandFeaturesTaskSequenceSteps"></a>Configurar a instalação passos de sequência de tarefas de funcionalidades e funções  
+####  <a name="ConfigureInstallRolesandFeaturesTaskSequenceSteps"></a> Configurar a instalação passos de sequência de tarefas de funcionalidades e funções  
  O MDT automatiza a implementação de funções ou funcionalidades utilizando o passo de sequência de tarefas instalar funções e funcionalidades tipo Windows. Este passo de sequência de tarefas tem de ser executado num sistema operativo de destino, não no Windows PE.  
 
 > [!NOTE]
@@ -9126,12 +9125,12 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
     |-------------|-----------------|  
     |**Nome** |Escreva um nome para a tarefa.|  
     |**Descrição** |Escreva uma descrição da tarefa.|  
-    |**Selecione o sistema operativo para o qual as funções são para ser instalada** |Selecione o sistema operativo de destino para ser implementada na lista seguinte:<br /><br /> -Windows 7<br /><br /> -Windows 8<br /><br /> -Windows 8.1<br /><br /> -Windows Server 2008 R2<br /><br /> -Windows Server 2008 R2 Core<br /><br /> -Windows Server 2012<br /><br /> -Windows Server 2012 Core<br /><br /> -Windows Server 2012 R2<br /><br /> -Windows Server 2012 R2 Core|  
+    |**Selecione o sistema operativo para o qual as funções são para ser instalada** |Selecione o sistema operativo de destino para ser implementada na lista seguinte:<br /><br /> -Windows 7<br /><br /> -Windows 8<br /><br /> -Windows 8.1<br /><br /> - Windows Server 2008 R2<br /><br /> -Windows Server 2008 R2 Core<br /><br /> - Windows Server 2012<br /><br /> -Windows Server 2012 Core<br /><br /> - Windows Server 2012 R2<br /><br /> -Windows Server 2012 R2 Core|  
     |**Selecione as funções e funcionalidades que devem ser instaladas** |Selecione a caixa de verificação junto a funções ou funcionalidades a instalar.<br /><br /> Pode clicar em **Selecionar tudo** para todas as funções e funcionalidades ou pode clicar em selecionar **selecione nenhum** para limpar todas as funções e funcionalidades.|  
 
  Para obter informações sobre como desinstalar funcionalidades e funções do Windows, consulte [configurar desinstalar funções e funcionalidades passos de sequência de tarefas](#ConfigureUninstallRolesandFeaturesTaskSequenceSteps).  
 
-#####  <a name="ConfigureUninstallRolesandFeaturesTaskSequenceSteps"></a>Configurar a desinstalar funções e funcionalidades tarefas passos de sequência  
+#####  <a name="ConfigureUninstallRolesandFeaturesTaskSequenceSteps"></a> Configurar a desinstalar funções e funcionalidades tarefas passos de sequência  
  A remoção (desinstalação) de funções de sistema operativo e funcionalidades no Windows utilizando o MDT automatiza o **desinstalar funções e funcionalidades** passo de sequência de tarefas. Este passo de sequência de tarefas tem de ser executado num sistema operativo de destino, não no Windows PE.  
 
  Para modelos de sequência de tarefas de sequências de tarefas ZTI que não são criadas utilizando o MDT, certifique-se de que executa o **utilizar o pacote do Toolkit** e **recolher** antes de executar os passos de sequência de tarefas a **instalar Funções e funcionalidades** passo de sequência de tarefas. O **instalar funções e funcionalidades** passo de sequência de tarefas depende o **utilizar o pacote do Toolkit** e **recolher** passos de sequência de tarefas.  
@@ -9161,12 +9160,12 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
     |-------------|-----------------|  
     |**Nome** |Escreva um nome para a tarefa.|  
     |**Descrição** |Escreva uma descrição da tarefa.|  
-    |**Selecione o sistema operativo para o qual funções devem ser desinstalados** |Selecione o sistema operativo de destino para ser implementada na lista seguinte:<br /><br /> -Windows 7<br /><br /> -Windows 8<br /><br /> -Windows 8.1<br /><br /> -Windows Server 2008 R2<br /><br /> -Windows Server 2008 R2 Core<br /><br /> -Windows Server 2012<br /><br /> -Windows Server 2012 Core<br /><br /> -Windows Server 2012 R2<br /><br /> -Windows Server 2012 R2 Core|  
+    |**Selecione o sistema operativo para o qual funções devem ser desinstalados** |Selecione o sistema operativo de destino para ser implementada na lista seguinte:<br /><br /> -Windows 7<br /><br /> -Windows 8<br /><br /> -Windows 8.1<br /><br /> - Windows Server 2008 R2<br /><br /> -Windows Server 2008 R2 Core<br /><br /> - Windows Server 2012<br /><br /> -Windows Server 2012 Core<br /><br /> - Windows Server 2012 R2<br /><br /> -Windows Server 2012 R2 Core|  
     |**Selecione as funções e funcionalidades que devem ser desinstaladas** |Selecione a caixa de verificação junto a funções ou funcionalidades ser desinstaladas.<br /><br /> Pode clicar em **Selecionar tudo** para selecionar as funções e funcionalidades ou clique em **selecione nenhum** para limpar todas as funções e funcionalidades.|  
 
  Para obter informações sobre como instalar funcionalidades e funções do Windows, consulte [configurar instalar funções e funcionalidades passos de sequência de tarefas](#ConfigureUninstallRolesandFeaturesTaskSequenceSteps).  
 
-###  <a name="ConfiguringServerRoleTaskSequenceSteps"></a>Configurar passos de sequência de tarefas a função de servidor  
+###  <a name="ConfiguringServerRoleTaskSequenceSteps"></a> Configurar passos de sequência de tarefas a função de servidor  
  O MDT automatiza a implementação de funções de servidor no Windows Server. Configure passos de sequência de tarefas no MDT para implementar as funções de servidor que são suportadas no MDT.  
 
 > [!NOTE]
@@ -9182,7 +9181,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   Configurar o passo de sequência de tarefas de autorizar DHCP, conforme descrito em [configurar autorizar tarefas sequência passo as definições de DHCP](#ConfigureAuthorizeDHCPTaskSequenceStepSettings)  
 
-####  <a name="ConfigureADDSServerRoleTaskSequenceStepSettings"></a>Configurar definições de passo de sequência de tarefas função servidor DS AD  
+####  <a name="ConfigureADDSServerRoleTaskSequenceStepSettings"></a> Configurar definições de passo de sequência de tarefas função servidor DS AD  
  AD DS armazena dados de diretório e gere as comunicações entre os utilizadores e domínios, incluindo processos de início de sessão, autenticação e das procuras de diretório. Um controlador de domínio do AD DS é um servidor que executa o AD DS.  
 
 > [!NOTE]
@@ -9202,7 +9201,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   Configurar o AD DS avançadas propriedades para os controladores de domínio, conforme descrito em [propriedades avançadas do configurar AD DS](#ConfigureADDSAdvancedProperties)  
 
-#####  <a name="DeployaDomainControllerinaNewForest"></a>Implementar um controlador de domínio numa floresta nova  
+#####  <a name="DeployaDomainControllerinaNewForest"></a> Implementar um controlador de domínio numa floresta nova  
  Utilizar esta opção, implemente um controlador de domínio que contém um ambiente de nova floresta. Utilize esta opção quando implementar um ambiente de nova floresta.  
 
 ###### <a name="to-deploy-a-domain-controller-with-a-new-forest"></a>Para implementar um controlador de domínio com uma nova floresta  
@@ -9241,9 +9240,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 8.  No **propriedades avançadas** secção, conclua a configuração da tarefa, conforme descrito em [configurar AD DS avançadas propriedades](#ConfigureADDSAdvancedProperties)e, em seguida, clique em **OK**.  
 
- Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployaNewDomainControllerasaReplicainanExistingDomain"></a>Implementar um novo controlador de domínio como uma réplica num domínio existente  
+#####  <a name="DeployaNewDomainControllerasaReplicainanExistingDomain"></a> Implementar um novo controlador de domínio como uma réplica num domínio existente  
  Utilizar esta opção, implemente um controlador de domínio existente como um novo controlador de domínio através da replicação-lo para um ambiente existente. Utilize esta opção quando implementar um novo controlador de domínio para um ambiente existente se replicação irá obter as informações de domínio existentes do AD DS.  
 
 ###### <a name="to-deploy-a-domain-controller-as-a-new-domain-controller-replica"></a>Para implementar um controlador de domínio como uma nova réplica do controlador de domínio  
@@ -9280,9 +9279,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 9. No **propriedades avançadas** secção, conclua a configuração da tarefa, conforme descrito em [configurar AD DS avançadas propriedades](#ConfigureADDSAdvancedProperties)e, em seguida, clique em **OK**.  
 
- Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployaNewDomainControllerinaNewDomainTreeinanExistingForest"></a>Implementar um novo controlador de domínio de uma nova árvore de domínio numa floresta existente  
+#####  <a name="DeployaNewDomainControllerinaNewDomainTreeinanExistingForest"></a> Implementar um novo controlador de domínio de uma nova árvore de domínio numa floresta existente  
  Utilizar esta opção, implemente um controlador de domínio que contém uma nova árvore de para um ambiente de floresta existente. Utilize esta opção quando implementar um domínio subordinado para um ambiente de floresta existente.  
 
 ###### <a name="to-deploy-a-domain-controller-with-a-new-domain-tree-in-an-existing-forest"></a>Para implementar um controlador de domínio com uma nova árvore de domínio numa floresta existente  
@@ -9323,9 +9322,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 11. No **propriedades avançadas** secção, conclua a configuração da tarefa, conforme descrito em [configurar AD DS avançadas propriedades](#ConfigureADDSAdvancedProperties)e, em seguida, clique em **OK**.  
 
- Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployaNewDomainControllerinaNewDomaininanExistingForest"></a>Implementar um novo controlador de domínio num domínio novo numa floresta existente  
+#####  <a name="DeployaNewDomainControllerinaNewDomaininanExistingForest"></a> Implementar um novo controlador de domínio num domínio novo numa floresta existente  
  Utilizar esta opção, implemente um controlador de domínio que contenha um novo domínio no ambiente de floresta existente. Utilize esta opção quando implementar um novo domínio subordinado para um ambiente de floresta existente.  
 
 ###### <a name="to-deploy-a-domain-controller-with-a-new-domain-in-an-existing-forest"></a>Para implementar um controlador de domínio com um novo domínio numa floresta existente  
@@ -9366,9 +9365,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 11. No **propriedades avançadas** secção, conclua a configuração da tarefa, conforme descrito em [configurar AD DS avançadas propriedades](#ConfigureADDSAdvancedProperties)e, em seguida, clique em **OK**.  
 
- Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Para obter mais informações sobre **DCPROMO** opções da linha de comandos, consulte [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="DeployanRODCinanExistingDomain"></a>Implementar um RODC num domínio existente  
+#####  <a name="DeployanRODCinanExistingDomain"></a> Implementar um RODC num domínio existente  
  Utilizar esta opção, implemente um controlador de domínio que contém uma réplica só de leitura do domínio existente para um ambiente de floresta existente. Utilize esta opção para implementar um controlador de domínio que contém uma réplica não editável de uma estrutura de domínio para um ambiente de floresta existente.  
 
 ###### <a name="to-deploy-an-rodc-in-an-existing-domain"></a>Para implementar um RODC num domínio existente  
@@ -9405,9 +9404,9 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 9. No **propriedades avançadas** secção, conclua a configuração da tarefa, conforme descrito em [configurar AD DS avançadas propriedades](#ConfigureADDSAdvancedProperties)e, em seguida, clique em **OK**.  
 
- Para obter mais informações sobre **DCPROMO** opções da linha de comandos, acedas a [Dcpromo](http://technet2.microsoft.com/windowsserver2008/en/library/d660e761-9ee7-4382-822a-06fc2365a1d21033.mspx?mfr=true).  
+ Para obter mais informações sobre **DCPROMO** opções da linha de comandos, acedas a [Dcpromo](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-#BKMK_PS).  
 
-#####  <a name="ConfigureADDSAdvancedProperties"></a>Configurar o AD DS propriedades avançadas  
+#####  <a name="ConfigureADDSAdvancedProperties"></a> Configurar o AD DS propriedades avançadas  
  Para configurar o AD DS propriedades avançadas, execute os seguintes passos:  
 
 1.  Editar ***task_sequence_name*** (onde *task_sequence_name* é o nome da sequência de tarefas para o qual pretende adicionar o passo de sequência de tarefas) para:  
@@ -9455,7 +9454,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
      O nome predefinido para uma nova floresta ou um site é *default_first_site*; no entanto, este valor não for apresentada a **nome do Site** caixa por predefinição — terá de escrevê-lo. Em seguida, clique em **OK** para concluir a configuração do **propriedades avançadas do AD DS** caixa de diálogo e, em seguida, clique em **OK** no ***nome da tarefa*** **Propriedades** caixa de diálogo para toda a configuração da tarefa.  
 
-####  <a name="ConfigureDNSServerRoleSettings"></a>Configurar definições de função de servidor DNS  
+####  <a name="ConfigureDNSServerRoleSettings"></a> Configurar definições de função de servidor DNS  
  Utilizar esta opção, configurar e implementar a função de servidor DNS para um novo computador ou um servidor DNS a utilizar um computador existente. Ao atribuir a função de servidor DNS, pode configurar o padrão DNS primária, secundário e zonas de stub, bem como principal de DS integradas do AD e zonas de stub. Há também uma opção para gerir envelhecimento, atualizações, tipos e várias zonas — tudo num processo automatizado. Não se trata de um processo de migração de um servidor DNS existente; em vez disso, é uma nova instalação de zonas DNS de todos os tipos.  
 
 > [!NOTE]
@@ -9513,7 +9512,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 16. Feche o Deployment Workbench.  
 
-####  <a name="ConfigureDHCPServerRoleTaskSequenceStepSettings"></a>Configurar definições de passo de sequência de tarefas função servidor DHCP  
+####  <a name="ConfigureDHCPServerRoleTaskSequenceStepSettings"></a> Configurar definições de passo de sequência de tarefas função servidor DHCP  
  Utilizar esta opção, configurar e implementar a função de servidor DHCP com o MDT. Pode configurar todos os as âmbito opções de DHCP padrão semelhantes para utilizar a consola do DHCP padrão no Windows Server. Para implementar a função de servidor DHCP, configure o **autorizar DHCP** tarefas sequência em conjunto com o **configurar o servidor DHCP** sequência de tarefas.  
 
 > [!NOTE]
@@ -9527,7 +9526,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   Configurar as opções de servidor DHCP para a função de servidor DHCP, conforme descrito em [configurar as opções de servidor DHCP para a função de servidor DHCP](#ConfiguretheDHCPServerOptionsfortheDHCPServerRole)  
 
-#####  <a name="ConfigureDeploymentoftheDHCPServerRole"></a>Configurar a implementação da função de servidor DHCP  
+#####  <a name="ConfigureDeploymentoftheDHCPServerRole"></a> Configurar a implementação da função de servidor DHCP  
  Instalar e configurar a função de servidor DHCP no computador de destino ao modificar o **configurar o servidor DHCP** tipo de passo de sequência de tarefas.  
 
 ###### <a name="to-configure-and-deploy-the-dhcp-server-role"></a>Para configurar e implementar a função de servidor DHCP  
@@ -9556,8 +9555,8 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 4.  Clique em **OK**.  
 
-#####  <a name="ConfigureDHCPScopesfortheDHCPServerRole"></a>Configurar âmbitos DHCP para a função de servidor DHCP  
- Utilizar esta opção, configure os âmbitos DHCP que contêm as regras e âmbitos de Active Directory utilizados no servidor DHCP. Para obter mais informações sobre o DHCP analisar as opções de configuração e para obter orientações sobre como utilizar cada opção de configuração, consulte [capítulo 6 - Dynamic Host Configuration Protocol](http://technet.microsoft.com/library/bb727003.aspx) no Noções básicas de TCP/IP para o Microsoft Windows.  
+#####  <a name="ConfigureDHCPScopesfortheDHCPServerRole"></a> Configurar âmbitos DHCP para a função de servidor DHCP  
+ Utilizar esta opção, configure os âmbitos DHCP que contêm as regras e âmbitos de Active Directory utilizados no servidor DHCP. Para obter mais informações sobre o DHCP analisar as opções de configuração e para obter orientações sobre como utilizar cada opção de configuração, consulte [capítulo 6 - Dynamic Host Configuration Protocol](https://technet.microsoft.com/library/bb727003.aspx) no Noções básicas de TCP/IP para o Microsoft Windows.  
 
 ###### <a name="to-configure-and-deploy-dhcp-scopes"></a>Para configurar e implementar os âmbitos DHCP  
 
@@ -9599,21 +9598,21 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 6.  No **opções** separador, configure as seguintes opções para o âmbito criado no **geral** separador:  
 
-    -   **003 router**. O gateway predefinido para clientes DHCP.  
+    -   **003 Router**. O gateway predefinido para clientes DHCP.  
 
-    -   **006 servidores DNS**. O endereço do servidor DNS para clientes DHCP.  
+    -   **006 DNS Servers**. O endereço do servidor DNS para clientes DHCP.  
 
-    -   **Nome de domínio 015 DNS**. O nome de domínio DNS para clientes (por exemplo, woodgove.com).  
+    -   **015 DNS Domain Name**. O nome de domínio DNS para clientes (por exemplo, woodgove.com).  
 
-    -   **044 WINS/NBNS servidores**. O WINS endereço IP do servidor (por exemplo, 192.168.0.2).  
+    -   **044 WINS/NBNS Servers**. O WINS endereço IP do servidor (por exemplo, 192.168.0.2).  
 
     -   **Tipo de nó de WINS/NBT 046**. O tipo de nó de WINS.  
 
-    -   **Cliente PXE 060**. O endereço utilizado para o código de arranque de configuração de cliente PXE.  
+    -   **060 PXE Client**. O endereço utilizado para o código de arranque de configuração de cliente PXE.  
 
 7.  Clique em **OK**.  
 
-#####  <a name="ConfiguretheDHCPServerOptionsfortheDHCPServerRole"></a>Configurar as opções de servidor DHCP para a função de servidor DHCP  
+#####  <a name="ConfiguretheDHCPServerOptionsfortheDHCPServerRole"></a> Configurar as opções de servidor DHCP para a função de servidor DHCP  
  Utilizar esta opção, configure as opções de servidor DHCP para clientes DHCP, incluindo a designação de gateway de router ou predefinição, as informações de IP do servidor DNS e as informações do servidor WINS.  
 
 ###### <a name="to-configure-and-deploy-dhcp-server-options"></a>Para configurar e implementar opções de servidor DHCP  
@@ -9660,11 +9659,11 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 8.  Clique em **046 tipo de nó de WINS/NBT**e, em seguida, escreva um dos códigos de seguintes: **44**, **46**, ou **47**.  
 
-     Para obter mais informações sobre como determinar a opção correta para o ambiente, consulte [gerir as opções de DHCP](http://technet.microsoft.com/library/cc958929.aspx).  
+     Para obter mais informações sobre como determinar a opção correta para o ambiente, consulte [gerir as opções de DHCP](https://technet.microsoft.com/library/cc958929.aspx).  
 
 9. Clique em **060 cliente PXE**; em seguida, no **valor de cadeia** caixa, escreva a cadeia de cliente PXE (normalmente, PXEClient).  
 
-####  <a name="ConfigureAuthorizeDHCPTaskSequenceStepSettings"></a>Configurar autorizar as definições do passo de sequência de tarefas do DHCP  
+####  <a name="ConfigureAuthorizeDHCPTaskSequenceStepSettings"></a> Configurar autorizar as definições do passo de sequência de tarefas do DHCP  
  Autorizar o serviço DHCP no AD DS é imperativo para implementar e utilizar os serviços DHCP numa rede baseada em Windows com êxito.  
 
 > [!NOTE]
@@ -9700,17 +9699,17 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 5.  Clique em **OK**, em seguida, clique em **OK** novamente.  
 
-###  <a name="CopyingContenttotheTargetComputer"></a>Copiar o conteúdo para o computador de destino  
+###  <a name="CopyingContenttotheTargetComputer"></a> Copiar o conteúdo para o computador de destino  
  Para copiar o conteúdo para computadores de destino, execute qualquer combinação dos seguintes passos:  
 
 -   Copie o conteúdo para o computador de destino utilizando um passo de sequência de tarefas, conforme descrito em [copiar conteúdo para os passos de sequência de tarefas de utilizar computadores destino](#CopyContenttoTargetComputersUsingTaskSequenceSteps).  
 
 -   Copie o conteúdo para o computador de destino através das pastas de $ $OEM conforme descrito [copiar conteúdo para pastas de $ através de computadores de destino $OEM](#CopyContenttoTargetComputersUsingOEMFolders).  
 
-####  <a name="CopyContenttoTargetComputersUsingTaskSequenceSteps"></a>Copie o conteúdo para os computadores de destino utilizando os passos de sequência de tarefas  
+####  <a name="CopyContenttoTargetComputersUsingTaskSequenceSteps"></a> Copie o conteúdo para os computadores de destino utilizando os passos de sequência de tarefas  
  Criar uma sequência de tarefas com base no **executar linha de comandos** tarefas tipo de passo de sequência que executa o **xcopy.exe** comando ou um comando semelhante ao copiar o conteúdo para o computador de destino. Certifique-se de que o **executar linha de comandos** tipo de passo de sequência de tarefas ocorre antes de quaisquer passos de sequência de tarefas ou scripts que dependem dos ficheiros que está a ser copiados para os computadores de destino. Para obter mais informações sobre como modificar os passos de sequência de tarefas, consulte [configurar o passo de sequência e passos de sequência de tarefas](#ConfiguretheTaskSequenceStepsandStepSequence).  
 
-####  <a name="CopyContenttoTargetComputersUsingOEMFolders"></a>Copiar conteúdo para os computadores de destino através das pastas de $ $OEM  
+####  <a name="CopyContenttoTargetComputersUsingOEMFolders"></a> Copiar conteúdo para os computadores de destino através das pastas de $ $OEM  
  MDT suporta a utilização de pastas de $ $OEM legado para organizar e copiar ficheiros suplementares para computadores de destino. Os ficheiros WIM de dados são preferenciais através de pastas de $ $OEM.  
 
 > [!NOTE]
@@ -9738,7 +9737,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
      A Microsoft recomenda que estas pastas não utilizada. As pastas dependem de uma configuração de disco muito específico no computador de destino. Utilize $1 para representar o % SystemDrive %, em vez disso. Na maioria das instalações, $OEM$\\$1 e $OEM$ \C escrever para a mesma localização: a raiz da unidade C.  
 
-###  <a name="CreatingCustomScriptsforMDT"></a>A criação de Scripts personalizados para o MDT  
+###  <a name="CreatingCustomScriptsforMDT"></a> A criação de Scripts personalizados para o MDT  
  Scripts fornecem automatização da compilação da imagem e processo de implementação geral. Se procurar os ficheiros de configuração, consultar a base de dados de configuração, avaliar as variáveis de ambiente para determinar as regras para ser utilizada na implementação de imagens para computadores de destino e realizar muitas outras tarefas de implementação intricate. MDT utiliza o Microsoft Visual Basic® Scripting Edition (VBScript [vbs]) e scripts de ficheiro (.wsf) de Script do Windows. Normalmente, é necessário para modificar um dos scripts entregues. Se for necessária, em vez de modificação de um dos scripts entregues uma modificação, copie o script para um novo ficheiro, a atualização e testar o efeito de qualquer alteração.  
 
  Os scripts de criar os ficheiros de registo, como os scripts de automatizar o processo de implementação. Os ficheiros de registo gravar o estado do processo de implementação e podem ser utilizados para ajudar a este processo de resolução de problemas:  
@@ -9749,7 +9748,7 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
 -   Criar scripts do Windows PowerShell para utilização em implementações do MDT, conforme descrito em [criar Scripts do Windows PowerShell para utilização no MDT](#CreateWindowsPowerShellScriptsforUseinMDT).  
 
-####  <a name="DevelopCustomScripts"></a>Desenvolver Scripts personalizados  
+####  <a name="DevelopCustomScripts"></a> Desenvolver Scripts personalizados  
  Pode desenvolver scripts novo para utilização em implementações do MDT. Estes scripts devem ter o formato de ficheiros. vbs ou .wsf. Para obter exemplos de scripts que utiliza o Deployment Workbench, abra o caminho de instalação da partilha de implementação e, em seguida, abra a pasta de Scripts.  
 
 > [!NOTE]
@@ -9781,13 +9780,13 @@ cscript.exe %SCRIPTROOT%\ZTIOptIn.wsf /CEIP:YES /WER:YES
 
     -   Pode ser utilizado para aceder a bases de dados em scripts em vez de configurar os ficheiros CustomSettings.ini ou BootStrap.ini; Pode especificar os parâmetros para aceder à base de dados nos scripts  
 
--   **Serviço Web**. Fornece acesso a serviços web e está definido no ZTIDataAccess.vbs conforme descrito em [WebService classe](#WebServiceClass). O **WebService** classe:  
+-   **WebService**. Fornece acesso a serviços web e está definido no ZTIDataAccess.vbs conforme descrito em [WebService classe](#WebServiceClass). O **WebService** classe:  
 
     -   É utilizado pelo ZTIGather.wsf quando processar regras de serviço web do ficheiros CustomSettings.ini ou BootStrap.ini  
 
     -   Pode ser utilizado para aceder aos serviços web em scripts em vez de configurar os ficheiros CustomSettings.ini ou BootStrap.ini; Pode especificar os parâmetros para aceder os serviços web os scripts  
 
-#####  <a name="EnvironmentClass"></a>Classe de ambiente  
+#####  <a name="EnvironmentClass"></a> Classe de ambiente  
  Esta classe em scripts através de referência de **oEnvironment** objeto. Por exemplo, altere o nome de computador para **exemplo** utilizando o comando:  
 
 ```  
@@ -9800,7 +9799,7 @@ oEnvironment.Item("ComputerName") = "Example"
 oEnvironment.Item("Architecture")  
 ```  
 
-#####  <a name="LoggingClass"></a>Classe de registo  
+#####  <a name="LoggingClass"></a> Classe de registo  
  Esta classe em scripts através de referência de **oLogging** objeto. Ao criar uma entrada de registo informativa, utilize o comando:  
 
 ```  
@@ -9813,7 +9812,7 @@ oLogging.CreateEntry "Informational message", LogTypeInfo
 oLogging.CreateEntry "An error occurred",LogTypeError  
 ```  
 
-#####  <a name="UtilityClass"></a>Utilitário de classe  
+#####  <a name="UtilityClass"></a> Utilitário de classe  
  Esta classe em scripts através de referência de **oUtility** objeto. Para determinar o nome do script atual, utilize o comando:  
 
 ```  
@@ -9826,7 +9825,7 @@ oUtility.ScriptName
 iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)  
 ```  
 
-#####  <a name="DatabaseClass"></a>Classe de base de dados  
+#####  <a name="DatabaseClass"></a> Classe de base de dados  
  Esta classe em scripts através de referência de **base de dados** classe. Pode criar uma instância da classe de objetos e ligar-se para uma base de dados utilizando os seguintes excerpt de script:  
 
 ```  
@@ -9853,7 +9852,7 @@ iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)
    WScript.Echo "Records retrieved: " & oRecordset.RecordCount  
 ```  
 
-#####  <a name="WebServiceClass"></a>Classe de serviço Web  
+#####  <a name="WebServiceClass"></a> Classe de serviço Web  
  Esta classe em scripts através de referência de **WebService** classe. Pode criar uma instância da classe de objetos e ligar-se para uma base de dados utilizando os seguintes excerpt de script:  
 
 ```  
@@ -9866,7 +9865,7 @@ iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)
    oEnvironment.Item("USZip") = "98029"  
    oEnvironment.Item("USZip") = "98029"  
    Set oWebService = new WebService  
-   oWebService.WebService = "http://www.webservicex.net/uszip.asmx/GetInfoByZIP"  
+   oWebService.WebService = "https://www.webservicex.net/uszip.asmx/GetInfoByZIP"  
    oWebService.Parameters = "USZip"  
 
    Set oXML = oWebService.Query  
@@ -9874,7 +9873,7 @@ iRetVal = oUtility.FindFile("CustomSettings.ini", sIniFile)
    WScript.Echo oXML.XML  
 ```  
 
-####  <a name="CreateNewScriptsfromaTemplate"></a>Criar novo Scripts a partir de um modelo  
+####  <a name="CreateNewScriptsfromaTemplate"></a> Criar novo Scripts a partir de um modelo  
  Também pode criar scripts para utilização no processamento de imagens. Chamar estes scripts adicioná-los para o Editor de sequência de tarefas e, em última análise adicionando-os ao ficheiro TS.xml. Listar 13 mostra um modelo para criar scripts personalizados.  
 
  **Listar a 13. Modelo de Script personalizado**  
@@ -9972,7 +9971,7 @@ End Function
 
 -   Certifique-se de que ZTIUtility.vbs e ZTIDataAccess.vbs já fornece a funcionalidade necessária antes de escrever uma função.  
 
-####  <a name="CreateWindowsPowerShellScriptsforUseinMDT"></a>Criar Scripts do Windows PowerShell para utilização no MDT  
+####  <a name="CreateWindowsPowerShellScriptsforUseinMDT"></a> Criar Scripts do Windows PowerShell para utilização no MDT  
  MDT permite-lhe criar scripts do Windows PowerShell e, em seguida, execute estes scripts como parte de uma utilização de sequência de tarefas do MDT a **executar Script do PowerShell** tipo de passo de sequência de tarefas. Os scripts do Windows PowerShell que criar podem efetuar qualquer automatização típica suportada pelo sistema operativo de destino.  
 
  Crie scripts do Windows PowerShell para utilização no MDT por:  
@@ -9985,12 +9984,12 @@ End Function
 
 4.  Interpretar do Windows PowerShell devolver códigos gerados pelo seu script conforme descrito em [interpretar Windows Script devolver códigos de PowerShell](#InterpretWindowsPowerShellScriptReturnCodes)  
 
-#####  <a name="IncludePrerequisitesforRunningWindowsPowerShellScriptsinMDT"></a>Incluir pré-requisitos para executar Scripts do Windows PowerShell no MDT  
+#####  <a name="IncludePrerequisitesforRunningWindowsPowerShellScriptsinMDT"></a> Incluir pré-requisitos para executar Scripts do Windows PowerShell no MDT  
  Quando um **executar Script do PowerShell** passo de sequência de tarefas executa um script do Windows PowerShell, o passo automaticamente carrega o **Microsoft.BDD.TaskSequenceModule** módulo antes de executar o script. O **Microsoft.BDD.TaskSequenceModule** módulo é responsável pela criação de **TSENV**: e **TSENVLIST**: Unidades de Windows PowerShell.  
 
  Além disso, é recomendado que o seu script carregar o **ZTIUtility.psm1** módulo no início do seu script adicionando a seguinte linha para o início do seu script:  
 
- Import-Module`.\ZTIUtility.psm1`  
+ Import-Module `.\ZTIUtility.psm1`  
 
  Incluindo o **ZTIUtility.psm1** módulo no início do seu script fornece as seguintes funcionalidades:  
 
@@ -10009,7 +10008,7 @@ End Function
 Import-Module MyCustomModule  
 ```  
 
-#####  <a name="UseTaskSequenceVariablesWithinWindowsPowerShellScripts"></a>Utilizar variáveis de sequência de tarefas dentro de Scripts do Windows PowerShell  
+#####  <a name="UseTaskSequenceVariablesWithinWindowsPowerShellScripts"></a> Utilizar variáveis de sequência de tarefas dentro de Scripts do Windows PowerShell  
  O Windows PowerShell script pode obter ou definir variáveis de sequência de tarefas que pode ser utilizado pelo MDT. Obter ou definir variáveis de sequência de tarefas com as seguintes unidades do Windows PowerShell:  
 
 -   **TSENV**:. Esta unidade é uma lista de todas as variáveis de sequência de tarefas e os respetivos valores atuais. Pode aceder a esta unidade como faria com qualquer outra unidade do Windows. Por exemplo, pode escrever o seguinte comando Windows PowerShell para listar todas as variáveis de sequência de tarefas e os respetivos tsenv valores: dir atual:  
@@ -10037,7 +10036,7 @@ Import-Module MyCustomModule
 
      Este comando define o valor da **PACOTES** variável de sequência de tarefas para `"XXX00001:Program","XXX00002:Program"`.  
 
-####  <a name="UpdateMDTLogsUsingWindowsPowerShellScripts"></a>Registos de atualização MDT com Scripts do Windows PowerShell  
+####  <a name="UpdateMDTLogsUsingWindowsPowerShellScripts"></a> Registos de atualização MDT com Scripts do Windows PowerShell  
  Por predefinição, o resultado da sua scripts do Windows PowerShell é escrito BDD. REGISTO. 175 tabela lista os tipos de mensagem que são apresentadas a BDD. Ficheiro de registo e como os tipos de mensagens em fila são gerados pelo seu script.  
 
 ### <a name="table-175-bddlog-message-types-and-script-output-that-generates-them"></a>175 de tabela. BDD. Tipos de mensagens de registo e de saída do Script que gera-las  
@@ -10052,12 +10051,12 @@ Import-Module MyCustomModule
 
 -   Progresso é apresentado como uma percentagem de conclusão total para o script atual e as mensagens que estão a ser apresentadas.  
 
--   Progresso é atualizado com a norma [Write-Progress](http://technet.microsoft.com/library/dd347663.aspx) cmdlet.  
+-   Progresso é atualizado com a norma [Write-Progress](https://technet.microsoft.com/library/dd347663.aspx) cmdlet.  
 
 > [!NOTE]
 >  Ao contrário de algumas das outras scripts no MDT, um ficheiro de registo separado não é gerado para o passo de sequência de tarefas a executar o script do Windows PowerShell. Registo só é executado no BDD. Ficheiro de registo.  
 
-####  <a name="InterpretWindowsPowerShellScriptReturnCodes"></a>Interpretar os códigos de retorno de Script do PowerShell do Windows  
+####  <a name="InterpretWindowsPowerShellScriptReturnCodes"></a> Interpretar os códigos de retorno de Script do PowerShell do Windows  
  Por predefinição, se o script do Windows PowerShell reportar um erro de terminação ou um código de retorno de diferente de zero, o passo de sequência de tarefas irá falhar e parar de executar (exceto se tiver configurado o passo para ignorar o código de retorno gerado).  
 
   176 tabela lista os códigos de retorno predefinidos que MDT devolve e fornece uma breve descrição de cada. Quaisquer outros códigos de retorno não indicados na tabela 176 foram devolvidos pelo script do Windows PowerShell.  
@@ -10070,7 +10069,7 @@ Import-Module MyCustomModule
 |10902|Não foi especificado nenhum script do Windows PowerShell no passo de sequência de tarefas.|  
 |10903|Foi comunicado um erro de terminação pelo script do Windows PowerShell.|  
 
-##  <a name="PerformingDeploymentsUsingtheMDTDB"></a>Efetuar implementações que utilizam a BD do MDT  
+##  <a name="PerformingDeploymentsUsingtheMDTDB"></a> Efetuar implementações que utilizam a BD do MDT  
  MDT inclui uma base de dados — a BD do MDT — que pode utilizar para fornecer definições de configuração para implementações LTI ou ZTI utilizando o Gestor de configuração. Configure a BD do MDT através do Deployment Workbench do MDT ou qualquer outra ferramenta de gestão de dados que pode utilizar para modificar as informações armazenadas nas bases de dados do SQL Server.  
 
  Concecionais, a BD do MDT é uma versão do ficheiro CustomSettings.ini centralizada. A vantagem de utilizar a BD do MDT é que para implementações maiores, tiver um repositório centralizado para gerir as definições de configuração de implementação.  
@@ -10089,7 +10088,7 @@ Import-Module MyCustomModule
 
 -   Expandir o esquema da BD do MDT, conforme descrito em [expandir o esquema da BD de MDT](#ExtendingtheMDTDBSchema)  
 
-###  <a name="PreparingtheMDTDB"></a>A preparar a BD do MDT  
+###  <a name="PreparingtheMDTDB"></a> A preparar a BD do MDT  
  Antes de poder utilizar a BD do MDT para fornecer definições de configuração para implementações do MDT, tem de preparar a BD do MDT para utilização pelo MDT. Prepare a BD do MDT para armazenar definições de configuração por:  
 
 -   Criar uma nova base de dados do MDT ou ligação para uma base de dados existente do MDT, conforme descrito em [criar uma nova base de dados do MDT ou ligação para uma base de dados existente do MDT](#CreatingaNewMDTDBorConnectingtoanExistingMDTDB)  
@@ -10098,7 +10097,7 @@ Import-Module MyCustomModule
 
 -   Atribuir as permissões adequadas para a BD do MDT, conforme descrito em [atribuir as permissões adequadas para a BD do MDT](#AssigningtheAppropriatePermissionstotheMDTDB)  
 
-####  <a name="CreatingaNewMDTDBorConnectingtoanExistingMDTDB"></a>Criar uma nova base de dados do MDT ou ligar a uma base de dados existente do MDT  
+####  <a name="CreatingaNewMDTDBorConnectingtoanExistingMDTDB"></a> Criar uma nova base de dados do MDT ou ligar a uma base de dados existente do MDT  
  Antes de poder gerir definições de configuração na base de dados do MDT, crie uma nova base de dados do MDT ou ligar a uma base de dados do MDT existente no Deployment Workbench. A BD do MDT contém os objetos de base de dados que utiliza o processo de implementação do MDT, por exemplo, vistas, tabelas e procedimentos armazenados. Criar uma nova base de dados do MDT ou ligar para os objetos de base de dados de BD do MDT utilizando o nó do Advanced Configuration/base de dados no Deployment Workbench existente.  
 
 > [!NOTE]
@@ -10110,14 +10109,14 @@ Import-Module MyCustomModule
 
 -   Ligar a uma base de dados existente do MDT, conforme descrito em [ligar a uma base de dados existente do MDT](#ConnecttoanExistingMDTDB).  
 
-#####  <a name="CreateaNewMDTDB"></a>Criar uma nova base de dados do MDT  
+#####  <a name="CreateaNewMDTDB"></a> Criar uma nova base de dados do MDT  
  Criar uma nova base de dados do MDT e, em seguida, criar os objetos de base de dados do MDT DB na base de dados. Pode criar a BD do MDT em:  
 
 -   Existente da base de dados, tal como descrito no [criar a base de dados do MDT na base de dados existente](#CreatetheMDTDBinanExistingDatabase)  
 
 -   Uma nova base de dados, conforme descrito em [criar a base de dados do MDT numa nova base de dados](#CreatetheMDTDBinaNewDatabase)  
 
-######  <a name="CreatetheMDTDBinanExistingDatabase"></a>Criar a base de dados do MDT na base de dados existente  
+######  <a name="CreatetheMDTDBinanExistingDatabase"></a> Criar a base de dados do MDT na base de dados existente  
  Se pretende armazenar a base de dados do MDT numa base de dados do SQL Server o gere o se administrador de base de dados (DBA), a DBA tem de criar a base de dados do MDT e, em seguida, conceder-lhe as permissões adequadas para criar os objetos de base de dados do MDT no nova base de dados. Quando a base de dados tiver sido criada, crie a BD do MDT na nova base de dados utilizando o Deployment Workbench.  
 
 > [!NOTE]
@@ -10142,14 +10141,14 @@ Import-Module MyCustomModule
     |Na página do Assistente|Faça isto|  
     |-------------------------|-------------|  
     |**Detalhes do servidor SQL** |a. No **nome do SQL Server**, tipo ***nome_do_computador*** (onde *nome_do_computador* é o nome do computador com o SQL Server).<br /><br /> b. No **instância**, tipo ***Nome_Instância*** (onde *Nome_Instância* é o nome da instância do SQL Server no computador com o SQL Server).<br /><br /> Se estiver a utilizar o SQL Server instalada como a instância predefinida, pode deixar **instância** em branco. Se estiver a utilizar o Microsoft SQL Server Express, escreva **SQLExpress** para o nome de instância.<br /><br /> c. No **porta**, tipo ***número_da_porta*** (onde *número_da_porta* é o número da porta TCP para instâncias do SQL Server, se for diferente do que o valor predefinido).<br /><br /> Se estiver a utilizar o valor predefinido, pode deixar **porta** em branco.<br /><br /> d. No **biblioteca de rede**, selecione ***network_library*** (onde *network_library* é a biblioteca de rede utilizada para comunicar com o SQL Server e pode ser qualquer um dos **Pipes nomeados** ou **Sockets de TCP/IP**).|  
-    |**Base de dados** |a. Selecione **criar (ou recrie) as tabelas e vistas da base de dados existente**.<br /><br /> b. No **base de dados**, selecione ***database_name*** (onde *database_name* é o nome da base de dados no qual pretende armazenar a base de dados do MDT).<br /><br /> Se selecionar uma base de dados que tenha uma base de dados existente do MDT, as informações nas vistas de tabelas de base de dados do MDT existentes e serão perdidas.<br /><br /> c. Clique em **Seguinte**.|  
+    |**base de dados** |a. Selecione **criar (ou recrie) as tabelas e vistas da base de dados existente**.<br /><br /> b. No **base de dados**, selecione ***database_name*** (onde *database_name* é o nome da base de dados no qual pretende armazenar a base de dados do MDT).<br /><br /> Se selecionar uma base de dados que tenha uma base de dados existente do MDT, as informações nas vistas de tabelas de base de dados do MDT existentes e serão perdidas.<br /><br /> c. Clique em **Seguinte**.|  
     |**Partilha SQL** |a. No **SQL partilha**, tipo ***share_name*** (onde *share_name* é o nome da pasta partilhada de rede no computador especificado no **detalhes do servidor SQL** página do assistente).<br /><br /> Esta caixa de texto é necessária para o Windows PE para ligar à base de dados utilizando a segurança integrada do Windows com o protocolo Pipes nomeados. Windows PE liga-se a pasta de rede partilhada estabelecer uma ligação de rede para o servidor para que a segurança integrada do Windows no SQL Server autentica corretamente.<br /><br /> b. Se o Windows PE não está a ligar à base de dados com este protocolo, pode deixar **SQL partilha** em branco.<br /><br /> c. Clique em **Seguinte**.|  
     |**Resumo** |Reveja as informações de **detalhes** caixa e, em seguida, clique em **seguinte**.|  
     |**Confirmação** |Pode clicar em **guardar saída** para guardar a saída do Assistente para um ficheiro. Também pode clicar em **ver Script** para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em **Concluir**.|  
 
  Concluir o Assistente de nova base de dados. As informações de configuração de base de dados estão listadas no painel de detalhes do Deployment Workbench.  
 
-######  <a name="CreatetheMDTDBinaNewDatabase"></a>Criar a base de dados do MDT numa nova base de dados  
+######  <a name="CreatetheMDTDBinaNewDatabase"></a> Criar a base de dados do MDT numa nova base de dados  
  Em situações onde são DBA de servidor SQL ou ter as permissões necessárias, pode criar a nova base de dados do MDT e, em seguida, criar os objetos de base de dados do MDT DB na nova base de dados utilizando o Deployment Workbench.  
 
 > [!NOTE]
@@ -10172,14 +10171,14 @@ Import-Module MyCustomModule
     |Na página do Assistente|Faça isto|  
     |-------------------------|-------------|  
     |**Detalhes do servidor SQL** |a. No **nome do SQL Server**, tipo ***nome_do_computador*** (onde *nome_do_computador* é o nome do computador com o SQL Server).<br /><br /> b. No **instância**, tipo ***Nome_Instância*** (onde *Nome_Instância* é o nome da instância do SQL Server no computador com o SQL Server).<br /><br /> Se estiver a utilizar o SQL Server instalada como a instância predefinida, pode deixar **instância** em branco. Se estiver a utilizar o SQL Server Express, escreva **SQLExpress** para o nome de instância.<br /><br /> c. No **porta**, tipo ***número_da_porta*** (onde *número_da_porta* é o número da porta TCP para a instância do SQL Server, se for diferente do que o valor predefinido).<br /><br /> d. No **biblioteca de rede**, selecione ***network_library*** (onde *network_library* é a biblioteca de rede utilizada para comunicar com o SQL Server e pode ser qualquer um dos **Pipes nomeados** ou **Sockets de TCP/IP**).<br /><br /> e. Clique em **Seguinte**.|  
-    |**Base de dados** |a. Selecione **criar uma nova base de dados**.<br /><br /> b. No **base de dados**, tipo ***database_name*** (onde *database_name* é o nome da base de dados no qual pretende armazenar a base de dados do MDT).<br /><br /> c. Clique em **Seguinte**.|  
+    |**base de dados** |a. Selecione **criar uma nova base de dados**.<br /><br /> b. No **base de dados**, tipo ***database_name*** (onde *database_name* é o nome da base de dados no qual pretende armazenar a base de dados do MDT).<br /><br /> c. Clique em **Seguinte**.|  
     |**Partilha SQL** |a. No **SQL partilha**, tipo ***share_name*** (onde *share_name* é o nome da pasta partilhada de rede no computador especificado no **detalhes do servidor SQL** página do assistente).<br /><br /> Esta caixa de texto é necessária para o Windows PE para ligar à base de dados utilizando a segurança integrada do Windows com o protocolo Pipes nomeados. Windows PE liga-se a pasta de rede partilhada estabelecer uma ligação de rede para o servidor para que a segurança integrada do Windows no SQL Server autentica corretamente.<br /><br /> Se o Windows PE não está a ligar à base de dados com este protocolo, pode deixar **SQL partilha** em branco.<br /><br /> b. Clique em **Seguinte**.|  
     |**Resumo** |Reveja as informações na caixa de detalhes e, em seguida, clique em **seguinte**.|  
     |**Confirmação** |Pode clicar em **guardar saída** para guardar a saída do Assistente para um ficheiro. Também pode clicar em **ver Script** para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em Concluir.|  
 
  Concluir o Assistente de nova base de dados. As informações de configuração de base de dados são apresentadas no painel de detalhes do Deployment Workbench.  
 
-#####  <a name="ConnecttoanExistingMDTDB"></a>Ligar a uma base de dados existente do MDT  
+#####  <a name="ConnecttoanExistingMDTDB"></a> Ligar a uma base de dados existente do MDT  
  Pode ligar o Deployment Workbench para uma MDT base de dados, que lhe permite copiar ou replicar a BD do MDT noutra instância do SQL Server, e, em seguida, configurar CustomSettings.ini para aceder a BD do MDT.  
 
 > [!NOTE]
@@ -10202,19 +10201,19 @@ Import-Module MyCustomModule
     |Na página do Assistente|Faça isto|  
     |-------------------------|-------------|  
     |**Detalhes do servidor SQL** |a. No **nome do SQL Server**, tipo ***nome_do_computador*** (onde *nome_do_computador* é o nome do computador com o SQL Server).<br /><br /> b. No **instância**, tipo ***Nome_Instância*** (onde *Nome_Instância* é o nome da instância do SQL Server no computador com o SQL Server).<br /><br /> Se estiver a utilizar o SQL Server instalada como a instância predefinida, pode deixar **instância** em branco. Se estiver a utilizar o SQL Server Express, escreva **SQL Express** para o nome de instância.<br /><br /> c. No **porta**, tipo ***número_da_porta*** (onde *número_da_porta* é o número da porta TCP para o SQL Server, se for diferente do que o valor predefinido).<br /><br /> Se estiver a utilizar o valor predefinido, pode deixar **porta** em branco.<br /><br /> d. No **biblioteca de rede**, selecione ***network_library*** (onde *network_library* é a biblioteca de rede utilizada para comunicar com o SQL Server e pode ser TCP ou Pipes nomeados / Sockets IP).<br /><br /> e. Clique em **Seguinte**.|  
-    |**Base de dados** |a. Selecione **utilizar uma base de dados existente que já contém as tabelas necessárias e vistas**.<br /><br /> b. No **base de dados**, selecione ***database_name*** (onde *database_name* é o nome da base de dados existente do MDT).<br /><br /> c. Clique em**seguinte**.|  
+    |**base de dados** |a. Selecione **utilizar uma base de dados existente que já contém as tabelas necessárias e vistas**.<br /><br /> b. No **base de dados**, selecione ***database_name*** (onde *database_name* é o nome da base de dados existente do MDT).<br /><br /> c. Clique em**seguinte**.|  
     |**Partilha SQL** |a. No **SQL partilha**, tipo ***share_name*** (onde *share_name* é o nome da pasta partilhada de rede no computador especificado no **detalhes do servidor SQL** página do assistente).<br /><br /> Esta caixa de texto é necessária para o Windows PE para ligar à base de dados utilizando a segurança integrada do Windows com o protocolo Pipes nomeados. Windows PE liga-se a pasta de rede partilhada estabelecer uma ligação de rede para o servidor para que a segurança integrada do Windows no SQL Server autentica corretamente.<br /><br /> Se o Windows PE não está a ligar à base de dados com este protocolo, pode deixar **SQL partilha** em branco.<br /><br /> b. Clique em **Seguinte**.|  
     |**Resumo** |Reveja as informações de **detalhes** caixa e, em seguida, clique em **seguinte**.|  
     |**Confirmação** |Pode clicar em **guardar saída** para guardar a saída do Assistente para um ficheiro. Também pode clicar em **ver Script** para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em **Concluir**.|  
 
  Concluir o Assistente de nova base de dados. As informações de configuração de base de dados são apresentadas no painel de detalhes do Deployment Workbench.  
 
-####  <a name="UpgradinganExistingMDTDB"></a>Atualizar uma base de dados existente do MDT  
+####  <a name="UpgradinganExistingMDTDB"></a> Atualizar uma base de dados existente do MDT  
  A BD do MDT é atualizada automaticamente a partir de uma versão anterior do MDT quando atualiza a partilha de implementação. O processo de atualização preserva qualquer modificação do esquema na base de dados existente do MDT, quando atualizar para a nova base de dados do MDT.  
 
  Se alguns pelo motivo existente MDT DB não é atualizado quando atualiza a partilha de implementação, pode atualizar manualmente a base de dados do MDT utilizando o **atualização MDTDatabaseSchema** cmdlet do Windows PowerShell.  
 
-####  <a name="AssigningtheAppropriatePermissionstotheMDTDB"></a>Atribuir as permissões adequadas para a BD do MDT  
+####  <a name="AssigningtheAppropriatePermissionstotheMDTDB"></a> Atribuir as permissões adequadas para a BD do MDT  
  Consoante as tarefas para ser executada, poderá ter permissões diferentes da base de dados do MDT. 180 tabela lista os tipos de tarefas ser executada e as funções de servidor do SQL Server correspondentes e funções de base de dados necessárias para efetuá-los.  
 
 ### <a name="table-180-roles-and-required-roles"></a>180 de tabela. Funções e as funções necessárias  
@@ -10228,9 +10227,9 @@ Import-Module MyCustomModule
 |Modificar as informações de configuração armazenadas na base de dados do MDT|função de base de dados de db_datawrite na base de dados do MDT ou direitos para as tabelas individuais e a vista na base de dados do MDT|  
 |Ver as informações de configuração armazenadas na base de dados do MDT|função de base de dados db_datareader na base de dados do MDT ou direitos aos individuais tabelas e vistas na base de dados do MDT|  
 
- Para obter mais informações sobre como atribuir estas permissões, consulte [identidade e controlo de acesso (motor de base de dados)](http://technet.microsoft.com/library/bb510418\(v=sql.105\)).  
+ Para obter mais informações sobre como atribuir estas permissões, consulte [identidade e controlo de acesso (motor de base de dados)](https://technet.microsoft.com/library/bb510418).  
 
-###  <a name="SelectingtheMethodsforApplyingConfigurationSettings"></a>Selecionar os métodos para aplicar as definições de configuração  
+###  <a name="SelectingtheMethodsforApplyingConfigurationSettings"></a> Selecionar os métodos para aplicar as definições de configuração  
  Depois de preparar a BD do MDT, selecione o método para aplicar as definições de configuração do MDT utilizando a BD do MDT. Pode gerir as definições de configuração armazenadas na base de dados MDT utilizando os nós sob o nó de base de dados numa partilha de implementação do Deployment Workbench.  
 
 > [!NOTE]
@@ -10252,7 +10251,7 @@ Import-Module MyCustomModule
 > [!NOTE]
 >  Crie os itens no nó de funções antes de criar os itens abaixo os nós (computadores, localizações e marca e modelo), porque os itens nos outros nós podem ser associados a funções.  
 
-###  <a name="ManagingConfigurationSettingsStoredintheMDTDB"></a>Gerir definições de configuração armazenadas na base de dados do MDT  
+###  <a name="ManagingConfigurationSettingsStoredintheMDTDB"></a> Gerir definições de configuração armazenadas na base de dados do MDT  
  A BD do MDT contém tabelas e vistas das quais pode consultar o processo de implementação do MDT. As tabelas contêm definições de configuração que estão acessíveis através de vistas.  
 
  Pode gerir as definições de configuração armazenadas na base de dados MDT utilizando qualquer combinação dos seguintes métodos:  
@@ -10261,7 +10260,7 @@ Import-Module MyCustomModule
 
 2.  Gerir definições de configuração armazenadas na base de dados MDT utilizando ferramentas de base de dados do SQL Server, conforme descrito em [Gerir configuração definições armazenadas no MDT DB utilizando ferramentas do SQL Server Management](#ManageConfigurationSettingsStoredintheMDTDBUsingSQLServerManagementTools).  
 
-####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingtheDeploymentWorkbench"></a>Gerir definições de configuração armazenadas na base de dados MDT com o Deployment Workbench  
+####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingtheDeploymentWorkbench"></a> Gerir definições de configuração armazenadas na base de dados MDT com o Deployment Workbench  
  Pode gerir as definições de configuração armazenadas na base de dados MDT utilizando os nós sob o nó de base de dados numa partilha de implementação do Deployment Workbench.  
 
 > [!NOTE]
@@ -10283,7 +10282,7 @@ Import-Module MyCustomModule
     |---------------------|-------------|  
     |**Computadores** |a. No **Descrição**, tipo ***description_name*** (onde *description_name* é um nome descritivo do computador).<br /><br /> b. Fornece qualquer combinação das seguintes informações (tem de configurar pelo menos um dos seguintes):<br /><br /> -No **etiqueta de recursos**, tipo ***asset_tag*** (onde *asset_tag* é a etiqueta do ativo ou uma etiqueta de controlo de inventário atribuídas ao computador).<br /><br /> -No **UUID**, tipo ***uuid*** (onde *uuid* é o UUID atribuído ao computador de destino).<br /><br /> -No **número de série**, tipo ***serial_number*** (onde *serial_number* é o número de série atribuído ao computador de destino).<br /><br /> -No **endereço MAC**, tipo ***mac_address*** (onde *mac_address* é o endereço MAC do adaptador de rede principal para o computador de destino).|  
     |**Funções** |No **nome da função**, tipo ***role_name*** (onde *role_name* é um nome descritivo da função).|  
-    |**Localizações** |a. No **localização**, tipo ***location_name*** (onde *location_name* é um nome descritivo da localização).<br /><br /> b. No **Gateways predefinidos**, adicionar os endereços IP para todos os gateways predefinidos que existe na localização.|  
+    |localizações |a. No **localização**, tipo ***location_name*** (onde *location_name* é um nome descritivo da localização).<br /><br /> b. No **Gateways predefinidos**, adicionar os endereços IP para todos os gateways predefinidos que existe na localização.|  
     |**Marca e modelos** |a. No **tornar**, tipo ***make_name*** (onde *make_name* é é o nome exato disponibilizar [fabricante] devolvido pelo BIOS do computador de destino através do WMI).<br /><br /> b. No **modelo**, tipo ***model_name*** (onde *model_name* é o nome de modelo exato devolvido pelo BIOS do computador de destino através do WMI).|  
 
 5.  Concluir o **detalhes** separador, efetuando os seguintes passos:  
@@ -10303,7 +10302,7 @@ Import-Module MyCustomModule
     |Para|Faça isto|  
     |--------|-------------|  
     |Adicionar uma aplicação de partilha de implementação (que é gerida no nó de aplicações no Deployment Workbench)|a. Clique em **adicionar**e, em seguida, clique em **Lite TouchApplication**.<br /><br /> O **seleccione um item** é apresentada a caixa de diálogo.<br /><br /> b. No **seleccione um item** caixa de diálogo, selecione a aplicação para adicionar e, em seguida, clique em **OK**.<br /><br /> A aplicação tem de existir na mesma partilha de implementação que a partilha de implementação associada a BD do MDT que está a configurar.|  
-    |Adicionar uma aplicação do Configuration Manager|a. Clique em **adicionar**e, em seguida, clique em **do ConfigMgr 2012 aplicação**.<br /><br /> O **nova aplicação de ConfigMgr** é apresentada a caixa de diálogo.<br /><br /> b. No **nova aplicação de ConfigMgr** caixa de diálogo **especifique a nova aplicação do ConfigMgr para adicionar**, tipo ***configmgr_application***e, em seguida, clique em **OK** (onde *configmgr_application* é o nome da aplicação do Configuration Manager para adicionar).<br /><br /> O nome introduzido na **especifique a nova aplicação do ConfigMgr para adicionar** tem de corresponder exatamente o nome da aplicação do Configuration Manager.<br /><br /> Para obter mais informações sobre como especificar o nome da aplicação, consulte a secção, "Instalar a aplicação," no [passos de sequência de tarefas no Configuration Manager](http://technet.microsoft.com/library/hh846237).<br /><br /> O **permitem que esta aplicação ser instalada a ação de sequência de tarefas instalar aplicação sem ser implementada**tem de selecionar a caixa de verificação para a aplicação do Configuration Manager ser implementada corretamente.|  
+    |Adicionar uma aplicação do Configuration Manager|a. Clique em **adicionar**e, em seguida, clique em **do ConfigMgr 2012 aplicação**.<br /><br /> O **nova aplicação de ConfigMgr** é apresentada a caixa de diálogo.<br /><br /> b. No **nova aplicação de ConfigMgr** caixa de diálogo **especifique a nova aplicação do ConfigMgr para adicionar**, tipo ***configmgr_application***e, em seguida, clique em **OK** (onde *configmgr_application* é o nome da aplicação do Configuration Manager para adicionar).<br /><br /> O nome introduzido na **especifique a nova aplicação do ConfigMgr para adicionar** tem de corresponder exatamente o nome da aplicação do Configuration Manager.<br /><br /> Para obter mais informações sobre como especificar o nome da aplicação, consulte a secção, "Instalar a aplicação," no [passos de sequência de tarefas no Configuration Manager](https://docs.microsoft.com/sccm/osd/understand/task-sequence-steps).<br /><br /> O **permitem que esta aplicação ser instalada a ação de sequência de tarefas instalar aplicação sem ser implementada**tem de selecionar a caixa de verificação para a aplicação do Configuration Manager ser implementada corretamente.|  
     |Remover uma aplicação na lista de aplicações para implementação|Clique em ***aplicação*** (onde *aplicação* é o nome da aplicação que pretende remover) e, em seguida, clique em **remover**.|  
     |Instalar uma aplicação antes de outras aplicações |Clique em ***aplicação*** (onde *aplicação* é o nome da aplicação que pretende instalar antes de outras aplicações) e, em seguida, clique em **segurança**.|  
     |Instalar uma aplicação depois de outras aplicações |Clique em ***aplicação*** (onde *aplicação* é o nome da aplicação que pretende instalar depois de outras aplicações) e, em seguida, clique em **baixo**.|  
@@ -10340,7 +10339,7 @@ Import-Module MyCustomModule
     |Adicionar um administrador|a. Clique em **Adicionar**.<br /><br /> b. O **novo administrador** é apresentada a caixa de diálogo.|  
     |Remover um administrador|Clique em ***admin_name*** (onde *admin_name* é o nome da conta de utilizador ou grupo que pretende remover) e, em seguida, clique em **remover**.<br /><br /> Remover uma conta esta lista não remove a conta do AD DS ou do computador local.|  
 
-####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingSQLServerManagementTools"></a>Gerir definições de configuração armazenadas na base de dados MDT utilizando ferramentas de gestão do SQL Server  
+####  <a name="ManageConfigurationSettingsStoredintheMDTDBUsingSQLServerManagementTools"></a> Gerir definições de configuração armazenadas na base de dados MDT utilizando ferramentas de gestão do SQL Server  
  Gerir as definições de configuração armazenadas na base de dados MDT com o Deployment Workbench é boa para a gestão de um número limitado de entradas de base de dados. No entanto, se precisar de adicionar centenas de entradas (por exemplo, adicionar as definições de configuração para os computadores de destino), ou se pretender efetuar uma atualização em massa para as definições de configuração, utilize ferramentas de gestão de bases de dados do SQL Server.  
 
  Execute a importação em volume e a atualização das definições de configuração na base de dados do MDT com:  
@@ -10353,14 +10352,14 @@ Import-Module MyCustomModule
 
  Pode rever as tabelas, vistas e outros objetos de base de dados na base de dados MDT para determinar as tabelas que pretende atualizar. Para obter mais informações sobre as tabelas e vistas na base de dados do MDT, consulte a secção "Tabelas e vistas no MDT BD", no documento MDT*Toolkit referência*.  
 
-###  <a name="ConfiguringtheMDTDeploymentProcesstoRetreiveConfigurationSettingsfromtheMDTDB"></a>Configurar o processo de implementação do MDT a obter definições de configuração da base de dados do MDT  
+###  <a name="ConfiguringtheMDTDeploymentProcesstoRetreiveConfigurationSettingsfromtheMDTDB"></a> Configurar o processo de implementação do MDT a obter definições de configuração da base de dados do MDT  
  Configure o processo de implementação MDT para aceder a BD do MDT e obter as definições de configuração armazenadas na mesma modificando CustomSettings.ini. Pode modificar CustomSettings.ini para permitir que o processo de implementação MDT aceder a BD do MDT utilizando qualquer combinação dos seguintes métodos:  
 
 -   Utilize o Assistente de configuração de base de dados no Deployment Workbench conforme descrito no [configurar as definições de Retreival de configuração do MDT DB com o Assistente para configurar DB](#ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBUsingtheConfigureDBWizard).  
 
 -   Modificar diretamente o ficheiro CustomSettings.ini, conforme descrito nos [configurar as definições de Retreival de configuração da base de dados do MDT, modificando diretamente o ficheiro CustomSettings.ini](#ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBbyDirectlyModifyingtheCustomSettings.iniFile).  
 
-####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBUsingtheConfigureDBWizard"></a>Configurar a obtenção das definições de configuração da base de dados do MDT utilizando o Assistente de base de dados para configurar  
+####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBUsingtheConfigureDBWizard"></a> Configurar a obtenção das definições de configuração da base de dados do MDT utilizando o Assistente de base de dados para configurar  
  Assistente de configuração de base de dados no Deployment Workbench fornece uma interface gráfica para configurar o processo de implementação MDT para aceder a BD do MDT. As vantagens de utilizar este assistente é que ajuda a reduzir o:  
 
 1.  Possibilidade de erros de configuração no ficheiro CustomSettings.ini  
@@ -10457,7 +10456,7 @@ Import-Module MyCustomModule
 
 1.  A secção "Tabelas e vistas no MDT BD", no documento MDT *Toolkit de referência*  
 
-####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBbyDirectlyModifyingtheCustomSettings.iniFile"></a>Configurar o Retreival das definições de configuração da base de dados do MDT, modificando diretamente o ficheiro CustomSettings.ini  
+####  <a name="ConfiguretheRetreivalofConfigurationSettingsfromtheMDTDBbyDirectlyModifyingtheCustomSettings.iniFile"></a> Configurar o Retreival das definições de configuração da base de dados do MDT, modificando diretamente o ficheiro CustomSettings.ini  
  Assistente de configuração de base de dados no Deployment Workbench fornece o método que necessita, pelo menos, o esforço do utilizador, requer o mínimo de conhecimento sobre como o ficheiro CustomSettings.ini é modificado bem como minimiza o risco de erros de configuração. No entanto, se precisar de criar consultas personalizadas para obter informações, pode modificar CustomSettings.ini para devolver resultados da consulta adequado.  
 
 > [!NOTE]
@@ -10477,7 +10476,7 @@ Import-Module MyCustomModule
 
 -   Configurar as propriedades no ficheiro CustomSettings.ini, que são utilizados para a implementação pela função conforme descrito em [configurar as propriedades que são utilizadas para a implementação pela função](#ConfigurePropertiesThatAreUsedforDeploymentbyRole).  
 
-#####  <a name="ReviewtheCustomSettings.iniFileAfterRunningtheConfigureDBWizard"></a>Reveja o ficheiro CustomSettings.ini após a execução de configurar o Assistente de base de dados  
+#####  <a name="ReviewtheCustomSettings.iniFileAfterRunningtheConfigureDBWizard"></a> Reveja o ficheiro CustomSettings.ini após a execução de configurar o Assistente de base de dados  
  Quando tiver concluído o Assistente de configuração de base de dados, o ficheiro CustomSettings.ini está configurado para executar consultas selecionadas. **Erro! Origem de referência não foi encontrada**. Fornece um exemplo do ficheiro CustomSettings.ini após terminar o Assistente de configuração de base de dados.  
 
  **Listar 14. O ficheiro CustomSettings.ini depois do configurar DB assistente foi concluído**  
@@ -10689,7 +10688,7 @@ Parameters=Role
 
 ```  
 
-#####  <a name="ConfigurePropertiesThatAreUsedtoCreateanSQLQuery"></a>Configurar as propriedades que são utilizadas para criar uma consulta SQL  
+#####  <a name="ConfigurePropertiesThatAreUsedtoCreateanSQLQuery"></a> Configurar as propriedades que são utilizadas para criar uma consulta SQL  
  Assistente de configuração de base de dados cria entradas no ficheiro CustomSettings.ini, que são utilizados para criar uma consulta SQL. 191 tabela lista as propriedades do MDT que são utilizadas para criar a consulta. Para obter mais informações sobre as propriedades na tabela 191, consulte a secção correspondente para cada propriedade na secção, "Propriedades" no documento MDT *Toolkit referência*.  
 
 ### <a name="table-191-properties-that-are-used-to-create-an-sql-query"></a>191 de tabela. Propriedades que são utilizadas para criar uma consulta SQL  
@@ -10697,11 +10696,11 @@ Parameters=Role
 |Propriedade|Descrição|  
 |--------------|-----------------|  
 |**SQLServer** |Especifica o nome do computador que executa o SQL Server para utilizar na consulta|  
-|**Instância** |Especifica o nome da instância do SQL Server no computador especificado no **SQLServer** propriedade. Se estiver a utilizar:<br /><br /> -SQL Server instaladas como as instâncias de predefinido, pode deixar **instância** em branco<br /><br /> -SQL Server Express, tipo **SQLExpress** para o nome de instância|  
-|**Base de dados** |Especifica o nome da base de dados do MDT no SQL Server a instância especificada no **instância** propriedade.|  
+|**Instance** |Especifica o nome da instância do SQL Server no computador especificado no **SQLServer** propriedade. Se estiver a utilizar:<br /><br /> -SQL Server instaladas como as instâncias de predefinido, pode deixar **instância** em branco<br /><br /> -SQL Server Express, tipo **SQLExpress** para o nome de instância|  
+|**base de dados** |Especifica o nome da base de dados do MDT no SQL Server a instância especificada no **instância** propriedade.|  
 |**Netlib** |Especifica a biblioteca de rede para ser utilizado na ligação para a BD do MDT especificado no **base de dados** propriedade e pode ser chamado Pipes (DBNDPNTW) ou TCP/IP Sockets (DBMSSOCN).|  
 |**SQLShare** |Especifica a pasta partilhada de rede num computador especificado no **SQLServer** propriedade, o que é utilizada quando efetuar a autenticação de utilizador através da autenticação integrada do Windows com o protocolo Pipes nomeados.|  
-|**Tabela** |Especifica a tabela ou vista para ser utilizado na consulta. Se especificar o **tabela** propriedade, não é possível especificar o **StoredProcedure** propriedade, demasiado: Tem de especificar um ou outro.|  
+|**Table** |Especifica a tabela ou vista para ser utilizado na consulta. Se especificar o **tabela** propriedade, não é possível especificar o **StoredProcedure** propriedade, demasiado: Tem de especificar um ou outro.|  
 |**StoredProcedure** |Especifica o procedimento armazenado para ser utilizado na consulta. Se especificar o **StoredProcedure** propriedade, não é possível especificar o **tabela** propriedade, demasiado: Tem de especificar um ou outro.|  
 |**Parâmetros** |Especifica os critérios de seleção para devolver a linhas da consulta. Concecionais, esta propriedade é o **onde** cláusula num SQL **SELECIONE** instrução.|  
 |**ParameterCondition** |Especifica a operação booleana para ser executada quando especificar mais do que um critério de seleção no **parâmetros** propriedade. Pode selecionar um booleano **e** (predefinição) ou **ou** operações. Se pretender utilizar um valor boleano **ou** operação, tem de especificar **ParameterCondition = ou**.|  
@@ -10737,7 +10736,7 @@ ParameterCondition=OR
 
  Pode rever as tabelas e vistas na base de dados MDT para determinar as colunas que pretende fazer referência no **parâmetros** propriedade. Para obter mais informações sobre as tabelas e vistas na base de dados do MDT, consulte a secção "Tabelas e vistas no MDT BD", no documento MDT *Toolkit referência*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymenttoaSpecificComputer"></a>Configurar as propriedades que são utilizadas para a implementação para um computador específico  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymenttoaSpecificComputer"></a> Configurar as propriedades que são utilizadas para a implementação para um computador específico  
  O Assistente de base de dados de configuração configura o **prioridade** propriedade e cria a secção correspondente no ficheiro CustomSettings.ini, implementações de computadores específico utilizando a BD do MDT. Tabela 192 apresenta uma lista de secções criadas e um fornece uma descrição breve do objetivo de cada secção. Consulte o exemplo de ficheiro CustomSettings.ini na tabela 192.  
 
 ### <a name="table-192-sections-in-the-customsettingsini-file-for-deployment-to-a-specific-computer-and-their-purpose"></a>192 de tabela. Secções no ficheiro CustomSettings.ini, para a implementação para um computador específico e o respetivo objetivo  
@@ -10752,7 +10751,7 @@ ParameterCondition=OR
 
  Para obter mais informações sobre as vistas de base de dados e tabelas que gere o Deployment Workbench, consulte a secção "Tabelas e vistas no MDT BD", no documento MDT *Toolkit referência*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyLocation"></a>Configurar as propriedades que são utilizadas para a implementação, por localização  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyLocation"></a> Configurar as propriedades que são utilizadas para a implementação, por localização  
  O Assistente de base de dados de configuração configura o **prioridade** propriedade e cria a secção correspondente no ficheiro CustomSettings.ini para implementação pelo localização utilizando a BD do MDT. 193 tabela lista as secções criadas e uma breve descrição do objetivo de cada secção. Consulte o exemplo de ficheiro CustomSettings.ini no 193 de tabela.  
 
 ### <a name="table-193-sections-in-the-customsettingsini-file-for-deployment-by-location-and-their-purpose"></a>193 de tabela. Secções no ficheiro CustomSettings.ini, para a implementação, por localização e o respetivo objetivo  
@@ -10769,7 +10768,7 @@ ParameterCondition=OR
 
  Para obter mais informações sobre as vistas de base de dados e tabelas que gere o Deployment Workbench, consulte a secção "Tabelas e vistas no MDT BD", no documento MDT *Toolkit referência*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyComputerMakeandModel"></a>Configurar as propriedades que são utilizadas para implementação pelo computador marca e modelo  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyComputerMakeandModel"></a> Configurar as propriedades que são utilizadas para implementação pelo computador marca e modelo  
  O Assistente de base de dados de configuração configura o **prioridade** propriedade e cria a secção correspondente no ficheiro CustomSettings.ini para implementação ao computador e o modelo utilizando a BD do MDT. Tabela 194 apresenta uma lista de secções criadas e fornece uma descrição breve do objetivo de cada. Consulte o exemplo de ficheiro CustomSettings.ini no 194 de tabela.  
 
 ### <a name="table-194-sections-in-the-customsettingsini-file-for-deployment-by-computer-make-and-model-and-their-purpose"></a>194 de tabela. Secções no ficheiro CustomSettings.ini para implementação pelo computador marca e o modelo e o respetivo objetivo  
@@ -10784,7 +10783,7 @@ ParameterCondition=OR
 
  Para obter mais informações sobre as vistas de base de dados e tabelas que gere o Deployment Workbench, consulte a secção "Tabelas e vistas no MDT BD", no documento MDT *Toolkit referência*.  
 
-#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyRole"></a>Configurar as propriedades que são utilizadas para a implementação através da função  
+#####  <a name="ConfigurePropertiesThatAreUsedforDeploymentbyRole"></a> Configurar as propriedades que são utilizadas para a implementação através da função  
  O Assistente de base de dados de configuração configura o **prioridade** propriedade e cria a secção correspondente no ficheiro CustomSettings.ini, para implementações por função utilizando a BD do MDT. Tabela 195 apresenta uma lista de secções criadas e fornece uma breve descrição do objetivo para cada. Consulte o exemplo de ficheiro CustomSettings.ini na tabela 195.  
 
 ### <a name="table-195-sections-in-the-customsettingsini-file-for-deployment-by-roles-and-their-purpose"></a>195 de tabela. Secções no ficheiro CustomSettings.ini, para a implementação por funções e o respetivo objetivo  
@@ -10801,7 +10800,7 @@ ParameterCondition=OR
 
  Para obter mais informações sobre a vista da base de dados e tabelas que gere o Deployment Workbench, consulte a secção "Tabelas e vistas no MDT BD", no documento MDT *Toolkit referência*.  
 
-###  <a name="ExtendingtheMDTDBSchema"></a>Expandir o esquema da BD de MDT  
+###  <a name="ExtendingtheMDTDBSchema"></a> Expandir o esquema da BD de MDT  
  Embora a BD do MDT contém a maioria das definições de configuração comum que precisa na sua implementação, podem existir instâncias em que precisa de expandir as informações associadas um ou mais das entidades na base de dados MDT, tais como computadores, funções , localizações, ou as torna e modelos.  
 
  Se assim for, tem de expandir o esquema para um ou mais das tabelas e vistas na base de dados do MDT. Se expandir o esquema para as tabelas, também poderá ter de modificar as vistas que dependem nessas tabelas. Expandir o esquema para o:  
@@ -10826,7 +10825,7 @@ ParameterCondition=OR
 
 6.  Criar um passo de sequência de tarefas que faça referência a nova coluna, conforme descrito em [referenciar a coluna nova no passo de sequência de tarefas](#ReferencetheNewColumninaTaskSequenceStep).  
 
-####  <a name="DeterminetheTablesandViewstoBeModified"></a>Determinar as tabelas e vistas a modificar  
+####  <a name="DeterminetheTablesandViewstoBeModified"></a> Determinar as tabelas e vistas a modificar  
  Determine as tabelas e vistas de ser modificados ao rever o esquema as tabelas e vistas na base de dados do MDT. A tabela mais frequentemente modificada é **definições**, que são comuns a todas as vistas, tais como o **ComputerSettings** ou **LocationSettings**.  
 
 > [!TIP]
@@ -10847,14 +10846,14 @@ ParameterCondition=OR
 
 -   Obter as informações através de **LocationSettings** vista  
 
-####  <a name="CreateaBackupoftheMDTDB"></a>Criar uma cópia de segurança da base de dados do MDT  
+####  <a name="CreateaBackupoftheMDTDB"></a> Criar uma cópia de segurança da base de dados do MDT  
  Como melhor prática, crie uma cópia de segurança da base de dados do MDT antes de modificar as tabelas e vistas na mesma. Crie uma cópia de segurança da BD do MDT utilizando:  
 
 -   **SQL Server Management Studio**. Para obter mais informações sobre como efetuar cópias de segurança da base de dados ao utilizar este método, consulte "como: Uma cópia de segurança de base de dados (SQL Server Management Studio) "no SQL Server Books Online, incluído com o SQL Server.  
 
 -   **Solução SQL Server existente cópia de segurança na sua organização**. Para obter mais informações sobre como efetuar cópias de segurança da base de dados ao utilizar este método, consulte a documentação para a sua solução de cópia de segurança ou contacte o seu DBA.  
 
-####  <a name="ModifytheTable"></a>Modificar a tabela  
+####  <a name="ModifytheTable"></a> Modificar a tabela  
  Modificar a tabela adicionando novas colunas ao mesmo. Adicione novas colunas de tabelas na base de dados do MDT com:  
 
 -   **SQL Server Management Studio**. Para obter mais informações sobre como adicionar uma coluna com o SQL Server Management Studio, consulte "como: Inserir colunas de tabelas (ferramentas de base de dados Visual) "no SQL Server Books Online, incluído com o SQL Server.  
@@ -10889,7 +10888,7 @@ ParameterCondition=OR
 |**Permitir valores nulos** |Sim|  
 |**Tipo de dados** |char(20)|  
 
-####  <a name="ModifyandRefreshtheDependentViews"></a>Modificar e Atualize as vistas dependentes  
+####  <a name="ModifyandRefreshtheDependentViews"></a> Modificar e Atualize as vistas dependentes  
  Depois da coluna adicionada à tabela, modifique todas as vistas que pretende apresentar para a coluna recentemente criada. Normalmente, deverá adicionar a nova coluna a vistas personalizadas que tenha criado.  
 
 > [!NOTE]
@@ -10917,7 +10916,7 @@ ParameterCondition=OR
 
  Banco Woodgrove não é necessário modificar todas as vistas, como o **LocationSettings** vista já devolve todas as colunas do **definições** tabela. No entanto, o Banco Woodgrove tiver executado o **sp_refreshview** armazenados procedimento para atualizar o **ComputerSettings**, **LocationSettings**, **MakeModelSettings** , ou **RoleSettings** vistas, que referenciam a tabela de definições. Isto permite que todas as vistas devolver o nome de computador do servidor de antivírus, se necessário.  
 
-####  <a name="ReferencetheNewColumnintheCustomSettings.iniFile"></a>Referência a nova coluna no ficheiro CustomSettings.ini  
+####  <a name="ReferencetheNewColumnintheCustomSettings.iniFile"></a> Referência a nova coluna no ficheiro CustomSettings.ini  
  Depois de adicionar a coluna à tabela e alterar as vistas adequadas, configure o ficheiro CustomSettings.ini referenciar a coluna de novo. Para fazer referência a nova coluna no ficheiro CustomSettings.ini, execute os seguintes passos:  
 
 1.  Adicione uma referência para a secção de consulta no **prioridade** linha no ficheiro CustomSettings.ini, se necessário.  
@@ -10954,7 +10953,7 @@ Table=LocationSettings
 Parameters=DefaultGateway  
 ```  
 
-####  <a name="ReferencetheNewColumninaTaskSequenceStep"></a>Referência a nova coluna no passo de sequência de tarefas  
+####  <a name="ReferencetheNewColumninaTaskSequenceStep"></a> Referência a nova coluna no passo de sequência de tarefas  
  Agora que o ficheiro CustomSettings.ini é modificado para devolver as definições de configuração a partir da nova coluna, está pronto para fazer referência a nova coluna no passo de sequência de tarefas. Referência a nova coluna como uma variável de sequência de tarefas no passo de sequência de tarefas. A variável terão o mesmo nome que a coluna. Por exemplo, se criar uma coluna chamada **Zip_Code**, a variável de sequência de tarefas será designada **Zip_Code**.  
 
  **Exemplo: Como o Banco Woodgrove referenciado a nova coluna no passo de sequência de tarefas**  
@@ -10963,7 +10962,7 @@ Parameters=DefaultGateway
 
  `avsetup.exe -server %AVSERVER%`  
 
-##  <a name="MonitoringMDTDeployments"></a>Monitorizar implementações de MDT  
+##  <a name="MonitoringMDTDeployments"></a> Monitorizar implementações de MDT  
  Pode monitorizar implementações utilizando a funcionalidade de monitorização suportada pelos scripts do MDT e o Deployment Workbench do MDT. A funcionalidade de monitorização de implementação MDT permite-lhe ver o processo de implementação MDT para implementações LTI, ZTI e UDI. Pode ver o processo de implementação no Deployment Workbench ou utilizando o **Get-MDTMonitorData** cmdlet.  
 
  Monitorizar implementações do MDT com o MDT funcionalidades de monitorização, efetuando os seguintes passos:  
@@ -10972,7 +10971,7 @@ Parameters=DefaultGateway
 
 2.  Ver o processo de implementação do MDT, tal como descrito no [progresso de implementação do MDT vista](#ViewMDTDeploymentProgress).  
 
-###  <a name="EnableMDTDeploymentMonitoring"></a>Monitorização de implementação de ativar MDT  
+###  <a name="EnableMDTDeploymentMonitoring"></a> Monitorização de implementação de ativar MDT  
  Para poder monitorizar implementações do MDT, tem de ativar a monitorização de implementação MDT. O processo para ativar a monitorização de implementação do MDT é diferente para implementações LTI e implementações com base no Configuration Manager (incluindo implementações ZTI e UDI).  
 
  Ative a monitorização de implementação MDT por:  
@@ -10981,7 +10980,7 @@ Parameters=DefaultGateway
 
 -   Ativar o MDT monitorização para ZTI ou UDI implementações conforme descrito em [ativar ZTI ou a monitorização de implementação de UDI](#EnablingZTIorUDIDeploymentMonitoring)  
 
-####  <a name="EnablingLTIDeploymentMonitoring"></a>Ativar a implementação LTI monitorização  
+####  <a name="EnablingLTIDeploymentMonitoring"></a> Ativar a implementação LTI monitorização  
  Antes de implementar computadores utilizando LTI, ative a monitorização do processo de implementação LTI. Ativar a monitorização de **monitorização** separador na caixa de diálogo de propriedades da partilha de implementação.  
 
 ###### <a name="to-enable-monitoring-of-the-lti-deployment-process"></a>Para ativar a monitorização do processo de implementação LTI  
@@ -11002,7 +11001,7 @@ Parameters=DefaultGateway
 
 7.  Feche todas as janelas abertas e caixas de diálogo.  
 
-####  <a name="EnablingZTIorUDIDeploymentMonitoring"></a>Ativar a monitorização de implementação de UDI ou ZTI  
+####  <a name="EnablingZTIorUDIDeploymentMonitoring"></a> Ativar a monitorização de implementação de UDI ou ZTI  
  Antes de implementar computadores utilizando ZTI ou UDI, ative a monitorização do processo de implementação de presumem no Deployment Workbench. Ativar a monitorização de **monitorização** separador na partilha de implementação **propriedades** caixa de diálogo apenas para implementações LTI.  
 
  Em seguida, copie o **EventService** linha propriedade no **regras** separador na partilha de implementação **propriedades** caixa de diálogo para o ficheiro CustomSettings.ini no MDT ficheiros de pacote na Gestor de configuração. Atualize o pacote de ficheiros do MDT em todos os pontos de distribuição.  
@@ -11015,7 +11014,7 @@ Parameters=DefaultGateway
 
      Segue-se um exemplo do **EventService** linha da propriedade:  
 
-     `EventService=http://WDG-MDT-01:9800`  
+     `EventService=https://WDG-MDT-01:9800`  
 
      Para obter mais informações sobre a personalização os ficheiros de configuração do MDT para incluir o **EventService** linha de propriedade, consulte "passo 3-4: Personalizar os ficheiros de configuração do MDT para o computador de referência"no*guia rápido para o Microsoft System Center 2012 R2 Configuration Manager* para ambientes do Configuration Manager.  
 
@@ -11023,7 +11022,7 @@ Parameters=DefaultGateway
 
      Para obter mais informações sobre como atualizar o MDT ficheiros de pacote para pontos de distribuição, consulte "passo 3-5: Atualizar os pontos de distribuição para o pacote de ficheiros de definições personalizado"no *guia rápido para o Microsoft System Center 2012 R2 Configuration Manager* para ambientes do Configuration Manager.  
 
-###  <a name="ViewMDTDeploymentProgress"></a>Progresso da implementação de vista MDT  
+###  <a name="ViewMDTDeploymentProgress"></a> Progresso da implementação de vista MDT  
  Pode ver o progresso de implementação do MDT Deployment Workbench a utilizar ou **Get-MDTMonitorData** cmdlet.  
 
 > [!NOTE]
@@ -11035,7 +11034,7 @@ Parameters=DefaultGateway
 
 2.  Ver o MDT implementação progresso utilizando o **Get-MDTMonitorData** cmdlet, conforme descrito em [visualizar o MDT implementação progresso utilizando o Cmdlet Get-MDTMonitorData](#ViewingtheMDTDeploymentProgressUsingtheGetMDTMonitorDataCmdlet).  
 
-####  <a name="ViewingtheMDTDeploymentProgressintheDeploymentWorkbench"></a>Ver o progresso de implementação do MDT no Deployment Workbench  
+####  <a name="ViewingtheMDTDeploymentProgressintheDeploymentWorkbench"></a> Ver o progresso de implementação do MDT no Deployment Workbench  
  Ver o processo de implementação MDT no **monitorização** nó na partilha de implementação. O progresso do processo de implementação LTI é apresentado como uma percentagem de conclusão.  
 
 > [!NOTE]
@@ -11071,7 +11070,7 @@ Parameters=DefaultGateway
     |**Passo** |O passo de sequência tarefas atual a ser executado.|  
     |**Progresso** |O progresso global da sequência de tarefas. A barra de progresso indica quantos passos de sequência de tarefas terem sido executados fora do número total de passos de sequência de tarefas.|  
     |**Iniciar** |Tempo que o processo de implementação foi iniciado.|  
-    |**Fim** |Tempo que o processo de implementação terminado.|  
+    |**End** |Tempo que o processo de implementação terminado.|  
     |**Elapsed** |O período de tempo, o processo de implementação tem estado em execução ou demorou a execução se foi concluído o processo de implementação.|  
     |**Erro** |O número de erros encontrados durante o processo de implementação.|  
     |**Avisos** |O número de avisos durante o processo de implementação.|  
@@ -11085,7 +11084,7 @@ Parameters=DefaultGateway
 
 9. Feche o Deployment Workbench  
 
-####  <a name="ViewingtheMDTDeploymentProgressUsingtheGetMDTMonitorDataCmdlet"></a>Ver o progresso de implementação do MDT com o Cmdlet Get-MDTMonitorData  
+####  <a name="ViewingtheMDTDeploymentProgressUsingtheGetMDTMonitorDataCmdlet"></a> Ver o progresso de implementação do MDT com o Cmdlet Get-MDTMonitorData  
  Pode ver o através de processo de implementação do MDT a **Get-MDTMonitorData** cmdlet. Este cmdlet é incluído no MDT PowerShell **microsoft.bdd.pssnapin** snap-in, que está incluída no MDT. Para utilizar este cmdlet, monitorização tem de estar ativada conforme descrito em [Ativar monitorização de implementação MDT](#EnableMDTDeploymentMonitoring).  
 
 ###### <a name="to-view-mdt-deployment-progress-using-the-get-mdtmonitordata-cmdlet"></a>Para ver o progresso de implementação do MDT com o cmdlet Get-MDTMonitorData  
@@ -11150,15 +11149,15 @@ Parameters=DefaultGateway
 
 5.  Feche a consola do Windows PowerShell.  
 
-##  <a name="SupportingWindowsREandDaRT"></a>Suporte do Windows RE e DaRT  
+##  <a name="SupportingWindowsREandDaRT"></a> Suporte do Windows RE e DaRT  
  MDT integrado no Windows RE e DaRT para fornecer suporte avançado e funcionalidades de resolução de problemas. Suporte de MDT para Windows RE e DaRT é o seguinte:  
 
 -   LTI suporta Windows RE e DaRT nas imagens de arranque LTI e na partição de recuperação no computador de destino, tal como descrito no [Windows RE que suportam e DaRT no LTI](#SupportingWindowsREandDaRTinLTI).  
 
 -   ZTI e UDI suportam DaRT nas imagens de arranque, conforme descrito no [suporte DaRT ZTI e UDI imagens de arranque](#SupportingDaRTinZTIandUDIBootImages).  
 
-###  <a name="SupportingWindowsREandDaRTinLTI"></a>Suporte do Windows RE e DaRT no LTI  
- MDT suporta a capacidade de implementar as partições do Windows RE para computadores. Além disso, se a sua organização estiver licenciada para o [pacote de otimização de ambiente de trabalho Microsoft](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/default.aspx) (MDOP), pode ser incluídos DaRT as partições do Windows RE.  
+###  <a name="SupportingWindowsREandDaRTinLTI"></a> Suporte do Windows RE e DaRT no LTI  
+ MDT suporta a capacidade de implementar as partições do Windows RE para computadores. Além disso, se a sua organização estiver licenciada para o [pacote de otimização de ambiente de trabalho Microsoft](https://technet.microsoft.com/windows/mdop.aspx) (MDOP), pode ser incluídos DaRT as partições do Windows RE.  
 
 > [!NOTE]
 >  MDT não suporta o Windows RE no Windows 7 ao utilizar o Windows ADK.  
@@ -11171,7 +11170,7 @@ Parameters=DefaultGateway
 
 3.  Personalizar a configuração de DaRT quando DaRT está integrado com LTI, conforme descrito em [personalizar DaRT quando integrada com LTI](#CustomizeDaRTWhenIntegratedwithLTI).  
 
-####  <a name="EnableWindowsRESupportinLTI"></a>Ativar o Windows RE suporte nas LTI  
+####  <a name="EnableWindowsRESupportinLTI"></a> Ativar o Windows RE suporte nas LTI  
  Windows RE ajuda os utilizadores a resolver problemas e recuperar a partir de problemas relacionados com o arranque nos respetivos computadores. Quando uma partilha de implementação é atualizada, o Deployment Workbench gera automaticamente os ficheiros. ISO e. wim que contém o suporte de Windows RE.  
 
 > [!NOTE]
@@ -11185,8 +11184,8 @@ Parameters=DefaultGateway
 
  O **adicionar recuperação do Windows (WinRE)** passo de sequência de tarefas é executado quando a **PrepareWinRE** propriedade está definida como um valor de **Sim**. Para obter mais informações sobre o **PrepareWinRE** propriedade, consulte a propriedade "PrepareWinRE" no documento MDT *Toolkit referência*.  
 
-####  <a name="EnableDaRTSupportinLTI"></a>Ativar o suporte de DaRT no LTI  
- DaRT é incluído como parte do [pacote de otimização de ambiente de trabalho Microsoft](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/default.aspx), que é fornecido como parte do Software Assurance da Microsoft. Pode incluir DaRT nas partições do Windows RE.  
+####  <a name="EnableDaRTSupportinLTI"></a> Ativar o suporte de DaRT no LTI  
+ DaRT é incluído como parte do [pacote de otimização de ambiente de trabalho Microsoft](https://technet.microsoft.com/windows/mdop.aspx), que é fornecido como parte do Software Assurance da Microsoft. Pode incluir DaRT nas partições do Windows RE.  
 
  Segue-se um resumo das funcionalidades DaRT:  
 
@@ -11204,7 +11203,7 @@ Parameters=DefaultGateway
 
 -   DaRT versão 8 (utilizado com o Windows 8), conforme descrito em [ativar suporte de 8 DaRT no LTI](#EnableDaRT8SupportinLTI)  
 
-#####  <a name="EnableDaRT7SupportinLTI"></a>Ativar o suporte de DaRT 7 no LTI  
+#####  <a name="EnableDaRT7SupportinLTI"></a> Ativar o suporte de DaRT 7 no LTI  
  A versão de daRT 7 é para utilização com o Windows 7. Para obter informações sobre como ativar DaRT versão 8 para utilizar com o Windows 8, consulte [ativar suporte de 8 DaRT no LTI](#EnableDaRT8SupportinLTI).  
 
 ###### <a name="to-enable-dart-7-support-in-lti"></a>Para ativar o suporte de DaRT 7 no LTI  
@@ -11244,7 +11243,7 @@ Parameters=DefaultGateway
 
 10. Feche todas as janelas abertas e caixas de diálogo.  
 
-#####  <a name="EnableDaRT8SupportinLTI"></a>Ativar o suporte de DaRT 8 no LTI  
+#####  <a name="EnableDaRT8SupportinLTI"></a> Ativar o suporte de DaRT 8 no LTI  
  Versão de daRT 8 é para utilização com o Windows 8. Para obter informações sobre como ativar DaRT 7 para utilização com o Windows 7, consulte [ativar suporte de 7 DaRT no LTI](#EnableDaRT7SupportinLTI).  
 
 ###### <a name="to-enable-dart-8-support-in-lti"></a>Para ativar o suporte de DaRT 8 no LTI  
@@ -11294,7 +11293,7 @@ Parameters=DefaultGateway
 
 11. Feche todas as janelas abertas e caixas de diálogo.  
 
-####  <a name="CustomizeDaRTWhenIntegratedwithLTI"></a>Personalizar DaRT quando integrado com LTI  
+####  <a name="CustomizeDaRTWhenIntegratedwithLTI"></a> Personalizar DaRT quando integrado com LTI  
  Pode personalizar DaRT e, em seguida, guarde as personalizações no LTI, para que as partições implementadas que incluem DaRT estão consistentemente configuradas. Pode fazê-lo ao criar uma nova imagem de recuperação de DaRT que inclui as definições de configuração que pretendidos ao nível, em seguida, copiar o ficheiro de DartConfig.dat a partir da imagem de recuperação de DaRT recém configurada para uma partilha de implementação LTI.  
 
 ###### <a name="to-customize-dart-when-integrated-with-lti"></a>Para personalizar DaRT quando integrado com LTI  
@@ -11307,7 +11306,7 @@ Parameters=DefaultGateway
 
      Para obter mais informações sobre como criar uma nova imagem de recuperação de DaRT para:  
 
-    -   DaRT 7, consulte [como criar e testar Diagnostics e Recovery Toolkit (DaRT 7) recuperação imagem – parte I](http://blogs.technet.com/b/aviraj/archive/2011/10/01/how-to-create-amp-test-diagnostics-amp-recovery-toolkit-dart-7-recovery-image-part-i.aspx).  
+    -   DaRT 7, consulte [como criar e testar Diagnostics e Recovery Toolkit (DaRT 7) recuperação imagem – parte I](https://blogs.technet.microsoft.com/aviraj/2011/10/01/how-to-create-test-diagnostics-recovery-toolkit-dart-7-recovery-imagepart-i/).  
 
     -   DaRT 8, consulte a secção "Criar o DaRT 8 recuperação imagem," no *Guia Microsoft Diagnostics e do administrador do conjunto de ferramentas de recuperação*, que está incluída no DaRT 8.  
 
@@ -11319,7 +11318,7 @@ Parameters=DefaultGateway
 
      Para obter mais informações sobre a atualização de uma partilha de implementação, consulte [atualizar uma partilha de implementação no Deployment Workbench](#UpdateaDeploymentShareintheDeploymentWorkbench).  
 
-###  <a name="SupportingDaRTinZTIandUDIBootImages"></a>Suporte DaRT ZTI e UDI imagens de arranque  
+###  <a name="SupportingDaRTinZTIandUDIBootImages"></a> Suporte DaRT ZTI e UDI imagens de arranque  
  MDT suporta DaRT versão 7 (para Windows 7) e DaRT versão 8 (para o Windows 8) na ZTI e UDI imagens de arranque. Este suporte disponibiliza funcionalidades de DaRT quando as imagens de arranque ZTI ou UDI estão em execução nos computadores de destino.  
 
  Depois de uma imagem de arranque ZTI ou UDI está ativada para DaRT, o **utilizar o pacote do Toolkit** passo de sequência de tarefas irá reconhece que os ficheiros de controlo remoto de DaRT estão presentes e irão iniciar automaticamente o agente de controlo remoto de DaRT. O agente de controlo remoto de DaRT fornece controlo remoto do computador de destino durante o processo de implementação, o que ajuda a resolver problemas de implementação.  
@@ -11330,7 +11329,7 @@ Parameters=DefaultGateway
 
 -   DaRT versão 8 (utilizado com o Windows 8), conforme descrito em [ativar suporte de 8 DaRT ZTI e UDI imagens de arranque](#EnableDaRT8SupportinZTIandUDIBootImages).  
 
-####  <a name="EnableDaRT7SupportinZTIandUDIBootImages"></a>Ativar o suporte de DaRT 7 no ZTI e UDI imagens de arranque  
+####  <a name="EnableDaRT7SupportinZTIandUDIBootImages"></a> Ativar o suporte de DaRT 7 no ZTI e UDI imagens de arranque  
  A versão de daRT 7 é para utilização com o Windows 7. Para obter informações sobre como ativar DaRT versão 8 para utilizar com o Windows 8, consulte [ativar suporte de 8 DaRT ZTI e UDI imagens de arranque](#EnableDaRT8SupportinZTIandUDIBootImages).  
 
 ###### <a name="to-enable-dart-7-support-in-zti-and-udi-boot-images"></a>Para ativar o suporte de DaRT 7 no ZTI e UDI imagens de arranque  
@@ -11357,7 +11356,7 @@ Parameters=DefaultGateway
 
 5.  Feche todas as janelas abertas e caixas de diálogo.  
 
-####  <a name="EnableDaRT8SupportinZTIandUDIBootImages"></a>Ativar o suporte de DaRT 8 no ZTI e UDI imagens de arranque  
+####  <a name="EnableDaRT8SupportinZTIandUDIBootImages"></a> Ativar o suporte de DaRT 8 no ZTI e UDI imagens de arranque  
  Versão de daRT 8 é para utilização com o Windows 8. Para obter informações sobre como ativar DaRT 7 para utilização com o Windows 7, consulte [ativar suporte para 7 DaRT no ZTI e UDI imagens de arranque](#EnableDaRT7SupportinZTIandUDIBootImages).  
 
  Ative o suporte de DaRT com base no sistema operativo em execução no computador no qual instalou o MDT. DaRT 8 só pode ser instalado no Windows 8. Se instalar o MDT num computador com:  
@@ -11366,7 +11365,7 @@ Parameters=DefaultGateway
 
 -   Sistemas operativos antes do Windows 8, em seguida, execute uma instalação administrativa num computador com o Windows 8 e, em seguida, copie os ficheiros Toolsx86.cab e Toolsx64.cab ao computador com o MDT conforme descrito em [ativar suporte de 8 DaRT ZTI e UDI Imagens de arranque para sistemas operativos antes do Windows 8](#EnableDaRT8SupportinZTIandUDIBootImagesforOperatingSystemsPriortoWindows8).  
 
-#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforWindows8OperatingSystems"></a>Ativar o suporte de DaRT 8 no ZTI e UDI imagens de arranque para sistemas operativos Windows 8  
+#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforWindows8OperatingSystems"></a> Ativar o suporte de DaRT 8 no ZTI e UDI imagens de arranque para sistemas operativos Windows 8  
  Ativar o suporte de DaRT 8 nas imagens de arranque ZTI e UDI para sistemas de operativos do Windows 8 requer a instalação do DaRT 8 no computador no qual instalou o MDT. Depois de DaRT 8 é instalado, o Deployment Workbench no MDT copia automaticamente os ficheiros de DaRT 8 necessários para as localizações adequadas.  
 
 ###### <a name="to-enable-dart-8-support-in-zti-and-udi-boot-images-for-windows-8-operating-systems"></a>Para ativar o suporte de DaRT 8 em ZTI e UDI imagens de arranque para sistemas operativos Windows 8  
@@ -11393,7 +11392,7 @@ Parameters=DefaultGateway
 
 4.  Feche todas as janelas abertas e caixas de diálogo.  
 
-#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforOperatingSystemsPriortoWindows8"></a>Ativar o suporte de DaRT 8 ZTI e UDI imagens de arranque para sistemas operativos antes do Windows 8  
+#####  <a name="EnableDaRT8SupportinZTIandUDIBootImagesforOperatingSystemsPriortoWindows8"></a> Ativar o suporte de DaRT 8 ZTI e UDI imagens de arranque para sistemas operativos antes do Windows 8  
  Ativar a 8 de DaRT suporte nas imagens de arranque ZTI e UDI para sistemas operativos antes do Windows 8 requer uma instalação administrativa de DaRT 8 num computador com o sistema operativo antes do Windows 8. Depois de DaRT 8 é instalado, terá de copiar manualmente os ficheiros de DaRT 8 para as localizações adequadas no computador com o MDT.  
 
 ###### <a name="to-enable-dart-8-support-in-zti-and-udi-boot-images-for-operating-systems-prior-to-windows-8"></a>Para ativar o suporte de DaRT 8 em ZTI e UDI imagens de arranque para sistemas operativos antes do Windows 8  
@@ -11426,7 +11425,7 @@ Parameters=DefaultGateway
 
 5.  Feche todas as janelas abertas e caixas de diálogo.  
 
-##  <a name="PreparingtheMDTMigrationResources"></a>Preparar os recursos de migração do MDT  
+##  <a name="PreparingtheMDTMigrationResources"></a> Preparar os recursos de migração do MDT  
  Durante a implementação aos computadores de destino, os scripts de implementação ligar às partilhas de implementação e pastas partilhadas. Crie contas para os scripts a utilizar quando aceder a estes recursos.  
 
  Prepare os recursos de migração do MDT por:  
@@ -11437,7 +11436,7 @@ Parameters=DefaultGateway
 
 -   Configurar o acesso a outros recursos, tal como descrito no [configurar o acesso a outros recursos](#ConfiguringAccesstoOtherResources)  
 
-###  <a name="CreatingAdditionalSharedFolders"></a>Criar adicionais pastas partilhadas  
+###  <a name="CreatingAdditionalSharedFolders"></a> Criar adicionais pastas partilhadas  
  Antes de iniciar a implementação, crie pastas partilhadas adicionais para armazenar os dados de migração de estado de utilizador e os registos de implementação. 198 tabela lista as pastas partilhadas que tem de ser criadas e descreve a finalidade de cada.  
 
 ### <a name="table-198-shared-folders-and-their-descriptions"></a>198 de tabela. Pastas partilhadas e as respetivas descrições  
@@ -11450,7 +11449,7 @@ Parameters=DefaultGateway
 > [!NOTE]
 >  Os ficheiros na tabela 198 são recomendados os nomes das pastas partilhadas. Utilize um nome para estes pastas partilhadas. No entanto, o resto do processo de implementação refere-se para estas pastas partilhadas por estes nomes.  
 
-###  <a name="ConfiguringSharedFolderPermissions"></a>Configurar permissões de pasta partilhada  
+###  <a name="ConfiguringSharedFolderPermissions"></a> Configurar permissões de pasta partilhada  
  Depois de criar as pastas partilhadas adicionais listadas na tabela 198, configure as permissões de pasta partilhada apropriada. Certifique-se de que os utilizadores não autorizados não conseguem aceder às informações de migração de estado de utilizador e os registos de implementação. Apenas o computador de destino criar as informações de migração de estado de utilizador e os registos de implementação deve ter acesso a estas pastas.  
 
 ##### <a name="to-configure-the-shared-folder-permissions-for-the-folders-listed-in-table-198"></a>Para configurar as permissões de pasta partilhada para as pastas listadas na tabela 198  
@@ -11489,7 +11488,7 @@ Parameters=DefaultGateway
 
 -   Implementações ZTI substituindo **utilizadores autenticados** nos passos acima, com uma conta de acesso de rede no Configuration Manager  
 
-###  <a name="ConfiguringAccesstoOtherResources"></a>Configurar o acesso a outros recursos  
+###  <a name="ConfiguringAccesstoOtherResources"></a> Configurar o acesso a outros recursos  
  Para além das pastas partilhadas que acabou de criar, os scripts de MDT poderão precisar de acesso a outros recursos. Os recursos incluem os servidores de aplicação ou a base de dados (tais como o Microsoft SQL Server ou o Microsoft Exchange Server).  
 
  É concedido acesso para as credenciais especificadas no:  
@@ -11514,7 +11513,7 @@ Parameters=DefaultGateway
     > [!NOTE]
     >  Outras ligações para os servidores do mesmos, tais como Pipes nomeados e RPC, utilizam as mesmas credenciais listadas acima. Utilize o script de ZTIConnect.wsf para estabelecer estas ligações.  
 
-##  <a name="PreparingWindowsDeploymentServices"></a>Preparar os serviços de implementação do Windows  
+##  <a name="PreparingWindowsDeploymentServices"></a> Preparar os serviços de implementação do Windows  
  Pode utilizar os serviços de implementação do Windows em conjunto com o MDT para iniciar automaticamente imagens de arranque nos computadores de destino. Estas imagens de arranque podem ser imagens do Windows PE ou imagens personalizadas que podem implementar sistemas operativos diretamente aos computadores de destino.  
 
  Prepare os serviços de implementação do Windows para utilização com o MDT por:  
@@ -11525,7 +11524,7 @@ Parameters=DefaultGateway
 
 -   Preparar os serviços de implementação do Windows para utilização em implementações de UDI conforme descrito em [Preparar serviços de implementação para implementações de UDI](#PreparingWindowsDeploymentServicesforUDIDeployments)  
 
-###  <a name="PreparingWindowsDeploymentServicesforLTIDeployments"></a>Preparar os serviços de implementação para implementações LTI  
+###  <a name="PreparingWindowsDeploymentServicesforLTIDeployments"></a> Preparar os serviços de implementação para implementações LTI  
  Pode utilizar os serviços de implementação do Windows em implementações LTI das seguintes formas:  
 
 -   **Iniciar o Windows PE nos computadores de destino**. O início do cenário de implementação do novo computador, a segunda metade do cenário de implementação de computador substituir ambos inicie o computador de destino no Windows PE. Nestes cenários, pode automatizar a partir do Windows PE utilizando os serviços de implementação do Windows.  
@@ -11534,11 +11533,9 @@ Parameters=DefaultGateway
 
  Para obter mais informações sobre como configurar e a configuração dos serviços de implementação do Windows, consulte:  
 
--   [Serviços de implementação do Windows](http://technet.microsoft.com/library/hh831764.aspx)  
+-   [Serviços de implementação do Windows](https://technet.microsoft.com/library/hh831764.aspx)  
 
 -   O ficheiro de ajuda de serviços de implementação do Windows incluído nos serviços de implementação do Windows  
-
--   O documento técnico, [guia passo a passo serviços de implementação do Windows](http://www.microsoft.com/download/details.aspx?displaylang=en&id=17556)  
 
  Prepare os serviços de implementação para implementações LTI por:  
 
@@ -11548,7 +11545,7 @@ Parameters=DefaultGateway
 
 -   Ativar a implementação de multicast de serviços de implementação do Windows das imagens nos serviços de implementação do Windows para implementações LTI, conforme descrito em [ativar Windows implementação dos serviços de implementação Multicast para implementações LTI](#EnableWindowsDeploymentServicesMulticastDeploymentforLTIDeployments)  
 
-####  <a name="AddLTIBootImagestoWindowsDeploymentServices"></a>Adicionar imagens de arranque LTI aos serviços de implementação do Windows  
+####  <a name="AddLTIBootImagestoWindowsDeploymentServices"></a> Adicionar imagens de arranque LTI aos serviços de implementação do Windows  
  Pode adicionar os ficheiros WIM de imagem de arranque de LTI na pasta de arranque de uma partilha de implementação para os serviços de implementação do Windows. Se o fizer, permite que os serviços de implementação do Windows para iniciar automaticamente a implementação LTI iniciando imagens de arranque LTI.  
 
 > [!NOTE]
@@ -11560,9 +11557,9 @@ Parameters=DefaultGateway
 
 -   "Adicionar uma imagem," na implementação dos serviços de ajuda do Windows, que está incluído nos serviços de implementação do Windows  
 
--   [Guia de introdução de serviços de implementação do Windows a obter](http://technet.microsoft.com/library/jj648426.aspx)  
+-   [Guia de introdução de serviços de implementação do Windows a obter](https://technet.microsoft.com/library/jj648426.aspx)  
 
-####  <a name="PrestageTargetComputersforWindowsDeploymentServicesforLTIDeployments"></a>Testa previamente os computadores de destino para serviços de implementação para implementações LTI  
+####  <a name="PrestageTargetComputersforWindowsDeploymentServicesforLTIDeployments"></a> Testa previamente os computadores de destino para serviços de implementação para implementações LTI  
  Pode testa previamente os computadores de cliente PXE nos domínios de AD DS. Quando os computadores de destino estiverem pré-configurados, as contas de computador existem em domínios de AD DS (também denominado *conhecido computadores*). Computadores de destino que não são pré-configurados não têm contas de computador nos domínios de AD DS (também designado por computadores desconhecidos).  
 
 > [!NOTE]
@@ -11583,9 +11580,6 @@ Parameters=DefaultGateway
 
 4.  No **gerido** caixa de diálogo, selecione o **este é um computador gerido** caixa de verificação. No **de ID exclusivo do computador (GUID/UUID)** caixa, escreva ***guid_uuid*** (onde *guid_uuid* é o GUID do UUID do computador) e, em seguida, clique em **seguinte**.  
 
-    > [!NOTE]
-    >  Para mais informações sobre como localizar o GUID para computadores de destino, consulte o documento do Microsoft TechNet, [localize o GUID para computadores cliente](http://technet.microsoft.com/library/cc739558.aspx).  
-
 5.  No **servidor anfitrião** , selecione uma das seguintes opções e, em seguida, clique em **seguinte**:  
 
     -   **Qualquer servidor de instalação remota disponível**. Esta opção especifica que este computador pode ser servido por qualquer servidor de serviços de implementação do Windows.  
@@ -11596,7 +11590,7 @@ Parameters=DefaultGateway
 
 7.  Feche todas as abra windows.  
 
-####  <a name="EnableWindowsDeploymentServicesMulticastDeploymentforLTIDeployments"></a>Ativar a implementação Multicast do serviços de implementação de Windows para implementações LTI  
+####  <a name="EnableWindowsDeploymentServicesMulticastDeploymentforLTIDeployments"></a> Ativar a implementação Multicast do serviços de implementação de Windows para implementações LTI  
  Implementação multicast dos sistemas de operativos LTI através dos serviços de implementação do Windows permite que vários computadores receber uma única cópia de uma imagem, o que reduz a quantidade de tráfego de rede é necessário quando precisarem de vários computadores receber a imagem do mesma. Por predefinição, o suporte multicast está desativado no MDT.  
 
  Para implementações LTI, Deployment Workbench cria um espaço de nomes multicast para a partilha de implementação. As imagens são transferidas para os computadores de destino através de multicast da partilha de implementação, não a partir de uma partilha de serviços de implementação do Windows.  
@@ -11622,7 +11616,7 @@ Parameters=DefaultGateway
 > [!NOTE]
 >  Não é possível utilizar estes cenários para permitir o multicast para imagens de arranque, como o cliente multicast não está carregado até depois de executar o Windows PE. LTI utiliza apenas multicast para ficheiros WIM do sistema operativo de transferência.  
 
-#####  <a name="EnableMulticastDeploymentswithMDTInstalledontheSameComputerasWindowsDeploymentServices"></a>Ativar Multicast implementações com o MDT instalado no mesmo computador como serviços de implementação do Windows  
+#####  <a name="EnableMulticastDeploymentswithMDTInstalledontheSameComputerasWindowsDeploymentServices"></a> Ativar Multicast implementações com o MDT instalado no mesmo computador como serviços de implementação do Windows  
  Neste cenário, o MDT é instalado num computador com o Windows Server com a função de servidor Serviços de implementação do Windows. Neste cenário, o MDT pode configurar automaticamente os serviços de implementação do Windows para suportar implementações por multicast.  
 
 ###### <a name="to-enable-multicast-deployments-with-mdt-installed-on-the-same-computer-as-windows-deployment-services"></a>Para ativar as implementações multicast com o MDT instalado no mesmo computador como serviços de implementação do Windows  
@@ -11650,7 +11644,7 @@ Parameters=DefaultGateway
 
  Quando concluído, o Deployment Workbench cria um transmissão multicast de serviços de implementação do Windows de conversão automática da partilha de implementação.  
 
-#####  <a name="EnableMulticastDeploymentswithMDTInstalledonaDifferentComputerfromWindowsDeploymentServices"></a>Ativar Multicast implementações com o MDT instalado num computador diferente dos serviços de implementação do Windows  
+#####  <a name="EnableMulticastDeploymentswithMDTInstalledonaDifferentComputerfromWindowsDeploymentServices"></a> Ativar Multicast implementações com o MDT instalado num computador diferente dos serviços de implementação do Windows  
  Neste cenário, serviços de implementação do Windows e Windows Server estão todas instaladas no computador a agir como o servidor de implementação, mas o MDT é instalado noutro computador. Nesta configuração, executa remotamente os **WDSUTIL** comando no computador com o serviços de implementação do Windows e Windows Server.  
 
 ###### <a name="to-enable-multicast-deployments-with-mdt-installed-on-a-different-computer-than-windows-deployment-services"></a>Para ativar as implementações multicast com o MDT instalado num computador diferente dos serviços de implementação do Windows  
@@ -11669,7 +11663,7 @@ Parameters=DefaultGateway
 
  Quando tiver terminado, a ferramenta WDSUTIL cria um transmissão multicast de serviços de implementação do Windows de conversão automática da partilha de implementação.  
 
-###  <a name="PreparingWindowsDeploymentServicesforZTIDeploymentsUsingConfigurationManager"></a>Preparar os serviços de implementação para implementações ZTI utilizando o Configuration Manager  
+###  <a name="PreparingWindowsDeploymentServicesforZTIDeploymentsUsingConfigurationManager"></a> Preparar os serviços de implementação para implementações ZTI utilizando o Configuration Manager  
  Para implementações de ZTI utilizando o Configuration Manager, configure um ponto de serviço PXE do Configuration Manager no computador em que os serviços de implementação do Windows está instalado. Se o fizer, permite ao Configuration Manager diretamente serviço pedidos de arranque PXE recebidos pelos serviços de implementação do Windows como um ponto de serviço PXE, que por sua vez permite que os computadores de destino efetuar o arranque imagens pelo Configuration Manager utilizar o PXE. O ponto de serviço PXE é uma funcionalidade da função ponto de distribuição site sistema, que significa que irá configurar o computador que executa serviços de implementação do Windows como uma função de sistema de sites de ponto de distribuição.  
 
  Para obter mais informações sobre a preparação para implementações ZTI utilizando o Gestor de configuração dos serviços de implementação do Windows, consulte:  
@@ -11681,5 +11675,5 @@ Parameters=DefaultGateway
 > [!NOTE]
 >  Além dos métodos descritos aqui, pode utilizar métodos tradicionais de serviços de implementação do Windows para responder a pedidos de arranque PXE. Para obter mais informações, consulte o ficheiro de ajuda de serviços de implementação do Windows incluído com os serviços de implementação do Windows.  
 
-###  <a name="PreparingWindowsDeploymentServicesforUDIDeployments"></a>Preparar os serviços de implementação para implementações de UDI  
+###  <a name="PreparingWindowsDeploymentServicesforUDIDeployments"></a> Preparar os serviços de implementação para implementações de UDI  
  Prepare os serviços de implementação para implementações de UDI utilizando o mesmo processo para implementações ZTI conforme descrito em preparar o serviços de implementação do Windows para ZTI implementações através do Configuration Manager.

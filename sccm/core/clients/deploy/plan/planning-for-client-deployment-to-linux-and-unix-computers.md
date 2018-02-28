@@ -7,20 +7,21 @@ ms.date: 08/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 44153689-70e8-42ad-9ae8-17ae35f6a2e3
-caps.latest.revision: "9"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d96a8aedd046e3a8dcd12e711ae19f53a901fceb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 9df979fe98dc4d4ead18ff3cfb276612681c9bce
+ms.sourcegitcommit: b1fa7be6a6fa5bb7c49e90c0e28a21ba8b41c842
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="planning-for-client-deployment-to-linux-and-unix-computers-in-system-center-configuration-manager"></a>Planear a implementação do cliente para computadores Linux e UNIX no System Center Configuration Manager
 
@@ -46,10 +47,10 @@ Pode instalar o cliente do System Center Configuration Manager em computadores q
 
  Utilize as informações neste artigo para o ajudar a planear implementar o cliente do Configuration Manager para Linux e UNIX.  
 
-##  <a name="BKMK_ClientDeployPrereqforLnU"></a>Pré-requisitos para implementação do cliente para servidores Linux e UNIX  
+##  <a name="BKMK_ClientDeployPrereqforLnU"></a> Pré-requisitos para implementação do cliente para servidores Linux e UNIX  
  Utilize as seguintes informações para determinar os pré-requisitos que devem estar implementados para instalar o cliente para Linux e UNIX.  
 
-###  <a name="BKMK_ClientDeployExternalforLnU"></a>Dependências externas ao Configuration Manager:  
+###  <a name="BKMK_ClientDeployExternalforLnU"></a> Dependências externas ao Configuration Manager:  
  As tabelas seguintes descrevem os sistemas operativos UNIX e Linux necessários e as dependências de pacote.  
 
  **Versão do Red Hat Enterprise Linux Server 5.1 (Tikanga)**  
@@ -68,6 +69,13 @@ Pode instalar o cliente do System Center Configuration Manager em computadores q
 |Openssl|Bibliotecas de OpenSSL; Protocolo Seguro de Comunicações de Rede|1.0.0-4|  
 |PAM|Módulos de Autenticação Incorporável|1.1.1-4|  
 
+ **Versão do Red Hat Enterprise Linux Server 7**  
+
+|Pacote necessário|Descrição|Versão mínima|  
+|----------------------|-----------------|---------------------|  
+|glibc|Bibliotecas Padrão C|2.17|  
+|Openssl|Bibliotecas de OpenSSL; Protocolo Seguro de Comunicações de Rede|1.0.1|  
+|PAM|Módulos de Autenticação Incorporável|1.1.1-4|  
 
  **Solaris 10 SPARC**  
 
@@ -79,7 +87,7 @@ Pode instalar o cliente do System Center Configuration Manager em computadores q
 |SUNWlibmsr|Bibliotecas de Matemática e de Microtarefas (Root) (sparc)|5.10, REV=2004.11.23|  
 |SUNWcslr|Bibliotecas de Solaris Principais (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
 |SUNWcsl|Bibliotecas de Solaris Principais (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
-|OpenSSL|Bibliotecas de SUNopenssl (Usr)<br /><br /> A Sun fornece as bibliotecas OpenSSL para o Solaris 10 SPARC. Estão incluídas no sistema operativo.|11.10.0,REV=2005.01.21.15.53|  
+|Openssl|Bibliotecas de SUNopenssl (Usr)<br /><br /> A Sun fornece as bibliotecas OpenSSL para o Solaris 10 SPARC. Estão incluídas no sistema operativo.|11.10.0,REV=2005.01.21.15.53|  
 |PAM|Módulos de Autenticação Incorporável<br /><br /> SUNWcsr, Core Solaris, (Root) (sparc)|11.10.0, REV=2005.01.21.15.53|  
 
  **Solaris 10 x86**  
@@ -91,7 +99,7 @@ Pode instalar o cliente do System Center Configuration Manager em computadores q
 |SUNWlibmsr|Bibliotecas Math e Microtasking (Root) (i386)|5.10, REV=2004.12.18|  
 |SUNWcsl|Core Solaris, (Shared Libs) (i386)|11.10.0,REV=2005.01.21.16.34|  
 |SUNWcslr|Bibliotecas de Solaris Core (Root) (i386)|11.10.0, REV=2005.01.21.16.34|  
-|OpenSSL|Bibliotecas de SUNWopenssl; Bibliotecas de OpenSSL (Usr) (i386)|11.10.0, REV=2005.01.21.16.34|  
+|Openssl|Bibliotecas de SUNWopenssl; Bibliotecas de OpenSSL (Usr) (i386)|11.10.0, REV=2005.01.21.16.34|  
 |PAM|Módulos de Autenticação Incorporável<br /><br /> SUNWcsr Core Solaris, (Root)(i386)|11.10.0,REV=2005.01.21.16.34|  
 
  **Solaris 11 SPARC**  
@@ -188,15 +196,15 @@ Pode instalar o cliente do System Center Configuration Manager em computadores q
 
  Para obter informações sobre a as portas de pedido e a comunicação do cliente, veja [Configurar o Cliente para Linux e UNIX para Localizar Pontos de Gestão](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigClientMP).  
 
-##  <a name="BKMK_PlanningforCommunicationsforLnU"></a>Planear a comunicação entre florestas confianças de entidades para servidores Linux e UNIX  
+##  <a name="BKMK_PlanningforCommunicationsforLnU"></a> Planear a comunicação entre florestas confianças de entidades para servidores Linux e UNIX  
  Servidores Linux e UNIX que gere com o Configuration Manager funcionam como clientes do grupo de trabalho e requerem configurações semelhantes às clientes baseados em Windows que estão num grupo de trabalho. Para obter informações sobre comunicações a partir de computadores em grupos de trabalho, veja a secção [Comunicação entre florestas do Active Directory](../../../../core/plan-design/hierarchy/communications-between-endpoints.md#Plan_Com_X-Forest) do tópico [Comunicações entre pontos finais no System Center Configuration Manager](../../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
-###  <a name="BKMK_ServiceLocationforLnU"></a>Localização do serviço pelo cliente para Linux e UNIX  
+###  <a name="BKMK_ServiceLocationforLnU"></a> Localização do serviço pelo cliente para Linux e UNIX  
  A tarefa de localizar um servidor de sistema de sites que forneça serviços aos clientes é referida como localização de serviço. Ao contrário de um cliente baseado no Windows, o cliente para Linux e UNIX não utiliza o Active Directory para localização de serviço. Além disso, o cliente do Configuration Manager para Linux e UNIX não suporta uma propriedade de cliente que especifique o sufixo de domínio de um ponto de gestão. Em vez disso, o cliente toma conhecimento dos servidores de sistema de sites adicionais que fornecem serviços aos clientes a partir de um ponto de gestão conhecido, que é atribuído quando instala o software de cliente.  
 
  Para obter mais informações sobre a localização de serviço, veja a secção [Localização do Serviço e como os clientes determinam o seu ponto de gestão atribuído](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location) do tópico [Compreender a forma como os clientes localizam os recursos e os serviços do site no System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-##  <a name="BKMK_SecurityforLnU"></a>Planeamento de segurança e os certificados para servidores Linux e UNIX  
+##  <a name="BKMK_SecurityforLnU"></a> Planeamento de segurança e os certificados para servidores Linux e UNIX  
  Para comunicações seguras e autenticadas com sites do Configuration Manager, o cliente do Configuration Manager para Linux e UNIX utiliza o mesmo modelo para a comunicação que o cliente do Configuration Manager para Windows.  
 
  Quando instala o cliente Linux e UNIX, pode atribuir o cliente um certificado PKI que lhe permite utilizar HTTPS para comunicar com sites do Configuration Manager. Se não atribuir um certificado PKI, o cliente cria um certificado autoassinado e comunica apenas por HTTP.  
@@ -209,21 +217,21 @@ Pode instalar o cliente do System Center Configuration Manager em computadores q
 
  Para obter informações sobre como utilizar certificados no Configuration Manager, consulte [requisitos de certificado PKI para o System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
-###  <a name="BKMK_AboutCertsforLnU"></a>Sobre os certificados para utilização por servidores Linux e UNIX  
+###  <a name="BKMK_AboutCertsforLnU"></a> Sobre os certificados para utilização por servidores Linux e UNIX  
  O cliente do Configuration Manager para Linux e UNIX utiliza um certificado autoassinado ou um certificado x. 509 PKI, tal como os clientes baseados em Windows. Não foram efetuadas alterações aos requisitos do PKI para sistemas de sites do Configuration Manager quando gerir clientes Linux e UNIX.  
 
  Os certificados que utiliza para Linux e os clientes UNIX que comuniquem com sistemas de sites do Configuration Manager tem de estar no formato Public Key Certificate Standard (PKCS #12) e a palavra-passe tem de ser conhecida para poder especificá-la para o cliente quando especificar o certificado PKI.  
 
  O cliente do Configuration Manager para Linux e UNIX suporta um certificado PKI único e não suporta vários certificados. Por conseguinte, os critérios de seleção de certificado, configurar para um Gestor de configuração do site não se aplica.  
 
-###  <a name="BKMK_ConfigCertsforLnU"></a>Configurar certificados para servidores Linux e UNIX  
+###  <a name="BKMK_ConfigCertsforLnU"></a> Configurar certificados para servidores Linux e UNIX  
  Para configurar um cliente de Configuration Manager para servidores Linux e UNIX utilizem comunicações HTTPS, tem de configurar o cliente para utilizar um certificado PKI no momento em que instala o cliente. Não é possível aprovisionar um certificado antes da instalação do software do cliente.  
 
  Ao instalar um cliente que utiliza um certificado PKI, utiliza o parâmetro de linha de comandos **-UsePKICert** para especificar a localização e o nome de um ficheiro PKCS#12 que contém o certificado PKI. Além disso, tem de utilizar o parâmetro de linha de comandos **-certpw** para especificar a palavra-passe do certificado.  
 
  Se não especificar **-UsePKICert**, o cliente gera um certificado autoassinado e tenta comunicar com os servidores do sistema de sites através de HTTP apenas.  
 
-##  <a name="BKMK_NoSHA-256"></a>Sobre o Linux e UNIX sistemas operativos que efetue não, como suporte de SHA-256  
+##  <a name="BKMK_NoSHA-256"></a> Sobre o Linux e UNIX sistemas operativos que efetue não, como suporte de SHA-256  
  Os seguintes Linux e UNIX sistemas operativos que são suportados como clientes do Configuration Manager foram lançados com versões do OpenSSL que não suportam SHA-256:  
 
 -   Versões do Solaris 10 (SPARC/x86)  

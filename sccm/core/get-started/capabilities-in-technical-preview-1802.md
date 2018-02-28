@@ -15,15 +15,15 @@ ms.assetid: 4884a2d3-13ce-44e5-88c4-a66dc7ec6014
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1b5e8f744573680ab55fcfff26622e312206ca1a
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+ms.openlocfilehash: 162c47d867e78498650da685327c0fe296aa2eda
+ms.sourcegitcommit: b1fa7be6a6fa5bb7c49e90c0e28a21ba8b41c842
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="capabilities-in-technical-preview-1802-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1802 do System Center Configuration Manager
 
-Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
 Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1802. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. 
 
@@ -318,9 +318,9 @@ Windows AutoPilot é uma solução de integração e a configuração de novos d
 
 
 
-## <a name="improvements-to-configuration-manager-policies-for-windows-device-exploit-guard"></a>Melhoramentos às políticas de Gestor de configuração para dispositivos Windows exploram proteção
+## <a name="improvements-to-configuration-manager-policies-for-windows-defender-exploit-guard"></a>Melhoramentos às políticas do Configuration Manager para o Windows Defender exploram proteção
 <!-- 1356220 -->
-Foram adicionadas definições de política adicionais para a redução da superfície de ataque e os componentes de acesso de pasta controlados para Windows Device exploram Guard no Configuration Manager.
+Foram adicionadas definições de política adicionais para os componentes de acesso de pasta de redução da superfície de ataque e controlados no Configuration Manager para [Windows Defender exploram Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-exploit-guard/windows-defender-exploit-guard).
 
 **Novas definições para o acesso à pasta de controlados**<br/>
 Existem duas opções adicionais quando configurar o acesso de pasta controlados: **Bloquear setores de disco só** e **setores de disco só de auditoria**. Estas duas definições permitir o acesso de pasta controlados estar ativado para setores de arranque apenas e não ativar a proteção de pastas específicas ou as pastas de predefinição protegida. 
