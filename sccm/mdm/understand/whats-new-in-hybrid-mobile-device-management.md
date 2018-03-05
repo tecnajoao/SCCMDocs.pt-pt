@@ -3,7 +3,7 @@ title: "Novidades da MDM híbrido"
 titleSuffix: Configuration Manager
 description: "Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune."
 ms.custom: na
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,13 +15,13 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 47bed8655772d0371ce53c1609956a6ed60eb89c
-ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
+ms.openlocfilehash: 3b48c5296caecd66b5abb6d40578af2009ef0f11
+ms.sourcegitcommit: 6e4fca19083b5dbdcd841012f6e1051bb7c00eb8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune
+# <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -42,6 +42,15 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 |**Novo no Configuration Manager Technical Preview**| Todas as funcionalidades listadas na categoria deste só funcionam com a versão de pré-visualização técnica especificada. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição da funcionalidade. Para obter mais informações, consulte [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Novo no Configuration Manager (ramo atual)**| Todas as funcionalidades listadas na categoria deste funcionam apenas com a versão especificada do Configuration Manager (ramo atual), como versão 1511 ou 1602. Se estiver a utilizar uma versão mais antiga do Configuration Manager para a implementação híbrida, tem de atualizar para a versão do Configuration Manager (ramo atual) especificada na descrição da funcionalidade. Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
 
+
+
+## <a name="february-2018"></a>De 2018 Fevereiro
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+- **macOS suporte de Portal da empresa para inscrições que utilizam o Gestor de inscrição de dispositivos**  
+    Os utilizadores podem agora utilizar o Gestor de inscrição de dispositivos ao inscrever com o macOS Portal da empresa.
+    <!-- 1352411 -->
 
 
 ## <a name="january-2018"></a>De 2018 Janeiro
