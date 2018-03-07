@@ -24,7 +24,7 @@ ms.lasthandoff: 02/20/2018
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utilizar alertas e o sistema de estado para o System Center Configuration Manager
 
-Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Configurar alertas e utilizar o sistema de estado incorporado para manter-se informado sobre o estado da implementação do System Center Configuration Manager.  
 
