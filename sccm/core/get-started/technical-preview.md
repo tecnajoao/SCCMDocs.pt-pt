@@ -16,11 +16,11 @@ caps.latest.revision:
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 4f16216bd1bbb662cc8d532664ccd593f94d3898
-ms.sourcegitcommit: e15516983883a4dd002c4bdd114147b04b811021
+ms.openlocfilehash: 1cb4d775985839ea7c4fb1b48a04ab0be64f5d8c
+ms.sourcegitcommit: 32bbc006a41868a6d9a708db5f7b372d9c71d985
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Pré-visualização técnica do System Center Configuration Manager
 
@@ -131,7 +131,7 @@ Seguem-se as capacidades fornecidas com a versão de pré-visualização técnic
 - [Aprovar pedidos de aplicações para os utilizadores por dispositivo](capabilities-in-technical-preview-1802.md#approve-application-requests-for-users-per-device) <!-- 1357015 --> 
 - [Utilizar o Centro de Software para procurar e instalar aplicações disponíveis ao utilizador no Azure AD-dispositivos associados a um](capabilities-in-technical-preview-1802.md#use-software-center-to-browse-and-install-user-available-applications-on-azure-ad-joined-devices) <!-- 1322613 --> 
 - [Relatório sobre as informações do dispositivo Windows AutoPilot](capabilities-in-technical-preview-1802.md#report-on-windows-autopilot-device-information) <!-- 1351442 --> 
-- [Melhoramentos às políticas de Gestor de configuração para dispositivos Windows exploram proteção](capabilities-in-technical-preview-1802.md#improvements-to-configuration-manager-policies-for-windows-device-exploit-guard) <!-- 1356220 -->
+- [Melhoramentos às políticas do Configuration Manager para o Windows Defender exploram proteção](capabilities-in-technical-preview-1802.md#improvements-to-configuration-manager-policies-for-windows-defender-exploit-guard) <!-- 1356220 -->
 - [Políticas de browser Microsoft Edge](capabilities-in-technical-preview-1802.md#microsoft-edge-browser-policies) <!-- 1357310 -->
 - [Relatório de contagens de browser predefinido](capabilities-in-technical-preview-1802.md#report-for-default-browser-counts) <!-- 1357830 --> 
 - [Suporte para dispositivos Windows 10 ARM64](capabilities-in-technical-preview-1802.md#support-for-windows-10-arm64-devices) <!-- 1353704 --> 
@@ -156,7 +156,7 @@ Then remove the bottom of this list and/or move individual items not in CB to th
  |Melhoramentos ao inventário de hardware <!-- 1357389 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-hardware-inventory)  |![Não foi adicionada](media/Red_X.gif)    |
  |Melhoramentos às definições de cliente no Centro de Software <!-- 1355146 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-client-settings-for-software-center)  |![Não foi adicionada](media/Red_X.gif)    |
  |Novas definições de proteção de aplicações do Windows Defender <!-- 1356256 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#new-settings-for-windows-defender-application-guard)  |![Não foi adicionada](media/Red_X.gif)    |
- |<!-- 1236459 -->Melhoramentos para executar Scripts  | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-run-scripts)  |![Não foi adicionada](media/Red_X.gif)    |
+ |Melhoramentos para executar Scripts <!-- 1236459 --> | [Tech Preview 1801](capabilities-in-technical-preview-1801.md#improvements-to-run-scripts)  |![Não foi adicionada](media/Red_X.gif)    |
  |Não atualizar automaticamente as aplicações substituídas <!-- 1351266 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#do-not-automatically-upgrade-superseded-applications)  |![Não foi adicionada](media/Red_X.gif)    | 
  |Instalar várias aplicações no Centro de Software <!-- 1357126 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#install-multiple-applications-in-software-center)  |![Não foi adicionada](media/Red_X.gif)    |
  |Serviço baseado em clientes de dispositivo de resposta PXE <!-- 1357148 --> | [Tech Preview 1712](capabilities-in-technical-preview-1712.md#client-based-pxe-responder-service)  |![Não foi adicionada](media/Red_X.gif)    |
