@@ -3,23 +3,24 @@ title: O ramo devo utilizar
 titleSuffix: Configuration Manager
 description: "Saber as diferenças entre ramos disponíveis do System Center Configuration Manager."
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/08/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a3be4f8f-3d44-4e3c-9fa1-e85f30a36e72
-caps.latest.revision: "0"
+caps.latest.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 9985ff5db4357b6b18de1ef58de40bc631d6cc6b
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: d762cf5e6932e17d8dfb0dd6c442c452028b5228
+ms.sourcegitcommit: b653342fb5d69a16e71b3548a7e9a2e47e54bf88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>O ramo do Configuration Manager devo utilizar?
 
@@ -77,7 +78,7 @@ O LTSB baseiam-se a versão 1606. Este ramo não receber atualizações na conso
 Para instalar o LTSB como um novo site ou como uma atualização de um site suportado do Configuration Manager 2012, utilize a versão 1606 [suporte de dados de linha de base](/sccm/core/servers/manage/updates#baseline-and-update-versions) que obtém como um DVD com o lançamento do System Center Configuration Manager (ramo atual e 1606 de sucursal de manutenção longo prazo) ou o System Center 2016. Pode utilizar suportes de dados de linha de base para instalar um novo site que executa a versão 1606 do ramo atual, ou um novo site que executa o ramo de manutenção de longo prazo.
 
 > [!TIP]  
-> Para saber mais sobre o System Center 2016, consulte [documentação do System Center 2016](https://technet.microsoft.com/system-center-docs/system-center). Esta documentação também identifica como obter o System Center 2016, o que necessita de um contrato de licença da Microsoft ou direitos semelhantes.
+> Para saber mais sobre o System Center 2016, consulte [documentação do System Center 2016](https://docs.microsoft.com/system-center/index). Esta documentação também identifica como obter o System Center 2016, o que necessita de um contrato de licença da Microsoft ou direitos semelhantes.
 
 > Para localizar o System Center Configuration Manager versão 1606 no Volume Licensing Service Center (VLSC), vá para o **transfere e chaves** separador do [VLSC](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx), procure "configuração de centro de sistema" e, em seguida, selecione **System Center Config Mgr (ramo atual e LTSB)**.
 
@@ -90,7 +91,7 @@ Para instalar o LTSB como um novo site ou como uma atualização de um site supo
 
 **Limitações**  
 O LTSB baseia-se na versão 1606 de Current Branch e tem as seguintes limitações:
-- O LTSB é suportada para 10 anos de atualizações de segurança críticas após a respetiva disponibilidade geral (Outubro de 2016), após o qual, suporte para este ramo expira. Para mais informações sobre o ciclo de vida de suporte, consulte [Microsoft Lifecycle Policy](https://support.microsoft.com/en-us/lifecycle).
+- O LTSB é suportada para 10 anos de atualizações de segurança críticas após a respetiva disponibilidade geral (Outubro de 2016), após o qual, suporte para este ramo expira. Para mais informações sobre o ciclo de vida de suporte, consulte [Microsoft Lifecycle Policy](https://support.microsoft.com/lifecycle).
 - Suporta uma lista de conjunto limitado de servidor e sistemas operativos cliente e as tecnologias relacionadas, como as versões do SQL Server. Para mais informações sobre o que é suportado com este ramo, consulte [configurações suportadas para o ramo de manutenção de longo prazo](supported-configurations-for-ltsb.md).
 - Não recebe atualizações para as novas funcionalidades.
 - Não suporta a adição de uma subscrição do Microsoft Intune, que impede que a utilização de:
@@ -116,7 +117,7 @@ O LTSB baseia-se na versão 1606 de Current Branch e tem as seguintes limitaçõ
 -   Não é possível atualizar uma edição de avaliação do ramo atual para uma instalação de LTSB.
 
 
-## <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview do System Center Configuration Manager
+## <a name="technical-preview-for-system-center-configuration-manager"></a>Pré-visualização técnica do System Center Configuration Manager
 O Technical Preview destina-se a utilização num ambiente de laboratório em que pretende saber mais sobre e experimentar as funcionalidades mais recentes que está a ser desenvolvidas para o Configuration Manager. O Technical Preview não é suportado num ambiente de produção e não necessita de ter um contrato de licença do Software Assurance.
 
 Para instalar um novo site que executa o Technical Preview, utilize a versão mais recente [suportes de dados de linha de base para o System Center Configuration Manager Technical Preview](/sccm/core/get-started/technical-preview#install-and-update-the-technical-preview). Depois de instalar a pré-visualização técnica, existem novas versões como atualizações na consola cada mês.
@@ -149,5 +150,5 @@ Ao visualizar informações de versão para um site do Configuration Manager, ta
 **Versão**   
 Para verificar a versão do seu site, além da consola, aceda a **sobre o System Center Configuration Manager** no canto superior esquerdo da consola onde a **versão do Site** aparece. Consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#bkmk_Baselines) para uma lista de versões de sites.
 
-**Sucursal**  
+**Branch**  
 Para confirmar o ramo do seu site (como o LTSB ou o ramo atual), na consola, aceda a **administração** > **configuração do Site** > **Sites**e abra **definições de hierarquia**. Se existir uma opção para converter para o ramo atual e este está ativo, o site executa a versão LTSB. Quando o site é executado o ramo atual, esta opção está desativada. Para obter informações sobre as diferentes versões do Configuration Manager, consulte "versões de linha de base e a atualização" no [atualizações para o Configuration Manager](/sccm/core/servers/manage/updates).

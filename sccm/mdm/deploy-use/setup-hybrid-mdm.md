@@ -3,24 +3,25 @@ title: "Configurar a mm híbrida"
 titleSuffix: Configuration Manager
 description: "Configure a inscrição de dispositivos híbrida do Configuration Manager e o Intune."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 03/08/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: bb95154b-f63e-4491-896e-41d732c802f8
-caps.latest.revision: "34"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 63b49cbef7c584b0bc77752ec9b0e89811c68494
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 9c233a8601d68aae76b105ff86afe41d4121da40
+ms.sourcegitcommit: b653342fb5d69a16e71b3548a7e9a2e47e54bf88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="setup-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos móveis híbridos (MDM) com o System Center Configuration Manager e o Microsoft Intune
 
