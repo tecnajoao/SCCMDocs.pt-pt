@@ -7,19 +7,20 @@ ms.date: 09/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
-caps.latest.revision: "36"
+caps.latest.revision: 
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 081935ebb3ef2cc12d2023d86c0b68bbd816f2f3
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 5c202ede7be14bb60c6b28d87dfa77577597e955
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Instalar atualizações na consola para o System Center Configuration Manager
 
@@ -89,14 +90,15 @@ Por predefinição, **Pacotes de atualização** (SMS_CM_Updatepackages) faz par
 ##  <a name="bkmk_beforeinstall"></a> Antes de instalar uma atualização na consola  
  Reveja os seguintes passos antes de instalar uma atualização a partir da consola do Configuration Manager.  
 
-###  <a name="bkmk_step1"></a>Passo 1: Reveja a lista de verificação de atualização  
+###  <a name="bkmk_step1"></a> Passo 1: Reveja a lista de verificação de atualização  
 Reveja a lista de verificação de atualizações aplicável para ações a efetuar antes de iniciar a atualização:
 
 - Atualizar para 1606: Consulte [1606 de atualizar a lista de verificação para instalar](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
 
 - Atualizar para 1610 de qualquer um dos 1606: Consulte [atualizar a lista de verificação para instalar 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
 
-- Atualizar para 1702 1606 ou 1610: Consulte [atualizar a lista de verificação para instalar 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md).
+- Atualizar para 1710 do 1610, 1702 ou 1706: Consulte [atualizar a lista de verificação para instalar 1710](../../../core/servers/manage/checklist-for-installing-update-1710.md).
+
 
 <!-- Removed as update guidance 6/6/2017. The Test DB Upgrade details are no longer recommended nor required. They live on in a new topic for customers who still want to use them. -->
 
@@ -365,7 +367,7 @@ Funcionalidades de pré-lançamento estão incluídas no ramo atual para um test
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-###  <a name="bkmk_faq"></a>Por que motivo não vejo determinadas atualizações na consola?  
+###  <a name="bkmk_faq"></a> Por que motivo não vejo determinadas atualizações na consola?  
  Se não conseguir localizar uma atualização específica a consola depois de uma sincronização com êxito com o serviço de nuvem da Microsoft, tal poderá acontecer porque:  
 
 -   A atualização requer uma configuração que a sua infraestrutura não utiliza ou a versão atual do produto não cumpre um pré-requisito para receber a atualização.  
