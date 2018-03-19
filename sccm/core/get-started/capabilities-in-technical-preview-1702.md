@@ -5,13 +5,14 @@ description: "Saiba mais sobre as funcionalidades disponíveis no Technical Prev
 ms.custom: na
 ms.date: 02/24/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aedd608d-6db3-4ea5-851d-70f2dcda6bb5
-caps.latest.revision: "5"
+caps.latest.revision: 
 author: erikje
 ms.author: erikje
 manager: angrobe
@@ -142,7 +143,7 @@ Para recolher informações de avaliação de compatibilidade para o Windows Upd
 2. Clique em **criar política de conformidade** ou selecione uma política de conformidade existente para modificar.
 3. Na página geral, forneça um nome e uma descrição, selecione **regras de compatibilidade para dispositivos geridos com o cliente do Configuration Manager**, definir a gravidade de incompatibilidade para relatórios e, em **seguinte**.
 4. Na página de plataformas suportadas, selecione **Windows 10**e, em seguida, clique em **seguinte**.
-5. Na página de regras, clique em **novo... **e, em seguida, para **condição** escolha **requerem o Windows Update para compatibilidade de negócio**. O **valor** definição é automaticamente definida para **verdadeiro**.
+5. Na página de regras, clique em **novo...** e, em seguida, para **condição** escolha **requerem o Windows Update para compatibilidade de negócio**. O **valor** definição é automaticamente definida para **verdadeiro**.
 
 A nova política é apresentada no nó **Políticas de Conformidade** da área de trabalho **Ativos e Compatibilidade** .
 
@@ -210,7 +211,7 @@ Utilize o procedimento seguinte para configurar os detalhes para a sequência de
 
 ## <a name="check-for-running-executable-files-before-installing-an-application"></a>Verifique a existência de executar ficheiros executáveis antes de instalar uma aplicação
 
-No * <deployment type name> * **propriedades** caixa de diálogo de um tipo de implementação, no separador Instalar comportamento, agora pode especificar um dos ficheiros executáveis mais que, se em execução, irão bloquear a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado.
+No  *<deployment type name>*  **propriedades** caixa de diálogo de um tipo de implementação, no separador Instalar comportamento, agora pode especificar um dos ficheiros executáveis mais que, se em execução, irão bloquear a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado.
 
 ### <a name="try-it-out"></a>Experimente.
 
