@@ -5,21 +5,22 @@ description: "Saiba mais sobre as funcionalidades disponíveis no Technical Prev
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2e801f8c-d331-41ee-8f27-908448fc0951
-caps.latest.revision: "5"
+caps.latest.revision: 
 author: erikje
 ms.author: erikje
 manager: angrobe
 ms.openlocfilehash: a44d6a0c9b02a529fe8776033e58e971af37e332
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="capabilities-in-technical-preview-1703-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1703 do System Center Configuration Manager
 
@@ -56,7 +57,7 @@ Agora pode fornecer aos utilizadores finais com uma ligação direta para uma ap
 
 Utilize o seguinte formato de URL para abrir o Centro de Software a uma determinada aplicação:
 
-**Softwarecenter:SoftwareId =*identificador da aplicação***
+**Softwarecenter:SoftwareId = * identificador da aplicação***
 
 ### <a name="how-to-get-the-application-identifier-of-an-application"></a>Como obter o identificador da aplicação de uma aplicação.
 
@@ -65,7 +66,7 @@ Utilize o seguinte formato de URL para abrir o Centro de Software a uma determin
 3.  No **aplicações** ver, faça duplo clique de um dos cabeçalhos de coluna e, em seguida, na lista, selecione **ID exclusivo de CI**. Verá que o ID exclusivo de cada aplicação agora é apresentado na lista.
 4.  Tenha em atenção o **ID exclusivo de CI** da aplicação que pretende disponibilizar uma ligação para, por exemplo: **ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f/2**
 5.  Em seguida, remova qualquer texto após a aplicação GUID, neste caso **/2**. Isso deixa o identificador da aplicação.
-6.  Por fim, para concluir a construir a ligação, coloque-o com **Softwarecenter:SoftwareID =**. A ligação final utilizando o exemplo acima, serão lidos: **Softwarecenter:SoftwareId = ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
+6.  Por fim, para concluir a construir a ligação, coloque-o com **Softwarecenter:SoftwareID =**. A ligação final utilizando o exemplo acima, serão lidos: **Softwarecenter:SoftwareId= ScopeId_1672B0CD-912A-4613-9BAB-D4EF2696D416/Application_970b1fef-1f38-405c-ad37-c753400b895f**.
 
 Ao utilizar esta ligação, os utilizadores finais podem abrir o Centro de Software diretamente para a aplicação que especificou.
 

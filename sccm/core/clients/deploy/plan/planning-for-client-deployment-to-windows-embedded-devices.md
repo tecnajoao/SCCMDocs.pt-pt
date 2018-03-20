@@ -7,30 +7,31 @@ ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 038e61f9-f49d-41d1-9a9f-87bec9e00d5d
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 
+caps.handback.revision: 
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: c4f3d8a9b043707340e56d3ae483ad66ca17dc10
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 52080ef1b0f9a27c123711ef274ac3ffe070e8e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-<a name="BKMK_DeployClientEmbedded"></a>Se o seu dispositivo Windows Embedded não inclui o cliente do System Center Configuration Manager, pode utilizar qualquer um dos métodos de instalação do cliente se o dispositivo cumpra as dependências necessárias. Se o dispositivo incorporado suportar filtros de escrita, terá de desativar esses filtros antes de instalar o cliente e, em seguida, de reativar novamente os filtros após a instalação do cliente e da atribuição do mesmo a um site.  
+<a name="BKMK_DeployClientEmbedded"></a> Se o seu dispositivo Windows Embedded não inclui o cliente do System Center Configuration Manager, pode utilizar qualquer um dos métodos de instalação do cliente se o dispositivo cumpra as dependências necessárias. Se o dispositivo incorporado suportar filtros de escrita, terá de desativar esses filtros antes de instalar o cliente e, em seguida, de reativar novamente os filtros após a instalação do cliente e da atribuição do mesmo a um site.  
 
  Tenha em atenção que, ao desativar os filtros, não deve desativar os controladores dos filtros. Normalmente, estes controladores são iniciados automaticamente quando o computador é iniciado. Desativar os controladores irá impedir a instalação do cliente ou irá interferir com a orquestração do filtro de escrita, o que fará com que as operações do cliente falhem. Eis os serviços associados a cada um dos tipos de filtro de escrita que têm de ser mantidos em execução:  
 
-|Tipo de Filtro de Escrita|Controlador|Tipo|Descrição|  
+|Tipo de Filtro de Escrita|Controlador|Type|Descrição|  
 |-----------------------|------------|----------|-----------------|  
 |EWF|EWF|Kernel|Implementa um redirecionamento de E/S ao nível dos setores em volumes protegidos.|  
 |FBWF|FBWF|Sistema de ficheiros|Implementa um redirecionamento de E/S ao nível dos ficheiros em volumes protegidos.|  
