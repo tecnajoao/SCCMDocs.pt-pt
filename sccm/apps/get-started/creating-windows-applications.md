@@ -33,8 +33,8 @@ Para além de outros requisitos do System Center Configuration Manager e procedi
 
 |Tipo de Dispositivo|Tipos de ficheiro suportados|  
 |-----------------|---------------------|  
-|Windows RT e Windows RT 8.1|*. AppX, \*. appxbundle|  
-|Windows 8.1 e posterior inscrito como um dispositivo móvel|*. AppX, \*. appxbundle|  
+|Windows RT e Windows RT 8.1|\*. AppX, \*. appxbundle|  
+|Windows 8.1 e posterior inscrito como um dispositivo móvel|\*. AppX, \*. appxbundle|  
 
  As seguintes ações de implementação são suportadas:  
 
