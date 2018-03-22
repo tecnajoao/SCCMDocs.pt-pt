@@ -32,3 +32,14 @@
 ## [Gerir ficheiros de instalação rápida para atualizações do Windows 10](deploy-use/manage-express-installation-files-for-windows-10-updates.md)
 ## [Integração com o Windows Update for Business no Windows 10](deploy-use/integrate-windows-update-for-business-windows-10.md)
 ## [Cenário de exemplo para implementar atualizações de segurança](deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md)
+
+# [System Center Updates Publisher](tools/updates-publisher.md)
+## [Instalar](tools/install-updates-publisher.md)
+## [Configurar opções](tools/updates-publisher-options.md)
+## [Gerir catálogos](tools/updates-publisher-catalogs.md)
+## [Gerir atualizações](tools/manage-updates-with-updates-publisher.md)
+## [Gerir publicações](tools/updates-publisher-publications.md)
+## [Criar novas atualizações](tools/create-updates-with-updates-publisher.md)
+## [Regras de aplicabilidade](tools/updates-publisher-applicability-rules.md)
+## [Certificados e segurança](tools/updates-publisher-security.md)
+
