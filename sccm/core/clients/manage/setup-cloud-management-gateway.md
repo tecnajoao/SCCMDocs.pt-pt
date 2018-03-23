@@ -1,21 +1,22 @@
 ---
-title: "Configurar o Gateway de gestão de nuvem"
+title: Configurar o Gateway de gestão de nuvem
 titleSuffix: Configuration Manager
-description: 
+description: ''
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.date: 09/26/2017
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-client
+ms.service: ''
+ms.technology:
+- configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
 ms.openlocfilehash: 7463cd7199098b21843fd5b99ed284a12ff91e00
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.sourcegitcommit: d03e4dee92a31dd214c528e895379f6013b7de82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-cloud-management-gateway-for-configuration-manager"></a>Configurar o gateway de gestão de nuvem para o Configuration Manager
 
@@ -112,8 +113,8 @@ Um certificado de gestão do Azure é necessário para o Configuration Manager p
 
     Nuvem do Azure | Prefixo FQDN
     --------------|-------------
-    Nuvem pública de (comercial) | . cloudapp.net    
-    Nuvem do Governo dos EUA | . usgovcloudapp.net
+    Nuvem pública de (comercial) | .cloudapp.net    
+    Nuvem do Governo dos EUA | .usgovcloudapp.net
 
   - Desmarque a caixa junto a **verificar a revogação de certificados de cliente** (exceto se estiver a publicamente publicar as suas informações de CRL).
 
