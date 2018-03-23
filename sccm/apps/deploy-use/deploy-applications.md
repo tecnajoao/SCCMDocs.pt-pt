@@ -1,37 +1,43 @@
 ---
-title: "Implementar aplicações"
+title: Implementar aplicações
 titleSuffix: Configuration Manager
-description: "Criar um tipo de implementação ou simular a implementação de uma aplicação utilizando o System Center Configuration Manager."
+description: Criar ou simular uma implementação de uma aplicação numa coleção de dispositivo ou utilizador
 ms.custom: na
-ms.date: 12/05/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
-caps.latest.revision: "10"
-caps.handback.revision: "0"
-author: mattbriggs
-ms.author: mabrigg
-manager: angrobe
-ms.openlocfilehash: 97d1ac775a3b38f63372f0ab01243dfdfeb4edb5
-ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
+caps.latest.revision: ''
+caps.handback.revision: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 0101ba0eade5775577f52920f301a782afd7bbda
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Implementar aplicações com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Antes de poder implementar uma aplicação do System Center Configuration Manager, tem de criar pelo menos um tipo de implementação para a aplicação. Para obter mais informações sobre como criar aplicações e tipos de implementação, consulte [criar aplicações](/sccm/apps/deploy-use/create-applications).
+Criar ou simular uma implementação de uma aplicação numa coleção de dispositivo ou utilizador no Configuration Manager. Esta implementação dá instruções para o cliente do Configuration Manager em como e quando instalar o software. 
 
- Também pode simular a implementação de uma aplicação. Este tipo de implementação testa a aplicabilidade da implementação de uma aplicação em computadores sem instalar ou desinstalar a aplicação. Uma implementação simulada avalia o método de deteção, requisitos e dependências para um tipo de implementação e reporta os resultados no **implementações** o nó do **monitorização** área de trabalho. Para obter mais informações, consulte [simular implementações de aplicações](/sccm/apps/deploy-use/simulate-application-deployments).
+Antes de poder implementar uma aplicação, crie pelo menos um tipo de implementação para a aplicação. Para obter mais informações, consulte [criar aplicações](/sccm/apps/deploy-use/create-applications).
+
+ Também pode simular a implementação de uma aplicação. Este simulação testa a aplicabilidade da implementação de uma sem instalar ou desinstalar a aplicação. Uma implementação simulada avalia o método de deteção, requisitos e dependências para um tipo de implementação e reporta os resultados no **implementações** o nó do **monitorização** área de trabalho. Para obter mais informações, consulte [simular implementações de aplicações](/sccm/apps/deploy-use/simulate-application-deployments).
 
 > [!IMPORTANT]
->  Pode implementar (instalar ou desinstalar) necessário aplicações, mas não pacotes ou atualizações de software. Dispositivos inscritos no MDM também não suportam implementações simuladas, experiência de utilizador ou as definições de agendamento.
+>  Pode simular a implementação de aplicações necessárias, mas não pacotes ou atualizações de software.   
+>  Dispositivos inscritos de MDM não suportam implementações simuladas, experiência de utilizador ou as definições de agendamento.
+
+
 
 ## <a name="deploy-an-application"></a>Implementar uma aplicação
 
@@ -43,92 +49,92 @@ Antes de poder implementar uma aplicação do System Center Configuration Manage
 
 No **geral** página do Assistente de implementação de Software, especifique as seguintes informações:
 
-- **Software**  
-Esta ação apresenta a aplicação a implementar. Pode clicar em **Procurar** para selecionar uma aplicação diferente.
-- **Recolha**  
-Clique em **procurar** para selecionar a coleção para implementar a aplicação.
-- **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**  
-Selecione esta opção se pretender armazenar o conteúdo da aplicação no grupo de pontos de distribuição de predefinido da coleção. Se não associou a coleção selecionada com um grupo de pontos de distribuição, esta opção está desativada.
-- **Distribuir automaticamente o conteúdo para dependências**  
-Se esta opção estiver ativada e algum dos tipos de implementação da aplicação contiver dependências, o conteúdo da aplicação dependente é também enviado para pontos de distribuição.
+- **Software**: Este valor apresenta a aplicação a implementar. Clique em **procurar** para selecionar uma aplicação diferente.
+- **Coleção**: Clique em **procurar** para selecionar a coleção para implementar a aplicação.
+- **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Armazene o conteúdo da aplicação no grupo de pontos de distribuição de predefinido da coleção. Se não associou a coleção selecionada com um grupo de pontos de distribuição, esta opção está desativada.
+- **Distribuir automaticamente o conteúdo para dependências**: Se algum dos tipos de implementação da aplicação contiver dependências, o site também envia conteúdo da aplicação dependente para pontos de distribuição.
 
     >[!IMPORTANT]
-    > Se atualizar a aplicação dependente após a implementação da aplicação principal, os eventuais conteúdos novos da dependência não serão automaticamente distribuídos.
+    > Se atualizar a aplicação dependente depois de implementar a aplicação principal, o site não distribui automaticamente a eventuais conteúdos novos da dependência.
 
-- **Comentários (opcional)**  
-Opcionalmente, introduza uma descrição para esta implementação.
+- **Comentários (opcional)**: Opcionalmente, introduza uma descrição para esta implementação.
 
 ### <a name="specify-content-options-for-the-deployment"></a>Especificar opções de conteúdo para a implementação
 
-No **conteúdo** página, clique em **adicionar** para adicionar o conteúdo associado esta implementação a pontos de distribuição ou grupos de pontos de distribuição. Se tiver selecionado **utilizar pontos de distribuição predefinidos associados a esta coleção** no **geral** página, em seguida, esta opção é preenchida automaticamente e só pode ser modificada por um membro da função de segurança de administrador da aplicação.
+No **conteúdo** página, clique em **adicionar** para adicionar o conteúdo associado esta implementação a pontos de distribuição ou grupos de pontos de distribuição. Se selecionar **utilizar pontos de distribuição predefinidos associados a esta coleção** no **geral** página, em seguida, esta opção é preenchida automaticamente. Apenas um membro da função de segurança de administrador da aplicação pode modificá-la.
 
 ### <a name="specify-deployment-settings"></a>Especificar definições de implementação
 
 No **definições de implementação** página do Assistente de implementação de Software, especifique as seguintes informações:
 
-- **Ação**  
-Na lista pendente, escolha se esta implementação visa **instalar** ou **desinstalação** a aplicação.
+- **Ação**: Na lista pendente, escolha se esta implementação é **instalar** ou **desinstalação** a aplicação.
 
     > [!NOTE]
     >  Se uma aplicação for implementada duas vezes num dispositivo, uma vez com uma ação **instalar** e uma vez com uma ação **desinstalação**, a implementação de aplicação com uma ação **instalar** tem prioridade.
 
-Após ter sido criada, não é possível alterar a ação de uma implementação.
+  Não é possível alterar a ação de uma implementação depois de a criar.
 
-- **Objetivo**  
-Na lista pendente, escolha uma das seguintes opções:
-    - **Disponível**  
-    Se a aplicação for implementada para um utilizador, o utilizador verá a aplicação publicada no Centro de Software e pode instalá-la a pedido.
-    - **Necessário**  
-    A aplicação é implementada automaticamente, de acordo com a agenda. Se o estado de implementação da aplicação não se encontre oculto, qualquer pessoa a utilizar a aplicação pode controlar o estado de implementação e instalar a aplicação a partir do Centro de Software antes do prazo.
+- **Objetivo**: Na lista pendente, escolha uma das seguintes opções:  
+    - **Disponível**: Se a aplicação for implementada para um utilizador, o utilizador verá a aplicação publicada no Centro de Software e pode instalá-la a pedido.
+    - **Necessário**: A aplicação é implementada automaticamente, de acordo com a agenda. Se o estado de implementação da aplicação não se encontre oculto, qualquer pessoa a utilizar a aplicação pode controlar o estado de implementação e instalar a aplicação a partir do Centro de Software antes do prazo.
 
     > [!NOTE]   
-    >  Quando a ação de implementação estiver definida como **Desinstalar**, o objetivo da implementação é automaticamente definido como **Necessária** , não podendo ser alterado.  
+    >  Quando a ação de implementação está definida como **desinstalação**, o objetivo da implementação é automaticamente definido para **necessário**. Não é possível alterar este comportamento.  
 
-- **Implementar automaticamente de acordo com a agenda quer exista ou não um utilizador tiver sessão iniciado**  
-Se a implementação for para um utilizador, selecione esta opção para implementar a aplicação em dispositivos primários do utilizador. Esta definição não requer que o utilizador inicie sessão antes da execução da implementação. Não selecione esta opção se o utilizador tiver de fornecer dados para concluir a instalação. Esta opção só está disponível quando a implementação tem um objetivo de **Necessária**.
+- **Implementar automaticamente de acordo com a agenda quer exista ou não um utilizador tiver sessão iniciado**: Se a implementação for para um utilizador, selecione esta opção para implementar a aplicação em dispositivos primários do utilizador. Esta definição não requer que o utilizador inicie sessão antes da execução da implementação. Selecione esta opção se o utilizador tem de interagir com a instalação. Esta opção só está disponível quando a implementação tem um objetivo de **Necessária**.
 
-- **Enviar pacotes de reativação**  
-Se o objetivo da implementação estiver definido como **necessário** e esta opção estiver selecionada, é enviado um pacote de reativação para computadores antes da instalação da implementação. Este pacote sair os computadores na hora de prazo de instalação. Para poder utilizar esta opção, os computadores e redes terão de estar configurados para Reativação por LAN.
-- **Permitir que os clientes numa ligação à Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**  
-Esta opção só está disponível para implementações com um objetivo de **necessário**.
-- **Fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**  
-Para obter mais informações sobre como configurar uma lista dos executáveis que podem impedir que uma aplicação a instalar, consulte **como verificar para executar ficheiros executáveis antes de instalar uma aplicação** mais adiante neste tópico.
-- **Exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**  
-Se esta opção for selecionada, o administrador terá de aprovar os pedidos de utilizador para a aplicação antes de poderem ser instaladas. Esta opção é desativada quando o objetivo de implementação for **necessário** ou quando a aplicação for implementada para uma coleção de dispositivos.
+- **Enviar pacotes de reativação**: Se o objetivo de implementação for **necessário**, é enviado um pacote de reativação para computadores antes do cliente é executada a implementação. Este pacote sair os computadores na hora de prazo de instalação. Antes de utilizar esta opção, computadores e redes tem de ser configurados para Wake On LAN.
+- **Permitir que os clientes numa ligação à Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**: Esta opção só está disponível para implementações com um objetivo de **necessário**.
+- **Fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**: Para obter mais informações, consulte [procurar executar ficheiros executáveis antes de instalar uma aplicação](#how-to-check-for-running-executable-files-before-installing-an-application).
+
+- **Exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**: Para versões 1710 e anteriores, o administrador aprova quaisquer pedidos de utilizador para a aplicação antes do utilizador pode instalá-lo. Esta opção é desativada quando o objetivo de implementação for **necessário**, ou quando a aplicação for implementada para uma coleção de dispositivos.  
 
     > [!NOTE]
-    >  Os pedidos de aprovação da aplicação são apresentados no nó **Pedidos de Aprovação** , sob **Gestão de Aplicações** , na área de trabalho **Biblioteca de Software** . Se um pedido não está aprovado no prazo de 45 dias, é removido. Além disso, se reinstalar o cliente do Configuration Manager, poderá cancelar quaisquer pedidos de aprovação pendentes.
-    >  Depois de aprovar uma aplicação para a instalação, pode, subsequentemente, optar por negar o pedido ao clicar em **negar** na consola do Configuration Manager (anteriormente, este botão era cinzento após a aprovação).
-    >  Esta ação não irá causar a aplicação a ser desinstalados a partir de qualquer dispositivo, mas mesmo impedir que os utilizadores de instalar novas cópias da aplicação a partir do Centro de Software.
+    >  Os pedidos de aprovação da aplicação são apresentados no nó **Pedidos de Aprovação** , sob **Gestão de Aplicações** , na área de trabalho **Biblioteca de Software** . Se um pedido não está aprovado no prazo de 45 dias, é removido. Reinstalar o cliente poderá cancelar quaisquer pedidos de aprovação pendentes.  
+    >  Depois de ter aprovada uma aplicação para a instalação, pode **negar** o pedido na consola do Configuration Manager. Esta ação não fazer com que o cliente desinstalar a aplicação a partir de qualquer dispositivo, mas mesmo impedir que os utilizadores de instalar novas cópias da aplicação a partir do Centro de Software.
 
-- **Atualizar automaticamente qualquer versão substituída desta aplicação**  
-Se esta opção for selecionada, qualquer versão da aplicação substituída está atualizado com a aplicação substituta.
+- **Um administrador tem de aprovar um pedido para esta aplicação no dispositivo**: A partir de versão 1802, o administrador aprova quaisquer pedidos de utilizador para a aplicação antes do utilizador pode instalá-lo no dispositivo pedido. Se o administrador aprova o pedido, o utilizador só é possível instalar a aplicação nesse dispositivo. O utilizador tem de submeter outro pedido para instalar a aplicação noutro dispositivo. Esta opção é desativada quando o objetivo de implementação for **necessário**, ou quando a aplicação for implementada para uma coleção de dispositivos. <!--1357015-->  
+
+    Esta é uma funcionalidade opcional. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options). Se esta funcionalidade não está ativada, verá a experiência anterior.  
+
+    > [!Important]  
+    > O cliente do Configuration Manager tem de estar na versão 1802 bem. Tem também de utilizar o novo Centro de Software.  
+
+    > [!Note]  
+    > Vista **pedidos de aprovação** em **gestão de aplicações** no **biblioteca de Software** área de trabalho da consola do Configuration Manager. Não há agora um **dispositivo** coluna na lista para cada pedido. Quando efetuar a ação a pedido, a caixa de diálogo de pedido de aplicação também inclui o nome de dispositivo a partir do qual o utilizador submetido o pedido.  
+    >  Se um pedido não está aprovado no prazo de 45 dias, é removido. Reinstalar o cliente poderá cancelar quaisquer pedidos de aprovação pendentes.  
+    >  Depois de ter aprovada uma aplicação para a instalação, pode **negar** o pedido na consola do Configuration Manager. Esta ação não fazer com que o cliente desinstalar a aplicação a partir de qualquer dispositivo, mas mesmo impedir que os utilizadores de instalar novas cópias da aplicação a partir do Centro de Software.
+
+- **Atualizar automaticamente qualquer versão substituída desta aplicação**: O cliente atualiza qualquer versão de substituição da aplicação com a aplicação substituta.    
+
+    > [!NOTE]  
+    > A iniciar na versão 1802, para um **disponível** ou **necessário** instalar fim, pode ativar ou desativar esta opção. <!--1351266--> 
+
 
 ### <a name="specify-scheduling-settings-for-the-deployment"></a>Especificar definições de agendamento para a implementação
 
 No **agendamento** página do Software implementar assistente, defina o período de quando esta aplicação é implementada ou disponível para dispositivos cliente.
 As opções desta página diferentes consoante a ação de implementação esteja definida **disponível** ou **necessário**.
 
-Em alguns casos, pode querer dar aos utilizadores mais tempo para as implementações de aplicações de instalação necessária ou atualizações de software para além de qualquer prazos que configurou. Isto é normalmente necessário quando um computador foi desativado por um longo período de tempo e tem de instalar um grande número de atualizações ou implementações de aplicações. Por exemplo, se um utilizador tiver devolvido de férias, poderá ter de aguardar durante muito tempo, como implementações de aplicações em atraso são instaladas. Para ajudar a resolver este problema, agora pode definir um período de tolerância de imposição ao implementar as definições de cliente do Configuration Manager para uma coleção.
+Em alguns casos, pode querer dar aos utilizadores mais tempo para as implementações de aplicações de instalação necessária ou atualizações de software para além de qualquer prazos que configurou. Este comportamento é normalmente necessário quando um computador foi desativado para muito tempo e tem de instalar várias aplicações. Por exemplo, se um utilizador tiver devolvido de férias, poderá ter de aguardar durante muito tempo, como implementações de aplicações em atraso são instaladas. Para ajudar a resolver este problema, agora pode definir um período de tolerância de imposição ao implementar as definições de cliente do Configuration Manager para uma coleção.
 
 Para configurar o período de tolerância, efetuar as seguintes ações:
 
 - No **agente do computador** página de definições de cliente, configure a nova propriedade **período de tolerância para a imposição após a implementação do prazo (horas)** com um valor entre **1** e **120** horas.
-- No **agendamento** página numa nova implementação de aplicação necessária ou nas propriedades de uma implementação existente, selecione a caixa **atrasar imposição para esta implementação, de acordo com as preferências do utilizador, até ao período de tolerância definido nas definições de cliente**. O período de tolerância de imposição é utilizado por todas as implementações que tenham esta caixa selecionada e são direcionadas para os dispositivos nos quais tiver implementado também a definição de cliente.
+- No **agendamento** página de uma implementação de aplicações necessárias, escolha a **atrasar imposição para esta implementação, de acordo com as preferências do utilizador, até ao período de tolerância definido nas definições de cliente**. O período de tolerância de imposição aplica-se a todas as implementações com esta opção ativada e direcionadas para os dispositivos nos quais tiver implementado também a definição de cliente.
 
-Depois de instalar a aplicação for atingido o prazo, a aplicação será instalada na primeira janela de empresa-empresa que o utilizador configurado até esse período de tolerância. No entanto, o utilizador pode ainda abrir o Centro de Software e instalar a aplicação em qualquer altura em que pretende. Depois do período de tolerância expirar, imposição reverte para o comportamento normal para implementações em atraso.
+Após ter sido atingido o prazo de instalação da aplicação, o cliente instala a aplicação na primeira janela de empresa-empresa, que o utilizador configurado, até esse período de tolerância. No entanto, o utilizador pode ainda abrir o Centro de Software e instalar a aplicação em qualquer altura em que pretende. Depois do período de tolerância expirar, imposição reverte para o comportamento normal para implementações em atraso.
 
-Se a aplicação que estiver a implementar substituir outra aplicação, pode definir o prazo de instalação quando os utilizadores recebem a nova aplicação. Fazê-lo através da definição **prazo de instalação** para atualizar utilizadores com aplicação substituída.
+Se a aplicação que estiver a implementar substituir outra aplicação, pode definir o prazo de instalação quando os utilizadores recebem a nova aplicação. Definir o **prazo de instalação** para atualizar utilizadores com aplicação substituída.
 
 ### <a name="specify-user-experience-settings-for-the-deployment"></a>Especificar definições de experiência de utilizador para a implementação
 
-
 No **experiência de utilizador** página do Assistente de implementação de Software, especifique informações sobre a forma como os utilizadores poderão interagir com a instalação da aplicação.
 
-Ao implementar aplicações em dispositivos Windows Embedded com filtro de escrita ativado, poderá especificar a instalação da aplicação na sobreposição temporária e consolidar as alterações posteriormente, ou consolidar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no prazo de instalação ou durante uma janela de manutenção, tem de reiniciar o dispositivo. As alterações sejam mantidas no dispositivo.
+Ao implementar aplicações em dispositivos Windows Embedded do filtro de escrita ativado, pode especificar a instalação da aplicação no temporária sobreposição e confirmar as alterações mais tarde. Também pode especificar a consolidar as alterações no prazo de instalação ou durante uma janela de manutenção. Se consolidar alterações no prazo de instalação ou durante uma janela de manutenção, tem de reiniciar o dispositivo. As alterações sejam mantidas no dispositivo.
 
 >[!NOTE]
-    >  Ao implementar uma aplicação num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada. Para obter mais informações sobre como janelas de manutenção ao implementar aplicações em dispositivos Windows Embedded, consulte [aplicações criar Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).
+    >  Quando implementa uma aplicação num dispositivo Windows Embedded, certifique-se de que é um membro de uma coleção com uma janela de manutenção. Para obter mais informações sobre janelas de manutenção e dispositivos Windows Embedded, consulte [aplicações criar Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).
     > As opções **Instalação de Software** e **Reinício do Sistema (se for necessário para concluir a instalação)** não serão utilizadas se o objetivo da implementação estiver definido como **Disponível**. Também poderá configurar o nível de notificações apresentadas aos utilizadores quando a aplicação é instalada.
 
 ### <a name="specify-alert-options-for-the-deployment"></a>Especifique as opções de alerta para a implementação
@@ -139,11 +145,11 @@ No **alertas** página do Assistente de implementação de Software, configurar 
 
 No **políticas de configuração de aplicação** página, clique em **novo** para associar esta implementação de uma política de configuração de aplicação iOS (se tiver criado uma). Para mais informações sobre este tipo de política, consulte [configurar aplicações iOS com políticas de configuração de aplicação](../../apps/deploy-use/configure-ios-apps-with-app-configuration-policies.md).
 
-### <a name="finish-up"></a>Concluir a cópia de segurança
+### <a name="deployment-properties"></a>Propriedades de implementação
 
-No **resumo** página do Assistente de implementação de Software, reveja as ações que são executadas por esta implementação e, em seguida, clique em **seguinte** para concluir o assistente.
+Localizar a nova implementação no **implementações** nó do **monitorização** área de trabalho. Pode editar as propriedades desta implementação ou eliminar a implementação do separador **Implementações** do painel de detalhes da aplicação.
 
-A nova implementação é apresentada no **implementações** lista o **implementações** nó do **monitorização** área de trabalho. Pode editar as propriedades desta implementação ou eliminar a implementação do separador **Implementações** do painel de detalhes da aplicação.
+
 
 ## <a name="delete-an-application-deployment"></a>Eliminar uma implementação de aplicação
 
@@ -151,45 +157,86 @@ A nova implementação é apresentada no **implementações** lista o **implemen
 3.  No **aplicações** lista, selecione a aplicação que inclui a implementação eliminar.
 4.  No separador **Implementações** da lista *<nome da aplicação\>*, selecione a implementação da aplicação a eliminar. Em seguida, no **implementação** separador o **implementação** , clique em **eliminar**.
 
-Quando elimina uma implementação de aplicações, as instâncias da aplicação que já tenham sido instaladas não serão removidas. Para remover estas aplicações, tem de implementar a aplicação em computadores com **desinstalação**. Se eliminar uma implementação de aplicações ou remover um recurso da coleção em que esteja a implementar, a aplicação deixará de estar visível no Centro de Software.
+Quando elimina uma implementação de aplicação, não são removidas quaisquer instâncias da aplicação que já tenham sido instaladas. Para remover estas aplicações, tem de implementar a aplicação em computadores com **desinstalação**. Se eliminar uma implementação de aplicações ou remover um recurso da coleção em que estiver a implementar, a aplicação já não é visível no Centro de Software.
+
+
 
 ## <a name="user-notifications-for-required-deployments"></a>Notificações de utilizador para as implementações necessárias
 Quando receber o software necessário a partir de **Snooze e avisar-me depois** definição, pode selecionar a partir da seguinte na lista pendente de valores:
-- **Mais tarde**  
-Especifica que as notificações são agendadas baseada nas definições de notificação configuradas nas definições do agente de cliente.
-- **Tempo fixo**  
-Especifica que a notificação será agendada a apresentar depois do tempo selecionado. Por exemplo, se selecionar 30 minutos, a notificação é apresentada novamente dentro de 30 minutos.
+- **Mais tarde**: Especifica que as notificações são agendadas baseada nas definições de notificação configuradas nas definições do cliente.
+- **Corrigido tempo**: Especifica que a notificação está agendada para apresentar depois do tempo selecionado. Por exemplo, se selecionar 30 minutos, a notificação é apresentada novamente dentro de 30 minutos.
 
-![Página de agente do computador nas definições do agente de cliente](media/ComputerAgentSettings.png)
+![Agente do computador predefinidas no grupo de definições de cliente](media/ComputerAgentSettings.png)
 
-O tempo máximo de suspensão é sempre com base nos valores de notificação configurados nas definições do agente do cliente em sempre ao longo da linha cronológica de implementação. Por exemplo, se o **implementação prazo superior a 24 horas, lembrar utilizadores cada (horas)** definição o **agente do computador** página está configurada para 10 horas e que é mais de 24 horas antes do prazo quando a caixa de diálogo é iniciada, o poderia ser apresentados com um conjunto de opções de suspensão até mas nunca superior a 10 horas. Como se aproxima do prazo, a caixa de diálogo mostra menos opções, consistentes com as definições de agente do cliente relevantes para cada componente da linha cronológica de implementação.
+O tempo máximo de suspensão é sempre com base nos valores de notificação configurados nas definições do cliente em sempre ao longo da linha cronológica de implementação. Por exemplo:
+- Configurar o **implementação prazo superior a 24 horas, lembrar utilizadores cada (horas)** definição o **agente do computador** página para 10 horas.
+- O cliente apresenta a caixa de diálogo de notificação mais de 24 horas antes do prazo de implementação.
+- A caixa de diálogo mostra as opções de suspensão até mas nunca superior a 10 horas. 
+- Como se aproxima o prazo de implementação, a caixa de diálogo mostra menos opções. Estas opções são consistentes com as definições de cliente relevantes para cada componente da linha cronológica de implementação.
 
-Além disso, para uma implementação de alto risco, como uma sequência de tarefas que implementa um sistema operativo, a experiência de notificação do utilizador é agora mais intrusivo. Em vez de uma notificação da barra de tarefas transitório, uma caixa de diálogo, tal como o seguinte apresenta no seu computador sempre for notificado de que é necessária a manutenção crítica do software:
+Para uma implementação de alto risco, como uma sequência de tarefas que implementa um sistema operativo, a experiência de notificação do utilizador é mais intrusivo. Em vez de uma notificação da barra de tarefas transitório, uma caixa de diálogo, tal como o seguinte apresenta cada hora está a notificado de que é necessária a manutenção de software críticas:
 
-![Caixa de diálogo de Software necessária](media/client-toast-notification.png)
+![Caixa de diálogo de software necessárias notifica-o de manutenção crítica do software](media/client-toast-notification.png)
+
+
 
 ## <a name="how-to-check-for-running-executable-files-before-installing-an-application"></a>Como verificar para executar ficheiros executáveis antes de instalar uma aplicação
 
->[!Tip]
-> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
-
-No **propriedades** , na caixa de diálogo de uma implementação de tipo de **instalar comportamento** separador, pode especificar um ou mais ficheiros executáveis que, se executar, bloqueiam a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado. Para configurar este:
+No **propriedades** , na caixa de diálogo de uma implementação de tipo de **instalar comportamento** separador, especifique um ou mais ficheiros executáveis. Se um destes ficheiros executáveis está em execução no cliente, bloqueia a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução antes do cliente pode instalar o tipo de implementação. Para implementações com um propósito de obrigatório, o cliente pode fechar automaticamente o ficheiro executável está em execução.
 
 1. Abra o **propriedades** caixa de diálogo para qualquer tipo de implementação.
-2. No **instalar comportamento** separador do  *<deployment type name>*  **propriedades** caixa de diálogo, clique em **adicionar**.
+2. No **instalar comportamento** separador do *<deployment type name>* **propriedades** caixa de diálogo, clique em **adicionar**.
 3. No **adicionar ou Editar ficheiro executável** caixa de diálogo, introduza o nome do ficheiro executável que, se executar, bloqueia a instalação da aplicação. Opcionalmente, também pode introduzir um nome amigável para a aplicação para o ajudar a identificá-la na lista.
-4. Clique em **OK**, em seguida, feche o  *<deployment type name>*  **propriedades** caixa de diálogo.
-5. Em seguida, quando implementa uma aplicação, no **definições de implementação** página do Assistente de implementação Software, selecione **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**, em seguida, avance para implementar a aplicação.
+4. Clique em **OK**, em seguida, feche o *<deployment type name>* **propriedades** caixa de diálogo.
+5. Ao implementar a aplicação no **definições de implementação** página do Assistente de implementação Software, selecione **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação do tipo de implementação caixa de diálogo de propriedades**.
 
-Depois da aplicação atinge os computadores cliente, o seguinte comportamento aplica-se:
+Depois dos clientes recebem a implementação, o seguinte comportamento aplica-se:
 
-- Se a aplicação foi implementada como **disponível**e um utilizador final tenta instalá-lo, são-lhe pedidos para fechar a qualquer executáveis em execução, especificado antes de poderão avançar com a instalação.
+- Se implementou a aplicação como **disponível**e um utilizador final tenta instalá-lo, o cliente pede ao utilizador para fechar os ficheiros especificados em execução executáveis antes de prosseguir a instalação.
 
-- Se a aplicação foi implementada como **necessário**e a opção **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação** é selecionado, veem uma caixa de diálogo que os informa de que o executáveis que especificou são fechadas automaticamente quando é atingido o prazo de instalação da aplicação. Pode agendar estas caixas de diálogo no **as definições de cliente** > **agente do computador**. Se não pretender que o utilizador final para ver estas mensagens, selecione **ocultar no Centro de Software e em todas as notificações** no **experiência de utilizador** separador de propriedades da implementação.
+- Se implementou a aplicação como **necessário**e especificado para **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**, em seguida, o utilizador verá uma caixa de diálogo a informá-los de que os ficheiros executáveis especificados são fechados automaticamente quando é atingido o prazo de instalação da aplicação. Pode agendar estas caixas de diálogo no **as definições de cliente** > **agente do computador**. Se não pretender que o utilizador final para ver estas mensagens, selecione **ocultar no Centro de Software e em todas as notificações** no **experiência de utilizador** separador de propriedades da implementação.
 
-- Se a aplicação foi implementada como **necessário** e a opção **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação** não estiver selecionada, em seguida, a instalação da aplicação falhe se um ou mais das aplicações especificadas estão em execução.
+- Se implementou a aplicação como **necessário**e não especificar a **fechar automaticamente quaisquer executáveis em execução, especificado no separador de comportamento de instalação de caixa de diálogo de propriedades do tipo de implementação**, em seguida, a instalação da aplicação falhe se um ou mais das aplicações especificadas estão a executar.
 
-## <a name="for-more-information"></a>Para obter mais informações
+
+
+## <a name="deploy-user-available-applications-on-azure-ad-joined-devices"></a>Implementar aplicações disponíveis ao utilizador no Azure AD-dispositivos associados a um
+<!-- 1322613 -->
+Se implementar aplicações como disponíveis para os utilizadores, a partir de versão 1802 podem procurar e instalá-los através do Centro de Software nos dispositivos do Azure Active Directory (Azure AD).  
+
+#### <a name="prerequisites"></a>Pré-requisitos
+
+- Ativar HTTPS no ponto de gestão  
+
+- Integrar o site com [do Azure AD](/sccm/core/servers/deploy/configure/azure-services-wizard) para **gestão de nuvem**  
+
+    - Configurar [deteção de utilizador do Azure AD](/sccm/core/servers/deploy/configure/configure-discovery-methods#azureaadisc)  
+
+- Implementar uma aplicação como disponíveis para uma coleção de utilizadores do Azure AD  
+
+- Distribuir a qualquer conteúdo da aplicação para um [ponto de distribuição de nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point)  
+
+- Ativar a definição de cliente **utilizar o novo Centro de Software** no [agente do computador](/sccm/core/clients/deploy/about-client-settings#computer-agent) grupo  
+
+- SO de cliente tem de ser Windows 10 e associados para o Azure AD. Um como puramente na nuvem associados a um domínio, ou híbrida do Azure AD associados.  
+
+- Para suportar clientes baseados na internet:  
+
+    - [Gateway de gestão de nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway)  
+
+    - Ative a definição de cliente: **Ativar pedidos da política de utilizador dos clientes Internet** no [política de cliente](/sccm/core/clients/deploy/about-client-settings#client-policy) grupo  
+
+- Para suportar clientes na intranet:  
+
+    - Adicionar o ponto de distribuição de nuvem a um grupo de limites utilizado pelos clientes do  
+
+    - Os clientes têm de conseguir resolver o nome de domínio completamente qualificado (FQDN) do ponto de gestão ativado para HTTPS  
+
+
+
+## <a name="next-steps"></a>Passos seguintes
 
    -  [Definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md)  
    -  [Como configurar as definições do cliente](../../core/clients/deploy/configure-client-settings.md)
+   -  [Guia de utilizador do Centro de software](/sccm/core/understand/software-center)
+

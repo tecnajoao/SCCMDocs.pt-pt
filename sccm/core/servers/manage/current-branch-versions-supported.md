@@ -1,26 +1,27 @@
 ---
-title: "Versões do ramo atuais"
+title: Versões do ramo atuais
 titleSuffix: Configuration Manager
-description: "Reveja o histórico da versão do System Center Configuration Manager e saber mais sobre as fases de serviço fornecido."
+description: Reveja o histórico da versão do System Center Configuration Manager e saber mais sobre as fases de serviço fornecido.
 ms.custom: na
-ms.date: 11/22/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 35b5baec-d313-46aa-9d14-c443aa0d6c09
-caps.latest.revision: "8"
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 694b205144559d0ee4aee38c38361d5bd8b62a9d
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: e2ea7d8a915caebfdac824147e60bae509151fbf
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do System Center Configuration Manager
 
@@ -32,7 +33,7 @@ Microsoft planos de lançamento atualizações para o ramo atual do System Cente
 
 -   Atualizações de segurança (apenas) manutenção fase - após o lançamento de uma nova versão do ramo atual, o suporte ramos anteriores irão reduzir para atualizações de segurança apenas para o resto que versões suportam o ciclo de vida (mostrado na figura 1).  
 
- ![CM &#95; Manutenção &#95;suporte &#95; linha cronológica](media/CM_Servicing_support_timeline1.png "CM_Servicing_support_timeline")  
+ ![CM&#95;Servicing&#95;support&#95;timeline](media/CM_Servicing_support_timeline1.png "CM_Servicing_support_timeline")  
 Figura 1. Exemplo de sobreposição de ciclo de versão para filial atual de suporte de manutenção. Este exemplo é para fins de ilustração do ciclo e não representa a versão real ou esperado datas.
 
 > [!NOTE]  
@@ -45,7 +46,8 @@ Figura 1. Exemplo de sobreposição de ciclo de versão para filial atual de sup
  **Histórico da versão**  
 
 |Versão |Data de disponibilidade |Data de fim de suporte|  
-|-------------|-----------------------|----------------------|  
+|-------------|-----------------------|----------------------|
+|1802|22 de Março de 2018|22 de Setembro de 2019  
 |1710|20 de Novembro de 2017|20 de Maio de 2019 |
 |1706|31 de Julho de 2017|31 de Julho de 2018|
 |1702|27 de Março de 2017|27 de Março de 2018|

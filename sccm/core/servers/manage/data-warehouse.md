@@ -1,9 +1,9 @@
 ---
-title: "Armazém de dados"
+title: Armazém de dados
 titleSuffix: Configuration Manager
-description: "Ponto de serviço do armazém de dados e base de dados para o System Center Configuration Manager"
+description: Ponto de serviço do armazém de dados e base de dados para o System Center Configuration Manager
 ms.custom: na
-ms.date: 02/26/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
-caps.latest.revision: 
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 954ec65bae15e087d6cf5afbcc8e0da1ebf83533
-ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
+ms.openlocfilehash: 83bfc0e3d7bdf1ff8718c7c211c897e37b21a06b
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>O ponto de serviço do armazém de dados para o System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -88,6 +88,7 @@ Quando instalar a função, o Configuration Manager cria a base de dados do arma
      - **Nome da base de dados**: Especifique um nome para a base de dados do armazém de dados. O nome de base de dados não pode exceder 10 carateres. (Será possível aumentar o comprimento do nome suportados numa versão futura).
      O Configuration Manager cria a base de dados do armazém de dados com este nome. Se especificar um nome de base de dados que já existe na instância do SQL server, o Configuration Manager utiliza essa base de dados.
      - **Porta do SQL Server utilizada para ligação**: Especifique o número de porta de TCP/IP utilizado pelo SQL Server que aloja a base de dados do armazém de dados. Esta porta é utilizada pelo serviço de sincronização do armazém de dados para ligar à base de dados do armazém de dados.  
+     - **Conta de ponto de serviço do armazém de dados**: A partir de versão 1802, especifique a conta que utiliza o SQL Server Reporting Services ao ligar à base de dados do armazém de dados. 
 
 **Agenda de sincronização** página:   
 - **Agenda de sincronização**:
@@ -96,8 +97,12 @@ Quando instalar a função, o Configuration Manager cria a base de dados do arma
          - **Diária**: Especifique que a sincronização é executada diariamente.
          - **Semanalmente**: Especifique um único dia cada semana e a periodicidade semanal para sincronização.
 
+
 ## <a name="reporting"></a>Relatórios
 Depois de instalar um ponto de serviço do armazém de dados, vários relatórios fiquem disponíveis no ponto do reporting services que está instalado no mesmo site. Se instalar o ponto de serviço do armazém de dados antes de instalar um ponto do Reporting Services, os relatórios são adicionados automaticamente quando, posteriormente, instalar o ponto do Reporting Services.
+
+>[!WARNING]
+>No Configuration Manager versão 1802, foi adicionado suporte de credenciais alternativas para o ponto de armazém de dados. <!--507334-->Se tiver efetuado a atualização a partir de uma versão anterior do Configuration Manager, terá de especificar as credenciais que o SQL Server Reporting Services irá utilizar para ligar à base de dados do armazém de dados. Relatórios de armazém de dados não irão abrir e até que as credenciais especificadas. Para especificar uma conta, aceda a **administração** >**configuração do Site** >**servidores e funções de sistema de sites**. Clique no servidor com o ponto de serviço do armazém de dados, em seguida, clique com o botão direito na função de ponto de serviço de armazém de dados. Selecione **propriedades** , em seguida, especifique o **conta do ponto de serviço do armazém de dados**.
 
 A função de sistema de sites de armazém de dados inclui os seguintes relatórios, que tem uma categoria de **do armazém de dados**:
  - **Implementação da aplicação - histórica**: Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.

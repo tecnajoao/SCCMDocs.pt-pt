@@ -1,9 +1,9 @@
 ---
 title: Suporte para Windows 10
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as versões do Windows 10 que são suportadas como clientes ou para OSD com o System Center Configuration Manager."
+description: Saiba mais sobre as versões do Windows 10 que são suportadas como clientes ou para OSD com o System Center Configuration Manager
 ms.custom: na
-ms.date: 01/25/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,22 +12,22 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a1626a65-da22-49e0-9564-d2f752ea3f4b
-caps.latest.revision: 
-author: mestew
-ms.author: mstewart
+caps.latest.revision: ''
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2dfe9b63e9e7c41a4f8457dc5622f386c7cceec2
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: 877732c4095438b19a863335a4a0026b7b088b24
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="support-for-windows-10-for-system-center-configuration-manager"></a>Suporte para Windows 10 para o System Center Configuration Manager  
+# <a name="support-for-windows-10-in-system-center-configuration-manager"></a>Suporte para Windows 10 no System Center Configuration Manager  
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- Este tópico fornece detalhes sobre as versões do Windows 10 que pode utilizar com as diferentes versões do System Center Configuration Manager Current Branch. Este suporte inclui:
+Saiba mais sobre as versões do Windows 10 que suporta o Configuration Manager, incluindo:
  -  Windows 10 como um cliente do Configuration Manager
  -  O Windows Assessment and Deployment Kit (ADK) para Windows 10
 
@@ -40,23 +40,27 @@ Por exemplo, uma versão do Configuration Manager ignora da matriz após [suport
 -   Os seguinte suplementos de informações [sistemas operativos suportados para os clientes e dispositivos](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices).
 -   Se utilizar a longo prazo manutenção ramo do Configuration Manager, consulte [configurações suportadas para o ramo de manutenção de longo prazo](/sccm/core/understand/supported-configurations-for-ltsb).
 
-|Versão do Windows 10                    |  1702 o Configuration Manager          |    1706 o Configuration Manager |1710 o Configuration Manager          |  
+| Versão do Windows 10 | 1706 o Configuration Manager | 1710 o Configuration Manager | 1802 o Configuration Manager |
 |---------------------|-----|-----|-----|
-|Enterprise 2015 LTSB                   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-|Enterprise LTSB de 2016                   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-|1607   <br />(Também conhecido como a atualização de aniversário da)<br />(*Consulte edições*)   |![Suportado](media/green_check.png) |![Suportado](media/green_check.png)            |![Suportado](media/green_check.png) |
-|1703   <br />(Também conhecido como a atualização criadores)<br />(*Consulte edições*)      |![Retrocompatíveis com o](media/blue_compat.png) |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-|1709   <br />(Também conhecido como a atualização de criadores de reversão)<br />(*Consulte edições*) |![Não suportado](media/Red_X.png)   |![Retrocompatíveis com o](media/blue_compat.png) | ![Suportado](media/green_check.png) |
+| Enterprise 2015 LTSB            <!--10/14/2025-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| Enterprise 2016 LTSB            <!--10/13/2026-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1607   <br />(*Consulte edições*)   <!--04/10/2018-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1703   <br />(*Consulte edições*)   <!--10/09/2018-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1709   <br />(*Consulte edições*)   <!--04/09/2019-->   | ![Retrocompatíveis com o](media/blue_compat.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 
-
+<!-- lifecycle reference: https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet -->
 
 **Edições:** Enterprise, Pro, Education, Pro Education   
 
 |Chave|
 |--|
 |![Suportado](media/green_check.png) = **suportados**  |
-|![Não suportado](media/blue_compat.png)  = **Backwards compatível** -existente funcionalidades de gestão de cliente (inventário de hardware, inventário de software, atualizações de software, etc.) deverão funcionar com a nova versão do Windows 10. Iremos irá Documente quaisquer problemas conhecidos ou avisos. <br><br>Esta abordagem dá-lhe a capacidade de implementar e gerir o novo Windows baseia-se um dia com suporte de compatibilidade da aplicação sem necessidade de uma nova versão de atualização do Configuration Manager. |
-|![Suportado](media/Red_X.png) = **não suportado**|
+|![Compatível com a Backwards](media/blue_compat.png)  = **Backwards compatível** -as funcionalidades de gestão existentes do cliente deverá trabalhar com a nova versão do Windows 10. Por exemplo, inventário de hardware, inventário de software e atualizações de software. Iremos irá Documente quaisquer problemas conhecidos ou avisos. <br><br>Esta abordagem dá-lhe a capacidade de implementar e gerir as novas versões do Windows imediato com suporte de compatibilidade da aplicação e, sem necessidade de uma nova versão de atualização do Configuration Manager. |
+|![Não suportado](media/Red_X.png) = **não suportado**|
+
+ > [!NOTE]
+ > A partir de versão 1802, o Configuration Manager suporta o cliente em dispositivos Windows 10 ARM64. As funcionalidades de gestão existentes do cliente deverá trabalhar com estes novos dispositivos. Por exemplo, hardware e inventário de software, atualizações de software e gestão de aplicações. Implementação do sistema operativo não é atualmente suportada. <!-- 1353704 --> 
+
 
 
 ## <a name="windows-10-adk"></a>Windows 10 ADK
@@ -64,14 +68,17 @@ Quando implementar sistemas operativos com o Configuration Manager, o [Windows A
 
 A tabela seguinte lista as versões do Windows 10 ADK que pode utilizar com diferentes versões do Configuration Manager.
 
-|Versão do Windows 10 ADK  |1702 o Configuration Manager   |1706 o Configuration Manager |1710 o Configuration Manager |
+| Versão do Windows 10 ADK  | 1706 o Configuration Manager | 1710 o Configuration Manager | 1802 o Configuration Manager   |
 |--------------------|-----|-----|-----|
-|1607  |![Retrocompatíveis com o](media/blue_compat.png) |![Não suportado](media/Red_X.png)| ![Não suportado](media/Red_X.png) |
-|1703  |![Suportado](media/green_check.png)            |![Suportado](media/green_check.png) | ![Retrocompatíveis com o](media/blue_compat.png)|
-|1709  |![Não suportado](media/Red_X.png)              |![Suportado](media/green_check.png) | ![Suportado](media/green_check.png)|
+| 1607  | ![Não suportado](media/Red_X.png)   | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) |
+| 1703  | ![Suportado](media/green_check.png) | ![Retrocompatíveis com o](media/blue_compat.png) | ![Retrocompatíveis com o](media/blue_compat.png) |
+| 1709  | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 
 |Chave|
 |--|
 |![Suportado](media/green_check.png) = **suportados** - recomenda Windows utilizando o Windows ADK que corresponde à versão do Windows que está a implementar. Por exemplo, utilizar o Windows ADK para Windows 10 versão 1703 quando implementar o Windows 10 versão 1703. Para obter mais informações sobre o suporte de componentes do Windows ADK, consulte [DISM plataformas suportadas](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-supported-platforms) e [requisitos USMT](https://docs.microsoft.com/windows/deployment/usmt/usmt-requirements#bkmk-1). |
 |![Retrocompatível](media/blue_compat.png)  = **retrocompatível** -esta combinação não é testada, mas devem funcionar. Iremos irá Documente quaisquer problemas conhecidos ou avisos. |
-|![Suportado](media/Red_X.png) = **não suportado**|
+|![Não suportado](media/Red_X.png) = **não suportado**|
+
+ > [!Note]
+ > O Configuration Manager só suporta x86 e amd64 componentes do Windows 10 ADK. Não suporta atualmente arm ou arm64 componentes. 

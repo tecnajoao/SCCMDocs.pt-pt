@@ -1,9 +1,9 @@
 ---
 title: Hardware recomendado
 titleSuffix: Configuration Manager
-description: "Obtenha recomendações de hardware para o ajudar a dimensionar o seu ambiente do System Center Configuration Manager para além de uma implementação básica."
+description: Obtenha recomendações de hardware para o ajudar a dimensionar o seu ambiente do System Center Configuration Manager para além de uma implementação básica.
 ms.custom: na
-ms.date: 05/04/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5267f0af-34d3-47a0-9ab8-986c41276e6c
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 5def3fdef8e9182cb624640fa54ff2eae224e6a1
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8d0883c7c2a735a2e651d61083d4d45570408ebb
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="recommended-hardware-for-system-center-configuration-manager"></a>Hardware recomendado para o System Center Configuration Manager
 
@@ -32,7 +32,7 @@ As seguintes recomendações são diretrizes para o ajudar a dimensionar o seu a
  Utilize as informações nas secções seguintes como guia para ajudar a planear para o hardware que pode satisfazer as cargas de processamento dos clientes e sites que utilizam as funcionalidades do Gestor de configuração disponíveis com as configurações predefinidas.  
 
 
-##  <a name="bkmk_ScaleSieSystems"></a>Sistemas de sites  
+##  <a name="bkmk_ScaleSieSystems"></a> Sistemas de sites  
  Esta secção fornece as configurações de hardware recomendadas para o Configuration Manager sistemas de sites para implementações que suportam o número máximo de clientes e utilizar a maior parte ou todas as funcionalidades do Configuration Manager. Implementações que suportam menos do que o número máximo de clientes e não a utilizar todas as funcionalidades disponíveis podem requerer menos recursos do computador. Em geral, os principais fatores que limitam o desempenho do sistema global incluem o seguinte, por ordem:  
 
 1.  Desempenho da E/S do disco  
@@ -43,7 +43,7 @@ As seguintes recomendações são diretrizes para o ajudar a dimensionar o seu a
 
 Para melhor desempenho, utilize as configurações do RAID 10 para todas as unidades de dados e uma rede de Ethernet de 1 Gbps.  
 
-###  <a name="bkmk_ScaleSiteServer"></a>Servidores de site  
+###  <a name="bkmk_ScaleSiteServer"></a> Servidores de site  
 
 |Configuração do site|CPU (núcleos)|Memória (GB)|Atribuição de memória para o SQL Server (%)|  
 |-------------------------------|---------------|---------------|----------------------------------------|  
@@ -60,7 +60,7 @@ Para melhor desempenho, utilize as configurações do RAID 10 para todas as unid
 
  <sup>1</sup> quando o servidor do site e o SQL Server estão instaladas no mesmo computador, a implementação suporta o máximo [dimensionamento e números da escala](/sccm/core/plan-design/configs/size-and-scale-numbers) para sites e clientes. No entanto, esta configuração pode limitar [opções de elevada disponibilidade para o System Center Configuration Manager](/sccm/protect/understand/high-availability-options), como um cluster do SQL Server a utilizar. Além disso, devido os requisitos de e/s mais elevados necessários para suportar o SQL Server e servidor de site do Configuration Manager ao executar ambos no mesmo computador, é uma boa ideia ponderar a utilização de uma configuração com uma máquina do SQL Server remota, se tiver uma maior implementação.  
 
-###  <a name="bkmk_RemoteSiteSystem"></a>Servidores do sistema de sites remoto  
+###  <a name="bkmk_RemoteSiteSystem"></a> Servidores do sistema de sites remoto  
  As seguintes orientações for para computadores que possuem uma função de sistema de sites única. Planeie efetuar ajustes quando instalar várias funções de sistema de sites no mesmo computador.  
 
 |Função do sistema de sites|CPU (núcleos)|Memória (GB)|Espaço em disco (GB)|  
@@ -75,16 +75,16 @@ Para melhor desempenho, utilize as configurações do RAID 10 para todas as unid
 
 -   Aumentar a **comprimento da fila WsusPool** para **2000**.  
 
--   Aumentar a **limite de memória privada WsusPool** por 4 vezes, ou defina-o como **0** (ilimitado).  
+-   Aumentar a **limite de memória privada WsusPool** por quatro vezes, ou defina-o como **0** (ilimitado).  
 
-###  <a name="bkmk_DiskSpace"></a>Espaço em disco para sistemas de sites  
+###  <a name="bkmk_DiskSpace"></a> Espaço em disco para sistemas de sites  
  Configuração e atribuição do disco contribuem para o desempenho do Configuration Manager. Porque cada ambiente do Configuration Manager for diferente, os valores que implementar podem diferir das seguintes orientações.  
 
  Para obter o melhor desempenho, coloque cada objeto num volume RAID separado e dedicado. Para todos os volumes de dados (Configuration Manager e os respetivos ficheiros de base de dados), utilize o RAID 10 para o melhor desempenho.  
 
 |Utilização de dados|Espaço mínimo em disco|25 000 clientes|50 000 clientes|100 000 clientes|150 000 clientes|700 000 clientes (site de administração central)|  
 |----------------|------------------------|--------------------|--------------------|---------------------|---------------------|-----------------------------------------------------|  
-|Sistema operativo|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|  
+|Sistema Operativo|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|Consulte as orientações para o sistema operativo.|  
 |Ficheiros de registo e de aplicação do Configuration Manager|25 GB|50 GB|100 GB|200 GB|300 GB|200 GB|  
 |Ficheiro .mdf da base de dados do site|75 GB para cada 25.000 clientes|75 GB|150 GB|300 GB|500 GB|2 TB|  
 |Ficheiro .ldf da base de dados do site|25 GB para cada 25 000 clientes|25 GB|50 GB|100 GB|150 GB|100 GB|  
@@ -102,15 +102,15 @@ Para melhor desempenho, utilize as configurações do RAID 10 para todas as unid
     > [!NOTE]  
     >  Quando tiver 50 000 ou mais clientes num site, planeie utilizar quatro ou mais ficheiros. mdf da base de dados Temp.  
 
--   O tamanho da base de dados temporária de um site de administração central é normalmente inferior ao de um site primário.  
+-   O tamanho da base de dados temporária para um site de administração central é normalmente muito menor do que para um site primário.  
 
--   O tamanho da base de dados do site secundário é limitado ao seguinte:  
+-   A base de dados do site secundário tem as seguintes limitações de tamanho:  
 
     -   SQL Server 2012 Express: 10 GB  
 
-    -   Express do SQL Server 2014: 10 GB  
+    -   SQL Server 2014 Express: 10 GB  
 
-##  <a name="bkmk_ScaleClient"></a>Clientes  
+##  <a name="bkmk_ScaleClient"></a> Clientes  
  Esta secção fornece as configurações de hardware recomendadas para computadores que gere com software de cliente do Configuration Manager.  
 
 ### <a name="client-for-windows-computers"></a>Cliente para computadores Windows  
@@ -120,7 +120,7 @@ Para melhor desempenho, utilize as configurações do RAID 10 para todas as unid
 
 -   **Espaço em disco:** 500 MB espaço disponível no disco, com 5 GB recomendados para a cache do cliente do Configuration Manager. Menor espaço em disco é necessário se utilizar definições personalizadas para instalar o cliente do Configuration Manager:  
 
-    -   Para evitar a instalação dos ficheiros de que o cliente não precisa de utilizar /skipprereq de propriedade da linha de comandos CCMSetup. Por exemplo, executar **CCMSetup.exe /skipprereq:silverlight.exe** se o cliente não utilizar o catálogo de aplicações.  
+    -   Para evitar a instalação dos ficheiros de que o cliente não precisa de utilizar /skipprereq de propriedade da linha de comandos CCMSetup. Por exemplo, executar **CCMSetup.exe /skipprereq:silverlight.exe** se o cliente não utilizar o catálogo de aplicações. A partir do Configuration Manager 1802, Silverlight automaticamente já não está instalado.  
 
     -   Utilize a propriedade SMSCACHESIZE do Client.msi para definir um ficheiro de cache que seja menor do que o predefinido de 5120 MB. O tamanho mínimo é de 1 MB. Por exemplo, o **CCMSetup.exe SMSCachesize=2** cria uma cache com um tamanho de 2 MB.  
 
@@ -148,7 +148,7 @@ Para melhor desempenho, utilize as configurações do RAID 10 para todas as unid
 |Espaço em disco|500 MB espaço disponível no disco, com 5 GB recomendados para a cache do cliente do Configuration Manager.|  
 |Conectividade de rede|Computadores de cliente do Configuration Manager tem de ter conectividade de rede para sistemas de site do Configuration Manager para ativar a gestão.|  
 
-##  <a name="bkmk_ScaleConsole"></a>Consola do Configuration Manager  
+##  <a name="bkmk_ScaleConsole"></a> Consola do Configuration Manager  
  Os requisitos na seguinte tabela aplicam-se em cada computador que executa a consola do Configuration Manager.  
 
  **Configuração mínima de hardware:**  
@@ -175,7 +175,7 @@ Para melhor desempenho, utilize as configurações do RAID 10 para todas as unid
 Além do PowerShell, o Windows Management Framework (WMF) versão 3.0 ou posterior é suportado.   
 
 
-##  <a name="bkmk_ScaleLab"></a>Implementações de laboratório  
+##  <a name="bkmk_ScaleLab"></a> Implementações de laboratório  
  Utilize as seguintes recomendações de hardware mínimo para as implementações de laboratório e teste do Configuration Manager. Estas recomendações aplicam-se a todos os tipos de site, até 100 clientes:  
 
 |Função|CPU (núcleos)|Memória (GB)|Espaço em disco (GB)|  

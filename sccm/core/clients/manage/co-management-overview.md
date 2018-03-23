@@ -1,20 +1,22 @@
 ---
-title: "Gestão conjunta para dispositivos Windows 10"
-description: "Saiba como em simultâneo gerir dispositivos Windows 10 com o Configuration Manager e o Microsoft Intune."
-keywords: 
-author: dougeby
-manager: angrobe
-ms.date: 11/20/2017
+title: Gestão conjunta para dispositivos Windows 10
+titleSuffix: Configuration Manager
+description: Saiba como em simultâneo gerir dispositivos Windows 10 com o Configuration Manager e o Microsoft Intune.
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: 
+ms.service: ''
+ms.technology: ''
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 0cc11a05013fd9c25ee98ec35adcbe822d8a21fb
-ms.sourcegitcommit: 389c4e5b4e9953b74c13b1689195f99c526fa737
+ms.openlocfilehash: e4b8bd58d30cd87ffc461289edbfc5da9a684cda
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
 <!-- 1350871 -->
@@ -35,7 +37,7 @@ Seguem-se pré-requisitos gerais para a ativar a gestão conjunta:
 - Azure AD
 - Licença do Intune ou do EMS para todos os utilizadores
 - [Inscrição automática de AD do Azure](https://docs.microsoft.com/intune/windows-enroll#enable-windows-10-automatic-enrollment) ativada
-- Subscrição do Intune &#40; Definido como a autoridade MDM no Intune **Intune**&#41;
+- Subscrição do Intune &#40;definido como a autoridade MDM no Intune **Intune**&#41;
 
 
    > [!Note]  
@@ -50,7 +52,7 @@ Seguem-se pré-requisitos gerais para a ativar a gestão conjunta:
 - [Gateway de gestão de nuvem](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway) no Configuration Manager (ao utilizar o Intune para instalar o cliente do Configuration Manager)
 
 ## <a name="workloads-you-can-switch-to-intune"></a>Cargas de trabalho que pode mudar para o Intune
-Depois de ativar a gestão conjunta, o Configuration Manager continua a gerir todas as cargas de trabalho. Quando decidir o que está pronto, pode fazer com que o Intune começar a gerir as cargas de trabalho disponíveis. Pode fazer com o Intune gerir as seguintes cargas de trabalho.   
+Depois de ativar a gestão conjunta, o Configuration Manager continua a gerir todas as cargas de trabalho. Quando decidir o que está pronto, pode fazer com que o Intune começar a gerir as cargas de trabalho disponíveis. Pode fazer com que o Intune gerir as cargas de trabalho seguintes:   
 
 ### <a name="compliance-policies"></a>Políticas de conformidade
 Políticas de conformidade definem as regras e definições que um dispositivo tem de cumprir para serem considerados conformes pelo acesso condicional políticas. Também pode utilizar as políticas de conformidade para monitorizar e resolver problemas de conformidade com dispositivos independentemente do acesso condicional. Para obter mais informações, consulte [políticas de conformidade do dispositivo](/sccm/mdm/deploy-use/device-compliance-policies).  
@@ -60,6 +62,10 @@ Windows Update para políticas de empresas permitem-lhe configurar políticas de
 
 ### <a name="resource-access-policies"></a>Políticas de acesso a recursos
 Políticas de acesso a recursos configurar definições de certificado, e-mail, Wi-Fi e VPN em dispositivos. Para obter mais informações, consulte [implementar perfis de acesso a recursos](/sccm/protect/deploy-use/deploy-wifi-vpn-email-cert-profiles).
+
+### <a name="endpoint-protection"></a>Endpoint Protection 
+<!-- 1357365 -->
+A partir do Configuration Manager 1802, a carga de trabalho do Endpoint Protection pode ser transitada para o Intune. Para obter mais informações, consulte [cargas de trabalho podem ser transitado para o Intune](/sccm/core/clients/manage/co-management-switch-workloads.md#Workloads-able-to-be-transitioned-to-Intune) e [Endpoint Protection no Configuration Manager](/sccm/protect/deploy-use/endpoint-protection).
 
 ## <a name="architectural-overview-for-co-management"></a>Descrição geral da arquitetura de gestão conjunta
 O diagrama seguinte fornece uma descrição geral da arquitetura de gestão conjunta e como se enquadra no existentes infraestruturas de configuração e o Intune.

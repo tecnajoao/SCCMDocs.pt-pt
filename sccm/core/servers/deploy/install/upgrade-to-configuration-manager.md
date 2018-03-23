@@ -1,24 +1,25 @@
 ---
 title: Atualizar para o System Center Configuration Manager
-description: "Saiba os passos para executar uma atualização no local com êxito a partir de um site e hierarquia que executa o System Center 2012 Configuration Manager."
+description: Saiba os passos para executar uma atualização no local com êxito a partir de um site e hierarquia que executa o System Center 2012 Configuration Manager.
 ms.custom: na
-ms.date: 6/6/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
-caps.latest.revision: "21"
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 770976309fbd5e8884dfec4bdaa29630ef1c02d0
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 72e11a04eb64d649749f2001ac4e3550c784132c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Atualizar para o System Center Configuration Manager
 
@@ -32,6 +33,14 @@ Pode executar uma atualização no local a atualização para System Center Conf
  > Ao gerir o site do System Center Configuration Manager e a infraestrutura de hierarquia, os termos de licenciamento *atualizar*, *atualizar*, e *instalar* são utilizados para descrever três conceitos diferentes. Para saber como cada termo é utilizado, consulte [sobre a atualização, atualização e instalação](/sccm/core/understand/upgrade-update-install).
 
 ##  <a name="bkmk_path"></a> Caminhos de atualização no local  
+
+**Atualize para versão 1802**   
+Quando tiver versão 1702 da linha de base de dados, pode atualizar o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1802:   
+-     Uma instalação de avaliação do System Center Configuration Manager versão 1802
+-     System Center 2012 Configuration Manager sem Service Pack 1
+-     System Center 2012 Configuration Manager sem Service Pack 2
+-     System Center 2012 R2 Configuration Manager
+-     System Center 2012 R2 Configuration Manager sem Service Pack 1
 
 **Atualize para versão 1702**   
 Quando tiver versão 1702 da linha de base de dados, pode atualizar o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1702:   
@@ -285,8 +294,8 @@ Em seguida, depois de restaurar a base de dados do site, no computador do SQL Se
 >   
 >  Quando executa um teste de atualização da base de dados numa cópia da base de dados do site com 5 ou mais dias, poderá receber uma das seguintes mensagens:  
 >   
->  -   AVISO: Atualização irá forçar a sincronização completa com a nuvem.  
->  -   ERRO: Atualização de base de dados irá forçar a sincronização completa com a nuvem.  
+>  -   WARN: Atualização irá forçar a sincronização completa com a nuvem.  
+>  -   ERROR: Atualização de base de dados irá forçar a sincronização completa com a nuvem.  
 >   
 > Ambos podem ser ignoradas durante o teste de uma atualização de base de dados que não indicam uma falha ou um problema com o teste da atualização. Em vez disso, indicam que, durante a atualização real, dados a partir de **nuvem** grupo de replicação de base de dados poderão ser sincronizados com o Microsoft Intune.  
 
@@ -298,7 +307,7 @@ Utilize o seguinte procedimento em cada site de administração central e site p
 
 2.  Depois de restaurar a cópia da base de dados, execute a configuração do suporte de dados de origem para o System Center Configuration Manager. Ao executar a Configuração, utilize a opção da linha de comandos **/TESTDBUPGRADE** . Se a instância do SQL Server que aloja a cópia da base de dados não for a instância predefinida, terá de fornecer também os argumentos da linha de comandos para identificar a instância que aloja a cópia da base de dados do site.  
 
-     Por exemplo, planeia atualizar uma base de dados do site denominada SMS_ABC. Restaura uma cópia desta base de dados do site para uma instância suportada do SQL Server com o nome de instância DBTest. Para testar uma atualização desta cópia da base de dados do site, use a seguinte linha de comandos: **Setup.exe /testdbupgrade. DBtest\CM_ABC**  
+     Por exemplo, planeia atualizar uma base de dados do site denominada SMS_ABC. Restaura uma cópia desta base de dados do site para uma instância suportada do SQL Server com o nome de instância DBTest. Para testar uma atualização desta cópia da base de dados do site, use a seguinte linha de comandos: **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**  
 
      Pode encontrar o Setup.exe na seguinte localização no suporte de dados de origem para o System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
 

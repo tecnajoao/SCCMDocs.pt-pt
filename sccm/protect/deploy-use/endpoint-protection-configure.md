@@ -1,31 +1,32 @@
 ---
 title: Configurar o Endpoint Protection
 titleSuffix: Configuration Manager
-description: "Saiba como configurar o Configuration Manager para atualizar e distribuir definições de software maligno para o Windows Defender."
+description: Saiba como configurar o Configuration Manager para atualizar e distribuir definições de software maligno para o Windows Defender.
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: e63f2394-6eb1-4a33-bec5-8377fc62a34e
-caps.latest.revision: "21"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: 5f005e7cd9c396fcf7e02aafefcb34c37ddab901
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.openlocfilehash: 9e54b433224b86650178b4df0cd6d0f2ab827b6c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-endpoint-protection"></a>Configurar o Endpoint Protection
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Antes de poder utilizar o Endpoint Protection para gerir a segurança e software maligno em computadores de cliente do Configuration Manager, tem de efetuar os passos de configuração detalhados neste tópico.  
+Antes de poder utilizar o Endpoint Protection para gerir a segurança e software maligno em computadores de cliente do Configuration Manager, tem de efetuar os passos de configuração detalhados neste artigo.  
 
 ## <a name="how-to-configure-endpoint-protection-in-configuration-manager"></a>Como Configurar o Endpoint Protection no Configuration Manager  
  Endpoint Protection no Configuration Manager tem dependências externas e dependências no produto.  
@@ -34,7 +35,8 @@ Antes de poder utilizar o Endpoint Protection para gerir a segurança e software
  Utilize a tabela seguinte para obter os passos, detalhes e mais informações sobre como configurar o Endpoint Protection.  
 
 > [!IMPORTANT]  
->  Se gerir o endpoint protection para computadores Windows 10, tem de configurar o Configuration Manager para atualizar e distribuir definições de software maligno para o Windows Defender. O Windows Defender está incluído no Windows 10, mas SCEPInstall ainda tem de ser as definições de cliente instalado e personalizadas para o Endpoint Protection (**passo 5** abaixo) ainda são necessárias.  
+>  Se gerir o endpoint protection para computadores Windows 10, tem de configurar o Configuration Manager para atualizar e distribuir definições de software maligno para o Windows Defender. O Windows Defender está incluído no Windows 10, mas SCEPInstall ainda tem de ser as definições de cliente instalado e personalizadas para o Endpoint Protection (**passo 5** abaixo) ainda são necessárias. </br> </br>
+> A partir do Configuration Manager 1802, dispositivos Windows 10 não é necessário ter o agente do Endpoint Protection (SCEPInstall) instalado. Se já estiver instalado em dispositivos Windows 10, o Configuration Manager não removê-lo. Os administradores podem remover o agente do Endpoint Protection em dispositivos Windows 10 que estejam a executar, pelo menos, a versão do cliente 1802. SCEPInstall.exe ainda pode estar presente nos C:\Windows\ccmsetup algumas máquinas, mas não deve ser transferido em novas instalações de cliente. Definições de cliente personalizadas para o Endpoint Protection (**passo 5** abaixo) ainda são necessárias. <!--503654-->
 
 |Passos|Detalhes|  
 |-----------|-------------|  

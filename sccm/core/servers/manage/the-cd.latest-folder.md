@@ -1,25 +1,26 @@
 ---
 title: A pasta CD.Latest
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre o novo processo de atualização que disponibiliza atualizações do produto a partir do consola do Configuration Manager."
+description: Saiba mais sobre o novo processo de atualização que disponibiliza atualizações do produto a partir do consola do Configuration Manager.
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8db92d67-5d9c-4e9c-80d0-ae6fa0dd4817
-caps.latest.revision: "6"
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 1dd176f80afa4a9edc5a14d538eef7989614e814
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+manager: dougeby
+ms.openlocfilehash: 9371762a3f6acb9df7e7138c693b0a529c81a2ff
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>A pasta CD.Latest do System Center Configuration Manager
 
@@ -27,12 +28,12 @@ ms.lasthandoff: 12/04/2017
 
 System Center Configuration Manager apresenta um novo processo de atualização que disponibiliza atualizações do produto a partir do consola do Configuration Manager. Para suportar este novo método de atualização do Configuration Manager, é criada uma nova pasta com nome **CD. Mais recente** que contém uma cópia dos ficheiros de instalação do Configuration Manager para a versão atualizada do seu site.  
 
-A partir da atualização 1606, a pasta CD.Latest contém uma pasta denominada **Redist** com os ficheiros redistribuíveis que o programa de configuração transfere e utiliza. Estes ficheiros correspondem à versão dos ficheiros do Configuration Manager localizados na pasta CD.Latest. Ao executar o programa de configuração a partir da pasta CD.Latest, tem de utilizar ficheiros que correspondem a essa versão do programa de configuração. Para tal, pode indicar ao programa de configuração para transferir ficheiros novos e atuais da Microsoft, ou indicar ao programa de configuração para utilizar os ficheiros da pasta Redist incluída na pasta CD.Latest.
+CD. Pasta mais recente contém uma pasta denominada **Redist** que contém os ficheiros que transfere e utiliza o programa de configuração. Estes ficheiros correspondem à versão dos ficheiros do Configuration Manager localizados na pasta CD.Latest. Ao executar o programa de configuração a partir da pasta CD.Latest, tem de utilizar ficheiros que correspondem a essa versão do programa de configuração. Para tal, pode indicar ao programa de configuração para transferir ficheiros novos e atuais da Microsoft, ou indicar ao programa de configuração para utilizar os ficheiros da pasta Redist incluída na pasta CD.Latest.
 
-No entanto, o suporte de dados de linha de base, incluindo a linha de base versão 1606 lançadas em Outubro de 2016, não inclui uma pasta de Redist. Não será possível criar a pasta de Redist até que instale uma atualização na consola. Entretanto, utilize a pasta de Redist que utilizou quando instalar sites a partir do suporte de dados de linha de base.  
+No entanto, o suporte de dados de linha de base, incluindo a versão de linha de base 1802 que lançada em Março de 2018, não inclui uma pasta de Redist. Não será possível criar a pasta de Redist até que instale uma atualização na consola. Entretanto, utilize a pasta de Redist que utilizou quando instalar sites a partir do suporte de dados de linha de base.  
 
 > [!TIP]
-> Se ainda não instalou a versão 1606, certifique-se de que os ficheiros redist utilizados são atuais. Se não tiver transferido ficheiros redist recentemente, planeie permitir que o programa de configuração o faça a partir da Microsoft.   
+> Certifique-se os ficheiros redistribuíveis que utilizar atuais. Se não tiver transferido os ficheiros redistribuíveis recentemente, planeie permitir que o programa de configuração para fazê-lo da Microsoft.   
 
  Seguem-se alguns cenários que criam ou atualizam a pasta CD.Latest num site de administração central ou servidor de site primário:  
 
@@ -40,7 +41,7 @@ No entanto, o suporte de dados de linha de base, incluindo a linha de base vers�
 
 -   Execute a tarefa de cópia de segurança do Configuration Manager incorporados: A pasta é criada ou atualizada na localização de pasta designada de cópia de segurança.  
 
--  A partir da versão 1606, CD. Pasta mais recente é criada quando instala um novo site utilizar suportes de dados de linha de base (como a versão 1606 ou 1702).
+-  CD. Pasta mais recente é criada quando instala um novo site utilizar suportes de dados de linha de base (como a versão 1802).
 
 Os ficheiros de origem da pasta CD.Latest são suportadas para o seguinte:  
 

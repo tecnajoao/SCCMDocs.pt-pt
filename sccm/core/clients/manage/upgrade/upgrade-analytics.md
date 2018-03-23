@@ -1,22 +1,23 @@
 ---
-title: "Preparação para a atualização"
-titleSuffix: Configuration Manager
-description: "Integre com o Configuration Manager de preparação de atualização. Aceder a dados de compatibilidade da atualização na consola do administrador. Dispositivos de destino para a atualização ou correção."
-keywords: 
-author: mattbriggs
-ms.author: mabrigg
-manager: angerobe
-ms.date: 7/31/2017
+title: Preparação para a atualização
+titleSuffix: System Center Configuration Manager
+description: Integre com o Configuration Manager de preparação de atualização. Aceder a dados de compatibilidade da atualização na consola do administrador. Dispositivos de destino para a atualização ou correção.
+keywords: ''
+author: mestew
+ms.author: mstewart
+manager: dougeby
+ms.date: 03/22/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-client
+ms.service: ''
+ms.technology:
+- configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
-ms.openlocfilehash: df2950551e527788aeb01d57cdbf01ad19817ccd
-ms.sourcegitcommit: 986fc2d54f7c5fa965fd4df42f4db4ecce6b79cb
+ms.openlocfilehash: f9fec1723c5242485d23981bcb683e3a8e98bfd3
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Integrar a preparação de atualização com o System Center Configuration Manager
 
@@ -25,6 +26,10 @@ ms.lasthandoff: 11/17/2017
 Preparação de atualização (anteriormente, análise de atualização) é uma parte [Windows Analytics](https://www.microsoft.com/WindowsForBusiness/windows-analytics) que lhe permite avaliar e analisar a preparação de dispositivos no seu ambiente para uma atualização para o Windows 10. Pode configurar a versão específica. Preparação de atualização pode ser integrada com o Configuration Manager para aceder aos dados de compatibilidade de atualização de cliente na consola de administração do Configuration Manager. Conseguir dispositivos de destino para a atualização ou remediação utilizando dinâmicas coleções criadas com base nos dados.
 
 Preparação de atualização é uma solução que é executado no [Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview). Pode ler mais sobre a preparação de atualização no [gerir o Windows atualiza com atualização preparação](/windows/deployment/upgrade/manage-windows-upgrades-with-upgrade-readiness).
+
+>[!WARNING]
+>Para atualizar a preparação para a função dentro do Gestor de configuração, tem de atualizar para o Configuration Manager versão 1802.  <!--507205--> O conector de preparação de atualização já não vai funcionar anteriores ao 1802 em versões do Configuration Manager. 
+
 
 ## <a name="configure-clients"></a>Configurar os clientes
 
@@ -37,14 +42,14 @@ Preparação de atualização, como todas as soluções de análise do Windows, 
 Chave de ID comercial e telemetria do Windows podem ser configuradas no **as definições de cliente**. Para obter mais informações, consulte [utilize Windows Analytics com o Configuration Manager](../monitor-windows-analytics.md).
 
 >[!NOTE]
->Se ocorrerem problemas com a preparação de atualização não receber dados de telemetria dos dispositivos no seu ambiente, conforme esperado, em seguida, alguns destes problemas podem ser resolvidos utilizando o [script de implementação de preparação de atualização](/windows/deployment/upgrade/upgrade-readiness-deployment-script). No entanto, na maioria dos ambientes implementar os KBs corretos, configurar comercial chave de ID e a telemetria no **as definições de cliente** deve ser suficiente.
+>Se ocorrerem problemas com a preparação de atualização não receber dados de telemetria dos dispositivos no seu ambiente, conforme esperado, em seguida, alguns destes problemas podem ser resolvidos utilizando o [script de implementação de preparação de atualização](/windows/deployment/upgrade/upgrade-readiness-deployment-script). No entanto, na maioria dos ambientes, implementar KBs corretos, configurar comercial chave de ID e a telemetria no **as definições de cliente** deve ser suficiente.
 
 ## <a name="connect-configuration-manager-to-upgrade-readiness"></a>Ligar a preparação para a atualização do Configuration Manager
 
 A partir da versão do ramo atual 1706, o [Assistente de serviços do Azure](../../../servers/deploy/configure/azure-services-wizard.md) é utilizado para simplificar o processo de configuração de serviços do Azure a utilizar com o Configuration Manager. Para ligar o Configuration Manager com um registo de aplicações do Azure AD do tipo do atualizar preparação *aplicação Web / API* tem de ser criada no [portal do Azure](https://portal.azure.com). Para ler mais informações sobre como criar um registo de aplicação, consulte [registar a aplicação com o seu inquilino do Azure Active Directory](/azure/active-directory/active-directory-app-registration). No **portal do Azure**, também terá de conceder a sua aplicação web recentemente registado *contribuinte* permissões no grupo de recursos que contém a área de trabalho do OMS que aloja os seus dados de preparação de atualização. O **Assistente de serviços do Azure** irá utilizar este registo de aplicação para permitir que o Configuration Manager para comunicar de forma segura com o Azure AD e liga a infraestrutura para os dados de preparação de atualização.
 
 >[!IMPORTANT]
->*Contribuidor* devem ser concedidas permissões para a aplicação, por oposição a uma identidade de utilizador do Azure AD. Isto acontece porque é a aplicação registada e não um utilizador do Azure AD que acede os dados em nome da sua infraestrutura do Configuration Manager. Para tal, terá de procurar o nome do registo de aplicação no **adicionar utilizadores** painel ao atribuir a permissão. Esta o mesmo processo que tem de ser seguido quando [fornecer do Configuration Manager permissões ao OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm#provide-configuration-manager-with-permissions-to-oms) para ligações ao [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm). Estes passos devem ser concluídos antes do registo de aplicação é importado para o Configuration Manager com o *Assistente de serviços do Azure*.
+>*Contribuidor* devem ser concedidas permissões para a aplicação, por oposição a uma identidade de utilizador do Azure AD. Isto acontece porque é a aplicação registada e não um utilizador do Azure AD que acede os dados em nome da sua infraestrutura do Configuration Manager. Para conceder as permissões, terá de procurar o nome do registo de aplicação no **adicionar utilizadores** área ao atribuir a permissão. O mesmo processo que tem de ser seguido quando [fornecer do Configuration Manager permissões ao OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm#provide-configuration-manager-with-permissions-to-oms) para ligações ao [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-sccm). Estes passos devem ser concluídos antes do registo de aplicação é importado para o Configuration Manager com o *Assistente de serviços do Azure*.
 
 ### <a name="use-the-azure-wizard-to-create-the-connection"></a>Utilize o Assistente do Azure para criar a ligação
 
@@ -55,7 +60,7 @@ No *configuração* página, os são os seguintes valores pré-preenchidos se a 
 -  Grupo de recursos do Azure
 -  Área de trabalho de análise do Windows
 
-Mais do que um grupo de recursos ou a área de trabalho estará disponível apenas se o Azure AD registado aplicação web tem *contribuinte* permissões em mais do que um grupo de recursos ou se o grupo de recursos selecionado contém mais do que uma área de trabalho do OMS.
+Mais do que um grupo de recursos ou a área de trabalho estará disponível apenas se o Azure AD registado aplicação web tem *contribuinte* permissões em mais do que um grupo de recursos ou se o grupo de recursos selecionado tem mais do que uma área de trabalho do OMS.
  
 ## <a name="view-and-use-upgrade-readiness-information-in-configuration-manager"></a>Ver e utilizar informações de preparação de atualização no Configuration Manager
 

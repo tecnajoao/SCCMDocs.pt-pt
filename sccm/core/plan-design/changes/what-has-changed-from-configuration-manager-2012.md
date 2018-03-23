@@ -1,8 +1,8 @@
 ---
-title: "Alterações do Configuration Manager 2012 "
-description: "Identifica as alterações e novas capacidades do System Center Configuration Manager em comparação com o System Center 2012 Configuration Manager."
+title: 'Alterações do Configuration Manager 2012 '
+description: Identifica as alterações e novas capacidades do System Center Configuration Manager em comparação com o System Center 2012 Configuration Manager.
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -11,17 +11,17 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 3ae68fa6-8b30-45dd-9d12-50bb67cb4a9d
-caps.latest.revision: 
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 6e0da4f8c42bb0b2275566eba35b1e06b2028c1b
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+manager: dougeby
+ms.openlocfilehash: 70f6604e6f1b6731d6d2685e20262552f2b80590
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>O que &#39; s alteradas no System Center Configuration Manager, do System Center 2012 Configuration Manager
+# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>O que&#39;s alteradas no System Center Configuration Manager, do System Center 2012 Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -36,8 +36,8 @@ ms.lasthandoff: 02/01/2018
 
 -   Não utilize um identificador de ano ou produto no nome do produto, ao contrário das versões anteriores, tais como o Configuration Manager 2007 ou o System Center 2012 Configuration Manager.
 
--   Suporta atualizações incrementais, no produto, também designado por versões de atualização. A versão inicial tinha a versão 1511. As versões subsequentes são lançadas várias vezes um ano como atualizações na consola, como a versão 1610.
--   É instalado utilizando uma versão de linha de base. Durante a 1511 a versão de linha de base original, linha de base são lançadas novas versões também ocasionalmente, como 1702. Versões de linha de base podem ser utilizadas para instalar um novo site do System Center Configuration Manager e a hierarquia ou para atualizar a partir de uma versão suportada do Configuration Manager 2012.
+-   Suporta atualizações incrementais, no produto, também designado por versões de atualização. A versão inicial tinha a versão 1511. As versões subsequentes são lançadas várias vezes um ano como atualizações na consola, como a versão 1710.
+-   É instalado utilizando uma versão de linha de base. Durante a 1511 a versão de linha de base original, linha de base são lançadas novas versões também ocasionalmente, como 1802. Versões de linha de base podem ser utilizadas para instalar um novo site do System Center Configuration Manager e a hierarquia ou para atualizar a partir de uma versão suportada do Configuration Manager 2012.
 
 
 
@@ -46,15 +46,15 @@ ms.lasthandoff: 02/01/2018
  O System Center Configuration Manager utiliza um método de manutenção na consola denominado **atualizações e manutenção** que torna mais fácil localizar e instalar atualizações recomendadas.  
 
  Algumas versões só estão disponíveis como atualizações para sites existentes (de dentro do Gestor de configuração da consola) e não pode ser utilizado para instalar novos sites do Configuration Manager.   
-Por exemplo, a atualização 1610 só está disponível a partir da consola do Configuration Manager. É utilizado para atualizar um site que já está a executar uma versão do System Center Configuration Manager.
+Por exemplo, a atualização 1710 só está disponível a partir da consola do Configuration Manager. É utilizado para atualizar um site que já está a executar uma versão do System Center Configuration Manager.
 
-Periodicamente, uma versão de atualização também for lançada como uma nova versão de linha de base (como a atualização 1702). Este tipo de atualização pode ser utilizado para instalar uma nova hierarquia, sem a necessidade de começar com uma versão mais antiga de linha de base (por exemplo, a versão 1511) e atualizar o caminho para a versão mais atual.
+Periodicamente, uma versão de atualização também for lançada como uma nova versão de linha de base (como a atualização 1802). Este tipo de atualização pode ser utilizado para instalar uma nova hierarquia, sem a necessidade de começar com uma versão mais antiga de linha de base (por exemplo, a versão 1511) e atualizar o caminho para a versão mais atual.
 
 
 Para obter mais informações sobre como utilizar as atualizações, consulte [atualizações para o System Center Configuration Manager](../../../core/servers/manage/updates.md).  
 Para obter mais informações sobre baslines, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
 
-##  <a name="bkmk_servicepoint"></a>Nova função de sistema de sites: ponto de ligação de serviço  
+##  <a name="bkmk_servicepoint"></a> Nova função de sistema de sites: ponto de ligação de serviço  
  O **conector do Microsoft Intune** é substituído por uma nova função de sistema de sites que ativa funcionalidades adicionais, o **ponto de ligação de serviço**. O ponto de ligação de serviço:  
 
 -   Substitui o conector do Microsoft Intune quando integrar o Intune com a gestão de dispositivos móveis no local do System Center Configuration Manager.  

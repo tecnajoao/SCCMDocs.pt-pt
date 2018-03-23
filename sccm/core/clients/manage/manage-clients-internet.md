@@ -1,72 +1,76 @@
 ---
-title: 'Gerir clientes na Internet '
+title: Gerir clientes na internet
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre a gestão de clientes com o gateway de gestão de nuvem e gestão de clientes baseados na Internet no Configuration Manager."
-ms.date: 04/23/2017
+description: Saiba mais sobre a gestão de clientes com o gateway de gestão de nuvem e gestão de clientes baseados na internet no Configuration Manager.
+ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.assetid: c667d6af-80c4-485f-910c-896c0171fd00
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: c2650a2cdf7b1e6362688f48643d5ff37954d49b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 31d43d855c1e7062e62a3d15fa5a79c4e4de915f
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Gerir clientes na Internet com o Configuration Manager
+# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Gerir clientes na internet com o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Normalmente no Configuration Manager, a maioria dos computadores e servidores que estão a ser geridos está fisicamente no mesma privada ou empresarial rede interna que os servidores de sistema de sites que efetuam funções de gestão. No entanto, pode gerir computadores cliente fora da rede empresarial que estão ligados à Internet sem necessidade dos clientes ligar através de redes privadas virtuais a chegar ao site servidores do sistema.
+Normalmente, no Gestor de configuração, a maioria dos computadores geridos e servidores está fisicamente na rede interna mesma que os servidores de sistema de sites que efetuam funções de gestão. No entanto, pode gerir os clientes fora da rede interna quando estão ligados à internet. Esta capacidade não requer que os clientes ligar através de VPN a chegar ao site servidores do sistema.
 
-Configuration Manager fornece duas formas de gerir clientes ligadas à Internet:
+Configuration Manager fornece duas formas de gerir clientes ligados à internet:
 
 -   Gateway de gestão de nuvem
 
 -   Gestão de clientes baseada na Internet
 
+
 ## <a name="cloud-management-gateway"></a>Gateway de gestão de nuvem
 
-A partir da versão 1610, o Configuration Manager apresenta gateway de gestão de nuvem. Este novo método fornece uma forma de gerir clientes baseados na Internet utilizando uma combinação de um serviço em nuvem implementada para o Microsoft Azure e uma nova função de sistema de sites que comunica com esse serviço. Os clientes, em seguida, utilizar o serviço para comunicar com o Configuration Manager.
+O gateway de gestão de nuvem fornece gestão de clientes baseados na internet. Utiliza uma combinação de um serviço em nuvem do Microsoft Azure e uma nova função de sistema de sites que comunica com esse serviço. Os clientes baseados na Internet utilizar o serviço em nuvem para comunicar com o Gestor de configuração no local.
 
-Vantagens:
+#### <a name="advantages"></a>Vantagens  
 
--   Não existem investimento de infraestrutura adicionais necessário.
+-   Não existem investimento de infraestrutura adicionais necessário.  
 
--   Não expõe a infraestrutura no local para a Internet.
+-   Não expõe a infraestrutura no local para a internet.  
 
--   Máquinas virtuais na nuvem que executam o serviço são geridas completamente pelo Azure e não requerem nenhuma manutenção.
+-   Máquinas virtuais na nuvem que executam o serviço são geridas completamente pelo Azure e não requerem nenhuma manutenção.  
 
--   Facilmente definido e configurado na consola do Configuration Manager.
+-   Facilmente definido e configurado na consola do Configuration Manager.  
 
-Desvantagens:
+#### <a name="disadvantages"></a>Desvantagens  
 
--   Custo de subscrição da nuvem.
+-   Custo de subscrição da nuvem.  
 
--   Dados de gestão enviados através do serviço em nuvem.
+-   Dados de gestão enviados através do serviço em nuvem.  
 
-Para obter mais informações, consulte [planear para o gateway de gestão de nuvem](plan-cloud-management-gateway.md).
+Para obter mais informações, consulte [planear para o gateway de gestão de nuvem](plan-cloud-management-gateway.md).  
+
+
 
 ## <a name="internet-based-client-management"></a>Gestão de clientes baseada na Internet
 
-Este método baseia-se em servidores de sistema de site para a Internet para que os clientes comunicam para efeitos de gestão. Este método requer que os clientes e servidores de sistema de sites configurados para gestão baseada na Internet.
+Este método baseia-se em servidores de sistema de site para a internet para que os clientes comunicam para efeitos de gestão. Requer clientes e servidores de sistema de sites configurados para gestão baseada na internet.
 
-Vantagens:
+#### <a name="advantages"></a>Vantagens  
 
--   Não existem dependência do serviço de nuvem.
+-   Não existem dependência do serviço de nuvem.  
 
--   Sem custos adicionais associados a uma subscrição na nuvem.
+-   Sem custos adicionais associados a uma subscrição na nuvem.  
 
--   Controlo total de servidores e funções de fornecer o serviço.
+-   Controlo total de servidores e funções de fornecer o serviço.  
 
-Desvantagens:
+#### <a name="disadvantages"></a>Desvantagens  
 
--   Requerem um investimento infraestrutura adicionais.
+-   Requerem um investimento infraestrutura adicionais.  
 
--   Sobrecarga e o custo operacional de infraestrutura adicional.
+-   Sobrecarga e o custo operacional de infraestrutura adicional.  
 
--   Infraestrutura tem de ser exposta à Internet.
+-   Infraestrutura tem de ser exposta à internet.  
 
-Para obter mais informações, consulte [planear a gestão de clientes baseada na Internet de](plan-internet-based-client-management.md).
+Para obter mais informações, consulte [planear a gestão de clientes baseada na internet de](plan-internet-based-client-management.md).  

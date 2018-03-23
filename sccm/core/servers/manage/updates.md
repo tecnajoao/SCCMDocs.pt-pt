@@ -1,26 +1,27 @@
 ---
-title: "Atualizações"
+title: Atualizações
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre um método de manutenção na consola denominado * * as atualizações e manutenção * * que torna mais fácil localizar e instalar as atualizações recomendadas."
+description: Saiba mais sobre um método de manutenção na consola denominado **atualizações e manutenção** que torna mais fácil localizar e instalar atualizações recomendadas.
 ms.custom: na
-ms.date: 11/20/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a832943-580a-4a40-b454-961d0854ac2b
-caps.latest.revision: "51"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: a90222d16391d1e75d041c95c048a1d8d19bf278
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 8be32aa07819239820711079e4ff3637e96367db
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Atualizações para o System Center Configuration Manager
 
@@ -47,7 +48,7 @@ Se utilizar o ramo do Technical Preview, consulte [pré-visualização técnica 
 
 
 ##  <a name="bkmk_Baselines"></a> Versões de linha de base e de atualização  
- A primeira versão do ramo atual do System Center Configuration Manager tinha a versão 1511, que era uma versão de linha de base. Versões de linha de base mais recentes incluem a versão 1606 e 1702:
+ A primeira versão do ramo atual do System Center Configuration Manager tinha a versão 1511, que era uma versão de linha de base. Versões de linha de base mais recentes incluem versão 1702 e 1802:
 
 -   Utilize a versão de linha de base mais recente ao instalar um novo site numa nova hierarquia.  
 
@@ -75,6 +76,7 @@ As seguintes versões do Configuration Manager estão disponíveis como linha de
 
 |Versão |Data de disponibilidade|[Data de fim de suporte](/sccm/core/servers/manage/current-branch-versions-supported) |Linha de base|Atualização na consola|  
 |-------------|-----------|------------|--------------|------------------------|  
+|[1802](/sccm/core/plan-design/changes/whats-new-in-version-1802)<br /><br /> 5.00.8634.1000|22 de Março de 2018|22 de Setembro de 2019|Sim|Sim|
 |[1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)<br /><br /> 5.00.8577.1000|20 de Novembro de 2017|20 de Maio de 2019|Não|Sim|
 |[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 de Julho de 2017|31 de Julho de 2018|Não|Sim|
 |[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 de Março de 2017| 27 de Março de 2018|Sim|Sim|
@@ -85,7 +87,7 @@ As seguintes versões do Configuration Manager estão disponíveis como linha de
 | 1511 <br /><br /> 5.00.8325.1000|8 de Dezembro de 2015| 8 de Dezembro de 2016|Sim|Não|  
 
 
-*(Nota 1)*  o suporte de dados de linha de base 1606 e 1702 está disponíveis como parte do Microsoft System Center 2016 ou o System Center Configuration Manager (ramo atual e ramo de manutenção de longo prazo) versões no [Centro de serviços de licenciamento de Volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Por exemplo, no VLSC pode procurar *System Center Config Mgr (ramo atual e LTSB)*, e suporte de linha de base de versão 1606 e 1702 é devolvidos e disponível para transferência.
+*(Nota 1)*  o suporte de dados de linha de base 1802 e 1702 está disponíveis como parte do Microsoft System Center 2016 ou o System Center Configuration Manager (ramo atual e ramo de manutenção de longo prazo) versões no [Centro de serviços de licenciamento de Volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Por exemplo, no VLSC pode procurar *System Center Config Mgr (ramo atual e LTSB)*, e 1802 e 1702 versão da linha de base suporte de dados é devolvidos e disponível para transferência.
 
 Para verificar a versão do seu site do Configuration Manager, aceda a **Acerca do System Center Configuration Manager** no canto superior esquerdo da consola onde é apresentada a nova versão da consola e do site.  
 
@@ -93,7 +95,7 @@ Para verificar a versão do seu site do Configuration Manager, aceda a **Acerca 
  Ao utilizar uma instalação pronta para produção do System Center Configuration Manager, também referida como ramo atual, a maioria das atualizações que instalar estão disponíveis utilizando as atualizações e manutenção de canal. Este método identifica, transfere e disponibiliza as atualizações que se apliquem à sua versão e configuração de infraestrutura atuais, incluindo apenas as atualizações recomendadas pela Microsoft a todos os clientes.   
  Estas atualizações incluem:  
 
--   Novas versões, como versão 1610, 1702 ou 1706.  
+-   Novas versões, como versão 1702, 1706, 1710 ou 1802.  
 
 -   Atualizações, que incluem novas funcionalidades para a sua versão atual.
 
@@ -147,6 +149,6 @@ Pode instalar estas correções manualmente através de um destes dois métodos:
 
      Para obter mais informações, consulte [utilizar a ferramenta de registo de atualização para importar correções para o System Center Configuration Manager](../../../core/servers/manage/use-the-update-registration-tool-to-import-hotfixes.md).  
 
--   **Instalador de correções:** Esta ferramenta é utilizada para instalar manualmente uma correção que não pode ser instalada através do método na consola. Este método é utilizado para correções que utilizem a seguinte estrutura de nome de ficheiro: **&lt;Product\>-&lt;product version\>-&lt;KB article ID\>-&lt;platform\>-&lt;language\>.exe**.
+-   **Instalador de correções:** Esta ferramenta é utilizada para instalar manualmente uma correção que não pode ser instalada através do método na consola. Este método é utilizado para correções que utilizem a seguinte estrutura de nome de ficheiro: **&lt;Produto\>-&lt;versão do produto\>-&lt;ID do artigo KB\>-&lt;plataforma\> - &lt;idioma\>.exe**.
 
      Para obter mais informações, consulte [utilizar o instalador de correções para instalar atualizações para o System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md).

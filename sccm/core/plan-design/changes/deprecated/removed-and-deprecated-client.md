@@ -1,9 +1,9 @@
 ---
 title: Preterido para clientes do Configuration Manager
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades, produtos e sistemas operativos que já não suporta System Center Configuration Manager para os clientes."
+description: Saiba mais sobre as funcionalidades, produtos e sistemas operativos que já não suporta System Center Configuration Manager para os clientes.
 ms.custom: na
-ms.date: 01/25/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 604ab835-bce3-4fe3-a7f3-3f059cfc0ecf
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 36b548eb4061eb16aa41f7f65ab53c185df3491d
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: a745a67e3f3f4c61b3fa3f863cdb25d74ca6cbf8
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="removed-and-deprecated-items-for-system-center-configuration-manager-clients"></a>Removidas e preteridas itens para os clientes do System Center Configuration Manager
 
@@ -37,6 +37,7 @@ Esta informação está sujeita a alterações em versões futuras e não pode i
 
 |**Sistemas operativos**|**Preterição anunciada pela primeira vez**|**Suporte removido**|  
 |-|-|-|
+|Linux e UNIX|22 de Março de 2018||
 |Windows 8: Professional, Enterprise|12 de Janeiro de 2018||
 |Windows Embedded 8 Pro|12 de Janeiro de 2018||
 |Windows Embedded 8 Industry|12 de Janeiro de 2018||

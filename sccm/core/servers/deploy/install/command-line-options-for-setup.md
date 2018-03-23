@@ -1,9 +1,9 @@
 ---
-title: "Opções da linha de comandos do programa de configuração"
+title: Opções da linha de comandos do programa de configuração
 titleSuffix: Configuration Manager
-description: "Utilize as informações neste artigo para configurar scripts ou para instalar o System Center Configuration Manager a partir de uma linha de comandos."
+description: Crie scripts de automatização para instalar o System Center Configuration Manager a partir de uma linha de comandos.
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0da167f1-52cf-4dfd-8f73-833ca3eb8478
-caps.latest.revision: 
+caps.latest.revision: ''
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 3b2076087e13958be15dd5151961fa825e22a433
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+manager: dougeby
+ms.openlocfilehash: fede359c884ef8b4027935b2e3fb48a5b7543d26
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Opções da linha de comandos para a configuração no System Center Configuration Manager
 
@@ -29,29 +29,29 @@ ms.lasthandoff: 12/04/2017
 
  Utilize as seguintes informações para configurar scripts ou para instalar o System Center Configuration Manager a partir de uma linha de comandos.  
 
-##  <a name="bkmk_setup"></a>Opções da linha de comandos para configuração  
- **/ DESINSTALAR**  
- Desinstala o site. Tem de executar o programa de configuração do computador do servidor do site.  
+##  <a name="bkmk_setup"></a> Opções da linha de comandos para configuração  
+ **/DEINSTALL**  
+ Desinstala o site. Execute a configuração do computador do servidor do site.  
 
- **/ DONTSTARTSITECOMP**  
+ **/DONTSTARTSITECOMP**  
  Instala um site, mas impede que o serviço Gestor de componentes do Site a iniciar. Até que o serviço do Gestor de componentes do Site é iniciado, o site não está ativo. O Gestor de componentes do Site é responsável para instalar e iniciar o serviço SMS_Executive e para os processos adicionais no site. Depois de concluída a instalação do site, quando iniciar o serviço Gestor de componentes do Site, instala o serviço SMS_Executive e os processos adicionais necessários para o site funcionar.  
 
- **/ OCULTO**  
+ **/HIDDEN**  
  Oculta a interface de utilizador durante a configuração. Utilize esta opção apenas em conjunto com o **/SCRIPT** opção. O ficheiro de script automático tem de fornecer todas as opções necessárias ou programa de configuração falha.  
 
- **/ NOUSERINPUT**  
+ **/NOUSERINPUT**  
  Desativa a intervenção do utilizador durante a configuração, mas apresenta o Assistente de configuração. Utilize esta opção apenas em conjunto com o **/SCRIPT** opção. O ficheiro de script automático tem de fornecer todas as opções necessárias ou programa de configuração falha.  
 
  **/RESETSITE**  
- Efetua um site de reposição que repõe as contas de serviço e da base de dados para o site. Tem de executar a configuração a partir  **<* caminho de instalação do Configuration Manager*> \BIN\X64** no servidor do site. Para obter mais informações sobre a reposição do site, consulte o [executar uma reposição do site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) secção [modificar a infraestrutura do System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
+ Efetua um site de reposição que repõe as contas de serviço e da base de dados para o site. Execute a configuração de  **< *caminho de instalação do Configuration Manager*> \BIN\X64** no servidor do site. Para obter mais informações sobre a reposição do site, consulte o [executar uma reposição do site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) secção [modificar a infraestrutura do System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
 
  **/TESTDBUPGRADE <*nome da instância*>\\<*nome de base de dados*>**  
- Efetua um teste numa cópia de segurança da base de dados do site para se certificar de que a base de dados é capaz de uma atualização. Tem de fornecer o nome da instância e o nome de base de dados para a base de dados do site. Se especificar apenas o nome de base de dados, a configuração utiliza o nome da instância predefinida.  
+ Efetua um teste numa cópia de segurança da base de dados do site para se certificar de que a base de dados é capaz de uma atualização. Forneça o nome da instância e o nome de base de dados para a base de dados do site. Se especificar apenas o nome de base de dados, a configuração utiliza o nome da instância predefinida.  
 
 > [!IMPORTANT]  
 >  Não execute esta opção da linha de comandos na sua base de dados do site de produção. Executar esta opção da linha de comandos na sua base de dados do site de produção atualiza a base de dados do site e pode fazer o seu site inoperáveis.  
 
- **/ ATUALIZAR**  
+ **/UPGRADE**  
  Executa uma atualização automática de um site. Quando utiliza **/ATUALIZAR**, tem de especificar a chave de produto, incluindo os traços (-). Além disso, tem de especificar o caminho para os ficheiros de pré-requisitos do programa de configuração anteriormente transferidos.  
 
  Exemplo: `setupwpf.exe /UPGRADE xxxxx-xxxxx-xxxxx-xxxxx-xxxxx <path to external component files>`  
@@ -62,18 +62,18 @@ ms.lasthandoff: 12/04/2017
  Efetua instalações automáticas. Um ficheiro de inicialização da configuração é necessário quando utiliza o **/SCRIPT** opção. Para obter mais informações sobre como executar a configuração automática, consulte [instalar sites utilizando uma linha de comandos](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
 
  **/ SDKINST <*FQDN do fornecedor de SMS*>**  
- Instala o fornecedor de SMS no computador especificado. Tem de fornecer o nome de domínio completamente qualificado (FQDN) para o computador do fornecedor de SMS. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ Instala o fornecedor de SMS no computador especificado. Forneça o nome de domínio completamente qualificado (FQDN) para o computador do fornecedor de SMS. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
  **/ SDKDEINST <*FQDN do fornecedor de SMS*>**  
- Desinstala o fornecedor de SMS no computador especificado. Tem de fornecer o FQDN para o computador do fornecedor de SMS.  
+ Desinstala o fornecedor de SMS no computador especificado. Forneça o FQDN para o computador do fornecedor de SMS.  
 
  **/MANAGELANGS <*caminho do script de idioma*>**  
- Gere os idiomas que estão instalados num site instalado anteriormente. Para utilizar esta opção, tem de executar a configuração a partir  **<* caminho de instalação do Configuration Manager*> \BIN\X64** no servidor do site e fornecer a localização para o ficheiro de script de idioma que contém as definições de idioma. Para obter mais informações sobre as opções de idioma disponíveis no ficheiro de script de configuração de idioma, consulte [opções da linha de comandos para gerir idiomas](#bkmk_Lang) neste tópico.  
+ Gere os idiomas que estão instalados num site instalado anteriormente. Para utilizar esta opção, execute a configuração de  **< *caminho de instalação do Configuration Manager*> \BIN\X64** no servidor do site. Forneça a localização para o ficheiro de script de idioma que contém as definições de idioma. Para obter mais informações sobre as opções de idioma disponíveis no ficheiro de script de configuração de idioma, consulte o [opções da linha de comandos para gerir idiomas](#bkmk_Lang) secção.  
 
-##  <a name="bkmk_Lang"></a>Opções da linha de comandos para gerir idiomas  
+##  <a name="bkmk_Lang"></a> Opções da linha de comandos para gerir idiomas  
  **Identificação**  
 
--   **Nome da chave:** Ação  
+-   **Nome da chave:** Action  
 
     -   **Necessário:** Sim  
 
@@ -145,9 +145,9 @@ ms.lasthandoff: 12/04/2017
 
     -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Consoante o **PrerequisiteComp** valor, o programa de configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar anteriormente transferidos ficheiros.  
 
-##  <a name="bkmk_Unattended"></a>Chaves de ficheiro de script de configuração automática  
+##  <a name="bkmk_Unattended"></a> Chaves de ficheiro de script de configuração automática  
  Utilize as secções seguintes para ajudar a criar o script para a configuração automática. As listas mostram as chaves de script de configuração disponíveis, os valores correspondentes, se são necessárias, que tipo de instalação são utilizadas e uma descrição breve da chave.  
 
 ### <a name="unattended-install-for-a-central-administration-site"></a>Instalação automática de site de administração central  
@@ -155,7 +155,7 @@ ms.lasthandoff: 12/04/2017
 
 **Identificação**  
 
--   **Nome da chave:** Ação  
+-   **Nome da chave:** Action  
 
     -   **Necessário:** Sim  
 
@@ -223,7 +223,7 @@ ms.lasthandoff: 12/04/2017
 
          1 = Already transferido  
 
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração irá transferir os ficheiros.  
+    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração transfere os ficheiros.  
 
 -   **Nome da chave:** PrerequisitePath  
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 12/04/2017
 
     -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Consoante o **PrerequisiteComp** valor, o programa de configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar anteriormente transferidos ficheiros.  
 
 -   **Nome da chave:** AdminConsole  
 
@@ -246,6 +246,8 @@ ms.lasthandoff: 12/04/2017
     -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
 
 -   **Nome da chave:** JoinCEIP  
+    > [!Note]  
+    > A partir do Configuration Manager versão 1802 a funcionalidade CEIP é removida do produto.
 
     -   **Necessário:** Sim  
 
@@ -253,7 +255,7 @@ ms.lasthandoff: 12/04/2017
 
          0 = efetue não aderir  
 
-         1 = associação  
+         1 = Join  
 
     -   **Detalhes:** Especifica se pretende associar o programa de melhoramento da experiência do cliente (PMEC).  
 
@@ -317,10 +319,10 @@ ms.lasthandoff: 12/04/2017
 
     -   **Valores:** <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>  
 
-    -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central.  
+    -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar, quando o programa de configuração instala a base de dados do site de administração central.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Se não utilizar a instância predefinida, tem de especificar o nome da instância e o nome de base de dados do site.  
 
 -   **Nome da chave:** SQLSSBPort  
 
@@ -378,7 +380,7 @@ ms.lasthandoff: 12/04/2017
 
          1 = instalar  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Detalhes:** Especifica se o ponto de ligação de serviço utiliza um servidor proxy.  
 
 -   **Nome da chave:** ProxyName  
 
@@ -386,9 +388,9 @@ ms.lasthandoff: 12/04/2017
 
     -   **Valores:** <*FQDN do servidor Proxy*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Detalhes:** Especifica o FQDN do servidor proxy que utiliza o ponto de ligação de serviço.  
 
--   **Nome da chave:** /Proxyport  
+-   **Nome da chave:** ProxyPort  
 
     -   **Necessário:** Necessário quando **UseProxy** é igual a 1  
 
@@ -401,7 +403,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
 **Identificação**  
 
--   **Nome da chave:** Ação  
+-   **Nome da chave:** Action  
 
     -   **Necessário:** Sim  
 
@@ -469,7 +471,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          1 = Already transferido  
 
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração irá transferir os ficheiros.  
+    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração transfere os ficheiros.  
 
 -   **Nome da chave:** PrerequisitePath  
 
@@ -477,7 +479,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Consoante o **PrerequisiteComp** valor, o programa de configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar anteriormente transferidos ficheiros.  
 
 -   **Nome da chave:** AdminConsole  
 
@@ -492,6 +494,8 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
     -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
 
 -   **Nome da chave:** JoinCEIP  
+    > [!Note]  
+    > A partir do Configuration Manager versão 1802 a funcionalidade CEIP é removida do produto.
 
     -   **Necessário:** Sim  
 
@@ -499,7 +503,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          0 = efetue não aderir  
 
-         1 = associação  
+         1 = Join  
 
     -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
 
@@ -519,7 +523,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Detalhes:** Especifica o protocolo a utilizar para o ponto de gestão.  
 
--   **Nome da chave:** Ponto dedistribuição  
+-   **Nome da chave:** DistributionPoint  
 
     -   **Necessário:** Não  
 
@@ -618,7 +622,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
     -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site primário.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Se não utilizar a instância predefinida, tem de especificar o nome da instância e o nome de base de dados do site.  
 
 -   **Nome da chave:** SQLSSBPort  
 
@@ -652,7 +656,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*FQDN do site de Administração Central*>  
 
-    -   **Detalhes:** Especifica o site de administração central que um site primário se ligará quando aderir a hierarquia do Configuration Manager. Tem de especificar o site de administração central durante a configuração.  
+    -   **Detalhes:** Especifica o site de administração central que um site primário liga para quando é associado a hierarquia do Configuration Manager. Especificar o site de administração central durante a configuração.  
 
 -   **Nome da chave:** CASRetryInterval  
 
@@ -660,7 +664,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*Interval*>  
 
-    -   **Detalhes:** Especifica o intervalo entre tentativas (em minutos) para estabelecer ligação ao site de administração central após uma falha da ligação. Por exemplo, se a ligação ao site de administração central falhar, o site primário aguarda o número de minutos que especificar para o **CASRetryInterval** valor e, em seguida, tenta restabelecer a ligação.  
+    -   **Detalhes:** Especifica o intervalo entre tentativas (em minutos) para estabelecer ligação ao site de administração central após uma falha da ligação. Por exemplo, se a ligação ao site de administração central falhar, o site primário aguarda o número de minutos que especificar para o **CASRetryInterval** valor e, em seguida, reattempts a ligação.  
 
 -   **Nome da chave:** WaitForCASTimeout  
 
@@ -704,7 +708,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          1 = instalar  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Detalhes:** Especifica se o ponto de ligação de serviço utiliza um servidor proxy.  
 
 -   **Nome da chave:** ProxyName  
 
@@ -712,9 +716,9 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*FQDN do servidor Proxy*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Detalhes:** Especifica o FQDN do servidor proxy que utiliza o ponto de ligação de serviço.  
 
--   **Nome da chave:** /Proxyport  
+-   **Nome da chave:** ProxyPort  
 
     -   **Necessário:** Necessário quando **UseProxy** é igual a 1  
 
@@ -723,11 +727,11 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
     -   **Detalhes:** Especifica o número de porta a utilizar para a porta de proxy.  
 
 ### <a name="unattended-recovery-for-a-central-administration-site"></a>Recuperação automática de site de administração central  
- Utilize os detalhes seguintes para recuperar um site de administração central utilizando um ficheiro de script de configuração automática.  
+ Utilize os detalhes seguintes para recuperar um site de administração central, utilizando um ficheiro de script de configuração automática.  
 
 **Identificação**  
 
--   **Nome da chave:** Ação  
+-   **Nome da chave:** Action  
 
     -   **Necessário:** Sim  
 
@@ -757,13 +761,13 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          4 = Recuperar apenas SQL Server.  
 
-    -   **Detalhes:** Especifica se a configuração irá recuperar o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
+    -   **Detalhes:** Especifica se a configuração recupera o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
 
-        -   Valor = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Value = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
         -   Valor = 2: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
-        -   Valor = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
+        -   Value = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
 
 -   **Nome da chave:** DatabaseRecoveryOptions  
 
@@ -825,7 +829,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*código do Site*>  
 
-    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia. Tem de especificar o código do site que o site utilizava antes da falha.
+    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia. Especifique o código do site que o site utilizava antes da falha.
 
 -   **Nome da chave:** SiteName  
 
@@ -849,7 +853,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*FQDN do fornecedor de SMS*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que alojará o fornecedor de SMS. Terá de especificar o servidor que hospedava o Fornecedor de SMS antes da falha.  
+    -   **Detalhes:** Especifica o FQDN do servidor que aloja o fornecedor de SMS. Especifique o servidor que hospedava o fornecedor de SMS antes da falha.  
 
          Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
@@ -871,7 +875,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Consoante o **PrerequisiteComp** valor, o programa de configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar anteriormente transferidos ficheiros.  
 
 -   **Nome da chave:** AdminConsole  
 
@@ -886,6 +890,8 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
     -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
 
 -   **Nome da chave:** JoinCEIP  
+    > [!Note]  
+    > A partir do Configuration Manager versão 1802 a funcionalidade CEIP é removida do produto.
 
     -   **Necessário:** Sim  
 
@@ -893,7 +899,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          0 = efetue não aderir  
 
-         1 = associação  
+         1 = Join  
 
     -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
 
@@ -905,7 +911,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*nome do SQL Server*>  
 
-    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que irá alojar a base de dados do site. Terá de especificar o mesmo servidor que alojava a base de dados do site antes da falha.  
+    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que aloja a base de dados do site. Especifique o mesmo servidor que alojava a base de dados do site antes da falha.  
 
 -   **Nome da chave:** DatabaseName  
 
@@ -913,10 +919,10 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>  
 
-    -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central. Terá de especificar o nome da mesma base de dados que foi utilizada antes da falha.  
+    -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central. Especifique o mesmo nome de base de dados que foi utilizado antes da falha.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Se não utilizar a instância predefinida, tem de especificar o nome da instância e o nome de base de dados do site.  
 
 -   **Nome da chave:** SQLSSBPort  
 
@@ -924,7 +930,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*número de porta SSB*>  
 
-    -   **Detalhes:** Especifica a porta do SSB que utiliza o SQL Server. Normalmente, o SSB está configurado para utilizar a porta TCP 4022. Tem de especificar a mesma porta do SSB que foi utilizada antes da falha.  
+    -   **Detalhes:** Especifica a porta do SSB que utiliza o SQL Server. Normalmente, o SSB está configurado para utilizar a porta TCP 4022. Especifique a mesma porta do SSB que foi utilizada antes da falha.  
 
 -   **Nome da chave:** SQLDataFilePath  
 
@@ -974,7 +980,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          1 = instalar  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Detalhes:** Especifica se o ponto de ligação de serviço utiliza um servidor proxy.  
 
 -   **Nome da chave:** ProxyName  
 
@@ -982,9 +988,9 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*FQDN do servidor Proxy*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Detalhes:** Especifica o FQDN do servidor proxy que utiliza o ponto de ligação de serviço.  
 
--   **Nome da chave:** /Proxyport  
+-   **Nome da chave:** ProxyPort  
 
     -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
 
@@ -997,7 +1003,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
 **Identificação**  
 
--   **Nome da chave:** Ação  
+-   **Nome da chave:** Action  
 
     -   **Necessário:** Sim  
 
@@ -1027,13 +1033,13 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          4 = Recuperar apenas SQL Server.  
 
-    -   **Detalhes:** Especifica se a configuração irá recuperar o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
+    -   **Detalhes:** Especifica se a configuração recupera o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
 
-        -   Valor = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Value = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
         -   Valor = 2: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
-        -   Valor = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
+        -   Value = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
 
 -   **Nome da chave:** DatabaseRecoveryOptions  
 
@@ -1085,7 +1091,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*código do Site*>  
 
-    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia. Tem de especificar o código do site que o site utilizava antes da falha.
+    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia. Especifique o código do site que o site utilizava antes da falha.
 
 -   **Nome da chave:** SiteName  
 
@@ -1109,7 +1115,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*FQDN do fornecedor de SMS*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que alojará o fornecedor de SMS. Terá de especificar o servidor que hospedava o Fornecedor de SMS antes da falha. Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+    -   **Detalhes:** Especifica o FQDN do servidor que aloja o fornecedor de SMS. Especifique o servidor que hospedava o fornecedor de SMS antes da falha. Configure fornecedores de SMS adicionais para o site após a instalação inicial. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
 -   **Nome da chave:** PrerequisiteComp  
 
@@ -1129,7 +1135,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Consoante o **PrerequisiteComp** valor, o programa de configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar anteriormente transferidos ficheiros.  
 
 -   **Nome da chave:** AdminConsole  
 
@@ -1144,6 +1150,8 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
     -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
 
 -   **Nome da chave:** JoinCEIP  
+    > [!Note]  
+    > A partir do Configuration Manager versão 1802 a funcionalidade CEIP é removida do produto.
 
     -   **Necessário:** Sim  
 
@@ -1151,7 +1159,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          0 = efetue não aderir  
 
-         1 = associação  
+         1 = Join  
 
     -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
 
@@ -1163,20 +1171,20 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*nome do SQL Server*>  
 
-    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que irá alojar a base de dados do site. Terá de especificar o mesmo servidor que alojava a base de dados do site antes da falha.  
+    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que aloja a base de dados do site. Especifique o mesmo servidor que alojava a base de dados do site antes da falha.  
 
 -   **Nome da chave:** DatabaseName  
 
     -   **Necessário:** Sim  
 
-    -   **Valores:**  <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>
+    -   **Valores:** <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>
 
     -   **Detalhes:**  
 
-         Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central. Terá de especificar o nome da mesma base de dados que foi utilizada antes da falha.  
+         Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central. Especifique o mesmo nome de base de dados que foi utilizado antes da falha.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Se não utilizar a instância predefinida, tem de especificar o nome da instância e o nome de base de dados do site.  
 
 -   **Nome da chave:** SQLSSBPort  
 
@@ -1184,7 +1192,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*número de porta SSB*>  
 
-    -   **Detalhes:** Especifica a porta do SSB que utiliza o SQL Server. Normalmente, o SSB está configurado para utilizar a porta TCP 4022. Tem de especificar a mesma porta do SSB que foi utilizada antes da falha.  
+    -   **Detalhes:** Especifica a porta do SSB que utiliza o SQL Server. Normalmente, o SSB está configurado para utilizar a porta TCP 4022. Especifique a mesma porta do SSB que foi utilizada antes da falha.  
 
 -   **Nome da chave:** SQLDataFilePath  
 
@@ -1210,7 +1218,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*código para o site de administração central do Site*>  
 
-    -   **Detalhes:** Especifica o site de administração central ao qual um site primário liga quando é associado a hierarquia do Configuration Manager. Esta definição é necessária se o site primário estava ligado a um site de administração central antes da falha. Tem de especificar o código do site que era utilizado para o site de administração central antes da falha.  
+    -   **Detalhes:** Especifica o site de administração central ao qual um site primário liga quando é associado a hierarquia do Configuration Manager. Esta definição é necessária se o site primário estava ligado a um site de administração central antes da falha. Especifique o código de site que foi utilizado para o site de administração central antes da falha.  
 
 -   **Nome da chave:** CASRetryInterval  
 
@@ -1260,7 +1268,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          1 = instalar  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Detalhes:** Especifica se o ponto de ligação de serviço utiliza um servidor proxy.  
 
 -   **Nome da chave:** ProxyName  
 
@@ -1268,9 +1276,9 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Valores:** <*FQDN do servidor Proxy*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Detalhes:** Especifica o FQDN do servidor proxy que utiliza o ponto de ligação de serviço.  
 
--   **Nome da chave:** /Proxyport  
+-   **Nome da chave:** ProxyPort  
 
     -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
 

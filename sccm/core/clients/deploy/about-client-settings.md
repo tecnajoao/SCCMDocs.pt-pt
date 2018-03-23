@@ -1,9 +1,9 @@
 ---
-title: "Definições do cliente"
+title: Definições do cliente
 titleSuffix: Configuration Manager
-description: "Escolha as definições de cliente utilizando a consola de administrador no System Center Configuration Manager."
+description: Saiba mais sobre a predefinição e definições personalizadas para controlar os comportamentos de cliente
 ms.custom: na
-ms.date: 01/05/2018
+ms.date: 03/22/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,20 +12,20 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: dddfde242a67a0b4a9311c0fb6f0b2f0e6742cc2
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+manager: dougeby
+ms.openlocfilehash: 42b9364fc88acc3f403db8d2ca9243a117fd78bf
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
-Aplica-se a: System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramo atual)*
 
 Gerir todas as definições de cliente na consola do Configuration Manager do **as definições de cliente** no nó de **administração** área de trabalho. O Configuration Manager inclui um conjunto de predefinições. Quando alterar as predefinições de cliente, estas definições são aplicadas a todos os clientes na hierarquia. Também pode configurar as definições de cliente personalizadas, que substituem as predefinições de cliente quando atribuí-las a coleções. Para obter mais informações, consulte [como configurar as definições de cliente](../../../core/clients/deploy/configure-client-settings.md).
 
@@ -114,18 +114,19 @@ Esta definição aplica-se aos utilizadores cujos computadores estão na intrane
 
 Defina esta opção para **Sim** para os utilizadores receberem a política de utilizador em computadores baseados na internet. Também são aplicáveis os seguintes requisitos:  
 
--   O cliente e o site estão configurados para gestão de clientes baseados na internet.
+-   O cliente e o site estão configurados para [gestão de clientes baseados na internet](/sccm/core/clients/manage/plan-internet-based-client-management) ou um [gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway).  
 
 -   O **ativar política de utilizador nos clientes** definição é **Sim**.  
 
--   O ponto de gestão baseado na internet autentica com êxito o utilizador ao utilizar a autenticação do Windows (Kerberos ou NTLM).  
+-   O ponto de gestão baseado na internet autentica com êxito o utilizador ao utilizar a autenticação do Windows (Kerberos ou NTLM). Para obter mais informações, consulte [considerações sobre comunicações do cliente a partir da internet](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
+
+-   A partir de versão 1710, o gateway de gestão de nuvem com êxito autentica o utilizador ao utilizar o Azure Active Directory. Para obter mais informações, consulte [implementar aplicações disponíveis ao utilizador no Azure AD-dispositivos associados a um](\sccm\apps\deploy-use\deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices).  
 
 Se definir esta opção para **não**, ou qualquer um dos requisitos anteriores não são cumpridos, em seguida, um computador com a internet apenas recebe políticas de computador. Neste cenário, os utilizadores ainda podem ver, pedir e instalar aplicações a partir de um catálogo de aplicações baseado na internet. Se esta definição é **não**, mas **ativar política de utilizador nos clientes** é **Sim**, os utilizadores não recebem políticas de utilizador, até que o computador está ligado à intranet.  
 
-Para obter mais informações sobre a gestão de clientes na internet, consulte [considerações sobre comunicações do cliente da internet ou numa floresta não fidedigna](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan).  
-
 > [!NOTE]  
->  Os pedidos de aprovação de aplicações dos utilizadores não necessitam de políticas de utilizador ou de autenticação de utilizador.  
+>  Para a gestão de clientes baseada na internet, pedidos de aprovação de aplicações dos utilizadores não necessitam de políticas de utilizador ou a autenticação de utilizador. O gateway de gestão de nuvem não suporta pedidos de aprovação de aplicações.   
+
 
 
 ## <a name="cloud-services"></a>Serviços cloud
@@ -228,7 +229,7 @@ Escreva o nome que os utilizadores visualizam no Centro de Software. Estas infor
 
 ### <a name="use-new-software-center"></a>Utilizar o novo Centro de Software
 
-Se definir esta opção para **Sim**, em seguida, todos os computadores cliente utilizam o Centro de Software. Centro de software mostra as aplicações disponíveis ao utilizador que foram anteriormente acessíveis apenas no catálogo de aplicações. O catálogo de aplicações requer o Silverlight, que não é um pré-requisito para o Centro de Software.   
+Se definir esta opção para **Sim**, em seguida, todos os computadores cliente utilizam o Centro de Software. Centro de software mostra as aplicações disponíveis ao utilizador que foram anteriormente acessíveis apenas no catálogo de aplicações. O catálogo de aplicações requer o Silverlight, que não é um pré-requisito para o Centro de Software. A partir do Configuration Manager 1802, a predefinição é **Sim**.  
 
 O ponto de Web site do catálogo de aplicações e serviço web do catálogo de aplicações do ponto de sistema de sites funções ainda são necessárias para aplicações disponíveis ao utilizador a aparecer no Centro de Software.  
 
@@ -322,6 +323,21 @@ As seguintes definições tem de ser mais curtas duração a janela de manutenç
 
 Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).
 
+
+
+## <a name="delivery-optimization"></a>Otimização de entrega
+
+<!-- 1324696 -->
+Utilize grupos de limites do Configuration Manager para definir e regular a distribuição de conteúdo através da rede empresarial em escritórios remotos. [Otimização de entrega de Windows](/windows/deployment/update/waas-delivery-optimization) é uma tecnologia de baseado na nuvem, ponto a ponto para partilhar conteúdo entre dispositivos Windows 10. A partir de versão 1802, configure a otimização de entrega a utilizar os grupos de limites, quando a partilha de conteúdo entre elementos.
+
+ > [!Note]
+ > Otimização de entrega está disponível apenas em clientes Windows 10
+
+### <a name="use-configuration-manager-boundary-groups-for-delivery-optimization-group-id"></a>Grupos de limites de utilize o Gestor de configuração para o ID do grupo de otimização de entrega
+ Escolha **Sim** para aplicar o identificador do grupo de limites como o identificador do grupo de otimização de entrega no cliente. Quando o cliente comunica com o serviço de nuvem de otimização de entrega, utiliza este identificador para localizar os elementos de rede com os conteúdos pretendidos. 
+
+
+
 ##  <a name="endpoint-protection"></a>Endpoint Protection  
 >  [!Tip]   
 > Além das informações seguintes, pode obter detalhes sobre como utilizar as definições de cliente do Endpoint Protection no [cenário de exemplo: Utilizar o System Center Endpoint Protection para proteger os computadores contra software maligno no System Center Configuration Manager](/sccm/protect/deploy-use/scenarios-endpoint-protection).
@@ -330,11 +346,11 @@ Para obter mais informações sobre janelas de manutenção, veja [Como utilizar
 
 Escolha **Sim** se pretender gerir os clientes existentes do Endpoint Protection e o Windows Defender em computadores na sua hierarquia.  
 
-Escolha esta opção se já tiver instalado o cliente do Endpoint Protection e pretender geri-lo com o Configuration Manager. Esta instalação separada inclui um processo com script que utiliza uma aplicação do Configuration Manager ou o pacote e programa.
+Escolha esta opção se já tiver instalado o cliente do Endpoint Protection e pretender geri-lo com o Configuration Manager. Esta instalação separada inclui um processo com script que utiliza uma aplicação do Configuration Manager ou o pacote e programa. A partir do Configuration Manager 1802, dispositivos Windows 10 não é necessário ter o agente do Endpoint Protection instalado. No entanto, os dispositivos têm de **cliente gerir o Endpoint Protection nos computadores cliente** ativada. <!--503654-->
 
 ### <a name="install-endpoint-protection-client-on-client-computers"></a>Instalar o cliente do Endpoint Protection nos computadores cliente
 
-Escolha **Sim** para instalar e ativar o cliente do Endpoint Protection nos computadores cliente que não executem o cliente.  
+Escolha **Sim** para instalar e ativar o cliente do Endpoint Protection nos computadores cliente que não executem o cliente. A partir do Configuration Manager 1802, os clientes do Windows 10 não é necessário ter o agente do Endpoint Protection instalado.  
 
 > [!NOTE]  
 >  Se o cliente do Endpoint Protection já estiver instalado, escolher **não** não desinstala o cliente do Endpoint Protection. Para desinstalar o cliente do Endpoint Protection, configure o **cliente gerir o Endpoint Protection nos computadores cliente** definição de cliente para **não**. Em seguida, implemente um pacote e programa para desinstalar o cliente do Endpoint Protection.  
@@ -609,8 +625,14 @@ Introduza o nome da organização que os utilizadores visualizam no Centro de So
 - **Esquema de cores para o Centro de Software** </br>
 Selecione **selecione cor** para definir a cor primária utilizada pelo centro de Software.
 - **Selecionar um logótipo no Centro de Software** </br>
-Selecione **procurar** para selecionar uma imagem a apresentar no Centro de Software. O logótipo tem de ser um JPEG, PNG ou BMP de 400 x 100 pixéis, com um tamanho máximo de 750 KB. O nome de ficheiro de logótipo não deve conter espaços. <!--SMS.503731 space in filename, noticed BMP missing as filetype-->
+Selecione **procurar** para selecionar uma imagem a apresentar no Centro de Software. O logótipo tem de ser um JPEG, PNG ou BMP de 400 x 100 pixéis, com um tamanho máximo de 750 KB. O nome de ficheiro de logótipo não deve conter espaços.  
+         
+### <a name="bkmk_HideUnapproved"></a> Ocultar aplicações não aprovadas no Centro de Software
+A partir do Configuration Manager versão 1802, quando esta opção estiver ativada, as aplicações disponíveis utilizador que necessitem de aprovação estão ocultos no Centro de Software.   <!--1355146-->
 
+### <a name="bkmk_HideInstalled"></a> Ocultar as aplicações instaladas no Centro de Software
+A partir do Configuration Manager versão 1802, as aplicações que já se encontram instaladas deixarão de aparecer no separador de aplicações quando esta opção está ativada. Esta opção estiver definida como predefinição, ao instalar ou atualizar para o Configuration Manager 1802.  As aplicações instaladas ainda estão disponíveis para revisão no separador de estado de instalação. <!--1357592-->   
+  
 ### <a name="software-center-tab-visibility"></a>Visibilidade de separador de centro de software
 Configurar as definições adicionais neste grupo para **Sim** para fazer com que os seguintes separadores visível no Centro de Software:
 - **Aplicações**
