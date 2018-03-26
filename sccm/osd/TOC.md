@@ -46,6 +46,7 @@
 
 ## [Gerir o Windows como um serviço](deploy-use/manage-windows-as-a-service.md)
 ## [Monitorizar implementações do sistema operativo](deploy-use/monitor-operating-system-deployments.md)
+## [Criar uma implementação faseada para uma sequência de tarefas](deploy-use/create-phased-deployment-for-task-sequence.md)
 
 ## [Gerir sequências de tarefas para automatizar tarefas](deploy-use/manage-task-sequences-to-automate-tasks.md)
 ### [Criar uma sequência de tarefas para instalar um sistema operativo](deploy-use/create-a-task-sequence-to-install-an-operating-system.md)
