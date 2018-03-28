@@ -92,7 +92,7 @@ A nova política é apresentada no nó **Políticas de Gestão de Aplicações**
 
 Utilize as informações seguinte para saber mais sobre os formatos permitidos e os carateres universais que pode utilizar ao especificar os URLs na lista de permissões e bloqueios.  
 
--   Pode utilizar o símbolo de caráter universal ‘**\***’ de acordo com as regras na lista de padrões permitidos abaixo.  
+-   Pode utilizar o símbolo de caráter universal ‘**\\***’ de acordo com as regras na lista de padrões permitidos abaixo.  
 
 -   Certifique-se de que adiciona o prefixo **http** ou **https** a todos os URLs quando os introduzir na lista.  
 
@@ -111,7 +111,7 @@ Utilize as informações seguinte para saber mais sobre os formatos permitidos e
     |http://www.contoso.com<br /><br /> Corresponde a uma única página|www.contoso.com|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> contoso.com/|  
     |http://contoso.com<br /><br /> Corresponde a uma única página|contoso.com/|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com|  
     |http://www.contoso.com/*<br /><br /> Corresponde a todos os URLs a começar com www.contoso.com|www.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com/videos/tvshows|host.contoso.com<br /><br /> host.contoso.com/images|  
-    |http://*.contoso.com/\*<br /><br /> Corresponde a todos os subdomínios em contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
+    |http://\*.contoso.com/\*<br /><br /> Corresponde a todos os subdomínios em contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
     |http://www.contoso.com/images<br /><br /> Corresponde a uma única pasta|www.contoso.com/images|www.contoso.com/images/dogs|  
     |http://www.contoso.com:80<br /><br /> Corresponde a uma única página, ao utilizar um número de porta|http://www.contoso.com:80||  
     |https://www.contoso.com<br /><br /> Corresponde a uma única página segura|https://www.contoso.com|http://www.contoso.com|  
@@ -121,11 +121,11 @@ Utilize as informações seguinte para saber mais sobre os formatos permitidos e
 
     -   *.com  
 
-    -   *.contoso/\*  
+    -   \*.contoso/\*  
 
     -   www.contoso.com/*images  
 
-    -   www.contoso.com/*images\*pigs  
+    -   www.contoso.com/\*images\*pigs  
 
     -   www.contoso.com/page*  
 
