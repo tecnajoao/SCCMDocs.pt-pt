@@ -1,20 +1,21 @@
 ---
-title: "Utilizador suscitada pelo departamento de instalação"
+title: Utilizador suscitada pelo departamento de instalação
 titleSuffix: Microsoft Deployment Toolkit
-description: "Guia para programadores para utilizador suscitada pelo departamento de instalação do Microsoft implementação Toolkit 2013. "
+description: 'Guia para programadores para utilizador suscitada pelo departamento de instalação do Microsoft implementação Toolkit 2013. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: a2b3a3a0-7b81-4191-b1f9-c618e59347c3
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
 ms.openlocfilehash: 434178f100c32a4188ecf5283066f9332035f761
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="user-driven-installation---developers-guide"></a>Utilizador orientadas por instalação - guia para programadores
 Instalação de orientadas por utilizador (UDI) ajuda a simplificar a implementação de Windows® sistemas operativos cliente, como o Windows 8.1, a computadores utilizando a funcionalidade de implementação (OSD) do sistema operativo no Microsoft® System Center 2012 R2 Configuration Manager. UDI faz parte do Microsoft Deployment Toolkit (MDT).  
@@ -76,17 +77,17 @@ Figura 1. Relação entre o assistente UDI e UDI Wizard Designer
 
 3.  Certifique-se de que o ambiente de desenvolvimento de UDI está configurado corretamente conforme descrito em [verificar o ambiente de desenvolvimento de UDI](#VerifyUDIDeploymentEnvironment).  
 
-####  <a name="PrepareUDIDevelopmentEnvironmentPrerequisites"></a>Preparar os pré-requisitos de ambiente de desenvolvimento de UDI  
+####  <a name="PrepareUDIDevelopmentEnvironmentPrerequisites"></a> Preparar os pré-requisitos de ambiente de desenvolvimento de UDI  
  Para preparar o desenvolvimento de UDI pré-requisitos de ambiente, execute os seguintes passos:  
 
 1.  Prepare os pré-requisitos de hardware de ambiente de desenvolvimento UDI conforme descrito no [preparar os pré-requisitos de Hardware de ambiente de desenvolvimento de UDI](#PrepareUDIDevelopmentEnvironmentHardwarePrerequisites).  
 
 2.  Preparar o ambiente de desenvolvimento de UDI os pré-requisitos de software, tal como descrito no [preparar os pré-requisitos de Software de ambiente de desenvolvimento de UDI](#PrepareUDIDevelopmentEnvironmentSoftwarePrerequisites).  
 
-#####  <a name="PrepareUDIDevelopmentEnvironmentHardwarePrerequisites"></a>Preparar os pré-requisitos de Hardware de ambiente de desenvolvimento de UDI  
+#####  <a name="PrepareUDIDevelopmentEnvironmentHardwarePrerequisites"></a> Preparar os pré-requisitos de Hardware de ambiente de desenvolvimento de UDI  
  Os pré-requisitos de hardware de ambiente de desenvolvimento de UDI são os mesmos requisitos de hardware para a edição do Microsoft Visual Studio 2010 estiver a utilizar. Para obter mais informações sobre estes requisitos, consulte os requisitos de sistema para cada edição em [produtos do Visual Studio 2010](http://www.microsoft.com/visualstudio/products/2010-editions).  
 
-#####  <a name="PrepareUDIDevelopmentEnvironmentSoftwarePrerequisites"></a>Preparar os pré-requisitos de Software de ambiente de desenvolvimento de UDI  
+#####  <a name="PrepareUDIDevelopmentEnvironmentSoftwarePrerequisites"></a> Preparar os pré-requisitos de Software de ambiente de desenvolvimento de UDI  
  O ambiente de desenvolvimento de UDI tem os seguintes pré-requisitos de software:  
 
 -   Janelas de sistema operativo que suporta do Visual Studio 2010 (Windows 7 ou Windows Server® 2008 R2 é recomendado.)  
@@ -107,7 +108,7 @@ Figura 1. Relação entre o assistente UDI e UDI Wizard Designer
     > [!NOTE]
     >  O código de origem de exemplo para os editores de página do Assistente de UDI Wizard Designer é escrito em c#. Instale a linguagem c#, se pretender utilizar o código de origem de exemplo.  
 
-####  <a name="ConfigureUDIDevelopmentEnvironment"></a>Configurar o ambiente de desenvolvimento de UDI  
+####  <a name="ConfigureUDIDevelopmentEnvironment"></a> Configurar o ambiente de desenvolvimento de UDI  
  Depois de UDI, em seguida, são cumpridos os pré-requisitos de ambiente de desenvolvimento, execute os seguintes passos para configurar o ambiente de desenvolvimento de UDI:  
 
 1.  Instale Visual Studio 2010.  
@@ -140,7 +141,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
      **Figura 2. Estrutura de pastas para o desenvolvimento de UDI**  
 
-####  <a name="VerifyUDIDeploymentEnvironment"></a>Verifique se o ambiente de desenvolvimento de UDI  
+####  <a name="VerifyUDIDeploymentEnvironment"></a> Verifique se o ambiente de desenvolvimento de UDI  
  Quando o ambiente de desenvolvimento de UDI está configurado, certifique-se de que o ambiente de desenvolvimento de UDI está configurado corretamente, garantindo que os projetos de exemplo corretamente compilar no Visual Studio 2010.  
 
  Certifique-se de que o ambiente de desenvolvimento de UDI está corretamente configurado através da determinação de se:  
@@ -149,12 +150,12 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 -   O projeto de SampleEditor baseia-se corretamente conforme descrito em [Certifique-se de que o projeto de SampleEditor baseia-se corretamente](#VerifySampleEditorProjectBuildsCorrectly)  
 
-#####  <a name="VerifySamplePageProjectBuildsCorrectly"></a>Certifique-se de que o projeto de SamplePage baseia-se corretamente  
+#####  <a name="VerifySamplePageProjectBuildsCorrectly"></a> Certifique-se de que o projeto de SamplePage baseia-se corretamente  
  O projeto de SamplePage fornece um exemplo de como criar uma página do assistente personalizado para o Assistente de UDI. Para obter mais informações sobre o projeto de SamplePage, consulte [reveja o SamplePage solução do Visual Studio](#ReviewSamplePageVisualStudioSolution).  
 
  **Para verificar que o projeto de SamplePage baseia-se corretamente**  
 
-1.  Inicie o Visual Studio 2010.  
+1.  Start Visual Studio 2010.  
 
 2.  Abra o projeto de SamplePage.  
 
@@ -210,12 +211,12 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 18. Feche o Visual Studio 2010.  
 
-#####  <a name="VerifySampleEditorProjectBuildsCorrectly"></a>Certifique-se de que o projeto de SampleEditor baseia-se corretamente  
+#####  <a name="VerifySampleEditorProjectBuildsCorrectly"></a> Certifique-se de que o projeto de SampleEditor baseia-se corretamente  
  O projeto de SampleEditor fornece um exemplo de como criar um editor de página do assistente personalizado para o UDI Wizard Designer. Para obter mais informações sobre o projeto de SampleEditor, consulte [reveja o SamplePage solução do Visual Studio](#ReviewSamplePageVisualStudioSolution).  
 
  **Para verificar que o projeto de SampleEditor baseia-se corretamente**  
 
-1.  Inicie o Visual Studio 2010.  
+1.  Start Visual Studio 2010.  
 
 2.  Abra o projeto de SampleEditor.  
 
@@ -308,7 +309,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 -   Personalizado UDI assistente página editor exemplo conforme descrito em [reveja o SampleEditor solução do Visual Studio](#ReviewSampleEditorVisualStudioSolution)  
 
-###  <a name="ReviewContentsofSDKFolder"></a>Reveja o conteúdo da pasta SDK  
+###  <a name="ReviewContentsofSDKFolder"></a> Reveja o conteúdo da pasta SDK  
  Durante a configuração do ambiente de desenvolvimento de UDI, copiados da pasta SDK a partir da pasta na qual instalou o MDT para outra pasta que criou. Tabela 1 apresenta uma lista de pastas imediatamente abaixo da pasta SDK e fornece uma breve descrição de cada.  
 
 ### <a name="table-1-folders-in-the-udi-sdk"></a>Tabela 1. Pastas no UDI SDK  
@@ -320,14 +321,14 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 |SampleEditor|Um projeto do Visual Studio para a criação de um editor de personalizado utilizado para Editar página de SamplePage de UDI Wizard Designer, é escrito em c#|  
 |SamplePage|Um projeto do Visual Studio para criar uma página de assistente UDI personalizada, o que é escrita em Visual C++|  
 
-###  <a name="ReviewSamplePageVisualStudioSolution"></a>Analise a solução do SamplePage Visual Studio  
+###  <a name="ReviewSamplePageVisualStudioSolution"></a> Analise a solução do SamplePage Visual Studio  
  Antes de começar a criar as páginas do assistente personalizado e página do Assistente para editores, efetue as seguintes tarefas para preparar o ambiente de desenvolvimento de UDI:  
 
 -   Reveja as fases no ciclo de vida de uma página do assistente UDI conforme descrito em [reveja o ciclo de vida de página do assistente](#ReviewWizardPageLifeCycle).  
 
 -   Reveja a solução do Visual Studio para o exemplo de SamplePage no UDI SDK conforme descrito em [reveja o exemplo de SamplePage](#ReviewSamplePageExample).  
 
-####  <a name="ReviewWizardPageLifeCycle"></a>Reveja o ciclo de vida de página do Assistente  
+####  <a name="ReviewWizardPageLifeCycle"></a> Reveja o ciclo de vida de página do Assistente  
  Uma página do assistente UDI tem métodos que correspondem a cada fase (ou fase) do ciclo de vida da página. Como parte da criação da página do assistente personalizado, tem de substituir estes métodos com o seu código. Tabela 2 lista os métodos que terá de substituir e fornece uma breve descrição de cada método, incluindo quando utilizar o método no ciclo de vida da página do assistente.  
 
 ### <a name="table-2-methods-in-a-wizard-page-life-cycle"></a>Tabela 2. Métodos de um assistente página ciclo de vida  
@@ -341,7 +342,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 |**OnNextClicked**|Este método é denominado quando clicar em **seguinte** no assistente.<br /><br /> Para que este método, escrever código que efetua quaisquer ações necessárias antes de mover para a página seguinte do assistente — por exemplo, efetuar a validação pode demorar muito tempo. Se a validação falhar, pode cancelar o **seguinte** pedir e apresentar uma mensagem.|  
 |**OnWindowHidden**|Este método é denominado sempre que a página se encontra oculto quando é apresentada a página de assistente anterior ou seguinte.<br /><br /> Para que este método, escreva código que efetua quaisquer ações antes da página está oculta, antes de outra página a ser mostrada. Normalmente, não terá de substituir este método.|  
 
-####  <a name="ReviewSamplePageExample"></a>Reveja o exemplo de SamplePage  
+####  <a name="ReviewSamplePageExample"></a> Reveja o exemplo de SamplePage  
  Reveja o exemplo de SamplePage utilizando a lista seguinte, que representa a sequência de eventos durante o ciclo de vida de página do Assistente do exemplo SamplePage:  
 
 1.  O Assistente de UDI, OSDSetupWizard.exe, lê as informações de configuração do ficheiro de configuração do Assistente de UDI no exemplo (o ficheiro Config.xml), conforme descrito em [passo 1: O assistente UDI (OSDSetupWizard.exe) lê o ficheiro de Config.xml](#UDIWizardReadstheConfigFile).  
@@ -352,7 +353,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 4.  Quando a página do assistente personalizado recolheu as informações, executar quaisquer tarefas de necessárias antes de clicar em **seguinte** prossiga para o assistente seguinte, conforme descrito em [passo 4: O botão seguinte é clicado na página do assistente personalizado](#TheNextButtonisClickedinCustomWizardPage).  
 
-#####  <a name="UDIWizardReadstheConfigFile"></a>Passo 1: O assistente UDI (OSDSetupWizard.exe) lê o ficheiro de Config.xml  
+#####  <a name="UDIWizardReadstheConfigFile"></a> Passo 1: O assistente UDI (OSDSetupWizard.exe) lê o ficheiro de Config.xml  
  Quando é iniciado o Assistente de UDI (OSDSetupWizard.exe), por predefinição, lê o ficheiro de configuração do Assistente de UDI, que é o ficheiro UDIWizard_Config.xml — o ficheiro de configuração principal para o Assistente de UDI.  
 
 > [!NOTE]
@@ -384,7 +385,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 -   O nome de página do assistente personalizado em vez de **LocationPage**.  
 
-#####  <a name="UDIWizardLoadstheDLLforCustomWizardPage"></a>Passo 2: O assistente UDI carrega a DLL para a página do assistente personalizado  
+#####  <a name="UDIWizardLoadstheDLLforCustomWizardPage"></a> Passo 2: O assistente UDI carrega a DLL para a página do assistente personalizado  
  Quando o Assistente de UDI carrega a DLL, aquele invoca o **RegisterFactories** função, o que tem de ser implementada no seu ficheiro. dll. No exemplo, esta função é implementada no ficheiro dllmain.ccp. Cada página do assistente criar tem de implementar o **RegisterFactories** função.  
 
  O **RegisterFactories** função é utilizada para registar a classe de fábrica do seu página do assistente com o registo de fábrica de classe para o Assistente de UDI. *Classe fábricas* são as classes que podem criar uma instância de outra classe. O **RegisterFactories** função cria uma nova instância de uma classe de fábrica e transmite dessa classe para o registo de fábrica de classe para o Assistente de UDI, que disponibiliza dessa classe de fábrica para o assistente. O Assistente de UDI procura uma classe de fábrica registada com um ID que corresponda a **tipo** atributo do **página** elemento para a página do assistente personalizado.  
@@ -402,7 +403,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 > [!NOTE]
 >  O exemplo contém e regista apenas um personalizado página do assistente. O exemplo não inclui tarefas personalizadas ou validações e, por isso, não registou qualquer tarefas personalizadas ou validações.  
 
-#####  <a name="UDIWizardDisplaysCustomWizardPage"></a>Passo 3: O assistente UDI apresenta a página do assistente personalizado  
+#####  <a name="UDIWizardDisplaysCustomWizardPage"></a> Passo 3: O assistente UDI apresenta a página do assistente personalizado  
  A página do assistente personalizado no exemplo é definida no ficheiro LocationPage.cpp. Páginas do assistente são derivadas de classes de modelo que fornecem que tem muito a uma página de funcionalidade. Todas as páginas de assistente devem derivar de [WizardPageImpl modelo classe](#WizardPageImplTemplateClass), que implementa o [IWizardPage Interface](#IWizardPageInterface). Pode implementar a cada página do Assistente de outras classes do modelo opcional e interfaces correspondentes com base nas necessidades da página.  
 
  O [WizardPageImpl modelo classe](#WizardPageImplTemplateClass) tem vários interfaces útil que podem ajudar a escrever páginas do assistente personalizado. Implementar o [WizardPageImpl modelo classe](#WizardPageImplTemplateClass) como a classe base para a página do assistente personalizado.  
@@ -443,7 +444,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
     -   Adiciona as informações que serão apresentadas no **resumo** página com o **SaveFields** método  
 
-#####  <a name="TheNextButtonisClickedinCustomWizardPage"></a>Passo 4: O botão seguinte é clicado na página do assistente personalizado  
+#####  <a name="TheNextButtonisClickedinCustomWizardPage"></a> Passo 4: O botão seguinte é clicado na página do assistente personalizado  
  Quando o utilizador concluir os campos na página do assistente personalizado, seja clica **seguinte**, que invoca o **OnNextClicked** método. O **OnNextClicked** método efetua quaisquer tarefas necessárias antes de avançar para a página seguinte do assistente, tais como a gravação de alterações de configuração efetuadas na página do assistente personalizado.  
 
  Para a página do assistente personalizado exemplo, a substituição para o **OnNextClicked** método é implementado no ficheiro LocationPage.ccp. No **OnNextClicked** são chamar do método na página do assistente personalizada de exemplo, os seguintes métodos:  
@@ -452,7 +453,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 2.  [SaveFields](#SaveFields). Este método poupa valores de campo para variáveis de sequência de tarefas e os dados apresentados no **resumo** página.  
 
-###  <a name="ReviewSampleEditorVisualStudioSolution"></a>Analise a solução do SampleEditor Visual Studio  
+###  <a name="ReviewSampleEditorVisualStudioSolution"></a> Analise a solução do SampleEditor Visual Studio  
  Antes de começar a criar os seus próprios páginas do assistente personalizados e a página do Assistente para editores, execute os seguintes passos para preparar o ambiente de desenvolvimento de UDI:  
 
 -   Reveja a arquitetura de UDI Wizard Designer, conforme descrito em [rever a arquitetura de estruturador do Assistente de UDI](#ReviewUDIWizardDesignerArchitecture).  
@@ -461,7 +462,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 -   Reveja o exemplo de EditorPage fornecido no UDI SDK conforme descrito em [reveja o exemplo de EditorPage](#ReviewEditorPageExample).  
 
-####  <a name="ReviewUDIWizardDesignerArchitecture"></a>Reveja a arquitetura de estruturador de assistente UDI  
+####  <a name="ReviewUDIWizardDesignerArchitecture"></a> Reveja a arquitetura de estruturador de assistente UDI  
  O UDI Wizard Designer foi desenvolvido utilizando WPF, prisma e Unity. O estruturador de UDI é utilizado para editar o ficheiro de configuração do Assistente de UDI (UDIWizard_Config.xml), que lê o Assistente de UDI (OSDSetupWizard.exe) em tempo de execução. O [páginas](#Pages) elemento no ficheiro de configuração do Assistente de UDI contém uma lista das páginas que tenha um separado [página](#Page) elemento para cada página do assistente.  
 
  Ao editar as definições de configuração para uma página do assistente, o UDI Wizard Designer carrega o editor de página personalizada que corresponde ao tipo de página do assistente. Os editores de página do assistente personalizado são desenvolvidas como controlos de utilizador do WPF. O editor de página do assistente personalizado páginas utilize o [modelo – vista – ViewModel](http://msdn.microsoft.com/magazine/dd419663.aspx) padrão de conceção (MVVM) para WPF.  
@@ -470,7 +471,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
  O UDI Wizard Designer utiliza o **DependencyAttribute** para obter acesso ao **DataService** classe com base no framework de injeção de dependência na Unity. Para obter mais informações sobre a arquitetura de interjection de dependência na Unity, consulte [Injetar algumas vida nas suas aplicações — obter saber o bloco de aplicação Unity](http://msdn.microsoft.com/library/ff650806.aspx).  
 
-####  <a name="ReviewConfigurableComponentsofUDIWizardPage"></a>Reveja configuráveis componentes de uma página do assistente UDI  
+####  <a name="ReviewConfigurableComponentsofUDIWizardPage"></a> Reveja configuráveis componentes de uma página do assistente UDI  
  Como criar a página do assistente personalizado, algumas das definições de configuração podem ser definidas no código e não podem ser alteradas após ter compilação da página. No entanto, para outras definições de configuração, será necessário permitir que as definições de configuração a ser alterado utilizando o UDI Wizard Designer.  
 
  Normalmente, as definições de configuração que pretende configurar com o UDI Wizard Designer são guardadas no ficheiro de configuração do Assistente de UDI (o ficheiro Config.xml no exemplo). No entanto, também pode criar os seus próprios ficheiros de configuração separadas, se necessário. Um exemplo de utilização de um ficheiro de configuração separadas é o UDIWizard_Config.xml.app de ficheiros, que o **deteção de aplicação** tarefas e o **ApplicationPage** utilização de tipo de página do assistente.  
@@ -485,7 +486,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
  O editor de página do assistente personalizados que criar tem de ser capaz de gerir estas definições de configuração.  
 
-####  <a name="ReviewEditorPageExample"></a>Reveja o exemplo de EditorPage  
+####  <a name="ReviewEditorPageExample"></a> Reveja o exemplo de EditorPage  
  O exemplo de EditorPage é utilizado para configurar as definições de configuração para o **SamplePage** página do assistente no ficheiro de configuração do Assistente de UDI. O exemplo de EditorPage tem os seguintes componentes principais:  
 
 -   IU para configurar o **localização** definições da caixa de combinação  
@@ -506,7 +507,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 4.  Rever o código utilizado para gerir as informações de configuração guardadas no ficheiro de configuração do Assistente de UDI conforme descrito em [rever o código utilizado para gerir as informações de configuração](#ReviewCodeUsedtoManageConfigurationInformation).  
 
-#####  <a name="ReviewWizardPageEditorLoadingInitialization"></a>Reveja o carregamento da página Editor de assistente e inicialização  
+#####  <a name="ReviewWizardPageEditorLoadingInitialization"></a> Reveja o carregamento da página Editor de assistente e inicialização  
  Editores de página do assistente personalizado são carregadas conforme exigido pelo UDI Wizard Designer. Os ficheiros de configuração de UDI Wizard Designer são carregados quando é iniciado o UDI Wizard Designer. O UDI Wizard Designer analisa o *install_folder*\Bin\Config pasta (onde *install_folder* é o nome da pasta onde está instalado o MDT) para os ficheiros que tenham uma extensão de ficheiro. config.  
 
  Durante a configuração do ambiente de desenvolvimento de UDI, copiou o ficheiro de SamplePage.dll.confg para o *install_folder*\Bin\Config pasta. Quando inicia o UDI Wizard Designer, o ficheiro de SamplePage.dll.confg é localizado e carregado.  
@@ -527,7 +528,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
      No exemplo, o tipo do **SamplePage** página do assistente personalizado é **Microsoft.SamplePage.LocationPage**, que é guardada no ficheiro Config.xml. O ficheiro Config.xml reside no *local_folder*\SDK\SamplePage\SamplePage pasta (onde *local_folder* é a pasta que criou no computador de desenvolvimento anteriormente na configuração processo).  
 
-#####  <a name="ReviewUserInterfaceUsedtoConfigureLocationComboBox"></a>Reveja a Interface de utilizador utilizada para configurar a caixa de combinação da localização  
+#####  <a name="ReviewUserInterfaceUsedtoConfigureLocationComboBox"></a> Reveja a Interface de utilizador utilizada para configurar a caixa de combinação da localização  
  Quando o editor de página do assistente é carregado e inicializado, o editor de página do Assistente de SampleEditor é carregado quando uma página com um tipo de **Microsoft.SamplePage.LocationPage** é editado. A IU para o editor de página é armazenada no ficheiro LocationPageEditor.xaml.  
 
  Se examinar a IU no **Design** separador e o código no **XAML** separador, pode ver a relação entre a IU do gráfica e os elementos e atributos no idioma de marcação de aplicação extensível ( XAML).  
@@ -546,14 +547,14 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
  Utilize o **Views:CollectionTControl.ColumnCollectionView** elemento no XAML para editar a lista de localizações disponíveis na vista de grelha. Utilizar o [CollectionTControl](#CollectionTControl) controlo para apresentar a vista de grelha e vincular a vista de grelha para o [dados](#Data) elemento com o nome **localização** no ficheiro de configuração de UDI.  
 
-#####  <a name="ReviewUserInterfaceUsedtoModifyListofPossibleLocations"></a>Reveja a Interface de utilizador utilizada para modificar a lista de localizações possíveis  
+#####  <a name="ReviewUserInterfaceUsedtoModifyListofPossibleLocations"></a> Reveja a Interface de utilizador utilizada para modificar a lista de localizações possíveis  
  A IU para modificar a lista de localizações possíveis é composto por:  
 
 -   Um menu sensível ao contexto e botões do friso que lhe permitem adicionar, editar, remover ou alterar a ordem dos itens na lista de localizações, conforme descrito em [revisão Context-sensitive Menu e botões do friso para modificar a lista de localizações](#ReviewContextSensitiveMenuandRibbonButtons)  
 
 -   Uma caixa de diálogo que é iniciada ao selecionar a opção Adicionar ou editar um item na lista de localizações, conforme descrito em [rever a caixa de diálogo para adicionar ou editar localizações](#ReviewDialogBoxforAddingEditingLocations)  
 
-######  <a name="ReviewContextSensitiveMenuandRibbonButtons"></a>Reveja o Menu sensível ao contexto e botões do friso para modificar a lista de localizações  
+######  <a name="ReviewContextSensitiveMenuandRibbonButtons"></a> Reveja o Menu sensível ao contexto e botões do friso para modificar a lista de localizações  
  Quando faça duplo clique na caixa de listagem que contém a lista de localizações, é apresentado um menu sensível ao contexto. O Friso tem correspondentes botões que permitem-lhe executar as mesmas tarefas. O **vistas: CollectionsTControl** elemento de controlo no ficheiro LocationPageEditor.xaml define os métodos chamados com base na ação tomada e as propriedades que definir da seguinte forma:  
 
 -   **SelectedItem**. Esta propriedade vinculados a dados está ativada quando o utilizador selecciona um item da lista. Esta propriedade está associada à **CurrentLocation** propriedade no modelo de vista que está localizado no ficheiro LocationPageEditorViewModel.cs e utilizado pelo [CollectionTControl](#CollectionTControl) controlo para passar o item selecionado quando editar ou remover um item existente.  
@@ -564,7 +565,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 -   **RemoveAction**. Esta ação é executada quando o utilizador clica o **Remover Item** opção no menu sensível ao contexto. Há um enlace de dados para uma propriedade no modelo de vista que devolve o **RemoveAction** objeto. Este objeto é o **EditLocationCallback** método, localizada no ficheiro LocationPageEditorViewModel.cs e mostra uma mensagem que confirma a eliminação da localização.  
 
-######  <a name="ReviewDialogBoxforAddingEditingLocations"></a>Reveja a caixa de diálogo Adicionar ou editar localizações  
+######  <a name="ReviewDialogBoxforAddingEditingLocations"></a> Reveja a caixa de diálogo Adicionar ou editar localizações  
  Se adicionar uma nova localização para a lista de localizações ou editar uma localização existente, é apresentada uma mensagem que consta do ficheiro AddEditLocationView.xaml. É apresentada a mensagem com o [ShowDialogWindow](#ShowDialogWindow) método janela no ficheiro LocationPageEditorViewModel.cs.  
 
  A IU no ficheiro AddEditLocationView.xaml consiste em:  
@@ -583,7 +584,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
     -   Uma caixa de texto, o que está vinculada ao [dados](#Data) elemento com o nome **localização** no ficheiro de configuração de UDI (o ficheiro Config.xml no exemplo)  
 
-######  <a name="ReviewCodeUsedtoManageConfigurationInformation"></a>Rever o código utilizado para gerir as informações de configuração  
+######  <a name="ReviewCodeUsedtoManageConfigurationInformation"></a> Rever o código utilizado para gerir as informações de configuração  
  As informações de configuração para a página do assistente personalizada são armazenadas no ficheiro de configuração do Assistente de UDI, que é o:  
 
 -   Ficheiro Config.XML no exemplo fornecido com o SDK de UDI (este ficheiro contém apenas as definições de configuração para o exemplo.)  
@@ -665,7 +666,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 13. Copie o ficheiro DLL para o seu editor de página do assistente personalizado para o *installation_folder*pasta \Bin (onde *installation_folder* é a pasta na qual instalou o MDT).  
 
-##  <a name="CreatingCustomUDITasks"></a>Criar tarefas UDI personalizado  
+##  <a name="CreatingCustomUDITasks"></a> Criar tarefas UDI personalizado  
  *Tarefas UDI* são DLLs escritos em C++, que implementa o [ITask interface](#ITaskinterface). Registe a DLL com a biblioteca de tarefas de UDI Wizard Designer através da criação de um ficheiro de configuração de UDI Wizard Designer (ficheiro. config) e colocá-lo no *installation_folder*\Bin\Config pasta (onde *installation_ pasta* é a pasta na qual instalou o MDT).  
 
 > [!NOTE]
@@ -712,7 +713,7 @@ Figura 2. Estrutura de pastas para o desenvolvimento de UDI
 
 6.  Copie o ficheiro DLL para a sua tarefa personalizada para o *installation_folder*\Templates\Distribution\Tools\ pasta de plataforma (onde *installation_folder* é a pasta na qual instalou o MDT e *plataforma* é **x86** para a versão de 32 bits ou **x64** destina-se a versão de 64 bits).  
 
-##  <a name="CreatingCustomUDIValidators"></a>Criar validações UDI personalizado  
+##  <a name="CreatingCustomUDIValidators"></a> Criar validações UDI personalizado  
  *Validações UDI* são DLLs escritos em C++, que implementa o **IValidator** interface. Registe a DLL com a biblioteca de validação de UDI Wizard Designer através da criação de um ficheiro de configuração de UDI Wizard Designer (ficheiro. config) e colocá-lo no *installation_folder*\Bin\Config pasta (onde  *installation_folder* é a pasta na qual instalou o MDT).  
 
  **Para criar validações UDI personalizadas**  
@@ -885,9 +886,9 @@ pValidator->SetProperty(0, pPassword2);
 
 ### <a name="table-7-named-pattern-setters"></a>A tabela 7. Setters denominado padrão  
 
-|**Padrão**|**Descrição**|  
+|**Pattern**|**Descrição**|  
 |-|-|  
-|Nome de Utilizador|Verifica se o texto é um do formato domínio \ utilizador ouuser@domain|  
+|Nome de Utilizador|Verifica se o texto é um do formato domínio \ utilizador ou user@domain|  
 |ComputerName|O nome tem de estar entre 1 e 15 carateres e não pode incluir um conjunto de carateres (tais como: e?)|  
 |Grupo de trabalho|O nome tem de estar entre 1 e 15 carateres e não pode conter um conjunto de carateres (por exemplo, =, +, e?)|  
 
@@ -913,7 +914,7 @@ Register<LocationPageFactory>(ID_LocationPage, factories);
 #### <a name="wmirepository-component"></a>Componente de WmiRepository  
  Este componente fornece uma fachada para trabalhar com consultas do WMI. Pode chamar o **CreateInstance** função auxiliar com **ID_WmiRepository** para obter uma instância deste componente, que suporta o **IWmiRepository** interface. Este componente devolve registos de resultado através de **IWmiIterator** interface.  
 
-###  <a name="WizardPageHelperClasses"></a>Classes de programa auxiliar de página do Assistente  
+###  <a name="WizardPageHelperClasses"></a> Classes de programa auxiliar de página do Assistente  
  Pode criar páginas do assistente UDI personalizadas a utilizar classes de programa auxiliar incorporada fornecidas com o SDK de UDI. Tabela 8 apresenta as classes de programa auxiliar que pode utilizar para criar páginas de assistente personalizado.  
 
 ### <a name="table-8-helper-classes"></a>Tabela 8. Classes de programa auxiliar  
@@ -931,7 +932,7 @@ Register<LocationPageFactory>(ID_LocationPage, factories);
 |[Classe de modelo WizardComponent](#WizardComponentTemplateClass)|Esta classe base é utilizada para criar os componentes que precisam de acesso para os serviços do assistente, tais como a criação do componente e registo.|  
 |[Classe de modelo WizardPageImpl](#WizardPageImplTemplateClass)|Esta classe base deve ser utilizado como a classe base para todas as páginas de assistente personalizado|  
 
-####  <a name="ClassFactoryImplClass"></a>Classe de ClassFactoryImpl  
+####  <a name="ClassFactoryImplClass"></a> Classe de ClassFactoryImpl  
  Esta é uma classe base úteis para criar uma fábrica de classe, em seguida, pode registar com o registo de fábrica.  
 
  Segue-se um excerpt do ficheiro LocationPage.h no projeto de exemplo para definir o **ClassFactoryImpl** classe.  
@@ -957,7 +958,7 @@ IUnknown *LocationPageFactory::CreateNewInstance()
 }  
 ```  
 
-####  <a name="InterfaceTemplateClass"></a>Modelo classe de interface  
+####  <a name="InterfaceTemplateClass"></a> Modelo classe de interface  
  Utilizar esta classe de modelo quando pretender criar um componente que implementa mais de uma interface — por exemplo:  
 
 ```  
@@ -966,7 +967,7 @@ classLocationPage :public Interface<IFieldCallback, WizardPageImpl<IDD_LOCATION_
 
  Este código cria uma cadeia de classe base que suporta **IFieldCalback** e as interfaces que **WizardPageImpl** suporta (que acontece ser **IWizardPage**).  
 
-####  <a name="PathHelperClass"></a>Classe de programa auxiliar de caminho  
+####  <a name="PathHelperClass"></a> Classe de programa auxiliar de caminho  
  Esta classe fornece operações comuns do diretório do ficheiro:  
 
 ```  
@@ -999,7 +1000,7 @@ static inline std::wstring Combine(LPCWSTR path, LPCWSTR name)
 
  Por fim, a classe devolve uma cadeia nova, que é o caminho combinado e ficheiro nome (ou outro caminho).  
 
-####  <a name="PointerTemplateClass"></a>Classe de modelo do ponteiro  
+####  <a name="PointerTemplateClass"></a> Classe de modelo do ponteiro  
  Esta classe está definida no Pointer.h. Porque é utilizado por componentes COM referência contando para gestão de duração, é importante que versão sempre interfaces quando tiver terminado com os mesmos. A Microsoft fornece uma classe de modelo que processa a duração automaticamente. Por exemplo, se pretender que um ponteiro inteligente para uma interface XML, pode escrever algo semelhante ao seguinte:  
 
 ```  
@@ -1007,7 +1008,7 @@ Pointer<IXMLDOMNode> pNewChild
 pXmlDom->CreateNode(NODE_ELEMENT, L"MyElement", L"", &pNewChild);  
 ```  
 
- A primeira linha define o ponteiro inteligente. A segunda linha mostra a obter um ponteiro inteligente através de outra chamada. O  **&**  operador sempre disponibiliza uma interface existente se contém um e devolve o endereço para o ponteiro interno. Depois de ter obtido um ponteiro como esta, o **ponteiro** instância chamadas **versão** para si quando a variável passa fora do âmbito. A Microsoft recomenda que utilize inteligentes ponteiros em vez de chamar **AddRef** e **versão** manualmente.  
+ A primeira linha define o ponteiro inteligente. A segunda linha mostra a obter um ponteiro inteligente através de outra chamada. O **&** operador sempre disponibiliza uma interface existente se contém um e devolve o endereço para o ponteiro interno. Depois de ter obtido um ponteiro como esta, o **ponteiro** instância chamadas **versão** para si quando a variável passa fora do âmbito. A Microsoft recomenda que utilize inteligentes ponteiros em vez de chamar **AddRef** e **versão** manualmente.  
 
  Além disso, o **ponteiro** smart chamadas de classe do ponteiro **QueryInterface** obter outras interfaces para si. Por exemplo, quando o registo de fábrica cria uma nova instância de um componente, tem o código seguinte:  
 
@@ -1019,10 +1020,10 @@ if (pComp != nullptr)
 
  As chamadas de linha primeiro **QueryInterface** bastidores para pedir a **IWizardComponent** interface. O apontador inteligente resultante será igual **nullptr** se o componente não suporta esse interface.  
 
-####  <a name="PUnkownClass"></a>Classe de PUnknown  
+####  <a name="PUnkownClass"></a> Classe de PUnknown  
  Esta classe é um ponteiro inteligente especificamente para o **IUnknown** interface. Para todas as outras interfaces, utilize o **ponteiro** classe de modelo.  
 
-####  <a name="StringUtilHelperClass"></a>Classe de programa auxiliar de StringUtil  
+####  <a name="StringUtilHelperClass"></a> Classe de programa auxiliar de StringUtil  
  Esta classe está definida no Utilities.h e fornece métodos de programa auxiliar que torna mais fácil trabalhar com cadeias de:  
 
 ```  
@@ -1036,8 +1037,8 @@ static inline int CompareIgnore(LPCWSTR first, LPCWSTR second)
 |**Devolve**|**Descrição**|  
 |-|-|  
 |**0**|Corresponde a cadeias, ignorando maiúsculas e minúsculas|  
-|**< 0**|Primeiro < segundo|  
-|**> 0**|Primeiro > segundo|  
+|**<0**|Primeiro < segundo|  
+|**>0**|Primeiro > segundo|  
 
  Eis um exemplo:  
 
@@ -1057,7 +1058,7 @@ static inline std::wstring Printf(std::wstring format, I val1, J val2, K val3, L
 
  Estes são wrappers à volta a **StringCchPrintf** esse devolver um **wstring** para que não tenha de alocar memória para cadeias ou memórias intermédias por si.  
 
-####  <a name="SubInterfaceTemplateClass"></a>Classe de modelo subInterface  
+####  <a name="SubInterfaceTemplateClass"></a> Classe de modelo subInterface  
  Esta classe base torna mais fácil de implementar um componente que suporta uma interface que próprio herda de outra interface. Por exemplo, o **ICheckBox** interface herda **IControl**. Eis como esta classe é utilizada para definir o **CheckBoxWrapper**:  
 
 ```  
@@ -1066,7 +1067,7 @@ classCheckBoxWrapper :public SubInterface<IControl, UnknownImpl<ICheckBox> >
 
  A interface de base é o primeiro parâmetro, enquanto a interface derivada é o segundo parâmetro.  
 
-####  <a name="UnknownImplTemplateClass"></a>Classe de modelo UnknownImpl  
+####  <a name="UnknownImplTemplateClass"></a> Classe de modelo UnknownImpl  
  Esta classe está definida no UnknownImpl.h e processa a maioria dos detalhes da criação de um componente COM. Eis um exemplo de como pretende utilizar esta classe base:  
 
 ```  
@@ -1075,7 +1076,7 @@ classDirectory :public UnknownImpl<IDirectory>
 
  Este código define uma classe que suporta o **IDirectory** interface.  
 
-####  <a name="WizardComponentTemplateClass"></a>Classe de modelo WizardComponent  
+####  <a name="WizardComponentTemplateClass"></a> Classe de modelo WizardComponent  
  Esta classe está definida no IWizardComponent.h e é uma classe base útil para a criação de componentes que precisam de acesso para os serviços do assistente, tais como a criação do componente e registo.  
 
  Por exemplo, eis como o **CopyFilesTask** componente está definido:  
@@ -1090,7 +1091,7 @@ classCopyFilesTask :public WizardComponent<ITask>
 
  Sempre que utilizar o registo de fábrica de classe para criar um novo componente, o registo chama o componente **IWizardComponent -> SetContainer** método para fornecer o acesso do componente para os serviços do assistente.  
 
-####  <a name="WizardPageImplTemplateClass"></a>Classe de modelo WizardPageImpl  
+####  <a name="WizardPageImplTemplateClass"></a> Classe de modelo WizardPageImpl  
  Utilizar esta classe como a classe base para as suas páginas personalizadas — por exemplo:  
 
 ```  
@@ -1099,7 +1100,7 @@ class LocationPage :public WizardPageImpl<IDD_LOCATION_PAGE>
 
  O parâmetro é o ID de recurso para o modelo de caixa de diálogo.  
 
-###  <a name="WizardPageInterfaces"></a>Interfaces de página do Assistente  
+###  <a name="WizardPageInterfaces"></a> Interfaces de página do Assistente  
  O Assistente de UDI utiliza interfaces para controlos de diferentes na sua página de acesso. Na página, utilize o **GetControlWrapper** função para obter um wrapper do controlo. Eis um exemplo:  
 
 ```  
@@ -1173,7 +1174,7 @@ __interface IBackgroundTask : IUnknown
 |**Parâmetro**|**Descrição**|  
 |-|-|  
 |**pTask**|Apontador para a classe que contém o código que pretende executar no outro thread|  
-|**ID**|Um número que pode utilizar a chamada de retorno **concluído** método dizer que a tarefa foi concluída em execução; útil se iniciar várias tarefas com o mesmo método de chamada de retorno|  
+|**Id**|Um número que pode utilizar a chamada de retorno **concluído** método dizer que a tarefa foi concluída em execução; útil se iniciar várias tarefas com o mesmo método de chamada de retorno|  
 |**pCallback**|Uma classe que implementa o **concluído** método, o que é chamado sempre que uma tarefa é concluída em execução; a chamada para o **concluído** método estará no thread em segundo plano, não o thread de IU|  
 
 ##### <a name="void-startvoid"></a>void Start(void)  
@@ -1270,7 +1271,7 @@ __interface IComboBox : IControl
 ##### <a name="hresult-gettextout-retval-lpbstr-ptext"></a>HRESULT GetText([out, retval] LPBSTR pText)  
  Obter a cadeia do item atualmente selecionado na caixa de combinação.  
 
-##### <a name="void-clear"></a>limpar um valor nulo  
+##### <a name="void-clear"></a>void Clear()  
  Remova todos os itens da caixa de combinação.  
 
 #### <a name="icontrol-interface"></a>IControl Interface  
@@ -1361,7 +1362,7 @@ __interface IDomainJoinValidator : IUnknown
 ##### <a name="overview"></a>Descrição Geral  
  Obter uma instância desta interface utilizando o **ID_DomainJoinValidator** valor para o **CreateInstance** da função de modelo.  
 
-##### <a name="hresult-initilogger-plogger-iwizardpagecontainer-pcontainer-istatictext-pusername-istatictext-ppassword-istatictext-pcomputername"></a>HRESULT Init (ILogger \*pLogger, IWizardPageContainer \*pContainer, IStaticText \*pUsername, IStaticText \*pPassword, IStaticText \*pComputerName)  
+##### <a name="hresult-initilogger-plogger-iwizardpagecontainer-pcontainer-istatictext-pusername-istatictext-ppassword-istatictext-pcomputername"></a>HRESULT Init(ILogger \*pLogger, IWizardPageContainer \*pContainer, IStaticText \*pUsername, IStaticText \*pPassword, IStaticText \*pComputerName)  
  Inicializar a instância, conforme mostrado na tabela 17.  
 
 ### <a name="table-17-hresult-init---instance-initialization"></a>Tabela 17. HRESULT Init - inicialização de instância  
@@ -1436,7 +1437,7 @@ pDrives->SetWhereClause(L"WHERE InterfaceType='USB'");
 |-|-|  
 |**Índice**|Índice baseado em zero para o registo de resultado|  
 |**propName**|Nome da propriedade, por exemplo, "Tamanho"|  
-|**Valor**|No retorno, este parâmetro contém um valor de variante da propriedade|  
+|**Value**|No retorno, este parâmetro contém um valor de variante da propriedade|  
 
 ##### <a name="hresult-getcaptionsizet-index--lpbstr-pcaption"></a>HRESULT GetCaption(size_t index, LPBSTR pCaption)  
  Este método obtém a legenda para mudar um registo é igual a **legenda** propriedade.  
@@ -1508,11 +1509,11 @@ __interface IListView : IControl
 
 |**Parâmetro**|**Descrição**|  
 |-|-|  
-|**índice**|O índice do item da lista que pretende modificar|  
-|**coluna**|O índice da coluna que pretende atualizar; a primeira coluna está definida com **AddItem**, colunas, dois e seguintes estão definidos com este método|  
-|**texto**|A cadeia a mostrar na coluna|  
+|**index**|O índice do item da lista que pretende modificar|  
+|**column**|O índice da coluna que pretende atualizar; a primeira coluna está definida com **AddItem**, colunas, dois e seguintes estão definidos com este método|  
+|**text**|A cadeia a mostrar na coluna|  
 
-##### <a name="int-getwidthvoid"></a>Int GetWidth(void)  
+##### <a name="int-getwidthvoid"></a>int GetWidth(void)  
  Este método devolve a largura da caixa de texto completo.  
 
 ##### <a name="void-setextendedstyledword-style"></a>void SetExtendedStyle(DWORD style)  
@@ -1522,7 +1523,7 @@ __interface IListView : IControl
 m_pList->SetExtendedStyle(LVS_EX_FULLROWSELECT);  
 ```  
 
-##### <a name="int-getselecteditemvoid"></a>Int GetSelectedItem(void)  
+##### <a name="int-getselecteditemvoid"></a>int GetSelectedItem(void)  
  Este método devolve o índice da vista de lista item atualmente selecionado.  
 
 ##### <a name="hresult-selectitemint-index"></a>HRESULT SelectItem(int index)  
@@ -1531,7 +1532,7 @@ m_pList->SetExtendedStyle(LVS_EX_FULLROWSELECT);
 ##### <a name="bool-isitemcheckedint-index"></a>BOOL IsItemChecked(int index)  
  Este método devolve TRUE se um item na lista é selecionado. Este método requer que chamar **SetExtendedStyle** ao definir o estilo de caixa de verificação.  
 
-##### <a name="int-getitemcountvoid"></a>Int GetItemCount(void)  
+##### <a name="int-getitemcountvoid"></a>int GetItemCount(void)  
  Este método devolve o número de itens na vista de lista.  
 
 ##### <a name="hresult-createimagelistint-width-int-height-uint-flags"></a>HRESULT CreateImageList(int width, int height, UINT flags)  
@@ -1562,7 +1563,7 @@ __interface IProgressBar : IControl
 ##### <a name="hresult-setpercentageint-position"></a>HRESULT SetPercentage(int position)  
  Defina a posição do progresso de barra utilizando um número entre 0 e 100. Por predefinição, as barras de progresso do novo Win32® tem um intervalo máximo de 100.  
 
-##### <a name="int-getpercentagevoid"></a>Int GetPercentage(void)  
+##### <a name="int-getpercentagevoid"></a>int GetPercentage(void)  
  Este método devolve a posição actual da barra de progresso.  
 
 #### <a name="iradiobutton-interface"></a>IRadioButton Interface  
@@ -1612,7 +1613,7 @@ __interface IStaticText : IControl
 ##### <a name="hresult-gettextout-retval-lpbstr-ptext"></a>HRESULT GetText([out, retval] LPBSTR pText)  
  Este método devolve o valor atual do texto para o controlo.  
 
-####  <a name="ITaskinterface"></a>ITask Interface  
+####  <a name="ITaskinterface"></a> ITask Interface  
 
 ```  
 __interface IControl : IUnknown  
@@ -1656,7 +1657,7 @@ HRESULT Init(IStringProperties *pProperties, ISettingsProperties *pTaskSettings)
 
  O **pProperties** parâmetro fornece acesso para os valores de três setter, enquanto o **pTaskSettings** parâmetro fornece acesso ao **tarefas** elemento e subordinados. A maioria das tarefas só precisa de ler dados a partir de **pProperties** parâmetro.  
 
-#####  <a name="Execute"></a>Executar  
+#####  <a name="Execute"></a> Executar  
 
 ```  
 HRESULT Execute(LPDWORD pReturnCode)  
@@ -1891,7 +1892,7 @@ __interface IFormController : IUnknown
 ##### <a name="overview"></a>Descrição Geral  
  Todas as páginas no Assistente de UDI tem o seu próprio controlador de formulário que implemente esta interface. Utilize este controlador de ligar os dados de campo no ficheiro XML. config para os controlos da página. O controlador do formulário, em seguida, processa muitos dos detalhes por si.  
 
-#####  <a name="SettingUptheForm"></a>Configurar o formulário  
+#####  <a name="SettingUptheForm"></a> Configurar o formulário  
  Geralmente, configurar o controlador de formulário da página **OnWindowCreated** método. Se o fizer, por isso, normalmente, envolve a chamar os métodos mostrados na tabela 28.  
 
 ### <a name="table-28-onwindowcreated-method"></a>28 de tabela. Método de OnWindowCreated  
@@ -1903,7 +1904,7 @@ __interface IFormController : IUnknown
 |**AddRadioGroup**|Utilizado para ligar um botão de opção para um grupo e um controlo na sua caixa de diálogo|  
 |**AddToGroup**|Permite-lhe controlos de "subordinados" ativados ou desativados, juntamente com o respetivo principal ou com base na qual botão de opção está selecionado|  
 |**InitFields**|Chamar depois de ter chamado todos os o **adicionar** métodos para configurar o formulário|  
-|**Validar**|Efetua a validação inicial|  
+|**Validate**|Efetua a validação inicial|  
 
 ##### <a name="processing-form-events"></a>Eventos de formulário de processamento  
  Adicione a seguinte chamada ao seu **OnControlEvent** método:  
@@ -1924,7 +1925,7 @@ Form()->ControlEvent(eventId, controlId);
 |**InitSection**|Fornece o nome da secção que será mostrada no **resumo** página para esta página|  
 |**SaveFields**|Guardar valores de campo para variáveis de sequência de tarefas e o **resumo** página|  
 
-#####  <a name="Init"></a>Init  
+#####  <a name="Init"></a> Init  
 
 ```  
 HRESULT Init(IWizardPageView *pView, IWizardPageContainer *pContainer)  
@@ -2006,7 +2007,7 @@ HRESULT DisableValidation(int controlId, BOOL disable)
 |**controlId**|O controlo para o qual pretende ativar ou desativar a validação|  
 |**Desativar**|Definido como TRUE para desativar validação e como falso para restaurar a validação normal|  
 
-#####  <a name="AddField"></a>AddField  
+#####  <a name="AddField"></a> AddField  
 
 ```  
 HRESULT AddField(LPCWSTR fieldName, int controlId, BOOL suppressLog, DialogControlTypes type)  
@@ -2018,12 +2019,12 @@ HRESULT AddField(LPCWSTR fieldName, int controlId, BOOL suppressLog, DialogContr
 
 |**Parâmetro**|**Descrição**|  
 |-|-|  
-|**FieldName**|Nome do campo conforme é apresentado no XML da página|  
+|**Fieldname**|Nome do campo conforme é apresentado no XML da página|  
 |**controlId**|O ID de controlo no modelo de caixa de diálogo da página|  
 |**suppressLog**|Defina como VERDADEIRO se não pretender que os valores deste campo escritas no ficheiro de registo; sempre defina este parâmetro como TRUE para palavra-passe ou campos PIN|  
 |**Tipo**|O tipo de controlo, o que é um dos seguintes:<br /><br /> -   **CONTROL_STATIC_TEXT**<br />-   **CONTROL_COMBO_BOX**<br />-   **CONTROL_LIST_VIEW**<br />-   **CONTROL_PROGRESS_BAR**<br />-   **CONTROL_GENERIC**<br />-   **CONTROL_RADIO_BUTTON**<br />-   **CONTROL_CHECK_BOX**<br />-   **CONTROL_TREE_VIEW**|  
 
-#####  <a name="AddRadioGroup"></a>AddRadioGroup  
+#####  <a name="AddRadioGroup"></a> AddRadioGroup  
 
 ```  
 HRESULT AddRadioGroup(LPCWSTR groupName, int radioControlId)  
@@ -2060,7 +2061,7 @@ HRESULT EnableRadioGroup(LPCWSTR groupName, BOOL enable)
 |**S_OK**|Grupo ativado ou desativado|  
 |**E_INVALIDARG**|Não há nenhum grupo de botões de opção com o nome fornecido|  
 
-#####  <a name="InitFields"></a>InitFields  
+#####  <a name="InitFields"></a> InitFields  
 
 ```  
 HRESULT InitFields(IFieldCallback *pFieldCallback = nullptr)  
@@ -2070,7 +2071,7 @@ HRESULT InitFields(IFieldCallback *pFieldCallback = nullptr)
 
  O **pFieldCallback** parâmetro é opcional. Se fornecê-lo, o controlador de formulário chama **SetFieldDefault** para controlos que não **CONTROL_STATIC_TEXT** ou **CONTROL_CHECK_BOX**. Este comportamento permite-lhe obter um valor predefinido de XML e defina-o no controlo por si.  
 
-#####  <a name="SaveFields"></a>SaveFields  
+#####  <a name="SaveFields"></a> SaveFields  
 
 ```  
 HRESULT SaveFields(IFieldCallback *pFieldCallback = nullptr)  
@@ -2086,7 +2087,7 @@ BOOL IsFieldDisabled(int controlId)
 
  Este método permite-lhe determinar se um campo foi desativado no XML.  
 
-#####  <a name="InitSection"></a>InitSection  
+#####  <a name="InitSection"></a> InitSection  
 
 ```  
 HRESULT InitSection(LPCWSTR key, LPCWSTR sectionCaption)  
@@ -2113,8 +2114,8 @@ HRESULT AddSummaryItem(LPCWSTR first, LPCWSTR second)
 
 |**Parâmetro**|**Descrição**|  
 |-|-|  
-|**Primeiro**|A legenda para o item de resumo, que é apresentado no lado esquerdo|  
-|**Segundo**|O valor que será apresentado no lado direito|  
+|**First**|A legenda para o item de resumo, que é apresentado no lado esquerdo|  
+|**Second**|O valor que será apresentado no lado direito|  
 
 ##### <a name="suppresslogvalue"></a>SuppressLogValue  
 
@@ -2567,7 +2568,7 @@ HRESULT Error(HRESULT error, LPCTSTR component, LPCTSTR message)
 |**Componente**|Uma cadeia que identifica a origem do erro, o que é, geralmente, a página ou o componente que tenha escritas|  
 |**Mensagem**|A mensagem que explica o que causou o erro|  
 
-#####  <a name="Error2"></a>Error2  
+#####  <a name="Error2"></a> Error2  
 
 ```  
 HRESULT Error2(HRESULT error, LPCTSTR component, LPCTSTR message, LPCTSTR message2)  
@@ -2841,7 +2842,7 @@ __interface ITaskManager : IUnknown
 ##### <a name="hresult-getpropertysizet-index-lpctstr-propertyname-lpbstr-value"></a>HRESULT GetProperty(size_t index, LPCTSTR propertyName, LPBSTR value)  
  Este método é utilizado pelas páginas de progresso e verificação prévia para obter o **BitmapFilename** propriedade setter para poder apresentar uma imagem junto a mensagem para a tarefa que o utilizador realça. Por outras palavras, pode adicionar um setter personalizado para XML a tarefa e, em seguida, obtê-lo com este método.  
 
-##### <a name="int-getselectedindexvoid"></a>Int GetSelectedIndex(void)  
+##### <a name="int-getselectedindexvoid"></a>int GetSelectedIndex(void)  
  Este método obtém o índice da tarefa atualmente selecionado, o que é útil se pretender obter informações adicionais sobre a tarefa (consulte **GetProperty** método) a apresentar para a tarefa selecionada. O progresso e páginas prévias utilizam este método para apresentar uma imagem para a tarefa selecionada.  
 
 ##### <a name="hresult-waitdword-waitmilliseconds"></a>HRESULT Wait(DWORD waitMilliseconds)  
@@ -2930,7 +2931,7 @@ __interface IWizardDialogView : IUnknown
 
  Esta interface é apenas para utilização interna.  
 
-####  <a name="IWizardPageInterface"></a>IWizardPage Interface  
+####  <a name="IWizardPageInterface"></a> IWizardPage Interface  
 
 ```  
 __interface IWizardPage : IUnknown  
@@ -2993,16 +2994,16 @@ Logger()->Verbose(s_component, L"Message for log file");
 
 ### <a name="table-51-hresult-replacevariables"></a>51 de tabela. HRESULT ReplaceVariables  
 
-|**Formato**|**Descrição**|  
+|**Format**|**Descrição**|  
 |-|-|  
 |**$Name$**|Substitui o valor de uma variável de memória com este nome (se não houver nenhuma variável de memória com o nome, o "token" será removido.)|  
-|**% Name %**|Uma variável de sequência de tarefas ou uma variável de ambiente. A ordem é o seguinte:<br /><br /> 1.  Utilize o valor da variável de sequência de tarefas, se estiver presente.<br />2.  Utilize o valor da variável de ambiente, se estiver presente.<br />3.  Caso contrário, remova este texto da cadeia.|  
+|**%Name%**|Uma variável de sequência de tarefas ou uma variável de ambiente. A ordem é o seguinte:<br /><br /> 1.  Utilize o valor da variável de sequência de tarefas, se estiver presente.<br />2.  Utilize o valor da variável de ambiente, se estiver presente.<br />3.  Caso contrário, remova este texto da cadeia.|  
 
 ### <a name="table-52-hresult-parameter"></a>52 de tabela. Parâmetro HRESULT  
 
 |**Parâmetro**|**Descrição**|  
 |-|-|  
-|**Origem**|Cadeia de entrada, o que pode conter qualquer combinação de  **$**  e  **%**  variáveis ou none de todo|  
+|**origem**|Cadeia de entrada, o que pode conter qualquer combinação de **$** e **%** variáveis ou none de todo|  
 |**pDest**|No retorno, contém uma cadeia nova que tenha todos os tokens substituídos, de acordo com 51 de tabela|  
 
 ##### <a name="hresult-gotopagelpctstr-pagename"></a>HRESULT GotoPage(LPCTSTR pageName)  
@@ -3132,7 +3133,7 @@ __interface IXmlDocument : IUnknown
 |-|-|  
 |**pNode**|O nó para o qual pretende adicionar um atributo|  
 |**Nome**|Nome do novo atributo|  
-|**Valor**|O valor para o atributo novo|  
+|**Value**|O valor para o atributo novo|  
 
 ##### <a name="hresult-createnodedomnodetype-type-lpcwstr-name-lpcwstr-ns-ixmldomnode-ppnode"></a>HRESULT CreateNode(DOMNodeType type, LPCWSTR name, LPCWSTR ns, IXMLDOMNode \**ppNode)  
  Chame este método para criar um novo nó:  
@@ -3185,15 +3186,15 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 |-|-|  
 |[DesignerConfig](#DesignerConfig)|Especifica a raiz para todos os outros elementos|  
 |[DesignerMappings](#DesignerMappings)|Grupos de um conjunto de [página](#Page)elementos|  
-|[Página](#Page)|Especifica um editor de página do Assistente para ser carregado no UDI Wizard Designer, que é utilizada para editar as definições de configuração para uma página do Assistente|  
+|[Page](#Page)|Especifica um editor de página do Assistente para ser carregado no UDI Wizard Designer, que é utilizada para editar as definições de configuração para uma página do Assistente|  
 |[Param](#Param)|Especifica um parâmetro que é transferido para o elemento principal [tarefas](#Task) ou [validador](#Validator) elemento e corresponde a um [Setter]() elemento no ficheiro de configuração do Assistente de UDI **Nota:**  Os atributos para este elemento são diferentes, se o principal já se encontra o [tarefas](#Task) ou [validador](#Validator) elemento.|  
 |[Tarefa](#Task)|Especifica uma tarefa na biblioteca de tarefas|  
 |[TaskItem](#TaskItem)|Especifica um grupo de parâmetros que são transmitidos para a tarefa|  
 |[TaskLibrary](#TaskLibrary)|Grupos de um conjunto de [tarefas](#Task) elementos|  
-|[A validação do](#Validator)|Especifica a validação na biblioteca de validação|  
+|[Validator](#Validator)|Especifica a validação na biblioteca de validação|  
 |[ValidatorLibrary](#ValidatorLibrary)|Grupos de um conjunto de [validador](#Validator) elementos|  
 
-####  <a name="DesignerConfig"></a>DesignerConfig  
+####  <a name="DesignerConfig"></a> DesignerConfig  
  Este elemento Especifica a raiz para todos os outros elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3201,7 +3202,7 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 
 ### <a name="table-55-designerconfig-element-information"></a>55 de tabela. Informação de elemento DesignerConfig  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um: Este elemento é necessário.|  
 |Elementos principais|Nenhum|  
@@ -3223,7 +3224,7 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 </DesignerConfig>  
 ```  
 
-####  <a name="DesignerMappings"></a>DesignerMappings  
+####  <a name="DesignerMappings"></a> DesignerMappings  
  Este elemento de um conjunto de grupos [página](#Page) elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3231,11 +3232,11 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 
 ### <a name="table-56-designermappings-element-information"></a>56 de tabela. Informação de elemento DesignerMappings  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou um dentro de [DesignerConfig](#DesignerConfig) elemento (este elemento é opcional não se existirem nenhuma página do assistente personalizado na DLL que corresponde a este ficheiro de configuração de UDI Wizard Designer.)|  
 |Elementos principais|**DesignerConfig**|  
-|Conteúdo|**Página**|  
+|Conteúdo|**Page**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  Este elemento tem sem atributos.  
@@ -3275,7 +3276,7 @@ GetService<ITSVariableBag>(Container(), &pTsBag);
 </DesignerConfig>  
 ```  
 
-####  <a name="Page"></a>Página  
+####  <a name="Page"></a> Página  
  Este elemento Especifica um editor de página do Assistente para ser carregado no UDI Wizard Designer, que por sua vez é utilizada para editar as definições de configuração para uma página do assistente.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3283,7 +3284,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-57-page-element-information"></a>57 de tabela. Informação de elemento da página  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais para cada página do assistente definido no [DesignerMappings](#DesignerMappings) elemento|  
 |Elementos principais|**DesignerMappings**|  
@@ -3301,7 +3302,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 |**DesignerType**|Especifica o nome do editor de página do assistente no ficheiro. dll especificado no **DesignerAssembly** atributo (este é o tipo de Microsoft .NET para o editor de página do assistente, com o espaço de nomes do Microsoft .NET completamente qualificado.)|  
 |**DisplayName**|Especifica o nome amigável de utilizador do editor de página, é apresentado no UDI Wizard Designer|  
 |**DLL**|Especifica o nome do ficheiro. dll associado com a página do assistente (o ficheiro. dll tem de existir o *installation_folder*\Templates\Distribution\Tools\\*plataforma* pasta (onde *installation_folder* é a pasta na qual instalou o MDT e *plataforma* é **x86** para a versão de 32 bits ou **x64** é para a versão de 64 bits.) **Nota:**  Certifique-se de que a arquitetura de processador DLL corresponde à arquitetura do processador MDT instalada. Por exemplo, se tiver instalado uma versão de 32 bits do MDT, em seguida, certifique-se de que utiliza um DLL de 32 bits para a página do assistente.|  
-|**Imagem**|Especifica o nome de uma imagem da página que está no formato Portable rede gráficos (PNG) (o ficheiro PNG tem de existir o *installation_folder*\Bin\Images pasta (onde *installation_folder* é o pasta na qual instalou o MDT.)|  
+|**Image**|Especifica o nome de uma imagem da página que está no formato Portable rede gráficos (PNG) (o ficheiro PNG tem de existir o *installation_folder*\Bin\Images pasta (onde *installation_folder* é o pasta na qual instalou o MDT.)|  
 |**Tipo**|Especifica o editor de página do assistente e tem de corresponder ao nomeado utilizado quando a página personalizada foi registada|  
 
 ##### <a name="remarks"></a>Observações  
@@ -3310,7 +3311,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Param"></a>Param  
+####  <a name="Param"></a> Param  
  Este elemento Especifica um parâmetro que é transferido para o elemento principal [tarefas](#Task) ou [validador](#Validator) elemento e corresponde a um [Setter]() elemento no ficheiro de configuração do Assistente de UDI.  
 
 > [!NOTE]
@@ -3321,10 +3322,10 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-59-param-element-information"></a>Tabela 59. Informação de elemento param  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais para cada [TaskItem](#TaskItem) ou [validador](#Validator) elemento principal|  
-|Elementos principais|**TaskItem**, **validador**|  
+|Elementos principais|**TaskItem**, **Validator**|  
 |Conteúdo|Qualquer conteúdo XML corretamente formado|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -3344,7 +3345,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Task"></a>Tarefa  
+####  <a name="Task"></a> Tarefa  
  Este elemento Especifica uma tarefa na biblioteca de tarefas.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3352,7 +3353,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-61-task-element-information"></a>61 de tabela. Informação de elemento de tarefa  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais dentro de [TaskLibrary](#TaskLibrary) elemento (este elemento não é opcional se a **TaskLibrary** elemento é especificado.)|  
 |Elementos principais|**TaskLibrary**|  
@@ -3376,7 +3377,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="TaskItem"></a>TaskItem  
+####  <a name="TaskItem"></a> TaskItem  
  Este elemento Especifica um grupo de parâmetros que são transmitidos para a tarefa.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3384,7 +3385,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-63-taskitem-element-information"></a>Tabela 63. Informação de elemento TaskItem  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais para cada **tarefas** elemento|  
 |Elementos principais|**Tarefa**|  
@@ -3397,7 +3398,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 |**Atributo**|**Descrição**|  
 |-|-|  
-|**Tipo**|Especifica o tipo de elemento que será criado no ficheiro de configuração do Assistente de UDI. Será possível criar um elemento XML que corresponde ao valor deste atributo. Por exemplo, se o valor para este atributo é [ficheiro](#File), em seguida, um **ficheiro** elemento será criado no ficheiro de configuração do Assistente de UDI.<br /><br /> Atualmente, os únicos valores suportados são:<br /><br /> -   **Ficheiro**, que requer dois [Param](#Param) elementos subordinados (um **Param** elemento subordinado com o **nome** atributo definido como **origem** e outro **Param** elemento subordinado com o **nome** atributo definido como **Dest**)<br />-   [Setter](), que requer um **Param** elemento subordinado|  
+|**Tipo**|Especifica o tipo de elemento que será criado no ficheiro de configuração do Assistente de UDI. Será possível criar um elemento XML que corresponde ao valor deste atributo. Por exemplo, se o valor para este atributo é [ficheiro](#File), em seguida, um **ficheiro** elemento será criado no ficheiro de configuração do Assistente de UDI.<br /><br /> Atualmente, os únicos valores suportados são:<br /><br /> -   **Ficheiro**, que requer dois [Param](#Param) elementos subordinados (um **Param** elemento subordinado com o **nome** atributo definido como **origem**e outro **Param** elemento subordinado com o **nome** atributo definido como **Dest**)<br />-   [Setter](), que requer um **Param** elemento subordinado|  
 
 ##### <a name="remarks"></a>Observações  
  Nenhuma.  
@@ -3405,7 +3406,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="TaskLibrary"></a>TaskLibrary  
+####  <a name="TaskLibrary"></a> TaskLibrary  
  Este elemento de um conjunto de grupos [tarefas](#Task) elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3413,7 +3414,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-65-tasklibrary-element-information"></a>65 de tabela. Informação de elemento TaskLibrary  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou um dentro de [DesignerConfig](#DesignerConfig) elemento (este elemento é opcional se existem não existem tarefas personalizadas na DLL do que correspondem a este ficheiro de configuração de UDI Wizard Designer.)|  
 |Elementos principais|**DesignerConfig**|  
@@ -3441,7 +3442,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 </DesignerConfig>  
 ```  
 
-####  <a name="Validator"></a>A validação do  
+####  <a name="Validator"></a> A validação do  
  Este elemento Especifica um validador na biblioteca do validador.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3449,7 +3450,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-66-validator-element-information"></a>66 de tabela. Informações de elemento do validador  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de [ValidatorLibrary](#ValidatorLibrary) elemento (este elemento é opcional.)|  
 |Elementos principais|**ValidatorLibrary**|  
@@ -3474,7 +3475,7 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="ValidatorLibrary"></a>ValidatorLibrary  
+####  <a name="ValidatorLibrary"></a> ValidatorLibrary  
  Este elemento de um conjunto de grupos [validador](#Validator) elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3482,11 +3483,11 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-68-validatorlibrary-element-information"></a>68 de tabela. Informação de elemento ValidatorLibrary  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou um dentro de [DesignerConfig](#DesignerConfig) elemento (este elemento é opcional se existirem não validações personalizadas na DLL do que correspondem a este ficheiro de configuração de UDI Wizard Designer.)|  
 |Elementos principais|**DesignerConfig**|  
-|Conteúdo|**A validação do**|  
+|Conteúdo|**Validator**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  Este elemento tem sem atributos.  
@@ -3510,10 +3511,10 @@ Tabela 57 fornece informações sobre o [página](#Page) elemento.
 |[FieldElementControl](#FieldElementControl)|Este controlo é utilizado para editar um campo, o que normalmente está ligado a um controlo de caixa de texto na página primeiro.|  
 |[SetterControl](#SetterControl)|Este controlo é utilizado para modificar o valor de um [setter]() elemento no ficheiro de configuração do Assistente de UDI.|  
 
-####  <a name="CollectionTControl"></a>CollectionTControl  
+####  <a name="CollectionTControl"></a> CollectionTControl  
  Este controlo oferece muitas funcionalidades de dados de edição. A melhor forma de aprender a utilizar este controlo está a observar o exemplo que mostra como editar dados de uma página **dados** elemento. Em particular, o exemplo mostra como adicionar, remover e editar itens neste controlo.  
 
-####  <a name="FieldElementControl"></a>FieldElementControl  
+####  <a name="FieldElementControl"></a> FieldElementControl  
  Utilize este controlo para editar um campo, o que normalmente está ligado a um **TextBox** controlo na página primeiro.  
 
 ##### <a name="example"></a>Exemplo  
@@ -3601,7 +3602,7 @@ FieldData="{Binding DataContext.Location, ElementName=ControlRoot}"
 -   **FALSO**, a secção está visível (este é o valor predefinido.)  
 
 
-####  <a name="SetterControl"></a>SetterControl  
+####  <a name="SetterControl"></a> SetterControl  
  Utilize este controlo para modificar o valor de um [Setter]() elemento no ficheiro de configuração do Assistente de UDI. Este controlo contém um controlo subordinado utilizado para modificar o valor da **setter** elemento.  
 
 ##### <a name="example"></a>Exemplo  
@@ -3644,7 +3645,7 @@ FieldData="{Binding DataContext.Location, ElementName=ControlRoot}"
 |[IDataService](#IDataService)|Utilize esta interface para ligar os campos para o **dados** elementos no ficheiro de configuração do Assistente de UDI.|  
 |[IMessageBoxService](#IMessageBoxService)|Esta interface fornece acesso aos métodos que pode utilizar para apresentar as caixas de mensagem.|  
 
-####  <a name="IDataService"></a>IDataService  
+####  <a name="IDataService"></a> IDataService  
  Esta interface contém vários métodos e propriedades, mas não existe apenas uma propriedade que são como precisam. Se a propriedade é a única documentada aqui.  
 
  Pode utilizar a inserção de dependências para obter um ponteiro para esta interface com o código como esta na sua classe:  
@@ -3663,7 +3664,7 @@ public IDataService DataService { get; set; }
 |-|-|  
 |[CurrentPage](#CurrentPage)|Esta propriedade fornece acesso aos elementos XML, atributos e valores sob o contexto da página atual a ser editado no ficheiro de configuração do Assistente de UDI|  
 
-######  <a name="CurrentPage"></a>CurrentPage  
+######  <a name="CurrentPage"></a> CurrentPage  
 
 ```  
 XElement CurrentPage { get; set; }  
@@ -3671,7 +3672,7 @@ XElement CurrentPage { get; set; }
 
  Esta propriedade fornece acesso ao XML para a página atual. Nunca deverá definir esta propriedade, mas está livres modificar o XML para a página. O editor da página de exemplo mostra exemplos de modificar o XML. Utilize esta propriedade principalmente quando tiver dados personalizados. Para os campos e propriedades (setters), pode utilizar os controlos de prebuilt asseguramos todos os detalhes.  
 
-####  <a name="IMessageBoxService"></a>IMessageBoxService  
+####  <a name="IMessageBoxService"></a> IMessageBoxService  
  Esta interface fornece acesso aos métodos que pode utilizar para apresentar as caixas de mensagem. -Pode estar a pensar por que motivo precisa de uma interface para apresentar uma caixa de mensagem. A realidade é que não o fizer: A Microsoft utiliza esta interface no código, porque esta ajuda na escrita testes automáticos para páginas estruturador.  
 
  No entanto, utilizar esses métodos benefício um úteis: As caixas de diálogo tem sempre o "proprietário" definido para o Assistente de UDI, que garante que a caixa de diálogo é agrupada corretamente com a janela principal.  
@@ -3694,7 +3695,7 @@ public IMessageBoxService MessageBoxes { get; set; }
 |[ShowDialogWindow](#ShowDialogWindow)|Utilize este método para criar uma caixa de diálogo de novo.|  
 |[ShowWizardWindow](#ShowWizardWindow)|Utilize este método para apresentar um editor de personalizado no interior de uma caixa de diálogo inclui **seguinte** e **novamente** botões de navegação.|  
 
-######  <a name="ShowMessageBox"></a>ShowMessageBox  
+######  <a name="ShowMessageBox"></a> ShowMessageBox  
  Este método apresenta uma caixa de mensagem que é um elemento subordinado do editor de página do assistente personalizado. Este membro está sobrecarregado: Tabela 73 contém uma lista de membros e uma descrição breve de cada. Para obter informações completas sobre cada membro (incluindo sintaxe, utilização e exemplos), consulte a secção que corresponde a cada membro.  
 
 ### <a name="table-73-overloaded-members-for-the-showmessagbox-method"></a>73 de tabela. Membros sobrecarregados para o método ShowMessagBox  
@@ -3705,7 +3706,7 @@ public IMessageBoxService MessageBoxes { get; set; }
 |[ShowMessageBox (string mensagem legenda de cadeia, MessageBoxButton botão, o ícone de MessageBoxImage)](#ShowMessageBox_stringmessage_stringcaption_MessageBoxButtonbutton_MessageBoxImage_icon)|Apresenta uma caixa de mensagem com um ícone e diferentes combinações possíveis dos botões|  
 |[ShowMessageBox (exceção exceção)](#ShowMessageBox_Exception_exception)|Apresenta uma caixa de mensagem que fornece informações sobre uma exceção e tem um **OK** botão|  
 
-######  <a name="ShowMessageBox_Stringmessage_Stringcaption_MessageBoxImage_icon"></a>ShowMessageBox (String mensagem legenda de cadeia, MessageBoxImage ícone)  
+######  <a name="ShowMessageBox_Stringmessage_Stringcaption_MessageBoxImage_icon"></a> ShowMessageBox (String mensagem legenda de cadeia, MessageBoxImage ícone)  
 
 ```  
 void ShowMessageBox(String message, String caption, MessageBoxImage icon);  
@@ -3717,11 +3718,11 @@ void ShowMessageBox(String message, String caption, MessageBoxImage icon);
 
 |**Parâmetro**|**Descrição**|  
 |-|-|  
-|**mensagem**|A mensagem a apresentar na área de conteúdo da caixa de mensagem|  
-|**Legenda**|O texto a mostrar na barra de título da caixa de diálogo|  
-|**ícone**|O tipo do ícone para mostrar na caixa de mensagem|  
+|**message**|A mensagem a apresentar na área de conteúdo da caixa de mensagem|  
+|**caption**|O texto a mostrar na barra de título da caixa de diálogo|  
+|**icon**|O tipo do ícone para mostrar na caixa de mensagem|  
 
-######  <a name="ShowMessageBox_stringmessage_stringcaption_MessageBoxButtonbutton_MessageBoxImage_icon"></a>ShowMessageBox (string mensagem legenda de cadeia, MessageBoxButton botão, o ícone de MessageBoxImage)  
+######  <a name="ShowMessageBox_stringmessage_stringcaption_MessageBoxButtonbutton_MessageBoxImage_icon"></a> ShowMessageBox (string mensagem legenda de cadeia, MessageBoxButton botão, o ícone de MessageBoxImage)  
 
 ```  
 MessageBoxResult ShowMessageBox(string message, string caption, MessageBoxButton button, MessageBoxImage icon);  
@@ -3733,12 +3734,12 @@ MessageBoxResult ShowMessageBox(string message, string caption, MessageBoxButton
 
 |**Parâmetro**|**Descrição**|  
 |-|-|  
-|**mensagem**|A mensagem a apresentar na área de conteúdo da caixa de mensagem|  
-|**Legenda**|O texto a mostrar na barra de título da caixa de diálogo|  
-|**botão**|Os botões para mostrar|  
-|**ícone**|O tipo do ícone para mostrar na caixa de mensagem|  
+|**message**|A mensagem a apresentar na área de conteúdo da caixa de mensagem|  
+|**caption**|O texto a mostrar na barra de título da caixa de diálogo|  
+|**button**|Os botões para mostrar|  
+|**icon**|O tipo do ícone para mostrar na caixa de mensagem|  
 
-######  <a name="ShowMessageBox_Exception_exception"></a>ShowMessageBox (exceção exceção)  
+######  <a name="ShowMessageBox_Exception_exception"></a> ShowMessageBox (exceção exceção)  
 
 ```  
 void ShowMessageBox(Exception exception);  
@@ -3750,9 +3751,9 @@ void ShowMessageBox(Exception exception);
 
 |**Parâmetro**|**Descrição**|  
 |-|-|  
-|**exceção**|A exceção que pretende que o relatório (utiliza a caixa de diálogo **exceção. Mensagem** como o conteúdo.)|  
+|**exception**|A exceção que pretende que o relatório (utiliza a caixa de diálogo **exceção. Mensagem** como o conteúdo.)|  
 
-######  <a name="ShowDialogWindow"></a>ShowDialogWindow  
+######  <a name="ShowDialogWindow"></a> ShowDialogWindow  
 
 ```  
 void ShowDialogWindow(Type viewType, DialogInteraction dialogPayload);  
@@ -3762,7 +3763,7 @@ void ShowDialogWindow(Type viewType, DialogInteraction dialogPayload);
 
  Transmitir dados para o controlo utilizando o parâmetro dialogPayload. O **SampleEditor** solução no diretório do SDK tem um exemplo de como utilizar esta funcionalidade.  
 
-######  <a name="ShowWizardWindow"></a>ShowWizardWindow  
+######  <a name="ShowWizardWindow"></a> ShowWizardWindow  
 
 ```  
 void ShowWizardWindow(Type viewType, DialogInteraction dialogPayload);  
@@ -3770,7 +3771,7 @@ void ShowWizardWindow(Type viewType, DialogInteraction dialogPayload);
 
  Este método permite-lhe apresentar um editor de personalizado no interior de uma caixa de diálogo inclui **seguinte** e **novamente** botões de navegação. Microsoft não forneceu um exemplo de como utilizar este método.  
 
-###  <a name="UDIWizardConfigurationFileSchemaReference"></a>Referência de esquema de ficheiro de configuração de assistente UDI  
+###  <a name="UDIWizardConfigurationFileSchemaReference"></a> Referência de esquema de ficheiro de configuração de assistente UDI  
  Este ficheiro é consumido pelo Assistente de UDI e configurado, o UDI Wizard Designer. Este ficheiro é utilizado para configurar o:  
 
 -   Páginas de assistente apresentadas no Assistente de UDI  
@@ -3789,7 +3790,7 @@ void ShowWizardWindow(Type viewType, DialogInteraction dialogPayload);
 
 |**Nome do elemento**|**Descrição**|  
 |-|-|  
-|[Dados](#Data)|Grupos o indivíduo [DataItem](#DataItem) elementos dentro de um [página](#Page) elemento e o nome pelo **nome** atributo.|  
+|[dados](#Data)|Grupos o indivíduo [DataItem](#DataItem) elementos dentro de um [página](#Page) elemento e o nome pelo **nome** atributo.|  
 |[DataItem](#DataItem)|Grupos o indivíduo [Setter]() elementos dentro de um [página](#Page) elemento. Pode criar dados hierárquicos, incluindo um ou mais [dados](#Data) elementos dentro de um [DataItem](#DataItem) elemento. Cada **DataItem** elemento representa um item individuais. Por exemplo, poderá ter uma lista de unidades disponíveis um **DataItem** para o nome a apresentar e outra **DataItem** elemento para a letra de unidade correspondente.|  
 |[Predefinição](#Default)|Especifica um valor predefinido para o campo especificado no principal [campo](#Field) ou [RadioGroup](#RadioGroup) elemento. A predefinição está definida para o valor entre parênteses por este elemento.|  
 |[DLL](#DLL)|Especifica um DLL que está a ser carregado e referenciada pelo Assistente de UDI e o UDI Wizard Designer.|  
@@ -3799,22 +3800,22 @@ void ShowWizardWindow(Type viewType, DialogInteraction dialogPayload);
 |[ExitCodes](#ExitCodes)|Grupos de um conjunto de [ExitCode](#ExitCode) e [erro](#Error) elementos para um [tarefas](#Task) elemento ou um **erro** elemento.|  
 |[Campo](#Field)|Especifica uma instância de um controlo num [página](#Page) elemento que é utilizado para fornecer a personalização com XML. Nem todos os controlos permitem a personalização com XML — apenas controla que utilizam o [campo](#Field) elemento.|  
 |[Campos](#Fields)|Grupos o indivíduo [campo](#Field) elementos dentro de um [página](#Page) elemento.|  
-|[Ficheiro](#File)|Especifica a origem e destino para uma através de operação de cópia do ficheiro a **Microsoft.Wizard.CopyFilesTask** tipo de tarefas. Pode incluir um separado **ficheiro** elemento copiar mais de um ficheiro numa única tarefa.|  
-|[Página](#Page)|Especifica uma instância de uma página e inclui todas as definições de configuração para a página.|  
+|[ficheiro](#File)|Especifica a origem e destino para uma através de operação de cópia do ficheiro a **Microsoft.Wizard.CopyFilesTask** tipo de tarefas. Pode incluir um separado **ficheiro** elemento copiar mais de um ficheiro numa única tarefa.|  
+|[Page](#Page)|Especifica uma instância de uma página e inclui todas as definições de configuração para a página.|  
 |[PageRef](#PageRef)|Especifica uma referência a uma instância de uma página dentro de um [fase](#Stage) dentro de um [StageGroup](#StageGroup).|  
 |[Páginas](#Pages)|Grupos o indivíduo [página](#Page) elementos.|  
 |[RadioGroup](#RadioGroup)|Especifica um grupo de botões de opção dentro de um [campo](#Field) elemento.|  
 |[StageGroup](#StageGroup)|Especifica um grupo de fases de um ou mais.|  
 |[StageGroups](#StageGroups)|Grupos de um conjunto de grupos de fase dentro de um ficheiro de configuração do Assistente de UDI.|  
 |[Setter]()|Especifica uma definição de propriedade de um valor para uma propriedade com o nome no **propriedade** propriedade.|  
-|[Fase](#Stage)|Especifica uma fase dentro de um [StageGroup](#StageGroup) e contém um ou mais [PageRef](#PageRef) elementos.|  
-|[Estilo](#Style)|Grupos o indivíduo [setter]() elementos que configurar o Assistente de UDI aspeto e funcionalidade, incluindo o título apresentado na parte superior do assistente e a imagem de faixa apresentado no Assistente de UDI.|  
+|[Stage](#Stage)|Especifica uma fase dentro de um [StageGroup](#StageGroup) e contém um ou mais [PageRef](#PageRef) elementos.|  
+|[Style](#Style)|Grupos o indivíduo [setter]() elementos que configurar o Assistente de UDI aspeto e funcionalidade, incluindo o título apresentado na parte superior do assistente e a imagem de faixa apresentado no Assistente de UDI.|  
 |[Tarefa](#Task)|Especifica uma tarefa que está a ser executada na página especificada na principal [página](#Page) elemento.|  
 |[Tarefas](#Tasks)|Grupos de um conjunto de tarefas para um [página](#Page) elemento.|  
-|[A validação do](#Validator)|Especifica um validador para o controlo de campo especificado no principal [campo](#Field) elemento.|  
-|[Assistente](#Wizard)|Especifica a raiz para todos os outros elementos.|  
+|[Validator](#Validator)|Especifica um validador para o controlo de campo especificado no principal [campo](#Field) elemento.|  
+|[Wizard](#Wizard)|Especifica a raiz para todos os outros elementos.|  
 
-####  <a name="Data"></a>Dados  
+####  <a name="Data"></a> Data  
  Este elemento grupos o indivíduo [DataItem](#DataItem) elementos dentro de um [página](#Page) elemento e o nome pelo **nome** atributo.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3822,10 +3823,10 @@ Tabela 78 fornece informações sobre o [dados](#Data) elemento.
 
 ### <a name="table-78-data-element-information"></a>78 de tabela. Informação de elemento de dados  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de cada [página](#Page) elemento (este elemento é opcional.)|  
-|Elementos principais|**Página**, **DataItem**|  
+|Elementos principais|**Page**, **DataItem**|  
 |Conteúdo|**DataItem**, **Setter**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -3843,7 +3844,7 @@ Tabela 78 fornece informações sobre o [dados](#Data) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="DataItem"></a>DataItem  
+####  <a name="DataItem"></a> DataItem  
  Este elemento grupos o indivíduo [Setter]() elementos dentro de um [página](#Page) elemento. Pode criar dados hierárquicos, incluindo um ou mais [dados](#Data) elementos dentro de um [DataItem](#DataItem) elemento. Cada **DataItem** elemento representa um item individuais. Por exemplo, poderá ter uma lista de unidades disponíveis um **DataItem** para o nome a apresentar e outra **DataItem** elemento para a letra de unidade correspondente.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3851,11 +3852,11 @@ Tabela 78 fornece informações sobre o [dados](#Data) elemento.
 
 ### <a name="table-80-dataitem-element-information"></a>80 de tabela. Informação de elemento DataItem  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de cada [dados](#Data) elemento (este elemento é opcional.)|  
-|Elementos principais|**Dados**|  
-|Conteúdo|**Dados**, **Setter**|  
+|Elementos principais|**dados**|  
+|Conteúdo|**Data**, **Setter**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  Este elemento tem sem atributos.  
@@ -3874,10 +3875,10 @@ Tabela 81 fornece informações sobre o [predefinido](#Default) elemento.
 
 ### <a name="table-81-default-element-information"></a>81 de tabela. Informações de elemento predefinidas  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências |Zero ou mais dentro de um [campo](#Field) ou [RadioGroup](#RadioGroup) elemento (este elemento é opcional.)|  
-|Elementos principais|**Campo**, **RadioGroup**|  
+|Elementos principais|**Field**, **RadioGroup**|  
 |Conteúdo|Pode ser qualquer XML bem formado conteúdo, mas é texto normalmente padrão|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -3894,7 +3895,7 @@ Tabela 81 fornece informações sobre o [predefinido](#Default) elemento.
   <Default>Pacific Standard Time</Default>  
 ```  
 
-####  <a name="DLL"></a>DLL  
+####  <a name="DLL"></a> DLL  
  Este elemento Especifica um DLL para o Assistente de UDI e UDI Wizard Designer para carregar e de referência.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3902,7 +3903,7 @@ Tabela 82 fornece informações sobre o [DLL](#DLL) elemento.
 
 ### <a name="table-82-dll-element-information"></a>82 de tabela. Informação de elemento DLL  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais dentro de [DLLs](#DLLs) elemento|  
 |Elemento principal|**DLLs**|  
@@ -3929,7 +3930,7 @@ Tabela 82 fornece informações sobre o [DLL](#DLL) elemento.
 </DLLs>  
 ```  
 
-####  <a name="DLLs"></a>DLLs  
+####  <a name="DLLs"></a> DLLs  
  Este elemento grupos o indivíduo [DLL](#DLL) elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3937,10 +3938,10 @@ Tabela de 84 fornece informações sobre o [DLLs](#DLLs) elemento.
 
 ### <a name="table-84-dlls-element-information"></a>84 de tabela. Informações dos elementos DLLs  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|um|  
-|Elementos principais|**Assistente**|  
+|Elementos principais|**Wizard**|  
 |Conteúdo|**DLL**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -3958,7 +3959,7 @@ Tabela de 84 fornece informações sobre o [DLLs](#DLLs) elemento.
 </DLLs>  
 ```  
 
-####  <a name="Error"></a>Erro  
+####  <a name="Error"></a> Erro  
  Este elemento Especifica um código de erro possíveis que pode devolver uma tarefa. O valor do código de erro é devolvido e trapped pela tarefa **HRESULT** para fornecer informações de erro mais específicas.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3966,7 +3967,7 @@ Tabela de 84 fornece informações sobre o [DLLs](#DLLs) elemento.
 
 ### <a name="table-85-error-element-information"></a>85 de tabela. Informação de elemento de erro  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de cada [ExitCode](#ExitCode) elemento (este elemento é opcional.)|  
 |Elementos principais|**ExitCodes**|  
@@ -3982,7 +3983,7 @@ Tabela de 84 fornece informações sobre o [DLLs](#DLLs) elemento.
 |**Estado**|Especifica o estado de retorno de uma tarefa que encontrou um erro. Normalmente, o valor para este atributo é definido como erro. Este valor é apresentado no **estado** coluna na página do assistente no Assistente de UDI.|  
 |**Texto**|Especifica o texto descritivo sobre a condição de erro que a tarefa encontrado.|  
 |**Tipo**|Especifica se este elemento representa um erro, aviso ou com êxito. O valor especificado no**tipo** têm de ser exclusivos dentro de um [ExitCodes](#ExitCodes) elemento. Seguem-se os valores válidos para este elemento:<br /><br /> -   **0.**o elemento de representar um êxito.<br />-   **1.** O elemento representa um aviso.<br />-   **-1.** O elemento representa um erro.|  
-|**Valor**|Especifica o valor do código que a tarefa devolvida como um valor numérico. Especifica o valor de um asterisco (*) indica o elemento predefinido códigos de retorno que não estejam listadas noutras [erro](#Error) elementos.|  
+|**Value**|Especifica o valor do código que a tarefa devolvida como um valor numérico. Especifica o valor de um asterisco (*) indica o elemento predefinido códigos de retorno que não estejam listadas noutras [erro](#Error) elementos.|  
 
 ##### <a name="remarks"></a>Observações  
  Nenhuma.  
@@ -3990,7 +3991,7 @@ Tabela de 84 fornece informações sobre o [DLLs](#DLLs) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="ExitCode"></a>ExitCode  
+####  <a name="ExitCode"></a> exitCode  
  Este elemento Especifica um código de saída possíveis para uma tarefa. Códigos de saída são códigos de retorno que a tarefa de espera. Criar um **ExitCode** elemento para cada código de saída possíveis. Caso contrário, pode especificar um asterisco (\*) no **valor** atributo para lidar com códigos de retorno não indicados noutras **ExitCode** elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -3998,7 +3999,7 @@ Tabela 87 fornece informações sobre o [ExitCode](#ExitCode) elemento.
 
 ### <a name="table-87-exitcode-element-information"></a>87 de tabela. Informação de elemento ExitCode  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de cada [ExitCodes](#ExitCodes) elemento (este elemento é opcional.)|  
 |Elementos principais|**ExitCodes**|  
@@ -4011,10 +4012,10 @@ Tabela 87 fornece informações sobre o [ExitCode](#ExitCode) elemento.
 
 |**Atributo**|Descrição|  
 |-|-|  
-|**Estado**|Especifica o estado de retorno de uma tarefa. O valor deste atributo é apresentado no **estado** coluna na página do assistente correspondente no Assistente de UDI. Pode utilizar quaisquer valores para este atributo descritivos para a tarefa. Seguem-se típico valores utilizados para este atributo:<br /><br /> -Êxito<br />-Aviso<br />-Erro|  
+|**Estado**|Especifica o estado de retorno de uma tarefa. O valor deste atributo é apresentado no **estado** coluna na página do assistente correspondente no Assistente de UDI. Pode utilizar quaisquer valores para este atributo descritivos para a tarefa. Seguem-se típico valores utilizados para este atributo:<br /><br /> -Êxito<br />-Aviso<br />-   Error|  
 |**Texto**|Especifica o texto descritivo sobre o código de exist da tarefa.|  
 |**Tipo**|Especifica se este elemento representa um erro, aviso ou com êxito. O valor especificado no tipo tem de ser exclusivo dentro de um [ExitCodes](#ExitCodes) elemento. Seguem-se os valores válidos para este elemento:<br /><br /> -   **0.** O elemento representa um êxito.<br />-   **1.** O elemento representa um aviso.<br />-   **-1.** O elemento representa um erro.|  
-|**Valor**|Especifica o valor do código que a tarefa devolvida como um valor numérico. Especifica o valor de um asterisco (*) indica o elemento predefinido códigos de retorno que não estejam listadas noutras [ExitCode](#ExitCode) elementos.|  
+|**Value**|Especifica o valor do código que a tarefa devolvida como um valor numérico. Especifica o valor de um asterisco (*) indica o elemento predefinido códigos de retorno que não estejam listadas noutras [ExitCode](#ExitCode) elementos.|  
 
 ##### <a name="remarks"></a>Observações  
  Nenhuma.  
@@ -4022,7 +4023,7 @@ Tabela 87 fornece informações sobre o [ExitCode](#ExitCode) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="ExitCodes"></a>ExitCodes  
+####  <a name="ExitCodes"></a> ExitCodes  
  Este elemento de um conjunto de grupos [ExitCode](#ExitCode) e [erro](#Error) elementos para um [tarefas](#Task) ou um **erro** elemento.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4030,11 +4031,11 @@ Tabela 89 fornece informações sobre o [ExitCodes](#ExitCodes) elemento.
 
 ### <a name="table-89-exitcodes-element-information"></a>89 de tabela. Informação de elemento ExitCodes  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um em cada [tarefas](#Task) elemento|  
 |Elementos principais|**Tarefa**|  
-|Conteúdo|**Erro**, **ExitCode**|  
+|Conteúdo|**Error**, **ExitCode**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  Este elemento tem sem atributos.  
@@ -4045,7 +4046,7 @@ Tabela 89 fornece informações sobre o [ExitCodes](#ExitCodes) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Field"></a>Campo  
+####  <a name="Field"></a> Campo  
  Este elemento Especifica uma instância de um controlo num [página](#Page) elemento utilizado para fornecer a personalização com XML. Nem todos os controlos permitem a personalização com XML — apenas controla que utilizam o [campo](#Field) elemento.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4053,7 +4054,7 @@ Tabela 89 fornece informações sobre o [ExitCodes](#ExitCodes) elemento.
 
 ### <a name="table-90-field-element-information"></a>Tabela 90. Informação de elemento do campo  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de cada [campo](#Field) elemento (este elemento é opcional.)|  
 |Elementos principais|**Campos**|  
@@ -4066,7 +4067,7 @@ Tabela 89 fornece informações sobre o [ExitCodes](#ExitCodes) elemento.
 
 |**Atributo**|**Descrição**|  
 |-|-|  
-|**Ativado**|Especifica se o campo está ativado para o utilizador entrada (o atributo pode ser definido como VERDADEIRO ou FALSO.)|  
+|**ativado**|Especifica se o campo está ativado para o utilizador entrada (o atributo pode ser definido como VERDADEIRO ou FALSO.)|  
 |**Nome**|Especifica o nome do campo|  
 |**Resumo**|Especifica o texto descritivo apresentado no **resumo** página do Assistente para o valor que define este campo|  
 |**VarName**|Especifica o nome sequência de tarefas variáveis de leitura ou configurada utilizando o campo no principal [campo](#Field) elemento|  
@@ -4077,7 +4078,7 @@ Tabela 89 fornece informações sobre o [ExitCodes](#ExitCodes) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Fields"></a>Campos  
+####  <a name="Fields"></a> Campos  
  Este elemento grupos o indivíduo [campo](#Field) elementos dentro de um [página](#Page) elemento.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4085,11 +4086,11 @@ Tabela 92 fornece informações sobre o [campos](#Fields) elemento.
 
 ### <a name="table-92-fields-element-information"></a>92 de tabela. Informação de elemento de campos  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de cada [página](#Page) elemento (este elemento é opcional.)|  
-|Elementos principais|**Página**|  
-|Conteúdo|**Campo**, **RadioGroup**|  
+|Elementos principais|**Page**|  
+|Conteúdo|**Field**, **RadioGroup**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  Este elemento tem sem atributos.  
@@ -4100,7 +4101,7 @@ Tabela 92 fornece informações sobre o [campos](#Fields) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="File"></a>Ficheiro  
+####  <a name="File"></a> ficheiro  
  Este elemento Especifica a origem e destino para uma através de operação de cópia do ficheiro a **Microsoft.Wizard.CopyFilesTask** tipo de tarefas. Pode incluir um separado [ficheiro](#File) elemento copiar mais de um ficheiro numa única tarefa.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4108,7 +4109,7 @@ Tabela 92 fornece informações sobre o [campos](#Fields) elemento.
 
 ### <a name="table-93-file-element-information"></a>93 de tabela. Informação de elemento do ficheiro  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais para cada tarefa tem um tipo de tarefa de **Microsoft.Wizard.CopyFilesTask**|  
 |Elementos principais|**Tarefa**|  
@@ -4122,7 +4123,7 @@ Tabela 92 fornece informações sobre o [campos](#Fields) elemento.
 |**Atributo**|**Descrição**|  
 |-|-|  
 |**Dest**|Especifica o caminho completamente qualificado ou relativo para a pasta de destino para o ficheiro especificado no **origem** atributo. As variáveis de ambiente são permitidas como parte do caminho.|  
-|**Origem**|Especifica o caminho completamente qualificado ou relativo para a origem de ficheiros que o **Microsoft.Wizard.CopyFilesTask** cópias do tipo de tarefas. Este atributo suporta carateres universais, para que possam ser copiados vários ficheiros de utilização de uma única [ficheiro](#File) elemento. As variáveis de ambiente são permitidas como parte do caminho.|  
+|**origem**|Especifica o caminho completamente qualificado ou relativo para a origem de ficheiros que o **Microsoft.Wizard.CopyFilesTask** cópias do tipo de tarefas. Este atributo suporta carateres universais, para que possam ser copiados vários ficheiros de utilização de uma única [ficheiro](#File) elemento. As variáveis de ambiente são permitidas como parte do caminho.|  
 
 ##### <a name="remarks"></a>Observações  
  Nenhuma.  
@@ -4130,7 +4131,7 @@ Tabela 92 fornece informações sobre o [campos](#Fields) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="PageElement"></a>Página  
+####  <a name="PageElement"></a> Página  
  Este elemento Especifica uma instância de uma página e inclui todas as definições de configuração para a página.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4138,7 +4139,7 @@ Tabela 95 fornece informações sobre o [página](#Page) elemento.
 
 ### <a name="table-95-page-element-information"></a>95 de tabela. Informação de elemento da página  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais dentro de cada [páginas](#Pages) elemento|  
 |Elementos principais|**Páginas**|  
@@ -4161,7 +4162,7 @@ Tabela 95 fornece informações sobre o [página](#Page) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="PageRef"></a>PageRef  
+####  <a name="PageRef"></a> PageRef  
  Este elemento Especifica uma referência a uma instância de uma página dentro de um [fase](#Stage) dentro de um [StageGroup](#StageGroup).  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4169,10 +4170,10 @@ Tabela 97 fornece informações sobre o [PageRef](#PageRef) elemento.
 
 ### <a name="table-97-pageref-element-information"></a>97 de tabela. Informação de elemento PageRef  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais dentro de um [fase](#Stage) elemento|  
-|Elementos principais|**Fase**|  
+|Elementos principais|**Stage**|  
 |Conteúdo|Nenhum|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -4182,7 +4183,7 @@ Tabela 97 fornece informações sobre o [PageRef](#PageRef) elemento.
 
 |**Atributo**|**Descrição**|  
 |-|-|  
-|**Página**|Especifica a instância de uma página dentro de um [fase](#Stage) dentro de um [StageGroup](#StageGroup). Definir este valor para o atributo de nome de um [página](#Page) elemento.|  
+|**Page**|Especifica a instância de uma página dentro de um [fase](#Stage) dentro de um [StageGroup](#StageGroup). Definir este valor para o atributo de nome de um [página](#Page) elemento.|  
 
 ##### <a name="remarks"></a>Observações  
  Nenhuma.  
@@ -4190,7 +4191,7 @@ Tabela 97 fornece informações sobre o [PageRef](#PageRef) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Pages"></a>Páginas  
+####  <a name="Pages"></a> Páginas  
  Este elemento grupos o indivíduo [página](#Page) elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4198,11 +4199,11 @@ Tabela 99 fornece informações sobre o [páginas](#Pages) elemento.
 
 ### <a name="table-99-pages-element-information"></a>Tabela 99. Informação de elemento de páginas  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|um|  
-|Elementos principais|**Assistente**|  
-|Conteúdo|**Página**|  
+|Elementos principais|**Wizard**|  
+|Conteúdo|**Page**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  Este elemento tem sem atributos.  
@@ -4233,7 +4234,7 @@ Tabela 99 fornece informações sobre o [páginas](#Pages) elemento.
 </Pages>  
 ```  
 
-####  <a name="RadioGroup"></a>RadioGroup  
+####  <a name="RadioGroup"></a> RadioGroup  
  Este elemento Especifica um grupo de botões de opção num [campo](#Field) elemento.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4241,7 +4242,7 @@ Tabela 100 fornece informações sobre o [RadioGroup](#RadioGroup) elemento.
 
 ### <a name="table-100-radiogroup-element-information"></a>100 de tabela. Informação de elemento RadioGroup  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de um [campos](#Fields) elemento (este elemento é opcional.)|  
 |Elementos principais|**Campos**|  
@@ -4263,7 +4264,7 @@ Tabela 100 fornece informações sobre o [RadioGroup](#RadioGroup) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="StageGroup"></a>StageGroup  
+####  <a name="StageGroup"></a> StageGroup  
  Este elemento Especifica um grupo de fase de implementação.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4271,11 +4272,11 @@ Tabela 102 fornece informações sobre o [StageGroup](#StageGroup) elemento.
 
 ### <a name="table-102-stagegroup-element-information"></a>102 de tabela. Informação de elemento StageGroup  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais dentro de um [StageGroups](#StageGroups) elemento|  
 |Elementos principais|**StageGroups**|  
-|Conteúdo|**Fase**|  
+|Conteúdo|**Stage**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  103 tabela lista os atributos do [StageGroup](#StageGroup) elemento e uma descrição do atributo.  
@@ -4292,7 +4293,7 @@ Tabela 102 fornece informações sobre o [StageGroup](#StageGroup) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="StageGroups"></a>StageGroups  
+####  <a name="StageGroups"></a> StageGroups  
  Este elemento grupos de um conjunto de grupos de fase dentro de um ficheiro de configuração do Assistente de UDI.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4300,10 +4301,10 @@ Tabela 104 fornece informações sobre o [StageGroups](#StageGroups) elemento.
 
 ### <a name="table-104-stagegroups-element-information"></a>104 de tabela. Informação de elemento StageGroups  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou um dentro de um [assistente](#Wizard) elemento|  
-|Elementos principais|**Assistente**|  
+|Elementos principais|**Wizard**|  
 |Conteúdo|**StageGroup**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -4315,7 +4316,7 @@ Tabela 104 fornece informações sobre o [StageGroups](#StageGroups) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Setter"></a>Setter  
+####  <a name="Setter"></a> Setter  
  Este elemento Especifica uma definição de propriedade para o valor para uma propriedade com o nome no **propriedade** propriedade.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4323,7 +4324,7 @@ Tabela 104 fornece informações sobre o [StageGroups](#StageGroups) elemento.
 
 ### <a name="table-105-setter-element-information"></a>105 de tabela. Informações dos elementos setter  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou mais dentro de cada elemento principal (este elemento é opcional.)|  
 |Elementos principais|**Dados**, **DataItem**, **página**, **estilo**, **tarefas**, **validador**|  
@@ -4352,7 +4353,7 @@ Tabela 107 fornece informações sobre o [fase](#Stage) elemento.
 
 ### <a name="table-107-stage-element-information"></a>107 de tabela. Fase informações dos elementos  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais dentro de um [StageGroup](#StageGroup) elemento|  
 |Elementos principais|**StageGroup**|  
@@ -4374,7 +4375,7 @@ Tabela 107 fornece informações sobre o [fase](#Stage) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Style"></a>Estilo  
+####  <a name="Style"></a> Estilo  
  Este elemento grupos o indivíduo [Setter]() elementos que configurar o Assistente de UDI aspeto e funcionalidade, incluindo o título apresentado na parte superior do assistente e a imagem de faixa apresentado no Assistente de UDI.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4382,10 +4383,10 @@ Tabela 107 fornece informações sobre o [fase](#Stage) elemento.
 
 ### <a name="table-109-style-element-information"></a>109 de tabela. Informação de elemento de estilo  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|um|  
-|Elementos principais|**Assistente**|  
+|Elementos principais|**Wizard**|  
 |Conteúdo|**Setter**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -4403,7 +4404,7 @@ Tabela 107 fornece informações sobre o [fase](#Stage) elemento.
 </Style>  
 ```  
 
-####  <a name="TaskElement"></a>Tarefa  
+####  <a name="TaskElement"></a> Tarefa  
  Este elemento Especifica uma tarefa que está a ser executada na página especificada na principal [página](#Page) elemento.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4411,7 +4412,7 @@ Tabela 110 fornece informações sobre o [tarefas](#Task) elemento.
 
 ### <a name="table-110-task-element-information"></a>110 de tabela. Informação de elemento de tarefa  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Um ou mais dentro de um [tarefas](#Tasks) elemento|  
 |Elementos principais|**Tarefas**|  
@@ -4435,7 +4436,7 @@ Tabela 110 fornece informações sobre o [tarefas](#Task) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Tasks"></a>Tarefas  
+####  <a name="Tasks"></a> Tarefas  
  Este elemento grupos de um conjunto de tarefas para um [página](#Page) elemento.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4443,10 +4444,10 @@ Tabela 112 fornece informações sobre o [tarefas](#Tasks) elemento.
 
 ### <a name="table-112-tasks-element-information"></a>112 de tabela. Informação de elemento de tarefas  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou um em cada [página](#Page) elemento (este elemento é opcional.)|  
-|Elementos principais|**Página**|  
+|Elementos principais|**Page**|  
 |Conteúdo|**Tarefa**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
@@ -4465,7 +4466,7 @@ Tabela 112 fornece informações sobre o [tarefas](#Tasks) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="ValidatorElement"></a>A validação do  
+####  <a name="ValidatorElement"></a> A validação do  
  Este elemento Especifica um validador para o controlo de campo especificado no principal [campo](#Field) elemento.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4473,7 +4474,7 @@ Tabela 114 fornece informações sobre o [validador](#Validator) elemento.
 
 ### <a name="table-114-validator-element-information"></a>114 de tabela. Informações de elemento do validador  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|Zero ou um dentro de um [campo](#Field) elemento|  
 |Elementos principais|**Campo**|  
@@ -4494,7 +4495,7 @@ Tabela 114 fornece informações sobre o [validador](#Validator) elemento.
 ##### <a name="example"></a>Exemplo  
  Nenhuma.  
 
-####  <a name="Wizard"></a>Assistente  
+####  <a name="Wizard"></a> Assistente  
  Este elemento Especifica a raiz para todos os outros elementos.  
 
 ##### <a name="element-information"></a>Informação de elemento  
@@ -4502,11 +4503,11 @@ Tabela 116 fornece informações sobre o [assistente](#Wizard) elemento.
 
 ### <a name="table-116-wizard-element-information"></a>116 de tabela. Informação de elemento do Assistente  
 
-|**Atributo**|**Valor**|  
+|**Atributo**|**Value**|  
 |-|-|  
 |Número de ocorrências|um|  
 |Elementos principais|Nenhum|  
-|Conteúdo|**DLLs**, **páginas**, **StageGroups**, **estilo**|  
+|Conteúdo|**DLLs**, **Pages**, **StageGroups**, **Style**|  
 
 ##### <a name="element-attributes"></a>Atributos de elemento  
  Este elemento tem sem atributos.  

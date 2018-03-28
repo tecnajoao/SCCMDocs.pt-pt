@@ -4,17 +4,18 @@ titleSuffix: Microsoft Deployment Toolkit
 description: 'Amostras do Microsoft Deployment Toolkit. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 2ff0100c-b7ef-4e09-8c96-fc1898390b6d
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
 ms.openlocfilehash: fe61cecea2b2a4f4083933b937af90dfb61ea5bf
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="microsoft-deployment-toolkit-samples-guide"></a>Guia de amostras do Microsoft Deployment Toolkit  
  Este guia faz parte do Microsoft® Deployment Toolkit (MDT) 2013 e guias de uma equipa especialista em através da implementação de sistemas operativos Windows e Microsoft Office. Especificamente, este guia foi concebido para fornecer definições de configuração de exemplo para cenários de implementação específicos.  
@@ -55,7 +56,7 @@ ms.lasthandoff: 01/16/2018
 
 -   Implementar aplicações do Windows 8 utilizando o modo instalação (UDI) conforme descrito em [implementar o Windows 8 aplicações utilizando UDI](#DeployWin8UDI).  
 
-###  <a name="DeployWin8LTI"></a>Implementação de aplicações do Windows 8 com LTI  
+###  <a name="DeployWin8LTI"></a> Implementação de aplicações do Windows 8 com LTI  
  Pode implementar aplicações do Windows 8 com LTI como qualquer outra aplicação que inicia o processo de instalação de uma linha de comandos. Pode adicionar aplicações do Windows 8 em implementações LTI no nó de aplicações no Deployment Workbench.  
 
  **Para implementar uma aplicação do Windows 8 com LTI**  
@@ -78,7 +79,7 @@ ms.lasthandoff: 01/16/2018
 
 4.  Selecione o item de aplicação LTI criado no passo anterior de uma sequência de tarefas LTI.  
 
-###  <a name="DeployWin8UDI"></a>Implementação de aplicações do Windows 8 com o UDI  
+###  <a name="DeployWin8UDI"></a> Implementação de aplicações do Windows 8 com o UDI  
  Pode implementar aplicações do Windows 8 com o UDI como qualquer outra aplicação que inicia o processo de instalação de uma linha de comandos. Pode adicionar aplicações do Windows 8 para implementações de UDI no **ApplicationPage** página do assistente no UDI Wizard Designer.  
 
 > [!NOTE]
@@ -156,14 +157,14 @@ ms.lasthandoff: 01/16/2018
 
 -   Gerir as pastas numa partilha de implementação com o Windows PowerShell conforme descrito em [gerir implementação partilhar pastas utilizando o Windows PowerShell](#ManageDeployShareFolder).  
 
-###  <a name="LoadMDTSnapIn"></a>Carregar o Snap-In do PowerShell do Windows MDT  
+###  <a name="LoadMDTSnapIn"></a> Carregar o Snap-In do PowerShell do Windows MDT  
  Os cmdlets do MDT são fornecidos num snap-in do Windows PowerShell **Microsoft.BDD.SnapIn** que têm de ser carregados antes de utilizar os cmdlets do MDT. Pode carregar o snap-in do MDT Windows PowerShell utilizando qualquer um dos seguintes métodos:  
 
 -   Carregue o snap-in do MDT Windows PowerShell utilizando a consola de módulos do PowerShell de janela conforme descrito em [carregar o MDT Windows PowerShell Snap-In utilizando a tarefa de módulos do sistema de importação](#LoadMDTSnapInImport).  
 
 -   Carga o snap-in do MDT Windows PowerShell utilizando o **Add-PSSnapIn** cmdlet, conforme descrito em [carregar o MDT Windows PowerShell Snap-In utilizando o Cmdlet Add-PSSnapIn](#LoadMDTSnapInCmdlet).  
 
-####  <a name="LoadMDTSnapInImport"></a>Carregar o MDT Windows Snap-In do PowerShell através da tarefa de módulos do sistema de importação  
+####  <a name="LoadMDTSnapInImport"></a> Carregar o MDT Windows Snap-In do PowerShell através da tarefa de módulos do sistema de importação  
  A tarefa de importação sistema módulos inclui automaticamente todos os módulos do Windows PowerShell e snap-ins que se encontrem nos módulos no diretório %Windir%\System32\WindowsPowerShell\1.0\Modules. MDT instala automaticamente o snap-in Windows PowerShell do MDT **Microsoft.BDD.SnapIn** nessa pasta durante o processo de instalação do MDT.  
 
 > [!NOTE]
@@ -177,14 +178,14 @@ ms.lasthandoff: 01/16/2018
 
  Para obter mais informações sobre uma consola do Windows PowerShell com módulos de sistema de importação de iniciar a máquina, consulte [iniciar o Windows PowerShell com módulos de sistema de importação](http://msdn.microsoft.com/library/windows/desktop/hh847866.aspx).  
 
-####  <a name="LoadMDTSnapInCmdlet"></a>Carregar o MDT Windows Snap-In do PowerShell utilizando o Cmdlet adicionar-PSSnapIn  
+####  <a name="LoadMDTSnapInCmdlet"></a> Carregar o MDT Windows Snap-In do PowerShell utilizando o Cmdlet adicionar-PSSnapIn  
  Pode carregar o snap-in Windows PowerShell do MDT **Microsoft.BDD.PSSnapIn** de qualquer ambiente do Windows PowerShell utilizando o [Add-PSSnapIn](http://technet.microsoft.com/library/hh849705.aspx) cmdlet, como a mostrar no exemplo seguinte:  
 
 ```  
 Add-PSSnapin -Name Microsoft.BDD.PSSnapIn  
 ```  
 
-###  <a name="CreateDeployShare"></a>Criar uma partilha de implementação com o Windows PowerShell  
+###  <a name="CreateDeployShare"></a> Criar uma partilha de implementação com o Windows PowerShell  
  Pode criar partilhas de implementação utilizando os cmdlets do Windows PowerShell do MDT. A pasta de raiz para a partilha de implementação é criada e partilhados com o padrão cmdlets do Windows PowerShell e chamadas para comandos de classe de Windows Management Instrumentation (WMI). A partilha de implementação é preenchida com o fornecedor de MDTProvider Windows PowerShell e o [NewPSDrive](http://technet.microsoft.com/library/dd315340.aspx) cmdlet. A unidade de MDTProvider Windows PowerShell é persistente através de **adicionar MDTPersistentDrive** cmdlet.  
 
  **Para preparar uma partilha de implementação utilizando os cmdlets do Windows PowerShell do MDT**  
@@ -243,7 +244,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      No exemplo anterior, a pipeline do Windows PowerShell fornece o *nome* e *InputObject* parâmetros.  
 
-###  <a name="ViewDeployShareProp"></a>Ver propriedades de partilha de implementação com o Windows PowerShell  
+###  <a name="ViewDeployShareProp"></a> Ver propriedades de partilha de implementação com o Windows PowerShell  
  Pode ver as propriedades de partilhas de implementação do MDT com o [Get-ItemProperty](http://technet.microsoft.com/library/hh849851.aspx) cmdlet e o fornecedor de MDTProvider Windows PowerShell. Estas propriedades mesmas também podem ser vistas no Deployment Workbench.  
 
  **Para ver as propriedades de partilha de implementação utilizando os cmdlets do Windows PowerShell do MDT**  
@@ -275,7 +276,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      Neste exemplo, *DS002:* é o nome de uma unidade do Windows PowerShell devolvido no passo 3. O cmdlet devolve as propriedades para a partilha de implementação.  
 
-###  <a name="ViewListDeployShare"></a>Ver a lista de partilhas de implementação com o Windows PowerShell  
+###  <a name="ViewListDeployShare"></a> Ver a lista de partilhas de implementação com o Windows PowerShell  
  Pode ver a lista de partilhas de implementação do MDT com o [Get-PSDrive](http://technet.microsoft.com/library/hh849796) cmdlet e o fornecedor de MDTProvider Windows PowerShell. A mesma lista de partilhas de implementação também pode ser visualizada no Deployment Workbench.  
 
  **Para ver uma lista de partilhas de implementação utilizando os cmdlets do Windows PowerShell do MDT**  
@@ -299,7 +300,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      A lista do Windows PowerShell unidades fornecidas a utilizar o MDTProvider estiver listadas, um para cada partilha de implementação.  
 
-###  <a name="UpdateDeployShare"></a>Atualizar uma partilha de implementação com o Windows PowerShell  
+###  <a name="UpdateDeployShare"></a> Atualizar uma partilha de implementação com o Windows PowerShell  
  Pode atualizar as partilhas de implementação utilizando o **atualização MDTDeploymentShare** cmdlet e o fornecedor de MDTProvider Windows PowerShell. Atualizar uma partilha de implementação cria as imagens de arranque do Windows PE (WIM e International Organization para ficheiros uniformização [ISO]) necessário para iniciar a implementação LTI. Pode efetuar o mesmo processo utilizando o Deployment Workbench, conforme descrito em "Atualizar uma implementação partilha no Deployment Workbench".  
 
  **Para atualizar uma partilha de implementação com o Windows PowerShell**  
@@ -336,7 +337,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      O cmdlet devolve sem saída se a atualização for concluída com êxito.  
 
-###  <a name="UpdateLinkedDeployShare"></a>Atualizar uma partilha de implementação ligado com o Windows PowerShell  
+###  <a name="UpdateLinkedDeployShare"></a> Atualizar uma partilha de implementação ligado com o Windows PowerShell  
  Pode atualizar as partilhas de implementação ligado (replicar) utilizando o **atualização MDTLinkedDS** cmdlet e o fornecedor de MDTProvider Windows PowerShell. Atualizar uma partilha de implementação ligado replica os conteúdos da partilha de implementação original para a partilha de implementação ligado. Pode efetuar o mesmo processo utilizando o Deployment Workbench, conforme descrito em "Replicar ligado implementação partilhas no Deployment Workbench".  
 
  **Para atualizar uma partilha de implementação ligado com o Windows PowerShell**  
@@ -373,7 +374,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      O cmdlet devolve sem saída se a atualização for concluída com êxito.  
 
-###  <a name="UpdateDeployMedia"></a>Atualizar o suporte de dados de implementação através do Windows PowerShell  
+###  <a name="UpdateDeployMedia"></a> Atualizar o suporte de dados de implementação através do Windows PowerShell  
  Pode atualizar (gerar) através de suportes de dados de implementação de **atualização MDTMedia** cmdlet e o fornecedor de MDTProvider Windows PowerShell. Suporte de dados de implementação de atualização replica os conteúdos da partilha de implementação original para a partilha de implementação ligado e, em seguida, gera ficheiros. ISO e. wim. Pode efetuar o mesmo processo utilizando o Deployment Workbench, conforme descrito em "Gerar suporte de dados de imagens no Deployment Workbench".  
 
  Quando o **atualização MDTMedia** cmdlet termina, são criados os seguintes ficheiros:  
@@ -422,25 +423,25 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      O cmdlet devolve sem saída se a atualização for concluída com êxito.  
 
-###  <a name="ManageItemDeployShare"></a>Gerir itens numa partilha de implementação com o Windows PowerShell  
+###  <a name="ManageItemDeployShare"></a> Gerir itens numa partilha de implementação com o Windows PowerShell  
  Uma partilha de implementação contém itens que são utilizados para efetuar implementações, tais como sistemas operativos, aplicações, controladores de dispositivo, sistema operativo pacotes e sequências de tarefas. Estes itens podem geridos através de cmdlets do Windows PowerShell e aos fornecidos com o MDT.  
 
  Para obter mais informações sobre a manipulação de itens diretamente utilizando cmdlets do Windows PowerShell, consulte [manipular diretamente itens](http://technet.microsoft.com/library/dd315266.aspx). A estrutura de pastas para uma partilha de implementação também pode ser gerida com o Windows PowerShell. Para obter mais informações, consulte [gerir implementação partilha pastas utilizando o Windows PowerShell](#ManageDeployShareFolder).  
 
-####  <a name="ImportItemDeployShare"></a>Importar um Item para uma partilha de implementação  
+####  <a name="ImportItemDeployShare"></a> Importar um Item para uma partilha de implementação  
  Pode importar cada tipo de item, como sistemas operativos, aplicações ou de controladores de dispositivo, utilizando cmdlets do MDT. Para cada tipo de item, há um cmdlet específico do MDT. Se pretender importar vários itens para uma partilha de implementação com o Windows PowerShell, consulte [automatizar a população de uma partilha de implementação](#AutomatePopulateDeployShare).  
 
  A tabela seguinte lista o MDT Windows PowerShell cmdlets utilizados para importar itens para uma partilha de implementação e fornece uma breve descrição de cada cmdlet. Exemplos de como utilizar cada cmdlet é fornecido na secção que corresponde a cada cmdlet.  
 
  |**Cmdlet** | **Descrição** |  
  |-|-|  
- |**Importar MDTApplication** |Importa uma aplicação para uma partilha de implementação|  
- |**Importar MDTDriver** |Importa um ou mais controladores de dispositivo para uma partilha de implementação|  
- |**Importar MDTOperatingSystem** |Importa um ou mais sistemas de operativos para uma partilha de implementação|  
- |**Importar MDTPackage** |Importa um ou mais pacotes de sistema operativo para uma partilha de implementação|  
- |**Importar MDTTaskSequence** |Importa uma sequência de tarefas para uma partilha de implementação|  
+ |**Import-MDTApplication** |Importa uma aplicação para uma partilha de implementação|  
+ |**Import-MDTDriver** |Importa um ou mais controladores de dispositivo para uma partilha de implementação|  
+ |**Import-MDTOperatingSystem** |Importa um ou mais sistemas de operativos para uma partilha de implementação|  
+ |**Import-MDTPackage** |Importa um ou mais pacotes de sistema operativo para uma partilha de implementação|  
+ |**Import-MDTTaskSequence** |Importa uma sequência de tarefas para uma partilha de implementação|  
 
-####  <a name="ViewPropertyDeployShare"></a>Ver as propriedades de um Item numa partilha de implementação  
+####  <a name="ViewPropertyDeployShare"></a> Ver as propriedades de um Item numa partilha de implementação  
  Cada item numa partilha de implementação tem um conjunto diferente de propriedades. Pode ver as propriedades de um item numa partilha de implementação utilizando o [Get-ItemProperty](http://technet.microsoft.com/library/hh849851.aspx) cmdlet. O [Get-ItemProperty](http://technet.microsoft.com/library/hh849851.aspx) cmdlet utiliza o MDTProvider para apresentar as propriedades de um item específico, tal como pode ver as propriedades no Deployment Workbench.  
 
  Se pretender pretende ver as propriedades de vários itens numa implementação partilhar com o Windows PowerShell, consulte o artigo [automatizar a população de uma partilha de implementação](#AutomatePopulateDeployShare).  
@@ -485,7 +486,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
 
      Neste exemplo, o valor da *caminho* parâmetro é o caminho completamente qualificado do Windows PowerShell para o item, incluindo o nome de ficheiro que foi devolvido no passo anterior. Pode utilizar o mesmo processo para ver as propriedades dos outros tipos de itens, tais como controladores de dispositivo ou aplicações.  
 
-####  <a name="RemoveItemDeployShare"></a>Remover um Item a uma partilha de implementação  
+####  <a name="RemoveItemDeployShare"></a> Remover um Item a uma partilha de implementação  
  Pode remover um item de uma partilha de implementação utilizando o [Remove-Item](http://technet.microsoft.com/library/hh849765) cmdlet. O [Remove-Item](http://technet.microsoft.com/library/hh849765) cmdlet utiliza o MDTProvider para remover um item específico, tal como pode remover um item no Deployment Workbench. Se pretender remover vários itens numa implementação partilhar com o Windows PowerShell, consulte [automatizar a população de uma partilha de implementação](#AutomatePopulateDeployShare).  
 
 > [!NOTE]
@@ -536,7 +537,7 @@ Add-PSSnapin -Name Microsoft.BDD.PSSnapIn
     > [!NOTE]
     >  Remover um item que utiliza uma sequência de tarefas faz com que a sequência de tarefas falhar. Certifique-se de que um item não é referenciado por outros itens numa partilha de implementação antes de remover o item.  
 
-###  <a name="AutomatePopulateDeployShare"></a>Automatizar a população de uma partilha de implementação  
+###  <a name="AutomatePopulateDeployShare"></a> Automatizar a população de uma partilha de implementação  
  Os cmdlets Windows PowerShell do MDT permitem-lhe gerir itens individuais. No entanto, utilizando algumas das funcionalidades scripts do Windows PowerShell, os cmdlets podem ser utilizados para automatizar a população de uma partilha de implementação.  
 
  Por exemplo, uma organização poderá ter de implementar várias partilhas de implementação para unidades empresariais diferentes ou uma organização pode fornecer do sistema operativo dos serviços de implementação de outras organizações. Em ambos estes exemplos, as organizações necessitam da capacidade de criar e preencher as partilhas de implementação que estão configuradas de forma consistente.  
@@ -580,7 +581,7 @@ Import-MDTApplication –path $App.ApplicationFolder -enable "True" –Name $App
 
      Para obter mais informações sobre os cmdlets do MDT utilizados para importar itens para uma partilha de implementação, consulte [importar um Item para uma partilha de implementação](#ImportItemDeployShare).  
 
-###  <a name="ManageDeployShareFolder"></a>Gerir pastas de partilha de implementação com o Windows PowerShell  
+###  <a name="ManageDeployShareFolder"></a> Gerir pastas de partilha de implementação com o Windows PowerShell  
  Pode gerir pastas de uma partilha de implementação utilizando ferramentas de linha de comandos, tal como o **mkdir** comando ou utilizar cmdlets do Windows PowerShell, como o [Novo Item](http://technet.microsoft.com/library/hh849795) cmdlet e o MDTProvider Windows Fornecedor do PowerShell. A mesma estrutura de pasta de partilhas de implementação também pode ser vista e gerida no Deployment Workbench. Para obter mais informações sobre a manipulação de itens diretamente utilizando cmdlets do Windows PowerShell, consulte [manipular diretamente itens](http://technet.microsoft.com/library/dd315266.aspx).  
 
 #### <a name="create-a-folder-in-a-deployment-share-using-windows-powershell"></a>Crie uma pasta numa partilha de implementação com o Windows PowerShell  
@@ -754,7 +755,7 @@ Import-MDTApplication –path $App.ApplicationFolder -enable "True" –Name $App
 
 -   Aplicar o service pack para um computador de referência e, em seguida, capturar uma imagem atualizada do computador de referência, conforme descrito em [automatizar a aplicação do sistema operativo serviço pacotes a utilizar um computador de referência e o Windows PowerShell](#AutomateAppUsingRef)  
 
-###  <a name="AutomateAppFromUSM"></a>Automatizar a aplicação dos pacotes de serviço do sistema operativo do suporte de dados de origem atualizados  
+###  <a name="AutomateAppFromUSM"></a> Automatizar a aplicação dos pacotes de serviço do sistema operativo do suporte de dados de origem atualizados  
  Pode automatizar o processo de atualização de pacotes de serviço do sistema operativo com o Windows PowerShell quando tiver de suporte de dados de origem que incluem o service pack, tais como tendo um DVD que tenha o Windows 7 com SP1 já integrado.  
 
  Para que este método, o suporte de dados de origem de sistema operativo com o service pack é copiado os ficheiros de sistema operativo existente sem o service pack na partilha de implementação com o Windows PowerShell.  
@@ -800,7 +801,7 @@ Import-MDTApplication –path $App.ApplicationFolder -enable "True" –Name $App
 
  Para obter mais informações sobre como atualizar o suporte de dados de implementação MDT com base na implementação partilhar utilizando **atualização MDTMedia** cmdlet, consulte [atualizar a implementação de suportes de dados utilizando o Windows PowerShell](#UpdateDeployMedia).  
 
-###  <a name="AutomateAppUsingRef"></a>Automatizar a aplicação dos pacotes de serviço do sistema operativo através de um computador de referência e o Windows PowerShell  
+###  <a name="AutomateAppUsingRef"></a> Automatizar a aplicação dos pacotes de serviço do sistema operativo através de um computador de referência e o Windows PowerShell  
  Pode automatizar o processo de atualização de pacotes de serviço do sistema operativo com o Windows PowerShell quando tiver apenas o pacote de serviço que ainda não estiver integrado com o sistema operativo, tais como ter a SP1 para Windows 7, ainda não integrado com uma imagem do Windows 7.  
 
  Para que este método, implemente o sistema operativo sem o service pack para um computador de referência. Em seguida, aplicar o service pack para o computador de referência. Em seguida, capture uma imagem de sistema operativo do computador de referência. Por fim, copie o ficheiro. wim capturado o ficheiro Install.wim no sistema operativo na partilha de implementação com o Windows PowerShell.  
@@ -1401,11 +1402,11 @@ Cscript.exe “%SCRIPTROOT%\ZTIConnect.wsf” /uncpath:unc_path
 
  No **opções** separador do passo de sequência de tarefas, efetuar as seguintes ações:  
 
--   **Adicione.** Clique neste botão para adicionar uma condição para o passo de sequência de tarefas.  
+-   **Add.** Clique neste botão para adicionar uma condição para o passo de sequência de tarefas.  
 
--   **Remova.** Clique neste botão para remover uma condição existente no passo de sequência de tarefas.  
+-   **Remove.** Clique neste botão para remover uma condição existente no passo de sequência de tarefas.  
 
--   **Edite.** Clique neste botão para modificar uma condição existente no passo de sequência de tarefas.  
+-   **Edit.** Clique neste botão para modificar uma condição existente no passo de sequência de tarefas.  
 
 ### <a name="if-statements-in-conditions"></a>Se as instruções em condições  
  Todas as condições de sequência de tarefas incluem um ou mais **se** instruções. **Se** instruções são a base para a criação de passos de sequência de tarefas condicional. Uma condição de passo de sequência de tarefas pode incluir apenas um **se** declaração, mas vários **se** instruções podem ser aninhadas abaixo de nível superior **se** instrução para criar mais complexas condições.  
@@ -1612,7 +1613,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
  Este cenário presumes que MDT está configurado num servidor de implementação principal e que a configuração da base de dados do MDT já foi concluída tal como explicado no início deste documento.  
 
-###  <a name="EnsureInfrastructure"></a>Garantir que a infraestrutura adequada existe  
+###  <a name="EnsureInfrastructure"></a> Garantir que a infraestrutura adequada existe  
  A infraestrutura de implementação LTI altamente dimensionável utiliza uma topologia de concentrador hub-and-spoke para a replicação de conteúdo; primeiro para um servidor de implementação no ambiente de produção que irá executar a função de servidor a mestre implementação por conseguinte, indicar.  Segue-se os componentes necessários para o servidor de implementação principal.  
 
  |**Componente necessário** |**Objetivo/comentário** |  
@@ -1635,7 +1636,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Serviços de implementação do Windows tem de ser configurados e configurados em cada servidor subordinado, mas não é necessário adicionar imagens de arranque ou instalação.  
 
-###  <a name="AddContent"></a>Adicionar conteúdo à MDT  
+###  <a name="AddContent"></a> Adicionar conteúdo à MDT  
  Preencha o servidor de implementação principal com conteúdo utilizando o Deployment Workbench e criar e preencher a BD do MDT, conforme descrito nas secções seguintes. Para informações sobre a preencher a base de dados com:  
 
 -   As aplicações, consulte a secção "Configurar aplicações no Deployment Workbench", no documento MDT *utilizar o Microsoft Deployment Toolkit*  
@@ -1651,7 +1652,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Certifique-se de que o ficheiro de LiteTouchPE_x86.wim criado quando a partilha de implementação é atualizada foi adicionado aos serviços de implementação do Windows.  
 
-###  <a name="PrepareDeployment"></a>Preparar os serviços de implementação do Windows  
+###  <a name="PrepareDeployment"></a> Preparar os serviços de implementação do Windows  
  Porque o ficheiro LiteTouchPE_x86.wim será replicado periodicamente através do grupo de replicação de DFS-R, o arquivo de dados de configuração de arranque deve ser atualizado periodicamente para refletir o ambiente Windows PE recentemente replicado. Execute os seguintes passos em cada um dos servidores de implementação.  
 
  **Para preparar os serviços de implementação do Windows**  
@@ -1663,7 +1664,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  No exemplo aqui apresentado, o período de atualização está definido como 60 minutos; No entanto, pode configurar este valor para replicar durante um período igual do DFS-R.  
 
-###  <a name="ConfigureFileReplication"></a>Configurar replicação do sistema de ficheiros distribuído  
+###  <a name="ConfigureFileReplication"></a> Configurar replicação do sistema de ficheiros distribuído  
  Quando o dimensionamento a arquitetura de implementação LTI, utilize DFS-R como base para replicar o conteúdo de partilha de implementação MDT e o ambiente de arranque do Windows PE Lite Touch e do servidor de implementação principal para os servidores de implementação do subordinado.  
 
 > [!NOTE]
@@ -1766,7 +1767,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Certifique-se de que o novo grupo de replicação está agora listado abaixo do nó de replicação.  
 
-###  <a name="PrepareSQLReplication"></a>A preparar replicação do SQL Server  
+###  <a name="PrepareSQLReplication"></a> A preparar replicação do SQL Server  
  Antes de replicação do SQL Server pode ser configurada, conclua vários passos de pré-configuração para se certificar de que os servidores de implementação estão configurados corretamente.  
 
  **Para preparar a replicação do SQL Server no servidor de implementação principal**  
@@ -1789,7 +1790,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 > [!NOTE]
 >  Esta base de dados deve ser dada o mesmo nome da base de dados do MDT no servidor de implementação principal. Por exemplo, se a BD do MDT no servidor de implementação principal é denominada *MDTDB*, criar uma base de dados vazio denominado *MDTDB* no servidor de implementação do subordinado.  
 
-###  <a name="ConfigureSQLReplication"></a>Configurar a replicação do SQL Server  
+###  <a name="ConfigureSQLReplication"></a> Configurar a replicação do SQL Server  
  Depois de configurar a replicação de ficheiros e pastas necessárias para criar a infraestrutura de implementação, configure o SQL Server para replicar a BD do MDT.  
 
 > [!NOTE]
@@ -1931,7 +1932,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
  Replicação do SQL Server está agora configurada e a BD do MDT será replicada do servidor de implementação principal para todos os servidores de implementação de subordinados que foram subscritos-la numa base periódica.  
 
-#### <a name="configure-customsettingsini"></a>Configurar CustomSettings.ini  
+#### <a name="configure-customsettingsini"></a>Configure CustomSettings.ini  
  A infraestrutura de implementação LTI tem agora foi criada com êxito e cada localização irá conter um servidor de implementação LTI, com uma cópia replicada:  
 
 -   A partilha de implementação  
@@ -2063,7 +2064,7 @@ ParameterCondition=OR
 
  Este cenário pressupõe que o MDT é configurado num servidor de implementação.  
 
-###  <a name="UnderstandingLocationServer"></a>Noções sobre LocationServer.xml  
+###  <a name="UnderstandingLocationServer"></a> Understanding LocationServer.xml  
  Em primeiro lugar, tem de compreender que como o MDT utiliza LocationServer.xml. Durante a LTI, scripts de MDT ler e processam o ficheiro BootStrap.ini para recolher iniciais informações sobre a implementação. Isto ocorre antes de uma ligação foi efetuada para o servidor de implementação. Por conseguinte, o **DeployRoot** propriedade costuma é utilizada para especificar o ficheiro BootStrap.ini o servidor de implementação para o qual este deve estabelecer uma ligação.  
 
  Se o ficheiro BootStrap.ini não contém um **DeployRoot** propriedade, scripts de MDT carregar uma página do Assistente para solicitar ao utilizador para um caminho para o servidor de implementação. Ao inicializar o **aplicação HTML (HTA)** página do assistente, MDT scripts Verifique a existência do ficheiro LocationServer.xml e, se existir, utilize LocationServer.xml para apresentar os servidores de implementação disponíveis.  
@@ -2075,7 +2076,7 @@ ParameterCondition=OR
 
  |**Método** |**Detalhes** |  
  |-|-|  
- |**% WDSServer %** |Este método é utilizado quando o servidor do MDT conjuntamente está alojado no servidor de serviços de implementação do Windows.<br /><br /> Quando uma implementação LTI é iniciada a partir de serviços de implementação do Windows, uma variável de ambiente — % WDSServer % — é criadas e preenchidas com o nome do servidor dos serviços de implementação do Windows.<br /><br /> O **DeployRoot** variável pode utilizar esta variável para ligar automaticamente a uma partilha de implementação no servidor de serviços de implementação do Windows — por exemplo:<br /><br /> **DeployRoot =\\\\%WDSServer%\Deployment$** |  
+ |**%WDSServer%** |Este método é utilizado quando o servidor do MDT conjuntamente está alojado no servidor de serviços de implementação do Windows.<br /><br /> Quando uma implementação LTI é iniciada a partir de serviços de implementação do Windows, uma variável de ambiente — % WDSServer % — é criadas e preenchidas com o nome do servidor dos serviços de implementação do Windows.<br /><br /> O **DeployRoot** variável pode utilizar esta variável para ligar automaticamente a uma partilha de implementação no servidor de serviços de implementação do Windows — por exemplo:<br /><br /> **DeployRoot=\\\\%WDSServer%\Deployment$** |  
  |**Com base na localização de automatização** |MDT pode utilizar com base na localização de automatização no ficheiro BootStrap.ini para determinar o servidor ao qual deve implementar.<br /><br /> Utilize o **Gateway predefinido** propriedade para distinguir entre as diferentes localizações; para cada **Gateway predefinido**, um servidor diferente do MDT que está especificado.<br /><br /> Para obter mais informações sobre a utilização de automatização com base na localização, consulte "Selecionar os métodos para aplicar as definições de configuração".|  
 
  Cada abordagem listada na tabela que precede oferece uma forma de automatizar a seleção do servidor numa localização especificada para determinados cenários de implementação. Estas abordagens são direcionadas para cenários específicos — por exemplo, quando o servidor do MDT é conjuntamente alojado com os serviços de implementação do Windows.  
@@ -2084,7 +2085,7 @@ ParameterCondition=OR
 
  Nestes cenários, o ficheiro de LocationServer.xml fornece uma forma flexível para apresentar estas informações no momento da implementação sem necessidade de conhecimento de nomes de servidor e os nomes das partilhas de implementação.  
 
-###  <a name="CreateLocationServer"></a>Criar o ficheiro LocationServer.xml  
+###  <a name="CreateLocationServer"></a> Criar o ficheiro LocationServer.xml  
  Para apresentar uma lista de servidores de implementação disponíveis durante uma implementação LTI, crie um ficheiro de LocationServer.xml que contém detalhes sobre cada servidor. Não há nenhum ficheiro de LocationServer.xml predefinido no MDT, por isso, crie um usando as seguintes orientações.  
 
 #### <a name="create-a-locationserverxml-file-to-support-multiple-locations"></a>Criar um ficheiro de LocationServer.xml para suportar várias localizações  
@@ -2212,7 +2213,7 @@ ParameterCondition=OR
 
     2.  No **personalizações do Windows PE** na secção de **Extra diretório para adicionar** caixa, escreva ***caminho*** (onde *caminho* está completamente qualificado caminho para a pasta de ficheiros adicionais — por exemplo, o D:\Production implementação Share\Extra ficheiros) e, em seguida, clique em **OK**.  
 
-###  <a name="UpdateBootstrap"></a>Atualizar o ficheiro BootStrap.ini  
+###  <a name="UpdateBootstrap"></a> Atualizar o ficheiro BootStrap.ini  
  Quando cria uma partilha de implementação a utilizar o Deployment Workbench, um **DeployRoot** propriedade é automaticamente criada e preenchida no ficheiro BootStrap.ini. Porque o ficheiro de LocationServer.xml é utilizado para preencher o **DeployRoot** propriedade, tem de remover este valor do ficheiro BootStrap.ini.  
 
  **Para remover a propriedade DeployRoot BootStrap.ini**  
@@ -2231,7 +2232,7 @@ ParameterCondition=OR
 
 7.  Clique em **OK** para submeter as alterações.  
 
-###  <a name="UpdateDeploymentShare"></a>A partilha de implementação de atualização  
+###  <a name="UpdateDeploymentShare"></a> A partilha de implementação de atualização  
  A partilha de implementação seguinte têm de ser atualizada para gerar um ambiente de arranque LiteTouch_x86 e LiteTouch_x64 novo que contém o ficheiro de LocationServer.xml e o ficheiro BootStrap.ini atualizado.  
 
  **Para atualizar a partilha de implementação**  
@@ -2320,7 +2321,7 @@ ParameterCondition=OR
     |**Selecione o SO**|No **imagens de sistema operativo que se seguem estão disponíveis para implementação com esta sequência de tarefas**. Selecione um para utilizar, selecione ***captured_vista_image*** (onde *captured_vista_image* é a imagem capturada do computador de referência adicionado ao nó sistemas operativos no Deployment Workbench) e, em seguida, Clique em *seguinte*.|  
     |**Especifique a chave de produto**|Selecione **não especificar uma chave de produto neste momento**e, em seguida, clique em **seguinte**.|  
     |Definições de SO|1.  No **nome completo**, tipo **Woodgrove empregado**.<br />2.  No **organização**, tipo **Banco Woodgrove**.<br />3.  No **Home Page do Internet Explorer**, tipo **http://www.woodgrovebank.com**.<br />4.  Clique em **Seguinte**.|  
-    |**Palavra-passe de administrador**|No **palavra-passe de administrador** e **confirme a palavra-passe de administrador**, tipo  **P@ssw0rd** e, em seguida, clique em **concluir**.|  
+    |**Palavra-passe de administrador**|No **palavra-passe de administrador** e **confirme a palavra-passe de administrador**, tipo **P@ssw0rd**e, em seguida, clique em **concluir**.|  
     |**Confirmação**|Clique em **Concluir**.|  
 
  O Assistente de nova sequência de tarefas é concluída e o **VISTA_NEW** sequência de tarefas é adicionada à lista de sequências de tarefas.  
@@ -2434,7 +2435,7 @@ ParameterCondition=OR
     |**Na página do Assistente**|**Fazê-lo**|  
     |-|-|  
     |**Bem-vindo à implementação**|Clique em **executar o Assistente de implementação** para instalar um novo sistema operativo e, em seguida, clique em **seguinte**.|  
-    |**Especifique as credenciais para ligar a partilhas de rede.**|1.  No **nome de utilizador**, tipo **administrador**.<br />2.  No **palavra-passe**, tipo  **P@ssw0rd** .<br />3.  No **domínio**, tipo **CORP**.<br />4.  Clique em **OK**.|  
+    |**Especifique as credenciais para ligar a partilhas de rede.**|1.  No **nome de utilizador**, tipo **administrador**.<br />2.  No **palavra-passe**, tipo **P@ssw0rd**.<br />3.  No **domínio**, tipo **CORP**.<br />4.  Clique em **OK**.|  
     |**Selecione uma sequência de tarefas para executar neste computador.**|Clique em *efetuar substituir o cenário de computador num computador existente*e, em seguida, clique em **seguinte**.|  
     |**Especifique onde pretende guardar as definições e dados**|Clique em **Seguinte**.|  
     |**Especifique onde pretende guardar uma cópia de segurança de computador completo**|Clique em **não efetuar cópias de segurança do computador existente**e, em seguida, clique em **seguinte**.|  
@@ -2467,7 +2468,7 @@ ParameterCondition=OR
     |**Na página do Assistente**|**Fazê-lo**|  
     |--|--|
     |**Bem-vindo à implementação**|Clique em **executar o Assistente de implementação para instalar um novo sistema operativo**e, em seguida, clique em **seguinte**.|  
-    |**Especifique as credenciais para ligar a partilhas de rede.**|1.  No **nome de utilizador**, tipo **administrador**.<br />2.  No **palavra-passe**, tipo  **P@ssw0rd** .<br />3.  No **domínio**, tipo **CORP**.<br />4.  Clique em **OK**.|  
+    |**Especifique as credenciais para ligar a partilhas de rede.**|1.  No **nome de utilizador**, tipo **administrador**.<br />2.  No **palavra-passe**, tipo **P@ssw0rd**.<br />3.  No **domínio**, tipo **CORP**.<br />4.  Clique em **OK**.|  
     |**Selecione uma sequência de tarefas para executar neste computador.**|Clique em **efetuar substituir o cenário de computador no novo computador**e, em seguida, clique em **seguinte**.|  
     |**Configurar o nome do computador**|No **nome do computador**, tipo **WDG novo 02**e, em seguida, clique em **seguinte**.|  
     |**Associar o computador a um domínio ou grupo de trabalho**|Clique em **Seguinte**.|  
@@ -2501,7 +2502,7 @@ ParameterCondition=OR
 
  As secções seguintes partem do princípio de que o MDT é configurado num servidor de implementação.  
 
-###  <a name="ChooseAppropLanguage"></a>Escolha a linguagem de scripts adequada  
+###  <a name="ChooseAppropLanguage"></a> Escolha a linguagem de scripts adequada  
  Embora qualquer código que pode ser executado no Windows ou no Windows PE pode ser chamado como instalação de uma aplicação ou através de um passo de sequência de tarefas do MDT, a Microsoft recomenda com scripts sob a forma de ficheiros. vbs ou .wsf.  
 
  A vantagem de utilizar ficheiros .wsf está incorporada de registo, além disso, para algumas funções predefinidas já utilizadas por processos ZTI e UDI LTI. Estas funções estão disponíveis no script ZTIUtility distribuído com o MDT.  
@@ -2533,7 +2534,7 @@ ParameterCondition=OR
 > [!NOTE]
 >  A maioria dos scripts existentes do MDT 2008 Update 1 irão funcionar como-está a ser MDT, mesmo com as alterações mais extensas ZTIUtility.vbs, como a maioria dos scripts de MDT irão incluir ZTIUtility.vbs.  
 
-###  <a name="UnderstandLeverageZTI"></a>Compreender como tirar partido das ZTIUtility  
+###  <a name="UnderstandLeverageZTI"></a> Compreender como tirar partido das ZTIUtility  
  O ficheiro de ZTIUtility.vbs contém classes de objetos que podem ser aproveitadas no seu código personalizado. Integrar o código personalizado com o MDT utilizando o:  
 
 -   Classe de registo definida ZTIUtility.vbs conforme descrito em [utilizar a classe de registo de ZTIUtility](#UseZTILogging)  
@@ -2542,7 +2543,7 @@ ParameterCondition=OR
 
 -   Utilitário de classe definida ZTIUtility.vbs conforme descrito em [utilizar a classe de utilitário ZTIUtility](#UseZTIUtility)  
 
-####  <a name="UseZTILogging"></a>Utilizar a classe de registo ZTIUtility  
+####  <a name="UseZTILogging"></a> Utilizar a classe de registo ZTIUtility  
  A classe de registo no ZTIUtiliy.vbs fornece um mecanismo simple para código personalizado para erros, avisos e informações de estado de registo da mesma forma que outros scripts durante uma implementação ZTI ou LTI. Este uniformização também garante que o **resumo de implementação LTI** caixa de diálogo corretamente comunica o estado de qualquer código personalizado que é executado.  
 
  O seguinte ilustra um script de código personalizado de exemplo que utiliza o **oLogging.CreateEntry** e **TestAndFail** funções para diferentes tipos de mensagens em fila, consoante os resultados dos vários de registo ações de script.  
@@ -2626,15 +2627,15 @@ End Class
 > [!NOTE]
 >  Se pretender continuar a utilizar scripts que chamada **ZTIProcess()** com **ProcessResults()**, pode continuar a fazê-lo. No entanto, determinadas funcionalidades de processamento de erros avançadas não serão ativadas.  
 
-####  <a name="UseZTIEnvironment"></a>Utilizar a classe de ambiente de ZTIUtility  
+####  <a name="UseZTIEnvironment"></a> Utilizar a classe de ambiente de ZTIUtility  
  A classe de ambiente no ZTIUtiliy.vbs fornece acesso a e a capacidade para atualizar as propriedades do MDT. Exemplo de que precede, **oEnvironment.Item("Memory")** é utilizado para obter a quantidade de RAM disponível; também pode ser utilizado para obter o valor de qualquer uma das propriedades descritas no documento MDT *Toolkit de referência* .  
 
-####  <a name="UseZTIUtility"></a>Utilizar a classe de utilitário ZTIUtility  
+####  <a name="UseZTIUtility"></a> Utilizar a classe de utilitário ZTIUtility  
  O script de ZTIUtility.vbs contém um número de utilitários frequentemente utilizados, que pode utilizar qualquer script de implementação personalizada. Pode adicionar estes utilitários qualquer script da mesma forma que o **oLogging** e **oEnvironment** classes.  
 
 A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e o respetivo resultado. Para obter uma lista completa de funções disponíveis, consulte o ficheiro ZTIUtility.vbs.  
 
-|**Função**|**Saída**|  
+|**Função**|**Output**|  
 |-|-|
 |**oUtility.LocalRootPath**|Devolve o caminho da pasta raiz que está a ser utilizada pelo processo de implementação no computador de destino — por exemplo, C:\MININT|  
 |**oUtility.BootDevice**|Devolve o dispositivo de arranque do sistema — por exemplo, MULTI(0)DISK(0)RDISK(0)PARTITION(1)|  
@@ -2648,7 +2649,7 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 |**oUtility.Sections(file)**|Lê as secções de um ficheiro. ini e armazena-os num objeto de referência|  
 |**oUtility.SectionContents (ficheiro, secção)**|Lê o conteúdo do ficheiro. ini especificado e armazena-os num objeto|  
 |**oUtility.RunWithHeartbeat(sCmd)**|Quando o comando é executado, escrever informações de heartbeat para os registos de cada 0.5 segundos|  
-|**oUtility.FindFile**<br /><br /> **(sFilename, sFoundPath)**|Procura o ficheiro especificado na pasta DeployRoot e subpastas padrão, incluindo a manutenção, ferramentas, USMT, modelos, Scripts e controlo|  
+|**oUtility.FindFile**<br /><br /> **(sFilename,sFoundPath)**|Procura o ficheiro especificado na pasta DeployRoot e subpastas padrão, incluindo a manutenção, ferramentas, USMT, modelos, Scripts e controlo|  
 |**oUtility.findMappedDrive(sServerUNC)**|Verifica se uma unidade está mapeada para o caminho UNC especificado e devolve a letra de unidade|  
 |**oUtility.ValidateConnection(sServerUNC)**|Verifica se existe uma ligação ao servidor especificado e, se não existir, tenta criar um|  
 |**MapNetworkDrive**<br /><br /> **(sShare, SDomID, sDomPwd)**|Mapeia uma letra de unidade para o caminho UNC especificado como a partilha e devolve a letra de unidade utilizada; Devolve um erro se sem êxito|  
@@ -2658,12 +2659,12 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 |**oEnvironment.Exists**<br /><br /> **(sName)**|Testa para verificar se a variável existe|  
 |**oEnvironment.ListItem**<br /><br /> **(sName)**|Lê ou escreve uma variável do tipo **matriz** para um arquivo persistente|  
 |**oLogging.ReportFailure**<br /><br /> **(sMessage, iError)**|Utilizado para efetuar uma saída estruturada se for detetado um erro irrecuperável|  
-|**oLogging.CreateEvent**<br /><br /> **(iEventID iType, sMessage, arrParms)**|Escreve uma mensagem para o ficheiro de registo e envia o evento para um servidor definido|  
+|**oLogging.CreateEvent**<br /><br /> **(iEventID, iType, sMessage, arrParms)**|Escreve uma mensagem para o ficheiro de registo e envia o evento para um servidor definido|  
 |**oLogging.CreateEntry**<br /><br /> **(sLogMsg, iType)**|Escreve uma mensagem para o ficheiro de registo|  
 |**TestAndFail (iRc iError, sMessage)**|Sai o script com **iError** se **iRc** for false ou falhar|  
 |**TestAndLog (iRc, sMessage)**|Regista um aviso apenas se for **iRc** for false ou falhar|  
 
-###  <a name="IntegrateCustomDeploy"></a>Integrar o código de implementação personalizada  
+###  <a name="IntegrateCustomDeploy"></a> Integrar o código de implementação personalizada  
  Código de implementação personalizadas pode ser integrado no processo de MDT de várias formas; No entanto, independentemente do método utilizado, as duas regras seguintes devem ser cumpridas:  
 
 -   O nome de script de código de implementação personalizada sempre deve iniciar com a letra Z.  
@@ -2760,7 +2761,7 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 
  Este cenário pressupõe que o MDT está em execução num servidor de implementação.  
 
-###  <a name="WhichMethodtoInstallDriver"></a>Determinar qual o método a utilizar para instalar um controlador de dispositivo  
+###  <a name="WhichMethodtoInstallDriver"></a> Determinar qual o método a utilizar para instalar um controlador de dispositivo  
  Fabricantes de hardware versão controladores de dispositivo de uma das duas formas:  
 
 -   Como um pacote que pode extrair e que contém ficheiros de ficheiro. inf utilizados para importar o controlador para o Deployment Workbench  
@@ -2771,7 +2772,7 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 
  Pacotes de controladores de dispositivo que não não possível extrair para isolar os ficheiros de ficheiro. inf ou que não funcionam corretamente sem primeiro a ser instalados com um instalador da aplicação como um ficheiro MSI ou Setup.exe podem utilizar a funcionalidade de MDT instalar aplicação e instale o dispositivo controlador durante o processo de implementação apenas para qualquer aplicação normal.  
 
-###  <a name="InstallOutofBoxDrivers"></a>Instalar controladores de dispositivo utilizando o método de controladores  
+###  <a name="InstallOutofBoxDrivers"></a> Instalar controladores de dispositivo utilizando o método de controladores  
  Pode importar pacotes de controladores de dispositivo que incluem um ficheiro. inf para Deployment Workbench e instalação-los automaticamente como parte do processo de implementação. Para implementar este tipo de implementação de controladores de dispositivo, adicione primeiro o controlador de dispositivo ao Deployment Workbench.  
 
  **Para adicionar o controlador de dispositivo ao Deployment Workbench**  
@@ -2813,7 +2814,7 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 
 6.  No **confirmação** página, clique em **concluir**.  
 
-###  <a name="InstallDriversasApplications"></a>Instalar controladores de dispositivo que as aplicações  
+###  <a name="InstallDriversasApplications"></a> Instalar controladores de dispositivo que as aplicações  
  Controladores de dispositivo que estão empacotadas como aplicações e que não é possível extrair para uma pasta que contém um ficheiro. inf, para além dos ficheiros de controlador, devem ser adicionados ao Deployment Workbench como uma aplicação para a instalação durante o processo de implementação.  
 
  As aplicações podem ser especificadas como um passo de sequência de tarefas ou especificadas no CustomSettings.ini; No entanto, as aplicações de controladores de dispositivo devem ser instaladas apenas quando a sequência de tarefas é executada num computador com os dispositivos. Para garantir que isto, execute o passo de sequência de tarefas para implementar as aplicações de controladores de dispositivo relevante como um passo de sequência de tarefas condicional. Os critérios condicionais podem ser especificados para executar o passo de sequência de tarefas através de consultas WMI para o dispositivo no computador de destino.  
@@ -2862,7 +2863,7 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 
  Cada abordagem é abordada mais detalhadamente nas secções seguintes.  
 
-####  <a name="SpecifyDeviceAppTask"></a>Especifique a aplicação de controladores de dispositivo como parte da sequência de tarefas  
+####  <a name="SpecifyDeviceAppTask"></a> Especifique a aplicação de controladores de dispositivo como parte da sequência de tarefas  
  O primeiro método para adicionar uma aplicação de controladores de dispositivo para o processo de implementação é utilizar uma sequência de tarefas para adicionar os passos para cada aplicação de controladores de dispositivo.  
 
  Existem duas abordagens de principais de gestão de aplicações de controladores de dispositivo na sequência de tarefas:  
@@ -2903,7 +2904,7 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 
          Neste exemplo, *hardware_model* é o nome do modelo de computador (por exemplo, Latitude D620) e *hardware_manufacturer* igualmente o nome do computador (por exemplo, a Dell Corporation).  
 
-         O  **%**  símbolo é o caráter universal que está incluído nos nomes para permitir aos administradores devolver quaisquer modelos de computador ou manufactures que contém o valor especificado para ***hardware_model***ou ***hardware_manufacturer***.  
+         O **%** símbolo é o caráter universal que está incluído nos nomes para permitir aos administradores devolver quaisquer modelos de computador ou manufactures que contém o valor especificado para ***hardware_model***ou ***hardware_manufacturer***.  
 
      Para obter mais informações sobre consultas do WMI e WQL, consulte a secção "Adicionar WMI consultas para sequência passo condições da tarefa", no documento MDT *utilizar o Microsoft Deployment Toolkit*e ver [consultar com WQL](http://msdn.microsoft.com/library/aa392902.aspx).  
 
@@ -3125,13 +3126,13 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
 
      Quando este processo estar concluído, a pasta de arranque na partilha de implementação irá conter um número de imagens de arranque — por exemplo:  
 
-     D:\Production implementação Share\Boot\LiteTouchPE_x64.iso  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x64.iso  
 
-     D:\Production implementação Share\Boot\LiteTouchPE_x64.wim  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x64.wim  
 
-     D:\Production implementação Share\Boot\LiteTouchPE_x86.iso  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x86.iso  
 
-     D:\Production implementação Share\Boot\LiteTouchPE_x86.wim  
+     D:\Production Deployment Share\Boot\LiteTouchPE_x86.wim  
 
  Pode escrever ficheiros ISO que tenham sido gerados diretamente CD ou DVD ou utilizá-los para iniciar o processo LTI num novo hardware. Pode importar os ficheiros WIM de arranque para serviços de implementação do Windows, também, para que os novos computadores podem iniciar o processo de implementação LTI sem necessidade de qualquer suporte de dados físico.  
 
@@ -3472,7 +3473,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
 
 -   Eliminar suporte de dados de implementação, conforme descrito em [suporte de dados eliminar](#DeleteMedia).  
 
-###  <a name="CreateNewDeployShare"></a>Criar uma nova partilha de implementação  
+###  <a name="CreateNewDeployShare"></a> Criar uma nova partilha de implementação  
  Os seguintes comandos do Windows PowerShell criam uma nova partilha de implementação na partilha de implementação de D:\Production denominado *produção$*. A nova partilha de implementação será apresentada no Deployment Workbench como produção.  
 
 -   ```  
@@ -3483,7 +3484,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
     New-PSDrive -Name "DS002" -PSProvider "MDTProvider" -Root "D:\Production Deployment Share" -Description "Production" -NetworkPath "\\Deployment_Server\Production$" -Verbose | add-MDTPersistentDrive -Verbose  
     ```  
 
-###  <a name="CreateFolder"></a>Criar uma pasta  
+###  <a name="CreateFolder"></a> Criar uma pasta  
  Os seguintes comandos do Windows PowerShell criam uma pasta de Adobe na árvore da consola do Deployment Workbench no Deployment Workbench\/partilhas de implementação\/produção\/aplicações.  
 
 -   ```  
@@ -3501,7 +3502,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
     > [!NOTE]
     >  Adicionar "`remove-psdrive`" para o script assegura que o processo em segundo plano é concluída antes de continuar.  
 
-###  <a name="DeleteFolder"></a>Eliminar uma pasta  
+###  <a name="DeleteFolder"></a> Eliminar uma pasta  
  Os seguintes comandos do Windows PowerShell eliminar Deployment Workbench\/partilhas de implementação\/produção\/aplicações\/pasta Adobe.  
 
 -   ```  
@@ -3519,7 +3520,7 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
 > [!NOTE]
 >  O script irá falhar se a pasta não está vazia.  
 
-###  <a name="ImportDeviceDriver"></a>Importar um controlador de dispositivo  
+###  <a name="ImportDeviceDriver"></a> Importar um controlador de dispositivo  
  Os seguintes comandos do Windows PowerShell irão importar o controlador de dispositivo do monitor Dell 2407 WFP para a partilha de implementação de produção.  
 
 -   ```  
@@ -3534,14 +3535,14 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
     Import-mdtdriver -path "DS002:\Out-of-Box Drivers\Monitor" -SourcePath "D:\Drivers\Dell\2407 WFP" -Verbose  
     ```  
 
-###  <a name="DeleteDeviceDriver"></a>Eliminar um controlador de dispositivo  
+###  <a name="DeleteDeviceDriver"></a> Eliminar um controlador de dispositivo  
  O seguinte comando do Windows PowerShell elimina o controlador de monitor Dell 2407 WFP da partilha de implementação de produção.  
 
 ```  
 Remove-item -path "DS002:\Out-of-Box Drivers\Dell Inc. Monitor 2407WFP.INF 1.0" -Verbose  
 ```  
 
-###  <a name="ImportOpSysPackage"></a>Importar um pacote do sistema operativo  
+###  <a name="ImportOpSysPackage"></a> Importar um pacote do sistema operativo  
  Os seguintes comandos do Windows PowerShell importar todos os pacotes de sistema operativo localizados d:\\atualizações\\Microsoft\\Vista. Estes pacotes de sistema operativo serão armazenados numa partilha de implementação de produção, que está a ser d:\\partilha de implementação de produção.  
 
 -   ```  
@@ -3556,14 +3557,14 @@ Remove-item -path "DS002:\Out-of-Box Drivers\Dell Inc. Monitor 2407WFP.INF 1.0" 
     Import-mdtpackage -path "DS002:\Packages" -SourcePath "D:\Updates\Microsoft\Vista" -Verbose  
     ```  
 
-###  <a name="DeleteOpSysPackage"></a>Eliminar um pacote do sistema operativo  
+###  <a name="DeleteOpSysPackage"></a> Eliminar um pacote do sistema operativo  
  O seguinte comando do Windows PowerShell elimina o pacote do sistema operativo especificado da partilha de implementação de produção.  
 
 ```  
 Remove-item -path "DS002:\Packages\Package_1_for_KB940105 neutral x86 6.0.1.0 KB940105" -Verbose  
 ```  
 
-###  <a name="ImportOpSys"></a>Importação de um sistema operativo  
+###  <a name="ImportOpSys"></a> Importação de um sistema operativo  
  Os seguintes comandos do Windows PowerShell importar sistema operativo Windows Vista localizado na d:\\sistemas operativos\\Windows Vista x86. O sistema operativo será armazenado numa partilha de implementação de produção, que está a ser d:\\partilha de implementação de produção.  
 
 -   ```  
@@ -3578,14 +3579,14 @@ Remove-item -path "DS002:\Packages\Package_1_for_KB940105 neutral x86 6.0.1.0 KB
     Import-mdtoperatingsystem -path "DS002:\Operating Systems" -SourcePath "D:\Operating Systems\Windows Vista x86" -DestinationFolder "Windows Vista x86" -Verbose  
     ```  
 
-###  <a name="DeleteOpSys"></a>Eliminar um sistema operativo  
+###  <a name="DeleteOpSys"></a> Eliminar um sistema operativo  
  O seguinte comando do Windows PowerShell elimina o sistema operativo do Windows Vista HOMEBASIC da partilha de implementação de produção.  
 
 ```  
 Remove-item -path "DS002:\Operating Systems\Windows Vista HOMEBASIC in Windows Vista x86 install.wim" -Verbose  
 ```  
 
-###  <a name="CreateApplication"></a>Criar uma aplicação  
+###  <a name="CreateApplication"></a> Criar uma aplicação  
  Os seguintes comandos do Windows PowerShell criam a aplicação Adobe leitor 9 utilizando ficheiros de origem d:\\Software\\Adobe\\leitor 9. A aplicação será armazenada numa partilha de implementação de produção, que está a ser d:\\partilha de implementação de produção.  
 
 -   ```  
@@ -3600,14 +3601,14 @@ Remove-item -path "DS002:\Operating Systems\Windows Vista HOMEBASIC in Windows V
     Import-MDTApplication -path "DS002:\Applications" -enable "True" -Name "Adobe Reader 9" -ShortName "Reader" -Version "9" -Publisher "Adobe" -Language "" -CommandLine "setup.exe" -WorkingDirectory ".\Applications\Adobe Reader 9" -ApplicationSourcePath "D:\Software\Adobe\Reader 9" -DestinationFolder "Adobe Reader 9" -Source ".\Applications\Adobe Reader 9" -Verbose  
     ```  
 
-###  <a name="DeleteApplication"></a>Eliminar uma aplicação  
+###  <a name="DeleteApplication"></a> Eliminar uma aplicação  
  O seguinte comando do Windows PowerShell elimina a aplicação Adobe leitor 9 da partilha de implementação de produção.  
 
 ```  
 Remove-item -path "DS002:\Applications\Adobe Reader 9" -Verbose  
 ```  
 
-###  <a name="CreateTaskSequence"></a>Criar uma sequência de tarefas  
+###  <a name="CreateTaskSequence"></a> Criar uma sequência de tarefas  
  Os comandos do Windows PowerShell seguintes criam a **compilação do Windows Vista produção** sequência na partilha de implementação de produção, que está localizada em d: de tarefas\\partilha de implementação de produção.  
 
 -   ```  
@@ -3622,14 +3623,14 @@ Remove-item -path "DS002:\Applications\Adobe Reader 9" -Verbose
     Import-mdttasksequence -path "DS002:\Task Sequences" -Name "Windows Vista Business Production Build" -Template "Client.xml" -Comments "Approved for use in the production environment.  This task sequence uses the Standard Client task sequence template" -ID "Vista_Ref" -Version "1.0" -OperatingSystemPath "DS002:\Operating Systems\Windows Vista BUSINESS in Windows Vista x86 install.wim" -FullName "Fabrikam User" -OrgName "Fabrikam" -HomePage "http://www.Fabrikam.com" -AdminPassword "secure_password" -Verbose  
     ```  
 
-###  <a name="DeleteTaskSequence"></a>Eliminar uma sequência de tarefas  
+###  <a name="DeleteTaskSequence"></a> Eliminar uma sequência de tarefas  
  O seguinte comando do Windows PowerShell elimina o **compilação do Windows Vista produção** sequência da partilha de implementação de produção de tarefas.  
 
 ```  
 Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build" -force -Verbose  
 ```  
 
-###  <a name="CreateMDTDB"></a>Criar uma base de dados do MDT  
+###  <a name="CreateMDTDB"></a> Criar uma base de dados do MDT  
  Os seguintes comandos do Windows PowerShell criam uma nova base de dados do MDT no *implementação\_servidor* servidor para a partilha de implementação de produção. A ligação de base de dados será através de TCP\/IP.  
 
 -   ```  
@@ -3644,7 +3645,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-MDTDatabase -path "DS002:" -SQLServer "DeploymentServer" -Netlib "DBMSSOCN" -Database "MDT2010" -SQLShare "DB_Connect" -Force -Verbose  
     ```  
 
-###  <a name="CreateSelectProfile"></a>Criar um perfil de seleção  
+###  <a name="CreateSelectProfile"></a> Criar um perfil de seleção  
  Os seguintes comandos do Windows PowerShell criam um novo perfil de seleção de aplicações.  
 
 -   ```  
@@ -3659,7 +3660,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-item -path "DS002:\Selection Profiles" -enable "True" -Name "Applications" -Comments "" -Definition "<SelectionProfile><Include path="Applications" /></SelectionProfile>" -ReadOnly "False" -Verbose  
     ```  
 
-###  <a name="UpdatingDeployShare"></a>Atualizar uma partilha de implementação  
+###  <a name="UpdatingDeployShare"></a> Atualizar uma partilha de implementação  
  Os seguintes comandos do Windows PowerShell atualizar partilha de implementação de produção, que está a ser d:\\partilha de implementação de produção.  
 
 -   ```  
@@ -3672,7 +3673,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
 
 -   Atualização\-MDTDeploymentShare \-caminho "DS002:" \-Verboso  
 
-###  <a name="CreateLinkedDeployShare"></a>Criar uma partilha de implementação ligado  
+###  <a name="CreateLinkedDeployShare"></a> Criar uma partilha de implementação ligado  
  Os comandos do Windows PowerShell seguintes criam uma partilha de implementação que está ligada à partilha de implementação de produção e reside no \\ \\ *remoto\_servidor\_nome* \\Partilha de implementação do $. Tudo o perfil de seleção é utilizado para determinar o conteúdo é replicado para a partilha de implementação ligado. Conteúdo da partilha de implementação de produção irá ser intercalado com conteúdo que já exista no \\ \\ *remoto\_servidor\_nome*\\partilha de implementação do $.  
 
 -   ```  
@@ -3687,7 +3688,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-item -path "DS002:\Linked Deployment Shares" -enable "True" -Name "LINKED001" -Comments "" -Root "\\RemoteServerName\Deployment$" -SelectionProfile "Everything" -Replace "False" -Verbose  
     ```  
 
-###  <a name="UpdatingLinkedDeployShare"></a>Atualizar uma partilha de implementação ligado  
+###  <a name="UpdatingLinkedDeployShare"></a> Atualizar uma partilha de implementação ligado  
  Os seguintes comandos do Windows PowerShell, atualize a partilha de implementação LINKED001.  
 
 -   ```  
@@ -3702,7 +3703,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     Replicate-MDTContent -path "DS002:\Linked Deployment Shares\LINKED001" -Verbose  
     ```  
 
-###  <a name="DeleteLinkedDeployShare"></a>Eliminar uma partilha de implementação ligado  
+###  <a name="DeleteLinkedDeployShare"></a> Eliminar uma partilha de implementação ligado  
  Os seguintes comandos do Windows PowerShell eliminar a partilha de implementação LINKED001.  
 
 -   Adicionar\-PSSnapIn Microsoft.BDD.PSSnapIn  
@@ -3711,7 +3712,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     Remove-item -path "DS002:\Linked Deployment Shares\LINKED001" -Verbose  
     ```  
 
-###  <a name="CreateMedia"></a>Criar suporte de dados  
+###  <a name="CreateMedia"></a> Criar suporte de dados  
  Os comandos do Windows PowerShell seguintes criam uma pasta de origem que contém conteúdo utilizado para criar suportes de dados. A partilha de implementação de produção será utilizada como origem. Tudo o perfil de seleção determina o conteúdo é colocado na pasta de conteúdo de multimédia. Será criado o ficheiro de LiteTouchMedia.iso quando é gerado o suporte de dados. O suporte de dados irá suportar plataformas x86 e x64.  
 
 -   ```  
@@ -3730,7 +3731,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     New-PSDrive -Name "MEDIA001" -PSProvider "MDTProvider" -Root "D:\Media\Content" -Description "Embedded media deployment share" -Force -Verbose  
     ```  
 
-###  <a name="GenerateMedia"></a>Gerar o suporte de dados  
+###  <a name="GenerateMedia"></a> Gerar o suporte de dados  
  Os seguintes comandos do Windows PowerShell criam o ficheiro de LiteTouchMedia.iso em d:\\suportes de dados, o que irão utilizar o conteúdo da pasta de origem de suporte de dados MEDIA001.  
 
 -   ```  
@@ -3745,7 +3746,7 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
     Generate-MDTMedia -path "DS002:\Media\MEDIA001" -Verbose  
     ```  
 
-###  <a name="DeleteMedia"></a>A eliminar o suporte de dados  
+###  <a name="DeleteMedia"></a> A eliminar o suporte de dados  
  O seguinte comando do Windows PowerShell elimina o suporte de dados MEDIA001 da partilha de implementação de produção.  
 
 ```  

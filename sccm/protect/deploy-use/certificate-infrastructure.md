@@ -1,26 +1,27 @@
 ---
 title: Configurar a infraestrutura de certificados
 titleSuffix: Configuration Manager
-description: "Saiba como configurar a inscrição de certificado no System Center Configuration Manager."
+description: Saiba como configurar a inscrição de certificado no System Center Configuration Manager.
 ms.custom: na
 ms.date: 07/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 29ae59b7-2695-4a0f-a9ff-4f29222f28b3
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 9ef62bbf6269a6090f2345b10c24cc4df16c1e3b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="configure-certificate-infrastructure"></a>Configurar a infraestrutura de certificados
 
@@ -96,7 +97,7 @@ Utilize estes passos para configurar a sua infraestrutura para SCEP, ou os certi
 
      Para obter mais informações, veja [Ferramentas e Definições dos Serviços de Certificados](http://go.microsoft.com/fwlink/p/?LinkId=309015) na biblioteca de Tecnologias PKI na TechNet.  
 
-8.  Certifique-se de que o Serviço de Inscrição de Dispositivos de Rede está a funcionar, utilizando a ligação seguinte como exemplo: **https://server.contoso.com/certsrv/mscep/mscep.dll**. Deverá ver a página Web incorporada do Serviço de Inscrição de Dispositivos de Rede. Esta página Web explica o que o serviço é e explica que os dispositivos de rede utilizam o URL para submeter pedidos de certificados.  
+8.  Certifique-se de que o serviço de inscrição de dispositivos de rede está a funcionar utilizando a hiperligação seguinte como exemplo: **https://server.contoso.com/certsrv/mscep/mscep.dll**. Deverá ver a página Web incorporada do Serviço de Inscrição de Dispositivos de Rede. Esta página Web explica o que o serviço é e explica que os dispositivos de rede utilizam o URL para submeter pedidos de certificados.  
 
  Agora que o Serviço de Inscrição de Dispositivos de Rede e dependências estão configurados, está pronto para instalar e configurar o ponto de registo de certificados.
 
@@ -116,7 +117,7 @@ Tem de instalar e configurar o ponto de registo, pelo menos, um certificado na h
 
 3.  No separador **Home Page**, no grupo **Servidor**, clique em **Adicionar Funções do Sistema de Sites**.  
 
-4.  Na página **Geral**, especifique as definições gerais do sistema de sites e clique em **Seguinte**.  
+4.  Na página **Geral** , especifique as definições gerais do sistema de sites e clique em **Seguinte**.  
 
 5.  Na página de **Proxy**, clique em **Seguinte**. O ponto de registo de certificados não utiliza as definições de proxy de Internet.  
 
@@ -130,7 +131,7 @@ Tem de instalar e configurar o ponto de registo, pelo menos, um certificado na h
     -   Se tiver selecionado **pedidos de certificado SCEP de processo**, em seguida, configure o seguinte:
         -   **Nome do Web site**, **número da porta HTTPS**, e **nome da aplicação Virtual** para o ponto de registo de certificados. Estes campos são preenchidos automaticamente com valores predefinidos. 
         -   **URL para o certificado de AC do serviço de inscrição de dispositivos de rede e de raiz** -clique em **adicionar**, em seguida, no **adicionar URL e certificado da AC de raiz** diálogo caixa, especifique o seguinte:
-            - **URL para o serviço de inscrição de dispositivos de rede**: Especifique o URL no seguinte formato: https://*< servidor_fqdn >*/certsrv/mscep/mscep.dll. Por exemplo, se o FQDN do seu servidor que está a executar o Serviço de Inscrição de Dispositivos de Rede for server1.contoso.com, escreva **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
+            - **URL para o serviço de inscrição de dispositivos de rede**: Especifique o URL no seguinte formato: https://*< servidor_fqdn >*/certsrv/mscep/mscep.dll. Por exemplo, se o FQDN do seu servidor que está a executar o serviço de inscrição de dispositivos de rede for server1.contoso.com, digite **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
             - **Certificado de AC de raiz**: Procure e selecione o ficheiro de certificado (. cer) que é criado e guardado no **passo 1: Instalar e configurar o serviço de inscrição de dispositivos de rede e dependências**. Este certificado de AC de raiz permite que o ponto de registo de certificados para validar o cliente de certificado de autenticação que o módulo de política do System Center Configuration Manager irá utilizar.  
 
     - Se tiver selecionado **pedidos de certificado PFX processo**, configure os detalhes de ligação e as credenciais para a autoridade de certificado selecionado.
@@ -190,7 +191,7 @@ Tem de instalar e configurar o módulo de política do System Center Configurati
 
 4.  Na página **Pasta de Instalação**, aceite a pasta de instalação predefinida para o módulo de política ou especifique uma pasta alternativa e clique em **Seguinte**.  
 
-5.  Na página **Ponto de Registo de Certificados**, especifique o URL do ponto de registo de certificados utilizando o FQDN do servidor do sistema de sites e o nome da aplicação virtual que é especificado nas propriedades para o ponto de registo de certificados. O nome de aplicação virtual predefinido é CMCertificateRegistration. Por exemplo, se o servidor do sistema de sites tiver o FQDN server1.contoso.com e utilizou o nome de aplicação virtual predefinido, especifique **https://server1.contoso.com/CMCertificateRegistration**.  
+5.  Na página **Ponto de Registo de Certificados**, especifique o URL do ponto de registo de certificados utilizando o FQDN do servidor do sistema de sites e o nome da aplicação virtual que é especificado nas propriedades para o ponto de registo de certificados. O nome de aplicação virtual predefinido é CMCertificateRegistration. Por exemplo, se o servidor de sistema de sites tiver um FQDN do server1.contoso.com e utilizou o nome de aplicação virtual predefinido, especifique **https://server1.contoso.com/CMCertificateRegistration**.  
 
 6.  Aceite a porta predefinida **443** ou especifique o número da porta alternativa que o ponto de registo de certificados está a utilizar e clique em **Seguinte**.  
 

@@ -1,25 +1,26 @@
 ---
 title: Funcionalidades no Technical Preview 1612
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1612."
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1612.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bceab2e8-2f05-4a17-9ac8-a7a558670fb7
-caps.latest.revision: "5"
+caps.latest.revision: ''
 author: erikje
 ms.author: erikje
 manager: angrobe
 ms.openlocfilehash: 80cace2bec8cb9c39d5f3f00ea244b697e1d75c9
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1612 do System Center Configuration Manager
 
@@ -84,12 +85,12 @@ Antes do assistente apresenta uma opção para selecionar e instalar o ponto de 
 
 **Geral** página: As seguintes informações gerais, é necessárias:
 - **Definições de base de dados do Configuration Manager:**   
-  - **Nome do servidor** -especifique o FQDN do servidor que aloja a base de dados do site. Se utilizar uma instância predefinida do SQL Server, tem de especificar a instância após o FQDN no seguinte formato: ***&lt;Sqlserver_FQDN >\&lt; Nome_Instância >***
+  - **Nome do servidor** -especifique o FQDN do servidor que aloja a base de dados do site. Se utilizar uma instância predefinida do SQL Server, tem de especificar a instância após o FQDN no seguinte formato: ***&lt;Sqlserver_FQDN>\&lt;Instance_name>***
   - **Nome da base de dados** -especifique o nome da base de dados do site.
   - **Certifique-se** -clique em **verifique** para se certificar de que a ligação para a base de dados do site é concluída com êxito.
 </br></br>
 - **Definições de base de dados do armazém de dados:**
-  - **Nome do servidor** - especifique o FQDN do servidor que aloja o ponto de serviço do armazém de dados e da base de dados. Se utilizar uma instância predefinida do SQL Server, tem de especificar a instância após o FQDN no seguinte formato: ***&lt;Sqlserver_FQDN >\&lt; Nome_Instância >***
+  - **Nome do servidor** - especifique o FQDN do servidor que aloja o ponto de serviço do armazém de dados e da base de dados. Se utilizar uma instância predefinida do SQL Server, tem de especificar a instância após o FQDN no seguinte formato: ***&lt;Sqlserver_FQDN>\&lt;Instance_name>***
   - **Nome da base de dados** -especifique o FQDN para a base de dados do armazém de dados.  Configuration Manager irá criar a base de dados com este nome. Se especificar um nome de base de dados que já existe na instância do SQL server, o Configuration Manager irá utilizar a base de dados.
   - **Certifique-se** -clique em **verifique** para se certificar de que a ligação para a base de dados do site é concluída com êxito.
 
@@ -199,12 +200,12 @@ Os seguintes parâmetros de linha de comandos podem ser utilizados por qualquer 
 
 |Parâmetro|Detalhes|
 |---------|-------|
-|**/DELETE**  |**Opcional** </br> Utilize este parâmetro se pretender eliminar o conteúdo do ponto de distribuição. Lhe for pedido antes do conteúdo é eliminado. </br></br> Quando este parâmetro não for utilizado, a ferramenta regista resultados sobre o conteúdo que será eliminado, mas não eliminar todos os conteúdos do ponto de distribuição. </br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /delete*** |
+|**/delete**  |**Opcional** </br> Utilize este parâmetro se pretender eliminar o conteúdo do ponto de distribuição. Lhe for pedido antes do conteúdo é eliminado. </br></br> Quando este parâmetro não for utilizado, a ferramenta regista resultados sobre o conteúdo que será eliminado, mas não eliminar todos os conteúdos do ponto de distribuição. </br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /delete*** |
 | **/q**       |**Opcional** </br> Execute a ferramenta no modo silencioso que suprime todos os avisos (como avisos aquando da eliminação de conteúdo) e não abra automaticamente o ficheiro de registo. </br></br> Exemplo: ***ContentLibraryCleanup.exe /q /dp server1.contoso.com*** |
 | **/dp &lt;FQDN do ponto de distribuição >**  | **Necessário** </br> Especifique o nome de domínio completamente qualificado (FQDN) do ponto de distribuição que pretende apagar. </br></br> Exemplo:  ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
 | **/PS &lt;site primário FQDN >**       | **Opcional** quando o conteúdo a partir de um ponto de distribuição num site primário de limpeza.</br>**Necessário** quando o conteúdo a partir de um ponto de distribuição num site secundário de limpeza. </br></br> Especifique o FQDN do ponto de distribuição do site primário pertence ao ou do elemento principal primário principal quando o ponto de distribuição num site secundário. </br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
 | **/sc &lt;código do site principal >**  | **Opcional** quando o conteúdo a partir de um ponto de distribuição num site primário de limpeza.</br>**Necessário** quando o conteúdo a partir de um ponto de distribuição num site secundário de limpeza. </br></br> Especifique o código do site do site primário que pertence o ponto de distribuição ou do site primário principal quando o ponto de distribuição num site secundário.</br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
-| **/log<log file directory>**       |**Opcional** </br> Especifique um diretório colocar ficheiros de registo na. Isto pode ser uma unidade local ou numa rede de partilha.</br></br> Quando este parâmetro não for utilizado, ficheiros de registo são automaticamente colocados na pasta temporária de utilizador.</br></br> Exemplo de unidade local: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Exemplo de partilha de rede: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\ &lt;partilhar >\&lt; pasta >***|
+| **/log <log file directory>**       |**Opcional** </br> Especifique um diretório colocar ficheiros de registo na. Isto pode ser uma unidade local ou numa rede de partilha.</br></br> Quando este parâmetro não for utilizado, ficheiros de registo são automaticamente colocados na pasta temporária de utilizador.</br></br> Exemplo de unidade local: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Exemplo de partilha de rede: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\ &lt;partilhar >\&lt; pasta >***|
 
 
 ## <a name="improvements-for-in-console-search"></a>Melhoramentos para pesquisa na consola

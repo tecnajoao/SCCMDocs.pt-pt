@@ -1,20 +1,21 @@
 ---
 title: Resolver problemas de MDT
 titleSuffix: Microsoft Deployment Toolkit
-description: "Referência de resolução de problemas para o Microsoft Deployment Toolkit "
+description: 'Referência de resolução de problemas para o Microsoft Deployment Toolkit '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 91a7a69a-deac-4b0f-aac9-b7bd187c53fb
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
 ms.openlocfilehash: efb65086878a46bfb3485fdd8b0be6f613225261
-ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="troubleshooting-reference-for-the-microsoft-deployment-toolkit"></a>Referência de resolução de problemas para o Microsoft Deployment Toolkit
  A implementação de sistemas operativos e aplicações, bem como a migração de estado do utilizador pode ser um endeavor um desafio, mesmo quando estão equipados com as ferramentas apropriadas e orientação. Esta referência, o qual faz parte do Microsoft® Deployment Toolkit (MDT) 2013, fornece informações sobre problemas conhecidos atuais, possíveis soluções para esses problemas e a orientação de resolução de problemas.  
@@ -23,7 +24,7 @@ ms.lasthandoff: 01/16/2018
 >  Neste documento, *Windows* aplica-se aos sistemas operativos Windows 8.1, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2, exceto indicação em contrário. MDT não suporta ARM processador versões do Windows. Da mesma forma, *MDT* refere-se ao MDT 2013, salvo indicação em contrário.  
 
 > [!NOTE]
->  A Microsoft Diagnostics e Recovery Toolset (DaRT) contém ferramentas poderosas para recuperar e resolução de problemas de computadores cliente que não são iniciados ou ficam instável. Pode utilizar DaRT para determinar a causa de uma falha, restaurar ficheiros perdidos e assim sucessivamente. Também pode utilizar DaRT como uma ferramenta de resolução de problemas quando desenvolver e implementar um sistema operativo Windows. Por exemplo, se uma imagem incorporada não conseguir iniciar corretamente, pode iniciar o computador cliente que contém a imagem utilizando ERD Commander — um ambiente de diagnóstico. Em seguida, pode explorar o disco rígido do computador cliente, ver o registo de eventos, remover as atualizações, alterar definições do sistema operativo e assim sucessivamente. DaRT faz parte do Microsoft Desktop Optimization Pack para o Software Assurance. Para saber mais sobre DaRT, consulte o artigo [http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx).  
+>  A Microsoft Diagnostics e Recovery Toolset (DaRT) contém ferramentas poderosas para recuperar e resolução de problemas de computadores cliente que não são iniciados ou ficam instável. Pode utilizar DaRT para determinar a causa de uma falha, restaurar ficheiros perdidos e assim sucessivamente. Também pode utilizar DaRT como uma ferramenta de resolução de problemas quando desenvolver e implementar um sistema operativo Windows. Por exemplo, se uma imagem incorporada não conseguir iniciar corretamente, pode iniciar o computador cliente que contém a imagem utilizando ERD Commander — um ambiente de diagnóstico. Em seguida, pode explorar o disco rígido do computador cliente, ver o registo de eventos, remover as atualizações, alterar definições do sistema operativo e assim sucessivamente. DaRT faz parte do Microsoft Desktop Optimization Pack para o Software Assurance. Para saber mais sobre DaRT, consulte o artigo [ http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx ](http://www.microsoft.com/windows/enterprise/products-and-technologies/mdop/dart.aspx).  
 
 ## <a name="understanding-logs"></a>Noções sobre registos  
  Antes de pode começar a resolução de problemas Efetivo do MDT, tem de ter uma compreensão clara dos ficheiros. log muitos utilizada durante uma implementação de sistema operativo. Quando souber que registo de ficheiros para pesquisar que condição de falha e, em que altura, problemas que uma vez foram mysterious e complicado perceber podem tornar-se limpar e compreensíveis.  
@@ -41,7 +42,7 @@ ms.lasthandoff: 01/16/2018
 
 -   **LiteTouch.log**. Este ficheiro é criado durante a implementações LTI. Reside no %WINDIR%\TEMP\DeploymentLogs a menos que especifique o **/debug:true** opção.  
 
--   **ScriptName*.log**. Este ficheiro é criado por cada script MDT. *ScriptName* representa o nome do script em questão.  
+-   **Scriptname*.log**. Este ficheiro é criado por cada script MDT. *ScriptName* representa o nome do script em questão.  
 
 -   **SMSTS.log**. Este ficheiro é criado pelo sequenciador de tarefas e descreve todas as transações do sequenciador de tarefas. Dependendo do cenário de implementação, pode residir no % TEMP %, % WINDIR%\System32\ccm\logs ou c:\\\_SMSTaskSequence ou C:\SMSTSLog.  
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 01/16/2018
 
 -   **WPEinit.log**. Este ficheiro é criado durante o processo de inicialização do Windows PE e é útil para resolução de problemas de erros encontrados ao iniciar o Windows PE.  
 
--   **DeploymentWorkbench_*id*. log**. Este ficheiro de registo é criado na pasta % temp % quando especificar **um /depurar** quando iniciar o Deployment Workbench.  
+-   **DeploymentWorkbench_*id*.log**. Este ficheiro de registo é criado na pasta % temp % quando especificar **um /depurar** quando iniciar o Deployment Workbench.  
 
 ### <a name="configuration-manager-operating-system-deployment-logs"></a>Registos de implementação do sistema do Configuration Manager  
  Para obter informações sobre o sistema operativo que criados pelo Microsoft System Center 2012 R2 Configuration Manager de ficheiros de registo de implementação, consulte [referência técnica para ficheiros de registo no Configuration Manager](http://technet.microsoft.com/library/hh427342.aspx).  
@@ -85,8 +86,8 @@ Tabela 1 apresenta uma lista os códigos de erro que criar os scripts do MDT e f
 |5208|**DeploymentType** não está definido. Tem de definir um valor para **SkipWizard**.|  
 |5208|Não é possível localizar o sequenciador de tarefas de SMS. Não irá continuar a implementação.|  
 |5400|Crie o objeto: **Definir *class_instance* = New *class_name***|  
-|5490|Crie MSXML2. DOMDocument.|  
-|5495|Crie MSXML2. DOMDocument.ParseErr.ErrCode.|  
+|5490|Create MSXML2.DOMDocument.|  
+|5495|Create MSXML2.DOMDocument.ParseErr.ErrCode.|  
 |5496|LoadControlFile.FindFile: *ConfigFile*|  
 |5601|Certifique-se de SO guid: % OSGUID % existe.|  
 |5602|Abra a XML com OSGUID: % OSGUID %.|  
@@ -154,7 +155,7 @@ Tabela 1 apresenta uma lista os códigos de erro que criar os scripts do MDT e f
 |6740|Verifique se o TPM está ativado.|  
 |6741|Verifique se o TPM tem proprietário e a propriedade é permitida.|  
 |6741|Conjunto de palavra-passe proprietário do TPM|  
-|6742|Proprietário do TPM P@ssword definido como  **AdminP@ssword** .|  
+|6742|Proprietário do TPM P@ssword definido como **AdminP@ssword**.|  
 |6743|Definir o proprietário do TPM P@ssword como valor.|  
 |6744|Verifique se o TPM está ativado.|  
 |6745|Verifique o proprietário do TPM.|  
@@ -198,8 +199,8 @@ Tabela 1 apresenta uma lista os códigos de erro que criar os scripts do MDT e f
 |7704|As partições expandidas e lógicas não são permitidas com o BitLocker.|  
 |7712|Verificar a unidade /*unidade do Volume* está presente. formato.|  
 |7900|Findfile: Microsoft.BDD.PnpEnum.exe.|  
-|7901|**AllDrivers.Exists ("*GUID*").**|  
-|7904|**AllDrivers.Exists ("*GUID*").**|  
+|7901|**AllDrivers.Exists("*GUID*").**|  
+|7904|**AllDrivers.Exists("*GUID*").**|  
 |9200|Findfile(PkgMgr.exe).|  
 |9601|ERRO - a tarefa de restauro de estado de ZTITatoo deve estar a executar no SO completo; abortar.|  
 |9701|Código de retorno diferentes de zero de estimativa do USMT, rc = *erro*.|  
@@ -282,7 +283,7 @@ Figura 1. Conversão de erro
 
 -   Problemas relacionados com falhas de acesso à base de dados do MDT (MDT DB), conforme descrito em [falha para aceder à base de dados](#FailuretoAccesstheDatabase)  
 
-####  <a name="FailuretoAccesstheDatabase"></a>Falha ao aceder à base de dados  
+####  <a name="FailuretoAccesstheDatabase"></a> Falha ao aceder à base de dados  
  **Problema:** Ocorre um erro ao executar uma implementação que utilizar um ficheiro CustomSettings.ini contém várias secções e especificar, com o **prioridade** propriedade, a prioridade de cada secção a ser processado. BDD.log contém as seguintes mensagens de erro:  
 
 -   ```  
@@ -316,7 +317,7 @@ Figura 1. Conversão de erro
 
 -   Erro de instalação 30029 ao instalar o sistema Microsoft Office 2007 ou os ficheiros relacionados, conforme descrito em [o 2007 Microsoft Office System](#MicrosoftOfficeSystem)  
 
-####  <a name="BlockedExecutables"></a>Executáveis bloqueado  
+####  <a name="BlockedExecutables"></a> Executáveis bloqueado  
  **Problema:** Se os ficheiros de origem de instalação são transferidos a partir da Internet, é provável que serão marcados com um ou mais fluxos de dados do sistema ficheiros NTFS. Para obter mais informações sobre fluxos de dados NTFS, consulte [ficheiro fluxos](http://msdn2.microsoft.com/library/aa364404\(VS.85\).aspx). A existência de fluxos de dados de sistema de ficheiros NTFS poderá provocar um **ficheiro aberto – aviso de segurança** prompt a apresentar. A instalação não irá continuar até que clique em **executar** a linha.  
 
  Mostra a figura 2, pode ver através dos fluxos de dados de sistema para ficheiro NTFS o **mais** comando e o [fluxos utilitário](http://technet.microsoft.com/sysinternals/bb897440.aspx).  
@@ -330,12 +331,12 @@ Figura 2. Fluxos de dados NTFS
 
  **Solução possível 2:** Utilize o utilitário de fluxos, como REF \_Ref308173670 \\mostra h figura 2, para remover o NTFS fluxos de dados do sistema de ficheiros do ficheiro de origem de instalação. O utilitário de fluxos pode remover fluxos de dados de sistema de ficheiros NTFS de um ou mais ficheiros ou pastas em simultâneo.  
 
-####  <a name="LostNetworkConnections"></a>Ligações de rede perdida  
+####  <a name="LostNetworkConnections"></a> Ligações de rede perdida  
  **Problema:** Uma instalação poderá falhar caso instale controladores de dispositivo ou altera as configurações de dispositivo e da rede. Estas alterações podem resultar num intervalo na conectividade de rede que faz com que a instalação falha.  
 
  **Possíveis soluções:** Implemente o script de ZTICacheUtil.vbs para permitir a transferência e execução para a instalação. Este script foi concebido para otimizar o anúncio para ativar a transferir e executar. A transferência utilizará o serviço de transferência inteligente em segundo plano \(BITS\) se o ponto de distribuição do Configuration Manager é Web\-baseadas em Distributed Authoring e controlo de versões e BITS ativado. Ao mesmo tempo, modifica o Configuration Manager para executar o script de ZTICache.vbs em primeiro lugar, assegurando que o programa não eliminar o próprio durante o processo de implementação.  
 
-####  <a name="MicrosoftOfficeSystem"></a>Sistema Microsoft Office 2007  
+####  <a name="MicrosoftOfficeSystem"></a> Sistema Microsoft Office 2007  
  **Problema:** Durante a implementação do sistema do Office 2007 e, incluindo uma correção do Windows Installer \(\\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB\) ficheiro, a instalação poderá falhar com o código de erro 30029.  
 
  Investigação adicional no ZTIApplications.log mostra as seguintes mensagens:  
@@ -363,7 +364,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   Interrupção da implementação LTI e ZTI processa devido a pedidos de credenciais de utilizador conforme descrito em [pedidas as credenciais de utilizador](#PromtedforUserCredentials)  
 
-####  <a name="LogonSecutiryBanners"></a>Faixas de segurança de início de sessão  
+####  <a name="LogonSecutiryBanners"></a> Faixas de segurança de início de sessão  
  **Problema:** MDT sequências de tarefas são processadas durante uma sessão interativa de utilizador, que requer que o computador de destino ser autorizado a iniciar sessão automaticamente utilizando uma conta administrativa especificada. Se um objeto de política de grupo \(GPO\) está no local que impõe uma faixa de segurança de início de sessão, este início de sessão automático não será permitido para continuar, porque a faixa de segurança forem o processo de início de sessão enquanto aguarda a um utilizador aceitar a política declarada.  
 
  **Possíveis soluções:** Certifique-se de que o GPO é aplicado às unidades organizacionais específicas \(UOs\) e não incluídos no domínio predefinido GPO. Ao adicionar computadores ao domínio, especifique se ser adicionado a uma UO que não é afetada por um GPO que impõe uma faixa de segurança de início de sessão. No Editor de sequência de tarefas, como um dos passos de sequência de tarefas último incluem um script que relocates a conta de computador para a UO pretendida.  
@@ -371,7 +372,7 @@ Figura 2. Fluxos de dados NTFS
 > [!NOTE]
 >  Se está a reutilizar existente serviços de domínio de Active Directory® \(do AD DS\) contas, certifique-se de que, antes de implementar no computador de destino tem relocalizada conta do computador de destino a uma UO que não é afetada pelo GPO que impõe a faixa de início de sessão de segurança.  
 
-####  <a name="PromtedforUserCredentials"></a>Pedido de credenciais de utilizador  
+####  <a name="PromtedforUserCredentials"></a> Pedido de credenciais de utilizador  
  **Problema:** Criar uma imagem de um computador que foi associado ao domínio. Ao implementar a nova imagem para um computador de destino, a processo de implementação forem, porque automática\-início de sessão não ocorre e é pedido ao utilizador para introduzir as credenciais adequadas. O processo de implementação retoma quando são fornecidas as credenciais e o utilizador tiver sessão iniciado.  
 
  **Possíveis soluções:** Ao capturar imagens, o computador de origem não deve ser associado a um domínio. Se o computador foi associado a um domínio, associe o computador a um grupo de trabalho, re\-capturar a imagem e a tentativa de implementação para um computador de destino para determinar se o problema está resolvido.  
@@ -388,12 +389,12 @@ Figura 2. Fluxos de dados NTFS
 
 -   Erros gerados como resultado quebradas ligações com o servidor de base de dados, conforme descrito em [ligações de Pipe nomeado](#NamedPipeConnections)  
 
-####  <a name="BlockedSQLServerBrowserRequests"></a>Pedidos de Browser do servidor SQL bloqueado  
+####  <a name="BlockedSQLServerBrowserRequests"></a> Pedidos de Browser do servidor SQL bloqueado  
  **Problema:** Durante o processo de implementação do MDT, podem ser obtidas informações Microsoft SQL Server® bases de dados. No entanto, podem também ser gerados erros relacionados com uma firewall incorretamente configurada no servidor de base de dados.  
 
  **Possíveis soluções:** A Firewall do Windows no Windows Server ajuda a impedir o acesso não autorizado aos recursos de computador. No entanto, se a firewall está configurada incorretamente, as tentativas para ligar a uma instância do SQL Server podem estar bloqueadas. Para aceder a uma instância do SQL Server que está atrás da firewall, configure a firewall no computador que está a executar o SQL Server. Para obter mais informações sobre como configurar portas de firewall para SQL Server, consulte o artigo Microsoft Support [como abrir a porta de firewall para SQL Server no Windows Server 2008?](http://support.microsoft.com/kb/968872)  
 
-####  <a name="NamedPipeConnections"></a>Ligações de Pipe nomeado  
+####  <a name="NamedPipeConnections"></a> Ligações de Pipe nomeado  
  **Problema:** Durante o processo de implementação do MDT, é podem obter as informações de bases de dados do SQL Server. No entanto, podem também ser gerados erros relacionados com ligações quebradas do SQL Server. Estes podem ser causados por não ativar ligações de pipe nomeado no Microsoft SQL Server.  
 
  **Possíveis soluções:** Para resolver estes problemas, ative os pipes nomeados no SQL Server. Além disso, especifique o **SQLShare** propriedade, o que é necessário quando efetuar uma nova ligação para uma base de dados externo a utilizar pipes nomeados. Ao utilizar pipes nomeados, utilize a segurança integrada para efetuar a ligação à base de dados. No caso de implementações LTI, a conta de utilizador que especificou, faz com que a ligação à base de dados. Para implementações ZTI que utilizam o Gestor de configuração, a conta de acesso de rede liga-se à base de dados. Uma vez do Windows PE não tem nenhum contexto de segurança por predefinição, tem de se uma ligação de rede para o servidor de base de dados para estabelecer um contexto de segurança para o utilizador que será possível efetuar a ligação.  
@@ -406,7 +407,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   Ativar denominado ligações de pipe para o SQL Server 2005, conforme descrito em [ativar ligações de Pipe nomeado no SQL Server 2005](#EnableNamedPipeConnectionsinSQL).  
 
-#####  <a name="EnableNamedPipeConnectionsinSQLServer"></a>Ativar as ligações de Pipe nomeado no SQL Server 2008 R2  
+#####  <a name="EnableNamedPipeConnectionsinSQLServer"></a> Ativar as ligações de Pipe nomeado no SQL Server 2008 R2  
  Para ativar as ligações de pipe nomeado no SQL Server 2008 R2, execute os seguintes passos:  
 
 1.  No computador com o SQL Server 2008 R2 que aloja a base de dados a ser consultado, clique em **iniciar**e, em seguida, aponte para **todos os programas**. Aponte para **Microsoft SQL Server 2008 R2**e, em seguida, clique em **SQL Server Management Studio**.  
@@ -441,7 +442,7 @@ Figura 2. Fluxos de dados NTFS
 
  Para obter informações adicionais, [como ativar ligações remotas no SQL Server 2008](http://blogs.msdn.com/b/walzenbach/archive/2010/04/14/how-to-enable-remote-connections-in-sql-server-2008.aspx).  
 
-#####  <a name="EnableNamedPipeConnectionsinSQL"></a>Ativar as ligações de Pipe nomeado no SQL Server 2005  
+#####  <a name="EnableNamedPipeConnectionsinSQL"></a> Ativar as ligações de Pipe nomeado no SQL Server 2005  
  Para ativar as ligações de pipe nomeado no SQL Server 2005, execute os seguintes passos:  
 
 1.  No computador com o SQL Server 2005 que aloja a base de dados a ser consultado, clique em **iniciar**e, em seguida, aponte para **todos os programas**. Aponte para **Microsoft SQL Server 2005**, aponte para **ferramentas de configuração**e, em seguida, clique em **configuração de área de superfície do SQL Server**.  
@@ -475,7 +476,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   É apresentada uma mensagem de erro "Wuredist.cab não encontrada" conforme descrito em [ZTIWindowsUpdate](#ZTIWindowsUpdate)  
 
-####  <a name="Credentials_script"></a>Credenciais\_script  
+####  <a name="Credentials_script"></a> Credenciais\_script  
  **Problema:** Durante o último início\-cópias de segurança de um computador recentemente implementado, o utilizador é-lhe pedido para fornecer credenciais de utilizador e poderá receber o erro 0x80070035, que indica que o caminho de rede não foi encontrado.  
 
  **Possíveis soluções:** Certifique-se de que o ficheiro WIM não inclui um MININT ou \_SMSTaskSequence pasta. Para eliminar estas pastas, primeiro utilizar o utilitário de ImageX para instalar o ficheiro WIM e, em seguida, elimine as pastas.  
@@ -483,7 +484,7 @@ Figura 2. Fluxos de dados NTFS
 > [!NOTE]
 >  Se um acesso negado erro ocorre quando tenta eliminar as pastas a partir do ficheiro WIM, abra uma janela da linha de comandos, mude para a raiz da imagem contida no ficheiro WIM em seguida, execute **RD MININT** e **RD \_ SMSTaskSequence**.  
 
-####  <a name="ZTIWindowsUpdate"></a>ZTIWindowsUpdate  
+####  <a name="ZTIWindowsUpdate"></a> ZTIWindowsUpdate  
  **Problema:** Se utilizar o script de ZTIWindowsUpdate.wsf para aplicar atualizações de software durante a implementação, tenha em atenção que este script pode comunicar diretamente com o Web site do Microsoft Update para transferir e instalar os binários de agente do Windows Update necessários, procurar aplicável atualizações de software, transferir os binários para as atualizações de software aplicáveis e, em seguida, instalar os binários transferidos. Este processo requer que a sua infraestrutura de rede sejam configuradas para permitir que o computador de destino obter acesso ao Web site do Microsoft Update.  
 
  Se a partilha de implementação não contém os ficheiros de instalação do agente do Windows Update e o computador de destino não tem acesso à Internet, é comunicado o erro "wuredist.cab não encontrada" nos ficheiros de ZTIWindowsUpdate.log e BDD.log.  
@@ -495,7 +496,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   Atualizar WIM ficheiros falha ao atualizar uma partilha de implementação, conforme descrito em [falha para ficheiros de atualização de WIM](#FailuretoUpdateWIMFiles).  
 
-####  <a name="FailuretoUpdateWIMFiles"></a>Falha ao atualizar ficheiros WIM  
+####  <a name="FailuretoUpdateWIMFiles"></a> Falha ao atualizar ficheiros WIM  
  Num ambiente "simples":  
 
 -   Normalmente, seleciona MDT WIMGAPI. DLL de c:\\Windows\\system32 \(sempre no caminho\). A versão deste WIMGAPI. DLL tem de corresponder à versão \(criar\) do sistema operativo.  
@@ -511,7 +512,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   Páginas do Assistente de implementação do Windows são apresentadas, mesmo quando LTI está configurado para ignorar as páginas do assistente, conforme descrito em [assistente páginas são ignorados](#WizardPagesareNotSkipped).  
 
-####  <a name="WizardPagesareNotSkipped"></a>Páginas do assistente não são ignoradas  
+####  <a name="WizardPagesareNotSkipped"></a> Páginas do assistente não são ignoradas  
  **Problema:** É apresentada uma página de assistente, apesar do ficheiro de base de dados do MDT ou CustomSettings.ini especificar que o assistente deve ser ignorado.  
 
  **Possíveis soluções:** Para ignorar corretamente uma página do assistente, inclua todas as propriedades que teriam de ser especificadas nessa página do assistente apropriado no ficheiro de base de dados do MDT ou CustomSettings.ini juntamente com os valores adequados. Se uma propriedade estiver configurada incorretamente para uma página do assistente ignorado, nessa página será apresentada. Para obter mais informações sobre as propriedades são necessárias para se certificar de que uma página do assistente é ignorada, consulte a secção "Fornecer propriedades para ignorada implementação páginas do assistente", no documento MDT *Toolkit referência*.  
@@ -525,7 +526,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   As falhas durante causados por discos lógicos ou dinâmicos, conforme descrito em cenários de implementação de computador atualizar [suporte para Logical e os discos dinâmicos](#SupportforLoogicalandDynamicDisks)  
 
-####  <a name="BitLockerDriveEncryption"></a>Encriptação de unidade BitLocker  
+####  <a name="BitLockerDriveEncryption"></a> Encriptação de unidade BitLocker  
  A implementação de BitLocker requer uma configuração específica para a implementação correta. Os seguintes problemas potenciais podem estar relacionado com a configuração do computador de destino:  
 
 -   Nas implementações ZTI e UDI, o Script de ZTIBde.wsf falhar com o erro "não é possível abrir a chave de registo ' HKEY\_atual\_utilizador\\painel de controlo\\internacional\\LocaleName' para leitura", como descrito no [ZTIBde.wsf Script falhar com o erro "Não é possível abrir a chave de registo 'HKEY_CURRENT_USER\Control Panel\International\LocaleName' para leitura"](#ZTIBde.wsf).  
@@ -534,17 +535,17 @@ Figura 2. Fluxos de dados NTFS
 
 -   Reduzir a unidade C no computador de destino para fornecer suficiente espaço em disco não alocado conforme descrito em [problemas com a redução dos discos](#ProblemswithShrinkingDisks)  
 
-#####  <a name="ZTIBde.wsf"></a>Script de ZTIBde.wsf falha com o erro "não é possível abrir a chave de registo ' HKEY\_atual\_utilizador\\painel de controlo\\internacional\\LocaleName' para leitura"  
+#####  <a name="ZTIBde.wsf"></a> Script de ZTIBde.wsf falha com o erro "não é possível abrir a chave de registo ' HKEY\_atual\_utilizador\\painel de controlo\\internacional\\LocaleName' para leitura"  
  **Problema:** Ao tentar implementar o BitLocker no computador de destino no ZTI ou UDI, o script de ZTIBde.wsf falha com o erro "não é possível abrir a chave de registo ' HKEY\_atual\_utilizador\\painel de controlo\\internacional\\LocaleName' para leitura. "  
 
  **Possíveis soluções:** Especificar a região no **UILanguage** propriedade. No ZTI e UDI, o script de ZTIBde.wsf executa no controlo de sistema, para que um perfil de utilizador completo não está carregado. Quando o script de ZTIBde.wsf tenta ler as informações de região não se encontra no registo, porque o registo \(perfil de utilizador\) não é totalmente carregado. Como solução, especifique a região no **UILanguage** propriedade.  
 
-#####  <a name="DevicesAppearasMultipleDriveLetters"></a>Os dispositivos apresentados como letras de unidade de vários  
+#####  <a name="DevicesAppearasMultipleDriveLetters"></a> Os dispositivos apresentados como letras de unidade de vários  
  **Problema:** Alguns dispositivos podem aparecer como vários letras de unidade lógica, dependendo do modo como são particionadas. Em alguns casos, podem emular um 1.44\-megabyte \(MB\) unidade de disco de disquetes e uma unidade de armazenamento de memória. Por conseguinte, o Windows pode atribuir as mesmo dispositivo letras de unidade A e B disquete emulação e F para a unidade de armazenamento de memória. Por predefinição, os scripts de MDT utilizam a letra de unidade mais baixa \(neste exemplo, um\).  
 
  **Possíveis soluções:** Substituir a definição predefinida no **especifique os detalhes de recuperação do BitLocker** página no Assistente de implementação do Windows. A página de resumo do Assistente de implementação do Windows apresenta um aviso a informar o utilizador não foi seleccionada que letra de unidade para armazenar as informações de recuperação do BitLocker. Além disso, os ficheiros BDD.log e ZTIBDE.log registam os dispositivos de suporte de dados amovível detetados e qual era o dispositivo foi selecionado para armazenar as informações de recuperação do BitLocker.  
 
-#####  <a name="ProblemswithShrinkingDisks"></a>Problemas com a redução dos discos  
+#####  <a name="ProblemswithShrinkingDisks"></a> Problemas com a redução dos discos  
  **Problema:** Não suficiente espaço em disco não atribuído existe no computador de destino para ativar o BitLocker. Para implementar o BitLocker num computador de destino, pelo menos, 2 gigabytes \(GB\) do disco não atribuído espaço é necessário para criar o volume de sistema. O *volume de sistema* é o volume que contém o hardware\-ficheiros específicos, necessários para carregar o Windows após a BIOS tem arrancado o computador.  
 
  **Solução possível 1:** Em computadores existentes, utilize a ferramenta de Diskpart para reduzir a unidade C para que o volume de sistema pode ser criado. Em alguns casos, a ferramenta Diskpart poderá não conseguir encolher unidade C suficientemente para fornecer 2 GB de espaço em disco não atribuído, possivelmente devido a espaço de disco fragmentados dentro da unidade C.  
@@ -565,12 +566,12 @@ Figura 2. Fluxos de dados NTFS
 
  **Solução possível 2:** O script de ZTIBDE.wsf é executado a ferramenta de preparação de disco \(bdehdcfg.exe\) e configura o sistema partição tamanho do volume para 2 GB por predefinição. Pode personalizar o script de ZTIBDE.wsf para alterar a predefinição, se necessário. No entanto, a modificar os scripts de MDT não é recomendada.  
 
-####  <a name="SupportforLoogicalandDynamicDisks"></a>Suporte para discos lógicos e dinâmicos  
+####  <a name="SupportforLoogicalandDynamicDisks"></a> Suporte para discos lógicos e dinâmicos  
  **Problema:** Quando efetuar um cenário de implementação de atualizar o computador, o processo de implementação poderá falhar quando implementar num computador de destino que está a utilizar as unidades lógicas ou discos dinâmicos.  
 
  **Possíveis soluções:** MDT não suporta a implementação de sistemas operativos para as unidades lógicas ou discos dinâmicos.  
 
-### <a name="domain-join"></a>Associação a um domínio  
+### <a name="domain-join"></a>Domain Join  
  **Problema:** Durante a implementação, utilize o Assistente de implementação do Windows para fornecer todas as informações necessárias para o computador de destino, incluindo credenciais, informações de associação de domínio e configuração de IP estático. Quando a conclusão da configuração, pode ver que o sistema não está associada ao domínio e ainda está a ser um grupo de trabalho.  
 
  **Possíveis soluções:** Uma implementação LTI do MDT configura as informações de IP estáticas, depois do sistema operativo está a funcionar. Se o computador de destino está localizado num segmento de rede que não tenha o Dynamic Host Configuration Protocol \(DHCP\), uma associação de domínio automatizada especificada no Unattend.xml irão falhar quando não existem DHCP está presente.  
@@ -586,7 +587,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   Resolução de problemas de instalação de controladores de dispositivo utilizando o SetupAPI.log conforme descrito em [resolver problemas de instalação do dispositivo com SetupAPI.log](#TroubleshootDeviceInstallationwithSetupAPI.log)  
 
-####  <a name="TroubleshootDeviceInstallationwithSetupAPI.log"></a>Resolver problemas de instalação do dispositivo com SetupAPI.log  
+####  <a name="TroubleshootDeviceInstallationwithSetupAPI.log"></a> Resolver problemas de instalação do dispositivo com SetupAPI.log  
  O documento técnico [resolução de problemas de instalação do dispositivo com o ficheiro de registo SetupAPI](http://msdn.microsoft.com/windows/hardware/gg463393.aspx) fornece informações sobre a depuração de instalação do Windows no dispositivo. Especificamente, o documento fornece orientações para programadores de controlador e testers interpretar o ficheiro de registo SetupAPI.  
 
  Um dos ficheiros de registo mais úteis para fins de depuração é o ficheiro de SetupAPI.log. Este simples\-ficheiro de texto mantém as informações que SetupAPI registos sobre a instalação do dispositivo, instalação do pacote de serviço e da instalação da atualização. Especificamente, o ficheiro mantém um registo de alterações e controladores de dispositivos, bem como as alterações principais do sistema a partir da instalação do Windows mais recente. Este documento centra-se utilizando o ficheiro de registo SetupAPI para resolver problemas de instalação do dispositivo; não descreve as secções do ficheiro de registo que estão associados com service pack e instalações de atualizações.  
@@ -596,7 +597,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   Problemas de iniciar o processo de implementação utilizando pré\-ambiente de execução de arranque \(PXE\) arranque conforme descrito em [arranque PXE](#PXEBoot)  
 
-####  <a name="PXEBoot"></a>Arranque PXE  
+####  <a name="PXEBoot"></a> PXE Boot  
  No brief, o protocolo PXE funciona da seguinte forma: O computador cliente inicia o protocolo por difundir um pacote DHCP detetar que contém uma extensão que identifica o pedido como proveniente de um computador cliente que implementa o protocolo PXE. Partindo do princípio de que está disponível um servidor de arranque implementar este protocolo expandido, o servidor de arranque envia uma oferta que contém o endereço IP do servidor que irá processar o cliente. O cliente utiliza o protocolo de transferência de ficheiros Trivial para transferir o ficheiro executável a partir do servidor de arranque. Por fim, o computador cliente executa o programa de arranque de configuração transferido.  
 
  A fase inicial deste protocolo piggybacks num subconjunto das mensagens de DHCP para permitir ao cliente detetar um servidor de arranque \(ou seja, um servidor que fornece os ficheiros executáveis para a nova configuração de computador\). O computador cliente pode utilizar a oportunidade para obter um endereço IP \(que é o comportamento esperado\) mas não é necessária para o fazer.  
@@ -613,15 +614,15 @@ Figura 2. Fluxos de dados NTFS
 
 -   Melhorar os tempos de resposta para atribuir endereços IP a computadores de cliente PXE, conforme descrito em [melhorar o tempo de resposta de atribuição do PXE IP endereço](#ImprovePXEIPAddressAssignmentResponseTime).  
 
-#####  <a name="DisableWindowsPELogginginWindowsDeploymentServices"></a>Desativar o registo no Windows dos serviços de implementação do Windows PE  
+#####  <a name="DisableWindowsPELogginginWindowsDeploymentServices"></a> Desativar o registo no Windows dos serviços de implementação do Windows PE  
  O primeiro procedimento recomendado é certificar-se de que o registo para setupapi.log foi desativado.  
 
-#####  <a name="EnsuretheProperDHCPConfiguration"></a>Certifique-se a configuração de DHCP adequado  
+#####  <a name="EnsuretheProperDHCPConfiguration"></a> Certifique-se a configuração de DHCP adequado  
  Consoante os modelos de router em utilização, a configuração de router específico de reencaminhamento de difusão de DHCP pode ser suportada para uma sub-rede \(ou interface de router\) ou um anfitrião específico. Se os servidores DHCP e o computador a executar o serviços de implementação do Windows são computadores separados, certifique-se de que os routers que reencaminham difusões DHCP foram concebidos para que os servidores de DHCP e os serviços de implementação do Windows recebem difusões cliente; caso contrário, o computador cliente não receber uma resposta para o pedido de arranque remoto.  
 
  Existe um router entre o computador cliente e o servidor de instalação remota que não está a permitir que o DHCP\-baseada em pedidos ou respostas através de? Quando o computador de cliente de serviços de implementação do Windows e o servidor de serviços de implementação do Windows em sub-redes separadas, configure o router entre os dois sistemas para reencaminhar os pacotes DHCP para o servidor de serviços de implementação do Windows. Esta disposição é necessária, porque os computadores de cliente de serviços de implementação do Windows detetar um servidor de serviços de implementação do Windows através da utilização de uma mensagem de difusão de DHCP. Sem o DHCP num router de reencaminhamento conjunto de cópias de segurança, difusões DHCP dos computadores cliente não conseguirem contactar o servidor de serviços de implementação do Windows. Este processo de reencaminhamento de DHCP, por vezes, é referido como *DHCP Proxy* ou *endereço de programa auxiliar de IP* na como de configuração de router. Consulte as instruções de router para obter mais informações sobre como configurar o reencaminhamento de DHCP num router específico.  
 
-#####  <a name="ImprovePXEIPAddressAssignmentResponseTime"></a>Melhorar o tempo de resposta de atribuição de endereço IP de PXE  
+#####  <a name="ImprovePXEIPAddressAssignmentResponseTime"></a> Melhorar o tempo de resposta de atribuição de endereço IP de PXE  
  Verifique os seguintes elementos, se estiver a demorar muito tempo \(15 – 20 segundos\) para o computador de cliente PXE obter um endereço IP:  
 
 -   São o adaptador de rede no computador de destino e router ou comutador definido para a mesma velocidade \(automática, duplex, completo e outros\)  
@@ -638,7 +639,7 @@ Figura 2. Fluxos de dados NTFS
 
 -   O computador de destino é não volte a aparecer na corretos AD DS UO conforme descrito em [o computador conta é na UO errado](#ComputerAccountisintheWrongOU).  
 
-####  <a name="ComputerAccountisintheWrongOU"></a>A conta de computador está na UO errado  
+####  <a name="ComputerAccountisintheWrongOU"></a> A conta de computador está na UO errado  
  **Problema:** O computador de destino está corretamente associado ao domínio, mas a conta de computador está na UO errado.  
 
  **Solução possível 1:** Se uma conta pré-configurada\-existe para o computador de destino, a conta permanecerá no respetivo UO original. Para mover a conta para a UO especificada, adicione um passo de sequência de tarefas que utiliza uma ferramenta de automatização, tais como um Microsoft Visual Basic® Scripting Edition, mover a conta.  
@@ -668,19 +669,19 @@ Figura SEQ Figure \\ \* ARABIC 3. Erro de ponto de serviço PXE
 
 -   Problemas que possam ocorrer em resultado de uma configuração incorreta de continuar com as definições de configuração de erro para obter os passos de sequência de tarefas, conforme descrito em [utilize continuar com o erro](#UseContinueonError).  
 
-####  <a name="TaskSequenceDoesNotFinishSuccessfully"></a>A sequência de tarefas não for concluída com êxito  
+####  <a name="TaskSequenceDoesNotFinishSuccessfully"></a> A sequência de tarefas não for concluída com êxito  
  **Problema:** Sequência de tarefas não pode ser concluída com êxito ou tem um comportamento imprevisível.  
 
  **Possíveis soluções:** O **instalar sistema operativo** passo de sequência de tarefas \(para LTI\) ou **aplicar imagem do sistema operativo** passo de sequência de tarefas \(para UDI e ZTI\)tiverem sido modificadas após a criação do passo de sequência de tarefas pode originar resultados imprevisíveis. Por exemplo, se tiver sido criada uma sequência de tarefas para implementar um 32\-bit de imagem do Windows 8.1 e, em seguida, posterior a **instalar sistema operativo** passo de sequência de tarefas ou **aplicar imagem do sistema operativo** tarefas passo de sequência foi alterado para fazer referência a um 64\-bits do Windows 8.1 imagem, a sequência de tarefas poderá não ser executado com êxito.  
 
  Recomenda-se que é criada uma nova sequência de tarefas para implementar uma imagem de sistema operativo diferente.  
 
-####  <a name="OEMTaskSequenceIncorrectlyAppearsforBootImage"></a>A sequência de tarefas OEM é apresentada incorretamente uma imagem de arranque criada para uma arquitetura de processador diferente  
+####  <a name="OEMTaskSequenceIncorrectlyAppearsforBootImage"></a> A sequência de tarefas OEM é apresentada incorretamente uma imagem de arranque criada para uma arquitetura de processador diferente  
  **Problema:** Uma sequência de tarefas com base num modelo de sequência de tarefas LTI OEM está a ser mostrada cópias de segurança para uma imagem de arranque com uma arquitetura de processador diferente. Por exemplo, uma OEM sequência de tarefas que implementa um 64\-bits operação sistema está a ser mostrada no 32\-imagem de arranque de bits.  
 
  **Possíveis soluções:** Este comportamento está previsto como as sequências de tarefas do OEM LTI não são consideradas como sendo "plataforma\-específico" será sempre listado, independentemente da arquitetura do processador da imagem de arranque.  
 
-####  <a name="BadTaskSequenceItem"></a>Item de sequência de tarefas incorreto \(GUID inválido de SO\) mensagem no Assistente de implementação do Windows  
+####  <a name="BadTaskSequenceItem"></a> Item de sequência de tarefas incorreto \(GUID inválido de SO\) mensagem no Assistente de implementação do Windows  
  **Problema:** Ao executar o Assistente de implementação do Windows, o assistente apresenta a mensagem de erro "Item de sequência de tarefas incorreto \(GUID inválido de SO\)." O sistema operativo está listado no ficheiro OperatingSystem.xml; No entanto, o sistema operativo não é apresentado no Deployment Workbench.  
 
  **Possíveis soluções:** A origem original do sistema operativo tem dois ou mais ficheiros WIM associados. Um SKU que está associado uma sequência de tarefas é eliminado; No entanto, outros SKUs para a origem do sistema operativo ainda existem. Quando a sequência de tarefas que faça referência a SKU eliminado está selecionada no **Selecione uma sequência de tarefas para executar neste computador** página do assistente no Assistente de implementação do Windows, a mensagem de erro "Item de sequência de tarefas incorreto \( GUID de SO inválido\)"é apresentada depois de clicar em **seguinte** na página do assistente.  
@@ -691,12 +692,12 @@ Figura SEQ Figure \\ \* ARABIC 3. Erro de ponto de serviço PXE
 
 -   Altere a sequência de tarefas a utilizar uma imagem de sistema operativo diferente.  
 
-####  <a name="ApplyNetworkSettings"></a>Aplicar definições de rede  
+####  <a name="ApplyNetworkSettings"></a> Aplicar definições de rede  
  **Problema:** Quando configurar o nome da ligação de rede no Deployment Workbench, um erro de validação irá pedir-lhe com a mensagem, ". Introduza um nome válido para o adaptador de rede."  
 
  **Possíveis soluções:** Remova o nome de ligação especificada quaisquer espaços e carateres inválidos.  
 
-####  <a name="UseContinueonError"></a>Utilize continuar com o erro  
+####  <a name="UseContinueonError"></a> Utilize continuar com o erro  
  Se uma sequência de tarefas do MDT está configurada para não continuar com o erro e a sequência de tarefas devolve um erro, todas as sequências de tarefas restantes nesse grupo de sequência de tarefas são ignoradas. No entanto, os grupos de sequência de tarefas restantes são processados. Tenha em consideração o seguinte:  
 
  Foram criados dois grupos de sequência de tarefas e o grupo contém mais do que um passo de sequência de tarefas:  
@@ -720,7 +721,7 @@ Figura SEQ Figure \\ \* ARABIC 3. Erro de ponto de serviço PXE
 
 -   Atalhos que apontam para documentos armazenados em pastas partilhadas na rede podem não ser restaurados corretamente conforme descrito em [atalhos de ambiente de trabalho em falta](#MissingDesktopShortcuts).  
 
-####  <a name="MissingDesktopShortcuts"></a>Atalhos de ambiente de trabalho em falta  
+####  <a name="MissingDesktopShortcuts"></a> Atalhos de ambiente de trabalho em falta  
  **Problema:** Ao utilizar o USMT para migrar dados de utilizador, os atalhos que apontam para documentos de rede não podem ser restaurados. Os atalhos são capturados durante Scanstate; No entanto, estes são nunca restaurados para o computador de destino durante Loadstate.  
 
  **Possíveis soluções:** Edite o ficheiro de MigUser.xml e comente a linha seguinte:  
@@ -742,7 +743,7 @@ Figura SEQ Figure \\ \* ARABIC 3. Erro de ponto de serviço PXE
 
 -   Implementações LTI e ZTI falharam com erros de ficheiros WIM no ficheiro BDD.log, conforme descrito em [ficheiro WIM da danificado](#CorruptWIMFile).  
 
-####  <a name="CorruptWIMFile"></a>Ficheiro WIM danificado  
+####  <a name="CorruptWIMFile"></a> Ficheiro WIM danificado  
  **Problema:** Quando implementar uma imagem, a implementação falhar com as seguintes entradas no ficheiro BDD.log:  
 
 -   ```  
@@ -770,7 +771,7 @@ Figura SEQ Figure \\ \* ARABIC 3. Erro de ponto de serviço PXE
 
 -   O processo de implementação LTI ou ZTI não é iniciado devido a controladores de dispositivo em falta ou incorretas, conforme descrito em [implementação processo não foi iniciada — em falta ou incorretos controladores](#MissingorIncorrectDrivers).  
 
-####  <a name="LimitedRamorWirelessNetworkAdapter"></a>Processo de implementação não foi iniciado — RAM limitado ou um adaptador de rede sem fios  
+####  <a name="LimitedRamorWirelessNetworkAdapter"></a> Processo de implementação não foi iniciado — RAM limitado ou um adaptador de rede sem fios  
  **Problema:** Quando implementar uma imagem a determinados computadores de destino, do Windows PE é iniciado, executa **wpeinit**, abre uma janela de linha de comandos, mas não inicia o processo de implementação. Resolução do problema mediante o mapeamento de unidade de rede do computador de destino indica que os controladores de placa de rede não estão carregados.  
 
  **Solução possível 1:**o Assistente de implementação não é iniciar, porque não há RAM suficiente. Certifique-se de que o computador de destino tem, pelo menos, 512 MB de RAM e que nenhum memória de vídeo partilhada consome mais do que 64 MB de 512 MB.  
@@ -779,7 +780,7 @@ Figura SEQ Figure \\ \* ARABIC 3. Erro de ponto de serviço PXE
 
  **Solução possível 2:** Não inclua os controladores sem fios na imagem do Windows PE.  
 
-####  <a name="MissingComponents"></a>Processo de implementação não foi iniciado — em falta componentes  
+####  <a name="MissingComponents"></a> Processo de implementação não foi iniciado — em falta componentes  
  **Problema:** Quando a implementação de resolução de problemas, uma revisão do ficheiro BDD.log lista a entrada seguinte:  
 
 ```  
@@ -791,7 +792,7 @@ ERROR - Unable to create ADODB.Connection object, impossible to query SQL Server
 > [!NOTE]
 >  As imagens do Windows PE que o Configuration Manager cria contém componentes que suportam a criação de scripts, XML e o Windows Management Instrumentation (WMI), mas não contém componentes que suportam a objetos de dados de® do Microsoft ActiveX (ADO).  
 
-####  <a name="MissingorIncorrectDrivers"></a>Processo de implementação não foi iniciado — controladores em falta ou incorretos  
+####  <a name="MissingorIncorrectDrivers"></a> Processo de implementação não foi iniciado — controladores em falta ou incorretos  
  **Problema:** Quando implementar a determinados computadores de destino, do Windows PE é iniciado, executa **wpeinit**, abre uma janela de linha de comandos, mas não inicia o processo de implementação. Resolução de problemas mediante o mapeamento de unidade de rede do computador de destino indica que os controladores de placa de rede não estão carregados. Uma revisão do ficheiro SetupAPI.log localizado em *X*: \Windows\System32\Inf indica que o Windows PE gera erros quando está a configurar o adaptador de rede, um dos quais é, "este controlador não destinam-se nesta plataforma." Os controladores no **Out-of-Box controladores** lista ter sido injetados a imagem.  
 
  **Possíveis soluções:** É possível que o Windows PE é ter um conflito com outro controlador de controlador. Quando configurar as definições de imagem do Windows PE no Deployment Workbench, crie um grupo de controladores do Windows PE que contém apenas o adaptador de rede e controladores de armazenamento e, em seguida, configure a partilha de implementação a utilizar apenas o grupo de controladores Windows PE.  
@@ -805,7 +806,7 @@ ERROR - Unable to create ADODB.Connection object, impossible to query SQL Server
 
 -   Rever as fluxogramas de processo de implementação ZTI conforme descrito em [fluxogramas de processo de implementação ZTI](#ZTIDevelopmentProcessFlowcharts)  
 
-###  <a name="LTIDeploymentProcessFlowcharts"></a>Fluxogramas de processo de implementação LTI  
+###  <a name="LTIDeploymentProcessFlowcharts"></a> Fluxogramas de processo de implementação LTI  
  Gráficos de fluxo são fornecidos para as seguintes fases:  
 
 -   Validação (figura 4)  
@@ -885,7 +886,7 @@ Figura 16. Fluxograma para a fase de restauro de estado (4 de 4)
 
  **Figura 16. Fluxograma para a fase de restauro de estado (4 de 4)**  
 
-###  <a name="ZTIDevelopmentProcessFlowcharts"></a>Fluxogramas de processo de implementação ZTI  
+###  <a name="ZTIDevelopmentProcessFlowcharts"></a> Fluxogramas de processo de implementação ZTI  
  Gráficos de fluxo são fornecidos para as seguintes fases de implementação de ZTI com o Configuration Manager:  
 
 -   Inicialização (figura 17)  
@@ -956,7 +957,7 @@ Figura 25. Fluxograma para a fase de captura
 
 -   Obter suporte adicional através de blogues e outros recursos de Internet, conforme descrito em [suporte de Internet](#InternetSupport)  
 
-###  <a name="MicrosoftSupport"></a>Suporte da Microsoft  
+###  <a name="MicrosoftSupport"></a> Microsoft Support  
  A Microsoft fornece Premier e profissional de suporte de nível para o Microsoft Deployment Toolkit.  
 
  Suporte de nível profissional: [http://support.microsoft.com/](http://support.microsoft.com/)  
@@ -966,7 +967,7 @@ Figura 25. Fluxograma para a fase de captura
 > [!NOTE]
 >  Quando contactar o suporte, ser claro que é o problema com o MDT e a versão específica.  
 
-###  <a name="InternetSupport"></a>Suporte de Internet  
+###  <a name="InternetSupport"></a> Suporte de Internet  
  Várias origens online fornecem assistência adicional de resolução de problemas para o MDT para além de que é abrangido nesta referência. Estas origens online incluem:  
 
 -   Blogues da Microsoft alojados  

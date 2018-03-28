@@ -7,19 +7,20 @@ ms.date: 05/04/2017
 ms.prod: configuration-manager
 ms.reviewer: aaroncz
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
-caps.latest.revision: "12"
+caps.latest.revision: ''
 author: arob98
 ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 1b7f20a48e0e7219d933c367fb9f0315fc287dfd
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="how-to-deploy-clients-to-macs"></a>Como implementar clientes em Mac
 
@@ -162,7 +163,7 @@ Utilize este procedimento para inscrição de certificados de cliente com a ferr
 
      O nome de utilizador e a palavra-passe correspondente têm de corresponder a uma conta de utilizador do Active Directory que disponha de permissões de Leitura e Inscrição no modelo de certificado do cliente Mac.  
 
-     Exemplo: Se o servidor de ponto de proxy de inscrição é denominado **server02.contoso.com**e um nome de utilizador **contoso\mnorth** ter sido concedidas permissões para o modelo de certificado de cliente Mac, escreva o seguinte: **sudo. / /cmenroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
+     Exemplo: Se o servidor de ponto de proxy de inscrição é denominado **server02.contoso.com**e um nome de utilizador **contoso\mnorth** ter sido concedidas permissões para o modelo de certificado de cliente Mac, escreva o seguinte:  **sudo. / /cmenroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
 
     > [!NOTE]  
     >  Se o nome de utilizador contiver qualquer um dos carateres  **&lt;> "+ =,** inscrição irá falhar. Obtenha um certificado de fora de banda com um nome de utilizador que não contenha estes carateres.  
@@ -198,7 +199,7 @@ Utilize este procedimento para inscrição de certificados de cliente com a ferr
 > -   O ficheiro de materiais (LM) e a propriedade lista (. plist) criados pela instalação de cliente do Configuration Manager.  
 > -   O conteúdo da pasta /Library/Application Support/Microsoft/CCM/Logs.  
 >   
->  As informações recolhidas pelo CmDiagnostics são adicionadas a um ficheiro zip que é guardado no ambiente de trabalho do computador com o nome*< hostname\>***-***&gt;data e hora\>*. zip.* * *
+>  As informações recolhidas pelo CmDiagnostics são adicionadas a um ficheiro zip que é guardado no ambiente de trabalho do computador com o nome*< hostname\>***-***&gt;data e hora\>* . zip.* * *
 
 
 ##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Utilize um método de pedido e instalação de certificado que seja independente do Configuration Manager  
@@ -221,7 +222,7 @@ Em seguida, efetue estas tarefas:
 
 3.  Introduza a seguinte linha de comandos: **sudo. / ccmsetup -MP < FQDN de Internet do ponto de gestão\> - SubjectName < valor do requerente do certificado\>**.  O valor do requerente do certificado é sensível às maiúsculas e minúsculas, devendo pois escrevê-lo tal como é apresentado nos detalhes do certificado.  
 
-     Exemplo: Se o FQDN de Internet nas propriedades do sistema de sites for **server03.contoso.com** e o certificado de cliente Mac tiver o FQDN **mac12.contoso.com** como nome comum no requerente do certificado, escreva: **sudo. / ccmsetup -MP server03.contoso.com - SubjectName mac12.contoso.com**  
+     Exemplo: Se o FQDN de Internet nas propriedades do sistema de sites for **server03.contoso.com** e o certificado de cliente Mac tiver o FQDN **mac12.contoso.com** como nome comum no requerente do certificado, escreva:  **sudo. / ccmsetup -MP server03.contoso.com - SubjectName mac12.contoso.com**  
 
 4.  Aguarde até ver a mensagem **Instalação concluída** e reinicie o computador Mac.  
 

@@ -21,7 +21,7 @@ ms.openlocfilehash: a8460cafce15e5fb97ace76983932841ec77412f
 ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Resolução de problemas de cliente do Windows Defender ou Endpoint Protection
 
