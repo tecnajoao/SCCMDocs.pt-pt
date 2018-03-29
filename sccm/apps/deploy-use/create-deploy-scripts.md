@@ -17,11 +17,11 @@ caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 29806161b29b87834c0cb4b1e478d92bff7a7b3c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 19bb8b2c4e47dcc8a75db568e7f93541544a4566
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
@@ -70,10 +70,6 @@ Executadas Scripts atualmente suporta:
 >[!WARNING]
 >Tenha em atenção que, ao utilizar parâmetros,-abre uma área de superfície de potenciais riscos de ataque de injeção de PowerShell. Existem várias formas para mitigar e resolver o problema, tais como utilizar expressões regulares para validar o parâmetro de entrada ou utilizar predefinidos a parâmetros. Melhor prática comum é não incluir a segredos no seu scripts do PowerShell (sem palavras-passe, etc.). [Saiba mais sobre a segurança de script do PowerShell](/sccm/apps/deploy-use/learn-script-security) <!--There are external tools available to validate your PowerShell scripts such as the [PowerShell Injection Hunter](https://www.powershellgallery.com/packages/InjectionHunter/1.0.0) tool. -->
 
-
-## <a name="group-policy-considerations-for-scripts"></a>Considerações de política de grupo para os scripts
-<!--While running scripts on devices, Configuration Manager sets policy to allow local scripts and remote signed scripts.--> 
-Definir uma política de execução através da política de grupo pode não permitir scripts para ser executado com o Configuration Manager. Para obter informações sobre as políticas de execução e como obter definidas, consulte o [sobre as políticas de execução](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies) artigo. <!--507185-->
 
 ## <a name="run-script-authors-and-approvers"></a>Execução de Script de autores e aprovadores
 
@@ -275,9 +271,13 @@ Depois de terem iniciado a executar um script numa coleção de dispositivos, ut
 ## <a name="script-output"></a>Resultado do script
 
 - A partir do Configuration Manager versão 1802, o resultado do script devolve utilizando a formatação JSON. Este formato consistentemente devolve um resultado de script legível. 
-- Scripts que obtenham um resultado desconhecido, ou aquelas em que o cliente estiver offline, não irá mostrar no conjunto de dados ou de gráficos. <!--507179-->
+- Scripts que obter um resultado desconhecido ou onde o cliente estiver offline, não irão mostrar no conjunto de dados ou de gráficos. <!--507179-->
 - Evite a devolução de saída do script de grandes dimensões, uma vez que será truncado para 4 KB. <!--508488-->
 - Algumas funcionalidades com script de saída de formatação não está disponível quando em execução 1802 de versão do Configuration Manager ou posterior com uma versão de nível inferior do cliente. <!--508487-->
+    - Quando tiver um cliente de Configuration Manager de pre-1802, obter um resultado de cadeia.
+    -  Para o Configuration Manager versão de cliente 1802 e acima, obter formatação JSON.
+        - Por exemplo, poderá obter resultados que afirmam texto uma versão de cliente e "TEXT" (o resultado é rodeado entre aspas duplas) na outra versão, o que irá ser colocada no gráfico como duas categorias diferentes.
+        - Se precisar de contornar este comportamento, considere executar script contra duas coleções diferentes. Uma com a pré-1802 os clientes e outra com 1802 e superior. Em alternativa, pode converter um objeto de enumeração para um valor de cadeia em scripts para que estes são apresentados corretamente no JSON de formatação. 
 - Converter um objeto de enumeração para um valor de cadeia em scripts para que estes são apresentados corretamente no JSON de formatação. <!--508377--> ![Converter o objeto de enumeração para um valor de sting](./media/run-scripts/enum-tostring-JSON.png)
 
 
