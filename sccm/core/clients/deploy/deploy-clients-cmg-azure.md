@@ -17,11 +17,11 @@ caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4a8ca1a60a249756065ee2af6cb9c37f3fe2a1e0
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 903dc7cd6347579e75487c3d8a8bd33b1b2c24d5
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-assign-configuration-manager-windows-10-clients-using-azure-ad-for-authentication"></a>Instale e atribua os clientes do Configuration Manager Windows 10 com o Azure AD para autenticação
 
@@ -48,6 +48,8 @@ Para instalar o cliente do Configuration Manager em dispositivos Windows 10 atra
 - Para além de [pré-requisitos existentes](/sccm/core/plan-design/configs/site-and-site-system-prerequisites#bkmk_2012MPpreq) para a função de sistema de sites do ponto de gestão, também de ativar **ASP.NET 4.5** neste servidor. Inclua quaisquer outras opções selecionadas automaticamente ao ativar o ASP.NET 4.5.  
 
 - Configure todos os pontos de gestão para o modo HTTPS. Para obter mais informações, consulte [requisitos dos certificados PKI](/sccm/core/plan-design/network/pki-certificate-requirements) e [implementar o certificado de servidor web para sistemas de sites que executam o IIS](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_webserver2008_cm2012).  
+    - Se estiver a utilizar o gateway de gestão de nuvem, em seguida, apenas terá de configurar HTTPS para pontos de gestão que ativar para o gateway de gestão de nuvem.
+    - Se estiver a implementar os clientes da intranet através da autenticação baseada em tokens do AD do Azure, em seguida, todos os pontos de gestão que estes clientes podem contactar tem de estar ativados para HTTPS. 
 
 - Configure opcionalmente um [gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) (CMG) para implementar clientes baseados na internet. Para clientes no local que autenticar com o Azure AD, não precisa de um CMG.  
 

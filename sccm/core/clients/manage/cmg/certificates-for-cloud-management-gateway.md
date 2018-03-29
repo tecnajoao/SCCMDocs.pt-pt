@@ -10,11 +10,11 @@ ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
 ms.assetid: 71eaa409-b955-45d6-8309-26bf3b3b0911
-ms.openlocfilehash: 1c7adec8f8919736c61859791802a96766af31bb
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 0e4d2add8ece7f548955064a479d9545a1fc64e1
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificates-for-the-cloud-management-gateway"></a>Certificados para o gateway de gestão de nuvem
 
@@ -136,7 +136,7 @@ Depois de emitir um certificado de autenticação de cliente para um computador,
 *Requisitos de certificado*
 - Em versões 1706 ou 1710, quando gerir clientes tradicionais no local utilizando um certificado de autenticação de cliente de identidade, este certificado é recomendado, mas não é necessária.
 - Na versão 1710, quando gerir clientes do Windows 10 associado para o Azure AD, este certificado é necessário para pontos de gestão. 
-- Este certificado a partir de versão 1802, é necessário em todos os cenários. 
+- Este certificado a partir de versão 1802, é necessário em todos os cenários. Apenas os pontos de gestão que ativar para CMG tem de ser HTTPS. Esta alteração no comportamento fornece um melhor suporte para autenticação baseada em tokens do AD do Azure. 
 
 Aprovisione este certificado fora do contexto do Configuration Manager. Por exemplo, utilize os serviços de certificados do Active Directory e a política de grupo para emitir um certificado de servidor web. Para obter mais informações, consulte [requisitos dos certificados PKI](/sccm/core/plan-design/network/pki-certificate-requirements) e [implementar o certificado de servidor web para sistemas de sites que executam o IIS](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_webserver2008_cm2012).
 
@@ -146,4 +146,4 @@ Aprovisione este certificado fora do contexto do Configuration Manager. Por exem
 
 - [Configurar o gateway de gestão na cloud](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway)
 - [Perguntas mais frequentes sobre o gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
-- [Segurança e privacidade para o gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
+- [Segurança e privacidade para o gateway de gestão na cloud ](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)

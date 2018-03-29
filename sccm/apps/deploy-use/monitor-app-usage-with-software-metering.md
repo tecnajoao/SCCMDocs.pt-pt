@@ -1,25 +1,26 @@
 ---
-title: "Monitorizar a utilização de aplicação com a medição de software"
+title: Monitorizar a utilização de aplicação com a medição de software
 titleSuffix: Configuration Manager
-description: 
+description: Saiba mais sobre operações que estão disponíveis na medição de software do System Center Configuration Manager.
 ms.custom: na
 ms.date: 09/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1fdaee2-2816-4447-94cd-609f6948f215
-caps.latest.revision: "8"
+caps.latest.revision: ''
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: c44d606efbbcd099bdcd6d5f83aad156525d9279
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 6864c1a7b10056d664706c25f958b3c73e6855a6
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="software-metering-in-system-center-configuration-manager"></a>Medição de software no System Center Configuration Manager
 
@@ -43,7 +44,7 @@ A medição de software não tem dependências externas, apenas dependências no
 
 1.  Na consola do Configuration Manager, clique em **administração** > **as definições de cliente** > **predefinições de cliente**.
 
-2.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.
+2.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.
 
 3.  Na caixa de diálogo **Predefinições** , clique em **Medição de Software**.
 
@@ -87,7 +88,7 @@ A medição de software não tem dependências externas, apenas dependências no
         >
         >  Esta caixa é opcional, se for especificado um valor para **Nome do Ficheiro** .
 
-    -   **Versão** - a versão do ficheiro executável que pretende medir. Pode utilizar o caráter universal (&#42;) para representar qualquer cadeia de caracteres ou o caráter universal caráter (? ) para representar um único caráter. Se pretender medir todas as versões de um ficheiro executável, utilize o valor predefinido (&#42;).
+    -   **Versão** - a versão do ficheiro executável que pretende medir. Pode utilizar o caráter universal ( &#42; ) para representar qualquer cadeia de caracteres ou o caráter universal caráter (? ) para representar um único caráter. Se pretender medir todas as versões de um ficheiro executável, utilize o valor predefinido ( &#42; ).
 
     -   **Idioma** - o idioma do ficheiro executável a medir. O valor predefinido é a região atual do sistema operativo que está a utilizar. Se selecionar um ficheiro executável para ser medido ao clicar no botão **Procurar** , esta caixa é preenchida automaticamente se a informação do idioma estiver presente no cabeçalho do ficheiro. Para medir todas as versões de idiomas de um ficheiro, selecione **Qualquer** na lista pendente.
 

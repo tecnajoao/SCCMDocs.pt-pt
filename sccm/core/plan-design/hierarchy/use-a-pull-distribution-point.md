@@ -1,25 +1,26 @@
 ---
-title: "Ponto de distribuição de solicitação"
+title: Ponto de distribuição de solicitação
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as configurações e limitações para utilizar um ponto de distribuição de extração com o System Center Configuration Manager."
+description: Saiba mais sobre as configurações e limitações para utilizar um ponto de distribuição de extração com o System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7d8f530b-1a39-4a9d-a2f0-675b516da7e4
-caps.latest.revision: "9"
+caps.latest.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: b4acf5753c8629bcd0f4e2ef5a97bfcb570e9d24
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 3ef93ae505c2af709a3bd1e6a0e7a278993a77ff
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Utilizar um ponto de distribuição de solicitação com o System Center Configuration Manager
 
@@ -45,14 +46,37 @@ Os pontos de distribuição de solicitação suportam as mesmas configurações 
 
 -   Logo que o conteúdo tenha sido distribuído a um ponto de distribuição de solicitação, o Gestor de Transferência do servidor de sites consulta a base de dados do site para confirmar se os conteúdos estão disponíveis no ponto de distribuição de origem. Se não for possível confirmar que os conteúdos se encontram num ponto de distribuição de origem para o ponto de distribuição de solicitação, a verificação será repetida a cada 20 minutos até que os conteúdos estejam disponíveis.  
 
--   Quando o Gestor de Transferência de Pacote confirmar que os conteúdos estão disponíveis, notificará o ponto de distribuição de solicitação para que proceda à transferência dos mesmos. Quando o ponto de distribuição de solicitação receber esta notificação, tentará transferir os conteúdos a partir dos respetivos pontos de distribuição de origem.  
+-   Quando o Gestor de Transferência de Pacote confirmar que os conteúdos estão disponíveis, notificará o ponto de distribuição de solicitação para que proceda à transferência dos mesmos. Se esta falha de notificação, tentará novamente com base no componente de distribuição de Software **definições de repetição** para pontos de distribuição de solicitação. Quando o ponto de distribuição de solicitação receber esta notificação, tentará transferir os conteúdos a partir dos respetivos pontos de distribuição de origem.  
 
--   Quando o ponto de distribuição de solicitação concluir a transferência dos conteúdos, enviará esse estado ao ponto de gestão. No entanto, se após 60 minutos este estado não foi recebido, o Gestor de transferência do pacote reativado e verifica com o ponto de distribuição de extração para confirmar se o ponto de distribuição de solicitação transferiu o conteúdo. Se a transferência do conteúdo estiver em curso, o Gestor de Transferência de Pacotes permanecerá suspenso durante 60 minutos antes de voltar a consultar o ponto de distribuição de extração. Este ciclo continuará até o ponto de distribuição de extração concluir a transferência do conteúdo.  
+-   Enquanto o ponto de distribuição de solicitação transfere o conteúdo do Gestor de transferência do pacote irá consultar o estado com base no componente de distribuição de Software **estado da consulta definições** para pontos de distribuição de solicitação.  Quando o ponto de distribuição de extração concluir a transferência de conteúdos, enviará esse Estado ao ponto de gestão.
 
 **Pode configurar um ponto de distribuição de extração** quando instala o ponto de distribuição ou, depois de o ter instalado, editando as propriedades da função do sistema de sites do ponto de distribuição.  
 
 **Pode remover a configuração para um ponto de distribuição de solicitação** editando as propriedades do ponto de distribuição. Quando remover a configuração de ponto de distribuição de solicitação, o ponto de distribuição devolve operações normais, e o servidor do site gere conteúdo futuro transfere para o ponto de distribuição.  
 
+## <a name="to-configure-software-distribution-component-for-pull-distribution-points"></a>Para configurar o componente de distribuição de Software para pontos de distribuição de solicitação
+
+1.  Na consola do Configuration Manager, escolha **administração** > **Sites**.  
+
+2.  Selecione o site pretendida e selecione **configurar componentes do Site** > **distribuição de Software**
+
+3. Selecione o **ponto de distribuição de solicitação** separador.  
+
+4.  No **definições de repetição** lista, configure os seguintes valores:  
+
+    -   **Número de tentativas** -o número de vezes que o Gestor de transferência do pacote tentar notificar o ponto de distribuição de solicitação para transferir o conteúdo.  Se este número for excedido o Gestor de transferência do pacote irá cancelar a transferência.
+
+    -   **Atraso antes de repetir (minutos)** -o número de minutos que o Gestor de transferência do pacote irá aguardar entre tentativas. 
+
+5.  No **estado da consulta definições** lista, configure os seguintes valores:  
+
+    -   **Número de inquérito** -o número de vezes que o Gestor de transferência do pacote entra em contacto com o ponto de distribuição de extração para obter o estado da tarefa.  Se este número for excedido antes da conclusão da tarefa do Gestor de transferência de pacotes cancelará a transferência.
+
+    -   **Atraso antes de repetir (minutos)** -o número de minutos que o Gestor de transferência do pacote irá aguardar entre tentativas. 
+    
+    > [!NOTE]  
+    >  Quando o Gestor de transferência do pacote cancela uma tarefa porque foi excedido o número de tentativas de consulta do Estado do ponto de distribuição de solicitação irá continuar a transferir o conteúdo.  Quando terminar, a mensagem de estado adequado será enviada para o Gestor de transferência do pacote e a consola irá refletir o estado de novo.
+    
 ## <a name="limitations-for-pull-distribution-points"></a>Limitações para pontos de distribuição de extração  
 
 -   Um ponto de distribuição baseado na nuvem não pode ser configurado como um ponto de distribuição de solicitação.  
@@ -61,12 +85,12 @@ Os pontos de distribuição de solicitação suportam as mesmas configurações 
 
 -   **A configuração de conteúdo pré-configurado substitui a configuração de ponto de distribuição de extração**. Um ponto de distribuição de solicitação que esteja configurado para conteúdos pré-configurados aguarda os conteúdos. Não solicita os conteúdos do ponto de distribuição de origem e, como uma distribuição padrão ponto que tenha a configuração de conteúdo pré-configurado, recebe os conteúdos do servidor do site.  
 
--   **Um ponto de distribuição de extração não utiliza configurações de limites de velocidade** ao transferir conteúdo. Se configurar um ponto de distribuição previamente instalado para funcionar como um ponto de distribuição de solicitação, as configurações de limites de velocidade serão guardadas, mas não utilizadas. Se posteriormente remover a configuração de ponto de distribuição de solicitação, as configurações de limite de velocidade estão implementadas conforme anteriormente configuradas.  
+-   **Um ponto de distribuição de solicitação não utiliza configurações de limites de agenda ou a taxa de** ao transferir conteúdo. Se configurar um ponto de distribuição anteriormente instalado para ser um ponto de distribuição de solicitação, configurações de limites de agenda e velocidade serão guardadas, mas não utilizadas. Se posteriormente remover a configuração de ponto de distribuição de solicitação, as configurações de limite de agenda e velocidade são implementadas conforme anteriormente configuradas.  
 
     > [!NOTE]  
-    >  Quando um ponto de distribuição é configurado como um ponto de distribuição de solicitação, o separador **Limites de Velocidade** não está visível nas propriedades do ponto de distribuição.  
+    >  Quando um ponto de distribuição é configurado como um ponto de distribuição de solicitação, o **agenda** e **limites de velocidade** separadores não estão visíveis nas propriedades do ponto de distribuição.  
 
--   Um ponto de distribuição de extração não utiliza as **Definições de repetição** para a distribuição de conteúdo. A opção**Definições de Repetição** pode ser configurada no âmbito das **Propriedades do Componente de Distribuição de Software** de cada site. Para ver ou configurar estas propriedades, no **administração** área de trabalho da consola do Configuration Manager, expanda **configuração do Site**e, em seguida, selecione **Sites**. Em seguida, no painel de resultados, selecione um site e, em seguida, no **home page** separador, selecione **configurar componentes do Site**. Por fim, selecione **distribuição de Software**.  
+-   Pontos de distribuição de solicitação não utilizam as definições de **geral** separador do **propriedades do componente de distribuição de Software** para cada site.  Isto inclui o **distribuição simultânea** e **repetição Multicast** definição.  Utilize o **ponto de distribuição de solicitação** separador para configurar definições para os pontos de distribuição de solicitação.
 
 -   Para transferir conteúdos a partir de uma origem ponto de distribuição numa floresta remota, o computador que aloja o ponto de distribuição de solicitação tem de ter um cliente de Configuration Manager instalado. Uma conta de acesso de rede que tenha acesso ao ponto de distribuição de origem tem de ser configurada para utilização.  
 

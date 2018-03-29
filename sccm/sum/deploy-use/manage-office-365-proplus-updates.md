@@ -6,18 +6,18 @@ keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/26/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: ''
 ms.technology:
 - configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: 5bd1a3afd7957e4db1b43e344a7b88e18de50695
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 4fbbe4b6792c51cd7adeeae3a96f81927153362c
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gerir o Office 365 ProPlus com o Configuration Manager
 
@@ -174,6 +174,17 @@ Utilize o procedimento seguinte no ponto de atualização de software no site de
 11. Agora quando transferir atualizações do Office 365, serão transferidas as atualizações nos idiomas de que seleciona no assistente e configurado neste procedimento. Para verificar se as atualizações de transferir nos idiomas corretos, avance para a origem do pacote para a atualização e procurarem ficheiros com o código de idioma no nome de ficheiro.  
 ![Nomes de ficheiros com outros idiomas](..\media\5-verification.png)
 
+## <a name="updating-office-365-during-task-sequences-when-office-365-is-installed-in-the-base-image"></a>A atualização do Office 365 durante a sequências de tarefas quando o Office 365 é instalado na imagem de base
+Quando instala um sistema operativo em que o Office 365 já está instalada na imagem, é possível que o valor de chave do registo de canal de atualização tem a localização de instalação original. Neste caso, a análise de atualização não apresentará quaisquer atualizações de cliente do Office 365 conforme aplicável. Há uma tarefa agendada de atualizações automáticas Office que é executada várias vezes por semana. Após a execução da tarefa, o canal de atualização irá apontar para o URL de CDN configurado do Office e a análise, em seguida, irá mostrar estas atualizações, conforme aplicável. <!--510452-->
+
+Para garantir que o canal de atualização está definido para que as atualizações aplicáveis serão consideradas, efetue os seguintes passos:
+1. Num computador com a mesma versão do Office 365 como a imagem base do SO, abra o Programador de tarefas (taskschd.msc) e identificar a tarefa de atualizações automáticas do Office 365. Normalmente, este ficará localizado em **biblioteca do Programador de tarefas** >**Microsoft**>**Office**.
+2. O rato sobre o automático de atualizações de tarefas e selecione **propriedades**.
+3. Vá para o **ações** separador e clique em **editar**. Copie o comando e quaisquer argumentos. 
+4. Na consola do Configuration Manager, edite a sequência de tarefas.
+5. Adicione um novo **executar linha de comandos** passo antes do **instalar atualizações** passo da sequência de tarefas. 
+6. Copiar o comando e os argumentos que recolheu da tarefa agendada de atualizações automáticas do Office. 
+7. Clique em **OK**. 
 
 ## <a name="change-the-update-channel-after-you-enable-office-365-clients-to-receive-updates-from-configuration-manager"></a>Alterar o canal de atualização depois de ativar a clientes do Office 365 receber atualizações do Configuration Manager
 Para alterar o canal de atualização depois de ativar a clientes do Office 365 receber atualizações do Configuration Manager, utilize a política de grupo para distribuir uma alteração de valor de chave de registo para clientes do Office 365. Alterar o **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl** chave de registo para utilizar um dos seguintes valores:

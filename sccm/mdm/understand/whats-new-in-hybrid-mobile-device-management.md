@@ -1,9 +1,9 @@
 ---
-title: "Novidades da MDM híbrido"
+title: Novidades da MDM híbrido
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune."
+description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
 ms.custom: na
-ms.date: 03/01/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3b48c5296caecd66b5abb6d40578af2009ef0f11
-ms.sourcegitcommit: 6e4fca19083b5dbdcd841012f6e1051bb7c00eb8
+ms.openlocfilehash: 3c3d1c813c307e520b3a9709187937f0d3f732c7
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -41,6 +41,16 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 |**Novo no Microsoft Intune** | Em geral, todas as funcionalidades listadas nesta categoria devem funcionar com todas as versões do Configuration Manager. Versões este incluindo System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades apenas requerem o serviço do Intune e não necessitam de funcionalidades adicionais no Configuration Manager.|
 |**Novo no Configuration Manager Technical Preview**| Todas as funcionalidades listadas na categoria deste só funcionam com a versão de pré-visualização técnica especificada. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição da funcionalidade. Para obter mais informações, consulte [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Novo no Configuration Manager (ramo atual)**| Todas as funcionalidades listadas na categoria deste funcionam apenas com a versão especificada do Configuration Manager (ramo atual), como versão 1511 ou 1602. Se estiver a utilizar uma versão mais antiga do Configuration Manager para a implementação híbrida, tem de atualizar para a versão do Configuration Manager (ramo atual) especificada na descrição da funcionalidade. Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+
+
+## <a name="march-2018"></a>De 2018 Março
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="azure-active-directory-web-sites-can-require-the-intune-managed-browser-app-and-support-single-sign-on-for-the-managed-browser-public-preview"></a>Azure Active Directory web sites pode exigir a aplicação de Browser gerido do Intune e suporta o início de sessão único para o Browser gerido (pré-visualização pública)
+<!-- 710595 --> 
+Utilizar o Azure Active Directory (Azure AD), pode agora restringir o acesso aos sites nos dispositivos móveis para a aplicação de Browser gerido do Intune. Num browser gerido, os dados do web site irão permanecer segura e separado dos dados pessoais do utilizador final. Além disso, o Browser gerido irá suportar capacidades de início de sessão único para os sites protegidos pelo Azure AD. Iniciar sessão para o Browser gerido ou utilizar o Browser gerido num dispositivo com outra aplicação gerida pelo Intune, permite que o Browser gerido aceder aos sites empresariais protegidos pelo Azure AD sem o necessidade de introduzir as respetivas credenciais do utilizador. Esta funcionalidade aplica-se a sites, como o Outlook Web Access (OWA) e ao SharePoint Online, bem como outros sites empresariais, como recursos de intranet acedidos através do Proxy de aplicações do Azure.
 
 
 
@@ -456,6 +466,35 @@ As seguintes funcionalidades adicionais híbrida também estão incluídas na ve
 
 
 ## <a name="notices"></a>Avisos
+
+### <a name="windows-company-portal-send-feedback-option-may-no-longer-work"></a>Opção de comentários enviar Windows empresa Portal poderá deixará de funcionar
+
+A aplicação Portal da empresa do Windows tem uma opção de 'Enviar Comentários' permitir que os utilizadores para enviar comentários sobre a aplicação à Microsoft. De 30 de Abril de 2018, esta opção continua a ser suportada apenas na aplicação Portal da empresa do Windows 10 em execução no Windows 10 versão 1607 e posterior.   
+
+#### <a name="how-does-this-affect-me"></a>Como Isto afeta-me?
+
+Se não tiver a aplicação Portal da empresa do Windows instalada para os utilizadores finais,. a ignorar esta mensagem.
+
+Se tiver qualquer um dos seus utilizadores finais a aplicação Portal da empresa, tenha em atenção que a partir 30 de Abril, o botão 'Enviar Comentários' já não funciona para a aplicação nos seguintes cenários:  
+
+ - Aplicação do Portal da empresa do Windows 10 no Windows 10 versão 1507 e a versão 1511  
+
+ - Aplicação do Portal da empresa do Windows Phone 8.1  
+
+Para os dispositivos afetados, a opção 'Enviar Comentários' falha e não for bem sucedido, mesmo em Repetir. Para enviar comentários à Microsoft sobre experiências nas plataformas seguintes, existem comentários alternativo canais listados abaixo.
+
+#### <a name="what-do-i-need-to-do-to-prepare-for-this-change"></a>O que é necessário para se preparar para que esta alteração?
+
+Volte a informar os utilizadores finais desta alteração e atualizar as orientações para o utilizador, se necessário. 
+
+Informe os utilizadores finais utilizando o Portal da empresa no Windows Phone 8.1, Windows 10 versão 1507 e Windows 10 versão 1511 que têm dois canais de comentários alternativo disponíveis. Estes requisitos podem:  
+
+- Utilize os comentários Hub aplicação no Windows 10  
+- Envie um e-mail para WinCPfeedback@microsoft.com  
+
+Peça aos utilizadores finais no Windows 10 versão 1607 ou posterior para atualizar para a versão mais recente do Windows Portal da empresa disponíveis no Microsoft Store.
+
+
 
 ### <a name="company-portal-for-windows-81-and-windows-phone-81-moving-to-sustaining-mode"></a>Portal para Windows 8.1 e Windows Phone 8.1 Mover para sustaining modo de empresa 
 <!--1428681-->

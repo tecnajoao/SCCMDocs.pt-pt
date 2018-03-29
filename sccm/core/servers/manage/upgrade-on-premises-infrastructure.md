@@ -12,20 +12,20 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
-caps.latest.revision: 
-caps.handback.revision: 
+caps.latest.revision: ''
+caps.handback.revision: ''
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 8e17ffad2b972119c92e449bef8f086b950b106c
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+ms.openlocfilehash: 5c4403588872e426a9346e6c4c50f1853b75f4b9
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Atualizar a infraestrutura no local que suporta o System Center Configuration Manager
 
-Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Utilize as informações neste artigo para o ajudar a atualizar a infraestrutura de servidor que executa o System Center Configuration Manager.  
 
@@ -74,6 +74,8 @@ Quando atualizar o Windows Server 2012 ou Windows Server 2012 R2 para Windows Se
 -   Certifique-se de que cada servidor que aloja uma função de sistema de sites continua a corresponder a todos os o [pré-requisitos para funções do sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) que são executadas nesse servidor. Por exemplo, poderá ter de reinstalar o BITS, o WSUS, ou configurar definições específicas do IIS.
 
 -   Depois de restaurar os pré-requisitos em falta, reinicie o servidor mais uma vez para garantir que os serviços são iniciadas e operacional.
+
+-   Se estiver a atualizar o servidor de site primário, em seguida, [executar uma reposição do site](/sccm/core/servers/manage/modify-your-infrastructure#bkmk_reset).
 
 **Problema conhecido para consolas remotas do Configuration Manager:**  
 Depois de atualizar o servidor do site ou um servidor que aloja uma instância de SMS_Provider para Windows Server 2016, os utilizadores administrativos poderão não conseguir ligar uma consola do Configuration Manager para o site. Para contornar este problema, tem de restaurar manualmente as permissões para o grupo de Admins de SMS no WMI. Tem de ser definidas permissões no servidor do site e, em cada servidor remoto que aloja uma instância do SMS_Provider:

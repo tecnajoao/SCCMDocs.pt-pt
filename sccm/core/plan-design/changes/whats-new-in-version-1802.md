@@ -15,11 +15,11 @@ ms.assetid: 5bd637b1-d7a1-411b-877a-c7aae9741173
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 4582d1105f2465c37e001570227112bfca3bad1c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 9c9ff975a58e7c56375fa7740a0a5bb6ebfa6341
+ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-version-1802-of-system-center-configuration-manager"></a>Novidades na versão 1802 do System Center Configuration Manager
 
@@ -125,9 +125,9 @@ Quando criar uma instância do [gateway de gestão de nuvem](/sccm/core/clients/
 - A documentação de funcionalidade é revista e avançada. Para obter mais informações, consulte os artigos seguintes:
     - [Planear para o gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway)
     - [Tamanho da gestão do gateway de nuvem e números de escala](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg)
-    - [Segurança e privacidade para o gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
+    - [Segurança e privacidade para o gateway de gestão na cloud ](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
     - [Perguntas mais frequentes sobre o gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
-    - [Certificados para o gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway)
+    - [Certificados para o gateway de gestão na cloud](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway)
     - [Configurar o gateway de gestão na cloud](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway)  
 
 
@@ -149,8 +149,8 @@ O dashboard de dispositivo superfície fornece informações sobre os dispositiv
 Para obter mais informações, consulte o [dashboard superfície](/sccm/core/clients/manage/surface-device-dashboard) artigo.
 
 ### <a name="change-in-the-configuration-manager-client-install"></a>Instalar a alteração no cliente do Configuration Manager
-<!--1356195-->|
-A partir desta versão, Silverlight está já não está instalado nos dispositivos cliente automaticamente. Para obter mais informações, consulte [fo pré-requisitos implementar clientes em computadores Windows](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.#BKMK_ExternalDependencies)
+<!--1356195-->
+A partir desta versão, Silverlight está já não está instalado nos dispositivos cliente automaticamente. Para obter mais informações, consulte [pré-requisitos para implementar clientes em computadores Windows](/sccm/core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers#bkmk_ExternalDependencies)
 
 ## <a name="co-management"></a>Gestão conjunta
 

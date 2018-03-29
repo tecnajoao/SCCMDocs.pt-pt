@@ -17,11 +17,11 @@ caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 42b9364fc88acc3f403db8d2ca9243a117fd78bf
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: bd03457abdd5cc4464c10227626ba72637c96f90
+ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
@@ -801,8 +801,9 @@ Esta definição configura a porta local para o serviço de escuta HTTP transfer
 
 Quando definir esta opção para **Sim**, permite que a configuração das definições de instalação do Office 365. Também lhe permite transferir os ficheiros de redes de entrega de conteúdo (CDNs) do Office e implementar os ficheiros como uma aplicação no Configuration Manager. Para obter mais informações, consulte [gerir o Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates).
 
+### <a name="enable-third-party-software-updates"></a>Ativar atualizações de software de terceiros 
 
-
+Quando definir esta opção para **Sim**, define a política para 'Permitir assinado atualizações para uma localização do serviço do Microsoft update de intranet' e instala o certificado de assinatura para o arquivo de publicador fidedigna no cliente. Esta definição de cliente foi adicionado no Configuration Manager versão 1802.
 ## <a name="state-messaging"></a>Mensagens de estado
 
 ### <a name="state-message-reporting-cycle-minutes"></a>Mensagem de estado (minutos) de ciclo de comunicação
