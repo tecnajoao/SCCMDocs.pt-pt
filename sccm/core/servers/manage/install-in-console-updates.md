@@ -3,7 +3,7 @@ title: Atualizações na consola
 titleSuffix: Configuration Manager
 description: Instalar atualizações para o Configuration Manager a partir da nuvem da Microsoft
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
-caps.latest.revision: ''
+caps.latest.revision: 36
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 5d364e35c8777c782499da978f0d1a31694278cc
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 054bbd8e7b1dd3f5d565afe60eb7e3379cc7a9ee
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Instalar atualizações na consola para o System Center Configuration Manager
 
@@ -217,6 +217,10 @@ Depois de um site de administração central ou site primário, cada consola do 
 Recomendamos que instale a atualização imediatamente.  
 
 Quando a atualização da consola estiver concluída, pode verificar se a versão da consola e do site está correta. Aceda a **sobre o System Center Configuration Manager** no canto superior esquerdo da consola.  
+
+ > [!Note]  
+ > A partir de versão 1802, a versão da consola agora é ligeiramente diferente da versão do site. A versão secundária da consola agora corresponde à versão de lançamento do Configuration Manager. Por exemplo, no Configuration Manager versão 1802 a versão do site inicial é 5.0.8634.1000 e a versão da consola inicial é 5. **1802**.1082.1700. A compilação (1082) e números de revisão (1700) podem ser alteradas com correções futuras para a versão de 1802.
+
 
 
 ###  <a name="bkmk_toptier"></a> Para iniciar a instalação da atualização no site de nível superior  

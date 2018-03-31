@@ -1,9 +1,9 @@
 ---
-title: Atualizações
+title: Atualizações e Manutenção
 titleSuffix: Configuration Manager
-description: Saiba mais sobre um método de manutenção na consola denominado **atualizações e manutenção** que torna mais fácil localizar e instalar atualizações recomendadas.
+description: Saiba mais sobre um método de manutenção na consola denominado atualizações e manutenção que torna mais fácil localizar e instalar atualizações recomendadas.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a832943-580a-4a40-b454-961d0854ac2b
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 51
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 8be32aa07819239820711079e4ff3637e96367db
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+manager: dougeby
+ms.openlocfilehash: 7660736dbacebb7167cb6bd19d7590d7f774e17c
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Atualizações para o System Center Configuration Manager
 
@@ -90,6 +90,10 @@ As seguintes versões do Configuration Manager estão disponíveis como linha de
 *(Nota 1)*  o suporte de dados de linha de base 1802 e 1702 está disponíveis como parte do Microsoft System Center 2016 ou o System Center Configuration Manager (ramo atual e ramo de manutenção de longo prazo) versões no [Centro de serviços de licenciamento de Volume](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Por exemplo, no VLSC pode procurar *System Center Config Mgr (ramo atual e LTSB)*, e 1802 e 1702 versão da linha de base suporte de dados é devolvidos e disponível para transferência.
 
 Para verificar a versão do seu site do Configuration Manager, aceda a **Acerca do System Center Configuration Manager** no canto superior esquerdo da consola onde é apresentada a nova versão da consola e do site.  
+
+ > [!Note]  
+ > A partir de versão 1802, a versão da consola agora é ligeiramente diferente da versão do site. A versão secundária da consola agora corresponde à versão de lançamento do Configuration Manager. Por exemplo, no Configuration Manager versão 1802 a versão do site inicial é 5.0.8634.1000 e a versão da consola inicial é 5. **1802**.1082.1700. A compilação (1082) e números de revisão (1700) podem ser alteradas com correções futuras para a versão de 1802.
+
 
 ##  <a name="bkmk_inconsole"></a> Atualizações e manutenção na consola  
  Ao utilizar uma instalação pronta para produção do System Center Configuration Manager, também referida como ramo atual, a maioria das atualizações que instalar estão disponíveis utilizando as atualizações e manutenção de canal. Este método identifica, transfere e disponibiliza as atualizações que se apliquem à sua versão e configuração de infraestrutura atuais, incluindo apenas as atualizações recomendadas pela Microsoft a todos os clientes.   

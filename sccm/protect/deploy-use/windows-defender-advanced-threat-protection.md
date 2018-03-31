@@ -1,39 +1,40 @@
 ---
 title: O Windows Defender Advanced Threat Protection
 titleSuffix: Configuration Manager
-description: "Saiba como gerir e monitorizar o Windows Defender avançadas Threat Protection, um novo serviço que ajuda as empresas responder a ataques avançados."
+description: Saiba como gerir e monitorizar o Windows Defender avançadas Threat Protection, um novo serviço que ajuda as empresas responder a ataques avançados.
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a5fc033e-828e-4e45-9097-bbbd0697ebdf
-caps.latest.revision: "5"
+caps.latest.revision: 5
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 561a03c7046accaa8e6d36407c75cbd4248188ce
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 84786d741eda2be24a7deb39478e68c68adc38fe
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-defender-advanced-threat-protection"></a>O Windows Defender Advanced Threat Protection
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-A partir da versão 1606 do Configuration Manager (ramo atual), Endpoint Protection pode ajudar a gerir e monitorizar o Windows Defender Advanced Threat Protection (ATP. Windows Defender ATP é um novo serviço que o irão ajudar as empresas para detetar, analisar e responder a ataques avançados nas respetivas redes.  Saiba mais sobre [Windows Defender ATP](http://aka.ms/technet-wdatp). Políticas do Gestor de configuração podem ajudá-lo com a sua integração e monitor geridos Windows 10, versão 1607 (criar 14328) ou posterior.
+A partir da versão 1606 do Configuration Manager (ramo atual), Endpoint Protection pode ajudar a gerir e monitorizar [Windows Defender Advanced Threat Protection (ATP)](http://aka.ms/technet-wdatp). Windows Defender ATP ajuda as empresas detetar, investigar e responder a ataques avançados nas respetivas redes.  As políticas do Configuration Manager ou o Microsoft Intune podem ajudá-lo com a sua integração e monitor geridos Windows 10, versão 1607 (criar 14328) ou posterior.
 
-Windows Defender ATP é um serviço no [Centro de segurança do Windows](https://securitycenter.windows.com). Ao adicionar e implementar um ficheiro de configuração de integração do cliente, o Configuration Manager pode monitorizar o estado de implementação e funcionamento de agente do Windows Defender ATP. Windows Defender ATP só é suportada em computadores que executam o cliente do Configuration Manager. Gestão de dispositivos móveis no local e a computadores de geridos por MDM híbrida do Intune não são suportados.
+Windows Defender ATP é um serviço no [Centro de segurança do Windows Defender](https://securitycenter.windows.com). Ao adicionar e implementar um ficheiro de configuração de integração do cliente, o Configuration Manager pode monitorizar o estado de implementação e funcionamento de agente do Windows Defender ATP. Windows Defender ATP é suportada em computadores que executam o cliente do Configuration Manager ou gerido pelo Microsoft Intune, mas a computadores de geridos por MDM híbrida do Intune não são suportadas.
 
  **Pré-requisitos**  
 
 -   Subscrição do serviço online do Windows Defender Advanced Threat Protection  
 -   Computadores de clientes com o Windows 10, versão 1607 e posterior  
--   Computadores de clientes com a versão do Configuration Manager 1610 ou posterior do agente do cliente
+-   Computadores de clientes com a versão do Configuration Manager 1610 ou posterior do agente de cliente ou geridos pelo Microsoft Intune
 
 ## <a name="how-to-create-an-onboarding-configuration-file"></a>Como criar um ficheiro de configuração de integração  
 

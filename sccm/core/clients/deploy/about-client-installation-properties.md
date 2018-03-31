@@ -3,7 +3,7 @@ title: Propriedades de instalação do cliente
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as propriedades da linha de comandos do ccmsetup para instalar o cliente do Configuration Manager.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c890fd27-7a8c-4f51-bbe2-f9908af1f42b
-caps.latest.revision: ''
+caps.latest.revision: 15
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 057b078767a08574a806cb6af1cdb3812148a457
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 40e844fbb15a101574d9628648dde0db59c855c4
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Acerca das propriedades de instalação do cliente no System Center Configuration Manager
 
@@ -78,7 +78,7 @@ Utilize o comando CCMSetup.exe para instalar o cliente do Configuration Manager.
 
 
 
-##  <a name="ccmsetupexe-command-line-properties"></a>Propriedades de Linha de Comandos do CCMSetup.exe  
+##  <a name="ccmsetupexe-command-line-properties"></a>Propriedades da linha de comandos do CCMSetup.exe  
 
 ### <a name=""></a>/?  
 
@@ -250,6 +250,20 @@ Exemplo: `CCMSetup.exe /ExcludeFeatures:ClientUI` não instala o Centro de Softw
 
 
 
+## <a name="ccmsetupMsiProps"></a> Propriedades de Ccmsetup.msi  
+ As seguintes propriedades, podem modificar o comportamento de instalação de ccmsetup.msi.
+
+### <a name="ccmsetupcmd"></a>CCMSETUPCMD 
+
+Especifica as propriedades da linha de comandos que são transmitidas para ccmsetup.exe depois de ser instalado por ccmsetup.msi. Inclua outras propriedades dentro de aspas. Utilize esta propriedade quando bootstrapping cliente do Configuration Manager utilizando o método de instalação de MDM do Intune. 
+
+Exemplo: `ccmsetup.msi CCMSETUPCMD="/mp:https://mp.contoso.com CCMHOSTNAME=mp.contoso.com"`
+
+ > [!Tip]
+ > Microsoft Intune limita a linha de comandos a 1024 carateres. 
+
+
+
 ##  <a name="clientMsiProps"></a> Propriedades de Client.msi  
  As seguintes propriedades podem modificar o comportamento de instalação de client.msi. Se utilizar o método de instalação push do cliente, também pode especificar as propriedades no separador **Cliente** da caixa de diálogo **Propriedades da Instalação Push do Cliente** .  
 
@@ -282,16 +296,16 @@ Especifica o identificador de inquilino do Azure AD. Este inquilino está ligado
 
 Exemplo: `ccmsetup.exe AADTENANTID=607b7853-6f6f-4d5d-b3d4-811c33fdd49a`
 
+<!-- 
+### AADTENANTNAME
 
-### <a name="aadtenantname"></a>AADTENANTNAME
+Specifies the Azure AD tenant name. This tenant is linked to Configuration Manager when you [configure Azure services](/sccm/core/servers/deploy/configure/azure-services-wizard) for Cloud Management. To obtain the value for this property, use the following steps:
+- On a Windows 10 device that is joined to the same Azure AD tenant, open a command prompt.
+- Run the following command: `dsregcmd.exe /status`
+- In the Device State section, find the **TenantName** value. For example, `TenantName : Contoso`
 
-Especifica o nome de inquilino do Azure AD. Este inquilino está ligado ao Configuration Manager quando tiver [configurar os serviços do Azure](/sccm/core/servers/deploy/configure/azure-services-wizard) para gestão de nuvem. Para obter o valor para esta propriedade, utilize os seguintes passos:
-- Num dispositivo Windows 10 que está associado ao mesmo inquilino do Azure AD, abra uma linha de comandos.
-- Execute o seguinte comando: `dsregcmd.exe /status`
-- A secção de estado do dispositivo, localize o **TenantName** valor. Por exemplo, `TenantName : Contoso`
-
-Exemplo: `ccmsetup.exe AADTENANTNAME=Contoso`
-
+Example: `ccmsetup.exe AADTENANTNAME=Contoso`
+-->
 
 ### <a name="ccmadmins"></a>CCMADMINS  
 
@@ -637,7 +651,7 @@ Exemplo: `CCMSetup.exe SMSMP=https://smsmp01.contoso.com`
 
  Exemplo: `CCMSetup.exe SMSSITECODE=XZY`  
 
-##  <a name="BKMK_attributevalues"></a> Valores de Atributo Suportados para os Critérios de Seleção de Certificado PKI  
+##  <a name="BKMK_attributevalues"></a> Valores de atributo suportados para os critérios de seleção de certificado PKI  
  O Configuration Manager suporta os seguintes valores de atributo para os critérios de seleção de certificado PKI:  
 
 |Atributo OID|Atributo de Nome Único|Definição do atributo|  

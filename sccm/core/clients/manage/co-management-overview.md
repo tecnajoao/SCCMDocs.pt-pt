@@ -6,17 +6,17 @@ keywords: ''
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: ''
 ms.technology: ''
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: e4b8bd58d30cd87ffc461289edbfc5da9a684cda
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: cda2ef22bbfb86d0c25c44d5b97b0e1551010374
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
 <!-- 1350871 -->
@@ -41,7 +41,7 @@ Seguem-se pré-requisitos gerais para a ativar a gestão conjunta:
 
 
    > [!Note]  
-   > Se tiver um ambiente de MDM híbrido (Intune integrado com o Configuration Manager), não é possível ativar a gestão de conjunta. Se estiver interessado em migrar para o Intune autónomo, consulte o artigo [começar a migrar do MDM híbrido para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).
+   > Se tiver um ambiente de MDM híbrido (Intune integrado com o Configuration Manager), não é possível ativar a gestão de conjunta. No entanto, pode começar a migrar os utilizadores ao Intune autónomo e, em seguida, ativar os dispositivos Windows 10 associados para gestão conjunta. Para obter mais informações sobre como migrar para o Intune autónomo, consulte [começar a migrar do MDM híbrido para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).
 
 ### <a name="additional-prerequisites-for-devices-with-the-configuration-manager-client"></a>Pré-requisitos adicionais para dispositivos com o cliente do Configuration Manager
 - Windows 10, versão 1709 (também conhecido como a atualização de criadores de reversão) e posterior

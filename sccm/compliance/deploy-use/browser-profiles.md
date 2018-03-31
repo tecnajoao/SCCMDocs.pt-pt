@@ -5,17 +5,17 @@ description: Configurar definições do browser Microsoft Edge em clientes do Wi
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.topic: article
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
 ms.assetid: 76477b4d-df41-4b25-8318-7d18d46ca2c6
-ms.openlocfilehash: 57393c00faa0cc26d785d91ad1c6ecb9407ba5da
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: cb162e030249b02018af52ad3266b6b8df5ce355
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-microsoft-edge-settings-in-system-center-configuration-manager"></a>Configurar definições do Microsoft Edge no System Center Configuration Manager
 
@@ -24,6 +24,7 @@ ms.lasthandoff: 03/23/2018
 <!-- 1357310 -->
 A partir de versão 1802, para os clientes que utilizam o [Microsoft Edge](https://technet.microsoft.com/microsoft-edge/bb265256) web browser em clientes Windows 10, crie uma política de definições de compatibilidade do Configuration Manager para configurar várias definições do Microsoft Edge. 
 
+Esta política aplica-se apenas aos clientes no Windows 10, versão 1703 ou posterior. <!--511552-->
 
 
 ## <a name="policy-settings"></a>Definições de política

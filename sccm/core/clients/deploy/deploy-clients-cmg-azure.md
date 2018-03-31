@@ -3,7 +3,7 @@ title: Instalar o cliente com o Azure AD
 titleSuffix: Configuration Manager
 description: Instale e atribua o cliente do Configuration Manager em dispositivos Windows 10 com o Azure Active Directory para autenticação
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 03/28/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a44006eb-8650-49f6-94e1-18fa0ca959ee
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 14
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 903dc7cd6347579e75487c3d8a8bd33b1b2c24d5
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: 12fc1b394ae98c2b384630f4a00e4239e4e8d9d6
+ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-and-assign-configuration-manager-windows-10-clients-using-azure-ad-for-authentication"></a>Instale e atribua os clientes do Configuration Manager Windows 10 com o Azure AD para autenticação
 
@@ -89,7 +89,7 @@ Para instalar manualmente o cliente utilizando a identidade do Azure AD, reveja 
  > [!Note]  
  > O dispositivo precisa de acesso à internet para contactar o Azure AD, mas não tem de ser baseado na internet. 
 
-O exemplo seguinte mostra a estrutura geral da linha de comandos: `ccmsetup.exe /mp:<source management point> CCMHOSTNAME=<internet-based management point> SMSSiteCode=<site code> SMSMP=<initial management point> AADTENANTID=<Azure AD tenant identifier> AADTENANTNAME=<Azure AD tenant name> AADCLIENTAPPID=<Azure AD client app identifier> AADRESOURCEURI=<Azure AD server app identifier>`
+O exemplo seguinte mostra a estrutura geral da linha de comandos: `ccmsetup.exe /mp:<source management point> CCMHOSTNAME=<internet-based management point> SMSSiteCode=<site code> SMSMP=<initial management point> AADTENANTID=<Azure AD tenant identifier> AADCLIENTAPPID=<Azure AD client app identifier> AADRESOURCEURI=<Azure AD server app identifier>`
 
 Para obter mais informações, consulte [as propriedades de instalação de cliente](/sccm/core/clients/deploy/about-client-installation-properties).
 
@@ -98,7 +98,7 @@ As propriedades CCMHOSTNAME e /mp especificam um dos seguintes, consoante o cen�
 - Gateway de gestão de nuvem
 - Especifica o ponto de gestão baseado na Internet propriedade SMSMP o no local ou ponto de gestão baseado na internet.
 
-Este exemplo utiliza um gateway de gestão de nuvem. -Substitui os valores de exemplo para cada propriedade: `ccmsetup.exe /mp:https://CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=ABC SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADTENANTNAME=contoso AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://contososerver`
+Este exemplo utiliza um gateway de gestão de nuvem. -Substitui os valores de exemplo para cada propriedade: `ccmsetup.exe /mp:https://CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=ABC SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://contososerver`
 
 Para automatizar a instalação de cliente através da identidade do Azure AD através do Microsoft Intune, consulte o processo para [dispositivos de preparar o Windows 10 para gestão conjunta](/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).
 
