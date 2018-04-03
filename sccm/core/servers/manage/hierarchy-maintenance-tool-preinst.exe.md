@@ -1,18 +1,19 @@
 ---
-title: "Ferramenta manutenção da hierarquia"
+title: Ferramenta manutenção da hierarquia
 titleSuffix: Configuration Manager
-description: "Compreender o que faz a ferramenta manutenção da hierarquia, e por isso, poderá utilizá-lo. Inclui referência de opções da linha de comandos."
+description: Compreender o que faz a ferramenta manutenção da hierarquia, e por isso, poderá utilizá-lo. Inclui referência de opções da linha de comandos.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cead6825-6113-4ba5-a381-ac3598dfee86
-caps.latest.revision: "7"
-caps.handback.revision: "0"
+caps.latest.revision: 7
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
@@ -47,14 +48,14 @@ Quando utilizar a Ferramenta Manutenção da Hierarquia, deve executá-la localm
 
 Quando executar a ferramenta manutenção da hierarquia, tem de utilizar a seguinte sintaxe: preinst.exe /&lt;opção\>. O que se segue são opções de linhas de comandos.  
 
- **/DELJOB &lt;* SiteCode*> * *-Utilize esta opção num site para eliminar todas as tarefas ou comandos desde o site atual até ao site de destino especificado.  
+ **/DELJOB &lt;*SiteCode*>** - Utilize esta opção num site para eliminar todas as tarefas ou comandos desde o site atual até ao site de destino especificado.  
 
- **/DELSITE &lt;* ChildSiteCodeToRemove*> * *-Utilize esta opção num site principal para eliminar os dados para sites subordinados a partir da base de dados do site do site principal. Normalmente, utilize esta opção se o computador de um servidor do site for encerrado antes de desinstalar o site desse computador.  
+ **/DELSITE &lt;*ChildSiteCodeToRemove*>** - Utilize esta opção num site principal para eliminar os dados para sites subordinados a partir da base de dados do site do site principal. Normalmente, utilize esta opção se o computador de um servidor do site for encerrado antes de desinstalar o site desse computador.  
 
 > [!NOTE]  
 >  A opção /DELSITE não desinstala o site no computador especificado pelo parâmetro ChildSiteCodeToRemove. Esta opção apenas remove as informações do site da base de dados do site do Configuration Manager.  
 
-**/DUMP &lt;* SiteCode*> * *-Utilize esta opção no servidor do local site para escrever as imagens de controlo do site para a pasta raiz da unidade em que a instalação do site. Pode escrever uma imagem de controlo do site específica na pasta ou escrever todos os ficheiros de controlo do site na hierarquia.  
+**/DUMP &lt;*SiteCode*>** - Utilize esta opção no servidor do local site para escrever as imagens de controlo do site para a pasta raiz da unidade em que a instalação do site. Pode escrever uma imagem de controlo do site específica na pasta ou escrever todos os ficheiros de controlo do site na hierarquia.  
 
 -   /DUMP &lt; *SiteCode*> escreve a imagem de controlo do site apenas para o site especificado.  
 
