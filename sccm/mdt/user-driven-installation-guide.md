@@ -1,10 +1,11 @@
 ---
-title: "Início rápido - instalação orientado por utilizador"
+title: Início rápido - instalação orientado por utilizador
 titleSuffix: Microsoft Deployment Toolkit
-description: "Um guiide de início rápido para utilizar o Microsoft Deployment Toolkit para instalação orientado por utilizador. "
+description: 'Um guiide de início rápido para utilizar o Microsoft Deployment Toolkit para instalação orientado por utilizador. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: dcddc250-9361-4e69-af45-472da4ef5fd5
 author: aczechowski
@@ -290,10 +291,10 @@ ms.lasthandoff: 01/16/2018
 
 |**Criar esta conta** |**Com estas definições** |  
 |-|-|  
-|Conta de serviço do SQL Server Agent|1.  No **nome próprio**, tipo **SQL Agent**.<br />2.  No **Apelido**, tipo **conta de serviço**.<br />3.  No **nome de início de sessão do utilizador**, tipo **SQLAgent**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** .<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  Torne a conta de um membro do grupo de segurança Admins do domínio.<br />8.  No **Descrição**, tipo **Service conta utilizada para executar o serviço do agente do SQL Server 2008 R2**.|  
-|Conta de serviço do motor de base de dados do SQL Server|1.  No **nome próprio**, tipo **motor de base de dados do SQL Server**.<br />2.  No **Apelido**, tipo **conta de serviço**.<br />3.  No **nome de início de sessão do utilizador**, tipo **SQLDBEngine**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** .<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  Torne a conta de um membro do grupo de segurança Admins do domínio.<br />8.  No **Descrição**, tipo **Service conta utilizada para executar o motor de base de dados do SQL Server 2008 R2**.|  
-|Conta de serviço do SQL Server Reporting Services|1.  No **nome próprio**, tipo **SQL Reporting**.<br />2.  **No último nome**, tipo **conta de serviço**.<br />3.  No **nome de início de sessão do utilizador**, tipo **SQLReport**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** .<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  Torne a conta de um membro do grupo de segurança Admins do domínio.<br />8.  No **Descrição**, tipo **Service conta utilizada para executar o SQL Server 2008 R2 reporting services**.|  
-|Conta de acesso de rede do cliente do System Center Configuration Manager do sistema|1.  No **nome próprio**, tipo **CM 2012**.<br />2.  No **Apelido**, tipo **acesso de rede do cliente**.<br />3.  No **início de sessão do utilizador** nome, escreva **CMNetAccess**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** .<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  No **Descrição**, tipo **utilizada como a conta de acesso de rede para o cliente do Configuration Manager de conta de serviço**.|  
+|Conta de serviço do SQL Server Agent|1.  No **nome próprio**, tipo **SQL Agent**.<br />2.  No **Apelido**, tipo **conta de serviço**.<br />3.  No **nome de início de sessão do utilizador**, tipo **SQLAgent**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**.<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  Torne a conta de um membro do grupo de segurança Admins do domínio.<br />8.  No **Descrição**, tipo **Service conta utilizada para executar o serviço do agente do SQL Server 2008 R2**.|  
+|Conta de serviço do motor de base de dados do SQL Server|1.  No **nome próprio**, tipo **motor de base de dados do SQL Server**.<br />2.  No **Apelido**, tipo **conta de serviço**.<br />3.  No **nome de início de sessão do utilizador**, tipo **SQLDBEngine**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**.<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  Torne a conta de um membro do grupo de segurança Admins do domínio.<br />8.  No **Descrição**, tipo **Service conta utilizada para executar o motor de base de dados do SQL Server 2008 R2**.|  
+|Conta de serviço do SQL Server Reporting Services|1.  No **nome próprio**, tipo **SQL Reporting**.<br />2.  **No último nome**, tipo **conta de serviço**.<br />3.  No **nome de início de sessão do utilizador**, tipo **SQLReport**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**.<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  Torne a conta de um membro do grupo de segurança Admins do domínio.<br />8.  No **Descrição**, tipo **Service conta utilizada para executar o SQL Server 2008 R2 reporting services**.|  
+|Conta de acesso de rede do cliente do System Center Configuration Manager do sistema|1.  No **nome próprio**, tipo **CM 2012**.<br />2.  No **Apelido**, tipo **acesso de rede do cliente**.<br />3.  No **início de sessão do utilizador** nome, escreva **CMNetAccess**.<br />4.  No **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**.<br />5.  Limpar o **o utilizador deve alterar a palavra-passe no próximo início de sessão** caixa de verificação.<br />6.  Selecione o **palavra-passe nunca expira** caixa de verificação.<br />7.  No **Descrição**, tipo **utilizada como a conta de acesso de rede para o cliente do Configuration Manager de conta de serviço**.|  
 
 ###  <a name="InstallSQLServer2008"></a>Passo 1 e 9: Instale o SQL Server 2008 R2  
  Antes de instalar o Configuration Manager, instale o SQL Server 2008 R2 SP1 e CU6.  
@@ -327,7 +328,7 @@ ms.lasthandoff: 01/16/2018
     |**Regras de instalação** |Clique em **Seguinte**.|  
     |**Configuração de instância** |Clique em **Seguinte**.|  
     |**Requisitos de espaço em disco** |Clique em **Seguinte**.|  
-    |**Configuração do servidor** |1.  Para **do SQL Server Agent**, na **nome da conta**, tipo **MDT2013\SQLAgent**, na **palavra-passe**, tipo  **P@ssw0rd** .<br />2.  Para **motor de base de dados do SQL Server**, na **nome da conta**, tipo **MDT2013\SQLDBEngine**, na **palavra-passe**, tipo  **P@ssw0rd** .<br />3.  Para **SQL Server Reporting Services**, na **nome da conta**, tipo **MDT2013\SQLReport**, na **palavra-passe**, tipo  **P@ssw0rd** .<br />4.  Clique em **Seguinte**.|  
+    |**Configuração do servidor** |1.  Para **do SQL Server Agent**, na **nome da conta**, tipo **MDT2013\SQLAgent**, na **palavra-passe**, tipo **P@ssw0rd**.<br />2.  Para **motor de base de dados do SQL Server**, na **nome da conta**, tipo **MDT2013\SQLDBEngine**, na **palavra-passe**, tipo **P@ssw0rd**.<br />3.  Para **SQL Server Reporting Services**, na **nome da conta**, tipo **MDT2013\SQLReport**, na **palavra-passe**, tipo **P@ssw0rd**.<br />4.  Clique em **Seguinte**.|  
     |**Configuração do motor de base de dados** |Clique em **adicionar utilizador atual**e, em seguida, clique em **seguinte**.|  
     |**Configuração do Reporting Services** |Clique em **Seguinte**.|  
     |**Relatório de erros** |Clique em **Seguinte**.|  
@@ -493,8 +494,8 @@ ms.lasthandoff: 01/16/2018
     |**Para este** |**Fazê-lo** |  
     |-|-|  
     |**Nome de utilizador** |Tipo **MDT2013\CMNetAccess**.|  
-    |**Palavra-passe** |Tipo  **P@ssw0rd** .|  
-    |**Confirmar palavra-passe** |Tipo  **P@ssw0rd** .|  
+    |**Palavra-passe** |Tipo **P@ssw0rd**.|  
+    |**Confirmar palavra-passe** |Tipo **P@ssw0rd**.|  
 
 9. No **propriedades distribuição de Software** caixa de diálogo, clique em **OK**.  
 
@@ -734,7 +735,7 @@ ms.lasthandoff: 01/16/2018
     |**Escolha o modelo** |Selecione **sequência de tarefas de cliente**e, em seguida, clique em **seguinte**.|  
     |**Escolha o modelo: Geral** |1.  No **nome da sequência de tarefas**, tipo **implementação de referência do Windows 8.1**.<br />2.  No **comentários de sequência de tarefas**, tipo **sequência para implementar o Windows 8.1 para o computador de referência (WDG-REF-01) de tarefas**e, em seguida, clique em **seguinte**.|  
     |**Escolha o modelo: Detalhes** |1.  Clique em **aderir a um grupo de trabalho**.<br />2.  No **Workgroup**, tipo **WORKGROUP**.<br />3.  No **nome de utilizador**, tipo **Woodgrove Bank empregado**.<br />4.  No **nome da organização**, tipo **Banco Woodgrove**.<br />5.  No **chave de produto**, tipo ***product_key*** (onde *product_key* é a chave de produto para Windows 8.1).<br />6.  Clique em **Seguinte**.|  
-    |**Escolha o modelo: Capturar definições** |<ol><li>Clique em **esta sequência de tarefas pode ser utilizada para capturar e imagem**.</li><li>No **captura destino**, tipo  **\\\WDG-MDT-01\Capture$\WDG-REF-01.wim**.</li><li>No **conta para captura**, clique em **definir**.</li><li>Concluir o **conta de utilizador do Windows** caixa de diálogo, efetuando os seguintes passos:<br /><br /> <ol><li>No **nome de utilizador**, tipo **MDT2013\Administrator**.</li><li>No **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** .</li></ol></li><li>Clique em **OK**.</li><li>Clique em **Seguinte**.</li></ol>|  
+    |**Escolha o modelo: Capturar definições** |<ol><li>Clique em **esta sequência de tarefas pode ser utilizada para capturar e imagem**.</li><li>No **captura destino**, tipo  **\\\WDG-MDT-01\Capture$\WDG-REF-01.wim**.</li><li>No **conta para captura**, clique em **definir**.</li><li>Concluir o **conta de utilizador do Windows** caixa de diálogo, efetuando os seguintes passos:<br /><br /> <ol><li>No **nome de utilizador**, tipo **MDT2013\Administrator**.</li><li>No **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**.</li></ol></li><li>Clique em **OK**.</li><li>Clique em **Seguinte**.</li></ol>|  
     |**Imagem de arranque** |1.  Clique em **criar um novo pacote de imagem de arranque**.<br />2.  No **pasta de origem do pacote sejam criados**, tipo  **\\\WDG-MDT-01\Packages$\WINPE_Custom**e, em seguida, clique em **seguinte**.|  
     |**Imagem de arranque: Definições gerais** |1.  No **nome**, tipo **personalizada do Windows PE**.<br />2.  No **versão**, tipo **1.00**.<br />3.  No **comentários**, tipo **personalizado versão do Windows PE para serem utilizados na implementação de computadores de referência e de destino**e, em seguida, clique em **seguinte**.|  
     |**Imagem de arranque: Opções** |Em **plataforma**, clique em **x64**e, em seguida, clique em **seguinte**.|  
@@ -980,7 +981,7 @@ ms.lasthandoff: 01/16/2018
 
 7.  No **propriedades** separador, clique em **ativar a conta e especificar a palavra-passe de administrador local**.  
 
-8.  No **propriedades** separador **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** e, em seguida, clique em **aplicar** .  
+8.  No **propriedades** separador **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**e, em seguida, clique em **aplicar** .  
 
 9. Efetue quaisquer modificações adicionais para a sequência de tarefas que requer que o ambiente e, em seguida, clique em **OK**.  
 
@@ -1120,7 +1121,7 @@ ms.lasthandoff: 01/16/2018
     |**Selecione o tipo de suporte de dados** |1.  Clique em **suportes de dados**.<br />2.  Limpar o **permitir a implementação do sistema operativo autónoma** caixa de verificação.<br />3.  Clique em **Seguinte**.|  
     |**Selecione o tipo de suporte: Gestão de suporte de dados** |Clique em **suporte de dados baseado no Site**e, em seguida, clique em **seguinte**.|  
     |**Selecione o tipo de suporte: Tipo de suporte de dados** |No **ficheiro de multimédia**, tipo  **\\\WDG-MDT-01\Capture$\CM2012_TS_Boot_Media.iso**e, em seguida, clique em **seguinte**.|  
-    |**Selecione o tipo de suporte: Segurança** |No **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** e, em seguida, clique em **seguinte**.|  
+    |**Selecione o tipo de suporte: Segurança** |No **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**e, em seguida, clique em **seguinte**.|  
     |**Selecione o tipo de suporte: Imagem de arranque** |1.  No **imagem de arranque**, clique em **procurar**.<br />2.  No **selecionar uma imagem de arranque** caixa de diálogo, clique em **personalizada do Windows PE**e, em seguida, clique em **OK**.<br />3.  No **ponto de distribuição**, clique em  **\\\WDG-MDT-01.mdt2013.corp.woodgrovebank.com**e, em seguida, clique em **OK**.<br />4.  No **ponto de gestão**, clique em  **\\\WDG-MDT-01.mdt2013.corp.woodgrovebank.com**e, em seguida, clique em **OK**.<br />5.  Clique em **Seguinte**.|  
     |**Selecione o tipo de suporte: Personalização** |Clique em **Seguinte**.|  
     |**Resumo** |Reveja as informações de **detalhes** caixa que forneceu ao concluir as páginas do assistente anterior e, em seguida, clique em **seguinte**.|  
@@ -1151,7 +1152,7 @@ ms.lasthandoff: 01/16/2018
 
     |**Na página do Assistente** |**Fazê-lo** |  
     |-|-|  
-    |**Bem-vindo ao Assistente de sequência de tarefas** |No **palavra-passe**, tipo  **P@ssw0rd** e, em seguida, clique em **seguinte**.|  
+    |**Bem-vindo ao Assistente de sequência de tarefas** |No **palavra-passe**, tipo **P@ssw0rd**e, em seguida, clique em **seguinte**.|  
     |**Selecione uma sequência de tarefas** |Na caixa de lista, selecione **implementação de referência do Windows 8.1**e, em seguida, clique em **seguinte**.|  
 
  **Para monitorizar o processo de implementação de computador de referência utilizando o Deployment Workbench**  
@@ -1469,7 +1470,7 @@ ms.lasthandoff: 01/16/2018
 
 7.  No **propriedades** separador, clique em **ativar a conta e especificar a palavra-passe de administrador local**.  
 
-8.  No **propriedades** separador **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** e, em seguida, clique em **aplicar** .  
+8.  No **propriedades** separador **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**e, em seguida, clique em **aplicar** .  
 
 9. Efetue quaisquer modificações adicionais para a sequência de tarefas que requer que o ambiente e, em seguida, clique em **OK**.  
 
@@ -1749,7 +1750,7 @@ ms.lasthandoff: 01/16/2018
 |**Line** |Este controlo permite-lhe adicionar uma linha horizontal dividir uma parte da página do assistente personalizada de outro. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. Para obter mais informações sobre este controlo, consulte "Controlo de linha" no documento do MDT, *Toolkit referência*.|  
 |**Label** |Este controlo permite-lhe adicionar texto descritivo só de leitura para a página do assistente. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. Para obter mais informações sobre este controlo, consulte "Controlo de etiqueta" no documento do MDT, *Toolkit referência*.|  
 |**Radio** |Este controlo permite-lhe selecionar uma opção de configuração de um grupo de dois ou mais opções. Tal como acontece com botões de opção tradicionais, dois ou mais destes controlos podem ser agrupados em conjunto e, em seguida, o utilizador pode selecionar uma das opções no grupo de botões de opção. Um valor exclusivo é atribuído a cada opção. O valor atribuído ao controlo opção selecionada é guardado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de botões de opção" no documento do MDT, *Toolkit referência*.|  
-|**Bitmap** |Este controlo permite-lhe adicionar um gráfico de mapa de bits (*.bmp ficheiro) para a página do assistente personalizado. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. O caminho para o ficheiro *.bmp é relativo à localização do Assistente de UDI (OSDSetupWizard.exe). Para obter mais informações sobre este controlo, consulte "Controlo de mapa de bits" no documento do MDT, *Toolkit referência*.|  
+|**Bitmap** |Este controlo permite-lhe adicionar um gráfico de mapa de bits (.bmp ficheiro) para a página do assistente personalizado. Este controlo não recolhe quaisquer valores de configuração, mas em vez disso, é utilizado para melhorar visualmente a IU. O caminho para o ficheiro .bmp é relativo à localização do Assistente de UDI (OSDSetupWizard.exe). Para obter mais informações sobre este controlo, consulte "Controlo de mapa de bits" no documento do MDT, *Toolkit referência*.|  
 |**Textbox** |Este controlo permite-lhe introduzir o texto na página do assistente personalizado. O texto digitado neste controlo é guardado na variável de sequência de tarefas configurada para este controlo. Para obter mais informações sobre este controlo, consulte "Controlo de caixa de texto" no documento do MDT, *Toolkit referência*.|  
 
  Pode adicionar qualquer combinação destes controlos para a página do assistente personalizadas com base nas informações que pretende recolher. Além disso, pode utilizar o **Mostrar linhas de grelha** caixa de verificação para mostrar ou ocultar linhas de grelha que podem ser utilizadas para ajudar a conceber visualmente a página do assistente personalizado.  
@@ -2065,7 +2066,7 @@ Figura 1. Página do Assistente de personalizada a ser criado
 
     |**Na página do Assistente** |**Fazê-lo** |  
     |-|-|  
-    |**Bem-vindo ao Assistente de sequência de tarefas** |No **palavra-passe**, tipo  **P@ssw0rd** e, em seguida, clique em **seguinte**.|  
+    |**Bem-vindo ao Assistente de sequência de tarefas** |No **palavra-passe**, tipo **P@ssw0rd**e, em seguida, clique em **seguinte**.|  
     |**Selecione uma sequência de tarefas** |Na caixa de lista, selecione **UDI - implementação do Windows 8.1 destino**e, em seguida, clique em **seguinte**.|  
 
      No passo de sequência de tarefas apropriada, o Assistente de implementação de UDI é iniciado.  
@@ -2082,8 +2083,8 @@ Figura 1. Página do Assistente de personalizada a ser criado
     |**Volume** |Clique em **Seguinte**.|  
     |**Selecione o destino** |Clique em **Seguinte**.|  
     |**Preparação de implementação** |1.  Reveja as verificações de configuração e certifique-se de que o estado de todas as verificações estão definidos com **êxito**.<br />2.  Clique em *Seguinte*.|  
-    |**Detalhes do novo computador** |1.  No **nome do computador**, tipo **WDG-CLI-01**. **Nota:**      Em cenários de computadores desconhecidos, os utilizadores foi possível alterar o nome do computador para o valor adequado.<br />2.  No **nome de utilizador**, tipo **MDT2013\Administrator**.<br />3.  No **palavra-passe** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** .<br />4.  Clique em **Seguinte**.|  
-    |**Palavra-passe de administrador** |1.  No **palavra-passe de administrador** e **Confirmar palavra-passe**, tipo  **P@ssw0rd** .<br />2.  Clique em **Seguinte**.|  
+    |**Detalhes do novo computador** |1.  No **nome do computador**, tipo **WDG-CLI-01**. **Nota:**      Em cenários de computadores desconhecidos, os utilizadores foi possível alterar o nome do computador para o valor adequado.<br />2.  No **nome de utilizador**, tipo **MDT2013\Administrator**.<br />3.  No **palavra-passe** e **Confirmar palavra-passe**, tipo **P@ssw0rd**.<br />4.  Clique em **Seguinte**.|  
+    |**Palavra-passe de administrador** |1.  No **palavra-passe de administrador** e **Confirmar palavra-passe**, tipo **P@ssw0rd**.<br />2.  Clique em **Seguinte**.|  
     |**Afinidade dispositivo / utilizador** |Selecione o **utilizador primário do conjunto** caixa de verificação e, em seguida, clique em **seguinte**.|  
     |**Idioma** |Clique em **Seguinte**.|  
     |**Instalar os programas** |Certifique-se de que o **Microsoft Office Professional Plus 2010 – x86** caixa de verificação está selecionada e, em seguida, clique em **seguinte**.|  
