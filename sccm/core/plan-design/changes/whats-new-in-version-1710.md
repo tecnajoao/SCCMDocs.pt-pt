@@ -1,7 +1,7 @@
 ---
-title: "Nova versão 1710 | Microsoft Docs"
+title: Nova versão 1710 | Microsoft Docs
 titleSuffix: Configuration Manager
-description: "Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1710 do System Center Configuration Manager."
+description: Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1710 do System Center Configuration Manager.
 ms.custom: na
 ms.date: 1/08/2018
 ms.reviewer: na
@@ -14,17 +14,23 @@ ms.assetid: bc6c3e5f-b9e2-400e-9d9d-446ff93c520c
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: c75ed431c6a786759e2ddcd6dc6b55d5b55412c7
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+ms.openlocfilehash: e9d1ac44bf0455ff0b1caec94d07cfa734dfbeb0
+ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1710 do System Center Configuration Manager
+# <a name="what39s-new-in-version-1710-of-system-center-configuration-manager"></a>O que&#39;s novidade na versão 1710 do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Atualize 1710 para o ramo atual do System Center Configuration Manager está disponível como uma atualização na consola para sites anteriormente instalados com a versão 1610, 1702 ou 1706.
+
+Para além de novas funcionalidades, esta versão inclui também alterações adicionais, tais como correções de erros. Para obter mais informações, consulte [resumo das alterações no ramo atual do System Center Configuration Manager, versão 1710](https://support.microsoft.com/help/4056470/summary-of-changes-in-system-center-configuration-manager-current-bran).
+
+As seguintes atualizações adicionais para esta versão também estão agora disponíveis:
+- [Rollup de atualização do ramo atual do System Center Configuration Manager, versão 1710](https://support.microsoft.com/help/4057517/update-rollup-for-system-center-configuration-manager-current-branch-v)
+- [Update rollup 2 para o ramo atual do System Center Configuration Manager, versão 1710](https://support.microsoft.com/en-us/help/4086143/update-rollup-2-for-system-center-configuration-manager-current-branch)
 
 > [!TIP]  
 > Para instalar um novo site, tem de utilizar uma versão de linha de base do Configuration Manager.  
@@ -45,13 +51,13 @@ Version 1710 drops support for the following products:
 
 ## <a name="site-infrastructure"></a>Infraestrutura de sites
 
-### <a name="updates-for-peer-cache-----sms500850---"></a>Atualizações para a Cache ponto a ponto<!-- sms500850 -->
+### <a name="updates-for-peer-cache-----sms500850---"></a>Atualizações para a Cache ponto a ponto  <!-- sms500850 -->
 A partir desta versão, a Cache já não é uma funcionalidade de pré-lançamento.  Não existem outras alterações para a Cache são introduzidas com esta versão. Para obter mais informações, consulte [Cache ponto a ponto para clientes do Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache).
 
-### <a name="cloud-distribution-point-support-for-azure-government-cloud------sms491428---"></a>Suporte de ponto de distribuição de nuvem para a nuvem do Azure Government<!-- sms491428 -->
+### <a name="cloud-distribution-point-support-for-azure-government-cloud------sms491428---"></a>Suporte de ponto de distribuição de nuvem para a nuvem do Azure Government   <!-- sms491428 -->
 Agora, pode utilizar [pontos de distribuição baseado na nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) na nuvem do Azure Government.   
 
-### <a name="inventory-default-unit-revision----sms503697---"></a>Revisão de unidade de predefinição de inventário<!-- sms503697 -->
+### <a name="inventory-default-unit-revision----sms503697---"></a>Revisão de unidade de predefinição de inventário <!-- sms503697 -->
 Como os dispositivos incluem agora unidades de disco rígido com tamanhos nos gigabyte (GB), com vários terabytes (TB) e escalas maiores, esta versão altera a unidade de predefinição (SMS_Units) utilizada em várias vistas de megabytes (MB) para GB. Por exemplo, o valor de v_gs_LogicalDisk.FreeSpace agora relatórios unidades GB.
 
 
@@ -64,7 +70,7 @@ Como os dispositivos incluem agora unidades de disco rígido com tamanhos nos gi
 <!-- 1350871 -->
 Nas atualizações anteriores do Windows 10, já pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). A partir do Configuration Manager versão 1710, gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo Windows 10, dispositivos de 1709 (também conhecido como a atualização de criadores de reversão) versão através do Configuration Manager e o Intune. É uma solução que fornece uma ponte de tradicional para gestão moderna e dá-lhe um caminho para fazer a transição utilizando uma abordagem faseada. Para obter mais informações, consulte [conjunta management para Windows 10 dispositivos](/sccm/core/clients/manage/co-management-overview).
 
-### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Reinicie os computadores a partir da consola do Configuration Manager<!-- 1356283 -->
+### <a name="restart-computers-from-the-configuration-manager-console-----1356283---"></a>Reinicie os computadores a partir da consola do Configuration Manager  <!-- 1356283 -->
 A partir desta versão, pode utilizar a consola do Configuration Manager para identificar dispositivos cliente que requerem o reinício e, em seguida, utilizar uma ação de notificação de cliente reiniciá-las.
 
 Consulte [como gerir clientes no System Center Configuration Manager](/sccm/core/clients/manage/manage-clients#restart-clients)
@@ -74,7 +80,7 @@ Consulte [como gerir clientes no System Center Configuration Manager](/sccm/core
 
 
 ## <a name="application-management"></a>Gestão de Aplicações
-### <a name="improvements-for-run-scripts------1236459---"></a>Melhoramentos para executadas Scripts<!-- 1236459 -->
+### <a name="improvements-for-run-scripts------1236459---"></a>Melhoramentos para executadas Scripts   <!-- 1236459 -->
 Esta versão inclui vários melhoramentos para o **executar Scripts** funcionalidade, que permite-lhe implementar scripts do PowerShell para executar em dispositivos geridos. Esta funcionalidade foi introduzida pela primeira vez na versão 1706.
 
 Melhoramentos incluem:
@@ -117,7 +123,7 @@ Para obter mais informações, veja [Planear e configurar a gestão de aplicaç�
 
 ## <a name="software-updates"></a>Atualizações de software
 
-### <a name="surface-driver-updates-----1098490---"></a>Atualizações de controladores superfície<!-- 1098490 -->
+### <a name="surface-driver-updates-----1098490---"></a>Atualizações de controladores superfície  <!-- 1098490 -->
 A partir desta versão, gerir atualizações de controladores superfície já não é uma funcionalidade de pré-lançamento.  
 
 
@@ -180,7 +186,7 @@ Para minimizar o risco de compatibilidade, perfis VPN existentes são iguais.  A
 
 Para obter mais informações, consulte [perfis VPN em dispositivos móveis no System Center Configuration Manager](../../../mdm/deploy-use/create-vpn-profiles.md).
 
-### <a name="limited-support-for-cryptography-next-generation-cng-certificates----1356191---"></a>Suporte limitado de criptografia: Certificados do próximos geração (CNG)<!-- 1356191 -->
+### <a name="limited-support-for-cryptography-next-generation-cng-certificates----1356191---"></a>Suporte limitado de criptografia: Certificados do próximos geração (CNG) <!-- 1356191 -->
 
 O Configuration Manager limitou o suporte de criptografia: Certificados de geração (CNG) do seguintes. Clientes do Configuration Manager podem utilizar o certificado de autenticação de cliente PKI com chave privada no fornecedor de armazenamento de chaves do CNG (KSP). Com suporte para KSP, os clientes do Configuration Manager suportam a chave das privada baseada em hardware, tal como KSP de TPM para certificados de autenticação de cliente PKI.
 
