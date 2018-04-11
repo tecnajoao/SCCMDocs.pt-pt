@@ -1,18 +1,19 @@
 ---
-title: "Criar itens de configuração para Windows 8.1 e dispositivos Windows 10 geridos com o Intune"
+title: Criar itens de configuração para Windows 8.1 e dispositivos Windows 10 geridos com o Intune
 titleSuffix: Configuration Manager
-description: "Utilize o item de configuração do System Center Configuration Manager Windows 10 para gerir as definições para computadores Windows 10."
+description: Utilize o item de configuração do System Center Configuration Manager Windows 10 para gerir as definições para computadores Windows 10.
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 23e1e4dc-623a-4521-ad04-ae9482927097
-caps.latest.revision: "20"
-caps.handback.revision: "0"
+caps.latest.revision: 20
+caps.handback.revision: 0
 author: andredm7
 ms.author: andredm
 manager: angrobe
@@ -371,7 +372,7 @@ Estas definições destinam-se a dispositivos com o Windows 10 e posterior.
 |**Permitir pop-ups**|Permite ou desativa os pop-ups do browser.|  
 |**Permitir cookies**|Permite ou desativa os cookies.|  
 |**Permitir Preenchimento automático**|Permite a utilização da funcionalidade Preenchimento Automático do browser Edge.|  
-|**Permitir Gestor de palavra-passe**|Permite a utilização da funcionalidade do gestor de palavras-passe do browser Edge.|  
+|**Permitir Gestor de palavra-passe**|Permite a utilização da funcionalidade do gestor de palavras-passe do browser Microsoft Edge.|  
 |**Localização de lista de sítios do modo de empresa**|Especifica onde encontrar a lista de web sites que abertos no modo empresarial. Os utilizadores não podem editar esta lista.|
 |**Bloquear o acesso ao sobre: sinalizadores**|Impedir que o utilizador final acedam a sobre: página de sinalizadores no limite que contém o programador e definições experimental.|
 |**Substituição de linha de comandos do SmartScreen**|Permitir que o utilizador final ignorar avisos do Filtro SmartScreen sobre sites potencialmente maliciosos.|
