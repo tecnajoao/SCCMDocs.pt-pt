@@ -1,26 +1,27 @@
 ---
-title: "Configurar o laboratório"
+title: Configurar o laboratório
 titleSuffix: Configuration Manager
-description: "Configure um laboratório para avaliar o Configuration Manager com atividades de reais simuladas."
+description: Configure um laboratório para avaliar o Configuration Manager com atividades de reais simuladas.
 ms.custom: na
 ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1970688-0cd2-404f-a17f-9e2aa4a78758
-caps.latest.revision: "11"
-caps.handback.revision: "0"
+caps.latest.revision: 11
+caps.handback.revision: 0
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: a95dda6f536ff9c608abb03d94692b2d9fc6093c
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 3441cb417a0b8fc7979b71018f6cfa345c47a02d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurar o seu laboratório System Center Configuration Manager
 
@@ -47,7 +48,7 @@ Seguir as orientações neste tópico irá permitem-lhe configurar um laboratór
 
     -   **SQL_Latin1_General_CP1_CI_AS** como classe do **Agrupamento SQL** . A  
 
-    -   **Autenticação do Windows**, [em vez da autenticação SQL](https://technet.microsoft.com/en-us/library/ms144284.aspx), é necessária.  
+    -   **Autenticação do Windows**, [em vez da autenticação SQL](https://technet.microsoft.com/library/ms144284.aspx), é necessário.  
 
     -   Um dedicado **instância do SQL Server** é necessária.  
 
@@ -370,7 +371,7 @@ Antes de iniciar a instalação, inicie o [Verificador de pré-requisitos](/sccm
     |Passo 15: **Definições de comunicação de cliente**|Confirme se **Todas as funções do sistema de site aceitam apenas comunicação HTTPS dos clientes** não estiver selecionada|  
     |Passo 16: **Funções do sistema de sites**|Introduza o FQDN e confirme que a seleção de **Todas as funções do sistema de site aceitam apenas comunicação HTTPS dos clientes** ainda está desmarcada.|  
 
-##  <a name="BKMK_EnablePubLab"></a>Ativar a publicação para o site do Configuration Manager  
+##  <a name="BKMK_EnablePubLab"></a> Ativar a publicação para o site do Configuration Manager  
 Cada site do Configuration Manager publica as suas próprias informações específicas de site no contentor de gestão do sistema na sua partição de domínio no esquema do Active Directory. Os canais Bidirecionais de comunicação entre o Active Directory e do Configuration Manager devem ser abertos para processar este tráfego. Irá também ativar a Deteção de Florestas para determinar certos componentes do seu Active Directory e da infraestrutura de rede.  
 
 #### <a name="to-configure-active-directory-forests-for-publishing"></a>Para configurar florestas do Active Directory para publicação:  

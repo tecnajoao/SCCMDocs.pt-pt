@@ -1,25 +1,26 @@
 ---
 title: Acesso condicional
 titleSuffix: Configuration Manager
-description: "Saiba como utilizar o acesso condicional no System Center Configuration Manager para ajudar a proteger o e-mail e outros serviços."
+description: Saiba como utilizar o acesso condicional no System Center Configuration Manager para ajudar a proteger o e-mail e outros serviços.
 ms.custom: na
 ms.date: 12/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b04727b-d563-422f-8d59-4dd66215d0b3
-caps.latest.revision: "26"
+caps.latest.revision: 26
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: f215e1c22d40e1fe402084b665ae624bc0c21d97
-ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
+ms.openlocfilehash: 7fea8d0e47fff5288a58232eb9bd17171481b3a3
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-services-in-system-center-configuration-manager"></a>Gerir o acesso a serviços no System Center Configuration Manager
 
@@ -163,7 +164,7 @@ O acesso condicional para o SharePoint Online suporta dispositivos que executam:
 
  Para poder estar em conformidade, o PC tem de estar inscrito no Microsoft Intune e cumprir as políticas.
 
- Para um PC associado a um domínio, tem de defini-lo para [registar automaticamente o dispositivo](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) no Azure Active Directory.
+ Para um PC associado a um domínio, tem de defini-lo para [registar automaticamente o dispositivo](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/) no Azure Active Directory.
  -   A [Autenticação moderna do office 365 tem de estar ativada](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/), e tem de ter instaladas todas as atualizações mais recentes do Office.<br />     A autenticação moderna inclui o baseada no Active Directory Authentication Library ADAL início de sessão para clientes do Office 2013 Windows e permite uma maior segurança como autenticação multifator e autenticação baseada em certificado.
  -   Configure regras de afirmações do ADFS para bloquear protocolos de autenticação não moderna.  
 

@@ -12,16 +12,16 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 45388103-2410-4c7e-b4cf-73a1bda485fc
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 18
+caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 1d98cd234b2444873f1ffa5819af74d507dfa9c1
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: a66212537c9e6829965f81d7622ae825ca6b80bb
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Perfis da VPN em dispositivos móveis no System Center Configuration Manager
 
@@ -35,7 +35,7 @@ Utilize perfis VPN no System Center Configuration Manager para implementar defin
 
  ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>Perfis VPN, ao utilizar o Gestor de configuração com o Intune
 
- Para implementar perfis em dispositivos Windows 8.1, Windows Phone, Android e iOS, estes dispositivos têm de estar inscritos no Microsoft Intune. Dispositivos em outras plataformas também podem ser inscritos no Intune. Para obter informações sobre como inscrever, consulte [gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Esta tabela mostra o tipo de ligação que é suportado para cada plataforma de dispositivo:  
+ Para implementar perfis em dispositivos Windows 8.1, Windows Phone, Android e iOS, estes dispositivos têm de estar inscritos no Microsoft Intune. Dispositivos em outras plataformas também podem ser inscritos no Intune. Para obter informações sobre como inscrever, consulte [gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx). Esta tabela mostra o tipo de ligação que é suportado para cada plataforma de dispositivo:  
 
  |Tipo de ligação|iOS e macOS X|Android|Windows 8,1|Windows RT|Windows RT 8.1|Windows Phone 8.1|Windows 10 Desktop e Mobile|  
  |---------------------|----------------------|-------------|-----------------|----------------|--------------------|-----------------------|-----------------------------------|  
@@ -103,11 +103,11 @@ Utilize perfis VPN no System Center Configuration Manager para implementar defin
             >  Os dispositivos que executam o iOS suportam apenas SecurID de RSA e MSCHAP v2 para o método de autenticação quando o tipo de ligação for PPTP. Para evitar erros de relatório, implemente um perfil VPN PPTP separado para dispositivos com iOS.  
 
         - **Acesso condicional**
-            - Escolha **ativar o acesso condicional para esta ligação VPN** para se certificar de que os dispositivos que ligam à VPN são testados para compatibilidade de acesso condicional, antes de ligar. Políticas de conformidade são descritas nas [políticas de conformidade de dispositivos no System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/device-compliance-policies.md).
+            - Escolha **ativar o acesso condicional para esta ligação VPN** para se certificar de que os dispositivos que ligam à VPN são testados para compatibilidade de acesso condicional, antes de ligar. Políticas de conformidade são descritas nas [políticas de conformidade de dispositivos no System Center Configuration Manager](https://docs.microsoft.com/sccm/protect/deploy-use/device-compliance-policies.md).
             - Escolha **ativar início de sessão único (SSO) com certificado alternativo** para escolher um certificado que não seja o certificado de autenticação VPN para conformidade do dispositivo. Se escolher esta opção, forneça o **EKU** (lista de valores separados por vírgulas) e **Hash de emissor**, para o certificado correto que o cliente VPN deve localizar.
 
          - Para **Windows Information Protection**, forneça a geridas por empresas identidade empresarial, que é normalmente domínio principal da sua organização, por exemplo, *contoso.com*. Pode especificar vários domínios que a organização é proprietária, separando-as com o "|" carateres. Por exemplo, *contoso.com|newcontoso.com*.   
-            Para mais informações sobre o Windows Information Protection, consulte [criar uma política de proteção de informações do Windows (WIP) através do Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).   
+            Para mais informações sobre o Windows Information Protection, consulte [criar uma política de proteção de informações do Windows (WIP) através do Microsoft Intune](https://technet.microsoft.com/itpro/windows/keep-secure/create-wip-policy-using-intune).   
 
          ![Configurar o acesso condicional para VPN](media/vpn-conditional-access.png)
 

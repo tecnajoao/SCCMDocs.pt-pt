@@ -1,26 +1,27 @@
 ---
-title: "Implementar aplicações virtuais App-V"
+title: Implementar aplicações virtuais App-V
 titleSuffix: Configuration Manager
-description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações virtuais."
+description: Consulte as considerações deve ter em conta quando criar e implementar aplicações virtuais.
 ms.custom: na
-ms.date: 02/16/2017
+ms.date: 03/12/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddcad9f2-a542-4079-83ca-007d7cb44995
-caps.latest.revision: "11"
-caps.handback.revision: "0"
+caps.latest.revision: 11
+caps.handback.revision: 0
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bf324f458c37fa137e24179eb4455fcbe75c855d
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 99c259a20a7e9c9f34d7b355e6fea5d4c6861392
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-app-v-virtual-applications-with-system-center-configuration-manager"></a>Implementar aplicações virtuais App-V com o System Center Configuration Manager
 
@@ -46,7 +47,7 @@ Para além de outros requisitos do System Center Configuration Manager e procedi
 
 -   Quando sequencia uma aplicação, terá de guardar o pacote para uma localização que o Configuration Manager pode aceder. Em seguida, pode criar uma implementação da aplicação que contém esta aplicação virtual.  
 
--   O Configuration Manager não suporta a utilização da funcionalidade partilhada de cache só de leitura do App-V.  
+-   O Configuration Manager não suporta a utilização da funcionalidade partilhada de cache só de leitura do App-V 4.6.  
 
 -   O Configuration Manager suporta a funcionalidade arquivo de conteúdo partilhado no App-V 5.  
 
@@ -66,7 +67,7 @@ Para além de outros requisitos do System Center Configuration Manager e procedi
      Antes de poder implementar com sucesso aplicações virtuais, tem também de atualizar o cliente de App-V 4.6 SP1 com a correção descrita no artigo da Base de dados de conhecimento [2645225](http://go.microsoft.com/fwlink/p/?LinkId=237322).  
 
 -   **App-V 5, App-V 5.0 SP1, App-V 5.0 SP2, App-V 5.0 SP3 e App-V 5.1**: Para o App-V 5.0 SP2, tem de instalar [pacote de correções 5](https://support.microsoft.com/en-us/kb/2963211) ou utilizar o App-V 5.0 SP3.  
--   **App-V 5.2**: Isto está incorporado no Windows 10 Enterprise (aniversário da atualização e posterior).
+-   **App-V 5.2**: Isto está incorporado no Windows 10 Education (1607 e posterior), o Windows 10 Enterprise (1607 e posterior) e o Windows Server 2016.
 
 Para obter mais informações sobre o App-V no Windows 10, consulte os tópicos seguintes:
 
@@ -83,7 +84,7 @@ Para obter mais informações sobre o App-V no Windows 10, consulte os tópicos 
 
 3.   **Distribuir**: Distribuição é o processo de disponibilizar aplicações de App-V em pontos de distribuição do Configuration Manager.
 
-4.   **Implementar**: Implementação é o processo de disponibilizar a aplicação em computadores cliente. Esta opção é denominada de transmissão em fluxo numa infraestrutura completa de App-V.  
+4.   **Implementar**: Implementação é o processo de disponibilizar a aplicação em computadores cliente. Esta opção denomina-se ao publicar e de transmissão em fluxo numa infraestrutura completa de App-V.  
 
 ##  <a name="configuration-manager-virtual-application-delivery-methods"></a>Métodos de entrega de aplicações virtuais do Configuration Manager  
 O Configuration Manager suporta dois métodos de fornecimento de aplicações virtuais aos clientes: fornecimento local e entrega de transmissão em fluxo (transferir e executar).
@@ -100,7 +101,7 @@ Utilize as informações nesta tabela para o ajudar a decidir se a entrega de tr
 |Este método utiliza protocolos de rede padrão para a transmissão em fluxo de conteúdo de pacotes a partir de pontos de distribuição.<br /><br /> Os atalhos de programa para aplicações virtuais invocam uma ligação ao ponto de distribuição para que o fornecimento da aplicação virtual seja a pedido.<br /><br /> Este método funciona bem para clientes com ligações de banda larga aos pontos de distribuição.<br /><br /> As aplicações virtuais atualizadas distribuídas por toda a empresa são disponibilizadas quando os clientes recebem a política que os informa de que a versão atual foi substituída e os clientes transferem apenas as alterações relativamente à versão anterior.<br /><br /> As permissões de acesso são definidas no ponto de distribuição para impedir que os utilizadores acedam a aplicações ou pacotes não autorizados.|As aplicações virtuais não são transmitidas em fluxo até que o utilizador execute a aplicação pela primeira vez. Neste cenário, um utilizador pode receber atalhos de programa para aplicações virtuais e, em seguida, desligar da rede antes de executar as aplicações virtuais pela primeira vez. Se o utilizador tentar executar a aplicação virtual enquanto o cliente estiver offline, o utilizador verá um erro e não é possível executar a aplicação virtualizada porque um ponto de distribuição do Configuration Manager não está disponível para transmitir a aplicação. A aplicação não estará disponível até o utilizador voltar a ligar à rede e executar a aplicação.<br /><br /> Para evitar isto, pode utilizar o método de entrega local para entregar aplicações virtuais a clientes ou pode ativar a gestão de clientes baseada na Internet para a entrega por transmissão em fluxo.|  
 
 ###  <a name="local-delivery-download-and-execute"></a>Fornecimento local (transferir e executar)  
-Quando utiliza o método de fornecimento local, o cliente do Configuration Manager transfere primeiro o pacote de aplicação virtual completo para a cache do cliente do Configuration Manager. O Configuration Manager, em seguida, instrui o cliente de App-V que transmita a aplicação da cache do Configuration Manager para a cache de App-V. Se implementar uma aplicação virtual em computadores cliente e respetivo conteúdo não estiver na cache de App-V, o cliente de App-V fluxos o conteúdo da aplicação da cache do cliente do Configuration Manager para a cache de App-V e, em seguida, executa a aplicação. Depois da aplicação é executada com êxito, pode definir o cliente do Configuration Manager para eliminar versões antigas do pacote no próximo ciclo de eliminação ou para as manter na cache de cliente do Configuration Manager.  
+Transferir e executar é a abordagem mais comuns ao utilizar o Gestor de configuração porque esta abordagem mimics rigorosamente como outros formatos de aplicação são fornecidos com o Configuration Manager. Quando utiliza o método de fornecimento local, o cliente do Configuration Manager transfere primeiro o pacote de aplicação virtual completo para a cache do cliente do Configuration Manager. O Configuration Manager, em seguida, instrui o cliente de App-V que transmita a aplicação da cache do Configuration Manager para a cache de App-V. Se implementar uma aplicação virtual em computadores cliente e respetivo conteúdo não estiver na cache de App-V, o cliente de App-V fluxos o conteúdo da aplicação da cache do cliente do Configuration Manager para a cache de App-V e, em seguida, executa a aplicação. Depois da aplicação é executada com êxito, pode definir o cliente do Configuration Manager para eliminar versões antigas do pacote no próximo ciclo de eliminação ou para as manter na cache de cliente do Configuration Manager. Conteúdo persistentes localmente pode tirar partido da entrega de conteúdos do pacote métodos de otimização, tais como o BranchCache e rede.
 
 Utilize as informações nesta tabela para o ajudar a decidir se o fornecimento local é o melhor método de entrega para:   
 

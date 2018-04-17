@@ -1,26 +1,27 @@
 ---
 title: Encontrar ajuda
 titleSuffix: Configuration Manager
-description: "Localize recursos para obter informações adicionais sobre o System Center Configuration Manager."
+description: Localize recursos para obter informações adicionais sobre o System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 86810629-cf2a-43e8-86a2-847444119fc1
-caps.latest.revision: "19"
-caps.handback.revision: "0"
+caps.latest.revision: 19
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 73c057af033a91535d79c743e05df83601112626
-ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
+ms.openlocfilehash: bcf53c11a30aa2fc3995697f36f00960035bbe57
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-help-for-using-system-center-configuration-manager"></a>Encontrar ajuda para utilizar o System Center Configuration Manager
 
@@ -31,7 +32,7 @@ Este artigo fornece vários recursos para encontrar ajuda para utilizar o Config
 Para obter ajuda com acessibilidade de produto, consulte [funcionalidades de acessibilidade no System Center Configuration Manager](../../core/understand/accessibility-features.md).
 
 
-##  <a name="bkmk_Info"></a>Documentação do produto  
+##  <a name="bkmk_Info"></a> Documentação do produto  
  Utilize os seguintes recursos para obter informações adicionais sobre o Configuration Manager.  
 
 -   Para aceder à documentação do produto mais recente, iniciar a [índice de biblioteca](https://docs.microsoft.com/sccm/)
@@ -54,7 +55,7 @@ Para obter ajuda com acessibilidade de produto, consulte [funcionalidades de ace
 
 
 ## <a name="product-feedback"></a>Comentários sobre o produto
-Produto potencial do relatório de defeitos através de [comentários Hub aplicação](https://support.microsoft.com/en-us/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) incorporada para o Windows 10. Quando a **adicionar comentários novo**, certifique-se de selecionar o **gestão empresarial** categoria e, em seguida, escolha uma das seguintes subcategorias:
+Produto potencial do relatório de defeitos através de [comentários Hub aplicação](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) incorporada para o Windows 10. Quando a **adicionar comentários novo**, certifique-se de selecionar o **gestão empresarial** categoria e, em seguida, escolha uma das seguintes subcategorias:
  - Cliente do Configuration Manager
  - Consola do Configuration Manager
  - Implementação do SO do Configuration Manager
@@ -63,7 +64,7 @@ Produto potencial do relatório de defeitos através de [comentários Hub aplica
 Continuar a utilizar o nosso [página do uservoice](http://configurationmanager.uservoice.com/) votar em ideias de funcionalidade nova no Configuration Manager.
 
 
-##  <a name="BKMK_ProductGroupBlog"></a>Blogue da equipa do Configuration Manager  
+##  <a name="BKMK_ProductGroupBlog"></a> Blogue da equipa do Configuration Manager  
  Utilização de equipas de parceiros de engenharia do Configuration Manager e o [Enterprise Mobility + blogue de segurança](https://cloudblogs.microsoft.com/enterprisemobility/?product=system-center-configuration-manager) para lhe fornecer informações técnicas e outras novidades sobre o Configuration Manager e as tecnologias relacionadas. As nossas publicações no blogue completam a documentação do produto e as informações de suporte.  
 
 

@@ -7,20 +7,21 @@ ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 120442be-179e-450c-a0c4-284046895da3
-caps.latest.revision: "4"
-caps.handback.revision: "0"
+caps.latest.revision: 4
+caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 5fc0d5e68e27b3bde9ed3aa45a439c8b333da1d6
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: ab429e2702ab1595b035c8e2895dad584be4061a
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Perfis de e-mail do Exchange ActiveSync no System Center Configuration Manager
 
@@ -37,7 +38,7 @@ Ao utilizar o Microsoft Intune e Exchange ActiveSync, pode configurar dispositiv
 - Samsung KNOX Standard (4 e posterior)
 - Android for Work
 
-Para implementar perfis de e-mail em dispositivos, têm de inscrever os dispositivos no Intune. Para obter mais informações sobre como inscrever os seus dispositivos, consulte [Gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
+Para implementar perfis de e-mail em dispositivos, têm de inscrever os dispositivos no Intune. Para obter mais informações sobre como inscrever os seus dispositivos, consulte [Gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/library/dn646962.aspx).
 
 > [!NOTE]
 > O Intune fornece duas Android para perfis de e-mail de trabalho, uma para a aplicação de e-mail do Gmail e a aplicação de e-mail do trabalho nove. Estas aplicações estão disponíveis no Google Play Store, e suportam ligações ao Exchange. Para ativar a conectividade de e-mail, implementar uma destas aplicações de e-mail nos dispositivos dos utilizadores e, em seguida, crie e implemente o perfil adequado. Aplicações de e-mail como nove trabalho poderão não estar livres. Do reveja a aplicação detalhes de licenciamento, ou contacte a empresa de aplicações com quaisquer perguntas.

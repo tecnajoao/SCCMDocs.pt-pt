@@ -1,26 +1,27 @@
 ---
 title: Funcionalidades no Technical Preview 1601
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1601."
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1601.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aae1cf2f-2c04-4f68-a03a-f4a925433c09
-caps.latest.revision: "7"
+caps.latest.revision: 7
 author: erikje
 ms.author: erikje
 manager: angrobe
 robots: noindex,nofollow
-ms.openlocfilehash: 70efb483ac15ba14497b884ed753032e8e48a4b5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: b17a89ab08c99a1c3cd8a501e7d58d5b42a110a3
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1601 do System Center Configuration Manager
 
@@ -61,7 +62,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 
 **Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-##  <a name="bkmk_hybrid1"></a>Melhoramentos à integração do Microsoft Intune  
+##  <a name="bkmk_hybrid1"></a> Melhoramentos à integração do Microsoft Intune  
 No 1601 Technical Preview, foi adicionado suporte para as seguintes funcionalidades:  
 
 ### <a name="improvements-to-conditional-access"></a>Melhoramentos ao acesso condicional  
@@ -79,11 +80,11 @@ No 1601 Technical Preview, foi adicionado suporte para as seguintes funcionalida
 
     -   Uma Subscrição do Microsoft Intune. A subscrição do Microsoft Intune deve ser configurada na consola do Configuration Manager.  
 
-    -   [Pré-requisitos para o registo automático do Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   [Pré-requisitos para o registo automático do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
     Para utilizar a opção, tem de criar uma política de conformidade no Configuration Manager com regras específicas, descritas abaixo e definir uma política de acesso condicional na consola do Intune.  Além disso, para garantir que apenas a computadores conformes são permissão de acesso, tem de definir o requisito de Windows PC como **dispositivos tem de estar em conformidade** opção. Seguem-se as regras de política de conformidade que são aplicáveis a PCs geridos pelo System Center Configuration manager.  
 
-    -   **Exigir registo no Azure ActiveDirectory:** Esta regra verifica se o dispositivo do utilizador é o local de trabalho associado para o Azure AD e, se não, o dispositivo é automaticamente registado no Azure AD. O registo automático é suportado apenas no Windows 8.1. Para PCs Windows 7, implemente um MSI para efetuar o registo automático. Para obter mais informações, consulte [aqui](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   **Exigir registo no Azure ActiveDirectory:** Esta regra verifica se o dispositivo do utilizador é o local de trabalho associado para o Azure AD e, se não, o dispositivo é automaticamente registado no Azure AD. O registo automático é suportado apenas no Windows 8.1. Para PCs Windows 7, implemente um MSI para efetuar o registo automático. Para obter mais informações, consulte [aqui](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
     -   **Todas as atualizações necessárias instaladas com um prazo mais antigo do que um determinado número de dias:** Esta regra verifica se o dispositivo do utilizador tem todas as atualizações necessárias (especificadas no **atualizações automáticas necessárias** regra) dentro do prazo e o período de tolerância especificados por si e automaticamente instalar quaisquer atualizações necessárias pendentes.  
 
@@ -127,7 +128,7 @@ No 1601 Technical Preview, foi adicionado suporte para as seguintes funcionalida
 
      Para utilizar esta opção, vá para o **geral** página do **configurar Assistente de política de acesso condicional** para o Exchange no local.  
 
-##  <a name="bkmk_clientStatus"></a>Estado online do cliente  
+##  <a name="bkmk_clientStatus"></a> Estado online do cliente  
 A partir do technical Preview 1601, pode identificar rapidamente se um cliente está online ou offline na consola do Configuration Manager. Com ícones atualizados e colunas nas listagens de dispositivo da consola, pode avaliar o estado dos clientes no seu ambiente para identificar áreas problemáticas e outros problemas que poderão ter a sua atenção.  
 
 Um cliente está online se estiver atualmente ligado a uma função de sistema de sites do ponto de gestão do Configuration Manager. Desde que o ponto de gestão está a receber mensagens do tipo ping do cliente, o respetivo estado é online. Se a gestão não receber uma mensagem para 5 minutos ou por isso, o estado do cliente é alterado para offline.  
@@ -160,7 +161,7 @@ Um cliente está online se estiver atualmente ligado a uma função de sistema d
 
  Para mostrar as alterações recentes ao estado do cliente, atualize a consola.  
 
-##  <a name="bkmk_appmgmt1601"></a>Melhoramentos à gestão de aplicações  
+##  <a name="bkmk_appmgmt1601"></a> Melhoramentos à gestão de aplicações  
  No 1601 Technical Preview foi adicionado suporte para as seguintes funcionalidades:  
 
 ### <a name="manage-volume-purchased-apps-for-ios-devices"></a>Gerir aplicações compradas em grandes volumes para dispositivos iOS  
@@ -196,7 +197,7 @@ Um cliente está online se estiver atualmente ligado a uma função de sistema d
 
 -   No **Implementar Software** assistente, no **política de configuração de aplicação** página, associe a política de configuração de aplicação que criou com um tipo de implementação compatível da aplicação.  
 
-##  <a name="bkmk_compliance1601"></a>Melhoramentos às definições de compatibilidade  
+##  <a name="bkmk_compliance1601"></a> Melhoramentos às definições de compatibilidade  
  No 1601 Technical Preview foi adicionado suporte para as seguintes funcionalidades:  
 
 ### <a name="microsoft-edge-browser-settings"></a>Definições do browser Microsoft Edge  

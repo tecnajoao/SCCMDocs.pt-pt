@@ -1,7 +1,7 @@
 ---
 title: Funcionalidades no Technical Preview 1702
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1702."
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1702.
 ms.custom: na
 ms.date: 02/24/2017
 ms.prod: configuration-manager
@@ -12,15 +12,15 @@ ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aedd608d-6db3-4ea5-851d-70f2dcda6bb5
-caps.latest.revision: 
+caps.latest.revision: 5
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: ed2a858c55cbf389a0e974f4699b5a9c548953ef
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 94c025a75cd0aef62ee00c11b8ee5a113fba2bb1
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1702 do System Center Configuration Manager
 
@@ -66,7 +66,7 @@ Pode configurar estas definições utilizando a classe de configuração do agen
 
 Quando o computador rejeita um pedido para o conteúdo, o computador que efetuou irá continuar a pesquisa origens alternativas de formulário de conteúdo no seu conjunto das localizações de origem de conteúdo disponível.   
 
-## <a name="azurediscovery"></a>Utilizar serviços de domínio do Active Directory do Azure para gerir dispositivos, utilizadores e grupos
+## <a name="azurediscovery"></a> Utilizar serviços de domínio do Active Directory do Azure para gerir dispositivos, utilizadores e grupos
 
 Com esta pré-visualização técnica versão que pode gerir dispositivos que estão associados a um serviços de domínio do Azure Active Directory (AD) geridos por domínio. Também pode detetar dispositivos, utilizadores e grupos no domínio com vários métodos de deteção do Configuration Manager.
 
@@ -104,7 +104,7 @@ Azure AD armazena dispositivos sob o **AADDC computadores** UO.  Configure o seg
 Azure AD não tem uma UO que armazena a grupos. Em vez disso, utilize a mesma estrutura geral como as consultas de sistema ou o utilizador e configurar a consulta LDAP para apontar para a UO que contém os grupos que pretende detetar.
 
 Consulte o seguinte para obter mais informações acerca do Azure AD:  
- - [Serviços de domínio do Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory-ds) em azure.microsoft.com.
+ - [Serviços de domínio do Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds) em azure.microsoft.com.
  - [Documentação dos serviços de domínio do Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services) em docs.microsoft.com.
 
 ## <a name="conditional-access-device-compliance-policy-improvements"></a>Melhoramentos de política de conformidade de dispositivos de acesso condicional
@@ -155,7 +155,7 @@ A nova política é apresentada no nó **Políticas de Conformidade** da área d
 4. Quando tiver terminado, clique em **OK**.
 
 ### <a name="monitor-the-compliance-policy"></a>Monitorizar a política de conformidade
-Depois de criar a política de conformidade, pode monitorizar os resultados de compatibilidade na consola do Configuration Manager. Para obter mais informações, consulte [monitorizar a política de conformidade](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
+Depois de criar a política de conformidade, pode monitorizar os resultados de compatibilidade na consola do Configuration Manager. Para obter mais informações, consulte [monitorizar a política de conformidade](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
 
 
 ## <a name="improvements-to-software-center-settings-and-notification-messages-for-high-impact-task-sequences"></a>Melhoramentos às definições do Centro de Software e mensagens de notificação para sequências de tarefas de elevado impacto
@@ -211,7 +211,7 @@ Utilize o procedimento seguinte para configurar os detalhes para a sequência de
 
 ## <a name="check-for-running-executable-files-before-installing-an-application"></a>Verifique a existência de executar ficheiros executáveis antes de instalar uma aplicação
 
-No  *<deployment type name>*  **propriedades** caixa de diálogo de um tipo de implementação, no separador Instalar comportamento, agora pode especificar um dos ficheiros executáveis mais que, se em execução, irão bloquear a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado.
+No *<deployment type name>* **propriedades** caixa de diálogo de um tipo de implementação, no separador Instalar comportamento, agora pode especificar um dos ficheiros executáveis mais que, se em execução, irão bloquear a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechada automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado.
 
 ### <a name="try-it-out"></a>Experimente.
 
@@ -301,7 +301,7 @@ Android para o trabalho é uma plataforma separada do Android, e terá de decidi
 As secções seguintes descrevem Android para gestão de trabalho.
 
 #### <a name="enable-android-for-work-management"></a>Ativar Android para gestão de trabalho
-1. Crie uma conta do Google https://accounts.google.com/SignUp para utilizar como Android para a conta de administrador de trabalho que será associada ao Android todas as tarefas de gestão de trabalho para este inquilino Intune. Isto pode ser uma conta do Google partilhada entre os administradores que gerem os dispositivos Android. Esta é a conta do Google pela sua organização para gerir e publicar aplicações na Play para a consola de trabalho. Irá utilizar esta conta para aprovar aplicações na Play para o arquivo de trabalho, por isso, manter controlar do nome da conta e palavra-passe.
+1. Criar uma conta do Google na https://accounts.google.com/SignUp para utilizar como Android para a conta de administrador de trabalho que será associada ao Android todas as tarefas de gestão de trabalho para este inquilino Intune. Isto pode ser uma conta do Google partilhada entre os administradores que gerem os dispositivos Android. Esta é a conta do Google pela sua organização para gerir e publicar aplicações na Play para a consola de trabalho. Irá utilizar esta conta para aprovar aplicações na Play para o arquivo de trabalho, por isso, manter controlar do nome da conta e palavra-passe.
 2. Ative a inscrição de dispositivos Android através do enlace a conta do Google para o inquilino do Intune gerido no Configuration Manager:
   1. Aceda a **administração** > **descrição geral** > **serviços em nuvem** > **subscrições do Microsoft Intune** e selecione a sua subscrição do Intune.
   2. No Friso, clique em **configurar plataformas** > **Android** e certifique-se **ativar inscrição Android** está marcada.

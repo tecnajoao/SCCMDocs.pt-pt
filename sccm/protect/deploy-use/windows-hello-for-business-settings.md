@@ -1,9 +1,9 @@
 ---
-title: "Definições do Windows Hello para Empresas"
+title: Definições do Windows Hello para Empresas
 titleSuffix: Configuration Manager
 description: Saiba como integrar o Windows Hello para empresas com o System Center Configuration Manager.
 ms.custom: na
-ms.date: 09/21/2017
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,25 +12,31 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a95bc292-af10-4beb-ab56-2a815fc69304
-caps.latest.revision: 
-author: lleonard-msft
-ms.author: alleonar
-manager: angrobe
-ms.openlocfilehash: 195a5f8e595b6a8597e8c8c8d9046c5864f46526
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+caps.latest.revision: 17
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 0d5e0f5e1d47441bd105fb5cae2e8f3f313dfa54
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="windows-hello-for-business-settings-in-system-center-configuration-manager"></a>Definições do Windows Hello para Empresas no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
+<!--1245704-->
 System Center Configuration Manager permite-lhe integrar com o Windows Hello para empresas (anteriormente o Microsoft Passport for Windows), que é um método de início de sessão alternativo para dispositivos Windows 10. O Hello para Empresas utiliza o Active Directory ou uma conta do Azure Active Directory para substituir uma palavra-passe, um smart card ou um smart card virtual.  
 
-Com o Hello para Empresas, pode utilizar um **gesto de utilizador** para iniciar sessão, em vez de uma palavra-passe. Um gesto de utilizador pode ser um PIN simples, uma autenticação biométrica ou um dispositivo externo, como um leitor de impressões digitais.
+Hello para empresas permite-lhe utilizar uma **gesto de utilizador** para iniciar sessão, em vez de uma palavra-passe. Um gesto de utilizador pode ser um PIN simples, uma autenticação biométrica ou um dispositivo externo, como um leitor de impressões digitais.
 
-[Saber mais sobre o Windows Hello para empresas](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)
+Para obter mais informações, consulte [Windows Hello para empresas](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification).
+
+
+> [!Note]  
+> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
  O Configuration Manager integra-se com o Windows Hello para empresas de duas formas:  
 
@@ -38,10 +44,10 @@ Com o Hello para Empresas, pode utilizar um **gesto de utilizador** para iniciar
 
 -   Pode armazenar certificados de autenticação no fornecedor de armazenamento de chaves (KSP) do Windows Hello para Empresas. Para obter mais informações, consulte [perfis de certificado](introduction-to-certificate-profiles.md).  
 
-- Pode implementar o Windows Hello para empresas as políticas para dispositivos Windows 10 associados a um domínio, que executam o cliente do Configuration Manager. Esta configuração está descrita na [configurar o Windows Hello para empresas nos dispositivos Windows 10 associados a domínios](#configure-windows-hello-for-business-on-domain-joined-windows-10-devices), abaixo. Quando utilizar o Configuration Manager com o Microsoft Intune (híbrido), pode configurar estas definições em dispositivos Windows 10 Mobile e Windows 10. Consulte [configurar o Windows Hello para empresas definições (híbrido)](../../mdm/deploy-use/windows-hello-for-business-settings.md) para obter mais informações.
+- Pode implementar o Windows Hello para empresas as políticas para dispositivos Windows 10 associados a um domínio, que executam o cliente do Configuration Manager. Esta configuração está descrita no [configurar o Windows Hello para empresas nos dispositivos Windows 10 associados a domínios](#configure-windows-hello-for-business-on-domain-joined-windows-10-devices) secção. Quando utilizar o Configuration Manager com o Microsoft Intune (híbrido), pode configurar estas definições em dispositivos Windows 10 Mobile e Windows 10. Para obter mais informações, consulte [configurar o Windows Hello para empresas definições (híbrido)](../../mdm/deploy-use/windows-hello-for-business-settings.md).
 
 ## <a name="configure-windows-hello-for-business-on-domain-joined-windows-10-devices"></a>Configurar o Windows Hello para empresas nos dispositivos Windows 10 associados a domínios
-Pode controlar o Windows Hello para definições de negócio em dispositivos Windows 10 associados a domínios através da criação e implementação de um Windows Hello para empresas perfil. Esta é a abordagem recomendada.
+Pode controlar o Windows Hello para definições de negócio em dispositivos Windows 10 associados a domínios através da criação e implementação de um Windows Hello para empresas perfil. Esta abordagem é recomendada.
 
 
 Se estiver a utilizar autenticação baseada em certificado, terá também de implementar um perfil de certificado, conforme descrito em [configurar um perfil de certificado](#configure-a-certificate-profile). Se estiver a utilizar autenticação baseada em chave, não é necessário implementar um perfil de certificado.
@@ -50,10 +56,10 @@ Se estiver a utilizar autenticação baseada em certificado, terá também de im
 
 Na consola do Configuration Manager, em **acesso a recursos da empresa**, faça duplo clique **Windows Hello para empresas perfis** e escolha **novo** para iniciar o Assistente de perfil. Forneça as definições do pedido pelo assistente, reveja e confirme as definições na última página e clique em **fechar**. Eis um exemplo de que as suas definições poderão ter o seguinte aspeto:  
 
-![Definições do Windows Hello para Empresas](../media/Hello-for-Business-settings.png)
+![Windows Hello para o Assistente de política de negócio, que mostra a lista de definições disponíveis](../media/Hello-for-Business-settings.png)
 
 ## <a name="configure-a-certificate-profile-to-enroll-the-windows-hello-for-business-enrollment-certificate-in-configuration-manager"></a>Configurar um perfil de certificado para inscrever o certificado de inscrição do Windows Hello para Empresas no Configuration Manager  
- Se pretender utilizar o Windows Hello para início de sessão do negócio baseada em certificados, configure o seguinte:  
+ Se pretender utilizar o Windows Hello para início de sessão do negócio baseada em certificados, configure os seguintes componentes:  
 
 -   Um perfil de certificado do Configuration Manager.  
 
@@ -64,9 +70,8 @@ Primeiro tem de criar o **chave Admins** grupo e adicionar toda a gestão do Con
 
 Algumas configurações poderão não ser necessário configurar permissões, ou que possam necessitar de mais configurações. A tabela seguinte para obter mais ajuda, consulte:
 
-|||||
-|-|-|-|-|
 |Versão de cliente do Windows|Configuration Manager 1602 1606|1610 o Configuration Manager|Gestor de configuração 1702 ou posterior|
+|-|-|-|-|
 |Atualização do Windows 10 Anniversary|Não existem correção necessária<br><br>Não existem permissões necessárias<br><br>Não existe nenhuma atualização de esquema do Windows necessária|Não existem correção necessária (consulte **aviso**)<br><br>Não existem permissões necessárias<br><br>Não existe nenhuma atualização de esquema do Windows necessária|Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 ao Active Directory|
 |Atualização do Windows 10 criadores ou posterior|Não suportado|Instalar [Esta correção](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v)<br><br>Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 ao Active Directory|Configurar as permissões<br><br>Aplicar o esquema do Windows Server 2016 ao Active Directory|
 
@@ -75,13 +80,13 @@ Algumas configurações poderão não ser necessário configurar permissões, ou
 
 ## <a name="to-configure-permissions"></a>Configurar as permissões
 
-1.  Início de sessão para um domínio controlador ou a gestão de estações de trabalho com o administrador de domínio, ou equivalentes credenciais.
+1.  Inicie sessão no controlador de domínio ou as estações de trabalho de gestão com o administrador de domínio, ou equivalentes credenciais.
 2.  Abra **utilizadores e computadores do Active Directory**.
 3.  No painel de navegação, clique no seu nome de domínio e, em seguida, clique em **propriedades**.
-4.  No **segurança** separador do  *<domain name>*  **propriedades** caixa de diálogo, clique em **avançadas**. Se o **segurança** separador não for apresentado, ative **funcionalidades avançadas** do **vista** menu de **computadores e utilizadores do Active Directory**.
+4.  No **segurança** separador do *<domain name>* **propriedades** caixa de diálogo, clique em **avançadas**. Se o **segurança** separador não for apresentado, ative **funcionalidades avançadas** do **vista** menu de **computadores e utilizadores do Active Directory**.
 5.  Clique em **Adicionar**.
-6.  No **entrada de permissão para**  *<domain name>*  caixa de diálogo, clique em **selecionar um principal**.
-7.  No **selecionar utilizador, computador, conta de serviço ou grupo** caixa de diálogo, escreva **chave Admins** no **introduza o nome de objeto a selecionar** caixa de texto.  Clique em **OK**.
+6.  No **entrada de permissão para** *<domain name>* caixa de diálogo, clique em **selecionar um principal**.
+7.  No **selecionar utilizador, computador, conta de serviço ou grupo** caixa de diálogo, escreva **chave Admins** no **introduza o nome de objeto a selecionar** caixa de texto. Clique em **OK**.
 8.  Do **aplica-se a** lista, selecione **objetos de utilizador descendente**.
 9.  Desloque-se na parte inferior da página e clique em **Desmarcar tudo**.
 10. No **propriedades** secção, selecione **ler msDS-KeyCredentialLink**.

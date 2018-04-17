@@ -3,7 +3,7 @@ title: Nova versão 1802
 titleSuffix: Configuration Manager
 description: Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1802 do Configuration Manager.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,20 +12,27 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5bd637b1-d7a1-411b-877a-c7aae9741173
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9c9ff975a58e7c56375fa7740a0a5bb6ebfa6341
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+ms.openlocfilehash: a667c34dc39ef0578ff840e5603080b09c67c63c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="whats-new-in-version-1802-of-system-center-configuration-manager"></a>Novidades na versão 1802 do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Atualize 1802 para o ramo atual do Configuration Manager está disponível como uma atualização na consola. Aplicar esta atualização em sites que executam a versão 1702, 1706 ou 1710. <!-- baseline only statement: -->Ao instalar um novo site, também está disponível como uma versão de linha de base.
+
+Para além de novas funcionalidades, esta versão inclui também alterações adicionais, tais como correções de erros. Para obter mais informações, consulte [resumo das alterações no ramo atual do System Center Configuration Manager, versão 1802](https://support.microsoft.com/help/4101375).
+
+<!--
+The following additional updates to this release are also now available:
+- [Update rollup for System Center Configuration Manager current branch, version 1710](https://support.microsoft.com/help/4057517)
+-->
 
 > [!TIP]  
 > Para instalar um novo site, tem de utilizar uma versão de linha de base do Configuration Manager.  

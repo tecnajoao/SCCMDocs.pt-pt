@@ -1,23 +1,24 @@
 ---
-title: "Referência técnica de controlos criptográficos"
+title: Referência técnica de controlos criptográficos
 titleSuffix: Configuration Manager
-description: "Saiba como assinatura e encriptação podem ajudar a proteger a ataques de leitura de dados no System Center Configuration Manager."
+description: Saiba como assinatura e encriptação podem ajudar a proteger a ataques de leitura de dados no System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 2c1ed6f4c93f74719ab3fe5d723f7dc01eb1ede7
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+ms.openlocfilehash: 3057d3d78dbb67e0b1b061a6845a6885570b239a
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Referência técnica de controlos criptográficos
 
@@ -196,7 +197,7 @@ System Center Configuration Manager utiliza assinaturas e encriptação para aju
 
 -   Ponto de serviço Web do Catálogo de Aplicações  
 
--   Ponto de Web site do Catálogo de Aplicações  
+-   Ponto de site do Catálogo de Aplicações  
 
 -   Ponto de sincronização do Asset Intelligence  
 
@@ -218,7 +219,7 @@ System Center Configuration Manager utiliza assinaturas e encriptação para aju
 
 -   Ponto de atualização de Software  
 
--   Ponto de migração de estado  
+-   Ponto de Migração de Estado  
 
 -   Ponto de Validação do Estado de Funcionamento do Sistema  
 
@@ -286,5 +287,5 @@ Para melhorar a segurança dos seus clientes do Configuration Manager e servidor
 -   Desativar o SSL 3.0, TLS 1.0 e TLS 1.1 
 -   Reordenar os conjuntos de cifras relacionados com TLS 
 
-Para obter mais informações, consulte [como restringir a utilização de determinados algoritmos criptográficos e protocolos no Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) e [atribuir prioridades de conjuntos de cifras Schannel](https://msdn.microsoft.com/en-us/library/windows/desktop/bb870930.aspx). Estes procedimentos não afetam a funcionalidade do Configuration Manager.
+Para obter mais informações, consulte [como restringir a utilização de determinados algoritmos criptográficos e protocolos no Schannel.dll](https://support.microsoft.com/en-us/kb/245030/) e [atribuir prioridades de conjuntos de cifras Schannel](https://msdn.microsoft.com/library/windows/desktop/bb870930.aspx). Estes procedimentos não afetam a funcionalidade do Configuration Manager.
 

@@ -1,26 +1,27 @@
 ---
-title: "Configurar a gestão de dispositivos Android híbrida com o Microsoft Intune"
+title: Configurar a gestão de dispositivos Android híbrida com o Microsoft Intune
 titleSuffix: Configuration Manager
-description: "Prepare para gerir dispositivos móveis Android com o Configuration Manager e o Intune."
+description: Prepare para gerir dispositivos móveis Android com o Configuration Manager e o Intune.
 ms.custom: na
 ms.date: 08/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c517fe34-0130-465b-a020-bdb555878778
-caps.latest.revision: "9"
-caps.handback.revision: "0"
+caps.latest.revision: 9
+caps.handback.revision: 0
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: c9b35122f6afbb4fffbbff48b919fd696939c897
-ms.sourcegitcommit: 51cfce302fa8ddf633ad1f379b1161c0617089b8
+ms.openlocfilehash: c75979e8485fa3ece2178af6d21ff06282206569
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-android-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos híbrida do Android com o System Center Configuration Manager e o Microsoft Intune
 
@@ -43,7 +44,7 @@ Os passos seguintes permitem gerir dispositivos Android sem um perfil de trabalh
 ## <a name="enable-android-for-work-enrollment"></a>Ativar Android para a inscrição de trabalho
 Os passos seguintes permitem gerir dispositivos Android com um perfil de trabalho do Configuration Manager.
 
-1. Crie uma conta do Google https://accounts.google.com/SignUp para utilizar como Android para a conta de administrador de trabalho. Em alternativa, inicie sessão com a conta associada Android todas as tarefas de gestão de trabalho para este inquilino Intune. Esta conta pode ser uma conta do Google que é partilhada entre os administradores que gerem os dispositivos Android. Esta é a conta do Google pela sua organização para gerir e publicar aplicações na Play para a consola de trabalho. Pode utilizar esta conta para aprovar aplicações na Play para o arquivo de trabalho, por isso, manter controlar do nome da conta e palavra-passe.
+1. Criar uma conta do Google na https://accounts.google.com/SignUp para utilizar como Android para a conta de administrador de trabalho. Em alternativa, inicie sessão com a conta associada Android todas as tarefas de gestão de trabalho para este inquilino Intune. Esta conta pode ser uma conta do Google que é partilhada entre os administradores que gerem os dispositivos Android. Esta é a conta do Google pela sua organização para gerir e publicar aplicações na Play para a consola de trabalho. Pode utilizar esta conta para aprovar aplicações na Play para o arquivo de trabalho, por isso, manter controlar do nome da conta e palavra-passe.
 2. Ative a inscrição de dispositivos Android através do enlace a conta do Google para o inquilino do Intune que é gerido no Configuration Manager:
    1. Na consola do Configuration Manager no **administração** área de trabalho, escolha **descrição geral** > **serviços em nuvem** > **subscrições do Microsoft Intune** e escolha a sua subscrição do Intune.
    2. No **home page** separador o **subscrição** grupo, escolha **configurar plataformas** > **Android para trabalho**.
@@ -60,7 +61,7 @@ Os passos seguintes permitem gerir dispositivos Android com um perfil de trabalh
 > Um problema conhecido impede o **gerir dispositivos suportados para apenas os utilizadores nestes grupos como Android para trabalho** opção de funcionar conforme esperado. Os dispositivos dos utilizadores no especificado inscrever de grupos do Azure AD como Android, em vez de Android para o trabalho. Para ativar o Android de trabalho, tem de utilizar o **gerir todos os dispositivos suportados como Android para trabalho** opção.
 
 
-Depois da configurar, terá de informar os utilizadores como inscrever os respetivos dispositivos. Veja [O que dizer aos utilizadores finais sobre a utilização do Microsoft Intune](https://docs.microsoft.com/en-us/intune/end-user-educate). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
+Depois da configurar, terá de informar os utilizadores como inscrever os respetivos dispositivos. Veja [O que dizer aos utilizadores finais sobre a utilização do Microsoft Intune](https://docs.microsoft.com/intune/end-user-educate). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
 
 Quando o enlace é concluída, pode ver o nome de conta e o nome da organização no portal do Intune. Nessa altura, pode fechar ambos os browsers.
 

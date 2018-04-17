@@ -1,26 +1,27 @@
 ---
-title: "Referência das tarefas de manutenção"
+title: Referência das tarefas de manutenção
 titleSuffix: Configuration Manager
-description: "Lê os detalhes para cada uma das tarefas de manutenção do site do System Center Configuration Manager e se estas tarefas são ativadas por predefinição."
+description: Lê os detalhes para cada uma das tarefas de manutenção do site do System Center Configuration Manager e se estas tarefas são ativadas por predefinição.
 ms.custom: na
 ms.date: 3/8/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 68dc6acd-5848-47a4-b4c1-ffa40e47890b
-caps.latest.revision: "16"
-caps.handback.revision: "0"
+caps.latest.revision: 16
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 3f67bddcb7233b62769271871354c86c5440e320
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 21b5e47efd2678f78fe7b7c0e10524ec7141634d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reference-for-maintenance-tasks-for-system-center-configuration-manager"></a>Referência das tarefas de manutenção para o System Center Configuration Manager
 
@@ -105,7 +106,7 @@ Este tópico lista os detalhes para cada uma das tarefas de manutenção do site
 -   **Site primário**: Ativado    
 -   Site secundário: Não disponível  
 
-**Eliminar dados de deteção desatualizados**: Utilize esta tarefa para eliminar dados de deteção desatualizados da base de dados. Estes dados podem incluir registos resultantes de deteção de heartbeat, deteção de rede e os métodos de deteção de serviços de domínio do Active Directory (sistema, utilizador e grupo). Quando esta tarefa é executada num site, os dados associados a esse site são eliminados e essas alterações são replicadas para outros sites. Para obter informações sobre a Deteção, veja [Executar a deteção no System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
+**Eliminar dados de deteção desatualizados**: Utilize esta tarefa para eliminar dados de deteção desatualizados da base de dados. Estes dados podem incluir registos resultantes de deteção de heartbeat, deteção de rede e os métodos de deteção de serviços de domínio do Active Directory (sistema, utilizador e grupo). Esta tarefa também irá remover dispositivos desatualizados marcados como desativados. Quando esta tarefa é executada num site, os dados associados a esse site são eliminados e essas alterações são replicadas para outros sites. Para obter informações sobre a Deteção, veja [Executar a deteção no System Center Configuration Manager](../../../core/servers/deploy/configure/run-discovery.md).  
 
 -   Site de administração central: Não disponível    
 -   **Site primário**: Ativado    

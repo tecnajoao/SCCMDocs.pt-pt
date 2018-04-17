@@ -12,15 +12,15 @@ ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ''
-caps.latest.revision: ''
+caps.latest.revision: 5
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: faa1a50b29fe4ba966812441243b81ee2d31b024
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 3f122dc7ba1bce5aaf8fe0ac6e4c75165a9b5a0b
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-deploy-windows-defender-application-guard-policy"></a>Criar e implementar a política de proteção de aplicações do Windows Defender 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -29,7 +29,7 @@ Pode criar e implementar [Guard de aplicação do Windows Defender](https://docs
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para criar e implementar uma política de proteção de aplicações do Windows Defender, tem de utilizar atualização do Windows 10, enquadram-se criador (1709). Além disso, os dispositivos Windows 10 nos quais implementou a política tem de ser configurados com uma política de isolamento de rede. Para obter mais informações, consulte o [descrição geral da proteção de aplicações do Windows Defender](https://docs.microsoft.com/en-us/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). 
+Para criar e implementar uma política de proteção de aplicações do Windows Defender, tem de utilizar atualização do Windows 10, enquadram-se criador (1709). Além disso, os dispositivos Windows 10 nos quais implementou a política tem de ser configurados com uma política de isolamento de rede. Para obter mais informações, consulte o [descrição geral da proteção de aplicações do Windows Defender](https://docs.microsoft.com/windows/threat-protection/windows-defender-application-guard/wd-app-guard-overview). 
 
 
 ## <a name="create-a-policy-and-to-browse-the-available-settings"></a>Crie uma política de e para procurar as definições disponíveis:

@@ -1,22 +1,23 @@
 ---
-title: "Configurar classificações e produtos a sincronizar"
+title: Configurar classificações e produtos
 titleSuffix: Configuration Manager
-description: "Siga estes passos para configurar classificações e produtos para sincronizar na consola do Configuration Manager."
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.date: 11/20/2017
+description: Siga estes passos para configurar classificações de atualizações de software e produtos para sincronizar na consola do Configuration Manager.
+keywords: ''
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.date: 04/10/2018
 ms.topic: article
 ms.prod: configuration-manager
-ms.service: 
-ms.technology: configmgr-sum
+ms.service: ''
+ms.technology:
+- configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
-ms.openlocfilehash: f36ff74b794e57b51742c40d10bd25a9cb4a13a5
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+ms.openlocfilehash: 9ba0872b1d2e4ef5dd027df3f7c16a6b3a94e9ac
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurar classificações e produtos a sincronizar  
 
@@ -53,9 +54,11 @@ ms.lasthandoff: 11/21/2017
     >       
 
     > [!NOTE]    
-    > A partir do Configuration Manager versão 1706, pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface. Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016. Se ativar um ponto de atualização de software num computador com o Windows Server 2012 depois de ativar a superfície controladores, os resultados da análise para as atualizações de controladores não estão corretos. Isto resulta em dados de conformidade incorreto apresentados na consola do Configuration Manager e nos relatórios do Configuration Manager.  
-    > 
-    > O **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação está sempre disponível no Configuration Manager versão 1710. No entanto, é uma funcionalidade de pré-lançamento do Configuration Manager versão 1706 e tem de ativar esteja disponível. Funcionalidades de pré-lançamento são funcionalidades que estão no ramo atual para um teste antecipado num ambiente de produção. Estas funcionalidades são totalmente suportadas, mas ainda estão em desenvolvimento Active Directory e poderão receber alterações até que mudam fora da categoria da versão de pré-lançamento. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+    > A partir do Configuration Manager versão 1706, pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface.<!--1098490--> Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016. Se ativar um ponto de atualização de software num computador com o Windows Server 2012 depois de ativar a superfície controladores, os resultados da análise para as atualizações de controladores não estão corretos. Isto resulta em dados de conformidade incorreto apresentados na consola do Configuration Manager e nos relatórios do Configuration Manager.  
+    >  
+    > Esta funcionalidade foi introduzida pela primeira vez na versão 1706 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1710, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+    >  
+    > O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 5.  No separador **Produtos** , especifique os produtos para os quais quer sincronizar atualizações de software e, em seguida, clique em **Fechar**.  
 

@@ -2,7 +2,7 @@
 title: Plano para gateway de gestão de nuvem
 titleSuffix: Configuration Manager
 description: Planear e estruturar o gateway de gestão de nuvem (CMG) para simplificar a gestão de clientes baseados na internet.
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
@@ -10,20 +10,26 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: dabc248c1788ecad4d7b25c0a1f592e0ddeef826
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: 2b207ffe95a078c955817d9251da3adbdf4de10d
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planear para o gateway de gestão de nuvem no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
-
+ 
+<!--1101764-->
 O gateway de gestão de nuvem (CMG) fornece uma forma simples de gerir clientes do Configuration Manager na internet. Ao implementar o CMG como um serviço em nuvem no Microsoft Azure, pode gerir clientes tradicionais que se movem na internet sem uma infraestrutura adicional. Também não precisa de expor a sua infraestrutura no local para a internet. 
 
 > [!Tip]  
-> Esta funcionalidade foi introduzida pela primeira vez na versão 1610 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
+> Esta funcionalidade foi introduzida pela primeira vez na versão 1610 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+
+
+> [!Note]  
+> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Depois de estabelecer os pré-requisitos, criação de CMG é composta pelos seguintes três passos na consola do Configuration Manager:
 1. Implemente o serviço de nuvem CMG no Azure.
@@ -186,6 +192,7 @@ A tabela seguinte lista o suporte CMG para funcionalidades do Configuration Mana
 | Proteção de ponto final     | ![Suportado](media/green_check.png) |
 | Inventário de hardware e software     | ![Suportado](media/green_check.png) |
 | Estado do cliente e notificações     | ![Suportado](media/green_check.png) |
+| Executar scripts     | ![Suportado](media/green_check.png) |
 | Definições de compatibilidade     | ![Suportado](media/green_check.png) |
 | Instalação de cliente</br>(com a integração do AD do Azure)     | ![Suportado](media/green_check.png)  (1706) |
 | Distribuição de software (direcionados dispositivo)     | ![Suportado](media/green_check.png) |

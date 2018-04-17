@@ -1,25 +1,26 @@
 ---
-title: "Gerir aplicações da loja Microsoft para empresas"
+title: Gerir aplicações da loja Microsoft para empresas
 titleSuffix: Configuration Manager
-description: "Gerir e implementar aplicações da Microsoft Store para empresas com o System Center Configuration Manager."
+description: Gerir e implementar aplicações da Microsoft Store para empresas com o System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-app
+ms.technology:
+- configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cdb22a6-72d7-41f5-9bed-c098b1bcf675
-caps.latest.revision: "11"
+caps.latest.revision: 11
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 15644a8c1acdbde85c7ca194a72a10c3cc2c0fcc
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 89bb52b806c99395bca14be34d06611174823a3c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-apps-from-the-microsoft-store-for-business-with-system-center-configuration-manager"></a>Gerir aplicações da loja Microsoft para empresas com o System Center Configuration Manager
 O [Microsoft Store para empresas](https://www.microsoft.com/business-store) é onde pode encontrar e adquirir aplicações do Windows para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode sincronizar a lista de aplicações que comprou com o Configuration Manager. Em seguida, pode ver estas aplicações na consola do Configuration Manager e implementá-las como poderia implementar qualquer outra aplicação.
@@ -88,7 +89,7 @@ Sincronizar a lista de aplicações adquirido pela sua organização permite-lhe
 ### <a name="for-configuration-manager-versions-prior-to-1706"></a>Para versões do Configuration Manager antes de 1706
 
 **No Azure Active Directory, registe o Configuration Manager como uma ferramenta de gestão "Aplicação Web e/ou API Web". Esta ação dá-lhe um ID de cliente que precisar mais tarde.**
-1. No nó do Active Directory da [https://manage.windowsazure.com](https://manage.windowsazure.com), selecione o seu Azure Active Directory, em seguida, clique em **aplicações** > **adicionar**.
+1. No nó do Active Directory da [ https://manage.windowsazure.com ](https://manage.windowsazure.com), selecione o seu Azure Active Directory, em seguida, clique em **aplicações** > **adicionar**.
 2.  Clique em **adicionar uma aplicação que a minha organização está a desenvolver**.
 3.  Introduza um nome para a aplicação, selecione **aplicação Web** e/ou **Web API**, em seguida, clique o **seguinte** seta.
 4.  Introduza o mesmo URL para ambos os **URL de início de sessão** e **URI de ID de aplicação**. O URL pode ser qualquer coisa e não precisa de resolver para um endereço real. Por exemplo, pode introduzir *https://yourdomain/sccm*.
@@ -99,7 +100,7 @@ Sincronizar a lista de aplicações adquirido pela sua organização permite-lhe
 2.  Em **chaves**, selecione uma duração da lista e, em seguida, clique em **guardar**. Esta ação cria uma nova chave de cliente. Não saia desta página até ter com êxito integrado Store da Microsoft para empresas para o Configuration Manager.
 
 **Na Microsoft Store para empresas, configurar o Configuration Manager como a ferramenta de gestão de arquivo**
-1.  Abra [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) e início de sessão se lhe for pedido.
+1.  Abra [ https://businessstore.microsoft.com/managementtools ](https://businessstore.microsoft.com/managementtools) e início de sessão se lhe for pedido.
 2.  Se o pedido de aceitar os termos de utilização.
 3.  Em **ferramentas de gestão**, clique em **adicionar uma ferramenta de gestão**.
 4.  No **pesquisar a ferramenta por nome**, escreva o nome da aplicação que criou anteriormente no AAD, em seguida, clique em **adicionar**.
@@ -151,6 +152,6 @@ Para cada aplicação da loja que gere, pode ver informações sobre a aplicaç�
 
 Depois de implementar as aplicações online, as atualizações para essa aplicação ficará diretamente a partir da Microsoft Store. Além disso, Configuration Manager não verifica a compatibilidade da versão de aplicações online, apenas que o Windows apresenta a aplicação como instalado.  
 
-Ao implementar aplicações offline para dispositivos Windows 10 com o cliente do Configuration Manager, não permitir que os utilizadores atualizar aplicações externas para implementações do Configuration Manager. É especialmente importante em ambientes de vários utilizadores como classrooms controlo das atualizações às aplicações offline. É uma opção para desativar o Microsoft Store utilizando [política de grupo](https://docs.microsoft.com/en-us/windows/configuration/stop-employees-from-using-microsoft-store#a-href-idblock-store-group-policyablock-microsoft-store-using-group-policy). 
+Ao implementar aplicações offline para dispositivos Windows 10 com o cliente do Configuration Manager, não permitir que os utilizadores atualizar aplicações externas para implementações do Configuration Manager. É especialmente importante em ambientes de vários utilizadores como classrooms controlo das atualizações às aplicações offline. É uma opção para desativar o Microsoft Store utilizando [política de grupo](https://docs.microsoft.com/windows/configuration/stop-employees-from-using-microsoft-store#a-href-idblock-store-group-policyablock-microsoft-store-using-group-policy). 
 
 Depois da Microsoft Store para o administrador da empresa adquire uma aplicação offline, não publique a aplicação aos utilizadores através da loja. Esta configuração assegura que os utilizadores não conseguem instalar nem atualizar online. Os utilizadores só irão receber as atualizações de aplicações offline através do Gestor de configuração. 

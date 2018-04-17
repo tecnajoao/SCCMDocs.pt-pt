@@ -1,9 +1,9 @@
 ---
-title: 'Sincronizar os dados no Microsoft Operations Management Suite '
+title: Dados de sincronização para OMS
 titleSuffix: Configuration Manager
 description: Sincronizar os dados do System Center Configuration Manager no Microsoft Operations Management Suite.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,25 +12,32 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 33bcf8b3-a6b6-4fc9-bb59-70a9621b2b0d
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+caps.latest.revision: 9
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: df57255108d0e5e8b8f5e4e8d73a392c4cf2faae
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 4ac6d69d07e17946abefdc4f5b7d4a1a73385c44
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 #  <a name="sync-data-from-configuration-manager-to-the-microsoft-operations-management-suite"></a>Sincronizar os dados do Configuration Manager para o Microsoft Operations Management Suite
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
+<!--1258052-->
 Pode utilizar o **Assistente de serviços do Azure** para configurar a ligação do Configuration Manager para o serviço de nuvem do Operations Management Suite (OMS). O assistente a partir da versão 1706, substitui o anteriores fluxos de trabalho para configurar esta ligação. Para versões anteriores, consulte [sincronizar os dados do Configuration Manager para o Microsoft Operations Management Suite (1702 e anterior)](#Sync-data-from-Configuration-Manager-to-the-Microsoft-Operations-Management-Suite-(1702-and-earlier)).
 
 -   O assistente é utilizado para configurar os serviços em nuvem para o Configuration Manager, como o OMS, Microsoft Store para empresas e no Azure Active Directory (Azure AD).  
 
 -   O Configuration Manager liga-se ao OMS para funcionalidades como [Log Analytics](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), ou [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics).
+
+
+> [!Note]  
+> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
+
 
 ## <a name="prerequisites-for-the-oms-connector"></a>Pré-requisitos para o conector do OMS
 Pré-requisitos para configurar uma ligação ao OMS permanecem inalteradas em pré-requisitos [documentados para a versão do ramo atual 1702](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#prerequisites). Essas informações são repetidas aqui:  
@@ -129,17 +136,17 @@ Depois de ligação do Configuration Manager para OMS, pode adicionar ou remover
 
     Altere o valor para o nome da definição *FairFaxArmResourceID* para ser igual a "https://management.usgovcloudapi.net/"
 
-   - **Original:** &lt;setting name="FairFaxArmResourceId" serializeAs="String">   
+   - **Original:** &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "Cadeia" >   
       &lt;value>&lt;/value>   
       &lt;/setting>
 
    - **Editadas:**     
-      &lt;setting name="FairFaxArmResourceId" serializeAs="String"> &lt;value>https://management.usgovcloudapi.net/&lt;/value>  
+      &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "Cadeia" > &lt;valor >https://management.usgovcloudapi.net/ &lt; /value >  
       &lt;/setting>
 
   Altere o valor para o nome da definição *FairFaxAuthorityResource* para ser igual a "https://login.microsoftonline.us/"
 
-  - **Original:** &lt;setting name="FairFaxAuthorityResource" serializeAs="String">   
+  - **Original:** &lt;nome da definição = "FairFaxAuthorityResource" serializeAs = "Cadeia" >   
     &lt;value>&lt;/value>
 
     - **Editadas:** &lt;nome da definição = "FairFaxAuthorityResource" serializeAs = "Cadeia" >   

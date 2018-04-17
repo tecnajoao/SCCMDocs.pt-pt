@@ -3,7 +3,7 @@ title: Atualizações na consola
 titleSuffix: Configuration Manager
 description: Instalar atualizações para o Configuration Manager a partir da nuvem da Microsoft
 ms.custom: na
-ms.date: 03/28/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
 caps.latest.revision: 36
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 054bbd8e7b1dd3f5d565afe60eb7e3379cc7a9ee
-ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
+ms.openlocfilehash: 9924346ccbd862aa4462075a3307b4ec40b955bc
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Instalar atualizações na consola para o System Center Configuration Manager
 
@@ -311,7 +311,7 @@ Quando estiver pronto para repetir a instalação de uma atualização, selecion
 #### <a name="retry-installation-for-the-hierarchy"></a>Repetir a instalação para a hierarquia
 Pode repetir a instalação de uma atualização para toda a hierarquia quando a atualização se encontra num dos seguintes estados:  
 
-  -   Verificação de pré-requisitos passou com um ou mais avisos, e a opção para ignorar os avisos de verificação de pré-requisitos não foi definida no Assistente de atualização. (Valor da atualização para **ignorar aviso de pré** no **atualizações e manutenção** é nó **não**.)   
+  -   Verificações de pré-requisitos passaram com um ou mais avisos, e a opção para ignorar os avisos de verificação de pré-requisitos não foi definida no Assistente de atualização. (Valor da atualização para **ignorar aviso de pré** no **atualizações e manutenção** é nó **não**.)   
   -   Falha no pré-requisito    
   -   Falha na instalação
   -   Falha na replicação do conteúdo para o site   
@@ -324,7 +324,7 @@ Aceda a **administração** > **atualizações e manutenção**, selecione a atu
 #### <a name="retry-installation-for-the-site"></a>Repetir a instalação para o site  
  Pode repetir a instalação de uma atualização num site específico quando a atualização se encontra num dos seguintes estados:  
 
-  -   Verificação de pré-requisitos passou com um ou mais avisos, e a opção para ignorar os avisos de verificação de pré-requisitos não foi definida no Assistente de atualização. (O valor das atualizações para **ignorar aviso de pré-requisitos** do nó atualizações e manutenção é **não**.)  
+  -   Verificações de pré-requisitos passaram com um ou mais avisos, e a opção para ignorar os avisos de verificação de pré-requisitos não foi definida no Assistente de atualização. (O valor das atualizações para **ignorar aviso de pré-requisitos** do nó atualizações e manutenção é **não**.)  
   -   Falha no pré-requisito    
   -   Falha na instalação    
 
@@ -369,10 +369,36 @@ Quando uma atualização inclui um ou mais funcionalidades opcionais, terá a op
 
 Para ver as funcionalidades disponíveis e o respetivo estado, na consola navegue para **administração** > **atualizações e manutenção** > **funcionalidades**.
 
-Quando uma funcionalidade não é opcional, é instalado automaticamente e não for apresentada a **funcionalidades** nós.  
+Quando uma funcionalidade não é opcional, é instalado automaticamente. Não aparecem no **funcionalidades** nós.  
+
+> [!Important]  
+> Numa hierarquia multilocal, só pode ativar funcionalidades opcionais ou a versão de pré-lançamento do site de administração central. Este comportamento garante que existem não existem conflitos entre a hierarquia. <!--507197-->
+ 
+
+Quando ativa uma funcionalidade nova ou a funcionalidade de pré-lançamento, o Gestor da hierarquia do Configuration Manager (HMAN) tem de processar a alteração para que essa funcionalidade fica disponível. O processamento da alteração, muitas vezes, é imediato, mas pode demorar até 30 minutos a concluir, consoante o ciclo de processamento de HMAN. Após a alteração é processada, tem de reiniciar a consola antes de poder visualizar novos nós relacionados com essa funcionalidade.
+
+#### <a name="list-of-optional-features"></a>Lista de funcionalidades opcionais
+As seguintes funcionalidades são opcionais na versão mais recente do Configuration Manager:<!--505213-->  
+- [Acesso condicional para PCs geridos](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm)  <!--1191496-->
+- [O Passport for Work](/sccm/protect/deploy-use/windows-hello-for-business-settings) (também conhecido como *Windows Hello para empresas*) <!--1245704-->
+- [VPN para Windows 10](/sccm/protect/deploy-use/vpn-profiles) <!--1283610-->
+- [Política do Windows Defender exploram proteção](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy) <!--1355468-->
+- [Conector do Microsoft Operations Management Suite (OMS)](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) <!--1258052-->
+- [Criar PFX](/sccm/protect/deploy-use/introduction-to-certificate-profiles) <!--1321368-->
+- [A Cache do cliente](/sccm/core/plan-design/hierarchy/client-peer-cache) <!--1101436-->
+- [Ponto de serviço do armazém de dados](/sccm/core/servers/manage/data-warehouse) <!--1277922-->
+- [Gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) <!--1101764-->
+- [Atualizações de controladores superfície](/sccm/sum/get-started/configure-classifications-and-products) <!--1098490-->
+- [Sequência conteúdo previamente a colocação em cache de tarefas](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content) <!--1021244-->
+- [Executar o passo de sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#add-child-task-sequences-to-a-task-sequence) <!--1261338-->
+- [Criar e executar scripts](/sccm/apps/deploy-use/create-deploy-scripts) <!--1236459-->
+- [Avaliação de atestado de estado de funcionamento do dispositivo para as políticas de conformidade de acesso condicional](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm) <!--1235616-->
+- [Aprovar pedidos de aplicações para os utilizadores por dispositivo](/sccm/apps/deploy-use/deploy-applications#specify-deployment-settings) <!--1357015-->  
 
 
-Quando ativa uma funcionalidade nova ou a funcionalidade de pré-lançamento, o Gestor da hierarquia do Configuration Manager (HMAN) tem de processar a alteração para que essa funcionalidade fica disponível. O processamento da alteração, muitas vezes, é imediato, mas pode demorar até 30 minutos a concluir, consoante o ciclo de processamento de HMAN. Após a alteração é processada, tem de reiniciar a consola antes de poder visualizar a nova IU relacionados com essa funcionalidade.
+> [!Tip]  
+> Para mais informações sobre as funcionalidades que necessitam de consentimento para ativar, consulte [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).  
+> Para obter mais informações sobre as funcionalidades que só estão disponíveis no ramo pré-visualização técnica, consulte [Technical Preview](/sccm/core/get-started/technical-preview).
 
 
 

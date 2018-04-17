@@ -1,25 +1,26 @@
 ---
 title: Monitor de clientes com Windows Analytics
 titleSuffix: Configuration Manager
-description: "A análise do Windows é um conjunto de soluções que são executados no Operations Management Suite que lhe permitem que desenhar informações valiosas para o estado atual do seu ambiente, tirando partido os dados de telemetria do Windows são reportados pelos dispositivos no seu ambiente."
+description: A análise do Windows é um conjunto de soluções que são executados no Operations Management Suite que lhe permitem que desenhar informações valiosas para o estado atual do seu ambiente, tirando partido os dados de telemetria do Windows são reportados pelos dispositivos no seu ambiente.
 ms.custom: na
 ms.date: 01/02/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-client
+ms.technology:
+- configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: CF35CE87-3BA8-4A84-9BC8-ABCEA4666212
-caps.latest.revision: "23"
+caps.latest.revision: 23
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 6e0b6ec99755b89213b540f22315038911b8eb29
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+ms.openlocfilehash: 15b1d07f35f774f3ec8f082a86c90ecb989a438e
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-windows-analytics-with-configuration-manager"></a>Utilize a análise do Windows com o Configuration Manager
 
@@ -64,6 +65,6 @@ Para obter mais detalhes e informações sobre como configurar e ligar a prepara
 
 ## <a name="use-windows-analytics-to-identify-gaps-in-windows-information-protection-policies"></a>Utilize a análise do Windows para identificar lacunas nas políticas de proteção de informações do Windows
 
-A versão do Windows 10 1703 e dispositivos posteriores configurados com um [Windows Information Protection](https://docs.microsoft.com/en-us/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) telemetria de relatório de política (WIP) em aplicações que acedam aos dados da empresa no seu ambiente, mas as regras de aplicação de política WIP não compatíveis inclua. Os utilizadores podem precisar estas aplicações para permanecer produtivo, mas WIP bloqueia o acesso de utilizadores. Dados de conhecimento que os utilizadores estão a aceder a dados empresariais são útil para a manutenção das políticas de proteção de informações do Windows no Configuration Manager. 
+A versão do Windows 10 1703 e dispositivos posteriores configurados com um [Windows Information Protection](https://docs.microsoft.com/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) telemetria de relatório de política (WIP) em aplicações que acedam aos dados da empresa no seu ambiente, mas as regras de aplicação de política WIP não compatíveis inclua. Os utilizadores podem precisar estas aplicações para permanecer produtivo, mas WIP bloqueia o acesso de utilizadores. Dados de conhecimento que os utilizadores estão a aceder a dados empresariais são útil para a manutenção das políticas de proteção de informações do Windows no Configuration Manager. 
 
 Aceder a estes dados de Windows Information Protection utilizando este [consulta Operations Management Suite](https://go.microsoft.com/fwlink/?linkid=849952).

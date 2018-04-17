@@ -1,26 +1,27 @@
 ---
-title: "Escolha o que a migração"
+title: Escolha o que a migração
 titleSuffix: Configuration Manager
-description: "Saiba o que pode migrar de dados e os dados não é possível migrar para o System Center Configuration Manager."
+description: Saiba o que pode migrar de dados e os dados não é possível migrar para o System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 99222dc8-0e1e-4513-8302-7a1acf671e9b
-caps.latest.revision: "6"
-caps.handback.revision: "0"
+caps.latest.revision: 6
+caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: 822bc5b4e17bdc611243fadfb13c551b0a8237a8
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 0718b7863c45f7b7e56380d4a2fa74e8d1a17b54
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Determinar se deve migrar os dados para o System Center Configuration Manager
 
@@ -50,7 +51,7 @@ Depois de instalar um cliente na nova hierarquia e o cliente envia os dados, o s
 
 -   [Dados que não pode migrar para o System Center Configuration Manager](#Cannot_migrate)  
 
-##  <a name="Can_Migrate"></a>Dados que pode migrar para o System Center Configuration Manager  
+##  <a name="Can_Migrate"></a> Dados que pode migrar para o System Center Configuration Manager  
  Migração permite migrar a maioria dos objetos entre hierarquias suportadas do Configuration Manager. As instâncias migradas de alguns objetos de uma versão suportada do Configuration Manager 2007 têm de ser modificadas para conformidade com o formato de esquema e de objeto do System Center 2012 Configuration Manager.
 
 Estas alterações não afetam os dados na base de dados de site de origem. Objetos migrados de uma versão suportada do System Center 2012 Configuration Manager ou System Center Configuration Manager não necessitam de alteração.  
@@ -58,8 +59,6 @@ Estas alterações não afetam os dados na base de dados de site de origem. Obje
  Seguem-se os objetos que podem migrar com base na versão do Configuration Manager na hierarquia de origem. Alguns objetos, como consultas, não são migrados. Se quiser continuar a utilizar estes objetos que não são migrados, tem de os recriar na nova hierarquia. Outros objetos, incluindo alguns dados de cliente, são recriados automaticamente na nova hierarquia quando gerir clientes nessa hierarquia.  
 
 ### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Objetos que podem migrar a partir do ramo atual do System Center 2012 Configuration Manager ou System Center Configuration Manager
-
--   Anúncios  
 
 -   Aplicações para o System Center 2012 Configuration Manager e versões posteriores  
 
@@ -76,6 +75,8 @@ Estas alterações não afetam os dados na base de dados de site de origem. Obje
     -   Linhas de base de configuração  
 
     -   Itens de configuração  
+
+-   Implementações  
 
 -   Implementação do sistema operativo:  
 
@@ -161,7 +162,7 @@ Estas alterações não afetam os dados na base de dados de site de origem. Obje
 
 -   Pacotes de aplicações virtuais  
 
-##  <a name="Cannot_migrate"></a>Dados que não pode migrar para o System Center Configuration Manager  
+##  <a name="Cannot_migrate"></a> Dados que não pode migrar para o System Center Configuration Manager  
  Não é possível migrar os seguintes tipos de objetos:  
 
 -   Informações de aprovisionamento de cliente AMT  

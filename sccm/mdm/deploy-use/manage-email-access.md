@@ -7,19 +7,20 @@ ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fa648e73-5fb8-4818-ab57-7466ffaf888e
-caps.latest.revision: "24"
+caps.latest.revision: 24
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: a83c2030de8a146dad7bf2258e8a983c8ab6c45e
-ms.sourcegitcommit: 922d6d9c91ba2158b938df381277be1b5f1d434a
+ms.openlocfilehash: e36674d27757daab9ced4e7e8b51942a4929b5ff
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Gerir o acesso ao e-mail no System Center Configuration Manager
 
@@ -47,7 +48,7 @@ Pode controlar o acesso ao Exchange Online e ao Exchange No Local a partir do cl
 
 Aplicações de ambiente de trabalho do Office podem aceder ao Exchange Online em computadores que executam:  
 
--   Ambiente de trabalho do Office 2013 e versões posteriores com [autenticação moderna](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) ativada.  
+-   Ambiente de trabalho do Office 2013 e versões posteriores com [autenticação moderna](https://support.office.com/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) ativada.  
 
 -   Windows 7.0 ou Windows 8.1  
 
@@ -74,7 +75,7 @@ Aplicações de ambiente de trabalho do Office podem aceder ao Exchange Online e
 
 **Para dispositivos móveis:**
 
-Pode restringir o acesso ao **Outlook Web Access (OWA)** no Exchange Online quando o acesso for feito a partir de um browser em dispositivos **iOS** e **Android** .  O acesso só será permitido a partir de browsers suportados em dispositivos conformes:
+Pode restringir o acesso ao **Outlook Web Access (OWA)** no Exchange Online quando o acesso for feito a partir de um browser em dispositivos **iOS** e **Android** .  O acesso só será permitido a partir de browsers suportados em dispositivos em conformidade:
 
 * Safari (iOS)
 * Chrome (Android)
@@ -171,7 +172,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 #### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Para o Exchange Online (e inquilinos no novo ambiente do Exchange Online Dedicado)
 
 >[!NOTE]
->Também pode criar política de acesso condicional na consola de gestão do Azure AD. Consola de gestão do Azure AD permite-lhe criar políticas de acesso condicional (referidas como a política de acesso condicional baseado no dispositivo no Azure AD) para além de outras políticas de acesso condicional, como a autenticação multifator do dispositivo do Intune. Também pode definir políticas de acesso condicional para aplicações da empresa de terceiros, como o Salesforce e suporta a caixa de que o Azure AD. Para obter mais detalhes, consulte [como definir a política de acesso condicional baseado no dispositivo do Azure Active Directory para o controlo de acesso ao Azure Active Directory ligado aplicações](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>Também pode criar política de acesso condicional na consola de gestão do Azure AD. Consola de gestão do Azure AD permite-lhe criar políticas de acesso condicional (referidas como a política de acesso condicional baseado no dispositivo no Azure AD) para além de outras políticas de acesso condicional, como a autenticação multifator do dispositivo do Intune. Também pode definir políticas de acesso condicional para aplicações da empresa de terceiros, como o Salesforce e suporta a caixa de que o Azure AD. Para obter mais detalhes, consulte [como definir a política de acesso condicional baseado no dispositivo do Azure Active Directory para o controlo de acesso ao Azure Active Directory ligado aplicações](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
  As políticas de acesso condicional para o Exchange Online utilizam o fluxo seguinte para avaliar se os dispositivos devem ser permitidos ou bloqueados.  
 
@@ -185,7 +186,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
 -   Registar o dispositivo no Azure Active Directory (isto ocorre automaticamente quando o dispositivo é inscrito no Intune.  
 
-     Para um PC associado a um domínio, tem de defini-lo para [registar automaticamente o dispositivo](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) no Azure Active Directory.  
+     Para um PC associado a um domínio, tem de defini-lo para [registar automaticamente o dispositivo](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-automatic-device-registration/) no Azure Active Directory.  
 
 -   Ter o e-mail ativado, que associa o ID do Exchange ActiveSync do dispositivo ao registo do dispositivo no Azure Active Directory (aplica-se a dispositivos iOS e Android apenas).  
 

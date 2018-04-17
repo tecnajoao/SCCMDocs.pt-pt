@@ -3,7 +3,7 @@ title: Armazém de dados
 titleSuffix: Configuration Manager
 description: Ponto de serviço do armazém de dados e base de dados para o System Center Configuration Manager
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -13,22 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
 caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 83bfc0e3d7bdf1ff8718c7c211c897e37b21a06b
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 02a3c672c95587aeecd41e804b32981104896923
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>O ponto de serviço do armazém de dados para o System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Versão 1702 pode utilizar o serviço de armazém de dados a partir do ponto para armazenar e elaborar relatórios sobre dados históricos a longo prazo para a sua implementação do Configuration Manager.
+<!--1277922-->
+Utilize o ponto de serviço do armazém de dados para armazenar e elaborar relatórios sobre dados históricos a longo prazo para a sua implementação do Configuration Manager.
 
 > [!TIP]
-> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
+> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+
+
+> [!Note]  
+> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 O armazém de dados suporta até 2 TB de dados, com carimbos de registo de alterações. Armazenamento de dados é conseguido ao sincronizações automáticas da base de dados do site do Configuration Manager para a base de dados do armazém de dados. Esta informação, em seguida, é acessível a partir do seu ponto de Reporting Service. Dados que são sincronizados para a base de dados do armazém de dados são mantidos três anos. Periodicamente, uma tarefa incorporada remove os dados que é mais antigos do que três anos.
 
@@ -168,7 +174,7 @@ Quando abre um relatório de armazém de dados, é devolvido o erro seguinte:
 
 
 ## <a name="data-warehouse-dataflow"></a>Fluxo de dados de armazém de dados   
-![Datawarehouse_flow](./media/datawarehouse.png)
+![Diagrama que mostra o fluxo de dados lógico entre os componentes do site para o armazém de dados](./media/datawarehouse.png)
 
 **Armazenamento de dados e sincronização**
 

@@ -1,9 +1,9 @@
 ---
-title: Criar uma sequência de tarefas para atualizar um sistema operativo
+title: Criar uma sequência de tarefas de atualização do SO
 titleSuffix: Configuration Manager
 description: Utilize uma sequência de tarefas para atualização do Windows 7 ou posterior para o Windows 10
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7591e386-a9ab-4640-8643-332dce5aa006
-caps.latest.revision: ''
+caps.latest.revision: 12
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 91d3bf5b1488eb7eac52c7426e4bdeeb92ff43b8
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 48a5e7aa381924e3c0ad052833c9588e3dffa4f5
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para atualizar um sistema operativo no System Center Configuration Manager
 
@@ -87,9 +87,16 @@ Utilize sequências de tarefas no Configuration Manager para atualizar automatic
 
 
 ## <a name="configure-pre-cache-content"></a>Configurar pré-armazenar conteúdo em cache
-A funcionalidade de pré-cache para as implementações disponíveis de sequências de tarefas permite que os clientes transferir conteúdo do pacote de atualização de SO relevante antes de um utilizador instala a sequência de tarefas.
+<!--1021244-->
+A funcionalidade de pré-cache para as implementações disponíveis de sequências de tarefas permite que os clientes transferir conteúdo do pacote de atualização de SO relevante antes de um utilizador instala a sequência de tarefas.  
+
 > [!TIP]  
-> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
+> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+
+
+> [!Note]  
+> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+
 
 Por exemplo, que apenas pretende uma sequência de tarefas de atualização no local único para todos os utilizadores e tem muitas arquiteturas e idiomas. Em versões anteriores, o conteúdo é iniciado transferir quando o utilizador instala uma implementação de sequência de tarefas disponíveis a partir do Centro de Software. Este atraso demore mais tempo adicional antes da instalação estiver pronta para começar. Todos os conteúdos referenciados na sequência de tarefas é transferido. Este conteúdo inclui o pacote de atualização do sistema operativo para todos os idiomas e arquiteturas. Se cada pacote de atualização é de aproximadamente três GB de tamanho, o conteúdo total é muito grande.
 

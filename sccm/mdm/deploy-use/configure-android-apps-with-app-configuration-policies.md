@@ -1,26 +1,27 @@
 ---
-title: "Configurar o Android para aplicações de trabalho com políticas de configuração de aplicação"
+title: Configurar o Android para aplicações de trabalho com políticas de configuração de aplicação
 titleSuffix: Configuration Manager
-description: "Ajude a eliminar os problemas de configuração em dispositivos com Android para trabalho ao implementar políticas de configuração de aplicação para os utilizadores antes de poderem executam as aplicações."
+description: Ajude a eliminar os problemas de configuração em dispositivos com Android para trabalho ao implementar políticas de configuração de aplicação para os utilizadores antes de poderem executam as aplicações.
 ms.custom: na
 ms.date: 09/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-hybrid
+ms.technology:
+- configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9126d188-7780-45a4-b21d-7fcf4fad7da2
-caps.latest.revision: "0"
-caps.handback.revision: "0"
+caps.latest.revision: 0
+caps.handback.revision: 0
 author: NathBarn
 ms.author: NathBarn
 manager: angrobe
-ms.openlocfilehash: 79d1b3fed3baa74c8ad195925ccda35713cb8865
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 0b1d4993e6ddb2301121a1e32b1672425e919dea
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apply-settings-to-android-for-work-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Aplicar as definições para o Android para aplicações de trabalho com políticas de configuração de aplicações no System Center Configuration Manager
 
@@ -35,7 +36,7 @@ Pode utilizar políticas de configuração de aplicações no System Center Conf
 Se o utilizador introduzir as definições incorretamente, o fardo corrigir recai no suporte técnico e implementação de aplicação é lenta. Para ajudar a evitar estes problemas, pode utilizar políticas de configuração de aplicação para implementar as definições necessárias para os utilizadores antes do que executar a aplicação. As definições estão associadas um utilizador automaticamente. O utilizador não tem de efetuar qualquer ação.
 Em vez de implementar políticas de configuração diretamente a utilizadores e dispositivos, associar uma política com um tipo de implementação ao implementar a aplicação. As definições de política são aplicadas sempre que a aplicação verifica a existência de-los, normalmente, a primeira vez que a aplicação é executada.
 
-Políticas de configuração de aplicação Android estão disponíveis apenas em dispositivos com o Android de trabalho. Aplicam políticas de configuração de aplicação para aplicações aprovadas da Play para o arquivo de trabalho. Para obter detalhes sobre as aplicações compradas em volume Android, consulte [como implementar aplicações Android para dispositivos de trabalho](https://docs.microsoft.com/en-us/intune/deploy-use/android-for-work-apps).
+Políticas de configuração de aplicação Android estão disponíveis apenas em dispositivos com o Android de trabalho. Aplicam políticas de configuração de aplicação para aplicações aprovadas da Play para o arquivo de trabalho. Para obter detalhes sobre as aplicações compradas em volume Android, consulte [como implementar aplicações Android para dispositivos de trabalho](https://docs.microsoft.com/intune/deploy-use/android-for-work-apps).
 
 Para obter mais informações sobre os tipos de instalação de aplicações, consulte o [introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management).
 

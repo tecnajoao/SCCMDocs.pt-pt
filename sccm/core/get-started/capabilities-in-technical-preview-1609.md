@@ -1,25 +1,26 @@
 ---
 title: Funcionalidades no Technical Preview 1609
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1609."
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1609.
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.topic: article
 ms.assetid: e2a59116-b2e5-4dd2-90eb-0b8a5eb50b56
-caps.latest.revision: "2"
+caps.latest.revision: 2
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: e1cceae5f73d003be2fe64df9e6dbaa7badaf0c7
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+ms.openlocfilehash: 4beca8479e5adbfa24b597769b792fd91bed9a2c
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="capabilities-in-technical-preview-1609-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1609 do System Center Configuration Manager
 
@@ -95,7 +96,7 @@ O procedimento para criar e implementar uma aplicação do Configuration Manager
 
 Adicionámos muitas novas definições, que pode utilizar os itens de configuração para várias plataformas de dispositivos.
 Estas são as definições que existiam no Microsoft Intune numa configuração autónoma e anteriormente estão agora disponíveis ao utilizar o Intune com o Configuration Manager.
-Se precisar de ajuda com qualquer uma destas definições, abra [gerir definições e funcionalidades nos seus dispositivos com políticas do Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies) e, em seguida, selecione o subtopic definições para a plataforma que pretende.
+Se precisar de ajuda com qualquer uma destas definições, abra [gerir definições e funcionalidades nos seus dispositivos com políticas do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies) e, em seguida, selecione o subtopic definições para a plataforma que pretende.
 
 
 ### <a name="new-settings-for-android-devices"></a>Novas definições para dispositivos Android
@@ -374,9 +375,9 @@ Nesta versão, a partir do dashboard de gestão de clientes do Office 365, pode 
 #### <a name="to-deploy-office-365-apps-to-clients"></a>Para implementar aplicações do Office 365 nos clientes
 1. Na consola do Configuration Manager, navegue até à **biblioteca de Software** > **descrição geral** > **gestão de clientes do Office 365**.
 2. Clique em **instalador do Office 365** no painel superior direito. É aberto o Assistente de instalação de cliente do Office 365.
-3. No **definições da aplicação** página, forneça um nome e descrição para a aplicação, introduza a localização de transferência para os ficheiros e, em seguida, clique em **seguinte**. Tenha em atenção que a localização tem de ser especificada no formulário &#92; &#92; *servidor*&#92; *partilhar*.
+3. No **definições da aplicação** página, forneça um nome e descrição para a aplicação, introduza a localização de transferência para os ficheiros e, em seguida, clique em **seguinte**. Tenha em atenção que a localização tem de ser especificada no formato &#92; &#92; *servidor*&#92;*partilhar*.
 4. No **importar as definições de cliente** página, escolha se importar as definições de cliente do Office 365 a partir de um ficheiro de configuração XML existente ou especifique manualmente as definições e, em seguida, clique em **seguinte**.
-Quando tiver um ficheiro de configuração existente, introduza a localização do ficheiro e avance para o passo 7. Tenha em atenção que a localização tem de ser especificada no formulário &#92; &#92; *server*&#92; *partilhar*&#92; *nome de ficheiro*. XML.
+Quando tiver um ficheiro de configuração existente, introduza a localização do ficheiro e avance para o passo 7. Tenha em atenção que a localização tem de ser especificada no formato &#92; &#92; *servidor*&#92;*partilhar*&#92;*filename*. XML.
 
     > [!IMPORTANT]
     >Poderá ter problemas ao tentar importar as definições de cliente existente (XML) nesta pré-visualização técnica.

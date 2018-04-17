@@ -1,27 +1,28 @@
 ---
-title: "Nova versão 1606"
+title: Nova versão 1606
 titleSuffix: Configuraton Manager
-description: "Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1606 do System Center Configuration Manager."
+description: Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1606 do System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/30/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df2e57b9-6445-4067-98e7-ace85d4e6aa6
-caps.latest.revision: "40"
+caps.latest.revision: 40
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: e26519de8ce0b905fd52ca6ab0762a406d2f1e2c
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 9c948e0ff84c4741d77b9096e52d3abd765aba7b
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="what39s-new-in-version-1606-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1606 do System Center Configuration Manager
+# <a name="what39s-new-in-version-1606-of-system-center-configuration-manager"></a>O que&#39;s novidade na versão 1606 do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -82,14 +83,14 @@ Após a atualização 1606 está instalado, quando instala uma atualização nes
 
 
 
-## <a name="accessibility"></a>Acessibilidade
+## <a name="accessibility"></a> Acessibilidade
 Para navegar entre os nós de uma área de trabalho diferentes, agora pode introduzir a primeira letra do nome de um nó. Cada chave prima move o cursor para o próximo nó que comece com essa letra. Para utilizadores que tenham um leitor de ecrã, o leitor lê terminar o nome do nó. Para mais informações sobre as opções de acessibilidade, consulte [funcionalidades de acessibilidade no System Center Configuration Manager](../../../core/understand/accessibility-features.md).
 
 ## <a name="administration"></a>Administração
 Seguem-se as alterações à administração na consola do Configuration Manager:
 ### <a name="oms-connector"></a>Conector do OMS
 
-Agora pode ligar o Configuration Manager como coleções do System Center Configuration Manager, para o [Microsoft Operations Management Suite (OMS)](https://azure.microsoft.com/en-us/documentation/articles/operations-management-suite-overview/). Isto torna visíveis na OMS dados, tais como coleções da implementação do Configuration Manager. Encontrar mais informações, consulte [a sincronizar dados do Configuration Manager para o Microsoft Operations Management Suite aqui](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md).
+Agora pode ligar o Configuration Manager como coleções do System Center Configuration Manager, para o [Microsoft Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/articles/operations-management-suite-overview/). Isto torna visíveis na OMS dados, tais como coleções da implementação do Configuration Manager. Encontrar mais informações, consulte [a sincronizar dados do Configuration Manager para o Microsoft Operations Management Suite aqui](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md).
 
 O conector do OMS é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [utilizar as funcionalidades de pré-lançamento das atualizações da](../../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
 
