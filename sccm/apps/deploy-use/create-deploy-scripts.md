@@ -3,7 +3,7 @@ title: Criar e executar scripts
 titleSuffix: Configuration Manager
 description: Criar e executar scripts do Powershell nos dispositivos cliente.
 ms.custom: na
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,26 +12,30 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: ''
-caps.handback.revision: ''
+caps.latest.revision: 14
+caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 19bb8b2c4e47dcc8a75db568e7f93541544a4566
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: b9699b2f4bd1f18890d25582be9a8d20778b64be
+ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-
-System Center Configuration Manager tem uma capacidade integrada para executar Powershell scripts. PowerShell tem a vantagem de criar sofisticadas, scripts automatizados, compreendeu e partilhados com uma Comunidade maior. Os scripts de simplificam a criação de ferramentas personalizadas para administrar o software e permitem a realizar tarefas criar rapidamente, permitindo-lhe obter tarefas grandes feitas de forma mais fácil e mais consistente.
+<!--1236459-->
+System Center Configuration Manager tem uma capacidade integrada para executar Powershell scripts. PowerShell tem a vantagem de criar sofisticadas, scripts automatizados, compreendeu e partilhados com uma Comunidade maior. Os scripts de simplificam a criação de ferramentas personalizadas para administrar o software e permitem a realizar tarefas criar rapidamente, permitindo-lhe obter tarefas grandes feitas de forma mais fácil e mais consistente.  
 
 > [!TIP]  
-> Esta funcionalidade foi introduzida pela primeira vez na versão 1706 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.
+> Esta funcionalidade foi introduzida pela primeira vez na versão 1706 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+
+
+> [!Note]  
+> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 
 Esta integração no System Center Configuration Manager, pode utilizar o *executar Scripts* funcionalidade para efetue os seguintes procedimentos:
