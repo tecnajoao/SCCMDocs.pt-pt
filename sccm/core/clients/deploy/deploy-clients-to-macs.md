@@ -12,7 +12,7 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e46ad501-5d73-44ac-92de-0de14ef72b83
-caps.latest.revision: ''
+caps.latest.revision: 12
 author: arob98
 ms.author: angrobe
 manager: angrobe
@@ -199,7 +199,7 @@ Utilize este procedimento para inscrição de certificados de cliente com a ferr
 > -   O ficheiro de materiais (LM) e a propriedade lista (. plist) criados pela instalação de cliente do Configuration Manager.  
 > -   O conteúdo da pasta /Library/Application Support/Microsoft/CCM/Logs.  
 >   
->  As informações recolhidas pelo CmDiagnostics são adicionadas a um ficheiro zip que é guardado no ambiente de trabalho do computador com o nome*< hostname\>***-***&gt;data e hora\>* . zip.* * *
+>  As informações recolhidas pelo CmDiagnostics são adicionadas a um ficheiro zip que é guardado no ambiente de trabalho do computador com o nome*< hostname\>***-***&gt;data e hora\>* . zip.***
 
 
 ##  <a name="use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager"></a>Utilize um método de pedido e instalação de certificado que seja independente do Configuration Manager  
