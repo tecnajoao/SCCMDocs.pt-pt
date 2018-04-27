@@ -12,11 +12,11 @@ ms.prod: configuration-manager
 ms.service: ''
 ms.technology: ''
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 1657cbacde468ef7c54f95524e0fa9607a1a0186
-ms.sourcegitcommit: e23350fe65ff99228274e465b24b5e163769f38f
+ms.openlocfilehash: 3d7ca4bb72f6f3f76855faac125385374347ba55
+ms.sourcegitcommit: d67c6246bb6027cd5501e772b0521f9272407c28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
  Com atualizações anteriores do Windows 10, já pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). A partir do Configuration Manager versão 1710, gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo dispositivos do Windows 10 versão 1709 através do Configuration Manager e o Intune. <!-- 1350871 -->
@@ -82,7 +82,7 @@ O [cargas de trabalho podem ser transitado para o Intune](/sccm/core/clients/man
 ### <a name="install-configuration-manager-client-to-the-devices-enrolled-in-intune"></a>Instalar o cliente do Configuration Manager para os dispositivos inscritos no Intune
 Quando os dispositivos Windows 10 inscritos no Intune, pode instalar o cliente do Configuration Manager nos dispositivos ([utilizando um argumento da linha de comandos específico](/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client)) para preparar os clientes para gestão conjunta. Em seguida, ativar a gestão conjunta da consola do Configuration Manager para iniciar a mover as cargas de trabalho específicas para o Intune para dispositivos Windows 10 específicos.
 Para dispositivos Windows 10 que ainda não estão inscritos no Intune, pode utilizar a inscrição automática no Azure para inscrever os dispositivos. Para novos dispositivos Windows 10, pode utilizar [Windows AutoPilot](https://docs.microsoft.com/intune/enrollment-autopilot) para configurar o fora de caixa de experiência de primeira execução (OOBE), que inclui a inscrição automática que inscreve os dispositivos no Intune.
- - Ativar [Gateway de gestão de nuvem](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway) no Configuration Manager (apenas quando utilizar o Intune para instalar o cliente do Configuration Manager.
+ - Ativar [Gateway de gestão de nuvem](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway) no Configuration Manager (apenas quando utilizar o Intune para instalar o cliente do Configuration Manager).
 
 ## <a name="monitor-co-management"></a>Gestão de coadministrador do monitor
 [O dashboard de gestão conjunta](/sccm/core/clients/manage/co-management-dashboard) ajuda-o a rever máquinas que estejam conjuntamente geridas no seu ambiente. Os gráficos podem ajudar a identificar dispositivos que necessitem de atenção.
