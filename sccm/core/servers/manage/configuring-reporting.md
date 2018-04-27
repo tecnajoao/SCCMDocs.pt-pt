@@ -1,25 +1,26 @@
 ---
-title: "Configurar os relatórios"
+title: Configurar os relatórios
 titleSuffix: Configuration Manager
-description: "Leia sobre como configurar relatórios na hierarquia do Configuration Manager, incluindo informações sobre o SQL Server Reporting Services."
+description: Leia sobre como configurar relatórios na hierarquia do Configuration Manager, incluindo informações sobre o SQL Server Reporting Services.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 55ae86a7-f0ab-4c09-b4da-89cd0e7fa0e0
-caps.latest.revision: "6"
+caps.latest.revision: 6
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: be8c36c73478e232254185681546f5f52c7d701f
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.openlocfilehash: 6d50a35dc86b80ea135c79fc2f9825162115b764
+ms.sourcegitcommit: f65d4d24f0533e5e196ece0d8a4df0fb3e30eba1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="configuring-reporting-in-system-center-configuration-manager"></a>Configurar relatórios no System Center Configuration Manager
 
@@ -129,7 +130,7 @@ Antes de poder criar, modificar e executar relatórios na consola do System Cent
 
     -   **Conta do ponto do Reporting Services**: Clique em **definir**, e, em seguida, selecione uma conta a utilizar quando o ponto do SQL Server Reporting Services do reporting services estabelece ligação à base de dados do site do Configuration Manager para obter os dados que são apresentados num relatório. Selecione **conta existente** para especificar uma conta de utilizador do Windows que tenha sido configurada anteriormente como uma conta do Configuration Manager, ou selecione **nova conta** para especificar uma conta de utilizador do Windows que não esteja atualmente configurada como uma conta do Configuration Manager. O Configuration Manager concede automaticamente ao utilizador especificado acesso à base de dados do site. O utilizador é apresentado na subpasta **Contas** do nó **Segurança** da área de trabalho **Administração** com o nome de conta **Ponto do Reporting Services do ConfigMgr** .  
 
-         A conta que executa o Reporting Services deve pertencer ao grupo de segurança local **Grupo de Acessos de Autorização do Windows**do domínio e ter a permissão **Ler tokenGroupsGlobalAndUniversal** definida como **Permitir**. Tem de existir uma confiança bidirecional estabelecida para os utilizadores de um domínio diferente do que a conta de ponto de Reporting Services Servicies com êxito executar relatórios.
+         A conta que executa o Reporting Services deve pertencer ao grupo de segurança local **Grupo de Acessos de Autorização do Windows**do domínio e ter a permissão **Ler tokenGroupsGlobalAndUniversal** definida como **Permitir**. Tem de existir uma confiança bidirecional estabelecida para os utilizadores de um domínio diferente do que a conta de ponto de serviços de relatórios para executar relatórios com êxito.
 
          A conta de utilizador e palavra-passe do Windows especificadas são encriptadas e armazenadas na base de dados do Reporting Services. O Reporting Services obtém os dados para relatórios na base de dados do site utilizando esta conta e palavra-passe.  
 

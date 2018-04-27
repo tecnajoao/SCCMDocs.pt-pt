@@ -1,25 +1,26 @@
 ---
 title: Localizar recursos do site
 titleSuffix: Configuration Manager
-description: "Saiba como e quando os clientes do System Center Configuration Manager utilizam a localização do serviço para localizar recursos do site."
+description: Saiba como e quando os clientes do System Center Configuration Manager utilizam a localização do serviço para localizar recursos do site.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology: configmgr-other
+ms.technology:
+- configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ae72df4b-5f5d-4e19-9052-bda28edfbace
-caps.latest.revision: "10"
+caps.latest.revision: 10
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: d0cbaf0b9f10926015cf203dbb28633976034162
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 76d9d486bf0c07da3d81596b1b065fe6532b29fe
+ms.sourcegitcommit: e4ca9fb1fad2caaf61bb46e0a12f4d6b96f15513
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Saiba como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager
 
@@ -56,13 +57,13 @@ Clientes do System Center Configuration Manager utilizam um processo denominado 
 
 -   Ao implementar uma função do sistema de sites que utiliza Serviços de Informação Internet (IIS) e suporta comunicações de clientes, tem de especificar se os clientes ligam ao sistema de sites através de HTTP ou HTTPS. Se utilizar HTTP, também tem de considerar as opções de assinatura e encriptação. Para obter mais informações, consulte [planeamento para assinatura e encriptação](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) no [planear a segurança no System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
 
-##  <a name="BKMK_Plan_Service_Location"></a>Localização do serviço e como os clientes determinam o respetivo ponto de gestão atribuído  
+##  <a name="BKMK_Plan_Service_Location"></a> Localização do serviço e como os clientes determinam o respetivo ponto de gestão atribuído  
 Quando um cliente é atribuído pela primeira vez a um site primário, seleciona um ponto de gestão predefinido para esse site. Os sites primários suportam vários pontos de gestão e cada cliente identifica de forma independente um ponto de gestão como ponto de gestão predefinido. Este ponto de gestão predefinido torna-se, em seguida, o ponto de gestão atribuído desse cliente. (Pode também utilizar comandos de instalação de cliente para definir o ponto de gestão atribuído para um cliente quando é instalado.)  
 
 Um cliente seleciona um ponto de gestão para comunicar com base no atuais localização e o limite de grupo configurações de rede do cliente. Apesar de ter um ponto de gestão atribuído, este não poderá ser o ponto de gestão que o cliente utiliza.  
 
-    > [!NOTE]  
-    >  A client always uses the assigned management point for registration messages and certain policy messages, even when other communications are sent to a proxy or local management point.  
+   > [!NOTE]  
+   >  Um cliente utiliza sempre o ponto de gestão atribuído para mensagens de registo e determinadas mensagens de política, mesmo quando são enviadas outras comunicações para um ponto de gestão local ou de proxy.
 
 Pode utilizar pontos de gestão preferenciais. Pontos de gestão preferenciais são pontos de gestão do site atribuído do cliente que estão associados um grupo de limites que o cliente está a utilizar para localizar servidores do sistema de sites. Associação de um ponto de gestão preferenciais com um limite de grupo como um servidor de sistema de sites é semelhante à forma como pontos de distribuição ou pontos de migração de estado associados a um grupo de limites. Se ativar pontos de gestão preferenciais para a hierarquia, quando um cliente utilizar um ponto de gestão a partir do site atribuído, este tentará utilizar um ponto de gestão preferencial antes de utilizar outros pontos de gestão a partir do site atribuído.  
 

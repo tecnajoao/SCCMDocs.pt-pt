@@ -11,15 +11,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
-caps.latest.revision: ''
+caps.latest.revision: 21
 author: mestew
 ms.author: mstewart
 manager: angrobe
-ms.openlocfilehash: 72e11a04eb64d649749f2001ac4e3550c784132c
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 2af440e68d3f37914299d899b3a0e565050f651b
+ms.sourcegitcommit: e4ca9fb1fad2caaf61bb46e0a12f4d6b96f15513
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Atualizar para o System Center Configuration Manager
 
@@ -35,7 +35,7 @@ Pode executar uma atualização no local a atualização para System Center Conf
 ##  <a name="bkmk_path"></a> Caminhos de atualização no local  
 
 **Atualize para versão 1802**   
-Quando tiver versão 1702 da linha de base de dados, pode atualizar o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1802:   
+Quando tiver versão 1802 da linha de base de dados, pode atualizar o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1802:   
 -     Uma instalação de avaliação do System Center Configuration Manager versão 1802
 -     System Center 2012 Configuration Manager sem Service Pack 1
 -     System Center 2012 Configuration Manager sem Service Pack 2
@@ -294,8 +294,8 @@ Em seguida, depois de restaurar a base de dados do site, no computador do SQL Se
 >   
 >  Quando executa um teste de atualização da base de dados numa cópia da base de dados do site com 5 ou mais dias, poderá receber uma das seguintes mensagens:  
 >   
->  -   WARN: Atualização irá forçar a sincronização completa com a nuvem.  
->  -   ERROR: Atualização de base de dados irá forçar a sincronização completa com a nuvem.  
+>  -   AVISO: Atualização irá forçar a sincronização completa com a nuvem.  
+>  -   ERRO: Atualização de base de dados irá forçar a sincronização completa com a nuvem.  
 >   
 > Ambos podem ser ignoradas durante o teste de uma atualização de base de dados que não indicam uma falha ou um problema com o teste da atualização. Em vez disso, indicam que, durante a atualização real, dados a partir de **nuvem** grupo de replicação de base de dados poderão ser sincronizados com o Microsoft Intune.  
 

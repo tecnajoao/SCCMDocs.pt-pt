@@ -3,7 +3,7 @@ title: Clientes suportados e dispositivos
 titleSuffix: Configuration Manager
 description: Saiba que sistemas operativos do Microsoft System Center Configuration Manager suporta para os clientes e dispositivos.
 ms.custom: na
-ms.date: 8/30/2017
+ms.date: 04/17/2018
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,22 +12,22 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
-caps.latest.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 614226e60f9bcd7b8e3c1330f52a4847e89e0880
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+caps.latest.revision: 5
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: d6befce522bcfef293f36def39405e9555cd3510
+ms.sourcegitcommit: e23350fe65ff99228274e465b24b5e163769f38f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Sistemas operativos suportados para os clientes e dispositivos para o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
- System Center Configuration Manager suporta instalar software de cliente numa variedade de computadores Windows, Mac, Linux e UNIX.  
+ O Configuration Manager suporta a instalação do software cliente numa variedade de computadores Windows, Mac, Linux e UNIX.  
 
  **Requisitos e limitações para todos os clientes:**  
 
@@ -44,17 +44,19 @@ ms.lasthandoff: 02/01/2018
 -  **Windows Server 2016**: Standard, Datacenter <sup>1</sup>
   - Este sistema operativo é suportado a partir do Configuration Manager 1606 de versão, com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016).  
 
+-   **O Windows Storage Server 2016**  
+
 -   **Windows Server 2012 R2** (x64): Standard, Datacenter <sup>1</sup>    
 
 -   **Windows Storage Server 2012 R2** (x64)    
 
 -   **Windows Server 2012** (x64): Standard, Datacenter <sup>1</sup>    
 
--   **Windows Storage Server 2012** (x64)    
+-   **O Windows Storage Server 2012** (x64)    
 
 -   **Windows Server 2008 R2 com SP1** (x64): Standard, Enterprise, Datacenter <sup>1</sup>    
 
--   **Windows Storage Server 2008 R2** (x86, x64): Workgroup, Standard, Enterprise    
+-   **Windows Storage Server 2008 R2** (x86, x64): Grupo de trabalho, Standard, Enterprise    
 
 -   **Windows Server 2008 com SP2** (x86, x64): Standard, Enterprise, Datacenter <sup>1</sup>    
 
@@ -65,6 +67,9 @@ ms.lasthandoff: 02/01/2018
 <!---   **Windows 8** (x86, x64): Professional, Enterprise  -removed Jan 12,2018 sms505863-->
 
 -   **Windows 7 com SP1** (x86, x64): Professional, Enterprise e Ultimate    
+
+-   **A instalação do Server Core do Windows Server, versão 1709** (x64) <sup>2</sup>
+  - Este sistema operativo é suportado a partir da versão 1710.
 
 -   **A instalação do Server Core do Windows Server 2016** (x64) <sup>2</sup>
   - Este sistema operativo é suportado a partir da versão 1606 com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016).
@@ -308,7 +313,7 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 -   [Capacidades de gestão de dispositivos móveis no Microsoft Intune](https://docs.microsoft.com/intune/get-started/choose-how-to-manage-devices)  
 -   [Capacidades de gestão de PCs Windows no Microsoft Intune](https://docs.microsoft.com/intune/get-started/windows-pc-management-capabilities-in-microsoft-intune)  
 
-##  <a name="bkmk_OnpremOS"></a>Gestão de dispositivos móveis no local  
+##  <a name="bkmk_OnpremOS"></a> Gestão de dispositivos móveis no local  
  O Configuration Manager possui capacidades incorporadas para gerir dispositivos que estão no local sem instalar o software de cliente.  Para obter mais informações, consulte [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
  **Requisitos e limitações:**  
@@ -319,19 +324,19 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 
 - **Windows 10 Pro** (x86, x64)  
 
-- **Windows 10 Pro Enterprise** (x86, x64)  
+- **Windows 10 Enterprise Pro** (x86, x64)  
 
 - **Windows 10 Enterprise de IoT** (x86, x64)
 
 - **Windows 10 Mobile**  
 
-- **Windows 10 Mobile Enterprise**  
+- **Windows 10 Enterprise móveis**  
 
 - **Windows 10 IoT Mobile Enterprise**
 
 - **Equipa do Windows 10 para descobrir Hub**
 
-##  <a name="bkmk_ExSrvConOS"></a>Conector do Exchange Server  
+##  <a name="bkmk_ExSrvConOS"></a> Conector do Exchange Server  
 O Configuration Manager suporta a gestão limitada de dispositivos que ligam ao Exchange Server, sem instalar o cliente do Configuration Manager. Para obter mais informações, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
  **Requisitos e limitações:**  

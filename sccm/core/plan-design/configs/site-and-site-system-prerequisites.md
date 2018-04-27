@@ -1,5 +1,5 @@
 ---
-title: "Pré-requisitos do site"
+title: Pré-requisitos do site
 titleSuffix: Configuration Manager
 description: Saiba como configurar um computador com o Windows como um servidor de sistema de sites do System Center Configuration Manager.
 ms.custom: na
@@ -12,15 +12,15 @@ ms.technology:
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1392797b-76cb-46b4-a3e4-8f349ccaa078
-caps.latest.revision: 
+caps.latest.revision: 5
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: 6d1be6375dde2df51aafe076e5613647ecca3c4c
-ms.sourcegitcommit: d0fc79214bc35ca172fd2023dfa617b977ee865b
+ms.openlocfilehash: ae0a36acf4203fb5c7601a2960c0b5bb0a52082e
+ms.sourcegitcommit: ac06e034cc60db7b1acade1f541e26b6cc50506e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Site e os pré-requisitos do sistema de site para o System Center Configuration Manager
 
@@ -62,7 +62,8 @@ ms.lasthandoff: 02/28/2018
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior)
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1
+    - Para obter mais informações sobre o .net Framework versões consulte [versões do .NET Framework e dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies)
 
 -   Compressão de diferencial remota  
 
@@ -83,7 +84,8 @@ ms.lasthandoff: 02/28/2018
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior)   
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1
+    - Para obter mais informações sobre o .net Framework versões consulte [versões do .NET Framework e dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies)
 
 -   Compressão de diferencial remota  
 
@@ -124,9 +126,12 @@ ms.lasthandoff: 02/28/2018
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior):  
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1
+    - ASP.NET 4.5 
 
-    -   ASP.NET 4.5  
+    - Para obter mais informações sobre o .net Framework versões consulte [versões do .NET Framework e dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies)  
+
+    
 
 **Configuração do IIS:**  
 
@@ -159,7 +164,7 @@ ms.lasthandoff: 02/28/2018
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior):  
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1:  
 
     -   ASP.NET 4.5:  
 
@@ -194,12 +199,12 @@ ms.lasthandoff: 02/28/2018
 ###  <a name="bkmk_2012AIpreq"></a> Ponto de sincronização do Asset Intelligence  
 **Funcionalidades e funções de servidor do Windows:**  
 
--   .NET framework 4.5.2 (ou posterior)  
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 ###  <a name="bkmk_2012crppreq"></a> Ponto de registo de certificados  
 **Funcionalidades e funções de servidor do Windows:**  
 
--   .NET framework 4.5.2 (ou posterior):  
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1:  
 
     -   Ativação HTTP  
 
@@ -273,7 +278,7 @@ ms.lasthandoff: 02/28/2018
 
 -   .NET framework 3.5 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior):  
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1:  
 
      Quando instala esta função de sistema de sites, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um Estado de reinício pendente. Se está pendente um reinício para o .NET Framework, as aplicações .NET poderão falhar até o servidor ser reiniciado e a conclusão da instalação.  
 
@@ -313,7 +318,7 @@ ms.lasthandoff: 02/28/2018
 
 -   .NET framework 3.5 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
      Quando instala esta função de sistema de sites, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um Estado de reinício pendente. Se está pendente um reinício para o .NET Framework, as aplicações .NET poderão falhar até o servidor ser reiniciado e a conclusão da instalação.  
 
@@ -359,7 +364,7 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
 ###  <a name="bkmk_2012MPpreq"></a> Ponto de gestão  
 **Funcionalidades e funções de servidor do Windows:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 -   As extensões de servidor do BITS (e as opções selecionadas automaticamente) ou serviços de transferência inteligente em segundo plano (BITS) (e as opções selecionadas automaticamente)  
 
@@ -382,7 +387,7 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
 ###  <a name="bkmk_2012RSpoint"></a> Ponto do Reporting Services  
 **Funcionalidades e funções de servidor do Windows:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 **SQL Server Reporting Services:**  
 
@@ -395,7 +400,7 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
 ###  <a name="bkmk_SCPpreq"></a> Ponto de ligação de serviço  
 **Funcionalidades e funções de servidor do Windows:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
      Quando instala esta função de sistema de sites, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um Estado de reinício pendente. Se está pendente um reinício para o .NET Framework, as aplicações .NET poderão falhar até o servidor ser reiniciado e a conclusão da instalação.  
 
@@ -410,7 +415,7 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 A configuração predefinida do IIS é necessária.
 
@@ -435,11 +440,11 @@ Windows Server 2008 e Windows Server 2008 R2 são agora suporte alargado e já n
 -   Pode configurar a ativação do WCF como parte da funcionalidade do Windows do .NET Framework no servidor do sistema de sites. Por exemplo, no Windows Server 2008 R2, execute o **Assistente para adicionar funcionalidades** para instalar funcionalidades adicionais no servidor. No **selecionar funcionalidades** página, expanda **NET Framework 3.5.1 Features**e expanda **ativação do WCF**. As caixas de verificação para ambos **ativação HTTP** e **ativação não HTTP** para ativar estas opções.  
 
 ###  <a name="bkmk_2008sspreq"></a> Servidor do site: site de administração central e site primário  
-**.NET Framework:**  
+**.NET framework:**  
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 **Funcionalidade do Windows:**  
 
@@ -458,11 +463,11 @@ Windows Server 2008 e Windows Server 2008 R2 são agora suporte alargado e já n
 -   Sites de administração central e sites primários precisam de ambas as versões x86 e x64 do ficheiro Redistributable aplicável.  
 
 ###  <a name="bkmk_2008secpreq"></a> Servidor do site: site secundário  
-**.NET Framework:**  
+**.NET framework:**  
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior)  
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 **Do Visual C++ Redistributable:**  
 
@@ -497,9 +502,9 @@ Windows Server 2008 e Windows Server 2008 R2 são agora suporte alargado e já n
 -   Para obter mais informações sobre este requisito, consulte [requisitos de infraestrutura de implementação do sistema operativo](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
 ###  <a name="bkmk_2008acwspreq"></a> Ponto de Web site do catálogo de aplicações  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1
 
 **Configuração do IIS:**
 
@@ -526,11 +531,11 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
     -   Compatibilidade com Metabase do IIS 6  
 
 ###  <a name="bkmk_2008ACwsitepreq"></a> Ponto de serviço da web de catálogo de aplicações  
-**.NET Framework:**  
+**.NET framework:**  
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 **Ativação do Windows Communication Foundation (WCF):**  
 
@@ -559,14 +564,14 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
 -   Quando esta função de sistema de sites estiver colocalizada com outra função de sistema de sites que tem o mesmo requisito, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
 
 ###  <a name="bkmk_2008AIpreq"></a> Ponto de sincronização do Asset Intelligence  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1
 
 ###  <a name="bkmk_2008crppreq"></a> Ponto de registo de certificados  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 -   Ativação HTTP  
 
@@ -634,14 +639,14 @@ Quando utiliza uma configuração personalizada do IIS, pode remover opções qu
 
 
 ###  <a name="bkmk_2008EPPpreq"></a> Ponto de Endpoint Protection  
-**.NET Framework:**  
+**.NET framework:**  
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
 ###  <a name="bkmk_2008Enrollpreq"></a> Ponto de registo  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
      Quando esta função de sistema de sites é instalada, se o servidor já não tem uma versão suportada do .NET Framework instalado, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um Estado de reinício pendente. Se está pendente um reinício para o .NET Framework, as aplicações .NET poderão falhar até o servidor ser reiniciado e a conclusão da instalação.  
 
@@ -668,9 +673,9 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
 -   Quando esta função de sistema de sites estiver colocalizada com outra função de sistema de sites que tem o mesmo requisito, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
 
 ###  <a name="bkmk_2008EnrollProxpreq"></a> Ponto proxy de registo  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1
 
      Quando esta função de sistema de sites é instalada, se o servidor já não tem uma versão suportada do .NET Framework instalado, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um Estado de reinício pendente. Quando está pendente um reinício para o .NET Framework, as aplicações .NET poderão falhar até o servidor ser reiniciado e a conclusão da instalação.  
 
@@ -706,9 +711,9 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
     -   Compatibilidade com Metabase do IIS 6  
 
 ###  <a name="bkmk_2008MPpreq"></a> Ponto de gestão  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior)
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1
 
 **Configuração do IIS:**
 
@@ -747,9 +752,9 @@ Quando utiliza uma configuração personalizada do IIS, pode remover opções qu
 -   BITS extensões de servidor (e as opções selecionadas automaticamente) ou serviços de transferência inteligente em segundo plano (BITS) (e as opções selecionadas automaticamente)  
 
 ###  <a name="bkmk_2008RSpoint"></a> Ponto do Reporting Services  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior)  
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 **SQL Server Reporting Services:**  
 
@@ -760,9 +765,9 @@ Quando utiliza uma configuração personalizada do IIS, pode remover opções qu
 -   Além disso, a instância que utiliza pode ser partilhada com outros produtos do System Center desde que outros produtos do System Center não tenham restrições de partilha da instância do SQL Server.  
 
 ###  <a name="bkmk_2008SCPpreq"></a> Ponto de ligação de serviço  
-**.NET Framework:**  
+**.NET framework:**  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
      Quando esta função de sistema de sites é instalada, se o servidor já não tem uma versão suportada do .NET Framework instalado, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um Estado de reinício pendente. Se está pendente um reinício para o .NET Framework, as aplicações .NET poderão falhar até o servidor ser reiniciado e a conclusão da instalação.  
 
@@ -773,11 +778,11 @@ Quando utiliza uma configuração personalizada do IIS, pode remover opções qu
 -   A função de sistema de sites requer o x64 versão.  
 
 ###  <a name="bkmk_2008SUPpreq"></a> Ponto de atualização de software  
-**.NET Framework:**  
+**.NET framework:**  
 
 -   .NET framework 3.5 SP1 (ou posterior)  
 
--   .NET framework 4.5.2 (ou posterior) 
+-   .NET framework 4.5.2, 4.6.1, 4.6.2, 4.7 ou 4.7.1 
 
 **Configuração do IIS:**
 

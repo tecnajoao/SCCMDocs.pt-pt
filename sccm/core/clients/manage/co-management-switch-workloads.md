@@ -13,11 +13,11 @@ ms.date: 03/22/2018
 ms.topic: article
 ms.service: ''
 ms.assetid: 60e2022f-a4f9-40dd-af01-9ecb37b43878
-ms.openlocfilehash: cdfe52768499b929db473ac08d42207059965ffd
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: d0cee0eb242011d6cc7b3085b4ae9df908604fa8
+ms.sourcegitcommit: ac06e034cc60db7b1acade1f541e26b6cc50506e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="switch-configuration-manager-workloads-to-intune"></a>Cargas de trabalho do Gestor de configuração do comutador para o Intune
 No [dispositivos de preparar o Windows 10 para gestão conjunta](co-management-prepare.md), preparou a dispositivos Windows 10 para gestão conjunta. Estes dispositivos estão associados ao AD, o Azure AD, estão inscritos no Intune e têm o cliente do Configuration Manager. Provavelmente, ainda tem de dispositivos Windows 10 que estão associados ao AD e o cliente do Configuration Manager, mas não associados ao Azure AD ou inscritos no Intune. O procedimento seguinte fornece os passos para ativar a gestão conjunta, preparar o resto dos seus dispositivos Windows 10 (clientes do Configuration Manager sem inscrição no Intune) para a gestão conjunta e permite-lhe iniciar mudar específico do Configuration Manager cargas de trabalho para o Intune.
@@ -43,10 +43,13 @@ Selecione o objeto de gestão conjunta e, em seguida, no separador início, cliq
 ## <a name="workloads-able-to-be-transitioned-to-intune"></a>Cargas de trabalho podem ser transitado para o Intune
 Algumas cargas de trabalho estão disponíveis para ser mudado ao longo do Intune. A lista seguinte será atualizada como fiquem disponíveis para transição de cargas de trabalho:
 1. Políticas de conformidade do dispositivo
-2. Políticas de acesso a recursos
+2. Políticas de acesso de recursos: Políticas de acesso a recursos configurar definições de certificado, e-mail, Wi-Fi e VPN em dispositivos. Para obter mais informações, consulte [implementar perfis de acesso a recursos](https://docs.microsoft.com/intune/device-profiles).
+      - Perfil de e-mail
+      - Perfil Wi-Fi
+      - Perfil da VPN
+      - Perfil de certificado
 3. Políticas de Windows Update
 4. Proteção de ponto final (a partir do Configuration Manager versão 1802)
-      - Windows Defender antivírus
       - Proteção de aplicações do Windows Defender
       - Firewall do Windows Defender
       - Windows Defender SmartScreen
@@ -60,6 +63,8 @@ Algumas cargas de trabalho estão disponíveis para ser mudado ao longo do Intun
 
 ## <a name="monitor-co-management"></a>Gestão de coadministrador do monitor
 Depois de ativar a gestão conjunta, pode monitorizar dispositivos de gestão conjunta utilizando os seguintes métodos:
+
+- [O dashboard de gestão conjunta](/sccm/core/clients/manage/co-management-dashboard)
 - **SQL Server vista e a classe WMI**: Pode consultar o **v&#95;ClientCoManagementState** vista SQL na base de dados do site do Configuration Manager ou o **SMS&#95;cliente&#95;ComanagementState** classe WMI. Com as informações da classe WMI, pode criar coleções personalizadas no Configuration Manager para ajudar a determinar o estado da implementação gestão conjunta. Para obter mais informações, consulte [como criar coleções](/sccm/core/clients/manage/collections/create-collections). Os campos seguintes estão disponíveis na vista SQL e a classe WMI: 
     - **MachineId**: Especifica um ID de dispositivo exclusivo para o cliente do Configuration Manager.
     - **MDMEnrolled**: Especifica se o dispositivo está inscrito no MDM. 

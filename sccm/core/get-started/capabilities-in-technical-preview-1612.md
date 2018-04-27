@@ -12,15 +12,15 @@ ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bceab2e8-2f05-4a17-9ac8-a7a558670fb7
-caps.latest.revision: ''
+caps.latest.revision: 5
 author: erikje
 ms.author: erikje
 manager: angrobe
-ms.openlocfilehash: 80cace2bec8cb9c39d5f3f00ea244b697e1d75c9
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: e0688c41978d95e0e1fd4da817e602a2c8a6483b
+ms.sourcegitcommit: f65d4d24f0533e5e196ece0d8a4df0fb3e30eba1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="capabilities-in-technical-preview-1612-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1612 do System Center Configuration Manager
 
@@ -122,7 +122,7 @@ Depois de instalar uma função de sistema de sites do armazém de dados, os seg
 | **Relatório de inventário de Software geral**  | Ver todo o inventário de software para uma máquina específica.|
 | **Descrição geral do Estado de funcionamento de infraestrutura**  |Apresenta uma descrição geral do Estado de funcionamento da infraestrutura do Configuration Manager.|
 | **Lista de Malware detetado**  |Software maligno de vista que foi detetado na organização.|
-|* * Software distribuição resumo relatório * * | Um resumo de distribuição de software para um anúncio específico e a máquina.|
+| **Relatório de resumo de distribuição de software** | Um resumo de distribuição de software para um anúncio específico e a máquina.|
 
 ### <a name="move-the-data-warehouse-database"></a>Mover a base de dados do armazém de dados
 Utilize os seguintes passos para mover a base de dados do armazém de dados para um novo SQL Server:

@@ -11,11 +11,11 @@ ms.prod: configuration-manager
 ms.service: ''
 ms.technology: ''
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: a45ded0f3824c148f64f9578e51cc112c05d9f78
-ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
+ms.openlocfilehash: 93a991cb3fd78e44f5ae4434a9845a57450e1025
+ms.sourcegitcommit: e4ca9fb1fad2caaf61bb46e0a12f4d6b96f15513
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="prepare-windows-10-devices-for-co-management"></a>Preparar os dispositivos Windows 10 para gestão conjunta
 Pode ativar a gestão conjunta em dispositivos Windows 10 que estejam associados ao AD e o Azure AD e inscritos no Microsoft Intune e um cliente no Configuration Manager. Para novos dispositivos Windows 10 e para os dispositivos já inscritos no Intune, antes de instalar o cliente do Configuration Manager podem ser conjuntamente geridos. Para dispositivos Windows 10 que já estão a clientes do Configuration Manager, pode inscrever dispositivos com o Intune e ativar a gestão conjunta na consola do Configuration Manager.
@@ -23,6 +23,32 @@ Pode ativar a gestão conjunta em dispositivos Windows 10 que estejam associados
 > [!IMPORTANT]
 > Dispositivos móveis Windows 10 não suportam gestão conjunta.
 
+
+## <a name="prerequisites"></a>Pré-requisitos
+Tem de ter os seguintes pré-requisitos no local antes de poder ativar gestão conjunta. Existem pré-requisitos gerais e pré-requisitos diferentes para dispositivos com o cliente do Configuration Manager e dispositivos que não tenham o cliente instalado.
+### <a name="general-prerequisites"></a>Pré-requisitos gerais
+Seguem-se pré-requisitos gerais para a ativar a gestão conjunta:  
+
+- Configuration Manager versão 1710 ou posterior
+- Azure AD
+- Licença do Intune ou do EMS para todos os utilizadores
+- [Inscrição automática de AD do Azure](https://docs.microsoft.com/intune/windows-enroll#enable-windows-10-automatic-enrollment) ativada
+- Subscrição do Intune &#40;definido como a autoridade MDM no Intune **Intune**&#41;
+
+
+   > [!Note]  
+   > Se tiver um ambiente de MDM híbrido (Intune integrado com o Configuration Manager), não é possível ativar a gestão de conjunta. No entanto, pode começar a migrar os utilizadores ao Intune autónomo e, em seguida, ativar os dispositivos Windows 10 associados para gestão conjunta. Para obter mais informações sobre como migrar para o Intune autónomo, consulte [começar a migrar do MDM híbrido para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).
+
+### <a name="additional-prerequisites-for-devices-with-the-configuration-manager-client"></a>Pré-requisitos adicionais para dispositivos com o cliente do Configuration Manager
+- Windows 10, versão 1709 ou posterior
+- [Azure AD híbrido associado](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup) (associado a um AD e AD do Azure)
+
+### <a name="additional-prerequisites-for-devices-without-the-configuration-manager-client"></a>Pré-requisitos adicionais para dispositivos sem o cliente do Configuration Manager
+- Windows 10, versão 1709 ou posterior
+- [Gateway de gestão de nuvem](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway) no Configuration Manager (ao utilizar o Intune para instalar o cliente do Configuration Manager)
+
+> [!IMPORTANT]
+> Dispositivos móveis Windows 10 não suportam gestão conjunta.
 
 
 ## <a name="command-line-to-install-configuration-manager-client"></a>Linha de comandos para instalar o cliente do Configuration Manager
@@ -39,8 +65,8 @@ Por exemplo, se tiver os seguintes valores:
 
 - **FQDN do ponto de gestão (MP)**: mp1.contoso.com    
 - **Sitecode**: PS1    
-- **ID de inquilino do Azure AD**: daf4a1c2-3a0c-401b-966f-0b855d3abd1a    
-- **ID de aplicação de cliente do Azure AD**: 7506ee10-f7ec-415a-b415-cd3d58790d97     
+- **ID de inquilino do Azure AD**: 60a413f4-c606-4744-8adb-9476ae3XXXXX    
+- **ID de aplicação de cliente do Azure AD**: 9fb9315f - 4C 42-405f 8664-ae63283XXXXX     
 - **URI de ID de recurso do AAD**: ConfigMgrServer    
 
   > [!Note]    
@@ -48,7 +74,7 @@ Por exemplo, se tiver os seguintes valores:
 
 Pretende utilizar a seguinte linha de comandos:
 
-`ccmsetup.msi CCMSETUPCMD="/mp:https://contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=PS1 SMSMP=https://mp1.contoso.com AADTENANTID=daf4a1c2-3a0c-401b-966f-0b855d3abd1a AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://ConfigMgrServer"`
+`ccmsetup.msi CCMSETUPCMD="/mp:https://contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=PS1 SMSMP=https://mp1.contoso.com AADTENANTID=60a413f4-c606-4744-8adb-9476ae3XXXXX AADCLIENTAPPID=9fb9315f-4c42-405f-8664-ae63283XXXXX AADRESOURCEURI=https://ConfigMgrServer"`
 
 > [!Tip]
 > Pode encontrar os parâmetros da linha de comandos para o seu site, utilizando os seguintes passos:     
