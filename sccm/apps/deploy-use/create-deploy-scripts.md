@@ -17,11 +17,11 @@ caps.handback.revision: 0
 author: mestew
 ms.author: mstewart
 manager: dougeby
-ms.openlocfilehash: b9699b2f4bd1f18890d25582be9a8d20778b64be
-ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
+ms.openlocfilehash: 7cfb969ab70c27859788732839f4715541e1b91e
+ms.sourcegitcommit: e4ca9fb1fad2caaf61bb46e0a12f4d6b96f15513
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
@@ -141,7 +141,7 @@ As funções de três segurança utilizadas para executar scripts não estão cr
          |Scripts SMS|Eliminar|Sim|
          |Scripts SMS|Modificar|Sim|
 
-    **Nome da função**: Autores de script
+    **Nome da função**: Aprovador de script
     - **Descrição**: Estas permissões ativar esta função aprovar scripts, mas não é possível criar ou executá-los. 
     - **Permissões:** Certifique-se de que as seguintes permissões são definidas.
 
@@ -184,7 +184,8 @@ No **criar Script** caixa de diálogo, clique em **parâmetros do Script** em **
 Cada um dos parâmetros do script tem a suas próprias caixa de diálogo para adicionar mais detalhes e validação.
 
 >[!IMPORTANT]
-> Os valores de parâmetros não podem conter um apóstrofo. 
+> Os valores de parâmetros não podem conter um apóstrofo. </br></br>
+> Não há um problema conhecido no Configuration Manager versão 1802 onde com espaços não obter passados parâmetros para o script corretamente. Se um espaço for utilizado no parâmetro, apenas o primeiro item no parâmetro é passado para o script e de tudo, depois do espaço não for passado. Administradores podem aplicar o script em torno de isto por substituindo alternativos carateres de espaços e convertê-los, ou com outros métodos.
 
 
 ### <a name="parameter-validation"></a>Validação dos parâmetros
