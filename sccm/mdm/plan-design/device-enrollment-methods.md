@@ -1,26 +1,20 @@
 ---
-title: "Métodos de inscrição de dispositivos para MDM híbrida"
+title: Métodos de inscrição de dispositivos para MDM híbrida
 titleSuffix: Configuration Manager
-description: "Métodos de inscrição de dispositivos para híbrida MDM."
-ms.custom: na
+description: Métodos de inscrição de dispositivos para híbrida MDM.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: b81d06dc-3844-4117-9937-16732a227994
-caps.latest.revision: "9"
-caps.handback.revision: "0"
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 180f7699f184779d98db5ccedb296b409a119a30
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 89501e22c855f31264fbf94fe093d8ebde08708f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="overview-of-device-enrollment-methods"></a>Descrição geral dos métodos de inscrição de dispositivos
 
@@ -35,19 +29,19 @@ A tabela seguinte mostra os métodos de inscrição com as respetivas capacidade
 
 **métodos de inscrição de iOS**
 
-| **Método** |  **Eliminação de dados** |  **Afinidade**    |   **Bloqueio** | **Detalhes** |
+| **Método** |  **Eliminação de dados** |  **Afinidade**    |   **bloqueio** | **Detalhes** |
 |:---:|:---:|:---:|:---:|:---:|
-|**[BYOD](#byod)** | Não|    Sim |   Não | [mais](../deploy-use/enable-platform-enrollment.md)|
-|**[DEM](#dem)**|   Não |Não |Não  | [mais](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
-|**[DEP](#dep)**|   Sim |   Opcional |  Opcional|[mais](../deploy-use/ios-device-enrollment-program-for-hybrid.md)|
-|**[USB SA](#usb-sa)**| Sim |   Opcional |  Não| [mais](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md)|
+|**[BYOD](#byod)** | Não|    Sim |   Não | [Mais](../deploy-use/enable-platform-enrollment.md)|
+|**[DEM](#dem)**|   Não |Não |Não  | [Mais](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
+|**[DEP](#dep)**|   Sim |   Opcional |  Opcional|[Mais](../deploy-use/ios-device-enrollment-program-for-hybrid.md)|
+|**[USB SA](#usb-sa)**| Sim |   Opcional |  Não| [Mais](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md)|
 
 **Métodos de inscrição de dispositivos Android e Windows**
 
-| **Método** |  **Eliminação de dados** |  **Afinidade**    |   **Bloqueio** | **Detalhes**|
+| **Método** |  **Eliminação de dados** |  **Afinidade**    |   **bloqueio** | **Detalhes**|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|**[BYOD](#byod)** | Não|    Sim |   Não | [mais](../deploy-use/enroll-hybrid-windows.md)|
-|**[DEM](#dem)**|   Não |Não |Não  |[mais](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
+|**[BYOD](#byod)** | Não|    Sim |   Não | [Mais](../deploy-use/enroll-hybrid-windows.md)|
+|**[DEM](#dem)**|   Não |Não |Não  |[Mais](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
 
 Para uma série de pergunta que o ajudam a localizar o método adequado, consulte [escolher como inscrever dispositivos](/intune/get-started/choose-how-to-enroll-devices1).
 

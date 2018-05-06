@@ -1,26 +1,20 @@
 ---
-title: "Gerir dados de configuração"
+title: Gerir dados de configuração
 titleSuffix: Configuration Manager
-description: "Depois de criar itens de configuração e linhas de base no System Center Configuration Manager, pode utilizar outros comandos para efetuar diversas ações."
-ms.custom: na
+description: Depois de criar itens de configuração e linhas de base no System Center Configuration Manager, pode utilizar outros comandos para efetuar diversas ações.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: b48c693c-d2b0-4707-a5dd-fe92172c49fe
-caps.latest.revision: "7"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: 23a6bcf2e9fcb417dabde7700e09c953d436deb7
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: d4602a2dbee04259d5953873485cdbccdc58167d
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Gerir os dados de configuração no System Center Configuration Manager
 

@@ -2,26 +2,19 @@
 title: Variáveis incorporadas de sequência de tarefas
 titleSuffix: Configuration Manager
 description: Variáveis incorporadas de sequência de tarefas fornecem informações sobre o ambiente em que a sequência de tarefas é executado e estão disponíveis durante a sequência de tarefas de todo.
-ms.custom: na
 ms.date: 04/18/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-osd
+ms.topic: conceptual
 ms.assetid: 02bc6bd4-ca53-4e22-8b80-d8ee5fe72567
-caps.latest.revision: 15
-caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fe26982195e7cae639cc457dbba31e3dbd45b6d3
-ms.sourcegitcommit: e23350fe65ff99228274e465b24b5e163769f38f
+ms.openlocfilehash: d3ea1b35c5f220155cecafddaf3a2ff1acf5ed53
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Variáveis incorporadas de sequência de tarefas no System Center Configuration Manager
 
@@ -78,7 +71,7 @@ ms.lasthandoff: 04/20/2018
 |SMSTSDriverReceiveTimeOut|O número de segundos antes da ligação ao servidor exceder o tempo limite.|
 |SMSTSErrorDialogTimeout|Quando ocorre um erro numa sequência de tarefas, apresenta uma caixa de diálogo com o erro. A sequência de tarefas dismisses-la automaticamente após o número de segundos especificado por esta variável. Por predefinição, este valor é **900** segundos (15 minutos).|  
 | TSDisableProgressUI | <!-- 1354291 --> A partir do Configuration Manager versão 1706, utilize esta variável para controlar quando a sequência de tarefas mostra o progresso aos utilizadores finais. Para ocultar ou mostrar o progresso em alturas diferentes, defina esta variável várias vezes numa sequência de tarefas. Para ocultar o progresso da sequência de tarefas, defina o valor desta variável como **verdadeiro**. Para apresentar o progresso da sequência de tarefas, defina o valor desta variável como **falso**. | 
-| SMSTSDisableStatusRetry | <!--512358--> Em cenários de desligado, o motor de sequência de tarefas tenta repetidamente enviar mensagens de estado para o ponto de gestão. Este comportamento neste cenário faz com que os atrasos no processamento da sequência de tarefas. A partir do Configuration Manager versão 1802, definir esta variável como **verdadeiro** e o motor de sequência de tarefas não tenta reenviar mensagens de estado após a primeira falha. Este comportamento dura até que o próximo reinício ou o valor desta variável é definido como **falso**. Nota: [relatórios de estado de sequência de tarefas](/sccm/core/servers/manage/list-of-reports#task-sequence---deployment-status) baseia-se nestas mensagens de estado para apresentar o progresso, histórico e os detalhes de cada passo. | 
+| SMSTSDisableStatusRetry | <!--512358--> Em cenários de desligado, o motor de sequência de tarefas tenta repetidamente enviar mensagens de estado para o ponto de gestão. Este comportamento neste cenário faz com que os atrasos no processamento da sequência de tarefas. A partir do Configuration Manager versão 1802, definir esta variável como **verdadeiro** e o motor de sequência de tarefas não a tentar enviar mensagens de estado, após a primeira mensagem falha o envio. Esta primeira tentativa inclui várias tentativas.<br/><br/>Quando a sequência de tarefas é reiniciado, o valor da variável deste problema persistir. No entanto, a sequência de tarefas tenta enviar uma mensagem de estado inicial. Esta primeira tentativa inclui várias tentativas. Se tiver êxito, a sequência de tarefas continua a enviar estado independentemente do valor desta variável. Se não for possível enviar o estado, a sequência de tarefas utiliza o valor desta variável.<br/><br/>Nota: [relatórios de estado de sequência de tarefas](/sccm/core/servers/manage/list-of-reports#task-sequence---deployment-status) baseia-se nestas mensagens de estado para apresentar o progresso, histórico e os detalhes de cada passo. | 
 |SMSTSLanguageFolder|Utilize esta variável para alterar o idioma de apresentação de uma imagem de arranque de idioma neutro.|  
 |SMSTSLocalDataDrive|Especifica onde os ficheiros temporários são armazenados no computador de destino enquanto a sequência de tarefas é executada.<br /><br /> Esta variável tem de ser definida antes de a sequência de tarefas ser iniciada, como, por exemplo, definindo uma variável de coleção. Assim que a sequência de tarefas for iniciada, o Configuration Manager define a variável smstsmdatapath assim que a sequência de tarefas for iniciada.|  
 |SMSTSMP|Utilize esta variável para especificar o URL ou endereço IP do ponto de gestão do Configuration Manager.|  

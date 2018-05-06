@@ -2,26 +2,19 @@
 title: Implementar clientes em Windows
 titleSuffix: Configuration Manager
 description: Saiba como implementar o cliente do Configuration Manager em computadores Windows.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: 341f0d0b-f907-44cf-9e10-e1b41fc15f82
-caps.latest.revision: ''
-caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3d7c3e9c9f2af8d612ef158897c281d422692268
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 5efca393afe2fc6441d074f987549228e7d0418f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-deploy-clients-to-windows-computers-in-system-center-configuration-manager"></a>Como implementar clientes em computadores Windows no System Center Configuration Manager
 
@@ -184,7 +177,7 @@ Para obter informações sobre como utilizar a política de grupo nos serviços 
 ##  <a name="BKMK_Manual"></a> Como instalar clientes manualmente  
  Pode instalar manualmente o software de cliente em computadores na sua empresa utilizando o programa CCMSetup.exe. Este programa e respetivos ficheiros de suporte podem ser encontrados no **cliente** pasta da pasta de instalação do Configuration Manager no servidor do site e nos pontos de gestão do seu site. Esta pasta é partilhada na rede como  
 
- \\\\*&lt;Nome do servidor do site\>*\SMS_*&lt;código do Site\>*\Client\  
+ \\\\*&lt;Nome do servidor do site\>* \SMS_*&lt;código do Site\>* \Client\  
 
  onde *&lt;nome do servidor de Site\>* é o nome de um dos servidores que alojam um ponto de gestão, e *&lt;código do Site\>* se o código de site primário para qual é atribuído o cliente. Para executar CCMSetup.exe a partir da linha de comandos no cliente, tem de mapear uma unidade de rede para esta localização e, em seguida, execute o comando.  
 
@@ -398,7 +391,7 @@ Quando o site do Configuration Manager suporta [gestão de clientes baseados na 
 
 -   Fornece um mecanismo para estes clientes liguem temporariamente à intranet com uma VPN. Em seguida, instale o cliente utilizando um método de instalação de cliente adequado.  
 
--   Utilize um método de instalação que seja independente do Configuration Manager. Por exemplo, os ficheiros de origem de instalação de cliente num suporte de dados amovível que possa ser enviado para os utilizadores para instalar com as instruções do pacote. Os ficheiros de origem de instalação do cliente estão localizados no  *&lt;Caminhodainstalação\>*pasta \Client os pontos de gestão e servidor de site do Configuration Manager. Inclua no suporte de dados um script para copiar e substituir manualmente a pasta do cliente e, a partir desta pasta, instale o cliente, utilizando CCMSetup.exe e todas as propriedades da linha de comandos CCMSetup.exe adequadas.  
+-   Utilize um método de instalação que seja independente do Configuration Manager. Por exemplo, os ficheiros de origem de instalação de cliente num suporte de dados amovível que possa ser enviado para os utilizadores para instalar com as instruções do pacote. Os ficheiros de origem de instalação do cliente estão localizados no  *&lt;Caminhodainstalação\>* pasta \Client os pontos de gestão e servidor de site do Configuration Manager. Inclua no suporte de dados um script para copiar e substituir manualmente a pasta do cliente e, a partir desta pasta, instale o cliente, utilizando CCMSetup.exe e todas as propriedades da linha de comandos CCMSetup.exe adequadas.  
 
 > [!NOTE]  
 >  O Configuration Manager não suporta a instalação do cliente diretamente a partir do ponto de gestão baseado na internet ou a partir do ponto de atualização de software baseado na internet.  

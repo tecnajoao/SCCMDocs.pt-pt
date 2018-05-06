@@ -2,26 +2,19 @@
 title: Contas utilizadas
 titleSuffix: Configuraton Manager
 description: Identificar e gerir os grupos do Windows e as contas no System Center Configuration Manager.
-ms.custom: na
 ms.date: 2/9/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 72d7b174-f015-498f-a0a7-2161b9929198
-caps.latest.revision: 
-caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 1b8248cbbade7d46d1a1ad41edd704b5ad8d49aa
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+manager: dougeby
+ms.openlocfilehash: b2ca81115207db66a39d2aeb5e07740ae259d54c
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="accounts-used-in-system-center-configuration-manager"></a>Contas utilizadas no System Center Configuration Manager
 
@@ -69,7 +62,7 @@ A tabela seguinte lista os detalhes adicionais para este grupo:
 
  A tabela seguinte lista os detalhes adicionais para este grupo:  
 
-|Detalhe|Obter mais informações|  
+|Detalhe|Mais informações|  
 |------------|----------------------|  
 |Tipo e localização|Este grupo é um grupo de segurança local criado em cada computador que tem um fornecedor de SMS.<br /><br /> Quando desinstala um site, este grupo não é removido automaticamente. Tem de ser manualmente eliminado.|  
 |Associação|O Configuration Manager gere automaticamente a associação ao grupo. Por predefinição, cada utilizador administrativo numa hierarquia e a conta do computador do servidor de site são membros do grupo Admins de SMS em cada computador do Fornecedor de SMS num site.|  
@@ -80,7 +73,7 @@ A tabela seguinte lista os detalhes adicionais para este grupo:
 
  A tabela seguinte lista os detalhes adicionais para este grupo:  
 
-|Detalhe|Obter mais informações|  
+|Detalhe|Mais informações|  
 |------------|----------------------|  
 |Tipo e localização|Este grupo é um grupo de segurança local criado em cada computador que tem um fornecedor de SMS.<br /><br /> Quando desinstala um site, este grupo não é removido automaticamente. Tem de ser manualmente eliminado.|  
 |Associação|O Configuration Manager gere automaticamente a associação ao grupo. Por predefinição, a associação inclui as contas de computador de computadores remotos que têm um ponto de gestão para o site.|  

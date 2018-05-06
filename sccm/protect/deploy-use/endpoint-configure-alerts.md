@@ -2,24 +2,19 @@
 title: Configurar alertas do Endpoint Protection
 titleSuffix: Configuration Manager
 description: Saiba como configurar alertas do Endpoint Protection no System Center Configuration Manager.
-ms.custom: na
 ms.date: 03/23/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-protect
+ms.topic: conceptual
 ms.assetid: f504de3e-4caf-455c-80d7-a63f13f4c5d9
-caps.latest.revision: "21"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: 91df245565cfe99f79a18618d62c00f0cea579d2
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 275ce06520174adf10100b77a8034620b072c93f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 #  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Configurar alertas para o Endpoint Protection no Configuration Manager
 
@@ -43,12 +38,12 @@ ms.lasthandoff: 10/12/2017
     > [!NOTE]
     >  Não é possível configurar alertas de coleções de utilizadores.
 
-4.  No **alertas** separador do *< nome da coleção\>***propriedades** caixa de diálogo, selecione **ver esta coleção no dashboard do Endpoint Protection** se pretender ver detalhes sobre operações antimalware relativas a esta coleção no **monitorização** área de trabalho da consola do Configuration Manager.
+4.  No **alertas** separador do *< nome da coleção\>*** propriedades** caixa de diálogo, selecione **ver esta coleção no dashboard do Endpoint Protection** se pretende ver detalhes sobre operações antimalware relativas a esta coleção no **monitorização** área de trabalho da consola do Configuration Manager.
 
     > [!NOTE]
     >  Esta opção não está disponível para a coleção **Todos os Sistemas** .
 
-5.  No **alertas** separador do *< nome da coleção\>***propriedades** caixa de diálogo, clique em **adicionar**.
+5.  No **alertas** separador do *< nome da coleção\>*** propriedades** caixa de diálogo, clique em **adicionar**.
 
 6.  No **adicionar novos alertas da coleção** caixa de diálogo a **gerar um alerta quando estas condições se aplicarem** secção, selecione os alertas que pretende que o Configuration Manager para gerar quando ocorrem eventos de Endpoint Protection especificados e, em seguida, clique em **OK**.
 
@@ -87,7 +82,7 @@ ms.lasthandoff: 10/12/2017
 
         -   **Intervalo de deteção (horas):** Especifique o intervalo de deteção, em horas, em que o número de deteções de software maligno tem de ocorrer. Especifique um número de **1** a **168**.
 
-9. Clique em **OK** para fechar o *< nome da coleção\>***propriedades** caixa de diálogo.  
+9. Clique em **OK** para fechar o *< nome da coleção\>*** propriedades** caixa de diálogo.  
 
 ## <a name="alert-for-outdated-malware-client"></a>Alerta de cliente de software maligno Desatualizadas
 

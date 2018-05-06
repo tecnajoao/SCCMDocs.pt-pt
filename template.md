@@ -1,20 +1,25 @@
 ---
-title: "TÍTULO DO ARTIGO | Microsoft Docs"
-description: 
-keywords: 
-author: GITHUB USERNAME
-manager: ALIAS
-ms.date: 10/06/2016
-ms.topic: article
-ms.prod: 
-ms.service: 
-ms.technology: 
-ms.assetid: GET ONE FROM guidgenerator.com
-ms.openlocfilehash: a218011ded1ff3acc1dbd24471119b701f2cce23
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+title:
+- TÍTULO do artigo em 35 carateres ou menos
+titleSuffix: Configuration Manager
+description: ''
+ms.date: mm/dd/yyyy
+ms.prod: configuration-manager
+ms.technology: configmgr-other
+ms.topic: conceptual
+ms.assetid:
+- GET ONE FROM guidgenerator.com
+author:
+- GITHUB USERNAME
+ms.author:
+- ALIAS
+manager:
+- ALIAS
+ms.openlocfilehash: bb0a23b8870d31136967b1bc594580bcc2cd0cd9
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="metadata-and-markdown-template"></a>Os metadados e o modelo de Markdown
 
@@ -29,11 +34,11 @@ O bloco de metadados completo está acima, dividido em campos obrigatórios e op
 
 - **Tem** tem um espaço entre os dois pontos (:) e o valor para um elemento de metadados.
 - Se um elemento de metadados opcional não tiver um valor, comente o elemento com um # (não o deixe em branco nem utilize o "ND"); Se estiver a adicionar um valor para um elemento que foi comentado, lembre-se de que remove o #.
-- Dois pontos num valor (por exemplo, um título) interromper o parser de metadados. No seu lugar, utilize a codificação HTML de &#58; (por exemplo, "título: Azure Rights Management &#58; as noções básicas | O Azure RMS").
+- Dois pontos num valor (por exemplo, um título) interromper o parser de metadados. No seu lugar, utilize a codificação HTML de &#58; (por exemplo, "título: O Azure Rights Management&#58; as noções básicas | O Azure RMS").
 - **título**: Este título será apresentado nos resultados do motor de pesquisa. O título deve terminar com uma barra vertical (|) seguida do nome do serviço (consulte exemplo acima). O título não precisa (e provavelmente não deve) de ser idêntico ao título do cabeçalho H1. Deve ter cerca de 65 carateres (incluindo | NOME DO SERVIÇO)
 - **autor**, **manager**, **revisor**: O campo autor deve conter o **nome de utilizador do Github** do autor, não o alias.  Os campos "Gestor" e "revisor", por outro lado, devem conter aliases. MS. Reviewer Especifica o nome do PM associado ao serviço ou ao artigo.
-- **MS. AssetID**: Este é o GUID do artigo a partir de CAPS. Ao criar um novo ficheiro de markdown, obtenha um GUID em [https://www.guidgenerator.com](https://www.guidgenerator.com).
-- **MS. Prod**, **MS. Service**, **MS. Technology**, **MS. devlang**, **MS. topic**, **MS. tgt_pltfrm**: Os valores possíveis para estes elementos podem ser encontrados [aqui](https://microsoft.sharepoint.com/teams/STBCSI/Insights/_layouts/15/WopiFrame.aspx?sourcedoc=%7b7A321BF1-0611-4184-84DA-A0E964C435FA%7d&file=WEDCS_MasterList_CSIValues.xlsx&action=default).
+- **MS. AssetID**: Este é o GUID do artigo a partir de CAPS. Ao criar um novo ficheiro de markdown, obtenha um GUID em [ https://www.guidgenerator.com ](https://www.guidgenerator.com).
+- **MS. Prod**, **MS. Service**, **MS. Technology**, **MS. devlang**, **MS. topic**, **MS. tgt_pltfrm** : Os valores possíveis para estes elementos podem ser encontrados [aqui](https://microsoft.sharepoint.com/teams/STBCSI/Insights/_layouts/15/WopiFrame.aspx?sourcedoc=%7b7A321BF1-0611-4184-84DA-A0E964C435FA%7d&file=WEDCS_MasterList_CSIValues.xlsx&action=default).
 
 ## <a name="basic-markdown-and-gfm"></a>Markdown básico e GFM
 
@@ -92,9 +97,9 @@ Se aparecer um URL num ficheiro de markdown, será transformado numa ligação c
 ### <a name="ordered-lists"></a>Listas ordenadas
 
 1. Isto
-1. É
-1. Um
-1. Ordenadas
+1. é
+1. um
+1. ordenadas
 1. List  
 
 
@@ -174,7 +179,7 @@ Este é um exemplo de `in-line code`.
 
 [![texto alternativo para a imagem ligada](./media/AzRMS_elements.png)](https://azure.microsoft.com)
 
-### <a name="animated-gif"></a>Gif animado
+### <a name="animated-gif"></a>gif animado
 
 ![gif animado](./media/hololens.gif)
 
@@ -222,7 +227,7 @@ Este é um exemplo de `in-line code`.
 
 > [!div class="op_single_selector"]
 - [foo](/rights-management/template.md)
-- [barra](/rights-management/scratch.md)
+- [Barra](/rights-management/scratch.md)
 
 ### <a name="step-by-step"></a>Passo a passo
 

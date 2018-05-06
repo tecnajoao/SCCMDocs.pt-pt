@@ -2,26 +2,19 @@
 title: Ficheiros de registo para resolução de problemas
 titleSuffix: Configuration Manager
 description: Utilize ficheiros de registo para resolver problemas com sistemas de sites e clientes do Configuration Manager.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
-caps.latest.revision: ''
-caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 471730e056ca512f300ead234b9a8a9e4f10a835
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: c068ea5a079d43148191e41dc9a2b4fb7a2e00c7
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="log-files-in-system-center-configuration-manager"></a>Ficheiros de registo no System Center Configuration Manager
 
@@ -193,10 +186,10 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |Pwrmgmt.log|Regista informações sobre a ativação ou desativação e a configuração de definições de cliente do proxy de reativação.|  
 |PwrProvider.log|Regista as atividades do fornecedor de gestão de energia (PWRInvProvider) alojado no serviço WMI. Em todas as versões suportadas do Windows, o fornecedor enumera as definições atuais nos computadores durante o inventário de hardware e aplica as definições do plano de energia.|  
 |SCClient_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade no Centro de Software para o utilizador especificado no computador cliente.|  
-|SCClient_&lt;*domain*\>@&lt;*username*\>_2.log|Regista a atividade do histórico no Centro de Software para o utilizador especificado no computador cliente.|  
+|SCClient_&lt;*domínio*\>@&lt;*username*\>_2.log|Regista a atividade do histórico no Centro de Software para o utilizador especificado no computador cliente.|  
 |Scheduler.log|Regista atividades de tarefas agendadas para todas as operações de cliente.|  
-|SCNotify_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade para notificar os utilizadores sobre software para o utilizador especificado.|  
-|SCNotify_&lt;*domain*\>@&lt;*username*\>_1-&lt;*date_time*>.log|Regista a informação do histórico para notificar os utilizadores sobre software para o utilizador especificado.|  
+|SCNotify_&lt;*domínio*\>@&lt;*username*\>_1.log|Regista a atividade para notificar os utilizadores sobre software para o utilizador especificado.|  
+|SCNotify_&lt;*domínio*\>@&lt;*username*\>_1 -&lt;*Data_Hora*>. log|Regista a informação do histórico para notificar os utilizadores sobre software para o utilizador especificado.|  
 |setuppolicyevaluator.log|Regista a configuração e a criação da política de inventário no WMI.|  
 |SleepAgent_&lt;*domain*\>@SYSTEM_0.log|O ficheiro de registo principal do proxy de reativação.|  
 |smscliui.log|Utilizam registos de cliente do Configuration Manager no painel de controlo.|  
@@ -234,13 +227,13 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 |Nome do registo|Detalhes|  
 |--------------|-------------|  
 |Scxcm.log|O ficheiro de registo do serviço de núcleo do cliente do Configuration Manager para Linux e UNIX (ccmexec.bin). Este ficheiro de registo contém informações sobre a instalação e as operações do ccmexec.bin. em curso<br /><br /> Por predefinição, este ficheiro de registo está localizado em **/var/opt/microsoft/scxcm.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de quatro definições diferentes.|  
-|Scxcmprovider.log|O ficheiro de registo do serviço CIM do cliente do Configuration Manager para Linux e UNIX (omiserver.bin). Este ficheiro de registo contém informações sobre as operações do nwserver.bin em curso.<br /><br /> Este registo está localizado em**/var/opt/microsoft/configmgr/scxcmprovider.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de três definições.|  
+|Scxcmprovider.log|O ficheiro de registo do serviço CIM do cliente do Configuration Manager para Linux e UNIX (omiserver.bin). Este ficheiro de registo contém informações sobre as operações do nwserver.bin em curso.<br /><br /> Este registo está localizado em **/var/opt/microsoft/configmgr/scxcmprovider.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Pode definir o nível de registo para uma de três definições.|  
 
  Ambos os ficheiros de registo suportam vários níveis de registo:  
 
 -   **scxcm.log**. Para alterar o nível de registo, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere cada instância do **módulo** etiqueta para o nível de registo que pretende:  
 
-    -   ERROR: Indica problemas que necessitam da atenção  
+    -   ERRO: Indica problemas que necessitam da atenção  
 
     -   AVISO: Indica possíveis problemas para operações de cliente  
 
@@ -250,7 +243,7 @@ A tabela seguinte lista os ficheiros de registo localizados no cliente do Config
 
 -   **scxcmprovider.log**. Para alterar o nível de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere cada instância do **módulo** etiqueta para o nível de registo que pretende:  
 
-    -   ERROR: Indica problemas que necessitam da atenção  
+    -   ERRO: Indica problemas que necessitam da atenção  
 
     -   AVISO: Indica possíveis problemas para operações de cliente
 
@@ -270,10 +263,10 @@ O cliente do Configuration Manager para computadores Mac regista as informaçõe
 
 |Nome do registo|Detalhes|  
 |--------------|-------------|  
-|CCMClient-&lt;*date_time*>.log|Regista atividades relacionadas com as operações de cliente Mac, incluindo gestão de aplicações, inventário e registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta /Library/Application Support/Microsoft/CCM/Logs no computador Mac.|  
-|CCMAgent-&lt;*date_time*>.log|Regista informações relacionadas com operações de cliente, incluindo o início de sessão do utilizador e as operações de terminar sessão e atividade do computador Mac.<br /><br /> Este ficheiro de registo é na pasta ~/Library/Logs no computador Mac.|  
-|CCMNotifications-&lt;*date_time*>.log|Regista atividades relacionadas com as notificações do Configuration Manager apresentadas no computador Mac.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
-|CCMPrefPane-&lt;*date_time*>.log|Regista atividades relacionadas com a caixa de diálogo de preferências do Configuration Manager no computador Mac, que inclui o estado geral e o registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
+|CCMClient -&lt;*Data_Hora*>. log|Regista atividades relacionadas com as operações de cliente Mac, incluindo gestão de aplicações, inventário e registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta /Library/Application Support/Microsoft/CCM/Logs no computador Mac.|  
+|CCMAgent -&lt;*Data_Hora*>. log|Regista informações relacionadas com operações de cliente, incluindo o início de sessão do utilizador e as operações de terminar sessão e atividade do computador Mac.<br /><br /> Este ficheiro de registo é na pasta ~/Library/Logs no computador Mac.|  
+|CCMNotifications -&lt;*Data_Hora*>. log|Regista atividades relacionadas com as notificações do Configuration Manager apresentadas no computador Mac.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
+|CCMPrefPane -&lt;*Data_Hora*>. log|Regista atividades relacionadas com a caixa de diálogo de preferências do Configuration Manager no computador Mac, que inclui o estado geral e o registo de erros.<br /><br /> Este ficheiro de registo está localizado na pasta ~/Library/Logs no computador Mac.|  
 
 O ficheiro de registo SMS_DM.log no servidor do sistema de site também regista a comunicação entre computadores Mac e o ponto de gestão que esteja configurado para dispositivos móveis e computadores Mac.  
 

@@ -1,26 +1,20 @@
 ---
 title: 'Estruturar uma hierarquia do site '
 titleSuffix: Configuration Manager
-description: "Compreenda as topologias disponíveis e as opções de gestão do System Center Configuration Manager, pelo que pode planear a hierarquia de sites."
-ms.custom: na
+description: Compreenda as topologias disponíveis e as opções de gestão do System Center Configuration Manager, pelo que pode planear a hierarquia de sites.
 ms.date: 8/24/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 07ce872e-1558-42ad-b5ad-582c5b1bdbb4
-caps.latest.revision: "22"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 845ec5210b9055ff9c52039a32f008b1baa36413
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 602d9455dcdd69209ef8ba157916b35db976b89f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Estruturar uma hierarquia de sites do System Center Configuration Manager
 
@@ -39,7 +33,7 @@ Quando planear, tenha em limitações de atenção para adicionar sites adiciona
 > [!NOTE]
 > Quando planear uma nova instalação do Configuration Manager, tenha em atenção o [notas de versão]( /sccm/core/servers/deploy/install/release-notes), que detalhe atuais problemas nas versões do Active Directory. As notas de versão aplicam-se a todos os ramos do Configuration Manager.  No entanto, quando utiliza o [ramo de pré-visualização técnica]( /sccm/core/get-started/technical-preview), irá encontrar problemas específicos apenas nessa sucursal na documentação de cada versão do Technical Preview.  
 
-##  <a name="bkmk_topology"></a>Topologia de hierarquia  
+##  <a name="bkmk_topology"></a> Topologia de hierarquia  
  Hierarquia topologias intervalo de um único site primário autónomo a um grupo de sites primários e secundários ligados com um site de administração central no site de nível superior (camada superior) da hierarquia.   O controlador de chave do tipo e contagem de sites que utiliza numa hierarquia é, normalmente, o número e tipo de dispositivos que têm de suportar, da seguinte forma:   
 
  **Site primário autónomo:** Utilizar um site primário autónomo, quando um único site primário pode suportar a gestão de todos os seus dispositivos e utilizadores (consulte [dimensionamento e números da escala](/sccm/core/plan-design/configs/size-and-scale-numbers)). Esta topologia também é efetuada com êxito quando as diferentes localizações geográficas da sua empresa podem ser com êxito efetuadas por um único site primário.  Para ajudar a gerir o tráfego de rede, pode utilizar pontos de gestão preferenciais e uma infraestrutura de conteúdo cuidadosamente planeada (consulte [conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
@@ -64,7 +58,7 @@ Quando planear, tenha em limitações de atenção para adicionar sites adiciona
 
  As secções seguintes podem ajudá-lo a compreender quando deve utilizar um site específico ou a opção de gestão de conteúdos em vez de um site adicional.  
 
-##  <a name="BKMK_ChooseCAS"></a>Determinar quando deve utilizar um site de administração central  
+##  <a name="BKMK_ChooseCAS"></a> Determinar quando deve utilizar um site de administração central  
  Utilize um site de administração central para configurar as definições de toda a hierarquia e para monitorizar todos os sites e objetos na hierarquia. Este tipo de site não gere diretamente os clientes mas coordenar a replicação de dados entre sites, que inclui a configuração de sites e clientes em toda a hierarquia.  
 
 **As seguintes informações podem ajudar a decidir quando instalar um site de administração central:**  
@@ -89,7 +83,7 @@ Quando planear, tenha em limitações de atenção para adicionar sites adiciona
 
 -   Pode configurar a replicação de ficheiros e a replicação de base de dados para controlar a comunicação entre sites na hierarquia. Isto inclui agendar a replicação de base de dados para dados do site e gerir a largura de banda para a transferência de dados baseada em ficheiros entre sites.  
 
-##  <a name="BKMK_ChoosePriimary"></a>Determinar quando deve utilizar um site primário  
+##  <a name="BKMK_ChoosePriimary"></a> Determinar quando deve utilizar um site primário  
  Utilize sites primários para gerir clientes. Pode instalar um site primário como site primário subordinado abaixo de um site de administração central ou como o primeiro site numa nova hierarquia. Um site primário que é instalado como o primeiro site de uma hierarquia cria um site primário autónomo. Os sites primários subordinados e sites primários autónomos suportam sites secundários como sites subordinados do site primário.  
 
  Considere a utilização de um site primário por qualquer um dos seguintes motivos:  
@@ -115,7 +109,7 @@ Quando planear, tenha em limitações de atenção para adicionar sites adiciona
 
 -   Sites primários utilizam a replicação de base de dados para comunicar diretamente com o respetivo site de administração central (que é configurado automaticamente quando instala um novo site).  
 
-##  <a name="BKMK_ChooseSecondary"></a>Determinar quando deve utilizar um site secundário  
+##  <a name="BKMK_ChooseSecondary"></a> Determinar quando deve utilizar um site secundário  
  Utilize sites secundários para gerir a transferência de dados de cliente e de conteúdo de implementação em redes com pouca largura de banda.  
 
  Gerir um site secundário a partir de um site de administração central ou site primário do principal do site secundário. Sites secundários têm de estar associados a um site primário e não é possível movê-los para outro site principal sem os desinstalar e reinstalar como site subordinado abaixo do novo site primário.
@@ -145,7 +139,7 @@ No entanto, pode encaminhar conteúdos entre dois sites secundários membros par
 
 -   Instalações de site secundário implementam automaticamente um ponto de gestão e um ponto de distribuição que estão localizados no servidor do site secundário.  
 
-##  <a name="BKMK_ChooseSecondaryorDP"></a>Determinar quando deve utilizar as opções de gestão de conteúdo  
+##  <a name="BKMK_ChooseSecondaryorDP"></a> Determinar quando deve utilizar as opções de gestão de conteúdo  
  Se tiver clientes em localizações de rede remotas, considere utilizar uma ou mais opções de gestão de conteúdo em vez de um site primário ou secundário. Muitas vezes, pode remover a necessidade de instalar um site quando utiliza o Windows BranchCache, configura pontos de distribuição para controlo de largura de banda ou copia manualmente conteúdo para pontos de distribuição (conteúdo pré-configurado).  
 
 
@@ -157,7 +151,7 @@ No entanto, pode encaminhar conteúdos entre dois sites secundários membros par
 
  Para obter mais informações sobre as opções de gestão de conteúdos no Configuration Manager, consulte [conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-##  <a name="bkmk_beyond"></a>Para além da topologia da hierarquia  
+##  <a name="bkmk_beyond"></a> Para além da topologia da hierarquia  
  Para além de uma topologia de hierarquia inicial, considere os serviços ou funcionalidades que estarão disponíveis de diferentes sites numa hierarquia (funções do sistema de sites) e os como ao nível da hierarquia de configurações e as funções serão geridas na sua infraestrutura. As seguintes considerações comuns são abordadas em tópicos separados. Estes são importantes porque eles podem influenciar ou ser influenciados pela estrutura da hierarquia:  
 
 -   Quando estiver a preparar para [gerir computadores e dispositivos com o System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), considere se os dispositivos que gere estão no local, na nuvem, ou incluem os dispositivos propriedade do utilizador (BYOD).  Além disso, considere a forma como irá gerir dispositivos que são suportados por várias opções de gestão, tais como computadores Windows 10 que podem ser geridos diretamente pelo Configuration Manager ou apesar de integração com o Microsoft Intune.  

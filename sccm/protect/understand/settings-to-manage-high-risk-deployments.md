@@ -1,25 +1,20 @@
 ---
-title: "Gerir implementações de alto risco"
+title: Gerir implementações de alto risco
 titleSuffix: Configuration Manager
-description: "Saiba como configurar as definições do site no System Center Configuration Manager, para o avisar admins se criarem uma implementação de alto risco."
-ms.custom: na
+description: Saiba como configurar as definições do site no System Center Configuration Manager, para o avisar admins se criarem uma implementação de alto risco.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-protect
+ms.topic: conceptual
 ms.assetid: 8d37b983-a964-402c-819d-2512ed2d463b
-caps.latest.revision: "6"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 96855503183c1f9a3b51c5861ca661089f3c2994
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 44c7c805baedde820bc230dc25a3186762ecc8dc
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Definições para gerir implementações de alto risco para o System Center Configuration Manager
 
@@ -47,7 +42,7 @@ Com o System Center Configuration Manager pode configurar as definições do sit
 -   **Coleções com servidores de sistema de sites**: Bloquear implementações ou exigir verificação antes da criação da implementação, quando a coleção de destino contém um computador com uma função de sistema de sites. Quando uma implementação é bloqueada, tem de selecionar uma coleção diferente que cumpra os critérios de verificação de implementação.  
 
 > [!NOTE]  
->  As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e a coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não é possível selecionar uma coleção incorporada como **Todos os Sistemas**.  
+>  As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e à coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não é possível selecionar uma coleção incorporada como **Todos os Sistemas**.  
 
 ### <a name="to-configure-deployment-verification-for-a-site"></a>Para configurar a verificação de implementação para um site  
 

@@ -1,24 +1,20 @@
 ---
-title: "Pré-visualização técnica 1711 | Microsoft Docs"
+title: Pré-visualização técnica 1711 | Microsoft Docs
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1711 para o System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1711 para o System Center Configuration Manager.
 ms.date: 11/17/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 2e68dc12-6776-437a-9138-45cd7d4bf9cf
-author: erikje
-ms.author: erikje
-manager: angrobe
-ms.openlocfilehash: b740c422a71e625ccc110a043028cf986cdffb20
-ms.sourcegitcommit: ed8b2438ef85c9160741ef61f9171be41dd1ae0a
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 6353b765f769dfa57ea57926d12bf2b254ba8f68
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1711-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1711 do System Center Configuration Manager
 
@@ -71,7 +67,7 @@ Experimente concluir as seguintes tarefas e, em seguida, envie-nos **comentário
 1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
 2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.
 
-## <a name="allow-user-interaction-when-installing-an-application----1356976---"></a>Permitir interação do utilizador quando instalar uma aplicação<!-- 1356976 -->
+## <a name="allow-user-interaction-when-installing-an-application----1356976---"></a>Permitir interação do utilizador quando instalar uma aplicação <!-- 1356976 -->
 
 Com esta pré-visualização, pode permitir que um utilizador final interagir com a instalação de uma aplicação durante a execução da sequência de tarefas. Por exemplo, execute um processo de configuração que pede ao utilizador final para várias opções. Alguns programas de instalação da aplicação não podem ter silenciados avisos do utilizador ou o processo de instalação pode necessitar de valores de configuração específicas conhecidos apenas ao utilizador. Esta funcionalidade permite-lhe lidar com estes cenários de instalação.
 

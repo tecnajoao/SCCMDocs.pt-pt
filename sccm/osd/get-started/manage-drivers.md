@@ -1,26 +1,20 @@
 ---
 title: 'Gerir controladores '
 titleSuffix: Configuration Manager
-description: "Utilizar o catálogo de controladores do Configuration Manager para importar controladores de dispositivo, grupo de controladores nos pacotes e distribuir estes pacotes por pontos de distribuição."
-ms.custom: na
+description: Utilizar o catálogo de controladores do Configuration Manager para importar controladores de dispositivo, grupo de controladores nos pacotes e distribuir estes pacotes por pontos de distribuição.
 ms.date: 01/27/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 84802d55-112e-4f7f-9a48-74a80d91a0f4
-caps.latest.revision: "10"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: f03f5d0e8c6d4653e25e50d615d5d50e00d9cda0
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 4eb97430bd5d7ae5cc50044f8049f41cb9b4cf08
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-drivers-in-system-center-configuration-manager"></a>Gerir controladores no System Center Configuration Manager
 
@@ -77,7 +71,7 @@ System Center Configuration Manager fornece um catálogo de controladores que po
 ###  <a name="BKMK_PackageActions"></a> Ações adicionais para pacotes de controladores  
  Pode realizar ações adicionais para gerir os pacotes de controladores quando seleciona um ou mais pacotes de controladores no nó **Pacotes de Controladores** . Estas ações incluem o seguinte:  
 
-|Ação|Descrição|  
+|Action|Descrição|  
 |------------|-----------------|  
 |**Criar Ficheiro de Conteúdo Pré-configurado**|Cria ficheiros que podem ser utilizados para importar manualmente o conteúdo e os metadados associados. Utilize conteúdo pré-configurado quando tiver reduzida largura de banda de rede entre o servidor de site e os pontos de distribuição em que o pacote de controladores se encontra armazenado.|  
 |**Eliminar**|Remove o pacote de controladores do nó **Pacotes de Controladores** .|  
@@ -145,7 +139,7 @@ System Center Configuration Manager fornece um catálogo de controladores que po
 
          Opcionalmente, clique em **Novo Pacote** para criar um novo pacote de controladores. Ao criar um novo pacote de controladores, terá de fornecer uma partilha de rede que não se encontre em utilização por outros pacotes de controladores.  
 
-    -   Se o pacote já tiver sido distribuído para pontos de distribuição, clique em **Sim** , na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
+    -   Se o pacote já tiver sido distribuído para pontos de distribuição, clique em **Sim**, na caixa de diálogo, para atualizar as imagens de arranque nos pontos de distribuição. Não é possível utilizar controladores de dispositivo que ainda não tenham sido distribuídos a pontos de distribuição. Se clicar em **Não**, tem de executar a ação **Atualizar Ponto de Distribuição** antes de a imagem de arranque incluir os controladores atualizados. Se o pacote de controlador nunca tiver sido distribuído, tem de clicar em **Distribuir Conteúdo** , no nó **Pacotes de Controladores** .  
 
 7.  Na página **Adicionar Controlador a Imagens de Arranque** , escolha se pretende adicionar os controladores de dispositivo a imagens de arranque existentes e clique em **Seguinte**. Se selecionar uma imagem de arranque, considere o seguinte:  
 
@@ -204,7 +198,7 @@ System Center Configuration Manager fornece um catálogo de controladores que po
 
 2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Controladores**.  
 
-3.  No nó **Controladores** , selecione os controladores de dispositivo que pretende adicionar ao pacote de controladores.  
+3.  No nó **Controladores**, selecione os controladores de dispositivo que pretende adicionar ao pacote de controladores.  
 
 4.  No separador **Home page** , no grupo **Controlador** , clique em **Editar**e em **Imagens de arranque**.  
 
@@ -231,7 +225,7 @@ System Center Configuration Manager fornece um catálogo de controladores que po
 ###  <a name="BKMK_DriverActions"></a> Ações adicionais para controladores de dispositivo  
  Pode realizar ações adicionais para gerir os controladores de dispositivo quando seleciona um ou mais controladores de dispositivo no nó **Controladores** . Estas ações incluem o seguinte:  
 
-|Ação|Descrição|  
+|Action|Descrição|  
 |------------|-----------------|  
 |**Categorizar**|Elimina, gere ou define uma categoria administrativa para os controladores de dispositivo selecionados.|  
 |**Eliminar**|Remove o controlador de dispositivo do nó **Controladores** e remove também o controlador dos pontos de distribuição associados.|  

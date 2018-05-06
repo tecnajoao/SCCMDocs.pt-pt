@@ -2,26 +2,19 @@
 title: Configurar o laboratório
 titleSuffix: Configuration Manager
 description: Configure um laboratório para avaliar o Configuration Manager com atividades de reais simuladas.
-ms.custom: na
 ms.date: 09/21/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: b1970688-0cd2-404f-a17f-9e2aa4a78758
-caps.latest.revision: 11
-caps.handback.revision: 0
-author: erikje
-ms.author: erikje
-manager: angrobe
-ms.openlocfilehash: 3441cb417a0b8fc7979b71018f6cfa345c47a02d
-ms.sourcegitcommit: fb84bcb31d825f454785e3d9d8be669e00fe2b27
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: a1799dcffa55de80c0c700a56301d7d71f3b4a48
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurar o seu laboratório System Center Configuration Manager
 
@@ -122,7 +115,7 @@ Os passos necessários para permitir que os clientes do Configuration Manager co
 
 #### <a name="to-set-security-permissions-for-the-system-management-container"></a>Para definir permissões de segurança no contentor de Gestão do Sistema:  
 
-1.  No painel de consola, expanda o **o domínio do servidor do site**, expanda **DC =&lt;nome único do servidor\>**e, em seguida, expanda **CN = System**. Clique com o botão direito do rato em **CN=System Management**e clique em **Propriedades**.  
+1.  No painel de consola, expanda o **o domínio do servidor do site**, expanda **DC =&lt;nome único do servidor\>** e, em seguida, expanda **CN = System**. Clique com o botão direito do rato em **CN=System Management**e clique em **Propriedades**.  
 
 2.  Na caixa de diálogo **CN=Propriedades de gestão do sistema** , clique no separador **Segurança** e, em seguida, clique em **Adicionar** para adicionar a conta de computador do servidor de site. Conceda permissões de **Controlo Total** à conta.  
 

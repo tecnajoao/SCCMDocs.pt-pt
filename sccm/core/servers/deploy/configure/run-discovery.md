@@ -1,26 +1,20 @@
 ---
 title: Detetar recursos de dispositivo e utilizador
 titleSuffix: Configuration Manager
-description: "Ler uma descrição geral da deteção de registos de dados de deteção e o processo."
-ms.custom: na
+description: Ler uma descrição geral da deteção de registos de dados de deteção e o processo.
 ms.date: 2/8/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 30844519-ce14-456f-bfb8-4318b578e9f6
-caps.latest.revision: "20"
-caps.handback.revision: "0"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: b380df38c4e08a04691a0bca9d46580fedf7b78a
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7d43415ce9517843490c815f7c9f2f3490e87674
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="run-discovery-for-system-center-configuration-manager"></a>Executar a deteção no System Center Configuration Manager
 
@@ -64,7 +58,7 @@ Utilize um ou mais métodos de deteção no System Center Configuration Manager 
 
 -   Implementar definições de cliente e configurações relacionadas.
 
-##  <a name="BKMK_DDRs"></a>Sobre os registos de dados de deteção  
+##  <a name="BKMK_DDRs"></a> Sobre os registos de dados de deteção  
  DDR são ficheiros criados por um método de deteção. Contêm informações sobre um recurso pode gerir no Configuration Manager, tais como computadores, utilizadores e em alguns casos, a infraestrutura de rede. São processados em sites primários ou em sites de administração central. Depois das informações de recursos do DDR são introduzidas na base de dados, este é eliminado e as informações são replicadas como dados globais para todos os sites na hierarquia.  
 
  O site onde um DDR é processado depende das informações que contém:  

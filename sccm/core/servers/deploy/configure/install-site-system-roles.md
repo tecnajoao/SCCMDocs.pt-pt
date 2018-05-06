@@ -1,25 +1,20 @@
 ---
-title: "Instalar funções do sistema de sites"
+title: Instalar funções do sistema de sites
 titleSuffix: Configuration Manager
-description: "Assistentes ajudam a adicionar funções do sistema de sites a um servidor de sistema de sites de nova ou existente no site."
-ms.custom: na
+description: Assistentes ajudam a adicionar funções do sistema de sites a um servidor de sistema de sites de nova ou existente no site.
 ms.date: 2/7/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 61f5c774-7667-44ae-b8e4-a4951318b183
-caps.latest.revision: "4"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 82be333fcca636dfd68763cdfa7e97d0eaf14915
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7edfc72195b289488242adcbd1903dbacf26bfe2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="install-site-system-roles-for-system-center-configuration-manager"></a>Instalar funções do sistema de sites para o System Center Configuration Manager
 
@@ -39,7 +34,7 @@ Antes de instalar a função de sistema de sites, o Configuration Manager verifi
 
 -   O Configuration Manager utiliza o **conta de instalação do sistema de sites** para instalar funções do sistema de sites. Esta conta é especificada quando executa o assistente aplicável para criar um novo servidor de sistema de sites ou adicionar funções do sistema de sites para um servidor de sistema de sites existente. Por predefinição, esta conta é a conta de sistema local do computador do servidor do site, mas pode especificar uma conta de utilizador de domínio para utilização como conta de instalação do sistema de sites. Para obter mais informações, veja [Contas utilizadas no System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md).  
 
-##  <a name="bkmk_Install"></a>Para instalar funções do sistema de sites num servidor de sistema de sites existente  
+##  <a name="bkmk_Install"></a> Para instalar funções do sistema de sites num servidor de sistema de sites existente  
 
 1.  Na consola do Configuration Manager, clique em **Administração**.  
 

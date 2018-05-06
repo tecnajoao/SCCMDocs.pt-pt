@@ -2,20 +2,19 @@
 title: Preparar o Windows 10 para a gestão conjunta
 titleSuffix: Configuration Manager
 description: Saiba como preparar os dispositivos Windows 10 para gestão conjunta.
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
 ms.date: 03/28/2018
-ms.topic: article
+ms.topic: conceptual
 ms.prod: configuration-manager
-ms.service: ''
-ms.technology: ''
+ms.technology: configmgr-client
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: 93a991cb3fd78e44f5ae4434a9845a57450e1025
-ms.sourcegitcommit: e4ca9fb1fad2caaf61bb46e0a12f4d6b96f15513
+ms.openlocfilehash: 8c025d7c7a1dc452cb96f937801656bc4d0cadab
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prepare-windows-10-devices-for-co-management"></a>Preparar os dispositivos Windows 10 para gestão conjunta
 Pode ativar a gestão conjunta em dispositivos Windows 10 que estejam associados ao AD e o Azure AD e inscritos no Microsoft Intune e um cliente no Configuration Manager. Para novos dispositivos Windows 10 e para os dispositivos já inscritos no Intune, antes de instalar o cliente do Configuration Manager podem ser conjuntamente geridos. Para dispositivos Windows 10 que já estão a clientes do Configuration Manager, pode inscrever dispositivos com o Intune e ativar a gestão conjunta na consola do Configuration Manager.
@@ -30,7 +29,7 @@ Tem de ter os seguintes pré-requisitos no local antes de poder ativar gestão c
 Seguem-se pré-requisitos gerais para a ativar a gestão conjunta:  
 
 - Configuration Manager versão 1710 ou posterior
-- Azure AD
+- [Site integrado com o Azure AD para gestão de nuvem](/sccm/core/servers/deploy/configure/azure-services-wizard)
 - Licença do Intune ou do EMS para todos os utilizadores
 - [Inscrição automática de AD do Azure](https://docs.microsoft.com/intune/windows-enroll#enable-windows-10-automatic-enrollment) ativada
 - Subscrição do Intune &#40;definido como a autoridade MDM no Intune **Intune**&#41;

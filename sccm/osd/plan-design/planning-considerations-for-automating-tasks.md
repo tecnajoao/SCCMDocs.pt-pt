@@ -1,26 +1,20 @@
 ---
-title: "Considerações sobre planeamento para automatizar tarefas"
+title: Considerações sobre planeamento para automatizar tarefas
 titleSuffix: Configuration Manager
 description: Planear antes de automatizar tarefas no System Center Configuration Manager.
-ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: fc497a8a-3c54-4529-8403-6f6171a21c64
-caps.latest.revision: "13"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 5d044e7c7869faeb0b3ea24e24ff40674a63920e
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 485f295e83d94ed5282003c7179a5f2c1e37773e
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="planning-considerations-for-automating-tasks-in-system-center-configuration-manager"></a>Considerações sobre planeamento para automatizar tarefas no System Center Configuration Manager
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 12/12/2017
 
 Pode criar sequências de tarefas para automatizar tarefas no seu ambiente do System Center Configuration Manager. Estas tarefas abrangem desde a captura de um sistema operativo num computador de referência até à implementação do sistema operativo num ou mais computadores de destino. As ações da sequência de tarefas são definidas nos passos individuais da sequência. Quando a sequência de tarefas é executada, as ações de cada passo são efetuadas ao nível da linha de comandos no contexto Sistema Local, sem necessidade de intervenção do utilizador. Utilize as secções seguintes para ajudar a planear automatizar tarefas no Configuration Manager.
 
-##  <a name="BKMK_TSStepsActions"></a>Passos de sequência de tarefas e ações  
+##  <a name="BKMK_TSStepsActions"></a> Passos de sequência de tarefas e ações  
  Passos são os componentes básicos de uma sequência de tarefas. Podem conter comandos que configurem e capturem o sistema operativo num computador de referência ou conter comandos que instalem o sistema operativo, controladores, o cliente do Configuration Manager e o software no computador de destino. Os comandos de um passo de sequência de tarefas são definidos pelas ações do passo. Existem dois tipos de ações: As ações definidas utilizando uma cadeia de linha de comandos são referidas como ações personalizadas. Uma ação que está predefinida pelo Configuration Manager é referida como ações incorporadas. Uma sequência de tarefas pode executar qualquer combinação de ações personalizadas e incorporadas.  
 
  Passos de sequência de tarefas também poderão incluir condições que controlam o comportamento, tais como parar a sequência de tarefas ou continuar a sequência de tarefas, se ocorrer um erro. A inclusão de uma variável de sequência de tarefas no passo permite adicionar condições ao passo. Por exemplo, poderá utilizar a variável **SMSTSLastActionRetCode** para testar a condição do passo anterior. As variáveis podem ser adicionadas a um único passo ou um grupo de passos.  
@@ -212,7 +206,7 @@ Pode criar sequências de tarefas para automatizar tarefas no seu ambiente do Sy
  Pode implementar uma sequência de tarefas para computadores de destino que estejam em qualquer coleção do Configuration Manager. Isto inclui a coleção **Todos os Computadores Desconhecidos** que é utilizada para implementar sistemas operativos em computadores desconhecidos. No entanto, não é possível implementar uma sequência de tarefas em coleções de utilizador.  
 
 > [!IMPORTANT]  
->  Não implemente sequências de tarefas que instalem sistemas operativos em coleções inadequadas, por exemplo a coleção **Todos os Sistemas** . Certifique-se de que a coleção na qual implementa a sequência de tarefas contém apenas os computadores onde pretende que o sistema operativo seja instalado. Para ajudar a impedir uma implementação do sistema operativo indesejada, pode gerir definições de implementação. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Não implemente sequências de tarefas que instalem sistemas operativos em coleções inadequadas, por exemplo a coleção **Todos os Sistemas**. Certifique-se de que a coleção na qual implementa a sequência de tarefas contém apenas os computadores onde pretende que o sistema operativo seja instalado. Para ajudar a impedir uma implementação do sistema operativo indesejada, pode gerir definições de implementação. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
  Cada computador de destino que recebe a sequência de tarefas executa a sequência de tarefas, de acordo com as definições especificadas na implementação. As sequências de tarefas propriamente ditas não contêm ficheiros ou programas associados. Quaisquer ficheiros que sejam referenciados por uma sequência de tarefas terão de já estar presentes no computador de destino ou residir num ponto de distribuição ao qual os clientes podem aceder. Além disso, a sequência de tarefas instala os pacotes que são referenciados por programas, mesmo que o programa ou o pacote já está instalado no computador de destino.  
 

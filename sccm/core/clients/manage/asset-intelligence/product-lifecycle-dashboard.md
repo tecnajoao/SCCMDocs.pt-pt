@@ -1,32 +1,25 @@
 ---
 title: Dashboard de ciclo de vida do produto
 titleSuffix: Configuration Manager
-description: "Obter informações sobre o dashboard de ciclo de vida do produto no System Center Configuration Manager."
-ms.custom: na
+description: Obter informações sobre o dashboard de ciclo de vida do produto no System Center Configuration Manager.
 ms.date: 02/13/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 8b5b144a-0e5f-4fcc-87b2-33b9bcdb5655
-caps.latest.revision: 
-caps.handback.revision: 
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: cfc54c1beb92d0102897f77ce3c287cc0ef9e0f4
-ms.sourcegitcommit: fbd4a9d2fa8ed4ddd3a0fecc4a2ec4fc0ccc3d0c
+ms.openlocfilehash: 8f24fcd2d75d34e2d2d69c9c54f4f47991be7301
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-the-product-lifecycle-dashboard-to-manage-microsoft-lifecycle-policy-in-system-center-configuration-manager"></a>Utilize o Dashboard de ciclo de vida do produto para gerir a política de ciclo de vida da Microsoft no System Center Configuration Manager
 
-Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
 
 Começando com [versão Technical Preview 1802](/sccm/core/get-started/capabilities-in-technical-preview-1802), pode utilizar o dashboard do ciclo de vida do Gestor de configuração do produto. O dashboard apresenta o estado da política de ciclo de vida de produto de Microsoft para produtos da Microsoft instalado nos dispositivos geridos com o Configuration Manager. O dashboard fornece informações sobre os produtos da Microsoft no seu ambiente, o estado de Suportabilidade e datas de fim de suporte. Pode utilizar o dashboard para compreender a disponibilidade de suporte para cada produto. Ajudar a planear quando atualizar produtos da Microsoft utiliza antes do respetivo fim de suporte atual for atingido.  
 

@@ -1,26 +1,20 @@
 ---
-title: "Implementar conteúdo"
+title: Implementar conteúdo
 titleSuffix: Configuration Manager
-description: "Depois de instalar pontos de distribuição para o System Center Configuration Manager, eis como pode começar a implementar o conteúdo aos mesmos."
-ms.custom: na
+description: Depois de instalar pontos de distribuição para o System Center Configuration Manager, eis como pode começar a implementar o conteúdo aos mesmos.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: d50dcca0-4419-449d-a487-73abcadf328f
-caps.latest.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 14d2d9cfc25f7445ad6e873f1969e1ffcd522737
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: c6a2a69047a8fee5ab0c1f4f0f13197178334f05
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Implementar e gerir conteúdo para o System Center Configuration Manager
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 12/04/2017
 
 Depois de instalar pontos de distribuição para o System Center Configuration Manager, pode começar a implementar o conteúdo aos mesmos. Normalmente, as transferências de conteúdo para pontos de distribuição através da rede, mas existe outras opções para obter conteúdo aos pontos de distribuição. Depois de as transferências de conteúdo para um ponto de distribuição, pode atualizar, redistribuir, remover e validar esse conteúdo em pontos de distribuição.  
 
-##  <a name="bkmk_distribute"></a>Distribuir conteúdo  
+##  <a name="bkmk_distribute"></a> Distribuir conteúdo  
  Normalmente, distribuir conteúdo para pontos de distribuição para que fiquem disponível para computadores cliente. (A exceção é quando utiliza a distribuição de conteúdo a pedido para um implementação específica.)  Quando distribui conteúdo, o Configuration Manager armazena os ficheiros de conteúdo num pacote e, em seguida, distribui o pacote ao ponto de distribuição. Os tipos de conteúdo que podem ser distribuídos, incluem:  
 
 -   Tipos de implementação de aplicação  
@@ -107,7 +101,7 @@ Utilize o seguinte procedimento para distribuir conteúdo para pontos de distrib
 
 9. O **confirmação** página mostra se os conteúdos foram atribuídos com êxito aos pontos. Para monitorizar a distribuição de conteúdos, consulte [monitorizar conteúdo que distribuiu com o System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-##  <a name="bkmk_prestage"></a>Utilize conteúdo pré-configurado  
+##  <a name="bkmk_prestage"></a> Utilize conteúdo pré-configurado  
  Pode pré-configurar ficheiros de conteúdo para aplicações e tipos de pacote:  
 
 -   Na consola do Configuration Manager, selecione o conteúdo necessário e, em seguida, utilizar o **criar Assistente de ficheiro de conteúdo pré-configurado** para criar um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros e metadados associados para o conteúdo que selecionou.  
@@ -132,7 +126,7 @@ Para obter informações sobre quando pré-configurar ficheiros de conteúdo, co
 
 Utilize as secções seguintes para pré-configurar conteúdo.  
 
-###  <a name="BKMK_CreatePrestagedContentFile"></a>Passo 1: Criar um ficheiro de conteúdo pré-configurado  
+###  <a name="BKMK_CreatePrestagedContentFile"></a> Passo 1: Criar um ficheiro de conteúdo pré-configurado  
  Pode criar um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros e metadados associados para o conteúdo que selecionou na consola do Configuration Manager. Utilize o procedimento seguinte para criar um ficheiro de conteúdo pré-configurado.  
 
 ##### <a name="to-create-a-prestaged-content-file"></a>Para criar um ficheiro de conteúdo pré-configurado  
@@ -178,7 +172,7 @@ Utilize as secções seguintes para pré-configurar conteúdo.
 
 11. No **conclusão** página, certifique-se de que o ficheiro de conteúdo pré-configurado foi criado com êxito e, em seguida, clique em **fechar**.  
 
-###  <a name="BKMK_AssignContentToDistributionPoint"></a>Passo 2: Atribua o conteúdo para pontos de distribuição  
+###  <a name="BKMK_AssignContentToDistributionPoint"></a> Passo 2: Atribua o conteúdo para pontos de distribuição  
  Depois de pré-configurar o ficheiro de conteúdo, atribua o conteúdo para pontos de distribuição.  
 
 > [!NOTE]  
@@ -240,7 +234,7 @@ Utilize as secções seguintes para pré-configurar conteúdo.
 
 9. O **confirmação** página é apresentada se ou não os conteúdos foram atribuídos com êxito aos pontos de distribuição. Para monitorizar a distribuição de conteúdos, consulte [monitorizar conteúdo que distribuiu com o System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-###  <a name="BKMK_ExportContentFromPrestagedContentFile"></a>Passo 3: Extrair o conteúdo do ficheiro de conteúdo pré-configurado  
+###  <a name="BKMK_ExportContentFromPrestagedContentFile"></a> Passo 3: Extrair o conteúdo do ficheiro de conteúdo pré-configurado  
  Depois de criar o ficheiro de conteúdo pré-configurado e atribuir o conteúdo a pontos de distribuição, pode extrair os ficheiros de conteúdo à biblioteca de conteúdos no ponto de servidor ou a distribuição de um site. Normalmente, que copiou o ficheiro de conteúdo pré-configurado para uma unidade portátil, como uma unidade USB, ou gravado o conteúdo para o suporte de dados como um DVD e tiver disponível na localização do site servidor ou ponto de distribuição que necessite do conteúdo.  
 
  Utilize o procedimento seguinte para exportar manualmente os ficheiros de conteúdo do ficheiro de conteúdo pré-configurado utilizando a ferramenta de linha de comandos extrair conteúdo.  
@@ -281,7 +275,7 @@ Utilize as secções seguintes para pré-configurar conteúdo.
     >   
     > O Configuration Manager não distribui automaticamente a versão 2 do pacote ao ponto de distribuição. Tem de criar um novo ficheiro de conteúdo pré-configurado que contém a nova versão do ficheiro e, em seguida, extrair os conteúdos, atualizar o ponto de distribuição para distribuir os ficheiros que tenham sido alterados ou redistribuir os ficheiros do pacote.  
 
-###  <a name="bkmk_dpsiteserver"></a>Como pré-configurar conteúdo num ponto de distribuição num servidor do site  
+###  <a name="bkmk_dpsiteserver"></a> Como pré-configurar conteúdo num ponto de distribuição num servidor do site  
  Quando um ponto de distribuição é instalado num servidor do site, tem de utilizar o procedimento seguinte para pré-configurar com sucesso o conteúdo. Isto acontece porque os ficheiros de conteúdo já estão na biblioteca de conteúdos.  
 
  Quando o ponto de distribuição não estiver ativado para pré-configurar conteúdo ou quando o ponto de distribuição não estiver localizado num servidor do site, consulte o [utilizar ficheiro de conteúdo](#bkmk_prestage) deste tópico.  
@@ -294,7 +288,7 @@ Utilize as secções seguintes para pré-configurar conteúdo.
 
     2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição que esteja localizado no servidor do site.  
 
-    3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+    3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
     4.  No **geral** separador, certifique-se de que o **ativar conteúdo pré-configurado para este ponto de distribuição** não estiver selecionada a caixa de verificação.  
 
@@ -307,7 +301,7 @@ Utilize as secções seguintes para pré-configurar conteúdo.
     > [!NOTE]  
     >  Quando o ponto de distribuição num site secundário, aguarde pelo menos 10 minutos e, em seguida, utilizando uma consola do Configuration Manager que está ligada ao site primário principal, atribua o conteúdo ao ponto de distribuição no site secundário.  
 
-##  <a name="bkmk_manage"></a>Gerir o conteúdo que distribuiu  
+##  <a name="bkmk_manage"></a> Gerir o conteúdo que distribuiu  
  Tem as seguintes opções para gestão de conteúdo:  
  - [Atualizar conteúdo](#update-content)
  - [Redistribuir conteúdo](#redistribute-content)
@@ -381,7 +375,7 @@ Pode redistribuir um pacote para copiar todos os ficheiros de conteúdo no pacot
 
     -   **Imagens de arranque**: Expanda **sistemas operativos** >  **imagens de arranque**e, em seguida, selecione a imagem de arranque que pretende redistribuir.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  Clique em de **localizações de conteúdo** separador, selecione o ponto de distribuição ou grupo de pontos de distribuição nos quais pretende redistribuir o conteúdos, clique em **redistribuir**e, em seguida, clique em **OK**.  
 
@@ -391,7 +385,7 @@ Pode redistribuir um pacote para copiar todos os ficheiros de conteúdo no pacot
 
 2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição em que pretende redistribuir o conteúdo.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  Clique em de **conteúdo** separador, selecione o conteúdo a redistribuir, clique em **redistribuir**e, em seguida, clique em **OK**.  
 
@@ -401,7 +395,7 @@ Pode redistribuir um pacote para copiar todos os ficheiros de conteúdo no pacot
 
 2.  No **administração** área de trabalho, clique em **grupos de pontos de distribuição**e, em seguida, selecione o grupo de pontos de distribuição nos quais pretende redistribuir o conteúdo.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  Clique em de **conteúdo** separador, selecione o conteúdo a redistribuir, clique em **redistribuir**e, em seguida, clique em **OK**.  
 
@@ -445,7 +439,7 @@ No entanto, quando o conteúdo estiver associado a outro pacote que tenha sido d
 
     -   **Imagens de arranque**: Expanda **sistemas operativos** > **imagens de arranque**e, em seguida, selecione a imagem de arranque que pretende remover.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  Clique em de **localizações de conteúdo** separador, selecione o ponto de distribuição ou grupo de pontos de distribuição que pretende remover conteúdo, clique em **remover**e, em seguida, clique em **OK**.  
 
@@ -455,7 +449,7 @@ No entanto, quando o conteúdo estiver associado a outro pacote que tenha sido d
 
 2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição em que pretende eliminar o conteúdo.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  Clique em de **conteúdo** separador, selecione o conteúdo a remover, clique em **remover**e, em seguida, clique em **OK**.  
 
@@ -465,7 +459,7 @@ No entanto, quando o conteúdo estiver associado a outro pacote que tenha sido d
 
 2.  No **administração** área de trabalho, clique em **grupos de pontos de distribuição**e, em seguida, selecione o grupo de pontos de distribuição em que pretende remover o conteúdo.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  Clique em de **conteúdo** separador, selecione o conteúdo a remover, clique em **remover**e, em seguida, clique em **OK**.  
 
@@ -484,7 +478,7 @@ O processo de validação do conteúdo verifica a integridade dos ficheiros de c
 
 2.  No **administração** área de trabalho, clique em **pontos de distribuição**e, em seguida, selecione o ponto de distribuição em que pretende validar o conteúdo.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  No **conteúdo** separador, selecione o pacote em que pretende validar o conteúdos, clique em **validar**, clique em **OK**e, em seguida, clique em **OK**. Inicia o processo de validação de conteúdo para o pacote no ponto de distribuição.  
 
@@ -510,7 +504,7 @@ O processo de validação do conteúdo verifica a integridade dos ficheiros de c
 
     -   **Imagens de arranque**: Expanda **sistemas operativos** > **imagens de arranque**e, em seguida, selecione a imagem de arranque que pretende pré-configurar.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 4.  No **localizações de conteúdo** separador, selecione o ponto de distribuição ou grupo de pontos de distribuição nos quais validar o conteúdos, clique em **validar**, clique em **OK**e, em seguida, clique em **OK**. O processo de validação de conteúdos é iniciado para o conteúdo no ponto de distribuição selecionados ou grupo de pontos de distribuição.  
 

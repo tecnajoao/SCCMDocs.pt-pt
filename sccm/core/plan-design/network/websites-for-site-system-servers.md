@@ -2,26 +2,19 @@
 title: Web sites para sistemas de sites
 titleSuffix: Configuration Manager
 description: Saiba mais sobre sites predefinidos e personalizados para servidores de sistema de sites no System Center Configuration Manager.
-ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 681f0893-e83b-476e-9ec0-a5dc7c9deeb6
-caps.latest.revision: 
-caps.handback.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 7d91bc91ec1992ecf06244adf48b76332fc25a1b
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 5614317639c12813acf61f17de844c8304bed70f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Sites para servidores do sistema de sites no System Center Configuration Manager
 
@@ -35,7 +28,7 @@ Várias funções de sistema de sites do Configuration Manager requerem a utiliz
 
 
 
-##  <a name="BKMK_What2Know"></a>O que deve saber antes de optar por utilizar sites personalizados  
+##  <a name="BKMK_What2Know"></a> O que deve saber antes de optar por utilizar sites personalizados  
  Por predefinição, as funções do sistema de sites utilizam o **Site Predefinido** no IIS. Isto é configurado automaticamente quando instala a função de sistema de sites. No entanto, nos sites primários, pode optar por utilizar sites personalizados como alternativa. Quando utilizar Web sites personalizados:  
 
 -   Os Web sites personalizados estão ativados para todo o local em vez de para funções ou servidores do sistema de sites individuais.  
@@ -72,9 +65,9 @@ Várias funções de sistema de sites do Configuration Manager requerem a utiliz
 
 -   Ponto de gestão  
 
--   Ponto de atualização de Software  
+-   Ponto de atualização de software  
 
--   Ponto de migração de estado  
+-   Ponto de Migração de Estado  
 
 Considerações adicionais:  
 
@@ -97,17 +90,17 @@ As seguintes funções **são reinstaladas automaticamente**:
 
 -   Ponto de distribuição  
 
--   Ponto de atualização de Software  
+-   Ponto de atualização de software  
 
 -   Ponto de estado de contingência  
 
--   Ponto de migração de estado  
+-   Ponto de Migração de Estado  
 
 As seguintes funções têm de ser **reinstaladas manualmente**:  
 
 -   Ponto de serviço Web do Catálogo de Aplicações  
 
--   Ponto de Web site do Catálogo de Aplicações  
+-   Ponto de site do Catálogo de Aplicações  
 
 -   Ponto de inscrição  
 

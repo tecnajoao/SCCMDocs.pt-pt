@@ -1,25 +1,20 @@
 ---
-title: "Planeamento de relatórios"
+title: Planeamento de relatórios
 titleSuffix: Configuration Manager
-description: "A partir de detalhes da instalação a largura de banda de rede e de segurança, é importante planear relatórios no Configuration Manager."
-ms.custom: na
+description: A partir de detalhes da instalação a largura de banda de rede e de segurança, é importante planear relatórios no Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: ff920c84-d5c8-458c-b67f-bc7219b05690
-caps.latest.revision: "6"
-author: Dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 9d7c8de64c412b19fff4fa8c4193a020de680407
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 21b9e2b685890cde4c9cc2a0fa57bc9118dcc665
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="planning-for-reporting-in-system-center-configuration-manager"></a>Planeamento de relatórios no System Center Configuration Manager
 

@@ -1,31 +1,24 @@
 ---
-title: "Portas utilizadas para ligações"
+title: Portas utilizadas para ligações
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as portas necessárias e personalizáveis, que utiliza o System Center Configuration Manager para ligações."
-ms.custom: na
+description: Saiba mais sobre as portas necessárias e personalizáveis, que utiliza o System Center Configuration Manager para ligações.
 ms.date: 02/16/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: c6777fb0-0754-4abf-8a1b-7639d23e9391
-caps.latest.revision: 
-caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 8db098f69180aac3785087af6ee305b3651094e5
-ms.sourcegitcommit: 1378532fac2620ddcfd31061982f344a290c2e67
+manager: dougeby
+ms.openlocfilehash: dd9c3f9440f4215b82a0f9d63614f646772cc0fa
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="ports-used-in-system-center-configuration-manager"></a>Portas utilizadas no System Center Configuration Manager
 
-Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 System Center Configuration Manager é um sistema cliente/servidor distribuído. A natureza distribuída do Configuration Manager, significa que podem estabelecer ligações entre servidores de sites, sistemas de sites e clientes. Algumas ligações utilizam portas que não são configuráveis e outras suportam portas personalizadas que especificar. Certifique-se de que as portas necessárias estão disponíveis se utilizar qualquer porta de filtragem de tecnologia, tais como firewalls, routers, servidores proxy ou IPsec.  
     
@@ -634,7 +627,7 @@ Quando utiliza o Azure e a base de dados do site estiver atrás de um interno ou
 
 -   Fornecedor de SMS  
 
--   SQL Server --> SQL Server  
+-   SQL Server--> SQL Server  
 
 Quando um SQL Server aloja bases de dados de mais de um site, cada base de dados deve utilizar uma instância separada do SQL Server e cada instância deve ser configurada com um conjunto exclusivo de portas.  
 

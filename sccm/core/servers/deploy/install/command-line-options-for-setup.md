@@ -2,25 +2,19 @@
 title: Opções da linha de comandos do programa de configuração
 titleSuffix: Configuration Manager
 description: Crie scripts de automatização para instalar o System Center Configuration Manager a partir de uma linha de comandos.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 0da167f1-52cf-4dfd-8f73-833ca3eb8478
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fede359c884ef8b4027935b2e3fb48a5b7543d26
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: fa8e3bf572ced8a2394099bbb59532502ef3b019
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Opções da linha de comandos para a configuração no System Center Configuration Manager
 
@@ -255,7 +249,7 @@ ms.lasthandoff: 03/23/2018
 
          0 = efetue não aderir  
 
-         1 = Join  
+         1 = associação  
 
     -   **Detalhes:** Especifica se pretende associar o programa de melhoramento da experiência do cliente (PMEC).  
 
@@ -503,7 +497,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          0 = efetue não aderir  
 
-         1 = Join  
+         1 = associação  
 
     -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
 
@@ -523,7 +517,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Detalhes:** Especifica o protocolo a utilizar para o ponto de gestão.  
 
--   **Nome da chave:** DistributionPoint  
+-   **Nome da chave:** Ponto dedistribuição  
 
     -   **Necessário:** Não  
 
@@ -763,11 +757,11 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Detalhes:** Especifica se a configuração recupera o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
 
-        -   Value = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Valor = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
         -   Valor = 2: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
-        -   Value = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
+        -   Valor = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
 
 -   **Nome da chave:** DatabaseRecoveryOptions  
 
@@ -899,7 +893,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          0 = efetue não aderir  
 
-         1 = Join  
+         1 = associação  
 
     -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
 
@@ -1035,11 +1029,11 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
     -   **Detalhes:** Especifica se a configuração recupera o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
 
-        -   Value = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Valor = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
         -   Valor = 2: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
 
-        -   Value = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
+        -   Valor = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
 
 -   **Nome da chave:** DatabaseRecoveryOptions  
 
@@ -1159,7 +1153,7 @@ Utilize os detalhes seguintes para instalar um site primário, utilizando um fic
 
          0 = efetue não aderir  
 
-         1 = Join  
+         1 = associação  
 
     -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
 

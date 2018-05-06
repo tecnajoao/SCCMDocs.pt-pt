@@ -1,25 +1,20 @@
 ---
-title: "Criar aplicações para computadores Mac"
+title: Criar aplicações para computadores Mac
 titleSuffix: Configuration Manager
-description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações para computadores Mac."
-ms.custom: na
+description: Consulte as considerações deve ter em conta quando criar e implementar aplicações para computadores Mac.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: ab1aecdd-d943-44f5-b0a9-e8fe7439e5d6
-caps.latest.revision: "9"
-author: mattbriggs
-ms.author: mabrigg
-manager: angrobe
-ms.openlocfilehash: 912632c672c49deefc946e089dad6a82454c4b67
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 3cbb7281cd7dd39a32a71105fe173f868947eef9
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Criar aplicações para computadores Mac com o System Center Configuration Manager
 
@@ -52,7 +47,7 @@ Manter as seguintes considerações em mente quando criar e implementar aplicaç
 
 |Passo|Detalhes|  
 |----------|-------------|  
-|**Passo 1**: Preparar aplicações Mac para o Configuration Manager|Antes de poder criar aplicações do Configuration Manager a partir de pacotes de software Mac, tem de utilizar o **CMAppUtil** ferramenta num computador Mac para converter o software Mac para o Configuration Manager**. cmmac** ficheiro.|  
+|**Passo 1**: Preparar aplicações Mac para o Configuration Manager|Antes de poder criar aplicações do Configuration Manager a partir de pacotes de software Mac, tem de utilizar o **CMAppUtil** ferramenta num computador Mac para converter o software Mac para o Configuration Manager **. cmmac** ficheiro.|  
 |**Passo 2**: Criar uma aplicação do Configuration Manager que contenha o software Mac|Utilize o **Assistente para criar aplicação** para criar uma aplicação para o software Mac.|  
 |**Passo 3**: Criar um tipo de implementação para a aplicação Mac|Este passo só será necessário se não tiver importado automaticamente estas informações a partir da aplicação.|  
 |**Passo 4**: Implementar a aplicação Mac|Utilize o **Assistente de implementação de Software** para implementar a aplicação em computadores Mac.|  
@@ -118,7 +113,7 @@ Utilize o procedimento seguinte para ajudar a criar uma aplicação para computa
 
 5.  Na lista pendente **Tipo** , selecione **Mac OS X**.  
 
-6.  No **localização** campo, especifique o caminho UNC no formato  *\\ \\< servidor\>\\< partilhar\>\\< filename\>*  para o ficheiro de instalação de aplicação Mac (**. cmmac** ficheiro) que detetará as informações da aplicação. Em alternativa, optar **procurar** procurar e especificar a localização do ficheiro de instalação.  
+6.  No **localização** campo, especifique o caminho UNC no formato *\\ \\< servidor\>\\< partilhar\>\\< filename\>* para o ficheiro de instalação de aplicação Mac (**. cmmac** ficheiro) que detetará as informações da aplicação. Em alternativa, optar **procurar** procurar e especificar a localização do ficheiro de instalação.  
 
     > [!NOTE]  
     >  Terá de ter acesso ao caminho UNC que contém a aplicação.  
@@ -172,7 +167,7 @@ Utilize o procedimento seguinte para ajudar a criar uma aplicação para computa
 11. Escolha **adicionar** para abrir o **criar requisito** diálogo caixa e adicionar um novo requisito.  
 
     > [!NOTE]  
-    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo.  
+    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
 
 12. Na lista pendente **Categoria** , selecione que este requisito se aplica a um dispositivo.  
 

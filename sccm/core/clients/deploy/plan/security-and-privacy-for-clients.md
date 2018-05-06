@@ -1,26 +1,20 @@
 ---
-title: "Privacidade e segurança de cliente"
+title: Privacidade e segurança de cliente
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre segurança e privacidade para clientes no System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre segurança e privacidade para clientes no System Center Configuration Manager.
 ms.date: 04/23/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: c1d71899-308f-49d5-adfa-3a3ec0163ed8
-caps.latest.revision: "10"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: b28a461894bcd1cffd3c98bfce9fcfe22cc7a8f0
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 89b7664067747c9afb04c3a5dd059e81cfb2716e
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-and-privacy-for-clients-in-system-center-configuration-manager"></a>Segurança e privacidade para clientes no System Center Configuration Manager
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 10/12/2017
 
 Este artigo contém informações de privacidade para clientes no System Center Configuration Manager e para dispositivos móveis que são geridos pelo conector do Exchange Server e de segurança:  
 
-##  <a name="BKMK_Security_Cliients"></a>Melhores práticas de segurança para clientes  
+##  <a name="BKMK_Security_Cliients"></a> Melhores práticas de segurança para clientes  
  Quando o Configuration Manager aceita dados de dispositivos que executam o cliente do Configuration Manager, ocorre o risco dos clientes poderem atacar o site. Por exemplo, poderiam enviar inventários incorretos ou tentar sobrecarregar os sistemas do site. Implemente o cliente do Configuration Manager apenas a dispositivos que considera fidedignos. Além disso, utilize os seguintes procedimentos recomendados para ajudar a proteger o site contra dispositivos não autorizados ou comprometidos:  
 
  **Utilize certificados de infraestrutura de chaves públicas (PKI) para comunicações de clientes com sistemas de sites que executam o IIS.**  
@@ -146,7 +140,7 @@ Este artigo contém informações de privacidade para clientes no System Center 
 
  Esta definição de cliente permite que o cliente de Configuration Manager executar scripts PowerShell não assinados, o que poderia permitir a software maligno ser executada em computadores cliente. Se tem de selecionar esta opção, utilize uma definição de cliente personalizada e atribua-a apenas aos computadores cliente que têm de executar scripts PowerShell não assinados.  
 
-##  <a name="bkmk_mobile"></a>Melhores práticas de segurança para dispositivos móveis  
+##  <a name="bkmk_mobile"></a> Melhores práticas de segurança para dispositivos móveis  
  **Para dispositivos móveis que inscrever com o Configuration Manager e que serão suportados na Internet: Instalar o ponto de proxy de registo numa rede de perímetro e o ponto de registo na intranet**  
 
  Esta separação de funções ajuda a proteger o ponto de registo contra ataques. Se o ponto de registo for comprometido, um intruso poderá obter certificados para autenticação e roubar as credenciais de utilizadores que inscrevem os respetivos dispositivos móveis.  
@@ -199,7 +193,7 @@ Este artigo contém informações de privacidade para clientes no System Center 
 
  Para obter uma lista dos cmdlets mínimos de que o conector do Exchange Server precisa, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
-##  <a name="bkmk_macs"></a>Melhores práticas de segurança para Macs  
+##  <a name="bkmk_macs"></a> Melhores práticas de segurança para Macs  
  **Para computadores Mac: Armazenar e aceder os ficheiros de origem do cliente a partir de uma localização segura.**  
 
  Gestor de configuração não verifica se estes ficheiros de origem de cliente foram adulterados antes da instalação ou a inscrição do cliente no computador Mac. Transfira estes ficheiros a partir de uma origem fidedigna e armazene-os e aceda aos mesmos de forma segura.  
@@ -237,7 +231,7 @@ Este artigo contém informações de privacidade para clientes no System Center 
 
 6.  Fechar a caixa de diálogo e, quando lhe for pedido, introduza a palavra-passe de administrador e, em seguida, clique em **definições de atualização**.  
 
-##  <a name="BKMK_SecurityIssues_Clients"></a>Problemas de segurança para clientes do Configuration Manager  
+##  <a name="BKMK_SecurityIssues_Clients"></a> Problemas de segurança para clientes do Configuration Manager  
  Os seguintes problemas de segurança não têm nenhuma atenuação:  
 
 -   As mensagens de estado que não são autenticadas  
@@ -282,7 +276,7 @@ Este artigo contém informações de privacidade para clientes no System Center 
 
      Se o dispositivo Windows Embedded está a executar um sistema operativo anterior ao Windows 7 e um utilizador tenta iniciar sessão com os filtros de escrita desativados para confirmar as alterações efetuadas pelo Configuration Manager, o número de tentativas incorretas de início de sessão permitido antes da conta é bloqueada eficazmente para metade. Por exemplo, se a opção **Limiar de Bloqueio de Conta** estiver configurada para 6 e um utilizador errar três vezes a respetiva palavra-passe, a conta é bloqueada, criando uma situação de recusa de serviço.  Se os utilizadores tiverem de iniciar sessão em dispositivos incorporados neste cenário, devem ser alertados para a possibilidade de um limiar de bloqueio reduzido.  
 
-##  <a name="BKMK_Privacy_Cliients"></a>Informações de privacidade para clientes do Configuration Manager  
+##  <a name="BKMK_Privacy_Cliients"></a> Informações de privacidade para clientes do Configuration Manager  
  Ao implementar o cliente do Configuration Manager, ative as definições de cliente para poder utilizar funcionalidades de gestão do Configuration Manager. As definições que utiliza para configurar as funcionalidades podem ser aplicadas a todos os clientes na hierarquia do Configuration Manager, independentemente se estes são diretamente ligados à rede empresarial, ligadas através de uma sessão remota ou ligados à Internet, mas suportadas pelo Configuration Manager.  
 
  Informações de cliente são armazenadas na base de dados do Configuration Manager e não são enviadas à Microsoft. As informações são retidas na base de dados até serem eliminadas pelas tarefas de manutenção do site **Eliminar Dados de Deteção Desatualizados** todos os 90 dias. Pode configurar o intervalo de eliminação.  
@@ -299,7 +293,7 @@ Este artigo contém informações de privacidade para clientes no System Center 
 
  Antes de instalar o cliente do Configuration Manager com a verificação de estado do cliente, considere os requisitos de privacidade.  
 
-##  <a name="BKMK_Privacy_ExchangeConnector"></a>Informações de privacidade para dispositivos móveis que são geridos com o conector do Exchange Server  
+##  <a name="BKMK_Privacy_ExchangeConnector"></a> Informações de privacidade para dispositivos móveis que são geridos com o conector do Exchange Server  
  O Conector do Exchange Server localiza e gere os dispositivos com ligação ao Exchange Server (no local ou alojado) utilizando o protocolo ActiveSync. Os registos localizados pelo conector do Exchange Server são armazenados na base de dados do Configuration Manager. As informações são recolhidas a partir do Exchange Server. Não contém qualquer informação adicional sobre o que é enviado para o Exchange Server pelos dispositivos móveis.  
 
  As informações do dispositivo móvel não são enviadas à Microsoft. As informações do dispositivo móvel são armazenadas na base de dados do Configuration Manager. As informações são retidas na base de dados até serem eliminadas pelas tarefas de manutenção do site **Eliminar Dados de Deteção Desatualizados** todos os 90 dias. Pode configurar o intervalo de eliminação.  

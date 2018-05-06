@@ -2,24 +2,19 @@
 title: SQL Server AlwaysOn
 titleSuffix: Configuration Manager
 description: Planear utilizar um SQL Server sempre no grupo de disponibilidade com o SCCM.
-ms.custom: na
 ms.date: 12/27/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 58d52fdc-bd18-494d-9f3b-ccfc13ea3d35
-caps.latest.revision: "16"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 7efd0c76a0723a98661b0861eb16298eee524f35
-ms.sourcegitcommit: f1535281b2c3fecff773b722c3f7590bf6ba10a0
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: c151ca0199a1623c85f353012e50f13d8f5b6068
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar para utilizar grupos de disponibilidade SQL Server Always On com o Configuration Manager
 

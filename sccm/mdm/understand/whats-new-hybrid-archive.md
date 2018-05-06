@@ -1,30 +1,25 @@
 ---
-title: "Arquivo de Novidades híbridas novo MDM"
+title: Arquivo de Novidades híbridas novo MDM
 titleSuffix: Configuration Manager
-description: "Arquivo de últimos funcionalidades de gestão de dispositivos móveis disponíveis para implementações híbridas com o System Center Configuration Manager e o Intune."
-ms.custom: na
+description: Arquivo de últimos funcionalidades de gestão de dispositivos móveis disponíveis para implementações híbridas com o System Center Configuration Manager e o Intune.
 ms.date: 02/21/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-hybrid
+ms.topic: conceptual
 ms.assetid: 4c27b161-9eb7-4cdd-b469-d8eb27e71aea
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: d6b67cd820a618d6a96424362ff282cbf232f092
-ms.sourcegitcommit: 45ff3ffa040eada5656b17f47dcabd3c637bdb60
+ms.openlocfilehash: 88b005ad90625592a4fccfa1d98abfcb8b930a75
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="past-hybrid-features-with-system-center-configuration-manager-and-microsoft-intune"></a>Últimos híbrida funcionalidades com o System Center Configuration Manager e o Microsoft Intune
 
-Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Este artigo fornece detalhes sobre o dispositivo móvel passado funcionalidades de gestão (MDM) disponíveis para implementações híbridas com o System Center Configuration Manager e o Microsoft Intune.  
 
@@ -96,7 +91,7 @@ Este artigo fornece detalhes sobre o dispositivo móvel passado funcionalidades 
 
 - **Autenticação Multifator (MFA) durante a inscrição está a mover para o portal do Azure**
 
-  Anteriormente, passará a consola do Intune ou a consola do Configuration Manager para configurar a MFA para inscrições através do Intune. Com esta funcionalidade atualizada, pode agora iniciar sessão no [portal do Microsoft Azure] (https://manage.windowsazure.com) com o Intune credenciais e configurar as definições da MFA através do Azure AD. Para obter mais informações, consulte [multi-factor authentication do Microsoft Intune] (https://aka.ms/mfa_ad).
+  Anteriormente, passará a consola do Intune ou a consola do Configuration Manager para configurar a MFA para inscrições através do Intune. Com esta funcionalidade atualizada, pode agora iniciar sessão no [portal do Microsoft Azure] (https://manage.windowsazure.com) com as suas credenciais do Intune e configurar as definições da MFA através do Azure AD. Para obter mais informações, consulte [multi-factor authentication do Microsoft Intune] (https://aka.ms/mfa_ad).
 
 - **Aplicação do Portal da empresa para Android, agora disponível na China**
 
@@ -263,7 +258,7 @@ A seguinte nova funcionalidade introduzida no Setembro de 2016 está disponível
 
 - **suporte do iOS 10**
 
-  Se tiver perfis ou itens de configuração direcionadas para todas as plataformas iOS, estes também serão enviados para o iOS 10. Também tiver lançada uma atualização do Configuration Manager versão 1606 que lhe permite perfis de destino e itens de configuração para as plataformas iOS individuais, incluindo iOS 10. Pode instalar a atualização com a consola de administração do Configuration Manager em **administração > Descrição geral > Serviços Cloud > atualizações e manutenção**. Pode encontrar mais informações sobre a atualização na [http://support.microsoft.com/kb/3192616](http://support.microsoft.com/kb/3192616).
+  Se tiver perfis ou itens de configuração direcionadas para todas as plataformas iOS, estes também serão enviados para o iOS 10. Também tiver lançada uma atualização do Configuration Manager versão 1606 que lhe permite perfis de destino e itens de configuração para as plataformas iOS individuais, incluindo iOS 10. Pode instalar a atualização com a consola de administração do Configuration Manager em **administração > Descrição geral > Serviços Cloud > atualizações e manutenção**. Pode encontrar mais informações sobre a atualização na [ http://support.microsoft.com/kb/3192616 ](http://support.microsoft.com/kb/3192616).
 
 ## <a name="august-2016"></a>Agosto de 2016
 

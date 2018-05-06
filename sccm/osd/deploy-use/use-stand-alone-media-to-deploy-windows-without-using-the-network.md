@@ -1,25 +1,20 @@
 ---
-title: "Utilizar suportes de dados autónomos para implementar o Windows sem utilizar a rede"
+title: Utilizar suportes de dados autónomos para implementar o Windows sem utilizar a rede
 titleSuffix: Configuration Manager
-description: "Utilize suportes de dados autónomo no Configuration Manager para implementar sistemas operativos onde a largura de banda é limitada ou como uma opção para atualizar, instalar ou atualizar os computadores."
-ms.custom: na
+description: Utilize suportes de dados autónomo no Configuration Manager para implementar sistemas operativos onde a largura de banda é limitada ou como uma opção para atualizar, instalar ou atualizar os computadores.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 58a0d2ae-de76-401f-b854-7a5243949033
-caps.latest.revision: "16"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 02f7c1d549b38c6bddb31fef91de49b0aa1d7969
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 18e50806868955eac807645a5378aea53acdc899
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Utilizar suportes de dados autónomos para implementar o Windows sem utilizar a rede no System Center Configuration Manager
 

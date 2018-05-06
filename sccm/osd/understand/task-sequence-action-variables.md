@@ -1,27 +1,20 @@
 ---
-title: "Variáveis de ação de sequência de tarefas"
+title: Variáveis de ação de sequência de tarefas
 titleSuffix: Configuration Manager
-description: "Utilize variáveis de ação de sequência, tais como as variáveis de definição de rede, para especificar definições de configuração para um único passo numa sequência de tarefas do Configuration Manager."
-ms.custom: na
+description: Utilize variáveis de ação de sequência, tais como as variáveis de definição de rede, para especificar definições de configuração para um único passo numa sequência de tarefas do Configuration Manager.
 ms.date: 02/09/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-osd
+ms.topic: conceptual
 ms.assetid: e2269031-0977-4f01-a274-420e00630575
-caps.latest.revision: 
-caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2928ecb254d08e4ed08c5e79b55e210ce25dcb61
-ms.sourcegitcommit: fbde417e3c3002898bd216a7e110e725ae269893
+ms.openlocfilehash: 7f66203e335524fa922ec1b6ab3dd4dc5fb917b0
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="task-sequence-action-variables-in-system-center-configuration-manager"></a>Variáveis de ação de sequência de tarefas no System Center Configuration Manager
 
@@ -42,7 +35,7 @@ Variáveis de ação de sequência de tarefas especificam definições de config
 
 
 
-###  <a name="BKMK_ApplyDataImage"></a>Aplicar imagem de dados   
+###  <a name="BKMK_ApplyDataImage"></a> Aplicar imagem de dados   
  Para obter mais informações, consulte [aplicar imagem de dados](task-sequence-steps.md#BKMK_ApplyDataImage). 
 
 #### <a name="details"></a>Detalhes  
@@ -54,7 +47,7 @@ Variáveis de ação de sequência de tarefas especificam definições de config
 
 
 
-###  <a name="BKMK_ApplyDriverPackage"></a>Aplicar pacote de controlador   
+###  <a name="BKMK_ApplyDriverPackage"></a> Aplicar pacote de controlador   
 Para obter mais informações, consulte [aplicar pacote de controlador](task-sequence-steps.md#BKMK_ApplyDriverPackage).  
 
 #### <a name="details"></a>Detalhes  
@@ -65,11 +58,11 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 |OSDApplyDriverBootCriticalINFFile<br /><br /> (entrada)|Especifica o ficheiro INF do controlador de armazenamento em massa a instalar.<br /><br /> <br /><br /> Esta variável de sequência de tarefas é necessária se o OSDApplyDriverBootCriticalContentUniqueID for definido.|  
 |OSDApplyDriverBootCriticalHardwareComponent<br /><br /> (entrada)|Especifica se um controlador de dispositivo de armazenamento em massa está instalado, esta variável tem de ser **scsi**.<br /><br /> Esta variável de sequência de tarefas é necessária se o OSDApplyDriverBootCriticalContentUniqueID for definido.|  
 |OSDApplyDriverBootCriticalID<br /><br /> (entrada)|Especifica o ID crítico de arranque do controlador de dispositivo de armazenamento em massa a instalar. Este ID está listado no **scsi** secção do ficheiro txtsetup.oem do controlador de dispositivo.<br /><br /> Esta variável de sequência de tarefas é necessária se o OSDApplyDriverBootCriticalContentUniqueID for definido.|  
-|OSDAllowUnsignedDriver<br /><br /> (entrada)|Especifica se pretende configurar o Windows para permitir a instalação de controladores de dispositivo não assinados. Esta variável de sequência de tarefas não é utilizada quando implementar o Windows Vista e o sistema operativo posterior.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDAllowUnsignedDriver<br /><br /> (entrada)|Especifica se pretende configurar o Windows para permitir a instalação de controladores de dispositivo não assinados. Esta variável de sequência de tarefas não é utilizada quando implementar o Windows Vista e o sistema operativo posterior.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 
 
 
-###  <a name="BKMK_ApplyNetworkSettings"></a>Aplicar definições de rede   
+###  <a name="BKMK_ApplyNetworkSettings"></a> Aplicar definições de rede   
  Para obter mais informações, consulte [aplicar definições de rede](task-sequence-steps.md#BKMK_ApplyNetworkSettings).  
 
 #### <a name="details"></a>Detalhes  
@@ -81,7 +74,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 |OSDDNSDomain<br /><br /> (entrada)|Especifica o servidor DNS primário utilizado pelo computador de destino.|  
 |OSDDomainName<br /><br /> (entrada)|Especifica o nome do domínio Windows ao qual o computador de destino é associado. O valor especificado tem de ser um nome de domínio de Serviços de Domínio do Active Directory válido.|  
 |OSDDomainOUName<br /><br /> (entrada)|Especifica o nome do formato RFC 1779 da unidade organizacional (UO) ao qual o computador de destino é associado. Se for especificado, o valor tem de conter o caminho completo.<br /><br /> Exemplo:<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
-|OSDEnableTCPIPFiltering<br /><br /> (entrada)|Especifica se a filtragem TCP/IP está ativada.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDEnableTCPIPFiltering<br /><br /> (entrada)|Especifica se a filtragem TCP/IP está ativada.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 |OSDJoinAccount<br /><br /> (entrada)|Especifica a conta de rede que é utilizada para adicionar o computador de destino a um domínio Windows.|  
 |OSDJoinPassword<br /><br /> (entrada)|Especifica a palavra-passe de rede que é utilizada para adicionar o computador de destino a um domínio Windows.|  
 |OSDNetworkJoinType<br /><br /> (entrada)|Especifica se o computador de destino é associado a um domínio Windows ou a um grupo de trabalho.<br /><br /> **0** indica que o computador de destino é associado um domínio Windows. **1** Especifica que o computador é associado um grupo de trabalho.<br /><br /> Valores válidos:<br /><br /> **0**<br /><br /> **1**|  
@@ -90,7 +83,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_ApplyOperatingSystem"></a>Aplicar imagem do sistema operativo   
+###  <a name="BKMK_ApplyOperatingSystem"></a> Aplicar imagem do sistema operativo   
  Para obter mais informações, veja [Aplicar Imagem do Sistema Operativo](task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).  
 
 #### <a name="details"></a>Detalhes  
@@ -104,14 +97,14 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_ApplyWindowsSettings"></a>Aplicar definições do Windows   
+###  <a name="BKMK_ApplyWindowsSettings"></a> Aplicar definições do Windows   
  Para obter mais informações, consulte [aplicar definições do Windows](task-sequence-steps.md#BKMK_ApplyWindowsSettings).  
 
 #### <a name="details"></a>Detalhes  
 
 |Nome da Variável de Ação|Descrição|  
 |--------------------------|-----------------|  
-|OSDComputerName<br /><br /> (entrada)|Especifica o nome do computador de destino.<br /><br /> Exemplo:<br /><br /> **%_SMSTSMachineName%** (default)|  
+|OSDComputerName<br /><br /> (entrada)|Especifica o nome do computador de destino.<br /><br /> Exemplo:<br /><br /> **% Smstsmachinename %** (predefinição)|  
 |OSDProductKey<br /><br /> (entrada)|Especifica a chave de produto do Windows. O valor especificado tem de ter entre 1 e 255 carateres.|  
 |OSDRegisteredUserName<br /><br /> (entrada)|Especifica o nome de utilizador registado predefinido no novo sistema operativo. O valor especificado tem de ter entre 1 e 255 carateres.|  
 |OSDRegisteredOrgName<br /><br /> (entrada)|Especifica o nome da organização registado predefinido no novo sistema operativo. O valor especificado tem de ter entre 1 e 255 carateres.|  
@@ -123,7 +116,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_AutoApplyDrivers"></a>Aplicar controladores automaticamente   
+###  <a name="BKMK_AutoApplyDrivers"></a> Aplicar controladores automaticamente   
  Para obter mais informações, consulte [aplicar controladores automaticamente](task-sequence-steps.md#BKMK_AutoApplyDrivers).  
 
 #### <a name="details"></a>Detalhes  
@@ -131,7 +124,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 |Nome da Variável de Ação|Descrição|  
 |--------------------------|-----------------|  
 |OSDAutoApplyDriverCategoryList<br /><br /> (entrada)|Uma lista delimitada por vírgulas dos IDs exclusivos das categorias do catálogo de controladores. O **aplicar controladores automaticamente** passo considera apenas os controladores de, pelo menos, uma das categorias especificadas. Este valor é opcional e não está especificado por predefinição. Obter os IDs das categorias disponíveis ao enumerar a lista de **SMS_CategoryInstance** objetos no site.|  
-|OSDAllowUnsignedDriver<br /><br /> (entrada)|Especifica se o Windows está configurado para permitir a instalação de controladores de dispositivo não assinados. Esta variável de sequência de tarefas não é utilizada na implementação do Windows Vista e sistemas operativos posteriores.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDAllowUnsignedDriver<br /><br /> (entrada)|Especifica se o Windows está configurado para permitir a instalação de controladores de dispositivo não assinados. Esta variável de sequência de tarefas não é utilizada na implementação do Windows Vista e sistemas operativos posteriores.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 |OSDAutoApplyDriverBestMatch<br /><br /> (entrada)|Se existirem vários controladores de dispositivo no catálogo de controladores que são compatíveis com um dispositivo de hardware, esta variável determina a ação do passo. Se definido como **verdadeiro**, o passo instala apenas o melhor controlador de dispositivo. Se **falso**, o passo instala todos os controladores de dispositivos compatíveis e Windows escolhe o controlador mais adequado para utilizar.<br /><br /> Valores válidos:<br /><br /> **Verdadeiro** (predefinição)<br /><br /> **false**|  
 |SMSTSDriverRequestConnectTimeOut|Quando solicitar o catálogo de controladores, esta variável é o número de segundos que a sequência de tarefas aguarda que a ligação do servidor HTTP. Se a ligação demora mais que a definição de tempo limite, a sequência de tarefas cancela o pedido. Por predefinição, o tempo limite está definido como **60** segundos.|  
 |SMSTSDriverRequestReceiveTimeOut|Quando solicitar o catálogo de controladores, esta variável é o número de segundos que a sequência de tarefas aguarda uma resposta. Se a ligação demora mais que a definição de tempo limite, a sequência de tarefas cancela o pedido. Por predefinição, o tempo limite está definido como **480** segundos.|
@@ -140,7 +133,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_CaptureNetworkSettings"></a>Capturar definições de rede   
+###  <a name="BKMK_CaptureNetworkSettings"></a> Capturar definições de rede   
  Para obter mais informações, consulte [capturar definições de rede](task-sequence-steps.md#BKMK_CaptureNetworkSettings).  
 
 #### <a name="details"></a>Detalhes  
@@ -152,7 +145,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_CaptureOperatingSystemImage"></a>Capturar imagem do sistema operativo   
+###  <a name="BKMK_CaptureOperatingSystemImage"></a> Capturar imagem do sistema operativo   
  Para obter mais informações, consulte [Capturar imagem do sistema operativo](task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  
 
 #### <a name="details"></a>Detalhes  
@@ -169,7 +162,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_CaptureUserState"></a>Capturar estado do utilizador   
+###  <a name="BKMK_CaptureUserState"></a> Capturar estado do utilizador   
  Para obter mais informações, consulte [capturar estado do utilizador](task-sequence-steps.md#BKMK_CaptureUserState).  
 
 #### <a name="details"></a>Detalhes  
@@ -178,16 +171,16 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 |--------------------------|-----------------|  
 |OSDStateStorePath<br /><br /> (entrada)|O UNC ou o nome de caminho local da pasta onde o estado de utilizador é guardado. Não tem predefinição.|  
 |OSDMigrateAdditionalCaptureOptions<br /><br /> (entrada)|Adicionais opções user state migration tool (USMT) da linha de comandos que utiliza a sequência de tarefas para capturar o estado do utilizador. O passo não expõe estas definições no editor de sequência de tarefas. Especificar estas opções como uma cadeia de carateres, a sequência de tarefas acrescenta a linha de comandos da USMT gerada automaticamente.<br /><br />As opções da USMT especificadas com esta variável da sequência de tarefas não são validadas em termos de exatidão antes da execução da sequência de tarefas.|  
-|OSDMigrateMode<br /><br /> (entrada)|Permite-lhe personalizar os ficheiros que são capturados pela USMT. Se esta variável é definida como **simples**, em seguida, a sequência de tarefas utiliza apenas os ficheiros de configuração padrão da USMT. Se esta variável é definida como **avançadas**, em seguida, a variável de sequência de tarefas OSDMigrateConfigFiles Especifica os ficheiros de configuração que utiliza a USMT.<br /><br /> Valores válidos:<br /><br /> **Simple**<br /><br /> **Avançadas**|  
+|OSDMigrateMode<br /><br /> (entrada)|Permite-lhe personalizar os ficheiros que são capturados pela USMT. Se esta variável é definida como **simples**, em seguida, a sequência de tarefas utiliza apenas os ficheiros de configuração padrão da USMT. Se esta variável é definida como **avançadas**, em seguida, a variável de sequência de tarefas OSDMigrateConfigFiles Especifica os ficheiros de configuração que utiliza a USMT.<br /><br /> Valores válidos:<br /><br /> **Simples**<br /><br /> **Avançadas**|  
 |OSDMigrateConfigFiles<br /><br /> (entrada)|Especifica os ficheiros de configuração utilizados para controlar a captura de perfis de utilizador. Esta variável só é utilizada se OSDMigrateMode estiver definido como avançadas. Este valor da lista delimitada por vírgulas está definido para efetuar a migração personalizada de perfis de utilizador.<br /><br /> Exemplo: miguser.xml,migsys.xml,migapps.xml|  
 |OSDMigrateContinueOnLockedFiles<br /><br /> (entrada)|Se o USMT não é possível capturar alguns ficheiros, esta variável permite a captura de estado do utilizador continuar.<br /><br /> Valores válidos:<br /><br /> **Verdadeiro** (predefinição)<br /><br /> **false**|  
-|OSDMigrateEnableVerboseLogging<br /><br /> (entrada)|Ativa o registo verboso para a USMT.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
-|OSDMigrateSkipEncryptedFiles<br /><br /> (entrada)|Especifica se são capturados ficheiros encriptados.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDMigrateEnableVerboseLogging<br /><br /> (entrada)|Ativa o registo verboso para a USMT.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
+|OSDMigrateSkipEncryptedFiles<br /><br /> (entrada)|Especifica se são capturados ficheiros encriptados.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 |_OSDMigrateUsmtPackageID<br /><br /> (entrada)|Especifica o ID de pacote do pacote do Configuration Manager que contém os ficheiros da USMT. Esta variável é necessária.|  
 
 
 
-###  <a name="BKMK_CaptureWindowsSettings"></a>Capturar definições do Windows   
+###  <a name="BKMK_CaptureWindowsSettings"></a> Capturar definições do Windows   
  Para obter mais informações, consulte [capturar definições do Windows](task-sequence-steps.md#BKMK_CaptureWindowsSettings).  
 
 #### <a name="details"></a>Detalhes  
@@ -203,7 +196,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_ConnecttoNetworkFolder"></a>Ligar à pasta de rede   
+###  <a name="BKMK_ConnecttoNetworkFolder"></a> Ligar à pasta de rede   
  Para obter mais informações, consulte [ligar à pasta de rede](task-sequence-steps.md#BKMK_ConnectToNetworkFolder).  
 
 #### <a name="details"></a>Detalhes  
@@ -217,7 +210,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_EnableBitLocker"></a>Ativar o BitLocker   
+###  <a name="BKMK_EnableBitLocker"></a> Ativar o BitLocker   
  Para obter mais informações, consulte [ativar BitLocker](task-sequence-steps.md#BKMK_EnableBitLocker).  
 
 #### <a name="details"></a>Detalhes  
@@ -229,7 +222,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_FormatPartitionDisk"></a>Formatar e particionar disco   
+###  <a name="BKMK_FormatPartitionDisk"></a> Formatar e particionar disco   
  Para obter mais informações, consulte [formatar e particionar disco](task-sequence-steps.md#BKMK_FormatandPartitionDisk).  
 
 #### <a name="details"></a>Detalhes  
@@ -237,14 +230,14 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 |Nome da Variável de Ação|Descrição|  
 |--------------------------|-----------------|  
 |OSDDiskIndex<br /><br /> (entrada)|Especifica o número do disco físico a particionar.|  
-|OSDDiskpartBiosCompatibilityMode<br /><br /> (entrada)|Ao particionar o disco rígido para compatibilidade com certos tipos de BIOS, esta variável Especifica se pretende desativar otimizações de alinhamento de cache. Isto é necessário ao implementar sistemas operativos Windows XP ou Windows Server 2003. Para mais informações, consulte o [artigo 931760](http://go.microsoft.com/fwlink/?LinkId=134081) e o [artigo 931761](http://go.microsoft.com/fwlink/?LinkId=134082) da Base de Dados de Conhecimento Microsoft.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)| 
-|OSDGPTBootDisk<br /><br /> (entrada)|Especifica se pretende criar uma partição EFI num disco rígido GPT. Computadores baseados em EFI utilizam esta partição como disco de arranque.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDDiskpartBiosCompatibilityMode<br /><br /> (entrada)|Ao particionar o disco rígido para compatibilidade com certos tipos de BIOS, esta variável Especifica se pretende desativar otimizações de alinhamento de cache. Isto é necessário ao implementar sistemas operativos Windows XP ou Windows Server 2003. Para mais informações, consulte o [artigo 931760](http://go.microsoft.com/fwlink/?LinkId=134081) e o [artigo 931761](http://go.microsoft.com/fwlink/?LinkId=134082) da Base de Dados de Conhecimento Microsoft.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)| 
+|OSDGPTBootDisk<br /><br /> (entrada)|Especifica se pretende criar uma partição EFI num disco rígido GPT. Computadores baseados em EFI utilizam esta partição como disco de arranque.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 |OSDPartitions<br /><br /> (entrada)|Especifica uma matriz de definições de partição; consulte o tópico do SDK para aceder a variáveis de matriz no ambiente de sequência de tarefas.<br /><br /> Esta variável de sequência de tarefas é uma variável de matriz. Cada um dos elementos da matriz representa as definições para uma partição individual no disco rígido. Aceder às definições especificadas para cada partição através da combinação do nome de variável de matriz com o número de partição de disco baseado em zero e o nome de propriedade.<br /><br /> Por exemplo, utilize os seguintes nomes de variáveis para definir as propriedades para a primeira partição, este passo cria no disco rígido:<br /><br /> - **OSDPartitions0Type**: Especifica o tipo de partição. Esta propriedade é necessária. Os valores válidos são **primário**, **expandida**, **Logical**, e **Hidden**.<br />-   **OSDPartitions0FileSystem**: Especifica o tipo de sistema de ficheiros a utilizar ao formatar a partição. Esta propriedade é opcional. Se não especificar um sistema de ficheiros, o passo não formatar a partição. Os valores válidos são **FAT32** e **NTFS**.<br />-   **OSDPartitions0Bootable**: Especifica se a partição é de arranque. Esta propriedade é necessária. Se este valor é definido como **verdadeiro** para discos MBR, em seguida, o passo marca esta partição como o Active Directory.<br />-   **OSDPartitions0QuickFormat**: Especifica o tipo de formato utilizado. Esta propriedade é necessária. Se este valor é definido como **verdadeiro**, o passo efetua uma formatação rápida. Caso contrário, o passo efetua um formato completo.<br />-   **OSDPartitions0VolumeName**: Especifica o nome que é atribuído ao volume quando é formatado. Esta propriedade é opcional.<br />-   **OSDPartitions0Size**: Especifica o tamanho da partição. As unidades são especificadas pela variável **OSDPartitions0SizeUnits** . Esta propriedade é opcional. Se esta propriedade não for especificada, a partição é criada utilizando todo o espaço livre restante.<br />-   **OSDPartitions0SizeUnits**: O passo utiliza estas unidades para interpretar o **OSDPartitions0Size** variável. Esta propriedade é opcional. Os valores válidos são **MB** (predefinição), **GB**, e **por cento**.<br />-   **OSDPartitions0VolumeLetterVariable**: Quando este passo cria partições, utiliza sempre a letra de unidade disponível seguinte no Windows PE. Utilize esta propriedade opcional para especificar o nome de outra variável da sequência de tarefas. O passo utiliza esta variável para guardar a nova letra de unidade para referência futura.<br /><br />Se definir várias partições com esta ação de sequência de tarefas, as propriedades para a segunda partição são definidas utilizando o respetivo índice no nome da variável. Por exemplo: **OSDPartitions1Type**, **OSDPartitions1FileSystem**, **OSDPartitions1Bootable**, **OSDPartitions1QuickFormat**, e  **OSDPartitions1VolumeName**.|  
 |OSDPartitionStyle<br /><br /> (entrada)|Especifica o estilo de partição a utilizar ao particionar o disco. **MBR** indica o estilo de partição de registo de arranque principal e **GPT** indica o estilo de tabela de partições GUID.<br /><br /> Valores válidos:<br /><br /> **GPT**<br /><br /> **MBR**|  
 
 
 
-###  <a name="BKMK_InstallApplication"></a>Instalar a aplicação   
+###  <a name="BKMK_InstallApplication"></a> Instalar a aplicação   
  Para obter mais informações, consulte [instalar aplicação](task-sequence-steps.md#BKMK_InstallApplication).  
 
 #### <a name="details"></a>Detalhes  
@@ -257,7 +250,7 @@ Para obter mais informações, consulte [aplicar pacote de controlador](task-seq
 
 
 
-###  <a name="BKMK_InstallSoftwareUpdates"></a>Instalar atualizações de Software   
+###  <a name="BKMK_InstallSoftwareUpdates"></a> Instalar atualizações de Software   
 Para obter mais informações, consulte [instalar atualizações de Software](task-sequence-steps.md#BKMK_InstallSoftwareUpdates).  
 
 #### <a name="details"></a>Detalhes  
@@ -272,7 +265,7 @@ Para obter mais informações, consulte [instalar atualizações de Software](ta
 
 
 
-###  <a name="BKMK_JoinDomainWorkgroup"></a>Associar domínio ou grupo de trabalho   
+###  <a name="BKMK_JoinDomainWorkgroup"></a> Associar domínio ou grupo de trabalho   
  Para obter mais informações, consulte [associar domínio ou grupo de trabalho](task-sequence-steps.md#BKMK_JoinDomainorWorkgroup).  
 
 #### <a name="details"></a>Detalhes  
@@ -283,26 +276,26 @@ Para obter mais informações, consulte [instalar atualizações de Software](ta
 |OSDJoinDomainName<br /><br /> (entrada)|Especifica o nome de um domínio do Active Directory no computador de destino é associado. O comprimento do nome de domínio tem de ser entre 1 e 255 carateres.|  
 |OSDJoinDomainOUName<br /><br /> (entrada)|Especifica o nome do formato RFC 1779 da unidade organizacional (UO) ao qual o computador de destino é associado. Se for especificado, o valor tem de conter o caminho completo. O comprimento do nome de UO tem de ser entre 0 e 32.767 carateres. Este valor não é definido se o **OSDJoinType** variável é definida como **1** (associar grupo de trabalho).<br /><br /> Exemplo:<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
 |OSDJoinPassword<br /><br /> (entrada)|Especifica a palavra-passe de rede que utiliza o computador de destino para associar o domínio do Active Directory. Se o ambiente de sequência de tarefas não inclui esta variável, o programa de configuração do Windows tenta uma palavra-passe em branco. Se a variável **OSDJoinType** variável é definida como **0** (associar domínio), este valor é necessário.|  
-|OSDJoinSkipReboot<br /><br /> (entrada)|Especifica se pretende ignorar o reinício após o computador de destino ser associado ao domínio ou grupo de trabalho.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **false**|  
+|OSDJoinSkipReboot<br /><br /> (entrada)|Especifica se pretende ignorar o reinício após o computador de destino ser associado ao domínio ou grupo de trabalho.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **false**|  
 |OSDJoinType<br /><br /> (entrada)|Especifica se o computador de destino é associado a um domínio Windows ou a um grupo de trabalho. Para associar o computador de destino a um domínio do Windows, especifique **0**. Para associar o computador de destino a um grupo de trabalho, especifique **1**.<br /><br /> Valores válidos:<br /><br /> **0**<br /><br /> **1**|  
 |OSDJoinWorkgroupName<br /><br /> (entrada)|Especifica o nome de um grupo de trabalho ao qual o computador de destino é associado. O comprimento do nome do grupo de trabalho tem de ser entre 1 e 32 carateres.<br /><br /> Exemplo:<br /><br /> **Gestão de contas**|  
 
 
 
-###  <a name="BKMK_PrepareWindowsCapture"></a>Preparar Windows para captura   
+###  <a name="BKMK_PrepareWindowsCapture"></a> Preparar Windows para captura   
  Para obter mais informações, consulte [preparar Windows para captura](task-sequence-steps.md#BKMK_PrepareWindowsforCapture).  
 
 #### <a name="details"></a>Detalhes  
 
 |Nome da Variável de Ação|Descrição|  
 |--------------------------|-----------------|  
-|OSDBuildStorageDriverList<br /><br /> (entrada)|Especifica se o Sysprep cria uma lista de controladores de dispositivo de armazenamento em massa. Esta definição aplica-se apenas ao Windows XP e ao Windows Server 2003. Esta variável preenche a secção [SysprepMassStorage] de sysprep.inf com informações sobre todos os controladores de armazenamento em massa que são suportadas pela imagem para serem capturadas.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
-|OSDKeepActivation<br /><br /> (entrada)|Especifica se o sysprep repõe o sinalizador de ativação do produto.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDBuildStorageDriverList<br /><br /> (entrada)|Especifica se o Sysprep cria uma lista de controladores de dispositivo de armazenamento em massa. Esta definição aplica-se apenas ao Windows XP e ao Windows Server 2003. Esta variável preenche a secção [SysprepMassStorage] de sysprep.inf com informações sobre todos os controladores de armazenamento em massa que são suportadas pela imagem para serem capturadas.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
+|OSDKeepActivation<br /><br /> (entrada)|Especifica se o sysprep repõe o sinalizador de ativação do produto.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 |OSDTargetSystemRoot<br /><br /> (saída)|Especifica o caminho para o diretório do Windows do sistema operativo instalado no computador de referência. Este sistema operativo é validado como sistema operativo suportado para captura pelo Configuration Manager.|  
 
 
 
-###  <a name="BKMK_ReleaseStateStore"></a>Disponibilizar armazenamento de Estados   
+###  <a name="BKMK_ReleaseStateStore"></a> Disponibilizar armazenamento de Estados   
  Para obter mais informações, consulte [disponibilizar armazenamento de Estados](task-sequence-steps.md#BKMK_ReleaseStateStore).  
 
 #### <a name="details"></a>Detalhes  
@@ -313,21 +306,21 @@ Para obter mais informações, consulte [instalar atualizações de Software](ta
 
 
 
-###  <a name="BKMK_RequestState"></a>Solicitar armazenamento de Estados   
+###  <a name="BKMK_RequestState"></a> Solicitar armazenamento de Estados   
   Para obter mais informações, consulte [disponibilizar armazenamento de Estados](task-sequence-steps.md#BKMK_ReleaseStateStore).  
 
 #### <a name="details"></a>Detalhes  
 
 |Nome da Variável de Ação|Descrição|  
 |--------------------------|-----------------|  
-|OSDStateFallbackToNAA<br /><br /> (entrada)|Quando a conta de computador falha a ligação ao ponto de migração de estado, esta variável Especifica se a sequência de tarefas retrocede para utilizar a conta de acesso de rede (NAA).<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDStateFallbackToNAA<br /><br /> (entrada)|Quando a conta de computador falha a ligação ao ponto de migração de estado, esta variável Especifica se a sequência de tarefas retrocede para utilizar a conta de acesso de rede (NAA).<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 |OSDStateSMPRetryCount<br /><br /> (entrada)|Especifica o número de vezes que o passo de sequência de tarefas tenta encontrar um ponto de migração de estado antes de o passo falhar. O número especificado tem de estar compreendido entre 0 e 600.|  
 |OSDStateSMPRetryTime<br /><br /> (entrada)|Especifica o número de segundos que o passo de sequência de tarefas aguarda entre as tentativas. O número de segundos pode ter um máximo de 30 carateres.|  
 |OSDStateStorePath<br /><br /> (saída)|O caminho UNC para a pasta no ponto de migração de estado onde o estado do utilizador está armazenado.|  
 
 
 
-###  <a name="BKMK_RestartComputer"></a>Reiniciar computador   
+###  <a name="BKMK_RestartComputer"></a> Reiniciar computador   
  Para obter mais informações, consulte [reiniciar o computador](task-sequence-steps.md#BKMK_RestartComputer).  
 
 #### <a name="details"></a>Detalhes  
@@ -339,7 +332,7 @@ Para obter mais informações, consulte [instalar atualizações de Software](ta
 
 
 
-###  <a name="BKMK_RestoreUserState"></a>Restaurar estado do utilizador   
+###  <a name="BKMK_RestoreUserState"></a> Restaurar estado do utilizador   
   Para obter mais informações, consulte [restaurar estado do utilizador](task-sequence-steps.md#BKMK_RestoreUserState).  
 
 #### <a name="details"></a>Detalhes  
@@ -348,15 +341,15 @@ Para obter mais informações, consulte [instalar atualizações de Software](ta
 |--------------------------|-----------------|  
 |OSDStateStorePath<br /><br /> (entrada)|O UNC ou nome do caminho local da pasta a partir da qual o estado do utilizador é restaurado.|  
 |OSDMigrateContinueOnRestore<br /><br /> (entrada)|Continue o processo, mesmo que o USMT não é possível restaurar alguns ficheiros.<br /><br /> Valores válidos:<br /><br /> **Verdadeiro** (predefinição)<br /><br /> **false**|  
-|OSDMigrateEnableVerboseLogging<br /><br /> (entrada)|Ativa o registo verboso para a ferramenta USMT. Este valor é necessário para a ação.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
-|OSDMigrateLocalAccounts<br /><br /> (entrada)|Especifica se a conta de computador local é restaurada.<br /><br /> Valores válidos:<br /><br /> **true**<br /><br /> **FALSO** (predefinição)|  
+|OSDMigrateEnableVerboseLogging<br /><br /> (entrada)|Ativa o registo verboso para a ferramenta USMT. Este valor é necessário para a ação.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
+|OSDMigrateLocalAccounts<br /><br /> (entrada)|Especifica se a conta de computador local é restaurada.<br /><br /> Valores válidos:<br /><br /> **VERDADEIRO**<br /><br /> **FALSO** (predefinição)|  
 |OSDMigrateLocalAccountPassword<br /><br /> (entrada)|Se o **OSDMigrateLocalAccounts** variável é "verdadeiro", esta variável deve conter a palavra-passe atribuída a todas as contas locais migradas. USMT atribui a mesma palavra-passe para todas as contas locais migradas. Considere esta palavra-passe como temporário e alterá-la mais tarde por algum outro método.|  
 |OSDMigrateAdditionalRestoreOptions<br /><br /> (entrada)|Especifica adicionais opções user state migration tool (USMT) da linha de comandos que são utilizadas ao restaurar o estado do utilizador. As opções adicionais são especificadas sob a forma de cadeia que é acrescentada à linha de comando USMT gerada automaticamente. As opções da USMT especificadas com esta variável da sequência de tarefas não são validadas em termos de exatidão antes da execução da sequência de tarefas.|  
 |_OSDMigrateUsmtRestorePackageID<br /><br /> (entrada)|Especifica o ID de pacote do pacote do Configuration Manager que contém os ficheiros da USMT. Esta variável é necessária.|  
 
 
 
-###  <a name="BKMK_RunCommand"></a>Executar linha de comandos   
+###  <a name="BKMK_RunCommand"></a> Executar linha de comandos   
   Para obter mais informações, consulte [executar linha de comandos](task-sequence-steps.md#BKMK_RunCommandLine).  
 
 #### <a name="details"></a>Detalhes  
@@ -388,7 +381,7 @@ Para obter mais informações, consulte [definir variáveis dinâmicas](task-seq
 
 
 
-###  <a name="BKMK_SetupWindows"></a>Configurar Windows e ConfigMgr   
+###  <a name="BKMK_SetupWindows"></a> Configurar Windows e ConfigMgr   
   Para obter mais informações, consulte [configurar Windows e ConfigMgr](task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).  
 
 #### <a name="details"></a>Detalhes  

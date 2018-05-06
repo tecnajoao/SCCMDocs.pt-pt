@@ -1,25 +1,20 @@
 ---
-title: "Verificações de pré-requisitos"
+title: Verificações de pré-requisitos
 titleSuffix: Configuration Manager
-description: "Reveja as verificações de pré-requisitos disponíveis para o System Center Configuration Manager. Inclui as verificações de direitos de segurança."
-ms.custom: na
+description: Reveja as verificações de pré-requisitos disponíveis para o System Center Configuration Manager. Inclui as verificações de direitos de segurança.
 ms.date: 4/17/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 6a279624-ffc9-41aa-8132-df1809708dd5
-caps.latest.revision: "12"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 9ae5abeb5fe175f2e01a05cbda1a21232b54dd70
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: f51f2d5f94a185f35a5d843d674a3dd8f1e8a275
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="list-of-prerequisite-checks-for-system-center-configuration-manager"></a>Lista de verificações de pré-requisitos para o System Center Configuration Manager
 
@@ -29,7 +24,7 @@ As secções seguintes descrevem pormenorizadamente as verificações de pré-re
 
 Para obter informações sobre a utilização do Verificador de pré-requisitos, consulte [Verificador de pré-requisitos](prerequisite-checker.md).  
 
-##  <a name="BKMK_Security"></a>Verificações de pré-requisitos de direitos de segurança  
+##  <a name="BKMK_Security"></a> Verificações de pré-requisitos de direitos de segurança  
 A tabela seguinte lista verifica se o Verificador de pré-requisitos efetua aos direitos de segurança de.
 
 |Verificação de|EXPLICAÇÃO|Gravidade|Aplicabilidade de site|
@@ -45,7 +40,7 @@ A tabela seguinte lista verifica se o Verificador de pré-requisitos efetua aos 
 |**Direitos sysadmin do SQL Server**|Verifica se a conta de utilizador que executa a configuração do Configuration Manager possui os **sysadmin** função na instância do SQL Server selecionada para a instalação de base de dados do site. Esta verificação também falha quando o Programa de Configuração não consegue aceder à instância do SQL Server para verificar as permissões.|Erro|SQL Server|
 |**Direitos de administrador do sistema do SQL Server para o site de referência**|Verifica se a conta de utilizador que executa a configuração do Configuration Manager possui os **sysadmin** função na instância de função do SQL Server selecionada como a base de dados do site de referência. SQL Server **sysadmin** são necessárias permissões de função para modificar a base de dados do site.|Erro|SQL Server|
 
-##  <a name="BKMK_Dependencies"></a>Verificações de pré-requisitos de dependências do Configuration Manager
+##  <a name="BKMK_Dependencies"></a> Verificações de pré-requisitos de dependências do Configuration Manager
 A tabela seguinte apresenta uma lista de verificações que executa o Verificador de pré-requisitos de dependências do Configuration Manager.
 
 |Verificação de|EXPLICAÇÃO|Gravidade|Aplicabilidade de site|
@@ -107,7 +102,7 @@ A tabela seguinte apresenta uma lista de verificações que executa o Verificado
 |**V 1.1 do Windows (WinRM) de gestão remota**|Verifica se o WinRM 1.1 está instalado no servidor do site primário ou o computador da consola do Configuration Manager para executar a consola de gestão fora de banda. Para obter mais informações sobre como transferir o WinRM 1.1, veja o [Artigo 936059](https://support.microsoft.com/en-us/kb/936059) da Base de Dados de Conhecimento Microsoft.|Aviso|Site primário, <br>Consola do Configuration Manager|
 |**WSUS no servidor do site**|Verifica se o Windows Server Update Services (WSUS) 3.0 Service Pack 2 (SP2) é instalado no servidor do site. Quando utiliza um ponto de atualização de software num computador que não seja o servidor de site, tem de instalar a consola de administração do WSUS no servidor do site. Para obter mais informações sobre o WSUS, consulte [Windows Server Update Services](http://go.microsoft.com/fwlink/p/?LinkID=79477).|Aviso|Site de administração central <br>Site primário|  
 
-##  <a name="BKMK_Requirements"></a>Verificações de pré-requisitos de requisitos de sistema  
+##  <a name="BKMK_Requirements"></a> Verificações de pré-requisitos de requisitos de sistema  
 A tabela seguinte apresenta uma lista de verificações que executa o Verificador de pré-requisitos para requisitos de sistema.  
 
 |Verificação de|EXPLICAÇÃO|Gravidade|Aplicabilidade de site|

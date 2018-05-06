@@ -1,26 +1,20 @@
 ---
-title: "Tarefas de manutenção"
+title: Tarefas de manutenção
 titleSuffix: Configuration Manager
-description: "Compreenda que manutenção de tarefas a efetuar para sites do Configuration Manager e hierarquias e quando deve efetuá-los."
-ms.custom: na
+description: Compreenda que manutenção de tarefas a efetuar para sites do Configuration Manager e hierarquias e quando deve efetuá-los.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 625bb787-6d16-47a0-8b0f-b129cd909ca3
-caps.latest.revision: "7"
-caps.handback.revision: "0"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 001d1a4781f98ac376cc7500c7ccbef17018f35e
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 1491f12768e6ca523c3cd4a6ae80fb75f4a9ab6a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Tarefas de manutenção para o System Center Configuration Manager
 
@@ -32,7 +26,7 @@ System Center Configuration Manager sites e hierarquias necessitam de manutenç�
 
 -   [Tarefas de manutenção](#bkmk_MTs)  
 
-##  <a name="bkmk_MTs"></a>Tarefas de manutenção  
+##  <a name="bkmk_MTs"></a> Tarefas de manutenção  
  Manutenção regular é importante certificar-se operações do site correto. Manter um registo de manutenção que documente manutenção as datas, que foram manutenção e quaisquer comentários relacionados com a manutenção sobre as tarefas.  
 
 ### <a name="when-to-do-common-maintenance-tasks"></a>Quando efetuar tarefas de manutenção comuns  
@@ -101,7 +95,7 @@ Algumas tarefas que não necessitam de manutenção diária ou semanal são impo
 
 -   Verifique o estado de funcionamento global do site.  
 
-###  <a name="BKMK_UseMTs"></a>Manter o estado de funcionamento operacional da sua base de dados do site  
+###  <a name="BKMK_UseMTs"></a> Manter o estado de funcionamento operacional da sua base de dados do site  
  Ao efetuar as tarefas agendadas e configurar a sua hierarquia e site do Configuration Manager, os componentes do site adicionam constantemente dados à base de dados do Configuration Manager. À medida que aumenta a quantidade de dados, desempenho de base de dados e o espaço de armazenamento livre na base de dados diminui. Pode configurar tarefas de manutenção do site para remover dados antigos que já não necessita.  
 
  Configuration Manager fornece tarefas de manutenção predefinidas que pode utilizar para manter o estado de funcionamento da base de dados do Configuration Manager. Nem todas as tarefas de manutenção estão disponíveis em cada site, por predefinição. Várias tarefas ativadas e alguns não foram e todas suportam uma agenda que pode configurar.  

@@ -1,26 +1,20 @@
 ---
-title: "Pré-requisitos para gestão de energia"
+title: Pré-requisitos para gestão de energia
 titleSuffix: Configuration Manager
-description: "Obter os pré-requisitos para a gestão de energia no System Center Configuration Manager."
-ms.custom: na
+description: Obter os pré-requisitos para a gestão de energia no System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: 9c062f13-3c1f-4621-9cae-de0e322aa03f
-caps.latest.revision: "4"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 79cda9025c13f2cc76f67f89dba1fcdfdaa52ae2
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: c6630ef07c0b7947875ea2adac4e6612143aaee8
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prerequisites-for-power-management-in-system-center-configuration-manager"></a>Pré-requisitos para gestão de energia no System Center Configuration Manager
 
@@ -38,7 +32,7 @@ Gestão de energia no System Center Configuration Manager tem dependências exte
 ## <a name="configuration-manager-dependencies"></a>Dependências do Configuration Manager  
  A tabela seguinte lista as dependências do Configuration Manager para utilizar a gestão de energia.  
 
-|Dependência|Mais informações|  
+|Dependência|Mais Informações|  
 |----------------|----------------------|  
 |A gestão de energia deve ser ativada antes de criar e monitorizar os esquemas de energia.|Para obter informações sobre como ativar e configurar a gestão de energia, consulte [configurar gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).|  
 |Ponto do Reporting Services|Deve configurar um ponto do sistema de reporte antes de poder visualizar relatórios de gestão de energia. Para obter mais informações, veja [Relatórios no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).|  

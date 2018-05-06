@@ -1,25 +1,20 @@
 ---
-title: "Instalar pontos de distribuição baseado na nuvem"
+title: Instalar pontos de distribuição baseado na nuvem
 titleSuffix: Configuration Manager
-description: "Saiba o que precisa de fazer para começar a utilizar pontos de distribuição baseado na nuvem no Microsoft Azure."
-ms.custom: na
+description: Saiba o que precisa de fazer para começar a utilizar pontos de distribuição baseado na nuvem no Microsoft Azure.
 ms.date: 2/8/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: bb83ac87-9914-4a35-b633-ad070031aa6e
-caps.latest.revision: "7"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 6471ac81718666403127c0ebcfaa19c41d3af47b
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 2c9c79c5e635a50fecf02c46e2a134df87c2d784
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Instalar pontos de distribuição baseado na nuvem no Microsoft Azure para o System Center Configuration Manager
 
@@ -41,12 +36,12 @@ Pode instalar pontos de distribuição baseados na nuvem do System Center Config
 
  Se utilizar um servidor web proxy, poderá ter de configurar as definições de proxy para ativar a comunicação com o serviço em nuvem que aloja o ponto de distribuição.  
 
-##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a>Configurar o Azure e instalar pontos de distribuição baseado na nuvem  
+##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a> Configurar o Azure e instalar pontos de distribuição baseado na nuvem  
  Utilize os procedimentos seguintes para configurar o Azure para suportar pontos de distribuição e, em seguida, instale o ponto de distribuição baseado na nuvem no Configuration Manager.  
 
 ### <a name="to-set-up-a-cloud-service-in-azure-for-a-distribution-point"></a>Para configurar um serviço em nuvem no Azure para um ponto de distribuição  
 
-1.  Abra um browser para o portal do Azure, em https://manage.windowsazure.com e aceder à sua conta.  
+1.  Abra um browser para o portal do Azure, no https://manage.windowsazure.come aceder à sua conta.  
 
 2.  Clique em **serviços alojados, contas de armazenamento e CDN**e, em seguida, selecione **certificados de gestão**.  
 
@@ -101,7 +96,7 @@ O assistente cria um novo serviço alojado para o ponto de distribuição basead
 
 -   Configuration Manager apresenta um ID de mensagem de estado **9409** para o componente SMS_CLOUD_SERVICES_MANAGER.  
 
-##  <a name="BKMK_ConfigDNSforCloudDPs"></a>Configurar a resolução de nomes para pontos de distribuição baseado na nuvem  
+##  <a name="BKMK_ConfigDNSforCloudDPs"></a> Configurar a resolução de nomes para pontos de distribuição baseado na nuvem  
  Antes dos clientes podem aceder ao ponto de distribuição baseado na nuvem, deve conseguir resolver o nome do ponto de distribuição baseado na nuvem para um endereço IP que gere o Azure. Os clientes fazem-em duas fases:  
 
 1.  Mapeiam o nome de serviço fornecido com o certificado do serviço de ponto de distribuição baseados na nuvem do Configuration Manager para o FQDN de serviço do Azure. Este FQDN contém um GUID e o sufixo DNS de **cloudapp.net**. O GUID é gerado automaticamente depois de instalar o ponto de distribuição baseado na nuvem. Pode ver o FQDN completo no portal do Azure, consultando o **URL do SITE** no dashboard do serviço em nuvem. Um exemplo de site URL é **http://d1594d4527614a09b934d470.cloudapp.net**.  
@@ -110,7 +105,7 @@ O assistente cria um novo serviço alojado para o ponto de distribuição basead
 
 Para mapear o nome de serviço fornecido com o certificado de serviço do ponto de distribuição baseados na nuvem do Configuration Manager (por exemplo, **clouddp1.contoso.com**) para o Azure FQDN de serviço (por exemplo, **d1594d4527614a09b934d470.cloudapp.net**), servidores DNS na Internet tem de ter um alias de DNS (registo CNAME). Os clientes podem, em seguida, resolver o FQDN de serviço do Azure para o endereço IP utilizando servidores DNS na Internet.  
 
-##  <a name="BKMK_ConfigProxyforCloud"></a>Configurar as definições de proxy para sites primários que gerem serviços cloud  
+##  <a name="BKMK_ConfigProxyforCloud"></a> Configurar as definições de proxy para sites primários que gerem serviços cloud  
  Ao utilizar serviços em nuvem com o Configuration Manager, o site primário que gere o ponto de distribuição baseados na nuvem tem de ser capaz de ligar ao portal do Azure. O site estabelece a ligação utilizando o **sistema** conta de computador do site primário. Esta ligação é efetuada utilizando o browser predefinido no computador do servidor de site primário.  
 
  No servidor do site primário que gere o ponto de distribuição baseados na nuvem, poderá ser necessário configurar as definições de proxy para ativar o site primário para aceder à Internet e ao Azure.  

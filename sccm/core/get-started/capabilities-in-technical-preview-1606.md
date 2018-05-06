@@ -1,26 +1,20 @@
 ---
 title: Funcionalidades no Technical Preview 1606
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1606."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1606.
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 134a2f60-811e-4dc9-a8f5-1ce0018c5c12
-caps.latest.revision: 
-author: erikje
-ms.author: erikje
-manager: angrobe
-ms.openlocfilehash: 59a57e20a21aac7c650c25e13df0f3180c2110ea
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: f3ee48d60c46def5daef25a2f3654e8a79a0e9e1
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1606 do System Center Configuration Manager
 
@@ -38,7 +32,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 
 **Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-## <a name="dmp_category"></a>Categorizar automaticamente os dispositivos para coleções
+## <a name="dmp_category"></a> Categorizar automaticamente os dispositivos para coleções
 Pode criar categorias de dispositivo, que podem ser utilizadas para colocar automaticamente os dispositivos em coleções de dispositivos quando estiver a utilizar o Configuration Manager com o Microsoft Intune. Os utilizadores, em seguida, são necessários para escolher uma categoria de dispositivo quando inscreverem um dispositivo no Intune. Além disso, pode alterar a categoria de um dispositivo da consola do Configuration Manager.
 
 **Importante:** Esta capacidade funciona com o **Junho de 2016** versão do Microsoft Intune. Certifique-se de que lhe foram atualizadas para esta versão antes de experimentar estes procedimentos.
@@ -61,7 +55,7 @@ Quando associa uma coleção com uma categoria de dispositivo, todos os disposit
 2.  Selecione um dispositivo do **dispositivos** lista e, em seguida, no **home page** separador o **dispositivo** , clique em **alterar categoria**.
 3.  No **editar a categoria de dispositivo** diálogo caixa, selecione a categoria para aplicar a este dispositivo, em seguida, clique em **OK**.
 
-## <a name="dmp_grace"></a>Período de tolerância de imposição para a aplicação necessária e implementações de atualizações de software
+## <a name="dmp_grace"></a> Período de tolerância de imposição para a aplicação necessária e implementações de atualizações de software
 
 Em alguns casos, poderá conceder a utilizadores mais tempo para as implementações de aplicações de instalação necessária ou atualizações de software para além de qualquer prazos que configurou. Pode normalmente ser necessária quando um computador foi desativado por um longo período de tempo e tem de instalar um grande número de implementações de aplicação ou atualização.
 Por exemplo, se um utilizador final tiver apenas devolvido de férias, poderá ter de aguardar algum enquanto como uma aplicação em atraso implementações estão instaladas.
@@ -103,7 +97,7 @@ Ler mais:
 - [Certificação de proteção de dispositivos e de conformidade](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-certification-and-compliance)
 - [Guia de implementação de proteção de dispositivos](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)
 
- ##  <a name="dmp_onprem"></a>Vários pontos de gestão de dispositivos para gestão de dispositivos móveis no local  
+ ##  <a name="dmp_onprem"></a> Vários pontos de gestão de dispositivos para gestão de dispositivos móveis no local  
  Com o Technical pré-visualizar 1606, no\-disponíveis para utilização do ponto de gestão de dispositivos móveis (MDM) suporta uma nova capacidade no Windows 10 aniversário da atualização que configura automaticamente um dispositivo inscrito tem mais do que uma gestão de dispositivos de local. Esta capacidade permite ao dispositivo para contingência para outro ponto de gestão de dispositivos quando um normal utiliza não está disponível. Esta capacidade funciona apenas para PCs com Windows 10 aniversário da atualização instalada.  
 
 ### <a name="try-it-out"></a>Experimente!  

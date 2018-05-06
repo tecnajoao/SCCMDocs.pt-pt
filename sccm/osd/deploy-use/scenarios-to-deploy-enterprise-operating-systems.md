@@ -1,25 +1,20 @@
 ---
-title: "Cenários para implementar sistemas operativos empresariais"
+title: Cenários para implementar sistemas operativos empresariais
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre os vários cenários para implementar sistemas de operativos empresariais com o System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre os vários cenários para implementar sistemas de operativos empresariais com o System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: f74fdb86-c7c2-447f-91f6-b42df6370d7f
-caps.latest.revision: "11"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 29dfaf4521ae0fe10994538c5ced907a6223cae7
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: d0beb10dca04fe26fb4add22b64ab61b53154185
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scenarios-to-deploy-enterprise-operating-systems-with-system-center-configuration-manager"></a>Cenários para implementar sistemas operativos empresariais com o System Center Configuration Manager
 

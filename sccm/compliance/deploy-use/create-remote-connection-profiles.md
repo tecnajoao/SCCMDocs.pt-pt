@@ -1,26 +1,20 @@
 ---
-title: "Criar perfis de ligação remota"
+title: Criar perfis de ligação remota
 titleSuffix: Configuration Manager
-description: "Utilize perfis de ligação remota do System Center Configuration Manager para permitir que os utilizadores liguem remotamente a computadores de trabalho."
-ms.custom: na
+description: Utilize perfis de ligação remota do System Center Configuration Manager para permitir que os utilizadores liguem remotamente a computadores de trabalho.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: 8c6eabc4-5dda-4682-b03e-3a450e6ef65a
-caps.latest.revision: "8"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: 8ca0b961f075f41984d6dbba7321c375940a8622
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: c0e94fd8669556223044403fc72216fcaaaa5e54
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Perfis de ligação remota no System Center Configuration Manager
 
@@ -67,7 +61,7 @@ O Microsoft Intune é necessário se pretender que os utilizadores liguem aos se
 |----------------|----------------------|  
 |O Configuration Manager tem de estar ligado ao Microsoft Intune (conhecido como configuração híbrida).|Para obter mais informações sobre a ligação do Configuration Manager para o Microsoft Intune, consulte Gerir dispositivos móveis com o Configuration Manager e o Microsoft Intune.|  
 |Para que um utilizador possa ligar a um computador de trabalho na rede da empresa, esse computador terá de ser um dispositivo primário do utilizador.|Para obter mais informações sobre a afinidade dispositivo / utilizador, consulte [associar utilizadores e dispositivos à afinidade dispositivo / utilizador](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
-|Deverão ter sido concedidas permissões de segurança específicas para gerir perfis de ligação remota.|A função de segurança **Gestor de Definições de Conformidade** inclui as permissões necessárias para gerir os perfis de ligação remota. Para mais informações, consulte <br />[Configurar a administração baseada em funções](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
+|Deverão ter sido concedidas permissões de segurança específicas para gerir perfis de ligação remota.|A função de segurança **Gestor de Definições de Conformidade** inclui as permissões necessárias para gerir os perfis de ligação remota. Para obter mais informações, veja <br />[Configurar a administração baseada em funções](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
 
 ## <a name="security-and-privacy-considerations-for-remote-connection-profiles"></a>Considerações de segurança e privacidade para perfis de ligação remota  
 
@@ -135,7 +129,7 @@ Implementar um perfil de ligação remota
 
     -   **Remediar regras incompatíveis quando suportado** -ative esta opção para retificar automaticamente o perfil de ligação remota quando encontra-se não for compatível num dispositivo, por exemplo, se não estiver presente.  
 
-    -   **Permitir remediação fora da janela de manutenção** - se uma janela de manutenção tiver sido configurada para a coleção em que pretende implementar o perfil de ligação remota, ative esta opção para permitir que o Configuration Manager retifique o perfil de ligação remota fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Permitir remediação fora da janela de manutenção** - se uma janela de manutenção tiver sido configurada para a coleção em que pretende implementar o perfil de ligação remota, ative esta opção para permitir que o Configuration Manager remediar a ligação remota perfil fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
     -   **Gerar um alerta** - Ative esta opção para configurar um alerta que será gerado se a compatibilidade do perfil de ligação remota for inferior a uma determinada percentagem num data e hora especificadas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.  
 

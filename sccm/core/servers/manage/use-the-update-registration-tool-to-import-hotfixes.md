@@ -1,25 +1,20 @@
 ---
-title: "Ferramenta de registo de atualização"
+title: Ferramenta de registo de atualização
 titleSuffix: Configuration Manager
-description: "Determinar quando e como utilizar a ferramenta de registo de atualização para importar manualmente uma atualização para a consola do Configuration Manager."
-ms.custom: na
+description: Determinar quando e como utilizar a ferramenta de registo de atualização para importar manualmente uma atualização para a consola do Configuration Manager.
 ms.date: 3/27/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 8cc13635-85d6-4b07-a3ec-c42188bc5c74
-caps.latest.revision: "8"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 2e62d3d1df75bd7edd7ef12e7cefd7613cf794bd
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: d82ae79ae3466eff753e92c232b2cdd40fbcb2cb
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-the-update-registration-tool-to-import-hotfixes-to-system-center-configuration-manager"></a>Utilizar a Ferramenta de Registo de Atualização para importar correções para o System Center Configuration Manager
 
@@ -53,7 +48,7 @@ Quando tem de instalar uma versão de fora de banda e o nome de ficheiro de atua
 
 1.  No computador que aloja o ponto de ligação de serviço:  
 
-    -   Abra uma linha de comandos com privilégios administrativos e, em seguida, altere os diretórios para a localização que contém  **&lt;produto\>-&lt;versão do produto\>-&lt;ID do artigo KB\>-ConfigMgr.Update.exe**  
+    -   Abra uma linha de comandos com privilégios administrativos e, em seguida, altere os diretórios para a localização que contém  **&lt;produto\>-&lt;versão do produto\> - &lt;ID do artigo KB\>-ConfigMgr.Update.exe**  
 
 2.  Execute o seguinte comando para iniciar a ferramenta de registo de atualização:  
 

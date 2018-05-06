@@ -1,27 +1,20 @@
 ---
 title: Preterido para servidores de site do Configuration Manager
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre os produtos e sistemas operativos que já não suporta System Center Configuration Manager para os servidores de site."
-ms.custom: na
+description: Saiba mais sobre os produtos e sistemas operativos que já não suporta System Center Configuration Manager para os servidores de site.
 ms.date: 01/25/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: d53ac075-438b-41da-ab85-42f33982da0c
-caps.latest.revision: 
-caps.handback.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 0124939ae1ea5c1244c5776973297727b292e028
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: b92eb8083ce886fcab4d9957b2a79999d72a1a5a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="removed-and-deprecated-for-system-center-configuration-manager-site-servers"></a>Removidas e preteridas para servidores de site do System Center Configuration Manager
 
@@ -60,7 +53,7 @@ Se precisar de atualizar a sua versão do SQL Server, recomendamos os seguintes 
 3. Utilize [cópia de segurança e recuperação](/sccm/protect/understand/backup-and-recovery).
 
 
-## <a name="more-information"></a>Obter mais informações
+## <a name="more-information"></a>Mais informações
 Para obter mais informações, consulte:
  - [Removidas e preteridas](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated)
  - O [ciclo de vida de suporte de Microsoft](https://support.microsoft.com/lifecycle) Web site.

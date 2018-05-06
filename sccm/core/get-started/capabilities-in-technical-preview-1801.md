@@ -1,24 +1,20 @@
 ---
-title: "Pré-visualização técnica 1801 | Microsoft Docs"
+title: Pré-visualização técnica 1801 | Microsoft Docs
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1801 para o System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1801 para o System Center Configuration Manager.
 ms.date: 01/19/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 5a352ae0-355f-4fcf-b863-fb0654f51c52
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: f4be3ffe817392bf8fefdcf4e481c739778025ff
-ms.sourcegitcommit: db9978135d7a6455d83dbe4a5175af2bdeaeafd8
+manager: dougeby
+ms.openlocfilehash: 995c84e51ec72b385390f76fabfe08d60c2832d7
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1801-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1801 do System Center Configuration Manager
 
@@ -81,7 +77,7 @@ Implementações faseadas automatizam uma coordenada, sequenciada implementaçã
 Se estiver a utilizar o [gestão conjunta](/sccm/core/clients/manage/co-management-overview) capacidades, agora, pode ver um dashboard com informações sobre a gestão conjunta no seu ambiente. Na consola do Configuration Manager, navegue para o **monitorização** área de trabalho, expanda **atualizar preparação**e selecione o **gestão conjunta** dashboard. O dashboard inclui os seguintes mosaicos:
 - **Dispositivos geridos conjuntamente**: a percentagem de dispositivos no seu ambiente que tiver ativado para a gestão conjunta
 - **Distribuição de SO**: a repartição dos sistemas operativos (SO) por versão. Este gráfico utiliza os agrupamentos seguintes:
-   - Windows 7 & 8.x
+   - Windows 7 e 8. x
    - Windows 10 menor 1709
    - Windows 10 1709 e acima
   > [!NOTE] 

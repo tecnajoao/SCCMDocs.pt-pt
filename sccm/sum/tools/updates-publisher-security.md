@@ -1,27 +1,21 @@
 ---
-title: "Certificados e segurança"
+title: Certificados e segurança
 titleSuffix: Configuration Manager
-description: "Gerir certificados e segurança para o System Center Updates Publisher"
-ms.custom: na
+description: Gerir certificados e segurança para o System Center Updates Publisher
 ms.date: 4/29/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-sum
+ms.topic: conceptual
 ms.assetid: a7f91e63-4750-402e-9970-dd14be7f76a3
-caps.latest.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 9d8812da3588b60f388288cef6f9a093731d873f
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: b3ce22747cddc1371fb38718cc97b70cda8afcb1
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-certificates-and-security-for-updates-publisher"></a>Gerir certificados e segurança para o Updates Publisher
 
@@ -41,7 +35,7 @@ O procedimento seguinte é um dos vários métodos possíveis para adicionar o c
 
 3.  Selecione **noutro computador**, escreva o nome do servidor de atualização ou clique em **procurar** para localizar o computador do servidor de atualização, clique em **concluir**, clique em **fechar**e, em seguida, clique em **OK**.
 
-4.  Expanda  **certificados (*nome do servidor de atualização*) * *, expanda **WSUS**e, em seguida, clique em **certificados**.
+4.  Expanda **certificados (*nome do servidor de atualização*)**, expanda **WSUS**e, em seguida, clique em **certificados**.
 
 5.  No painel de resultados, clique no certificado pretendido, clique em **todas as tarefas**e, em seguida, clique em **exportar**.
 
@@ -51,7 +45,7 @@ O procedimento seguinte é um dos vários métodos possíveis para adicionar o c
 
 8.  Se for utilizado um certificado autoassinado, tal como **WSUS Publishers autoassinado**, faça duplo clique **autoridades de certificação de raiz fidedigna**, clique em **todas as tarefas**e, em seguida, clique em **importação**. Conclua o Assistente de importação de certificados utilizando o ficheiro exportado no passo 6.
 
-9.  Clique com botão direito  **certificados (*nome do servidor de atualização*) * *, clique em **ligar a outro computador**, introduza o nome do computador para o computador do Updates Publisher e clique em **OK**.
+9.  Clique com botão direito **certificados (*nome do servidor de atualização*)**, clique em **ligar a outro computador**, introduza o nome do computador para o computador do Updates Publisher e clique em  **OK**.
 
 10. Se for remoto a partir do servidor de atualização Updates Publisher, repita os passos 7 a 9 para importar o certificado ao arquivo de certificados no computador do Updates Publisher.
 
@@ -71,7 +65,7 @@ O seguinte é fornecido como um exemplo de como configurar o certificado de assi
 
 3.  Selecione **noutro computador**, escreva o nome do servidor de atualização ou clique em **procurar** para localizar o computador do servidor de atualização, clique em **concluir**, clique em **fechar**e, em seguida, clique em **OK**.
 
-4.  Expanda  **certificados (*nome do servidor de atualização*) * *, expanda **WSUS**e, em seguida, clique em **certificados**.
+4.  Expanda **certificados (*nome do servidor de atualização*)**, expanda **WSUS**e, em seguida, clique em **certificados**.
 
 5.  Clique com o botão direito do certificado no painel de resultados, clique em **todas as tarefas**e, em seguida, clique em **exportar**. Concluir o **Assistente para exportar certificados** utilizando as predefinições para criar um ficheiro de exportação de certificado com o nome e a localização especificada no assistente.
 

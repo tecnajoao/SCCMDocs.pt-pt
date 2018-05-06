@@ -1,27 +1,20 @@
 ---
 title: Preparar servidores do Windows
 titleSuffix: Configuration Manager
-description: "Certifique-se de que o se um computador cumpre os pré-requisitos para utilização como um servidor de site ou um servidor de sistema de sites para o System Center Configuration Manager."
-ms.custom: na
+description: Certifique-se de que o se um computador cumpre os pré-requisitos para utilização como um servidor de site ou um servidor de sistema de sites para o System Center Configuration Manager.
 ms.date: 2/14/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 2aca914f-641e-4bc8-98d4-bbf0a2a5276f
-caps.latest.revision: 
-caps.handback.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: a55322868d45cf1d2b3004e21d641ca5299aa957
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 64b24d04769da7488eb7fefaa293444fbc851cfb
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Preparar Servidores do Windows para suportar o System Center Configuration Manager
 
@@ -35,7 +28,7 @@ Antes de poder utilizar um computador com o Windows como um servidor de sistema 
 
 As informações neste artigo fornecem uma descrição geral dos tipos de configurações do Windows que são necessários para suportar os sistemas de sites do Configuration Manager. Para detalhes de configuração para funções de sistema de sites específicas, consulte [Site e os pré-requisitos de sistema de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-##  <a name="BKMK_WinFeatures"></a>Funções e funcionalidades do Windows  
+##  <a name="BKMK_WinFeatures"></a> Funções e funcionalidades do Windows  
  Quando configurar funcionalidades do Windows e funções num computador, poderá ser necessário reiniciar o computador para concluir essa configuração. Por conseguinte, é uma boa ideia para identificar os computadores que irão alojar funções do sistema de sites específicas antes de instalar um site do Configuration Manager ou o servidor do sistema de sites.
 ### <a name="features"></a>Funcionalidades  
  As seguintes funcionalidades do Windows são necessárias em determinados servidores de sistema de sites e devem ser configuradas antes de instalar uma função de sistema de sites nesse computador.  
@@ -89,8 +82,8 @@ As informações neste artigo fornecem uma descrição geral dos tipos de config
     -   Ponto proxy de registo  
     -   Ponto de estado de contingência  
     -   Ponto de gestão  
-    -   Ponto de atualização de Software  
-    -   Ponto de migração de estado     
+    -   Ponto de atualização de software  
+    -   Ponto de Migração de Estado     
 
     A versão mínima do IIS necessária é a versão fornecida com o sistema operativo do servidor do site.  
 
@@ -99,7 +92,7 @@ As informações neste artigo fornecem uma descrição geral dos tipos de config
 -   **Serviços de implementação do Windows**: Esta função é utilizada na implementação do sistema operativo.  
 -   **Windows Server Update Services**: Esta função é necessária quando implementar atualizações de software.  
 
-##  <a name="BKMK_IISFiltering"></a>IIS filtragem de pedidos para pontos de distribuição  
+##  <a name="BKMK_IISFiltering"></a> IIS filtragem de pedidos para pontos de distribuição  
  Por predefinição, o IIS utiliza filtragem de pedidos para bloquear várias extensões de nome de ficheiro e localizações de pastas contra o acesso por comunicação HTTP ou HTTPS. Num ponto de distribuição, isto impede que os clientes de transferirem pacotes que tenham bloqueados extensões ou localizações de pastas.  
 
  Quando os ficheiros de origem do pacote tiverem extensões bloqueadas no IIS pela sua configuração de filtragem de pedidos, tem de configurar filtragem de pedidos para as permitir. Isto é efetuado ao [editar a Funcionalidade de Filtragem de Pedidos](https://technet.microsoft.com/library/hh831621.aspx) no Gestor do IIS nos computadores dos pontos de distribuição.  

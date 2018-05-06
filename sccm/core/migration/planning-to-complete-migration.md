@@ -1,26 +1,20 @@
 ---
-title: "Concluir a migração"
+title: Concluir a migração
 titleSuffix: Configuration Manager
-description: "Saiba como concluir a migração para uma hierarquia de destino do System Center Configuration Manager depois de uma hierarquia de origem já não tem dados."
-ms.custom: na
+description: Saiba como concluir a migração para uma hierarquia de destino do System Center Configuration Manager depois de uma hierarquia de origem já não tem dados.
 ms.date: 1/12/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: f4854b50-2e8c-414c-a872-9579554dca98
-caps.latest.revision: "5"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 67e1d850043d5b922ab53dd13a782414730d5866
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: b9bdffc9271b1e59bbe459dffc0e3c69578a4711
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Planear a conclusão da migração no System Center Configuration Manager
 
@@ -42,7 +36,7 @@ Utilize as secções seguintes para ajudar a planear concluir a migração de um
 
 -   [Planear a limpeza dos dados de migração](#Plan_to_clean_up)  
 
-##  <a name="Plan_to_Stop_Data_Gath"></a>Planear a interrupção da recolha de dados  
+##  <a name="Plan_to_Stop_Data_Gath"></a> Planear a interrupção da recolha de dados  
  Antes de concluir a migração e limpar os dados de migração, tem de parar a recolha de dados de cada site de origem na hierarquia de origem. Para parar a recolha de dados de cada site de origem, terá de executar o **parar a recolha de dados** comando em sites de origem da camada inferior, repetindo então o processo em cada site principal. O site de nível superior da hierarquia de origem terá de ser o último em que a recolha de dados é interrompida. Tem de parar recolha de dados em cada site subordinado antes de executar este comando num site principal. Normalmente, apenas interromperá a recolha de dados quando estiver pronto para concluir o processo de migração.  
 
  Depois de interromper a recolha de dados de um site de origem, os pontos de distribuição partilhados a partir desse site deixam de estar disponíveis como localizações de conteúdo para clientes na hierarquia de destino. Por conseguinte, certifique-se de que qualquer conteúdo migrado que os clientes na hierarquia de destino necessitem de aceder permanece disponível utilizando uma das seguintes opções:  
@@ -55,7 +49,7 @@ Depois de interromper a recolha de dados de cada site de origem na hierarquia de
 
 Para obter mais informações sobre sites de origem e a recolha de dados, consulte [planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
 
-##  <a name="Plan_to_clean_up"></a>Planear a limpeza dos dados de migração  
+##  <a name="Plan_to_clean_up"></a> Planear a limpeza dos dados de migração  
  O último passo necessário para concluir a migração é a limpeza dos dados de migração. Pode utilizar o **limpar dados de migração** comando depois de interromper a recolha de dados de cada site de origem na hierarquia de origem. Esta ação opcional remove dados sobre a hierarquia de origem atual da base de dados da hierarquia de destino.  
 
  Quando limpar os dados de migração, a maioria dos dados sobre a migração são removidos da base de dados da hierarquia de destino. No entanto, os detalhes sobre objetos migrados são mantidos. Com estes detalhes, pode utilizar o **migração** área de trabalho para reconfigurar a hierarquia de origem que tenha os dados que foram migrados, para retomar a migração a partir dessa hierarquia de origem ou para rever os objetos e a propriedade do site dos objetos migrados anteriormente.  

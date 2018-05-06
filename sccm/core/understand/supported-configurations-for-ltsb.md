@@ -1,25 +1,20 @@
 ---
-title: "Configurações suportadas para o LTSB "
+title: 'Configurações suportadas para o LTSB '
 titleSuffix: Configuration Manager
-description: "Compreenda que sistemas operativos e os produtos dependentes trabalham com a longo prazo manutenção ramo do System Center Configuration Manager."
-ms.custom: na
+description: Compreenda que sistemas operativos e os produtos dependentes trabalham com a longo prazo manutenção ramo do System Center Configuration Manager.
 ms.date: 5/10/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: f0f818d4-7f45-402f-8758-dc88bc024953
-caps.latest.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: e634ade367375dd092cea0381fe976109c4936df
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 2da1ff9f8a45ba33f6546dcab8df423d9064e650
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="supported-configurations-for-the-long-term-servicing-branch-of-system-center-configuration-manager"></a>As configurações suportadas para o ramo de manutenção longo prazo do System Center Configuration Manager
 
@@ -179,31 +174,31 @@ São suportadas as seguintes versões, utilizando o ficheiro. tar indicado.
 |Versão|Ficheiro|  
 |-|-|  
 |Versão 5.3 (Power)|CCM-Aix53ppc. &lt;criar\>. tar|  
-|Versão 6.1 (Power)|CCM-Aix61ppc. &lt;criar\>. tar|  
-|Versão 7.1 (Power)|CCM-Aix71ppc. &lt;criar\>. tar|  
+|Versão 6.1 (Power)|ccm-Aix61ppc.&lt;build\>.tar|  
+|Versão 7.1 (Power)|ccm-Aix71ppc.&lt;build\>.tar|  
 
 ### <a name="centos"></a>CentOS  
 
 |Versão|Ficheiro|  
 |-|-|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="debian"></a>Debian  
 
 |Versão|Ficheiro|    
 |-|-|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 8 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 8 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 8 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 8 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="hp-ux"></a>HP-UX  
 
@@ -211,18 +206,18 @@ São suportadas as seguintes versões, utilizando o ficheiro. tar indicado.
 |-|-|  
 |Versão 11iv2 IA64|CCM-HpuxB.11.23i64. &lt;criar\>. tar|  
 |Versão 11iv2 PA-RISC|CCM-HpuxB.11.23PA. &lt;criar\>. tar|  
-|Versão 11iv3 IA64|CCM-HpuxB.11.31i64. &lt;criar\>. tar|  
+|Versão 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;build\>.tar|  
 |Versão 11iv3 PA-RISC|CCM-HpuxB.11.31PA. &lt;criar\>. tar|  
 
 ### <a name="oracle-linux"></a>Oracle Linux  
 
 |Versão|Ficheiro|    
 |-|-|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL)  
 
@@ -230,43 +225,43 @@ São suportadas as seguintes versões, utilizando o ficheiro. tar indicado.
 |-|-|  
 |Versão 4 x86|CCM-RHEL4x86. &lt;criar\>. tar|  
 |Versão 4 x64|CCM-RHEL4x64. &lt;criar\>. tar|  
-|Versão 5 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 5 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 6 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 6 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 7 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 6 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="solaris"></a>Solaris  
 
 |Versão|Ficheiro|   
 |-|-|  
 |Versão 9 SPARC|CCM-Sol9sparc. &lt;criar\>. tar|  
-|Versão 10 x86|CCM-Sol10x86. &lt;criar\>. tar|  
-|Versão 10 SPARC|CCM-Sol10sparc. &lt;criar\>. tar|  
-|Versão 11 x86|CCM-Sol11x86. &lt;criar\>. tar|  
-|Versão 11 SPARC|CCM-Sol11sparc. &lt;criar\>. tar|  
+|Versão 10 x86|ccm-Sol10x86.&lt;build\>.tar|  
+|Versão 10 SPARC|ccm-Sol10sparc.&lt;build\>.tar|  
+|Versão 11 x86|ccm-Sol11x86.&lt;build\>.tar|  
+|Versão 11 SPARC|ccm-Sol11sparc.&lt;build\>.tar|  
 
 ### <a name="suse-linux-enterprise-server-sles"></a>SUSE Linux Enterprise Server (SLES)  
 
 |Versão|Ficheiro|  
 |-|-|  
 |Versão 9 x86|CCM-SLES9x86. &lt;criar\>. tar|  
-|Versão 10 SP1 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 10 SP1 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 11 SP1 x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 11 SP1 x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 12 x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 10 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 10 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 11 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 11 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 12 x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="ubuntu"></a>Ubuntu  
 
 |Versão|Ficheiro|    
 |-|-|  
-|Versão 10.04 LTS x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 10.04 LTS x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 12.04 LTS x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 12.04 LTS x64|CCM-Universalx64. &lt;criar\>. tar|  
-|Versão 14.04 LTS x86|CCM-Universalx86. &lt;criar\>. tar|  
-|Versão 14.04 LTS x64|CCM-Universalx64. &lt;criar\>. tar|  
+|Versão 10.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 10.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 12.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 12.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
+|Versão 14.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 14.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
 
 ### <a name="exchange-server-connector"></a>Conector do Exchange Server
  O LTSB suporta a gestão limitada de dispositivos que ligam à sua instância do Exchange Server, sem instalar o software de cliente. Para obter mais informações, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](/sccm/mdm/deploy-use/manage-mobile-devices-with-exchange-activesync).
@@ -312,7 +307,7 @@ O LTSB suporta as seguintes versões do SQL Server para alojar a base de dados d
 - SQL Server 2012 SP3: Standard, Enterprise
 - SQL Server 2008 R2 SP3: Standard, Enterprise, Datacenter
 - Express do SQL Server 2016
-- SQL Server 2014 SP2 rápida
+- SQL Server 2014 Express SP2
 - SQL Server 2014 Express SP1
 - SQL Server 2012 Express SP3
 

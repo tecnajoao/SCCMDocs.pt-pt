@@ -1,25 +1,20 @@
 ---
-title: "Cenário de exemplo - implementar clientes Windows Embedded"
+title: Cenário de exemplo - implementar clientes Windows Embedded
 titleSuffix: Configuration Manager
-description: "Ver um cenário de exemplo para implementar e gerir clientes do System Center Configuration Manager em dispositivos Windows Embedded."
-ms.custom: na
+description: Ver um cenário de exemplo para implementar e gerir clientes do System Center Configuration Manager em dispositivos Windows Embedded.
 ms.date: 04/23/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 10049c89-b37c-472b-b317-ce4f56cd4be7
-caps.latest.revision: "8"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: fc55aacfc1eae7a427ca4a0ae1bb3197b74fd2be
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: fdca69faefa693299d8975ec1af60f7624bc73c2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Cenário de exemplo para implementação e gestão de clientes do System Center Configuration Manager em dispositivos Windows Embedded
 
@@ -109,7 +104,7 @@ A empresa Caves Coho está a abrir um centro de visitantes e tem de quiosques co
 
      A Joana seleciona a coleção de dispositivos Windows Embedded para a regra de implementação automática.  
 
-     Para mais informações, consulte  
+     Para obter mais informações, veja  
                   Passo 3: Configurar atualizações de Software do Configuration Manager para fornecer atualizações de definições em computadores cliente na [configurar o Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)  
 
 10. A Joana decide configurar uma tarefa de manutenção que consolide periodicamente todas as alterações na sobreposição. Esta tarefa destina-se a suportar a implementação de definições de atualização de software, para reduzir o número de atualizações que se acumulam e têm de ser instaladas novamente sempre que o dispositivo reinicia. Na sua experiência, isto ajuda a tornar mais eficiente a execução dos programas antimalware.  
@@ -135,7 +130,7 @@ A empresa Caves Coho está a abrir um centro de visitantes e tem de quiosques co
 
     4.  A Joana conclui o assistente sem mais nenhuma alteração.  
 
-     Para mais informações, consulte  
+     Para obter mais informações, veja  
                   [Gerir sequências de tarefas para automatizar tarefas no System Center Configuration Manager](../../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).  
 
 11. Para a execução automática dos quiosques, a Joana escreve um script para configurar os dispositivos com as seguintes definições:  

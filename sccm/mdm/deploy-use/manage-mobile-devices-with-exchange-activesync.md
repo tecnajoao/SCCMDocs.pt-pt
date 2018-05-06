@@ -2,25 +2,19 @@
 title: 'Gerir dispositivos móveis '
 titleSuffix: Configuration Manager
 description: Gerir dispositivos móveis utilizando o conector do Exchange Server no System Center Configuration Manager.
-ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-hybrid
+ms.topic: conceptual
 ms.assetid: aba688d9-fd5b-4c42-8cb4-f7e1b161ef50
-caps.latest.revision: ''
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: 23073ff562e1ca533e196fff0415efc0451d6fee
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 5bdc881d6d6423aa357cf8916f54f1b5f31120f2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-mobile-devices-with-system-center-configuration-manager-and-exchange"></a>Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 03/28/2018
 
 Utilizar o conector do Exchange Server no System Center Configuration Manager quando pretender gerir dispositivos móveis que liguem ao Exchange Server (no local ou online) utilizando o Microsoft Exchange ActiveSync protocolo e não é possível inscrevê-los utilizando o Gestor de configuração. Pode configurar funcionalidades de gestão de dispositivos móveis do Exchange, como eliminação remota do dispositivo e controlo de definições para vários servidores do Exchange, da consola do Configuration Manager.  
 
- ![configmgr&#45;with&#45;exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "configmgr-with-exchange")  
+ ![ConfigMgr&#45;com&#45;exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "do configmgr com o exchange")  
 
  Quando gerir dispositivos móveis utilizando o conector do Exchange Server, este não instala o cliente do Configuration Manager nos dispositivos móveis. Por conseguinte, algumas funções de gestão são limitadas. Por exemplo, não pode instalar software nestes dispositivos ou utilizar itens de configuração para os configurar. Para obter mais informações sobre as diversas capacidades de gestão que pode utilizar com o Configuration Manager para dispositivos móveis, consulte [escolher uma solução de gestão de dispositivos para o System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md).  
 
@@ -111,7 +105,7 @@ Utilizar o conector do Exchange Server no System Center Configuration Manager qu
     
     -   **Get-CasMailbox**  
     
-    -   **Get-User**  
+    -   **Get-utilizador**  
     
     -   **Set-ActiveSyncOrganizationSettings**  
 

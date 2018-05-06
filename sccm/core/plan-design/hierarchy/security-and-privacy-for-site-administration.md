@@ -1,25 +1,20 @@
 ---
-title: "Privacidade e segurança de administração de sites"
+title: Privacidade e segurança de administração de sites
 titleSuffix: Configuration Manager
-description: "Otimize a segurança e privacidade para administração de sites no System Center Configuration Manager."
-ms.custom: na
+description: Otimize a segurança e privacidade para administração de sites no System Center Configuration Manager.
 ms.date: 3/1/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 1d58176e-abc0-4087-8583-ce70deb4dcf5
-caps.latest.revision: "8"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 2dd77a607e2ab87d9abf0ea46ca7c5565a8286b6
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 515385c6c6855e63dc32b522edff9cd2047331bd
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Segurança e privacidade para a administração de sites no System Center Configuration Manager
 
@@ -27,7 +22,7 @@ ms.lasthandoff: 01/04/2018
 
 Este tópico contém informações de sites do System Center Configuration Manager e a hierarquia de privacidade e segurança.
 
-##  <a name="BKMK_Security_Sites"></a>Melhores práticas de segurança para administração de sites  
+##  <a name="BKMK_Security_Sites"></a> Melhores práticas de segurança para administração de sites  
  Utilize as seguintes melhores práticas de segurança para sites seguros do System Center Configuration Manager e a hierarquia.  
 
  **Execute a configuração apenas a partir de uma origem fidedigna e Proteja o canal de comunicação entre o suporte de dados de configuração e o servidor de site.**  
@@ -175,7 +170,7 @@ Para obter mais informações sobre as diferentes tecnologias de reativação po
 
 Sempre que possível, utilize um servidor de correio que suporte acesso autenticado e utilize a conta de computador do servidor do site para autenticação. Se tiver de especificar uma conta de utilizador para autenticação, utilize uma conta que tenha privilégios mínimos.  
 
-##  <a name="BKMK_Security_SiteServer"></a>Melhores práticas de segurança para o servidor do site  
+##  <a name="BKMK_Security_SiteServer"></a> Melhores práticas de segurança para o servidor do site  
  Utilize as seguintes melhores práticas de segurança para ajudar a proteger o Gestor de configuração do servidor do site.  
 
  **Instale o Configuration Manager num servidor membro e não num controlador de domínio.**  
@@ -192,7 +187,7 @@ Sempre que possível, utilize um servidor de correio que suporte acesso autentic
 
  Para obter mais informações, veja [Instalar um site secundário](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) no tópico [Utilizar o Assistente de Configuração para instalar sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
-##  <a name="BKMK_Security_SQLServer"></a>Melhores práticas de segurança para o SQL Server  
+##  <a name="BKMK_Security_SQLServer"></a> Melhores práticas de segurança para o SQL Server  
  O Configuration Manager utiliza o SQL Server como a base de dados de back-end. Se a base de dados for comprometida, os atacantes foi ignorar do Configuration Manager e aceder ao SQL Server diretamente para iniciar ataques através do Configuration Manager. Considere os ataques contra o SQL Server para ser um risco muito elevado e mitigar adequadamente.  
 
  Utilize as seguintes melhores práticas de segurança para o ajudar a proteger o SQL Server para o Configuration Manager.  
@@ -223,7 +218,7 @@ Identifique e siga as melhores práticas para a sua versão do SQL Server. No en
 
 -   Se instalar o SQL Server utilizando uma conta de utilizador de domínio, certifique-se de que a conta de computador do servidor do site é configurada para um Nome do Principal do Serviço (SPN) publicado nos Serviços de Domínio do Active Directory. Sem o SPN, a autenticação Kerberos falha e recusa a configuração do Configuration Manager.  
 
-##  <a name="BKMK_Security_IIS"></a>Melhores práticas de segurança para sistemas de sites que executam o IIS  
+##  <a name="BKMK_Security_IIS"></a> Melhores práticas de segurança para sistemas de sites que executam o IIS  
 Várias funções de sistema de sites no Configuration Manager necessitam do IIS. O processo de proteger o IIS permite que o Configuration Manager para funcionar corretamente e reduz o risco de ataques de segurança. Quando práticas, estará a minimizar o número de servidores que necessitem do IIS. Por exemplo, execute apenas o número de pontos de gestão necessário para suportar a base de clientes, tendo em conta a disponibilidade elevada e o isolamento de rede da gestão de clientes baseados na Internet.  
 
  Utilize as melhores práticas de segurança seguintes para ajudar a proteger os sistemas de sites que executam o IIS.  
@@ -291,7 +286,7 @@ Por exemplo, os diretórios virtuais a remover de um ponto de distribuição sã
 
 Identifique e siga as melhores práticas para a sua versão do Servidor do IIS. No entanto, tenha em consideração os requisitos que o Configuration Manager possui para funções de sistema de sites específicas. Para obter mais informações, veja [Pré-requisitos de site e sistema de sites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
-##  <a name="BKMK_Security_ManagementPoint"></a>Melhores práticas de segurança para o ponto de gestão  
+##  <a name="BKMK_Security_ManagementPoint"></a> Melhores práticas de segurança para o ponto de gestão  
  Pontos de gestão são a interface primária entre dispositivos e o Configuration Manager. Considere os ataques contra o ponto de gestão e o servidor que é executada em risco muito elevado e mitigar adequadamente. Aplique as melhores práticas de segurança adequadas e monitorize a ocorrência de atividade invulgar.  
 
  Utilize as seguintes melhores práticas de segurança para ajudar a proteger um ponto de gestão no Configuration Manager.  
@@ -302,7 +297,7 @@ Identifique e siga as melhores práticas para a sua versão do Servidor do IIS. 
 
  Se migrar para o System Center Configuration Manager de uma versão anterior, migre o software de cliente no ponto de gestão para o System Center Configuration Manager logo que possível.  
 
-##  <a name="BKMK_Security_FSP"></a>Melhores práticas de segurança para o ponto de estado de contingência  
+##  <a name="BKMK_Security_FSP"></a> Melhores práticas de segurança para o ponto de estado de contingência  
  Utilize as seguintes melhores práticas de segurança se instalar um ponto de estado de contingência no Configuration Manager.  
 
  Para mais informações sobre as considerações de segurança quando instala um ponto de estado de contingência, veja [Determinar se Necessita de um Ponto de Estado de Contingência](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#determine-if-you-need-a-fallback-status-point).  
@@ -324,7 +319,7 @@ Identifique e siga as melhores práticas para a sua versão do Servidor do IIS. 
 
  Se instalar o ponto de estado de contingência na rede de perímetro ou qualquer rede não fidedigna, configure o servidor de site para iniciar as transferências de dados em vez de utilizar a predefinição que permite que o ponto de estado de contingência iniciar uma ligação ao servidor do site.  
 
-##  <a name="BKMK_SecurityIssues_Clients"></a>Problemas de segurança de administração de sites  
+##  <a name="BKMK_SecurityIssues_Clients"></a> Problemas de segurança de administração de sites  
  Reveja os seguintes problemas de segurança para o Configuration Manager:  
 
 -   O Configuration Manager possui não está protegido contra um utilizador administrativo autorizado que utiliza o Gestor de configuração para atacar a rede. Os utilizadores administrativos não autorizados são um risco de segurança elevado e podendo iniciar vários ataques, nomeadamente seguintes estratégias:  
@@ -357,7 +352,7 @@ Identifique e siga as melhores práticas para a sua versão do Servidor do IIS. 
 
     Identifique e siga os procedimentos recomendados de segurança para a versão do DNS e WINS que utiliza para resolução de nomes.  
 
-##  <a name="BKMK_Privacy_Cliients"></a>Informações de privacidade para deteção  
+##  <a name="BKMK_Privacy_Cliients"></a> Informações de privacidade para deteção  
  Deteção cria registros para recursos de rede e armazena-os na base de dados do System Center Configuration Manager. Registos de dados de deteção contêm informações do computador, tais como endereços IP, sistemas operativos e os nomes dos computadores. Os métodos de deteção do Active Directory também podem ser configurados para detetar informações armazenadas nos Serviços de Domínio do Active Directory.  
 
  O único método de deteção que está ativado por predefinição é a deteção de Heartbeat, mas esse método apenas Deteta computadores que já estão a tem o software de cliente do System Center Configuration Manager instalado.  

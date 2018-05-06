@@ -1,25 +1,20 @@
 ---
 title: Ativar o Lookout MTP no Intune
 titleSuffix: Configuration Manager
-description: "Ative a proteção de ameaça móveis Lookout na consola de administração do Intune."
-ms.custom: na
+description: Ative a proteção de ameaça móveis Lookout na consola de administração do Intune.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 7e4ada34-63bf-4b9f-8246-31816aa44196
-caps.latest.revision: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 2d4cdb20f66864ac9bf79b89189e97fab26b34f3
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 79a583237d882101d70442cbf6b55a5e3c0e9b11
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="enable-lookout-mtp-connection-in-the-intune-admin-console"></a>Ativar ligação Lookout MTP na consola de administração do Intune
 
@@ -37,4 +32,4 @@ Este passo conclui a configuração da integração Lookout e o Intune na consol
 > **Tem** configurar o Lookout for Work aplicação antes de criar regras de política de conformidade e configurar o acesso condicional. Isto garante que a aplicação está pronta e disponíveis para os utilizadores finais a instalar antes de poder obter acesso ao e-mail ou outros recursos da empresa.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configurar o Lookout para a aplicação de trabalho](configure-and-deploy-lookout-for-work-apps.md)
+[Configurar o Lookout para a aplicação de trabalho ](configure-and-deploy-lookout-for-work-apps.md)

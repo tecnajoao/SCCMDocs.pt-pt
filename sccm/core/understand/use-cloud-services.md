@@ -1,26 +1,20 @@
 ---
-title: "Utilizar serviços em nuvem para completar a infraestrutura no local"
+title: Utilizar serviços em nuvem para completar a infraestrutura no local
 titleSuffix: Configuration Manager
 description: Aprovisionar a recursos de nuvem para o System Center Configuration Manager, para complementar a sua infraestrutura no local.
-ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 24fca61e-9cdb-447a-ad7a-f4d2e4fd6704
-caps.latest.revision: "10"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 81f111f0d0061901f5f3b471f02c8035bfcac481
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 07eb6ec88a5f9b9f7985c317813b2ef7dd5534ff
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-cloud-services-with-system-center-configuration-manager"></a>Utilizar serviços cloud com o System Center Configuration Manager
 
@@ -91,7 +85,7 @@ Apesar do Intune utiliza o Azure, que não é necessário para configurar o Azur
 
 Estas capacidades adicionais não requerem que tenha uma subscrição do Azure. Não tem de configurar ligações específicas, certificados ou serviços na nuvem. Em vez disso, são geridas automaticamente pelo Configuration Manager para si. Tudo o que precisa de fazer é Certifique-se de sistemas de sites aplicáveis e dispositivos podem aceder os URLs baseado na Internet.  
 
-##  <a name="BKMK_CloudSec"></a>Segurança para serviços baseados na nuvem  
+##  <a name="BKMK_CloudSec"></a> Segurança para serviços baseados na nuvem  
  Configuration Manager utiliza certificados para aprovisionar e aceder ao conteúdo do Azure e para gerir os serviços que utiliza. O Configuration Manager encripta os dados que armazena no Azure, mas não introduz segurança adicional nem dados controlos para além dos fornecidos pelo Azure.  
 
  Para obter mais informações, consulte os detalhes para os cenários de diferentes recursos baseados na nuvem. Também pode ver os seguintes tópicos para segurança do Azure:  

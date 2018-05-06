@@ -1,26 +1,20 @@
 ---
 title: Implementar o Windows to Go
 titleSuffix: Configuration Manager
-description: "Saiba como aprovisionar o Windows To Go no System Center Configuration Manager, para criar uma área de trabalho Windows To Go que iniciam a partir de uma unidade externa."
-ms.custom: na
+description: Saiba como aprovisionar o Windows To Go no System Center Configuration Manager, para criar uma área de trabalho Windows To Go que iniciam a partir de uma unidade externa.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 8eed50f5-80a4-422e-8aa6-a7ccb2171475
-caps.latest.revision: "8"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 9d902f75911b484d22d38b07cea40e1c00ea0d93
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 12b7a28ff5ea0e2e1870c0c37edd8e056930b09f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Implementar o Windows to Go com o System Center Configuration Manager
 
@@ -316,15 +310,15 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     1.  **Nome**: Especifique um nome para a linha de comandos, tal como **ativar o BitLocker para Windows To Go**.  
 
-    2.  **Linha de comandos**: i386\osdbitlocker_wtg.exe /Enable /pwd: < *None &#124; AD*>  
+    2.  **Linha de comandos**: i386\osdbitlocker_wtg.exe /Enable /pwd: < *nenhum&#124;AD*>  
 
          Parâmetros:  
 
-        -   /pwd: < none &#124; AD >-especificar o modo de recuperação de palavra-passe do BitLocker. Este parâmetro obriga que utilize o parâmetro /Enable na linha de comandos.  
+        -   /pwd: < none&#124;AD >-especificar o modo de recuperação de palavra-passe do BitLocker. Este parâmetro obriga que utilize o parâmetro /Enable na linha de comandos.  
 
              Selecione **AD** para configurar a Encriptação da Unidade do BitLocker para criar cópias de segurança das informações de recuperação para unidades protegidas pelo BitLocker para Serviços de Domínio do Active Directory (AD DS). Criar cópias de segurança de palavras-passe de recuperação para uma unidade protegida pelo BitLocker permite que os utilizadores administrativos recuperem a unidade se estiver bloqueada. Isto garante que os dados encriptados pertencentes à empresa podem ser sempre acedidos por utilizadores autorizados. Quando especificar **Nenhum**, o utilizador é responsável por manter uma cópia da palavra-passe de recuperação ou chave de recuperação. Se o utilizador perder essa informação ou negligenciar a desencriptação da unidade antes de abandonar a organização, os utilizadores administrativos não conseguem aceder facilmente à unidade.  
 
-        -   /wait: < TRUE &#124; FALSE >-especificar se a sequência de tarefas aguarda que encriptação seja concluída antes da conclusão.  
+        -   /wait: < TRUE&#124;FALSE >-especificar se a sequência de tarefas aguarda que encriptação seja concluída antes da conclusão.  
 
     3.  Selecione **pacote**e, em seguida, especifique o pacote que criou no início deste procedimento.  
 
@@ -451,7 +445,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
     -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição localizados em redes lentas e pouco fiáveis para transferir o conteúdo necessário pela sequência de tarefas.  
 
     -   **Permitir que os clientes utilizem uma localização de origem de contingência para conteúdo**:
-        - *Antes de versão 1610*, pode selecionar a permitir a localização de origem de contingência para conteúdo caixa de verificação para permitir que os clientes fora destes grupos de limites recorram à contingência e utilizem o ponto de distribuição como uma localização de origem de conteúdo quando não houver outros pontos de distribuição disponíveis.
+        - *Antes de versão 1610*, pode selecionar a permitir a localização de origem de contingência para conteúdo caixa de verificação para permitir que os clientes fora destes grupos de limites recorram à contingência e utilizem o ponto de distribuição como localização de origem para o conteúdo quando não houver outros pontos de distribuição estão disponíveis.
         - *A partir da versão 1610*, já não pode configurar **permitir a localização de origem de contingência para conteúdo**.  Em vez disso, configure as relações entre grupos de limites que determinam quando um cliente pode começar a procurar grupos de limites adicionais para uma localização de origem de conteúdo válida. 
 
 11. Conclua o assistente.  

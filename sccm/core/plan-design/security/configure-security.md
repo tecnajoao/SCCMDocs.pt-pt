@@ -1,25 +1,20 @@
 ---
-title: "Configurar a segurança"
+title: Configurar a segurança
 titleSuffix: Configuration Manager
-description: "Configure opções relacionadas com segurança para o System Center Configuration Manager."
-ms.custom: na
+description: Configure opções relacionadas com segurança para o System Center Configuration Manager.
 ms.date: 12/30/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 552e7e3d-e584-4a7c-9155-0f796a14b678
-caps.latest.revision: "5"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 4066ec43e5553859d983671a0df549a67b2cfe59
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 165f7fc0b73e288ac1718def96a50bc91a181cc2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-security-in-system-center-configuration-manager"></a>Configurar a segurança no System Center Configuration Manager
 
@@ -62,7 +57,7 @@ Se pretender utilizar certificados da infraestrutura de chaves públicas (PKI) p
 
 Repita este procedimento para todos os sites primários da hierarquia.  
 
-##  <a name="BKMK_ConfigureSigningEncryption"></a>Configurar a assinatura e encriptação  
+##  <a name="BKMK_ConfigureSigningEncryption"></a> Configurar a assinatura e encriptação  
 Configure as definições de assinatura e encriptação mais seguras para os sistemas de site que todos os clientes do site possam suportar. Estas definições são especialmente importantes quando permitir que os clientes comuniquem com os sistemas de site utilizando certificados autoassinados através de HTTP.  
 
 #### <a name="to-configure-signing-and-encryption-for-a-site"></a>Para configurar a assinatura e encriptação para um site  

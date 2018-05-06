@@ -1,27 +1,20 @@
 ---
-title: "Criar suportes de dados autónomos"
+title: Criar suportes de dados autónomos
 titleSuffix: Configuration Manager
-description: "Utilize suportes de dados autónomos para implementar o sistema operativo num computador sem uma ligação de rede."
-ms.custom: na
+description: Utilize suportes de dados autónomos para implementar o sistema operativo num computador sem uma ligação de rede.
 ms.date: 02/09/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-osd
+ms.topic: conceptual
 ms.assetid: c6b9ccd2-78d9-4f0e-b25a-70d0866300ba
-caps.latest.revision: 
-caps.handback.revision: 
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 587804b026f01f25754a10f35967d18d0b8d471d
-ms.sourcegitcommit: fbde417e3c3002898bd216a7e110e725ae269893
+ms.openlocfilehash: 35dd110c2566dab945bb0701e113becb3412d65c
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-stand-alone-media-with-system-center-configuration-manager"></a>Criar suportes de dados autónomos com o System Center Configuration Manager
 
@@ -37,7 +30,7 @@ No Gestor de configuração de suporte de dados autónomo contém tudo necessár
 
 Suporte de dados autónomo inclui a sequência de tarefas que automatiza os passos para instalar o sistema operativo e outro conteúdo necessário. Este conteúdo inclui a imagem de arranque, imagem do sistema operativo e controladores de dispositivo. Porque o suporte de dados autónomo armazena tudo para implementar o sistema operativo, requer mais espaço em disco ao necessário para outros tipos de suportes de dados. Quando cria suportes de dados autónomo num site de administração central, o cliente obtém o código de site atribuído do Active Directory. Suporte de dados autónomo criado em sites subordinados automaticamente atribui ao cliente o código do site para esse site.  
 
-##  <a name="BKMK_CreateStandAloneMedia"></a>Criar suportes de dados autónomos  
+##  <a name="BKMK_CreateStandAloneMedia"></a> Criar suportes de dados autónomos  
 Antes de criar suportes de dados autónomos, utilizando o assistente suporte de dados de criação de sequência de tarefas, não se esqueça de que as seguintes condições são cumpridas:  
 
 ### <a name="create-a-task-sequence-to-deploy-an-operating-system"></a>Criar uma sequência de tarefas para implementar um sistema operativo
@@ -155,7 +148,7 @@ Antes de executar o Assistente de Criação de Suporte de Dados da Sequência de
 
  Os ficheiros de suporte de dados autónomos (.iso) são criados na pasta de destino. Se tiver selecionado **CD/DVD Autónomo**, pode agora copiar os ficheiros de saída para um conjunto de CDs ou DVDs.  
 
-##  <a name="BKMK_StandAloneMediaTSExample"></a>Exemplo de sequência de tarefas para suporte de dados autónomo  
+##  <a name="BKMK_StandAloneMediaTSExample"></a> Exemplo de sequência de tarefas para suporte de dados autónomo  
  Para criar uma sequência de tarefas para implementar um sistema operativo utilizando suportes de dados autónomos, utilize a tabela seguinte como guia. A tabela ajuda-o a decidir a sequência geral para os passos de sequência de tarefas. Também ajuda a organizar e estruturar os passos de sequência de tarefas em grupos lógicos. A sequência de tarefas que criar poderá diferente deste exemplo e pode conter mais ou menos grupos e passos de sequência de tarefas.  
 
 > [!NOTE]  

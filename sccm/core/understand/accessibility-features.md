@@ -1,25 +1,20 @@
 ---
 title: Acessibilidade
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades que tornam o System Center Configuration Manager acessível para pessoas com incapacidades."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades que tornam o System Center Configuration Manager acessível para pessoas com incapacidades.
 ms.date: 7/31/2017
-ms.reviewer: na
-ms.suite: na
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 1cb96666-98bf-49a9-85ca-dbb53f0655e9
-caps.latest.revision: "6"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 8a56e14f1c366bb4e2218428c0e93b60aa13e015
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: fc0e7b81b4b46502e4477f098bdc129b0491be69
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="accessibility-features-in-system-center-configuration-manager"></a>Funcionalidades de acessibilidade no System Center Configuration Manager
 
@@ -29,7 +24,7 @@ ms.lasthandoff: 01/04/2018
 System Center Configuration Manager inclui funcionalidades para o ajudar a torná-lo acessível para pessoas com incapacidades.
 
 
-## <a name="bkmk_aconsole"></a>Funcionalidades de acessibilidade para a consola do Configuration Manager  
+## <a name="bkmk_aconsole"></a> Funcionalidades de acessibilidade para a consola do Configuration Manager  
 
 **Atalhos e melhoramentos com versão 1706 e posterior**
 
@@ -78,7 +73,7 @@ System Center Configuration Manager inclui funcionalidades para o ajudar a torn�
 > [!NOTE]  
 >  As informações nesta secção podem ser aplicadas apenas a utilizadores que licença de produtos da Microsoft nos Estados Unidos. Se tiver adquirido este produto fora dos Estados Unidos, pode utilizar o cartão de informações da subsidiária fornecido com o seu pacote de software ou visitar o [Web site da Microsoft Accessibility](http://go.microsoft.com/fwlink/?LinkId=8431) informações de contacto para a Microsoft suporta os serviços. Pode contactar a sua subsidiária para saber se o tipo de produtos e serviços descritos nesta secção se encontram disponíveis na sua área. Informações sobre acessibilidade estão disponíveis noutros idiomas, incluindo japonês e francês.  
 
-##  <a name="bkmk_ahelp"></a>Funcionalidades de acessibilidade ajuda do Configuration Manager  
+##  <a name="bkmk_ahelp"></a> Funcionalidades de acessibilidade ajuda do Configuration Manager  
  Ajuda do Configuration Manager inclui funcionalidades que tornam acessível a uma vasta gama de utilizadores, incluindo os utilizadores que tenham com destreza limitada, problemas de visão ou outras incapacidades.  
 
 |Para efetuar isto|Utilize este atalho de teclado|  

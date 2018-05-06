@@ -1,27 +1,20 @@
 ---
 title: Modificar a infraestrutura
 titleSuffix: Configuration Manager
-description: "Saiba como efetuar alterações ou executar ações que afetam a infraestrutura do Configuration Manager que implementou."
-ms.custom: na
+description: Saiba como efetuar alterações ou executar ações que afetam a infraestrutura do Configuration Manager que implementou.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: a7975dc8-46ab-4dae-86b6-dc3e3cf3b2f0
-caps.latest.revision: 
-caps.handback.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 93456b2708afbdaac0ff3c68dc6c2d9927def7ad
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7f798fdb1183b852bded92711cc5f489666f4f2a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modificar a infraestrutura do System Center Configuration Manager
 
@@ -30,7 +23,7 @@ ms.lasthandoff: 12/04/2017
 Depois de instalar um ou mais sites, poderá ser necessário modificar configurações ou executar ações que afetam a infraestrutura implementada.  
 
 
-##  <a name="BKMK_ManageSMSprovider"></a>Gerir o fornecedor de SMS  
+##  <a name="BKMK_ManageSMSprovider"></a> Gerir o fornecedor de SMS  
  O fornecedor de SMS (um ficheiro de biblioteca de ligação dinâmica: smsprov.dll) fornece o ponto de contacto administrativo para uma ou mais consolas do Configuration Manager. Ao instalar múltiplos Fornecedores de SMS, poderá fornecer redundância de pontos de contacto, ao administrar o site e a hierarquia.  
 
  Em cada site do Configuration Manager, pode voltar a executar a configuração para:  
@@ -66,7 +59,7 @@ Depois de instalar um ou mais sites, poderá ser necessário modificar configura
 
  Depois da conclusão do Assistente de Configuração, a configuração do Fornecedor de SMS está concluída. No separador **Geral**, na caixa de diálogo **Propriedades** do site, pode verificar os computadores que têm um Fornecedor de SMS instalado para um site.  
 
-##  <a name="bkmk_Console"></a>Gerir a consola do Configuration Manager  
+##  <a name="bkmk_Console"></a> Gerir a consola do Configuration Manager  
  Seguem-se tarefas que pode fazer para gerir a consola do Configuration Manager:  
 
 -   **Modificar o idioma que é apresentado na consola do Configuration Manager** - para modificar o idiomas instalados, consulte [idioma de consola do Configuration Manager gerir](#BKMK_ManageConsoleLanguages) neste tópico.  
@@ -75,9 +68,9 @@ Depois de instalar um ou mais sites, poderá ser necessário modificar configura
 
 -   **Configurar o DCOM** - para configurar permissões de DCOM para ativar a consolas remotas do servidor do site para ligar, consulte [configurar do DCOM para consolas remotas do Configuration Manager](#BKMK_ConfigDCOMforRemoteConsole) neste tópico.  
 
--   **Modificar permissões para limitar o que os utilizadores administrativos podem ver na consola do** - para modificar as permissões administrativas, limitando o que os utilizadores podem ver e fazer na consola, consulte [modificar o âmbito administrativo de um utilizador administrativo](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
+-   **Modificar permissões para limitar o que os utilizadores administrativos podem ver na consola do** - para modificar as permissões administrativas, limitando o que os utilizadores podem ver e fazer na consola, consulte [modificar o âmbito administrativo de um utilizador administrativo ](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
 
-###  <a name="BKMK_ManageConsoleLanguages"></a>Gerir o idioma da consola do Configuration Manager  
+###  <a name="BKMK_ManageConsoleLanguages"></a> Gerir o idioma da consola do Configuration Manager  
  Durante a instalação do servidor de site, os ficheiros de instalação de consola do Configuration Manager e os pacotes de idiomas suportados para o site são copiados para o  **&lt;Caminhodeinstalaçãodoconfigmgr\>\Tools\ConsoleSetup** subpasta no servidor do site.  
 
 -   Quando iniciar a instalação da consola do Configuration Manager a partir desta pasta no servidor do site, a consola do Configuration Manager e os ficheiros do pacote de idiomas suportados são copiados para o computador  
@@ -113,7 +106,7 @@ Por exemplo, considere um cenário onde instalar a consola do Configuration Mana
 
 4.  Para abrir a consola do Configuration Manager no idioma que está configurado para o computador, mude o nome da pasta para o nome original. Por exemplo, mude o nome **de.disabled** para **de**.  
 
-##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a>Configurar permissões de DCOM para consolas remotas do Configuration Manager  
+##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a> Configurar permissões de DCOM para consolas remotas do Configuration Manager  
  A conta de utilizador que executa a consola do Configuration Manager necessita de permissão para aceder à base de dados do site utilizando o fornecedor de SMS. No entanto, um utilizador administrativo que utilize uma consola remota do Configuration Manager também necessita de **ativação remota** permissões de DCOM em:  
 
 -   O computador do servidor do site  
@@ -148,7 +141,7 @@ Por exemplo, considere um cenário onde instalar a consola do Configuration Mana
 
  Repita este procedimento em cada computador fornecedor de SMS que possa suportar consolas remotas do Configuration Manager.  
 
-##  <a name="bkmk_dbconfig"></a>Modificar a configuração de base de dados do site  
+##  <a name="bkmk_dbconfig"></a> Modificar a configuração de base de dados do site  
  Após instalar um site, poderá modificar a configuração de base de dados do site e o servidor da base de dados do site executando o Programa de Configuração num servidor de site de administração central ou servidor de site primário. Pode mover a base de dados do site para uma nova instância do SQL Server no mesmo computador, ou para outro computador que execute uma versão suportada do SQL Server. Estas e as alterações relacionadas não são suportadas para a configuração da base de dados em sites secundários.  
 
  Para obter mais informações sobre os limites do suporte, veja [Política de suporte para alterações manuais da base de dados num ambiente do Configuration Manager](https://support.microsoft.com/kb/3106512).  
@@ -179,7 +172,7 @@ Por exemplo, considere um cenário onde instalar a consola do Configuration Mana
 > [!IMPORTANT]  
 >  Antes de mover uma base de dados que tenha uma ou mais réplicas de base de dados para pontos de gestão, necessitará primeiro de remover as réplicas de base de dados. Após concluir a mudança da base de dados, poderá reconfigurar as réplicas de base de dados. Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
-##  <a name="bkmk_SPN"></a>Gerir o SPN para o servidor de base de dados do site  
+##  <a name="bkmk_SPN"></a> Gerir o SPN para o servidor de base de dados do site  
 Pode selecionar a conta que executa o SQL Services para a base de dados do site:  
 
 -   Quando os serviços são executados com a conta de sistema de computadores, o SPN é registado automaticamente para si.  
@@ -231,7 +224,7 @@ Pode registar um SPN para a conta de serviço do SQL Server do servidor de base 
 
 2.  Se necessário, ligue estabeleça a ligação ao domínio do servidor do site.  
 
-3.  No painel de consola, expanda o domínio do servidor de site, expanda **DC =&lt;nome único do servidor\>**, expanda **CN = Users**, faça duplo clique **CN =&lt;utilizador da conta de serviço\>**e, em seguida, clique em **propriedades**.  
+3.  No painel de consola, expanda o domínio do servidor de site, expanda **DC =&lt;nome único do servidor\>**, expanda **CN = Users**, faça duplo clique **CN =&lt;utilizador da conta de serviço\>** e, em seguida, clique em **propriedades**.  
 
 4.  No **CN =&lt;utilizador da conta de serviço\> propriedades** caixa de diálogo, reveja o **servicePrincipalName** valor para se certificar de que foi criado e associado ao computador correto do SQL Server um SPN válido.  
 
@@ -249,7 +242,7 @@ Pode registar um SPN para a conta de serviço do SQL Server do servidor de base 
 
 6.  Clique em **OK** após a alteração com êxito da conta de serviço.  
 
-##  <a name="bkmk_reset"></a>Executar uma reposição do site  
+##  <a name="bkmk_reset"></a> Executar uma reposição do site  
  Quando uma reposição do site é executada num site de administração central ou site primário, o site:  
 
 -   Volta a permissões de ficheiros e registo de Configuration Manager predefinido  
@@ -307,7 +300,7 @@ A conta utilizada para efetuar uma reposição do site tem de ter as seguintes p
 
 Quando a reposição do site estiver concluída, clique em **Fechar** para concluir este procedimento.  
 
-##  <a name="bkmk_sitelang"></a>Gerir pacotes de idiomas num site  
+##  <a name="bkmk_sitelang"></a> Gerir pacotes de idiomas num site  
 Após a instalação de um site, pode alterar os pacotes de idioma de servidor e cliente que estão em utilização:  
 
 **Pacotes de idiomas de servidor:**  
@@ -357,7 +350,7 @@ Para obter informações sobre os idiomas de cliente e servidor que são suporta
 
 8.  Clique em **Fechar** para concluir este procedimento.  
 
-##  <a name="BKMK_ModDBAlert"></a>Modifique o limiar de alerta de servidor de base de dados  
+##  <a name="BKMK_ModDBAlert"></a> Modifique o limiar de alerta de servidor de base de dados  
  Por predefinição, o Configuration Manager gera alertas quando o espaço livre em disco num servidor de base de dados do site é baixa. As predefinições estão definidas para emitir um aviso quando existirem 10 GB ou menos de espaço livre em disco e um alerta crítico quando existirem menos de 5 GB de espaço livre em disco. Pode modificar estes valores ou desativar os alertas para cada site.  
 
  Para alterar estas definições:  

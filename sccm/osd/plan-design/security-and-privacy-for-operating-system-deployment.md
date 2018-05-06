@@ -1,26 +1,20 @@
 ---
-title: "Problemas de segurança e privacidade na implementação do sistema operativo"
+title: Problemas de segurança e privacidade na implementação do sistema operativo
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre segurança e as melhores práticas de privacidade para implementação do sistema operativo no System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre segurança e as melhores práticas de privacidade para implementação do sistema operativo no System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 5ee5928f-3d72-4b00-8156-1e0d1030a96c
-caps.latest.revision: "6"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 0cf0213b83f6bbaf0aabff24b16162dbe215bcf1
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 4ec1457fafabe2e40106ec76310d9ff64b2aa267
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Problemas de segurança e privacidade na implementação do sistema operativo no System Center Configuration Manager
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 12/12/2017
 
 Este tópico contém informações de privacidade para implementação do sistema operativo no System Center Configuration Manager e de segurança.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a>Melhores práticas de segurança para a implementação do sistema operativo  
+##  <a name="BKMK_Security_HardwareInventory"></a> Melhores práticas de segurança para a implementação do sistema operativo  
  Utilize as seguintes melhores práticas de segurança ao implementar sistemas operativos com o Configuration Manager:  
 
 -   **Implementar controlos de acesso para proteger os suportes de dados**  
@@ -193,7 +187,7 @@ Este tópico contém informações de privacidade para implementação do sistem
 
      Embora as variáveis de coleção ofereçam um método flexível de implementar sistemas operativos, isto pode resultar em divulgação de informações.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a>Informações de privacidade para implementação do sistema operativo  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informações de privacidade para implementação do sistema operativo  
  Para além de implementar sistemas operativos em computadores sem sistema operativo, Configuration Manager pode ser utilizado para migrar ficheiros e definições de utilizadores de um computador para outro. O administrador configura as informações para transferência, incluindo ficheiros de dados pessoais, definições de configuração e cookies do browser.  
 
  As informações são armazenadas num ponto de migração de estado e encriptadas durante a transmissão e o armazenamento. As informações podem ser obtidas pelo novo computador associado às informações de estado. Se o novo computador perder a chave para obter as informações, um administrador do Configuration Manager com direito para Ver Informações de Recuperação em objetos de instância da associação do computador pode aceder às informações e associá-las a um novo computador. Depois do restauro das informações de estado pelo computador novo, por predefinição, este elimina os dados ao fim de um dia. Pode configurar o momento de remoção dos dados marcados para eliminação pelo ponto de migração de estado. As informações de migração de estado não são armazenadas na base de dados do site e não são enviadas à Microsoft.  

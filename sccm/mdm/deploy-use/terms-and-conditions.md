@@ -1,25 +1,20 @@
 ---
 title: Terms and Conditions
 titleSuffix: Configuration Manager
-description: "Implemente termos e condições para grupos de utilizadores no System Center Configuration Manager."
-ms.custom: na
+description: Implemente termos e condições para grupos de utilizadores no System Center Configuration Manager.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 4d3f9e6b-4d71-4fc4-9b91-47f1bfbd8c70
-caps.latest.revision: "9"
-author: nathbarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: f616212b216ad4c94b60c7a805e2f45071947e81
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: cda5f01842f08ccc3e8dfbd17078fe157954d985
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Adicionar os termos e condições com o System Center Configuration Manager
 
@@ -121,4 +116,4 @@ Pode implementar o System Center Configuration Manager termos e condições para
      Recomendamos que aumente o número da versão e solicite a aceitação sempre que efetuar alterações significativas aos termos e condições. Mantenha o número da versão atual se, por exemplo, estiver a corrigir erros de digitação ou a alterar a formatação.
 
 > [!div class="button"]
-[< Anterior passo](configure-intune-subscription.md)[passo seguinte >  ](create-service-connection-point.md)
+[< Anterior passo](configure-intune-subscription.md)[passo seguinte >](create-service-connection-point.md)

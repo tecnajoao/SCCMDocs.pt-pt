@@ -1,25 +1,19 @@
 ---
-title: "Como criar itens de configuração para dispositivos Windows Phone geridos com o Intune"
+title: Como criar itens de configuração para dispositivos Windows Phone geridos com o Intune
 titleSuffix: Configuration Manager
-ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: df10dc4d-c9ff-4574-bb33-8d30eb14cfe3
-caps.latest.revision: "13"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: f0a032bfa1d8d6383caf3065678d9b0a4dd3dde0
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 4590077b303d5676aa72a816d785a0864fe2205f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Windows Phone geridos sem o cliente do System Center Configuration Manager
 Utilizar o System Center Configuration Manager**Windows Phone** item de configuração para gerir as definições para dispositivos Windows Phone que são inscritos pelo Configuration Manager no Microsoft Intune ou geridos no local.  
@@ -217,7 +211,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |**Nome da rede (SSID)**||  
 |**Ligação de rede**|Escolha entre **Internet** ou **Trabalho**.|  
 |**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br><br> - **Abrir**<br> - **Partilhado**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2 PSK**|  
-|**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar serão diferentes consoante o método de **Autenticação** que selecionou:<br><br> - **Desativado**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
+|**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar serão diferentes consoante o método de **Autenticação** que selecionou:<br><br> - **desativado**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
 |**Índice de chaves**|Selecione um índice de chaves de **1** a **4** , que será utilizado com uma definição de **Encriptação de dados** de **WEP**.|  
 |**Esta rede liga-se à Internet**|Selecione esta opção se quiser fornecer definições proxy que permitam que dispositivos móveis numa ligação sem fios se liguem à Internet.|  
 |**Definições do servidor proxy**|Especificar conforme necessário as definições **Servidor** e **Porta** para **HTTP**, **WAP** e **Sockets**.|  
@@ -234,9 +228,9 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
 -   **Arquivo de destino** – selecione um ou mais arquivos de destino onde o certificado importado será adicionado no dispositivo móvel de entre:  
   
-    -   **Raiz**  
+    -   **raiz**  
   
-    -   **AC**  
+    -   **CA**  
   
     -   **Normal**  
   
@@ -244,7 +238,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
   
     -   **SPC**  
   
-    -   **Ponto a ponto**  
+    -   **ponto a ponto**  
   
 -   **Função** – se **SPC** (Software Publisher Certificate) estiver selecionado como arquivo de destino, escolha a função que será associada ao certificado de entre:  
   
@@ -298,7 +292,7 @@ Utilizar o System Center Configuration Manager**Windows Phone** item de configur
 |Definição|Mais informações|  
 |**Lista de aplicações bloqueadas**|Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores não poderão instalar.|  
 |**Lista de aplicações permitidas**|Selecione esta opção se pretender especificar uma lista de aplicações que os utilizadores podem instalar.|  
-|**Adicionar**|Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o fabricante da aplicação (opcional) e o URL para a aplicação na loja de aplicações.<br /><br /> Para especificar o URL, na página da Loja do Windows Phone, procure a aplicação que pretende utilizar.<br /><br /> **Exemplo:** Procure na loja a **Skype** aplicação. O URL a utilizar será: http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Para a aplicação portal da empresa ou linha de negócio, não é necessário especificar um URL completo, apenas o GUID da aplicação.|  
+|**Adicionar**|Adiciona uma aplicação à lista selecionada. Especifique um nome à sua escolha, o fabricante da aplicação (opcional) e o URL para a aplicação na loja de aplicações.<br /><br /> Para especificar o URL, na página da Loja do Windows Phone, procure a aplicação que pretende utilizar.<br /><br /> **Exemplo:** Procure na loja a **Skype** aplicação. O URL a utilizar será http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Para a aplicação portal da empresa ou linha de negócio, não é necessário especificar um URL completo, apenas o GUID da aplicação.|  
 |**Editarar**|Permite-lhe editar o nome, o fabricante e o URL da aplicação selecionada.|  
 |**Remove**|Elimina a aplicação selecionada da lista.|  
 |**Importarar**|Importa uma lista de aplicações especificadas num ficheiro de valores separados por vírgulas. Utilize o formato, o nome da aplicação, o fabricante e o URL da aplicação no ficheiro.|  

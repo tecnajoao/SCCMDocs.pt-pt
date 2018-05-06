@@ -2,24 +2,19 @@
 title: Cenário Endpoint Protection protege os computadores contra software maligno
 titleSuffix: Configuration Manager
 description: Saiba como implementar o Endpoint Protection no Configuration Manager para proteger os computadores contra ataques de software maligno.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 539c7a89-3c03-4571-9cb4-02d455064eeb
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: doubeby
-ms.openlocfilehash: 36f63a585fdcdc00d6ace9ea1ac6941aead5fce2
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 40fe2c9e16c2828b2c575e8401a80f3cf2eac969
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="example-scenario-using-system-center-endpoint-protection-to-protect-computers-from-malware-in-system-center-configuration-manager"></a>Cenário de exemplo: Utilizar o System Center Endpoint Protection para proteger os computadores contra software maligno no System Center Configuration Manager
 
@@ -64,7 +59,7 @@ Este artigo fornece um cenário de exemplo de como implementar Endpoint Protecti
 |O João configura as atualizações de software do Configuration Manager para transferir e implementar atualizações de definições três vezes por dia, utilizando uma regra de implementação automática.|Para obter mais informações, consulte a secção "Utilizar Software atualizações para fornecer definição atualizações do Configuration Manager" [utilize o Gestor de configuração de atualizações de software para fornecer atualizações de definições](endpoint-definitions-configmgr.md).|  
 |O João examina as definições da política antimalware predefinida, a qual contém definições de segurança recomendadas pela Microsoft. Para os computadores fazerem uma análise rápida diária, altera as seguintes definições:<br /><br /> 1) **executar uma análise rápida diária nos computadores cliente**: **Sim**.<br /><br /> 2) **agendar hora da análise rápida diária**:  **09:00:00**.<br /><br /> O João repara que a opção **Atualizações distribuídas do Microsoft Update** está selecionada como origem de atualização de definições por predefinição, Isto satisfaz o requisito de negócio que os computadores transferem definições a partir do Microsoft Update quando não conseguirem receber atualizações de software do Configuration Manager.|Consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).|  
 |O João cria uma coleção que contém apenas os servidores do Banco Woodgrove com o nome **Servidores do Banco Woodgrove**.|Consulte [Como criar coleções no System Center Configuration Manager](../../core/clients/manage/collections/create-collections.md)|  
-|O João cria uma política antimalware personalizada com o nome **Política de Servidor do Banco Woodgrove**. Só adiciona as definições para **Análises agendadas** e faz as seguintes alterações:<br /><br /> **Tipo de análise**:  **Full**<br /><br /> **Dia da análise**:  **Sábado**<br /><br /> **Hora de análise**: **1:00 AM**<br /><br /> **Executar uma análise rápida diária nos computadores cliente**:  **Não**.|Consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).|  
+|O João cria uma política antimalware personalizada com o nome **Política de Servidor do Banco Woodgrove**. Só adiciona as definições para **Análises agendadas** e faz as seguintes alterações:<br /><br /> **Tipo de análise**:  **Completa**<br /><br /> **Dia da análise**:  **Sábado**<br /><br /> **Hora de análise**: **1:00:00**<br /><br /> **Executar uma análise rápida diária nos computadores cliente**:  **Não**.|Consulte [como criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](endpoint-antimalware-policies.md).|  
 |O João implementa a política antimalware personalizada **Política de Servidor do Banco Woodgrove** na coleção **Servidores do Banco Woodgrove** .|Consulte "para implementar uma política antimalware em computadores de cliente" [como criar e implementar políticas antimalware do Endpoint Protection](endpoint-antimalware-policies.md) artigo.|  
 |O João cria um novo conjunto de cliente personalizadas, definições do dispositivo para o Endpoint Protection e atribui **definições de Endpoint Protection do Banco Woodgrove**.<br /><br /> **Nota:** Se não pretender instalar e ativar o Endpoint Protection em todos os clientes na sua hierarquia, certifique-se de que as opções **cliente gerir o Endpoint Protection nos computadores cliente** e **cliente de instalar o Endpoint Protection nos computadores cliente** estão configuradas como **não** nas predefinições de cliente.|Para obter mais informações, consulte [configurar definições personalizadas do cliente do Endpoint Protection](endpoint-protection-configure-client.md).|  
 |Configura as definições seguintes para o Endpoint Protection:<br /><br /> **Gerir o cliente do Endpoint Protection nos computadores cliente**:  **Sim**<br /><br /> Esta definição e valor garante que qualquer cliente do Endpoint Protection existente instalado passa a ser gerido pelo Configuration Manager.<br /><br /> **Instalar o cliente do Endpoint Protection nos computadores cliente**:  **Sim**.</br></br>**Tenha em atenção** a partir do Configuration Manager 1802, dispositivos Windows 10 não precisam de ter o agente do Endpoint Protection instalado. Se já estiver instalado em dispositivos Windows 10, o Configuration Manager não removê-lo. Os administradores podem remover o agente do Endpoint Protection em dispositivos Windows 10 que estejam a executar, pelo menos, a versão do cliente 1802.<br /><br /> **Automaticamente remover antimalware software anteriormente instalado antes da instalação do Endpoint Protection**:  **Sim**.<br /><br /> Esta definição e valor satisfaz o requisito empresarial que o software antimalware existente é removido antes do Endpoint Protection está instalado e ativado.|Para obter mais informações, consulte [configurar definições personalizadas do cliente do Endpoint Protection](endpoint-protection-configure-client.md).|  

@@ -1,25 +1,20 @@
 ---
-title: "Selecionar os métodos de deteção"
+title: Selecionar os métodos de deteção
 titleSuffix: Configuration Manager
-description: "Reveja as considerações para métodos a utilizar e, em que sites executá-los."
-ms.custom: na
+description: Reveja as considerações para métodos a utilizar e, em que sites executá-los.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 127ce713-d085-430f-ac7b-2701637fe126
-caps.latest.revision: "9"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 0a8a572c51a6d36ffe11c7a2c05933c96790e95f
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: faa974fda68c9448902f2f5c8e8fcf8ef2f2d386
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="select-discovery-methods-to-use-for-system-center-configuration-manager"></a>Selecione os métodos de deteção a utilizar para o System Center Configuration Manager
 
@@ -64,7 +59,7 @@ Existem dois métodos que pode utilizar para detetar infraestruturas de rede, **
 
  Quando pretender detetar a topologia da rede, utilize a deteção de rede. Enquanto outros métodos de deteção devolvem informações relacionadas com serviços de domínio do Active Directory e podem identificar a localização de rede atual de um cliente, não fornecem informações de infraestrutura com base na topologia de router da sua rede e sub-redes.  
 
-##  <a name="bkmk_shared"></a>Dados de deteção são partilhados entre sites  
+##  <a name="bkmk_shared"></a> Dados de deteção são partilhados entre sites  
  Depois do Configuration Manager adiciona dados de deteção para uma base de dados, rapidamente é partilhado entre todos os sites na hierarquia. Porque é, geralmente, qualquer benefício em detetar as mesmas informações em vários sites na hierarquia, considere criar uma instância de cada método de deteção que utilizar para executar num único site. É uma boa ideia para fazê-lo em vez de executar várias instâncias de um único método em sites diferentes.  
 
  No entanto, em alguns ambientes poderá ser útil atribuir o mesmo método de deteção para ser executada em vários sites, cada um com uma configuração e agenda separadas. Por exemplo, quando utilizar a deteção de rede, pode querer direcionar a cada site para detetar a sua rede local, em vez de tentar detetar todas as localizações de rede através de uma WAN.
@@ -105,7 +100,7 @@ Se utilizar **deteção de rede**:
 
 Porque **deteção de Heartbeat** não é executado num site específico, não é necessário considerá-la no planeamento geral para onde pretende executar a deteção.  
 
-##  <a name="bkmk_best"></a>Melhores práticas de deteção  
+##  <a name="bkmk_best"></a> Melhores práticas de deteção  
 Para obter os melhores resultados com deteção, recomendamos o seguinte:
 
  - **Execute a deteção de sistema do Active Directory e deteção de utilizador do Active Directory antes de executar a deteção de grupo do Active Directory.**  

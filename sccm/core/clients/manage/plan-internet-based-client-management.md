@@ -1,26 +1,20 @@
 ---
-title: "Gestão de clientes baseada na Internet"
+title: Gestão de clientes baseada na Internet
 titleSuffix: Configuration Manager
 description: Crie um plano para gerir clientes baseados na Internet no System Center Configuration Manager.
-ms.custom: na
 ms.date: 05/16/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 83a7c934-3b11-435d-ba22-cbc274951e83
-caps.latest.revision: "7"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: bbbff5d3dc027ee437945e68011d94b14f23d486
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7f4de7295075de4b5baa5e7ba3fa1a3aea2ec032
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Planear a gestão de clientes baseados na Internet no System Center Configuration Manager
 
@@ -68,7 +62,7 @@ Permite de gestão (algumas vezes referido como IBCM) de clientes baseados na In
 
 -   Ponto de gestão  
 
--   Ponto de atualização de Software  
+-   Ponto de atualização de software  
 
  **Acerca dos sistemas de sites com acesso à Internet:**   
 Apesar de não é necessário ter uma confiança entre a floresta do cliente e que o servidor de sistema de sites, quando a floresta que contém uma com acesso à sistema de sites de Internet confia na floresta que contém as contas de utilizador, esta configuração suporta políticas baseadas no utilizador para dispositivos na Internet quando ativa a **política de cliente** definição de cliente **ativar pedidos da política de utilizador dos clientes Internet**.  

@@ -1,27 +1,20 @@
 ---
 title: Configurar o estado do cliente
 titleSuffix: Configuration Manager
-description: "Selecione as definições de estado do cliente no System Center Configuration Manager."
-ms.custom: na
+description: Selecione as definições de estado do cliente no System Center Configuration Manager.
 ms.date: 04/23/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: a2275ba2-c83d-43e7-90ed-418963a707fe
-caps.latest.revision: 
-caps.handback.revision: 
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 5db52925515e65797a43ed35775460369f742f49
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 8f919e647ae252731d60a98e01485a01aae10698
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Como configurar o estado do cliente no System Center Configuration Manager
 
@@ -29,7 +22,7 @@ ms.lasthandoff: 10/12/2017
 
 Antes de poder monitorizar o estado de cliente do System Center Configuration Manager e remediar problemas detetados, tem de configurar o seu site para especificar os parâmetros que são utilizados para marcar clientes como inativos e configurar opções para o alertar caso a atividade do cliente seja inferior a um limiar especificado. Também pode desativar computadores a partir de remediação automaticamente quaisquer problemas que encontre de estado do cliente.  
 
-##  <a name="BKMK_1"></a>Para configurar o estado do cliente  
+##  <a name="BKMK_1"></a> Para configurar o estado do cliente  
 
 1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
@@ -56,7 +49,7 @@ Antes de poder monitorizar o estado de cliente do System Center Configuration Ma
 
 5.  Clique em **OK** para guardar as propriedades e fechar o **propriedades de definições de estado do cliente** caixa de diálogo.  
 
-##  <a name="BKMK_Schedule"></a>Para configurar a agenda para o estado do cliente  
+##  <a name="BKMK_Schedule"></a> Para configurar a agenda para o estado do cliente  
 
 1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
@@ -67,7 +60,7 @@ Antes de poder monitorizar o estado de cliente do System Center Configuration Ma
     > [!NOTE]  
     >  Quando alterar o agendamento para atualizações de estado do cliente, a atualização não terão efeito até que Atualize o estado do cliente agendada seguinte (para o agendamento configurado anteriormente).  
 
-##  <a name="BKMK_2"></a>Para configurar alertas para o estado do cliente  
+##  <a name="BKMK_2"></a> Para configurar alertas para o estado do cliente  
 
 1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
@@ -78,7 +71,7 @@ Antes de poder monitorizar o estado de cliente do System Center Configuration Ma
     > [!NOTE]  
     >  Não é possível configurar alertas de coleções de utilizadores.  
 
-4.  No **alertas** separador do  *&lt;coleção nome\>***propriedades** caixa de diálogo, clique em **adicionar**.  
+4.  No **alertas** separador do  *&lt;coleção nome\>*** propriedades** caixa de diálogo, clique em **adicionar**.  
 
     > [!NOTE]  
     >  O separador **Alertas** só está visível se a função de segurança a que o utilizador está associado tiver permissões para alertas.  
@@ -93,9 +86,9 @@ Antes de poder monitorizar o estado de cliente do System Center Configuration Ma
 
     -   **Emitir um alerta** -especifique a percentagem de limiar do alerta.  
 
-7.  Clique em **OK** para fechar o  *&lt;coleção nome\>***propriedades** caixa de diálogo.  
+7.  Clique em **OK** para fechar o  *&lt;coleção nome\>*** propriedades** caixa de diálogo.  
 
-##  <a name="BKMK_3"></a>Para excluir computadores da remediação automática  
+##  <a name="BKMK_3"></a> Para excluir computadores da remediação automática  
 
 1.  Abra o editor de registo no computador cliente para o qual pretende desativar a remediação automática.  
 

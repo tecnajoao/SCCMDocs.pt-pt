@@ -1,27 +1,20 @@
 ---
-title: "Desinstalar aplicações"
+title: Desinstalar aplicações
 titleSuffix: Configuration Manager
-description: "Desinstalar uma aplicação utilizando o System Center Configuration Manager"
-ms.custom: na
+description: Desinstalar uma aplicação utilizando o System Center Configuration Manager
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-app
+ms.topic: conceptual
 ms.assetid: 0ea3edaa-27c6-4391-9896-cd97d9c5d06d
-caps.latest.revision: 
-caps.handback.revision: 
-author: mattbriggs
-ms.author: mabrigg
-manager: angrobe
-ms.openlocfilehash: 11b6f7ad65296131622b707fcb68d77183e3a288
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7587fa6d96d6f8737921c9e5edae992cdd0ea614
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="uninstall-applications-with-system-center-configuration-manager"></a>Desinstalar aplicações com o System Center Configuration Manager
 
@@ -65,7 +58,7 @@ Execute as ações seguintes para desinstalar uma aplicação que implementou an
         > [!NOTE]  
         >  O **conteúdo** página só é apresentada se selecionar a opção **especificar manualmente as informações de tipo de implementação** no **geral** página do Assistente para criar tipo de implementação.  
 
-    -   No **programas** separador do  **<* nome do tipo de implementação*> propriedades * * a caixa de diálogo caixa, especifique a linha de comandos para desinstalar a aplicação no **programa de desinstalação** campo.  
+    -   No **programas** separador do  **< *nome do tipo de implementação*> propriedades** diálogo caixa, especifique a linha de comandos para desinstalar a aplicação no  **Desinstalar programa** campo.  
 
 2.  Implemente a aplicação e, em seguida, selecione a ação de implementação **desinstalação** no **definições de implementação** página do Assistente de implementação de Software.  
 

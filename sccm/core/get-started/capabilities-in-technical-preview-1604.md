@@ -1,26 +1,21 @@
 ---
 title: Funcionalidades no Technical Preview 1604
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, a versão 1604."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, a versão 1604.
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 684a5559-9e6e-469b-86ae-e768e9f0c9ac
-caps.latest.revision: "8"
-author: erikje
-ms.author: erikje
-manager: angrobe
+author: aczechowski
 robots: noindex,nofollow
-ms.openlocfilehash: a6a3bb10b751768cd0e3987b30c80b5953e8eda5
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 113e22c33e9e8545c382373f3ba093dba3969939
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1604-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1604 do System Center Configuration Manager
 
@@ -30,7 +25,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis do System Cente
 
  Seguem-se novas funcionalidades que pode experimentar com esta versão.  
 
-##  <a name="BKMK_WindowsVPP"></a>Gerir aplicações compradas na loja Windows para empresas  
+##  <a name="BKMK_WindowsVPP"></a> Gerir aplicações compradas na loja Windows para empresas  
  O [loja Windows para empresas](https://www.microsoft.com/en-us/business-store) é onde pode encontrar e adquirir aplicações para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode gerir aplicações compradas em volume da consola do Configuration Manager, por exemplo:  
 
 -   Pode sincronizar a lista de aplicações adquiridas com o Configuration Manager  
@@ -45,7 +40,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis do System Cente
 
 1.  No Azure Active Directory, registe o Configuration Manager como uma ferramenta de gestão "Aplicação Web e/ou API Web". Isto irá dar-lhe um ID de cliente que irá precisar mais tarde.  
 
-    1.  No **do Active Directory** o nó de [https://manage.windowsazure.com](https://manage.windowsazure.com), selecione o seu Azure Active Directory, em seguida, clique em **aplicações** > **adicionar**.  
+    1.  No **do Active Directory** o nó de [ https://manage.windowsazure.com ](https://manage.windowsazure.com), selecione o seu Azure Active Directory, em seguida, clique em **aplicações** > **adicionar**.  
 
     2.  Clique em **adicionar uma aplicação que a minha organização está a desenvolver**.  
 
@@ -63,7 +58,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis do System Cente
 
 3.  Na loja Windows para empresas, configure o Configuration Manager como a ferramenta de gestão de armazenamento.  
 
-    1.  Abra [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) e início de sessão se lhe for pedido.  
+    1.  Abra [ https://businessstore.microsoft.com/en-us/managementtools ](https://businessstore.microsoft.com/en-us/managementtools) e início de sessão se lhe for pedido.  
 
     2.  Aceite os termos de utilização, se necessário.  
 
@@ -93,10 +88,10 @@ Este artigo apresenta as funcionalidades que estão disponíveis do System Cente
 
 3.  Uma aplicação do Configuration Manager é criada que contém a loja Windows para a aplicação de negócio. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.  
 
-##  <a name="BKMK_PFW"></a>Melhoramentos à Microsoft Passport para a gestão de trabalho  
+##  <a name="BKMK_PFW"></a> Melhoramentos à Microsoft Passport para a gestão de trabalho  
  Agora pode implementar o Passport para Work as políticas para dispositivos Windows 10 associados a domínios geridos pelo cliente de Configuration Manager.  
 
-##  <a name="bkmk_switchsup"></a>Opção para os clientes mudarem para um novo ponto de atualização de software  
+##  <a name="bkmk_switchsup"></a> Opção para os clientes mudarem para um novo ponto de atualização de software  
  No 1604 Technical Preview, pode ativar a opção para clientes do Configuration Manager mudar para um novo ponto de atualização de software quando existirem problemas com o ponto de atualização de software ativo. Para esta opção, tem de ter vários pontos de atualização de software disponíveis num site primário. Ative esta opção numa coleção de dispositivos e, uma vez ativada, os clientes na coleção irão procurar outro ponto de atualização de software na análise seguinte quando o cliente não consegue ligar com êxito para o ponto de atualização de software ativo. Dependendo das suas definições de configuração WSUS, (classificações de atualização, produtos, etc.), o comutador para um novo ponto de atualização de software irá gerar tráfego de rede adicional. Por conseguinte, só deve utilizar esta opção quando for necessário.  
 
 #### <a name="to-enable-the-option-to-switch-software-update-points"></a>Para ativar a opção para mudar pontos de atualização de software  
@@ -108,7 +103,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis do System Cente
 > [!NOTE]  
 >  Esta opção só está disponível nos sites com vários pontos de atualização de software.  
 
-##  <a name="bkmk_peercache"></a>Definições de cliente para gerir definições de Cache do cliente e o cliente de Cache ponto a ponto  
+##  <a name="bkmk_peercache"></a> Definições de cliente para gerir definições de Cache do cliente e o cliente de Cache ponto a ponto  
  A versão 1604 da Technical preview introduz duas novas definições de cliente de dispositivo, que afetam a utilização da cache do cliente. Ambos podem ser utilizadas individualmente, mas são configuradas na mesma folha de propriedades das definições de cliente e combinam para o ajudar a gerir a implementação de conteúdo para os seus clientes em localizações remotas.  
 
 -   É primeiro **cliente de Cache ponto a ponto**, uma solução incorporada do Configuration Manager para os clientes partilhem conteúdos com outros clientes diretamente a partir da respetiva cache local. Para clientes de Cache ponto a ponto partilhar conteúdo, têm de ser membros do mesmo grupo de limites. Cache ponto a ponto não substitui a utilização de outras soluções como BracnchCache mas em vez disso, funciona lado lado a lado para lhe dar mais opções para expandir as soluções de implementação de conteúdos tradicionais, como os pontos de distribuição.  
@@ -148,7 +143,7 @@ Para ajudar a compreender a utilização do cliente de Cache ponto a ponto, pode
     > [!NOTE]  
     >  Para concluir esta tarefa com o technical preview e um único ponto de distribuição, configure o ponto de distribuição para ser lento na localização de rede de todos os seus clientes. Em seguida, distribua o conteúdo para um único cliente.  Depois de que o cliente obtém o conteúdo, pode distribuir o conteúdo para clientes adicionais que devem encontrar elementos da rede locais para utilizar como origem de conteúdo antes de utilizar o ponto de distribuição que é considerado lenta da localização do cliente.  
 
-##  <a name="bkmk_passport"></a>Suporte do Passport for Work como um KSP  
+##  <a name="bkmk_passport"></a> Suporte do Passport for Work como um KSP  
  System Center Configuration Manager permite-lhe integrar com o Microsoft Passport for Work, que é um início de sessão método alternativo que utiliza o Active Directory ou uma conta do Azure Active Directory para substituir uma palavra-passe, um smart card ou um virtual smart card.  
 O Passport permite utilizar um gesto de utilizador para iniciar sessão, em vez de uma palavra-passe. Um gesto de utilizador pode ser um PIN simples, a autenticação biométrica, como o Windows Hello ou um dispositivo externo, como um leitor de impressões digitais.  
 
@@ -158,7 +153,7 @@ O Passport permite utilizar um gesto de utilizador para iniciar sessão, em vez 
 
 Quando um utilizador cria um PIN Passport, o Windows envia uma notificação que o Configuration Manager escuta.  Isto permite tornar-se rapidamente com suporte para o Configuration Manager dos utilizadores que criaram um PIN Passport. O Configuration Manager, em seguida, também podem emitir novos certificados para esses utilizadores se Passport for utilizado como o fornecedor de armazenamento de chaves num perfil de certificado.  
 
-##  <a name="bkmk_onpremdha"></a>Atestado de estado de funcionamento de dispositivos no local  
+##  <a name="bkmk_onpremdha"></a> Atestado de estado de funcionamento de dispositivos no local  
  Atestado de estado de funcionamento para dispositivos Windows 10 pode agora ser configurado para comunicar utilizando a infraestrutura no local.  Os administradores podem especificar se comunicação é efetuada através da nuvem ou recursos no local.  Se **no local** está selecionado para relatórios de atestado de estado de funcionamento, em seguida, pode ser especificado um URI para o serviço. Isto permite que os computadores cliente sem acesso à internet utilizar ativar e gerir dispositivos através de atestado de estado de funcionamento.  
 
 #### <a name="enable-health-attestation-for-on-premises-devices"></a>Ativar o atestado de estado de funcionamento de dispositivos no local  
@@ -169,5 +164,5 @@ Quando um utilizador cria um PIN Passport, o Windows envia uma notificação que
 
 Para experimentá-lo, configure o serviço de atestado de estado de funcionamento no local utilizando as definições de agente do cliente.  
 
-##  <a name="BKMK_Smart"></a>Definição de SmartLock para dispositivos Android  
+##  <a name="BKMK_Smart"></a> Definição de SmartLock para dispositivos Android  
  Uma nova definição, **permitir SmartLock e outros agentes de confiança** foi adicionado para o **Android e Samsung KNOX** item de configuração que lhe permite controlar a funcionalidade de SmartLock em dispositivos Android compatíveis. Esta capacidade de telefone, por vezes conhecida como agentes de confiança, permite desativar ou ignorar a palavra-passe de bloqueio do ecrã do dispositivo se o dispositivo estiver numa localização fidedigna, como quando está ligado a um dispositivo Bluetooth específico ou quando está próximo de uma etiqueta NFC. Pode utilizar esta definição para impedir que os utilizadores finais configurem o SmartLock.  

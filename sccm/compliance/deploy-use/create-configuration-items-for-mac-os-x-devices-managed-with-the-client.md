@@ -1,26 +1,20 @@
 ---
-title: "Criar itens de configuração para Macs geridos pelo cliente "
+title: 'Criar itens de configuração para Macs geridos pelo cliente '
 titleSuffix: Configuration Manager
-description: "Utilize o item de configuração do Mac OS X do System Center Configuration Manager para gerir as definições para dispositivos Mac OS X."
-ms.custom: na
+description: Utilize o item de configuração do Mac OS X do System Center Configuration Manager para gerir as definições para dispositivos Mac OS X.
 ms.date: 03/28/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: 722d5bf5-bedc-4dfc-b324-6eeb773874e9
-caps.latest.revision: "8"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: 1947bc8907d00a2f6d78acee5f563fa9b7f6cf78
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: e6358c8e84d12c37418d7a1af459e775783efaa2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Mac OS X geridos com o cliente System Center Configuration Manager
 Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item de configuração para gerir as definições para dispositivos Mac OS X que são geridos pelo cliente do Configuration Manager.  
@@ -104,7 +98,7 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
         -   A definição deve estar em conformidade com a seguinte regra – Selecione um operador e um valor que é avaliado quanto à compatibilidade com a definição selecionada. Pode utilizar os seguintes operadores:  
   
-            -   **Igual a**  
+            -   **igual a**  
   
             -   **Não é igual a**  
   

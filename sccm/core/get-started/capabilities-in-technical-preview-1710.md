@@ -1,24 +1,20 @@
 ---
-title: "Pré-visualização técnica 1710 | Microsoft Docs"
+title: Pré-visualização técnica 1710 | Microsoft Docs
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1710 para o System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1710 para o System Center Configuration Manager.
 ms.date: 11/20/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: f4706a58-1f11-4eab-b1eb-3d1a0da02d0f
-author: erikje
-ms.author: erikje
-manager: angrobe
-ms.openlocfilehash: ed5f977df79114e1209cd3cc82d2e56e8e728c3d
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 730d14c5985c088d964761bb83043f3a34924486
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1710-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1710 do System Center Configuration Manager
 
@@ -114,7 +110,7 @@ Dispositivos geridos tem de executar o Windows 10 1709 Outono criadores Update o
 | Proteção exploit  | Nenhum  |
 | Proteção de rede  |  Dispositivos têm de ter [proteção em tempo real do Windows Defender AV]( https://docs.microsoft.com/windows/threat-protection/windows-defender-exploit-guard/controlled-folders-exploit-guard) ativada.  |
 
-### <a name="create-an-exploit-guard-policy----1355468---"></a>Criar uma política de proteção Exploit<!--1355468 -->
+### <a name="create-an-exploit-guard-policy----1355468---"></a>Criar uma política de proteção Exploit  <!--1355468 -->
 1.  Na consola do Configuration Manager, vá para **ativos e compatibilidade** > **Endpoint Protection**e, em seguida, clique em **Windows Defender exploram Guard**.
 2.  No **home page** separador o **criar** , clique em **criar política exploram**.
 3.  Na página **Geral** do **Assistente de Criação de Item de Configuração**, especifique um nome e uma descrição opcional para o item de configuração.
@@ -153,12 +149,12 @@ Para utilizar certificados CNG, a sua autoridade de certificação (AC) tem de f
 Para obter os melhores resultados, recomendamos a criação de nome do requerente de informações do Active Directory.  Utilize o nome de DNS para **formato de nome de requerente** e incluir o nome DNS no nome do requerente alternativo.  Caso contrário, terá de fornecer estas informações quando inscreve o dispositivo para o perfil de certificado.
 
 
-## <a name="improved-descriptions-for-pending-computer-restarts-----1356283---"></a>Descrições melhoradas para pendentes reinícios de computador<!--1356283 -->
+## <a name="improved-descriptions-for-pending-computer-restarts-----1356283---"></a>Descrições melhoradas para pendentes reinícios de computador   <!--1356283 -->
 No [pré-visualização técnica 1708](/sccm/core/get-started/capabilities-in-technical-preview-1708#restart-computers-from-the-configuration-manager-console), adicionámos a capacidade para identificar dispositivos que estão pendente um reinício a partir da consola do Configuration Manager.
 
 A partir desta pré-visualização técnica, a consola apresenta detalhes adicionais que fornecem informações sobre o processo ou a ação que está a pedir o reinício.
 
-## <a name="device-guard-policy-changes----1355092---"></a>Alterações de política de proteção de dispositivos<!-- 1355092 -->
+## <a name="device-guard-policy-changes----1355092---"></a>Alterações de política de proteção de dispositivos <!-- 1355092 -->
 Com a compilação de pré-visualização técnica 1710, foram efetuadas as seguintes alterações de três em relação a políticas de proteção de dispositivos:
 
 ### <a name="device-guard-policies-renamed-to-windows-defender-application-control-policies"></a>Políticas de proteção de dispositivos mudadas para políticas de controlo de aplicação do Windows Defender
@@ -194,7 +190,7 @@ Para permitir que um dispositivo com o Windows Defender SmartScreen executar sof
 3.  No **fidedigna ficheiros ou pastas** caixa, adicione os ficheiros e pastas que pretende que sejam fidedignos.
 4.  Clique em **seguinte** até que o assistente ser concluído.
 
-## <a name="configure-and-deploy-windows-defender-application-guard-policies----1351960---"></a>Configurar e implementar políticas de proteção de aplicações do Windows Defender<!-- 1351960 -->
+## <a name="configure-and-deploy-windows-defender-application-guard-policies----1351960---"></a>Configurar e implementar políticas de proteção de aplicações do Windows Defender <!-- 1351960 -->
 
 [Proteção de aplicações do Windows Defender](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) é uma nova funcionalidade do Windows que ajuda a proteger os seus utilizadores abrindo não fidedignos web sites num contentor isolado seguro que não pode ser acedido por outras partes do sistema operativo. Esta pré-visualização técnica, adicionámos suporte para configurar esta funcionalidade utilizando as definições de compatibilidade do Configuration Manager que configurar e, em seguida, implementar numa coleção. Esta funcionalidade será lançada em pré-visualização para a versão de 64 bits da atualização do Windows 10 Creator (nome: RS2). Para testar esta funcionalidade agora, tem de utilizar uma versão de pré-visualização desta atualização.
 

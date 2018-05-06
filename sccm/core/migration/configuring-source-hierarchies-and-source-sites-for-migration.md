@@ -1,26 +1,20 @@
 ---
-title: "Hierarquias de origem de migração"
+title: Hierarquias de origem de migração
 titleSuffix: Configuration Manager
 description: Configure uma hierarquia de origem e sites de origem, pelo que pode migrar dados para o seu ambiente do System Center Configuration Manager.
-ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: ccce7cb5-e18f-4337-8adf-2018edca3c00
-caps.latest.revision: "5"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 7977f66c71da300c59c7781f09975ca08ddea0b9
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: d9ef1ca2dd2763cf5b96fd82031a2ef38ef64927
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Configurar hierarquias de origem e sites de origem para migração para o System Center Configuration Manager
 
@@ -37,7 +31,7 @@ Para permitir a migração de dados para o seu ambiente do System Center Configu
 
 -   [Identificar sites de origem adicionais da hierarquia de origem](#BKBM_ConfigSrcSites)  
 
-##  <a name="BKBM_ConfigSrcHierarchy"></a>Especificar uma hierarquia de origem para migração  
+##  <a name="BKBM_ConfigSrcHierarchy"></a> Especificar uma hierarquia de origem para migração  
  Para migrar dados para a hierarquia de destino, tem de especificar uma hierarquia de origem suportada que tem os dados que pretende migrar. Por predefinição, no site de nível superior dessa hierarquia torna-se um site de origem da hierarquia de origem. Se migrar de uma hierarquia do Configuration Manager 2007, pode, em seguida, configurar sites de origem adicionais para migração após a recolha de dados do site de origem inicial. Se migrar de uma hierarquia do System Center 2012 Configuration Manager ou System Center Configuration Manager, não terá de configurar sites de origem adicionais para migrar os dados da hierarquia de origem. Isto acontece porque estas versões do Configuration Manager utilizarem uma base de dados partilhada que está disponível no site de nível superior da hierarquia de origem. A base de dados partilhado tem todas as informações que pode migrar.  
 
  Utilize os procedimentos seguintes para especificar uma hierarquia de origem para migração e para identificar sites de origem adicionais numa hierarquia do Configuration Manager 2007.  
@@ -70,7 +64,7 @@ Para permitir a migração de dados para o seu ambiente do System Center Configu
 
 9. Quando estiver concluída, a recolha de dados clique **fechar** para fechar o **estado de recolha de dados** diálogo caixa e concluir a configuração.  
 
-##  <a name="BKBM_ConfigSrcSites"></a>Identificar sites de origem adicionais da hierarquia de origem  
+##  <a name="BKBM_ConfigSrcSites"></a> Identificar sites de origem adicionais da hierarquia de origem  
  Quando configura uma hierarquia de origem suportada, o site de nível superior dessa hierarquia é automaticamente configurado como um site de origem e dados são recolhidos automaticamente a partir desse site. A próxima ação que tomar depende da versão do Configuration Manager que é executada pela hierarquia de origem:  
 
 -   Para uma hierarquia de origem do Configuration Manager 2007, pode começar a migração a partir desse site de origem inicial ou configurar sites de origem adicionais da hierarquia de origem após a conclusão da recolha de dados para o site de origem inicial. Para migrar os dados que estão disponíveis apenas de um site subordinado, configure sites de origem adicionais para uma hierarquia do Configuration Manager 2007. Por exemplo, pode configurar sites de origem adicionais para recolher dados sobre o conteúdo que pretende migrar quando é criado um site subordinado na hierarquia de origem e não está disponível no site de nível superior da hierarquia de origem.  

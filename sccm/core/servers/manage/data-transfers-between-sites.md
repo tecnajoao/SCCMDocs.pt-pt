@@ -1,25 +1,20 @@
 ---
-title: "Transferências de dados"
+title: Transferências de dados
 titleSuffix: Configuration Manager
-description: "Saiba como o Configuration Manager move dados entre sites e como pode gerir a transferência dos dados através da rede."
-ms.custom: na
+description: Saiba como o Configuration Manager move dados entre sites e como pode gerir a transferência dos dados através da rede.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: dc526e8d-fac3-4bb5-b206-03ad29b0ae11
-caps.latest.revision: "12"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 185598e9f6b0678ca1fcbe9c19ed420f37805861
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 45fb1bc31a7e888ca4caa21a710e74ec0fde422c
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-transfers-between-sites-in-system-center-configuration-manager"></a>Transferência de dados entre sites no System Center Configuration Manager
 
@@ -179,7 +174,7 @@ Cada site resume periodicamente os dados sobre o tráfego de rede que atravessa 
 
 Por predefinição, o resumo ocorre a cada 15 minutos. Para modificar a frequência do resumo para o tráfego de rede, nas propriedades de ligação de replicação de base de dados, edite o **intervalo de resumo**. A frequência do resumo afeta as informações visualizadas em relatórios sobre a replicação de base de dados. Pode escolher um intervalo de entre 5 minutos e 60 minutos. Quando aumenta a frequência do resumo, aumenta a carga de processamento no SQL server em cada site na ligação de replicação.  
 
-### <a name="BKMK_DBRepThresholds"></a>Limiares de replicação de base de dados  
+### <a name="BKMK_DBRepThresholds"></a> Limiares de replicação de base de dados  
 Os limiares de replicação de base de dados definem quando o estado de uma ligação de replicação de base de dados é comunicado como degradado ou falhado. Por predefinição, uma ligação é definida para o estado degradado quando qualquer grupo de replicação de uma falha ao concluir a replicação para um período de ocorrem consecutivamente 12 tentativas. A ligação é definida para o estado de falha quando qualquer grupo de replicação não consegue replicar ocorrem consecutivamente 24 tentativas.  
 
 Pode especificar valores personalizados a otimizar quando o Configuration Manager apresenta uma ligação de replicação como degradada ou falhada. Adjusting quando os relatórios do Configuration Manager em cada Estado para as ligações de replicação de base de dados pode ajudá-lo com precisão monitorizar o estado de funcionamento da replicação de base de dados em todas as ligações de replicação de base de dados.  

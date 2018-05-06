@@ -2,25 +2,19 @@
 title: PMEC
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as definições do programa de melhoramento da experiência de cliente
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: bd5b34c9-7304-4743-81c3-96f1e0c80702
-caps.latest.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d1cb071e780f2e1552495f3a0fa89c71bbef3cc0
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: d9bf25066e0f04b2885dc161542380b8b0df0cb0
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customer-experience-improvement-program-ceip-for-system-center-configuration-manager"></a>Programa de Melhoramento da Experiência do Cliente (PMEC) para o System Center Configuration Manager
 

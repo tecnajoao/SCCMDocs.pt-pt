@@ -2,24 +2,19 @@
 title: Monitorizar o estado do Endpoint Protection
 titleSuffix: Configuration Manager
 description: Saiba como monitorizar o Endpoint Protection na sua hierarquia do System Center Configuration Manager.
-ms.custom: na
 ms.date: 03/13/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-protect
+ms.topic: conceptual
 ms.assetid: f4a1335c-bb3d-493e-a124-83a32a107dc8
-caps.latest.revision: "8"
-author: NathBarn
-ms.author: nathbarn
-manager: angrobe
-ms.openlocfilehash: 9e6356f8b3814ac49c26bfa4d319c3c9926a4382
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: f4e1ea4cb097381467774af9c3161079419d6840
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-monitor-endpoint-protection-status"></a>Como monitorizar o estado do Endpoint Protection
 
@@ -27,7 +22,7 @@ ms.lasthandoff: 10/12/2017
 
 Pode monitorizar o Endpoint Protection na sua hierarquia do Microsoft System Center Configuration Manager, utilizando o **estado do Endpoint Protection** nó **segurança** no **monitorização** área de trabalho, o **Endpoint Protection** no nó a **ativos e compatibilidade** área de trabalho e utilizando relatórios.  
 
-##  <a name="BKMK_1"></a>Como monitorizar o Endpoint Protection utilizando o nó de estado do Endpoint Protection  
+##  <a name="BKMK_1"></a> Como monitorizar o Endpoint Protection utilizando o nó de estado do Endpoint Protection  
 
 1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
@@ -38,7 +33,7 @@ Pode monitorizar o Endpoint Protection na sua hierarquia do Microsoft System Cen
     > [!IMPORTANT]  
     >  As coleções estão disponíveis para seleção nos seguintes casos:  
     >   
-    >  -   Quando seleciona **ver esta coleção no dashboard do Endpoint Protection** no **alertas** separador do *< nome da coleção\>***propriedades** caixa de diálogo.  
+    >  -   Quando seleciona **ver esta coleção no dashboard do Endpoint Protection** no **alertas** separador do *< nome da coleção\>*** propriedades** caixa de diálogo caixa.  
     > -   Ao implementar uma política antimalware do Endpoint Protection para a coleção.  
     > -   Quando ativa e implementar definições de cliente do Endpoint Protection na coleção.  
 
@@ -47,7 +42,7 @@ Pode monitorizar o Endpoint Protection na sua hierarquia do Microsoft System Cen
     > [!IMPORTANT]  
     >  Informações que são apresentadas no **estado do Endpoint Protection** nós baseia-se nos últimos dados que foram resumidos a partir da base de dados do Configuration Manager e podem não ser atuais. Se pretender obter os dados mais recentes, no separador **Home Page** , clique em **Executar Resumo**ou clique em **Agendar Resumo** para ajustar o intervalo de resumo.  
 
-##  <a name="BKMK_2"></a>Como monitorizar o Endpoint Protection no ativos e compatibilidade área de trabalho  
+##  <a name="BKMK_2"></a> Como monitorizar o Endpoint Protection no ativos e compatibilidade área de trabalho  
 
 1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
@@ -59,7 +54,7 @@ Pode monitorizar o Endpoint Protection na sua hierarquia do Microsoft System Cen
 
 3.  No *< nome da coleção\>*  lista, selecione um computador e, em seguida, clique o **detalhe de software maligno** separador.  
 
-##  <a name="BKMK_3"></a>Como monitorizar o Endpoint Protection utilizando relatórios  
+##  <a name="BKMK_3"></a> Como monitorizar o Endpoint Protection utilizando relatórios  
  Utilize os seguintes relatórios para ver informações sobre o Endpoint Protection na sua hierarquia. Também pode utilizar estes relatórios para ajudar a resolver quaisquer problemas do Endpoint Protection. Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md) e [ficheiros de registo no System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). Os relatórios de Endpoint Protection estão na pasta do Endpoint Protection.  
 
 |Nome do Relatório|Descrição|  

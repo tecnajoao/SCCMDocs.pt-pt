@@ -1,26 +1,20 @@
 ---
-title: "Monitor de replicação"
+title: Monitor de replicação
 titleSuffix: Configuration Manager
-description: "Saiba como monitorizar a infraestrutura e operações no Configuration Manager utilizando a área de trabalho monitorização na consola do."
-ms.custom: na
+description: Saiba como monitorizar a infraestrutura e operações no Configuration Manager utilizando a área de trabalho monitorização na consola do.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 3fab4d67-8d2a-45ce-8b06-471280102cf6
-caps.latest.revision: "11"
-caps.handback.revision: "0"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 459a619d08a5d38c51301e2f6cff23a5d46a9464
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 04faf92545f84fdf53c522ad9aa0c74bbd5c4aa1
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-hierarchy-and-replication-infrastructure-in-system-center-configuration-manager"></a>Monitorizar a infraestrutura de hierarquia e replicação no System Center Configuration Manager
 
@@ -201,7 +195,7 @@ Pode executar o analisador do Link de replicação na consola do Configuration M
 
 -   Para executar na consola do Configuration Manager: No **monitorização** área de trabalho, clique em de **replicação de base de dados** nó, selecione a ligação de replicação que pretende analisar, e, em seguida, no **replicação de base de dados** grupo o **home page** separador, selecione **analisador do Link de replicação**.  
 
--   Para executar numa linha de comandos, escreva o seguinte comando: **%path%\Microsoft Configuration Manager\AdminConsole\bin\Microsoft.ConfigurationManager.ReplicationLinkAnalyzer.Wizard.exe &lt;FQDN do servidor de site de origem\> &lt;FQDN do servidor de site de destino\>**  
+-   Para executar numa linha de comandos, escreva o seguinte comando: **%path%\Microsoft Configuration Manager\AdminConsole\bin\Microsoft.ConfigurationManager.ReplicationLinkAnalyzer.Wizard.exe &lt;FQDNdoservidordesitedeorigem\> &lt;FQDN do servidor de site de destino\>**  
 
 Quando o Analisador de Ligações de Replicação é executado, deteta problemas através da utilização de um conjunto de regras de diagnóstico e verificações. Quando a ferramenta é executada, é possível ver os problemas que a ferramenta identifica. Quando as instruções para resolver um problema são conhecidas, estas são apresentadas. Se o Analisador de Ligações de Replicação puder remediar automaticamente um problema, essa opção é apresentada. Quando terminar de analisador do Link de replicação, guarda os resultados no seguinte relatório baseado em XML e um ficheiro de registo no ambiente de trabalho do utilizador que executa a ferramenta:  
 

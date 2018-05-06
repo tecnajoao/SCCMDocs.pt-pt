@@ -1,25 +1,20 @@
 ---
-title: "Pré-requisitos para sites"
+title: Pré-requisitos para sites
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre os pré-requisitos para instalar os diferentes tipos de sites do System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre os pré-requisitos para instalar os diferentes tipos de sites do System Center Configuration Manager.
 ms.date: 7/31/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 92b339ef-2723-4322-bec6-077b3e8846b0
-caps.latest.revision: "5"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 07e57a15834d2f29444f47b9503cc04947f36150
-ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 6e45ec9aca5ee1a14f9058453497003814b2fdb0
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Pré-requisitos de instalação de sites do System Center Configuration Manager
 
@@ -30,7 +25,7 @@ Antes de iniciar uma instalação de site, é uma boa ideia para saber mais sobr
 ## <a name="primary-sites-and-the-central-administration-site"></a>Sites primários e o site de administração central
 Os seguintes pré-requisitos aplicam-se a instalação de um site de administração central como o primeiro site numa hierarquia, instalar um site primário autónomo ou instalar um site primário subordinado. Se estiver a instalar um site de administração central como parte de uma expansão da hierarquia, consulte o artigo [expandir um site primário autónomo](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand) neste tópico.
 
-###  <a name="bkmk_PrereqPri"></a>Pré-requisitos para instalar um site primário ou site de administração central  
+###  <a name="bkmk_PrereqPri"></a> Pré-requisitos para instalar um site primário ou site de administração central  
 
 -   A conta de utilizador que instala o site tem de ter os seguintes direitos de:  
 
@@ -60,7 +55,7 @@ Os seguintes pré-requisitos aplicam-se a instalação de um site de administra�
 - O servidor do site e computadores de base de dados do site tem de cumprir todas as configurações de pré-requisitos. Antes de iniciar a configuração, pode [executar manualmente o Verificador de pré-requisitos](../../../../core/servers/deploy/install/prerequisite-checker.md) para identificar e corrigir problemas.  
 
 
-### <a name="bkmk_expand"></a>Pré-requisitos para expandir um site primário autónomo
+### <a name="bkmk_expand"></a> Pré-requisitos para expandir um site primário autónomo
 Pode expandi-lo para uma hierarquia com um site de administração central, um site primário autónomo tem de cumprir os seguintes pré-requisitos:
 
 -   **Tem de instalar a nova instalação de site de administração central utilizando suportes de dados de um CD. Pasta mais recente (que contém os ficheiros de origem) que corresponde à versão do site primário autónomo**
@@ -114,7 +109,7 @@ Utilize os seguintes passos para resolver este problema:
  3.   Reconfigure a ligação ao serviço do Azure para utilização com o Configuration Manager.
 
 
-## <a name="bkmk_secondary"></a>Sites secundários
+## <a name="bkmk_secondary"></a> Sites secundários
 Seguem-se os pré-requisitos para instalar sites secundários:
 -   O administrador configura a instalação do site secundário na consola do Configuration Manager tem de ter direitos de administração baseada em funções que sejam equivalentes à função de segurança de **administrador de infraestrutura** ou **administrador total**.  
 -   A conta de computador do site primário principal tem de ser um **administrador** no computador do servidor de site secundário.  

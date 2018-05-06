@@ -1,28 +1,23 @@
 ---
-title: "Novidade na versão 1602"
+title: Novidade na versão 1602
 titleSuffix: Configuraton Manager
-description: "Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1602 do System Center Configuration Manager."
-ms.custom: na
+description: Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1602 do System Center Configuration Manager.
 ms.date: 12/30/2016
-ms.reviewer: na
-ms.suite: na
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 4021eca1-adfb-4e5a-adee-159263c29637
-caps.latest.revision: "3"
-author: mestew
-ms.author: mstewart
-manager: angrobe
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: a9d6d0f4dcf2b57c21d54e35fb3f61668d2cbea3
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: cdc8797d436e50c60f17d4c26c802465608bb26a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1602 do System Center Configuration Manager
+# <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>O que&#39;s novidade na versão 1602 do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -40,7 +35,7 @@ Atualize para o System Center Configuration Manager só está disponível como u
 
 ## <a name="site-infrastructure"></a>Infraestrutura de sites  
 
-###  <a name="bkmk_UpgradeOS"></a>No local atualizar o sistema operativo de servidores de sites que executam o Windows Server 2008 R2  
+###  <a name="bkmk_UpgradeOS"></a> No local atualizar o sistema operativo de servidores de sites que executam o Windows Server 2008 R2  
  Os sites do Configuration Manager com a versão 1602 ou posterior suportam a atualização no local do sistema de sites servidores operativo do Windows Server 2008 R2 para o Windows Server 2012 R2.  
 
 > [!WARNING]  
@@ -50,7 +45,7 @@ Atualize para o System Center Configuration Manager só está disponível como u
 
  Para atualizar um servidor, utilize os procedimentos de atualização do Windows Server 2012 R2. Não é necessário executar o restauro do servidor de site após a atualização do Configuration Manager. Para saber quais são os procedimentos de atualização, veja [Opções de Atualização do Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) na documentação do Windows Server.  
 
-###  <a name="bkmk_AOAG"></a>Grupos de Disponibilidade AlwaysOn do SQL Server  
+###  <a name="bkmk_AOAG"></a> Grupos de Disponibilidade AlwaysOn do SQL Server  
  Utilize grupos de Disponibilidade AlwaysOn do SQL Server para alojar a base de dados do site em sites primários e o site de administração central como uma solução de elevada disponibilidade e recuperação após desastre.  
 
  Para obter mais informações, consulte [SQL Server AlwaysOn para uma base de dados do site de elevada disponibilidade para o System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  

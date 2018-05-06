@@ -1,26 +1,20 @@
 ---
 title: 'Personalizar imagens de arranque '
 titleSuffix: Configuration Manager
-description: "Saiba várias formas de utilizar a ferramenta de linha de comandos do Configuration Manager ou Deployment Image Servicing and Management (DISM) para personalizar uma imagem de arranque."
-ms.custom: na
+description: Saiba várias formas de utilizar a ferramenta de linha de comandos do Configuration Manager ou Deployment Image Servicing and Management (DISM) para personalizar uma imagem de arranque.
 ms.date: 01/23/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 9cbfc406-d009-446d-8fee-4938de48c919
-caps.latest.revision: "15"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 184768e87406051508c8dcacfa63db5ff85c3732
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 3532e6db7b4ece1676c9b9f41f9336274ac3d117
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personalizar imagens de arranque com o System Center Configuration Manager
 
@@ -141,7 +135,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\ \\ <**  *servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
+        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo: **\\ \\ < ***servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
 
         -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
 
@@ -165,7 +159,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Numa linha de comandos, escreva **wbemtest** para abrir o Recurso de Teste do Windows Management Instrumentation.  
 
-    5.  Tipo  **\\ \\ <**  *computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*  **>**  no **espaço de nomes**e, em seguida, clique em **Connect**.  
+    5.  Tipo **\\ \\ < ***computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*** >** no **Espaço de nomes**e, em seguida, clique em **Connect**.  
 
     6.  Clique em **Abrir Instância**, escreva **sms_bootimagepackage.packageID="<packageID\>"** e, em seguida, clique em **OK**. Para packageID, introduza o valor que identificou no passo 3.  
 
@@ -257,7 +251,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\ \\ <**  *servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
+        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo: **\\ \\ < ***servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
 
         -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
 
@@ -281,7 +275,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Numa linha de comandos, escreva **wbemtest** para abrir o Recurso de Teste do Windows Management Instrumentation.  
 
-    5.  Tipo  **\\ \\ <**  *computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*  **>**  no **espaço de nomes**e, em seguida, clique em **Connect**.  
+    5.  Tipo **\\ \\ < ***computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*** >** no **Espaço de nomes**e, em seguida, clique em **Connect**.  
 
     6.  Clique em **Abrir Instância**, escreva **sms_bootimagepackage.packageID="<packageID\>"** e, em seguida, clique em **OK**. Para packageID, introduza o valor que identificou no passo 3.  
 

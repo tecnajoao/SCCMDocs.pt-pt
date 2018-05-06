@@ -1,26 +1,20 @@
 ---
-title: "Migração de conteúdo"
+title: Migração de conteúdo
 titleSuffix: Configuration Manager
-description: "Utilize pontos de distribuição para gerir o conteúdo ao migrar dados para uma hierarquia de destino do System Center Configuration Manager."
-ms.custom: na
+description: Utilize pontos de distribuição para gerir o conteúdo ao migrar dados para uma hierarquia de destino do System Center Configuration Manager.
 ms.date: 12/30/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 66f7759c-6272-4116-aad7-0d05db1d46cd
-caps.latest.revision: "8"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 7332ff4bf0ad10bd18e42485fb548eee70deaf04
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: d261b246c0718777be56425c7783d05f767575df
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="plan-a-content-deployment-migration-strategy-in-system-center-configuration-manager"></a>Planear uma estratégia de migração de implementação de conteúdos no System Center Configuration Manager
 
@@ -91,7 +85,7 @@ Os pontos de distribuição elegíveis não são visíveis na consola do Configu
 
 Depois de ter partilhado pontos de distribuição, pode alterar a configuração de qualquer ponto de distribuição partilhado na hierarquia de origem. As alterações efetuadas à configuração de um ponto de distribuição são refletidas na hierarquia de destino após os ciclo de recolha de dados seguinte. Os pontos de distribuição que tenha atualizado para serem elegíveis para partilha são partilhados automaticamente, enquanto aqueles que já não são elegíveis deixam de ser partilhados. Por exemplo, pode ter um ponto de distribuição que não está configurado com um FQDN de intranet e não foi inicialmente partilhado com a hierarquia de destino. Depois de configurar o FQDN para esse ponto de distribuição, os ciclo de recolha de dados seguinte identifiquem esta configuração e o ponto de distribuição é partilhado com a hierarquia de destino.  
 
-##  <a name="Planning_to_Upgrade_DPs"></a>Planear a atualização de pontos de distribuição partilhados do Configuration Manager 2007  
+##  <a name="Planning_to_Upgrade_DPs"></a> Planear a atualização de pontos de distribuição partilhados do Configuration Manager 2007  
 Quando migra de uma hierarquia de origem do Configuration Manager 2007, pode atualizar um ponto de distribuição partilhado para o tornar um ponto de distribuição do System Center Configuration Manager. Pode atualizar os pontos de distribuição em sites primários e sites secundários. O processo de atualização remove o ponto de distribuição da hierarquia do Configuration Manager 2007 e faz com que um servidor de sistema de sites na hierarquia de destino. Este processo também copia o conteúdo existente no ponto de distribuição para uma nova localização no computador do ponto de distribuição. Em seguida, o processo de atualização modifica a cópia do conteúdo para criar o single instance store para utilização com a implementação de conteúdos na hierarquia de destino. Por conseguinte, quando atualiza um ponto de distribuição, necessita de redistribuir conteúdo migrado que se encontrava alojado no ponto de distribuição do Configuration Manager 2007.  
 
 Depois do Configuration Manager converte o conteúdo para o arquivo de instância única, o Configuration Manager elimina o conteúdo de origem original no computador do ponto de distribuição para libertar espaço em disco. O Configuration Manager não utiliza a localização de conteúdo de origem original.  
@@ -152,7 +146,7 @@ Pode monitorizar o progresso de uma atualização do ponto de distribuição na 
 
 Se optar por não atualizar um ponto de distribuição partilhado, ainda assim instalar um ponto de distribuição da hierarquia de destino num ponto de distribuição do Configuration Manager 2007 anteriores. Antes de poder instalar o novo ponto de distribuição, tem de desinstalar primeiro todas as funções de sistema de sites do Configuration Manager 2007 do computador do ponto de distribuição. Isto inclui o site do Configuration Manager 2007, se se tratar de computador do servidor do site. Quando desinstala um ponto de distribuição do Configuration Manager 2007, o conteúdo que foi implementado para o ponto de distribuição não é eliminado do computador.  
 
-###  <a name="BKMK_UpgradeSS"></a>Planear a atualização dos sites secundários do Configuration Manager 2007  
+###  <a name="BKMK_UpgradeSS"></a> Planear a atualização dos sites secundários do Configuration Manager 2007  
  Quando utilizar a migração para atualizar um ponto de distribuição partilhado que está alojado no servidor do site secundário do Configuration Manager 2007, o Configuration Manager atualiza a função do sistema de sites ponto de distribuição para um ponto de distribuição na hierarquia de destino. Também desinstala o site secundário da hierarquia de origem. O resultado é um ponto de distribuição do System Center Configuration Manager, mas nenhum site secundário.  
 
  Para um ponto de distribuição no computador do servidor do site seja elegível para atualização do Configuration Manager tem de conseguir desinstalar o site secundário e cada uma das funções de sistema de sites nesse computador. Normalmente, um ponto de distribuição partilhado numa partilha de servidor do Configuration Manager 2007 é elegível para atualização. No entanto, se existir uma partilha de servidor no servidor do site secundário, o site secundário e os pontos de distribuição partilhados nesse computador não serão elegíveis para atualização. Isto acontece porque a partilha do servidor é tratada como um objeto de sistema de sites adicionais quando o processo tenta desinstalar o site secundário, e este processo não é possível instalar este objeto. Neste cenário, poderá ativar um ponto de distribuição padrão no servidor de site secundário e, em seguida, redistribuir os conteúdos a esse ponto de distribuição padrão. Este processo não utiliza largura de banda de rede e, quando terminar, pode desinstalar o ponto de distribuição na partilha de servidor, remova a partilha do servidor e, em seguida, atualizar o ponto de distribuição e o site secundário.  
@@ -170,7 +164,7 @@ Se optar por não atualizar um ponto de distribuição partilhado, ainda assim i
 
  Para obter mais informações sobre como atualizar um ponto de distribuição partilhado, consulte [pontos de distribuição partilhados do plano de atualização do Configuration Manager 2007](#Planning_to_Upgrade_DPs).  
 
-##  <a name="BKMK_ReassignDistPoint"></a>Plano para reatribuir os pontos de distribuição do System Center Configuration Manager  
+##  <a name="BKMK_ReassignDistPoint"></a> Plano para reatribuir os pontos de distribuição do System Center Configuration Manager  
  Quando migra de uma versão suportada do System Center 2012 Configuration Manager para uma hierarquia com a mesma versão, pode reatribuir um ponto de distribuição partilhados da hierarquia de origem para um site na hierarquia de destino. Isto é, como o conceito de atualização de um ponto de distribuição do Configuration Manager 2007 para se tornar um ponto de distribuição na hierarquia de destino. Pode reatribuir os pontos de distribuição de sites primários e sites secundários. A ação para reatribuir um ponto de distribuição remove o ponto de distribuição da hierarquia de origem e faz com que o computador e o respetivo ponto de distribuição de um servidor de sistema de sites do site que selecionar na hierarquia de destino.  
 
  Ao reatribuir um ponto de distribuição, não necessita de redistribuir os conteúdos migrados que se encontravam alojados no ponto de distribuição do site de origem. Além disso, ao contrário da atualização de um ponto de distribuição do Configuration Manager 2007, reatribuição de um ponto de distribuição não necessita de espaço em disco adicional no computador do ponto de distribuição. Isto acontece porque a partir do System Center 2012 Configuration Manager, os pontos de distribuição utilizam o formato de arquivo de instância única para o conteúdo. Os conteúdos no computador do ponto de distribuição não necessitam de ser convertidos quando o ponto de distribuição é reatribuído entre hierarquias.  
@@ -203,7 +197,7 @@ Anteriores à versão 1610, Gestor de configuração foi processar apenas um pon
 - Quando utilizar o SDK do Configuration Manager, pode alterar **SharedDPImportThreadLimit** para ajustar o número de pontos de distribuição reatribuídas que pode processar do Configuration Manager em paralelo.
 
 
-##  <a name="About_Migrating_Content"></a>Atribuir propriedade dos conteúdos ao migrar conteúdo  
+##  <a name="About_Migrating_Content"></a> Atribuir propriedade dos conteúdos ao migrar conteúdo  
  Ao migrar conteúdo para implementações,necessita de atribuir o objeto do conteúdo a um site da hierarquia de destino. Em seguida, este site torna-se o proprietário desse conteúdo na hierarquia de destino. Embora o site de nível superior da hierarquia de destino é o site migra os metadados do conteúdo, é o site atribuído que utiliza os ficheiros de origem original para o conteúdo através da rede.  
 
  Para reduzir ao mínimo a largura de banda de rede que é utilizada para migrar os conteúdos, pondere transferir a propriedade dos conteúdos para um site da hierarquia de destino que esteja num local próximo da rede da localização dos conteúdos na hierarquia de origem. Dado que as informações sobre os conteúdos da hierarquia de destino são partilhadas globalmente, ficarão disponíveis em todos os sites.  

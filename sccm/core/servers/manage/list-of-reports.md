@@ -2,26 +2,19 @@
 title: Lista de relatórios
 titleSuffix: Configuration Manager
 description: Reveja uma lista de relatórios que são fornecidos com o Configuration Manager. Os relatórios são apresentados em várias categorias.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: b7332ed3-8003-454b-bb12-1fdf8721425c
-caps.latest.revision: ''
-caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b15726b2551464c178774dc2c87a6a2f41a37c07
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: d486907a7819758b27c9a644214ed4d5ec873762
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="list-of-reports-in-system-center-configuration-manager"></a>Lista de relatórios no System Center Configuration Manager
 
@@ -545,7 +538,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 |**Contagem de produtos e versões inventariados para um produto específico**|Mostra uma lista das versões inventariadas de um produto especificado e o número de computadores nos quais estão instaladas.|  
 |**Contagem de todas as instâncias de software registadas em Adicionar ou remover programas**|Mostra um resumo de todas as instâncias do software instalado e registado em Adicionar/Remover Programas ou em Programas e Funcionalidades nos computadores da coleção especificada.|  
 |**Contagem de instâncias de software específico registado em Adicionar / remover programas**|Mostra uma contagem das instâncias dos pacotes de software especificados instalados e registados em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
-|**Contagens de Browser predefinido**|Mostra a contagem de clientes com um browser específico como a predefinição do Windows. </br>Utilize a referência seguinte para BrowserProgIDs comuns:</br> - AppXq0fevzme2pys62n3e0fbqa7peapykr8v: Microsoft Edge</br> -I/E. HTTP: Microsoft Internet Explorer</br> - ChromeHTML: Google Chrome</br> -OperaStable: Opera Software</br> - FirefoxURL-308046B0AF4A39CB: Mozilla Firefox</br> -Desconhecido: o SO de cliente não suporta a consulta, a consulta não tiver sido executada ou um utilizador não tem sessão iniciada|
+|**Contagens de Browser predefinido**|Mostra a contagem de clientes com um browser específico como a predefinição do Windows. </br>Utilize a referência seguinte para BrowserProgIDs comuns:</br> - AppXq0fevzme2pys62n3e0fbqa7peapykr8v: Microsoft Edge</br> -I/E. HTTP: Microsoft Internet Explorer</br> -ChromeHTML: Google Chrome</br> -OperaStable: Opera Software</br> - FirefoxURL-308046B0AF4A39CB: Mozilla Firefox</br> -Desconhecido: o SO de cliente não suporta a consulta, a consulta não tiver sido executada ou um utilizador não tem sessão iniciada|
 |**Instalações de aplicações do Windows especificadas**|Este relatório mostra uma lista de todos os computadores com uma aplicação especificada do Windows|  
 |**Produtos num computador específico**|Mostra um resumo dos produtos de software inventariados e os seus fabricantes num computador especificado.|  
 |**Software registado em Adicionar/remover programas num computador específico**|Mostra um resumo do software instalado num computador especificado que esteja registado em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  

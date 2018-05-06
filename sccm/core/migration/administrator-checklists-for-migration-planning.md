@@ -1,26 +1,20 @@
 ---
-title: "Listas de verificação da migração"
+title: Listas de verificação da migração
 titleSuffix: Configuration Manager
-description: "Utilize as listas de verificação de administrador para o ajudar a planear uma estratégia de migração para o System Center Configuration Manager."
-ms.custom: na
+description: Utilize as listas de verificação de administrador para o ajudar a planear uma estratégia de migração para o System Center Configuration Manager.
 ms.date: 12/29/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 295fdf07-93cc-490c-acdd-ce3ee88cb36f
-caps.latest.revision: "7"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 2bf39fbf27020ed1f518e44cddd8e236c8ca762f
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 06e85a0b372aea34a041f050d311178967dc18b5
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="administrator-checklists-for-migration-planning-in-system-center-configuration-manager"></a>Listas de verificação de administrador para planeamento da migração no System Center Configuration Manager
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 01/04/2018
 
 Utilize as seguintes listas de verificação de administrador para o ajudar a planear a estratégia de migração para o System Center Configuration Manager.
 
-##  <a name="Checklist_Migraiton_Planning"></a>Lista de verificação de administrador para planeamento da migração  
+##  <a name="Checklist_Migraiton_Planning"></a> Lista de verificação de administrador para planeamento da migração  
  Utilize a lista de verificação seguinte para passos de planeamento da pré-migração.  
 
 -   **Avalie o ambiente atual:**  
@@ -76,7 +70,7 @@ Utilize as seguintes listas de verificação de administrador para o ajudar a pl
 
     Decida quando deverão ser migrados os clientes e os objetos. Depois de concluída a migração, pode optar por desativar os servidores do site na hierarquia de origem.  
 
-##  <a name="Checklist_Hierarchy_for_migration"></a>Lista de verificação de administrador para migração da hierarquia  
+##  <a name="Checklist_Hierarchy_for_migration"></a> Lista de verificação de administrador para migração da hierarquia  
 Utilize a lista de verificação seguinte para planear uma hierarquia de destino antes de iniciar a migração.  
 
 -   **Identifique os computadores a utilizar na hierarquia de destino:**  
@@ -113,7 +107,7 @@ Utilize a lista de verificação seguinte para planear uma hierarquia de destino
     -   Certifique-se de que os clientes do Configuration Manager que instalar à hierarquia de destino podem comunicar corretamente com o respetivo site atribuído.  
 
 
-##  <a name="Checklisit_Migration"></a>Lista de verificação de administrador para migração  
+##  <a name="Checklisit_Migration"></a> Lista de verificação de administrador para migração  
 Utilize a lista de verificação seguinte para migrar dados da hierarquia de origem para a hierarquia de destino.  
 
 -   **Ative a migração na hierarquia de destino:**  

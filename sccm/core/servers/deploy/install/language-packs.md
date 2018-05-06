@@ -1,25 +1,20 @@
 ---
 title: Pacotes de idiomas
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre o suporte de idioma disponível no System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre o suporte de idioma disponível no System Center Configuration Manager.
 ms.date: 1/3/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: cd74e5f5-33f6-4566-8c9d-d6a93bfe71ed
-caps.latest.revision: "10"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: d7553cda2e9cc6bc1ff53afe1e357e767228db69
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: a198e15a1ef389d792acc73f2253aa4a704ac35a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="language-packs-in-system-center-configuration-manager"></a>Pacotes de idiomas no System Center Configuration Manager
 
@@ -27,7 +22,7 @@ ms.lasthandoff: 12/04/2017
 
 Este tópico fornece detalhes técnicos sobre o suporte de idiomas no System Center Configuration Manager.  
 
-## <a name="BKMK_SupLanguagePacks"></a>Idiomas do sistema operativo suportado  
+## <a name="BKMK_SupLanguagePacks"></a> Idiomas do sistema operativo suportado  
  Pode instalar suporte para os idiomas de apresentação nas tabelas seguintes, instalando **pacotes de idiomas de servidor** ou **pacotes de idiomas de cliente** num site de administração central e em sites primários. Selecione os idiomas de servidor e cliente para suportar num site a partir de ficheiros do pacote de idiomas disponíveis durante o processo de instalação do site.
 
  Ficheiros do pacote de idiomas são transferidos quando executa a configuração como parte da transferência do ficheiro redistributable e da pré-requisitos. Também pode utilizar [dispositivo de transferência da configuração](setup-downloader.md) para transferir estes ficheiros antes de executar a configuração.   
@@ -39,7 +34,7 @@ Este tópico fornece detalhes técnicos sobre o suporte de idiomas no System Cen
 |Idioma do servidor|ID de região (LCID)|Código de três letras|  
 |---------------------|------------------------|-----------------------|  
 |Inglês (predefinição)|0409|ENU|  
-|Chinês (Tradicional, R.A.E. Hong Kong)|0c04|ZHH|  
+|Chinês (Tradicional, RAE de Hong Kong)|0c04|ZHH|  
 |Chinês (Simplificado)|0804|CHS|  
 |Chinês (Tradicional, Taiwan)|0404|CHT|  
 |Checo|0405|CSY|  

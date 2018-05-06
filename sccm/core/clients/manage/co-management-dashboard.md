@@ -1,26 +1,20 @@
 ---
 title: Dashboard de gestão conjunta
-titleSuffix: System Center Configuration Manager
+titleSuffix: Configuraton Manager
 description: Rever as informações sobre a gestão conjunta através do dashboard.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: e83a7b0d-b381-4b4a-8eca-850385abbebb
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 380ca748921a806a0e5edf608a62e8a44edf4d84
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: cdf073aa3e9ca3be6062ea0e5e0528bb97937989
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="co-management-dashboard-in-system-center-configuration-manager"></a>Dashboard de gestão conjunta no System Center Configuration Manager
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -43,7 +37,7 @@ O dashboard de gestão conjunta mostra quatro gráficos para o seu ambiente.
     ![Gráfico de dispositivos geridos conjuntamente](media\co-management-dashboard\Percent-Co-managed-graph.PNG)
 
 - **Distribuição de SO de cliente** -mostra o número de cliente dispositivos por SO por versão. São utilizados os agrupamentos seguintes: </br>
-    - Windows 7 & 8.x
+    - Windows 7 e 8. x
     - Windows 10 menor 1709
     - Windows 10 1709 e acima
 

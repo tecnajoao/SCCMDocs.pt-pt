@@ -1,25 +1,20 @@
 ---
-title: "Interoperabilidade entre versões"
+title: Interoperabilidade entre versões
 titleSuffix: Configuration Manager
-description: "Saiba como evitar conflitos entre várias hierarquias do System Center Configuration Manager na mesma rede."
-ms.custom: na
+description: Saiba como evitar conflitos entre várias hierarquias do System Center Configuration Manager na mesma rede.
 ms.date: 1/30/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 9b0a7859-747f-4495-a2f4-13fd5991f897
-caps.latest.revision: "8"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 66bfb130a27ed8e4b8b9d052a672ef7f72b56f59
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 712007dd8892e28316f277326b2182e5fe945f7b
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="interoperability-between-different-versions-of-system-center-configuration-manager"></a>Interoperabilidade entre diferentes versões do System Center Configuration Manager
 
@@ -63,7 +58,7 @@ Por exemplo, se duas ou mais hierarquias do Configuration Manager tiverem sobrep
 
  Para impedir que os clientes atribuição não intencional para o site incorreto quando duas hierarquias tiverem sobreposição de limites, recomendamos que configure parâmetros de instalação de cliente do Configuration Manager para atribuir clientes a um site específico.  
 
-##  <a name="bkmk_mixed"></a>Limitações do Configuration Manager numa hierarquia com várias versões  
+##  <a name="bkmk_mixed"></a> Limitações do Configuration Manager numa hierarquia com várias versões  
  Quando estiver no processo de atualização de um site do System Center Configuration Manager, existem vezes quando diversos sites serão têm versões diferentes. Por exemplo, poderá atualizar um site de administração central para uma nova versão mas, devido a janelas de manutenção do site, um ou mais sites primários podem não atualizar até uma hora e data posterior.  
 
  Quando diversos sites de uma única hierarquia executam versões diferentes, algumas funcionalidades não se encontram disponíveis. Isto pode afetar o modo como gere objetos do Configuration Manager na consola do Configuration Manager e que funcionalidades estão disponíveis para os clientes. Normalmente, as funcionalidades da versão mais recente do Configuration Manager não está acessível em sites ou para clientes que executam uma versão inferior do service pack.  
@@ -77,7 +72,7 @@ Por exemplo, se duas ou mais hierarquias do Configuration Manager tiverem sobrep
 |Novos passos de sequência de tarefas|Quando cria uma sequência de tarefas com um passo introduzido numa versão do Configuration Manager que não está disponível numa versão anterior, podem ocorrer os seguintes problemas:<br /><br /> Ocorre um erro quando tenta editar a sequência de tarefas a partir de um site que está a executar uma versão anterior do Configuration Manager.<br /><br /> A sequência de tarefas não é executado num computador que executa uma versão anterior do cliente do Configuration Manager.|  
 |Cliente para comunicações de ponto de gestão de nível inferior|Um cliente de Configuration Manager que comunica com um ponto de gestão a partir de um site que executa uma versão inferior do cliente só pode utilizar a funcionalidade que suporta a versão de nível inferior do Configuration Manager. Por exemplo, se implementar conteúdo de um site do System Center Configuration Manager que foi atualizado recentemente para um cliente que comunica com um ponto de gestão que ainda não atualizado para essa versão, esse cliente não é possível utilizar novas funcionalidades da versão mais recente.|  
 
-##  <a name="BKMK_ConsoleInterop"></a>Interoperabilidade para a consola do Configuration Manager  
+##  <a name="BKMK_ConsoleInterop"></a> Interoperabilidade para a consola do Configuration Manager  
  A tabela seguinte contém informações sobre a utilização da consola do Configuration Manager num ambiente com várias versões do Configuration Manager.  
 
 |Ambiente de interoperabilidade|Mais informações|  

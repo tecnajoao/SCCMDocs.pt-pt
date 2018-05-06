@@ -1,26 +1,20 @@
 ---
-title: "Confirmar os requisitos de nome de domínio"
+title: Confirmar os requisitos de nome de domínio
 titleSuffix: Configuration Manager
-description: "Confirme os requisitos de nome de domínio com o System Center Configuration Manager."
-ms.custom: na
+description: Confirme os requisitos de nome de domínio com o System Center Configuration Manager.
 ms.date: 03/21/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 522c2e82-20eb-4f38-859b-d55640b24e32
-caps.latest.revision: "18"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 152a93559e8587d096552da800b1b84c7bb8bd28
-ms.sourcegitcommit: 1132886e07d0c0a87dcc7eeef4577dd8d8840023
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: f82f8e782446035ffdf3910cb591e07f61fbfb47
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="confirm-domain-name-requirements-with-system-center-configuration-manager-and-microsoft-intune"></a>Confirmar os requisitos de nome de domínio com o System Center Configuration Manager e o Microsoft Intune
 
@@ -52,4 +46,4 @@ Se necessário, siga os passos seguintes para satisfazer as dependências extern
      Se não estiver a utilizar o AD FS, tem de definir uma palavra-passe do Microsoft Online para cada utilizador.
 
 > [!div class="button"]
-[< Anterior passo](create-mdm-collection.md)[passo seguinte >  ](configure-intune-subscription.md)
+[< Anterior passo](create-mdm-collection.md)[passo seguinte >](configure-intune-subscription.md)

@@ -1,28 +1,21 @@
 ---
 title: Importar as definições de compatibilidade SCAP
-titleSuffix: System Center Configuration Manager
+titleSuffix: Configuraton Manager
 description: Importar as definições de compatibilidade SCAP como linhas de base de configuração e exportar os resultados
-ms.custom: na
 ms.date: 03/27/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: 0bdcb018-bac2-4540-b786-6242bac73ff4
-caps.latest.revision: ''
-caps.handback.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: 5863f8b9a79e8e22e215e9feac7744b4a6ce279d
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+ms.openlocfilehash: 1f6b1fa0dd0775083eff9925a65509083b3f47d3
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="import-the-compliance-settings-compliant-cab-files-into-system-center-configuration-manager"></a>Importar os ficheiros. cab de definições de compatibilidade para o System Center Configuration Manager
 
@@ -49,7 +42,7 @@ Importar o processo do Assistente de dados de configuração
 | Nome da página do Assistente | Ação do utilizador |
 | --- | --- |
 | **Escolher ficheiros** |1. Clique em **Adicionar**. </br>É apresentada a caixa de diálogo aberta.|
-||2. No **abra** caixa de diálogo, aceda ao **&lt;saída cab compatível\_pasta &gt;**. Clique em de  **&lt; compatíveis\_cab&gt;**ficheiro. cab, onde _compliant cab **saída\_pasta** é a pasta que foi especificada a seguir – parâmetro de saída quando executou a ferramenta de Sces.ScapToDcm.exe. **em conformidade\_ficheiro** é o nome de um ficheiro. cab que criou anteriormente no processo. Em seguida, clique em **abra**. </br> Consola do Configuration Manager – aparece a caixa de diálogo de aviso de segurança.|
+||2. No **abra** caixa de diálogo, aceda ao **&lt;saída cab compatível\_pasta &gt;**. Clique em de  **&lt; compatíveis\_cab&gt;** ficheiro. cab, onde _compliant cab **saída\_pasta** é a pasta que foi especificada a seguir – parâmetro de saída quando executou a ferramenta de Sces.ScapToDcm.exe. **em conformidade\_ficheiro** é o nome de um ficheiro. cab que criou anteriormente no processo. Em seguida, clique em **abra**. </br> Consola do Configuration Manager – aparece a caixa de diálogo de aviso de segurança.|
 ||3. No **consola do Configuration Manager-aviso de segurança** caixa de diálogo, clique em **executar**. Na página escolher ficheiros, os dados de configuração é apresentada na lista de linhas de base a importar.|
 ||3. Clique em **Seguinte**.|
 | **Resumo** |5. Clique em **Seguinte**. |
@@ -72,7 +65,7 @@ Depois de criar as coleções de computadores apropriados para os computadores q
 
 Para atribuir uma linha de base de configuração a uma coleção de computadores:
 
-1. Abra o **do Configuration Manager****consola**.  
+1. Abra o **do Configuration Manager****consola**.
 
 2. No **consola do Configuration Manager, no painel de navegação, aceda a **ativos e compatibilidade** > **as definições de compatibilidade**  >**  Configuração linhas de base * *.
 3. No painel de navegação, clique em &lt; * * configuração\_linha de base >, onde &lt; _configuração\_linha de base&gt;_  é o nome da linha de base de configuração que pretende atribuir a uma coleção de computadores.
@@ -81,7 +74,7 @@ Para atribuir uma linha de base de configuração a uma coleção de computadore
 
 4. No painel ações, clique em **implementar**.
 
-5. Concluir o **implementar****linha de base de configuração****diálogo** utilizando as informações na seguinte tabela e aceitar os valores predefinidos exceto indicação em contrário.    
+5. Concluir o **implementar****linha de base de configuração****diálogo** utilizando as informações na seguinte tabela e aceitar os valores predefinidos exceto indicação em contrário.
 
 ### <a name="deploy-configuration-baseline-dialog-process"></a>Implementar o processo de caixa de diálogo de linha de base de configuração
 
@@ -161,7 +154,7 @@ Microsoft.Sces.DcmToScap.exe-a linha de base BaselineCIID-atribuição Assignmen
 
 **Para conteúdos scap 1.2 (por exemplo, os conteúdos USGCB mais recentes):**
 
-Microsoft.Sces.DcmToScap.exe -baseline BaselineCIID -assignment AssignmentID  -select &lt;datastream/xccdfBenchmark/profile&gt; -out &lt;outputResultFolder&gt;  [-log logFileName]
+Microsoft.Sces.DcmToScap.exe-linha de base BaselineCIID-atribuição AssignmentID-selecione &lt;xccdfBenchmark/datastream/perfil&gt; -out &lt;outputResultFolder&gt; [-registo logFileName]
 
    >[!NOTE] 
    >Deve utilizar o – selecione parâmetro para especificar o fluxo de dados/benchmark/perfil que foi avaliado nos clientes se existirem vários fluxos de dados/benchmark/perfil no conteúdo.
@@ -185,7 +178,7 @@ Selecione a linha de base de configuração pretendida, clique o separador de im
 
 #### <a name="microsoftscesdcmtoscapexe-command-line-parameters"></a>Parâmetros da linha de comandos Microsoft.Sces.DcmToScap.exe
 
-| **Parâmetro** | **Usage** | **Necessário** |
+| **Parâmetro** | **Utilização** | **Necessário** |
 | --- | --- | --- |
 | -a linha de base [ID de CI de linha de base] | Especifique a linha de base de configuração | Sim |
 | -atribuição [ID de atribuição] | Especifique a implementação de linha de base de configuração | Sim |

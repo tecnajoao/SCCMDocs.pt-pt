@@ -1,26 +1,20 @@
 ---
 title: Criar consultas
 titleSuffix: Configuration Manager
-description: "Saber como criar e Importar consultas no System Center Configuration Manager. Inclui sugestões e consultas de exemplo."
-ms.custom: na
+description: Saber como criar e Importar consultas no System Center Configuration Manager. Inclui sugestões e consultas de exemplo.
 ms.date: 12/11/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 868049d3-3209-47ec-b34a-9cc26941893a
-caps.latest.revision: "5"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 32400ebcd834e3b98bf0f1ff6a1f6b41d8e12076
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 6ba7adf52ce084d640bf53aef32678576d5828f5
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Como criar consultas no System Center Configuration Manager
 
@@ -49,9 +43,9 @@ Pode utilizar este tópico para o ajudar a criar ou importar consultas no System
     |**Recurso de Utilizador**|Utilize para procurar informações de utilizador normais, tais como nomes de utilizador, nomes de grupo do utilizador e os nomes dos grupos de segurança.|  
     |**Automática**|Utilize para procurar atributos comuns de uma implementação, como o nome da implementação, a agenda e a coleção que tenha sido implementado.|  
 
-6.  Escolha **editar instrução de consulta** para abrir o  *&lt;nome da consulta\>*  **propriedades da declaração** caixa de diálogo.  
+6.  Escolha **editar instrução de consulta** para abrir o *&lt;nome da consulta\>* **propriedades da declaração** caixa de diálogo.  
 
-7.  No **geral** separador o  *&lt;nome da consulta\>*  **propriedades da declaração** diálogo caixa, especifique os atributos que esta consulta devolve e como estão a ser apresentado. Escolha o **novo** ícone para adicionar um novo atributo. Também pode optar por **Mostrar linguagem da consulta** para introduzir ou editar a consulta diretamente na linguagem WQL (WMI Query). Para obter exemplos de consultas da WMI, consulte a secção [Example WQL queries](#BKMK_Example) deste tópico.  
+7.  No **geral** separador o *&lt;nome da consulta\>* **propriedades da declaração** diálogo caixa, especifique os atributos que esta consulta devolve e como estão a ser apresentado. Escolha o **novo** ícone para adicionar um novo atributo. Também pode optar por **Mostrar linguagem da consulta** para introduzir ou editar a consulta diretamente na linguagem WQL (WMI Query). Para obter exemplos de consultas da WMI, consulte a secção [Example WQL queries](#BKMK_Example) deste tópico.  
 
     > [!TIP]  
     > Pode utilizar a seguinte documentação de referência do MSDN para o ajudar a criar as suas próprias consultas de WQL:  
@@ -60,12 +54,12 @@ Pode utilizar este tópico para o ajudar a criar ou importar consultas no System
     > -   [Cláusula ONDE](http://go.microsoft.com/fwlink/p/?LinkId=256654)  
     > -   [Operadores da WQL](http://go.microsoft.com/fwlink/p/?LinkId=256655)  
 
-8.  No **critérios** separador do  *&lt;nome da consulta\>*  **propriedades da declaração** diálogo caixa, especifique os critérios que são utilizados para refinar os resultados da consulta. Por exemplo, pode devolver apenas os recursos que têm um código de site do **XYZ** nos resultados da consulta. Pode configurar vários critérios para uma consulta.  
+8.  No **critérios** separador do *&lt;nome da consulta\>* **propriedades da declaração** diálogo caixa, especifique os critérios que são utilizados para refinar os resultados da consulta. Por exemplo, pode devolver apenas os recursos que têm um código de site do **XYZ** nos resultados da consulta. Pode configurar vários critérios para uma consulta.  
 
     > [!IMPORTANT]  
     > Se criar uma consulta sem critérios, a consulta devolverá todos os dispositivos da coleção **Todos os Sistemas** .  
 
-9. No **associa** separador o  *&lt;nome da consulta\>*  **propriedades da declaração** caixa de diálogo, pode combinar dados de dois atributos diferentes para os resultados de consulta. Apesar do Configuration Manager cria automaticamente as associações de consulta quando escolhe atributos diferentes para o resultado da consulta, o **associações** separador oferece opções mais avançadas. As classes de atributo que suporta o System Center 2012 Configuration Manager são apresentadas na tabela seguinte:  
+9. No **associa** separador o *&lt;nome da consulta\>* **propriedades da declaração** caixa de diálogo, pode combinar dados de dois atributos diferentes para os resultados de consulta. Apesar do Configuration Manager cria automaticamente as associações de consulta quando escolhe atributos diferentes para o resultado da consulta, o **associações** separador oferece opções mais avançadas. As classes de atributo que suporta o System Center 2012 Configuration Manager são apresentadas na tabela seguinte:  
 
     |Tipo de associação|Descrição|  
     |---------------|-----------------|  
@@ -76,7 +70,7 @@ Pode utilizar este tópico para o ajudar a criar ou importar consultas no System
 
      Para obter mais informações sobre como utilizar operações de associação, consulte a documentação do SQL Server.  
 
-10. Escolha **OK** para fechar o  *&lt;nome da consulta\>*  **propriedades da declaração** caixa de diálogo.  
+10. Escolha **OK** para fechar o *&lt;nome da consulta\>* **propriedades da declaração** caixa de diálogo.  
 
 11. No **geral** separador do **Assistente para criar consulta**, especifique se os resultados desta consulta não estão limitados a membros de uma coleção, para se estão limitados a membros de uma coleção especificada, ou se houver uma linha de uma coleção sempre que a consulta é executada.  
 

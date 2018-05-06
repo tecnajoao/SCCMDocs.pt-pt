@@ -1,26 +1,20 @@
 ---
 title: Planear a MDM no local
 titleSuffix: Configuration Manager
-description: "Planear a gestão de dispositivos móveis no local gerir dispositivos móveis no System Center Configuration Manager."
-ms.custom: na
+description: Planear a gestão de dispositivos móveis no local gerir dispositivos móveis no System Center Configuration Manager.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 02979fb8-ea7e-4ec6-b7e0-ecbfda73e52d
-caps.latest.revision: "9"
-caps.handback.revision: "0"
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: e1c6a5ccd003295d007e78f0745c30732e10c2df
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 10cddac80b9a7ea4bd912e2f52585cdcef7e70da
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Planear a Gestão de Dispositivos Móveis no Local no System Center Configuration Manager
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 10/12/2017
 
 Considere os requisitos seguintes antes de a preparar a infraestrutura do Configuration Manager para processar no\-no local a gestão de dispositivos móveis.
 
-##  <a name="bkmk_devices"></a>Dispositivos suportados  
+##  <a name="bkmk_devices"></a> Dispositivos suportados  
  No local gestão de dispositivos móveis permite-lhe gerir dispositivos móveis ao utilizar as capacidades de gestão incorporadas nos sistemas de operativos de dispositivos.  A capacidade de gestão baseia-se na norma de Gestão de Dispositivos da Open Mobile Alliance (OMA) e muitas plataformas de dispositivos utilizam esta norma para permitir a gestão dos dispositivos.  Chamamos a estes **dispositivos modernos** (na documentação e a interface de utilizador da consola do Configuration Manager) para distingui-los a partir de outros dispositivos que necessitam do cliente do Configuration Manager para geri-los.  
 
  > [!NOTE]  
@@ -41,7 +35,7 @@ Considere os requisitos seguintes antes de a preparar a infraestrutura do Config
 > -   Windows 10 Mobile Enterprise
 > -   Windows 10 Enterprise de IoT   
 
-##  <a name="bkmk_intune"></a>Utilização de subscrição do Microsoft Intune  
+##  <a name="bkmk_intune"></a> Utilização de subscrição do Microsoft Intune  
  Para começar a utilizar no\-no local a gestão de dispositivos móveis, terá de uma subscrição do Microsoft Intune. A subscrição só é necessária para controlar o licenciamento dos dispositivos e não é utilizada para gerir ou armazenar informações de gestão dos dispositivos. É processada a gestão de todos os da empresa da sua organização através da infraestrutura do Configuration Manager no local.  
 
  > [!NOTE]  
@@ -54,7 +48,7 @@ Considere os requisitos seguintes antes de a preparar a infraestrutura do Config
 
  Para obter informações sobre como configurar a subscrição do Intune, consulte [configurar uma subscrição do Microsoft Intune para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
 
-##  <a name="bkmk_roles"></a>Funções do sistema de sites necessárias  
+##  <a name="bkmk_roles"></a> Funções do sistema de sites necessárias  
  No\-local gestão de dispositivos móveis requer, pelo menos, um de cada uma das seguintes funções do sistema de sites:  
 
 -   **Ponto proxy de registo** para suportar pedidos de inscrição.  
@@ -73,7 +67,7 @@ Considere os requisitos seguintes antes de a preparar a infraestrutura do Config
 
  Para obter mais informações sobre como adicionar as funções necessárias do sistema de site, veja [Instalar funções do sistema de sites para Gestão de Dispositivos Móveis no Local do System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md).  
 
-##  <a name="bkmk_trustedComs"></a>Comunicações fidedignas necessárias  
+##  <a name="bkmk_trustedComs"></a> Comunicações fidedignas necessárias  
  No\-local funções de sistema de sites para ser ativada para comunicações HTTPS requer a gestão de dispositivos móveis. Consoante as suas necessidades, pode utilizar a autoridade de certificação (AC) da sua empresa para estabelecer as ligações fidedignas entre servidores e dispositivos ou pode utilizar uma AC disponível ao público para ser a autoridade fidedigna.  De qualquer forma, irá precisar que um certificado do servidor Web seja configurado com o IIS nos servidores do sistema de sites que alojam as funções do sistema de sites necessárias e irá precisar do certificado de raiz dessa AC instalado nos dispositivos que necessitam de ligar a esses servidores.  
 
  Se utilizar a AC da sua empresa para estabelecer comunicações fidedignas, terá de realizar as seguintes tarefas:  
@@ -106,7 +100,7 @@ Considere os requisitos seguintes antes de a preparar a infraestrutura do Config
 
  Para obter mais informações, veja [Configurar certificados para comunicações fidedignas para a Gestão de Dispositivos Móveis no Local do System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
 
-##  <a name="bkmk_enrollment"></a>Considerações sobre inscrição  
+##  <a name="bkmk_enrollment"></a> Considerações sobre inscrição  
  Para ativar a inscrição de dispositivos no\-local gestão de dispositivos móveis, os utilizadores têm de ser concedidos permissões para inscrever e os respetivos dispositivos devem ser capazes de ter comunicações fidedignas com os servidores de sistema de sites que alojam as funções de sistema de sites necessárias.  
 
  Conceder permissão de inscrição de utilizador pode ser conseguido através da configuração de um perfil de inscrição nas definições de cliente do Configuration Manager. Pode utilizar as predefinições de cliente para emitir o perfil de inscrição para todos os utilizadores detetados ou pode configurar o perfil de inscrição nas definições de cliente personalizadas e emitir as definições para uma ou mais coleções de utilizador.  

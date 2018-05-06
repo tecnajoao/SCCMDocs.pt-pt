@@ -1,26 +1,20 @@
 ---
-title: "Ver o inventário de hardware com o Explorador de recursos"
+title: Ver o inventário de hardware com o Explorador de recursos
 titleSuffix: Configuration Manager
-description: "Utilize o Explorador de recursos para ver o inventário de hardware no System Center Configuration Manager."
-ms.custom: na
+description: Utilize o Explorador de recursos para ver o inventário de hardware no System Center Configuration Manager.
 ms.date: 01/03/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: 375912f5-436d-4315-bdbe-d77afee6c9f3
-caps.latest.revision: 
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: a08fdd76fee73e50cb1f1249dd3ef4f54ce378a0
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: be2c8c3dbfef5ea0f35e338b14439c65150310be
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Como utilizar o Explorador de Recursos para ver o inventário de hardware no System Center Configuration Manager
 
@@ -49,5 +43,5 @@ Utilize o Explorador de recursos no System Center Configuration Manager para ver
 
 3.  Escolha o computador que contém o inventário que pretende visualizar e, em seguida, no **home page** separador > **dispositivos** grupo, escolha **iniciar** >  **Explorador de recursos**.   
 
-4.  Clique com o botão direito qualquer item no painel da direita do **Explorador de recursos** janela e escolha **propriedades** para abrir o *< nome do item\>***propriedades** caixa de diálogo para ver as informações de inventário recolhidas num formato mais legível.  
+4.  Clique com o botão direito qualquer item no painel da direita do **Explorador de recursos** janela e escolha **propriedades** para abrir o *< nome do item\>*** propriedades** caixa de diálogo caixa para ver as informações de inventário recolhidas num formato mais legível.  
 

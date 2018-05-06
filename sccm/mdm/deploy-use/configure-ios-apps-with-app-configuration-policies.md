@@ -1,26 +1,20 @@
 ---
-title: "Configurar aplicações iOS com políticas de configuração de aplicação"
+title: Configurar aplicações iOS com políticas de configuração de aplicação
 titleSuffix: Configuration Manager
-description: "Ajude a eliminar os problemas de configuração em dispositivos com iOS 8 ou posterior ao implementar políticas de configuração de aplicação para os utilizadores antes de poderem executam as aplicações."
-ms.custom: na
+description: Ajude a eliminar os problemas de configuração em dispositivos com iOS 8 ou posterior ao implementar políticas de configuração de aplicação para os utilizadores antes de poderem executam as aplicações.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: f0a78038-ea22-4826-9c07-1771b7dd2e8d
-caps.latest.revision: "18"
-caps.handback.revision: "0"
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 905b0925f88395942c954561aa0828c15d3ba758
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: e5d00b1efd02d3b096a0b64033b450f0da949eeb
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Aplicar as definições para aplicações iOS com políticas de configuração de aplicações no System Center Configuration Manager
 
@@ -39,7 +33,7 @@ Para utilizar uma política de configuração de aplicações no Configuration M
 
 Atualmente, as políticas de configuração de aplicação estão disponíveis apenas em dispositivos com iOS 8 e posterior e para estes tipos de aplicação:
 
-- **pacote de aplicação para iOS (*ficheiro. IPA)**
+- **pacote de aplicação para iOS (ficheiro *.ipa)**
 - **pacote de aplicação para iOS da App Store**
 
 Para obter mais informações sobre os tipos de instalação de aplicações, consulte o [introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management).

@@ -2,26 +2,19 @@
 title: Utilizar o Asset Intelligence
 titleSuffix: Configuration Manager
 description: Realizar tarefas comuns de Asset Intelligence no System Center Configuration Manager.
-ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: e8159bd9-5c2b-4d25-82f9-78fcfd732ba9
-caps.latest.revision: 
-caps.handback.revision: 
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: 7838f087c18a2cfad6ff487ff987e638906faf6a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7d12fb7f3c7e14df57ec23074de23bfcf53e6c4b
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>Como utilizar o Asset Intelligence no System Center Configuration Manager
 
@@ -228,7 +221,7 @@ Este tópico contém informações para ajudar a gerir as tarefas comuns do Asse
 
 3.  Selecione um título de software ou vários títulos de software para os quais pretenda modificar as categorizações.  
 
-4.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+4.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 5.  No separador **Geral** , pode modificar as seguintes informações de categorização:  
 

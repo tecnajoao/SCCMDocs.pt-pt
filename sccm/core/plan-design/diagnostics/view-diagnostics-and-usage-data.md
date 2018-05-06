@@ -1,25 +1,20 @@
 ---
-title: "Ver dados de diagnóstico"
+title: Ver dados de diagnóstico
 titleSuffix: Configuration Manager
-description: "Ver dados de diagnóstico e utilização para confirmar que a sua hierarquia do System Center Configuration Manager contém não existem informações confidenciais."
-ms.custom: na
+description: Ver dados de diagnóstico e utilização para confirmar que a sua hierarquia do System Center Configuration Manager contém não existem informações confidenciais.
 ms.date: 3/27/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 594eb284-0d93-4c5d-9ae6-f0f71203682a
-caps.latest.revision: "8"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: eb05bee0e0fceb68611c660870bb1778a07ef0a9
-ms.sourcegitcommit: da27d37cc4e4e06cf23758846cdd7acb617f744b
+manager: dougeby
+ms.openlocfilehash: 15e6f84be22d90e937c33ebd3a24520e6832a751
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-view-diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Como visualizar diagnósticos e dados de utilização para o System Center Configuration Manager
 
@@ -36,7 +31,7 @@ Utilize o seguinte comando SQL para ver os conteúdos desta tabela e mostra exat
 
 Quando o ponto de ligação de serviço está no modo offline, pode utilizar a ferramenta de ligação de serviço para exportar os dados de utilização e diagnóstico atual para um ficheiro de valores separados por vírgulas (CSV). Execute a ferramenta de ligação de serviço no ponto de ligação de serviço utilizando o **-exportar** parâmetro.  
 
-##  <a name="bkmk_hashes"></a>Hashes unidirecionais  
+##  <a name="bkmk_hashes"></a> Hashes unidirecionais  
 Alguns dados incluem cadeias de carateres alfanuméricos aleatórias. O Configuration Manager utiliza o algoritmo SHA-256, que utiliza hashes unidirecionais, para se certificar de que não recolhe dados potencialmente confidenciais. O algoritmo deixa dados num Estado em que ainda podem ser utilizado para correlação e fins de comparação. Por exemplo, em vez de recolher os nomes das tabelas na base de dados do site, é capturado um hash unidirecional para cada nome de tabela. Isto garante que todos os nomes de tabelas personalizados que criou ou suplementos de produtos de terceiros não estão visíveis. Em seguida, podemos fazer o mesmo hash unidirecional dos nomes de tabela do SQL Server que são enviados por predefinição no produto e comparar os resultados das duas consultas para determinar o desvio do seu esquema de base de dados à predefinição do produto. Esta informação é, então, utilizada para melhorar as atualizações que necessitem de alterações no esquema do SQL.  
 
 Ao visualizar os dados não processados, um valor comum com hash irá aparecer em cada linha de dados. Este é o ID de hierarquia. Este valor com hash é utilizado para garantir que os dados estão correlacionados com a mesma hierarquia sem identificar o cliente ou a origem.  

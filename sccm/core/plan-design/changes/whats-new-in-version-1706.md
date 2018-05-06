@@ -1,26 +1,21 @@
 ---
-title: "Nova versão 1706"
+title: Nova versão 1706
 titleSuffix: Configuration Manager
-description: "Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1706 do System Center Configuration Manager."
-ms.custom: na
+description: Obter informações sobre as alterações e novas funcionalidades introduzidas na versão 1706 do System Center Configuration Manager.
 ms.date: 08/11/2017
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: fb6c377edee5cbf387398ed2166ca2cca0cdb765
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 925a881c6d9cf7249fc138027ceef2d225ee91e2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>O que &#39; s novidade na versão 1706 do System Center Configuration Manager
+# <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>O que&#39;s novidade na versão 1706 do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -118,7 +113,7 @@ Cache ponto a ponto já não utiliza a conta de acesso de rede para autenticar p
 <!-- 1354715 -->
 Nesta versão, adicionámos novas definições de item de configuração para dispositivos Windows 10 que estão inscritos no Intune ou geridos no local pelo Configuration Manager. As definições são:
 
-- **Password**
+- **palavra-passe**
     - Encriptação de dispositivos
 - **Dispositivo**
     - Modificação de definições de região (apenas ambiente de trabalho)
@@ -126,7 +121,7 @@ Nesta versão, adicionámos novas definições de item de configuração para di
     - Modificação das definições de idioma
     - Modificação de hora do sistema
     - Modificação de nome de dispositivo
-- **Arquivo**
+- **arquivo**
     - As aplicações da loja de atualização automática
     - Utilizar apenas o arquivo privado
     - Armazenar iniciação da aplicação teve origem
@@ -147,7 +142,7 @@ Para detalhes de todas as definições do Windows 10, consulte [como criar itens
 
  **Suportado no:**
  * Windows Phone 8+
- * Windows 8.1+
+ * Windows 8.1 +
  * iOS 6+
 <br></br>
 * **Depuração USB de bloco no dispositivo**. Não é necessário configurar esta definições como a depuração USB já está desativada no Android para dispositivos de trabalho.

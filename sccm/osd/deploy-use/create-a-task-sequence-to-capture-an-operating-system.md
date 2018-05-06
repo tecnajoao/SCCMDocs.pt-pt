@@ -1,26 +1,20 @@
 ---
-title: "Criar uma sequência de tarefas para capturar um sistema operativo"
+title: Criar uma sequência de tarefas para capturar um sistema operativo
 titleSuffix: Configuration Manager
-description: "Uma sequência de tarefas de compilação e captura baseia-se um computador de referência que pode incluir controladores específicos e atualizações de software, juntamente com o sistema operativo."
-ms.custom: na
+description: Uma sequência de tarefas de compilação e captura baseia-se um computador de referência que pode incluir controladores específicos e atualizações de software, juntamente com o sistema operativo.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 25e4ac68-0e78-4bbe-b8fc-3898b372c4e8
-caps.latest.revision: "19"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: c376a6b600e775f532410ad467b99cda1fbfc575
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: a1ef2883bfeb61df55ff045b76e9bc45a11b4da2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para capturar um sistema operativo no System Center Configuration Manager
 

@@ -2,26 +2,20 @@
 title: Instalar o publicador de atualizações
 titleSuffix: Configuration Manager
 description: Instalar o System Center Updates Publisher no seu ambiente
-ms.custom: na
 ms.date: 07/03/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-sum
+ms.topic: conceptual
 ms.assetid: ab5cda93-b67c-4aa5-904d-7b63ce790aa0
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
-manager: angrobe
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: ce65e58a2c1be0420077bddded7567ff931d041f
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: f74d7925528e48c691ce7ca61b6dc0b5136f1df7
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="install-updates-publisher"></a>Instalar o publicador de atualizações
 
@@ -38,7 +32,7 @@ Instalar e executar o Updates Publisher um edições de 64 bits dos sistemas ope
 
 -   Windows Server 2016 (Standard, Datacenter)
 -   Windows Server 2012 R2 (Standard, Datacenter)
--   Windows 10 (Pro, Education, Pro Education, Enterprise)
+-   Windows 10 (Pro, Education, educação Pro, Enterprise)
 -   Windows 8.1 (Professional, Enterprise)
 
 ### <a name="prerequisites"></a>Pré-requisitos

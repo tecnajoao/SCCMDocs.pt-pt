@@ -1,25 +1,20 @@
 ---
-title: "Contas para aceder ao conteúdo"
+title: Contas para aceder ao conteúdo
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as contas de onde os clientes acedem aos conteúdos do System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre as contas de onde os clientes acedem aos conteúdos do System Center Configuration Manager.
 ms.date: 2/6/2017
-ms.reviewer: na
-ms.suite: na
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: a7df9d0f-fbde-47eb-97e7-3d29536424fa
-caps.latest.revision: "4"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: e0f0d4d12905a986159d379b9fd29a06afa4cad0
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: c21601246cb0024837256b7cf8d4c1576c00149d
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gerir contas para aceder a conteúdo no System Center Configuration Manager
 
@@ -35,7 +30,7 @@ Antes de implementar o conteúdo no System Center Configuration Manager, conside
 
 -   **Conta de ligação de multicast**. Utilizado para implementações do sistema operativo.  
 
-##  <a name="bkmk_NAA"></a>Conta de acesso de rede  
+##  <a name="bkmk_NAA"></a> Conta de acesso de rede  
  Computadores cliente utilizam a conta de acesso à rede quando estes não podem utilizar a respetiva conta de computador local para aceder ao conteúdo em pontos de distribuição. Por exemplo, isto aplica-se a clientes e computadores de grupo de trabalho de domínios não fidedignos. Esta conta também pode ser utilizada durante a implementação do sistema operativo quando o computador a instalar o sistema operativo ainda não possui uma conta de computador no domínio.  
 
 -   Os clientes utilizam apenas a conta de acesso de rede para aceder a recursos na rede.  
@@ -67,7 +62,7 @@ Conceda a esta conta as permissões mínimas adequadas para aceder ao software p
 
 3.  Escolha o **conta de acesso à rede** separador. Configurar uma ou mais contas e, em seguida, escolha **OK**.  
 
-##  <a name="bkmk_Paa"></a>Contas de acesso do pacote  
+##  <a name="bkmk_Paa"></a> Contas de acesso do pacote  
  Contas de acesso a pacote permitem-lhe definir permissões do sistema de ficheiros NTFS para especificar os utilizadores e grupos de utilizadores que podem aceder a conteúdo de pacote em pontos de distribuição. Por predefinição, o Configuration Manager concede acesso apenas às genérica **utilizadores** e **administradores** contas. Pode controlar o acesso para computadores cliente, no entanto, através da utilização de contas do Windows ou grupos adicionais. Dispositivos móveis não utilizem as contas de acesso do pacote, porque estes dispositivos sempre obtêm conteúdo do pacote de forma anónima.  
 
  Por predefinição, quando o Configuration Manager copia os ficheiros de conteúdo de um pacote para um ponto de distribuição, concede acesso **leitura** acesso local **utilizadores** grupo e **controlo total** local **administradores** grupo. As permissões reais que são necessárias dependem do pacote. Se tiver clientes localizados em grupos de trabalho ou em florestas não fidedignas, esses clientes utilizam a Conta de Acesso à Rede para aceder ao conteúdo dos pacotes. Certifique-se de que a conta de acesso de rede tem permissões para o pacote utilizando as contas de acesso do pacote definidas.  
@@ -103,7 +98,7 @@ Conceda a esta conta as permissões mínimas adequadas para aceder ao software p
     > [!NOTE]  
     >  Quando adicionar um nome de utilizador para a conta e do Configuration Manager localiza uma conta de utilizador local e uma conta de utilizador de domínio com esse nome, o Configuration Manager Define direitos de acesso da conta de utilizador de domínio.  
 
-##  <a name="bkmk_multi"></a>Conta de ligação de multicast  
+##  <a name="bkmk_multi"></a> Conta de ligação de multicast  
  A conta de ligação de Multicast é utilizada pelos pontos de distribuição que estão configurados para o multicast ler informações da base de dados do site.  
 
 -   Especifique uma conta a utilizar quando configurar ligações de base de dados do Configuration Manager para multicast.  

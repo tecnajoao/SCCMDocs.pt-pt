@@ -1,27 +1,21 @@
 ---
-title: "Planeamento da tarefa de migração"
+title: Planeamento da tarefa de migração
 titleSuffix: Configuration Manager
-description: "Utilize tarefas de migração para configurar os dados que pretende migrar para o seu ambiente do System Center Configuration Manager."
-ms.custom: na
+description: Utilize tarefas de migração para configurar os dados que pretende migrar para o seu ambiente do System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: a70bfbd4-757a-4468-9312-1c3b373ef9fc
-caps.latest.revision: "6"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
+manager: dougeby
 robots: noindex
-ms.openlocfilehash: 96fb65352042c7785dded06251b57cea04b293d7
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+ms.openlocfilehash: 0481abfb1ed881355a489b99b0c3f7ec9c595e69
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="plan-a-migration-job-strategy-in-system-center-configuration-manager"></a>Planear uma estratégia de tarefa de migração no System Center Configuration Manager
 
@@ -47,7 +41,7 @@ Utilize tarefas de migração para configurar os dados específicos que pretende
 
 -   [Planear para migrados anteriormente as tarefas de migração de objeto](#About_Object_Migrations)  
 
-##  <a name="Types_of_Migration"></a>Tipos de tarefas de migração  
+##  <a name="Types_of_Migration"></a> Tipos de tarefas de migração  
  O Configuration Manager suporta os seguintes tipos de tarefas de migração. Cada tipo de tarefa foi concebido para ajudar a definir os objetos que podem ser incluídos nessa tarefa.  
 
  **Migração de coleção** (apenas suportada ao migrar do Configuration Manager 2007 SP2): Migre objetos que estão relacionados com as coleções selecionadas. Por predefinição, a migração de coleção inclui todos os objetos que estão associados a membros da coleção. Quando utiliza uma tarefa de migração de coleção, pode excluir instâncias de objetos específicas.  
@@ -56,7 +50,7 @@ Utilize tarefas de migração para configurar os dados específicos que pretende
 
  **Anteriormente migrado de migração de objetos**: Migre objetos migrados anteriormente quando forem atualizados na hierarquia de origem após terem sido migrados pela última vez.  
 
-###  <a name="Objects_that_can_migrate"></a>Objetos que podem ser migrados  
+###  <a name="Objects_that_can_migrate"></a> Objetos que podem ser migrados  
  Nem todos os objetos podem ser migrados através de um tipo específico de tarefa de migração. A lista seguinte identifica o tipo de objetos que é possível migrar com cada tipo de tarefa de migração.  
 
 > [!NOTE]  
@@ -212,7 +206,7 @@ Utilize tarefas de migração para configurar os dados específicos que pretende
     > [!IMPORTANT]  
     >  Embora possa migrar um pacote de aplicação virtual através da migração de objetos, os pacotes não podem ser migrados através do tipo de tarefa de migração **Migração de Objetos Migrados Anteriormente**. Em vez disso, é necessário eliminar o pacote de aplicação virtual migrado no site de destino e, em seguida, criar uma nova tarefa de migração para migrar a aplicação virtual.  
 
-##  <a name="About_Migration_Jobs"></a>Planeamento geral para todas as tarefas de migração  
+##  <a name="About_Migration_Jobs"></a> Planeamento geral para todas as tarefas de migração  
  Utilize o Assistente Criar tarefa de migração para criar uma tarefa de migração para migrar objetos para a hierarquia de destino. O tipo da tarefa de migração criada determina quais os objetos que estão disponíveis para migrar. Pode criar e utilizar várias tarefas de migração para migrar dados a partir do mesmo site de origem ou de vários sites de origem. A utilização de um tipo de tarefa de migração não bloqueia a utilização de um tipo de tarefa de migração diferente.  
 
  Após a execução bem-sucedida de uma tarefa de migração, o estado desta é apresentado como **Concluída** e não pode ser executada novamente. No entanto, é possível criar uma nova tarefa de migração para criar qualquer um dos objetos migrados pela tarefa original e a nova tarefa de migração pode igualmente incluir outros objetos. Quando criar tarefas de migração adicionais, os objetos que foram migrados anteriormente mostram o estado do **migrado**. Pode selecionar estes objetos para os migrar novamente, mas, a menos que o objeto tiver sido atualizado na hierarquia de origem, migrar estes objetos novamente não é necessário. Se o objeto tiver sido atualizado na hierarquia de origem após a migração original, é possível identificá-lo quando utiliza o tipo de tarefa de migração **Objetos modificados após migração**.  
@@ -258,7 +252,7 @@ Utilize tarefas de migração para configurar os dados específicos que pretende
 ### <a name="specify-conflict-resolution-for-migrated-data"></a>Especificar a resolução de conflitos para dados migrados  
  Por predefinição, as tarefas de migração não substituem dados na base de dados de destino, exceto se configurar a tarefa de migração para ignorar ou substituir os dados que tenham sido anteriormente migrados para a base de dados de destino.  
 
-##  <a name="About_Collection_Migration "></a>Planear as tarefas de migração de coleções  
+##  <a name="About_Collection_Migration "></a> Planear as tarefas de migração de coleções  
  As tarefas de migração de coleções estão disponíveis apenas quando são migrados dados a partir de uma hierarquia de origem que executa uma versão suportada do Configuration Manager 2007. Tem de especificar uma ou mais coleções para migrar quando migra por coleção. Para cada coleção especificada, a tarefa de migração seleciona automaticamente todos os objetos relacionados para migração. Por exemplo, se selecionar uma coleção específica de utilizadores, são em seguida identificados os membros da coleção e pode migrar as implementações associadas a esta coleção. Opcionalmente, pode selecionar outros objetos de implementação para migrar que estão associados a estes membros. Todos estes itens selecionados são adicionados à lista de objetos que podem ser migrados.  
 
  Quando migra uma coleção, o System Center Configuration Manager também migra as definições da coleção, incluindo janelas de manutenção e variáveis da coleção, mas não é possível migrar as definições da coleção para aprovisionamento do cliente AMT.  
@@ -308,12 +302,12 @@ Utilize tarefas de migração para configurar os dados específicos que pretende
 
  Para ativar um programa após a migração, desmarque **desativar este programa em computadores onde tenha sido anunciado** no **avançadas** separador de propriedades do programa.  
 
-##  <a name="About_Object_Migration"></a>Plano para tarefas de migração de objeto  
+##  <a name="About_Object_Migration"></a> Plano para tarefas de migração de objeto  
  Ao contrário da migração de coleções, deve selecionar cada objeto e instância do objeto que pretende migrar. Pode selecionar objetos individuais, como (anúncios de uma hierarquia do Configuration Manager 2007) ou uma publicação de uma hierarquia do System Center 2012 Configuration Manager ou System Center Configuration Manager para adicionar à lista de objetos a migrar para uma tarefa de migração específico. Todos os objetos que não forem adicionados à lista de migração não serão migrados para o site de destino pela tarefa de migração de objetos.  
 
  As tarefas de migração baseada em objetos não têm quaisquer configurações adicionais a planear para além das aplicáveis a todas as tarefas de migração.  
 
-##  <a name="About_Object_Migrations"></a>Planear tarefas de migração de objetos migrados anteriormente  
+##  <a name="About_Object_Migrations"></a> Planear tarefas de migração de objetos migrados anteriormente  
  Quando um objeto já migrado para a hierarquia de destino é atualizado na hierarquia de origem, pode migrá-lo novamente utilizando o tipo de tarefa **Objetos modificados após migração**. Por exemplo, ao mudar o nome ou atualizar os ficheiros de origem para um pacote na hierarquia de origem, a incrementação da versão de pacote na hierarquia de origem. Após a incrementação da versão do pacote, este pode ser identificado para migração por este tipo de tarefa.  
 
  Este tipo de tarefa é semelhante ao tipo de migração de objeto, com a exceção de que, quando seleciona objetos para migrar, apenas os objetos atualizados após a migração por uma tarefa de migração anterior poderão ser selecionados.   

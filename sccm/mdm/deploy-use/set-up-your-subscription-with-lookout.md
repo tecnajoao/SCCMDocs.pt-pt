@@ -1,25 +1,20 @@
 ---
-title: "Configurar a sua subscrição com o Lookout"
+title: Configurar a sua subscrição com o Lookout
 titleSuffix: Configuration Manager
-description: "Este tópicos fornece detalhes sobre como configurar a proteção contra ameaças do Lookout dispositivo."
-ms.custom: na
+description: Este tópicos fornece detalhes sobre como configurar a proteção contra ameaças do Lookout dispositivo.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 6087b279-ba05-4824-b5e3-3af14f3d3cfe
-caps.latest.revision: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 142926bc41a79adc8d8300e413022fb0e3566c5a
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 08bf88c0f6660c213c47a5ed283b3be0431056a2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="set-up-your-subscription-for--lookout-device-threat-protection"></a>Configurar a sua subscrição para proteção contra ameaças do Lookout dispositivo
 
@@ -59,13 +54,13 @@ O suporte de lookout irá trabalhar com o seu contacto principal para carregar a
 
 ## <a name="configure-your-subscription-with-lookout-device-threat-protection"></a>Configurar a subscrição com a proteção contra ameaças do Lookout dispositivo
 ### <a name="step-1-set-up-your-device-threat-protection"></a>Passo 1: Configurar a proteção contra ameaças do dispositivo
-Depois do suporte de Lookout cria a conta de empresa Lookout, pode iniciar sessão na consola de Lookout.   É enviado um e-mail de Lookout para contacto principal da sua empresa com uma ligação para o url de início de sessão: https://aad.lookout.com/les?action=consent
+Depois do suporte de Lookout cria a conta de empresa Lookout, pode iniciar sessão na consola de Lookout.   Uma mensagem de e-mail do Lookout é enviada para o contacto primário para a sua empresa com uma ligação para o url de início de sessão:https://aad.lookout.com/les?action=consent
 
 Tem de utilizar uma conta de utilizador com a função do Azure AD de Administrador Global quando que primeiro inicie sessão consola do Lookout, uma vez que o Lookout necessita que esta informação para registar o inquilino do Azure AD.   Início de sessão subsequente serão requer que o utilizador tem este nível de privilégio do Azure AD.  Neste primeiro início de sessão, é apresentada uma página de consentimento. Escolha **aceitar** para concluir o registo.
 
 ![captura de ecrã da primeira página de início de sessão de tempo da consola Lookout](media/lookout-initial-login.png)
 
-Assim que aceite e autorizado, são redirecionados para a consola Lookout. Inícios de sessão subsequentes após o registo inicial pode ser feito utilizando o URL: https://aad.lookout.com
+Assim que aceite e autorizado, são redirecionados para a consola Lookout. Inícios de sessão subsequentes após o registo inicial pode ser feito utilizando o URL:  https://aad.lookout.com
 
 Consulte o [artigo de resolução de problemas]() caso se depare com problemas de início de sessão.
 

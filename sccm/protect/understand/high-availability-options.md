@@ -1,25 +1,20 @@
 ---
 title: Elevada disponibilidade
 titleSuffix: Configuration Manager
-description: "Saiba como implementar o System Center Configuration Manager utilizando opções de manter um elevado nível de serviço disponível."
-ms.custom: na
+description: Saiba como implementar o System Center Configuration Manager utilizando opções de manter um elevado nível de serviço disponível.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-protect
+ms.topic: conceptual
 ms.assetid: 1a38421d-24c1-4fef-bf6c-42fce53109ac
-caps.latest.revision: "4"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: bfc40f13f166a4f4aeda4a363ec633a54206dce4
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: a1011aa1b30661d756d457a38ebc770a61fac07f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="high-availability-options-for-system-center-configuration-manager"></a>Opções de elevada disponibilidade para o System Center Configuration Manager
 
@@ -62,7 +57,7 @@ Opções que suportem elevada disponibilidade:
 -   [Pré-requisitos do site e sistema de sites](../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
 
-##  <a name="bkmk_snh"></a>Elevada disponibilidade para sites e hierarquias  
+##  <a name="bkmk_snh"></a> Elevada disponibilidade para sites e hierarquias  
  **Utilize um cluster do SQL Server para alojar a base de dados do site:**  
 
  Quando utiliza um cluster do SQL Server para a base de dados num site de administração central ou site primário, utilize o suporte de ativação pós-falha incorporado no SQL Server.  
@@ -87,7 +82,7 @@ Opções que suportem elevada disponibilidade:
 
  **Instale múltiplas instâncias do fornecedor de SMS num site:** O fornecedor de SMS fornece o ponto de contacto administrativo para uma ou mais consolas do Configuration Manager. Ao instalar múltiplos Fornecedores de SMS, poderá fornecer redundância de pontos de contacto, ao administrar o site e a hierarquia.  
 
-##  <a name="bkmk_ssr"></a>Elevada disponibilidade para funções do sistema de sites  
+##  <a name="bkmk_ssr"></a> Elevada disponibilidade para funções do sistema de sites  
  Em cada site, implementar funções de sistema de sites para fornecer os serviços que pretende que os clientes utilizem nesse site. A base de dados do site contém as informações de configuração para o site e para todos os clientes. Utilize um ou mais das opções disponíveis para fornecer elevada disponibilidade da base de dados do site e a recuperação do site e base de dados do site se for necessário.  
 
  **Redundância para funções de sistema de sites importantes:**  
@@ -100,9 +95,9 @@ Opções que suportem elevada disponibilidade:
 
 -   Ponto de gestão  
 
--   Ponto de atualização de Software  
+-   Ponto de atualização de software  
 
--   Ponto de migração de estado  
+-   Ponto de Migração de Estado  
 
  Pode instalar múltiplas instâncias da função de ponto de serviços de relatórios para fornecer redundância de relatórios em sites e clientes.
 
@@ -156,7 +151,7 @@ Opções que suportem elevada disponibilidade:
 
  Para obter mais informações sobre este cliente definição e automática como funciona a deteção, consulte o [agente do computador](../../core/clients/deploy/about-client-settings.md#computer-agent) secção o [sobre definições de cliente no System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md) tópico.  
 
-##  <a name="bkmk_client"></a>Elevada disponibilidade para clientes  
+##  <a name="bkmk_client"></a> Elevada disponibilidade para clientes  
  **As operações de cliente são autónomas:**  
 
  Autonomia em de cliente do Configuration Manager inclui o seguinte:  
@@ -201,7 +196,7 @@ Opções que suportem elevada disponibilidade:
 
 -   Falha de um computador cliente não afeta a integridade das informações que são armazenadas na base de dados. Estas informações permanecem disponíveis para relatórios.  
 
-##  <a name="bkmk_nonHAoptions"></a>Opções para sites e funções de sistema de sites que não são de elevada disponibilidade  
+##  <a name="bkmk_nonHAoptions"></a> Opções para sites e funções de sistema de sites que não são de elevada disponibilidade  
  Diversos sistemas de sites não suportam várias instâncias num site ou na hierarquia. Estas informações podem ajudar a preparar estes sistemas de sites ficar offline.  
 
  **Servidor do site (site):**  

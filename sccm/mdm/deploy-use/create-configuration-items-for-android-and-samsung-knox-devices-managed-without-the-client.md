@@ -1,26 +1,20 @@
 ---
-title: "Criar itens de configuração para dispositivos Android e Samsung KNOX Standard geridos com o Intune"
+title: Criar itens de configuração para dispositivos Android e Samsung KNOX Standard geridos com o Intune
 titleSuffix: Configuration Manager
-description: "Utilize o item de configuração do System Center Configuration Manager Android e Samsung KNOX Standard para gerir as definições para dispositivos."
-ms.custom: na
+description: Utilize o item de configuração do System Center Configuration Manager Android e Samsung KNOX Standard para gerir as definições para dispositivos.
 ms.date: 03/27/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 7b66f3c4-e3bb-4f6a-abd5-55be649ff90d
-caps.latest.revision: "17"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: 3fa824c94b02ed7141c7051bab86fa64a4a9ee49
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: fbfcc2189e2ce06e6348936caad6c68de51f5bdb
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para os dispositivos Android e Samsung KNOX geridos sem o cliente System Center Configuration Manager
 
@@ -164,7 +158,7 @@ Pode especificar uma lista de aplicações Android que são compatíveis ou não
 
 Não é possível especificar aplicações em conformidade e não conformes no mesmo item de configuração.  
 
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Especificar a lista de aplicações compatíveis ou incompatíveis  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Especificar a lista de aplicações em conformidade ou não conformes  
 
 Na página **Aplicações Compatíveis e Incompatíveis (Android)**, especifique as seguintes informações:  
 

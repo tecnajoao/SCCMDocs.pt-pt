@@ -1,26 +1,21 @@
 ---
 title: Funcionalidades no Technical Preview 1603
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1603."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1603.
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 5f861b72-9f14-4d17-a512-4a79b660abe6
-caps.latest.revision: "8"
-author: erikje
-ms.author: erikje
-manager: angrobe
+author: aczechowski
 robots: noindex,nofollow
-ms.openlocfilehash: 9152016afe1d6333cb919f3b5eb155028dc6eae1
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 6d5ecf4e2d231a596012aa9f7d371f18ef0705a1
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1603 do System Center Configuration Manager
 
@@ -36,7 +31,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 
  **Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-##  <a name="BKMK_SC1603"></a>Melhoramentos ao centro de Software  
+##  <a name="BKMK_SC1603"></a> Melhoramentos ao centro de Software  
 
 ### <a name="new-tiled-view-for-apps"></a>Nova vista em mosaico para aplicações  
  Os utilizadores finais podem escolher agora entre uma lista de aplicações, ou uma vista em mosaico das aplicações no **aplicações** separador do Centro de Software.  
@@ -44,7 +39,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 ### <a name="select-multiple-updates-in-software-center"></a>Selecionar múltiplas atualizações no Centro de Software  
  No **atualizações** separador do Centro de Software, pode agora selecionar múltiplas atualizações ou selecionar **atualizar tudo** para começar a instalar várias atualizações em simultâneo.  
 
-##  <a name="BKMK_RC1603"></a>Melhoramentos no controlo remoto  
+##  <a name="BKMK_RC1603"></a> Melhoramentos no controlo remoto  
 
 ### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Limitar o acesso de área de transferência partilhada numa sessão de controlo remoto  
  Agora, pode ativar o nova definição de cliente de ferramentas remotas **pedir ao utilizador permissão de transferência do ficheiro de área de transferência partilhada** para limitar o acesso à área de transferência partilhada numa sessão de controlo remoto.  

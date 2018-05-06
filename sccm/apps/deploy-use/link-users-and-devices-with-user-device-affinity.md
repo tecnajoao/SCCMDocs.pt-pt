@@ -1,26 +1,20 @@
 ---
-title: "Associar utilizadores e dispositivos à afinidade dispositivo / utilizador"
+title: Associar utilizadores e dispositivos à afinidade dispositivo / utilizador
 titleSuffix: Configuration Manager
-description: "Associar utilizadores e dispositivos à afinidade dispositivo / utilizador e implementar automaticamente aplicações em todos os dispositivos associados a um utilizador."
-ms.custom: na
+description: Associar utilizadores e dispositivos à afinidade dispositivo / utilizador e implementar automaticamente aplicações em todos os dispositivos associados a um utilizador.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 5b30b0d5-722d-4d4b-9ed7-5a43de315461
-caps.latest.revision: "7"
-caps.handback.revision: "0"
-author: mattbriggs
-ms.author: mabrigg
-manager: angrobe
-ms.openlocfilehash: 1066028d0cd20521d78780ae2fdfbce91a0860b2
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 40bab1725b074bc549eeb9e9764ab8a1dd8b83e7
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="link-users-and-devices-with-user-device-affinity-in-system-center-configuration-manager"></a>Associar utilizadores e dispositivos à afinidade de dispositivo do utilizador no System Center Configuration Manager
 
@@ -98,7 +92,7 @@ Depois de criar uma afinidade de dispositivo do utilizador automática, o Config
 
 3.  No Assistente de afinidade de dispositivo do utilizador de importação, no **escolher mapeamento** página, defina estas informações:  
 
-    -   **Nome de ficheiro**. Especifique um ficheiro de valores separados por vírgulas (CSV) que tem uma lista de utilizadores e dispositivos entre os quais pretende criar uma afinidade. Neste ficheiro, cada par utilizador-dispositivo tem de estar na sua própria linha, com valores separados por vírgulas. Utilize este formato: <*domínio*> &#92; <*nome de utilizador*>, <*nome NetBIOS do dispositivo*>.  
+    -   **Nome de ficheiro**. Especifique um ficheiro de valores separados por vírgulas (CSV) que tem uma lista de utilizadores e dispositivos entre os quais pretende criar uma afinidade. Neste ficheiro, cada par utilizador-dispositivo tem de estar na sua própria linha, com valores separados por vírgulas. Utilize este formato: <*domínio*>&#92;<*nome de utilizador*>, <*nome NetBIOS do dispositivo*>.  
 
     -   **Este ficheiro tem títulos de colunas para efeitos de referência**. Se o ficheiro. csv tem um cabeçalho de linha superior, selecione esta opção e a linha de cabeçalho será ignorada durante a importação.  
 

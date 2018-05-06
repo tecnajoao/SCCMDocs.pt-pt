@@ -1,25 +1,20 @@
 ---
-title: "Referência da configuração"
+title: Referência da configuração
 titleSuffix: Configuration Manager
-description: "Reveja esta referência para ajudar a preparar para instalar um site do Configuration Manager ou a hierarquia."
-ms.custom: na
+description: Reveja esta referência para ajudar a preparar para instalar um site do Configuration Manager ou a hierarquia.
 ms.date: 4/18/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: cdb9fb0c-0912-41e4-b427-f40620971763
-caps.latest.revision: "22"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: bc85d1140b19167b31d5ae2176ddbcb9320b21e1
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: f9f857a2045f67690579955236c082ff29721a5f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="reference-for-system-center-configuration-manager-setup"></a>Referência para o Programa de Configuração do System Center Configuration Manager
 
@@ -69,10 +64,10 @@ Recolha de dados incluem estas três níveis:
 
 -   **Básico** inclui dados sobre configuração e atualização, como o número de sites e que funcionalidades do Configuration Manager estão ativadas. Não existem informações de identificação pessoal são transmitidas.  
 
--   **Melhorado** inclui os dados da definição de nível básico, e transmite dados sobre a hierarquia, a forma como cada funcionalidade é utilizada (frequência e duração) e modulação de informações de diagnóstico, como o estado de memória do seu servidor quando um sistema ou ocorrer falhas de aplicação. Não existem dados de identificação pessoal são transmitidos.  
+-   **Melhorado** inclui os dados da definição de nível básico, e transmite dados sobre a hierarquia, a forma como cada funcionalidade é utilizada (frequência e duração) e modulação de informações de diagnóstico, como o estado de memória do seu servidor quando uma falha de sistema ou aplicação ocorre. Não existem dados de identificação pessoal são transmitidos.  
 
 -   **Completo** inclui os dados as definições de nível básico e avançado e também informações de diagnóstico envia avançadas como instantâneos de memória e de ficheiros de sistema. Esta opção pode incluir informações identificativas, mas não as utilizaremos essas informações para identificar ou contactar o utilizador, ou para anúncios de destino para o utilizador.  
 
 Para obter mais informações, incluindo divulgação dos detalhes recolhidos por cada nível, consulte [diagnósticos e dados de utilização para o System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
 
-Para ver o System Center Configuration Manager declaração de privacidade online, aceda a [http://go.microsoft.com/fwlink/?LinkID=626527](http://go.microsoft.com/fwlink/?LinkID=626527).
+Para ver o System Center Configuration Manager declaração de privacidade online, aceda a [ http://go.microsoft.com/fwlink/?LinkID=626527 ](http://go.microsoft.com/fwlink/?LinkID=626527).

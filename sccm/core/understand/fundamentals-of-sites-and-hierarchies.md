@@ -1,25 +1,20 @@
 ---
-title: "Noções básicas de sites e hierarquias"
+title: Noções básicas de sites e hierarquias
 titleSuffix: Configuration Manager
-description: "Obter informações básicas sobre o System Center Configuration Manager sites e hierarquias."
-ms.custom: na
+description: Obter informações básicas sobre o System Center Configuration Manager sites e hierarquias.
 ms.date: 12/30/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 4db1e15f-e832-4cf9-be33-d3971e635a55
-caps.latest.revision: "6"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 0355219b1270dd5fb9b0ed78406ee0059fbceeba
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: dbd87268c1572f53fcc86d5f2dc93537ad759260
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="fundamentals-of-sites-and-hierarchies-for-system-center-configuration-manager"></a>Noções básicas sobre sites e hierarquias do System Center Configuration Manager
 

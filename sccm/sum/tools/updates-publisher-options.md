@@ -1,27 +1,21 @@
 ---
-title: "Configurar opções"
+title: Configurar opções
 titleSuffix: Configuration Manager
-description: "Configurar opções para utilizar o System Center Updates Publisher"
-ms.custom: na
+description: Configurar opções para utilizar o System Center Updates Publisher
 ms.date: 4/29/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-sum
+ms.topic: conceptual
 ms.assetid: 4e620080-5400-45bb-87c2-fbdbc8aeacac
-caps.latest.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 0080e8067c0689d4a681a135b16d62b4af4f0fb8
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 497ff025dafcdb135e466a18f2f6661ca0f21a00
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-options-for-updates-publisher"></a>Configurar opções para o Updates Publisher
 
@@ -127,7 +121,7 @@ Para abrir o **propriedades do publicador de atualizações**e, em seguida, esco
 Depois do Updates Publisher localiza uma nova atualização, é apresentado o **atualizar disponíveis** janela e, em seguida, pode optar por instalá-lo. Se optar por não instalar a atualização, é-lhe oferecida da próxima vez que abrir a consola.
 
 ## <a name="logging"></a>Registo
-Publicador de atualizações regista informações básicas sobre o Updates Publisher para  **&lt;* caminho*&gt;\Windows\Temp\UpdatesPublisher.log**.
+Publicador de atualizações regista informações básicas sobre o Updates Publisher para  **&lt; *caminho*&gt;\Windows\Temp\UpdatesPublisher.log**.
 
 Bloco de notas de utilização ou **CMTrace** para ver o registo. CMTrace é a ferramenta de ficheiro de registo do Configuration Manager e pode ser encontrado no **\SMSSetup\Tools** pasta do suporte de dados de origem do Configuration Manager.
 

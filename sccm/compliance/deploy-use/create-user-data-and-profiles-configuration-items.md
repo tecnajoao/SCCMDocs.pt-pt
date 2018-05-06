@@ -1,26 +1,20 @@
 ---
-title: "Criar itens de configuração de perfis e dados do utilizador"
+title: Criar itens de configuração de perfis e dados do utilizador
 titleSuffix: Configuration Manager
-description: "Utilize itens de configuração de perfis e dados no System Center Configuration Manager para gerir o redirecionamento de pastas, ficheiros offline e perfis itinerantes."
-ms.custom: na
+description: Utilize itens de configuração de perfis e dados no System Center Configuration Manager para gerir o redirecionamento de pastas, ficheiros offline e perfis itinerantes.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: 9fcbcc81-cd6f-496e-b075-ef1afa2b8ccc
-caps.latest.revision: "6"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: ab027a197ffd696fe279a464d0f30b0d224bf312
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: e7d1ee430ef07149b77a4e7b250bc3e19788582a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Criar perfis e dados de utilizador itens de configuração no System Center Configuration Manager
 
@@ -44,7 +38,7 @@ Utilizador dados e perfis de itens de configuração no System Center Configurat
 
 1.  Na consola do Configuration Manager, clique em **administração** > **as definições de cliente** > **predefinições**.  
 
-4.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+4.  No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
 5.  Na caixa de diálogo **Predefinições** , clique em **Definições de Compatibilidade**.  
 

@@ -2,25 +2,19 @@
 title: Associar utilizadores a um computador de destino
 titleSuffix: Configuration Manager
 description: Configure o System Center Configuration Manager para associar os utilizadores com computadores de destino ao implementar sistemas operativos.
-ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 07c3c6d9-f056-4c4d-bc70-ede5ca933807
-caps.latest.revision: "9"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: a6aa06da33cbc537db30c7c885d9ca449ff7221c
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 2a4065b0e6774160efb6be22fe2ec8268c60d6ed
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="associate-users-with-a-destination-computer-in-system-center-configuration-manager"></a>Associar utilizadores a um computador de destino no System Center Configuration Manager
 
@@ -39,7 +33,7 @@ Ao utilizar o System Center Configuration Manager para implementar o sistema ope
 ## <a name="how-to-specify-a-user-when-you-deploy-operating-systems"></a>Como especificar um utilizador ao implementar sistemas operativos  
  A tabela seguinte lista as ações que pode efetuar para integrar a afinidade dispositivo/utilizador nas implementações de sistemas operativos. É possível integrar a afinidade dispositivo/utilizador em implementações de PXE, implementações de suportes de dados de arranque e implementações de suportes de dados pré-configurados.  
 
-|Ação|Mais informações|  
+|Action|Mais informações|  
 |------------|----------------------|  
 |Criar uma sequência de tarefas que inclui a variável **SMSTSAssignUsersMode**|Adicione a variável **SMSTSAssignUsersMode** ao início da sequência de tarefas utilizando o passo da sequência de tarefas [Definir Variável da Sequência de Tarefas](../../osd/understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable). Esta variável especifica o modo como a sequência de tarefas processa as informações do utilizador.<br /><br /> Defina a variável num dos seguintes valores:<br /><br /> <br /><br /> **Auto**: A sequência de tarefas cria automaticamente uma relação entre o utilizador e de destino computador e implementa o sistema operativo.<br /><br /> **Pendente**: A sequência de tarefas cria uma relação entre o utilizador e o computador de destino, mas aguarda a aprovação do utilizador administrativo antes do sistema operativo é implementado.<br /><br /> **Desativado**: A sequência de tarefas não associa um utilizador ao computador de destino e continua a implementar o sistema operativo.<br /><br /> <br /><br /> Esta variável também pode ser definida num computador ou numa coleção. Para obter mais informações sobre as variáveis incorporadas, consulte [variáveis incorporadas de sequência de tarefas](../../osd/understand/task-sequence-built-in-variables.md).|  
 |Criar um comando de pré-início que reúne as informações do utilizador|O comando de pré-início pode ser um script do Visual Basic (VB) com uma caixa de entrada ou uma aplicação de HTML (HTA) que valide os dados do utilizador introduzidos.<br /><br /> O comando de pré-início deve definir a variável **SMSTSUdaUsers** que é utilizada quando a sequência de tarefas é executada. Esta variável pode ser definida num computador, numa coleção ou numa variável de sequência de tarefas. Utilize o seguinte formato para adicionar múltiplos utilizadores: *domínio\utilizador1, domínio\utilizador2, domínio\utilizador3*.|  

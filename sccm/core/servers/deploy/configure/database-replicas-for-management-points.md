@@ -1,25 +1,20 @@
 ---
-title: "Réplicas de base de dados do ponto de gestão"
+title: Réplicas de base de dados do ponto de gestão
 titleSuffix: Configuration Manager
-description: "Utilize uma réplica de base de dados para reduzir a carga de CPU colocada no servidor de base de dados do site por pontos de gestão."
-ms.custom: na
+description: Utilize uma réplica de base de dados para reduzir a carga de CPU colocada no servidor de base de dados do site por pontos de gestão.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: b06f781b-ab25-4d9a-b128-02cbd7cbcffe
-caps.latest.revision: "9"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: f322d5dcd2f505f52e363e07801497ffa3bfdc7e
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 0893df43f7979fa3c36ba90ab400e399f96e6228
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="database-replicas-for-management-points-for-system-center-configuration-manager"></a>Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager
 
@@ -118,7 +113,7 @@ Para configurar uma réplica de base de dados, são necessários os passos segui
 
     -   **Permissões de Partilha**:  
 
-        -   SYSTEM: **Escrita**  
+        -   SYSTEM: **escrita**  
 
         -   ConfigMgr_MPReplicaAccess: **Leitura**  
 
@@ -152,7 +147,7 @@ Utilize o seguinte procedimento como exemplo de como configurar um servidor de r
 
     2.  Selecione **ConfigMgr_MPReplica**e, em seguida, clique em **seguinte**.  
 
-    3.  No **localização do agente de distribuição** página, selecione **executar cada agente no seu subscritor (subscrições de solicitação)**e clique em **seguinte**.  
+    3.  No **localização do agente de distribuição** página, selecione **executar cada agente no seu subscritor (subscrições de solicitação)** e clique em **seguinte**.  
 
     4.  Na página **Subscritores** , execute um dos seguintes procedimentos:  
 
@@ -184,9 +179,9 @@ Utilize o seguinte procedimento como exemplo de como configurar um servidor de r
 
          Após configurar as definições de segurança da ligação, clique em **OK** para guardá-las e clique em **Seguinte**.  
 
-    7.  Na página **Agendamento da Sincronização** , na caixa de listagem **Agenda do Agente** , selecione **Definir agenda**e configure a **Nova Agenda de Tarefa**. Defina a frequência como **diária**, repetir cada **5 minuto (s)**e a duração como **sem data de fim**. Clique em **Seguinte** para guardar o agendamento e clique novamente em **Seguinte** .  
+    7.  Na página **Agendamento da Sincronização** , na caixa de listagem **Agenda do Agente** , selecione **Definir agenda**e configure a **Nova Agenda de Tarefa**. Defina a frequência como **diária**, repetir cada **5 minuto (s)** e a duração como **sem data de fim**. Clique em **Seguinte** para guardar o agendamento e clique novamente em **Seguinte** .  
 
-    8.  No **ações do assistente** página, selecione a caixa de verificação **criar as subscrições (s)**e, em seguida, clique em **seguinte**.  
+    8.  No **ações do assistente** página, selecione a caixa de verificação **criar as subscrições (s)** e, em seguida, clique em **seguinte**.  
 
     9. Na página **Concluir o Assistente** , clique em **Concluir**e em **Fechar** para concluir o Assistente.  
 
@@ -204,7 +199,7 @@ Utilize o seguinte procedimento como exemplo de como configurar um servidor de r
 
         -   No **SQL Server Management Studio**, estabeleça ligação ao computador da base de dados do site, clique com botão direito do **replicação** pasta e, em seguida, selecione **iniciar o Monitor de replicação**.  
 
-5.  Para ativar a integração language runtime (CLR) para a réplica de base de dados, utilize **SQL Server Management Studio** para estabelecer ligação à réplica da base de dados no servidor de réplica de base de dados e execute o seguinte procedimento armazenado como uma consulta: **exec sp_configure 'clr enabled', 1; RECONFIGURAR COM SUBSTITUIÇÃO**  
+5.  Para ativar a integração language runtime (CLR) para a réplica de base de dados, utilize **SQL Server Management Studio** para estabelecer ligação à réplica da base de dados no servidor de réplica de base de dados e execute o seguinte procedimento armazenado como uma consulta:  **Exec sp_configure 'clr enabled', 1; RECONFIGURAR COM SUBSTITUIÇÃO**  
 
 6.  Para cada ponto de gestão que utilize um servidor de réplica da base de dados, adicione a respetiva conta de computador ao grupo local **Administradores** desse servidor de réplica da base de dados.  
 
@@ -438,10 +433,10 @@ Para suportar a notificação de cliente com uma réplica de base de dados para 
 
 3.  Utilize o **SQL Server Management Studio** para ligar à base de dados do site primário. Depois de ligar à base de dados de sites primários, execute uma consulta para importar o certificado e especificar a porta do Service Broker que está a ser utilizada no servidor de réplica de base de dados, o FQDN do servidor de réplica de base de dados e o nome da base de dados de réplicas de bases de dados. Isto configura a base de dados de sites primários que o Service Broker utilizará para comunicar com a base de dados do servidor de réplica de base de dados.  
 
-     Execute a consulta seguinte para importar o certificado do servidor de réplica de base de dados e especificar os detalhes necessários: **EXEC sp_BgbConfigSSBForRemoteService 'REPLICA', '&lt;porta do SQL Server Service Broker\>','&lt;caminho do ficheiro de certificado\>','&lt;FQDN do servidor de SQL Server de réplica\>','&lt;nome de base de dados de réplica\>'**  
+     Execute a consulta seguinte para importar o certificado do servidor de réplica de base de dados e especificar os detalhes necessários: **EXEC sp_BgbConfigSSBForRemoteService 'REPLICA', '&lt;porta do SQL Server Service Broker\>','&lt;caminho do ficheiro de certificado\>','&lt;FQDN do servidor de SQL Server de réplica\>','&lt;réplica Nome de base de dados\>'**  
 
     > [!NOTE]  
-    >  Para este passo, se o servidor de réplica da base de dados não estiver na instância predefinida do SQL Server, é necessário especificar também o nome da instância além do nome da base de dados de réplica. Para isso, substitua  **&lt;nome de base de dados de réplica\>**  com **\Instance nome\\nome de base de dados de réplica\>**.  
+    >  Para este passo, se o servidor de réplica da base de dados não estiver na instância predefinida do SQL Server, é necessário especificar também o nome da instância além do nome da base de dados de réplica. Para isso, substitua **&lt;nome de base de dados de réplica\>** com **\Instance nome\\nome de base de dados de réplica\>**.  
 
 4.  Em seguida, no servidor de base de dados do site, execute o seguinte comando para exportar o certificado para o servidor de base de dados do site: **EXEC sp_BgbCreateAndBackupSQLCert '&lt;caminho do ficheiro de cópia de segurança de certificado\>'**  
 

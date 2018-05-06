@@ -1,25 +1,20 @@
 ---
 title: Funcionalidades no Technical Preview 1701
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1701."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1701.
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 18598eaa-1131-44ff-8f8b-6093e87ac7a1
-caps.latest.revision: "5"
-author: erikje
-ms.author: erikje
-manager: angrobe
-ms.openlocfilehash: 90e5aa799516bf2a7d6715e12bb8f3d1b72737f3
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 894d268151f9c9dfb05ded812eb642f8025dc459
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1701-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1701 do System Center Configuration Manager
 
@@ -99,7 +94,7 @@ Começando com esta versão de pré-visualização, pode configurar pontos de ge
 
 ### <a name="try-it-out"></a>Experimente
 
-- **Ativar o atestado de estado de funcionamento de dispositivos no local num ponto de gestão**<br>  Na consola do Configuration Manager, navegue para o ponto de gestão e abra **propriedades do componente de ponto de gestão** e, em seguida, clique em de **opções avançadas** separador. Clique em **adicionar** e especificar o URL no local (por exemplo, https://10.10.10.10) para **URLs do serviço de atestado de estado de funcionamento de dispositivos no local**.
+- **Ativar o atestado de estado de funcionamento de dispositivos no local num ponto de gestão**<br>  Na consola do Configuration Manager, navegue para o ponto de gestão e abra **propriedades do componente de ponto de gestão** e, em seguida, clique em de **opções avançadas** separador. Clique em **adicionar** e especifique o URL no local (por exemplo, https://10.10.10.10) para **URLs do serviço de atestado de estado de funcionamento de dispositivos no local**.
 - **Ativar o atestado estado de funcionamento no local gestão ponto de Reporting Services para o agente do cliente**<br>Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** e faça duplo clique ou crie um novo **definições personalizadas do dispositivo**. Selecione **agente do computador** e defina **utilizar no local o serviço de atestado de estado de funcionamento** para **Sim**. Se **ativar comunicação com o serviço de atestado de estado de funcionamento do dispositivo** está definido como **Sim** e **utilizar no local atestado de estado de funcionamento** está definido como **não**, o ponto de gestão irá utilizar o serviço de atestado de estado de funcionamento de dispositivos baseado na nuvem.
 
 ## <a name="use-the-oms-connector-for-microsoft-azure-government-cloud"></a>Utilizar o conector do OMS para a nuvem do Microsoft Azure Government
@@ -115,20 +110,20 @@ Para tal, modificar um ficheiro de configuração para apontar para a nuvem do G
     Altere o valor para o nome da definição *FairFaxArmResourceID* para ser igual a "https://management.usgovcloudapi.net/"
 
    - **Original:** &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "Cadeia" >   
-      &lt;valor > &lt; /value >   
-      &lt;/ definição >
+      &lt;value>&lt;/value>   
+      &lt;/setting>
 
    - **Editadas:**     
-      &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "Cadeia" > &lt;valor > https://management.usgovcloudapi.net/ &lt; /value >  
-      &lt;/ definição >
+      &lt;nome da definição = "FairFaxArmResourceId" serializeAs = "Cadeia" > &lt;valor >https://management.usgovcloudapi.net/ &lt; /value >  
+      &lt;/setting>
 
   Altere o valor para o nome da definição *FairFaxAuthorityResource* para ser igual a "https://login.microsoftonline.com/"
 
   - **Original:** &lt;nome da definição = "FairFaxAuthorityResource" serializeAs = "Cadeia" >   
-    &lt;valor > &lt; /value >
+    &lt;value>&lt;/value>
 
     - **Editadas:** &lt;nome da definição = "FairFaxAuthorityResource" serializeAs = "Cadeia" >   
-    &lt;valor > https://login.microsoftonline.com/ &lt; /value >
+    &lt;value>https://login.microsoftonline.com/&lt;/value>
 
 2.  Depois de guardar o ficheiro com as duas alterações, reiniciar a consola do Configuration Manager no mesmo computador e, em seguida, utilize essa consola para instalar o conector do OMS. Para instalar o conector, utilize as informações em [sincronizar os dados do Configuration Manager para o Microsoft Operations Management Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite)e selecione o **área de trabalho do Operations Management Suite** que não está na nuvem do Microsoft Azure Government.
 

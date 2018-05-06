@@ -1,27 +1,20 @@
 ---
-title: "Ponto de ligação de serviço"
+title: Ponto de ligação de serviço
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre esta função de sistema de sites do Configuration Manager e compreenda e planeie as várias utilizações."
-ms.custom: na
+description: Saiba mais sobre esta função de sistema de sites do Configuration Manager e compreenda e planeie as várias utilizações.
 ms.date: 1/29/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
-caps.latest.revision: 
-caps.handback.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: a029d54000dee669ae437a460ebcb31f359bfd27
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7328d7053d1fb06487e255fe4a24d6955c99c4b0
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Acerca do ponto de ligação de serviço no System Center Configuration Manager
 
@@ -54,7 +47,7 @@ O ponto de ligação de serviço do System Center Configuration Manager é uma f
   -   Se expandir um site primário autónomo para uma hierarquia maior, tem de desinstalar esta função do site primário e pode, em seguida, instalá-la no site de administração central.  
 
 
-##  <a name="bkmk_modes"></a>Modos de operação  
+##  <a name="bkmk_modes"></a> Modos de operação  
  O ponto de ligação de serviço suporta dois modos de funcionamento:  
 
 -   No **modo online**, o ponto de ligação de serviço verifica automaticamente, a cada 24 horas para atualizações. Transfere as novas atualizações disponíveis para a sua infraestrutura atual e a versão do produto para que fiquem disponíveis na consola do Configuration Manager.  
@@ -84,7 +77,7 @@ Para utilizar o Configuration Manager Service Manager, na consola de ir para **m
 
 -   O Gestor de distribuição no servidor do site utiliza a conta de instalação do sistema de sites para transferir atualizações a partir do ponto de ligação de serviço.
 
-##  <a name="bkmk_urls"></a>Requisitos de acesso à Internet  
+##  <a name="bkmk_urls"></a> Requisitos de acesso à Internet  
 Para ativar a operação, o computador que aloja o ponto de ligação de serviço e quaisquer firewalls entre esse computador e da internet tem de transmitir comunicações através da porta de saída **TCP 443** para HTTPS e a porta de saída  **TCP 80** para HTTP para o abaixo localizações de internet. A serviço do ponto de ligação também suporta a utilização de um proxy web (com ou sem autenticação) para utilizar estas localizações.  Se precisar de configurar uma conta de proxy web consulte: [Suporte para servidor proxy no System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
 
 **Atualizações e manutenção**  

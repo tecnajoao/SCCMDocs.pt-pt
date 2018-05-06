@@ -1,28 +1,21 @@
 ---
 title: Resolver problemas do SCAP
-titleSuffix: System Center Configuration Manager
+titleSuffix: Configuraton Manager
 description: Importar as definições de compatibilidade SCAP como linhas de base de configuração e exportar os resultados
-ms.custom: na
 ms.date: 03/27/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: 27261853-1641-4826-98c6-afbb73a1209d
-caps.latest.revision: ''
-caps.handback.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: 8270db5f0a43f1c94c876bdbd59e45ee2ca85ac6
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+ms.openlocfilehash: 05010d73916ac4c012c157a470ed98dce47fc747
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshoot-the-scap-extensions-for-microsoft-system-center-configuration-manager"></a>Resolver problemas relacionados com as extensões SCAP para o Microsoft System Center Configuration Manager
 
@@ -69,4 +62,4 @@ Tabela 1.6 problemas e soluções comuns
 
 ## <a name="next-step"></a>Passo seguinte
 > [!div class="nextstepaction"]
-> [Instalar e configurar as extensões SCAP](/sccm/compliance/plan-design/scap/install-configure-scap)
+> [Instalar e configurar as Extensões do SCAP](/sccm/compliance/plan-design/scap/install-configure-scap)

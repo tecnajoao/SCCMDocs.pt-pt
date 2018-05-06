@@ -1,26 +1,20 @@
 ---
-title: "Criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune"
+title: Criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune
 titleSuffix: Configuration Manager
-description: "Utilize o item de configuração do Mac OS X e iOS do System Center Configuration Manager para gerir as definições para dispositivos iOS e Mac OS X."
-ms.custom: na
+description: Utilize o item de configuração do Mac OS X e iOS do System Center Configuration Manager para gerir as definições para dispositivos iOS e Mac OS X.
 ms.date: 03/28/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 613a48ac-c55d-4c4a-94ea-d3747a1b10cb
-caps.latest.revision: "15"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: d101ffc649928c1136386bc7979d4a37ad404af1
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 0a6925cdc1f3b3a5018cc4895820019d88254bd3
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Como criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune
 Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de configuração para gerir as definições do iOS e Mac OS X inscritos no Microsoft Intune ou geridos no local pelo Configuration Manager.  
@@ -229,7 +223,7 @@ Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de config
   
  Não é possível especificar aplicações compatíveis e incompatíveis no mesmo item de configuração.  
   
-#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Especificar a lista de aplicações compatíveis ou incompatíveis  
+#### <a name="to-specify-the-compliant-or-noncompliant-apps-list"></a>Especificar a lista de aplicações em conformidade ou não conformes  
   
 1.  Na página **Aplicações Compatíveis e Incompatíveis (iOS)**, especifique as seguintes informações:  
   
@@ -243,7 +237,7 @@ Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de config
   
          Abra a página da aplicação e copie o URL para a área de transferência. Agora pode utilizar este URL na lista de aplicações em conformidade ou na lista de aplicações não conformes.  
   
-         **Exemplo:** Procure na loja a **Microsoft Word para iPad** aplicação. O URL a utilizar é o seguinte **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
+         **Exemplo:** Procure na loja a **Microsoft Word para iPad** aplicação. O URL a utilizar será **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
   
     -   **Editar** - Permite-lhe editar o nome, o fabricante e o URL da aplicação selecionada.  
   
@@ -280,7 +274,7 @@ Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de config
         >  Para localizar o ID do pacote de uma aplicação, utilize os passos seguintes num computador Mac que tenha a aplicação instalada:  
         >   
         >  1.  Abra a pasta na qual a aplicação está instalada (por exemplo, **/Applications**)  
-        > 2.  Selecione o grupo *<App Name\>***.app** e escolha **Mostrar Conteúdo do Pacote**  
+        > 2.  Selecione o *< nome da aplicação\>* * *.app** do pacote e escolha **Mostrar conteúdo do pacote**  
         > 3.  Abra o ficheiro **Info.plist**  
         > 4.  Verifique o valor associado à chave **CFBundleIdentifier**  
         >   
@@ -363,7 +357,7 @@ Utilizar o System Center Configuration Manager **iOS e Mac OS X** item de config
   
         -   Copie o URL da página e utilize-o como URL para especificar a aplicação que pretende executar no modo de local público.  
   
-        -   **Exemplo:** Procurar **Microsoft Word para iPad**. O URL a utilizar é o seguinte **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
+        -   **Exemplo:** Procurar **Microsoft Word para iPad**. O URL a utilizar será **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**.  
   
     -   **Toque** - Ativa ou desativa o ecrã tátil do dispositivo.  
   

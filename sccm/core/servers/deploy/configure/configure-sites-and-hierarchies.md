@@ -1,25 +1,20 @@
 ---
 title: Configurar sites
 titleSuffix: Configuration Manager
-description: "Consulte esta lista de verificação para garantir que considera as configurações mais comuns que afetam sites e hierarquias."
-ms.custom: na
+description: Consulte esta lista de verificação para garantir que considera as configurações mais comuns que afetam sites e hierarquias.
 ms.date: 2/7/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 9efb4061-f642-48bd-8332-3357ff5b3118
-caps.latest.revision: "15"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 55daf30e3386e53f3711c07fa971750d6aa33423
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 8a74f998c7bae22d94f2471724c2d51de918dfc4
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-sites-and-hierarchies-for-system-center-configuration-manager"></a>Configurar sites e hierarquias do System Center Configuration Manager
 
@@ -36,7 +31,7 @@ Tenha em atenção as seguintes notas sobre a configuração, que se aplicam a m
 
 -   Outras configurações, como os grupos de limites e os grupos de pontos de distribuição, necessitam de configuração para poder utilizá-las.  
 
-|Ação|Detalhes|  
+|Action|Detalhes|  
 |------------|-------------|  
 |Configurar a administração baseada em funções|Segregar as atribuições administrativas para controlar quais os utilizadores administrativos podem ver e gerir diferentes objetos e dados no seu ambiente do Configuration Manager.<br /><br /> As configurações para a administração baseada em funções são partilhadas com todos os sites numa hierarquia.   <br/><br/>Para obter mais informações, consulte [configurar a administração baseada em funções para o System Center Configuration Manager](../../../../core/servers/deploy/configure/configure-role-based-administration.md).|  
 |Publicar dados do site nos Serviços de Domínio do Active Directory (AD DS)|Torna mais fácil para os clientes localizar serviços e utilizem eficazmente os recursos de site.<br /><br /> Deve primeiro [expandir o esquema do Active Directory para o System Center Configuration Manager](../../../../core/plan-design/network/extend-the-active-directory-schema.md), e, em seguida, cada site tem de ser configurado individualmente a [publicar dados do site para o System Center Configuration Manager](../../../../core/servers/deploy/configure/publish-site-data.md)|  

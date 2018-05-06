@@ -1,26 +1,19 @@
 ---
 title: Documentação na consola
-ms.custom: na
 ms.date: 03/05/2018
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.prod: configuration-manager
-ms.service: ''
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.assetid: 955e56fa-6485-4a1a-90e6-77bc2cf8e326
-caps.latest.revision: 4
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: 856f23aaf64686b3e895d43e768350ea2ddc405c
-ms.sourcegitcommit: e23350fe65ff99228274e465b24b5e163769f38f
+ms.openlocfilehash: b8453b60637d965265fd8a5defd5ae743ced23ff
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 <!-- 
 TFS 1357546

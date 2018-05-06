@@ -1,28 +1,21 @@
 ---
 title: Instalar e configurar as extensões Security Content Automation Protocol (SCAP)
-titleSuffix: System Center Configuration Manager
+titleSuffix: Configuraton Manager
 description: Instalar e configurar as extensões Security Content Automation Protocol (SCAP)
-ms.custom: na
 ms.date: 03/27/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: f53b484b-5123-48f0-be2f-4e30318f3d39
-caps.latest.revision: ''
-caps.handback.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: 03fc9fa9f82aeae8ab22d6b4c3fa7858e93401cc
-ms.sourcegitcommit: 27da4be015f1496b7b89ebddb517a2685f1ecf74
+ms.openlocfilehash: 891d21b44ed6efca73413a46d0483519b76f9cae
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="install-and-configure-the-scap-extensions-for-microsoft-system-center-configuration-manager"></a>Instalar e configurar as extensões SCAP para o Microsoft System Center Configuration Manager
 
@@ -146,7 +139,7 @@ Microsoft.Sces.ScapToDcm.exe – scap &lt;scapdatastreamfile.xml&gt; -out &lt;ou
 
 **Para um ficheiro OVAL único com variáveis externas:**
 
-Microsoft.Sces.ScapToDcm.exe –oval &lt;singleOvalFile.xml&gt; [-variable &lt;externalVariableFile.xml&gt;] -out &lt;outputFolder&gt; [-log LogFileName]
+Microsoft.Sces.ScapToDcm.exe – oval &lt;singleOvalFile.xml&gt; [-variável &lt;externalVariableFile.xml&gt;]-out &lt;outputFolder&gt; [-registo LogFileName]
 
    >[!NOTE] 
    > Se existirem vários valores para uma variável no ficheiro de variável externa, em seguida, a ferramenta de Microsoft.Sces.ScapToDcm.exe irão tratar os valores como uma matriz desta variável.
@@ -155,7 +148,7 @@ Microsoft.Sces.ScapToDcm.exe –oval &lt;singleOvalFile.xml&gt; [-variable &lt;e
 
 #### <a name="microsoftscesscaptodcmexe-command-line-parameters"></a>Microsoft.Sces.ScapToDcm.exe. Parâmetros da linha de comandos
 
-| **Parâmetro** | **Usage** | **Necessário** |
+| **Parâmetro** | **Utilização** | **Necessário** |
 | --- | --- | --- |
 | -scap [ficheiro de fluxo de dados scap] | Especifique o ficheiro de fluxo de dados SCAP | Sim (para fluxo de dados SCAP 1.2, mutuamente exclusivo com-xccdf e -oval / - variable) |
 | -xccdf [ficheiro xccdf] | Especifique o ficheiro XCCDF | Sim (para XCCDF do SCAP 1.0/1.1, mutuamente exclusivo com-scap e -oval / - variable) |
@@ -237,7 +230,7 @@ Microsoft.Sces.ScapToDcm.exe –oval &lt;singleOvalFile.xml&gt; [-variable &lt;e
 
   Perfil XCCDF: [xccdf\_tst.bvt\_perfil\_versão\_1.0.0.0]
  
-  OVAL:              [Windows-F-oval.xml]
+  OVAL: [Windows-F-oval.xml]
 
    Nome do produto: [scaptool]
 

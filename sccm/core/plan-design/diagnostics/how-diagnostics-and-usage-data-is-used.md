@@ -1,25 +1,20 @@
 ---
-title: "Utilização de dados de diagnóstico"
+title: Utilização de dados de diagnóstico
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre como a Microsoft utiliza os diagnósticos e dados de utilização recolhe do System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre como a Microsoft utiliza os diagnósticos e dados de utilização recolhe do System Center Configuration Manager.
 ms.date: 12/29/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: a8021bc8-2799-41f4-83c2-e27d1242028c
-caps.latest.revision: "5"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: d34305ddb158a01c0d79189705af597344a56f8d
-ms.sourcegitcommit: da27d37cc4e4e06cf23758846cdd7acb617f744b
+manager: dougeby
+ms.openlocfilehash: fac92818a56b9ef7c7e8e6b923fb0d833f9053c2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Como os diagnósticos e dados de utilização são utilizados para o System Center Configuration Manager
 
@@ -43,7 +38,7 @@ Igualmente não é importante o modo como os diagnósticos e dados de utilizaç�
 
 -   Publicidade com base nos dados disponíveis, tais como a utilização da funcionalidade ou a geolocalização (fuso horário)  
 
-##  <a name="bkmk_improve"></a>Exemplos de como os diagnósticos e dados de utilização melhora o produto  
+##  <a name="bkmk_improve"></a> Exemplos de como os diagnósticos e dados de utilização melhora o produto  
 A Microsoft utiliza os dados disponíveis para melhorar o produto. Seguem-se alguns exemplos:  
 
 -   **Suporte revisto para sistemas de operativos mais antigos do servidor:**  

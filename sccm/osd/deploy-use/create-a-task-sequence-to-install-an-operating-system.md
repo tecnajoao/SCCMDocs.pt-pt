@@ -1,25 +1,20 @@
 ---
-title: "Criar uma sequência de tarefas para instalar um sistema operativo"
+title: Criar uma sequência de tarefas para instalar um sistema operativo
 titleSuffix: Configuration Manager
-description: "Utilize sequências de tarefas no System Center Configuration Manager para instalar automaticamente uma imagem do sistema operativo e outros conteúdos num computador de destino."
-ms.custom: na
+description: Utilize sequências de tarefas no System Center Configuration Manager para instalar automaticamente uma imagem do sistema operativo e outros conteúdos num computador de destino.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 217c8a0e-5112-420e-a325-2a6d75326290
-caps.latest.revision: "13"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 433a1778213b357c6c41eb20e4b975b2e682050d
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 274a6c22b76c8def437e6159036ff3e82877e88f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-task-sequence-to-install-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para instalar um sistema operativo no System Center Configuration Manager
 
@@ -48,7 +43,7 @@ Utilize sequências de tarefas no System Center Configuration Manager para insta
 
 2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
+3.  No separador **Home Page**, no grupo **Criar**, clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
 
 4.  Na página **Criar uma Nova Sequência de Tarefas** , clique em **Instalar um pacote de imagem existente**e clique em **Seguinte**.  
 

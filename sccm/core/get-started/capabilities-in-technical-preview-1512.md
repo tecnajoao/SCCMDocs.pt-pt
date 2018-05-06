@@ -1,26 +1,21 @@
 ---
 title: Funcionalidades no Technical Preview 1512
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1512."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1512.
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: e4d9e414-1346-4ed4-85d0-64d602b68731
-caps.latest.revision: "6"
-author: erikje
-ms.author: erikje
-manager: angrobe
+author: aczechowski
 robots: noindex,nofollow
-ms.openlocfilehash: e107b24a821ebbd575db9c00a817938d50931344
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 939a767820983c1fe2d575d7a745d6dabb45f25c
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1512 do System Center Configuration Manager
 
@@ -45,7 +40,7 @@ A consola também apresenta a parte superior falta definições de atestado de e
 
 Para pré-visualizar a vista de atestado de estado de funcionamento do dispositivo, na consola do Configuration Manager vá para o **monitorização** área de trabalho da, clique em **segurança** nó e, em seguida, clique em **atestado de estado de funcionamento**.  
 
-##  <a name="bkmk_viewterms"></a>Monitorização de termos e condições na consola  
+##  <a name="bkmk_viewterms"></a> Monitorização de termos e condições na consola  
 A partir do Technical Preview 1512, quando integrar o Configuration Manager com o Microsoft Intune, pode utilizar a consola do Configuration Manager para ver que utilizadores aceitaram os termos e condições configurados pelo departamento de TI e os utilizadores que não têm.  
 
 **Para ver informações de resumo:**  
@@ -58,7 +53,7 @@ A partir do Technical Preview 1512, quando integrar o Configuration Manager com 
 
 2.  Na parte inferior da consola, selecione o **implementações** separador, selecione a implementação e, em seguida, clique em **Ver estado.**  
 
-##  <a name="bkmk_EPpolicy"></a>Melhoramentos às definições de política do Endpoint Protection  
+##  <a name="bkmk_EPpolicy"></a> Melhoramentos às definições de política do Endpoint Protection  
 No 1512 Technical Preview, foram adicionados as seguintes definições novas de política antimalware do Endpoint Protection:  
 
 -   Proteção em tempo real: **Bloquear Aplicações Potencialmente Indesejáveis ao transferir e antes da instalação**  
@@ -85,7 +80,7 @@ No 1512 Technical Preview, foram adicionados as seguintes definições novas de 
 
          Por exemplo, o seguinte mostra a definição do Windows Defender no Windows 10 definido pelo administrador como ativada e o utilizador não é permitido modificar:  
 
-         ![TechRef &#95; WinDefender](../../core/get-started/media/TechRef_WinDefender.png "TechRef_WinDefender")  
+         ![TechRef&#95;WinDefender](../../core/get-started/media/TechRef_WinDefender.png "TechRef_WinDefender")  
 
     Além disso, o existente **excluir ficheiros e pastas** política de definição na secção "Definições de exclusão" antimalware do endpoint protection foi melhorada para permitir exclusões de dispositivos. Por exemplo, agora pode especificar o seguinte como exclusão: **\device\mvfs** (em Sistema de Ficheiros com Múltiplas Versões). A política não valida o caminho do dispositivo; a política do endpoint protection é fornecida ao motor antimalware no cliente, que tem de conseguir interpretar a cadeia do dispositivo.  
 

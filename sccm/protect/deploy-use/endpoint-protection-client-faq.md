@@ -1,25 +1,20 @@
 ---
 title: Perguntas mais frequentes de cliente do Endpoint Protection
 titleSuffix: Configuration Manager
-description: "Obtenha respostas às perguntas mais frequentes sobre o Windows Defender e Endpoint Protection."
-ms.custom: na
+description: Obtenha respostas às perguntas mais frequentes sobre o Windows Defender e Endpoint Protection.
 ms.date: 12/09/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-protect
+ms.topic: conceptual
 ms.assetid: e3aaa9d2-a40e-42b1-ad75-5a115351729e
-caps.latest.revision: "15"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 2656a5c40dbd2916ef36268936a4e2163ebde14d
-ms.sourcegitcommit: 372171a5cd8d143d6d47b651018cda0c91cad67c
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 7e86c8196cf2ff2473b066fccf741c2df20cd8f9
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="endpoint-protection-client-frequently-asked-questions"></a>Perguntas mais frequentes de cliente do Endpoint Protection
 
@@ -54,7 +49,7 @@ Este artigo destina-se a utilizadores de computador cujo administrador de TI imp
 
  O Windows Defender ou o Endpoint Protection oferece três formas de ajudar a impedir que software malicioso infete o seu computador:  
 
--   **Utilizar a proteção em tempo real** - proteção em tempo real permite que o Windows Defender monitorizar o seu computador sempre e alerta-o quando o software malicioso, incluindo vírus, spyware ou outro potencialmente software indesejável tenta instalação ou execução no seu computador. Em seguida, o Windows Defender suspende o software e permite que o utilizador siga a recomendação sobre o software ou execute uma ação alternativa.  
+-   **Utilizar a proteção em tempo real** - proteção em tempo real permite que o Windows Defender monitorizar o seu computador sempre e alerta-o quando o software malicioso, incluindo vírus, spyware ou outro potencialmente software indesejável tenta instalar -Se ou executar no seu computador. Em seguida, o Windows Defender suspende o software e permite que o utilizador siga a recomendação sobre o software ou execute uma ação alternativa.  
 
     |**Opção de proteção em tempo real** |**objetivo** |
 

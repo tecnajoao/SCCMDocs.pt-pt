@@ -2,25 +2,19 @@
 title: Gerir pontos de distribuição
 titleSuffix: Configuration Manager
 description: Receber o conteúdo que implementar em dispositivos e utilizadores através da utilização de pontos de distribuição
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: aebafaf9-b3d5-4a0f-9ee5-685758c037a1
-caps.latest.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1010e339c586922f818e1af1e193abba95dace7b
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 1c9e6dc50b47a1cfcf12f23eaf607eb55837a57d
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Instalar e configurar pontos de distribuição para o System Center Configuration Manager
 
@@ -374,7 +368,7 @@ Gerir o conteúdo que tenha sido distribuído ao ponto de distribuição. O **pa
 
 -   **Redistribuir**: Copia todos os ficheiros de conteúdo no pacote para o ponto de distribuição e substitui os ficheiros existentes. Esta ação é normalmente utilizada para reparar ficheiros de conteúdo no pacote.  
 
--   **Remove**: Remove os ficheiros de conteúdo do ponto de distribuição para o pacote.  
+-   **Remover**: Remove os ficheiros de conteúdo do ponto de distribuição para o pacote.  
 
 ### <a name="content-validation"></a>Validação de conteúdo  
 Especifique se pretende definir uma agenda para validar a integridade dos ficheiros de conteúdo no ponto de distribuição. Quando ativa a validação de conteúdo com base numa agenda, o Configuration Manager inicia o processo à hora agendada e todo o conteúdo no ponto de distribuição é verificado. Também pode configurar a prioridade de validação de conteúdos. Por predefinição, a prioridade é definida **mais baixa**.  

@@ -2,25 +2,19 @@
 title: Criar e aplicar esquemas de energia
 titleSuffix: Configuration Manager
 description: Criar e aplicar esquemas de energia no System Center Configuration Manager.
-ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: 738eddaa-52e2-467f-b453-821ef2884d47
-caps.latest.revision: "6"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: ec32a0b1591fffe77ace91f478e03302f429c957
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: 4504f26f8f6288750d36028d8eb795ae0d839fbc
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-and-apply-power-plans-in-system-center-configuration-manager"></a>Como criar e aplicar esquemas de energia no System Center Configuration Manager
 
@@ -52,7 +46,7 @@ Gestão de energia no System Center Configuration Manager permite-lhe aplicar es
 
 3.  Na lista **Coleções de Dispositivos** , clique na coleção para a qual pretende aplicar as definições de gestão de energia e, em seguida, no separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
 
-4.  No **gestão de energia** separador do *< nome da coleção\>***propriedades** caixa de diálogo, selecione **especificar definições de gestão de energia para esta coleção**.  
+4.  No **gestão de energia** separador do *< nome da coleção\>*** propriedades** caixa de diálogo, selecione **especificar definições de gestão de energia para esta coleção**.  
 
     > [!NOTE]  
     >  Também pode clicar em **Procurar** e, em seguida, copiar as definições de gestão de energia de uma determinada coleção para a coleção selecionada.  
@@ -74,7 +68,7 @@ Gestão de energia no System Center Configuration Manager permite-lhe aplicar es
     > [!NOTE]  
     >  Não é possível modificar os esquemas de energia incorporados.  
 
-8.  No *< nome do plano de energia\>***propriedades** diálogo caixa, configure as seguintes definições:  
+8.  No *< nome do plano de energia\>*** propriedades** diálogo caixa, configure as seguintes definições:  
 
     -   **Nome:** Especifique um nome para este esquema de energia ou utilize o valor predefinido fornecido.  
 
@@ -85,9 +79,9 @@ Gestão de energia no System Center Configuration Manager permite-lhe aplicar es
         > [!IMPORTANT]  
         >  As definições ativadas são aplicadas nos computadores quando o esquema de energia é aplicado. Se desmarcar a caixa de verificação de uma definição de energia, o valor no computador cliente não é alterado quando o esquema de energia é aplicado. Desmarcar uma caixa de verificação não restaura a definição de energia para o valor anterior antes de ter sido aplicado um esquema de energia.  
 
-9. Clique em **OK** para fechar o *< nome do plano de energia\>***propriedades** caixa de diálogo.  
+9. Clique em **OK** para fechar o *< nome do plano de energia\>*** propriedades** caixa de diálogo.  
 
-10. Clique em **OK** para fechar o *< nome da coleção\>***definições** caixa de diálogo e para aplicar o esquema de energia.  
+10. Clique em **OK** para fechar o *< nome da coleção\>*** definições** caixa de diálogo e para aplicar o esquema de energia.  
 
 ##  <a name="BKMK_Plans"></a> Available power management plan settings  
  A tabela seguinte lista as definições de gestão de energia disponíveis no Configuration Manager. Pode configurar diferentes definições para quando o computador está ligado à corrente ou em execução com energia da bateria. Dependendo da versão do Windows que estiver a utilizar, algumas definições poderão não ser configuráveis.  

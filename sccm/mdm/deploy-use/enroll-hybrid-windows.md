@@ -1,25 +1,20 @@
 ---
-title: "Configurar a gestão de dispositivos Windows híbrida com o Microsoft Intune"
+title: Configurar a gestão de dispositivos Windows híbrida com o Microsoft Intune
 titleSuffix: Configuration Manager
-description: "Configure a gestão de dispositivos Windows com o System Center Configuration Manager e o Microsoft Intune."
-ms.custom: na
+description: Configure a gestão de dispositivos Windows com o System Center Configuration Manager e o Microsoft Intune.
 ms.date: 03/17/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: dc1f70f5-64ab-42ab-aa91-d3858803e12f
-caps.latest.revision: "9"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 95808d4fd743d5cc18cacb69bb38bc729acdda25
-ms.sourcegitcommit: 92c3f916e6bbd35b6208463ff406e0247664543a
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 1e45cae03754fcfa3a310bf59e8e3280d5088518
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos híbridos do Windows com o System Center Configuration Manager e o Microsoft Intune
 
@@ -69,7 +64,7 @@ Inscrição automática permite que os utilizadores inscrevam pertencentes à em
 
 ### <a name="configure-automatic-mdm-enrollment"></a>Configurar a inscrição MDM automática
 
-1. Iniciar sessão para o [portal de gestão do Azure](https://portal.azure.com) (https://manage.windowsazure.com) e selecione **do Azure Active Directory**.
+1. Iniciar sessão para o [portal de gestão do Azure](https://portal.azure.com) (https://manage.windowsazure.com)e selecione **do Azure Active Directory**.
 
   ![Captura de ecrã do portal do Azure](../media/auto-enroll-azure-main.png)
 
@@ -107,19 +102,19 @@ Crie CNAME DNS de registos de recursos para o domínio da sua empresa. Por exemp
 
 Embora a criar entradas de CNAME DNS seja opcional, registos CNAME facilitar a inscrição para utilizadores. Não se for encontrada nenhum registo CNAME de inscrição, os utilizadores recebem introduzir manualmente o nome do servidor MDM, enrollment.manage.microsoft.com.
 
-|Type|Nome do anfitrião|Aponta para|VALOR DE TTL|  
+|Type|Nome do anfitrião|Aponta para|TTL|  
 |----------|---------------|---------------|---|
 |CNAME|EnterpriseEnrollment.dominio_da_empresa.com|EnterpriseEnrollment-s.manage.microsoft.com| 1 hora|
 
 Se tiver mais do que um sufixo UPN, terá de criar um CNAME para cada nome de domínio e do ponto de cada um para EnterpriseEnrollment-s.manage.microsoft.com. Por exemplo, se os utilizadores contoso utilizar name@contoso.com, mas também utilizar name@us.contoso.com, e name@eu.constoso.com como o e-mail/UPN, o administrador da Contoso DNS é necessário criar o seguimento de CNAMEs.
 
-|Type|Nome do anfitrião|Aponta para|VALOR DE TTL|  
+|Type|Nome do anfitrião|Aponta para|TTL|  
 |----------|---------------|---------------|---|
 |CNAME|EnterpriseEnrollment.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 hora|
 |CNAME|EnterpriseEnrollment.us.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 hora|
 |CNAME|EnterpriseEnrollment.eu.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com| 1 hora|
 
-`EnterpriseEnrollment-s.manage.microsoft.com`– Suporta o redirecionamento para o serviço Intune com reconhecimento de domínio do nome de domínio do e-mail
+`EnterpriseEnrollment-s.manage.microsoft.com` – Suporta o redirecionamento para o serviço Intune com reconhecimento de domínio do nome de domínio do e-mail
 
 As alterações para registos DNS poderão demorar até 72 horas a serem propagadas. Não é possível verificar a alteração DNS no Intune até o registo DNS ser propagado.
 
@@ -128,4 +123,4 @@ As alterações para registos DNS poderão demorar até 72 horas a serem propaga
  Assim que estiver configurado, terá de informar os utilizadores como inscrever os respetivos dispositivos. Consulte [o que dizer aos utilizadores sobre como inscrever os respetivos dispositivos](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) para obter orientações. Pode direcionar os utilizadores [inscrever o seu dispositivo Windows no Intune](https://docs.microsoft.com/intune/enduser/enroll-your-device-in-intune-windows). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
 
 > [!div class="button"]
-[< Anterior passo](create-service-connection-point.md)[passo seguinte >  ](set-up-additional-management.md)
+[< Anterior passo](create-service-connection-point.md)[passo seguinte >](set-up-additional-management.md)

@@ -2,26 +2,19 @@
 title: Criar aplicações
 titleSuffix: Configuration Manager
 description: Crie aplicações com requisitos para instalar software, métodos de deteção e tipos de implementação.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-app
+ms.topic: conceptual
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: ''
-caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2569625daaf9a3e10dea26d86b01e10cacae0181
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: c9b90dfcc0916f62905af777e45222ceebf8300f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Criar aplicações com o System Center Configuration Manager
 
@@ -268,8 +261,8 @@ A nova aplicação aparece no **aplicações** nós da consola do Configuration 
 |--------------------------------|-----------------|
 |0|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: Não instalado|  
 |0|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
-|0|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: Instalado|  
-|0|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: Instalado|  
+|0|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: instalado|  
+|0|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: instalado|  
 |Valor diferente de zero|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
 |Valor diferente de zero|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
 |Valor diferente de zero|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
@@ -283,7 +276,7 @@ A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode
 |**WScript.StdErr.Write "O Script falhou"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, mas o valor de STDERR não está vazio. Este resultado indica que o script não foi executada com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.|  
 |**WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. No entanto, o valor de STDOUT está vazio, o que significa que a aplicação não está instalada.|  
 |**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. O valor de STDOUT não está vazio, o que significa que a aplicação está instalada.|  
-|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.StdErr.Write "Completed"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. Os valores de STDOUT e STDERR não estão vazios, o que significa que a aplicação está instalada.|  
+|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.StdErr.Write "Concluída"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. Os valores de STDOUT e STDERR não estão vazios, o que significa que a aplicação está instalada.|  
 
  > [!NOTE]  
  >  O tamanho máximo que pode utilizar para um script é 32 kilobytes (KB).  

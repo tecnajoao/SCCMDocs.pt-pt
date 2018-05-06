@@ -1,25 +1,20 @@
 ---
-title: "Operações e manutenção de relatórios "
+title: 'Operações e manutenção de relatórios '
 titleSuffix: Configuration Manager
-description: "Saiba os detalhes da gestão de relatórios e subscrições de relatórios no System Center Configuration Manager."
-ms.custom: na
+description: Saiba os detalhes da gestão de relatórios e subscrições de relatórios no System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: b89bcfbf-f5b6-4fb1-bb5e-a5cc18ec0c78
-caps.latest.revision: "5"
-author: Dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 05a81cdfd46ba2bf0bea17b06bd72f79296b3930
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: fff4150d6b8b4529a6f63989447ee5acb725c92f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Operações e manutenção de relatórios no System Center Configuration Manager
 
@@ -27,10 +22,10 @@ ms.lasthandoff: 10/12/2017
 
 Depois da infraestrutura no local para relatórios no System Center Configuration Manager, há um número de operações que são geralmente efetuadas para gerir relatórios e subscrições de relatórios.  
 
-##  <a name="BKMK_ManageReports"></a>Gerir relatórios do Configuration Manager  
+##  <a name="BKMK_ManageReports"></a> Gerir relatórios do Configuration Manager  
  Configuration Manager fornece mais de 400 relatórios predefinidos que o ajudam a recolher, organizam e apresentam informações sobre utilizadores, hardware e inventário de software, atualizações de software, aplicações, estado do site e outras operações do Configuration Manager na sua organização. Pode utilizar os relatórios predefinidos tal como estão ou pode modificar um relatório para satisfazer os seus requisitos. Também pode criar o modelo personalizado\-com base e SQL\-com base em relatórios que satisfaçam os requisitos. Utilize as secções seguintes para ajudar a gerir relatórios do Configuration Manager.  
 
-###  <a name="BKMK_RunReport"></a>Executar um relatório do Configuration Manager  
+###  <a name="BKMK_RunReport"></a> Executar um relatório do Configuration Manager  
  Relatórios no Configuration Manager são armazenados no SQL Server Reporting Services e os dados compostos no relatório obtidos da base de dados do site do Configuration Manager. Pode aceder a relatórios na consola do Configuration Manager ou utilizando o Gestor de relatórios, que poderá aceder num browser. Pode abrir relatórios em qualquer computador que tenha acesso ao computador que está a executar o SQL Server Reporting Services e tem de ter direitos suficientes para ver os relatórios. Quando executar um relatório, o título do relatório, a descrição e a categoria são apresentados no idioma do sistema operativo local.  
 
 > [!NOTE]  
@@ -76,7 +71,7 @@ Depois da infraestrutura no local para relatórios no System Center Configuratio
 
 4.  Se existirem parâmetros necessários, especifique os parâmetros e, em seguida, clique em **Ver relatório**.  
 
-###  <a name="BKMK_ModifyReportProperties"></a>Modificar as propriedades de um relatório do Configuration Manager  
+###  <a name="BKMK_ModifyReportProperties"></a> Modificar as propriedades de um relatório do Configuration Manager  
  Na consola do Configuration Manager, pode ver as propriedades de um relatório, tais como o nome do relatório e a descrição, mas para alterar as propriedades, utilize o Gestor de relatórios. Utilize o procedimento seguinte para modificar as propriedades de um relatório do Configuration Manager.  
 
 #### <a name="to-modify-report-properties-in-report-manager"></a>Para modificar propriedades de relatório no Gestor de relatórios  
@@ -94,7 +89,7 @@ Depois da infraestrutura no local para relatórios no System Center Configuratio
 
 5.  Quando tiver terminado, clique em **aplicar**. As propriedades de relatório são guardadas no servidor de relatórios e consola do Configuration Manager obtém as propriedades atualizadas para o relatório.  
 
-###  <a name="BKMK_EditReport"></a>Editar um relatório do Configuration Manager  
+###  <a name="BKMK_EditReport"></a> Editar um relatório do Configuration Manager  
  Quando um relatório existente do Configuration Manager não obtiver as informações que tem de ter ou não fornecer o esquema ou estrutura pretendidos, pode editar o relatório no Report Builder.  
 
 > [!NOTE]  
@@ -118,7 +113,7 @@ Depois da infraestrutura no local para relatórios no System Center Configuratio
 
 4.  No Report Builder, modifique as definições de relatório adequadas e, em seguida, clique em **guardar** para guardar o relatório para o servidor de relatórios.  
 
-###  <a name="BKMK_CreateModelBasedReport"></a>Criar um modelo\-relatório baseado em  
+###  <a name="BKMK_CreateModelBasedReport"></a> Criar um modelo\-relatório baseado em  
  Um modelo\-com base permite de relatório selecionar interativamente os itens que pretende incluir no relatório. Para obter mais informações sobre como criar modelos de relatórios personalizados, consulte [criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
 > [!IMPORTANT]  
@@ -160,7 +155,7 @@ Depois da infraestrutura no local para relatórios no System Center Configuratio
 
 10. Clique em **guardar** para guardar o relatório para o servidor de relatórios. Pode executar e modificar o novo relatório no **relatórios** no nó de **monitorização** área de trabalho.  
 
-###  <a name="BKMK_CreateSQLBasedReport"></a>Criar um SQL\-relatório baseado em  
+###  <a name="BKMK_CreateSQLBasedReport"></a> Criar um SQL\-relatório baseado em  
  Um SQL\-com base permite relatório obter dados com base na instrução SQL de relatório.  
 
 > [!IMPORTANT]  
@@ -203,10 +198,10 @@ Depois da infraestrutura no local para relatórios no System Center Configuratio
 
 9. Clique em **guardar** para guardar o relatório para o servidor de relatórios. Pode executar o novo relatório no **relatórios** no nó de **monitorização** área de trabalho.  
 
-##  <a name="BKMK_ManageReportSubscriptions"></a>Gerir subscrições de relatórios  
+##  <a name="BKMK_ManageReportSubscriptions"></a> Gerir subscrições de relatórios  
  Subscrições de relatórios no SQL Server Reporting Services permitem configurar a entrega automática de relatórios especificados por correio eletrónico ou uma partilha de ficheiros em intervalos agendados. Utilize o **Assistente para criar subscrição** no System Center 2012 Configuration Manager para configurar subscrições de relatórios.  
 
-###  <a name="BKMK_ReportSubscriptionFileShare"></a>Criar uma subscrição de relatório para entregar um relatório numa partilha de ficheiros  
+###  <a name="BKMK_ReportSubscriptionFileShare"></a> Criar uma subscrição de relatório para entregar um relatório numa partilha de ficheiros  
  Quando cria uma subscrição de relatório para entregar um relatório para uma partilha de ficheiros, o relatório é copiado no formato especificado para a partilha de ficheiros que especificar. Pode subscrever e solicitar a entrega de apenas um relatório a uma hora.  
 
  Ao contrário dos relatórios alojados e geridos por um servidor de relatórios, relatórios que são entregues a uma pasta partilhada são ficheiros estáticos. As funcionalidades interativas definidas para o relatório não funcionam em relatórios que são armazenados como ficheiros no sistema de ficheiros. As funcionalidades de interação são representadas como elementos estáticos. Se o relatório incluir gráficos, é utilizada a apresentação predefinida. Se o relatório ligar a outro relatório, a ligação é apresentada como texto estático. Se pretender manter as funcionalidades interativas num relatório entregue, utilize em vez disso, entrega de correio eletrónico. Para obter mais informações sobre a entrega de correio eletrónico, consulte o [criar uma subscrição de relatório para entregar um relatório por correio eletrónico](#BKMK_ReportSubscriptionEmail) posterior deste tópico.  
@@ -287,7 +282,7 @@ Depois da infraestrutura no local para relatórios no System Center Configuratio
 
 8.  Na página **Conclusão** , clique em **Fechar** para sair do assistente. Certifique-se de que a subscrição do relatório foi criada com êxito. Pode ver e modificar subscrições de relatórios no **subscrições** nó **relatórios** no **monitorização** área de trabalho.  
 
-###  <a name="BKMK_ReportSubscriptionEmail"></a>Criar uma subscrição de relatório para entregar um relatório por correio eletrónico  
+###  <a name="BKMK_ReportSubscriptionEmail"></a> Criar uma subscrição de relatório para entregar um relatório por correio eletrónico  
  Quando cria uma subscrição de relatório para entregar um relatório por correio eletrónico, é enviado um e-mail para destinatários que configurou e o relatório é incluído como um anexo. O servidor de relatórios não validar endereços de e-mail ou obter endereços de e-mail a partir de um servidor de correio eletrónico. Tem de saber antecipadamente qual e-mail endereços que pretende utilizar. Por predefinição, pode enviar por e-mail relatórios a qualquer conta de e-mail válido dentro ou fora da organização. Pode selecionar uma ou ambas as seguintes opções de entrega de e-mail:  
 
 -   Envie uma notificação e uma hiperligação para o relatório gerado.  

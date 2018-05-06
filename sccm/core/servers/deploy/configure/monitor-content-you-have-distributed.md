@@ -1,25 +1,20 @@
 ---
-title: "Monitorizar conteúdo"
+title: Monitorizar conteúdo
 titleSuffix: Configuration Manager
-description: "Compreenda como monitorizar conteúdo distribuído ao utilizar a consola do Configuration Manager."
-ms.custom: na
+description: Compreenda como monitorizar conteúdo distribuído ao utilizar a consola do Configuration Manager.
 ms.date: 12/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 82e8a693-9adf-4ca3-8484-7e101c34c7c1
-caps.latest.revision: "5"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 62d783735e64b6f3f11dae9af6ac5a7584d689ef
-ms.sourcegitcommit: 52b956cfe32c3f06ae68d6ba6fc3244ce5a66325
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 44ddf230d33759787636e88f6edcdd79744fd7b2
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Monitorizar o conteúdo que distribuiu com o System Center Configuration Manager
 

@@ -2,24 +2,19 @@
 title: Gerir clientes
 titleSuffix: Configuration Manager
 description: Saiba como gerir clientes no System Center Configuration Manager.
-ms.custom: na
 ms.date: 12/21/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 3986a992-c175-4b6f-922e-fc561e3d7cb7
-caps.latest.revision: "17"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 2065fd0910b1d89df3f8296c87ede15b89331568
-ms.sourcegitcommit: 528b1ce79803fecd34937a790e9b5cde282d4caa
+manager: dougeby
+ms.openlocfilehash: 623d7b6a048b7728e40adb3655dc1017408fb1d7
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Como gerir clientes no System Center Configuration Manager
 
@@ -154,7 +149,7 @@ Dependendo do tipo de dispositivo, algumas destas opções poderão não estar d
 
          Para obter mais informações, veja [Gestão de dispositivos móveis (MDM) híbrida com o System Center Configuration Manager e o Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
-##  <a name="BKMK_ManagingClients_DeviceCollectionsNode"></a>Gerir clientes a partir do nó coleções de dispositivos  
+##  <a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Gerir clientes a partir do nó coleções de dispositivos  
   Muitas das tarefas que estão disponíveis para dispositivos no **dispositivos** nós também estão disponíveis em coleções. A consola automaticamente aplica-se a operação para todos os dispositivos elegíveis da coleção. Esta ação de um conjunto completo gera os pacotes de rede adicionais e aumenta a utilização da CPU no servidor do site.  
 
   Considere o seguinte para efetuar tarefas ao nível da coleção. Depois de iniciado, não é possível parar a tarefa a partir da consola. 
@@ -278,7 +273,7 @@ Para obter mais informações sobre como utilizar estas propriedades da linha de
 
 1.  No computador cliente, navegue para **do Configuration Manager** no painel de controlo e faça duplo clique para abrir as propriedades.  
 
-2.  No **Cache** separador definir as propriedades de espaço e a localização. A localização predefinida é *%windir%*\ccmcache.  
+2.  No **Cache** separador definir as propriedades de espaço e a localização. A localização predefinida é *%windir%* \ccmcache.  
 
 3.  Para eliminar os ficheiros na pasta de cache, escolha **eliminar ficheiros**.  
 
@@ -320,7 +315,7 @@ Ajuste o tamanho da cache do cliente sem ter de reinstalar o cliente configurand
 
 #### <a name="to-change-the-hierarchy-setting-for-managing-conflicting-records"></a>Para alterar a definição da hierarquia para gerir registos em conflito  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **Sites** > **definições de hierarquia**
+1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **Sites**  >  **Definições de hierarquia**
 2.  No **aprovação do cliente e registos em conflito** separador, escolha o **resolver automaticamente registos em conflito**, ou **resolver manualmente registos em conflito**.  
 
 #### <a name="to-manually-resolve-conflicting-records"></a>Para resolver manualmente registos em conflito  

@@ -1,26 +1,20 @@
 ---
-title: "Proteger dados através de reposição de eliminação, bloqueio ou o código de acesso remoto"
+title: Proteger dados através de reposição de eliminação, bloqueio ou o código de acesso remoto
 titleSuffix: Configuration Manager
-description: "Proteger os dados de dispositivo com a eliminação completa, a eliminação seletiva, bloqueio remoto ou reposição utilizando o System Center Configuration Manager do código de acesso."
-ms.custom: na
+description: Proteger os dados de dispositivo com a eliminação completa, a eliminação seletiva, bloqueio remoto ou reposição utilizando o System Center Configuration Manager do código de acesso.
 ms.date: 10/27/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 770da7bd-02dd-474a-9604-93ff1ea0c1e4
-caps.latest.revision: "18"
-caps.handback.revision: "0"
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: e8121480f3a9d61ba0a04667407a305119d80e12
-ms.sourcegitcommit: ba23ff90709a5fde1a63c650ab0d848f441afc43
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 670667c21e85d7e5c174c051b6adbdca3eba55a8
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Proteger dados através de eliminação remota, bloqueio ou reposição utilizando o System Center Configuration Manager do código de acesso
 
@@ -174,7 +168,7 @@ Se um utilizador se esquecer do respetivo código de acesso, pode ajudá-lo ao r
 | Plataforma                              | Repor código de acesso                                                                               |
 |---------------------------------------|----------------------------------------------------------------------------------------------|
 | iOS                                   | Suportado para a eliminação do código de acesso de um dispositivo. Não cria um novo código de acesso temporário. |
-| MacOS                                 | Não suportada.                                                                               |
+| macOS                                 | Não suportada.                                                                               |
 | Android                               | Suportado em versões anteriores ao Android 7.0. Cria um código de acesso temporário.                |
 | Android for Work                      | Não suportada.                                                                               |
 | PCs Windows 10                        | Não suportada.                                                                               |

@@ -1,26 +1,21 @@
 ---
-title: "Criar atualizações"
+title: Criar atualizações
 titleSuffix: Configuration Manager
-description: "Criar e agrupar as atualizações de software com o System Center Updates Publisher"
-ms.custom: na
+description: Criar e agrupar as atualizações de software com o System Center Updates Publisher
 ms.date: 4/29/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-sum
+ms.topic: conceptual
 ms.assetid: 46a1a8ac-126c-4ee6-ae09-32dfbdb83368
-caps.latest.revision: "1"
-author: mestew
-ms.author: mstewart
-manager: angrobe
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
 robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: fe1e4e032c9dcad1a05fa7c13f68a3017a5273be
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+ms.openlocfilehash: 3f22e7ed209496c2d679591a9c7b282f811f4ae1
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Criar as atualizações de software e atualizar os pacotes com o Updates Publisher
 
@@ -51,7 +46,7 @@ Como estes dois assistentes têm um fluxo de trabalho semelhante, o procedimento
 
     -   Especifique os argumentos da linha de comandos que são necessários para instalar a atualização de software.
 
-        -   Ficheiros do Windows installer e patches (.MSI e. Ficheiros de .MSP) são definidas automaticamente estes valores. Para estes tipos de ficheiros de argumentos tem de ser especificados como  **\[nome\]=\[valor\]**. Além disso, todas as opções que começar a utilizar um  **/**  (como **/qn**) não são suportadas .MSI ou. Atualizações de software .MSP.
+        -   Ficheiros do Windows installer e patches (.MSI e. Ficheiros de .MSP) são definidas automaticamente estes valores. Para estes tipos de ficheiros de argumentos tem de ser especificados como  **\[nome\]=\[valor\]**. Além disso, todas as opções que começar a utilizar um **/** (como **/qn**) não são suportadas .MSI ou. Atualizações de software .MSP.
 
         -   Para. Atualizações EXE, todos os argumentos são válidos.
 
@@ -61,7 +56,7 @@ Como estes dois assistentes têm um fluxo de trabalho semelhante, o procedimento
 
     -   **Idioma**: Selecione um idioma e, em seguida, especifique um título e descrição. Em seguida, pode selecionar idiomas adicionais, um de cada vez, com cada idioma que suporta a sua própria título e descrição.
 
-    -   **Título**: Introduza o nome da atualização. Este nome apresenta na área de trabalho de atualizações da consola do Updates Publisher.
+    -   **título**: Introduza o nome da atualização. Este nome apresenta na área de trabalho de atualizações da consola do Updates Publisher.
 
     -   **Descrição**: Uma descrição amigável da atualização. Pode incluir o que a instalação da atualização e por que motivo ou quando deve ser utilizada.
 

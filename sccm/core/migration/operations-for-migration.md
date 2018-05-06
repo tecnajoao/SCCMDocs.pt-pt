@@ -1,25 +1,20 @@
 ---
-title: "Operações de migração"
+title: Operações de migração
 titleSuffix: Configuration Manager
 description: Criar e executar tarefas para migrar dados e os clientes para o System Center Configuration Manager.
-ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: c28e3492-851a-40fc-ba13-67ebc2d8b41a
-caps.latest.revision: "6"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 286be682da590ca7a03717d29ff9b3714d4fac42
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: a038377e4b29852157fd0d92836f26f1b5e18433
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="operations-for-migrating-to-system-center-configuration-manager"></a>Operações de migração para o System Center Configuration Manager
 
@@ -133,7 +128,7 @@ Para a migração no System Center Configuration Manager, pode migrar dados e cl
 
 10. Confirme as definições e, em seguida, conclua o assistente.  
 
-###  <a name="BKMK_Modify_Exclusion_List"></a>Modifique a lista de exclusão para a migração  
+###  <a name="BKMK_Modify_Exclusion_List"></a> Modifique a lista de exclusão para a migração  
 
 1.  Na consola do Configuration Manager, escolha **administração**.  
 
@@ -218,7 +213,7 @@ Para a migração no System Center Configuration Manager, pode migrar dados e cl
 ##  <a name="BKMK_MigrateClients"></a> Migrar clientes  
  Depois de migrar os dados dos clientes entre hierarquias, mas antes de concluir a migração, planeie a migração dos clientes para a hierarquia de destino. A migração de clientes entre hierarquias envolve a desinstalar o software de cliente do Configuration Manager de computadores que estão atribuídos à hierarquia de origem e, em seguida, instalar o software de cliente do Configuration Manager da hierarquia de destino. Quando instala o cliente na hierarquia de destino, também atribui o cliente a um site primário nessa hierarquia. Para obter mais informações sobre como migrar clientes, consulte [planear uma estratégia de migração de clientes no System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
 
-##  <a name="Complete_Migration"></a>Concluir migração  
+##  <a name="Complete_Migration"></a> Concluir migração  
  Utilize este procedimento para concluir a migração da hierarquia de origem.  
 
 1.  Na consola do Configuration Manager, escolha **administração**.  

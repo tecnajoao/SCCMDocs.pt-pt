@@ -2,26 +2,19 @@
 title: Criar itens de configuração para Windows 8.1 e dispositivos Windows 10 geridos com o Intune
 titleSuffix: Configuration Manager
 description: Utilize o item de configuração do System Center Configuration Manager Windows 10 para gerir as definições para computadores Windows 10.
-ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-hybrid
+ms.topic: conceptual
 ms.assetid: 23e1e4dc-623a-4521-ad04-ae9482927097
-caps.latest.revision: 20
-caps.handback.revision: 0
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: 7f5a50ae6ea05af7e864cf94df3063d70bd737b4
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 639fabbe1e2f51194669fc1f196d88140193a727
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-configuration-items-for-windows-81-and-windows-10-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para os dispositivos Windows 8.1 e Windows 10 geridos sem o cliente System Center Configuration Manager
 
@@ -70,7 +63,7 @@ ms.lasthandoff: 10/12/2017
   
 12. Conclua o assistente.  
   
- Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade**.  
+ Pode ver o novo item de configuração no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade** .  
   
 ##  <a name="windows-81-and-windows-10-configuration-item-settings-reference"></a>Referência de definições do item de configuração do Windows 8.1 e do Windows 10  
   
@@ -192,7 +185,7 @@ ms.lasthandoff: 10/12/2017
 |**Modo anti-roubo**|Controla se o modo Anti-roubo do Windows 10 está ativado.<br /><br /> (Apenas no Windows 10)|  
 |**Permitir ligação USB**|Permite que os dispositivos, ligar a este dispositivo utilizando uma ligação USB.<br /><br /> (Apenas no Windows 10)|
 |**Ficheiro de perfil**|Aprovisiona um perfil VPN para dispositivos Windows RT.<br /><br /> (Apenas no Windows 8.1)|  
-|**Nome do perfil**|Aprovisiona um perfil VPN para dispositivos Windows RT.<br /><br /> (Apenas no Windows 8.1)|  
+|**nome do perfil**|Aprovisiona um perfil VPN para dispositivos Windows RT.<br /><br /> (Apenas no Windows 8.1)|  
 |**Perfil para todos os utilizadores**|Aprovisiona um perfil VPN para dispositivos Windows RT.<br /><br /> (Apenas no Windows 8.1)|  
   
 ###  <a name="peak-synchronization"></a>Sincronização de pico  
@@ -248,7 +241,7 @@ ms.lasthandoff: 10/12/2017
 |**Nome da rede (SSID)**|Permite introduzir o nome da rede Wi-Fi.|  
 |**Ligação de rede**|Escolha entre **Internet** ou **Trabalho**.|  
 |**Autenticação**|Para o método de autenticação para a ligação sem fios escolha entre:<br /><br /> - **Abrir**<br /><br /> - **Partilhado**<br /><br /> - **WPA**<br /><br /> - **WPA-PSK**<br /><br /> - **WPA2**<br /><br /> - **WPA2 PSK**|  
-|**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar diferem consoante o **autenticação** método que selecionou:<br /><br /> - **Desativado**<br /><br /> - **WEP**<br /><br /> - **TKIP**<br /><br /> - **AES**|  
+|**Encriptação de dados**|Escolha o método de encriptação utilizado por esta ligação. Os valores que pode selecionar diferem consoante o **autenticação** método que selecionou:<br /><br /> - **desativado**<br /><br /> - **WEP**<br /><br /> - **TKIP**<br /><br /> - **AES**|  
 |**Índice de chaves**|Selecione um índice de chaves de **1** para **4** que é utilizado com um **encriptação de dados** definição de **WEP**.|  
 |**Esta rede liga-se à Internet**|Selecione esta opção se quiser fornecer definições proxy que permitam que dispositivos móveis numa ligação sem fios se liguem à Internet.|  
 |**Definições do servidor proxy**|Especificar conforme necessário as definições **Servidor** e **Porta** para **HTTP**, **WAP** e **Sockets**.|  
@@ -266,9 +259,9 @@ ms.lasthandoff: 10/12/2017
   
 -   **Arquivo de destino** – selecione um ou mais arquivos de destino em que o certificado importado é adicionado no dispositivo móvel de:  
   
-    -   **Raiz**  
+    -   **raiz**  
   
-    -   **AC**  
+    -   **CA**  
   
     -   **Normal**  
   
@@ -276,7 +269,7 @@ ms.lasthandoff: 10/12/2017
   
     -   **SPC**  
   
-    -   **Ponto a ponto**  
+    -   **ponto a ponto**  
   
 -   **Função** – se **SPC** (Software Publisher Certificate) estiver selecionado como arquivo de destino, selecione a função que está associada ao certificado de:  
   

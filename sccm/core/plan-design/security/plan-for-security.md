@@ -1,32 +1,26 @@
 ---
-title: "Planear a segurança"
+title: Planear a segurança
 titleSuffix: Configuration Manager
-description: "Obter as melhores práticas e outras informações sobre a segurança no System Center Configuration Manager."
-ms.custom: na
+description: Obter as melhores práticas e outras informações sobre a segurança no System Center Configuration Manager.
 ms.date: 01/04/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 2a216814-ca8c-4d2e-bcef-dc00966a3c9f
-caps.latest.revision: "6"
-caps.handback.revision: "0"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: 8f63d1b762b296cb6b6aa56480a5cddf7a3249dc
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 02ab0884b49a8b4ac6998b9994cec23f02f076ec
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="plan-for-security-in-system-center-configuration-manager"></a>Planear a segurança no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-##  <a name="BKMK_PlanningForCertificates"></a>Planear certificados (autoassinados e PKI)  
+##  <a name="BKMK_PlanningForCertificates"></a> Planear certificados (autoassinados e PKI)  
  O Configuration Manager utiliza uma combinação de certificados autoassinados e certificados de infraestrutura de chaves públicas (PKI).  
 
  Como melhor prática de segurança, utilize certificados PKI sempre que possível. Para mais informações sobre requisitos de certificado PKI, consulte [requisitos de certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md). Quando o Configuration Manager pedidos de certificados PKI, tal como durante a inscrição de dispositivos móveis e o aprovisionamento do Intel Active Management Technology (AMT), tem de utilizar serviços de domínio do Active Directory e uma autoridade de certificação empresarial. Para todos os outros certificados PKI, tem de implementar e geri-los de forma independente do Configuration Manager.  
@@ -58,9 +52,9 @@ ms.lasthandoff: 10/12/2017
 
 2.  Exportar o certificado sem a chave privada, guarde o ficheiro de forma segura e aceder ao mesmo apenas a partir de um canal protegido, por exemplo, utilizando a assinatura do bloco de mensagem de servidor (SMB) ou IPsec.  
 
-3.  Instalar o cliente utilizando a propriedade de Client.msi **SMSSIGNCERT =***&lt;nome de ficheiro e caminho completo\>*, com o CCMSetup.exe.  
+3.  Instalar o cliente utilizando a propriedade de Client.msi **SMSSIGNCERT = ***&lt;nome de ficheiro e caminho completo\>*, com o CCMSetup.exe.  
 
-###  <a name="BKMK_PlanningForCRLs"></a>Plano de revogação de certificados PKI  
+###  <a name="BKMK_PlanningForCRLs"></a> Plano de revogação de certificados PKI  
 Quando utiliza certificados PKI com o Configuration Manager, planeie como e quando os clientes e servidores irão utilizar uma lista de revogação de certificados (CRL) para verificar o certificado no computador de ligação. A CRL é um ficheiro que cria uma autoridade de certificação (AC) e inicia e tem uma lista de certificados de AC tem de ser emitido mas revogado. Um administrador de AC pode revogar certificados, por exemplo, se um certificado emitido está saiba ou suspeite ficar comprometida.  
 
 > [!IMPORTANT]  
@@ -78,7 +72,7 @@ Consulte os seus administradores PKI antes de decidir se clientes do Configurati
 
 -   O requisito de verificação da CRL para cada ligação a um sistema de sites que está configurado para utilizar um certificado PKI é maior do que o requisito de ligações mais rápidas, processamento eficientes no cliente e o risco dos clientes não conseguirem ligar a servidores se não conseguirem localizar a CRL.  
 
-###  <a name="BKMK_PlanningForRootCAs"></a>Planear a PKI fidedigno certificados e a lista de emissores de certificados de raiz  
+###  <a name="BKMK_PlanningForRootCAs"></a> Planear a PKI fidedigno certificados e a lista de emissores de certificados de raiz  
 Se os sistemas de sites do IIS utilizarem certificados PKI de cliente para autenticação de clientes por HTTP ou autenticação e encriptação de clientes por HTTPS, poderá ter de importar certificados de AC de raiz como uma propriedade de site. Seguem-se os dois cenários:  
 
 -   Implementar sistemas operativos utilizando o Gestor de configuração e os pontos de gestão só aceitam ligações de cliente HTTPS.  
@@ -100,7 +94,7 @@ Estes certificados de AC de raiz importados e o certificado de AC de raiz de cad
 
 Independentemente da configuração do site, também poderá ter de importar um certificado de AC de raiz quando inscrever dispositivos móveis, inscrever computadores Mac e configurar computadores baseados em Intel AMT para redes sem fios.  
 
-###  <a name="BKMK_PlanningForClientCertificateSelection"></a>Planear a seleção de certificado de cliente PKI  
+###  <a name="BKMK_PlanningForClientCertificateSelection"></a> Planear a seleção de certificado de cliente PKI  
  Se os sistemas de site do IIS utilizar certificados PKI de cliente para autenticação de cliente de encriptação e autenticação de cliente por HTTP ou através de HTTPS, planeie como clientes do Windows irão selecionar o certificado a utilizar para o Configuration Manager.  
 
 > [!NOTE]  
@@ -174,7 +168,7 @@ Para ajudar a identificar um certificado de cliente PKI único, também pode esp
 
 Para obter informações sobre como configurar as definições para certificados de cliente, consulte o [configurar definições para certificados PKI de cliente](../../../core/plan-design/security/configure-security.md#BKMK_ConfigureClientPKI) secção o [configurar a segurança no System Center Configuration Manager](../../../core/plan-design/security/configure-security.md) artigo.  
 
-###  <a name="BKMK_PlanningForPKITransition"></a>Planear uma estratégia de transição para certificados PKI e gestão de clientes baseados na Internet  
+###  <a name="BKMK_PlanningForPKITransition"></a> Planear uma estratégia de transição para certificados PKI e gestão de clientes baseados na Internet  
 As opções de configuração flexíveis no Configuration Manager permitem-lhe gradualmente transição de clientes e o site para utilizar certificados PKI para ajudar a pontos finais de cliente seguras. Os certificados PKI proporcionam uma maior segurança e permitem-lhe gerir os clientes de Internet.  
 
 Devido ao número de opções de configuração e de escolhas no Configuration Manager, não há nenhuma única forma de transição de um site, para que todos os clientes utilizem ligações HTTPS. No entanto, pode seguir estes passos como orientação:  
@@ -194,7 +188,7 @@ Devido ao número de opções de configuração e de escolhas no Configuration M
      Também pode implementar a ferramenta de avaliação de preparação do HTTPS do Configuration Manager (**cmHttpsReadiness.exe**) em computadores e utilizar os relatórios para verificar quantos computadores podem utilizar um PKI de cliente de certificado com o Configuration Manager.  
 
     > [!NOTE]  
-    >  Quando o cliente do Configuration Manager está instalado, o **cmHttpsReadiness.exe** ferramenta está instalada no *% windir %***\ccm.** pasta. Quando executa esta ferramenta em clientes, é possível especificar as seguintes opções:  
+    >  Quando o cliente do Configuration Manager está instalado, o **cmHttpsReadiness.exe** ferramenta está instalada no *%windir%***\CCM** pasta. Quando executa esta ferramenta em clientes, é possível especificar as seguintes opções:  
     >   
     >  -   / Arquivo:&lt;nome\>  
     > -   / Emissores:&lt;lista\>  
@@ -222,7 +216,7 @@ Devido ao número de opções de configuração e de escolhas no Configuration M
 
  Quando seguir este plano para introduzir gradualmente os certificados PKI, primeiro para autenticação apenas por HTTP e, em seguida, para autenticação e encriptação através de HTTPS, reduz o risco de que os clientes deixarão de ser geridos. Além disso, beneficia da mais elevada segurança que suporte do Configuration Manager.  
 
-##  <a name="BKMK_PlanningForRTK"></a>Plano para a chave de raiz fidedigna  
+##  <a name="BKMK_PlanningForRTK"></a> Plano para a chave de raiz fidedigna  
 Fidedigna do Configuration Manager a chave de raiz fornece um mecanismo para clientes do Configuration Manager verificar que os sistemas de sites pertencem à respetiva hierarquia. Cada servidor de site gera uma chave de troca de site para comunicar com outros sites. A chave de troca de site do site de nível superior na hierarquia chama-se chave de raiz fidedigna.  
 
 A função da chave de raiz fidedigna no Configuration Manager assemelha-se um certificado de raiz numa infraestrutura de chave pública em que algo assinado pela chave privada da chave de raiz fidedigna é fidedigno a hierarquia. Por exemplo, ao inscrever o certificado de ponto de gestão com a chave privada do par de chaves de raiz fidedigna e fazendo uma cópia da chave pública do par de chaves de raiz fidedigna disponíveis para os clientes, possível os clientes diferenciarem entre os pontos de gestão que estão na respetiva hierarquia e pontos de gestão que não estão na respetiva hierarquia. Os clientes utilizam o Windows Management Instrumentation (WMI) para armazenar uma cópia da chave de raiz fidedigna no **root\ccm\locationservices** espaço de nomes.  
@@ -250,7 +244,7 @@ Pode remover a chave de raiz fidedigna a partir de um cliente utilizando a propr
 
 #### <a name="to-pre-provision-a-client-with-the-trusted-root-key-by-using-a-file"></a>Para pré-aprovisionar um cliente com a chave de raiz fidedigna utilizando um ficheiro  
 
-1.  Num editor de texto, abra o ficheiro,  *&lt;diretório do Configuration Manager\>***\bin\mobileclient.tcf**.  
+1.  Num editor de texto, abra o ficheiro, *&lt;diretório do Configuration Manager\>***\bin\mobileclient.tcf**.  
 
 2.  Localize a entrada, **SMSPublicRootKey =**, copie a chave dessa linha e feche o ficheiro sem quaisquer alterações.  
 
@@ -258,18 +252,18 @@ Pode remover a chave de raiz fidedigna a partir de um cliente utilizando a propr
 
 4.  Guarde o ficheiro e coloque-o numa localização onde todos os computadores podem aceder ao mesmo, mas onde o ficheiro está protegido para impedir a adulteração.  
 
-5.  Instalar o cliente utilizando um método de instalação que aceite propriedades Client.msi e especifique a propriedade de Client.msi **SMSROOTKEYPATH =***&lt;nome de ficheiro e caminho completo\>*.  
+5.  Instalar o cliente utilizando um método de instalação que aceite propriedades Client.msi e especifique a propriedade de Client.msi **SMSROOTKEYPATH = ***&lt;nome de ficheiro e caminho completo\>*.  
 
     > [!IMPORTANT]  
     >  Quando especificar a chave de raiz fidedigna para segurança adicional durante a instalação de cliente, também tem de especificar o código do site utilizando a propriedade de Client.msi **SMSSITECODE =&lt;código do site\>**.  
 
 #### <a name="to-pre-provision-a-client-with-the-trusted-root-key-without-using-a-file"></a>Para pré-aprovisionar um cliente com a chave de raiz fidedigna sem utilizar um ficheiro  
 
-1.  Num editor de texto, abra o ficheiro,  *&lt;diretório do Configuration Manager\>***\bin\mobileclient.tcf**.  
+1.  Num editor de texto, abra o ficheiro, *&lt;diretório do Configuration Manager\>***\bin\mobileclient.tcf**.  
 
 2.  Localize a entrada, SMSPublicRootKey =, anote a chave dessa linha ou copie-a para a área de transferência e, em seguida, feche o ficheiro sem quaisquer alterações.  
 
-3.  Instalar o cliente utilizando um método de instalação que aceite propriedades Client.msi e especifique a propriedade de Client.msi **SMSPublicRootKey =***&lt;chave\>*, onde  *&lt;chave\>*  é a cadeia que copiou de mobileclient.tcf.  
+3.  Instalar o cliente utilizando um método de instalação que aceite propriedades Client.msi e especifique a propriedade de Client.msi **SMSPublicRootKey = ***&lt;chave\>*, onde *&lt; chave\>* é a cadeia que copiou de mobileclient.tcf.  
 
     > [!IMPORTANT]  
     >  Quando especificar a chave de raiz fidedigna para segurança adicional durante a instalação de cliente, também tem de especificar o código do site utilizando a propriedade de Client.msi **SMSSITECODE =&lt;código do site\>**.  
@@ -292,9 +286,9 @@ Pode remover a chave de raiz fidedigna a partir de um cliente utilizando a propr
 
 8.  Na nova **resultado da consulta** janela que apresenta as instâncias de **TrustedRootKey**, faça duplo clique em **TrustedRootKey = @**.  
 
-9. No **editor de objetos TrustedRootKey = @** caixa de diálogo a **propriedades** secção, desloque para baixo até **TrustedRootKey CIM_STRING**. A cadeia na coluna da direita é a chave de raiz fidedigna. Certifique-se de que corresponde à **SMSPublicRootKey** valor no ficheiro,  *&lt;diretório do Configuration Manager\>***\bin\mobileclient.tcf**.  
+9. No **editor de objetos TrustedRootKey = @** caixa de diálogo a **propriedades** secção, desloque para baixo até **TrustedRootKey CIM_STRING**. A cadeia na coluna da direita é a chave de raiz fidedigna. Certifique-se de que corresponde à **SMSPublicRootKey** valor no ficheiro, *&lt;diretório do Configuration Manager\>***\bin\mobileclient.tcf**.  
 
-##  <a name="BKMK_PlanningForSigningEncryption"></a>Plano para assinatura e encriptação  
+##  <a name="BKMK_PlanningForSigningEncryption"></a> Plano para assinatura e encriptação  
  Quando utiliza certificados PKI para todas as comunicações de cliente, não é necessário planear a assinatura e encriptação para ajudar a proteger a comunicação de dados de cliente. No entanto, se configurar sistemas de sites que executam o IIS para permitir ligações de cliente HTTP, tem de decidir como ajudar a proteger a comunicação de cliente para o site.  
 
  Para ajudar a proteger os dados que os clientes enviam para os pontos de gestão, pode solicitar dados sejam assinados. Além disso, é possível requerer que todos os dados assinados de clientes que utilizam HTTP sejam assinados utilizando o algoritmo SHA-256. Embora esta definição seja mais segura, não ative esta opção a não ser que todos os clientes suportem SHA-256. Muitos sistemas operativos suportam SHA-256 nativamente, mas os sistemas operativos mais antigos poderão necessitar de uma atualização ou correção. Por exemplo, os computadores com o Windows Server 2003 SP2 têm de instalar uma correção que é mencionada no [artigo KB 938397](http://go.microsoft.com/fwlink/p/?LinkId=226666).  
@@ -303,7 +297,7 @@ Pode remover a chave de raiz fidedigna a partir de um cliente utilizando a propr
 
  Para obter mais informações sobre como configurar as definições de assinatura e encriptação, consulte o [configurar assinatura e encriptação](../../../core/plan-design/security/configure-security.md#BKMK_ConfigureSigningEncryption) secção o [configurar a segurança no System Center Configuration Manager](../../../core/plan-design/security/configure-security.md) artigo.  
 
-##  <a name="BKMK_PlanningForRBA"></a>Planear a administração baseada em funções  
+##  <a name="BKMK_PlanningForRBA"></a> Planear a administração baseada em funções  
  Para obter estas informações, consulte [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md).  
 
 ### <a name="see-also"></a>Consulte também

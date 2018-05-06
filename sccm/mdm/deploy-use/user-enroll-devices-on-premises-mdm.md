@@ -1,26 +1,20 @@
 ---
 title: 'Como os utilizadores inscrevem dispositivos com MDM no local '
 titleSuffix: Configuration Manager
-description: "Compreenda a forma como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager."
-ms.custom: na
+description: Compreenda a forma como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 59004b34-b64f-4d77-898c-07bf3dc75430
-caps.latest.revision: "9"
-caps.handback.revision: "0"
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: c63cf121c75d5920e51987236f33707afcc08c6b
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 15774704665b2b52daf1061db221ab0eb158eceb
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-users-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager
 

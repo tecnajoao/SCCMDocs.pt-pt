@@ -1,26 +1,20 @@
 ---
-title: "Preparar implementações de computadores desconhecidos"
+title: Preparar implementações de computadores desconhecidos
 titleSuffix: Configuration Manager
-description: "Saiba como implementar sistemas operativos em computadores que não são geridos pelo Configuration Manager no seu ambiente do System Center Configuration Manager."
-ms.custom: na
+description: Saiba como implementar sistemas operativos em computadores que não são geridos pelo Configuration Manager no seu ambiente do System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 9e447e34-0943-49ed-b6ba-3efebf3566c1
-caps.latest.revision: "10"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: e3196bede5f069ae5012624b3ecaaf68713d9fe0
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 425ab566b5ddbfaad775d61609c0a4ccd98e96d0
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prepare-for-unknown-computer-deployments-in-system-center-configuration-manager"></a>Preparar implementações de computadores desconhecidos no System Center Configuration Manager
 

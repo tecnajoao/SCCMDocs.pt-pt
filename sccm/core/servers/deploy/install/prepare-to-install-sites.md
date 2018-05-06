@@ -1,25 +1,20 @@
 ---
-title: "Preparar a instalação de sites"
+title: Preparar a instalação de sites
 titleSuffix: Configuration Manager
-description: "Se estiver a planear instalar vários sites do Configuration Manager, estas informações para ajudar a poupar tempo e para evitar erros de leitura."
-ms.custom: na
+description: Se estiver a planear instalar vários sites do Configuration Manager, estas informações para ajudar a poupar tempo e para evitar erros de leitura.
 ms.date: 3/1/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 9089e1b5-cba4-42bd-a2de-126ef882a3af
-caps.latest.revision: "5"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 67f53f6f9e346835ed3e72fe45b699c86d35766a
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 9f07a321ac6f10f5287a88d0df7064920f538ae5
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Preparar a instalação de sites do System Center Configuration Manager
 
@@ -30,7 +25,7 @@ Para preparar para uma implementação com êxito de um ou mais sites do System 
 > [!TIP]
 > Ao gerir o site do System Center Configuration Manager e a infraestrutura de hierarquia, os termos de licenciamento *atualizar*, *atualizar*, e *instalar* são utilizados para descrever três conceitos diferentes. Para saber como cada termo é utilizado, consulte [sobre a atualização, atualização e instalação](/sccm/core/understand/upgrade-update-install).
 
-## <a name="bkmk_options"></a>Opções para a instalação de diferentes tipos de sites
+## <a name="bkmk_options"></a> Opções para a instalação de diferentes tipos de sites
 Quando instala um novo site do Configuration Manager, a versão dos ficheiros de origem que pode utilizar depende da versão de sites que já estão a ser a hierarquia (se aplicável). Os métodos de instalação que pode utilizar dependem do tipo de site que pretende instalar.  
 
 Antes de instalar um site, certifique-se ter planeou a sua hierarquia e que compreende o tipo de site que pretende instalar. Para obter mais informações, consulte [estruturar uma hierarquia de sites](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).
@@ -65,7 +60,7 @@ Um site secundário tem de ser instalado a partir da consola do Configuration Ma
 -   **Adicionar um site primário subordinado**:  Pode utilizar o Assistente de configuração do Configuration Manager ou uma instalação de linha de comandos para adicionar um site primário subordinado abaixo de um site de administração central.
 -   **Adicionar um site secundário**:  Utilize a consola do Configuration Manager para instalar um site secundário como site subordinado abaixo de um site primário. Outros métodos não são suportados para adicionar os sites secundários.
 
-## <a name="bkmk_tasks"></a>Tarefas comuns para concluir antes de iniciar uma instalação
+## <a name="bkmk_tasks"></a>  Tarefas comuns para concluir antes de iniciar uma instalação
 -   **Compreender a topologia da hierarquia que irá utilizar para a implementação**    
 Para obter mais informações, consulte [estruturar uma hierarquia de sites para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
 
@@ -83,7 +78,7 @@ Para obter mais informações, consulte [requisitos de certificado PKI para o Co
 
 -   **Instalar as atualizações de segurança mais recentes em computadores que irá utilizar como servidores do site ou servidores do sistema de sites e, quando for necessário, reiniciá-las**
 
-## <a name="bkmk_sitecodes"></a>Sobre os nomes de site e códigos de site
+## <a name="bkmk_sitecodes"></a>  Sobre os nomes de site e códigos de site
 Códigos de site e os nomes de site são utilizados para identificar e gerir os sites numa hierarquia do Configuration Manager. Na consola do Configuration Manager, o código do site e o nome de site são apresentados no &lt; *código do site*\> - &lt;*nome do site* \> formato. Todos os códigos de site que utiliza na sua hierarquia tem de ser exclusivo. Se o esquema do Active Directory é expandido para o Configuration Manager e os sites estiverem a publicar dados, os códigos de site utilizados numa floresta do Active Directory tem de ser exclusivos, mesmo que se estão a ser utilizadas numa hierarquia do Configuration Manager diferente ou se que tenham sido utilizados em instalações anteriores do Configuration Manager. Lembre-se de que planeia cuidadosamente os códigos de site e os nomes de site antes de implementar a hierarquia.
 
 ### <a name="specify-a-site-code-and-site-name"></a>Especifique um código de site e o nome do site
@@ -117,7 +112,7 @@ Antes de instalar um site, é importante compreender as seguintes limitações q
   -   O Configuration Manager não suporta a mover de um site primário subordinado fora de uma hierarquia para criar um site primário autónomo ou ligue-o para uma hierarquia diferente. Em vez disso, desinstale o site primário subordinado e, em seguida, reinstalá-la como um novo site primário autónomo ou como um site subordinado do site de administração central de uma hierarquia diferente.  
 
 
-## <a name="bkmk_optionalsteps"></a>Passos opcionais antes de executar o programa de configuração
+## <a name="bkmk_optionalsteps"></a>  Passos opcionais antes de executar o programa de configuração
 **Executar manualmente [dispositivo de transferência da configuração](../../../../core/servers/deploy/install/setup-downloader.md)**
 
 Para transferir os ficheiros de configuração atualizados para o Configuration Manager, pode executar o programa de configuração. Se o computador onde irá executar a configuração não está ligado à Internet ou se pretende instalar vários servidores de site, considere utilizar o dispositivo de transferência da configuração para transferir as atualizações necessárias para a configuração. Segue-se informações adicionais:

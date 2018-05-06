@@ -1,25 +1,20 @@
 ---
-title: "Opções de função do sistema de sites"
+title: Opções de função do sistema de sites
 titleSuffix: Configuration Manager
-description: "Consulte este artigo para obter detalhes sobre funções de sistema de sites do Configuration Manager que não são necessariamente facilmente compreensíveis."
-ms.custom: na
+description: Consulte este artigo para obter detalhes sobre funções de sistema de sites do Configuration Manager que não são necessariamente facilmente compreensíveis.
 ms.date: 2/8/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 0e9f0fbd-e442-4509-a021-bfdedf2d04dd
-caps.latest.revision: "5"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 83fbde5fd15b1781822bcc743e2c13611ad88e0d
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 5651eaa7a69c6b75c37cb368973d1d3947e3a498
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configuration-options-for-site-system-roles-for-system-center-configuration-manager"></a>Opções de configuração para funções do sistema de sites do System Center Configuration Manager
 
@@ -27,7 +22,7 @@ ms.lasthandoff: 12/04/2017
 
 A maioria das opções de configuração para funções de sistema de sites do System Center Configuration Manager são facilmente compreensíveis ou são explicados com as caixas de assistente ou a caixa de diálogo quando a configurá-las. As secções seguintes explicam as funções de sistema de sites cujas definições poderão necessitar de informações adicionais.  
 
-##  <a name="BKMK_ApplicationCatalog_Website"></a>Ponto de Web site do catálogo de aplicações  
+##  <a name="BKMK_ApplicationCatalog_Website"></a> Ponto de Web site do catálogo de aplicações  
  Para obter informações sobre como configurar o ponto de Web site do catálogo de aplicações para o catálogo de aplicações, consulte [planear e configurar a gestão de aplicações no System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
  **Ligações de cliente**  
@@ -46,7 +41,7 @@ A maioria das opções de configuração para funções de sistema de sites do S
 
  Introduza o nome que os utilizadores visualizam no catálogo de aplicações. Estas informações de imagem corporativa ajudam os utilizadores a identificar este Web site como uma origem fidedigna.  
 
-##  <a name="BKMK_ApplicationCatalog_WebService"></a>Ponto de serviço da web de catálogo de aplicações  
+##  <a name="BKMK_ApplicationCatalog_WebService"></a> Ponto de serviço da web de catálogo de aplicações  
  Para obter informações sobre como configurar o ponto de serviço web do catálogo de aplicações para o catálogo de aplicações, consulte [planear e configurar a gestão de aplicações no System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
  **HTTPS**  
@@ -55,10 +50,10 @@ A maioria das opções de configuração para funções de sistema de sites do S
 
  Para um exemplo de implementação do certificado de servidor e informações sobre como configurá-lo no IIS, consulte o *implementar o certificado de servidor Web para sistemas de sites que executam o IIS* secção [exemplo passo a passo de implementação da PKI certificados para o System Center Configuration Manager: Autoridade de certificação do Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_CertificateRegistrationPoint"></a>Ponto de registo de certificados  
+##  <a name="BKMK_CertificateRegistrationPoint"></a> Ponto de registo de certificados  
  Para mais informações sobre como configurar o ponto de registo de certificados, consulte [introdução aos perfis de certificado](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-##  <a name="BKMK_Distribution_Point"></a>Ponto de distribuição  
+##  <a name="BKMK_Distribution_Point"></a> Ponto de distribuição  
  Para mais informações sobre como configurar o ponto de distribuição para a implementação de conteúdos, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
  Para mais informações sobre como configurar o ponto de distribuição para implementações de PXE, consulte [utilizar o PXE para implementar o Windows através da rede com o System Center Configuration Manager](../../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
@@ -95,10 +90,10 @@ Selecione esta caixa de verificação para ativar o ponto de distribuição para
 
 **Grupos de limites**  
  Pode associar grupos de limites para um ponto de distribuição. Durante a implementação de conteúdos, os clientes tem de ser um grupo de limites que estão associados com o ponto de distribuição para utilizá-la como uma localização de origem para o conteúdo.
- - **Antes de versão 1610**, pode verificar o **permitir a localização de origem de contingência para conteúdo** caixa de verificação para permitir que os clientes fora destes grupos de limites de contingência e utilizem o ponto de distribuição como uma localização de origem de conteúdo quando não houver outros pontos de distribuição disponíveis.
+ - **Antes de versão 1610**, pode verificar o **permitir a localização de origem de contingência para conteúdo** caixa de verificação para permitir que os clientes fora destes grupos de limites de contingência e utilizem o ponto de distribuição como uma localização de origem de conteúdo quando não existe nenhum estão disponíveis outros pontos de distribuição.
  - **A partir da versão 1610**, já não pode configurar **permitir a localização de origem de contingência para conteúdo**.  Em vez disso, pode definir relações entre grupos de limites que verifique quando um cliente pode começar a procurar grupos de limites adicionais para localizações de origem de conteúdo válida.
 
-##  <a name="BKMK_Enrollment_Point"></a>Ponto de registo  
+##  <a name="BKMK_Enrollment_Point"></a> Ponto de registo  
 Pontos de registo são utilizados para instalar computadores Mac e inscrever dispositivos que gere com gestão de dispositivos móveis no local. Para obter mais informações, consulte o seguinte:  
 
 -   [Como implementar clientes em Mac no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
@@ -110,7 +105,7 @@ Pontos de registo são utilizados para instalar computadores Mac e inscrever dis
 
  Para um exemplo de implementação do certificado de servidor e informações sobre como configurá-lo no IIS, consulte o *implementar o certificado de servidor Web para sistemas de sites que executam o IIS* secção [exemplo passo a passo de implementação da PKI certificados para o System Center Configuration Manager: Autoridade de certificação do Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_Enrollment_Proxy_Point"></a>Ponto proxy de registo  
+##  <a name="BKMK_Enrollment_Proxy_Point"></a> Ponto proxy de registo  
 Para mais informações sobre como configurar um ponto de proxy de inscrição para dispositivos móveis, consulte [como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
 
 **Ligações de cliente**  
@@ -118,7 +113,7 @@ Para mais informações sobre como configurar um ponto de proxy de inscrição p
 
  Para um exemplo de implementação do certificado de servidor e informações sobre como configurá-lo no IIS, consulte o *implementar o certificado de servidor Web para sistemas de sites que executam o IIS* secção [exemplo passo a passo de implementação da PKI certificados para o System Center Configuration Manager: Autoridade de certificação do Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_Fallback_Status_Point"></a>Ponto de estado de contingência  
+##  <a name="BKMK_Fallback_Status_Point"></a> Ponto de estado de contingência  
 **Número de mensagens de estado** e **intervalo de limitação (em segundos)**  
 Embora as predefinições para estas opções (10.000 mensagens de estado e 3.600 segundos para o intervalo de limitação) sejam suficientes para a maioria das circunstâncias, poderá ter de alterá-los quando ambas as condições seguintes forem verdadeiras:  
 

@@ -1,26 +1,20 @@
 ---
 title: Cluster do SQL Server
 titleSuffix: Configuration Manager
-description: "Utilize um cluster do SQL Server para alojar a base de dados do site do System Center Configuration Manager. Inclui informações sobre as opções suportadas."
-ms.custom: na
+description: Utilize um cluster do SQL Server para alojar a base de dados do site do System Center Configuration Manager. Inclui informações sobre as opções suportadas.
 ms.date: 2/28/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: d09a82c6-bbd1-49ca-8ffe-e3ce87b85d33
-caps.latest.revision: "10"
-caps.handback.revision: "0"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: f3920c49ad9d1e11104e36569aa229bf4a13d319
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: dfd791dead376f22014156829bec1fa2fb75ab51
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Utilizar um cluster do SQL Server para a base de dados do site do System Center Configuration Manager
 

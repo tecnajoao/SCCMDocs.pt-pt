@@ -1,26 +1,20 @@
 ---
-title: "Verificador de pré-requisitos"
+title: Verificador de pré-requisitos
 titleSuffix: Configuration Manager
-description: "Saiba como utilizar o Verificador de pré-requisitos para identificar e corrigir problemas que poderão bloquear a um site ou a instalação de função do sistema de sites."
-ms.custom: na
+description: Saiba como utilizar o Verificador de pré-requisitos para identificar e corrigir problemas que poderão bloquear a um site ou a instalação de função do sistema de sites.
 ms.date: 3/1/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: aaf13bb8-4ba2-4bd7-9fac-d36a9d88a1b6
-caps.latest.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 45e356b153a95a49f09f2d2931b8b306d0fd2b4c
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 296ed6590c10adeab22fb274d5e6f44bc578a784
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Verificador de pré-requisitos do System Center Configuration Manager
 
@@ -103,11 +97,11 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
          Necessário. Verifica se o computador local cumpre os requisitos para o site de administração central.  
 
-    -   **/ SQL Server &lt;* FQDN do SQL Server*>**  
+    -   **/ SQL Server &lt; *FQDN do SQL Server*>**  
 
          Necessário. Utilizar o nome de domínio completamente qualificado (FQDN), verifica se o computador especificado cumpre os requisitos para o SQL Server alojar a base de dados do site do Configuration Manager.  
 
-    -   **/ SDK &lt;* FQDN do fornecedor de SMS*>**  
+    -   **/ SDK &lt; *FQDN do fornecedor de SMS*>**  
 
          Necessário. Verifica se o computador especificado cumpre os requisitos para o fornecedor de SMS.  
 
@@ -115,7 +109,7 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
          Não é necessária. Verifica se uma exceção de firewall está em vigor permitir comunicações na porta do SQL Server Service Broker (SSB). A porta do SSB predefinido é 4022.  
 
-    -   **InstallDir &lt;* caminho de instalação do Configuration Manager*>**  
+    -   **InstallDir &lt; *caminho de instalação do Configuration Manager*>**  
 
          Não é necessária. Verifica o espaço mínimo em disco nos requisitos de instalação de site.  
 
@@ -129,23 +123,23 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
          Necessário. Verifica se o computador local cumpre os requisitos para o site primário.  
 
-    -   **/ SQL Server &lt;* FQDN do SQL Server*>**  
+    -   **/ SQL Server &lt; *FQDN do SQL Server*>**  
 
          Necessário. Verifica se o computador especificado cumpre os requisitos para o SQL Server alojar a base de dados do site do Configuration Manager.  
 
-    -   **/ SDK &lt;* FQDN do fornecedor de SMS*>**  
+    -   **/ SDK &lt; *FQDN do fornecedor de SMS*>**  
 
          Necessário. Verifica se o computador especificado cumpre os requisitos para o fornecedor de SMS.  
 
-    -   **/ ASSOCIAR &lt;* FQDN do site de administração central*>**  
+    -   **/ ASSOCIAR &lt; *FQDN do site de administração central*>**  
 
          Não é necessária. Verifica se o computador local cumpre os requisitos para ligar ao servidor do site de administração central.  
 
-    -   **/MP &lt;* FQDN do ponto de gestão*>**  
+    -   **/MP &lt; *FQDN do ponto de gestão*>**  
 
          Não é necessária. Verifica se o computador especificado cumpre os requisitos para a função de sistema de sites de ponto de gestão. Esta opção só é suportada quando utiliza o **/PRI** opção.  
 
-    -   **/DP &lt;* FQDN do ponto de distribuição*>**  
+    -   **/DP &lt; *FQDN do ponto de distribuição*>**  
 
          Não é necessária. Verifica se o computador especificado cumpre os requisitos para a função de sistema de sites de ponto de distribuição. Esta opção só é suportada quando utiliza o **/PRI** opção.  
 
@@ -153,7 +147,7 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
          Não é necessária. Verifica se uma exceção de firewall está em vigor permitir comunicações na porta do SSB. A porta do SSB predefinido é 4022.  
 
-    -   **InstallDir &lt;* caminho de instalação do Configuration Manager*>**  
+    -   **InstallDir &lt; *caminho de instalação do Configuration Manager*>**  
 
          Não é necessária. Verifica o espaço mínimo em disco nos requisitos de instalação de site.  
 
@@ -163,7 +157,7 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
          Não é necessária. Inicia o Verificador de pré-requisitos sem apresentar a interface de utilizador. Tem de especificar esta opção antes de qualquer outra opção na linha de comandos.  
 
-    -   **/ SEG &lt;* FQDN do servidor do site secundário*>**  
+    -   **/ SEG &lt; *FQDN do servidor do site secundário*>**  
 
          Necessário. Verifica se o computador especificado cumpre os requisitos para o site secundário.  
 
@@ -179,7 +173,7 @@ Para obter mais informações sobre as verificações que executa o Verificador 
 
          Não é necessária. Verifica se uma exceção de firewall está em vigor para permitir comunicações para o SQL Server porta de serviço e que a porta não está a ser utilizado por outra instância nomeada do SQL Server. A porta predefinida é 1433.  
 
-    -   **InstallDir &lt;* caminho de instalação do Configuration Manager*>**  
+    -   **InstallDir &lt; *caminho de instalação do Configuration Manager*>**  
 
          Não é necessária. Verifica o espaço mínimo em disco nos requisitos de instalação de site.  
 

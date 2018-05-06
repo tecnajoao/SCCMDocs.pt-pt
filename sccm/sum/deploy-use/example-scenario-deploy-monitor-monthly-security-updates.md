@@ -1,22 +1,20 @@
 ---
-title: "Cenário de exemplo para implementar e monitorizar atualizações de software de segurança"
+title: Cenário de exemplo para implementar e monitorizar atualizações de software de segurança
 titleSuffix: Configuration Manager
-description: "Utilize este cenário de exemplo de como utilizar atualizações de software no Configuration Manager para implementar e monitorizar atualizações de software de segurança para versões mensais da Microsoft."
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
+description: Utilize este cenário de exemplo de como utilizar atualizações de software no Configuration Manager para implementar e monitorizar atualizações de software de segurança para versões mensais da Microsoft.
+author: aczechowski
+manager: dougeby
 ms.date: 10/06/2016
-ms.topic: article
+ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
-ms.service: 
 ms.assetid: c32f757a-02da-43f2-b055-5cfd097d8c43
-ms.openlocfilehash: bec19340e9f349849d8dbc041799cece13e2f0fb
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+ms.author: aaroncz
+ms.openlocfilehash: eadb7dc9f3f9fc4f4ccca1b27257d8f05cb19ebc
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Cenário de exemplo para utilizar o System Center Configuration Manager para implementar e monitorizar as atualizações de software de segurança publicadas mensalmente pela Microsoft
 
@@ -42,7 +40,7 @@ Este tópico fornece um cenário de exemplo de como pode utilizar as atualizaç�
 
  As secções seguintes deste tópico fornecem passos de exemplo para ajudar a implementar e monitorizar atualizações de software de segurança do Configuration Manager na sua organização.
 
-##  <a name="BKMK_Step1"></a>Passo 1: Criar um grupo de atualização de software para compatibilidade anual  
+##  <a name="BKMK_Step1"></a> Passo 1: Criar um grupo de atualização de software para compatibilidade anual  
  O João cria um grupo de atualização de software que pode ser utilizado para monitorizar a compatibilidade de todas as atualizações de software de segurança lançadas em 2016. Ele efetua os passos da seguinte tabela.  
 
 |Processo|Referência|  
@@ -50,21 +48,21 @@ Este tópico fornece um cenário de exemplo de como pode utilizar as atualizaç�
 |Do **todas as atualizações de Software** nó na consola do Configuration Manager, o João adiciona critérios para visualizar apenas atualizações de software segurança que são lançadas ou revistas no ano de 2015 que satisfazem os seguintes critérios:<br /><br /><ul><li>**Critérios**: Data de lançamento ou revisão</li><li>**Condição**: é maior que ou igual à data específica<br />**Valor**: 1/1/2015</li><li>**Critérios**: Classificação de atualização<br />**Valor**: Atualizações de segurança</li><li>**Critérios**: Expirou <br />**Valor**: Não</li></ul>|Não existem informações adicionais|
 |O João adiciona todas as atualizações de software filtradas a um novo grupo de atualizações de software com os seguintes requisitos:<br /><br /><ul><li>**Nome**: Grupo de compatibilidade - Microsoft Security atualizações 2015</li><li>**Descrição**: Atualizações de software|[Adicionar atualizações de software a um grupo de atualizações](add-software-updates-to-an-update-group.md)|  
 
-##  <a name="BKMK_Step2"></a>Passo 2: Criar uma regra de implementação automática para o mês atual  
+##  <a name="BKMK_Step2"></a> Passo 2: Criar uma regra de implementação automática para o mês atual  
  O João cria uma regra de implementação automática para as atualizações de software de segurança lançadas pela Microsoft para o mês atual. Ele efetua os passos da seguinte tabela.  
 
 |Processo|Referência|  
 |-------------|---------------|  
 |O João cria uma regra de implementação automática com os seguintes requisitos:<br /><br /><ol><li>No separador **Geral** , o João configura o seguinte:<br /> <ul><li>Especifica **atualizações de segurança mensais** para o nome.</li><li>Seleciona uma coleção de teste com clientes limitados.</li><li>Seleciona **criar um novo grupo de atualização de Software**.</li><li>Verifica se **ativar a implementação após a execução desta regra** não está selecionada.</li></ul></li><li>No separador **Definições de Implementação** , o João seleciona as predefinições.</li><li>No **atualizações de Software** página, o João configura os seguintes filtros de propriedade e os critérios de pesquisa:<br /><ul><li>Data de lançamento ou revisão **Último 1 mês**.</li><li>Classificação da atualização **Atualizações de Segurança**.</li></ul></li><li>No **avaliação** página, o João ativa a regra seja executada numa agenda o **segunda quinta-feira** de cada **mês**. O João também verifica que a agenda de sincronização está configurada para ser executada **segunda quarta-feira** de cada **mês**.</li><li>O João utiliza as predefinições das páginas Agenda de Implementação, Experiência do Utilizador, Alertas e Definições de Transferência.</li><li>No **pacote de implementação** página, o João Especifica um novo pacote de implementação.</li><li>O João utiliza as predefinições das páginas Localização de Transferência e Seleção de Idioma.</li></ol>|[Implementar atualizações de software automaticamente](automatically-deploy-software-updates.md)|  
 
-##  <a name="BKMK_Step3"></a>Passo 3: Certifique-se de que estão prontas para implementar atualizações de software  
+##  <a name="BKMK_Step3"></a> Passo 3: Certifique-se de que estão prontas para implementar atualizações de software  
  Na segunda quinta-feira de cada mês, o João verifica se as atualizações de software estão prontas para ser implementadas. Ele efetua o passo seguinte.  
 
 |Processo|Referência|  
 |-------------|---------------|  
 |O João verifica se a sincronização das atualizações de software foi concluída com sucesso.|[Estado de sincronização de atualizações de software](monitor-software-updates.md#BKMK_SUSyncStatus)|  
 
-##  <a name="BKMK_Step4"></a>Passo 4: Implementar o grupo de atualização de software  
+##  <a name="BKMK_Step4"></a> Passo 4: Implementar o grupo de atualização de software  
  Depois de se certificar de que as atualizações de software estão prontas para implementar, o João efetua a implementação. Ele efetua os passos da seguinte tabela.  
 
 |Processo|Referência|  
@@ -73,14 +71,14 @@ Este tópico fornece um cenário de exemplo de como pode utilizar as atualizaç�
 |O João verifica se as implementações de teste foram implementadas com sucesso.|[Estado de implementação de atualizações de software](monitor-software-updates.md#BKMK_SUDeployStatus)|  
 |O João atualiza as duas implementações com novas coleções que incluem os servidores e as estações de trabalho de produção.|Não existem informações adicionais|  
 
-##  <a name="BKMK_Step5"></a>Passo 5: Monitorizar a compatibilidade de atualizações de software implementadas  
+##  <a name="BKMK_Step5"></a> Passo 5: Monitorizar a compatibilidade de atualizações de software implementadas  
  O João monitoriza a compatibilidade das implementações de atualizações de software. Ele efetua o passo da seguinte tabela.  
 
 |Processo|Referência|  
 |-------------|---------------|  
 |João monitoriza o estado de implementação de atualizações de software na consola do Configuration Manager e verifica os relatórios de implementação de atualizações de software disponíveis na consola.|[Monitorizar atualizações de software no System Center Configuration Manager](../../sum/deploy-use/monitor-software-updates.md)|  
 
-##  <a name="BKMK_Step6"></a>Passo 6: Adicionar atualizações de software mensais ao grupo de atualizações anuais  
+##  <a name="BKMK_Step6"></a> Passo 6: Adicionar atualizações de software mensais ao grupo de atualizações anuais  
  O João adiciona as atualizações de software do grupo de atualizações de software mensais ao grupo de atualizações de software anuais. Ele efetua o passo da seguinte tabela.  
 
 |Processo|Referência|  
@@ -89,5 +87,5 @@ Este tópico fornece um cenário de exemplo de como pode utilizar as atualizaç�
 
 O João concluiu com sucesso a implementação mensal de atualizações de software de segurança. Ele continua a monitorizar e a reportar a compatibilidade das atualizações de software para garantir que os clientes do seu ambiente estão nos níveis de compatibilidade aceitáveis.  
 
-##  <a name="BKMK_MonthlyProcess"></a>Processo mensal recorrente para implementar atualizações de software  
+##  <a name="BKMK_MonthlyProcess"></a> Processo mensal recorrente para implementar atualizações de software  
  Após o primeiro mês da implementação de atualizações de software, o João efetua os passos três a seis para implementar as atualizações de software de segurança mensais lançadas pela Microsoft.  

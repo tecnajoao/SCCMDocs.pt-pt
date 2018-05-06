@@ -2,25 +2,19 @@
 title: Configurar a deteção
 titleSuffix: Configuration Manager
 description: Configure métodos de deteção para localizar recursos para gerir a partir da sua rede, o Active Directory e o Azure Active Directory.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 49505eb1-d44d-4121-8712-e0f3d8b15bf5
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 825b9b250000e8353b1428cbee45f8fda9a30c35
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: e7ac10fdc08569e519468633f30548c5c76b5838
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurar métodos de deteção para o System Center Configuration Manager
 
@@ -183,6 +177,9 @@ Utilize os procedimentos seguintes para ativar a deteção de floresta do Active
 6.  No **agenda de consulta** separador, configure a deteção completa deteção agenda e diferenças de consulta.  
 
 7.  Opcionalmente, no **atributos do Active Directory** separador, pode configurar atributos adicionais do Active Directory para computadores que pretende detetar. Os atributos de objetos predefinidos também são listados.  
+
+     > [!Tip]  
+     > Por exemplo, a sua organização utiliza o **Descrição** atributo na conta de computador no Active Directory. Clique em **personalizado**e adicione `Description` como um atributo personalizado. Depois deste método de deteção é executado, este atributo mostra no separador de propriedades do dispositivo na consola do Configuration Manager.<!--513948-->
 
 8.  Opcionalmente, no **opção** separador, pode configurar opções para filtrar ou excluir os registos de computadores obsoletos da deteção.  
 

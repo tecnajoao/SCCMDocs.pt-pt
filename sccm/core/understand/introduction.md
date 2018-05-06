@@ -1,26 +1,20 @@
 ---
-title: "Introdução"
+title: Introdução
 titleSuffix: Configuration Manager
-description: "Obter informações básicas, como uma introdução ao System Center Configuration Manager."
-ms.custom: na
+description: Obter informações básicas, como uma introdução ao System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: 3343eccf-bf09-41cd-9e68-03e893c7f904
-caps.latest.revision: 
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: b63386f69ea05a610868de9bc85ff606d4ade73d
-ms.sourcegitcommit: b13da5ad8ffd58e3b89fa6d7170e1dec3ff130a4
+manager: dougeby
+ms.openlocfilehash: f0986d713b47d15dc0298e413216a1e33fe2e937
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-system-center-configuration-manager"></a>Introdução ao System Center Configuration Manager
 
@@ -101,7 +95,7 @@ Para obter mais informações, veja [Instalar consolas do System Center Configur
 
 Para obter mais informações, consulte [introdução à gestão de aplicações no System Center Configuration Manager](../../apps/understand/introduction-to-application-management.md).  
 
-###  <a name="BKMK_Client"></a>Propriedades do Configuration Manager (em Windows PCs)  
+###  <a name="BKMK_Client"></a> Propriedades do Configuration Manager (em Windows PCs)  
  Quando o cliente do Configuration Manager está instalado em computadores Windows, o Configuration Manager está instalado no painel de controlo. Normalmente, não terá de configurar esta aplicação porque a configuração do cliente é efetuada na consola do Configuration Manager. Esta aplicação ajuda os utilizadores administrativos e o suporte técnico a resolver problemas relacionados com clientes individuais.  
 
  Para obter mais informações sobre a implementação do cliente, veja [Métodos de instalação de cliente no System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
@@ -115,7 +109,7 @@ Para obter mais informações, consulte [introdução à gestão de aplicações
 
 Em todos os cenários, Afonso é o administrador principal para o Configuration Manager.  
 
-###  <a name="BKMK_ScenarioEmpower"></a>Cenário de exemplo: Capacitar os utilizadores, garantindo o acesso a aplicações a partir de qualquer dispositivo  
+###  <a name="BKMK_ScenarioEmpower"></a> Cenário de exemplo: Capacitar os utilizadores, garantindo o acesso a aplicações a partir de qualquer dispositivo  
  A Trey Research para se certificar de que os empregados têm acesso às aplicações que necessitam, mais eficientemente possível. O Afonso mapeia estes requisitos da empresa para os seguintes cenários:  
 
 |Requisito|Estado da atual gestão do cliente|Estado da gestão futura do cliente|  
@@ -143,7 +137,7 @@ Implementa-as utilizando os passos de configuração na tabela seguinte:
 
  Estes passos e resultados de configuração permitem que a Trey Research capacite os seus funcionários, garantindo o acesso às aplicações a partir de qualquer dispositivo.  
 
-###  <a name="BKMK_ScenarioUnify"></a>Cenário de exemplo: Uniformizar a gestão de compatibilidade dos dispositivos  
+###  <a name="BKMK_ScenarioUnify"></a> Cenário de exemplo: Uniformizar a gestão de compatibilidade dos dispositivos  
  A Trey Research procura uma solução unificada de gestão dos clientes que garanta que os seus computadores executam software antivírus que seja automaticamente mantido atualizado. Ou seja:  
 
 -   Firewall do Windows está ativada.  
@@ -183,7 +177,7 @@ Implementa-as utilizando os passos de configuração na tabela seguinte:
 
  Estes passos e resultados de configuração permitem à Trey Research unificar com sucesso a gestão de compatibilidade dos dispositivos.  
 
-###  <a name="BKMK_ScenarioSimplify"></a>Cenário de exemplo: Simplificar a gestão de cliente para dispositivos  
+###  <a name="BKMK_ScenarioSimplify"></a> Cenário de exemplo: Simplificar a gestão de cliente para dispositivos  
  A Trey Research procura todos os novos computadores instalem automaticamente a imagem de computador base da empresa que executa o Windows 7. Depois da imagem do sistema operativo é instalada nesses computadores, tem de ser geridos e monitorizados para o software adicional instalado pelos utilizadores. Os computadores que armazenam informações altamente confidenciais requerem políticas de gestão mais restritivas do que os restantes. Por exemplo, os engenheiros do suporte técnico não devem ligar remotamente a tais computadores, é exigida a introdução do PIN do BitLocker ao reiniciar e apenas os administradores locais podem instalar software.  
 
  O Afonso mapeia estes requisitos da empresa para os seguintes cenários:  

@@ -1,25 +1,20 @@
 ---
 title: Utilizar limites e grupos de limites
 titleSuffix: Configuration Manager
-description: "Utilizar limites e grupos de limites para definir as localizações de rede e sistemas de sites acessível para dispositivos que gere."
-ms.custom: na
+description: Utilizar limites e grupos de limites para definir as localizações de rede e sistemas de sites acessível para dispositivos que gere.
 ms.date: 3/27/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 54aa20d5-791e-4416-9db4-5aaea472c0b7
-caps.latest.revision: "10"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: b95d9032a10db810ded2ad3f4171155455eccfb5
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: d1f8a8a270bcefb67885d6c0ca88e61a3d6ecd72
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Definir limites de site e grupos de limites para o System Center Configuration Manager
 
@@ -48,7 +43,7 @@ Os clientes que estão na Internet ou configurados como clientes apenas da Inter
 
 
 
-##  <a name="BKMK_BoundaryBestPractices"></a>Melhores práticas de limites e grupos de limites  
+##  <a name="BKMK_BoundaryBestPractices"></a> Melhores práticas de limites e grupos de limites  
 
 -   **Utilize uma combinação de limites a menos que as suas necessidades:**  
    No passado, recomendamos a utilização de alguns tipos de limites através de outros utilizadores. Com as alterações para melhorar o desempenho, iremos agora Recomendamos que utilize qualquer tipo de limite ou tipos escolher que funcionam para o seu ambiente e que lhe permitem utilizam o menor número de limites, pode para simplificar as tarefas de gestão.      

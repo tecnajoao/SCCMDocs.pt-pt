@@ -1,25 +1,20 @@
 ---
-title: "Resolver problemas de integração de Lookout"
+title: Resolver problemas de integração de Lookout
 titleSuffix: Configuration Manager
-description: "Este tópico descreve problemas de resolução de problemas que ocorrem frequentemente com Lookout integração."
-ms.custom: na
+description: Este tópico descreve problemas de resolução de problemas que ocorrem frequentemente com Lookout integração.
 ms.date: 03/05/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: e36b98c7-d0f4-4dd6-bac3-6a6c4b4bf841
-caps.latest.revision: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
-ms.openlocfilehash: 244d32e98ad863f6c9ea1747b4f786c3a1279fc0
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: ee978543248e70182e12a3d6234cfd12be80dc98
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshoot-lookout-integration-with-intune"></a>Resolver problemas Lookout integração com o Intune
 
@@ -33,9 +28,9 @@ Lookout MTP está configurado para permitir que apenas utilizadores de um config
 
 Pode contactar o suporte de Lookout através nos seguintes métodos:
 
-* E-mail:enterprisesupport@lookout.com
+* E-mail: enterprisesupport@lookout.com
 * Início de sessão para o [MTP consola](http://aad.lookout.com)e navegue para o **suporte** módulo.
-* Aceda a: https://enterprise.support.lookout.com/hc/requests e faça um pedido de suporte.
+* Aceda a: https://enterprise.support.lookout.com/hc/requests e efetuar um pedido de suporte.
 
 ### <a name="unable-to-sign-in"></a>Não é possível iniciar sessão
 Poderá ver o seguinte erro quando o utilizador de administrador global do Azure AD não aceitou o programa de configuração inicial do Lookout.
@@ -57,7 +52,7 @@ Isto pode acontecer dos seguintes cenários:
 
 Um dispositivo que está a ser mostrada **pendente** significa que o utilizador final não abriu o Lookout para a aplicação de trabalho e tapped o **ativar** botão. Para obter mais detalhes sobre a ativação de dispositivos com o Lookout para a aplicação de trabalho, leia o tópico seguinte:
 
-[É-lhe pedido que instale o Lookout for Work no seu dispositivo Android](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
+[É-lhe pedido que instale o Lookout for Work no seu dispositivo Android ](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
 
 ### <a name="in-the-lookout-mtp-console-a-device-is-showing-as-active-but-does-not-have-a-device-id"></a>Na consola do Lookout MTP, um dispositivo que mostra como Active Directory, mas não tem um ID de dispositivo.
 Isto significa que o utilizador proprietário este dispositivo não está no grupo de inscrição, especificado na consola de MTP Lookout.   Um dispositivo pode entrar neste estado é se o utilizador proprietário do dispositivo foi removido do grupo de inscrição ou o grupo de inscrição que o utilizador pertence a tem foi removido.
@@ -84,4 +79,4 @@ O novo utilizador está a ser um dos grupos de inscrição especificados na cons
 ## <a name="compliance-remediation-workflows"></a>Fluxos de trabalho de remediação de conformidade
 [É-lhe pedido que instale o Lookout for Work no seu dispositivo Android]( http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
 
-[É necessário resolver uma ameaça que Lookout for Work, foi encontrado no seu dispositivo Android](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)
+[É necessário resolver uma ameaça que Lookout for Work, foi encontrado no seu dispositivo Android ](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)

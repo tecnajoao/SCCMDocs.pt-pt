@@ -1,26 +1,21 @@
 ---
 title: Funcionalidades no Technical Preview 1602
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1602."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1602.
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 1b9265d1-b461-47f8-b7ef-885da0fdd969
-caps.latest.revision: "6"
-author: erikje
-ms.author: erikje
-manager: angrobe
+author: aczechowski
 robots: noindex,nofollow
-ms.openlocfilehash: 7771a57323857fa47688d98af499389194972000
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+manager: dougeby
+ms.author: aaroncz
+ms.openlocfilehash: eaae10b191876915517a928a3f6ee15aafba2760
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1602 do System Center Configuration Manager
 
@@ -30,7 +25,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 
  Seguem-se novas funcionalidades que pode experimentar com esta versão.  
 
-##  <a name="BKMK_MDM"></a>Melhorias na gestão de dispositivos móveis  
+##  <a name="BKMK_MDM"></a> Melhorias na gestão de dispositivos móveis  
 
 ### <a name="ios-activation-lock"></a>Bloqueio de ativação de iOS  
  O System Center Configuration Manager pode ajudá-lo a gerir o Bloqueio de Ativação do iOS, uma funcionalidade da aplicação Encontrar iPhone para iOS 7.1 e dispositivos posteriores. O Bloqueio de Ativação é ativado automaticamente ao utilizar a aplicação Encontrar o Meu iPhone num dispositivo. Depois de estar ativado, o Apple ID e a palavra-passe do utilizador têm de ser introduzidos primeiro para que qualquer pessoa possa:  
@@ -45,12 +40,12 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 
  Para obter mais informações, consulte [ajudar a proteger dispositivos iOS com o bloqueio de ativação desativando para o Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
 
-##  <a name="BKMK_SC1601"></a>Melhoramentos ao centro de Software na versão 1602  
+##  <a name="BKMK_SC1601"></a> Melhoramentos ao centro de Software na versão 1602  
 
 ### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Atualizar a política de computador e utilizador de PC do Centro de Software  
  Uma nova opção **sincronizar política** foi adicionado para o **opções** > **manutenção do computador** página do Centro de Software que faz com que o PC Atualize o Gestor de configuração de política de computador e utilizador.  
 
-##  <a name="BKMK_Win10Servicing"></a>Melhoramentos à manutenção do Windows 10  
+##  <a name="BKMK_Win10Servicing"></a> Melhoramentos à manutenção do Windows 10  
  Na versão 1602 Technical Preview, foram adicionados os seguintes melhoramentos para a manutenção do Windows 10:  
 
 -   Novas opções de filtro para planos de manutenção.  Agora, pode filtrar para **idioma**, **necessário**, e **título**. Apenas as atualizações que cumprem os critérios especificados serão adicionadas à implementação associada.  

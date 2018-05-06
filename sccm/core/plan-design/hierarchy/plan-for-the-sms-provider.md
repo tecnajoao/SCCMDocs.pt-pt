@@ -2,24 +2,19 @@
 title: Planear o fornecedor de SMS
 titleSuffix: Configuration Manager
 description: Saiba mais sobre como o fornecedor de SMS ajuda-o a gerir o System Center Configuration Manager.
-ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.assetid: 5d5d6273-0d8a-43c7-865a-cdb1736dcae3
-caps.latest.revision: "8"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 36f4e9e94e794998a59453f709bf6248975d8792
-ms.sourcegitcommit: ca9d15dfb1c9eb47ee27ea9b5b39c9f8cdcc0748
+manager: dougeby
+ms.openlocfilehash: 9807bab4a5edd60ebc8a4aaa000cea6b8c25afb0
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="plan-for-the-sms-provider-for-system-center-configuration-manager"></a>Planear o Fornecedor de SMS para o System Center Configuration Manager
 
@@ -122,7 +117,7 @@ Para ver as localizações de cada fornecedor de SMS instalado num site, selecio
 
     -   Esta localização pode utilizar recursos de sistema que, em condições normais, estariam dedicados a outros serviços.  
 
-##  <a name="BKMK_SMSProvLanguages"></a>Sobre os idiomas do fornecedor de SMS  
+##  <a name="BKMK_SMSProvLanguages"></a> Sobre os idiomas do fornecedor de SMS  
  O Fornecedor de SMS funciona independentemente do idioma de apresentação do computador onde está instalado.  
 
  Quando um utilizador administrativo ou dados de pedidos de processo do Configuration Manager, utilizando o fornecedor de SMS, o fornecedor de SMS tenta devolver os dados num formato correspondente ao idioma do sistema operativo do computador que efetuou pedido.
@@ -172,7 +167,7 @@ Pode ver e configurar as permissões e direitos do grupo Admins de SMS utilizand
 >  Cada utilizador administrativo que utilize uma consola do Configuration Manager remoto requer permissões de ativação remota DCOM no computador do servidor de site e no computador do fornecedor de SMS. Embora possa atribuir estes direitos a qualquer utilizador ou grupo, é boa ideia para lhe conceder ao grupo Admins de SMS para simplificar a administração. Para obter mais informações, veja a secção [Configurar permissões de DCOM para consolas remotas do Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) do tópico [Modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
 
 
-##  <a name="BKMK_SMSProvNamespace"></a>Sobre o espaço de nomes do fornecedor de SMS  
+##  <a name="BKMK_SMSProvNamespace"></a> Sobre o espaço de nomes do fornecedor de SMS  
 A estrutura do Fornecedor de SMS é definida pelo esquema WMI. Espaços de nomes do esquema descrevem a localização de dados do Configuration Manager o esquema do fornecedor de SMS. A seguinte tabela contém alguns dos espaços de nomes comuns que são utilizados pelo Fornecedor de SMS.  
 
 |Espaço de nomes|Descrição|  
@@ -183,7 +178,7 @@ A estrutura do Fornecedor de SMS é definida pelo esquema WMI. Espaços de nomes
 |Root\ccm.|Políticas de configuração de cliente do Configuration Manager e os dados de cliente.|  
 |root\CIMv2\SMS|A localização do inventário de classes que são recolhidas pelo agente de cliente de inventário de relatório. Estas definições são compiladas pelos clientes durante a avaliação da política de computador e baseiam-se na configuração de definições de cliente para o computador.|  
 
-##  <a name="BKMK_WAIKforSMSProv"></a>Requisitos de implementação do sistema operativo para o fornecedor de SMS  
+##  <a name="BKMK_WAIKforSMSProv"></a> Requisitos de implementação do sistema operativo para o fornecedor de SMS  
 O computador onde instala uma instância do fornecedor de SMS tem de ter a versão necessária do Windows ADK que requer a versão do Configuration Manager estiver a utilizar.  
 
  -   Por exemplo, a versão 1511 do Configuration Manager requer a versão do Windows 10 RTM (10.0.10240) do Windows ADK.  

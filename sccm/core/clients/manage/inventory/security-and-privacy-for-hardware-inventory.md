@@ -1,25 +1,20 @@
 ---
-title: "Privacidade de segurança de inventário de hardware"
+title: Privacidade de segurança de inventário de hardware
 titleSuffix: Configuration Manager
-description: "Obter informações de segurança e privacidade para inventário de hardware no System Center Configuration Manager."
-ms.custom: na
+description: Obter informações de segurança e privacidade para inventário de hardware no System Center Configuration Manager.
 ms.date: 2/22/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: 62e20d86-db6d-4a1f-b14a-905a9de31698
-caps.latest.revision: "6"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: d08bae2cceada5393e58bf8ad2e4a603277f5dfc
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 948aa0b261f9214dc08b76b25a70133141a1113f
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-and-privacy-for-hardware-inventory-in-system-center-configuration-manager"></a>Segurança e privacidade para o inventário de hardware no System Center Configuration Manager
 

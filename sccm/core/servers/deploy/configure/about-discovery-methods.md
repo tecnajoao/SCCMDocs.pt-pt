@@ -2,25 +2,19 @@
 title: Métodos de deteção
 titleSuffix: Configuration Manager
 description: Saiba mais sobre os métodos de deteção disponíveis para localizar dispositivos na sua rede, a partir do Active Directory ou do Azure Active Directory.
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: ed931751-18f2-4230-a09e-a0a329fbfa1c
-caps.latest.revision: ''
-author: mestew
-ms.author: mstewart
+author: aczechowski
+ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e53eb90b55034479ba3d278b4b19879f2ee1e4b7
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 51823b2e424450352d55402f16a8c05211eb77c5
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="about-discovery-methods-for-system-center-configuration-manager"></a>Acerca dos métodos de deteção no System Center Configuration Manager
 
@@ -457,7 +451,7 @@ Muitas das configurações de método de deteção dispensam explicações. Util
 
 As seguintes opções estão disponíveis para utilização com vários métodos de deteção do Active Directory:  
 
--   [Delta Discovery](#bkmk_delta)  
+-   [Deteção de diferenças](#bkmk_delta)  
 
 -   [Filtrar registos de computador obsoletos pelo início de sessão de domínio](#bkmk_stalelogon)  
 

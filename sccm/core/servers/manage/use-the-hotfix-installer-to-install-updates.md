@@ -1,26 +1,20 @@
 ---
-title: "Instalador de correções"
+title: Instalador de correções
 titleSuffix: Configuration Manager
-description: "Determinar quando e como instalar atualizações através de instalador de correções para o Configuration Manager."
-ms.custom: na
+description: Determinar quando e como instalar atualizações através de instalador de correções para o Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: f3058277-c597-4dac-86d1-41b6f7e62b36
-caps.latest.revision: 
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 0ed8399c080994745f79f58818781e9d32be7e48
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 5c90889861db55a27da897e709b16b66edece08a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-the-hotfix-installer-to-install-updates-for-system-center-configuration-manager"></a>Utilize o Instalador de Correções para instalar atualizações no System Center Configuration Manager
 
@@ -34,7 +28,7 @@ Quando tem de instalar uma atualização (ou correção) que recebe da Microsoft
 > [!NOTE]  
 >  Este tópico fornece orientações gerais sobre como instalar correções que atualizam o System Center Configuration Manager. Para obter detalhes sobre uma atualização específica, consulte o artigo correspondente na Base de Dados de Conhecimento (KB), no Suporte da Microsoft.  
 
-##  <a name="bkmk_Overview"></a>Descrição geral de correções para o Configuration Manager  
+##  <a name="bkmk_Overview"></a> Descrição geral de correções para o Configuration Manager  
  Correções para o Configuration Manager são semelhantes às de outros produtos Microsoft, como o SQL Server, contêm uma correção individual ou um pacote (uma agregação de correções) e são descritas num artigo da Base de dados de Conhecimento Microsoft.  
 
  As atualizações individuais incluem uma única atualização focada para uma versão específica do Configuration Manager.  
@@ -90,13 +84,13 @@ O assistente cria também implementações que poderá utilizar para instalar as
  Quando executa o pacote de atualização, é extraído um ficheiro para uma pasta temporária com o mesmo nome que o pacote de atualização e, em seguida, Updatesetup.exe é executado. Updatesetup.exe inicia a atualização de Software para o Configuration Manager &lt;versão do produto\> &lt;número da BDC\> assistente.  
 
  Como aplicável ao âmbito da atualização, o assistente cria uma série de pastas sob a pasta de instalação do System Center Configuration Manager no servidor do site. A estrutura de pastas é semelhante à seguinte:   
- **\\\\&lt;Nome do servidor\>\SMS_&lt;código do Site\>\Hotfix\\&lt;número da BDC\>\\&lt;atualizar tipo\>\\&lt;plataforma\>**.  
+ **\\\\&lt;Nome do servidor\>\SMS_&lt;código do Site\>\Hotfix\\&lt;número da BDC\>\\&lt;atualizar tipo\> \\ &lt; Plataforma\>**.  
 
  A tabela seguinte fornece detalhes sobre as pastas na estrutura de pastas:  
 
 |Nome da pasta|Mais informações|  
 |-----------------|----------------------|  
-|&lt;Nome do servidor\>|Este é o nome do servidor do site em que executou o pacote de atualização.|  
+|&lt;nome do servidor\>|Este é o nome do servidor do site em que executou o pacote de atualização.|  
 |SMS _&lt;código do Site\>|Este é o nome da partilha da pasta de instalação do Configuration Manager.|  
 |&lt;Número da KB\>|Este é o número de ID do artigo da Base de Dados de Conhecimento relativo a este pacote de atualização.|  
 |&lt;Tipo de atualização\>|Estes são os tipos de atualizações do Configuration Manager. O assistente cria uma pasta separada para cada tipo de atualização contido no pacote de atualização. Os nomes das pastas representam os tipos de atualização. Estas definições incluem o seguinte:<br /><br /> **Servidor**: Inclui atualizações para servidores de sites, servidores de base de dados do site e computadores que executam o fornecedor de SMS.<br /><br /> **Cliente**: Inclui atualizações para o cliente do Configuration Manager.<br /><br /> **AdminConsole**: Inclui atualizações para a consola do Configuration Manager<br /><br /> Para além dos tipos de atualização anteriores, o assistente cria uma pasta denominada **SCUP**. Esta pasta não representa um tipo de atualização. Em vez disso, contém o ficheiro .cab para o Updates Publisher.|  
@@ -131,12 +125,12 @@ Depois de instalar o pacote de atualização num servidor do site, poderá atual
 ###  <a name="bkmk_servers"></a> Atualizar servidores  
  As atualizações de servidores podem incluir atualizações de **sites**, da **site database**e de computadores que executem uma instância do **Fornecedor de SMS**:  
 
-####  <a name="bkmk_site"></a>Atualizar um site  
+####  <a name="bkmk_site"></a> Atualizar um site  
  Para atualizar um site do Configuration Manager, pode instalar o pacote de atualização diretamente no servidor do site ou implementar as atualizações para um servidor de site após instalar o pacote de atualização noutro site.  
 
  Ao instalar uma atualização num servidor de site, o processo de instalação da atualização gere as ações adicionais necessárias para aplicar a atualização, tais como atualizar as funções do sistema de sites. A exceção a este procedimento é a base de dados do site. A secção seguinte contém informações sobre como atualizar a base de dados do site.  
 
-####  <a name="bkmk_database"></a>Atualizar uma base de dados do site  
+####  <a name="bkmk_database"></a> Atualizar uma base de dados do site  
  Para atualizar a base de dados do site, o processo de instalação executa um ficheiro chamado **update.sql** na base de dados do site. Poderá configurar o processo de atualização para atualizar automaticamente a base de dados do site ou optar por atualizar manualmente a base de dados do site, mais tarde.  
 
  **Atualização automática da base de dados do Site**  
@@ -168,12 +162,12 @@ Depois de instalar o pacote de atualização num servidor do site, poderá atual
 
 5.  Quando o pacote de atualização é instalado, extrairá **update.sql** na seguinte localização no servidor do site:  **\\\\&lt;Nome do servidor\>\SMS_&lt;código do Site\>\Hotfix\\&lt;número da BDC\>\update.sql**  
 
-####  <a name="bkmk_provider"></a>Atualizar um computador que executa o fornecedor de SMS  
+####  <a name="bkmk_provider"></a> Atualizar um computador que executa o fornecedor de SMS  
  Depois de instalar um pacote de atualização que inclui atualizações para o fornecedor de SMS, terá de implementar a atualização em cada computador que executa o fornecedor de SMS. A única exceção é a instância do Fornecedor de SMS instalada anteriormente no servidor do site onde instalou o pacote de atualizações. A instância local do fornecedor de SMS no servidor do site é atualizada quando instala o pacote de atualização.  
 
  Se remover e, em seguida, reinstalar o fornecedor de SMS num computador, tem de reinstalar a atualização para o fornecedor de SMS nesse computador.  
 
-###  <a name="BKMK_clients"></a>Atualizar clientes  
+###  <a name="BKMK_clients"></a> Atualizar clientes  
  Quando instala uma atualização que inclui atualizações para o cliente do Configuration Manager, é-lhe apresentada a opção para atualizar automaticamente os clientes com a instalação da atualização ou atualizar manualmente os clientes numa altura posterior. Para obter mais informações sobre a atualização automática de clientes, veja [Como atualizar clientes em computadores Windows](https://technet.microsoft.com/library/mt627885.aspx).  
 
  Pode implementar atualizações com o Updates Publisher ou um pacote de implementação de software, ou pode optar por instalar manualmente a atualização em cada cliente. Para obter mais informações sobre como utilizar implementações para instalar atualizações, veja a secção [Implementar atualizações para o Configuration Manager](#BKMK_Deploy) deste tópico.  
@@ -185,7 +179,7 @@ Para instalar manualmente a atualização do cliente, em cada cliente de Configu
 
  Por exemplo, pode utilizar a seguinte linha de comandos para uma atualização do cliente. Esta linha de comandos executa o MSIEXEC no computador cliente e referencia o ficheiro. msp que o pacote de atualização extraiu no servidor do site: **msiexec.exe /p \\ \\ &lt;ServerName\>\SMS_&lt;SiteCode\>\Hotfix\\&lt;número da BDC\>\Client\\&lt;plataforma\>\\&lt;\\<ServerName>\sms_<sitecode>\hotfix\<KB\> /L\*v &lt;logfile\>REINSTALLMODE = mous REINSTALL = ALL**  
 
-###  <a name="BKMK_console"></a>Atualizar consolas do Configuration Manager  
+###  <a name="BKMK_console"></a> Atualizar consolas do Configuration Manager  
  Para atualizar uma consola do Configuration Manager, tem de instalar a atualização no computador que executa a consola depois de concluída a instalação da consola.  
 
 > [!IMPORTANT]  
@@ -199,12 +193,12 @@ Se o computador que atualizar executar o cliente do Configuration Manager:
 
 -   Pode instalar manualmente a atualização em cada computador. Para instalar manualmente a atualização da consola do Configuration Manager, em cada computador que executa a consola do Configuration Manager, pode executar o Msiexec.exe e referenciar o ficheiro. msp de atualização de consola do Configuration Manager.  
 
-Por exemplo, pode utilizar a seguinte linha de comandos para atualizar uma consola do Configuration Manager. Esta linha de comandos executa o MSIEXEC no computador e referencia o ficheiro. msp que o pacote de atualização extraiu no servidor do site: **msiexec.exe /p \\ \\ &lt;ServerName\>\SMS_&lt;SiteCode\>\Hotfix\\&lt;número da BDC\>\AdminConsole\\&lt;plataforma\>\\&lt;\\<ServerName>\sms_<sitecode>\hotfix\<KB\> /L\*v &lt;logfile\>REINSTALLMODE = mous REINSTALL = ALL**  
+Por exemplo, pode utilizar a seguinte linha de comandos para atualizar uma consola do Configuration Manager. Esta linha de comandos executa o MSIEXEC no computador e referencia o ficheiro. msp que o pacote de atualização extraiu no servidor do site: **msiexec.exe /p \\ \\ &lt;ServerName\>\SMS_&lt; SiteCode\>\Hotfix\\&lt;número da BDC\>\AdminConsole\\&lt;plataforma\>\\&lt;\\<ServerName>\sms_<sitecode>\hotfix\<KB\> /L\*v &lt;logfile\>REINSTALLMODE = mous REINSTALL = ALL**  
 
 ##  <a name="BKMK_Deploy"></a> Implementar atualizações para o Configuration Manager  
  Depois de instalar o pacote de atualização num servidor do site, pode utilizar um dos três métodos seguintes para implementar atualizações noutros computadores.  
 
-###  <a name="BKMK_DeploySCUP"></a>Utilizar o Updates Publisher 2011 para instalar atualizações  
+###  <a name="BKMK_DeploySCUP"></a> Utilizar o Updates Publisher 2011 para instalar atualizações  
  Quando instala o pacote de atualização num servidor do site, a instalação do assistente cria um ficheiro de catálogo para o Updates Publisher que pode utilizar para implementar as atualizações nos computadores aplicáveis. O assistente cria sempre este catálogo, mesmo quando o utilizador seleciona a opção **Utilizar pacote e programa para implementar esta atualização**.  
 
  O catálogo para o Updates Publisher é designado **SCUPCatalog.cab** e pode ser encontrado na seguinte localização no computador onde é executado o pacote de atualização: **\\\\&lt;ServerName\>\SMS_&lt;SiteCode\>\Hotfix\\&lt;número da BDC\>\SCUP\SCUPCatalog.cab**  
@@ -232,7 +226,7 @@ Por exemplo, pode utilizar a seguinte linha de comandos para atualizar uma conso
 
 7.  Conclua o Assistente para publicar as atualizações.  
 
-###  <a name="BKMK_DeploySWDist"></a>Utilizar a implementação de software para instalar atualizações  
+###  <a name="BKMK_DeploySWDist"></a> Utilizar a implementação de software para instalar atualizações  
  Quando instala o pacote de atualização no servidor do site de um site primário ou site de administração central, pode configurar a instalação do Assistente para criar pacotes de atualização para implementação de software. Em seguida, pode implementar cada pacote para uma coleção de computadores que pretende atualizar.  
 
  Para criar um pacote de implementação de software, o **configurar implementação da atualização de Software** página do assistente, selecione a caixa de verificação para a atualização de cada tipo de pacote que pretende atualizar. Os tipos disponíveis podem incluir servidores, consolas do Configuration Manager e os clientes. É criado um pacote separado para cada tipo de atualização que selecionou.  
@@ -250,7 +244,7 @@ Por exemplo, pode utilizar a seguinte linha de comandos para atualizar uma conso
 
  Para obter informações sobre como implementar pacotes nos clientes do Configuration Manager, consulte [pacotes e programas no System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md).  
 
-###  <a name="BKMK_DeployCollections"></a>Criar coleções para implementar atualizações do Configuration Manager  
+###  <a name="BKMK_DeployCollections"></a> Criar coleções para implementar atualizações do Configuration Manager  
  Pode implementar atualizações específicas em clientes aplicáveis. As seguintes informações podem ajudar a criar coleções de dispositivos para os diferentes componentes do Configuration Manager.  
 
 |Componente do Configuration Manager|Instruções|  

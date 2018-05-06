@@ -1,26 +1,20 @@
 ---
-title: "Criar itens de configuração para a computadores geridos pelo cliente do Windows "
+title: 'Criar itens de configuração para a computadores geridos pelo cliente do Windows '
 titleSuffix: Configuration Manager
-description: "Gerir as definições para servidores com um item de configuração personalizado do Windows computadores de secretária e servidores e computadores Windows."
-ms.custom: na
+description: Gerir as definições para servidores com um item de configuração personalizado do Windows computadores de secretária e servidores e computadores Windows.
 ms.date: 11/18/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-compliance
+ms.topic: conceptual
 ms.assetid: 1eb2fcaf-acac-4388-9b31-6cccafacaabe
-caps.latest.revision: "9"
-caps.handback.revision: "0"
-author: andredm7
-ms.author: andredm
-manager: angrobe
-ms.openlocfilehash: ed3aa1ce9e21c7c486cc40deb804a8687a1cd4f2
-ms.sourcegitcommit: c236214b2fcc13dae7bad96d7fb33f692868191d
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: b2b2af6c022d854a6c6d623e3901abac70d42c7a
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração personalizados para computadores de secretária e de servidor do Windows geridos com o cliente do System Center Configuration Manager
 
@@ -181,7 +175,7 @@ Utilizar o System Center Configuration Manager **personalizado Windows Desktops 
 
             -   **Hive** – Na lista, selecione o ramo de registo onde pretende procurar.  
 
-            -   **Chave** – Especifique o nome da chave de registo que pretende procurar. Utilize o formato *key\subkey*.  
+            -   **Chave** – especifique o nome da chave de registo que pretende procurar. Utilize o formato *key\subkey*.  
 
             -   **Valor** – Especifique o valor que deve estar incluído na chave de registo especificada.  
 
@@ -235,7 +229,7 @@ Utilizar o System Center Configuration Manager **personalizado Windows Desktops 
 
             -   **Incluir subpastas** - ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
 
-            -   **Este ficheiro está associado uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %*\System32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\Syswow64) em clientes do Configuration Manager que executam uma versão de 64 bits do Windows.  
+            -   **Este ficheiro está associado uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %* \System32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %* \Syswow64) em clientes do Configuration Manager que executam uma versão de 64 bits do Windows.  
 
             -   **Consulta XPath** - Especifique uma consulta da linguagem XPath completa e válida utilizada para avaliar a compatibilidade em computadores cliente.  
 

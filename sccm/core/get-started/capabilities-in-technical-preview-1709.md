@@ -1,25 +1,20 @@
 ---
-title: "Pré-visualização técnica 1709"
+title: Pré-visualização técnica 1709
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1709 para o System Center Configuration Manager."
-ms.custom: na
+description: Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1709 para o System Center Configuration Manager.
 ms.date: 09/28/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-other
+ms.topic: conceptual
 ms.assetid: a3ef6bdc-a204-4c4c-a02f-2bd03f35183e
-author: erikje
-ms.author: erikje
-manager: angrobe
-ms.openlocfilehash: f0acc5ae0d8207dce92c56a4c80e8321faf51393
-ms.sourcegitcommit: 7fe45ff75f05f7cc03ad021db8119791abe18049
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 74ffd06f8b9786d627dc7fd9cecb15215228313d
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="capabilities-in-technical-preview-1709-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1709 do System Center Configuration Manager
 
@@ -96,7 +91,7 @@ Seguem-se pré-requisitos gerais para a ativar a gestão conjunta:
 - Pré-visualização técnica 1709 de versão do Configuration Manager
 - Azure AD 
 - Licença do Intune ou do EMS para todos os utilizadores
-- Subscrição do Intune &#40; Definido como a autoridade MDM no Intune **Intune**&#41;
+- Subscrição do Intune &#40;definido como a autoridade MDM no Intune **Intune**&#41;
 
    > [!Note]  
    > Se tiver um ambiente de MDM híbrido (Intune integrado com o Configuration Manager), não é possível ativar a gestão de conjunta. Se estiver interessado em migrar para o Intune autónomo, consulte o artigo [começar a migrar do MDM híbrido para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).
@@ -155,11 +150,11 @@ Pode ativar a gestão conjunta em dispositivos Windows 10 que estejam associados
 #### <a name="command-line-to-install-configuration-manager-client"></a>Linha de comandos para instalar o cliente do Configuration Manager
 Crie uma aplicação nos dispositivos do Intune para Windows 10 que já não são clientes do Configuration Manager. Quando cria a aplicação nas secções seguintes, utilize a seguinte linha de comandos:
 
-ccmsetup.msi CCMSETUPCMD = "/ mp: &#60; *URL de ponto final a autenticação mútua de gateway de gestão de nuvem*&#62; / CCMHOSTNAME = &#60; *URL de ponto final a autenticação mútua de gateway de gestão de nuvem*&#62; SMSSiteCode = &#60; *Sitecode*&#62; SMSMP = https: &#47; / &#60; *FQDN do MP*&#62; AADTENANTID = &#60; *ID de inquilino do AAD*&#62; AADTENANTNAME = &#60; *Nome do inquilino*&#62; AADCLIENTAPPID = &#60; *AppID do servidor para a integração do AAD*&#62; AADRESOURCEURI = https: &#47; / &#60; *ID de recurso*&#62; "
+ccmsetup.msi CCMSETUPCMD = "/ mp:&#60;*URL de ponto final a autenticação mútua de gateway de gestão de nuvem*&#62;/ CCMHOSTNAME =&#60;*URL de ponto final a autenticação mútua de gateway de gestão de nuvem* &#62;SMSSiteCode =&#60;*Sitecode* &#62; SMSMP = https:&#47;/&#60;*FQDN do MP* &#62; AADTENANTID =&#60;*ID de inquilino do AAD*  &#62; AADTENANTNAME =&#60;*nome do inquilino* &#62; AADCLIENTAPPID =&#60;*AppID do servidor para a integração do AAD* &#62; AADRESOURCEURI = https:&#47;/&#60;*ID de recurso*&#62;"
 
 Por exemplo, se tiver os seguintes valores:
 
-- **URL de ponto final a autenticação mútua de gateway de gestão de nuvem**: https:/ &#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    
+- **URL de ponto final a autenticação mútua de gateway de gestão de nuvem**: https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    
 
    >[!Note]    
    >Utilize o **MutualAuthPath** valor o **vProxy_Roles** vista SQL para o **URL de ponto final a autenticação mútua de gateway de gestão de nuvem** valor.
@@ -176,7 +171,7 @@ Por exemplo, se tiver os seguintes valores:
 
 Pretende utilizar a seguinte linha de comandos:
 
-ccmsetup.msi CCMSETUPCMD = "/ mp:https: / &#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode = PS1 SMSMP = https: / &#47; sccmmp.corp.contoso.com AADTENANTID = 72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME = contoso AADCLIENTAPPID = bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI = https: / &#47; ConfigMgrServer"
+ccmsetup.msi CCMSETUPCMD="/mp:https:/&#47;contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100    CCMHOSTNAME=contoso.cloudapp.net/CCM_Proxy_MutualAuth/72057594037928100 SMSSiteCode=PS1 SMSMP=https:/&#47;sccmmp.corp.contoso.com AADTENANTID=72F988BF-86F1-41AF-91AB-2D7CD011XXXX AADTENANTNAME=contoso  AADCLIENTAPPID=bef323b3-042f-41a6-907a-f9faf0d1XXXX AADRESOURCEURI=https:/&#47;ConfigMgrServer”
 
 > [!Tip]
 >Pode encontrar os parâmetros da linha de comandos para o seu site, utilizando os seguintes passos:     

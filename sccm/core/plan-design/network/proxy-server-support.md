@@ -2,25 +2,19 @@
 title: Suporte para o servidor proxy
 titleSuffix: Configuration Manager
 description: Saiba mais sobre o suporte do System Center Configuration Manager para servidores de proxy que utilizam servidores do sistema de sites e clientes.
-ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 9123a87a-0b6f-43c7-b5c2-fac5d09686b1
-caps.latest.revision: "6"
-caps.handback.revision: "0"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: fe42d5ca64b5a969e1a6def4266466875c4a3183
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 480ab29bbd97f2cdc173019b1b3cccd90403d011
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="proxy-server-support-in-system-center-configuration-manager"></a>Suporte para o servidor proxy no System Center Configuration Manager
 
@@ -53,7 +47,7 @@ Para esta configuração, o servidor do site primário:
 
 Não é possível configurar um servidor proxy no ponto de distribuição em nuvem com base no Microsoft Azure.  
 
-**Ponto de ligação da nuvem** -esta função de sistema de sites liga ao serviço de nuvem do Configuration Manager para transferir atualizações de versão para o Configuration Manager e utiliza um servidor proxy que está configurado no computador que aloja o ponto de ligação de serviço.  
+**Ponto de ligação da nuvem** -esta função de sistema de sites liga ao serviço de nuvem do Configuration Manager para transferir atualizações de versão para o Configuration Manager e utiliza um servidor proxy que está configurado no computador que aloja a ligação de serviço ponto.  
 
 **Conector do Exchange Server** -esta função de sistema de sites liga a um Exchange Server e utiliza uma configuração de servidor proxy no computador que aloja o conector do Exchange Server.  
 

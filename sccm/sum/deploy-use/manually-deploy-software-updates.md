@@ -1,22 +1,20 @@
 ---
-title: "Implementar manualmente atualizações de software"
+title: Implementar manualmente atualizações de software
 titleSuffix: Configuration Manager
-description: "Para implementar as atualizações manualmente, selecione as atualizações a partir da consola do Configuration Manager e implementá-las, ou adicionar manualmente atualizações para um grupo de atualização e implementar o grupo."
-keywords: 
-author: dougeby
-ms.author: dougeby
-manager: angrobe
+description: Para implementar as atualizações manualmente, selecione as atualizações a partir da consola do Configuration Manager e implementá-las, ou adicionar manualmente atualizações para um grupo de atualização e implementar o grupo.
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
 ms.date: 12/07/2016
-ms.topic: article
+ms.topic: conceptual
 ms.prod: configuration-manager
-ms.service: 
 ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.openlocfilehash: becab57c5f04bb67512d665175038f6c477b65b1
-ms.sourcegitcommit: e13bb2c86c40a88e5f4602beb1d31e4adc90e099
+ms.openlocfilehash: 3f79da78df10e97813b221ffca3df25396591fbc
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/03/2018
 ---
 #  <a name="BKMK_ManualDeploy"></a> Implementar manualmente atualizações de software  
 
@@ -26,7 +24,7 @@ ms.lasthandoff: 01/12/2018
 
  As secções seguintes fornecem os passos para implementar manualmente atualizações de software.  
 
-##  <a name="BKMK_1SearchCriteria"></a>Passo 1: Especifique os critérios de procura para atualizações de software  
+##  <a name="BKMK_1SearchCriteria"></a> Passo 1: Especifique os critérios de procura para atualizações de software  
  Existem potencialmente milhares de atualizações de software apresentadas na consola do Configuration Manager. O primeiro passo no fluxo de trabalho para implementar manualmente atualizações de software consiste em identificar as atualizações de software que pretende implementar. Por exemplo, pode fornecer critérios para obter todas as atualizações de software que são necessárias em mais de 50 dispositivos cliente e que têm uma classificação de atualização de software **Segurança** ou **Crítica** .  
 
 > [!IMPORTANT]  
@@ -52,7 +50,7 @@ ms.lasthandoff: 01/12/2018
     > [!TIP]  
     >  Tem a opção de guardar os critérios do filtro no separador **Procurar** e no grupo **Guardar** .  
 
-##  <a name="BKMK_2UpdateGroup"></a>Passo 2: Criar um grupo de atualização de software que contém as atualizações de software  
+##  <a name="BKMK_2UpdateGroup"></a> Passo 2: Criar um grupo de atualização de software que contém as atualizações de software  
  Os grupos de atualizações de software fornecem um método eficaz para organizar as atualizações de software em preparação para implementação. Pode adicionar manualmente atualizações de software a um grupo de atualização de software ou do Configuration Manager podem adicionar automaticamente as atualizações de software a um grupo de atualização de software novo ou existente utilizando uma ADR. Utilize os seguintes procedimentos para adicionar manualmente atualizações de software a um novo grupo de atualizações de software.  
 
 #### <a name="to-manually-add-software-updates-to-a-new-software-update-group"></a>Para adicionar manualmente atualizações de software a um novo grupo de atualizações de software  
@@ -71,7 +69,7 @@ ms.lasthandoff: 01/12/2018
 
 7.  Selecione o grupo de atualização de software e, no separador **Home Page** , no grupo **Atualizar** , clique em **Mostrar Membros** para apresentar uma lista das atualizações de software que estão incluídas no grupo.  
 
-##  <a name="BKMK_3DownloadContent"></a>Passo 3: Transferir o conteúdo para o grupo de atualização de software  
+##  <a name="BKMK_3DownloadContent"></a> Passo 3: Transferir o conteúdo para o grupo de atualização de software  
  Opcionalmente, antes de implementar as atualizações de software, pode transferir o conteúdo para as atualizações de software que estão incluídas no grupo de atualizações de software. Pode escolher proceder desta forma para que possa verificar que o conteúdo está disponível nos pontos de distribuição antes de implementar as atualizações de software. Isto ajudará a evitar quaisquer problemas inesperados com o fornecimento de conteúdo. Pode ignorar este passo e o conteúdo será transferido e copiado para os pontos de distribuição como parte do processo de implementação. Utilize o seguinte procedimento para transferir o conteúdo para atualizações de software no grupo de atualizações de software.  
 
 
@@ -158,7 +156,7 @@ ms.lasthandoff: 01/12/2018
 
 4. No separador **Home Page** , no grupo **Conteúdo** , clique em **Ver Estado**.  
 
-##  <a name="BKMK_4DeployUpdateGroup"></a>Passo 4: Implementar o grupo de atualização de software  
+##  <a name="BKMK_4DeployUpdateGroup"></a> Passo 4: Implementar o grupo de atualização de software  
  Após identificar as atualizações de software que tenciona implementar e adicioná-las a um grupo de atualização de software, poderá implementar manualmente as atualizações de software do grupo de atualização de software. Utilize o seguinte procedimento para implementar manualmente as atualizações de software de um grupo de atualização de software.  
 
 #### <a name="to-manually-deploy-the-software-updates-in-a-software-update-group"></a>Para implementar manualmente as atualizações de software de um grupo de atualização de software  

@@ -1,25 +1,20 @@
 ---
-title: "Pré-requisitos de perfil de certificado"
+title: Pré-requisitos de perfil de certificado
 titleSuffix: Configuration Manager
-description: "Saiba mais sobre perfis de certificado no System Center Configuration Manager e as respetivas dependências externas e dependências no produto."
-ms.custom: na
+description: Saiba mais sobre perfis de certificado no System Center Configuration Manager e as respetivas dependências externas e dependências no produto.
 ms.date: 12/20/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: get-started-article
+ms.technology: configmgr-protect
+ms.topic: conceptual
 ms.assetid: 0317fd02-3721-4634-b18b-7c976a4e92bf
-caps.latest.revision: "9"
-author: arob98
-ms.author: angrobe
-manager: angrobe
-ms.openlocfilehash: b12afbb731d2280fadaa43e94af0dc85d6a9e0ec
-ms.sourcegitcommit: 6c2aa79924c0e7fc64ef5e9003498fc00c349db9
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: 1c5a4ddc906b6304f61f1476a125d98c18acab55
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="prerequisites-for-certificate-profiles-in-system-center-configuration-manager"></a>Pré-requisitos para perfis de certificado no System Center Configuration Manager
 
@@ -46,4 +41,4 @@ Perfis de certificado no System Center Configuration Manager tem dependências e
 |Função do sistema de sites do ponto de registo de certificados|Para poder utilizar perfis de certificado, é necessário instalar a função do sistema de sites do ponto de registo de certificados. Esta função comunica com a base de dados do System Center Configuration Manager, o servidor de site do System Center Configuration Manager e o módulo de política do System Center Configuration Manager.<br /><br /> Para obter mais informações sobre os requisitos de sistema para esta função de sistema de sites e onde instalar a função na hierarquia, consulte o **requisitos de sistema de sites** secção o [configurações suportadas para o System Center O Configuration Manager](../../core/plan-design/configs/supported-configurations.md) artigo.<br /><br /> O ponto de registo de certificados não deve ser instalado no mesmo servidor que executa o serviço de inscrição de dispositivos de rede.|  
 |System Center Configuration Manager módulo de política que está instalado no servidor que está a executar o serviço de função Serviço de inscrição de dispositivos de rede para serviços de certificados do Active Directory|Para implementar perfis de certificado, tem de instalar o módulo de política do System Center Configuration Manager. Pode encontrar este módulo de política no suporte de instalação do System Center Configuration Manager.|  
 |Dados de deteção|Os valores para o requerente do certificado e o nome alternativo do requerente são fornecidos pelo System Center Configuration Manager e obtidos nas informações recolhidas pela Deteção:<br /><br /> Para certificados de utilizador: Deteção de Utilizadores do Active Directory<br /><br /> Para certificados de computador: Deteção de sistemas do Active Directory e deteção de rede|  
-|Permissões de segurança específicas para gerir perfis de certificado|É necessário possuir as seguintes permissões de segurança para gerir definições de acesso a recursos da empresa, tais como perfis de certificado, perfis Wi-Fi e perfis VPN:<br /><br /> Para ver e gerir alertas e relatórios para perfis de certificado: **Criar**, **eliminar**, **modificar**, **modificar relatório**, **leitura**, e **executar relatório** para o **alertas** objeto.<br /><br /> Para criar e gerir perfis de certificado: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil de certificado** objeto.<br /><br /> Para gerir Wi-Fi, certificado e VPN implementações de perfis: **Implementar políticas de configuração**, **modificar cliente alerta de estado**, **leitura**, e **ler recurso** para o **coleção** objeto.<br /><br /> Para gerir todas as políticas de configuração: **Criar**, **eliminar**, **modificar**, **leitura**, e **definir âmbito de segurança** para o **política de configuração** objeto.<br /><br /> Para executar consultas relacionadas com perfis de certificado: **Leitura** permissão para o **consulta** objeto.<br /><br /> Para ver informações sobre perfis de certificado na consola do System Center Configuration Manager: **Leitura** permissão para o **Site** objeto.<br /><br /> Para ver mensagens de estado para perfis de certificado: **Leitura** permissão para o **mensagens de estado** objeto.<br /><br /> Para criar e modificar o perfil de certificado de AC fidedigna: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil de certificado de AC fidedigna** objeto.<br /><br /> Para criar e gerir perfis VPN: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil da VPN** objeto.<br /><br /> Para criar e gerir perfis Wi-Fi: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil Wi-Fi** objeto.<br /><br /> O **Gestor de acesso a recursos da empresa** função de segurança inclui estas permissões que são necessárias para gerir perfis de certificado no System Center Configuration Manager. Para obter mais informações, consulte o **configurar a administração baseada em funções** secção o [configurar a segurança no System Center Configuration Manager](../../core/plan-design/security/configure-security.md) artigo.|  
+|Permissões de segurança específicas para gerir perfis de certificado|É necessário possuir as seguintes permissões de segurança para gerir definições de acesso a recursos da empresa, tais como perfis de certificado, perfis Wi-Fi e perfis VPN:<br /><br /> Para ver e gerir alertas e relatórios para perfis de certificado: **Criar**, **eliminar**, **modificar**, **modificar relatório**, **leitura**, e **executar relatório** para o **alertas** objeto.<br /><br /> Para criar e gerir perfis de certificado: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil de certificado** objeto.<br /><br /> Para gerir Wi-Fi, certificado e VPN implementações de perfis: **Implementar políticas de configuração**, **Modificar alerta de estado do cliente**, **leitura**, e **ler recurso** para o **coleção**objeto.<br /><br /> Para gerir todas as políticas de configuração: **Criar**, **eliminar**, **modificar**, **leitura**, e **definir âmbito de segurança** para o **política de configuração**  objeto.<br /><br /> Para executar consultas relacionadas com perfis de certificado: **Leitura** permissão para o **consulta** objeto.<br /><br /> Para ver informações sobre perfis de certificado na consola do System Center Configuration Manager: **Leitura** permissão para o **Site** objeto.<br /><br /> Para ver mensagens de estado para perfis de certificado: **Leitura** permissão para o **mensagens de estado** objeto.<br /><br /> Para criar e modificar o perfil de certificado de AC fidedigna: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil de certificado de AC fidedigna** objeto.<br /><br /> Para criar e gerir perfis VPN: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil da VPN** objeto.<br /><br /> Para criar e gerir perfis Wi-Fi: **Política de autor**, **modificar relatório**, **leitura**, e **executar relatório** para o **perfil Wi-Fi** objeto.<br /><br /> O **Gestor de acesso a recursos da empresa** função de segurança inclui estas permissões que são necessárias para gerir perfis de certificado no System Center Configuration Manager. Para obter mais informações, consulte o **configurar a administração baseada em funções** secção o [configurar a segurança no System Center Configuration Manager](../../core/plan-design/security/configure-security.md) artigo.|  

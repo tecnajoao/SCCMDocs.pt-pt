@@ -1,26 +1,20 @@
 ---
-title: "Criar um suporte de dados de sequência de tarefas"
+title: Criar um suporte de dados de sequência de tarefas
 titleSuffix: Configuration Manager
-description: "Crie suportes de dados da sequência tarefas, tais como um CD, para implementar um sistema operativo num computador de destino no seu ambiente do Configuration Manager."
-ms.custom: na
+description: Crie suportes de dados da sequência tarefas, tais como um CD, para implementar um sistema operativo num computador de destino no seu ambiente do Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 90498b4b-6a9b-43cd-b465-1d6c9a52df1c
-caps.latest.revision: "8"
-caps.handback.revision: "0"
 author: aczechowski
 ms.author: aaroncz
-manager: angrobe
-ms.openlocfilehash: 790f7272240df7f19bb91fc0b4da15cbffb1463e
-ms.sourcegitcommit: 08f9854fb6c6d21e1e923b13e38a64d0bc2bc9a4
+manager: dougeby
+ms.openlocfilehash: 69c2f3620ed618711534366121aa1267efe6a8a5
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-task-sequence-media-with-system-center-configuration-manager"></a>Criar um suporte de dados de sequência de tarefas com o System Center Configuration Manager
 
@@ -35,10 +29,10 @@ Pode utilizar suportes de dados para capturar uma imagem de sistema operativo a 
 > [!IMPORTANT]  
 >  Para criar suportes de dados de sequência de tarefas, tem de ser um administrador no computador em que executa a consola do Configuration Manager. Se não for um administrador, ser-lhe-ão pedidas as credenciais de administrador quando iniciar o assistente para Criar Suportes de Dados de Sequência de Tarefas.  
 
-##  <a name="BKMK_PlanCaptureMedia"></a>Captura de suportes de dados para imagens de sistema operativo  
+##  <a name="BKMK_PlanCaptureMedia"></a> Captura de suportes de dados para imagens de sistema operativo  
  O suporte de dados de captura permite capturar uma imagem do sistema operativo a partir de um computador de referência. O suporte de dados de captura contém a imagem de arranque que inicia o computador de referência e a sequência de tarefas que captura a imagem do sistema operativo. Para obter mais informações sobre como criar suportes de dados de captura, veja [Criar suportes de dados de captura com o System Center Configuration Manager](create-capture-media.md).  
 
-##  <a name="BKMK_PlanBootableMedia"></a>Implementações do sistema operativo de suportes de dados  
+##  <a name="BKMK_PlanBootableMedia"></a> Implementações do sistema operativo de suportes de dados  
  Suporte de dados de arranque contém apenas a imagem de arranque, opcional [comandos de Pré-início](../understand/prestart-commands-for-task-sequence-media.md) e os ficheiros necessários e os binários do Configuration Manager. Quando o computador de destino é iniciado, estabelece a ligação à rede e obtém a sequência de tarefas, a imagem do sistema operativo e qualquer outro conteúdo necessário a partir da rede. Dado que a sequência de tarefas não está no suporte de dados, pode alterar a sequência de tarefas ou o conteúdo sem ter de recriar o suporte de dados.  
 
 > [!IMPORTANT]  
@@ -46,7 +40,7 @@ Pode utilizar suportes de dados para capturar uma imagem de sistema operativo a 
 
  Para obter informações sobre como criar suportes de dados [criar suportes de dados](create-bootable-media.md).  
 
-##  <a name="BKMK_PlanPrestagedMedia"></a>Implementações de sistema operativo do suporte de dados pré-configurado  
+##  <a name="BKMK_PlanPrestagedMedia"></a> Implementações de sistema operativo do suporte de dados pré-configurado  
  O suporte de dados pré-configurado permite-lhe pré-configurar o suporte de dados de arranque e uma imagem do sistema operativo num disco rígido antes do processo de aprovisionamento. O suporte de dados pré-configurado é um ficheiro de formato WIM (Windows Imaging) que pode ser instalado num computador bare-metal pelo fabricante ou num centro de transição empresarial que não está ligado ao ambiente do Configuration Manager.  
 
  O suporte de dados pré-configurado contém a imagem de arranque utilizada para iniciar o computador de destino e a imagem de sistema operativo aplicada no computador de destino. Também pode especificar aplicações, pacotes e pacotes de controladores para incluir como parte do suporte de dados pré-configurado. A sequência de tarefas que implementa o sistema operativo não está incluída no suporte de dados. Quando implementa uma sequência de tarefas que utiliza suportes de dados pré-configurados, o cliente verifica primeiro a presença de conteúdo válido na cache local da sequência de tarefas e, se o conteúdo não puder ser localizado ou tiver sido revisto, o cliente transfere-o a partir do ponto de distribuição.  
@@ -58,7 +52,7 @@ Pode utilizar suportes de dados para capturar uma imagem de sistema operativo a 
 
  Para obter informações sobre como criar suportes de dados pré-configurados, consulte [criar suportes de dados pré-configurados](create-prestaged-media.md).  
 
-##  <a name="BKMK_PlanStandaloneMedia"></a>Implementações de sistema operativo do suporte de dados autónomo  
+##  <a name="BKMK_PlanStandaloneMedia"></a> Implementações de sistema operativo do suporte de dados autónomo  
  O suporte de dados autónomo contém tudo o que é necessário para implementar o sistema operativo. Isto inclui a sequência de tarefas e qualquer outro conteúdo necessário. Como tudo o que é necessário para implementar o sistema operativo está armazenado no suporte de dados autónomo, o espaço em disco necessário para o suporte de dados autónomo é significativamente maior do que o espaço em disco necessário para outros tipos de suportes de dados.  
 
  Para obter informações sobre como criar suportes de dados autónomos, consulte [criar suportes de dados autónomos](create-stand-alone-media.md).  

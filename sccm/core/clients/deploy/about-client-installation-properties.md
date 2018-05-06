@@ -2,25 +2,19 @@
 title: Propriedades de instalação do cliente
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as propriedades da linha de comandos do ccmsetup para instalar o cliente do Configuration Manager.
-ms.custom: na
 ms.date: 03/28/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: c890fd27-7a8c-4f51-bbe2-f9908af1f42b
-caps.latest.revision: 15
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 40e844fbb15a101574d9628648dde0db59c855c4
-ms.sourcegitcommit: aed99ba3c5e9482199cb3fc5c92f6f3a160cb181
+ms.openlocfilehash: 27479bf3db9ab0ed5d842f5cbf9db4e399a4168d
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Acerca das propriedades de instalação do cliente no System Center Configuration Manager
 
@@ -225,7 +219,7 @@ Entrada da secção [instalação do cliente] de exemplo: `Install=INSTALL=ALL S
 
  Especifique que o CCMSetup.exe desinstala qualquer cliente existente e instala um novo cliente.  
 
-### <a name="excludefeaturesltfeature"></a>/ExcludeFeatures:&lt;feature\>
+### <a name="excludefeaturesltfeature"></a>/Excludefeatures:&lt;funcionalidade\>
 
 Especifica que o CCMSetup.exe não instalar a funcionalidade especificada quando instala o cliente.  
 
@@ -320,7 +314,7 @@ Especifica que o computador está autorizado a reiniciar após a instalação do
 > [!IMPORTANT]  
 >  O computador é reiniciado sem aviso, mesmo se um utilizador tiver sessão iniciado.  
 
-Exemplo: **CCMSetup.exe  CCMALLOWSILENTREBOOT**  
+Exemplo: **CCMSetup.exe CCMALLOWSILENTREBOOT**  
 
 ### <a name="ccmalwaysinf"></a>CCMALWAYSINF
 
@@ -364,7 +358,7 @@ Exemplo: **CCMSetup.exe  CCMALLOWSILENTREBOOT**
 > [!IMPORTANT]  
 >  Se utilizar a caixa de nome do requerente, o **requerente:** diferencia maiúsculas de minúsculas e o **SubjectStr:** sensível.  
 >   
->  Se utilizar a caixa Nome alternativo do requerente, o **requerente:**e **SubjectStr:** são sensível.  
+>  Se utilizar a caixa Nome alternativo do requerente, o **requerente:** e **SubjectStr:** são sensível.  
 
  A lista completa de atributos que pode utilizar para a seleção de certificados está listada no [valores de atributo suportados para os critérios de seleção de certificado PKI](#BKMK_attributevalues).  
 
@@ -438,7 +432,7 @@ Exemplo: `CCMSetup.exe /UsePKICert CCMHTTPSPORT=443`
 
 ### <a name="ccminstalldir"></a>CCMINSTALLDIR
 
- Identifica a pasta onde estão instalados os ficheiros de cliente do Configuration Manager, *% Windir %*\ccm. por predefinição. Independentemente de onde estes ficheiros são instalados, o ficheiro Ccmcore.dll é sempre instalado no *%Windir%\System32* pasta. Além disso, num sistema operativo de 64 bits, uma cópia do ficheiro Ccmcore.dll é sempre instalada no *% Windir %*\SysWOW64 pasta. Este ficheiro suporta aplicações de 32 bits que utilizem a versão de 32 bits das APIs do SDK do Configuration Manager de cliente.  
+ Identifica a pasta onde estão instalados os ficheiros de cliente do Configuration Manager, *% Windir %* \ccm. por predefinição. Independentemente de onde estes ficheiros são instalados, o ficheiro Ccmcore.dll é sempre instalado no *%Windir%\System32* pasta. Além disso, num sistema operativo de 64 bits, uma cópia do ficheiro Ccmcore.dll é sempre instalada no *% Windir %* \SysWOW64 pasta. Este ficheiro suporta aplicações de 32 bits que utilizem a versão de 32 bits das APIs do SDK do Configuration Manager de cliente.  
 
  Exemplo: `CCMSetup.exe CCMINSTALLDIR="C:\ConfigMgr"`  
 

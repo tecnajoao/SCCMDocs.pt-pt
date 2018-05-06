@@ -2,26 +2,19 @@
 title: Implementar aplicações
 titleSuffix: Configuration Manager
 description: Criar ou simular uma implementação de uma aplicação numa coleção de dispositivo ou utilizador
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-app
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-app
+ms.topic: conceptual
 ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
-caps.latest.revision: ''
-caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0101ba0eade5775577f52920f301a782afd7bbda
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 8a89c9d5a0fa4ea57a7824fe16b24120347ddaac
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Implementar aplicações com o System Center Configuration Manager
 
@@ -238,5 +231,5 @@ Se implementar aplicações como disponíveis para os utilizadores, a partir de 
 
    -  [Definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md)  
    -  [Como configurar as definições do cliente](../../core/clients/deploy/configure-client-settings.md)
-   -  [Guia de utilizador do Centro de software](/sccm/core/understand/software-center)
+   -  [Manual do utilizador do Software Center](/sccm/core/understand/software-center)
 

@@ -1,24 +1,19 @@
 ---
-title: "Assistente de configuração"
+title: Assistente de configuração
 titleSuffix: Configuration Manager
-ms.custom: na
 ms.date: 7/24/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-other
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: 1f703376-5f2c-4fd2-8209-7028c931ddc7
-caps.latest.revision: "3"
-author: mestew
-ms.author: mstewart
-manager: angrobe
-ms.openlocfilehash: 266b6ef8664b98d0bf15e20f8bf968b609dd607b
-ms.sourcegitcommit: daa080cf220835f157a23e8c8e2bd2781b869bb7
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: c15f59ababae6908a08c28d3ec8ad46075068d52
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilize o Assistente de configuração para instalar sites do System Center Configuration Manager
 
@@ -29,7 +24,7 @@ Para instalar um novo site do System Center Configuration Manager, utilizando um
 
 Para instalar um site secundário, tem de instalar o site a partir da consola do Configuration Manager. Os sites secundários não suportam uma instalação com script da linha de comandos.
 
-## <a name="bkmk_primary"></a>Instalar um site de administração central ou site primário
+## <a name="bkmk_primary"></a> Instalar um site de administração central ou site primário
 Utilize o procedimento seguinte para instalar um site de administração central ou um site primário ou para atualizar um site de avaliação para um site totalmente licenciada do Configuration Manager.   
 
 Antes de iniciar a instalação do site, deve estar familiarizado com os detalhes nos seguintes artigos:
@@ -38,7 +33,7 @@ Antes de iniciar a instalação do site, deve estar familiarizado com os detalhe
 
 Se estiver a instalar um site de administração central como parte de um cenário de expansão do site, reveja o [expandir um site primário autónomo](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) secção deste tópico antes de utilizar o procedimento seguinte.
 
-### <a name="bkmk_installpri"></a>Para instalar um site primário ou de administração central
+### <a name="bkmk_installpri"></a> Para instalar um site primário ou de administração central
 
 1.  No computador onde pretende instalar o site, execute  **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** para iniciar o **Assistente de configuração do System Center Configuration Manager**.  
 
@@ -219,7 +214,7 @@ Se estiver a instalar um site de administração central como parte de um cenár
     -   Após a conclusão da configuração, poderá ligar uma consola que possa editar objetos e definições.  
 
 
-## <a name="bkmk_expand"></a>Expandir um site primário autónomo
+## <a name="bkmk_expand"></a> Expandir um site primário autónomo
 Quando tiver instalado um site primário autónomo como primeiro site, tem a opção mais tarde para expandir esse site para uma hierarquia maior instalando um site de administração central.   
 
 Quando expande um site primário autónomo, instala um novo site de administração central que utiliza a base de dados do site primário autónomo existente como referência. Depois de instala o novo site de administração central, o site primário autónomo funciona como um site primário subordinado.
@@ -245,7 +240,7 @@ Para expandir o site, utilize o Assistente de configuração do System Center Co
 Para expandir um site primário autónomo, consulte o [pré-requisitos para expandir um site](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand)e, em seguida, utilize o procedimento  *[para instalar um site de administração central ou primário](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*, anteriormente neste artigo.
 
 
-## <a name="bkmk_secondary"></a>Instalar um site secundário
+## <a name="bkmk_secondary"></a> Instalar um site secundário
  Utilize a consola do Configuration Manager para instalar um site secundário.  
 
 -   Se a consola que utiliza não está ligada ao site primário que será o site principal para o novo site secundário, o comando para instalar o site será replicado para o site primário correto.  
@@ -254,7 +249,7 @@ Para expandir um site primário autónomo, consulte o [pré-requisitos para expa
 
 -   Quando instala o site secundário, o Configuration Manager configura o novo site para utilizar as portas de comunicação de cliente que estão configuradas no site primário principal.  
 
-### <a name="bkmk_installsecondary"></a>Para instalar um site secundário  
+### <a name="bkmk_installsecondary"></a> Para instalar um site secundário  
 
 
 1.  Na consola do Configuration Manager, navegue até à **administração** > **configuração do Site** > **Sites**. Selecione o site que será o site primário principal do novo site secundário.  
@@ -382,7 +377,7 @@ Para expandir um site primário autónomo, consulte o [pré-requisitos para expa
 11. No **resumo** página, verifique as definições e, em seguida, escolha **seguinte** para instalar o site secundário. Quando o assistente apresentar a **conclusão** página, pode fechar o assistente. A instalação do site secundário continua em segundo plano.  
 
 
-### <a name="bkmk_verify"></a>Para verificar o estado de instalação de site secundário  
+### <a name="bkmk_verify"></a> Para verificar o estado de instalação de site secundário  
 
 1.  Na consola do Configuration Manager, navegue até à **administração** > **configuração do Site** > **Sites**.  
 

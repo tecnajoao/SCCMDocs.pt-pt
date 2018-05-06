@@ -1,26 +1,20 @@
 ---
-title: "Criar perfis de certificado PFX através de uma autoridade de certificação"
+title: Criar perfis de certificado PFX através de uma autoridade de certificação
 titleSuffix: Configuration Manager
-description: "Saiba como utilizar ficheiros PFX no System Center Configuration Manager para gerar certificados específicos do utilizador que suportam a troca de dados encriptados."
-ms.custom: na
+description: Saiba como utilizar ficheiros PFX no System Center Configuration Manager para gerar certificados específicos do utilizador que suportam a troca de dados encriptados.
 ms.date: 11/01/2017
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
 ms.technology: configmgr-hybrid
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.assetid: d240a836-c49b-49ab-a920-784c062d6748
-caps.latest.revision: "5"
-caps.handback.revision: "0"
-author: lleonard-msft
-ms.author: alleonar
-manager: angrobe
-ms.openlocfilehash: ee51d395026b03d251e65f510b1df3ba5b03325d
-ms.sourcegitcommit: 12d0d53e47bbf1a0bbd85015b8404a44589d1e14
+author: aczechowski
+ms.author: aaroncz
+manager: dougeby
+ms.openlocfilehash: a186e0b2c4b355cabcaaeb3b3124b65d3588fbc8
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-create-pfx-certificate-profiles-using-a-certificate-authority"></a>Como criar perfis de certificado PFX através de uma autoridade de certificação
 
