@@ -2,26 +2,19 @@
 title: Definições do cliente
 titleSuffix: Configuration Manager
 description: Saiba mais sobre a predefinição e definições personalizadas para controlar os comportamentos de cliente
-ms.custom: na
 ms.date: 03/22/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-client
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-client
+ms.topic: conceptual
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
-caps.latest.revision: ''
-caps.handback.revision: ''
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bd03457abdd5cc4464c10227626ba72637c96f90
-ms.sourcegitcommit: a19e12d5c3198764901d44f4df7c60eb542e765f
+ms.openlocfilehash: a60e54ffac3ae029f07c2df555e905b55ca7b0b5
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
@@ -294,7 +287,7 @@ Esta opção necessita, pelo menos, o Windows PowerShell versão 2.0. A predefin
 >   
 > -   O **monitorização** área de trabalho na consola apresenta o ID de erro de estado de implementação **0x87D00327**. Também apresenta a descrição **Script não está assinado**.  
 > -   Os relatórios apresentam o tipo de erro **erro de deteção**. Em seguida, apresentam o código de erro **0x87D00327** e a descrição **Script não está assinado**, ou um código de erro **0x87D00320** e a descrição **o anfitrião do script ainda não foi instalado**. É um relatório de exemplo: **Detalhes de erros de itens de configuração numa linha de base de configuração para um recurso**.  
-> -   O **DcmWmiProvider.log** ficheiro apresenta a mensagem **Script não está assinado (erro: 87D00327; Source: CCM)**.  
+> -   O **DcmWmiProvider.log** ficheiro apresenta a mensagem **Script não está assinado (erro: 87D 00327; Origem: CCM)**.  
 
 ### <a name="show-notifications-for-new-deployments"></a>Mostrar notificações para novas implementações
 
@@ -463,7 +456,7 @@ Escolha uma das seguintes opções para esta definição:
 
 -   **Permitir**: Todas as comunicações de cliente são permitidas através da ligação de internet limitada, a menos que o dispositivo cliente está a utilizar uma ligação de dados de roaming.  
 
--   **Limit**: Apenas as seguintes comunicações de cliente serão permitidas através da ligação à internet com tráfego limitado:  
+-   **Limite**: Apenas as seguintes comunicações de cliente serão permitidas através da ligação à internet com tráfego limitado:  
 
     -   Obtenção de políticas de cliente  
 
@@ -478,7 +471,7 @@ Escolha uma das seguintes opções para esta definição:
 
     Se o cliente atingir o limite de transferência de dados para a ligação à internet com tráfego limitado, o cliente tenta já não está a comunicar com sites do Configuration Manager.  
 
--   **Block**: O cliente do Configuration Manager não tenta comunicar com sites do Configuration Manager quando estiver a utilizar uma ligação à internet com tráfego limitado. Esta é a opção predefinida.  
+-   **Bloco**: O cliente do Configuration Manager não tenta comunicar com sites do Configuration Manager quando estiver a utilizar uma ligação à internet com tráfego limitado. Esta é a opção predefinida.  
 
 
 
@@ -714,7 +707,7 @@ Se pretender recolher ficheiros de computadores cliente, selecione **definir fic
     -   **Parar a recolha de ficheiros quando o tamanho total dos ficheiros excede (KB)**: Especifique o tamanho do ficheiro, em quilobytes (KB) após o qual o cliente deixa de recolher os ficheiros especificados.  
 
     > [!NOTE]  
-    >  Servidor do site recolhe as cinco versões mais recentes dos ficheiros recolhidos e armazena-os no  *&lt;diretório de instalação do ConfigMgr\>*\Inboxes\Sinv.box\Filecol diretório. Se um ficheiro não foi alterada desde o último ciclo de inventário de software, o ficheiro não é recolhido novamente.  
+    >  Servidor do site recolhe as cinco versões mais recentes dos ficheiros recolhidos e armazena-os no  *&lt;diretório de instalação do ConfigMgr\>* \Inboxes\Sinv.box\Filecol diretório. Se um ficheiro não foi alterada desde o último ciclo de inventário de software, o ficheiro não é recolhido novamente.  
     >   
     >  Inventário de software não recolher ficheiros com mais de 20 MB.  
     >   
@@ -830,7 +823,7 @@ Quando esta definição for **Sim**, os utilizadores podem identificar os seus d
 
 
 
-## <a name="windows-analytics"></a>Windows Analytics
+## <a name="windows-analytics"></a>Análise do Windows
 
 Para obter mais informações sobre estas definições, consulte [configurar clientes para dados de relatório para o Windows Analytics](/sccm/core/clients/manage/monitor-windows-analytics#configure-clients-to-report-data-to-windows-analytics).
     

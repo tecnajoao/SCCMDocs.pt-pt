@@ -2,26 +2,19 @@
 title: Passos de sequência de tarefas
 titleSuffix: Configuration Manager
 description: Saiba mais sobre os passos que pode adicionar uma sequência de tarefas do Configuration Manager.
-ms.custom: na
 ms.date: 03/30/2018
 ms.prod: configuration-manager
-ms.reviewer: na
-ms.suite: na
-ms.technology:
-- configmgr-osd
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.technology: configmgr-osd
+ms.topic: conceptual
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: 26
-caps.handback.revision: 0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 53929400b983a2191e60a7d42ae84062afd44e3a
-ms.sourcegitcommit: d8a4a53630351b3d677bbdc5d203e7d330472cba
+ms.openlocfilehash: a678cbbd8500070e2d4056d6e424818e7000ef83
+ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
@@ -123,9 +116,9 @@ No editor de sequência de tarefas, clique em **adicionar**, selecione **control
  Selecione esta opção para associar o computador de destino ao grupo de trabalho especificado. Introduza o nome do grupo de trabalho na linha **Grupo de Trabalho**. Este valor pode ser substituído pelo valor capturado pelo passo de sequência de tarefas **Capturar Definições de Rede**.  
 
  **Aderir a um domínio**  
- Selecione esta opção para associar o computador de destino ao domínio especificado. Especifique ou navegue até ao domínio, tal como *fabricam.com*. Especifique ou navegue até um caminho de acesso protocolo LDAP (Lightweight Directory) para uma unidade organizacional. Por exemplo: *LDAP//OU=computers, DC=Fabricam.com, C=com*  
+ Selecione esta opção para associar o computador de destino ao domínio especificado. Especifique ou navegue até ao domínio, tal como *fabricam.com*. Especifique ou navegue até um caminho de acesso protocolo LDAP (Lightweight Directory) para uma unidade organizacional. Por exemplo: *LDAP / / UO = computadores, DC = fabricam.com, C = com*  
 
- **Account**  
+ **Conta**  
  Clique em **Definir** para especificar uma conta com as permissões necessárias para associar o computador ao domínio. No **conta de utilizador do Windows** caixa de diálogo, pode introduzir o nome de utilizador usando o seguinte formato: **Domínio \ utilizador**.  
 
  **Definições do adaptador**  
@@ -465,13 +458,13 @@ No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**
 ### <a name="properties"></a>Propriedades  
  No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
- **Path**  
+ **Caminho**  
  Clique em **procurar** para especificar o caminho da pasta de rede. Utilize o formato  *\\\server\share*.
 
- **Drive**  
+ **Unidade**  
  Selecione a letra de unidade local para atribuir para esta ligação. 
 
- **Account**  
+ **Conta**  
  Clique em **definir** para especificar a conta de utilizador com permissões para ligar a esta pasta de rede.
 
 
@@ -1097,7 +1090,7 @@ No editor de sequência de tarefas, clique em **adicionar**, selecione **estado 
 > [!NOTE]  
 >  O **procurar** botão de procura no computador local para ficheiros e pastas. Tudo o que selecionar também têm de existir no computador de destino na mesma localização e com o mesmo ficheiro e os nomes de pastas.  
 
- **Package**  
+ **Pacote**  
  Ao especificar ficheiros ou programas na linha de comandos que já não estão presentes no computador de destino, selecione esta opção para especificar o pacote de Configuration Manager que contém os ficheiros adequados. O pacote não requer um programa. Esta opção não é necessária se os ficheiros especificados existirem no computador de destino.  
 
  **Time-out**  
@@ -1114,7 +1107,7 @@ No editor de sequência de tarefas, clique em **adicionar**, selecione **estado 
 > [!NOTE]  
 >  Para executar scripts simples ou comandos com outra conta depois de instalar o sistema operativo, tem de adicionar a conta de computador. Além disso, tem de restaurar o perfil de conta de utilizador do Windows para executar programas mais complexos, tais como um Windows Installer.  
 
- **Account**  
+ **Conta**  
  Especifica a conta de utilizador do Windows que neste passo utiliza para executar a linha de comandos. A linha de comandos é executada com as permissões da conta especificada. Clique em **Definir** para especificar a conta de utilizador local ou de domínio.  
 
 > [!IMPORTANT]  
@@ -1135,7 +1128,7 @@ No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**
 ### <a name="properties"></a>Propriedades  
  No **propriedades** separador para este passo, configure as definições descritas nesta secção.  
 
- **Package**  
+ **Pacote**  
  Especifique o pacote de Configuration Manager que contém o script do PowerShell. Um pacote pode conter vários scripts do PowerShell.  
 
  **Nome do script**  
@@ -1257,7 +1250,7 @@ No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**
  **Variável de sequência de tarefas**  
  Especifique o nome de uma sequência de tarefas incorporada ou uma variável de ação ou especifique o seu próprio nome de variável definida pelo utilizador.  
 
- **Value**  
+ **Valor**  
  A sequência de tarefas define a variável para este valor. Defina esta variável de sequência de tarefas para o valor de outra variável de sequência de tarefas com a sintaxe % varname %.  
 
 
