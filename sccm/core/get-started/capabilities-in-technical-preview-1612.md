@@ -147,7 +147,7 @@ A partir da versão de pré-visualização técnica 1612, pode utilizar uma nova
 
 Esta ferramenta afeta apenas o conteúdo no ponto de distribuição que especificou quando executar a ferramenta e não é possível remover o conteúdo da biblioteca de conteúdos no servidor do site.
 
-Depois de instalar 1612 de pré-visualização técnica, pode encontrar **ContentLibraryCleanup.exe** no *%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* pasta no servidor do site de pré-visualização técnica.
+Depois de instalar 1612 de pré-visualização técnica, pode encontrar **ContentLibraryCleanup.exe** no \*%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* pasta no servidor do site de pré-visualização técnica.
 
 A ferramenta lançada com este Technical Preview destina-se para substituir as versões anteriores das ferramentas semelhantes lançadas para produtos anteriores do Configuration Manager. Embora esta versão da ferramenta deixarão de funcionar após 1 de Março de 2017, novas versões vai lançar com pré-visualizações técnicas futuras até que esta ferramenta é lançada como parte do ramo atual, ou uma versão de fora de banda pronto de produção.
 
