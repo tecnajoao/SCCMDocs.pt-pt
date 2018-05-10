@@ -11,11 +11,11 @@ ms.assetid: 2ff0100c-b7ef-4e09-8c96-fc1898390b6d
 author: aczechowski
 ms.author: aaroncz
 manager: angrobe
-ms.openlocfilehash: fe61cecea2b2a4f4083933b937af90dfb61ea5bf
-ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
+ms.openlocfilehash: 6b36da9f98749858829ab591571496532b26f290
+ms.sourcegitcommit: 7198ec49d9ce68c6d55bfb9e2d537b5442a132cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2018
+ms.lasthandoff: 05/09/2018
 ---
 # <a name="microsoft-deployment-toolkit-samples-guide"></a>Guia de amostras do Microsoft Deployment Toolkit  
  Este guia faz parte do Microsoft® Deployment Toolkit (MDT) 2013 e guias de uma equipa especialista em através da implementação de sistemas operativos Windows e Microsoft Office. Especificamente, este guia foi concebido para fornecer definições de configuração de exemplo para cenários de implementação específicos.  
@@ -1402,11 +1402,11 @@ Cscript.exe “%SCRIPTROOT%\ZTIConnect.wsf” /uncpath:unc_path
 
  No **opções** separador do passo de sequência de tarefas, efetuar as seguintes ações:  
 
--   **Add.** Clique neste botão para adicionar uma condição para o passo de sequência de tarefas.  
+-   **Adicione.** Clique neste botão para adicionar uma condição para o passo de sequência de tarefas.  
 
--   **Remove.** Clique neste botão para remover uma condição existente no passo de sequência de tarefas.  
+-   **Remova.** Clique neste botão para remover uma condição existente no passo de sequência de tarefas.  
 
--   **Edit.** Clique neste botão para modificar uma condição existente no passo de sequência de tarefas.  
+-   **Edite.** Clique neste botão para modificar uma condição existente no passo de sequência de tarefas.  
 
 ### <a name="if-statements-in-conditions"></a>Se as instruções em condições  
  Todas as condições de sequência de tarefas incluem um ou mais **se** instruções. **Se** instruções são a base para a criação de passos de sequência de tarefas condicional. Uma condição de passo de sequência de tarefas pode incluir apenas um **se** declaração, mas vários **se** instruções podem ser aninhadas abaixo de nível superior **se** instrução para criar mais complexas condições.  
@@ -1722,7 +1722,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
 19. No **pastas replicar** página, clique em **adicionar**e, em seguida, execute estes passos:  
 
-    1.  No **caminho Local da pasta para replicar** , clique em **procurar** para ir para o *x:\\*pasta de implementação (onde *X* é a letra de unidade no servidor de implementação).  
+    1.  No **caminho Local da pasta para replicar** , clique em **procurar** para ir para o *x:\\* pasta de implementação (onde *X* é a letra de unidade no servidor de implementação).  
 
     2.  Clique em **utilize o nome com base no caminho**.  
 
@@ -1730,7 +1730,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
     4.  Clique em **Adicionar**.  
 
-    5.  No **Adicionar pasta replicar** caixa de diálogo, clique em **procurar** para ir para o *x:*\RemoteInstall\Boot pasta.  
+    5.  No **Adicionar pasta replicar** caixa de diálogo, clique em **procurar** para ir para o *x:* \RemoteInstall\Boot pasta.  
 
     6.  Clique em **utilize o nome com base no caminho**.  
 
@@ -1896,7 +1896,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
 4.  No **publicação** página, clique na publicação que criou na secção anterior.  
 
-5.  No **localização do agente de distribuição** página, clique em **executar todos os agentes no distribuidor SERVERNAME (subscrições de emissão)**e, em seguida, clique em **seguinte**.  
+5.  No **localização do agente de distribuição** página, clique em **executar todos os agentes no distribuidor SERVERNAME (subscrições de emissão)** e, em seguida, clique em **seguinte**.  
 
 6.  No **subscritores** página, adicionar cada um dos servidores de implementação subordinado, efetuando os seguintes passos:  
 
@@ -1932,7 +1932,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
  Replicação do SQL Server está agora configurada e a BD do MDT será replicada do servidor de implementação principal para todos os servidores de implementação de subordinados que foram subscritos-la numa base periódica.  
 
-#### <a name="configure-customsettingsini"></a>Configure CustomSettings.ini  
+#### <a name="configure-customsettingsini"></a>Configurar CustomSettings.ini  
  A infraestrutura de implementação LTI tem agora foi criada com êxito e cada localização irá conter um servidor de implementação LTI, com uma cópia replicada:  
 
 -   A partilha de implementação  
@@ -2064,7 +2064,7 @@ ParameterCondition=OR
 
  Este cenário pressupõe que o MDT é configurado num servidor de implementação.  
 
-###  <a name="UnderstandingLocationServer"></a> Understanding LocationServer.xml  
+###  <a name="UnderstandingLocationServer"></a> Noções sobre LocationServer.xml  
  Em primeiro lugar, tem de compreender que como o MDT utiliza LocationServer.xml. Durante a LTI, scripts de MDT ler e processam o ficheiro BootStrap.ini para recolher iniciais informações sobre a implementação. Isto ocorre antes de uma ligação foi efetuada para o servidor de implementação. Por conseguinte, o **DeployRoot** propriedade costuma é utilizada para especificar o ficheiro BootStrap.ini o servidor de implementação para o qual este deve estabelecer uma ligação.  
 
  Se o ficheiro BootStrap.ini não contém um **DeployRoot** propriedade, scripts de MDT carregar uma página do Assistente para solicitar ao utilizador para um caminho para o servidor de implementação. Ao inicializar o **aplicação HTML (HTA)** página do assistente, MDT scripts Verifique a existência do ficheiro LocationServer.xml e, se existir, utilize LocationServer.xml para apresentar os servidores de implementação disponíveis.  
@@ -2635,7 +2635,7 @@ End Class
 
 A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e o respetivo resultado. Para obter uma lista completa de funções disponíveis, consulte o ficheiro ZTIUtility.vbs.  
 
-|**Função**|**Output**|  
+|**Função**|**Saída**|  
 |-|-|
 |**oUtility.LocalRootPath**|Devolve o caminho da pasta raiz que está a ser utilizada pelo processo de implementação no computador de destino — por exemplo, C:\MININT|  
 |**oUtility.BootDevice**|Devolve o dispositivo de arranque do sistema — por exemplo, MULTI(0)DISK(0)RDISK(0)PARTITION(1)|  
@@ -2659,7 +2659,7 @@ A tabela seguinte fornece detalhes sobre algumas funções útil disponíveis e 
 |**oEnvironment.Exists**<br /><br /> **(sName)**|Testa para verificar se a variável existe|  
 |**oEnvironment.ListItem**<br /><br /> **(sName)**|Lê ou escreve uma variável do tipo **matriz** para um arquivo persistente|  
 |**oLogging.ReportFailure**<br /><br /> **(sMessage, iError)**|Utilizado para efetuar uma saída estruturada se for detetado um erro irrecuperável|  
-|**oLogging.CreateEvent**<br /><br /> **(iEventID, iType, sMessage, arrParms)**|Escreve uma mensagem para o ficheiro de registo e envia o evento para um servidor definido|  
+|**oLogging.CreateEvent**<br /><br /> **(iEventID iType, sMessage, arrParms)**|Escreve uma mensagem para o ficheiro de registo e envia o evento para um servidor definido|  
 |**oLogging.CreateEntry**<br /><br /> **(sLogMsg, iType)**|Escreve uma mensagem para o ficheiro de registo|  
 |**TestAndFail (iRc iError, sMessage)**|Sai o script com **iError** se **iRc** for false ou falhar|  
 |**TestAndLog (iRc, sMessage)**|Regista um aviso apenas se for **iRc** for false ou falhar|  
@@ -3128,11 +3128,11 @@ MandatoryApplications001={c303fa6e-3a4d-425e-8102-77db9310e4d0}
 
      D:\Production Deployment Share\Boot\LiteTouchPE_x64.iso  
 
-     D:\Production Deployment Share\Boot\LiteTouchPE_x64.wim  
+     D:\Production implementação Share\Boot\LiteTouchPE_x64.wim  
 
-     D:\Production Deployment Share\Boot\LiteTouchPE_x86.iso  
+     D:\Production implementação Share\Boot\LiteTouchPE_x86.iso  
 
-     D:\Production Deployment Share\Boot\LiteTouchPE_x86.wim  
+     D:\Production implementação Share\Boot\LiteTouchPE_x86.wim  
 
  Pode escrever ficheiros ISO que tenham sido gerados diretamente CD ou DVD ou utilizá-los para iniciar o processo LTI num novo hardware. Pode importar os ficheiros WIM de arranque para serviços de implementação do Windows, também, para que os novos computadores podem iniciar o processo de implementação LTI sem necessidade de qualquer suporte de dados físico.  
 
@@ -3670,9 +3670,11 @@ Remove-item -path "DS002:\Task Sequences\Windows Vista Business Production Build
 -   ```  
     New-PSDrive -Name "DS002" -PSProvider MDTProvider -Root "D:\Production Deployment Share"  
     ```  
-
--   Atualização\-MDTDeploymentShare \-caminho "DS002:" \-Verboso  
-
+    
+-   ```
+    Update\-MDTDeploymentShare \-path "DS002:" \-Verbose  
+    ```
+    
 ###  <a name="CreateLinkedDeployShare"></a> Criar uma partilha de implementação ligado  
  Os comandos do Windows PowerShell seguintes criam uma partilha de implementação que está ligada à partilha de implementação de produção e reside no \\ \\ *remoto\_servidor\_nome* \\Partilha de implementação do $. Tudo o perfil de seleção é utilizado para determinar o conteúdo é replicado para a partilha de implementação ligado. Conteúdo da partilha de implementação de produção irá ser intercalado com conteúdo que já exista no \\ \\ *remoto\_servidor\_nome*\\partilha de implementação do $.  
 

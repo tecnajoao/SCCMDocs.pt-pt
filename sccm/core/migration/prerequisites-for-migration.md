@@ -2,7 +2,7 @@
 title: Pré-requisitos de migração
 titleSuffix: Configuration Manager
 description: Compreenda as versões suportadas do Configuration Manager, idiomas suportados do site de origem e as configurações necessárias para a migração.
-ms.date: 3/7/2017
+ms.date: 5/7/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,11 +10,11 @@ ms.assetid: ec976930-7467-4d3c-b33c-991bf408a74a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: fde02837f281a6db182d3144d2009e6b56f0dc69
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: da35641b7e00bfdae025d2978beaa541951487da
+ms.sourcegitcommit: 7198ec49d9ce68c6d55bfb9e2d537b5442a132cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/09/2018
 ---
 # <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Pré-requisitos de migração no System Center Configuration Manager
 
@@ -46,7 +46,7 @@ Para migrar de uma hierarquia de origem suportada, tem de ter acesso a cada site
 
 
 ##  <a name="BKMK_SorceSiteLanguage"></a> Idiomas do site de origem que são suportados para migração  
- Ao migrar dados entre hierarquias do Configuration Manager, os dados são armazenados na hierarquia de destino no formato independente de idiomas para o System Center Configuration Manager. Porque a configuração Manager2007 armazena dados num formato independente de idiomas, o processo de migração tem converter os objetos nesse formato durante a migração do Configuration Manager 2007. Por conseguinte, apenas do Configuration Manager 2007 sites de origem que são instalados com os seguintes idiomas são suportados para migração:  
+ Ao migrar dados entre hierarquias do Configuration Manager, os dados são armazenados na hierarquia de destino no formato independente de idiomas para o System Center Configuration Manager. Porque o Configuration Manager 2007 não armazena dados num formato independente de idiomas, o processo de migração tem de converter os objetos nesse formato durante a migração do Configuration Manager 2007. Por conseguinte, apenas do Configuration Manager 2007 sites de origem que são instalados com os seguintes idiomas são suportados para migração:  
 
 -   Inglês  
 
@@ -67,7 +67,7 @@ Para migrar de uma hierarquia de origem suportada, tem de ter acesso a cada site
 Quando migrar dados a partir de uma hierarquia do System Center 2012 Configuration Manager ou System Center Configuration Manager, não existem não existem limitações de idioma do site de origem. Os objetos da base de dados do site de origem já estão num formato independente de idiomas.  
 
 ##  <a name="BKMK_Required_Configurations"></a> Configurações necessárias para a migração  
-Seguem-se as configurações necessárias para utilizar a migração e as operações de migração:  
+Seguem-se as configurações necessárias para utilizar a migração e operações de migração:  
 
 -   **Para configurar, executar e monitorizar a migração na consola do Configuration Manager:**  
 
@@ -79,7 +79,7 @@ Seguem-se as configurações necessárias para utilizar a migração e as opera�
 
     -   **Conta de Site de origem:** Esta conta é utilizada para aceder ao fornecedor de SMS do site de origem.  
 
-        -   Para um site de origem de configuração Manager2007 SP2, esta conta requer **leitura** permissão para todos os objetos de site de origem.  
+        -   Para um site de origem do Configuration Manager 2007 SP2, esta conta requer **leitura** permissão para todos os objetos de site de origem.  
 
         -   Para um site de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager, esta conta requer **leitura** permissão para todos os objetos do site de origem, pode conceder esta permissão à conta utilizando a administração baseada em funções. Para obter mais informações sobre como utilizar a administração baseada em funções, veja [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
@@ -115,7 +115,7 @@ Seguem-se as configurações necessárias para utilizar a migração e as opera�
 
      A **Conta de Acesso ao Site de Origem** configurada para recolher dados a partir de um Fornecedor de SMS do site de origem tem de ter as seguintes permissões:  
 
-    -   Para atualizar um ponto de distribuição Manager2007 de configuração, a conta necessita **leitura**, **executar**, e **eliminar** permissões para o **Site** classe no servidor do site Manager2007 de configuração para remover com sucesso o ponto de distribuição do site de origem de configuração Manager2007  
+    -   Para atualizar um ponto de distribuição do Configuration Manager 2007, a conta necessita **leitura**, **executar**, e **eliminar** permissões para o **Site** classe no servidor do site Manager2007 de configuração para remover com sucesso o ponto de distribuição do site de origem de configuração Manager2007  
 
     -   Para reatribuir um ponto de distribuição do System Center 2012 Configuration Manager ou System Center Configuration Manager, a conta tem de ter **modificar** permissão para o **Site** objeto no site de origem. Esta permissão é concedida à conta utilizando a administração baseada em funções. Para obter mais informações sobre como utilizar a administração baseada em funções, veja [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 

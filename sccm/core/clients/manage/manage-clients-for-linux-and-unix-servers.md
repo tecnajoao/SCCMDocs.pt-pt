@@ -22,7 +22,7 @@ ms.lasthandoff: 05/03/2018
 
 Quando gere servidores Linux e UNIX com o System Center Configuration Manager, pode configurar coleções, janelas de manutenção e as definições de cliente para ajudar a gerir os servidores. Além disso, embora o cliente do Configuration Manager para Linux e UNIX não tem uma interface de utilizador, pode forçar o cliente consultar manualmente a política de cliente.
 
-##  <a name="BKMK_CollectionsforLnU"></a> Collections of Linux and UNIX servers  
+##  <a name="BKMK_CollectionsforLnU"></a> Coleções de servidores Linux e UNIX  
  Utilizar coleções para gerir grupos de servidores Linux e UNIX da mesma forma que utilize coleções para gerir outros tipos de cliente. As coleções podem ser coleções de associação direta ou coleções baseadas em consulta. As coleções baseadas em consulta identificam sistemas operativos cliente, configurações de hardware ou outros detalhes sobre o cliente que estão armazenados na base de dados do site. Por exemplo, pode utilizar coleções que incluem os servidores Linux e UNIX para gerir as seguintes definições:  
 
 -   Definições do cliente  
@@ -41,10 +41,10 @@ Quando gere servidores Linux e UNIX com o System Center Configuration Manager, p
 
  Quando criar uma coleção personalizada para servidores Linux e UNIX, inclua as consultas de regra de associação que contenham o atributo Legenda para o atributo Sistema Operativo. Para obter informações sobre como criar coleções, consulte [como criar coleções no System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
-##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Maintenance windows for Linux and UNIX servers  
+##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Janelas de manutenção para servidores Linux e UNIX  
  O cliente do Configuration Manager para servidores Linux e UNIX suporta a utilização de [janelas de manutenção](../../../core/clients/manage/collections/use-maintenance-windows.md). Este suporte é igual de clientes baseados em Windows.  
 
-##  <a name="BKMK_ClientSettingsforLnU"></a> Client settings for Linux and UNIX servers  
+##  <a name="BKMK_ClientSettingsforLnU"></a> Definições de cliente para servidores Linux e UNIX  
  Pode [configurar definições de cliente](../../../core/clients/deploy/configure-client-settings.md) que se aplicam a servidores Linux e UNIX da mesma forma que configura definições para outros clientes.  
 
  Por predefinição, as **Predefinições de Agente do Cliente** aplicam-se a servidores Linux e UNIX. Também pode criar definições personalizadas de cliente e implementá-las em coleções de clientes específicos.  
@@ -53,7 +53,7 @@ Quando gere servidores Linux e UNIX com o System Center Configuration Manager, p
 
  Por exemplo, uma definição de dispositivo de cliente personalizado que ativa e configura as definições de controlo remoto seria ignorada pelos servidores Linux e UNIX, porque o cliente para Linux e UNIX não suporta o controlo remoto.  
 
-##  <a name="BKMK_PolicyforLnU"></a> Computer policy for Linux and UNIX servers  
+##  <a name="BKMK_PolicyforLnU"></a> Política de computador para servidores Linux e UNIX  
  O cliente para servidores Linux e UNIX consulta periodicamente se existem respetivo site para a política de computador para saber mais sobre as configurações pedidas e verificar a existência de implementações.  
 
  Pode também forçar o cliente num servidor Linux ou UNIX a consultar imediatamente a política do computador. Para tal, utilize **raiz** credenciais no servidor para executar o seguinte comando: **política do /opt/microsoft/configmgr/bin/ccmexec - rs**  
@@ -63,7 +63,7 @@ Quando gere servidores Linux e UNIX com o System Center Configuration Manager, p
 > [!NOTE]  
 >  O cliente do Configuration Manager para Linux e UNIX nunca pede nem processa a política de utilizador.  
 
-##  <a name="BKMK_ManageLinuxCerts"></a> How to manage certificates on the client for Linux and UNIX  
+##  <a name="BKMK_ManageLinuxCerts"></a> Como gerir certificados no cliente para Linux e UNIX  
  Depois de instalar o cliente para Linux e UNIX, pode utilizar a ferramenta **certutil** para atualizar o cliente com um novo certificado PKI e para importar uma nova lista de Revogação de Certificados (CRL). Quando instala o cliente para Linux e UNIX, esta ferramenta é colocada na **/opt/microsoft/configmgr/bin/certutil**. 
 
  Para gerir os certificados, execute o certutil em cada cliente com uma das seguintes opções:  
