@@ -2,7 +2,7 @@
 title: Novidades da MDM híbrido
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
-ms.date: 05/01/2018
+ms.date: 05/09/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -10,11 +10,11 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3105f9597d1f3971d6ef1092a33b0077118a1a22
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 72aeff7874456c3866ccb658395b8706057bdfaf
+ms.sourcegitcommit: 7bec1331c4f3096e6a278ff9ea0e929cff0a9cb9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -41,6 +41,13 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 
 ## <a name="may-2018"></a>De 2018 Maio
 
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="requesting-help-in-the-company-portal-for-windows-10"></a>Pedir ajuda no Portal da empresa para Windows 10 
+<!--1874137-->
+Portal da empresa para Windows 10 agora registos de aplicações diretamente para a Microsoft quando envia o utilizador inicia o fluxo de trabalho para obter ajuda com um problema. Este comportamento torna mais fácil resolver problemas que são gerados para a Microsoft.  
+
+
 ### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
 
 #### <a name="support-for-new-versions-of-cisco-anyconnect-client-for-ios"></a>Suporte para novas versões de cliente de Cisco AnyConnect para iOS
@@ -58,6 +65,9 @@ Para obter mais informações sobre como ativar esta funcionalidade, consulte [f
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
+#### <a name="intune-adapts-to-fluent-design-system-in-the-company-portal-app-for-windows-10"></a>Intune feita Fluent de estrutura de sistema na aplicação Portal da empresa para Windows 10 
+<!--1195010-->
+A aplicação Portal da empresa do Intune para Windows 10 foi atualizada com o [vista de navegação do sistema Design Fluent](/windows/uwp/design/basics/navigation-basics). Ao longo do lado da aplicação Repare uma lista estática, vertical de todas as páginas de nível superior. Clique em qualquer ligação para ver e alternar entre páginas rapidamente. Esta atualização é o primeiro dos vários verá como parte do nosso esforço em curso para criar uma experiência mais adaptável, empathetic e familiar no Intune. Para ver o aspeto atualizado, aceda à [Novidades na aplicação IU](/intune/whats-new-app-ui).
 
 #### <a name="improved-device-tiles-in-the-windows-10-company-portal"></a>Mosaicos de dispositivo melhorada no Portal de empresa do Windows 10
 <!--2213364-->
@@ -112,6 +122,35 @@ Para ver o aspeto atualizado, aceda a [Novidades na aplicação IU](/intune/what
 ## <a name="march-2018"></a>De 2018 Março
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="windows-company-portal-send-feedback-option-may-no-longer-work"></a>Opção de comentários enviar Windows empresa Portal poderá deixará de funcionar
+<!--2070166-->
+A aplicação Portal da empresa do Windows tem uma opção de 'Enviar Comentários' permitir que os utilizadores para enviar comentários sobre a aplicação à Microsoft. De 30 de Abril de 2018, esta opção continua a ser suportada apenas na aplicação Portal da empresa do Windows 10 em execução no Windows 10 versão 1607 e posterior.   
+
+**Como Isto afeta-me?**
+
+Se não tiver a aplicação Portal da empresa do Windows instalada para os utilizadores finais,. a ignorar esta mensagem.
+
+Se tiver qualquer um dos seus utilizadores finais a aplicação Portal da empresa, tenha em atenção que a partir 30 de Abril, o botão 'Enviar Comentários' já não funciona para a aplicação nos seguintes cenários:  
+
+ - Aplicação do Portal da empresa do Windows 10 no Windows 10 versão 1507 e a versão 1511  
+
+ - Aplicação do Portal da empresa do Windows Phone 8.1  
+
+Para os dispositivos afetados, a opção 'Enviar Comentários' falha e não for bem sucedido, mesmo em Repetir. Para enviar comentários à Microsoft sobre experiências nas plataformas seguintes, existem comentários alternativo canais listados abaixo.
+
+**O que é necessário para se preparar para que esta alteração?**
+
+Volte a informar os utilizadores finais desta alteração e atualizar as orientações para o utilizador, se necessário. 
+
+Informe os utilizadores finais utilizando o Portal da empresa no Windows Phone 8.1, Windows 10 versão 1507 e Windows 10 versão 1511 que têm dois canais de comentários alternativo disponíveis. Estes requisitos podem:  
+
+- Utilize os comentários Hub aplicação no Windows 10  
+- Envie um e-mail para WinCPfeedback@microsoft.com  
+
+Peça aos utilizadores finais no Windows 10 versão 1607 ou posterior para atualizar para a versão mais recente do Windows Portal da empresa disponíveis no Microsoft Store.
+
+
 
 #### <a name="azure-active-directory-web-sites-can-require-the-intune-managed-browser-app-and-support-single-sign-on-for-the-managed-browser-public-preview"></a>Azure Active Directory web sites pode exigir a aplicação de Browser gerido do Intune e suporta o início de sessão único para o Browser gerido (pré-visualização pública)
 <!-- 710595 --> 
@@ -531,35 +570,6 @@ As seguintes funcionalidades adicionais híbrida também estão incluídas na ve
 
 
 ## <a name="notices"></a>Avisos
-
-### <a name="windows-company-portal-send-feedback-option-may-no-longer-work"></a>Opção de comentários enviar Windows empresa Portal poderá deixará de funcionar
-
-A aplicação Portal da empresa do Windows tem uma opção de 'Enviar Comentários' permitir que os utilizadores para enviar comentários sobre a aplicação à Microsoft. De 30 de Abril de 2018, esta opção continua a ser suportada apenas na aplicação Portal da empresa do Windows 10 em execução no Windows 10 versão 1607 e posterior.   
-
-#### <a name="how-does-this-affect-me"></a>Como Isto afeta-me?
-
-Se não tiver a aplicação Portal da empresa do Windows instalada para os utilizadores finais,. a ignorar esta mensagem.
-
-Se tiver qualquer um dos seus utilizadores finais a aplicação Portal da empresa, tenha em atenção que a partir 30 de Abril, o botão 'Enviar Comentários' já não funciona para a aplicação nos seguintes cenários:  
-
- - Aplicação do Portal da empresa do Windows 10 no Windows 10 versão 1507 e a versão 1511  
-
- - Aplicação do Portal da empresa do Windows Phone 8.1  
-
-Para os dispositivos afetados, a opção 'Enviar Comentários' falha e não for bem sucedido, mesmo em Repetir. Para enviar comentários à Microsoft sobre experiências nas plataformas seguintes, existem comentários alternativo canais listados abaixo.
-
-#### <a name="what-do-i-need-to-do-to-prepare-for-this-change"></a>O que é necessário para se preparar para que esta alteração?
-
-Volte a informar os utilizadores finais desta alteração e atualizar as orientações para o utilizador, se necessário. 
-
-Informe os utilizadores finais utilizando o Portal da empresa no Windows Phone 8.1, Windows 10 versão 1507 e Windows 10 versão 1511 que têm dois canais de comentários alternativo disponíveis. Estes requisitos podem:  
-
-- Utilize os comentários Hub aplicação no Windows 10  
-- Envie um e-mail para WinCPfeedback@microsoft.com  
-
-Peça aos utilizadores finais no Windows 10 versão 1607 ou posterior para atualizar para a versão mais recente do Windows Portal da empresa disponíveis no Microsoft Store.
-
-
 
 ### <a name="company-portal-for-windows-81-and-windows-phone-81-moving-to-sustaining-mode"></a>Portal para Windows 8.1 e Windows Phone 8.1 Mover para sustaining modo de empresa 
 <!--1428681-->

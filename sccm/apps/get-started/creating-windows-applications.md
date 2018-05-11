@@ -10,11 +10,11 @@ ms.assetid: 9181c84e-d74f-44ea-9bb9-f7805eb465fc
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 8a00acaf0ba39d809a3b4741420aa737518df5f7
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 3ac0526d31bb46cce18e096ff1d120eda452c806
+ms.sourcegitcommit: 1701943932818e0df1928d9be36ebaf424dd93b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-windows-applications-with-system-center-configuration-manager"></a>Criar aplicações do Windows com o System Center Configuration Manager
 
@@ -28,7 +28,9 @@ Para além de outros requisitos do System Center Configuration Manager e procedi
 |Tipo de Dispositivo|Tipos de ficheiro suportados|  
 |-----------------|---------------------|  
 |Windows RT e Windows RT 8.1|\*. AppX, \*. appxbundle|  
-|Windows 8.1 e posterior inscrito como um dispositivo móvel|\*. AppX, \*. appxbundle|  
+|Windows 8.1 e posterior|\*. AppX, \*. appxbundle|  
+
+
 
  As seguintes ações de implementação são suportadas:  
 
