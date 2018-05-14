@@ -10,11 +10,11 @@ ms.assetid: 78d44adc-9b1c-4bc6-b72d-e93873916ea6
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a4a6d8d67060dbf7c5bc75892d2f231bce67df8f
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 31c94d3632014110302cb1815f72af0c26245dc9
+ms.sourcegitcommit: 95452daa3340d4d0818562bcbb53672cb16f8799
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>inscrição do iOS Device Enrollment Program (DEP) para implementações híbridas com o Configuration Manager
 
@@ -53,7 +53,7 @@ As empresas podem comprar dispositivos iOS através do programa de inscrição d
   -   **Descrição** -descrição do perfil de inscrição de dispositivos. (Não visível aos utilizadores)  
   -   **Afinidade do utilizador** – especifica como os dispositivos são inscritos. Consulte [afinidade de utilizador para híbrida geridos dispositivos no Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
 
-      -  **Pedido de afinidade de utilizador de**: O dispositivo tem de ser afiliado a um utilizador durante a configuração inicial e, em seguida, pode ser autorizado a aceder ao e-mail do utilizador e dados da empresa.  A afinidade de utilizador deve ser configurada para dispositivos geridos por DEP que pertencem aos utilizadores e que precisam de utilizar o portal da empresa (por exemplo, para instalar aplicações).  
+      -  **Pedido de afinidade de utilizador de**: O dispositivo tem de ser afiliado a um utilizador durante a configuração inicial e, em seguida, pode ser autorizado a aceder ao e-mail do utilizador e dados da empresa.  Afinidade de utilizador deve ser configurada para dispositivos geridos por DEP que pertencem aos utilizadores e tem de utilizar o portal da empresa (ou seja, para instalar aplicações).  
       > [!NOTE]
       > DEP com afinidade de utilizador requer o ponto final de nome de utilizador de 1.3 de WS-Trust de ADFS/Mixed esteja ativado para solicitar o token de utilizador.
 
@@ -102,7 +102,10 @@ As empresas podem comprar dispositivos iOS através do programa de inscrição d
     > [!NOTE]
     > Na configuração híbrida, a operação de sincronização do DEP manualmente é acionada clicando **sincronização do DEP** na consola do Configuration Manager.
 
-4.  **Atribuir perfil do DEP**<br>No **ativos e compatibilidade** área de trabalho, aceda a **todos os dispositivos pertencentes** > **iOS** > **perfis de inscrição**. Selecione o perfil de inscrição de DEP e, em seguida, no **home page** separador, clique em **atribuir aos dispositivos**. Selecione os dispositivos que irá utilizar este perfil de inscrição, clique em **adicionar**e, em seguida, clique em **OK**.   
+4.  **Atribuir perfil do DEP**<br>No **ativos e compatibilidade** área de trabalho, aceda a **todos os dispositivos pertencentes** > **iOS** > **perfis de inscrição**. Selecione o perfil de inscrição de DEP e, em seguida, no **home page** separador, clique em **atribuir aos dispositivos**. Selecione os dispositivos que irá utilizar este perfil de inscrição, clique em **adicionar**e, em seguida, clique em **OK**.
+
+    > [!NOTE]
+    > Depois de um perfil do DEP está atribuído a um dispositivo, pode substituir o perfil apenas com outro perfil do DEP. No entanto, não é possível remover a atribuição de perfil do DEP. Para remover um perfil do DEP a partir de um dispositivo, tem de anular a inscrição do dispositivo.  
      ![Captura de ecrã de atribuição de perfil do DEP para dispositivos iOS](../media/dep-assign-profile.png)
 
 ## <a name="distribute-devices-to-users"></a>Distribuir dispositivos pelos utilizadores
