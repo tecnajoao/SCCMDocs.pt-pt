@@ -2,7 +2,7 @@
 title: Pré-visualização técnica 1805
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades disponíveis na versão 1805 Configuration Manager Technical Preview.
-ms.date: 05/11/2018
+ms.date: 05/21/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,11 +10,11 @@ ms.assetid: 7996b3eb-5259-483b-af40-adae2943d123
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: bb2b25440c87d4969d152ce410b8a28f010868ce
-ms.sourcegitcommit: 021272d5858e5dbb650b95644736d1de3dab7d8a
+ms.openlocfilehash: 24cb16ab17475bdd063949c7e3e2961b53341026
+ms.sourcegitcommit: b113f184efafa166813c18fa1fa000b75a67e4eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="capabilities-in-technical-preview-1805-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1805 do System Center Configuration Manager
 
@@ -413,6 +413,9 @@ Esta versão inclui os seguintes melhoramentos para o novo [comentários](capabi
 - A caixa de diálogo de comentários memorizou agora as definições anteriores, tais como as opções selecionadas e o seu endereço de e-mail.  
 
 - Agora suporta comentários offline. Guarde os seus comentários a partir da consola e, em seguida, carregue para a Microsoft a partir de um sistema ligado à internet. Utilize a ferramenta de /carregador comentários offline novo localizada na `cd.latest\SMSSETUP\Tools\UploadOfflineFeedback\UploadOfflineFeedback.exe`. Para ver as opções da linha de comandos disponíveis e necessárias, execute a ferramenta com o `--help` opção. O sistema ligado precisa de acesso à **petrol.office.microsoft.com**.
+
+### <a name="known-issues"></a>Problemas conhecidos
+Quando utilizar **enviar um smile** ou **enviar um negativos** partir da consola num computador com ligação à internet, podem devolver com a seguinte mensagem: "Erro ao enviar comentários." Se clicar em **mais detalhes**, mostra o seguinte texto: `{"Message":""}`. Este erro é devido a um problema conhecido com a resposta do sistema de comentários do back-end. Pode ignorar o erro. Microsoft recebeu ainda os seus comentários. (Se os detalhes apresentam uma mensagem diferente, utilize a opção de comentários offline para repetir a enviar os seus comentários numa altura posterior.)
 
 
 
