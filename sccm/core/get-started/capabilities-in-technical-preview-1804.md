@@ -2,7 +2,7 @@
 title: Pré-visualização técnica 1804
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades disponíveis na versão 1804 Configuration Manager Technical Preview.
-ms.date: 04/25/2018
+ms.date: 05/21/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,11 +10,11 @@ ms.assetid: 8af43618-ec60-4c3e-a007-12399d1335b9
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0fcdcc984e267e6c54ad7c6194e8494854f0a1ee
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: a796c8cc23ab15e3fbeb09fca6ffa6f1dbd45bc3
+ms.sourcegitcommit: fe41e2b3a7d0c735c72252fc817c5b946e25bc3d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="capabilities-in-technical-preview-1804-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1804 do System Center Configuration Manager
 
@@ -27,6 +27,14 @@ Reveja o [Technical Preview](/sccm/core/get-started/technical-preview) artigo an
 
 <!--  Known Issues Template   -->
 ## <a name="known-issues-in-this-technical-preview"></a>Problemas conhecidos nesta pré-visualização técnica
+
+### <a name="bkmk_ki-prereqs"></a> Ligação de configuração para transferir as atualizações não está a funcionar
+<!--514334-->
+Se executar a configuração do suporte de dados, a página inicial inclui uma ligação intitulada **obter as últimas atualizações do Configuration Manager**, que não funciona nesta versão. Esta ligação é para transferir os ficheiros necessários para a configuração.
+
+#### <a name="workaround"></a>Solução
+Para transferir os ficheiros necessários para a configuração, execute o Assistente de configuração. Na página de transferências de pré-requisitos, utilize a opção de **transferir ficheiros necessários**. 
+
 
 ### <a name="bkmk_appcathttps"></a> Ponto de serviço web do catálogo de aplicações não pode ser ativado para HTTPS
 <!--512637-->

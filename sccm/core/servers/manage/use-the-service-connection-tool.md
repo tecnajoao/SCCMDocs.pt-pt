@@ -10,11 +10,11 @@ ms.assetid: 6e4964c5-43cb-4372-9a89-b62ae6a4775c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 906b39f01b05600d86a045e07d3e28184e9360e8
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 1faabd64d11eeef8e825f22f7f661112813f5459
+ms.sourcegitcommit: fe41e2b3a7d0c735c72252fc817c5b946e25bc3d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 
@@ -101,7 +101,13 @@ Pode utilizar os seguintes parâmetros opcionais para especificar um servidor pr
 A partir da versão 1706, foi alterado o comportamento de transferência da predefinição de ferramentas e a ferramenta suporta opções para controlar os ficheiros que transfere.
 -   Por predefinição, a ferramenta transfere apenas a atualização mais recente disponível que se aplica à versão do seu site. Não transfere as correções.
 
-Para modificar este comportamento, utilize um dos parâmetros seguintes para alterar a que os ficheiros são transferidos. A versão do seu site é determinada a partir dos dados no ficheiro. cab que é carregado quando a ferramenta é executada.
+Para modificar este comportamento, utilize um dos parâmetros seguintes para alterar a que os ficheiros são transferidos. 
+
+> [!NOTE]
+> A versão do seu site é determinada a partir dos dados no ficheiro. cab que é carregado quando a ferramenta é executada.
+>
+> Pode verificar a versão, procurando o *SiteVersion*ficheiro. txt dentro do ficheiro. cab.
+
 -   **-downloadall** esta opção transfere tudo, incluindo atualizações e correções, independentemente da versão do seu site.
 -   **-downloadhotfix** esta opção transfere todas as correções, independentemente da versão do seu site.
 -   **-downloadsiteversion** esta opção transfere atualizações e correções que tenham uma versão superior à versão do seu site.
@@ -160,8 +166,19 @@ Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
 
  Para obter informações sobre como instalar atualizações, veja [Instalar atualizações na consola para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
 
+## <a name="bkmk_cmd"></a> Ficheiros de registo
+
+**ServiceConnectionTool.log**
+
+Sempre que executar a ferramenta de ligação de serviço, irá gerar um ficheiro de registo na mesma localização que a ferramenta chamado **ServiceConnectionTool.log**.  Este ficheiro de registo irão disponibilizar detalhes simples sobre a execução da ferramenta com base no são utilizados os comandos.  Um ficheiro de registo existente será substituído sempre que executar a ferramenta.
+
+**Ficheiro configmgrsetup.log, localizado**
+
+Quando utilizar a ferramenta para ligar e transferir atualizações, um ficheiro de registo irá gerar na raiz da unidade de sistema chamada **ConfigMgrSetup.log**.  Este ficheiro de registo irá fornecer informações mais detalhadas, tais como ficheiros que são transferidos, a extrair e se verifica o hash forem efetuadas com êxito.
+
 ## <a name="bkmk_cmd"></a> Opções de linha de comandos  
  Para ver informações de ajuda relativas à ferramenta de ponto de ligação de serviço, abra a linha de comandos para a pasta que contém a ferramenta e execute o comando:  **serviceconnectiontool.exe**.  
+
 
 |Opções da linha de comandos|Detalhes|  
 |---------------------------|-------------|  

@@ -1,8 +1,8 @@
 ---
 title: Reativação de clientes
 titleSuffix: Configuration Manager
-description: Planeie como pretende reativar os clientes no System Center Configuration Manager.
-ms.date: 04/23/2017
+description: Planeie como pretende reativar os clientes no System Center Configuration Manager através de reativação numa LAN (WOL).
+ms.date: 05/23/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: conceptual
@@ -10,31 +10,31 @@ ms.assetid: 52ee82b2-0b91-4829-89df-80a6abc0e63a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: aa5a0b30526f66add7dfb87fa988ed502cca1ee1
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 2f36ff6c28bd8a3fa23599652aff82ef0c721cad
+ms.sourcegitcommit: fe41e2b3a7d0c735c72252fc817c5b946e25bc3d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="plan-how-to-wake-up-clients-in-system-center-configuration-manager"></a>Planeie como pretende reativar os clientes no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Suporte do Configuration Manager dois reativação tecnologias de rede de área local (LAN) para reativar os computadores no modo de suspensão quando pretende instalar o software necessário, tal como aplicações e atualizações de software: pacotes de reativação tradicionais e comandos de ativação AMT.  
+ O Configuration Manager suporta pacotes de reativação tradicionais para reativar os computadores no modo de suspensão quando pretende instalar o software necessário, tal como aplicações e atualizações de software.  
 
 Poderá complementar o método de pacote de reativação tradicional utilizando as definições de cliente de proxy de reativação. Proxy de reativação utiliza um protocolo ponto a ponto e computadores selecionados para verificar se outros computadores na sub-rede estão ativos e ativa-os se necessário. Quando o site está configurado para Wake On LAN e os clientes são configurados para proxy de reativação, o processo funciona da seguinte forma:  
 
-1.  Computadores com o cliente do Configuration Manager instalado e que não estejam em modo de suspensão na verificação de sub-rede se outros computadores na sub-rede estão ativos. Tal, enviam entre si um comando ping de TCP/IP a cada cinco segundos.  
+1.  Computadores com o cliente do Configuration Manager instalado e que não estejam em modo de suspensão na verificação de sub-rede se outros computadores na sub-rede estão ativos. Esta verificação que fazem, enviam entre si um comando ping de TCP/IP cada cinco segundos.  
 
 2.  Se não houver nenhuma resposta de outros computadores, os mesmos serão considerados em modo de suspensão. Os computadores que estiverem ativos tornam-se *computador gestor* para a sub-rede.  
 
      Porque é possível que um computador pode não responder por um motivo que está em modo de suspensão (por exemplo, se estiver desligado, removido da rede, ou a definição de cliente do reativação proxy já não é aplicado), será enviado aos computadores um pacote de reativação todos os dias às 13h00 e 14h00 hora local. Os computadores que não responderem já não irão ser considerados como estando em modo de suspensão e não serão reativados por proxy de reativação.  
 
-     Para suportar o proxy de reativação, pelo menos três computadores têm de estar ativo para cada sub-rede. Para atingir esse objetivo, três computadores não determinística são escolhidos ser *computadores responsáveis* para a sub-rede. Isto significa que, ficam ativos, independentemente de qualquer política de energia configurados no modo de suspensão ou hibernação após um período de inatividade. Computadores responsáveis honrar encerrar ou reiniciar os comandos, por exemplo, como resultado de tarefas de manutenção. Se isto acontecer, os restantes computadores responsáveis ativarão reativação de outro computador na sub-rede para que a sub-rede continue a ter três computadores responsáveis.  
+     Para suportar o proxy de reativação, pelo menos três computadores têm de estar ativo para cada sub-rede. Para alcançar este requisito, três computadores não determinística são escolhidos ser *computadores responsáveis* para a sub-rede. Este estado significa que, ficam ativos, independentemente de qualquer política de energia configurados no modo de suspensão ou hibernação após um período de inatividade. Computadores responsáveis honrar encerrar ou reiniciar os comandos, por exemplo, como resultado de tarefas de manutenção. Se esta ação acontece, com os restantes computadores responsáveis ativarão reativação de outro computador na sub-rede para que a sub-rede continue a ter três computadores responsáveis.  
 
 3.  Computadores gestores solicitam ao comutador de rede para redirecionar o tráfego de rede para os computadores em modo de suspensão para si próprios.  
 
-     O redirecionamento é assegurado pelo computador gestor difundir uma moldura de Ethernet que utiliza o endereço MAC do computador em modo de suspensão como endereço de origem. Isto torna o comutador de rede se comporte como se o computador em modo de suspensão foi movido para a mesma porta que o computador gestor está ligado. O computador gestor também envia pacotes ARP para os computadores em modo de suspensão manter a entrada da cache ARP ATUALIZADA. O computador gestor também responderá aos pedidos ARP destinados o computador em modo de suspensão e a resposta com o endereço MAC do computador em modo de suspensão.  
+     O redirecionamento é assegurado pelo computador gestor difundir uma moldura de Ethernet que utiliza o endereço MAC do computador em modo de suspensão como endereço de origem. Este comportamento faz com que o comutador de rede se comporte como se o computador em modo de suspensão foi movido para a mesma porta que o computador gestor está ligado. O computador gestor também envia pacotes ARP para os computadores em modo de suspensão manter a entrada da cache ARP ATUALIZADA. O computador gestor também responde aos pedidos ARP destinados o computador em modo de suspensão e a replys com o endereço MAC do computador em modo de suspensão.  
 
     > [!WARNING]  
     >  Durante este processo, o mapeamento de IP para MAC para o computador em modo de suspensão não foi alterada. Funciona do proxy de reativação informa o comutador de rede que outro adaptador de rede está a utilizar a porta que se encontrava registada por outra placa de rede. No entanto, este comportamento é conhecido como uma deflexão de MAC e invulgar para a operação de rede padrão. Algumas ferramentas de monitorização de rede procuram este comportamento para e podem assumir que algo está errado. Por conseguinte, estas ferramentas de monitorização podem gerar alertas ou encerrar portas quando utilizar o proxy de reativação.  
@@ -50,7 +50,7 @@ Poderá complementar o método de pacote de reativação tradicional utilizando 
 > [!IMPORTANT]  
 >  Se tiver uma equipa separada responsável pela infraestrutura de rede e os serviços de rede, notifique e inclua esta equipa durante a avaliação e período de teste. Por exemplo, numa rede que utiliza o controlo de acesso de rede 802.1 X, proxy de reativação não funcionará e poderá interromper o serviço de rede. Além disso, o proxy de reativação pode fazer com que algumas ferramentas gerem alertas ao detetarem o tráfego para reativar outros computadores da monitorização de rede.  
 
--   Os clientes suportados são o Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012.  
+-   Todos os sistemas operativos do Windows listados como suportado clientes [sistemas operativos suportados para os clientes e dispositivos](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices) são suportadas para reativação por LAN.  
 
 -   Sistemas operativos convidados que são executados numa máquina virtual não são suportados.  
 
@@ -60,7 +60,7 @@ Poderá complementar o método de pacote de reativação tradicional utilizando 
 
 -   Se um computador tiver mais do que um adaptador de rede, não é possível configurar qual a placa a utilizar para um proxy de reativação; a escolha é não determinística. No entanto, a placa selecionada é registada no SleepAgent_ < domínio\> @SYSTEM_0.log ficheiro.  
 
--   A rede tem de permitir pedidos de eco ICMP (pelo menos dentro da sub-rede). Não é possível configurar os intervalo que é utilizado para enviar o ICMP comandos ping de 5 segundos.  
+-   A rede tem de permitir pedidos de eco ICMP (pelo menos dentro da sub-rede). Não é possível configurar o intervalo de cinco segundo que é utilizado para enviar os comandos de ping ICMP.  
 
 -   Comunicação é não encriptada, não autenticada e IPsec não é suportado.  
 
@@ -80,7 +80,7 @@ Se pretender reativar computadores para instalação de software agendadas, tem 
 
  Para utilizar o proxy de reativação, tem de implementar definições de cliente de proxy de reativação de gestão de energia para além de configurar o site primário.  
 
-Também tem de decidir se deve utilizar pacotes de difusão direcionadas para a sub-rede ou pacotes unicast e o número da porta UDP para utilizar. Por predefinição, os pacotes de reativação tradicionais são transmitidos através da porta UDP 9, mas para ajudar a aumentar a segurança, pode selecionar uma porta alternativa para o site se esta porta alternativa é suportada pelo routers e firewalls intervenientes.  
+Decida se deve utilizar pacotes de difusão direcionadas para a sub-rede ou pacotes unicast bem como o número da porta UDP para utilizar. Por predefinição, os pacotes de reativação tradicionais são transmitidos através da porta UDP 9, mas para ajudar a aumentar a segurança, pode selecionar uma porta alternativa para o site se esta porta alternativa é suportada pelo routers e firewalls intervenientes.  
 
 ### <a name="choose-between-unicast-and-subnet-directed-broadcast-for-wake-on-lan"></a>Escolher entre Unicast e difusão direcionada para sub-rede para reativação por LAN  
  Se optar por reativar os computadores enviando pacotes de reativação tradicionais, terá de decidir se pretende transmitir pacotes unicast ou pacotes de difusão direcionados de sub-rede. Se utilizar um proxy de reativação, tem de utilizar pacotes unicast. Caso contrário, utilize a tabela seguinte para o ajudar a determinar o método de transmissão a escolha.  
