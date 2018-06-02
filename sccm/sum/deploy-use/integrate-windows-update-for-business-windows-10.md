@@ -10,11 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 183315fe-27bd-456f-b2c5-e8d25e05229b
-ms.openlocfilehash: 3dd5a7f9717843244ab8477a09b109261618f9aa
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 07616a1c03c0383e9001418043dc6cd7ec117c1d
+ms.sourcegitcommit: 493cc42f05b9388ef872e466e5a75d569642b9fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34703490"
 ---
 # <a name="integration-with-windows-update-for-business-in-windows-10"></a>Integração com o Windows Update for Business no Windows 10
 
@@ -72,7 +73,8 @@ A partir do Configuration Manager versão 1706, pode configurar políticas de di
 >A partir do Configuration Manager versão 1802, pode definir políticas de diferimento por para Windows Insider. <!--507201-->Para obter mais informações sobre o programa Windows Insider, consulte [começar a utilizar o programa Windows Insider para empresas](https://docs.microsoft.com/windows/deployment/update/waas-windows-insider-for-business).
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Dispositivos Windows 10 geridos pelo Windows Update para empresas tem de ter conectividade à Internet.
+-   Windows 10 versão 1703 ou posterior
+-   Dispositivos Windows 10 geridos pelo Windows Update para empresas tem de ter conectividade à Internet
 
 #### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Para criar uma atualização do Windows para a política de diferimento por de negócio
 1. No **biblioteca de Software** > **manutenção do Windows 10** > **Windows Update para as políticas de negócio**

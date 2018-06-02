@@ -10,11 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: 3a667ae075ac688d4b49789ed88f858c2ff39397
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 9324126014245b586ba8fed87c670ac829f6cb81
+ms.sourcegitcommit: 493cc42f05b9388ef872e466e5a75d569642b9fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34703473"
 ---
 # <a name="co-management-for-windows-10-devices"></a>Gestão conjunta para dispositivos Windows 10    
  Com atualizações anteriores do Windows 10, já pode associar um dispositivo Windows 10 no local do Active Directory (AD) e baseado na nuvem do Azure AD em simultâneo (híbrido do Azure AD). A partir do Configuration Manager versão 1710, gestão conjunta tira partido deste melhoramento e permite-lhe gerir em simultâneo dispositivos do Windows 10 versão 1709 através do Configuration Manager e o Intune. <!-- 1350871 -->
@@ -60,7 +61,7 @@ Existem dois caminhos principais para aceder à gestão conjunta. É um Gestor d
 ### <a name="enable-co-management"></a>Ativar a gestão conjunta 
  Na consola do Configuration Manager, vá para **administração** > **descrição geral** > **serviços em nuvem**  >  **Gestão conjunta**. Escolha **configurar a gestão conjunta** a partir do friso para abrir o **Assistente de ativação da gestão conjunta** 
    
-1. No **subscrição** página, clique em **sessão** e inicie sessão no seu inquilino do Intune e, em seguida, clique em **seguinte**.    
+1. No **subscrição** página, clique em **sessão** e inicie sessão no seu inquilino do Intune e, em seguida, clique em **seguinte**. Certifique-se de que a conta utilizada para iniciar sessão no seu inquilino tem atribuída uma licença do Intune, caso contrário, ocorrerá uma falha com a mensagem de erro "O utilizador não reconhecido".   
 2. No **ativação** página, escolha o **inscrição automática no Intune** definição. Copie a linha de comandos para os dispositivos já inscritos no Intune, se necessário. 
 3. No **cargas de trabalho** página, para cada carga de trabalho, escolha o grupo de dispositivos para mover para gestão com o Intune.
 4. No **transição** página, selecione uma coleção de dispositivos para ser o **piloto coleção**. Certifique-se a **resumo** e conclua o assistente. 
