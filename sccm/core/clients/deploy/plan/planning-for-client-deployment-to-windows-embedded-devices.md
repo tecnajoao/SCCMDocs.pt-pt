@@ -1,5 +1,6 @@
 ---
-title: Planear a implementação do cliente em dispositivos Windows Embedded | Microsoft Docs
+title: Planear a implementação do cliente em dispositivos Windows Embedded
+titleSuffix: Configuration Manager
 description: Planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
@@ -16,22 +17,22 @@ caps.handback.revision: 0
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 513dcb2a224a6e60553fdc602813e9fe47116235
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: c4f3d8a9b043707340e56d3ae483ad66ca17dc10
+ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2017
-ms.locfileid: "22103609"
+ms.lasthandoff: 03/27/2018
+ms.locfileid: "23134502"
 ---
 # <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-<a name="BKMK_DeployClientEmbedded"></a>Se o seu dispositivo Windows Embedded não inclui o cliente do System Center Configuration Manager, pode utilizar qualquer um dos métodos de instalação do cliente se o dispositivo cumpra as dependências necessárias. Se o dispositivo incorporado suportar filtros de escrita, terá de desativar esses filtros antes de instalar o cliente e, em seguida, de reativar novamente os filtros após a instalação do cliente e da atribuição do mesmo a um site.  
+<a name="BKMK_DeployClientEmbedded"></a> Se o seu dispositivo Windows Embedded não inclui o cliente do System Center Configuration Manager, pode utilizar qualquer um dos métodos de instalação do cliente se o dispositivo cumpra as dependências necessárias. Se o dispositivo incorporado suportar filtros de escrita, terá de desativar esses filtros antes de instalar o cliente e, em seguida, de reativar novamente os filtros após a instalação do cliente e da atribuição do mesmo a um site.  
 
  Tenha em atenção que, ao desativar os filtros, não deve desativar os controladores dos filtros. Normalmente, estes controladores são iniciados automaticamente quando o computador é iniciado. Desativar os controladores irá impedir a instalação do cliente ou irá interferir com a orquestração do filtro de escrita, o que fará com que as operações do cliente falhem. Eis os serviços associados a cada um dos tipos de filtro de escrita que têm de ser mantidos em execução:  
 
-|Tipo de Filtro de Escrita|Controlador|Tipo|Descrição|  
+|Tipo de Filtro de Escrita|Controlador|Type|Descrição|  
 |-----------------------|------------|----------|-----------------|  
 |EWF|EWF|Kernel|Implementa um redirecionamento de E/S ao nível dos setores em volumes protegidos.|  
 |FBWF|FBWF|Sistema de ficheiros|Implementa um redirecionamento de E/S ao nível dos ficheiros em volumes protegidos.|  
@@ -65,7 +66,7 @@ ms.locfileid: "22103609"
 >
 > **Para dispositivos que utilizam FBWF apenas:** Configure as seguintes exceções para manter o estado do cliente e os dados de inventário entre reinícios do dispositivo:  
 >   
->  -   CCMINSTALLDIR\\*.sdf  
+>  -   CCMINSTALLDIR\\\*.sdf  
 > -   CCMINSTALLDIR\ServiceData  
 > -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\StateSystem  
 >   
