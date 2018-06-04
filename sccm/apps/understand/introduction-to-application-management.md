@@ -1,20 +1,26 @@
 ---
-title: Introdução à gestão de aplicações
-titleSuffix: Configuration Manager
+title: Introdução à gestão de aplicações | Microsoft Docs
 description: Detete as informações básicas, que terá de gerir e implementar aplicações do System Center Configuration Manager.
+ms.custom: na
 ms.date: 12/23/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-app
-ms.topic: conceptual
+ms.reviewer: na
+ms.suite: na
+ms.technology:
+- configmgr-app
+ms.tgt_pltfrm: na
+ms.topic: get-started-article
 ms.assetid: 08f711ba-83bf-4b5f-9520-a0778c6ae7eb
-author: aczechowski
-ms.author: aaroncz
-manager: dougeby
-ms.openlocfilehash: bcdc5800a1c280c99289528c40e0efee8acf5ad5
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
-ms.translationtype: MT
+caps.latest.revision: 18
+author: robstackmsft
+ms.author: robstack
+manager: angrobe
+ms.openlocfilehash: 959a36413d06bb225f260bd44c1d3d59efd44e69
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 08/07/2017
+ms.locfileid: "20784596"
 ---
 # <a name="introduction-to-application-management-in-system-center-configuration-manager"></a>Introdução à gestão de aplicações no System Center Configuration Manager
 
@@ -49,12 +55,12 @@ Neste tópico, irá aprender as noções básicas que precisa de saber antes de 
  O Configuration Manager permite-lhe implementar os seguintes tipos de aplicação:  
 
 - Windows Installer (ficheiro *.msi)
-- Pacote de aplicações do Windows (\*. AppX, \*. appxbundle)
+- Pacote de aplicações do Windows (*. AppX, *. appxbundle)
 - Pacote de aplicações do Windows (na Loja Windows)
 - Microsoft Application Virtualization 4
 - Microsoft Application Virtualization 5
 - Ficheiro CAB do Windows Mobile
-- macOS  
+- MacOS  
 
 
 Além disso, quando gerir dispositivos através do Microsoft Intune do Configuration Manager local ou na gestão de dispositivos, pode gerir estes tipos de aplicação adicionais:
