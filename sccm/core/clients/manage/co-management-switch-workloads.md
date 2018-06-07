@@ -10,16 +10,18 @@ manager: dougeby
 ms.date: 03/22/2018
 ms.topic: conceptual
 ms.assetid: 60e2022f-a4f9-40dd-af01-9ecb37b43878
-ms.openlocfilehash: 439e4e26c08b5a2710da0978ed2407d715bc86bd
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: ceb4004c7f4cc24ff17f0e9648cddb29cb26d898
+ms.sourcegitcommit: 493cc42f05b9388ef872e466e5a75d569642b9fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34569651"
 ---
 # <a name="switch-configuration-manager-workloads-to-intune"></a>Cargas de trabalho do Gestor de configuração do comutador para o Intune
 No [dispositivos de preparar o Windows 10 para gestão conjunta](co-management-prepare.md), preparou a dispositivos Windows 10 para gestão conjunta. Estes dispositivos estão associados ao AD, o Azure AD, estão inscritos no Intune e têm o cliente do Configuration Manager. Provavelmente, ainda tem de dispositivos Windows 10 que estão associados ao AD e o cliente do Configuration Manager, mas não associados ao Azure AD ou inscritos no Intune. O procedimento seguinte fornece os passos para ativar a gestão conjunta, preparar o resto dos seus dispositivos Windows 10 (clientes do Configuration Manager sem inscrição no Intune) para a gestão conjunta e permite-lhe iniciar mudar específico do Configuration Manager cargas de trabalho para o Intune.
 
 1. Na consola do Configuration Manager, vá para **administração** > **descrição geral** > **serviços em nuvem**  >  **Gestão conjunta**.    
+
 2. No separador início, no grupo de gerir, escolha **configurar a gestão conjunta** para abrir o Assistente de configuração de gestão conjunta.    
 3. Na página de subscrição, clique em **sessão** e inicie sessão no seu inquilino do Intune e, em seguida, clique em **seguinte**.   
 4. Na página de ativação, escolha o **piloto** ou **todos os** para ativar a inscrição automática no Intune e, em seguida, clique em **seguinte**. Quando escolhe **piloto**, apenas os clientes de Gestor de configuração são membros do grupo piloto automaticamente estão inscritos no Intune. Esta opção permite-lhe ativar a gestão conjunta num subconjunto de clientes para testar inicialmente conjunta gestão e implementação da gestão conjunta utilizando uma abordagem faseada. A linha de comandos pode ser utilizada para implementar o cliente do Configuration Manager como uma aplicação no Intune para dispositivos já inscritos no Intune. Para obter mais informações, consulte [dispositivos Windows 10 inscritos no Intune](co-management-prepare.md#windows-10-devices-enrolled-in-intune).
@@ -55,8 +57,8 @@ Algumas cargas de trabalho estão disponíveis para ser mudado ao longo do Intun
       - Controlo de aplicação do Windows Defender
       - Centro de segurança do Windows Defender
       - O Windows Defender Advanced Threat Protection
-
-
+      - O Windows Information Protection
+      
 
 ## <a name="monitor-co-management"></a>Gestão de coadministrador do monitor
 Depois de ativar a gestão conjunta, pode monitorizar dispositivos de gestão conjunta utilizando os seguintes métodos:

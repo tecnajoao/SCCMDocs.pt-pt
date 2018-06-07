@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: be503ec9-5324-4f7c-bcf5-77204328e99c
-ms.openlocfilehash: b8bc778f4bcede45d3035b8b119fc3e4a4df4978
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: b295dad503b801ff9d04767f75c1688107016d0b
+ms.sourcegitcommit: 493cc42f05b9388ef872e466e5a75d569642b9fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34569685"
 ---
 # <a name="change-your-mdm-authority-to-intune-standalone"></a>Alterar a autoridade de MDM ao Intune autónomo
 
@@ -53,7 +54,9 @@ Utilize o procedimento seguinte para alterar a autoridade de MDM de inquilinos p
 3.  Iniciar sessão para o inquilino do Intune que utilizou originalmente quando definir a autoridade de MDM no Configuration Manager.
 4.  Clique em **Seguinte** e conclua o assistente.
 5.  A autoridade de MDM é reposta. A subscrição do Intune já não é apresentada no nó de subscrições do Microsoft Intune da consola do Configuration Manager.
-6.  Inicie sessão no [Intune no portal do Azure](https://portal.azure.com/#blade/Microsoft_Intune_DeviceSettings/ExtensionLandingBlade/overview) utilizar o mesmo inquilino do Intune que utilizou anteriormente.    
+6.  Inicie sessão no [Intune portal](https://aka.ms/IntunePortal).
+7.  No painel do Microsoft Intune, clique em **inscrição de dispositivos**.
+8.  No painel de descrição geral de inscrição do dispositivo, consulte o **autoridade de MDM** propriedade.
 
   > [!Important]    
   > Não utilize a consola do Intune clássica. Tem de iniciar sessão Intune no portal do Azure.

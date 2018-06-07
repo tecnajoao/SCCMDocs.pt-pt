@@ -10,11 +10,12 @@ ms.assetid: 0ea3edaa-27c6-4391-9896-cd97d9c5d06d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7587fa6d96d6f8737921c9e5edae992cdd0ea614
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: e5b0ee5cb677cff5e57f24a20122fb017aea056c
+ms.sourcegitcommit: 493cc42f05b9388ef872e466e5a75d569642b9fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34569668"
 ---
 # <a name="uninstall-applications-with-system-center-configuration-manager"></a>Desinstalar aplicações com o System Center Configuration Manager
 
@@ -41,7 +42,7 @@ Execute as ações seguintes para desinstalar uma aplicação que implementou an
 -   Uma implementação com o objetivo de implementação de **Desinstalar** não verifica as regras de requisitos. Se a aplicação estiver instalada no computador em que é executada a implementação, será desinstalada.  
 
 > [!IMPORTANT]  
-> Tem de eliminar todas as implementações ou implementações simuladas existentes de uma aplicação numa coleção para poder implementar a aplicação com uma ação de implementação de **Desinstalar**.  
+> Para implementar a aplicação com a ação de desinstalação, terá de eliminar primeiro todas as implementações de aplicações existentes, implementações simuladas ou implementações de sequência de tarefas que inclua esta aplicação. 
 
  Para obter mais informações sobre como criar um tipo de implementação, consulte [criar aplicações](../../apps/deploy-use/create-applications.md).  
 
