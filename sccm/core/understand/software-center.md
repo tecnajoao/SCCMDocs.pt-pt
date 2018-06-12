@@ -10,11 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.assetid: 9e68de6e-2b33-442b-b674-a382728d9529
-ms.openlocfilehash: 4c45da7b5a4b7f8945b23d03d0fd551276205ee2
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: ff40af9dd40921b63f8b8bd13ba5c287c3bf9972
+ms.sourcegitcommit: e35d07870656eadd29faacc378ecd091ff3bdcfb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34848667"
 ---
 # <a name="software-center-user-guide"></a>Guia de utilizador do Centro de software
 
@@ -45,7 +46,7 @@ Clique em de **aplicações** separador para localizar e instalar aplicações q
 - **Filtros**: O administrador de TI pode criar categorias de aplicações. Se estiver disponível, clique na lista pendente para filtrar a vista para apenas para as aplicações numa categoria específica. Selecione **todos os** para mostrar todas as aplicações.
 - **Ordenar por**: Reorganizar a lista de aplicações. Por predefinição, esta lista ordena por **mais recente**.
 - **Pesquisa**: Ainda não é possível encontrar aquilo que procura? Introduza as palavras-chave na caixa de pesquisa para encontrá-lo!
--  Mude vista: Clique nos ícones para mudar a vista entre a vista de lista e o mosaico vista. Por predefinição, a lista de aplicações mostra como mosaicos de gráfico. 
+-  **A vista de comutador**: Clique nos ícones para mudar a vista entre a vista de lista e o mosaico vista. Por predefinição, a lista de aplicações mostra como mosaicos de gráfico. 
     - Vista em mosaico: O administrador de TI pode personalizar os ícones. A seguir cada mosaico mostra o nome da aplicação, Editor e versão. 
     - Vista de lista: Esta vista apresenta o ícone de aplicação, nome, publicador, versão e o estado. 
 
