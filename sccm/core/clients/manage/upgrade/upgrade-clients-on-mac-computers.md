@@ -10,11 +10,12 @@ ms.assetid: 74c60941-5eae-4905-9e58-252bdb39df96
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 667c8c3ea986e39627f3ed96e53719d6de74d3b2
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: fb0ef52bc3359e1b31b2e2237a87e58bf671bcb7
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36260841"
 ---
 # <a name="how-to-upgrade-clients-on-mac-computers-in-system-center-configuration-manager"></a>Como atualizar clientes em computadores Mac no System Center Configuration Manager
 
@@ -55,7 +56,7 @@ Siga os passos de alto nível descritos abaixo para atualizar o cliente para com
 ## <a name="step-6-users-install-the-latest-client"></a>Passo 6: Os utilizadores instalam o cliente mais recente  
  Serão solicitados aos utilizadores dos clientes Mac se uma atualização do cliente do Configuration Manager está disponível e tem de estar instalada. Depois de instalarem o cliente, os utilizadores têm de reiniciar o computador Mac.  
 
- Depois de reiniciar o computador, o Assistente de Inscrição do Computador é executado automaticamente para solicitar um novo certificado de utilizador.  
+ Depois de reiniciar o computador, o Assistente de Inscrição do Computador é executado automaticamente para solicitar um novo certificado de utilizador. O Assistente de inscrição de computador será executado automaticamente apenas no momento da instalação do cliente SCCM primeiro. E não será possível executar novamente se tentar atualizar o cliente com um instalador de novo mais tarde, uma vez que já tem um certificado de utilizador válido. 
 
  Se não utilizar a inscrição do Gestor de configuração, mas instalar o certificado de cliente independentemente do Configuration Manager, consulte [configurar o cliente atualizado para utilizar um certificado existente](#BKMK_UpgradingClient_MachineEnrollment).  
 

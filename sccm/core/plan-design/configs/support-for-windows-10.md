@@ -10,11 +10,12 @@ ms.assetid: a1626a65-da22-49e0-9564-d2f752ea3f4b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 947392d4c11b419e0e373fbe83db42522d3c5f25
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: bea7d3d0e2c4482a08473f49fbdc3916065627b7
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36260722"
 ---
 # <a name="support-for-windows-10-in-system-center-configuration-manager"></a>Suporte para Windows 10 no System Center Configuration Manager  
 
@@ -78,7 +79,7 @@ A tabela seguinte lista as versões do Windows 10 ADK que pode utilizar com dife
 
 |Chave|
 |--|
-| ![Suportado](media/green_check.png) = **suportados** <br/> Windows recomenda utilizar o Windows ADK que corresponde à versão do Windows estiver a implementar. Por exemplo, utilizar o Windows ADK para Windows 10 versão 1703 quando implementar o Windows 10 versão 1703. Para obter mais informações sobre o suporte de componentes do Windows ADK, consulte [DISM plataformas suportadas](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-supported-platforms) e [requisitos USMT](https://docs.microsoft.com/windows/deployment/usmt/usmt-requirements#bkmk-1). |
+| ![Suportado](media/green_check.png) = **suportados** <br/> A Microsoft recomenda a utilizar o Windows ADK que corresponde à versão do Windows estiver a implementar. Por exemplo, utilizar o Windows ADK para Windows 10 versão 1703 quando implementar o Windows 10 versão 1703. Para obter mais informações sobre o suporte de componentes do Windows ADK, consulte [DISM plataformas suportadas](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-supported-platforms) e [requisitos USMT](https://docs.microsoft.com/windows/deployment/usmt/usmt-requirements#bkmk-1). |
 | ![Retrocompatível](media/blue_compat.png)  = **retrocompatível** <br/> Esta combinação não é testada, mas deve funcionar. Iremos irá Documente quaisquer problemas conhecidos ou avisos. |
 | ![Não suportado](media/Red_X.png) = **não suportado** |
 

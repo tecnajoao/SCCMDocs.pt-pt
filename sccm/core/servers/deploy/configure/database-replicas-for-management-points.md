@@ -10,11 +10,12 @@ ms.assetid: b06f781b-ab25-4d9a-b128-02cbd7cbcffe
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0893df43f7979fa3c36ba90ab400e399f96e6228
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 5ab632367e6cc30210db00a61ee4d3b9c414fdbd
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36260817"
 ---
 # <a name="database-replicas-for-management-points-for-system-center-configuration-manager"></a>Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager
 
@@ -78,7 +79,7 @@ Sites primários do System Center Configuration Manager podem utilizar uma répl
 
     -   [Mover um servidor do site que publica uma réplica de base de dados](#BKMK_DBReplicaOps_Move)  
 
--   **Atualizações para o System Center Configuration Manager**: Antes de atualizar um site do System Center 2012 Configuration Manager para o System Center Configuration Manager, tem de desativar as réplicas de base de dados para pontos de gestão.  Após a atualização do site, pode reconfigurar as réplicas de base de dados para pontos de gestão.  
+-   **Atualizações para o System Center Configuration Manager**: Antes de atualizar um site, a partir do System Center 2012 Configuration Manager para System Center Configuration Manager Current Branch ou atualização do Configuration Manager atual qual ramificar a versão mais recente, tem de desativar réplicas de base de dados de gestão pontos.  Após a atualização do site, pode reconfigurar as réplicas de base de dados para pontos de gestão.  
 
 -   **Várias réplicas num único SQL Server:**  Se configurar um servidor de réplica de base de dados para alojar várias réplicas de base de dados para pontos de gestão (cada réplica tem de estar numa instância separada) tem de utilizar um script de configuração modificado (no passo 4 da secção seguinte) para impedir a substituição do certificado autoassinado em utilização por réplicas de base de dados anteriormente configuradas nesse servidor.  
 

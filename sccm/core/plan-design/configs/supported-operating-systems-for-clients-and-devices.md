@@ -10,11 +10,12 @@ ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d04f727ffeb3e5859103828ebb058e2532c6aacb
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: cb0145961b916abf4bf848bc8b5514967b705737
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36260766"
 ---
 # <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Sistemas operativos suportados para os clientes e dispositivos para o System Center Configuration Manager
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 05/03/2018
 -  **Windows Server 2016**: Standard, Datacenter <sup>1</sup>
   - Este sistema operativo é suportado a partir do Configuration Manager 1606 de versão, com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016).  
 
--   **O Windows Storage Server 2016**  
+-   **O Windows Storage Server 2016**: Grupo de trabalho Standard  
 
 -   **Windows Server 2012 R2** (x64): Standard, Datacenter <sup>1</sup>    
 
