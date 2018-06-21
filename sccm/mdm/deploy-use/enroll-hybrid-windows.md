@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32349631"
 ---
 # <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos híbridos do Windows com o System Center Configuration Manager e o Microsoft Intune
 
@@ -64,7 +65,7 @@ Inscrição automática permite que os utilizadores inscrevam pertencentes à em
 
 ### <a name="configure-automatic-mdm-enrollment"></a>Configurar a inscrição MDM automática
 
-1. Iniciar sessão para o [portal de gestão do Azure](https://portal.azure.com) (https://manage.windowsazure.com)e selecione **do Azure Active Directory**.
+1. Iniciar sessão para o [portal de gestão do Azure](https://portal.azure.com) (https://manage.windowsazure.com) e selecione **do Azure Active Directory**.
 
   ![Captura de ecrã do portal do Azure](../media/auto-enroll-azure-main.png)
 
