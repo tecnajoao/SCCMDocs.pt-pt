@@ -11,10 +11,11 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.openlocfilehash: a796c8cc23ab15e3fbeb09fca6ffa6f1dbd45bc3
-ms.sourcegitcommit: fe41e2b3a7d0c735c72252fc817c5b946e25bc3d
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "34474348"
 ---
 # <a name="capabilities-in-technical-preview-1804-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1804 do System Center Configuration Manager
 
@@ -29,16 +30,14 @@ Reveja o [Technical Preview](/sccm/core/get-started/technical-preview) artigo an
 ## <a name="known-issues-in-this-technical-preview"></a>Problemas conhecidos nesta pré-visualização técnica
 
 ### <a name="bkmk_ki-prereqs"></a> Ligação de configuração para transferir as atualizações não está a funcionar
-<!--514334-->
-Se executar a configuração do suporte de dados, a página inicial inclui uma ligação intitulada **obter as últimas atualizações do Configuration Manager**, que não funciona nesta versão. Esta ligação é para transferir os ficheiros necessários para a configuração.
+<!--514334--> Se executar a configuração do suporte de dados, a página inicial inclui uma ligação intitulada **obter as últimas atualizações do Configuration Manager**, que não funciona nesta versão. Esta ligação é para transferir os ficheiros necessários para a configuração.
 
 #### <a name="workaround"></a>Solução
 Para transferir os ficheiros necessários para a configuração, execute o Assistente de configuração. Na página de transferências de pré-requisitos, utilize a opção de **transferir ficheiros necessários**. 
 
 
 ### <a name="bkmk_appcathttps"></a> Ponto de serviço web do catálogo de aplicações não pode ser ativado para HTTPS
-<!--512637-->
-Se o ponto de serviço de web do catálogo de aplicações está ativado para HTTPS:
+<!--512637--> Se o ponto de serviço de web do catálogo de aplicações está ativado para HTTPS:
 
 - Não mostram as aplicações implementadas como disponíveis para os utilizadores no Centro de Software  
 
@@ -58,8 +57,7 @@ Reconfigure o ponto de serviço de web ao catálogo de aplicações para comunic
 
 
 ## <a name="configure-a-remote-content-library-for-the-site-server"></a>Configure uma biblioteca de conteúdos remota para o servidor do site  
-<!--1357525-->
-Para libertar espaço no disco rígido no seu servidor de site primário, altere a localização da respetiva [biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/the-content-library) para outra localização de armazenamento. Pode mover a biblioteca de conteúdos para outra unidade no servidor do site, um servidor separado ou discos com tolerância a falhas numa rede de armazenamento (SAN). Recomendamos uma SAN como fornece armazenamento elástico que aumenta ou diminui ao longo do tempo para satisfazer os requisitos de alteração de conteúdo. 
+<!--1357525--> Para libertar espaço no disco rígido no seu servidor de site primário, altere a localização da respetiva [biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/the-content-library) para outra localização de armazenamento. Pode mover a biblioteca de conteúdos para outra unidade no servidor do site, um servidor separado ou discos com tolerância a falhas numa rede de armazenamento (SAN). Recomendamos uma SAN como fornece armazenamento elástico que aumenta ou diminui ao longo do tempo para satisfazer os requisitos de alteração de conteúdo. 
 
 Nesta biblioteca de conteúdos remota é um pré-requisito de novo para [disponibilidade elevada da função de servidor do site](/sccm/core/get-started/capabilities-in-technical-preview-1706#site-server-role-high-availability). 
 
@@ -218,8 +216,7 @@ Mudou o comportamento ao revogar aprovação para uma aplicação. Agora quando 
 
 
 ## <a name="exclude-active-directory-containers-from-discovery"></a>Excluir os contentores do Active Directory da deteção
-<!--1358143-->
-Para reduzir o número de objetos detetados, agora pode excluir contentores específicos de deteção de sistemas do Active Directory. Esta funcionalidade é um resultado da sua [comentários do UserVoice](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/8414520-exclude-virtual-cluster-and-ou-from-discovery).
+<!--1358143--> Para reduzir o número de objetos detetados, agora pode excluir contentores específicos de deteção de sistemas do Active Directory. Esta funcionalidade é um resultado da sua [comentários do UserVoice](https://configurationmanager.uservoice.com/forums/300492-ideas/suggestions/8414520-exclude-virtual-cluster-and-ou-from-discovery).
 
 ### <a name="try-it-out"></a>Experimente!
  Experimente concluir as tarefas. Em seguida, enviar [comentários](#bkmk_feedback) nos informar como correu.
@@ -265,8 +262,7 @@ Para obter mais informações sobre as definições de cliente, consulte [config
 
 
 ## <a name="filter-automatic-deployment-rules-by-software-update-architecture"></a>Regras de implementação automática pela arquitetura de atualização de software de filtro
- <!--1322266-->
-Agora, pode filtrar as regras de implementação automática para excluir arquiteturas como ARM64 e Itanium.
+ <!--1322266--> Agora, pode filtrar as regras de implementação automática para excluir arquiteturas como ARM64 e Itanium.
 
 ### <a name="try-it-out"></a>Experimente!
 Experimente concluir as tarefas. Em seguida, enviar [comentários](#bkmk_feedback) nos informar como correu.

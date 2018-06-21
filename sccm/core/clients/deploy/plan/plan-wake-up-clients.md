@@ -11,10 +11,11 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.openlocfilehash: 2f36ff6c28bd8a3fa23599652aff82ef0c721cad
-ms.sourcegitcommit: fe41e2b3a7d0c735c72252fc817c5b946e25bc3d
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "34474145"
 ---
 # <a name="plan-how-to-wake-up-clients-in-system-center-configuration-manager"></a>Planeie como pretende reativar os clientes no System Center Configuration Manager
 

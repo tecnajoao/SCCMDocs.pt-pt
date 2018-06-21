@@ -10,10 +10,11 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.openlocfilehash: dd37bb3f452f5018dd1130d43ead0117481f2aab
-ms.sourcegitcommit: b113f184efafa166813c18fa1fa000b75a67e4eb
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "34450194"
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Referência técnica de controlos criptográficos
 

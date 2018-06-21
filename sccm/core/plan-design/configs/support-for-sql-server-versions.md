@@ -11,10 +11,11 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.openlocfilehash: 431e26c24794b4854a1aed37ba85d4d44580791c
-ms.sourcegitcommit: fe41e2b3a7d0c735c72252fc817c5b946e25bc3d
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "34474280"
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Versões suportadas do SQL Server para o System Center Configuration Manager
 
@@ -83,8 +84,7 @@ Pode utilizar esta versão do SQL Server, com um mínimo de [versão da atualiza
 <!--SMS.498506-->
 
 ### <a name="sql-server-2016-sp2-standard-enterprise"></a>SQL Server 2016 SP2: Standard, Enterprise  
-<!--514985-->
-Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
+<!--514985--> Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
 
 -   Um site de administração central  
 -   Um site primário  
@@ -154,8 +154,7 @@ Quando suportado pela versão do Configuration Manager, pode utilizar esta vers�
 
 ### <a name="sql-server-2017-express"></a>SQL Server 2017 rápida   
 Pode utilizar esta versão do SQL Server, com um mínimo de [versão da atualização cumulativa 2](https://support.microsoft.com/help/4052574), começando com [do Configuration Manager versão 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710) para os seguintes sites:
--   Um site secundário
-<!--SMS.498506-->
+-   Um site secundário <!--SMS.498506-->
 
 ### <a name="sql-server-2016-express-sp2"></a>SP2 Express do SQL Server 2016  
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:

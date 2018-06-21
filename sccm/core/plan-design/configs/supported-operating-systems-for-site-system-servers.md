@@ -11,10 +11,11 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 ms.openlocfilehash: aa933186e95f084bd4e3e518e167a1cd301a4484
-ms.sourcegitcommit: fe41e2b3a7d0c735c72252fc817c5b946e25bc3d
+ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "34474297"
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Sistemas operativos suportados para servidores de sistema de sites do System Center Configuration Manager
 
@@ -256,8 +257,7 @@ Este SO não é suportado para servidores do site ou funções de sistema de sit
     -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para obter mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e conteúda](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="the-server-core-installation-of-windows-server-version-1803"></a>A instalação do server core do Windows Server, versão 1803
-<!--503702-->
-A partir do Configuration Manager 1802, [Windows Server, versão 1803](https://docs.microsoft.com/windows-server/get-started/get-started-with-1803) é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
+<!--503702--> A partir do Configuration Manager 1802, [Windows Server, versão 1803](https://docs.microsoft.com/windows-server/get-started/get-started-with-1803) é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
   -   Apenas a versão de x64 bits é suportada.
   -   Os pontos de distribuição deste SO não suportam PXE ou Multicast.  
 
