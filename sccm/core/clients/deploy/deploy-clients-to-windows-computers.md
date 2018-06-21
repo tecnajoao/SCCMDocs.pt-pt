@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32342380"
 ---
 # <a name="how-to-deploy-clients-to-windows-computers-in-system-center-configuration-manager"></a>Como implementar clientes em computadores Windows no System Center Configuration Manager
 
@@ -402,22 +403,22 @@ Quando o site do Configuration Manager suporta [gestão de clientes baseados na 
 
 1.  Siga as indicações na secção [como instalar clientes do Configuration Manager manualmente](#BKMK_Manual) e inclua sempre o seguinte:  
 
-    -   Propriedade da linha de comandos CCMSetup **/Source: ***&lt;caminho local para a pasta Client copiada\>*  
+    -   Propriedade da linha de comandos CCMSetup **/Source:** *&lt;caminho local para a pasta Client copiada\>*  
 
     -   Propriedade da linha de comandos CCMSetup **/UsePKICert**  
 
-    -   Propriedade Client.msi **CCMHOSTNAME = ***&lt;FQDN do ponto de gestão baseado na internet\>*  
+    -   Propriedade Client.msi **CCMHOSTNAME =** *&lt;FQDN do ponto de gestão baseado na internet\>*  
 
-    -   Propriedade Client.msi **SMSSIGNCERT = ***&lt;caminho local para o certificado de assinatura do servidor de site exportado\>*  
+    -   Propriedade Client.msi **SMSSIGNCERT =** *&lt;caminho local para o certificado de assinatura do servidor de site exportado\>*  
 
-    -   Propriedade Client.msi **SMSSITECODE = ***&lt;código do ponto de gestão baseado na internet\>*  
+    -   Propriedade Client.msi **SMSSITECODE =** *&lt;código do ponto de gestão baseado na internet\>*  
 
     > [!NOTE]  
     >  Se o site tiver mais do que um ponto de gestão baseado na internet, é irrelevante o ponto de gestão baseado na internet especificado para a propriedade CCMHOSTNAME. Quando um cliente do Configuration Manager liga ao ponto de gestão baseado na internet especificado, o ponto de gestão envia ao cliente uma lista de pontos de gestão baseado na internet disponíveis no site. O cliente seleciona aleatoriamente um da lista.  
 
 2.  Se não quiser que o cliente verifique a lista de revogação de certificados (CRL), especifique a propriedade da linha de comandos CCMSetup **/NoCRLCheck**.  
 
-3.  Se estiver a utilizar um ponto de estado de contingência baseado na internet, especifique a propriedade de Client.msi **FSP = ***&lt;internet FQDN do ponto de estado de contingência baseado na internet\>*.  
+3.  Se estiver a utilizar um ponto de estado de contingência baseado na internet, especifique a propriedade de Client.msi **FSP =** *&lt;internet FQDN do ponto de estado de contingência baseado na internet\>*.  
 
 4.  Se estiver a instalar o cliente para gestão de clientes apenas na internet, especifique a propriedade de Client.msi **CCMALWAYSINF = 1**.  
 

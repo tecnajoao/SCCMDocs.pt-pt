@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32351501"
 ---
 # <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personalizar imagens de arranque com o System Center Configuration Manager
 
@@ -135,7 +136,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo: **\\ \\ < ***servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
+        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\\\<***servername***>\\<***partilha WinPEWAIK***>\winpe.wim**.  
 
         -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
 
@@ -251,7 +252,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo: **\\ \\ < ***servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
+        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\\\<***servername***>\\<***partilha WinPEWAIK***>\winpe.wim**.  
 
         -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
 
