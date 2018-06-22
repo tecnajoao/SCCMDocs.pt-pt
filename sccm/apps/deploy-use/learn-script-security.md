@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32343716"
 ---
 # <a name="learn-more-about-powershell-script-security"></a>Saiba mais sobre a segurança de script do PowerShell
 

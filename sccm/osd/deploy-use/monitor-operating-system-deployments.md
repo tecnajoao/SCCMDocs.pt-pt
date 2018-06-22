@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32348689"
 ---
 # <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Monitorizar implementações do sistema operativo no System Center Configuration Manager
 
