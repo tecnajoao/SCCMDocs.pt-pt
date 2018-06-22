@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32332856"
 ---
 # <a name="supported-operating-systems-for-system-center-configuration-manager-consoles"></a>Sistemas operativos suportados por consolas do System Center Configuration Manager
 

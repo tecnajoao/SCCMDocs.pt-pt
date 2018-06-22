@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32340153"
 ---
 # <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Planear e configurar a gestão de aplicações no System Center Configuration Manager
 

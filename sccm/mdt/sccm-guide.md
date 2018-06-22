@@ -1,10 +1,11 @@
 ---
-title: "Início rápido - System Center 2012 R2 Configuration Manager"
+title: Início rápido - System Center 2012 R2 Configuration Manager
 titleSuffix: Microsoft Deployment Toolkit
-description: "Um guia de início rápido de mensagens em fila para o Microsoft Deployment Toolkit com o System Center 2012 R2 Configuration Manager. "
+description: 'Um guia de início rápido de mensagens em fila para o Microsoft Deployment Toolkit com o System Center 2012 R2 Configuration Manager. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: b12de852-a799-4c16-b51c-cc3abbd3ca3a
 author: aczechowski
@@ -15,6 +16,7 @@ ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27821577"
 ---
 # <a name="quick-start-guide-for-microsoft-system-center-2012-r2-configuration-manager"></a>Guia de introdução do Microsoft System Center 2012 R2 Configuration Manager  
  Microsoft Deployment Toolkit (MDT) 2013 fornece tecnologias para implementar sistemas operativos Windows e Microsoft Office. Este guia de introdução ajuda-o a avaliar rapidamente o MDT 2013, fornecendo instruções passo a passo condensed para utilizá-la para instalar o sistema operativo do Windows 8.1 com o Microsoft System Center 2012 R2 Configuration Manager. Este guia de introdução demonstra como efetuar o cenário de implementação do novo computador, que abrange a implementação do Windows 8.1 para um novo computador. Este cenário pressupõe que não há nenhum perfil para preservar ou dados de utilizador.  
@@ -759,7 +761,7 @@ ms.lasthandoff: 01/16/2018
    |**Na página do Assistente**|**Fazê-lo**|  
    |-|-|  
    |**Na página do Assistente**|**Fazê-lo**|  
-   |**Caminho**|No **caminho de partilha de implementação**, tipo **C:\DeploymentShare$**e, em seguida, clique em **seguinte**.|  
+   |**Caminho**|No **caminho de partilha de implementação**, tipo **C:\DeploymentShare$** e, em seguida, clique em **seguinte**.|  
    |**Partilha**|Clique em **Seguinte**.|  
    |**Nome descritivo**|Clique em **Seguinte**.|  
    |**Opções**|Clique em **Seguinte**.|  

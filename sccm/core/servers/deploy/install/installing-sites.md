@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32334740"
 ---
 # <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Recursos para a instalação de sites do System Center Configuration Manager
 

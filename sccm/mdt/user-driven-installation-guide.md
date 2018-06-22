@@ -16,6 +16,7 @@ ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27821584"
 ---
 # <a name="quick-start-guide-for-user-driven-installation"></a>Guia de introdução para instalação orientado por utilizador  
  Microsoft Deployment Toolkit (MDT) 2013 fornece tecnologias para implementar sistemas operativos Windows e Microsoft Office. Este guia de introdução ajuda-o a avaliar rapidamente o MDT 2013, fornecendo instruções passo a passo condensed para utilizá-la para instalar o sistema de operativo do Windows 8.1 e o Microsoft Office Professional Plus 2010 com o modo instalação (UDI) e a Microsoft System Center 2012 R2 Configuration Manager. Este guia de introdução demonstra como efetuar o cenário de implementação MDT novo computador, que abrange a implementação do Windows 8.1 para um novo computador. Este cenário pressupõe que não há nenhum perfil para preservar ou dados de utilizador.  
@@ -872,7 +873,7 @@ ms.lasthandoff: 01/16/2018
 
     |**Na página do Assistente** |**Fazê-lo** |  
     |-|-|  
-    |**Caminho** |**No caminho de partilha de implementação**, tipo **C:\DeploymentShare$**e, em seguida, clique em **seguinte**.|  
+    |**Caminho** |**No caminho de partilha de implementação**, tipo **C:\DeploymentShare$** e, em seguida, clique em **seguinte**.|  
     |**Partilha** |Clique em **Seguinte**.|  
     |**Nome descritivo** |Clique em **Seguinte**.|  
     |**Opções** |Clique em **Seguinte**.|  
@@ -1348,7 +1349,7 @@ ms.lasthandoff: 01/16/2018
     |**Pacote de MDT** |1.  No **especificar um pacote de ficheiros de Toolkit do Microsoft implementação existente**, clique em **procurar**.<br />2.  No **selecionar um pacote** caixa de diálogo, clique em **ficheiros MDT**e, em seguida, clique em **OK**.<br />3.  Clique em **Seguinte**.|  
     |**Imagem do SO** |1.  Clique em **imagem de especificar um SO existente**.<br />2.  No **imagem de especificar um SO existente**, clique em **procurar**.<br />3.  No **selecionar um pacote** caixa de diálogo, clique em **imagem de referência do Windows 8.1**e, em seguida, clique em **OK**.<br />4.  Clique em **Seguinte**.|  
     |**Imagem do SO: Índice de imagem do SO** |1.  No **o ficheiro de imagem (WIM) do sistema operativo selecionado contiver várias imagens. Especifique a imagem que pretende implementar**, selecione ***image_index*** (onde *image_index* é o índice de imagem da imagem que contém o Windows 8.1, que foi identificado no [Passo 5-1: Importar o wim de Captured ficheiro para o Configuration Manager](#ImportCapturedwimFileintoCOnfigurationManager); para efeitos deste guia, selecione de 2).<br />2.  Clique em **Seguinte**.|  
-    |**Método de implementação** |Clique em **efetuar uma instalação"modo"**e, em seguida, clique em **seguinte**.|  
+    |**Método de implementação** |Clique em **efetuar uma instalação"modo"** e, em seguida, clique em **seguinte**.|  
     |**Pacote de cliente** |1.  No **especificar um pacote de cliente do ConfigMgr existente**, clique em **procurar**.<br />2.  No **selecionar um pacote** caixa de diálogo, clique em **a atualização de cliente do Microsoft Configuration Manager**e, em seguida, clique em **OK**.<br />3.  Clique em **Seguinte**.|  
     |**Pacote USMT** |1.  No **especificar um pacote USMT existente**, clique em **procurar**.<br />2.  No **selecionar um pacote** caixa de diálogo, clique em **USMT**e, em seguida, clique em **OK**.<br />3.  Clique em **Seguinte**.|  
     |Pacote de definições|1.  Clique em **criar um novo pacote de definições**.<br />2.  No **pasta de origem do pacote sejam criados**, tipo  **\\\WDG-MDT-01\Packages$\UDICustomSettings_Target**e, em seguida, clique em **seguinte**.|  

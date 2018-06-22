@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32349522"
 ---
 # <a name="change-your-mdm-authority"></a>Alterar a autoridade de MDM
 Pode alterar a autoridade de MDM, sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Este artigo fornece os passos para alterar um inquilino do Microsoft Intune existente configurado na consola do Configuration Manager (híbrido) para o Intune autónomo. Quando concluir os passos neste artigo, os dispositivos são geridos pelo Microsoft Intune a [portal do Azure](https://portal.azure.com). 
