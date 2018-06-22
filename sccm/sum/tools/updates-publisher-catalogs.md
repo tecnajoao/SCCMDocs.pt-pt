@@ -16,6 +16,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32352198"
 ---
 # <a name="manage-software-update-catalogs-in-updates-publisher"></a>Gerir catálogos de atualização de software no publicador de atualizações
 

@@ -16,6 +16,7 @@ ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/27/2018
+ms.locfileid: "27821605"
 ---
 # <a name="user-driven-installation---developers-guide"></a>Utilizador orientadas por instalação - guia para programadores
 Instalação de orientadas por utilizador (UDI) ajuda a simplificar a implementação de Windows® sistemas operativos cliente, como o Windows 8.1, a computadores utilizando a funcionalidade de implementação (OSD) do sistema operativo no Microsoft® System Center 2012 R2 Configuration Manager. UDI faz parte do Microsoft Deployment Toolkit (MDT).  
@@ -3982,7 +3983,7 @@ Tabela de 84 fornece informações sobre o [DLLs](#DLLs) elemento.
 |-|-|  
 |**Estado**|Especifica o estado de retorno de uma tarefa que encontrou um erro. Normalmente, o valor para este atributo é definido como erro. Este valor é apresentado no **estado** coluna na página do assistente no Assistente de UDI.|  
 |**Texto**|Especifica o texto descritivo sobre a condição de erro que a tarefa encontrado.|  
-|**Tipo**|Especifica se este elemento representa um erro, aviso ou com êxito. O valor especificado no**tipo** têm de ser exclusivos dentro de um [ExitCodes](#ExitCodes) elemento. Seguem-se os valores válidos para este elemento:<br /><br /> -   **0.**o elemento de representar um êxito.<br />-   **1.** O elemento representa um aviso.<br />-   **-1.** O elemento representa um erro.|  
+|**Tipo**|Especifica se este elemento representa um erro, aviso ou com êxito. O valor especificado no**tipo** têm de ser exclusivos dentro de um [ExitCodes](#ExitCodes) elemento. Seguem-se os valores válidos para este elemento:<br /><br /> -   **0.** o elemento de representar um êxito.<br />-   **1.** O elemento representa um aviso.<br />-   **-1.** O elemento representa um erro.|  
 |**Value**|Especifica o valor do código que a tarefa devolvida como um valor numérico. Especifica o valor de um asterisco (*) indica o elemento predefinido códigos de retorno que não estejam listadas noutras [erro](#Error) elementos.|  
 
 ##### <a name="remarks"></a>Observações  

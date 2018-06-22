@@ -14,6 +14,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32340860"
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planear para o gateway de gestão de nuvem no Configuration Manager
 
@@ -345,7 +346,7 @@ O sistema de sites do ponto de ligação CMG suporta a utilização de um proxy 
 
 - Para o Azure AD token obtenção através da consola do Configuration Manager e do cliente: ActiveDirectoryEndpoint (https://login.microsoftonline.com/)  
 
-- Para deteção de utilizadores do Azure AD: Gráfico do AAD (de ponto finalhttps://graph.windows.net/)  
+- Para deteção de utilizadores do Azure AD: Gráfico do AAD (de ponto final https://graph.windows.net/)   
 
 
 

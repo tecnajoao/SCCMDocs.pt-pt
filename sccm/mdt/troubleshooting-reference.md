@@ -16,6 +16,7 @@ ms.sourcegitcommit: 11bf4ed40ed0cbb10500cc58bbecbd23c92bfe20
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/27/2018
+ms.locfileid: "27821556"
 ---
 # <a name="troubleshooting-reference-for-the-microsoft-deployment-toolkit"></a>Referência de resolução de problemas para o Microsoft Deployment Toolkit
  A implementação de sistemas operativos e aplicações, bem como a migração de estado do utilizador pode ser um endeavor um desafio, mesmo quando estão equipados com as ferramentas apropriadas e orientação. Esta referência, o qual faz parte do Microsoft® Deployment Toolkit (MDT) 2013, fornece informações sobre problemas conhecidos atuais, possíveis soluções para esses problemas e a orientação de resolução de problemas.  
@@ -774,7 +775,7 @@ Figura SEQ Figure \\ \* ARABIC 3. Erro de ponto de serviço PXE
 ####  <a name="LimitedRamorWirelessNetworkAdapter"></a> Processo de implementação não foi iniciado — RAM limitado ou um adaptador de rede sem fios  
  **Problema:** Quando implementar uma imagem a determinados computadores de destino, do Windows PE é iniciado, executa **wpeinit**, abre uma janela de linha de comandos, mas não inicia o processo de implementação. Resolução do problema mediante o mapeamento de unidade de rede do computador de destino indica que os controladores de placa de rede não estão carregados.  
 
- **Solução possível 1:**o Assistente de implementação não é iniciar, porque não há RAM suficiente. Certifique-se de que o computador de destino tem, pelo menos, 512 MB de RAM e que nenhum memória de vídeo partilhada consome mais do que 64 MB de 512 MB.  
+ **Solução possível 1:** o Assistente de implementação não é iniciar, porque não há RAM suficiente. Certifique-se de que o computador de destino tem, pelo menos, 512 MB de RAM e que nenhum memória de vídeo partilhada consome mais do que 64 MB de 512 MB.  
 
  As versões do Windows PE, que suporta o MDT são não é possível executar num computador de destino que tem menos de 512 MB de RAM.  
 

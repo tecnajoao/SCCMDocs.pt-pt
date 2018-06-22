@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32334679"
 ---
 # <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Windows 10 geridos com o cliente do System Center Configuration Manager
 Utilizar o System Center Configuration Manager **Windows 10** item de configuração para gerir as definições para computadores Windows 10 que são geridos pelo cliente do Configuration Manager.  

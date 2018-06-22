@@ -1,7 +1,7 @@
 ---
 title: Utilizar o MDT
 titleSuffix: Microsoft Deployment Toolkit
-description: "Saiba como utilizar o Toolkit de implementação do Microsoft 2013. "
+description: 'Saiba como utilizar o Toolkit de implementação do Microsoft 2013. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
 ms.technology:
@@ -16,6 +16,7 @@ ms.sourcegitcommit: be939893f0ceca4add8655ae2c24e42aa16aec38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29564392"
 ---
 # <a name="using-the-microsoft-deployment-toolkit"></a>Utilizar o Microsoft Deployment Toolkit  
  Microsoft® Deployment Toolkit (MDT) 2013 permite-lhe automatizar a implementação de computadores na sua organização. Este documento fornece orientações sobre como planear, criar e implementar sistemas de operativos Windows® e aplicações com o MDT 2013.  
@@ -501,7 +502,7 @@ Tabela 4 apresenta as vantagens desvantagens de espesso, aprovisionamento dinâm
 
 -   Quando efetuar uma atualização, partilhas de implementação de rede e suportes de dados criadas em versões anteriores do MDT tem de ter partilhas válidas.  
 
--   Se as imagens personalizadas capturadas por executar diretamente o ImageX (sem utilizar o MDT para capturar a imagem) não funcionam corretamente, resolva os problemas ao capturar e ao adicionar a imagem com o MDT para se certificar de que todos os pré-requisitos estão corretamente configurados. Adicione ficheiros de configuração para o Deployment Workbench, adicionando uma distribuição de todo o sistema operativo ou mostrando o Assistente de implementação para a localização dos ficheiros de origem. Ao capturar manualmente as imagens, utilize o ficheiro de Wimscript.ini que MDT fornece no \Distribution\tools\\*_platform* pasta, onde *plataforma* x86 (de 32 bits) ou x64 (para 64 bits), para excluir a pastas ou ficheiros de imagem. Lembre-se também de ficheiros Unattend.xml pré-existentes na imagem. Especifique o correto **/sinalizadores** processos de captura de serviços de implementação do Windows ou o valor quando captura imagens do Windows através do ImageX.  
+-   Se as imagens personalizadas capturadas por executar diretamente o ImageX (sem utilizar o MDT para capturar a imagem) não funcionam corretamente, resolva os problemas ao capturar e ao adicionar a imagem com o MDT para se certificar de que todos os pré-requisitos estão corretamente configurados. Adicione ficheiros de configuração para o Deployment Workbench, adicionando uma distribuição de todo o sistema operativo ou mostrando o Assistente de implementação para a localização dos ficheiros de origem. Ao capturar manualmente as imagens, utilize o ficheiro de Wimscript.ini que MDT fornece no \Distribution\tools\\ *_platform* pasta, onde *plataforma* x86 (de 32 bits) ou x64 (para 64 bits), para excluir a pastas ou ficheiros de imagem. Lembre-se também de ficheiros Unattend.xml pré-existentes na imagem. Especifique o correto **/sinalizadores** processos de captura de serviços de implementação do Windows ou o valor quando captura imagens do Windows através do ImageX.  
 
 -   Após a conclusão da implementação do MDT, uma página de resumo mostra avisos sobre erros encontrados durante o processo. (Esta página não é apresentada quando realizar a instalação Server Core, porque não inclui os componentes necessários do Windows Internet Explorer®.) É possível para a implementação concluir, mas ainda acionar vários erros ou avisos, se os erros são nonfatal. É útil inspecionar estes erros e avisos — por exemplo, abrindo correspondente de registos de ficheiros e testes de verificação em execução — e determinar se estão inesperados.  
 
@@ -1531,7 +1532,7 @@ Tabela 10 apresenta uma lista de nós de nível superior no Deployment Workbench
 
     |Na página do Assistente|Faça isto|  
     |-------------------------|-------------|  
-    |**Path** |a. No **caminho de partilha de implementação**, tipo **share_path** (onde *share_path* é o caminho completamente qualificado para a partilha de implementação existente).<br /><br /> Em alternativa pode clicar em Procurar para localizar o local ou a pasta partilhada de rede.<br /><br /> b. Selecione o **atualizar o conteúdo da partilha de implementação (se necessário)**caixa de verificação. Se a caixa de verificação:<br /><br /> -Selecionado, o Assistente de partilha de implementação abra atualiza a partilha de implementação<br /><br /> -Desmarcada, o Assistente de partilha de implementação aberto não irá atualizar a partilha de implementação<br /><br /> c. Clique em **Seguinte**.|  
+    |**Path** |a. No **caminho de partilha de implementação**, tipo **share_path** (onde *share_path* é o caminho completamente qualificado para a partilha de implementação existente).<br /><br /> Em alternativa pode clicar em Procurar para localizar o local ou a pasta partilhada de rede.<br /><br /> b. Selecione o **atualizar o conteúdo da partilha de implementação (se necessário)** caixa de verificação. Se a caixa de verificação:<br /><br /> -Selecionado, o Assistente de partilha de implementação abra atualiza a partilha de implementação<br /><br /> -Desmarcada, o Assistente de partilha de implementação aberto não irá atualizar a partilha de implementação<br /><br /> c. Clique em **Seguinte**.|  
     |**Resumo** |Reveja as informações de **detalhes** caixa e, em seguida, clique em **seguinte**.|  
     |**Confirmação** |Pode clicar em guardar a saída para guardar a saída do Assistente para um ficheiro. Também pode clicar em ver Script para ver os scripts do Windows PowerShell utilizados para executar as tarefas do assistente.<br /><br /> Clique em **Concluir**.|  
 
@@ -4663,7 +4664,7 @@ imagex /flags <edition_id> /info <wim_file> 1 <new_image_name> <new_image_descri
 
     |**Pasta** |**Descrição** |  
     |----------------|---------------------|  
-    |*target_drive:*\MININT|Esta pasta é preservada durante o processo de implementação e contém informações de estado de implementação (por exemplo, informações de migração de estado de utilizador e os ficheiros de registo).|  
+    |*target_drive:* \MININT|Esta pasta é preservada durante o processo de implementação e contém informações de estado de implementação (por exemplo, informações de migração de estado de utilizador e os ficheiros de registo).|  
     |*target_drive:\\_SMSTaskSequence* |Esta pasta contém informações de estado específicas para o sequenciador de tarefas.|  
 
 2.  Inicie o Assistente de implementação.  
@@ -7755,7 +7756,7 @@ Packages002=XXX00003:Program4
 
  Os parâmetros podem ser transmitidos para a função no script de saída de utilizador como habitualmente, especificando o parâmetro ao chamar a função. Por exemplo, para transmitir a variável **% ASSETTAG %** para a função **TrimAssetTag()**, seria possível chamar a função especificando **#TrimAssetTag("%ASSETTAG%") #**.  
 
- O valor devolvido pela função pode ser atribuído a uma variável através da atribuição de função para essa variável. Por exemplo, para assumir a etiqueta de ativo de um computador e corte-la utilizando a função **TrimAssetTag()**e, em seguida, reatribuir a etiqueta de ativo recortadas para a variável **AssetTag**, teria de ficheiro CustomSettings.ini ler **AssetTag=#TrimAssetTag("%ASSETTAG%") #**.  
+ O valor devolvido pela função pode ser atribuído a uma variável através da atribuição de função para essa variável. Por exemplo, para assumir a etiqueta de ativo de um computador e corte-la utilizando a função **TrimAssetTag()** e, em seguida, reatribuir a etiqueta de ativo recortadas para a variável **AssetTag**, teria de ficheiro CustomSettings.ini ler **AssetTag=#TrimAssetTag("%ASSETTAG%") #**.  
 
  É um exemplo de como pode ser utilizado para determinar a sequência de tarefas a ser executada com base numa regra que define o **TaskSequenceID** propriedade. Listar 3 é um script de saída de utilizador de exemplo que determina a sequência de tarefas a ser executada com base na quantidade de RAM disponível. Este script também utiliza o **ZTIUtility** classe de registo.  
 
@@ -7794,7 +7795,7 @@ End Function
 
 3.  Copie o script personalizado para a pasta de Scripts.  
 
- Com o utilizador saia adicionado à partilha de implementação de script (neste caso, Z*-RAMTest.wsf*), este, em seguida, tem de ser referenciado no ficheiro CustomSettings.ini, para a partilha de implementação é chamado durante a implementação.  
+ Com o utilizador saia adicionado à partilha de implementação de script (neste caso, Z *-RAMTest.wsf*), este, em seguida, tem de ser referenciado no ficheiro CustomSettings.ini, para a partilha de implementação é chamado durante a implementação.  
 
 ###### <a name="to-call-the-user-exit-script-from-customsettingsini"></a>Chamar o script de saída do utilizador a partir da CustomSettings.ini  
 

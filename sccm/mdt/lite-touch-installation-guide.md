@@ -1,10 +1,11 @@
 ---
-title: "Início rápido - instalação Lite Touch"
+title: Início rápido - instalação Lite Touch
 titleSuffix: Microsoft Deployment Toolkit
-description: "Um guia de início rápido para o Microsoft Deployment Toolkit lite touch instalação. "
+description: 'Um guia de início rápido para o Microsoft Deployment Toolkit lite touch instalação. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: 21bedd68-e925-46e0-a540-df8c0aba2d6c
 author: aczechowski
@@ -15,6 +16,7 @@ ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27821528"
 ---
 # <a name="quick-start-guide-for-lite-touch-installation"></a>Guia de introdução para instalação Lite Touch  
  Microsoft Deployment Toolkit (MDT) 2013 fornece tecnologias para implementar sistemas operativos Windows e Microsoft Office. Este guia ajuda-o a avaliar rapidamente o MDT 2013, fornecendo instruções passo a passo condensed para utilizá-la para instalar o sistema operativo Windows 8.1 através do Lite Touch Installation (LTI) utilizando suportes de dados (DVD ou USB pen). Este guia demonstra como efetuar o cenário de implementação do novo computador a utilizar uma partilha de implementação do MDT 2013. O cenário de implementação do novo computador abrange a implementação do Windows 8.1 para um novo computador. Este cenário pressupõe que não há nenhum perfil para preservar ou dados de utilizador.  
@@ -168,7 +170,7 @@ ms.lasthandoff: 01/16/2018
 
     |**Na página do Assistente**|**Fazê-lo**|  
     |-|-|  
-    |**Path**|No **caminho de partilha de implementação**, tipo **C:\DeploymentShare$**e, em seguida, clique em **seguinte**.|  
+    |**Path**|No **caminho de partilha de implementação**, tipo **C:\DeploymentShare$** e, em seguida, clique em **seguinte**.|  
     |**Share**|Clique em **Seguinte**.|  
     |**Nome descritivo**|Clique em **Seguinte**.|  
     |**Opções**|Clique em **Seguinte**.|  
@@ -469,7 +471,7 @@ ms.lasthandoff: 01/16/2018
     |-|-|  
     |**Definições gerais**|1.  No **ID de sequência de tarefas**, tipo **WIN8_TARGET**.<br />2.  No **nome da sequência de tarefas**, tipo **implementar imagem capturada ao computador de destino**.<br />3.  No **comentários de sequência de tarefas**, tipo **de sequência de tarefas para a imagem capturada do Windows 8.1 do computador de referência (WDG-REF-01) para o computador de destino (WDG-CLI-01)**.<br />4.  Clique em **Seguinte**.|  
     |**Selecione o modelo**|No **os modelos de sequência de tarefas seguintes estão disponíveis**. **Selecione a que pretende utilizar como um ponto de partida**, selecione a opção padrão **sequência de tarefas de cliente**e, em seguida, clique em **seguinte**.|  
-    |**Selecione o SO**|No **imagens de sistema operativo que se seguem estão disponíveis para implementação com esta sequência de tarefas**. **Selecione um para utilizar**, selecione **WIN8_RERENCEDrive no "WIN8_REFERENCE\WIN8_REFERENCE.wim"**e, em seguida, clique em **seguinte**.|  
+    |**Selecione o SO**|No **imagens de sistema operativo que se seguem estão disponíveis para implementação com esta sequência de tarefas**. **Selecione um para utilizar**, selecione **WIN8_RERENCEDrive no "WIN8_REFERENCE\WIN8_REFERENCE.wim"** e, em seguida, clique em **seguinte**.|  
     |**Especifique a chave de produto**|Clique em **não especificar uma chave de produto neste momento**e, em seguida, clique em **seguinte**.|  
     |**Definições de SO**|1.  No **nome completo**, tipo **Woodgrove Bank empregado**.<br />2.  No **organização**, tipo **Banco Woodgrove**.<br />3.  No **Home Page do Internet Explorer**, tipo **http://www.woodgrovebank.com**.<br />4.  Clique em **Seguinte**.|  
     |**Palavra-passe de administrador**|No **palavra-passe de administrador** e **confirme a palavra-passe de administrador**, tipo  **P@ssw0rd** e, em seguida, clique em **seguinte**.|  

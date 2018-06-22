@@ -1,10 +1,11 @@
 ---
-title: "Referência do Toolkit"
+title: Referência do Toolkit
 titleSuffix: Microsoft Deployment Toolkit
-description: "Detalhes de referência para o Microsoft implementação Toolkit 2013. "
+description: 'Detalhes de referência para o Microsoft implementação Toolkit 2013. '
 ms.date: 09/09/2016
 ms.prod: configuration-manager
-ms.technology: configmgr-osd
+ms.technology:
+- configmgr-osd
 ms.topic: article
 ms.assetid: ac670143-b7cd-47d0-86ed-14cb2554dfc7
 author: aczechowski
@@ -15,6 +16,7 @@ ms.sourcegitcommit: 645cd5a324bdd299906efa27eaca5885eafc9e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27821647"
 ---
 # <a name="toolkit-reference-for-the-microsoft-deployment-toolkit"></a>Toolkit de referência para o Microsoft Deployment Toolkit
  Esta referência faz parte do Microsoft® Deployment Toolkit (MDT) 2013 e fornece definições de configuração que pode utilizar o processo de implementação. Reveja os documentos do MDT 2013 *guia de amostras do Toolkit de implementação do Microsoft* e *utilizar o Microsoft Deployment Toolkit* para obter ajuda na personalizar as definições de configuração para o ambiente de implementação.  
@@ -244,7 +246,7 @@ ms.lasthandoff: 01/16/2018
 ##### <a name="settings"></a>Definições  
 |**Nome**|**Descrição**|  
 |-|-|   
-|**Servidor do Orchestrator**|Escreva o URL para o Orchestrator web service, que inclui o nome do servidor. Serviço web do Orchestrator pode utilizar o protocolo HTTP (Hypertext Transfer) ou HTTP através de Secure Sockets Layer (HTTPS). Predefinições para a porta 81 do serviço web do Orchestrator.<br /><br /> Serviço web do Orchestrator suporta múltiplos servidores runbook. Por predefinição, um runbook pode ser executado em qualquer servidor runbook. Um runbook pode ser configurado para especificar quais os servidores runbook devem ser utilizados para executar o runbook.<br /><br /> Nota:<br /><br /> Serviço web do Orchestrator suporta a capacidade para executar um runbook num servidor runbook específico. Esta funcionalidade não é suportada no MDT.<br /><br /> Especifique o URL em qualquer um dos seguintes formatos:<br /><br /> - ***ServerName***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername>:81/Orchestrator2012/Orchestrator.svc`<br /><br /> - ***servername:Port***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -**http://*servername:port***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -**http://*servername:port***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> - **http://*servername:port*/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com. svc.<br /><br /> -                                 **https://*servername:port*/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com. svc.|  
+|**Servidor do Orchestrator**|Escreva o URL para o Orchestrator web service, que inclui o nome do servidor. Serviço web do Orchestrator pode utilizar o protocolo HTTP (Hypertext Transfer) ou HTTP através de Secure Sockets Layer (HTTPS). Predefinições para a porta 81 do serviço web do Orchestrator.<br /><br /> Serviço web do Orchestrator suporta múltiplos servidores runbook. Por predefinição, um runbook pode ser executado em qualquer servidor runbook. Um runbook pode ser configurado para especificar quais os servidores runbook devem ser utilizados para executar o runbook.<br /><br /> Nota:<br /><br /> Serviço web do Orchestrator suporta a capacidade para executar um runbook num servidor runbook específico. Esta funcionalidade não é suportada no MDT.<br /><br /> Especifique o URL em qualquer um dos seguintes formatos:<br /><br /> - ***ServerName***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername>:81/Orchestrator2012/Orchestrator.svc`<br /><br /> - ***servername:Port***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -**http://* servername:port***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `http://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> -**http://* servername:port***. Quando utilizar este formato, o URL será assumida a:<br /><br /> `https://<servername:port>/Orchestrator2012/Orchestrator.svc.`<br /><br /> - **http://*servername:port*/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com. svc.<br /><br /> -                                 **https://*servername:port*/Orchestrator2012/Orchestrator.svc**. Quando utilizar este formato, o MDT parte do princípio de que está a fornecer o URL completamente qualificado, porque o valor termina com. svc.|  
 |**Runbook**|Clique em **procurar**e, em seguida, selecione o nome do runbook do Orchestrator que esta sequência de tarefas deve ser executada.<br /><br /> Nota:<br /><br /> Para procurar com êxito para os runbooks do Orchestrator, instale o [actualização do ADO.NET Data Services para .NET Framework 3.5 SP1 para Windows 7 e Windows Server 2008 R2](http://www.microsoft.com/download/details.aspx?displaylang=en&id=2343).|  
 |**Fornecer automaticamente os parâmetros do runbook**|Selecione esta opção para fornecer automaticamente valores de parâmetro de entrada do runbook do Orchestrator (a que parte do princípio de que os valores de parâmetro de runbook são variáveis de sequência de tarefas). Por exemplo, se um runbook tem um parâmetro de entrada com o nome **OSDComputerName**, em seguida, a **OSDComputerName** valor de variável de sequência de tarefas é transferida para o runbook.<br /><br /> Nota:<br /><br /> Esta opção funciona apenas para os parâmetros de entrada que são nomes de variáveis de sequência de tarefas válido e não conter espaços ou outros carateres especiais. Apesar dos espaços e outros carateres especiais são suportados como nomes de parâmetro do Orchestrator, não têm nomes de variáveis de sequência de tarefas válido. Se tiver de passar valores para os parâmetros com espaços ou outros carateres especiais, utilize o **especificar os parâmetros do runbook explícita** opção.<br /><br /> A outra opção consiste **especificar os parâmetros do runbook explícita**.<br /><br /> Nota:<br /><br /> Os valores fornecidos para os parâmetros de entrada do runbook para o serviço web do Orchestrator são formatados como XML. Passar valores que contêm dados que se assemelha dados formatado em XML ou poderá causar erros.|  
 |**Especifique os parâmetros do runbook explícita**|Selecione esta opção para fornecer explicitamente o Orchestrator parâmetros de entrada do runbook.<br /><br /> Tem de configurar as seguintes definições para cada parâmetro de entrada que o runbook do Orchestrator requer:<br /><br /> -                                 **Nome**. Este é o nome do parâmetro de entrada do runbook.<br /><br /> Nota:<br /><br /> Se alterar os parâmetros de um runbook do Orchestrator existente, terá de procurar novamente, (reselect) para o runbook porque MDT apenas obtém a lista de parâmetros ao adicionar inicialmente o runbook do Orchestrator.<br /><br /> - **Valor**. Isto pode ser uma constante ou uma variável, tal como uma variável de sequência de tarefas ou uma variável de ambiente. Por exemplo, pode especificar um valor de **% OSDComputerName %**, que irá passar o valor da **OSDComputerName** variável de sequência de tarefas para o parâmetro de entrada do runbook.|  
@@ -4356,7 +4358,7 @@ cscript.exe LiteTouch.vbs /debug:true
 
 |**Valor**|**Descrição**|  
 |-|-|
-|*location1,*location2|A lista de localizações sejam atribuídos a um computador individual ou um grupo de computadores|  
+|*location1,* location2|A lista de localizações sejam atribuídos a um computador individual ou um grupo de computadores|  
 
 |**Exemplo**|  
 |-|  
@@ -6263,7 +6265,7 @@ BackupDir=Client01
 
 |**Valor**|**Descrição**|  
 |-|-|
-|*custom_property1,*custom_property2|Propriedades personalizadas, definido pelo utilizador que seja resolvido|  
+|*custom_property1,* custom_property2|Propriedades personalizadas, definido pelo utilizador que seja resolvido|  
 
 |**Exemplo**|  
 |-|  
@@ -7902,7 +7904,7 @@ PackageGroup001=TopFolder\SecondFolder
 ####  <a name="VHDCreateSource"></a>VHDCreateSource  
  Esta propriedade é utilizada para especificar o nome de um ficheiro VHD que é utilizado como um modelo (origem) para criar um novo ficheiro VHD. Pode especificar o nome de ficheiro com um caminho UNC, o caminho local, o caminho relativo ou apenas o nome de ficheiro. Se apenas o nome de ficheiro for especificado, o MDT tenta localizar o ficheiro VHD no computador de destino. Esta propriedade só é válida para o cenário de implementação do MDT novo computador.  
 
- Esta propriedade for definida normalmente utilizando um passo de sequência de tarefas criado utilizando o **criar Virtual disco rígido (VHD)** tipo de sequência de tarefas. Pode substituir o valor que o **criar Virtual disco rígido (VHD)**passo de sequência de tarefas define ao configurar esta propriedade no CustomSettings.ini.  
+ Esta propriedade for definida normalmente utilizando um passo de sequência de tarefas criado utilizando o **criar Virtual disco rígido (VHD)** tipo de sequência de tarefas. Pode substituir o valor que o **criar Virtual disco rígido (VHD)** passo de sequência de tarefas define ao configurar esta propriedade no CustomSettings.ini.  
 
 > [!NOTE]
 >  Para configurar esta propriedade no CustomSettings.ini, tem de adicionar esta propriedade para o **propriedades** linha no CustomSettings.ini.  
@@ -10070,7 +10072,7 @@ Tabela 4 apresenta uma lista de sistemas operativos do Windows que MDT suporta e
 |**Todos os**|-|-|  
 
 ###  <a name="ZTIGroups.wsf"></a>ZTIGroups.wsf  
- Este script de captura e restaura a associação de grupo local no computador de destino. Este script é chamado com o**/capturar** argumento para a cópia de segurança a associação ao grupo do computador de destino antes de implementar o sistema operativo. O **CaptureGroups** propriedade contém a lista de grupos que o script cria cópias de segurança. O script é chamado com o**/restaurar** argumento para restaurar a associação a grupos após o sistema operativo é implementado. Quando efetuar uma operação de restauro, restaura a associação de todos os grupos que foram copiados em segurança durante a execução do script utilizando o **/capturar** argumento.  
+ Este script de captura e restaura a associação de grupo local no computador de destino. Este script é chamado com o **/capturar** argumento para a cópia de segurança a associação ao grupo do computador de destino antes de implementar o sistema operativo. O **CaptureGroups** propriedade contém a lista de grupos que o script cria cópias de segurança. O script é chamado com o **/restaurar** argumento para restaurar a associação a grupos após o sistema operativo é implementado. Quando efetuar uma operação de restauro, restaura a associação de todos os grupos que foram copiados em segurança durante a execução do script utilizando o **/capturar** argumento.  
 
 > [!NOTE]
 >  Ao restaurar a associação ao grupo, o script não criar quaisquer grupos de destino que já existe no computador de destino. Por conseguinte, não se esqueça de incluir todos os grupos necessários no computador de referência ao criar o ficheiro de imagem.  
@@ -13886,11 +13888,11 @@ Update-MDTMedia -Path "DS001:\Media\MEDIA001"
 
     -   Relação entre os cenários de implementação do MDT e fases UDI, consulte [UDI fase referência](#UDIStageReference)  
 
-2.  Durante a sequência de tarefas, as definições de configuração fornecidas pelo variáveis de sequência de tarefas e da intervenção do utilizador no Assistente de UDI são guardadas no *% DEPLOYROOT %*\Tools\OSDResults pasta no computador de destino (onde *%D % EPLOYROOT* é a raiz da pasta na qual os ficheiros do MDT são localmente colocadas em cache no computador de destino).  
+2.  Durante a sequência de tarefas, as definições de configuração fornecidas pelo variáveis de sequência de tarefas e da intervenção do utilizador no Assistente de UDI são guardadas no *% DEPLOYROOT %* \Tools\OSDResults pasta no computador de destino (onde *%D % EPLOYROOT* é a raiz da pasta na qual os ficheiros do MDT são localmente colocadas em cache no computador de destino).  
 
 3.  No **OSD resultados e Branding** grupo na sequência de tarefas, os seguintes passos de sequência de tarefas são executados que afetem **OSDResults**:  
 
-    -   **Resultados OSD da cache.** Este passo de sequência de tarefas copia os conteúdos do *% DEPLOYROOT %*\Tools\OSDResults pasta para a pasta %WINDIR%\UDI no computador de destino. Isto garante que o conteúdo da pasta OSDResults irá ser persistente, após a conclusão da sequência de tarefas.  
+    -   **Resultados OSD da cache.** Este passo de sequência de tarefas copia os conteúdos do *% DEPLOYROOT %* \Tools\OSDResults pasta para a pasta %WINDIR%\UDI no computador de destino. Isto garante que o conteúdo da pasta OSDResults irá ser persistente, após a conclusão da sequência de tarefas.  
 
     -   **Execute os resultados OSD.** Este passo de sequência de tarefas configura o computador de destino para executar **OSDResults** na primeira vez que o computador é iniciado.  
 

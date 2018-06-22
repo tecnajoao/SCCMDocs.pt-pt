@@ -16,6 +16,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32334485"
 ---
 # <a name="troubleshoot-the-scap-extensions-for-microsoft-system-center-configuration-manager"></a>Resolver problemas relacionados com as extensões SCAP para o Microsoft System Center Configuration Manager
 

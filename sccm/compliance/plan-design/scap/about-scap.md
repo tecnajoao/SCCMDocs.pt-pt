@@ -16,6 +16,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32336192"
 ---
 # <a name="about-the-security-content-automation-protocol-scap-extensions"></a>Sobre as extensões Security Content Automation Protocol (SCAP)
 

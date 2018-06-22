@@ -14,6 +14,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32333227"
 ---
 # <a name="frequently-asked-questions-about-the-cloud-management-gateway"></a>Perguntas mais frequentes sobre o gateway de gestão de nuvem
 

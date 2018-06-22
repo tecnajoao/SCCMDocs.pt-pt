@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1701943932818e0df1928d9be36ebaf424dd93b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34049248"
 ---
 # <a name="create-windows-applications-with-system-center-configuration-manager"></a>Criar aplicações do Windows com o System Center Configuration Manager
 

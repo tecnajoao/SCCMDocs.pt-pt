@@ -16,6 +16,7 @@ ms.sourcegitcommit: 7198ec49d9ce68c6d55bfb9e2d537b5442a132cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/09/2018
+ms.locfileid: "33915977"
 ---
 # <a name="microsoft-deployment-toolkit-samples-guide"></a>Guia de amostras do Microsoft Deployment Toolkit  
  Este guia faz parte do Microsoft® Deployment Toolkit (MDT) 2013 e guias de uma equipa especialista em através da implementação de sistemas operativos Windows e Microsoft Office. Especificamente, este guia foi concebido para fornecer definições de configuração de exemplo para cenários de implementação específicos.  
@@ -1722,7 +1723,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
 19. No **pastas replicar** página, clique em **adicionar**e, em seguida, execute estes passos:  
 
-    1.  No **caminho Local da pasta para replicar** , clique em **procurar** para ir para o *x:\\* pasta de implementação (onde *X* é a letra de unidade no servidor de implementação).  
+    1.  No **caminho Local da pasta para replicar** , clique em **procurar** para ir para o *x:\\*pasta de implementação (onde *X* é a letra de unidade no servidor de implementação).  
 
     2.  Clique em **utilize o nome com base no caminho**.  
 
@@ -1958,7 +1959,7 @@ IF ((Computer Model IS “Contoso 1950”) AND (operating system=2003 OR operati
 
 4.  Clique em de **regras** separador e, em seguida, modifique o ficheiro CustomSettings.ini para configurar as seguintes propriedades:  
 
-    -   Para cada secção do SQL Server adicionada, configurar **SQLServer** para utilizar o nome do servidor **% WDSServer % —**por exemplo, **SQLServer = % WDSServer %**.  
+    -   Para cada secção do SQL Server adicionada, configurar **SQLServer** para utilizar o nome do servidor **% WDSServer % —** por exemplo, **SQLServer = % WDSServer %**.  
 
     -   Se configurar **DeployRoot**, configurar **DeployRoot** para utilizar o **% WDSServer %** variável — por exemplo, **DeployRoot =\\ \\%WDSServer%\Deployment$**.  
 

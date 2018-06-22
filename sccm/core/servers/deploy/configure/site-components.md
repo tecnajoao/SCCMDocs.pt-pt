@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32334774"
 ---
 # <a name="site-components-for-system-center-configuration-manager"></a>Componentes do site para o System Center Configuration Manager
 

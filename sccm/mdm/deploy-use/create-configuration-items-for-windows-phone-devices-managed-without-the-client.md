@@ -14,6 +14,7 @@ ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32351977"
 ---
 # <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Windows Phone geridos sem o cliente do System Center Configuration Manager
 Utilizar o System Center Configuration Manager**Windows Phone** item de configuração para gerir as definições para dispositivos Windows Phone que são inscritos pelo Configuration Manager no Microsoft Intune ou geridos no local.  
