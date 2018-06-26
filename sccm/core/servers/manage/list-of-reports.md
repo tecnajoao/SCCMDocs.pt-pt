@@ -10,12 +10,12 @@ ms.assetid: b7332ed3-8003-454b-bb12-1fdf8721425c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d486907a7819758b27c9a644214ed4d5ec873762
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 705247080fc99a6a9dd7dfcb773b2220283cd7a6
+ms.sourcegitcommit: e3f7bb8cec4b37a311bc86098297534cab947de8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32342550"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36759037"
 ---
 # <a name="list-of-reports-in-system-center-configuration-manager"></a>Lista de relatórios no System Center Configuration Manager
 
@@ -28,7 +28,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="administrative-security"></a>Segurança administrativa  
- Os seguintes relatórios estão listados no **segurança administrativa** categoria.  
+ Os seguintes seis relatórios estão listados no **segurança administrativa** categoria.  
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -42,7 +42,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="alerts"></a>Alertas  
-
+Os dois seguintes relatórios estão listados no **alertas** categoria.  
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Tabela de indicadores de alerta**|Mostra um resumo de todos os alertas adiados que foram gerados entre o início especificado e a data de conclusão.|  
@@ -51,6 +51,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="asset-intelligence"></a>Asset Intelligence  
+Os seguintes 62 relatórios estão listados no **do Asset Intelligence** categoria.  
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -120,6 +121,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="client-push"></a>Cliente de Push  
+Os seguintes quatro relatórios estão listados no **Push de cliente** categoria.  
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -131,6 +133,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="client-status"></a>Estado do cliente  
+Os seguintes sete relatórios estão listados no **estado do cliente** categoria.  
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -145,6 +148,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="company-resource-access"></a>Acesso aos Recursos da Empresa  
+Os seguintes três relatórios estão listados no **acesso a recursos da empresa** categoria. 
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -155,6 +159,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="compliance-and-settings-management"></a>Gestão de Compatibilidade e Definições  
+Os seguintes 22 relatórios estão listados no **gestão de definições de compatibilidade e** categoria. 
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -184,6 +189,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="device-management"></a>Gestão de Dispositivos  
+Os seguintes 37 relatórios estão listados no **gestão de dispositivos** categoria. 
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -228,6 +234,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="driver-management"></a>Gestão do Controlador  
+Os seguintes 13 relatórios estão listados no **gestão do controlador** categoria. 
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -248,7 +255,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="endpoint-protection"></a>Endpoint Protection  
-
+Os seguintes seis relatórios estão listados no **Endpoint Protection** categoria. 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Relatório de atividade Antimalware**|Mostra uma descrição geral da atividade antimalware.|  
@@ -261,7 +268,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---cd-rom"></a>Hardware - CD-ROM  
-
+Os seguintes quatro relatórios estão listados no **Hardware - CD-ROM** categoria. 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Informações de CD-ROM para um computador específico**|Mostra informações sobre as unidades de CD-ROM num computador especificado.|  
@@ -272,6 +279,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---disk"></a>Hardware - disco  
+Os seguintes oito relatórios estão listados no **Hardware - disco** categoria. 
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -287,6 +295,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---general"></a>Hardware - geral  
+Os seguintes cinco relatórios estão listados no **Hardware - geral** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -299,6 +308,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---memory"></a>Hardware - memória  
+Os seguintes cinco relatórios estão listados no **Hardware - memória** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -311,6 +321,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---modem"></a>Hardware - Modem  
+Os seguintes três relatórios estão listados no **Hardware - Modem** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -321,6 +332,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---network-adapter"></a>Hardware - placa de rede  
+Os seguintes três relatórios estão listados no **Hardware - placa de rede** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -331,6 +343,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---processor"></a>Hardware - processador  
+Os seguintes cinco relatórios estão listados no **Hardware - processador** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -343,6 +356,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---scsi"></a>Hardware - SCSI  
+Os seguintes cinco relatórios estão listados no **Hardware - SCSI** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -353,6 +367,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---security"></a>Hardware - segurança
+O relatório de um seguinte está listado no **Hardware - segurança** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -361,6 +376,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---sound-card"></a>Hardware - placa de som  
+Os seguintes três relatórios estão listados no **Hardware - SCSI** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -371,6 +387,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="hardware---video-card"></a>Hardware - placa de vídeo  
+Os seguintes três relatórios estão listados no **Hardware - placa gráfica** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -381,6 +398,8 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="migration"></a>Migração  
+
+Os seguintes cinco relatórios estão listados no **migração** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -394,6 +413,8 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 ## <a name="network"></a>Rede  
 
+Os seguintes seis relatórios estão listados no **rede** categoria.
+
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Contagem de endereços IP por sub-rede**|Mostra o número de endereços IP inventariados para cada sub-rede IP.|  
@@ -406,6 +427,9 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="operating-system"></a>Sistema operativo  
+
+Os seguintes 10 relatórios estão listados no **sistema operativo** categoria.
+
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -423,6 +447,8 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="power-management"></a>Gestão de Energia  
+
+Os seguintes 18 relatórios estão listados no **gestão de energia** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -448,6 +474,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="replication-traffic"></a>Tráfego de Replicação  
+Os seguintes 10 relatórios estão listados no **tráfego de replicação** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -465,6 +492,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="site---client-information"></a>Site - informação de cliente  
+Os seguintes 19 relatórios estão listados no **Site - informação de cliente** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -491,6 +519,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="site---discovery-and-inventory-information"></a>Site - informações de inventário e de deteção  
+Os seguintes 10 relatórios estão listados no **Site - informações de inventário e de deteção** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -508,6 +537,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="site---general"></a>Site - geral  
+Os seguintes três relatórios estão listados no **Site - geral** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -518,6 +548,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="site---server-information"></a>Site - informações do servidor  
+O relatório de um seguinte está listado no **Site - informações do servidor** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -526,6 +557,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software---companies-and-products"></a>Software - empresas e produtos  
+Os seguintes 15 relatórios estão listados no **Software - empresas e produtos** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -548,6 +580,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software---files"></a>Software - Ficheiros  
+Os seguintes cinco relatórios estão listados no **Software - ficheiros** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -560,6 +593,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-distribution---application-monitoring"></a>Distribuição de software - monitorização de aplicações  
+Os seguintes 10 relatórios estão listados no **distribuição de Software - monitorização de aplicações** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -577,6 +611,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-distribution---collections"></a>Distribuição de Software - Coleções  
+Os seguintes três relatórios estão listados no **distribuição de Software - coleções** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -587,6 +622,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-distribution---content"></a>Distribuição de Software - Conteúdos  
+Os seguintes 16 relatórios estão listados no **distribuição de Software - conteúdos** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -609,7 +645,8 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 
-## <a name="software-distribution---package-and-program-deployment"></a>Distribuição de software - pacote de implementação e do programa  
+## <a name="software-distribution---package-and-program-deployment"></a>Distribuição de software - pacote de implementação e do programa 
+Os seguintes cinco relatórios estão listados no **distribuição de Software - pacote de implementação e do programa** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -622,6 +659,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-distribution---package-and-program-deployment-status"></a>Distribuição de software - estado de implementação de programa e pacote  
+Os seguintes cinco relatórios estão listados no **distribuição de Software - estado de implementação de programa e pacote** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -634,6 +672,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-metering"></a>Medição de Software  
+Os seguintes 13 relatórios estão listados no **medição de Software** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -654,6 +693,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-updates---a-compliance"></a>Atualizações de software - conformidade  
+Os seguintes oito relatórios estão listados no **atualizações de Software - conformidade** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -669,6 +709,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-updates---b-deployment-management"></a>Atualizações de software - B gestão de implementação  
+Os seguintes oito relatórios estão listados no **atualizações de Software - B gestão de implementação** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -684,6 +725,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-updates---c-deployment-states"></a>Atualizações de software - C Estados de implementação  
+Os seguintes seis relatórios estão listados no **atualizações de Software - C Estados de implementação** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -697,6 +739,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="software-updates---d-scan"></a>Atualizações de software - D análise  
+Os seguintes quatro relatórios estão listados no **atualizações de Software - D análise** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -709,6 +752,8 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 ## <a name="software-updates---e-troubleshooting"></a>Atualizações de software - E resolução de problemas  
 
+Os seguintes quatro relatórios estão listados no **atualizações de Software - E resolução de problemas** categoria.
+
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**1 de resolução de problemas - erros de análise**|Mostra os erros de análise no site e uma contagem dos computadores com cada erro.|  
@@ -719,6 +764,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="state-migration"></a>Migração de Estado  
+Os seguintes três relatórios estão listados no **migração de estado** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -729,6 +775,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="status-messages"></a>Mensagens de Estado  
+Os seguintes 12 relatórios estão listados no **mensagens de estado** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -749,6 +796,8 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 ## <a name="status-messages---audit"></a>Mensagens de Estado - Auditoria  
 
+Os seguintes três relatórios estão listados no **mensagens de estado - auditoria** categoria.
+
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Todas as mensagens de auditoria para um utilizador específico**|Mostra um resumo de todas as mensagens de estado de auditoria para um utilizador especificado. Mensagens de auditoria descrevem ações tomadas na consola do Configuration Manager que adicionar, modificar ou eliminam objetos no Configuration Manager.|  
@@ -758,6 +807,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="task-sequence---deployment-status"></a>Sequência de tarefas - estado da implementação  
+Os seguintes 11 relatórios estão listados no **sequência de tarefas - estado da implementação** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -776,6 +826,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="task-sequence---deployments"></a>Sequência de Tarefas - Implementações  
+Os seguintes 11 relatórios estão listados no **sequência de tarefas - implementações** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -794,6 +845,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="task-sequence---progress"></a>Sequência de Tarefas - Progresso  
+Os seguintes cinco relatórios estão listados no **sequência de tarefas - progresso** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -806,6 +858,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="task-sequences---references"></a>Sequências de Tarefas - Referências  
+O relatório de um seguinte está listado no **sequências de tarefas - referências** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -815,6 +868,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 <!--
 ## Upgrade Assessment  
+The following 11 reports are listed under the **Upgrade Assessment** category.
 
 |Report name|Description|  
 |-----------------|-----------------|  
@@ -835,6 +889,8 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 ## <a name="user---device-affinity"></a>Utilizador - afinidade de dispositivo  
 
+Os dois seguintes relatórios estão listados no **utilizador - afinidade de dispositivo** categoria.
+
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Associações de afinidade de dispositivo do utilizador pendentes por coleção**|Este relatório mostra todas as atribuições de afinidade dispositivo/utilizador pendentes, com base nos dados de utilização, para membros de uma coleção.|  
@@ -843,6 +899,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="user-data-and-profiles-health"></a>Dados do Utilizador e Estado de Funcionamento dos Perfis  
+Os seguintes quatro relatórios estão listados no **estado de funcionamento de perfis e dados do utilizador** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -854,6 +911,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="users"></a>Utilizadores  
+Os seguintes três relatórios estão listados no **utilizadores** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -864,6 +922,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="virtual-applications"></a>Aplicações Virtuais  
+Os seguintes sete relatórios estão listados no **aplicações virtuais** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -878,6 +937,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="volume-purchase-programs---apple"></a>Programas de compras em volume - Apple
+O relatório de um seguinte está listado no **Volume Purchase Programs - Apple** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -886,6 +946,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="vulnerability-assessment"></a>Avaliação da vulnerabilidade
+O relatório de um seguinte está listado no **avaliação da vulnerabilidade** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -894,6 +955,7 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="wake-on-lan"></a>Reativação Por LAN  
+Os seguintes sete relatórios estão listados no **Wake On LAN** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
