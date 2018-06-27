@@ -1,6 +1,6 @@
 ---
 title: Preparação para a atualização
-titleSuffix: Configuraton Manager
+titleSuffix: Configuration Manager
 description: Integre com o Configuration Manager de preparação de atualização. Aceder a dados de compatibilidade da atualização na consola do administrador. Dispositivos de destino para a atualização ou correção.
 author: aczechowski
 ms.author: aaroncz
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
-ms.openlocfilehash: 4360fc34e06d4c62c137f8c956274104112d54a8
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: dea441a474eb6572bb468dcd71b5295569304092
+ms.sourcegitcommit: 59afe6f05333d4150afaf88ab0a85a979818e3fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32336736"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36957836"
 ---
 # <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Integrar a preparação de atualização com o System Center Configuration Manager
 
@@ -87,9 +87,9 @@ No Configuration Manager versão 1702 ou anterior, um conjunto diferente de pass
 
 ### <a name="create-the-connection"></a>Criar a ligação
 
-1.  Na consola do Configuration Manager, escolha **administração** > **serviços em nuvem** > **conector de preparação de atualização** > **criar ligação para atualizar análise** para iniciar o **Adicionar Assistente de ligação de análise de atualização**.
-3.  No **do Azure Active Directory** ecrã, forneça **inquilino**, **ID de cliente**, e **chave secreta do cliente**, em seguida, selecione **seguinte**.
-4.  No **atualizar preparação** ecrã, forneça as definições de ligação ao preencher a **subscrição do Azure**, **grupo de recursos do Azure**, e **área de trabalho do Operations Management Suite**.
+1.  Na consola do Configuration Manager, escolha **administração** > **serviços em nuvem** > **conector de preparação de atualização**  >  **Criar ligação para atualizar análise** para iniciar o **Adicionar Assistente de ligação de análise de atualização**.
+3.  No **do Azure Active Directory** ecrã, forneça **inquilino**, **ID de cliente**, e **chave secreta do cliente**, em seguida, selecione  **Seguinte**.
+4.  No **atualizar preparação** ecrã, forneça as definições de ligação ao preencher a **subscrição do Azure**, **grupo de recursos do Azure**, e  **Área de trabalho do Operations Management Suite**.
 5.  Verifique as definições de ligação no **resumo** ecrã, em seguida, selecione **seguinte**.
 
     > [!NOTE]

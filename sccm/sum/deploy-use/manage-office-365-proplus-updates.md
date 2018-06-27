@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: eac542eb-9aa1-4c63-b493-f80128e4e99b
-ms.openlocfilehash: a94ac00b8fce6098cbd829947f4e2fbdcb761b9e
-ms.sourcegitcommit: c5e078b8eee87f527e5b5a0c2eb687bb9d6896c5
+ms.openlocfilehash: fa73ed132a00455b47355877b1c20e8d2f8c4f3a
+ms.sourcegitcommit: 59afe6f05333d4150afaf88ab0a85a979818e3fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34270719"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36957802"
 ---
 # <a name="manage-office-365-proplus-with-configuration-manager"></a>Gerir o Office 365 ProPlus com o Configuration Manager
 
@@ -43,12 +43,12 @@ O dashboard de gestão de clientes do Office 365 fornece gráficos para as segui
 - Canais de cliente do Office 365     
   Para obter mais informações, consulte [canais de consumo de descrição geral da atualização para o Office 365 ProPlus](/DeployOffice/overview-of-update-channels-for-office-365-proplus).
 
-Para ver o dashboard de gestão de clientes do Office 365 na consola do Configuration Manager, aceda a **biblioteca de Software** > **descrição geral** > **gestão de clientes do Office 365**. Na parte superior do dashboard, utilize o **coleção** definição de lista pendente para filtrar os dados de dashboard por membros da coleção específica. A partir do Configuration Manager versão 1802, o dashboard de gestão de cliente do Office 365 apresenta uma lista de dispositivos relevantes quando estão selecionadas secções de gráfico.
+Para ver o dashboard de gestão de clientes do Office 365 na consola do Configuration Manager, aceda a **biblioteca de Software** > **descrição geral** > **cliente do Office 365 Gestão**. Na parte superior do dashboard, utilize o **coleção** definição de lista pendente para filtrar os dados de dashboard por membros da coleção específica. A partir do Configuration Manager versão 1802, o dashboard de gestão de cliente do Office 365 apresenta uma lista de dispositivos relevantes quando estão selecionadas secções de gráfico.
 
 ### <a name="display-data-in-the-office-365-client-management-dashboard"></a>Apresentar dados no dashboard de gestão de clientes do Office 365
 Os dados que são apresentados no dashboard de gestão de clientes do Office 365 provém de inventário de hardware. Ativar inventário de hardware e selecione o **Office 365 ProPlus configurações** classe de inventário de hardware para os dados apresentar no dashboard. 
 #### <a name="to-display-data-in-the-office-365-client-management-dashboard"></a>Para apresentar dados no dashboard de gestão de clientes do Office 365
-1. Ative inventário de hardware, se ainda não estiver ativada. Para obter mais informações, consulte [configurar o inventário de hardware](\sccm\core\clients\manage\configure-hardware-inventory).
+1. Ative inventário de hardware, se ainda não estiver ativada. Para obter mais informações, consulte [configurar o inventário de hardware](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
 2. Na consola do Configuration Manager, navegue até à **administração** > **as definições de cliente** > **predefinições de cliente**.  
 3. No separador **Home page** , no grupo **Propriedades** , clique em **Propriedades**.  
 4. Na caixa de diálogo **Predefinições de Cliente** , clique em **Inventário de Hardware**.  
@@ -67,7 +67,7 @@ Para versões anteriores do Configuration Manager, tem de efetuar os seguintes p
 
 ### <a name="requirements"></a>Requisitos
 - O computador que executa o instalador do Office 365 tem de ter acesso à Internet.  
-- O utilizador que executa o instalador do Office 365 tem de ter **leitura** e **escrever** acesso à partilha de localização de conteúdo é fornecido no assistente.
+- O utilizador que executa o instalador do Office 365 tem de ter **leitura** e **escrever** acesso à partilha de localização de conteúdo fornecido no assistente.
 - Se receber um erro de 404 transferência, copie os seguintes ficheiros para a pasta % temp % do utilizador:
   - [releasehistory.xml](http://officecdn.microsoft.com/pr/wsus/releasehistory.cab)
   - [o365client_32bit.xml](http://officecdn.microsoft.com/pr/wsus/ofl.cab)  
@@ -88,7 +88,7 @@ Para versões anteriores do Configuration Manager, tem de efetuar os seguintes p
 7. No **implementação** página, escolha se pretende implementar a aplicação e, em seguida, clique em **seguinte**. <br/>Se optar por não implementar o pacote no assistente, avance para o passo 9.
 8. Configure as restantes páginas do assistente, tal como faria para uma implementação de aplicação típica. Para obter mais informações, consulte [criar e implementar uma aplicação](/sccm/apps/get-started/create-and-deploy-an-application).
 9. Conclua o assistente.
-10. Pode implementar ou editar a aplicação do **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **aplicações**.    
+10. Pode implementar ou editar a aplicação do **biblioteca de Software** > **descrição geral** > **gestão de aplicações**  >   **Aplicações**.    
 
 Depois de criar e implementar aplicações do Office 365, utilizando o instalador do Office 365, do Configuration Manager não irão gerir as atualizações do Office por predefinição. Para ativar os clientes do Office 365 receber atualizações do Configuration Manager, consulte [atualizações de implementar o Office 365 com o Configuration Manager](#deploy-office-365-updates-with-configuration-manager).
 
@@ -151,7 +151,7 @@ Quando implementar uma atualização para um cliente do Office 365, as notifica�
 Pode adicionar suporte para o Configuration Manager para transferir atualizações para os idiomas que são suportados pelo Office 365, independentemente se são suportados no Configuration Manager.    
 
 > [!IMPORTANT]  
-> Configurar outros idiomas de atualização do Office 365 é uma definição ao nível do site. Depois de adicionar os idiomas utilizando o procedimento seguinte, todas as atualizações do Office 365 são transferidas os idiomas selecionados, bem como os idiomas que selecionou no **seleção de idioma** página nos assistentes para transferir atualizações de Software ou implementar as atualizações de Software.
+> Configurar outros idiomas de atualização do Office 365 é uma definição ao nível do site. Depois de adicionar os idiomas utilizando o procedimento seguinte, todas as atualizações do Office 365 são transferidas os idiomas selecionados, bem como os idiomas que selecionou no **seleção de idioma** página no implementar ou transferir as atualizações de Software Assistentes de atualizações de software.
 
 ### <a name="to-add-support-to-download-updates-for-additional-languages"></a>Para adicionar suporte para transferir atualizações para idiomas adicionais
 Utilize o procedimento seguinte no ponto de atualização de software no site de administração central ou site primário autónomo.
@@ -168,7 +168,7 @@ Utilize o procedimento seguinte no ponto de atualização de software no site de
 8. Adicionar outros idiomas para o **Value2** propriedade e clique em **guardar propriedade**. <br/> Por exemplo, pt-pt (para Português - Portugal), af-za (para Afrikaans - África do Sul), não nn (para norueguês (Nynorsk) - Noruega), etc.  
 ![Adicionar idiomas no Editor de propriedade](..\media\4-props.png)  
 9. Clique em **fechar**, clique em **fechar**, clique em **guardar propriedade**e clique em **guardar objeto** (se clicar em **fechar**aqui os valores são eliminados). Clique em **fechar**e, em seguida, clique em **sair** para sair do recurso de teste do Windows Management Instrumentation.
-10. Na consola do Configuration Manager, vá para **biblioteca de Software** > **descrição geral** > **gestão de clientes do Office 365** > **atualizações do Office 365**.
+10. Na consola do Configuration Manager, vá para **biblioteca de Software** > **descrição geral** > **gestão de clientes do Office 365**  >  **Atualizações do office 365**.
 11. Agora quando transferir atualizações do Office 365, serão transferidas as atualizações nos idiomas de que seleciona no assistente e configurado neste procedimento. Para verificar se as atualizações de transferir nos idiomas corretos, avance para a origem do pacote para a atualização e procurarem ficheiros com o código de idioma no nome de ficheiro.  
 ![Nomes de ficheiros com outros idiomas](..\media\5-verification.png)
 
