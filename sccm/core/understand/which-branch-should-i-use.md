@@ -10,12 +10,12 @@ ms.assetid: a3be4f8f-3d44-4e3c-9fa1-e85f30a36e72
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 258d8ac160e9ee31189f8771fd6109d1bb17f714
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 4331ec4120141ab9aa20301b9a99c3c6ebeef568
+ms.sourcegitcommit: 0305e710f634529793ae73e5aac24168ee4fe02f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32341343"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37042750"
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>O ramo do Configuration Manager devo utilizar?
 
@@ -37,7 +37,7 @@ Este ramo está licenciado para utilização num ambiente de produção. Utilize
 
 Para obter mais informações sobre Software Assurance e opções de licenciamento, consulte [licenciamento e ramos para o System Center Configuration Manager](learn-more-editions.md) e [perguntas mais frequentes sobre ramos de Configuration Manager e licenciamento](/sccm/core/understand/product-and-licensing-faq).
 
-O ramo atual é atualizado várias vezes um ano com as novas funcionalidades. Cada versão de atualização é suportada para um ano depois da versão. Atualizar para uma versão mais recente do current branch no ou antes da expiração desse período de um ano. Atualizações para versões mais recentes estão disponíveis como atualizações na consola.
+Microsoft planos de lançamento atualizações para o ramo atual do System Center Configuration Manager algumas vezes por ano. Para versões do Configuration Manager lançadas antes 1710, o suporte está durante 12 meses. Cada versão de atualização a partir do lançamento 1710, permanece no suporte para 18 meses a partir da respetiva data de lançamento de disponibilidade geral (DG). O suporte técnico é fornecido para o período de suporte completo. No entanto, os nossa estrutura de suporte for dinâmica, evolução em duas fases distintas manutenção que dependem da disponibilidade da versão do ramo atual mais recente. (Para obter mais informações, consulte o tópico intitulado [suporte para versões do System Center Configuration Manager current branch](https://docs.microsoft.com/sccm/core/servers/manage/current-branch-versions-supported). Atualizações para versões mais recentes estão disponíveis como atualizações na consola.
 
 Para instalar o ramo atual como um novo site, utilize [suporte de dados de linha de base](/sccm/core/servers/manage/updates#baseline-and-update-versions). Também utilize suportes de dados de linha de base a atualização do System Center 2012 Configuration Manager com Service Pack 2 ou System Center 2012 R2 Configuration Manager com Service Pack 1. Acesso a este suporte de dados depende de como a sua organização licenciado System Center Configuration Manager. 
 
