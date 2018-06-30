@@ -2,7 +2,7 @@
 title: Perfis da VPN
 titleSuffix: Configuration Manager
 description: Saiba mais sobre perfis da VPN em dispositivos móveis no Configuration Manager.
-ms.date: 05/01/2018
+ms.date: 06/12/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -10,11 +10,12 @@ ms.assetid: 45388103-2410-4c7e-b4cf-73a1bda485fc
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1b59c413fdd857db3aadd94b9851ad0778937a0a
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 9409b6cc71ea238755f40baf75e6211c447b547f
+ms.sourcegitcommit: 826e9ec385d6a1c1f3aa86ac202883154e0c1285
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37116516"
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Perfis da VPN em dispositivos móveis no System Center Configuration Manager
 
@@ -55,9 +56,12 @@ Esta tabela mostra o tipo de ligação que é suportado para cada plataforma de 
    - Utilize o **Cisco AnyConnect** opção para VPN, perfis nas seguintes versões:
        - iOS com o Cisco AnyConnect versão 4.0.7 ou posterior
 
-     > [!Note]  
-     > Cisco AnyConnect 4.0.07x e posterior para iOS é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).  
-
+     > [!Tip]  
+     > Cisco AnyConnect 4.0.07x e posterior para iOS foi introduzida pela primeira vez na versão 1802 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). Começando com [atualizar 4163547](https://support.microsoft.com/help/4163547) para versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+  
+  
+> [!Note]  
+> F5 acesso 2018 não é suportada para perfis VPN no híbrida MDM.  
 
 
 ## <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Funcionalidades de VPN do Windows 10 estão disponíveis ao utilizar o Configuration Manager com o Intune  
