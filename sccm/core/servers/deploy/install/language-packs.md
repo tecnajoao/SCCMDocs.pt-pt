@@ -1,8 +1,8 @@
 ---
 title: Pacotes de idiomas
 titleSuffix: Configuration Manager
-description: Saiba mais sobre o suporte de idioma disponível no System Center Configuration Manager.
-ms.date: 1/3/2017
+description: Saiba mais sobre o suporte de idioma disponível no Configuration Manager.
+ms.date: 06/29/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,27 +10,39 @@ ms.assetid: cd74e5f5-33f6-4566-8c9d-d6a93bfe71ed
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a198e15a1ef389d792acc73f2253aa4a704ac35a
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 54034ec94ad2a0ea2b7ce095d9da669aea02f0b3
+ms.sourcegitcommit: 702e6017b6dee4629b67bb9f3bd5d9b5a889ebee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32340317"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340231"
 ---
-# <a name="language-packs-in-system-center-configuration-manager"></a>Pacotes de idiomas no System Center Configuration Manager
+# <a name="language-packs-in-configuration-manager"></a>Pacotes de idiomas no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este tópico fornece detalhes técnicos sobre o suporte de idiomas no System Center Configuration Manager.  
+Este artigo fornece detalhes técnicos sobre o suporte de idiomas no Configuration Manager. Servidores de site do Configuration Manager e os clientes são considerados idioma neutro. Adicionar suporte para idiomas de apresentação através da instalação **pacotes de idiomas de servidor** ou **pacotes de idiomas de cliente** num site de administração central e em sites primários. Selecione os idiomas de servidor e cliente para suportar num site a partir de ficheiros do pacote de idiomas disponíveis durante o processo de instalação do site.
+ 
+Instale vários idiomas em cada site. Apenas terá de instalar os idiomas que utiliza.  
 
-## <a name="BKMK_SupLanguagePacks"></a> Idiomas do sistema operativo suportado  
- Pode instalar suporte para os idiomas de apresentação nas tabelas seguintes, instalando **pacotes de idiomas de servidor** ou **pacotes de idiomas de cliente** num site de administração central e em sites primários. Selecione os idiomas de servidor e cliente para suportar num site a partir de ficheiros do pacote de idiomas disponíveis durante o processo de instalação do site.
+- Cada site suporta vários idiomas para consolas do Configuration Manager.  
 
- Ficheiros do pacote de idiomas são transferidos quando executa a configuração como parte da transferência do ficheiro redistributable e da pré-requisitos. Também pode utilizar [dispositivo de transferência da configuração](setup-downloader.md) para transferir estes ficheiros antes de executar a configuração.   
+- Adicione suporte para apenas os idiomas de cliente que pretende suportar instalando pacotes de idiomas de cliente individuais em cada site.  
 
- Utilize a tabela seguinte para mapear um ID de região para um idioma que pretende suportar em servidores ou computadores cliente. Para obter mais informações sobre IDs de região, consulte [IDs de região atribuídos pela Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=252609).  
+Quando instala suporte para um idioma que corresponde aos seguintes componentes:  
 
-### <a name="server-languages"></a>Idiomas do servidor  
+- O idioma de apresentação de um computador: Consola do Configuration Manager e a interface de utilizador do cliente que executa nesse computador apresentam informações nesse idioma.  
+
+- A preferência de idioma que está a ser utilizada pelo browser de um computador: Ligações a informações baseadas na web, incluindo o catálogo de aplicações ou o SQL Server Reporting Services, apresentadas nesse idioma.  
+
+
+Quando executar a configuração do Configuration Manager, transfere ficheiros do pacote de idioma como parte dos pré-requisitos e os ficheiros redistribuíveis. Também pode utilizar o [configurar o dispositivo de transferência da](setup-downloader.md) para transferir estes ficheiros antes de executar a configuração.   
+
+
+
+## <a name="server-languages"></a>Idiomas do servidor  
+
+Utilize a tabela seguinte para mapear um ID de região para um idioma que pretende suportar em servidores. Para obter mais informações sobre IDs de região, consulte [IDs de região atribuídos pela Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=252609).  
 
 |Idioma do servidor|ID de região (LCID)|Código de três letras|  
 |---------------------|------------------------|-----------------------|  
@@ -54,7 +66,11 @@ Este tópico fornece detalhes técnicos sobre o suporte de idiomas no System Cen
 |Sueco|041d|SVE|  
 |Turco|041f|TRK|  
 
-### <a name="client-languages"></a>Idiomas do cliente  
+
+
+## <a name="client-languages"></a>Idiomas de cliente  
+
+Utilize a tabela seguinte para mapear um ID de região para um idioma que pretende suportar em computadores cliente. Para obter mais informações sobre IDs de região, consulte [IDs de região atribuídos pela Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=252609).  
 
 |Idioma do cliente|ID de região (LCID)|Código de três letras|  
 |---------------------|------------------------|-----------------------|  
@@ -82,12 +98,15 @@ Este tópico fornece detalhes técnicos sobre o suporte de idiomas no System Cen
 |Sueco|041d|SVE|  
 |Turco|041f|TRK|  
 
+
 ### <a name="mobile-device-client-languages"></a>Idiomas de cliente do dispositivo móvel  
- Quando adiciona suporte para idiomas do dispositivo móvel, todos os idiomas de cliente de dispositivos móveis suportadas são incluídos. É possível selecionar pacotes de idiomas individuais para suporte de dispositivos móveis.  
+Quando adiciona suporte para idiomas do dispositivo móvel, todos os idiomas de cliente de dispositivos móveis suportadas estão incluídos. Não é possível selecionar pacotes de idiomas individuais para suporte de dispositivos móveis.  
 
-### <a name="identify-installed-language-packs"></a>Identificar pacotes de idiomas instalados  
-Para identificar os pacotes de idiomas instalados num computador que executa o cliente do Configuration Manager, procure o ID de região (LCID) dos pacotes de idiomas instalados no registo do computador. Esta informação está disponível em:
 
- **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCMSetup\InstalledLangs**  
 
-Pode utilizar o inventário de hardware para recolher estas informações e, em seguida, criar um relatório personalizado para ver os detalhes do idioma. Para obter informações sobre a recolha do inventário de hardware personalizado, consulte [como configurar inventário de hardware no System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md). Para obter informações sobre a criação de relatórios, consulte o [relatórios do Configuration Manager gerir](../../../../core/servers/manage/operations-and-maintenance-for-reporting.md#BKMK_ManageReports) secção o [operações e manutenção de relatórios no System Center Configuration Manager](../../../../core/servers/manage/operations-and-maintenance-for-reporting.md) tópico.  
+## <a name="identify-installed-language-packs"></a>Identificar pacotes de idiomas instalados  
+Para identificar os pacotes de idiomas instalados num computador que executa o cliente do Configuration Manager, procure o ID de região (LCID) dos pacotes de idiomas instalados no registo do computador. Esta informação estiver disponível no seguinte caminho de registo:  
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCMSetup\InstalledLangs`  
+
+Personalize o inventário de hardware para recolher estas informações. Em seguida, crie um relatório personalizado para ver os detalhes do idioma. Para obter mais informações sobre a recolha de inventário de hardware personalizado, consulte [como configurar inventário de hardware](/sccm/core/clients/manage/inventory/configure-hardware-inventory). Para obter mais informações sobre a criação de relatórios, consulte [relatórios do Configuration Manager/gerir](/sccm/core/servers/manage/operations-and-maintenance-for-reporting#BKMK_ManageReports).  
