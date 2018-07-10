@@ -2,7 +2,7 @@
 title: Ponto de ligação de serviço
 titleSuffix: Configuration Manager
 description: Saiba mais sobre esta função de sistema de sites do Configuration Manager e compreenda e planeie as várias utilizações.
-ms.date: 1/29/2018
+ms.date: 07/05/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,22 +10,22 @@ ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7328d7053d1fb06487e255fe4a24d6955c99c4b0
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 6002c077ae0a8e34f35a9d0e36d02f5950946bde
+ms.sourcegitcommit: 73b241a72db8f8f3bd7e269fc81ad49e14f01058
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32338055"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843292"
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Acerca do ponto de ligação de serviço no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-O ponto de ligação de serviço do System Center Configuration Manager é uma função de sistema de sites que serve várias funções importantes para a hierarquia. Antes de configurar o ponto de ligação de serviço, compreenda e planeie as várias utilizações.  Planeamento de utilização pode afetar a forma como configura esta função de sistema de sites:  
+O ponto de ligação de serviço do System Center Configuration Manager é uma função de sistema de sites que serve várias funções importantes para a hierarquia. Antes de configurar o ponto de ligação de serviço, compreenda e planeie as várias utilizações.  Planear a utilização pode afetar a forma como configura esta função de sistema de sites:  
 
--   **Gerir dispositivos móveis com o Microsoft Intune** -esta função substitui o conector do Windows Intune que versões anteriores do Configuration Manager utilizado e podem ser configurados com os detalhes da subscrição do Intune. Consulte [gestão híbrida de dispositivos móveis (MDM) com o System Center Configuration Manager e o Microsoft Intune](../../../../mdm/understand/hybrid-mobile-device-management.md).  
+-   **Gerir dispositivos móveis com o Microsoft Intune** -esta função substitui o conector do Windows Intune que podem ser configuradas com os detalhes de subscrição do Intune e utilizam de versões anteriores do Configuration Manager. Ver [gestão de dispositivos móveis (MDM) híbrida com o System Center Configuration Manager e o Microsoft Intune](../../../../mdm/understand/hybrid-mobile-device-management.md).  
 
--   **Gerir dispositivos móveis com MDM no local** -esta função fornece suporte para dispositivos no local que gere e que não ligam à internet. Consulte [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+-   **Gerir dispositivos móveis com MDM no local** -esta função fornece suporte para dispositivos no local que gere e que não ligam à internet. Ver [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
 -   **Carregar dados de utilização da sua infraestrutura do Configuration Manager** -pode controlar o nível ou a quantidade de detalhes que carrega. Os dados carregados ajudam:  
 
@@ -33,17 +33,17 @@ O ponto de ligação de serviço do System Center Configuration Manager é uma f
 
     -   Melhorar os nossos produtos e serviços  
 
-    -   Identificar as atualizações para o Configuration Manager que se aplicam à versão do Configuration Manager que utilizar  
+    -   Identificar as atualizações do Configuration Manager que se aplicam à versão do Configuration Manager que utilizar  
 
-  Para informações sobre como alterar o nível da coleção depois da função é instalada e dados que recolhe de cada nível, consulte [diagnósticos e dados de utilização](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data). Em seguida, siga a ligação para a versão do Configuration Manager que utilizar.  
+  Para obter informações sobre como alterar o nível de coleção após instala a função e de dados que recolhe de cada nível, consulte [diagnósticos e dados de utilização](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data). Em seguida, siga a ligação para a versão do Configuration Manager que utilizar.  
 
-  Para obter mais informações, consulte [níveis de dados de utilização e definições](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
+  Para obter mais informações, consulte [níveis de utilização de dados e definições](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
--   **Transferir as atualizações que se aplicam à sua infraestrutura do Configuration Manager** - só relevantes para a sua infraestrutura são disponibilizadas atualizações com base nos dados de utilização que carrega.  
+-   **Transferir as atualizações aplicáveis à sua infraestrutura do Configuration Manager** - apenas atualizações relevantes para a sua infraestrutura são disponibilizadas com base nos dados de utilização que carrega.  
 
 - **Cada hierarquia suporta uma única instância desta função:**  
 
- -   A função de sistema de sites só pode ser instalada no site de nível superior da sua hierarquia, o que é um site de administração central ou site primário autónomo.  
+ -   A função de sistema de sites só pode ser instalada no site de nível superior da hierarquia, que é um site de administração central ou site primário autónomo.  
 
   -   Se expandir um site primário autónomo para uma hierarquia maior, tem de desinstalar esta função do site primário e pode, em seguida, instalá-la no site de administração central.  
 
@@ -51,26 +51,26 @@ O ponto de ligação de serviço do System Center Configuration Manager é uma f
 ##  <a name="bkmk_modes"></a> Modos de operação  
  O ponto de ligação de serviço suporta dois modos de funcionamento:  
 
--   No **modo online**, o ponto de ligação de serviço verifica automaticamente, a cada 24 horas para atualizações. Transfere as novas atualizações disponíveis para a sua infraestrutura atual e a versão do produto para que fiquem disponíveis na consola do Configuration Manager.  
+-   Na **modo online**, o ponto de ligação de serviço procura automaticamente a cada 24 horas atualizações. Transfere as novas atualizações disponíveis para a sua infraestrutura atual e versão de produto para que fiquem disponíveis na consola do Configuration Manager.  
 
--   No **modo offline**, o ponto de ligação de serviço não liga ao serviço de nuvem da Microsoft. [Utilizar a ferramenta de ligação de serviço do System Center Configuration Manager](../../../../core/servers/manage/use-the-service-connection-tool.md) para importar manualmente as atualizações disponíveis.  
+-   Na **modo offline**, o ponto de ligação de serviço não liga ao serviço de nuvem da Microsoft. [Utilizar a ferramenta de ligação de serviço do System Center Configuration Manager](../../../../core/servers/manage/use-the-service-connection-tool.md) para importar as atualizações disponíveis manualmente.  
 
-Se alterar entre os modos online ou offline depois de instalar o ponto de ligação de serviço, tem de reiniciar o thread SMS_DMP_DOWNLOADER do serviço do SMS_Executive do Configuration Manager antes da alteração entrar em vigor. Pode utilizar o Gestor do serviço do Configuration Manager para reiniciar apenas o thread SMS_DMP_DOWNLOADER do serviço SMS_Executive. Também pode reiniciar o serviço SMS_Executive no Configuration Manager, que reinicia a maior parte dos componentes do site. Em alternativa, pode aguardar uma tarefa agendada, como uma cópia de segurança do site que para e, em seguida, mais tarde, reinicia o serviço SMS_Executive por si.  
+Se mudar entre os modos online ou offline depois de instalar o ponto de ligação de serviço, tem de reiniciar o thread SMS_DMP_DOWNLOADER do serviço SMS_Executive do Configuration Manager para a alteração entra em vigor. Pode utilizar o Gestor de serviço do Configuration Manager para reiniciar apenas o thread SMS_DMP_DOWNLOADER do serviço SMS_Executive. Também pode reiniciar o serviço SMS_Executive no Configuration Manager, que reinicia a maioria dos componentes do site. Em alternativa, pode aguardar uma tarefa agendada, como uma cópia de segurança do site, que para e, em seguida, mais tarde, reinicia o serviço SMS_Executive para.  
 
-Para utilizar o Configuration Manager Service Manager, na consola de ir para **monitorização** > **estado do sistema** > **estado do componente**, escolha **iniciar**e, em seguida, escolha **do serviço do Configuration Manager**. No Service Manager:  
+Para utilizar o Gestor de serviço do Configuration Manager, na consola do aceda à **monitorização** > **estado do sistema** > **estado do componente**, escolha **Começar**e, em seguida, escolha **Configuration Manager Service Manager**. No Service Manager:  
 
--   No painel de navegação, expanda o site, expanda **componentes**e, em seguida, escolha o componente que pretende reiniciar.  
+-   No painel de navegação, expanda o site, expanda **componentes**e, em seguida, selecione o componente que pretende reiniciar.  
 
 -   No painel de detalhes, faça duplo clique o componente e, em seguida, escolha **consulta**.  
 
--   Depois do Estado do componente é confirmado, clique com botão direito o componente novamente e, em seguida, escolha **parar**.  
+-   Depois do Estado do componente é confirmado, com o botão direito o componente novamente e, em seguida, escolha **parar**.  
 
--   **Consulta** o componente novamente para confirmar se está parado. Faça duplo clique o componente mais uma vez e, em seguida, escolha **iniciar**.  
+-   **Consulta** o componente novamente para confirmar que está parada. Faça duplo clique o componente mais uma vez e, em seguida, escolha **iniciar**.  
 
 > [!IMPORTANT]  
->  O processo que adiciona automaticamente uma subscrição do Microsoft Intune para o ponto de ligação de serviço define a função de sistema de sites para estar online. O ponto de ligação de serviço não suporta o modo offline quando é configurada com uma subscrição do Intune.  
+>  O processo que adiciona automaticamente uma subscrição do Microsoft Intune para o ponto de ligação de serviço define a função de sistema de sites para estar online. O ponto de ligação de serviço não suporta o modo offline quando este está configurado com uma subscrição do Intune.  
 
-**Quando a função é instalada num computador que esteja remoto a partir do servidor do site:**  
+**Quando a função é instalada num computador remoto do servidor do site:**  
 
 -   A conta de computador do servidor do site tem de ser um administrador local no computador que aloja uma ligação de serviço remoto.
 
@@ -78,10 +78,10 @@ Para utilizar o Configuration Manager Service Manager, na consola de ir para **m
 
 -   O Gestor de distribuição no servidor do site utiliza a conta de instalação do sistema de sites para transferir atualizações a partir do ponto de ligação de serviço.
 
-##  <a name="bkmk_urls"></a> Requisitos de acesso à Internet  
-Para ativar a operação, o computador que aloja o ponto de ligação de serviço e quaisquer firewalls entre esse computador e da internet tem de transmitir comunicações através da porta de saída **TCP 443** para HTTPS e a porta de saída  **TCP 80** para HTTP para o abaixo localizações de internet. A serviço do ponto de ligação também suporta a utilização de um proxy web (com ou sem autenticação) para utilizar estas localizações.  Se precisar de configurar uma conta de proxy web consulte: [Suporte para servidor proxy no System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
+##  <a name="bkmk_urls"></a> Requisitos de acesso de Internet  
+Para ativar a operação, o computador que aloja o ponto de ligação de serviço e todas as firewalls entre esse computador e a internet tem de passar comunicações através da porta de saída **TCP 443** para HTTPS e a porta de saída  **TCP 80** para HTTP para o abaixo localizações de internet. A serviço do ponto de ligação também suporta a utilização de um proxy web (com ou sem autenticação) para utilizar estas localizações.  Se precisar de configurar uma conta de proxy web consulte: [Suporte de servidor proxy no System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
 
-**Atualizações e manutenção**  
+**As atualizações e manutenção**  
 
 -   *.akamaiedge.net  
 
@@ -99,6 +99,8 @@ Para ativar a operação, o computador que aloja o ponto de ligação de serviç
 
 -   sccmconnected-a01.cloudapp.net  
 
+- configmgrbits.azureedge.NET
+
 **Microsoft Intune**  
 
 -   *manage.microsoft.com  
@@ -115,11 +117,11 @@ Para ativar a operação, o computador que aloja o ponto de ligação de serviç
 ## <a name="install-the-service-connection-point"></a>Instalar o ponto de ligação de serviço
 Quando executa **configuração** para instalar o site de nível superior de uma hierarquia, tem a opção para instalar o ponto de ligação de serviço.
 
-Após a execução do programa de configuração, ou se estiver a reinstalar a função de sistema de sites, utilize o **adicionar funções do sistema de sites** assistente ou no **criar servidor do sistema de sites** Assistente para instalar o sistema de sites num servidor no site de nível superior da hierarquia, ou seja, o site de administração central ou um site primário autónomo. Ambos os assistentes são no **home page** separador na consola em **administração** > **configuração do Site** > **servidores e funções de sistema de sites**.
+Após a execução do programa de configuração ou se estiver a reinstalar a função de sistema de sites, utilize o **adicionar funções de sistema de sites** assistente ou o **criar servidor do sistema de sites** Assistente para instalar o sistema de sites num servidor no site de nível superior da a hierarquia, ou seja, o site de administração central ou um site primário autónomo. Ambos os assistentes são no **home page** separador na consola **administração** > **configuração do Site** > **servidores e sites Funções do sistema**.
 
 ## <a name="log-files-used-by-the-service-connection-point"></a>Ficheiros de registo utilizados pelo ponto de ligação de serviço
-Para ver informações sobre carregamentos para a Microsoft, consulte o **Dmpuploader.log** no computador que executa o ponto de ligação de serviço.  Para as transferências, incluindo o progresso da transferência das atualizações, ver **Dmpdownloader.log**. Para obter a lista completa de registos relacionadas com o ponto de ligação de serviço, consulte [ponto de ligação de serviço](/sccm/core/plan-design/hierarchy/log-files#BKMK_WITLog) no artigo de ficheiros de registo do Configuration Manager.
+Para ver informações sobre carregamentos para a Microsoft, veja a **dmpuploader** no computador que executa o ponto de ligação de serviço.  Para transferências, incluindo o progresso do download de atualizações, veja **dmpdownloader. log**. Para obter a lista completa de registos relacionados com o ponto de ligação de serviço, consulte [ponto de ligação de serviço](/sccm/core/plan-design/hierarchy/log-files#BKMK_WITLog) no artigo de ficheiros de registo do Configuration Manager.
 
-Também pode utilizar as seguintes fluxogramas para compreender o fluxo de processo e entradas de chave de registo para transferências de atualização e para replicação de atualizações para outros sites:
+Também pode utilizar os fluxogramas seguintes para compreender o fluxo de processo e entradas de chave de registo de downloads de atualização e replicação de atualizações para outros sites:
  - [Fluxograma – Transferir atualizações](/sccm/core/servers/manage/download-updates-flowchart)
  - [Fluxograma – Atualizar replicação](/sccm/core/servers/manage/update-replication-flowchart)
