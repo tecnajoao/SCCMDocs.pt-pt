@@ -10,69 +10,69 @@ ms.assetid: b1970688-0cd2-404f-a17f-9e2aa4a78758
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: a1799dcffa55de80c0c700a56301d7d71f3b4a48
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 14251bb062423a31bcf74d2079b2e1b667f61ba9
+ms.sourcegitcommit: 06d490d526070e17d77e86bc6c200899ded911cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32341972"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967169"
 ---
-# <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurar o seu laboratório System Center Configuration Manager
+# <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurar o laboratório do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Seguir as orientações neste tópico irá permitem-lhe configurar um laboratório para avaliar o Configuration Manager com atividades de reais simuladas.  
+Seguir as orientações neste tópico irá permitir-lhe configurar um laboratório para avaliar o Configuration Manager com atividades de reais simuladas.  
 
 ##  <a name="BKMK_LabCore"></a> Componentes principais  
  Como configurar o ambiente para o System Center Configuration Manager requer alguns componentes principais para suportar a instalação do Configuration Manager.    
 
--   **O ambiente de laboratório utiliza o Windows Server 2012 R2**, na qual iremos irá instalar o System Center Configuration Manager.  
+-   **O ambiente de laboratório utiliza o Windows Server 2012 R2**, no qual vamos instalar o System Center Configuration Manager.  
 
-     Pode transferir uma versão de avaliação do Windows Server 2012 R2 a partir de [TechNet Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
+     Pode baixar uma versão de avaliação do Windows Server 2012 R2 a partir da [Centro de avaliação TechNet](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
 
-     Considere modificar ou desativar a configuração de segurança avançada do Internet Explorer para aceder mais facilmente a algumas das transferências referidas durante estes exercícios. Reveja [Internet Explorer: Configuração de segurança avançada](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) para obter informações adicionais.  
+     Considere modificar ou desativar a configuração de segurança avançada do Internet Explorer para aceder mais facilmente a algumas das transferências referidas durante estes exercícios. Reveja [do Internet Explorer: Configuração de segurança avançada](https://technet.microsoft.com/library/dd883248\(v=ws.10\).aspx) para obter informações adicionais.  
 
 -   **O ambiente de laboratório utiliza o SQL Server 2012 SP2** para a base de dados do site.  
 
-     Pode transferir uma versão de avaliação do SQL Server 2012 a partir de [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
+     Pode baixar uma versão de avaliação do SQL Server 2012 a partir da [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
 
-     O SQL Server tem [versões do SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions) que devem ser cumpridos para utilização com o System Center Configuration Manager.  
+     O SQL Server tem [versões suportadas do SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions) que têm de ser cumpridos para utilização com o System Center Configuration Manager.  
 
     -   O Configuration Manager requer uma versão de 64 bits do SQL Server para alojar a base de dados do site.  
 
     -   **SQL_Latin1_General_CP1_CI_AS** como classe do **Agrupamento SQL** . A  
 
-    -   **Autenticação do Windows**, [em vez da autenticação SQL](https://technet.microsoft.com/library/ms144284.aspx), é necessário.  
+    -   **Autenticação do Windows**, [em vez de autenticação do SQL](https://technet.microsoft.com/library/ms144284.aspx), é necessário.  
 
     -   Um dedicado **instância do SQL Server** é necessária.  
 
-    -   Não limitar o **memória do sistema endereçável** para o SQL Server.  
+    -   Não limitam os **memória endereçável sistema** para o SQL Server.  
 
-    -   Configurar o **conta de serviço do SQL Server** a serem executados utilizando um pouco de direitos de conta de utilizador de domínio.  
+    -   Configurar o **conta de serviço do SQL Server** a ser realizada usando uma baixa de direitos de conta de utilizador de domínio.  
 
     -   Tem de instalar **do SQL Server reporting services**.  
 
     -   **Comunicações entre locais** utiliza o SQL Server Service Broker na porta predefinida TCP 4022. As  
 
-    -   **Comunicações intra-site** entre o motor de base de dados do SQL Server e o sistema de sites do Configuration Manager Selecione funções de utilizam a porta TCP 1433 predefinida.  
+    -   **As comunicações** entre o motor de base de dados do SQL Server e o sistema de sites do Configuration Manager Selecione funções utilizam a porta TCP 1433 predefinida.  
 
--   **O controlador de domínio utiliza o Windows Server 2008 R2** com serviços de domínio do Active Directory instalado. O controlador de domínio também funciona como o anfitrião para o DHCP e os servidores DNS para utilizam com um nome de domínio completamente qualificado.  
+-   **O controlador de domínio utiliza o Windows Server 2008 R2** com serviços de domínio do Active Directory instalado. O controlador de domínio também funciona como anfitrião para o DHCP e os servidores DNS para utilizam com um nome de domínio completamente qualificado.  
 
-     Para obter mais informações, consulte este [descrição geral dos serviços de domínio do Active Directory](https://technet.microsoft.com/en-us/library/hh831484).  
+     Para obter mais informações, veja esta [descrição geral dos serviços de domínio do Active Directory](https://technet.microsoft.com/library/hh831484).  
 
--   **Hyper-V é utilizado com alguns máquinas de virtuais** para verificar se os passos de gestão executados estes exercícios estão a funcionar conforme esperado. É recomendado um mínimo de três máquinas virtuais, com o Windows 7 (ou posterior) instalado.  
+-   **Hyper-V é utilizado com algumas máquinas de virtuais** para verificar se os passos de gestão executados estes exercícios estão a funcionar conforme esperado. É recomendado um mínimo de três máquinas virtuais, com o Windows 7 (ou posterior) instalado.  
 
-     Para obter mais informações, consulte este [descrição geral do Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
+     Para obter mais informações, veja esta [descrição geral do Hyper-V](https://technet.microsoft.com/library/hh831531.aspx).  
 
 -   **permissões de administrador** são necessárias para todos estes componentes. O  
 
-    -   O Configuration Manager requer um administrador com permissões de segurança no ambiente do Windows Server  
+    -   O Configuration Manager requer um administrador com permissões locais no ambiente do Windows Server  
 
     -   do Active Directory requer um administrador com permissões para modificar o esquema  
 
     -   Máquinas virtuais requerem permissões locais nas próprias máquinas  
 
-Apesar de não é necessária para este laboratório, pode rever [configurações suportadas para o System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) para obter informações adicionais sobre os requisitos para implementar o System Center Configuration Manager. Consulte a documentação sobre versões de software que não se encontram referenciado aqui.  
+Embora não é necessário para este laboratório, pode rever [configurações suportadas do System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) para obter mais informações sobre os requisitos para implementar o System Center Configuration Manager. Consulte a documentação para versões de software que não estão referenciados aqui.  
 
 Depois de instalar todos estes componentes, existem passos adicionais que deve efetuar para configurar o ambiente do Windows para o Configuration Manager:  
 
@@ -89,10 +89,10 @@ Depois de instalar todos estes componentes, existem passos adicionais que deve e
 
      Em circunstâncias normais, não concederia acesso universal a todos os utilizadores no seu ambiente. Está a fazê-lo com este utilizador para simplificar a colocação do seu laboratório online.  
 
-Os passos necessários para permitir que os clientes do Configuration Manager consulta Active Directory Domain Services para localizar recursos de site estão listados por cima dos próximos procedimentos.  
+Os próximos passos necessários para permitir que os clientes do Configuration Manager consulta Active Directory Domain Services para localizar recursos de site são apresentados ao longo dos próximos procedimentos.  
 
 ##  <a name="BKMK_CreateSysMgmtLab"></a> Criar o contentor de Gestão do Sistema.  
- O Configuration Manager não criará automaticamente o contentor de gestão do sistema necessário nos serviços de domínio do Active Directory quando o esquema é expandido. Por conseguinte, irá criar este para o laboratório. Este passo irá solicitar-lhe que [instale o Editor de ADSI.](https://technet.microsoft.com/en-us/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
+ O Configuration Manager não criará automaticamente o contentor de gestão do sistema necessário nos serviços de domínio do Active Directory quando o esquema é expandido. Por conseguinte, irá criar este para o laboratório. Este passo irá solicitar-lhe [instalar ADSI Edit.](https://technet.microsoft.com/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
 
  Certifique-se de que iniciou sessão com uma conta que tenha a permissão **Criar Todos os Objetos Subordinados** no recipiente **Sistema** nos Serviços de Domínio do Active Directory.  
 
@@ -100,7 +100,7 @@ Os passos necessários para permitir que os clientes do Configuration Manager co
 
 1.  Execute o **Editor de ADSI**e estabeleça ligação ao domínio em que reside o servidor de site.  
 
-2.  Expanda **domínio&lt;nome de domínio completamente qualificado\>**, expanda **< nome único\>**, faça duplo clique **CN = System**, clique em **novo**e, em seguida, clique em **objeto**.  
+2.  Expanda **domínio&lt;computador nome de domínio completamente qualificado\>**, expanda **< nome único\>**, com o botão direito **CN = System**, clique em **New**e, em seguida, clique em **objeto**.  
 
 3.  Na caixa de diálogo **Criar Objeto** , selecione **Contentor**e clique em **Seguinte**.  
 
@@ -116,7 +116,7 @@ Os passos necessários para permitir que os clientes do Configuration Manager co
 
 #### <a name="to-set-security-permissions-for-the-system-management-container"></a>Para definir permissões de segurança no contentor de Gestão do Sistema:  
 
-1.  No painel de consola, expanda o **o domínio do servidor do site**, expanda **DC =&lt;nome único do servidor\>** e, em seguida, expanda **CN = System**. Clique com o botão direito do rato em **CN=System Management**e clique em **Propriedades**.  
+1.  No painel da consola, expanda o **domínio do servidor do site**, expanda **DC =&lt;nome único do servidor\>** e, em seguida, expanda **CN = System**. Clique com o botão direito do rato em **CN=System Management**e clique em **Propriedades**.  
 
 2.  Na caixa de diálogo **CN=Propriedades de gestão do sistema** , clique no separador **Segurança** e, em seguida, clique em **Adicionar** para adicionar a conta de computador do servidor de site. Conceda permissões de **Controlo Total** à conta.  
 
@@ -129,14 +129,14 @@ Os passos necessários para permitir que os clientes do Configuration Manager co
      Para obter informações adicionais sobre este procedimento, reveja [expandir o esquema do Active Directory para o System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md)  
 
 ##  <a name="BKMK_ExtADSchLab"></a> Expandir o esquema do Active Directory utilizando ExtADSch.exe  
- Irá expandir o esquema do Active Directory para este laboratório, porque isto permite-lhe utilizar todas as funcionalidades do Configuration Manager e funcionalidades com o mínimo de sobrecarga administrativa. A extensão do esquema do Active Directory é uma configuração de toda a floresta e só pode ser efetuada uma vez por floresta. Expandir o esquema permanentemente modifica o conjunto de classes e atributos na configuração base do Active Directory. Esta ação é irreversível. Expandir o esquema permite ao Configuration Manager para aceder a componentes que irão permitir que esta função de forma mais eficaz no seu ambiente de laboratório.  
+ Irá expandir o esquema do Active Directory para este laboratório, pois isso permite a utilização de todos os recursos do Configuration Manager e a funcionalidade com o mínimo de sobrecarga administrativa. A extensão do esquema do Active Directory é uma configuração de toda a floresta e só pode ser efetuada uma vez por floresta. Expandir o esquema permanentemente modifica o conjunto de classes e atributos na configuração base do Active Directory. Esta ação é irreversível. A extensão do esquema permite ao Configuration Manager para aceder a componentes que permitirá que a função com mais eficiência no seu ambiente de laboratório.  
 
 > [!IMPORTANT]  
 >  Certifique-se de que iniciou sessão no controlador de domínio principal do esquema com uma conta que seja membro do grupo de segurança **Admins de esquemas** . Qualquer tentativa de utilizar credenciais alternativas irá falhar.  
 
 #### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>Para expandir o esquema do Active Directory utilizando ExtADSch.exe:  
 
-1.  Crie uma cópia de segurança do Estado do sistema do controlador de domínio de mestre de esquema. Para obter mais informações sobre como fazer uma cópia de segurança do controlador de domínio principal, consulte [Cópia de Segurança do Windows Server](https://technet.microsoft.com/en-us/library/cc770757.aspx)  
+1.  Crie uma cópia de segurança do Estado do sistema do controlador de domínio de mestre de esquema. Para obter mais informações sobre cópias de segurança controlador de domínio principal, consulte [cópia de segurança do Windows Server](https://technet.microsoft.com/library/cc770757.aspx)  
 
 2.  Navegue para **\SMSSETUP\BIN\X64** no suporte de dados de instalação.  
 
@@ -155,7 +155,7 @@ Os passos necessários para permitir que os clientes do Configuration Manager co
 
  **Instale o .NET e ative a Windows Communication Foundation**  
 
- Tem de instalar duas .NET Frameworks: primeiro, a .NET 3.5.1 e depois a .NET 4.5.2+. Terá também de ativar a WCF (Windows Communication Foundation). A WCF foi concebida para oferecer uma abordagem para cálculo distribuído, interoperabilidade abrangente e suporte direto para orientação do serviço e simplifica a programação de aplicações ligadas através de um modelo de programação orientado para o serviço. Reveja [O que é a Windows Communication Foundation?](https://technet.microsoft.com/en-us/subscriptions/ms731082\(v=vs.90\).aspx) para informações adicionais sobre a WCF.  
+ Tem de instalar duas .NET Frameworks: primeiro, a .NET 3.5.1 e depois a .NET 4.5.2+. Terá também de ativar a WCF (Windows Communication Foundation). A WCF foi concebida para oferecer uma abordagem para cálculo distribuído, interoperabilidade abrangente e suporte direto para orientação do serviço e simplifica a programação de aplicações ligadas através de um modelo de programação orientado para o serviço. Reveja [o que é Windows Communication Foundation?](https://technet.microsoft.com/subscriptions/ms731082\(v=vs.90\).aspx) para informações adicionais sobre a WCF.  
 
 #### <a name="to-install-net-and-activate-windows-communication-foundation"></a>Para instalar o .NET e ativar a Windows Communication Foundation:  
 
@@ -197,25 +197,25 @@ Os passos necessários para permitir que os clientes do Configuration Manager co
 
 Para obter mais informações, consulte os seguintes artigos para saber porque motivo estes .NET Frameworks são necessários:  
 
--   [Versões e dependências do .NET Framework](https://technet.microsoft.com/en-us/library/bb822049.aspx)  
+-   [.NET framework versões e dependências](https://technet.microsoft.com/library/bb822049.aspx)  
 
--   [Instruções de Compatibilidade de Aplicações do .NET Framework 4 RTM](https://technet.microsoft.com/en-us/library/dd889541.aspx)  
+-   [Instruções de compatibilidade de aplicações do .NET framework 4 RTM](https://technet.microsoft.com/library/dd889541.aspx)  
 
--   [Como: Atualizar uma aplicação ASP.NET Web para ASP.NET 4](https://technet.microsoft.com/en-us/library/dd483478\(VS.100\).aspx)  
+-   [Como: Atualizar uma aplicação ASP.NET Web para ASP.NET 4](https://technet.microsoft.com/library/dd483478\(VS.100\).aspx)  
 
 -   [Perguntas Frequentes sobre a Política de Ciclo de Vida do Microsoft .NET Framework](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
 
--   [CLR avesso - no processo lado a lado](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
+-   [CLR avesso – no processo lado a lado](https://msdn.microsoft.com/magazine/ee819091.aspx)  
 
 **Ativar BITS, IIS e RDC**  
 
-O [Serviço de Transferência Inteligente em Segundo Plano (BITS)](https://technet.microsoft.com/en-us/library/dn282296.aspx) é utilizado para aplicações que têm de transferir ficheiros assíncronos entre um cliente e um servidor. Ao medir o fluxo de transferências em primeiro e segundo plano, o BITS mantém a capacidade de resposta de outras aplicações de rede. Retoma também automaticamente as transferências de ficheiros se uma sessão de transferência for interrompida.  
+O [serviço de transferência inteligente em segundo plano (BITS)](https://technet.microsoft.com/library/dn282296.aspx) é utilizado para aplicações que precisam de transferir ficheiros assíncronos entre um cliente e um servidor. Ao medir o fluxo de transferências em primeiro e segundo plano, o BITS mantém a capacidade de resposta de outras aplicações de rede. Retoma também automaticamente as transferências de ficheiros se uma sessão de transferência for interrompida.  
 
 O utilizador deve instalar o BITS para este laboratório, porque este servidor de site será também utilizado como ponto de gestão.  
 
-Serviços de Informação Internet (IIS) é um servidor Web flexível e escalável que pode ser utilizado para alojar tudo na Web. É utilizado pelo Configuration Manager para um número de funções de sistema de sites. Para obter informações adicionais sobre o IIS, consulte [sites para servidores de sistema de sites no System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
+Serviços de Informação Internet (IIS) é um servidor Web flexível e escalável que pode ser utilizado para alojar tudo na Web. É utilizado pelo Configuration Manager para um número de funções do sistema de sites. Para obter informações adicionais sobre o IIS, consulte [sites para servidores de sistema de sites no System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-[Compressão de Diferencial Remota (RDC)](https://technet.microsoft.com/en-us/library/cc754372.aspx) é um conjunto de API que as aplicações podem utilizar para determinar se foram efetuadas quaisquer alterações a um conjunto de ficheiros. A RDC permite que a aplicação replique apenas as partes alteradas de um ficheiro, mantendo o tráfego de rede para um mínimo.  
+[Compressão de diferencial remota (RDC)](https://technet.microsoft.com/library/cc754372.aspx) é um conjunto de APIs que aplicações podem utilizar para determinar se foram efetuadas quaisquer alterações a um conjunto de ficheiros. A RDC permite que a aplicação replique apenas as partes alteradas de um ficheiro, mantendo o tráfego de rede para um mínimo.  
 
 #### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>Para ativar as funções de servidor de site BITS, IIS e RDC:  
 
@@ -327,7 +327,7 @@ Serviços de Informação Internet (IIS) é um servidor Web flexível e escaláv
 
 7.  Clique em **Instalar** e certifique-se de que a instalação foi concluída corretamente no painel **Notificações** do **Gestor de Servidores**.  
 
-Por predefinição, o IIS bloqueia vários tipos de extensões de ficheiro e localizações de pastas contra o acesso através de comunicação HTTP ou HTTPS. Para permitir que estes ficheiros sejam distribuídos a sistemas cliente, terá de configurar a filtragem de pedidos do IIS no ponto de distribuição. Para obter mais informações, consulte [IIS filtragem de pedidos para pontos de distribuição](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
+Por predefinição, o IIS bloqueia vários tipos de extensões de ficheiro e localizações de pastas contra o acesso através de comunicação HTTP ou HTTPS. Para permitir que estes ficheiros sejam distribuídos a sistemas cliente, terá de configurar a filtragem de pedidos do IIS no ponto de distribuição. Para obter mais informações, consulte [IIS Request Filtering para pontos de distribuição](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
 
 #### <a name="to-configure-iis-filtering-on-distribution-points"></a>Para configurar a filtragem de IIS nos pontos de distribuição:  
 
@@ -340,14 +340,14 @@ Por predefinição, o IIS bloqueia vários tipos de extensões de ficheiro e loc
 4.  Introduza **.msi** na caixa de diálogo e clique em **OK**.  
 
 ##  <a name="BKMK_InstallCMLab"></a> Instalar o Gestor de Configuração  
-Irá criar um [determinar quando deve utilizar um site primário](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) para gerir clientes diretamente. Isto permitirá que o seu ambiente de laboratório suportar a gestão para [escala do sistema de sites](/sccm/core/plan-design/configs/size-and-scale-numbers) de potenciais dispositivos.  
-Durante este processo, irá também instalar a consola do Configuration Manager, que será utilizada para gerir os dispositivos de avaliação passa.  
+Irá criar um [determinar quando deve utilizar um site primário](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) para gerir clientes diretamente. Isso permitirá que o seu ambiente de laboratório suportar a gestão para [escala do sistema de sites](/sccm/core/plan-design/configs/size-and-scale-numbers) de potenciais dispositivos.  
+Durante este processo, irá também instalar a consola do Configuration Manager, que será utilizada para gerir os dispositivos de avaliação no futuro.  
 
 Antes de iniciar a instalação, inicie o [Verificador de pré-requisitos](/sccm/core/servers/deploy/install/prerequisite-checker) no servidor utilizando o Windows Server 2012 para confirmar que todas as definições foram ativadas corretamente.  
 
 #### <a name="to-download-and-install-configuration-manager"></a>Para transferir e instalar o Gestor de Configuração:  
 
-1.  Navegue para o [avaliações do System Center](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection) página para transferir a versão de avaliação mais recente do System Center Configuration Manager.  
+1.  Navegue para o [avaliações do System Center](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection) página para baixar a nova versão de avaliação do System Center Configuration Manager.  
 
 2.  Descomprima o suporte de dados de transferência para a localização predefinida.  
 
@@ -356,17 +356,17 @@ Antes de iniciar a instalação, inicie o [Verificador de pré-requisitos](/sccm
     |Passo no procedimento de instalação do site|Seleção|  
     |-----------------------------------------|---------------|  
     |Passo 4: a página **Chave de produto**|Selecione **Avaliação**.|  
-    |Passo 7:  **Transferências de pré-requisitos**|Selecione **Transferir ficheiros necessários** e especifique a localização predefinida.|  
+    |Passo 7:  **Pré-requisitos de Downloads**|Selecione **Transferir ficheiros necessários** e especifique a localização predefinida.|  
     |Passo 10: **Definições de instalação e site**|-   **Código do site:LAB**<br />-   **Nome do site:Evaluation**<br />-   **Pasta de instalação:** especifique a localização predefinida.|  
     |Passo 11: **Instalação de Site principal**|Selecione **Instalar o site principal como um site autónomo**, em seguida, clique em **Seguinte**.|  
     |Passo 12: **Instalação da base de dados**|-   **Nome de SQL Server (FQDN):** aqui o FQDN.<br />-   **Nome da instância:** deixe em branco, porque irá utilizar a instância predefinida do SQL que instalou anteriormente.<br />-   **Porta do Service Broker:** deixe como a porta predefinida de 4022.|  
     |Passo 13: **Instalação da base de dados**|Deixe estas definições como a predefinição.|  
     |Passo 14: **Fornecedor de SMS**|Deixe estas definições como a predefinição.|  
     |Passo 15: **Definições de comunicação de cliente**|Confirme se **Todas as funções do sistema de site aceitam apenas comunicação HTTPS dos clientes** não estiver selecionada|  
-    |Passo 16: **Funções do sistema de sites**|Introduza o FQDN e confirme que a seleção de **Todas as funções do sistema de site aceitam apenas comunicação HTTPS dos clientes** ainda está desmarcada.|  
+    |Passo 16: **Funções de sistema de sites**|Introduza o FQDN e confirme que a seleção de **Todas as funções do sistema de site aceitam apenas comunicação HTTPS dos clientes** ainda está desmarcada.|  
 
 ##  <a name="BKMK_EnablePubLab"></a> Ativar a publicação para o site do Configuration Manager  
-Cada site do Configuration Manager publica as suas próprias informações específicas de site no contentor de gestão do sistema na sua partição de domínio no esquema do Active Directory. Os canais Bidirecionais de comunicação entre o Active Directory e do Configuration Manager devem ser abertos para processar este tráfego. Irá também ativar a Deteção de Florestas para determinar certos componentes do seu Active Directory e da infraestrutura de rede.  
+Cada site do Configuration Manager publica as suas informações específicas do site no contentor de gestão do System dentro de sua partição de domínio no esquema do Active Directory. Canais Bidirecionais de comunicação entre o Active Directory e o Configuration Manager devem ser abertos para processar este tráfego. Irá também ativar a Deteção de Florestas para determinar certos componentes do seu Active Directory e da infraestrutura de rede.  
 
 #### <a name="to-configure-active-directory-forests-for-publishing"></a>Para configurar florestas do Active Directory para publicação:  
 
@@ -384,7 +384,7 @@ Cada site do Configuration Manager publica as suas próprias informações espec
 
 7.  Na área de trabalho **Administração** , expanda **Configuração da Hierarquia**e clique em **Florestas do Active Directory**.  
 
-#### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Para ativar um site do Configuration Manager publicar informações do site para a floresta do Active Directory:  
+#### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Para permitir que um site do Configuration Manager publicar informações do site para a floresta do Active Directory:  
 
 1.  Na consola do Configuration Manager, clique em **Administração**.  
 
