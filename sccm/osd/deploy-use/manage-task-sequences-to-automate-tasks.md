@@ -10,18 +10,18 @@ ms.assetid: a1f099f1-e9b5-4189-88b3-f53e3b4e4add
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 26d43b1ee065f3ae0b1221ca81e69f6cb1da6f6c
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 983b6b73c79c51792bf015c74d40466231fbaf3d
+ms.sourcegitcommit: 7c26485b600544a64a5cf2edca6f2f8f29fecde9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32351867"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39130675"
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gerir sequências de tarefas para automatizar tarefas no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Utilize sequências de tarefas para automatizar passos no seu ambiente do Configuration Manager. Estes passos podem implementar uma imagem de SO para um computador de destino, criar e capturar uma imagem de SO de um conjunto de ficheiros de instalação do SO e capturar e restaurar informações de estado do utilizador. Sequências de tarefas na consola do Configuration Manager. No **biblioteca de Software** área de trabalho, expanda **sistemas operativos** e selecione **sequências de tarefas**. O **sequências de tarefas** nó, incluindo as subpastas que crie, é replicado em toda a hierarquia do Configuration Manager. Para obter informações de planeamento, consulte [considerações sobre planeamento para automatizar tarefas](../plan-design/planning-considerations-for-automating-tasks.md).  
+Utilize sequências de tarefas para automatizar passos no seu ambiente do Configuration Manager. Estes passos podem implementar uma imagem de sistema operacional num computador de destino, criar e capturar uma imagem de SO de um conjunto de arquivos de instalação do sistema operacional e capturar e restaurar informações de estado do utilizador. Sequências de tarefas estão localizadas na consola do Configuration Manager. Na **biblioteca de Software** área de trabalho, expanda **sistemas operativos** e selecione **sequências de tarefas**. O **sequências de tarefas** nó, incluindo as subpastas que criar, é replicado em toda a hierarquia do Configuration Manager. Para obter informações de planeamento, consulte [considerações sobre planeamento para automatizar tarefas](../plan-design/planning-considerations-for-automating-tasks.md).  
 
  Utilize as secções seguintes para gerir sequências de tarefas.
 
@@ -30,22 +30,22 @@ Utilize sequências de tarefas para automatizar passos no seu ambiente do Config
 
 |Tipo de sequência de tarefas|Mais informações|  
 |------------------------|----------------------|  
-|[Sequência de tarefas para instalar um sistema operativo](create-a-task-sequence-to-install-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para instalar o sistema operativo, bem como a opção para migrar dados de utilizador, incluir atualizações de software e instalar aplicações.|  
-|[Sequência de tarefas para atualizar um sistema operativo](create-a-task-sequence-to-upgrade-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para atualizar o sistema operativo, bem como a opção para incluir atualizações de software e instalar aplicações.|  
-|[Sequência de tarefas para capturar um sistema operativo](create-a-task-sequence-to-capture-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para criar e capturar o sistema operativo de um computador de referência. Pode incluir atualizações de software e instalar aplicações no computador de referência antes da captura da imagem.|  
-|[Sequência de tarefas para capturar e restaurar o estado do utilizador](create-a-task-sequence-to-capture-and-restore-user-state.md)|Esta sequência de tarefas fornece os passos a adicionar a uma sequência de tarefas existente para capturar e restaurar dados de estado do utilizador.|  
+|[Sequência de tarefas para instalar um sistema operativo](create-a-task-sequence-to-install-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para instalar um sistema operacional, bem como a opção para migrar dados de utilizador, incluir atualizações de software e instalar aplicações.|  
+|[Sequência de tarefas para atualizar um sistema operativo](create-a-task-sequence-to-upgrade-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para atualizar um sistema operacional, bem como a opção para incluir atualizações de software e instalar aplicações.|  
+|[Sequência de tarefas para capturar um sistema operativo](create-a-task-sequence-to-capture-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para criar e capturar um sistema operacional de um computador de referência. Pode incluir atualizações de software e instalar aplicações no computador de referência antes da captura da imagem.|  
+|[Sequência de tarefas para capturar e restaurar estado do utilizador](create-a-task-sequence-to-capture-and-restore-user-state.md)|Esta sequência de tarefas fornece os passos a adicionar a uma sequência de tarefas existente para capturar e restaurar dados de estado do utilizador.|  
 |[Sequência de tarefas personalizada](create-a-custom-task-sequence.md)|Este tipo de sequência de tarefas não adiciona quaisquer passos à sequência de tarefas. Edite a sequência de tarefas e adicionar passos à sequência de tarefas depois de criado.|  
 
 
 
-## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Regressar à página anterior, quando ocorre uma falha de uma sequência de tarefas
-Poderá regressar à página anterior quando executa uma sequência de tarefas e não existe uma falha. Nas versões anteriores do Configuration Manager, era necessário reiniciar a sequência de tarefas quando ocorreu uma falha. Utilize o **anterior** botão nos seguintes cenários:
+## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Regressar à página anterior quando ocorre uma falha de uma sequência de tarefas
+Pode retornar a uma página anterior quando executa uma sequência de tarefas e de falha. Nas versões anteriores do Configuration Manager, tinha que reinicie a sequência de tarefas quando ocorreu uma falha. Utilize o **Previous** botão nos seguintes cenários:
 
-- Quando um computador é iniciado no Windows PE, o diálogo de arranque de configuração de sequência de tarefas pode apresentar antes da sequência de tarefas está disponível. Quando clicar em seguinte neste cenário, a página final da sequência de tarefas é apresentada uma mensagem que existem não existem sequências de tarefas disponíveis. Agora, pode clicar em **anterior** para novamente procurar sequências de tarefas disponíveis. Pode repetir este processo até que a sequência de tarefas esteja disponível.
-- Quando executa uma sequência de tarefas, mas os pacotes de conteúdos dependentes ainda não estão disponíveis nos pontos de distribuição, a sequência de tarefas falhará. Se o conteúdo em falta ainda não foi distribuído, distribui-lo agora. Ou aguarde que o conteúdo fique disponível nos pontos de distribuição. Em seguida, clique em **anterior** ter a pesquisa de sequência de tarefas novamente para o conteúdo.
+- Quando um computador é iniciado no Windows PE, o diálogo de arranque de configuração de sequência de tarefas pode apresentar-se antes da sequência de tarefas está disponível. Quando clicar em seguinte neste cenário, a página final da sequência de tarefas é apresentada uma mensagem que não há nenhum sequências de tarefas disponíveis. Agora, pode clicar **Previous** para procurar novamente sequências de tarefas disponíveis. Pode repetir esse processo até que a sequência de tarefas esteja disponível.
+- Quando executa uma sequência de tarefas, mas os pacotes de conteúdo dependentes ainda não estão disponíveis em pontos de distribuição, a sequência de tarefas falhará. Se o conteúdo em falta não foi distribuído ainda, distribuí-la agora. Em alternativa, aguarde que o conteúdo fique disponível nos pontos de distribuição. Em seguida, clique em **Previous** para que a pesquisa de sequência de tarefas novamente para o conteúdo.
 
 ##  <a name="BKMK_ModifyTaskSequence"></a> Editar uma sequência de tarefas  
- Pode modificar uma sequência de tarefas adicionando ou removendo passos, adicionando ou removendo grupos, ou alterando a ordem dos passos. Utilize o procedimento seguinte para modificar uma sequência de tarefas existente:  
+ É possível modificar uma sequência de tarefas adicionando ou removendo passos, adicionando ou removendo grupos, ou alterando a ordem dos passos. Utilize o procedimento seguinte para modificar uma sequência já existente:  
 
 > [!IMPORTANT]  
 >  Ao editar uma sequência de tarefas que foi criada utilizando o Assistente de criação de sequência de tarefas, o nome do passo pode ser o tipo de passo ou ação. Por exemplo, poderá ver um passo com o nome "Criar partições do disco 0", que é a ação de um passo do tipo [formatar e particionar disco](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Todos os passos de sequência de tarefas estão documentados pelo respetivo tipo, não necessariamente pelo nome do passo que é apresentado no editor.  
@@ -74,102 +74,102 @@ Poderá regressar à página anterior quando executa uma sequência de tarefas e
 
  Para obter uma lista dos passos de sequência de tarefas disponíveis, consulte [passos de sequência de tarefas](../understand/task-sequence-steps.md).  
 
-## <a name="configure-software-center-properties"></a>Configurar propriedades de centro de Software
-Utilize o procedimento seguinte para configurar os detalhes para a sequência de tarefas apresentadas no Centro de Software. Estes detalhes estão apenas para informação.  
+## <a name="configure-software-center-properties"></a>Configurar as propriedades do Centro de Software
+Utilize o procedimento seguinte para configurar os detalhes para a sequência de tarefas apresentadas no Centro de Software. Esses detalhes são apenas para informação.  
 1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**.
 2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
-3. No **geral** separador, estão disponíveis as seguintes definições no Centro de Software:
-  - **Reinício necessário**: Permite que o utilizador saber se é necessário reiniciar durante a instalação.
-  - **Transferir o tamanho (MB)**: Especifica a quantidade de megabytes são apresentados no Centro de Software para a sequência de tarefas.  
-  - **Estimado (minutos) o tempo de execução**: Especifica que o estimado tempo de execução em minutos, que é apresentado no Centro de Software para a sequência de tarefas.
+3. Sobre o **gerais** guia, as seguintes definições para o Centro de Software estão disponíveis:
+  - **Reinício necessário**: Permite ao utilizador saber se é necessário reiniciar durante a instalação.
+  - **Tamanho (MB) de download**: Especifica o número de megabytes são apresentadas no Centro de Software para a sequência de tarefas.  
+  - **Estimado (minutos) de tempo de execução**: Especifica que o estimado tempo de execução em minutos, que é apresentado no Centro de Software para a sequência de tarefas.
 
 ## <a name="configure-advanced-task-sequence-settings"></a>Configurar as definições de sequência de tarefas avançadas
-Utilize o procedimento seguinte para configurar os detalhes para a sequência de tarefas apresentadas no Centro de Software. Estes detalhes estão apenas para informação.  
+Utilize o procedimento seguinte para configurar os detalhes para a sequência de tarefas apresentadas no Centro de Software. Esses detalhes são apenas para informação.  
 1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**.
 2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
-3. No **avançadas** separador, estão disponíveis as seguintes definições:
+3. Sobre o **avançadas** separador, estão disponíveis as seguintes definições:
 
     - **Executar outro programa primeiro**    
-    Selecione esta caixa de verificação para executar outro programa (por outro pacote) antes de executar a sequência de tarefas. Por predefinição, esta caixa de verificação está desmarcada. O programa que especificar para ser executado primeiro não tem de ser anunciado separadamente.
+    Selecione esta caixa de verificação para executar outro programa (em outro pacote) antes de executar a sequência de tarefas. Por predefinição, esta caixa de verificação está desmarcada. O programa que especificar para ser executado pela primeira vez não precisa de ser anunciado em separado.
 
         > [!IMPORTANT]     
-        Esta definição só se aplica a sequências de tarefas que executam no SO completo. Gestor de configuração ignora esta definição se a sequência de tarefas é iniciada através de suportes de dados de arranque ou PXE.
+        Esta definição aplica-se apenas a sequências de tarefas que são executados em todo o sistema operacional. Gestor de configuração ignora esta definição se a sequência de tarefas é iniciada através de suportes de dados de arranque ou PXE.
 
     - **Pacote**     
-        Quando seleciona **executar outro programa primeiro**, procure o pacote que contém o programa que tem de executar antes desta sequência de tarefas.
+        Quando seleciona **executar outro programa primeiro**, navegue para o pacote que contém o programa que deve ser executado antes desta sequência de tarefas.
 
     - **Programa**     
-    Quando seleciona **executar outro programa primeiro**, seleccione o programa que tem de executar antes desta sequência de tarefas a partir de **programa** na lista pendente.
+    Quando seleciona **executar outro programa primeiro**, selecione o programa que deve ser executado antes desta sequência de tarefas da **programa** na lista pendente.
 
         > [!NOTE]    
-        > Se o programa selecionado não for executado num cliente, a sequência de tarefas não é executado. Se o programa selecionado é executada com êxito, este não é executado novamente, mesmo se a sequência de tarefas será novamente executada no mesmo cliente.
+        > Se o programa selecionado não for executado num cliente, a sequência de tarefas não é executado. Se o programa selecionado é executado com êxito, ele não é executado novamente, mesmo que a sequência de tarefas será novamente executada no mesmo cliente.
  
-    - **Desativar esta sequência de tarefas nos computadores onde está implementada**    
-    Se selecionar esta opção, todas as implementações que contêm esta sequência de tarefas estão temporariamente desativadas. A sequência de tarefas é removida da lista de implementações disponíveis para ser executada. -Não é executado até que volte a reativá-la. Por predefinição, esta opção estiver desmarcada.
+    - **Desativar esta sequência de tarefas nos computadores em que é implementado**    
+    Se selecionar esta opção, as implementações que contêm esta sequência de tarefas estão temporariamente desativadas. A sequência de tarefas é removida da lista de implementações disponíveis para ser executada. Não é executado até que reativá-la. Por predefinição, esta opção estiver desmarcada.
 
     - **Tempo de execução máximo permitido**    
-    Especifica o tempo máximo (em minutos) que é esperado para executar a sequência de tarefas no computador de destino. Utilize um número inteiro igual ou maior que zero. Por predefinição, este valor é definido para 120 minutos.
+    Especifica o tempo máximo (em minutos), que é esperado para executar a sequência de tarefas no computador de destino. Utilize um número inteiro igual ou maior que zero. Por predefinição, este valor é definido para 120 minutos.
 
         > [!IMPORTANT]    
-        > Se estiver a utilizar janelas de manutenção para a coleção em que esta sequência de tarefas é executada, poderá ocorrer um conflito se o **máximo tempo de execução permitido** é superior à janela de manutenção agendada. Se o tempo de execução máximo for definido como **0**, a sequência de tarefas for iniciada durante a janela de manutenção. Continua a ser executado até concluir ou falhar depois de fechar a janela de manutenção. Como resultado, as sequências de tarefas com um tempo máximo de execução definido como **0** poderá ser executado depois do fim do respetivos janelas de manutenção. Se definir o tempo máximo de execução para um período específico (não **0**) que excede o comprimento de qualquer janela de manutenção disponível, em seguida, a sequência de tarefas não é executado. Para obter mais informações, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).
+        > Se estiver a utilizar janelas de manutenção para a coleção na qual esta sequência de tarefas é executada, pode ocorrer um conflito se o **máximo de tempo de execução permitido** é superior à janela de manutenção agendada. Se o tempo de execução máximo for definido como **0**, a sequência de tarefas é iniciada durante a janela de manutenção. Ele continua a ser executado até concluir ou falhar depois de fechar a janela de manutenção. Como resultado, as sequências de tarefas com um tempo máximo de execução definido como **0** possam ser executadas passou o final de suas janelas de manutenção. Se definir o máximo tempo de execução para um período específico (não **0**) que excede o comprimento de qualquer janela de manutenção, em seguida, a sequência de tarefas não é executado. Para obter mais informações, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).
  
-        Se o valor é definido como **0**, Configuration Manager avalia o tempo máximo de execução permitido como **12** horas (720 minutos) para monitorizar o progresso. No entanto, a sequência de tarefas é iniciada, desde a duração da contagem decrescente não excede o valor de janela de manutenção.
+        Se o valor é definido como **0**, o tempo máximo de execução permitido como o Configuration Manager avalia **12** horas (720 minutos) para monitorizar o progresso. No entanto, a sequência de tarefas é iniciada, desde que a duração de contagem regressiva não excede o valor da janela de manutenção.
 
     > [!NOTE]    
-    > Se for atingido o tempo de execução máximo, o Configuration Manager interrompe a sequência de tarefas se está definido para executar com direitos de administrador e os permitir que os utilizadores interajam com esta definição de programa não está selecionada. Se a sequência de tarefas propriamente dito não está parada, o Configuration Manager para a monitorização da sequência de tarefas após o máximo permitido tempo de execução foi atingido. 
+    > Se o tempo de execução máximo for atingido, o Configuration Manager para a sequência de tarefas, se estiver definido para ser executado com direitos de administrador e os permitir que os utilizadores para interagir com esta definição de programa não está selecionada. Se a sequência de tarefas em si não estiver parada, o Configuration Manager para a monitorização da sequência de tarefas após o máximo permitido tempo de execução foi atingido. 
 
     - **Utilizar uma imagem de arranque**   
         Ative esta opção para utilizar a imagem de arranque selecionada quando a sequência de tarefas é executada. 
 
         Clique em **procurar** para selecionar uma imagem de arranque diferentes. Desmarque esta opção para desativar a utilização da imagem de arranque selecionada quando a sequência de tarefas é executada.
 
-    - **Esta sequência de tarefas pode executar em qualquer plataforma**     
-        Se selecionar esta opção, o Configuration Manager não verifica se o tipo de plataforma do computador de destino quando a sequência de tarefas é implementada. Esta opção está selecionada por predefinição.
+    - **Esta sequência de tarefas pode ser executado em qualquer plataforma**     
+        Se selecionar esta opção, o Configuration Manager não verifica o tipo de plataforma de computador de destino quando a sequência de tarefas é implementada. Esta opção está selecionada por predefinição.
 
-    - **Esta sequência de tarefas só pode ser executada em plataformas cliente especificadas**    
-        Esta opção especifica os processadores, as versões do SO e os service packs no qual pode executar esta sequência de tarefas. Quando seleciona esta opção, também é necessário selecionar pelo menos uma plataforma da lista. Por predefinição, são selecionadas não plataformas. O Configuration Manager utiliza estas informações quando é avalia os computadores de destino numa coleção recebem a sequência de tarefas implementada.
+    - **Esta sequência de tarefas só pode ser executado nas plataformas de cliente especificado**    
+        Esta opção especifica os processadores, versões de SO e pacotes de serviço no qual pode executar esta sequência de tarefas. Quando seleciona esta opção, pelo menos uma plataforma também deve ser selecionada na lista. Por predefinição, não existem plataformas são selecionadas. O Configuration Manager utiliza estas informações quando é avalia a quais computadores de destino numa coleção de recebem a sequência de tarefas implementada.
 
         > [!NOTE]    
-        > Quando uma sequência de tarefas é executada a partir do suporte de dados ou pelo arranque PXE, esta opção é ignorada e a sequência de tarefas é executada, embora a opção **este programa pode ser executado em qualquer plataforma** está selecionada.
+        > Quando uma sequência de tarefas é executada a partir de mídia de inicialização ou ao arranque PXE, esta opção é ignorada e a sequência de tarefas é executado como se a opção **este programa pode ser executado em qualquer plataforma** está selecionada.
 
 
 
-## <a name="configure-high-impact-task-sequence-settings"></a>Configurar as definições de sequência de tarefas de elevado impacto
-Pode definir uma sequência de tarefas como de elevado impacto e personalizar as mensagens que os utilizadores recebem quando executam a sequência de tarefas.
+## <a name="configure-high-impact-task-sequence-settings"></a>Configurar as definições de sequência de tarefas de impacto elevado
+Pode definir uma sequência de tarefas como elevado impacto e personalizar as mensagens que os utilizadores recebem quando executam a sequência de tarefas.
 
-### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Definir uma sequência de tarefas como uma sequência de tarefas de elevado impacto
-Utilize o procedimento seguinte para definir uma sequência de tarefas como de elevado impacto.
+### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Definir uma sequência de tarefas como uma sequência de tarefas de alto impacto
+Utilize o procedimento seguinte para definir uma sequência de tarefas como alto impacto.
 > [!NOTE]    
-> Qualquer sequência de tarefas que cumpra determinadas condições é automaticamente definida como impacto elevado. Para obter mais informações, consulte [gerir implementações de alto risco](/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+> Qualquer sequência de tarefas que cumpre determinadas condições automaticamente é definida como alto impacto. Para obter mais informações, consulte [gerir implementações de alto risco](/sccm/protect/understand/settings-to-manage-high-risk-deployments).
 
 1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**.
 2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
-3. No **notificação do utilizador** separador, selecione **esta é uma sequência de tarefas de elevado impacto**.
+3. Sobre o **notificação do utilizador** separador, selecione **trata de uma sequência de tarefas de alto impacto**.
 
 ### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Criar uma notificação para implementações de alto risco
-Utilize o procedimento seguinte para criar uma notificação para implementações de impacto elevado.
+Utilize o procedimento seguinte para criar uma notificação para implementações de alto impacto.
 1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**.
 2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
-3. No **notificação do utilizador** separador, selecione **utilizar texto personalizado**.
+3. Sobre o **notificação do utilizador** separador, selecione **utilizar texto personalizado**.
 >  [!NOTE]    
->  Só é possível definir texto de notificação do utilizador quando o **esta é uma sequência de tarefas de elevado impacto** está selecionada.
+>  Apenas pode definir o texto de notificação do utilizador quando o **esta é uma sequência de tarefas de alto impacto** está selecionada.
 
-4. Configure as seguintes definições (máximo de 255 carateres para cada caixa de texto):
+4. Configure as seguintes definições (máx. de 255 carateres para cada caixa de texto):
 
-  **Texto do título de notificação de utilizador**: Especifica o texto azul que apresenta na notificação de utilizador do Centro de Software. Por exemplo, a predefinição de notificação de utilizador, esta secção contém "Confirmar que pretende atualizar o sistema operativo neste computador."
+  **Texto do cabeçalho de notificação de utilizador**: Especifica o texto azul que apresenta a notificação de utilizador do Centro de Software. Por exemplo, na notificação de utilizador padrão, esta secção contém "Confirmar que pretende atualizar o sistema operativo neste computador."
 
-  **Texto de mensagem de notificação do utilizador**: Existem três caixas de texto que fornecem o corpo da notificação personalizada. Todas as caixas de texto requerem que adicione o texto.
-  - Caixa de texto primeiro: Especifica o corpo do principal de texto, normalmente, que contém instruções para o utilizador. Por exemplo, a predefinição de notificação de utilizador, esta secção contém "a atualização do sistema operativo demora tempo e o computador poderá reiniciar várias vezes."
-  - Segunda caixa de texto: Especifica o texto a negrito no corpo do principal do texto. Por exemplo, a predefinição de notificação de utilizador, esta secção contém "esta atualização no local instala o novo sistema operativo e migra automaticamente as suas definições, aplicações e dados."
-  - Terceira caixa de texto: Especifica a última linha de texto com o texto a negrito. Por exemplo, a predefinição de notificação de utilizador, esta secção contém "clique em instalar para iniciar. Caso contrário, clique em Cancelar."   
+  **Texto de mensagem de notificação do utilizador**: Existem três caixas de texto que fornecem o corpo da notificação personalizado. Todas as caixas de texto requerem a adição de texto.
+  - Primeira caixa de texto: Especifica o corpo principal do texto, normalmente, que contém instruções para o utilizador. Por exemplo, na notificação de utilizador padrão, esta secção contém "atualização do sistema operativo demora algum tempo e o computador poderá reiniciar várias vezes."
+  - Segunda caixa de texto: Especifica o texto em negrito no corpo principal do texto. Por exemplo, na notificação de utilizador padrão, esta secção contém "esta atualização no local instala o novo sistema operativo e migra automaticamente as suas aplicações, dados e definições."
+  - Terceira caixa de texto: Especifica a última linha de texto sob o texto em negrito. Por exemplo, na notificação de utilizador padrão, esta secção contém "clique em instalar para iniciar. Caso contrário, clique em Cancelar."   
     
-Vamos supor que configura a seguinte notificação personalizada nas propriedades.
+Digamos que configura a seguinte notificação personalizada nas propriedades.
 
-![Separador de notificação do utilizador personalizada das propriedades de sequência de tarefas](..\media\user-notification.png)
+![Separador de notificação do utilizador personalizado de propriedades de sequência de tarefas](..\media\user-notification.png)
 
-Apresenta a seguinte mensagem de notificação quando o utilizador final abre a instalação do Centro de Software.
+A seguinte mensagem de notificação apresentada quando o utilizador final abre a instalação do Centro de Software.
 
-![Notificação de sequência de tarefas personalizadas para o utilizador final do Centro de Software](..\media\user-notification-enduser.png)
+![Notificação de sequência de tarefas personalizada para o utilizador final no Centro de Software](..\media\user-notification-enduser.png)
 
 
 ##  <a name="BKMK_DistributeTS"></a> Distribuir conteúdo referenciado por uma sequência de tarefas  
@@ -185,11 +185,11 @@ Apresenta a seguinte mensagem de notificação quando o utilizador final abre a 
 
 4.  No separador **Home Page** , no grupo **Implementação** , clique em **Distribuir Conteúdo** para iniciar o Assistente para Distribuir Conteúdo.  
 
-5.  No **geral** página, certifique-se de que a sequência de tarefas correta está selecionada para distribuição. Em seguida, clique em **Seguinte**.  
+5.  Sobre o **gerais** página, certifique-se de que a sequência de tarefas correta está selecionada para distribuição. Em seguida, clique em **Seguinte**.  
 
 6.  Na página **Conteúdo** , confirme os conteúdos a distribuir, por exemplo a imagem de arranque referenciada pela sequência de tarefas e, em seguida, clique em **Seguinte**.  
 
-7.  No **destino do conteúdo** página, especifique as coleções, ponto de distribuição ou grupo de pontos de distribuição em que pretende distribuir os conteúdos da sequência de tarefas. Em seguida, clique em **Seguinte**.  
+7.  Sobre o **destino do conteúdo** , especifique as coleções, ponto de distribuição ou grupo de pontos de distribuição em que pretende distribuir os conteúdos da sequência de tarefas. Em seguida, clique em **Seguinte**.  
 
     > [!IMPORTANT]  
     >  Se a sequência de tarefas que selecionou referenciar conteúdos que já tenham sido distribuídos a um ponto de distribuição específico, esse ponto de distribuição não será incluído na lista do assistente.  
@@ -204,7 +204,7 @@ Apresenta a seguinte mensagem de notificação quando o utilizador final abre a 
  Utilize o seguinte procedimento para implementar uma sequência de tarefas nos computadores de uma coleção.  
 
 > [!WARNING]  
->  Pode gerir o comportamento de implementações de sequência de tarefas de alto risco. Uma implementação de alto risco é uma implementação que é automaticamente instalada e que tem o potencial de causar resultados indesejados. Por exemplo, uma sequência de tarefas que tenha um objetivo **necessário** que implementa o sistema operativo é considerada uma implementação de alto risco. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Pode gerir o comportamento de implementações de sequência de tarefas de alto risco. Uma implementação de alto risco é uma implementação que é automaticamente instalada e que tem o potencial de causar resultados indesejados. Por exemplo, uma sequência de tarefas que tenha um objetivo **necessário** que implementa um sistema operacional é considerada uma implementação de alto risco. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
 > [!NOTE]  
 >  As mensagens de estado para a implementação da sequência de tarefas são apresentadas na janela Mensagem de um site primário, mas não são apresentadas num site de administração central.  
@@ -228,28 +228,28 @@ Apresenta a seguinte mensagem de notificação quando o utilizador final abre a 
 
     -   **Coleção**: Especifique a coleção que contenha os computadores a executar a sequência de tarefas.  
 
-         Não implemente uma sequência de tarefas que instala um SO em coleções inadequadas, tais como o **todos os sistemas** coleção. Certifique-se de que a coleção que selecionou apenas contém os computadores nos quais pretende executar a sequência de tarefas.  
+         Não implemente uma sequência de tarefas que instala um sistema operacional em coleções inadequadas, por exemplo, o **todos os sistemas** coleção. Certifique-se de que a coleção que selecionou apenas contém os computadores nos quais pretende executar a sequência de tarefas.  
 
         > [!NOTE]  
-        >  Ao implementar uma implementação de alto risco, como sistema operativo, o **selecionar coleção** janela apresenta apenas as coleções personalizadas que cumprem as definições de verificação de implementação que estão configuradas nas propriedades do site. As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e à coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não pode selecionar uma coleção incorporada, como **Todos os Sistemas**. Desmarque **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** para ver todas as coleções personalizadas que incluem menos clientes do que o tamanho máximo configurado. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+        >  Ao implementar uma implementação de alto risco, como um sistema operacional, o **selecionar coleção** janela exibe apenas as coleções personalizadas que cumprem as definições de verificação de implementação que estão configuradas nas propriedades do site. As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e à coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não pode selecionar uma coleção incorporada, como **Todos os Sistemas**. Desmarque **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** para ver todas as coleções personalizadas que incluem menos clientes do que o tamanho máximo configurado. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
         >   
         >  As definições de verificação da implementação são baseadas na associação atual da coleção. Após implementar a sequência de tarefas, a associação da coleção não é reavaliada relativamente às definições de implementação de alto risco.  
         >   
-        >  Por exemplo, digamos que definiu **tamanho predefinido** a 100 e o **tamanho máximo** a 1000. Quando cria uma implementação de alto risco, a **selecionar coleção** janela apresenta apenas as coleções com menos de 100 clientes. Se desmarcar a **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** definição, a janela apresenta as coleções com menos de 1 000 clientes.  
+        >  Por exemplo, digamos que definiu **tamanho predefinido** para 100 e o **tamanho máximo** a 1000. Quando cria uma implementação de alto risco, o **selecionar coleção** janela apresenta apenas as coleções com menos de 100 clientes. Se desmarcar a **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** definição, a janela apresenta coleções que contenham menos de 1 000 clientes.  
         >   
-        >  Quando seleciona uma coleção que contém uma função de site, aplica-se o comportamento seguinte:  
+        >  Quando seleciona uma coleção que contém uma função de site, o seguinte comportamento aplica-se:  
         >   
-        >  -   Se a coleção contiver um servidor de sistema de sites e configurou as definições de verificação de implementação para o bloqueio das coleções com servidores de sistema de sites, em seguida, ocorre um erro. Não é possível continuar a criação da implementação.  
+        >  -   Se a coleção contiver um servidor de sistema de sites e configurou as definições de verificação de implementação para o bloqueio das coleções com servidores de sistema de sites, em seguida, ocorrerá um erro. Não é possível continuar a criação da implementação.  
         > -   Se um dos seguintes critérios aplica-se, em seguida, o Assistente de implementação de Software apresenta um aviso de alto risco. Para continuar, terá de aceitar criar uma implementação de alto risco. O site gera uma mensagem de estado de auditoria.
         >     - Se a coleção contiver um servidor de sistema de sites e configurou as definições de verificação de implementação para o avisar de coleções com servidores de sistema de sites
-        >     - Se a coleção ultrapassar o valor do tamanho predefinido
+        >     - Se a coleção excede o valor do tamanho predefinido
         >     - Se a coleção contiver um servidor  
 
     -   **Comentários (opcional)**: Especifique informações adicionais que descrevam esta implementação da sequência de tarefas.  
-    - **Selecione o modelo de implementação**: A partir do Configuration Manager versão 1802,<!--1357391--> pode guardar e especifique um modelo de implementação de uma sequência de tarefas.     
+    - **Selecione o modelo de implementação**: A partir do Configuration Manager versão 1802,<!--1357391--> pode guardar e especifique um modelo de implementação para uma sequência de tarefas.     
 
          > [!IMPORTANT]
-         > No Configuration Manager versão 1802, alguns itens não estão guardadas no modelo.  <!--510610--> Certifique-se de que se aplicam os itens seguintes quando executar o Assistente de implementação:
+         > Na versão 1802 de versão do Configuration Manager, alguns itens não são guardados no modelo.  <!--510610--> Certifique-se de que aplicar os seguintes itens quando executa o Assistente de implementação:
          > - Instalação de software 
          > - Agendamento 
          > - Pré-transferir conteúdo
@@ -258,30 +258,33 @@ Apresenta a seguinte mensagem de notificação quando o utilizador final abre a 
 
     -   **Objetivo**: Na lista pendente, escolha uma das seguintes opções:  
 
-        -   **Disponível**: Se a sequência de tarefas for implementada para um utilizador, o utilizador verá a sequência de tarefas publicada no catálogo de aplicações e poderá solicitá-la a pedido. Se a sequência de tarefas for implementada num dispositivo, o utilizador vê-lo no Centro de Software e pode instalá-la a pedido.  
+        -   **Disponível**: Se a sequência de tarefas for implementada para um utilizador, este verá a sequência de tarefas publicada no catálogo de aplicações e poderá solicitá-la a pedido. Se a sequência de tarefas for implementada para um dispositivo, o utilizador vê-lo no Centro de Software e pode instalá-la a pedido.  
 
-        -   **Necessário**: A sequência de tarefas é implementada automaticamente, de acordo com a agenda configurada. Se a sequência de tarefas não se encontre oculto, um utilizador pode ainda monitorizar o estado de implementação. Também podem instalar a sequência de tarefas antes do prazo utilizando o Centro de Software.  
+        -   **Necessário**: A sequência de tarefas é implementada automaticamente, de acordo com a agenda configurada. Se a sequência de tarefas não se encontre oculto, um utilizador ainda pode controlar o estado de implementação. Também podem instalar a sequência de tarefas antes do prazo utilizando o Centro de Software.  
 
-    -   **Implementar automaticamente de acordo com a agenda quer exista ou não um utilizador tiver sessão iniciado**: Esta opção não está disponível ao implementar uma sequência de tarefas.  
+        >  [!NOTE]  
+        >  Se vários utilizadores tem sessão iniciados no dispositivo, implementações de sequência de pacotes e tarefas não podem aparecer no Centro de Software.
 
-    -   **Enviar pacotes de reativação**: Se o objetivo da implementação estiver definido como **necessário** e esta opção estiver selecionada, o site envia um pacote de reativação para computadores antes de executar a implementação. Este pacote sair o computador da suspensão quando for atingido o prazo instalação. Para poder utilizar esta opção, os computadores e redes terão de estar configurados para Reativação por LAN.  
+    -   **Implementar automaticamente de acordo com a agenda quer ou não um utilizador tem sessão iniciada**: Esta opção não está disponível ao implementar uma sequência de tarefas.  
 
-    -   **Permitir que os clientes numa ligação à Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**: Quando tiver uma sequência de tarefas que instala uma aplicação, mas não implementa o sistema operativo, pode especificar se pretende permitir que os clientes transfiram conteúdos após um prazo de instalação quando estiverem a utilizar ligações à Internet limitadas. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
+    -   **Enviar pacotes de reativação**: Se o objetivo da implementação estiver definido como **necessário** e esta opção estiver selecionada, o site envia um pacote de reativação para computadores antes de executar a implementação. Este pacote reativa o computador da suspensão quando for atingido o prazo de instalação. Para poder utilizar esta opção, os computadores e redes terão de estar configurados para Reativação por LAN.  
+
+    -   **Permitir que os clientes numa ligação de Internet limitada para transferir conteúdo após o prazo de instalação, o que pode implicar custos adicionais**: Quando tiver uma sequência de tarefas que instala uma aplicação, mas não implementa um sistema operacional, pode especificar se pretende permitir que os clientes transfiram conteúdos após um prazo de instalação quando estiverem a utilizar de ligações à Internet limitadas. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
 
         > [!NOTE]  
-        >  Ao utilizar uma ligação à Internet com tráfego limitado poderá funcionar para sequências de tarefas não implementará um sistema, não é suportada.  
+        >  Embora utilizar uma ligação de Internet limitada possa funcionar para sequências de tarefas que não implementa um sistema operacional, não é suportada.  
 
     -   **Exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**: Esta opção não está disponível ao implementar uma sequência de tarefas.  
 
     -   **Tornar disponível para o seguinte**: Especifique se a sequência de tarefas está disponível para clientes do Configuration Manager, suportes de dados ou PXE.  
 
         > [!IMPORTANT]  
-        >  Utilize a definição **Apenas suportes de dados e PXE (oculto)** para implementações com sequências de tarefas automatizadas. Para que o computador arranque automaticamente para a implementação sem interação do utilizador, selecione **permitir a implementação do sistema operativo autónoma** e defina a variável SMSTSPreferredAdvertID como parte do suporte de dados. Para obter mais informações sobre as variáveis de sequência de tarefas, consulte [variáveis incorporadas de sequência de tarefas](../understand/task-sequence-built-in-variables.md)  
+        >  Utilize a definição **Apenas suportes de dados e PXE (oculto)** para implementações com sequências de tarefas automatizadas. Para que o computador arranque automaticamente para a implantação sem interação do utilizador, selecione **permitir a implementação do sistema operativo autónoma** e defina a variável SMSTSPreferredAdvertID como parte do suporte de dados. Para obter mais informações sobre as variáveis de sequência de tarefas, consulte [variáveis incorporadas de sequência de tarefas](../understand/task-sequence-built-in-variables.md)  
 
 7.  Na página **Agendamento** , especifique as seguintes informações e clique em **Seguinte**.  
 
     > [!IMPORTANT]  
-    >  Quando um cliente Windows PE é iniciado a partir de um suporte de dados de arranque ou PXE, o cliente não avalia agendas de implementação (iniciar, extinguir ou horas de prazos). Configure apenas agendamentos em implementações em clientes iniciados a partir do sistema operativo Windows completo. Considere a utilização de outros métodos, como janelas de manutenção, para controlar sequências de tarefas ativas implementadas em clientes iniciados a partir do Windows PE.  
+    >  Quando um cliente Windows PE é iniciado a partir de um suporte de dados de arranque ou PXE, o cliente não avalia agendas de implementação (iniciar, extinguir ou horas de prazos). Configure apenas agendamentos em implementações em clientes iniciados do sistema operacional Windows completo. Considere a utilização de outros métodos, como janelas de manutenção, para controlar sequências de tarefas ativas implementadas em clientes iniciados a partir do Windows PE.  
 
     -   **Agendar quando esta implementação ficará disponível**: Especifique a data e hora em que a sequência de tarefas ficará disponível para ser executada no computador de destino. Se selecionar a caixa de verificação **UTC** , esta definição garantirá que a sequência de tarefas ficará disponível para vários computadores de destino ao mesmo tempo, em vez de em alturas diferentes, de acordo com a hora local dos computadores de destino.  
 
@@ -289,28 +292,28 @@ Apresenta a seguinte mensagem de notificação quando o utilizador final abre a 
 
     -   **Agendar quando esta implementação expirará**: Especifique a data e hora em que a sequência de tarefas expira no computador de destino. Se seleciona a caixa de verificação **UTC** , a definição correspondente fará com que a sequência de tarefas expire em vários computadores de destino no mesmo tempo, em vez de tal acontecer em diferentes momentos, de acordo com a hora local dos computadores de destino.  
 
-    -   **Agenda de atribuição**: Especifique quando a sequência de tarefas necessária é executada no computador de destino. Pode adicionar múltiplas agendas.  
+    -   **Agenda da atribuição**: Especifique quando a sequência de tarefas necessária é executada no computador de destino. Pode adicionar múltiplas agendas.  
 
          Pode especificar a data e hora em que a agenda é iniciada, se a sequência de tarefas é executada semanalmente, mensalmente ou num intervalo personalizado e se a sequência de tarefas é executada após um registo de eventos como, por exemplo, o início ou o fim de sessão num computador.  
 
         > [!NOTE]  
-        >  Se agendar uma hora de início para uma sequência de tarefas necessária que seja anterior à data e hora em que a sequência de tarefas ficará disponível, o cliente do Configuration Manager transfere a sequência de tarefas à hora de início agendada, mesmo que a sequência de tarefas esteja mais cedo.  
+        >  Se agendar uma hora de início de uma sequência de tarefas necessária que seja anterior à data e hora em que a sequência de tarefas ficará disponível, o cliente de Configuration Manager transfere a sequência de tarefas à hora de início agendada, mesmo que a sequência de tarefas está disponível em uma hora anterior.  
 
     -   **Comportamento da nova execução**: Especifique quando a sequência de tarefas será novamente executada. Pode especificar uma das seguintes opções:  
 
-        -   **Nunca executar novamente o programa implementado**: Se o cliente tiver sido anteriormente executada a sequência de tarefas, não novamente. A sequência de tarefas não novamente executada mesmo tenha falhado inicialmente ou os ficheiros de sequência de tarefas foram alterados.  
+        -   **Nunca executar novamente o programa implementado**: Se o cliente tiver sido anteriormente executada a sequência de tarefas, ele não volta a executar. A sequência de tarefas não volta a executar, mesmo que tenha falhado ou os ficheiros de sequência de tarefas foram alterados.  
 
-        -   **Executar sempre novamente o programa**: A sequência de tarefas será sempre novamente executada no cliente quando a implementação estiver agendada, mesmo se a sequência de tarefas foi executada com êxito anteriormente. Esta definição é útil quando utilizar implementações periódicas no qual a sequência de tarefas seja regularmente atualizada.  
+        -   **Executar sempre novamente o programa**: A sequência de tarefas será sempre novamente executada no cliente quando a implementação estiver agendada, mesmo que a sequência de tarefas tem anteriormente executada com êxito. Esta definição é útil quando utilizar implementações periódicas no qual a sequência de tarefas seja regularmente atualizada.  
 
             > [!IMPORTANT]  
             >  Embora esta opção é definida por predefinição, não tem efeito até que o atribua uma implementação necessária. As implementações disponíveis podem ser sempre novamente executadas por um utilizador.  
 
-        -   **Executar novamente se a tentativa anterior**: A sequência de tarefas será novamente executada se a implementação é agendada apenas se a sequência de tarefas não executou anteriormente. Esta definição é útil para as implementações necessárias. Se a última tentativa de execução não foi bem-sucedida, eles automaticamente tentar novamente, de acordo com a agenda de atribuição.  
+        -   **Executar novamente se a tentativa anterior falhar**: A sequência de tarefas será novamente executada se a implementação é agendada apenas se a sequência de tarefas não executou anteriormente. Esta definição é útil para as implementações necessárias. Se a última tentativa de execução foi concluída com êxito, eles tentam automaticamente voltar a executar, de acordo com a agenda de atribuição.  
 
-        -   Executar novamente se tiver êxito tentativa anterior: A sequência de tarefas é executado novamente apenas se tiver sido anteriormente executada com êxito no cliente. Esta definição é útil se utilizar implementações periódicas cuja sequência de tarefas seja regularmente atualizada e cada atualização necessitar que a atualização anterior tenha sido instalada com êxito.  
+        -   Executar novamente se tiver êxito tentativa anterior: A sequência de tarefas será novamente executada apenas se foi anteriormente executada com êxito no cliente. Esta definição é útil se utilizar implementações periódicas cuja sequência de tarefas seja regularmente atualizada e cada atualização necessitar que a atualização anterior tenha sido instalada com êxito.  
 
         > [!NOTE]  
-        >  Porque um utilizador pode voltar a executar uma implementação de sequência de tarefas disponível, certifique-se de que antes de implementar uma sequência de tarefas disponível num ambiente de produção, cuidadosamente avaliar e testar o que acontece se um utilizador volta executar a sequência de tarefas múltiplas vezes.  
+        >  Uma vez que um utilizador pode voltar a executar uma implementação de sequência de tarefas disponível, certifique-se de que antes de implementar uma sequência de tarefas disponível num ambiente de produção, cuidadosamente avaliar e testar o que acontece se um utilizador volta executar a sequência de tarefas múltiplas vezes.  
 
 8.  Na página **Experiência de Utilizador** , especifique as seguintes informações e clique em **Seguinte**.  
 
@@ -322,9 +325,9 @@ Apresenta a seguinte mensagem de notificação quando o utilizador final abre a 
 
     -   **Reinício do sistema (se for necessário para concluir a instalação)**: Especifique se o utilizador tem permissão para reiniciar o computador após uma instalação de software fora de uma janela de manutenção configuradas e depois da hora da atribuição.  
 
-    -   **Permitir que a sequência de tarefas executar o cliente na Internet**: Especifique se a sequência de tarefas pode ser executada num cliente baseado na internet. As operações que instalam software, tal como o sistema operativo, não são suportadas com esta definição. Utilize esta opção apenas para as sequências de tarefas genéricas, baseadas em scripts que executam operações no sistema operativo padrão.  
+    -   **Permitir que a sequência de tarefas executar o cliente na Internet**: Especifique se a sequência de tarefas pode ser executada num cliente baseado na internet. As operações que instalam software, como um sistema operacional, não são suportadas com esta definição. Utilize esta opção apenas para sequências de tarefas genéricas, baseadas em scripts que executam operações no sistema operacional padrão.  
 
-         - A partir de versão 1802, esta definição é suportada para implementações de uma sequência de tarefas de atualização no local do Windows 10 para clientes baseados na internet através do gateway de gestão de nuvem. Para obter mais informações, consulte [atualização no local de implementar o Windows 10 através de CMG](#deploy-windows-10-in-place-upgrade-via-cmg).    
+         - A partir da versão 1802, esta definição é suportada para implementações de uma sequência de tarefa de atualização in-loco do Windows 10 para clientes baseados na internet através do gateway de gestão na cloud. Para obter mais informações, consulte [atualização in-loco de implementar o Windows 10 através do CMG](#deploy-windows-10-in-place-upgrade-via-cmg).    
 
 9. Na página **Alertas** , especifique as definições de alerta pretendidas para esta implementação de sequências de tarefas e, em seguida, clique em **Seguinte**.  
 
@@ -333,43 +336,43 @@ Apresenta a seguinte mensagem de notificação quando o utilizador final abre a 
     -   **Opções de implementação**: Especifique uma das seguintes opções:  
 
         > [!NOTE]  
-        >  Quando utilizar multicast para implementar o sistema operativo, o conteúdo deverão ser transferido para os computadores de destino, conforme é necessário ou antes de executar a sequência de tarefas.  
+        >  Quando for utilizado multicast para implementar um sistema operacional, os conteúdos deverão ser transferidos para os computadores de destino, conforme necessário ou antes de executar a sequência de tarefas.  
 
         -   Especifique que os clientes devem transferir os conteúdos do ponto de distribuição para o computador de destino, se tal for necessário para a sequência de tarefas.  
 
-        -   Especifique se os clientes deverão transferir todos os conteúdos do ponto de distribuição para o computador de destino antes de a sequência de tarefas ser executada. Esta opção não será apresentada se tiver especificado que a sequência de tarefas está disponível para implementações de suportes de dados de arranque PXE e no **definições de implementação** página.  
+        -   Especifique se os clientes deverão transferir todos os conteúdos do ponto de distribuição para o computador de destino antes de a sequência de tarefas ser executada. Esta opção não é apresentada se tiver especificado que a sequência de tarefas está disponível para implementações de suportes de dados de arranque PXE ou no **definições de implementação** página.  
 
-        -   Especifique se os clientes deverão executar os conteúdos a partir do ponto de distribuição. Esta opção só está disponível quando todos os pacotes associados à sequência de tarefas estão ativados para utilizar uma partilha de pacote no ponto de distribuição. Para permitir que os conteúdos utilizem uma partilha de pacote, consulte o separador **Acesso a Dados** nas **Propriedades** de cada pacote.  
+        -   Especifique se os clientes deverão executar os conteúdos a partir do ponto de distribuição. Esta opção está disponível apenas quando todos os pacotes associados a sequência de tarefas estão ativados para utilizar uma partilha de pacote no ponto de distribuição. Para permitir que os conteúdos utilizem uma partilha de pacote, consulte o separador **Acesso a Dados** nas **Propriedades** de cada pacote.  
 
-    -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição localizados em redes lentas e pouco fiáveis para transferir o conteúdo necessário pela sequência de tarefas.  
-11. A partir do Configuration Manager 1802, no **resumo** separador, clique em **guardar como modelo** se pretender guardar as definições para utilizar novamente. Forneça um nome para o modelo e selecione as definições para guardar. 
+    -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição que se encontram em redes lentas e pouco fiáveis para transferir o conteúdo necessário pela sequência de tarefas.  
+11. A partir do Configuration Manager 1802, no **resumo** separador, clique em **guardar como modelo** se pretender guardar as definições para utilizar novamente. Forneça um nome para o modelo, selecione as definições para guardar. 
 
  
 12. Conclua o assistente.  
 
 
-### <a name="deploy-windows-10-in-place-upgrade-via-cmg"></a>Implementar a atualização no local do Windows 10 através de CMG
+### <a name="deploy-windows-10-in-place-upgrade-via-cmg"></a>Implementar atualização in-loco do Windows 10 através do CMG
 <!-- 1357149 -->
 
-A partir de versão 1802, a sequência de tarefas de atualização no local do Windows 10 suporta a implementação de clientes baseados na internet geridos através de [gateway de gestão de nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway) (CMG). Esta capacidade permite aos utilizadores remotos mais facilmente atualizar para o Windows 10, sem necessitar de ligar à intranet. 
+A partir da versão 1802, a sequência de tarefas de atualização in-loco do Windows 10 suporta a implementação para clientes baseados na internet geridos através da [gateway de gestão da nuvem](/sccm/core/clients/manage/plan-cloud-management-gateway) (CMG). Esta capacidade permite aos usuários remotos mais facilmente atualizar para o Windows 10, sem terem de se ligar à intranet. 
 
-Certifique-se de que todo o conteúdo referenciado pela sequência de tarefas de atualização no local é distribuído para um [ponto de distribuição de nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point). Caso contrário, os dispositivos não é possível executar a sequência de tarefas.
+Certifique-se de que todo o conteúdo referenciado pela sequência de tarefas de atualização in-loco é distribuído para um [ponto de distribuição da nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point). Caso contrário, os dispositivos não é possível executar a sequência de tarefas.
 
 Quando implementa uma sequência de tarefas de atualização, utilize as seguintes definições:
-- **Permitir que a sequência de tarefas executar o cliente na Internet**, no separador de experiência de utilizador da implementação.
-- **Transferir todo o conteúdo localmente antes de iniciar a sequência de tarefas**, no separador de pontos de distribuição da implementação. Outras opções como **transferir o conteúdo localmente quando necessário para a sequência de tarefas em execução** não funcionam neste cenário. O motor de sequência de tarefas é atualmente não é possível obter conteúdo de um ponto de distribuição na nuvem. O cliente do Configuration Manager tem de transferir o conteúdo do ponto de distribuição de nuvem antes de iniciar a sequência de tarefas.
-- (*Opcional*) **previamente transferir conteúdo para esta sequência de tarefas**, no separador Geral da implementação. Para obter mais informações, consulte [configurar pré-armazenar conteúdo em cache](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content).
+- **Permitir que a sequência de tarefas executar o cliente na Internet**, no separador experiência de utilizador da implementação.
+- **Transferir todo o conteúdo localmente antes de iniciar a sequência de tarefas**, no separador de pontos de distribuição da implantação. Outras opções, como **transferir o conteúdo localmente quando necessário para a sequência de tarefas em execução** não funcionar neste cenário. O motor de sequência de tarefas é atualmente não é possível obter o conteúdo a partir de um ponto de distribuição de nuvem. O cliente do Configuration Manager tem de transferir o conteúdo do ponto de distribuição de cloud antes de iniciar a sequência de tarefas.
+- (*Opcional*) **pré-transferir conteúdos para esta sequência de tarefas**, na guia Geral da implantação. Para obter mais informações, consulte [configurar pré-armazenar conteúdo em cache](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content).
 
 
 
 ##  <a name="BKMK_ExportImport"></a> Exportar e importar sequências de tarefas  
- Pode exportar e importar sequências de tarefas com ou sem os respetivos objetos relacionados. Este conteúdo referenciado inclui uma imagem do SO, uma imagem de arranque, um pacote de agente do cliente, um pacote de controladores e aplicações com dependências.  
+ Pode exportar e importar sequências de tarefas, com ou sem seus objetos relacionados. Este conteúdo referenciado inclui uma imagem de sistema operacional, uma imagem de arranque, um pacote de agente do cliente, um pacote de controladores e aplicações com dependências.  
 
  Pondere os seguintes aspetos ao exportar e importar sequências de tarefas.  
 
--   As palavras-passe que se encontram armazenadas na sequência de tarefas não são exportadas. Se exportar e importar uma sequência de tarefas que contenha palavras-passe, tem de editar a sequência de tarefas importada e reintroduza as palavras-passe. Certifique-se de que especifica palavras-passe para [associar domínio ou grupo de trabalho](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [ligar à pasta de rede](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder), e [executar linha de comandos](../understand/task-sequence-steps.md#BKMK_RunCommandLine) ações.  
+-   As palavras-passe que se encontram armazenadas na sequência de tarefas não são exportadas. Se exportar e importar uma sequência de tarefas que contém as palavras-passe, tem de editar a sequência de tarefas importada e reintroduza as palavras-passe. Certifique-se de que especifica palavras-passe para [associar domínio ou grupo de trabalho](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [Connect To Network Folder](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder), e [executar linha de comandos](../understand/task-sequence-steps.md#BKMK_RunCommandLine) ações.  
 
-- Quando exporta uma sequência de tarefas com o **definir variáveis dinâmicas** passo, são exportados sem valores das variáveis que estão configuradas com o **valor secreto** definição. Reintroduza os valores para estas variáveis, depois de importar a sequência de tarefas.
+- Ao exportar uma sequência de tarefas com o **definir variáveis dinâmicas** passo, não existem valores são exportados para variáveis que estão configuradas com o **valor secreto** definição. Reintroduza os valores para estas variáveis, depois de importar a sequência de tarefas.
 
 -   Como procedimento recomendado, sempre que existam vários sites primários, as sequências de tarefas deverão ser importadas no site de administração central.  
 
@@ -403,7 +406,7 @@ Quando implementa uma sequência de tarefas de atualização, utilize as seguint
 
 -   Se não exportar conteúdos: um ficheiro .zip e uma pasta designada *exportar*_files, em que *exportar* corresponde ao nome do ficheiro .zip que contém os conteúdos exportados.  
 
- Se incluir conteúdos ao exportar uma sequência de tarefas, certifique-se de que copie o ficheiro. zip e a *exportar*Files pasta ou a importação falhará.  
+ Se incluir conteúdos ao exportar uma sequência de tarefas, certifique-se de que copia o ficheiro. zip e o *exportar*pasta Files, ou a importação falhará.  
 
 #### <a name="to-import-task-sequences"></a>Para importar sequências de tarefas  
 
@@ -430,11 +433,11 @@ Quando implementa uma sequência de tarefas de atualização, utilize as seguint
  Depois de importar a sequência de tarefas, edite-a para especificar as palavras-passe que estavam na sequência de tarefas original. Por razões de segurança, as palavras-passe não são exportadas.  
 
 ##  <a name="BKMK_CreateTSVariables"></a> Criar variáveis de sequência de tarefas para computadores e coleções  
-Pode definir variáveis de sequência de tarefas personalizadas para computadores e coleções. As variáveis definidas para um computador são designadas variáveis de sequência de tarefas por computador. As variáveis definidas para uma coleção são designadas variáveis de sequência de tarefas por coleção. Em caso de conflito, as variáveis por computador têm precedência sobre as variáveis por coleção. Este comportamento significa que as variáveis de sequência de tarefas que são automaticamente atribuídas a um computador específico tem uma prioridade superior à variáveis que estão atribuídas à coleção que contenha o computador.  
+Pode definir variáveis de sequência de tarefas personalizadas para computadores e coleções. As variáveis definidas para um computador são designadas variáveis de sequência de tarefas por computador. As variáveis definidas para uma coleção são designadas variáveis de sequência de tarefas por coleção. Em caso de conflito, as variáveis por computador têm precedência sobre as variáveis por coleção. Este comportamento significa que as variáveis de sequência de tarefas que são atribuídas automaticamente a um computador específico tem prioridade sobre as variáveis que estão atribuídos à coleção que contenha o computador.  
 
 Por exemplo, se a coleção ABC tiver atribuída uma variável e o computador XYZ, que é um membro da coleção ABC, tiver atribuída uma variável com o mesmo nome, a variável atribuída ao computador XYZ terá prioridade sobre a variável atribuída à coleção ABC.  
 
-Pode ocultar as variáveis por computador e por coleção para que não fiquem visíveis na consola do Configuration Manager. Se pretender que deixem de ficar ocultas, tem de as eliminar e redefinir sem selecionar a opção para as ocultar. Quando utiliza a opção **não apresentar este valor na consola do Configuration Manager**, o valor da variável não for apresentado na consola do. A variável ainda pode ser utilizada pela sequência de tarefas quando for executada.  
+Pode ocultar as variáveis por computador e por coleção para que não fiquem visíveis na consola do Configuration Manager. Se pretender que deixem de ficar ocultas, tem de as eliminar e redefinir sem selecionar a opção para as ocultar. Quando utiliza a opção **não apresentar este valor na consola do Configuration Manager**, o valor da variável não é apresentado na consola do. A variável ainda pode ser utilizada pela sequência de tarefas quando for executado.  
 
 > [!WARNING]    
 > O **não apresentar este valor na consola do Configuration Manager** definição aplica-se apenas a consola do Configuration Manager. Os valores para as variáveis ainda são apresentados no ficheiro de registo de sequência de tarefas (SMSTS. REGISTO). 
@@ -442,9 +445,9 @@ Pode ocultar as variáveis por computador e por coleção para que não fiquem v
 Pode gerir variáveis por computador num site primário ou num site de administração central. O Configuration Manager não suporta mais de 1000 variáveis atribuídas para um computador.  
 
 > [!IMPORTANT]  
->  Quando utiliza variáveis por coleção para sequências de tarefas, considere os comportamentos seguintes:  
+>  Quando utiliza variáveis por coleção para sequências de tarefas, considere os seguintes comportamentos:  
 >   
-> - As alterações nas coleções são sempre replicadas em toda a hierarquia. Aplicam as alterações efetuadas nas variáveis da coleção não apenas a membros do site atual, mas para todos os membros da coleção de toda a hierarquia.  
+> - As alterações nas coleções são sempre replicadas em toda a hierarquia. Aplicam-se todas as alterações que fizer às variáveis de coleção não apenas aos membros do site atual, mas a todos os membros da coleção em toda a hierarquia.  
 > - Quando elimina uma coleção, esta ação também elimina as variáveis de sequência de tarefas configuradas para a coleção.  
 
  Utilize os procedimentos seguintes para criar variáveis de sequência de tarefas para um computador ou uma coleção.  
@@ -459,7 +462,7 @@ Pode gerir variáveis por computador num site primário ou num site de administr
 
 4.  Na caixa de diálogo **Propriedades** , clique no separador **Variáveis** .  
 
-5.  Para cada variável que pretende criar, clique o **novo** ícone no **< novo\> variável** caixa de diálogo. Especifique o nome e o valor da variável de sequência de tarefas. Limpar o **não apresentar este valor na consola do Configuration Manager** caixa de verificação se pretender ocultar as variáveis, para que não fiquem visíveis na consola do Configuration Manager.  
+5.  Para cada variável que pretende criar, clique a **New** ícone na **< New\> variável** caixa de diálogo. Especifique o nome e o valor da variável de sequência de tarefas. Limpar o **não apresentar este valor na consola do Configuration Manager** caixa de verificação se pretender ocultar as variáveis para que não fiquem visíveis na consola do Configuration Manager.  
 
 6.  Depois de ter adicionado todas as variáveis ao computador, clique em **OK**.  
 
@@ -471,31 +474,30 @@ Pode gerir variáveis por computador num site primário ou num site de administr
 
 3.  Na caixa de diálogo **Propriedades** , clique no separador **Variáveis da Coleção** .  
 
-4.  Para cada variável que pretende criar, clique o **novo** ícone no **< novo\> variável** caixa de diálogo. Especifique o nome e o valor da variável de sequência de tarefas. Limpar o **não apresentar este valor na consola do Configuration Manager** caixa de verificação se pretender ocultar as variáveis, para que não fiquem visíveis na consola do Configuration Manager.  
+4.  Para cada variável que pretende criar, clique a **New** ícone na **< New\> variável** caixa de diálogo. Especifique o nome e o valor da variável de sequência de tarefas. Limpar o **não apresentar este valor na consola do Configuration Manager** caixa de verificação se pretender ocultar as variáveis para que não fiquem visíveis na consola do Configuration Manager.  
 
 5.  Opcionalmente, especifique a prioridade para o Configuration Manager para utilizar quando são avaliadas as variáveis de sequência de tarefas.  
 
 6.  Depois de ter adicionado todas as variáveis à coleção, clique em **OK**.  
 
-## <a name="add-child-task-sequences-to-a-task-sequence"></a>Adicionar sequências de tarefas de subordinados a uma sequência de tarefas
-<!--1261338-->
-A partir do Configuration Manager versão 1710, pode adicionar um novo passo de sequência de tarefas executa outra sequência de tarefas. Este passo cria uma relação principal-subordinado entre as sequências de tarefas. Utilizar este passo permite-lhe criar mais sequências de tarefas modulares que pode reutilizar.  
+## <a name="add-child-task-sequences-to-a-task-sequence"></a>Adicionar sequências de tarefas filho a uma sequência de tarefas
+<!--1261338--> A partir do Configuration Manager versão 1710, pode adicionar um novo passo de sequência de tarefas que executa outra sequência de tarefas. Este passo cria uma relação principal-subordinado entre sequências de tarefas. Utilizar este passo permite-lhe criar mais sequências de tarefas modulares que pode reutilizar.  
 
 > [!Note]  
-> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 
-Quando adicionar uma sequência de tarefas subordinados a uma sequência de tarefas, considere o seguinte:
+Quando adicionar uma sequência de tarefas filho a uma sequência de tarefas, considere o seguinte:
 
- - As sequências de tarefas principais e subordinados eficazmente são combinadas uma única política que executa o cliente.
- - O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, alterada pela sequência de tarefas subordinadas, continua a ser alterada. Da mesma forma, se a sequência de tarefas subordinado cria uma nova variável, está disponível para os passos restantes da sequência de tarefas principal.
- - Mensagens de estado são enviadas por normal para uma operação de sequência de tarefas único.
- - As sequências de tarefas escreverem entradas no ficheiro smsts.log, com o novo registo de entradas que desmarque quando uma sequência de tarefas subordinado é iniciado.
+ - As sequências de tarefas principais e subordinados com eficiência são combinadas numa única política que executa o cliente.
+ - O ambiente é global. Por exemplo, se uma variável é definida pela sequência de tarefas principal e, em seguida, foi alterada pela sequência de tarefas filho, continua a ser alterado. Da mesma forma, se a sequência de tarefas filho cria uma nova variável, está disponível para os restantes passos da sequência de tarefa principal.
+ - Mensagens de estado são enviadas por normal para uma operação de sequência de tarefa única.
+ - As sequências de tarefas gravar entradas para o ficheiro smsts log, com o novo log entradas que ficar claro quando uma sequência de tarefas de subordinado é iniciado.
 
-### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Para adicionar uma sequência de tarefas subordinados a uma sequência de tarefas
+### <a name="to-add-a-child-task-sequence-to-a-task-sequence"></a>Para adicionar uma sequência de tarefas filho a uma sequência de tarefas
 
-1. No editor de sequência de tarefas, clique em **adicionar**, selecione **geral**e clique em **executar a sequência de tarefas**.
-2. Clique em **procurar** para selecionar a sequência de tarefas subordinado.  
+1. No editor de sequência de tarefas, clique em **Add**, selecione **gerais**e clique em **executar a sequência de tarefas**.
+2. Clique em **procurar** para selecionar a sequência de tarefas filho.  
 
 ##  <a name="BKMK_AdditionalActionsTS"></a> Ações adicionais para gerir sequências de tarefas  
  Pode gerir sequências de tarefas com ações adicionais ao selecionar uma sequência de tarefas.  
@@ -512,8 +514,8 @@ Quando adicionar uma sequência de tarefas subordinados a uma sequência de tare
 
 |Action|Descrição|  
 |------------|-----------------|  
-|**Copiar**|Efetua uma cópia da sequência tarefas selecionada. Esta ação é útil para criar uma nova sequência de tarefas com base na sequência de tarefas existente.<br /><br /> Quando efetuar uma cópia de uma sequência de tarefas numa pasta, esta é listada nessa pasta até a atualizar o nó da sequência de tarefas. Após a atualização, cópia aparece na pasta raiz.|  
-|**Desativar**|Desativa a sequência de tarefas para não ser executada nos computadores. Pode implementar uma sequência de tarefas desativada, mas os computadores executam a sequência de tarefas até que o ative.|  
+|**Copiar**|Efetua uma cópia da sequência tarefas selecionada. Esta ação é útil para criar uma nova sequência de tarefas que se baseia numa sequência de tarefas existente.<br /><br /> Quando efetuar uma cópia de uma sequência de tarefas numa pasta, esta é listada nessa pasta até a atualizar o nó da sequência de tarefas. Após a atualização, cópia aparece na pasta raiz.|  
+|**Desativar**|Desativa a sequência de tarefas para não ser executada nos computadores. Pode implementar uma sequência de tarefas desativada, mas os computadores não executam a sequência de tarefas até que o ative.|  
 |**Ativar**|Ativa a sequência de tarefas para poder ser executada. Não necessita de voltar a implementar uma sequência de tarefas implementada depois de ser ativada.|  
 |**Criar Ficheiro de Conteúdo Pré-configurado**|Inicia o Assistente para Criar Ficheiro de Conteúdo Pré-configurado para pré-configurar o conteúdo da sequência de tarefas. Para obter informações sobre como criar um ficheiro de conteúdo pré-configurado, consulte [pré-configurar conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).|  
 |**Moverr**|Move a sequência de tarefas selecionada para outra pasta.|  
