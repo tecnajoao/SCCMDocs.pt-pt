@@ -1,8 +1,8 @@
 ---
-title: Versões do Technical Preview
+title: Versões de pré-visualização técnicas
 titleSuffix: Configuration Manager
-description: Saiba mais sobre a versão de pré-visualização técnica test-drive novas funcionalidades e capacidades no Configuration Manager.
-ms.date: 06/27/2018
+description: Saiba mais sobre o ramo de pré-visualização técnica a testarem novas funcionalidades e capacidades no Configuration Manager.
+ms.date: 07/30/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,120 +10,138 @@ ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1fd848c3e0ed663e0731eb86d39c930db3af7819
-ms.sourcegitcommit: d1bf26bcf0d78b37ac7598fab36eb58ca69b1dc5
+ms.openlocfilehash: ec9c4cdf54e6ffc55cc2983152f56492e5b1b354
+ms.sourcegitcommit: af4f8bd8dffe6fb05f51322ea9e94d335a2cc0c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37066288"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39360720"
 ---
-# <a name="technical-preview-for-system-center-configuration-manager"></a>Pré-visualização técnica do System Center Configuration Manager
+# <a name="technical-preview-for-configuration-manager"></a>Pré-visualização técnica do Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Aplica-se a: O System Center Configuration Manager (pré-visualização técnica)*
 
-**Bem-vindo ao do System Center Configuration Manager Technical Preview**. Este artigo fornece detalhes sobre a versão de pré-visualização em desenvolvimento que introduz novas funcionalidades e capacidades que estamos a trabalhar. Cada versão do technical preview introduz novas funcionalidades que não estejam incluídas no ramo atual do Configuration Manager no momento que da versão de pré-visualização técnica é disponibilizada. Estas funcionalidades poderão eventualmente ser incluídas numa atualização à versão do ramo atual, mas antes de finalizarmos as funcionalidades e de as adicionarmos, queremos que tenha a oportunidade de experimentá-las e de nos enviar os seus comentários.  
+Este artigo fornece detalhes sobre o ramo mensal de pré-visualização técnica do Configuration Manager. O technical preview introduz novas funcionalidades que a Microsoft está trabalhando. Ele introduz novas funcionalidades que ainda não estão incluídas no ramo atual do Configuration Manager. Estas funcionalidades poderão eventualmente ser incluídas numa atualização para o current branch. Antes de vamos finalizar os recursos, queremos a experimentá-las e envie-nos comentários.  
 
- Porque esta versão é uma versão de pré-visualização técnica, detalhes e a funcionalidade estão sujeitos a alterações.  
+Uma vez que esta versão é uma pré-visualização técnica, detalhes e a funcionalidade estão sujeitos a alterações.  
 
- Este artigo contém informações que se aplicam a todas as versões do Technical Preview. Lista também cada nova capacidade (ou funcionalidade), juntamente com a versão de pré-visualização técnica em que a capacidade aparece pela primeira vez, como a versão 1806 para Junho de 2018. Estas capacidades estão descritas nos tópicos separados dedicados para cada versão de pré-visualização.  
+Essas informações se aplicam a todas as versões do ramo de pré-visualização técnica do Configuration Manager. Este artigo apresenta uma lista de cada funcionalidade nova juntamente com a versão de pré-visualização técnica em que ele aparece pela primeira vez. Por exemplo, a versão **1806** para Junho (06) de 2018 (18). Artigos separados dedicados para cada detalhe da versão de pré-visualização, os recursos individuais.  
 
- Para obter informações sobre quais são as novidades no ramo atual do Configuration Manager, consulte [que há de novo no System Center Configuration Manager](/sccm/core/plan-design/changes/what-has-changed-from-configuration-manager-2012).
+Para obter informações sobre o que há de novo no *ramo atual* do Configuration Manager, consulte [o que há de novo no Configuration Manager versões incrementais](/sccm/core/plan-design/changes/whats-new-incremental-versions).
 
 
 
-##  <a name="bkmk_reqs"></a> Requisitos e limitações do Technical Preview  
+##  <a name="bkmk_reqs"></a> Requisitos e limitações  
 
 > [!IMPORTANT]     
->  A Technical Preview está licenciada para ser utilizada apenas num ambiente de laboratório. A Microsoft poderá não fornecer serviços de suporte e algumas funcionalidades poderão não estar disponíveis no software de pré-visualização. Além disso, o software de pré-visualização, poderá ter reduzida ou padrões diferentes de segurança, privacidade, acessibilidade, disponibilidade e fiabilidade relativa comercialmente fornecidos software.  
+>  A Technical Preview está licenciada para ser utilizada apenas num ambiente de laboratório. A Microsoft não pode fornecer serviços de suporte e determinadas funcionalidades poderão não estar disponíveis no software de pré-visualização. Além disso, o software de pré-visualização, pode ter reduzido ou diferentes padrões de segurança, privacidade, acessibilidade, disponibilidade e fiabilidade relação ao software disponibilizado comercialmente.  
 
- Para a maioria dos pré-requisitos de produto, utilize as informações de [configurações suportadas para o System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md). As seguintes exceções são aplicáveis apenas às versões do Technical Preview:  
+ Para a maioria dos pré-requisitos de produto, utilize as informações no [configurações suportadas](/sccm/core/plan-design/configs/supported-configurations). As exceções seguintes aplicam-se para o ramo de pré-visualização técnica:  
 
--   Cada instalação permanece ativa durante 90 dias até se tornar inativa.  
+-   Cada instalação está ativa por 90 dias antes de se tornar inativa.  
 
--   O inglês é o único idioma suportado.
+-   O inglês é o único idioma suportado.  
 
+-   Ela oferece suporte apenas os seguintes parâmetros de linha de comandos de configuração:  
+    -   `/silent`  
+    -   `/testdbupgrade`    
 
--   Apenas os seguintes sinalizadores de instalação (comutadores) são suportados:  
+-   Instala o ponto de ligação de serviço para o modo online. Ele não suporta o modo offline.  
 
-    -   **/silent**  
-    -   **/testdbupgrade**    
+-   Os artigos separados para cada versão específica do technical preview incluem requisitos, conforme aplicável ou limitações adicionais.
 
+-   As seguintes funcionalidades não são suportadas com o ramo de pré-visualização técnica:  
 
--   Por predefinição, quando utiliza o technical preview, o ponto de ligação de serviço é instalado para o modo online. Não suporta a alteração para o modo offline.
+    - [Migração](/sccm/core/migration/migrate-data-between-hierarchies) de ou para este ramo de pré-visualização.  
 
--   Os artigos separados para cada versão específica do technical preview incluem limitações ou requisitos, conforme aplicável.
+    - [Atualizar](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager) para este ramo de pré-visualização.  
 
--   Não existe suporte para migração para ou a partir desta versão de pré-visualização.  
+    - [Recuperação de sites](/sccm/core/servers/manage/recover-sites) da pasta CD. Latest.  <!--507106-->
 
--   Não existe suporte para atualizar para esta versão de pré-visualização. 
+-   Não há suporte para a atualização para o ramo atual do ramo pré-visualização.  
 
--   Não são suportadas para a recuperação de sites a partir da pasta CD. Latest.  <!--507106-->
+    > [!Note]  
+    > Quando as atualizações estiverem disponíveis para uma versão de pré-visualização, ainda encontrar e instalá-los a partir da **atualizações e manutenção** nó da consola do Configuration Manager. Para ver um vídeo do processo de atualização na consola, consulte [pacotes de atualização de instalar o Configuration Manager](https://www.youtube.com/embed/KBd_EGFbUT8) em youtube.com.  
 
--   Não existe suporte para atualizar para uma compilação de produção (ramo atual) a partir desta preview build. No entanto, quando as atualizações estiverem disponíveis para uma versão de pré-visualização, pode encontrar e instalá-los a partir de **atualizações e manutenção** nós da consola do Configuration Manager. Para ver um vídeo do processo de atualização na consola, veja [Installing ConfigMgr Update Packages](https://www.youtube.com/embed/KBd_EGFbUT8) (Instalar Pacotes de Atualização do ConfigMgr) em youtube.com.  
--   Apenas é suportado um site primário autónomo. Não existe suporte para um site de administração central, múltiplos sites primários ou sites secundários.  
+-   Ela oferece suporte apenas um site primário autónomo. Não há suporte para um site de administração central, múltiplos sites primários ou sites secundários.  
 
-Os produtos e tecnologias que se seguem são suportadas por este ramo do Configuration Manager. No entanto, a sua inclusão neste conteúdo não implica uma extensão de suporte para um produto ou a versão que está fora individual do produto vida de suporte. Os produtos que estejam fora do respetivo ciclo de vida de suporte não são suportados para utilização com o Configuration Manager. Para obter mais informações sobre ciclos de vida de suporte de Microsoft, visite o [ciclo de vida de suporte de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=208270) Web site.  
+O ramo de pré-visualização técnica do Configuration Manager suporta os seguintes produtos e tecnologias: 
 
--   Apenas são suportadas as seguintes versões do SQL Server:  
+-   Ele só suporta as seguintes versões do **SQL Server**:  
 
     -   SQL Server 2017 (com a atualização cumulativa 2 e posterior) que começa no Configuration Manager versão 1710
     -   SQL Server 2016 (sem Service Pack e posterior)
     -   SQL Server 2014 (com Service Pack 1 e posterior)
-    -   SQL Server 2012 (com Service Pack 3, ou posterior)
+    -   SQL Server 2012 (com Service Pack 3, ou posterior)  
 
 
--   O site suporta até 10 clientes, tem de executar uma das seguintes versões do Windows:  
+-   O site suporta até 10 clientes, que tem de executar uma das seguintes versões do Windows:  
 
       -   Windows 10  
       -   Windows 8,1  
       -   Windows 7  
 
-##  <a name="bkmk_install"></a> Instalar e atualizar o Technical Preview  
- O System Center Configuration Manager Technical Preview é distinto da versão atual do System Center Configuration Manager.  
+> [!Note]  
+> A inclusão desses produtos neste conteúdo não implica uma extensão de suporte para uma versão que está além do seu ciclo de vida de suporte. O Configuration Manager não suporta produtos que estejam fora do respetivo ciclo de vida de suporte. Para obter mais informações, consulte [Microsoft Lifecycle Policy](https://go.microsoft.com/fwlink/p/?LinkId=208270).  
 
- Para utilizar a pré-visualização técnica, primeiro tem de instalar um **versão de linha** da versão de pré-visualização técnica. Depois de instalar uma versão de linha de base, em seguida, utilizar **atualizações na consola** para ter a sua instalação atualizada com a versão de pré-visualização mais recente. Normalmente, existem novas versões mensais da Technical Preview.
 
-Cada versão de pré-visualização é suportado até três versões sucessivas estão disponíveis. Ou seja, quando 1708 lançada, versão 1704 foi versão já não suporte, mas versões 1705, 1706 e 1707 permanecer suporte. Quando uma linha de base está fora do suporte, ainda é suportada para instalar um novo site de pré-visualização técnica até que uma nova versão de linha de base está disponível, desde que, em seguida, atualizar essa instalação para uma versão suportada. Atualizar para a versão mais recente disponível e, em seguida, repita esse processo até que pode instalar a versão mais recente do technical preview.
+
+##  <a name="bkmk_install"></a> Instalação e atualização  
+
+O ramo de pré-visualização técnica do Configuration Manager para utilização do laboratório é diferente do Configuration Manager current branch para utilização em produção.  
+
+Primeiro de instalar uma versão de linha de base do ramo de pré-visualização técnica. Depois de instalar uma versão de linha de base, em seguida, utilize atualizações na consola para atualizar sua instalação atualizada com a versão de pré-visualização mais recente. Normalmente, as novas versões do technical preview estão disponíveis mensalmente.
+
+A Microsoft suporta a cada versão de pré-visualização técnica até que existem três versões sucessivas. Por exemplo, quando versão 1708 lançado, versão 1704 não era mais suporte. Versões 1705, 1706 e versão 1707 permaneceram em suporte. Quando uma linha de base sai do suporte, ainda é suportado para a instalação de um novo site de pré-visualização técnica, partindo do princípio de que atualizar imediatamente para uma versão suportada. A linha de base mais antiga é suportada até que uma nova versão de linha de base está disponível. Atualize para a versão mais recente disponível da linha de base e, em seguida, repita o processo de atualização até que instale a versão de pré-visualização técnica mais recente.
 
 > [!TIP]  
->  Quando instala uma atualização para o technical preview, atualizar a instalação de pré-visualização para essa nova versão de pré-visualização técnica. Uma instalação de pré-visualização técnica nunca inclui a opção para atualizar para uma instalação do ramo atual, nem de receber atualizações da versão atual do ramo.  
+>  Quando instala uma atualização para o technical preview, atualizar sua instalação de visualização para essa nova versão de pré-visualização técnica. Uma instalação de pré-visualização técnica nunca tem a opção de atualizar para uma instalação do ramo atual. Também nunca recebe atualizações da versão do ramo atual. 
+> 
+> Várias vezes ao longo do ano, existem pré-visualização técnica e as versões atuais do ramo com o mesmo número de versão. Por exemplo, existe uma versão de pré-visualização técnica 1802 e uma versão de ramificação 1802 atual. 
 
-**Versões de linha de base ativas da Technical Preview:**
    
-Pode instalar uma versão de linha de base para até um ano depois da versão. No entanto, quando instala um novo site de pré-visualização técnica, recomendamos que utilize a versão de linha de base mais recente que está disponível.
--  **Technical Preview 1806** -o Configuration Manager Technical Preview 1806 está disponível como uma atualização de na consola e como uma nova versão de linha de base. Transferir as versões de linha de base [do Centro de avaliação TechNet](https://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
+### <a name="active-baseline-versions"></a>Versões de linha de Active Directory
+   
+Instale uma versão de linha de base para até um ano após o seu lançamento. Quando instala um novo site de pré-visualização técnica, se mais de uma versão de linha de base está atualmente disponível, utilize a versão de linha de base mais recente.
+
+-  **Versão de pré-visualização técnica 1806**: A versão de pré-visualização técnica do Configuration Manager 1806 está disponível como uma atualização na consola e como uma nova versão de linha de base. Baixe versões de linha de base [do Centro de avaliação TechNet](https://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
+
 
 
 ##  <a name="BKMK_TPFeedback"></a> Fornecer comentários  
- Iremos adoram ouvir os seus comentários sobre as funcionalidades no nosso pré-visualizações técnicas. Para obter mais informações, consulte [comentários sobre produtos](../understand/find-help.md#product-feedback).
 
-Se tiver ideias sobre novas funcionalidades que gostaria de ver, queremos interessados. Para submeter novas ideias e votar nas ideias submetidas por outras pessoas, [visite a nossa página do UserVoice](https://configurationmanager.uservoice.com).  
+Adoramos ouvir os seus comentários sobre as novas funcionalidades no technical preview. Para obter mais informações, consulte [comentários sobre o produto](/sccm/core/understand/find-help#product-feedback).
+
+Se tiver ideias sobre novas funcionalidades que gostariam de ver, o que queremos saber que também. Para submeter novas ideias e votar em ideias submetidas por outras pessoas, [visite a nossa página UserVoice](https://configurationmanager.uservoice.com).  
 
 <!--   ##  <a name="bdmk_tpknownissues"></a> General changes introduced in Technical Previews    -->
 
 
 
+##  <a name="bkmk_tpCaps"></a> A versão mais recente  
 
-##  <a name="bkmk_tpCaps"></a> Capacidades fornecidas no technical preview mais recente  
-Seguem-se as capacidades fornecidas com a versão de pré-visualização técnica mais recente do Configuration Manager. Capacidades que estavam disponíveis numa versão anterior do technical preview permanecem disponíveis nas versões posteriores. Da mesma forma, as capacidades que foram adicionadas para o ramo atual do Configuration Manager permanecerem disponíveis em versões de pré-visualização técnica. Clique nas hiperligações para o conteúdo de cada versão de pré-visualização para saber mais sobre uma capacidade específica.  
+As seguintes funcionalidades estão disponíveis com a versão de pré-visualização técnica mais recente do Configuration Manager: 
 
 <!-- This is the full list of new features in the latest TP release -->
 
-### <a name="technical-preview-version-18062"></a>Pré-visualização técnica versão 1806.2
-- [Melhoramentos às implementações faseadas](capabilities-in-technical-preview-1806-2.md#bkmk_pod) <!--1358577,1358147,1358578-->
-- [Suporte para formatos de pacote de aplicação do novo Windows](capabilities-in-technical-preview-1806-2.md#bkmk_msix) <!--1357427-->
-- [Melhoramento de segurança de push de cliente](capabilities-in-technical-preview-1806-2.md#bkmk_client-push) <!--1358204-->
-- [Informações de gestão para uma manutenção pró-ativa](capabilities-in-technical-preview-1806-2.md#bkmk_insights) <!--1352184,et al-->
-- [Carga de trabalho de aplicações móveis de transição para dispositivos geridos conjuntamente](capabilities-in-technical-preview-1806-2.md#bkmk_comgmt) <!--1357892-->
-- [Opções do grupo de limites para transferências de elemento](capabilities-in-technical-preview-1806-2.md#bkmk_bgoptions) <!--1356193-->
-- [Suporte para catálogos personalizados de atualizações de software de terceiros](capabilities-in-technical-preview-1806-2.md#bkmk_3pupdate) <!--1358714-->
-- [Melhoramentos às funcionalidades de gestão de nuvem](capabilities-in-technical-preview-1806-2.md#bkmk_cloud) <!--511980,515854-->
-- [Novo relatório de compatibilidade de atualizações de software](capabilities-in-technical-preview-1806-2.md#bkmk_report) <!--1357775-->
+### <a name="technical-preview-version-1807"></a>Pré-visualização técnica versão 1807
+
+- [Hub de Comunidade](capabilities-in-technical-preview-1807.md#bkmk_hub) <!--1357766-->
+- [Especifique a unidade para a manutenção da imagem de SO offline](capabilities-in-technical-preview-1807.md#bkmk_osd) <!--1358924-->
+- [Atividade de sincronização de dispositivos cogeridos com o Intune](capabilities-in-technical-preview-1807.md#bkmk_comgmt) <!--1358565-->
+- [Aplicativos de reparação](capabilities-in-technical-preview-1807.md#bkmk_app-repair) <!--1357866-->
+- [Aprovar pedidos de aplicações através de e-mail](capabilities-in-technical-preview-1807.md#bkmk_email-approve) <!--1321550-->
+- [Melhoria à saída do script](capabilities-in-technical-preview-1807.md#bkmk_script) <!--1236459-->
+- [Melhoria para atualizações de software de terceiros](capabilities-in-technical-preview-1807.md#bkmk_3pupdate) <!--1358714-->
+
+> [!Note]  
+> Recursos que estavam disponíveis numa versão anterior do technical preview permanecem disponíveis nas versões posteriores. Da mesma forma, os recursos que são adicionados para o Configuration Manager current branch permanecem disponíveis no ramo de pré-visualização técnica.   
 
 
 
-## <a name="capabilities-delivered-in-recent-supported-technical-previews"></a>Capacidades fornecidas em pré-visualizações técnicas de suportados recentes
-Seguem-se as capacidades fornecidas em versões anteriores da versão de pré-visualização técnica do Configuration Manager que ainda são suportadas. 
+## <a name="features-in-recent-supported-technical-previews"></a>Recursos em technical previews recentes suportadas
+
+As seguintes funcionalidades foram lançadas com versões anteriores do ramo de pré-visualização técnica do Configuration Manager que ainda são suportadas: 
 
 <!-- This is the full list of new features in the past THREE (3) TP releases. 
 Each month, add features from the list above to the top of this table. 
@@ -132,57 +150,67 @@ Then remove the bottom of this list and/or move individual items not in CB to th
 
  |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
  |----------------|---------------------|--------------------|
- | Atualizações de software de terceiros <!--1352101--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#bkmk-3pupdate)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Configurar as definições do Windows Defender SmartScreen para Microsoft Edge <!--1353701--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#configure-windows-defender-smartscreen-settings-for-microsoft-edge)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Política MDM de sincronização do Microsoft Intune para um dispositivo gerido conjuntamente <!--1357377--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#sync-mdm-policy-from-microsoft-intune-for-a-co-managed-device)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Transição do Office 365 carga de trabalho utilizando a gestão de coadministrador do Intune <!--1357841--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#transition-office-365-workload-to-intune-using-co-management)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Gestor de conversão de pacotes <!--1357861--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#package-conversion-manager)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Implementar atualizações de software sem conteúdo <!--1357933--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#deploy-software-updates-without-content)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Integração de ferramenta de personalização do Office com o instalador do Office 365 <!--1358149--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#office-customization-tool-integration-with-the-office-365-installer)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoramentos ao gateway de gestão de nuvem <!--1358215,1358651,503899--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#improvements-to-cloud-management-gateway)   | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoramentos para proteger as comunicações de cliente <!--1358278,1358279--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#improvements-to-secure-client-communications)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhorias na infraestrutura de centro de software <!--1358309--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#software-center-infrastructure-improvements)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Aprovisionar pacotes de aplicações do Windows para todos os utilizadores num dispositivo <!--1358310--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#provision-windows-app-packages-for-all-users-on-a-device)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoramentos ao dashboard superfície <!--1358654--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#improvements-to-the-surface-dashboard)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Revisão de unidade da predefinição de inventário de hardware <!--514442--> | [Pré-visualização do técnico 1806](capabilities-in-technical-preview-1806.md#hardware-inventory-default-unit-revision)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Criar uma implementação faseada fases configurados manual de uma sequência de tarefas <!--1358148--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#create-a-phased-deployment-with-manually-configured-phases-for-a-task-sequence)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Suporte de ponto de distribuição de nuvem do Azure Resource Manager <!--1322209--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#cloud-distribution-point-support-for-azure-resource-manager)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Executar ações com base nas informações de gestão <!--1357930--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#take-actions-based-on-management-insights)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Transição dispositivo configuração carga de trabalho utilizando a gestão de coadministrador do Intune <!--1357903--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#transition-device-configuration-workload-to-intune-using-co-management)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Ative pontos de distribuição para utilizar o controlo de congestionamento de rede <!--1358112--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#enable-distribution-points-to-use-network-congestion-control)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Dashboard de gestão de nuvem <!--1358461--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#cloud-management-dashboard)  | ![Não foi adicionada](media/Red_X.gif) |  
- | CMPivot <!--1358456--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#cmpivot)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhorado comunicações de cliente seguras <!--1356889,1358228,1358460--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improved-secure-client-communications)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoramentos para ativar o suporte de atualização de software de terceiros <!--1357605--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvements-for-enabling-third-party-software-update-support)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoramentos à sequência de tarefas de atualização no local do Windows 10 <!--1358500--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvements-to-windows-10-in-place-upgrade-task-sequence)  | ![Não foi adicionada](media/Red_X.gif) |  
- | CMTrace instalado com o cliente <!--1357971--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#cmtrace-installed-with-client)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoria da consola do Configuration Manager <!--1358202--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvement-to-the-configuration-manager-console)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoramentos a comentários de consola <!--1357542--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvements-to-console-feedback)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoramentos para pontos de distribuição com PXE ativado <!--1357580--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvements-to-pxe-enabled-distribution-points)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoria do inventário de hardware para os valores de número inteiro grande <!--1357880--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvement-to-hardware-inventory-for-large-integer-values)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoria da manutenção do WSUS <!--1357898--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvement-to-wsus-maintenance)  | ![Não foi adicionada](media/Red_X.gif) |  
- | Melhoria para suportar em certificados CNG <!--1357314--> | [Pré-visualização do técnico 1805](capabilities-in-technical-preview-1805.md#improvement-to-support-for-cng-certificates)  | ![Não foi adicionada](media/Red_X.gif) |  
-| Configure uma biblioteca de conteúdos remota para o servidor do site <!--1357525--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#configure-a-remote-content-library-for-the-site-server)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Submeter comentários sobre a partir da consola do Configuration Manager <!--1357542--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#bkmk_feedback)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Centro de suporte <!--1357489--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#support-center)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Toolkit do Configuration Manager <!--1357145--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#configuration-manager-toolkit)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Desinstalar a aplicação na revogação de aprovação <!--1357891--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#uninstall-application-on-approval-revocation)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Excluir os contentores do Active Directory da deteção <!--1358143--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#exclude-active-directory-containers-from-discovery)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Especifique a visibilidade da ligação de Web site do catálogo de aplicações no Centro de Software <!--1358214--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#specify-the-visibility-of-the-application-catalog-website-link-in-software-center)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Regras de implementação automática pela arquitetura de atualização de software de filtro <!--1322266--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#filter-automatic-deployment-rules-by-software-update-architecture)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Melhorias para implementação do SO <!--1358330,1358493--> | [Pré-visualização do técnico 1804](capabilities-in-technical-preview-1804.md#improvements-to-os-deployment) | ![Não foi adicionada](media/Red_X.gif) | 
- | Distribuição de solicitação os pontos de distribuição da nuvem de suporte de pontos como origem <!--1321554--> | [Pré-visualização do técnico 1803](capabilities-in-technical-preview-1803.md#pull-distribution-points-support-cloud-distribution-points-as-source)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Suporte de transferência parcial na cache ponto a ponto do cliente para reduzir a utilização de WAN <!--1357346--> | [Pré-visualização do técnico 1803](capabilities-in-technical-preview-1803.md#partial-download-support-in-client-peer-cache-to-reduce-wan-utilization)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Janelas de manutenção no Centro de Software <!--1358131--> | [Pré-visualização do técnico 1803](capabilities-in-technical-preview-1803.md#maintenance-windows-in-software-center)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Separador personalizado para a página Web no Centro de Software <!--1358132--> | [Pré-visualização do técnico 1803](capabilities-in-technical-preview-1803.md#custom-tab-for-webpage-in-software-center)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Ativar o suporte de atualização de software de terceiros em clientes <!--1357605--> | [Pré-visualização do técnico 1803](capabilities-in-technical-preview-1803.md#enable-third-party-software-update-support-on-clients)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Permitir copiar/colar de detalhes do ativo de vistas de monitorização <!--1357552--> | [Pré-visualização do técnico 1803](capabilities-in-technical-preview-1803.md#enable-copypaste-of-asset-details-from-monitoring-views)  | ![Não foi adicionada](media/Red_X.gif) | 
- | Extensões SCAP <!--1357552--> | [Pré-visualização do técnico 1803](capabilities-in-technical-preview-1803.md#scap-extensions)  | ![Não foi adicionada](media/Red_X.gif) | 
+ | Melhorias para as implementações faseadas <!--1358577,1358147,1358578--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_pod)  | ![Não adicionado](media/Red_X.gif) |  
+ | Suporte para novos formatos de pacote de aplicação Windows <!--1357427--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_msix)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhoria de segurança de push de cliente <!--1358204--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_client-push)  | ![Não adicionado](media/Red_X.gif) |  
+ | Informações de gestão para a manutenção proativa <!--1352184,et al--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_insights)  | ![Não adicionado](media/Red_X.gif) |  
+ | Carga de trabalho de aplicações móveis de transição para dispositivos cogeridos <!--1357892--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_comgmt)  | ![Não adicionado](media/Red_X.gif) |  
+ | Opções de grupos de limites para configurar o peering downloads <!--1356193--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_bgoptions)  | ![Não adicionado](media/Red_X.gif) |  
+ | Suporte para catálogos personalizados de atualizações de software de terceiros <!--1358714--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_3pupdate)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorias para a cloud de funcionalidades de gestão <!--511980,515854--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_cloud)  | ![Não adicionado](media/Red_X.gif) |  
+ | Novo relatório de conformidade de atualizações de software <!--1357775--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_report)  | ![Não adicionado](media/Red_X.gif) |  
+ | Atualizações de software de terceiros <!--1352101--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#bkmk-3pupdate)  | ![Não adicionado](media/Red_X.gif) |  
+ | Configurar as definições do Windows Defender SmartScreen para o Microsoft Edge <!--1353701--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#configure-windows-defender-smartscreen-settings-for-microsoft-edge)  | ![Não adicionado](media/Red_X.gif) |  
+ | Política MDM de sincronização do Microsoft Intune para um dispositivo cogerido <!--1357377--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#sync-mdm-policy-from-microsoft-intune-for-a-co-managed-device)  | ![Não adicionado](media/Red_X.gif) |  
+ | Carga de trabalho de transição do Office 365 para o Intune através de cogestão <!--1357841--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#transition-office-365-workload-to-intune-using-co-management)  | ![Não adicionado](media/Red_X.gif) |  
+ | Gestor de conversão de pacotes <!--1357861--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#package-conversion-manager)  | ![Não adicionado](media/Red_X.gif) |  
+ | Implementar atualizações de software sem conteúdo <!--1357933--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#deploy-software-updates-without-content)  | ![Não adicionado](media/Red_X.gif) |  
+ | Integração de ferramenta de personalização do Office com o instalador do Office 365 <!--1358149--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#office-customization-tool-integration-with-the-office-365-installer)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorias para a cloud do gateway de gestão <!--1358215,1358651,503899--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#improvements-to-cloud-management-gateway)   | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorias para proteger as comunicações de cliente <!--1358278,1358279--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#improvements-to-secure-client-communications)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorias na infraestrutura de centro de software <!--1358309--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#software-center-infrastructure-improvements)  | ![Não adicionado](media/Red_X.gif) |  
+ | Aprovisionar os pacotes de aplicações do Windows para todos os utilizadores num dispositivo <!--1358310--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#provision-windows-app-packages-for-all-users-on-a-device)  | ![Não adicionado](media/Red_X.gif) |  
+ | Aprimoramentos no painel do Surface <!--1358654--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#improvements-to-the-surface-dashboard)  | ![Não adicionado](media/Red_X.gif) |  
+ | Revisão de unidade de padrão de inventário de hardware <!--514442--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#hardware-inventory-default-unit-revision)  | ![Não adicionado](media/Red_X.gif) |  
+ | Criar uma implementação faseada com fases configurados manualmente para uma sequência de tarefas <!--1358148--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#create-a-phased-deployment-with-manually-configured-phases-for-a-task-sequence)  | ![Não adicionado](media/Red_X.gif) |  
+ | Suporte de ponto de distribuição de nuvem para o Azure Resource Manager <!--1322209--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#cloud-distribution-point-support-for-azure-resource-manager)  | ![Não adicionado](media/Red_X.gif) |  
+ | Executar ações com base nas informações de gestão <!--1357930--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#take-actions-based-on-management-insights)  | ![Não adicionado](media/Red_X.gif) |  
+ | Carga de trabalho do transição dispositivo configuração Intune com a cogestão <!--1357903--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#transition-device-configuration-workload-to-intune-using-co-management)  | ![Não adicionado](media/Red_X.gif) |  
+ | Ativar pontos de distribuição para utilizar o controlo de congestionamento de rede <!--1358112--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#enable-distribution-points-to-use-network-congestion-control)  | ![Não adicionado](media/Red_X.gif) |  
+ | Dashboard de gestão da cloud <!--1358461--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#cloud-management-dashboard)  | ![Não adicionado](media/Red_X.gif) |  
+ | CMPivot <!--1358456--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#cmpivot)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorada a comunicações de cliente seguras <!--1356889,1358228,1358460--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improved-secure-client-communications)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorias para ativar o suporte de atualização de software de terceiros <!--1357605--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvements-for-enabling-third-party-software-update-support)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhoramentos à sequência de tarefas de atualização in-loco do Windows 10 <!--1358500--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvements-to-windows-10-in-place-upgrade-task-sequence)  | ![Não adicionado](media/Red_X.gif) |  
+ | CMTrace instalado com o cliente <!--1357971--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#cmtrace-installed-with-client)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhoria na consola do Configuration Manager <!--1358202--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvement-to-the-configuration-manager-console)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorias aos comentários de consola <!--1357542--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvements-to-console-feedback)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhorias aos pontos de distribuição com PXE ativado <!--1357580--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvements-to-pxe-enabled-distribution-points)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhoria para o inventário de hardware para valores inteiros grandes <!--1357880--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvement-to-hardware-inventory-for-large-integer-values)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhoria para manutenção WSUS <!--1357898--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvement-to-wsus-maintenance)  | ![Não adicionado](media/Red_X.gif) |  
+ | Melhoria para o suporte para certificados CNG <!--1357314--> | [Tech Preview 1805](capabilities-in-technical-preview-1805.md#improvement-to-support-for-cng-certificates)  | ![Não adicionado](media/Red_X.gif) |  
+ | Configurar uma biblioteca de conteúdos remota para o servidor do site <!--1357525--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#configure-a-remote-content-library-for-the-site-server)  | ![Não adicionado](media/Red_X.gif) | 
+ | Enviar comentários a partir da consola do Configuration Manager <!--1357542--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#bkmk_feedback)  | ![Não adicionado](media/Red_X.gif) | 
+ | Centro de suporte <!--1357489--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#support-center)  | ![Não adicionado](media/Red_X.gif) | 
+ | Kit de ferramentas do Configuration Manager <!--1357145--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#configuration-manager-toolkit)  | ![Não adicionado](media/Red_X.gif) | 
+ | Desinstalar a aplicação mediante a revogação de aprovação <!--1357891--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#uninstall-application-on-approval-revocation)  | ![Não adicionado](media/Red_X.gif) | 
+ | Excluir contentores do Active Directory da deteção <!--1358143--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#exclude-active-directory-containers-from-discovery)  | ![Não adicionado](media/Red_X.gif) | 
+ | Especifique a visibilidade da ligação de site do catálogo de aplicações no Centro de Software <!--1358214--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#specify-the-visibility-of-the-application-catalog-website-link-in-software-center)  | ![Não adicionado](media/Red_X.gif) | 
+ | Filtrar regras de implementação automática pela arquitetura de atualização de software <!--1322266--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#filter-automatic-deployment-rules-by-software-update-architecture)  | ![Não adicionado](media/Red_X.gif) | 
+ | Melhorias para implementação do SO <!--1358330,1358493--> | [Tech Preview 1804](capabilities-in-technical-preview-1804.md#improvements-to-os-deployment) | ![Não adicionado](media/Red_X.gif) | 
+ | Distribuição de extração os pontos de distribuição da nuvem de suporte de pontos como origem <!--1321554--> | [Tech Preview versão 1803](capabilities-in-technical-preview-1803.md#pull-distribution-points-support-cloud-distribution-points-as-source)  | ![Não adicionado](media/Red_X.gif) | 
+ | Suporte de transferência parcial na cache de elemento de rede de cliente para reduzir a utilização de WAN <!--1357346--> | [Tech Preview versão 1803](capabilities-in-technical-preview-1803.md#partial-download-support-in-client-peer-cache-to-reduce-wan-utilization)  | ![Não adicionado](media/Red_X.gif) | 
+ | Janelas de manutenção no Centro de Software <!--1358131--> | [Tech Preview versão 1803](capabilities-in-technical-preview-1803.md#maintenance-windows-in-software-center)  | ![Não adicionado](media/Red_X.gif) | 
+ | Separador personalizado para a página Web no Centro de Software <!--1358132--> | [Tech Preview versão 1803](capabilities-in-technical-preview-1803.md#custom-tab-for-webpage-in-software-center)  | ![Não adicionado](media/Red_X.gif) | 
+ | Ativar o suporte de atualização de software de terceiros nos clientes <!--1357605--> | [Tech Preview versão 1803](capabilities-in-technical-preview-1803.md#enable-third-party-software-update-support-on-clients)  | ![Não adicionado](media/Red_X.gif) | 
+ | Ativar copiar/colar dos detalhes do recurso de vistas de monitorização <!--1357552--> | [Tech Preview versão 1803](capabilities-in-technical-preview-1803.md#enable-copypaste-of-asset-details-from-monitoring-views)  | ![Não adicionado](media/Red_X.gif) | 
+ | Extensões SCAP <!--1357552--> | [Tech Preview versão 1803](capabilities-in-technical-preview-1803.md#scap-extensions)  | ![Não adicionado](media/Red_X.gif) | 
  
   
 
-## <a name="capabilities-delivered-in-previous-technical-previews"></a>Capacidades fornecidas em pré-visualizações técnicas anteriores
-Seguem-se as capacidades específicas fornecidas com versões anteriores da versão de pré-visualização técnica do Configuration Manager. Estas capacidades permanecem disponíveis nas versões posteriores, mas ainda não estão disponíveis na versão atual do ramo. 
+## <a name="features-in-previous-technical-previews"></a>Recursos do anteriores pré-visualizações técnicas
+
+As seguintes funcionalidades foram lançadas com versões anteriores do ramo de pré-visualização técnica do Configuration Manager. Estas funcionalidades permanecem disponíveis nas versões posteriores, mas não ainda estão disponíveis no ramo atual. 
 
 <!-- This is the list of individual features that are still in TP (not in CB). 
 **Note there is no third column in this table!**
@@ -192,24 +220,26 @@ With each CB release, review and remove from this list for anything that's now a
 
  |Funcionalidade |Versão de pré-visualização técnica |  
  |----------------|---------------------|
- | Melhoramentos para pontos de distribuição com PXE ativado <!-- 1357580 --> | [Pré-visualização do técnico 1802](capabilities-in-technical-preview-1802.md#improvements-to-pxe-enabled-distribution-points) | 
- | Dashboard de ciclo de vida do produto <!--1319632 --> | [Pré-visualização do técnico 1802](capabilities-in-technical-preview-1802.md#product-lifecycle-dashboard) | 
- | Serviço baseado em clientes de dispositivo de resposta PXE <!-- 1357148 --> | [Pré-visualização do técnico 1712](capabilities-in-technical-preview-1712.md#client-based-pxe-responder-service) |
- |Disponibilidade elevada de função do servidor de site <!-- 1128774 --> |[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |
- |Suporte de arranque de rede do PXE para IPv6 <!-- 1269793 --> |[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|
- |Utilizar o Azure Active Directory <!-- 1322145? --> | [Pré-visualização do técnico 1702](capabilities-in-technical-preview-1702.md#azurediscovery) |
- |Avaliação de compatibilidade para o Windows Update para atualizações de negócio <!-- 1235390 --> | [Pré-visualização do técnico 1702](capabilities-in-technical-preview-1702.md#compliance-assessment-for-windows-update-for-business-updates) |
- |Acesso de dados de ponto final de OData <!-- 1321523 --> |[Tech Preview 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|
- |Melhoramentos ao Asset Intelligence <!-- 1307390 --> |[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|
- |Os utilizadores finais podem instalar aplicações a partir do Portal da empresa <!-- 1037233? --> |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|
+ | Melhorias aos pontos de distribuição com PXE ativado <!-- 1357580 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#improvements-to-pxe-enabled-distribution-points) | 
+ | Dashboard de ciclo de vida do produto <!--1319632 --> | [Tech Preview 1802](capabilities-in-technical-preview-1802.md#product-lifecycle-dashboard) | 
+ | Serviço de resposta PXE baseada no cliente <!-- 1357148 --> | [Tech Preview versão 1712](capabilities-in-technical-preview-1712.md#client-based-pxe-responder-service) |
+ |Disponibilidade elevada de função do servidor de site <!-- 1128774 --> |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |
+ |Suporte de arranque de rede PXE para IPv6 <!-- 1269793 --> |[Tech Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|
+ |Utilizar o Azure Active Directory <!-- 1322145? --> | [Tech Preview 1702](capabilities-in-technical-preview-1702.md#azurediscovery) |
+ |Avaliação de compatibilidade para o Windows Update para atualizações de negócios <!-- 1235390 --> | [Tech Preview 1702](capabilities-in-technical-preview-1702.md#compliance-assessment-for-windows-update-for-business-updates) |
+ |Acesso de dados do ponto final de OData <!-- 1321523 --> |[Tech Preview 1612](capabilities-in-technical-preview-1612.md#odata-endpoint-data-access)|
+ |Melhorias ao Asset Intelligence <!-- 1307390 --> |[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|
+ |Os utilizadores finais podem instalar aplicações do Portal da empresa <!-- 1037233? --> |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|
 
 
 
-## <a name="see-also"></a>Consulte Também  
-[Quais são as novidades no System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
- [Introdução ao System Center Configuration Manager](../../core/understand/introduction.md)
+## <a name="see-also"></a>Consulte também
+  
+- [Avaliar o Configuration Manager num laboratório](/sccm/core/get-started/evaluate-with-lab-environment)
+- [Quais são as novidades nas versões incrementais do Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
+- [Introdução ao Configuration Manager](/sccm/core/understand/introduction)
 
 > [!Tip]  
-> Para mais informações sobre as funcionalidades de sucursais atuais que necessitam de consentimento para ativar, consulte [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).  
-> Para obter mais informações sobre as funcionalidades de sucursais atuais que tem de ativar primeiro, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).  
-
+> Para obter mais informações sobre as funcionalidades de ramo atual que requerem o consentimento para ativar, consulte [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).  
+> 
+> Para obter mais informações sobre funcionalidades atuais do ramo que tem de ativar primeiro, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).  
