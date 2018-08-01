@@ -1,169 +1,167 @@
 ---
-title: Plano para gateway de gestão de nuvem
+title: Plano para o gateway de gestão da cloud
 titleSuffix: Configuration Manager
-description: Planear e estruturar o gateway de gestão de nuvem (CMG) para simplificar a gestão de clientes baseados na internet.
-ms.date: 04/10/2018
+description: Planear e estruturar o gateway de gestão da cloud (CMG) para simplificar a gestão de clientes baseados na internet.
+ms.date: 07/30/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6e5274398b1a53b5a8dce8b854bccbe0e0d92081
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 78300528fde4a75f8ff816fb5ac2bb8549c2571c
+ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32340860"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39383767"
 ---
-# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planear para o gateway de gestão de nuvem no Configuration Manager
+# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plano para o gateway de gestão de nuvem no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
  
-<!--1101764-->
-O gateway de gestão de nuvem (CMG) fornece uma forma simples de gerir clientes do Configuration Manager na internet. Ao implementar o CMG como um serviço em nuvem no Microsoft Azure, pode gerir clientes tradicionais que se movem na internet sem uma infraestrutura adicional. Também não precisa de expor a sua infraestrutura no local para a internet. 
+<!--1101764--> O gateway de gestão da cloud (CMG) fornece uma forma simples de gerir clientes do Configuration Manager na internet. Ao implementar o CMG como um serviço em nuvem no Microsoft Azure, pode gerir clientes tradicionais que se movem na internet sem infraestrutura adicional. Também não precisa expor a sua infraestrutura no local para a internet. 
 
 > [!Tip]  
-> Esta funcionalidade foi introduzida pela primeira vez na versão 1610 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+> Esse recurso foi introduzido pela primeira vez na versão 1610 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1802, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
 
 
 > [!Note]  
-> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 
-Depois de estabelecer os pré-requisitos, criação de CMG é composta pelos seguintes três passos na consola do Configuration Manager:
-1. Implemente o serviço de nuvem CMG no Azure.
-2. Adicione a função de ponto de ligação de CMG. 
-3. Configure o site e as funções de site para o serviço. Assim que implementado e configurado, os clientes aceder perfeitamente no local funções de site independentemente estiverem na intranet ou à internet.
+Depois de estabelecer os pré-requisitos, criar CMG inclui os seguintes três passos na consola do Configuration Manager:
+1. Implemente o serviço de nuvem do CMG para o Azure.
+2. Adicione a função de ponto de ligação do CMG. 
+3. Configure o site e as funções de site para o serviço. Depois de implementado e configurado, os clientes acessem locais funções de sites, independentemente se estão na intranet ou na internet.
 
-Este artigo fornece o conhecimento para saber mais sobre o CMG, estrutura como se enquadra no seu ambiente, e planear a implementação. 
+Este artigo fornece o conhecimento básico para saber mais sobre o CMG, design, como ela se encaixa no seu ambiente, e planear a implementação. 
 
 
 
 ## <a name="scenarios"></a>Cenários 
 
-Existem vários cenários para o qual um CMG é vantajoso. Os cenários seguintes são algumas das mais comuns:  
+Existem vários cenários para os quais um CMG é vantajoso. Os cenários seguintes são algumas das mais comuns:  
 
-- Gerir clientes Windows tradicionais com a identidade de associados a um domínio do Active Directory. Estes clientes incluem o Windows 7, Windows 8.1 e Windows 10. Utiliza certificados PKI para proteger o canal de comunicação. Atividades de gestão incluem:  
-    - As atualizações de software e do endpoint protection
-    - Estado de cliente e de inventário
+- Gerir clientes tradicionais do Windows com a identidade de associados a um domínio do Active Directory. Esses clientes incluem o Windows 7, Windows 8.1 e Windows 10. Utiliza certificados PKI para proteger o canal de comunicação. Atividades de gestão incluem:  
+    - Atualizações de software e o endpoint protection
+    - Estado de inventário e de cliente
     - Definições de compatibilidade
     - Distribuição de software no dispositivo
-    - Sequência de tarefas de atualização no local do Windows 10 (a partir da versão 1802)
+    - Sequência de tarefas de atualização in-loco do Windows 10 (a partir da versão 1802)
 
-- Gerir clientes do Windows 10 tradicionais com a identidade moderna, híbrido ou na nuvem pura associados a um domínio com o Azure Active Directory (Azure AD). Os clientes utilizam o Azure AD para autenticar em vez de certificados PKI. Utilizar o Azure AD é mais simples de configurar, configurar e manter a sistemas PKI mais complexos. Atividades de gestão são os mesmos que o primeiro cenário, bem como:  
+- Gerir clientes tradicionais do Windows 10 com a identidade modernos, híbrido ou na cloud pura associados a um domínio com o Azure Active Directory (Azure AD). Os clientes utilizam o Azure AD para autenticar em vez de certificados PKI. Utilizar o Azure AD é mais simples de configurar, configurar e manter do que os sistemas PKI mais complexos. Atividades de gestão são os mesmos que o primeiro cenário, bem como:  
     - Distribuição de software para o utilizador  
 
-- Instale o cliente de Configuration Manager em dispositivos Windows 10 através da internet. Utilizar o Azure AD permite ao dispositivo para se autenticar CMG para o registo de cliente e a atribuição. Pode instalar o cliente manualmente, ou utilizando outro método de distribuição de software, como o Microsoft Intune.  
+- Instale o cliente de Configuration Manager em dispositivos Windows 10 através da internet. Utilizar o Azure AD permite ao dispositivo autenticar para o CMG para o registo de cliente e atribuição. Pode instalar o cliente manualmente, ou utilizar outro método de distribuição de software, como o Microsoft Intune.  
 
-- Novo dispositivo de aprovisionamento com a gestão de conjunta. Não é necessária para a gestão conjunta CMG. Ajuda a concluir um cenário de ponto a ponto para novos dispositivos que envolvem AutoPilot do Windows, do Azure AD, Microsoft Intune e Configuration Manager.  
+- Novo dispositivo de aprovisionamento com a cogestão. Não é necessária para a cogestão CMG. Ele ajuda a concluir um cenário de ponta a ponta para novos dispositivos que envolvem Windows AutoPilot, do Azure AD, o Microsoft Intune e Configuration Manager.  
 
-### <a name="specific-use-cases"></a>Casos de utilização específicos
-Entre estes cenários podem ser aplicadas os seguintes casos de utilização do dispositivo específico:
+### <a name="specific-use-cases"></a>Casos de uso específico
+Entre estes cenários poderão aplicar-se os seguintes casos de utilização do dispositivo específico:
 
-- Dispositivos de roaming, tais como computadores portáteis  
+- Dispositivos móveis, tais como computadores portáteis  
 
-- Remoto/ramo office dispositivos são menos dispendioso e mais eficiente para gerir através de internet que através de uma WAN ou através de uma VPN.  
+- Dispositivos de office remoto/filial que são menos dispendioso e mais eficiente para gerenciar através de internet que numa WAN ou através de uma VPN.  
 
-- Fusões e aquisições, onde poderá ser mais fácil associar dispositivos ao Azure AD e gerir através de um CMG.  
+- Fusões e aquisições, onde pode ser mais fácil associar dispositivos ao Azure AD e gerir através de um CMG.  
 
 > [!Important]
-> Por predefinição, todos os clientes recebem a política para um CMG e começar a utilizar o mesmo que ficarem baseado na internet. Consoante o caso de cenário e a utilização que aplica-se a sua organização, poderá ter de utilização do âmbito do CMG. Para obter mais informações, consulte o [permitir que os clientes utilizar um gateway de gestão de nuvem](/sccm/core/clients/deploy/about-client-settings#enable-clients-to-use-a-cloud-management-gateway) definição de cliente.
+> Por predefinição, todos os clientes recebem a política para um CMG e começar a utilizar quando se tornam baseado na internet. Consoante o caso de cenário e a utilização aplica-se a sua organização, poderá ter a utilização do âmbito das CMG. Para obter mais informações, consulte a [permitir que os clientes utilizar um gateway de gestão da cloud](/sccm/core/clients/deploy/about-client-settings#enable-clients-to-use-a-cloud-management-gateway) definição de cliente.
 
 
-## <a name="topology-design"></a>Estrutura de topologia
+## <a name="topology-design"></a>Design da topologia
 
 ### <a name="cmg-components"></a>Componentes CMG
-Implementação e a operação do CMG inclui os seguintes componentes:  
+Implantação e operação do CMG inclui os seguintes componentes:  
 
-- O **o serviço em nuvem CMG** no Azure efetua a autenticação e reencaminha os pedidos de cliente do Configuration Manager para o ponto de ligação CMG.  
+- O **serviço de nuvem do CMG** no Azure autentica e reencaminha os pedidos de cliente do Configuration Manager para o ponto de ligação do CMG.  
  
-- O **ponto de ligação de CMG** uma ligação consistente e de elevado desempenho da rede no local para o serviço CMG do Azure ativa a função do sistema de sites. Também publica definições CMG, incluindo as definições de segurança e informações de ligação. O ponto de ligação CMG reencaminha os pedidos de cliente do CMG para funções no local, de acordo com os mapeamentos de URL.
+- O **ponto de ligação CMG** função do sistema de sites permite que uma conexão consistente e de elevado desempenho da rede no local para o serviço CMG no Azure. Também publica as definições para o CMG, incluindo as definições de segurança e informações de ligação. O ponto de ligação do CMG reencaminha os pedidos de cliente do CMG para funções no local, de acordo com os mapeamentos de URL.
 
-- O [ **ponto de ligação de serviço** ](/sccm/core/servers/deploy/configure/about-the-service-connection-point) função do sistema de site executa o componente Gestor do serviço em nuvem, que processa todas as tarefas de implementação de CMG. Além disso, monitoriza e comunica informações de estado de funcionamento e o registo de serviço do Azure AD. Certifique-se de que o ponto de ligação de serviço está no [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_modes).  
+- O [ **ponto de ligação de serviço** ](/sccm/core/servers/deploy/configure/about-the-service-connection-point) função do sistema de sites é executado o componente Gestor do serviço cloud, que manipula todas as tarefas de implementação do CMG. Além disso, monitoriza e comunica informações de estado de funcionamento e o registo de serviço do Azure AD. Certifique-se de que o ponto de ligação de serviço está no [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_modes).  
 
-- O **ponto de gestão** pedidos de cliente por normal de serviços de função de sistema do site.  
+- O **ponto de gestão** pedidos de cliente por normal dos serviços de função do sistema de sites.  
 
-- O **ponto de atualização de software** pedidos de cliente por normal de serviços de função de sistema do site.  
+- O **ponto de atualização de software** pedidos de cliente por normal dos serviços de função do sistema de sites.  
 
-- **Os clientes baseados na Internet** ligar ao CMG aceder a componentes no local do Configuration Manager.
+- **Clientes baseados na Internet** ligar ao CMG para componentes do acesso no local do Configuration Manager.
 
-- O CMG utiliza um **baseada em certificado HTTPS** serviço para o ajudar a proteger a comunicação de rede com clientes web.  
+- O CMG utiliza um **baseada em certificado HTTPS** serviço para o ajudar a proteger a comunicação de rede com os clientes web.  
 
-- Utilização de clientes baseados na Internet **PKI certificados ou do Azure AD** para autenticação e identidade.  
+- Utilização de clientes baseados na Internet **PKI certificados ou o Azure AD** para identidade e autenticação.  
 
-- A [ **ponto de distribuição de nuvem** ](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) fornece o conteúdo para os clientes baseados na internet, conforme necessário.  
+- R [ **ponto de distribuição da nuvem** ](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point) fornece conteúdo a clientes baseados na internet, conforme necessário.  
 
 
 ### <a name="azure-resource-manager"></a>O Azure Resource Manager
-<!-- 1324735 -->
-A partir de versão 1802, pode criar o CMG utilizando um **implementação Azure Resource Manager**. [O Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) é uma plataforma moderna para gerir todos os recursos de solução como uma única entidade, chamada um [grupo de recursos](/azure/azure-resource-manager/resource-group-overview#resource-groups). Quando implementar CMG com o Azure Resource Manager, o site utiliza o Azure Active Directory (Azure AD) para autenticar e criar os recursos de nuvem necessário. Esta implementação modernized não necessita que o certificado de gestão do Azure clássico.  
+<!-- 1324735 --> A partir da versão 1802, pode criar o CMG com um **do Azure Resource Manager deployment**. [O Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) é uma plataforma moderna para o gerenciamento de todos os recursos de solução como uma única entidade, chamada um [grupo de recursos](/azure/azure-resource-manager/resource-group-overview#resource-groups). Quando implementa o CMG com o Azure Resource Manager, o site utiliza o Azure Active Directory (Azure AD) para autenticar e criar os recursos da cloud necessários. Esta implementação reestruturação não requer o certificado de gestão clássico do Azure.  
 
-O assistente CMG ainda fornece a opção para um **implementação de serviço clássico** a utilizar um certificado de gestão do Azure. Para simplificar a implementação e gestão de recursos, é recomendável utilizar o modelo de implementação Azure Resource Manager para todas as instâncias CMG novo. Se for possível, volte a implementar instâncias CMG através do Gestor de recursos existentes. Para obter mais informações, consulte [modificar um CMG](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway#modify-a-cmg).
+O assistente CMG ainda fornece a opção para um **implementação de serviço clássico** a utilizar um certificado de gestão do Azure. Para simplificar a implementação e gestão de recursos, é recomendado utilizar o modelo de implementação Azure Resource Manager para todas as novas instâncias do CMG. Se possível, volte a implementar instâncias CMG existentes através do Resource Manager. Para obter mais informações, consulte [modificar um CMG](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway#modify-a-cmg).
 
 > [!IMPORTANT]  
-> Esta capacidade não ative o suporte para fornecedores de serviços de nuvem do Azure (CSP). A implementação de CMG com o Azure Resource Manager continua a utilizar o serviço de nuvem clássico, que não suporta o CSP. Para obter mais informações, consulte [serviços do Azure disponíveis no Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). 
+> Esta capacidade não ativa o suporte para fornecedores de serviços de Cloud do Azure (CSP). A implementação do CMG com o Azure Resource Manager continua a utilizar o serviço cloud clássico, que não suporta o CSP. Para obter mais informações, consulte [serviços do Azure disponíveis no Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). 
 
 
 ### <a name="hierarchy-design"></a>Estrutura de hierarquia
 
-Crie o CMG no site de nível superior da sua hierarquia. Se isto é um site de administração central, em seguida, crie pontos de ligação de CMG em sites primários subordinados. O componente de Gestor do serviço de nuvem está no ponto de ligação de serviço, que também seja no site de administração central. Esta estrutura pode partilhar o serviço em diferentes sites primários se for necessário.
+Crie CMG no site de nível superior da sua hierarquia. Se isto é um site de administração central, em seguida, crie pontos de ligação do CMG em sites primários subordinados. É o componente de Gestor do serviço de nuvem no ponto de ligação de serviço, que também é no site de administração central. Esse design pode partilhar o serviço em diferentes sites primários se for necessário.
 
-Pode criar vários serviços CMG no Azure e pode criar vários pontos de ligação de CMG. Vários pontos de ligação de CMG fornecem balanceamento de carga do tráfego de cliente do CMG para as funções no local. Para reduzir a latência de rede, atribua o CMG associado à mesma região geográfica do site primário.
+Pode criar vários serviços CMG no Azure e pode criar vários pontos de ligação do CMG. Vários pontos de ligação do CMG fornecem balanceamento de carga do tráfego de cliente do CMG para as funções no local. Para reduzir a latência de rede, atribua CMG associado à mesma região geográfica que o site primário.
 
  > [!Note]  
- > Os clientes baseados na Internet e o CMG não enquadram-se em qualquer grupo de limites.
+ > Clientes baseados na Internet e o CMG se encontra em nenhum grupo de limites.
 
-Outros fatores, tais como o número de clientes para gerir, também afetam a estrutura CMG. Para obter mais informações, consulte [desempenho e dimensionamento](#performance-and-scale).
+Outros fatores, como o número de clientes para gerir, o impacto sobre o design do CMG. Para obter mais informações, consulte [desempenho e dimensionamento](#performance-and-scale).
 
-#### <a name="example-1-standalone-primary-site"></a>Exemplo 1: um site primário autónomo
+#### <a name="example-1-standalone-primary-site"></a>Exemplo 1: site primário autónomo
 
-Contoso tem um site primário autónomo num datacenter no local na sede em Nova Iorque cidade. 
-- É possível criar um CMG na região do Azure do Leste-nos para reduzir a latência de rede. 
-- Se criarem dois pontos de ligação de CMG, ambos ligado ao serviço CMG único.  
+A Contoso tiver um site primário de autónoma num datacenter no local na sede na cidade de nova York. 
+- Eles criam uma CMG na região do Azure do Leste-nos para reduzir a latência de rede. 
+- Eles criaram dois pontos de ligação do CMG, vinculados ao serviço CMG único.  
 
-Como os clientes se movem para a internet, comunicam com o CMG na região do Azure do Leste dos EUA. O CMG reencaminha esta comunicação através de ambos os pontos de ligação CMG.
+Como os clientes se movem para a internet, comunicam-se com o CMG na região do Azure do Leste-nos. O CMG reencaminha esta comunicação através de ambos os pontos de ligação do CMG.
 
-#### <a name="example-2-hierarchy-with-site-specific-cmg"></a>Exemplo 2: hierarquia com CMG específicas
+#### <a name="example-2-hierarchy-with-site-specific-cmg"></a>Exemplo 2: hierarquia com CMG específicas do site
 
-Quarta café tem um site de administração central num datacenter no local na sede em Seattle. Um site primário está no mesmo centro de dados e o outro site primário é no seu escritório principal alfabetos no Paris. 
-- No site de administração central, se criarem dois serviços CMG:
+Café quarto tem um site de administração central num datacenter no local na sede em Seattle. Um site primário está no mesmo datacenter, e o outro site primário está no seu sede Européia em Paris. 
+- No site de administração central, eles criaram dois serviços CMG:
      - Um CMG na região do Azure do Oeste-nos.
      - Um CMG na região do Azure de Europa Ocidental.
-- No site primário com base em Seattle, é criar um ponto de ligação de CMG ligado para o Oeste nos CMG.
-- No site primário com base em Paris, é criar um ponto de ligação de CMG ligado CMG de Europa Ocidental.
+- No site primário com base em Seattle, eles criam um ponto de ligação do CMG ligado para o Oeste nos CMG.
+- No site primário com base em Paris, eles criam um ponto de ligação do CMG ligado ao CMG de Europa Ocidental.
 
-Como os clientes baseados em Seattle se movem para a internet, comunicam com o CMG na região do Azure do Oeste-nos. O CMG reencaminha ao ponto de ligação com base em Seattle CMG desta comunicação.
+Como os clientes baseados em Seattle se movem para a internet, comunicam-se com o CMG na região do Azure do Oeste-nos. Por sua vez encaminha a CMG esta comunicação para o ponto de ligação do CMG com base em Seattle.
 
-Da mesma forma, como os clientes baseados em Paris se movem para a internet, comunicam com o CMG na região do Azure de Europa Ocidental. O CMG reencaminha ao ponto de ligação com base em Paris CMG desta comunicação. Quando os utilizadores com base em Paris viajam para sede da empresa em Seattle, os respetivos computadores continuam a comunicar com o CMG na região do Azure de Europa Ocidental. 
+Da mesma forma, como os clientes baseados em Paris se movem para a internet, comunicam com o CMG na região do Azure de Europa Ocidental. Por sua vez encaminha a CMG esta comunicação para o ponto de ligação do CMG com base em Paris. Quando os utilizadores com base em Paris viajam para sede da empresa em Seattle, seus computadores continuam a comunicar com o CMG na região do Azure de Europa Ocidental. 
 
  > [!Note]  
- > Quarta café considerado criar outro ponto de ligação de CMG no site primário com base em Paris ligado para o Oeste nos CMG. Os clientes baseados em Paris, em seguida, seriam utilizar ambos os CMGs, independentemente da respetiva localização. Embora esta configuração ajuda-o tráfego de balanceamento de carga e fornecer redundância de serviço, também pode causar atrasos quando os clientes baseados em Paris comunicam com CMG baseado em E.U.A. Clientes do Configuration Manager não estão atualmente em consideração os respetivos região geográfica, pelo que não preferir um CMG geograficamente próximo. Os clientes utilizam aleatoriamente um CMG disponível.
+ > Quarto café considerado criar outro ponto de ligação do CMG no site primário com base em Paris ligado para o Oeste nos CMG. Clientes baseados em Paris, em seguida, utilizar ambos os CMGs, independentemente da respetiva localização. Embora esta configuração ajuda a tráfego de balanceamento de carga e fornecer redundância de serviço, poderá também causar atrasos quando os clientes baseados em Paris comunicam com o CMG baseadas nos E.U.A. Clientes do Configuration Manager não têm atualmente conhecimento da sua região geográfica, para que não prefere um CMG que está geograficamente mais próximo. Os clientes utilizam aleatoriamente um CMG disponível.
 
 
 
 ## <a name="requirements"></a>Requisitos
 
-- Um **subscrição do Azure** para alojar o CMG.  
+- Uma **subscrição do Azure** para alojar o CMG.  
 
-    - Um **administrador do Azure** necessita participar na criação inicial de determinados componentes, consoante a sua estrutura. Esta pessoa não necessita de permissões no Configuration Manager.  
+    - Uma **administrador do Azure** tem de participar na criação inicial de determinados componentes, dependendo de seu design. Essa pessoa não necessita de permissões no Configuration Manager.  
 
-- Pelo menos um Windows server local para alojar o **ponto de ligação de CMG**. Pode localizar conjuntamente esta função com outras funções de sistema de sites do Configuration Manager.  
+- Pelo menos um servidor no local Windows para alojar o **ponto de ligação CMG**. Pode colocalize a esta função com outras funções de sistema de sites do Configuration Manager.  
 
 - O **ponto de ligação de serviço** tem de constar [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_modes).   
 
-- A [ **certificado de autenticação de servidor** ](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#cmg-server-authentication-certificate) para o CMG.  
+- R [ **certificado de autenticação de servidor** ](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#cmg-server-authentication-certificate) para CMG.  
 
-- Se utilizar o método de implementação clássico do Azure, tem de utilizar um [ **certificado de gestão do Azure**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#azure-management-certificate).  
+- Se utilizar o método de implementação clássica do Azure, tem de utilizar um [ **certificado de gestão do Azure**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#azure-management-certificate).  
 
     > [!TIP]  
     > A partir do Configuration Manager versão 1802, utilizando o **do Azure Resource Manager** modelo de implementação é recomendado. Não requer este certificado de gestão.  
 
-- **Outros certificados** poderá ser necessário, consoante o seu modelo de autenticação e a versão de SO de cliente. Para obter mais informações, consulte [certificados CMG](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway).  
+- **Outros certificados** podem ser necessários, dependendo de seu modelo de autenticação e a versão de SO de cliente. Para obter mais informações, consulte [certificados CMG](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway).  
 
-    - A partir de versão 1802, tem de configurar todos os ativada CMG [ **pontos de gestão para utilizar HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#enable-management-point-for-https).  
+    - A partir da versão 1802, tem de configurar todos os habilitados para CMG [ **pontos de gestão para utilizar HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#enable-management-point-for-https).  
 
-- Integração com **do Azure AD** poderão ser necessárias para clientes Windows 10. Para obter mais informações, consulte [serviços do Azure configurar](/sccm/core/servers/deploy/configure/azure-services-wizard).  
+- Integração com o **do Azure AD** poderá ser necessária para os clientes do Windows 10. Para obter mais informações, consulte [dos serviços do Azure configurar](/sccm/core/servers/deploy/configure/azure-services-wizard).  
 
 - Os clientes têm de utilizar **IPv4**.  
 
@@ -171,19 +169,19 @@ Da mesma forma, como os clientes baseados em Paris se movem para a internet, com
 
 ## <a name="specifications"></a>Especificações
 
-- Todas as versões do Windows listadas no [sistemas operativos suportados para os clientes e dispositivos](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices) são suportadas para CMG.  
+- Todas as versões do Windows listadas na [sistemas operativos suportados por clientes e dispositivos](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices) são suportadas para CMG.  
 
-- CMG suporta apenas os software e de ponto de atualização ponto funções de gestão.  
+- CMG suporta apenas os software e de ponto de atualização de ponto de funções de gestão.  
 
-- CMG não suporta clientes só comunicam com endereços IPv6.<!--495606-->  
+- CMG não suporta clientes que só comunicam com endereços IPv6.<!--495606-->  
 
-- Pontos de atualização de software utilizando um balanceador de carga de rede não funcionam com CMG. <!--505311-->  
+- Pontos de atualização de software com um balanceador de carga de rede não funcionam com CMG. <!--505311-->  
 
-- A partir de versão 1802, implementações de CMG utilizando o modelo de recursos do Azure não ative o suporte para fornecedores de serviços de nuvem do Azure (CSP). A implementação de CMG com o Azure Resource Manager continua a utilizar o serviço de nuvem clássico, que não suporta o CSP. Para obter mais informações, consulte [serviços do Azure disponíveis no Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services)  
+- A partir da versão 1802, implementações de CMG com o modelo de recursos do Azure não ative o suporte para fornecedores de serviços de Cloud do Azure (CSP). A implementação do CMG com o Azure Resource Manager continua a utilizar o serviço cloud clássico, que não suporta o CSP. Para obter mais informações, consulte [serviços do Azure disponíveis no Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services)  
 
 
 ### <a name="support-for-configuration-manager-features"></a>Suporte para funcionalidades do Configuration Manager
-A tabela seguinte lista o suporte CMG para funcionalidades do Configuration Manager:
+A tabela seguinte lista o suporte CMG para recursos do Configuration Manager:
 
 
 |Funcionalidade  |Suporte  |
@@ -194,11 +192,12 @@ A tabela seguinte lista o suporte CMG para funcionalidades do Configuration Mana
 | Estado do cliente e notificações     | ![Suportado](media/green_check.png) |
 | Executar scripts     | ![Suportado](media/green_check.png) |
 | Definições de compatibilidade     | ![Suportado](media/green_check.png) |
-| Instalação de cliente</br>(com a integração do AD do Azure)     | ![Suportado](media/green_check.png)  (1706) |
-| Distribuição de software (direcionados dispositivo)     | ![Suportado](media/green_check.png) |
-| Distribuição de software (direcionados ao utilizador, necessária)</br>(com a integração do AD do Azure)     | ![Suportado](media/green_check.png)  (1710) |
-| Distribuição de software (direcionados ao utilizador, disponível)</br>([todos os requisitos](/sccm/apps/deploy-use/deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices)) | ![Suportado](media/green_check.png)  (1802) |
-| Sequência de tarefas de atualização no local do Windows 10     | ![Suportado](media/green_check.png)  (1802) |
+| Instalação de cliente</br>(com a integração do Azure AD)     | ![Suportado](media/green_check.png)  (1706) |
+| Distribuição de software (dispositivo-direcionado)     | ![Suportado](media/green_check.png) |
+| Distribuição de software (utilizador direcionado, obrigatória)</br>(com a integração do Azure AD)     | ![Suportado](media/green_check.png)  (1710) |
+| Distribuição de software (direcionado ao usuário, disponível)</br>([todos os requisitos](/sccm/apps/deploy-use/deploy-applications#deploy-user-available-applications-on-azure-ad-joined-devices)) | ![Suportado](media/green_check.png)  (1802) |
+| Sequência de tarefas de atualização in-loco do Windows 10     | ![Suportado](media/green_check.png)  (1802) |
+| CMPivot     | ![Suportado](media/green_check.png)  (1806) |
 | Qualquer outro cenário de sequência de tarefas     | ![Não suportado](media/Red_X.png) |
 | Instalação push do cliente     | ![Não suportado](media/Red_X.png) |
 | Atribuição automática de site     | ![Não suportado](media/Red_X.png) |
@@ -216,7 +215,7 @@ A tabela seguinte lista o suporte CMG para funcionalidades do Configuration Mana
 |Chave|
 |--|
 |![Suportado](media/green_check.png) = Esta funcionalidade é suportada com CMG por todas as versões suportadas do Configuration Manager  |
-|![Suportado](media/green_check.png) (*YYMM*) = esta funcionalidade é suportada com CMG a partir da versão *YYMM* do Configuration Manager  |
+|![Suportado](media/green_check.png) (*YYMM*) = esta funcionalidade é suportada com a partir da versão do CMG *YYMM* do Configuration Manager  |
 |![Não suportado](media/Red_X.png) = Esta funcionalidade não é suportada com CMG |
 
 
@@ -224,127 +223,127 @@ A tabela seguinte lista o suporte CMG para funcionalidades do Configuration Mana
 ## <a name="cost"></a>Custo
 
 >[!IMPORTANT]  
->Informação do custo que se segue para estimar apenas a fins. O ambiente pode ter outras variáveis que afetam o custo global de CMG a utilizar.
+>A seguinte informação sobre o custo é para estimar apenas para fins. Seu ambiente pode ter outras variáveis que afetam o custo geral da utilização do CMG.
 
-CMG utiliza os seguintes componentes do Azure, que implicar custos para a conta de subscrição do Azure:
+CMG utiliza os seguintes componentes do Azure, que implicar custos à conta de subscrição do Azure:
 
 #### <a name="virtual-machine"></a>Máquina virtual
 
-- CMG utiliza Cloud Services do Azure como plataforma como serviço (PaaS). Este serviço utiliza as máquinas virtuais (VMs) que implicar custos de computação.  
+- CMG utiliza os serviços Cloud do Azure como plataforma como serviço (PaaS). Este serviço utiliza as máquinas virtuais (VMs) que incorrem em custos de computação.  
 
 - No Configuration Manager versão 1706, CMG utiliza uma VM A2 padrão.  
 
 - A partir do Configuration Manager versão 1710, CMG utiliza uma VM de V2 A2 padrão.  
 
-- Selecione a quantas instâncias VM suportam o CMG. Um é a predefinição e 16 é o número máximo. Este número é definido quando criar o CMG e pode ser alterado posteriormente para dimensionar o serviço conforme necessário.
+- Selecionar de CMG de suporte de quantas instâncias VM. Uma é a predefinição e 16 é o máximo. Este número é definido quando criar CMG e pode ser alterado posteriormente para dimensionar o serviço, conforme necessário.
 
-- Para obter mais informações sobre quantas VMs tem de suportar os seus clientes, consulte [desempenho e dimensionamento](#performance-and-scale).
+- Para obter mais informações sobre o número de VMs tem de suportar os seus clientes, consulte [desempenho e dimensionamento](#performance-and-scale).
 
-- Consulte o [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) para ajudar a determinar os custos de potenciais.
+- Consulte a [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) para ajudar a determinar os custos potenciais.
 
     > [!NOTE]  
     > Os custos de máquina virtual variam consoante a região.
 
 #### <a name="outbound-data-transfer"></a>Transferência de dados de saída
 
-- Os encargos baseados nos dados que fluem fora do Azure (saída ou transferir). Os fluxos de dados no Azure são livres (entrada ou carregamento). Fluxos de dados CMG fora do Azure incluem a política de cliente, as notificações do cliente e respostas de clientes reencaminhadas pelo CMG para o site. Essas respostas incluem relatórios de inventário, mensagens de estado e estado de conformidade.  
+- Os encargos baseiam-se nos dados transmitidos fora do Azure (saída ou transferir). Quaisquer fluxos de dados para o Azure são gratuitos (entrada ou carregamento). Fluxos de dados do CMG fora do Azure incluem a política para o cliente, notificações de cliente e as respostas de clientes reencaminhadas pelo CMG para o site. Essas respostas incluem relatórios de inventário, mensagens de estado e estado de conformidade.  
 
 - Mesmo sem quaisquer clientes que comuniquem com um CMG, alguma comunicação em segundo plano faz com que o tráfego de rede entre o CMG e o site no local.  
 
-- Ver o **transferência de dados de saída (GB)** na consola do Configuration Manager. Para obter mais informações, consulte [monitorizar clientes no CMG](/sccm/core/clients/manage/cmg/monitor-clients-cloud-management-gateway).  
+- Ver os **transferência de dados de saída (GB)** na consola do Configuration Manager. Para obter mais informações, consulte [monitorizar clientes no CMG](/sccm/core/clients/manage/cmg/monitor-clients-cloud-management-gateway).  
 
-- Consulte o [largura de banda do Azure, os detalhes de preços](https://azure.microsoft.com/pricing/details/bandwidth/) para ajudar a determinar os custos de potenciais. Transferência de dados de preço é camada. Mais de utilizar, o menor paga por gigabyte.  
+- Consulte a [largura de banda do Azure, os detalhes dos preços](https://azure.microsoft.com/pricing/details/bandwidth/) para ajudar a determinar os custos potenciais. Preços para dados de transferência está em camadas. Quanto mais usa, quanto menos paga por gigabyte.  
 
-- *Para estimar apenas a fins de*, esperar aproximadamente 100 300 MB por cliente por mês para clientes baseados na internet. A estimativa inferior destina-se uma configuração de cliente predefinida. A estimativa superior destina-se uma configuração mais agressiva do cliente. A utilização real pode variar consoante o modo como configurar definições de cliente.  
+- *Para estimar apenas para fins*, esperar aproximadamente 300 de 100 MB por cliente por mês para clientes baseados na internet. A estimativa inferior destina-se uma configuração de cliente predefinida. A estimativa superior destina-se uma configuração de cliente mais agressiva. Sua utilização real pode variar dependendo de como configurar definições de cliente.  
 
    > [!NOTE]  
-   > Efetuar outras ações, como a implementação de atualizações de software ou aplicações, aumenta a quantidade de transferência de dados de saída a partir do Azure.
+   > Efetuar outras ações, como a implementação de atualizações de software ou aplicações, aumenta a quantidade de transferência de dados de saída do Azure.
 
-#### <a name="content-storage"></a>Armazenamento de conteúdos
+#### <a name="content-storage"></a>Armazenamento de conteúdo
 
-- Os clientes baseados na Internet obtêm conteúdos de atualização de software do Microsoft Windows Update, sem encargos. Não distribuir pacotes de atualização de conteúdo de atualização da Microsoft para um ponto de distribuição na nuvem, caso contrário, pode implicar custos da saída de dados e armazenamento.  
+- Clientes baseados na Internet obtém conteúdos de atualização de software Microsoft do Windows Update, sem encargos. Não distribuir pacotes de atualização de conteúdos do Microsoft update para um ponto de distribuição de nuvem, caso contrário, podem incorrer em custos de saída de armazenamento e dados.  
 
-- Para qualquer outro conteúdo necessário, tal como aplicações ou atualizações de software de terceiros, tem de distribuir um ponto de distribuição baseado na nuvem. Atualmente, o CMG suporta apenas o ponto de distribuição baseados na nuvem para a enviar conteúdo para clientes.  
+- Para qualquer outro conteúdo necessário, tais como aplicações ou atualizações de software de terceiros, tem de distribuir um ponto de distribuição de nuvem. Atualmente, o CMG suporta apenas o ponto de distribuição de nuvem para enviar conteúdo para os clientes.  
 
-- Para obter mais informações, consulte o custo de utilização [distribuição baseados na nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution).  
+- Para obter mais informações, consulte o custo de utilização [pontos de distribuição de nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#bkmk_cost).  
 
 #### <a name="other-costs"></a>Outros custos
 
-- Cada serviço em nuvem tem um endereço IP dinâmico. Cada CMG distinto utiliza um novo endereço IP dinâmico. Adicionar VMs adicionais por CMG não aumenta estes endereços.  
+- Cada serviço em nuvem tem um endereço IP dinâmico. Cada CMG distinto usa um novo endereço IP dinâmico. Adicionar VMs adicionais por CMG não aumenta estes endereços.  
 
 
 
 ## <a name="performance-and-scale"></a>Desempenho e dimensionamento
 
-Para obter mais informações sobre dimensionamento CMG, consulte [números de tamanho e a escala](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg).
+Para obter mais informações sobre o dimensionamento do CMG, consulte [tamanho e números da escala](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg).
 
-As seguintes recomendações podem ajudar a melhorar o desempenho de CMG:
+As seguintes recomendações podem ajudar a melhorar o desempenho do CMG:
 
-- Se possível, configure o CMG, CMG ponto de ligação e o servidor de site do Configuration Manager na mesma região de rede para reduzir a latência.  
+- Se possível, configure o CMG, CMG ponto de ligação e o servidor de site do Configuration Manager na mesma região da rede para reduzir a latência.  
 
-- Atualmente, a ligação entre o cliente do Configuration Manager e o CMG não é com suporte para a região.  
+- Atualmente, a ligação entre o cliente de Configuration Manager e o CMG não está com suporte para a região.  
 
-- Para elevada disponibilidade do serviço, crie, pelo menos, dois serviços CMG e dois pontos de ligação de CMG por site.  
+- Para elevada disponibilidade do serviço, crie, pelo menos, dois serviços CMG e dois pontos de ligação CMG por site.  
 
-- Escala CMG para suportar mais clientes ao adicionar mais instâncias VM. O Balanceador de carga do Azure controla ligações de cliente com o serviço.  
+- Dimensione o CMG para suportar mais clientes ao adicionar mais instâncias VM. O Balanceador de carga do Azure controla as ligações de cliente ao serviço.  
 
-- Crie mais pontos de ligação de CMG distribuir a carga entre elas. O CMG distribui o tráfego para os respetivos pontos de ligação CMG ligação em round robin.  
+- Crie mais pontos de ligação CMG para distribuir a carga entre eles. O CMG distribui o tráfego para os respetivos pontos de ligação CMG ao ligar de forma round robin.  
 
-- Quando o CMG está sob uma carga elevada devido a mais do que o número de clientes suportado, processa os pedidos ainda, mas pode existir atraso.  
+- Quando o CMG está sob carga elevada devido a mais do que o número suportado de clientes, processa pedidos ainda, mas poderá haver atraso.  
 
 
 > [!Note]  
-> Enquanto o Configuration Manager não possui nenhum disco rígido limite no número de clientes para um ponto de ligação CMG, o Windows Server tem um predefinição máximo dinâmica intervalo de portas TCP de 16,384. Se um site do Configuration Manager gere 16.384 mais clientes com um único ponto de ligação de CMG, tem de aumentar o limite de Windows Server. Todos os clientes de manter um canal para notificações do cliente, que mantém uma porta aberta no ponto de ligação de CMG. Para obter mais informações sobre como utilizar o comando netsh para aumentar este limite, consulte [artigo Microsoft Support 929851](https://support.microsoft.com/help/929851).
+> Enquanto o Configuration Manager não possui nenhum limite restritivo no número de clientes para um ponto de ligação do CMG, o Windows Server tem um intervalo de porta dinâmica da TCP máximo do padrão de 16,384. Se a um site do Configuration Manager gerir mais de 16.384 clientes com um único ponto de ligação do CMG, tem de aumentar o limite do Windows Server. Todos os clientes de manter um canal para notificações de cliente, que contém uma porta aberta no ponto de ligação CMG. Para obter mais informações sobre como utilizar o comando netsh para aumentar este limite, consulte [artigo do Microsoft Support 929851](https://support.microsoft.com/help/929851).
 
 
 
-## <a name="ports-and-data-flow"></a>Fluxo de dados e portas
+## <a name="ports-and-data-flow"></a>Fluxo de dados e de portas
 
-Não é necessário abrir as portas de entrada à sua rede no local. O ponto de ligação de serviço e o ponto de ligação de CMG iniciam todas as comunicações com o Azure e o CMG. Estas funções de sistema de duas sites tem de ser capazes de criar ligações de saída para a nuvem da Microsoft. O ponto de ligação de serviço implementa e monitoriza o serviço do Azure, deste modo, tem de ser modo online. O ponto de ligação de CMG liga ao CMG para gerir a comunicação entre as funções de sistema de sites CMG e no local.
+Não é necessário abrir nenhuma porta de entrada à sua rede no local. O ponto de ligação de serviço e o ponto de ligação CMG iniciam todas as comunicações com o Azure e o CMG. Estas funções de sistema de duas sites tem de ser capazes de criar ligações de saída para a cloud da Microsoft. O ponto de ligação de serviço implementa e monitoriza o serviço no Azure, assim, tem de ser modo online. O ponto de ligação do CMG se conecta ao CMG para gerir a comunicação entre as funções de sistema de sites CMG e no local.
 
-O diagrama seguinte é um fluxo de dados básicas, conceptual para o CMG: ![Fluxo de dados CMG](media/cmg-data-flow.png)
-   1. O ponto de ligação de serviço liga-se no Azure através da porta HTTPS 443. Autentica com o Azure AD ou o certificado de gestão do Azure. O ponto de ligação de serviço implementa CMG no Azure. O CMG cria o serviço de nuvem HTTPS utilizando o certificado de autenticação de servidor.  
+O diagrama a seguir é um fluxo de dados basic, conceitual para CMG: ![Fluxo de dados do CMG](media/cmg-data-flow.png)
+   1. O ponto de ligação de serviço liga ao Azure através da porta HTTPS 443. Autentica com o Azure AD ou o certificado de gestão do Azure. O ponto de ligação de serviço implementa o CMG no Azure. O CMG cria o serviço de nuvem HTTPS utilizando o certificado de autenticação de servidor.  
 
-   2. O ponto de ligação de CMG liga ao CMG no Azure através de TCP TLS ou HTTPS. Mantém a ligação aberta e baseia-se o canal de comunicação bidirecional futura.   
+   2. O ponto de ligação do CMG liga-se ao CMG no Azure através de TCP-TLS ou HTTPS. Ele mantém a conexão aberta e baseia-se o canal de comunicação bidirecional futuras.   
 
-   3. O cliente liga-se a CMG através da porta HTTPS 443. Autentica com o Azure AD ou o certificado de autenticação de cliente.  
+   3. O cliente se conecta ao CMG através da porta HTTPS 443. Autentica com o Azure AD ou o certificado de autenticação de cliente.  
 
-   4. O CMG reencaminha a comunicação de cliente através da ligação ao ponto de ligação CMG no local existente. Não precisa de abrir portas de firewall de entrada.  
+   4. O CMG reencaminha a comunicação de cliente através da ligação existente para o ponto de ligação do CMG no local. Não precisa de abrir portas de firewall de entrada.  
 
-   5. O ponto de ligação CMG reencaminha a comunicação de cliente para o ponto de gestão no local e o ponto de atualização de software.  
+   5. O ponto de ligação do CMG reencaminha a comunicação de cliente para o ponto de gestão no local e o ponto de atualização de software.  
 
 ### <a name="required-ports"></a>Portas necessárias
-Esta tabela lista as portas de rede necessários e os protocolos. O *cliente* é o dispositivo inicia a ligação, a necessidade de uma porta de saída. O *servidor* o dispositivo de aceitar a ligação, a necessidade de uma porta de entrada. 
+Esta tabela lista os protocolos e portas de rede necessária. O *cliente* é o dispositivo inicia a ligação, que requerem uma porta de saída. O *servidor* é o dispositivo de aceitar a ligação, que requerem uma porta de entrada. 
 
 | Cliente  | Protocol | Porta  | Servidor  | Descrição  |
 |---------|---------|---------|---------|---------|
-| Ponto de ligação de serviço     | HTTPS | 443        | Azure        | Implementação de CMG |
-| Ponto de ligação de CMG     |  TCP-TLS | 10140-10155        | Serviço CMG        | Preferencial protocolo para criar o canal CMG <sup>1</sup> |
-| Ponto de ligação de CMG     | HTTPS | 443        | Serviço CMG       | Contingência para criar o canal CMG para apenas uma instância VM<sup>2</sup> |
-| Ponto de ligação de CMG     |  HTTPS   | 10124-10139     | Serviço CMG       | Contingência para criar o canal CMG para duas ou mais instâncias VM<sup>3</sup> |
+| Ponto de ligação de serviço     | HTTPS | 443        | Azure        | Implementação do CMG |
+| Ponto de ligação CMG     |  TCP-TLS | 10140-10155        | Serviço CMG        | Preferência de protocolo para criar o canal CMG <sup>1</sup> |
+| Ponto de ligação CMG     | HTTPS | 443        | Serviço CMG       | Contingência para criar o canal CMG para apenas uma instância VM<sup>2</sup> |
+| Ponto de ligação CMG     |  HTTPS   | 10124-10139     | Serviço CMG       | Contingência para criar o canal CMG para duas ou mais instâncias VM<sup>3</sup> |
 | Cliente     |  HTTPS | 443         | CMG        | Comunicação de cliente geral |
-| Ponto de ligação de CMG      | HTTPS ou HTTP | 443 ou 80         | Ponto de gestão</br>(versão 1706 ou 1710) | O tráfego no local, porta depende da configuração de ponto de gestão |
-| Ponto de ligação de CMG      | HTTPS | 443      | Ponto de gestão</br>(versão 1802) | O tráfego no local tem de ser HTTPS |
-| Ponto de ligação de CMG      | HTTPS ou HTTP | 443 ou 80         | Ponto de atualização de software | O tráfego no local, porta depende da configuração do ponto de atualização de software |
+| Ponto de ligação CMG      | HTTPS ou HTTP | 443 ou 80         | Ponto de gestão</br>(versão 1706 ou 1710) | Tráfego no local, porta depende da configuração do ponto de gestão |
+| Ponto de ligação CMG      | HTTPS | 443      | Ponto de gestão</br>(versão 1802) | Tráfego no local tem de ser HTTPS |
+| Ponto de ligação CMG      | HTTPS ou HTTP | 443 ou 80         | Ponto de atualização de software | Tráfego no local, porta depende da configuração de ponto de atualização de software |
 
-<sup>1</sup> ponto de ligação de CMG o primeiro tenta estabelecer uma ligação de TCP TLS longa duração com cada instância de CMG VM. Liga-se para a primeira instância VM na porta 10140. A segunda instância VM utiliza a porta 10141, até sixteenth na porta 10155. Uma ligação de TCP TLS efetua o melhor, mas não suporta a proxy de internet. Se o ponto de ligação CMG não é possível ligar através de TCP-TLS, em seguida, retrocede para HTTPS<sup>2</sup>.  
+<sup>1</sup> ponto de ligação CMG o primeiro tenta estabelecer uma ligação de TCP-TLS vida útil longa com cada instância de VM do CMG. Ele se conecta à primeira instância VM na porta 10140. A segunda instância VM utiliza a porta 10141, até o sixteenth na porta 10155. Uma conexão TCP TLS efetua o melhor, mas ele não dá suporte a proxy de internet. Se o ponto de ligação do CMG não é possível ligar através de TCP-TLS, em seguida, vai para HTTPS<sup>2</sup>.  
 
-<sup>2</sup> se o ponto de ligação CMG não consegue ligar ao CMG através de TCP TLS<sup>1</sup>, estabelece ligação ao balanceador de carga de rede do Azure através de HTTPS 443 apenas uma instância de VM.  
+<sup>2</sup> se o ponto de ligação do CMG não consegue ligar ao CMG via TCP-TLS<sup>1</sup>, ele liga-se ao balanceador de carga de rede do Azure através de HTTPS 443 apenas para uma instância de VM.  
 
-<sup>3</sup> se existirem dois ou mais instâncias VM, o ponto de ligação CMG utiliza HTTPS 10124 para a primeira instância VM, não de HTTPS 443. Liga-se para a segunda instância VM em HTTPS 10125, até sixteenth na porta HTTPS 10139.
+<sup>3</sup> se existirem dois ou mais instâncias VM, o ponto de ligação do CMG utiliza HTTPS 10124 para a primeira instância VM, não HTTPS 443. Liga-se para a segunda instância VM em HTTPS 10125, até o sixteenth na porta HTTPS 10139.
 
 
 ### <a name="internet-access-requirements"></a>Requisitos de acesso à Internet
 
-O sistema de sites do ponto de ligação CMG suporta a utilização de um proxy web. Para obter mais informações sobre como configurar esta função para um proxy, consulte [suporte para o servidor Proxy](/sccm/core/plan-design/network/proxy-server-support#to-set-up-the-proxy-server-for-a-site-system-server). O ponto de ligação CMG necessita de conectividade para os seguintes pontos finais:  
+O sistema de sites do ponto de ligação CMG suporta a utilização de um proxy web. Para obter mais informações sobre como configurar esta função para um proxy, consulte [suporte de servidor de Proxy](/sccm/core/plan-design/network/proxy-server-support#to-set-up-the-proxy-server-for-a-site-system-server). O ponto de ligação do CMG exige conectividade com os seguintes pontos finais:  
 
-- Os pontos finais do Azure são diferentes por ambiente consoante a configuração. O Configuration Manager armazene estes pontos finais na base de dados do site. Consulta o **AzureEnvironments** tabela no SQL Server para obter a lista de pontos finais do Azure.  
+- Os pontos finais do Azure são diferentes por ambiente, dependendo da configuração. Gestor de configuração armazena estes pontos finais da base de dados do site. Consulta a **AzureEnvironments** tabela no SQL Server para a lista de pontos finais do Azure.  
 
 - ServiceManagementEndpoint (https://management.core.windows.net/)  
 
 - StorageEndpoint (core.windows.net)  
 
-- Para o Azure AD token obtenção através da consola do Configuration Manager e do cliente: ActiveDirectoryEndpoint (https://login.microsoftonline.com/)  
+- Para o Azure AD token obtenção pela consola do Configuration Manager e do cliente: ActiveDirectoryEndpoint (https://login.microsoftonline.com/)  
 
 - Para deteção de utilizadores do Azure AD: Gráfico do AAD (de ponto final https://graph.windows.net/)   
 
@@ -354,6 +353,6 @@ O sistema de sites do ponto de ligação CMG suporta a utilização de um proxy 
 
 - [Certificados para o gateway de gestão na cloud](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway)
 - [Segurança e privacidade para o gateway de gestão na cloud ](/sccm/core/clients/manage/cmg/security-and-privacy-for-cloud-management-gateway)
-- [Tamanho da gestão do gateway de nuvem e números de escala](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg)
-- [Perguntas mais frequentes sobre o gateway de gestão de nuvem](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
+- [Tamanho do gateway de gestão da cloud e dimensione números](/sccm/core/plan-design/configs/size-and-scale-numbers#bkmk_cmg)
+- [Perguntas mais frequentes sobre o gateway de gestão da cloud](/sccm/core/clients/manage/cmg/cloud-management-gateway-faq)
 - [Configurar o gateway de gestão na cloud](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway)
