@@ -1,8 +1,8 @@
 ---
-title: Versões do ramo atuais
+title: Versões atuais do ramo
 titleSuffix: Configuration Manager
-description: Reveja o histórico da versão do System Center Configuration Manager e saber mais sobre as fases de serviço fornecido.
-ms.date: 03/22/2018
+description: Rever o histórico de versão do Configuration Manager e saiba mais sobre as fases de serviço oferecidos.
+ms.date: 07/30/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,48 +10,33 @@ ms.assetid: 35b5baec-d313-46aa-9d14-c443aa0d6c09
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-robots: noindex,nofollow
-ms.openlocfilehash: 0aa766e9e6a7d2bf79fb69e1b1b3936908c4333a
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 8a8f646b1cd535809689daacb1390fd79f8ce5c1
+ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32344573"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39383784"
 ---
-# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do System Center Configuration Manager
+# <a name="support-for-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Microsoft planos de lançamento atualizações para o ramo atual do System Center Configuration Manager algumas vezes por ano. Para versões do Configuration Manager lançadas antes 1710, o suporte está durante 12 meses. Cada versão de atualização a partir do lançamento 1710, permanece no suporte para 18 meses a partir da respetiva data de lançamento de disponibilidade geral (DG). O suporte técnico é fornecido para o período de suporte completo. No entanto, os nossa estrutura de suporte for dinâmica, evolução em duas fases distintas manutenção que dependem da disponibilidade da versão do ramo atual mais recente.  
+A Microsoft planeja lançar atualizações para o ramo atual do Configuration Manager algumas vezes por ano. Para versões do Configuration Manager lançado antes do 1710, o suporte é de 12 meses. Cada versão de atualização a partir da versão 1710, permanece no suporte de 18 meses a partir da data de lançamento de disponibilidade geral. A Microsoft fornece suporte técnico para o período de inteiro de suporte. Existem duas fases de manutenção distintas que dependem da disponibilidade da versão do ramo atual mais recente.  
 
--   Segurança e manutenção de atualizações críticas fase - ao executar a versão mais recente de ramo atual do Configuration Manager, recebem atualizações críticas e de segurança.  
+-   **Atualizações críticas e de segurança** fase - de manutenção ao executar a versão de ramo atual mais recente do Configuration Manager, receberá atualizações críticas e de segurança.  
 
--   Atualizações de segurança (apenas) manutenção fase - após o lançamento de uma nova versão do ramo atual, o suporte ramos anteriores irão reduzir para atualizações de segurança apenas para o resto que versões suportam o ciclo de vida (mostrado na figura 1).  
+-   **Atualizações de segurança (apenas)** fase - após o lançamento de uma nova versão de ramo atual, de manutenção Microsoft apenas oferece suporte a atualizações de segurança para as versões mais antigas para o restante do ciclo de vida do suporte a essa versão (mostrado na figura 1).  
 
- ![CM&#95;Servicing&#95;support&#95;timeline](media/CM_Servicing_support_timeline1.png "CM_Servicing_support_timeline")  
-Figura 1. Exemplo de sobreposição de ciclo de versão para filial atual de suporte de manutenção. Este exemplo é para fins de ilustração do ciclo e não representa a versão real ou esperado datas.
+ ![Gráfico de linha cronológica de suporte e manutenção do Configuration Manager](media/CM_Servicing_support_timeline1.png)  
+Figura 1. Exemplo de sobreposição de ciclo de lançamento para o ramo atual, suporte de manutenção. Neste exemplo é para fins de ilustração do ciclo de e não representa as datas de lançamento real ou esperado.
 
 > [!NOTE]  
->  A versão do ramo atual mais recente é sempre na fase de manutenção de atualizações críticas e segurança. Esta declaração de suporte significa que o se encontrarem um defeito de código warrants uma atualização crítico, que tem de ter a versão ramo atual mais recente instalada para receber uma correção. Todas as outras atual ramo versões suportadas são elegíveis para receber apenas as atualizações de segurança.
-> - Para versões 1710 e posteriores, todos os suportam termina após o ciclo de vida de 18 meses para uma versão do ramo atual tenha expirado.
-> - Para versões anteriores à 1710, o suporte termina quando expira o ciclo de vida de 12 meses.
+>  A versão do ramo atual mais recente é sempre no **atualizações críticas e de segurança** fase de manutenção. Esta declaração de suporte, significa que se encontrar um defeito de código que requeira uma atualização crítica, que tem de ter a versão ramo atual mais recente instalada para receber uma correção. Todas as outras atual ramo versões suportadas são elegíveis para receber apenas as atualizações de segurança.
+> - Para versões 1710 e posteriores, todo o suporte termina o ciclo de vida de 18 meses para uma versão do ramo atual tenha expirado.
+> - Para versões anteriores 1710, o suporte termina após o ciclo de vida de 12 meses.
 
-> Recomendamos que atualizar a sua implementação do Configuration Manager para a versão mais recente antes do suporte para a versão atual expira.
+> Atualize o seu ambiente do Configuration Manager para a versão mais recente antes de suporte para a sua versão atual expira.
 
- **Histórico da versão**  
+Para obter uma lista das versões do ramo atual, consulte [detalhes da versão](/sccm/core/servers/manage/updates#version-details).
 
-|Versão |Data de disponibilidade |Data de fim de suporte|  
-|-------------|-----------------------|----------------------|
-|1802|22 de Março de 2018|22 de Setembro de 2019  
-|1710|20 de Novembro de 2017|20 de Maio de 2019 |
-|1706|31 de Julho de 2017|31 de Julho de 2018|
-|1702|27 de Março de 2017|27 de Março de 2018|
-|1610|18 de Novembro de 2016|18 de Novembro de 2017|
-|1606|22 de Julho de 2016| 22 de Julho de 2017|
-|1602|11 de Março de 2016|11 de Março de 2017|
-|1511|8 de Dezembro de 2015|8 de Dezembro de 2016|  
-
-
-
-
-Para obter informações sobre a disponibilidade como uma atualização na consola ou como uma linha de base e números de versão, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Para obter mais informações sobre os números de versão e a disponibilidade, como uma atualização na consola ou como uma linha de base, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).

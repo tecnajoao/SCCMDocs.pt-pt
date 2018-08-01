@@ -1,56 +1,80 @@
 ---
 title: Melhores práticas para atualizações de software
 titleSuffix: Configuration Manager
-description: Utilize estas melhores práticas para atualizações de software no System Center Configuration Manager.
+description: Utilize estas melhores práticas para atualizações de software no Configuration Manager.
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 10/06/2018
+ms.date: 07/30/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 6d20389a-9de2-4a64-bced-9fc4fa519174
-ms.openlocfilehash: 0604c75aedfea5d82bd7d274c4a43edccb497f1e
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: fd16b33b885786d7a613096456774fc05d70f8a4
+ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32347897"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39383121"
 ---
-# <a name="best-practices-for-software-updates-in-system-center-configuration-manager"></a>Procedimentos recomendados para atualizações de software no System Center Configuration Manager
+# <a name="best-practices-for-software-updates-in-configuration-manager"></a>Melhores práticas para atualizações de software no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este tópico contém melhores práticas para atualizações de software no System Center Configuration Manager. As informações estão ordenadas em melhores práticas para a instalação inicial e melhores práticas para operações em curso.  
+Este artigo inclui procedimentos recomendados para atualizações de software no Configuration Manager. As informações estão ordenadas em melhores práticas para a instalação inicial e para operações em curso.  
 
-## <a name="installation-best-practices"></a>Melhores práticas de instalação  
- Utilize as seguintes melhores práticas quando instalar atualizações de software no Configuration Manager.  
 
-### <a name="use-a-shared-wsus-database-for-software-update-points"></a>Utilize uma Base de Dados WSUS Partilhada para Pontos de Atualização de Software  
- Se instalar mais do que um ponto de atualização de software num site primário, utilize a mesma base de dados do WSUS para cada ponto de atualização de software localizado na mesma floresta do Active Directory. Ao partilhar a mesma base de dados, pode reduzir significativamente o impacto que pode ocorrer no desempenho do cliente e da rede quando os clientes mudam para um novo ponto de atualização de software. Ainda ocorre uma verificação de diferenças quando um cliente muda para um novo ponto de atualização de software que partilha uma base de dados com o antigo ponto de atualização de software, mas esta verificação é muito menor do que seria se o servidor WSUS tivesse a sua própria base de dados.  
+
+## <a name="bkmk_install"></a> Melhores práticas de instalação  
+
+Utilize as seguintes melhores práticas quando instalar atualizações de software no Configuration Manager.  
+
+
+### <a name="bkmk_shared-susdb"></a> Utilizar uma base de dados WSUS partilhada para pontos de atualização de software  
+
+Se instalar mais do que um ponto de atualização de software num site primário, utilize a mesma base de dados do WSUS para cada ponto de atualização de software localizado na mesma floresta do Active Directory. Se partilhar a mesma base de dados, ele reduzirá significativamente, embora não elimine completamente, o cliente e o impacto de desempenho de rede que podem ocorrer quando os clientes mudarem para um novo ponto de atualização de software. Uma análise de delta ainda ocorre quando um cliente muda para um ponto de atualização de software novo que partilhas de ponto de uma base de dados com a atualização de software antigo, mas a verificação é muito menor do que seria se o servidor WSUS tem sua própria base de dados. Para obter mais informações sobre a mudança de ponto de atualização de software, consulte [mudança de ponto de atualização de Software](/sccm/sum/plan-design/plan-for-software-updates#BKMK_SUPSwitching).  
 
 > [!IMPORTANT]  
->  Também tem de partilhar as pastas de conteúdo do WSUS quando utiliza uma base de dados partilhada do WSUS para os pontos de atualização de software.  
+>  Também partilhe as pastas de conteúdo do WSUS locais quando utiliza uma base de dados WSUS partilhada para pontos de atualização de software.  
 
- Para obter mais informações sobre a mudança de ponto de atualização de software, consulte o [mudança de ponto de atualização de Software](../../sum/plan-design/plan-for-software-updates.md#BKMK_SUPSwitching) secção o [planear atualizações de software no System Center Configuration Manager](../../sum/plan-design/plan-for-software-updates.md) tópico.  
+Para obter mais informações sobre o compartilhamento da base de dados do WSUS, consulte as seguintes mensagens de blogue:  
 
-### <a name="when-configuration-manager-and-wsus-use-the-same-sql-server-configure-one-of-these-to-use-a-named-instance-and-the-other-to-use-the-default-instance-of-sql-server"></a>Quando o Configuration Manager e o WSUS utilizam o mesmo SQL Server, configure um deles para utilizar uma instância nomeada e a outra para utilizar a instância predefinida do SQL Server  
- Quando as bases de dados do Configuration Manager e o WSUS utilizam o mesmo SQL Server e partilham a mesma instância do SQL Server, não é possível determinar facilmente a utilização de recursos entre as duas aplicações. Quando utilizar uma instância do SQL Server diferente para o Configuration Manager e o WSUS, é mais fácil diagnosticar e resolver problemas de utilização de recursos que possam ocorrer para cada aplicação.  
+- [Como implementar um SUSDB partilhada para pontos de atualização de software do Configuration Manager](https://blogs.technet.microsoft.com/configurationmgr/2016/10/12/how-to-implement-a-shared-susdb-for-configuration-manager-software-update-points/)  
 
-### <a name="specify-the-store-updates-locally-setting-for-the-wsus-installation"></a>Especifique a definição "Armazenar atualizações localmente" para a instalação do WSUS  
- Quando instala o WSUS, selecione o **armazenar atualizações localmente** definição. Quando esta definição está selecionada, os termos de licenciamento que estão associados às atualizações de software são transferidos durante o processo de sincronização e armazenados no disco rígido local do servidor WSUS. Quando esta definição não estiver selecionada, os computadores cliente poderão falhar a verificação da existência de conformidade de atualizações de software para atualizações de software com termos de licenciamento. Quando instala o ponto de atualização de software, o Gestor de Sincronização do WSUS verifica se esta definição está ativada a cada 60 minutos, por predefinição.  
+- [Considerações para várias instâncias WSUS partilha uma base de dados de conteúdo ao utilizar o System Center Configuration Manager](https://blogs.technet.microsoft.com/wsus/2014/03/22/considerations-for-multiple-wsus-instances-sharing-a-content-database-when-using-system-center-configuration-manager-but-without-network-load-balancing-nlb/)  
 
-## <a name="operational-best-practices"></a>Melhores Práticas Operacionais  
- Utilize as seguintes melhores práticas quando utilizar atualizações de software:  
 
-### <a name="limit-software-updates-to-1000-in-a-single-software-update-deployment"></a>Limite as atualizações de software a 1000 numa única implementação de atualização de software  
- Tem de limitar o número de atualizações de software a 1000 para cada implementação de atualização de software. Quando criar uma regra de implementação automática, certifique-se de que os critérios que especifica não resultam em mais de 1000 atualizações de software. Ao implementar manualmente atualizações de software, não selecione mais de 1000 atualizações para implementar.  
+### <a name="bkmk_sql-instance"></a> Quando o Configuration Manager e o WSUS utilizam o mesmo SQL Server, configure uma para utilizar uma instância nomeada e outra para utilizar a instância predefinida  
 
-### <a name="create-a-new-software-update-group-each-time-an-automatic-deployment-rule-runs-for-patch-tuesday-and-for-general-deployment"></a>Criar um novo grupo de atualização de software sempre que uma regra de implementação automática é executada para "Patch Terça" e para implementação geral  
- Existe um limite de 1000 atualizações de software para uma implementação de atualização de software. Quando criar uma regra de implementação automática, especifique se pretende utilizar um grupo de atualização existente ou criar um novo grupo de atualização sempre que a regra for executada. Quando especificar critérios numa regra de implementação automática que resulte em várias atualizações de software e a regra for executada periodicamente, especifique criar um novo grupo de atualização de software sempre que a regra for executada. Isto irá impedir que a implementação exceda o limite de 1000 atualizações de software por implementação.  
+Quando as bases de dados do Configuration Manager e o WSUS partilham a mesma instância do SQL Server, não é possível determinar facilmente a utilização de recursos entre as duas aplicações. Utilize várias instâncias de SQL Server do Configuration Manager e o WSUS. Esta configuração torna mais fácil de solucionar problemas e diagnosticar problemas de utilização de recursos que possam ocorrer para cada aplicativo.  
 
-### <a name="use-an-existing-software-update-group-for-automatic-deployment-rules-for-endpoint-protection-definition-updates"></a>Utilize um grupo de atualização de software existente para regras de implementação automática de atualizações de definições do Endpoint Protection  
- Utilize sempre um grupo de atualização de software existente quando utilizar uma regra de implementação automática para implementar atualizações de definições do Endpoint Protection com frequência. Caso contrário, poderão ser criados centenas de grupos de atualização de software ao longo do tempo. Normalmente, os editores de atualizações de definição configuram as atualizações de definição para expirarem quando são substituídas por quatro atualizações mais recentes. Por conseguinte, o grupo de atualizações de software que é criado pela regra de implementação automática nunca irá conter mais de quatro atualizações de definições para o editor: uma ativa e três substituídas.  
+
+### <a name="bkmk_store-local"></a> Especifique a definição "Store atualizações localmente"  
+
+Quando instala o WSUS, selecione a definição para **Store atualizações localmente**. Esta definição faz com que o WSUS transferir os termos de licenciamento que estão associados a atualizações de software. Ele transfere os termos durante o processo de sincronização e armazena-os no disco rígido local para o servidor WSUS. Se não selecionar esta definição, os computadores cliente poderão falhar verificações de conformidade para atualizações de software com termos de licenciamento. O **Gestor de sincronização WSUS** componente do ponto de atualização de software verifica se esta definição é ativada a cada 60 minutos, por predefinição.  
+
+
+
+## <a name="bkmk_operation"></a> Melhores práticas operacionais  
+
+Utilize as seguintes melhores práticas quando utilizar atualizações de software:  
+
+
+### <a name="bkmk_object-limit"></a> Limitar as atualizações de software a 1000 numa implementação de atualização de software  
+
+Limite o número de atualizações de software a 1000 em cada implementação de atualização de software. Quando cria uma regra de implementação automática, certifique-se de que os critérios especificados não resulta em mais de 1000 atualizações de software. Se implementar manualmente atualizações de software, não selecione mais de 1000 atualizações.  
+
+
+### <a name="bkmk_new-group"></a> Criar um novo grupo de atualização de software sempre que uma ADR é executada para "Patch Terça" e para as implementações gerais  
+
+Existe um limite de 1000 atualizações de software numa implementação. Quando cria uma regra de implementação automática (ADR), especifique se pretende utilizar um grupo de atualização existente ou criar um novo grupo de atualização sempre que a regra for executada. Se especificar critérios em regras de implementação automática que resulte em várias atualizações de software e a regra é executada numa agenda periódica, crie um novo grupo de atualização de software sempre que a regra for executada. Este comportamento impede que a implementação exceda o limite de 1000 atualizações de software por implementação.  
+
+
+### <a name="bkmk_same-group"></a> Utilizar um grupo de atualização de software existente para ADRs para atualizações de definições do Endpoint Protection  
+
+Quando utiliza uma ADR para implementar atualizações de definições do Endpoint Protection com frequência, utilize sempre um grupo de atualização de software existente. Caso contrário, a ADR cria potencialmente centenas de grupos de atualização de software ao longo do tempo. Os editores de atualizações, normalmente, defina as atualizações de definição para expirarem quando eles são substituídos por quatro atualizações mais recentes. Por conseguinte, o grupo de atualizações de software criado para a ADR contém nunca mais de quatro atualizações de definições para o Editor: uma ativa e três substituídas.  
+
+
 
 ## <a name="see-also"></a>Consulte Também  
- [Planear atualizações de software no System Center Configuration Manager](../../sum/plan-design/plan-for-software-updates.md)
+ [Planear as atualizações de software](/sccm/sum/plan-design/plan-for-software-updates)

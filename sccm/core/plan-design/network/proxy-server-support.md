@@ -1,8 +1,8 @@
 ---
 title: Suporte para o servidor proxy
 titleSuffix: Configuration Manager
-description: Saiba mais sobre o suporte do System Center Configuration Manager para servidores de proxy que utilizam servidores do sistema de sites e clientes.
-ms.date: 2/7/2017
+description: Saiba como servidores de sistema de sites do Configuration Manager utilizam servidores proxy.
+ms.date: 07/30/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,73 +10,92 @@ ms.assetid: 9123a87a-0b6f-43c7-b5c2-fac5d09686b1
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 480ab29bbd97f2cdc173019b1b3cccd90403d011
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 78694282dae7408e1f9e01fd75585f87aef41da7
+ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32337824"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39383564"
 ---
-# <a name="proxy-server-support-in-system-center-configuration-manager"></a>Suporte para o servidor proxy no System Center Configuration Manager
+# <a name="proxy-server-support-in-configuration-manager"></a>Suporte de servidor proxy no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Ambos os clientes e servidores de sistema de sites do System Center Configuration Manager, podem utilizar um servidor proxy.  
+Alguns servidores de sistema de sites do Configuration Manager exigem ligações à internet. Se o seu ambiente requer tráfego de internet para utilizar um servidor proxy, configure estas funções de sistema de sites para usar o proxy.  
 
-## <a name="site-system-servers"></a>Servidores do sistema de sites  
-Quando precisam de funções de sistema de sites estabelecer ligação à Internet, pode configurar para utilizar um servidor proxy.  
+-   Um computador que aloja um servidor de sistema de sites suporta uma configuração de servidor proxy. Todas as funções de sistema de sites nesse computador partilhem esta mesma configuração de proxy. Se precisar de separar servidores proxy para funções diferentes ou instâncias de uma função, coloca essas funções em servidores de sistema de sites separados.  
 
--   Um computador que aloja um servidor de sistema de sites suporta uma configuração de servidor proxy que é partilhada por todas as funções de sistema de sites nesse mesmo computador. Se precisar de separar servidores proxy para funções diferentes ou instâncias de uma função, tem de colocar essas funções em servidores de sistema de sites à parte.  
+-   Ao configurar novas definições de servidor de proxy para um servidor de sistema de sites que já tenha uma configuração de servidor proxy, a configuração original é substituída.  
 
--   Quando configurar novas definições do servidor proxy para um servidor de sistema de sites que já tem uma configuração de servidor proxy, a configuração original é substituída.  
+-   Por predefinição, as ligações ao proxy utilizam a **sistema** conta do computador que aloja a função de sistema de sites.  
 
--   As ligações ao proxy utilizam a conta do **Sistema** do computador que aloja a função de sistema de sites.  
+-   Se a conta de computador não é possível efetuar a autenticação, o servidor de sistema de sites pode armazenar credenciais de utilizador para ligar ao servidor proxy. Estas credenciais são os **conta de servidor de proxy do sistema de sites**.  
 
-As seguintes funções do sistema de sites ligam à Internet e podem exigir um servidor proxy.  Com uma exceção, as funções de sistema de sites que podem utilizar um proxy fazem-no sem qualquer configuração adicional. A exceção é o ponto de atualização de software. A lista seguinte tem informações sobre as configurações adicionais que necessite de um ponto de atualização de software:  
 
-**O ponto de sincronização do Asset Intelligence** -esta função de sistema de sites liga à Microsoft e utiliza uma configuração de servidor proxy no computador que aloja o ponto de sincronização do Asset Intelligence.  
 
-**Ponto de distribuição baseado na nuvem** - para configurar um servidor proxy para um ponto de distribuição baseado na nuvem, pode configurar o proxy no site primário que gere o ponto de distribuição baseados na nuvem.  
+## <a name="site-system-roles-that-use-a-proxy"></a>Funções de sistema de sites que utilizar um proxy
+
+As seguintes funções de sistema de sites ligam à internet e, se necessário, podem utilizar um servidor proxy:  
+
+
+#### <a name="asset-intelligence-synchronization-point"></a>Ponto de sincronização do Asset Intelligence
+Esta função de sistema de sites liga à Microsoft e utiliza uma configuração de servidor proxy no computador que aloja o ponto de sincronização do Asset Intelligence.  
+
+
+#### <a name="cloud-distribution-point"></a>Ponto de distribuição de nuvem
+A distribuição de nuvem do ponto de execuções de função no Microsoft Azure. Não configurar esta função de sistema de sites para utilizar um proxy. Defina a configuração de proxy no servidor do site primário que gere o ponto de distribuição de nuvem.  
 
 Para esta configuração, o servidor do site primário:  
 
--   Tem de ser capaz de ligar ao Microsoft Azure para configurar, monitorizar e distribuir conteúdo ao ponto de distribuição.  
+-   Tem de ser capaz de se ligar ao Microsoft Azure para configurar, monitorizar e distribuir conteúdo ao ponto de distribuição de nuvem.  
 
--   Utiliza a conta do sistema nesse computador para efetuar a ligação.  
+-   Por predefinição, utiliza o computador **sistema** conta para estabelecer a ligação. Também pode utilizar conta de servidor de proxy do sistema de sites, se necessário.  
 
--   Utiliza o browser predefinido de nesse computador.  
+-   Usa o navegador da web APIs do Windows.  
 
-Não é possível configurar um servidor proxy no ponto de distribuição em nuvem com base no Microsoft Azure.  
 
-**Ponto de ligação da nuvem** -esta função de sistema de sites liga ao serviço de nuvem do Configuration Manager para transferir atualizações de versão para o Configuration Manager e utiliza um servidor proxy que está configurado no computador que aloja a ligação de serviço ponto.  
+#### <a name="exchange-server-connector"></a>Conector do Exchange Server
+Esta função de sistema de sites liga-se a um Exchange Server. Ele usa uma configuração de servidor proxy no computador que aloja o conector do Exchange Server.  
 
-**Conector do Exchange Server** -esta função de sistema de sites liga a um Exchange Server e utiliza uma configuração de servidor proxy no computador que aloja o conector do Exchange Server.  
 
-**Ponto de ligação de serviço** -esta função de sistema de sites liga-se ao Microsoft Intune e utiliza uma configuração de servidor proxy no computador que aloja o ponto de ligação de serviço.  
+#### <a name="service-connection-point"></a>Ponto de ligação de serviço
+Esta função de sistema de sites liga ao serviço de nuvem do Configuration Manager para transferir atualizações de versões para o Configuration Manager e liga-se ao Microsoft Intune numa configuração híbrida. Ele usa um servidor proxy que está configurado no computador que aloja o ponto de ligação de serviço.  
 
-**Ponto de atualização de software** - Esta função do sistema de site pode utilizar a proxy ao ligar o Microsoft Update para transferir patches e sincronizar informações sobre atualizações. Pontos de atualização de software utilizam uma proxy apenas para as opções seguintes quando ativa essa opção, como configurar o ponto de atualização de software:  
+
+#### <a name="software-update-point"></a>Ponto de atualização de software
+Esta função de sistema de sites utiliza o proxy para estabelecer a ligação ao Microsoft Update para transferir patches e sincronizar informações sobre atualizações. Como todos os outra função sistema de sites, primeiro de configurar as definições de proxy do sistema de site. Em seguida, configure as seguintes opções específicas para o ponto de atualização de software:  
 
 -   **Utilizar um servidor proxy para sincronizar atualizações de software**  
 
--   **Utilizar um servidor proxy quando transferir conteúdo usando regras de implementação automática** (embora esteja disponível para utilização, esta definição não é utilizada pelos pontos de atualização de software em sites secundários.)  
+-   **Utilizar um servidor proxy quando transferir conteúdo usando regras de implementação automática**  
 
-Configurar as definições do servidor proxy na página ponto de atualização de Software ativo do Assistente Adicionar funções do sistema de sites ou no **geral** separador **propriedades de componente de ponto de atualização de Software**.  
+    > [!Note]  
+    > Embora esteja disponível para utilização, esta definição não é utilizada pelos pontos de atualização de software em sites secundários.  
 
--   As definições do servidor proxy estão associadas apenas ao ponto de atualização de software no site.  
-
--   As opções de servidor proxy apenas estão disponíveis quando um servidor proxy já está definido para o servidor de sistema de sites que aloja o ponto de atualização de software.  
+Estas definições são sobre o **definições de conta de Proxy e** separador de propriedades de ponto de atualização de software.  
 
 > [!NOTE]  
->  Por predefinição, a conta **Sistema** para o servidor onde foi criada uma regra de implementação automática é utilizada para ser ligada à Internet e transferir atualizações de software quando são executadas as regras de implementação automática.  
+>  Por predefinição, o **sistema** conta para o servidor no qual foi criada uma regra de implementação automática é utilizado para ligar à internet e transferir atualizações de software quando são executadas as regras de implementação automática. Em alternativa, configure e utilize a conta de servidor proxy do sistema de sites. 
 >   
->  Quando esta conta não é possível aceder à Internet, as atualizações de software falharem transferir e a entrada seguinte é registada em ruleengine.log: **Falha ao transferir a atualização a partir da internet. Erro = 12007.**  
+>  Quando esta conta não é possível aceder à internet, as atualizações de software não conseguirem transferir. A entrada seguinte é registada em **ruleengine**:  
+> `Failed to download the update from internet. Error = 12007.`  
 
-#### <a name="to-set-up-the-proxy-server-for-a-site-system-server"></a>Para configurar o servidor proxy para um servidor de sistema de sites  
 
-1.  Na consola do Configuration Manager, escolha **administração**, expanda **configuração do Site**e, em seguida, escolha **servidores e funções de sistema de sites**.  
 
-2.  Selecione o servidor de sistema de site que pretende editar, no contexto de painel de detalhes **sistema de sites**e, em seguida, escolha **propriedades**.  
+## <a name="configure-the-proxy-for-a-site-system-server"></a>Configurar o proxy para um servidor de sistema de sites  
 
-3.  Nas propriedades do sistema de sites, selecione o **Proxy** separador e, em seguida, configure as definições de proxy para este servidor de site primário.  
+1.  Na consola do Configuration Manager, vá para o **administração** área de trabalho. Expanda **configuração do Site**e, em seguida, selecione a **servidores e funções de sistema de sites** nó.  
 
-4.  Escolha **OK** para guardar o proxy de nova configuração de servidor.  
+2.  Selecione o servidor de sistema de sites que pretende editar. No painel de detalhes, clique com botão direito a **sistema de sites** função e selecione **propriedades**.  
+
+3.  No sistema de sites propriedades, mude para o **Proxy** separador. Configure as seguintes definições de proxy:  
+
+    - **Utilizar um servidor proxy ao sincronizar informações da internet**: Selecione esta opção para ativar o servidor de sistema de sites utilizar um servidor proxy.  
+
+    - **Nome do servidor proxy**: Especifique o nome de anfitrião ou o FQDN do servidor proxy no seu ambiente.  
+
+    - **Porta**: Especifique a porta de rede em que pretende comunicar com o servidor de proxy. Por predefinição, utiliza a porta **80**.  
+
+    - **Utilizar credenciais para ligar ao servidor proxy**: Muitos servidores de proxy exigem que um utilizador autenticar. Por predefinição, o servidor de sistema de sites utiliza sua conta de computador para se ligar ao servidor proxy. Se necessário, ative esta opção, clique em **definir**e, em seguida, escolha um **conta existente** ou especificar uma **nova conta**. Estas credenciais são os **conta de servidor de proxy do sistema de sites**.  Para obter mais informações, consulte [contas utilizadas no Configuration Manager](/sccm/core/plan-design/hierarchy/accounts).  
+
+4.  Escolher **OK** para guardar o proxy de nova configuração de servidor.  

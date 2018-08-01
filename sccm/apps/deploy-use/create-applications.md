@@ -2,7 +2,7 @@
 title: Criar aplicações
 titleSuffix: Configuration Manager
 description: Crie aplicações com requisitos para instalar software, métodos de deteção e tipos de implementação.
-ms.date: 03/22/2018
+ms.date: 07/30/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-app
 ms.topic: conceptual
@@ -10,491 +10,670 @@ ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c9b90dfcc0916f62905af777e45222ceebf8300f
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 848b81ee9e1d6d9ebc189a2d8cb0126648f91be0
+ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32341884"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39385189"
 ---
-# <a name="create-applications-with-system-center-configuration-manager"></a>Criar aplicações com o System Center Configuration Manager
+# <a name="create-applications-in-configuration-manager"></a>Criar aplicações no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Uma aplicação do Configuration Manager tem um ou mais tipos de implementação. Estes tipos de implementação incluem os ficheiros de instalação e informações necessários para instalar software nos dispositivos. Um tipo de implementação também tem regras, como os métodos de deteção e requisitos, o que especificar quando e como o cliente instala o software.  
+Uma aplicação do Configuration Manager define os metadados sobre a aplicação. Um aplicativo tem um ou mais tipos de implementação. Estes tipos de implementação incluem os ficheiros de instalação e informações que são necessárias para instalar software nos dispositivos. Um tipo de implementação também possui regras, como os requisitos e métodos de deteção. Estas regras especificam quando e como o cliente instala o software.  
 
- Crie aplicações utilizando os seguintes métodos:  
+Crie aplicações com os seguintes métodos:  
 
--   Crie automaticamente os tipos de aplicação e implementação ao ler os ficheiros de instalação da aplicação.  
+-   Crie automaticamente uma tipos de aplicação e implementação lendo os ficheiros de instalação do aplicativo:  
+    - [Criar um aplicativo](#bkmk_create) e [detetar automaticamente](#bkmk_auto-app) informações sobre a aplicação
+    - [Criar um tipo de implementação](#bkmk_create-dt) e [identificar automaticamente](#bkmk_auto-dt) informações de tipo de implementação
 
--   Criar manualmente a aplicação e adicionar posteriormente os tipos de implementação.  
+-   Criar manualmente uma aplicação e, em seguida, adicionar tipos de implementação mais tarde:  
+    - [Criar um aplicativo](#bkmk_create) e [especificar manualmente](#bkmk_manual-app) informações sobre a aplicação
+    - [Criar um tipo de implementação](#bkmk_create-dt) e [especificar manualmente](#bkmk_manual-dt) informações de tipo de implementação
 
--   Importe uma aplicação de um ficheiro.  
+-   [Importar uma aplicação](#bkmk_import) de um ficheiro  
 
-> [!NOTE]  
->  Para obter informações detalhadas sobre como criar aplicações Android, iOS e Windows Phone, consulte [criar aplicações para dispositivos móveis](../../mdm/deploy-use/create-applications.md).  
-
-
-
-## <a name="start-the-create-application-wizard"></a>Iniciar o Assistente para criar aplicação  
-
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
-
-3.  No **home page** separador o **criar** grupo, escolha **Criar aplicação**.  
-
+Este artigo também inclui as seguintes informações para configurar um tipo de implementação:  
+- [Conteúdo](#bkmk_dt-content)
+- [Método de deteção](#bkmk_dt-detect)
+- [Experiência de utilizador](#bkmk_dt-ux)
+- [Requisitos](#bkmk_dt-require)
+- [Códigos de retorno](#bkmk_dt-return)
+- [Dependências](#bkmk_dt-depend)
 
 
-## <a name="specify-whether-you-want-to-automatically-detect-application-information-or-manually-define-the-information"></a>Especifique se pretende detetar automaticamente informações sobre a aplicação ou definir manualmente as informações  
 
--   Deteta automaticamente informações sobre a aplicação para criar uma aplicação básica com um tipo de implementação única. Por exemplo, um ficheiro do Windows Installer que sem dependências ou requisitos. Depois de criar uma aplicação utilizando este procedimento, pode editá-la conforme necessário para adicionar ou alterar tipos de implementação e adicionar métodos de deteção, dependências ou requisitos.  
+## <a name="bkmk_create"></a> Criar uma aplicação  
 
--   Especificar manualmente informações sobre a aplicação para criar aplicações mais complexas que possuem vários tipos de implementação, dependências, métodos de deteção ou requisitos.  
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e selecione o **aplicativos** nó.  
 
-### <a name="automatically-detect-application-information"></a>Detetar automaticamente informações sobre a aplicação  
+2.  Sobre o **home page** separador do Friso, no **criar** , clique em **Criar aplicação**.  
 
-1.  No **geral** página do Assistente Criar aplicação, selecione **detetar automaticamente informação sobre esta aplicação nos ficheiros de instalação**.  
+Em seguida, detetar automaticamente ou especificar manualmente informações sobre a aplicação:  
 
-2.  No **tipo** na lista pendente, selecione a instalação da aplicação tipo de ficheiro que pretende utilizar para detetar informações sobre a aplicação. Para obter informações sobre os tipos de instalação disponíveis, veja [Tipos de implementação suportados pelo Configuration Manager](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) neste tópico.  
+-   [Detetar automaticamente](#bkmk_auto-app) informações sobre a aplicação para criar uma aplicação básica com um tipo de implementação única. Por exemplo, um Windows Installer ficheiro que não existem dependências ou requisitos. Depois de criar uma aplicação ao utilizar este procedimento, editá-la conforme necessário. Pode adicionar ou alterar os tipos de implementação e adicionar métodos de deteção, dependências ou requisitos.  
 
-3.  No **localização** caixa, especifique o caminho UNC (no formato *\\\\servidor\\partilhar\\\filename*) ou a hiperligação do arquivo para o ficheiro de instalação da aplicação que pretende utilizar para detetar informações sobre a aplicação. Em alternativa, clique em **Procurar** para procurar o ficheiro de instalação.  
+-   [Especificar manualmente](#bkmk_manual-app) informações sobre a aplicação para criar aplicações mais complexas. Defina mais do que um tipo de implementação, dependências, métodos de deteção ou requisitos.  
+
+
+### <a name="bkmk_auto-app"></a> Detetar automaticamente informações sobre a aplicação  
+
+1.  Sobre o **gerais** página do Assistente para criar aplicação, selecione **detetar automaticamente informação sobre esta aplicação nos ficheiros de instalação**.  
+
+2.  Na **tipo** na lista pendente, selecione tipo que pretende utilizar para detetar informações sobre a aplicação de ficheiro de instalação do aplicativo. Para obter mais informações sobre os tipos de instalação disponíveis, consulte [tipos de implementação suportados pelo Configuration Manager](/sccm/apps/deploy-use/create-applications#bkmk_deploy-types).  
+
+3.  Na **localização** caixa, especifique o ficheiro de instalação de aplicação que pretende utilizar para detetar informações sobre a aplicação. Esta localização é um caminho de rede (`\\server\share\filename`) ou uma hiperligação do arquivo. Tem de ter acesso ao caminho de rede e eventuais subpastas que incluem o conteúdo da aplicação.  
 
     > [!IMPORTANT]  
-    >  Quando seleciona **do Windows Installer (\*ficheiro. msi)** como um tipo de aplicação, todos os ficheiros na pasta especificada são importados e forem enviados aos pontos de distribuição. Certifique-se de que a pasta que especificou contém apenas os ficheiros que são necessários para instalar a aplicação. O Configuration Manager é testado para suportar até 20.000 ficheiros de aplicação no pacote de aplicação. Se a sua aplicação tiver mais ficheiros, considere criar múltiplas aplicações que têm um número mais pequeno de ficheiros.  
+    >  Quando seleciona **Windows Installer (\*arquivo. msi)** como tipo de aplicação, o site importa todos os ficheiros na pasta especificada. Em seguida, envia estes ficheiros para pontos de distribuição. Certifique-se de que a pasta especificada contém apenas os ficheiros que são necessários para instalar a aplicação. Microsoft testa o Configuration Manager para suportar até 20 000 ficheiros no pacote de aplicação. Se seu aplicativo tiver mais ficheiros, considere criar múltiplas aplicações com menos ficheiros.    
 
-    >  Tem de ter acesso ao caminho UNC que tenha a aplicação e eventuais subpastas que incluem o conteúdo da aplicação.  
+4.  Sobre o **importar informação** página do Assistente para criar aplicação, reveja as informações e clique em **próxima**. Se necessário, clique em **Previous** para voltar atrás e corrigir quaisquer erros.  
 
-4.  No **importar informação** página do Assistente para criar aplicação, reveja as informações que foi importadas e, em seguida, escolha **seguinte**. Se necessário, pode escolher **anterior** para voltar atrás e corrigir os eventuais erros.  
-
-5.  No **informações gerais** página do Assistente para criar aplicação, especifique as seguintes informações:  
+5.  Sobre o **informações gerais** página do Assistente para criar aplicação, especifique as seguintes informações:  
 
     > [!NOTE]  
-    >  Se o Configuration Manager Deteta automaticamente estas informações a partir dos ficheiros de instalação da aplicação, esta já está preenchida aqui. Além disso, as opções apresentadas poderão ser diferentes dependendo do tipo de aplicação que criou.  
+    >  Se o Configuration Manager Deteta automaticamente estas informações dos arquivos de instalação de aplicativo, ele já está preenchido aqui. Além disso, as opções apresentadas poderão ser diferentes dependendo do tipo de aplicação que criou.  
 
-    -   Informações gerais acerca da aplicação, como o nome da aplicação, comentários e versão. Para ajudar a encontrar a aplicação na consola do Configuration Manager, especifique uma referência opcional.  
+    -   Informações gerais sobre a aplicação, como o aplicativo **Name**, **comentários do administrador**, **publicador**, e **deversãodoSoftware**. Para ajudar a encontrar a aplicação na consola do Configuration Manager, especifique um **referência opcionais**, ou selecione **categorias administrativas**.  
 
     -   **Programa de instalação**: Especifique o programa de instalação e eventuais propriedades que são necessários para instalar o tipo de implementação de aplicação.  
 
         > [!TIP]  
         >  Se o programa de instalação não aparecer, escolha **procurar** e navegue até à localização do programa de instalação.  
 
-    -   **Comportamento de instalação**: Especifique se o tipo de implementação de aplicação está instalado para apenas o utilizador com sessão atualmente iniciada ou para todos os utilizadores. Uma terceira opção consiste em instalar para todos os utilizadores se for implementado num dispositivo ou apenas a um utilizador específico se for implementado num utilizador.  
+    -   **Comportamento de instalação**: Selecione uma das três opções para como o Configuration Manager instala este tipo de implementação. Para obter mais informações sobre estas opções, consulte [experiência de utilizador](#bkmk_dt-ux).  
 
-    -   **Utilizar uma ligação VPN automática (se configurada)**: Se um perfil da VPN tiver sido implementado no dispositivo onde a aplicação foi lançada, lance a ligação VPN quando a aplicação for iniciada (Windows 8.1 e Windows Phone 8.1 apenas).  
+    -   **Utilizar uma ligação VPN automática (se configurada)**: Se tiver implementado um perfil VPN para o dispositivo no qual o utilizador inicia a aplicação, ligue-se a VPN quando a aplicação for iniciada. Esta opção é apenas para Windows 8.1 e Windows Phone 8.1. Em dispositivos Windows Phone 8.1, se implementar mais do que um perfil VPN no dispositivo, as ligações VPN automáticas não são suportadas. Para obter mais informações, consulte [perfis VPN](/sccm/protect/deploy-use/vpn-profiles).  
 
-         Em dispositivos Windows Phone 8.1, as ligações VPN automáticas não são suportadas se mais do que um perfil da VPN tiver sido implementado no dispositivo.  
+    - **Aprovisionar esta aplicação para todos os utilizadores do dispositivo**<!--1358310-->: A partir da versão 1806, aprovisionar uma aplicação com um pacote de aplicação do Windows para todos os utilizadores no dispositivo. Para obter mais informações, consulte [aplicativos Windows criar](/sccm/apps/get-started/creating-windows-applications#bkmk_provision).  
 
-         Para obter mais informações, consulte [perfis VPN](../../protect/deploy-use/vpn-profiles.md).  
+       > [!Tip]  
+       > Se estiver a modificar uma aplicação existente, esta definição é sobre o **experiência de utilizador** separador das propriedades de tipo de implementação do pacote de aplicação do Windows.  
 
-6.  Escolha **seguinte**, reveja as informações da aplicação no **resumo** página e, em seguida, conclua o Assistente para criar aplicação.  
+6.  Escolher **próxima**, reveja as informações da aplicação na **resumo** página e, em seguida, concluir o Assistente para criar aplicação.  
 
-A nova aplicação aparece no **aplicações** nós da consola do Configuration Manager e concluir a criação de uma aplicação. Se pretender adicionar mais tipos de implementação à aplicação, veja [Criar tipos de implementação para a aplicação](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) neste tópico.  
+Agora a nova aplicação aparece no **aplicativos** nó da consola do Configuration Manager. Concluir a criação de um aplicativo. 
 
-### <a name="manually-specify-application-information"></a>Especificar manualmente informações sobre a aplicação  
+Para adicionar mais tipos de implementação ou configurar outras definições, consulte [criar tipos de implementação para a aplicação](#bkmk_create-dt).  
 
-1.  No **geral** página do Assistente Criar aplicação, selecione **especificar manualmente as informações da aplicação**e, em seguida, escolha **seguinte**.  
 
-2.  Especificar informações gerais acerca da aplicação, como o nome da aplicação, comentários e versão. Para ajudar a encontrar a aplicação na consola do Configuration Manager, especifique uma referência opcional.  
+### <a name="bkmk_manual-app"></a> Especificar manualmente informações sobre a aplicação  
 
-3.  No **catálogo de aplicações** página do Assistente para criar aplicação, especifique as seguintes informações:  
+1.  Sobre o **gerais** página do Assistente para criar aplicação, selecione **especificar manualmente as informações da aplicação**e, em seguida, escolha **seguinte**.  
 
-    -   **Idioma selecionado**: Na lista pendente, selecione a versão de idioma da aplicação que pretende configurar. Escolha **Adicionar/remover** para configurar mais idiomas para esta aplicação.  
+2.  Especifique **informações gerais** sobre a aplicação:  
 
-    -   **Nome da aplicação localizada**: Especifique o nome da aplicação no idioma que selecionou no **idioma selecionado** na lista pendente.  
+    - O aplicativo **nome** é necessário e tem de ter menos de 256 carateres.  
+
+    - **Comentários do administrador**, **publicador**, e **versão do Software** são metadados adicionais para descrever ainda mais o aplicativo.  
+
+    - Para ajudar a encontrar a aplicação na consola do Configuration Manager, especifique um **referência opcionais**, ou selecione **categorias administrativas**.  
+
+    - **Data de publicação**  
+
+    - Selecionar utilizadores ou grupos que são responsáveis por esta aplicação como **proprietários** e **contactos de suporte**. Por predefinição, estes valores são definidos para o seu nome de utilizador.  
+
+3.  Sobre o **catálogo de aplicações** página do Assistente para criar aplicação, especifique as seguintes informações:  
+
+    -   **Idioma selecionado**: Na lista pendente, selecione a versão de idioma da aplicação que pretende configurar. Escolher **Adicionar/remover** para configurar mais idiomas para esta aplicação.  
+
+    -   **Nome da aplicação localizada**: Especifique o nome da aplicação no idioma selecionado.  
 
         > [!IMPORTANT]  
-        >  Tem de especificar um nome da aplicação localizada para cada versão de idioma que configurou.  
+        > Um nome da aplicação localizada é necessário para cada versão de idioma que configurar.  
 
-    -   **Categorias de utilizador**: Escolha **editar** para especificar categorias de aplicação no idioma que selecionou no **idioma selecionado** na lista pendente. Os utilizadores do Centro de Software podem utilizar estas categorias selecionadas para ajudar a filtrar e ordenar as aplicações disponíveis.  
+    -   **Categorias de utilizador**: Escolher **editar** para especificar categorias de aplicação no idioma selecionado. Os utilizadores do Centro de Software utilizam estas categorias para ajudar a filtrar e ordenar as aplicações disponíveis.  
 
-    -   **Documentação do utilizador**: Escolha **procurar** para especificar a localização de um ficheiro que os utilizadores do Centro de Software podem ler para obter mais informações sobre esta aplicação. Esta localização é um URL ou um nome de ficheiro e caminho de rede.
+    -   **Documentação do utilizador**: Especifique a localização de um ficheiro a partir do qual os utilizadores do Centro de Software podem obter mais informações sobre esta aplicação. Esta localização é um endereço de Web site ou um nome de ficheiro e caminho de rede. Certifique-se de que os utilizadores têm acesso a esta localização.  
 
-    -   **Texto da hiperligação**: Especifique o texto que aparece em vez do URL para a aplicação.  
+    -   **Texto da hiperligação**: Especifique o texto que aparece em vez do URL da aplicação.  
 
-    -   **URL de privacidade da aplicação**: Especifique um URL que liga à declaração de privacidade para a aplicação.  
+    -   **URL de privacidade**: Especifique um endereço de Web site à declaração de privacidade para a aplicação.  
 
-    -   **Descrição localizada**: Introduza uma descrição para esta aplicação no idioma que selecionou no **idioma selecionado** na lista pendente.  
+    -   **Descrição localizada**: Introduza uma descrição para esta aplicação no idioma selecionado.  
 
-    -   **As palavras-chave**: Introduza uma lista de palavras-chave no idioma que selecionou no **idioma selecionado** na lista pendente. Estas palavras-chave ajuda a pesquisa de utilizadores do Centro de Software para a aplicação.  
+    -   **Palavras-chave**: Introduza uma lista de palavras-chave no idioma selecionado. Estas palavras-chave que ajudam a pesquisa de utilizadores do Centro de Software para a aplicação.  
 
-    -   **Ícone**: Escolha **procurar** para selecionar um ícone para esta aplicação a partir dos ícones disponíveis. Se não especificar um ícone, é utilizado um ícone predefinido para esta aplicação. Agora pode definir um ícone com um dimensões de pixel de até 512 x 512.
+    -   **Ícone**: Clique em **procurar** para selecionar um ícone para esta aplicação. Se não especificar um ícone, o Configuration Manager utiliza um ícone predefinido. Ícones podem ter dimensões de pixel de até 512 x 512.  
 
-    -   **Apresentar esta aplicação como uma aplicação em destaque e destacá-la no portal da empresa**: Esta opção de forma destacada apresenta a aplicação no portal da empresa.  
+    -   **Apresentar como aplicação em destaque e destacá-la no portal da empresa**: Esta opção apresenta destaque a aplicação no portal da empresa em dispositivos móveis.  
 
-4.  No **tipos de implementação** página do Assistente para criar aplicação, escolha **adicionar** para criar um novo tipo de implementação.  
+4.  Sobre o **tipos de implementação** página do Assistente para criar aplicação, escolha **Add** para criar um novo tipo de implementação. Para obter mais informações, consulte [criar tipos de implementação para a aplicação](#bkmk_create-dt).  
 
- Para obter mais informações, consulte [criar tipos de implementação para a aplicação](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application).  
+5.  Escolher **próxima**, reveja as informações da aplicação na **resumo** página e, em seguida, concluir o Assistente para criar aplicação.  
 
-5.  Escolha **seguinte**, reveja as informações da aplicação no **resumo** página e, em seguida, conclua o Assistente para criar aplicação.  
-
-A nova aplicação aparece no **aplicações** nós da consola do Configuration Manager.  
+Agora a nova aplicação aparece no **aplicativos** nó da consola do Configuration Manager.  
 
 
 
-##  <a name="create-deployment-types-for-the-application"></a>Criar tipos de implementação para a aplicação  
- Se detetar automaticamente informações sobre a aplicação, não poderá ter de concluir alguns dos passos destes procedimentos.  
+## <a name="bkmk_create-dt"></a> Criar tipos de implementação para a aplicação  
 
-### <a name="start-the-create-deployment-type-wizard"></a>Iniciar o assistente para criar tipo de implementação  
+Se [detetar automaticamente informações sobre a aplicação](#bkmk_auto-app), não poderá ter de concluir alguns dos passos nesta secção.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
+> [!Note]  
+> Ao visualizar as propriedades de um tipo de implementação existente, as secções seguintes correspondem às guias da janela de propriedades do tipo de implementação:  
+> - [Conteúdo](#bkmk_dt-content)
+> - [Método de deteção](#bkmk_dt-detect)
+> - [Experiência de utilizador](#bkmk_dt-ux)
+> - [Requisitos](#bkmk_dt-require)
+> - [Códigos de retorno](#bkmk_dt-return)
+> - [Dependências](#bkmk_dt-depend)
+>  
+> Para obter informações sobre o **comportamento de instalação** separador nas propriedades de um tipo de implementação, consulte [verificar para executar ficheiros executáveis](/sccm/apps/deploy-use/deploy-applications#bkmk_exe-check).  
 
-3.  Selecione uma aplicação e, em seguida, no **home page** separador o **aplicação** grupo, escolha **criar tipo de implementação**.  
 
-> [!TIP]  
->  Também pode iniciar o Assistente para criar tipo de implementação do Assistente para criar aplicação e do **tipos de implementação** separador do *< nome da aplicação\>* **propriedades** caixa de diálogo.  
+### <a name="start-the-create-deployment-type-wizard"></a>Iniciar o Assistente para criar tipo de implementação  
 
-### <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Especifique se pretende detetar automaticamente informações de tipo de implementação ou configurar manualmente as informações  
- Utilize um dos seguintes procedimentos para detetar automaticamente ou definir manualmente informações de tipo de implementação.  
+Existem três formas de iniciar o Assistente para criar tipo de implementação:
 
-#### <a name="automatically-detect-deployment-type-information"></a>Detetar automaticamente informações de tipo de implementação  
+- **No nó Applications**: Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e selecione o **aplicativos** nó. Selecione uma aplicação e, em seguida, clique em **criar tipo de implementação** na faixa de opções.  
 
-1.  No **geral** página do assistente criar tipo de implementação, selecione **identificar automaticamente informações sobre este tipo de implementação nos ficheiros de instalação**.  
+- **Ao criar um aplicativo**: Quando [especificar manualmente informações sobre a aplicação](#bkmk_manual-app) no Assistente para criar aplicação, clique em **Add** na página de tipos de implementação.  
 
-2.  No **tipo** caixa, selecione o tipo de ficheiro de instalação de aplicações que pretende utilizar para detetar as informações de tipo de implementação.  
+- **A partir das propriedades da aplicação**: Selecione uma aplicação existente na **aplicativos** nó e clique em **propriedades**. Mude para o **tipos de implementação** separador e clique em **Add**.
 
-3.  No **localização** caixa, especifique o caminho de rede ou especificar a hiperligação do arquivo para os ficheiros de instalação da aplicação. O Configuration Manager utiliza estes ficheiros para detetar as informações de tipo de implementação. Também pode optar por **procurar** para localizar o ficheiro de instalação.  
+Em seguida, utilize um dos seguintes procedimentos para [identificar automaticamente](#bkmk_auto-dt) ou [especificar manualmente](#bkmk_manual-dt) informações de tipo de implementação.  
+
+
+### <a name="bkmk_auto-dt"></a> Identificar automaticamente informações de tipo de implementação  
+
+1.  Sobre o **gerais** página do Assistente para criar tipo de implementação:  
+
+    1. Selecione o ficheiro de instalação do aplicativo **tipo** para detetar as informações de tipo de implementação.  
+
+    2. Selecione **identificar automaticamente informações sobre este tipo de implementação nos ficheiros de instalação**.  
+
+    3.  Na **localização** caixa, especifique o ficheiro de instalação de aplicação que pretende utilizar para detetar as informações de tipo de implementação. Esta localização é um caminho de rede (`\\server\share\filename`) ou uma hiperligação do arquivo. Tem de ter acesso ao caminho de rede e eventuais subpastas que incluem o conteúdo da aplicação.  
+
+2.  Sobre o **importar informação** página do Assistente para criar tipo de implementação, reveja as informações e clique em **próxima**. Se necessário, clique em **Previous** para voltar atrás e corrigir quaisquer erros.  
+
+3.  Sobre o **informações gerais** página do Assistente para criar tipo de implementação, especifique as seguintes informações:  
 
     > [!NOTE]  
-    >  Tem de ter acesso ao caminho de rede que tenha a aplicação e eventuais subpastas que incluem o conteúdo da aplicação.  
+    >  Algumas das informações sobre o tipo de implementação podem já estar presentes se já foram lidas nos ficheiros de instalação da aplicação. Além disso, as opções apresentadas poderão diferir, dependendo do tipo de implementação que está a criar.  
 
-4.  No **importar informação** página do Assistente para criar tipo de implementação, reveja as informações que foi importadas e, em seguida, escolha **seguinte**. Também pode optar por **anterior** para voltar atrás e corrigir os eventuais erros.  
+    -   **Informações gerais** sobre o tipo de implementação:      
+        - O **nome** é necessário  
 
-5.  No **informações gerais** página do Assistente para criar tipo de implementação, especifique as seguintes informações:  
+        - **Comentários do administrador** para descrevem melhor  
 
-    > [!NOTE]  
-    >  Algumas das informações sobre o tipo de implementação podem já estar presentes se já foram lidas nos ficheiros de instalação da aplicação. Além disso, as opções apresentadas podem divergir, consoante o tipo de implementação que estiver a criar.  
-
-    -   Informações gerais sobre o tipo de implementação, como o nome, comentários de administrador e idiomas disponíveis.  
+        - **Idiomas** que estão disponíveis para o mesmo   
 
     -   **Programa de instalação**: Especifique o programa de instalação e eventuais propriedades de que necessita para instalar o tipo de implementação.  
 
-    -   **Comportamento de instalação**: Especifique se pretende instalar o tipo de implementação para o utilizador atual, ou para todos os utilizadores. Uma terceira opção consiste em instalar para todos os utilizadores se for implementado num dispositivo ou apenas a um utilizador específico se for implementado num utilizador.  
+    -   **Comportamento de instalação**: Selecione uma das três opções para como o Configuration Manager instala este tipo de implementação. Para obter mais informações sobre estas opções, consulte [experiência de utilizador](#bkmk_dt-ux).  
 
-    -   **Utilizar uma ligação VPN automática (se configurada)**: Se um perfil da VPN tiver sido implementado no dispositivo onde a aplicação foi lançada, lance a ligação VPN quando a aplicação for iniciada (Windows 8.1 e Windows Phone 8.1 apenas). Se múltiplos perfis da VPN tiverem sido implementados num dispositivo Windows 8.1, o primeiro perfil da VPN implementado é utilizado por predefinição.  
+    -   **Utilizar uma ligação VPN automática (se configurada)**: Se tiver implementado um perfil VPN para o dispositivo no qual o utilizador inicia a aplicação, ligue-se a VPN quando a aplicação for iniciada. Esta opção é apenas para Windows 8.1 e Windows Phone 8.1. Em dispositivos Windows Phone 8.1, se implementar mais do que um perfil VPN no dispositivo, as ligações VPN automáticas não são suportadas. Para obter mais informações, consulte [perfis VPN](/sccm/protect/deploy-use/vpn-profiles).  
 
-         Em dispositivos Windows Phone 8.1, as ligações VPN automáticas não são suportadas se mais do que um perfil da VPN tiver sido implementado no dispositivo.  
+4.  Escolher **próxima**e, em seguida, continuar a [opções de conteúdo do tipo de implementação](#bkmk_dt-content).  
 
-         Para obter mais informações, consulte [perfis VPN](../../protect/deploy-use/vpn-profiles.md).  
 
-6.  Escolha **seguinte**e, em seguida, continuar a [especificar opções de conteúdo para o tipo de implementação](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+### <a name="bkmk_manual-dt"></a> Especificar manualmente as informações de tipo de implementação  
 
-#### <a name="manually-set-up-the-deployment-type-information"></a>Configurar manualmente as informações de tipo de implementação  
+1.  Na **gerais** página do tipo de implementação criar assistente, no **tipo** pendente lista, escolha o tipo de ficheiro de instalação de aplicações para este tipo de implementação. 
 
-1.  No **geral** página do tipo de implementação criar assistente, no **tipo** pendente lista, selecione o tipo de ficheiro de instalação de aplicações para este tipo de implementação. 
+2.  Selecione **especificar manualmente as informações de tipo de implementação**e, em seguida, clique em **próxima**.
 
-2.  Selecione **especificar manualmente as informações de tipo de implementação**e, em seguida, clique em **seguinte**.
+3.  Sobre o **informações gerais** página do Assistente para criar tipo de implementação, especifique um **nome** para o tipo de implementação. Opcionalmente, especificar **comentários do administrador**, selecione a **idiomas** para este tipo de implementação e, em seguida, clique **seguinte**.  
 
-3.  No **informações gerais** página do Assistente para criar tipo de implementação, especifique um nome para o tipo de implementação. Opcionalmente, especifique uma descrição e os idiomas para este tipo de implementação e, em seguida, clique em **seguinte**.  
+4.  Continuar a [opções de conteúdo do tipo de implementação](#bkmk_dt-content).  
 
-4.  Continue para [Especificar as opções de conteúdo do tipo de implementação](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+### <a name="bkmk_dt-content"></a> Tipo de implementação **conteúdo** opções  
 
-###  <a name="specify-content-options-for-the-deployment-type"></a>Especificar opções de conteúdo para o tipo de implementação  
+Sobre o **conteúdo** , especifique as seguintes informações:  
 
-1.  No **conteúdo** página do Assistente para criar tipo de implementação, especifique as seguintes informações:  
+> [!Note]  
+> Ao visualizar as propriedades de um tipo de implementação existente, algumas dessas opções aparecem na **conteúdo** separador e outros na **programas** separador.  
 
-    -   **Localização de conteúdo**: Especifique a localização do conteúdo para este tipo de implementação, ou selecione **procurar** para escolher a pasta de conteúdo de tipo de implementação.  
-
-        > [!IMPORTANT]  
-        >  A conta de sistema do computador do servidor do site tem de ter permissões para a localização de conteúdos que especificar.  
-
-    -   **Definições de conteúdo de desinstalação**: Especifique uma das seguintes opções:
-        - **Igual à instalar conteúdo**: Se a instalação e desinstalação do conteúdo são os mesmos, selecione esta opção. Esta é a opção predefinida.
-        - **Não desinstale conteúdo**: Se a aplicação não necessitar de conteúdo para desinstalar, selecione esta opção.
-        - **Diferente do conteúdo de instalação**: Se o conteúdo de desinstalação é diferente do conteúdo de instalação, selecione esta opção. Em seguida, especifique a localização do conteúdo de aplicação que é utilizado para desinstalar a aplicação.
-5. Clique em **OK** para fechar a caixa de diálogo de propriedades de tipo de implementação.
-
-    -   **Manter conteúdo na cache do cliente**: Selecione esta opção para especificar se o cliente indefinidamente mantém o conteúdo na cache. O cliente manterá o conteúdo, mesmo que a aplicação já está instalada. Esta opção é útil em algumas implementações, como software baseado no Windows Installer. Windows Installer necessita de uma cópia local do conteúdo de origem para aplicar atualizações. Embora esta opção de reduzir o espaço disponível na cache. Se selecionar esta opção, pode provocar uma implementação de grande dimensão falhar posteriormente caso a cache não tem espaço livre suficiente.  
-
-    -   **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Para reduzir a carga na rede, selecione esta opção. Os clientes transferem conteúdo a partir de outros clientes na rede que já tenham transferido e colocado o conteúdo na cache locais. Esta opção utiliza a tecnologia BranchCache do Windows.  
-
-    -   **Programa de instalação**: Especifique o nome do programa de instalação e quaisquer parâmetros de instalação necessários ou escolha **procurar** para localizar o ficheiro de instalação.  
-
-    -   **Início da instalação em**: Opcionalmente, especifique a pasta que tenha o programa de instalação para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente ou um caminho para a pasta do ponto de distribuição que tenha os ficheiros de instalação.  
-
-    -   **Desinstalar programa**: Opcionalmente, especifique o nome do programa de desinstalação e quaisquer parâmetros necessários, ou escolha **procurar** a localizá-la.  
-
-    -   **Iniciar desinstalação em**: Opcionalmente, especifique a pasta que tenha o programa de desinstalação para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente. Também pode ser um caminho relativo de um ponto de distribuição da pasta com o pacote.  
-
-    -   **Execute a instalação e desinstalação como um processo de 32 bits em clientes de 64 bits**: Utilize as localizações de ficheiros e registo de 32 bits em computadores baseados em Windows para executar o programa de instalação para o tipo de implementação.  
-
-2.  Escolha **seguinte**.  
-
-### <a name="set-up-detection-methods-to-indicate-the-presence-of-the-deployment-type-windows-pcs-only"></a>Configurar métodos de deteção para indicar a presença do tipo de implementação (apenas PCs Windows)  
- Este procedimento configura um método de deteção que indica se o tipo de implementação já está instalado.  
-
-1.  No **método de deteção** página do assistente criar tipo de implementação, selecione **configurar regras para detetar a presença deste tipo de implementação**e, em seguida, escolha **Adicionar cláusula**.  
-
-    > [!NOTE]  
-    >  Também pode selecionar **Utilizar um script personalizado para detetar a presença deste tipo de implementação**. Para obter mais informações, consulte [utilizar um script personalizado para verificar a presença de um tipo de implementação](/sccm/apps/deploy-use/create-applications#Use-a-custom-script-to-check-for-the-presence-of-a-deployment-type).  
-
-2.  Na caixa de diálogo **Regra de Deteção**, na lista pendente **Tipo de definição**, selecione o método que pretende utilizar para detetar a presença do tipo de implementação. Pode optar por um dos seguintes métodos disponíveis:  
-
-    -   **Sistema de ficheiros**: Deteta se uma pasta ou ficheiro especificado existe num dispositivo cliente. Esta deteção indica que a aplicação está instalada.  
-
-        > [!NOTE]  
-        >  O **sistema de ficheiros** tipo de definição não suporta a especificação de um caminho UNC para uma partilha de rede no campo do caminho. Apenas pode especificar um caminho local no dispositivo cliente.  
-        >   
-        >  Para verificar as localizações de ficheiros de 32 bits para a pasta ou ficheiro especificados, comece por selecionar **este ficheiro ou pasta está associada a uma aplicação de 32 bits em sistemas de 64 bits**. Se o ficheiro ou pasta não for encontrada, serão pesquisadas localizações de 64 bits.  
-
-    -   **Registo**: Deteta se uma chave de registo ou valor de registo existe num dispositivo cliente. Esta deteção indica que a aplicação está instalada.  
-
-        > [!NOTE]  
-        >  Para verificar as localizações de registo de 32 bits para a chave de registo especificada, comece por selecionar **esta chave de registo está associada uma aplicação de 32 bits em sistemas de 64 bits**. Se a chave de registo não for encontrada, serão pesquisadas localizações de 64 bits.  
-
-    -   **Windows Installer**: Deteta a existência de um ficheiro do Windows Installer especificado num dispositivo cliente. Esta deteção indica que a aplicação está instalada.  
-
-3.  Especifique os detalhes sobre o item para detetar se este tipo de implementação está instalado. Por exemplo, pode utilizar um ficheiro, pasta, chave do registo, valor do registo ou um código de produto do Windows Installer.  
-
-4.  Especifica se o item tem de existir ou satisfazer uma regra. Por exemplo, se detetar com um ficheiro, selecione **a definição de sistema de ficheiros deve existir no sistema de destino para indicar a presença desta aplicação**.  
-
-5.  Escolha **seguinte** para fechar o **regra de deteção** caixa de diálogo.  
-
-####  <a name="use-a-custom-script-to-check-for-the-presence-of-a-deployment-type"></a>Utilizar um script personalizado para verificar a presença de um tipo de implementação  
-
-1.  No **método de deteção** página do assistente criar tipo de implementação, selecione o **utilizar um script personalizado para detetar a presença deste tipo de implementação** caixa e, em seguida, escolha **editar**.  
-
-2.  Na caixa de diálogo **Editor de Scripts**, na lista pendente **Tipo de Script**, selecione o idioma de script que pretende utilizar para detetar o tipo de implementação.  
-
-3.  No **conteúdo do Script** box, introduza o script que pretende utilizar. Também pode colar o conteúdo de um script existente neste campo, ou escolha **abra** para procurar um script existente já guardado. O Configuration Manager verifica os resultados do script. Também lê os valores escritos pelo script de fluxo de saída standard (STDOUT), a sequência de erro padrão (STDERR) e o código de saída. Se o script sair com um valor diferente de zero, o script falha e o estado de deteção de aplicação é desconhecido. Se o código de saída for zero e STDOUT tem dados, o estado de deteção de aplicação é instalado.  
-
- Utilize a tabela seguinte para verificar se uma aplicação é instalada a partir da saída de um script:  
-
-|Código de saída do script|Detalhes|
-|--------------------------------|-----------------|
-|0|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: Não instalado|  
-|0|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
-|0|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: instalado|  
-|0|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Êxito<br /><br /> **Estado de deteção de aplicação**: instalado|  
-|Valor diferente de zero|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
-|Valor diferente de zero|**Dados lidos em STDOUT**: vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
-|Valor diferente de zero|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
-|Valor diferente de zero|**Dados lidos em STDOUT**: Não vazio<br /><br /> **Dados lidos em STDERR**: Não vazio<br /><br /> **Resultado do script**: Falha<br /><br /> **Estado de deteção de aplicação**: Desconhecido|  
-
-A tabela seguinte tem scripts de exemplo do Microsoft Visual Basic (VB) que pode utilizar para escrever os seus próprios scripts de deteção de aplicação.  
-
-|Script de exemplo do Visual Basic|Descrição|  
-|--------------------------------|-----------------|  
-|**WScript.Quit(1)**|O script devolve um código de saída diferente de zero, o que significa que não foi executado com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.|  
-|**WScript.StdErr.Write "O Script falhou"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, mas o valor de STDERR não está vazio. Este resultado indica que o script não foi executada com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.|  
-|**WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. No entanto, o valor de STDOUT está vazio, o que significa que a aplicação não está instalada.|  
-|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. O valor de STDOUT não está vazio, o que significa que a aplicação está instalada.|  
-|**WScript.StdOut.Write "a aplicação está instalada"**<br /><br /> **WScript.StdErr.Write "Concluída"**<br /><br /> **WScript.Quit(0)**|O script devolve um código de saída de zero, o que indica que foi executado com êxito. Os valores de STDOUT e STDERR não estão vazios, o que significa que a aplicação está instalada.|  
-
- > [!NOTE]  
- >  O tamanho máximo que pode utilizar para um script é 32 kilobytes (KB).  
-
-4.  Escolha **OK** para fechar o **Editor de scripts** caixa de diálogo.  
-
-### <a name="specify-user-experience-options-for-the-deployment-type"></a>Especificar opções de experiência de utilizador para o tipo de implementação  
- Estas definições especificam a forma como o cliente instala a aplicação em dispositivos e o utilizador verá.  
-
-1.  No **experiência de utilizador** página do Assistente para criar tipo de implementação, especifique as seguintes informações:  
-
-    -   **Comportamento de instalação**: Na lista pendente, selecione uma das seguintes opções:  
-
-        -   **Instalar para utilizador**: A aplicação é instalada apenas para o utilizador a quem a aplicação é implementada.  
-
-        -   **Instalar para o sistema**: A aplicação é instalada apenas uma vez e fica disponível para todos os utilizadores.  
-
-        -   **Instalar para o sistema se o recurso for o dispositivo; caso contrário instalar como utilizador**: Se a aplicação é implementada num dispositivo, o cliente instala-o para todos os utilizadores. Se a aplicação for implementada para um utilizador, o cliente instala-apenas para esse utilizador.  
-
-    -   **Requisito de início de sessão**: Especifique os requisitos de início de sessão para este tipo de implementação das seguintes opções:  
-
-        -   **Apenas quando um utilizador com sessão iniciada**  
-
-        -   **Se pretende ou não um utilizador tenha iniciado sessão**  
-
-        -   **Só quando nenhum utilizador com sessão iniciada**  
-
-        > [!NOTE]  
-        >  Esta opção, será assumida a **apenas quando um utilizador é iniciado**. Se selecionar **instalar para utilizador** no **comportamento de instalação** na lista pendente, não é possível alterar esta opção.  
-
-    -   **Visibilidade do programa de instalação**: Especifique o modo no qual o tipo de implementação é executado nos dispositivos cliente. Estão disponíveis as seguintes opções:  
-
-        -   **Maximizado**: O tipo de implementação é executado maximizado nos dispositivos cliente. Os utilizadores veem todas as atividades de instalação.  
-
-        -   **Normal**: O tipo de implementação é executado no modo normal, com base nas predefinições do sistema e do programa. Este modo é a predefinição.  
-
-        -   **Minimizado**: O tipo de implementação é executado minimizado nos dispositivos cliente. Os utilizadores poderão ver a atividade de instalação na área de notificação ou na barra de tarefas.  
-
-        -   **Oculto**: O tipo de implementação é executado ocultado nos dispositivos cliente. Os utilizadores não veem nenhuma atividade de instalação.  
-
-    -   **Permitir que os utilizadores visualizem e interajam com a instalação do programa**: Especifique se um utilizador pode interagir com a instalação do tipo de implementação para configurar as opções de instalação.  
-
-        > [!NOTE]  
-        >  Se selecionar a **instalar para utilizador** opção o **comportamento de instalação** na lista pendente, esta opção está ativada por predefinição.  
-
-        > [!IMPORTANT]
-        > A partir de versão 1802, esta definição é opcional quando seleciona o **instalar para o sistema** comportamento. Esta alteração é principalmente permitir que um utilizador final interagir com a instalação durante uma sequência de tarefas. Por exemplo, para executar um processo de configuração que pede ao utilizador final para várias opções. Alguns programas de instalação da aplicação não podem ter silenciados avisos do utilizador ou o processo de instalação pode necessitar de valores de configuração específicas conhecidos apenas ao utilizador. <!--1356976-->
-        > 
-        > Instalar no contexto do sistema e permitir que os utilizadores interajam com a instalação não são uma configuração segura. Para obter mais informações, consulte [segurança e privacidade para gestão de aplicações](/sccm/apps/plan-design/security-and-privacy-for-application-management#bkmk_interact).
-
-    -   **Máximo tempo de execução permitido (minutos)**: Especifique o tempo máximo que o programa poderá demorar a ser executado no computador cliente. Pode especificar esta definição no formato de número inteiro maior que zero. A predefinição é 120 minutos.  
-
-         Este valor é utilizado para:  
-
-        -   Monitorize os resultados do tipo de implementação.  
-
-        -   Verificar se um tipo de implementação é instalado quando janelas de manutenção são definidas nos dispositivos cliente. Quando uma janela de manutenção no local, um programa apenas inicia esteja tempo suficiente disponível no período de manutenção para contemplar a **máximo tempo de execução permitido** definição.  
-
-        > [!IMPORTANT]  
-        >  Poderá ocorrer um conflito se o **máximo tempo de execução permitido** é superior à janela de manutenção agendada. Se o utilizador definir o tempo de execução máximo para um período superior ao comprimento de qualquer janela de manutenção disponível, esse tipo de implementação não é executado.  
-
-    -   **Instalação tempo estimado (minutos)**: Especifique o tempo de instalação estimado do tipo de implementação. Os utilizadores veem este período de tempo no Centro de Software.  
-
-    -   **Especificar o comportamento de reinício específico**: Especifique a ação de pós-instalação. Estão disponíveis as seguintes opções:  
-
-        -   **Determinar comportamento baseado em códigos de retorno**: Processe reinícios baseados em códigos configurados no separador de códigos de retorno. Apresenta o Centro de software **pode exigir um reinício**. Se um utilizador inicia sessão durante a instalação, se lhe for pedidos consoante a configuração de experiência de utilizador a implementação.  
-
-        -   **Nenhuma ação específica**: Sem reinício necessário após a instalação. Centro de software reportou que nenhum reinício é necessário.  
-        -   **O programa de instalação de software poderá forçar um reinício de dispositivo**: O Configuration Manager não controla nem iniciar um reinício, mas a instalação real poderá fazê-lo sem aviso. Utilize esta definição para impedir que o Configuration Manager reporting falha de instalação quando o instalador inicia um reinício. Apresenta o Centro de software **pode exigir um reinício**.  
-
-        -   **Cliente do Configuration Manager irá forçar um reinício de dispositivo obrigatório**: O Configuration Manager força um reinício do dispositivo após a instalação com êxito. Centro de software reportou que é necessário um reinício. Se um utilizador inicia sessão durante a instalação, se lhe for pedidos consoante a configuração de experiência de utilizador a implementação.
-
-### <a name="specify-requirements-for-the-deployment-type"></a>Especificar requisitos para o tipo de implementação  
-
-1.  No **requisitos** página do Assistente para criar tipo de implementação, escolha **adicionar** para abrir o **criar requisito** diálogo caixa e adicionar um novo requisito.  
-
-    > [!NOTE]  
-    >  Também pode adicionar novos requisitos no **requisitos** separador do *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
-
-2.  No **categoria** na lista pendente, selecione se este requisito é um dispositivo ou utilizador. Selecione **personalizada** para utilizar uma condição global criada anteriormente. Quando seleciona **personalizada**, também pode optar por **criar** para criar uma nova condição global. Para obter mais informações sobre as condições globais, consulte [como criar condições globais](../../apps/deploy-use/create-global-conditions.md).  
+- **Localização do conteúdo**: Especifique a localização do conteúdo para este tipo de implementação, ou selecione **procurar** para escolher a pasta de conteúdo de tipo de implementação.  
 
     > [!IMPORTANT]  
-    >  Se implementar a aplicação a uma coleção de dispositivos, o cliente ignora qualquer requisito da categoria **utilizador** e a condição **dispositivo primário**.  
-    >   
-    >  Se utilizou o System Center 2012 R2 Configuration Manager SP1 para criar uma sequência de pacote e programa ou tarefa de Windows que tenha o Windows 10 como um requisito e, em seguida, atualize para o System Center Configuration Manager, os requisitos para o Windows 10 podem ser removidos. Para corrigir este problema, especifique os requisitos novamente. Embora o requisito de foi removido a apresentação de requisitos, que foi ainda processado corretamente nos dispositivos.  
+    >  A conta de sistema do computador do servidor do site tem de ter permissões para a localização de conteúdo especificada.  
 
-3.  No **condição** pendente lista, selecione a condição que pretende utilizar para avaliar se o utilizador ou dispositivo satisfaz os requisitos de instalação. O conteúdo desta lista variam consoante a categoria selecionada.  
+    - **Manter conteúdo na cache do cliente**: O cliente do Configuration Manager mantém indefinidamente em seu cache o conteúdo do tipo de implementação. O cliente mantém o conteúdo, mesmo que a aplicação já está instalada. Esta opção é útil em algumas implementações, como software baseados no Windows Installer. Instalador do Windows precisa de uma cópia local do conteúdo de origem para aplicar atualizações. Esta opção reduz o espaço disponível na cache. Se selecionar esta opção, pode fazer com que uma implementação de grande dimensão falhar posteriormente caso a cache não tem espaço suficiente disponível.  
 
-4.  No **operador** pendente lista, selecione o operador a utilizar. Este operador compara a condição selecionada com o valor especificado. -Avalia se o utilizador ou dispositivo satisfaz os requisitos de instalação. Os operadores disponíveis variam consoante a condição selecionada.  
+- **Programa de instalação**: Especifique o nome do programa de instalação e quaisquer parâmetros de instalação necessários.  
+
+    - **Início da instalação em**: Opcionalmente, especifique a pasta que contém o programa de instalação para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente ou um caminho para a pasta de ponto de distribuição que tenha os ficheiros de instalação.  
+
+- **Desinstalar programa**: Opcionalmente, especifique o nome do programa de desinstalação e quaisquer parâmetros necessários.  
+
+    - **Iniciar desinstalação em**: Opcionalmente, especifique a pasta que contém o programa de desinstalação para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente. Também pode ser um caminho relativo de um ponto de distribuição da pasta com o pacote.  
+
+- **Executar a instalação e desinstalação programa como um processo de 32 bits em clientes de 64 bits**: Utilize as localizações de ficheiros e registo de 32 bits em computadores baseados em Windows para executar o programa de instalação para o tipo de implementação.  
+
+
+#### <a name="deployment-type-properties-content-options"></a>Propriedades do tipo de implementação **conteúdo** opções
+Ao visualizar as propriedades de um tipo de implementação, as opções seguintes são apresentadas apenas nos **conteúdo** separador:
+
+- **Definições de conteúdo de desinstalação**:  
+
+    - **Mesmo como instalar o conteúdo**: Se a instalação e conteúdo de desinstalação são os mesmos, selecione esta opção. Esta opção é a predefinição.  
+
+    - **Não conteúdo de desinstalação**: Se seu aplicativo não precisa de conteúdo para a desinstalação, selecione esta opção.  
+
+    - **Diferente do conteúdo de instalação**: Se o conteúdo de desinstalação é diferente do conteúdo de instalação, selecione esta opção.  
+
+        - **Localização de conteúdo de desinstalação**: Especifique o caminho de rede para o conteúdo que é utilizado para desinstalar a aplicação.  
+
+- **Permitir aos clientes utilizar pontos de distribuição do grupo de limite de site predefinido**: Especifique se os clientes devem transferir e instalar o software a partir de um ponto de distribuição no grupo de limite predefinido de site, quando o conteúdo não está disponível a partir de um ponto de distribuição no atual ou os grupos de limites de vizinho.  
+
+- **Opções de implementação**: Especifique se os clientes devem transferir a aplicação quando estiverem a utilizar um ponto de distribuição de um vizinho ou os grupos de limites de site padrão.  
+
+- **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Especifique se pretende ativar a utilização do BranchCache para transferências de conteúdos. Para obter mais informações, consulte [BranchCache](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#branchcache). A partir da versão 1802, BranchCache está sempre ativada nos clientes. Esta definição for removida, como os clientes utilizam o BranchCache, se o ponto de distribuição suportar.  
+
+
+### <a name="bkmk_dt-detect"></a> Tipo de implementação **método de deteção** opções   
+
+Este procedimento configura um método de deteção que indica a presença do tipo de implementação. Em outras palavras, se o dispositivo de Windows já tem a aplicação foi instalada. Utilize um dos dois métodos seguintes para criar um método de Deteção:  
+- [Configurar regras para detetar a presença deste tipo de implementação](#bkmk_detect-rule)
+- [Utilizar um script personalizado para detetar a presença deste tipo de implementação](#bkmk_detect-script)
+
+
+#### <a name="bkmk_detect-rule"></a> Configurar regras para detetar a presença deste tipo de implementação
+
+1.  Sobre o **método de deteção** página, a opção de **configurar regras para detetar a presença deste tipo de implementação** está selecionada por predefinição. Clique em **Adicionar cláusula**.  
+
+2.  Na **regra de deteção** caixa de diálogo, clique nas **tipo de definição** na lista pendente. Selecione um dos seguintes métodos para detetar a presença do tipo de implementação:  
+
+    - **Sistema de ficheiros**: Detete se uma pasta ou ficheiro específicos existe num dispositivo. Esta deteção indica que a aplicação é instalada. Especifique os seguintes detalhes adicionais:  
+
+        - **Tipo de**: Selecione se é um ficheiro ou pasta.  
+
+        - **Caminho** (obrigatório): Introduzir ou navegue para o caminho local no dispositivo que inclui o ficheiro ou pasta. Por exemplo, `C:\Program Files`. Não é possível especificar um caminho de rede partilhada. Se clicar **procurar**, procurar o sistema de arquivos local ou ligar a um cliente representativo para procurar.  
+
+        - **Nome de ficheiro ou pasta** (obrigatório): Especifique o nome de ficheiro ou pasta específico para detetar no caminho acima. Se o cliente Deteta este ficheiro ou pasta no dispositivo, considera o aplicativo como instalada no dispositivo.  
+
+        - **Este ficheiro ou pasta está associada a uma aplicação de 32 bits em sistemas de 64 bits**: Esta opção está selecionada por predefinição. O cliente verifica primeiro as localizações de ficheiros de 32 bits para a pasta ou ficheiro especificados. Se o ficheiro ou pasta não for encontrada, o cliente procura, em seguida, localizações de 64 bits.  
+
+    - **Registo**: Detete se uma chave de registo especificada ou o valor de registo existe num dispositivo cliente. Esta deteção indica que a aplicação é instalada. Especifique os seguintes detalhes adicionais:  
+
+        - **Hive** (obrigatório): Escolha um ramo de registo na lista pendente. Por exemplo, `HKEY_LOCAL_MACHINE`.  
+
+        - **Chave** (obrigatório): Especifique a chave de registo para pesquisar na colmeia acima. Por exemplo, `SOFTWARE\Microsoft\Office`.  
+
+        - **Valor** (opcional): Introduza um valor específico para detetar na chave acima. Se pretender que o cliente para detetar o valor (padrão), ative a opção para **valor de chave de registo de utilização (predefinição) para a deteção de**. Ao introduzir um valor ou ative esta opção, tem de selecionar uma **tipo de dados**.  
+
+        - **Esta chave de registo está associada uma aplicação de 32 bits em sistemas de 64 bits**: Selecione esta opção para primeiro localizações de registo de 32 bits de verificação para a chave de registo especificada. Se a chave de registo não for encontrada, o cliente procura as localizações de 64 bits.  
+
+    - **Windows Installer**: Detete a existência de um ficheiro do Windows Installer especificado num dispositivo cliente. Esta deteção indica que a aplicação é instalada. Especifique o MSI **código de produto** para detetar no cliente. Se clicar **procurar**, selecione o ficheiro MSI do qual é possível ler o código de produto. 
+
+3.  Na parte inferior da janela de regra de deteção, especifique se o item tem de existir ou cumprir uma regra. Por exemplo, se detectar com um ficheiro, a seguinte opção está selecionada por predefinição: **A definição de sistema de ficheiros deve existir no sistema de destino para indicar a presença desta aplicação**. Selecione a outra opção para criar uma regra de deteção com base nas propriedades de ficheiro ou pasta. Essas propriedades incluem a data de modificação, data de criação, versão ou tamanho. Estes critérios de regra são diferentes para cada tipo de definição.  
+
+4.  Clique em **OK** para fechar a **regra de deteção** caixa de diálogo.  
+
+Ao criar mais do que um método de deteção para um tipo de implementação, crie uma lógica mais complexa através do agrupamento de cláusulas em conjunto. 
+
+Continue para a próxima seção sobre como utilizar um script personalizado como um método de deteção. Ou avançar para o [experiência de utilizador](#bkmk_dt-ux) opções para o tipo de implementação.
+
+
+#### <a name="bkmk_detect-script"></a> Utilize um script personalizado para verificar a presença de um tipo de implementação  
+
+1.  Sobre o **método de deteção** página, selecione a **utilizar um script personalizado para detetar a presença deste tipo de implementação** caixa. Em seguida, clique em **editar**.  
+
+2.  Na **Editor de scripts** caixa de diálogo, clique nas **tipo de Script** na lista pendente. Selecione uma das seguintes linguagens de script para detetar o tipo de implementação: PowerShell, VBScript ou JScript.  
+
+3.  Na **conteúdo do Script** , introduza o script que pretende utilizar ou cole o conteúdo de um script existente. Escolher **aberto** para navegar para um script existente já guardado. Clique em **clara** para remover o texto no campo de conteúdo de Script. Se necessário, ative a opção para **executar o script como um processo de 32 bits em clientes de 64 bits**.  
+
+    > [!NOTE]  
+    >  O tamanho máximo para um script é 32 KB.  
+
+4.  Clique em **OK** para guardar o script e fechar o **Editor de scripts** caixa de diálogo. Novamente no Assistente para criar tipo de implementação, o **tipo de Script** e **Script comprimento** campos atualizar com detalhes sobre o seu script.   
+
+
+#### <a name="about-custom-script-detection-methods"></a>Sobre métodos de deteção de script personalizado  
+
+O Configuration Manager verifica os resultados do script. Ele lê os valores escritos pelo script para o fluxo de saída padrão (STDOUT), o erro padrão (STDERR) e o código de saída. Se o script é encerrado com um valor diferente de zero, o script falha, e o estado de deteção de aplicação *desconhecido*. Se o código de saída for igual a zero e STDOUT tem dados, o estado de deteção de aplicação é *instalada*.
+
+Utilize as tabelas seguintes para verificar se uma aplicação é instalada a partir da saída de um script:  
+
+**Sem código de saída:**  
+|STDOUT|STDERR|Resultado do script|Estado de deteção de aplicação|
+|---------|---------|---------|---------|
+|vazio|vazio|Êxito|Não instalado|
+|vazio|Não pode estar vazio|Falha|Desconhecido|
+|Não pode estar vazio|vazio|Êxito|Instalado|
+|Não pode estar vazio|Não pode estar vazio|Êxito|Instalado|
+
+
+**Código de saída de diferentes de zero:**  
+|STDOUT|STDERR|Resultado do script|Estado de deteção de aplicação|
+|---------|---------|---------|---------|
+|vazio|vazio|Falha|Desconhecido|
+|vazio|Não pode estar vazio|Falha|Desconhecido|
+|Não pode estar vazio|vazio|Falha|Desconhecido|
+|Não pode estar vazio|Não pode estar vazio|Falha|Desconhecido|
+
+
+**Exemplos de VBScript**
+
+Utilize os seguintes exemplos de VBScript para escrever seus próprios scripts de deteção de aplicação:  
+
+Exemplo 1: O script devolve um código de saída diferente de zero. Este código indica que o script não foi executada com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.  
+``` VBScript
+WScript.Quit(1)
+```
+
+Exemplo 2: O script devolve um código de saída igual a zero, mas o valor de STDERR não está vazio. Este resultado indica que o script não foi executada com êxito. Neste caso, o estado de deteção de aplicação é desconhecido.  
+``` VBScript
+WScript.StdErr.Write "Script failed"
+WScript.Quit(0)
+```
+
+Exemplo 3: O script devolve um código de saída igual a zero, que indica que foi executada com êxito. No entanto, o valor de STDOUT está vazio, que indica que a aplicação não está instalada.  
+``` VBScript
+WScript.Quit(0)
+```
+
+Exemplo 4: O script devolve um código de saída igual a zero, que indica que foi executada com êxito. O valor de STDOUT não está vazio, que indica que a aplicação está instalada.  
+``` VBScript
+WScript.StdOut.Write "The application is installed"
+WScript.Quit(0)
+```
+
+Exemplo 5: O script devolve um código de saída igual a zero, que indica que foi executada com êxito. Os valores de STDOUT e STDERR não estão vazios, que indica que a aplicação está instalada.  
+``` VBScript
+WScript.StdOut.Write "The application is installed"
+WScript.StdErr.Write "Completed"
+WScript.Quit(0)
+```
+
+
+### <a name="bkmk_dt-ux"></a> Tipo de implementação **experiência de utilizador** opções   
+
+Estas definições especificam como o cliente instala a aplicação em dispositivos e o que o usuário vê.  
+
+Na página **Experiência de Utilizador** , especifique as seguintes informações:  
+
+- **Comportamento de instalação**: Na lista pendente, selecione uma das seguintes opções:  
+
+    - **Instalar para utilizador**: O cliente instala apenas o aplicativo para o utilizador a quem implementou a aplicação.  
+
+    - **Instalar para o sistema**: O cliente instala a aplicação apenas uma vez. Está disponível para todos os utilizadores.  
+
+    - **Instalar para o sistema se o recurso for o dispositivo; caso contrário instalar para utilizador**: Se implementar a aplicação num dispositivo, o cliente instala-o para todos os utilizadores. Se implementar a aplicação a um utilizador, o cliente instala-apenas para esse utilizador.  
+
+- **Requisito de início de sessão**: Selecione uma das seguintes opções:  
+
+    - **Apenas quando um utilizador tem sessão iniciada**  
+
+    - **Se pretende ou não um utilizador tem sessão iniciada**  
+
+    - **Só quando nenhum utilizador tem sessão iniciada**  
+
+    > [!NOTE]  
+    >  Esta opção assume a predefinição **apenas quando um usuário está conectado no**. Se selecionou **instalar para utilizador** no **comportamento de instalação** na lista pendente, não é possível alterar esta opção.  
+
+- **Visibilidade do programa de instalação**: Especifique o modo no qual o tipo de implementação é executado nos dispositivos cliente. Selecione uma das seguintes opções:  
+
+    - **Maximizado**: O tipo de implementação é executado maximizado nos dispositivos cliente. Os utilizadores veem todas as atividades de instalação.  
+
+    - **Normal**: O tipo de implementação é executado no modo normal, com base nas predefinições do sistema e do programa. Esse modo é a predefinição.  
+
+    - **Minimizado**: O tipo de implementação é executado minimizado nos dispositivos cliente. Os utilizadores poderão ver a atividade de instalação na área de notificação ou na barra de tarefas.  
+
+    - **Oculto**: O tipo de implementação é executado ocultado nos dispositivos cliente. Os utilizadores não veem nenhuma atividade de instalação.  
+
+- **Permitir que os utilizadores visualizem e interajam com a instalação do programa**: Especifica se um utilizador pode interagir com a instalação do tipo de implementação para configurar as opções de instalação.  
+
+    > [!NOTE]  
+    >  Se selecionar a **instalar para utilizador** opção a **comportamento de instalação** na lista pendente, esta opção está ativada por predefinição.  
 
     > [!IMPORTANT]  
-    >  Os requisitos disponíveis diferem consoante o tipo de dispositivo que utiliza o tipo de implementação.  
+    > A partir da versão 1802, quando seleciona a **instalar para o sistema** comportamento, esta definição é opcional. Esta alteração é principalmente permitir que um utilizador final interagir com a instalação durante uma sequência de tarefas. Por exemplo, para executar um processo de configuração, que pede ao utilizador final para várias opções. Alguns instaladores de aplicativo não podem ter silenced avisos do utilizador ou o processo de instalação pode exigir valores de configuração específicas apenas conhecidas do usuário. <!--1356976-->  
+    >  
+    > Instalar no contexto do sistema e permitir que os utilizadores interajam com a instalação não é uma configuração segura. Para obter mais informações, consulte [segurança e privacidade para gestão de aplicações](/sccm/apps/plan-design/security-and-privacy-for-application-management#bkmk_interact).  
 
-5.  No **valor** caixa, especifique os valores a utilizar. Estes valores, juntamente com a condição e operador selecionados, avalie se o utilizador ou dispositivo satisfaz os requisitos de instalação. Os valores disponíveis variam consoante a condição selecionada e o operador selecionado.  
+- **Máximo permitido (minutos) de tempo de execução**: Especifique o tempo máximo dentro de minutos que esperava o tipo de implementação para ser executado no computador cliente. Especifique esta definição como um número inteiro maior que zero. O valor predefinido é 120 minutos (duas horas).  
 
-6.  Escolha **OK** para guardar o requisito e fechar o **criar requisito** caixa de diálogo.  
+    Utilize este valor para as seguintes ações:  
 
-### <a name="specify-dependencies-for-the-deployment-type"></a>Especificar dependências para o tipo de implementação  
- As dependências definem um ou mais tipos de implementação a partir de outra aplicação que tem de ser instalada antes de um tipo de implementação ser instalado. Pode configurar os tipos de implementação dependentes para serem automaticamente instalados antes de um tipo de implementação está instalado.  
+    - Para monitorizar os resultados do tipo de implementação.  
+
+    - Para verificar se um tipo de implementação está instalado ao definir janelas de manutenção nos dispositivos cliente. Quando uma janela de manutenção estiver em vigor, um tipo de implementação é iniciada apenas se houver tempo suficiente na janela de manutenção para acomodar os **máximo tempo de execução permitido** definição.  
+
+    > [!IMPORTANT]  
+    >  Pode ocorrer um conflito se o **máximo de tempo de execução permitido** é superior à janela de manutenção agendada. Se o utilizador definir o tempo de execução máximo para um período superior ao comprimento de qualquer janela de manutenção disponível, esse tipo de implementação não é executado.  
+
+- **Tempo de instalação (minutos) estimado**: Especifique a hora de instalação estimado do tipo de implementação. Os utilizadores veem este tempo, no Centro de Software.  
+
+
+#### <a name="deployment-type-properties-user-experience-options"></a>Propriedades do tipo de implementação **experiência de utilizador** opções
+Ao visualizar as propriedades de um tipo de implementação, as opções seguintes são apresentadas apenas nos **experiência de utilizador** separador:
+
+Impor um comportamento específico de pós-instalação. Selecione uma das seguintes opções:  
+
+- **Determinar comportamento baseado em códigos de retorno**: Lidar com reinicializações com base nos códigos configurados no [códigos de retorno](#bkmk_dt-return) separador. O Centro de software apresenta **podem exigir um reinício**. Se um utilizador tem sessão iniciado durante a instalação, for pedidos consoante a *da implementação* configuração de experiência do usuário.  
+
+- **Nenhuma ação específica**: Sem reinício é necessário após a instalação. Relatórios do Centro de software que não o reinício é necessário.  
+
+- **O programa de instalação de software poderá forçar um reinício de dispositivo**: O Configuration Manager não controla nem iniciar um reinício, mas a instalação real pode ser feito sem aviso. Utilize esta definição para impedir que o Configuration Manager comunicar a falha de instalação quando o instalador inicia uma reinicialização. O Centro de software apresenta **podem exigir um reinício**.  
+
+- **Cliente do Configuration Manager irá forçar um reinício de dispositivo obrigatório**: O Configuration Manager força um reinício do dispositivo após a instalação com êxito. Relatórios do Centro de software que é necessário um reinício. Se um utilizador tem sessão iniciado durante a instalação, for pedidos consoante a *da implementação* configuração de experiência do usuário.  
+
+
+### <a name="bkmk_dt-require"></a> Tipo de implementação **requisitos**
+
+Antes de instalar o tipo de implementação, o Gestor de configuração verifica estes requisitos em dispositivos. Utilize os requisitos para refinar e controlar os dispositivos ou utilizadores que recebem esta aplicação. Por exemplo, se implementar a aplicação numa coleção de utilizador, especifica aqui o requisitos de hardware da aplicação. 
+
+1.  Na **requisitos** página, clique em **Add** para abrir o **criar requisito** caixa de diálogo.  
+
+2.  Na **categoria** na lista pendente, selecione se este requisito corresponde a um **dispositivo** ou uma **utilizador**.  
+
+    Selecione **personalizado** para utilizar uma condição global criada anteriormente. Quando seleciona **personalizada**, também é possível **criar** para criar uma nova condição global. Para obter mais informações sobre as condições globais, consulte [como criar condições globais](/sccm/apps/deploy-use/create-global-conditions).  
+
+    > [!IMPORTANT]  
+    >  Se implementar a aplicação para uma coleção de dispositivos, o cliente ignora qualquer requisito da categoria **usuário** e a condição **dispositivo primário**.  
+
+3.  Na **condição** pendente, selecione a condição para avaliar se o utilizador ou dispositivo satisfaz os requisitos de instalação. O conteúdo desta lista variam consoante a categoria selecionada.  
+
+4.  Na **operador** pendente, selecione o operador a utilizar. Este operador compara a condição selecionada com o valor especificado. Ele avalia se o utilizador ou dispositivo satisfaz o requisito de instalação. Os operadores disponíveis variam consoante a condição selecionada.  
+
+    > [!Note]  
+    >  Os requisitos disponíveis variam consoante o tipo de dispositivo que utiliza o tipo de implementação.  
+
+5.  Na **valor** caixa, especifique os valores a utilizar para comparação. Estes valores, juntamente com a condição selecionada e o operador, avaliam se o utilizador ou dispositivo satisfaz os requisitos de instalação. Os valores disponíveis variam consoante a condição selecionada e o operador selecionado.  
+
+6.  Escolher **OK** para guardar o requisito e fechar o **criar requisito** caixa de diálogo.  
+
+
+### <a name="bkmk_dt-depend"></a> Tipo de implementação **dependências**  
+
+As dependências definem um ou mais tipos de implementação de outra aplicação que o cliente tem de instalar antes que ele instala este tipo de implementação.   
 
 > [!IMPORTANT]  
 >  Em alguns casos, um tipo de implementação está dependente de um tipo de implementação que também tenha dependências. O número máximo de dependências suportadas na cadeia é cinco.  
 
-1.  No **dependências** página do Assistente para criar tipo de implementação, escolha **adicionar**.  
+1.  Sobre o **dependências** página, clique em **Add**.  
 
-    > [!IMPORTANT]  
-    >  Também pode adicionar novas dependências no **dependências** separador do *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
+2.  Na janela Adicionar dependência, introduza o **nome do grupo de dependência**. Este nome refere-se a este grupo de dependências de aplicações.  
 
-2.  No **adicionar dependência** diálogo caixa, escolha **adicionar**.  
+3.  Na janela Adicionar dependência, clique em **adicionar**.  
 
-3.  No **especificar aplicação necessária** caixa de diálogo, selecione os tipos de uma aplicação existente e um da implementação da aplicação a utilizar como uma dependência.  
+4.  Na **especificar aplicação necessária** janela, selecione uma aplicação disponível e, pelo menos, uma das sua implantação tipos a utilizar como uma dependência.  
 
     > [!TIP]  
-    >  Pode escolher **vista** para apresentar as propriedades do tipo de aplicação ou implementação selecionado.  
+    >  Clique em **vista** para apresentar as propriedades do tipo de aplicação ou implementação selecionado.  
 
-4.  Escolha **OK** para fechar o **especificar aplicação necessária** caixa de diálogo.  
+5.  Clique em **OK** para fechar a **especificar aplicação necessária** janela.  
 
-5.  Se pretender que uma aplicação dependente seja instalada automaticamente, selecione **instalação automática** junto da aplicação dependente.  
+6.  Se pretender que o cliente para instalar automaticamente a aplicação dependente, selecione **instalação automática** junto a dependência.  
 
     > [!NOTE]  
-    >  Não precisa de implementar uma aplicação dependente para que seja instalada automaticamente.  
+    >  Não precisa de implementar uma aplicação dependente para o cliente instalar automaticamente.  
 
-6.  No **adicionar dependência** caixa de diálogo em **nome do grupo de dependência**, introduza um nome para fazer referência a este grupo de dependências de aplicações.  
+7.  Se adicionar mais do que uma dependência, utilize o **aumentar prioridade** e **diminuir prioridade** botões. Estas ações alteram a ordem em que o cliente avalia cada dependência.  
 
-7.  Opcionalmente, utilize o **aumentar prioridade** e **diminuir prioridade** botões. Estas ações alterar a ordem em que o cliente avalia cada dependência.  
-
-8.  Escolha **OK** para fechar o **adicionar dependência** caixa de diálogo.  
-
-### <a name="confirm-the-deployment-type-settings-and-finish-the-wizard"></a>Confirme as definições de tipo de implementação e concluir o Assistente  
-
-1.  Reveja o **resumo**. Escolha **seguinte** para criar o tipo de implementação. Escolha **anterior** para voltar atrás e alterar as definições para o tipo de implementação.  
-
-2.  Depois do **progresso** página depois de concluída, reveja as ações efetuadas pelo assistente e, em seguida, escolha **fechar** para concluir o assistente.  
-
-3.  Se tiver iniciado o Assistente para criar tipo de implementação a partir do Assistente para criar aplicação, voltar para o **tipos de implementação** página do Assistente para criar aplicação.  
+8.  Clique em **OK** para fechar a **adicionar dependência** janela.  
 
 
+### <a name="bkmk_dt-return"></a> Tipo de implementação **códigos de retorno**
 
-## <a name="set-up-additional-options-for-deployment-types-that-contain-virtual-applications"></a>Configurar opções adicionais para tipos de implementação que contêm aplicações virtuais  
- Utilize os procedimentos seguintes para configurar opções adicionais para tipos de implementação que incluem aplicações virtuais.  
+> [!Note]  
+> Esta página não está no Assistente para criar tipo de implementação. É apenas uma guia nas propriedades de um tipo de implementação existente.  
 
-### <a name="set-up-content-options-for-application-virtualization-app-v-deployment-types"></a>Configurar opções de conteúdo para os tipos de implementação de Application Virtualization (App-V)  
+Especifique códigos de retorno para controlar os comportamentos depois do tipo de implementação concluída. Por exemplo, sinalizar o que é necessário um reinício, a instalação estiver concluída, ou personalizar o texto mostrado aos utilizadores. 
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **aplicações**.  
+1. Sobre o **códigos de retorno** separador da janela de propriedades do tipo de implementação, clique em **Add**.  
 
-2.  No **aplicações** lista, selecione uma aplicação que tenha um tipo de implementação de App-V. Em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+2. Na janela de adicionar o código de retorno, especifique a **retornar o valor de código** que espera deste tipo de implementação. Este valor é qualquer número inteiro positivo ou negativo entre `-2147483648` e `2147483647`.  
 
-3.  No *< nome da aplicação\>* **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
+3. Selecione um **tipo de código** na lista pendente. Esta definição define como o Configuration Manager interpreta o código de retorno especificado deste tipo de implementação. Os tipos disponíveis variam consoante a tecnologia de tipo de implementação.   
 
-4.  No *< nome do tipo de implementação\>*  **propriedades** caixa de diálogo a **conteúdo** separador, configure as seguintes opções, se necessário:  
+    - **Êxito (não reiniciado)**: O tipo de implementação foi instalado com êxito e a reinicialização não será necessária.  
 
-    -   **Manter conteúdo na cache do cliente**: Selecione esta opção para garantir que o conteúdo para este tipo de implementação não é eliminado da cache do cliente do Configuration Manager.  
+    - **Falha (não reiniciado)**: Não foi possível instalar o tipo de implementação.  
 
-    -   **Carregar conteúdo para a cache de App-V antes de iniciar**: Selecione esta opção para garantir que todo o conteúdo da aplicação virtual é carregado para a cache de App-V antes de iniciar a aplicação. Esta opção também garante que o conteúdo da aplicação não seja fixado na cache. O cliente elimina o conteúdo, conforme necessário.  
+    - **Reinício por hardware**: O tipo de implementação instalado com êxito, mas requer o dispositivo seja reiniciado. Nada mais pode ser instalado até que o dispositivo for reiniciado.  
 
-5.  Escolha **OK** para fechar o *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
+    - **Reinício por software**: O tipo de implementação instalado com êxito, pedidos, mas o dispositivo seja reiniciado. Outras instalações podem ocorrer antes do dispositivo for reiniciado.    
 
-6.  Escolha **OK** para fechar o *< nome da aplicação\>* **propriedades** caixa de diálogo.  
+    - **Repetição rápida**: Já existe outra instalação em curso no dispositivo. O cliente tenta novamente a cada duas horas, para um total de 10 vezes.  
 
-### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Configurar as opções para tipos de implementação de App-V de publicação  
+4. Opcionalmente, introduza um **Name** e **Descrição** para este código de retorno. Este texto é mostrado ao usuário.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **aplicações**.  
-
-3.  No **aplicações** lista, selecione uma aplicação que tenha um tipo de implementação de App-V. Em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades**.  
-
-4.  No *< nome da aplicação\>* **propriedades** caixa de diálogo a **tipos de implementação** separador, selecione um tipo de implementação de App-V e, em seguida, escolha **editar**.  
-
-5.  No *< nome do tipo de implementação\>* **propriedades** caixa de diálogo a **publicação** separador, selecione os itens na aplicação virtual que pretende publicar.  
-
-6.  Escolha **OK** para fechar o *< nome do tipo de implementação\>* **propriedades** caixa de diálogo.  
-
-7.  Escolha **OK** para fechar o *< nome da aplicação\>* **propriedades** caixa de diálogo.  
+5. Clique em **OK** para fechar a janela de adicionar o código de retorno.  
 
 
+#### <a name="example-non-zero-success"></a>Exemplo: sucesso de diferente de zero
+Estiver implantando um aplicativo que retorna um código de saída `1` quando ele instala com êxito. Por predefinição, o Configuration Manager detetar este código de retorno diferente de zero como uma falha. Especifique o valor de código de retorno de `1`e selecione o tipo de código de **êxito (não reiniciado)**. Agora, o Configuration Manager interpreta que retornam o código como um êxito para este tipo de implementação.
 
-## <a name="import-an-application"></a>Importar uma aplicação  
- Utilize o procedimento seguinte para importar uma aplicação para o Configuration Manager. Para obter informações sobre como exportar uma aplicação, consulte [tarefas de gestão do System Center Configuration Manager aplicações](../../apps/deploy-use/management-tasks-applications.md).  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.   
+#### <a name="default-return-codes"></a>Códigos de retorno de predefinição
+Quando criar alguns tipos de implementação, o Configuration Manager adiciona automaticamente que os seguintes códigos que são comuns a que a tecnologia de retorno:  
 
-3.  No **home page** separador o **criar** grupo, escolha **importar aplicação**.  
+**Windows Installer (\*arquivo. msi)**  
+|Valor    |Tipo de código|
+|---------|---------|
+|0        |Êxito (não reiniciado)|
+|versão 1707     |Êxito (não reiniciado)|
+|3010     |Reinício por software|
+|1641     |Reinício por hardware|
+|1618     |Repetição rápida|
 
-4.  No **geral** página do **Assistente para importar aplicação**, escolha **procurar**. Em seguida, especifique um caminho de rede para o ficheiro. zip com a aplicação para importar.  
+**Instalador de script**  
+|Valor    |Tipo de código|
+|---------|---------|
+|0        |Êxito (não reiniciado)|
+|1641     |Reinício por hardware|
+|3010     |Reinício por software|
+|1618     |Repetição rápida|
 
-5.  No **conteúdo do ficheiro** página, selecione a ação a tomar se a aplicação que está a tentar importar for um duplicado da aplicação existente. Pode criar uma nova aplicação ou ignorar o duplicado e adicionar uma nova revisão à aplicação existente.  
+**Pacote de aplicação do Windows (\*. AppX, \*. appxbundle, \*.msix, \*.msixbundle)**  
+|Valor    |Tipo de código|
+|---------|---------|
+|15605    |Repetição rápida|
+|15618    |Repetição rápida|
 
-6.  No **resumo** página, reveja as ações a executar e, em seguida, conclua o assistente.  
 
- A nova aplicação aparece no nó **Aplicações**.  
+
+## <a name="bkmk_appv"></a> Opções adicionais para tipos de implementação de App-V  
+
+Configure opções adicionais que são exclusivas para tipos de implementação para aplicações virtuais (App-V).  
+
+### <a name="bkmk_appv-content"></a> Tipo de implementação de App-V **conteúdo** opções  
+
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e selecione o **aplicativos** nó.  
+
+2.  Selecione uma aplicação com um tipo de implementação de App-V e clique em **propriedades**.  
+
+3.  Nas propriedades da aplicação, mude para o **tipos de implementação** separador. Selecione o tipo de implementação de App-V e clique em **editar**.  
+
+4.  Nas propriedades do tipo de implementação, mude para o **conteúdo** separador. Configure as seguintes opções conforme necessário:  
+
+    -   **Manter conteúdo na cache do cliente**: O cliente do Configuration Manager não elimine a partir da respetiva cache o conteúdo para este tipo de implementação.  
+
+    -   **Carregar conteúdo para a cache de App-V antes de iniciar**: Antes do aplicativo é iniciado, o cliente do Configuration Manager carrega no cache do App-V todo o conteúdo para este tipo de implementação. O cliente não afixe conteúdo na cache. Elimina o conteúdo conforme necessário.  
+
+5.  Clique em **OK** para fechar as propriedades de tipo de implementação. Em seguida, clique em **OK** para fechar as propriedades da aplicação.  
+
+
+### <a name="bkmk_appv-pub"></a> Tipo de implementação de App-V **publicação** opções   
+
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e selecione o **aplicativos** nó.  
+
+2.  Selecione uma aplicação com um tipo de implementação de App-V e clique em **propriedades**.  
+
+3.  Nas propriedades da aplicação, mude para o **tipos de implementação** separador. Selecione o tipo de implementação de App-V e clique em **editar**.  
+
+4.  Nas propriedades do tipo de implementação, mude para o **publicação** separador. Selecione os itens na aplicação virtual que pretende publicar.  
+
+5.  Clique em **OK** para fechar as propriedades de tipo de implementação. Em seguida, clique em **OK** para fechar as propriedades da aplicação.  
+
+
+
+## <a name="bkmk_import"></a> Importar uma aplicação  
+
+Utilize o procedimento seguinte para importar uma aplicação para o Configuration Manager: 
+
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e selecione o **aplicativos** nó.   
+
+2.  No Friso, no **home page** separador e o **Create** , clique em **importar aplicação**.  
+
+3.  Sobre o **gerais** página do Assistente para importar aplicação, especifique o caminho de rede para o **ficheiro** para importar. Por exemplo, `\\server\share\file.zip`. Este ficheiro é um arquivo compactado válido (formato ZIP) de uma aplicação exportada do Configuration Manager.  
+
+4.  Sobre o **conteúdo do ficheiro** , selecione a ação a tomar se esta aplicação é um duplicado de um aplicativo existente. Criar um novo aplicativo, ou ignorar o duplicado e adicionar uma nova revisão à aplicação existente.  
+
+5.  Sobre o **resumo** página, reveja as ações e, em seguida, conclua o assistente.  
+
+A nova aplicação aparece no nó **Aplicações**.  
 
 > [!TIP]  
->  O cmdlet Windows PowerShell **Import-CMApplication** tem a mesma função que este procedimento. Para obter mais informações, consulte [Import-CMApplication](https://docs.microsoft.com/powershell/module/configurationmanager/import-cmapplication?view=sccm-ps).  
+>  O cmdlet do Windows PowerShell **Import-CMApplication** tem a mesma função que este procedimento. Para obter mais informações, consulte [Import-CMApplication](https://docs.microsoft.com/powershell/module/configurationmanager/import-cmapplication?view=sccm-ps).  
+
+Para obter mais informações sobre como exportar uma aplicação, consulte [tarefas de gestão para aplicações](/sccm/apps/deploy-use/management-tasks-applications). 
 
 
 
-##  <a name="deployment-types-supported-by-configuration-manager"></a>Tipos de implementação suportados pelo Gestor de Configuração  
+## <a name="bkmk_deploy-types"></a> Tipos de implementação suportados  
 
-|Nome do tipo de implementação|Mais informações|  
+O Configuration Manager suporta os seguintes tipos de implementação para aplicações:
+
+| Nome do tipo de implementação | Descrição |   
 |--------------------------|----------------------|  
-|**Windows Installer (\*ficheiro. msi)**|Cria um tipo de implementação a partir de um ficheiro do Windows Installer.|  
-|**Pacote de aplicação do Windows (\*. AppX, \*. appxbundle)**|Cria um tipo de implementação para o Windows 8 ou posterior. Selecione um ficheiro de pacote de aplicação do Windows ou um pacote de pacote de aplicações do Windows.|  
-|**Pacote de aplicação do Windows (na loja Windows)**|Cria um tipo de implementação para o Windows 8 ou posterior. Especifique uma ligação para a aplicação na loja Windows ou procurar o arquivo para selecionar a aplicação.<br /><br /> Para implementar a aplicação como uma hiperligação para a loja Windows, configure a definição de política de grupo **desativar a aplicação de arquivo** para **desativado** ou **não configurado**. Se esta definição estiver ativada, os clientes não é possível ligar à loja Windows para transferir e instalar aplicações.<br /><br /> Os tipos de implementação do Windows 8 que utilizam uma ligação para um arquivo são sempre avaliados antes de outros tipos de implementação, independentemente da sua prioridade.|  
-|**Instalador de script**|Cria um tipo de implementação que especifica um script que é executado nos dispositivos cliente para instalar o conteúdo ou para efetuar uma ação.|  
-|**Microsoft Application Virtualization 4**|Cria um tipo de implementação a partir de um manifesto do Microsoft Application Virtualization 4|  
-|**Microsoft Application Virtualization 5**|Cria um tipo de implementação a partir de um ficheiro de pacote do Microsoft Application Virtualization 5.|  
-|**Pacote de aplicação do Windows Phone (\*ficheiro. xap)**|Cria um tipo de implementação a partir de um ficheiro de pacote de aplicação do Windows Phone.|  
-|**Pacote de aplicação do Windows Phone (na loja Windows Phone)**|Cria um tipo de implementação, ao especificar uma ligação para a aplicação na loja do Windows Phone.|  
-|**Pacote de aplicação para iOS (\*ficheiro. IPA)**|Cria um tipo de implementação a partir de um ficheiro de pacote de aplicação do iOS.|  
-|**Pacote de aplicação para iOS da App Store**|Cria um tipo de implementação, especificando uma ligação para a aplicação do iOS na App Store.|  
-|**Pacote de aplicação para Android (\*ficheiro. apk)**|Cria um tipo de implementação a partir de um ficheiro de pacote de aplicação do Android.|  
-|**Pacote de aplicação para Android no Google Play**|Cria um tipo de implementação, especificando uma ligação para a aplicação no Google Play.|  
-|**Mac OS X**|Cria um tipo de implementação para computadores Mac a partir de um ficheiro .cmmac que tenha criado com a ferramenta CMAppUtil.<br /><br /> Aplica-se apenas a computadores Mac que executem o cliente do Configuration Manager.|  
-|**Aplicação Web**|Cria um tipo de implementação que especifica uma ligação para uma aplicação Web. O tipo de implementação instala um atalho para a aplicação web no dispositivo do utilizador.<br /><br /> Se tiver instalado o browser gerido do Microsoft Intune no iOS ou dispositivos Android, certifique-se de que os utilizadores só podem utilizar o browser gerido para abrir a aplicação. Utilize um dos seguintes formatos quando especificar uma ligação para a aplicação: substituir **http:** com **http-intunemam:** ou **https:** com **https-intunemam:**<br /><br /> - **http-intunemam: / / < caminho para a aplicação web\>**<br /><br /> - **https-intunemam: / / < caminho para a aplicação web\>**<br /><br /> Pode utilizar os requisitos da aplicação do Configuration Manager para se certificar de que as aplicações que pretende associar o browser gerido só são instaladas em dispositivos iOS e Android.<br /><br /> Para obter mais informações sobre o Intune managed browser, consulte [Internet gerir o acesso através de políticas de browser gerido](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
-|**Windows Installer através de MDM (\*. msi)**|Este tipo de instalador permite-lhe criar e implementar aplicações baseadas no Windows Installer em PCs com Windows 10.<br /><br /> As considerações seguintes são aplicáveis quando utiliza este tipo de instalador:<br><br>-Só pode carregar um único ficheiro com a extensão. msi.<br /><br /> -Código de produto o ficheiro e a versão do produto são utilizados para deteção da aplicação.<br /><br /> -O comportamento de reinício predefinido da aplicação é utilizado. O Configuration Manager não controla este reinício.<br /><br /> -São instalados pacotes MSI de por utilizador para um único utilizador.<br /><br /> -São instalados pacotes MSI de por máquina para todos os utilizadores do dispositivo.<br /><br /> -Pacotes MSI de modo duplo atualmente instalados apenas para todos os utilizadores do dispositivo.<br /><br /> -As atualizações de aplicações são suportadas quando o código de produto MSI de cada versão for igual.|  
+| **Windows Installer (\*arquivo. msi)** | Um ficheiro de instalador do Windows. |  
+| **Pacote de aplicação do Windows (\*. AppX, \*. appxbundle)** | Para o Windows 8 ou posterior. Selecione um ficheiro de pacote de aplicação do Windows ou um pacote de pacote de aplicação do Windows. |  
+| **Pacote de aplicação do Windows (\*. AppX, \*. appxbundle, \*.msix, \*.msixbundle)** | A partir da versão 1806, para o novo pacote de aplicação do Windows 10 (.msix) e formatos de pacote (.msixbundle) da aplicação. Selecione um ficheiro de pacote de aplicação do Windows ou um pacote de pacote de aplicação do Windows.<!--1357427--> |  
+| **Pacote de aplicação do Windows (na Store Windows)** | Para o Windows 8 ou posterior. Especifique uma ligação para a aplicação na Windows Store ou procurar loja para selecionar a aplicação.<sup>[Nota 1](#bkmk_note1)</sup> |  
+| **Instalador de script** | Especifica um script ou programa que é executado nos clientes do Windows para instalar o conteúdo ou para efetuar uma ação. Utilize este tipo de implementação para instaladores setup.exe ou invólucros de script. |  
+| **Microsoft Application Virtualization 4** | Um manifesto de v4 Microsoft App-V. |  
+| **Microsoft Application Virtualization 5** | Um ficheiro de pacote do Microsoft App-V v5. |  
+| **Pacote de aplicação do Windows Phone (\*arquivo. xap)** | Um ficheiro de pacote de aplicação do Windows Phone. |  
+| **Pacote de aplicação do Windows Phone (na Store de telefone Windows)** | Especifique uma ligação para a aplicação na Windows Store. |  
+| **Pacote de aplicação para iOS (\*ficheiro. IPA)** | Um ficheiro de pacote do Apple iOS aplicação. |  
+| **Pacote de aplicação para iOS da App Store** | Especifique uma ligação para a aplicação iOS na Store da Apple. |  
+| **Pacote de aplicação para Android (\*ficheiro. apk)** | Um ficheiro de pacote de aplicação Android. |  
+| **Pacote de aplicação para Android no Google Play** | Especifique uma ligação para a aplicação na Google Play store. |  
+| **Mac OS X** | Para computadores de macOS com o cliente do Configuration Manager. Crie um ficheiro. cmmac com o **CMAppUtil** ferramenta. |  
+| **Aplicação Web** | Especifique uma ligação a uma aplicação web. Este tipo de implementação instala um atalho para a aplicação web no dispositivo do utilizador. <sup> [Observe 2](#bkmk_note2)</sup> |  
+| **Windows Installer através de MDM (\*. msi)** | Criar e implementar aplicações baseadas no Windows Installer em dispositivos Windows 10. Para obter mais informações, consulte [aplicações de implementar o Windows Installer em dispositivos inscritos na MDM do Windows 10](/sccm/apps/get-started/creating-windows-applications#bkmk_mdm-msi). |  
+
+#### <a name="bkmk_note1"></a> Nota 1: Pacote de aplicações do Windows (na Loja Windows)
+Para implementar a aplicação como uma ligação para a Windows Store, configure a política de grupo **desativar a aplicação de Store**. Definir esta política como **desativada** ou **não configurada**. Se ativar esta definição, os clientes não é possível ligar para o Store do Windows para transferir e instalar aplicações.
+
+Os clientes do Windows sempre avaliam os tipos de implementação que utilizam uma ligação para um arquivo antes de outros tipos de implementação. Em seguida, o cliente avalia os tipos de implementação por prioridade. 
+
+#### <a name="bkmk_note2"></a> Nota 2: Aplicação Web  
+Se tiver instalado o browser gerido do Microsoft Intune em dispositivos iOS ou Android, certifique-se de que os utilizadores só podem utilizar o browser gerido para abrir a aplicação. O endereço do Web site, substitua **http** com **http-intunemam**, ou **https** com **https-intunemam**. Por exemplo: 
+- `http-intunemam://<path to web app>`
+- `https-intunemam://<path to web app>`
+
+Utilize o Gestor de configuração [requisitos de aplicação](#bkmk_dt-require) para se certificar de que esse web apps com o browser gerido só são instaladas em dispositivos iOS e Android. 
+
+Para obter mais informações sobre o Intune managed browser, consulte [acesso à internet de gerir através de políticas de browser gerido](/sccm/apps/deploy-use/manage-internet-access-using-managed-browser-policies).
 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar uma aplicação no Configuration Manager, o passo seguinte consiste em [implementar a aplicação](/sccm/apps/deploy-use/deploy-applications).
+Depois de criar uma aplicação no Configuration Manager, a próxima etapa é [implementar a aplicação](/sccm/apps/deploy-use/deploy-applications).
+
+Para obter mais informações sobre a criação de aplicativos em diferentes plataformas de SO, consulte os artigos seguintes:  
+- [Criar aplicações Windows](/sccm/apps/get-started/creating-windows-applications)
+- [Criar aplicações para dispositivos móveis](/sccm/mdm/deploy-use/create-applications) (iOS, Windows Mobile e Android)  
+- [Criar aplicações para Mac](/sccm/apps/get-started/creating-mac-computer-applications)
+- [Criar aplicações de servidor Linux e UNIX](/sccm/apps/get-started/creating-linux-and-unix-server-applications)
+- [Criar aplicações Windows Embedded](/sccm/apps/get-started/creating-windows-embedded-applications)
+

@@ -1,81 +1,69 @@
-1.  Na consola do Configuration Manager, navegue até à **biblioteca de Software** > **atualizações de Software**.  
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho e selecione o **atualizações de Software** nó.  
 
 2.  Escolha a atualização de software a transferir utilizando um dos seguintes métodos:  
 
-    -   Selecione um ou mais grupos de atualização de software a partir de **Grupos de Atualização de Software**e, em seguida, no separador **Home Page** , no grupo **Grupo de Atualização** , clique em **Transferir**.  
+    -   Selecione um ou mais grupos de atualização de software dos **grupos de atualização de Software** nó. Em seguida, clique em **transferir** na faixa de opções.  
 
-    -   Selecione uma ou mais atualizações de software a partir de **Todas as Atualizações de Software**e, em seguida, no separador **Home Page** , no grupo **Atualização** , clique em **Transferir**.  
+    -   Selecione um ou mais atualizações de software a partir **todas as atualizações de Software** nó. Em seguida, clique em **transferir** na faixa de opções.  
 
         > [!NOTE]  
-        >  No **todas as atualizações de Software** nó, o Configuration Manager apresenta apenas as atualizações de software com uma **crítico** e **segurança** classificação que tenham sido publicadas nos últimos 30 dias.  
+        >  Na **todas as atualizações de Software** nó, o Configuration Manager apresenta apenas as atualizações de software com uma **crítico** e **segurança** classificação que tenham sido publicadas na últimos 30 dias.  
 
         > [!TIP]  
-        >  Clique em **Adicionar Critérios** para filtrar as atualizações de software que são apresentadas no nó **Todas as Atualizações de Software** , guarde os critérios de pesquisa que utiliza com maior frequência e faça a gestão das procuras guardadas no separador **Procurar** .  
+        >  Clique em **adicionar critérios** para filtrar as atualizações de software que são apresentadas na **todas as atualizações de Software** nó. Critérios de procura de Save que, muitas vezes, utilizar e, em seguida, gerir procuras guardadas no **pesquisa** separador.  
 
-         É aberto o **Assistente Transferir Atualizações de Software** .  
 
-3.  Na página **Pacote de Implementação** , configure as definições seguintes:  
+3.  Sobre o **pacote de implementação** página do Assistente de atualizações de Software transfira, configure as seguintes definições:  
 
-    1.  **Selecionar pacote de implementação**: Escolha esta definição para selecionar um pacote de implementação existente para as atualizações de software incluídas na implementação.  
+    -  **Selecionar pacote de implementação**: Escolha esta definição para selecionar um pacote de implementação existente para as atualizações de software incluídas na implementação.  
 
         > [!NOTE]  
-        >  As atualizações de software que já tenham sido transferidas para o pacote de implementação selecionado não serão transferidas novamente.  
+        >  Atualizações de software que o site já tenha transferido para o pacote de implementação selecionado não transferidas novamente.  
 
-    2.  **Criar um novo pacote de implementação**: Selecione esta definição para criar um novo pacote de implementação para as atualizações de software incluídas na implementação. Configure as seguintes definições:  
+    -  **Criar um novo pacote de implementação**: Selecione esta definição para criar um novo pacote de implementação para as atualizações de software na implementação. Configure as seguintes definições:  
 
-        -   **Nome**: Especifica o nome do pacote de implementação. O pacote deverá ter um nome exclusivo que descreva resumidamente o conteúdo do pacote.  Está limitado a 50 carateres.  
+        -   **Nome**: Especifica o nome do pacote de implementação. O pacote deverá ter um nome exclusivo que descreva resumidamente o conteúdo do pacote. É limitado a 50 carateres.  
 
-        -   **Descrição**: Especifica a descrição do pacote de implementação. A descrição do pacote fornece informações sobre o conteúdo do pacote e está limitada a 127 carateres.  
+        -   **Descrição**: Especifique uma descrição que disponibilize informações sobre o pacote de implementação. A descrição opcional é limitada a 127 carateres.    
 
-        -   **Origem do pacote**: Especifica a localização dos ficheiros de origem de atualização de software. Escreva um caminho de rede para a localização de origem, como, por exemplo, **\\\server\sharename\path**ou clique em **Procurar** para procurar a localização de rede. Antes de continuar para a página seguinte, terá de criar a pasta partilhada para os ficheiros de origem do pacote de implementação.  
+        -   **Origem do pacote**: Especifica a localização dos ficheiros de origem de atualização do software. Escreva um caminho de rede para a localização de origem, por exemplo, `\\server\sharename\path`, ou clique em **procurar** para procurar a localização de rede. Crie a pasta partilhada para os ficheiros de origem do pacote de implementação antes de prosseguir para a página seguinte.  
 
-            > [!NOTE]  
-            >  A localização de origem do pacote de implementação que especificar não poderá ser utilizada por outro pacote de implementação de software.  
+             - Não é possível utilizar a localização especificada como a fonte de outro pacote de implementação de software.  
 
-            > [!IMPORTANT]  
-            >  Tanto a conta de computador do Fornecedor de SMS, como o utilizador que executar o assistente para transferir as atualizações de software, têm de ter permissões NTFS de **Escrita** na localização de transferência. Deverá restringir cuidadosamente o acesso à localização de transferência para reduzir o risco de adulteração dos ficheiros de origem de atualização de software por parte de atacantes.  
+             - Pode alterar a localização de origem do pacote nas propriedades do pacote de implementação depois do Configuration Manager cria o pacote de implementação. Se o fizer, primeiro copie o conteúdo da origem do pacote original para a nova localização de origem do pacote.  
 
-            > [!IMPORTANT]  
-            >  Pode alterar a localização de origem do pacote nas propriedades do pacote de implementação, após o Configuration Manager cria o pacote de implementação. Mas se o fizer, terá primeiro de copiar o conteúdo da origem inicial do pacote para a nova localização de origem do pacote.  
+             -  A conta de computador do fornecedor de SMS e o utilizador que está a executar o Assistente para transferir as atualizações de software terão de ter **escrever** permissões para a localização de transferência. Restringir o acesso à localização de transferência. Esta restrição reduz o risco dos atacantes adulterar os ficheiros de origem de atualização de software.  
 
-     Clique em **Seguinte**.  
+        - **Ativar a replicação diferencial de binários**: Ative esta definição para minimizar o tráfego de rede entre sites. Replicação diferencial binária (BDR) apenas atualiza o conteúdo que foi alterado no pacote, em vez de atualizar o conteúdo do pacote inteiro. Para obter mais informações, consulte [replicação de diferencial binário](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#binary-differential-replication).  
 
-4.  No **pontos de distribuição** página, especifique os pontos de distribuição ou grupos de pontos de distribuição que irão alojar os ficheiros de atualização de software e, em seguida, clique em **seguinte**. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
+4.  Sobre o **pontos de distribuição** página, especifique os pontos de distribuição ou grupos para alojar o software de ficheiros de atualização de ponto de distribuição. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs). Esta página apenas está disponível ao criar um novo pacote de implementação da atualização de software.  
 
-    > [!NOTE]  
-    >  A página Pontos de Distribuição apenas estará disponível quando criar um novo pacote de implementação de atualização de software.  
+5.  O **definições de distribuição** página está disponível apenas quando cria um novo pacote de implementação de atualização de software. Especifique as seguintes definições:  
 
-6.  No **definições de distribuição** página, especifique as seguintes definições:  
+    -   **Prioridade de distribuição**: Utilize esta definição para especificar a prioridade de distribuição para o pacote de implementação. A prioridade de distribuição aplica-se quando o pacote de implementação é enviado para pontos de distribuição em sites subordinados. Pacotes de implementação são enviados por ordem de prioridade: elevada, média ou baixa. Os pacotes com prioridades idênticas são enviados pela ordem em que foram criados. Se não houver nenhum registo de segurança, o pacote de processos imediatamente, independentemente de sua prioridade. Por predefinição, o site envia pacotes com **médio** prioridade.  
 
-    -   **Prioridade de distribuição**: Utilize esta definição para especificar a prioridade de distribuição para o pacote de implementação. A prioridade de distribuição aplica-se quando o pacote de implementação é enviado para pontos de distribuição em sites subordinados. Pacotes de implementação são enviados por ordem de prioridade: **Elevada**, **média**, ou **baixa**. Os pacotes com prioridades idênticas são enviados pela ordem em que foram criados. Se não existirem tarefas pendentes, o pacote será processado de imediato, independentemente da sua prioridade. Por predefinição, os pacotes são enviados com a prioridade **Média** .  
+    -   **Ativar para distribuição a pedido**: Utilize esta definição para ativar a pedido conteúdos distribuição para pontos de distribuição configurados para esta funcionalidade e no grupo de limite atual do cliente. Quando ativa esta definição, o ponto de gestão cria um acionador para a distribuição manager distribua o conteúdo por todos esses pontos de distribuição quando um cliente solicita o conteúdo do pacote e o conteúdo não está disponível. Para obter mais informações, consulte [distribuição de conteúdo a pedido](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#on-demand-content-distribution).  
 
-    -   **Distribuir o conteúdo do pacote para pontos de distribuição preferenciais**: Utilize esta definição para ativar a distribuição de conteúdo a pedido para pontos de distribuição preferenciais. Quando esta definição é ativada, o ponto de gestão cria um acionador para que o gestor de distribuição distribua o conteúdo por todos os pontos de distribuição preferidos quando um cliente solicita o conteúdo para o pacote e o conteúdo não está disponível em quaisquer pontos de distribuição preferidos. Para obter mais informações sobre os pontos de distribuição preferenciais e conteúdo a pedido, veja [Cenários de localização da origem de conteúdo](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+    -   **Pré-configurado as definições do ponto de distribuição**: Utilize esta definição para especificar como pretende distribuir conteúdo para pontos de distribuição pré-configurados. Escolha uma das seguintes opções:  
 
-    -   **Definições de ponto de distribuição pré-configurados**: Utilize esta definição para especificar como pretende distribuir conteúdo para pontos de distribuição pré-configurados. Escolha uma das seguintes opções:  
-
-        -   **Transferir o conteúdo automaticamente quando os pacotes são atribuídos aos pontos de distribuição**: Utilize esta definição para ignorar as definições pré-configuradas e distribuir conteúdo ao ponto de distribuição.  
+        -   **Transferir o conteúdo automaticamente quando os pacotes são atribuídos aos pontos de distribuição**: Utilize esta definição para ignorar as definições pré-configuradas e distribuir conteúdo para o ponto de distribuição.   
 
         -   **Transferir apenas alterações de conteúdo para o ponto de distribuição**: Utilize esta definição para pré-configurar o conteúdo inicial para o ponto de distribuição e, em seguida, distribuir as alterações de conteúdo ao ponto de distribuição.  
 
-        -   **Copiar manualmente o conteúdo deste pacote para o ponto de distribuição**: Utilize esta definição para pré-configurar sempre o conteúdo no ponto de distribuição. Esta é a predefinição.  
+        -   **Copiar manualmente o conteúdo deste pacote para o ponto de distribuição**: Utilize esta definição para pré-configurar sempre o conteúdo no ponto de distribuição. Esta opção é a predefinição.  
 
-         Para obter mais informações sobre a pré-configuração de conteúdo para pontos de distribuição, veja [Utilizar conteúdo pré-configurado](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).  
+        Para obter mais informações sobre a pré-configuração de conteúdo para pontos de distribuição, veja [Utilizar conteúdo pré-configurado](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
 
-     Clique em **Seguinte**.  
 
-6.  No **localização de transferência** página, especifique a localização do Configuration Manager irá utilizar para transferir os ficheiros de origem de atualização de software. Se necessário, utilize as seguintes opções:  
+6.  Sobre o **localização de transferência** , especifique a localização que o Configuration Manager utiliza para baixar o software atualizar ficheiros de origem. Utilize uma das seguintes opções:  
 
-    -   **Transferir atualizações de software a partir da Internet**: Selecione esta definição para transferir as atualizações de software a partir da localização na Internet. Esta é a predefinição.  
+    -   **Transferir atualizações de software a partir da Internet**: Selecione esta definição para transferir as atualizações de software a partir da localização na internet. Esta opção é a predefinição.  
 
-    -   **Transferir atualizações de software a partir de uma localização na rede local**: Selecione esta definição para transferir atualizações de software a partir de uma pasta local ou a pasta de rede partilhada. Utilize esta definição se o computador que estiver a executar o assistente não tiver acesso à Internet.  
+    -   **Transferir atualizações de software a partir de uma localização na minha rede**: Selecione esta definição para transferir as atualizações de software a partir de um diretório local ou uma pasta compartilhada. Esta definição é útil quando o computador que executa o assistente não tem acesso à internet. Qualquer computador com acesso à internet provisoriamente pode transferir as atualizações de software. Em seguida, armazená-las numa localização na rede local que seja acessível ao computador que executa o assistente.  
 
-        > [!NOTE]  
-        >  Se utilizar esta definição, transfira as atualizações de software a partir de qualquer computador que tenha acesso à Internet e copie as atualizações de software para uma localização na rede local que esteja acessível ao computador que estiver a executar o assistente.  
 
-     Clique em **Seguinte**.  
+7.  Sobre o **seleção de idioma** , selecione os idiomas para o qual o site transfere as atualizações de software selecionadas. O site transfere apenas essas atualizações se elas estão disponíveis nos idiomas selecionados. Atualizações de software que não são específicas do idioma serão sempre transferidas. Por predefinição, o assistente seleciona os idiomas que configurou nas propriedades do ponto de atualização de software. Terá de estar selecionado pelo menos um idioma para que possa prosseguir para a página seguinte. Se selecionar apenas idiomas que não suporta uma atualização de software, o download falha para a atualização.  
 
-7.  No **seleção de idioma** página, especifique os idiomas para os quais as atualizações de software selecionadas serão transferidas e, em seguida, clique em **seguinte**. O Configuration Manager transfere as atualizações de software apenas se estiverem disponíveis nos idiomas selecionados. As atualizações de software que não sejam específicas do idioma serão sempre transferidas.  
+8. Sobre o **resumo** página, verifique as definições que selecionou no assistente e, em seguida, clique em **seguinte** para baixar o software de atualizações.  
 
-8. No **resumo** página, verifique as definições que selecionou no assistente e, em seguida, clique em **seguinte** para transferir o software de atualizações.  
-
-9. No **conclusão** página, certifique-se de que as atualizações de software foram transferidas com êxito e, em seguida, clique em **fechar**.  
+9. Sobre o **conclusão** página, certifique-se de que as atualizações de software foram transferidas com êxito e, em seguida, clique em **fechar**.  

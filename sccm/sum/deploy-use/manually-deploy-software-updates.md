@@ -1,314 +1,251 @@
 ---
 title: Implementar manualmente atualizações de software
 titleSuffix: Configuration Manager
-description: Para implementar as atualizações manualmente, selecione as atualizações a partir da consola do Configuration Manager e implementá-las, ou adicionar manualmente atualizações para um grupo de atualização e implementar o grupo.
+description: Crie manualmente as implementações de software para obter os seus clientes atualizados com atualizações de software necessárias, ou para implementar atualizações fora de banda.
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 12/07/2016
+ms.date: 07/30/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.openlocfilehash: 3f79da78df10e97813b221ffca3df25396591fbc
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: a76582e853c2bcacdbd93723dc15b12d3b25f37c
+ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32352622"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39384445"
 ---
-#  <a name="BKMK_ManualDeploy"></a> Implementar manualmente atualizações de software  
+# <a name="manually-deploy-software-updates"></a>Implementar manualmente atualizações de software  
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Uma implementação de atualização de manual software é o processo de selecionar atualizações de software a partir da consola do Configuration Manager e iniciar manualmente o processo de implementação. Ou, pode adicionar atualizações de software selecionadas a um grupo de atualizações e, em seguida, implementar manualmente o grupo de atualizações. Normalmente, utilizará a implementação manual para atualizar os seus dispositivos cliente com atualizações de software necessárias antes de criar ADRs que irão gerir as implementações mensais de atualização de software em curso. Também utilizará um método manual para implementar atualizações de software fora de banda. Se precisar de ajuda para determinar que implementação de método é mais adequado para si, consulte [implementar atualizações de software](deploy-software-updates.md).
+Uma implementação de atualização de manual software é o processo de selecionar atualizações de software a partir da consola do Configuration Manager e iniciar manualmente o processo de implantação. Ou adicionar atualizações de software selecionadas a um grupo de atualização e, em seguida, implementar manualmente o grupo de atualizações. Geralmente usa as implementações manuais para obter os seus clientes atualizados com atualizações de software necessárias. Em seguida, utilizar regras de implementação automática (ADR) para gerir implementações de atualização de software mensais em curso. Utilize também este método manual para implementar atualizações de software fora de banda. Para obter mais informações sobre qual implementação método é adequado para si, consulte [implementar atualizações de software](deploy-software-updates.md).
 
- As secções seguintes fornecem os passos para implementar manualmente atualizações de software.  
 
-##  <a name="BKMK_1SearchCriteria"></a> Passo 1: Especifique os critérios de procura para atualizações de software  
- Existem potencialmente milhares de atualizações de software apresentadas na consola do Configuration Manager. O primeiro passo no fluxo de trabalho para implementar manualmente atualizações de software consiste em identificar as atualizações de software que pretende implementar. Por exemplo, pode fornecer critérios para obter todas as atualizações de software que são necessárias em mais de 50 dispositivos cliente e que têm uma classificação de atualização de software **Segurança** ou **Crítica** .  
+
+##  <a name="BKMK_1SearchCriteria"></a> Passo 1: Especificar critérios de procura para atualizações de software  
+
+Consoante as combinações de produtos e classificações que sincroniza o seu site, existem potencialmente milhares de atualizações de software apresentadas na consola do Configuration Manager. O primeiro passo no fluxo de trabalho para implementar manualmente atualizações de software consiste em identificar as atualizações de software que pretende implementar. Por exemplo, Mostrar todas as atualizações de software necessárias em mais de 50 dispositivos de cliente com um **Security** ou **crítico** classificação.  
 
 > [!IMPORTANT]  
->  O número máximo de atualizações de software que podem ser incluídas numa única implementação de atualização de software é 1000.  
+>  Uma implementação de atualização de software tem um limite de 1000 atualizações de software.  
 
-#### <a name="to-specify-search-criteria-for-software-updates"></a>Para especificar critérios de procura para atualizações de software  
+### <a name="process-to-specify-search-criteria-for-software-updates"></a>Processo para especificar critérios de pesquisa para atualizações de software  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
-
-2.  Na área de trabalho Biblioteca de Software, expanda **Atualizações de Software**e clique em **Todas as Atualizações de Software**. As atualizações de software sincronizadas são apresentadas.  
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **atualizações de Software**e clique em **todas as atualizações de Software**. Este nó apresenta todas as atualizações de software sincronizadas.  
 
     > [!NOTE]  
-    >  No **todas as atualizações de Software** nó, o Configuration Manager apresenta apenas as atualizações de software com uma **crítico** e **segurança** classificação e foram lançadas nos 30 últimos dias.  
+    >  O **todas as atualizações de Software** nó apresenta apenas atualizações de software com uma **crítico** e **segurança** classificação que tenham sido publicadas nos últimos 30 dias.  
 
-3.  No painel de procura, filtre para identificar as atualizações de software de que necessita, utilizando um ou ambos dos seguintes passos:  
+2.  No painel de pesquisa, filtre para identificar as atualizações de software que precisa. Utilize uma ou ambas das seguintes opções:  
 
-    -   Na caixa de texto de pesquisa, escreva uma cadeia de procura que irá filtrar as atualizações de software. Por exemplo, escreva o ID do artigo ou o ID do boletim para uma atualização de software específica ou introduza uma cadeia que aparecerá no título de diversas atualizações de software.  
+    -   Na caixa de texto de pesquisa, escreva uma cadeia de pesquisa que filtra as atualizações de software. Por exemplo, escreva o artigo ou ID do boletim para uma atualização de software. Ou introduza uma cadeia de caracteres que aparece no título de diversas atualizações de software.  
 
-    -   Clique em **Adicionar Critérios**, selecione os critérios que pretende utilizar para filtrar atualizações de software, clique em **Adicionar**e forneça os valores para os critérios.  
+    -   Clique em **adicionar critérios**e selecione os critérios para filtrar atualizações de software. Clique em **adicionar**e, em seguida, forneça os valores para os critérios.  
 
-4.  Clique em **Procurar** para filtrar as atualizações de software.  
+3.  Clique em **Procurar** para filtrar as atualizações de software.  
 
     > [!TIP]  
-    >  Tem a opção de guardar os critérios do filtro no separador **Procurar** e no grupo **Guardar** .  
-
-##  <a name="BKMK_2UpdateGroup"></a> Passo 2: Criar um grupo de atualização de software que contém as atualizações de software  
- Os grupos de atualizações de software fornecem um método eficaz para organizar as atualizações de software em preparação para implementação. Pode adicionar manualmente atualizações de software a um grupo de atualização de software ou do Configuration Manager podem adicionar automaticamente as atualizações de software a um grupo de atualização de software novo ou existente utilizando uma ADR. Utilize os seguintes procedimentos para adicionar manualmente atualizações de software a um novo grupo de atualizações de software.  
-
-#### <a name="to-manually-add-software-updates-to-a-new-software-update-group"></a>Para adicionar manualmente atualizações de software a um novo grupo de atualizações de software  
-
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
-
-2.  Na área de trabalho Biblioteca de Software, clique em **Atualizações de Software**.  
-
-3.  Selecione as atualizações de software que pretende adicionar ao novo grupo de atualização de software.  
-
-4.  No separador **Home Page** , no grupo **Atualizar** , clique em **Criar Grupo de Atualização de Software**.  
-
-5.  Especifique o nome para o grupo de atualizações de software e, opcionalmente, forneça uma descrição. Utilize um nome e uma descrição que forneçam informações suficientes para determinar qual o tipo de atualizações de software que fazem parte do grupo de atualizações de software. Para continuar, clique em **Criar**.  
-
-6.  Clique no nó **Grupos de Atualização de Software** para apresentar o novo grupo de atualizações de software.  
-
-7.  Selecione o grupo de atualização de software e, no separador **Home Page** , no grupo **Atualizar** , clique em **Mostrar Membros** para apresentar uma lista das atualizações de software que estão incluídas no grupo.  
-
-##  <a name="BKMK_3DownloadContent"></a> Passo 3: Transferir o conteúdo para o grupo de atualização de software  
- Opcionalmente, antes de implementar as atualizações de software, pode transferir o conteúdo para as atualizações de software que estão incluídas no grupo de atualizações de software. Pode escolher proceder desta forma para que possa verificar que o conteúdo está disponível nos pontos de distribuição antes de implementar as atualizações de software. Isto ajudará a evitar quaisquer problemas inesperados com o fornecimento de conteúdo. Pode ignorar este passo e o conteúdo será transferido e copiado para os pontos de distribuição como parte do processo de implementação. Utilize o seguinte procedimento para transferir o conteúdo para atualizações de software no grupo de atualizações de software.  
+    >  Guarde os critérios de filtro utilizados com frequência. No Friso, clique na opção para **guardar pesquisa atual**. Obter pesquisas anteriores ao clicar em **pesquisas guardadas**.   
 
 
 
-#### <a name="to-download-content-for-the-software-update-group"></a>Para transferir conteúdo para o grupo de atualizações de software
+##  <a name="BKMK_2UpdateGroup"></a> Passo 2: Criar um grupo de atualização de software que contém as atualizações de software   
+
+Grupos de atualização de software permitem-lhe organizar as atualizações de software em preparação para implantação. Utilize o procedimento seguinte para adicionar manualmente atualizações de software a um novo grupo de atualização de software.  
+
+### <a name="process-to-manually-add-software-updates-to-a-new-software-update-group"></a>Processo para adicionar manualmente atualizações de software a um novo grupo de atualização de software  
+
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho e selecione **atualizações de Software**. Selecione as atualizações de software pretendido.  
+
+2.  Clique em **criar grupo de atualizações de Software** na faixa de opções.  
+
+3.  Especifique o nome para o grupo de atualizações de software e, opcionalmente, forneça uma descrição. Utilize um nome e descrição que forneçam informações suficientes para que possa determinar que tipo de atualizações estão no grupo de atualização de software. Clique em **Criar**.  
+
+4.  Selecione o **grupos de atualização de Software** nó e selecione o novo grupo de atualização de software. Para ver a lista de atualizações do grupo, clique em **Mostrar membros** na faixa de opções.  
+
+
+
+##  <a name="BKMK_3DownloadContent"></a> Passo 3: Transferir o conteúdo para o grupo de atualizações de software  
+
+Antes de implementar as atualizações de software, transferir o conteúdo para as atualizações de software no grupo de atualização de software. Este passo permite-lhe verificar que o conteúdo está disponível nos pontos de distribuição antes de implementar as atualizações de software. Ele também ajuda a evitar quaisquer problemas inesperados com a distribuição de conteúdo. Se ignorar este passo, como parte do processo de implantação o site transfere o conteúdo e distribui para os pontos de distribuição. Utilize o seguinte procedimento para transferir o conteúdo para atualizações de software no grupo de atualizações de software.  
+
+
+### <a name="process-to-download-content-for-the-software-update-group"></a>Processo para transferir conteúdo para o grupo de atualizações de software
 [!INCLUDE[downloadupdates](..\includes\downloadupdates.md)]
-<!--- 1.  In the Configuration Manager console, click **Software Library**.  
 
-2.  In the Software Library workspace, expand **Software Updates**, and click **Software Update Groups**.  
 
-3.  Select the software update group for which you want to download content.  
+### <a name="process-to-monitor-content-status"></a>Processo para monitorizar o estado do conteúdo
+1. Para monitorizar o estado do conteúdo das atualizações de software, vá para o **monitorização** área de trabalho na consola do Configuration Manager. Expanda **estado de distribuição**e, em seguida, selecione a **estado do conteúdo** nó.  
 
-4.  On the **Home** tab, in the **Update Group** group, click **Download**. The **Download Software Updates Wizard** opens.  
+2. Selecione o pacote de atualização de software que identificou anteriormente para transferir as atualizações de software do grupo de atualização de software.  
 
-5.  On the **Deployment Package** page, configure the following settings:  
+3. Clique em **ver o estado** na faixa de opções.  
 
-    1.  **Select deployment package**: Select this setting to use an existing deployment package for the software updates in the deployment.  
 
-        > [!NOTE]  
-        >  Software updates that have already been downloaded to the selected deployment package are not downloaded again.  
-
-    2.  **Create a new deployment package**: Select this setting to create a new deployment package for the software updates in the deployment. Configure the following settings:  
-
-        -   **Name**: Specifies the name of the deployment package. This must be a unique name that describes the package content. It is limited to 50 characters.  
-
-        -   **Description**: Specifies the description of the deployment package. The package description provides information about the package contents and is limited to 127 characters.  
-
-        -   **Package source**: Specifies the location of the software update source files.  Type a network path for the source location, for example, **\\\server\sharename\path**, or click **Browse** to find the network location. You must create the shared folder for the deployment package source files before you proceed to the next page.  
-
-            > [!NOTE]  
-            >  The deployment package source location that you specify cannot be used by another software deployment package.  
-
-            > [!IMPORTANT]  
-            >  The SMS Provider computer account and the user that is running the wizard to download the software updates must both have **Write** NTFS permissions on the download location. You should carefully restrict access to the download location in order to reduce the risk of attackers tampering with the software update source files.  
-
-            > [!IMPORTANT]  
-            >  You can change the package source location in the deployment package properties after Configuration Manager creates the deployment package. But if you do so, you must first copy the content from the original package source to the new package source location.  
-
-     Click **Next**.  
-
-6.  On the Distribution Points page, select the distribution points or distribution point groups that are used to host the software update files defined in the new deployment package, and then click **Next**.  
-
-7.  On the Distribution Settings page, specify the following settings:  
-
-    -   **Distribution priority**: Use this setting to specify the distribution priority for the deployment package. The distribution priority applies when the deployment package is sent to distribution points at child sites. Distribution packages are sent in priority order: **High**, **Medium**, or **Low**. Packages with identical priorities are sent in the order in which they were created. If there is no backlog, the package will process immediately regardless of its priority. By default, packages are sent using **Medium** priority.  
-
-    -   **Distribute the content for this package to preferred distribution points**: Use this setting to enable on-demand content distribution to preferred distribution points. When this setting is enabled, the management point creates a trigger for the distribution manager to distribute the content to all preferred distribution points when a client requests the content for the package and the content is not available on any preferred distribution points. For more information about preferred distribution points and on-demand content, see [Content source location scenarios](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#bkmk_CSLscenarios).  
-
-    -   **Prestaged distribution point settings**: Use this setting to specify how you want to distribute content to prestaged distribution points. Choose one of the following options:  
-
-        -   **Automatically download content when packages are assigned to distribution points**: Use this setting to ignore the prestage settings and distribute content to the distribution point.  
-
-        -   **Download only content changes to the distribution point**: Use this setting to prestage the initial content to the distribution point, and then distribute content changes to the distribution point.  
-
-        -   **Manually copy the content in this package to the distribution point**: Use this setting to always prestage content on the distribution point. This is the default setting.  
-
-         For more information about prestaging content to distribution points, see [Use Prestaged content](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).  
-
-     Click **Next**.  
-
-8.  On the Download Location page, specify location that Configuration Manager will use to download the software update source files. As needed, use the following options:  
-
-    -   **Download software updates from the Internet**: Select this setting to download the software updates from the location on the Internet. This is the default setting.  
-
-    -   **Download software updates from a location on the local network**: Select this setting to download software updates from a local folder or shared network folder. Use this setting when the computer running the wizard does not have Internet access.  
-
-        > [!NOTE]  
-        >  When you use this setting, download the software updates from any computer with Internet access, and then copy the software updates to a location on the local network that is accessible from the computer running the wizard.  
-
-     Click **Next**.  
-
-9. On the Language Selection page, specify the languages for which the selected software updates are to be downloaded, and then click **Next**. Configuration Manager downloads the software updates only if they are available in the selected languages. Software updates that are not language-specific are always downloaded.  
-
-10. On the Summary page, verify the settings that you selected in the wizard, and then click **Next** to download the software updates.  
-
-11. On the Completion page, verify that the software updates were successfully downloaded, and then click **Close**. --->
-
-#### <a name="to-monitor-content-status"></a>Para monitorizar o estado do conteúdo
-1. Para monitorizar o estado do conteúdo para as atualizações de software, clique em **monitorização** na consola do Configuration Manager.  
-
-2. Na área de trabalho Monitorização, expanda **Estado da Distribuição**e clique em **Estado do Conteúdo**.  
-
-3. Selecione o pacote de atualização de software que identificou anteriormente para transferir as atualizações de software do grupo de atualização de software.  
-
-4. No separador **Home Page** , no grupo **Conteúdo** , clique em **Ver Estado**.  
 
 ##  <a name="BKMK_4DeployUpdateGroup"></a> Passo 4: Implementar o grupo de atualização de software  
- Após identificar as atualizações de software que tenciona implementar e adicioná-las a um grupo de atualização de software, poderá implementar manualmente as atualizações de software do grupo de atualização de software. Utilize o seguinte procedimento para implementar manualmente as atualizações de software de um grupo de atualização de software.  
 
-#### <a name="to-manually-deploy-the-software-updates-in-a-software-update-group"></a>Para implementar manualmente as atualizações de software de um grupo de atualização de software  
+Depois de determinar as atualizações que pretende implementar e adicioná-los a um grupo de atualização de software, implemente manualmente o grupo de atualizações de software.  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+### <a name="process-to-manually-deploy-the-software-updates-in-a-software-update-group"></a>Processo para implementar manualmente as atualizações de software de um grupo de atualização de software  
 
-2.  Na área de trabalho Biblioteca de Software, expanda **Atualizações de Software**e clique em **Grupos de Atualização de Software**.  
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **atualizações de Software**e selecione o **grupos de atualização de Software** nó.  
 
-3.  Selecione o grupo de atualização de software que pretende implementar.  
+2.  Selecione o grupo de atualização de software que pretende implementar. Clique em **Deploy** na faixa de opções.   
 
-4.  No separador **Home Page**, no grupo **Implementação**, clique em **Implementar**. É aberto o **Assistente de Implementação de Atualização de Software** .  
+3.  Sobre o **gerais** página do Assistente de atualizações de Software implementar, configurar as seguintes definições:  
 
-5.  Na página Geral, configure as seguintes definições:  
+    -   **Nome**: Especifique o nome para a implementação. A implementação tem de ter um nome exclusivo que descreve a sua finalidade e distinga de outras implementações do site. Este campo de nome tem um limite de 256 carateres. Por predefinição, o Configuration Manager disponibiliza automaticamente um nome para a implementação no seguinte formato: `Microsoft Software Updates - YYYY-MM-DD <time>`  
 
-    -   **Nome**: Especifique o nome para a implementação. A implementação tem de ter um nome exclusivo que descreva o objetivo da implementação e que a distinga de outras implementações no site do Configuration Manager. Por predefinição, o Configuration Manager disponibiliza automaticamente um nome para a implementação no seguinte formato: **Atualizações de Software da Microsoft -** <*data*><*tempo*>  
+    -   **Descrição**: Especifique uma descrição para a implementação. A descrição é opcional, mas fornece uma descrição geral da implantação. Inclua outras informações relevantes que ajudem a identificar e diferenciá-lo entre outras, no site. O campo de descrição tem um limite de 256 carateres e tem um valor em branco por predefinição.  
 
-    -   **Descrição**: Especifique uma descrição para a implementação. A descrição disponibiliza uma descrição geral da implementação e outras informações relevantes que ajudem a identificar e distinguir a implementação das restantes no site do Configuration Manager. O campo de descrição é opcional, tem um limite de 256 caracteres e está em branco por predefinição.  
+    -   **Grupo de atualizações de Software/atualização de software**: Certifique-se de que o grupo de atualização de software apresentados ou atualização de software está correta.  
 
-    -   **Grupo de atualização de Software/da atualização de software**: Certifique-se de que o grupo de atualização de software apresentados ou atualização de software, está correta.  
+    -   **Selecione o modelo de implementação**: Especifique se pretende aplicar um modelo de implementação anteriormente guardado. Configure um modelo de implementação para guardar as propriedades de implementação de atualização de software comuns. Em seguida, aplica o modelo ao implementar atualizações de software no futuro. Estes modelos economizar tempo e ajudam a garantir a consistência entre implementações semelhantes.  
 
-    -   **Selecione o modelo de implementação**: Especifique se pretende aplicar um modelo de implementação anteriormente guardado. Pode configurar um modelo de implementação para incluir várias propriedades comuns de implementação de atualizações de software e, em seguida, aplicar o modelo para implementar atualizações de software subsequentes com a garantia de consistência entre implementações semelhantes e poupança de tempo.  
+    -   **Coleção**: Especifique a coleção para a implementação. Dispositivos da coleção recebem as atualizações de software nesta implementação.  
 
-    -   **Coleção**: Especifique a coleção para a implementação, conforme aplicável. Os membros da coleção recebem as atualizações de software definidas na implementação.  
+4.  Sobre o **definições de implementação** página, configure as seguintes definições:  
 
-6.  Na página Definições de Implementação, configure as seguintes definições:  
-
-    -   **Tipo de implementação**: Especifique o tipo de implementação para a implementação de atualização de software. Selecione **Necessário** para criar uma implementação de atualização de software obrigatória através da qual as atualizações de software são automaticamente instaladas nos clientes antes de um prazo de instalação configurado. Selecione **Disponível** para criar uma implementação de atualização de software opcional que estará disponível para ser instalada pelos utilizadores a partir do Centro de Software.  
+    -   **Tipo de implementação**: Especifique o tipo de implementação para a implementação de atualização de software.  
 
         > [!IMPORTANT]  
-        >  Após criar a implementação de atualização de software, não poderá alterar o tipo de implementação mais tarde.  
+        >  Depois de criar a implementação de atualização de software, não é possível alterar o tipo de implementação.  
+
+         - Selecione **necessário** para criar uma implementação de atualização de software obrigatórias. As atualizações de software são automaticamente instaladas nos clientes antes do prazo de instalação que configurar.  
+
+         - Selecione **disponível** para criar uma implementação de atualização de software opcional. Esta implementação está disponível para os usuários instalem a partir do Centro de Software.  
 
         > [!NOTE]  
-        >  Um grupo de atualização de software implementado como **Obrigatório** será transferido em segundo plano e irá cumprir as definições de BITS, se estiverem configuradas.  
-        > No entanto, os grupos de atualização de software implementados como **Disponível** serão transferidos em primeiro plano e irão ignorar as definições de BITS.  
+        >  Ao implementar um grupo de atualização de software como **necessário**, os clientes transferir o conteúdo em segundo plano e irá cumprir as definições de BITS, se configurado.  
+        > 
+        > Para atualização de software implementados como de grupos **disponível**, os clientes transfiram conteúdos em primeiro plano e ignorar as definições de BITS.  
 
-    -   **Utilizar a reativação por LAN para reativar os clientes para as implementações necessárias**: Especifique se pretende ativar a reativação por LAN na data limite para o envio de pacotes de reativação para computadores que necessitem de uma ou mais atualizações de software na implementação. Todos os computadores que se encontrarem no modo de suspensão na data limite de instalação serão reativados de modo a dar início à instalação da atualização de software. Os clientes que se encontrem no modo de suspensão e que não necessitem de quaisquer atualizações de software no âmbito da implementação não serão iniciados. Por predefinição, esta definição não está ativada e só estará disponível se **Tipo de implementação** estiver definido como **Necessário**.  
+    -   **Usar o Wake-on-LAN para reativar os clientes para as implementações necessárias**: Especifica se pretende ativar a reativação por LAN na data limite. Reativação por LAN envia pacotes de reativação para computadores que necessitem de uma ou mais atualizações de software na implementação. O site é reativado por todos os computadores que estejam no modo de suspensão quando for atingido o prazo de instalação, pelo que pode iniciar a instalação. Os clientes que estejam no modo de suspensão e que não necessitam de quaisquer atualizações de software na implementação não são iniciados. Por predefinição, esta definição não está ativada. Só está disponível para **necessário** implementações. Antes de utilizar esta opção, configure computadores e redes para reativação por LAN. Para obter mais informações, consulte [como configurar a reativação por LAN](/sccm/core/clients/deploy/configure-wake-on-lan).  
+
+    -   **Nível de detalhe**: Especifique o nível de detalhe para as mensagens de estado que os clientes reportam ao site.  
+
+5.  Sobre o **agendamento** página, configure as seguintes definições:  
+
+    -   **Avaliação da agenda**: Especifique o tempo que o Configuration Manager avalia o tempo disponível e o prazo de instalação. Opte por utilizar Hora Universal Coordenada (UTC) ou na hora local do computador que executa a consola do Configuration Manager.  
+
+        - Quando seleciona **hora local do cliente** aqui e, em seguida, selecione **logo que possível** para o **hora de disponibilização do Software**, a hora atual no computador com o Consola do Configuration Manager é utilizada para avaliar se as atualizações estiverem disponíveis. Este comportamento é o mesmo com o **prazo de instalação** e a hora quando as atualizações são instaladas num cliente. Se o cliente estiver num fuso horário diferente, estas ações ocorrem quando a hora do cliente atinge o tempo de avaliação.  
+
+    -   **Hora de disponibilização do software**: Selecione uma das seguintes definições para especificar quando as atualizações de software são disponibilizadas aos clientes:  
+
+        -   **Assim que possível**: Disponibiliza as atualizações de software na implementação aos clientes logo que possível. Quando criar a implementação com esta definição selecionada, o Configuration Manager atualiza a política de cliente. A política de cliente próximo ciclo de consulta, os clientes estarão informados da implementação e as atualizações de software estão disponíveis para instalação.  
+
+        -   **Hora específica**: Torna as atualizações de software incluídas na implementação aos clientes numa data e hora específicas. Quando criar a implementação com esta definição ativada, o Configuration Manager atualiza a política de cliente. A política de cliente próximo ciclo de consulta, os clientes estarão informados da implementação. No entanto, as atualizações de software na implementação não estão disponíveis para instalação após a data e hora configuradas.  
+
+    -   **Prazo de instalação**: Estas opções só estão disponíveis para **necessário** implementações. Selecione uma das seguintes definições para especificar o prazo de instalação das atualizações de software da implementação  
+
+        -   **Assim que possível**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação logo que possível.  
+
+        -   **Hora específica**: Selecione esta definição para instalar automaticamente as atualizações de software da implementação numa hora e data específicas.  
+
+            - O prazo da instalação real é apresentada acrescida além de um período de tempo aleatório de até duas horas. O recurso aleatório reduz o impacto potencial de clientes na coleção de instalação de atualizações na implementação ao mesmo tempo.   
+
+            - Para desativar o atraso de aleatoriedade da instalação de atualizações de software necessárias, configure o definição de cliente **desativar a aleatoriedade de prazos** no **agente do computador** grupo. Para obter mais informações, consulte [definições do agente do computador cliente](/sccm/core/clients/deploy/about-client-settings#computer-agent).  
+
+    -  **Trasar imposição para esta implementação, de acordo com as preferências do usuário, até o período de tolerância definido nas definições de cliente**: Ative esta definição dar aos utilizadores mais tempo para instalar atualizações de software necessárias para além do prazo.  
+
+        - Este comportamento é normalmente exigido quando um computador estiver desativado para muito tempo e tem de instalar várias atualizações de software ou aplicativos. Por exemplo, quando um usuário retorna de férias, têm de aguardar por muito tempo, pois o cliente instala implementações em atraso.  
+
+        - Configure este período de tolerância com a propriedade **período de tolerância para a imposição de após a implementação do prazo (horas)** nas definições do cliente. Para obter mais informações, consulte a [agente do computador](/sccm/core/clients/deploy/about-client-settings#computer-agent) secção. O período de tolerância de imposição aplica-se a todas as implementações com esta opção ativada e direcionadas para dispositivos em que implementou também a definição de cliente.  
+
+        - Após o prazo, o cliente instala as atualizações de software na primeira janela não comerciais, que o utilizador configurado, até esse período de tolerância. No entanto, o utilizador ainda pode abrir o Centro de Software e instalar as atualizações de software em qualquer altura. Assim que o período de tolerância expirar, imposição reverte para o comportamento normal para implementações em atraso.  
+
+6.  Sobre o **experiência de utilizador** página, configure as seguintes definições:  
+
+    -   **Notificações do utilizador**: Especifique se pretende apresentar a notificação no Centro de Software em configurada **hora de disponibilização do Software**. Esta definição controla se é necessário notificar os utilizadores nos computadores cliente. Para **disponível** implementações, não é possível selecionar a opção de **ocultar no Centro de Software e em todas as notificações**.  
+
+    -   **Comportamento do prazo**: Esta definição só é configurável para **necessário** implementações. Especifica os comportamentos para quando o software atualizar implementação atingir o prazo de fora de quaisquer janelas de manutenção definida. As opções incluem se pretende instalar as atualizações de software e se pretende executar um sistema de reinício após a instalação. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+
+    -   **Comportamento do reinício do dispositivo**: Esta definição só é configurável para **necessário** implementações. Especifique se pretende suprimir um reinício de sistema nos servidores e estações de trabalho se uma reinicialização é necessária para concluir a instalação da atualização.  
 
         > [!WARNING]  
-        >  Para poder utilizar esta opção, os computadores e redes terão de estar configurados para Reativação por LAN.  
+        >  A supressão dos reinícios de sistema pode ser útil em ambientes de servidor, ou quando não quiser que os computadores de destino sejam reiniciados por predefinição. No entanto, este método pode deixar computadores num Estado não seguro. Permitir que um ajuda de reinício forçado garantir conclusão imediata da instalação de atualização de software.  
 
-    -   **Nível de detalhe**: Especifique o nível de detalhe para as mensagens de estado que são enviadas pelos computadores cliente.  
+    -   **Processamento para dispositivos Windows Embedded do filtro de escrita**: Esta definição controla o comportamento de instalação em dispositivos Windows Embedded que estão ativados com um filtro de escrita. Escolha a opção para consolidar as alterações no prazo de instalação ou durante uma janela de manutenção. Quando seleciona esta opção, é necessário um reinício e as alterações sejam mantidas no dispositivo. Caso contrário, a atualização é instalada, aplicada na sobreposição temporária e confirmada posteriormente.  
 
-7.  Na página Agendamento, configure as seguintes definições:  
+        -  Ao implementar uma atualização de software num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada.  
 
-    -   **Avaliação da agenda**: Especifique se o tempo disponível e tempos de prazo de instalação serão avaliados de acordo com a hora UTC ou na hora local do computador que executa a consola do Configuration Manager.  
+    - **Comportamento de reavaliação de implementação após o reinício de atualizações de software**: Selecione esta definição para configurar as implementações de atualizações de software para que os clientes executem uma análise de compatibilidade de atualizações de software imediatamente após um cliente, instala as atualizações de software e reinicializações. Esta definição permite que o cliente Verifique a existência de atualizações adicionais que se tornam aplicáveis após o cliente é reiniciado, em seguida, instala-os durante a mesma janela de manutenção.  
 
-        > [!NOTE]  
-        >  Quando selecionar a hora local e, em seguida, selecione **logo que possível** para o **hora de disponibilização do Software** ou **prazo de instalação**, a hora atual da execução de computador, a consola do Configuration Manager é utilizada para calcular quando estão disponíveis atualizações ou quando são instaladas num cliente. Se o cliente tiver um fuso horário diferente, estas ações irão ocorrer quando a hora do cliente corresponder à hora de avaliação.  
+7. Sobre o **alertas** página, configure a forma como o Configuration Manager gera alertas para esta implementação. Alertas do Configuration Manager de atualizações de software recente de revisão da **atualizações de Software** nó da **biblioteca de Software** área de trabalho. Se também estiver a utilizar o System Center Operations Manager, configure os seus alertas também. Apenas configurar alertas para **necessário** implementações.  
 
-    -   **Hora de disponibilização do software**: Selecione uma das seguintes definições para especificar quando as atualizações de software serão disponibilizadas aos clientes:  
-
-        -   **Logo que possível**: Selecione esta definição para disponibilizar as atualizações de software na implementação aos clientes logo que possível. Quando a implementação é criada, a política de cliente é atualizada, os clientes são notificados sobre a implementação durante o respetivo ciclo seguinte de consulta de política de cliente e, em seguida, as atualizações de software são disponibilizadas para instalação.  
-
-        -   **Hora específica**: Selecione esta definição para disponibilizar as atualizações de software na implementação aos clientes numa hora e data específicas. Quando a implementação é criada, a política de cliente é atualizada e os clientes são notificados da implementação durante o respetivo ciclo seguinte de consulta de política de cliente. No entanto, as atualizações de software da implementação não estarão disponíveis para instalação antes da data e hora especificadas.  
-
-    -   **Prazo de instalação**: Selecione uma das seguintes definições para especificar o prazo de instalação para as atualizações de software da implementação.  
-
-        > [!NOTE]  
-        >  Só pode configurar a definição do prazo de instalação se **Tipo de implementação** estiver definido como **Necessário** na página Definições de Implementação.  
-
-        -   **Logo que possível**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação logo que possível.  
-
-        -   **Hora específica**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação numa hora e data específicas.  
-
-        > [!NOTE]  
-        >  O prazo instalação real corresponderá à hora específica que configurar, acrescida de um período de tempo aleatório de até 2 horas. Desta forma, reduzirá o impacto potencial da instalação das atualizações de software da implementação ao mesmo tempo em todos os computadores cliente da coleção de destino.  
-        >   
-        >  Pode configurar a definição de cliente **Agente do Computador** , **Desativar a aleatoriedade de prazos** para desativar o atraso de aleatoriedade da instalação para as atualizações de software necessárias. Para obter mais informações, veja [Agente do Computador](../../core/clients/deploy/about-client-settings.md#computer-agent).  
-
-8.  Na página Experiência de Utilizador, configure as seguintes definições:  
-
-    -   **As notificações de utilizador**: Especifique se pretende apresentar a notificação de atualizações de software no Centro de Software no computador cliente à configurada **hora de disponibilização do Software** e se pretende apresentar as notificações de utilizador nos computadores cliente. Se **Tipo de implementação** estiver definido como **Disponível** na página Definições de Implementação, não poderá selecionar **Ocultar no Centro de Software e em todas as notificações**.  
-
-    -   **Comportamento do prazo**: Disponível apenas quando **tipo de implementação** está definido como **necessário** na página de definições de implementação.   
-    Especifique o comportamento a adotar quando é atingido o prazo para a implementação de atualização de software. Especifique se pretende instalar as atualizações de software da implementação. Especifique também se pretende reiniciar o sistema após a instalação da atualização de software, independentemente de uma janela de manutenção configurada. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
-
-    -   **Comportamento de reinício do dispositivo**: Disponível apenas quando **tipo de implementação** está definido como **necessário** na página de definições de implementação.    
-    Especifique se pretende suprimir um reinício do sistema em servidores e estações de trabalho após as atualizações de software estão instaladas e reiniciar o sistema é necessário para concluir a instalação.  
-
-        > [!IMPORTANT]  
-        >  A supressão dos reinícios de sistema pode ser útil em ambientes de servidor ou em casos em que não pretenda que os computadores que instalam as atualizações de software sejam reiniciados por predefinição. No entanto, este método pode deixar os computadores num estado não seguro, enquanto que um reinício forçado ajudará a assegurar a conclusão imediata da instalação da atualização de software.
-
-    -   **Para dispositivos Windows Embedded de processamento do filtro de escrita**: Quando implementa atualizações de software em dispositivos Windows Embedded que tenham o filtro de escrita ativado, pode especificar a instalar a atualização de software na sobreposição temporária e ou confirmar as alterações mais tarde ou por confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
-
-        > [!NOTE]  
-        >  Ao implementar uma atualização de software num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada.  
-
-    - **Comportamento de reavaliação de implementação após o reinício de atualizações de software**: A partir do Configuration Manager versão 1606, selecione esta definição para configurar as implementações de atualizações de software para que os clientes executem uma análise de compatibilidade de atualizações de software imediatamente após um cliente instalar o software, atualizações e reinicia. Isto permite ao cliente verificar a existência de atualizações de software adicionais que se tornam aplicáveis após o cliente ser reiniciado e, em seguida, instalá-las (e ficam em conformidade) durante a mesma janela de manutenção.
-
-9. Na página alertas, configure o Configuration Manager e o System Center Operations Manager gerarão alertas para esta implementação. Só poderá configurar alertas quando o **Tipo de implementação** está definido como **Necessário** na página Definições de Implementação.  
+8. Sobre o **definições de transferência** página, configure as seguintes definições:  
 
     > [!NOTE]  
-    >  Pode rever os alertas de atualizações de software recentes a partir do nó **Atualizações de Software** da área de trabalho **Biblioteca de Software** .  
+    >  Os clientes solicitam a localização de conteúdo a partir de um ponto de gestão para as atualizações de software de uma implementação. O comportamento de transferência dependerá de como configurou o ponto de distribuição, o pacote de implementação e as definições nesta página.  
 
-10. Na página Definições de Transferência, configure as seguintes definições:  
+    - Especifique se os clientes devem transferir e instalar as atualizações quando estiverem a utilizar um ponto de distribuição de um vizinho ou os grupos de limites de site padrão.  
 
-    - Especifique se o cliente irá transferir e instalar as atualizações de software quando estiver ligado a uma rede lenta ou estiver a utilizar uma localização de conteúdos de contingência.  
+    - Especifique se os clientes devem transferir e instalar as atualizações a partir de um ponto de distribuição no grupo de limite predefinido do site, quando o conteúdo para o software das atualizações não está disponível num ponto de distribuição no atual ou os grupos de limites de vizinho.  
 
-    - Especifique se pretende que o cliente transfira e instale as atualizações de software a partir de um ponto de distribuição de contingência quando o conteúdo das atualizações de software não estiver disponível num ponto de distribuição preferencial.  
+    - **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Especifique se pretende ativar a utilização do BranchCache para transferências de conteúdos. Para obter mais informações, consulte [BranchCache](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#branchcache). A partir da versão 1802, BranchCache está sempre ativada nos clientes. Esta definição for removida, como os clientes utilizam o BranchCache, se o ponto de distribuição suportar.  
 
-    - **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Especifique se pretende ativar a utilização do BranchCache para as transferências de conteúdos. Para obter mais informações sobre o BranchCache, consulte [conceitos fundamentais da gestão de conteúdos](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    - **Se as atualizações de software não estão disponíveis no ponto de distribuição na atual, vizinho ou do site de grupos de limite, transfira o conteúdo do Microsoft Updates**: Selecione esta definição para que os clientes ligados à intranet transferir atualizações de software do Microsoft Update, se as atualizações não estão disponíveis em pontos de distribuição. Clientes baseados na Internet sempre aceder ao Microsoft Update para atualizações de software, conteúdas.
 
-    - **Se as atualizações de software não estão disponíveis no ponto de distribuição na atual, vizinho ou site grupos, transferir conteúdo do Microsoft Updates**: Selecione esta definição para que os clientes que estão ligados as intranet transferir as atualizações de software do Microsoft Update caso as atualizações de software não estejam disponíveis nos pontos de distribuição. Os clientes baseados na Internet podem sempre aceder ao Microsoft Update para o conteúdo de atualizações de software.
+    - Especifique se pretende permitir que os clientes transfiram após um prazo de instalação quando estiverem a utilizar de ligações à internet limitadas. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando estiver numa ligação limitada.  
 
-    - Especifique se pretende permitir que os clientes efetuem a transferência após um prazo de instalação se estiverem a utilizar ligações à Internet com tráfego limitado. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.  
+9. Sobre o **pacote de implementação** página, selecione uma das seguintes opções:  
 
-    > [!NOTE]  
-    >  Os clientes solicitam a localização de conteúdo a partir de um ponto de gestão para as atualizações de software de uma implementação. O comportamento de transferência dependerá do modo como tiver configurado o ponto de distribuição, o pacote de implementação e as definições nesta página. Para obter mais informações, veja [Cenários de localização da origem de conteúdo](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+    > [!Note]  
+    > Se já realizou [passo 3: Transferir o conteúdo para o grupo de atualizações de software](#BKMK_3DownloadContent), em seguida, o assistente não apresenta o **pacote de implementação**, **pontos de distribuição**, e **deseleçãodeidioma** páginas. Avance para o [resumo](#bkmk_summary) página do assistente.  
+    > 
+    >  Atualizações de software que tenham sido anteriormente transferidas para a biblioteca de conteúdos no servidor do site não são transferidas novamente. Este comportamento é verdadeiro, mesmo quando cria um novo pacote de implementação das atualizações de software. Se já tiverem sido transferidas todas as atualizações de software, o assistente avançará para a [resumo](#bkmk_summary) página.  
 
-11. Se tiver efetuado [passo 3: Transferir o conteúdo para o grupo de atualização de software](#BKMK_3DownloadContent), em seguida, as páginas pacote de implementação, pontos de distribuição e seleção de idioma não serão apresentadas e poderá avançar para o passo 15 do assistente.  
+    - **Selecione um pacote de implementação**: Adicione estas atualizações a um pacote de implementação existente.  
 
-    > [!IMPORTANT]  
-    >  As atualizações de software que tenham sido anteriormente transferidas para a biblioteca de conteúdos do servidor do site não serão transferidas novamente. Tal não acontecerá, mesmo que crie um novo pacote de implementação para as atualizações de software. Se já tiverem sido transferidas anteriormente todas as atualizações de software, o assistente avançará para a página **Seleção de Idioma** (passo 15).  
+    - **Criar um novo pacote de implementação**: Adicione estas atualizações para um novo pacote de implementação. Configure as seguintes definições adicionais:  
 
-12. Na página Pacote de Implementação, selecione um pacote de implementação existente ou configure as seguintes definições para especificar um novo pacote de implementação:  
+        -  **Nome**: Especifique o nome do pacote de implementação. Utilize um nome exclusivo que descreve o conteúdo do pacote. É limitado a 50 carateres.  
 
-    1.  **Nome**: Especifique o nome do pacote de implementação. Tem de ser um nome exclusivo que descreva o conteúdo do pacote. Está limitado a 50 carateres.  
+        -  **Descrição**: Especifique uma descrição que disponibilize informações sobre o pacote de implementação. A descrição opcional é limitada a 127 carateres.  
 
-    2.  **Descrição**: Especifique uma descrição que disponibilize informações sobre o pacote de implementação. A descrição está limitada a 127 caracteres.  
+        -  **Origem do pacote**: Especifique a localização dos ficheiros de origem de atualização de software. Escreva um caminho de rede para a localização de origem, por exemplo, `\\server\sharename\path`, ou clique em **procurar** para procurar a localização de rede. Crie a pasta partilhada para os ficheiros de origem do pacote de implementação antes de continuar para a página seguinte.  
 
-    3.  **Origem do pacote**: Especifique a localização dos ficheiros de origem de atualização de software.  Escreva um caminho de rede para a localização de origem, como, por exemplo, **\\\server\sharename\path**ou clique em **Procurar** para procurar a localização de rede. Antes de continuar para a página seguinte, terá de criar a pasta partilhada para os ficheiros de origem do pacote de implementação.  
+            - Não é possível utilizar a localização especificada como a fonte de outro pacote de implementação de software.  
 
-        > [!NOTE]  
-        >  A localização de origem do pacote de implementação que especificar não poderá ser utilizada por outro pacote de implementação de software.  
+            - Pode alterar a localização de origem do pacote nas propriedades do pacote de implementação depois do Configuration Manager cria o pacote de implementação. Se o fizer, primeiro copie o conteúdo da origem do pacote original para a nova localização de origem do pacote.  
 
-        > [!IMPORTANT]  
-        >  Tanto a conta de computador do Fornecedor de SMS, como o utilizador que executar o assistente para transferir as atualizações de software, têm de ter permissões NTFS de **Escrita** na localização de transferência. Deverá restringir cuidadosamente o acesso à localização de transferência para reduzir o risco de adulteração dos ficheiros de origem de atualização de software por parte de atacantes.  
+            -  A conta de computador do fornecedor de SMS e o utilizador que está a executar o Assistente para transferir as atualizações de software terão de ter **escrever** permissões para a localização de transferência. Restringir o acesso à localização de transferência. Esta restrição reduz o risco dos atacantes adulterar os ficheiros de origem de atualização de software.  
 
-        > [!IMPORTANT]  
-        >  Pode alterar a localização de origem do pacote nas propriedades do pacote de implementação, após o Configuration Manager cria o pacote de implementação. Mas se o fizer, terá primeiro de copiar o conteúdo da origem inicial do pacote para a nova localização de origem do pacote.  
+        -  **Prioridade de envio**: Especifique a prioridade de envio para o pacote de implementação. O Configuration Manager utiliza essa prioridade quando envia o pacote para pontos de distribuição. Pacotes de implementação são enviados por ordem de prioridade: elevada, média ou baixa. Os pacotes com prioridades idênticas são enviados pela ordem em que foram criados. Se não houver nenhum registo de segurança, o pacote de processos imediatamente, independentemente de sua prioridade.  
 
-    4.  **Prioridade de envio**: Especifique a prioridade de envio para o pacote de implementação. O Configuration Manager utiliza a prioridade de envio para o pacote de implementação quando enviar o pacote para pontos de distribuição. Pacotes de implementação são enviados por ordem de prioridade: Alta, média ou baixa. Os pacotes com prioridades idênticas são enviados pela ordem em que foram criados. Se não existirem tarefas pendentes, o pacote será processado de imediato, independentemente da sua prioridade.  
+        - **Ativar a replicação diferencial de binários**: Ative esta definição para minimizar o tráfego de rede entre sites. Replicação diferencial binária (BDR) apenas atualiza o conteúdo que foi alterado no pacote, em vez de atualizar o conteúdo do pacote inteiro. Para obter mais informações, consulte [replicação de diferencial binário](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#binary-differential-replication).  
 
-13. Na página Pontos de Distribuição, especifique os pontos de distribuição ou grupos de pontos de distribuição que irão alojar os ficheiros de atualização de software. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
+    - **Nenhum pacote de implementação**: A partir da versão 1806, implemente atualizações de software em dispositivos sem primeiro baixar e distribuir conteúdo para pontos de distribuição. Esta definição é benéfica ao lidar com conteúdo da atualização extremamente grandes. Também usá-lo quando pretender que sempre clientes a obter o conteúdo do serviço de nuvem do Microsoft Update. Os clientes neste cenário também podem transferir o conteúdo de elementos que já tenham o conteúdo necessário. O cliente continua a gerir a transferência do conteúdo, o Configuration Manager, portanto, pode utilizar a funcionalidade de cache ponto a ponto do Configuration Manager ou outras tecnologias, como a Otimização da entrega. Esta funcionalidade suporta qualquer tipo de atualização suportado pela gestão de atualizações de software do Configuration Manager, incluindo o Windows e atualizações do Office.<!--1357933-->  
 
-14. Na página Localização de Transferência, especifique se pretende transferir os ficheiros de atualização de software a partir da Internet ou da rede local. Configure as seguintes definições:  
+10. Sobre o **pontos de distribuição** página, especifique os pontos de distribuição ou grupos para alojar o software de ficheiros de atualização de ponto de distribuição. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).  
 
-    -   **Transferir atualizações de software a partir da Internet**: Selecione esta definição para transferir as atualizações de software a partir de uma localização especificada na Internet. Esta definição está ativada por predefinição.  
+    > [!Note]  
+    > Se já realizou [passo 3: Transferir o conteúdo para o grupo de atualizações de software](#BKMK_3DownloadContent), em seguida, o assistente não apresenta o **pacote de implementação**, **pontos de distribuição**, e **deseleçãodeidioma** páginas. Avance para o [resumo](#bkmk_summary) página do assistente.  
 
-    -   **Transferir atualizações de software a partir de uma localização na rede local**: Selecione esta definição para transferir as atualizações de software a partir de uma pasta local ou a pasta de rede partilhada. Esta definição é útil se o computador que executa o assistente não tiver acesso à Internet. As atualizações de software serão provisoriamente transferidas a partir de qualquer computador que tenha acesso à Internet e armazenadas numa localização da rede local para posterior acesso para efeitos de instalação.  
+11. Sobre o **localização de transferência** página, especifique se pretende transferir os ficheiros de atualização de software da internet ou da rede local. Configure as seguintes definições:  
 
-15. Na página Seleção de Idioma, selecione os idiomas para os quais serão transferidas as atualizações de software selecionadas. As atualizações de software apenas são transferidas se estiverem disponíveis nos idiomas selecionados. As atualizações de software que não sejam específicas do idioma serão sempre transferidas. Por predefinição, o assistente seleciona os idiomas que tiver configurado nas propriedades do ponto de atualização de software. Terá de estar selecionado pelo menos um idioma para que possa prosseguir para a página seguinte. Se selecionar apenas idiomas que não sejam suportados por uma atualização de software, a transferência da atualização de software não será concluída com êxito.  
+    -   **Transferir atualizações de software a partir da internet**: Selecione esta definição para transferir as atualizações de software a partir de uma localização especificada na internet. Esta definição está ativada por predefinição.  
 
-16. Reveja as definições na página Resumo. Para guardar as definições num modelo de implementação, clique em **Guardar Como Modelo**, introduza um nome, selecione as definições que pretende incluir no modelo e, em seguida, clique em **Guardar**. Para alterar uma definição configurada, clique na página do assistente associada e altere a definição.  
+    -   **Transferir atualizações de software a partir de uma localização na rede local**: Selecione esta definição para transferir as atualizações de software a partir de um diretório local ou uma pasta compartilhada. Esta definição é útil quando o computador que executa o assistente não tem acesso à internet. Qualquer computador com acesso à internet provisoriamente pode transferir as atualizações de software. Em seguida, armazená-las numa localização na rede local que seja acessível ao computador que executa o assistente.  
 
-    > [!WARNING]  
-    >  O nome do modelo pode incluir carateres ASCII alfanuméricos, bem como **\\** (barra invertida) ou **‘** (plica).  
+12. Sobre o **seleção de idioma** , selecione os idiomas para o qual o site transfere as atualizações de software selecionadas. O site transfere apenas essas atualizações se elas estão disponíveis nos idiomas selecionados. Atualizações de software que não são específicas do idioma serão sempre transferidas. Por predefinição, o assistente seleciona os idiomas que configurou nas propriedades do ponto de atualização de software. Terá de estar selecionado pelo menos um idioma para que possa prosseguir para a página seguinte. Se selecionar apenas idiomas que não suporta uma atualização de software, o download falha para a atualização.  
+
+    > [!Note]  
+    > Se já realizou [passo 3: Transferir o conteúdo para o grupo de atualizações de software](#BKMK_3DownloadContent), em seguida, o assistente não apresenta o **pacote de implementação**, **pontos de distribuição**, e **deseleçãodeidioma** páginas. Avance para o [resumo](#bkmk_summary) página do assistente.  
+
+13. <a name="bkmk_summary"></a> Sobre o **resumo** , reveja as definições. Para guardar as definições de um modelo de implementação, clique em **guardar como modelo**. Introduza um nome e selecione as definições que pretende incluir no modelo, em seguida, clique em **guardar**. Para alterar uma definição configurada, clique na página do assistente associada e altere a definição.  
+
+    -  O nome do modelo pode consistir em carateres ASCII alfanuméricos, bem como `\` (barra invertida) ou `'` (plica).  
 
 17. Clique em **Seguinte** para implementar a atualização de software.  
 
- Depois de concluir o assistente, o Configuration Manager transfere o software de atualizações para a biblioteca de conteúdos no servidor do site, distribui as atualizações de software aos pontos de distribuição configurados e, em seguida, implementa o software de grupo de atualização para os clientes na coleção de destino. Para obter mais informações sobre o processo de implementação, veja [Processo de implementação de atualizações de software](../understand/software-updates-introduction.md#BKMK_DeploymentProcess).
+ Depois de concluir o assistente, o Configuration Manager transfere as atualizações de software para a biblioteca de conteúdos no servidor do site. Em seguida, distribui o conteúdo para pontos de distribuição configurados e implementa o grupo de atualizações de software a clientes da coleção de destino. Para obter mais informações sobre o processo de implementação, veja [Processo de implementação de atualizações de software](/sum/understand/software-updates-introduction#BKMK_DeploymentProcess).  
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 [Monitorizar atualizações de software](monitor-software-updates.md)
