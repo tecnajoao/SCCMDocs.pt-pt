@@ -1,7 +1,7 @@
 ---
-title: Definir limites
+title: Defina limites
 titleSuffix: Configuration Manager
-description: Compreenda como definem localizações de rede na sua intranet que pode conter dispositivos que pretende gerir.
+description: Aprenda a definir localizações de rede na sua intranet que pode conter dispositivos que pretende gerir.
 ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,33 +10,33 @@ ms.assetid: 4a9dc4d9-e114-42ec-ae2b-73bee14ab04f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1e27bce7576f6d96a8e8af95fa5df69dd39c05cd
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 060d15ce396a8d062164c7971d1c90ee583414bb
+ms.sourcegitcommit: aa610a806f9680753f4d0c0c385357fad51f5fd3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32344335"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39401166"
 ---
 # <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Definir localizações de rede como limites para o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Limites de Gestor de configuração são localizações na sua rede que contém dispositivos que pretende gerir. O limite de que um dispositivo estiver numa é equivalente ao site do Active Directory ou o endereço IP de rede que é identificado pelo cliente Configuratoin Manager que está instalado no dispositivo.
+Limites do Configuration Manager são locais na sua rede que contêm dispositivos que pretende gerir. O limite de que um dispositivo estiver numa é equivalente ao site do Active Directory ou endereço IP de rede que esteja identificado pelo cliente do Configuration Manager que está instalado no dispositivo.
  - Pode criar manualmente limites individuais. No entanto, o Configuration Manager não suporta a introdução direta de uma super-rede como um limite. Em vez disso, utilize o tipo de limite de intervalo de endereços IP.
  - Pode configurar o [deteção de floresta do Active Directory](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest) método para detetar automaticamente e criar limites para cada sub-rede IP e Site do Active Directory que Deteta. Quando a deteção de floresta do Active Directory identifica uma super-rede atribuída a um site do Active Directory, o Configuration Manager converte a Super-rede num limite de intervalo de endereços IP.  
 
-Não é invulgar para um dispositivo utilizar um endereço IP que não tem conhecimento de administrador do Configuration Manager. Quando a localização de rede de um dispositivo está em dúvida, confirme que o dispositivo relata como localização, utilizando o **IPCONFIG** comando no dispositivo.  
+Não é incomum para um dispositivo utilizar um endereço IP que não está ciente do administrador do Configuration Manager. Quando a localização de rede de um dispositivo estiver em dúvida, confirme que o dispositivo comunica como a localização, utilizando o **IPCONFIG** comando no dispositivo.  
 
-Quando cria um limite, este recebe automaticamente um nome baseado no tipo e no âmbito do limite. Não é possível modificar este nome. Em vez disso, pode especificar uma descrição para ajudar a identificar o limite na consola do Configuration Manager.  
+Quando cria um limite, este recebe automaticamente um nome baseado no tipo e no âmbito do limite. Não é possível modificar este nome. Em vez disso, pode especificar uma descrição para o ajudar a identificar o limite na consola do Configuration Manager.  
 
-Cada limite está disponível para utilização por todos os sites na sua hierarquia. Depois de ter sido criado um limite, pode modificar as suas propriedades para fazer o seguinte:  
+Cada limite está disponível para todos os sites na sua hierarquia. Depois de ter sido criado um limite, pode modificar as respetivas propriedades para fazer o seguinte:  
 -   Adicionar o limite a um ou mais grupos de limites.  
 -   Alterar o tipo ou o âmbito do limite.  
 -   Consulte o separador **Sistemas de Sites** dos limites para verificar que servidores do sistema de sites (pontos de distribuição, pontos de migração de estado e pontos de gestão) estão associados ao limite.  
 
 ## <a name="to-create-a-boundary"></a>Para criar um limite  
 
-1.  Na consola do Configuration Manager, clique em **administração** > **configuração da hierarquia** > **limites**  
+1.  Na consola do Configuration Manager, clique em **Administration** > **configuração da hierarquia** > **limites**  
 
 2.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Boundary**.  
 
@@ -61,7 +61,7 @@ Cada limite está disponível para utilização por todos os sites na sua hierar
 
 ## <a name="to-configure-a-boundary"></a>Para configurar um limite  
 
-1.  Na consola do Configuration Manager, clique em **administração** > **configuração da hierarquia** > **limites**  
+1.  Na consola do Configuration Manager, clique em **Administration** > **configuração da hierarquia** > **limites**  
 
 2.  Selecione o limite que pretende modificar.  
 
