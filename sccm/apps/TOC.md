@@ -20,12 +20,14 @@
 
 ## Implementar aplicações
 ### [Implementar aplicações](deploy-use/deploy-applications.md)
+### [Criar uma implementação faseada](../osd/deploy-use/create-phased-deployment-for-task-sequence.md?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json)
 ### [Partilhar uma aplicação](deploy-use/share-applications.md)
 ### [Simular implementações de aplicações](deploy-use/simulate-application-deployments.md)
 ### [Implementar aplicações virtuais App-V](get-started/deploying-app-v-virtual-applications.md)
 
 ## Monitorizar aplicações
 ### [Monitorizar aplicações a partir da consola](deploy-use/monitor-applications-from-the-console.md)
+### [Gerir e monitorizar as implementações faseadas](../osd/deploy-use/manage-monitor-phased-deployments.md?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json)
 ### [Monitorizar a utilização da aplicação com a medição de software](deploy-use/monitor-app-usage-with-software-metering.md)
 
 ## Gerir aplicações
