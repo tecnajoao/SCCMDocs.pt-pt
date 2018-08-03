@@ -2,7 +2,7 @@
 title: Ponto de ligação de serviço
 titleSuffix: Configuration Manager
 description: Saiba mais sobre esta função de sistema de sites do Configuration Manager e compreenda e planeie as várias utilizações.
-ms.date: 07/05/2018
+ms.date: 08/01/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6002c077ae0a8e34f35a9d0e36d02f5950946bde
-ms.sourcegitcommit: 73b241a72db8f8f3bd7e269fc81ad49e14f01058
+ms.openlocfilehash: 560fa3480f00811f325eb22dda439facac36e6e4
+ms.sourcegitcommit: 6e0e5b4b7779ce03e2b56b3b5f68f4ace1acedd8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843292"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39467679"
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Acerca do ponto de ligação de serviço no System Center Configuration Manager
 
@@ -80,6 +80,9 @@ Para utilizar o Gestor de serviço do Configuration Manager, na consola do aceda
 
 ##  <a name="bkmk_urls"></a> Requisitos de acesso de Internet  
 Para ativar a operação, o computador que aloja o ponto de ligação de serviço e todas as firewalls entre esse computador e a internet tem de passar comunicações através da porta de saída **TCP 443** para HTTPS e a porta de saída  **TCP 80** para HTTP para o abaixo localizações de internet. A serviço do ponto de ligação também suporta a utilização de um proxy web (com ou sem autenticação) para utilizar estas localizações.  Se precisar de configurar uma conta de proxy web consulte: [Suporte de servidor proxy no System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
+
+> [!TIP]
+> O ponto de ligação de serviço utiliza o serviço Microsoft Intune ao ligar http://go.Microsoft.com ou http://manage.Microsoft.com. Existe um problema conhecido no qual o conector do Intune apresentar problemas de conectividade se o certificado de raiz Baltimore CyberTrust não está instalado, expirou ou está danificado no sistema de sites do Configuration Manager com a função de ponto de ligação de serviço instalado. Para obter mais informações, consulte [ponto de ligação de serviço do Configuration Manager não transferir as atualizações](https://support.microsoft.com/help/3187516).
 
 **As atualizações e manutenção**  
 

@@ -10,12 +10,12 @@ ms.assetid: 946b0f74-0794-4e8f-a6af-9737d877179b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0614a82e4f1060a6d6cbfb487ac11faf8b563e3d
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: a50aa9d2269830fa09c494c63c7681f1dbda3cc0
+ms.sourcegitcommit: 6e0e5b4b7779ce03e2b56b3b5f68f4ace1acedd8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39387159"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39467594"
 ---
 # <a name="enable-third-party-updates"></a>Ativar as atualizações de terceiros 
 
@@ -122,8 +122,9 @@ Ao subscrever um catálogo de terceiros na consola do Configuration Manager, os 
 1. Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho. Expanda **atualizações de Software** e selecione o **catálogos de atualizações de Software de terceiros** nó.  
 2. Selecione o catálogo para subscrever e clique em **subscrever catálogo** na faixa de opções. 
     ![Atualizações de terceiros Adicionar catálogo personalizado](media/third-party-updates-subscribe.png)
-1. Rever e aprovar o certificado de catálogo.
+1. Rever e aprovar o certificado de catálogo.  
     >[!NOTE]
+    
     > Ao subscrever um catálogo de atualização de software de terceiros, o certificado que rever e aprovar no assistente é adicionado ao site. Este certificado é do tipo **catálogo de atualizações de Software de terceiros**. Pode gerenciá-lo a partir do **certificados** no nó **segurança** no **administração** área de trabalho.  
 2. Conclua o assistente. Depois da subscrição inicial, o catálogo deve começar a transferir dentro de alguns minutos. 
     - O catálogo sincroniza automaticamente a cada 7 dias.
