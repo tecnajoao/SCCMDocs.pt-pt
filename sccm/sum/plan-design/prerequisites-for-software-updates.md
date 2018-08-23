@@ -41,7 +41,7 @@ Quando tiver vários pontos de atualização de software num site, certifique-se
 > [!WARNING]  
 >  O **atualizações** classificação de atualizações de software só é suportada ao iniciar com WSUS 4.0. Antes de sincronizar esta nova classificação e ter a capacidade de avaliar computadores Windows 10 no plano de manutenção do Windows 10, é fundamental que instale [correção 3095113](https://support.microsoft.com/kb/3095113) para o WSUS no seu software da atualização de pontos e site servidores. Esta correção ativa o WSUS num servidor baseado no Windows Server 2012 ou um servidor baseado no Windows Server 2012 R2 para sincronizar e distribuir atualizações de funcionalidades para o Windows 10. Para obter mais informações, consulte [gerir o Windows como um serviço](../../osd/deploy-use/manage-windows-as-a-service.md).  
 >   
->  Se sincronizar atualizações de software com a classificação **Atualizações** antes de instalar a [correção 3095113](https://support.microsoft.com/kb/3095113), veja [Recover from synchronizing the Atualizações category before you install KB 3095113](#BKMK_RecoverUpgrades).  
+>  Se sincronizar atualizações de software com a classificação **Atualizações** antes de instalar a [correção 3095113](https://support.microsoft.com/kb/3095113), veja [Recuperar a partir da sincronização da categoria Atualizações antes de instalar o KB 3095113](#BKMK_RecoverUpgrades).  
 
 ### <a name="wsus-administration-console"></a>Consola de Administração do WSUS  
  A consola de administração do WSUS é necessário no servidor do site do Configuration Manager quando o ponto de atualização de software está num servidor de sistema de sites remoto e WSUS ainda não está instalado no servidor do site.  
