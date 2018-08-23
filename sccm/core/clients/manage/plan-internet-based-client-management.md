@@ -10,18 +10,18 @@ ms.assetid: 83a7c934-3b11-435d-ba22-cbc274951e83
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7f4de7295075de4b5baa5e7ba3fa1a3aea2ec032
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: f31a221151239b6a72a750652731dca7e4557649
+ms.sourcegitcommit: a849dab9333ebac799812624d6155f2a96b523ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32336287"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42586262"
 ---
 # <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Planear a gestão de clientes baseados na Internet no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Permite de gestão (algumas vezes referido como IBCM) de clientes baseados na Internet que gere o System Center Configuration Manager quando não estiverem ligados à sua empresa de clientes de rede, mas tem uma ligação padrão à Internet. Este esquema apresenta diversas vantagens, incluindo a redução de custos associada à não execução de redes privadas virtuais (VPNs) e à capacidade de implementar atempadamente as atualizações de software.  
+Clientes baseados na Internet (por vezes referido como IBCM) de gestão permite-lhe gerir System Center Configuration Manager, os clientes quando não estiverem ligados à sua empresa de rede, mas têm uma ligação à Internet standard. Este esquema apresenta diversas vantagens, incluindo a redução de custos associada à não execução de redes privadas virtuais (VPNs) e à capacidade de implementar atempadamente as atualizações de software.  
 
  Devido aos requisitos de segurança superiores associados à gestão de computadores cliente numa rede pública, a gestão de clientes baseada na Internet requer que os clientes e os servidores do sistema de sites a que estes ligam utilizem certificados PKI. Isto permite garantir que as ligações são autenticadas por uma autoridade independente e que os dados de e para estes sistemas de sites são encriptados utilizando Secure Sockets Layer (SSL).  
 
@@ -46,7 +46,7 @@ Permite de gestão (algumas vezes referido como IBCM) de clientes baseados na In
 
  Além disso, a gestão de clientes baseada na Internet não suporta roaming. O roaming permite aos clientes localizar sempre os pontos de distribuição mais próximos para transferir conteúdo. Os clientes geridos na Internet comunicam com os sistemas de sites a partir do site atribuído quando tais sistemas são configurados para utilizar um FQDN da Internet, e as funções do sistema de sites permitem ligações de cliente a partir da Internet. Os clientes selecionam de forma não determinística um dos sistemas de sites baseados na Internet, independentemente da largura de banda ou da localização física.  
 
- Quando tiver um ponto de atualização de software configurado para aceitar ligações a partir da Internet, os clientes baseados na Internet do Configuration Manager que se encontram na Internet efetuam sempre uma análise desse ponto de atualização de software para determinar que atualizações de software são necessárias. No entanto, quando estes clientes se encontram na Internet, começam por tentar transferir as atualizações de software a partir do Microsoft Update, em vez de recorrerem a um ponto de distribuição baseado na Internet. Só em caso de insucesso é que tentarão transferir as atualizações de software necessárias a partir de um ponto de distribuição baseado na Internet. Os clientes que não estão configurados para gestão de clientes baseados na Internet não tentam nunca transferir as atualizações de software do Microsoft Update, utilizando sempre pontos de distribuição do Configuration Manager.  
+ Quando tiver um ponto de atualização de software configurado para aceitar ligações a partir da Internet, os clientes baseados na Internet do Configuration Manager que se encontram na Internet efetuam sempre uma análise desse ponto de atualização de software para determinar que atualizações de software são necessárias. No entanto, quando estes clientes se encontram na Internet, começam por tentar transferir as atualizações de software a partir do Microsoft Update, em vez de recorrerem a um ponto de distribuição baseado na Internet. Só em caso de insucesso é que tentarão transferir as atualizações de software necessárias a partir de um ponto de distribuição baseado na Internet. Os clientes que não estão configurados para gestão de clientes baseados na Internet nunca tentam transferir as atualizações de software do Microsoft Update, utilizando sempre pontos de distribuição do Configuration Manager.  
 
 ##  <a name="considerations-for-client-communications-from-the-internet-or-untrusted-forest"></a>Considerações sobre comunicações do cliente a partir da Internet ou de uma floresta não fidedigna  
  As seguintes funções do sistema de sites instaladas nos sites primários suportam ligações de clientes que se encontram em localizações não fidedignas, como a Internet ou uma floresta não fidedigna (os sites secundários não suportam ligações de clientes de localizações não fidedignas):  
@@ -66,7 +66,7 @@ Permite de gestão (algumas vezes referido como IBCM) de clientes baseados na In
 -   Ponto de atualização de software  
 
  **Acerca dos sistemas de sites com acesso à Internet:**   
-Apesar de não é necessário ter uma confiança entre a floresta do cliente e que o servidor de sistema de sites, quando a floresta que contém uma com acesso à sistema de sites de Internet confia na floresta que contém as contas de utilizador, esta configuração suporta políticas baseadas no utilizador para dispositivos na Internet quando ativa a **política de cliente** definição de cliente **ativar pedidos da política de utilizador dos clientes Internet**.  
+Embora não haja nenhum requisito para ter uma confiança entre a floresta de um cliente e que o servidor de sistema de sites, quando a floresta que contém um sistema de sites com acesso à Internet confia na floresta que contém as contas de utilizador, esta configuração suporta baseada no utilizador políticas para dispositivos na Internet quando ativa a **política de cliente** definição do cliente **ativar pedidos da política de utilizador dos clientes Internet**.  
 
  Por exemplo, as configurações seguintes ilustram quando a gestão de clientes baseada na Internet suporta políticas de utilizador para dispositivos na Internet:  
 
@@ -82,12 +82,15 @@ Apesar de não é necessário ter uma confiança entre a floresta do cliente e q
  Como mostra o exemplo anterior, é possível colocar sistemas de sites baseados na Internet na intranet quando estes forem publicados na Internet utilizando um servidor Web proxy, tal como o ISA Server ou o Forefront Threat Management Gateway. Estes sistemas de sites podem ser configurados apenas para ligações de cliente a partir da Internet, ou para ligações de cliente provenientes da Internet e da intranet. Ao utilizar um servidor Web proxy, poderá configurá-lo para bridge de Secure Sockets Layer (SSL) para SSL (mais seguro) ou túnel SSL:  
 
 -   **Protocolo de bridge SSL para SSL:**   
-    A configuração recomendada quando utiliza servidores Web proxy para a gestão de clientes baseados na Internet é o protocolo de bridge SSL para SSL, que utiliza a terminação de SSL com a autenticação de SSL. Os computadores cliente têm de ser autenticados utilizando a autenticação de computador e os clientes antigos do dispositivo móvel são autenticados utilizando a autenticação de utilizador. Dispositivos móveis que são inscritos pelo Configuration Manager não suportam o protocolo de bridge SSL.  
+    A configuração recomendada quando utiliza servidores Web proxy para a gestão de clientes baseados na Internet é o protocolo de bridge SSL para SSL, que utiliza a terminação de SSL com a autenticação de SSL. Os computadores cliente têm de ser autenticados utilizando a autenticação de computador e os clientes antigos do dispositivo móvel são autenticados utilizando a autenticação de utilizador. Dispositivos móveis inscritos pelo Configuration Manager não suportam a ponte SSL.  
 
-     A vantagem da terminação de SSL no servidor Web proxy é que os pacotes da Internet são sujeitos a inspeção antes de serem encaminhados para a rede interna. O servidor Web proxy autentica a ligação do cliente, termina-a e, em seguida, abre uma nova ligação autenticada para os sistemas de sites baseados na Internet. Quando os clientes do Configuration Manager utilizam um servidor web proxy, a identidade do cliente (GUID do cliente) está contida em segurança no payload do pacote para que o ponto de gestão não considere o servidor do web proxy como o cliente. Protocolo de bridge não é suportado no Configuration Manager com HTTP para HTTPS ou de HTTPS para HTTP.  
+     A vantagem da terminação de SSL no servidor Web proxy é que os pacotes da Internet são sujeitos a inspeção antes de serem encaminhados para a rede interna. O servidor Web proxy autentica a ligação do cliente, termina-a e, em seguida, abre uma nova ligação autenticada para os sistemas de sites baseados na Internet. Quando os clientes do Configuration Manager utilizarem um servidor web proxy, a identidade do cliente (GUID do cliente) está contida em segurança no payload do pacote, para que o ponto de gestão não considere o servidor de web de proxy é o cliente. Protocolo de bridge não é suportado no Configuration Manager com HTTP para HTTPS ou de HTTPS para HTTP.  
+     
+    > [!Note]  
+    > O Configuration Manager não suporta configurações bridging do SSL de terceiros de definição. Por exemplo, Citrix Netscaler ou F5 BIG-IP. Trabalhe em conjunto com o fornecedor do dispositivo para configurá-lo para utilização com o Configuration Manager.  
 
 -   **Protocolo de túnel**:   
-    Se o servidor web proxy não suporta os requisitos para o protocolo de bridge SSL ou se quiser configurar o suporte de Internet para dispositivos móveis que são inscritos pelo Configuration Manager, o túnel SSL também é suportado. É uma opção menos segura porque os pacotes SSL da Internet são encaminhados para os sistemas de sites sem a terminação de SSL, não podendo ser, assim, inspecionados quanto a conteúdo malicioso. Quando utiliza o protocolo de túnel SSL, não existem requisitos de certificado para o servidor Web proxy.  
+    Se seu servidor web proxy não suporta os requisitos de protocolo de bridge SSL ou se pretende configurar o suporte de Internet para dispositivos móveis inscritos pelo Configuration Manager, protocolo de túnel SSL também é suportado. É uma opção menos segura porque os pacotes SSL da Internet são encaminhados para os sistemas de sites sem a terminação de SSL, não podendo ser, assim, inspecionados quanto a conteúdo malicioso. Quando utiliza o protocolo de túnel SSL, não existem requisitos de certificado para o servidor Web proxy.  
 
 ##  <a name="planning-for-internet-based-clients"></a>Planear Clientes Baseados na Internet  
  É necessário decidir se os computadores cliente que são geridos pela Internet são configurados para gestão na intranet e Internet ou para gestão de clientes apenas na Internet. Apenas é possível configurar a opção de gestão de clientes durante a instalação de um computador cliente. Se mudar de ideias mais tarde, tem de reinstalar o cliente.  
@@ -98,23 +101,23 @@ Apesar de não é necessário ter uma confiança entre a floresta do cliente e q
 > [!TIP]  
 >  Não é necessário restringir à Internet a configuração de gestão de clientes apenas na Internet e também é possível utilizá-la na intranet.  
 
- Os clientes que estão configurados para gestão de clientes apenas na Internet comunicam apenas com os sistemas de sites que estão configurados para ligações de cliente da Internet. Esta configuração seria adequada para computadores que sabe que nunca ligam à intranet da empresa, por exemplo, computadores em pontos de venda em localizações remotas. Também pode ser apropriada se pretender restringir a comunicação de cliente HTTPS só (por exemplo, para suportar a firewall e políticas de segurança restringidas) e, quando instalar sistemas de sites baseados na Internet numa rede de perímetro e pretender gerir esses servidores utilizando o cliente do Configuration Manager.  
+ Os clientes que estão configurados para gestão de clientes apenas na Internet comunicam apenas com os sistemas de sites que estão configurados para ligações de cliente da Internet. Esta configuração seria adequada para computadores que sabe que nunca ligam à intranet da empresa, por exemplo, computadores em pontos de venda em localizações remotas. Pode também ser adequado quando quiser restringir a comunicação de cliente para HTTPS apenas (por exemplo, para suportar a firewall e políticas de segurança restringidas) e quando instalar sistemas de sites baseados na Internet numa rede de perímetro e que pretende gerir estes servidores com o cliente do Configuration Manager.  
 
  Se pretender gerir clientes de grupo de trabalho na Internet, tem de os como apenas Internet.  
 
 > [!NOTE]  
 >  Os clientes de dispositivo móvel são configurados automaticamente como apenas Internet quando são configurados para utilizar um ponto de gestão baseado na Internet.  
 
- Outros computadores cliente podem ser configurados para gestão de clientes na Internet e intranet. Estes podem alternar automaticamente entre a gestão de clientes baseada na Internet e a gestão de clientes na intranet quando detetam uma alteração de rede. Se estes clientes podem localizar e ligar a um ponto de gestão que está configurado para ligações de cliente na intranet, estes clientes são geridos como clientes de intranet que possuem total funcionalidade de gestão do Configuration Manager. Se os clientes não conseguirem localizar ou estabelecer ligação a um ponto de gestão que está configurado para ligações de cliente na intranet, tentam estabelecer ligação a um ponto de gestão baseado na Internet, e se esta ligação tiver êxito, estes clientes são geridos pelos sistemas de sites baseados na Internet no respetivo site atribuído.  
+ Outros computadores cliente podem ser configurados para gestão de clientes na Internet e intranet. Estes podem alternar automaticamente entre a gestão de clientes baseada na Internet e a gestão de clientes na intranet quando detetam uma alteração de rede. Se estes clientes podem encontrar e ligar a um ponto de gestão que está configurado para ligações de cliente na intranet, estes clientes são geridos como clientes de intranet que possuem total funcionalidade de gestão do Configuration Manager. Se os clientes não conseguirem localizar ou estabelecer ligação a um ponto de gestão que está configurado para ligações de cliente na intranet, tentam estabelecer ligação a um ponto de gestão baseado na Internet, e se esta ligação tiver êxito, estes clientes são geridos pelos sistemas de sites baseados na Internet no respetivo site atribuído.  
 
- A vantagem da mudança automática entre gestão de clientes baseados na Internet e gestão de clientes na intranet é que os computadores cliente podem utilizar automaticamente todas as funcionalidades do Configuration Manager sempre que estiverem ligados à intranet e continuarem a ser geridos em funções de gestão essenciais quando estão na Internet. Além disso, uma transferência que começou na Internet pode continuar sem interrupções na intranet e vice versa.  
+ A vantagem da mudança automática entre gestão de clientes baseados na Internet e gestão de clientes da intranet é que os computadores de cliente podem utilizar automaticamente todas as funcionalidades do Configuration Manager sempre que eles estão ligados à intranet e continuam a ser geridos funções de gestão essenciais quando estão na Internet. Além disso, uma transferência que começou na Internet pode continuar sem interrupções na intranet e vice versa.  
 
 ##  <a name="prerequisites-for-internet-based-client-management"></a>Pré-requisitos da Gestão de Clientes Baseada na Internet  
  Gestão de clientes baseados na Internet no Configuration Manager tem as seguintes dependências externas:  
 
 -   Os clientes que são geridos na Internet têm de ter uma ligação à Internet.  
 
-     O Configuration Manager utiliza as ligações existentes do fornecedor de serviços Internet (ISP) à Internet, que podem ser ligações permanentes ou temporárias. Os dispositivos móveis clientes têm de ter uma ligação à Internet direta, mas com computadores cliente podem ter uma ligação à Internet direta ou estabelecer ligação utilizando um servidor Web proxy.  
+     O Configuration Manager utiliza as ligações existentes do fornecedor de serviços de Internet (ISP) para a Internet, que podem ser ligações permanentes ou temporárias. Os dispositivos móveis clientes têm de ter uma ligação à Internet direta, mas com computadores cliente podem ter uma ligação à Internet direta ou estabelecer ligação utilizando um servidor Web proxy.  
 
 -   Os sistemas de sites que suportam a gestão de clientes baseados na Internet têm de ter conectividade à Internet e têm de estar num domínio do Active Directory.  
 

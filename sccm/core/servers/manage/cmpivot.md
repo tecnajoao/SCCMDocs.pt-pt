@@ -2,7 +2,7 @@
 title: CMPivot para dados em tempo real
 titleSuffix: Configuration Manager
 description: Saiba como utilizar CMPivot no Configuration Manager para clientes de consulta em tempo real.
-ms.date: 07/30/2018
+ms.date: 08/21/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 32e2d6b9-148f-45e2-8083-98c656473f82
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0766bc765712fc493f01eb5aa807426ec44fa5d7
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 0429c62f68a111bc7f620d1c954d5c8cf944d1c1
+ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386823"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42590061"
 ---
 # <a name="cmpivot-for-real-time-data-in-configuration-manager"></a>CMPivot para dados em tempo real no Configuration Manager
 
@@ -56,6 +56,8 @@ Os seguintes componentes são necessários para utilizar CMPivot:
 - Não é possível personalizar propriedades de entidade, colunas de resultados ou ações em dispositivos.  
 
 - Apenas uma instância de CMPivot pode executar ao mesmo tempo num computador que está a executar a consola do Configuration Manager.  
+
+- Na versão 1806, a consulta para o **administradores** entidade só funciona se o grupo é o nome "Administradores". Ele não funciona se o nome do grupo está localizado. Por exemplo, "Administrateurs" em francês.<!--SCCMDocs issue 759-->  
 
 
 
@@ -229,6 +231,20 @@ As consultas e os resultados são todos somente texto. As entidades **InstallSof
 
 Uma consulta exceder o tempo limite após uma hora. Por exemplo, uma coleção tem 500 dispositivos, e 450 dos clientes estão atualmente online. Esses dispositivos ativos recebem a consulta e devolvem os resultados quase imediatamente. Se deixar a janela de CMPivot aberto, como os outros 50 clientes ficam online, eles também recebem a consulta e devolvem resultados. 
 
+>[!TIP]
+> CMPivot interations são registadas para os ficheiros de registo seguinte:
+>
+> **Lado do servidor:**
+> - Smsprov. log
+> - bgbserver. log
+> - Statesys
+>
+> **Lado do cliente:**
+> - CcmNotificationAgent.log
+> - Scripts.log
+> - StateMessage.log
+>
+> Para obter mais informações, consulte [ficheiros de registo](/sccm/core/plan-design/hierarchy/log-files).
 
 
 ## <a name="see-also"></a>Consulte também

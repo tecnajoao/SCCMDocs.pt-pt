@@ -2,7 +2,7 @@
 title: O que há de novo no MDM híbrida
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
-ms.date: 08/01/2018
+ms.date: 08/14/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -10,18 +10,22 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cdb5720778366cea951476ad9b314b69bdd0c492
-ms.sourcegitcommit: 6e0e5b4b7779ce03e2b56b3b5f68f4ace1acedd8
+ms.openlocfilehash: c127c435674356c12ade07ce101e097559506e45
+ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39467611"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42589353"
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Quais são as novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Este artigo fornece detalhes sobre o dispositivo móvel novas funcionalidades de gestão (MDM) disponíveis para implementações híbridas com o System Center Configuration Manager e o Microsoft Intune.     
+
+> [!Important]  
+> A partir de 14 de Agosto de 2018, gestão de dispositivos móveis híbrida é um [funcionalidade preterida](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
+
 
 > [!Note]    
 > O Intune no Azure é a solução MDM recomendada da Microsoft.     
@@ -46,6 +50,12 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 ## <a name="july-2018"></a>Julho de 2018
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="updated-intune-app-sdk-for-android-is-now-available"></a>Atualizada do SDK da aplicação Intune para Android está agora disponível
+<!--2744271--> Uma versão atualizada do SDK da aplicação Intune para Android está disponível para dar suporte à versão do Android 9 circular. Se for um programador de aplicações e utiliza o SDK do Intune para Android, instale a versão atualizada do SDK da aplicação do Intune. Esta atualização torna-se de que essa funcionalidade do Intune nas suas aplicações Android continuam a funcionar conforme esperado nos dispositivos Android 9 circular. Esta versão do SDK da aplicação Intune fornece um plug-in interno que executa as atualizações SDK. Não vai precisar reescrever nenhum código existente que está integrado. Para obter mais informações, consulte [SDK do Intune para Android](https://github.com/msintuneappsdk/ms-intune-app-sdk-android). 
+
+Se estiver a utilizar o estilo de badging antigo para o Intune, mude para utilizar o ícone de pasta. Para obter mais informações sobre a identidade visual, consulte a [sistema de Badging de aplicação do Intune](https://github.com/msintuneappsdk/intune-app-partner-badge).
+
 
 #### <a name="support-for-security-enhancement-in-intune-service"></a>Suporte para a melhoria de segurança no serviço Intune
 <!--2520152--> Agora pode especificar que os dispositivos sem quaisquer políticas de conformidade atribuída não são conformes com a híbrida. Configure esta definição no Intune no portal do Azure. Recomendamos vivamente que ative esta funcionalidade proteger os recursos internos.
@@ -513,6 +523,10 @@ As seguintes funcionalidades foram anteriormente disponíveis em versões do Con
 
 
 ## <a name="notices"></a>Avisos
+
+### <a name="plan-for-change-use-intune-on-azure-now-for-your-mdm-management"></a>Planear a alteração: Utilizar o Intune no Azure agora para a gestão de MDM 
+<!--1227338--> Ao longo de um ano atrás, anunciámos [pré-visualização pública do Intune no Azure](https://cloudblogs.microsoft.com/enterprisemobility/2016/12/07/public-preview-of-intune-on-azure/) e, seis meses, lançámos a [disponibilidade geral da nova experiência de administrador](https://cloudblogs.microsoft.com/enterprisemobility/2017/06/08/the-new-intune-and-conditional-access-admin-consoles-are-ga/) para o Intune. A partir de 31 de Agosto de 2018, vamos desativar a gestão de dispositivos móveis (MDM) na consola Silverlight clássica para os clientes que utilizam o Intune autónomo. Em alternativa, utilize [Intune no Azure](https://aka.ms/Intune_on_Azure) para suas necessidades de MDM. Se ainda estiver a utilizar a consola clássica para MDM, pare e familiarize-se com o Intune no Azure. Não Esperamos nenhum impacto de utilizador final com esta alteração. Gestão clássica do PC com o Intune permanece no Silverlight. Para obter mais informações, consulte a [mensagem de blogue da equipa de suporte de Intune](https://aka.ms/Intune_on_Azure_mdm).
+
 
 ### <a name="plan-for-change-upcoming-macos-and-intune-password-enforcement-change"></a>Planear a alteração: MacOS futuros e alterações de imposição de palavra-passe do Intune
 <!--1873216--> Na versão do serviço de Setembro, o Intune planos para integrar da Apple recentemente lançou definição de "Palavra-passe alterações na autenticação seguinte" para dispositivos MacOS 10.13 de versões e superior. Antes desta definição foi introduzida, fornecedores MDM não tinham nenhuma forma de verificar que o código de acesso num dispositivo foi alterado para garantir a conformidade. Configuração e de conformidade as políticas do Intune apenas validadas que da próxima vez que uma palavra-passe foi alterada no dispositivo, ele pode ser marcado como compatível. Os utilizadores do macOS irão receber um pedido para atualizar a palavra-passe quando podemos integrar esse novo recurso de Apple, mesmo que a palavra-passe já está em conformidade.

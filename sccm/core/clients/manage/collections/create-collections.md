@@ -10,12 +10,12 @@ ms.assetid: 1401a35e-4312-4d3b-8ceb-0abbb10d4f05
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9d9b64dfab0a549a99bed11602c0396d16927ebe
-ms.sourcegitcommit: d9d92f4a640debe7ec2193076f7652796291546d
+ms.openlocfilehash: c314cba909929ee49355eab59dfc813aab7e393e
+ms.sourcegitcommit: a849dab9333ebac799812624d6155f2a96b523ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39589769"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42586238"
 ---
 # <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Como criar coleções no System Center Configuration Manager
 
@@ -88,7 +88,7 @@ Na **selecionar coleções** caixa de diálogo caixa, selecione as coleções qu
 
 Na **selecionar coleções** caixa de diálogo caixa, selecione as coleções que pretende excluir da nova coleção, em seguida, escolha **OK**.  
 
--   **Utilizar atualizações incrementais para esta coleção** - Selecione esta opção para periodicamente procurar e atualizar apenas novo ou alterado recursos de avaliação de coleção anterior, independentemente de uma avaliação de coleção completa. As atualizações incrementais ocorrem em intervalos de 10 minutos.  
+-   **Utilizar atualizações incrementais para esta coleção** - Selecione esta opção para periodicamente procurar e atualizar apenas novo ou alterado recursos de avaliação de coleção anterior, independentemente de uma avaliação de coleção completa. Por predefinição, as atualizações incrementais ocorrem em intervalos de 5 minutos.  
 
 > [!IMPORTANT]  
 >  As coleções configuradas através de regras de consulta que utilizem as classes seguintes não suportam atualizações incrementais:  

@@ -1,8 +1,8 @@
 ---
 title: Notas de versão
 titleSuffix: Configuration Manager
-description: Saiba mais sobre problemas urgentes que ainda não estão corrigidos no produto ou abordados no artigo da Base de dados de Conhecimento Microsoft.
-ms.date: 07/30/2018
+description: Saiba mais sobre problemas urgentes que ainda não estão corrigidos no produto ou abordados num artigo da base de dados de conhecimento Support da Microsoft.
+ms.date: 08/21/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,26 +10,26 @@ ms.assetid: 030947fd-f5e0-4185-8513-2397fb2ec96f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9daf0fb53face0cf7ed56f2a45ab044fbfac203c
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 939ab4b97a1a62eeae834873dd39e2f0d435527d
+ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385512"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42590102"
 ---
 # <a name="release-notes-for-configuration-manager"></a>Notas de versão para o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Com o Configuration Manager, notas de versão do produto estão limitadas a problemas urgentes. Esses problemas ainda não estão corrigidos no produto ou detalhados num artigo da Base de dados de Conhecimento Microsoft.  
+Com o Configuration Manager, notas de versão do produto estão limitadas a problemas urgentes. Esses problemas ainda não estão corrigidos no produto ou detalhados num artigo da base de dados de Conhecimento Microsoft Support.  
 
 Documentação de específicos de funcionalidades inclui informações sobre problemas conhecidos que afetam os cenários principais.  
 
 > [!TIP]  
->  Este tópico contém notas de versão para o ramo atual do Configuration Manager. Para obter informações sobre o ramo de pré-visualização técnica, consulte [Technical Preview](../../../../core/get-started/technical-preview.md)  
+>  Este tópico contém notas de versão para o ramo atual do Configuration Manager. Para obter informações sobre o ramo de pré-visualização técnica, consulte [Technical Preview](/sccm/core/get-started/technical-preview)  
 
 Para obter informações sobre os novos recursos introduzidos com versões diferentes, consulte os artigos seguintes:
-- [O que há de novo na versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806)  
+- [Novidades na versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806)  
 - [Novidades na versão 1802](/sccm/core/plan-design/changes/whats-new-in-version-1802)
 - [Novidades na versão 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)
 
@@ -63,6 +63,16 @@ Embora não terá qualquer efeito sobre o resultado do processo de configuraçã
 
  > [!Note]  
  > O parâmetro Defaultsiteservername [configuração da consola](/sccm/core/servers/deploy/install/install-consoles) não é necessária.
+
+
+### <a name="cloud-service-manager-component-stopped-on-site-server-in-passive-mode"></a>Componente do Gestor de serviço em nuvem parado no servidor de site em modo passivo
+<!--VSO 2858826, SCCMDocs issue 772-->
+*Aplica-se a: 1806 de versão do Configuration Manager*
+
+Se o [ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point) estiver localizada conjuntamente com um [servidor do site em modo passivo](/sccm/core/servers/deploy/configure/site-server-high-availability), em seguida, implementação e monitorização de um [gateway de gestão da nuvem](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) não começa. O componente do Gestor de serviço cloud (SMS_CLOUD_SERVICES_MANAGER) está no estado parado.
+
+#### <a name="workaround"></a>Solução
+Mova a função de ponto de ligação de serviço para outro servidor.
 
 
 

@@ -10,12 +10,12 @@ ms.assetid: 946b0f74-0794-4e8f-a6af-9737d877179b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a50aa9d2269830fa09c494c63c7681f1dbda3cc0
-ms.sourcegitcommit: 6e0e5b4b7779ce03e2b56b3b5f68f4ace1acedd8
+ms.openlocfilehash: 3c31b950ef59147f6f3f46c1cba7780b7789948c
+ms.sourcegitcommit: 4b7812b505e80f79fc90dfa8a6db06eea79a3550
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39467594"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42586376"
 ---
 # <a name="enable-third-party-updates"></a>Ativar as atualizações de terceiros 
 
@@ -164,6 +164,7 @@ Sincronização de atualizações de software de terceiros é processada pelo co
 -  O Configuration Manager possui uma nova versão para o formato de ficheiro cab do catálogo. A nova versão inclui os certificados para os ficheiros binários do fornecedor. Estes certificados são adicionados para o **certificados** no nó **segurança** no **administração** área de trabalho depois de aprovar e o catálogo de confiança.  
      - Ainda pode usar a versão mais antiga do ficheiro de cab do catálogo, desde que o URL de transferência é https e as atualizações são assinadas. O conteúdo não conseguirá publicar porque os certificados para os binários não estão no ficheiro cab e já aprovado. Pode contornar este problema ao detetar o certificado no **certificados** nó, desbloquear, em seguida, publicá-la novamente. Se está publicando várias atualizações assinadas com certificados diferentes, terá de desbloquear cada certificado que é utilizado.
      - Para obter mais informações, consulte as mensagens de estado 11523 e 11524 na abaixo da tabela de mensagens de estado.
+-  Quando o serviço de sincronização de atualização de software de terceiros sobre a atualização de software de nível superior ponto requer um servidor proxy para acesso à internet, verificações de assinatura digital podem falhar. Para atenuar este problema, configure as definições de proxy do WinHTTP no sistema de sites. Para obter mais informações, consulte [comandos Netsh para WinHTTP](https://go.microsoft.com/fwlink/p/?linkid=199086).
 
 ## <a name="status-messages"></a>Mensagens de estado
 
@@ -176,7 +177,7 @@ Sincronização de atualizações de software de terceiros é processada pelo co
 
 
 ## <a name="working-with-third-party-updates-video"></a>Trabalhar com o vídeo de atualizações de terceiros
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bvAQeDSJIbs?ecver=1" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ai8rLCLtuTI?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
 

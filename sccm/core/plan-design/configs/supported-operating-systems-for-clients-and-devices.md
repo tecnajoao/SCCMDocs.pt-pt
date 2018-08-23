@@ -1,8 +1,8 @@
 ---
-title: Clientes suportados e dispositivos
+title: Dispositivos e clientes suportados
 titleSuffix: Configuration Manager
-description: Saiba que sistemas operativos do Microsoft System Center Configuration Manager suporta para os clientes e dispositivos.
-ms.date: 04/17/2018
+description: Obtenha as versões de SO do Configuration Manager suporta para clientes e dispositivos.
+ms.date: 08/21/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,86 +10,92 @@ ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cb0145961b916abf4bf848bc8b5514967b705737
-ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
+ms.openlocfilehash: 8abe612272dd8a48a23ffdcb945aa7b6766afdb9
+ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36260766"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42586407"
 ---
-# <a name="supported-operating-systems-for-clients-and-devices-for-system-center-configuration-manager"></a>Sistemas operativos suportados para os clientes e dispositivos para o System Center Configuration Manager
+# <a name="supported-os-versions-for-clients-and-devices-for-configuration-manager"></a>Versões de SO suportadas por clientes e dispositivos para o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
+ O Configuration Manager suporta a instalação de software de cliente em computadores Windows, Mac, Linux e UNIX.  
 
- O Configuration Manager suporta a instalação do software cliente numa variedade de computadores Windows, Mac, Linux e UNIX.  
+#### <a name="requirements-and-limitations-for-all-clients"></a>Requisitos e limitações para todos os clientes  
 
- **Requisitos e limitações para todos os clientes:**  
+-   Alterar o tipo de arranque ou **iniciar sessão como** definições para qualquer serviço do Configuration Manager não é suportada. Esta alteração pode impedir que serviços importantes de funcionar corretamente.    
 
--   Alterar o tipo de arranque ou **iniciar sessão como** chave de definições para qualquer o Configuration Manager service não é suportado e pode impedir que os serviços de funcionar corretamente.    
+-   Instalar ou executar o cliente do Configuration Manager para Linux ou UNIX ou o cliente para Mac em computadores com uma conta diferente de raiz não é suportada. Se o fizer, pode que serviços importantes deixem de funcionar corretamente.  
 
--   Instalar ou executar o cliente do Configuration Manager para Linux ou UNIX ou o cliente para Mac em computadores com uma conta diferente de raiz não é suportada. Se o fizer, pode impedir que os serviços de chaves a ser executado corretamente.  
+
 
 ##  <a name="windows-computers"></a>Computadores Windows  
- Pode utilizar o cliente do Configuration Manager que está incluído com o Configuration Manager para gerir os seguintes sistemas operativos Windows. Para obter mais informações, consulte [como implementar clientes em computadores Windows no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-**Sistemas operativos suportados:**  
+ Utilize o cliente que está incluído com o Configuration Manager para gerir as seguintes versões de SO do Windows. Para obter mais informações, consulte [como implementar clientes em computadores Windows](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).  
 
 
--  **Windows Server 2016**: Standard, Datacenter <sup>1</sup>
-  - Este sistema operativo é suportado a partir do Configuration Manager 1606 de versão, com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016).  
+### <a name="supported-os-versions"></a>Versões de SO suportadas  
+
+-  **Windows Server 2016**: Standard, Datacenter <sup> [observe 1](#bkmk_note1)</sup>  
 
 -   **O Windows Storage Server 2016**: Grupo de trabalho Standard  
 
--   **Windows Server 2012 R2** (x64): Standard, Datacenter <sup>1</sup>    
+-   **Windows Server 2012 R2** (x64): Standard, Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
 -   **Windows Storage Server 2012 R2** (x64)    
 
--   **Windows Server 2012** (x64): Standard, Datacenter <sup>1</sup>    
+-   **Windows Server 2012** (x64): Standard, Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
 -   **O Windows Storage Server 2012** (x64)    
 
--   **Windows Server 2008 R2 com SP1** (x64): Standard, Enterprise, Datacenter <sup>1</sup>    
+-   **Windows Server 2008 R2 com SP1** (x64): Standard, Enterprise e Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
 -   **Windows Storage Server 2008 R2** (x86, x64): Grupo de trabalho, Standard, Enterprise    
 
--   **Windows Server 2008 com SP2** (x86, x64): Standard, Enterprise, Datacenter <sup>1</sup>    
+-   **Windows Server 2008 com SP2** (x86, x64): Standard, Enterprise e Datacenter <sup> [observe 1](#bkmk_note1)</sup>    
 
--   **Windows 10** consulte [suporte para versões do Windows 10](/sccm/core/plan-design/configs/support-for-windows-10) para obter detalhes sobre os diferentes lançamento de versões do Windows 10 que são suportadas por versões diferentes do Configuration Manager.
+-   **Windows 10**  
+
+    Para obter mais informações sobre as versões de versão diferentes do Windows 10 que são suportadas pelas diferentes versões do Configuration Manager, consulte [suporte para versões do Windows 10](/sccm/core/plan-design/configs/support-for-windows-10).  
 
 -   **Windows 8.1** (x86, x64): Professional, Enterprise    
 
-<!---   **Windows 8** (x86, x64): Professional, Enterprise  -removed Jan 12,2018 sms505863-->
+-   **O Windows 7 com SP1** (x86, x64): Professional, Enterprise e Ultimate    
 
--   **Windows 7 com SP1** (x86, x64): Professional, Enterprise e Ultimate    
+-   **A instalação do Server Core do Windows Server, versão 1709** (x64) <sup> [nota 2](#bkmk_note2) </sup> <sup> [nota 3](#bkmk_note3)</sup>  
+    Esta versão do sistema operacional é suportada a partir do Configuration Manager versão 1710.  
 
--   **A instalação do Server Core do Windows Server, versão 1709** (x64) <sup>2</sup>
-  - Este sistema operativo é suportado a partir da versão 1710.
+-   **A instalação do Server Core do Windows Server 2016** (x64) <sup> [nota 2](#bkmk_note2) </sup> <sup> [nota 3](#bkmk_note3)</sup>  
 
--   **A instalação do Server Core do Windows Server 2016** (x64) <sup>2</sup>
-  - Este sistema operativo é suportado a partir da versão 1606 com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016).
+-   **A instalação do Server Core do Windows Server 2012 R2** (x64) <sup> [nota 2](#bkmk_note2) </sup> <sup> [nota 3](#bkmk_note3)</sup>    
 
+-   **A instalação do Server Core do Windows Server 2012** (x64) <sup> [nota 2](#bkmk_note2) </sup> <sup> [nota 3](#bkmk_note3)</sup>    
 
--   **A instalação do Server Core do Windows Server 2012 R2** (x64) <sup>2</sup>    
+-   **A instalação do Server Core do Windows Server 2008 R2** sem nenhum service pack ou com SP1 (x64) <sup> [nota 3](#bkmk_note3)</sup>    
 
--   **A instalação do Server Core do Windows Server 2012** (x64) <sup>2</sup>    
+-   **A instalação do Server Core do Windows Server 2008 SP2** (x86, x64) <sup> [nota 3](#bkmk_note3)</sup>  
 
--   **A instalação do Server Core do Windows Server 2008 R2**  
-    **(sem service pack ou com SP1)**  (x64)    
+#### <a name="bkmk_note1"></a> Nota 1
+ Versões Datacenter têm suporte mas não estão certificadas para o Configuration Manager. Não é disponibilizado suporte de correções para problemas que são específicos para o Windows Server Datacenter Edition.  
 
--   **A instalação do Server Core do Windows Server 2008 SP2** (x86, x64)  
+#### <a name="bkmk_note2"></a> Nota 2
+ Para suportar a instalação push do cliente, o computador que executa esta versão do SO tem de executar o serviço de função de servidor de ficheiros para a função de servidor de ficheiros e serviços de armazenamento. Para obter informações sobre como instalar funcionalidades do Windows num computador Server Core, consulte [instalar funções, serviços de função e funcionalidades utilizando cmdlets do Windows PowerShell](https://docs.microsoft.com/windows-server/administration/server-manager/install-or-uninstall-roles-role-services-or-features#BKMK_installwps).  
 
- <sup>1</sup> as versões Datacenter são suportadas mas não estão certificadas para o Configuration Manager. O suporte de correções não é disponibilizado para problemas que são específicos do Windows Server Datacenter Edition.  
+#### <a name="bkmk_note3"></a> Nota 3
+ A nova aplicação do Centro de Software não é suportada em qualquer versão do Windows Server Core.<!--SCCMDocs issue 683-->
 
- <sup>2</sup> para suportar a instalação de push de cliente, o computador que executa esta versão do sistema operativo tem de executar o serviço de função de servidor de ficheiros para a função de servidor de ficheiros e serviços de armazenamento. Para obter informações sobre como instalar funcionalidades do Windows num computador Server Core, consulte [instalar funções e funcionalidades num servidor Server Core](http://go.microsoft.com/fwlink/p/?LinkId=299359) na Biblioteca TechNet do Windows Server 2012.  
 
 
 ##  <a name="windows-embedded-computers"></a>Computadores Windows Embedded  
- Pode gerir dispositivos Windows Embedded ao instalar o software de cliente do Configuration Manager no dispositivo.  Para obter mais informações, consulte [planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
-**Requisitos e limitações:**  
+ Geri dispositivos Windows Embedded ao instalar o cliente do Configuration Manager no dispositivo. Para obter mais informações, consulte [planejar a implantação de cliente em dispositivos Windows Embedded](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices).  
 
--   Todas as funcionalidades do cliente são suportadas no Windows Embedded sistemas que não tenham filtros de escrita ativados.  
+
+### <a name="requirements-and-limitations"></a>Requisitos e limitações
+
+-   Todas as funcionalidades de cliente são suportadas no Windows Embedded sistemas que não tenham filtros de escrita ativados.  
 
 -   Os clientes que utilizam um dos seguintes são suportados para todas as funcionalidades, exceto a gestão de energia:  
 
@@ -99,24 +105,21 @@ ms.locfileid: "36260766"
 
     -   Filtros de escrita unificados (UWF)  
 
--   O catálogo de aplicações não é suportado para dispositivos Windows Embedded.  
+-   O catálogo de aplicações não é suportado por dispositivos Windows Embedded.  
 
--   Para poder monitorizar software maligno detetado em dispositivos Windows Embedded que são baseados no Windows XP, tem de instalar o pacote de scripting do Microsoft Windows WMI no dispositivo. Utilize o Windows Embedded Target Designer para instalar este pacote.
-Os ficheiros **WBEMDISP. DLL** e **WBEMDISP. TLB** tem de existir e estar registados na pasta **%windir%\System32\WBEM** no dispositivo incorporado para garantir que detetado software maligno é comunicado.  
+-   Para poder monitorizar software maligno detetado em dispositivos Windows Embedded baseados no Windows XP, tem de instalar o pacote de criação de scripts do Microsoft Windows WMI no dispositivo. Utilize o Windows Embedded Target Designer para instalar este pacote. Os ficheiros **WBEMDISP. DLL** e **WBEMDISP. TLB** tem de existir e estar registados na pasta **%windir%\System32\WBEM** no dispositivo incorporado para garantir que software maligno é comunicado a deteção.  
 
-**Sistemas operativos suportados:**  
+
+### <a name="supported-os-versions"></a>Versões de SO suportadas  
 
 -   **Windows 10 Enterprise** (x86, x64)  
 
--   **Windows 10 Enterprise de IoT** (x86, x64)  
+-   **Windows 10 IoT Enterprise** (x86, x64)  
+    Esta versão inclui o canal de serviço a longo prazo (LTSC). Para obter mais informações, consulte [descrição geral do Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise).<!--SCCMDocs issue 560-->  
 
 -   **Windows Embedded 8.1 Industry** (x86, x64)    
 
-   <!----   **Windows Embedded 8 Industry** (x86, x64)  -removed Jan 12,2018 sms505863-->
-
 -   **Windows Embedded 8 Standard** (x86, x64)    
-
-<!---   **Windows Embedded 8 Pro** (x86, x64)    -removed Jan 12,2018 sms505863-->
 
 -   **Windows dinâmico PC** (x86, x64)    
 
@@ -124,36 +127,44 @@ Os ficheiros **WBEMDISP. DLL** e **WBEMDISP. TLB** tem de existir e estar regist
 
 -   **Windows Embedded Standard 7 com SP1** (x86, x64)    
 
-Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas suportados com 1610 de versão do Configuration Manager e versões anteriores. [A partir da versão 1702, estes sistemas operativos incorporados já não são suportados](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-client#deprecated-client-operating-systems).  
+
+### <a name="unsupported-os-versions"></a>Versões de SO não suportadas
+
+As seguintes versões de SO baseiam-se no Windows XP Embedded. A partir da versão 1702, estas versões de sistema operacional incorporados não são suportados. Para obter mais informações, consulte [sistemas operativos do cliente preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-client#deprecated-client-operating-systems).  
 
 -   **WEPOS 1.1 com SP3** (x86)    
 
 -   **Windows Embedded POSReady 2009** (x86)    
 
--   **Noções básicas do Windows para computadores legados (WinFLP)** (x86)    
+-   **Conceitos básicos do Windows para computadores legados (WinFLP)** (x86)    
 
--   **Windows XP Embedded SP3** (x86)    
+-   **O Windows XP Embedded SP3** (x86)    
 
 -   **Windows Embedded Standard 2009** (x86)  
 
+
+
 ## <a name="windows-ce-computers"></a>Computadores Windows CE
- Pode gerir dispositivos Windows CE com o cliente legacy de dispositivo móvel do Configuration Manager está incluído com o Configuration Manager.  
 
-**Requisitos e limitações**  
+ Gerir dispositivos Windows CE com o cliente legado de dispositivo móvel do Configuration Manager está incluído com o Configuration Manager.  
 
--   O cliente do dispositivo móvel precisa de 0,78 MB de espaço de armazenamento para a instalação. Início de sessão pode exigir a 256 KB de espaço de armazenamento adicionais.    
 
--   As funcionalidades destes dispositivos móveis varia consoante a plataforma e o cliente tipo. Para obter informações sobre a gestão de que são suportadas as funções, consulte [escolher uma solução de gestão de dispositivos para o System Center Configuration Manager](../../../core/plan-design/choose-a-device-management-solution.md).  
+### <a name="requirements-and-limitations"></a>Requisitos e limitações  
 
-**Sistemas operativos suportados:**  
+-   O cliente de dispositivo móvel precisa de 0,78 MB de espaço de armazenamento para a instalação. Início de sessão, pode exigir até 256 KB de espaço de armazenamento adicional.    
+
+-   Recursos para estes dispositivos móveis variam consoante a plataforma e o cliente do tipo. Para obter informações sobre a gestão de que as funções são suportadas, consulte [escolher uma solução de gestão de dispositivos](/sccm/core/plan-design/choose-a-device-management-solution).  
+
+
+### <a name="supported-os-versions"></a>Versões de SO suportadas  
 
 -   Windows CE 7.0 (ARM e x86 processadores)  
 
-**Idiomas suportados incluem:**  
+#### <a name="supported-languages-include"></a>Os idiomas suportados incluem
 
 -   Chinês (simplificado e tradicional)    
 
--   Inglês (EUA)    
+-   Inglês (Estados Unidos)    
 
 -   Francês (França)    
 
@@ -171,16 +182,20 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 
 -   Espanhol (Espanha)  
 
+
+
 ## <a name="mac-computers"></a>Computadores Mac  
- Pode gerir computadores Mac OS X com o cliente do Configuration Manager para Mac.  
 
- O pacote de instalação de cliente de Mac não é fornecido com o suporte de dados do Configuration Manager. Transferir o **clientes para sistemas operativos adicionais** do [Centro de transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
+ Gerir computadores de macOS com o cliente do Configuration Manager para Mac.  
 
- Para obter mais informações, consulte [como implementar clientes em Mac no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-macs.md).  
+ O pacote de instalação de cliente de Mac não é fornecido com o suporte de dados do Configuration Manager. Transfira o **clientes para sistemas operativos adicionais** partir o [Centro de transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
 
-**Versões suportadas:**  
+ Para obter mais informações, consulte [como implementar clientes em Macs](/sccm/core/clients/deploy/deploy-clients-to-macs).  
 
--   **Mac OS X 10.6** (Snow Leopard)
+
+### <a name="supported-versions"></a>Versões suportadas
+
+-   **Mac OS X 10.6** (Leopard de neve)
 
 -   **Mac OS X 10.7** (Lion)
 
@@ -194,35 +209,45 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 
 -   **Mac OS X 10.12** (macOS Sierra)
 
--   **Mac OS X 10.13** (macOS Sierra elevada)
+-   **Mac OS X 10.13** (macOS High Sierra)
+
+
 
 ##  <a name="linux-and-unix-servers"></a>Servidores Linux e UNIX  
- Pode gerir servidores Linux e UNIX com o cliente do Configuration Manager para Linux e UNIX.  
 
- Os pacotes de instalação de cliente Linux e UNIX não são fornecidos com o suporte de dados do Configuration Manager. Transferir o **clientes para sistemas operativos adicionais** do [Centro de transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). Para além de pacotes de instalação de cliente, a transferência do cliente inclui o script que gere a instalação do cliente em cada computador.  
+> [!Important]  
+> A partir de 22 de Março de 2018, os clientes Linux e UNIX para o Configuration Manager foram preteridos. Para obter mais informações, consulte [anúncio de preterição para o suporte de cliente de Linux e Unix](/sccm/core/plan-design/changes/whats-new-in-version-1802#deprecation-announcement-for-linux-and-unix-client-support).  
 
-**Requisitos e limitações:**  
+ Gerir servidores Linux e UNIX com o cliente do Configuration Manager para Linux e UNIX.  
 
--   Para rever as dependências de ficheiro de sistema operativo para o cliente para Linux e UNIX, consulte [pré-requisitos para implementação do cliente para servidores Linux e UNIX](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md#BKMK_ClientDeployPrereqforLnU).  
+ Os pacotes de instalação de cliente de Linux e UNIX não são fornecidos com o suporte de dados do Configuration Manager. Transfira o **clientes para sistemas operativos adicionais** partir o [Centro de transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). Para além de pacotes de instalação de cliente, a transferência do cliente inclui o script que gere a instalação do cliente em cada computador.  
 
--   Para obter uma descrição geral das capacidades de gestão suportadas de Linux ou UNIX, consulte [como implementar clientes em servidores UNIX e Linux no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
 
--   Para versões suportadas do Linux e UNIX, a versão indicada inclui todas a versões secundárias subsequente. Por exemplo, as versões do centos 6 incluem CentOS 6.3. Da mesma forma, suporte para um sistema operativo que utiliza os service packs (tais como o SUSE Linux Enterprise Server 11 SP1) inclui service packs subsequentes para essa versão do sistema operativo.  
+### <a name="requirements-and-limitations"></a>Requisitos e limitações
 
--   Para obter informações sobre pacotes de instalação de cliente e o agente Universal, consulte [como implementar clientes em servidores UNIX e Linux no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
+-   Para rever as dependências de ficheiros de sistema operacional para o cliente para Linux e UNIX, consulte [pré-requisitos para implementação do cliente para servidores Linux e UNIX](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers#BKMK_ClientDeployPrereqforLnU).  
 
-**Versões suportadas:** São suportadas as seguintes versões, utilizando o ficheiro. tar indicado.  
+-   Para uma descrição geral das capacidades de gestão suportadas de Linux ou UNIX, consulte [como implementar clientes em servidores UNIX e Linux](/sccm/core/clients/deploy/deploy-clients-to-unix-and-linux-servers).  
 
-### <a name="aix"></a>AIX  
+-   Para obter versões suportadas do Linux e UNIX, a versão indicada inclui todas a versões secundárias subsequente. Por exemplo, a versão 6 do CentOS inclui o CentOS 6.3. Da mesma forma, o suporte para um sistema operacional que utiliza service packs (como o SUSE Linux Enterprise Server 11 SP1) inclui service packs subsequentes para essa versão do SO.  
 
-|||  
+-   Para obter informações sobre pacotes de instalação de cliente e do agente Universal, consulte [como implementar clientes em servidores UNIX e Linux](/sccm/core/clients/deploy/deploy-clients-to-unix-and-linux-servers).  
+
+
+### <a name="supported-versions"></a>Versões suportadas
+
+As seguintes versões são suportadas ao utilizar o ficheiro. tar indicado.  
+
+#### <a name="aix"></a>AIX  
+
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 6.1 (Power)|ccm-Aix61ppc.&lt;build\>.tar|  
 |Versão 7.1 (Power)|ccm-Aix71ppc.&lt;build\>.tar|  
 
-### <a name="centos"></a>CentOS  
+#### <a name="centos"></a>CentOS  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
@@ -230,28 +255,28 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 |Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
 |Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
-### <a name="debian"></a>Debian  
+#### <a name="debian"></a>Debian  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
-|Versão 6x86|ccm-Universalx86.&lt;build\>.tar|  
+|Versão 6 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
 |Versão 7 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 |Versão 8 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 8 x64|ccm-Universalx64.&lt;build\>.tar|  
 
-### <a name="hp-ux"></a>HP-UX  
+#### <a name="hp-ux"></a>HP-UX  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 11iv3 IA64|ccm-HpuxB.11.31i64.&lt;build\>.tar|  
 
-### <a name="oracle-linux"></a>Oracle Linux  
+#### <a name="oracle-linux"></a>Oracle Linux  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
@@ -259,9 +284,9 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 |Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
 |Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
-### <a name="red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL)  
+#### <a name="red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL)  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 5 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 5 x64|ccm-Universalx64.&lt;build\>.tar|  
@@ -269,18 +294,18 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 |Versão 6 x64|ccm-Universalx64.&lt;build\>.tar|  
 |Versão 7 x64|ccm-Universalx64.&lt;build\>.tar|  
 
-### <a name="solaris"></a>Solaris  
+#### <a name="solaris"></a>Solaris  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 10 x86|ccm-Sol10x86.&lt;build\>.tar|  
 |Versão 10 SPARC|ccm-Sol10sparc.&lt;build\>.tar|  
 |Versão 11 x86|ccm-Sol11x86.&lt;build\>.tar|  
 |Versão 11 SPARC|ccm-Sol11sparc.&lt;build\>.tar|  
 
-### <a name="suse-linux-enterprise-server-sles"></a>SUSE Linux Enterprise Server (SLES)  
+#### <a name="suse-linux-enterprise-server-sles"></a>SUSE Linux Enterprise Server (SLES)  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 10 SP1 x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 10 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
@@ -288,9 +313,9 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 |Versão 11 SP1 x64|ccm-Universalx64.&lt;build\>.tar|  
 |Versão 12 x64|ccm-Universalx64.&lt;build\>.tar|  
 
-### <a name="ubuntu"></a>Ubuntu  
+#### <a name="ubuntu"></a>Ubuntu  
 
-|||  
+|Versão|Ficheiro de destino|  
 |-|-|  
 |Versão 10.04 LTS x86|ccm-Universalx86.&lt;build\>.tar|  
 |Versão 10.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
@@ -302,45 +327,51 @@ Os seguintes sistemas operativos são baseados no Windows XP Embedded e apenas s
 |Versão 16.04 LTS x64|ccm-Universalx64.&lt;build\>.tar|  
 
 
+
 ##  <a name="mobile-devices-enrolled-by-microsoft-intune"></a>Dispositivos móveis inscritos pelo Microsoft Intune  
- Para obter mais informações sobre os computadores e dispositivos que pode gerir quando integrar o Microsoft Intune com o Configuration Manager, consulte os dois tópicos seguintes na biblioteca de documentação do Microsoft Intune:  
+
+ Para obter mais informações sobre os computadores e dispositivos que pode gerir quando integra o Microsoft Intune com o Configuration Manager, consulte os artigos seguintes na biblioteca de documentação do Microsoft Intune:  
 
 -   [Capacidades de gestão de dispositivos móveis no Microsoft Intune](https://docs.microsoft.com/intune/get-started/choose-how-to-manage-devices)  
--   [Capacidades de gestão de PCs Windows no Microsoft Intune](https://docs.microsoft.com/intune/get-started/windows-pc-management-capabilities-in-microsoft-intune)  
+-   [Recursos de gerenciamento de PC do Windows no Microsoft Intune](https://docs.microsoft.com/intune/get-started/windows-pc-management-capabilities-in-microsoft-intune)  
+
+
 
 ##  <a name="bkmk_OnpremOS"></a> Gestão de dispositivos móveis no local  
- O Configuration Manager possui capacidades incorporadas para gerir dispositivos que estão no local sem instalar o software de cliente.  Para obter mais informações, consulte [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
- **Requisitos e limitações:**  
+ O Configuration Manager possui capacidades incorporadas para a gestão de dispositivos que estão no local sem instalar o software de cliente. Para obter mais informações, consulte [gerir dispositivos móveis com a infraestrutura no local](/sccm/mdm/understand/manage-mobile-devices-with-on-premises-infrastructure).  
 
--   Tem de configurar o **ponto de ligação de serviço** no site de nível superior da sua hierarquia.  
 
-**Sistemas operativos suportados:**  
+### <a name="requirements-and-limitations"></a>Requisitos e limitações
+
+-   Configurar o **ponto de ligação de serviço** no site de nível superior da sua hierarquia.  
+
+
+### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 - **Windows 10 Pro** (x86, x64)  
 
-- **Windows 10 Enterprise Pro** (x86, x64)  
+- **Enterprise do Windows 10 Pro** (x86, x64)  
 
-- **Windows 10 Enterprise de IoT** (x86, x64)
+- **Windows 10 IoT Enterprise** (x86, x64)  
+    Esta versão inclui o canal de serviço a longo prazo (LTSC). Para obter mais informações, consulte [descrição geral do Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise).<!--SCCMDocs issue 560-->  
 
 - **Windows 10 Mobile**  
 
-- **Windows 10 Enterprise móveis**  
+- **Do Windows 10 Mobile Enterprise**  
 
-- **Windows 10 IoT Mobile Enterprise**
+- **Windows 10 IoT Mobile Enterprise**  
 
-- **Equipa do Windows 10 para descobrir Hub**
+- **Equipe do Windows 10 para o Surface Hub**  
+
+
 
 ##  <a name="bkmk_ExSrvConOS"></a> Conector do Exchange Server  
-O Configuration Manager suporta a gestão limitada de dispositivos que ligam ao Exchange Server, sem instalar o cliente do Configuration Manager. Para obter mais informações, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
- **Requisitos e limitações:**  
+O Configuration Manager suporta a gestão limitada de dispositivos que ligam ao seu Exchange Server, sem instalar o cliente do Configuration Manager. Para obter mais informações, consulte [gerir dispositivos móveis com o Configuration Manager e o Exchange](/sccm/mdm/deploy-use/manage-mobile-devices-with-exchange-activesync).  
 
--   O Configuration Manager oferece uma gestão limitada para dispositivos móveis ao utilizar dispositivos com o conector do Exchange Server para o Exchange Active Sync que se ligam a um servidor que está a executar o Exchange Server ou o Exchange Online.  
 
--   Para obter mais informações sobre as funções de gestão do Configuration Manager suporta para dispositivos móveis que gere o conector do Exchange Server, consulte o artigo determinar como gerir dispositivos móveis no Configuration Manager.  
-
-**Versões suportadas do Exchange Server:**  
+### <a name="supported-versions-of-exchange-server"></a>Versões suportadas do Exchange Server
 
 -   **Exchange Server 2010 SP1**  
 
@@ -348,4 +379,4 @@ O Configuration Manager suporta a gestão limitada de dispositivos que ligam ao 
 
 -   **Exchange Server 2013**  
 
--   **Exchange Online (Office 365)**: Isto inclui o Business Productivity Online Standard Suite  
+-   **Exchange Online (Office 365)**: Esta versão inclui o Business Productivity Online Standard Suite  

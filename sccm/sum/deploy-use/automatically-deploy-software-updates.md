@@ -5,17 +5,17 @@ description: Implemente automaticamente atualizações de software ao utilizar r
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 07/30/2018
+ms.date: 08/21/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
-ms.openlocfilehash: 2ae76e9bca172b4f45a39444800a0fe152104aa4
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 6c23dc7328e2618d42b70f12bf7df8aa22fddb91
+ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383604"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42589031"
 ---
 #  <a name="automatically-deploy-software-updates"></a>Implementar automaticamente atualizações de software  
 
@@ -190,6 +190,9 @@ Aprovar e implementar atualizações de software utilizando uma ADR automaticame
         - **Ativar a replicação diferencial de binários**: Ative esta definição para minimizar o tráfego de rede entre sites. Replicação diferencial binária (BDR) apenas atualiza o conteúdo que foi alterado no pacote, em vez de atualizar o conteúdo do pacote inteiro. Para obter mais informações, consulte [replicação de diferencial binário](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#binary-differential-replication).  
 
     - **Nenhum pacote de implementação**: A partir da versão 1806, implemente atualizações de software em dispositivos sem primeiro baixar e distribuir conteúdo para pontos de distribuição. Esta definição é benéfica ao lidar com conteúdo da atualização extremamente grandes. Também usá-lo quando pretender que sempre clientes a obter o conteúdo do serviço de nuvem do Microsoft Update. Os clientes neste cenário também podem transferir o conteúdo de elementos que já tenham o conteúdo necessário. O cliente continua a gerir a transferência do conteúdo, o Configuration Manager, portanto, pode utilizar a funcionalidade de cache ponto a ponto do Configuration Manager ou outras tecnologias, como a Otimização da entrega. Esta funcionalidade suporta qualquer tipo de atualização suportado pela gestão de atualizações de software do Configuration Manager, incluindo o Windows e atualizações do Office.<!--1357933-->  
+
+        > [!Note]  
+        > Esta opção é apenas para novas regras de implementação automática. Não é possível modificar as regras existentes com esta definição.<!--SCCMDocs issue 741-->  
 
 12. Sobre o **pontos de distribuição** página, especifique os pontos de distribuição ou grupos para alojar o software de ficheiros de atualização de ponto de distribuição. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs). Esta página apenas está disponível ao criar um novo pacote de implementação da atualização de software.  
   

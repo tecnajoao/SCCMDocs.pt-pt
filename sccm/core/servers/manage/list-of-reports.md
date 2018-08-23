@@ -10,12 +10,12 @@ ms.assetid: b7332ed3-8003-454b-bb12-1fdf8721425c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9f4bbb8ec680248b31b1ddd8c457e62e9be44d4b
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 9d292d85ce5a30e56d7909d74b986ac408d29346
+ms.sourcegitcommit: 849391d3985b057027cae610bd3a79fdaa708b94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385271"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42586219"
 ---
 # <a name="list-of-reports-in-system-center-configuration-manager"></a>Lista de relatórios no System Center Configuration Manager
 
@@ -51,7 +51,7 @@ Os dois relatórios seguintes estão listados na **alertas** categoria.
 
 
 ## <a name="asset-intelligence"></a>Asset Intelligence  
-Os seguintes 62 relatórios estão listados na **Asset Intelligence** categoria.  
+Os seguintes 66 relatórios estão listados na **Asset Intelligence** categoria.  
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -117,6 +117,10 @@ Os seguintes 62 relatórios estão listados na **Asset Intelligence** categoria.
 |**Software 14A - procurar etiqueta de identificação de software de software ativado**|Mostra a contagem do software instalado com uma etiqueta de identificação de software ativada.|  
 |**Software 14B - computadores com etiqueta de identificação de software específico ativada software instalado**|Mostra todos os computadores com software instalado com uma etiqueta de identificação de software especificada ativada.|  
 |**Software 14C - instalado identificação etiqueta ativada de software num computador específico**|Mostra todos os softwares instalados com uma etiqueta de identificação de software especificada ativada num computador especificado.|  
+|**Ciclo de vida 01A – computadores com um produto de software específico**|Ver uma lista de computadores nos quais é detetado um produto especificado.|
+|**Ciclo de vida 02A – lista de computadores com produtos expirados na organização**|Ver os computadores que já passaram da validade produtos nos mesmos. Pode filtrar este relatório por nome de produto.|
+|**Ciclo de vida 03A – lista de produtos expirados encontrados na organização**|Ver detalhes dos produtos no seu ambiente que já passaram da validade ciclo de vida de datas.|
+|**Ciclo de vida 04A – descrição geral do ciclo de vida de produto de geral**|Ver uma lista dos ciclos de vida do produto. Filtre a lista por nome do produto e os dias de expiração.|
 
 
 
@@ -186,6 +190,18 @@ Os seguintes 22 relatórios estão listados na **gestão de definições de comp
 |**Resumo de utilizadores que têm aplicações não conformes**|Apresenta informações sobre utilizadores que têm aplicações instaladas que não estão em conformidade com uma política especificada por si.|  
 |**Aceitação dos termos e condições**|Apresenta os itens de Termos e Condições e que versão foi aceite por cada utilizador.|  
 
+## <a name="data-warehouse"></a>Armazém de dados  
+Os seguintes 7 relatórios estão listados na **armazém de dados** categoria. 
+
+|Nome do Relatório|Descrição|  
+|-----------------|-----------------|  
+|**Implementação de aplicação**|Histórico: Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.|
+|**Endpoint Protection e conformidade de atualização de Software**|Histórico: Ver os computadores que estão em falta atualizações de software.|
+|**Inventário de Hardware geral**|Histórico: Ver todo o inventário de hardware de uma máquina específica.|
+|**Inventário de Software geral**|Histórico: Ver todo o inventário de software para uma máquina específica.|
+|**Descrição geral do Estado de funcionamento de infraestrutura**|Histórico: Apresenta uma visão geral do Estado de funcionamento da sua infraestrutura do Configuration Manager.|
+|**Lista de software maligno detetado**|Histórico: Software maligno do modo de exibição que foi detetado na organização.|
+|**Resumo da distribuição de software**|Histórico: Um resumo da distribuição de software para um anúncio específico e a máquina.|
 
 
 ## <a name="device-management"></a>Gestão de Dispositivos  
@@ -443,7 +459,6 @@ Os seguintes 10 relatórios estão listados na **sistema operativo** categoria.
 |**Serviços - informações de serviços para um computador específico**|Mostra informações de resumo sobre os serviços num computador especificado.|  
 |**Detalhes de manutenção do Windows 10 para uma coleção específica**|Apresenta informações gerais sobre a manutenção do Windows 10 para uma coleção específica.|
 |**Computadores Windows Server**|Mostra uma lista de computadores que executam os sistemas operativos Windows Server.|  
-
 
 
 ## <a name="power-management"></a>Gestão de Energia  

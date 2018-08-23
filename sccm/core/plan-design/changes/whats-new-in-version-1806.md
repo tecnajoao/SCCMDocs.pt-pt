@@ -2,7 +2,7 @@
 title: O que há de novo na versão 1806
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1806 do Configuration Manager current branch.
-ms.date: 07/31/2018
+ms.date: 08/14/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1c6ae28a50f3145420895b295ebe730fb7b2a9a7
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: d8b5afe226643a653b044b96a68a34b840a1b714
+ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386907"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42586239"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -40,10 +40,13 @@ As secções seguintes fornecem detalhes sobre as alterações e novos recursos 
 
 
 
-<!--
-## Deprecated features and operating systems
-Learn about support changes before they are implemented in [removed and deprecated items](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
+## <a name="deprecated-features-and-operating-systems"></a>Funcionalidades preteridas e sistemas operativos
 
+Saiba mais sobre as alterações de suporte antes de eles são implementados no [removidas e preteridas itens](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
+
+***[Atualizado]***  a partir de 14 de Agosto de 2018, a funcionalidade de gestão de dispositivos móveis híbrida foi preterida. Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
+
+<!--
 Version 1806 drops support for the following products:
 -->
 
@@ -61,10 +64,10 @@ Para obter mais informações, consulte [CMPivot](/sccm/core/servers/manage/cmpi
 <!--1128774--> Elevada disponibilidade para uma função de servidor do site primário autónomo é uma solução com base no Configuration Manager para instalar um servidor de sites adicionais em modo passivo. É o servidor do site em modo passivo, além de seu servidor de site existente que está no modo ativo. Um servidor de site em modo passivo está disponível para uso imediato, quando necessário. 
 
 Para obter mais informações, consulte os artigos seguintes: 
-- [Disponibilidade elevada do servidor de site](/sccm/core/servers/deploy/configure/site-server-high-availability) 
+- [Elevada disponibilidade do servidor do site](/sccm/core/servers/deploy/configure/site-server-high-availability) 
 - [Fluxograma - configurar um servidor de site em modo passivo](/sccm/core/servers/deploy/configure/passive-site-server-flowchart)
-- [Fluxograma - promover o servidor do site (planejado)](/sccm/core/servers/deploy/configure/promote-site-server-flowchart)
-- [Fluxograma - promover o servidor do site (não planeado)](/sccm/core/servers/deploy/configure/promote-site-server-unplanned-flowchart)
+- [Fluxograma – Promover o servidor do site (planeado)](/sccm/core/servers/deploy/configure/promote-site-server-flowchart)
+- [Fluxograma – Promover o servidor do site (não planeado)](/sccm/core/servers/deploy/configure/promote-site-server-unplanned-flowchart)
 
 
 ### <a name="improvements-to-management-insights"></a>Melhorias às informações de gestão
@@ -95,7 +98,7 @@ Para obter mais informações, consulte [ferramentas do Configuration Manager](/
 
 Para obter mais informações, consulte os artigos seguintes: 
 - [A biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/the-content-library)
-- [Fluxograma - gerir a biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/manage-content-library-flowchart)
+- [Fluxograma – Gerir a biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/manage-content-library-flowchart)
 
 
 ### <a name="cloud-distribution-point-support-for-azure-resource-manager"></a>Suporte de ponto de distribuição de nuvem para o Azure Resource Manager

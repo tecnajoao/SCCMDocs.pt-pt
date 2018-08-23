@@ -1,80 +1,135 @@
 ---
-title: Alterar a autoridade de MDM
+title: Alterar a autoridade MDM
 titleSuffix: Configuration Manager
-description: Saiba como alterar a autoridade de MDM do Configuration Manager (híbrido) para o Intune autónomo
+description: Saiba como alterar a autoridade de MDM no Configuration Manager (híbrido) para o Intune autónomo
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 04/11/2018
+ms.date: 08/14/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: cc397ab5-125f-4f17-905b-fab980194f49
-ms.openlocfilehash: e5b97ccea5bb6e52badb12f635b5bc97061ca1d1
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 692ffb04546da4f65b2198e582999582c996fdb2
+ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32349522"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42586351"
 ---
-# <a name="change-your-mdm-authority"></a>Alterar a autoridade de MDM
-Pode alterar a autoridade de MDM, sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Este artigo fornece os passos para alterar um inquilino do Microsoft Intune existente configurado na consola do Configuration Manager (híbrido) para o Intune autónomo. Quando concluir os passos neste artigo, os dispositivos são geridos pelo Microsoft Intune a [portal do Azure](https://portal.azure.com). 
+# <a name="change-your-mdm-authority"></a>Alterar a autoridade MDM
 
-> [!Note]    
-> Se pretender alterar um inquilino do Microsoft Intune existente, com o conjunto de autoridade MDM ao Intune, para o Configuration Manager (híbrido), consulte o artigo [alterar a autoridade de MDM](https://docs.microsoft.com/intune-classic/deploy-use/change-mdm-authority).
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-> [!Important]    
-> Este artigo é para alterar a sua autoridade MDM não tenha sido anteriormente migrados os utilizadores. Para alterar a autoridade de MDM, depois de ter [migrado um subconjunto de utilizadores](migrate-hybridmdm-to-intunesa.md), consulte [alterar a autoridade de MDM](migrate-change-mdm-authority.md).
+Pode alterar a autoridade MDM sem ter de contactar Support da Microsoft e sem ter de anular a inscrição e inscrever novamente os seus dispositivos geridos existentes. Este artigo fornece os passos para alterar um inquilino existente do Microsoft Intune configurado na consola do Configuration Manager (híbrido) para o Intune autónomo. Quando concluir os passos neste artigo, os dispositivos são geridos pelo Microsoft Intune no [portal do Azure](https://portal.azure.com). 
 
-## <a name="key-considerations"></a>Considerações-chave
-Depois de alterar a autoridade de MDM, espere uma hora de transição de até oito horas. Pode demorar muito neste antes do dispositivo ser registado e sincroniza com o serviço. Para garantir que os dispositivos inscritos continuam a ser geridos e protegido após a alteração, configure definições diretamente no Intune. Tenha em atenção as seguintes considerações:
-- Dispositivos tem de ligar com o serviço após a alteração, para que as definições da autoridade de MDM novo (Intune autónomo) substituem as definições existentes no dispositivo.
-- Depois de alterar a autoridade de MDM, algumas das definições básicas (por exemplo, perfis) da autoridade de MDM anterior (híbrido) permanecem no dispositivo até sete dias. Recomenda-se que configura as aplicações e definições (políticas, perfis, aplicações, etc.) na autoridade MDM novo logo que possível. Além disso, implemente as definições para os grupos de utilizadores que contêm os utilizadores que possuem dispositivos já inscritos. Quando um dispositivo se liga ao serviço após a alteração na autoridade de MDM, este recebe novas definições da autoridade MDM de novo. Quaisquer políticas recentemente visadas substituem as políticas existentes no dispositivo.
-- Depois de alterar para a nova autoridade de MDM, os dados de conformidade no [portal do Azure](https://portal.azure.com) pode demorar até uma semana para reportar com precisão. No entanto, os Estados de compatibilidade no Azure Active Directory e no dispositivo estão corretos. O dispositivo ainda está a ser protegido.
-- Dispositivos que não tem utilizadores associados não são migrados para a autoridade de MDM de novo. Este comportamento é, normalmente, quando tiver iOS Device Enrollment Program ou em massa cenários de inscrição. Para os dispositivos, contacte o suporte para obter ajuda para movê-los para a autoridade de MDM de novo.
+Este artigo é alterar a sua autoridade MDM quando os utilizadores ainda não tiver migrado. Para alterar a sua autoridade MDM depois [migrados um subconjunto de utilizadores](migrate-hybridmdm-to-intunesa.md), consulte [alterar a sua autoridade MDM](migrate-change-mdm-authority.md).
 
-## <a name="prepare-to-change-the-mdm-authority-to-intune-standalone"></a>Preparar para alterar a autoridade de MDM ao Intune autónomo
-Reveja as informações seguintes para se preparar para a alteração à autoridade de MDM:
-- Pode demorar até oito horas para um dispositivo para ligar ao serviço depois de alterar para a autoridade de MDM de novo.
-- Certifique-se de que todos os utilizadores que sejam atualmente geridos pelo híbrida ter uma licença do Intune/EMS atribuída antes da alteração na autoridade de MDM. Esta licença assegura que o utilizador e os respetivos dispositivos são geridos pelo Intune autónomo após a alteração na autoridade de MDM. Para obter mais informações, consulte [licenças do Intune atribuir às suas contas de utilizador](https://docs.microsoft.com/intune/get-started/start-with-a-paid-subscription-to-microsoft-intune-step-4).
-- Certifique-se de que a conta de utilizador de administrador tem uma licença do Intune/EMS atribuída. Certifique-se de que a conta de utilizador administrador pode iniciar sessão no Intune antes da alteração para a autoridade de MDM. A autoridade de MDM deve apresentar **definida para o Configuration Manager** (inquilino híbrida) no Intune no [portal do Azure](https://portal.azure.com) antes da alteração na autoridade de MDM.
-- Não deverá haver nenhum impacto considerável aos utilizadores finais durante a alteração na autoridade de MDM. 
+> [!Important]  
+> A partir de 13 de Agosto de 2018, gestão de dispositivos móveis híbrida é um [funcionalidade preterida](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures). Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
 
-## <a name="change-the-mdm-authority-to-intune-standalone"></a>Alterar a autoridade de MDM ao Intune autónomo
-O processo para alterar a autoridade de MDM ao Intune autónomo inclui os seguintes passos de alto nível:  
-- Na consola do Configuration Manager, utilize o **autoridade de MDM de alteração para o Microsoft Intune** opção para remover a subscrição existente do Microsoft Intune.
-- No Intune no [portal do Azure](https://portal.azure.com), configurar e implementar as novas definições e aplicações a partir da autoridade de MDM novo (Intune).
-- Os dispositivos de hora seguintes ligam ao serviço, irá sincronizar e receber as novas definições da autoridade MDM de novo.
 
-#### <a name="to-change-the-mdm-authority-to-intune-standalone"></a>Para alterar a autoridade de MDM ao Intune autónomo
-1. Na consola do Configuration Manager, vá para **administração** &gt; **descrição geral** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e eliminar a sua subscrição do Intune existente.
-2. Selecione **autoridade de MDM de alteração para o Microsoft Intune**e, em seguida, clique em **seguinte**.
+
+## <a name="key-considerations"></a>Considerações principais
+
+Depois de alterar a autoridade de MDM, esperar que um tempo de transição de até oito horas. Pode demorar esse tempo antes do dispositivo for registado e sincroniza com o serviço. Para garantir que os dispositivos inscritos continuam a ser geridos e protegidos depois da alteração, configure as definições diretamente no Intune. Tenha em atenção as seguintes considerações:
+
+- Dispositivos tem de ligar com o serviço após a alteração para que as definições da nova autoridade de MDM (Intune autónomo) substituam as definições existentes no dispositivo.  
+
+- Depois de alterar a autoridade de MDM, algumas das definições básicas (como perfis) da autoridade de MDM anterior (híbrido) permanecem no dispositivo até sete dias. Recomenda-se que configure aplicações e definições (políticas, perfis, aplicações, etc.) na nova autoridade de MDM logo que possível. Além disso, implemente as definições para os grupos de utilizadores que contêm utilizadores com dispositivos inscritos existentes. Quando um dispositivo se liga ao serviço após a alteração da autoridade de MDM, receba as novas definições da nova autoridade de MDM. Todas as políticas recentemente visadas substituem as políticas existentes no dispositivo.  
+
+- Depois de mudar para a nova autoridade MDM, os dados de conformidade no [portal do Azure](https://portal.azure.com) pode demorar até uma semana para o relatório com precisão. No entanto, os Estados de conformidade no Azure Active Directory e no dispositivo estão corretas. O dispositivo ainda está protegido.  
+
+- Dispositivos que não têm utilizadores associados não são migrados para a nova autoridade MDM. Este comportamento é, normalmente, quando tiver o programa de inscrição do dispositivo iOS ou em massa de cenários de inscrição. Para esses dispositivos, contacte o suporte para obter ajuda para movê-los para a nova autoridade MDM.  
+
+
+
+## <a name="prepare-to-change-the-mdm-authority-to-intune-standalone"></a>Preparar para alterar a autoridade de MDM para o Intune autónomo
+
+Reveja as informações seguintes para preparar a alteração para a autoridade de MDM:
+
+- Pode demorar até oito horas para um dispositivo para ligar ao serviço depois de mudar para a nova autoridade MDM.  
+
+- Certifique-se de que todos os utilizadores atualmente geridos de forma híbrida têm uma licença do Intune/EMS atribuída antes da alteração da autoridade de MDM. Esta licença garante que o utilizador e os respetivos dispositivos são geridos pelo Intune autónomo após a alteração da autoridade de MDM. Para obter mais informações, consulte [atribuir licenças do Intune às contas de utilizador](https://docs.microsoft.com/intune/get-started/start-with-a-paid-subscription-to-microsoft-intune-step-4).  
+
+- Certifique-se de que a conta de utilizador de administrador tem uma licença do Intune/EMS atribuída. Confirme que a conta de utilizador administrador pode iniciar sessão no Intune antes da alteração para a autoridade de MDM. A autoridade de MDM deverá apresentar **definida para o Configuration Manager** (inquilino híbrido) no Intune no [portal do Azure](https://portal.azure.com) antes da alteração da autoridade de MDM.  
+
+- Não deve haver nenhum impacto perceptível para os usuários finais durante a alteração da autoridade de MDM. 
+
+
+
+## <a name="change-the-mdm-authority-to-intune-standalone"></a>Alterar a autoridade MDM para o Intune autónomo
+
+O processo para alterar a autoridade de MDM para o Intune autónomo inclui os seguintes passos de alto nível:  
+
+- Na consola do Configuration Manager, utilize o **alterar a autoridade de MDM para o Microsoft Intune** opção para remover a subscrição existente do Microsoft Intune.  
+
+- No Intune no [portal do Azure](https://portal.azure.com), configurar e implementar novas definições e aplicações a partir da nova autoridade de MDM (Intune).  
+
+- Os próxima vez que os dispositivos se ligar ao serviço, irá sincronizar e receber as novas definições da nova autoridade de MDM.  
+
+#### <a name="to-change-the-mdm-authority-to-intune-standalone"></a>Para alterar a autoridade de MDM para o Intune autónomo
+1. Na consola do Configuration Manager, vá para o **administração** área de trabalho. Expanda **serviços Cloud**e selecione o **subscrição do Microsoft Intune** nó. Elimine a sua subscrição do Intune existente.  
+
+2. Selecione **alterar a autoridade de MDM para o Microsoft Intune**e, em seguida, clique em **próxima**.  
+
    ![Remover Assistente de subscrição do Microsoft Intune, a página de introdução](./media/mdm-change-delete-subscription.png)
-3. Iniciar sessão para o inquilino do Intune que utilizou originalmente quando definir a autoridade de MDM no Configuration Manager.
-4. Clique em **Seguinte** e conclua o assistente.
-5. A autoridade de MDM está agora definida como **Microsoft Intune**. A subscrição do Intune não apresentar no nó de subscrições do Microsoft Intune da consola do Configuration Manager. 
-6. Para verificar se a autoridade MDM é definida, siga os passos seguintes: uma. Iniciar sessão para o [portal do Azure](https://portal.azure.com) utilizar o mesmo inquilino do Intune que utilizou anteriormente. 
-    b. Escolha **mais serviços** > **monitorização + gestão** > **Intune** > **deinscriçãodedispositivos**. A autoridade de MDM é apresentada na secção superior direito a **descrição geral** painel. 
+
+3. Inicie sessão no inquilino do Intune que utilizou originalmente quando definiu a autoridade de MDM no Configuration Manager.  
+
+4. Clique em **Seguinte** e conclua o assistente.  
+
+5. A autoridade de MDM está agora definida como **Microsoft Intune**. A subscrição do Intune não apresenta no nó de subscrições do Microsoft Intune da consola do Configuration Manager.  
+
+6. Para verificar que a autoridade de MDM é definida, siga os passos seguintes:  
+
+    1. Inicie sessão para o [portal do Azure](https://portal.azure.com) utilizar o mesmo inquilino do Intune que utilizou anteriormente.  
+
+    2. Escolher **todos os serviços** > **Intune** > **inscrição de dispositivos**. A autoridade de MDM é apresentada na seção superior direito **descrição geral**.  
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de concluída a alteração na autoridade de MDM, reveja os seguintes passos:
-- Quando o serviço Intune Deteta que a autoridade de MDM de um inquilino foi alterado, que envia uma mensagem de notificação para todos os dispositivos inscritos para registar e sincronizar com o serviço. Este comportamento está fora da agendadas regularmente dar entrada no. Por conseguinte, depois de alterar a autoridade de MDM para o inquilino do híbrida ao Intune autónomo, todos os dispositivos que estão ligados à corrente no e online estabelecer ligação com o serviço, recebem a autoridade de MDM novo e são geridos pelo Intune autónomo. Não há sem interrupções da gestão e a proteção destes dispositivos.
-- Dispositivos que estão ligados desativado ou offline durante a (ou pouco depois) a alteração na autoridade de MDM ligar e sincronizar com o serviço sob a autoridade de MDM novo quando estão ligados à corrente no e online.  
-- Os utilizadores podem alterar rapidamente para a autoridade de MDM novo iniciando manualmente um verificação-in do dispositivo para o serviço. Os utilizadores podem facilmente efetuar esta ação através da aplicação Portal da empresa e iniciar uma verificação de conformidade do dispositivo.
-- Para validar que coisas estão a funcionar corretamente depois de dispositivos têm deu entrada em e sincronizados com o serviço após a alteração na autoridade de MDM, procure os dispositivos com o [portal do Azure](https://portal.azure.com). Os dispositivos que foram anteriormente geridos pelo Configuration Manager (híbrido) apresentação de agora como dispositivos geridos no Intune.    
-- Não há um período provisória quando um dispositivo estiver offline durante a alteração na autoridade de MDM e quando verifica a que o dispositivo para o serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcionais durante este período intermédio, os seguintes perfis permanecem no dispositivo até sete dias (ou até que o dispositivo estabelece ligação com a autoridade de MDM novo e recebe novas definições de substituir a existente aqueles):
+
+Após concluir a alteração na autoridade de MDM, reveja os seguintes passos:  
+
+- Quando o serviço do Intune Deteta que a autoridade MDM de um inquilino foi alterado, envia uma mensagem de notificação para todos os dispositivos inscritos se registarem e sincronizarem com o serviço. Este comportamento é fora o check-in agendado regularmente. Portanto, depois de alterar a autoridade de MDM para o inquilino da híbrida para o Intune autónomo, todos os dispositivos que estão ligados e online se ligar ao serviço, receberão a nova autoridade MDM e são geridos pelo Intune autónomo. Não há nenhuma interrupção para o gerenciamento e proteção destes dispositivos.  
+
+- Dispositivos que estão ligados desativado ou offline durante (ou pouco depois) a alteração da autoridade MDM de ligar e sincronizar com o serviço sob a nova autoridade MDM quando eles estão ligados e online.   
+
+- Os utilizadores podem mudar rapidamente para a nova autoridade MDM ao iniciar manualmente um check-in do dispositivo para o serviço. Os utilizadores podem facilmente fazer esta ação ao utilizar a aplicação Portal da empresa e iniciar uma verificação de conformidade do dispositivo.  
+
+- Para validar que as coisas estão funcionando corretamente após os dispositivos têm check-in e sincronizados com o serviço após a alteração da autoridade de MDM, procure os dispositivos com o [portal do Azure](https://portal.azure.com). Os dispositivos geridos anteriormente pelo exibição do Configuration Manager (híbrido) agora como dispositivos geridos no Intune.    
+
+- Há um período provisório em que um dispositivo está offline durante a alteração da autoridade de MDM e do que o dispositivo é registado no serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcional durante este período provisório, os seguintes perfis permanecem no dispositivo até sete dias (ou até que o dispositivo estabelece ligação com a nova autoridade MDM e receba as novas definições que substituir o existente aqueles):  
     - Perfil de e-mail
     - Perfil da VPN
     - Perfil de certificado
-    - Perfil Wi-Fi
-    - Perfis de configuração
-- Para substituir as definições antigas, certifique-se de que as novas definições que foram concebidas para substituir as definições existentes têm o mesmo nome que as anteriores. Caso contrário, os dispositivos poderão acaba por ficar com as políticas e perfis redundantes.    
+    - Perfil de Wi-Fi
+    - Perfis de configuração  
+
+- Para substituir as definições de antigas, certifique-se de que as novas definições que se destinam-se para substituir definições existentes têm o mesmo nome que as. Caso contrário, os dispositivos poderão ficar com políticas e perfis redundantes.    
 
   > [!TIP]   
-  > Como melhor prática, deve criar todas as definições de gestão e configurações, bem como implementações, imediatamente após a alteração à autoridade de MDM foi concluída. Isto ajuda a garantir que os dispositivos estão protegidos e geridos ativamente durante o período de intermédio.   
--  Depois de alterar a autoridade de MDM, execute os seguintes passos para validar que a novos dispositivos são inscritos com êxito para a autoridade de novo:   
-    - Inscrever um dispositivo novo
-    - Certifique-se os dispositivos inscritos recentemente aparecem no [portal do Azure](https://portal.azure.com).
-    - Efetuar uma ação, tal como o bloqueio remoto desde o [portal do Azure](https://portal.azure.com) no dispositivo. Se for bem sucedida, o dispositivo está a ser gerido pela autoridade MDM de novo.
-- Se tiver problemas com dispositivos específicos, anular a inscrição e inscrever-se novamente os dispositivos. Esta ação liga à autoridade de novo e geridas como rapidamente quanto possível.
-- Se ativou [Android para trabalho](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client) como uma versão híbrida de inquilino e, em seguida, migrar o seu inquilino ao Intune autónomo, o Android para a definição de trabalho em restrições de inscrição pode mostrar como bloqueadas em vez de permitir. Defina manualmente **permitir** para reativar o Android para a inscrição de trabalho.<!--512117-->
+  > Crie todas as definições de gestão e configurações, bem como implementações, logo após a conclusão da alteração para a autoridade de MDM. Esta ação ajuda a proteger e gerir os dispositivos ativamente durante o período provisório.   
+
+-  Depois de alterar a autoridade de MDM, execute os seguintes passos para validar que os dispositivos foram inscritos com êxito para a nova autoridade:   
+
+    - Inscrever um novo dispositivo  
+
+    - Certifique-se de que os dispositivos inscritos recentemente aparecem na [portal do Azure](https://portal.azure.com).  
+
+    - Executar uma ação, como o bloqueio remoto, a partir da [portal do Azure](https://portal.azure.com) no dispositivo. Se tiver êxito, o dispositivo está a ser gerido pela nova autoridade de MDM.  
+    
+- Se tiver problemas com dispositivos específicos, anular a inscrição e inscrever novamente os dispositivos. Esta ação liga-se para a nova autoridade e gerenciados mais rapidamente possível.  
+
+- Se tiver habilitado [Android for Work](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client) como uma mistura de inquilino e, em seguida, migrar o seu inquilino para o Intune autónomo, o Android para a definição de trabalho em restrições de inscrição pode mostrar como bloqueado, em vez de permitir. Defini-lo manualmente **permitir** para voltar a activar Android para a inscrição de trabalho.<!--512117-->  
+
+- Depois de alterar a autoridade de MDM, o Apple VPP token e associados [aplicações iOS compradas em volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps) não são automaticamente removidos. Para limpar estas informações, siga os passos em [eliminar um token de Apple VPP](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps#delete-an-apple-vpp-token). Depois de concluída a operação, o site remove o token. Ele também remove do nó da aplicação de Store licenciado quaisquer metadados de aplicação para esse token.<!--SCCMDocs issue 579-->  
+
+    Em raras ocorrências, poderá ver um erro que o site não foi possível eliminar o objeto de gestão.  
+
+    - Se o token não estiver visível, ignore o erro  
+
+    - Se o token ainda estiver listado, repita para eliminá-lo  
+

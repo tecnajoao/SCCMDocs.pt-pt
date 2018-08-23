@@ -2,7 +2,7 @@
 title: Funcionalidades preteridas
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as funcionalidades que já não suporta o Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 08/14/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 287a6324-ae65-4d38-b2ef-198d47c91231
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8075fb0e00a0cc9bd8190bb2838431be8c2d1ce8
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: a84d25203fc0addc32271446e1375c9013c0bb6e
+ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39382877"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42586312"
 ---
 # <a name="removed-and-deprecated-features-for-configuration-manager"></a>Funcionalidades removidas e preteridas para o Configuration Manager
 
@@ -31,6 +31,7 @@ Estas informações estão sujeitas a alterações em versões futuras. Não pod
 
 |Funcionalidade|Preterição anunciada pela primeira vez|Suporte&nbsp;removido|  
 |-----------|---|--------------|  
+|Gestão de dispositivos móveis híbrida. Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->|14 de Agosto de 2018|1 de Setembro de 2019|
 |O **experiência de usuário do Silverlight** para o site do catálogo de aplicativos ponto já não é suportado. Os utilizadores devem utilizar o novo Centro de Software. NOTA: Os catálogo site web e de ponto de serviço ponto funções da aplicação ainda são suportadas. Em alguns cenários, o novo Centro de Software se comunica com o ponto de Web site do catálogo de aplicações.|11 de Agosto de 2017| Versão 1806|
 |A versão anterior do Centro de Software.<br><br>Para obter mais informações sobre o novo Centro de Software, consulte [planear e configurar a gestão de aplicações](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only).|13 de Dezembro de 2016|Versão 1802|
 |Gestão de discos rígidos virtuais (VHDs) com o Configuration Manager. </br></br>Essa depreciação inclui a remoção das opções para criar um novo VHD ou gerir um VHD com uma sequência de tarefas e a remoção do nó de discos rígidos virtuais a partir da consola do Configuration Manager. </br></br>VHDs existentes não são eliminados, mas já não são acessíveis a partir da consola do Configuration Manager.  |6 de Janeiro de 2017 |Versão 1710|
