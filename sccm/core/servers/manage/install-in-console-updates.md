@@ -2,7 +2,7 @@
 title: Atualizações na consola
 titleSuffix: Configuration Manager
 description: Instalar atualizações para o Configuration Manager da cloud da Microsoft
-ms.date: 07/30/2018
+ms.date: 08/22/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4ea03f3a91d086a3528047ac6fcd18ff09b03537
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 46aa845197010694e1a1c48ec1d3f18a13268cdf
+ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385563"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42756134"
 ---
 # <a name="install-in-console-updates-for-configuration-manager"></a>Instalar atualizações na consola do Configuration Manager
 
@@ -365,40 +365,13 @@ Vá para o **monitorização** área de trabalho e selecione o **estado de manut
 
 ##  <a name="bkmk_after"></a> Após uma site instalar uma atualização  
 
-Utilize a lista de verificação seguinte para concluir tarefas comuns e as configurações que são efetuadas após atualizar um site.   
+Depois do site atualiza, reveja a lista de verificação posterior à atualização para a versão aplicável:  
 
-#### <a name="confirm-site-to-site-replication-is-active"></a>Confirmar a replicação de site a site está ativa
-Na consola do Configuration Manager, aceda às localizações seguintes para ver o estado e certifique-se de que a replicação está ativa:  
+- [Lista de verificação posterior à atualização para a versão 1806](/sccm/core/servers/manage/checklist-for-installing-update-1806#post-update-checklist)  
 
--   **Monitorização** área de trabalho **hierarquia do Site** nó  
+- [Lista de verificação posterior à atualização para a versão 1802](/sccm/core/servers/manage/checklist-for-installing-update-1802#post-update-checklist)  
 
--   **Monitorização** área de trabalho **replicação de base de dados** nó  
-
-Para obter mais informações, consulte os artigos seguintes:  
-- [Monitorizar a infraestrutura de hierarquia e replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure)
-- [Sobre o analisador de ligações de replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA)  
-
-#### <a name="confirm-that-servers-restarted-if-necessary"></a>Confirme que os servidores reiniciado (se necessário) 
-Reveja a infraestrutura de sites e certifique-se de que servidores do site aplicáveis e os servidores de sistema de sites remoto reiniciaram com êxito. Normalmente, os servidores do site reinicie apenas quando o Configuration Manager instala .NET como um pré-requisito para uma função de sistema de sites.  
-
-#### <a name="update-standalone-configuration-manager-consoles"></a>Atualizar consolas do Configuration Manager autónomo
-Atualize todas as consolas remotas do Configuration Manager para a mesma versão. Lhe for pedido para atualizar a consola quando:  
-
--   Ir para um novo nó na consola do.  
-
--   Abra a consola.  
-
-#### <a name="reconfigure-database-replicas-for-management-points"></a>Reconfigurar réplicas de base de dados para pontos de gestão
-Se utilizar réplicas de base de dados para pontos de gestão em sites primários, desinstale as réplicas de base de dados antes de atualizar o site. Após atualizar um site primário, reconfigure a réplica da base de dados para pontos de gestão. Para obter mais informações, consulte [réplicas para pontos de gestão de base de dados](/sccm/core/servers/deploy/configure/database-replicas-for-management-points).  
-
-#### <a name="reconfigure-any-disabled-maintenance-tasks"></a>Reconfigure as tarefas de manutenção desativado
-Se tiver desativado a base de dados [tarefas de manutenção](/sccm/core/servers/manage/maintenance-tasks) num site antes de instalar a atualização, reconfigure essas tarefas no site. Utilize as definições que se encontravam em vigor antes da atualização.  
-
-#### <a name="upgrade-clients"></a>Atualização dos clientes
-Para obter informações, consulte [como atualizar clientes para computadores Windows](/sccm/core/clients/manage/upgrade/upgrade-clients-for-windows-computers).  
-
-#### <a name="additional-configurations"></a>Configurações adicionais
-Reveja as alterações feitas antes de iniciar a atualização e, em seguida, restaure essas configurações para sites e da hierarquia.  
+- [Lista de verificação posterior à atualização para a versão 1710](/sccm/core/servers/manage/checklist-for-installing-update-1710#post-update-checklist)  
 
 
 

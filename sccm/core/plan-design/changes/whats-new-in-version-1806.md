@@ -2,7 +2,7 @@
 title: O que há de novo na versão 1806
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1806 do Configuration Manager current branch.
-ms.date: 08/14/2018
+ms.date: 08/22/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,18 +10,20 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d8b5afe226643a653b044b96a68a34b840a1b714
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ms.openlocfilehash: 168bfa1e436092fd2196d28c7b30737cdfaf3fae
+ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586239"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42756195"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Atualize 1806 para o ramo atual do Configuration Manager está disponível como uma atualização na consola. Aplica esta atualização de sites que executam a versão 1706, 1710 ou 1802. <!-- baseline only statement: When installing a new site, it's also available as a baseline version.-->
+
+Reveja sempre a lista de verificação mais recente para instalar esta atualização. Para obter mais informações, consulte [lista de verificação para a instalação de atualização 1806](/sccm/core/servers/manage/checklist-for-installing-update-1806). Depois de atualizar um site, reveja também os [lista de verificação de pós-atualização](/sccm/core/servers/manage/checklist-for-installing-update-1806#post-update-checklist).
 
 > [!Important]  
 > Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são indicadas com o ***[atualizado]*** marca. Esta nota será removida quando o conteúdo é finalizado.  
@@ -351,16 +353,36 @@ Estas sequências de tarefas podem ser para a implementação do sistema operaci
 ### <a name="other-improvements-to-os-deployment"></a>Outras melhorias para implementação do SO
 
 #### <a name="mask-sensitive-data-stored-in-task-sequence-variables"></a>Mascarar dados confidenciais armazenados em variáveis de sequência de tarefas
-<!--1358330--> Na [Set Task Sequence Variable](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) passo, selecione a opção nova para **não apresentar este valor**. Por exemplo, quando especificar uma palavra-passe. 
+ <!--1358330--> ***[Atualizado]***  No **Set Task Sequence Variable** passo, selecione a opção nova para **não apresentar este valor**. 
+
+ Para obter mais informações, consulte [Set Task Sequence Variable](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable). 
 
 #### <a name="mask-program-name-during-run-command-step-of-a-task-sequence"></a>Nome do programa de máscara durante a executar o comando passo de sequência de tarefas
-<!--1358493--> Para impedir que os dados potencialmente confidenciais sejam apresentadas ou com sessão iniciada, defina a variável de sequência de tarefas **OSDDoNotLogCommand** para `TRUE`. Esta variável dissimula o nome do programa no smsts durante uma [executar linha de comandos](/sccm/osd/understand/task-sequence-steps#BKMK_RunCommandLine) passo de sequência de tarefas.   
+ <!--1358493--> ***[Atualizado]***  Para impedir que os dados potencialmente confidenciais sejam apresentadas ou com sessão iniciada, a configurar a variável de sequência de tarefas **OSDDoNotLogCommand**.  
+
+ Para obter mais informações, consulte [variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables#OSDDoNotLogCommand). 
 
 #### <a name="task-sequence-variable-for-dism-parameters-when-installing-drivers"></a>Variável de sequência de tarefas para os parâmetros do DISM ao instalar controladores
-<!--516679--> Para especificar parâmetros de linha de comandos adicionais para o DISM, utilize a nova variável de sequência de tarefas **OSDInstallDriversAdditionalOptions**. Ativar a [aplicar pacote de controlador](/sccm/osd/understand/task-sequence-steps#BKMK_ApplyDriverPackage) passo na definição **instalar o pacote de controladores através da execução do DISM com a opção recurse**. 
+ <!--516679/2840016--> ***[Atualizado]***  Para especificar parâmetros de linha de comandos adicionais para o DISM, utilize a nova variável de sequência de tarefas **OSDInstallDriversAdditionalOptions**. 
+
+ Para obter mais informações, consulte [variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables#OSDInstallDriversAdditionalOptions). 
 
 #### <a name="option-to-use-full-disk-encryption"></a>Opção para utilizar a encriptação de disco completa
-<!--SCCMDocs-pr issue 2671--> Tanto o [ativar BitLocker](/sccm/osd/understand/task-sequence-steps#BKMK_EnableBitLocker) e [provisão prévia do BitLocker](/sccm/osd/understand/task-sequence-steps#BKMK_PreProvisionBitLocker) passos agora incluem uma opção para **utilizar encriptação de disco completa**. Por predefinição, estes passos criptografar o espaço utilizado na unidade. Este comportamento predefinido é recomendado, pois é mais rápido e eficiente. Se sua organização, é necessário criptografar a unidade completa durante a configuração, em seguida, ative esta opção. Configuração do Windows aguarda que a unidade completa encriptar, que demora muito tempo, especialmente em unidades de grandes dimensões. 
+ <!--SCCMDocs-pr issue 2671--> ***[Atualizado]***  Ambas as a **ativar BitLocker** e **provisão prévia do BitLocker** passos agora incluem uma opção para **utilizar encriptação de disco completa**. Por predefinição, estes passos criptografar o espaço utilizado na unidade. Este comportamento predefinido é recomendado, pois é mais rápido e eficiente. 
+
+ Para obter mais informações, consulte [ativar BitLocker](/sccm/osd/understand/task-sequence-steps#BKMK_EnableBitLocker) e [provisão prévia do BitLocker](/sccm/osd/understand/task-sequence-steps#BKMK_PreProvisionBitLocker). 
+
+#### <a name="client-provisioning-mode-isnt-enabled-with-windows-10-upgrade-compatibility-scan"></a>Modo de aprovisionamento de cliente não está ativado com a análise de compatibilidade da atualização do Windows 10
+ <!--SCCMDocs-pr issue 2812--> ***[Atualizado]***  Agora quando ativa a opção de **análise de compatibilidade de executar a configuração do Windows sem iniciar a atualização**, o **atualizar sistema operativo** passo de sequência de tarefas não coloca a configuração Cliente do gestor para o modo de aprovisionamento.
+
+ Para obter mais informações, consulte [atualizar sistema operativo](/sccm/osd/understand/task-sequence-steps#BKMK_UpgradeOS).
+
+#### <a name="revised-documentation-for-task-sequence-variables"></a>Documentação revisada para variáveis de sequência de tarefas
+ ***[Atualizado]***  Dois novos artigos agora estão disponíveis para compreender as variáveis de sequência de tarefas:  
+
+ - [Como utilizar variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables) é um novo artigo que descreve os diferentes tipos de variáveis, métodos para definir as variáveis e como aceder aos mesmos.  
+
+ - [Variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables) é uma referência para tarefas disponíveis todas as variáveis de sequência. Este artigo combina os artigos anteriores, o que separada variáveis incorporadas das variáveis de ação. 
 
 
 
@@ -512,7 +534,7 @@ Para obter mais informações, consulte [consola melhorias na versão 1806](/scc
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Quando estiver pronto para instalar esta versão, consulte [instalação de atualizações para o Configuration Manager](/sccm/core/servers/manage/updates).
+Quando estiver pronto para instalar esta versão, consulte [instalação de atualizações para o Configuration Manager](/sccm/core/servers/manage/updates) e [lista de verificação para a instalação de atualização 1806](/sccm/core/servers/manage/checklist-for-installing-update-1806).
 
 > [!TIP]  
 > Para instalar um novo site, utilize uma versão de linha de base do Configuration Manager.  
@@ -522,3 +544,5 @@ Quando estiver pronto para instalar esta versão, consulte [instalação de atua
 >   - [Versões de linha de base e de atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
 
 Para problemas conhecidos e significativos, consulte a [notas de versão](/sccm/core/servers/deploy/install/release-notes).
+
+Depois de atualizar um site, reveja também os [lista de verificação de pós-atualização](/sccm/core/servers/manage/checklist-for-installing-update-1806#post-update-checklist).
