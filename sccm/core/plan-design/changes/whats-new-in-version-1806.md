@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 168bfa1e436092fd2196d28c7b30737cdfaf3fae
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: 25397c2e9d03de01cf20a6309b73ecb8e99718b1
+ms.sourcegitcommit: a17be6f5e4659ba3f38c7732b43f3afafcb95171
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756195"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906368"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -380,7 +380,7 @@ Estas sequências de tarefas podem ser para a implementação do sistema operaci
 #### <a name="revised-documentation-for-task-sequence-variables"></a>Documentação revisada para variáveis de sequência de tarefas
  ***[Atualizado]***  Dois novos artigos agora estão disponíveis para compreender as variáveis de sequência de tarefas:  
 
- - [Como utilizar variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables) é um novo artigo que descreve os diferentes tipos de variáveis, métodos para definir as variáveis e como aceder aos mesmos.  
+ - [Como utilizar variáveis de sequência de tarefas](/sccm/osd/understand/using-task-sequence-variables) é um novo artigo que descreve os diferentes tipos de variáveis, métodos para definir as variáveis e como aceder aos mesmos.  
 
  - [Variáveis de sequência de tarefas](/sccm/osd/understand/task-sequence-variables) é uma referência para tarefas disponíveis todas as variáveis de sequência. Este artigo combina os artigos anteriores, o que separada variáveis incorporadas das variáveis de ação. 
 
