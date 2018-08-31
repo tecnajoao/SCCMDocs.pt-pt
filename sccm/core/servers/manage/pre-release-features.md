@@ -10,12 +10,12 @@ ms.assetid: 6bce416b-761d-4b23-bd33-5b7c30edb10d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 04d23383d13e981d8a48f88e84444df1ac4915fe
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: e72cdf667f96828fb6730cf3294c8d20ec553130
+ms.sourcegitcommit: 759098de944b8f7d5eedfc2bae2cb9a6ba15276f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386893"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43289259"
 ---
 # <a name="pre-release-features-in-configuration-manager"></a>Funcionalidades de pré-lançamento no Configuration Manager
 
@@ -77,7 +77,7 @@ Quando ativa a funcionalidade de pré-lançamento, o Gestor da hierarquia do Con
 |------------------|----------------------|-------------------------|
 | Sistema de sites HTTP avançado<!--1356889,1358228-->|Versão 1806|![Ainda não](media/red_x.png)|
 | Aplicações móveis para dispositivos cogeridos<!--1357892-->|[Versão 1806](/sccm/core/clients/manage/co-management-switch-workloads#workloads-able-to-be-transitioned-to-intune)|![Ainda não](media/red_x.png)|
-| Gestor de conversão de pacotes<!--1357861-->|Versão 1806|![Ainda não](media/red_x.png)|
+| Gestor de conversão de pacotes<!--1357861-->|[Versão 1806](/sccm/apps/pcm/package-conversion-manager)|![Ainda não](media/red_x.png)|
 | Suporte para Cisco AnyConnect 4.0.07x e posteriores para iOS<!--1357393-->|[Versão 1802](/sccm/mdm/deploy-use/create-vpn-profiles)| [Versão 1802 com atualização 4163547](/sccm/mdm/deploy-use/create-vpn-profiles) |
 | Implementações faseadas<!--1356837-->|[Versão 1802](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence)|[Versão 1806](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence)|
 | Executar o passo de sequência de tarefas <!-- 1261338 --> |  [Versão 1710](/sccm/osd/understand/task-sequence-steps#child-task-sequence) |[Versão 1802](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#add-child-task-sequences-to-a-task-sequence)|

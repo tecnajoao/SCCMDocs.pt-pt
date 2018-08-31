@@ -1,8 +1,8 @@
 ---
-title: O que há de novo no MDM híbrida
+title: Novidades sobre a MDM híbrida
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
-ms.date: 08/14/2018
+ms.date: 08/29/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c127c435674356c12ade07ce101e097559506e45
-ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
+ms.openlocfilehash: 87a40300cfe13ec097d155093fbb7b70af3b459c
+ms.sourcegitcommit: 8661f10596f565ca2b7bdb5951388b44b3b622ee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42589353"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43193923"
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Quais são as novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -44,6 +44,22 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 |**Novo no Microsoft Intune** | Em geral, todos os recursos listados nesta categoria devem funcionar com todas as versões do Configuration Manager. Versões este incluindo System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades requerem o serviço do Intune apenas e não necessitam de funcionalidades adicionais no Configuration Manager.|
 |**Novo no Configuration Manager Technical Preview**| Todos os recursos listados nesta categoria só funcionam com o ramo de pré-visualização técnica especificado. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição do recurso. Para obter mais informações, consulte [pré-visualização técnica do Configuration Manager](/sccm/core/get-started/technical-preview).|
 |**Novo no Configuration Manager (ramo atual)**| Todos os recursos listados nesta categoria só funcionam com a versão especificada do Configuration Manager (ramo atual). Se estiver a utilizar uma versão mais antiga do Configuration Manager para a sua implementação híbrida, atualize para a versão do Configuration Manager (ramo atual) especificada na descrição do recurso. Para obter mais informações, consulte [atualizar para o Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).|
+
+
+## <a name="august-2018"></a>Agosto de 2018
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+### <a name="new-user-experience-update-for-the-company-portal-website"></a>Nova atualização de experiência de utilizador para o site do Portal da empresa
+<!--2000968--> Com base no seu feedback, adicionámos novas funcionalidades para o site do Portal da empresa. Surgirá uma melhoria significativa na funcionalidade existente e a usabilidade dos seus dispositivos Android, iOS e Windows. Áreas do site recebeu um design de nova, Moderno, capacidade de resposta. Estas áreas incluem detalhes do dispositivo, comentários e suporte e descrição geral do dispositivo. Também verá os seguintes melhoramentos:
+
+- Fluxos de trabalho simplificados em todas as plataformas de dispositivo
+- Fluxos de identificação e a inscrição de dispositivos melhorada
+- Mensagens de erro mais útil
+- Linguagem mais amigável, menos jargão do tech
+- Capacidade de partilhar ligações diretas para aplicações
+- Desempenho melhorado para grandes catálogos de aplicações
+- Maior acessibilidade para todos os utilizadores
 
 
 
@@ -440,85 +456,6 @@ Peça aos utilizadores no Windows 10 versão 1607 ou posterior para atualizar pa
 - **Experiência de início de sessão iniciada novo para os utilizadores do Portal da empresa para Android e políticas de proteção de aplicações**    
   Os utilizadores finais podem agora procurar aplicações, gerir dispositivos e ver contacto de TI informações utilizando a aplicação Portal da empresa para Android sem inscrever os respetivos dispositivos Android. Além disso, se um utilizador final já utilizar uma aplicação protegida por políticas de proteção de aplicações do Intune e iniciar o Portal da empresa Android, o utilizador final deixará de receber um pedido para inscrever o dispositivo.
   <!-- 621669 -->
-
-
-
-## <a name="july-2017"></a>Julho de 2017
-
-### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
-
-- **Fim de notificações de suporte adicionado para Android e Windows Phone**    
-    Avisos de novos foram adicionados para o fim do suporte para versões do Android e Windows Phone. Para obter detalhes, consulte [avisos](#notices).
-
-
-### <a name="new-in-configuration-manager-current-branch"></a>Novo no Configuration Manager (ramo atual)
-
-As seguintes funcionalidades foram anteriormente disponíveis em versões do Configuration Manager Technical Preview. Estas funcionalidades estão agora disponíveis em implementações híbridas com o Intune e Configuration Manager (ramo atual) versão 1706.
-
-- [Suporte para autoridades de certificação da Entrust da Entrust](/sccm/core/get-started/capabilities-in-technical-preview-1706#support-for-entrust-certification-authorities)
-- [Novas definições de política de gestão de aplicações móveis](/sccm/core/plan-design/changes/whats-new-in-version-1706#new-mobile-application-management-policy-settings)
-- [Atualizações para o Android for Work a configuração de partilha](/sccm/core/plan-design/changes/whats-new-in-version-1706#updates-to-android-for-work-sharing-configuration)
-- [Novas regras de política de conformidade de dispositivo](/sccm/core/plan-design/changes/whats-new-in-version-1706#new-device-compliance-policy-rules)
-- [Novas definições de configuração para dispositivos Windows 10 que não são geridos com o cliente do Configuration Manager](/sccm/core/plan-design/changes/whats-new-in-version-1706#new-configuration-settings-for-windows-10-devices-that-are-not-managed-with-the-configuration-manager-client)
-- [Suporte do Cisco (IPsec) para perfis VPN do macOS](/sccm/core/get-started/capabilities-in-technical-preview-1706#cisco-ipsec-support-for-macos-vpn-profiles)
-- [Restrições de inscrição de Android e iOS](/sccm/core/plan-design/changes/whats-new-in-version-1706#android-and-ios-enrollment-restrictions) 
-
-
-
-## <a name="june-2017"></a>Junho de 2017
-
-### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
-
-- **Alterar a autoridade MDM**    
-  A partir do Configuration Manager versão 1610, pode alterar a autoridade MDM sem ter de contactar Support da Microsoft. Também não é preciso anular a inscrição e inscrever novamente os seus dispositivos geridos existentes. Para obter detalhes, consulte [alterar a sua autoridade MDM](/sccm/mdm/deploy-use/change-mdm-authority).
-
-- **Integração de proxy de navegador e a aplicação gerida**    
-  Agora, o Intune Managed Browser pode integrar com o serviço de Proxy de aplicações do Azure AD para permitir aos utilizadores acederem a sites internos mesmo quando trabalham remotamente. Os utilizadores do browser de introduzir o URL do site como fariam normalmente e o Managed Browser encaminha o pedido através do gateway de web de proxy de aplicação. Para obter mais informações, consulte [acesso à Internet de gerir através de políticas de browser gerido](https://docs.microsoft.com/intune/app-configuration-managed-browser).
-
-- **Aplicação do Portal da empresa para Android tem agora uma nova experiência de utilizador final para políticas de proteção de aplicações**  
-  Com base nos comentários dos clientes, modificámos a aplicação Portal da empresa para Android para apresentar uma **acesso a conteúdos da empresa** botão. O objetivo é evitar que os utilizadores finais desnecessariamente pelo processo de inscrição quando apenas precisarem de aceder a aplicações que suportam políticas de proteção de aplicações, uma funcionalidade de gestão de aplicações móveis do Intune. Pode ver estas alterações na [quais são as novidades na IU da aplicação](https://docs.microsoft.com/intune/whats-new-app-ui) página.
-
-- **Nova ação de menu para remover facilmente o Portal da empresa**  
-  Com base nos comentários dos utilizadores, a aplicação Portal da empresa para Android adicionou uma nova ação de menu para iniciar a remoção do Portal da empresa a partir do seu dispositivo. Esta ação remove o dispositivo da gestão do Intune para que a aplicação pode ser removida do dispositivo pelo utilizador. Pode ver estas alterações na [quais são as novidades na IU da aplicação](https://docs.microsoft.com/intune/whats-new-app-ui) página e, no [documentação do utilizador final Android](https://docs.microsoft.com/intune-user-help/unenroll-your-device-from-intune-android).
-
-- **Melhorias na sincronização da aplicação com o Windows 10 Creators Update**  
-  A aplicação Portal da empresa para Windows 10 agora inicia automaticamente uma sincronização para pedidos de instalação de aplicações para dispositivos com Windows 10 Creators Update (versão 1703). Este comportamento reduz a edição da aplicação interrupção durante o estado "Sincronização pendente" da instalação. Além disso, os utilizadores conseguem iniciar manualmente uma sincronização a partir da aplicação. Pode ver estas alterações na [quais são as novidades na IU da aplicação](https://docs.microsoft.com/intune/whats-new-app-ui) página.
-
-- **Nova experiência orientada para o Portal da empresa do Windows 10**  
-  A aplicação Portal da empresa para Windows 10 inclui uma experiência de instruções orientada do Intune para dispositivos que ainda não foram identificados ou inscritos. A nova experiência disponibiliza instruções passo a passo que orientam o utilizador a registar no Azure Active Directory (necessário para funcionalidades de acesso condicional) e a inscrição de MDM (necessário para funcionalidades de gestão de dispositivos). A experiência guiada está acessível a partir da home page do Portal da empresa. Se os utilizadores não concluírem o registo e a inscrição, eles podem continuar a utilizar a aplicação, mas terão funcionalidades limitadas.
-
-  Esta atualização só é visível em dispositivos com Windows 10 Anniversary Update (compilação 1607) ou superior. Pode ver estas alterações na [quais são as novidades na IU da aplicação](https://docs.microsoft.com/intune/whats-new-app-ui) página.
-
-- **Melhorias dos mosaicos de aplicação na aplicação Portal da empresa para iOS**  
-  Atualizámos a estrutura dos mosaicos de aplicação na home page para refletir a cor corporativa que configurou para o Portal da empresa. Para obter mais informações, consulte [quais são as novidades na IU da aplicação](https://docs.microsoft.com/intune/whats-new-app-ui).
-
-- **Seletor de conta agora disponível para a aplicação Portal da empresa para iOS**  
-  Se os utilizadores de dispositivos iOS utilizam a sua conta escolar ou profissional para iniciar sessão em outras aplicações da Microsoft, poderão ver nosso novo Seletor de conta quando iniciarem sessão no Portal da empresa. Para obter mais informações, consulte [quais são as novidades na IU da aplicação](https://docs.microsoft.com/intune/whats-new-app-ui).
-
-### <a name="new-in-configuration-manager-technical-preview-1706"></a>Novo no Configuration Manager Technical Preview 1706
-
-- **Novas definições de item de configuração do Windows**      
-  Novos itens de configuração do Windows estão disponíveis para as categorias de definição de palavra-passe, o dispositivo, o Store e o Microsoft Edge. Para obter mais informações, consulte [definições de item de configuração do novo Windows](/sccm/core/get-started/capabilities-in-technical-preview-1706#new-windows-configuration-item-settings).
-  <!-- 1354715 -->
-
-- **Novas regras de política de conformidade de dispositivo**   
-  Agora pode configurar novas opções para políticas de conformidade que foram anteriormente disponíveis apenas no Intune autónomo. Para obter detalhes, consulte [melhorias de política de conformidade do dispositivo](/sccm/core/get-started/capabilities-in-technical-preview-1706#new-device-compliance-policy-rules).
-
-- **Restrições de inscrição de Android e iOS**       
-  Os administradores podem agora especificar que os utilizadores podem inscrever dispositivos Android ou iOS pessoais nos respetivos ambientes híbridos. Esta ação permite que limite inscritos dispositivos pré-declarados pretencentes, dispositivos pertencentes à empresa ou dispositivos iOS inscritos com o programa de inscrição de dispositivos apenas. Para obter detalhes, consulte [restrições de inscrição de Android e iOS](/sccm/core/get-started/capabilities-in-technical-preview-1706#android-and-ios-enrollment-restrictions).
-  <!-- 1290826 -->
-
-- **Suporte para autoridades de certificação da Entrust**      
-  O Configuration Manager suporta agora a autoridades de certificação da Entrust. Este suporte permite a entrega de certificado PFX para dispositivos inscritos no Microsoft Intune.    
-  <!-- 1350740 -->
-
-  Pode configurar a Entrust como a autoridade de certificação, ao adicionar uma função de ponto de registo de certificados no Configuration Manager. Ao adicionar um novo perfil de certificado que emite certificados PFX, pode selecionar autoridade de certificação de um Microsoft ou da Entrust.
-
-  **Problema conhecido**: No 1706 technical preview, não são emitidos certificados PFX para autoridades de certificação da Microsoft. Este problema não afeta os certificados PFX importados ou perfis de SCEP.
-
-- **Suporte do Cisco (IPsec) para perfis VPN do macOS**      
-  Pode criar um macOS perfil da VPN com o Cisco (IPsec) como o tipo de ligação. Para obter mais informações, consulte [criar perfis VPN](/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
-  <!-- 1321367 -->
 
 
 

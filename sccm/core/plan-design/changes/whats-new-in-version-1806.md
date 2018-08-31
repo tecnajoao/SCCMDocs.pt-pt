@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 25397c2e9d03de01cf20a6309b73ecb8e99718b1
-ms.sourcegitcommit: a17be6f5e4659ba3f38c7732b43f3afafcb95171
-ms.translationtype: MT
+ms.openlocfilehash: 26a4f172aabc1f5715e0d0a2d3cee5cef081a7d9
+ms.sourcegitcommit: 8661f10596f565ca2b7bdb5951388b44b3b622ee
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906368"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43193957"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -28,9 +28,7 @@ Reveja sempre a lista de verificação mais recente para instalar esta atualiza�
 > [!Important]  
 > Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são indicadas com o ***[atualizado]*** marca. Esta nota será removida quando o conteúdo é finalizado.  
 
-<!--
-Aside from new features, this release also includes additional changes such as bug fixes. For more information, see [Summary of changes in System Center Configuration Manager current branch, version 1806](https://support.microsoft.com/help/4101375).
--->
+Além das novas funcionalidades, esta versão também inclui alterações adicionais, como correções de erros. Para obter mais informações, consulte [resumo das alterações no ramo atual do System Center Configuration Manager, versão 1806](https://support.microsoft.com/help/4459701).
 
 <!--
 The following additional updates to this release are also now available:
