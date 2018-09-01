@@ -2,7 +2,7 @@
 title: O que há de novo na versão 1806
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1806 do Configuration Manager current branch.
-ms.date: 08/22/2018
+ms.date: 08/29/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 26a4f172aabc1f5715e0d0a2d3cee5cef081a7d9
-ms.sourcegitcommit: 8661f10596f565ca2b7bdb5951388b44b3b622ee
-ms.translationtype: HT
+ms.openlocfilehash: 89742711f17997487fec403d51c89a42ceff34ec
+ms.sourcegitcommit: 52ec30245ba559596d2f88a3eff70c467b4a056f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43193957"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381045"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -87,7 +87,10 @@ Para obter mais informações, consulte [ferramentas do Configuration Manager](/
 
 
 ### <a name="exclude-active-directory-containers-from-discovery"></a>Excluir contentores do Active Directory da deteção
-<!--1358143--> Para reduzir o número de objetos detetados, exclua contentores específicos de deteção de sistemas do Active Directory. 
+<!--1358143-->
+ ***[Atualizado] *** Para reduzir o número de objetos detetados, excluir contentores específicos de deteção de sistemas do Active Directory. 
+
+Para obter mais informações, consulte [configurar a deteção de sistema do Active Directory](/sccm/core/servers/deploy/configure/configure-discovery-methods#bkmk_config-adsd).
 
 
 
@@ -128,11 +131,14 @@ Para obter mais informações, consulte [suporte de transferência parcial](/scc
 
 
 ### <a name="boundary-group-options-for-peer-downloads"></a>Opções de grupos de limites para configurar o peering downloads
-<!--1356193--> Agora, os grupos de limites incluem definições adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente. Esta versão adiciona as seguintes opções:  
+<!--1356193-->
+ ***[Atualizado] *** Grupos de limites agora incluem definições adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente. Esta versão adiciona as seguintes opções:  
 
-- **Permitir transferências de ponto a ponto neste grupo de limites**: Esta definição está ativada por predefinição. O ponto de gestão fornece aos clientes uma lista de localizações de conteúdo que inclui a origens de ponto a ponto. Esta definição também afeta a aplicar os IDs de grupo para a otimização de entrega.  
+- **Permitir transferências de ponto a ponto neste grupo de limites**: O ponto de gestão fornece aos clientes uma lista de localizações de conteúdo que inclui a origens de ponto a ponto. Esta definição também afeta a aplicar os IDs de grupo para a otimização de entrega.  
 
-- **Durante downloads de ponto a ponto, utilize apenas colegas dentro da mesma sub-rede**: Esta definição é dependente de um acima. Se ativar esta opção, o ponto de gestão inclui apenas nas fontes de mesmo nível de lista de localização de conteúdo que estão na mesma sub-rede que o cliente.  
+- **Durante downloads de ponto a ponto, utilize apenas colegas dentro da mesma sub-rede**: O ponto de gestão inclui apenas as origens de mesmo nível de lista de localização de conteúdo que estão na mesma sub-rede que o cliente.  
+
+Para obter mais informações, consulte [opções de grupos de limites para as transferências de ponto a ponto](/sccm/core/servers/deploy/configure/boundary-groups#bkmk_bgoptions).
 
 
 
@@ -291,17 +297,10 @@ Para obter mais informações, consulte [implementar aplicações](/sccm/apps/de
 
 
 ### <a name="package-conversion-manager"></a>Gestor de conversão de pacotes 
-<!--1357861--> Gestor de conversão de pacotes agora é uma ferramenta integrada que lhe permite converter pacotes do Configuration Manager 2007 herdados para o Configuration Manager aplicativos do ramo atual. Em seguida, pode utilizar funcionalidades de aplicativos, como dependências, regras de requisitos e afinidade dispositivo / utilizador.
+<!--1357861-->
+ ***[Atualizado] *** Package Conversion Manager agora é uma ferramenta integrada que lhe permite converter pacotes de legado para o Configuration Manager aplicativos do ramo atual. Em seguida, pode utilizar funcionalidades de aplicativos, como dependências, regras de requisitos e afinidade dispositivo / utilizador.
 
-Começar com as seguintes ações a partir da **pacotes** nó na consola do Configuration Manager:  
-
-   - **Analisar pacote**: Inicie o processo de conversão ao analisar o pacote.  
-
-   - **Converter pacote**: Alguns pacotes podem ser facilmente convertidas em aplicações com esta ação.  
-
-   - **Corrigir e converter**: Alguns pacotes requerem problemas corrigidos antes de converter em aplicações.  
-
-Em seguida, vá para o **Status de conversão do pacote** dashboard no **monitorização** área de trabalho. Este novo dashboard mostra o estado geral de análise e conversão de pacotes no site. Esta funcionalidade é uma [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features).
+Para obter mais informações, consulte [Package Conversion Manager](/sccm/apps/pcm/package-conversion-manager).
 
 
 

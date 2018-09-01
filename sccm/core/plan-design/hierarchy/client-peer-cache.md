@@ -2,7 +2,7 @@
 title: Cache ponto a ponto do cliente
 titleSuffix: Configuration Manager
 description: Utilize a cache ponto a ponto do cliente para localizações de origem durante a implantação de conteúdo com o Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 08/29/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 86cd5382-8b41-45db-a4f0-16265ae22657
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: c3dc6189f73b939f632581a8b50f05a72310111d
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: 4e3eda79b9b722b00f8fb9ac5329db8dd4153db1
+ms.sourcegitcommit: 52ec30245ba559596d2f88a3eff70c467b4a056f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756001"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43380987"
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
@@ -58,6 +58,8 @@ Para ativar a cache ponto a ponto, implementar o [definições de cliente](#bkmk
  -  Outro cliente no mesmo grupo de limites faz um pedido de localização de conteúdo ao ponto de gestão. O servidor devolve a lista de possível fontes de conteúdo. Esta lista inclui cada origem de cache ponto a ponto que tem o conteúdo e está online. Ele também inclui os pontos de distribuição e em outros locais de origem de conteúdo nesse grupo de limites. Para obter mais informações, consulte [prioridade de origem de conteúdo](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#content-source-priority).  
 
  -  Como sempre, o cliente que está a procurar o conteúdo seleciona uma origem na lista fornecida. O cliente tenta, em seguida obter o conteúdo.  
+
+A partir da versão 1806, grupos de limites incluem configurações adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente. Para obter mais informações, consulte [opções de grupos de limites para as transferências de ponto a ponto](/sccm/core/servers/deploy/configure/boundary-groups#bkmk_bgoptions).<!--1356193-->
 
 > [!NOTE]  
 > Se o cliente reverterá para um grupo de limite vizinho para o conteúdo, o ponto de gestão não adiciona as origens de cache ponto a ponto do grupo de limite vizinho à lista de potenciais localizações de origem de conteúdo.  
