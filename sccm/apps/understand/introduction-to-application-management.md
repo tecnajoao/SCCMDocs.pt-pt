@@ -1,8 +1,8 @@
 ---
 title: Introdução à gestão de aplicações
 titleSuffix: Configuration Manager
-description: Descubra as informações básicas, que terá de gerir e implementar aplicações do Configuration Manager.
-ms.date: 07/30/2018
+description: Descubra as informações básicas, que terá de gerir e implementar aplicações no Configuration Manager.
+ms.date: 08/31/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-app
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 08f711ba-83bf-4b5f-9520-a0778c6ae7eb
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 70ab4136f39b4bf559c3d460ca1528bb4de0f6e1
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 0d4e83cbcb1c95303719b1d86ffc9a8969c16998
+ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384295"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893911"
 ---
 # <a name="introduction-to-application-management-in-configuration-manager"></a>Introdução à gestão de aplicações no Configuration Manager
 
@@ -186,9 +186,9 @@ Para obter mais informações, consulte os artigos seguintes:
 - [Manual do utilizador do Software Center](/sccm/core/understand/software-center)
 
 > [!Note]  
-> A função de ponto de serviço do catálogo de aplicações web já não é necessária 1806, mas ainda é uma função suportada. 
+> Os catálogo site web e de ponto de serviço ponto funções da aplicação já não estão *necessária* no 1806, mas ainda assim *suportado* funções. 
 > 
-> A função de Web site do catálogo de aplicações não é suportada na versão 1806. Para obter mais informações, consulte [funcionalidades removidas e preteridas](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).  
+> O **experiência de usuário do Silverlight** para o site do catálogo de aplicativos ponto já não é suportado. Para obter mais informações, consulte [funcionalidades removidas e preteridas](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).  
 
 
 

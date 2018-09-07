@@ -10,12 +10,12 @@ ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 46aa845197010694e1a1c48ec1d3f18a13268cdf
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: 503255c571288fa0da0b0b81f3a76fc2b38bbb19
+ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756134"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893928"
 ---
 # <a name="install-in-console-updates-for-configuration-manager"></a>Instalar atualizações na consola do Configuration Manager
 
@@ -412,7 +412,7 @@ As seguintes funcionalidades são opcionais na versão mais recente do Configura
 - [Ponto de serviço do armazém de dados](/sccm/core/servers/manage/data-warehouse) <!--1277922-->
 - [Cache ponto a ponto do cliente](/sccm/core/plan-design/hierarchy/client-peer-cache) <!--1101436-->
 - [Criação de PFX](/sccm/protect/deploy-use/introduction-to-certificate-profiles) <!--1321368-->
-- [Conector do Microsoft Operations Management Suite (OMS)](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) <!--1258052-->
+- [Conector do Azure Log Analytics](/sccm/core/clients/manage/sync-data-log-analytics) <!--1258052-->
 - [Política do Windows Defender Exploit Guard](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy) <!--1355468-->
 - [VPN para Windows 10](/sccm/protect/deploy-use/vpn-profiles) <!--1283610-->
 - [O Passport for Work](/sccm/protect/deploy-use/windows-hello-for-business-settings) (também conhecido como *Windows Hello para empresas*) <!--1245704-->

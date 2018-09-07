@@ -10,12 +10,12 @@ ms.assetid: a0287beb-70a9-4b57-a627-e7bfba27fd3b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5da60a9dd45b3993f9c1afd95c41a90956ec70c4
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: d964295134538cf281af214830a5bc416484be51
+ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386837"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893676"
 ---
 # <a name="levels-of-diagnostic-usage-data-collection-for-version-1806"></a>Níveis de recolha de dados de diagnóstico de utilização para a versão 1806
 
@@ -258,11 +258,11 @@ Para o Configuration Manager versão 1806, este nível inclui os seguintes dados
 
   - Contagem do Azure Active Directory aplicações e serviços ligados para o Configuration Manager
 
-  - Contagem de coleções sincronizado com o Operations Management Suite
+  - Contagem de coleções sincronizado com o Azure Log Analytics
 
   - Contagem de conectores de análise de atualização
 
-  - Se o conector de nuvem do Operations Management Suite está ativado  
+  - Se o Azure Log Analytics na cloud conector está ativada  
 
   - ***[Novo]***  Pontos de contagem de distribuição de extração com um ponto de distribuição de nuvem como localização de origem  
 
