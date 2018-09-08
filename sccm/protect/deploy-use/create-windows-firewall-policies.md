@@ -10,18 +10,18 @@ ms.assetid: 6ecdfad1-6305-45a8-ae75-3f33b967cb8f
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: e3030b4390e38ca2dfce6805c04d5b0bb7916bba
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 3217fe8f6d9ee541105abdecf9963898af38b907
+ms.sourcegitcommit: 316899b08f2ef372993909e08e069f7edfed1d33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32347958"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44111030"
 ---
 # <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Criar e implementar políticas de Firewall do Windows para o Endpoint Protection no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-As políticas de firewall para o Endpoint Protection no System Center 2012 Configuration Manager permitem-lhe efetuar tarefas de manutenção e configuração básica do Firewall do Windows nos computadores cliente na sua hierarquia. Pode utilizar as políticas de Firewall do Windows para efetuar as seguintes tarefas:  
+Políticas de firewall para o Endpoint Protection no System Center Configuration Manager permitem-lhe efetuar tarefas de manutenção e de configuração básica do Firewall do Windows em computadores cliente na sua hierarquia. Pode utilizar as políticas de Firewall do Windows para efetuar as seguintes tarefas:  
 
 -   Controlar se a Firewall do Windows está ativada ou desativada.  
 
@@ -31,7 +31,7 @@ As políticas de firewall para o Endpoint Protection no System Center 2012 Confi
 
 1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
-2.  No **ativos e compatibilidade** área de trabalho, expanda **Endpoint Protection**e, em seguida, clique em **as políticas de Firewall do Windows**.  
+2.  Na **ativos e compatibilidade** área de trabalho, expanda **Endpoint Protection**e, em seguida, clique em **políticas de Firewall do Windows**.  
 
 3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Política de Firewall do Windows**.  
 
@@ -62,7 +62,7 @@ As políticas de firewall para o Endpoint Protection no System Center 2012 Confi
 
 1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
 
-2.  No **ativos e compatibilidade** área de trabalho, expanda **Endpoint Protection**e, em seguida, clique em **as políticas de Firewall do Windows**.  
+2.  Na **ativos e compatibilidade** área de trabalho, expanda **Endpoint Protection**e, em seguida, clique em **políticas de Firewall do Windows**.  
 
 3.  Na lista **Políticas de Firewall do Windows** , selecione a política de Firewall do Windows que pretende implementar.  
 

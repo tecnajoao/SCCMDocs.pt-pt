@@ -3,20 +3,21 @@ title: Migrar recursos MDM híbrida para o Intune autónomo
 titleSuffix: Configuration Manager
 description: Saiba como migrar dispositivos e utilizadores MDM híbrida para o Intune no Azure.
 author: aczechowski
+ms.author: aaroncz
 manager: dougeby
 ms.date: 08/14/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: 1dd696ce-3e46-4dfa-a76d-592fe0f0320e
-ms.openlocfilehash: cff1a695f3f3227f7ec849b34b75762b082c3f31
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ms.openlocfilehash: 09ea3340d8474c69e6e346fc68120b8849159374
+ms.sourcegitcommit: 316899b08f2ef372993909e08e069f7edfed1d33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586230"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44111047"
 ---
-# <a name="migrate-hybrid-mdm-users-and-devices-to-intune-standalone"></a>Migrar dispositivos e utilizadores MDM híbrida para o Intune autónomo
+# <a name="migrate-hybrid-mdm-users-and-devices-to-intune-standalone"></a>Migrar os utilizadores e dispositivos da MDM híbrida para o Intune autónomo
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*    
 
