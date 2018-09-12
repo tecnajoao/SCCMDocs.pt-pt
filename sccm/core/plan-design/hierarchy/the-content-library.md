@@ -10,12 +10,12 @@ ms.assetid: 65c88e54-3574-48b0-a127-9cc914a89dca
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 05c49f78d24599c574828cee59118c069b7c4ee8
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 03c56b9870b145112e8f79932db681022bec7b89
+ms.sourcegitcommit: 5875553bd814b7f82c16125f690c4bd2b6dd3a2b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384958"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44385087"
 ---
 # <a name="the-content-library-in-configuration-manager"></a>A biblioteca de conteúdos no Configuration Manager
 
@@ -82,7 +82,9 @@ Uma biblioteca de conteúdos remota é um pré-requisito para [elevada disponibi
 > Esta ação só mova a biblioteca de conteúdos no servidor do site. Não afetar a localização da biblioteca de conteúdos em pontos de distribuição. 
 
 > [!Tip]  
-> Também planear para gerenciar o conteúdo de origem do pacote, que é externo à biblioteca de conteúdos. Todos os objetos de software no Configuration Manager tem uma origem de pacote num compartilhamento de rede. Considere a centralização todas as origens para uma única partilha, mas certifique-se de que esta localização é redundante e de elevada disponibilidade. Se mover a biblioteca de conteúdos para o mesmo volume de armazenamento que as origens do pacote, e este volume suporta a eliminação de duplicação de conteúdo, esse design pode guardar a quantidade de armazenamento necessário.  
+> Também planear para gerenciar o conteúdo de origem do pacote, que é externo à biblioteca de conteúdos. Todos os objetos de software no Configuration Manager tem uma origem de pacote num compartilhamento de rede. Considere a centralização todas as origens para uma única partilha, mas certifique-se de que esta localização é redundante e de elevada disponibilidade. 
+> 
+> Se mover a biblioteca de conteúdos para o mesmo volume de armazenamento que as origens do pacote, não é possível marcar este volume para a eliminação de duplicados de dados. Enquanto a biblioteca de conteúdos suporta a eliminação de duplicados de dados, o volume de origens do pacote não suporta a ele. Para obter mais informações, consulte [a eliminação de duplicados de dados](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#bkmmk_datadedup).<!--SCCMDOcs issue #831-->  
 
 
 ### <a name="prerequisites"></a>Pré-requisitos  
