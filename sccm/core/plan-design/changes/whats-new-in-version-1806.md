@@ -12,7 +12,7 @@ ms.author: aaroncz
 manager: dougeby
 ms.openlocfilehash: 13dbffd442cfbe0ced30d46b9a93dd03418202c9
 ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/06/2018
 ms.locfileid: "43893846"
@@ -88,7 +88,7 @@ Para obter mais informações, consulte [ferramentas do Configuration Manager](/
 
 ### <a name="exclude-active-directory-containers-from-discovery"></a>Excluir contentores do Active Directory da deteção
 <!--1358143-->
- ***[Atualizado] *** Para reduzir o número de objetos detetados, excluir contentores específicos de deteção de sistemas do Active Directory. 
+ ***[Atualizado]*** Para reduzir o número de objetos detetados, excluir contentores específicos de deteção de sistemas do Active Directory. 
 
 Para obter mais informações, consulte [configurar a deteção de sistema do Active Directory](/sccm/core/servers/deploy/configure/configure-discovery-methods#bkmk_config-adsd).
 
@@ -132,7 +132,7 @@ Para obter mais informações, consulte [suporte de transferência parcial](/scc
 
 ### <a name="boundary-group-options-for-peer-downloads"></a>Opções de grupos de limites para configurar o peering downloads
 <!--1356193-->
- ***[Atualizado] *** Grupos de limites agora incluem definições adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente. Esta versão adiciona as seguintes opções:  
+ ***[Atualizado]*** Grupos de limites agora incluem definições adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente. Esta versão adiciona as seguintes opções:  
 
 - **Permitir transferências de ponto a ponto neste grupo de limites**: O ponto de gestão fornece aos clientes uma lista de localizações de conteúdo que inclui a origens de ponto a ponto. Esta definição também afeta a aplicar os IDs de grupo para a otimização de entrega.  
 
@@ -298,7 +298,7 @@ Para obter mais informações, consulte [implementar aplicações](/sccm/apps/de
 
 ### <a name="package-conversion-manager"></a>Gestor de conversão de pacotes 
 <!--1357861-->
- ***[Atualizado] *** Package Conversion Manager agora é uma ferramenta integrada que lhe permite converter pacotes de legado para o Configuration Manager aplicativos do ramo atual. Em seguida, pode utilizar funcionalidades de aplicativos, como dependências, regras de requisitos e afinidade dispositivo / utilizador.
+ ***[Atualizado]*** Package Conversion Manager agora é uma ferramenta integrada que lhe permite converter pacotes de legado para o Configuration Manager aplicativos do ramo atual. Em seguida, pode utilizar funcionalidades de aplicativos, como dependências, regras de requisitos e afinidade dispositivo / utilizador.
 
 Para obter mais informações, consulte [Package Conversion Manager](/sccm/apps/pcm/package-conversion-manager).
 
@@ -391,7 +391,7 @@ Estas sequências de tarefas podem ser para a implementação do sistema operaci
 
 ### <a name="software-center-infrastructure-improvements"></a>Melhorias na infraestrutura de centro de software
 <!--1358309-->
- ***[Atualizado] *** Funções de catálogo de aplicações já não são necessários para apresentar as aplicações disponíveis para o utilizador no Centro de Software. Esta alteração ajuda a reduzir a infraestrutura de servidor necessária para fornecer aplicativos aos usuários. Centro de software baseia-se agora no ponto de gestão para obter essa informação, que ajuda a escala de ambientes de maior melhor ao atribuir-lhes [grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups#management-points).
+ ***[Atualizado]*** Funções de catálogo de aplicações já não são necessários para apresentar as aplicações disponíveis para o utilizador no Centro de Software. Esta alteração ajuda a reduzir a infraestrutura de servidor necessária para fornecer aplicativos aos usuários. Centro de software baseia-se agora no ponto de gestão para obter essa informação, que ajuda a escala de ambientes de maior melhor ao atribuir-lhes [grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups#management-points).
 
 Para obter mais informações, consulte [configurar o Centro de Software](/sccm/apps/plan-design/plan-for-and-configure-application-management#bkmk_userex)  
 
