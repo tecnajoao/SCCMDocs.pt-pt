@@ -2,7 +2,7 @@
 title: O que há de novo na versão 1806
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1806 do Configuration Manager current branch.
-ms.date: 08/29/2018
+ms.date: 09/10/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 13dbffd442cfbe0ced30d46b9a93dd03418202c9
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
-ms.translationtype: HT
+ms.openlocfilehash: 8c1853892392227bec2d8e8ba7a6dadf051815e3
+ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893846"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601199"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -177,9 +177,14 @@ Para obter mais informações, consulte [CMTrace](/sccm/core/support/cmtrace).
 
 
 ### <a name="cloud-management-dashboard"></a>Dashboard de gestão da cloud
-<!--1358461--> O novo dashboard de gestão de cloud fornece uma visão centralizada para utilização de gateway (CMG) de gestão na cloud. Quando o site está integrado com o Azure AD, também apresenta dados sobre os utilizadores da nuvem e dispositivos. Na consola do Configuration Manager, vá para o **monitorização** área de trabalho. Selecione o **gestão na Cloud** mosaicos do nó e ver o dashboard.  
+<!--1358461-->
+ ***[Atualizado] *** o novo dashboard de gestão de cloud fornece uma visão centralizada para utilização de gateway (CMG) de gestão na cloud. Quando o site está integrado com o Azure AD, também apresenta dados sobre os utilizadores da nuvem e dispositivos.   
 
-Esta funcionalidade também inclui a **analisador de ligação do CMG** para a verificação em tempo real ajudar a resolução de problemas. O utilitário na consola verifica o estado atual do serviço e o canal de comunicação através da ligação do CMG aponte para pontos de gestão que permitam o tráfego CMG. Na consola do Configuration Manager, vá para o **administração** área de trabalho. Expanda **serviços Cloud**e selecione **gateway de gestão da nuvem**. Selecione a instância CMG de destino e, em seguida, clique em **analisador da ligação** na faixa de opções.
+Esta funcionalidade também inclui a **analisador de ligação do CMG** para a verificação em tempo real ajudar a resolução de problemas. O utilitário na consola verifica o estado atual do serviço e o canal de comunicação através da ligação do CMG aponte para pontos de gestão que permitam o tráfego CMG. 
+
+Para obter mais informações, consulte as secções seguintes a [Monitor CMG](/sccm/core/clients/manage/cmg/monitor-clients-cloud-management-gateway) artigo:  
+- [Dashboard de gestão da cloud](/sccm/core/clients/manage/cmg/monitor-clients-cloud-management-gateway#cloud-management-dashboard)  
+- [Analisador da ligação](/sccm/core/clients/manage/cmg/monitor-clients-cloud-management-gateway#connection-analyzer)  
 
 
 ### <a name="improvements-to-cloud-management-gateway"></a>Melhorias para a cloud do gateway de gestão
@@ -187,26 +192,16 @@ Esta funcionalidade também inclui a **analisador de ligação do CMG** para a v
 Versão 1806 inclui os seguintes aprimoramentos para o gateway de gestão da cloud (CMG):
 
 #### <a name="simplified-client-bootstrap-command-line"></a>Linha de comando de arranque de configuração simplificada do cliente
-<!--1358215--> Ao instalar o cliente do Configuration Manager na internet através de um CMG, da linha de comandos agora necessita de menos propriedades. Esta melhoria reduz o tamanho da linha de comandos utilizada no Microsoft Intune ao se preparar para a cogestão. 
+<!--1358215-->
+ ***[Atualizado] *** Ao instalar o cliente do Configuration Manager na internet através de um CMG, da linha de comandos agora de exige menos propriedades. Esta melhoria reduz o tamanho da linha de comandos utilizada no Microsoft Intune ao se preparar para a cogestão. 
 
-As seguintes propriedades de linha de comandos são necessários em todos os cenários:
-  - CCMHOSTNAME  
-  - SMSSITECODE  
-
-As seguintes propriedades são necessárias quando utilizar o Azure AD para autenticação de cliente em vez de certificados de autenticação de clientes baseada na PKI:
-  - AADCLIENTAPPID  
-  - AADRESOURCEURI  
-
-A propriedade seguinte é necessária se o cliente forem se mover para a intranet:
-  - SMSMP  
-
-O exemplo seguinte inclui todas as propriedades acima:   
-`ccmsetup.exe CCMHOSTNAME=CONTOSO.CLOUDAPP.NET/CCM_Proxy_MutualAuth/72186325152220500 SMSSiteCode=ABC AADCLIENTAPPID=7506ee10-f7ec-415a-b415-cd3d58790d97 AADRESOURCEURI=https://contososerver SMSMP=https://mp1.contoso.com`
-
-<!--For more information, see [Client installation properties](/sccm/core/clients/deploy/about-client-installation-properties).-->
+Para obter mais informações, consulte [dispositivos de preparar o Windows 10 para a cogestão](/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).
 
 #### <a name="download-content-from-a-cmg"></a>Transferir conteúdo de um CMG
-<!--1358651--> Anteriormente, era necessário implementar um ponto de distribuição de nuvem e CMG como funções separadas. Um CMG também agora pode servir conteúdo aos clientes. Esta funcionalidade reduz os certificados necessários e o custo das VMs do Azure. Para ativar esta funcionalidade, ative a nova opção para **permitir CMG para funcionar como um ponto de distribuição de nuvem e servir conteúdo a partir de armazenamento do Azure** sobre o **definições** guia das propriedades do CMG. 
+<!--1358651-->
+ ***[Atualizado] *** Anteriormente, era necessário implementar um ponto de distribuição de nuvem e CMG como funções separadas. Um CMG também agora pode servir conteúdo aos clientes. Esta funcionalidade reduz os certificados necessários e o custo das VMs do Azure. 
+
+Para obter mais informações, consulte [modificar um CMG](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway#modify-a-cmg).
 
 #### <a name="trusted-root-certificate-isnt-required-with-azure-ad"></a>Certificado de raiz fidedigna não é necessário com o Azure AD
 <!--503899--> Quando cria um CMG, já não tem de fornecer um [certificado de raiz fidedigna](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#cmg-trusted-root-certificate-to-clients) na página Definições. Este certificado não necessárias ao utilizar o Azure Active Directory (Azure AD) para autenticação de cliente, mas utilizado para ser necessário no assistente. Se estiver a utilizar certificados de autenticação de cliente PKI, em seguida, ainda tem de adicionar um certificado de raiz fidedigna para CMG.
@@ -304,7 +299,7 @@ Para obter mais informações, consulte [Package Conversion Manager](/sccm/apps/
 
 
 
-## <a name="os-deployment"></a>Implementação do SO
+## <a name="os-deployment"></a>Implementação de SO
 
 ### <a name="improvements-to-phased-deployments"></a>Melhorias para as implementações faseadas
 

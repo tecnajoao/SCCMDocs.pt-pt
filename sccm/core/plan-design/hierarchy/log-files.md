@@ -2,7 +2,7 @@
 title: Ficheiros de registo para resolução de problemas
 titleSuffix: Configuration Manager
 description: Utilize ficheiros de registo para resolver problemas com sistemas de sites e clientes do Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 09/10/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 2bd3f76b982356fc444681d1990bee08e90b32fc
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 4435d39dd736db1058b06d09e5722a80a173bf6e
+ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385291"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601216"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -517,9 +517,10 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |--------------|-----------------|----------------------------|  
 |CloudMgr.log|Regista detalhes sobre como implementar o serviço de gateway de gestão na cloud, o estado de em curso do serviço e a utilizar os dados associados ao serviço.<br>Pode configurar o nível de registo estar editando o **nível de registo** valor na chave do registo hklm\software\.... Microsoft\SMS\COMPONENTS\ SMS_CLOUD_ SERVICES_MANAGER|O *installdir* pasta no servidor do site primário ou a CAS.|
 |CMGSetup.log<sup>1</sup>|Regista detalhes sobre a segunda fase da implementação de gateway de gestão da cloud (implementação local no Azure)<br>Pode configurar o nível de registo utilizando a definição **rastrear nível** (**informações** (predefinida), **verboso**, **erro**) sobre o  **Configuração de serviços do Azure portal\Cloud** separador.|O **%approot%\logs** no seu servidor do Azure ou a pasta de registos/SMS no servidor do sistema de site|
-|CMGHttpHandler.log<sup>1</sup>|Regista detalhes sobre a associação de manipulador de http de gateway de gestão do cloud com serviços de informação de Internet no Azure<br>Pode configurar o nível de registo utilizando a definição **rastrear nível** (**informações** (predefinida), **verboso**, **erro**) sobre o  **Configuração de serviços do Azure portal\Cloud** separador.|O **%approot%\logs** no seu servidor do Azure ou a pasta de registos/SMS no servidor do sistema de site|
+|CMGHttpHandler.log<sup>1</sup>|Regista detalhes sobre a associação de manipulador de http de gateway de gestão do cloud com serviços de informação de Internet no Azure<br>Pode configurar o nível de registo utilizando a definição **rastrear nível** (**informações** (predefinida), **verboso**, **erro**) sobre o  **Configuração de serviços do Azure portal\Cloud** separador.<br>Este registo a partir da versão 1806, não existe. A funcionalidade do componente é intercalada com o componente do serviço CMG. Consulte o CMGService.log em vez disso.<!--SCCMDocs-pr issue #2822-->|O **%approot%\logs** no seu servidor do Azure ou a pasta de registos/SMS no servidor do sistema de site|
 |CMGService.log<sup>1</sup>|Regista detalhes sobre o componente de principal de serviço de gateway de gestão do cloud no Azure<br>Pode configurar o nível de registo utilizando a definição **rastrear nível** (**informações** (predefinida), **verboso**, **erro**) sobre o  **Configuração de serviços do Azure portal\Cloud** separador.|O **%approot%\logs** no seu servidor do Azure ou a pasta de registos/SMS no servidor do sistema de site|
-|SMS_Cloud_</br>ProxyConnector.log|Regista detalhes sobre como configurar ligações entre o serviço de gateway de gestão na cloud e a ligação de gateway de gestão de cloud ponto.|Servidor do sistema de sites|
+|SMS_Cloud_<br>ProxyConnector.log|Regista detalhes sobre como configurar ligações entre o serviço de gateway de gestão na cloud e a ligação de gateway de gestão de cloud ponto.|Servidor do sistema de sites|
+|CMGContentService.log<sup>1</sup>|<!--SCCMDocs-pr issue #2822-->A partir da versão 1806, quando ativa uma CMG para também servir conteúdo a partir de armazenamento do Azure, este registo regista os detalhes desse serviço.|O **%approot%\logs** no seu servidor do Azure ou a pasta de registos/SMS no servidor do sistema de site|
 
 <sup>1</sup> são ficheiros de registo do Configuration Manager local na cloud a sincronização de Gestor do serviço de armazenamento do Azure em cinco minutos. O gateway de gestão da nuvem envia registos ao armazenamento do Azure em cinco minutos. Portanto, o atraso máximo é de 10 minutos. Comutadores verbosos afetam registos locais e remotos. Os nomes de arquivo real incluem o identificador de instância de nome e a função de serviço. Por exemplo, CMG -*ServiceName*-*RoleInstanceID*-CMGSetup.log
 
