@@ -178,7 +178,7 @@ Para obter mais informações, consulte [CMTrace](/sccm/core/support/cmtrace).
 
 ### <a name="cloud-management-dashboard"></a>Dashboard de gestão da cloud
 <!--1358461-->
- ***[Atualizado] *** o novo dashboard de gestão de cloud fornece uma visão centralizada para utilização de gateway (CMG) de gestão na cloud. Quando o site está integrado com o Azure AD, também apresenta dados sobre os utilizadores da nuvem e dispositivos.   
+ ***[Atualizado]*** o novo dashboard de gestão de cloud fornece uma visão centralizada para utilização de gateway (CMG) de gestão na cloud. Quando o site está integrado com o Azure AD, também apresenta dados sobre os utilizadores da nuvem e dispositivos.   
 
 Esta funcionalidade também inclui a **analisador de ligação do CMG** para a verificação em tempo real ajudar a resolução de problemas. O utilitário na consola verifica o estado atual do serviço e o canal de comunicação através da ligação do CMG aponte para pontos de gestão que permitam o tráfego CMG. 
 
@@ -193,13 +193,13 @@ Versão 1806 inclui os seguintes aprimoramentos para o gateway de gestão da clo
 
 #### <a name="simplified-client-bootstrap-command-line"></a>Linha de comando de arranque de configuração simplificada do cliente
 <!--1358215-->
- ***[Atualizado] *** Ao instalar o cliente do Configuration Manager na internet através de um CMG, da linha de comandos agora de exige menos propriedades. Esta melhoria reduz o tamanho da linha de comandos utilizada no Microsoft Intune ao se preparar para a cogestão. 
+ ***[Atualizado]*** Ao instalar o cliente do Configuration Manager na internet através de um CMG, da linha de comandos agora de exige menos propriedades. Esta melhoria reduz o tamanho da linha de comandos utilizada no Microsoft Intune ao se preparar para a cogestão. 
 
 Para obter mais informações, consulte [dispositivos de preparar o Windows 10 para a cogestão](/sccm/core/clients/manage/co-management-prepare#command-line-to-install-configuration-manager-client).
 
 #### <a name="download-content-from-a-cmg"></a>Transferir conteúdo de um CMG
 <!--1358651-->
- ***[Atualizado] *** Anteriormente, era necessário implementar um ponto de distribuição de nuvem e CMG como funções separadas. Um CMG também agora pode servir conteúdo aos clientes. Esta funcionalidade reduz os certificados necessários e o custo das VMs do Azure. 
+ ***[Atualizado]*** Anteriormente, era necessário implementar um ponto de distribuição de nuvem e CMG como funções separadas. Um CMG também agora pode servir conteúdo aos clientes. Esta funcionalidade reduz os certificados necessários e o custo das VMs do Azure. 
 
 Para obter mais informações, consulte [modificar um CMG](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway#modify-a-cmg).
 
