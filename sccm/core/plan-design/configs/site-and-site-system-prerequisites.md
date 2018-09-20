@@ -10,12 +10,12 @@ ms.assetid: 1392797b-76cb-46b4-a3e4-8f349ccaa078
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 10dfebccd997a42f4c79e5d88bdf05e26585aebb
-ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
+ms.openlocfilehash: 4ba23a42acb111f4ed7d0337552b2ea90b0268d6
+ms.sourcegitcommit: 78d2dce465e3500653b252583a6903a006784c26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42589877"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46448927"
 ---
 # <a name="site-and-site-system-prerequisites-for-configuration-manager"></a>Site e pré-requisitos de sistema de sites do Configuration Manager
 
@@ -73,7 +73,7 @@ Consulte as secções principais neste artigo, para as pré-requisitos específi
 - [Ponto proxy de registo](#bkmk_2012EnrollProxpreq)
 - [Ponto de estado de contingência](#bkmk_2012FSPpreq)
 - [Ponto de gestão](#bkmk_2012MPpreq)
-- [Ponto do Reporting](#bkmk_2012RSpoint)
+- [Ponto do Reporting services](#bkmk_2012RSpoint)
 - [Ponto de ligação de serviço](#bkmk_SCPpreq)
 - [Ponto de atualização de software](#bkmk_2012SUPpreq)
 - [Ponto de migração de estado](#bkmk_2012SMPpreq)
@@ -452,7 +452,7 @@ A configuração predefinida do IIS é necessária com as seguintes adições:
 
 
 
-##  <a name="bkmk_2012RSpoint"></a> Ponto do Reporting  
+##  <a name="bkmk_2012RSpoint"></a> Ponto do Reporting services  
 
 #### <a name="windows-server-roles-and-features"></a>Funcionalidades e funções do Windows Server  
 
