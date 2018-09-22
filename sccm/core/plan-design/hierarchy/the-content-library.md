@@ -2,7 +2,7 @@
 title: A biblioteca de conteúdos
 titleSuffix: Configuration Manager
 description: Saiba mais sobre a biblioteca de conteúdos do Configuration Manager utiliza para reduzir o tamanho geral do conteúdo distribuído.
-ms.date: 07/30/2018
+ms.date: 09/19/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 65c88e54-3574-48b0-a127-9cc914a89dca
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 03c56b9870b145112e8f79932db681022bec7b89
-ms.sourcegitcommit: 5875553bd814b7f82c16125f690c4bd2b6dd3a2b
+ms.openlocfilehash: 5f063034ed7cdc22a92df8d07d8be03ece12f663
+ms.sourcegitcommit: 4e4b71227309bee7e9f1285971f8235c67a9c502
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44385087"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46533750"
 ---
 # <a name="the-content-library-in-configuration-manager"></a>A biblioteca de conteúdos no Configuration Manager
 
@@ -100,6 +100,9 @@ Uma biblioteca de conteúdos remota é um pré-requisito para [elevada disponibi
 ### <a name="process-to-manage-the-content-library"></a>Processo para gerir a biblioteca de conteúdos
 
 1. Crie uma pasta numa partilha de rede como destino para a biblioteca de conteúdos. Por exemplo, `\\server\share\folder`.  
+
+    > [!Warning]  
+    > Não reutilize uma pasta existente com o conteúdo. Por exemplo, não utilize a mesma pasta como suas origens do pacote. Antes de copiar a biblioteca de conteúdos, o Configuration Manager remove qualquer conteúdo existente da localização que especificar.  
 
 2. Na consola do Configuration Manager, mude para o **administração** área de trabalho. Expanda **configuração do Site**, selecione a **Sites** nó e selecione o site. Sobre o **resumo** separador na parte inferior do painel de detalhes, observe que uma nova coluna para o **biblioteca de conteúdos**.  
 

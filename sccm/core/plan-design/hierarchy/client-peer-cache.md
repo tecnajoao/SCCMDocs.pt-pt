@@ -2,7 +2,7 @@
 title: Cache ponto a ponto do cliente
 titleSuffix: Configuration Manager
 description: Utilize a cache ponto a ponto do cliente para localizações de origem durante a implantação de conteúdo com o Configuration Manager.
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 86cd5382-8b41-45db-a4f0-16265ae22657
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4e3eda79b9b722b00f8fb9ac5329db8dd4153db1
-ms.sourcegitcommit: 52ec30245ba559596d2f88a3eff70c467b4a056f
+ms.openlocfilehash: b1d4e2b7dca44db7ddc5976edde59a04bc3cb45e
+ms.sourcegitcommit: 4e4b71227309bee7e9f1285971f8235c67a9c502
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43380987"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46533767"
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
@@ -100,9 +100,12 @@ Quando a origem de cache ponto a ponto rejeita um pedido para o conteúdo, o cli
 
     - Quando for necessário, a origem de cache ponto a ponto utiliza a conta de acesso de rede para autenticar pedidos de transferência de colegas. Esta conta requer permissões de utilizador de domínio apenas para essa finalidade.  
 
-- Submissão de deteção de heartbeat do cliente última determina o limite atual de uma origem de cache ponto a ponto. Um cliente fizer roaming para um grupo de limites diferentes ainda pode ser um membro do respetivo grupo de limites antigo para fins de cache ponto a ponto. Este comportamento resulta num cliente a ser oferecido um elemento de origem de cache que não esteja na respetiva localização de rede imediata. Não permitir que os clientes de roaming como uma origem de cache ponto a ponto.<!--SCCMDocs issue 641-->  
+- Com a versão 1802 e anterior, a submissão de deteção de heartbeat do cliente última determina o limite atual de uma origem de cache ponto a ponto. Um cliente fizer roaming para um grupo de limites diferentes ainda pode ser um membro do respetivo grupo de limites antigo para fins de cache ponto a ponto. Este comportamento resulta num cliente a ser oferecido um elemento de origem de cache que não esteja na respetiva localização de rede imediata. Não permitir que os clientes de roaming como uma origem de cache ponto a ponto.<!--SCCMDocs issue 641-->  
 
-- Antes de tentar transferir conteúdo, o cliente de cache ponto a ponto primeiro valida que a origem de cache ponto a ponto está online.<!--sms.498675--> Essa validação ocorre via o "canal rápido" para a notificação de cliente, que utiliza a porta TCP 10123.<!--511673-->  
+    > [!Important]  
+    > A partir da versão 1806, é mais eficiente para determinar se tem a ganhar mobilidade uma origem de cache ponto a ponto para outra localização do Configuration Manager. Esse comportamento faz-se de que o ponto de gestão oferece-la como uma origem de conteúdo aos clientes na nova localização e não a localização antiga. Se estiver a utilizar a funcionalidade de cache ponto a ponto com roaming origens da cache ponto a ponto, depois de atualizar o site para a versão 1806, também Atualize todas as origens de cache ponto a ponto para a versão mais recente do cliente. O ponto de gestão não inclui estas origens de cache ponto a ponto na lista de localizações de conteúdo antes de serem actualizadas para, pelo menos, versão 1806.<!--SCCMDocs issue 850-->  
+
+- Antes de tentar transferir conteúdo, o ponto de gestão pela primeira vez valida que a origem de cache ponto a ponto está online.<!--sms.498675--> Essa validação ocorre via o "canal rápido" para a notificação de cliente, que utiliza a porta TCP 10123.<!--511673-->  
 
 > [!Note]  
 > Para tirar partido das novas funcionalidades do Configuration Manager, primeiro de atualizar os clientes para a versão mais recente. Enquanto a nova funcionalidade surge na consola do Configuration Manager ao atualizar a consola e do site, o cenário completo não é funcional até que a versão do cliente também é a versão mais recente.  

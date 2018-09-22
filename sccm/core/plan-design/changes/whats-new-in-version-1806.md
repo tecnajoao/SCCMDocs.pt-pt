@@ -2,7 +2,7 @@
 title: O que há de novo na versão 1806
 titleSuffix: Configuration Manager
 description: Obtenha detalhes sobre alterações e novas funcionalidades introduzidas na versão 1806 do Configuration Manager current branch.
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 0249dbd3-1e85-4d05-a9e5-420fbe44d850
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8c1853892392227bec2d8e8ba7a6dadf051815e3
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.openlocfilehash: 3b5cb217b9351f5d2491070b447d0a96efe0aa29
+ms.sourcegitcommit: 4e4b71227309bee7e9f1285971f8235c67a9c502
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601199"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46533784"
 ---
 # <a name="whats-new-in-version-1806-of-configuration-manager-current-branch"></a>O que há de novo na versão 1806 do Configuration Manager current branch
 
@@ -29,6 +29,8 @@ Reveja sempre a lista de verificação mais recente para instalar esta atualiza�
 > Este artigo lista atualmente todas as funcionalidades significativas nesta versão. No entanto, nem todas as seções ainda uma ligação para o conteúdo atualizado com informações adicionais sobre os novos recursos. Continuar a verificar esta página regularmente a existência de atualizações. As alterações são indicadas com o ***[atualizado]*** marca. Esta nota será removida quando o conteúdo é finalizado.  
 
 Além das novas funcionalidades, esta versão também inclui alterações adicionais, como correções de erros. Para obter mais informações, consulte [resumo das alterações no ramo atual do System Center Configuration Manager, versão 1806](https://support.microsoft.com/help/4459701).
+
+Para obter mais informações sobre as alterações aos cmdlets do Windows PowerShell para o Configuration Manager, consulte [notas de versão do PowerShell 1806](https://docs.microsoft.com/powershell/sccm/1806_release_notes?view=sccm-ps).
 
 <!--
 The following additional updates to this release are also now available:
@@ -139,6 +141,13 @@ Para obter mais informações, consulte [suporte de transferência parcial](/scc
 - **Durante downloads de ponto a ponto, utilize apenas colegas dentro da mesma sub-rede**: O ponto de gestão inclui apenas as origens de mesmo nível de lista de localização de conteúdo que estão na mesma sub-rede que o cliente.  
 
 Para obter mais informações, consulte [opções de grupos de limites para as transferências de ponto a ponto](/sccm/core/servers/deploy/configure/boundary-groups#bkmk_bgoptions).
+
+
+### <a name="improvement-to-peer-cache-source-location-status"></a>Melhoria para o estado de localização de origem de cache ponto a ponto
+<!--SCCMDocs issue 850-->
+ ***[Atualizado] *** Do configuration Manager é mais eficiente para determinar se tem a ganhar mobilidade uma origem de cache ponto a ponto para outra localização. Esse comportamento faz-se de que o ponto de gestão oferece-la como uma origem de conteúdo aos clientes na nova localização e não a localização antiga. Se estiver a utilizar a funcionalidade de cache ponto a ponto com roaming origens da cache ponto a ponto, depois de atualizar o site para a versão 1806, também Atualize todas as origens de cache ponto a ponto para a versão mais recente do cliente. O ponto de gestão não inclui estas origens de cache ponto a ponto na lista de localizações de conteúdo antes de serem actualizadas para, pelo menos, versão 1806.
+
+Para obter mais informações, consulte [os requisitos para a cache ponto a ponto](/sccm/core/plan-design/hierarchy/client-peer-cache#requirements).
 
 
 
