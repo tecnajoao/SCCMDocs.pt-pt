@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 71eaa409-b955-45d6-8309-26bf3b3b0911
-ms.openlocfilehash: 8acde7b3b085946097263e0cc4ac735c39719315
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.openlocfilehash: 052210b53ec330a75d73508ae41218231bd75153
+ms.sourcegitcommit: 65423b94f0fee5dc5026804d88f13416872b93d4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601097"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47173483"
 ---
 # <a name="certificates-for-the-cloud-management-gateway"></a>Certificados para o gateway de gestão da nuvem
 
@@ -115,9 +115,9 @@ Para criar CMG no Azure, a ligação de serviço do Configuration Manager ponto 
 
 Para obter mais informações e instruções sobre como carregar um certificado de gestão, veja os artigos seguintes na documentação do Azure:
 
-- [Serviços cloud e gestão de certificados](https://docs.mirosoft.com/azure/cloud-services/cloud-services-certs-create#what-are-management-certificates)  
+- [Serviços cloud e gestão de certificados](https://docs.microsoft.com/azure/cloud-services/cloud-services-certs-create#what-are-management-certificates)  
 
-- [Carregar um certificado de gestão de serviço do Azure](https://docs.mirosoft.com/azure/azure-api-management-certs)  
+- [Carregar um certificado de gestão de serviço do Azure](https://docs.microsoft.com/azure/azure-api-management-certs)  
 
 > [!IMPORTANT]
 > Certifique-se copiar o ID de subscrição associado ao certificado de gestão. Utilizá-lo para a criação de CMG na consola do Configuration Manager.
