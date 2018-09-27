@@ -10,12 +10,12 @@ ms.assetid: 7996b3eb-5259-483b-af40-adae2943d123
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 21833d124ee998f0b943d2620370a2fcff264e28
-ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
+ms.openlocfilehash: ebd51b397e37c69e8f6e8d1e154fc369347bd63a
+ms.sourcegitcommit: fe279229a90fdc8cddbb13c7ffdbbb22af0e25ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42591650"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47229369"
 ---
 # <a name="capabilities-in-technical-preview-1805-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1805 para o System Center Configuration Manager
 
@@ -255,7 +255,7 @@ Experimente concluir as tarefas. Em seguida, envie [comentários](capabilities-i
 2. A interface fornece mais informações sobre como utilizar a ferramenta. 
      - Manualmente pode introduzir cadeias de caracteres de consulta na parte superior, ou clique nas ligações na documentação do inline.
      - Clique da **entidades** para adicioná-lo para a cadeia de consulta. 
-     - As ligações para **operadores de tabela**, **funções de agregação**, e **funções escalares** abrir documentação de referência de idioma no navegador da web. O mesmo idioma de consulta que utiliza o CMPivot [do Azure Log Analytics](https://docs.loganalytics.io/docs/Language-Reference/Change-log).
+     - As ligações para **operadores de tabela**, **funções de agregação**, e **funções escalares** abrir documentação de referência de idioma no navegador da web. O mesmo idioma de consulta que utiliza o CMPivot [do Azure Log Analytics](https://docs.microsoft.com/azure/kusto/query/).
 
 
 

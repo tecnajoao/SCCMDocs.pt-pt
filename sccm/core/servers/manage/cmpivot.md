@@ -10,12 +10,12 @@ ms.assetid: 32e2d6b9-148f-45e2-8083-98c656473f82
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0429c62f68a111bc7f620d1c954d5c8cf944d1c1
-ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
+ms.openlocfilehash: 2e0f74790437b34d1c5cd5dc00767ec782a51b45
+ms.sourcegitcommit: fe279229a90fdc8cddbb13c7ffdbbb22af0e25ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42590061"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47229301"
 ---
 # <a name="cmpivot-for-real-time-data-in-configuration-manager"></a>CMPivot para dados em tempo real no Configuration Manager
 
@@ -78,7 +78,7 @@ Os seguintes componentes são necessários para utilizar CMPivot:
 
      - Clique da **entidades** para adicioná-lo para a cadeia de consulta.  
 
-     - As ligações para **operadores de tabela**, **funções de agregação**, e **funções escalares** abrir documentação de referência de idioma no navegador da web. O mesmo idioma de consulta que utiliza o CMPivot [do Azure Log Analytics](https://docs.loganalytics.io/docs/Language-Reference/Change-log).  
+     - As ligações para **operadores de tabela**, **funções de agregação**, e **funções escalares** abrir documentação de referência de idioma no navegador da web. O mesmo idioma de consulta que utiliza o CMPivot [do Azure Log Analytics](https://docs.microsoft.com/azure/kusto/query/).  
 
 3. Mantenha a janela de CMPivot aberta para ver resultados de clientes. Quando fechar a janela de CMPivot, a sessão seja concluída.  
 
@@ -113,7 +113,7 @@ A janela de CMPivot contém os seguintes elementos:
 
 5. O painel de consulta é onde pode cria ou escreva uma consulta seja executada em clientes na coleção.  
 
-    - Um subconjunto da mesma linguagem de consulta como utiliza o CMPivot [do Azure Log Analytics](https://docs.loganalytics.io/docs/Language-Reference/Change-log).  
+    - Um subconjunto da mesma linguagem de consulta como utiliza o CMPivot [do Azure Log Analytics](https://docs.microsoft.com/azure/kusto/query/).  
 
     - Cortar, copiar ou cole o conteúdo no painel de consulta.  
 
