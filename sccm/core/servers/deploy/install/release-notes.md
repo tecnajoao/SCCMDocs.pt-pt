@@ -10,12 +10,12 @@ ms.assetid: 030947fd-f5e0-4185-8513-2397fb2ec96f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 939ab4b97a1a62eeae834873dd39e2f0d435527d
-ms.sourcegitcommit: 4e4b71227309bee7e9f1285971f8235c67a9c502
+ms.openlocfilehash: b31e0c84d0e3920024870361239e22bb90005ccb
+ms.sourcegitcommit: e7732dd67f19218cec576f70fe4ab44e2626b8e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "42590102"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045220"
 ---
 # <a name="release-notes-for-configuration-manager"></a>Notas de versão para o Configuration Manager
 
@@ -82,9 +82,10 @@ Mova a função de ponto de ligação de serviço para outro servidor.
 ## <a name="client-deployment-and-upgrade"></a>Implementação e atualização do cliente
 
 ### <a name="azure-ad-enabled-clients-cant-communicate-with-management-point"></a>Os clientes habilitados para AD do Azure não consegue comunicar com o ponto de gestão
-<!--501089-->
-*Aplica-se a: O Configuration Manager versão 1706* 
- <!--also fixed in 1710 HFRU--> cenário para [instale e atribua os clientes do Configuration Manager Windows 10 com o Azure AD para autenticação](/sccm/core/clients/deploy/deploy-clients-cmg-azure), falha de comunicação de cliente Quando o ponto de gestão ativado para HTTPS utiliza credenciais de base de dados alternativa. 
+<!--501089-->  
+*Aplica-se a: O Configuration Manager versão 1706*
+<!--also fixed in 1710 HFRU-->  
+No cenário para [instale e atribua os clientes do Configuration Manager Windows 10 com o Azure AD para autenticação](/sccm/core/clients/deploy/deploy-clients-cmg-azure), comunicação de cliente falha quando o ponto de gestão que suporte HTTPS utiliza credenciais de base de dados alternativa. 
 
 #### <a name="workaround"></a>Solução
 Atenuar este problema com uma das seguintes ações:
