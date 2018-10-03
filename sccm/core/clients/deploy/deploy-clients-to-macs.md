@@ -146,7 +146,7 @@ Utilize este procedimento para inscrição de certificados de cliente com a ferr
 
 4.  A partir da pasta Ferramentas no computador Mac, escreva o seguinte: **sudo. / CMEnroll -s &lt;nome_servidor_proxy_inscrição > - ignorecertchainvalidation -u &lt;nome de utilizador ' >**  
 
-    Após a instalação do cliente, o Assistente para Inscrever um Computador Mac abre para ajudá-lo a inscrever o computador Mac. Para inscrever o cliente através deste método, consulte [To enroll the client by using the Mac Computer Enrollment Wizard](#BKMK_EnrollR2) neste tópico.  
+    Após a instalação do cliente, o Assistente para Inscrever um Computador Mac abre para ajudá-lo a inscrever o computador Mac. Para inscrever o cliente através deste método, consulte [para inscrever o cliente utilizando o Assistente de inscrição de computador Mac](#BKMK_EnrollR2) neste tópico.  
 
 5. Escreva a palavra-passe da conta de utilizador do Active Directory.  Ao introduzir este comando, são-lhe pedidas duas palavras-passe: O primeiro pedido é para a conta de utilizador super executar o comando. O segundo pedido refere-se à conta de utilizador do Active Directory. Os pedidos parecem idênticos, por isso certifique-se de que os especifica pela sequência correta.  
 
