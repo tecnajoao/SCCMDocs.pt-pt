@@ -2,7 +2,7 @@
 title: Versões Technical preview
 titleSuffix: Configuration Manager
 description: Saiba mais sobre o ramo de pré-visualização técnica a testarem novas funcionalidades e capacidades no Configuration Manager.
-ms.date: 09/12/2018
+ms.date: 10/03/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: e49f39f2c9a052ef583b172c1ccad7b2963d300a
-ms.sourcegitcommit: a7254f265098ae8e83b4fa1fac312e9cc3c4f897
+ms.openlocfilehash: 60d16ec86a15d160720d9a2dae07bb6943860317
+ms.sourcegitcommit: 5def8b0ca72daad99fe8901af232bf17f35da55d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "44961080"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48793829"
 ---
 # <a name="technical-preview-for-configuration-manager"></a>Pré-visualização técnica do Configuration Manager
 
@@ -25,7 +25,7 @@ Este artigo fornece detalhes sobre o ramo mensal de pré-visualização técnica
 
 Uma vez que esta versão é uma pré-visualização técnica, detalhes e a funcionalidade estão sujeitos a alterações.  
 
-Essas informações se aplicam a todas as versões do ramo de pré-visualização técnica do Configuration Manager. Este artigo apresenta uma lista de cada funcionalidade nova juntamente com a versão de pré-visualização técnica em que ele aparece pela primeira vez. Por exemplo, a versão **1806** para Junho (06) de 2018 (18). Artigos separados dedicados para cada detalhe da versão de pré-visualização, os recursos individuais.  
+Essas informações se aplicam a todas as versões do ramo de pré-visualização técnica do Configuration Manager. Este artigo apresenta uma lista de cada funcionalidade nova juntamente com a versão de pré-visualização técnica em que ele aparece pela primeira vez. Por exemplo, a versão **1809** de Setembro (09) de 2018 (18). Artigos separados dedicados para cada detalhe da versão de pré-visualização, os recursos individuais.  
 
 Para obter informações sobre o que há de novo no *ramo atual* do Configuration Manager, consulte [o que há de novo no Configuration Manager versões incrementais](/sccm/core/plan-design/changes/whats-new-incremental-versions).
 
@@ -124,12 +124,19 @@ As seguintes funcionalidades estão disponíveis com a versão de pré-visualiza
 
 <!-- This is the full list of new features in the latest TP release -->
 
-### <a name="technical-preview-version-1809"></a>Pré-visualização técnica versão 1809
+### <a name="technical-preview-version-1810"></a>Pré-visualização técnica versão 1810
 
-- [Melhorias à CMPivot](capabilities-in-technical-preview-1809.md#bkmk_cmpivot) <!--1359068-->
-- [Melhoria para o dashboard do ciclo de vida](capabilities-in-technical-preview-1809.md#bkmk_lifecycle) <!--1358702-->
-- [Melhoria para o armazém de dados](capabilities-in-technical-preview-1809.md#bkmk_dataw) <!--1358870-->
-- [Melhoria para janelas de manutenção para atualizações de software](capabilities-in-technical-preview-1809.md#bkmk_sum-mw) <!--vso2839307-->
+- [Melhoria para instalação do cliente](capabilities-in-technical-preview-1810.md#bkmk_ccmsetup) <!--1358840-->
+- [Necessária a política de conformidade de aplicações para dispositivos cogeridos](capabilities-in-technical-preview-1810.md#bkmk_app-compliance) <!--1358196-->
+- [Melhoria para o dashboard de cogestão](capabilities-in-technical-preview-1810.md#bkmk_comgmt-report) <!--1358980-->
+- [Novas opções de grupo de limites](capabilities-in-technical-preview-1810.md#bkmk_bgoptions) <!--1358749-->
+- [Sistema de sites no nó de cluster do Windows](capabilities-in-technical-preview-1810.md#bkmk_cluster) <!--1359132-->
+- [Melhorias à CMPivot](capabilities-in-technical-preview-1810.md#bkmk_cmpivot) <!--1359068-->
+- [Melhorias aos scripts](capabilities-in-technical-preview-1810.md#bkmk_scripts) <!--1358239-->
+- [Nova ação de notificação de cliente para reativar o dispositivo](capabilities-in-technical-preview-1810.md#bkmk_wakeup) <!--1317364-->
+- [Suporte de sequência de tarefas para grupos de limites](capabilities-in-technical-preview-1810.md#bkmk_bgr-osd) <!--1359025-->
+- [Dashboard de conhecimentos de gestão](capabilities-in-technical-preview-1810.md#bkmk_insights) <!--1357979-->
+- [Dashboard de documentação na consola](capabilities-in-technical-preview-1810.md#bkmk_doc-dashboard) <!--1357546-->
 
 
 > [!Note]  
@@ -148,6 +155,10 @@ Then remove the bottom of this list and/or move individual items not in CB to th
 
  |Funcionalidade |Versão de pré-visualização técnica |Versão do ramo atual|  
  |----------------|---------------------|--------------------|
+ | Melhorias à CMPivot <!--1359068--> | [Tech Preview 1809](capabilities-in-technical-preview-1809.md#bkmk_cmpivot) | ![Não adicionado](media/Red_X.gif) | 
+ | Melhoria para o dashboard do ciclo de vida <!--1358702--> | [Tech Preview 1809](capabilities-in-technical-preview-1809.md#bkmk_lifecycle) | ![Não adicionado](media/Red_X.gif) | 
+ | Melhoria para o armazém de dados <!--1358870--> | [Tech Preview 1809](capabilities-in-technical-preview-1809.md#bkmk_dataw) | ![Não adicionado](media/Red_X.gif) | 
+ | Melhoria para janelas de manutenção para atualizações de software <!--vso2839307--> | [Tech Preview 1809](capabilities-in-technical-preview-1809.md#bkmk_sum-mw) | ![Não adicionado](media/Red_X.gif) | 
  | Implementação faseada de atualizações de software <!--1358146--> | [Tech Preview 1808](capabilities-in-technical-preview-1808.md#bkmk_pod) | ![Não adicionado](media/Red_X.gif) | 
  | Melhorias para reparar a aplicações <!--1357866--> | [Tech Preview 1808](capabilities-in-technical-preview-1808.md#bkmk_repair) | ![Não adicionado](media/Red_X.gif) | 
  | Hub de Comunidade <!--1357766--> | [Tech Preview 1807](capabilities-in-technical-preview-1807.md#bkmk_hub) | ![Não adicionado](media/Red_X.gif) | 
@@ -157,28 +168,6 @@ Then remove the bottom of this list and/or move individual items not in CB to th
  | Aprovar pedidos de aplicações através de e-mail <!--1321550--> | [Tech Preview 1807](capabilities-in-technical-preview-1807.md#bkmk_email-approve) | ![Não adicionado](media/Red_X.gif) | 
  | Melhoria à saída do script <!--1236459--> | [Tech Preview 1807](capabilities-in-technical-preview-1807.md#bkmk_script) | ![Não adicionado](media/Red_X.gif) | 
  | Melhoria para atualizações de software de terceiros <!--1358714--> | [Tech Preview 1807](capabilities-in-technical-preview-1807.md#bkmk_3pupdate) | ![Não adicionado](media/Red_X.gif) | 
- | Melhorias para as implementações faseadas <!--1358577,1358147,1358578--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_pod)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Suporte para novos formatos de pacote de aplicação Windows <!--1357427--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_msix)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Melhoria de segurança de push de cliente <!--1358204--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_client-push)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Informações de gestão para a manutenção proativa <!--1352184,et al--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_insights)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Carga de trabalho de aplicações móveis de transição para dispositivos cogeridos <!--1357892--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_comgmt)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Opções de grupos de limites para configurar o peering downloads <!--1356193--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_bgoptions)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Suporte para catálogos personalizados de atualizações de software de terceiros <!--1358714--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_3pupdate)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Melhorias para a cloud de funcionalidades de gestão <!--511980,515854--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_cloud)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Novo relatório de conformidade de atualizações de software <!--1357775--> | [Tech Preview 1806.2](capabilities-in-technical-preview-1806-2.md#bkmk_report)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Atualizações de software de terceiros <!--1352101--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#bkmk-3pupdate)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Configurar as definições do Windows Defender SmartScreen para o Microsoft Edge <!--1353701--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#configure-windows-defender-smartscreen-settings-for-microsoft-edge)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Política MDM de sincronização do Microsoft Intune para um dispositivo cogerido <!--1357377--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#sync-mdm-policy-from-microsoft-intune-for-a-co-managed-device)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Carga de trabalho de transição do Office 365 para o Intune através de cogestão <!--1357841--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#transition-office-365-workload-to-intune-using-co-management)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Gestor de conversão de pacotes <!--1357861--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#package-conversion-manager)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Implementar atualizações de software sem conteúdo <!--1357933--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#deploy-software-updates-without-content)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Integração de ferramenta de personalização do Office com o instalador do Office 365 <!--1358149--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#office-customization-tool-integration-with-the-office-365-installer)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Melhorias para a cloud do gateway de gestão <!--1358215,1358651,503899--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#improvements-to-cloud-management-gateway)   | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Melhorias para proteger as comunicações de cliente <!--1358278,1358279--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#improvements-to-secure-client-communications)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Melhorias na infraestrutura de centro de software <!--1358309--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#software-center-infrastructure-improvements)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Aprovisionar os pacotes de aplicações do Windows para todos os utilizadores num dispositivo <!--1358310--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#provision-windows-app-packages-for-all-users-on-a-device)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Aprimoramentos no painel do Surface <!--1358654--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#improvements-to-the-surface-dashboard)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
- | Revisão de unidade de padrão de inventário de hardware <!--514442--> | [Tech Preview 1806](capabilities-in-technical-preview-1806.md#hardware-inventory-default-unit-revision)  | [Versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806) |  
 
 
 
@@ -210,7 +199,7 @@ With each CB release, review and remove from this list for anything that's now a
 Para obter mais informações, consulte os artigos seguintes:  
 
 - [Avaliar o Configuration Manager num laboratório](/sccm/core/get-started/evaluate-with-lab-environment)
-- [Quais são as novidades nas versões incrementais do Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
+- [Novidades das versões incrementais do Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
 - [Introdução ao Configuration Manager](/sccm/core/understand/introduction)
 
 > [!Tip]  
