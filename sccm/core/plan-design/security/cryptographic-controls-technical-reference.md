@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 884859f9968f6d7f72e0aef3448eab42a3751ec5
-ms.sourcegitcommit: a17be6f5e4659ba3f38c7732b43f3afafcb95171
+ms.openlocfilehash: aa92f935984b52458a3d7daf17a11077c519da84
+ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906423"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48862537"
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Referência técnica de controlos criptográficos
 
@@ -120,7 +120,7 @@ System Center Configuration Manager utiliza a assinatura e encriptação para aj
  Se ativar o inventário de hardware para dispositivos móveis, o Configuration Manager ou o Intune também fará um inventário dos certificados que estão instalados no dispositivo móvel.   
 
 ### <a name="operating-system-deployment-and-pki-certificates"></a>Implementação do sistema operativo e certificados PKI  
- Quando utilizar o Configuration Manager para implementar sistemas operativos e um ponto de gestão requer ligações de cliente HTTPS, o computador cliente também tem de ter um certificado para comunicar com o ponto de gestão, mesmo que se numa fase transitória, tais como arranque a partir de suportes de dados de sequência de tarefas ou um ponto de distribuição com PXE ativado. Para suportar este cenário, tem de criar um certificado de autenticação de cliente PKI e exportá-lo com a chave privada e, em seguida, importá-lo para as propriedades do servidor de site e também adicionar € de pointâ gestão™ certificado de AC de raiz fidedigna de s.  
+ Quando utilizar o Configuration Manager para implementar sistemas operativos e um ponto de gestão requer ligações de cliente HTTPS, o computador cliente também tem de ter um certificado para comunicar com o ponto de gestão, mesmo que se numa fase transitória, tais como arranque a partir de suportes de dados de sequência de tarefas ou um ponto de distribuição com PXE ativado. Para suportar este cenário, tem de criar um certificado de autenticação de cliente PKI e exportá-lo com a chave privada e, em seguida, importá-lo para as propriedades do servidor de site e também adicionar o certificado de AC de raiz fidedigna do ponto de gestão.  
 
  Se criar suportes de dados de arranque, importa o certificado de autenticação de cliente quando criar o suporte de dados de arranque. Configure uma palavra-passe no suporte de dados de arranque para ajudar a proteger a chave privada e outros dados confidenciais configurados na sequência de tarefas. Os computadores que iniciam a partir do suporte de dados de arranque irão apresentar o mesmo certificado ao ponto de gestão tal como necessário para as funções dos clientes, como o pedido de política de cliente.  
 

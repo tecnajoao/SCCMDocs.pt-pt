@@ -10,12 +10,12 @@ ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 60d16ec86a15d160720d9a2dae07bb6943860317
-ms.sourcegitcommit: 5def8b0ca72daad99fe8901af232bf17f35da55d
+ms.openlocfilehash: c43b501e8305f97f178d2eba9d3ab64fa9efe2a7
+ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48793829"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48862452"
 ---
 # <a name="technical-preview-for-configuration-manager"></a>Pré-visualização técnica do Configuration Manager
 
@@ -137,6 +137,7 @@ As seguintes funcionalidades estão disponíveis com a versão de pré-visualiza
 - [Suporte de sequência de tarefas para grupos de limites](capabilities-in-technical-preview-1810.md#bkmk_bgr-osd) <!--1359025-->
 - [Dashboard de conhecimentos de gestão](capabilities-in-technical-preview-1810.md#bkmk_insights) <!--1357979-->
 - [Dashboard de documentação na consola](capabilities-in-technical-preview-1810.md#bkmk_doc-dashboard) <!--1357546-->
+- [Melhoramentos à manutenção do controlador](capabilities-in-technical-preview-1810.md#bkmk_drivers)<!--1358270-->  
 
 
 > [!Note]  

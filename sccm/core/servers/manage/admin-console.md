@@ -10,12 +10,12 @@ ms.assetid: 463ce307-59dd-4abd-87b8-42ca9db178d7
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 8d783211396f3cdc9f14798ed7dc97e921e45554
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 793ba0f05c7a188a6bda9649c9d25922ce27d42c
+ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386802"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48862469"
 ---
 # <a name="using-the-system-center-configuration-manager-console"></a>Utilizando a consola do System Center Configuration Manager
 
@@ -82,6 +82,17 @@ Pode adicionar, remover, reordenar e redimensionar colunas. Estas ações permit
 Na parte inferior da coluna com o botão direito clique menu, pode classificar ou agrupar por uma coluna. Além disso, pode ordenar por uma coluna ao clicar no respetivo cabeçalho. 
 
 ![Grupo do Configuration Manager por coluna](media/column-group-by.png)
+
+##<a name="console-command-line-options"></a>Opções da linha de comandos da consola
+A consola do Microsoft System Center Configuration Manager tem as seguintes opções da linha de comandos.
+
+|Opção|Descrição|  
+|------------|-----------------|  
+|**/SMS:debugview = 1**|Um DebugView está incluído no ResultViews todos os que especifique um modo de exibição. DebugView mostra as propriedades não processadas (nomes e valores).|  
+|**/SMS:NamespaceView = 1**|Mostra a vista de espaço de nomes na consola do System Center Configuration Manager.|  
+|**/SMS:ResetSettings**|A consola do System Center Configuration Manager ignora a usuário persistente Estados de ligação e o modo de exibição (tamanho da janela de Console de gerenciamento Microsoft não é reposto).|  
+|**/SMS:IgnoreExtensions**|Desativa quaisquer extensões do System Center Configuration Manager.|  
+|**/SMS:NoRestore**|A consola do System Center Configuration Manager ignora a navegação de nó persistentes anteriores.|  
 
 ## <a name="console-improvements-in-version-1806"></a>Melhorias da consola na versão 1806
 No Configuration Manager versão 1806, são adicionadas as seguintes melhorias de consola:

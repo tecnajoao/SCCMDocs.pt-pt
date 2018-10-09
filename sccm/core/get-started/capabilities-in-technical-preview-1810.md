@@ -10,12 +10,12 @@ ms.assetid: 8109d0fe-a8d8-4cf2-92a1-94afa5299719
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 08a648b6d60fc7fa9359a6526e49b942d36e97a3
-ms.sourcegitcommit: 5def8b0ca72daad99fe8901af232bf17f35da55d
+ms.openlocfilehash: 1e06250a5b88c3db000ee11662f4199f97232104
+ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48794163"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48862350"
 ---
 # <a name="capabilities-in-configuration-manager-technical-preview-version-1810"></a>Recursos do Configuration Manager technical preview versão 1810 
 
@@ -50,6 +50,7 @@ Reveja os [pré-visualização técnica](/sccm/core/get-started/technical-previe
 [!INCLUDE [Task sequence support for boundary groups](includes/1810/1359025.md)]
 [!INCLUDE [Management insights dashboard](includes/1810/1357979.md)]
 [!INCLUDE [In-console documentation dashboard](includes/1810/1357546.md)]
+[!INCLUDE [Improvements to driver maintenance](includes/1810/1358270.md)]
 
 
 ## <a name="next-steps"></a>Passos seguintes
