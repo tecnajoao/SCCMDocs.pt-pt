@@ -46,7 +46,7 @@ As secções seguintes fornecem detalhes sobre as alterações e novos recursos 
 
 Saiba mais sobre as alterações de suporte antes de eles são implementados no [removidas e preteridas itens](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated).
 
-***[Atualizado]***  a partir de 14 de Agosto de 2018, a funcionalidade de gestão de dispositivos móveis híbrida foi preterida. Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
+***[Atualizado]*** a partir de 14 de Agosto de 2018, a funcionalidade de gestão de dispositivos móveis híbrida foi preterida. Para obter mais informações, consulte [o que é a MDM híbrida](/sccm/mdm/understand/hybrid-mobile-device-management).<!--Intune feature 2683117-->  
 
 <!--
 Version 1806 drops support for the following products:
@@ -145,7 +145,7 @@ Para obter mais informações, consulte [opções de grupos de limites para as t
 
 ### <a name="improvement-to-peer-cache-source-location-status"></a>Melhoria para o estado de localização de origem de cache ponto a ponto
 <!--SCCMDocs issue 850-->
- ***[Atualizado] *** Do configuration Manager é mais eficiente para determinar se tem a ganhar mobilidade uma origem de cache ponto a ponto para outra localização. Esse comportamento faz-se de que o ponto de gestão oferece-la como uma origem de conteúdo aos clientes na nova localização e não a localização antiga. Se estiver a utilizar a funcionalidade de cache ponto a ponto com roaming origens da cache ponto a ponto, depois de atualizar o site para a versão 1806, também Atualize todas as origens de cache ponto a ponto para a versão mais recente do cliente. O ponto de gestão não inclui estas origens de cache ponto a ponto na lista de localizações de conteúdo antes de serem actualizadas para, pelo menos, versão 1806.
+ ***[Atualizado]*** Do configuration Manager é mais eficiente para determinar se tem a ganhar mobilidade uma origem de cache ponto a ponto para outra localização. Esse comportamento faz-se de que o ponto de gestão oferece-la como uma origem de conteúdo aos clientes na nova localização e não a localização antiga. Se estiver a utilizar a funcionalidade de cache ponto a ponto com roaming origens da cache ponto a ponto, depois de atualizar o site para a versão 1806, também Atualize todas as origens de cache ponto a ponto para a versão mais recente do cliente. O ponto de gestão não inclui estas origens de cache ponto a ponto na lista de localizações de conteúdo antes de serem actualizadas para, pelo menos, versão 1806.
 
 Para obter mais informações, consulte [os requisitos para a cache ponto a ponto](/sccm/core/plan-design/hierarchy/client-peer-cache#requirements).
 
