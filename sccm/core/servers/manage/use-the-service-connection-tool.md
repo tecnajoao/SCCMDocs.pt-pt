@@ -10,20 +10,20 @@ ms.assetid: 6e4964c5-43cb-4372-9a89-b62ae6a4775c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1faabd64d11eeef8e825f22f7f661112813f5459
-ms.sourcegitcommit: 4b8afbd08ecf8fd54950eeb630caf191d3aa4767
+ms.openlocfilehash: e0051b00f9c9540291db94c79a81c600c87ad59c
+ms.sourcegitcommit: 4f05517f7b284696a492a1b184cc5f25c5cda5e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "34474314"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48891202"
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Utilize o **ferramenta de ligação de serviço** quando o ponto de ligação de serviço está no modo offline, ou quando os servidores de sistema de sites do Configuration Manager não estiverem ligados à Internet. A ferramenta pode ajudar a manter o site atualizados com as atualizações mais recentes do Configuration Manager.  
+Utilize o **ferramenta de ligação de serviço** quando o ponto de ligação de serviço está no modo offline, ou quando os servidores de sistema de sites do Configuration Manager não estão ligados à Internet. A ferramenta pode ajudá-lo a manter seu site atualizado com as atualizações mais recentes para o Configuration Manager.  
 
-Quando executada, a ferramenta manualmente estabelece ligação ao serviço de nuvem do Configuration Manager para carregar as informações de utilização para a sua hierarquia e para transferir as atualizações. O carregamento dos dados de utilização é necessário para permitir ao serviço em nuvem fornecer as atualizações corretas para a sua implementação.  
+Quando executada, a ferramenta manualmente se conectar ao serviço de nuvem do Configuration Manager para carregar informações de utilização para a sua hierarquia e para transferir atualizações. O carregamento dos dados de utilização é necessário para permitir ao serviço em nuvem fornecer as atualizações corretas para a sua implementação.  
 
 ## <a name="prerequisites-for-using-the-service-connection-tool"></a>Pré-requisitos para utilizar a ferramenta de ligação de serviço
 Seguem-se os pré-requisitos e problemas conhecidos.
@@ -54,16 +54,16 @@ Seguem-se os pré-requisitos e problemas conhecidos.
 
 ## <a name="use-the-service-connection-tool"></a>Utilizar a ferramenta de ligação de serviços  
 
- Pode encontrar a ferramenta de ligação de serviço (**serviceconnectiontool.exe**), no suporte de instalação do Configuration Manager no **%path%\smssetup\tools\ServiceConnectionTool** pasta. Utilize sempre a ferramenta de ligação de serviço que corresponde à versão do Configuration Manager que utilizar.
+ Pode encontrar a ferramenta de ligação de serviço (**serviceconnectiontool.exe**), no suporte de instalação do Configuration Manager na **%path%\smssetup\tools\ServiceConnectionTool** pasta. Utilize sempre a ferramenta de ligação de serviço que corresponde à versão do Configuration Manager que utilizar.
 
 
  Neste procedimento, os exemplos da linha de comandos utilizam os seguintes nomes de ficheiros e localizações de pastas (não é necessário utilizar estes caminhos e nomes de ficheiros e, em vez disso, pode utilizar alternativas que correspondam ao seu ambiente e preferências):  
 
 -   O caminho para uma pen USB onde os dados são armazenados para transferência entre servidores:  **D:\USB\\**  
 
--   O nome do ficheiro. cab que contém dados exportados a partir do seu site: **UsageData.cab**  
+-   O nome do ficheiro. cab que contém dados exportados do seu site: **Usagedata. cab**  
 
--   O nome da pasta vazia onde serão armazenadas as atualizações para o Configuration Manager para transferência entre servidores: **UpdatePacks**  
+-   O nome da pasta vazia onde serão armazenadas atualizações transferidas para o Configuration Manager para transferência entre servidores: **UpdatePacks**  
 
 No computador que aloja o ponto de ligação de serviço:  
 
@@ -80,38 +80,38 @@ Também terá da copiar a pasta ServiceConnectionTool com todo o conteúdo para 
 ### <a name="overview"></a>Descrição Geral
 #### <a name="there-are-three-primary-steps-to-using-the-service-connection-tool"></a>Existem três passos principais para utilizar a ferramenta de ligação de serviço  
 
-1.  **Preparar**:  Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando a ferramenta é executada coloca os dados de utilização num ficheiro. cab e armazena-a numa unidade USB (ou localização de transferência alternativa que especificar).  
+1.  **Preparar**:  Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando a ferramenta é executada ele coloca os dados de utilização de um arquivo. cab e armazena-a numa unidade USB (ou localização de transferência alternativa que especificar).  
 
-2.  **Ligar**: Para este passo, execute a ferramenta num computador remoto que liga à Internet para que possa carregar os dados de utilização e, em seguida, transferir as atualizações.  
+2.  **Ligar**: Para este passo de executar a ferramenta num computador remoto que liga à Internet para que possa carregar os dados de utilização e, em seguida, transferir as atualizações.  
 
-3.  **Importar**: Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando executada, a ferramenta importa que transferiu e adiciona-os para o seu site para que possa ver e instalar essas atualizações a partir da consola do Configuration Manager.  
+3.  **Importar**: Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando executada, a ferramenta importa o que transferiu e adiciona-as para o seu site, para que possa, em seguida, ver e instalar as atualizações a partir da consola do Configuration Manager.  
 
 A partir da versão 1606, quando ligar à Microsoft, pode carregar vários ficheiros .cab ao mesmo tempo (cada um deles a partir de uma hierarquia diferente) e especificar um servidor proxy e um utilizador para o servidor proxy.   
 
-#### <a name="to-upload-multiple-cab-files"></a>Para carregar ficheiros. cab de vários
+#### <a name="to-upload-multiple-cab-files"></a>Para carregar vários ficheiros. cab
  -  Coloque cada ficheiro .cab que exportar de hierarquias separadas na mesma pasta. O nome de cada ficheiro tem de ser exclusivo e pode mudar o nomes do mesmo manualmente, se necessário.
  -  Em seguida, ao executar o comando para carregar dados para a Microsoft, especifique a pasta que contém os ficheiros .cab. (Antes da atualização 1606, só podia carregar dados de uma única hierarquia de cada vez e a ferramenta necessários para especificar o nome do ficheiro .cab na pasta.)
  -  Mais tarde, quando executar a tarefa de importação no ponto de ligação de serviço de uma hierarquia, a ferramenta só importa automaticamente os dados para essa hierarquia.  
 
 #### <a name="to-specify-a-proxy-server"></a>Para especificar um servidor proxy
 Pode utilizar os seguintes parâmetros opcionais para especificar um servidor proxy (mais informações sobre como utilizar estes parâmetros estão disponíveis na secção Parâmetros de linha de comandos deste tópico):
-  - **-proxyserveruri [FQDN_of_proxy_sever]**  Utilize este parâmetro para especificar o servidor proxy a utilizar para esta ligação.
+  - **-proxyserveruri [FQDN_of_proxy_server]** Utilize este parâmetro para especificar o servidor de proxy a utilizar para esta ligação.
   -  **-proxyusername [username]**  Utilize este parâmetro quando tiver de especificar um utilizador para o servidor proxy.
 
-#### <a name="specify-the-type-of-updates-to-download"></a>Especifique o tipo de atualizações a transferir
-A partir da versão 1706, foi alterado o comportamento de transferência da predefinição de ferramentas e a ferramenta suporta opções para controlar os ficheiros que transfere.
--   Por predefinição, a ferramenta transfere apenas a atualização mais recente disponível que se aplica à versão do seu site. Não transfere as correções.
+#### <a name="specify-the-type-of-updates-to-download"></a>Especifique o tipo de atualizações para transferir
+A partir da versão 1706, foi alterado o comportamento de transferência do padrão de ferramentas e a ferramenta suporta opções para controlar os ficheiros que transfere.
+-   Por predefinição, a ferramenta transfere apenas a atualização mais recente disponível que se aplica à versão do seu site. Não transferirá correções.
 
-Para modificar este comportamento, utilize um dos parâmetros seguintes para alterar a que os ficheiros são transferidos. 
+Para modificar esse comportamento, utilize um dos parâmetros seguintes para alterar os ficheiros que são transferidos. 
 
 > [!NOTE]
 > A versão do seu site é determinada a partir dos dados no ficheiro. cab que é carregado quando a ferramenta é executada.
 >
-> Pode verificar a versão, procurando o *SiteVersion*ficheiro. txt dentro do ficheiro. cab.
+> Pode verificar a versão, procurando o *SiteVersion*arquivo. txt no arquivo. cab.
 
--   **-downloadall** esta opção transfere tudo, incluindo atualizações e correções, independentemente da versão do seu site.
--   **-downloadhotfix** esta opção transfere todas as correções, independentemente da versão do seu site.
--   **-downloadsiteversion** esta opção transfere atualizações e correções que tenham uma versão superior à versão do seu site.
+-   **-downloadall** esta opção transfere tudo, incluindo atualizações e hotfixes, independentemente da versão do seu site.
+-   **-downloadhotfix** esta opção transfere todos os hotfixes independentemente da versão do seu site.
+-   **-downloadsiteversion** esta opção transfere atualizações e hotfixes que possuem uma versão superior à versão do seu site.
 
 Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
 - **serviceconnectiontool.exe-ligar *- downloadsiteversion* - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
@@ -163,19 +163,19 @@ Linha de comandos de exemplo que utiliza *- downloadsiteversion*:
 
 8.  Quando a importação estiver concluída, pode fechar a linha de comandos. (Apenas são importadas atualizações para a hierarquia aplicável).  
 
-9. Abra a consola do Configuration Manager e navegue para **administração** > **atualizações e manutenção**. As atualizações que foram importadas estão agora disponíveis para instalação. (Antes da versão 1702, atualizações e manutenção estava **administração** > **serviços em nuvem**.)
+9. Abra a consola do Configuration Manager e navegue para **Administration** > **atualizações e manutenção**. As atualizações que foram importadas estão agora disponíveis para instalação. (Antes da versão 1702, atualizações e manutenção foi sob **Administration** > **serviços Cloud**.)
 
- Para obter informações sobre como instalar atualizações, veja [Instalar atualizações na consola para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
+ Para obter informações sobre como instalar atualizações, veja  [Instalar atualizações na consola para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
 
 ## <a name="bkmk_cmd"></a> Ficheiros de registo
 
 **ServiceConnectionTool.log**
 
-Sempre que executar a ferramenta de ligação de serviço, irá gerar um ficheiro de registo na mesma localização que a ferramenta chamado **ServiceConnectionTool.log**.  Este ficheiro de registo irão disponibilizar detalhes simples sobre a execução da ferramenta com base no são utilizados os comandos.  Um ficheiro de registo existente será substituído sempre que executar a ferramenta.
+Sempre que executar a ferramenta de ligação de serviço, um ficheiro de registo irá gerar na mesma localização que a ferramenta chamada **ServiceConnectionTool.log**.  Este ficheiro de registo irá fornecer detalhes simples sobre a execução da ferramenta com base nos quais comandos são utilizados.  Um arquivo de log existente será substituído sempre que executar a ferramenta.
 
-**Ficheiro configmgrsetup.log, localizado**
+**Configmgrsetup. log**
 
-Quando utilizar a ferramenta para ligar e transferir atualizações, um ficheiro de registo irá gerar na raiz da unidade de sistema chamada **ConfigMgrSetup.log**.  Este ficheiro de registo irá fornecer informações mais detalhadas, tais como ficheiros que são transferidos, a extrair e se verifica o hash forem efetuadas com êxito.
+Ao utilizar a ferramenta para ligar e transferir atualizações, um ficheiro de registo irá gerar na raiz da unidade do sistema chamada **configmgrsetup. log**.  Este ficheiro de registo fornecerá informações mais detalhadas, como o que os arquivos são baixados, extraídos e se verifica o hash são com êxito.
 
 ## <a name="bkmk_cmd"></a> Opções de linha de comandos  
  Para ver informações de ajuda relativas à ferramenta de ponto de ligação de serviço, abra a linha de comandos para a pasta que contém a ferramenta e execute o comando:  **serviceconnectiontool.exe**.  

@@ -1,7 +1,7 @@
 ---
-title: Definições de software maligno do Endpoint Protection da partilha de rede
+title: Definições de software maligno do Endpoint Protection de compartilhamento de rede
 titleSuffix: Configuration Manager
-description: Saiba como transferir manualmente as atualizações de definições mais recentes da Microsoft e, em seguida, configure clientes para transferirem estas definições.
+description: Saiba como baixar manualmente as atualizações de definições mais recentes da Microsoft e, em seguida, configure clientes para transferirem estas definições.
 ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-protect
@@ -10,14 +10,14 @@ ms.assetid: ddef4d2a-f481-4020-9ddd-9cca5f9795cb
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 96fe34d713a1d9d3afb78dc59124865024e9eb77
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 47c6a046dac7cd4b5d0d16f0342d7e95ba3cc2a0
+ms.sourcegitcommit: 4f05517f7b284696a492a1b184cc5f25c5cda5e6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32347047"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48891151"
 ---
-# <a name="enable-endpoint-protection-malware-definitions-to-download-from-a-network-share-for-configuration-manager"></a>Ativar as definições de software maligno do Endpoint Protection transferir a partir de uma partilha de rede para o Configuration Manager
+# <a name="enable-endpoint-protection-malware-definitions-to-download-from-a-network-share-for-configuration-manager"></a>Ativar as definições de software maligno do Endpoint Protection transferir a partir de um compartilhamento de rede para o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -26,7 +26,7 @@ ms.locfileid: "32347047"
 > [!NOTE]
 >  Os clientes têm de ter acesso de leitura à pasta partilhada para conseguirem transferir as atualizações de definições.
 
- Para obter mais informações sobre como transferir as atualizações de definições e de motor para armazenar na partilha de ficheiros, consulte [instalar o software mais recente do antimalware e antisspyware Microsoft](http://www.microsoft.com/security/portal/Definitions/HowToForeFront.aspx).
+ Para obter mais informações sobre como transferir as atualizações de definições e de motor para armazenar na partilha de ficheiros, consulte [instalar o mais recente software da Microsoft antimalware e antispyware](https://www.microsoft.com/wdsi/definitions).
 
 ## <a name="to-configure-definition-downloads-from-a-file-share"></a>Para configurar transferências de definições a partir de uma partilha de ficheiros
 
