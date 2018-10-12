@@ -1,0 +1,92 @@
+items:
+- name: Compreender e explorar
+  items:
+  - name: Introdução
+    href: understand/introduction-to-application-management.md
+- name: Introdução
+  items:
+  - name: Criar e implementar uma aplicação
+    href: get-started/create-and-deploy-an-application.md
+- name: Planear e estruturar
+  items:
+  - name: Planear e configurar a gestão de aplicações
+    href: plan-design/plan-for-and-configure-application-management.md
+  - name: Segurança e privacidade
+    href: plan-design/security-and-privacy-for-application-management.md
+- name: Implementar e utilizar
+  items:
+  - name: Criar aplicações
+    href: deploy-use/create-applications.md
+    items:
+    - name: Criar aplicações para computadores Mac
+      href: get-started/creating-mac-computer-applications.md
+    - name: Criar aplicações Windows
+      href: get-started/creating-windows-applications.md
+    - name: Criar aplicações de servidor Linux e UNIX
+      href: get-started/creating-linux-and-unix-server-applications.md
+    - name: Criar aplicações Windows Embedded
+      href: get-started/creating-windows-embedded-applications.md
+    - name: Criar condições globais
+      href: deploy-use/create-global-conditions.md
+    - name: Pacotes e programas
+      href: deploy-use/packages-and-programs.md
+  - name: Implementar aplicações
+    items:
+    - name: Implementar aplicações
+      href: deploy-use/deploy-applications.md
+    - name: Criar uma implementação faseada
+      href: ../osd/deploy-use/create-phased-deployment-for-task-sequence.md?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json
+    - name: Partilhar uma aplicação
+      href: deploy-use/share-applications.md
+    - name: Simular implementações de aplicações
+      href: deploy-use/simulate-application-deployments.md
+    - name: Implementar aplicações virtuais App-V
+      href: get-started/deploying-app-v-virtual-applications.md
+  - name: Monitorizar aplicações
+    items:
+    - name: Monitorizar aplicações a partir da consola
+      href: deploy-use/monitor-applications-from-the-console.md
+    - name: Gerir e monitorizar as implementações faseadas
+      href: ../osd/deploy-use/manage-monitor-phased-deployments.md?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json
+    - name: Monitorizar a utilização da aplicação com a medição de software
+      href: deploy-use/monitor-app-usage-with-software-metering.md
+  - name: Gerir aplicações
+    items:
+    - name: Tarefas de gestão
+      href: deploy-use/management-tasks-applications.md
+    - name: Afinidade dispositivo/utilizador
+      href: deploy-use/link-users-and-devices-with-user-device-affinity.md
+    - name: Aplicações compradas em volume na Microsoft Store para Empresas
+      href: deploy-use/manage-apps-from-the-windows-store-for-business.md
+    - name: Ambientes virtuais do App-V
+      href: deploy-use/create-app-v-virtual-environments.md
+  - name: Atualizar e extinguir aplicações
+    items:
+    - name: Atualizar e extinguir aplicações
+      href: deploy-use/update-and-retire-applications.md
+    - name: Rever e substituir aplicações
+      href: deploy-use/revise-and-supersede-applications.md
+    - name: Desinstalar aplicações
+      href: deploy-use/uninstall-applications.md
+  - name: Executar e gerir scripts
+    href: deploy-use/create-deploy-scripts.md
+    items:
+    - name: Obter informações sobre a segurança dos scripts do PowerShell
+      href: deploy-use/learn-script-security.md
+  - name: Gestor de Conversão de Pacotes
+    href: pcm/package-conversion-manager.md
+    items:
+    - name: Como analisar e converter pacotes
+      href: pcm/how-to-analyze-and-convert.md
+    - name: Resolução de Problemas do Gestor de Conversão de Pacotes
+      href: pcm/troubleshoot-pcm.md
+    - name: Referências técnicas
+      items:
+      - name: Mensagens de erro
+        href: pcm/error-messages.md
+ms.openlocfilehash: c77312e99b6c08ecea729ade9e3de1ade4fccfa7
+ms.sourcegitcommit: 759098de944b8f7d5eedfc2bae2cb9a6ba15276f
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "48817765"
