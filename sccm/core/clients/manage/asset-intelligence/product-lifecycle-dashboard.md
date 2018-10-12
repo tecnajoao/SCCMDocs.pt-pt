@@ -10,12 +10,12 @@ ms.assetid: 8b5b144a-0e5f-4fcc-87b2-33b9bcdb5655
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f99aeba109ed4de3ef1b88b721b59eebb4653cb6
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: dd1a3a56bac6d7917c70db731b1735a195fae3df
+ms.sourcegitcommit: dfb2cb01c1608b848f2f2fee7c84500e7adcb7a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384636"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49101250"
 ---
 # <a name="manage-microsoft-lifecycle-policy-with-configuration-manager"></a>Gerir política de ciclo de vida da Microsoft com o Configuration Manager
 
@@ -63,7 +63,7 @@ O dashboard tem os seguintes mosaicos:
 
 - **Principais cinco produtos anteriores a fim de vida**: Este mosaico é uma vista de dados consolidado de produtos encontrado no seu ambiente após a final da vida. O gráfico mostra o software instalado que expirou quando comparado com o ciclo de vida do suporte de sistemas operacionais e produtos do SQL server.  
 
-- **Principais cinco produtos perto do final da vida**: Este mosaico é uma vista de dados consolidado de produtos encontrado no seu ambiente que estão prestes a fim de vida nos próximos seis meses. O gráfico mostra o software instalado que está dentro de seis meses do final da vida quando comparado com o ciclo de vida do suporte de sistemas operacionais e produtos do SQL server.  
+- **Principais cinco produtos perto do final da vida**: Este mosaico é uma vista de dados consolidado de produtos encontrado no seu ambiente que estão prestes a fim de vida no seguintes dezoito meses. O gráfico mostra o software instalado que está dentro do dezoito meses de fim-de-vida quando comparado com o ciclo de vida do suporte de sistemas operacionais e produtos do SQL server.  
 
 - **Dados de ciclo de vida de produtos instalados**: Este mosaico fornece uma ideia geral de quando um produto faz a transição de suportado para o estado expirado. O gráfico mostra uma análise detalhada do número de clientes em que o produto está instalado, o estado de disponibilidade de suporte e uma ligação para saber mais sobre os passos seguintes para tirar. As seguintes informações estão incluídas no gráfico:     
     - Tempo restante do suporte
