@@ -1,7 +1,7 @@
 ---
 title: Assegurar a conformidade do dispositivo
 titleSuffix: Configuration Manager
-description: Gerir a configuração e conformidade dos dispositivos na sua organização ao utilizar o System Center Configuration Manager.
+description: Gerir a configuração e a conformidade dos dispositivos na sua organização ao utilizar o System Center Configuration Manager.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-compliance
@@ -10,18 +10,18 @@ ms.assetid: 7568c9aa-b99e-4466-bfc8-0301aa376930
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 42b3925fa94ae1672e4241a3cddc66cdc1774aaf
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 081e485211e3bb5b2b0d8e6a9606c4037c29d4e3
+ms.sourcegitcommit: 2deba3d3aaba47a532273bcd377da8e60f7b1a68
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32333064"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49169605"
 ---
 # <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>Garantir a compatibilidade do dispositivo com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-As definições de compatibilidade no System Center Configuration Manager dá-lhe as ferramentas e recursos que necessita para gerir a configuração e conformidade dos dispositivos na sua organização. Isto ajuda-o a suportar os seguintes requisitos comerciais:  
+Definições de compatibilidade no System Center Configuration Manager dá-lhe as ferramentas e os recursos necessários para gerir a configuração e a conformidade dos dispositivos na sua organização. Isto ajuda-o a suportar os seguintes requisitos comerciais:  
 
 -   Comparar a configuração de PCs com o Windows, computadores Macs, servidores e dispositivos móveis que gere com as configurações de melhores práticas que cria ou obtém de outros fornecedores  
 
@@ -35,7 +35,7 @@ As definições de compatibilidade no System Center Configuration Manager dá-lh
 
 -   Remediar automaticamente algumas definições não conformes em dispositivos móveis  
 
--   Remediar a incompatibilidade ao implementar aplicações, pacotes e programas ou scripts numa coleção que é automaticamente preenchida com dispositivos que reportam a que estão em conformidade  
+-   Remediar a incompatibilidade ao implementar aplicações, pacotes e programas ou scripts numa coleção que é preenchido automaticamente com dispositivos que reportam a que estão em conformidade  
 
 
 ## <a name="get-started"></a>Introdução  
@@ -44,22 +44,22 @@ As definições de compatibilidade no System Center Configuration Manager dá-lh
  [Introdução às definições de compatibilidade](../../compliance/get-started/get-started-with-compliance-settings.md)  
 
 ## <a name="plan-and-design"></a>Planear e estruturar  
- Antes de começar a trabalhar com definições de compatibilidade, certifique-se de que implementa os pré-requisitos necessários que encontrará neste tópico.  
+ Antes de começar a trabalhar com as definições de compatibilidade, certifique-se de que implementou os pré-requisitos necessários que encontrará neste tópico.  
 
  [Planear e configurar as definições de compatibilidade](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
 
 ## <a name="common-tasks"></a>Tarefas comuns  
- Nesta secção, irá encontrar alguns cenários comuns que o ajudarão a aprenderem a utilizar as definições de compatibilidade no Configuration Manager.  
+ Nesta secção, irá encontrar alguns cenários comuns que o ajudará a aprender a utilizar as definições de compatibilidade no Configuration Manager.  
 
  [Tarefas comuns para gerir a compatibilidade](../../compliance/plan-design/common-tasks-for-managing-compliance.md)  
 
 ## <a name="remote-connection-profiles"></a>Perfis de ligação remota  
- Este tipo de item de configuração permite que os PCs dos utilizadores liguem remotamente a computadores de trabalho quando não estiverem ligados ao domínio ou se os seus computadores pessoais estiverem ligados através da Internet.  
+ Este tipo de item de configuração permite-lhe configurar PCs dos utilizadores liguem remotamente a computadores de trabalho quando não estiverem ligados ao domínio ou se os seus computadores pessoais estiverem ligados através da Internet.  
 
  [Criar perfis de ligação remota](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
 
 ## <a name="user-data-and-profiles"></a>Dados e perfis de utilizador  
- O tipo de item de configuração contém definições que podem gerir o redirecionamento de pastas, os ficheiros offline e os perfis itinerantes em computadores com o Windows 8 e posterior para utilizadores na sua hierarquia.  
+ Este tipo de item de configuração contém definições que gerem o redirecionamento de pastas, ficheiros offline e perfis itinerantes em computadores que executam o Windows 8 e posterior para utilizadores na sua hierarquia.  
 
  [Criar itens de configuração de dados e perfis de utilizador](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items)  
 
