@@ -10,12 +10,12 @@ ms.assetid: bb95154b-f63e-4491-896e-41d732c802f8
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9f65c7665d5c055fc2a1636a1c9556b4ff75a4f7
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ms.openlocfilehash: 22e685889f51f3b35c3ba58e94d161816424b2a3
+ms.sourcegitcommit: dd785ad7146b8491c98ccd7804d0959a5c1fb034
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586212"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49383019"
 ---
 # <a name="hybrid-mdm-with-configuration-manager-and-microsoft-intune"></a>MDM híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -23,7 +23,8 @@ ms.locfileid: "42586212"
 
 > [!Important]  
 > A partir de 14 de Agosto de 2018, gestão de dispositivos móveis híbrida é um [funcionalidade preterida](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures).
-> <!--Intune feature 2683117--> Desde a iniciar-se no Azure ao longo de um ano atrás, o Intune adicionou centenas de novas funções do serviço solicitados pelo cliente e líder do mercado. Agora, ele oferece recursos muito mais do que os oferecidos por gestão de dispositivos móveis híbridos (MDM). O Intune no Azure fornece uma experiência administrativa mais integrada e otimizada para as suas necessidades de mobilidade empresarial.
+> <!--Intune feature 2683117-->  
+> Desde a iniciar-se no Azure ao longo de um ano atrás, o Intune adicionou centenas de novas funções do serviço solicitados pelo cliente e líder do mercado. Agora, ele oferece recursos muito mais do que os oferecidos por gestão de dispositivos móveis híbridos (MDM). O Intune no Azure fornece uma experiência administrativa mais integrada e otimizada para as suas necessidades de mobilidade empresarial.
 > 
 > Como resultado, a maioria dos clientes escolher o Intune no Azure através de hybrid MDM. O número de clientes que utilizam a MDM híbrida continua a diminuir quando mais clientes mover para a cloud. Por conseguinte, 1 de Setembro de 2019 Microsoft irão extinguir a oferta de serviço MDM híbrida. Tenha em conta suas [migração para o Intune no Azure](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa) para suas necessidades de MDM. 
 > 
@@ -47,7 +48,7 @@ ms.locfileid: "42586212"
 > 
 > - Reveja as seguintes ferramentas e documentação para simplificar o processo de transferência da MDM híbrida para o Intune no Azure:  
 >     - [Importar os dados do Configuration Manager para o Microsoft Intune](/sccm/mdm/deploy-use/migrate-import-data)  
->     - [Migrar dispositivos e utilizadores MDM híbrida para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa)  
+>     - [Migrar os utilizadores e dispositivos da MDM híbrida para o Intune autónomo](/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa)  
 > 
 > - Contacte o seu parceiro de registo ou FastTrack para obter assistência. [O FastTrack para Microsoft 365](https://aka.ms/hybrid_fasttrack) pode auxiliar na migração da MDM híbrida para o Intune no Azure. 
 > 
