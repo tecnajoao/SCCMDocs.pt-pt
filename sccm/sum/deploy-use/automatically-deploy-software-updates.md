@@ -5,17 +5,17 @@ description: Implemente automaticamente atualizações de software ao utilizar r
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 08/21/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
-ms.openlocfilehash: 6c23dc7328e2618d42b70f12bf7df8aa22fddb91
-ms.sourcegitcommit: 7eebd112a9862bf98359c1914bb0c86affc5dbc0
+ms.openlocfilehash: 01c6de94fd4cb0d05b482c1c05df2f09780db7fd
+ms.sourcegitcommit: 8827ffaea108678da968a3623f072876990c830c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42589031"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49411298"
 ---
 #  <a name="automatically-deploy-software-updates"></a>Implementar automaticamente atualizações de software  
 
@@ -194,7 +194,7 @@ Aprovar e implementar atualizações de software utilizando uma ADR automaticame
         > [!Note]  
         > Esta opção é apenas para novas regras de implementação automática. Não é possível modificar as regras existentes com esta definição.<!--SCCMDocs issue 741-->  
 
-12. Sobre o **pontos de distribuição** página, especifique os pontos de distribuição ou grupos para alojar o software de ficheiros de atualização de ponto de distribuição. Para obter mais informações sobre os pontos de distribuição, veja [Configurações de pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs). Esta página apenas está disponível ao criar um novo pacote de implementação da atualização de software.  
+12. Sobre o **pontos de distribuição** página, especifique os pontos de distribuição ou grupos para alojar o software de ficheiros de atualização de ponto de distribuição. Para obter mais informações sobre os pontos de distribuição, veja [Configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs). Esta página apenas está disponível ao criar um novo pacote de implementação da atualização de software.  
   
 
 13. Sobre o **localização de transferência** página, especifique se pretende transferir os ficheiros de atualização de software da internet ou da rede local. Configure as seguintes definições:  
@@ -234,9 +234,9 @@ Depois de criar uma ADR, adicione implementações adicionais para a regra. Esta
      - Alertas
      - Transferir definições  
 
+Implementações também podem ser adicionadas por meio de programação utilizando cmdlets do Windows PowerShell. Para obter uma descrição completa da utilização deste método, consulte [New-CMSoftwareUpdateDeployment](https://docs.microsoft.com/powershell/module/configurationmanager/new-cmsoftwareupdatedeployment) .
 
 Para obter mais informações sobre o processo de implementação, veja [Processo de implementação de atualizações de software](/sccm/sum/understand/software-updates-introduction#BKMK_DeploymentProcess).
-
 
 
 ## <a name="next-steps"></a>Passos seguintes

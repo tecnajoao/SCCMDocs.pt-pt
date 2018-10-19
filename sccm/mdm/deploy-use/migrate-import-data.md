@@ -1,7 +1,7 @@
 ---
 title: Importar dados para o Microsoft Intune
 titleSuffix: Configuration Manager
-description: Importar dados do Configuration Manager para o Microsoft Intune
+description: Importar os dados do Configuration Manager para o Microsoft Intune
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.assetid: b552391d-abc0-48a2-a429-93605a13a66a
-ms.openlocfilehash: 89db0abe9a60e6850ae36e619483e0dcdc3e5360
-ms.sourcegitcommit: 316899b08f2ef372993909e08e069f7edfed1d33
+ms.openlocfilehash: 655d7663a6597ce1b13fb26a5340d482be1ba7ed
+ms.sourcegitcommit: 8827ffaea108678da968a3623f072876990c830c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44111149"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49411315"
 ---
-# <a name="import-configuration-manager-data-to-microsoft-intune"></a>Importar dados do Configuration Manager para o Microsoft Intune 
+# <a name="import-configuration-manager-data-to-microsoft-intune"></a>Importar os dados do Configuration Manager para o Microsoft Intune 
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*    
 
@@ -55,6 +55,7 @@ A ferramenta de importação pode recolher informações sobre os seguintes tipo
 - A ferramenta irá tentar para que tenha um motivo por que um objeto não pode ser importado. Em alguns casos, antes de importar objetos para o Intune, pode ir para o console do Configuration Manager, corrigir o problema, inicie o Gestor de configuração de deteção de objetos procurar novamente e, em seguida, importar os objetos. Por vezes, poderá ter ou, talvez queira, recrie esses objetos manualmente no Intune.
 - Existem alguns perfis que dependem de outros objetos. Se quiser importar um perfil que depende de outro objeto, como um perfil de e-mail que depende de um certificado, tem de importar os dois objetos ao mesmo tempo, a menos que tiver importado anteriormente o outro objeto no mesmo computador com o mesmo utilizador.  
 - Depois de executar a ferramenta, poderá ter de efetuar passos manuais adicionais. Filtragem por exemplo, aplicações e políticas a grupos do AAD. 
+- Se todas as aplicações web (por vezes denominadas webclips) foram atribuídas aos utilizadores, deve remover essas aplicações web antes de migrar os seus utilizadores, então reatribuir as aplicações web, assim que a migração estiver concluída. Se isso não for feito, os clips web tornará impossível de gerenciar após a migração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Configuration Manager versão 1610 ou posterior.-é recomendável que especificar o site de nível superior e execute a ferramenta com um utilizador que tem acesso a todos os objetos na hierarquia do site. A ferramenta Deteta apenas objetos acessíveis pelo utilizador que executa a ferramenta. 

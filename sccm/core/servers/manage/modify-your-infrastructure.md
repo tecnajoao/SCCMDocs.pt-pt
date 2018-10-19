@@ -1,7 +1,7 @@
 ---
 title: Modificar a infraestrutura
 titleSuffix: Configuration Manager
-description: Saiba como efetuar alterações ou executar ações que afetam a infraestrutura do Configuration Manager que implementou.
+description: Saiba como efetuar alterações nem executar ações que afetam a infraestrutura do Configuration Manager que implementou.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -10,12 +10,12 @@ ms.assetid: a7975dc8-46ab-4dae-86b6-dc3e3cf3b2f0
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7f798fdb1183b852bded92711cc5f489666f4f2a
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 13d9e83adcdf0e125d1596ff93fbb1a0fa67c09f
+ms.sourcegitcommit: 8827ffaea108678da968a3623f072876990c830c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32342570"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49411332"
 ---
 # <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modificar a infraestrutura do System Center Configuration Manager
 
@@ -24,8 +24,8 @@ ms.locfileid: "32342570"
 Depois de instalar um ou mais sites, poderá ser necessário modificar configurações ou executar ações que afetam a infraestrutura implementada.  
 
 
-##  <a name="BKMK_ManageSMSprovider"></a> Gerir o fornecedor de SMS  
- O fornecedor de SMS (um ficheiro de biblioteca de ligação dinâmica: smsprov.dll) fornece o ponto de contacto administrativo para uma ou mais consolas do Configuration Manager. Ao instalar múltiplos Fornecedores de SMS, poderá fornecer redundância de pontos de contacto, ao administrar o site e a hierarquia.  
+##  <a name="BKMK_ManageSMSprovider"></a> Gerir o fornecedor SMS  
+ O fornecedor de SMS (um ficheiro de biblioteca de ligação dinâmica: smsprov) fornece o ponto de contacto administrativo para uma ou mais consolas do Configuration Manager. Ao instalar múltiplos Fornecedores de SMS, poderá fornecer redundância de pontos de contacto, ao administrar o site e a hierarquia.  
 
  Em cada site do Configuration Manager, pode voltar a executar a configuração para:  
 
@@ -39,7 +39,7 @@ Depois de instalar um ou mais sites, poderá ser necessário modificar configura
 
 #### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>Para gerir a configuração do Fornecedor de SMS num site  
 
-1.  Executar **configuração do Configuration Manager** de  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe**.  
+1.  Execute **configuração do Configuration Manager** partir  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe**.  
 
 2.  Na página **Introdução**, selecione **Executar a manutenção do site ou repor este site** e clique em **Seguinte**.  
 
@@ -61,54 +61,54 @@ Depois de instalar um ou mais sites, poderá ser necessário modificar configura
  Depois da conclusão do Assistente de Configuração, a configuração do Fornecedor de SMS está concluída. No separador **Geral**, na caixa de diálogo **Propriedades** do site, pode verificar os computadores que têm um Fornecedor de SMS instalado para um site.  
 
 ##  <a name="bkmk_Console"></a> Gerir a consola do Configuration Manager  
- Seguem-se tarefas que pode fazer para gerir a consola do Configuration Manager:  
+ Seguem-se tarefas que pode realizar para gerir a consola do Configuration Manager:  
 
--   **Modificar o idioma que é apresentado na consola do Configuration Manager** - para modificar o idiomas instalados, consulte [idioma de consola do Configuration Manager gerir](#BKMK_ManageConsoleLanguages) neste tópico.  
+-   **Modificar o idioma que é apresentado na consola do Configuration Manager** - para modificar os idiomas instalados, consulte [idioma da consola do Configuration Manager/gerir](#BKMK_ManageConsoleLanguages) neste tópico.  
 
 -   **Instalar consolas adicionais** - para instalar consolas adicionais, consulte [consolas de instalar o System Center Configuration Manager](/sccm/core/servers/deploy/install/install-consoles).  
 
--   **Configurar o DCOM** - para configurar permissões de DCOM para ativar a consolas remotas do servidor do site para ligar, consulte [configurar do DCOM para consolas remotas do Configuration Manager](#BKMK_ConfigDCOMforRemoteConsole) neste tópico.  
+-   **Configurar DCOM** - para configurar as permissões de DCOM para ativar as consolas que são remotas a partir do servidor do site para ligar, veja [configurar permissões de DCOM para consolas remotas do Configuration Manager](#BKMK_ConfigDCOMforRemoteConsole) neste tópico.  
 
 -   **Modificar permissões para limitar o que os utilizadores administrativos podem ver na consola do** - para modificar as permissões administrativas, limitando o que os utilizadores podem ver e fazer na consola, consulte [modificar o âmbito administrativo de um utilizador administrativo ](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
 
 ###  <a name="BKMK_ManageConsoleLanguages"></a> Gerir o idioma da consola do Configuration Manager  
- Durante a instalação do servidor de site, os ficheiros de instalação de consola do Configuration Manager e os pacotes de idiomas suportados para o site são copiados para o  **&lt;Caminhodeinstalaçãodoconfigmgr\>\Tools\ConsoleSetup** subpasta no servidor do site.  
+ Durante a instalação de servidor do site, os ficheiros de instalação de consola do Configuration Manager e os pacotes de idiomas suportados para o site são copiados para o  **&lt;Caminhodeinstalaçãodoconfigmgr\>\tools\consolesetup.** subpasta no servidor do site.  
 
--   Quando iniciar a instalação da consola do Configuration Manager a partir desta pasta no servidor do site, a consola do Configuration Manager e os ficheiros do pacote de idiomas suportados são copiados para o computador  
+-   Quando inicia a instalação da consola do Configuration Manager a partir desta pasta no servidor do site, a consola do Configuration Manager e os ficheiros do pacote de idiomas suportados são copiados para o computador  
 
--   Quando um pacote de idiomas está disponível para a definição de idioma atual do computador, a consola do Configuration Manager será aberta nesse idioma  
+-   Quando um pacote de idiomas está disponível para a definição de idioma atual no computador, a consola do Configuration Manager será aberta nesse idioma  
 
--   O pacote de idiomas associado não esteja disponível para a consola do Configuration Manager, a consola será aberta em inglês  
+-   Se o pacote de idiomas associado não está disponível para a consola do Configuration Manager, a consola será aberta em inglês  
 
-Por exemplo, considere um cenário onde instalar a consola do Configuration Manager de um servidor de site que suporte inglês, alemão e francês. Se abrir a consola do Configuration Manager num computador com uma definição de idioma configurada de francês, a consola será aberta em francês. Se abrir a consola do Configuration Manager num computador com um idioma configurada como japonês, a consola será aberta em japonês porque o pacote de idiomas de japonês não está disponível.  
+Por exemplo, considere um cenário em que instalar consola do Configuration Manager a partir de um servidor de site que suporte inglês, alemão e francês. Se abrir a consola do Configuration Manager num computador com uma definição de idioma configurada de francês, a consola será aberta em francês. Se abrir a consola do Configuration Manager num computador com idioma configurada como japonês, a consola será aberta em inglês, porque o pacote de idiomas de japonês não está disponível.  
 
- Sempre que abre a consola do Configuration Manager, determina as definições de idioma configurada para o computador, verifica se um pacote de idiomas associado está disponível para a consola do Configuration Manager e, em seguida, abre a consola utilizando o pacote de idioma apropriado. Quando pretender abrir a consola do Configuration Manager em inglês, independentemente das definições de idioma configuradas no computador, tem manualmente remova ou mude o nome de ficheiros do pacote de idiomas no computador.  
+ Sempre que abre a consola do Configuration Manager, ele determina as definições de idioma configurada para o computador, verifica se um pacote de idiomas associado está disponível para a consola do Configuration Manager e, em seguida, abre a consola utilizando o pacote de idiomas apropriado. Quando deseja abrir a consola do Configuration Manager em inglês, independentemente de definições de idioma configuradas no computador, tem manualmente de remover ou renomear os arquivos do pacote de idiomas no computador.  
 
  Utilize os procedimentos seguintes para iniciar a consola do Configuration Manager em inglês, independentemente da definição de região configurada no computador.  
 
 ##### <a name="to-install-an-english-only-version-of-the-configuration-manager-console-on-computers"></a>Para instalar uma versão apenas em inglês da consola do Configuration Manager em computadores  
 
-1.  No Explorador do Windows, navegue para  **&lt;Caminhodeinstalaçãodoconfigmgr\>\Tools\ConsoleSetup\LanguagePack**  
+1.  No Explorador do Windows, navegue para  **&lt;Caminhodeinstalaçãodoconfigmgr\>\tools\consolesetup\languagepack.**  
 
 2.  Mude o nome dos ficheiros **.msp** e **.mst**. Por exemplo, pode alterar **&lt;nome do ficheiro\>.MSP** para **&lt;nome do ficheiro\>.MSP.disabled**.  
 
 3.  Instale a consola do Configuration Manager no computador.  
 
     > [!IMPORTANT]  
-    >  Quando são configurados novos idiomas de servidor para o servidor do site, os ficheiros. msp e. mst são novamente copiados para o **LanguagePack** pasta e terá de repetir este procedimento para instalar novas consolas do Configuration Manager apenas em inglês.  
+    >  Quando são configurados novos idiomas de servidor para o servidor do site, os arquivos. msp e. mst são novamente copiados para o **LanguagePack** pasta e terá de repetir este procedimento para instalar novas consolas do Configuration Manager apenas em inglês.  
 
 ##### <a name="to-temporarily-disable-a-console-language-on-an-existing-configuration-manager-console-installation"></a>Para desativar temporariamente um idioma de consola numa instalação existente de consola do Configuration Manager  
 
 1.  No computador que está a executar a consola do Configuration Manager, feche a consola do Configuration Manager.  
 
-2.  No Explorador do Windows, navegue para &lt; *Caminhodeinstalaçãodaconsola*> \bin\. no computador da consola do Configuration Manager.  
+2.  No Explorador do Windows, navegue para &lt; *ConsoleInstallationPath*> \Bin\ no computador da consola do Configuration Manager.  
 
 3.  Mude o nome da pasta de idiomas apropriada para o idioma que se encontra configurado no computador. Por exemplo, se as definições de idioma do computador tiverem sido definidas para alemão, poderá mudar o nome da pasta **de** para **de.disabled**.  
 
-4.  Para abrir a consola do Configuration Manager no idioma que está configurado para o computador, mude o nome da pasta para o nome original. Por exemplo, mude o nome **de.disabled** para **de**.  
+4.  Para abrir a consola do Configuration Manager no idioma que está configurado para o computador, renomeie a pasta para o nome original. Por exemplo, mude o nome **de.disabled** para **de**.  
 
 ##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a> Configurar permissões de DCOM para consolas remotas do Configuration Manager  
- A conta de utilizador que executa a consola do Configuration Manager necessita de permissão para aceder à base de dados do site utilizando o fornecedor de SMS. No entanto, um utilizador administrativo que utilize uma consola remota do Configuration Manager também necessita de **ativação remota** permissões de DCOM em:  
+ A conta de utilizador que executa a consola do Configuration Manager requer permissão para aceder à base de dados do site utilizando o fornecedor de SMS. No entanto, um utilizador administrativo que utilize uma consola remota do Gestor de configuração também requer **ativação remota** permissões de DCOM em:  
 
 -   O computador do servidor do site  
 
@@ -117,28 +117,28 @@ Por exemplo, considere um cenário onde instalar a consola do Configuration Mana
  O grupo de segurança com o nome **Admins de SMS** concede acesso ao Fornecedor de SMS num computador e também pode ser utilizado para conceder as permissões de DCOM necessárias. (Este grupo é local no computador quando o fornecedor de SMS é executado num servidor membro e é um grupo local de domínio quando o fornecedor de SMS é executado num controlador de domínio.)  
 
 > [!IMPORTANT]  
->  Consola do Configuration Manager utiliza o Windows Management Instrumentation (WMI) para ligar ao fornecedor de SMS e a WMI utiliza o DCOM internamente. Por conseguinte, o Configuration Manager requer permissões para ativar um servidor DCOM no computador do fornecedor de SMS se a consola do Configuration Manager está em execução num computador diferente do computador do fornecedor de SMS. Por predefinição, a ativação remota é concedida apenas aos membros do grupo Administradores incorporado. Se permitir que o grupo Admins de SMS tenha a permissão Ativação Remota, um membro deste grupo pode tentar ataques DCOM contra o computador do Fornecedor de SMS. Esta configuração também aumenta a superfície de ataque do computador. Para atenuar esta ameaça, monitorize cuidadosamente os membros do grupo Admins de SMS.  
+>  Consola do Configuration Manager utiliza Windows Management Instrumentation (WMI) para ligar ao fornecedor de SMS e a WMI utiliza o DCOM internamente. Por conseguinte, o Configuration Manager requer permissões para ativar um servidor DCOM no computador do fornecedor de SMS se a consola do Configuration Manager está em execução num computador diferente do computador do fornecedor de SMS. Por predefinição, a ativação remota é concedida apenas aos membros do grupo Administradores incorporado. Se permitir que o grupo Admins de SMS tenha a permissão Ativação Remota, um membro deste grupo pode tentar ataques DCOM contra o computador do Fornecedor de SMS. Esta configuração também aumenta a superfície de ataque do computador. Para atenuar esta ameaça, monitorize cuidadosamente os membros do grupo Admins de SMS.  
 
- Utilize o procedimento seguinte para configurar cada site de administração central, servidor de site primário e cada computador onde o fornecedor de SMS instalado para conceder acesso à consola para os utilizadores administrativos a remoto do Configuration Manager.  
+ Utilize o procedimento seguinte para configurar cada site de administração central, servidor de site primário e cada computador onde está instalado o fornecedor de SMS para conceder acesso à consola para os utilizadores administrativos a remoto do Configuration Manager.  
 
 #### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>Para configurar permissões de DCOM para ligações de consolas remotas do Configuration Manager  
 
 1.  Abra **Serviços de Componentes**, executando **Dcomcnfg.exe**.  
 
-2.  No **serviços de componentes**, clique em **raiz da consola** >  **serviços de componentes** > **computadores**e, em seguida, clique em **meu computador**. No menu **Ação**, clique em **Propriedades**.  
+2.  Na **serviços de componentes**, clique em **raiz da consola** >  **serviços de componentes** > **computadores**e, em seguida, Clique em **meu computador**. No menu **Ação**, clique em **Propriedades**.  
 
 3.  Na caixa de diálogo **Propriedades de O Meu Computador**, na secção **Permissões de Lançamento e Ativação** do separador **Segurança COM**, clique em **Editar Limites**.  
 
 4.  Na caixa de diálogo **Permissões de Lançamento e Ativação**, clique em **Adicionar**.  
 
-5.  No **selecionar utilizadores, computadores, contas de serviço ou grupos** caixa de diálogo a **introduzir os nomes de objeto a selecionar (exemplos)** caixa, escreva **Admins de SMS**e, em seguida, clique em **OK**.  
+5.  Na **selecionar utilizadores, computadores, contas de serviço ou grupos** caixa de diálogo a **introduzir os nomes de objeto a selecionar (exemplos)** , escreva **Admins de SMS**e, em seguida, clique em  **OK**.  
 
     > [!NOTE]  
     >  Poderá ter de alterar a definição **Desta localização** para localizar o grupo Admins de SMS. Este grupo é local no computador quando o Fornecedor de SMS é executado num servidor membro e é um grupo local do domínio quando o Fornecedor de SMS é executado num controlador de domínio.  
 
 6.  Na secção **Permissões para Admins de SMS**, para permitir a ativação remota, selecione a caixa de verificação **Ativação Remota**.  
 
-7.  Clique em **OK** e clique novamente em **OK** e, em seguida, feche **Gestão de Computadores**. O computador está agora configurado para permitir o acesso à consola aos membros do grupo Admins de SMS remoto do Configuration Manager.  
+7.  Clique em **OK** e clique novamente em **OK** e, em seguida, feche **Gestão de Computadores**. O computador está agora configurado para permitir o acesso à consola para membros do grupo Admins de SMS remoto do Configuration Manager.  
 
  Repita este procedimento em cada computador fornecedor de SMS que possa suportar consolas remotas do Configuration Manager.  
 
@@ -148,7 +148,7 @@ Por exemplo, considere um cenário onde instalar a consola do Configuration Mana
  Para obter mais informações sobre os limites do suporte, veja [Política de suporte para alterações manuais da base de dados num ambiente do Configuration Manager](https://support.microsoft.com/kb/3106512).  
 
 > [!NOTE]  
->  Quando modificar a configuração de base de dados para um site, o Configuration Manager reinicia ou reinstala serviços do Configuration Manager no servidor de site e servidores de sistema de sites remotos que comunicam com a base de dados.  
+>  Ao modificar a configuração de base de dados para um site, o Configuration Manager será reiniciado e reinstalará os serviços do Configuration Manager no servidor de site e servidores do sistema de sites remotos que comunicam com a base de dados.  
 
 **Para alterar a configuração da base de dados**, terá de executar a Configuração no servidor do site e selecionar a opção **Executar a manutenção do site ou repor este site**. Em seguida, selecione a opção **Modificar a configuração do SQL Server**. Pode alterar as seguintes configurações de bases de dados do site:  
 
@@ -164,10 +164,10 @@ Por exemplo, considere um cenário onde instalar a consola do Configuration Mana
 
 **Se mover a base de dados do site, tem de configurar o seguinte:**  
 
--   **Configure o acesso:** Quando mover a base de dados do site para um novo computador, adicione a conta de computador do servidor do site para o **Local de administradores** grupo no computador que executa o SQL Server. Se utilizar um cluster do SQL Server para a base de dados do site, terá de adicionar a conta de computador ao grupo **Administradores Locais** de cada computador com nós de cluster do Windows Server.  
+-   **Configure o acesso:** Ao mover a base de dados do site para um novo computador, adicione a conta de computador do servidor do site para o **administradores locais** grupo no computador que executa o SQL Server. Se utilizar um cluster do SQL Server para a base de dados do site, terá de adicionar a conta de computador ao grupo **Administradores Locais** de cada computador com nós de cluster do Windows Server.  
 
--   **Ative integração language runtime (CLR):**  Ao mover a base de dados para uma nova instância do SQL Server ou para um novo computador do SQL Server, tem de ativar integração language runtime (CLR). Para ativar o CLR, utilize **SQL Server Management Studio** para ligar à instância do SQL Server que aloja a base de dados do site e execute o seguinte procedimento armazenado como uma consulta: **sp_configure 'clr enabled', 1; reconfigure**.  
--  **Certifique-se de que o novo SQL Server tem acesso à localização de cópia de segurança:** Quando utiliza um UNC para armazenar a cópia de segurança de base de dados do site, depois de mover a base de dados para um novo servidor, incluindo uma mudança de um grupo de Disponibilidade AlwaysOn do SQL Server ou para um cluster do SQL Server, certifique-se a conta de computador do novo servidor do SQL Server tem **escrever** permissões para a localização UNC.  
+-   **Ative a integração do common language runtime (CLR):**  Ao mover a base de dados para uma nova instância do SQL Server ou para um novo computador do SQL Server, tem de ativar integração common language runtime (CLR). Para ativar o CLR, utilize **SQL Server Management Studio** para ligar à instância do SQL Server que aloja a base de dados do site e execute o seguinte procedimento armazenado como uma consulta: **sp_configure 'clr enabled', 1; reconfigure**.  
+-  **Certifique-se de que o novo SQL Server tem acesso para a localização de cópia de segurança:** Quando utiliza um UNC para armazenar a cópia de segurança de base de dados do site, depois de mover a base de dados para um novo servidor, incluindo uma mudança de um grupo de Disponibilidade AlwaysOn do SQL Server ou para um cluster do SQL Server, certifique-se a conta de computador do novo SQL Server tem **escrever**permissões para a localização UNC.  
 
 
 > [!IMPORTANT]  
@@ -191,7 +191,7 @@ Pode registar um SPN para a conta de serviço do SQL Server do servidor de base 
  Utilize os seguintes procedimentos como exemplos de como gerir o SPN para a conta de serviço do SQL Server que utiliza a ferramenta Setspn no Windows Server 2008 R2. Para obter instruções específicas sobre o Setspn, veja [Descrição Geral do Setspn](http://go.microsoft.com/fwlink/p/?LinkId=226343) ou outra documentação semelhante, específica do seu sistema operativo.  
 
 > [!NOTE]  
->  Os seguintes procedimentos fazem referência a ferramenta de linha de comandos Setspn. A ferramenta de linha de comandos Setspn está incluída quando instalar ferramentas de suporte do Windows Server 2003 para a partir do CD de produto ou do [Microsoft Download Center](http://go.microsoft.com/fwlink/p/?LinkId=100114). Para obter mais informações sobre como instalar as Ferramentas de Suporte do Windows a partir do CD de produto, veja [Instalar as Ferramentas de Suporte do Windows](http://go.microsoft.com/fwlink/p/?LinkId=62270).  
+>  Os seguintes procedimentos fazem referência a ferramenta de linha de comandos Setspn. A ferramenta de linha de comandos Setspn está incluída na instalação ferramentas de suporte do Windows Server 2003 para a partir do CD de produto ou a partir da [Microsoft Download Center](http://go.microsoft.com/fwlink/p/?LinkId=100114). Para obter mais informações sobre como instalar as Ferramentas de Suporte do Windows a partir do CD de produto, veja [Instalar as Ferramentas de Suporte do Windows](http://go.microsoft.com/fwlink/p/?LinkId=62270).  
 
 #### <a name="to-manually-create-a-domain-user-service-principal-name-spn-for-the-sql-server-service-account"></a>Para criar manualmente um utilizador de domínio nome Principal de serviço (SPN) para a conta de serviço do SQL Server  
 
@@ -199,7 +199,7 @@ Pode registar um SPN para a conta de serviço do SQL Server do servidor de base 
 
 2.  Na linha de comandos, navegue para o diretório de instalação das ferramentas de suporte do Windows Server. Por predefinição, estas ferramentas estão localizadas no **C:\Program Files\Support Tools** diretório.  
 
-3.  Introduza um comando válido para criar o SPN. Para criar o SPN, pode utilizar o nome NetBIOS ou o nome de domínio completamente qualificado (FQDN) do computador com o SQL Server. No entanto, precisará de criar um SPN tanto para o nome NetBIOS como para o FQDN.  
+3.  Introduza um comando válido para criar o SPN. Para criar o SPN, pode utilizar o nome NetBIOS ou o nome de domínio completamente qualificado (FQDN) do computador a executar o SQL Server. No entanto, precisará de criar um SPN tanto para o nome NetBIOS como para o FQDN.  
 
     > [!IMPORTANT]  
     >  Ao criar um SPN para um SQL Server em cluster, deverá especificar o nome virtual do Cluster do SQL Server como o nome de computador do SQL Server.  
@@ -225,9 +225,9 @@ Pode registar um SPN para a conta de serviço do SQL Server do servidor de base 
 
 2.  Se necessário, ligue estabeleça a ligação ao domínio do servidor do site.  
 
-3.  No painel de consola, expanda o domínio do servidor de site, expanda **DC =&lt;nome único do servidor\>**, expanda **CN = Users**, faça duplo clique **CN =&lt;utilizador da conta de serviço\>** e, em seguida, clique em **propriedades**.  
+3.  No painel da consola, expanda o domínio do servidor de site, expanda **DC =&lt;nome único do servidor\>**, expanda **CN = Users**, clique com botão direito **CN =&lt;Utilizador da conta de serviço\>** e, em seguida, clique em **propriedades**.  
 
-4.  No **CN =&lt;utilizador da conta de serviço\> propriedades** caixa de diálogo, reveja o **servicePrincipalName** valor para se certificar de que foi criado e associado ao computador correto do SQL Server um SPN válido.  
+4.  No **CN =&lt;utilizador da conta de serviço\> propriedades** caixa de diálogo, reveja o **servicePrincipalName** valor para se certificar de que um SPN válido foi criado e associado a computador correto do SQL Server.  
 
 #### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>Para alterar a conta de serviço do SQL Server de sistema local para uma conta de utilizador de domínio  
 
@@ -235,7 +235,7 @@ Pode registar um SPN para a conta de serviço do SQL Server do servidor de base 
 
 2.  Abra o **Gestor de Configuração do SQL Server**.  
 
-3.  Clique em **do SQL Server Services**e, em seguida, faça duplo clique **do SQL Server&lt;nome da instância\>**.  
+3.  Clique em **SQL Server Services**e, em seguida, faça duplo clique em **do SQL Server&lt;nome da instância\>**.  
 
 4.  No separador **Início de sessão**, selecione **Esta conta** e, em seguida, introduza o nome de utilizador e a palavra-passe da conta de utilizador de domínio criada no passo 1, ou clique em **Procurar** para localizar a conta de utilizador nos Serviços de Domínio do Active Directory e, em seguida, clique em **Aplicar**.  
 
@@ -246,7 +246,7 @@ Pode registar um SPN para a conta de serviço do SQL Server do servidor de base 
 ##  <a name="bkmk_reset"></a> Executar uma reposição do site  
  Quando uma reposição do site é executada num site de administração central ou site primário, o site:  
 
--   Volta a permissões de ficheiros e registo de Configuration Manager predefinido  
+-   Volta a aplicar as permissões de arquivo e registro de Configuration Manager do padrão  
 
 -   Reinstala todos os componentes do site e todas as funções de sistema de site no site  
 
@@ -254,24 +254,24 @@ Os sites secundários não suportam uma reposição de site.
 
 As reposições do site podem ser executadas manualmente, quando assim o decidir, mas também podem ser executadas automaticamente depois de modificar a configuração do site.  
 
-Por exemplo, se tiver ocorrido uma alteração às contas utilizadas por componentes do Configuration Manager, deve considerar uma reposição para garantir que os componentes do site para utilizar os novos detalhes da conta de atualização manual do site. No entanto, se modificar os idiomas de cliente ou servidor num site, o Configuration Manager executa automaticamente um reposição do site devido a reposição não é necessária para que um site pode utilizar esta alteração.  
+Por exemplo, se tiver ocorrido uma alteração às contas utilizadas por componentes do Configuration Manager, deve considerar uma reposição para garantir que os componentes do site são atualizados para utilizarem os novos detalhes de conta manual do site. No entanto, se modificar os idiomas de cliente ou servidor num site, o Configuration Manager executa automaticamente um reposição do site devido a reposição é necessária um site pode utilizar esta alteração.  
 
 > [!NOTE]  
->  Uma reposição do site não repõe as permissões de acesso para não - objetos do Configuration Manager.  
+>  Uma reposição do site não repor permissões de acesso não - objetos do Configuration Manager.  
 
 Quando uma reposição do site é executada:  
 
-1.  A configuração interrompe e reinicia o **SMS_SITE_COMPONENT_MANAGER** serviço e os componentes de thread do **SMS_EXECUTIVE** serviço.  
+1.  Configuração interrompe e reinicia o **SMS_SITE_COMPONENT_MANAGER** serviço e os componentes de thread a **SMS_EXECUTIVE** serviço.  
 
-2.  Programa de configuração remove e, em seguida, recria o sistema de sites partilha, pasta e o **SMS Executive** componente no computador local e em computadores de sistema de sites remotos.  
+2.  A configuração remove e, em seguida, recria o sistema de sites partilha, pasta e o **SMS Executive** componente no computador local e em computadores de sistema de sites remotos.  
 
-3.  A configuração reinicia o **SMS_SITE_COMPONENT_MANAGER** serviço, este serviço instala os **SMS_EXECUTIVE** e **SMS_SQL_MONITOR** serviços.  
+3.  Configuração reinicia o **SMS_SITE_COMPONENT_MANAGER** serviço, este serviço instala os **SMS_EXECUTIVE** e o **SMS_SQL_MONITOR** serviços.  
 
 Além disso, uma reposição do site restaura os seguintes objetos:  
 
 -   As chaves de registo **SMS** ou **NAL**, bem como outras subchaves predefinidas sob destas chaves.  
 
--   Na árvore de diretórios de ficheiros do Configuration Manager e quaisquer ficheiros predefinidos ou subdiretórios desta árvore de diretórios de ficheiros.  
+-   Na árvore de diretórios do ficheiro de Configuration Manager e quaisquer arquivos padrão ou subdiretórios dessa árvore de diretório do ficheiro.  
 
 **Pré-requisitos para executar uma reposição do site**  
 
@@ -279,19 +279,19 @@ A conta utilizada para efetuar uma reposição do site tem de ter as seguintes p
 
 -   A conta utilizada para efetuar uma reposição do site tem de ter as seguintes permissões:  
 
-    -   **Site de administração central**: A conta que utilizar para executar uma reposição do site tem de ser um administrador local no servidor do site de administração central e deve possuir privilégios equivalentes da **administrador total** função de segurança da administração baseada em funções.  
+    -   **Site de administração central**: A conta que utilizar para executar uma reposição do site tem de ser um administrador local no servidor do site de administração central e deve possuir privilégios equivalentes da **administrador total** administração baseada em funções função de segurança.  
 
     -   **Site primário**: A conta que utilizar para executar uma reposição do site tem de ser um administrador local no servidor do site primário e deve possuir privilégios equivalentes da **administrador total** função de segurança da administração baseada em funções. Se o site primário estiver numa hierarquia com um site de administração central, esta conta também deverá ser um administrador local no servidor do site de administração central.  
 
 **Limitações para uma reposição do site**
-  - A partir da versão 1602, não é possível utilizar uma reposição para alterar o servidor do site ou pacotes de idiomas de cliente que instalado no sties desde que a hierarquia está configurada para suportar [testar as atualizações de cliente numa coleção de pré-produção](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+  - A partir da versão 1602, não é possível utilizar uma reposição para alterar o servidor do site ou pacotes de idiomas de cliente, que é instalado em sites, desde que a hierarquia está configurada para suportar [testar as atualizações de cliente numa coleção de pré-produção](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
 #### <a name="to-perform-a-site-reset"></a>Para efetuar uma reposição do site  
 
-1.  Executar **configuração do Configuration Manager** de  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe**.  
+1.  Execute **configuração do Configuration Manager** partir  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe**.  
 
     > [!TIP]  
-    >  Também pode executar um reposição do site ao iniciar a configuração do Configuration Manager no **iniciar** menu do computador do servidor do site ou a partir do suporte de dados de origem do Configuration Manager.  
+    >  Também pode executar um reposição do site ao iniciar a configuração do Configuration Manager nos **iniciar** menu do computador do servidor do site ou a partir do suporte de dados de origem do Configuration Manager.  
 
 2.  Na página **Introdução** , selecione **Executar a manutenção do site ou repor este site**e clique em **Seguinte**.  
 
@@ -316,7 +316,7 @@ Após a instalação de um site, pode alterar os pacotes de idioma de servidor e
 
      Depois de atualizar os pacotes de idiomas de servidor num site, pode adicionar suporte para os pacotes de idiomas para consolas do Configuration Manager.  
 
-     Para adicionar suporte para um pacote de idiomas de servidor para uma consola do Configuration Manager, tem de instalar a consola do Configuration Manager do **ConsoleSetup** pasta num servidor de site que inclua o pacote de idiomas que pretende utilizar. Se já estiver instalada a consola do Configuration Manager, terá primeiro de desinstalar para permitir que a nova instalação identifique a lista atual de pacotes de idiomas suportados.  
+     Para adicionar suporte para um pacote de idiomas de servidor a uma consola do Configuration Manager, tem de instalar a consola do Configuration Manager a partir da **ConsoleSetup** pasta num servidor do site que inclua o pacote de idiomas que pretende utilizar. Se já estiver instalada a consola do Configuration Manager, tem primeiro de desinstalar para permitir a instalação de novo identificar a lista atual de pacotes de idiomas suportados.  
 
 **Pacotes de idiomas de cliente:**  
 
@@ -328,11 +328,11 @@ Após a instalação de um site, pode alterar os pacotes de idioma de servidor e
 
      Após atualizar os pacotes de idiomas de cliente num site, instale cada cliente que utilizará os pacotes de idiomas utilizando os ficheiros de origem que incluem os pacotes de idiomas de cliente.  
 
-Para obter informações sobre os idiomas de cliente e servidor que são suportados pelo Configuration Manager, consulte [pacotes de idiomas no System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md)  
+Para obter informações sobre os idiomas de cliente e servidor que são suportadas pelo Configuration Manager, consulte [pacotes de idiomas no System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md)  
 
 #### <a name="to-modify-the-language-packs-that-are-supported-at-a-site"></a>Para modificar os pacotes de idiomas suportados num site  
 
-1.  No servidor do site, execute a configuração do Configuration Manager de  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe.**  
+1.  No servidor do site, execute a configuração do Configuration Manager partir  **&lt;pasta de instalação de site do Configuration Manager\>\BIN\X64\setup.exe.**  
 
 2.  Na página **Introdução**, selecione **Executar a manutenção do site ou repor este site** e clique em **Seguinte**.  
 
@@ -352,7 +352,7 @@ Para obter informações sobre os idiomas de cliente e servidor que são suporta
 8.  Clique em **Fechar** para concluir este procedimento.  
 
 ##  <a name="BKMK_ModDBAlert"></a> Modifique o limiar de alerta de servidor de base de dados  
- Por predefinição, o Configuration Manager gera alertas quando o espaço livre em disco num servidor de base de dados do site é baixa. As predefinições estão definidas para emitir um aviso quando existirem 10 GB ou menos de espaço livre em disco e um alerta crítico quando existirem menos de 5 GB de espaço livre em disco. Pode modificar estes valores ou desativar os alertas para cada site.  
+ Por predefinição, o Configuration Manager gera alertas quando o espaço livre em disco num servidor de base de dados do site está baixo. As predefinições estão definidas para emitir um aviso quando existirem 10 GB ou menos de espaço livre em disco e um alerta crítico quando existirem menos de 5 GB de espaço livre em disco. Pode modificar estes valores ou desativar os alertas para cada site.  
 
  Para alterar estas definições:  
 
@@ -360,6 +360,6 @@ Para obter informações sobre os idiomas de cliente e servidor que são suporta
 
 2.  Selecione o site que pretende configurar e abra desse site **propriedades**.  
 
-3.  O site **propriedades** caixa de diálogo, selecione o **alerta** e em seguida, edite as definições.  
+3.  Do site **propriedades** caixa de diálogo, selecione a **alerta** separador e, em seguida, edite as definições.  
 
 4.  Clique em **OK** para fechar a caixa de diálogo de propriedades do site.  
