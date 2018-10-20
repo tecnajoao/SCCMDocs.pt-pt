@@ -2,7 +2,7 @@
 title: Novidades sobre a MDM híbrida
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
-ms.date: 09/18/2018
+ms.date: 10/18/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 195fb8c4ae584b9b5ccb2401b145d9c78a0be781
-ms.sourcegitcommit: 78d2dce465e3500653b252583a6903a006784c26
+ms.openlocfilehash: 3082bb6d6cc96be8ba7a56e1e2bb5a6bcd32bc9b
+ms.sourcegitcommit: 19fc4f27667d51502fc9d7d02d164f2837d65dae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46448876"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49461278"
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Quais são as novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -46,11 +46,38 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 |**Novo no Configuration Manager (ramo atual)**| Todos os recursos listados nesta categoria só funcionam com a versão especificada do Configuration Manager (ramo atual). Se estiver a utilizar uma versão mais antiga do Configuration Manager para a sua implementação híbrida, atualize para a versão do Configuration Manager (ramo atual) especificada na descrição do recurso. Para obter mais informações, consulte [atualizar para o Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).|
 
 
+
+## <a name="october-2018"></a>Outubro de 2018
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="access-to-key-profile-properties-using-the-company-portal-app"></a>Acesso às propriedades de perfil de chave a utilizar a aplicação portal da empresa
+<!--772203-->  
+
+Os utilizadores finais podem agora aceder propriedades da chave de conta e as ações, como a reposição de palavra-passe, a partir da aplicação Portal da empresa. 
+
+#### <a name="pin-prompt-when-you-change-fingerprints-or-face-id-on-an-ios-device"></a>Pedido de PIN quando alterar as impressões digitais ou ID se deparam num dispositivo iOS  
+<!--2637704-->  
+
+É pedido aos utilizadores agora um PIN depois de efetuar alterações biométricas no dispositivo iOS. Isto inclui as alterações de impressões digitais registadas ou face ID. A temporização da linha de comandos depende da forma como a configuração do *verificar novamente os requisitos de acesso após (minutos)* tempo limite.  Quando nenhum PIN está definido, é pedido ao utilizador para configurar um.  
+
+Esta funcionalidade só está disponível para iOS e requer a participação de aplicações que se integram o SDK da aplicação Intune para iOS, versão 8.1.1 ou posterior. Integração do SDK é necessária para que o comportamento pode ser imposto em aplicações visadas. Esta integração acontece de forma gradual e depende das equipas de aplicação específica. Algumas aplicações que participam incluem WXP, Outlook, Managed Browser e Yammer.
+
+#### <a name="end-user-device-and-app-content-menu"></a>Menu de conteúdo dispositivos e aplicações utilizador final 
+<!--2771453-->  
+Os usuários finais agora pode utilizar o menu de contexto em aplicações e dispositivos para acionar ações comuns, como mudar o nome de um dispositivo ou a verificação de conformidade. 
+
+#### <a name="windows-company-portal-keyboard-shortcuts"></a>Atalhos de teclado do Portal de empresa do Windows
+<!--2771518-->  
+Os usuários finais agora pode acionar ações de aplicações e de dispositivos no Portal de empresa do Windows com atalhos de teclado (Aceleradores).
+
+
+
 ## <a name="august-2018"></a>Agosto de 2018
 
 ### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
 
-### <a name="new-user-experience-update-for-the-company-portal-website"></a>Nova atualização de experiência de utilizador para o site do Portal da empresa
+#### <a name="new-user-experience-update-for-the-company-portal-website"></a>Nova atualização de experiência de utilizador para o site do Portal da empresa
 <!--2000968--> Com base no seu feedback, adicionámos novas funcionalidades para o site do Portal da empresa. Surgirá uma melhoria significativa na funcionalidade existente e a usabilidade dos seus dispositivos Android, iOS e Windows. Áreas do site recebeu um design de nova, Moderno, capacidade de resposta. Estas áreas incluem detalhes do dispositivo, comentários e suporte e descrição geral do dispositivo. Também verá os seguintes melhoramentos:
 
 - Fluxos de trabalho simplificados em todas as plataformas de dispositivo
