@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: aa92f935984b52458a3d7daf17a11077c519da84
-ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
+ms.openlocfilehash: cc98ee85ffe4fd419ccc2a2e16bf566144f8b670
+ms.sourcegitcommit: ee434c53b3695a039b56298082b6f61f1006d9dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862537"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49943313"
 ---
 # <a name="cryptographic-controls-technical-reference"></a>Referência técnica de controlos criptográficos
 
@@ -28,7 +28,7 @@ System Center Configuration Manager utiliza a assinatura e encriptação para aj
  Na maioria das operações de criptografia para sistemas operacionais baseados em Windows, o Configuration Manager utiliza algoritmos SHA-2, 3DES e AES e RSA da Rsaenh de biblioteca CryptoAPI do Windows.  
 
 > [!IMPORTANT]  
->  Ver informações sobre as alterações recomendadas em resposta às vulnerabilidades SSL em [About SSL Vulnerabilities](#about-ssl-vulnerabilities).  
+>  Consulte as informações sobre as alterações recomendadas em resposta às vulnerabilidades SSL em [About SSL Vulnerabilities](#about-ssl-vulnerabilities).  
 
 ##  <a name="cryptographic-controls-for-configuration-manager-operations"></a>Controlos criptográficos para operações do Configuration Manager  
  Informações no Configuration Manager podem ser assinadas e criptografadas, se é ou não utilizar certificados PKI com o Configuration Manager.  
@@ -90,7 +90,7 @@ System Center Configuration Manager utiliza a assinatura e encriptação para aj
  Quando importa dados de configuração, o Configuration Manager verifica a assinatura digital do ficheiro. Se os dados não tiverem sido assinados ou se a verificação da assinatura digital falhar, será apresentado um aviso e será perguntado se pretende continuar com a importação. Continue a importar os dados de configuração apenas se confiar explicitamente no fabricante e na integridade dos ficheiros.  
 
 ### <a name="encryption-and-hashing-for-client-notification"></a>Criptografia e hash para notificação de cliente  
- Se utilizar notificações de cliente, todas as comunicações utilizarão TLS e a encriptação mais elevada que os sistemas operativos do servidor e do cliente possam negociar. Por exemplo, um computador cliente com o Windows 7 e um ponto de gestão com o Windows Server 2008 R2 suportam encriptação AES de 128 bits, enquanto um computador cliente com o Vista e o mesmo ponto de gestão negociarão com a encriptação 3DES. A mesma negociação ocorre para o hash dos pacotes que são transferidos durante a notificação do cliente, que utiliza SHA-1 ou SHA-2.  
+ Se utilizar notificações de cliente, todas as comunicações utilizarão TLS e a encriptação mais elevada que os sistemas operativos do servidor e do cliente possam negociar. Por exemplo, um computador cliente executando o Windows 7 e um ponto de gestão com o Windows Server 2008 R2 suportam encriptação AES de 128 bits, enquanto um computador cliente executando o Vista para o mesmo ponto de gestão negociarão-se para baixo para a encriptação 3DES. A mesma negociação ocorre para o hash dos pacotes que são transferidos durante a notificação do cliente, que utiliza SHA-1 ou SHA-2.  
 
 ##  <a name="certificates-used-by-configuration-manager"></a>Certificados utilizados pelo Configuration Manager  
  Para obter uma lista dos certificados de infraestrutura de chaves públicas (PKI) que podem ser utilizadas pelo Configuration Manager, quaisquer requisitos especiais ou limitações, e como os certificados são utilizados, consulte [requisitos de certificado PKI](/sccm/core/plan-design/network/pki-certificate-requirements). Esta lista inclui os comprimentos de chaves e algoritmos hash suportados. A maioria dos certificados suporta SHA-256 e chaves de 2048 bits.  

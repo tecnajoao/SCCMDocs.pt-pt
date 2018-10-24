@@ -1,7 +1,7 @@
 ---
 title: Categorizar automaticamente os dispositivos em coleções
 titleSuffix: Configuration Manager
-description: Categorize os dispositivos para coleções automaticamente com o System Center Configuration Manager.
+description: Categorize dispositivos em coleções automaticamente com o System Center Configuration Manager.
 ms.date: 04/23/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,45 +10,45 @@ ms.assetid: 98b038b4-1a13-4228-bdb8-a12194e32b0e
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: fcffc48431045fab2b2f69e112258c844ad184bb
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 2730464afe21705d020943d3e1566b3130c9c780
+ms.sourcegitcommit: ee434c53b3695a039b56298082b6f61f1006d9dd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32334798"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49943262"
 ---
 # <a name="automatically-categorize-devices-into-collections-with-system-center-configuration-manager"></a>Categorizar automaticamente os dispositivos em coleções com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode criar categorias de dispositivo, que podem ser utilizadas para colocar automaticamente os dispositivos em coleções de dispositivos quando estiver a utilizar o Configuration Manager com o Microsoft Intune. Em seguida, os utilizadores têm para escolher uma categoria de dispositivo quando inscreverem um dispositivo no Intune. Pode alterar uma categoria de dispositivo a partir da consola do Configuration Manager.
+Pode criar categorias de dispositivos, que podem ser utilizadas para colocar automaticamente os dispositivos em coleções de dispositivos quando estiver a utilizar o Configuration Manager com o Microsoft Intune. Os usuários precisam, em seguida, escolha uma categoria de dispositivo quando estes inscrevem um dispositivo no Intune. É possível alterar uma categoria de dispositivo a partir da consola do Configuration Manager.
 
 > [!IMPORTANT]  
-    >  Esta capacidade funciona com o **Junho de 2016** de versão do Microsoft Intune e mais tarde. Certifique-se de que lhe foram atualizadas para esta versão antes de experimentar estes procedimentos.
+    >  Esse recurso funciona com o **Junho de 2016** de versão do Microsoft Intune e mais tarde. Certifique-se de que tiver sido atualizado para esta versão antes de experimentar estes procedimentos.
 
-## <a name="create-device-categories"></a>Criar as categorias de dispositivos
+## <a name="create-device-categories"></a>Criar categorias de dispositivos
 
 1.  Aceda a **ativos e compatibilidade** > **descrição geral** > **coleções de dispositivos**.
-2.  No **home page** separador o **coleções de dispositivos** grupo, escolha **gerir categorias de dispositivo**.
-3.  Criar, editar ou remover categorias.
+2.  Sobre o **home page** separador a **coleções de dispositivos** de grupo, escolha **gerir categorias de dispositivos**.
+3.  Criar, editar ou remover as categorias.
 
-## <a name="associate-a-collection-with-a-device-category"></a>Associar uma coleção uma categoria de dispositivo
+## <a name="associate-a-collection-with-a-device-category"></a>Associar uma coleção com uma categoria de dispositivo
 
-Quando associa uma coleção com uma categoria de dispositivo, serão adicionados à coleção todos os dispositivos dessa categoria. Não é possível adicionar uma regra de categoria do dispositivo para uma coleção incorporada como **todos os sistemas**.
+Quando associa uma coleção com uma categoria de dispositivo, serão adicionados à coleção todos os dispositivos dessa categoria. Não é possível adicionar uma regra de categoria de dispositivo a uma coleção incorporada, como **todos os sistemas**.
 
-1.  No **regras de associação** separador do **propriedades** caixa de diálogo para uma coleção de dispositivos, escolha **Adicionar regra** > **regra de categoria do dispositivo**.
-2.  No **Selecione as categorias de dispositivos** caixa de diálogo, selecione um ou mais categorias de dispositivos que serão aplicadas a todos os dispositivos na coleção.
+1.  Na **regras de associação** separador do **propriedades** caixa de diálogo para uma coleção de dispositivo, escolha **Adicionar regra** > **deregradecategoriadodispositivo**.
+2.  Na **selecionar categorias de dispositivos** caixa de diálogo, selecione um ou mais categorias de dispositivos que serão aplicadas a todos os dispositivos na coleção.
 
 ## <a name="change-the-category-of-a-device"></a>Alterar a categoria de um dispositivo
 
-1.  No **ativos e compatibilidade** > **descrição geral** > **dispositivos**, selecione um dispositivo do **dispositivos** lista.
-2.  No **home page** separador o **dispositivo** grupo, escolha **alterar categoria**.
-3.  Escolher uma categoria de, em seguida, escolha **OK**.
+1.  Na **ativos e compatibilidade** > **descrição geral** > **dispositivos**, selecione um dispositivo a partir do **dispositivos** lista.
+2.  Sobre o **home page** separador o **dispositivo** de grupo, escolha **alterar categoria**.
+3.  Escolher uma categoria, em seguida, escolha **OK**.
 
-## <a name="view-which-category-a-device-belongs-to"></a>Ver qual um dispositivo pertence de categoria
+## <a name="view-which-category-a-device-belongs-to"></a>Ver qual categoria um dispositivo pertence a
 
-No **ativos e compatibilidade** > **descrição geral** > **dispositivos**, no **dispositivos** lista, a categoria é apresentada no **categoria de dispositivo** coluna.
+Na **ativos e compatibilidade** > **descrição geral** > **dispositivos**, na **dispositivos** lista, a categoria é apresentado no **categoria de dispositivo** coluna.
 
-Se o **categoria de dispositivo** coluna não for apresentada, faça duplo clique no cabeçalho de uma das colunas do **dispositivos** lista (como **nome**), em seguida, selecione **categoria de dispositivo**.
+Se o **categoria de dispositivos** coluna não for apresentada, clique no título de uma das colunas na **dispositivos** lista (como **nome**), em seguida, selecione **dispositivo Categoria**.
 
-Se atribuir um dispositivo a uma categoria e, subsequentemente, elimine a categoria de relatório **lista de dispositivos inscritos por utilizador no Microsoft Intune** apresentará um GUID no **categoria de dispositivo** coluna, em vez de um nome de categoria.
+Se atribuir um dispositivo a uma categoria e, em seguida, eliminar a categoria, o relatório **lista de dispositivos inscritos por utilizador no Microsoft Intune** apresentará um GUID no **categoria de dispositivo** coluna, em vez de um nome da categoria.
