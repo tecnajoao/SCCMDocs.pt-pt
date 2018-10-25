@@ -10,12 +10,12 @@ ms.assetid: da5f8b61-2386-4530-ad54-1a5c51911f07
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4c6069f81c9a5d086ef7c3ed13312d4f878d524a
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 1efd4197e63ddc12c0afc9e37b633c38d0df0f14
+ms.sourcegitcommit: a52255da16c9f8b0b60a6c299a369347c7e01bef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384096"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49989149"
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-configuration-manager"></a>Utilizar o PXE para implementar o Windows na rede com o Configuration Manager
 
@@ -38,9 +38,10 @@ Conclua os passos dos cenários de implementação do sistema operacional e, em 
 
 ##  <a name="BKMK_Configure"></a> Configurar pelo menos um ponto de distribuição para aceitar pedidos PXE
 
-Para implementar sistemas operativos em clientes do Configuration Manager que efetuam pedidos de arranque PXE, tem de configurar um ou mais pontos de distribuição para aceitar pedidos PXE. Depois de configurar o ponto de distribuição, ele responde a pedidos de arranque PXE e determina a ação de implementação adequada a tomar. Para obter mais informações, consulte [instalar ou modificar um ponto de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
+Para implementar sistemas operativos em clientes do Configuration Manager que efetuam pedidos de arranque PXE, tem de configurar um ou mais pontos de distribuição para aceitar pedidos PXE. Depois de configurar o ponto de distribuição, ele responde a pedidos de arranque PXE e determina a ação de implementação adequada a tomar. Para mais informações, consulte [Install or modify a distribution point](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
 
-
+> [!NOTE]  
+>  Quando configurar um único PXE ativado o ponto de distribuição para suportar várias sub-redes não é suportado para utilizar as opções de DHCP. Configure programas auxiliares IP os routers para permitir pedidos PXE a reencaminhar para os pontos de distribuição PXE ativado.
 
 ## <a name="prepare-a-pxe-enabled-boot-image"></a>Preparar uma imagem de arranque preparada para PXE
 
@@ -48,7 +49,7 @@ Para utilizar o PXE para implementar um sistema operacional, tem de ter o x86 e 
 
 -   Para ativar o PXE numa imagem de arranque, selecione **implementar esta imagem de arranque a partir do ponto de distribuição ativado por PXE** partir do **origem de dados** separador nas propriedades de imagem de arranque.
 
--   Se alterar as propriedades da imagem de arranque, redistribuir a imagem de arranque para pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).
+-   Se alterar as propriedades da imagem de arranque, redistribuir a imagem de arranque para pontos de distribuição. Para mais informações, consulte [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).
 
 
 
@@ -101,7 +102,7 @@ Para utilizar uma implementação de sistema operacional iniciadas por PXE, conf
 
 ##  <a name="BKMK_Deploy"></a> Implementar a sequência de tarefas
 
-Implantar o sistema operacional a uma coleção de destino. Para obter mais informações, veja [Implementar uma sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS). Quando implementar sistemas operativos através de PXE, pode configurar se a implementação é necessária ou se está disponível.
+Implantar o sistema operacional a uma coleção de destino. Para obter mais informações, veja [Deploy a task sequence (Implementar uma sequência de tarefas)](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS). Quando implementar sistemas operativos através de PXE, pode configurar se a implementação é necessária ou se está disponível.
 
 -   **Implementação necessária**: É necessário o uso de implementações PXE sem qualquer intervenção do utilizador. O utilizador não é possível ignorar o arranque PXE. No entanto, se o utilizador cancelar o arranque PXE antes do ponto de distribuição responde, o sistema operacional não está implementado.
 
