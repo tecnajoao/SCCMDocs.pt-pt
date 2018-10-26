@@ -10,12 +10,12 @@ ms.assetid: f504de3e-4caf-455c-80d7-a63f13f4c5d9
 author: aczechowski
 manager: dougeby
 ms.author: aaroncz
-ms.openlocfilehash: 78afa39b173abc79c4ed1cadc79f41ab32150ecf
-ms.sourcegitcommit: 3dfe3f4401651afa9dc65d14a8944ae4e4198b3e
+ms.openlocfilehash: 626c52b827e38a53ed3b8982963496f29f11acb5
+ms.sourcegitcommit: 5b3ff56018cfc6bda9643c9f1bebc575173f61bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862367"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50083773"
 ---
 #  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Configurar alertas para o Endpoint Protection no Configuration Manager
 
@@ -39,12 +39,12 @@ ms.locfileid: "48862367"
     > [!NOTE]
     >  Não é possível configurar alertas de coleções de utilizadores.
 
-4.  No **alertas** separador do *<nome da coleção\>***propriedades** caixa de diálogo, selecione **ver esta coleção no dashboard do Endpoint Protection** se pretende ver detalhes sobre operações antimalware relativas a esta coleção no **monitorização** área de trabalho da consola do Configuration Manager.
+4.  Sobre o **alertas** separador da _< nome da coleção\>_  **propriedades** caixa de diálogo, selecione **ver esta coleção no Endpoint Protection dashboard** se pretender ver detalhes sobre operações antimalware relativas a esta coleção no **monitorização** área de trabalho da consola do Configuration Manager.
 
     > [!NOTE]
     >  Esta opção não está disponível para a coleção **Todos os Sistemas** .
 
-5.  No **alertas** separador do *<nome da coleção\>***propriedades** caixa de diálogo, clique em **adicionar**.
+5.  Sobre o **alertas** separador da _< nome da coleção\>_  **propriedades** caixa de diálogo, clique em **adicionar**.
 
 6.  Na **adicionar novos alertas da coleção** caixa de diálogo a **gerar um alerta quando estas condições se aplicarem** secção, selecione os alertas que pretende que o Configuration Manager gere quando o ponto final especificado Eventos de proteção ocorrer e, em seguida, clique em **OK**.
 
@@ -83,7 +83,7 @@ ms.locfileid: "48862367"
 
         -   **Intervalo de deteção (horas):** Especifique o intervalo de deteção, em horas, em que o número de deteções de software maligno tem de ocorrer. Especifique um número de **1** a **168**.
 
-9. Clique em **OK** para fechar o *<nome da coleção\>***propriedades** caixa de diálogo.  
+9. Clique em **OK** para fechar a _< nome da coleção\>_  **propriedades** caixa de diálogo.  
 
 ## <a name="alert-for-outdated-malware-client"></a>Alerta para o cliente de software maligno Desatualizadas
 
