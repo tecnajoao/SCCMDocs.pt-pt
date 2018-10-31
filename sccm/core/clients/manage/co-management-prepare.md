@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 101de2ba-9b4d-4890-b087-5d518a4aa624
-ms.openlocfilehash: d15484ef38264a5c954dc664f9885b800a078ca6
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.openlocfilehash: 9aab4273129e6a3032d7e85d2545e6abc5b616c4
+ms.sourcegitcommit: 8dd9199bfe8e27f62e9df307f1c6ac58a3b81717
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601012"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237161"
 ---
-# <a name="prepare-windows-10-devices-for-co-management"></a>Preparar os dispositivos Windows 10 para a cogestão
+# <a name="prepare-windows-10-devices-for-co-management"></a>Preparar os dispositivos com Windows 10 para a cogestão
 Pode ativar a cogestão em dispositivos Windows 10 que estão associados ao AD e o Azure AD e inscritos no Microsoft Intune e um cliente no Configuration Manager. Para novos dispositivos Windows 10 e para dispositivos já inscritos no Intune, instale o cliente de Configuration Manager antes de poderem ser cogeridos. Para dispositivos Windows 10 que já são clientes do Configuration Manager, pode inscrever os dispositivos com o Intune e ativar a cogestão na consola do Configuration Manager.
 
 > [!IMPORTANT]
@@ -68,7 +68,7 @@ Seguem-se pré-requisitos gerais para a ativar a cogestão:
 
 - Windows 10, versão 1709 ou posterior  
 
-- [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup) (associados ao AD e o Azure AD)  
+- [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup) (associados ao AD e o Azure AD) ou do Azure AD associado a um só (este tipo é por vezes referido como "cloud associados a um domínio").
 
 
 ### <a name="additional-prerequisites-for-devices-without-the-configuration-manager-client"></a>Pré-requisitos adicionais para dispositivos sem o cliente do Configuration Manager
