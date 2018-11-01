@@ -1,7 +1,7 @@
 ---
-title: Implementar o Windows to Go
+title: Implementar o Windows To Go
 titleSuffix: Configuration Manager
-description: Saiba como aprovisionar o Windows To Go no System Center Configuration Manager, para criar uma área de trabalho Windows To Go que iniciam a partir de uma unidade externa.
+description: Saiba como aprovisionar o Windows To Go no System Center Configuration Manager, para criar uma área de trabalho Windows To Go, que efetua o arranque a partir de uma unidade externa.
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
@@ -10,25 +10,25 @@ ms.assetid: 8eed50f5-80a4-422e-8aa6-a7ccb2171475
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 12b7a28ff5ea0e2e1870c0c37edd8e056930b09f
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: afc76b59d594c6b8f52062add480874ba5c5686d
+ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32351892"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50411498"
 ---
-# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Implementar o Windows to Go com o System Center Configuration Manager
+# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Implementar o Windows To Go com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Este tópico fornece os passos para aprovisionar o Windows To Go no System Center Configuration Manager. O Windows To Go é uma funcionalidade empresarial do Windows 8 que permite a criação de uma área de trabalho do Windows To Go que pode arrancar a partir de uma unidade externa ligada por USB em computadores que cumpram os requisitos de certificação do Windows 7 ou do Windows 8, independentemente do sistema operativo em execução no computador. As áreas de trabalho do Windows To Go podem utilizar a mesma imagem que as empresas utilizam nos seus computadores de secretária e portáteis e podem ser geridas da mesma forma.  
 
- Para obter mais informações sobre o Windows To Go, consulte [Windows To Go descrição geral da funcionalidade](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
+ Para obter mais informações sobre o Windows To Go, consulte [descrição geral da funcionalidade Windows To Go](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
 
 ## <a name="provision-windows-to-go"></a>Aprovisionar o Windows To Go  
  O Windows To Go é um sistema operativo armazenado numa unidade externa ligada por USB. Pode aprovisionar a unidade do Windows To Go tal como aprovisiona outras implementações de sistema operativo. No entanto, uma vez que o Windows To Go foi concebido para ser uma solução centrada no utilizador e com elevada mobilidade, tem de adotar uma abordagem ligeiramente diferente ao aprovisionamento destas unidades.  
 
- A um nível elevado, o Windows To Go é uma implementação de duas fases que lhe permite configurar o dispositivo do Windows To Go e pré-configurar conteúdo para a implementação do sistema operativo. Pode conseguir isto com um impacto mínimo do utilizador e o período de indisponibilidade do limite para o computador do utilizador. Depois de pré-configurar o computador, tem de concluir o processo de aprovisionamento para garantir que o computador fica pronto para o utilizador. O processo de aprovisionamento é semelhante ao processo de implementação do sistema operativo atual. Segue-se o fluxo de trabalho geral para pré-configurar conteúdo e aprovisionar o Windows To Go:  
+ A um nível elevado, o Windows To Go é uma implementação de duas fases que lhe permite configurar o dispositivo do Windows To Go e pré-configurar conteúdo para a implementação do sistema operativo. Pode conseguir isto com um impacto mínimo para o utilizador e o tempo de inatividade do limite para o computador do usuário. Depois de pré-configurar o computador, tem de concluir o processo de aprovisionamento para garantir que o computador fica pronto para o utilizador. O processo de aprovisionamento é semelhante ao processo de implementação do sistema operativo atual. Segue-se o fluxo de trabalho geral para pré-configurar conteúdo e aprovisionar o Windows To Go:  
 
 1.  [Pré-requisitos para aprovisionar o Windows To Go](#BKMK_Prereqs)  
 
@@ -54,14 +54,14 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
      antes de criar o suporte de dados pré-configurado, tem de distribuir a imagem de arranque a um ponto de distribuição.  
 
     > [!NOTE]  
-    >  Imagens de arranque são utilizadas para instalar o sistema operativo dos computadores de destino no seu ambiente do Configuration Manager. Contêm uma versão do Windows PE que instala o sistema operativo, bem como os controladores de dispositivo adicionais que sejam necessários. Configuration Manager fornece duas imagens de arranque: Uma para suportar plataformas x86 e outra para suportar x64 plataformas. Também pode criar imagens de arranque próprias. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
+    >  Imagens de arranque são utilizadas para instalar o sistema operativo dos computadores de destino no ambiente do Configuration Manager. Contêm uma versão do Windows PE que instala o sistema operativo, bem como os controladores de dispositivo adicionais que sejam necessários. O Configuration Manager fornece duas imagens de arranque: Uma para suportar plataformas x86 e outra para suportar x64 plataformas. Também pode criar imagens de arranque próprias. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
 
 -   **Distribuir a imagem do sistema operativo Windows 8 para um ponto de distribuição**  
 
      antes de criar o suporte de dados pré-configurado, tem de distribuir a imagem do sistema operativo Windows 8 a um ponto de distribuição.  
 
     > [!NOTE]  
-    >  As imagens de sistema operativo são ficheiros com o formato .WIM e representam uma coleção comprimida de ficheiros e pastas de referência que são necessários para instalar e configurar com êxito um sistema operativo num computador. Para obter mais informações, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+    >  As imagens de sistema operativo são ficheiros com o formato .WIM e representam uma coleção comprimida de ficheiros e pastas de referência que são necessários para instalar e configurar com êxito um sistema operativo num computador. Para obter mais informações, consulte [gerir imagens de sistema operativo](../get-started/manage-operating-system-images.md).  
 
 -   **Criar uma Sequência de Tarefas para Implementar o Windows 8**  
 
@@ -99,7 +99,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 6.  Na página **Propriedades do Suporte de Dados**  , especifique as informações seguintes e, em seguida, clique em **Seguinte**.  
 
-    -   **Criado pelo**: Especifique quem criou o suporte de dados.  
+    -   **Criado por**: Especifique quem criou o suporte de dados.  
 
     -   **Versão**: Especifique o número de versão do suporte de dados.  
 
@@ -109,7 +109,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 7.  Na página **Segurança** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   Selecione **ativar suporte para computadores desconhecidos** para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não há nenhum registo destes computadores na base de dados do Configuration Manager. Os computadores desconhecidos incluem o seguinte:  
+    -   Selecione **ativar o suporte para computadores desconhecidos** para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não existe nenhum registo desses computadores na base de dados do Configuration Manager. Os computadores desconhecidos incluem o seguinte:  
 
         -   Um computador em que o cliente do Configuration Manager não está instalado  
 
@@ -129,9 +129,9 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     -   Para comunicações HTTPS, selecione **Importar certificado PKI**e especifique o certificado a importar e a respetiva palavra-passe.  
 
-         Para mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Para obter mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos de certificado PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como implementação de sistemas operativos suporta a afinidade dispositivo / utilizador, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como a implementação do sistema operativo suporta afinidade dispositivo / utilizador, consulte [associar utilizadores a um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação automática** se pretender que o suporte de dados associe automaticamente utilizadores ao computador de destino. Esta funcionalidade baseia-se nas ações da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.  
 
@@ -151,7 +151,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
     -   **Ponto de distribuição**: Especifique o ponto de distribuição que aloja a imagem de arranque. O assistente obtém a imagem de arranque do ponto de distribuição e escreve-a no suporte de dados.  
 
         > [!NOTE]  
-        >  O utilizador administrativo tem de ter direitos de acesso de **Leitura** para o conteúdo da imagem de arranque no ponto de distribuição. Para obter mais informações, consulte [gerir contas para aceder ao conteúdo](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+        >  O utilizador administrativo tem de ter direitos de acesso de **Leitura** para o conteúdo da imagem de arranque no ponto de distribuição. Para obter mais informações, consulte [conta de acesso a pacote](/sccm/core/plan-design/hierarchy/accounts#package-access-account).  
 
     -   Se tiver selecionado **Suporte de dados baseado no site** na página **Gestão de Suporte de Dados** deste assistente, na caixa **Ponto de gestão** , especifique um ponto de gestão de um site primário.  
 
@@ -159,14 +159,14 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 10. Na página **Imagens** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   **Pacote de imagem**: Especifique o pacote que contém a imagem do sistema operativo Windows 8.  
+    -   **Pacote de imagem**: Especifique o pacote que contém a imagem de sistema operativo Windows 8.  
 
     -   **Índice de imagens**: Especifique a imagem a implementar se o pacote contiver várias imagens de sistema operativo.  
 
     -   **Ponto de distribuição**: Especifique o ponto de distribuição que aloja o pacote de imagem do sistema operativo. O assistente obtém a imagem do sistema operativo a partir do ponto de distribuição e escreve-a no suporte de dados.  
 
         > [!NOTE]  
-        >  O utilizador administrativo tem de ter direitos de acesso de **Leitura** para o conteúdo da imagem de sistema operativo no ponto de distribuição. Para obter mais informações, consulte [gerir contas para aceder ao conteúdo](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+        >  O utilizador administrativo tem de ter direitos de acesso de **Leitura** para o conteúdo da imagem de sistema operativo no ponto de distribuição. Para obter mais informações, consulte [conta de acesso a pacote](/sccm/core/plan-design/hierarchy/accounts#package-access-account).  
 
 11. Na página **Selecionar Aplicação** , selecione conteúdo de aplicações a incluir no ficheiro do suporte de dados e clique em **Seguinte**.  
 
@@ -192,7 +192,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
             > [!WARNING]  
             >  Quando o BitLocker tiver a frase de acesso ativada, o utilizador terá de introduzir a frase de acesso sempre que o computador arrancar na unidade do Windows To Go.  
 
-        -   **SMSTSUDAUsers**: Especifica o utilizador primário do computador de destino. Utilize esta variável para recolher o nome do utilizador, que pode então ser utilizado para associar o utilizador e o dispositivo. Para obter mais informações, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+        -   **SMSTSUDAUsers**: Especifica o utilizador primário do computador de destino. Utilize esta variável para recolher o nome do utilizador, que pode então ser utilizado para associar o utilizador e o dispositivo. Para obter mais informações, consulte [associar utilizadores a um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
 
             > [!TIP]  
             >  Para obter o nome de utilizador, pode criar uma caixa de introdução como parte do comando de pré-início, para o utilizador introduzir o respetivo nome de utilizador, e, em seguida, definir a variável com o valor. Por exemplo, pode adicionar as seguintes linhas ao ficheiro de script do comando de pré-início:  
@@ -240,7 +240,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     -   **Nome**: Especifique o nome do programa. Por exemplo, escreva **Creator** para o nome do programa.  
 
-    -   **Linha de comandos**: Tipo **WTGCreator.exe /wim: nomepré-Config.wim**, em que PrestageName é o nome do ficheiro pré-configurado que criou e copiou para a pasta de origem do pacote para o pacote Windows To Go Creator.  
+    -   **Linha de comandos**: Tipo **WTGCreator.exe /wim:PrestageName.wim**, em que PrestageName é o nome do ficheiro pré-configurado que criou e copiou para a pasta de origem do pacote para o pacote Windows To Go Creator.  
 
          Opcionalmente, pode adicionar as seguintes opções:  
 
@@ -248,7 +248,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     -   **Executar**: Especifique **Normal** para executar o programa com base nas predefinições do sistema e do programa.  
 
-    -   **Programa pode ser executado**: Especifique se o programa pode ser executado apenas quando um utilizador tiver sessão iniciado.  
+    -   **Programa pode ser executado**: Especifique se o programa pode ser executado apenas quando um utilizador tem sessão iniciado.  
 
     -   **Modo de execução**: Especifique se o programa será executado com o com sessão iniciada nas permissões de utilizadores ou com permissões administrativas. O Windows To Go Creator requer permissões elevadas para ser executado.  
 
@@ -256,20 +256,20 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 12. Na página Requisitos, especifique o seguinte:  
 
-    -   **Requisitos de plataforma**: Selecione as plataformas do Windows 8 aplicáveis para permitir o aprovisionamento.  
+    -   **Requisitos de plataforma**: Selecione as plataformas Windows 8 aplicáveis para permitir o aprovisionamento.  
 
     -   **Espaço em disco estimado**: Especifica o tamanho da pasta de origem do pacote para o Windows To Go Creator.  
 
-    -   **Máximo tempo de execução permitido (minutos)**: Especifica o tempo máximo que o programa poderá demorar a ser executado no computador cliente. Por predefinição, este valor é definido para 120 minutos.  
+    -   **Máximo permitido (minutos) de tempo de execução**: Especifica o tempo máximo que o programa poderá demorar para ser executado no computador cliente. Por predefinição, este valor é definido para 120 minutos.  
 
         > [!IMPORTANT]  
         >  Se estiver a utilizar janelas de manutenção para a coleção onde este programa é executado, pode ocorrer um conflito se o **Tempo máximo de execução permitido** for superior à janela de manutenção agendada. Se o tempo de execução máximo for definido para **Desconhecido**, começará durante a janela de manutenção, mas continuará a ser executado até concluir ou falhar depois de a janela de manutenção fechar. Se definir o tempo de execução máximo para um período específico (não definido para Desconhecido) que excede a duração de qualquer janela de manutenção, esse programa não será executado.  
 
         > [!NOTE]  
-        >  Se o valor estiver definido como **desconhecido**, tempo de execução do Configuration Manager define o número máximo para 12 horas (720 minutos).  
+        >  Se o valor é definido como **desconhecido**, tempo de execução do Configuration Manager define o máximo para 12 horas (720 minutos).  
 
         > [!NOTE]  
-        >  Se o tempo máximo de execução (definido pelo utilizador ou como valor predefinido) for excedido, o Configuration Manager interrompe o programa se **executar com direitos administrativos** está selecionado e **permitir que os utilizadores visualizem e interajam com a instalação do programa** não estiver selecionada no **programa padrão** página.  
+        >  Se o tempo máximo de execução (definido pelo utilizador ou como valor predefinido) for excedido, o Configuration Manager para o programa no caso **executados com direitos administrativos** está selecionado e **permitir que os utilizadores visualizem e interajam com o programa de instalação** não esteja selecionada no **programa padrão** página.  
 
      Clique em **Seguinte** e conclua o assistente.  
 
@@ -309,9 +309,9 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 13. No separador **Propriedades** para o passo **Executar Linha de Comandos** , adicione o seguinte:  
 
-    1.  **Nome**: Especifique um nome para a linha de comandos, tal como **ativar o BitLocker para Windows To Go**.  
+    1.  **Nome**: Especifique um nome para a linha de comando, tal como **ativar o BitLocker para Windows To Go**.  
 
-    2.  **Linha de comandos**: i386\osdbitlocker_wtg.exe /Enable /pwd: < *nenhum&#124;AD*>  
+    2.  **Linha de comandos**: i386\osdbitlocker_wtg.exe /Enable /pwd: < *None&#124;AD*>  
 
          Parâmetros:  
 
@@ -319,7 +319,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
              Selecione **AD** para configurar a Encriptação da Unidade do BitLocker para criar cópias de segurança das informações de recuperação para unidades protegidas pelo BitLocker para Serviços de Domínio do Active Directory (AD DS). Criar cópias de segurança de palavras-passe de recuperação para uma unidade protegida pelo BitLocker permite que os utilizadores administrativos recuperem a unidade se estiver bloqueada. Isto garante que os dados encriptados pertencentes à empresa podem ser sempre acedidos por utilizadores autorizados. Quando especificar **Nenhum**, o utilizador é responsável por manter uma cópia da palavra-passe de recuperação ou chave de recuperação. Se o utilizador perder essa informação ou negligenciar a desencriptação da unidade antes de abandonar a organização, os utilizadores administrativos não conseguem aceder facilmente à unidade.  
 
-        -   /wait: < TRUE&#124;FALSE >-especificar se a sequência de tarefas aguarda que encriptação seja concluída antes da conclusão.  
+        -   /wait: < verdadeiro&#124;FALSE >-especificar se a sequência de tarefas aguarda para que encriptação seja concluída antes de concluir.  
 
     3.  Selecione **pacote**e, em seguida, especifique o pacote que criou no início deste procedimento.  
 
@@ -355,7 +355,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     2.  **Coleção**: Clique em **procurar** para selecionar a coleção à qual pretende implementar o pacote Windows To Go.  
 
-    3.  **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Selecione esta opção se pretender armazenar o conteúdo do pacote no grupo de ponto de distribuição da predefinição de coleções. Se não tiver associado a coleção selecionada a um grupo de pontos de distribuição, esta opção estará indisponível.  
+    3.  **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Selecione esta opção se pretender armazenar o conteúdo do pacote no grupo de ponto de distribuição de predefinido da coleção. Se não tiver associado a coleção selecionada a um grupo de pontos de distribuição, esta opção estará indisponível.  
 
 6.  Na página **Conteúdo** , clique em **Adicionar** e, em seguida, selecione os pontos de distribuição ou os grupos de pontos de distribuição nos quais pretende implementar o conteúdo associado a este pacote e programa.  
 
@@ -367,17 +367,17 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
 9. No **Agendamento**, confirme as seguintes definições e clique em **Seguinte**.  
 
-    1.  **Agendar quando esta implementação ficará disponível**: Especifique a data e hora em que o pacote e programa está disponível para ser executada no computador de destino. Se selecionar **UTC**, esta definição garantirá que o pacote e programa ficarão disponíveis para vários computadores de destino ao mesmo tempo, em vez de em alturas diferentes, de acordo com a hora local dos computadores de destino.  
+    1.  **Agendar quando esta implementação ficará disponível**: Especifique a data e hora em que o pacote e programa ficarão disponíveis para serem executados no computador de destino. Se selecionar **UTC**, esta definição garantirá que o pacote e programa ficarão disponíveis para vários computadores de destino ao mesmo tempo, em vez de em alturas diferentes, de acordo com a hora local dos computadores de destino.  
 
-    2.  **Agendar quando esta implementação expirará**: Especifique a data e hora em que o pacote e programa expiram no computador de destino. Se selecionar **UTC**, esta definição garantirá que a sequência de tarefas expira em vários computadores de destino no mesmo tempo, em vez de tal acontecer em diferentes momentos, de acordo com a hora local dos computadores de destino.  
+    2.  **Agendar quando esta implementação expirará**: Especifique a data e hora em que o pacote e programa expirar no computador de destino. Se selecionar **UTC**, esta definição garantirá que a sequência de tarefas expira em vários computadores de destino no mesmo tempo, em vez de tal acontecer em diferentes momentos, de acordo com a hora local dos computadores de destino.  
 
 10. Na página **Experiência de Utilizador** do Assistente, especifique as seguintes informações:  
 
-    -   **Instalação de software**: Permite que o software seja instalado fora de quaisquer janelas de manutenção configurada.  
+    -   **Instalação de software**: Permite que o software seja instalado fora de quaisquer janelas de manutenção configuradas.  
 
     -   **Reinício do sistema (se for necessário para concluir a instalação)**: Permite que um dispositivo reinicie fora das janelas de manutenção configuradas quando exigido pela instalação do software.  
 
-    -   **Dispositivos Embedded**: Quando implementa pacotes e programas em dispositivos Windows Embedded que tenham um filtro de escrita ativado, pode especificar a instalação de pacotes e programas na sobreposição temporária e confirmar as alterações mais tarde, ou confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
+    -   **Dispositivos Embedded**: Quando implementa pacotes e programas em dispositivos Windows Embedded que tenham filtro de escrita ativado, pode especificar a instalação de pacotes e programas no temporária sobreposição e confirmar as alterações mais tarde, ou confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
 
 11. Na página **Pontos de Distribuição** , especifique as seguintes informações:  
 
@@ -385,7 +385,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     -   **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Selecione esta opção para reduzir a carga na rede ao permitir que os clientes transfiram conteúdos a partir de outros clientes na rede que já tenham transferido e colocado o conteúdo na cache. Esta opção utiliza o Windows BranchCache e pode ser utilizada em computadores com o Windows Vista SP2 e posterior.  
 
-    -   **Todos os clientes utilizem uma localização de origem de contingência para conteúdo**: Especifique se pretende permitir que os clientes revertam e utilizem um ponto de distribuição não preferencial como localização de origem de conteúdo quando o conteúdo não está disponível num ponto de distribuição preferencial.  
+    -   **Todos os clientes utilizem uma localização de origem de contingência para conteúdo**: Especifique se pretende permitir que os clientes revertam e utilizem um ponto de distribuição não preferencial como localização de origem de conteúdo, quando o conteúdo não está disponível num ponto de distribuição preferencial.  
 
 12. Conclua o assistente.  
 
@@ -408,11 +408,11 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
         > [!IMPORTANT]  
         >  Se os suportes de dados pré-configurados que criou na secção [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia) utilizarem a variável SMSTSPreferredAdvertID, poderá implementar a sequência de tarefas na coleção **Todos os Sistemas** e especificar a definição **Apenas Windows PE (oculto)** na página **Conteúdo** . Porque a sequência de tarefas está oculta, só estará disponível para suportes de dados.  
 
-    3.  **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Selecione esta opção se pretender armazenar o conteúdo do pacote no grupo de ponto de distribuição da predefinição de coleções. Se não tiver associado a coleção selecionada a um grupo de pontos de distribuição, esta opção estará indisponível.  
+    3.  **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Selecione esta opção se pretender armazenar o conteúdo do pacote no grupo de ponto de distribuição de predefinido da coleção. Se não tiver associado a coleção selecionada a um grupo de pontos de distribuição, esta opção estará indisponível.  
 
 6.  Na página **Definições de Implementação** , configure as seguintes definições e clique em **Seguinte**.  
 
-    -   **Objetivo**: Selecione **disponíveis**. Quando implementar a sequência de tarefas num utilizador, este verá a sequência de tarefas publicada no Catálogo de Aplicações e poderá solicitá-la a pedido. Se implementar a sequência de tarefas num dispositivo, o utilizador irá ver a sequência de tarefas no Centro de Software e pode instalá-lo a pedido.  
+    -   **Objetivo**: Selecione **disponível**. Quando implementar a sequência de tarefas num utilizador, este verá a sequência de tarefas publicada no Catálogo de Aplicações e poderá solicitá-la a pedido. Se implementar a sequência de tarefas num dispositivo, o utilizador irá ver a sequência de tarefas no Centro de Software e pode instalá-lo a pedido.  
 
     -   **Tornar disponível para o seguinte**: Especifique se a sequência de tarefas está disponível para clientes do Configuration Manager, suportes de dados ou PXE.  
 
@@ -433,9 +433,9 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     -   **Reinício do sistema (se for necessário para concluir a instalação)**: Permite que um dispositivo reinicie fora das janelas de manutenção configuradas quando exigido pela instalação do software.  
 
-    -   **Dispositivos Embedded**: Quando implementa pacotes e programas em dispositivos Windows Embedded que tenham um filtro de escrita ativado, pode especificar a instalação de pacotes e programas na sobreposição temporária e confirmar as alterações mais tarde, ou confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
+    -   **Dispositivos Embedded**: Quando implementa pacotes e programas em dispositivos Windows Embedded que tenham filtro de escrita ativado, pode especificar a instalação de pacotes e programas no temporária sobreposição e confirmar as alterações mais tarde, ou confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
 
-    -   **Os clientes baseados na Internet**: Especifique se a sequência de tarefas pode ser executada num cliente baseado na Internet. As operações que instalam software, por exemplo um sistema operativo, não são suportadas por esta definição. Só deve utilizar esta opção para sequências de tarefas genéricas, baseadas em scripts, que executem operações padrão do sistema operativo.  
+    -   **Clientes baseados na Internet**: Especifique se a sequência de tarefas pode ser executada num cliente baseado na Internet. As operações que instalam software, por exemplo um sistema operativo, não são suportadas por esta definição. Só deve utilizar esta opção para sequências de tarefas genéricas, baseadas em scripts, que executem operações padrão do sistema operativo.  
 
 9. Na página **Alertas** , especifique as definições de alerta pretendidas para esta implementação de sequências de tarefas e, em seguida, clique em **Seguinte**.  
 
@@ -443,11 +443,11 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 
     -   **Opções de implementação**: Selecione **transferir o conteúdo localmente quando necessário para executar a sequência de tarefas**.  
 
-    -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição localizados em redes lentas e pouco fiáveis para transferir o conteúdo necessário pela sequência de tarefas.  
+    -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição que se encontram em redes lentas e pouco fiáveis para transferir o conteúdo necessário pela sequência de tarefas.  
 
     -   **Permitir que os clientes utilizem uma localização de origem de contingência para conteúdo**:
-        - *Antes de versão 1610*, pode selecionar a permitir a localização de origem de contingência para conteúdo caixa de verificação para permitir que os clientes fora destes grupos de limites recorram à contingência e utilizem o ponto de distribuição como localização de origem para o conteúdo quando não houver outros pontos de distribuição estão disponíveis.
-        - *A partir da versão 1610*, já não pode configurar **permitir a localização de origem de contingência para conteúdo**.  Em vez disso, configure as relações entre grupos de limites que determinam quando um cliente pode começar a procurar grupos de limites adicionais para uma localização de origem de conteúdo válida. 
+        - *Anterior à versão 1610*, pode selecionar a permitir a localização de origem de contingência para conteúdo de caixa de verificação Permitir que os clientes fora destes grupos de limites recorram à contingência e utilizem o ponto de distribuição como uma localização de origem de conteúdo quando não houver outros pontos de distribuição estão disponíveis.
+        - *Partir da versão 1610*, já não pode configurar **permitir a localização de origem de contingência para conteúdo**.  Em vez disso, configure as relações entre grupos de limites que determinam quando um cliente pode começar a procurar grupos de limites adicionais para uma localização de origem de conteúdo válida. 
 
 11. Conclua o assistente.  
 
@@ -458,7 +458,7 @@ Este tópico fornece os passos para aprovisionar o Windows To Go no System Cente
 >  Se não tiver ativado o redirecionamento do arranque enquanto parte da linha de comandos para o programa de autor na secção [Criar um pacote do Windows To Go Creator](#BKMK_CreatePackage) , é possível que o utilizador tenha de arrancar manualmente a unidade do Windows To Go em cada reinício do sistema.  
 
 ###  <a name="BKMK_ConfigureStageDrive"></a> O Configuration Manager configura e prepara a unidade do Windows To Go  
- Depois de o computador reiniciar a unidade do Windows To Go, a unidade arrancará no Windows PE e ligar-se-á ao ponto de gestão para obter a política para concluir a implementação do sistema operativo. O Configuration Manager configura e prepara a unidade. Depois do Gestor de configuração prepara a unidade, o utilizador pode reiniciar o computador para finalizar o processo de aprovisionamento (como juntar-se um domínio ou instalar aplicações). Este processo é o mesmo para qualquer suporte de dados pré-configurado.  
+ Depois de o computador reiniciar a unidade do Windows To Go, a unidade arrancará no Windows PE e ligar-se-á ao ponto de gestão para obter a política para concluir a implementação do sistema operativo. Configuration Manager configura e prepara a unidade. Depois do Gestor de configuração prepara a unidade, o utilizador pode reiniciar o computador para finalizar o processo de aprovisionamento (como para aderir a um domínio ou instalar aplicações). Este processo é o mesmo para qualquer suporte de dados pré-configurado.  
 
 ###  <a name="BKMK_UserLogsIn"></a> O utilizador inicia sessão no Windows 8  
- Depois do Configuration Manager concluir o processo de aprovisionamento e é apresentado o ecrã de bloqueio do Windows 8, o utilizador pode iniciar sessão no sistema operativo.  
+ Depois do Configuration Manager conclui o processo de aprovisionamento e é apresentado o ecrã de bloqueio do Windows 8, o utilizador pode iniciar sessão para o sistema operativo.  

@@ -1,8 +1,8 @@
 ---
-title: Gestão de conteúdo de segurança e privacidade
+title: Gerenciamento de conteúdo de segurança e privacidade
 titleSuffix: Configuration Manager
-description: Otimize a segurança e privacidade para gestão de conteúdos no System Center Configuration Manager.
-ms.date: 3/1/2017
+description: Otimize a segurança e privacidade para gestão de conteúdos no Configuration Manager.
+ms.date: 10/26/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,53 +10,61 @@ ms.assetid: 5f38b726-dc00-433a-ba05-5b7dbb0d8e99
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d82af132cc6ba60a459d9872cf76f69adc00daa6
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: f24760e11dd3972c43600225eec405523988696c
+ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32334655"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50411070"
 ---
-# <a name="security-and-privacy-for-content-management-for-system-center-configuration-manager"></a>Segurança e privacidade para gestão de conteúdo no System Center Configuration Manager
+# <a name="security-and-privacy-for-content-management-in-configuration-manager"></a>Segurança e privacidade para gestão de conteúdos no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este tópico contém informações de segurança e privacidade para gestão de conteúdos no System Center Configuration Manager. Leia-o em conjunto com os seguintes tópicos:  
+Este artigo contém informações de privacidade para gestão de conteúdos no Configuration Manager e de segurança. 
 
--   [Segurança e privacidade para gestão de aplicações no System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md)  
 
--   [Segurança e privacidade para atualizações de software no System Center Configuration Manager](/sccm/sum/plan-design/security-and-privacy-for-software-updates)  
-
--   [Segurança e privacidade para implementação do sistema operativo no System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
 
 ##  <a name="BKMK_Security_ContentManagement"></a> Melhores práticas de segurança para gestão de conteúdo  
- Utilize os seguintes procedimentos recomendados de segurança para gestão de conteúdo:  
-
- **Para pontos de distribuição na intranet, considere as vantagens e desvantagens da utilização de HTTPS e HTTP**: Na maioria dos cenários, a utilização de contas de acesso HTTP e o pacote para autorização fornece mais segurança ao através de HTTPS com encriptação, mas sem autorização. No entanto, se o conteúdo incluir dados confidenciais que pretende encriptar durante a transferência, utilize o HTTPS.  
-
--   **Quando utilizar o HTTPS para um ponto de distribuição**, o Configuration Manager não utiliza contas de acesso de pacotes para autorizar o acesso ao conteúdo, mas o conteúdo é encriptado quando é transferido através da rede.  
-
--   **Se utilizar HTTP para um ponto de distribuição**, pode utilizar contas de acesso aos pacotes para autorização, mas o conteúdo não é encriptado quando é transferido através da rede.  
 
 
-**Se utilizar um certificado de autenticação de cliente PKI em vez de um certificado autoassinado para o ponto de distribuição, proteja o ficheiro de certificado (.pfx) com uma palavra-passe segura. Se armazenar o ficheiro na rede, proteja o canal de rede quando importar o ficheiro para o Configuration Manager**: Ao exigir uma palavra-passe para importar o certificado de autenticação de cliente que o ponto de distribuição utiliza para comunicar com pontos de gestão, ajuda a proteger o certificado de um atacante. Utilize a assinatura de bloco de mensagem de servidor (SMB) ou IPsec entre a localização de rede e o servidor do site para impedir que um atacante adultere o ficheiro de certificado.  
+#### <a name="advantages-and-disadvantages-of-https-or-http-for-intranet-distribution-points"></a>Vantagens e desvantagens de HTTPS ou HTTP para pontos de distribuição de intranet
+Para pontos de distribuição na intranet, considere as vantagens e desvantagens da utilização de HTTPS e HTTP. Na maioria dos cenários, a utilização de HTTP e o pacote de contas de acesso para autorização proporciona mais segurança do que através de HTTPS com encriptação, mas sem autorização. No entanto, se o conteúdo incluir dados confidenciais que pretende encriptar durante a transferência, utilize o HTTPS.  
 
-**Remover a função de ponto de distribuição do servidor do site**: Por predefinição, um ponto de distribuição está instalado no mesmo servidor que o servidor do site. Os clientes não precisam de comunicar diretamente com o servidor do site; por conseguinte, para reduzir a superfície de ataque, atribua a função do ponto de distribuição a outros sistemas de sites e remova-a do servidor do site.  
+-   **Se utilizar o HTTPS para um ponto de distribuição**, o Configuration Manager não utiliza contas de acesso de pacotes para autorizar o acesso ao conteúdo, mas o conteúdo é encriptado quando é transferido através da rede.  
 
-**Proteger o conteúdo ao nível de acesso do pacote**: A partilha do ponto de distribuição permite o acesso de leitura a todos os utilizadores. Para restringir os utilizadores que podem aceder ao conteúdo, utilize contas de acesso aos pacotes quando o ponto de distribuição estiver configurado para HTTP. Não é aplicável aos pontos de distribuição baseados na nuvem, que não suportam contas de acesso do pacote. Para obter mais informações sobre as contas de acesso de pacotes, consulte [gerir contas para aceder ao conteúdo](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
+-   **Se utilizar HTTP para um ponto de distribuição**, pode utilizar contas de acesso de pacotes para autorização, mas o conteúdo não é encriptado quando é transferido através da rede.  
 
+A partir da versão 1806, considere ativar **avançada HTTP** para o site. Esta funcionalidade permite que os clientes utilizar a autenticação do Azure Active Directory para comunicar de forma segura com um ponto de distribuição de HTTP. Para obter mais informações, consulte [avançada HTTP](/sccm/core/plan-design/hierarchy/enhanced-http).
 
-**Se o Configuration Manager instala o IIS quando adicionar uma função de sistema de sites de ponto de distribuição, remova o redirecionamento de HTTP ou ferramentas e Scripts de gestão do IIS quando a instalação do ponto de distribuição estiver concluída**: O ponto de distribuição não necessita de redirecionamento de HTTP ou ferramentas e Scripts de gestão do IIS. Para reduzir a superfície de ataque, remova estes serviços de função para a função do servidor Web (IIS).  Para obter mais informações sobre os serviços de função para a função de servidor (IIS) web para pontos de distribuição, consulte [Site e os pré-requisitos de sistema de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).  
+#### <a name="protect-the-client-authentication-certificate-file"></a>Proteger o ficheiro de certificado de autenticação de cliente
+Se utilizar um certificado de autenticação de cliente PKI em vez de um certificado autoassinado para o ponto de distribuição, proteja o ficheiro de certificado (. pfx) com uma palavra-passe segura. Se armazenar o ficheiro na rede, proteja o canal de rede quando importar o ficheiro para o Configuration Manager.
 
-**Definir as permissões de acesso do pacote ao criar o pacote**: Porque as alterações às contas de acesso nos ficheiros do pacote só terão efeitas quando redistribuir o pacote, defina o pacote de permissões de acesso cuidadosamente quando criar primeiro o pacote. Isto é especialmente importante quando o pacote é grande ou está distribuído por muitos pontos de distribuição e quando a capacidade de largura de banda de rede para a distribuição de conteúdo é limitada.  
+Quando precisar de uma palavra-passe para importar o certificado de autenticação de cliente que o ponto de distribuição utiliza para comunicar com pontos de gestão, esta configuração ajuda a proteger o certificado de um atacante. Utilize a assinatura de bloco de mensagem de servidor (SMB) ou IPsec entre a localização de rede e o servidor do site para impedir que um atacante adultere o ficheiro de certificado.  
 
-**Implementar controlos de acesso para proteger os suportes de dados que contém conteúdo pré-configurado**: Conteúdo pré-configurado está comprimido, mas não encriptado. Um atacante poderia ler e modificar os ficheiros que, em seguida, são transferidos para dispositivos. Clientes do Configuration Manager rejeitar conteúdo adulterado, mas ainda o transferem.  
+#### <a name="remove-the-distribution-point-role-from-the-site-server"></a>Remover a função de ponto de distribuição do servidor do site
+Por predefinição, a configuração do Configuration Manager instala um ponto de distribuição no servidor do site. Os clientes não precisem de comunicar diretamente com o servidor do site. Para reduzir a superfície de ataque, atribua a função de ponto de distribuição a outros sistemas de sites e removê-lo ao servidor do site.  
 
-**Importe o conteúdo pré-configurado utilizando apenas a linha de comandos ferramenta ExtractContent (ExtractContent.exe) fornecida com o Configuration Manager e certifique-se de que está assinado pela Microsoft**: Para evitar a adulteração e a elevação de privilégios, utilize apenas a linha de comandos ferramenta autorizada que é fornecida com o Configuration Manager.  
+#### <a name="secure-content-at-the-package-access-level"></a>Proteja o conteúdo no nível de acesso do pacote
+O compartilhamento do ponto de distribuição permite o acesso de leitura a todos os utilizadores. Para restringir os utilizadores que podem aceder ao conteúdo, utilize contas de acesso aos pacotes quando o ponto de distribuição estiver configurado para HTTP. Esta configuração não se aplica a pontos de distribuição de nuvem, que não suportam contas de acesso de pacotes. Para obter mais informações, consulte [contas de acesso a pacote](/sccm/core/plan-design/hierarchy/accounts#package-access-account).
 
-**Proteja o canal de comunicação entre o servidor do site e a localização de origem do pacote**: Utilize IPsec ou assinatura SMB entre o servidor de site e a localização de origem do pacote ao criar aplicações e pacotes. Isto ajuda a impedir que um intruso adultere os ficheiros de origem.  
+#### <a name="configure-iis-on-the-distribution-point-role"></a>Configurar o IIS na função do ponto de distribuição
+Se o Configuration Manager instala o IIS quando adicionar uma função de sistema de sites de ponto de distribuição, remova o redirecionamento de HTTP ou Scripts de gestão do IIS e ferramentas de quando a instalação do ponto de distribuição estiver concluída. O ponto de distribuição não precisa de redirecionamento de HTTP ou ferramentas e Scripts de gestão do IIS. Para reduzir a superfície de ataque, remova estes serviços de função para a função de servidor web.  Para obter mais informações sobre os serviços de função para a função de servidor web para pontos de distribuição, consulte [Site e pré-requisitos de sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).  
 
-**Se alterar a opção de configuração do site para utilizar um Web site personalizado em vez de Web site predefinido, depois de instalar quaisquer funções de ponto de distribuição, remova os diretórios virtuais predefinidos**: Quando muda do Web site predefinido para um Web site personalizado, o Configuration Manager não remove os diretórios virtuais antigos. Remova os diretórios virtuais que o Configuration Manager originalmente criado no Web site predefinido:  
+#### <a name="set-package-access-permissions-when-you-create-the-package"></a>Definir as permissões de acesso do pacote quando criar o pacote
+Uma vez que as alterações às contas de acesso nos ficheiros do pacote entram em vigor apenas quando redistribuir o pacote, defina cuidadosamente as pacote permissões de acesso quando cria o pacote pela primeira vez. Esta configuração é importante quando o pacote é grande ou distribuído por muitos pontos de distribuição e quando a capacidade de largura de banda de rede para a distribuição de conteúdo é limitada.  
+
+#### <a name="implement-access-controls-to-protect-media-that-contains-prestaged-content"></a>Implementar controlos de acesso para proteger os suportes de dados que contêm conteúdo pré-configurado
+Conteúdo pré-configurado está comprimido, mas não encriptado. Um intruso poderia ler e modificar os ficheiros que são transferidos para dispositivos. Clientes do Configuration Manager rejeitam conteúdo adulterado, mas ainda o transferem.  
+
+#### <a name="import-prestaged-content-with-extractcontent"></a>Importe o conteúdo pré-configurado com ExtractContent
+Importar apenas o conteúdo pré-configurado utilizando a ferramenta de linha de comando ExtractContent.exe. Para evitar a adulteração e a elevação de privilégios, utilize apenas a linha de comandos ferramenta autorizada fornecida com o Configuration Manager.  
+
+#### <a name="secure-the-communication-channel-between-the-site-server-and-the-package-source-location"></a>Proteja o canal de comunicação entre o servidor do site e a localização de origem do pacote
+Utilize IPsec ou assinatura SMB entre o servidor de site e a localização de origem do pacote quando criar aplicações e pacotes. Esta configuração ajuda a impedir que um atacante adultere os ficheiros de origem.  
+
+#### <a name="remove-default-virtual-directories-for-custom-website-with-the-distribution-point-role"></a>Remova os diretórios virtuais predefinidos para o Web site personalizado com a função de ponto de distribuição
+Se alterar a opção de configuração de site para utilizar um Web site personalizado em vez de Web site predefinido depois de instalar uma função de ponto de distribuição, remova os diretórios virtuais predefinidos. Quando mudar do Web site predefinido para um Web site personalizado, o Configuration Manager não remove os diretórios virtuais antigos. Remova os seguintes diretórios virtuais do Configuration Manager criado originalmente sob o Web site predefinido:  
 
 -   SMS_DP_SMSPKG$  
 
@@ -66,26 +74,50 @@ Este tópico contém informações de segurança e privacidade para gestão de c
 
 -   NOCERT_SMS_DP_SMSSIG$  
 
-**Para pontos de distribuição baseado na nuvem, proteja os detalhes da subscrição e certificados**: Quando utiliza pontos de distribuição baseado na nuvem, proteja os itens de valor elevado, incluindo o nome de utilizador e palavra-passe da sua subscrição do Azure, o certificado de gestão do Azure e o certificado de serviço do ponto de distribuição baseado na nuvem. Armazene os certificados de forma segura e se os procurar através da rede quando configurar o ponto de distribuição baseado na nuvem, utilize o IPsec ou a assinatura SMB entre o servidor do site e a localização de origem.  
 
-**Para pontos de distribuição baseado na nuvem: Para continuidade do serviço, monitorize a data de expiração dos certificados**: O Configuration Manager não avisar quando os certificados importados para a gestão de distribuição baseado na nuvem ponto dos serviços está prestes a expirar. Tem de monitorizar as datas de expiração independentemente do Configuration Manager e certifique-se de que renova e importa os novos certificados antes da data de expiração. Isto é especialmente importante se adquirir um Gestor de configuração baseado na nuvem do ponto de distribuição certificado do serviço de uma autoridade de certificação externa (AC), pois pode necessitar de mais tempo para obter um certificado renovado.  
+#### <a name="for-cloud-distribution-points-protect-your-azure-subscription-details-and-certificates"></a>Para pontos de distribuição de nuvem, proteja os detalhes da subscrição do Azure e certificados
+Quando utiliza pontos de distribuição de nuvem, proteja os seguintes itens de alto valor:
+- O nome de utilizador e palavra-passe para a sua subscrição do Azure
+- O certificado de gestão do Azure 
+- O certificado de serviço do ponto de distribuição em nuvem
 
- Se um dos certificados expirar, o Gestor de serviços em nuvem gera o ID de mensagem de estado **9425** e o ficheiro de CloudMgr.log contém uma entrada que indica que o certificado **está no estado expirado**, com a data de expiração também registada em UTC.  
+Store os certificados de forma segura. Se navegar até-los através da rede quando configurar o ponto de distribuição de nuvem, utilize IPsec ou assinatura SMB entre o servidor de sistema de sites e a localização de origem.  
+
+#### <a name="for-service-continuity-monitor-the-expiry-date-of-the-cloud-distribution-point-certificates"></a>Para continuidade do serviço, monitorize a data de expiração dos certificados de ponto de distribuição na cloud
+O Configuration Manager não avisa quando os certificados importados para o ponto de distribuição em nuvem estão prestes a expirar. Monitorize as datas de expiração de forma independente do Configuration Manager. Certifique-se de que renova e, em seguida, importar os novos certificados antes da data de expiração. Esta ação é importante se adquirir um certificado de autenticação de servidor de um fornecedor externo, público, pois pode necessitar de mais tempo para adquirir um certificado renovado.  
+
+ Se um dos certificados expirar, o Gestor de serviços Cloud gera o ID de mensagem de estado **9425**. O ficheiro de Cloudmgr contém uma entrada que indica que o certificado **está no estado expirado**, com a data de expiração também registada em UTC.  
+
+
 
 ## <a name="security-considerations-for-content-management"></a>Considerações de segurança para gestão de conteúdo  
-Quando planear a gestão de conteúdo, considere o seguinte:  
 
--   Os clientes não validam o conteúdo até após a transferência.  
+Ao planear a gestão de conteúdo, considere os seguintes pontos:  
 
-     Clientes do Configuration Manager validam o hash do conteúdo após a transferência para a respetiva cache do cliente. Se um intruso adulterar a lista de ficheiros para transferir ou com o próprio conteúdo, o processo de transferência pode demorar algum tempo considerável largura de banda, apenas para o cliente rejeite o conteúdo quando encontrar o hash inválido.  
+-   Os clientes não validam o conteúdo apenas depois de ser transferido.  
 
--   Quando utiliza pontos de distribuição baseado na nuvem, o acesso ao conteúdo é restringe-se automaticamente à sua empresa e não pode restringi-la utilizadores ou grupos selecionados.  
+     Clientes do Configuration Manager validam o hash no conteúdo apenas depois de ser transferido para a respetiva cache do cliente. Se um intruso adulterar a lista de ficheiros para transferir ou com o próprio conteúdo, o processo de transferência pode demorar até largura de banda de rede considerável, apenas para o cliente rejeite depois o conteúdo quando encontrar o hash inválido.  
 
--   Quando utiliza pontos de distribuição baseado na nuvem, os clientes são autenticados pelo ponto de gestão e, em seguida, utilizam um token do Configuration Manager para aceder a pontos de distribuição baseado na nuvem. O token é válido para oito horas. Isto significa que, se bloquear um cliente porque já não é fidedigno, este pode continuar a transferir conteúdo de um ponto de distribuição baseado na cloud, até que o período de validade do token expirou. Neste momento, o ponto de gestão não irá emitir outro token para o cliente, porque o cliente está bloqueado.  
+-   Quando utiliza pontos de distribuição de nuvem, o acesso ao conteúdo é automaticamente restrito a sua empresa. Não pode restringi-la com utilizadores ou grupos selecionados.  
 
-     Para evitar que um cliente bloqueado Transfira conteúdo durante este período de hora de oito, pode parar o serviço em nuvem no **nuvem** nó, **configuração da hierarquia**, no **administração** área de trabalho na consola do Configuration Manager.  
+-   Quando utiliza pontos de distribuição de nuvem, os clientes são autenticados pelo ponto de gestão e, em seguida, utilizam um token do Configuration Manager para aceder a pontos de distribuição de nuvem. O token é válido para oito horas. Este comportamento significa que se bloquear um cliente porque ele já não é fidedigno, pode continuar a transferir conteúdo de um ponto de distribuição de nuvem, até que o período de validade do token expirou. Neste momento, o ponto de gestão não emitirá outro token para o cliente, porque o cliente está bloqueado.  
+
+     Para evitar um cliente bloqueado Transfira conteúdo durante esse período de oito horas, pare o serviço em nuvem. Na consola do Configuration Manager, vá para o **administração** área de trabalho, expanda **serviços Cloud**e selecione o **pontos de distribuição de nuvem** nó.  
+
+
 
 ##  <a name="BKMK_Privacy_ContentManagement"></a> Informações de privacidade da gestão de conteúdo  
- O Configuration Manager não inclui quaisquer dados de utilizador nos ficheiros de conteúdo, embora um utilizador administrativo possa optar por fazê-lo.  
 
- Antes de configurar a gestão de conteúdo, considere os requisitos de privacidade.  
+ O Configuration Manager não inclui quaisquer dados de utilizador nos ficheiros de conteúdo, embora um utilizador administrativo possa optar por efetuar esta ação.  
+
+
+
+## <a name="see-also"></a>Consulte também
+
+- [Conceitos fundamentais da gestão de conteúdos](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)  
+
+- [Segurança e privacidade para gestão de aplicações](/sccm/apps/plan-design/security-and-privacy-for-application-management)  
+
+- [Segurança e privacidade para atualizações de software](/sccm/sum/plan-design/security-and-privacy-for-software-updates)  
+
+- [Segurança e privacidade para implementação do SO](/sccm/osd/plan-design/security-and-privacy-for-operating-system-deployment)  

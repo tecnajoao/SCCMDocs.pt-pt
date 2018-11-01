@@ -10,12 +10,12 @@ ms.assetid: 86cd5382-8b41-45db-a4f0-16265ae22657
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: b1d4e2b7dca44db7ddc5976edde59a04bc3cb45e
-ms.sourcegitcommit: 4e4b71227309bee7e9f1285971f8235c67a9c502
+ms.openlocfilehash: e5099be5ff6b34bcbc232e78056f1937a9508c4f
+ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46533767"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50411430"
 ---
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
@@ -94,7 +94,7 @@ Quando a origem de cache ponto a ponto rejeita um pedido para o conteúdo, o cli
 
 - Os clientes só podem transferir conteúdo a partir de origens de cache ponto a ponto no respetivo grupo de limites atual.  
 
-- R [conta de acesso de rede](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account) não é necessário com a seguinte exceção:  
+- R [conta de acesso de rede](/sccm/core/plan-design/hierarchy/accounts#network-access-account) não é necessário com a seguinte exceção:  
 
     - Configure uma conta de acesso de rede no site, quando um cliente de cache com capacidade de ponto a ponto executada uma sequência de tarefas a partir do Centro de Software e é reiniciado para uma imagem de arranque. Quando o dispositivo estiver no Windows PE, ele usa a conta de acesso de rede para obter o conteúdo de origem de cache ponto a ponto.  
 

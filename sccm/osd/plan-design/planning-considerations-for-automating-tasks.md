@@ -2,7 +2,7 @@
 title: Plano para automatizar tarefas
 titleSuffix: Configuration Manager
 description: Planear antes de criar sequências de tarefas para automatizar tarefas com o Configuration Manager.
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: fc497a8a-3c54-4529-8403-6f6171a21c64
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1ea1b104dfbdf23a080bc71da94b88cdcad31fa1
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: 608b947e75ff29cf9653b2a12497918846556f4d
+ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42755953"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50411294"
 ---
 # <a name="planning-considerations-for-automating-tasks-in-configuration-manager"></a>Considerações sobre planeamento para automatizar tarefas no Configuration Manager
 
@@ -236,18 +236,42 @@ ms.locfileid: "42755953"
 
 ##  <a name="BKMK_TSNetworkAccessAccount"></a> Sequências de tarefas e conta de acesso à rede  
 
- Apesar de sequências de tarefas serem executadas apenas no contexto da conta do sistema Local, poderá ter de configurar o [conta de acesso de rede](/sccm/core/plan-design/hierarchy/accounts#network-access) nas seguintes circunstâncias:  
+> [!Important]  
+> A partir da versão 1806, alguns cenários de implementação do sistema operacional não exigem a utilização da conta de acesso à rede. Para obter mais informações, consulte [avançada HTTP](#enhanced-http).
 
- - Se a sequência de tarefas tenta aceder ao conteúdo do Configuration Manager em pontos de distribuição. Configurar a conta de acesso à rede corretamente ou a sequência de tarefas falhará.   
+Apesar de sequências de tarefas serem executadas apenas no contexto da conta do sistema Local, poderá ter de configurar o [conta de acesso de rede](/sccm/core/plan-design/hierarchy/accounts#network-access-account) nas seguintes circunstâncias:  
 
- - Quando utiliza uma imagem de arranque para iniciar uma implantação de sistema operacional. Neste caso, o Configuration Manager utiliza o ambiente do Windows PE, que não é um SO completo. O ambiente do Windows PE utiliza um nome aleatório gerado automaticamente que não seja um membro de qualquer domínio. Se não configurar corretamente a conta de acesso de rede, o computador não é possível acessar o conteúdo necessário para a sequência de tarefas.  
+- Se a sequência de tarefas tenta aceder ao conteúdo do Configuration Manager em pontos de distribuição. Configurar a conta de acesso à rede corretamente ou a sequência de tarefas falhará.   
+
+- Quando utiliza uma imagem de arranque para iniciar uma implantação de sistema operacional. Neste caso, o Configuration Manager utiliza o ambiente do Windows PE, que não é um SO completo. O ambiente do Windows PE utiliza um nome aleatório gerado automaticamente que não seja um membro de qualquer domínio. Se não configurar corretamente a conta de acesso de rede, o computador não é possível acessar o conteúdo necessário para a sequência de tarefas.  
+
+> [!NOTE]  
+>  A conta de acesso à rede nunca é utilizada como o contexto de segurança para executar programas, instalar aplicações, instalar atualizações ou executar sequências de tarefas. A conta de acesso de rede só é utilizada para aceder aos recursos associados na rede.  
+
+Para obter mais informações sobre a conta de acesso de rede, consulte [conta de acesso à rede](/sccm/core/plan-design/hierarchy/accounts#network-access-account).  
 
 
- > [!NOTE]  
- >  A conta de acesso à rede nunca é utilizada como o contexto de segurança para executar programas, instalar aplicações, instalar atualizações ou executar sequências de tarefas. A conta de acesso de rede só é utilizada para aceder aos recursos associados na rede.  
+### <a name="enhanced-http"></a>HTTP avançado
+<!--1358278-->
 
+A partir da versão 1806, quando ativa **avançada HTTP**, os seguintes cenários não precisam de uma conta de acesso de rede para transferir o conteúdo de um ponto de distribuição:
+  
+- Sequências de tarefas em execução a partir do suporte de dados ou PXE  
+- Sequências de tarefas em execução a partir do Centro de Software  
 
- Para obter mais informações sobre a conta de acesso de rede, consulte [conta de acesso à rede](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#bkmk_NAA).  
+Estas sequências de tarefas podem ser para a implementação do sistema operacional ou personalizado. Também é suportada para computadores de grupo de trabalho.
+ 
+Para obter mais informações, consulte [avançada HTTP](/sccm/core/plan-design/hierarchy/enhanced-http).  
+
+> [!Note]  
+> Os seguintes cenários de implementação do sistema operacional ainda requerem a utilização de uma conta de acesso de rede:
+>  
+> - A sequência de tarefas [opção de implementação](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS), **aceder ao conteúdo diretamente a partir de um ponto de distribuição quando necessário pela sequência de tarefas em execução**   
+> - O [Store de estado do pedido](/sccm/osd/understand/task-sequence-steps#BKMK_RequestStateStore) passo opção, **se conta de computador falhar a ligação para um armazenamento de Estados, utilize a conta de acesso de rede** 
+> - Ao ligar-se com um domínio não fidedigno ou entre florestas do Active Directory 
+> - O [aplicar imagem do SO](/sccm/osd/understand/task-sequence-steps#BKMK_ApplyOperatingSystemImage) passo opção, **aceder ao conteúdo diretamente a partir do ponto de distribuição** 
+> - A sequência de tarefas [as definições avançadas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#bkmk_prop-advanced) para **executar outro programa primeiro** 
+> - [Multicast](/sccm/osd/deploy-use/use-multicast-to-deploy-windows-over-the-network)  
 
 
 
