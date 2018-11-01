@@ -1,8 +1,8 @@
 ---
-title: Plano para o gateway de gestão da cloud
+title: Planear o gateway de gestão na cloud
 titleSuffix: Configuration Manager
 description: Planear e estruturar o gateway de gestão da cloud (CMG) para simplificar a gestão de clientes baseados na internet.
-ms.date: 09/10/2018
+ms.date: 10/24/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9b25b7a5b7df42dc83bec18d38b44c7807e6dc1a
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.openlocfilehash: 0f7e598da0953a20412f6c8279b90a95c1d26581
+ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601131"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50411481"
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plano para o gateway de gestão de nuvem no Configuration Manager
 
@@ -103,17 +103,17 @@ Implantação e operação do CMG inclui os seguintes componentes:
 O assistente CMG ainda fornece a opção para um **implementação de serviço clássico** a utilizar um certificado de gestão do Azure. Para simplificar a implementação e gestão de recursos, é recomendado utilizar o modelo de implementação Azure Resource Manager para todas as novas instâncias do CMG. Se possível, volte a implementar instâncias CMG existentes através do Resource Manager. Para obter mais informações, consulte [modificar um CMG](/sccm/core/clients/manage/cmg/setup-cloud-management-gateway#modify-a-cmg).
 
 > [!IMPORTANT]  
-> Esta capacidade não ativa o suporte para fornecedores de serviços de Cloud do Azure (CSP). A implementação do CMG com o Azure Resource Manager continua a utilizar o serviço cloud clássico, que não suporta o CSP. Para obter mais informações, consulte [serviços do Azure disponíveis no Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). 
+> Esta capacidade não ative o suporte para fornecedores de serviços de Cloud do Azure (CSP). A implementação do CMG com o Azure Resource Manager continua a utilizar o serviço de cloud clássica, o que não suporta o CSP. Para obter mais informações, consulte [serviços do Azure disponíveis no Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services). 
 
 
 ### <a name="hierarchy-design"></a>Estrutura de hierarquia
 
-Crie CMG no site de nível superior da sua hierarquia. Se isto é um site de administração central, em seguida, crie pontos de ligação do CMG em sites primários subordinados. É o componente de Gestor do serviço de nuvem no ponto de ligação de serviço, que também é no site de administração central. Esse design pode partilhar o serviço em diferentes sites primários se for necessário.
+Crie CMG no site de nível superior da sua hierarquia. Se for um site de administração central, em seguida, crie pontos de ligação do CMG em sites primários subordinados. É o componente de Gestor do serviço de nuvem no ponto de ligação de serviço, que também é no site de administração central. Esse design pode partilhar o serviço em diferentes sites primários se for necessário.
 
 Pode criar vários serviços CMG no Azure e pode criar vários pontos de ligação do CMG. Vários pontos de ligação do CMG fornecem balanceamento de carga do tráfego de cliente do CMG para as funções no local. Para reduzir a latência de rede, atribua CMG associado à mesma região geográfica que o site primário.
 
  > [!Note]  
- > Clientes baseados na Internet e o CMG se encontra em nenhum grupo de limites.
+ > Clientes baseados na Internet e o CMG não se enquadram em qualquer grupo de limites.
 
 Outros fatores, como o número de clientes para gerir, o impacto sobre o design do CMG. Para obter mais informações, consulte [desempenho e dimensionamento](#performance-and-scale).
 
@@ -139,7 +139,7 @@ Como os clientes baseados em Seattle se movem para a internet, comunicam-se com 
 Da mesma forma, como os clientes baseados em Paris se movem para a internet, comunicam com o CMG na região do Azure de Europa Ocidental. Por sua vez encaminha a CMG esta comunicação para o ponto de ligação do CMG com base em Paris. Quando os utilizadores com base em Paris viajam para sede da empresa em Seattle, seus computadores continuam a comunicar com o CMG na região do Azure de Europa Ocidental. 
 
  > [!Note]  
- > Quarto café considerado criar outro ponto de ligação do CMG no site primário com base em Paris ligado para o Oeste nos CMG. Clientes baseados em Paris, em seguida, utilizar ambos os CMGs, independentemente da respetiva localização. Embora esta configuração ajuda a tráfego de balanceamento de carga e fornecer redundância de serviço, poderá também causar atrasos quando os clientes baseados em Paris comunicam com o CMG baseadas nos E.U.A. Clientes do Configuration Manager não têm atualmente conhecimento da sua região geográfica, para que não prefere um CMG que está geograficamente mais próximo. Os clientes utilizam aleatoriamente um CMG disponível.
+ > Quarto café considerado criar outro ponto de ligação do CMG no site primário com base em Paris ligado para o Oeste nos CMG. Clientes baseados em Paris, em seguida, utilizar ambos os CMGs, independentemente da respetiva localização. Embora esta configuração ajuda a tráfego de balanceamento de carga e fornecer redundância de serviço, poderá também causar atrasos quando os clientes baseados em Paris comunicam com o CMG baseadas nos E.U.A. Clientes do Configuration Manager não são atualmente atento a sua região geográfica, para que não prefiro uma CMG que está geograficamente mais próximo. Os clientes utilizam aleatoriamente um CMG disponível.
 
 
 
@@ -149,20 +149,23 @@ Da mesma forma, como os clientes baseados em Paris se movem para a internet, com
 
     - Uma **administrador do Azure** tem de participar na criação inicial de determinados componentes, dependendo de seu design. Essa pessoa não requer permissões no Configuration Manager.  
 
-- Pelo menos um servidor no local Windows para alojar o **ponto de ligação CMG**. Pode colocalize a esta função com outras funções de sistema de sites do Configuration Manager.  
+- Pelo menos um servidor no local Windows para alojar o **ponto de ligação CMG**. Pode colocar esta função com outras funções de sistema de sites do Configuration Manager.  
 
 - O **ponto de ligação de serviço** tem de constar [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_modes).   
 
-- R [ **certificado de autenticação de servidor** ](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#cmg-server-authentication-certificate) para CMG.  
+- R [ **certificado de autenticação de servidor** ](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#bkmk_serverauth) para CMG.  
 
-- Se utilizar o método de implementação clássica do Azure, tem de utilizar um [ **certificado de gestão do Azure**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#azure-management-certificate).  
+- Se utilizar o método de implementação clássica do Azure, tem de utilizar um [ **certificado de gestão do Azure**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#bkmk_azuremgmt).  
 
     > [!TIP]  
-    > A partir do Configuration Manager versão 1802, utilizando o **do Azure Resource Manager** modelo de implementação é recomendado. Não requer este certificado de gestão.  
+    > A iniciar com o Configuration Manager versão 1802, a Microsoft recomenda a utilização a **do Azure Resource Manager** modelo de implementação. Ele não requer este certificado de gestão.  
 
 - **Outros certificados** podem ser necessários, dependendo de seu modelo de autenticação e a versão de SO de cliente. Para obter mais informações, consulte [certificados CMG](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway).  
 
-    - A partir da versão 1802, tem de configurar todos os habilitados para CMG [ **pontos de gestão para utilizar HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#enable-management-point-for-https).  
+    - A partir da versão 1802, tem de configurar todos os habilitados para CMG [ **pontos de gestão para utilizar HTTPS**](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway#bkmk_mphttps).  
+
+    - A partir da versão 1806, quando o site a utilizar a opção de **sistemas de sites de certificados gerados pelo utilize o Gestor de configuração para HTTP**, o ponto de gestão pode ser HTTP. Para obter mais informações, consulte [avançada HTTP](/sccm/core/plan-design/hierarchy/enhanced-http).  
+
 
 - Integração com o **do Azure AD** poderá ser necessária para os clientes do Windows 10. Para obter mais informações, consulte [dos serviços do Azure configurar](/sccm/core/servers/deploy/configure/azure-services-wizard).  
 
@@ -325,8 +328,8 @@ Esta tabela lista os protocolos e portas de rede necessária. O *cliente* é o d
 |---------|---------|---------|---------|---------|
 | Ponto de ligação de serviço     | HTTPS | 443        | Azure        | Implementação do CMG |
 | Ponto de ligação CMG     |  TCP-TLS | 10140-10155        | Serviço CMG        | Preferência de protocolo para criar o canal CMG <sup>1</sup> |
-| Ponto de ligação CMG     | HTTPS | 443        | Serviço CMG       | Contingência para criar o canal CMG para apenas uma instância VM<sup>2</sup> |
-| Ponto de ligação CMG     |  HTTPS   | 10124-10139     | Serviço CMG       | Contingência para criar o canal CMG para duas ou mais instâncias VM<sup>3</sup> |
+| Ponto de ligação CMG     | HTTPS | 443        | Serviço CMG       | Protocolo de contingência para criar o canal CMG para apenas uma instância VM<sup>2</sup> |
+| Ponto de ligação CMG     |  HTTPS   | 10124-10139     | Serviço CMG       | Protocolo de contingência para criar o canal CMG para duas ou mais instâncias VM<sup>3</sup> |
 | Cliente     |  HTTPS | 443         | CMG        | Comunicação de cliente geral |
 | Ponto de ligação CMG      | HTTPS ou HTTP | 443 ou 80         | Ponto de gestão<br>(versão 1706 ou 1710) | Tráfego no local, porta depende da configuração do ponto de gestão |
 | Ponto de ligação CMG      | HTTPS | 443      | Ponto de gestão<br>(versão 1802) | Tráfego no local tem de ser HTTPS |
