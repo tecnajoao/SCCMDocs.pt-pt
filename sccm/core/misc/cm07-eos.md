@@ -2,7 +2,7 @@
 title: Fim do suporte
 titleSuffix: Configuration Manager 2007
 description: O suporte termina para o System Center Configuration Manager 2007 e o Forefront Endpoint Protection 2010, 9 de Julho de 2019.
-ms.date: 09/19/2018
+ms.date: 11/05/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: c142b77ed20bb2b77f75a24bf1c6058151d950ac
-ms.sourcegitcommit: d020aee900c12c1f71cf402774c3befb435c8d9f
+ms.openlocfilehash: 04679fc70ffa326066f5755646193c8d0072f989
+ms.sourcegitcommit: 1f8731ed8f0308cb2cb576722adb0821a366e9ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46493863"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51223624"
 ---
 # <a name="product-end-of-support"></a>Fim de produto do suporte
 
@@ -43,6 +43,6 @@ Para obter mais informações, consulte os artigos seguintes:
 - [Mensagem de blogue de suporte do Configuration Manager](https://blogs.technet.microsoft.com/configurationmgr/2018/03/30/configuration-manager-2007-approaching-end-of-support-what-you-need-to-know/)  
 - [Introdução ao ramo atual do Configuration Manager](/sccm/core/understand/introduction)  
 - [Documentação sobre como migrar para o Configuration Manager current branch](/sccm/core/migration/migrate-data-between-hierarchies)  
-
+    - Este artigo também contém um vídeo que descreve e demonstra os cenários comuns de migração.
 
 Biblioteca de documentação do Configuration Manager 2007 ainda está disponível no [Microsoft TechNet](https://technet.microsoft.com/library/bb735860.aspx).

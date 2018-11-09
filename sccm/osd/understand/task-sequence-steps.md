@@ -10,12 +10,12 @@ ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3e0b70a2b024555bd67f63b3a31a6408b07c273b
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: bec95b13ecba5ae5238d758ae06566042a95d939
+ms.sourcegitcommit: 303d826f45c8fd9a05d8883afc1ca645e56bd576
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756082"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51269251"
 ---
 # <a name="task-sequence-steps-in-configuration-manager"></a>Passos de sequência de tarefas no Configuration Manager
 
@@ -134,7 +134,7 @@ ms.locfileid: "42756082"
 
  Utilize este passo para especificar as informações de configuração de rede ou o grupo de trabalho para o computador de destino. A sequência de tarefas armazena estes valores no ficheiro de resposta adequado. Este ficheiro de resposta durante a configuração do Windows utiliza a **configuração do Windows e ConfigMgr** ação.  
 
- Este passo de sequência de tarefas é executado no SO completo ou o Windows PE. 
+ Este passo de sequência de tarefas é executado apenas no Windows PE. Não é executado no SO completo. 
 
  Utilize as seguintes variáveis de sequência de tarefas com este passo:  
  - [OSDAdapter](/sccm/osd/understand/task-sequence-variables#OSDAdapter)  
@@ -709,7 +709,7 @@ ms.locfileid: "42756082"
 
  Utilize este passo para ativar a encriptação BitLocker em, pelo menos, duas partições no disco rígido. A primeira partição ativa contém o código de arranque do sistema do Windows. Outra partição contém o sistema operacional. A partição de arranque do sistema tem de permanecer desencriptada.  
 
- Utilize o **provisão prévia do BitLocker** passo para ativar o BitLocker numa unidade no Windows PE. Para obter mais informações, consulte [provisão prévia do BitLocker](#BKMK_PreProvisionBitLocker).  
+ Utilize o **provisão prévia do BitLocker** passo para ativar o BitLocker numa unidade no Windows PE. Para mais informações, consulte [Pre-provision BitLocker](#BKMK_PreProvisionBitLocker).  
 
  > [!NOTE]  
  >  A encriptação de unidade BitLocker fornece encriptação de baixo nível do conteúdo de um volume do disco.  
@@ -1458,7 +1458,7 @@ ms.locfileid: "42756082"
 ##  <a name="child-task-sequence"></a> Executar a sequência de tarefas
 
  > [!Note]  
- > O Configuration Manager não permite esta funcionalidade opcional por predefinição. Habilite esse recurso antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
+ > O Configuration Manager não permite esta funcionalidade opcional por predefinição. Habilite esse recurso antes de o utilizar. Para mais informações, consulte [Enable optional features from updates](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).
 
  A partir do Configuration Manager versão 1710, pode adicionar um novo passo que executa outra sequência de tarefas. Este passo cria uma relação principal-subordinado entre sequências de tarefas. Com sequências de tarefas filho, pode criar sequências de tarefas modulares, reutilizáveis mais.
 

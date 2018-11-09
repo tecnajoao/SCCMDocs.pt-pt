@@ -1,5 +1,5 @@
 ---
-title: Cogestão para dispositivos Windows 10
+title: Cogestão para os dispositivos com Windows 10
 titleSuffix: Configuration Manager
 description: Saiba como ao mesmo tempo gerir dispositivos Windows 10 com o Configuration Manager e o Microsoft Intune.
 author: aczechowski
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: d6bbc787-83a5-44b4-ad64-016e5da7413f
-ms.openlocfilehash: a99983583aa8c21f8a987f3e20550752e7b77ba4
-ms.sourcegitcommit: 83806460b6fd88a1d08a2c97f4d72b9e36e04102
+ms.openlocfilehash: 1791217e22e2bcc6d5fd2603abee3aaced816afe
+ms.sourcegitcommit: 1f8731ed8f0308cb2cb576722adb0821a366e9ce
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51223743"
 ---
-# <a name="co-management-for-windows-10-devices"></a>Cogestão para dispositivos Windows 10    
+# <a name="co-management-for-windows-10-devices"></a>Cogestão para os dispositivos com Windows 10    
 
 Com as atualizações anteriores do Windows 10, já pode participar num dispositivo Windows 10 para o local do Active Directory (AD) e com base na cloud do Azure AD ao mesmo tempo (Azure AD híbrido). A partir do Configuration Manager versão 1710, usufrui cogestão essa melhoria. Permite-lhe gerir em simultâneo dispositivos do Windows 10 versão 1709 através do Configuration Manager e o Intune. <!-- 1350871 -->
 
@@ -72,7 +72,7 @@ Uso de imediato as seguintes funcionalidades do Intune:
 
  - Dispositivos Windows 10 têm de ser associados ao Azure AD. Eles podem ser qualquer um dos seguintes tipos:  
 
-     - [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup), onde o dispositivo está associado ao Azure AD e o seu domínio no local  
+     - [Azure híbrido associado ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup), em que o dispositivo é associado ao Active Directory no local e registado com o Azure Active Directory.
 
      - Azure AD associado apenas. (Este tipo é por vezes referido como "cloud associados a um domínio")<!--SCCMDocs issue 605-->
 
