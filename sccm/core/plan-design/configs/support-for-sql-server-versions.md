@@ -10,12 +10,12 @@ ms.assetid: 35e237b6-9f7b-4189-90e7-8eca92ae7d3d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: aed8014715431a2fb70647ae77f5009e0c89b3ab
-ms.sourcegitcommit: 98c3f7848dc9014de05541aefa09f36d49174784
+ms.openlocfilehash: 962029dc6bc5584e1edf0bd26d4be3fc280d6204
+ms.sourcegitcommit: 147aae8300831c722a559087c735df0f761b2041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42586224"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645247"
 ---
 # <a name="supported-sql-server-versions-for-configuration-manager"></a>Versões suportadas do SQL Server para o Configuration Manager
 
@@ -104,6 +104,12 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
 -   Um site primário  
 -   Um site secundário  
 
+### <a name="sql-server-2014-sp3-standard-enterprise"></a>SP3 do SQL Server 2014: Standard, Enterprise  
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
+
+-   Um site de administração central  
+-   Um site primário  
+-   Um site secundário
 
 ### <a name="sql-server-2014-sp2-standard-enterprise"></a>SQL Server 2014 SP2: Standard, Enterprise  
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
@@ -152,12 +158,15 @@ Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:
 -   Um site secundário
 
+### <a name="sql-server-2014-express-sp3"></a>SP3 Express do SQL Server 2014   
+Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
+
+-   Um site secundário  
 
 ### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 Express SP2   
 Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  
 
 -   Um site secundário  
-
 
 ### <a name="sql-server-2014-express-sp1"></a>SQL Server 2014 Express SP1   
  Pode utilizar esta versão do SQL Server sem versão de atualização cumulativa mínima para os seguintes sites:  

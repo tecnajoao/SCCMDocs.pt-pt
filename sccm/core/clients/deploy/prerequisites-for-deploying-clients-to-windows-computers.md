@@ -10,12 +10,12 @@ ms.assetid: 1a2a9b48-a95b-4643-b00c-b3079584ae2e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 025edee312e1c67eba9f9e4f812b03806f51dbbb
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 11474f54aaf7a9afe13d411b0dd469abb1eef963
+ms.sourcegitcommit: c2c44329f1f9a2e6c14095360b4fc4aafabc27f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384319"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51694948"
 ---
 # <a name="prerequisites-for-deploying-clients-to-windows-computers-in-configuration-manager"></a>Pré-requisitos para implementar clientes em computadores Windows no Configuration Manager
 
@@ -60,7 +60,7 @@ Se o cliente requer estas dependências para concluir a instalação, ele automa
 |Microsoft Policy Platform 1.2.3514.0|Necessário para permitir aos clientes avaliar as definições de compatibilidade.|  
 |Microsoft Silverlight 5.1.41212.0|Necessário para suportar a experiência de utilizador do Web site do Catálogo de Aplicações. A partir de 1802 do Gestor de configuração, o cliente não instala automaticamente Silverlight. A funcionalidade primária do catálogo de aplicações agora está incluída no Centro de Software. Suporte para o catálogo de aplicações Web site termina na versão 1806.<!--1356195-->|  
 |Microsoft .NET Framework versão 4.5.2|Necessário para suportar operações de cliente. Instalado automaticamente no computador cliente se ele não tem o Microsoft .NET Framework versão 4.5 ou posterior instalado. Para obter mais informações, veja [Detalhes adicionais sobre o Microsoft .NET Framework versão 4.5.2](#dotNet).|  
-|Componentes do Microsoft SQL Server Compact 3.5 SP2|Necessários para armazenar informações relacionadas com operações de cliente.|  
+|Componentes do Microsoft SQL Server Compact 4.0 SP1|Necessários para armazenar informações relacionadas com operações de cliente.|  
 
 
 ####  <a name="dotNet"></a> Detalhes adicionais sobre o Microsoft .NET Framework versão 4.5.2  
