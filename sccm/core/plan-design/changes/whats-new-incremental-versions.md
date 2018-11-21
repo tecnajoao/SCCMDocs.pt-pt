@@ -1,6 +1,6 @@
 ---
 title: Versões incrementais
-titleSuffix: Configuraton Manager
+titleSuffix: Configuration Manager
 description: Saiba mais sobre o que há de novo na atualização mais recente para o Configuration Manager.
 ms.date: 07/30/2018
 ms.prod: configuration-manager
@@ -10,14 +10,14 @@ ms.assetid: b57acf0b-05b7-46af-ad4c-f3e707bd3861
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 13037b857b890d400881d8d7173b7ca03dd83ebc
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 3afe14d62f55bf5ef7923882bbb2bbe57e245661
+ms.sourcegitcommit: 2cc635835709fb8d86cdb63ea34233b36c94d4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384131"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52258932"
 ---
-# <a name="whats-new-in-configuration-manager-incremental-versions"></a>Quais são as novidades nas versões incrementais do Configuration Manager
+# <a name="whats-new-in-configuration-manager-incremental-versions"></a>Novidades das versões incrementais do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -31,7 +31,7 @@ ms.locfileid: "39384131"
 
 ## <a name="supported-versions"></a>Versões suportadas
  Utilize as seguintes ligações para descobrir o que há de novo com cada versão suportada:
-  - [O que há de novo na versão 1806](../../../core/plan-design/changes/whats-new-in-version-1806.md)  
+  - [Novidades na versão 1806](../../../core/plan-design/changes/whats-new-in-version-1806.md)  
   - [Novidades na versão 1802](../../../core/plan-design/changes/whats-new-in-version-1802.md)
   - [Novidades na versão 1710](../../../core/plan-design/changes/whats-new-in-version-1710.md)
 

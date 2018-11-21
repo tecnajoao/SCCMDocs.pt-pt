@@ -1,6 +1,6 @@
 ---
-title: Cargas de trabalho do Gestor de configuração do comutador para o Intune
-titleSuffix: Configuraton Manager
+title: Mudar as cargas de trabalho do Configuration Manager para o Intune
+titleSuffix: Configuration Manager
 description: Saiba como mudar cargas de trabalho atualmente gerenciadas pelo Configuration Manager para o Microsoft Intune.
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,18 +10,18 @@ manager: dougeby
 ms.date: 07/30/2018
 ms.topic: conceptual
 ms.assetid: 60e2022f-a4f9-40dd-af01-9ecb37b43878
-ms.openlocfilehash: c1f5f96c4178068ced727cfe96b1c6fe8b60a0fc
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 739773e83213033103b414cc9bb79f7abccb230c
+ms.sourcegitcommit: 2cc635835709fb8d86cdb63ea34233b36c94d4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384004"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52258949"
 ---
-# <a name="switch-configuration-manager-workloads-to-intune"></a>Cargas de trabalho do Gestor de configuração do comutador para o Intune
+# <a name="switch-configuration-manager-workloads-to-intune"></a>Mudar as cargas de trabalho do Configuration Manager para o Intune
 Na [dispositivos de preparar o Windows 10 para a cogestão](co-management-prepare.md), que preparou de dispositivos Windows 10 para a cogestão. Estes dispositivos estão associados ao AD, o Azure AD, inscritos no Intune e que o cliente do Configuration Manager. É provável que ainda terá os dispositivos Windows 10 que estão associados ao AD e o cliente do Configuration Manager, mas não associados ao Azure AD ou inscritos no Intune. O procedimento seguinte disponibiliza os passos para ativar a cogestão, preparar o resto dos seus dispositivos Windows 10 (clientes do Configuration Manager sem a inscrição do Intune) para a cogestão e permite-lhe começar a mudar específico do Configuration Manager cargas de trabalho para o Intune.
 
 
-## <a name="switch-configuration-manager-workloads-to-intune"></a>Cargas de trabalho do Gestor de configuração do comutador para o Intune
+## <a name="switch-configuration-manager-workloads-to-intune"></a>Mudar as cargas de trabalho do Configuration Manager para o Intune
 
 1. Na consola do Configuration Manager, aceda a **Administration** > **descrição geral** > **serviços Cloud**  >  **Cogestão**.    
 2. No separador início, no grupo gerenciar, escolha **configurar cogestão** para abrir o Assistente de configuração de cogestão.    
@@ -60,7 +60,7 @@ Determinadas cargas de trabalho estão disponíveis para mudar ao longo para o I
       - O Windows Defender Exploit Guard
       - Controlo de aplicações do Windows Defender
       - Centro de segurança do Windows Defender
-      - Proteção avançada contra ameaças do Windows Defender
+      - Proteção Avançada Contra Ameaças do Windows Defender
       - Proteção de informações do Windows
 
 5. Configuração do dispositivo (a partir do Configuration Manager versão 1806) <!--1357903-->
