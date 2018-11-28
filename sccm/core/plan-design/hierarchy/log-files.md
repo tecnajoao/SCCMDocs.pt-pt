@@ -2,7 +2,7 @@
 title: Ficheiros de registo para resolução de problemas
 titleSuffix: Configuration Manager
 description: Utilize ficheiros de registo para resolver problemas com sistemas de sites e clientes do Configuration Manager.
-ms.date: 09/10/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 4435d39dd736db1058b06d09e5722a80a173bf6e
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.openlocfilehash: cf7ca86dd04d60f1ff914294a7430d9f4a7a2fb7
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601216"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456707"
 ---
 # <a name="log-files-in-configuration-manager"></a>Ficheiros de registo no Configuration Manager
 
@@ -314,6 +314,7 @@ O ficheiro de registo sms_dm no servidor do sistema de site também regista a co
 |mpMSI.log|Regista detalhes sobre a gestão de ponto de instalação.|Servidor do site|  
 |MPSetup.log|Regista o processo do wrapper de instalação do ponto de gestão.|Servidor do site|  
 |netdisc.log|Regista ações da Deteção de Rede.|Servidor do site|  
+|NotiCtrl.log|Notificações de pedido de aplicação.|Servidor do site|  
 |ntsvrdis.log|Regista a atividade de deteção de servidores de sistema de sites.|Servidor do site|  
 |Objreplmgr|Regista o processamento de notificações de alteração de objetos para replicação.|Servidor do site|  
 |offermgr.log|Regista atualizações de anúncios.|Servidor do site|  
@@ -334,7 +335,7 @@ O ficheiro de registo sms_dm no servidor do sistema de site também regista a co
 |sitectrl.log|Regista as alterações de definições do site efetuadas nos objetos de controlo do site na base de dados.|Servidor do site|  
 |sitestat.log|Regista a disponibilidade e o processo de monitorização do espaço em disco de todos os sistemas.|Servidor do site|
 |SMS_ISVUPDATES_SYNCAGENT.log| Ficheiro de registo para a sincronização de atualizações de software de terceiros a partir do Configuration Manager versão 1806.| Ponto de atualização de software de nível superior na hierarquia do Configuration Manager.|
-|SMS_PhasedDeployment.log| Ficheiro de registo para as implementações faseadas, uma funcionalidade de pré-lançamento a partir do Configuration Manager versão 1802.|Site de nível superior na hierarquia do Configuration Manager|   
+|SMS_PhasedDeployment.log| Ficheiro de registo para as implementações faseadas|Site de nível superior na hierarquia do Configuration Manager|   
 |SmsAdminUI.log|Regista a atividade de consola do Configuration Manager.|Computador que executa a consola do Configuration Manager|  
 |SMSAWEBSVCSetup.log|Regista as atividades de instalação do serviço Web do Catálogo de Aplicações.|Servidor do sistema de sites|  
 |smsbkup.log|Regista a saída do processo de cópia de segurança do site.|Servidor do site|  
@@ -436,6 +437,7 @@ O ficheiro de registo sms_dm no servidor do sistema de site também regista a co
 |Ccmsdkprovider.log|Regista as atividades do SDK de gestão de aplicações.|Cliente|  
 |colleval.log|Regista detalhes sobre o momento de criação, alteração e eliminação das coleções pelo Avaliador de Coleção.|Servidor do sistema de sites|  
 |ConfigMgrSoftwareCatalog.log|Regista a atividade do Catálogo de Aplicações, que inclui a sua utilização do Silverlight.|Cliente|  
+|NotiCtrl.log|Notificações de pedido de aplicação.|Servidor do site|  
 |portlctl.log|Regista as atividades de monitorização da função do sistema de sites do ponto do Web site do Catálogo de Aplicações.|Servidor do sistema de sites|  
 |portlwebMSI.log|Regista a atividade de instalação do MSI para a função de Web site do Catálogo de Aplicações.|Servidor do sistema de sites|  
 |PrestageContent.log|Regista detalhes sobre a utilização da ferramenta ExtractContent.exe num ponto de distribuição remoto, pré-configurado. Esta ferramenta extrai o conteúdo exportado para um ficheiro.|Servidor do sistema de sites|  
@@ -708,7 +710,7 @@ A tabela seguinte lista os ficheiros de registo que contêm informações relaci
 |smpperf.log|Regista as atualizações do contador de desempenho do ponto de migração de estado.|Servidor do sistema de sites|  
 |smspxe.log|Regista detalhes sobre as respostas aos clientes que utilizam o arranque PXE e detalhes sobre a expansão de imagens de arranque e arquivos de inicialização.|Servidor do sistema de sites|  
 |smssmpsetup.log|Regista detalhes da instalação e configuração do ponto de migração de estado.|Servidor do sistema de sites|
-| SMS_PhasedDeployment.log| Ficheiro de registo para as implementações faseadas, uma funcionalidade de pré-lançamento a partir do Configuration Manager versão 1802.|Site de nível superior na hierarquia do Configuration Manager| 
+| SMS_PhasedDeployment.log| Ficheiro de registo para as implementações faseadas|Site de nível superior na hierarquia do Configuration Manager| 
 |Smsts.log|Regista atividades de sequência de tarefas.|Cliente|  
 |TSAgent.log|Regista o resultado de dependências de sequência de tarefas antes de iniciar uma sequência de tarefas.|Cliente|  
 |TaskSequenceProvider.log|Regista detalhes sobre sequências de tarefas quando estas são importadas, exportadas ou editadas.|Servidor do sistema de sites|  
