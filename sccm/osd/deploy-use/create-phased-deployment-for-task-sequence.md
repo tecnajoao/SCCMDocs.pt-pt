@@ -1,8 +1,8 @@
 ---
-title: Criar uma implementação faseada
+title: Criar implementações faseadas
 titleSuffix: Configuration Manager
 description: Utilize as implementações faseadas para automatizar a implementação de software para várias coleções.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -10,21 +10,28 @@ ms.assetid: b634ff68-b909-48d2-9e2c-0933486673c5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 0ab238b2cf98da3d7ea1e86ef6462a721d7347e8
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 7d103f7f7b92003605d92d34d6294ed06009118c
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383621"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456520"
 ---
 # <a name="create-phased-deployments-with-configuration-manager"></a>Criar implementações faseadas com o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-As implementações faseadas automatizam uma implementação coordenada e sequenciada de software entre várias coleções. Por exemplo, implementar software para uma coleção piloto e, em seguida, continuar automaticamente a implementação com base nos critérios de sucesso. Criar implementações faseadas com a predefinição de duas fases ou configurar manualmente as várias fases. A implementação faseada de sequências de tarefas não suporta a instalação de PXE ou suportes de dados. A partir da versão 1806, crie uma implementação faseada para uma aplicação.<!--1358147-->  
+As implementações faseadas automatizam uma implementação coordenada e sequenciada de software entre várias coleções. Por exemplo, implementar software para uma coleção piloto e, em seguida, continuar automaticamente a implementação com base nos critérios de sucesso. Criar implementações faseadas com a predefinição de duas fases ou configurar manualmente as várias fases. 
 
-> [!Tip]
-> A funcionalidade de implementação faseada foi introduzido pela primeira vez na versão 1802 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1806, ele não se encontra uma funcionalidade de pré-lançamento.<!--1356837-->
+Crie implementações faseadas para os seguintes objetos:
+- **Sequência de tarefas**  
+    - A implementação faseada de sequências de tarefas não suporta a instalação de PXE ou suportes de dados   
+- **Aplicação** (a partir da versão 1806) <!--1358147-->  
+- **Atualização de software** (a partir da versão 1810) <!--1358146-->  
+    - Não é possível utilizar uma regra de implementação automática com uma implementação faseada
+
+> [!Tip]  
+> A funcionalidade de implementação faseada foi introduzido pela primeira vez na versão 1802 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1806, ele não se encontra uma funcionalidade de pré-lançamento.<!--1356837-->  
 
 
 
@@ -33,8 +40,14 @@ As implementações faseadas automatizam uma implementação coordenada e sequen
 #### <a name="security-scope"></a>Âmbito de segurança
 Implementações criadas por implementações faseadas não são visíveis para qualquer utilizador administrativo que não tem o **todos os** âmbito de segurança. Para obter mais informações, veja [Âmbitos de segurança](/sccm/core/understand/fundamentals-of-role-based-administration#bkmk_PlanScope).
 
-#### <a name="distribute-application-content"></a>Distribuir o conteúdo da aplicação
-Antes de criar uma implementação faseada para uma aplicação, distribua o conteúdo para um ponto de distribuição.<!--518293-->
+#### <a name="distribute-content"></a>Distribuir conteúdo
+Antes de criar uma implementação faseada, distribua o conteúdo associado a um ponto de distribuição.<!--518293-->  
+
+- **Aplicação**: Selecione a aplicação de destino na consola e utilizar o **distribuir conteúdo** ação no Friso. Para obter mais informações, consulte [implementar e gerir conteúdos](/sccm/core/servers/deploy/configure/deploy-and-manage-content).   
+
+- **Sequência de tarefas**: Tem de criar referenciado pacote de atualização de objetos, como o sistema operacional antes de criar a sequência de tarefas. Distribua estes objetos antes de criar uma implementação. Utilize o **distribuir conteúdo** ação em cada objeto ou a sequência de tarefas. Para ver o estado dos conteúdos referenciados tudo, selecione a sequência de tarefas e mude para o **referências** separador no painel de detalhes. Para obter mais informações, consulte o objeto específico, escreva [preparar a implementação do sistema operacional](/sccm/osd/get-started/prepare-for-operating-system-deployment).   
+
+- **Atualização de software**: criar o pacote de implementação e distribuí-la. Utilize o Assistente de atualizações de Software de Download. Para obter mais informações, consulte [transferir atualizações de software](/sccm/sum/deploy-use/download-software-updates).  
 
 
 
@@ -79,25 +92,34 @@ Include a timeline diagram
 
 1. Inicie o Assistente de criar implementação faseada na consola do Configuration Manager. Esta ação varia consoante o tipo de software que estiver a implementar:  
 
-    - **Aplicação** (apenas na versão 1806 ou posterior): Vá para o **biblioteca de Software**, expanda **gestão de aplicações**e selecione **aplicativos**. Selecione uma aplicação existente e, em seguida, clique em **criar implementação faseada** na faixa de opções.  
+    - **Aplicação** (apenas na versão 1806 ou posterior): Vá para o **biblioteca de Software**, expanda **gestão de aplicações**e selecione **aplicativos**. Selecione uma aplicação existente e, em seguida, escolha **criar implementação faseada** na faixa de opções.  
 
-    - **Sequência de tarefas**: Vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**. Selecione uma sequência já existente e, em seguida, clique em **criar implementação faseada** na faixa de opções.  
+    - **Atualização de software** (apenas na versão 1810 ou posterior): Vá para o **biblioteca de Software**, expanda **atualizações de Software**e selecione **todas as atualizações de Software**. Selecione uma ou mais atualizações e, em seguida, escolha **criar implementação faseada** na faixa de opções.  
+
+        Esta ação está disponível para atualizações de software a partir os seguintes nós:  
+        - Atualizações de Software  
+            - **Todas as atualizações de Software**  
+            - **Grupos de atualização de software**   
+        - Manutenção do Windows 10, **todas as atualizações do Windows 10**  
+        - Gestão de clientes do Office 365, **atualizações do Office 365**  
+
+    - **Sequência de tarefas**: Vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**. Selecione uma sequência já existente e, em seguida, escolha **criar implementação faseada** na faixa de opções.  
 
 2. Sobre o **gerais** página, dê a implementação faseada um **nome**, **Descrição** (opcional) e selecione **criar automaticamente uma predefinição fase dois implementação**.  
 
-3. Clique em **procurar** e selecione uma coleção de destino para ambos os **primeira coleção** e **segunda coleção** campos. Para uma sequência de tarefas, selecione a partir de coleções de dispositivos. Para uma aplicação, selecione as coleções de utilizadores ou dispositivos. Clique em **Seguinte**.  
+3. Selecione **procurar** e escolha uma coleção de destino para ambos os **primeira coleção** e **segunda coleção** campos. Para uma sequência de tarefas e atualizações de software, selecione a partir de coleções de dispositivos. Para uma aplicação, selecione as coleções de utilizadores ou dispositivos. Selecione **seguinte**.  
 
     > [!Important]  
     > O Assistente para criar implementação por fases não notificá-lo se uma implementação é potencialmente alto risco. Para obter mais informações, consulte [definições para gerir implementações de alto risco](/sccm/core/servers/manage/settings-to-manage-high-risk-deployments) e a nota quando [implementar uma sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#BKMK_DeployTS).  
 
-4. Sobre o **definições** página, selecione uma opção para cada uma das definições de agendamento. Para obter mais informações, consulte [fase definições](#bkmk_settings). Clique em **Seguinte** quando terminar.  
+4. Sobre o **definições** página, selecione uma opção para cada uma das definições de agendamento. Para obter mais informações, consulte [fase definições](#bkmk_settings). Selecione **seguinte** quando terminar.  
 
-5. Sobre o **fases** página, consulte as duas fases que o assistente cria para coleções especificadas. Clique em **Seguinte**.   
+5. Sobre o **fases** página, consulte as duas fases que o assistente cria para coleções especificadas. Selecione **seguinte**.   
 
     > [!Note]  
-    > Esta secção abrange o procedimento para criar automaticamente uma implementação padrão em duas fases. O assistente permite-lhe adicionar, remover, reordenar, editar ou ver as fases de uma implementação faseada. Para obter mais informações sobre estas ações adicionais, consulte [criar uma implementação faseada com fases configurados manualmente](#bkmk_manual).  
+    > Esta secção abrange o procedimento para criar automaticamente uma implementação de duas fases predefinida. O assistente permite-lhe adicionar, remover, reordenar, editar ou ver as fases de uma implementação faseada. Para obter mais informações sobre estas ações adicionais, consulte [criar uma implementação faseada com fases configurados manualmente](#bkmk_manual).  
 
-6. Confirme as suas seleções no **resumo** separador e, em seguida, clique em **próxima** para concluir o assistente.  
+6. Confirme as suas seleções no **resumo** separador e, em seguida, selecione **próxima** para concluir o assistente.  
 
 
 
@@ -110,37 +132,35 @@ A partir da versão 1806, crie uma implementação faseada com fases configurado
 > Atualmente manualmente, é possível criar fases para uma aplicação. O assistente cria automaticamente duas fases para implementações de aplicações.
 
 
-1. Na **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**.  
+1. Inicie o assistente criar implementação faseada para uma sequência de tarefas ou atualizações de software.  
 
-2. Com o botão direito na sequência de tarefas existente e selecione **criar implementação faseada**.  
+2. Sobre o **gerais** página do Assistente para criar implementação por fases, dar a implementação faseada um **nome**, **Descrição** (opcional) e selecione **manualmente configurar todas as fases**.  
 
-3. Sobre o **gerais** página do Assistente para criar implementação por fases, dar a implementação faseada um **nome**, **Descrição** (opcional) e selecione **manualmente configurar todas as fases**.  
-
-4. Partir do **fases** página do Assistente para criar implementação por fases, estão disponíveis as seguintes ações:  
+3. Partir do **fases** página do Assistente para criar implementação por fases, estão disponíveis as seguintes ações:  
 
     - **Filtro** a lista das fases de implementação. Introduza uma cadeia de caracteres para uma correspondência de maiúsculas e minúsculas das colunas de ordem, o nome ou coleção. 
 
     - **Adicionar** uma nova fase:  
 
-        1. Na **gerais** página do Assistente para adicionar fase, especifique um **nome** para a fase e, em seguida, navegue para o destino **coleção de fase**. As definições adicionais nesta página são iguais ao normalmente implementar uma sequência de tarefas.  
+        1. Na **gerais** página do Assistente para adicionar fase, especifique um **nome** para a fase e, em seguida, navegue para o destino **coleção de fase**. As definições adicionais nesta página são iguais ao normalmente implementar uma sequência de tarefas ou atualizações de software.  
 
         2. Sobre o **definições da fase** página do Assistente para adicionar fase, configurar as definições de agendamento e selecione **próxima** quando terminar. Para obter mais informações, consulte [definições](#bkmk_settings).   
 
             > [!Note]  
             > Não é possível editar a definição de fase **percentagem de êxito da implementação**, na primeira fase. Esta definição só se aplica a fases que têm uma fase anterior.  
 
-        3. As definições do **experiência de utilizador** e **pontos de distribuição** páginas do Assistente para adicionar fase são iguais ao normalmente implementar uma sequência de tarefas.  
+        3. As definições do **experiência de utilizador** e **pontos de distribuição** páginas do Assistente para adicionar fase são os mesmos quando atualiza a normalmente implementar uma sequência de tarefas ou software.  
 
         4. Reveja as definições na **resumo** página e, em seguida, conclua o Assistente para adicionar fase.  
 
-    - **Editar**: Depois de ter adicionado uma fase, selecioná-lo e clicar neste botão para editar a fase. Esta ação abre a janela de propriedades da fase, que tem as guias o mesmo que as páginas do Assistente para adicionar fase.  
+    - **Editar**: Esta ação abre a janela de propriedades a fase de selecionada, que tem as guias o mesmo que as páginas do Assistente para adicionar fase.  
 
-    - **Remover**: Selecione uma fase de existente e clique neste botão para eliminar a fase.  
+    - **Remover**: Esta ação elimina a fase de selecionado.  
 
        > [!Warning]  
        > Não existe nenhuma confirmação e nenhuma forma de anular esta ação.  
 
-    - **Mover para cima** ou **mover para baixo**: O assistente ordena as fases por como adicioná-los. A fase mais recentemente adicionada seja a última na lista. Para alterar a ordem, selecione uma fase e, em seguida, clique em um desses botões para mover a localização a fase na lista.  
+    - **Mover para cima** ou **mover para baixo**: O assistente ordena as fases por como adicioná-los. A fase mais recentemente adicionada seja a última na lista. Para alterar a ordem, selecione uma fase e, em seguida, utilize estes botões para mover a localização a fase na lista.  
 
        > [!Important]  
        > Reveja as definições de fase depois de alterar a ordem. Certifique-se de que as definições seguintes são ainda consistentes com os seus requisitos para esta implementação por fases:  
@@ -148,7 +168,7 @@ A partir da versão 1806, crie uma implementação faseada com fases configurado
        > - Critérios para o êxito da fase anterior  
        > - Condições para iniciar esta fase de implementação após o êxito da fase anterior   
 
-5. Clique em **Seguinte**. Reveja as definições na **resumo** página e, em seguida, conclua o Assistente para criar implementação por fases.  
+5. Selecione **seguinte**. Reveja as definições na **resumo** página e, em seguida, conclua o Assistente para criar implementação por fases.  
 
 
 Depois de criar uma implementação faseada, abra as respetivas propriedades para efetuar alterações:  
@@ -164,4 +184,9 @@ Depois de criar uma implementação faseada, abra as respetivas propriedades par
 
 
 ## <a name="next-steps"></a>Passos seguintes
-[Gerir e monitorizar as implementações faseadas](/sccm/osd/deploy-use/manage-monitor-phased-deployments)
+
+Gerir e monitorizar as implementações faseadas:
+- [Aplicação](/sccm/osd/deploy-use/manage-monitor-phased-deployments?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json)  
+- [Atualização de software](/sccm/osd/deploy-use/manage-monitor-phased-deployments?toc=/sccm/sum/toc.json&bc=/sccm/sum/breadcrumb/toc.json)  
+- [Sequência de tarefas](/sccm/osd/deploy-use/manage-monitor-phased-deployments)  
+

@@ -2,7 +2,7 @@
 title: Suporte para Windows 10
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as versões do Windows 10 que são suportadas como clientes ou para o OSD com o System Center Configuration Manager
-ms.date: 10/02/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: a1626a65-da22-49e0-9564-d2f752ea3f4b
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ab8c0336b34fd3e9496d1fd7c5956aaca4c5cc32
-ms.sourcegitcommit: e0209e4549e9828eb74089313dbee323ece1fc2f
+ms.openlocfilehash: a02f904614e245a61e533164d25c0280e3a4d486
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51598551"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456143"
 ---
 # <a name="support-for-windows-10-in-configuration-manager"></a>Suporte para Windows 10 no Configuration Manager  
 
@@ -51,16 +51,16 @@ Uma versão do Configuration Manager cai na matriz após [suporte para essa vers
 <br/>
 A tabela seguinte lista as versões do Windows 10 que pode utilizar como um cliente com versões diferentes do Configuration Manager.
 
-| Versão do Windows 10 | Gestor de configuração 1710 | Gestor de configuração 1802 | 1806 o Configuration Manager |
+| Versão do Windows 10 | Gestor de configuração 1710 | Gestor de configuração 1802 | 1806 o Configuration Manager | 1810 o Configuration Manager |
 |---------------------|-----|-----|-----|-----|
-| Enterprise 2015 LTSB <!--10/14/2025-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| Enterprise 2016 LTSB <!--10/13/2026-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| Enterprise LTSC 2019 <!--10/10/2028-->   | ![Não suportado](media/Red_X.png)   | ![Não suportado](media/Red_X.png)   | ![Suportado](media/green_check.png) |
-| 1607   <!--04/09/2019-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| 1703   <!--10/08/2019-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| 1709   <!--04/14/2020-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| versão 1803   <!--11/10/2020-->   | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| 1809   <!--04/12/2021?-->   | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) |
+| Enterprise 2015 LTSB <!--10/14/2025-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| Enterprise 2016 LTSB <!--10/13/2026-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| Enterprise LTSC 2019 <!--10/10/2028-->   | ![Não suportado](media/Red_X.png)   | ![Não suportado](media/Red_X.png)   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1607   <!--04/09/2019-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1703   <!--10/08/2019-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1709   <!--04/14/2020-->   | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| versão 1803   <!--11/10/2020-->   | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
+| 1809   <!--04/12/2021?-->   | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 
 <!-- lifecycle reference: https://support.microsoft.com/help/13853/windows-lifecycle-fact-sheet -->
 
@@ -85,12 +85,12 @@ Ao implementar sistemas operativos com o Configuration Manager, o Windows ADK é
 
 A tabela seguinte lista as versões do Windows 10 ADK que pode utilizar com diferentes versões do Configuration Manager.
 
-| Versão do Windows 10 ADK  | Gestor de configuração 1710 | Gestor de configuração 1802 | 1806 o Configuration Manager |
+| Versão do Windows 10 ADK  | Gestor de configuração 1710 | Gestor de configuração 1802 | 1806 o Configuration Manager | 1810 o Configuration Manager |
 |--------------------|-----|-----|-----|-----|
-| 1703  | ![Compatível com versões anteriores](media/blue_compat.png) | ![Compatível com versões anteriores](media/blue_compat.png) | ![Não suportado](media/Red_X.png)   |
-| 1709  | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Compatível com versões anteriores](media/blue_compat.png) |
-| 1803  | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
-| 1809  | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) |
+| 1703  | ![Compatível com versões anteriores](media/blue_compat.png) | ![Compatível com versões anteriores](media/blue_compat.png) | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) |
+| 1709  | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Compatível com versões anteriores](media/blue_compat.png) | ![Não suportado](media/Red_X.png)   |
+| 1803  | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) | ![Compatível com versões anteriores](media/blue_compat.png) |
+| 1809  | ![Não suportado](media/Red_X.png) | ![Não suportado](media/Red_X.png) | ![Suportado](media/green_check.png) | ![Suportado](media/green_check.png) |
 
 |Chave|
 |--|

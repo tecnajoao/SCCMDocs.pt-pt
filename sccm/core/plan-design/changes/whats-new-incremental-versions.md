@@ -2,7 +2,7 @@
 title: Versões incrementais
 titleSuffix: Configuration Manager
 description: Saiba mais sobre o que há de novo na atualização mais recente para o Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: b57acf0b-05b7-46af-ad4c-f3e707bd3861
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3afe14d62f55bf5ef7923882bbb2bbe57e245661
-ms.sourcegitcommit: 2cc635835709fb8d86cdb63ea34233b36c94d4d8
+ms.openlocfilehash: 92bb487a3747b508ea1183801acf61cca50a661b
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52258932"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52455925"
 ---
 # <a name="whats-new-in-configuration-manager-incremental-versions"></a>Novidades das versões incrementais do Configuration Manager
 
@@ -23,7 +23,7 @@ ms.locfileid: "52258932"
 
  O Configuration Manager utiliza na consola [as atualizações e manutenção](/sccm/core/servers/manage/updates) processo. Este processo de atualização torna mais fácil detetar e instalar atualizações do Configuration Manager. Não há nada mais service packs ou versões de atualização cumulativa para controlar e instalar. Não precisa de pesquisa para o download da versão mais recente ou atualizações.
 
- Para atualizar o produto para uma nova versão do ramo atual, utilize a consola do Configuration Manager para localizar e, em seguida [instalar atualizações na consola](../../../core/servers/manage/install-in-console-updates.md). Algumas vezes a cada ano, a Microsoft versões novas versões que incluem atualizações do produto. Cada versão também apresenta novos recursos. Quando instala uma atualização com novos recursos, pode optar por usar esses recursos. 
+ Para atualizar o produto para uma nova versão do ramo atual, utilize a consola do Configuration Manager para localizar e, em seguida [instalar atualizações na consola](/sccm/core/servers/manage/install-in-console-updates). Algumas vezes a cada ano, a Microsoft versões novas versões que incluem atualizações do produto. Cada versão também apresenta novos recursos. Quando instala uma atualização com novos recursos, pode optar por usar esses recursos. 
 
  Versões de atualização diferentes são identificadas por ano e mês. Por exemplo, a versão 1511 identifica Novembro de 2015 (o mês quando o ramo atual do Configuration Manager pela primeira vez foi liberado para fabricação). Atualizações posteriores têm nomes de versão como 1802, que indica uma atualização que foi criada em Fevereiro de 2018. Estas versões de atualização são fundamentais para compreender a versão incremental da instalação do Configuration Manager e que funcionalidades estão disponíveis para ativar no seu ambiente.
 
@@ -31,12 +31,12 @@ ms.locfileid: "52258932"
 
 ## <a name="supported-versions"></a>Versões suportadas
  Utilize as seguintes ligações para descobrir o que há de novo com cada versão suportada:
-  - [Novidades na versão 1806](../../../core/plan-design/changes/whats-new-in-version-1806.md)  
-  - [Novidades na versão 1802](../../../core/plan-design/changes/whats-new-in-version-1802.md)
-  - [Novidades na versão 1710](../../../core/plan-design/changes/whats-new-in-version-1710.md)
+  - [O que há de novo na versão 1810](/sccm/core/plan-design/changes/whats-new-in-version-1810)
+  - [Novidades na versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806)  
+  - [Novidades na versão 1802](/sccm/core/plan-design/changes/whats-new-in-version-1802)
 
 
-Para versões do Configuration Manager lançado antes do 1710, o suporte é de 12 meses. Cada versão de atualização a partir da versão 1710, permanece no suporte de 18 meses a partir da data de lançamento de disponibilidade geral (GA).  Mantenha-se atualizado com a versão de atualização mais recente. Para obter mais informações, consulte [suporte para versões de ramo atual do Configuration Manager](../../../core/servers/manage/current-branch-versions-supported.md).  
+Para versões do Configuration Manager lançado antes do 1710, o suporte é de 12 meses. Cada versão de atualização a partir da versão 1710, permanece no suporte de 18 meses a partir da data de lançamento de disponibilidade geral (GA).  Mantenha-se atualizado com a versão de atualização mais recente. Para obter mais informações, consulte [suporte para versões de ramo atual do Configuration Manager](/sccm/core/servers/manage/current-branch-versions-supported).  
 
 
 ## <a name="see-also"></a>Consulte também

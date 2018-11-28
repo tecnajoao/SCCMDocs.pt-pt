@@ -2,7 +2,7 @@
 title: Criar aplicações
 titleSuffix: Configuration Manager
 description: Crie aplicações com requisitos para instalar software, métodos de deteção e tipos de implementação.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-app
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 848b81ee9e1d6d9ebc189a2d8cb0126648f91be0
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 947dfac82db43e5cb21d8304d31be23219bb83aa
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39385189"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456656"
 ---
 # <a name="create-applications-in-configuration-manager"></a>Criar aplicações no Configuration Manager
 
@@ -39,7 +39,7 @@ Este artigo também inclui as seguintes informações para configurar um tipo de
 - [Conteúdo](#bkmk_dt-content)
 - [Método de deteção](#bkmk_dt-detect)
 - [Experiência de utilizador](#bkmk_dt-ux)
-- [Requisitos](#bkmk_dt-require)
+- [Requirements](#bkmk_dt-require)
 - [Códigos de retorno](#bkmk_dt-return)
 - [Dependências](#bkmk_dt-depend)
 
@@ -157,7 +157,7 @@ Se [detetar automaticamente informações sobre a aplicação](#bkmk_auto-app), 
 > - [Conteúdo](#bkmk_dt-content)
 > - [Método de deteção](#bkmk_dt-detect)
 > - [Experiência de utilizador](#bkmk_dt-ux)
-> - [Requisitos](#bkmk_dt-require)
+> - [Requirements](#bkmk_dt-require)
 > - [Códigos de retorno](#bkmk_dt-return)
 > - [Dependências](#bkmk_dt-depend)
 >  
@@ -241,6 +241,10 @@ Sobre o **conteúdo** , especifique as seguintes informações:
 - **Desinstalar programa**: Opcionalmente, especifique o nome do programa de desinstalação e quaisquer parâmetros necessários.  
 
     - **Iniciar desinstalação em**: Opcionalmente, especifique a pasta que contém o programa de desinstalação para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente. Também pode ser um caminho relativo de um ponto de distribuição da pasta com o pacote.  
+
+- **Programa de reparação**: A partir da versão 1810, para o Windows Installer e tipos de implementação do instalador de Script, opcionalmente, especifique o nome do programa de reparação e quaisquer parâmetros necessários.<!--1357866-->  
+
+    - **Início da reparação em**: Opcionalmente, especifique a pasta que contém o programa de reparo para o tipo de implementação. Esta pasta pode ser um caminho absoluto no cliente. Também pode ser um caminho relativo de um ponto de distribuição da pasta com o pacote.  
 
 - **Executar a instalação e desinstalação programa como um processo de 32 bits em clientes de 64 bits**: Utilize as localizações de ficheiros e registo de 32 bits em computadores baseados em Windows para executar o programa de instalação para o tipo de implementação.  
 

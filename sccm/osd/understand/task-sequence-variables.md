@@ -2,7 +2,7 @@
 title: Referência de variável de sequência de tarefas
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as variáveis para controlar e personalizar uma sequência de tarefas do Configuration Manager.
-ms.date: 08/17/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 62f15230-d3a6-4afc-abd4-1e07e7ba6c97
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: cfecd7441abd206bdff1d2f6618d763a30dddc51
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: cde62242fc4db99d762d670037aad22bd25d6c00
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42756287"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456741"
 ---
 # <a name="task-sequence-variables-in-configuration-manager"></a>Variáveis de sequência de tarefas no Configuration Manager
 
@@ -124,6 +124,12 @@ Para obter mais informações, consulte [usando variáveis de sequência de tare
  *Aplica-se para o [definir variáveis dinâmicas](task-sequence-steps.md#BKMK_SetDynamicVariables) passo.*
 
  Especifica os endereços IP utilizados pelo computador.
+
+
+### <a name="SMSTSLastActionName"></a> _SMSTSLastActionName
+ *A partir da versão 1810*  
+
+ Armazena o nome da última ação executada. Esta variável está relacionado à **_SMSTSLastActionRetCode**. A sequência de tarefas registra esses valores para o ficheiro smsts log. Esta variável é vantajosa quando uma sequência de tarefas de resolução de problemas. Quando um passo falhar, um script personalizado pode incluir o nome de passo juntamente com o código de retorno.
 
 
 ### <a name="SMSTSLastActionRetCode"></a> _SMSTSLastActionRetCode
@@ -1142,7 +1148,7 @@ Utilize os seguintes nomes de variáveis para definir as propriedades para o *pr
 
  Especifica as opções de linha de comandos adicionais que são adicionadas à configuração do Windows durante uma atualização do Windows 10. A sequência de tarefas não verifica as opções da linha de comandos. 
 
- Para obter mais informações, consulte [opções de linha de comandos de configuração do Windows](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-setup-command-line-options).
+ Para obter mais informações, consulte [Windows Setup Command-Line Options (Opções da Linha de Comandos de Configuração do Windows)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-setup-command-line-options).
 
 
 ### <a name="OSDStateFallbackToNAA"></a> OSDStateFallbackToNAA

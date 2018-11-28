@@ -2,7 +2,7 @@
 title: Dashboard de ciclo de vida do produto
 titleSuffix: Configuration Manager
 description: Ver a Microsoft Lifecycle Policy com o dashboard de ciclo de vida do produto no Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 8b5b144a-0e5f-4fcc-87b2-33b9bcdb5655
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: dd1a3a56bac6d7917c70db731b1735a195fae3df
-ms.sourcegitcommit: dfb2cb01c1608b848f2f2fee7c84500e7adcb7a4
+ms.openlocfilehash: bda6e266c6be8897de87a2a30fb0198a4b4c8446
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49101250"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456028"
 ---
 # <a name="manage-microsoft-lifecycle-policy-with-configuration-manager"></a>Gerir política de ciclo de vida da Microsoft com o Configuration Manager
 
@@ -24,6 +24,8 @@ ms.locfileid: "49101250"
 A partir da versão 1806, pode utilizar o dashboard de ciclo de vida do produto do Configuration Manager para ver a Policy Lifecycle de Microsoft. O dashboard apresenta o estado da Microsoft Lifecycle Policy para produtos Microsoft instalados nos dispositivos geridos com o Configuration Manager. Ele também fornece informações sobre os produtos da Microsoft no seu ambiente, o estado de capacidade de suporte e datas de término do suporte. Utilize o dashboard para compreender a disponibilidade de suporte para cada produto. Estas informações ajudam a planear quando atualizar os produtos da Microsoft utilizar antes de seu suporte terminará a atual for atingido.  
 
 Para obter mais informações, consulte a [Microsoft Lifecycle Policy](https://support.microsoft.com/lifecycle).
+
+A partir da versão 1810, o dashboard inclui informações para o System Center 2012 Configuration Manager e versões posteriores.<!--1358702-->  
 
 
 
@@ -59,6 +61,13 @@ Para aceder ao dashboard do ciclo de vida na consola do Configuration Manager, v
 
 ![Captura de ecrã do dashboard de ciclo de vida do produto na consola do](media/product-lifecycle-dashboard.png)
 
+Alterar a vista ao selecionar uma das seguintes opções do **categoria de produto** lista:  
+- **Todos os**: Ver todos os produtos em conjunto  
+- **Cliente Windows**: Ver versões de sistema operacional cliente Windows  
+- **Windows Server**: Ver as versões de SO do servidor do Windows  
+- **Base de dados**: Ver versões do SQL Server  
+- **O Configuration Manager**: A partir da versão 1810, ver versões do Configuration Manager  
+
 O dashboard tem os seguintes mosaicos:  
 
 - **Principais cinco produtos anteriores a fim de vida**: Este mosaico é uma vista de dados consolidado de produtos encontrado no seu ambiente após a final da vida. O gráfico mostra o software instalado que expirou quando comparado com o ciclo de vida do suporte de sistemas operacionais e produtos do SQL server.  
@@ -79,13 +88,16 @@ O dashboard tem os seguintes mosaicos:
 
 ## <a name="reporting"></a>Relatórios
 
-Relatórios adicionais também estão disponíveis. Na consola do Configuration Manager, vá para o **monitorização** área de trabalho, expanda **Reporting**e expanda **relatórios**. Os novos relatórios seguintes são adicionados na categoria **ciclo de vida do produto**:  
+Relatórios adicionais também estão disponíveis. Na consola do Configuration Manager, vá para o **monitorização** área de trabalho, expanda **Reporting**e expanda **relatórios**. Os novos relatórios seguintes são adicionados na categoria **Asset Intelligence**:  
 
-- **Descrição geral do ciclo de vida de produto de geral**: Ver uma lista dos ciclos de vida do produto. Filtre a lista por nome do produto e os dias de expiração.  
+- **Ciclo de vida 01A – computadores com um produto de software específico**: Ver uma lista de computadores nos quais é detetado um produto especificado.  
 
-- **Computadores com um produto de software específico**: Ver uma lista de computadores nos quais é detetado um produto especificado.  
+- **Ciclo de vida 02A – lista de computadores com produtos na organização de expirado**: Ver os computadores que já passaram da validade produtos nos mesmos. Pode filtrar este relatório por nome de produto.
 
-- **Lista de produtos expirados encontrados na organização**: Ver detalhes dos produtos no seu ambiente que já passaram da validade ciclo de vida de datas.  
+- **Ciclo de vida 03A – lista de produtos expirados encontrados na organização**: Ver detalhes dos produtos no seu ambiente que já passaram da validade ciclo de vida de datas.  
 
-- **Lista de computadores com produtos expirados na organização**: Ver os computadores que já passaram da validade produtos nos mesmos. Pode filtrar este relatório por nome de produto.
+- **Ciclo de vida 04A – descrição geral do ciclo de vida de produto de geral**: Ver uma lista dos ciclos de vida do produto. Filtre a lista por nome do produto e os dias de expiração.  
 
+- **Ciclo de vida 05A - dashboard de ciclo de vida do produto**: A partir da versão 1810, este relatório inclui informações semelhantes, como o dashboard na consola. Selecione uma categoria para ver a contagem de produtos no seu ambiente e os dias de suporte restantes.  
+
+Para obter mais informações, consulte [lista de relatórios](/sccm/core/servers/manage/list-of-reports#asset-intelligence).<!--SCCMDocs issue 997-->  

@@ -10,12 +10,12 @@ ms.assetid: e102fd1a-76df-4d8e-b1b0-10ee18318f67
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 5d7c967ce02c009cd9659c7956f7ca79f4a34faf
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: 03b34c09a5fef63316bb1d9d1a94dbbfc3ccf69f
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42755977"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456265"
 ---
 # <a name="how-to-manage-collections-in-configuration-manager"></a>Como gerir coleções no Configuration Manager
 
@@ -40,7 +40,7 @@ Utilize as informações de descrição geral neste artigo para ajudar a realiza
 #### <a name="add-selected-items"></a>Adicionar itens selecionados
  Fornece as seguintes opções: 
 
- - **Adicionar itens selecionados à coleção de dispositivos existente**: Abre o **selecionar coleção** caixa de diálogo. Selecione a coleção à qual pretende adicionar os membros da coleção selecionada. A coleção selecionada está incluída nesta coleção, utilizando uma regra de associação **Incluir Coleções** .  
+ - **Adicionar itens selecionados à coleção de dispositivos existente**: Abre a caixa de diálogo **Selecionar Coleção** . Selecione a coleção à qual pretende adicionar os membros da coleção selecionada. A coleção selecionada está incluída nesta coleção, utilizando uma regra de associação **Incluir Coleções** .  
 
  - **Adicionar itens selecionados à coleção de novos dispositivos**: Abre o **criar Assistente de coleção de dispositivos** onde pode criar uma nova coleção. A coleção selecionada está incluída nesta coleção, utilizando uma regra de associação **Incluir Coleções** .  
 
@@ -73,40 +73,11 @@ Utilize as informações de descrição geral neste artigo para ajudar a realiza
 
 
 #### <a name="client-notification"></a>Notificação de cliente
- Instrui a todos os clientes na coleção de dispositivos selecionada imediatamente a fazer uma das seguintes ações:
-
- - **Transferir política do computador**: Atualize a política de dispositivo. Para obter mais informações, consulte [iniciar a obtenção de política para um cliente do Configuration Manager](/sccm/core/clients/manage/manage-clients#BKMK_PolicyRetrieval).  
-
- - **Transferir política do utilizador**: Atualize a política de utilizador.  
-
- - **Recolher dados de deteção**: Clientes de Acionador para enviar um registo de dados de deteção (DDR). Para obter mais informações, consulte [deteção de Heartbeat](/sccm/core/servers/deploy/configure/about-discovery-methods#bkmk_aboutHeartbeat).  
-
- - **Recolher inventário de Software**: Ciclo de clientes de Acionador a executar um inventário de software. Para obter mais informações, consulte [introdução ao inventário de software](/sccm/core/clients/manage/inventory/introduction-to-software-inventory).  
-
- - **Recolher inventário de Hardware**: Ciclo de clientes de Acionador a executar um inventário de hardware. Para obter mais informações, consulte [introdução ao inventário de hardware](/sccm/core/clients/manage/inventory/introduction-to-hardware-inventory).  
-
- - **Avaliar implementações de aplicações**: Ciclo de clientes de Acionador a executar uma edição de avaliação de implementação de aplicação. Para obter mais informações, consulte [agendar reavaliação para implementações](/sccm/core/clients/deploy/about-client-settings#schedule-re-evaluation-for-deployments).  
-
- - **Avaliar implementações de atualizações de Software**: Ciclo de clientes de Acionador a executar uma avaliação de implementação de atualizações de software. Para obter mais informações, consulte [introdução às atualizações de software](/sccm/sum/understand/software-updates-introduction).  
-
- - **Mude para o ponto de atualização de Software seguinte**: Ponto de atualização de clientes de Acionador para mudar para o seguinte software disponível. Para obter mais informações, consulte [mudança de ponto de atualização de Software](/sccm/sum/plan-design/plan-for-software-updates#BKMK_SUPSwitching).  
-
- - **Avaliar atestado de estado de funcionamento do dispositivo**: Acione os clientes do Windows 10 para verificar e enviar o respetivo estado de funcionamento do dispositivo mais recente. Para obter mais informações, consulte [atestado de estado de funcionamento](/sccm/core/servers/manage/health-attestation).  
-
- - **Verificação de conformidade de acesso condicional**: Clientes de Acionador para verificar a compatibilidade com o acesso condicional. Para obter mais informações, consulte [gerir o acesso aos serviços do O365 para PCs](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm).  
+ Para obter mais informações, consulte [notificações do cliente](/sccm/core/clients/manage/client-notification).
 
 
 #### <a name="endpoint-protection"></a>Endpoint Protection
- Instrui a todos os clientes na coleção de dispositivos selecionada imediatamente a fazer uma das seguintes ações:
-
- - **Análise completa**: Acionar o Endpoint Protection ou o Windows Defender para executar uma *completo* análise de antimalware  
-
- - **Análise rápida**: Acionar o Endpoint Protection ou o Windows Defender para executar uma *Rápido* análise de antimalware  
-
- - **Transferir definição**: Acionar o Windows Defender ou Endpoint Protection para transferir as definições de antimalware mais recentes  
-
-
- Para obter mais informações, consulte [Endpoint Protection no Configuration Manager](/sccm/protect/deploy-use/endpoint-protection).
+ Para obter mais informações, consulte [notificações do cliente](/sccm/core/clients/manage/client-notification).
 
 
 #### <a name="export"></a>Exportar

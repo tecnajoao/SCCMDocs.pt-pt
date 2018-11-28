@@ -10,12 +10,12 @@ ms.assetid: 035b7f73-8b78-4ed1-835e-a31f9a5c4a02
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 45b65e5ff35f93bb79418f00795aecab5cc208b9
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: 1a7d8e6fe1824ab2a7fe3cfb6f89965a4b5800c0
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411209"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456078"
 ---
 # <a name="fundamentals-of-security-for-configuration-manager"></a>Noções básicas de segurança para o Configuration Manager
 
@@ -65,6 +65,8 @@ Além da segurança fornecida pelo Windows server a infraestrutura de rede, o Co
 #### <a name="bkmk_layer-provider"></a> Fornecedor de SMS
 
 A próxima camada de segurança baseia-se no acesso através do WMI (Windows Management Instrumentation), nomeadamente o Fornecedor de SMS. O fornecedor de SMS é um componente do Configuration Manager que concede um utilizador de acesso para consultar a base de dados do site para obter informações. Por predefinição, o acesso ao fornecedor é restringido aos membros do grupo Admins de SMS local. Este grupo no primeiro contém apenas o utilizador que instalou o Configuration Manager. Para conceder permissão a outras contas no repositório CIM (Common Information Model) e no fornecedor de SMS, adicione-as ao grupo de Administradores de SMS.  
+
+A partir da versão 1810, pode especificar o nível mínimo de autenticação para os administradores aceder a sites do Configuration Manager. Esta funcionalidade aplica os administradores para iniciar sessão no Windows com o nível necessário. <!--1357013-->  
 
 Para obter mais informações, consulte [planear o fornecedor de SMS](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider).
 

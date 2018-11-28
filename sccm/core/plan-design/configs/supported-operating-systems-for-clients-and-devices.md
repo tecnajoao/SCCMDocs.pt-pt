@@ -10,12 +10,12 @@ ms.assetid: 87f4e041-67df-4c61-aa98-7444faffe565
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 82fd328d65e67df2506f31679ed3c1b3abc1262c
-ms.sourcegitcommit: e0209e4549e9828eb74089313dbee323ece1fc2f
+ms.openlocfilehash: 48eb4abcc328c57fdb35e3511e49500099a68cf2
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51598602"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456486"
 ---
 # <a name="supported-os-versions-for-clients-and-devices-for-configuration-manager"></a>Versões de SO suportadas por clientes e dispositivos para o Configuration Manager
 
@@ -159,7 +159,7 @@ Versões de canal semianual do Windows Server são instalações Server Core, co
 
 -   Chinês (simplificado e tradicional)    
 
--   Inglês (Estados Unidos)    
+-   English (US)    
 
 -   Francês (França)    
 
@@ -206,6 +206,7 @@ Versões de canal semianual do Windows Server são instalações Server Core, co
 
 -   **Mac OS X 10.13** (macOS High Sierra)
 
+- **macOS Mojave (10.14)** 
 
 
 ##  <a name="linux-and-unix-servers"></a>Servidores Linux e UNIX  

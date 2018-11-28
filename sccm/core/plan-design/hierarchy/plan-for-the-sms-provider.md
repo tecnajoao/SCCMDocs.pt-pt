@@ -1,8 +1,8 @@
 ---
-title: Planear o fornecedor de SMS
+title: Planear o Fornecedor de SMS
 titleSuffix: Configuration Manager
-description: Saiba mais sobre como o fornecedor de SMS ajuda-o a gerir o System Center Configuration Manager.
-ms.date: 2/7/2017
+description: Saiba mais sobre a função de sistema de sites do fornecedor de SMS no Configuration Manager.
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,189 +10,238 @@ ms.assetid: 5d5d6273-0d8a-43c7-865a-cdb1736dcae3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9807bab4a5edd60ebc8a4aaa000cea6b8c25afb0
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 024714c564036cd61a6c1340724aa3b9cad782d2
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32341037"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456401"
 ---
-# <a name="plan-for-the-sms-provider-for-system-center-configuration-manager"></a>Planear o Fornecedor de SMS para o System Center Configuration Manager
+# <a name="plan-for-the-sms-provider"></a>Planear o Fornecedor de SMS 
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Para gerir o System Center Configuration Manager, utilize uma consola do Configuration Manager que ligue a uma instância do **fornecedor de SMS**. Por predefinição, instala um fornecedor de SMS no servidor do site quando instala um site de administração central ou site primário. 
+Para gerir o Gestor de configuração, utilizar uma consola do Configuration Manager que se liga a uma instância do **fornecedor de SMS**. Por predefinição, instala um fornecedor de SMS no servidor do site quando instala um site de administração central ou site primário. 
+
 
 
 ##  <a name="BKMK_PlanSMSProv"></a> Acerca do Fornecedor de SMS  
- O fornecedor de SMS é um fornecedor de Windows Management Instrumentation (WMI) que atribui **ler** e **escrever** acesso à base de dados do Configuration Manager num site:  
 
--   Cada site de administração central e site primário precisa de, pelo menos, um Fornecedor de SMS. Se necessário, pode instalar fornecedores adicionais.  
--   O **Admins de SMS** grupo de segurança fornece acesso ao fornecedor de SMS. O Configuration Manager cria automaticamente este grupo no servidor do site e em cada computador onde instala uma instância do fornecedor de SMS.  
+O fornecedor de SMS é um fornecedor de Windows Management Instrumentation (WMI) que atribui **ler** e **escrever** acesso à base de dados do Configuration Manager num site.  
 
--   Os sites secundários não suportam o Fornecedor de SMS.  
+- Cada site de administração central e site primário precisa de, pelo menos, um Fornecedor de SMS. Se necessário, pode instalar fornecedores adicionais.  
 
+- O **Admins de SMS** grupo de segurança fornece acesso ao fornecedor de SMS. Gestor de configuração cria automaticamente este grupo no servidor do site e em cada computador onde instala uma instância do fornecedor de SMS. Para obter mais informações, consulte [Admins de SMS](/sccm/core/plan-design/hierarchy/accounts#sms-admins).  
 
-Os utilizadores administrativos do Configuration Manager utilizam um fornecedor de SMS para aceder às informações armazenadas na base de dados. Para tal, os administradores podem utilizar a consola do Configuration Manager, Explorador de recursos, ferramentas e scripts personalizados. O fornecedor de SMS não interage com clientes do Configuration Manager. Quando uma consola do Configuration Manager se liga a um site, a consola do Configuration Manager consulta o WMI no servidor do site para localizar a instância do fornecedor de SMS a utilizar.  
+- Os sites secundários não suportam a função de fornecedor de SMS.  
 
- O fornecedor de SMS ajuda a impor a segurança do Configuration Manager. Devolve apenas as informações que o utilizador administrativo que está a executar a consola do Configuration Manager está autorizado a ver.  
+Os utilizadores administrativos do Configuration Manager utilizam um fornecedor de SMS para aceder às informações armazenadas na base de dados. Para fazer isso, os administradores podem utilizar a consola do Configuration Manager, Explorador de recursos, ferramentas e scripts personalizados. O fornecedor de SMS não interage com clientes do Configuration Manager. Quando uma consola do Configuration Manager se liga a um site, consulta o WMI no servidor do site para localizar a instância do fornecedor de SMS a utilizar.  
+
+O fornecedor de SMS ajuda a impor a segurança do Configuration Manager. Devolve apenas as informações que o utilizador da consola estiver autorizado a ver.  
 
 > [!IMPORTANT]  
->  Quando um computador que suportar um fornecedor de SMS para um site estiver offline, as consolas do Configuration Manager não é possível ligar à base de dados desse site.  
+>  Quando cada instância do fornecedor de SMS para um site estiver offline, as consolas do Configuration Manager não consegue ligar ao site.  
 
- Para obter informações sobre como gerir o Fornecedor de SMS, veja [Gerir o Fornecedor de SMS](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider) em [Modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
-
-## <a name="prerequisites-to-install-the-sms-provider"></a>Pré-requisitos para instalar o fornecedor de SMS  
-
- Para suportar o Fornecedor de SMS:  
-
--   O computador tem de estar num domínio que tenha uma relação de fidedignidade bidirecional com o servidor de site e os sistemas de sites de base de dados do site.  
-
--   O computador não pode ter uma função de sistema de sites com origem noutro site.  
-
--   O computador não pode ter um Fornecedor de SMS com origem em nenhum site.  
-
--   O computador tem de executar um sistema operativo que seja suportado para um servidor de site.  
-
--   O computador tem de ter, pelo menos, 650 MB de espaço livre em disco para suportar os componentes do Windows Automated Deployment Kit (Windows ADK) que são instalados com o fornecedor de SMS. Para obter mais informações sobre o Windows ADK e o Fornecedor de SMS, veja [Requisitos de Implementação do Sistema Operativo do Fornecedor de SMS](#BKMK_WAIKforSMSProv) neste tópico.  
-
-##  <a name="bkmk_location"></a> Localizações do Fornecedor de SMS  
- Quando instala um site, instalar automaticamente o primeiro fornecedor de SMS para o site. Pode especificar qualquer uma das seguintes localizações suportadas para o Fornecedor de SMS:  
-
--   O computador do servidor do site  
-
--   O computador da base de dados do site  
-
--   Um computador de classe de servidor que não contenha um fornecedor de SMS ou uma função de sistema de sites de um site diferente  
+ Para obter mais informações sobre como gerir o fornecedor de SMS, consulte [gerir o fornecedor de SMS](/sccm/core/servers/manage/modify-your-infrastructure#BKMK_ManageSMSprovider).  
 
 
-Para ver as localizações de cada fornecedor de SMS instalado num site, selecione o **geral** separador do site **propriedades** caixa de diálogo.  
 
- Cada Fornecedor de SMS suporta ligações simultâneas a partir de múltiplos pedidos. Os únicos limites destas ligações são o número de ligações de servidor que estão disponíveis no computador do Fornecedor de SMS e os recursos disponíveis no computador do Fornecedor de SMS para dar resposta aos pedidos de ligação.  
+## <a name="installation-prerequisites"></a>Pré-requisitos de instalação  
 
- Após a instalação de um site, pode executar novamente o Programa de Configuração no servidor do site para alterar a localização de um Fornecedor de SMS existente ou para instalar Fornecedores de SMS adicionais no mesmo site. Só pode instalar um Fornecedor de SMS num computador e um computador não pode instalar um Fornecedor de SMS a partir de mais do que um site.  
+ Para suportar o fornecedor de SMS, o servidor de destino tem de cumprir os seguintes pré-requisitos:  
 
- Utilize as informações que se seguem para identificar as vantagens e desvantagens da instalação de um Fornecedor de SMS em cada localização suportada:  
+-   Num domínio que tenha uma relação de confiança bilateral com o servidor de site e os sistemas de sites da base de dados  
 
- **Servidor de site do Configuration Manager**  
+-   Não pode ter uma função de sistema de sites de um site diferente  
 
--   **Vantagens:**  
+-   Já não pode ter um fornecedor de SMS de qualquer site  
 
-    -   O Fornecedor de SMS não utiliza os recursos do sistema do computador da base de dados do site.  
+-   Executar uma versão suportada do SO  
+
+-   Pelo menos, 650 MB de espaço livre em disco para suportar os componentes do Windows ADK. Para obter mais informações sobre o Windows ADK e o fornecedor de SMS, consulte [requisitos de implementação do sistema operacional](#BKMK_WAIKforSMSProv).  
+
+
+
+##  <a name="bkmk_location"></a> localizações  
+
+Quando instala um site, instalar automaticamente o primeiro fornecedor de SMS para o site. Pode especificar qualquer uma das seguintes localizações suportadas para o Fornecedor de SMS:  
+
+-   O servidor do site  
+
+-   O servidor de base de dados do site  
+
+-   Outro servidor, que se adequa a [os pré-requisitos de instalação](#installation-prerequisites)  
+
+
+Para ver as localizações de cada fornecedor de SMS para um site: 
+
+1. Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **configuração do Site**e, em seguida, selecione o **Sites** nó.  
+
+2. Selecione o site pretendido na lista e, em seguida, escolha **propriedades** na faixa de opções.  
+
+3. Na **gerais** separador do site **propriedades**, ver o **localização do fornecedor de SMS** campo.    
+
+
+Cada Fornecedor de SMS suporta ligações simultâneas a partir de múltiplos pedidos. Os únicos limites destas ligações são o número de ligações de servidor que estão disponíveis para Windows e os recursos disponíveis no servidor para pedidos de ligação.  
+
+Depois de instalar um site, pode executar novamente a configuração do Configuration Manager no servidor do site. Utilize a configuração para alterar a localização de um fornecedor de SMS existente ou para instalar fornecedores de SMS adicionais no mesmo site. Instale apenas um fornecedor de SMS num computador. Um computador não é possível alojar um fornecedor de SMS de mais de um site.  
+
+
+### <a name="choosing-a-location"></a>Escolher uma localização 
+
+As secções seguintes descrevem as vantagens e desvantagens da instalação de um fornecedor de SMS em cada localização suportada:  
+
+#### <a name="configuration-manager-site-server"></a>Servidor de site do Configuration Manager
+
+- **Vantagens:**  
+
+    -   O fornecedor de SMS não utiliza os recursos do sistema do computador de base de dados do site.  
 
     -   Esta localização pode proporcionar melhor desempenho do que um Fornecedor de SMS localizado num computador que não o servidor do site ou o computador da base de dados do site.  
 
--   **Desvantagens:**  
+- **Desvantagens:**  
 
     -   O Fornecedor de SMS utiliza recursos de sistema e de rede que poderiam ser dedicados às operações do servidor do site.  
 
 
-**O SQL Server que aloja a base de dados do site**  
+#### <a name="sql-server-that-hosts-the-site-database"></a>SQL Server que aloja a base de dados do site
 
--   **Vantagens:**  
+- **Vantagens:**  
 
-    -   O Fornecedor de SMS não utiliza recursos do sistema de sites no servidor do site.  
+    -   O fornecedor de SMS não utiliza recursos do sistema no servidor do site.  
 
     -   Esta localização pode proporcionar o melhor desempenho das três localizações, desde que estejam disponíveis recursos suficientes no servidor.  
 
--   **Desvantagens:**  
+- **Desvantagens:**  
 
     -   O Fornecedor de SMS utiliza recursos de sistema e de rede que poderiam ser dedicados às operações de base de dados do site.  
 
-    -   Quando a base de dados do site é alojada numa instância em cluster do SQL Server, não é possível utilizar esta localização.  
+    -   Se a base de dados do site estiver alojada numa instância em cluster do SQL Server, não é possível utilizar esta localização.  
 
 
-**Um computador que não o servidor do site ou o computador da base de dados do site**  
+#### <a name="computer-other-than-the-site-server-or-site-database-server"></a>Computador que não o servidor do site ou servidor de base de dados do site
 
--   **Vantagens:**  
+- **Vantagens:**  
 
-    -   O Fornecedor de SMS não utiliza recursos do computador do servidor do site ou da base de dados do site.  
+    -   Fornecedor de SMS não utiliza o servidor do site ou de recursos de sistema de banco de dados do site.  
 
     -   Este tipo de localização permite-lhe implementar Fornecedores de SMS adicionais para proporcionar uma elevada disponibilidade das ligações.  
 
--   **Desvantagens:**  
+- **Desvantagens:**  
 
-    -   O desempenho do fornecedor de SMS poderá ser reduzido devido a atividade de rede adicional que é necessário para coordenar com o servidor do site e o computador de base de dados do site.  
+    -   O desempenho do fornecedor de SMS poderá ser reduzido. Este comportamento é devido à atividade de rede adicional que é precisa para coordenar com o servidor de site e o computador de base de dados do site.  
 
-    -   Este servidor tem de estar sempre acessível ao computador da base de dados do site e a todos os computadores com a consola do Configuration Manager instalada.  
+    -   Este servidor tem de estar sempre acessível ao servidor de base de dados do site e a todos os computadores com a consola do Configuration Manager instalada.  
 
     -   Esta localização pode utilizar recursos de sistema que, em condições normais, estariam dedicados a outros serviços.  
 
-##  <a name="BKMK_SMSProvLanguages"></a> Sobre os idiomas do fornecedor de SMS  
- O Fornecedor de SMS funciona independentemente do idioma de apresentação do computador onde está instalado.  
 
- Quando um utilizador administrativo ou dados de pedidos de processo do Configuration Manager, utilizando o fornecedor de SMS, o fornecedor de SMS tenta devolver os dados num formato correspondente ao idioma do sistema operativo do computador que efetuou pedido.
 
-A forma tenta corresponde ao idioma é um pouco indireta. O Fornecedor de SMS não traduz as informações de um idioma para outro. Em vez disso, quando os dados forem devolvidos para apresentação na consola do Configuration Manager, o idioma de apresentação dos dados dependerá da origem do objeto e do tipo de armazenamento.  
+## <a name="bkmk_auth"></a> Autenticação
+<!--1357013-->
 
- Quando os dados de um objeto são armazenados na base de dados, os idiomas que irão estar disponíveis dependem dos seguintes fatores:  
+A partir da versão 1810, pode especificar o nível mínimo de autenticação para os administradores aceder a sites do Configuration Manager. Esta funcionalidade aplica os administradores para iniciar sessão no Windows com o nível necessário. Aplica-se a todos os componentes que aceder ao fornecedor de SMS. Por exemplo, a consola do Configuration Manager, os métodos SDK e cmdlets do Windows PowerShell. 
 
--   Os objetos que o Configuration Manager cria são armazenados na base de dados utilizando o suporte para múltiplos idiomas. O objeto é armazenado utilizando os idiomas que se encontram configurados no local onde o objeto é criado quando o Programa de Configuração é executado. Estes objetos são apresentados na consola do Configuration Manager no idioma de apresentação do computador que efetuou, quando esse idioma esteja disponível para o objeto. Se não for possível visualizar o objeto no idioma de apresentação do computador que efetuou o pedido, será apresentado no idioma predefinido, que é o inglês.  
 
--   Os objetos criados pelo utilizador administrativo são armazenados na base de dados no idioma que foi utilizado para criar o objeto. Estes objetos são apresentados na consola do Configuration Manager neste mesmo idioma. Não é possível converter pelo fornecedor de SMS e não tem várias opções de idioma.  
+### <a name="configure-authentication"></a>Configurar a autenticação
+
+Para configurar esta definição, primeiro inicie sessão no Windows com o nível de autenticação pretendido. 
+
+> [!Important]  
+> Esta configuração é uma definição ao nível da hierarquia. Antes de alterar esta definição, certifique-se de que todos os administradores do Configuration Manager podem iniciar sessão no Windows com o nível de autenticação necessária. 
+
+Para configurar esta definição, utilize os seguintes passos:
+
+1. Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **configuração do Site**e selecione o **Sites** nó.  
+
+2. Selecione **definições de hierarquia** na faixa de opções.  
+
+3. Mude para o **autenticação** separador. Selecione o desejado [nível de autenticação](#authentication-levels)e, em seguida, selecione **OK**.  
+
+    - Apenas quando necessário, selecione **adicionar** para excluir utilizadores ou grupos específicos. Para obter mais informações, consulte [exclusões](#exclusions).  
+
+
+### <a name="authentication-levels"></a>Níveis de autenticação
+
+Os seguintes níveis estão disponíveis:
+
+- **Autenticação do Windows**: Exigir a autenticação com credenciais de domínio do Active Directory. Esta definição é o comportamento anterior e a predefinição atual. Quando atualizar o site, não há nenhuma alteração para o nível de autenticação.  
+
+- **Autenticação de certificados**: Exigir a autenticação com um certificado válido emitido por uma autoridade de certificação fidedigna PKI. Não configure este certificado no Configuration Manager. O Configuration Manager requer que o administrador ser tem sessão iniciada no Windows utilizando o PKI.  
+
+- **Windows Hello para autenticação de negócios**: Exigir a autenticação com a autenticação de dois fatores forte, que está associada a um dispositivo e utiliza a biometria ou um PIN. Pode utilizar o Configuration Manager para gerir e implementar o Windows Hello para políticas empresariais. Para obter mais informações, consulte [Windows Hello para empresas](/sccm/protect/deploy-use/windows-hello-for-business-settings).  
+
+
+### <a name="exclusions"></a>Exclusões
+
+Partir do **autenticação** separador das definições de hierarquia, também pode excluir certos usuários ou grupos. Utilize esta opção com moderação. Por exemplo, quando utilizadores específicos requerem acesso à consola do Configuration Manager, mas não é possível autenticar para o Windows no nível necessário. Também poderá ser necessário para a automatização ou serviços que são executados sob o contexto de uma conta do sistema.
+
+
+
+##  <a name="BKMK_SMSProvLanguages"></a> Informações acerca dos idiomas do fornecedor de SMS  
+
+O fornecedor de SMS funciona independentemente do idioma de apresentação do servidor em que instalar.  
+
+Quando um utilizador administrativo ou dados de pedidos de processo do Configuration Manager utilizando o fornecedor de SMS, ele tenta devolver os dados num formato que corresponda ao idioma do SO do computador que efetuou.
+
+A forma como ele tenta corresponder o idioma é indireto. O fornecedor de SMS não traduz as informações de um idioma para outro. Ao retornar dados para exibição na consola do Configuration Manager, o idioma de apresentação dos dados dependerá da origem do objeto e do tipo de armazenamento.  
+
+Quando o Configuration Manager armazene os dados para um objeto na base de dados, os idiomas disponíveis dependem dos seguintes fatores:  
+
+-   Gestor de configuração armazena objetos que cria ao utilizar o suporte para vários idiomas. Armazena o objeto da base de dados do site utilizando os idiomas que configurou para o site, quando executar a configuração. Consola do Configuration Manager apresenta esses objetos no idioma de apresentação do computador que, quando esse idioma está disponível para o objeto. Se a consola não é possível apresentar o objeto no idioma de apresentação do computador que efetuou, ele exibe o objeto no idioma padrão, que é o inglês.  
+
+-   Gestor de configuração armazena objetos criados por um utilizador administrativo através da linguagem que foi utilizada para criar o objeto. Estes objetos são apresentados na consola do Configuration Manager neste mesmo idioma. O fornecedor de SMS não pode transformá-los e eles não têm opções de idiomas múltiplos.  
+
+
 
 ##  <a name="BKMK_MultiSMSProv"></a> Utilizar vários Fornecedores de SMS  
- Após um site concluir a instalação, poderá instalar Fornecedores de SMS adicionais para o site. Para instalar fornecedores de SMS adicionais, execute a configuração do Configuration Manager no servidor do site. Pondere a instalação de Fornecedores de SMS adicionais, caso se verifique alguma das seguintes situações:  
 
--   Terá muitos utilizadores administrativos que execute uma consola do Configuration Manager e ligar a um site ao mesmo tempo.  
+ Após um site concluir a instalação, poderá instalar Fornecedores de SMS adicionais para o site. Para instalar fornecedores de SMS adicionais, execute a configuração do Configuration Manager no servidor do site. 
 
--   Irá utilizar o SDK do Configuration Manager ou outros produtos passíveis chamadas frequentes ao fornecedor de SMS.  
+Considere a instalação de fornecedores de SMS adicionais quando se verificar qualquer um dos seguintes procedimentos:  
 
--   Pretende assegurar uma elevada disponibilidade do Fornecedor de SMS.  
+- Número de utilizadores administrativo que tem de utilizar a consola do Configuration Manager e ligar a um site ao mesmo tempo.  
 
+- Utilize o SDK do Configuration Manager ou outros produtos podem de apresentarem chamadas frequentes ao fornecedor de SMS.  
 
-Quando são instalados vários fornecedores de SMS num site e é efetuado um pedido de ligação, o site atribui aleatoriamente cada novo pedido de ligação para utilizar um fornecedor de SMS instalado. Não pode especificar a localização do Fornecedor de SMS a utilizar para uma sessão de ligação específica.  
+- Tem um requisito de negócio para elevada disponibilidade do fornecedor de SMS.  
 
-> [!NOTE]  
->  Considere as vantagens e desvantagens de cada localização do fornecedor de SMS. Equilibrar estas considerações com as informações que não é possível controlar o fornecedor de SMS é utilizado para cada nova ligação.  
-
-Por exemplo, quando liga uma consola do Configuration Manager pela primeira vez a um site, a ligação consulta WMI no servidor do site para identificar uma instância do fornecedor de SMS que a consola irá utilizar. Esta instância específica do fornecedor de SMS continuará a ser utilizada pela consola do Configuration Manager até que termine a sessão de consola do Configuration Manager. Se a sessão termine porque o computador do fornecedor de SMS ficou indisponível na rede, ao voltar a ligar a consola do Configuration Manager, o site simplesmente repete a tarefa de identificar uma instância do fornecedor de SMS para ligar a. É possível que seja atribuído ao mesmo computador do Fornecedor de SMS, mas que este não esteja disponível. Se isto ocorrer, poderá tentar voltar a ligar a consola do Configuration Manager até que seja atribuído um computador fornecedor de SMS disponível.  
-
-##  <a name="BKMK_AboutSMSAdmins"></a> Acerca do grupo Admins de SMS  
- Pode utilizar o grupo Admins de SMS para fornecer aos utilizadores administrativos acesso ao Fornecedor de SMS. O grupo é automaticamente criado no servidor do site quando o site é instalado, bem como em cada computador que instalar um Fornecedor de SMS. Segue-se informações adicionais sobre o grupo de Admins de SMS:  
-
--   Caso o computador seja um servidor membro, o grupo Admins de SMS será criado como um grupo local.  
-
--   Caso o computador seja um controlador de domínio, o grupo Admins de SMS será criado como um grupo local de domínio.  
-
--   Caso o Fornecedor de SMS seja desinstalado de um computador, o grupo Admins de SMS não será removido do computador.  
-
-
-Para que um utilizador possa estabelecer uma ligação com êxito a um Fornecedor de SMS, a respetiva conta de utilizador tem de ser membro do grupo Admins de SMS. Cada utilizador administrativo que configurar na consola do Configuration Manager é automaticamente adicionado ao grupo Admins de SMS em cada servidor de site e para cada computador fornecedor de SMS da hierarquia. Quando elimina um utilizador administrativo a partir da consola do Configuration Manager, esse utilizador é removido do grupo Admins de SMS em cada servidor do site e em cada computador fornecedor de SMS da hierarquia.  
-
-Após um utilizador estabelecer uma ligação com êxito para o fornecedor de SMS, a administração baseada em funções determina quais do Configuration Manager recursos que o utilizador pode aceder ou gerir.  
-
-Pode ver e configurar as permissões e direitos do grupo Admins de SMS utilizando o snap-in MMC de controlo WMI. Por predefinição, **Todos** tem as permissões **Executar Métodos**, **Escrita do Fornecedor**e **Ativar Conta** . Após um utilizador estabelecer a ligação ao fornecedor de SMS, esse utilizador é concedido acesso aos dados da base de dados do site, com base nos respetivos direitos de segurança administrativa baseados na função conforme definido na consola do Configuration Manager. O grupo de Admins de SMS é explicitamente concedido **ativar conta** e **ativar remoto** permissões a **root\sms.** espaço de nomes.  
+Quando instalar múltiplos fornecedores de SMS num site e é feito um pedido de ligação, o site atribui aleatoriamente cada novo pedido de ligação para um fornecedor de SMS instalado. Não é possível especificar o fornecedor de SMS a utilizar com uma sessão de ligação específica.  
 
 > [!NOTE]  
->  Cada utilizador administrativo que utilize uma consola do Configuration Manager remoto requer permissões de ativação remota DCOM no computador do servidor de site e no computador do fornecedor de SMS. Embora possa atribuir estes direitos a qualquer utilizador ou grupo, é boa ideia para lhe conceder ao grupo Admins de SMS para simplificar a administração. Para obter mais informações, veja a secção [Configurar permissões de DCOM para consolas remotas do Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) do tópico [Modificar a infraestrutura do System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
+>  Considere as vantagens e desvantagens de cada localização do fornecedor de SMS. Para obter mais informações, consulte [localizações](#bkmk_location). Saldo estas considerações com as informações que não é possível controlar qual o fornecedor de SMS é utilizado para cada nova ligação.  
+
+Quando liga uma consola do Configuration Manager pela primeira vez a um site, a ligação consulta o WMI no servidor do site. Esta consulta identifica uma instância do fornecedor de SMS que utiliza a consola. Esta instância específica do fornecedor de SMS continuará a ser utilizada pela consola até que termine a sessão. Se a sessão termine porque o servidor do fornecedor de SMS não está disponível na rede, quando voltar a ligar a consola ao site, se repete a consulta inicial. É possível que o site atribui a mesma instância do fornecedor de SMS que não está disponível. Se este comportamento ocorre, tente voltar a ligar a consola até que o site retorne um fornecedor de SMS disponível.  
+
 
 
 ##  <a name="BKMK_SMSProvNamespace"></a> Sobre o espaço de nomes do fornecedor de SMS  
-A estrutura do Fornecedor de SMS é definida pelo esquema WMI. Espaços de nomes do esquema descrevem a localização de dados do Configuration Manager o esquema do fornecedor de SMS. A seguinte tabela contém alguns dos espaços de nomes comuns que são utilizados pelo Fornecedor de SMS.  
+
+O esquema WMI do Configuration Manager define a estrutura do fornecedor de SMS. Espaços de nomes do esquema descrevem a localização de dados do Configuration Manager no esquema do fornecedor de SMS. A tabela seguinte contém alguns dos espaços de nomes comuns que utiliza o fornecedor de SMS:  
 
 |Espaço de nomes|Descrição|  
 |---------------|-----------------|  
-|Root\SMS\site_*&lt;código do site\>*|O fornecedor de SMS, que é amplamente utilizado pela consola do Configuration Manager, Explorador de recursos, ferramentas do Gestor de configuração e scripts.|  
-|Root\SMS\SMS_ProviderLocation|A localização dos computadores de fornecedor de SMS de um site.|  
-|Root\CIMv2|A localização inventariada para obter informações de espaço de nomes WMI durante o inventário de hardware e software.|  
-|Root\ccm.|Políticas de configuração de cliente do Configuration Manager e os dados de cliente.|  
-|root\CIMv2\SMS|A localização do inventário de classes que são recolhidas pelo agente de cliente de inventário de relatório. Estas definições são compiladas pelos clientes durante a avaliação da política de computador e baseiam-se na configuração de definições de cliente para o computador.|  
-
-##  <a name="BKMK_WAIKforSMSProv"></a> Requisitos de implementação do sistema operativo para o fornecedor de SMS  
-O computador onde instala uma instância do fornecedor de SMS tem de ter a versão necessária do Windows ADK que requer a versão do Configuration Manager estiver a utilizar.  
-
- -   Por exemplo, a versão 1511 do Configuration Manager requer a versão do Windows 10 RTM (10.0.10240) do Windows ADK.  
-
- -   Para obter mais informações sobre este requisito, consulte [requisitos de infraestrutura de implementação do sistema operativo](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
-
-Quando gerir implementações do sistema operativo, o Windows ADK permite que o fornecedor de SMS executar várias tarefas, tais como:  
-
--   Ver detalhes do ficheiro WIM.  
-
--   Adicione ficheiros de controlador a imagens de arranque existentes.  
-
--   Crie o arranque. Ficheiros ISO.  
+|`Root\SMS\site_<site code>`|O fornecedor de SMS, que é amplamente utilizado pela consola do Configuration Manager, Explorador de recursos, ferramentas do Configuration Manager e scripts.|  
+|`Root\SMS\SMS_ProviderLocation`|A localização dos computadores de fornecedor de SMS para um site.|  
+|`Root\CIMv2`|A localização inventariada para as informações de espaço de nomes WMI durante o inventário de hardware e software.|  
+|`Root\CCM`|As políticas de configuração do cliente do Configuration Manager e os dados de cliente.|  
+|`Root\CIMv2\SMS`|A localização de classes que o agente de cliente de inventário recolhe de relatório de inventário. Os clientes compilam estas definições durante a avaliação da política de computador. Estas definições baseiam-se a configuração de definições de cliente para o computador.|  
 
 
-A instalação do Windows ADK pode precisar de até 650 MB de espaço livre em disco em cada computador que instala o Fornecedor de SMS. Este requisito de espaço em disco elevada é necessário para o Configuration Manager instale as imagens de arranque do Windows PE.  
+
+##  <a name="BKMK_WAIKforSMSProv"></a> Requisitos de implementação do SO
+
+O computador onde instala uma instância do fornecedor de SMS requer uma versão suportada do Windows ADK.  
+
+Para obter mais informações sobre este requisito, consulte [requisitos de infraestrutura para implementação do SO](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment#windows-adk-for-windows-10) e [suporte para Windows 10](/sccm/core/plan-design/configs/support-for-windows-10).  
+
+Quando gerir implementações do sistema operacional, o Windows ADK permite ao fornecedor de SMS executar várias tarefas, tais como:  
+
+-   Ver detalhes do ficheiro WIM  
+
+-   Adicionar ficheiros de controladores a imagens de arranque existentes  
+
+-   Criar arquivos ISO de arranque  
+
+
+A instalação do Windows ADK pode precisar de até 650 MB de espaço livre em disco em cada computador que instala o Fornecedor de SMS. Este requisito de espaço de disco elevados é necessário para o Configuration Manager para instalar as imagens de arranque do Windows PE.  

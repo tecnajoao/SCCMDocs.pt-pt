@@ -2,7 +2,7 @@
 title: Informações de gestão
 titleSuffix: Configuration Manager
 description: Saiba mais sobre a funcionalidade de informações de gestão disponível na consola do Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: a79f83be-884c-48e6-94d6-ed0a68c22e2f
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 92f82ee7247030d19df63e50b0ac4437f250717a
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 3721c4c35dd22a0d2a59d2300bd25dfbd3c75aeb
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383502"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456316"
 ---
 # <a name="management-insights-in-configuration-manager"></a>Informações de gestão no Configuration Manager
 
@@ -31,11 +31,12 @@ Para ver as regras, a conta tem do **ler** permissão sobre a **site** objeto.
 
 1. Abra a consola do Configuration Manager.  
 
-2. Vá para o **Administration** área de trabalho e clique em **informações de gestão**.  
+2. Vá para o **Administration** área de trabalho, expanda **informações de gestão**e selecione **todas as informações**.  
 
-3. Selecione **todas as informações**.  
+    > [!Note]  
+    > A partir da versão 1810, quando seleciona a **informações de gestão** nó, mostra o [dashboard de conhecimentos de gestão](#bkmk_insights).  
 
-4. Faça duplo clique no **nome do grupo de gestão Insight** pretende rever. Ou realçá-la e clique em **Mostrar Insights** na faixa de opções.  
+3. Abra as informações de gestão que pretende rever de nome do grupo. Selecione **Mostrar Insights** na faixa de opções.  
 
 Os seguintes quatro separadores estão disponíveis para revisão: 
 
@@ -45,7 +46,7 @@ Os seguintes quatro separadores estão disponíveis para revisão:
 
 - **Em curso**: Mostra regras em que alguns, mas nem todos os pré-requisitos estiverem concluídos.  
 
-- **Ação necessária**: As regras que precisam de ações executadas são listadas. Com o botão direito e selecione **mais detalhes** para recuperar itens específicos em que é necessária qualquer ação.  
+- **Ação necessária**: As regras que precisam de ações executadas são listadas. Selecione **mais detalhes** para recuperar itens específicos em que é necessária qualquer ação.  
 
 O **pré-requisitos** painel lista os itens necessários necessários para executar a regra.
 
@@ -53,7 +54,7 @@ O **pré-requisitos** painel lista os itens necessários necessários para execu
 ![Regras de insights-All de gestão e pré-requisitos para o grupo de serviços cloud](./media/Management-insights-all-cloud-rules.png)
 
 
-Selecione uma regra e clique em **mais detalhes** para ver os detalhes da regra.
+Selecione uma regra e, em seguida, selecione **mais detalhes** para ver os detalhes da regra.
 
 
 
@@ -63,7 +64,7 @@ As regras de informações de gestão reavaliar a sua aplicabilidade com base nu
 
 O ficheiro de registo para as regras de informações de gestão está **SMS_DataEngine.log** no servidor do site.
 
-<!--1357930--> A partir da versão 1806, algumas regras permitem-lhe tomar medidas. Selecione uma regra, clique em **mais detalhes**e, se disponível clique **agir**. 
+<!--1357930--> A partir da versão 1806, algumas regras permitem-lhe tomar medidas. Selecione uma regra, selecione **mais detalhes**e, se selecionar disponíveis **agir**. 
 
 Consoante a regra, esta ação tem um dos seguintes comportamentos:  
 
@@ -73,9 +74,45 @@ Consoante a regra, esta ação tem um dos seguintes comportamentos:
 
 
 
+## <a name="bkmk_insights"></a> Dashboard de conhecimentos de gestão
+<!--1357979-->
+
+A partir da versão 1810, o **informações de gestão** nó inclui um dashboard gráfico. Este dashboard mostra uma descrição geral dos Estados de regra, que torna mais fácil para que possa mostrar o progresso. 
+
+Utilize os seguintes filtros na parte superior do dashboard para refinar a vista:
+- Mostrar concluídas
+- Opcional
+- Recomendado
+- Crítico
+
+O dashboard inclui os seguintes mosaicos:  
+
+- **Índice de informações de gestão**: Controla o progresso global em regras de informações de gestão. O índice é uma média ponderada. Regras críticas valem o máximo. Esse índice oferece o peso, pelo menos, a regras opcionais.  
+
+- **Grupos de informações de gestão**: Mostra a percentagem de regras em cada grupo, honrar os filtros. Selecione um grupo para desagregar até as regras específicas neste grupo.  
+
+- **Prioridade de informações de gestão**: Mostra a percentagem de regras por prioridade, honrar os filtros.   
+
+- **Todas as informações**: Uma tabela de informações, incluindo a prioridade e estado. Utilize o **filtro** campo na parte superior da tabela de acordo com cadeias de caracteres em qualquer uma das colunas disponíveis. O dashboard ordena a tabela pela seguinte ordem:
+    - Estado: Ação necessária, concluído, desconhecido  
+    - Prioridade: Crítico, recomendado, opcional  
+    - Última Changed: datas mais antigas na parte superior   
+
+![Captura de ecrã do dashboard de conhecimentos de gestão](media/1357979-management-insights-dashboard.png)
+
+
+
 ## <a name="groups-and-rules"></a>Grupos e regras
 
-As regras são organizadas em grupos de informações de gestão diferentes. Consulte a lista a seguir para os grupos e as regras que estão atualmente disponíveis:
+As regras estão organizadas nas seguintes grupos de informações de gestão:
+- [Aplicações](#applications)  
+- [Serviços cloud](#cloud-services)  
+- [Coleções](#collections)  
+- [Manutenção pró-ativa](#proactive-maintenance)  
+- [Segurança](#security)  
+- [Gestão simplificada](#simplified-management)  
+- [Centro de software](#software-center)  
+- [Windows 10](#windows-10)  
 
 
 ### <a name="applications"></a>Aplicações
@@ -119,6 +156,8 @@ Informações que o ajudam a simplificam a gestão ao limpar e reconfigurar as c
 - **Imagens de arranque não utilizados**: Imagens de arranque não referenciadas para utilização de sequência de arranque ou a tarefa PXE. Para obter mais informações, consulte [gerir imagens de arranque](/sccm/osd/get-started/manage-boot-images).  
 
 - **Itens de configuração não utilizados**: Itens de configuração que não fazem parte de uma linha de base de configuração e têm mais de 30 dias. Para obter mais informações, consulte [criar linhas de base de configuração](/sccm/compliance/deploy-use/create-configuration-baselines).  
+
+- **Atualizar origens de cache ponto a ponto para a versão mais recente do cliente do Configuration Manager**: Identificar os clientes que servem como uma origem de cache ponto a ponto, mas ainda não tiver atualizado a partir de uma versão de cliente de pré-1806. Pré-1806 clientes não podem servir como uma origem de cache ponto a ponto para clientes que executam a versão 1806 ou posterior. Selecione **agir** para abrir uma vista de dispositivo que apresenta a lista de clientes.<!--1358008-->  
 
 
 ### <a name="security"></a>Segurança

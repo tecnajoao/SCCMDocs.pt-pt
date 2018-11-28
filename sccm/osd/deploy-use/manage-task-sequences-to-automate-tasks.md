@@ -2,7 +2,7 @@
 title: Gerir sequências de tarefas
 titleSuffix: Configuration Manager
 description: Criar, editar, implementar, importar e exportar sequências de tarefas para geri-los e automatizar tarefas no seu ambiente.
-ms.date: 08/17/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: a1f099f1-e9b5-4189-88b3-f53e3b4e4add
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a6c1fb447719a36bd3c0cb7e2c91daf6a58d85ff
-ms.sourcegitcommit: be8c0182db9ef55a948269fcbad7c0f34fd871eb
+ms.openlocfilehash: 44cfb06c8d92568a4468c1f46b90ceeb259c3c1f
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42755929"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456639"
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-configuration-manager"></a>Gerir sequências de tarefas para automatizar tarefas no Configuration Manager
 
@@ -34,7 +34,7 @@ Utilize sequências de tarefas para automatizar passos no seu ambiente do Config
 |[Sequência de tarefas para instalar um sistema operacional](create-a-task-sequence-to-install-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para instalar um sistema operacional. Ele também inclui opções para migrar dados de utilizador, incluir atualizações de software e instalar aplicações.|  
 |[Sequência de tarefas para atualizar um sistema operacional](create-a-task-sequence-to-upgrade-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para atualizar um sistema operacional. Ele também inclui opções para incluir atualizações de software e instalar aplicações.|  
 |[Sequência de tarefas para capturar um sistema operacional](create-a-task-sequence-to-capture-an-operating-system.md)|Este tipo de sequência de tarefas cria os passos para criar e capturar um sistema operacional de um computador de referência. Pode incluir atualizações de software e instalar aplicações no computador de referência antes de capturar a imagem.|  
-|[Sequência de tarefas para capturar e restaurar estado do utilizador](create-a-task-sequence-to-capture-and-restore-user-state.md)|Esta sequência de tarefas fornece os passos a adicionar a uma sequência de tarefas existente para capturar e restaurar dados de estado do utilizador.|  
+|[Sequência de tarefas para capturar e restaurar o estado do utilizador](create-a-task-sequence-to-capture-and-restore-user-state.md)|Esta sequência de tarefas fornece os passos a adicionar a uma sequência de tarefas existente para capturar e restaurar dados de estado do utilizador.|  
 |[Sequência de tarefas personalizada](create-a-custom-task-sequence.md)|Este tipo de sequência de tarefas não adiciona quaisquer passos à sequência de tarefas. Depois de criar esta sequência de tarefas, editá-lo e adicionar passos.|  
 
 
@@ -228,7 +228,7 @@ A seguinte mensagem de notificação apresentada quando o utilizador final abre 
 8.  Conclua o assistente.  
 
 
- Também pode pré-configurar o conteúdo referenciado na sequência de tarefas. O Configuration Manager cria um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros, dependências associadas e metadados associados para o conteúdo que selecionar. Em seguida, importar manualmente o conteúdo num servidor de site, site secundário, ou ponto de distribuição. Para obter mais informações sobre como pré-configurar ficheiros de conteúdo, consulte [pré-configurar conteúdo](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
+ Também pode pré-configurar o conteúdo referenciado na sequência de tarefas. O Configuration Manager cria um ficheiro de conteúdo comprimido e pré-configurado que contém os ficheiros, dependências associadas e metadados associados para o conteúdo que selecionar. Em seguida, importar manualmente o conteúdo num servidor de site, site secundário, ou ponto de distribuição. Para obter mais informações sobre como pré-configurar ficheiros de conteúdo, consulte [Prestage content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
 
 
 
@@ -391,6 +391,9 @@ A seguinte mensagem de notificação apresentada quando o utilizador final abre 
     -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição de um grupo de limite vizinho para transferir o conteúdo exigido pela sequência de tarefas.  
 
     - **Permitir aos clientes utilizar pontos de distribuição do grupo de limite de site predefinido**: Especifique se os clientes devem transferir conteúdo de um ponto de distribuição no grupo de limite predefinido de site, quando não está disponível a partir de um ponto de distribuição nos grupos de limites atual ou vizinhança.  
+
+        > [!Note]  
+        > A partir da versão 1810, quando um dispositivo é executada uma sequência de tarefas e tem de adquirir o conteúdo, ele usa comportamentos de grupo de limites semelhantes para o cliente do Configuration Manager. Para obter mais informações, consulte [grupos de limites suporte a sequência de tarefas](/sccm/core/servers/deploy/configure/boundary-groups#bkmk_bgr-osd).<!--1359025-->  
 
 11. A partir do Configuration Manager 1802, no **resumo** separador, clique em **guardar como modelo** se pretender guardar as definições para utilizar novamente. Forneça um nome para o modelo, selecione as definições para guardar.  
 
@@ -590,13 +593,13 @@ Quando implementa uma sequência de tarefas de atualização, utilize as seguint
  Para obter mais informações, consulte [criar implementações faseadas](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence).
 
 #### <a name="deploy"></a>Implementar
- Para obter mais informações, veja [Implementar uma sequência de tarefas](#BKMK_DeployTS).
+ Para obter mais informações, veja [Deploy a task sequence (Implementar uma sequência de tarefas)](#BKMK_DeployTS).
 
 #### <a name="distribute-content"></a>Distribuir Conteúdo
  Inicia o Assistente para distribuir conteúdo para enviar o conteúdo referenciado a pontos de distribuição. 
 
 #### <a name="create-prestaged-content-file"></a>Criar ficheiro de conteúdo pré-configurado
- Inicia o Assistente para Criar Ficheiro de Conteúdo Pré-configurado para pré-configurar o conteúdo da sequência de tarefas. Para obter informações sobre como criar um ficheiro de conteúdo pré-configurado, consulte [pré-configurar conteúdo](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).
+ Inicia o Assistente para Criar Ficheiro de Conteúdo Pré-configurado para pré-configurar o conteúdo da sequência de tarefas. Para obter mais informações sobre como criar um ficheiro de conteúdo pré-configurado, consulte [Prestage content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).
 
 #### <a name="move"></a>Mover
  Move a sequência de tarefas selecionada para outra pasta no **sequências de tarefas** nó. 

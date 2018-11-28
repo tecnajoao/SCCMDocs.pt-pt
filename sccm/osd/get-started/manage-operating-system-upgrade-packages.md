@@ -1,8 +1,8 @@
 ---
-title: Gerir pacotes de atualização do sistema operativo
+title: Gerir pacotes de atualização do SO
 titleSuffix: Configuration Manager
-description: Saiba como gerir pacotes de atualização do sistema operativo no System Center Configuration Manager.
-ms.date: 12/06/2016
+description: Saiba como gerir pacotes de atualização do sistema operacional no Configuration Manager.
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -10,83 +10,66 @@ ms.assetid: b9b22655-b8c1-461f-8047-3a7e906f647a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1caaf1b63a5773e61c3e8d7b500e9d0acfca1010
-ms.sourcegitcommit: a52255da16c9f8b0b60a6c299a369347c7e01bef
+ms.openlocfilehash: f7b8b18cbec5a3b5972a448e8a70339533dc11fb
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49989132"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456014"
 ---
-# <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Gerir pacotes de atualização do sistema operativo com o System Center Configuration Manager
+# <a name="manage-os-upgrade-packages-with-configuration-manager"></a>Gerir pacotes de atualização de SO com o Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Um pacote de atualização no System Center Configuration Manager contém os ficheiros de origem de instalação do Windows que são utilizados para atualizar um sistema operativo existente num computador. Utilize as seguintes secções para gerir pacotes de atualização do sistema operativo no Configuration Manager.
+Um pacote de atualização do sistema operacional no Configuration Manager contém os arquivos de origem de instalação do Windows para atualizar um sistema operacional existente num computador. Este artigo descreve como adicionar, distribuir e um pacote de atualização do sistema operacional de serviço.
 
-##  <a name="BKMK_AddOSUpgradePkgs"></a> Adicionar pacotes de atualização do sistema operativo no Configuration Manager  
- Antes de poder utilizar um pacote de atualização do sistema operativo, tem de adicionar o pacote a um site do Configuration Manager. Utilize o procedimento seguinte para adicionar um pacote de atualização do sistema operativo a um site.  
 
-#### <a name="to-add-an-operating-system-upgrade-package"></a>Para adicionar um pacote de atualização do sistema operativo  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+##  <a name="BKMK_AddOSUpgradePkgs"></a> Adicionar um pacote de atualização de SO  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Pacotes de atualização de Sistema Operativo**.  
+Antes de poder utilizar um pacote de atualização de SO, primeiro adicioná-lo para o seu site do Configuration Manager. 
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Adicionar Atualização de Sistema Operativo** para iniciar o Assistente para Adicionar Atualização de Sistema Operativo.  
+1.  Na consola do Configuration Manager, vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e, em seguida, selecione o **pacotes de atualização do sistema operativo** nó .  
 
-4.  Na página **Origem de Dados** , especifique o caminho de rede para os ficheiros de origem de instalação do pacote de atualização do sistema operativo. Por exemplo, especifique o UNC **\\\server\path** onde estão instalados os ficheiros de origem de instalação.  
+2.  Sobre o **home page** separador do Friso, no **criar** grupo, selecione **Adicionar pacote de atualização do sistema operativo**. Esta ação inicia o sistema operativo atualizar o Assistente para adicionar.  
 
-    > [!NOTE]  
-    >  Os ficheiros de origem de instalação contêm Setup.exe e outros ficheiros e pastas para instalar o sistema operativo.  
+3.  Sobre o **origem de dados** página, especifique as seguintes definições: 
 
-    > [!IMPORTANT]  
-    >  Limite o acesso aos ficheiros de origem de instalação para impedir a adulteração indesejável.  
+    - A rede **caminho** à instalação do pacote de atualização de ficheiros de origem do sistema operacional. Por exemplo, `\\server\share\path`.  
 
-5.  Na página **Geral** , especifique as seguintes informações e clique em **Seguinte**. Estas informações são úteis para fins de identificação quando tem vários programas de instalação do sistema operativo.  
+        > [!NOTE]  
+        >  Os ficheiros de origem de instalação contêm setup.exe e outros ficheiros e pastas para instalar o sistema operacional.  
 
-    -   **Nome**: Especifique o nome da instalação do sistema operativo.  
+        > [!IMPORTANT]  
+        >  Limitar o acesso a estes ficheiros de origem de instalação para impedir a adulteração indesejável.  
 
-    -   **Versão**: Especifique a versão da instalação do sistema operativo.  
+    - Se quiser pré-colocar em cache conteúdo num cliente, especifique a **arquitetura** e **linguagem** da imagem. Para obter mais informações, consulte [configurar pré-armazenar conteúdo em cache](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content).  
 
-    -   **Comentário**: Especifique uma breve descrição de instalação do sistema operativo.  
+4.  Sobre o **gerais** , especifique as seguintes informações. Estas informações são úteis para fins de identificação quando tem mais do que um sistema operacional de pacote de atualização.  
 
-6.  Conclua o assistente.  
+    -   **Nome**: Pacote de atualização de um nome exclusivo para o sistema operacional.  
 
- É agora possível distribuir o programa de instalação do sistema operativo pelos pontos de distribuição a que se acede através das sequências de tarefas de implementação.  
+    -   **Versão**: Um identificador de versão opcional. Esta propriedade não precisa ser a versão do pacote de atualização do SO. É, muitas vezes, versão da sua organização para o pacote.  
 
-##  <a name="BKMK_DistributeBootImages"></a> Distribuir imagens do sistema operativo por pontos de distribuição  
- As imagens do sistema operativo são distribuídas por pontos de distribuição da mesma forma que são distribuídos outros conteúdos. Na maioria dos casos, terá de distribuir a imagem do sistema operativo por, pelo menos, um ponto de distribuição antes de implementar o sistema operativo. Para obter os passos para distribuir uma imagem do sistema operativo, veja [Distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+    -   **Comentário**: Uma breve descrição opcional.  
 
-##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Aplicar atualizações de software num pacote de atualização do sistema operativo  
- A partir do Configuration Manager versão 1602, pode aplicar novas atualizações de software à imagem do sistema operativo no seu pacote de atualização do sistema operativo. Antes de poder aplicar as atualizações de software a um pacote de atualização que tem de ter o software de atualizações de infraestrutura no local e com êxito atualizações de software sincronizadas, transferidas as atualizações de software para a biblioteca de conteúdos no servidor do site. Para obter mais informações, consulte [implementar atualizações de software](../../sum/deploy-use/deploy-software-updates.md).  
+5.  Conclua o assistente.  
 
- Pode aplicar atualizações de software aplicáveis a um pacote de atualização numa agenda especificada. Na agenda que especificar, o Configuration Manager aplica-se as atualizações de software que selecionou para o pacote de atualização do sistema operativo e, em seguida, distribui opcionalmente o pacote de atualização atualizado a pontos de distribuição. As informações sobre o pacote de atualização do sistema operativo são armazenadas na base de dados do site, incluindo as atualizações de software que foram aplicadas no momento da importação. As atualizações de software aplicadas ao pacote de atualização desde que foi adicionado inicialmente também são armazenadas na base de dados do site. Ao iniciar o assistente para aplicar as atualizações de software ao pacote de atualização do sistema operativo, o assistente obtém uma lista de atualizações de software aplicáveis que ainda não foram aplicadas ao pacote de atualização para que possa selecioná-las. Configuration Manager copia as atualizações de software da biblioteca de conteúdos no servidor do site e aplica as atualizações de software ao pacote de atualização do sistema operativo.  
 
- Utilize o procedimento seguinte para aplicar atualizações de software a um pacote de atualização do sistema operativo.  
+Em seguida, distribua o pacote de atualização de SO para pontos de distribuição.  
 
-#### <a name="to-apply-software-updates-to-an-operating-system-upgrade-package"></a>Aplicar atualizações de software a um pacote de atualização do sistema operativo  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Pacotes de atualização de Sistema Operativo**.  
+##  <a name="BKMK_Distribute"></a> Distribuir conteúdo para um ponto de distribuição  
 
-3.  Selecione o pacote de atualização do sistema operativo em relação ao qual pretende aplicar atualizações de software.  
+Pacotes de atualização do SO para pontos de distribuição distribua o mesmo que outro conteúdo. Antes de implementar a sequência de tarefas, distribua o pacote de atualização de SO para, pelo menos, um ponto de distribuição. Para mais informações, consulte [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).  
 
-4.  No separador **Home Page** , no grupo **Pacotes de Atualização do Sistema Operativo** , clique em **Agendar Atualizações** para iniciar o assistente.  
 
-5.  Na página **Escolher as Atualizações** , selecione as atualizações de software para aplicar à imagem do sistema operativo e clique em **Seguinte**.  
 
-6.  Na página **Definir Agendamento** , especifique as seguintes definições e clique em **Seguinte**.  
+[!INCLUDE [Apply software updates to an image](includes/wim-apply-updates.md)]
 
-    1.  **Agenda**: Especifique a agenda para quando as atualizações de software são aplicadas à imagem do sistema operativo.  
 
-    2.  **Continuar com o erro**:  Selecione esta opção para continuar a aplicar atualizações de software à imagem, mesmo se ocorrer um erro.  
 
-    3.  **Distribuir a imagem por pontos de distribuição**: Selecione esta opção para atualizar a imagem de sistema operativo em pontos de distribuição depois de serem aplicadas as atualizações de software.  
+## <a name="next-steps"></a>Passos seguintes
 
-7.  Na página **Resumo** , verifique as informações e clique em **Seguinte**.  
-
-8.  Na página **Conclusão** , confirme que as atualizações de software foram aplicadas com êxito na imagem do sistema operativo.  
-
-> [!NOTE]  
->  Para minimizar o tamanho da carga, a manutenção de pacotes de atualização do SO e imagens do sistema operacional remove a versão mais antiga. 
+[Criar uma sequência de tarefas para atualizar um SO](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system)

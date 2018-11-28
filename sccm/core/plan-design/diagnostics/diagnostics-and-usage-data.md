@@ -2,7 +2,7 @@
 title: Dados de diagnóstico e de utilização
 titleSuffix: Configuration Manager
 description: Saiba mais sobre os diagnósticos e dados de utilização que o System Center Configuration Manager, recolhe sobre si próprio.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 88ac4e55-d47b-4c94-b9c3-704c6a48b845
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 031815e741128d605bf7ee50079338eba7aa720b
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: ad22c4d9d3a1fd3c09983e8da73594ef27ebd016
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384114"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456894"
 ---
 # <a name="diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Dados de diagnóstico e de utilização para o System Center Configuration Manager
 
@@ -33,28 +33,28 @@ O Configuration Manager recolhe os diagnósticos e dados de utilização sobre e
 ## <a name="articles"></a>Artigos
  Saiba mais sobre os dados de diagnóstico e utilização para o Configuration Manager nos seguintes artigos:  
 
--   [Como os diagnósticos e dados de utilização são utilizados](../../../core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)  
+-   [Como os diagnósticos e dados de utilização são utilizados](/sccm/core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-used)  
 
 -   Níveis de recolha de dados de diagnóstico de utilização:
-    - [Dados de diagnóstico para 1806](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1806)  
+    - [Dados de diagnóstico para 1810](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1810)  
+
+    - [Dados de diagnóstico da versão 1806](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1806)  
 
     - [Dados de diagnóstico da versão 1802](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1802)  
-
-    - [Dados de diagnóstico da versão 1710](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1710)  
     
--   [Como os diagnósticos e os dados de utilização são recolhidos](../../../core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected.md)  
+-   [Como os diagnósticos e os dados de utilização são recolhidos](/sccm/core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected)  
 
--   [Como visualizar diagnósticos e dados de utilização](../../../core/plan-design/diagnostics/view-diagnostics-and-usage-data.md)  
+-   [Como visualizar diagnósticos e dados de utilização](/sccm/core/plan-design/diagnostics/view-diagnostics-and-usage-data)  
 
--   [Programa de Melhoramento da Experiência do Cliente (PMEC)](../../../core/plan-design/diagnostics/customer-experience-improvement-program-ceip.md)  
+-   [Programa de Melhoramento da Experiência do Cliente (PMEC)](/sccm/core/plan-design/diagnostics/customer-experience-improvement-program-ceip)  
 
      > [!Note]  
      > A partir do Configuration Manager versão 1802 a funcionalidade CEIP é removida do produto.  
 
 
--   [Perguntas mais frequentes sobre diagnósticos e dados de utilização](../../../core/understand/frequently-asked-questions-about-diagnostics-and-usage-data.md)  
+-   [Perguntas mais frequentes sobre diagnósticos e dados de utilização](/sccm/core/understand/frequently-asked-questions-about-diagnostics-and-usage-data)  
 
 
 
 ## <a name="see-also"></a>Consulte Também  
- [Sobre o ponto de ligação de serviço](../../../core/servers/deploy/configure/about-the-service-connection-point.md)
+ [Sobre o ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point)

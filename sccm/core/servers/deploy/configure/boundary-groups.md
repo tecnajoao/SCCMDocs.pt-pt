@@ -2,7 +2,7 @@
 title: Configurar grupos de limites
 titleSuffix: Configuration Manager
 description: Ajudar os clientes a localizar sistemas de sites através de grupos de limites para organizar logicamente as localizações de rede relacionados chamadas limites
-ms.date: 08/29/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 5db2926f-f03e-49c7-b44b-e89b1a5a6779
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 232dbaa0bca1507d3b743174be649281f46ab52d
-ms.sourcegitcommit: 52ec30245ba559596d2f88a3eff70c467b4a056f
+ms.openlocfilehash: e9b2eaaf3581bdb951b23541c96532c5b049aac1
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381021"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456367"
 ---
 # <a name="configure-boundary-groups-for-configuration-manager"></a>Configurar grupos de limites para o Configuration Manager
 
@@ -28,7 +28,7 @@ Por predefinição, o Configuration Manager cria um grupo de limites de site pad
 
 Para configurar grupos de limites, associar limites (localizações de rede) e funções de sistema de sites, como pontos de distribuição, ao grupo de limites. Esta configuração ajuda a associar os clientes para servidores do sistema de sites, como pontos de distribuição que estão localizados perto os clientes na rede.
 
-Para aumentar a disponibilidade dos servidores de sistemas de site a um maior número de localizações de rede, atribua o mesmo limite de tempo e o mesmo servidor a vários grupos de limites.
+Para aumentar a disponibilidade dos servidores a um maior número de localizações de rede, atribua o mesmo limite de tempo e o mesmo servidor a mais do que um grupo de limites.
 
 Os clientes utilizam um grupo de limites para:  
 
@@ -50,15 +50,15 @@ Para cada grupo de limites na sua hierarquia, pode atribuir:
 
 - Um ou mais limites. Um cliente **atual** grupo de limites for uma localização de rede que é definida como um limite atribuído a um grupo de limites específicos. Um cliente pode ter mais de um grupo de limites atual.  
 
-- Uma ou mais funções de sistema de sites. Os clientes podem sempre utilizar funções de sistema de sites associadas a seu grupo de limites atual. Dependendo de configurações adicionais, podem ser capazes de usar as funções do sistema de sites em grupos de limites adicionais.  
+- Uma ou mais funções de sistema de sites. Os clientes podem sempre utilizar funções associadas do seu grupo de limites atual. Dependendo de configurações adicionais, podem utilizar funções em grupos de limites adicionais.  
 
-Para cada grupo de limites que criar, pode configurar uma ligação unidirecional para outro grupo de limites. A ligação é chamada um **relação**. Cria uma ligação para os grupos de limites são chamados **vizinho** grupos de limites. Um grupo de limites pode ter várias relações, cada um com um grupo de limite vizinho específico.
+Para cada grupo de limites que criar, pode configurar uma ligação unidirecional para outro grupo de limites. A ligação é chamada um **relação**. Cria uma ligação para os grupos de limites são chamados **vizinho** grupos de limites. Um grupo de limites pode ter mais de uma relação, cada um com um grupo de limite vizinho específico.
 
-Quando um cliente não consegue localizar um servidor de sistema de sites disponíveis no seu grupo de limite atual, a configuração de cada relação determina quando começa a procurar um grupo de limite vizinho. Esta pesquisa de grupos adicionais é chamada **contingência**.
+Quando um cliente não consegue encontrar um sistema de sites disponíveis no seu grupo de limites atual, a configuração de cada relação determina quando começa a procurar um grupo de limite vizinho. Esta pesquisa de grupos adicionais é chamada **contingência**.
 
 Para obter mais informações, consulte os seguintes procedimentos:  
-- [Criar um grupo de limites](#bkmk_create)  
-- [Configurar um grupo de limites](#bkmk_config)  
+- [Criar um grupo de limites](/sccm/core/servers/deploy/configure/boundary-group-procedures#bkmk_create)  
+- [Configurar um grupo de limites](/sccm/core/servers/deploy/configure/boundary-group-procedures#bkmk_config)  
 
 
 
@@ -66,7 +66,7 @@ Para obter mais informações, consulte os seguintes procedimentos:
 
 Para evitar problemas quando os clientes não é possível localizar um sistema de sites disponíveis no seu grupo de limite atual, defina a relação entre grupos de limites para o comportamento de contingência. Contingência permite que um cliente expandir sua pesquisa para grupos de limites adicionais para localizar um sistema de sites disponíveis.
 
-As relações são configuradas nas propriedades do grupo de limites **relações** separador. Ao configurar uma relação, define uma ligação para um grupo de limite vizinho. Para cada tipo de função do sistema de sites suportados, as configurações independente para contingência para o grupo de limite vizinho. Para obter mais informações, consulte [configurar o comportamento de contingência](#bkmk_bg-fallback).
+As relações são configuradas nas propriedades do grupo de limites **relações** separador. Ao configurar uma relação, define uma ligação para um grupo de limite vizinho. Para cada tipo de função do sistema de sites suportados, as configurações independente para contingência para o grupo de limite vizinho. Para obter mais informações, consulte [configurar o comportamento de contingência](/sccm/core/servers/deploy/configure/boundary-group-procedures#bkmk_bg-fallback).
 
 Por exemplo, quando configurar uma relação a um grupo de limites específicos, defina contingência para pontos de distribuição de ocorrer após 20 minutos. A predefinição é 120 minutos para obter um exemplo mais extensivo, consulte [exemplo de como utilizar grupos de limites](#example-of-using-boundary-groups).
 
@@ -74,7 +74,7 @@ Se um cliente não conseguir encontrar uma função de sistema de sites disponí
 
 Quando um cliente não é possível localizar um sistema de sites disponíveis, ele começa pesquisar localizações de grupos de limite vizinho. Este comportamento aumenta o conjunto de sistemas de sites disponíveis. A configuração de grupos de limites e seus relacionamentos define a utilização do cliente deste agrupamento de sistemas de sites disponíveis.
 
-- Um grupo de limites pode ter mais de uma relação. Com várias relações, pode configurar a contingência para cada tipo de sistema de sites com diferentes vizinhos de ocorrer após diferentes períodos de tempo.    
+- Um grupo de limites pode ter mais de uma relação. Com esta configuração, pode configurar a contingência para cada tipo de sistema de sites com diferentes vizinhos de ocorrer após diferentes períodos de tempo.    
 
 - Clientes só contingência para um grupo de limites que é um vizinho direto do respetivo grupo de limites atual.  
 
@@ -83,7 +83,7 @@ Quando um cliente não é possível localizar um sistema de sites disponíveis, 
 
 ### <a name="the-default-site-boundary-group"></a>O grupo de limites de site predefinido
 
-Além de criar grupos de limites, cada site tem um grupo de limites de site padrão criado pelo Configuration Manager. Este grupo é designado **predefinição---grupo de limite Site&lt;sitecode >**. Por exemplo, o grupo para o site ABC teria o nome **predefinição---grupo de limite Site&lt;ABC >**.
+Pode criar seus próprios grupos de limites e cada site tem um grupo de limites de site predefinido do Configuration Manager cria. Este grupo é designado **predefinição---grupo de limite Site&lt;sitecode >**. Por exemplo, o grupo para o site ABC teria o nome **predefinição---grupo de limite Site&lt;ABC >**.
 
 Para cada grupo de limites que cria, o Configuration Manager cria automaticamente uma ligação implícita para cada grupo de limites de site padrão na hierarquia.  
 
@@ -108,7 +108,7 @@ Para gerir a contingência para o grupo de limites de site padrão:
 
 -   Depois de atribuir a um site, um cliente não altera sua atribuição de site ao alterar a respetiva localização de rede. Por exemplo, um cliente fizer roaming para uma nova localização de rede. Esta localização é um limite num grupo de limites com uma atribuição de site diferente. Site atribuído do cliente não é alterado.  
 
--   Quando a deteção de sistema do Active Directory Deteta um novo recurso, o site avaliar informações de rede para o recurso detetado com os limites em grupos de limites. Este processo associa o novo recurso a um site atribuído que será utilizado pelo método de instalação push do cliente.  
+-   Quando a deteção de sistema do Active Directory Deteta um novo recurso, o site avaliar as informações de rede para o recurso com os limites em grupos de limites. Este processo associa o novo recurso a um site atribuído que será utilizado pelo método de instalação push do cliente.  
 
 -   Quando um limite é um membro de mais do que um grupos de limites que possuem diferentes sites atribuídos, os clientes selecionam aleatoriamente um dos sites.  
 
@@ -117,29 +117,89 @@ Para gerir a contingência para o grupo de limites de site padrão:
 Para obter mais informações sobre a atribuição de sites do cliente, consulte [utilizar a atribuição automática de site de computadores](/sccm/core/clients/deploy/assign-clients-to-a-site#BKMK_AutomaticAssignment).  
 
 Para obter mais informações sobre como configurar a atribuição de sites, consulte os seguintes procedimentos:
-- [Configurar a atribuição de site e selecionar servidores do sistema de sites](#bkmk_references)
-- [Configurar um site de contingência para atribuição automática de site](#bkmk_site-fallback)
+- [Configurar a atribuição de site e selecionar servidores do sistema de sites](/sccm/core/servers/deploy/configure/boundary-group-procedures#bkmk_references)
+- [Configurar um site de contingência para atribuição automática de site](/sccm/core/servers/deploy/configure/boundary-group-procedures#bkmk_site-fallback)
 
 
 
 ## <a name="distribution-points"></a>Pontos de distribuição
 
-Quando um cliente solicita o local de um ponto de distribuição, o Configuration Manager envia ao cliente uma lista de sistemas de sites. Estes sistemas de sites são do tipo adequado associado a cada grupo de limites que inclui a localização de rede atual:
+Quando um cliente solicita o local de um ponto de distribuição, o Configuration Manager envia ao cliente uma lista de sistemas de sites. Estes sistemas de sites são do tipo adequado associado a cada grupo de limites que inclui a localização de rede atual do cliente:
 
 -   **Durante a distribuição de software**, os clientes solicitam uma localização para o conteúdo de implementação numa fonte de conteúdo válido. Esta localização pode ser um ponto de distribuição ou uma origem de cache ponto a ponto.  
 
 -   **Durante a implementação do sistema operacional**, os clientes solicitam uma localização para enviar ou receber as respetivas informações de migração de estado.  
 
-Durante a implementação de conteúdos, se um cliente solicita conteúdo que não está disponível de uma origem no seu grupo de limite atual, o cliente continua a pedem esse conteúdo. O cliente tenta diferente fontes de conteúdo no seu grupo de limites atual até atingir o período de contingência para um grupo de limite vizinho ou do grupo de limites de site predefinido. Se o cliente ainda não foi encontrado conteúdo, em seguida, expande sua pesquisa por fontes de conteúdo incluir grupos de limite vizinho.
+    - Os clientes a partir da versão 1810, adquirir o conteúdo com base em comportamentos do grupo de limites. Para obter mais informações, consulte [grupos de limites suporte a sequência de tarefas](#bkmk_bgr-osd).  
 
-Se o conteúdo é distribuído por demanda e não está disponível num ponto de distribuição quando solicitado por um cliente, o processo para transferir o conteúdo para esse ponto de distribuição é iniciado. É possível que o cliente localiza esse servidor como uma origem de conteúdo antes de reverter para utilizar um grupo de limite vizinho.
+Durante a implementação de conteúdos, se um cliente solicita conteúdo que não está disponível de uma origem no seu grupo de limite atual, o cliente continua a pedem esse conteúdo. O cliente tenta diferente fontes de conteúdo no seu grupo de limites atual até atingir o período de contingência para um vizinho ou do grupo de limites de site predefinido. Se o cliente ainda não foi encontrado conteúdo, em seguida, expande sua pesquisa por fontes de conteúdo incluir grupos de limite vizinho.
+
+Se configurar o conteúdo para distribuir a pedido e ele não está disponível num ponto de distribuição quando um cliente solicita-lo, o site começa-se transferir o conteúdo para esse ponto de distribuição. É possível que o cliente localiza esse servidor como uma origem de conteúdo antes de reverter para utilizar um grupo de limite vizinho.
+
+
+### <a name="bkmk_ccmsetup"></a> Instalação do cliente
+<!--1358840-->
+
+Ao instalar o cliente do Configuration Manager, o processo de ccmsetup entra em contacto com o ponto de gestão para localizar os conteúdos necessários. Durante este processo nas versões 1806 e anteriores, o ponto de gestão devolve apenas os pontos de distribuição no grupo de limite atual do cliente. Se nenhum conteúdo estiver disponível, o processo de configuração é retrocede para transferir o conteúdo do ponto de gestão. Não existe nenhuma opção para reverter para pontos de distribuição em outros grupos de limites que podem ter o conteúdo necessário. 
+
+A partir da versão 1810, o ponto de gestão devolve pontos de distribuição com base na configuração do grupo de limites. Se definir relações no grupo de limites, o ponto de gestão devolve pontos de distribuição na seguinte ordem:
+1. Grupo de limites atual  
+2. Grupos de limites de vizinho  
+3. O grupo de limites do site predefinido  
+
+> [!Note]  
+> O processo de configuração de cliente não usa o tempo de contingência. Para localizar o conteúdo mais rapidamente possível, imediatamente vai para o grupo de limites próximo.  
+
+
+### <a name="bkmk_bgr-osd"></a> Suporte de sequência de tarefas para grupos de limites
+<!--1359025-->
+
+A partir da versão 1810, quando um dispositivo é executada uma sequência de tarefas e tem de adquirir o conteúdo, ele agora usa comportamentos de grupo de limites semelhantes para o cliente do Configuration Manager.   
+
+Configurar este comportamento ao utilizar as seguintes definições sobre o **pontos de distribuição** página da implementação da sequência de tarefas: 
+
+- **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Para esta implementação, a sequência de tarefas pode reverter para pontos de distribuição num grupo de limite vizinho.  
+
+- **Permitir aos clientes utilizar pontos de distribuição do grupo de limite de site predefinido**: Para esta implementação, a sequência de tarefas pode reverter para pontos de distribuição no grupo de limite de site predefinido.  
+
+Para usar esse novo comportamento, certifique-se atualizar clientes para a versão mais recente.
+
+#### <a name="location-priority"></a>Prioridade de localização  
+
+A sequência de tarefas tenta adquirir o conteúdo pela seguinte ordem:  
+
+1. Origens de cache ponto a ponto  
+
+2. Pontos de distribuição no *atual* grupo de limites  
+
+3. Pontos de distribuição numa *vizinho* grupo de limites  
+
+    > [!Important]  
+    > Devido à natureza do processamento de sequência de tarefas em tempo real, ele não espera até que o tempo de ativação pós-falha num grupo de limite vizinho. Ele usa os tempos de ativação pós-falha para priorizar os grupos de limite vizinho. Por exemplo, se a sequência de tarefas não conseguir adquirir o conteúdo de um ponto de distribuição no seu grupo de limite atual, imediatamente tenta um ponto de distribuição num grupo de limite vizinho com a hora de ativação pós-falha mais curto. Se esse processo falhar, em seguida, falhar ao longo para um ponto de distribuição de um grupo de limite vizinho com um maior tempo de ativação pós-falha.  
+
+4. Pontos de distribuição no *predefinido do site* grupo de limites  
+
+O ficheiro de registo de sequência de tarefas **smsts** mostra a prioridade das origens de localização que utiliza com base nas propriedades de implementação.
 
 
 ### <a name="bkmk_bgoptions"></a> Opções de grupos de limites para configurar o peering downloads
 
-<!--1356193--> A partir da versão 1806, grupos de limites incluem configurações adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente. Para obter mais informações, consulte [configurar um grupo de limites](#bkmk_config).
+<!--1356193--> A partir da versão 1806, grupos de limites incluem as seguintes definições adicionais para lhe dar mais controle sobre a distribuição de conteúdo no seu ambiente:  
 
-#### <a name="allow-peer-downloads-in-this-boundary-group"></a>Permitir transferências de ponto a ponto neste grupo de limites
+- [Permitir transferências de ponto a ponto neste grupo de limites](#bkmk_bgoptions1)  
+
+- [Durante downloads de ponto a ponto, utilize apenas colegas dentro da mesma sub-rede](#bkmk_bgoptions2)  
+
+<!--1358749--> Versão 1810 adiciona as seguintes opções:  
+
+- [Prefira pontos de distribuição através de protocolos de mesmo nível com a mesma sub-rede](#bkmk_bgoptions3)  
+
+- [Prefira pontos de distribuição de cloud através de pontos de distribuição](#bkmk_bgoptions4)  
+
+Para obter mais informações sobre como configurar estas definições, consulte [configurar um grupo de limites](/sccm/core/servers/deploy/configure/boundary-group-procedures#bkmk_config).
+
+
+#### <a name="bkmk_bgoptions1"></a> Permitir transferências de ponto a ponto neste grupo de limites
 Esta definição está ativada por predefinição. O ponto de gestão fornece aos clientes uma lista de localizações de conteúdo que inclui a origens de ponto a ponto. Esta definição afeta também aplicar IDs de grupo para o [Otimização da entrega](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management#delivery-optimization).  
 
 Existem dois cenários comuns nos quais deve considerar a desativar esta opção:  
@@ -148,8 +208,8 @@ Existem dois cenários comuns nos quais deve considerar a desativar esta opção
 
 - Se utilizar um grupo de limites única e grandes para a atribuição de sites que não façam referência a quaisquer pontos de distribuição.  
 
-#### <a name="during-peer-downloads-only-use-peers-within-the-same-subnet"></a>Durante downloads de ponto a ponto, utilize apenas colegas dentro da mesma sub-rede
-Esta definição é dependente de um acima. Se ativar esta opção, o ponto de gestão inclui apenas nas fontes de mesmo nível de lista de localização de conteúdo que estão na mesma sub-rede que o cliente.
+#### <a name="bkmk_bgoptions2"></a> Durante downloads de ponto a ponto, utilize apenas colegas dentro da mesma sub-rede
+Esta definição é dependente da opção anterior. Se ativar esta opção, o ponto de gestão inclui apenas nas fontes de mesmo nível de lista de localização de conteúdo que estão na mesma sub-rede que o cliente.
 
 Cenários comuns para ativar esta opção:
 
@@ -157,6 +217,11 @@ Cenários comuns para ativar esta opção:
 
 - Tem um grupo de limites de grandes único para todas as localizações de escritórios remotos. Ative esta opção e os clientes apenas de partilhar conteúdos dentro da sub-rede na localização do escritório remoto, em vez de correr o risco de partilha de conteúdo entre localizações.
 
+#### <a name="bkmk_bgoptions3"></a> Prefira pontos de distribuição através de protocolos de mesmo nível com a mesma sub-rede
+Por predefinição, o ponto de gestão, atribui prioridades aos origens da cache ponto a ponto na parte superior da lista de localizações de conteúdo. Esta definição reverte essa prioridade para clientes que estejam na mesma sub-rede que a origem de cache ponto a ponto.  
+
+#### <a name="bkmk_bgoptions4"></a> Prefira pontos de distribuição de cloud através de pontos de distribuição
+Se tiver uma filial com um link da internet mais rápida, agora pode priorizar o conteúdo em nuvem.  
 
 
 
@@ -187,7 +252,6 @@ Depois de 120 minutos, se o cliente ainda não estabelecer contacto, em seguida,
 
 ### <a name="fallback-configurations-for-software-update-points"></a>Configurações de contingência para pontos de atualização de software
 
-#### <a name="beginning-with-version-1706"></a>Desde a versão 1706   
 Pode configurar **tempos de contingência (em minutos)** para atualização de software pontos para ter menos de 120 minutos. No entanto, o cliente ainda tenta contactar o respetivo ponto de atualização de software original para 120 minutos. Em seguida, expande sua pesquisa para servidores adicionais. Tempos de contingência do grupo de limites iniciar quando o cliente pela primeira vez não consegue contactar o respetivo servidor original. Quando o cliente se expande a sua pesquisa, o site fornece todos os grupos de limites configurados para menos de 120 minutos.
 
 Para bloquear a contingência para um ponto de atualização de software para um grupo de limite vizinho, configurar a definição para **Never contingência**.
@@ -202,16 +266,6 @@ Configurar pontos de atualização de software no grupo de limites *uma* a conti
 - Depois de tentar contactar o ponto de atualização de software original para 120 minutos, o cliente se expande a sua pesquisa. Ele adiciona servidores para o conjunto de disponibilidade de pontos de atualização de software que estão no mesmo da atual e quaisquer grupos de limite vizinho configurado para 120 minutos ou menos. Este conjunto inclui os servidores num grupo de limites, que tenham sido previamente adicionados ao agrupamento de servidores disponíveis.  
 
 - Depois de 10 minutos, o cliente se expande a pesquisa para incluir pontos de atualização de software do grupo de limite B. Este período é de 130 minutos de tempo total após o primeiro o cliente não conseguiu alcançar o último ponto de atualização de software de boa conhecida.  
-
-
-#### <a name="versions-1702-and-earlier"></a>Versões anteriores e 1702
-Com a versão 1702 e anterior, configurações de contingência para pontos de atualização de software não suportam um horário configurável em minutos. Em vez disso, o comportamento de contingência está limitado às seguintes opções:
-
-- **Tempos de contingência (em minutos):** Esta opção estiver definida como 120 minutos. Não é possível configurá-lo.  
-
-- **Nunca contingência:** Bloquear a contingência para um ponto de atualização de software para um grupo de limite vizinho.  
-
-Quando um cliente que já tem um ponto de atualização de software não consegue aceder ao mesmo, o cliente, em seguida, retrocede para encontrar outra. Quando utiliza a contingência, o cliente recebe uma lista de todos os pontos de atualização de software para o grupo de limites atual. Se não conseguir encontrar um servidor disponível para 120 minutos, em seguida, vai para seus grupos de limite vizinho e o grupo de limites de site padrão. Contingência para ambos os grupos de limites acontece ao mesmo tempo. Tempo de contingência do ponto de atualização de software para os grupos de vizinho está definido para 120 minutos. Não é possível alterar o tempo de contingência. 120 minutos também é o período de padrão usado para contingência para o grupo de limites de site padrão. Quando um cliente reverterá para ambos os um vizinho e grupo de limite de site predefinido, o cliente tentará estabelecer contacto com os pontos de atualização de software do grupo de limite vizinho antes de tentar utilizar um do grupo de limite de site predefinido.
 
 
 ### <a name="manually-switch-to-a-new-software-update-point"></a>Mude manualmente para um novo ponto de atualização de software
@@ -238,12 +292,14 @@ Se for um cliente num grupo de limites que, com não atribuído gestão, ponto, 
 
 Contingência de grupo de limite de ponto de gestão não altera o comportamento durante a instalação de cliente (ccmsetup.exe). Se a linha de comandos não especifica o ponto de gestão inicial usando o parâmetro /MP, o novo cliente recebe a lista completa de pontos de gestão disponíveis. Para o processo de arranque de configuração inicial, o cliente utiliza o primeiro ponto de gestão que possa aceder. Assim que o cliente registra com o site, ele recebe a lista de pontos de gestão ordenada corretamente com esse novo comportamento. 
 
+Para obter mais informações sobre o comportamento do cliente para adquirir o conteúdo durante a instalação, consulte [instalação do cliente](#bkmk_ccmsetup).
+
 Durante a atualização de cliente, se não especificar o parâmetro de linha de comando /MP, apontam as origens de consultas de cliente, como o Active Directory e o WMI para qualquer gestão disponíveis. A atualização de cliente não honrar a configuração do grupo de limites. <!--VSO 2841292-->  
 
 Para os clientes utilizar esta capacidade, ative a definição seguinte: **Os clientes preferem utilizar pontos de gestão especificados em grupos de limites** no **definições de hierarquia**. 
 
 > [!Note]  
-> Processos de implantação de SO não têm consciência de grupos de limites.  
+> Processos de implantação de SO não têm consciência de grupos de limites para pontos de gestão.  
 
 
 ### <a name="troubleshooting"></a>Resolução de Problemas
@@ -256,7 +312,7 @@ Novas entradas são apresentados no **Locationservices**. O **Localidade** atrib
 
 - **2**: O ponto de gestão especificado está num grupo de limites da vizinhança ou remoto. Quando o ponto de gestão está num vizinho e os grupos de limites do site padrão, a Localidade é 2.  
 
-- **3**: O ponto de gestão especificado está no grupo de limites atual ou local. Quando o ponto de gestão está no grupo de limites atual, bem como um vizinho ou o grupo de limite predefinido de site, a Localidade é 3. Se não ativar os pontos de gestão preferenciais definição nas definições de hierarquia, a Localidade é sempre 3, independentemente da que limite o ponto de gestão de grupo está em.  
+- **3**: O ponto de gestão especificado está no grupo de limites atual ou local. Quando o ponto de gestão está no grupo de limites atual e um vizinho ou o grupo de limite predefinido de site, a Localidade é 3. Se não ativar os pontos de gestão preferenciais definição nas definições de hierarquia, a Localidade é sempre 3, independentemente da que limite o ponto de gestão de grupo está em.  
 
 Os clientes utilizam pontos de gestão local primeiro (Localidade de 3), segundo remoto (Localidade de 2), em seguida, contingência (Localidade de 1). 
 
@@ -273,7 +329,7 @@ Quando um cliente recebe erros de cinco em 10 minutos e não consegue comunicar 
 
 - Um cliente tenta utilizar um ponto de gestão preferencial a partir do site atribuído antes de utilizar um não configurado como preferencial do seu site atribuído.  
 
-- Para utilizar esta opção, ative **os clientes preferem utilizar pontos de gestão especificados em grupos de limites** na **definições de hierarquia**. Em seguida, configure grupos de limites em sites primários individuais. Inclua os pontos de gestão que devem ser associados aos limites associados desse grupo de limites. Para obter mais informações, consulte [ativar a utilização de pontos de gestão preferenciais](#bkmk_proc-prefer).  
+- Para utilizar esta opção, ative **os clientes preferem utilizar pontos de gestão especificados em grupos de limites** na **definições de hierarquia**. Em seguida, configure grupos de limites em sites primários individuais. Inclua os pontos de gestão que devem ser associados aos limites associados desse grupo de limites. Para obter mais informações, consulte [ativar a utilização de pontos de gestão preferenciais](/sccm/core/servers/deploy/configure/boundary-group-procedures#bkmk_proc-prefer).  
 
 - Quando configura pontos de gestão preferenciais e um cliente organiza a respetiva lista de pontos de gestão, o cliente coloca os pontos de gestão preferenciais no topo da lista. Esta lista inclui todos os pontos de gestão do site atribuído do cliente.  
 
@@ -387,114 +443,10 @@ Quando um cliente procura de uma localização de origem de conteúdo, este tent
 
 
 
-## <a name="procedures-for-boundary-groups"></a>Procedimentos para grupos de limites
+## <a name="see-also"></a>Consulte também
 
+- [Procedimentos para grupos de limites](/sccm/core/servers/deploy/configure/boundary-group-procedures)  
 
-### <a name="bkmk_create"></a> Criar um grupo de limites  
+- [Sobre limites](/sccm/core/servers/deploy/configure/boundaries)  
 
-1.  Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **configuração da hierarquia**e selecione o **grupos de limites** nó.  
-
-2.  Sobre o **home page** separador a **Create** grupo, selecione **criar grupo de limites**.  
-
-3.  Na **criar grupo de limites** caixa de diálogo a **gerais** separador, especifique um **nome** para este grupo de limites. Opcionalmente, incluir uma **Descrição**.  
-
-4.  Selecione **OK** para guardar o novo grupo de limites, ou para continuar para a secção seguinte para configurar o grupo de limites.  
-
-
-### <a name="bkmk_config"></a> Configurar um grupo de limites  
-
-1.  Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **configuração da hierarquia**e selecione o **grupos de limites** nó.  
-
-2.  Selecione o grupo de limites que pretende modificar e selecione **propriedades** na faixa de opções. Esta ação abre a janela de propriedades do grupo de limites.  
-
-Configure as seguintes definições:  
-- [Adicionar ou remover limites](#bkmk_add)  
-- [Configurar a atribuição de site e selecionar servidores do sistema de sites](#bkmk_references)  
-- [Configurar o comportamento de contingência](#bkmk_bg-fallback)  
-- [Configurar opções de grupos de limites](#bkmk_options)  
-
-#### <a name="bkmk_add"></a> Adicionar ou remover limites
-
-Na janela de propriedades do grupo de limites, utilize o **gerais** separador para modificar os limites que são membros deste grupo de limites:  
-
-- Para adicionar limites, selecione **adicionar**. Na janela Adicionar limites, selecione a caixa de verificação para um ou mais limites e selecione **OK**.  
-
-- Para remover limites, selecione o limite da lista e selecione **remover**.  
-
-
-#### <a name="bkmk_references"></a> Configurar a atribuição de site e selecionar servidores do sistema de sites
-
-Para modificar a atribuição de site e a configuração do servidor de sistema de sites associados, mude para o **referências** separador na janela de propriedades do grupo de limites.  
-
-- Para ativar este grupo seja utilizado pelos clientes para atribuição de site, selecione **utilizar este grupo de limites para atribuição de site**. Em seguida, selecione um site a partir da **site atribuído** lista suspensa. Para obter mais informações, consulte [atribuição de Site](#site-assignment).  
-
-- Para associar servidores de sistema de sites disponíveis este grupo de limites, selecione **adicionar**. A janela de adicionar sistemas de sites apenas apresenta uma lista de servidores que têm as funções do sistema de sites suportadas. Selecione a caixa de verificação para um ou mais servidores e selecione **OK**. Ele as adiciona como servidores de sistema de sites associados para este grupo de limites.  
-
-    > [!NOTE]  
-    >  Pode selecionar uma combinação de sistemas de sites disponíveis a partir de qualquer site na hierarquia. Sistemas de sites selecionados são listados os **sistemas de sites** separador nas propriedades de cada limite que seja membro deste grupo de limites.  
-
-- Para remover um servidor deste grupo de limites, selecione o servidor e, em seguida, selecione **remover**.  
-
-    > [!NOTE]  
-    >  Para parar a utilização deste grupo de limites para associar sistemas de sites, remova todos os servidores listados como servidores de sistema de sites associados.  
-
-
-#### <a name="bkmk_bg-fallback"></a> Configurar o comportamento de contingência
-
-Para configurar o comportamento de contingência, mude para o **relações** separador na janela de propriedades do grupo de limites.  
-
-- Para criar uma relação com outro grupo de limites:  
-
-    - Selecione **adicionar**. Na janela de grupos de limites de contingência, selecione o grupo de limites para configurar.  
-
-    - Defina um tempo de contingência para o site seguinte funções do sistema:  
-        - Ponto de distribuição  
-        - Ponto de atualização de software  
-        - Ponto de gestão  
-
-        > [!Note]  
-        > Por exemplo, abrir a janela de propriedades para o grupo de limites de sucursal. Na janela de grupos de limites de contingência, selecione o grupo de limites do Office principal. Definir o tempo de contingência de ponto de distribuição `20`. Quando guardar esta configuração, os clientes no grupo de limites de sucursal serão para começar a procurar conteúdo a partir de pontos de distribuição no grupo de limites de Main Office após 20 minutos.  
-
-    - Para evitar a contingência para um grupo de limites específicos, selecione o grupo de limites e, em seguida, selecione **Never contingência** para o tipo de função do sistema de sites. Esta ação pode incluir a *grupo de limite de site predefinido*.  
-
-- Para modificar a configuração de uma relação existente, selecione o grupo de limites na lista e selecione **alteração**. Esta ação abre a janela de grupos de limites de contingência para apenas esse grupo de limites.  
- 
-- Para remover uma relação, selecione o grupo de limites na lista e selecione **remover**.  
-
-Para obter mais informações, consulte [contingência](#fallback). 
-
-
-#### <a name="bkmk_options"></a> Configurar opções de grupos de limites
-<!--1356193--> A partir da versão 1806, para configurar opções adicionais para os clientes neste grupo de limites, mude para o **opções** separador. Para obter mais informações, consulte [opções de grupos de limites para as transferências de ponto a ponto](#bkmk_bgoptions).
-
-- **Permitir transferências de ponto a ponto neste grupo de limites**: Por predefinição, esta opção encontra-se ativada. O ponto de gestão fornece aos clientes uma lista de localizações de conteúdo que inclui a origens de ponto a ponto.  
-
-    - **Durante downloads de ponto a ponto, utilize apenas colegas dentro da mesma sub-rede**: Esta definição é dependente de um acima. Se ativar esta opção, o ponto de gestão inclui apenas nas fontes de mesmo nível de lista de localização de conteúdo que estão na mesma sub-rede que o cliente.  
-
-
-### <a name="bkmk_site-fallback"></a> Configurar um site de contingência para atribuição automática de site  
-
-Se os clientes não estão num grupo de limites com um site atribuído, atribuí-las a este site quando são instaladas.
-
-1.  Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **configuração do Site**e selecione o **Sites** nó.  
-
-2.  Sobre o **home page** separador do Friso, no **Sites** grupo, selecione **definições de hierarquia**.  
-
-3.  Sobre o **gerais** separador, selecione a caixa de verificação **utilizar um site de contingência**. Em seguida, selecione um site a partir da **site de contingência** na lista pendente.  
-
-4.  Selecione **OK** para guardar a configuração.  
-
-Para obter mais informações, consulte [atribuição de Site](#site-assignment).
-
-
-### <a name="bkmk_proc-prefer"></a> Ativar a utilização de pontos de gestão preferenciais  
-
-Para obter mais informações, consulte [pontos de gestão preferenciais](#bkmk_preferred).
-
-1.  Na consola do Configuration Manager, vá para o **Administration** área de trabalho, expanda **configuração do Site**e selecione o **Sites** nó.  
-
-2. Sobre o **home page** separador do Friso, no **Sites** grupo, selecione **definições de hierarquia**.  
-
-3. Sobre o **gerais** separador, selecione **os clientes preferem utilizar pontos de gestão especificados em grupos de limites**.  
-
-4. Selecione **OK** para guardar a configuração.  
+- [Conceitos fundamentais da gestão de conteúdos](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)  

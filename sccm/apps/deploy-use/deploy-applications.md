@@ -2,7 +2,7 @@
 title: Implementar aplicações
 titleSuffix: Configuration Manager
 description: Criar ou simular uma implementação de uma aplicação a uma coleção de dispositivo ou utilizador
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-app
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: d23c5ee5b81264a9725c4654cd1717b30302c708
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 5b70c651186a35e0f1c5a5da8b9c7dffe0abc7da
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39384825"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456588"
 ---
 # <a name="deploy-applications-with-configuration-manager"></a>Implementar aplicações com o Configuration Manager
 
@@ -98,6 +98,8 @@ Sobre o **definições de implementação** , especifique as seguintes informaç
     > [!NOTE]   
     >  Quando define a ação de implementação para **desinstalação**, o objetivo da implementação é automaticamente definido como **necessário**. Não é possível alterar esse comportamento.  
 
+- **Permitir aos usuários finais tentam reparar esta aplicação**: A partir da versão 1810, se criou a aplicação com uma linha de comando de reparo, ative esta opção. Os utilizadores veem uma opção no Centro de Software para **reparação** o aplicativo.<!--1357866-->  
+
 - **Pré-implementar software no dispositivo primário do utilizador**: Se a implementação for para um utilizador, selecione esta opção para implementar a aplicação no dispositivo primário do utilizador. Esta definição não exige que o utilizador que iniciem sessão antes da execução da implementação. Se o utilizador tem de interagir com a instalação, não selecione esta opção. Esta opção só está disponível quando a implementação estiver **necessário**.  
 
 - **Enviar pacotes de reativação**: Se a implementação for **necessário**, Configuration Manager envia um pacote de reativação para computadores antes do cliente é executada a implementação. Este pacote reativa os computadores quando for atingido o prazo de instalação. Antes de utilizar esta opção, os computadores e redes devem ser configurados para reativação por LAN. Para obter mais informações, consulte [planear como reativar clientes](/sccm/core/clients/deploy/plan/plan-wake-up-clients).  
@@ -118,25 +120,9 @@ Uma das seguintes definições de aprovação é apresentada, consoante a sua ve
 
 - **Exigir aprovação do administrador caso os utilizadores solicitem esta aplicação**: Para versões 1710 e anteriores, o administrador aprova quaisquer pedidos de utilizador para a aplicação antes do utilizador pode instalá-lo. Esta opção é desativada quando o objetivo de implementação for **necessário**, ou ao implementar a aplicação para uma coleção de dispositivos.  
 
-    Os pedidos de aprovação da aplicação são apresentados no nó **Pedidos de Aprovação** , sob **Gestão de Aplicações** , na área de trabalho **Biblioteca de Software** . Se um pedido não está aprovado no prazo de 45 dias, este é removido. Reinstalar o cliente poderá cancelar quaisquer pedidos de aprovação pendentes.  
-
-    Depois que tenha aprovado uma aplicação para a instalação, poderá **negar** o pedido na consola do Configuration Manager. Esta ação não fazer com que o cliente desinstalar a aplicação a partir de todos os dispositivos. Ele deixa de que os utilizadores instalem novas cópias da aplicação do Centro de Software.  
-
 - **Um administrador tem de aprovar um pedido para esta aplicação no dispositivo**: A partir da versão 1802, o administrador aprova quaisquer pedidos de utilizador para a aplicação antes do utilizador pode instalá-lo no dispositivo pedido. Se o administrador aprova o pedido, o utilizador só é possível instalar o aplicativo nesse dispositivo. O utilizador tem de submeter outro pedido para instalar a aplicação noutro dispositivo. Esta opção é desativada quando o objetivo de implementação for **necessário**, ou ao implementar a aplicação para uma coleção de dispositivos. <!--1357015-->  
 
-    Esta funcionalidade é opcional. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options). Se não ativar esta funcionalidade, verá a experiência anterior.  
-
-    > [!Note]  
-    > Para tirar partido das novas funcionalidades do Configuration Manager, primeiro de atualizar os clientes para a versão mais recente. Enquanto a nova funcionalidade surge na consola do Configuration Manager ao atualizar a consola e do site, o cenário completo não é funcional até que a versão do cliente também é a versão mais recente.<!--SCCMDocs issue 646-->  
-
-    Modo de exibição **pedidos de aprovação** sob **gestão de aplicações** no **biblioteca de Software** área de trabalho da consola do Configuration Manager. Existe agora uma **dispositivo** coluna na lista para cada solicitação. Quando pega a ação na solicitação, a caixa de diálogo de pedido de aplicação também inclui o nome de dispositivo a partir do qual o utilizador submeteu o pedido.  
-
-    Se um pedido não está aprovado no prazo de 45 dias, este é removido. Reinstalar o cliente poderá cancelar quaisquer pedidos de aprovação pendentes.  
-
-    Depois que tenha aprovado uma aplicação para a instalação, poderá **negar** o pedido na consola do Configuration Manager. Esta ação não fazer com que o cliente desinstalar a aplicação a partir de todos os dispositivos. Ele deixa de que os utilizadores instalem novas cópias da aplicação do Centro de Software.  
-
-    > [!Important]  
-    > A partir da versão 1806, *foi alterado o comportamento* quando revogar a aprovação de um aplicativo que foi anteriormente aprovado e instalado. Agora quando **negar** o pedido para o aplicativo, o cliente desinstala a aplicação do dispositivo do utilizador.<!--1357891-->  
+Para obter mais informações, consulte [aprovar aplicações](/sccm/apps/deploy-use/app-approval).
 
 
 #### <a name="deployment-properties-deployment-settings"></a>Propriedades de implementação **definições de implementação**

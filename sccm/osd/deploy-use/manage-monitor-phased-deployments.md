@@ -2,7 +2,7 @@
 title: Gerir e monitorizar as implementações faseadas
 titleSuffix: Configuration Manager
 description: Compreenda como gerir e monitorizar as implementações faseadas de software no Configuration Manager.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-osd
 ms.topic: conceptual
@@ -10,18 +10,21 @@ ms.assetid: dc245916-bc11-4983-9c4d-015f655007c1
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 1889ba3ea19d27676089f2a9a24cef812c9f526c
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 5324e00f17770feca25d40c645d8e344df797f21
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39386767"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456333"
 ---
 # <a name="manage-and-monitor-phased-deployments"></a>Gerir e monitorizar as implementações faseadas
 
 Este artigo descreve como gerir e monitorizar as implementações faseadas. Tarefas de gestão incluem manualmente iniciar a fase seguinte e suspender ou retomar uma fase. 
 
-Primeiro, precisa [criar uma implementação faseada](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence). 
+Em primeiro lugar, terá de criar uma implementação faseada: 
+- [Aplicação](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence?toc=/sccm/apps/toc.json&bc=/sccm/apps/breadcrumb/toc.json)  
+- [Atualização de software](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence?toc=/sccm/sum/toc.json&bc=/sccm/sum/breadcrumb/toc.json)  
+- [Sequência de tarefas](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence)  
 
 
 
@@ -31,7 +34,14 @@ Quando seleciona a definição **iniciar manualmente a segunda fase da implement
 
 1. Como iniciar esta ação varia com base no tipo de software implementadas:  
 
-    - **Aplicação** (apenas na versão 1806 ou posterior): Vá para o **biblioteca de Software**, expanda **gestão de aplicações**e selecione **aplicativos**.   
+    - **Aplicação** (apenas na versão 1806 ou posterior): Vá para o **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e selecione **aplicativos**.   
+
+    - **Atualização de software** (apenas na versão 1810 ou posterior): Vá para o **biblioteca de Software** área de trabalho e, em seguida, selecione uma das seguintes nós:    
+        - Atualizações de Software  
+            - **Todas as atualizações de Software**  
+            - **Grupos de atualização de software**   
+        - Manutenção do Windows 10, **todas as atualizações do Windows 10**  
+        - Gestão de clientes do Office 365, **atualizações do Office 365**  
 
     - **Sequência de tarefas**: Vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**.   
 
@@ -47,11 +57,18 @@ Quando seleciona a definição **iniciar manualmente a segunda fase da implement
 
 ## <a name="bkmk_suspend"></a> Suspender e retomar fases 
 
-Se pretender manualmente suspender ou retomar uma implementação faseada. Por exemplo, criar uma implementação faseada para uma sequência de tarefas. Ao monitorizar a fase de para o grupo piloto, observe um grande número de falhas. Suspender a implementação faseada para parar a dispositivos de executar a sequência de tarefas. Depois de resolver o problema, retome a implementação faseada para continuar a implementação. 
+Manualmente pode suspender ou retomar uma implementação faseada. Por exemplo, criar uma implementação faseada para uma sequência de tarefas. Ao monitorizar a fase de para o grupo piloto, observe um grande número de falhas. Suspender a implementação faseada para parar a dispositivos de executar a sequência de tarefas. Depois de resolver o problema, retome a implementação faseada para continuar a implementação. 
 
 1. Como iniciar esta ação varia com base no tipo de software implementadas:  
 
-    - **Aplicação** (apenas na versão 1806 ou posterior): Vá para o **biblioteca de Software**, expanda **gestão de aplicações**e selecione **aplicativos**.   
+    - **Aplicação** (apenas na versão 1806 ou posterior): Vá para o **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e selecione **aplicativos**.   
+
+    - **Atualização de software** (apenas na versão 1810 ou posterior): Vá para o **biblioteca de Software** área de trabalho e, em seguida, selecione uma das seguintes nós:    
+        - Atualizações de Software  
+            - **Todas as atualizações de Software**  
+            - **Grupos de atualização de software**   
+        - Manutenção do Windows 10, **todas as atualizações do Windows 10**  
+        - Gestão de clientes do Office 365, **atualizações do Office 365**  
 
     - **Sequência de tarefas**: Vá para o **biblioteca de Software** área de trabalho, expanda **sistemas operativos**e selecione **sequências de tarefas**. Selecione uma sequência já existente e, em seguida, clique em **criar implementação faseada** na faixa de opções.  
 
@@ -91,7 +108,8 @@ Este dashboard mostra as seguintes informações para cada fase da implementaç�
 
 Utilize o **selecione fase** na lista pendente para alterar a apresentação da **critérios de sucesso** mosaico. Este mosaico compara o **objetivo da fase** contra a conformidade atual da implantação. Com as configurações padrão, o objetivo de fase é 95%. Este valor significa que a implementação precisa a conformidade de 95% para mover para a próxima fase. 
 
-Neste exemplo, o objetivo de fase é 65% e a conformidade atual é 66,7%. A implementação faseada movida automaticamente para a segunda fase, uma vez que a primeira fase cumpre os critérios de sucesso.
+Neste exemplo, o objetivo de fase é 65% e a conformidade atual é 66,7%. A implementação faseada movida automaticamente para a segunda fase, uma vez que a primeira fase cumpre os critérios de sucesso.  
+
 ![Critérios de sucesso de exemplo mosaico de estado da implementação por fases](media/pod-status-success-criteria-tile.png)
 
 O objetivo da fase é igual a **percentagem de êxito da implementação** nas definições de fase para o *seguinte* fase. Para a implementação faseada iniciar a fase seguinte, essa segunda fase define os critérios de êxito da primeira fase. Para ver esta definição: 

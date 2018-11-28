@@ -2,7 +2,7 @@
 title: Lista de relatórios
 titleSuffix: Configuration Manager
 description: Reveja uma lista de relatórios que são fornecidos com o Configuration Manager. Os relatórios são apresentados em várias categorias.
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,25 +10,26 @@ ms.assetid: b7332ed3-8003-454b-bb12-1fdf8721425c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 9d292d85ce5a30e56d7909d74b986ac408d29346
-ms.sourcegitcommit: 849391d3985b057027cae610bd3a79fdaa708b94
+ms.openlocfilehash: 01112dac89ba0fe9e18dabe186353506d9476213
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42586219"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456775"
 ---
-# <a name="list-of-reports-in-system-center-configuration-manager"></a>Lista de relatórios no System Center Configuration Manager
+# <a name="list-of-reports-in-configuration-manager"></a>Lista de relatórios no Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-O Configuration Manager fornece vários relatórios incorporados que abrangem muitas das tarefas de geração de relatórios que poderá querer efetuar. Também pode utilizar as instruções SQL nestes relatórios para ajudá-lo a escrever os seus próprios relatórios.   
+O Configuration Manager fornece vários relatórios incorporados que abrangem muitas das tarefas de criação de relatórios que pode querer fazer. Também pode utilizar as instruções SQL nestes relatórios para ajudá-lo a escrever os seus próprios relatórios.   
 
 Os seguintes relatórios estão incluídos com o Configuration Manager. Os relatórios são apresentados em várias categorias.  
 
 
 
 ## <a name="administrative-security"></a>Segurança administrativa  
- Os seguintes seis relatórios estão listados na **segurança administrativa** categoria.  
+
+Os seguintes seis relatórios estão listados na **segurança administrativa** categoria.  
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -42,7 +43,9 @@ Os seguintes relatórios estão incluídos com o Configuration Manager. Os relat
 
 
 ## <a name="alerts"></a>Alertas  
+
 Os dois relatórios seguintes estão listados na **alertas** categoria.  
+
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Tabela de indicadores de alerta**|Mostra um resumo de todos os alertas adiados que foram gerados entre o início especificado e a data de conclusão.|  
@@ -51,14 +54,15 @@ Os dois relatórios seguintes estão listados na **alertas** categoria.
 
 
 ## <a name="asset-intelligence"></a>Asset Intelligence  
-Os seguintes 66 relatórios estão listados na **Asset Intelligence** categoria.  
+
+Os seguintes 67 relatórios estão listados na **Asset Intelligence** categoria.  
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Hardware 01A - resumo de computadores numa coleção específica**|Mostra uma vista de resumo de Asset Intelligence dos computadores numa coleção especificada por si.|  
-|**Hardware 03A - utilizadores primários do computador**|Mostra os utilizadores e em quantos computadores são o utilizador primário.|  
+|**Hardware 03A - utilizadores primários do computador**|Apresenta os utilizadores e a contagem de computadores em que se o utilizador primário.|  
 |**Hardware 03B - computadores para um utilizador primário específico da consola**|Mostra todos os computadores em que um utilizador especificado é o utilizador primário da consola.|  
-|**Hardware 04A - computadores com utilizadores múltiplos (partilhados)**|Mostra os computadores que não têm um utilizador primário porque nenhum utilizador tem uma percentagem de tempo de sessão da consola superior a 66%.|  
+|**Hardware 04A - computadores com utilizadores múltiplos (partilhados)**|Mostra os computadores que não têm um utilizador primário porque nenhum utilizador tem sessão iniciada vez superior a 66%.|  
 |**Hardware 05A - utilizadores de consola num computador específico**|Mostra todos os utilizadores da consola num computador especificado.|  
 |**Hardware 06A - computadores para a consola não foi possível determinar os utilizadores**|Ajuda os utilizadores administrativos a identificar computadores que têm de ter o registo de segurança ativado.|  
 |**Hardware 07A - dispositivos USB por fabricante**|Mostra os dispositivos USB agrupados por fabricante.|  
@@ -79,12 +83,12 @@ Os seguintes 66 relatórios estão listados na **Asset Intelligence** categoria.
 |**Licença 03A - contagem de licenças por Estado de licença**|Mostra os produtos, por estado de licença, cujas licenças são geridas pelo Serviço de Licenciamento de Software.|  
 |**Licença 03B - computadores com um Estado de licença específica**|Mostra os produtos, com um estado de licença especificado, cujas licenças são geridas pelo serviço de licenciamento de Software.|  
 |**Licença 04A - contagem de produtos geridos por licenciamento de software**|Mostra uma contagem de produtos cujas licenças são geridas pelo Serviço de Licenciamento de Software.|  
-|**Licença 04B - computadores com um produto específico gerido pelo serviço de licenciamento de Software**|Mostra os computadores, geridos pelo Serviço de Licenciamento de Software, que contêm um produto especificado.|  
+|**Licença 04B - computadores com um produto específico gerido pelo serviço de licenciamento de Software**|Mostra os computadores gerido pelo serviço de licenciamento de Software, que incluem um produto especificado.|  
 |**Licença 05A - computadores que fornecem o serviço de gestão de chaves**|Mostra os computadores que atuam como Servidores de Gestão de Chaves.|  
 |**Licença 06A - processador contagens para produtos licenciados por processador**|Mostra o número de processadores em computadores com produtos Microsoft que suportam o licenciamento por processador.|  
 |**Licença 06B - computadores com um produto específico que suporta o licenciamento por processador**|Mostra uma lista dos computadores onde um produto Microsoft especificado que suporta o licenciamento por processador está instalado.|  
-|**Licença 14A - relatório de reconciliação de licenciamento em Volume da Microsoft**|Mostra a reconciliação das licenças de software adquiridas através do Contrato de Licenciamento em Volume da Microsoft e a contagem de inventário real.|  
-|**Licença 14B - lista de inventário de software da Microsoft não encontrado no MVLS**|Este relatório mostra os títulos de software da Microsoft em utilização que não se encontram no Contrato de Licenciamento em Volume da Microsoft.|  
+|**Licença 14A - relatório de reconciliação de licenciamento em Volume da Microsoft**|Mostra a reconciliação das licenças de software adquiridas através do contrato de licença de Volume do Microsoft e a contagem de inventário real.|  
+|**Licença 14B - lista de inventário de software da Microsoft não encontrado no MVLS**|Este relatório mostra títulos de software Microsoft em utilização que não forem encontradas no contrato de licença de Volume do Microsoft.|  
 |**Licença 15A - relatório de reconciliação de licenças gerais**|Mostra a reconciliação das licenças de software gerais adquiridas e a contagem de inventário real.|  
 |**Licença 15B - relatório de reconciliação de licenças gerais por computador**|Mostra os computadores com o produto licenciado com uma versão especificada instalado.|  
 |**Software 01A - resumo do software instalado numa coleção específica**|Mostra um resumo do software instalado ordenado pelo número de instâncias encontradas no inventário.|  
@@ -108,12 +112,12 @@ Os seguintes 66 relatórios estão listados na **Asset Intelligence** categoria.
 |**Software 08A - programas executáveis utilizados recentemente pela contagem de utilizadores**|Mostra programa executáveis utilizados recentemente os utilizadores. Ele também inclui uma contagem de utilizadores que o programa que utilizou mais recentemente. Este relatório requer que ative a definição de cliente de medição de software.|  
 |**Software 08B - utilizadores que utilizaram recentemente um programa executável especificado**|Apresenta os utilizadores que utilizaram mais recentemente um programa executável especificado. Este relatório requer que ative a definição de cliente de medição de software.|  
 |**Software 08c - programas executáveis por um utilizador especificado utilizados recentemente**|Mostra os programas executáveis que o utilizador especificado foi utilizado recentemente. Este relatório requer que ative a definição de cliente de medição de software.|  
-|**Software 09A - software raramente utilizado**|Mostra os títulos de software que os utilizadores não utilizados durante um período de tempo especificado.|  
-|**Software 09B - computadores com software raramente utilizado instalado**|Mostra computadores com software instalado que os utilizadores não têm usado para um período de tempo especificado. O período de tempo especificado é baseado no valor especificado no relatório " Software 09A - Software raramente utilizado".|  
+|**Software 09A - software raramente utilizado**|Mostra os títulos de software que os utilizadores não usados durante um período de tempo especificado.|  
+|**Software 09B - computadores com software raramente utilizado instalado**|Mostra computadores com software instalado que os utilizadores não usados para um período de tempo especificado. O período de tempo especificado é baseado no valor especificado no relatório " Software 09A - Software raramente utilizado".|  
 |**Software 10A - títulos de Software com específicos de várias etiquetas personalizadas definidas**|Mostra os títulos de software com base na correspondência de todos os critérios das etiquetas personalizadas especificadas. Pode selecionar até três etiquetas personalizadas para refinar uma pesquisa de títulos de software.|  
 |**Software 10B - computadores com um título de software com etiqueta personalizada específico instalado**|Mostra todos os computadores nesta coleção que têm o título de software com etiqueta personalizada especificado instalado.|  
 |**Software 11A - títulos de Software com uma etiqueta personalizada específica definida**|Mostra os títulos de software com base na correspondência de, pelo menos, um dos critérios especificados da etiqueta personalizada.|  
-|**Software 12A - títulos de Software sem uma etiqueta personalizada**|Mostra todos os títulos de software que não têm uma etiqueta personalizada definida.|  
+|**Software 12A - títulos de Software sem uma etiqueta personalizada**|Mostra todos os títulos de software que não tenham uma etiqueta personalizada definida.|  
 |**Software 14A - procurar etiqueta de identificação de software de software ativado**|Mostra a contagem do software instalado com uma etiqueta de identificação de software ativada.|  
 |**Software 14B - computadores com etiqueta de identificação de software específico ativada software instalado**|Mostra todos os computadores com software instalado com uma etiqueta de identificação de software especificada ativada.|  
 |**Software 14C - instalado identificação etiqueta ativada de software num computador específico**|Mostra todos os softwares instalados com uma etiqueta de identificação de software especificada ativada num computador especificado.|  
@@ -121,10 +125,12 @@ Os seguintes 66 relatórios estão listados na **Asset Intelligence** categoria.
 |**Ciclo de vida 02A – lista de computadores com produtos expirados na organização**|Ver os computadores que já passaram da validade produtos nos mesmos. Pode filtrar este relatório por nome de produto.|
 |**Ciclo de vida 03A – lista de produtos expirados encontrados na organização**|Ver detalhes dos produtos no seu ambiente que já passaram da validade ciclo de vida de datas.|
 |**Ciclo de vida 04A – descrição geral do ciclo de vida de produto de geral**|Ver uma lista dos ciclos de vida do produto. Filtre a lista por nome do produto e os dias de expiração.|
+|**Ciclo de vida 05A - dashboard de ciclo de vida do produto**|A partir da versão 1810, este relatório inclui informações semelhantes, como o dashboard na consola.|
 
 
 
-## <a name="client-push"></a>Cliente de Push  
+## <a name="client-push"></a>Instalação push do cliente  
+
 Os seguintes quatro relatórios estão listados na **Push de cliente** categoria.  
 
 |Nome do Relatório|Descrição|  
@@ -137,6 +143,7 @@ Os seguintes quatro relatórios estão listados na **Push de cliente** categoria
 
 
 ## <a name="client-status"></a>Estado do cliente  
+
 Os seguintes sete relatórios estão listados na **estado do cliente** categoria.  
 
 |Nome do Relatório|Descrição|  
@@ -151,7 +158,8 @@ Os seguintes sete relatórios estão listados na **estado do cliente** categoria
 
 
 
-## <a name="company-resource-access"></a>Acesso aos Recursos da Empresa  
+## <a name="company-resource-access"></a>Acesso aos recursos da empresa  
+
 Os seguintes três relatórios estão listados na **acesso a recursos da empresa** categoria. 
 
 |Nome do Relatório|Descrição|  
@@ -162,7 +170,8 @@ Os seguintes três relatórios estão listados na **acesso a recursos da empresa
 
 
 
-## <a name="compliance-and-settings-management"></a>Gestão de Compatibilidade e Definições  
+## <a name="compliance-and-settings-management"></a>Gestão de definições de compatibilidade e  
+
 Os seguintes 22 relatórios estão listados na **gestão de definições de compatibilidade e** categoria. 
 
 |Nome do Relatório|Descrição|  
@@ -172,26 +181,29 @@ Os seguintes 22 relatórios estão listados na **gestão de definições de comp
 |**Conformidade de acesso condicional para utilizador**|Apresenta a compatibilidade de acesso condicional detalhadas para um utilizador específico.|
 |**Relatório de conformidade de acesso condicional**|Um relatório de conformidade de acesso condicional para cada política de conformidade segmentada.|
 |**Detalhes de regras de conformidade dos itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre as regras avaliadas como estando em conformidade para um item de configuração especificado para um dispositivo ou utilizador especificado.|  
-|**Detalhes de regras em conflito de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre regras num item de configuração implementado que entram em conflito com outras regras. Outras regras podem ser contidas no mesmo ou outro item de configuração de implementação.|  
+|**Detalhes de regras em conflito de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre regras num item de configuração implementado que entram em conflito com outras regras. Incluir outras regras no mesmo ou outro item de configuração de implementação.|  
 |**Detalhes de erros de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre erros gerados por um item de configuração especificado num dispositivo ou utilizador especificado.|  
 |**Detalhes de regras em não conformidades de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre regras que foram consideradas incompatíveis para um item de configuração especificado, para um dispositivo ou utilizador especificado.|  
 |**Detalhes de regras remediadas de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre regras que foram remediadas por um item de configuração especificado para um dispositivo ou utilizador especificado.|  
 |**Lista de recursos por Estado de conformidade para uma linha de base de configuração**|Mostra os utilizadores ou dispositivos num estado de conformidade especificado depois da avaliação de uma linha de base da configuração especificada.|  
 |**Lista de recursos por Estado de conformidade para um item de configuração numa linha de base de configuração**|Mostra os dispositivos ou utilizadores num estado de conformidade especificado depois da avaliação de um item de configuração especificado.|  
-|**Lista de em não conformidades de aplicações e dispositivos para um utilizador especificado**|Apresenta informações sobre utilizadores e dispositivos que têm aplicações instaladas que não estão em conformidade com uma política especificada por si.|  
+|**Lista de em não conformidades de aplicações e dispositivos para um utilizador especificado**|Mostra informações sobre utilizadores e dispositivos que têm instaladas aplicações que não estão em conformidade com uma política especificada por si.|  
 |**Lista de regras em conflito com uma regra especificada para um recurso**|Apresenta uma lista de regras em conflito com uma regra especificada para um item de configuração implementado.|  
-|**Lista de recursos desconhecidos para uma linha de base de configuração**|Mostra uma lista dos dispositivos ou utilizadores que ainda não reportaram dados de conformidade para uma linha de base da configuração especificada.|  
-|**Lista de recursos desconhecidos para um item de configuração**|Mostra uma lista dos dispositivos ou utilizadores que ainda não forneceram dados de conformidade para um item de configuração especificado.|  
+|**Lista de recursos desconhecidos para uma linha de base de configuração**|Apresenta uma lista de dispositivos ou utilizadores que ainda não forneceram dados de conformidade para uma linha de base de configuração especificado.|  
+|**Lista de recursos desconhecidos para um item de configuração**|Apresenta uma lista de dispositivos ou utilizadores que ainda não forneceram dados de conformidade para um item de configuração especificado.|  
 |**Regras e erros de resumo dos itens de configuração numa linha de base de configuração para um recurso**|Mostra um resumo do Estado de conformidade das regras e erros de definições para um item de configuração especificado. O item de configuração tem de ser implementado num dispositivo ou utilizador.|  
 |**Resumo de conformidade por linha de base de configuração**|Mostra um resumo da conformidade geral das linhas de bases da configuração implementadas na hierarquia.|  
 |**Resumo de conformidade por itens de configuração para uma linha de base de configuração**|Mostra um resumo da conformidade dos itens de configuração numa linha de base da configuração especificada.|  
 |**Resumo de conformidade por políticas de configuração**|Mostra um resumo da conformidade das políticas de configuração.|  
 |**Resumo de conformidade de uma linha de base de configuração para uma coleção**|Mostra um resumo da conformidade geral de uma linha de base de configuração especificado. O item de configuração tem de ser implementado para a coleção especificada.|  
-|**Resumo de utilizadores que têm aplicações não conformes**|Apresenta informações sobre utilizadores que têm aplicações instaladas que não estão em conformidade com uma política especificada por si.|  
+|**Resumo de utilizadores que têm aplicações não conformes**|Mostra informações sobre utilizadores que têm instaladas aplicações que não estão em conformidade com uma política especificada por si.|  
 |**Aceitação dos termos e condições**|Apresenta os itens de Termos e Condições e que versão foi aceite por cada utilizador.|  
 
+
+
 ## <a name="data-warehouse"></a>Armazém de dados  
-Os seguintes 7 relatórios estão listados na **armazém de dados** categoria. 
+
+Os seguintes sete relatórios estão listados na **armazém de dados** categoria. 
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -204,13 +216,14 @@ Os seguintes 7 relatórios estão listados na **armazém de dados** categoria.
 |**Resumo da distribuição de software**|Histórico: Um resumo da distribuição de software para um anúncio específico e a máquina.|
 
 
-## <a name="device-management"></a>Gestão de Dispositivos  
+## <a name="device-management"></a>Gestão de dispositivos  
+
 Os seguintes 37 relatórios estão listados na **gestão de dispositivos** categoria. 
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Todos os dispositivos móveis pertencentes à empresa**|Apresenta todos os empresariais dispositivos móveis pertencentes à empresa.|
-|**Todos os clientes de dispositivos móveis**|Mostra informações sobre todos os clientes de dispositivos móveis. Não estão incluídos os dispositivos móveis geridos pelo conector do Exchange Server.|  
+|**Todos os clientes de dispositivos móveis**|Mostra informações sobre todos os clientes de dispositivos móveis. Dispositivos que são geridos pelo conector do Exchange Server não estão incluídos.|  
 |**Problemas de certificado em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE e que não estão em bom Estados**|Mostra informações detalhadas sobre problemas de certificado em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
 |**Falha na implementação de cliente para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Mostra informações detalhadas sobre a falha de implementação para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
 |**Detalhes de estado de implementação de cliente para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Mostra informações sobre o estado dos dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
@@ -223,7 +236,7 @@ Os seguintes 37 relatórios estão listados na **gestão de dispositivos** categ
 |**Contagem de dispositivos móveis por configurações da memória de armazenamento**|Contagem de dispositivos móveis por configurações da memória de armazenamento|  
 |**Informações de estado de funcionamento para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Mostra informações de estado de funcionamento para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE detalhadas.|  
 |**Estado de funcionamento resumo para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Mostra informações de resumo de estado de funcionamento para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Dispositivos móveis Inativos geridos pelo conector do Exchange Server**|Mostra os dispositivos móveis geridos pelo conector do Exchange Server que não tenham ligado a um Exchange Server num número especificado de dias.|  
+|**Dispositivos móveis Inativos geridos pelo conector do Exchange Server**|Mostra os dispositivos móveis geridos pelo conector do Exchange Server, que ainda não tiverem ligado a um Exchange Server num número especificado de dias.|  
 |**Lista de dispositivos por Estado de acesso condicional**|Apresenta informações sobre o atual estado de acesso de conformidade e acesso condicional dos dispositivos. Pode utilizar este relatório com as políticas de acesso condicional. Este relatório está disponível a partir da versão 1602 do Configuration Manager.|  
 |**Lista de dispositivos por Estado de atestado de estado de funcionamento**|Apresenta uma lista de dispositivos com atributos comunicados pelo serviço de atestado de estado de funcionamento|
 |**Lista de dispositivos inscritos por utilizador no Microsoft Intune**|Mostra todos os dispositivos que um utilizador inscreveu-se com o Microsoft Intune.|  
@@ -249,7 +262,8 @@ Os seguintes 37 relatórios estão listados na **gestão de dispositivos** categ
 
 
 
-## <a name="driver-management"></a>Gestão do Controlador  
+## <a name="driver-management"></a>Gerenciamento de drivers  
+
 Os seguintes 13 relatórios estão listados na **gerenciamento de drivers** categoria. 
 
 |Nome do Relatório|Descrição|  
@@ -271,7 +285,9 @@ Os seguintes 13 relatórios estão listados na **gerenciamento de drivers** cate
 
 
 ## <a name="endpoint-protection"></a>Endpoint Protection  
+
 Os seguintes seis relatórios estão listados na **Endpoint Protection** categoria. 
+
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Relatório de atividade Antimalware**|Mostra uma descrição geral da atividade antimalware.|  
@@ -284,7 +300,9 @@ Os seguintes seis relatórios estão listados na **Endpoint Protection** categor
 
 
 ## <a name="hardware---cd-rom"></a>Hardware - CD-ROM  
+
 Os seguintes quatro relatórios estão listados na **Hardware - CD-ROM** categoria. 
+
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Informações de CD-ROM para um computador específico**|Mostra informações sobre as unidades de CD-ROM num computador especificado.|  
@@ -295,6 +313,7 @@ Os seguintes quatro relatórios estão listados na **Hardware - CD-ROM** categor
 
 
 ## <a name="hardware---disk"></a>Hardware - disco  
+
 Os seguintes relatórios de oito estão listados na **Hardware - disco** categoria. 
 
 |Nome do Relatório|Descrição|  
@@ -311,6 +330,7 @@ Os seguintes relatórios de oito estão listados na **Hardware - disco** categor
 
 
 ## <a name="hardware---general"></a>Hardware - geral  
+
 Os seguintes cinco relatórios estão listados na **Hardware - geral** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -324,6 +344,7 @@ Os seguintes cinco relatórios estão listados na **Hardware - geral** categoria
 
 
 ## <a name="hardware---memory"></a>Hardware - memória  
+
 Os seguintes cinco relatórios estão listados na **Hardware - memória** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -337,6 +358,7 @@ Os seguintes cinco relatórios estão listados na **Hardware - memória** catego
 
 
 ## <a name="hardware---modem"></a>Hardware - Modem  
+
 Os seguintes três relatórios estão listados na **Hardware - Modem** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -348,6 +370,7 @@ Os seguintes três relatórios estão listados na **Hardware - Modem** categoria
 
 
 ## <a name="hardware---network-adapter"></a>Hardware - placa de rede  
+
 Os seguintes três relatórios estão listados na **Hardware - placa de rede** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -359,6 +382,7 @@ Os seguintes três relatórios estão listados na **Hardware - placa de rede** c
 
 
 ## <a name="hardware---processor"></a>Hardware - processador  
+
 Os seguintes cinco relatórios estão listados na **Hardware - processador** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -372,6 +396,7 @@ Os seguintes cinco relatórios estão listados na **Hardware - processador** cat
 
 
 ## <a name="hardware---scsi"></a>Hardware - SCSI  
+
 Os seguintes cinco relatórios estão listados na **Hardware - SCSI** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -383,6 +408,7 @@ Os seguintes cinco relatórios estão listados na **Hardware - SCSI** categoria.
 
 
 ## <a name="hardware---security"></a>Hardware - segurança
+
 O relatório de um seguinte está listado no **Hardware - segurança** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -392,6 +418,7 @@ O relatório de um seguinte está listado no **Hardware - segurança** categoria
 
 
 ## <a name="hardware---sound-card"></a>Hardware - placa de som  
+
 Os seguintes três relatórios estão listados na **Hardware - SCSI** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -403,6 +430,7 @@ Os seguintes três relatórios estão listados na **Hardware - SCSI** categoria.
 
 
 ## <a name="hardware---video-card"></a>Hardware - placa de vídeo  
+
 Os seguintes três relatórios estão listados na **Hardware - placa de vídeo** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -442,10 +470,9 @@ Os seguintes seis relatórios estão listados na **rede** categoria.
 
 
 
-## <a name="operating-system"></a>Sistema operativo  
+## <a name="operating-system"></a>Sistema Operativo  
 
 Os seguintes 10 relatórios estão listados na **sistema operativo** categoria.
-
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -461,7 +488,7 @@ Os seguintes 10 relatórios estão listados na **sistema operativo** categoria.
 |**Computadores Windows Server**|Mostra uma lista de computadores que executam os sistemas operativos Windows Server.|  
 
 
-## <a name="power-management"></a>Gestão de Energia  
+## <a name="power-management"></a>Gestão de energia  
 
 Os seguintes 18 relatórios estão listados na **gestão de energia** categoria.
 
@@ -480,7 +507,7 @@ Os seguintes 18 relatórios estão listados na **gestão de energia** categoria.
 |**Gestão de energia - custo da energia por dia**|Mostra o custo do consumo de energia total de uma coleção especificada nos últimos 31 dias.|  
 |**Gestão de energia - impacto ambiental**|Mostra um gráfico com as emissões de dióxido de carbono (CO2) geradas por uma coleção específica num dado período de tempo.|  
 |**Gestão de energia - impacto ambiental por dia**|Mostra um gráfico com as emissões de CO2 geradas por uma coleção específica nos últimos 31 dias.|  
-|**Gestão de energia - detalhes da insónia do computador**|Mostra informações detalhadas sobre computadores que não entraram em suspensão ou hibernação num período de tempo especificado.|  
+|**Gestão de energia - detalhes da insónia do computador**|Mostra informações detalhadas sobre computadores que não entra em suspensão ou hibernação num período de tempo especificado.|  
 |**Gestão de energia - relatório de insónia**|Apresenta uma lista de causas comuns que impedem os computadores de suspensão ou hibernação. Ela também mostra o número de computadores afetados por cada causa durante um período de tempo especificado.|  
 |**Gestão de energia - capacidades de energia**|Mostra as funcionalidades de gestão de energia dos computadores na coleção especificada.|  
 |**Gestão de energia - definições de energia**|Mostra uma lista agregada de definições de energia utilizadas pelos computadores numa coleção especificada.|  
@@ -488,7 +515,8 @@ Os seguintes 18 relatórios estão listados na **gestão de energia** categoria.
 
 
 
-## <a name="replication-traffic"></a>Tráfego de Replicação  
+## <a name="replication-traffic"></a>Tráfego de replicação  
+
 Os seguintes 10 relatórios estão listados na **tráfego de replicação** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -507,6 +535,7 @@ Os seguintes 10 relatórios estão listados na **tráfego de replicação** cate
 
 
 ## <a name="site---client-information"></a>Site - informação de cliente  
+
 Os seguintes 19 relatórios estão listados na **Site - informação de cliente** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -519,10 +548,10 @@ Os seguintes 19 relatórios estão listados na **Site - informação de cliente*
 |**Detalhes do Estado de implementação de cliente**|Mostra informações de resumo do estado das instalações do cliente.|  
 |**Relatório de sucesso de implementação do cliente**|Mostra informações detalhadas de clientes cujas implementações tiveram êxito.|  
 |**Clientes sem capacidade de comunicar por HTTPS**|Mostra informações detalhadas sobre cada cliente que executa a ferramenta HTTPS Communication Readiness e reporta a sua incapacidade de comunicar por HTTPS.|  
-|**Computadores atribuídos mas não instalados num site específico**|Apresenta uma lista de computadores atribuídos a um site especificado, mas que não comunicam com esse site.|  
+|**Computadores atribuídos mas não instalados num site específico**|Apresenta uma lista de computadores atribuídos a um site especificado, mas não comunicam com esse site.|  
 |**Computadores com uma versão específica de cliente do Configuration Manager**|Mostra uma lista de computadores que executam uma versão especificada do software de cliente do Configuration Manager.|  
 |**Contagem de clientes e protocolo utilizado para comunicação**|Mostra um resumo dos métodos de comunicação utilizados pelos clientes (HTTP ou HTTPS).|  
-|**Contagem de clientes atribuídos e instalados em cada site**|Mostra o número de computadores atribuídos e instalados em cada site. Os clientes com uma localização de rede associada a múltiplos sites só serão contados como instalados se estiverem a comunicar com esse site.|  
+|**Contagem de clientes atribuídos e instalados em cada site**|Mostra o número de computadores atribuídos e instalados em cada site. Os clientes com uma localização de rede associada a vários sites só serão contados como instalados se estiver a comunicar a esse site.|  
 |**Contagem de clientes com capacidade de comunicar por HTTPS**|Mostra informações detalhadas sobre cada cliente que executa a ferramenta HTTPS Communication Readiness e relatórios para sua capacidade ou incapacidade de comunicar por HTTPS.|  
 |**Contagem de clientes para cada site**|Mostra o número de clientes do Configuration Manager instalados pelo código do site.|  
 |**Clientes de contagem do Configuration Manager por versões de cliente**|Mostra o número de computadores detetados pela versão de cliente do Configuration Manager.|  
@@ -533,16 +562,17 @@ Os seguintes 19 relatórios estão listados na **Site - informação de cliente*
 
 
 
-## <a name="site---discovery-and-inventory-information"></a>Site - informações de inventário e de deteção  
+## <a name="site---discovery-and-inventory-information"></a>Site - informações de deteção e inventário  
+
 Os seguintes 10 relatórios estão listados na **Site - informações de inventário de deteção e** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
-|**Clientes que não reportaram recentemente (num número especificado de dias)**|Mostra uma lista de clientes que não reportaram dados de deteção, inventário de hardware ou inventário de software num número especificado de dias.|  
+|**Clientes que não reportaram recentemente (num número especificado de dias)**|Mostra uma lista de clientes que ainda não forneceram dados de deteção, inventário de hardware ou inventário de software num número especificado de dias.|  
 |**Computadores detetados por um site específico**|Mostra uma lista de todos os computadores detetado ao local especificado. Ela também mostra a data da deteção mais recente.|  
 |**Computadores detetados recentemente pelo método de deteção**|Apresenta uma lista de computadores que o site detetado num número especificado de dias. Ele também lista os agentes que detetaram. Se vários agentes detetaram um computador, pode aparecer mais do que uma vez na lista.|  
-|**Computadores não detetados recentemente (num número especificado de dias)**|Apresenta uma lista de computadores que o site não tem recentemente detetados. Ela também mostra o número de dias desde o site detetados no computador.|  
-|**Computadores não inventariados recentemente (num número especificado de dias)**|Apresenta uma lista de computadores que o site não tem inventariados recentemente. Ela também mostra que o último vezes o cliente inventariados o computador.|  
+|**Computadores não detetados recentemente (num número especificado de dias)**|Apresenta uma lista de computadores que o site não detetados recentemente. Ela também mostra o número de dias desde o site detetados no computador.|  
+|**Computadores não inventariados recentemente (num número especificado de dias)**|Apresenta uma lista de computadores que o site não inventariados recentemente. Ela também mostra que o último vezes o cliente inventariados o computador.|  
 |**Computadores que podem partilhar o mesmo identificador exclusivo do Configuration Manager**|Mostra uma lista de computadores cujos nomes foram alterados. Uma alteração no nome é um possível sintoma de que o computador partilha um identificador exclusivo do Configuration Manager com outro computador.|  
 |**Computadores com endereços MAC duplicados**|Mostra os computadores que partilham o endereço MAC.|  
 |**Contagem de computadores em grupos de trabalho ou domínios de recurso**|Mostra o número de computadores em cada domínio de recurso ou grupo de trabalho.|  
@@ -552,6 +582,7 @@ Os seguintes 10 relatórios estão listados na **Site - informações de invent�
 
 
 ## <a name="site---general"></a>Site - geral  
+
 Os seguintes três relatórios estão listados na **Site - geral** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -563,6 +594,7 @@ Os seguintes três relatórios estão listados na **Site - geral** categoria.
 
 
 ## <a name="site---server-information"></a>Site - informações do servidor  
+
 O relatório de um seguinte está listado no **Site - informações do servidor** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -572,6 +604,7 @@ O relatório de um seguinte está listado no **Site - informações do servidor*
 
 
 ## <a name="software---companies-and-products"></a>Software - empresas e produtos  
+
 Os seguintes 15 relatórios estão listados na **Software - empresas e produtos** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -579,14 +612,14 @@ Os seguintes 15 relatórios estão listados na **Software - empresas e produtos*
 |**Todos os produtos inventariados de uma empresa de software específico**|Mostra uma lista dos produtos e versões de software inventariados de uma empresa de software especificada.|  
 |**Todas as empresas de software**|Mostra uma lista de todas as empresas que fabricam software inventariado.|  
 |**Todas as aplicações do Windows**|Mostra um resumo de aplicações instaladas do Windows. Ele pesquisa usando os seguintes critérios: nome da aplicação, arquitetura ou publicador.|  
-|**Computadores com um produto específico**|Mostra uma lista de computadores nos quais um produto especificado está inventariado, bem como as versões desse produto.|  
+|**Computadores com um produto específico**|Apresenta uma lista de computadores de um produto especificado onde está inventariado e as versões desse produto.|  
 |**Computadores com um nome de produto específico e versão**|Mostra uma lista dos computadores nos quais uma versão especificada de um produto está inventariada.|  
 |**Computadores com software específico registado em Adicionar/remover programas**|Mostra um resumo de todos os computadores com software especificado e registado em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
 |**Contagem de todos os produtos inventariados e versões**|Mostra uma lista dos produtos e versões de software inventariados e o número de computadores nos quais estão instalados.|  
 |**Contagem de produtos inventariados e versões de um produto específico**|Mostra uma lista das versões inventariadas de um produto especificado e o número de computadores nos quais estão instaladas.|  
 |**Contagem de todas as instâncias de software registadas em Adicionar ou remover programas**|Mostra um resumo de todas as instâncias do software instalado e registado em Adicionar/Remover Programas ou em Programas e Funcionalidades nos computadores da coleção especificada.|  
 |**Contagem de instâncias de software específico registadas em Adicionar ou remover programas**|Mostra uma contagem das instâncias dos pacotes de software especificados instalados e registados em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
-|**Contagens de Browser predefinido**|Mostra a contagem de clientes com um navegador da web específicas como sendo o padrão do Windows. </br>Utilize a seguinte referência para BrowserProgIDs comuns:</br> - AppXq0fevzme2pys62n3e0fbqa7peapykr8v: Microsoft Edge</br> -IE. HTTP: Microsoft Internet Explorer</br> -ChromeHTML: Google Chrome</br> -OperaStable: Opera Software</br> - FirefoxURL-308046B0AF4A39CB: Mozilla Firefox</br> -Desconhecida: o sistema operacional de cliente não suporta a consulta, a consulta não tiver sido executada ou um utilizador não tiver iniciado sessão|
+|**Contagens de Browser predefinido**|Mostra a contagem de clientes com um navegador da web específicas como sendo o padrão do Windows. <br>Utilize a seguinte referência para BrowserProgIDs comuns:<br> - AppXq0fevzme2pys62n3e0fbqa7peapykr8v: Microsoft Edge<br> -IE. HTTP: Microsoft Internet Explorer<br> -ChromeHTML: Google Chrome<br> -OperaStable: Opera Software<br> - FirefoxURL-308046B0AF4A39CB: Mozilla Firefox<br> -Desconhecida: o sistema operacional de cliente não suporta a consulta, a consulta não tiver sido executada ou um utilizador não tiver iniciado sessão|
 |**Instalações de aplicações do Windows especificadas**|Este relatório mostra uma lista de todos os computadores com uma aplicação especificada do Windows|  
 |**Produtos num computador específico**|Mostra um resumo dos produtos de software inventariados e os seus fabricantes num computador especificado.|  
 |**Software registado em Adicionar/remover programas num computador específico**|Mostra um resumo do software instalado num computador especificado que esteja registado em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
@@ -595,6 +628,7 @@ Os seguintes 15 relatórios estão listados na **Software - empresas e produtos*
 
 
 ## <a name="software---files"></a>Software - Ficheiros  
+
 Os seguintes cinco relatórios estão listados na **Software - ficheiros** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -608,6 +642,7 @@ Os seguintes cinco relatórios estão listados na **Software - ficheiros** categ
 
 
 ## <a name="software-distribution---application-monitoring"></a>Distribuição de software - monitorização de aplicações  
+
 Os seguintes 10 relatórios estão listados na **distribuição de Software - monitorização de aplicações** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -625,7 +660,8 @@ Os seguintes 10 relatórios estão listados na **distribuição de Software - mo
 
 
 
-## <a name="software-distribution---collections"></a>Distribuição de Software - Coleções  
+## <a name="software-distribution---collections"></a>Distribuição de software - coleções  
+
 Os seguintes três relatórios estão listados na **distribuição de Software - coleções** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -636,7 +672,8 @@ Os seguintes três relatórios estão listados na **distribuição de Software -
 
 
 
-## <a name="software-distribution---content"></a>Distribuição de Software - Conteúdos  
+## <a name="software-distribution---content"></a>Distribuição de software - conteúdos  
+
 Os seguintes 16 relatórios estão listados na **distribuição de Software - conteúdos** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -648,19 +685,20 @@ Os seguintes 16 relatórios estão listados na **distribuição de Software - co
 |**Todas as mensagens de estado para um pacote específico num ponto de distribuição específico**|Mostra todas as mensagens de estado de um pacote especificado num ponto de distribuição especificado.|  
 |**Estado de distribuição de conteúdo da aplicação**|Mostra informações sobre o estado de distribuição dos conteúdos da aplicação.|  
 |**Aplicações direcionadas para o grupo de pontos de distribuição**|Mostra informações sobre os conteúdos da aplicação implementada num grupo de pontos de distribuição especificado.|  
-|**Grupo de pontos de aplicativos que estão fora de sincronização na distribuição especificado**|Mostra as aplicações nas quais os ficheiros de conteúdos associados não foram atualizados com a versão mais recente num grupo de pontos de distribuição específico.|  
+|**Grupo de pontos de aplicativos que estão fora de sincronização na distribuição especificado**|Apresenta os aplicativos para o qual o conteúdo ficheiros ainda não foram atualizados com a versão mais recente na distribuição específico associado o grupo de pontos.|  
 |**Grupo de pontos de distribuição**|Mostra informações sobre um grupo de pontos de distribuição especificado.|  
 |**Resumo de utilização de ponto de distribuição**|Mostra o resumo da utilização do ponto de distribuição para cada ponto de distribuição.|  
 |**Estado de distribuição do pacote especificado**|Mostra o estado da distribuição dos conteúdos do pacote especificado em cada ponto de distribuição.|  
 |**Pacotes direcionados para o grupo de pontos de distribuição**|Mostra informações sobre os pacotes que visam um grupo de pontos de distribuição especificado.|  
-|**Grupo de pontos de pacotes que estão fora de sincronização na distribuição especificado**|Mostra os pacotes nos quais os ficheiros de conteúdos associados não foram atualizados com a versão mais recente num grupo de pontos de distribuição específico.|  
+|**Grupo de pontos de pacotes que estão fora de sincronização na distribuição especificado**|Grupo de pontos de mostra os pacotes nos quais os ficheiros de conteúdo associado ainda não foram atualizados com a versão mais recente na distribuição especificado.|  
 |**Rejeição conteúda de origem de cache ponto a ponto**|Mostra o número de rejeições da origem da cache ponto a ponto por grupo de limites.|
 |**Rejeição conteúda do origem de cache de ponto a ponto por condição**|Apresenta as origens de cache ponto a ponto que rejeitaram para entregar conteúdo com base numa condição.|
 |**Detalhes de rejeição do conteúdo de origem de cache ponto a ponto**|Apresenta o nome do conteúdo que foi rejeitado por uma origem ponto a ponto.|
 
 
 
-## <a name="software-distribution---package-and-program-deployment"></a>Distribuição de software - pacote de implementação e do programa 
+## <a name="software-distribution---package-and-program-deployment"></a>Distribuição de software - implementação de pacote e programa 
+
 Os seguintes cinco relatórios estão listados na **distribuição de Software - implementação do programa do pacote e** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -673,7 +711,8 @@ Os seguintes cinco relatórios estão listados na **distribuição de Software -
 
 
 
-## <a name="software-distribution---package-and-program-deployment-status"></a>Distribuição de software - estado de implementação do programa e de pacote  
+## <a name="software-distribution---package-and-program-deployment-status"></a>Distribuição de software - estado de implementação de pacote e programa  
+
 Os seguintes cinco relatórios estão listados na **distribuição de Software - estado de implementação do programa do pacote e** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -686,28 +725,30 @@ Os seguintes cinco relatórios estão listados na **distribuição de Software -
 
 
 
-## <a name="software-metering"></a>Medição de Software  
+## <a name="software-metering"></a>Medição de software  
+
 Os seguintes 13 relatórios estão listados na **medição de Software** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Todas as regras aplicadas a este site de medição de software**|Mostra uma lista de todas as regras de medição de software no site.|  
-|**Computadores que têm um programa medido instalado mas que não o executaram desde uma data especificada**|Apresenta todos os computadores com a aplicação medida especificada, mas nenhum utilizador tiver executado o programa desde a data especificada.|  
+|**Computadores que têm um programa medido instalado mas ainda não o executaram desde uma data especificada**|Apresenta todos os computadores com a aplicação medida especificada, mas nenhum utilizador tiver executado o programa desde a data especificada.|  
 |**Computadores que executaram um programa de software medido específico**|Mostra uma lista de computadores que executaram programas correspondentes à regra de medição do software selecionada no mês e ano especificados.|  
 |**Utilização em simultâneo de todos os programas de software medido**|Mostra o número máximo de utilizadores que executaram simultaneamente cada programa de software medido no mês e ano especificados.|  
 |**Análise de tendência de utilização simultânea de um programa de software medido específico**|Mostra o número máximo de utilizadores que executaram simultaneamente o programa de software medido especificado durante cada mês do ano passado.|  
 |**Base de instalação para todos os programas de software medido**|Mostra o número de computadores que têm programas de software medido instalados, como reportado pelo inventário de software. Este relatório requer que o computador de coleta de inventário de software.|  
 |**Progresso de resumo de medição de software**|Mostra a hora do último processamento de dados de medição resumidos no servidor do site. Os relatórios de medição de software refletem apenas dados de medição processados antes dessas datas.|  
 |**Hora de resumo de utilização de dia de um programa de software medido específico**|Mostra o número médio de utilizações de um programa em particular nos últimos 90 dias apresentadas por hora e dia|  
-|**Utilização total de todos os programas de software medido**|Apresenta o número de utilizadores que executaram programas dentro do mês e ano especificados e que correspondam a cada regra de medição de software. Estas regras destinam-se a softwares instalados localmente, ou através de serviços de Terminal.|  
+|**Utilização total de todos os programas de software medido**|Apresenta o número de utilizadores que executaram programas dentro do mês e ano especificados e que correspondam a cada regra de medição de software. Estas regras destinam-se a software instalado localmente, ou através de serviços de Terminal.|  
 |**Utilização total de todos os programas de software medido em servidores de Terminal do Windows**|Mostra o número de utilizadores que executaram programas correspondentes a cada regra de medição do software com Serviços de Terminal no mês e ano especificados.|  
-|**Análise de tendência de utilização total de um programa de software medido específico**|Apresenta o número de utilizadores que executaram programas durante cada mês do ano passado e que correspondam à regra de medição do software. Estas regras destinam-se a softwares instalados localmente, ou através de serviços de Terminal.|  
+|**Análise de tendência de utilização total de um programa de software medido específico**|Apresenta o número de utilizadores que executaram programas durante cada mês do ano passado e que correspondam à regra de medição do software. Estas regras destinam-se a software instalado localmente, ou através de serviços de Terminal.|  
 |**Análise de tendência de utilização total de um programa de software medido específico nos servidores de Terminal do Windows**|Apresenta o número de utilizadores que executaram programas durante cada mês do ano passado e que correspondam à regra de medição do software. Estas regras destinam-se com serviços de Terminal.|  
 |**Utilizadores que executaram um programa de software medido específico**|Apresenta uma lista de utilizadores que executaram programas dentro do mês e ano especificados e que correspondam à regra de medição do software.|  
 
 
 
 ## <a name="software-updates---a-compliance"></a>Atualizações de software - conformidade  
+
 Os seguintes relatórios de oito estão listados na **atualizações de Software - conformidade** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -723,23 +764,25 @@ Os seguintes relatórios de oito estão listados na **atualizações de Software
 |**Conformidade 9 - estado de funcionamento geral e conformidade**|Apresenta os dados de estado de funcionamento e de conformidade geral para um grupo de atualização de software. (a partir da versão 1806)| 
 
 
-## <a name="software-updates---b-deployment-management"></a>Atualizações de software - B gestão de implementação  
+## <a name="software-updates---b-deployment-management"></a>Atualizações de software - gerenciamento de implantação de B  
+
 Os seguintes relatórios de oito estão listados na **atualizações de Software - B gestão de implementação** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
-|**Gestão 1 - implementações de um grupo de atualização**|Mostra as implementações que contêm todas as atualizações de software definidas num grupo de atualização de software especificado.|  
-|**Gestão 2 - atualizações obrigatórias mas não implementadas**|Mostra todas as atualizações de software de um fabricante específico que os clientes detetar conforme necessário, mas um administrador não tenha implementado numa coleção especificada.|  
+|**Gestão 1 - implementações de um grupo de atualização**|Mostra todas as implementações que incluam todas as atualizações de software definidas num grupo de atualização de software especificada.|  
+|**Gestão 2 - atualizações obrigatórias mas não implementadas**|Mostra todas as atualizações de software de um fabricante específico que os clientes detetar conforme necessário, mas um administrador ainda não tenha implementado numa coleção especificada.|  
 |**Gestão 3 - atualizações numa implementação**|Mostra as atualizações de software que estão contidas numa implementação especificada.|  
 |**Gestão 4 - implementações direcionadas para uma coleção**|Mostra todas as implementações de atualização de software que visam uma coleção especificada.|  
 |**Gestão 5 - implementações direcionadas para um computador**|Mostra todas as implementações de atualização de software que estão implementadas num computador especificado.|  
-|**Gestão 6 - implementações que contêm uma atualização específica**|Mostra todas as implementações que contêm uma atualização de software especificada, assim como a coleção de destino associada à implementação.|  
+|**Gestão 6 - implementações que contêm uma atualização específica**|Mostra todas as implementações que incluam uma atualização de software especificado e a coleção de destino associada para a implementação.|  
 |**Gestão 7 - atualizações numa implementação com conteúdos em falta**|Mostra as atualizações de software numa implementação especificada que não contêm todo o conteúdo associado obtido. Este estado impede os clientes de instalar a atualização, o que impede que a implementação de alcançando a conformidade de 100%.|  
 |**Gestão 8 - computadores com conteúdos em falta (secundário)**|Mostra todos os computadores que requerem o software especificado atualização, mas o conteúdo associado ainda não é distribuído para um ponto de distribuição.|  
 
 
 
-## <a name="software-updates---c-deployment-states"></a>Atualizações de software - C Estados de implementação  
+## <a name="software-updates---c-deployment-states"></a>Atualizações de software - Estados de implementação de C  
+
 Os seguintes seis relatórios estão listados na **atualizações de Software - C Estados de implementação** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -754,6 +797,7 @@ Os seguintes seis relatórios estão listados na **atualizações de Software - 
 
 
 ## <a name="software-updates---d-scan"></a>Atualizações de software - D análise  
+
 Os seguintes quatro relatórios estão listados na **atualizações de Software - D análise** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -778,7 +822,8 @@ Os seguintes quatro relatórios estão listados na **atualizações de Software 
 
 
 
-## <a name="state-migration"></a>Migração de Estado  
+## <a name="state-migration"></a>Migração de estado  
+
 Os seguintes três relatórios estão listados na **migração de perfil** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -789,7 +834,8 @@ Os seguintes três relatórios estão listados na **migração de perfil** categ
 
 
 
-## <a name="status-messages"></a>Mensagens de Estado  
+## <a name="status-messages"></a>Mensagens de estado  
+
 Os seguintes 12 relatórios estão listados na **mensagens de estado** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -809,7 +855,7 @@ Os seguintes 12 relatórios estão listados na **mensagens de estado** categoria
 
 
 
-## <a name="status-messages---audit"></a>Mensagens de Estado - Auditoria  
+## <a name="status-messages---audit"></a>Mensagens de estado - auditoria  
 
 Os seguintes três relatórios estão listados na **mensagens de estado – auditoria** categoria.
 
@@ -822,14 +868,15 @@ Os seguintes três relatórios estão listados na **mensagens de estado – audi
 
 
 ## <a name="task-sequence---deployment-status"></a>Sequência de tarefas - estado da implementação  
+
 Os seguintes 11 relatórios estão listados na **sequência de tarefas - estado da implementação** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
 |**Todos os recursos de sistema para uma implementação de sequência de tarefas num estado específico**|Mostra uma lista de computadores de destino para a implementação da sequência de tarefas especificada num estado de implementação especificado.|  
 |**Todos os recursos de sistema para uma implementação de sequência de tarefas num estado específico e que está disponível para computadores desconhecidos**|Mostra uma lista de computadores de destino para a implementação da sequência de tarefas especificada que está no estado de implementação especificado.|  
-|**Contagem de recursos do sistema com implementações de sequência de tarefas atribuídas mas não executadas**|Mostra o número de computadores que aceitaram sequências de tarefas, mas que não executaram a sequência de tarefas.|  
-|**Histórico de uma implementação de sequência de tarefas num computador**|Mostra o estado de cada passo da implementação da sequência de tarefas especificada no computador de destino especificado. Se não for devolvido nenhum valor, a sequência de tarefas não foi iniciada no computador.|  
+|**Contagem de recursos do sistema com implementações de sequência de tarefas atribuídas mas não executadas**|Mostra o número de computadores que aceitaram sequências de tarefas, mas ainda não executou a sequência de tarefas.|  
+|**Histórico de uma implementação de sequência de tarefas num computador**|Mostra o estado de cada passo da implementação da sequência de tarefas especificada no computador de destino especificado. Se não for devolvido, a sequência de tarefas ainda não foi iniciado no computador.|  
 |**Lista de computadores que excederam um limite específico de tempo para executar uma implementação de sequência de tarefas**|Mostra a lista de computadores de destino que excederam o limite de tempo especificado para a execução de uma sequência de tarefas.|  
 |**Tempo de execução de uma implementação de sequência de tarefas específica num computador de destino específico**|Mostra o tempo total que uma sequência de tarefas especificada num computador especificado levou a ser concluída com êxito.|  
 |**Tempo de execução de cada passo de uma implementação de sequência de tarefas num computador de destino específico**|Mostra o tempo que cada passo da implementação da sequência de tarefas especificada levou a ser concluído no computador de destino especificado.|  
@@ -840,7 +887,8 @@ Os seguintes 11 relatórios estão listados na **sequência de tarefas - estado 
 
 
 
-## <a name="task-sequence---deployments"></a>Sequência de Tarefas - Implementações  
+## <a name="task-sequence---deployments"></a>Sequência de tarefas - implementações  
+
 Os seguintes 11 relatórios estão listados na **sequência de tarefas - implementações** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -859,7 +907,8 @@ Os seguintes 11 relatórios estão listados na **sequência de tarefas - impleme
 
 
 
-## <a name="task-sequence---progress"></a>Sequência de Tarefas - Progresso  
+## <a name="task-sequence---progress"></a>Sequência de tarefas - progresso  
+
 Os seguintes cinco relatórios estão listados na **sequência de tarefas - progresso** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -868,11 +917,12 @@ Os seguintes cinco relatórios estão listados na **sequência de tarefas - prog
 |**Progresso de uma sequência de tarefas**|Mostra o progresso da sequência de tarefas especificada.|  
 |**Progresso de todas as sequências de tarefas**|Mostra um resumo do progresso de todas as sequências de tarefas.|  
 |**Progresso de sequências de tarefas para implementações do sistema operativo**|Mostra o progresso de todas as sequências de tarefas que implementam sistemas operativos.|  
-|**Estado de todos os computadores desconhecidos**|Apresenta uma lista de computadores desconhecidos no momento da execução de uma implementação de sequência de tarefas, e se eles são conhecidos computadores.|  
+|**Estado de todos os computadores desconhecidos**|Apresenta uma lista de computadores desconhecidos no momento da execução de uma implementação de sequência de tarefas, e se eles são computadores conhecidos.|  
 
 
 
-## <a name="task-sequences---references"></a>Sequências de Tarefas - Referências  
+## <a name="task-sequences---references"></a>Sequências de tarefas - referências  
+
 O relatório de um seguinte está listado no **sequências de tarefas - referências** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -913,7 +963,8 @@ Os dois relatórios seguintes estão listados na **utilizador - afinidade de dis
 
 
 
-## <a name="user-data-and-profiles-health"></a>Dados do Utilizador e Estado de Funcionamento dos Perfis  
+## <a name="user-data-and-profiles-health"></a>Estado de funcionamento de utilizador, perfis e dados  
+
 Os seguintes quatro relatórios estão listados na **estado de funcionamento de perfis e dados do utilizador** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -926,6 +977,7 @@ Os seguintes quatro relatórios estão listados na **estado de funcionamento de 
 
 
 ## <a name="users"></a>Utilizadores  
+
 Os seguintes três relatórios estão listados na **utilizadores** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -936,7 +988,8 @@ Os seguintes três relatórios estão listados na **utilizadores** categoria.
 
 
 
-## <a name="virtual-applications"></a>Aplicações Virtuais  
+## <a name="virtual-applications"></a>Aplicações virtuais  
+
 Os seguintes sete relatórios estão listados na **aplicativos virtuais** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -951,8 +1004,9 @@ Os seguintes sete relatórios estão listados na **aplicativos virtuais** catego
 
 
 
-## <a name="volume-purchase-programs---apple"></a>Programas de aquisição em volume - Apple
-O relatório de um seguinte está listado no **Volume Purchase Programs - Apple** categoria.
+## <a name="volume-purchase-programs---apple"></a>Volume de compra de programas - Apple
+
+O relatório seguinte está listado no **Volume Purchase Programs - Apple** categoria.
 
 |Nome do Relatório|Descrição|  
 |-----------------|-----------------|  
@@ -961,6 +1015,7 @@ O relatório de um seguinte está listado no **Volume Purchase Programs - Apple*
 
 
 ## <a name="vulnerability-assessment"></a>Avaliação de vulnerabilidade
+
 O relatório de um seguinte está listado no **avaliação de vulnerabilidade** categoria.
 
 |Nome do Relatório|Descrição|  
@@ -970,6 +1025,7 @@ O relatório de um seguinte está listado no **avaliação de vulnerabilidade** 
 
 
 ## <a name="wake-on-lan"></a>Reativação Por LAN  
+
 Os seguintes sete relatórios estão listados na **reativação por LAN** categoria.
 
 |Nome do Relatório|Descrição|  

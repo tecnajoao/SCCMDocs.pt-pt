@@ -5,17 +5,17 @@ description: Utilize este processo passo a passo para configurar um gateway de g
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 09/10/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: e0ec7d66-1502-4b31-85bb-94996b1bc66f
-ms.openlocfilehash: a5f356eef4d72040bd069fc17dd20fdbc3587cd6
-ms.sourcegitcommit: 2badee2b63ae63687795250e298f463474063100
+ms.openlocfilehash: 041ea28e91b77545b8984742b4199782d1edb6b7
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601063"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456537"
 ---
 # <a name="set-up-cloud-management-gateway-for-configuration-manager"></a>Configurar o gateway de gestão na cloud para o Configuration Manager
 
@@ -38,13 +38,16 @@ Utilize a lista de verificação seguinte para se certificar de que tem as infor
 
 - Precisa de um ou mais certificados para CMG, dependendo de seu design. Para obter mais informações, consulte [certificados para o gateway de gestão da cloud](/sccm/core/clients/manage/cmg/certificates-for-cloud-management-gateway).  
 
-- A partir da versão 1802, escolha se utilizar o **do Azure Resource Manager deployment** ou uma **implementação de serviço clássico**. Para obter mais informações, consulte [do Azure Resource Manager](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager). Precisa dos seguintes requisitos para um CMG de implementação Azure Resource Manager:  
+- A partir da versão 1802, selecione o **do Azure Resource Manager deployment**. Para obter mais informações, consulte [do Azure Resource Manager](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager). Precisa dos seguintes requisitos para um CMG de implementação Azure Resource Manager:  
 
     - Integração com o [do Azure AD](/sccm/core/servers/deploy/configure/azure-services-wizard) para **gestão da Cloud**. Deteção de utilizadores do Azure AD não é necessária.  
 
     - O administrador da subscrição tem de iniciar sessão.  
 
 - Precisa dos seguintes requisitos para uma implementação de serviço clássico de CMG:  
+
+    > [!Important]  
+    > A partir da versão 1810, implementações de serviço clássico no Azure foram preteridas no Configuration Manager. Começar a utilizar implementações do Azure Resource Manager para o gateway de gestão na cloud. Para obter mais informações, consulte [planear CMG](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway#azure-resource-manager).  
 
     - ID de subscrição do Azure  
 
@@ -66,11 +69,14 @@ Efetue este procedimento no site de nível superior. Esse site é um site primá
 
 2. Selecione **criar Gateway de gestão de Cloud** na faixa de opções.  
 
-3. Em primeiro lugar a partir da versão 1802, na página geral do assistente, escolha o método de implementação do CMG **do Azure Resource Manager deployment** ou **implementação do serviço clássico**.  
+3. A partir da versão 1802, na página geral do assistente, selecione **do Azure Resource Manager deployment** como o método de implementação do CMG.  
 
-    1. Para o **do Azure Resource Manager deployment**: Selecione **iniciar sessão** para autenticar com uma conta de administrador de subscrição do Azure. O assistente é preenchido automaticamente os campos restantes das informações armazenadas durante o pré-requisito de integração do Azure AD. Se tiver várias subscrições, selecione o **ID de subscrição** da subscrição pretendida para utilizar.  
+    Selecione **iniciar sessão** para autenticar com uma conta de administrador de subscrição do Azure. O assistente é preenchido automaticamente os campos restantes das informações armazenadas durante o pré-requisito de integração do Azure AD. Se tiver várias subscrições, selecione o **ID de subscrição** da subscrição pretendida para utilizar.
 
-    2. Para o **implementação de serviço clássico**, *e as versões do Configuration Manager 1706 e 1710*: introduza o seu Azure **ID de subscrição**. Em seguida, selecione **procurar** e escolha o. Ficheiro PFX do certificado de gestão do Azure. 
+    > [!Note]  
+    > A partir da versão 1810, implementações de serviço clássico no Azure foram preteridas no Configuration Manager. 
+    > 
+    > Se precisar de utilizar uma implementação de serviço clássico, selecione essa opção nesta página. Entrar pela primeira vez do Azure **ID de subscrição**. Em seguida, selecione **procurar**e escolha o. Ficheiro PFX do certificado de gestão do Azure. 
 
 4. Especifique a **ambiente do Azure** para este CMG. As opções na lista pendente podem variar consoante o método de implementação.  
 

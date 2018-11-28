@@ -2,7 +2,7 @@
 title: Atualizações na consola
 titleSuffix: Configuration Manager
 description: Instalar atualizações para o Configuration Manager da cloud da Microsoft
-ms.date: 08/22/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 503255c571288fa0da0b0b81f3a76fc2b38bbb19
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.openlocfilehash: 7635dce325a2612c144c6eaa9c733b7dffc7c251
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893928"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456214"
 ---
 # <a name="install-in-console-updates-for-configuration-manager"></a>Instalar atualizações na consola do Configuration Manager
 
@@ -105,11 +105,11 @@ Reveja os seguintes passos antes de instalar uma atualização a partir da conso
 
 Reveja a lista de verificação de atualizações aplicável para ações a efetuar antes de iniciar a atualização:
 
+- [Lista de verificação para instalar a atualização 1810](/sccm/core/servers/manage/checklist-for-installing-update-1810)  
+
 - [Lista de verificação para instalar a atualização 1806](/sccm/core/servers/manage/checklist-for-installing-update-1806)  
 
 - [Lista de verificação para instalar a atualização 1802](/sccm/core/servers/manage/checklist-for-installing-update-1802)
-
-- [Lista de verificação para instalar a atualização 1710](/sccm/core/servers/manage/checklist-for-installing-update-1710)  
 
 
 ###  <a name="bkmk_step2"></a> Passo 2: Executar o Verificador de pré-requisitos antes de instalar uma atualização  
@@ -367,11 +367,11 @@ Vá para o **monitorização** área de trabalho e selecione o **estado de manut
 
 Depois do site atualiza, reveja a lista de verificação posterior à atualização para a versão aplicável:  
 
+- [Lista de verificação posterior à atualização para a versão 1810](/sccm/core/servers/manage/checklist-for-installing-update-1810#post-update-checklist)  
+
 - [Lista de verificação posterior à atualização para a versão 1806](/sccm/core/servers/manage/checklist-for-installing-update-1806#post-update-checklist)  
 
 - [Lista de verificação posterior à atualização para a versão 1802](/sccm/core/servers/manage/checklist-for-installing-update-1802#post-update-checklist)  
-
-- [Lista de verificação posterior à atualização para a versão 1710](/sccm/core/servers/manage/checklist-for-installing-update-1710#post-update-checklist)  
 
 
 
@@ -399,23 +399,23 @@ As seguintes funcionalidades são opcionais na versão mais recente do Configura
 
 -->
 
-- [Disponibilidade elevada do servidor de site](/sccm/core/servers/deploy/configure/site-server-high-availability)<!--1128774-->
+- [Gestor de conversão de pacotes](/sccm/apps/pcm/package-conversion-manager) <!--1357861-->
 - [Atualizações de software de terceiros](/sccm/sum/deploy-use/third-party-software-updates)<!--1357605,1352101,1358714-->
 - [Aprovar pedidos de aplicações para utilizadores por dispositivo](/sccm/apps/deploy-use/deploy-applications#specify-deployment-settings) <!--1357015-->  
 - [Suporte para Cisco AnyConnect 4.0.07x e posteriores para iOS](/sccm/mdm/deploy-use/create-vpn-profiles)<!--1357393-->
-- [Avaliação de atestado de estado de funcionamento do dispositivo para políticas de conformidade para acesso condicional](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm) <!--1235616-->
+- [Avaliação de atestado de estado de funcionamento de dispositivo para políticas de conformidade para acesso condicional](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm) <!--1235616-->
 - [Criar e executar scripts](/sccm/apps/deploy-use/create-deploy-scripts) <!--1236459-->
 - [Executar o passo de sequência de tarefas](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#add-child-task-sequences-to-a-task-sequence) <!--1261338-->
-- [Sequência conteúdo colocação em pré-cache de tarefas](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content) <!--1021244-->
+- [Tarefa sequência conteúdo pré-colocação em cache](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content) <!--1021244-->
 - [Atualizações de controlador do Surface](/sccm/sum/get-started/configure-classifications-and-products) <!--1098490-->
 - [Gateway de gestão na cloud](/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) <!--1101764-->
 - [Ponto de serviço do armazém de dados](/sccm/core/servers/manage/data-warehouse) <!--1277922-->
 - [Cache ponto a ponto do cliente](/sccm/core/plan-design/hierarchy/client-peer-cache) <!--1101436-->
 - [Criação de PFX](/sccm/protect/deploy-use/introduction-to-certificate-profiles) <!--1321368-->
-- [Conector do Azure Log Analytics](/sccm/core/clients/manage/sync-data-log-analytics) <!--1258052-->
+- [Conector do Log Analytics do Azure](/sccm/core/clients/manage/sync-data-log-analytics) <!--1258052-->
 - [Política do Windows Defender Exploit Guard](/sccm/protect/deploy-use/create-deploy-exploit-guard-policy) <!--1355468-->
 - [VPN para Windows 10](/sccm/protect/deploy-use/vpn-profiles) <!--1283610-->
-- [O Passport for Work](/sccm/protect/deploy-use/windows-hello-for-business-settings) (também conhecido como *Windows Hello para empresas*) <!--1245704-->
+- [Windows Hello para empresas](/sccm/protect/deploy-use/windows-hello-for-business-settings) (anteriormente conhecido como *Passport for Work*) <!--1245704-->
 - [Acesso condicional para PCs gerenciados](/sccm/mdm/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm)  <!--1191496-->
 
 

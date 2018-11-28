@@ -2,7 +2,7 @@
 title: Configurar a segurança
 titleSuffix: Configuration Manager
 description: Configure opções relacionadas com segurança para o Configuration Manager.
-ms.date: 10/22/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 552e7e3d-e584-4a7c-9155-0f796a14b678
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: dc0f57bcc06911f34da481c2e3be81c3cb0de1c2
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: d1aaf6db583d9749dda3be14cfd06acbff19b093
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411413"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456095"
 ---
 # <a name="configure-security-in-configuration-manager"></a>Configurar a segurança no Configuration Manager
 
@@ -27,6 +27,7 @@ Utilize as informações neste artigo para ajudar a configurar as opções relac
 - [Administração baseada em funções](#BKMK_ConfigureRBA)  
 - [Gerir contas](#BKMK_ManageAccounts)  
 - [Configurar o Azure Active Directory](#bkmk_azuread)  
+- [Configurar a autenticação de fornecedor de SMS](#bkmk_auth)  
 
 
 
@@ -145,6 +146,12 @@ Para obter mais informações, consulte [contas utilizadas no Configuration Mana
 ##  <a name="bkmk_azuread"></a> Configurar o Azure Active Directory
 
 Integre o Configuration Manager com o Azure Active Directory (Azure AD) para simplificar e seu ambiente de cloud os. Ative o site e os clientes para autenticar com o Azure AD. Para obter mais informações, consulte a **gestão na Cloud** serviço na [dos serviços do Azure configurar](/sccm/core/servers/deploy/configure/azure-services-wizard).
+
+
+
+## <a name="bkmk_auth"></a> Configurar a autenticação de fornecedor de SMS
+
+A partir da versão 1810, pode especificar o nível mínimo de autenticação para os administradores aceder a sites do Configuration Manager. Esta funcionalidade aplica os administradores para iniciar sessão no Windows com o nível necessário. Para obter mais informações, consulte [planear o fornecedor de SMS](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider#bkmk_auth). <!--1357013-->  
 
 
 

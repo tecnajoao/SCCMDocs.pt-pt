@@ -2,7 +2,7 @@
 title: Servidores de sistema de sites suportados
 titleSuffix: Configuration Manager
 description: Saiba quais versões do Windows pode utilizar para alojar um site do Configuration Manager ou a função de sistema de sites.
-ms.date: 10/02/2018
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 17905b4c-3895-4ad4-a69c-5e0d0fc5a8c3
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3fd8e815ab57730ad2186a7e75cd51f21012383a
-ms.sourcegitcommit: 265d38d55ca0db043e3a7131a56f123e1d98aa5b
+ms.openlocfilehash: 4aba91b232a187a72bbc2ea10f32a14a377a3870
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236179"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456860"
 ---
 # <a name="supported-operating-systems-for-configuration-manager-site-system-servers"></a>Sistemas operativos suportados para servidores de sistema de sites do Configuration Manager
 
@@ -28,13 +28,50 @@ Este artigo fornece detalhes sobre as versões do Windows que pode utilizar para
 Utilize as informações neste artigo com informações nos seguintes artigos:
 -   [Hardware recomendado para o Configuration Manager](/sccm/core/plan-design/configs/recommended-hardware)
 -   [Site e pré-requisitos de sistema de sites do Configuration Manager](/sccm/core/plan-design/configs/site-and-site-system-prerequisites)
--   [Tamanho e números da escala do Configuration Manager](/sccm/core/plan-design/configs/size-and-scale-numbers)
+-   [Dimensionamento e números da escala do Configuration Manager](/sccm/core/plan-design/configs/size-and-scale-numbers)
 
 
 
-## <a name="bkmk_2016"></a> Windows Server 2016: Standard e Datacenter
+## <a name="bkmk_2019"></a> Windows Server de 2019
 
-Com o Update Rollup 1 para o Configuration Manager versão 1606 ([KB3186654](https://support.microsoft.com/help/3186654)), esta versão do sistema operacional é suportada para as seguintes funções:
+*Aplica-se para o Windows Server 2019: Standard e Datacenter* 
+
+Esta versão do SO a partir da versão 1810, é suportada para as seguintes funções:
+
+#### <a name="site-servers"></a>Servidores de site
+
+-   Site de administração central  
+-   Site primário  
+-   Site Secundário  
+
+#### <a name="site-system-servers"></a>Servidores do sistema de sites
+
+-   Ponto de serviço Web do Catálogo de Aplicações  
+-   Ponto de site do Catálogo de Aplicações  
+-   Ponto de sincronização do Asset Intelligence  
+-   Ponto de registo de certificados  
+-   Ponto de ligação de gateway de gestão na cloud  
+-   Ponto de serviço do armazém de dados  
+-   Ponto de distribuição <sup> [Nota 1](#bkmk_note1)</sup>  
+-   Ponto de Endpoint Protection  
+-   Ponto de inscrição  
+-   Ponto proxy de registo  
+-   Ponto de estado de contingência  
+-   Ponto de gestão
+-   Ponto do Reporting Services  
+-   Ponto de ligação de serviço  
+-   Servidor de base de dados do site <sup> [nota 2](#bkmk_note2)</sup>  
+-   SMS_Provider  
+-   Ponto de atualização de software  
+-   Ponto de Migração de Estado
+
+
+
+## <a name="bkmk_2016"></a> Windows Server 2016
+
+*Aplica-se para o Windows Server 2016: Standard e Datacenter*
+
+Esta versão do sistema operacional é suportada para as seguintes funções:
 
 #### <a name="site-servers"></a>Servidores de site
 
@@ -73,7 +110,9 @@ Com o Update Rollup 1 para o Configuration Manager versão 1606 ([KB3186654](htt
 
 
 
-## <a name="bkmk_2012r2"></a> Windows Server 2012 R2 (x64): Standard e Datacenter  
+## <a name="bkmk_2012r2"></a> Windows Server 2012 R2 
+
+*Aplica-se para o Windows Server 2012 R2: Standard e Datacenter*
 
 #### <a name="site-servers"></a>Servidores de site
 
@@ -104,7 +143,9 @@ Com o Update Rollup 1 para o Configuration Manager versão 1606 ([KB3186654](htt
 
 
 
-## <a name="bkmk_2012"></a> Windows Server 2012 (x64): Standard e Datacenter  
+## <a name="bkmk_2012"></a> Windows Server 2012  
+
+*Aplica-se para o Windows Server 2012: Standard e Datacenter*
 
 #### <a name="site-servers"></a>Servidores de site
 
@@ -135,7 +176,9 @@ Com o Update Rollup 1 para o Configuration Manager versão 1606 ([KB3186654](htt
 
 
 
-## <a name="bkmk_2008r2sp1"></a> Windows Server 2008 R2 com SP1 (x64): Standard, Enterprise e Datacenter  
+## <a name="bkmk_2008r2sp1"></a> Windows Server 2008 R2 com SP1   
+
+*Aplica-se para o Windows Server 2008 R2 com Service Pack 1: Standard, Enterprise e Datacenter*
 
 Windows Server 2008 R2 tem agora suporte alargado e já não está no suporte base, conforme detalhado no [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [sistemas operativos do servidor preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
 
@@ -148,11 +191,13 @@ Esse SO não é suportado para servidores do site ou a maioria das funções de 
 
 
 
-## <a name="bkmk_2008sp2"></a> Windows Server 2008 com SP2 (x86, x64): Standard, Enterprise e Datacenter  
+## <a name="bkmk_2008sp2"></a> Windows Server 2008 com SP2  
 
-Windows Server 2008 tem agora suporte alargado e já não está no suporte base, conforme detalhado no [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [sistemas operativos do servidor preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
+*Aplica-se para o Windows Server 2008 com Service Pack 2 (x86, x64): Standard, Enterprise e Datacenter*
 
-Esse SO não é suportado para servidores do site ou funções de sistema de sites, exceto para o ponto de distribuição e o ponto de distribuição de extração. Continue a utilizar esse SO como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte alargado do sistema operacional expira. Para obter mais informações, consulte [instalação do System Center Configuration Manager CB e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
+Windows Server 2008 com Service Pack 2 (SP2) tem agora suporte alargado e já não está no suporte base, conforme detalhado no [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [sistemas operativos do servidor preteridos](/sccm/core/plan-design/changes/deprecated/removed-and-deprecated-server#deprecated-server-operating-systems).  
+
+Esse SO não é suportado para servidores do site ou funções de sistema de sites, exceto para o ponto de distribuição e o ponto de distribuição de extração. Continue a utilizar esse SO como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte alargado do sistema operacional expira. Para obter mais informações, consulte [CB de instalação do Configuration Manager e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
 
 #### <a name="site-system-servers"></a>Servidores do sistema de sites
 -   Ponto de distribuição <sup> [Nota 1](#bkmk_note1)</sup>  
@@ -163,88 +208,34 @@ Esse SO não é suportado para servidores do site ou funções de sistema de sit
 
 
 
-## <a name="bkmk_win10"></a> Windows 10 (x86, x64): Pro e Enterprise  
+## <a name="bkmk_client"></a> Versões de SO de cliente
 
-#### <a name="site-system-servers"></a>Servidores do sistema de sites
+As seguintes versões de SO de cliente são suportadas para utilização como um **ponto de distribuição** <sup> [Nota 1](#bkmk_note1)</sup>:  
 
--   Ponto de distribuição <sup> [Nota 1](#bkmk_note1)</sup>  
+- Windows 10 (x86, x64): Pro e Enterprise
+- Windows 8.1 (x86, x64): Professional e Enterprise
+- Windows 7 com SP1 (x86, x64): Professional, Enterprise e Ultimate
 
-    -   Pontos de distribuição neste SO não são suportados para PXE com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
+Esse suporte tem a limitação seguinte:  
 
-    -   Pontos de distribuição nesta versão do SO não suportam multicast.  
-
-
-
-## <a name="bkmk_win81"></a> Windows 8.1 (x86, x64): Professional e Enterprise  
-
-#### <a name="site-system-servers"></a>Servidores do sistema de sites
-
--   Ponto de distribuição <sup> [Nota 1](#bkmk_note1)</sup>  
-
-    -   Pontos de distribuição neste SO não são suportados para PXE com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
-
-    -   Pontos de distribuição nesta versão do SO não suportam multicast.  
+- Pontos de distribuição neste SO não suportam PXE ou multicast com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
 
 
 
-## <a name="bkmk_win7sp1"></a> Windows 7 com SP1 (x86, x64): Professional, Enterprise e Ultimate  
+## <a name="bkmk_core"></a> Instalações do Server core
 
-#### <a name="site-system-servers"></a>Servidores do sistema de sites
+A instalação do server core do servidor seguinte versões do sistema operacional são suportadas para utilização como um **ponto de distribuição**: 
 
--   Ponto de distribuição <sup> [Nota 1](#bkmk_note1)</sup>  
+- Windows Server, versão 1809 (começando no Configuration Manager, versão 1810)  
+- Windows Server, versão 1803 (começando no Configuration Manager, versão 1802)  
+- Windows Server, versão 1709 (começando no Configuration Manager, versão 1710)  
+- Windows Server 2016  
+- Windows Server 2012 R2  
+- Windows Server 2012  
 
-    -   Pontos de distribuição neste SO não são suportados para PXE com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
+Esse suporte tem a limitação seguinte:  
 
-    -   Pontos de distribuição nesta versão do SO não suportam multicast.  
-
-
-
-## <a name="bkmk_core1803"></a> A instalação do server core do Windows Server, versão 1803
-<!--503702--> A partir do Configuration Manager 1802, [Windows Server, versão 1803](https://docs.microsoft.com/windows-server/get-started/get-started-with-1803) é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
-
-  -   Apenas a versão de x64 bits é suportada.  
-
-  -   Pontos de distribuição neste SO não suportam PXE ou multicast com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
-
-
-
-## <a name="bkmk_core1709"></a> A instalação do server core do Windows Server, versão 1709
-
-A iniciar na versão 1710 do Gestor de configuração, [versão 1709 do Windows Server](https://docs.microsoft.com/windows-server/get-started/get-started-with-1709) é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
-
-  -   Apenas a versão de x64 bits é suportada.  
-
-  -   Pontos de distribuição neste SO não suportam PXE ou multicast com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
-
-
-
-## <a name="bkmk_core2016"></a> A instalação do server core do Windows Server 2016
-
-Com o Update Rollup 1 para o Configuration Manager versão 1606 ([KB3186654](https://support.microsoft.com/help/3186654)), esta versão do sistema operacional é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
-
-  -   Apenas a versão de x64 bits é suportada.  
-
-  -   Pontos de distribuição neste SO não suportam PXE ou multicast com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
-
-
-
-## <a name="bkmk_core2012r2"></a> A instalação do server core do Windows Server 2012 R2  
-
-A instalação do server core do Windows Server 2012 R2 é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
-
--   Apenas a versão de x64 bits é suportada.
-
--   Pontos de distribuição neste SO não suportam PXE ou multicast com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe) .  
-
-
-
-## <a name="bkmk_core2012"></a> A instalação do server core do Windows Server 2012  
-
-A instalação do server core do Windows Server 2012 é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
-
--   É suportada apenas a versão de 64 bits.  
-
--   Pontos de distribuição neste SO não suportam PXE ou multicast com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).
+- Pontos de distribuição neste SO não suportam PXE ou multicast com os serviços de implantação do Windows padrão. A partir da versão 1806, pode habilitar PXE um ponto de distribuição neste SO com a opção para **ativar o dispositivo de resposta PXE sem o serviço de implementação do Windows**. Para obter mais informações, consulte [instalar e configurar pontos de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_config-pxe).  
 
 
 

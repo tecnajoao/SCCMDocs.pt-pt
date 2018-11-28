@@ -5,17 +5,17 @@ description: Saiba como manual ou automaticamente implementar atualizações de 
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.date: 07/30/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: 04536d51-3bf7-45e5-b4af-36ceed10583d
-ms.openlocfilehash: d456d7232133333bf6cd88374d5288227f6dfea1
-ms.sourcegitcommit: 2ea71b048307a93a2db7898700aea984a8f88824
+ms.openlocfilehash: f59ca099325028ccf29904a2108939d0047df745
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52304287"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52455955"
 ---
 # <a name="deploy-software-updates"></a>Implementar atualizações de software  
 
@@ -36,7 +36,15 @@ Depois de criar a implementação, o site envia uma política de atualização d
 
 Se configurar uma implementação da atualização de software necessária, as atualizações de software são instaladas automaticamente no prazo agendado. Em alternativa, o utilizador no computador cliente pode agendar ou iniciar a instalação da atualização de software antes do termo do prazo. Após a instalação tentada, os computadores cliente enviam mensagens de estado de volta para o servidor de site para indicar se a instalação da atualização de software foi concluída com êxito. Para obter mais informações sobre implementações de atualização de software, veja [Fluxos de trabalho de implementação de atualizações de software](/sccm/sum/understand/software-updates-introduction#BKMK_DeploymentWorkflows).  
 
-Existem dois cenários principais para implementar atualizações de software: implementação manual e implementação automática. Normalmente, começa ao implementar manualmente atualizações de software para criar uma linha de base para seus clientes, e, em seguida, gerir atualizações de software em clientes utilizando a implementação automática.  
+Existem três cenários principais para implementar atualizações de software: 
+- [Implementação manual](#BKMK_ManualDeployment)  
+- [Implementação automática](#bkmk_auto)  
+- [Implementação faseada](#bkmk_phased)  
+
+Normalmente, começa ao implementar manualmente atualizações de software para criar uma linha de base para seus clientes e, em seguida, gerir atualizações de software nos clientes, utilizando um automático ou por fases de implementação.  
+
+> [!Note]  
+> Não é possível utilizar uma regra de implementação automática com uma implementação faseada.
 
 
 
@@ -65,7 +73,7 @@ Para obter mais informações e passos detalhados, consulte [implementar manualm
 
 
 
-## <a name="automatically-deploy-software-updates"></a>Implementar automaticamente atualizações de software
+## <a name="bkmk_auto"></a> Implementar automaticamente atualizações de software
 
 Configure a implementação de atualizações de software automáticas, utilizando uma regra de implementação automática (ADR). Este método de implementação é comum para atualizações de software mensais (geralmente conhecidas como "Patch Terça") e para gerir atualizações de definições. Definir os critérios para uma ADR automatizar o processo de implantação. A lista seguinte apresenta o fluxo de trabalho geral para implementar automaticamente atualizações de software:  
 
@@ -100,4 +108,12 @@ Cada nova implementação que adiciona:
 
 
 Para obter mais informações e passos detalhados, consulte [implementar automaticamente atualizações de software](automatically-deploy-software-updates.md)
+
+
+
+## <a name="bkmk_phased"></a> Implementar atualizações de software em fases
+
+<!--1358146--> A partir da versão 1810, crie implementações faseadas para atualizações de software. As implementações faseadas permitem-lhe organizar uma implementação coordenada e sequenciada de software com base em critérios personalizáveis e grupos.
+
+Para obter mais informações, consulte [criar implementações faseadas](/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence?toc=/sccm/sum/toc.json&bc=/sccm/sum/breadcrumb/toc.json).
 

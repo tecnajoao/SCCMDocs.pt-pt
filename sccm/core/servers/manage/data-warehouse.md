@@ -1,8 +1,8 @@
 ---
 title: Armazém de dados
 titleSuffix: Configuration Manager
-description: Ponto de serviço do armazém de dados e base de dados para o System Center Configuration Manager
-ms.date: 04/10/2018
+description: Ponto de serviço do armazém de dados e a base de dados para o Configuration Manager
+ms.date: 11/27/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,177 +10,258 @@ ms.assetid: aaf43e69-68b4-469a-ad58-9b66deb29057
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 6d6e1850c07207205cad696918f7cd4eb97d3ec8
-ms.sourcegitcommit: 0b0c2735c4ed822731ae069b4cc1380e89e78933
+ms.openlocfilehash: 7671025b0a643063f30c98922f7da0659e2e1ab9
+ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52456911"
 ---
-#  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>O ponto de serviço do armazém de dados para o System Center Configuration Manager
+#  <a name="the-data-warehouse-service-point-for-configuration-manager"></a>O ponto de serviço de armazém de dados para o Configuration Manager
+
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-<!--1277922-->
-Utilize o ponto de serviço do armazém de dados para armazenar e elaborar relatórios sobre dados históricos a longo prazo para a sua implementação do Configuration Manager.
-
-> [!TIP]
-> Esta funcionalidade foi introduzida pela primeira vez na versão 1702 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1706, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
-
+<!--1277922--> Utilize o ponto de serviço do armazém de dados para armazenar e gerar relatórios sobre dados históricos de longo prazo para a sua implementação do Configuration Manager.
 
 > [!Note]  
-> O Configuration Manager não ativar esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
+> O Configuration Manager não permite esta funcionalidade opcional por predefinição. Tem de ativar esta funcionalidade antes de o utilizar. Para obter mais informações, consulte [ativar funcionalidades opcionais de atualizações](/sccm/core/servers/manage/install-in-console-updates#bkmk_options).<!--505213-->  
 
 
-O armazém de dados suporta até 2 TB de dados, com carimbos de registo de alterações. Armazenamento de dados é conseguido ao sincronizações automáticas da base de dados do site do Configuration Manager para a base de dados do armazém de dados. Esta informação, em seguida, é acessível a partir do seu ponto de Reporting Service. Dados que são sincronizados para a base de dados do armazém de dados são mantidos três anos. Periodicamente, uma tarefa incorporada remove os dados que é mais antigos do que três anos.
+O armazém de dados suporta até 2 TB de dados, carimbos de data de registo de alterações. O armazém de dados armazena os dados ao sincronizar automaticamente os dados da base de dados do site do Configuration Manager para a base de dados do armazém de dados. Esta informação, em seguida, é acessível a partir do seu ponto de serviço de geração de relatórios. Dados sincronizados com a base de dados do armazém de dados são mantidos durante três anos. Periodicamente, uma tarefa incorporada remove os dados que é mais antigos do que três anos.
 
-Dados que são sincronizados incluem o seguinte dos grupos de dados globais e dados do Site:
+Dados que são sincronizados incluem o seguinte dos grupos de dados globais e de dados do Site:
 - Estado de funcionamento da infraestrutura
 - Segurança
-- Conformidade
+- conformidade
 - Software maligno   
 - Implementações de software
-- Detalhes de inventário (no entanto, o histórico de inventário não está sincronizado)
+- Detalhes de inventário (no entanto, histórico de inventário não está sincronizado)
 
-Quando instala a função de sistema de sites, instala e configura a base de dados do armazém de dados. Instala também vários relatórios para que possam procurar facilmente e relatórios sobre estes dados.
+Quando instala a função de sistema de sites, instala e configura a base de dados do armazém de dados. Ele também instala vários relatórios para que possam procurar facilmente e relatórios sobre estes dados.
 
-
-
-## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Pré-requisitos para os dados do armazém de ponto de serviço
-- A função de sistema de sites de armazém de dados é suportada apenas no site de nível superior da hierarquia. (Um site de administração central ou site primário autónomo).
-- O computador onde instalou a função de sistema de sites requer o .NET Framework 4.5.2 ou posterior.
-- Conceda o **conta de ponto do Reporting Services** o **db_datareader** permissão na base de dados de armazém de dados. 
-- A conta de computador do computador onde instalou a função de sistema de sites é utilizada para sincronizar dados com a base de dados do armazém de dados. Esta conta necessita das seguintes permissões:  
-  - **Administrador** no computador que aloja a base de dados do armazém de dados.
-  - **DB_Creator** permissão na base de dados de armazém de dados.
-  - O **DB_owner** ou **DB_reader** com **executar** permissões para a base de dados do site de nível superior.
-- A base de dados do armazém de dados requer a utilização do SQL Server 2012 ou posterior. A edição pode ser Standard, Enterprise ou Datacenter.
-- As seguintes configurações do SQL Server são suportadas para alojar a base de dados do armazém:  
-  - Uma instância predefinida
-  - Instância nomeada
-  - SQL Server Always On o grupo de disponibilidade
-  - Cluster de ativação pós-falha do SQL Server
-- Se utilizar [vistas distribuídas](/sccm/core/servers/manage/data-transfers-between-sites#bkmk_distviews), função de sistema de sites de ponto de dados do armazém serviço tem de instalar no mesmo servidor que aloja a base de dados do site de administração central site.
-
-Para obter informações sobre o SQL Server de licenciamento para a base de dados do armazém de dados, consulte o [produto e FAQ de licenciamento](/sccm/core/understand/product-and-licensing-faq). <!-- sms500967 -->
+A partir da versão 1810, pode sincronizar mais tabelas da base de dados do site para o armazém de dados. Esta alteração permite-lhe criar relatórios mais com base nos seus requisitos empresariais.<!--1358870--> 
 
 
-> [!IMPORTANT]  
-> O armazém de dados não é suportado quando o computador que executa o ponto de serviço do armazém de dados ou que aloja a base de dados do armazém de dados é executada uma das seguintes idiomas:
-> - JPN – Japonês
-> - KOR – Coreano
-> - CHS – Chinês simples
-> - CHT – Chinês tradicional, este problema será resolvido numa versão futura.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- A função de sistema de sites de armazém de dados é suportada apenas no site de nível superior da sua hierarquia. Por exemplo, um site de administração central ou site primário autónomo.  
+
+- O computador onde instalou a função de sistema de sites requer o .NET Framework 4.5.2 ou posterior.  
+
+- Conceder a **conta do ponto de Reporting Services** a **db_datareader** permissão na base de dados do armazém de dados.  
+
+- Para sincronizar dados com a base de dados do armazém de dados, o Configuration Manager utiliza a conta de computador da função de sistema de sites. Esta conta necessita das seguintes permissões:  
+
+    - **Administrador** no computador que aloja a base de dados do armazém de dados.  
+
+    - **DB_Creator** permissão na base de dados do armazém de dados.  
+
+    - Qualquer um dos **DB_owner** ou **DB_reader** com **executar** permissões para a base de dados do site de nível superior.  
+
+- A base de dados do armazém de dados requer o uso do SQL Server 2012 ou posterior. A edição pode ser Standard, Enterprise ou Datacenter. A versão do SQL Server para o armazém de dados não precisa de ser o mesmo que o servidor de base de dados do site.<!--SCCMDocs issue 662-->  
+
+- A base de dados do armazém suporta as seguintes configurações do SQL Server:  
+
+    - Uma instância predefinida ou nomeada  
+
+    - Grupo de disponibilidade Always On do SQL Server  
+
+    - Cluster de ativação pós-falha do SQL Server  
+
+- Se usar [vistas distribuídas](/sccm/core/servers/manage/data-transfers-between-sites#bkmk_distviews), tem de instalar o ponto de serviço do armazém de dados no mesmo servidor que aloja a base de dados do site de administração central.  
+
+Para obter mais informações sobre o licenciamento do SQL Server, consulte a [produtos e licenciamento FAQ](/sccm/core/understand/product-and-licensing-faq). <!-- sms500967 -->
+
+Tamanho do armazém de dados do banco de dados igual à sua base de dados do site. Enquanto o armazém de dados for menor em primeiro lugar, ele crescerá ao longo do tempo. <!--SCCMDocs issue 756-->
 
 
-## <a name="install-the-data-warehouse"></a>Instalar o armazém de dados
-Cada hierarquia suporta uma única instância desta função, em qualquer sistema de site do site de nível superior. O SQL Server que aloja a base de dados para o armazém pode ser local para a função de sistema de sites ou remoto. O armazém de dados funciona com o ponto do reporting services instalado no mesmo site. Não é necessário instalar as funções de sistema de duas sites no mesmo servidor.   
 
-Para instalar a função, utilize o **Adicionar Assistente de funções de sistema de Site** ou **criar Assistente de servidor de sistema de Site**. Para obter mais informações, consulte [instalar funções do sistema de sites](/sccm/core/servers/deploy/configure/install-site-system-roles).  
+## <a name="install"></a>Instalar
 
-Quando instalar a função, o Configuration Manager cria a base de dados do armazém de dados para si na instância do SQL Server que especificou. Se especificar o nome da base de dados existente (como iria fazer se a [mover a base de dados do armazém de dados para um novo SQL Server](#move-the-data-warehouse-database)), do Configuration Manager não criar uma nova base de dados, mas em vez disso, utiliza um que especificar.
+Cada hierarquia suporta uma única instância desta função, em qualquer sistema de site do site de nível superior. O SQL Server que aloja a base de dados para o armazém pode ser local para a função de sistema de sites ou remoto. O armazém de dados funciona com o ponto do reporting services instalado no mesmo site. Não precisa de instalar as funções de sistema de sites de dois no mesmo servidor.   
 
-### <a name="configurations-used-during-installation"></a>Configurações utilizadas durante a instalação
-**Seleção da função do sistema** página:  
+Para instalar a função, utilize o **Adicionar Assistente de funções de sistema de sites** ou o **criar Assistente de servidor de sistema de sites**. Para obter mais informações, consulte [instalar funções do sistema de sites](/sccm/core/servers/deploy/configure/install-site-system-roles). Sobre o **seleção da função do sistema** página do assistente, selecione a **ponto de serviço do armazém de dados** função. 
 
-**Geral** página:
--   **Definições de ligação de base de dados do armazém de dados do Configuration Manager**:
-     - **SQL Server nome de domínio completamente qualificado**: Especifique o nome de domínio totalmente qualificado (FQDN) do servidor que aloja a base de dados de ponto de serviço de armazém do dados.
-     - **Nome da instância do SQL Server, se aplicável**: Se utilizar uma instância predefinida do SQL Server, tem de especificar a instância.
-     - **Nome da base de dados**: Especifique um nome para a base de dados do armazém de dados. O nome de base de dados não pode exceder 10 carateres. (Será possível aumentar o comprimento do nome suportados numa versão futura).
-     O Configuration Manager cria a base de dados do armazém de dados com este nome. Se especificar um nome de base de dados que já existe na instância do SQL server, o Configuration Manager utiliza essa base de dados.
-     - **Porta do SQL Server utilizada para ligação**: Especifique o número de porta de TCP/IP utilizado pelo SQL Server que aloja a base de dados do armazém de dados. Esta porta é utilizada pelo serviço de sincronização do armazém de dados para ligar à base de dados do armazém de dados.  
-     - **Conta de ponto de serviço do armazém de dados**: A partir de versão 1802, especifique a conta que utiliza o SQL Server Reporting Services ao ligar à base de dados do armazém de dados. 
+Quando instalar a função, o Configuration Manager cria a base de dados do armazém de dados para na instância do SQL Server que especificou. Se especificar o nome da base de dados existente, o Configuration Manager não cria uma nova base de dados. Em vez disso, ele usa aquele que especificar. Este processo é o mesmo que quando [mover a base de dados do armazém de dados para um novo servidor SQL](#move-the-data-warehouse-database).
 
-**Agenda de sincronização** página:   
-- **Agenda de sincronização**:
-    - **Hora de início**: Especifique o tempo que pretende que a sincronização do armazém de dados para iniciar.
-    - **Padrão de periodicidade**:
-         - **Diária**: Especifique que a sincronização é executada diariamente.
-         - **Semanalmente**: Especifique um único dia cada semana e a periodicidade semanal para sincronização.
+
+### <a name="configure-properties"></a>Configurar as propriedades
+
+#### <a name="general-page"></a>Página geral
+
+- **SQL Server nome de domínio completamente qualificado**: Especifique o nome de domínio completamente qualificado (FQDN) do servidor que aloja a base de dados de ponto de serviço de armazém do dados.  
+
+- **Nome da instância do SQL Server, se aplicável**: Se não usar uma instância predefinida do SQL Server, especifique a instância nomeada.  
+
+- **Nome da base de dados**: Especifique um nome para a base de dados do armazém de dados. O Configuration Manager cria a base de dados do armazém de dados com este nome. Se especificar um nome de base de dados que já existe na instância do SQL server, o Configuration Manager utiliza essa base de dados.  
+
+- **Porta do SQL Server utilizada para ligação**: Especifique o número de porta de TCP/IP utilizado pelo SQL Server que aloja a base de dados do armazém de dados. O serviço de sincronização do armazém de dados utiliza esta porta para ligar à base de dados do armazém de dados. Por padrão, ele usa a porta do SQL Server **1433** para comunicação.  
+
+- **Conta de ponto de serviço do armazém de dados**: A partir da versão 1802, definir o **nome de utilizador** que utiliza o SQL Server Reporting Services para estabelecer a ligação à base de dados do armazém de dados.  
+
+
+#### <a name="synchronization-schedule-page"></a>Página de agenda de sincronização
+*Aplica-se a versão 1806 e anterior*
+
+- **Hora de início**: Especifique o tempo que pretende que a sincronização do armazém de dados para iniciar.  
+
+- **Padrão de periodicidade**
+
+    - **Diária**: Especifique que a sincronização é executada diariamente.  
+
+    - **Semanal**: Especifique um único dia de cada semana e a periodicidade semanal para sincronização.
+
+
+#### <a name="synchronization-settings-page"></a>Página de definições de sincronização
+*Aplica-se a versão 1810 e posterior*
+
+- **Definição personalizada de sincronização de dados**: Escolha a opção para **selecionar tabelas**. Na janela de tabelas do banco de dados, selecione os nomes de tabela para sincronizar com a base de dados do armazém de dados. Utilize o filtro para procurar por nome ou selecione a lista pendente para escolher a grupos específicos. Selecione **OK** quando terminar para guardar.  
+
+    > [!Note]  
+    > Não é possível remover tabelas que a função seleciona por predefinição.  
+
+- **Hora de início**: Especifique o tempo que pretende que a sincronização do armazém de dados para iniciar.  
+
+- **Padrão de periodicidade**
+
+    - **Diária**: Especifique que a sincronização é executada diariamente.  
+
+    - **Semanal**: Especifique um único dia de cada semana e a periodicidade semanal para sincronização.
+
 
 
 ## <a name="reporting"></a>Relatórios
-Depois de instalar um ponto de serviço do armazém de dados, vários relatórios fiquem disponíveis no ponto do reporting services que está instalado no mesmo site. Se instalar o ponto de serviço do armazém de dados antes de instalar um ponto do Reporting Services, os relatórios são adicionados automaticamente quando, posteriormente, instalar o ponto do Reporting Services.
 
->[!WARNING]
->No Configuration Manager versão 1802, foi adicionado suporte de credenciais alternativas para o ponto de armazém de dados. <!--507334-->Se tiver efetuado a atualização a partir de uma versão anterior do Configuration Manager, terá de especificar as credenciais que o SQL Server Reporting Services irá utilizar para ligar à base de dados do armazém de dados. Relatórios de armazém de dados não irão abrir e até que as credenciais especificadas. Para especificar uma conta, aceda a **administração** >**configuração do Site** >**servidores e funções de sistema de sites**. Clique no servidor com o ponto de serviço do armazém de dados, em seguida, clique com o botão direito na função de ponto de serviço de armazém de dados. Selecione **propriedades** , em seguida, especifique o **conta do ponto de serviço do armazém de dados**.
+Depois de instalar um ponto de serviço do armazém de dados, vários relatórios disponibilizados no ponto do reporting services para o site. Se instalar o ponto de serviço do armazém de dados antes de instalar um ponto do reporting services, os relatórios são adicionados automaticamente, quando, posteriormente, instalar o ponto do reporting services.
 
-A função de sistema de sites de armazém de dados inclui os seguintes relatórios, que tem uma categoria de **do armazém de dados**:
- - **Implementação da aplicação - histórica**: Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.
- - **Proteção de ponto final e atualização de Software conformidade - histórica**: Computadores de vista que estão em falta atualizações de software.  
- - **Inventário de Hardware geral - históricos**: Ver todo o inventário de hardware para um computador específico.
- - **Inventário de Software geral - históricos**: Ver todo o inventário de software para uma máquina específica.
- - **Descrição geral de estado de funcionamento do infraestrutura - histórico**: Apresenta uma descrição geral do Estado de funcionamento da infraestrutura do Configuration Manager
- - **Lista de software maligno detetado - históricos**:   Software maligno de vista que foi detetado na organização.
- - **Resumo de distribuição de software - histórico**: Um resumo de distribuição de software para um anúncio específico e a máquina.
+> [!WARNING]  
+> A partir da versão 1802, o ponto de armazém de dados suporta credenciais alternativas.<!--507334--> Se tiver atualizado de uma versão anterior do Configuration Manager, tem de especificar as credenciais que o SQL Server Reporting Services utiliza para ligar à base de dados do armazém de dados. Relatórios do armazém de dados não abrem até adicionar credenciais. 
+> 
+> Para especificar uma conta, defina o **nome de utilizador** para a conta de ponto de serviço ao armazém de dados nas propriedades de função. Para obter mais informações, consulte [configurar as propriedades](#configure-properties). 
 
+A função de sistema de sites de armazém de dados inclui os seguintes relatórios, menos os **armazém de dados** categoria:  
 
-## <a name="expand-an-existing-stand-alone-primary-into-a-hierarchy"></a>Expandir um site primário autónomo existente numa hierarquia
-Antes de poder instalar um site de administração central para expandir um site primário autónomo existente, tem primeiro de desinstalar a função de ponto de serviço de armazém de dados. Depois de instalar o site de administração central, em seguida, pode instalar a função de sistema de sites no site de administração central.  
+- **Implementação de aplicações - histórico**: Ver os detalhes para a implementação de aplicação para uma aplicação específica e a máquina.  
 
-Ao contrário de uma mudança da base de dados de armazém de dados, esta alteração resulta em perda de dados históricos que tiver sincronizado anteriormente no site primário. Não é suportada para cópia de segurança da base de dados do site primário e restaurá-lo no site de administração central.
+- **Conformidade - histórico de atualizações de Software e proteção de ponto final**: Ver os computadores que estão em falta atualizações de software.  
 
+- **Inventário de Hardware geral - histórico**: Ver todo o inventário de hardware de uma máquina específica.  
 
+- **Inventário de Software geral - histórico**: Ver todo o inventário de software para uma máquina específica.  
 
+- **Descrição geral de estado de funcionamento do infraestrutura - histórico**: Apresenta uma visão geral do Estado de funcionamento da sua infraestrutura do Configuration Manager.  
 
-## <a name="move-the-data-warehouse-database"></a>Mover a base de dados do armazém de dados
-Utilize os seguintes passos para mover a base de dados do armazém de dados para um novo SQL Server:
+- **Lista de software maligno detetado - histórico**:    Software maligno do modo de exibição que foi detetado na organização.  
 
-1.  Utilize o SQL Server Management Studio para criar cópias de segurança da base de dados do armazém de dados. Em seguida, restaure a base de dados para um SQL Server no novo computador que aloja o armazém de dados.   
-> [!NOTE]     
-> Depois de restaurar a base de dados para o novo servidor, certifique-se de que as permissões de acesso de base de dados são os mesmos na nova base de dados de armazém de dados idênticos na base de dados de armazém de dados original.  
-
-2.  Utilize a consola do Configuration Manager para remover a função de sistema de sites de ponto de dados do armazém serviço do servidor atual.
-3.  Reinstale o ponto de serviço do armazém de dados. Especifique o nome do novo SQL Server e instância anfitriões os dados do armazém de base de dados que é restaurada.
-4.  Após a instalação da função de sistema de sites, a mudança está concluída.
-
-## <a name="troubleshooting-data-warehouse-issues"></a>Resolução de problemas do armazém de dados
-**Ficheiros de registo**  
-Utilize os seguintes registos para investigar problemas com a instalação do ponto de serviço do armazém de dados, ou uma sincronização de dados:
- - *DWSSMSI.log* e *DWSSSetup.log* -utilizar estes registos para investigar erros ao instalar o ponto de serviço do armazém de dados.
- - *Microsoft.ConfigMgrDataWarehouse.log* – utilizar este registo para investigar a sincronização de dados entre a base de dados do site para a base de dados do armazém de dados.
-
-**Falha de multimédia**  
- A instalação do ponto de serviço do armazém de dados falha num servidor de sistema de sites remoto quando o armazém de dados é a primeira função do sistema de sites que instala nesse computador.  
-  - **Solução**: Certifique-se de que o computador estiver a instalar o serviço de armazém de dados ponto em já anfitriões, pelo menos uma outra função do sistema de sites.  
+- **Resumo de distribuição de software - histórico**: Um resumo da distribuição de software para um anúncio específico e a máquina.  
 
 
-**Problemas de sincronização conhecidos**:   
-A sincronização falhar com a seguinte mensagem no *Microsoft.ConfigMgrDataWarehouse.log*: **"Falha ao povoar objetos de esquema"**  
- - **Solução**: Certifique-se de que a conta de computador do computador que aloja a função de sistema de sites é um **db_owner** na base de dados de armazém de dados.
 
-Relatórios de armazém de dados não abrirá quando a base de dados do armazém de dados e o ponto de serviço Reporting Services estão em diferentes sistemas de site.  
+## <a name="site-expansion"></a>Expansão do site
 
- - **Solução**: Conceda o **conta de ponto do Reporting Services** o **db_datareader** permissão na base de dados de armazém de dados.
+Antes de instalar um site de administração central para expandir um site de primário autónomo existente, primeiro de desinstalar a função de ponto de serviço de armazém de dados. Depois de instalar o site de administração central, em seguida, pode instalar a função de sistema de sites no site de administração central.  
 
-Quando abre um relatório de armazém de dados, é devolvido o erro seguinte:
-
-*Ocorreu um erro durante o processamento do relatório. (rsProcessingAborted) Não é possível criar uma ligação à origem de dados 'AutoGen__39B693BB_524B_47DF_9FDB_9000C3118E82_'. (rsErrorOpeningConnection) Uma ligação foi estabelecida com êxito o servidor, mas, em seguida, Ocorreu um erro durante o handshake de Pré-início de sessão. (fornecedor: Fornecedor de SSL, erro: 0 - a cadeia de certificados foi emitida por uma autoridade de que não é fidedigna.)*
-
-- **Solução**: Utilize os seguintes passos para configurar certificados:
-
-  1. No computador que aloja a base de dados do armazém de dados:
-
-    1. Abra o IIS, clique em **certificados de servidor**, faça duplo clique no **Criar certificado autoassinado**e, em seguida, especifique o "nome amigável" o nome do certificado como **dados do armazém de SQL Server Identification Certificate**. Selecione o arquivo de certificados como **pessoais**.
-    2. Abra **Gestor de configuração do SQL Server**, em **configuração de rede do SQL Server**, rato para selecionar **propriedades** em **protocolos para MSSQLSERVER**. Em seguida, no **certificado** separador, selecione **dados do armazém de SQL Server Identification Certificate** como o certificado e, em seguida, guarde as alterações.  
-    3. Abra o **Gestor de Configuração do SQL Server**. Em **do SQL Server Services**, reinicie o **serviço do SQL Server** e **Reporting Service** serviços.
-    4.  Abra a consola de gestão da Microsoft (MMC) e adicione o snap-in **certificados**, selecione para gerir o certificado para **conta de computador** do computador local. Em seguida, na MMC, expanda o **pessoais** pasta > **certificados**e exportar o **dados do armazém de SQL Server Identification Certificate** como um **x. 509 binário codificado de DER (. CER)** ficheiro.    
-  2.    No computador que aloja o SQL Server Reporting Services, abra a MMC e adicionar o snap-in para **certificados**. Em seguida, selecione para gerir os certificados **conta de computador**. Sob o **autoridades de certificação de raiz fidedigna** pasta, importar o **dados do armazém de SQL Server Identification Certificate**.
+Ao contrário de uma mudança da base de dados de armazém de dados, esta alteração resulta numa perda de histórico de dados que tiver sincronizado anteriormente no site primário. Não é suportada a cópia de segurança da base de dados do site primário e restaurá-lo no site de administração central.
 
 
-## <a name="data-warehouse-dataflow"></a>Fluxo de dados de armazém de dados   
-![Diagrama que mostra o fluxo de dados lógico entre os componentes do site para o armazém de dados](./media/datawarehouse.png)
 
-**Armazenamento de dados e sincronização**
+## <a name="move-the-database"></a>Mover a base de dados
+
+Utilize os seguintes passos para mover a base de dados do armazém de dados para um novo servidor SQL:  
+
+1. Utilize o SQL Server Management Studio para criar cópias de segurança da base de dados do armazém de dados. Em seguida, restaure a base de dados para um SQL Server no novo computador que aloja o armazém de dados.  
+
+    > [!NOTE]  
+    > Depois de restaurar a base de dados para o novo servidor, certifique-se de que as permissões de acesso de base de dados são os mesmos na nova base de dados de armazém de dados, tal como estavam na base de dados de armazém de dados original.  
+
+2. Utilize a consola do Configuration Manager para remover a função de ponto de serviço de armazém de dados do servidor atual.  
+
+3. Reinstale o ponto de serviço do armazém de dados. Especifique o nome do novo SQL Server e instância que aloja a base de dados do armazém de dados restaurados.  
+
+4. Depois de instala a função de sistema de sites, a migração está concluída.  
+
+
+
+## <a name="troubleshooting"></a>Resolução de Problemas 
+
+### <a name="log-files"></a>Ficheiros de registo 
+
+Utilize os seguintes registos para investigar problemas com a instalação do ponto de serviço do armazém de dados ou sincronização de dados:
+
+- **DWSSMSI.log** e **DWSSSetup.log**: Utilize estes registos para investigar erros ao instalar o ponto de serviço do armazém de dados.  
+
+- **Microsoft.ConfigMgrDataWarehouse.log**: Utilize este registo para investigar a sincronização de dados entre a base de dados na base de dados do armazém de dados.  
+
+
+### <a name="set-up-failure"></a>Configurar a falha 
+
+Quando a função de ponto de serviço de armazém de dados é o primeiro que instalar num servidor remoto, a instalação falha para o armazém de dados.  
+
+#### <a name="workaround"></a>Solução 
+Certifique-se de que o computador no qual instala o serviço de armazém de dados ponto já anfitriões pelo menos uma outra função.  
+
+
+### <a name="synchronization-failed-to-populate-schema-objects"></a>Falha na sincronização preencher os objetos de esquema 
+
+A sincronização falha com a seguinte mensagem no **Microsoft.ConfigMgrDataWarehouse.log**: `failed to populate schema objects`
+
+#### <a name="workaround"></a>Solução 
+Certifique-se de que a conta de computador da função de sistema de sites é um **db_owner** na base de dados de armazém de dados.
+
+
+### <a name="reports-fail-to-open"></a>Relatórios de não conseguem abrir
+
+Relatórios do armazém de dados não abrirá quando a base de dados do armazém de dados e o ponto de serviço do reporting estiverem em diferentes sistemas de site.  
+
+#### <a name="workaround"></a>Solução
+Conceder a **conta do ponto de Reporting Services** a **db_datareader** permissão na base de dados do armazém de dados.
+
+
+### <a name="error-opening-reports"></a>Erro ao abrir relatórios
+
+Quando abre um relatório de armazém de dados, ele retorna o seguinte erro:
+
+```
+An error has occurred during report processing. (rsProcessingAborted)
+Cannot create a connection to data source 'AutoGen__39B693BB_524B_47DF_9FDB_9000C3118E82_'. (rsErrorOpeningConnection)
+A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The certificate chain was issued by an authority that is not trusted.)
+```
+
+#### <a name="workaround"></a>Solução 
+Utilize os seguintes passos para configurar certificados:
+
+1. No computador que aloja a base de dados do armazém de dados:  
+
+    1. IIS aberto, selecione **certificados de servidor**e, em seguida, clique em **Criar certificado autoassinado**. Em seguida, especifique o "nome amigável" do nome do certificado como **Data Warehouse SQL Server Identification Certificate**. Selecione o arquivo de certificados como **pessoais**.  
+
+    2. Abra o **Gestor de Configuração do SQL Server**. Sob **configuração de rede do SQL Server**, botão direito do mouse para selecionar **propriedades** sob **protocolos para MSSQLSERVER**. Mude para o **certificado** separador, selecione **Data Warehouse SQL Server Identification Certificate** como o certificado e, em seguida, guarde as alterações.  
+
+    3. Na **Gestor de configuração do SQL Server**, em **dos serviços do SQL Server**, reinicie o **serviço do SQL Server** e **Reporting Service** serviços.  
+
+    4. Abra a consola de gestão da Microsoft (MMC) e adicione a **certificados** snap-in. Selecione **conta de computador** da máquina local. Expanda a **pessoais** pasta e selecione **certificados**. Exportar os **Data Warehouse SQL Server Identification Certificate** como um **binário codificado DER X.509 (. CER)** ficheiro.  
+
+2. No computador que aloja o SQL Server Reporting Services, abra a MMC e adicione a **certificados** snap-in. Selecione **conta de computador**. Sob o **autoridades de certificação de raiz confiáveis** pasta, importar os **Data Warehouse SQL Server Identification Certificate**.  
+
+
+
+## <a name="data-flow"></a>Fluxo de dados   
+
+![Diagrama que mostra o fluxo de dados lógicos entre componentes do site para o armazém de dados](./media/datawarehouse.png)
+
+#### <a name="data-storage-and-synchronization"></a>Armazenamento de dados e sincronização
 
 | Passo   | Detalhes  |
-|:------:|-----------|  
-| **1**  |  O servidor do site transfere e armazena dados na base de dados do site.  |  
-| **2**  |      Com base na respetiva agenda e a configuração, o ponto de serviço do armazém de dados obtém os dados da base de dados do site.  |  
-| **3**  |  O ponto de serviço do armazém de dados é transferida e armazena uma cópia dos dados sincronizados na base de dados de armazém de dados. |  
-**Relatórios**
+|--------|----------|  
+| **1**  | O servidor do site transfere e armazena dados na base de dados do site. |  
+| **2**  | Com base na sua agenda e a configuração, o ponto de serviço do armazém de dados obtém os dados da base de dados do site. |  
+| **3**  | O ponto de serviço do armazém de dados transferidos e armazena uma cópia dos dados sincronizados na base de dados do armazém de dados. |  
+
+
+#### <a name="reporting"></a>Relatórios
 
 | Passo   | Detalhes  |
-|:------:|-----------|  
-| **A**  |  Utilizar relatórios incorporados, um utilizador solicita dados. Este pedido é passado para o ponto de serviço Reporting Services utilizando o SQL Server Reporting Services. |  
-| **B**  |      A maioria dos relatórios são para obter informações atuais e estes pedidos são executados na base de dados do site. |  
-| **C**  | Quando um relatório solicita dados históricos, utilizando um dos relatórios com um *categoria* de **do armazém de dados**, o pedido é executado na base de dados do armazém de dados.   |  
+|--------|----------|  
+| **A**  | Utilizar relatórios incorporados, um utilizador solicita dados. Este pedido é passado para o ponto do service reporting utilizando o SQL Server Reporting Services. |  
+| **B**  | A maioria dos relatórios são para obter informações atuais, e estes pedidos são executados na base de dados do site. |  
+| **C**  | Quando um relatório solicita dados históricos utilizando um dos relatórios com uma *categoria* dos **armazém de dados**, o pedido for executado relativamente a base de dados do armazém de dados. |  
