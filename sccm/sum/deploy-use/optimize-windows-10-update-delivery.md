@@ -1,5 +1,5 @@
 ---
-title: Otimize a entrega de atualização do Windows 10
+title: Otimizar a entrega de atualizações do Windows 10
 titleSuffix: Configuration Manager
 description: Saiba como utilizar o Configuration Manager para gerir o conteúdo da atualização para se manter atualizado com o Windows 10.
 ms.date: 06/15/2018
@@ -10,12 +10,12 @@ ms.assetid: b670cfaf-96a4-4fcb-9caa-0f2e8c2c6198
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 801cd2cd35d370fbe469b16613da7f7592feff6e
-ms.sourcegitcommit: 0d7efd9e064f9d6a9efcfa6a36fd55d4bee20059
+ms.openlocfilehash: 6fb655ae6094d7c764f2c3d0b84a505e9dfda3d2
+ms.sourcegitcommit: 9f02f21fbd4324ee8cc1af2d56db67c9c2fce969
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893813"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52709938"
 ---
 # <a name="optimize-windows-10-update-delivery-with-configuration-manager"></a>Otimize a entrega de atualização do Windows 10 com o Configuration Manager
 
@@ -88,7 +88,7 @@ Selecionar o elemento de rede certo tecnologia para ficheiros de instalação r�
 | Suporte de conteúdo parcial | Sim | Apenas para Office 365 e atualizações rápidas | Sim |
 | Tamanho da cache no controle de disco | Sim | Sim | Sim |
 | Deteção de uma origem ponto a ponto | automática | Manual (definição do agente cliente) | automática |
-| Descoberta de mesmo nível | Por meio do serviço de nuvem de Otimização da entrega (requer acesso à internet) | Através do ponto de gestão (com base em grupos de limites do cliente) | Difusão |
+| Descoberta de mesmo nível | Por meio do serviço de nuvem de Otimização da entrega (requer acesso à internet) | Através do ponto de gestão (com base em grupos de limites do cliente) | Multicast |
 | Relatórios | Sim (com o Windows Analytics) | Dashboard de origens de dados de cliente do ConfigMgr | Dashboard de origens de dados de cliente do ConfigMgr |
 | Controlo de utilização WAN | Sim (nativo, que pode ser controlado através das definições de política de grupo) | Grupos de limites | Apenas suporte de sub-rede |
 | Tipos de conteúdo suportados | -Express atualizações (por meio do ConfigMgr)</br> -Windows e atualizações de segurança</br> -Drivers</br> -Aplicações Windows Store</br> -Windows Store para aplicações empresariais | Todos os tipos de conteúdo do ConfigMgr, incluindo as imagens baixadas na [Windows PE](/sccm/osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic) | Todos os tipos de conteúdo do ConfigMgr, exceto imagens |
