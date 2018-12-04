@@ -10,12 +10,12 @@ ms.assetid: 4deac022-e397-4f1f-bc0a-cea6c6c6368d
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 3a49fd8e171b053a5cc89d316fce3651e2a2f567
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: 7b7cb4a6a7ec6738bdf045b75bf88c8b4d8c4650
+ms.sourcegitcommit: 1439817f1309658b31008d7bafaab32fc5ef8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411581"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52820106"
 ---
 # <a name="enhanced-http"></a>HTTP avançado
 
@@ -23,8 +23,9 @@ ms.locfileid: "50411581"
 
 <!--1356889,1358460-->
 
-> [!Note]  
-> Nesta versão do Configuration Manager, o HTTP avançada é uma funcionalidade de pré-lançamento. Para ativá-la, consulte [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).  
+> [!Tip]  
+> Esse recurso foi introduzido pela primeira vez na versão 1806 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1810, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+
 
 A Microsoft recomenda utilizar comunicações HTTPS para todos os caminhos de comunicação do Configuration Manager, mas é um desafio para alguns clientes devido à sobrecarga de gerenciamento de certificados PKI. A introdução do Azure Active Directory integration (Azure AD) reduz alguns, mas nem todos os requisitos de certificado. 
 

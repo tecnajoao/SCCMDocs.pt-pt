@@ -10,12 +10,12 @@ ms.assetid: f053fa73-c553-4522-a6b9-f885f23fe57c
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 7057084ba976408f189a0d4fbb96f176bc0c6656
-ms.sourcegitcommit: 759098de944b8f7d5eedfc2bae2cb9a6ba15276f
+ms.openlocfilehash: 41dd6ad6f8a0292fdb16a0d727665b17e038f87b
+ms.sourcegitcommit: 1439817f1309658b31008d7bafaab32fc5ef8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43297783"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52820046"
 ---
 # <a name="package-conversion-manager"></a>Gestor de conversão de pacotes
 
@@ -25,8 +25,9 @@ ms.locfileid: "43297783"
 
 A partir da versão 1806, o Gestor de conversão de pacotes ajuda-o a converter pacotes de legado do Configuration Manager em aplicativos. As aplicações têm vantagens adicionais, tais como as dependências, regras de requisitos, métodos de deteção e afinidade dispositivo / utilizador.
 
-> [!Note]  
-> Nesta versão do Configuration Manager, o Gestor de conversão de pacotes é uma funcionalidade de pré-lançamento. Para ativá-la, consulte [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features).  
+> [!Tip]  
+> Esse recurso foi introduzido pela primeira vez na versão 1806 como um [funcionalidade de pré-lançamento](/sccm/core/servers/manage/pre-release-features). A partir da versão 1810, esta funcionalidade já não é uma funcionalidade de pré-lançamento.  
+
 
 Uma aplicação do Configuration Manager contém arquivos e programas que implementar em dispositivos cliente. No entanto, ao contrário dos pacotes de legado e programas, um aplicativo fornece funcionalidades adicionais de centrada no utilizador. Por exemplo, uma aplicação pode conter tipos de implementação para uma instalação local de um pacote de software, um pacote de aplicação virtual ou uma versão da aplicação para dispositivos móveis.
 

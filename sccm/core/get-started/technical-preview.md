@@ -2,7 +2,7 @@
 title: Versões Technical preview
 titleSuffix: Configuration Manager
 description: Saiba mais sobre o ramo de pré-visualização técnica a testarem novas funcionalidades e capacidades no Configuration Manager.
-ms.date: 11/27/2018
+ms.date: 12/03/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ed7eb73045f158aa4a0ddbba9cacd823f858a7e4
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 9381980f490d543b3018c206359d4a68b9ca69e4
+ms.sourcegitcommit: 6126dfdf5c879db7d12c3eec019a88fa44521361
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456462"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52830494"
 ---
 # <a name="technical-preview-for-configuration-manager"></a>Pré-visualização técnica do Configuration Manager
 
@@ -124,16 +124,15 @@ As seguintes funcionalidades estão disponíveis com a versão de pré-visualiza
 
 <!-- This is the full list of new features in the latest TP release -->
 
-### <a name="technical-preview-version-18102"></a>Pré-visualização técnica versão 1810.2
+### <a name="technical-preview-version-1811"></a>Pré-visualização técnica versão 1811
 
-<!--capabilities-in-technical-preview-1810-2.md#bkmk_anchor-->
+<!--capabilities-in-technical-preview-1811.md#bkmk_anchor-->
 
-- [Melhorias à avaliação de coleção](capabilities-in-technical-preview-1810-2.md#bkmk_colleval) <!--1358981-->
-- [Autenticação de administrador do Configuration Manager](capabilities-in-technical-preview-1810-2.md#bkmk_auth) <!--1357013-->
-- [Regra de informações de gestão para a versão de cliente de origem de cache ponto a ponto](capabilities-in-technical-preview-1810-2.md#bkmk_insights) <!--1358008-->
-- [Melhorias à configuração de clientes baseada na internet](capabilities-in-technical-preview-1810-2.md#bkmk_cmg) <!--1359181-->
-- [Converter aplicações para MSIX](capabilities-in-technical-preview-1810-2.md#bkmk_msix) <!--1359029-->
-- [Alterações à ação de notificação de cliente a reativação de um dispositivo](capabilities-in-technical-preview-1810-2.md#bkmk_wakeup) <!--1317364-->
+- [Não carregar perfis do Windows PowerShell](capabilities-in-technical-preview-1811.md#bkmk_noprofile) <!--1359239-->
+- [Uma ligação do Intune já não é necessária para MDM no local](capabilities-in-technical-preview-1811.md#bkmk_opmdm) <!--1359124-->
+- [Notificações de consola do Configuration Manager](capabilities-in-technical-preview-1811.md#bkmk_notify) <!--1318035-->
+- [Melhorias na criação de suportes de dados de sequência de tarefas](capabilities-in-technical-preview-1811.md#bkmk_tsmedia) <!--1359388-->
+- [Melhoria para o passo de sequência de tarefas executar Script do PowerShell](capabilities-in-technical-preview-1811.md#bkmk_posh) <!--1359389-->
 
 
 > [!Note]  
@@ -152,6 +151,11 @@ Then remove the bottom of this list and/or move individual items not in CB to th
 
  | Funcionalidade | Versão de pré-visualização técnica | Versão do ramo atual |  
  |---------|---------------------------|------------------------|
+ | Melhorias à avaliação de coleção <!--1358981--> | [Tech Preview 1810.2](capabilities-in-technical-preview-1810-2.md#bkmk_colleval) | Versão 1810 | 
+ | Autenticação de administrador do Configuration Manager <!--1357013--> | [Tech Preview 1810.2](capabilities-in-technical-preview-1810-2.md#bkmk_auth) | Versão 1810 | 
+ | Regra de informações de gestão para a versão de cliente de origem de cache ponto a ponto <!--1358008--> | [Tech Preview 1810.2](capabilities-in-technical-preview-1810-2.md#bkmk_insights) | Versão 1810 | 
+ | Melhorias à configuração de clientes baseada na internet <!--1359181--> | [Tech Preview 1810.2](capabilities-in-technical-preview-1810-2.md#bkmk_cmg) | Versão 1810 | 
+ | Converter aplicações para MSIX <!--1359029--> | [Tech Preview 1810.2](capabilities-in-technical-preview-1810-2.md#bkmk_msix) | Versão 1810 | 
  | Melhoria para instalação do cliente <!--1358840--> | [Tech Preview 1810](capabilities-in-technical-preview-1810.md#bkmk_ccmsetup) | Versão 1810 | 
  | Necessária a política de conformidade de aplicações para dispositivos cogeridos <!--1358196--> | [Tech Preview 1810](capabilities-in-technical-preview-1810.md#bkmk_app-compliance) | Versão 1810 | 
  | Melhoria para o dashboard de cogestão <!--1358980--> | [Tech Preview 1810](capabilities-in-technical-preview-1810.md#bkmk_comgmt-report) | Versão 1810 | 
@@ -169,8 +173,6 @@ Then remove the bottom of this list and/or move individual items not in CB to th
  | Melhoria para o dashboard do ciclo de vida <!--1358702--> | [Tech Preview 1809](capabilities-in-technical-preview-1809.md#bkmk_lifecycle) | Versão 1810 | 
  | Melhoria para o armazém de dados <!--1358870--> | [Tech Preview 1809](capabilities-in-technical-preview-1809.md#bkmk_dataw) | Versão 1810 | 
  | Melhoria para janelas de manutenção para atualizações de software <!--vso2839307--> | [Tech Preview 1809](capabilities-in-technical-preview-1809.md#bkmk_sum-mw) | Versão 1810 | 
- | Implementação faseada de atualizações de software <!--1358146--> | [Tech Preview 1808](capabilities-in-technical-preview-1808.md#bkmk_pod) | Versão 1810 | 
- | Melhorias para reparar a aplicações <!--1357866--> | [Tech Preview 1808](capabilities-in-technical-preview-1808.md#bkmk_repair) | Versão 1810 | 
 
 
 

@@ -10,12 +10,12 @@ ms.assetid: b57acf0b-05b7-46af-ad4c-f3e707bd3861
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 92bb487a3747b508ea1183801acf61cca50a661b
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 0a7d07972d412826f8b9b069f23c79df1e972f38
+ms.sourcegitcommit: 1439817f1309658b31008d7bafaab32fc5ef8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52455925"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52820055"
 ---
 # <a name="whats-new-in-configuration-manager-incremental-versions"></a>Novidades das versões incrementais do Configuration Manager
 
@@ -34,6 +34,7 @@ ms.locfileid: "52455925"
   - [O que há de novo na versão 1810](/sccm/core/plan-design/changes/whats-new-in-version-1810)
   - [Novidades na versão 1806](/sccm/core/plan-design/changes/whats-new-in-version-1806)  
   - [Novidades na versão 1802](/sccm/core/plan-design/changes/whats-new-in-version-1802)
+  - [Novidades na versão 1710](/sccm/core/plan-design/changes/whats-new-in-version-1710)
 
 
 Para versões do Configuration Manager lançado antes do 1710, o suporte é de 12 meses. Cada versão de atualização a partir da versão 1710, permanece no suporte de 18 meses a partir da data de lançamento de disponibilidade geral (GA).  Mantenha-se atualizado com a versão de atualização mais recente. Para obter mais informações, consulte [suporte para versões de ramo atual do Configuration Manager](/sccm/core/servers/manage/current-branch-versions-supported).  

@@ -1,6 +1,6 @@
 ---
 title: Na consola documentação
-ms.date: 09/05/2018
+ms.date: 11/30/2018
 ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-other
@@ -9,16 +9,18 @@ author: aczechowski
 ms.author: aaroncz
 manager: dougeby
 robots: noindex,nofollow
-ms.openlocfilehash: d3c3b1c418650297f9fe02b839ccbc98a4204925
-ms.sourcegitcommit: 4f05517f7b284696a492a1b184cc5f25c5cda5e6
+ms.openlocfilehash: b9602d6641e1bb28a3af7c24c64073ba019e0f3e
+ms.sourcegitcommit: 6126dfdf5c879db7d12c3eec019a88fa44521361
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48891168"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52830511"
 ---
 <!-- 
-feature 1357546
-This page displays in-console, under the Community workspace, Documentation node. 
+- Feature 1357546
+- This page displays in-console, under the Community workspace, Documentation node. 
+- Don't use any relative links; must be full https://docs.microsoft.com and language neutral
+- Process: https://microsoft.sharepoint.com/teams/ConfigMgr/Documents/ContentPub/Data%20collection%20process%20for%20Feature%201357546%20In-console%20documentation.docx?web=1
 -->
 
 
@@ -40,6 +42,7 @@ Uma lista manualmente organizada dos artigos importantes.
 - [Implementações faseadas](https://docs.microsoft.com/sccm/osd/deploy-use/create-phased-deployment-for-task-sequence)  
 - [Gerir as atualizações do Office 365 ProPlus](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates)  
 - [Conceitos básicos do ramo atual do Configuration Manager e o Windows como um serviço](https://docs.microsoft.com/sccm/core/understand/configuration-manager-and-windows-as-service)
+- [Otimize a entrega de atualização do Windows 10 com o Configuration Manager](https://docs.microsoft.com/sccm/sum/deploy-use/optimize-windows-10-update-delivery)
 - [Versões Technical preview](https://docs.microsoft.com/sccm/core/get-started/technical-preview)
 - [Utilizar os serviços cloud para complementar a infraestrutura no local](https://docs.microsoft.com/sccm/core/understand/use-cloud-services)
 - [Plano para o gateway de gestão da cloud](https://docs.microsoft.com/sccm/core/clients/manage/plan-cloud-management-gateway)
@@ -48,38 +51,38 @@ Uma lista manualmente organizada dos artigos importantes.
 
 
 ## <a name="trending"></a>Mais populares
-Os artigos mais populares em Agosto de 2018.
+Os artigos mais populares em Novembro de 2018.
 
-| Vistas de página | Título | 
-| ----- | ----- | 
-| 27627 | [Novidades na versão 1806](https://docs.microsoft.com/sccm/core/plan-design/changes/whats-new-in-version-1806) |
-| 19364 | [Ficheiros de registo para resolução de problemas](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files) |
-| 11113 | [Nova versão 1802](https://docs.microsoft.com/sccm/core/plan-design/changes/whats-new-in-version-1802) |
-| 9419 | [Suporte para Windows 10](https://docs.microsoft.com/sccm/core/plan-design/configs/support-for-windows-10) |
-| 8688 | [As atualizações e manutenção](https://docs.microsoft.com/sccm/core/servers/manage/updates) |
-| 8423 | [Instalar consola](https://docs.microsoft.com/sccm/core/servers/deploy/install/install-consoles) |
-| 8408 | [Implementar clientes em Windows](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers) |
-| 8271 | [Parâmetros de instalação de cliente e as propriedades](https://docs.microsoft.com/sccm/core/clients/deploy/about-client-installation-properties) |
-| 7751 | [Gerir as atualizações do Office 365 ProPlus](https://docs.microsoft.com/sccm/sum/deploy-use/manage-office-365-proplus-updates) |
-| 7705 | [Gerir pontos de distribuição](https://docs.microsoft.com/sccm/core/servers/deploy/configure/install-and-configure-distribution-points) |
+ | Vistas de página | Título | 
+ |------------|-------| 
+ | 16701 | [Ficheiros de registo para resolução de problemas](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files) | 
+ | 11417 | [Novidades na versão 1806](https://docs.microsoft.com/sccm/core/plan-design/changes/whats-new-in-version-1806) | 
+ | 8346 | [Portas utilizadas para ligações](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/ports) | 
+ | 8038 | [Implementar clientes em Windows](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers) | 
+ | 7104 | [Suporte para Windows 10](https://docs.microsoft.com/sccm/core/plan-design/configs/support-for-windows-10) | 
+ | 6957 | [Instalar consola](https://docs.microsoft.com/sccm/core/servers/deploy/install/install-consoles) | 
+ | 6765 | [Parâmetros de instalação de cliente e as propriedades](https://docs.microsoft.com/sccm/core/clients/deploy/about-client-installation-properties) | 
+ | 6091 | [Cogestão para os dispositivos com Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview) | 
+ | 6043 | [Implementar aplicações](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) | 
+ | 5833 | [Gerir pontos de distribuição](https://docs.microsoft.com/sccm/core/servers/deploy/configure/install-and-configure-distribution-points) | 
 
 
 
 ## <a name="recently-updated"></a>Atualizado recentemente
 Artigos com uma atualização recente importantes e significativa.
 
-| Revisto pela última vez | Título | 
-|-----|-----|
-| 04 de Setembro de 2018 | [Versões Technical preview](https://docs.microsoft.com/sccm/core/get-started/technical-preview) |
-| 04 de Setembro de 2018 | [Pré-visualização técnica 1809](https://docs.microsoft.com/sccm/core/get-started/capabilities-in-technical-preview-1809) |
-| 30 de Agosto de 2018 | [Configurar a deteção](https://docs.microsoft.com/sccm/core/servers/deploy/configure/configure-discovery-methods) |
-| 29 de Agosto de 2018 | [Cache ponto a ponto do cliente](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/client-peer-cache) |
-| 29 de Agosto de 2018 | [Configurar grupos de limites](https://docs.microsoft.com/sccm/core/servers/deploy/configure/boundary-groups) |
-| 29 de Agosto de 2018 | [Novidades sobre a MDM híbrida](https://docs.microsoft.com/sccm/mdm/understand/whats-new-in-hybrid-mobile-device-management) |
-| 29 de Agosto de 2018 | [Novidades na versão 1806](https://docs.microsoft.com/sccm/core/plan-design/changes/whats-new-in-version-1806) |
-| 24 de Agosto de 2018 | [Sites de cópia de segurança](https://docs.microsoft.com/sccm/core/servers/manage/backup-and-recovery) |
-| 24 de Agosto de 2018 | [Gestor de conversão de pacotes](https://docs.microsoft.com/sccm/apps/pcm/package-conversion-manager) |
-| 23 de Agosto de 2018 | [Verificações de pré-requisitos](https://docs.microsoft.com/sccm/core/servers/deploy/install/list-of-prerequisite-checks) |
+ | Revisto pela última vez | Título | 
+ |---------------|-------|
+ | 27 de Novembro de 2018 | [Aprovar as aplicações](https://docs.microsoft.com/sccm/apps/deploy-use/app-approval) | 
+ | 27 de Novembro de 2018 | [Procedimentos para grupos de limites](https://docs.microsoft.com/sccm/core/servers/deploy/configure/boundary-group-procedures) | 
+ | 27 de Novembro de 2018 | [Centro de suporte](https://docs.microsoft.com/sccm/core/support/support-center) | 
+ | 26 de Novembro de 2018 | [Planear o gateway de gestão na cloud](https://docs.microsoft.com/sccm/core/clients/manage/cmg/plan-cloud-management-gateway) | 
+ | 16 de Novembro de 2018 | [Implementar atualizações de software](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates) | 
+ | 16 de Novembro de 2018 | [Notificação do cliente](https://docs.microsoft.com/sccm/core/clients/manage/client-notification) | 
+ | 15 de Novembro de 2018 | [CMScriptDeploymentType adicionar](https://docs.microsoft.com/powershell/module/configurationmanager/add-cmscriptdeploymenttype) | 
+ | 15 de Novembro de 2018 | [Conjunto CMScriptDeploymentType](https://docs.microsoft.com/powershell/module/configurationmanager/set-cmscriptdeploymenttype) | 
+ | 15 de Novembro de 2018 | [CMScript invocar](https://docs.microsoft.com/powershell/module/configurationmanager/invoke-cmscript) | 
+ | 15 de Novembro de 2018 | [Get-CMScript](https://docs.microsoft.com/powershell/module/configurationmanager/get-cmscript) | 
 
 
 
@@ -96,13 +99,14 @@ Orientado orientações passo a passo para ajudá-lo em componentes do Configura
 
 
 ## <a name="new-and-updated-support-articles"></a>Artigos de suporte de novos e atualizados
-Artigos de suporte que são novos ou atualizados em Setembro de 2018.
+Artigos de suporte que são novos ou atualizados em Novembro de 2018.
 
-- [KB 4458169: Sugestões para resolução de problemas de implementação de aplicação](https://support.microsoft.com/help/4458169)  
-- [KB 4346901: Atualizações de software no Configuration Manager Current Branch deep dive - operações de cliente](https://support.microsoft.com/help/4346901)  
-- [KB 4345216: Centro de Software [Fixed] terminar inesperadamente no Configuration Manager Current Branch, versão 1802](https://support.microsoft.com/help/4345216)  
-- [KB 4342419: [Fixed] de SMSExec.exe o serviço termina inesperadamente quando reatribuição distribuição aponta no ramo atual do Configuration Manager, versão 1802](https://support.microsoft.com/help/4342419)  
-- [KB 4339794: [Fixed] Windows express instalação não são transferidos ficheiros no Configuration Manager Current Branch, versão 1802](https://support.microsoft.com/help/4339794)  
+- [KB 4468362: Como implementar um pacote de idiomas do Windows como uma aplicação no Configuration Manager](https://support.microsoft.com/help/4468362)
+- [KB 4469580: PXE do ConfigMgr não funciona porque não é criado um certificado autoassinado](https://support.microsoft.com/help/4469580/)
+- [KB 4471003: Como inicializar a partir de um servidor PXE que está numa rede diferente](https://support.microsoft.com/help/4471003)
+- [KB 4462978: Update rollup para o ramo atual do System Center Configuration Manager, versão 1806](https://support.microsoft.com/help/4462978)
+- [KB 4471061: Um computador cliente pode "roubar" o GUID de Configuration Manager de um objeto de computador desconhecido durante a geração de imagens](https://support.microsoft.com/help/4471061)
+- [KB 4471115: Suporte de dados dinâmico no Configuration Manager não é possível obter gestão localizações de pontos quando o Assistente de sequência de tarefas é executado no Windows PE](https://support.microsoft.com/help/4471115)
 
 
 Para assinar o RSS ou Atom notificação de novos artigos de suporte do Configuration Manager, consulte [suportam atualizações de conteúdo](https://support.microsoft.com/help/4089498/) e selecione **System Center Configuration Manager**.  

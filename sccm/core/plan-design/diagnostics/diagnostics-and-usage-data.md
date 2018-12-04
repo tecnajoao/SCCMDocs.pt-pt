@@ -10,12 +10,12 @@ ms.assetid: 88ac4e55-d47b-4c94-b9c3-704c6a48b845
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: ad22c4d9d3a1fd3c09983e8da73594ef27ebd016
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: 132604418ce810fb78b397f3d5f322b10abe6bb3
+ms.sourcegitcommit: 1439817f1309658b31008d7bafaab32fc5ef8789
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456894"
+ms.lasthandoff: 12/03/2018
+ms.locfileid: "52820021"
 ---
 # <a name="diagnostics-and-usage-data-for-system-center-configuration-manager"></a>Dados de diagnóstico e de utilização para o System Center Configuration Manager
 
@@ -42,6 +42,8 @@ O Configuration Manager recolhe os diagnósticos e dados de utilização sobre e
 
     - [Dados de diagnóstico da versão 1802](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1802)  
     
+    - [Dados de diagnóstico da versão 1710](/sccm/core/plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1710)  
+
 -   [Como os diagnósticos e os dados de utilização são recolhidos](/sccm/core/plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected)  
 
 -   [Como visualizar diagnósticos e dados de utilização](/sccm/core/plan-design/diagnostics/view-diagnostics-and-usage-data)  
