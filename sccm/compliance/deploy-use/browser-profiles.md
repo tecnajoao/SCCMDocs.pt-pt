@@ -56,7 +56,7 @@ Atualmente, esta política inclui as seguintes definições:
 
 1. Na consola do Configuration Manager, vá para o **ativos e compatibilidade** área de trabalho. Expanda **definições de compatibilidade** e selecione o **perfis de Browser do Microsoft Edge** nó. Clique na opção de faixa de opções para **perfil do Microsoft Edge criar**.
 2. Especifique um **Name** para a política, opcionalmente, introduza um **Descrição**e clique em **seguinte**.
-3. Sobre o **definições gerais** página, altere o valor para **configurado** para as definições a incluir nesta política e clique em **seguinte**. A definição para **definir a Browser Edge como predefinido** tem de ser configurado para continuar.
+3. Sobre o **definições gerais** página, altere o valor para **configurado** para as definições a incluir nesta política e clique em **seguinte**. A definição para **definir a Browser Microsoft Edge como predefinido** tem de ser configurado para continuar.
 4. Na versão 1806 e posterior, configure as definições na **definições de SmartScreen** página e, em seguida, clique em **próxima**. 
 5. Sobre o **plataformas suportadas** , selecione as versões de SO e arquiteturas para a qual esta política aplica-se e clique em **próxima**. 
 6. Conclua o assistente.

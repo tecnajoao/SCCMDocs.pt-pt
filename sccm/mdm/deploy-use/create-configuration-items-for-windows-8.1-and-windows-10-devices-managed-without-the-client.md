@@ -358,7 +358,7 @@ Estas definições destinam-se a dispositivos com o Windows 10 e posterior.
   
 |Nome da definição|Detalhes|  
 |------------------|-------------| 
-|Microsoft Edge|Permita a utilização do Edge browser no dispositivo.| 
+|Microsoft Edge|Permita a utilização do Microsoft Edge browser no dispositivo.| 
 |**Permitir sugestões de pesquisa na barra de endereço**|Esta definição permite ao seu motor de busca sugerir sites à medida que escreve frases de pesquisa.|  
 |**Permitir o envio de tráfego da intranet no Internet Explorer**||  
 |**Permitir não controlar**|Não monitoriza os Websites que não pretende que monitorizem a sua visita a um site.|  
@@ -374,7 +374,7 @@ Estas definições destinam-se a dispositivos com o Windows 10 e posterior.
 |**Endereço IP localhost WebRTC**|Bloquear o endereço IP localhost de utilizadores de que está a ser apresentada quando efetuar chamadas telefónicas utilizando o protocolo RTC de web.|
 |**Motor de busca predefinido**|Especifique o motor de busca predefinido a ser utilizado. Os utilizadores finais podem alterar este valor em qualquer altura.|
 |**URL de OpenSearch XML**|Pode utilizar um ficheiro XML de OpenSearch para criar um serviço de pesquisa para o Microsoft Edge.<br>Para obter mais detalhes, consulte [OpenSearch](https://msdn.microsoft.com/library/windows/desktop/dd940337).|
-|**Homepages (apenas ambiente de trabalho)**|Adicione uma lista de sites que pretende utilizar como home páginas no browser Edge (apenas ambiente de trabalho).|  
+|**Homepages (apenas ambiente de trabalho)**|Adicione uma lista de sites que pretende utilizar como home páginas no browser Microsoft Edge (apenas ambiente de trabalho).|  
 
 
 ### <a name="windows-defender"></a>O Windows Defender
