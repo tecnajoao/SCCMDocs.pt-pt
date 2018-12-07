@@ -2,7 +2,7 @@
 title: Novidades sobre a MDM híbrida
 titleSuffix: Configuration Manager
 description: Saiba mais sobre as novas funcionalidades de gestão do dispositivo móvel disponíveis para implementações híbridas com o Configuration Manager e o Intune.
-ms.date: 10/31/2018
+ms.date: 12/05/2018
 ms.prod: configuration-manager
 ms.technology: configmgr-hybrid
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: f51e54ede8df8c18ca8614f6a75c82c53bb7916c
-ms.sourcegitcommit: 8791bb9be477fe6a029e8a7a76e2ca310acd92e0
+ms.openlocfilehash: c637703fc65b6d867dd1670ff40abc8214e6d234
+ms.sourcegitcommit: 4f34250aa850f13f415b7afe975a033d6a00fa9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50411532"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978627"
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-configuration-manager-and-microsoft-intune"></a>Quais são as novidades na gestão de dispositivos móveis híbrida com o Configuration Manager e o Microsoft Intune
 
@@ -44,6 +44,28 @@ Cada secção deste artigo apresenta uma lista de funcionalidades híbridas em t
 |**Novo no Microsoft Intune** | Em geral, todos os recursos listados nesta categoria devem funcionar com todas as versões do Configuration Manager. Versões este incluindo System Center 2012 R2 Configuration Manager, uma vez que estas funcionalidades requerem o serviço do Intune apenas e não necessitam de funcionalidades adicionais no Configuration Manager.|
 |**Novo no Configuration Manager Technical Preview**| Todos os recursos listados nesta categoria só funcionam com o ramo de pré-visualização técnica especificado. Para experimentar estas funcionalidades, tem de instalar a versão de pré-visualização técnica especificada na descrição do recurso. Para obter mais informações, consulte [pré-visualização técnica do Configuration Manager](/sccm/core/get-started/technical-preview).|
 |**Novo no Configuration Manager (ramo atual)**| Todos os recursos listados nesta categoria só funcionam com a versão especificada do Configuration Manager (ramo atual). Se estiver a utilizar uma versão mais antiga do Configuration Manager para a sua implementação híbrida, atualize para a versão do Configuration Manager (ramo atual) especificada na descrição do recurso. Para obter mais informações, consulte [atualizar para o Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).|
+
+
+
+## <a name="november-2018"></a>Novembro de 2018
+
+### <a name="new-in-microsoft-intune"></a>Novo no Microsoft Intune
+
+#### <a name="new-intune-device-subscription-sku"></a>Nova subscrição de dispositivo do Intune SKU
+<!--3312071--> Para ajudar a reduzir o custo de gestão de dispositivos nas empresas, uma subscrição com base no dispositivo novo SKU está agora disponível. Este SKU de dispositivo do Intune é licenciado por dispositivo mensalmente. O preço varia pelo programa de licenciamento. Está disponível no canal direto, Enterprise Agreement (EA), Products da Microsoft e programa de serviços (MPSA) e aberto e fornecedor de soluções Cloud (CSP).
+
+#### <a name="new-apps-support-with-app-protection-policies"></a>Suportam a novas aplicações com políticas de proteção de aplicações 
+<!--3330037--> Agora pode gerir as seguintes aplicações com [políticas de proteção de aplicações do Intune](https://docs.microsoft.com/intune/app-protection-policies):
+
+- Stream (iOS)  
+- Para fazer (Android, iOS)  
+- PowerApps (Android, iOS)  
+- Fluxo (Android, iOS)  
+
+Utilize políticas de proteção de aplicações para proteger a empresa transferência de dados e controle de dados para estas aplicações, como outra aplicações geridas por políticas do Intune. 
+
+> [!Note]  
+> Se ainda não está visível na consola do fluxo, adicione fluxo ao criar ou editar quaisquer políticas de proteção de aplicações. Selecione **mais aplicações**e, em seguida, especifique a *ID de aplicação* do Flow no campo de entrada. Para Android utilizam `com.microsoft.flow`, e para iOS utilize `com.microsoft.procsimo`.  
 
 
 
