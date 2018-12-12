@@ -10,12 +10,12 @@ ms.assetid: bb83ac87-9914-4a35-b633-ad070031aa6e
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: a2d39617db7f2ea9a61e73a3c21cc2509fed2f07
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: a9f29fcb0c1fea4bd5ff1de7327b58a05934eeeb
+ms.sourcegitcommit: 2491fbe98915b7a30c2422a371c929d0d4ebf22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456622"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53247446"
 ---
 # <a name="install-a-cloud-distribution-point-for-configuration-manager"></a>Instalar um ponto de distribuição de nuvem para o Configuration Manager
 
@@ -66,7 +66,7 @@ Utilize a lista de verificação seguinte para se certificar de que tem as infor
 - Globalmente exclusivo **nome do serviço** para o ponto de distribuição de nuvem.  
 
     > [!TIP]  
-    > Antes de solicitar o certificado de autenticação de servidor que utiliza este nome de serviço, confirme que o nome de domínio do Azure pretendido é exclusivo. Por exemplo, *WallaceFalls.CloudApp.Net*. Inicie sessão para o [portal do Microsoft Azure](https://portal.azure.com). Selecione **criar um recurso**, escolha a **computação** categoria, em seguida, selecione **serviço em nuvem**. Na **nome DNS** campo, escreva o prefixo pretendido, por exemplo *WallaceFalls*. A interface reflete se o nome de domínio está disponível ou já em utilização por outro serviço. Não criar o serviço no portal, basta usar este processo para verificar a disponibilidade de nome.  
+    > Antes de solicitar o certificado de autenticação de servidor que utiliza este nome de serviço, confirme que o nome de domínio do Azure pretendido é exclusivo. Por exemplo, *WallaceFalls.CloudApp.Net*. Inicie sessão no [Portal do Microsoft Azure](https://portal.azure.com). Selecione **criar um recurso**, escolha a **computação** categoria, em seguida, selecione **serviço em nuvem**. Na **nome DNS** campo, escreva o prefixo pretendido, por exemplo *WallaceFalls*. A interface reflete se o nome de domínio está disponível ou já em utilização por outro serviço. Não criar o serviço no portal, basta usar este processo para verificar a disponibilidade de nome.  
  
 - O Azure **região** para esta implementação.  
 
@@ -89,7 +89,7 @@ Efetuar este procedimento no site para alojar este ponto de distribuição de nu
     > 
     > Se precisar de utilizar uma implementação de serviço clássico, selecione essa opção nesta página. Entrar pela primeira vez do Azure **ID de subscrição**. Em seguida, selecione **procurar** e selecione o. Ficheiro PFX do certificado de gestão do Azure.  
 
-3.  Selecione **seguinte**. Aguarde enquanto o site testa a ligação para o Azure.  
+3.  Selecione **Seguinte**. Aguarde enquanto o site testa a ligação para o Azure.  
 
 4.  Sobre o **definições** página, especifique as seguintes definições e, em seguida, selecione **próxima**:  
 
@@ -106,7 +106,7 @@ Efetuar este procedimento no site para alojar este ponto de distribuição de nu
     - **Ficheiro de certificado**: Selecione **procurar** e selecione o. Ficheiro PFX de certificado de autenticação de servidor este ponto de distribuição de nuvem. O nome comum deste certificado preenche necessários **FQDN de serviço** e **nome do serviço** campos.  
 
         > [!NOTE]  
-        > O certificado de autenticação de servidor de ponto de distribuição de nuvem suporta carateres universais. Se utilizar um certificado de caráter universal, substitua o asterisco (*) na **FQDN de serviço** campo com o nome de anfitrião desejado para o serviço.  
+        > O certificado de autenticação de servidor de ponto de distribuição de nuvem suporta carateres universais. Se utilizar um certificado de caráter universal, substitua o asterisco (\*) no **FQDN de serviço** campo com o nome de anfitrião desejado para o serviço.  
 
 5. Sobre o **alertas** página, configurar quotas de armazenamento, quotas de transferência e em que percentagem destas quotas pretende que o Configuration Manager para gerar de alertas. Em seguida, selecione **seguinte**.  
 

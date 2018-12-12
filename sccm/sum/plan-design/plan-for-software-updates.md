@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: configuration-manager
 ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
-ms.openlocfilehash: 807204b9a64e36e103a32d553e7804a0a8592ec1
-ms.sourcegitcommit: 1826664216c61691292ea2a79e836b11e1e8a118
+ms.openlocfilehash: 16a998d35fd5b6984a80510d6d7b1f6d86bf6511
+ms.sourcegitcommit: 2491fbe98915b7a30c2422a371c929d0d4ebf22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39383810"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53247514"
 ---
 # <a name="plan-for-software-updates-in-configuration-manager"></a>Planear atualizações de software no Configuration Manager
 
@@ -454,7 +454,7 @@ Considere os seguintes cenários em que poderá ser necessário implementar uma 
 -   Se atualizar um software de substituição não foi aprovada para implementação no seu ambiente de produção.  
 
     > [!NOTE]  
-    > Quando o Configuration Manager define uma atualização de software substituídas, tal como **expirado**, ele não define a atualização **recusada** no WSUS. No entanto, quando é executada a tarefa de limpeza do WSUS, as atualizações definido como **expirado** no Configuration Manager são definidas para um Estado de **recusada** no servidor WSUS. Portanto, o Windows Update Agent nos clientes já não é procurar estas atualizações. Os clientes continuam a verificar a existência de uma atualização expirada até que a tarefa de limpeza é executado. Para obter mais informações sobre a tarefa de limpeza do WSUS, consulte [manutenção de atualizações de Software](/sccm/sum/deploy-use/software-updates-maintenance).  
+    > Antes do Configuration Manager versão 1806, quando o Configuration Manager define uma atualização de software substituídas, tal como **expirado**, ele não define a atualização **recusada** no WSUS. Os clientes continuam a verificar a existência de uma atualização expirada até que a atualização será recusada manualmente ou através de um script personalizado.  Depois de 1806 de versão do Configuration Manager, Configuration Manager também será recusar as atualizações substituídas no WSUS. Para obter mais informações sobre a tarefa de limpeza do WSUS, consulte [manutenção de atualizações de Software](/sccm/sum/deploy-use/software-updates-maintenance).
 
 
 ###  <a name="BKMK_UpdateLanguages"></a> Idiomas  

@@ -10,12 +10,12 @@ ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 author: aczechowski
 ms.author: aaroncz
 manager: dougeby
-ms.openlocfilehash: 947dfac82db43e5cb21d8304d31be23219bb83aa
-ms.sourcegitcommit: 6e42785c8c26e3c75bf59d3df7802194551f58e1
+ms.openlocfilehash: ae97c9017f084e69a0e3660339bbd2b326afd296
+ms.sourcegitcommit: 2491fbe98915b7a30c2422a371c929d0d4ebf22f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52456656"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53247548"
 ---
 # <a name="create-applications-in-configuration-manager"></a>Criar aplicações no Configuration Manager
 
@@ -518,7 +518,7 @@ As dependências definem um ou mais tipos de implementação de outra aplicaçã
 > [!Note]  
 > Esta página não está no Assistente para criar tipo de implementação. É apenas uma guia nas propriedades de um tipo de implementação existente.  
 
-Especifique códigos de retorno para controlar os comportamentos depois do tipo de implementação concluída. Por exemplo, sinalizar o que é necessário um reinício, a instalação estiver concluída, ou personalizar o texto mostrado aos utilizadores. 
+Especifique códigos de retorno para controlar os comportamentos depois do tipo de implementação concluída. Por exemplo, sinalize que é necessário um reinício, a instalação estiver concluída. 
 
 1. Sobre o **códigos de retorno** separador da janela de propriedades do tipo de implementação, clique em **Add**.  
 
@@ -536,7 +536,7 @@ Especifique códigos de retorno para controlar os comportamentos depois do tipo 
 
     - **Repetição rápida**: Já existe outra instalação em curso no dispositivo. O cliente tenta novamente a cada duas horas, para um total de 10 vezes.  
 
-4. Opcionalmente, introduza um **Name** e **Descrição** para este código de retorno. Este texto é mostrado ao usuário.  
+4. Opcionalmente, introduza um **Name** e **Descrição** para este código de retorno.
 
 5. Clique em **OK** para fechar a janela de adicionar o código de retorno.  
 
